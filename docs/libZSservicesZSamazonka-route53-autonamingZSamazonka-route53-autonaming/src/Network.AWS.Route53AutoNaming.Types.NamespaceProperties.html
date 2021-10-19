@@ -29,16 +29,16 @@
 </span><span id="line-29"></span><span class="hs-comment">-- namespace type.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newNamespaceProperties' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679223239"><span id="local-6989586621679223240"></span></span><span class="hs-keyword">data</span><span> </span><span id="NamespaceProperties"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceProperties.html#NamespaceProperties"><span class="hs-identifier hs-var">NamespaceProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NamespaceProperties%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceProperties.html#NamespaceProperties%27"><span class="hs-identifier hs-var">NamespaceProperties'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A complex type that contains the name of an HTTP namespace.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AhttpProperties%3ANamespaceProperties%27"><span class="annot"><span class="annottext">NamespaceProperties -&gt; Maybe HttpProperties
-</span><a href="Network.AWS.Route53AutoNaming.Types.NamespaceProperties.html#%24sel%3AhttpProperties%3ANamespaceProperties%27"><span class="hs-identifier hs-var hs-var">httpProperties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpProperties.html#HttpProperties"><span class="hs-identifier hs-type">HttpProperties</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | A complex type that contains the ID for the Route 53 hosted zone that</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- Cloud Map creates when you create a namespace.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AdnsProperties%3ANamespaceProperties%27"><span class="annot"><span class="annottext">NamespaceProperties -&gt; Maybe DnsProperties
-</span><a href="Network.AWS.Route53AutoNaming.Types.NamespaceProperties.html#%24sel%3AdnsProperties%3ANamespaceProperties%27"><span class="hs-identifier hs-var hs-var">dnsProperties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsProperties.html#DnsProperties"><span class="hs-identifier hs-type">DnsProperties</span></a></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679223379"><span id="local-6989586621679223380"></span></span><span class="hs-keyword">data</span><span> </span><span id="NamespaceProperties"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceProperties.html#NamespaceProperties"><span class="hs-identifier hs-var">NamespaceProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NamespaceProperties%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceProperties.html#NamespaceProperties%27"><span class="hs-identifier hs-var">NamespaceProperties'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A complex type that contains the ID for the Route 53 hosted zone that</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- Cloud Map creates when you create a namespace.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AdnsProperties%3ANamespaceProperties%27"><span class="annot"><span class="annottext">NamespaceProperties -&gt; Maybe DnsProperties
+</span><a href="Network.AWS.Route53AutoNaming.Types.NamespaceProperties.html#%24sel%3AdnsProperties%3ANamespaceProperties%27"><span class="hs-identifier hs-var hs-var">dnsProperties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsProperties.html#DnsProperties"><span class="hs-identifier hs-type">DnsProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | A complex type that contains the name of an HTTP namespace.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AhttpProperties%3ANamespaceProperties%27"><span class="annot"><span class="annottext">NamespaceProperties -&gt; Maybe HttpProperties
+</span><a href="Network.AWS.Route53AutoNaming.Types.NamespaceProperties.html#%24sel%3AhttpProperties%3ANamespaceProperties%27"><span class="hs-identifier hs-var hs-var">httpProperties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpProperties.html#HttpProperties"><span class="hs-identifier hs-type">HttpProperties</span></a></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679223232"><span id="local-6989586621679223234"><span class="annot"><span class="annottext">NamespaceProperties -&gt; NamespaceProperties -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679223372"><span id="local-6989586621679223374"><span class="annot"><span class="annottext">NamespaceProperties -&gt; NamespaceProperties -&gt; Bool
 (NamespaceProperties -&gt; NamespaceProperties -&gt; Bool)
 -&gt; (NamespaceProperties -&gt; NamespaceProperties -&gt; Bool)
 -&gt; Eq NamespaceProperties
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: NamespaceProperties -&gt; NamespaceProperties -&gt; Bool
 == :: NamespaceProperties -&gt; NamespaceProperties -&gt; Bool
 $c== :: NamespaceProperties -&gt; NamespaceProperties -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223223"><span id="local-6989586621679223225"><span id="local-6989586621679223227"><span id="local-6989586621679223229"><span class="annot"><span class="annottext">ReadPrec [NamespaceProperties]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223363"><span id="local-6989586621679223365"><span id="local-6989586621679223367"><span id="local-6989586621679223369"><span class="annot"><span class="annottext">ReadPrec [NamespaceProperties]
 ReadPrec NamespaceProperties
 Int -&gt; ReadS NamespaceProperties
 ReadS [NamespaceProperties]
@@ -67,7 +67,7 @@ readList :: ReadS [NamespaceProperties]
 $creadList :: ReadS [NamespaceProperties]
 readsPrec :: Int -&gt; ReadS NamespaceProperties
 $creadsPrec :: Int -&gt; ReadS NamespaceProperties
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223216"><span id="local-6989586621679223218"><span id="local-6989586621679223220"><span class="annot"><span class="annottext">Int -&gt; NamespaceProperties -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223356"><span id="local-6989586621679223358"><span id="local-6989586621679223360"><span class="annot"><span class="annottext">Int -&gt; NamespaceProperties -&gt; ShowS
 [NamespaceProperties] -&gt; ShowS
 NamespaceProperties -&gt; String
 (Int -&gt; NamespaceProperties -&gt; ShowS)
@@ -101,55 +101,31 @@ $cfrom :: forall x. NamespaceProperties -&gt; Rep NamespaceProperties x
 </span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'httpProperties', 'namespaceProperties_httpProperties' - A complex type that contains the name of an HTTP namespace.</span><span>
-</span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'dnsProperties', 'namespaceProperties_dnsProperties' - A complex type that contains the ID for the Route 53 hosted zone that</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- Cloud Map creates when you create a namespace.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'dnsProperties', 'namespaceProperties_dnsProperties' - A complex type that contains the ID for the Route 53 hosted zone that</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Cloud Map creates when you create a namespace.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'httpProperties', 'namespaceProperties_httpProperties' - A complex type that contains the name of an HTTP namespace.</span><span>
 </span><span id="line-53"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceProperties.html#newNamespaceProperties"><span class="hs-identifier hs-type">newNamespaceProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceProperties.html#NamespaceProperties"><span class="hs-identifier hs-type">NamespaceProperties</span></a></span><span>
 </span><span id="line-55"></span><span id="newNamespaceProperties"><span class="annot"><span class="annottext">newNamespaceProperties :: NamespaceProperties
 </span><a href="Network.AWS.Route53AutoNaming.Types.NamespaceProperties.html#newNamespaceProperties"><span class="hs-identifier hs-var hs-var">newNamespaceProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">NamespaceProperties' :: Maybe HttpProperties -&gt; Maybe DnsProperties -&gt; NamespaceProperties
+</span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">NamespaceProperties' :: Maybe DnsProperties -&gt; Maybe HttpProperties -&gt; NamespaceProperties
 </span><a href="Network.AWS.Route53AutoNaming.Types.NamespaceProperties.html#NamespaceProperties%27"><span class="hs-identifier hs-type">NamespaceProperties'</span></a></span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpProperties:NamespaceProperties' :: Maybe HttpProperties
-</span><a href="Network.AWS.Route53AutoNaming.Types.NamespaceProperties.html#%24sel%3AhttpProperties%3ANamespaceProperties%27"><span class="hs-identifier hs-var">httpProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-58"></span><span>        </span><span class="annot"><span class="annottext">Maybe HttpProperties
+</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dnsProperties:NamespaceProperties' :: Maybe DnsProperties
+</span><a href="Network.AWS.Route53AutoNaming.Types.NamespaceProperties.html#%24sel%3AdnsProperties%3ANamespaceProperties%27"><span class="hs-identifier hs-var">dnsProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>        </span><span class="annot"><span class="annottext">Maybe DnsProperties
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:dnsProperties:NamespaceProperties' :: Maybe DnsProperties
-</span><a href="Network.AWS.Route53AutoNaming.Types.NamespaceProperties.html#%24sel%3AdnsProperties%3ANamespaceProperties%27"><span class="hs-identifier hs-var">dnsProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DnsProperties
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpProperties:NamespaceProperties' :: Maybe HttpProperties
+</span><a href="Network.AWS.Route53AutoNaming.Types.NamespaceProperties.html#%24sel%3AhttpProperties%3ANamespaceProperties%27"><span class="hs-identifier hs-var">httpProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HttpProperties
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- | A complex type that contains the name of an HTTP namespace.</span><span>
-</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceProperties.html#namespaceProperties_httpProperties"><span class="hs-identifier hs-type">namespaceProperties_httpProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceProperties.html#NamespaceProperties"><span class="hs-identifier hs-type">NamespaceProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpProperties.html#HttpProperties"><span class="hs-identifier hs-type">HttpProperties</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-64"></span><span id="namespaceProperties_httpProperties"><span class="annot"><span class="annottext">namespaceProperties_httpProperties :: (Maybe HttpProperties -&gt; f (Maybe HttpProperties))
--&gt; NamespaceProperties -&gt; f NamespaceProperties
-</span><a href="Network.AWS.Route53AutoNaming.Types.NamespaceProperties.html#namespaceProperties_httpProperties"><span class="hs-identifier hs-var hs-var">namespaceProperties_httpProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NamespaceProperties -&gt; Maybe HttpProperties)
--&gt; (NamespaceProperties
-    -&gt; Maybe HttpProperties -&gt; NamespaceProperties)
--&gt; Lens
-     NamespaceProperties
-     NamespaceProperties
-     (Maybe HttpProperties)
-     (Maybe HttpProperties)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceProperties.html#NamespaceProperties%27"><span class="hs-identifier hs-type">NamespaceProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223207"><span class="annot"><span class="annottext">Maybe HttpProperties
-httpProperties :: Maybe HttpProperties
-$sel:httpProperties:NamespaceProperties' :: NamespaceProperties -&gt; Maybe HttpProperties
-</span><a href="#local-6989586621679223207"><span class="hs-identifier hs-var hs-var">httpProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HttpProperties
-</span><a href="#local-6989586621679223207"><span class="hs-identifier hs-var">httpProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223206"><span class="annot"><span class="annottext">s :: NamespaceProperties
-</span><a href="#local-6989586621679223206"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceProperties.html#NamespaceProperties%27"><span class="hs-identifier hs-type">NamespaceProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223205"><span class="annot"><span class="annottext">Maybe HttpProperties
-</span><a href="#local-6989586621679223205"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NamespaceProperties
-</span><a href="#local-6989586621679223206"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpProperties:NamespaceProperties' :: Maybe HttpProperties
-</span><a href="Network.AWS.Route53AutoNaming.Types.NamespaceProperties.html#%24sel%3AhttpProperties%3ANamespaceProperties%27"><span class="hs-identifier hs-var">httpProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HttpProperties
-</span><a href="#local-6989586621679223205"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceProperties.html#NamespaceProperties"><span class="hs-identifier hs-type">NamespaceProperties</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- | A complex type that contains the ID for the Route 53 hosted zone that</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- Cloud Map creates when you create a namespace.</span><span>
-</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceProperties.html#namespaceProperties_dnsProperties"><span class="hs-identifier hs-type">namespaceProperties_dnsProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceProperties.html#NamespaceProperties"><span class="hs-identifier hs-type">NamespaceProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsProperties.html#DnsProperties"><span class="hs-identifier hs-type">DnsProperties</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-69"></span><span id="namespaceProperties_dnsProperties"><span class="annot"><span class="annottext">namespaceProperties_dnsProperties :: (Maybe DnsProperties -&gt; f (Maybe DnsProperties))
+</span><span id="line-62"></span><span class="hs-comment">-- | A complex type that contains the ID for the Route 53 hosted zone that</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Cloud Map creates when you create a namespace.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceProperties.html#namespaceProperties_dnsProperties"><span class="hs-identifier hs-type">namespaceProperties_dnsProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceProperties.html#NamespaceProperties"><span class="hs-identifier hs-type">NamespaceProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsProperties.html#DnsProperties"><span class="hs-identifier hs-type">DnsProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="namespaceProperties_dnsProperties"><span class="annot"><span class="annottext">namespaceProperties_dnsProperties :: (Maybe DnsProperties -&gt; f (Maybe DnsProperties))
 -&gt; NamespaceProperties -&gt; f NamespaceProperties
 </span><a href="Network.AWS.Route53AutoNaming.Types.NamespaceProperties.html#namespaceProperties_dnsProperties"><span class="hs-identifier hs-var hs-var">namespaceProperties_dnsProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NamespaceProperties -&gt; Maybe DnsProperties)
 -&gt; (NamespaceProperties
@@ -160,19 +136,43 @@ $sel:httpProperties:NamespaceProperties' :: NamespaceProperties -&gt; Maybe Http
      (Maybe DnsProperties)
      (Maybe DnsProperties)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceProperties.html#NamespaceProperties%27"><span class="hs-identifier hs-type">NamespaceProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223203"><span class="annot"><span class="annottext">Maybe DnsProperties
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceProperties.html#NamespaceProperties%27"><span class="hs-identifier hs-type">NamespaceProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223347"><span class="annot"><span class="annottext">Maybe DnsProperties
 dnsProperties :: Maybe DnsProperties
 $sel:dnsProperties:NamespaceProperties' :: NamespaceProperties -&gt; Maybe DnsProperties
-</span><a href="#local-6989586621679223203"><span class="hs-identifier hs-var hs-var">dnsProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DnsProperties
-</span><a href="#local-6989586621679223203"><span class="hs-identifier hs-var">dnsProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223202"><span class="annot"><span class="annottext">s :: NamespaceProperties
-</span><a href="#local-6989586621679223202"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceProperties.html#NamespaceProperties%27"><span class="hs-identifier hs-type">NamespaceProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223201"><span class="annot"><span class="annottext">Maybe DnsProperties
-</span><a href="#local-6989586621679223201"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NamespaceProperties
-</span><a href="#local-6989586621679223202"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dnsProperties:NamespaceProperties' :: Maybe DnsProperties
+</span><a href="#local-6989586621679223347"><span class="hs-identifier hs-var hs-var">dnsProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DnsProperties
+</span><a href="#local-6989586621679223347"><span class="hs-identifier hs-var">dnsProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223346"><span class="annot"><span class="annottext">s :: NamespaceProperties
+</span><a href="#local-6989586621679223346"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceProperties.html#NamespaceProperties%27"><span class="hs-identifier hs-type">NamespaceProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223345"><span class="annot"><span class="annottext">Maybe DnsProperties
+</span><a href="#local-6989586621679223345"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NamespaceProperties
+</span><a href="#local-6989586621679223346"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dnsProperties:NamespaceProperties' :: Maybe DnsProperties
 </span><a href="Network.AWS.Route53AutoNaming.Types.NamespaceProperties.html#%24sel%3AdnsProperties%3ANamespaceProperties%27"><span class="hs-identifier hs-var">dnsProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DnsProperties
-</span><a href="#local-6989586621679223201"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceProperties.html#NamespaceProperties"><span class="hs-identifier hs-type">NamespaceProperties</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679223345"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceProperties.html#NamespaceProperties"><span class="hs-identifier hs-type">NamespaceProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | A complex type that contains the name of an HTTP namespace.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceProperties.html#namespaceProperties_httpProperties"><span class="hs-identifier hs-type">namespaceProperties_httpProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceProperties.html#NamespaceProperties"><span class="hs-identifier hs-type">NamespaceProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpProperties.html#HttpProperties"><span class="hs-identifier hs-type">HttpProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="namespaceProperties_httpProperties"><span class="annot"><span class="annottext">namespaceProperties_httpProperties :: (Maybe HttpProperties -&gt; f (Maybe HttpProperties))
+-&gt; NamespaceProperties -&gt; f NamespaceProperties
+</span><a href="Network.AWS.Route53AutoNaming.Types.NamespaceProperties.html#namespaceProperties_httpProperties"><span class="hs-identifier hs-var hs-var">namespaceProperties_httpProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NamespaceProperties -&gt; Maybe HttpProperties)
+-&gt; (NamespaceProperties
+    -&gt; Maybe HttpProperties -&gt; NamespaceProperties)
+-&gt; Lens
+     NamespaceProperties
+     NamespaceProperties
+     (Maybe HttpProperties)
+     (Maybe HttpProperties)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceProperties.html#NamespaceProperties%27"><span class="hs-identifier hs-type">NamespaceProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223343"><span class="annot"><span class="annottext">Maybe HttpProperties
+httpProperties :: Maybe HttpProperties
+$sel:httpProperties:NamespaceProperties' :: NamespaceProperties -&gt; Maybe HttpProperties
+</span><a href="#local-6989586621679223343"><span class="hs-identifier hs-var hs-var">httpProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HttpProperties
+</span><a href="#local-6989586621679223343"><span class="hs-identifier hs-var">httpProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223342"><span class="annot"><span class="annottext">s :: NamespaceProperties
+</span><a href="#local-6989586621679223342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceProperties.html#NamespaceProperties%27"><span class="hs-identifier hs-type">NamespaceProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223341"><span class="annot"><span class="annottext">Maybe HttpProperties
+</span><a href="#local-6989586621679223341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NamespaceProperties
+</span><a href="#local-6989586621679223342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpProperties:NamespaceProperties' :: Maybe HttpProperties
+</span><a href="Network.AWS.Route53AutoNaming.Types.NamespaceProperties.html#%24sel%3AhttpProperties%3ANamespaceProperties%27"><span class="hs-identifier hs-var">httpProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HttpProperties
+</span><a href="#local-6989586621679223341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceProperties.html#NamespaceProperties"><span class="hs-identifier hs-type">NamespaceProperties</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223198"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceProperties.html#NamespaceProperties"><span class="hs-identifier hs-type">NamespaceProperties</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679223196"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser NamespaceProperties
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223338"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceProperties.html#NamespaceProperties"><span class="hs-identifier hs-type">NamespaceProperties</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679223336"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser NamespaceProperties
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser NamespaceProperties)
@@ -182,31 +182,31 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;NamespaceProperties&quot;</span></span><span>
-</span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679223193"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679223193"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-76"></span><span>          </span><span class="annot"><span class="annottext">Maybe HttpProperties -&gt; Maybe DnsProperties -&gt; NamespaceProperties
+</span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679223333"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679223333"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>          </span><span class="annot"><span class="annottext">Maybe DnsProperties -&gt; Maybe HttpProperties -&gt; NamespaceProperties
 </span><a href="Network.AWS.Route53AutoNaming.Types.NamespaceProperties.html#NamespaceProperties%27"><span class="hs-identifier hs-var">NamespaceProperties'</span></a></span><span>
-</span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">(Maybe HttpProperties
- -&gt; Maybe DnsProperties -&gt; NamespaceProperties)
--&gt; Parser (Maybe HttpProperties)
--&gt; Parser (Maybe DnsProperties -&gt; NamespaceProperties)
+</span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DnsProperties
+ -&gt; Maybe HttpProperties -&gt; NamespaceProperties)
+-&gt; Parser (Maybe DnsProperties)
+-&gt; Parser (Maybe HttpProperties -&gt; NamespaceProperties)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679223193"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HttpProperties)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;HttpProperties&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-78"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe DnsProperties -&gt; NamespaceProperties)
--&gt; Parser (Maybe DnsProperties) -&gt; Parser NamespaceProperties
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679223193"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DnsProperties)
+</span><a href="#local-6989586621679223333"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DnsProperties)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DnsProperties&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe HttpProperties -&gt; NamespaceProperties)
+-&gt; Parser (Maybe HttpProperties) -&gt; Parser NamespaceProperties
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679223333"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HttpProperties)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HttpProperties&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223187"><span id="local-6989586621679223189"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceProperties.html#NamespaceProperties"><span class="hs-identifier hs-type">NamespaceProperties</span></a></span></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223327"><span id="local-6989586621679223329"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceProperties.html#NamespaceProperties"><span class="hs-identifier hs-type">NamespaceProperties</span></a></span></span></span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223184"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceProperties.html#NamespaceProperties"><span class="hs-identifier hs-type">NamespaceProperties</span></a></span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223324"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceProperties.html#NamespaceProperties"><span class="hs-identifier hs-type">NamespaceProperties</span></a></span></span><span>
 </span><span id="line-84"></span></pre></body></html>

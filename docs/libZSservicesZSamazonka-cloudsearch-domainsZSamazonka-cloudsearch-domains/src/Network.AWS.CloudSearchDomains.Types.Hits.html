@@ -27,29 +27,29 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The collection of documents that match the search request.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newHits' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679152842"><span id="local-6989586621679152843"></span></span><span class="hs-keyword">data</span><span> </span><span id="Hits"><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#Hits"><span class="hs-identifier hs-var">Hits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Hits%27"><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#Hits%27"><span class="hs-identifier hs-var">Hits'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The total number of documents that match the search request.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3Afound%3AHits%27"><span class="annot"><span class="annottext">Hits -&gt; Maybe Integer
-</span><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#%24sel%3Afound%3AHits%27"><span class="hs-identifier hs-var hs-var">found</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | A document that matches the search request.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3Ahit%3AHits%27"><span class="annot"><span class="annottext">Hits -&gt; Maybe [Hit]
-</span><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#%24sel%3Ahit%3AHits%27"><span class="hs-identifier hs-var hs-var">hit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#Hit"><span class="hs-identifier hs-type">Hit</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | A cursor that can be used to retrieve the next set of matching documents</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- when you want to page through a large result set.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3Acursor%3AHits%27"><span class="annot"><span class="annottext">Hits -&gt; Maybe Text
+</span><span id="line-30"></span><span id="local-6989586621679152888"><span id="local-6989586621679152889"></span></span><span class="hs-keyword">data</span><span> </span><span id="Hits"><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#Hits"><span class="hs-identifier hs-var">Hits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Hits%27"><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#Hits%27"><span class="hs-identifier hs-var">Hits'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A cursor that can be used to retrieve the next set of matching documents</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- when you want to page through a large result set.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Acursor%3AHits%27"><span class="annot"><span class="annottext">Hits -&gt; Maybe Text
 </span><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#%24sel%3Acursor%3AHits%27"><span class="hs-identifier hs-var hs-var">cursor</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The index of the first matching document.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3Astart%3AHits%27"><span class="annot"><span class="annottext">Hits -&gt; Maybe Integer
-</span><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#%24sel%3Astart%3AHits%27"><span class="hs-identifier hs-var hs-var">start</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | A document that matches the search request.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Ahit%3AHits%27"><span class="annot"><span class="annottext">Hits -&gt; Maybe [Hit]
+</span><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#%24sel%3Ahit%3AHits%27"><span class="hs-identifier hs-var hs-var">hit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#Hit"><span class="hs-identifier hs-type">Hit</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The index of the first matching document.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Astart%3AHits%27"><span class="annot"><span class="annottext">Hits -&gt; Maybe Integer
+</span><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#%24sel%3Astart%3AHits%27"><span class="hs-identifier hs-var hs-var">start</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The total number of documents that match the search request.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Afound%3AHits%27"><span class="annot"><span class="annottext">Hits -&gt; Maybe Integer
+</span><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#%24sel%3Afound%3AHits%27"><span class="hs-identifier hs-var hs-var">found</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679152833"><span id="local-6989586621679152835"><span class="annot"><span class="annottext">Hits -&gt; Hits -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679152879"><span id="local-6989586621679152881"><span class="annot"><span class="annottext">Hits -&gt; Hits -&gt; Bool
 (Hits -&gt; Hits -&gt; Bool) -&gt; (Hits -&gt; Hits -&gt; Bool) -&gt; Eq Hits
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Hits -&gt; Hits -&gt; Bool
 $c/= :: Hits -&gt; Hits -&gt; Bool
 == :: Hits -&gt; Hits -&gt; Bool
 $c== :: Hits -&gt; Hits -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679152824"><span id="local-6989586621679152826"><span id="local-6989586621679152828"><span id="local-6989586621679152830"><span class="annot"><span class="annottext">ReadPrec [Hits]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679152870"><span id="local-6989586621679152872"><span id="local-6989586621679152874"><span id="local-6989586621679152876"><span class="annot"><span class="annottext">ReadPrec [Hits]
 ReadPrec Hits
 Int -&gt; ReadS Hits
 ReadS [Hits]
@@ -66,7 +66,7 @@ readList :: ReadS [Hits]
 $creadList :: ReadS [Hits]
 readsPrec :: Int -&gt; ReadS Hits
 $creadsPrec :: Int -&gt; ReadS Hits
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679152817"><span id="local-6989586621679152819"><span id="local-6989586621679152821"><span class="annot"><span class="annottext">Int -&gt; Hits -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679152863"><span id="local-6989586621679152865"><span id="local-6989586621679152867"><span class="annot"><span class="annottext">Int -&gt; Hits -&gt; ShowS
 [Hits] -&gt; ShowS
 Hits -&gt; String
 (Int -&gt; Hits -&gt; ShowS)
@@ -97,73 +97,74 @@ $cfrom :: forall x. Hits -&gt; Rep Hits x
 </span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'found', 'hits_found' - The total number of documents that match the search request.</span><span>
-</span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'hit', 'hits_hit' - A document that matches the search request.</span><span>
-</span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'cursor', 'hits_cursor' - A cursor that can be used to retrieve the next set of matching documents</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- when you want to page through a large result set.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'cursor', 'hits_cursor' - A cursor that can be used to retrieve the next set of matching documents</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- when you want to page through a large result set.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'hit', 'hits_hit' - A document that matches the search request.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'start', 'hits_start' - The index of the first matching document.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'start', 'hits_start' - The index of the first matching document.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'found', 'hits_found' - The total number of documents that match the search request.</span><span>
 </span><span id="line-59"></span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#newHits"><span class="hs-identifier hs-type">newHits</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-60"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#Hits"><span class="hs-identifier hs-type">Hits</span></a></span><span>
 </span><span id="line-61"></span><span id="newHits"><span class="annot"><span class="annottext">newHits :: Hits
 </span><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#newHits"><span class="hs-identifier hs-var hs-var">newHits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">Hits' :: Maybe Integer -&gt; Maybe [Hit] -&gt; Maybe Text -&gt; Maybe Integer -&gt; Hits
+</span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">Hits' :: Maybe Text -&gt; Maybe [Hit] -&gt; Maybe Integer -&gt; Maybe Integer -&gt; Hits
 </span><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#Hits%27"><span class="hs-identifier hs-type">Hits'</span></a></span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:found:Hits' :: Maybe Integer
-</span><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#%24sel%3Afound%3AHits%27"><span class="hs-identifier hs-var">found</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cursor:Hits' :: Maybe Text
+</span><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#%24sel%3Acursor%3AHits%27"><span class="hs-identifier hs-var">cursor</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:hit:Hits' :: Maybe [Hit]
 </span><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#%24sel%3Ahit%3AHits%27"><span class="hs-identifier hs-var">hit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Hit]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:cursor:Hits' :: Maybe Text
-</span><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#%24sel%3Acursor%3AHits%27"><span class="hs-identifier hs-var">cursor</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:start:Hits' :: Maybe Integer
+</span><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#%24sel%3Astart%3AHits%27"><span class="hs-identifier hs-var">start</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:start:Hits' :: Maybe Integer
-</span><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#%24sel%3Astart%3AHits%27"><span class="hs-identifier hs-var">start</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:found:Hits' :: Maybe Integer
+</span><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#%24sel%3Afound%3AHits%27"><span class="hs-identifier hs-var">found</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- | The total number of documents that match the search request.</span><span>
-</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#hits_found"><span class="hs-identifier hs-type">hits_found</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#Hits"><span class="hs-identifier hs-type">Hits</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
-</span><span id="line-71"></span><span id="hits_found"><span class="annot"><span class="annottext">hits_found :: (Maybe Integer -&gt; f (Maybe Integer)) -&gt; Hits -&gt; f Hits
-</span><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#hits_found"><span class="hs-identifier hs-var hs-var">hits_found</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Hits -&gt; Maybe Integer)
--&gt; (Hits -&gt; Maybe Integer -&gt; Hits)
--&gt; Lens Hits Hits (Maybe Integer) (Maybe Integer)
+</span><span id="line-69"></span><span class="hs-comment">-- | A cursor that can be used to retrieve the next set of matching documents</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- when you want to page through a large result set.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#hits_cursor"><span class="hs-identifier hs-type">hits_cursor</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#Hits"><span class="hs-identifier hs-type">Hits</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="hits_cursor"><span class="annot"><span class="annottext">hits_cursor :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Hits -&gt; f Hits
+</span><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#hits_cursor"><span class="hs-identifier hs-var hs-var">hits_cursor</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Hits -&gt; Maybe Text)
+-&gt; (Hits -&gt; Maybe Text -&gt; Hits)
+-&gt; Lens Hits Hits (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#Hits%27"><span class="hs-identifier hs-type">Hits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152808"><span class="annot"><span class="annottext">Maybe Integer
-found :: Maybe Integer
-$sel:found:Hits' :: Hits -&gt; Maybe Integer
-</span><a href="#local-6989586621679152808"><span class="hs-identifier hs-var hs-var">found</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679152808"><span class="hs-identifier hs-var">found</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152807"><span class="annot"><span class="annottext">s :: Hits
-</span><a href="#local-6989586621679152807"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#Hits%27"><span class="hs-identifier hs-type">Hits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152806"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679152806"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Hits
-</span><a href="#local-6989586621679152807"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:found:Hits' :: Maybe Integer
-</span><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#%24sel%3Afound%3AHits%27"><span class="hs-identifier hs-var">found</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679152806"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#Hits"><span class="hs-identifier hs-type">Hits</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- | A document that matches the search request.</span><span>
-</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#hits_hit"><span class="hs-identifier hs-type">hits_hit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#Hits"><span class="hs-identifier hs-type">Hits</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#Hit"><span class="hs-identifier hs-type">Hit</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span id="hits_hit"><span class="annot"><span class="annottext">hits_hit :: (Maybe [Hit] -&gt; f (Maybe [Hit])) -&gt; Hits -&gt; f Hits
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#Hits%27"><span class="hs-identifier hs-type">Hits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152854"><span class="annot"><span class="annottext">Maybe Text
+cursor :: Maybe Text
+$sel:cursor:Hits' :: Hits -&gt; Maybe Text
+</span><a href="#local-6989586621679152854"><span class="hs-identifier hs-var hs-var">cursor</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152854"><span class="hs-identifier hs-var">cursor</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152853"><span class="annot"><span class="annottext">s :: Hits
+</span><a href="#local-6989586621679152853"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#Hits%27"><span class="hs-identifier hs-type">Hits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152852"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152852"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Hits
+</span><a href="#local-6989586621679152853"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cursor:Hits' :: Maybe Text
+</span><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#%24sel%3Acursor%3AHits%27"><span class="hs-identifier hs-var">cursor</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152852"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#Hits"><span class="hs-identifier hs-type">Hits</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | A document that matches the search request.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#hits_hit"><span class="hs-identifier hs-type">hits_hit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#Hits"><span class="hs-identifier hs-type">Hits</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#Hit"><span class="hs-identifier hs-type">Hit</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="hits_hit"><span class="annot"><span class="annottext">hits_hit :: (Maybe [Hit] -&gt; f (Maybe [Hit])) -&gt; Hits -&gt; f Hits
 </span><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#hits_hit"><span class="hs-identifier hs-var hs-var">hits_hit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Hits -&gt; Maybe [Hit])
 -&gt; (Hits -&gt; Maybe [Hit] -&gt; Hits)
 -&gt; Lens Hits Hits (Maybe [Hit]) (Maybe [Hit])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#Hits%27"><span class="hs-identifier hs-type">Hits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152804"><span class="annot"><span class="annottext">Maybe [Hit]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#Hits%27"><span class="hs-identifier hs-type">Hits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152850"><span class="annot"><span class="annottext">Maybe [Hit]
 hit :: Maybe [Hit]
 $sel:hit:Hits' :: Hits -&gt; Maybe [Hit]
-</span><a href="#local-6989586621679152804"><span class="hs-identifier hs-var hs-var">hit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Hit]
-</span><a href="#local-6989586621679152804"><span class="hs-identifier hs-var">hit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152803"><span class="annot"><span class="annottext">s :: Hits
-</span><a href="#local-6989586621679152803"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#Hits%27"><span class="hs-identifier hs-type">Hits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152802"><span class="annot"><span class="annottext">Maybe [Hit]
-</span><a href="#local-6989586621679152802"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Hits
-</span><a href="#local-6989586621679152803"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hit:Hits' :: Maybe [Hit]
+</span><a href="#local-6989586621679152850"><span class="hs-identifier hs-var hs-var">hit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Hit]
+</span><a href="#local-6989586621679152850"><span class="hs-identifier hs-var">hit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152849"><span class="annot"><span class="annottext">s :: Hits
+</span><a href="#local-6989586621679152849"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#Hits%27"><span class="hs-identifier hs-type">Hits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152848"><span class="annot"><span class="annottext">Maybe [Hit]
+</span><a href="#local-6989586621679152848"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Hits
+</span><a href="#local-6989586621679152849"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hit:Hits' :: Maybe [Hit]
 </span><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#%24sel%3Ahit%3AHits%27"><span class="hs-identifier hs-var">hit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Hit]
-</span><a href="#local-6989586621679152802"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#Hits"><span class="hs-identifier hs-type">Hits</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Hit] -&gt; f (Maybe [Hit])) -&gt; Hits -&gt; f Hits)
+</span><a href="#local-6989586621679152848"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#Hits"><span class="hs-identifier hs-type">Hits</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Hit] -&gt; f (Maybe [Hit])) -&gt; Hits -&gt; f Hits)
 -&gt; ((Maybe [Hit] -&gt; f (Maybe [Hit]))
     -&gt; Maybe [Hit] -&gt; f (Maybe [Hit]))
 -&gt; (Maybe [Hit] -&gt; f (Maybe [Hit]))
@@ -176,74 +177,73 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Hit] [Hit] [Hit] [Hit]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- | A cursor that can be used to retrieve the next set of matching documents</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- when you want to page through a large result set.</span><span>
-</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#hits_cursor"><span class="hs-identifier hs-type">hits_cursor</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#Hits"><span class="hs-identifier hs-type">Hits</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span id="hits_cursor"><span class="annot"><span class="annottext">hits_cursor :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Hits -&gt; f Hits
-</span><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#hits_cursor"><span class="hs-identifier hs-var hs-var">hits_cursor</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Hits -&gt; Maybe Text)
--&gt; (Hits -&gt; Maybe Text -&gt; Hits)
--&gt; Lens Hits Hits (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#Hits%27"><span class="hs-identifier hs-type">Hits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152797"><span class="annot"><span class="annottext">Maybe Text
-cursor :: Maybe Text
-$sel:cursor:Hits' :: Hits -&gt; Maybe Text
-</span><a href="#local-6989586621679152797"><span class="hs-identifier hs-var hs-var">cursor</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679152797"><span class="hs-identifier hs-var">cursor</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152796"><span class="annot"><span class="annottext">s :: Hits
-</span><a href="#local-6989586621679152796"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#Hits%27"><span class="hs-identifier hs-type">Hits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152795"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679152795"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Hits
-</span><a href="#local-6989586621679152796"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cursor:Hits' :: Maybe Text
-</span><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#%24sel%3Acursor%3AHits%27"><span class="hs-identifier hs-var">cursor</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679152795"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#Hits"><span class="hs-identifier hs-type">Hits</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- | The index of the first matching document.</span><span>
-</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#hits_start"><span class="hs-identifier hs-type">hits_start</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#Hits"><span class="hs-identifier hs-type">Hits</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span id="hits_start"><span class="annot"><span class="annottext">hits_start :: (Maybe Integer -&gt; f (Maybe Integer)) -&gt; Hits -&gt; f Hits
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The index of the first matching document.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#hits_start"><span class="hs-identifier hs-type">hits_start</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#Hits"><span class="hs-identifier hs-type">Hits</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="hits_start"><span class="annot"><span class="annottext">hits_start :: (Maybe Integer -&gt; f (Maybe Integer)) -&gt; Hits -&gt; f Hits
 </span><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#hits_start"><span class="hs-identifier hs-var hs-var">hits_start</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Hits -&gt; Maybe Integer)
 -&gt; (Hits -&gt; Maybe Integer -&gt; Hits)
 -&gt; Lens Hits Hits (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#Hits%27"><span class="hs-identifier hs-type">Hits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152793"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#Hits%27"><span class="hs-identifier hs-type">Hits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152843"><span class="annot"><span class="annottext">Maybe Integer
 start :: Maybe Integer
 $sel:start:Hits' :: Hits -&gt; Maybe Integer
-</span><a href="#local-6989586621679152793"><span class="hs-identifier hs-var hs-var">start</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679152793"><span class="hs-identifier hs-var">start</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152792"><span class="annot"><span class="annottext">s :: Hits
-</span><a href="#local-6989586621679152792"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#Hits%27"><span class="hs-identifier hs-type">Hits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152791"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679152791"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Hits
-</span><a href="#local-6989586621679152792"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:start:Hits' :: Maybe Integer
+</span><a href="#local-6989586621679152843"><span class="hs-identifier hs-var hs-var">start</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679152843"><span class="hs-identifier hs-var">start</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152842"><span class="annot"><span class="annottext">s :: Hits
+</span><a href="#local-6989586621679152842"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#Hits%27"><span class="hs-identifier hs-type">Hits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152841"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679152841"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Hits
+</span><a href="#local-6989586621679152842"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:start:Hits' :: Maybe Integer
 </span><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#%24sel%3Astart%3AHits%27"><span class="hs-identifier hs-var">start</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679152791"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#Hits"><span class="hs-identifier hs-type">Hits</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679152841"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#Hits"><span class="hs-identifier hs-type">Hits</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The total number of documents that match the search request.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#hits_found"><span class="hs-identifier hs-type">hits_found</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#Hits"><span class="hs-identifier hs-type">Hits</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="hits_found"><span class="annot"><span class="annottext">hits_found :: (Maybe Integer -&gt; f (Maybe Integer)) -&gt; Hits -&gt; f Hits
+</span><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#hits_found"><span class="hs-identifier hs-var hs-var">hits_found</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Hits -&gt; Maybe Integer)
+-&gt; (Hits -&gt; Maybe Integer -&gt; Hits)
+-&gt; Lens Hits Hits (Maybe Integer) (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#Hits%27"><span class="hs-identifier hs-type">Hits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152839"><span class="annot"><span class="annottext">Maybe Integer
+found :: Maybe Integer
+$sel:found:Hits' :: Hits -&gt; Maybe Integer
+</span><a href="#local-6989586621679152839"><span class="hs-identifier hs-var hs-var">found</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679152839"><span class="hs-identifier hs-var">found</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152838"><span class="annot"><span class="annottext">s :: Hits
+</span><a href="#local-6989586621679152838"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#Hits%27"><span class="hs-identifier hs-type">Hits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152837"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679152837"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Hits
+</span><a href="#local-6989586621679152838"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:found:Hits' :: Maybe Integer
+</span><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#%24sel%3Afound%3AHits%27"><span class="hs-identifier hs-var">found</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679152837"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#Hits"><span class="hs-identifier hs-type">Hits</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679152788"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#Hits"><span class="hs-identifier hs-type">Hits</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679152786"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Hits
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679152834"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#Hits"><span class="hs-identifier hs-type">Hits</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679152832"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Hits
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Hits) -&gt; Value -&gt; Parser Hits
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Hits&quot;</span></span><span>
-</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679152783"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679152783"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe Integer -&gt; Maybe [Hit] -&gt; Maybe Text -&gt; Maybe Integer -&gt; Hits
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679152829"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679152829"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Hit] -&gt; Maybe Integer -&gt; Maybe Integer -&gt; Hits
 </span><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#Hits%27"><span class="hs-identifier hs-var">Hits'</span></a></span><span>
-</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Integer
- -&gt; Maybe [Hit] -&gt; Maybe Text -&gt; Maybe Integer -&gt; Hits)
--&gt; Parser (Maybe Integer)
--&gt; Parser (Maybe [Hit] -&gt; Maybe Text -&gt; Maybe Integer -&gt; Hits)
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [Hit] -&gt; Maybe Integer -&gt; Maybe Integer -&gt; Hits)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe [Hit] -&gt; Maybe Integer -&gt; Maybe Integer -&gt; Hits)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679152783"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679152829"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;found&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Hit] -&gt; Maybe Text -&gt; Maybe Integer -&gt; Hits)
+</span><span class="hs-string">&quot;cursor&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Hit] -&gt; Maybe Integer -&gt; Maybe Integer -&gt; Hits)
 -&gt; Parser (Maybe [Hit])
--&gt; Parser (Maybe Text -&gt; Maybe Integer -&gt; Hits)
+-&gt; Parser (Maybe Integer -&gt; Maybe Integer -&gt; Hits)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679152783"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Hit]))
+</span><a href="#local-6989586621679152829"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Hit]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;hit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Hit])) -&gt; Maybe [Hit] -&gt; Parser (Maybe [Hit])
@@ -251,25 +251,25 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Hit]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Integer -&gt; Hits)
--&gt; Parser (Maybe Text) -&gt; Parser (Maybe Integer -&gt; Hits)
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Integer -&gt; Maybe Integer -&gt; Hits)
+-&gt; Parser (Maybe Integer) -&gt; Parser (Maybe Integer -&gt; Hits)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679152783"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679152829"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;cursor&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;start&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Integer -&gt; Hits)
 -&gt; Parser (Maybe Integer) -&gt; Parser Hits
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679152783"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679152829"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;start&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;found&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679152776"><span id="local-6989586621679152778"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#Hits"><span class="hs-identifier hs-type">Hits</span></a></span></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679152822"><span id="local-6989586621679152824"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#Hits"><span class="hs-identifier hs-type">Hits</span></a></span></span></span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679152773"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#Hits"><span class="hs-identifier hs-type">Hits</span></a></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679152819"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hits.html#Hits"><span class="hs-identifier hs-type">Hits</span></a></span></span><span>
 </span><span id="line-101"></span></pre></body></html>

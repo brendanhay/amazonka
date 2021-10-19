@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- | Contains information on the status of data sources for the detector.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newDataSourceConfigurationsResult' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679300073"><span id="local-6989586621679300074"></span></span><span class="hs-keyword">data</span><span> </span><span id="DataSourceConfigurationsResult"><span class="annot"><a href="Network.AWS.GuardDuty.Types.DataSourceConfigurationsResult.html#DataSourceConfigurationsResult"><span class="hs-identifier hs-var">DataSourceConfigurationsResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DataSourceConfigurationsResult%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.DataSourceConfigurationsResult.html#DataSourceConfigurationsResult%27"><span class="hs-identifier hs-var">DataSourceConfigurationsResult'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679300359"><span id="local-6989586621679300360"></span></span><span class="hs-keyword">data</span><span> </span><span id="DataSourceConfigurationsResult"><span class="annot"><a href="Network.AWS.GuardDuty.Types.DataSourceConfigurationsResult.html#DataSourceConfigurationsResult"><span class="hs-identifier hs-var">DataSourceConfigurationsResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DataSourceConfigurationsResult%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.DataSourceConfigurationsResult.html#DataSourceConfigurationsResult%27"><span class="hs-identifier hs-var">DataSourceConfigurationsResult'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An object that contains information on the status of CloudTrail as a</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- data source.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AcloudTrail%3ADataSourceConfigurationsResult%27"><span class="annot"><span class="annottext">DataSourceConfigurationsResult -&gt; CloudTrailConfigurationResult
@@ -48,7 +48,7 @@
 </span><span id="line-45"></span><span>    </span><span id="%24sel%3As3Logs%3ADataSourceConfigurationsResult%27"><span class="annot"><span class="annottext">DataSourceConfigurationsResult -&gt; S3LogsConfigurationResult
 </span><a href="Network.AWS.GuardDuty.Types.DataSourceConfigurationsResult.html#%24sel%3As3Logs%3ADataSourceConfigurationsResult%27"><span class="hs-identifier hs-var hs-var">s3Logs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.S3LogsConfigurationResult.html#S3LogsConfigurationResult"><span class="hs-identifier hs-type">S3LogsConfigurationResult</span></a></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679300064"><span id="local-6989586621679300066"><span class="annot"><span class="annottext">DataSourceConfigurationsResult
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679300350"><span id="local-6989586621679300352"><span class="annot"><span class="annottext">DataSourceConfigurationsResult
 -&gt; DataSourceConfigurationsResult -&gt; Bool
 (DataSourceConfigurationsResult
  -&gt; DataSourceConfigurationsResult -&gt; Bool)
@@ -64,7 +64,7 @@ $c/= :: DataSourceConfigurationsResult
 -&gt; DataSourceConfigurationsResult -&gt; Bool
 $c== :: DataSourceConfigurationsResult
 -&gt; DataSourceConfigurationsResult -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300055"><span id="local-6989586621679300057"><span id="local-6989586621679300059"><span id="local-6989586621679300061"><span class="annot"><span class="annottext">ReadPrec [DataSourceConfigurationsResult]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300341"><span id="local-6989586621679300343"><span id="local-6989586621679300345"><span id="local-6989586621679300347"><span class="annot"><span class="annottext">ReadPrec [DataSourceConfigurationsResult]
 ReadPrec DataSourceConfigurationsResult
 Int -&gt; ReadS DataSourceConfigurationsResult
 ReadS [DataSourceConfigurationsResult]
@@ -84,7 +84,7 @@ readList :: ReadS [DataSourceConfigurationsResult]
 $creadList :: ReadS [DataSourceConfigurationsResult]
 readsPrec :: Int -&gt; ReadS DataSourceConfigurationsResult
 $creadsPrec :: Int -&gt; ReadS DataSourceConfigurationsResult
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300048"><span id="local-6989586621679300050"><span id="local-6989586621679300052"><span class="annot"><span class="annottext">Int -&gt; DataSourceConfigurationsResult -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300334"><span id="local-6989586621679300336"><span id="local-6989586621679300338"><span class="annot"><span class="annottext">Int -&gt; DataSourceConfigurationsResult -&gt; ShowS
 [DataSourceConfigurationsResult] -&gt; ShowS
 DataSourceConfigurationsResult -&gt; String
 (Int -&gt; DataSourceConfigurationsResult -&gt; ShowS)
@@ -157,14 +157,14 @@ DataSourceConfigurationsResult
 -&gt; S3LogsConfigurationResult
 -&gt; DataSourceConfigurationsResult
 </span><a href="Network.AWS.GuardDuty.Types.DataSourceConfigurationsResult.html#newDataSourceConfigurationsResult"><span class="hs-identifier hs-var hs-var">newDataSourceConfigurationsResult</span></a></span></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679300042"><span class="annot"><span class="annottext">CloudTrailConfigurationResult
-</span><a href="#local-6989586621679300042"><span class="hs-identifier hs-var">pCloudTrail_</span></a></span></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679300041"><span class="annot"><span class="annottext">DNSLogsConfigurationResult
-</span><a href="#local-6989586621679300041"><span class="hs-identifier hs-var">pDNSLogs_</span></a></span></span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679300040"><span class="annot"><span class="annottext">FlowLogsConfigurationResult
-</span><a href="#local-6989586621679300040"><span class="hs-identifier hs-var">pFlowLogs_</span></a></span></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679300039"><span class="annot"><span class="annottext">S3LogsConfigurationResult
-</span><a href="#local-6989586621679300039"><span class="hs-identifier hs-var">pS3Logs_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679300328"><span class="annot"><span class="annottext">CloudTrailConfigurationResult
+</span><a href="#local-6989586621679300328"><span class="hs-identifier hs-var">pCloudTrail_</span></a></span></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679300327"><span class="annot"><span class="annottext">DNSLogsConfigurationResult
+</span><a href="#local-6989586621679300327"><span class="hs-identifier hs-var">pDNSLogs_</span></a></span></span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679300326"><span class="annot"><span class="annottext">FlowLogsConfigurationResult
+</span><a href="#local-6989586621679300326"><span class="hs-identifier hs-var">pFlowLogs_</span></a></span></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679300325"><span class="annot"><span class="annottext">S3LogsConfigurationResult
+</span><a href="#local-6989586621679300325"><span class="hs-identifier hs-var">pS3Logs_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">DataSourceConfigurationsResult' :: CloudTrailConfigurationResult
 -&gt; DNSLogsConfigurationResult
 -&gt; FlowLogsConfigurationResult
@@ -174,16 +174,16 @@ DataSourceConfigurationsResult
 </span><span id="line-84"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cloudTrail:DataSourceConfigurationsResult' :: CloudTrailConfigurationResult
 </span><a href="Network.AWS.GuardDuty.Types.DataSourceConfigurationsResult.html#%24sel%3AcloudTrail%3ADataSourceConfigurationsResult%27"><span class="hs-identifier hs-var">cloudTrail</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">CloudTrailConfigurationResult
-</span><a href="#local-6989586621679300042"><span class="hs-identifier hs-var">pCloudTrail_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679300328"><span class="hs-identifier hs-var">pCloudTrail_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-86"></span><span>        </span><span class="annot"><span class="annottext">$sel:dNSLogs:DataSourceConfigurationsResult' :: DNSLogsConfigurationResult
 </span><a href="Network.AWS.GuardDuty.Types.DataSourceConfigurationsResult.html#%24sel%3AdNSLogs%3ADataSourceConfigurationsResult%27"><span class="hs-identifier hs-var">dNSLogs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DNSLogsConfigurationResult
-</span><a href="#local-6989586621679300041"><span class="hs-identifier hs-var">pDNSLogs_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679300327"><span class="hs-identifier hs-var">pDNSLogs_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">$sel:flowLogs:DataSourceConfigurationsResult' :: FlowLogsConfigurationResult
 </span><a href="Network.AWS.GuardDuty.Types.DataSourceConfigurationsResult.html#%24sel%3AflowLogs%3ADataSourceConfigurationsResult%27"><span class="hs-identifier hs-var">flowLogs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FlowLogsConfigurationResult
-</span><a href="#local-6989586621679300040"><span class="hs-identifier hs-var">pFlowLogs_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679300326"><span class="hs-identifier hs-var">pFlowLogs_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>        </span><span class="annot"><span class="annottext">$sel:s3Logs:DataSourceConfigurationsResult' :: S3LogsConfigurationResult
 </span><a href="Network.AWS.GuardDuty.Types.DataSourceConfigurationsResult.html#%24sel%3As3Logs%3ADataSourceConfigurationsResult%27"><span class="hs-identifier hs-var">s3Logs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">S3LogsConfigurationResult
-</span><a href="#local-6989586621679300039"><span class="hs-identifier hs-var">pS3Logs_</span></a></span><span>
+</span><a href="#local-6989586621679300325"><span class="hs-identifier hs-var">pS3Logs_</span></a></span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | An object that contains information on the status of CloudTrail as a</span><span>
@@ -201,16 +201,16 @@ DataSourceConfigurationsResult
      CloudTrailConfigurationResult
      CloudTrailConfigurationResult
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DataSourceConfigurationsResult.html#DataSourceConfigurationsResult%27"><span class="hs-identifier hs-type">DataSourceConfigurationsResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300035"><span class="annot"><span class="annottext">CloudTrailConfigurationResult
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DataSourceConfigurationsResult.html#DataSourceConfigurationsResult%27"><span class="hs-identifier hs-type">DataSourceConfigurationsResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300321"><span class="annot"><span class="annottext">CloudTrailConfigurationResult
 cloudTrail :: CloudTrailConfigurationResult
 $sel:cloudTrail:DataSourceConfigurationsResult' :: DataSourceConfigurationsResult -&gt; CloudTrailConfigurationResult
-</span><a href="#local-6989586621679300035"><span class="hs-identifier hs-var hs-var">cloudTrail</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudTrailConfigurationResult
-</span><a href="#local-6989586621679300035"><span class="hs-identifier hs-var">cloudTrail</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300034"><span class="annot"><span class="annottext">s :: DataSourceConfigurationsResult
-</span><a href="#local-6989586621679300034"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DataSourceConfigurationsResult.html#DataSourceConfigurationsResult%27"><span class="hs-identifier hs-type">DataSourceConfigurationsResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300033"><span class="annot"><span class="annottext">CloudTrailConfigurationResult
-</span><a href="#local-6989586621679300033"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataSourceConfigurationsResult
-</span><a href="#local-6989586621679300034"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudTrail:DataSourceConfigurationsResult' :: CloudTrailConfigurationResult
+</span><a href="#local-6989586621679300321"><span class="hs-identifier hs-var hs-var">cloudTrail</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudTrailConfigurationResult
+</span><a href="#local-6989586621679300321"><span class="hs-identifier hs-var">cloudTrail</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300320"><span class="annot"><span class="annottext">s :: DataSourceConfigurationsResult
+</span><a href="#local-6989586621679300320"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DataSourceConfigurationsResult.html#DataSourceConfigurationsResult%27"><span class="hs-identifier hs-type">DataSourceConfigurationsResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300319"><span class="annot"><span class="annottext">CloudTrailConfigurationResult
+</span><a href="#local-6989586621679300319"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataSourceConfigurationsResult
+</span><a href="#local-6989586621679300320"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudTrail:DataSourceConfigurationsResult' :: CloudTrailConfigurationResult
 </span><a href="Network.AWS.GuardDuty.Types.DataSourceConfigurationsResult.html#%24sel%3AcloudTrail%3ADataSourceConfigurationsResult%27"><span class="hs-identifier hs-var">cloudTrail</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CloudTrailConfigurationResult
-</span><a href="#local-6989586621679300033"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DataSourceConfigurationsResult.html#DataSourceConfigurationsResult"><span class="hs-identifier hs-type">DataSourceConfigurationsResult</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679300319"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DataSourceConfigurationsResult.html#DataSourceConfigurationsResult"><span class="hs-identifier hs-type">DataSourceConfigurationsResult</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | An object that contains information on the status of DNS logs as a data</span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- source.</span><span>
@@ -227,16 +227,16 @@ $sel:cloudTrail:DataSourceConfigurationsResult' :: DataSourceConfigurationsResul
      DNSLogsConfigurationResult
      DNSLogsConfigurationResult
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DataSourceConfigurationsResult.html#DataSourceConfigurationsResult%27"><span class="hs-identifier hs-type">DataSourceConfigurationsResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300031"><span class="annot"><span class="annottext">DNSLogsConfigurationResult
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DataSourceConfigurationsResult.html#DataSourceConfigurationsResult%27"><span class="hs-identifier hs-type">DataSourceConfigurationsResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300317"><span class="annot"><span class="annottext">DNSLogsConfigurationResult
 dNSLogs :: DNSLogsConfigurationResult
 $sel:dNSLogs:DataSourceConfigurationsResult' :: DataSourceConfigurationsResult -&gt; DNSLogsConfigurationResult
-</span><a href="#local-6989586621679300031"><span class="hs-identifier hs-var hs-var">dNSLogs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DNSLogsConfigurationResult
-</span><a href="#local-6989586621679300031"><span class="hs-identifier hs-var">dNSLogs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300030"><span class="annot"><span class="annottext">s :: DataSourceConfigurationsResult
-</span><a href="#local-6989586621679300030"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DataSourceConfigurationsResult.html#DataSourceConfigurationsResult%27"><span class="hs-identifier hs-type">DataSourceConfigurationsResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300029"><span class="annot"><span class="annottext">DNSLogsConfigurationResult
-</span><a href="#local-6989586621679300029"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataSourceConfigurationsResult
-</span><a href="#local-6989586621679300030"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dNSLogs:DataSourceConfigurationsResult' :: DNSLogsConfigurationResult
+</span><a href="#local-6989586621679300317"><span class="hs-identifier hs-var hs-var">dNSLogs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DNSLogsConfigurationResult
+</span><a href="#local-6989586621679300317"><span class="hs-identifier hs-var">dNSLogs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300316"><span class="annot"><span class="annottext">s :: DataSourceConfigurationsResult
+</span><a href="#local-6989586621679300316"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DataSourceConfigurationsResult.html#DataSourceConfigurationsResult%27"><span class="hs-identifier hs-type">DataSourceConfigurationsResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300315"><span class="annot"><span class="annottext">DNSLogsConfigurationResult
+</span><a href="#local-6989586621679300315"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataSourceConfigurationsResult
+</span><a href="#local-6989586621679300316"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dNSLogs:DataSourceConfigurationsResult' :: DNSLogsConfigurationResult
 </span><a href="Network.AWS.GuardDuty.Types.DataSourceConfigurationsResult.html#%24sel%3AdNSLogs%3ADataSourceConfigurationsResult%27"><span class="hs-identifier hs-var">dNSLogs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DNSLogsConfigurationResult
-</span><a href="#local-6989586621679300029"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DataSourceConfigurationsResult.html#DataSourceConfigurationsResult"><span class="hs-identifier hs-type">DataSourceConfigurationsResult</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679300315"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DataSourceConfigurationsResult.html#DataSourceConfigurationsResult"><span class="hs-identifier hs-type">DataSourceConfigurationsResult</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | An object that contains information on the status of VPC flow logs as a</span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- data source.</span><span>
@@ -253,16 +253,16 @@ $sel:dNSLogs:DataSourceConfigurationsResult' :: DataSourceConfigurationsResult -
      FlowLogsConfigurationResult
      FlowLogsConfigurationResult
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DataSourceConfigurationsResult.html#DataSourceConfigurationsResult%27"><span class="hs-identifier hs-type">DataSourceConfigurationsResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300027"><span class="annot"><span class="annottext">FlowLogsConfigurationResult
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DataSourceConfigurationsResult.html#DataSourceConfigurationsResult%27"><span class="hs-identifier hs-type">DataSourceConfigurationsResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300313"><span class="annot"><span class="annottext">FlowLogsConfigurationResult
 flowLogs :: FlowLogsConfigurationResult
 $sel:flowLogs:DataSourceConfigurationsResult' :: DataSourceConfigurationsResult -&gt; FlowLogsConfigurationResult
-</span><a href="#local-6989586621679300027"><span class="hs-identifier hs-var hs-var">flowLogs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FlowLogsConfigurationResult
-</span><a href="#local-6989586621679300027"><span class="hs-identifier hs-var">flowLogs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300026"><span class="annot"><span class="annottext">s :: DataSourceConfigurationsResult
-</span><a href="#local-6989586621679300026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DataSourceConfigurationsResult.html#DataSourceConfigurationsResult%27"><span class="hs-identifier hs-type">DataSourceConfigurationsResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300025"><span class="annot"><span class="annottext">FlowLogsConfigurationResult
-</span><a href="#local-6989586621679300025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataSourceConfigurationsResult
-</span><a href="#local-6989586621679300026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:flowLogs:DataSourceConfigurationsResult' :: FlowLogsConfigurationResult
+</span><a href="#local-6989586621679300313"><span class="hs-identifier hs-var hs-var">flowLogs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FlowLogsConfigurationResult
+</span><a href="#local-6989586621679300313"><span class="hs-identifier hs-var">flowLogs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300312"><span class="annot"><span class="annottext">s :: DataSourceConfigurationsResult
+</span><a href="#local-6989586621679300312"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DataSourceConfigurationsResult.html#DataSourceConfigurationsResult%27"><span class="hs-identifier hs-type">DataSourceConfigurationsResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300311"><span class="annot"><span class="annottext">FlowLogsConfigurationResult
+</span><a href="#local-6989586621679300311"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataSourceConfigurationsResult
+</span><a href="#local-6989586621679300312"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:flowLogs:DataSourceConfigurationsResult' :: FlowLogsConfigurationResult
 </span><a href="Network.AWS.GuardDuty.Types.DataSourceConfigurationsResult.html#%24sel%3AflowLogs%3ADataSourceConfigurationsResult%27"><span class="hs-identifier hs-var">flowLogs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FlowLogsConfigurationResult
-</span><a href="#local-6989586621679300025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DataSourceConfigurationsResult.html#DataSourceConfigurationsResult"><span class="hs-identifier hs-type">DataSourceConfigurationsResult</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679300311"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DataSourceConfigurationsResult.html#DataSourceConfigurationsResult"><span class="hs-identifier hs-type">DataSourceConfigurationsResult</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | An object that contains information on the status of S3 Data event logs</span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- as a data source.</span><span>
@@ -279,19 +279,19 @@ $sel:flowLogs:DataSourceConfigurationsResult' :: DataSourceConfigurationsResult 
      S3LogsConfigurationResult
      S3LogsConfigurationResult
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DataSourceConfigurationsResult.html#DataSourceConfigurationsResult%27"><span class="hs-identifier hs-type">DataSourceConfigurationsResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300023"><span class="annot"><span class="annottext">S3LogsConfigurationResult
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DataSourceConfigurationsResult.html#DataSourceConfigurationsResult%27"><span class="hs-identifier hs-type">DataSourceConfigurationsResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300309"><span class="annot"><span class="annottext">S3LogsConfigurationResult
 s3Logs :: S3LogsConfigurationResult
 $sel:s3Logs:DataSourceConfigurationsResult' :: DataSourceConfigurationsResult -&gt; S3LogsConfigurationResult
-</span><a href="#local-6989586621679300023"><span class="hs-identifier hs-var hs-var">s3Logs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3LogsConfigurationResult
-</span><a href="#local-6989586621679300023"><span class="hs-identifier hs-var">s3Logs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300022"><span class="annot"><span class="annottext">s :: DataSourceConfigurationsResult
-</span><a href="#local-6989586621679300022"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DataSourceConfigurationsResult.html#DataSourceConfigurationsResult%27"><span class="hs-identifier hs-type">DataSourceConfigurationsResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300021"><span class="annot"><span class="annottext">S3LogsConfigurationResult
-</span><a href="#local-6989586621679300021"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataSourceConfigurationsResult
-</span><a href="#local-6989586621679300022"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Logs:DataSourceConfigurationsResult' :: S3LogsConfigurationResult
+</span><a href="#local-6989586621679300309"><span class="hs-identifier hs-var hs-var">s3Logs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3LogsConfigurationResult
+</span><a href="#local-6989586621679300309"><span class="hs-identifier hs-var">s3Logs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300308"><span class="annot"><span class="annottext">s :: DataSourceConfigurationsResult
+</span><a href="#local-6989586621679300308"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DataSourceConfigurationsResult.html#DataSourceConfigurationsResult%27"><span class="hs-identifier hs-type">DataSourceConfigurationsResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300307"><span class="annot"><span class="annottext">S3LogsConfigurationResult
+</span><a href="#local-6989586621679300307"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataSourceConfigurationsResult
+</span><a href="#local-6989586621679300308"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Logs:DataSourceConfigurationsResult' :: S3LogsConfigurationResult
 </span><a href="Network.AWS.GuardDuty.Types.DataSourceConfigurationsResult.html#%24sel%3As3Logs%3ADataSourceConfigurationsResult%27"><span class="hs-identifier hs-var">s3Logs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">S3LogsConfigurationResult
-</span><a href="#local-6989586621679300021"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DataSourceConfigurationsResult.html#DataSourceConfigurationsResult"><span class="hs-identifier hs-type">DataSourceConfigurationsResult</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679300307"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DataSourceConfigurationsResult.html#DataSourceConfigurationsResult"><span class="hs-identifier hs-type">DataSourceConfigurationsResult</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300018"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DataSourceConfigurationsResult.html#DataSourceConfigurationsResult"><span class="hs-identifier hs-type">DataSourceConfigurationsResult</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679300016"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DataSourceConfigurationsResult
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300304"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DataSourceConfigurationsResult.html#DataSourceConfigurationsResult"><span class="hs-identifier hs-type">DataSourceConfigurationsResult</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679300302"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DataSourceConfigurationsResult
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DataSourceConfigurationsResult)
@@ -301,8 +301,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DataSourceConfigurationsResult&quot;</span></span><span>
-</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679300013"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679300013"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679300299"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300299"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-116"></span><span>          </span><span class="annot"><span class="annottext">CloudTrailConfigurationResult
 -&gt; DNSLogsConfigurationResult
 -&gt; FlowLogsConfigurationResult
@@ -322,7 +322,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; DataSourceConfigurationsResult)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679300013"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser CloudTrailConfigurationResult
+</span><a href="#local-6989586621679300299"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser CloudTrailConfigurationResult
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cloudTrail&quot;</span></span><span class="hs-special">)</span><span>
@@ -337,7 +337,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
       -&gt; S3LogsConfigurationResult -&gt; DataSourceConfigurationsResult)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679300013"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser DNSLogsConfigurationResult
+</span><a href="#local-6989586621679300299"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser DNSLogsConfigurationResult
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;dnsLogs&quot;</span></span><span class="hs-special">)</span><span>
@@ -349,7 +349,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
      (S3LogsConfigurationResult -&gt; DataSourceConfigurationsResult)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679300013"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser FlowLogsConfigurationResult
+</span><a href="#local-6989586621679300299"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser FlowLogsConfigurationResult
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;flowLogs&quot;</span></span><span class="hs-special">)</span><span>
@@ -359,17 +359,17 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser DataSourceConfigurationsResult
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679300013"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser S3LogsConfigurationResult
+</span><a href="#local-6989586621679300299"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser S3LogsConfigurationResult
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;s3Logs&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679300007"><span id="local-6989586621679300009"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679300293"><span id="local-6989586621679300295"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DataSourceConfigurationsResult.html#DataSourceConfigurationsResult"><span class="hs-identifier hs-type">DataSourceConfigurationsResult</span></a></span></span></span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679300004"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679300290"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DataSourceConfigurationsResult.html#DataSourceConfigurationsResult"><span class="hs-identifier hs-type">DataSourceConfigurationsResult</span></a></span></span><span>
 </span><span id="line-130"></span></pre></body></html>

@@ -45,13 +45,13 @@
 </span><span id="line-45"></span><span class="hs-comment">-- MediaConvert creates with this feature are compatible with this Roku</span><span>
 </span><span id="line-46"></span><span class="hs-comment">-- specification:</span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- https:\/\/developer.roku.com\/docs\/developer-program\/media-playback\/trick-mode\/hls-and-dash.md</span><span>
-</span><span id="line-48"></span><span id="local-6989586621679943033"><span id="local-6989586621679943034"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CmafImageBasedTrickPlay"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlay.html#CmafImageBasedTrickPlay"><span class="hs-identifier hs-var">CmafImageBasedTrickPlay</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CmafImageBasedTrickPlay%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlay.html#CmafImageBasedTrickPlay%27"><span class="hs-identifier hs-var">CmafImageBasedTrickPlay'</span></a></span></span><span>
+</span><span id="line-48"></span><span id="local-6989586621679947656"><span id="local-6989586621679947657"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CmafImageBasedTrickPlay"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlay.html#CmafImageBasedTrickPlay"><span class="hs-identifier hs-var">CmafImageBasedTrickPlay</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CmafImageBasedTrickPlay%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlay.html#CmafImageBasedTrickPlay%27"><span class="hs-identifier hs-var">CmafImageBasedTrickPlay'</span></a></span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCmafImageBasedTrickPlay"><span class="annot"><span class="annottext">CmafImageBasedTrickPlay -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlay.html#fromCmafImageBasedTrickPlay"><span class="hs-identifier hs-var hs-var">fromCmafImageBasedTrickPlay</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-50"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679943025"><span id="local-6989586621679943027"><span id="local-6989586621679943029"><span class="annot"><span class="annottext">Int -&gt; CmafImageBasedTrickPlay -&gt; ShowS
+</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679947648"><span id="local-6989586621679947650"><span id="local-6989586621679947652"><span class="annot"><span class="annottext">Int -&gt; CmafImageBasedTrickPlay -&gt; ShowS
 [CmafImageBasedTrickPlay] -&gt; ShowS
 CmafImageBasedTrickPlay -&gt; String
 (Int -&gt; CmafImageBasedTrickPlay -&gt; ShowS)
@@ -67,7 +67,7 @@ $cshow :: CmafImageBasedTrickPlay -&gt; String
 showsPrec :: Int -&gt; CmafImageBasedTrickPlay -&gt; ShowS
 $cshowsPrec :: Int -&gt; CmafImageBasedTrickPlay -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679943016"><span id="local-6989586621679943018"><span id="local-6989586621679943020"><span id="local-6989586621679943022"><span class="annot"><span class="annottext">ReadPrec [CmafImageBasedTrickPlay]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679947639"><span id="local-6989586621679947641"><span id="local-6989586621679947643"><span id="local-6989586621679947645"><span class="annot"><span class="annottext">ReadPrec [CmafImageBasedTrickPlay]
 ReadPrec CmafImageBasedTrickPlay
 Int -&gt; ReadS CmafImageBasedTrickPlay
 ReadS [CmafImageBasedTrickPlay]
@@ -88,7 +88,7 @@ $creadList :: ReadS [CmafImageBasedTrickPlay]
 readsPrec :: Int -&gt; ReadS CmafImageBasedTrickPlay
 $creadsPrec :: Int -&gt; ReadS CmafImageBasedTrickPlay
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679943011"><span id="local-6989586621679943013"><span class="annot"><span class="annottext">CmafImageBasedTrickPlay -&gt; CmafImageBasedTrickPlay -&gt; Bool
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679947634"><span id="local-6989586621679947636"><span class="annot"><span class="annottext">CmafImageBasedTrickPlay -&gt; CmafImageBasedTrickPlay -&gt; Bool
 (CmafImageBasedTrickPlay -&gt; CmafImageBasedTrickPlay -&gt; Bool)
 -&gt; (CmafImageBasedTrickPlay -&gt; CmafImageBasedTrickPlay -&gt; Bool)
 -&gt; Eq CmafImageBasedTrickPlay
@@ -98,7 +98,7 @@ $c/= :: CmafImageBasedTrickPlay -&gt; CmafImageBasedTrickPlay -&gt; Bool
 == :: CmafImageBasedTrickPlay -&gt; CmafImageBasedTrickPlay -&gt; Bool
 $c== :: CmafImageBasedTrickPlay -&gt; CmafImageBasedTrickPlay -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679942995"><span id="local-6989586621679942997"><span id="local-6989586621679942999"><span id="local-6989586621679943001"><span id="local-6989586621679943003"><span id="local-6989586621679943005"><span id="local-6989586621679943007"><span class="annot"><span class="annottext">Eq CmafImageBasedTrickPlay
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679947618"><span id="local-6989586621679947620"><span id="local-6989586621679947622"><span id="local-6989586621679947624"><span id="local-6989586621679947626"><span id="local-6989586621679947628"><span id="local-6989586621679947630"><span class="annot"><span class="annottext">Eq CmafImageBasedTrickPlay
 Eq CmafImageBasedTrickPlay
 -&gt; (CmafImageBasedTrickPlay -&gt; CmafImageBasedTrickPlay -&gt; Ordering)
 -&gt; (CmafImageBasedTrickPlay -&gt; CmafImageBasedTrickPlay -&gt; Bool)
@@ -158,7 +158,7 @@ $cfrom :: forall x. CmafImageBasedTrickPlay -&gt; Rep CmafImageBasedTrickPlay x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679942987"><span id="local-6989586621679942989"><span class="annot"><span class="annottext">Int -&gt; CmafImageBasedTrickPlay -&gt; Int
+</span><span id="line-60"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679947610"><span id="local-6989586621679947612"><span class="annot"><span class="annottext">Int -&gt; CmafImageBasedTrickPlay -&gt; Int
 CmafImageBasedTrickPlay -&gt; Int
 (Int -&gt; CmafImageBasedTrickPlay -&gt; Int)
 -&gt; (CmafImageBasedTrickPlay -&gt; Int)
@@ -169,54 +169,54 @@ $chash :: CmafImageBasedTrickPlay -&gt; Int
 hashWithSalt :: Int -&gt; CmafImageBasedTrickPlay -&gt; Int
 $chashWithSalt :: Int -&gt; CmafImageBasedTrickPlay -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679942984"><span class="annot"><span class="annottext">CmafImageBasedTrickPlay -&gt; ()
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679947607"><span class="annot"><span class="annottext">CmafImageBasedTrickPlay -&gt; ()
 (CmafImageBasedTrickPlay -&gt; ()) -&gt; NFData CmafImageBasedTrickPlay
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CmafImageBasedTrickPlay -&gt; ()
 $crnf :: CmafImageBasedTrickPlay -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679942981"><span class="annot"><span class="annottext">Text -&gt; Either String CmafImageBasedTrickPlay
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679947604"><span class="annot"><span class="annottext">Text -&gt; Either String CmafImageBasedTrickPlay
 (Text -&gt; Either String CmafImageBasedTrickPlay)
 -&gt; FromText CmafImageBasedTrickPlay
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CmafImageBasedTrickPlay
 $cfromText :: Text -&gt; Either String CmafImageBasedTrickPlay
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679942978"><span class="annot"><span class="annottext">CmafImageBasedTrickPlay -&gt; Text
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679947601"><span class="annot"><span class="annottext">CmafImageBasedTrickPlay -&gt; Text
 (CmafImageBasedTrickPlay -&gt; Text) -&gt; ToText CmafImageBasedTrickPlay
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CmafImageBasedTrickPlay -&gt; Text
 $ctoText :: CmafImageBasedTrickPlay -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679942975"><span class="annot"><span class="annottext">CmafImageBasedTrickPlay -&gt; ByteString
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679947598"><span class="annot"><span class="annottext">CmafImageBasedTrickPlay -&gt; ByteString
 (CmafImageBasedTrickPlay -&gt; ByteString)
 -&gt; ToByteString CmafImageBasedTrickPlay
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CmafImageBasedTrickPlay -&gt; ByteString
 $ctoBS :: CmafImageBasedTrickPlay -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679942972"><span class="annot"><span class="annottext">CmafImageBasedTrickPlay -&gt; ByteStringBuilder
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679947595"><span class="annot"><span class="annottext">CmafImageBasedTrickPlay -&gt; ByteStringBuilder
 (CmafImageBasedTrickPlay -&gt; ByteStringBuilder)
 -&gt; ToLog CmafImageBasedTrickPlay
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CmafImageBasedTrickPlay -&gt; ByteStringBuilder
 $cbuild :: CmafImageBasedTrickPlay -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679942969"><span class="annot"><span class="annottext">HeaderName -&gt; CmafImageBasedTrickPlay -&gt; [Header]
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679947592"><span class="annot"><span class="annottext">HeaderName -&gt; CmafImageBasedTrickPlay -&gt; [Header]
 (HeaderName -&gt; CmafImageBasedTrickPlay -&gt; [Header])
 -&gt; ToHeader CmafImageBasedTrickPlay
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CmafImageBasedTrickPlay -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CmafImageBasedTrickPlay -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679942966"><span class="annot"><span class="annottext">CmafImageBasedTrickPlay -&gt; QueryString
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679947589"><span class="annot"><span class="annottext">CmafImageBasedTrickPlay -&gt; QueryString
 (CmafImageBasedTrickPlay -&gt; QueryString)
 -&gt; ToQuery CmafImageBasedTrickPlay
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CmafImageBasedTrickPlay -&gt; QueryString
 $ctoQuery :: CmafImageBasedTrickPlay -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679942961"><span id="local-6989586621679942963"><span class="annot"><span class="annottext">Value -&gt; Parser [CmafImageBasedTrickPlay]
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679947584"><span id="local-6989586621679947586"><span class="annot"><span class="annottext">Value -&gt; Parser [CmafImageBasedTrickPlay]
 Value -&gt; Parser CmafImageBasedTrickPlay
 (Value -&gt; Parser CmafImageBasedTrickPlay)
 -&gt; (Value -&gt; Parser [CmafImageBasedTrickPlay])
@@ -228,7 +228,7 @@ $cparseJSONList :: Value -&gt; Parser [CmafImageBasedTrickPlay]
 parseJSON :: Value -&gt; Parser CmafImageBasedTrickPlay
 $cparseJSON :: Value -&gt; Parser CmafImageBasedTrickPlay
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679942956"><span id="local-6989586621679942958"><span class="annot"><span class="annottext">FromJSONKeyFunction [CmafImageBasedTrickPlay]
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679947579"><span id="local-6989586621679947581"><span class="annot"><span class="annottext">FromJSONKeyFunction [CmafImageBasedTrickPlay]
 FromJSONKeyFunction CmafImageBasedTrickPlay
 FromJSONKeyFunction CmafImageBasedTrickPlay
 -&gt; FromJSONKeyFunction [CmafImageBasedTrickPlay]
@@ -240,7 +240,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CmafImageBasedTrickPlay]
 fromJSONKey :: FromJSONKeyFunction CmafImageBasedTrickPlay
 $cfromJSONKey :: FromJSONKeyFunction CmafImageBasedTrickPlay
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621679942947"><span id="local-6989586621679942949"><span id="local-6989586621679942951"><span id="local-6989586621679942953"><span class="annot"><span class="annottext">[CmafImageBasedTrickPlay] -&gt; Encoding
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679947570"><span id="local-6989586621679947572"><span id="local-6989586621679947574"><span id="local-6989586621679947576"><span class="annot"><span class="annottext">[CmafImageBasedTrickPlay] -&gt; Encoding
 [CmafImageBasedTrickPlay] -&gt; Value
 CmafImageBasedTrickPlay -&gt; Encoding
 CmafImageBasedTrickPlay -&gt; Value
@@ -264,7 +264,7 @@ $ctoEncoding :: CmafImageBasedTrickPlay -&gt; Encoding
 toJSON :: CmafImageBasedTrickPlay -&gt; Value
 $ctoJSON :: CmafImageBasedTrickPlay -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span id="local-6989586621679942942"><span id="local-6989586621679942944"><span class="annot"><span class="annottext">ToJSONKeyFunction [CmafImageBasedTrickPlay]
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679947565"><span id="local-6989586621679947567"><span class="annot"><span class="annottext">ToJSONKeyFunction [CmafImageBasedTrickPlay]
 ToJSONKeyFunction CmafImageBasedTrickPlay
 ToJSONKeyFunction CmafImageBasedTrickPlay
 -&gt; ToJSONKeyFunction [CmafImageBasedTrickPlay]
@@ -276,14 +276,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CmafImageBasedTrickPlay]
 toJSONKey :: ToJSONKeyFunction CmafImageBasedTrickPlay
 $ctoJSONKey :: ToJSONKeyFunction CmafImageBasedTrickPlay
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span id="local-6989586621679942939"><span class="annot"><span class="annottext">[Node] -&gt; Either String CmafImageBasedTrickPlay
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679947562"><span class="annot"><span class="annottext">[Node] -&gt; Either String CmafImageBasedTrickPlay
 ([Node] -&gt; Either String CmafImageBasedTrickPlay)
 -&gt; FromXML CmafImageBasedTrickPlay
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CmafImageBasedTrickPlay
 $cparseXML :: [Node] -&gt; Either String CmafImageBasedTrickPlay
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span id="local-6989586621679942936"><span class="annot"><span class="annottext">CmafImageBasedTrickPlay -&gt; XML
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679947559"><span class="annot"><span class="annottext">CmafImageBasedTrickPlay -&gt; XML
 (CmafImageBasedTrickPlay -&gt; XML) -&gt; ToXML CmafImageBasedTrickPlay
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CmafImageBasedTrickPlay -&gt; XML

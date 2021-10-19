@@ -27,27 +27,27 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The job execution summary.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newJobExecutionSummary' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679786991"><span id="local-6989586621679786992"></span></span><span class="hs-keyword">data</span><span> </span><span id="JobExecutionSummary"><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary"><span class="hs-identifier hs-var">JobExecutionSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobExecutionSummary%27"><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary%27"><span class="hs-identifier hs-var">JobExecutionSummary'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time, in seconds since the epoch, when the job execution started.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3AstartedAt%3AJobExecutionSummary%27"><span class="annot"><span class="annottext">JobExecutionSummary -&gt; Maybe POSIX
-</span><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#%24sel%3AstartedAt%3AJobExecutionSummary%27"><span class="hs-identifier hs-var hs-var">startedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The status of the job execution.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3Astatus%3AJobExecutionSummary%27"><span class="annot"><span class="annottext">JobExecutionSummary -&gt; Maybe JobExecutionStatus
+</span><span id="line-30"></span><span id="local-6989586621679787846"><span id="local-6989586621679787847"></span></span><span class="hs-keyword">data</span><span> </span><span id="JobExecutionSummary"><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary"><span class="hs-identifier hs-var">JobExecutionSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobExecutionSummary%27"><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary%27"><span class="hs-identifier hs-var">JobExecutionSummary'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the job execution.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Astatus%3AJobExecutionSummary%27"><span class="annot"><span class="annottext">JobExecutionSummary -&gt; Maybe JobExecutionStatus
 </span><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#%24sel%3Astatus%3AJobExecutionSummary%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionStatus.html#JobExecutionStatus"><span class="hs-identifier hs-type">JobExecutionStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The time, in seconds since the epoch, when the job execution was queued.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AqueuedAt%3AJobExecutionSummary%27"><span class="annot"><span class="annottext">JobExecutionSummary -&gt; Maybe POSIX
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The time, in seconds since the epoch, when the job execution was last</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- updated.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AlastUpdatedAt%3AJobExecutionSummary%27"><span class="annot"><span class="annottext">JobExecutionSummary -&gt; Maybe POSIX
+</span><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#%24sel%3AlastUpdatedAt%3AJobExecutionSummary%27"><span class="hs-identifier hs-var hs-var">lastUpdatedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The time, in seconds since the epoch, when the job execution was queued.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AqueuedAt%3AJobExecutionSummary%27"><span class="annot"><span class="annottext">JobExecutionSummary -&gt; Maybe POSIX
 </span><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#%24sel%3AqueuedAt%3AJobExecutionSummary%27"><span class="hs-identifier hs-var hs-var">queuedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | A string (consisting of the digits \&quot;0\&quot; through \&quot;9\&quot;) which identifies</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- this particular job execution on this particular device. It can be used</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- later in commands which return or update job execution information.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AexecutionNumber%3AJobExecutionSummary%27"><span class="annot"><span class="annottext">JobExecutionSummary -&gt; Maybe Integer
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | A string (consisting of the digits \&quot;0\&quot; through \&quot;9\&quot;) which identifies</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- this particular job execution on this particular device. It can be used</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- later in commands which return or update job execution information.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AexecutionNumber%3AJobExecutionSummary%27"><span class="annot"><span class="annottext">JobExecutionSummary -&gt; Maybe Integer
 </span><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#%24sel%3AexecutionNumber%3AJobExecutionSummary%27"><span class="hs-identifier hs-var hs-var">executionNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The time, in seconds since the epoch, when the job execution was last</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- updated.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AlastUpdatedAt%3AJobExecutionSummary%27"><span class="annot"><span class="annottext">JobExecutionSummary -&gt; Maybe POSIX
-</span><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#%24sel%3AlastUpdatedAt%3AJobExecutionSummary%27"><span class="hs-identifier hs-var hs-var">lastUpdatedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The time, in seconds since the epoch, when the job execution started.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AstartedAt%3AJobExecutionSummary%27"><span class="annot"><span class="annottext">JobExecutionSummary -&gt; Maybe POSIX
+</span><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#%24sel%3AstartedAt%3AJobExecutionSummary%27"><span class="hs-identifier hs-var hs-var">startedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679786981"><span id="local-6989586621679786983"><span class="annot"><span class="annottext">JobExecutionSummary -&gt; JobExecutionSummary -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679787836"><span id="local-6989586621679787838"><span class="annot"><span class="annottext">JobExecutionSummary -&gt; JobExecutionSummary -&gt; Bool
 (JobExecutionSummary -&gt; JobExecutionSummary -&gt; Bool)
 -&gt; (JobExecutionSummary -&gt; JobExecutionSummary -&gt; Bool)
 -&gt; Eq JobExecutionSummary
@@ -56,7 +56,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: JobExecutionSummary -&gt; JobExecutionSummary -&gt; Bool
 == :: JobExecutionSummary -&gt; JobExecutionSummary -&gt; Bool
 $c== :: JobExecutionSummary -&gt; JobExecutionSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679786972"><span id="local-6989586621679786974"><span id="local-6989586621679786976"><span id="local-6989586621679786978"><span class="annot"><span class="annottext">ReadPrec [JobExecutionSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679787827"><span id="local-6989586621679787829"><span id="local-6989586621679787831"><span id="local-6989586621679787833"><span class="annot"><span class="annottext">ReadPrec [JobExecutionSummary]
 ReadPrec JobExecutionSummary
 Int -&gt; ReadS JobExecutionSummary
 ReadS [JobExecutionSummary]
@@ -76,7 +76,7 @@ readList :: ReadS [JobExecutionSummary]
 $creadList :: ReadS [JobExecutionSummary]
 readsPrec :: Int -&gt; ReadS JobExecutionSummary
 $creadsPrec :: Int -&gt; ReadS JobExecutionSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679786965"><span id="local-6989586621679786967"><span id="local-6989586621679786969"><span class="annot"><span class="annottext">Int -&gt; JobExecutionSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679787820"><span id="local-6989586621679787822"><span id="local-6989586621679787824"><span class="annot"><span class="annottext">Int -&gt; JobExecutionSummary -&gt; ShowS
 [JobExecutionSummary] -&gt; ShowS
 JobExecutionSummary -&gt; String
 (Int -&gt; JobExecutionSummary -&gt; ShowS)
@@ -110,35 +110,35 @@ $cfrom :: forall x. JobExecutionSummary -&gt; Rep JobExecutionSummary x
 </span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'startedAt', 'jobExecutionSummary_startedAt' - The time, in seconds since the epoch, when the job execution started.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'status', 'jobExecutionSummary_status' - The status of the job execution.</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'status', 'jobExecutionSummary_status' - The status of the job execution.</span><span>
-</span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'queuedAt', 'jobExecutionSummary_queuedAt' - The time, in seconds since the epoch, when the job execution was queued.</span><span>
-</span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'executionNumber', 'jobExecutionSummary_executionNumber' - A string (consisting of the digits \&quot;0\&quot; through \&quot;9\&quot;) which identifies</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- this particular job execution on this particular device. It can be used</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- later in commands which return or update job execution information.</span><span>
-</span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'lastUpdatedAt', 'jobExecutionSummary_lastUpdatedAt' - The time, in seconds since the epoch, when the job execution was last</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- updated.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'lastUpdatedAt', 'jobExecutionSummary_lastUpdatedAt' - The time, in seconds since the epoch, when the job execution was last</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- updated.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'queuedAt', 'jobExecutionSummary_queuedAt' - The time, in seconds since the epoch, when the job execution was queued.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'executionNumber', 'jobExecutionSummary_executionNumber' - A string (consisting of the digits \&quot;0\&quot; through \&quot;9\&quot;) which identifies</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- this particular job execution on this particular device. It can be used</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- later in commands which return or update job execution information.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'startedAt', 'jobExecutionSummary_startedAt' - The time, in seconds since the epoch, when the job execution started.</span><span>
 </span><span id="line-67"></span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#newJobExecutionSummary"><span class="hs-identifier hs-type">newJobExecutionSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary"><span class="hs-identifier hs-type">JobExecutionSummary</span></a></span><span>
 </span><span id="line-69"></span><span id="newJobExecutionSummary"><span class="annot"><span class="annottext">newJobExecutionSummary :: JobExecutionSummary
 </span><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#newJobExecutionSummary"><span class="hs-identifier hs-var hs-var">newJobExecutionSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">JobExecutionSummary' :: Maybe POSIX
--&gt; Maybe JobExecutionStatus
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">JobExecutionSummary' :: Maybe JobExecutionStatus
+-&gt; Maybe POSIX
 -&gt; Maybe POSIX
 -&gt; Maybe Integer
 -&gt; Maybe POSIX
 -&gt; JobExecutionSummary
 </span><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary%27"><span class="hs-identifier hs-type">JobExecutionSummary'</span></a></span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:startedAt:JobExecutionSummary' :: Maybe POSIX
-</span><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#%24sel%3AstartedAt%3AJobExecutionSummary%27"><span class="hs-identifier hs-var">startedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:JobExecutionSummary' :: Maybe JobExecutionStatus
+</span><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#%24sel%3Astatus%3AJobExecutionSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobExecutionStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:JobExecutionSummary' :: Maybe JobExecutionStatus
-</span><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#%24sel%3Astatus%3AJobExecutionSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobExecutionStatus
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdatedAt:JobExecutionSummary' :: Maybe POSIX
+</span><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#%24sel%3AlastUpdatedAt%3AJobExecutionSummary%27"><span class="hs-identifier hs-var">lastUpdatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:queuedAt:JobExecutionSummary' :: Maybe POSIX
@@ -149,50 +149,15 @@ forall a. Maybe a
 </span><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#%24sel%3AexecutionNumber%3AJobExecutionSummary%27"><span class="hs-identifier hs-var">executionNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdatedAt:JobExecutionSummary' :: Maybe POSIX
-</span><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#%24sel%3AlastUpdatedAt%3AJobExecutionSummary%27"><span class="hs-identifier hs-var">lastUpdatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:startedAt:JobExecutionSummary' :: Maybe POSIX
+</span><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#%24sel%3AstartedAt%3AJobExecutionSummary%27"><span class="hs-identifier hs-var">startedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- | The time, in seconds since the epoch, when the job execution started.</span><span>
-</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#jobExecutionSummary_startedAt"><span class="hs-identifier hs-type">jobExecutionSummary_startedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary"><span class="hs-identifier hs-type">JobExecutionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span id="jobExecutionSummary_startedAt"><span class="annot"><span class="annottext">jobExecutionSummary_startedAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; JobExecutionSummary -&gt; f JobExecutionSummary
-</span><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#jobExecutionSummary_startedAt"><span class="hs-identifier hs-var hs-var">jobExecutionSummary_startedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobExecutionSummary -&gt; Maybe POSIX)
--&gt; (JobExecutionSummary -&gt; Maybe POSIX -&gt; JobExecutionSummary)
--&gt; Lens
-     JobExecutionSummary JobExecutionSummary (Maybe POSIX) (Maybe POSIX)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary%27"><span class="hs-identifier hs-type">JobExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679786956"><span class="annot"><span class="annottext">Maybe POSIX
-startedAt :: Maybe POSIX
-$sel:startedAt:JobExecutionSummary' :: JobExecutionSummary -&gt; Maybe POSIX
-</span><a href="#local-6989586621679786956"><span class="hs-identifier hs-var hs-var">startedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679786956"><span class="hs-identifier hs-var">startedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679786955"><span class="annot"><span class="annottext">s :: JobExecutionSummary
-</span><a href="#local-6989586621679786955"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary%27"><span class="hs-identifier hs-type">JobExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679786954"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679786954"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobExecutionSummary
-</span><a href="#local-6989586621679786955"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startedAt:JobExecutionSummary' :: Maybe POSIX
-</span><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#%24sel%3AstartedAt%3AJobExecutionSummary%27"><span class="hs-identifier hs-var">startedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679786954"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary"><span class="hs-identifier hs-type">JobExecutionSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
- -&gt; JobExecutionSummary -&gt; f JobExecutionSummary)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; JobExecutionSummary
--&gt; f JobExecutionSummary
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- | The status of the job execution.</span><span>
-</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#jobExecutionSummary_status"><span class="hs-identifier hs-type">jobExecutionSummary_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary"><span class="hs-identifier hs-type">JobExecutionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionStatus.html#JobExecutionStatus"><span class="hs-identifier hs-type">JobExecutionStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span id="jobExecutionSummary_status"><span class="annot"><span class="annottext">jobExecutionSummary_status :: (Maybe JobExecutionStatus -&gt; f (Maybe JobExecutionStatus))
+</span><span id="line-78"></span><span class="hs-comment">-- | The status of the job execution.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#jobExecutionSummary_status"><span class="hs-identifier hs-type">jobExecutionSummary_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary"><span class="hs-identifier hs-type">JobExecutionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionStatus.html#JobExecutionStatus"><span class="hs-identifier hs-type">JobExecutionStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="jobExecutionSummary_status"><span class="annot"><span class="annottext">jobExecutionSummary_status :: (Maybe JobExecutionStatus -&gt; f (Maybe JobExecutionStatus))
 -&gt; JobExecutionSummary -&gt; f JobExecutionSummary
 </span><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#jobExecutionSummary_status"><span class="hs-identifier hs-var hs-var">jobExecutionSummary_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobExecutionSummary -&gt; Maybe JobExecutionStatus)
 -&gt; (JobExecutionSummary
@@ -203,36 +168,37 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe JobExecutionStatus)
      (Maybe JobExecutionStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary%27"><span class="hs-identifier hs-type">JobExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679786949"><span class="annot"><span class="annottext">Maybe JobExecutionStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary%27"><span class="hs-identifier hs-type">JobExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679787811"><span class="annot"><span class="annottext">Maybe JobExecutionStatus
 status :: Maybe JobExecutionStatus
 $sel:status:JobExecutionSummary' :: JobExecutionSummary -&gt; Maybe JobExecutionStatus
-</span><a href="#local-6989586621679786949"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobExecutionStatus
-</span><a href="#local-6989586621679786949"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679786948"><span class="annot"><span class="annottext">s :: JobExecutionSummary
-</span><a href="#local-6989586621679786948"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary%27"><span class="hs-identifier hs-type">JobExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679786947"><span class="annot"><span class="annottext">Maybe JobExecutionStatus
-</span><a href="#local-6989586621679786947"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobExecutionSummary
-</span><a href="#local-6989586621679786948"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:JobExecutionSummary' :: Maybe JobExecutionStatus
+</span><a href="#local-6989586621679787811"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobExecutionStatus
+</span><a href="#local-6989586621679787811"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679787810"><span class="annot"><span class="annottext">s :: JobExecutionSummary
+</span><a href="#local-6989586621679787810"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary%27"><span class="hs-identifier hs-type">JobExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679787809"><span class="annot"><span class="annottext">Maybe JobExecutionStatus
+</span><a href="#local-6989586621679787809"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobExecutionSummary
+</span><a href="#local-6989586621679787810"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:JobExecutionSummary' :: Maybe JobExecutionStatus
 </span><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#%24sel%3Astatus%3AJobExecutionSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobExecutionStatus
-</span><a href="#local-6989586621679786947"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary"><span class="hs-identifier hs-type">JobExecutionSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- | The time, in seconds since the epoch, when the job execution was queued.</span><span>
-</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#jobExecutionSummary_queuedAt"><span class="hs-identifier hs-type">jobExecutionSummary_queuedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary"><span class="hs-identifier hs-type">JobExecutionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span id="jobExecutionSummary_queuedAt"><span class="annot"><span class="annottext">jobExecutionSummary_queuedAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><a href="#local-6989586621679787809"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary"><span class="hs-identifier hs-type">JobExecutionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The time, in seconds since the epoch, when the job execution was last</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- updated.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#jobExecutionSummary_lastUpdatedAt"><span class="hs-identifier hs-type">jobExecutionSummary_lastUpdatedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary"><span class="hs-identifier hs-type">JobExecutionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="jobExecutionSummary_lastUpdatedAt"><span class="annot"><span class="annottext">jobExecutionSummary_lastUpdatedAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; JobExecutionSummary -&gt; f JobExecutionSummary
-</span><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#jobExecutionSummary_queuedAt"><span class="hs-identifier hs-var hs-var">jobExecutionSummary_queuedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobExecutionSummary -&gt; Maybe POSIX)
+</span><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#jobExecutionSummary_lastUpdatedAt"><span class="hs-identifier hs-var hs-var">jobExecutionSummary_lastUpdatedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobExecutionSummary -&gt; Maybe POSIX)
 -&gt; (JobExecutionSummary -&gt; Maybe POSIX -&gt; JobExecutionSummary)
 -&gt; Lens
      JobExecutionSummary JobExecutionSummary (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary%27"><span class="hs-identifier hs-type">JobExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679786945"><span class="annot"><span class="annottext">Maybe POSIX
-queuedAt :: Maybe POSIX
-$sel:queuedAt:JobExecutionSummary' :: JobExecutionSummary -&gt; Maybe POSIX
-</span><a href="#local-6989586621679786945"><span class="hs-identifier hs-var hs-var">queuedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679786945"><span class="hs-identifier hs-var">queuedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679786944"><span class="annot"><span class="annottext">s :: JobExecutionSummary
-</span><a href="#local-6989586621679786944"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary%27"><span class="hs-identifier hs-type">JobExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679786943"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679786943"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobExecutionSummary
-</span><a href="#local-6989586621679786944"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queuedAt:JobExecutionSummary' :: Maybe POSIX
-</span><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#%24sel%3AqueuedAt%3AJobExecutionSummary%27"><span class="hs-identifier hs-var">queuedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679786943"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary"><span class="hs-identifier hs-type">JobExecutionSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary%27"><span class="hs-identifier hs-type">JobExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679787807"><span class="annot"><span class="annottext">Maybe POSIX
+lastUpdatedAt :: Maybe POSIX
+$sel:lastUpdatedAt:JobExecutionSummary' :: JobExecutionSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621679787807"><span class="hs-identifier hs-var hs-var">lastUpdatedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679787807"><span class="hs-identifier hs-var">lastUpdatedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679787806"><span class="annot"><span class="annottext">s :: JobExecutionSummary
+</span><a href="#local-6989586621679787806"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary%27"><span class="hs-identifier hs-type">JobExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679787805"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679787805"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobExecutionSummary
+</span><a href="#local-6989586621679787806"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedAt:JobExecutionSummary' :: Maybe POSIX
+</span><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#%24sel%3AlastUpdatedAt%3AJobExecutionSummary%27"><span class="hs-identifier hs-var">lastUpdatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679787805"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary"><span class="hs-identifier hs-type">JobExecutionSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; JobExecutionSummary -&gt; f JobExecutionSummary)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -248,12 +214,47 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- | A string (consisting of the digits \&quot;0\&quot; through \&quot;9\&quot;) which identifies</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- this particular job execution on this particular device. It can be used</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- later in commands which return or update job execution information.</span><span>
-</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#jobExecutionSummary_executionNumber"><span class="hs-identifier hs-type">jobExecutionSummary_executionNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary"><span class="hs-identifier hs-type">JobExecutionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span id="jobExecutionSummary_executionNumber"><span class="annot"><span class="annottext">jobExecutionSummary_executionNumber :: (Maybe Integer -&gt; f (Maybe Integer))
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The time, in seconds since the epoch, when the job execution was queued.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#jobExecutionSummary_queuedAt"><span class="hs-identifier hs-type">jobExecutionSummary_queuedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary"><span class="hs-identifier hs-type">JobExecutionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="jobExecutionSummary_queuedAt"><span class="annot"><span class="annottext">jobExecutionSummary_queuedAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; JobExecutionSummary -&gt; f JobExecutionSummary
+</span><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#jobExecutionSummary_queuedAt"><span class="hs-identifier hs-var hs-var">jobExecutionSummary_queuedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobExecutionSummary -&gt; Maybe POSIX)
+-&gt; (JobExecutionSummary -&gt; Maybe POSIX -&gt; JobExecutionSummary)
+-&gt; Lens
+     JobExecutionSummary JobExecutionSummary (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary%27"><span class="hs-identifier hs-type">JobExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679787800"><span class="annot"><span class="annottext">Maybe POSIX
+queuedAt :: Maybe POSIX
+$sel:queuedAt:JobExecutionSummary' :: JobExecutionSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621679787800"><span class="hs-identifier hs-var hs-var">queuedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679787800"><span class="hs-identifier hs-var">queuedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679787799"><span class="annot"><span class="annottext">s :: JobExecutionSummary
+</span><a href="#local-6989586621679787799"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary%27"><span class="hs-identifier hs-type">JobExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679787798"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679787798"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobExecutionSummary
+</span><a href="#local-6989586621679787799"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queuedAt:JobExecutionSummary' :: Maybe POSIX
+</span><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#%24sel%3AqueuedAt%3AJobExecutionSummary%27"><span class="hs-identifier hs-var">queuedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679787798"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary"><span class="hs-identifier hs-type">JobExecutionSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; JobExecutionSummary -&gt; f JobExecutionSummary)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; JobExecutionSummary
+-&gt; f JobExecutionSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | A string (consisting of the digits \&quot;0\&quot; through \&quot;9\&quot;) which identifies</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- this particular job execution on this particular device. It can be used</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- later in commands which return or update job execution information.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#jobExecutionSummary_executionNumber"><span class="hs-identifier hs-type">jobExecutionSummary_executionNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary"><span class="hs-identifier hs-type">JobExecutionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="jobExecutionSummary_executionNumber"><span class="annot"><span class="annottext">jobExecutionSummary_executionNumber :: (Maybe Integer -&gt; f (Maybe Integer))
 -&gt; JobExecutionSummary -&gt; f JobExecutionSummary
 </span><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#jobExecutionSummary_executionNumber"><span class="hs-identifier hs-var hs-var">jobExecutionSummary_executionNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobExecutionSummary -&gt; Maybe Integer)
 -&gt; (JobExecutionSummary -&gt; Maybe Integer -&gt; JobExecutionSummary)
@@ -263,37 +264,36 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe Integer)
      (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary%27"><span class="hs-identifier hs-type">JobExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679786941"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary%27"><span class="hs-identifier hs-type">JobExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679787796"><span class="annot"><span class="annottext">Maybe Integer
 executionNumber :: Maybe Integer
 $sel:executionNumber:JobExecutionSummary' :: JobExecutionSummary -&gt; Maybe Integer
-</span><a href="#local-6989586621679786941"><span class="hs-identifier hs-var hs-var">executionNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679786941"><span class="hs-identifier hs-var">executionNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679786940"><span class="annot"><span class="annottext">s :: JobExecutionSummary
-</span><a href="#local-6989586621679786940"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary%27"><span class="hs-identifier hs-type">JobExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679786939"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679786939"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobExecutionSummary
-</span><a href="#local-6989586621679786940"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executionNumber:JobExecutionSummary' :: Maybe Integer
+</span><a href="#local-6989586621679787796"><span class="hs-identifier hs-var hs-var">executionNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679787796"><span class="hs-identifier hs-var">executionNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679787795"><span class="annot"><span class="annottext">s :: JobExecutionSummary
+</span><a href="#local-6989586621679787795"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary%27"><span class="hs-identifier hs-type">JobExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679787794"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679787794"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobExecutionSummary
+</span><a href="#local-6989586621679787795"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executionNumber:JobExecutionSummary' :: Maybe Integer
 </span><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#%24sel%3AexecutionNumber%3AJobExecutionSummary%27"><span class="hs-identifier hs-var">executionNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679786939"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary"><span class="hs-identifier hs-type">JobExecutionSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- | The time, in seconds since the epoch, when the job execution was last</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- updated.</span><span>
-</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#jobExecutionSummary_lastUpdatedAt"><span class="hs-identifier hs-type">jobExecutionSummary_lastUpdatedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary"><span class="hs-identifier hs-type">JobExecutionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span id="jobExecutionSummary_lastUpdatedAt"><span class="annot"><span class="annottext">jobExecutionSummary_lastUpdatedAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><a href="#local-6989586621679787794"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary"><span class="hs-identifier hs-type">JobExecutionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The time, in seconds since the epoch, when the job execution started.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#jobExecutionSummary_startedAt"><span class="hs-identifier hs-type">jobExecutionSummary_startedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary"><span class="hs-identifier hs-type">JobExecutionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="jobExecutionSummary_startedAt"><span class="annot"><span class="annottext">jobExecutionSummary_startedAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; JobExecutionSummary -&gt; f JobExecutionSummary
-</span><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#jobExecutionSummary_lastUpdatedAt"><span class="hs-identifier hs-var hs-var">jobExecutionSummary_lastUpdatedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobExecutionSummary -&gt; Maybe POSIX)
+</span><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#jobExecutionSummary_startedAt"><span class="hs-identifier hs-var hs-var">jobExecutionSummary_startedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobExecutionSummary -&gt; Maybe POSIX)
 -&gt; (JobExecutionSummary -&gt; Maybe POSIX -&gt; JobExecutionSummary)
 -&gt; Lens
      JobExecutionSummary JobExecutionSummary (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary%27"><span class="hs-identifier hs-type">JobExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679786937"><span class="annot"><span class="annottext">Maybe POSIX
-lastUpdatedAt :: Maybe POSIX
-$sel:lastUpdatedAt:JobExecutionSummary' :: JobExecutionSummary -&gt; Maybe POSIX
-</span><a href="#local-6989586621679786937"><span class="hs-identifier hs-var hs-var">lastUpdatedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679786937"><span class="hs-identifier hs-var">lastUpdatedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679786936"><span class="annot"><span class="annottext">s :: JobExecutionSummary
-</span><a href="#local-6989586621679786936"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary%27"><span class="hs-identifier hs-type">JobExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679786935"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679786935"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobExecutionSummary
-</span><a href="#local-6989586621679786936"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedAt:JobExecutionSummary' :: Maybe POSIX
-</span><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#%24sel%3AlastUpdatedAt%3AJobExecutionSummary%27"><span class="hs-identifier hs-var">lastUpdatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679786935"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary"><span class="hs-identifier hs-type">JobExecutionSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary%27"><span class="hs-identifier hs-type">JobExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679787792"><span class="annot"><span class="annottext">Maybe POSIX
+startedAt :: Maybe POSIX
+$sel:startedAt:JobExecutionSummary' :: JobExecutionSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621679787792"><span class="hs-identifier hs-var hs-var">startedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679787792"><span class="hs-identifier hs-var">startedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679787791"><span class="annot"><span class="annottext">s :: JobExecutionSummary
+</span><a href="#local-6989586621679787791"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary%27"><span class="hs-identifier hs-type">JobExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679787790"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679787790"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobExecutionSummary
+</span><a href="#local-6989586621679787791"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startedAt:JobExecutionSummary' :: Maybe POSIX
+</span><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#%24sel%3AstartedAt%3AJobExecutionSummary%27"><span class="hs-identifier hs-var">startedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679787790"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary"><span class="hs-identifier hs-type">JobExecutionSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; JobExecutionSummary -&gt; f JobExecutionSummary)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -310,8 +310,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679786932"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary"><span class="hs-identifier hs-type">JobExecutionSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679786930"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JobExecutionSummary
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679787787"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary"><span class="hs-identifier hs-type">JobExecutionSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679787785"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JobExecutionSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser JobExecutionSummary)
@@ -321,50 +321,50 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;JobExecutionSummary&quot;</span></span><span>
-</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679786927"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679786927"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
--&gt; Maybe JobExecutionStatus
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679787782"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679787782"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Maybe JobExecutionStatus
+-&gt; Maybe POSIX
 -&gt; Maybe POSIX
 -&gt; Maybe Integer
 -&gt; Maybe POSIX
 -&gt; JobExecutionSummary
 </span><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary%27"><span class="hs-identifier hs-var">JobExecutionSummary'</span></a></span><span>
-</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
- -&gt; Maybe JobExecutionStatus
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">(Maybe JobExecutionStatus
+ -&gt; Maybe POSIX
  -&gt; Maybe POSIX
  -&gt; Maybe Integer
  -&gt; Maybe POSIX
  -&gt; JobExecutionSummary)
--&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe JobExecutionStatus)
 -&gt; Parser
-     (Maybe JobExecutionStatus
+     (Maybe POSIX
       -&gt; Maybe POSIX
       -&gt; Maybe Integer
       -&gt; Maybe POSIX
       -&gt; JobExecutionSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679786927"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679787782"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe JobExecutionStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;startedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe JobExecutionStatus
+  (Maybe POSIX
    -&gt; Maybe POSIX
    -&gt; Maybe Integer
    -&gt; Maybe POSIX
    -&gt; JobExecutionSummary)
--&gt; Parser (Maybe JobExecutionStatus)
+-&gt; Parser (Maybe POSIX)
 -&gt; Parser
      (Maybe POSIX
       -&gt; Maybe Integer -&gt; Maybe POSIX -&gt; JobExecutionSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679786927"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe JobExecutionStatus)
+</span><a href="#local-6989586621679787782"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;lastUpdatedAt&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe POSIX
    -&gt; Maybe Integer -&gt; Maybe POSIX -&gt; JobExecutionSummary)
@@ -372,7 +372,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Integer -&gt; Maybe POSIX -&gt; JobExecutionSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679786927"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679787782"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;queuedAt&quot;</span></span><span class="hs-special">)</span><span>
@@ -381,7 +381,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe POSIX -&gt; JobExecutionSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679786927"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679787782"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;executionNumber&quot;</span></span><span class="hs-special">)</span><span>
@@ -389,13 +389,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe POSIX) -&gt; Parser JobExecutionSummary
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679786927"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679787782"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;lastUpdatedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;startedAt&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679786921"><span id="local-6989586621679786923"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary"><span class="hs-identifier hs-type">JobExecutionSummary</span></a></span></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679787776"><span id="local-6989586621679787778"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary"><span class="hs-identifier hs-type">JobExecutionSummary</span></a></span></span></span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679786918"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary"><span class="hs-identifier hs-type">JobExecutionSummary</span></a></span></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679787773"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionSummary.html#JobExecutionSummary"><span class="hs-identifier hs-type">JobExecutionSummary</span></a></span></span><span>
 </span><span id="line-117"></span></pre></body></html>

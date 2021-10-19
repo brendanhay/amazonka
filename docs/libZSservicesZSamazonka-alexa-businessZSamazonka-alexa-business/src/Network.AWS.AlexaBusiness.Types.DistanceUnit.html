@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679366190"><span id="local-6989586621679366191"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DistanceUnit"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DistanceUnit.html#DistanceUnit"><span class="hs-identifier hs-var">DistanceUnit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DistanceUnit%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DistanceUnit.html#DistanceUnit%27"><span class="hs-identifier hs-var">DistanceUnit'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679366501"><span id="local-6989586621679366502"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DistanceUnit"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DistanceUnit.html#DistanceUnit"><span class="hs-identifier hs-var">DistanceUnit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DistanceUnit%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DistanceUnit.html#DistanceUnit%27"><span class="hs-identifier hs-var">DistanceUnit'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDistanceUnit"><span class="annot"><span class="annottext">DistanceUnit -&gt; Text
 </span><a href="Network.AWS.AlexaBusiness.Types.DistanceUnit.html#fromDistanceUnit"><span class="hs-identifier hs-var hs-var">fromDistanceUnit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679366182"><span id="local-6989586621679366184"><span id="local-6989586621679366186"><span class="annot"><span class="annottext">Int -&gt; DistanceUnit -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679366493"><span id="local-6989586621679366495"><span id="local-6989586621679366497"><span class="annot"><span class="annottext">Int -&gt; DistanceUnit -&gt; ShowS
 [DistanceUnit] -&gt; ShowS
 DistanceUnit -&gt; String
 (Int -&gt; DistanceUnit -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: DistanceUnit -&gt; String
 showsPrec :: Int -&gt; DistanceUnit -&gt; ShowS
 $cshowsPrec :: Int -&gt; DistanceUnit -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679366173"><span id="local-6989586621679366175"><span id="local-6989586621679366177"><span id="local-6989586621679366179"><span class="annot"><span class="annottext">ReadPrec [DistanceUnit]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679366484"><span id="local-6989586621679366486"><span id="local-6989586621679366488"><span id="local-6989586621679366490"><span class="annot"><span class="annottext">ReadPrec [DistanceUnit]
 ReadPrec DistanceUnit
 Int -&gt; ReadS DistanceUnit
 ReadS [DistanceUnit]
@@ -72,7 +72,7 @@ $creadList :: ReadS [DistanceUnit]
 readsPrec :: Int -&gt; ReadS DistanceUnit
 $creadsPrec :: Int -&gt; ReadS DistanceUnit
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679366168"><span id="local-6989586621679366170"><span class="annot"><span class="annottext">DistanceUnit -&gt; DistanceUnit -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679366479"><span id="local-6989586621679366481"><span class="annot"><span class="annottext">DistanceUnit -&gt; DistanceUnit -&gt; Bool
 (DistanceUnit -&gt; DistanceUnit -&gt; Bool)
 -&gt; (DistanceUnit -&gt; DistanceUnit -&gt; Bool) -&gt; Eq DistanceUnit
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: DistanceUnit -&gt; DistanceUnit -&gt; Bool
 == :: DistanceUnit -&gt; DistanceUnit -&gt; Bool
 $c== :: DistanceUnit -&gt; DistanceUnit -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679366152"><span id="local-6989586621679366154"><span id="local-6989586621679366156"><span id="local-6989586621679366158"><span id="local-6989586621679366160"><span id="local-6989586621679366162"><span id="local-6989586621679366164"><span class="annot"><span class="annottext">Eq DistanceUnit
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679366463"><span id="local-6989586621679366465"><span id="local-6989586621679366467"><span id="local-6989586621679366469"><span id="local-6989586621679366471"><span id="local-6989586621679366473"><span id="local-6989586621679366475"><span class="annot"><span class="annottext">Eq DistanceUnit
 Eq DistanceUnit
 -&gt; (DistanceUnit -&gt; DistanceUnit -&gt; Ordering)
 -&gt; (DistanceUnit -&gt; DistanceUnit -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. DistanceUnit -&gt; Rep DistanceUnit x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679366144"><span id="local-6989586621679366146"><span class="annot"><span class="annottext">Int -&gt; DistanceUnit -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679366455"><span id="local-6989586621679366457"><span class="annot"><span class="annottext">Int -&gt; DistanceUnit -&gt; Int
 DistanceUnit -&gt; Int
 (Int -&gt; DistanceUnit -&gt; Int)
 -&gt; (DistanceUnit -&gt; Int) -&gt; Hashable DistanceUnit
@@ -142,49 +142,49 @@ $chash :: DistanceUnit -&gt; Int
 hashWithSalt :: Int -&gt; DistanceUnit -&gt; Int
 $chashWithSalt :: Int -&gt; DistanceUnit -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679366141"><span class="annot"><span class="annottext">DistanceUnit -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679366452"><span class="annot"><span class="annottext">DistanceUnit -&gt; ()
 (DistanceUnit -&gt; ()) -&gt; NFData DistanceUnit
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DistanceUnit -&gt; ()
 $crnf :: DistanceUnit -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679366138"><span class="annot"><span class="annottext">Text -&gt; Either String DistanceUnit
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679366449"><span class="annot"><span class="annottext">Text -&gt; Either String DistanceUnit
 (Text -&gt; Either String DistanceUnit) -&gt; FromText DistanceUnit
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DistanceUnit
 $cfromText :: Text -&gt; Either String DistanceUnit
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679366135"><span class="annot"><span class="annottext">DistanceUnit -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679366446"><span class="annot"><span class="annottext">DistanceUnit -&gt; Text
 (DistanceUnit -&gt; Text) -&gt; ToText DistanceUnit
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DistanceUnit -&gt; Text
 $ctoText :: DistanceUnit -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679366132"><span class="annot"><span class="annottext">DistanceUnit -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679366443"><span class="annot"><span class="annottext">DistanceUnit -&gt; ByteString
 (DistanceUnit -&gt; ByteString) -&gt; ToByteString DistanceUnit
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DistanceUnit -&gt; ByteString
 $ctoBS :: DistanceUnit -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679366129"><span class="annot"><span class="annottext">DistanceUnit -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679366440"><span class="annot"><span class="annottext">DistanceUnit -&gt; ByteStringBuilder
 (DistanceUnit -&gt; ByteStringBuilder) -&gt; ToLog DistanceUnit
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DistanceUnit -&gt; ByteStringBuilder
 $cbuild :: DistanceUnit -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679366126"><span class="annot"><span class="annottext">HeaderName -&gt; DistanceUnit -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679366437"><span class="annot"><span class="annottext">HeaderName -&gt; DistanceUnit -&gt; [Header]
 (HeaderName -&gt; DistanceUnit -&gt; [Header]) -&gt; ToHeader DistanceUnit
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DistanceUnit -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DistanceUnit -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679366123"><span class="annot"><span class="annottext">DistanceUnit -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679366434"><span class="annot"><span class="annottext">DistanceUnit -&gt; QueryString
 (DistanceUnit -&gt; QueryString) -&gt; ToQuery DistanceUnit
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DistanceUnit -&gt; QueryString
 $ctoQuery :: DistanceUnit -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679366118"><span id="local-6989586621679366120"><span class="annot"><span class="annottext">Value -&gt; Parser [DistanceUnit]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679366429"><span id="local-6989586621679366431"><span class="annot"><span class="annottext">Value -&gt; Parser [DistanceUnit]
 Value -&gt; Parser DistanceUnit
 (Value -&gt; Parser DistanceUnit)
 -&gt; (Value -&gt; Parser [DistanceUnit]) -&gt; FromJSON DistanceUnit
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [DistanceUnit]
 parseJSON :: Value -&gt; Parser DistanceUnit
 $cparseJSON :: Value -&gt; Parser DistanceUnit
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679366113"><span id="local-6989586621679366115"><span class="annot"><span class="annottext">FromJSONKeyFunction [DistanceUnit]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679366424"><span id="local-6989586621679366426"><span class="annot"><span class="annottext">FromJSONKeyFunction [DistanceUnit]
 FromJSONKeyFunction DistanceUnit
 FromJSONKeyFunction DistanceUnit
 -&gt; FromJSONKeyFunction [DistanceUnit] -&gt; FromJSONKey DistanceUnit
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DistanceUnit]
 fromJSONKey :: FromJSONKeyFunction DistanceUnit
 $cfromJSONKey :: FromJSONKeyFunction DistanceUnit
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679366104"><span id="local-6989586621679366106"><span id="local-6989586621679366108"><span id="local-6989586621679366110"><span class="annot"><span class="annottext">[DistanceUnit] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679366415"><span id="local-6989586621679366417"><span id="local-6989586621679366419"><span id="local-6989586621679366421"><span class="annot"><span class="annottext">[DistanceUnit] -&gt; Encoding
 [DistanceUnit] -&gt; Value
 DistanceUnit -&gt; Encoding
 DistanceUnit -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: DistanceUnit -&gt; Encoding
 toJSON :: DistanceUnit -&gt; Value
 $ctoJSON :: DistanceUnit -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679366099"><span id="local-6989586621679366101"><span class="annot"><span class="annottext">ToJSONKeyFunction [DistanceUnit]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679366410"><span id="local-6989586621679366412"><span class="annot"><span class="annottext">ToJSONKeyFunction [DistanceUnit]
 ToJSONKeyFunction DistanceUnit
 ToJSONKeyFunction DistanceUnit
 -&gt; ToJSONKeyFunction [DistanceUnit] -&gt; ToJSONKey DistanceUnit
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DistanceUnit]
 toJSONKey :: ToJSONKeyFunction DistanceUnit
 $ctoJSONKey :: ToJSONKeyFunction DistanceUnit
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679366096"><span class="annot"><span class="annottext">[Node] -&gt; Either String DistanceUnit
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679366407"><span class="annot"><span class="annottext">[Node] -&gt; Either String DistanceUnit
 ([Node] -&gt; Either String DistanceUnit) -&gt; FromXML DistanceUnit
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DistanceUnit
 $cparseXML :: [Node] -&gt; Either String DistanceUnit
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679366093"><span class="annot"><span class="annottext">DistanceUnit -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679366404"><span class="annot"><span class="annottext">DistanceUnit -&gt; XML
 (DistanceUnit -&gt; XML) -&gt; ToXML DistanceUnit
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DistanceUnit -&gt; XML

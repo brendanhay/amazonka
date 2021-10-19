@@ -28,37 +28,37 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Describes the placement of an instance.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newLaunchTemplatePlacementRequest' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621681131947"><span id="local-6989586621681131948"></span></span><span class="hs-keyword">data</span><span> </span><span id="LaunchTemplatePlacementRequest"><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest"><span class="hs-identifier hs-var">LaunchTemplatePlacementRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LaunchTemplatePlacementRequest%27"><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-var">LaunchTemplatePlacementRequest'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Reserved for future use.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AspreadDomain%3ALaunchTemplatePlacementRequest%27"><span class="annot"><span class="annottext">LaunchTemplatePlacementRequest -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#%24sel%3AspreadDomain%3ALaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-var hs-var">spreadDomain</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The name of the placement group for the instance.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AgroupName%3ALaunchTemplatePlacementRequest%27"><span class="annot"><span class="annottext">LaunchTemplatePlacementRequest -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#%24sel%3AgroupName%3ALaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The tenancy of the instance (if the instance is running in a VPC). An</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- instance with a tenancy of dedicated runs on single-tenant hardware.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3Atenancy%3ALaunchTemplatePlacementRequest%27"><span class="annot"><span class="annottext">LaunchTemplatePlacementRequest -&gt; Maybe Tenancy
-</span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#%24sel%3Atenancy%3ALaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-var hs-var">tenancy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Tenancy.html#Tenancy"><span class="hs-identifier hs-type">Tenancy</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The affinity setting for an instance on a Dedicated Host.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3Aaffinity%3ALaunchTemplatePlacementRequest%27"><span class="annot"><span class="annottext">LaunchTemplatePlacementRequest -&gt; Maybe Text
+</span><span id="line-31"></span><span id="local-6989586621681167064"><span id="local-6989586621681167065"></span></span><span class="hs-keyword">data</span><span> </span><span id="LaunchTemplatePlacementRequest"><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest"><span class="hs-identifier hs-var">LaunchTemplatePlacementRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LaunchTemplatePlacementRequest%27"><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-var">LaunchTemplatePlacementRequest'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The affinity setting for an instance on a Dedicated Host.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aaffinity%3ALaunchTemplatePlacementRequest%27"><span class="annot"><span class="annottext">LaunchTemplatePlacementRequest -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#%24sel%3Aaffinity%3ALaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-var hs-var">affinity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The ID of the Dedicated Host for the instance.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AhostId%3ALaunchTemplatePlacementRequest%27"><span class="annot"><span class="annottext">LaunchTemplatePlacementRequest -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#%24sel%3AhostId%3ALaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-var hs-var">hostId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The number of the partition the instance should launch in. Valid only if</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- the placement group strategy is set to @partition@.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3ApartitionNumber%3ALaunchTemplatePlacementRequest%27"><span class="annot"><span class="annottext">LaunchTemplatePlacementRequest -&gt; Maybe Int
+</span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#%24sel%3ApartitionNumber%3ALaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-var hs-var">partitionNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Reserved for future use.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AspreadDomain%3ALaunchTemplatePlacementRequest%27"><span class="annot"><span class="annottext">LaunchTemplatePlacementRequest -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#%24sel%3AspreadDomain%3ALaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-var hs-var">spreadDomain</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The Availability Zone for the instance.</span><span>
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3AavailabilityZone%3ALaunchTemplatePlacementRequest%27"><span class="annot"><span class="annottext">LaunchTemplatePlacementRequest -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#%24sel%3AavailabilityZone%3ALaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-var hs-var">availabilityZone</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The number of the partition the instance should launch in. Valid only if</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- the placement group strategy is set to @partition@.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3ApartitionNumber%3ALaunchTemplatePlacementRequest%27"><span class="annot"><span class="annottext">LaunchTemplatePlacementRequest -&gt; Maybe Int
-</span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#%24sel%3ApartitionNumber%3ALaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-var hs-var">partitionNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The ARN of the host resource group in which to launch the instances. If</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- you specify a host resource group ARN, omit the __Tenancy__ parameter or</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- set it to @host@.</span><span>
-</span><span id="line-49"></span><span>    </span><span id="%24sel%3AhostResourceGroupArn%3ALaunchTemplatePlacementRequest%27"><span class="annot"><span class="annottext">LaunchTemplatePlacementRequest -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#%24sel%3AhostResourceGroupArn%3ALaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-var hs-var">hostResourceGroupArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The ID of the Dedicated Host for the instance.</span><span>
-</span><span id="line-51"></span><span>    </span><span id="%24sel%3AhostId%3ALaunchTemplatePlacementRequest%27"><span class="annot"><span class="annottext">LaunchTemplatePlacementRequest -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#%24sel%3AhostId%3ALaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-var hs-var">hostId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The tenancy of the instance (if the instance is running in a VPC). An</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- instance with a tenancy of dedicated runs on single-tenant hardware.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Atenancy%3ALaunchTemplatePlacementRequest%27"><span class="annot"><span class="annottext">LaunchTemplatePlacementRequest -&gt; Maybe Tenancy
+</span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#%24sel%3Atenancy%3ALaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-var hs-var">tenancy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Tenancy.html#Tenancy"><span class="hs-identifier hs-type">Tenancy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The name of the placement group for the instance.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AgroupName%3ALaunchTemplatePlacementRequest%27"><span class="annot"><span class="annottext">LaunchTemplatePlacementRequest -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#%24sel%3AgroupName%3ALaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The ARN of the host resource group in which to launch the instances. If</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- you specify a host resource group ARN, omit the __Tenancy__ parameter or</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- set it to @host@.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AhostResourceGroupArn%3ALaunchTemplatePlacementRequest%27"><span class="annot"><span class="annottext">LaunchTemplatePlacementRequest -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#%24sel%3AhostResourceGroupArn%3ALaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-var hs-var">hostResourceGroupArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681131934"><span id="local-6989586621681131936"><span class="annot"><span class="annottext">LaunchTemplatePlacementRequest
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681167051"><span id="local-6989586621681167053"><span class="annot"><span class="annottext">LaunchTemplatePlacementRequest
 -&gt; LaunchTemplatePlacementRequest -&gt; Bool
 (LaunchTemplatePlacementRequest
  -&gt; LaunchTemplatePlacementRequest -&gt; Bool)
@@ -74,7 +74,7 @@ $c/= :: LaunchTemplatePlacementRequest
 -&gt; LaunchTemplatePlacementRequest -&gt; Bool
 $c== :: LaunchTemplatePlacementRequest
 -&gt; LaunchTemplatePlacementRequest -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681131925"><span id="local-6989586621681131927"><span id="local-6989586621681131929"><span id="local-6989586621681131931"><span class="annot"><span class="annottext">ReadPrec [LaunchTemplatePlacementRequest]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681167042"><span id="local-6989586621681167044"><span id="local-6989586621681167046"><span id="local-6989586621681167048"><span class="annot"><span class="annottext">ReadPrec [LaunchTemplatePlacementRequest]
 ReadPrec LaunchTemplatePlacementRequest
 Int -&gt; ReadS LaunchTemplatePlacementRequest
 ReadS [LaunchTemplatePlacementRequest]
@@ -94,7 +94,7 @@ readList :: ReadS [LaunchTemplatePlacementRequest]
 $creadList :: ReadS [LaunchTemplatePlacementRequest]
 readsPrec :: Int -&gt; ReadS LaunchTemplatePlacementRequest
 $creadsPrec :: Int -&gt; ReadS LaunchTemplatePlacementRequest
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681131918"><span id="local-6989586621681131920"><span id="local-6989586621681131922"><span class="annot"><span class="annottext">Int -&gt; LaunchTemplatePlacementRequest -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681167035"><span id="local-6989586621681167037"><span id="local-6989586621681167039"><span class="annot"><span class="annottext">Int -&gt; LaunchTemplatePlacementRequest -&gt; ShowS
 [LaunchTemplatePlacementRequest] -&gt; ShowS
 LaunchTemplatePlacementRequest -&gt; String
 (Int -&gt; LaunchTemplatePlacementRequest -&gt; ShowS)
@@ -140,153 +140,77 @@ LaunchTemplatePlacementRequest
 </span><span id="line-60"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'spreadDomain', 'launchTemplatePlacementRequest_spreadDomain' - Reserved for future use.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'affinity', 'launchTemplatePlacementRequest_affinity' - The affinity setting for an instance on a Dedicated Host.</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'groupName', 'launchTemplatePlacementRequest_groupName' - The name of the placement group for the instance.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'hostId', 'launchTemplatePlacementRequest_hostId' - The ID of the Dedicated Host for the instance.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'tenancy', 'launchTemplatePlacementRequest_tenancy' - The tenancy of the instance (if the instance is running in a VPC). An</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- instance with a tenancy of dedicated runs on single-tenant hardware.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'partitionNumber', 'launchTemplatePlacementRequest_partitionNumber' - The number of the partition the instance should launch in. Valid only if</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- the placement group strategy is set to @partition@.</span><span>
 </span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'affinity', 'launchTemplatePlacementRequest_affinity' - The affinity setting for an instance on a Dedicated Host.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'spreadDomain', 'launchTemplatePlacementRequest_spreadDomain' - Reserved for future use.</span><span>
 </span><span id="line-71"></span><span class="hs-comment">--</span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- 'availabilityZone', 'launchTemplatePlacementRequest_availabilityZone' - The Availability Zone for the instance.</span><span>
 </span><span id="line-73"></span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- 'partitionNumber', 'launchTemplatePlacementRequest_partitionNumber' - The number of the partition the instance should launch in. Valid only if</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- the placement group strategy is set to @partition@.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'tenancy', 'launchTemplatePlacementRequest_tenancy' - The tenancy of the instance (if the instance is running in a VPC). An</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- instance with a tenancy of dedicated runs on single-tenant hardware.</span><span>
 </span><span id="line-76"></span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- 'hostResourceGroupArn', 'launchTemplatePlacementRequest_hostResourceGroupArn' - The ARN of the host resource group in which to launch the instances. If</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- you specify a host resource group ARN, omit the __Tenancy__ parameter or</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- set it to @host@.</span><span>
-</span><span id="line-80"></span><span class="hs-comment">--</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- 'hostId', 'launchTemplatePlacementRequest_hostId' - The ID of the Dedicated Host for the instance.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'groupName', 'launchTemplatePlacementRequest_groupName' - The name of the placement group for the instance.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'hostResourceGroupArn', 'launchTemplatePlacementRequest_hostResourceGroupArn' - The ARN of the host resource group in which to launch the instances. If</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- you specify a host resource group ARN, omit the __Tenancy__ parameter or</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- set it to @host@.</span><span>
 </span><span id="line-82"></span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#newLaunchTemplatePlacementRequest"><span class="hs-identifier hs-type">newLaunchTemplatePlacementRequest</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest</span></a></span><span>
 </span><span id="line-84"></span><span id="newLaunchTemplatePlacementRequest"><span class="annot"><span class="annottext">newLaunchTemplatePlacementRequest :: LaunchTemplatePlacementRequest
 </span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#newLaunchTemplatePlacementRequest"><span class="hs-identifier hs-var hs-var">newLaunchTemplatePlacementRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">LaunchTemplatePlacementRequest' :: Maybe Text
 -&gt; Maybe Text
--&gt; Maybe Tenancy
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Tenancy
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; LaunchTemplatePlacementRequest
 </span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest'</span></a></span><span>
-</span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:spreadDomain:LaunchTemplatePlacementRequest' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#%24sel%3AspreadDomain%3ALaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-var">spreadDomain</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:affinity:LaunchTemplatePlacementRequest' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#%24sel%3Aaffinity%3ALaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-var">affinity</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupName:LaunchTemplatePlacementRequest' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#%24sel%3AgroupName%3ALaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:hostId:LaunchTemplatePlacementRequest' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#%24sel%3AhostId%3ALaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-var">hostId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:tenancy:LaunchTemplatePlacementRequest' :: Maybe Tenancy
-</span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#%24sel%3Atenancy%3ALaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-var">tenancy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Tenancy
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:partitionNumber:LaunchTemplatePlacementRequest' :: Maybe Int
+</span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#%24sel%3ApartitionNumber%3ALaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-var">partitionNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:affinity:LaunchTemplatePlacementRequest' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#%24sel%3Aaffinity%3ALaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-var">affinity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:spreadDomain:LaunchTemplatePlacementRequest' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#%24sel%3AspreadDomain%3ALaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-var">spreadDomain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:availabilityZone:LaunchTemplatePlacementRequest' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#%24sel%3AavailabilityZone%3ALaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:partitionNumber:LaunchTemplatePlacementRequest' :: Maybe Int
-</span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#%24sel%3ApartitionNumber%3ALaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-var">partitionNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:tenancy:LaunchTemplatePlacementRequest' :: Maybe Tenancy
+</span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#%24sel%3Atenancy%3ALaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-var">tenancy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Tenancy
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:hostResourceGroupArn:LaunchTemplatePlacementRequest' :: Maybe Text
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupName:LaunchTemplatePlacementRequest' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#%24sel%3AgroupName%3ALaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:hostResourceGroupArn:LaunchTemplatePlacementRequest' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#%24sel%3AhostResourceGroupArn%3ALaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-var">hostResourceGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:hostId:LaunchTemplatePlacementRequest' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#%24sel%3AhostId%3ALaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-var">hostId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-95"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- | Reserved for future use.</span><span>
-</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#launchTemplatePlacementRequest_spreadDomain"><span class="hs-identifier hs-type">launchTemplatePlacementRequest_spreadDomain</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span id="launchTemplatePlacementRequest_spreadDomain"><span class="annot"><span class="annottext">launchTemplatePlacementRequest_spreadDomain :: (Maybe Text -&gt; f (Maybe Text))
--&gt; LaunchTemplatePlacementRequest
--&gt; f LaunchTemplatePlacementRequest
-</span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#launchTemplatePlacementRequest_spreadDomain"><span class="hs-identifier hs-var hs-var">launchTemplatePlacementRequest_spreadDomain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LaunchTemplatePlacementRequest -&gt; Maybe Text)
--&gt; (LaunchTemplatePlacementRequest
-    -&gt; Maybe Text -&gt; LaunchTemplatePlacementRequest)
--&gt; Lens
-     LaunchTemplatePlacementRequest
-     LaunchTemplatePlacementRequest
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681131909"><span class="annot"><span class="annottext">Maybe Text
-spreadDomain :: Maybe Text
-$sel:spreadDomain:LaunchTemplatePlacementRequest' :: LaunchTemplatePlacementRequest -&gt; Maybe Text
-</span><a href="#local-6989586621681131909"><span class="hs-identifier hs-var hs-var">spreadDomain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681131909"><span class="hs-identifier hs-var">spreadDomain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681131908"><span class="annot"><span class="annottext">s :: LaunchTemplatePlacementRequest
-</span><a href="#local-6989586621681131908"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681131907"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681131907"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplatePlacementRequest
-</span><a href="#local-6989586621681131908"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:spreadDomain:LaunchTemplatePlacementRequest' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#%24sel%3AspreadDomain%3ALaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-var">spreadDomain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681131907"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- | The name of the placement group for the instance.</span><span>
-</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#launchTemplatePlacementRequest_groupName"><span class="hs-identifier hs-type">launchTemplatePlacementRequest_groupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span id="launchTemplatePlacementRequest_groupName"><span class="annot"><span class="annottext">launchTemplatePlacementRequest_groupName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; LaunchTemplatePlacementRequest
--&gt; f LaunchTemplatePlacementRequest
-</span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#launchTemplatePlacementRequest_groupName"><span class="hs-identifier hs-var hs-var">launchTemplatePlacementRequest_groupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LaunchTemplatePlacementRequest -&gt; Maybe Text)
--&gt; (LaunchTemplatePlacementRequest
-    -&gt; Maybe Text -&gt; LaunchTemplatePlacementRequest)
--&gt; Lens
-     LaunchTemplatePlacementRequest
-     LaunchTemplatePlacementRequest
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681131905"><span class="annot"><span class="annottext">Maybe Text
-groupName :: Maybe Text
-$sel:groupName:LaunchTemplatePlacementRequest' :: LaunchTemplatePlacementRequest -&gt; Maybe Text
-</span><a href="#local-6989586621681131905"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681131905"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681131904"><span class="annot"><span class="annottext">s :: LaunchTemplatePlacementRequest
-</span><a href="#local-6989586621681131904"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681131903"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681131903"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplatePlacementRequest
-</span><a href="#local-6989586621681131904"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:LaunchTemplatePlacementRequest' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#%24sel%3AgroupName%3ALaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681131903"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- | The tenancy of the instance (if the instance is running in a VPC). An</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- instance with a tenancy of dedicated runs on single-tenant hardware.</span><span>
-</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#launchTemplatePlacementRequest_tenancy"><span class="hs-identifier hs-type">launchTemplatePlacementRequest_tenancy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Tenancy.html#Tenancy"><span class="hs-identifier hs-type">Tenancy</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span id="launchTemplatePlacementRequest_tenancy"><span class="annot"><span class="annottext">launchTemplatePlacementRequest_tenancy :: (Maybe Tenancy -&gt; f (Maybe Tenancy))
--&gt; LaunchTemplatePlacementRequest
--&gt; f LaunchTemplatePlacementRequest
-</span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#launchTemplatePlacementRequest_tenancy"><span class="hs-identifier hs-var hs-var">launchTemplatePlacementRequest_tenancy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LaunchTemplatePlacementRequest -&gt; Maybe Tenancy)
--&gt; (LaunchTemplatePlacementRequest
-    -&gt; Maybe Tenancy -&gt; LaunchTemplatePlacementRequest)
--&gt; Lens
-     LaunchTemplatePlacementRequest
-     LaunchTemplatePlacementRequest
-     (Maybe Tenancy)
-     (Maybe Tenancy)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681131901"><span class="annot"><span class="annottext">Maybe Tenancy
-tenancy :: Maybe Tenancy
-$sel:tenancy:LaunchTemplatePlacementRequest' :: LaunchTemplatePlacementRequest -&gt; Maybe Tenancy
-</span><a href="#local-6989586621681131901"><span class="hs-identifier hs-var hs-var">tenancy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Tenancy
-</span><a href="#local-6989586621681131901"><span class="hs-identifier hs-var">tenancy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681131900"><span class="annot"><span class="annottext">s :: LaunchTemplatePlacementRequest
-</span><a href="#local-6989586621681131900"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681131899"><span class="annot"><span class="annottext">Maybe Tenancy
-</span><a href="#local-6989586621681131899"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplatePlacementRequest
-</span><a href="#local-6989586621681131900"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tenancy:LaunchTemplatePlacementRequest' :: Maybe Tenancy
-</span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#%24sel%3Atenancy%3ALaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-var">tenancy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Tenancy
-</span><a href="#local-6989586621681131899"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- | The affinity setting for an instance on a Dedicated Host.</span><span>
-</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#launchTemplatePlacementRequest_affinity"><span class="hs-identifier hs-type">launchTemplatePlacementRequest_affinity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span id="launchTemplatePlacementRequest_affinity"><span class="annot"><span class="annottext">launchTemplatePlacementRequest_affinity :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-97"></span><span class="hs-comment">-- | The affinity setting for an instance on a Dedicated Host.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#launchTemplatePlacementRequest_affinity"><span class="hs-identifier hs-type">launchTemplatePlacementRequest_affinity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="launchTemplatePlacementRequest_affinity"><span class="annot"><span class="annottext">launchTemplatePlacementRequest_affinity :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; LaunchTemplatePlacementRequest
 -&gt; f LaunchTemplatePlacementRequest
 </span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#launchTemplatePlacementRequest_affinity"><span class="hs-identifier hs-var hs-var">launchTemplatePlacementRequest_affinity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LaunchTemplatePlacementRequest -&gt; Maybe Text)
@@ -298,16 +222,92 @@ $sel:tenancy:LaunchTemplatePlacementRequest' :: LaunchTemplatePlacementRequest -
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681131897"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681167026"><span class="annot"><span class="annottext">Maybe Text
 affinity :: Maybe Text
 $sel:affinity:LaunchTemplatePlacementRequest' :: LaunchTemplatePlacementRequest -&gt; Maybe Text
-</span><a href="#local-6989586621681131897"><span class="hs-identifier hs-var hs-var">affinity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681131897"><span class="hs-identifier hs-var">affinity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681131896"><span class="annot"><span class="annottext">s :: LaunchTemplatePlacementRequest
-</span><a href="#local-6989586621681131896"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681131895"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681131895"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplatePlacementRequest
-</span><a href="#local-6989586621681131896"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:affinity:LaunchTemplatePlacementRequest' :: Maybe Text
+</span><a href="#local-6989586621681167026"><span class="hs-identifier hs-var hs-var">affinity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681167026"><span class="hs-identifier hs-var">affinity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681167025"><span class="annot"><span class="annottext">s :: LaunchTemplatePlacementRequest
+</span><a href="#local-6989586621681167025"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681167024"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681167024"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplatePlacementRequest
+</span><a href="#local-6989586621681167025"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:affinity:LaunchTemplatePlacementRequest' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#%24sel%3Aaffinity%3ALaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-var">affinity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681131895"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681167024"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The ID of the Dedicated Host for the instance.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#launchTemplatePlacementRequest_hostId"><span class="hs-identifier hs-type">launchTemplatePlacementRequest_hostId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="launchTemplatePlacementRequest_hostId"><span class="annot"><span class="annottext">launchTemplatePlacementRequest_hostId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LaunchTemplatePlacementRequest
+-&gt; f LaunchTemplatePlacementRequest
+</span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#launchTemplatePlacementRequest_hostId"><span class="hs-identifier hs-var hs-var">launchTemplatePlacementRequest_hostId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LaunchTemplatePlacementRequest -&gt; Maybe Text)
+-&gt; (LaunchTemplatePlacementRequest
+    -&gt; Maybe Text -&gt; LaunchTemplatePlacementRequest)
+-&gt; Lens
+     LaunchTemplatePlacementRequest
+     LaunchTemplatePlacementRequest
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681167022"><span class="annot"><span class="annottext">Maybe Text
+hostId :: Maybe Text
+$sel:hostId:LaunchTemplatePlacementRequest' :: LaunchTemplatePlacementRequest -&gt; Maybe Text
+</span><a href="#local-6989586621681167022"><span class="hs-identifier hs-var hs-var">hostId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681167022"><span class="hs-identifier hs-var">hostId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681167021"><span class="annot"><span class="annottext">s :: LaunchTemplatePlacementRequest
+</span><a href="#local-6989586621681167021"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681167020"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681167020"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplatePlacementRequest
+</span><a href="#local-6989586621681167021"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostId:LaunchTemplatePlacementRequest' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#%24sel%3AhostId%3ALaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-var">hostId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681167020"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The number of the partition the instance should launch in. Valid only if</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- the placement group strategy is set to @partition@.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#launchTemplatePlacementRequest_partitionNumber"><span class="hs-identifier hs-type">launchTemplatePlacementRequest_partitionNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="launchTemplatePlacementRequest_partitionNumber"><span class="annot"><span class="annottext">launchTemplatePlacementRequest_partitionNumber :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; LaunchTemplatePlacementRequest
+-&gt; f LaunchTemplatePlacementRequest
+</span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#launchTemplatePlacementRequest_partitionNumber"><span class="hs-identifier hs-var hs-var">launchTemplatePlacementRequest_partitionNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LaunchTemplatePlacementRequest -&gt; Maybe Int)
+-&gt; (LaunchTemplatePlacementRequest
+    -&gt; Maybe Int -&gt; LaunchTemplatePlacementRequest)
+-&gt; Lens
+     LaunchTemplatePlacementRequest
+     LaunchTemplatePlacementRequest
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681167018"><span class="annot"><span class="annottext">Maybe Int
+partitionNumber :: Maybe Int
+$sel:partitionNumber:LaunchTemplatePlacementRequest' :: LaunchTemplatePlacementRequest -&gt; Maybe Int
+</span><a href="#local-6989586621681167018"><span class="hs-identifier hs-var hs-var">partitionNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681167018"><span class="hs-identifier hs-var">partitionNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681167017"><span class="annot"><span class="annottext">s :: LaunchTemplatePlacementRequest
+</span><a href="#local-6989586621681167017"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681167016"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681167016"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplatePlacementRequest
+</span><a href="#local-6989586621681167017"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partitionNumber:LaunchTemplatePlacementRequest' :: Maybe Int
+</span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#%24sel%3ApartitionNumber%3ALaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-var">partitionNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681167016"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | Reserved for future use.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#launchTemplatePlacementRequest_spreadDomain"><span class="hs-identifier hs-type">launchTemplatePlacementRequest_spreadDomain</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="launchTemplatePlacementRequest_spreadDomain"><span class="annot"><span class="annottext">launchTemplatePlacementRequest_spreadDomain :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LaunchTemplatePlacementRequest
+-&gt; f LaunchTemplatePlacementRequest
+</span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#launchTemplatePlacementRequest_spreadDomain"><span class="hs-identifier hs-var hs-var">launchTemplatePlacementRequest_spreadDomain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LaunchTemplatePlacementRequest -&gt; Maybe Text)
+-&gt; (LaunchTemplatePlacementRequest
+    -&gt; Maybe Text -&gt; LaunchTemplatePlacementRequest)
+-&gt; Lens
+     LaunchTemplatePlacementRequest
+     LaunchTemplatePlacementRequest
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681167014"><span class="annot"><span class="annottext">Maybe Text
+spreadDomain :: Maybe Text
+$sel:spreadDomain:LaunchTemplatePlacementRequest' :: LaunchTemplatePlacementRequest -&gt; Maybe Text
+</span><a href="#local-6989586621681167014"><span class="hs-identifier hs-var hs-var">spreadDomain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681167014"><span class="hs-identifier hs-var">spreadDomain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681167013"><span class="annot"><span class="annottext">s :: LaunchTemplatePlacementRequest
+</span><a href="#local-6989586621681167013"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681167012"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681167012"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplatePlacementRequest
+</span><a href="#local-6989586621681167013"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:spreadDomain:LaunchTemplatePlacementRequest' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#%24sel%3AspreadDomain%3ALaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-var">spreadDomain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681167012"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- | The Availability Zone for the instance.</span><span>
 </span><span id="line-115"></span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#launchTemplatePlacementRequest_availabilityZone"><span class="hs-identifier hs-type">launchTemplatePlacementRequest_availabilityZone</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -323,48 +323,73 @@ $sel:affinity:LaunchTemplatePlacementRequest' :: LaunchTemplatePlacementRequest 
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681131893"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681167010"><span class="annot"><span class="annottext">Maybe Text
 availabilityZone :: Maybe Text
 $sel:availabilityZone:LaunchTemplatePlacementRequest' :: LaunchTemplatePlacementRequest -&gt; Maybe Text
-</span><a href="#local-6989586621681131893"><span class="hs-identifier hs-var hs-var">availabilityZone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681131893"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681131892"><span class="annot"><span class="annottext">s :: LaunchTemplatePlacementRequest
-</span><a href="#local-6989586621681131892"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681131891"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681131891"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplatePlacementRequest
-</span><a href="#local-6989586621681131892"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availabilityZone:LaunchTemplatePlacementRequest' :: Maybe Text
+</span><a href="#local-6989586621681167010"><span class="hs-identifier hs-var hs-var">availabilityZone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681167010"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681167009"><span class="annot"><span class="annottext">s :: LaunchTemplatePlacementRequest
+</span><a href="#local-6989586621681167009"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681167008"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681167008"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplatePlacementRequest
+</span><a href="#local-6989586621681167009"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availabilityZone:LaunchTemplatePlacementRequest' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#%24sel%3AavailabilityZone%3ALaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681131891"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681167008"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- | The number of the partition the instance should launch in. Valid only if</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- the placement group strategy is set to @partition@.</span><span>
-</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#launchTemplatePlacementRequest_partitionNumber"><span class="hs-identifier hs-type">launchTemplatePlacementRequest_partitionNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span id="launchTemplatePlacementRequest_partitionNumber"><span class="annot"><span class="annottext">launchTemplatePlacementRequest_partitionNumber :: (Maybe Int -&gt; f (Maybe Int))
+</span><span id="line-118"></span><span class="hs-comment">-- | The tenancy of the instance (if the instance is running in a VPC). An</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- instance with a tenancy of dedicated runs on single-tenant hardware.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#launchTemplatePlacementRequest_tenancy"><span class="hs-identifier hs-type">launchTemplatePlacementRequest_tenancy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Tenancy.html#Tenancy"><span class="hs-identifier hs-type">Tenancy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="launchTemplatePlacementRequest_tenancy"><span class="annot"><span class="annottext">launchTemplatePlacementRequest_tenancy :: (Maybe Tenancy -&gt; f (Maybe Tenancy))
 -&gt; LaunchTemplatePlacementRequest
 -&gt; f LaunchTemplatePlacementRequest
-</span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#launchTemplatePlacementRequest_partitionNumber"><span class="hs-identifier hs-var hs-var">launchTemplatePlacementRequest_partitionNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LaunchTemplatePlacementRequest -&gt; Maybe Int)
+</span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#launchTemplatePlacementRequest_tenancy"><span class="hs-identifier hs-var hs-var">launchTemplatePlacementRequest_tenancy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LaunchTemplatePlacementRequest -&gt; Maybe Tenancy)
 -&gt; (LaunchTemplatePlacementRequest
-    -&gt; Maybe Int -&gt; LaunchTemplatePlacementRequest)
+    -&gt; Maybe Tenancy -&gt; LaunchTemplatePlacementRequest)
 -&gt; Lens
      LaunchTemplatePlacementRequest
      LaunchTemplatePlacementRequest
-     (Maybe Int)
-     (Maybe Int)
+     (Maybe Tenancy)
+     (Maybe Tenancy)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681131889"><span class="annot"><span class="annottext">Maybe Int
-partitionNumber :: Maybe Int
-$sel:partitionNumber:LaunchTemplatePlacementRequest' :: LaunchTemplatePlacementRequest -&gt; Maybe Int
-</span><a href="#local-6989586621681131889"><span class="hs-identifier hs-var hs-var">partitionNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681131889"><span class="hs-identifier hs-var">partitionNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681131888"><span class="annot"><span class="annottext">s :: LaunchTemplatePlacementRequest
-</span><a href="#local-6989586621681131888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681131887"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681131887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplatePlacementRequest
-</span><a href="#local-6989586621681131888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partitionNumber:LaunchTemplatePlacementRequest' :: Maybe Int
-</span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#%24sel%3ApartitionNumber%3ALaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-var">partitionNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681131887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681167006"><span class="annot"><span class="annottext">Maybe Tenancy
+tenancy :: Maybe Tenancy
+$sel:tenancy:LaunchTemplatePlacementRequest' :: LaunchTemplatePlacementRequest -&gt; Maybe Tenancy
+</span><a href="#local-6989586621681167006"><span class="hs-identifier hs-var hs-var">tenancy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Tenancy
+</span><a href="#local-6989586621681167006"><span class="hs-identifier hs-var">tenancy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681167005"><span class="annot"><span class="annottext">s :: LaunchTemplatePlacementRequest
+</span><a href="#local-6989586621681167005"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681167004"><span class="annot"><span class="annottext">Maybe Tenancy
+</span><a href="#local-6989586621681167004"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplatePlacementRequest
+</span><a href="#local-6989586621681167005"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tenancy:LaunchTemplatePlacementRequest' :: Maybe Tenancy
+</span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#%24sel%3Atenancy%3ALaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-var">tenancy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Tenancy
+</span><a href="#local-6989586621681167004"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- | The ARN of the host resource group in which to launch the instances. If</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- you specify a host resource group ARN, omit the __Tenancy__ parameter or</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- set it to @host@.</span><span>
-</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#launchTemplatePlacementRequest_hostResourceGroupArn"><span class="hs-identifier hs-type">launchTemplatePlacementRequest_hostResourceGroupArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span id="launchTemplatePlacementRequest_hostResourceGroupArn"><span class="annot"><span class="annottext">launchTemplatePlacementRequest_hostResourceGroupArn :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-123"></span><span class="hs-comment">-- | The name of the placement group for the instance.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#launchTemplatePlacementRequest_groupName"><span class="hs-identifier hs-type">launchTemplatePlacementRequest_groupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="launchTemplatePlacementRequest_groupName"><span class="annot"><span class="annottext">launchTemplatePlacementRequest_groupName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LaunchTemplatePlacementRequest
+-&gt; f LaunchTemplatePlacementRequest
+</span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#launchTemplatePlacementRequest_groupName"><span class="hs-identifier hs-var hs-var">launchTemplatePlacementRequest_groupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LaunchTemplatePlacementRequest -&gt; Maybe Text)
+-&gt; (LaunchTemplatePlacementRequest
+    -&gt; Maybe Text -&gt; LaunchTemplatePlacementRequest)
+-&gt; Lens
+     LaunchTemplatePlacementRequest
+     LaunchTemplatePlacementRequest
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681167002"><span class="annot"><span class="annottext">Maybe Text
+groupName :: Maybe Text
+$sel:groupName:LaunchTemplatePlacementRequest' :: LaunchTemplatePlacementRequest -&gt; Maybe Text
+</span><a href="#local-6989586621681167002"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681167002"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681167001"><span class="annot"><span class="annottext">s :: LaunchTemplatePlacementRequest
+</span><a href="#local-6989586621681167001"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681167000"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681167000"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplatePlacementRequest
+</span><a href="#local-6989586621681167001"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:LaunchTemplatePlacementRequest' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#%24sel%3AgroupName%3ALaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681167000"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The ARN of the host resource group in which to launch the instances. If</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- you specify a host resource group ARN, omit the __Tenancy__ parameter or</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- set it to @host@.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#launchTemplatePlacementRequest_hostResourceGroupArn"><span class="hs-identifier hs-type">launchTemplatePlacementRequest_hostResourceGroupArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="launchTemplatePlacementRequest_hostResourceGroupArn"><span class="annot"><span class="annottext">launchTemplatePlacementRequest_hostResourceGroupArn :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; LaunchTemplatePlacementRequest
 -&gt; f LaunchTemplatePlacementRequest
 </span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#launchTemplatePlacementRequest_hostResourceGroupArn"><span class="hs-identifier hs-var hs-var">launchTemplatePlacementRequest_hostResourceGroupArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LaunchTemplatePlacementRequest -&gt; Maybe Text)
@@ -376,114 +401,89 @@ $sel:partitionNumber:LaunchTemplatePlacementRequest' :: LaunchTemplatePlacementR
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681131885"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681166998"><span class="annot"><span class="annottext">Maybe Text
 hostResourceGroupArn :: Maybe Text
 $sel:hostResourceGroupArn:LaunchTemplatePlacementRequest' :: LaunchTemplatePlacementRequest -&gt; Maybe Text
-</span><a href="#local-6989586621681131885"><span class="hs-identifier hs-var hs-var">hostResourceGroupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681131885"><span class="hs-identifier hs-var">hostResourceGroupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681131884"><span class="annot"><span class="annottext">s :: LaunchTemplatePlacementRequest
-</span><a href="#local-6989586621681131884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681131883"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681131883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplatePlacementRequest
-</span><a href="#local-6989586621681131884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostResourceGroupArn:LaunchTemplatePlacementRequest' :: Maybe Text
+</span><a href="#local-6989586621681166998"><span class="hs-identifier hs-var hs-var">hostResourceGroupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681166998"><span class="hs-identifier hs-var">hostResourceGroupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681166997"><span class="annot"><span class="annottext">s :: LaunchTemplatePlacementRequest
+</span><a href="#local-6989586621681166997"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681166996"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681166996"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplatePlacementRequest
+</span><a href="#local-6989586621681166997"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostResourceGroupArn:LaunchTemplatePlacementRequest' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#%24sel%3AhostResourceGroupArn%3ALaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-var">hostResourceGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681131883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- | The ID of the Dedicated Host for the instance.</span><span>
-</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#launchTemplatePlacementRequest_hostId"><span class="hs-identifier hs-type">launchTemplatePlacementRequest_hostId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span id="launchTemplatePlacementRequest_hostId"><span class="annot"><span class="annottext">launchTemplatePlacementRequest_hostId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; LaunchTemplatePlacementRequest
--&gt; f LaunchTemplatePlacementRequest
-</span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#launchTemplatePlacementRequest_hostId"><span class="hs-identifier hs-var hs-var">launchTemplatePlacementRequest_hostId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LaunchTemplatePlacementRequest -&gt; Maybe Text)
--&gt; (LaunchTemplatePlacementRequest
-    -&gt; Maybe Text -&gt; LaunchTemplatePlacementRequest)
--&gt; Lens
-     LaunchTemplatePlacementRequest
-     LaunchTemplatePlacementRequest
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681131881"><span class="annot"><span class="annottext">Maybe Text
-hostId :: Maybe Text
-$sel:hostId:LaunchTemplatePlacementRequest' :: LaunchTemplatePlacementRequest -&gt; Maybe Text
-</span><a href="#local-6989586621681131881"><span class="hs-identifier hs-var hs-var">hostId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681131881"><span class="hs-identifier hs-var">hostId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681131880"><span class="annot"><span class="annottext">s :: LaunchTemplatePlacementRequest
-</span><a href="#local-6989586621681131880"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681131879"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681131879"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplatePlacementRequest
-</span><a href="#local-6989586621681131880"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostId:LaunchTemplatePlacementRequest' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#%24sel%3AhostId%3ALaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-var">hostId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681131879"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681166996"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621681131875"><span id="local-6989586621681131877"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621681166992"><span id="local-6989586621681166994"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-135"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest</span></a></span></span></span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621681131872"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621681166989"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-139"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest</span></a></span></span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621681131868"><span class="annot"><span class="annottext">toQuery :: LaunchTemplatePlacementRequest -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681131859"><span id="local-6989586621681131860"><span id="local-6989586621681131861"><span id="local-6989586621681131862"><span id="local-6989586621681131863"><span id="local-6989586621681131864"><span id="local-6989586621681131865"><span id="local-6989586621681131866"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621681166985"><span class="annot"><span class="annottext">toQuery :: LaunchTemplatePlacementRequest -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplatePlacementRequest.html#LaunchTemplatePlacementRequest%27"><span class="hs-identifier hs-type">LaunchTemplatePlacementRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681166976"><span id="local-6989586621681166977"><span id="local-6989586621681166978"><span id="local-6989586621681166979"><span id="local-6989586621681166980"><span id="local-6989586621681166981"><span id="local-6989586621681166982"><span id="local-6989586621681166983"><span class="annot"><span class="annottext">Maybe Int
 Maybe Text
 Maybe Tenancy
-hostId :: Maybe Text
 hostResourceGroupArn :: Maybe Text
-partitionNumber :: Maybe Int
-availabilityZone :: Maybe Text
-affinity :: Maybe Text
-tenancy :: Maybe Tenancy
 groupName :: Maybe Text
+tenancy :: Maybe Tenancy
+availabilityZone :: Maybe Text
 spreadDomain :: Maybe Text
-$sel:hostId:LaunchTemplatePlacementRequest' :: LaunchTemplatePlacementRequest -&gt; Maybe Text
+partitionNumber :: Maybe Int
+hostId :: Maybe Text
+affinity :: Maybe Text
 $sel:hostResourceGroupArn:LaunchTemplatePlacementRequest' :: LaunchTemplatePlacementRequest -&gt; Maybe Text
-$sel:partitionNumber:LaunchTemplatePlacementRequest' :: LaunchTemplatePlacementRequest -&gt; Maybe Int
-$sel:availabilityZone:LaunchTemplatePlacementRequest' :: LaunchTemplatePlacementRequest -&gt; Maybe Text
-$sel:affinity:LaunchTemplatePlacementRequest' :: LaunchTemplatePlacementRequest -&gt; Maybe Text
-$sel:tenancy:LaunchTemplatePlacementRequest' :: LaunchTemplatePlacementRequest -&gt; Maybe Tenancy
 $sel:groupName:LaunchTemplatePlacementRequest' :: LaunchTemplatePlacementRequest -&gt; Maybe Text
+$sel:tenancy:LaunchTemplatePlacementRequest' :: LaunchTemplatePlacementRequest -&gt; Maybe Tenancy
+$sel:availabilityZone:LaunchTemplatePlacementRequest' :: LaunchTemplatePlacementRequest -&gt; Maybe Text
 $sel:spreadDomain:LaunchTemplatePlacementRequest' :: LaunchTemplatePlacementRequest -&gt; Maybe Text
-</span><a href="#local-6989586621681131859"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:partitionNumber:LaunchTemplatePlacementRequest' :: LaunchTemplatePlacementRequest -&gt; Maybe Int
+$sel:hostId:LaunchTemplatePlacementRequest' :: LaunchTemplatePlacementRequest -&gt; Maybe Text
+$sel:affinity:LaunchTemplatePlacementRequest' :: LaunchTemplatePlacementRequest -&gt; Maybe Text
+</span><a href="#local-6989586621681166976"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;SpreadDomain&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681131866"><span class="hs-identifier hs-var">spreadDomain</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;GroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681131865"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;Tenancy&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Tenancy -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Tenancy
-</span><a href="#local-6989586621681131864"><span class="hs-identifier hs-var">tenancy</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Affinity&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681131863"><span class="hs-identifier hs-var">affinity</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681166983"><span class="hs-identifier hs-var">affinity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;HostId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681166982"><span class="hs-identifier hs-var">hostId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;PartitionNumber&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681166981"><span class="hs-identifier hs-var">partitionNumber</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SpreadDomain&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681166980"><span class="hs-identifier hs-var">spreadDomain</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;AvailabilityZone&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681131862"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681166979"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;PartitionNumber&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+</span><span class="hs-string">&quot;Tenancy&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Tenancy -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681131861"><span class="hs-identifier hs-var">partitionNumber</span></a></span><span class="hs-special">,</span><span>
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Tenancy
+</span><a href="#local-6989586621681166978"><span class="hs-identifier hs-var">tenancy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;GroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681166977"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;HostResourceGroupArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681131860"><span class="hs-identifier hs-var">hostResourceGroupArn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-151"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;HostId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681131859"><span class="hs-identifier hs-var">hostId</span></a></span><span>
+</span><a href="#local-6989586621681166976"><span class="hs-identifier hs-var">hostResourceGroupArn</span></a></span><span>
 </span><span id="line-152"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-153"></span></pre></body></html>

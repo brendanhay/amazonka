@@ -26,15 +26,15 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Represents a tag.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newTagFilter' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679178553"><span id="local-6989586621679178554"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagFilter"><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#TagFilter"><span class="hs-identifier hs-var">TagFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagFilter%27"><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#TagFilter%27"><span class="hs-identifier hs-var">TagFilter'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The tag key.</span><span>
-</span><span id="line-31"></span><span>    </span><span id="%24sel%3Akey%3ATagFilter%27"><span class="annot"><span class="annottext">TagFilter -&gt; Maybe Text
-</span><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#%24sel%3Akey%3ATagFilter%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The tag values (0 to 20).</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3Avalues%3ATagFilter%27"><span class="annot"><span class="annottext">TagFilter -&gt; Maybe [Text]
-</span><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#%24sel%3Avalues%3ATagFilter%27"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679178615"><span id="local-6989586621679178616"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagFilter"><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#TagFilter"><span class="hs-identifier hs-var">TagFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagFilter%27"><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#TagFilter%27"><span class="hs-identifier hs-var">TagFilter'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The tag values (0 to 20).</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3Avalues%3ATagFilter%27"><span class="annot"><span class="annottext">TagFilter -&gt; Maybe [Text]
+</span><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#%24sel%3Avalues%3ATagFilter%27"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The tag key.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Akey%3ATagFilter%27"><span class="annot"><span class="annottext">TagFilter -&gt; Maybe Text
+</span><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#%24sel%3Akey%3ATagFilter%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178546"><span id="local-6989586621679178548"><span class="annot"><span class="annottext">TagFilter -&gt; TagFilter -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178608"><span id="local-6989586621679178610"><span class="annot"><span class="annottext">TagFilter -&gt; TagFilter -&gt; Bool
 (TagFilter -&gt; TagFilter -&gt; Bool)
 -&gt; (TagFilter -&gt; TagFilter -&gt; Bool) -&gt; Eq TagFilter
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TagFilter -&gt; TagFilter -&gt; Bool
 == :: TagFilter -&gt; TagFilter -&gt; Bool
 $c== :: TagFilter -&gt; TagFilter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178537"><span id="local-6989586621679178539"><span id="local-6989586621679178541"><span id="local-6989586621679178543"><span class="annot"><span class="annottext">ReadPrec [TagFilter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178599"><span id="local-6989586621679178601"><span id="local-6989586621679178603"><span id="local-6989586621679178605"><span class="annot"><span class="annottext">ReadPrec [TagFilter]
 ReadPrec TagFilter
 Int -&gt; ReadS TagFilter
 ReadS [TagFilter]
@@ -62,7 +62,7 @@ readList :: ReadS [TagFilter]
 $creadList :: ReadS [TagFilter]
 readsPrec :: Int -&gt; ReadS TagFilter
 $creadsPrec :: Int -&gt; ReadS TagFilter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178530"><span id="local-6989586621679178532"><span id="local-6989586621679178534"><span class="annot"><span class="annottext">Int -&gt; TagFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178592"><span id="local-6989586621679178594"><span id="local-6989586621679178596"><span class="annot"><span class="annottext">Int -&gt; TagFilter -&gt; ShowS
 [TagFilter] -&gt; ShowS
 TagFilter -&gt; String
 (Int -&gt; TagFilter -&gt; ShowS)
@@ -95,60 +95,42 @@ $cfrom :: forall x. TagFilter -&gt; Rep TagFilter x
 </span><span id="line-42"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-43"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-44"></span><span class="hs-comment">--</span><span>
-</span><span id="line-45"></span><span class="hs-comment">-- 'key', 'tagFilter_key' - The tag key.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 'values', 'tagFilter_values' - The tag values (0 to 20).</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'values', 'tagFilter_values' - The tag values (0 to 20).</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'key', 'tagFilter_key' - The tag key.</span><span>
 </span><span id="line-48"></span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#newTagFilter"><span class="hs-identifier hs-type">newTagFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-49"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#TagFilter"><span class="hs-identifier hs-type">TagFilter</span></a></span><span>
 </span><span id="line-50"></span><span id="newTagFilter"><span class="annot"><span class="annottext">newTagFilter :: TagFilter
 </span><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#newTagFilter"><span class="hs-identifier hs-var hs-var">newTagFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">TagFilter' :: Maybe Text -&gt; Maybe [Text] -&gt; TagFilter
+</span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">TagFilter' :: Maybe [Text] -&gt; Maybe Text -&gt; TagFilter
 </span><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#TagFilter%27"><span class="hs-identifier hs-type">TagFilter'</span></a></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:key:TagFilter' :: Maybe Text
-</span><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#%24sel%3Akey%3ATagFilter%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:values:TagFilter' :: Maybe [Text]
+</span><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#%24sel%3Avalues%3ATagFilter%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span class="annot"><span class="annottext">$sel:values:TagFilter' :: Maybe [Text]
-</span><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#%24sel%3Avalues%3ATagFilter%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-53"></span><span>      </span><span class="annot"><span class="annottext">$sel:key:TagFilter' :: Maybe Text
+</span><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#%24sel%3Akey%3ATagFilter%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-55"></span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- | The tag key.</span><span>
-</span><span id="line-57"></span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#tagFilter_key"><span class="hs-identifier hs-type">tagFilter_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#TagFilter"><span class="hs-identifier hs-type">TagFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-58"></span><span id="tagFilter_key"><span class="annot"><span class="annottext">tagFilter_key :: (Maybe Text -&gt; f (Maybe Text)) -&gt; TagFilter -&gt; f TagFilter
-</span><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#tagFilter_key"><span class="hs-identifier hs-var hs-var">tagFilter_key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TagFilter -&gt; Maybe Text)
--&gt; (TagFilter -&gt; Maybe Text -&gt; TagFilter)
--&gt; Lens TagFilter TagFilter (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#TagFilter%27"><span class="hs-identifier hs-type">TagFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178521"><span class="annot"><span class="annottext">Maybe Text
-key :: Maybe Text
-$sel:key:TagFilter' :: TagFilter -&gt; Maybe Text
-</span><a href="#local-6989586621679178521"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679178521"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178520"><span class="annot"><span class="annottext">s :: TagFilter
-</span><a href="#local-6989586621679178520"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#TagFilter%27"><span class="hs-identifier hs-type">TagFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178519"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679178519"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagFilter
-</span><a href="#local-6989586621679178520"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:TagFilter' :: Maybe Text
-</span><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#%24sel%3Akey%3ATagFilter%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679178519"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#TagFilter"><span class="hs-identifier hs-type">TagFilter</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- | The tag values (0 to 20).</span><span>
-</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#tagFilter_values"><span class="hs-identifier hs-type">tagFilter_values</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#TagFilter"><span class="hs-identifier hs-type">TagFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-62"></span><span id="tagFilter_values"><span class="annot"><span class="annottext">tagFilter_values :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; TagFilter -&gt; f TagFilter
+</span><span id="line-56"></span><span class="hs-comment">-- | The tag values (0 to 20).</span><span>
+</span><span id="line-57"></span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#tagFilter_values"><span class="hs-identifier hs-type">tagFilter_values</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#TagFilter"><span class="hs-identifier hs-type">TagFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span id="tagFilter_values"><span class="annot"><span class="annottext">tagFilter_values :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; TagFilter -&gt; f TagFilter
 </span><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#tagFilter_values"><span class="hs-identifier hs-var hs-var">tagFilter_values</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TagFilter -&gt; Maybe [Text])
 -&gt; (TagFilter -&gt; Maybe [Text] -&gt; TagFilter)
 -&gt; Lens TagFilter TagFilter (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#TagFilter%27"><span class="hs-identifier hs-type">TagFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178517"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#TagFilter%27"><span class="hs-identifier hs-type">TagFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178583"><span class="annot"><span class="annottext">Maybe [Text]
 values :: Maybe [Text]
 $sel:values:TagFilter' :: TagFilter -&gt; Maybe [Text]
-</span><a href="#local-6989586621679178517"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679178517"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178516"><span class="annot"><span class="annottext">s :: TagFilter
-</span><a href="#local-6989586621679178516"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#TagFilter%27"><span class="hs-identifier hs-type">TagFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178515"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679178515"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagFilter
-</span><a href="#local-6989586621679178516"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:TagFilter' :: Maybe [Text]
+</span><a href="#local-6989586621679178583"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679178583"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178582"><span class="annot"><span class="annottext">s :: TagFilter
+</span><a href="#local-6989586621679178582"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#TagFilter%27"><span class="hs-identifier hs-type">TagFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178581"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679178581"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagFilter
+</span><a href="#local-6989586621679178582"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:TagFilter' :: Maybe [Text]
 </span><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#%24sel%3Avalues%3ATagFilter%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679178515"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#TagFilter"><span class="hs-identifier hs-type">TagFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; TagFilter -&gt; f TagFilter)
+</span><a href="#local-6989586621679178581"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#TagFilter"><span class="hs-identifier hs-type">TagFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; TagFilter -&gt; f TagFilter)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -161,34 +143,44 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | The tag key.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#tagFilter_key"><span class="hs-identifier hs-type">tagFilter_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#TagFilter"><span class="hs-identifier hs-type">TagFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span id="tagFilter_key"><span class="annot"><span class="annottext">tagFilter_key :: (Maybe Text -&gt; f (Maybe Text)) -&gt; TagFilter -&gt; f TagFilter
+</span><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#tagFilter_key"><span class="hs-identifier hs-var hs-var">tagFilter_key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TagFilter -&gt; Maybe Text)
+-&gt; (TagFilter -&gt; Maybe Text -&gt; TagFilter)
+-&gt; Lens TagFilter TagFilter (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#TagFilter%27"><span class="hs-identifier hs-type">TagFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178576"><span class="annot"><span class="annottext">Maybe Text
+key :: Maybe Text
+$sel:key:TagFilter' :: TagFilter -&gt; Maybe Text
+</span><a href="#local-6989586621679178576"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178576"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178575"><span class="annot"><span class="annottext">s :: TagFilter
+</span><a href="#local-6989586621679178575"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#TagFilter%27"><span class="hs-identifier hs-type">TagFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178574"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178574"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagFilter
+</span><a href="#local-6989586621679178575"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:TagFilter' :: Maybe Text
+</span><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#%24sel%3Akey%3ATagFilter%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178574"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#TagFilter"><span class="hs-identifier hs-type">TagFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178509"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#TagFilter"><span class="hs-identifier hs-type">TagFilter</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679178507"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TagFilter
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178571"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#TagFilter"><span class="hs-identifier hs-type">TagFilter</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679178569"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TagFilter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser TagFilter) -&gt; Value -&gt; Parser TagFilter
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TagFilter&quot;</span></span><span>
-</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679178504"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679178504"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-69"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Text] -&gt; TagFilter
+</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679178566"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679178566"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe Text -&gt; TagFilter
 </span><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#TagFilter%27"><span class="hs-identifier hs-var">TagFilter'</span></a></span><span>
-</span><span id="line-70"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Text] -&gt; TagFilter)
--&gt; Parser (Maybe Text) -&gt; Parser (Maybe [Text] -&gt; TagFilter)
+</span><span id="line-70"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe Text -&gt; TagFilter)
+-&gt; Parser (Maybe [Text]) -&gt; Parser (Maybe Text -&gt; TagFilter)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679178504"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Key&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Text] -&gt; TagFilter)
--&gt; Parser (Maybe [Text]) -&gt; Parser TagFilter
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679178504"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679178566"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Values&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -197,40 +189,48 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; TagFilter)
+-&gt; Parser (Maybe Text) -&gt; Parser TagFilter
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679178566"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Key&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178497"><span id="local-6989586621679178499"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#TagFilter"><span class="hs-identifier hs-type">TagFilter</span></a></span></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178559"><span id="local-6989586621679178561"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#TagFilter"><span class="hs-identifier hs-type">TagFilter</span></a></span></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178494"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#TagFilter"><span class="hs-identifier hs-type">TagFilter</span></a></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178556"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#TagFilter"><span class="hs-identifier hs-type">TagFilter</span></a></span></span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178486"><span id="local-6989586621679178488"><span id="local-6989586621679178490"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#TagFilter"><span class="hs-identifier hs-type">TagFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679178484"><span class="annot"><span class="annottext">toJSON :: TagFilter -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#TagFilter%27"><span class="hs-identifier hs-type">TagFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178481"><span id="local-6989586621679178482"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178548"><span id="local-6989586621679178550"><span id="local-6989586621679178552"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#TagFilter"><span class="hs-identifier hs-type">TagFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679178546"><span class="annot"><span class="annottext">toJSON :: TagFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.TagFilter.html#TagFilter%27"><span class="hs-identifier hs-type">TagFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178543"><span id="local-6989586621679178544"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe Text
-values :: Maybe [Text]
 key :: Maybe Text
-$sel:values:TagFilter' :: TagFilter -&gt; Maybe [Text]
+values :: Maybe [Text]
 $sel:key:TagFilter' :: TagFilter -&gt; Maybe Text
-</span><a href="#local-6989586621679178481"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:values:TagFilter' :: TagFilter -&gt; Maybe [Text]
+</span><a href="#local-6989586621679178543"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-82"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679178482"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-83"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Values&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679178481"><span class="hs-identifier hs-var">values</span></a></span><span>
+</span><a href="#local-6989586621679178544"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178543"><span class="hs-identifier hs-var">key</span></a></span><span>
 </span><span id="line-84"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span></pre></body></html>

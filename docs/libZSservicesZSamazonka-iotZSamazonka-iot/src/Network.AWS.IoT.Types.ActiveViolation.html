@@ -31,40 +31,40 @@
 </span><span id="line-31"></span><span class="hs-comment">-- violation.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newActiveViolation' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679805726"><span id="local-6989586621679805727"></span></span><span class="hs-keyword">data</span><span> </span><span id="ActiveViolation"><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation"><span class="hs-identifier hs-var">ActiveViolation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActiveViolation%27"><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation%27"><span class="hs-identifier hs-var">ActiveViolation'</span></a></span></span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the active violation.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AviolationId%3AActiveViolation%27"><span class="annot"><span class="annottext">ActiveViolation -&gt; Maybe Text
-</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#%24sel%3AviolationId%3AActiveViolation%27"><span class="hs-identifier hs-var hs-var">violationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The time the most recent violation occurred.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AlastViolationTime%3AActiveViolation%27"><span class="annot"><span class="annottext">ActiveViolation -&gt; Maybe POSIX
-</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#%24sel%3AlastViolationTime%3AActiveViolation%27"><span class="hs-identifier hs-var hs-var">lastViolationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The name of the thing responsible for the active violation.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AthingName%3AActiveViolation%27"><span class="annot"><span class="annottext">ActiveViolation -&gt; Maybe Text
-</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#%24sel%3AthingName%3AActiveViolation%27"><span class="hs-identifier hs-var hs-var">thingName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The value of the metric (the measurement) that caused the most recent</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- violation.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AlastViolationValue%3AActiveViolation%27"><span class="annot"><span class="annottext">ActiveViolation -&gt; Maybe MetricValue
-</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#%24sel%3AlastViolationValue%3AActiveViolation%27"><span class="hs-identifier hs-var hs-var">lastViolationValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The description of the verification state of the violation.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AverificationStateDescription%3AActiveViolation%27"><span class="annot"><span class="annottext">ActiveViolation -&gt; Maybe Text
+</span><span id="line-34"></span><span id="local-6989586621679806619"><span id="local-6989586621679806620"></span></span><span class="hs-keyword">data</span><span> </span><span id="ActiveViolation"><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation"><span class="hs-identifier hs-var">ActiveViolation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActiveViolation%27"><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation%27"><span class="hs-identifier hs-var">ActiveViolation'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The description of the verification state of the violation.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AverificationStateDescription%3AActiveViolation%27"><span class="annot"><span class="annottext">ActiveViolation -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.Types.ActiveViolation.html#%24sel%3AverificationStateDescription%3AActiveViolation%27"><span class="hs-identifier hs-var hs-var">verificationStateDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The security profile with the behavior is in violation.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3AsecurityProfileName%3AActiveViolation%27"><span class="annot"><span class="annottext">ActiveViolation -&gt; Maybe Text
-</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#%24sel%3AsecurityProfileName%3AActiveViolation%27"><span class="hs-identifier hs-var hs-var">securityProfileName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The behavior that is being violated.</span><span>
-</span><span id="line-49"></span><span>    </span><span id="%24sel%3Abehavior%3AActiveViolation%27"><span class="annot"><span class="annottext">ActiveViolation -&gt; Maybe Behavior
-</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#%24sel%3Abehavior%3AActiveViolation%27"><span class="hs-identifier hs-var hs-var">behavior</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior"><span class="hs-identifier hs-type">Behavior</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The time the violation started.</span><span>
-</span><span id="line-51"></span><span>    </span><span id="%24sel%3AviolationStartTime%3AActiveViolation%27"><span class="annot"><span class="annottext">ActiveViolation -&gt; Maybe POSIX
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The value of the metric (the measurement) that caused the most recent</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- violation.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AlastViolationValue%3AActiveViolation%27"><span class="annot"><span class="annottext">ActiveViolation -&gt; Maybe MetricValue
+</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#%24sel%3AlastViolationValue%3AActiveViolation%27"><span class="hs-identifier hs-var hs-var">lastViolationValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The time the most recent violation occurred.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AlastViolationTime%3AActiveViolation%27"><span class="annot"><span class="annottext">ActiveViolation -&gt; Maybe POSIX
+</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#%24sel%3AlastViolationTime%3AActiveViolation%27"><span class="hs-identifier hs-var hs-var">lastViolationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The time the violation started.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AviolationStartTime%3AActiveViolation%27"><span class="annot"><span class="annottext">ActiveViolation -&gt; Maybe POSIX
 </span><a href="Network.AWS.IoT.Types.ActiveViolation.html#%24sel%3AviolationStartTime%3AActiveViolation%27"><span class="hs-identifier hs-var hs-var">violationStartTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The verification state of the violation (detect alarm).</span><span>
-</span><span id="line-53"></span><span>    </span><span id="%24sel%3AverificationState%3AActiveViolation%27"><span class="annot"><span class="annottext">ActiveViolation -&gt; Maybe VerificationState
-</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#%24sel%3AverificationState%3AActiveViolation%27"><span class="hs-identifier hs-var hs-var">verificationState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.VerificationState.html#VerificationState"><span class="hs-identifier hs-type">VerificationState</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The details of a violation event.</span><span>
-</span><span id="line-55"></span><span>    </span><span id="%24sel%3AviolationEventAdditionalInfo%3AActiveViolation%27"><span class="annot"><span class="annottext">ActiveViolation -&gt; Maybe ViolationEventAdditionalInfo
-</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#%24sel%3AviolationEventAdditionalInfo%3AActiveViolation%27"><span class="hs-identifier hs-var hs-var">violationEventAdditionalInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ViolationEventAdditionalInfo.html#ViolationEventAdditionalInfo"><span class="hs-identifier hs-type">ViolationEventAdditionalInfo</span></a></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The ID of the active violation.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AviolationId%3AActiveViolation%27"><span class="annot"><span class="annottext">ActiveViolation -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#%24sel%3AviolationId%3AActiveViolation%27"><span class="hs-identifier hs-var hs-var">violationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The behavior that is being violated.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Abehavior%3AActiveViolation%27"><span class="annot"><span class="annottext">ActiveViolation -&gt; Maybe Behavior
+</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#%24sel%3Abehavior%3AActiveViolation%27"><span class="hs-identifier hs-var hs-var">behavior</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior"><span class="hs-identifier hs-type">Behavior</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The security profile with the behavior is in violation.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AsecurityProfileName%3AActiveViolation%27"><span class="annot"><span class="annottext">ActiveViolation -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#%24sel%3AsecurityProfileName%3AActiveViolation%27"><span class="hs-identifier hs-var hs-var">securityProfileName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The details of a violation event.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AviolationEventAdditionalInfo%3AActiveViolation%27"><span class="annot"><span class="annottext">ActiveViolation -&gt; Maybe ViolationEventAdditionalInfo
+</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#%24sel%3AviolationEventAdditionalInfo%3AActiveViolation%27"><span class="hs-identifier hs-var hs-var">violationEventAdditionalInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ViolationEventAdditionalInfo.html#ViolationEventAdditionalInfo"><span class="hs-identifier hs-type">ViolationEventAdditionalInfo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The name of the thing responsible for the active violation.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AthingName%3AActiveViolation%27"><span class="annot"><span class="annottext">ActiveViolation -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#%24sel%3AthingName%3AActiveViolation%27"><span class="hs-identifier hs-var hs-var">thingName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The verification state of the violation (detect alarm).</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AverificationState%3AActiveViolation%27"><span class="annot"><span class="annottext">ActiveViolation -&gt; Maybe VerificationState
+</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#%24sel%3AverificationState%3AActiveViolation%27"><span class="hs-identifier hs-var hs-var">verificationState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.VerificationState.html#VerificationState"><span class="hs-identifier hs-type">VerificationState</span></a></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679805711"><span id="local-6989586621679805713"><span class="annot"><span class="annottext">ActiveViolation -&gt; ActiveViolation -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679806604"><span id="local-6989586621679806606"><span class="annot"><span class="annottext">ActiveViolation -&gt; ActiveViolation -&gt; Bool
 (ActiveViolation -&gt; ActiveViolation -&gt; Bool)
 -&gt; (ActiveViolation -&gt; ActiveViolation -&gt; Bool)
 -&gt; Eq ActiveViolation
@@ -73,7 +73,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ActiveViolation -&gt; ActiveViolation -&gt; Bool
 == :: ActiveViolation -&gt; ActiveViolation -&gt; Bool
 $c== :: ActiveViolation -&gt; ActiveViolation -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679805702"><span id="local-6989586621679805704"><span id="local-6989586621679805706"><span id="local-6989586621679805708"><span class="annot"><span class="annottext">ReadPrec [ActiveViolation]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679806595"><span id="local-6989586621679806597"><span id="local-6989586621679806599"><span id="local-6989586621679806601"><span class="annot"><span class="annottext">ReadPrec [ActiveViolation]
 ReadPrec ActiveViolation
 Int -&gt; ReadS ActiveViolation
 ReadS [ActiveViolation]
@@ -93,7 +93,7 @@ readList :: ReadS [ActiveViolation]
 $creadList :: ReadS [ActiveViolation]
 readsPrec :: Int -&gt; ReadS ActiveViolation
 $creadsPrec :: Int -&gt; ReadS ActiveViolation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679805695"><span id="local-6989586621679805697"><span id="local-6989586621679805699"><span class="annot"><span class="annottext">Int -&gt; ActiveViolation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679806588"><span id="local-6989586621679806590"><span id="local-6989586621679806592"><span class="annot"><span class="annottext">Int -&gt; ActiveViolation -&gt; ShowS
 [ActiveViolation] -&gt; ShowS
 ActiveViolation -&gt; String
 (Int -&gt; ActiveViolation -&gt; ShowS)
@@ -127,160 +127,108 @@ $cfrom :: forall x. ActiveViolation -&gt; Rep ActiveViolation x
 </span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'violationId', 'activeViolation_violationId' - The ID of the active violation.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'verificationStateDescription', 'activeViolation_verificationStateDescription' - The description of the verification state of the violation.</span><span>
 </span><span id="line-68"></span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- 'lastViolationTime', 'activeViolation_lastViolationTime' - The time the most recent violation occurred.</span><span>
-</span><span id="line-70"></span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- 'thingName', 'activeViolation_thingName' - The name of the thing responsible for the active violation.</span><span>
-</span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'lastViolationValue', 'activeViolation_lastViolationValue' - The value of the metric (the measurement) that caused the most recent</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- violation.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'lastViolationValue', 'activeViolation_lastViolationValue' - The value of the metric (the measurement) that caused the most recent</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- violation.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'lastViolationTime', 'activeViolation_lastViolationTime' - The time the most recent violation occurred.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'violationStartTime', 'activeViolation_violationStartTime' - The time the violation started.</span><span>
 </span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 'verificationStateDescription', 'activeViolation_verificationStateDescription' - The description of the verification state of the violation.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'violationId', 'activeViolation_violationId' - The ID of the active violation.</span><span>
 </span><span id="line-77"></span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- 'securityProfileName', 'activeViolation_securityProfileName' - The security profile with the behavior is in violation.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'behavior', 'activeViolation_behavior' - The behavior that is being violated.</span><span>
 </span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'behavior', 'activeViolation_behavior' - The behavior that is being violated.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'securityProfileName', 'activeViolation_securityProfileName' - The security profile with the behavior is in violation.</span><span>
 </span><span id="line-81"></span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- 'violationStartTime', 'activeViolation_violationStartTime' - The time the violation started.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'violationEventAdditionalInfo', 'activeViolation_violationEventAdditionalInfo' - The details of a violation event.</span><span>
 </span><span id="line-83"></span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- 'verificationState', 'activeViolation_verificationState' - The verification state of the violation (detect alarm).</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'thingName', 'activeViolation_thingName' - The name of the thing responsible for the active violation.</span><span>
 </span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- 'violationEventAdditionalInfo', 'activeViolation_violationEventAdditionalInfo' - The details of a violation event.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'verificationState', 'activeViolation_verificationState' - The verification state of the violation (detect alarm).</span><span>
 </span><span id="line-87"></span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#newActiveViolation"><span class="hs-identifier hs-type">newActiveViolation</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation"><span class="hs-identifier hs-type">ActiveViolation</span></a></span><span>
 </span><span id="line-89"></span><span id="newActiveViolation"><span class="annot"><span class="annottext">newActiveViolation :: ActiveViolation
 </span><a href="Network.AWS.IoT.Types.ActiveViolation.html#newActiveViolation"><span class="hs-identifier hs-var hs-var">newActiveViolation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>  </span><span class="annot"><span class="annottext">ActiveViolation' :: Maybe Text
--&gt; Maybe POSIX
--&gt; Maybe Text
 -&gt; Maybe MetricValue
--&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
 -&gt; Maybe Text
 -&gt; Maybe Behavior
--&gt; Maybe POSIX
--&gt; Maybe VerificationState
+-&gt; Maybe Text
 -&gt; Maybe ViolationEventAdditionalInfo
+-&gt; Maybe Text
+-&gt; Maybe VerificationState
 -&gt; ActiveViolation
 </span><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation%27"><span class="hs-identifier hs-type">ActiveViolation'</span></a></span><span>
-</span><span id="line-91"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:violationId:ActiveViolation' :: Maybe Text
-</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#%24sel%3AviolationId%3AActiveViolation%27"><span class="hs-identifier hs-var">violationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-91"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:verificationStateDescription:ActiveViolation' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#%24sel%3AverificationStateDescription%3AActiveViolation%27"><span class="hs-identifier hs-var">verificationStateDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastViolationTime:ActiveViolation' :: Maybe POSIX
-</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#%24sel%3AlastViolationTime%3AActiveViolation%27"><span class="hs-identifier hs-var">lastViolationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:thingName:ActiveViolation' :: Maybe Text
-</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#%24sel%3AthingName%3AActiveViolation%27"><span class="hs-identifier hs-var">thingName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastViolationValue:ActiveViolation' :: Maybe MetricValue
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastViolationValue:ActiveViolation' :: Maybe MetricValue
 </span><a href="Network.AWS.IoT.Types.ActiveViolation.html#%24sel%3AlastViolationValue%3AActiveViolation%27"><span class="hs-identifier hs-var">lastViolationValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MetricValue
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:verificationStateDescription:ActiveViolation' :: Maybe Text
-</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#%24sel%3AverificationStateDescription%3AActiveViolation%27"><span class="hs-identifier hs-var">verificationStateDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastViolationTime:ActiveViolation' :: Maybe POSIX
+</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#%24sel%3AlastViolationTime%3AActiveViolation%27"><span class="hs-identifier hs-var">lastViolationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:securityProfileName:ActiveViolation' :: Maybe Text
-</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#%24sel%3AsecurityProfileName%3AActiveViolation%27"><span class="hs-identifier hs-var">securityProfileName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:violationStartTime:ActiveViolation' :: Maybe POSIX
+</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#%24sel%3AviolationStartTime%3AActiveViolation%27"><span class="hs-identifier hs-var">violationStartTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:violationId:ActiveViolation' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#%24sel%3AviolationId%3AActiveViolation%27"><span class="hs-identifier hs-var">violationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:behavior:ActiveViolation' :: Maybe Behavior
 </span><a href="Network.AWS.IoT.Types.ActiveViolation.html#%24sel%3Abehavior%3AActiveViolation%27"><span class="hs-identifier hs-var">behavior</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Behavior
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:violationStartTime:ActiveViolation' :: Maybe POSIX
-</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#%24sel%3AviolationStartTime%3AActiveViolation%27"><span class="hs-identifier hs-var">violationStartTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:securityProfileName:ActiveViolation' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#%24sel%3AsecurityProfileName%3AActiveViolation%27"><span class="hs-identifier hs-var">securityProfileName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:verificationState:ActiveViolation' :: Maybe VerificationState
-</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#%24sel%3AverificationState%3AActiveViolation%27"><span class="hs-identifier hs-var">verificationState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VerificationState
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:violationEventAdditionalInfo:ActiveViolation' :: Maybe ViolationEventAdditionalInfo
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:violationEventAdditionalInfo:ActiveViolation' :: Maybe ViolationEventAdditionalInfo
 </span><a href="Network.AWS.IoT.Types.ActiveViolation.html#%24sel%3AviolationEventAdditionalInfo%3AActiveViolation%27"><span class="hs-identifier hs-var">violationEventAdditionalInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ViolationEventAdditionalInfo
 forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-101"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- | The ID of the active violation.</span><span>
-</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#activeViolation_violationId"><span class="hs-identifier hs-type">activeViolation_violationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation"><span class="hs-identifier hs-type">ActiveViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span id="activeViolation_violationId"><span class="annot"><span class="annottext">activeViolation_violationId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ActiveViolation -&gt; f ActiveViolation
-</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#activeViolation_violationId"><span class="hs-identifier hs-var hs-var">activeViolation_violationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActiveViolation -&gt; Maybe Text)
--&gt; (ActiveViolation -&gt; Maybe Text -&gt; ActiveViolation)
--&gt; Lens ActiveViolation ActiveViolation (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation%27"><span class="hs-identifier hs-type">ActiveViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805686"><span class="annot"><span class="annottext">Maybe Text
-violationId :: Maybe Text
-$sel:violationId:ActiveViolation' :: ActiveViolation -&gt; Maybe Text
-</span><a href="#local-6989586621679805686"><span class="hs-identifier hs-var hs-var">violationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679805686"><span class="hs-identifier hs-var">violationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679805685"><span class="annot"><span class="annottext">s :: ActiveViolation
-</span><a href="#local-6989586621679805685"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation%27"><span class="hs-identifier hs-type">ActiveViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679805684"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679805684"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActiveViolation
-</span><a href="#local-6989586621679805685"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:violationId:ActiveViolation' :: Maybe Text
-</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#%24sel%3AviolationId%3AActiveViolation%27"><span class="hs-identifier hs-var">violationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679805684"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation"><span class="hs-identifier hs-type">ActiveViolation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- | The time the most recent violation occurred.</span><span>
-</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#activeViolation_lastViolationTime"><span class="hs-identifier hs-type">activeViolation_lastViolationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation"><span class="hs-identifier hs-type">ActiveViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span id="activeViolation_lastViolationTime"><span class="annot"><span class="annottext">activeViolation_lastViolationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; ActiveViolation -&gt; f ActiveViolation
-</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#activeViolation_lastViolationTime"><span class="hs-identifier hs-var hs-var">activeViolation_lastViolationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActiveViolation -&gt; Maybe POSIX)
--&gt; (ActiveViolation -&gt; Maybe POSIX -&gt; ActiveViolation)
--&gt; Lens ActiveViolation ActiveViolation (Maybe POSIX) (Maybe POSIX)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation%27"><span class="hs-identifier hs-type">ActiveViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805682"><span class="annot"><span class="annottext">Maybe POSIX
-lastViolationTime :: Maybe POSIX
-$sel:lastViolationTime:ActiveViolation' :: ActiveViolation -&gt; Maybe POSIX
-</span><a href="#local-6989586621679805682"><span class="hs-identifier hs-var hs-var">lastViolationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679805682"><span class="hs-identifier hs-var">lastViolationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679805681"><span class="annot"><span class="annottext">s :: ActiveViolation
-</span><a href="#local-6989586621679805681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation%27"><span class="hs-identifier hs-type">ActiveViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679805680"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679805680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActiveViolation
-</span><a href="#local-6989586621679805681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastViolationTime:ActiveViolation' :: Maybe POSIX
-</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#%24sel%3AlastViolationTime%3AActiveViolation%27"><span class="hs-identifier hs-var">lastViolationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679805680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation"><span class="hs-identifier hs-type">ActiveViolation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
- -&gt; ActiveViolation -&gt; f ActiveViolation)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; ActiveViolation
--&gt; f ActiveViolation
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- | The name of the thing responsible for the active violation.</span><span>
-</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#activeViolation_thingName"><span class="hs-identifier hs-type">activeViolation_thingName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation"><span class="hs-identifier hs-type">ActiveViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span id="activeViolation_thingName"><span class="annot"><span class="annottext">activeViolation_thingName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ActiveViolation -&gt; f ActiveViolation
-</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#activeViolation_thingName"><span class="hs-identifier hs-var hs-var">activeViolation_thingName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActiveViolation -&gt; Maybe Text)
--&gt; (ActiveViolation -&gt; Maybe Text -&gt; ActiveViolation)
--&gt; Lens ActiveViolation ActiveViolation (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation%27"><span class="hs-identifier hs-type">ActiveViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805675"><span class="annot"><span class="annottext">Maybe Text
-thingName :: Maybe Text
-$sel:thingName:ActiveViolation' :: ActiveViolation -&gt; Maybe Text
-</span><a href="#local-6989586621679805675"><span class="hs-identifier hs-var hs-var">thingName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679805675"><span class="hs-identifier hs-var">thingName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679805674"><span class="annot"><span class="annottext">s :: ActiveViolation
-</span><a href="#local-6989586621679805674"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation%27"><span class="hs-identifier hs-type">ActiveViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679805673"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679805673"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActiveViolation
-</span><a href="#local-6989586621679805674"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingName:ActiveViolation' :: Maybe Text
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:thingName:ActiveViolation' :: Maybe Text
 </span><a href="Network.AWS.IoT.Types.ActiveViolation.html#%24sel%3AthingName%3AActiveViolation%27"><span class="hs-identifier hs-var">thingName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679805673"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation"><span class="hs-identifier hs-type">ActiveViolation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- | The value of the metric (the measurement) that caused the most recent</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- violation.</span><span>
-</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#activeViolation_lastViolationValue"><span class="hs-identifier hs-type">activeViolation_lastViolationValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation"><span class="hs-identifier hs-type">ActiveViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span id="activeViolation_lastViolationValue"><span class="annot"><span class="annottext">activeViolation_lastViolationValue :: (Maybe MetricValue -&gt; f (Maybe MetricValue))
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:verificationState:ActiveViolation' :: Maybe VerificationState
+</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#%24sel%3AverificationState%3AActiveViolation%27"><span class="hs-identifier hs-var">verificationState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VerificationState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The description of the verification state of the violation.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#activeViolation_verificationStateDescription"><span class="hs-identifier hs-type">activeViolation_verificationStateDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation"><span class="hs-identifier hs-type">ActiveViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="activeViolation_verificationStateDescription"><span class="annot"><span class="annottext">activeViolation_verificationStateDescription :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ActiveViolation -&gt; f ActiveViolation
+</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#activeViolation_verificationStateDescription"><span class="hs-identifier hs-var hs-var">activeViolation_verificationStateDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActiveViolation -&gt; Maybe Text)
+-&gt; (ActiveViolation -&gt; Maybe Text -&gt; ActiveViolation)
+-&gt; Lens ActiveViolation ActiveViolation (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation%27"><span class="hs-identifier hs-type">ActiveViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679806579"><span class="annot"><span class="annottext">Maybe Text
+verificationStateDescription :: Maybe Text
+$sel:verificationStateDescription:ActiveViolation' :: ActiveViolation -&gt; Maybe Text
+</span><a href="#local-6989586621679806579"><span class="hs-identifier hs-var hs-var">verificationStateDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679806579"><span class="hs-identifier hs-var">verificationStateDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679806578"><span class="annot"><span class="annottext">s :: ActiveViolation
+</span><a href="#local-6989586621679806578"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation%27"><span class="hs-identifier hs-type">ActiveViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679806577"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679806577"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActiveViolation
+</span><a href="#local-6989586621679806578"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:verificationStateDescription:ActiveViolation' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#%24sel%3AverificationStateDescription%3AActiveViolation%27"><span class="hs-identifier hs-var">verificationStateDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679806577"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation"><span class="hs-identifier hs-type">ActiveViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The value of the metric (the measurement) that caused the most recent</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- violation.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#activeViolation_lastViolationValue"><span class="hs-identifier hs-type">activeViolation_lastViolationValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation"><span class="hs-identifier hs-type">ActiveViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MetricValue.html#MetricValue"><span class="hs-identifier hs-type">MetricValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="activeViolation_lastViolationValue"><span class="annot"><span class="annottext">activeViolation_lastViolationValue :: (Maybe MetricValue -&gt; f (Maybe MetricValue))
 -&gt; ActiveViolation -&gt; f ActiveViolation
 </span><a href="Network.AWS.IoT.Types.ActiveViolation.html#activeViolation_lastViolationValue"><span class="hs-identifier hs-var hs-var">activeViolation_lastViolationValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActiveViolation -&gt; Maybe MetricValue)
 -&gt; (ActiveViolation -&gt; Maybe MetricValue -&gt; ActiveViolation)
@@ -290,93 +238,35 @@ $sel:thingName:ActiveViolation' :: ActiveViolation -&gt; Maybe Text
      (Maybe MetricValue)
      (Maybe MetricValue)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation%27"><span class="hs-identifier hs-type">ActiveViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805671"><span class="annot"><span class="annottext">Maybe MetricValue
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation%27"><span class="hs-identifier hs-type">ActiveViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679806575"><span class="annot"><span class="annottext">Maybe MetricValue
 lastViolationValue :: Maybe MetricValue
 $sel:lastViolationValue:ActiveViolation' :: ActiveViolation -&gt; Maybe MetricValue
-</span><a href="#local-6989586621679805671"><span class="hs-identifier hs-var hs-var">lastViolationValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MetricValue
-</span><a href="#local-6989586621679805671"><span class="hs-identifier hs-var">lastViolationValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679805670"><span class="annot"><span class="annottext">s :: ActiveViolation
-</span><a href="#local-6989586621679805670"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation%27"><span class="hs-identifier hs-type">ActiveViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679805669"><span class="annot"><span class="annottext">Maybe MetricValue
-</span><a href="#local-6989586621679805669"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActiveViolation
-</span><a href="#local-6989586621679805670"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastViolationValue:ActiveViolation' :: Maybe MetricValue
+</span><a href="#local-6989586621679806575"><span class="hs-identifier hs-var hs-var">lastViolationValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MetricValue
+</span><a href="#local-6989586621679806575"><span class="hs-identifier hs-var">lastViolationValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679806574"><span class="annot"><span class="annottext">s :: ActiveViolation
+</span><a href="#local-6989586621679806574"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation%27"><span class="hs-identifier hs-type">ActiveViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679806573"><span class="annot"><span class="annottext">Maybe MetricValue
+</span><a href="#local-6989586621679806573"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActiveViolation
+</span><a href="#local-6989586621679806574"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastViolationValue:ActiveViolation' :: Maybe MetricValue
 </span><a href="Network.AWS.IoT.Types.ActiveViolation.html#%24sel%3AlastViolationValue%3AActiveViolation%27"><span class="hs-identifier hs-var">lastViolationValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MetricValue
-</span><a href="#local-6989586621679805669"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation"><span class="hs-identifier hs-type">ActiveViolation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- | The description of the verification state of the violation.</span><span>
-</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#activeViolation_verificationStateDescription"><span class="hs-identifier hs-type">activeViolation_verificationStateDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation"><span class="hs-identifier hs-type">ActiveViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span id="activeViolation_verificationStateDescription"><span class="annot"><span class="annottext">activeViolation_verificationStateDescription :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679806573"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation"><span class="hs-identifier hs-type">ActiveViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The time the most recent violation occurred.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#activeViolation_lastViolationTime"><span class="hs-identifier hs-type">activeViolation_lastViolationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation"><span class="hs-identifier hs-type">ActiveViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="activeViolation_lastViolationTime"><span class="annot"><span class="annottext">activeViolation_lastViolationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; ActiveViolation -&gt; f ActiveViolation
-</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#activeViolation_verificationStateDescription"><span class="hs-identifier hs-var hs-var">activeViolation_verificationStateDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActiveViolation -&gt; Maybe Text)
--&gt; (ActiveViolation -&gt; Maybe Text -&gt; ActiveViolation)
--&gt; Lens ActiveViolation ActiveViolation (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation%27"><span class="hs-identifier hs-type">ActiveViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805667"><span class="annot"><span class="annottext">Maybe Text
-verificationStateDescription :: Maybe Text
-$sel:verificationStateDescription:ActiveViolation' :: ActiveViolation -&gt; Maybe Text
-</span><a href="#local-6989586621679805667"><span class="hs-identifier hs-var hs-var">verificationStateDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679805667"><span class="hs-identifier hs-var">verificationStateDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679805666"><span class="annot"><span class="annottext">s :: ActiveViolation
-</span><a href="#local-6989586621679805666"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation%27"><span class="hs-identifier hs-type">ActiveViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679805665"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679805665"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActiveViolation
-</span><a href="#local-6989586621679805666"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:verificationStateDescription:ActiveViolation' :: Maybe Text
-</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#%24sel%3AverificationStateDescription%3AActiveViolation%27"><span class="hs-identifier hs-var">verificationStateDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679805665"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation"><span class="hs-identifier hs-type">ActiveViolation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- | The security profile with the behavior is in violation.</span><span>
-</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#activeViolation_securityProfileName"><span class="hs-identifier hs-type">activeViolation_securityProfileName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation"><span class="hs-identifier hs-type">ActiveViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span id="activeViolation_securityProfileName"><span class="annot"><span class="annottext">activeViolation_securityProfileName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ActiveViolation -&gt; f ActiveViolation
-</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#activeViolation_securityProfileName"><span class="hs-identifier hs-var hs-var">activeViolation_securityProfileName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActiveViolation -&gt; Maybe Text)
--&gt; (ActiveViolation -&gt; Maybe Text -&gt; ActiveViolation)
--&gt; Lens ActiveViolation ActiveViolation (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation%27"><span class="hs-identifier hs-type">ActiveViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805663"><span class="annot"><span class="annottext">Maybe Text
-securityProfileName :: Maybe Text
-$sel:securityProfileName:ActiveViolation' :: ActiveViolation -&gt; Maybe Text
-</span><a href="#local-6989586621679805663"><span class="hs-identifier hs-var hs-var">securityProfileName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679805663"><span class="hs-identifier hs-var">securityProfileName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679805662"><span class="annot"><span class="annottext">s :: ActiveViolation
-</span><a href="#local-6989586621679805662"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation%27"><span class="hs-identifier hs-type">ActiveViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679805661"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679805661"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActiveViolation
-</span><a href="#local-6989586621679805662"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityProfileName:ActiveViolation' :: Maybe Text
-</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#%24sel%3AsecurityProfileName%3AActiveViolation%27"><span class="hs-identifier hs-var">securityProfileName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679805661"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation"><span class="hs-identifier hs-type">ActiveViolation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- | The behavior that is being violated.</span><span>
-</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#activeViolation_behavior"><span class="hs-identifier hs-type">activeViolation_behavior</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation"><span class="hs-identifier hs-type">ActiveViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior"><span class="hs-identifier hs-type">Behavior</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span id="activeViolation_behavior"><span class="annot"><span class="annottext">activeViolation_behavior :: (Maybe Behavior -&gt; f (Maybe Behavior))
--&gt; ActiveViolation -&gt; f ActiveViolation
-</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#activeViolation_behavior"><span class="hs-identifier hs-var hs-var">activeViolation_behavior</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActiveViolation -&gt; Maybe Behavior)
--&gt; (ActiveViolation -&gt; Maybe Behavior -&gt; ActiveViolation)
--&gt; Lens
-     ActiveViolation ActiveViolation (Maybe Behavior) (Maybe Behavior)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation%27"><span class="hs-identifier hs-type">ActiveViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805659"><span class="annot"><span class="annottext">Maybe Behavior
-behavior :: Maybe Behavior
-$sel:behavior:ActiveViolation' :: ActiveViolation -&gt; Maybe Behavior
-</span><a href="#local-6989586621679805659"><span class="hs-identifier hs-var hs-var">behavior</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Behavior
-</span><a href="#local-6989586621679805659"><span class="hs-identifier hs-var">behavior</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679805658"><span class="annot"><span class="annottext">s :: ActiveViolation
-</span><a href="#local-6989586621679805658"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation%27"><span class="hs-identifier hs-type">ActiveViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679805657"><span class="annot"><span class="annottext">Maybe Behavior
-</span><a href="#local-6989586621679805657"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActiveViolation
-</span><a href="#local-6989586621679805658"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:behavior:ActiveViolation' :: Maybe Behavior
-</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#%24sel%3Abehavior%3AActiveViolation%27"><span class="hs-identifier hs-var">behavior</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Behavior
-</span><a href="#local-6989586621679805657"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation"><span class="hs-identifier hs-type">ActiveViolation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- | The time the violation started.</span><span>
-</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#activeViolation_violationStartTime"><span class="hs-identifier hs-type">activeViolation_violationStartTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation"><span class="hs-identifier hs-type">ActiveViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span id="activeViolation_violationStartTime"><span class="annot"><span class="annottext">activeViolation_violationStartTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; ActiveViolation -&gt; f ActiveViolation
-</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#activeViolation_violationStartTime"><span class="hs-identifier hs-var hs-var">activeViolation_violationStartTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActiveViolation -&gt; Maybe POSIX)
+</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#activeViolation_lastViolationTime"><span class="hs-identifier hs-var hs-var">activeViolation_lastViolationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActiveViolation -&gt; Maybe POSIX)
 -&gt; (ActiveViolation -&gt; Maybe POSIX -&gt; ActiveViolation)
 -&gt; Lens ActiveViolation ActiveViolation (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation%27"><span class="hs-identifier hs-type">ActiveViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805655"><span class="annot"><span class="annottext">Maybe POSIX
-violationStartTime :: Maybe POSIX
-$sel:violationStartTime:ActiveViolation' :: ActiveViolation -&gt; Maybe POSIX
-</span><a href="#local-6989586621679805655"><span class="hs-identifier hs-var hs-var">violationStartTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679805655"><span class="hs-identifier hs-var">violationStartTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679805654"><span class="annot"><span class="annottext">s :: ActiveViolation
-</span><a href="#local-6989586621679805654"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation%27"><span class="hs-identifier hs-type">ActiveViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679805653"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679805653"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActiveViolation
-</span><a href="#local-6989586621679805654"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:violationStartTime:ActiveViolation' :: Maybe POSIX
-</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#%24sel%3AviolationStartTime%3AActiveViolation%27"><span class="hs-identifier hs-var">violationStartTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679805653"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation"><span class="hs-identifier hs-type">ActiveViolation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation%27"><span class="hs-identifier hs-type">ActiveViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679806571"><span class="annot"><span class="annottext">Maybe POSIX
+lastViolationTime :: Maybe POSIX
+$sel:lastViolationTime:ActiveViolation' :: ActiveViolation -&gt; Maybe POSIX
+</span><a href="#local-6989586621679806571"><span class="hs-identifier hs-var hs-var">lastViolationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679806571"><span class="hs-identifier hs-var">lastViolationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679806570"><span class="annot"><span class="annottext">s :: ActiveViolation
+</span><a href="#local-6989586621679806570"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation%27"><span class="hs-identifier hs-type">ActiveViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679806569"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679806569"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActiveViolation
+</span><a href="#local-6989586621679806570"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastViolationTime:ActiveViolation' :: Maybe POSIX
+</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#%24sel%3AlastViolationTime%3AActiveViolation%27"><span class="hs-identifier hs-var">lastViolationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679806569"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation"><span class="hs-identifier hs-type">ActiveViolation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; ActiveViolation -&gt; f ActiveViolation)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -392,33 +282,102 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- | The verification state of the violation (detect alarm).</span><span>
-</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#activeViolation_verificationState"><span class="hs-identifier hs-type">activeViolation_verificationState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation"><span class="hs-identifier hs-type">ActiveViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.VerificationState.html#VerificationState"><span class="hs-identifier hs-type">VerificationState</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-138"></span><span id="activeViolation_verificationState"><span class="annot"><span class="annottext">activeViolation_verificationState :: (Maybe VerificationState -&gt; f (Maybe VerificationState))
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | The time the violation started.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#activeViolation_violationStartTime"><span class="hs-identifier hs-type">activeViolation_violationStartTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation"><span class="hs-identifier hs-type">ActiveViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="activeViolation_violationStartTime"><span class="annot"><span class="annottext">activeViolation_violationStartTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; ActiveViolation -&gt; f ActiveViolation
-</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#activeViolation_verificationState"><span class="hs-identifier hs-var hs-var">activeViolation_verificationState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActiveViolation -&gt; Maybe VerificationState)
--&gt; (ActiveViolation -&gt; Maybe VerificationState -&gt; ActiveViolation)
--&gt; Lens
-     ActiveViolation
-     ActiveViolation
-     (Maybe VerificationState)
-     (Maybe VerificationState)
+</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#activeViolation_violationStartTime"><span class="hs-identifier hs-var hs-var">activeViolation_violationStartTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActiveViolation -&gt; Maybe POSIX)
+-&gt; (ActiveViolation -&gt; Maybe POSIX -&gt; ActiveViolation)
+-&gt; Lens ActiveViolation ActiveViolation (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation%27"><span class="hs-identifier hs-type">ActiveViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805651"><span class="annot"><span class="annottext">Maybe VerificationState
-verificationState :: Maybe VerificationState
-$sel:verificationState:ActiveViolation' :: ActiveViolation -&gt; Maybe VerificationState
-</span><a href="#local-6989586621679805651"><span class="hs-identifier hs-var hs-var">verificationState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VerificationState
-</span><a href="#local-6989586621679805651"><span class="hs-identifier hs-var">verificationState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679805650"><span class="annot"><span class="annottext">s :: ActiveViolation
-</span><a href="#local-6989586621679805650"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation%27"><span class="hs-identifier hs-type">ActiveViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679805649"><span class="annot"><span class="annottext">Maybe VerificationState
-</span><a href="#local-6989586621679805649"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActiveViolation
-</span><a href="#local-6989586621679805650"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:verificationState:ActiveViolation' :: Maybe VerificationState
-</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#%24sel%3AverificationState%3AActiveViolation%27"><span class="hs-identifier hs-var">verificationState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VerificationState
-</span><a href="#local-6989586621679805649"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation"><span class="hs-identifier hs-type">ActiveViolation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- | The details of a violation event.</span><span>
-</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#activeViolation_violationEventAdditionalInfo"><span class="hs-identifier hs-type">activeViolation_violationEventAdditionalInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation"><span class="hs-identifier hs-type">ActiveViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ViolationEventAdditionalInfo.html#ViolationEventAdditionalInfo"><span class="hs-identifier hs-type">ViolationEventAdditionalInfo</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span id="activeViolation_violationEventAdditionalInfo"><span class="annot"><span class="annottext">activeViolation_violationEventAdditionalInfo :: (Maybe ViolationEventAdditionalInfo
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation%27"><span class="hs-identifier hs-type">ActiveViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679806564"><span class="annot"><span class="annottext">Maybe POSIX
+violationStartTime :: Maybe POSIX
+$sel:violationStartTime:ActiveViolation' :: ActiveViolation -&gt; Maybe POSIX
+</span><a href="#local-6989586621679806564"><span class="hs-identifier hs-var hs-var">violationStartTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679806564"><span class="hs-identifier hs-var">violationStartTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679806563"><span class="annot"><span class="annottext">s :: ActiveViolation
+</span><a href="#local-6989586621679806563"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation%27"><span class="hs-identifier hs-type">ActiveViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679806562"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679806562"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActiveViolation
+</span><a href="#local-6989586621679806563"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:violationStartTime:ActiveViolation' :: Maybe POSIX
+</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#%24sel%3AviolationStartTime%3AActiveViolation%27"><span class="hs-identifier hs-var">violationStartTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679806562"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation"><span class="hs-identifier hs-type">ActiveViolation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ActiveViolation -&gt; f ActiveViolation)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ActiveViolation
+-&gt; f ActiveViolation
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | The ID of the active violation.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#activeViolation_violationId"><span class="hs-identifier hs-type">activeViolation_violationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation"><span class="hs-identifier hs-type">ActiveViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="activeViolation_violationId"><span class="annot"><span class="annottext">activeViolation_violationId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ActiveViolation -&gt; f ActiveViolation
+</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#activeViolation_violationId"><span class="hs-identifier hs-var hs-var">activeViolation_violationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActiveViolation -&gt; Maybe Text)
+-&gt; (ActiveViolation -&gt; Maybe Text -&gt; ActiveViolation)
+-&gt; Lens ActiveViolation ActiveViolation (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation%27"><span class="hs-identifier hs-type">ActiveViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679806560"><span class="annot"><span class="annottext">Maybe Text
+violationId :: Maybe Text
+$sel:violationId:ActiveViolation' :: ActiveViolation -&gt; Maybe Text
+</span><a href="#local-6989586621679806560"><span class="hs-identifier hs-var hs-var">violationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679806560"><span class="hs-identifier hs-var">violationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679806559"><span class="annot"><span class="annottext">s :: ActiveViolation
+</span><a href="#local-6989586621679806559"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation%27"><span class="hs-identifier hs-type">ActiveViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679806558"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679806558"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActiveViolation
+</span><a href="#local-6989586621679806559"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:violationId:ActiveViolation' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#%24sel%3AviolationId%3AActiveViolation%27"><span class="hs-identifier hs-var">violationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679806558"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation"><span class="hs-identifier hs-type">ActiveViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The behavior that is being violated.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#activeViolation_behavior"><span class="hs-identifier hs-type">activeViolation_behavior</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation"><span class="hs-identifier hs-type">ActiveViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Behavior.html#Behavior"><span class="hs-identifier hs-type">Behavior</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="activeViolation_behavior"><span class="annot"><span class="annottext">activeViolation_behavior :: (Maybe Behavior -&gt; f (Maybe Behavior))
+-&gt; ActiveViolation -&gt; f ActiveViolation
+</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#activeViolation_behavior"><span class="hs-identifier hs-var hs-var">activeViolation_behavior</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActiveViolation -&gt; Maybe Behavior)
+-&gt; (ActiveViolation -&gt; Maybe Behavior -&gt; ActiveViolation)
+-&gt; Lens
+     ActiveViolation ActiveViolation (Maybe Behavior) (Maybe Behavior)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation%27"><span class="hs-identifier hs-type">ActiveViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679806556"><span class="annot"><span class="annottext">Maybe Behavior
+behavior :: Maybe Behavior
+$sel:behavior:ActiveViolation' :: ActiveViolation -&gt; Maybe Behavior
+</span><a href="#local-6989586621679806556"><span class="hs-identifier hs-var hs-var">behavior</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Behavior
+</span><a href="#local-6989586621679806556"><span class="hs-identifier hs-var">behavior</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679806555"><span class="annot"><span class="annottext">s :: ActiveViolation
+</span><a href="#local-6989586621679806555"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation%27"><span class="hs-identifier hs-type">ActiveViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679806554"><span class="annot"><span class="annottext">Maybe Behavior
+</span><a href="#local-6989586621679806554"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActiveViolation
+</span><a href="#local-6989586621679806555"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:behavior:ActiveViolation' :: Maybe Behavior
+</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#%24sel%3Abehavior%3AActiveViolation%27"><span class="hs-identifier hs-var">behavior</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Behavior
+</span><a href="#local-6989586621679806554"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation"><span class="hs-identifier hs-type">ActiveViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The security profile with the behavior is in violation.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#activeViolation_securityProfileName"><span class="hs-identifier hs-type">activeViolation_securityProfileName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation"><span class="hs-identifier hs-type">ActiveViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="activeViolation_securityProfileName"><span class="annot"><span class="annottext">activeViolation_securityProfileName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ActiveViolation -&gt; f ActiveViolation
+</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#activeViolation_securityProfileName"><span class="hs-identifier hs-var hs-var">activeViolation_securityProfileName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActiveViolation -&gt; Maybe Text)
+-&gt; (ActiveViolation -&gt; Maybe Text -&gt; ActiveViolation)
+-&gt; Lens ActiveViolation ActiveViolation (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation%27"><span class="hs-identifier hs-type">ActiveViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679806552"><span class="annot"><span class="annottext">Maybe Text
+securityProfileName :: Maybe Text
+$sel:securityProfileName:ActiveViolation' :: ActiveViolation -&gt; Maybe Text
+</span><a href="#local-6989586621679806552"><span class="hs-identifier hs-var hs-var">securityProfileName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679806552"><span class="hs-identifier hs-var">securityProfileName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679806551"><span class="annot"><span class="annottext">s :: ActiveViolation
+</span><a href="#local-6989586621679806551"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation%27"><span class="hs-identifier hs-type">ActiveViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679806550"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679806550"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActiveViolation
+</span><a href="#local-6989586621679806551"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityProfileName:ActiveViolation' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#%24sel%3AsecurityProfileName%3AActiveViolation%27"><span class="hs-identifier hs-var">securityProfileName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679806550"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation"><span class="hs-identifier hs-type">ActiveViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The details of a violation event.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#activeViolation_violationEventAdditionalInfo"><span class="hs-identifier hs-type">activeViolation_violationEventAdditionalInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation"><span class="hs-identifier hs-type">ActiveViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ViolationEventAdditionalInfo.html#ViolationEventAdditionalInfo"><span class="hs-identifier hs-type">ViolationEventAdditionalInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="activeViolation_violationEventAdditionalInfo"><span class="annot"><span class="annottext">activeViolation_violationEventAdditionalInfo :: (Maybe ViolationEventAdditionalInfo
  -&gt; f (Maybe ViolationEventAdditionalInfo))
 -&gt; ActiveViolation -&gt; f ActiveViolation
 </span><a href="Network.AWS.IoT.Types.ActiveViolation.html#activeViolation_violationEventAdditionalInfo"><span class="hs-identifier hs-var hs-var">activeViolation_violationEventAdditionalInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActiveViolation -&gt; Maybe ViolationEventAdditionalInfo)
@@ -430,247 +389,281 @@ $sel:verificationState:ActiveViolation' :: ActiveViolation -&gt; Maybe Verificat
      (Maybe ViolationEventAdditionalInfo)
      (Maybe ViolationEventAdditionalInfo)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation%27"><span class="hs-identifier hs-type">ActiveViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805647"><span class="annot"><span class="annottext">Maybe ViolationEventAdditionalInfo
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation%27"><span class="hs-identifier hs-type">ActiveViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679806548"><span class="annot"><span class="annottext">Maybe ViolationEventAdditionalInfo
 violationEventAdditionalInfo :: Maybe ViolationEventAdditionalInfo
 $sel:violationEventAdditionalInfo:ActiveViolation' :: ActiveViolation -&gt; Maybe ViolationEventAdditionalInfo
-</span><a href="#local-6989586621679805647"><span class="hs-identifier hs-var hs-var">violationEventAdditionalInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ViolationEventAdditionalInfo
-</span><a href="#local-6989586621679805647"><span class="hs-identifier hs-var">violationEventAdditionalInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679805646"><span class="annot"><span class="annottext">s :: ActiveViolation
-</span><a href="#local-6989586621679805646"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation%27"><span class="hs-identifier hs-type">ActiveViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679805645"><span class="annot"><span class="annottext">Maybe ViolationEventAdditionalInfo
-</span><a href="#local-6989586621679805645"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActiveViolation
-</span><a href="#local-6989586621679805646"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:violationEventAdditionalInfo:ActiveViolation' :: Maybe ViolationEventAdditionalInfo
+</span><a href="#local-6989586621679806548"><span class="hs-identifier hs-var hs-var">violationEventAdditionalInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ViolationEventAdditionalInfo
+</span><a href="#local-6989586621679806548"><span class="hs-identifier hs-var">violationEventAdditionalInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679806547"><span class="annot"><span class="annottext">s :: ActiveViolation
+</span><a href="#local-6989586621679806547"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation%27"><span class="hs-identifier hs-type">ActiveViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679806546"><span class="annot"><span class="annottext">Maybe ViolationEventAdditionalInfo
+</span><a href="#local-6989586621679806546"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActiveViolation
+</span><a href="#local-6989586621679806547"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:violationEventAdditionalInfo:ActiveViolation' :: Maybe ViolationEventAdditionalInfo
 </span><a href="Network.AWS.IoT.Types.ActiveViolation.html#%24sel%3AviolationEventAdditionalInfo%3AActiveViolation%27"><span class="hs-identifier hs-var">violationEventAdditionalInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ViolationEventAdditionalInfo
-</span><a href="#local-6989586621679805645"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation"><span class="hs-identifier hs-type">ActiveViolation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679805642"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation"><span class="hs-identifier hs-type">ActiveViolation</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679805640"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ActiveViolation
+</span><a href="#local-6989586621679806546"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation"><span class="hs-identifier hs-type">ActiveViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | The name of the thing responsible for the active violation.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#activeViolation_thingName"><span class="hs-identifier hs-type">activeViolation_thingName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation"><span class="hs-identifier hs-type">ActiveViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="activeViolation_thingName"><span class="annot"><span class="annottext">activeViolation_thingName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ActiveViolation -&gt; f ActiveViolation
+</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#activeViolation_thingName"><span class="hs-identifier hs-var hs-var">activeViolation_thingName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActiveViolation -&gt; Maybe Text)
+-&gt; (ActiveViolation -&gt; Maybe Text -&gt; ActiveViolation)
+-&gt; Lens ActiveViolation ActiveViolation (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation%27"><span class="hs-identifier hs-type">ActiveViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679806544"><span class="annot"><span class="annottext">Maybe Text
+thingName :: Maybe Text
+$sel:thingName:ActiveViolation' :: ActiveViolation -&gt; Maybe Text
+</span><a href="#local-6989586621679806544"><span class="hs-identifier hs-var hs-var">thingName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679806544"><span class="hs-identifier hs-var">thingName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679806543"><span class="annot"><span class="annottext">s :: ActiveViolation
+</span><a href="#local-6989586621679806543"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation%27"><span class="hs-identifier hs-type">ActiveViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679806542"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679806542"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActiveViolation
+</span><a href="#local-6989586621679806543"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingName:ActiveViolation' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#%24sel%3AthingName%3AActiveViolation%27"><span class="hs-identifier hs-var">thingName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679806542"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation"><span class="hs-identifier hs-type">ActiveViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | The verification state of the violation (detect alarm).</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#activeViolation_verificationState"><span class="hs-identifier hs-type">activeViolation_verificationState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation"><span class="hs-identifier hs-type">ActiveViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.VerificationState.html#VerificationState"><span class="hs-identifier hs-type">VerificationState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="activeViolation_verificationState"><span class="annot"><span class="annottext">activeViolation_verificationState :: (Maybe VerificationState -&gt; f (Maybe VerificationState))
+-&gt; ActiveViolation -&gt; f ActiveViolation
+</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#activeViolation_verificationState"><span class="hs-identifier hs-var hs-var">activeViolation_verificationState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActiveViolation -&gt; Maybe VerificationState)
+-&gt; (ActiveViolation -&gt; Maybe VerificationState -&gt; ActiveViolation)
+-&gt; Lens
+     ActiveViolation
+     ActiveViolation
+     (Maybe VerificationState)
+     (Maybe VerificationState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation%27"><span class="hs-identifier hs-type">ActiveViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679806540"><span class="annot"><span class="annottext">Maybe VerificationState
+verificationState :: Maybe VerificationState
+$sel:verificationState:ActiveViolation' :: ActiveViolation -&gt; Maybe VerificationState
+</span><a href="#local-6989586621679806540"><span class="hs-identifier hs-var hs-var">verificationState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VerificationState
+</span><a href="#local-6989586621679806540"><span class="hs-identifier hs-var">verificationState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679806539"><span class="annot"><span class="annottext">s :: ActiveViolation
+</span><a href="#local-6989586621679806539"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation%27"><span class="hs-identifier hs-type">ActiveViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679806538"><span class="annot"><span class="annottext">Maybe VerificationState
+</span><a href="#local-6989586621679806538"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActiveViolation
+</span><a href="#local-6989586621679806539"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:verificationState:ActiveViolation' :: Maybe VerificationState
+</span><a href="Network.AWS.IoT.Types.ActiveViolation.html#%24sel%3AverificationState%3AActiveViolation%27"><span class="hs-identifier hs-var">verificationState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VerificationState
+</span><a href="#local-6989586621679806538"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation"><span class="hs-identifier hs-type">ActiveViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679806535"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation"><span class="hs-identifier hs-type">ActiveViolation</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679806533"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ActiveViolation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-147"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ActiveViolation)
 -&gt; Value
 -&gt; Parser ActiveViolation
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ActiveViolation&quot;</span></span><span>
-</span><span id="line-148"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679805637"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679805637"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-149"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe POSIX
--&gt; Maybe Text
+</span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679806530"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679806530"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-150"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe MetricValue
--&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
 -&gt; Maybe Text
 -&gt; Maybe Behavior
--&gt; Maybe POSIX
--&gt; Maybe VerificationState
+-&gt; Maybe Text
 -&gt; Maybe ViolationEventAdditionalInfo
+-&gt; Maybe Text
+-&gt; Maybe VerificationState
 -&gt; ActiveViolation
 </span><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation%27"><span class="hs-identifier hs-var">ActiveViolation'</span></a></span><span>
-</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe POSIX
- -&gt; Maybe Text
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
  -&gt; Maybe MetricValue
- -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe POSIX
  -&gt; Maybe Text
  -&gt; Maybe Behavior
- -&gt; Maybe POSIX
- -&gt; Maybe VerificationState
+ -&gt; Maybe Text
  -&gt; Maybe ViolationEventAdditionalInfo
+ -&gt; Maybe Text
+ -&gt; Maybe VerificationState
  -&gt; ActiveViolation)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe POSIX
-      -&gt; Maybe Text
-      -&gt; Maybe MetricValue
-      -&gt; Maybe Text
+     (Maybe MetricValue
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
       -&gt; Maybe Text
       -&gt; Maybe Behavior
-      -&gt; Maybe POSIX
-      -&gt; Maybe VerificationState
+      -&gt; Maybe Text
       -&gt; Maybe ViolationEventAdditionalInfo
+      -&gt; Maybe Text
+      -&gt; Maybe VerificationState
       -&gt; ActiveViolation)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679805637"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679806530"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;violationId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; Maybe MetricValue
-   -&gt; Maybe Text
+</span><span class="hs-string">&quot;verificationStateDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe MetricValue
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
    -&gt; Maybe Text
    -&gt; Maybe Behavior
-   -&gt; Maybe POSIX
-   -&gt; Maybe VerificationState
+   -&gt; Maybe Text
    -&gt; Maybe ViolationEventAdditionalInfo
+   -&gt; Maybe Text
+   -&gt; Maybe VerificationState
+   -&gt; ActiveViolation)
+-&gt; Parser (Maybe MetricValue)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Behavior
+      -&gt; Maybe Text
+      -&gt; Maybe ViolationEventAdditionalInfo
+      -&gt; Maybe Text
+      -&gt; Maybe VerificationState
+      -&gt; ActiveViolation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679806530"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MetricValue)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastViolationValue&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Behavior
+   -&gt; Maybe Text
+   -&gt; Maybe ViolationEventAdditionalInfo
+   -&gt; Maybe Text
+   -&gt; Maybe VerificationState
+   -&gt; ActiveViolation)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Behavior
+      -&gt; Maybe Text
+      -&gt; Maybe ViolationEventAdditionalInfo
+      -&gt; Maybe Text
+      -&gt; Maybe VerificationState
+      -&gt; ActiveViolation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679806530"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastViolationTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Behavior
+   -&gt; Maybe Text
+   -&gt; Maybe ViolationEventAdditionalInfo
+   -&gt; Maybe Text
+   -&gt; Maybe VerificationState
    -&gt; ActiveViolation)
 -&gt; Parser (Maybe POSIX)
 -&gt; Parser
      (Maybe Text
-      -&gt; Maybe MetricValue
-      -&gt; Maybe Text
-      -&gt; Maybe Text
       -&gt; Maybe Behavior
-      -&gt; Maybe POSIX
-      -&gt; Maybe VerificationState
+      -&gt; Maybe Text
       -&gt; Maybe ViolationEventAdditionalInfo
+      -&gt; Maybe Text
+      -&gt; Maybe VerificationState
       -&gt; ActiveViolation)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679805637"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679806530"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;lastViolationTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe MetricValue
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Behavior
-   -&gt; Maybe POSIX
-   -&gt; Maybe VerificationState
-   -&gt; Maybe ViolationEventAdditionalInfo
-   -&gt; ActiveViolation)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe MetricValue
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Behavior
-      -&gt; Maybe POSIX
-      -&gt; Maybe VerificationState
-      -&gt; Maybe ViolationEventAdditionalInfo
-      -&gt; ActiveViolation)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679805637"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;thingName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe MetricValue
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Behavior
-   -&gt; Maybe POSIX
-   -&gt; Maybe VerificationState
-   -&gt; Maybe ViolationEventAdditionalInfo
-   -&gt; ActiveViolation)
--&gt; Parser (Maybe MetricValue)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Behavior
-      -&gt; Maybe POSIX
-      -&gt; Maybe VerificationState
-      -&gt; Maybe ViolationEventAdditionalInfo
-      -&gt; ActiveViolation)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679805637"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MetricValue)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;lastViolationValue&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Behavior
-   -&gt; Maybe POSIX
-   -&gt; Maybe VerificationState
-   -&gt; Maybe ViolationEventAdditionalInfo
-   -&gt; ActiveViolation)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Behavior
-      -&gt; Maybe POSIX
-      -&gt; Maybe VerificationState
-      -&gt; Maybe ViolationEventAdditionalInfo
-      -&gt; ActiveViolation)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679805637"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;verificationStateDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;violationStartTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe Behavior
-   -&gt; Maybe POSIX
-   -&gt; Maybe VerificationState
+   -&gt; Maybe Text
    -&gt; Maybe ViolationEventAdditionalInfo
+   -&gt; Maybe Text
+   -&gt; Maybe VerificationState
    -&gt; ActiveViolation)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Behavior
-      -&gt; Maybe POSIX
-      -&gt; Maybe VerificationState
+      -&gt; Maybe Text
       -&gt; Maybe ViolationEventAdditionalInfo
+      -&gt; Maybe Text
+      -&gt; Maybe VerificationState
       -&gt; ActiveViolation)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679805637"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679806530"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;securityProfileName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;violationId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Behavior
-   -&gt; Maybe POSIX
-   -&gt; Maybe VerificationState
+   -&gt; Maybe Text
    -&gt; Maybe ViolationEventAdditionalInfo
+   -&gt; Maybe Text
+   -&gt; Maybe VerificationState
    -&gt; ActiveViolation)
 -&gt; Parser (Maybe Behavior)
 -&gt; Parser
-     (Maybe POSIX
-      -&gt; Maybe VerificationState
+     (Maybe Text
       -&gt; Maybe ViolationEventAdditionalInfo
+      -&gt; Maybe Text
+      -&gt; Maybe VerificationState
       -&gt; ActiveViolation)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679805637"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Behavior)
+</span><a href="#local-6989586621679806530"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Behavior)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;behavior&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX
-   -&gt; Maybe VerificationState
+  (Maybe Text
    -&gt; Maybe ViolationEventAdditionalInfo
+   -&gt; Maybe Text
+   -&gt; Maybe VerificationState
    -&gt; ActiveViolation)
--&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe VerificationState
-      -&gt; Maybe ViolationEventAdditionalInfo -&gt; ActiveViolation)
+     (Maybe ViolationEventAdditionalInfo
+      -&gt; Maybe Text -&gt; Maybe VerificationState -&gt; ActiveViolation)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679805637"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679806530"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;violationStartTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;securityProfileName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe VerificationState
-   -&gt; Maybe ViolationEventAdditionalInfo -&gt; ActiveViolation)
--&gt; Parser (Maybe VerificationState)
--&gt; Parser (Maybe ViolationEventAdditionalInfo -&gt; ActiveViolation)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679805637"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VerificationState)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;verificationState&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ViolationEventAdditionalInfo -&gt; ActiveViolation)
+  (Maybe ViolationEventAdditionalInfo
+   -&gt; Maybe Text -&gt; Maybe VerificationState -&gt; ActiveViolation)
 -&gt; Parser (Maybe ViolationEventAdditionalInfo)
--&gt; Parser ActiveViolation
+-&gt; Parser
+     (Maybe Text -&gt; Maybe VerificationState -&gt; ActiveViolation)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679805637"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ViolationEventAdditionalInfo)
+</span><a href="#local-6989586621679806530"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ViolationEventAdditionalInfo)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;violationEventAdditionalInfo&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-160"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-161"></span><span>
-</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679805631"><span id="local-6989586621679805633"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation"><span class="hs-identifier hs-type">ActiveViolation</span></a></span></span></span><span>
-</span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679805628"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation"><span class="hs-identifier hs-type">ActiveViolation</span></a></span></span><span>
-</span><span id="line-165"></span></pre></body></html>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe VerificationState -&gt; ActiveViolation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe VerificationState -&gt; ActiveViolation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679806530"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;thingName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe VerificationState -&gt; ActiveViolation)
+-&gt; Parser (Maybe VerificationState) -&gt; Parser ActiveViolation
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679806530"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VerificationState)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;verificationState&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679806524"><span id="local-6989586621679806526"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation"><span class="hs-identifier hs-type">ActiveViolation</span></a></span></span></span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679806521"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ActiveViolation.html#ActiveViolation"><span class="hs-identifier hs-type">ActiveViolation</span></a></span></span><span>
+</span><span id="line-166"></span></pre></body></html>

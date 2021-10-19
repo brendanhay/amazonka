@@ -27,24 +27,24 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Contains information about the levels of a hierarchy group.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newHierarchyPath' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679396535"><span id="local-6989586621679396536"></span></span><span class="hs-keyword">data</span><span> </span><span id="HierarchyPath"><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#HierarchyPath"><span class="hs-identifier hs-var">HierarchyPath</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HierarchyPath%27"><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#HierarchyPath%27"><span class="hs-identifier hs-var">HierarchyPath'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about level three.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3AlevelThree%3AHierarchyPath%27"><span class="annot"><span class="annottext">HierarchyPath -&gt; Maybe HierarchyGroupSummary
-</span><a href="Network.AWS.Connect.Types.HierarchyPath.html#%24sel%3AlevelThree%3AHierarchyPath%27"><span class="hs-identifier hs-var hs-var">levelThree</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyGroupSummary.html#HierarchyGroupSummary"><span class="hs-identifier hs-type">HierarchyGroupSummary</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Information about level four.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AlevelFour%3AHierarchyPath%27"><span class="annot"><span class="annottext">HierarchyPath -&gt; Maybe HierarchyGroupSummary
-</span><a href="Network.AWS.Connect.Types.HierarchyPath.html#%24sel%3AlevelFour%3AHierarchyPath%27"><span class="hs-identifier hs-var hs-var">levelFour</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyGroupSummary.html#HierarchyGroupSummary"><span class="hs-identifier hs-type">HierarchyGroupSummary</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Information about level five.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AlevelFive%3AHierarchyPath%27"><span class="annot"><span class="annottext">HierarchyPath -&gt; Maybe HierarchyGroupSummary
+</span><span id="line-30"></span><span id="local-6989586621679396816"><span id="local-6989586621679396817"></span></span><span class="hs-keyword">data</span><span> </span><span id="HierarchyPath"><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#HierarchyPath"><span class="hs-identifier hs-var">HierarchyPath</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HierarchyPath%27"><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#HierarchyPath%27"><span class="hs-identifier hs-var">HierarchyPath'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about level five.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AlevelFive%3AHierarchyPath%27"><span class="annot"><span class="annottext">HierarchyPath -&gt; Maybe HierarchyGroupSummary
 </span><a href="Network.AWS.Connect.Types.HierarchyPath.html#%24sel%3AlevelFive%3AHierarchyPath%27"><span class="hs-identifier hs-var hs-var">levelFive</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyGroupSummary.html#HierarchyGroupSummary"><span class="hs-identifier hs-type">HierarchyGroupSummary</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Information about level one.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AlevelOne%3AHierarchyPath%27"><span class="annot"><span class="annottext">HierarchyPath -&gt; Maybe HierarchyGroupSummary
-</span><a href="Network.AWS.Connect.Types.HierarchyPath.html#%24sel%3AlevelOne%3AHierarchyPath%27"><span class="hs-identifier hs-var hs-var">levelOne</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyGroupSummary.html#HierarchyGroupSummary"><span class="hs-identifier hs-type">HierarchyGroupSummary</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Information about level two.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AlevelTwo%3AHierarchyPath%27"><span class="annot"><span class="annottext">HierarchyPath -&gt; Maybe HierarchyGroupSummary
-</span><a href="Network.AWS.Connect.Types.HierarchyPath.html#%24sel%3AlevelTwo%3AHierarchyPath%27"><span class="hs-identifier hs-var hs-var">levelTwo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyGroupSummary.html#HierarchyGroupSummary"><span class="hs-identifier hs-type">HierarchyGroupSummary</span></a></span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Information about level three.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AlevelThree%3AHierarchyPath%27"><span class="annot"><span class="annottext">HierarchyPath -&gt; Maybe HierarchyGroupSummary
+</span><a href="Network.AWS.Connect.Types.HierarchyPath.html#%24sel%3AlevelThree%3AHierarchyPath%27"><span class="hs-identifier hs-var hs-var">levelThree</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyGroupSummary.html#HierarchyGroupSummary"><span class="hs-identifier hs-type">HierarchyGroupSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Information about level four.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AlevelFour%3AHierarchyPath%27"><span class="annot"><span class="annottext">HierarchyPath -&gt; Maybe HierarchyGroupSummary
+</span><a href="Network.AWS.Connect.Types.HierarchyPath.html#%24sel%3AlevelFour%3AHierarchyPath%27"><span class="hs-identifier hs-var hs-var">levelFour</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyGroupSummary.html#HierarchyGroupSummary"><span class="hs-identifier hs-type">HierarchyGroupSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Information about level two.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AlevelTwo%3AHierarchyPath%27"><span class="annot"><span class="annottext">HierarchyPath -&gt; Maybe HierarchyGroupSummary
+</span><a href="Network.AWS.Connect.Types.HierarchyPath.html#%24sel%3AlevelTwo%3AHierarchyPath%27"><span class="hs-identifier hs-var hs-var">levelTwo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyGroupSummary.html#HierarchyGroupSummary"><span class="hs-identifier hs-type">HierarchyGroupSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Information about level one.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AlevelOne%3AHierarchyPath%27"><span class="annot"><span class="annottext">HierarchyPath -&gt; Maybe HierarchyGroupSummary
+</span><a href="Network.AWS.Connect.Types.HierarchyPath.html#%24sel%3AlevelOne%3AHierarchyPath%27"><span class="hs-identifier hs-var hs-var">levelOne</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyGroupSummary.html#HierarchyGroupSummary"><span class="hs-identifier hs-type">HierarchyGroupSummary</span></a></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679396525"><span id="local-6989586621679396527"><span class="annot"><span class="annottext">HierarchyPath -&gt; HierarchyPath -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679396806"><span id="local-6989586621679396808"><span class="annot"><span class="annottext">HierarchyPath -&gt; HierarchyPath -&gt; Bool
 (HierarchyPath -&gt; HierarchyPath -&gt; Bool)
 -&gt; (HierarchyPath -&gt; HierarchyPath -&gt; Bool) -&gt; Eq HierarchyPath
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: HierarchyPath -&gt; HierarchyPath -&gt; Bool
 == :: HierarchyPath -&gt; HierarchyPath -&gt; Bool
 $c== :: HierarchyPath -&gt; HierarchyPath -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396516"><span id="local-6989586621679396518"><span id="local-6989586621679396520"><span id="local-6989586621679396522"><span class="annot"><span class="annottext">ReadPrec [HierarchyPath]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396797"><span id="local-6989586621679396799"><span id="local-6989586621679396801"><span id="local-6989586621679396803"><span class="annot"><span class="annottext">ReadPrec [HierarchyPath]
 ReadPrec HierarchyPath
 Int -&gt; ReadS HierarchyPath
 ReadS [HierarchyPath]
@@ -72,7 +72,7 @@ readList :: ReadS [HierarchyPath]
 $creadList :: ReadS [HierarchyPath]
 readsPrec :: Int -&gt; ReadS HierarchyPath
 $creadsPrec :: Int -&gt; ReadS HierarchyPath
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396509"><span id="local-6989586621679396511"><span id="local-6989586621679396513"><span class="annot"><span class="annottext">Int -&gt; HierarchyPath -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396790"><span id="local-6989586621679396792"><span id="local-6989586621679396794"><span class="annot"><span class="annottext">Int -&gt; HierarchyPath -&gt; ShowS
 [HierarchyPath] -&gt; ShowS
 HierarchyPath -&gt; String
 (Int -&gt; HierarchyPath -&gt; ShowS)
@@ -106,15 +106,15 @@ $cfrom :: forall x. HierarchyPath -&gt; Rep HierarchyPath x
 </span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- 'levelThree', 'hierarchyPath_levelThree' - Information about level three.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'levelFive', 'hierarchyPath_levelFive' - Information about level five.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- 'levelFour', 'hierarchyPath_levelFour' - Information about level four.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'levelThree', 'hierarchyPath_levelThree' - Information about level three.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'levelFive', 'hierarchyPath_levelFive' - Information about level five.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'levelFour', 'hierarchyPath_levelFour' - Information about level four.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'levelOne', 'hierarchyPath_levelOne' - Information about level one.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'levelTwo', 'hierarchyPath_levelTwo' - Information about level two.</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'levelTwo', 'hierarchyPath_levelTwo' - Information about level two.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'levelOne', 'hierarchyPath_levelOne' - Information about level one.</span><span>
 </span><span id="line-61"></span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#newHierarchyPath"><span class="hs-identifier hs-type">newHierarchyPath</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-62"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#HierarchyPath"><span class="hs-identifier hs-type">HierarchyPath</span></a></span><span>
 </span><span id="line-63"></span><span id="newHierarchyPath"><span class="annot"><span class="annottext">newHierarchyPath :: HierarchyPath
@@ -126,77 +126,31 @@ $cfrom :: forall x. HierarchyPath -&gt; Rep HierarchyPath x
 -&gt; Maybe HierarchyGroupSummary
 -&gt; HierarchyPath
 </span><a href="Network.AWS.Connect.Types.HierarchyPath.html#HierarchyPath%27"><span class="hs-identifier hs-type">HierarchyPath'</span></a></span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:levelThree:HierarchyPath' :: Maybe HierarchyGroupSummary
-</span><a href="Network.AWS.Connect.Types.HierarchyPath.html#%24sel%3AlevelThree%3AHierarchyPath%27"><span class="hs-identifier hs-var">levelThree</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HierarchyGroupSummary
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:levelFour:HierarchyPath' :: Maybe HierarchyGroupSummary
-</span><a href="Network.AWS.Connect.Types.HierarchyPath.html#%24sel%3AlevelFour%3AHierarchyPath%27"><span class="hs-identifier hs-var">levelFour</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HierarchyGroupSummary
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:levelFive:HierarchyPath' :: Maybe HierarchyGroupSummary
+</span><span id="line-65"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:levelFive:HierarchyPath' :: Maybe HierarchyGroupSummary
 </span><a href="Network.AWS.Connect.Types.HierarchyPath.html#%24sel%3AlevelFive%3AHierarchyPath%27"><span class="hs-identifier hs-var">levelFive</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HierarchyGroupSummary
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:levelOne:HierarchyPath' :: Maybe HierarchyGroupSummary
-</span><a href="Network.AWS.Connect.Types.HierarchyPath.html#%24sel%3AlevelOne%3AHierarchyPath%27"><span class="hs-identifier hs-var">levelOne</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HierarchyGroupSummary
+</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:levelThree:HierarchyPath' :: Maybe HierarchyGroupSummary
+</span><a href="Network.AWS.Connect.Types.HierarchyPath.html#%24sel%3AlevelThree%3AHierarchyPath%27"><span class="hs-identifier hs-var">levelThree</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HierarchyGroupSummary
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:levelTwo:HierarchyPath' :: Maybe HierarchyGroupSummary
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:levelFour:HierarchyPath' :: Maybe HierarchyGroupSummary
+</span><a href="Network.AWS.Connect.Types.HierarchyPath.html#%24sel%3AlevelFour%3AHierarchyPath%27"><span class="hs-identifier hs-var">levelFour</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HierarchyGroupSummary
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:levelTwo:HierarchyPath' :: Maybe HierarchyGroupSummary
 </span><a href="Network.AWS.Connect.Types.HierarchyPath.html#%24sel%3AlevelTwo%3AHierarchyPath%27"><span class="hs-identifier hs-var">levelTwo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HierarchyGroupSummary
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:levelOne:HierarchyPath' :: Maybe HierarchyGroupSummary
+</span><a href="Network.AWS.Connect.Types.HierarchyPath.html#%24sel%3AlevelOne%3AHierarchyPath%27"><span class="hs-identifier hs-var">levelOne</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HierarchyGroupSummary
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- | Information about level three.</span><span>
-</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#hierarchyPath_levelThree"><span class="hs-identifier hs-type">hierarchyPath_levelThree</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#HierarchyPath"><span class="hs-identifier hs-type">HierarchyPath</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyGroupSummary.html#HierarchyGroupSummary"><span class="hs-identifier hs-type">HierarchyGroupSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span id="hierarchyPath_levelThree"><span class="annot"><span class="annottext">hierarchyPath_levelThree :: (Maybe HierarchyGroupSummary -&gt; f (Maybe HierarchyGroupSummary))
--&gt; HierarchyPath -&gt; f HierarchyPath
-</span><a href="Network.AWS.Connect.Types.HierarchyPath.html#hierarchyPath_levelThree"><span class="hs-identifier hs-var hs-var">hierarchyPath_levelThree</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HierarchyPath -&gt; Maybe HierarchyGroupSummary)
--&gt; (HierarchyPath -&gt; Maybe HierarchyGroupSummary -&gt; HierarchyPath)
--&gt; Lens
-     HierarchyPath
-     HierarchyPath
-     (Maybe HierarchyGroupSummary)
-     (Maybe HierarchyGroupSummary)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#HierarchyPath%27"><span class="hs-identifier hs-type">HierarchyPath'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396500"><span class="annot"><span class="annottext">Maybe HierarchyGroupSummary
-levelThree :: Maybe HierarchyGroupSummary
-$sel:levelThree:HierarchyPath' :: HierarchyPath -&gt; Maybe HierarchyGroupSummary
-</span><a href="#local-6989586621679396500"><span class="hs-identifier hs-var hs-var">levelThree</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HierarchyGroupSummary
-</span><a href="#local-6989586621679396500"><span class="hs-identifier hs-var">levelThree</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396499"><span class="annot"><span class="annottext">s :: HierarchyPath
-</span><a href="#local-6989586621679396499"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#HierarchyPath%27"><span class="hs-identifier hs-type">HierarchyPath'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396498"><span class="annot"><span class="annottext">Maybe HierarchyGroupSummary
-</span><a href="#local-6989586621679396498"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HierarchyPath
-</span><a href="#local-6989586621679396499"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:levelThree:HierarchyPath' :: Maybe HierarchyGroupSummary
-</span><a href="Network.AWS.Connect.Types.HierarchyPath.html#%24sel%3AlevelThree%3AHierarchyPath%27"><span class="hs-identifier hs-var">levelThree</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HierarchyGroupSummary
-</span><a href="#local-6989586621679396498"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#HierarchyPath"><span class="hs-identifier hs-type">HierarchyPath</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- | Information about level four.</span><span>
-</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#hierarchyPath_levelFour"><span class="hs-identifier hs-type">hierarchyPath_levelFour</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#HierarchyPath"><span class="hs-identifier hs-type">HierarchyPath</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyGroupSummary.html#HierarchyGroupSummary"><span class="hs-identifier hs-type">HierarchyGroupSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-78"></span><span id="hierarchyPath_levelFour"><span class="annot"><span class="annottext">hierarchyPath_levelFour :: (Maybe HierarchyGroupSummary -&gt; f (Maybe HierarchyGroupSummary))
--&gt; HierarchyPath -&gt; f HierarchyPath
-</span><a href="Network.AWS.Connect.Types.HierarchyPath.html#hierarchyPath_levelFour"><span class="hs-identifier hs-var hs-var">hierarchyPath_levelFour</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HierarchyPath -&gt; Maybe HierarchyGroupSummary)
--&gt; (HierarchyPath -&gt; Maybe HierarchyGroupSummary -&gt; HierarchyPath)
--&gt; Lens
-     HierarchyPath
-     HierarchyPath
-     (Maybe HierarchyGroupSummary)
-     (Maybe HierarchyGroupSummary)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#HierarchyPath%27"><span class="hs-identifier hs-type">HierarchyPath'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396496"><span class="annot"><span class="annottext">Maybe HierarchyGroupSummary
-levelFour :: Maybe HierarchyGroupSummary
-$sel:levelFour:HierarchyPath' :: HierarchyPath -&gt; Maybe HierarchyGroupSummary
-</span><a href="#local-6989586621679396496"><span class="hs-identifier hs-var hs-var">levelFour</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HierarchyGroupSummary
-</span><a href="#local-6989586621679396496"><span class="hs-identifier hs-var">levelFour</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396495"><span class="annot"><span class="annottext">s :: HierarchyPath
-</span><a href="#local-6989586621679396495"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#HierarchyPath%27"><span class="hs-identifier hs-type">HierarchyPath'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396494"><span class="annot"><span class="annottext">Maybe HierarchyGroupSummary
-</span><a href="#local-6989586621679396494"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HierarchyPath
-</span><a href="#local-6989586621679396495"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:levelFour:HierarchyPath' :: Maybe HierarchyGroupSummary
-</span><a href="Network.AWS.Connect.Types.HierarchyPath.html#%24sel%3AlevelFour%3AHierarchyPath%27"><span class="hs-identifier hs-var">levelFour</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HierarchyGroupSummary
-</span><a href="#local-6989586621679396494"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#HierarchyPath"><span class="hs-identifier hs-type">HierarchyPath</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- | Information about level five.</span><span>
-</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#hierarchyPath_levelFive"><span class="hs-identifier hs-type">hierarchyPath_levelFive</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#HierarchyPath"><span class="hs-identifier hs-type">HierarchyPath</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyGroupSummary.html#HierarchyGroupSummary"><span class="hs-identifier hs-type">HierarchyGroupSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span id="hierarchyPath_levelFive"><span class="annot"><span class="annottext">hierarchyPath_levelFive :: (Maybe HierarchyGroupSummary -&gt; f (Maybe HierarchyGroupSummary))
+</span><span id="line-72"></span><span class="hs-comment">-- | Information about level five.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#hierarchyPath_levelFive"><span class="hs-identifier hs-type">hierarchyPath_levelFive</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#HierarchyPath"><span class="hs-identifier hs-type">HierarchyPath</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyGroupSummary.html#HierarchyGroupSummary"><span class="hs-identifier hs-type">HierarchyGroupSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="hierarchyPath_levelFive"><span class="annot"><span class="annottext">hierarchyPath_levelFive :: (Maybe HierarchyGroupSummary -&gt; f (Maybe HierarchyGroupSummary))
 -&gt; HierarchyPath -&gt; f HierarchyPath
 </span><a href="Network.AWS.Connect.Types.HierarchyPath.html#hierarchyPath_levelFive"><span class="hs-identifier hs-var hs-var">hierarchyPath_levelFive</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HierarchyPath -&gt; Maybe HierarchyGroupSummary)
 -&gt; (HierarchyPath -&gt; Maybe HierarchyGroupSummary -&gt; HierarchyPath)
@@ -206,22 +160,22 @@ $sel:levelFour:HierarchyPath' :: HierarchyPath -&gt; Maybe HierarchyGroupSummary
      (Maybe HierarchyGroupSummary)
      (Maybe HierarchyGroupSummary)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#HierarchyPath%27"><span class="hs-identifier hs-type">HierarchyPath'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396492"><span class="annot"><span class="annottext">Maybe HierarchyGroupSummary
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#HierarchyPath%27"><span class="hs-identifier hs-type">HierarchyPath'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396781"><span class="annot"><span class="annottext">Maybe HierarchyGroupSummary
 levelFive :: Maybe HierarchyGroupSummary
 $sel:levelFive:HierarchyPath' :: HierarchyPath -&gt; Maybe HierarchyGroupSummary
-</span><a href="#local-6989586621679396492"><span class="hs-identifier hs-var hs-var">levelFive</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HierarchyGroupSummary
-</span><a href="#local-6989586621679396492"><span class="hs-identifier hs-var">levelFive</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396491"><span class="annot"><span class="annottext">s :: HierarchyPath
-</span><a href="#local-6989586621679396491"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#HierarchyPath%27"><span class="hs-identifier hs-type">HierarchyPath'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396490"><span class="annot"><span class="annottext">Maybe HierarchyGroupSummary
-</span><a href="#local-6989586621679396490"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HierarchyPath
-</span><a href="#local-6989586621679396491"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:levelFive:HierarchyPath' :: Maybe HierarchyGroupSummary
+</span><a href="#local-6989586621679396781"><span class="hs-identifier hs-var hs-var">levelFive</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HierarchyGroupSummary
+</span><a href="#local-6989586621679396781"><span class="hs-identifier hs-var">levelFive</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396780"><span class="annot"><span class="annottext">s :: HierarchyPath
+</span><a href="#local-6989586621679396780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#HierarchyPath%27"><span class="hs-identifier hs-type">HierarchyPath'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396779"><span class="annot"><span class="annottext">Maybe HierarchyGroupSummary
+</span><a href="#local-6989586621679396779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HierarchyPath
+</span><a href="#local-6989586621679396780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:levelFive:HierarchyPath' :: Maybe HierarchyGroupSummary
 </span><a href="Network.AWS.Connect.Types.HierarchyPath.html#%24sel%3AlevelFive%3AHierarchyPath%27"><span class="hs-identifier hs-var">levelFive</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HierarchyGroupSummary
-</span><a href="#local-6989586621679396490"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#HierarchyPath"><span class="hs-identifier hs-type">HierarchyPath</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- | Information about level one.</span><span>
-</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#hierarchyPath_levelOne"><span class="hs-identifier hs-type">hierarchyPath_levelOne</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#HierarchyPath"><span class="hs-identifier hs-type">HierarchyPath</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyGroupSummary.html#HierarchyGroupSummary"><span class="hs-identifier hs-type">HierarchyGroupSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span id="hierarchyPath_levelOne"><span class="annot"><span class="annottext">hierarchyPath_levelOne :: (Maybe HierarchyGroupSummary -&gt; f (Maybe HierarchyGroupSummary))
+</span><a href="#local-6989586621679396779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#HierarchyPath"><span class="hs-identifier hs-type">HierarchyPath</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | Information about level three.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#hierarchyPath_levelThree"><span class="hs-identifier hs-type">hierarchyPath_levelThree</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#HierarchyPath"><span class="hs-identifier hs-type">HierarchyPath</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyGroupSummary.html#HierarchyGroupSummary"><span class="hs-identifier hs-type">HierarchyGroupSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="hierarchyPath_levelThree"><span class="annot"><span class="annottext">hierarchyPath_levelThree :: (Maybe HierarchyGroupSummary -&gt; f (Maybe HierarchyGroupSummary))
 -&gt; HierarchyPath -&gt; f HierarchyPath
-</span><a href="Network.AWS.Connect.Types.HierarchyPath.html#hierarchyPath_levelOne"><span class="hs-identifier hs-var hs-var">hierarchyPath_levelOne</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HierarchyPath -&gt; Maybe HierarchyGroupSummary)
+</span><a href="Network.AWS.Connect.Types.HierarchyPath.html#hierarchyPath_levelThree"><span class="hs-identifier hs-var hs-var">hierarchyPath_levelThree</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HierarchyPath -&gt; Maybe HierarchyGroupSummary)
 -&gt; (HierarchyPath -&gt; Maybe HierarchyGroupSummary -&gt; HierarchyPath)
 -&gt; Lens
      HierarchyPath
@@ -229,20 +183,43 @@ $sel:levelFive:HierarchyPath' :: HierarchyPath -&gt; Maybe HierarchyGroupSummary
      (Maybe HierarchyGroupSummary)
      (Maybe HierarchyGroupSummary)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#HierarchyPath%27"><span class="hs-identifier hs-type">HierarchyPath'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396488"><span class="annot"><span class="annottext">Maybe HierarchyGroupSummary
-levelOne :: Maybe HierarchyGroupSummary
-$sel:levelOne:HierarchyPath' :: HierarchyPath -&gt; Maybe HierarchyGroupSummary
-</span><a href="#local-6989586621679396488"><span class="hs-identifier hs-var hs-var">levelOne</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HierarchyGroupSummary
-</span><a href="#local-6989586621679396488"><span class="hs-identifier hs-var">levelOne</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396487"><span class="annot"><span class="annottext">s :: HierarchyPath
-</span><a href="#local-6989586621679396487"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#HierarchyPath%27"><span class="hs-identifier hs-type">HierarchyPath'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396486"><span class="annot"><span class="annottext">Maybe HierarchyGroupSummary
-</span><a href="#local-6989586621679396486"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HierarchyPath
-</span><a href="#local-6989586621679396487"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:levelOne:HierarchyPath' :: Maybe HierarchyGroupSummary
-</span><a href="Network.AWS.Connect.Types.HierarchyPath.html#%24sel%3AlevelOne%3AHierarchyPath%27"><span class="hs-identifier hs-var">levelOne</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HierarchyGroupSummary
-</span><a href="#local-6989586621679396486"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#HierarchyPath"><span class="hs-identifier hs-type">HierarchyPath</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- | Information about level two.</span><span>
-</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#hierarchyPath_levelTwo"><span class="hs-identifier hs-type">hierarchyPath_levelTwo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#HierarchyPath"><span class="hs-identifier hs-type">HierarchyPath</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyGroupSummary.html#HierarchyGroupSummary"><span class="hs-identifier hs-type">HierarchyGroupSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span id="hierarchyPath_levelTwo"><span class="annot"><span class="annottext">hierarchyPath_levelTwo :: (Maybe HierarchyGroupSummary -&gt; f (Maybe HierarchyGroupSummary))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#HierarchyPath%27"><span class="hs-identifier hs-type">HierarchyPath'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396777"><span class="annot"><span class="annottext">Maybe HierarchyGroupSummary
+levelThree :: Maybe HierarchyGroupSummary
+$sel:levelThree:HierarchyPath' :: HierarchyPath -&gt; Maybe HierarchyGroupSummary
+</span><a href="#local-6989586621679396777"><span class="hs-identifier hs-var hs-var">levelThree</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HierarchyGroupSummary
+</span><a href="#local-6989586621679396777"><span class="hs-identifier hs-var">levelThree</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396776"><span class="annot"><span class="annottext">s :: HierarchyPath
+</span><a href="#local-6989586621679396776"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#HierarchyPath%27"><span class="hs-identifier hs-type">HierarchyPath'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396775"><span class="annot"><span class="annottext">Maybe HierarchyGroupSummary
+</span><a href="#local-6989586621679396775"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HierarchyPath
+</span><a href="#local-6989586621679396776"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:levelThree:HierarchyPath' :: Maybe HierarchyGroupSummary
+</span><a href="Network.AWS.Connect.Types.HierarchyPath.html#%24sel%3AlevelThree%3AHierarchyPath%27"><span class="hs-identifier hs-var">levelThree</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HierarchyGroupSummary
+</span><a href="#local-6989586621679396775"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#HierarchyPath"><span class="hs-identifier hs-type">HierarchyPath</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | Information about level four.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#hierarchyPath_levelFour"><span class="hs-identifier hs-type">hierarchyPath_levelFour</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#HierarchyPath"><span class="hs-identifier hs-type">HierarchyPath</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyGroupSummary.html#HierarchyGroupSummary"><span class="hs-identifier hs-type">HierarchyGroupSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="hierarchyPath_levelFour"><span class="annot"><span class="annottext">hierarchyPath_levelFour :: (Maybe HierarchyGroupSummary -&gt; f (Maybe HierarchyGroupSummary))
+-&gt; HierarchyPath -&gt; f HierarchyPath
+</span><a href="Network.AWS.Connect.Types.HierarchyPath.html#hierarchyPath_levelFour"><span class="hs-identifier hs-var hs-var">hierarchyPath_levelFour</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HierarchyPath -&gt; Maybe HierarchyGroupSummary)
+-&gt; (HierarchyPath -&gt; Maybe HierarchyGroupSummary -&gt; HierarchyPath)
+-&gt; Lens
+     HierarchyPath
+     HierarchyPath
+     (Maybe HierarchyGroupSummary)
+     (Maybe HierarchyGroupSummary)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#HierarchyPath%27"><span class="hs-identifier hs-type">HierarchyPath'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396773"><span class="annot"><span class="annottext">Maybe HierarchyGroupSummary
+levelFour :: Maybe HierarchyGroupSummary
+$sel:levelFour:HierarchyPath' :: HierarchyPath -&gt; Maybe HierarchyGroupSummary
+</span><a href="#local-6989586621679396773"><span class="hs-identifier hs-var hs-var">levelFour</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HierarchyGroupSummary
+</span><a href="#local-6989586621679396773"><span class="hs-identifier hs-var">levelFour</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396772"><span class="annot"><span class="annottext">s :: HierarchyPath
+</span><a href="#local-6989586621679396772"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#HierarchyPath%27"><span class="hs-identifier hs-type">HierarchyPath'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396771"><span class="annot"><span class="annottext">Maybe HierarchyGroupSummary
+</span><a href="#local-6989586621679396771"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HierarchyPath
+</span><a href="#local-6989586621679396772"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:levelFour:HierarchyPath' :: Maybe HierarchyGroupSummary
+</span><a href="Network.AWS.Connect.Types.HierarchyPath.html#%24sel%3AlevelFour%3AHierarchyPath%27"><span class="hs-identifier hs-var">levelFour</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HierarchyGroupSummary
+</span><a href="#local-6989586621679396771"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#HierarchyPath"><span class="hs-identifier hs-type">HierarchyPath</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | Information about level two.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#hierarchyPath_levelTwo"><span class="hs-identifier hs-type">hierarchyPath_levelTwo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#HierarchyPath"><span class="hs-identifier hs-type">HierarchyPath</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyGroupSummary.html#HierarchyGroupSummary"><span class="hs-identifier hs-type">HierarchyGroupSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="hierarchyPath_levelTwo"><span class="annot"><span class="annottext">hierarchyPath_levelTwo :: (Maybe HierarchyGroupSummary -&gt; f (Maybe HierarchyGroupSummary))
 -&gt; HierarchyPath -&gt; f HierarchyPath
 </span><a href="Network.AWS.Connect.Types.HierarchyPath.html#hierarchyPath_levelTwo"><span class="hs-identifier hs-var hs-var">hierarchyPath_levelTwo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HierarchyPath -&gt; Maybe HierarchyGroupSummary)
 -&gt; (HierarchyPath -&gt; Maybe HierarchyGroupSummary -&gt; HierarchyPath)
@@ -252,19 +229,42 @@ $sel:levelOne:HierarchyPath' :: HierarchyPath -&gt; Maybe HierarchyGroupSummary
      (Maybe HierarchyGroupSummary)
      (Maybe HierarchyGroupSummary)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#HierarchyPath%27"><span class="hs-identifier hs-type">HierarchyPath'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396484"><span class="annot"><span class="annottext">Maybe HierarchyGroupSummary
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#HierarchyPath%27"><span class="hs-identifier hs-type">HierarchyPath'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396769"><span class="annot"><span class="annottext">Maybe HierarchyGroupSummary
 levelTwo :: Maybe HierarchyGroupSummary
 $sel:levelTwo:HierarchyPath' :: HierarchyPath -&gt; Maybe HierarchyGroupSummary
-</span><a href="#local-6989586621679396484"><span class="hs-identifier hs-var hs-var">levelTwo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HierarchyGroupSummary
-</span><a href="#local-6989586621679396484"><span class="hs-identifier hs-var">levelTwo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396483"><span class="annot"><span class="annottext">s :: HierarchyPath
-</span><a href="#local-6989586621679396483"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#HierarchyPath%27"><span class="hs-identifier hs-type">HierarchyPath'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396482"><span class="annot"><span class="annottext">Maybe HierarchyGroupSummary
-</span><a href="#local-6989586621679396482"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HierarchyPath
-</span><a href="#local-6989586621679396483"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:levelTwo:HierarchyPath' :: Maybe HierarchyGroupSummary
+</span><a href="#local-6989586621679396769"><span class="hs-identifier hs-var hs-var">levelTwo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HierarchyGroupSummary
+</span><a href="#local-6989586621679396769"><span class="hs-identifier hs-var">levelTwo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396768"><span class="annot"><span class="annottext">s :: HierarchyPath
+</span><a href="#local-6989586621679396768"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#HierarchyPath%27"><span class="hs-identifier hs-type">HierarchyPath'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396767"><span class="annot"><span class="annottext">Maybe HierarchyGroupSummary
+</span><a href="#local-6989586621679396767"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HierarchyPath
+</span><a href="#local-6989586621679396768"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:levelTwo:HierarchyPath' :: Maybe HierarchyGroupSummary
 </span><a href="Network.AWS.Connect.Types.HierarchyPath.html#%24sel%3AlevelTwo%3AHierarchyPath%27"><span class="hs-identifier hs-var">levelTwo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HierarchyGroupSummary
-</span><a href="#local-6989586621679396482"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#HierarchyPath"><span class="hs-identifier hs-type">HierarchyPath</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679396767"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#HierarchyPath"><span class="hs-identifier hs-type">HierarchyPath</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | Information about level one.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#hierarchyPath_levelOne"><span class="hs-identifier hs-type">hierarchyPath_levelOne</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#HierarchyPath"><span class="hs-identifier hs-type">HierarchyPath</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyGroupSummary.html#HierarchyGroupSummary"><span class="hs-identifier hs-type">HierarchyGroupSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="hierarchyPath_levelOne"><span class="annot"><span class="annottext">hierarchyPath_levelOne :: (Maybe HierarchyGroupSummary -&gt; f (Maybe HierarchyGroupSummary))
+-&gt; HierarchyPath -&gt; f HierarchyPath
+</span><a href="Network.AWS.Connect.Types.HierarchyPath.html#hierarchyPath_levelOne"><span class="hs-identifier hs-var hs-var">hierarchyPath_levelOne</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HierarchyPath -&gt; Maybe HierarchyGroupSummary)
+-&gt; (HierarchyPath -&gt; Maybe HierarchyGroupSummary -&gt; HierarchyPath)
+-&gt; Lens
+     HierarchyPath
+     HierarchyPath
+     (Maybe HierarchyGroupSummary)
+     (Maybe HierarchyGroupSummary)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#HierarchyPath%27"><span class="hs-identifier hs-type">HierarchyPath'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396765"><span class="annot"><span class="annottext">Maybe HierarchyGroupSummary
+levelOne :: Maybe HierarchyGroupSummary
+$sel:levelOne:HierarchyPath' :: HierarchyPath -&gt; Maybe HierarchyGroupSummary
+</span><a href="#local-6989586621679396765"><span class="hs-identifier hs-var hs-var">levelOne</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HierarchyGroupSummary
+</span><a href="#local-6989586621679396765"><span class="hs-identifier hs-var">levelOne</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396764"><span class="annot"><span class="annottext">s :: HierarchyPath
+</span><a href="#local-6989586621679396764"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#HierarchyPath%27"><span class="hs-identifier hs-type">HierarchyPath'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396763"><span class="annot"><span class="annottext">Maybe HierarchyGroupSummary
+</span><a href="#local-6989586621679396763"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HierarchyPath
+</span><a href="#local-6989586621679396764"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:levelOne:HierarchyPath' :: Maybe HierarchyGroupSummary
+</span><a href="Network.AWS.Connect.Types.HierarchyPath.html#%24sel%3AlevelOne%3AHierarchyPath%27"><span class="hs-identifier hs-var">levelOne</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HierarchyGroupSummary
+</span><a href="#local-6989586621679396763"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#HierarchyPath"><span class="hs-identifier hs-type">HierarchyPath</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396479"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#HierarchyPath"><span class="hs-identifier hs-type">HierarchyPath</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679396477"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HierarchyPath
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396760"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#HierarchyPath"><span class="hs-identifier hs-type">HierarchyPath</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679396758"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HierarchyPath
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser HierarchyPath)
@@ -274,8 +274,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;HierarchyPath&quot;</span></span><span>
-</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679396474"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679396474"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679396755"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679396755"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe HierarchyGroupSummary
 -&gt; Maybe HierarchyGroupSummary
 -&gt; Maybe HierarchyGroupSummary
@@ -298,10 +298,10 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; HierarchyPath)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679396474"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HierarchyGroupSummary)
+</span><a href="#local-6989586621679396755"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HierarchyGroupSummary)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LevelThree&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;LevelFive&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe HierarchyGroupSummary
    -&gt; Maybe HierarchyGroupSummary
@@ -316,10 +316,10 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; HierarchyPath)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679396474"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HierarchyGroupSummary)
+</span><a href="#local-6989586621679396755"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HierarchyGroupSummary)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LevelFour&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;LevelThree&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe HierarchyGroupSummary
    -&gt; Maybe HierarchyGroupSummary
@@ -331,10 +331,10 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe HierarchyGroupSummary -&gt; HierarchyPath)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679396474"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HierarchyGroupSummary)
+</span><a href="#local-6989586621679396755"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HierarchyGroupSummary)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LevelFive&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;LevelFour&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe HierarchyGroupSummary
    -&gt; Maybe HierarchyGroupSummary -&gt; HierarchyPath)
@@ -342,21 +342,21 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe HierarchyGroupSummary -&gt; HierarchyPath)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679396474"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HierarchyGroupSummary)
+</span><a href="#local-6989586621679396755"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HierarchyGroupSummary)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LevelOne&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;LevelTwo&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe HierarchyGroupSummary -&gt; HierarchyPath)
 -&gt; Parser (Maybe HierarchyGroupSummary) -&gt; Parser HierarchyPath
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679396474"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HierarchyGroupSummary)
+</span><a href="#local-6989586621679396755"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HierarchyGroupSummary)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LevelTwo&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;LevelOne&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396468"><span id="local-6989586621679396470"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#HierarchyPath"><span class="hs-identifier hs-type">HierarchyPath</span></a></span></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396749"><span id="local-6989586621679396751"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#HierarchyPath"><span class="hs-identifier hs-type">HierarchyPath</span></a></span></span></span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396465"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#HierarchyPath"><span class="hs-identifier hs-type">HierarchyPath</span></a></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396746"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HierarchyPath.html#HierarchyPath"><span class="hs-identifier hs-type">HierarchyPath</span></a></span></span><span>
 </span><span id="line-108"></span></pre></body></html>

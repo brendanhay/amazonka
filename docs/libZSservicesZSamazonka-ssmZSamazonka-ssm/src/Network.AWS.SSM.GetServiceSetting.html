@@ -66,7 +66,7 @@
 </span><span id="line-66"></span><span class="hs-comment">-- | The request body of the GetServiceSetting API operation.</span><span>
 </span><span id="line-67"></span><span class="hs-comment">--</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- /See:/ 'newGetServiceSetting' smart constructor.</span><span>
-</span><span id="line-69"></span><span id="local-6989586621679832156"><span id="local-6989586621679832157"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetServiceSetting"><span class="annot"><a href="Network.AWS.SSM.GetServiceSetting.html#GetServiceSetting"><span class="hs-identifier hs-var">GetServiceSetting</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetServiceSetting%27"><span class="annot"><a href="Network.AWS.SSM.GetServiceSetting.html#GetServiceSetting%27"><span class="hs-identifier hs-var">GetServiceSetting'</span></a></span></span><span>
+</span><span id="line-69"></span><span id="local-6989586621679833930"><span id="local-6989586621679833931"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetServiceSetting"><span class="annot"><a href="Network.AWS.SSM.GetServiceSetting.html#GetServiceSetting"><span class="hs-identifier hs-var">GetServiceSetting</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetServiceSetting%27"><span class="annot"><a href="Network.AWS.SSM.GetServiceSetting.html#GetServiceSetting%27"><span class="hs-identifier hs-var">GetServiceSetting'</span></a></span></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the service setting to get. The setting ID can be one of the</span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-comment">-- following.</span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -84,7 +84,7 @@
 </span><span id="line-84"></span><span>    </span><span id="%24sel%3AsettingId%3AGetServiceSetting%27"><span class="annot"><span class="annottext">GetServiceSetting -&gt; Text
 </span><a href="Network.AWS.SSM.GetServiceSetting.html#%24sel%3AsettingId%3AGetServiceSetting%27"><span class="hs-identifier hs-var hs-var">settingId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-85"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-86"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679832150"><span id="local-6989586621679832152"><span class="annot"><span class="annottext">GetServiceSetting -&gt; GetServiceSetting -&gt; Bool
+</span><span id="line-86"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679833924"><span id="local-6989586621679833926"><span class="annot"><span class="annottext">GetServiceSetting -&gt; GetServiceSetting -&gt; Bool
 (GetServiceSetting -&gt; GetServiceSetting -&gt; Bool)
 -&gt; (GetServiceSetting -&gt; GetServiceSetting -&gt; Bool)
 -&gt; Eq GetServiceSetting
@@ -93,7 +93,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetServiceSetting -&gt; GetServiceSetting -&gt; Bool
 == :: GetServiceSetting -&gt; GetServiceSetting -&gt; Bool
 $c== :: GetServiceSetting -&gt; GetServiceSetting -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679832141"><span id="local-6989586621679832143"><span id="local-6989586621679832145"><span id="local-6989586621679832147"><span class="annot"><span class="annottext">ReadPrec [GetServiceSetting]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679833915"><span id="local-6989586621679833917"><span id="local-6989586621679833919"><span id="local-6989586621679833921"><span class="annot"><span class="annottext">ReadPrec [GetServiceSetting]
 ReadPrec GetServiceSetting
 Int -&gt; ReadS GetServiceSetting
 ReadS [GetServiceSetting]
@@ -113,7 +113,7 @@ readList :: ReadS [GetServiceSetting]
 $creadList :: ReadS [GetServiceSetting]
 readsPrec :: Int -&gt; ReadS GetServiceSetting
 $creadsPrec :: Int -&gt; ReadS GetServiceSetting
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679832134"><span id="local-6989586621679832136"><span id="local-6989586621679832138"><span class="annot"><span class="annottext">Int -&gt; GetServiceSetting -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679833908"><span id="local-6989586621679833910"><span id="local-6989586621679833912"><span class="annot"><span class="annottext">Int -&gt; GetServiceSetting -&gt; ShowS
 [GetServiceSetting] -&gt; ShowS
 GetServiceSetting -&gt; String
 (Int -&gt; GetServiceSetting -&gt; ShowS)
@@ -166,12 +166,12 @@ $cfrom :: forall x. GetServiceSetting -&gt; Rep GetServiceSetting x
 </span><span id="line-112"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-113"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.GetServiceSetting.html#GetServiceSetting"><span class="hs-identifier hs-type">GetServiceSetting</span></a></span><span>
 </span><span id="line-114"></span><span id="newGetServiceSetting"><span class="annot"><span class="annottext">newGetServiceSetting :: Text -&gt; GetServiceSetting
-</span><a href="Network.AWS.SSM.GetServiceSetting.html#newGetServiceSetting"><span class="hs-identifier hs-var hs-var">newGetServiceSetting</span></a></span></span><span> </span><span id="local-6989586621679832129"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679832129"><span class="hs-identifier hs-var">pSettingId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.GetServiceSetting.html#newGetServiceSetting"><span class="hs-identifier hs-var hs-var">newGetServiceSetting</span></a></span></span><span> </span><span id="local-6989586621679833903"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679833903"><span class="hs-identifier hs-var">pSettingId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>  </span><span class="annot"><span class="annottext">GetServiceSetting' :: Text -&gt; GetServiceSetting
 </span><a href="Network.AWS.SSM.GetServiceSetting.html#GetServiceSetting%27"><span class="hs-identifier hs-type">GetServiceSetting'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:settingId:GetServiceSetting' :: Text
 </span><a href="Network.AWS.SSM.GetServiceSetting.html#%24sel%3AsettingId%3AGetServiceSetting%27"><span class="hs-identifier hs-var">settingId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679832129"><span class="hs-identifier hs-var">pSettingId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679833903"><span class="hs-identifier hs-var">pSettingId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- | The ID of the service setting to get. The setting ID can be one of the</span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- following.</span><span>
@@ -193,27 +193,27 @@ $cfrom :: forall x. GetServiceSetting -&gt; Rep GetServiceSetting x
 -&gt; (GetServiceSetting -&gt; Text -&gt; GetServiceSetting)
 -&gt; Lens GetServiceSetting GetServiceSetting Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.GetServiceSetting.html#GetServiceSetting%27"><span class="hs-identifier hs-type">GetServiceSetting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679832126"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.GetServiceSetting.html#GetServiceSetting%27"><span class="hs-identifier hs-type">GetServiceSetting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679833900"><span class="annot"><span class="annottext">Text
 settingId :: Text
 $sel:settingId:GetServiceSetting' :: GetServiceSetting -&gt; Text
-</span><a href="#local-6989586621679832126"><span class="hs-identifier hs-var hs-var">settingId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679832126"><span class="hs-identifier hs-var">settingId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679832125"><span class="annot"><span class="annottext">s :: GetServiceSetting
-</span><a href="#local-6989586621679832125"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.GetServiceSetting.html#GetServiceSetting%27"><span class="hs-identifier hs-type">GetServiceSetting'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679832124"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679832124"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetServiceSetting
-</span><a href="#local-6989586621679832125"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:settingId:GetServiceSetting' :: Text
+</span><a href="#local-6989586621679833900"><span class="hs-identifier hs-var hs-var">settingId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679833900"><span class="hs-identifier hs-var">settingId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679833899"><span class="annot"><span class="annottext">s :: GetServiceSetting
+</span><a href="#local-6989586621679833899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.GetServiceSetting.html#GetServiceSetting%27"><span class="hs-identifier hs-type">GetServiceSetting'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679833898"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679833898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetServiceSetting
+</span><a href="#local-6989586621679833899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:settingId:GetServiceSetting' :: Text
 </span><a href="Network.AWS.SSM.GetServiceSetting.html#%24sel%3AsettingId%3AGetServiceSetting%27"><span class="hs-identifier hs-var">settingId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679832124"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetServiceSetting.html#GetServiceSetting"><span class="hs-identifier hs-type">GetServiceSetting</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679833898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetServiceSetting.html#GetServiceSetting"><span class="hs-identifier hs-type">GetServiceSetting</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetServiceSetting.html#GetServiceSetting"><span class="hs-identifier hs-type">GetServiceSetting</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-135"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-136"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetServiceSetting.html#GetServiceSetting"><span class="hs-identifier hs-type">GetServiceSetting</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-137"></span><span>      </span><span class="annot"><a href="Network.AWS.SSM.GetServiceSetting.html#GetServiceSettingResponse"><span class="hs-identifier hs-type">GetServiceSettingResponse</span></a></span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679832120"><span class="annot"><span class="annottext">request :: GetServiceSetting -&gt; Request GetServiceSetting
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679833894"><span class="annot"><span class="annottext">request :: GetServiceSetting -&gt; Request GetServiceSetting
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetServiceSetting -&gt; Request GetServiceSetting
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SSM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679832116"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679833890"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetServiceSetting
 -&gt; ClientResponse ClientBody
@@ -239,10 +239,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679832113"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679832113"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679832112"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679832112"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679832111"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679832111"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679833887"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679833887"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679833886"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679833886"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679833885"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679833885"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-142"></span><span>          </span><span class="annot"><span class="annottext">Maybe ServiceSetting -&gt; Int -&gt; GetServiceSettingResponse
 </span><a href="Network.AWS.SSM.GetServiceSetting.html#GetServiceSettingResponse%27"><span class="hs-identifier hs-var">GetServiceSettingResponse'</span></a></span><span>
 </span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ServiceSetting -&gt; Int -&gt; GetServiceSettingResponse)
@@ -250,7 +250,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetServiceSettingResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679832111"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ServiceSetting)
+</span><a href="#local-6989586621679833885"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ServiceSetting)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ServiceSetting&quot;</span></span><span class="hs-special">)</span><span>
@@ -262,15 +262,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679832113"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679833887"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679832103"><span id="local-6989586621679832105"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetServiceSetting.html#GetServiceSetting"><span class="hs-identifier hs-type">GetServiceSetting</span></a></span></span></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679833877"><span id="local-6989586621679833879"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetServiceSetting.html#GetServiceSetting"><span class="hs-identifier hs-type">GetServiceSetting</span></a></span></span></span><span>
 </span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679832100"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetServiceSetting.html#GetServiceSetting"><span class="hs-identifier hs-type">GetServiceSetting</span></a></span></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679833874"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetServiceSetting.html#GetServiceSetting"><span class="hs-identifier hs-type">GetServiceSetting</span></a></span></span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetServiceSetting.html#GetServiceSetting"><span class="hs-identifier hs-type">GetServiceSetting</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679832096"><span class="annot"><span class="annottext">toHeaders :: GetServiceSetting -&gt; ResponseHeaders
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679833870"><span class="annot"><span class="annottext">toHeaders :: GetServiceSetting -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetServiceSetting -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -297,12 +297,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-163"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-164"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>
-</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679832086"><span id="local-6989586621679832088"><span id="local-6989586621679832090"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetServiceSetting.html#GetServiceSetting"><span class="hs-identifier hs-type">GetServiceSetting</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621679832084"><span class="annot"><span class="annottext">toJSON :: GetServiceSetting -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetServiceSetting.html#GetServiceSetting%27"><span class="hs-identifier hs-type">GetServiceSetting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679832082"><span class="annot"><span class="annottext">Text
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679833860"><span id="local-6989586621679833862"><span id="local-6989586621679833864"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetServiceSetting.html#GetServiceSetting"><span class="hs-identifier hs-type">GetServiceSetting</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679833858"><span class="annot"><span class="annottext">toJSON :: GetServiceSetting -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetServiceSetting.html#GetServiceSetting%27"><span class="hs-identifier hs-type">GetServiceSetting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679833856"><span class="annot"><span class="annottext">Text
 settingId :: Text
 $sel:settingId:GetServiceSetting' :: GetServiceSetting -&gt; Text
-</span><a href="#local-6989586621679832082"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679833856"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-169"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -314,18 +314,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;SettingId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679832082"><span class="hs-identifier hs-var">settingId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679833856"><span class="hs-identifier hs-var">settingId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-171"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetServiceSetting.html#GetServiceSetting"><span class="hs-identifier hs-type">GetServiceSetting</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-174"></span><span>  </span><span id="local-6989586621679832076"><span class="annot"><span class="annottext">toPath :: GetServiceSetting -&gt; ByteString
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679833850"><span class="annot"><span class="annottext">toPath :: GetServiceSetting -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetServiceSetting -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetServiceSetting.html#GetServiceSetting"><span class="hs-identifier hs-type">GetServiceSetting</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-177"></span><span>  </span><span id="local-6989586621679832072"><span class="annot"><span class="annottext">toQuery :: GetServiceSetting -&gt; QueryString
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679833846"><span class="annot"><span class="annottext">toQuery :: GetServiceSetting -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetServiceSetting -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -335,7 +335,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-179"></span><span class="hs-comment">-- | The query result body of the GetServiceSetting API operation.</span><span>
 </span><span id="line-180"></span><span class="hs-comment">--</span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- /See:/ 'newGetServiceSettingResponse' smart constructor.</span><span>
-</span><span id="line-182"></span><span id="local-6989586621679832069"><span id="local-6989586621679832070"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetServiceSettingResponse"><span class="annot"><a href="Network.AWS.SSM.GetServiceSetting.html#GetServiceSettingResponse"><span class="hs-identifier hs-var">GetServiceSettingResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetServiceSettingResponse%27"><span class="annot"><a href="Network.AWS.SSM.GetServiceSetting.html#GetServiceSettingResponse%27"><span class="hs-identifier hs-var">GetServiceSettingResponse'</span></a></span></span><span>
+</span><span id="line-182"></span><span id="local-6989586621679833843"><span id="local-6989586621679833844"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetServiceSettingResponse"><span class="annot"><a href="Network.AWS.SSM.GetServiceSetting.html#GetServiceSettingResponse"><span class="hs-identifier hs-var">GetServiceSettingResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetServiceSettingResponse%27"><span class="annot"><a href="Network.AWS.SSM.GetServiceSetting.html#GetServiceSettingResponse%27"><span class="hs-identifier hs-var">GetServiceSettingResponse'</span></a></span></span><span>
 </span><span id="line-183"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The query result of the current service setting.</span><span>
 </span><span id="line-184"></span><span>    </span><span id="%24sel%3AserviceSetting%3AGetServiceSettingResponse%27"><span class="annot"><span class="annottext">GetServiceSettingResponse -&gt; Maybe ServiceSetting
 </span><a href="Network.AWS.SSM.GetServiceSetting.html#%24sel%3AserviceSetting%3AGetServiceSettingResponse%27"><span class="hs-identifier hs-var hs-var">serviceSetting</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting"><span class="hs-identifier hs-type">ServiceSetting</span></a></span><span class="hs-special">,</span><span>
@@ -343,7 +343,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-186"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetServiceSettingResponse%27"><span class="annot"><span class="annottext">GetServiceSettingResponse -&gt; Int
 </span><a href="Network.AWS.SSM.GetServiceSetting.html#%24sel%3AhttpStatus%3AGetServiceSettingResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-187"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-188"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679832063"><span id="local-6989586621679832065"><span class="annot"><span class="annottext">GetServiceSettingResponse -&gt; GetServiceSettingResponse -&gt; Bool
+</span><span id="line-188"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679833837"><span id="local-6989586621679833839"><span class="annot"><span class="annottext">GetServiceSettingResponse -&gt; GetServiceSettingResponse -&gt; Bool
 (GetServiceSettingResponse -&gt; GetServiceSettingResponse -&gt; Bool)
 -&gt; (GetServiceSettingResponse -&gt; GetServiceSettingResponse -&gt; Bool)
 -&gt; Eq GetServiceSettingResponse
@@ -352,7 +352,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetServiceSettingResponse -&gt; GetServiceSettingResponse -&gt; Bool
 == :: GetServiceSettingResponse -&gt; GetServiceSettingResponse -&gt; Bool
 $c== :: GetServiceSettingResponse -&gt; GetServiceSettingResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679832055"><span id="local-6989586621679832057"><span id="local-6989586621679832059"><span id="local-6989586621679832061"><span class="annot"><span class="annottext">ReadPrec [GetServiceSettingResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679833829"><span id="local-6989586621679833831"><span id="local-6989586621679833833"><span id="local-6989586621679833835"><span class="annot"><span class="annottext">ReadPrec [GetServiceSettingResponse]
 ReadPrec GetServiceSettingResponse
 Int -&gt; ReadS GetServiceSettingResponse
 ReadS [GetServiceSettingResponse]
@@ -372,7 +372,7 @@ readList :: ReadS [GetServiceSettingResponse]
 $creadList :: ReadS [GetServiceSettingResponse]
 readsPrec :: Int -&gt; ReadS GetServiceSettingResponse
 $creadsPrec :: Int -&gt; ReadS GetServiceSettingResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679832049"><span id="local-6989586621679832051"><span id="local-6989586621679832053"><span class="annot"><span class="annottext">Int -&gt; GetServiceSettingResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679833823"><span id="local-6989586621679833825"><span id="local-6989586621679833827"><span class="annot"><span class="annottext">Int -&gt; GetServiceSettingResponse -&gt; ShowS
 [GetServiceSettingResponse] -&gt; ShowS
 GetServiceSettingResponse -&gt; String
 (Int -&gt; GetServiceSettingResponse -&gt; ShowS)
@@ -420,8 +420,8 @@ GetServiceSettingResponse -&gt; Rep GetServiceSettingResponse x
 </span><span id="line-203"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-204"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.GetServiceSetting.html#GetServiceSettingResponse"><span class="hs-identifier hs-type">GetServiceSettingResponse</span></a></span><span>
 </span><span id="line-205"></span><span id="newGetServiceSettingResponse"><span class="annot"><span class="annottext">newGetServiceSettingResponse :: Int -&gt; GetServiceSettingResponse
-</span><a href="Network.AWS.SSM.GetServiceSetting.html#newGetServiceSettingResponse"><span class="hs-identifier hs-var hs-var">newGetServiceSettingResponse</span></a></span></span><span> </span><span id="local-6989586621679832046"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679832046"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.GetServiceSetting.html#newGetServiceSettingResponse"><span class="hs-identifier hs-var hs-var">newGetServiceSettingResponse</span></a></span></span><span> </span><span id="local-6989586621679833820"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679833820"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-206"></span><span>  </span><span class="annot"><span class="annottext">GetServiceSettingResponse' :: Maybe ServiceSetting -&gt; Int -&gt; GetServiceSettingResponse
 </span><a href="Network.AWS.SSM.GetServiceSetting.html#GetServiceSettingResponse%27"><span class="hs-identifier hs-type">GetServiceSettingResponse'</span></a></span><span>
 </span><span id="line-207"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:serviceSetting:GetServiceSettingResponse' :: Maybe ServiceSetting
@@ -431,7 +431,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetServiceSettingResponse' :: Int
 </span><a href="Network.AWS.SSM.GetServiceSetting.html#%24sel%3AhttpStatus%3AGetServiceSettingResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679832046"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679833820"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-210"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-211"></span><span>
 </span><span id="line-212"></span><span class="hs-comment">-- | The query result of the current service setting.</span><span>
@@ -447,16 +447,16 @@ forall a. Maybe a
      (Maybe ServiceSetting)
      (Maybe ServiceSetting)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.GetServiceSetting.html#GetServiceSettingResponse%27"><span class="hs-identifier hs-type">GetServiceSettingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679832045"><span class="annot"><span class="annottext">Maybe ServiceSetting
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.GetServiceSetting.html#GetServiceSettingResponse%27"><span class="hs-identifier hs-type">GetServiceSettingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679833819"><span class="annot"><span class="annottext">Maybe ServiceSetting
 serviceSetting :: Maybe ServiceSetting
 $sel:serviceSetting:GetServiceSettingResponse' :: GetServiceSettingResponse -&gt; Maybe ServiceSetting
-</span><a href="#local-6989586621679832045"><span class="hs-identifier hs-var hs-var">serviceSetting</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceSetting
-</span><a href="#local-6989586621679832045"><span class="hs-identifier hs-var">serviceSetting</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679832044"><span class="annot"><span class="annottext">s :: GetServiceSettingResponse
-</span><a href="#local-6989586621679832044"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.GetServiceSetting.html#GetServiceSettingResponse%27"><span class="hs-identifier hs-type">GetServiceSettingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679832043"><span class="annot"><span class="annottext">Maybe ServiceSetting
-</span><a href="#local-6989586621679832043"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetServiceSettingResponse
-</span><a href="#local-6989586621679832044"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceSetting:GetServiceSettingResponse' :: Maybe ServiceSetting
+</span><a href="#local-6989586621679833819"><span class="hs-identifier hs-var hs-var">serviceSetting</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceSetting
+</span><a href="#local-6989586621679833819"><span class="hs-identifier hs-var">serviceSetting</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679833818"><span class="annot"><span class="annottext">s :: GetServiceSettingResponse
+</span><a href="#local-6989586621679833818"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.GetServiceSetting.html#GetServiceSettingResponse%27"><span class="hs-identifier hs-type">GetServiceSettingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679833817"><span class="annot"><span class="annottext">Maybe ServiceSetting
+</span><a href="#local-6989586621679833817"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetServiceSettingResponse
+</span><a href="#local-6989586621679833818"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceSetting:GetServiceSettingResponse' :: Maybe ServiceSetting
 </span><a href="Network.AWS.SSM.GetServiceSetting.html#%24sel%3AserviceSetting%3AGetServiceSettingResponse%27"><span class="hs-identifier hs-var">serviceSetting</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceSetting
-</span><a href="#local-6989586621679832043"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetServiceSetting.html#GetServiceSettingResponse"><span class="hs-identifier hs-type">GetServiceSettingResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679833817"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetServiceSetting.html#GetServiceSettingResponse"><span class="hs-identifier hs-type">GetServiceSettingResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-215"></span><span>
 </span><span id="line-216"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-217"></span><span class="annot"><a href="Network.AWS.SSM.GetServiceSetting.html#getServiceSettingResponse_httpStatus"><span class="hs-identifier hs-type">getServiceSettingResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetServiceSetting.html#GetServiceSettingResponse"><span class="hs-identifier hs-type">GetServiceSettingResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -466,16 +466,16 @@ $sel:serviceSetting:GetServiceSettingResponse' :: GetServiceSettingResponse -&gt
 -&gt; (GetServiceSettingResponse -&gt; Int -&gt; GetServiceSettingResponse)
 -&gt; Lens GetServiceSettingResponse GetServiceSettingResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.GetServiceSetting.html#GetServiceSettingResponse%27"><span class="hs-identifier hs-type">GetServiceSettingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679832042"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.GetServiceSetting.html#GetServiceSettingResponse%27"><span class="hs-identifier hs-type">GetServiceSettingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679833816"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetServiceSettingResponse' :: GetServiceSettingResponse -&gt; Int
-</span><a href="#local-6989586621679832042"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679832042"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679832041"><span class="annot"><span class="annottext">s :: GetServiceSettingResponse
-</span><a href="#local-6989586621679832041"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.GetServiceSetting.html#GetServiceSettingResponse%27"><span class="hs-identifier hs-type">GetServiceSettingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679832040"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679832040"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetServiceSettingResponse
-</span><a href="#local-6989586621679832041"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetServiceSettingResponse' :: Int
+</span><a href="#local-6989586621679833816"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679833816"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679833815"><span class="annot"><span class="annottext">s :: GetServiceSettingResponse
+</span><a href="#local-6989586621679833815"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.GetServiceSetting.html#GetServiceSettingResponse%27"><span class="hs-identifier hs-type">GetServiceSettingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679833814"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679833814"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetServiceSettingResponse
+</span><a href="#local-6989586621679833815"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetServiceSettingResponse' :: Int
 </span><a href="Network.AWS.SSM.GetServiceSetting.html#%24sel%3AhttpStatus%3AGetServiceSettingResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679832040"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetServiceSetting.html#GetServiceSettingResponse"><span class="hs-identifier hs-type">GetServiceSettingResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679833814"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetServiceSetting.html#GetServiceSettingResponse"><span class="hs-identifier hs-type">GetServiceSettingResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-219"></span><span>
-</span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679832038"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetServiceSetting.html#GetServiceSettingResponse"><span class="hs-identifier hs-type">GetServiceSettingResponse</span></a></span></span><span>
+</span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679833812"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetServiceSetting.html#GetServiceSettingResponse"><span class="hs-identifier hs-type">GetServiceSettingResponse</span></a></span></span><span>
 </span><span id="line-221"></span></pre></body></html>

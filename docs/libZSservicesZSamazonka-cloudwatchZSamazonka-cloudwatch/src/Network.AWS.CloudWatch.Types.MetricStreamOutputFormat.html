@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679255038"><span id="local-6989586621679255039"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MetricStreamOutputFormat"><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamOutputFormat.html#MetricStreamOutputFormat"><span class="hs-identifier hs-var">MetricStreamOutputFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetricStreamOutputFormat%27"><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamOutputFormat.html#MetricStreamOutputFormat%27"><span class="hs-identifier hs-var">MetricStreamOutputFormat'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679255366"><span id="local-6989586621679255367"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MetricStreamOutputFormat"><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamOutputFormat.html#MetricStreamOutputFormat"><span class="hs-identifier hs-var">MetricStreamOutputFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetricStreamOutputFormat%27"><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamOutputFormat.html#MetricStreamOutputFormat%27"><span class="hs-identifier hs-var">MetricStreamOutputFormat'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMetricStreamOutputFormat"><span class="annot"><span class="annottext">MetricStreamOutputFormat -&gt; Text
 </span><a href="Network.AWS.CloudWatch.Types.MetricStreamOutputFormat.html#fromMetricStreamOutputFormat"><span class="hs-identifier hs-var hs-var">fromMetricStreamOutputFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679255030"><span id="local-6989586621679255032"><span id="local-6989586621679255034"><span class="annot"><span class="annottext">Int -&gt; MetricStreamOutputFormat -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679255358"><span id="local-6989586621679255360"><span id="local-6989586621679255362"><span class="annot"><span class="annottext">Int -&gt; MetricStreamOutputFormat -&gt; ShowS
 [MetricStreamOutputFormat] -&gt; ShowS
 MetricStreamOutputFormat -&gt; String
 (Int -&gt; MetricStreamOutputFormat -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: MetricStreamOutputFormat -&gt; String
 showsPrec :: Int -&gt; MetricStreamOutputFormat -&gt; ShowS
 $cshowsPrec :: Int -&gt; MetricStreamOutputFormat -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679255021"><span id="local-6989586621679255023"><span id="local-6989586621679255025"><span id="local-6989586621679255027"><span class="annot"><span class="annottext">ReadPrec [MetricStreamOutputFormat]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679255349"><span id="local-6989586621679255351"><span id="local-6989586621679255353"><span id="local-6989586621679255355"><span class="annot"><span class="annottext">ReadPrec [MetricStreamOutputFormat]
 ReadPrec MetricStreamOutputFormat
 Int -&gt; ReadS MetricStreamOutputFormat
 ReadS [MetricStreamOutputFormat]
@@ -72,7 +72,7 @@ $creadList :: ReadS [MetricStreamOutputFormat]
 readsPrec :: Int -&gt; ReadS MetricStreamOutputFormat
 $creadsPrec :: Int -&gt; ReadS MetricStreamOutputFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679255016"><span id="local-6989586621679255018"><span class="annot"><span class="annottext">MetricStreamOutputFormat -&gt; MetricStreamOutputFormat -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679255344"><span id="local-6989586621679255346"><span class="annot"><span class="annottext">MetricStreamOutputFormat -&gt; MetricStreamOutputFormat -&gt; Bool
 (MetricStreamOutputFormat -&gt; MetricStreamOutputFormat -&gt; Bool)
 -&gt; (MetricStreamOutputFormat -&gt; MetricStreamOutputFormat -&gt; Bool)
 -&gt; Eq MetricStreamOutputFormat
@@ -82,7 +82,7 @@ $c/= :: MetricStreamOutputFormat -&gt; MetricStreamOutputFormat -&gt; Bool
 == :: MetricStreamOutputFormat -&gt; MetricStreamOutputFormat -&gt; Bool
 $c== :: MetricStreamOutputFormat -&gt; MetricStreamOutputFormat -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679255000"><span id="local-6989586621679255002"><span id="local-6989586621679255004"><span id="local-6989586621679255006"><span id="local-6989586621679255008"><span id="local-6989586621679255010"><span id="local-6989586621679255012"><span class="annot"><span class="annottext">Eq MetricStreamOutputFormat
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679255328"><span id="local-6989586621679255330"><span id="local-6989586621679255332"><span id="local-6989586621679255334"><span id="local-6989586621679255336"><span id="local-6989586621679255338"><span id="local-6989586621679255340"><span class="annot"><span class="annottext">Eq MetricStreamOutputFormat
 Eq MetricStreamOutputFormat
 -&gt; (MetricStreamOutputFormat
     -&gt; MetricStreamOutputFormat -&gt; Ordering)
@@ -147,7 +147,7 @@ MetricStreamOutputFormat -&gt; Rep MetricStreamOutputFormat x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679254992"><span id="local-6989586621679254994"><span class="annot"><span class="annottext">Int -&gt; MetricStreamOutputFormat -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679255320"><span id="local-6989586621679255322"><span class="annot"><span class="annottext">Int -&gt; MetricStreamOutputFormat -&gt; Int
 MetricStreamOutputFormat -&gt; Int
 (Int -&gt; MetricStreamOutputFormat -&gt; Int)
 -&gt; (MetricStreamOutputFormat -&gt; Int)
@@ -158,55 +158,55 @@ $chash :: MetricStreamOutputFormat -&gt; Int
 hashWithSalt :: Int -&gt; MetricStreamOutputFormat -&gt; Int
 $chashWithSalt :: Int -&gt; MetricStreamOutputFormat -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679254989"><span class="annot"><span class="annottext">MetricStreamOutputFormat -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679255317"><span class="annot"><span class="annottext">MetricStreamOutputFormat -&gt; ()
 (MetricStreamOutputFormat -&gt; ()) -&gt; NFData MetricStreamOutputFormat
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: MetricStreamOutputFormat -&gt; ()
 $crnf :: MetricStreamOutputFormat -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679254986"><span class="annot"><span class="annottext">Text -&gt; Either String MetricStreamOutputFormat
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679255314"><span class="annot"><span class="annottext">Text -&gt; Either String MetricStreamOutputFormat
 (Text -&gt; Either String MetricStreamOutputFormat)
 -&gt; FromText MetricStreamOutputFormat
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String MetricStreamOutputFormat
 $cfromText :: Text -&gt; Either String MetricStreamOutputFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679254983"><span class="annot"><span class="annottext">MetricStreamOutputFormat -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679255311"><span class="annot"><span class="annottext">MetricStreamOutputFormat -&gt; Text
 (MetricStreamOutputFormat -&gt; Text)
 -&gt; ToText MetricStreamOutputFormat
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: MetricStreamOutputFormat -&gt; Text
 $ctoText :: MetricStreamOutputFormat -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679254980"><span class="annot"><span class="annottext">MetricStreamOutputFormat -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679255308"><span class="annot"><span class="annottext">MetricStreamOutputFormat -&gt; ByteString
 (MetricStreamOutputFormat -&gt; ByteString)
 -&gt; ToByteString MetricStreamOutputFormat
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: MetricStreamOutputFormat -&gt; ByteString
 $ctoBS :: MetricStreamOutputFormat -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679254977"><span class="annot"><span class="annottext">MetricStreamOutputFormat -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679255305"><span class="annot"><span class="annottext">MetricStreamOutputFormat -&gt; ByteStringBuilder
 (MetricStreamOutputFormat -&gt; ByteStringBuilder)
 -&gt; ToLog MetricStreamOutputFormat
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: MetricStreamOutputFormat -&gt; ByteStringBuilder
 $cbuild :: MetricStreamOutputFormat -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679254974"><span class="annot"><span class="annottext">HeaderName -&gt; MetricStreamOutputFormat -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679255302"><span class="annot"><span class="annottext">HeaderName -&gt; MetricStreamOutputFormat -&gt; [Header]
 (HeaderName -&gt; MetricStreamOutputFormat -&gt; [Header])
 -&gt; ToHeader MetricStreamOutputFormat
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; MetricStreamOutputFormat -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; MetricStreamOutputFormat -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679254971"><span class="annot"><span class="annottext">MetricStreamOutputFormat -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679255299"><span class="annot"><span class="annottext">MetricStreamOutputFormat -&gt; QueryString
 (MetricStreamOutputFormat -&gt; QueryString)
 -&gt; ToQuery MetricStreamOutputFormat
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: MetricStreamOutputFormat -&gt; QueryString
 $ctoQuery :: MetricStreamOutputFormat -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679254966"><span id="local-6989586621679254968"><span class="annot"><span class="annottext">Value -&gt; Parser [MetricStreamOutputFormat]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679255294"><span id="local-6989586621679255296"><span class="annot"><span class="annottext">Value -&gt; Parser [MetricStreamOutputFormat]
 Value -&gt; Parser MetricStreamOutputFormat
 (Value -&gt; Parser MetricStreamOutputFormat)
 -&gt; (Value -&gt; Parser [MetricStreamOutputFormat])
@@ -218,7 +218,7 @@ $cparseJSONList :: Value -&gt; Parser [MetricStreamOutputFormat]
 parseJSON :: Value -&gt; Parser MetricStreamOutputFormat
 $cparseJSON :: Value -&gt; Parser MetricStreamOutputFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679254961"><span id="local-6989586621679254963"><span class="annot"><span class="annottext">FromJSONKeyFunction [MetricStreamOutputFormat]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679255289"><span id="local-6989586621679255291"><span class="annot"><span class="annottext">FromJSONKeyFunction [MetricStreamOutputFormat]
 FromJSONKeyFunction MetricStreamOutputFormat
 FromJSONKeyFunction MetricStreamOutputFormat
 -&gt; FromJSONKeyFunction [MetricStreamOutputFormat]
@@ -230,7 +230,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [MetricStreamOutputFormat]
 fromJSONKey :: FromJSONKeyFunction MetricStreamOutputFormat
 $cfromJSONKey :: FromJSONKeyFunction MetricStreamOutputFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679254952"><span id="local-6989586621679254954"><span id="local-6989586621679254956"><span id="local-6989586621679254958"><span class="annot"><span class="annottext">[MetricStreamOutputFormat] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679255280"><span id="local-6989586621679255282"><span id="local-6989586621679255284"><span id="local-6989586621679255286"><span class="annot"><span class="annottext">[MetricStreamOutputFormat] -&gt; Encoding
 [MetricStreamOutputFormat] -&gt; Value
 MetricStreamOutputFormat -&gt; Encoding
 MetricStreamOutputFormat -&gt; Value
@@ -254,7 +254,7 @@ $ctoEncoding :: MetricStreamOutputFormat -&gt; Encoding
 toJSON :: MetricStreamOutputFormat -&gt; Value
 $ctoJSON :: MetricStreamOutputFormat -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679254947"><span id="local-6989586621679254949"><span class="annot"><span class="annottext">ToJSONKeyFunction [MetricStreamOutputFormat]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679255275"><span id="local-6989586621679255277"><span class="annot"><span class="annottext">ToJSONKeyFunction [MetricStreamOutputFormat]
 ToJSONKeyFunction MetricStreamOutputFormat
 ToJSONKeyFunction MetricStreamOutputFormat
 -&gt; ToJSONKeyFunction [MetricStreamOutputFormat]
@@ -266,14 +266,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [MetricStreamOutputFormat]
 toJSONKey :: ToJSONKeyFunction MetricStreamOutputFormat
 $ctoJSONKey :: ToJSONKeyFunction MetricStreamOutputFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679254944"><span class="annot"><span class="annottext">[Node] -&gt; Either String MetricStreamOutputFormat
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679255272"><span class="annot"><span class="annottext">[Node] -&gt; Either String MetricStreamOutputFormat
 ([Node] -&gt; Either String MetricStreamOutputFormat)
 -&gt; FromXML MetricStreamOutputFormat
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String MetricStreamOutputFormat
 $cparseXML :: [Node] -&gt; Either String MetricStreamOutputFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679254941"><span class="annot"><span class="annottext">MetricStreamOutputFormat -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679255269"><span class="annot"><span class="annottext">MetricStreamOutputFormat -&gt; XML
 (MetricStreamOutputFormat -&gt; XML) -&gt; ToXML MetricStreamOutputFormat
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: MetricStreamOutputFormat -&gt; XML

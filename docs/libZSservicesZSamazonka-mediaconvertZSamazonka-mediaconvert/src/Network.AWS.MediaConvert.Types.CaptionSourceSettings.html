@@ -37,48 +37,48 @@
 </span><span id="line-37"></span><span class="hs-comment">-- FileSoureSettings.</span><span>
 </span><span id="line-38"></span><span class="hs-comment">--</span><span>
 </span><span id="line-39"></span><span class="hs-comment">-- /See:/ 'newCaptionSourceSettings' smart constructor.</span><span>
-</span><span id="line-40"></span><span id="local-6989586621680011118"><span id="local-6989586621680011119"></span></span><span class="hs-keyword">data</span><span> </span><span id="CaptionSourceSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings"><span class="hs-identifier hs-var">CaptionSourceSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CaptionSourceSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings%27"><span class="hs-identifier hs-var">CaptionSourceSettings'</span></a></span></span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Settings specific to caption sources that are specified by track number.</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- Currently, this is only IMSC captions in an IMF package. If your caption</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- source is IMSC 1.1 in a separate xml file, use FileSourceSettings</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- instead of TrackSourceSettings.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AtrackSourceSettings%3ACaptionSourceSettings%27"><span class="annot"><span class="annottext">CaptionSourceSettings -&gt; Maybe TrackSourceSettings
-</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#%24sel%3AtrackSourceSettings%3ACaptionSourceSettings%27"><span class="hs-identifier hs-var hs-var">trackSourceSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TrackSourceSettings.html#TrackSourceSettings"><span class="hs-identifier hs-type">TrackSourceSettings</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | Settings for ancillary captions source.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3AancillarySourceSettings%3ACaptionSourceSettings%27"><span class="annot"><span class="annottext">CaptionSourceSettings -&gt; Maybe AncillarySourceSettings
-</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#%24sel%3AancillarySourceSettings%3ACaptionSourceSettings%27"><span class="hs-identifier hs-var hs-var">ancillarySourceSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AncillarySourceSettings.html#AncillarySourceSettings"><span class="hs-identifier hs-type">AncillarySourceSettings</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | Settings for embedded captions Source</span><span>
-</span><span id="line-49"></span><span>    </span><span id="%24sel%3AembeddedSourceSettings%3ACaptionSourceSettings%27"><span class="annot"><span class="annottext">CaptionSourceSettings -&gt; Maybe EmbeddedSourceSettings
-</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#%24sel%3AembeddedSourceSettings%3ACaptionSourceSettings%27"><span class="hs-identifier hs-var hs-var">embeddedSourceSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedSourceSettings.html#EmbeddedSourceSettings"><span class="hs-identifier hs-type">EmbeddedSourceSettings</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | DVB Sub Source Settings</span><span>
-</span><span id="line-51"></span><span>    </span><span id="%24sel%3AdvbSubSourceSettings%3ACaptionSourceSettings%27"><span class="annot"><span class="annottext">CaptionSourceSettings -&gt; Maybe DvbSubSourceSettings
-</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#%24sel%3AdvbSubSourceSettings%3ACaptionSourceSettings%27"><span class="hs-identifier hs-var hs-var">dvbSubSourceSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubSourceSettings.html#DvbSubSourceSettings"><span class="hs-identifier hs-type">DvbSubSourceSettings</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | Settings specific to WebVTT sources in HLS alternative rendition group.</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- Specify the properties (renditionGroupId, renditionName or</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- renditionLanguageCode) to identify the unique subtitle track among the</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- alternative rendition groups present in the HLS manifest. If no unique</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- track is found, or multiple tracks match the specified properties, the</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- job fails. If there is only one subtitle track in the rendition group,</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- the settings can be left empty and the default subtitle track will be</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- chosen. If your caption source is a sidecar file, use FileSourceSettings</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- instead of WebvttHlsSourceSettings.</span><span>
-</span><span id="line-61"></span><span>    </span><span id="%24sel%3AwebvttHlsSourceSettings%3ACaptionSourceSettings%27"><span class="annot"><span class="annottext">CaptionSourceSettings -&gt; Maybe WebvttHlsSourceSettings
-</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#%24sel%3AwebvttHlsSourceSettings%3ACaptionSourceSettings%27"><span class="hs-identifier hs-var hs-var">webvttHlsSourceSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WebvttHlsSourceSettings.html#WebvttHlsSourceSettings"><span class="hs-identifier hs-type">WebvttHlsSourceSettings</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | If your input captions are SCC, SMI, SRT, STL, TTML, WebVTT, or IMSC 1.1</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- in an xml file, specify the URI of the input caption source file. If</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- your caption source is IMSC in an IMF package, use TrackSourceSettings</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- instead of FileSoureSettings.</span><span>
-</span><span id="line-66"></span><span>    </span><span id="%24sel%3AfileSourceSettings%3ACaptionSourceSettings%27"><span class="annot"><span class="annottext">CaptionSourceSettings -&gt; Maybe FileSourceSettings
-</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#%24sel%3AfileSourceSettings%3ACaptionSourceSettings%27"><span class="hs-identifier hs-var hs-var">fileSourceSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#FileSourceSettings"><span class="hs-identifier hs-type">FileSourceSettings</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | Settings specific to Teletext caption sources, including Page number.</span><span>
-</span><span id="line-68"></span><span>    </span><span id="%24sel%3AteletextSourceSettings%3ACaptionSourceSettings%27"><span class="annot"><span class="annottext">CaptionSourceSettings -&gt; Maybe TeletextSourceSettings
+</span><span id="line-40"></span><span id="local-6989586621680016052"><span id="local-6989586621680016053"></span></span><span class="hs-keyword">data</span><span> </span><span id="CaptionSourceSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings"><span class="hs-identifier hs-var">CaptionSourceSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CaptionSourceSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings%27"><span class="hs-identifier hs-var">CaptionSourceSettings'</span></a></span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Settings specific to Teletext caption sources, including Page number.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AteletextSourceSettings%3ACaptionSourceSettings%27"><span class="annot"><span class="annottext">CaptionSourceSettings -&gt; Maybe TeletextSourceSettings
 </span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#%24sel%3AteletextSourceSettings%3ACaptionSourceSettings%27"><span class="hs-identifier hs-var hs-var">teletextSourceSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TeletextSourceSettings.html#TeletextSourceSettings"><span class="hs-identifier hs-type">TeletextSourceSettings</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | Use Source (SourceType) to identify the format of your input captions.</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- The service cannot auto-detect caption format.</span><span>
-</span><span id="line-71"></span><span>    </span><span id="%24sel%3AsourceType%3ACaptionSourceSettings%27"><span class="annot"><span class="annottext">CaptionSourceSettings -&gt; Maybe CaptionSourceType
-</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#%24sel%3AsourceType%3ACaptionSourceSettings%27"><span class="hs-identifier hs-var hs-var">sourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType"><span class="hs-identifier hs-type">CaptionSourceType</span></a></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Use Source (SourceType) to identify the format of your input captions.</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- The service cannot auto-detect caption format.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AsourceType%3ACaptionSourceSettings%27"><span class="annot"><span class="annottext">CaptionSourceSettings -&gt; Maybe CaptionSourceType
+</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#%24sel%3AsourceType%3ACaptionSourceSettings%27"><span class="hs-identifier hs-var hs-var">sourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType"><span class="hs-identifier hs-type">CaptionSourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | If your input captions are SCC, SMI, SRT, STL, TTML, WebVTT, or IMSC 1.1</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- in an xml file, specify the URI of the input caption source file. If</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- your caption source is IMSC in an IMF package, use TrackSourceSettings</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- instead of FileSoureSettings.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AfileSourceSettings%3ACaptionSourceSettings%27"><span class="annot"><span class="annottext">CaptionSourceSettings -&gt; Maybe FileSourceSettings
+</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#%24sel%3AfileSourceSettings%3ACaptionSourceSettings%27"><span class="hs-identifier hs-var hs-var">fileSourceSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#FileSourceSettings"><span class="hs-identifier hs-type">FileSourceSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | Settings specific to WebVTT sources in HLS alternative rendition group.</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- Specify the properties (renditionGroupId, renditionName or</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- renditionLanguageCode) to identify the unique subtitle track among the</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- alternative rendition groups present in the HLS manifest. If no unique</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- track is found, or multiple tracks match the specified properties, the</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- job fails. If there is only one subtitle track in the rendition group,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- the settings can be left empty and the default subtitle track will be</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- chosen. If your caption source is a sidecar file, use FileSourceSettings</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- instead of WebvttHlsSourceSettings.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AwebvttHlsSourceSettings%3ACaptionSourceSettings%27"><span class="annot"><span class="annottext">CaptionSourceSettings -&gt; Maybe WebvttHlsSourceSettings
+</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#%24sel%3AwebvttHlsSourceSettings%3ACaptionSourceSettings%27"><span class="hs-identifier hs-var hs-var">webvttHlsSourceSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WebvttHlsSourceSettings.html#WebvttHlsSourceSettings"><span class="hs-identifier hs-type">WebvttHlsSourceSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | DVB Sub Source Settings</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AdvbSubSourceSettings%3ACaptionSourceSettings%27"><span class="annot"><span class="annottext">CaptionSourceSettings -&gt; Maybe DvbSubSourceSettings
+</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#%24sel%3AdvbSubSourceSettings%3ACaptionSourceSettings%27"><span class="hs-identifier hs-var hs-var">dvbSubSourceSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubSourceSettings.html#DvbSubSourceSettings"><span class="hs-identifier hs-type">DvbSubSourceSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | Settings specific to caption sources that are specified by track number.</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- Currently, this is only IMSC captions in an IMF package. If your caption</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- source is IMSC 1.1 in a separate xml file, use FileSourceSettings</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- instead of TrackSourceSettings.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AtrackSourceSettings%3ACaptionSourceSettings%27"><span class="annot"><span class="annottext">CaptionSourceSettings -&gt; Maybe TrackSourceSettings
+</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#%24sel%3AtrackSourceSettings%3ACaptionSourceSettings%27"><span class="hs-identifier hs-var hs-var">trackSourceSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TrackSourceSettings.html#TrackSourceSettings"><span class="hs-identifier hs-type">TrackSourceSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | Settings for ancillary captions source.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AancillarySourceSettings%3ACaptionSourceSettings%27"><span class="annot"><span class="annottext">CaptionSourceSettings -&gt; Maybe AncillarySourceSettings
+</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#%24sel%3AancillarySourceSettings%3ACaptionSourceSettings%27"><span class="hs-identifier hs-var hs-var">ancillarySourceSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AncillarySourceSettings.html#AncillarySourceSettings"><span class="hs-identifier hs-type">AncillarySourceSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | Settings for embedded captions Source</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AembeddedSourceSettings%3ACaptionSourceSettings%27"><span class="annot"><span class="annottext">CaptionSourceSettings -&gt; Maybe EmbeddedSourceSettings
+</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#%24sel%3AembeddedSourceSettings%3ACaptionSourceSettings%27"><span class="hs-identifier hs-var hs-var">embeddedSourceSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedSourceSettings.html#EmbeddedSourceSettings"><span class="hs-identifier hs-type">EmbeddedSourceSettings</span></a></span><span>
 </span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680011105"><span id="local-6989586621680011107"><span class="annot"><span class="annottext">CaptionSourceSettings -&gt; CaptionSourceSettings -&gt; Bool
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680016039"><span id="local-6989586621680016041"><span class="annot"><span class="annottext">CaptionSourceSettings -&gt; CaptionSourceSettings -&gt; Bool
 (CaptionSourceSettings -&gt; CaptionSourceSettings -&gt; Bool)
 -&gt; (CaptionSourceSettings -&gt; CaptionSourceSettings -&gt; Bool)
 -&gt; Eq CaptionSourceSettings
@@ -87,7 +87,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CaptionSourceSettings -&gt; CaptionSourceSettings -&gt; Bool
 == :: CaptionSourceSettings -&gt; CaptionSourceSettings -&gt; Bool
 $c== :: CaptionSourceSettings -&gt; CaptionSourceSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680011096"><span id="local-6989586621680011098"><span id="local-6989586621680011100"><span id="local-6989586621680011102"><span class="annot"><span class="annottext">ReadPrec [CaptionSourceSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680016030"><span id="local-6989586621680016032"><span id="local-6989586621680016034"><span id="local-6989586621680016036"><span class="annot"><span class="annottext">ReadPrec [CaptionSourceSettings]
 ReadPrec CaptionSourceSettings
 Int -&gt; ReadS CaptionSourceSettings
 ReadS [CaptionSourceSettings]
@@ -107,7 +107,7 @@ readList :: ReadS [CaptionSourceSettings]
 $creadList :: ReadS [CaptionSourceSettings]
 readsPrec :: Int -&gt; ReadS CaptionSourceSettings
 $creadsPrec :: Int -&gt; ReadS CaptionSourceSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680011089"><span id="local-6989586621680011091"><span id="local-6989586621680011093"><span class="annot"><span class="annottext">Int -&gt; CaptionSourceSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680016023"><span id="local-6989586621680016025"><span id="local-6989586621680016027"><span class="annot"><span class="annottext">Int -&gt; CaptionSourceSettings -&gt; ShowS
 [CaptionSourceSettings] -&gt; ShowS
 CaptionSourceSettings -&gt; String
 (Int -&gt; CaptionSourceSettings -&gt; ShowS)
@@ -141,196 +141,172 @@ $cfrom :: forall x. CaptionSourceSettings -&gt; Rep CaptionSourceSettings x
 </span><span id="line-80"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-82"></span><span class="hs-comment">--</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- 'trackSourceSettings', 'captionSourceSettings_trackSourceSettings' - Settings specific to caption sources that are specified by track number.</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- Currently, this is only IMSC captions in an IMF package. If your caption</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- source is IMSC 1.1 in a separate xml file, use FileSourceSettings</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- instead of TrackSourceSettings.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'teletextSourceSettings', 'captionSourceSettings_teletextSourceSettings' - Settings specific to Teletext caption sources, including Page number.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'sourceType', 'captionSourceSettings_sourceType' - Use Source (SourceType) to identify the format of your input captions.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- The service cannot auto-detect caption format.</span><span>
 </span><span id="line-87"></span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- 'ancillarySourceSettings', 'captionSourceSettings_ancillarySourceSettings' - Settings for ancillary captions source.</span><span>
-</span><span id="line-89"></span><span class="hs-comment">--</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- 'embeddedSourceSettings', 'captionSourceSettings_embeddedSourceSettings' - Settings for embedded captions Source</span><span>
-</span><span id="line-91"></span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- 'dvbSubSourceSettings', 'captionSourceSettings_dvbSubSourceSettings' - DVB Sub Source Settings</span><span>
-</span><span id="line-93"></span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- 'webvttHlsSourceSettings', 'captionSourceSettings_webvttHlsSourceSettings' - Settings specific to WebVTT sources in HLS alternative rendition group.</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- Specify the properties (renditionGroupId, renditionName or</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- renditionLanguageCode) to identify the unique subtitle track among the</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- alternative rendition groups present in the HLS manifest. If no unique</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- track is found, or multiple tracks match the specified properties, the</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- job fails. If there is only one subtitle track in the rendition group,</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- the settings can be left empty and the default subtitle track will be</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- chosen. If your caption source is a sidecar file, use FileSourceSettings</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- instead of WebvttHlsSourceSettings.</span><span>
-</span><span id="line-103"></span><span class="hs-comment">--</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- 'fileSourceSettings', 'captionSourceSettings_fileSourceSettings' - If your input captions are SCC, SMI, SRT, STL, TTML, WebVTT, or IMSC 1.1</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- in an xml file, specify the URI of the input caption source file. If</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- your caption source is IMSC in an IMF package, use TrackSourceSettings</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- instead of FileSoureSettings.</span><span>
-</span><span id="line-108"></span><span class="hs-comment">--</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- 'teletextSourceSettings', 'captionSourceSettings_teletextSourceSettings' - Settings specific to Teletext caption sources, including Page number.</span><span>
-</span><span id="line-110"></span><span class="hs-comment">--</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- 'sourceType', 'captionSourceSettings_sourceType' - Use Source (SourceType) to identify the format of your input captions.</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- The service cannot auto-detect caption format.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'fileSourceSettings', 'captionSourceSettings_fileSourceSettings' - If your input captions are SCC, SMI, SRT, STL, TTML, WebVTT, or IMSC 1.1</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- in an xml file, specify the URI of the input caption source file. If</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- your caption source is IMSC in an IMF package, use TrackSourceSettings</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- instead of FileSoureSettings.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'webvttHlsSourceSettings', 'captionSourceSettings_webvttHlsSourceSettings' - Settings specific to WebVTT sources in HLS alternative rendition group.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- Specify the properties (renditionGroupId, renditionName or</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- renditionLanguageCode) to identify the unique subtitle track among the</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- alternative rendition groups present in the HLS manifest. If no unique</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- track is found, or multiple tracks match the specified properties, the</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- job fails. If there is only one subtitle track in the rendition group,</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- the settings can be left empty and the default subtitle track will be</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- chosen. If your caption source is a sidecar file, use FileSourceSettings</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- instead of WebvttHlsSourceSettings.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'dvbSubSourceSettings', 'captionSourceSettings_dvbSubSourceSettings' - DVB Sub Source Settings</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'trackSourceSettings', 'captionSourceSettings_trackSourceSettings' - Settings specific to caption sources that are specified by track number.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- Currently, this is only IMSC captions in an IMF package. If your caption</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- source is IMSC 1.1 in a separate xml file, use FileSourceSettings</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- instead of TrackSourceSettings.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'ancillarySourceSettings', 'captionSourceSettings_ancillarySourceSettings' - Settings for ancillary captions source.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'embeddedSourceSettings', 'captionSourceSettings_embeddedSourceSettings' - Settings for embedded captions Source</span><span>
 </span><span id="line-113"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#newCaptionSourceSettings"><span class="hs-identifier hs-type">newCaptionSourceSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-114"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings"><span class="hs-identifier hs-type">CaptionSourceSettings</span></a></span><span>
 </span><span id="line-115"></span><span id="newCaptionSourceSettings"><span class="annot"><span class="annottext">newCaptionSourceSettings :: CaptionSourceSettings
 </span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#newCaptionSourceSettings"><span class="hs-identifier hs-var hs-var">newCaptionSourceSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-116"></span><span>  </span><span class="annot"><span class="annottext">CaptionSourceSettings' :: Maybe TrackSourceSettings
+</span><span id="line-116"></span><span>  </span><span class="annot"><span class="annottext">CaptionSourceSettings' :: Maybe TeletextSourceSettings
+-&gt; Maybe CaptionSourceType
+-&gt; Maybe FileSourceSettings
+-&gt; Maybe WebvttHlsSourceSettings
+-&gt; Maybe DvbSubSourceSettings
+-&gt; Maybe TrackSourceSettings
 -&gt; Maybe AncillarySourceSettings
 -&gt; Maybe EmbeddedSourceSettings
--&gt; Maybe DvbSubSourceSettings
--&gt; Maybe WebvttHlsSourceSettings
--&gt; Maybe FileSourceSettings
--&gt; Maybe TeletextSourceSettings
--&gt; Maybe CaptionSourceType
 -&gt; CaptionSourceSettings
 </span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings%27"><span class="hs-identifier hs-type">CaptionSourceSettings'</span></a></span><span>
-</span><span id="line-117"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:trackSourceSettings:CaptionSourceSettings' :: Maybe TrackSourceSettings
-</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#%24sel%3AtrackSourceSettings%3ACaptionSourceSettings%27"><span class="hs-identifier hs-var">trackSourceSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">Maybe TrackSourceSettings
+</span><span id="line-117"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:teletextSourceSettings:CaptionSourceSettings' :: Maybe TeletextSourceSettings
+</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#%24sel%3AteletextSourceSettings%3ACaptionSourceSettings%27"><span class="hs-identifier hs-var">teletextSourceSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">Maybe TeletextSourceSettings
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:ancillarySourceSettings:CaptionSourceSettings' :: Maybe AncillarySourceSettings
-</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#%24sel%3AancillarySourceSettings%3ACaptionSourceSettings%27"><span class="hs-identifier hs-var">ancillarySourceSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AncillarySourceSettings
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceType:CaptionSourceSettings' :: Maybe CaptionSourceType
+</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#%24sel%3AsourceType%3ACaptionSourceSettings%27"><span class="hs-identifier hs-var">sourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CaptionSourceType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:embeddedSourceSettings:CaptionSourceSettings' :: Maybe EmbeddedSourceSettings
-</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#%24sel%3AembeddedSourceSettings%3ACaptionSourceSettings%27"><span class="hs-identifier hs-var">embeddedSourceSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EmbeddedSourceSettings
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:dvbSubSourceSettings:CaptionSourceSettings' :: Maybe DvbSubSourceSettings
-</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#%24sel%3AdvbSubSourceSettings%3ACaptionSourceSettings%27"><span class="hs-identifier hs-var">dvbSubSourceSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DvbSubSourceSettings
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:webvttHlsSourceSettings:CaptionSourceSettings' :: Maybe WebvttHlsSourceSettings
-</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#%24sel%3AwebvttHlsSourceSettings%3ACaptionSourceSettings%27"><span class="hs-identifier hs-var">webvttHlsSourceSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WebvttHlsSourceSettings
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:fileSourceSettings:CaptionSourceSettings' :: Maybe FileSourceSettings
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:fileSourceSettings:CaptionSourceSettings' :: Maybe FileSourceSettings
 </span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#%24sel%3AfileSourceSettings%3ACaptionSourceSettings%27"><span class="hs-identifier hs-var">fileSourceSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FileSourceSettings
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:teletextSourceSettings:CaptionSourceSettings' :: Maybe TeletextSourceSettings
-</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#%24sel%3AteletextSourceSettings%3ACaptionSourceSettings%27"><span class="hs-identifier hs-var">teletextSourceSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TeletextSourceSettings
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:webvttHlsSourceSettings:CaptionSourceSettings' :: Maybe WebvttHlsSourceSettings
+</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#%24sel%3AwebvttHlsSourceSettings%3ACaptionSourceSettings%27"><span class="hs-identifier hs-var">webvttHlsSourceSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WebvttHlsSourceSettings
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceType:CaptionSourceSettings' :: Maybe CaptionSourceType
-</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#%24sel%3AsourceType%3ACaptionSourceSettings%27"><span class="hs-identifier hs-var">sourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CaptionSourceType
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:dvbSubSourceSettings:CaptionSourceSettings' :: Maybe DvbSubSourceSettings
+</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#%24sel%3AdvbSubSourceSettings%3ACaptionSourceSettings%27"><span class="hs-identifier hs-var">dvbSubSourceSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DvbSubSourceSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:trackSourceSettings:CaptionSourceSettings' :: Maybe TrackSourceSettings
+</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#%24sel%3AtrackSourceSettings%3ACaptionSourceSettings%27"><span class="hs-identifier hs-var">trackSourceSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrackSourceSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:ancillarySourceSettings:CaptionSourceSettings' :: Maybe AncillarySourceSettings
+</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#%24sel%3AancillarySourceSettings%3ACaptionSourceSettings%27"><span class="hs-identifier hs-var">ancillarySourceSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AncillarySourceSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:embeddedSourceSettings:CaptionSourceSettings' :: Maybe EmbeddedSourceSettings
+</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#%24sel%3AembeddedSourceSettings%3ACaptionSourceSettings%27"><span class="hs-identifier hs-var">embeddedSourceSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EmbeddedSourceSettings
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-126"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- | Settings specific to caption sources that are specified by track number.</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- Currently, this is only IMSC captions in an IMF package. If your caption</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- source is IMSC 1.1 in a separate xml file, use FileSourceSettings</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- instead of TrackSourceSettings.</span><span>
-</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#captionSourceSettings_trackSourceSettings"><span class="hs-identifier hs-type">captionSourceSettings_trackSourceSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings"><span class="hs-identifier hs-type">CaptionSourceSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TrackSourceSettings.html#TrackSourceSettings"><span class="hs-identifier hs-type">TrackSourceSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span id="captionSourceSettings_trackSourceSettings"><span class="annot"><span class="annottext">captionSourceSettings_trackSourceSettings :: (Maybe TrackSourceSettings -&gt; f (Maybe TrackSourceSettings))
+</span><span id="line-128"></span><span class="hs-comment">-- | Settings specific to Teletext caption sources, including Page number.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#captionSourceSettings_teletextSourceSettings"><span class="hs-identifier hs-type">captionSourceSettings_teletextSourceSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings"><span class="hs-identifier hs-type">CaptionSourceSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TeletextSourceSettings.html#TeletextSourceSettings"><span class="hs-identifier hs-type">TeletextSourceSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="captionSourceSettings_teletextSourceSettings"><span class="annot"><span class="annottext">captionSourceSettings_teletextSourceSettings :: (Maybe TeletextSourceSettings -&gt; f (Maybe TeletextSourceSettings))
 -&gt; CaptionSourceSettings -&gt; f CaptionSourceSettings
-</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#captionSourceSettings_trackSourceSettings"><span class="hs-identifier hs-var hs-var">captionSourceSettings_trackSourceSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaptionSourceSettings -&gt; Maybe TrackSourceSettings)
+</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#captionSourceSettings_teletextSourceSettings"><span class="hs-identifier hs-var hs-var">captionSourceSettings_teletextSourceSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaptionSourceSettings -&gt; Maybe TeletextSourceSettings)
 -&gt; (CaptionSourceSettings
-    -&gt; Maybe TrackSourceSettings -&gt; CaptionSourceSettings)
+    -&gt; Maybe TeletextSourceSettings -&gt; CaptionSourceSettings)
 -&gt; Lens
      CaptionSourceSettings
      CaptionSourceSettings
-     (Maybe TrackSourceSettings)
-     (Maybe TrackSourceSettings)
+     (Maybe TeletextSourceSettings)
+     (Maybe TeletextSourceSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings%27"><span class="hs-identifier hs-type">CaptionSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680011080"><span class="annot"><span class="annottext">Maybe TrackSourceSettings
-trackSourceSettings :: Maybe TrackSourceSettings
-$sel:trackSourceSettings:CaptionSourceSettings' :: CaptionSourceSettings -&gt; Maybe TrackSourceSettings
-</span><a href="#local-6989586621680011080"><span class="hs-identifier hs-var hs-var">trackSourceSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TrackSourceSettings
-</span><a href="#local-6989586621680011080"><span class="hs-identifier hs-var">trackSourceSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680011079"><span class="annot"><span class="annottext">s :: CaptionSourceSettings
-</span><a href="#local-6989586621680011079"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings%27"><span class="hs-identifier hs-type">CaptionSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680011078"><span class="annot"><span class="annottext">Maybe TrackSourceSettings
-</span><a href="#local-6989586621680011078"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionSourceSettings
-</span><a href="#local-6989586621680011079"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trackSourceSettings:CaptionSourceSettings' :: Maybe TrackSourceSettings
-</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#%24sel%3AtrackSourceSettings%3ACaptionSourceSettings%27"><span class="hs-identifier hs-var">trackSourceSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrackSourceSettings
-</span><a href="#local-6989586621680011078"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings"><span class="hs-identifier hs-type">CaptionSourceSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- | Settings for ancillary captions source.</span><span>
-</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#captionSourceSettings_ancillarySourceSettings"><span class="hs-identifier hs-type">captionSourceSettings_ancillarySourceSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings"><span class="hs-identifier hs-type">CaptionSourceSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AncillarySourceSettings.html#AncillarySourceSettings"><span class="hs-identifier hs-type">AncillarySourceSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span id="captionSourceSettings_ancillarySourceSettings"><span class="annot"><span class="annottext">captionSourceSettings_ancillarySourceSettings :: (Maybe AncillarySourceSettings
- -&gt; f (Maybe AncillarySourceSettings))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings%27"><span class="hs-identifier hs-type">CaptionSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680016014"><span class="annot"><span class="annottext">Maybe TeletextSourceSettings
+teletextSourceSettings :: Maybe TeletextSourceSettings
+$sel:teletextSourceSettings:CaptionSourceSettings' :: CaptionSourceSettings -&gt; Maybe TeletextSourceSettings
+</span><a href="#local-6989586621680016014"><span class="hs-identifier hs-var hs-var">teletextSourceSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TeletextSourceSettings
+</span><a href="#local-6989586621680016014"><span class="hs-identifier hs-var">teletextSourceSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680016013"><span class="annot"><span class="annottext">s :: CaptionSourceSettings
+</span><a href="#local-6989586621680016013"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings%27"><span class="hs-identifier hs-type">CaptionSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680016012"><span class="annot"><span class="annottext">Maybe TeletextSourceSettings
+</span><a href="#local-6989586621680016012"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionSourceSettings
+</span><a href="#local-6989586621680016013"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:teletextSourceSettings:CaptionSourceSettings' :: Maybe TeletextSourceSettings
+</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#%24sel%3AteletextSourceSettings%3ACaptionSourceSettings%27"><span class="hs-identifier hs-var">teletextSourceSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TeletextSourceSettings
+</span><a href="#local-6989586621680016012"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings"><span class="hs-identifier hs-type">CaptionSourceSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | Use Source (SourceType) to identify the format of your input captions.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- The service cannot auto-detect caption format.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#captionSourceSettings_sourceType"><span class="hs-identifier hs-type">captionSourceSettings_sourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings"><span class="hs-identifier hs-type">CaptionSourceSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType"><span class="hs-identifier hs-type">CaptionSourceType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="captionSourceSettings_sourceType"><span class="annot"><span class="annottext">captionSourceSettings_sourceType :: (Maybe CaptionSourceType -&gt; f (Maybe CaptionSourceType))
 -&gt; CaptionSourceSettings -&gt; f CaptionSourceSettings
-</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#captionSourceSettings_ancillarySourceSettings"><span class="hs-identifier hs-var hs-var">captionSourceSettings_ancillarySourceSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaptionSourceSettings -&gt; Maybe AncillarySourceSettings)
+</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#captionSourceSettings_sourceType"><span class="hs-identifier hs-var hs-var">captionSourceSettings_sourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaptionSourceSettings -&gt; Maybe CaptionSourceType)
 -&gt; (CaptionSourceSettings
-    -&gt; Maybe AncillarySourceSettings -&gt; CaptionSourceSettings)
+    -&gt; Maybe CaptionSourceType -&gt; CaptionSourceSettings)
 -&gt; Lens
      CaptionSourceSettings
      CaptionSourceSettings
-     (Maybe AncillarySourceSettings)
-     (Maybe AncillarySourceSettings)
+     (Maybe CaptionSourceType)
+     (Maybe CaptionSourceType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings%27"><span class="hs-identifier hs-type">CaptionSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680011076"><span class="annot"><span class="annottext">Maybe AncillarySourceSettings
-ancillarySourceSettings :: Maybe AncillarySourceSettings
-$sel:ancillarySourceSettings:CaptionSourceSettings' :: CaptionSourceSettings -&gt; Maybe AncillarySourceSettings
-</span><a href="#local-6989586621680011076"><span class="hs-identifier hs-var hs-var">ancillarySourceSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AncillarySourceSettings
-</span><a href="#local-6989586621680011076"><span class="hs-identifier hs-var">ancillarySourceSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680011075"><span class="annot"><span class="annottext">s :: CaptionSourceSettings
-</span><a href="#local-6989586621680011075"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings%27"><span class="hs-identifier hs-type">CaptionSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680011074"><span class="annot"><span class="annottext">Maybe AncillarySourceSettings
-</span><a href="#local-6989586621680011074"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionSourceSettings
-</span><a href="#local-6989586621680011075"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ancillarySourceSettings:CaptionSourceSettings' :: Maybe AncillarySourceSettings
-</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#%24sel%3AancillarySourceSettings%3ACaptionSourceSettings%27"><span class="hs-identifier hs-var">ancillarySourceSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AncillarySourceSettings
-</span><a href="#local-6989586621680011074"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings"><span class="hs-identifier hs-type">CaptionSourceSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- | Settings for embedded captions Source</span><span>
-</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#captionSourceSettings_embeddedSourceSettings"><span class="hs-identifier hs-type">captionSourceSettings_embeddedSourceSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings"><span class="hs-identifier hs-type">CaptionSourceSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedSourceSettings.html#EmbeddedSourceSettings"><span class="hs-identifier hs-type">EmbeddedSourceSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-141"></span><span id="captionSourceSettings_embeddedSourceSettings"><span class="annot"><span class="annottext">captionSourceSettings_embeddedSourceSettings :: (Maybe EmbeddedSourceSettings -&gt; f (Maybe EmbeddedSourceSettings))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings%27"><span class="hs-identifier hs-type">CaptionSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680016010"><span class="annot"><span class="annottext">Maybe CaptionSourceType
+sourceType :: Maybe CaptionSourceType
+$sel:sourceType:CaptionSourceSettings' :: CaptionSourceSettings -&gt; Maybe CaptionSourceType
+</span><a href="#local-6989586621680016010"><span class="hs-identifier hs-var hs-var">sourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CaptionSourceType
+</span><a href="#local-6989586621680016010"><span class="hs-identifier hs-var">sourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680016009"><span class="annot"><span class="annottext">s :: CaptionSourceSettings
+</span><a href="#local-6989586621680016009"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings%27"><span class="hs-identifier hs-type">CaptionSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680016008"><span class="annot"><span class="annottext">Maybe CaptionSourceType
+</span><a href="#local-6989586621680016008"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionSourceSettings
+</span><a href="#local-6989586621680016009"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceType:CaptionSourceSettings' :: Maybe CaptionSourceType
+</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#%24sel%3AsourceType%3ACaptionSourceSettings%27"><span class="hs-identifier hs-var">sourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CaptionSourceType
+</span><a href="#local-6989586621680016008"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings"><span class="hs-identifier hs-type">CaptionSourceSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | If your input captions are SCC, SMI, SRT, STL, TTML, WebVTT, or IMSC 1.1</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- in an xml file, specify the URI of the input caption source file. If</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- your caption source is IMSC in an IMF package, use TrackSourceSettings</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- instead of FileSoureSettings.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#captionSourceSettings_fileSourceSettings"><span class="hs-identifier hs-type">captionSourceSettings_fileSourceSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings"><span class="hs-identifier hs-type">CaptionSourceSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#FileSourceSettings"><span class="hs-identifier hs-type">FileSourceSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="captionSourceSettings_fileSourceSettings"><span class="annot"><span class="annottext">captionSourceSettings_fileSourceSettings :: (Maybe FileSourceSettings -&gt; f (Maybe FileSourceSettings))
 -&gt; CaptionSourceSettings -&gt; f CaptionSourceSettings
-</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#captionSourceSettings_embeddedSourceSettings"><span class="hs-identifier hs-var hs-var">captionSourceSettings_embeddedSourceSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaptionSourceSettings -&gt; Maybe EmbeddedSourceSettings)
+</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#captionSourceSettings_fileSourceSettings"><span class="hs-identifier hs-var hs-var">captionSourceSettings_fileSourceSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaptionSourceSettings -&gt; Maybe FileSourceSettings)
 -&gt; (CaptionSourceSettings
-    -&gt; Maybe EmbeddedSourceSettings -&gt; CaptionSourceSettings)
+    -&gt; Maybe FileSourceSettings -&gt; CaptionSourceSettings)
 -&gt; Lens
      CaptionSourceSettings
      CaptionSourceSettings
-     (Maybe EmbeddedSourceSettings)
-     (Maybe EmbeddedSourceSettings)
+     (Maybe FileSourceSettings)
+     (Maybe FileSourceSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings%27"><span class="hs-identifier hs-type">CaptionSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680011072"><span class="annot"><span class="annottext">Maybe EmbeddedSourceSettings
-embeddedSourceSettings :: Maybe EmbeddedSourceSettings
-$sel:embeddedSourceSettings:CaptionSourceSettings' :: CaptionSourceSettings -&gt; Maybe EmbeddedSourceSettings
-</span><a href="#local-6989586621680011072"><span class="hs-identifier hs-var hs-var">embeddedSourceSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EmbeddedSourceSettings
-</span><a href="#local-6989586621680011072"><span class="hs-identifier hs-var">embeddedSourceSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680011071"><span class="annot"><span class="annottext">s :: CaptionSourceSettings
-</span><a href="#local-6989586621680011071"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings%27"><span class="hs-identifier hs-type">CaptionSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680011070"><span class="annot"><span class="annottext">Maybe EmbeddedSourceSettings
-</span><a href="#local-6989586621680011070"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionSourceSettings
-</span><a href="#local-6989586621680011071"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:embeddedSourceSettings:CaptionSourceSettings' :: Maybe EmbeddedSourceSettings
-</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#%24sel%3AembeddedSourceSettings%3ACaptionSourceSettings%27"><span class="hs-identifier hs-var">embeddedSourceSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EmbeddedSourceSettings
-</span><a href="#local-6989586621680011070"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings"><span class="hs-identifier hs-type">CaptionSourceSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- | DVB Sub Source Settings</span><span>
-</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#captionSourceSettings_dvbSubSourceSettings"><span class="hs-identifier hs-type">captionSourceSettings_dvbSubSourceSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings"><span class="hs-identifier hs-type">CaptionSourceSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubSourceSettings.html#DvbSubSourceSettings"><span class="hs-identifier hs-type">DvbSubSourceSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-145"></span><span id="captionSourceSettings_dvbSubSourceSettings"><span class="annot"><span class="annottext">captionSourceSettings_dvbSubSourceSettings :: (Maybe DvbSubSourceSettings -&gt; f (Maybe DvbSubSourceSettings))
--&gt; CaptionSourceSettings -&gt; f CaptionSourceSettings
-</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#captionSourceSettings_dvbSubSourceSettings"><span class="hs-identifier hs-var hs-var">captionSourceSettings_dvbSubSourceSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaptionSourceSettings -&gt; Maybe DvbSubSourceSettings)
--&gt; (CaptionSourceSettings
-    -&gt; Maybe DvbSubSourceSettings -&gt; CaptionSourceSettings)
--&gt; Lens
-     CaptionSourceSettings
-     CaptionSourceSettings
-     (Maybe DvbSubSourceSettings)
-     (Maybe DvbSubSourceSettings)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings%27"><span class="hs-identifier hs-type">CaptionSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680011068"><span class="annot"><span class="annottext">Maybe DvbSubSourceSettings
-dvbSubSourceSettings :: Maybe DvbSubSourceSettings
-$sel:dvbSubSourceSettings:CaptionSourceSettings' :: CaptionSourceSettings -&gt; Maybe DvbSubSourceSettings
-</span><a href="#local-6989586621680011068"><span class="hs-identifier hs-var hs-var">dvbSubSourceSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DvbSubSourceSettings
-</span><a href="#local-6989586621680011068"><span class="hs-identifier hs-var">dvbSubSourceSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680011067"><span class="annot"><span class="annottext">s :: CaptionSourceSettings
-</span><a href="#local-6989586621680011067"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings%27"><span class="hs-identifier hs-type">CaptionSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680011066"><span class="annot"><span class="annottext">Maybe DvbSubSourceSettings
-</span><a href="#local-6989586621680011066"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionSourceSettings
-</span><a href="#local-6989586621680011067"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dvbSubSourceSettings:CaptionSourceSettings' :: Maybe DvbSubSourceSettings
-</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#%24sel%3AdvbSubSourceSettings%3ACaptionSourceSettings%27"><span class="hs-identifier hs-var">dvbSubSourceSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DvbSubSourceSettings
-</span><a href="#local-6989586621680011066"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings"><span class="hs-identifier hs-type">CaptionSourceSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- | Settings specific to WebVTT sources in HLS alternative rendition group.</span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- Specify the properties (renditionGroupId, renditionName or</span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- renditionLanguageCode) to identify the unique subtitle track among the</span><span>
-</span><span id="line-150"></span><span class="hs-comment">-- alternative rendition groups present in the HLS manifest. If no unique</span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- track is found, or multiple tracks match the specified properties, the</span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- job fails. If there is only one subtitle track in the rendition group,</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- the settings can be left empty and the default subtitle track will be</span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- chosen. If your caption source is a sidecar file, use FileSourceSettings</span><span>
-</span><span id="line-155"></span><span class="hs-comment">-- instead of WebvttHlsSourceSettings.</span><span>
-</span><span id="line-156"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#captionSourceSettings_webvttHlsSourceSettings"><span class="hs-identifier hs-type">captionSourceSettings_webvttHlsSourceSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings"><span class="hs-identifier hs-type">CaptionSourceSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WebvttHlsSourceSettings.html#WebvttHlsSourceSettings"><span class="hs-identifier hs-type">WebvttHlsSourceSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-157"></span><span id="captionSourceSettings_webvttHlsSourceSettings"><span class="annot"><span class="annottext">captionSourceSettings_webvttHlsSourceSettings :: (Maybe WebvttHlsSourceSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings%27"><span class="hs-identifier hs-type">CaptionSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680016006"><span class="annot"><span class="annottext">Maybe FileSourceSettings
+fileSourceSettings :: Maybe FileSourceSettings
+$sel:fileSourceSettings:CaptionSourceSettings' :: CaptionSourceSettings -&gt; Maybe FileSourceSettings
+</span><a href="#local-6989586621680016006"><span class="hs-identifier hs-var hs-var">fileSourceSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FileSourceSettings
+</span><a href="#local-6989586621680016006"><span class="hs-identifier hs-var">fileSourceSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680016005"><span class="annot"><span class="annottext">s :: CaptionSourceSettings
+</span><a href="#local-6989586621680016005"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings%27"><span class="hs-identifier hs-type">CaptionSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680016004"><span class="annot"><span class="annottext">Maybe FileSourceSettings
+</span><a href="#local-6989586621680016004"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionSourceSettings
+</span><a href="#local-6989586621680016005"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileSourceSettings:CaptionSourceSettings' :: Maybe FileSourceSettings
+</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#%24sel%3AfileSourceSettings%3ACaptionSourceSettings%27"><span class="hs-identifier hs-var">fileSourceSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FileSourceSettings
+</span><a href="#local-6989586621680016004"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings"><span class="hs-identifier hs-type">CaptionSourceSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | Settings specific to WebVTT sources in HLS alternative rendition group.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- Specify the properties (renditionGroupId, renditionName or</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- renditionLanguageCode) to identify the unique subtitle track among the</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- alternative rendition groups present in the HLS manifest. If no unique</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- track is found, or multiple tracks match the specified properties, the</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- job fails. If there is only one subtitle track in the rendition group,</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- the settings can be left empty and the default subtitle track will be</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- chosen. If your caption source is a sidecar file, use FileSourceSettings</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- instead of WebvttHlsSourceSettings.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#captionSourceSettings_webvttHlsSourceSettings"><span class="hs-identifier hs-type">captionSourceSettings_webvttHlsSourceSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings"><span class="hs-identifier hs-type">CaptionSourceSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.WebvttHlsSourceSettings.html#WebvttHlsSourceSettings"><span class="hs-identifier hs-type">WebvttHlsSourceSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="captionSourceSettings_webvttHlsSourceSettings"><span class="annot"><span class="annottext">captionSourceSettings_webvttHlsSourceSettings :: (Maybe WebvttHlsSourceSettings
  -&gt; f (Maybe WebvttHlsSourceSettings))
 -&gt; CaptionSourceSettings -&gt; f CaptionSourceSettings
 </span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#captionSourceSettings_webvttHlsSourceSettings"><span class="hs-identifier hs-var hs-var">captionSourceSettings_webvttHlsSourceSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaptionSourceSettings -&gt; Maybe WebvttHlsSourceSettings)
@@ -342,95 +318,119 @@ $sel:dvbSubSourceSettings:CaptionSourceSettings' :: CaptionSourceSettings -&gt; 
      (Maybe WebvttHlsSourceSettings)
      (Maybe WebvttHlsSourceSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings%27"><span class="hs-identifier hs-type">CaptionSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680011064"><span class="annot"><span class="annottext">Maybe WebvttHlsSourceSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings%27"><span class="hs-identifier hs-type">CaptionSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680016002"><span class="annot"><span class="annottext">Maybe WebvttHlsSourceSettings
 webvttHlsSourceSettings :: Maybe WebvttHlsSourceSettings
 $sel:webvttHlsSourceSettings:CaptionSourceSettings' :: CaptionSourceSettings -&gt; Maybe WebvttHlsSourceSettings
-</span><a href="#local-6989586621680011064"><span class="hs-identifier hs-var hs-var">webvttHlsSourceSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WebvttHlsSourceSettings
-</span><a href="#local-6989586621680011064"><span class="hs-identifier hs-var">webvttHlsSourceSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680011063"><span class="annot"><span class="annottext">s :: CaptionSourceSettings
-</span><a href="#local-6989586621680011063"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings%27"><span class="hs-identifier hs-type">CaptionSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680011062"><span class="annot"><span class="annottext">Maybe WebvttHlsSourceSettings
-</span><a href="#local-6989586621680011062"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionSourceSettings
-</span><a href="#local-6989586621680011063"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:webvttHlsSourceSettings:CaptionSourceSettings' :: Maybe WebvttHlsSourceSettings
+</span><a href="#local-6989586621680016002"><span class="hs-identifier hs-var hs-var">webvttHlsSourceSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WebvttHlsSourceSettings
+</span><a href="#local-6989586621680016002"><span class="hs-identifier hs-var">webvttHlsSourceSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680016001"><span class="annot"><span class="annottext">s :: CaptionSourceSettings
+</span><a href="#local-6989586621680016001"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings%27"><span class="hs-identifier hs-type">CaptionSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680016000"><span class="annot"><span class="annottext">Maybe WebvttHlsSourceSettings
+</span><a href="#local-6989586621680016000"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionSourceSettings
+</span><a href="#local-6989586621680016001"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:webvttHlsSourceSettings:CaptionSourceSettings' :: Maybe WebvttHlsSourceSettings
 </span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#%24sel%3AwebvttHlsSourceSettings%3ACaptionSourceSettings%27"><span class="hs-identifier hs-var">webvttHlsSourceSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WebvttHlsSourceSettings
-</span><a href="#local-6989586621680011062"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings"><span class="hs-identifier hs-type">CaptionSourceSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- | If your input captions are SCC, SMI, SRT, STL, TTML, WebVTT, or IMSC 1.1</span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- in an xml file, specify the URI of the input caption source file. If</span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- your caption source is IMSC in an IMF package, use TrackSourceSettings</span><span>
-</span><span id="line-162"></span><span class="hs-comment">-- instead of FileSoureSettings.</span><span>
-</span><span id="line-163"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#captionSourceSettings_fileSourceSettings"><span class="hs-identifier hs-type">captionSourceSettings_fileSourceSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings"><span class="hs-identifier hs-type">CaptionSourceSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.FileSourceSettings.html#FileSourceSettings"><span class="hs-identifier hs-type">FileSourceSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-164"></span><span id="captionSourceSettings_fileSourceSettings"><span class="annot"><span class="annottext">captionSourceSettings_fileSourceSettings :: (Maybe FileSourceSettings -&gt; f (Maybe FileSourceSettings))
+</span><a href="#local-6989586621680016000"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings"><span class="hs-identifier hs-type">CaptionSourceSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | DVB Sub Source Settings</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#captionSourceSettings_dvbSubSourceSettings"><span class="hs-identifier hs-type">captionSourceSettings_dvbSubSourceSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings"><span class="hs-identifier hs-type">CaptionSourceSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubSourceSettings.html#DvbSubSourceSettings"><span class="hs-identifier hs-type">DvbSubSourceSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="captionSourceSettings_dvbSubSourceSettings"><span class="annot"><span class="annottext">captionSourceSettings_dvbSubSourceSettings :: (Maybe DvbSubSourceSettings -&gt; f (Maybe DvbSubSourceSettings))
 -&gt; CaptionSourceSettings -&gt; f CaptionSourceSettings
-</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#captionSourceSettings_fileSourceSettings"><span class="hs-identifier hs-var hs-var">captionSourceSettings_fileSourceSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaptionSourceSettings -&gt; Maybe FileSourceSettings)
+</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#captionSourceSettings_dvbSubSourceSettings"><span class="hs-identifier hs-var hs-var">captionSourceSettings_dvbSubSourceSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaptionSourceSettings -&gt; Maybe DvbSubSourceSettings)
 -&gt; (CaptionSourceSettings
-    -&gt; Maybe FileSourceSettings -&gt; CaptionSourceSettings)
+    -&gt; Maybe DvbSubSourceSettings -&gt; CaptionSourceSettings)
 -&gt; Lens
      CaptionSourceSettings
      CaptionSourceSettings
-     (Maybe FileSourceSettings)
-     (Maybe FileSourceSettings)
+     (Maybe DvbSubSourceSettings)
+     (Maybe DvbSubSourceSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings%27"><span class="hs-identifier hs-type">CaptionSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680011060"><span class="annot"><span class="annottext">Maybe FileSourceSettings
-fileSourceSettings :: Maybe FileSourceSettings
-$sel:fileSourceSettings:CaptionSourceSettings' :: CaptionSourceSettings -&gt; Maybe FileSourceSettings
-</span><a href="#local-6989586621680011060"><span class="hs-identifier hs-var hs-var">fileSourceSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FileSourceSettings
-</span><a href="#local-6989586621680011060"><span class="hs-identifier hs-var">fileSourceSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680011059"><span class="annot"><span class="annottext">s :: CaptionSourceSettings
-</span><a href="#local-6989586621680011059"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings%27"><span class="hs-identifier hs-type">CaptionSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680011058"><span class="annot"><span class="annottext">Maybe FileSourceSettings
-</span><a href="#local-6989586621680011058"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionSourceSettings
-</span><a href="#local-6989586621680011059"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileSourceSettings:CaptionSourceSettings' :: Maybe FileSourceSettings
-</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#%24sel%3AfileSourceSettings%3ACaptionSourceSettings%27"><span class="hs-identifier hs-var">fileSourceSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FileSourceSettings
-</span><a href="#local-6989586621680011058"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings"><span class="hs-identifier hs-type">CaptionSourceSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-165"></span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- | Settings specific to Teletext caption sources, including Page number.</span><span>
-</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#captionSourceSettings_teletextSourceSettings"><span class="hs-identifier hs-type">captionSourceSettings_teletextSourceSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings"><span class="hs-identifier hs-type">CaptionSourceSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TeletextSourceSettings.html#TeletextSourceSettings"><span class="hs-identifier hs-type">TeletextSourceSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-168"></span><span id="captionSourceSettings_teletextSourceSettings"><span class="annot"><span class="annottext">captionSourceSettings_teletextSourceSettings :: (Maybe TeletextSourceSettings -&gt; f (Maybe TeletextSourceSettings))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings%27"><span class="hs-identifier hs-type">CaptionSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680015998"><span class="annot"><span class="annottext">Maybe DvbSubSourceSettings
+dvbSubSourceSettings :: Maybe DvbSubSourceSettings
+$sel:dvbSubSourceSettings:CaptionSourceSettings' :: CaptionSourceSettings -&gt; Maybe DvbSubSourceSettings
+</span><a href="#local-6989586621680015998"><span class="hs-identifier hs-var hs-var">dvbSubSourceSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DvbSubSourceSettings
+</span><a href="#local-6989586621680015998"><span class="hs-identifier hs-var">dvbSubSourceSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680015997"><span class="annot"><span class="annottext">s :: CaptionSourceSettings
+</span><a href="#local-6989586621680015997"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings%27"><span class="hs-identifier hs-type">CaptionSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680015996"><span class="annot"><span class="annottext">Maybe DvbSubSourceSettings
+</span><a href="#local-6989586621680015996"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionSourceSettings
+</span><a href="#local-6989586621680015997"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dvbSubSourceSettings:CaptionSourceSettings' :: Maybe DvbSubSourceSettings
+</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#%24sel%3AdvbSubSourceSettings%3ACaptionSourceSettings%27"><span class="hs-identifier hs-var">dvbSubSourceSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DvbSubSourceSettings
+</span><a href="#local-6989586621680015996"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings"><span class="hs-identifier hs-type">CaptionSourceSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | Settings specific to caption sources that are specified by track number.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- Currently, this is only IMSC captions in an IMF package. If your caption</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- source is IMSC 1.1 in a separate xml file, use FileSourceSettings</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- instead of TrackSourceSettings.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#captionSourceSettings_trackSourceSettings"><span class="hs-identifier hs-type">captionSourceSettings_trackSourceSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings"><span class="hs-identifier hs-type">CaptionSourceSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.TrackSourceSettings.html#TrackSourceSettings"><span class="hs-identifier hs-type">TrackSourceSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span id="captionSourceSettings_trackSourceSettings"><span class="annot"><span class="annottext">captionSourceSettings_trackSourceSettings :: (Maybe TrackSourceSettings -&gt; f (Maybe TrackSourceSettings))
 -&gt; CaptionSourceSettings -&gt; f CaptionSourceSettings
-</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#captionSourceSettings_teletextSourceSettings"><span class="hs-identifier hs-var hs-var">captionSourceSettings_teletextSourceSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaptionSourceSettings -&gt; Maybe TeletextSourceSettings)
+</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#captionSourceSettings_trackSourceSettings"><span class="hs-identifier hs-var hs-var">captionSourceSettings_trackSourceSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaptionSourceSettings -&gt; Maybe TrackSourceSettings)
 -&gt; (CaptionSourceSettings
-    -&gt; Maybe TeletextSourceSettings -&gt; CaptionSourceSettings)
+    -&gt; Maybe TrackSourceSettings -&gt; CaptionSourceSettings)
 -&gt; Lens
      CaptionSourceSettings
      CaptionSourceSettings
-     (Maybe TeletextSourceSettings)
-     (Maybe TeletextSourceSettings)
+     (Maybe TrackSourceSettings)
+     (Maybe TrackSourceSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings%27"><span class="hs-identifier hs-type">CaptionSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680011056"><span class="annot"><span class="annottext">Maybe TeletextSourceSettings
-teletextSourceSettings :: Maybe TeletextSourceSettings
-$sel:teletextSourceSettings:CaptionSourceSettings' :: CaptionSourceSettings -&gt; Maybe TeletextSourceSettings
-</span><a href="#local-6989586621680011056"><span class="hs-identifier hs-var hs-var">teletextSourceSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TeletextSourceSettings
-</span><a href="#local-6989586621680011056"><span class="hs-identifier hs-var">teletextSourceSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680011055"><span class="annot"><span class="annottext">s :: CaptionSourceSettings
-</span><a href="#local-6989586621680011055"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings%27"><span class="hs-identifier hs-type">CaptionSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680011054"><span class="annot"><span class="annottext">Maybe TeletextSourceSettings
-</span><a href="#local-6989586621680011054"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionSourceSettings
-</span><a href="#local-6989586621680011055"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:teletextSourceSettings:CaptionSourceSettings' :: Maybe TeletextSourceSettings
-</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#%24sel%3AteletextSourceSettings%3ACaptionSourceSettings%27"><span class="hs-identifier hs-var">teletextSourceSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TeletextSourceSettings
-</span><a href="#local-6989586621680011054"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings"><span class="hs-identifier hs-type">CaptionSourceSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-169"></span><span>
-</span><span id="line-170"></span><span class="hs-comment">-- | Use Source (SourceType) to identify the format of your input captions.</span><span>
-</span><span id="line-171"></span><span class="hs-comment">-- The service cannot auto-detect caption format.</span><span>
-</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#captionSourceSettings_sourceType"><span class="hs-identifier hs-type">captionSourceSettings_sourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings"><span class="hs-identifier hs-type">CaptionSourceSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceType.html#CaptionSourceType"><span class="hs-identifier hs-type">CaptionSourceType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-173"></span><span id="captionSourceSettings_sourceType"><span class="annot"><span class="annottext">captionSourceSettings_sourceType :: (Maybe CaptionSourceType -&gt; f (Maybe CaptionSourceType))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings%27"><span class="hs-identifier hs-type">CaptionSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680015994"><span class="annot"><span class="annottext">Maybe TrackSourceSettings
+trackSourceSettings :: Maybe TrackSourceSettings
+$sel:trackSourceSettings:CaptionSourceSettings' :: CaptionSourceSettings -&gt; Maybe TrackSourceSettings
+</span><a href="#local-6989586621680015994"><span class="hs-identifier hs-var hs-var">trackSourceSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TrackSourceSettings
+</span><a href="#local-6989586621680015994"><span class="hs-identifier hs-var">trackSourceSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680015993"><span class="annot"><span class="annottext">s :: CaptionSourceSettings
+</span><a href="#local-6989586621680015993"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings%27"><span class="hs-identifier hs-type">CaptionSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680015992"><span class="annot"><span class="annottext">Maybe TrackSourceSettings
+</span><a href="#local-6989586621680015992"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionSourceSettings
+</span><a href="#local-6989586621680015993"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trackSourceSettings:CaptionSourceSettings' :: Maybe TrackSourceSettings
+</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#%24sel%3AtrackSourceSettings%3ACaptionSourceSettings%27"><span class="hs-identifier hs-var">trackSourceSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrackSourceSettings
+</span><a href="#local-6989586621680015992"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings"><span class="hs-identifier hs-type">CaptionSourceSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | Settings for ancillary captions source.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#captionSourceSettings_ancillarySourceSettings"><span class="hs-identifier hs-type">captionSourceSettings_ancillarySourceSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings"><span class="hs-identifier hs-type">CaptionSourceSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AncillarySourceSettings.html#AncillarySourceSettings"><span class="hs-identifier hs-type">AncillarySourceSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="captionSourceSettings_ancillarySourceSettings"><span class="annot"><span class="annottext">captionSourceSettings_ancillarySourceSettings :: (Maybe AncillarySourceSettings
+ -&gt; f (Maybe AncillarySourceSettings))
 -&gt; CaptionSourceSettings -&gt; f CaptionSourceSettings
-</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#captionSourceSettings_sourceType"><span class="hs-identifier hs-var hs-var">captionSourceSettings_sourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaptionSourceSettings -&gt; Maybe CaptionSourceType)
+</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#captionSourceSettings_ancillarySourceSettings"><span class="hs-identifier hs-var hs-var">captionSourceSettings_ancillarySourceSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaptionSourceSettings -&gt; Maybe AncillarySourceSettings)
 -&gt; (CaptionSourceSettings
-    -&gt; Maybe CaptionSourceType -&gt; CaptionSourceSettings)
+    -&gt; Maybe AncillarySourceSettings -&gt; CaptionSourceSettings)
 -&gt; Lens
      CaptionSourceSettings
      CaptionSourceSettings
-     (Maybe CaptionSourceType)
-     (Maybe CaptionSourceType)
+     (Maybe AncillarySourceSettings)
+     (Maybe AncillarySourceSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings%27"><span class="hs-identifier hs-type">CaptionSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680011052"><span class="annot"><span class="annottext">Maybe CaptionSourceType
-sourceType :: Maybe CaptionSourceType
-$sel:sourceType:CaptionSourceSettings' :: CaptionSourceSettings -&gt; Maybe CaptionSourceType
-</span><a href="#local-6989586621680011052"><span class="hs-identifier hs-var hs-var">sourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CaptionSourceType
-</span><a href="#local-6989586621680011052"><span class="hs-identifier hs-var">sourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680011051"><span class="annot"><span class="annottext">s :: CaptionSourceSettings
-</span><a href="#local-6989586621680011051"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings%27"><span class="hs-identifier hs-type">CaptionSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680011050"><span class="annot"><span class="annottext">Maybe CaptionSourceType
-</span><a href="#local-6989586621680011050"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionSourceSettings
-</span><a href="#local-6989586621680011051"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceType:CaptionSourceSettings' :: Maybe CaptionSourceType
-</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#%24sel%3AsourceType%3ACaptionSourceSettings%27"><span class="hs-identifier hs-var">sourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CaptionSourceType
-</span><a href="#local-6989586621680011050"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings"><span class="hs-identifier hs-type">CaptionSourceSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings%27"><span class="hs-identifier hs-type">CaptionSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680015990"><span class="annot"><span class="annottext">Maybe AncillarySourceSettings
+ancillarySourceSettings :: Maybe AncillarySourceSettings
+$sel:ancillarySourceSettings:CaptionSourceSettings' :: CaptionSourceSettings -&gt; Maybe AncillarySourceSettings
+</span><a href="#local-6989586621680015990"><span class="hs-identifier hs-var hs-var">ancillarySourceSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AncillarySourceSettings
+</span><a href="#local-6989586621680015990"><span class="hs-identifier hs-var">ancillarySourceSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680015989"><span class="annot"><span class="annottext">s :: CaptionSourceSettings
+</span><a href="#local-6989586621680015989"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings%27"><span class="hs-identifier hs-type">CaptionSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680015988"><span class="annot"><span class="annottext">Maybe AncillarySourceSettings
+</span><a href="#local-6989586621680015988"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionSourceSettings
+</span><a href="#local-6989586621680015989"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ancillarySourceSettings:CaptionSourceSettings' :: Maybe AncillarySourceSettings
+</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#%24sel%3AancillarySourceSettings%3ACaptionSourceSettings%27"><span class="hs-identifier hs-var">ancillarySourceSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AncillarySourceSettings
+</span><a href="#local-6989586621680015988"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings"><span class="hs-identifier hs-type">CaptionSourceSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | Settings for embedded captions Source</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#captionSourceSettings_embeddedSourceSettings"><span class="hs-identifier hs-type">captionSourceSettings_embeddedSourceSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings"><span class="hs-identifier hs-type">CaptionSourceSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedSourceSettings.html#EmbeddedSourceSettings"><span class="hs-identifier hs-type">EmbeddedSourceSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="captionSourceSettings_embeddedSourceSettings"><span class="annot"><span class="annottext">captionSourceSettings_embeddedSourceSettings :: (Maybe EmbeddedSourceSettings -&gt; f (Maybe EmbeddedSourceSettings))
+-&gt; CaptionSourceSettings -&gt; f CaptionSourceSettings
+</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#captionSourceSettings_embeddedSourceSettings"><span class="hs-identifier hs-var hs-var">captionSourceSettings_embeddedSourceSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaptionSourceSettings -&gt; Maybe EmbeddedSourceSettings)
+-&gt; (CaptionSourceSettings
+    -&gt; Maybe EmbeddedSourceSettings -&gt; CaptionSourceSettings)
+-&gt; Lens
+     CaptionSourceSettings
+     CaptionSourceSettings
+     (Maybe EmbeddedSourceSettings)
+     (Maybe EmbeddedSourceSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings%27"><span class="hs-identifier hs-type">CaptionSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680015986"><span class="annot"><span class="annottext">Maybe EmbeddedSourceSettings
+embeddedSourceSettings :: Maybe EmbeddedSourceSettings
+$sel:embeddedSourceSettings:CaptionSourceSettings' :: CaptionSourceSettings -&gt; Maybe EmbeddedSourceSettings
+</span><a href="#local-6989586621680015986"><span class="hs-identifier hs-var hs-var">embeddedSourceSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EmbeddedSourceSettings
+</span><a href="#local-6989586621680015986"><span class="hs-identifier hs-var">embeddedSourceSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680015985"><span class="annot"><span class="annottext">s :: CaptionSourceSettings
+</span><a href="#local-6989586621680015985"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings%27"><span class="hs-identifier hs-type">CaptionSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680015984"><span class="annot"><span class="annottext">Maybe EmbeddedSourceSettings
+</span><a href="#local-6989586621680015984"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionSourceSettings
+</span><a href="#local-6989586621680015985"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:embeddedSourceSettings:CaptionSourceSettings' :: Maybe EmbeddedSourceSettings
+</span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#%24sel%3AembeddedSourceSettings%3ACaptionSourceSettings%27"><span class="hs-identifier hs-var">embeddedSourceSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EmbeddedSourceSettings
+</span><a href="#local-6989586621680015984"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings"><span class="hs-identifier hs-type">CaptionSourceSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680011047"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings"><span class="hs-identifier hs-type">CaptionSourceSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621680011045"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CaptionSourceSettings
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680015981"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings"><span class="hs-identifier hs-type">CaptionSourceSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621680015979"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CaptionSourceSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CaptionSourceSettings)
@@ -440,170 +440,171 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CaptionSourceSettings&quot;</span></span><span>
-</span><span id="line-179"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680011042"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680011042"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-180"></span><span>          </span><span class="annot"><span class="annottext">Maybe TrackSourceSettings
+</span><span id="line-179"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680015976"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680015976"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-180"></span><span>          </span><span class="annot"><span class="annottext">Maybe TeletextSourceSettings
+-&gt; Maybe CaptionSourceType
+-&gt; Maybe FileSourceSettings
+-&gt; Maybe WebvttHlsSourceSettings
+-&gt; Maybe DvbSubSourceSettings
+-&gt; Maybe TrackSourceSettings
 -&gt; Maybe AncillarySourceSettings
 -&gt; Maybe EmbeddedSourceSettings
--&gt; Maybe DvbSubSourceSettings
--&gt; Maybe WebvttHlsSourceSettings
--&gt; Maybe FileSourceSettings
--&gt; Maybe TeletextSourceSettings
--&gt; Maybe CaptionSourceType
 -&gt; CaptionSourceSettings
 </span><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings%27"><span class="hs-identifier hs-var">CaptionSourceSettings'</span></a></span><span>
-</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">(Maybe TrackSourceSettings
+</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">(Maybe TeletextSourceSettings
+ -&gt; Maybe CaptionSourceType
+ -&gt; Maybe FileSourceSettings
+ -&gt; Maybe WebvttHlsSourceSettings
+ -&gt; Maybe DvbSubSourceSettings
+ -&gt; Maybe TrackSourceSettings
  -&gt; Maybe AncillarySourceSettings
  -&gt; Maybe EmbeddedSourceSettings
- -&gt; Maybe DvbSubSourceSettings
- -&gt; Maybe WebvttHlsSourceSettings
- -&gt; Maybe FileSourceSettings
- -&gt; Maybe TeletextSourceSettings
- -&gt; Maybe CaptionSourceType
  -&gt; CaptionSourceSettings)
--&gt; Parser (Maybe TrackSourceSettings)
+-&gt; Parser (Maybe TeletextSourceSettings)
 -&gt; Parser
-     (Maybe AncillarySourceSettings
-      -&gt; Maybe EmbeddedSourceSettings
-      -&gt; Maybe DvbSubSourceSettings
-      -&gt; Maybe WebvttHlsSourceSettings
+     (Maybe CaptionSourceType
       -&gt; Maybe FileSourceSettings
-      -&gt; Maybe TeletextSourceSettings
-      -&gt; Maybe CaptionSourceType
+      -&gt; Maybe WebvttHlsSourceSettings
+      -&gt; Maybe DvbSubSourceSettings
+      -&gt; Maybe TrackSourceSettings
+      -&gt; Maybe AncillarySourceSettings
+      -&gt; Maybe EmbeddedSourceSettings
       -&gt; CaptionSourceSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680011042"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TrackSourceSettings)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;trackSourceSettings&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe AncillarySourceSettings
-   -&gt; Maybe EmbeddedSourceSettings
-   -&gt; Maybe DvbSubSourceSettings
-   -&gt; Maybe WebvttHlsSourceSettings
-   -&gt; Maybe FileSourceSettings
-   -&gt; Maybe TeletextSourceSettings
-   -&gt; Maybe CaptionSourceType
-   -&gt; CaptionSourceSettings)
--&gt; Parser (Maybe AncillarySourceSettings)
--&gt; Parser
-     (Maybe EmbeddedSourceSettings
-      -&gt; Maybe DvbSubSourceSettings
-      -&gt; Maybe WebvttHlsSourceSettings
-      -&gt; Maybe FileSourceSettings
-      -&gt; Maybe TeletextSourceSettings
-      -&gt; Maybe CaptionSourceType
-      -&gt; CaptionSourceSettings)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680011042"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AncillarySourceSettings)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ancillarySourceSettings&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe EmbeddedSourceSettings
-   -&gt; Maybe DvbSubSourceSettings
-   -&gt; Maybe WebvttHlsSourceSettings
-   -&gt; Maybe FileSourceSettings
-   -&gt; Maybe TeletextSourceSettings
-   -&gt; Maybe CaptionSourceType
-   -&gt; CaptionSourceSettings)
--&gt; Parser (Maybe EmbeddedSourceSettings)
--&gt; Parser
-     (Maybe DvbSubSourceSettings
-      -&gt; Maybe WebvttHlsSourceSettings
-      -&gt; Maybe FileSourceSettings
-      -&gt; Maybe TeletextSourceSettings
-      -&gt; Maybe CaptionSourceType
-      -&gt; CaptionSourceSettings)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680011042"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EmbeddedSourceSettings)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;embeddedSourceSettings&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe DvbSubSourceSettings
-   -&gt; Maybe WebvttHlsSourceSettings
-   -&gt; Maybe FileSourceSettings
-   -&gt; Maybe TeletextSourceSettings
-   -&gt; Maybe CaptionSourceType
-   -&gt; CaptionSourceSettings)
--&gt; Parser (Maybe DvbSubSourceSettings)
--&gt; Parser
-     (Maybe WebvttHlsSourceSettings
-      -&gt; Maybe FileSourceSettings
-      -&gt; Maybe TeletextSourceSettings
-      -&gt; Maybe CaptionSourceType
-      -&gt; CaptionSourceSettings)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680011042"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DvbSubSourceSettings)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;dvbSubSourceSettings&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe WebvttHlsSourceSettings
-   -&gt; Maybe FileSourceSettings
-   -&gt; Maybe TeletextSourceSettings
-   -&gt; Maybe CaptionSourceType
-   -&gt; CaptionSourceSettings)
--&gt; Parser (Maybe WebvttHlsSourceSettings)
--&gt; Parser
-     (Maybe FileSourceSettings
-      -&gt; Maybe TeletextSourceSettings
-      -&gt; Maybe CaptionSourceType
-      -&gt; CaptionSourceSettings)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680011042"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe WebvttHlsSourceSettings)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;webvttHlsSourceSettings&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe FileSourceSettings
-   -&gt; Maybe TeletextSourceSettings
-   -&gt; Maybe CaptionSourceType
-   -&gt; CaptionSourceSettings)
--&gt; Parser (Maybe FileSourceSettings)
--&gt; Parser
-     (Maybe TeletextSourceSettings
-      -&gt; Maybe CaptionSourceType -&gt; CaptionSourceSettings)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680011042"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FileSourceSettings)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;fileSourceSettings&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe TeletextSourceSettings
-   -&gt; Maybe CaptionSourceType -&gt; CaptionSourceSettings)
--&gt; Parser (Maybe TeletextSourceSettings)
--&gt; Parser (Maybe CaptionSourceType -&gt; CaptionSourceSettings)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680011042"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TeletextSourceSettings)
+</span><a href="#local-6989586621680015976"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TeletextSourceSettings)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;teletextSourceSettings&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe CaptionSourceType -&gt; CaptionSourceSettings)
--&gt; Parser (Maybe CaptionSourceType) -&gt; Parser CaptionSourceSettings
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe CaptionSourceType
+   -&gt; Maybe FileSourceSettings
+   -&gt; Maybe WebvttHlsSourceSettings
+   -&gt; Maybe DvbSubSourceSettings
+   -&gt; Maybe TrackSourceSettings
+   -&gt; Maybe AncillarySourceSettings
+   -&gt; Maybe EmbeddedSourceSettings
+   -&gt; CaptionSourceSettings)
+-&gt; Parser (Maybe CaptionSourceType)
+-&gt; Parser
+     (Maybe FileSourceSettings
+      -&gt; Maybe WebvttHlsSourceSettings
+      -&gt; Maybe DvbSubSourceSettings
+      -&gt; Maybe TrackSourceSettings
+      -&gt; Maybe AncillarySourceSettings
+      -&gt; Maybe EmbeddedSourceSettings
+      -&gt; CaptionSourceSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680011042"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CaptionSourceType)
+</span><a href="#local-6989586621680015976"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CaptionSourceType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sourceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe FileSourceSettings
+   -&gt; Maybe WebvttHlsSourceSettings
+   -&gt; Maybe DvbSubSourceSettings
+   -&gt; Maybe TrackSourceSettings
+   -&gt; Maybe AncillarySourceSettings
+   -&gt; Maybe EmbeddedSourceSettings
+   -&gt; CaptionSourceSettings)
+-&gt; Parser (Maybe FileSourceSettings)
+-&gt; Parser
+     (Maybe WebvttHlsSourceSettings
+      -&gt; Maybe DvbSubSourceSettings
+      -&gt; Maybe TrackSourceSettings
+      -&gt; Maybe AncillarySourceSettings
+      -&gt; Maybe EmbeddedSourceSettings
+      -&gt; CaptionSourceSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680015976"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FileSourceSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;fileSourceSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe WebvttHlsSourceSettings
+   -&gt; Maybe DvbSubSourceSettings
+   -&gt; Maybe TrackSourceSettings
+   -&gt; Maybe AncillarySourceSettings
+   -&gt; Maybe EmbeddedSourceSettings
+   -&gt; CaptionSourceSettings)
+-&gt; Parser (Maybe WebvttHlsSourceSettings)
+-&gt; Parser
+     (Maybe DvbSubSourceSettings
+      -&gt; Maybe TrackSourceSettings
+      -&gt; Maybe AncillarySourceSettings
+      -&gt; Maybe EmbeddedSourceSettings
+      -&gt; CaptionSourceSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680015976"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe WebvttHlsSourceSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;webvttHlsSourceSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DvbSubSourceSettings
+   -&gt; Maybe TrackSourceSettings
+   -&gt; Maybe AncillarySourceSettings
+   -&gt; Maybe EmbeddedSourceSettings
+   -&gt; CaptionSourceSettings)
+-&gt; Parser (Maybe DvbSubSourceSettings)
+-&gt; Parser
+     (Maybe TrackSourceSettings
+      -&gt; Maybe AncillarySourceSettings
+      -&gt; Maybe EmbeddedSourceSettings
+      -&gt; CaptionSourceSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680015976"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DvbSubSourceSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dvbSubSourceSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe TrackSourceSettings
+   -&gt; Maybe AncillarySourceSettings
+   -&gt; Maybe EmbeddedSourceSettings
+   -&gt; CaptionSourceSettings)
+-&gt; Parser (Maybe TrackSourceSettings)
+-&gt; Parser
+     (Maybe AncillarySourceSettings
+      -&gt; Maybe EmbeddedSourceSettings -&gt; CaptionSourceSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680015976"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TrackSourceSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;trackSourceSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AncillarySourceSettings
+   -&gt; Maybe EmbeddedSourceSettings -&gt; CaptionSourceSettings)
+-&gt; Parser (Maybe AncillarySourceSettings)
+-&gt; Parser (Maybe EmbeddedSourceSettings -&gt; CaptionSourceSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680015976"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AncillarySourceSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ancillarySourceSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe EmbeddedSourceSettings -&gt; CaptionSourceSettings)
+-&gt; Parser (Maybe EmbeddedSourceSettings)
+-&gt; Parser CaptionSourceSettings
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680015976"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EmbeddedSourceSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;embeddedSourceSettings&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>
-</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680011036"><span id="local-6989586621680011038"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings"><span class="hs-identifier hs-type">CaptionSourceSettings</span></a></span></span></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680015970"><span id="local-6989586621680015972"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings"><span class="hs-identifier hs-type">CaptionSourceSettings</span></a></span></span></span><span>
 </span><span id="line-192"></span><span>
-</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680011033"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings"><span class="hs-identifier hs-type">CaptionSourceSettings</span></a></span></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680015967"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings"><span class="hs-identifier hs-type">CaptionSourceSettings</span></a></span></span><span>
 </span><span id="line-194"></span><span>
-</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680011025"><span id="local-6989586621680011027"><span id="local-6989586621680011029"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings"><span class="hs-identifier hs-type">CaptionSourceSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-196"></span><span>  </span><span id="local-6989586621680011023"><span class="annot"><span class="annottext">toJSON :: CaptionSourceSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings%27"><span class="hs-identifier hs-type">CaptionSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680011014"><span id="local-6989586621680011015"><span id="local-6989586621680011016"><span id="local-6989586621680011017"><span id="local-6989586621680011018"><span id="local-6989586621680011019"><span id="local-6989586621680011020"><span id="local-6989586621680011021"><span class="annot"><span class="annottext">Maybe AncillarySourceSettings
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680015959"><span id="local-6989586621680015961"><span id="local-6989586621680015963"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings"><span class="hs-identifier hs-type">CaptionSourceSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621680015957"><span class="annot"><span class="annottext">toJSON :: CaptionSourceSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionSourceSettings.html#CaptionSourceSettings%27"><span class="hs-identifier hs-type">CaptionSourceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680015948"><span id="local-6989586621680015949"><span id="local-6989586621680015950"><span id="local-6989586621680015951"><span id="local-6989586621680015952"><span id="local-6989586621680015953"><span id="local-6989586621680015954"><span id="local-6989586621680015955"><span class="annot"><span class="annottext">Maybe AncillarySourceSettings
 Maybe CaptionSourceType
 Maybe DvbSubSourceSettings
 Maybe EmbeddedSourceSettings
@@ -611,99 +612,99 @@ Maybe FileSourceSettings
 Maybe TeletextSourceSettings
 Maybe TrackSourceSettings
 Maybe WebvttHlsSourceSettings
-sourceType :: Maybe CaptionSourceType
-teletextSourceSettings :: Maybe TeletextSourceSettings
-fileSourceSettings :: Maybe FileSourceSettings
-webvttHlsSourceSettings :: Maybe WebvttHlsSourceSettings
-dvbSubSourceSettings :: Maybe DvbSubSourceSettings
 embeddedSourceSettings :: Maybe EmbeddedSourceSettings
 ancillarySourceSettings :: Maybe AncillarySourceSettings
 trackSourceSettings :: Maybe TrackSourceSettings
-$sel:sourceType:CaptionSourceSettings' :: CaptionSourceSettings -&gt; Maybe CaptionSourceType
-$sel:teletextSourceSettings:CaptionSourceSettings' :: CaptionSourceSettings -&gt; Maybe TeletextSourceSettings
-$sel:fileSourceSettings:CaptionSourceSettings' :: CaptionSourceSettings -&gt; Maybe FileSourceSettings
-$sel:webvttHlsSourceSettings:CaptionSourceSettings' :: CaptionSourceSettings -&gt; Maybe WebvttHlsSourceSettings
-$sel:dvbSubSourceSettings:CaptionSourceSettings' :: CaptionSourceSettings -&gt; Maybe DvbSubSourceSettings
+dvbSubSourceSettings :: Maybe DvbSubSourceSettings
+webvttHlsSourceSettings :: Maybe WebvttHlsSourceSettings
+fileSourceSettings :: Maybe FileSourceSettings
+sourceType :: Maybe CaptionSourceType
+teletextSourceSettings :: Maybe TeletextSourceSettings
 $sel:embeddedSourceSettings:CaptionSourceSettings' :: CaptionSourceSettings -&gt; Maybe EmbeddedSourceSettings
 $sel:ancillarySourceSettings:CaptionSourceSettings' :: CaptionSourceSettings -&gt; Maybe AncillarySourceSettings
 $sel:trackSourceSettings:CaptionSourceSettings' :: CaptionSourceSettings -&gt; Maybe TrackSourceSettings
-</span><a href="#local-6989586621680011014"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:dvbSubSourceSettings:CaptionSourceSettings' :: CaptionSourceSettings -&gt; Maybe DvbSubSourceSettings
+$sel:webvttHlsSourceSettings:CaptionSourceSettings' :: CaptionSourceSettings -&gt; Maybe WebvttHlsSourceSettings
+$sel:fileSourceSettings:CaptionSourceSettings' :: CaptionSourceSettings -&gt; Maybe FileSourceSettings
+$sel:sourceType:CaptionSourceSettings' :: CaptionSourceSettings -&gt; Maybe CaptionSourceType
+$sel:teletextSourceSettings:CaptionSourceSettings' :: CaptionSourceSettings -&gt; Maybe TeletextSourceSettings
+</span><a href="#local-6989586621680015948"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-197"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-198"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-199"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;trackSourceSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TrackSourceSettings -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-200"></span><span>              </span><span class="annot"><span class="annottext">(TrackSourceSettings -&gt; Pair)
--&gt; Maybe TrackSourceSettings -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TrackSourceSettings
-</span><a href="#local-6989586621680011021"><span class="hs-identifier hs-var">trackSourceSettings</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-201"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ancillarySourceSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AncillarySourceSettings -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-202"></span><span>              </span><span class="annot"><span class="annottext">(AncillarySourceSettings -&gt; Pair)
--&gt; Maybe AncillarySourceSettings -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AncillarySourceSettings
-</span><a href="#local-6989586621680011020"><span class="hs-identifier hs-var">ancillarySourceSettings</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-203"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;embeddedSourceSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EmbeddedSourceSettings -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-204"></span><span>              </span><span class="annot"><span class="annottext">(EmbeddedSourceSettings -&gt; Pair)
--&gt; Maybe EmbeddedSourceSettings -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EmbeddedSourceSettings
-</span><a href="#local-6989586621680011019"><span class="hs-identifier hs-var">embeddedSourceSettings</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-205"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;dvbSubSourceSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DvbSubSourceSettings -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-206"></span><span>              </span><span class="annot"><span class="annottext">(DvbSubSourceSettings -&gt; Pair)
--&gt; Maybe DvbSubSourceSettings -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DvbSubSourceSettings
-</span><a href="#local-6989586621680011018"><span class="hs-identifier hs-var">dvbSubSourceSettings</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-207"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;webvttHlsSourceSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; WebvttHlsSourceSettings -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-208"></span><span>              </span><span class="annot"><span class="annottext">(WebvttHlsSourceSettings -&gt; Pair)
--&gt; Maybe WebvttHlsSourceSettings -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe WebvttHlsSourceSettings
-</span><a href="#local-6989586621680011017"><span class="hs-identifier hs-var">webvttHlsSourceSettings</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-209"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;fileSourceSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FileSourceSettings -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-210"></span><span>              </span><span class="annot"><span class="annottext">(FileSourceSettings -&gt; Pair)
--&gt; Maybe FileSourceSettings -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FileSourceSettings
-</span><a href="#local-6989586621680011016"><span class="hs-identifier hs-var">fileSourceSettings</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-211"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;teletextSourceSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TeletextSourceSettings -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-212"></span><span>              </span><span class="annot"><span class="annottext">(TeletextSourceSettings -&gt; Pair)
+</span><span id="line-200"></span><span>              </span><span class="annot"><span class="annottext">(TeletextSourceSettings -&gt; Pair)
 -&gt; Maybe TeletextSourceSettings -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TeletextSourceSettings
-</span><a href="#local-6989586621680011015"><span class="hs-identifier hs-var">teletextSourceSettings</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-213"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680015955"><span class="hs-identifier hs-var">teletextSourceSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sourceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CaptionSourceType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(CaptionSourceType -&gt; Pair)
 -&gt; Maybe CaptionSourceType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CaptionSourceType
-</span><a href="#local-6989586621680011014"><span class="hs-identifier hs-var">sourceType</span></a></span><span>
+</span><a href="#local-6989586621680015954"><span class="hs-identifier hs-var">sourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;fileSourceSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FileSourceSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>              </span><span class="annot"><span class="annottext">(FileSourceSettings -&gt; Pair)
+-&gt; Maybe FileSourceSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FileSourceSettings
+</span><a href="#local-6989586621680015953"><span class="hs-identifier hs-var">fileSourceSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;webvttHlsSourceSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; WebvttHlsSourceSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>              </span><span class="annot"><span class="annottext">(WebvttHlsSourceSettings -&gt; Pair)
+-&gt; Maybe WebvttHlsSourceSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe WebvttHlsSourceSettings
+</span><a href="#local-6989586621680015952"><span class="hs-identifier hs-var">webvttHlsSourceSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dvbSubSourceSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DvbSubSourceSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>              </span><span class="annot"><span class="annottext">(DvbSubSourceSettings -&gt; Pair)
+-&gt; Maybe DvbSubSourceSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DvbSubSourceSettings
+</span><a href="#local-6989586621680015951"><span class="hs-identifier hs-var">dvbSubSourceSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;trackSourceSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TrackSourceSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>              </span><span class="annot"><span class="annottext">(TrackSourceSettings -&gt; Pair)
+-&gt; Maybe TrackSourceSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TrackSourceSettings
+</span><a href="#local-6989586621680015950"><span class="hs-identifier hs-var">trackSourceSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ancillarySourceSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AncillarySourceSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>              </span><span class="annot"><span class="annottext">(AncillarySourceSettings -&gt; Pair)
+-&gt; Maybe AncillarySourceSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AncillarySourceSettings
+</span><a href="#local-6989586621680015949"><span class="hs-identifier hs-var">ancillarySourceSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;embeddedSourceSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EmbeddedSourceSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>              </span><span class="annot"><span class="annottext">(EmbeddedSourceSettings -&gt; Pair)
+-&gt; Maybe EmbeddedSourceSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EmbeddedSourceSettings
+</span><a href="#local-6989586621680015948"><span class="hs-identifier hs-var">embeddedSourceSettings</span></a></span><span>
 </span><span id="line-214"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-215"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-216"></span></pre></body></html>

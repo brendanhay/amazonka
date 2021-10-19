@@ -27,24 +27,24 @@
 </span><span id="line-27"></span><span class="hs-comment">-- delivered to recipients.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newVolumeStatistics' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679332678"><span id="local-6989586621679332679"></span></span><span class="hs-keyword">data</span><span> </span><span id="VolumeStatistics"><span class="annot"><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#VolumeStatistics"><span class="hs-identifier hs-var">VolumeStatistics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VolumeStatistics%27"><span class="annot"><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#VolumeStatistics%27"><span class="hs-identifier hs-var">VolumeStatistics'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679335196"><span id="local-6989586621679335197"></span></span><span class="hs-keyword">data</span><span> </span><span id="VolumeStatistics"><span class="annot"><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#VolumeStatistics"><span class="hs-identifier hs-var">VolumeStatistics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VolumeStatistics%27"><span class="annot"><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#VolumeStatistics%27"><span class="hs-identifier hs-var">VolumeStatistics'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The total number of emails that arrived in recipients\' inboxes.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AinboxRawCount%3AVolumeStatistics%27"><span class="annot"><span class="annottext">VolumeStatistics -&gt; Maybe Integer
 </span><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#%24sel%3AinboxRawCount%3AVolumeStatistics%27"><span class="hs-identifier hs-var hs-var">inboxRawCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | An estimate of the percentage of emails sent from the current domain</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- that will arrive in recipients\' inboxes.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AprojectedInbox%3AVolumeStatistics%27"><span class="annot"><span class="annottext">VolumeStatistics -&gt; Maybe Integer
-</span><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#%24sel%3AprojectedInbox%3AVolumeStatistics%27"><span class="hs-identifier hs-var hs-var">projectedInbox</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | An estimate of the percentage of emails sent from the current domain</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- that will arrive in recipients\' spam or junk mail folders.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AprojectedSpam%3AVolumeStatistics%27"><span class="annot"><span class="annottext">VolumeStatistics -&gt; Maybe Integer
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- that will arrive in recipients\' spam or junk mail folders.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AprojectedSpam%3AVolumeStatistics%27"><span class="annot"><span class="annottext">VolumeStatistics -&gt; Maybe Integer
 </span><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#%24sel%3AprojectedSpam%3AVolumeStatistics%27"><span class="hs-identifier hs-var hs-var">projectedSpam</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | An estimate of the percentage of emails sent from the current domain</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- that will arrive in recipients\' inboxes.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AprojectedInbox%3AVolumeStatistics%27"><span class="annot"><span class="annottext">VolumeStatistics -&gt; Maybe Integer
+</span><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#%24sel%3AprojectedInbox%3AVolumeStatistics%27"><span class="hs-identifier hs-var hs-var">projectedInbox</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The total number of emails that arrived in recipients\' spam or junk</span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">-- mail folders.</span><span>
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3AspamRawCount%3AVolumeStatistics%27"><span class="annot"><span class="annottext">VolumeStatistics -&gt; Maybe Integer
 </span><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#%24sel%3AspamRawCount%3AVolumeStatistics%27"><span class="hs-identifier hs-var hs-var">spamRawCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679332669"><span id="local-6989586621679332671"><span class="annot"><span class="annottext">VolumeStatistics -&gt; VolumeStatistics -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679335187"><span id="local-6989586621679335189"><span class="annot"><span class="annottext">VolumeStatistics -&gt; VolumeStatistics -&gt; Bool
 (VolumeStatistics -&gt; VolumeStatistics -&gt; Bool)
 -&gt; (VolumeStatistics -&gt; VolumeStatistics -&gt; Bool)
 -&gt; Eq VolumeStatistics
@@ -53,7 +53,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: VolumeStatistics -&gt; VolumeStatistics -&gt; Bool
 == :: VolumeStatistics -&gt; VolumeStatistics -&gt; Bool
 $c== :: VolumeStatistics -&gt; VolumeStatistics -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679332660"><span id="local-6989586621679332662"><span id="local-6989586621679332664"><span id="local-6989586621679332666"><span class="annot"><span class="annottext">ReadPrec [VolumeStatistics]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679335178"><span id="local-6989586621679335180"><span id="local-6989586621679335182"><span id="local-6989586621679335184"><span class="annot"><span class="annottext">ReadPrec [VolumeStatistics]
 ReadPrec VolumeStatistics
 Int -&gt; ReadS VolumeStatistics
 ReadS [VolumeStatistics]
@@ -73,7 +73,7 @@ readList :: ReadS [VolumeStatistics]
 $creadList :: ReadS [VolumeStatistics]
 readsPrec :: Int -&gt; ReadS VolumeStatistics
 $creadsPrec :: Int -&gt; ReadS VolumeStatistics
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679332653"><span id="local-6989586621679332655"><span id="local-6989586621679332657"><span class="annot"><span class="annottext">Int -&gt; VolumeStatistics -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679335171"><span id="local-6989586621679335173"><span id="local-6989586621679335175"><span class="annot"><span class="annottext">Int -&gt; VolumeStatistics -&gt; ShowS
 [VolumeStatistics] -&gt; ShowS
 VolumeStatistics -&gt; String
 (Int -&gt; VolumeStatistics -&gt; ShowS)
@@ -109,11 +109,11 @@ $cfrom :: forall x. VolumeStatistics -&gt; Rep VolumeStatistics x
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- 'inboxRawCount', 'volumeStatistics_inboxRawCount' - The total number of emails that arrived in recipients\' inboxes.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'projectedInbox', 'volumeStatistics_projectedInbox' - An estimate of the percentage of emails sent from the current domain</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- that will arrive in recipients\' inboxes.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'projectedSpam', 'volumeStatistics_projectedSpam' - An estimate of the percentage of emails sent from the current domain</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- that will arrive in recipients\' spam or junk mail folders.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'projectedSpam', 'volumeStatistics_projectedSpam' - An estimate of the percentage of emails sent from the current domain</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- that will arrive in recipients\' spam or junk mail folders.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'projectedInbox', 'volumeStatistics_projectedInbox' - An estimate of the percentage of emails sent from the current domain</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- that will arrive in recipients\' inboxes.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- 'spamRawCount', 'volumeStatistics_spamRawCount' - The total number of emails that arrived in recipients\' spam or junk</span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- mail folders.</span><span>
@@ -131,12 +131,12 @@ $cfrom :: forall x. VolumeStatistics -&gt; Rep VolumeStatistics x
 </span><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#%24sel%3AinboxRawCount%3AVolumeStatistics%27"><span class="hs-identifier hs-var">inboxRawCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:projectedInbox:VolumeStatistics' :: Maybe Integer
-</span><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#%24sel%3AprojectedInbox%3AVolumeStatistics%27"><span class="hs-identifier hs-var">projectedInbox</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:projectedSpam:VolumeStatistics' :: Maybe Integer
+</span><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#%24sel%3AprojectedSpam%3AVolumeStatistics%27"><span class="hs-identifier hs-var">projectedSpam</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:projectedSpam:VolumeStatistics' :: Maybe Integer
-</span><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#%24sel%3AprojectedSpam%3AVolumeStatistics%27"><span class="hs-identifier hs-var">projectedSpam</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:projectedInbox:VolumeStatistics' :: Maybe Integer
+</span><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#%24sel%3AprojectedInbox%3AVolumeStatistics%27"><span class="hs-identifier hs-var">projectedInbox</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:spamRawCount:VolumeStatistics' :: Maybe Integer
@@ -154,58 +154,58 @@ forall a. Maybe a
 -&gt; Lens
      VolumeStatistics VolumeStatistics (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#VolumeStatistics%27"><span class="hs-identifier hs-type">VolumeStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332644"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#VolumeStatistics%27"><span class="hs-identifier hs-type">VolumeStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335162"><span class="annot"><span class="annottext">Maybe Integer
 inboxRawCount :: Maybe Integer
 $sel:inboxRawCount:VolumeStatistics' :: VolumeStatistics -&gt; Maybe Integer
-</span><a href="#local-6989586621679332644"><span class="hs-identifier hs-var hs-var">inboxRawCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679332644"><span class="hs-identifier hs-var">inboxRawCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332643"><span class="annot"><span class="annottext">s :: VolumeStatistics
-</span><a href="#local-6989586621679332643"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#VolumeStatistics%27"><span class="hs-identifier hs-type">VolumeStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332642"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679332642"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VolumeStatistics
-</span><a href="#local-6989586621679332643"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inboxRawCount:VolumeStatistics' :: Maybe Integer
+</span><a href="#local-6989586621679335162"><span class="hs-identifier hs-var hs-var">inboxRawCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679335162"><span class="hs-identifier hs-var">inboxRawCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679335161"><span class="annot"><span class="annottext">s :: VolumeStatistics
+</span><a href="#local-6989586621679335161"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#VolumeStatistics%27"><span class="hs-identifier hs-type">VolumeStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679335160"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679335160"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VolumeStatistics
+</span><a href="#local-6989586621679335161"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inboxRawCount:VolumeStatistics' :: Maybe Integer
 </span><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#%24sel%3AinboxRawCount%3AVolumeStatistics%27"><span class="hs-identifier hs-var">inboxRawCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679332642"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#VolumeStatistics"><span class="hs-identifier hs-type">VolumeStatistics</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679335160"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#VolumeStatistics"><span class="hs-identifier hs-type">VolumeStatistics</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | An estimate of the percentage of emails sent from the current domain</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- that will arrive in recipients\' inboxes.</span><span>
-</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#volumeStatistics_projectedInbox"><span class="hs-identifier hs-type">volumeStatistics_projectedInbox</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#VolumeStatistics"><span class="hs-identifier hs-type">VolumeStatistics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span id="volumeStatistics_projectedInbox"><span class="annot"><span class="annottext">volumeStatistics_projectedInbox :: (Maybe Integer -&gt; f (Maybe Integer))
--&gt; VolumeStatistics -&gt; f VolumeStatistics
-</span><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#volumeStatistics_projectedInbox"><span class="hs-identifier hs-var hs-var">volumeStatistics_projectedInbox</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VolumeStatistics -&gt; Maybe Integer)
--&gt; (VolumeStatistics -&gt; Maybe Integer -&gt; VolumeStatistics)
--&gt; Lens
-     VolumeStatistics VolumeStatistics (Maybe Integer) (Maybe Integer)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#VolumeStatistics%27"><span class="hs-identifier hs-type">VolumeStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332640"><span class="annot"><span class="annottext">Maybe Integer
-projectedInbox :: Maybe Integer
-$sel:projectedInbox:VolumeStatistics' :: VolumeStatistics -&gt; Maybe Integer
-</span><a href="#local-6989586621679332640"><span class="hs-identifier hs-var hs-var">projectedInbox</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679332640"><span class="hs-identifier hs-var">projectedInbox</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332639"><span class="annot"><span class="annottext">s :: VolumeStatistics
-</span><a href="#local-6989586621679332639"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#VolumeStatistics%27"><span class="hs-identifier hs-type">VolumeStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332638"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679332638"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VolumeStatistics
-</span><a href="#local-6989586621679332639"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectedInbox:VolumeStatistics' :: Maybe Integer
-</span><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#%24sel%3AprojectedInbox%3AVolumeStatistics%27"><span class="hs-identifier hs-var">projectedInbox</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679332638"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#VolumeStatistics"><span class="hs-identifier hs-type">VolumeStatistics</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- | An estimate of the percentage of emails sent from the current domain</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- that will arrive in recipients\' spam or junk mail folders.</span><span>
-</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#volumeStatistics_projectedSpam"><span class="hs-identifier hs-type">volumeStatistics_projectedSpam</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#VolumeStatistics"><span class="hs-identifier hs-type">VolumeStatistics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span id="volumeStatistics_projectedSpam"><span class="annot"><span class="annottext">volumeStatistics_projectedSpam :: (Maybe Integer -&gt; f (Maybe Integer))
+</span><span id="line-78"></span><span class="hs-comment">-- that will arrive in recipients\' spam or junk mail folders.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#volumeStatistics_projectedSpam"><span class="hs-identifier hs-type">volumeStatistics_projectedSpam</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#VolumeStatistics"><span class="hs-identifier hs-type">VolumeStatistics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="volumeStatistics_projectedSpam"><span class="annot"><span class="annottext">volumeStatistics_projectedSpam :: (Maybe Integer -&gt; f (Maybe Integer))
 -&gt; VolumeStatistics -&gt; f VolumeStatistics
 </span><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#volumeStatistics_projectedSpam"><span class="hs-identifier hs-var hs-var">volumeStatistics_projectedSpam</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VolumeStatistics -&gt; Maybe Integer)
 -&gt; (VolumeStatistics -&gt; Maybe Integer -&gt; VolumeStatistics)
 -&gt; Lens
      VolumeStatistics VolumeStatistics (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#VolumeStatistics%27"><span class="hs-identifier hs-type">VolumeStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332636"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#VolumeStatistics%27"><span class="hs-identifier hs-type">VolumeStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335158"><span class="annot"><span class="annottext">Maybe Integer
 projectedSpam :: Maybe Integer
 $sel:projectedSpam:VolumeStatistics' :: VolumeStatistics -&gt; Maybe Integer
-</span><a href="#local-6989586621679332636"><span class="hs-identifier hs-var hs-var">projectedSpam</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679332636"><span class="hs-identifier hs-var">projectedSpam</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332635"><span class="annot"><span class="annottext">s :: VolumeStatistics
-</span><a href="#local-6989586621679332635"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#VolumeStatistics%27"><span class="hs-identifier hs-type">VolumeStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332634"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679332634"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VolumeStatistics
-</span><a href="#local-6989586621679332635"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectedSpam:VolumeStatistics' :: Maybe Integer
+</span><a href="#local-6989586621679335158"><span class="hs-identifier hs-var hs-var">projectedSpam</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679335158"><span class="hs-identifier hs-var">projectedSpam</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679335157"><span class="annot"><span class="annottext">s :: VolumeStatistics
+</span><a href="#local-6989586621679335157"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#VolumeStatistics%27"><span class="hs-identifier hs-type">VolumeStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679335156"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679335156"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VolumeStatistics
+</span><a href="#local-6989586621679335157"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectedSpam:VolumeStatistics' :: Maybe Integer
 </span><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#%24sel%3AprojectedSpam%3AVolumeStatistics%27"><span class="hs-identifier hs-var">projectedSpam</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679332634"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#VolumeStatistics"><span class="hs-identifier hs-type">VolumeStatistics</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679335156"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#VolumeStatistics"><span class="hs-identifier hs-type">VolumeStatistics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | An estimate of the percentage of emails sent from the current domain</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- that will arrive in recipients\' inboxes.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#volumeStatistics_projectedInbox"><span class="hs-identifier hs-type">volumeStatistics_projectedInbox</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#VolumeStatistics"><span class="hs-identifier hs-type">VolumeStatistics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="volumeStatistics_projectedInbox"><span class="annot"><span class="annottext">volumeStatistics_projectedInbox :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; VolumeStatistics -&gt; f VolumeStatistics
+</span><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#volumeStatistics_projectedInbox"><span class="hs-identifier hs-var hs-var">volumeStatistics_projectedInbox</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VolumeStatistics -&gt; Maybe Integer)
+-&gt; (VolumeStatistics -&gt; Maybe Integer -&gt; VolumeStatistics)
+-&gt; Lens
+     VolumeStatistics VolumeStatistics (Maybe Integer) (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#VolumeStatistics%27"><span class="hs-identifier hs-type">VolumeStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335154"><span class="annot"><span class="annottext">Maybe Integer
+projectedInbox :: Maybe Integer
+$sel:projectedInbox:VolumeStatistics' :: VolumeStatistics -&gt; Maybe Integer
+</span><a href="#local-6989586621679335154"><span class="hs-identifier hs-var hs-var">projectedInbox</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679335154"><span class="hs-identifier hs-var">projectedInbox</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679335153"><span class="annot"><span class="annottext">s :: VolumeStatistics
+</span><a href="#local-6989586621679335153"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#VolumeStatistics%27"><span class="hs-identifier hs-type">VolumeStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679335152"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679335152"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VolumeStatistics
+</span><a href="#local-6989586621679335153"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectedInbox:VolumeStatistics' :: Maybe Integer
+</span><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#%24sel%3AprojectedInbox%3AVolumeStatistics%27"><span class="hs-identifier hs-var">projectedInbox</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679335152"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#VolumeStatistics"><span class="hs-identifier hs-type">VolumeStatistics</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | The total number of emails that arrived in recipients\' spam or junk</span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- mail folders.</span><span>
@@ -217,19 +217,19 @@ $sel:projectedSpam:VolumeStatistics' :: VolumeStatistics -&gt; Maybe Integer
 -&gt; Lens
      VolumeStatistics VolumeStatistics (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#VolumeStatistics%27"><span class="hs-identifier hs-type">VolumeStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332632"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#VolumeStatistics%27"><span class="hs-identifier hs-type">VolumeStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335150"><span class="annot"><span class="annottext">Maybe Integer
 spamRawCount :: Maybe Integer
 $sel:spamRawCount:VolumeStatistics' :: VolumeStatistics -&gt; Maybe Integer
-</span><a href="#local-6989586621679332632"><span class="hs-identifier hs-var hs-var">spamRawCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679332632"><span class="hs-identifier hs-var">spamRawCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332631"><span class="annot"><span class="annottext">s :: VolumeStatistics
-</span><a href="#local-6989586621679332631"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#VolumeStatistics%27"><span class="hs-identifier hs-type">VolumeStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332630"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679332630"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VolumeStatistics
-</span><a href="#local-6989586621679332631"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:spamRawCount:VolumeStatistics' :: Maybe Integer
+</span><a href="#local-6989586621679335150"><span class="hs-identifier hs-var hs-var">spamRawCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679335150"><span class="hs-identifier hs-var">spamRawCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679335149"><span class="annot"><span class="annottext">s :: VolumeStatistics
+</span><a href="#local-6989586621679335149"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#VolumeStatistics%27"><span class="hs-identifier hs-type">VolumeStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679335148"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679335148"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VolumeStatistics
+</span><a href="#local-6989586621679335149"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:spamRawCount:VolumeStatistics' :: Maybe Integer
 </span><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#%24sel%3AspamRawCount%3AVolumeStatistics%27"><span class="hs-identifier hs-var">spamRawCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679332630"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#VolumeStatistics"><span class="hs-identifier hs-type">VolumeStatistics</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679335148"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#VolumeStatistics"><span class="hs-identifier hs-type">VolumeStatistics</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332627"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#VolumeStatistics"><span class="hs-identifier hs-type">VolumeStatistics</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679332625"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser VolumeStatistics
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679335145"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#VolumeStatistics"><span class="hs-identifier hs-type">VolumeStatistics</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679335143"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser VolumeStatistics
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser VolumeStatistics)
@@ -239,8 +239,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;VolumeStatistics&quot;</span></span><span>
-</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679332622"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679332622"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679335140"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679335140"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe Integer
 -&gt; Maybe Integer
 -&gt; Maybe Integer
@@ -258,7 +258,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe Integer -&gt; Maybe Integer -&gt; VolumeStatistics)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679332622"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679335140"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InboxRawCount&quot;</span></span><span class="hs-special">)</span><span>
@@ -269,30 +269,30 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Integer -&gt; Maybe Integer -&gt; VolumeStatistics)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679332622"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679335140"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ProjectedInbox&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;ProjectedSpam&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Integer -&gt; Maybe Integer -&gt; VolumeStatistics)
 -&gt; Parser (Maybe Integer)
 -&gt; Parser (Maybe Integer -&gt; VolumeStatistics)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679332622"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679335140"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ProjectedSpam&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;ProjectedInbox&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Integer -&gt; VolumeStatistics)
 -&gt; Parser (Maybe Integer) -&gt; Parser VolumeStatistics
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679332622"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679335140"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SpamRawCount&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332616"><span id="local-6989586621679332618"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#VolumeStatistics"><span class="hs-identifier hs-type">VolumeStatistics</span></a></span></span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679335134"><span id="local-6989586621679335136"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#VolumeStatistics"><span class="hs-identifier hs-type">VolumeStatistics</span></a></span></span></span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332613"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#VolumeStatistics"><span class="hs-identifier hs-type">VolumeStatistics</span></a></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679335131"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.VolumeStatistics.html#VolumeStatistics"><span class="hs-identifier hs-type">VolumeStatistics</span></a></span></span><span>
 </span><span id="line-107"></span></pre></body></html>

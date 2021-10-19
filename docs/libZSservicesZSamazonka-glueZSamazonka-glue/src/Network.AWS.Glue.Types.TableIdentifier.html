@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | A structure that describes a target table for resource linking.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newTableIdentifier' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679698910"><span id="local-6989586621679698911"></span></span><span class="hs-keyword">data</span><span> </span><span id="TableIdentifier"><span class="annot"><a href="Network.AWS.Glue.Types.TableIdentifier.html#TableIdentifier"><span class="hs-identifier hs-var">TableIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TableIdentifier%27"><span class="annot"><a href="Network.AWS.Glue.Types.TableIdentifier.html#TableIdentifier%27"><span class="hs-identifier hs-var">TableIdentifier'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679700612"><span id="local-6989586621679700613"></span></span><span class="hs-keyword">data</span><span> </span><span id="TableIdentifier"><span class="annot"><a href="Network.AWS.Glue.Types.TableIdentifier.html#TableIdentifier"><span class="hs-identifier hs-var">TableIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TableIdentifier%27"><span class="annot"><a href="Network.AWS.Glue.Types.TableIdentifier.html#TableIdentifier%27"><span class="hs-identifier hs-var">TableIdentifier'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the Data Catalog in which the table resides.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AcatalogId%3ATableIdentifier%27"><span class="annot"><span class="annottext">TableIdentifier -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.Types.TableIdentifier.html#%24sel%3AcatalogId%3ATableIdentifier%27"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AdatabaseName%3ATableIdentifier%27"><span class="annot"><span class="annottext">TableIdentifier -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.Types.TableIdentifier.html#%24sel%3AdatabaseName%3ATableIdentifier%27"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679698902"><span id="local-6989586621679698904"><span class="annot"><span class="annottext">TableIdentifier -&gt; TableIdentifier -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679700604"><span id="local-6989586621679700606"><span class="annot"><span class="annottext">TableIdentifier -&gt; TableIdentifier -&gt; Bool
 (TableIdentifier -&gt; TableIdentifier -&gt; Bool)
 -&gt; (TableIdentifier -&gt; TableIdentifier -&gt; Bool)
 -&gt; Eq TableIdentifier
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TableIdentifier -&gt; TableIdentifier -&gt; Bool
 == :: TableIdentifier -&gt; TableIdentifier -&gt; Bool
 $c== :: TableIdentifier -&gt; TableIdentifier -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679698893"><span id="local-6989586621679698895"><span id="local-6989586621679698897"><span id="local-6989586621679698899"><span class="annot"><span class="annottext">ReadPrec [TableIdentifier]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679700595"><span id="local-6989586621679700597"><span id="local-6989586621679700599"><span id="local-6989586621679700601"><span class="annot"><span class="annottext">ReadPrec [TableIdentifier]
 ReadPrec TableIdentifier
 Int -&gt; ReadS TableIdentifier
 ReadS [TableIdentifier]
@@ -66,7 +66,7 @@ readList :: ReadS [TableIdentifier]
 $creadList :: ReadS [TableIdentifier]
 readsPrec :: Int -&gt; ReadS TableIdentifier
 $creadsPrec :: Int -&gt; ReadS TableIdentifier
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679698886"><span id="local-6989586621679698888"><span id="local-6989586621679698890"><span class="annot"><span class="annottext">Int -&gt; TableIdentifier -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679700588"><span id="local-6989586621679700590"><span id="local-6989586621679700592"><span class="annot"><span class="annottext">Int -&gt; TableIdentifier -&gt; ShowS
 [TableIdentifier] -&gt; ShowS
 TableIdentifier -&gt; String
 (Int -&gt; TableIdentifier -&gt; ShowS)
@@ -133,16 +133,16 @@ forall a. Maybe a
 -&gt; (TableIdentifier -&gt; Maybe Text -&gt; TableIdentifier)
 -&gt; Lens TableIdentifier TableIdentifier (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.TableIdentifier.html#TableIdentifier%27"><span class="hs-identifier hs-type">TableIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679698877"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.TableIdentifier.html#TableIdentifier%27"><span class="hs-identifier hs-type">TableIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679700579"><span class="annot"><span class="annottext">Maybe Text
 catalogId :: Maybe Text
 $sel:catalogId:TableIdentifier' :: TableIdentifier -&gt; Maybe Text
-</span><a href="#local-6989586621679698877"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679698877"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679698876"><span class="annot"><span class="annottext">s :: TableIdentifier
-</span><a href="#local-6989586621679698876"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.TableIdentifier.html#TableIdentifier%27"><span class="hs-identifier hs-type">TableIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679698875"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679698875"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TableIdentifier
-</span><a href="#local-6989586621679698876"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogId:TableIdentifier' :: Maybe Text
+</span><a href="#local-6989586621679700579"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679700579"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679700578"><span class="annot"><span class="annottext">s :: TableIdentifier
+</span><a href="#local-6989586621679700578"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.TableIdentifier.html#TableIdentifier%27"><span class="hs-identifier hs-type">TableIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679700577"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679700577"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TableIdentifier
+</span><a href="#local-6989586621679700578"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogId:TableIdentifier' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.TableIdentifier.html#%24sel%3AcatalogId%3ATableIdentifier%27"><span class="hs-identifier hs-var">catalogId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679698875"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TableIdentifier.html#TableIdentifier"><span class="hs-identifier hs-type">TableIdentifier</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679700577"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TableIdentifier.html#TableIdentifier"><span class="hs-identifier hs-type">TableIdentifier</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | The name of the target table.</span><span>
 </span><span id="line-66"></span><span class="annot"><a href="Network.AWS.Glue.Types.TableIdentifier.html#tableIdentifier_name"><span class="hs-identifier hs-type">tableIdentifier_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TableIdentifier.html#TableIdentifier"><span class="hs-identifier hs-type">TableIdentifier</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -152,16 +152,16 @@ $sel:catalogId:TableIdentifier' :: TableIdentifier -&gt; Maybe Text
 -&gt; (TableIdentifier -&gt; Maybe Text -&gt; TableIdentifier)
 -&gt; Lens TableIdentifier TableIdentifier (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.TableIdentifier.html#TableIdentifier%27"><span class="hs-identifier hs-type">TableIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679698873"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.TableIdentifier.html#TableIdentifier%27"><span class="hs-identifier hs-type">TableIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679700575"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:TableIdentifier' :: TableIdentifier -&gt; Maybe Text
-</span><a href="#local-6989586621679698873"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679698873"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679698872"><span class="annot"><span class="annottext">s :: TableIdentifier
-</span><a href="#local-6989586621679698872"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.TableIdentifier.html#TableIdentifier%27"><span class="hs-identifier hs-type">TableIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679698871"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679698871"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TableIdentifier
-</span><a href="#local-6989586621679698872"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:TableIdentifier' :: Maybe Text
+</span><a href="#local-6989586621679700575"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679700575"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679700574"><span class="annot"><span class="annottext">s :: TableIdentifier
+</span><a href="#local-6989586621679700574"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.TableIdentifier.html#TableIdentifier%27"><span class="hs-identifier hs-type">TableIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679700573"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679700573"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TableIdentifier
+</span><a href="#local-6989586621679700574"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:TableIdentifier' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.TableIdentifier.html#%24sel%3Aname%3ATableIdentifier%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679698871"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TableIdentifier.html#TableIdentifier"><span class="hs-identifier hs-type">TableIdentifier</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679700573"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TableIdentifier.html#TableIdentifier"><span class="hs-identifier hs-type">TableIdentifier</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | The name of the catalog database that contains the target table.</span><span>
 </span><span id="line-70"></span><span class="annot"><a href="Network.AWS.Glue.Types.TableIdentifier.html#tableIdentifier_databaseName"><span class="hs-identifier hs-type">tableIdentifier_databaseName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TableIdentifier.html#TableIdentifier"><span class="hs-identifier hs-type">TableIdentifier</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -171,19 +171,19 @@ $sel:name:TableIdentifier' :: TableIdentifier -&gt; Maybe Text
 -&gt; (TableIdentifier -&gt; Maybe Text -&gt; TableIdentifier)
 -&gt; Lens TableIdentifier TableIdentifier (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.TableIdentifier.html#TableIdentifier%27"><span class="hs-identifier hs-type">TableIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679698869"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.TableIdentifier.html#TableIdentifier%27"><span class="hs-identifier hs-type">TableIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679700571"><span class="annot"><span class="annottext">Maybe Text
 databaseName :: Maybe Text
 $sel:databaseName:TableIdentifier' :: TableIdentifier -&gt; Maybe Text
-</span><a href="#local-6989586621679698869"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679698869"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679698868"><span class="annot"><span class="annottext">s :: TableIdentifier
-</span><a href="#local-6989586621679698868"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.TableIdentifier.html#TableIdentifier%27"><span class="hs-identifier hs-type">TableIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679698867"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679698867"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TableIdentifier
-</span><a href="#local-6989586621679698868"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:TableIdentifier' :: Maybe Text
+</span><a href="#local-6989586621679700571"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679700571"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679700570"><span class="annot"><span class="annottext">s :: TableIdentifier
+</span><a href="#local-6989586621679700570"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.TableIdentifier.html#TableIdentifier%27"><span class="hs-identifier hs-type">TableIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679700569"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679700569"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TableIdentifier
+</span><a href="#local-6989586621679700570"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:TableIdentifier' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.TableIdentifier.html#%24sel%3AdatabaseName%3ATableIdentifier%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679698867"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TableIdentifier.html#TableIdentifier"><span class="hs-identifier hs-type">TableIdentifier</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679700569"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TableIdentifier.html#TableIdentifier"><span class="hs-identifier hs-type">TableIdentifier</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679698864"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TableIdentifier.html#TableIdentifier"><span class="hs-identifier hs-type">TableIdentifier</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679698862"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TableIdentifier
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679700566"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TableIdentifier.html#TableIdentifier"><span class="hs-identifier hs-type">TableIdentifier</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679700564"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TableIdentifier
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TableIdentifier)
@@ -193,8 +193,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TableIdentifier&quot;</span></span><span>
-</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679698859"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679698859"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679700561"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679700561"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; TableIdentifier
 </span><a href="Network.AWS.Glue.Types.TableIdentifier.html#TableIdentifier%27"><span class="hs-identifier hs-var">TableIdentifier'</span></a></span><span>
 </span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; TableIdentifier)
@@ -202,7 +202,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; TableIdentifier)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679698859"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679700561"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CatalogId&quot;</span></span><span class="hs-special">)</span><span>
@@ -210,7 +210,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; TableIdentifier)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679698859"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679700561"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
@@ -218,26 +218,26 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser TableIdentifier
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679698859"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679700561"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DatabaseName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679698853"><span id="local-6989586621679698855"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TableIdentifier.html#TableIdentifier"><span class="hs-identifier hs-type">TableIdentifier</span></a></span></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679700555"><span id="local-6989586621679700557"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TableIdentifier.html#TableIdentifier"><span class="hs-identifier hs-type">TableIdentifier</span></a></span></span></span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679698850"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TableIdentifier.html#TableIdentifier"><span class="hs-identifier hs-type">TableIdentifier</span></a></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679700552"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TableIdentifier.html#TableIdentifier"><span class="hs-identifier hs-type">TableIdentifier</span></a></span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679698842"><span id="local-6989586621679698844"><span id="local-6989586621679698846"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TableIdentifier.html#TableIdentifier"><span class="hs-identifier hs-type">TableIdentifier</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679698840"><span class="annot"><span class="annottext">toJSON :: TableIdentifier -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TableIdentifier.html#TableIdentifier%27"><span class="hs-identifier hs-type">TableIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679698836"><span id="local-6989586621679698837"><span id="local-6989586621679698838"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679700544"><span id="local-6989586621679700546"><span id="local-6989586621679700548"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TableIdentifier.html#TableIdentifier"><span class="hs-identifier hs-type">TableIdentifier</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679700542"><span class="annot"><span class="annottext">toJSON :: TableIdentifier -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TableIdentifier.html#TableIdentifier%27"><span class="hs-identifier hs-type">TableIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679700538"><span id="local-6989586621679700539"><span id="local-6989586621679700540"><span class="annot"><span class="annottext">Maybe Text
 databaseName :: Maybe Text
 name :: Maybe Text
 catalogId :: Maybe Text
 $sel:databaseName:TableIdentifier' :: TableIdentifier -&gt; Maybe Text
 $sel:name:TableIdentifier' :: TableIdentifier -&gt; Maybe Text
 $sel:catalogId:TableIdentifier' :: TableIdentifier -&gt; Maybe Text
-</span><a href="#local-6989586621679698836"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679700538"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -249,21 +249,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679698838"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679700540"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-93"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679698837"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679700539"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-94"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DatabaseName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679698836"><span class="hs-identifier hs-var">databaseName</span></a></span><span>
+</span><a href="#local-6989586621679700538"><span class="hs-identifier hs-var">databaseName</span></a></span><span>
 </span><span id="line-95"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-96"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span></pre></body></html>

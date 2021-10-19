@@ -26,21 +26,21 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Details of the Firewall Manager protocols list.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newProtocolsListDataSummary' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679247361"><span id="local-6989586621679247362"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProtocolsListDataSummary"><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#ProtocolsListDataSummary"><span class="hs-identifier hs-var">ProtocolsListDataSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProtocolsListDataSummary%27"><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#ProtocolsListDataSummary%27"><span class="hs-identifier hs-var">ProtocolsListDataSummary'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the specified protocols list.</span><span>
-</span><span id="line-31"></span><span>    </span><span id="%24sel%3AlistName%3AProtocolsListDataSummary%27"><span class="annot"><span class="annottext">ProtocolsListDataSummary -&gt; Maybe Text
-</span><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#%24sel%3AlistName%3AProtocolsListDataSummary%27"><span class="hs-identifier hs-var hs-var">listName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The ID of the specified protocols list.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AlistId%3AProtocolsListDataSummary%27"><span class="annot"><span class="annottext">ProtocolsListDataSummary -&gt; Maybe Text
-</span><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#%24sel%3AlistId%3AProtocolsListDataSummary%27"><span class="hs-identifier hs-var hs-var">listId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the specified protocols list.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AlistArn%3AProtocolsListDataSummary%27"><span class="annot"><span class="annottext">ProtocolsListDataSummary -&gt; Maybe Text
+</span><span id="line-29"></span><span id="local-6989586621679247599"><span id="local-6989586621679247600"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProtocolsListDataSummary"><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#ProtocolsListDataSummary"><span class="hs-identifier hs-var">ProtocolsListDataSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProtocolsListDataSummary%27"><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#ProtocolsListDataSummary%27"><span class="hs-identifier hs-var">ProtocolsListDataSummary'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of protocols in the Firewall Manager protocols list.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AprotocolsList%3AProtocolsListDataSummary%27"><span class="annot"><span class="annottext">ProtocolsListDataSummary -&gt; Maybe [Text]
+</span><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#%24sel%3AprotocolsList%3AProtocolsListDataSummary%27"><span class="hs-identifier hs-var hs-var">protocolsList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the specified protocols list.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AlistArn%3AProtocolsListDataSummary%27"><span class="annot"><span class="annottext">ProtocolsListDataSummary -&gt; Maybe Text
 </span><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#%24sel%3AlistArn%3AProtocolsListDataSummary%27"><span class="hs-identifier hs-var hs-var">listArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | An array of protocols in the Firewall Manager protocols list.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AprotocolsList%3AProtocolsListDataSummary%27"><span class="annot"><span class="annottext">ProtocolsListDataSummary -&gt; Maybe [Text]
-</span><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#%24sel%3AprotocolsList%3AProtocolsListDataSummary%27"><span class="hs-identifier hs-var hs-var">protocolsList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The ID of the specified protocols list.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AlistId%3AProtocolsListDataSummary%27"><span class="annot"><span class="annottext">ProtocolsListDataSummary -&gt; Maybe Text
+</span><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#%24sel%3AlistId%3AProtocolsListDataSummary%27"><span class="hs-identifier hs-var hs-var">listId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The name of the specified protocols list.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AlistName%3AProtocolsListDataSummary%27"><span class="annot"><span class="annottext">ProtocolsListDataSummary -&gt; Maybe Text
+</span><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#%24sel%3AlistName%3AProtocolsListDataSummary%27"><span class="hs-identifier hs-var hs-var">listName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679247352"><span id="local-6989586621679247354"><span class="annot"><span class="annottext">ProtocolsListDataSummary -&gt; ProtocolsListDataSummary -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679247590"><span id="local-6989586621679247592"><span class="annot"><span class="annottext">ProtocolsListDataSummary -&gt; ProtocolsListDataSummary -&gt; Bool
 (ProtocolsListDataSummary -&gt; ProtocolsListDataSummary -&gt; Bool)
 -&gt; (ProtocolsListDataSummary -&gt; ProtocolsListDataSummary -&gt; Bool)
 -&gt; Eq ProtocolsListDataSummary
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ProtocolsListDataSummary -&gt; ProtocolsListDataSummary -&gt; Bool
 == :: ProtocolsListDataSummary -&gt; ProtocolsListDataSummary -&gt; Bool
 $c== :: ProtocolsListDataSummary -&gt; ProtocolsListDataSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247343"><span id="local-6989586621679247345"><span id="local-6989586621679247347"><span id="local-6989586621679247349"><span class="annot"><span class="annottext">ReadPrec [ProtocolsListDataSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247581"><span id="local-6989586621679247583"><span id="local-6989586621679247585"><span id="local-6989586621679247587"><span class="annot"><span class="annottext">ReadPrec [ProtocolsListDataSummary]
 ReadPrec ProtocolsListDataSummary
 Int -&gt; ReadS ProtocolsListDataSummary
 ReadS [ProtocolsListDataSummary]
@@ -69,7 +69,7 @@ readList :: ReadS [ProtocolsListDataSummary]
 $creadList :: ReadS [ProtocolsListDataSummary]
 readsPrec :: Int -&gt; ReadS ProtocolsListDataSummary
 $creadsPrec :: Int -&gt; ReadS ProtocolsListDataSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247336"><span id="local-6989586621679247338"><span id="local-6989586621679247340"><span class="annot"><span class="annottext">Int -&gt; ProtocolsListDataSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247574"><span id="local-6989586621679247576"><span id="local-6989586621679247578"><span class="annot"><span class="annottext">Int -&gt; ProtocolsListDataSummary -&gt; ShowS
 [ProtocolsListDataSummary] -&gt; ShowS
 ProtocolsListDataSummary -&gt; String
 (Int -&gt; ProtocolsListDataSummary -&gt; ShowS)
@@ -109,117 +109,45 @@ ProtocolsListDataSummary -&gt; Rep ProtocolsListDataSummary x
 </span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'listName', 'protocolsListDataSummary_listName' - The name of the specified protocols list.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'protocolsList', 'protocolsListDataSummary_protocolsList' - An array of protocols in the Firewall Manager protocols list.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'listId', 'protocolsListDataSummary_listId' - The ID of the specified protocols list.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'listArn', 'protocolsListDataSummary_listArn' - The Amazon Resource Name (ARN) of the specified protocols list.</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'listArn', 'protocolsListDataSummary_listArn' - The Amazon Resource Name (ARN) of the specified protocols list.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'listId', 'protocolsListDataSummary_listId' - The ID of the specified protocols list.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'protocolsList', 'protocolsListDataSummary_protocolsList' - An array of protocols in the Firewall Manager protocols list.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'listName', 'protocolsListDataSummary_listName' - The name of the specified protocols list.</span><span>
 </span><span id="line-56"></span><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#newProtocolsListDataSummary"><span class="hs-identifier hs-type">newProtocolsListDataSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#ProtocolsListDataSummary"><span class="hs-identifier hs-type">ProtocolsListDataSummary</span></a></span><span>
 </span><span id="line-58"></span><span id="newProtocolsListDataSummary"><span class="annot"><span class="annottext">newProtocolsListDataSummary :: ProtocolsListDataSummary
 </span><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#newProtocolsListDataSummary"><span class="hs-identifier hs-var hs-var">newProtocolsListDataSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">ProtocolsListDataSummary' :: Maybe Text
+</span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">ProtocolsListDataSummary' :: Maybe [Text]
 -&gt; Maybe Text
 -&gt; Maybe Text
--&gt; Maybe [Text]
+-&gt; Maybe Text
 -&gt; ProtocolsListDataSummary
 </span><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#ProtocolsListDataSummary%27"><span class="hs-identifier hs-type">ProtocolsListDataSummary'</span></a></span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:listName:ProtocolsListDataSummary' :: Maybe Text
-</span><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#%24sel%3AlistName%3AProtocolsListDataSummary%27"><span class="hs-identifier hs-var">listName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-61"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:protocolsList:ProtocolsListDataSummary' :: Maybe [Text]
+</span><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#%24sel%3AprotocolsList%3AProtocolsListDataSummary%27"><span class="hs-identifier hs-var">protocolsList</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-61"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:listId:ProtocolsListDataSummary' :: Maybe Text
-</span><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#%24sel%3AlistId%3AProtocolsListDataSummary%27"><span class="hs-identifier hs-var">listId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:listArn:ProtocolsListDataSummary' :: Maybe Text
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:listArn:ProtocolsListDataSummary' :: Maybe Text
 </span><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#%24sel%3AlistArn%3AProtocolsListDataSummary%27"><span class="hs-identifier hs-var">listArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:protocolsList:ProtocolsListDataSummary' :: Maybe [Text]
-</span><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#%24sel%3AprotocolsList%3AProtocolsListDataSummary%27"><span class="hs-identifier hs-var">protocolsList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:listId:ProtocolsListDataSummary' :: Maybe Text
+</span><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#%24sel%3AlistId%3AProtocolsListDataSummary%27"><span class="hs-identifier hs-var">listId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:listName:ProtocolsListDataSummary' :: Maybe Text
+</span><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#%24sel%3AlistName%3AProtocolsListDataSummary%27"><span class="hs-identifier hs-var">listName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- | The name of the specified protocols list.</span><span>
-</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#protocolsListDataSummary_listName"><span class="hs-identifier hs-type">protocolsListDataSummary_listName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#ProtocolsListDataSummary"><span class="hs-identifier hs-type">ProtocolsListDataSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-69"></span><span id="protocolsListDataSummary_listName"><span class="annot"><span class="annottext">protocolsListDataSummary_listName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ProtocolsListDataSummary -&gt; f ProtocolsListDataSummary
-</span><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#protocolsListDataSummary_listName"><span class="hs-identifier hs-var hs-var">protocolsListDataSummary_listName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProtocolsListDataSummary -&gt; Maybe Text)
--&gt; (ProtocolsListDataSummary
-    -&gt; Maybe Text -&gt; ProtocolsListDataSummary)
--&gt; Lens
-     ProtocolsListDataSummary
-     ProtocolsListDataSummary
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#ProtocolsListDataSummary%27"><span class="hs-identifier hs-type">ProtocolsListDataSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247327"><span class="annot"><span class="annottext">Maybe Text
-listName :: Maybe Text
-$sel:listName:ProtocolsListDataSummary' :: ProtocolsListDataSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679247327"><span class="hs-identifier hs-var hs-var">listName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679247327"><span class="hs-identifier hs-var">listName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247326"><span class="annot"><span class="annottext">s :: ProtocolsListDataSummary
-</span><a href="#local-6989586621679247326"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#ProtocolsListDataSummary%27"><span class="hs-identifier hs-type">ProtocolsListDataSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247325"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679247325"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProtocolsListDataSummary
-</span><a href="#local-6989586621679247326"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:listName:ProtocolsListDataSummary' :: Maybe Text
-</span><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#%24sel%3AlistName%3AProtocolsListDataSummary%27"><span class="hs-identifier hs-var">listName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679247325"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#ProtocolsListDataSummary"><span class="hs-identifier hs-type">ProtocolsListDataSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- | The ID of the specified protocols list.</span><span>
-</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#protocolsListDataSummary_listId"><span class="hs-identifier hs-type">protocolsListDataSummary_listId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#ProtocolsListDataSummary"><span class="hs-identifier hs-type">ProtocolsListDataSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span id="protocolsListDataSummary_listId"><span class="annot"><span class="annottext">protocolsListDataSummary_listId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ProtocolsListDataSummary -&gt; f ProtocolsListDataSummary
-</span><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#protocolsListDataSummary_listId"><span class="hs-identifier hs-var hs-var">protocolsListDataSummary_listId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProtocolsListDataSummary -&gt; Maybe Text)
--&gt; (ProtocolsListDataSummary
-    -&gt; Maybe Text -&gt; ProtocolsListDataSummary)
--&gt; Lens
-     ProtocolsListDataSummary
-     ProtocolsListDataSummary
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#ProtocolsListDataSummary%27"><span class="hs-identifier hs-type">ProtocolsListDataSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247323"><span class="annot"><span class="annottext">Maybe Text
-listId :: Maybe Text
-$sel:listId:ProtocolsListDataSummary' :: ProtocolsListDataSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679247323"><span class="hs-identifier hs-var hs-var">listId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679247323"><span class="hs-identifier hs-var">listId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247322"><span class="annot"><span class="annottext">s :: ProtocolsListDataSummary
-</span><a href="#local-6989586621679247322"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#ProtocolsListDataSummary%27"><span class="hs-identifier hs-type">ProtocolsListDataSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247321"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679247321"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProtocolsListDataSummary
-</span><a href="#local-6989586621679247322"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:listId:ProtocolsListDataSummary' :: Maybe Text
-</span><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#%24sel%3AlistId%3AProtocolsListDataSummary%27"><span class="hs-identifier hs-var">listId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679247321"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#ProtocolsListDataSummary"><span class="hs-identifier hs-type">ProtocolsListDataSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the specified protocols list.</span><span>
-</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#protocolsListDataSummary_listArn"><span class="hs-identifier hs-type">protocolsListDataSummary_listArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#ProtocolsListDataSummary"><span class="hs-identifier hs-type">ProtocolsListDataSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-77"></span><span id="protocolsListDataSummary_listArn"><span class="annot"><span class="annottext">protocolsListDataSummary_listArn :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ProtocolsListDataSummary -&gt; f ProtocolsListDataSummary
-</span><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#protocolsListDataSummary_listArn"><span class="hs-identifier hs-var hs-var">protocolsListDataSummary_listArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProtocolsListDataSummary -&gt; Maybe Text)
--&gt; (ProtocolsListDataSummary
-    -&gt; Maybe Text -&gt; ProtocolsListDataSummary)
--&gt; Lens
-     ProtocolsListDataSummary
-     ProtocolsListDataSummary
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#ProtocolsListDataSummary%27"><span class="hs-identifier hs-type">ProtocolsListDataSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247319"><span class="annot"><span class="annottext">Maybe Text
-listArn :: Maybe Text
-$sel:listArn:ProtocolsListDataSummary' :: ProtocolsListDataSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679247319"><span class="hs-identifier hs-var hs-var">listArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679247319"><span class="hs-identifier hs-var">listArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247318"><span class="annot"><span class="annottext">s :: ProtocolsListDataSummary
-</span><a href="#local-6989586621679247318"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#ProtocolsListDataSummary%27"><span class="hs-identifier hs-type">ProtocolsListDataSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247317"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679247317"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProtocolsListDataSummary
-</span><a href="#local-6989586621679247318"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:listArn:ProtocolsListDataSummary' :: Maybe Text
-</span><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#%24sel%3AlistArn%3AProtocolsListDataSummary%27"><span class="hs-identifier hs-var">listArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679247317"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#ProtocolsListDataSummary"><span class="hs-identifier hs-type">ProtocolsListDataSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- | An array of protocols in the Firewall Manager protocols list.</span><span>
-</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#protocolsListDataSummary_protocolsList"><span class="hs-identifier hs-type">protocolsListDataSummary_protocolsList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#ProtocolsListDataSummary"><span class="hs-identifier hs-type">ProtocolsListDataSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span id="protocolsListDataSummary_protocolsList"><span class="annot"><span class="annottext">protocolsListDataSummary_protocolsList :: (Maybe [Text] -&gt; f (Maybe [Text]))
+</span><span id="line-67"></span><span class="hs-comment">-- | An array of protocols in the Firewall Manager protocols list.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#protocolsListDataSummary_protocolsList"><span class="hs-identifier hs-type">protocolsListDataSummary_protocolsList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#ProtocolsListDataSummary"><span class="hs-identifier hs-type">ProtocolsListDataSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="protocolsListDataSummary_protocolsList"><span class="annot"><span class="annottext">protocolsListDataSummary_protocolsList :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; ProtocolsListDataSummary -&gt; f ProtocolsListDataSummary
 </span><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#protocolsListDataSummary_protocolsList"><span class="hs-identifier hs-var hs-var">protocolsListDataSummary_protocolsList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProtocolsListDataSummary -&gt; Maybe [Text])
 -&gt; (ProtocolsListDataSummary
@@ -230,16 +158,16 @@ $sel:listArn:ProtocolsListDataSummary' :: ProtocolsListDataSummary -&gt; Maybe T
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#ProtocolsListDataSummary%27"><span class="hs-identifier hs-type">ProtocolsListDataSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247315"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#ProtocolsListDataSummary%27"><span class="hs-identifier hs-type">ProtocolsListDataSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247565"><span class="annot"><span class="annottext">Maybe [Text]
 protocolsList :: Maybe [Text]
 $sel:protocolsList:ProtocolsListDataSummary' :: ProtocolsListDataSummary -&gt; Maybe [Text]
-</span><a href="#local-6989586621679247315"><span class="hs-identifier hs-var hs-var">protocolsList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679247315"><span class="hs-identifier hs-var">protocolsList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247314"><span class="annot"><span class="annottext">s :: ProtocolsListDataSummary
-</span><a href="#local-6989586621679247314"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#ProtocolsListDataSummary%27"><span class="hs-identifier hs-type">ProtocolsListDataSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247313"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679247313"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProtocolsListDataSummary
-</span><a href="#local-6989586621679247314"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protocolsList:ProtocolsListDataSummary' :: Maybe [Text]
+</span><a href="#local-6989586621679247565"><span class="hs-identifier hs-var hs-var">protocolsList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679247565"><span class="hs-identifier hs-var">protocolsList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247564"><span class="annot"><span class="annottext">s :: ProtocolsListDataSummary
+</span><a href="#local-6989586621679247564"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#ProtocolsListDataSummary%27"><span class="hs-identifier hs-type">ProtocolsListDataSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247563"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679247563"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProtocolsListDataSummary
+</span><a href="#local-6989586621679247564"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protocolsList:ProtocolsListDataSummary' :: Maybe [Text]
 </span><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#%24sel%3AprotocolsList%3AProtocolsListDataSummary%27"><span class="hs-identifier hs-var">protocolsList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679247313"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#ProtocolsListDataSummary"><span class="hs-identifier hs-type">ProtocolsListDataSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679247563"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#ProtocolsListDataSummary"><span class="hs-identifier hs-type">ProtocolsListDataSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ProtocolsListDataSummary -&gt; f ProtocolsListDataSummary)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -253,11 +181,83 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the specified protocols list.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#protocolsListDataSummary_listArn"><span class="hs-identifier hs-type">protocolsListDataSummary_listArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#ProtocolsListDataSummary"><span class="hs-identifier hs-type">ProtocolsListDataSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span id="protocolsListDataSummary_listArn"><span class="annot"><span class="annottext">protocolsListDataSummary_listArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ProtocolsListDataSummary -&gt; f ProtocolsListDataSummary
+</span><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#protocolsListDataSummary_listArn"><span class="hs-identifier hs-var hs-var">protocolsListDataSummary_listArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProtocolsListDataSummary -&gt; Maybe Text)
+-&gt; (ProtocolsListDataSummary
+    -&gt; Maybe Text -&gt; ProtocolsListDataSummary)
+-&gt; Lens
+     ProtocolsListDataSummary
+     ProtocolsListDataSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#ProtocolsListDataSummary%27"><span class="hs-identifier hs-type">ProtocolsListDataSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247558"><span class="annot"><span class="annottext">Maybe Text
+listArn :: Maybe Text
+$sel:listArn:ProtocolsListDataSummary' :: ProtocolsListDataSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679247558"><span class="hs-identifier hs-var hs-var">listArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679247558"><span class="hs-identifier hs-var">listArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247557"><span class="annot"><span class="annottext">s :: ProtocolsListDataSummary
+</span><a href="#local-6989586621679247557"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#ProtocolsListDataSummary%27"><span class="hs-identifier hs-type">ProtocolsListDataSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247556"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679247556"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProtocolsListDataSummary
+</span><a href="#local-6989586621679247557"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:listArn:ProtocolsListDataSummary' :: Maybe Text
+</span><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#%24sel%3AlistArn%3AProtocolsListDataSummary%27"><span class="hs-identifier hs-var">listArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679247556"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#ProtocolsListDataSummary"><span class="hs-identifier hs-type">ProtocolsListDataSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | The ID of the specified protocols list.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#protocolsListDataSummary_listId"><span class="hs-identifier hs-type">protocolsListDataSummary_listId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#ProtocolsListDataSummary"><span class="hs-identifier hs-type">ProtocolsListDataSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span id="protocolsListDataSummary_listId"><span class="annot"><span class="annottext">protocolsListDataSummary_listId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ProtocolsListDataSummary -&gt; f ProtocolsListDataSummary
+</span><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#protocolsListDataSummary_listId"><span class="hs-identifier hs-var hs-var">protocolsListDataSummary_listId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProtocolsListDataSummary -&gt; Maybe Text)
+-&gt; (ProtocolsListDataSummary
+    -&gt; Maybe Text -&gt; ProtocolsListDataSummary)
+-&gt; Lens
+     ProtocolsListDataSummary
+     ProtocolsListDataSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#ProtocolsListDataSummary%27"><span class="hs-identifier hs-type">ProtocolsListDataSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247554"><span class="annot"><span class="annottext">Maybe Text
+listId :: Maybe Text
+$sel:listId:ProtocolsListDataSummary' :: ProtocolsListDataSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679247554"><span class="hs-identifier hs-var hs-var">listId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679247554"><span class="hs-identifier hs-var">listId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247553"><span class="annot"><span class="annottext">s :: ProtocolsListDataSummary
+</span><a href="#local-6989586621679247553"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#ProtocolsListDataSummary%27"><span class="hs-identifier hs-type">ProtocolsListDataSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247552"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679247552"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProtocolsListDataSummary
+</span><a href="#local-6989586621679247553"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:listId:ProtocolsListDataSummary' :: Maybe Text
+</span><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#%24sel%3AlistId%3AProtocolsListDataSummary%27"><span class="hs-identifier hs-var">listId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679247552"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#ProtocolsListDataSummary"><span class="hs-identifier hs-type">ProtocolsListDataSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | The name of the specified protocols list.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#protocolsListDataSummary_listName"><span class="hs-identifier hs-type">protocolsListDataSummary_listName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#ProtocolsListDataSummary"><span class="hs-identifier hs-type">ProtocolsListDataSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="protocolsListDataSummary_listName"><span class="annot"><span class="annottext">protocolsListDataSummary_listName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ProtocolsListDataSummary -&gt; f ProtocolsListDataSummary
+</span><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#protocolsListDataSummary_listName"><span class="hs-identifier hs-var hs-var">protocolsListDataSummary_listName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProtocolsListDataSummary -&gt; Maybe Text)
+-&gt; (ProtocolsListDataSummary
+    -&gt; Maybe Text -&gt; ProtocolsListDataSummary)
+-&gt; Lens
+     ProtocolsListDataSummary
+     ProtocolsListDataSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#ProtocolsListDataSummary%27"><span class="hs-identifier hs-type">ProtocolsListDataSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247550"><span class="annot"><span class="annottext">Maybe Text
+listName :: Maybe Text
+$sel:listName:ProtocolsListDataSummary' :: ProtocolsListDataSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679247550"><span class="hs-identifier hs-var hs-var">listName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679247550"><span class="hs-identifier hs-var">listName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247549"><span class="annot"><span class="annottext">s :: ProtocolsListDataSummary
+</span><a href="#local-6989586621679247549"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#ProtocolsListDataSummary%27"><span class="hs-identifier hs-type">ProtocolsListDataSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247548"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679247548"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProtocolsListDataSummary
+</span><a href="#local-6989586621679247549"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:listName:ProtocolsListDataSummary' :: Maybe Text
+</span><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#%24sel%3AlistName%3AProtocolsListDataSummary%27"><span class="hs-identifier hs-var">listName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679247548"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#ProtocolsListDataSummary"><span class="hs-identifier hs-type">ProtocolsListDataSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247307"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#ProtocolsListDataSummary"><span class="hs-identifier hs-type">ProtocolsListDataSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679247305"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProtocolsListDataSummary
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247545"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#ProtocolsListDataSummary"><span class="hs-identifier hs-type">ProtocolsListDataSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679247543"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProtocolsListDataSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ProtocolsListDataSummary)
@@ -267,54 +267,26 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ProtocolsListDataSummary&quot;</span></span><span>
-</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679247302"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679247302"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679247540"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679247540"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
 -&gt; Maybe Text
 -&gt; Maybe Text
--&gt; Maybe [Text]
+-&gt; Maybe Text
 -&gt; ProtocolsListDataSummary
 </span><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#ProtocolsListDataSummary%27"><span class="hs-identifier hs-var">ProtocolsListDataSummary'</span></a></span><span>
-</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text]
  -&gt; Maybe Text
  -&gt; Maybe Text
- -&gt; Maybe [Text]
+ -&gt; Maybe Text
  -&gt; ProtocolsListDataSummary)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe [Text])
 -&gt; Parser
      (Maybe Text
-      -&gt; Maybe Text -&gt; Maybe [Text] -&gt; ProtocolsListDataSummary)
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; ProtocolsListDataSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679247302"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ListName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text -&gt; Maybe [Text] -&gt; ProtocolsListDataSummary)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe Text -&gt; Maybe [Text] -&gt; ProtocolsListDataSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679247302"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ListId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe [Text] -&gt; ProtocolsListDataSummary)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe [Text] -&gt; ProtocolsListDataSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679247302"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ListArn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Text] -&gt; ProtocolsListDataSummary)
--&gt; Parser (Maybe [Text]) -&gt; Parser ProtocolsListDataSummary
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679247302"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679247540"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ProtocolsList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -323,9 +295,37 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; ProtocolsListDataSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; ProtocolsListDataSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679247540"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ListArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; ProtocolsListDataSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; ProtocolsListDataSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679247540"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ListId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ProtocolsListDataSummary)
+-&gt; Parser (Maybe Text) -&gt; Parser ProtocolsListDataSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679247540"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ListName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247295"><span id="local-6989586621679247297"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#ProtocolsListDataSummary"><span class="hs-identifier hs-type">ProtocolsListDataSummary</span></a></span></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247533"><span id="local-6989586621679247535"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#ProtocolsListDataSummary"><span class="hs-identifier hs-type">ProtocolsListDataSummary</span></a></span></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247292"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#ProtocolsListDataSummary"><span class="hs-identifier hs-type">ProtocolsListDataSummary</span></a></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247530"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListDataSummary.html#ProtocolsListDataSummary"><span class="hs-identifier hs-type">ProtocolsListDataSummary</span></a></span></span><span>
 </span><span id="line-98"></span></pre></body></html>

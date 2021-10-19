@@ -72,7 +72,7 @@
 </span><span id="line-72"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | /See:/ 'newDeleteImportedKeyMaterial' smart constructor.</span><span>
-</span><span id="line-75"></span><span id="local-6989586621679258657"><span id="local-6989586621679258658"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteImportedKeyMaterial"><span class="annot"><a href="Network.AWS.KMS.DeleteImportedKeyMaterial.html#DeleteImportedKeyMaterial"><span class="hs-identifier hs-var">DeleteImportedKeyMaterial</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteImportedKeyMaterial%27"><span class="annot"><a href="Network.AWS.KMS.DeleteImportedKeyMaterial.html#DeleteImportedKeyMaterial%27"><span class="hs-identifier hs-var">DeleteImportedKeyMaterial'</span></a></span></span><span>
+</span><span id="line-75"></span><span id="local-6989586621679258886"><span id="local-6989586621679258887"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteImportedKeyMaterial"><span class="annot"><a href="Network.AWS.KMS.DeleteImportedKeyMaterial.html#DeleteImportedKeyMaterial"><span class="hs-identifier hs-var">DeleteImportedKeyMaterial</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteImportedKeyMaterial%27"><span class="annot"><a href="Network.AWS.KMS.DeleteImportedKeyMaterial.html#DeleteImportedKeyMaterial%27"><span class="hs-identifier hs-var">DeleteImportedKeyMaterial'</span></a></span></span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Identifies the KMS key from which you are deleting imported key</span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-comment">-- material. The @Origin@ of the KMS key must be @EXTERNAL@.</span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -90,7 +90,7 @@
 </span><span id="line-90"></span><span>    </span><span id="%24sel%3AkeyId%3ADeleteImportedKeyMaterial%27"><span class="annot"><span class="annottext">DeleteImportedKeyMaterial -&gt; Text
 </span><a href="Network.AWS.KMS.DeleteImportedKeyMaterial.html#%24sel%3AkeyId%3ADeleteImportedKeyMaterial%27"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-91"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-92"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679258651"><span id="local-6989586621679258653"><span class="annot"><span class="annottext">DeleteImportedKeyMaterial -&gt; DeleteImportedKeyMaterial -&gt; Bool
+</span><span id="line-92"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679258880"><span id="local-6989586621679258882"><span class="annot"><span class="annottext">DeleteImportedKeyMaterial -&gt; DeleteImportedKeyMaterial -&gt; Bool
 (DeleteImportedKeyMaterial -&gt; DeleteImportedKeyMaterial -&gt; Bool)
 -&gt; (DeleteImportedKeyMaterial -&gt; DeleteImportedKeyMaterial -&gt; Bool)
 -&gt; Eq DeleteImportedKeyMaterial
@@ -99,7 +99,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteImportedKeyMaterial -&gt; DeleteImportedKeyMaterial -&gt; Bool
 == :: DeleteImportedKeyMaterial -&gt; DeleteImportedKeyMaterial -&gt; Bool
 $c== :: DeleteImportedKeyMaterial -&gt; DeleteImportedKeyMaterial -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258642"><span id="local-6989586621679258644"><span id="local-6989586621679258646"><span id="local-6989586621679258648"><span class="annot"><span class="annottext">ReadPrec [DeleteImportedKeyMaterial]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258871"><span id="local-6989586621679258873"><span id="local-6989586621679258875"><span id="local-6989586621679258877"><span class="annot"><span class="annottext">ReadPrec [DeleteImportedKeyMaterial]
 ReadPrec DeleteImportedKeyMaterial
 Int -&gt; ReadS DeleteImportedKeyMaterial
 ReadS [DeleteImportedKeyMaterial]
@@ -119,7 +119,7 @@ readList :: ReadS [DeleteImportedKeyMaterial]
 $creadList :: ReadS [DeleteImportedKeyMaterial]
 readsPrec :: Int -&gt; ReadS DeleteImportedKeyMaterial
 $creadsPrec :: Int -&gt; ReadS DeleteImportedKeyMaterial
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258635"><span id="local-6989586621679258637"><span id="local-6989586621679258639"><span class="annot"><span class="annottext">Int -&gt; DeleteImportedKeyMaterial -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258864"><span id="local-6989586621679258866"><span id="local-6989586621679258868"><span class="annot"><span class="annottext">Int -&gt; DeleteImportedKeyMaterial -&gt; ShowS
 [DeleteImportedKeyMaterial] -&gt; ShowS
 DeleteImportedKeyMaterial -&gt; String
 (Int -&gt; DeleteImportedKeyMaterial -&gt; ShowS)
@@ -178,12 +178,12 @@ DeleteImportedKeyMaterial -&gt; Rep DeleteImportedKeyMaterial x
 </span><span id="line-118"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-119"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.DeleteImportedKeyMaterial.html#DeleteImportedKeyMaterial"><span class="hs-identifier hs-type">DeleteImportedKeyMaterial</span></a></span><span>
 </span><span id="line-120"></span><span id="newDeleteImportedKeyMaterial"><span class="annot"><span class="annottext">newDeleteImportedKeyMaterial :: Text -&gt; DeleteImportedKeyMaterial
-</span><a href="Network.AWS.KMS.DeleteImportedKeyMaterial.html#newDeleteImportedKeyMaterial"><span class="hs-identifier hs-var hs-var">newDeleteImportedKeyMaterial</span></a></span></span><span> </span><span id="local-6989586621679258630"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679258630"><span class="hs-identifier hs-var">pKeyId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.KMS.DeleteImportedKeyMaterial.html#newDeleteImportedKeyMaterial"><span class="hs-identifier hs-var hs-var">newDeleteImportedKeyMaterial</span></a></span></span><span> </span><span id="local-6989586621679258859"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258859"><span class="hs-identifier hs-var">pKeyId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>  </span><span class="annot"><span class="annottext">DeleteImportedKeyMaterial' :: Text -&gt; DeleteImportedKeyMaterial
 </span><a href="Network.AWS.KMS.DeleteImportedKeyMaterial.html#DeleteImportedKeyMaterial%27"><span class="hs-identifier hs-type">DeleteImportedKeyMaterial'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:DeleteImportedKeyMaterial' :: Text
 </span><a href="Network.AWS.KMS.DeleteImportedKeyMaterial.html#%24sel%3AkeyId%3ADeleteImportedKeyMaterial%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679258630"><span class="hs-identifier hs-var">pKeyId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679258859"><span class="hs-identifier hs-var">pKeyId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- | Identifies the KMS key from which you are deleting imported key</span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- material. The @Origin@ of the KMS key must be @EXTERNAL@.</span><span>
@@ -207,28 +207,28 @@ DeleteImportedKeyMaterial -&gt; Rep DeleteImportedKeyMaterial x
 -&gt; Lens
      DeleteImportedKeyMaterial DeleteImportedKeyMaterial Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.DeleteImportedKeyMaterial.html#DeleteImportedKeyMaterial%27"><span class="hs-identifier hs-type">DeleteImportedKeyMaterial'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258627"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.DeleteImportedKeyMaterial.html#DeleteImportedKeyMaterial%27"><span class="hs-identifier hs-type">DeleteImportedKeyMaterial'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258856"><span class="annot"><span class="annottext">Text
 keyId :: Text
 $sel:keyId:DeleteImportedKeyMaterial' :: DeleteImportedKeyMaterial -&gt; Text
-</span><a href="#local-6989586621679258627"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679258627"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258626"><span class="annot"><span class="annottext">s :: DeleteImportedKeyMaterial
-</span><a href="#local-6989586621679258626"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.DeleteImportedKeyMaterial.html#DeleteImportedKeyMaterial%27"><span class="hs-identifier hs-type">DeleteImportedKeyMaterial'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258625"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679258625"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteImportedKeyMaterial
-</span><a href="#local-6989586621679258626"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:DeleteImportedKeyMaterial' :: Text
+</span><a href="#local-6989586621679258856"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258856"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258855"><span class="annot"><span class="annottext">s :: DeleteImportedKeyMaterial
+</span><a href="#local-6989586621679258855"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.DeleteImportedKeyMaterial.html#DeleteImportedKeyMaterial%27"><span class="hs-identifier hs-type">DeleteImportedKeyMaterial'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258854"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258854"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteImportedKeyMaterial
+</span><a href="#local-6989586621679258855"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:DeleteImportedKeyMaterial' :: Text
 </span><a href="Network.AWS.KMS.DeleteImportedKeyMaterial.html#%24sel%3AkeyId%3ADeleteImportedKeyMaterial%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679258625"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.DeleteImportedKeyMaterial.html#DeleteImportedKeyMaterial"><span class="hs-identifier hs-type">DeleteImportedKeyMaterial</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679258854"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.DeleteImportedKeyMaterial.html#DeleteImportedKeyMaterial"><span class="hs-identifier hs-type">DeleteImportedKeyMaterial</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.DeleteImportedKeyMaterial.html#DeleteImportedKeyMaterial"><span class="hs-identifier hs-type">DeleteImportedKeyMaterial</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-141"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-142"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.DeleteImportedKeyMaterial.html#DeleteImportedKeyMaterial"><span class="hs-identifier hs-type">DeleteImportedKeyMaterial</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-143"></span><span>      </span><span class="annot"><a href="Network.AWS.KMS.DeleteImportedKeyMaterial.html#DeleteImportedKeyMaterialResponse"><span class="hs-identifier hs-type">DeleteImportedKeyMaterialResponse</span></a></span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679258621"><span class="annot"><span class="annottext">request :: DeleteImportedKeyMaterial -&gt; Request DeleteImportedKeyMaterial
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679258850"><span class="annot"><span class="annottext">request :: DeleteImportedKeyMaterial -&gt; Request DeleteImportedKeyMaterial
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DeleteImportedKeyMaterial -&gt; Request DeleteImportedKeyMaterial
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.KMS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679258617"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679258846"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteImportedKeyMaterial
 -&gt; ClientResponse ClientBody
@@ -255,12 +255,12 @@ AWSResponse a
 DeleteImportedKeyMaterialResponse
 </span><a href="Network.AWS.KMS.DeleteImportedKeyMaterial.html#DeleteImportedKeyMaterialResponse%27"><span class="hs-identifier hs-var">DeleteImportedKeyMaterialResponse'</span></a></span><span>
 </span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258610"><span id="local-6989586621679258612"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.DeleteImportedKeyMaterial.html#DeleteImportedKeyMaterial"><span class="hs-identifier hs-type">DeleteImportedKeyMaterial</span></a></span></span></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258839"><span id="local-6989586621679258841"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.DeleteImportedKeyMaterial.html#DeleteImportedKeyMaterial"><span class="hs-identifier hs-type">DeleteImportedKeyMaterial</span></a></span></span></span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258607"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.DeleteImportedKeyMaterial.html#DeleteImportedKeyMaterial"><span class="hs-identifier hs-type">DeleteImportedKeyMaterial</span></a></span></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258836"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.DeleteImportedKeyMaterial.html#DeleteImportedKeyMaterial"><span class="hs-identifier hs-type">DeleteImportedKeyMaterial</span></a></span></span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.DeleteImportedKeyMaterial.html#DeleteImportedKeyMaterial"><span class="hs-identifier hs-type">DeleteImportedKeyMaterial</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679258603"><span class="annot"><span class="annottext">toHeaders :: DeleteImportedKeyMaterial -&gt; [Header]
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679258832"><span class="annot"><span class="annottext">toHeaders :: DeleteImportedKeyMaterial -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteImportedKeyMaterial -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -287,12 +287,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-165"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-166"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258593"><span id="local-6989586621679258595"><span id="local-6989586621679258597"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.DeleteImportedKeyMaterial.html#DeleteImportedKeyMaterial"><span class="hs-identifier hs-type">DeleteImportedKeyMaterial</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621679258591"><span class="annot"><span class="annottext">toJSON :: DeleteImportedKeyMaterial -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.DeleteImportedKeyMaterial.html#DeleteImportedKeyMaterial%27"><span class="hs-identifier hs-type">DeleteImportedKeyMaterial'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258589"><span class="annot"><span class="annottext">Text
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258822"><span id="local-6989586621679258824"><span id="local-6989586621679258826"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.DeleteImportedKeyMaterial.html#DeleteImportedKeyMaterial"><span class="hs-identifier hs-type">DeleteImportedKeyMaterial</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679258820"><span class="annot"><span class="annottext">toJSON :: DeleteImportedKeyMaterial -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.DeleteImportedKeyMaterial.html#DeleteImportedKeyMaterial%27"><span class="hs-identifier hs-type">DeleteImportedKeyMaterial'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258818"><span class="annot"><span class="annottext">Text
 keyId :: Text
 $sel:keyId:DeleteImportedKeyMaterial' :: DeleteImportedKeyMaterial -&gt; Text
-</span><a href="#local-6989586621679258589"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679258818"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-171"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -304,18 +304,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;KeyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679258589"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679258818"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-173"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.DeleteImportedKeyMaterial.html#DeleteImportedKeyMaterial"><span class="hs-identifier hs-type">DeleteImportedKeyMaterial</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679258583"><span class="annot"><span class="annottext">toPath :: DeleteImportedKeyMaterial -&gt; ByteString
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679258812"><span class="annot"><span class="annottext">toPath :: DeleteImportedKeyMaterial -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteImportedKeyMaterial -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.DeleteImportedKeyMaterial.html#DeleteImportedKeyMaterial"><span class="hs-identifier hs-type">DeleteImportedKeyMaterial</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621679258579"><span class="annot"><span class="annottext">toQuery :: DeleteImportedKeyMaterial -&gt; QueryString
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679258808"><span class="annot"><span class="annottext">toQuery :: DeleteImportedKeyMaterial -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteImportedKeyMaterial -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -323,10 +323,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- | /See:/ 'newDeleteImportedKeyMaterialResponse' smart constructor.</span><span>
-</span><span id="line-182"></span><span id="local-6989586621679258576"><span id="local-6989586621679258577"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteImportedKeyMaterialResponse"><span class="annot"><a href="Network.AWS.KMS.DeleteImportedKeyMaterial.html#DeleteImportedKeyMaterialResponse"><span class="hs-identifier hs-var">DeleteImportedKeyMaterialResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteImportedKeyMaterialResponse%27"><span class="annot"><a href="Network.AWS.KMS.DeleteImportedKeyMaterial.html#DeleteImportedKeyMaterialResponse%27"><span class="hs-identifier hs-var">DeleteImportedKeyMaterialResponse'</span></a></span></span><span>
+</span><span id="line-182"></span><span id="local-6989586621679258805"><span id="local-6989586621679258806"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteImportedKeyMaterialResponse"><span class="annot"><a href="Network.AWS.KMS.DeleteImportedKeyMaterial.html#DeleteImportedKeyMaterialResponse"><span class="hs-identifier hs-var">DeleteImportedKeyMaterialResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteImportedKeyMaterialResponse%27"><span class="annot"><a href="Network.AWS.KMS.DeleteImportedKeyMaterial.html#DeleteImportedKeyMaterialResponse%27"><span class="hs-identifier hs-var">DeleteImportedKeyMaterialResponse'</span></a></span></span><span>
 </span><span id="line-183"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-184"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-185"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679258572"><span id="local-6989586621679258574"><span class="annot"><span class="annottext">DeleteImportedKeyMaterialResponse
+</span><span id="line-185"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679258801"><span id="local-6989586621679258803"><span class="annot"><span class="annottext">DeleteImportedKeyMaterialResponse
 -&gt; DeleteImportedKeyMaterialResponse -&gt; Bool
 (DeleteImportedKeyMaterialResponse
  -&gt; DeleteImportedKeyMaterialResponse -&gt; Bool)
@@ -342,7 +342,7 @@ $c/= :: DeleteImportedKeyMaterialResponse
 -&gt; DeleteImportedKeyMaterialResponse -&gt; Bool
 $c== :: DeleteImportedKeyMaterialResponse
 -&gt; DeleteImportedKeyMaterialResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258564"><span id="local-6989586621679258566"><span id="local-6989586621679258568"><span id="local-6989586621679258570"><span class="annot"><span class="annottext">ReadPrec [DeleteImportedKeyMaterialResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258793"><span id="local-6989586621679258795"><span id="local-6989586621679258797"><span id="local-6989586621679258799"><span class="annot"><span class="annottext">ReadPrec [DeleteImportedKeyMaterialResponse]
 ReadPrec DeleteImportedKeyMaterialResponse
 Int -&gt; ReadS DeleteImportedKeyMaterialResponse
 ReadS [DeleteImportedKeyMaterialResponse]
@@ -362,7 +362,7 @@ readList :: ReadS [DeleteImportedKeyMaterialResponse]
 $creadList :: ReadS [DeleteImportedKeyMaterialResponse]
 readsPrec :: Int -&gt; ReadS DeleteImportedKeyMaterialResponse
 $creadsPrec :: Int -&gt; ReadS DeleteImportedKeyMaterialResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258558"><span id="local-6989586621679258560"><span id="local-6989586621679258562"><span class="annot"><span class="annottext">Int -&gt; DeleteImportedKeyMaterialResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258787"><span id="local-6989586621679258789"><span id="local-6989586621679258791"><span class="annot"><span class="annottext">Int -&gt; DeleteImportedKeyMaterialResponse -&gt; ShowS
 [DeleteImportedKeyMaterialResponse] -&gt; ShowS
 DeleteImportedKeyMaterialResponse -&gt; String
 (Int -&gt; DeleteImportedKeyMaterialResponse -&gt; ShowS)
@@ -412,6 +412,6 @@ DeleteImportedKeyMaterialResponse
 </span><a href="Network.AWS.KMS.DeleteImportedKeyMaterial.html#DeleteImportedKeyMaterialResponse%27"><span class="hs-identifier hs-var">DeleteImportedKeyMaterialResponse'</span></a></span><span>
 </span><span id="line-195"></span><span>
 </span><span id="line-196"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-197"></span><span>  </span><span id="local-6989586621679258554"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679258783"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-198"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.DeleteImportedKeyMaterial.html#DeleteImportedKeyMaterialResponse"><span class="hs-identifier hs-type">DeleteImportedKeyMaterialResponse</span></a></span></span><span>
 </span><span id="line-199"></span></pre></body></html>

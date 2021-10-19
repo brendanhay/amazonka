@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Describes a disk snapshot.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newDiskSnapshotInfo' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679608520"><span id="local-6989586621679608521"></span></span><span class="hs-keyword">data</span><span> </span><span id="DiskSnapshotInfo"><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskSnapshotInfo.html#DiskSnapshotInfo"><span class="hs-identifier hs-var">DiskSnapshotInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DiskSnapshotInfo%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskSnapshotInfo.html#DiskSnapshotInfo%27"><span class="hs-identifier hs-var">DiskSnapshotInfo'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679609410"><span id="local-6989586621679609411"></span></span><span class="hs-keyword">data</span><span> </span><span id="DiskSnapshotInfo"><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskSnapshotInfo.html#DiskSnapshotInfo"><span class="hs-identifier hs-var">DiskSnapshotInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DiskSnapshotInfo%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskSnapshotInfo.html#DiskSnapshotInfo%27"><span class="hs-identifier hs-var">DiskSnapshotInfo'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The size of the disk in GB (e.g., @32@).</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AsizeInGb%3ADiskSnapshotInfo%27"><span class="annot"><span class="annottext">DiskSnapshotInfo -&gt; Maybe Int
 </span><a href="Network.AWS.Lightsail.Types.DiskSnapshotInfo.html#%24sel%3AsizeInGb%3ADiskSnapshotInfo%27"><span class="hs-identifier hs-var hs-var">sizeInGb</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679608514"><span id="local-6989586621679608516"><span class="annot"><span class="annottext">DiskSnapshotInfo -&gt; DiskSnapshotInfo -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679609404"><span id="local-6989586621679609406"><span class="annot"><span class="annottext">DiskSnapshotInfo -&gt; DiskSnapshotInfo -&gt; Bool
 (DiskSnapshotInfo -&gt; DiskSnapshotInfo -&gt; Bool)
 -&gt; (DiskSnapshotInfo -&gt; DiskSnapshotInfo -&gt; Bool)
 -&gt; Eq DiskSnapshotInfo
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DiskSnapshotInfo -&gt; DiskSnapshotInfo -&gt; Bool
 == :: DiskSnapshotInfo -&gt; DiskSnapshotInfo -&gt; Bool
 $c== :: DiskSnapshotInfo -&gt; DiskSnapshotInfo -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679608505"><span id="local-6989586621679608507"><span id="local-6989586621679608509"><span id="local-6989586621679608511"><span class="annot"><span class="annottext">ReadPrec [DiskSnapshotInfo]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679609395"><span id="local-6989586621679609397"><span id="local-6989586621679609399"><span id="local-6989586621679609401"><span class="annot"><span class="annottext">ReadPrec [DiskSnapshotInfo]
 ReadPrec DiskSnapshotInfo
 Int -&gt; ReadS DiskSnapshotInfo
 ReadS [DiskSnapshotInfo]
@@ -60,7 +60,7 @@ readList :: ReadS [DiskSnapshotInfo]
 $creadList :: ReadS [DiskSnapshotInfo]
 readsPrec :: Int -&gt; ReadS DiskSnapshotInfo
 $creadsPrec :: Int -&gt; ReadS DiskSnapshotInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679608498"><span id="local-6989586621679608500"><span id="local-6989586621679608502"><span class="annot"><span class="annottext">Int -&gt; DiskSnapshotInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679609388"><span id="local-6989586621679609390"><span id="local-6989586621679609392"><span class="annot"><span class="annottext">Int -&gt; DiskSnapshotInfo -&gt; ShowS
 [DiskSnapshotInfo] -&gt; ShowS
 DiskSnapshotInfo -&gt; String
 (Int -&gt; DiskSnapshotInfo -&gt; ShowS)
@@ -113,19 +113,19 @@ forall a. Maybe a
 -&gt; (DiskSnapshotInfo -&gt; Maybe Int -&gt; DiskSnapshotInfo)
 -&gt; Lens DiskSnapshotInfo DiskSnapshotInfo (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskSnapshotInfo.html#DiskSnapshotInfo%27"><span class="hs-identifier hs-type">DiskSnapshotInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679608489"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskSnapshotInfo.html#DiskSnapshotInfo%27"><span class="hs-identifier hs-type">DiskSnapshotInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679609379"><span class="annot"><span class="annottext">Maybe Int
 sizeInGb :: Maybe Int
 $sel:sizeInGb:DiskSnapshotInfo' :: DiskSnapshotInfo -&gt; Maybe Int
-</span><a href="#local-6989586621679608489"><span class="hs-identifier hs-var hs-var">sizeInGb</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679608489"><span class="hs-identifier hs-var">sizeInGb</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679608488"><span class="annot"><span class="annottext">s :: DiskSnapshotInfo
-</span><a href="#local-6989586621679608488"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskSnapshotInfo.html#DiskSnapshotInfo%27"><span class="hs-identifier hs-type">DiskSnapshotInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679608487"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679608487"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DiskSnapshotInfo
-</span><a href="#local-6989586621679608488"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sizeInGb:DiskSnapshotInfo' :: Maybe Int
+</span><a href="#local-6989586621679609379"><span class="hs-identifier hs-var hs-var">sizeInGb</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679609379"><span class="hs-identifier hs-var">sizeInGb</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679609378"><span class="annot"><span class="annottext">s :: DiskSnapshotInfo
+</span><a href="#local-6989586621679609378"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskSnapshotInfo.html#DiskSnapshotInfo%27"><span class="hs-identifier hs-type">DiskSnapshotInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679609377"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679609377"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DiskSnapshotInfo
+</span><a href="#local-6989586621679609378"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sizeInGb:DiskSnapshotInfo' :: Maybe Int
 </span><a href="Network.AWS.Lightsail.Types.DiskSnapshotInfo.html#%24sel%3AsizeInGb%3ADiskSnapshotInfo%27"><span class="hs-identifier hs-var">sizeInGb</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679608487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskSnapshotInfo.html#DiskSnapshotInfo"><span class="hs-identifier hs-type">DiskSnapshotInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679609377"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskSnapshotInfo.html#DiskSnapshotInfo"><span class="hs-identifier hs-type">DiskSnapshotInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>
-</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679608484"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskSnapshotInfo.html#DiskSnapshotInfo"><span class="hs-identifier hs-type">DiskSnapshotInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-54"></span><span>  </span><span id="local-6989586621679608482"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DiskSnapshotInfo
+</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679609374"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskSnapshotInfo.html#DiskSnapshotInfo"><span class="hs-identifier hs-type">DiskSnapshotInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621679609372"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DiskSnapshotInfo
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DiskSnapshotInfo)
@@ -135,21 +135,21 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DiskSnapshotInfo&quot;</span></span><span>
-</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679608479"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679608479"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679609369"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679609369"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-58"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int -&gt; DiskSnapshotInfo
 </span><a href="Network.AWS.Lightsail.Types.DiskSnapshotInfo.html#DiskSnapshotInfo%27"><span class="hs-identifier hs-var">DiskSnapshotInfo'</span></a></span><span>
 </span><span id="line-59"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int -&gt; DiskSnapshotInfo)
 -&gt; Parser (Maybe Int) -&gt; Parser DiskSnapshotInfo
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679608479"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679609369"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sizeInGb&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679608473"><span id="local-6989586621679608475"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskSnapshotInfo.html#DiskSnapshotInfo"><span class="hs-identifier hs-type">DiskSnapshotInfo</span></a></span></span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679609363"><span id="local-6989586621679609365"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskSnapshotInfo.html#DiskSnapshotInfo"><span class="hs-identifier hs-type">DiskSnapshotInfo</span></a></span></span></span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679608470"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskSnapshotInfo.html#DiskSnapshotInfo"><span class="hs-identifier hs-type">DiskSnapshotInfo</span></a></span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679609360"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DiskSnapshotInfo.html#DiskSnapshotInfo"><span class="hs-identifier hs-type">DiskSnapshotInfo</span></a></span></span><span>
 </span><span id="line-65"></span></pre></body></html>

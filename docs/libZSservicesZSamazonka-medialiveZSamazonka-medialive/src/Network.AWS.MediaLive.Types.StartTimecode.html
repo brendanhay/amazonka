@@ -26,14 +26,14 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Settings to identify the start of the clip.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newStartTimecode' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679915087"><span id="local-6989586621679915088"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartTimecode"><span class="annot"><a href="Network.AWS.MediaLive.Types.StartTimecode.html#StartTimecode"><span class="hs-identifier hs-var">StartTimecode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartTimecode%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.StartTimecode.html#StartTimecode%27"><span class="hs-identifier hs-var">StartTimecode'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679922589"><span id="local-6989586621679922590"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartTimecode"><span class="annot"><a href="Network.AWS.MediaLive.Types.StartTimecode.html#StartTimecode"><span class="hs-identifier hs-var">StartTimecode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartTimecode%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.StartTimecode.html#StartTimecode%27"><span class="hs-identifier hs-var">StartTimecode'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The timecode for the frame where you want to start the clip. Optional;</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- if not specified, the clip starts at first frame in the file. Enter the</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- timecode as HH:MM:SS:FF or HH:MM:SS;FF.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Atimecode%3AStartTimecode%27"><span class="annot"><span class="annottext">StartTimecode -&gt; Maybe Text
 </span><a href="Network.AWS.MediaLive.Types.StartTimecode.html#%24sel%3Atimecode%3AStartTimecode%27"><span class="hs-identifier hs-var hs-var">timecode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679915081"><span id="local-6989586621679915083"><span class="annot"><span class="annottext">StartTimecode -&gt; StartTimecode -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679922583"><span id="local-6989586621679922585"><span class="annot"><span class="annottext">StartTimecode -&gt; StartTimecode -&gt; Bool
 (StartTimecode -&gt; StartTimecode -&gt; Bool)
 -&gt; (StartTimecode -&gt; StartTimecode -&gt; Bool) -&gt; Eq StartTimecode
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StartTimecode -&gt; StartTimecode -&gt; Bool
 == :: StartTimecode -&gt; StartTimecode -&gt; Bool
 $c== :: StartTimecode -&gt; StartTimecode -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679915072"><span id="local-6989586621679915074"><span id="local-6989586621679915076"><span id="local-6989586621679915078"><span class="annot"><span class="annottext">ReadPrec [StartTimecode]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679922574"><span id="local-6989586621679922576"><span id="local-6989586621679922578"><span id="local-6989586621679922580"><span class="annot"><span class="annottext">ReadPrec [StartTimecode]
 ReadPrec StartTimecode
 Int -&gt; ReadS StartTimecode
 ReadS [StartTimecode]
@@ -61,7 +61,7 @@ readList :: ReadS [StartTimecode]
 $creadList :: ReadS [StartTimecode]
 readsPrec :: Int -&gt; ReadS StartTimecode
 $creadsPrec :: Int -&gt; ReadS StartTimecode
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679915065"><span id="local-6989586621679915067"><span id="local-6989586621679915069"><span class="annot"><span class="annottext">Int -&gt; StartTimecode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679922567"><span id="local-6989586621679922569"><span id="local-6989586621679922571"><span class="annot"><span class="annottext">Int -&gt; StartTimecode -&gt; ShowS
 [StartTimecode] -&gt; ShowS
 StartTimecode -&gt; String
 (Int -&gt; StartTimecode -&gt; ShowS)
@@ -117,19 +117,19 @@ forall a. Maybe a
 -&gt; (StartTimecode -&gt; Maybe Text -&gt; StartTimecode)
 -&gt; Lens StartTimecode StartTimecode (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.StartTimecode.html#StartTimecode%27"><span class="hs-identifier hs-type">StartTimecode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679915056"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.StartTimecode.html#StartTimecode%27"><span class="hs-identifier hs-type">StartTimecode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679922558"><span class="annot"><span class="annottext">Maybe Text
 timecode :: Maybe Text
 $sel:timecode:StartTimecode' :: StartTimecode -&gt; Maybe Text
-</span><a href="#local-6989586621679915056"><span class="hs-identifier hs-var hs-var">timecode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679915056"><span class="hs-identifier hs-var">timecode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679915055"><span class="annot"><span class="annottext">s :: StartTimecode
-</span><a href="#local-6989586621679915055"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.StartTimecode.html#StartTimecode%27"><span class="hs-identifier hs-type">StartTimecode'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679915054"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679915054"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTimecode
-</span><a href="#local-6989586621679915055"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timecode:StartTimecode' :: Maybe Text
+</span><a href="#local-6989586621679922558"><span class="hs-identifier hs-var hs-var">timecode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679922558"><span class="hs-identifier hs-var">timecode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679922557"><span class="annot"><span class="annottext">s :: StartTimecode
+</span><a href="#local-6989586621679922557"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.StartTimecode.html#StartTimecode%27"><span class="hs-identifier hs-type">StartTimecode'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679922556"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679922556"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTimecode
+</span><a href="#local-6989586621679922557"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timecode:StartTimecode' :: Maybe Text
 </span><a href="Network.AWS.MediaLive.Types.StartTimecode.html#%24sel%3Atimecode%3AStartTimecode%27"><span class="hs-identifier hs-var">timecode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679915054"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StartTimecode.html#StartTimecode"><span class="hs-identifier hs-type">StartTimecode</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679922556"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StartTimecode.html#StartTimecode"><span class="hs-identifier hs-type">StartTimecode</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679915051"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StartTimecode.html#StartTimecode"><span class="hs-identifier hs-type">StartTimecode</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-60"></span><span>  </span><span id="local-6989586621679915049"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StartTimecode
+</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679922553"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StartTimecode.html#StartTimecode"><span class="hs-identifier hs-type">StartTimecode</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-60"></span><span>  </span><span id="local-6989586621679922551"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StartTimecode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-61"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser StartTimecode)
@@ -139,29 +139,29 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;StartTimecode&quot;</span></span><span>
-</span><span id="line-63"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679915046"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679915046"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-63"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679922548"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679922548"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-64"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; StartTimecode
 </span><a href="Network.AWS.MediaLive.Types.StartTimecode.html#StartTimecode%27"><span class="hs-identifier hs-var">StartTimecode'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; StartTimecode)
 -&gt; Parser (Maybe Text) -&gt; Parser StartTimecode
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679915046"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679922548"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;timecode&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679915040"><span id="local-6989586621679915042"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StartTimecode.html#StartTimecode"><span class="hs-identifier hs-type">StartTimecode</span></a></span></span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679922542"><span id="local-6989586621679922544"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StartTimecode.html#StartTimecode"><span class="hs-identifier hs-type">StartTimecode</span></a></span></span></span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679915037"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StartTimecode.html#StartTimecode"><span class="hs-identifier hs-type">StartTimecode</span></a></span></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679922539"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StartTimecode.html#StartTimecode"><span class="hs-identifier hs-type">StartTimecode</span></a></span></span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679915029"><span id="local-6989586621679915031"><span id="local-6989586621679915033"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StartTimecode.html#StartTimecode"><span class="hs-identifier hs-type">StartTimecode</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679915027"><span class="annot"><span class="annottext">toJSON :: StartTimecode -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StartTimecode.html#StartTimecode%27"><span class="hs-identifier hs-type">StartTimecode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679915025"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679922531"><span id="local-6989586621679922533"><span id="local-6989586621679922535"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StartTimecode.html#StartTimecode"><span class="hs-identifier hs-type">StartTimecode</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679922529"><span class="annot"><span class="annottext">toJSON :: StartTimecode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StartTimecode.html#StartTimecode%27"><span class="hs-identifier hs-type">StartTimecode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679922527"><span class="annot"><span class="annottext">Maybe Text
 timecode :: Maybe Text
 $sel:timecode:StartTimecode' :: StartTimecode -&gt; Maybe Text
-</span><a href="#local-6989586621679915025"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679922527"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -173,6 +173,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679915025"><span class="hs-identifier hs-var">timecode</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679922527"><span class="hs-identifier hs-var">timecode</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span></pre></body></html>

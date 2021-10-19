@@ -50,7 +50,7 @@
 </span><span id="line-50"></span><span class="hs-comment">-- 5,000th request.</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- /See:/ 'newTimeWindow' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679309905"><span id="local-6989586621679309906"></span></span><span class="hs-keyword">data</span><span> </span><span id="TimeWindow"><span class="annot"><a href="Network.AWS.WAFRegional.Types.TimeWindow.html#TimeWindow"><span class="hs-identifier hs-var">TimeWindow</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TimeWindow%27"><span class="annot"><a href="Network.AWS.WAFRegional.Types.TimeWindow.html#TimeWindow%27"><span class="hs-identifier hs-var">TimeWindow'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679310157"><span id="local-6989586621679310158"></span></span><span class="hs-keyword">data</span><span> </span><span id="TimeWindow"><span class="annot"><a href="Network.AWS.WAFRegional.Types.TimeWindow.html#TimeWindow"><span class="hs-identifier hs-var">TimeWindow</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TimeWindow%27"><span class="annot"><a href="Network.AWS.WAFRegional.Types.TimeWindow.html#TimeWindow%27"><span class="hs-identifier hs-var">TimeWindow'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The beginning of the time range from which you want @GetSampledRequests@</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">-- to return a sample of the requests that your AWS resource received. You</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- must specify the date and time in Coordinated Universal Time (UTC)</span><span>
@@ -68,7 +68,7 @@
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3AendTime%3ATimeWindow%27"><span class="annot"><span class="annottext">TimeWindow -&gt; POSIX
 </span><a href="Network.AWS.WAFRegional.Types.TimeWindow.html#%24sel%3AendTime%3ATimeWindow%27"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679309898"><span id="local-6989586621679309900"><span class="annot"><span class="annottext">TimeWindow -&gt; TimeWindow -&gt; Bool
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679310150"><span id="local-6989586621679310152"><span class="annot"><span class="annottext">TimeWindow -&gt; TimeWindow -&gt; Bool
 (TimeWindow -&gt; TimeWindow -&gt; Bool)
 -&gt; (TimeWindow -&gt; TimeWindow -&gt; Bool) -&gt; Eq TimeWindow
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -76,7 +76,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TimeWindow -&gt; TimeWindow -&gt; Bool
 == :: TimeWindow -&gt; TimeWindow -&gt; Bool
 $c== :: TimeWindow -&gt; TimeWindow -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309889"><span id="local-6989586621679309891"><span id="local-6989586621679309893"><span id="local-6989586621679309895"><span class="annot"><span class="annottext">ReadPrec [TimeWindow]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310141"><span id="local-6989586621679310143"><span id="local-6989586621679310145"><span id="local-6989586621679310147"><span class="annot"><span class="annottext">ReadPrec [TimeWindow]
 ReadPrec TimeWindow
 Int -&gt; ReadS TimeWindow
 ReadS [TimeWindow]
@@ -96,7 +96,7 @@ readList :: ReadS [TimeWindow]
 $creadList :: ReadS [TimeWindow]
 readsPrec :: Int -&gt; ReadS TimeWindow
 $creadsPrec :: Int -&gt; ReadS TimeWindow
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309882"><span id="local-6989586621679309884"><span id="local-6989586621679309886"><span class="annot"><span class="annottext">Int -&gt; TimeWindow -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310134"><span id="local-6989586621679310136"><span id="local-6989586621679310138"><span class="annot"><span class="annottext">Int -&gt; TimeWindow -&gt; ShowS
 [TimeWindow] -&gt; ShowS
 TimeWindow -&gt; String
 (Int -&gt; TimeWindow -&gt; ShowS)
@@ -149,9 +149,9 @@ $cfrom :: forall x. TimeWindow -&gt; Rep TimeWindow x
 </span><span id="line-96"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-97"></span><span>  </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.TimeWindow.html#TimeWindow"><span class="hs-identifier hs-type">TimeWindow</span></a></span><span>
 </span><span id="line-98"></span><span id="newTimeWindow"><span class="annot"><span class="annottext">newTimeWindow :: UTCTime -&gt; UTCTime -&gt; TimeWindow
-</span><a href="Network.AWS.WAFRegional.Types.TimeWindow.html#newTimeWindow"><span class="hs-identifier hs-var hs-var">newTimeWindow</span></a></span></span><span> </span><span id="local-6989586621679309876"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679309876"><span class="hs-identifier hs-var">pStartTime_</span></a></span></span><span> </span><span id="local-6989586621679309875"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679309875"><span class="hs-identifier hs-var">pEndTime_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WAFRegional.Types.TimeWindow.html#newTimeWindow"><span class="hs-identifier hs-var hs-var">newTimeWindow</span></a></span></span><span> </span><span id="local-6989586621679310128"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679310128"><span class="hs-identifier hs-var">pStartTime_</span></a></span></span><span> </span><span id="local-6989586621679310127"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679310127"><span class="hs-identifier hs-var">pEndTime_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>  </span><span class="annot"><span class="annottext">TimeWindow' :: POSIX -&gt; POSIX -&gt; TimeWindow
 </span><a href="Network.AWS.WAFRegional.Types.TimeWindow.html#TimeWindow%27"><span class="hs-identifier hs-type">TimeWindow'</span></a></span><span>
 </span><span id="line-100"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:startTime:TimeWindow' :: POSIX
@@ -163,7 +163,7 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679309876"><span class="hs-identifier hs-var">pStartTime_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679310128"><span class="hs-identifier hs-var">pStartTime_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:endTime:TimeWindow' :: POSIX
 </span><a href="Network.AWS.WAFRegional.Types.TimeWindow.html#%24sel%3AendTime%3ATimeWindow%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
 forall (a :: Format). Iso' (Time a) UTCTime
@@ -172,7 +172,7 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679309875"><span class="hs-identifier hs-var">pEndTime_</span></a></span><span>
+</span><a href="#local-6989586621679310127"><span class="hs-identifier hs-var">pEndTime_</span></a></span><span>
 </span><span id="line-103"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | The beginning of the time range from which you want @GetSampledRequests@</span><span>
@@ -187,16 +187,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (TimeWindow -&gt; POSIX -&gt; TimeWindow)
 -&gt; Lens TimeWindow TimeWindow POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.TimeWindow.html#TimeWindow%27"><span class="hs-identifier hs-type">TimeWindow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309869"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.TimeWindow.html#TimeWindow%27"><span class="hs-identifier hs-type">TimeWindow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310121"><span class="annot"><span class="annottext">POSIX
 startTime :: POSIX
 $sel:startTime:TimeWindow' :: TimeWindow -&gt; POSIX
-</span><a href="#local-6989586621679309869"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679309869"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309868"><span class="annot"><span class="annottext">s :: TimeWindow
-</span><a href="#local-6989586621679309868"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.TimeWindow.html#TimeWindow%27"><span class="hs-identifier hs-type">TimeWindow'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309867"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679309867"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimeWindow
-</span><a href="#local-6989586621679309868"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:TimeWindow' :: POSIX
+</span><a href="#local-6989586621679310121"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679310121"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310120"><span class="annot"><span class="annottext">s :: TimeWindow
+</span><a href="#local-6989586621679310120"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.TimeWindow.html#TimeWindow%27"><span class="hs-identifier hs-type">TimeWindow'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310119"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679310119"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimeWindow
+</span><a href="#local-6989586621679310120"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:TimeWindow' :: POSIX
 </span><a href="Network.AWS.WAFRegional.Types.TimeWindow.html#%24sel%3AstartTime%3ATimeWindow%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679309867"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.TimeWindow.html#TimeWindow"><span class="hs-identifier hs-type">TimeWindow</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; TimeWindow -&gt; f TimeWindow)
+</span><a href="#local-6989586621679310119"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.TimeWindow.html#TimeWindow"><span class="hs-identifier hs-type">TimeWindow</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; TimeWindow -&gt; f TimeWindow)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
 -&gt; TimeWindow
@@ -218,16 +218,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (TimeWindow -&gt; POSIX -&gt; TimeWindow)
 -&gt; Lens TimeWindow TimeWindow POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.TimeWindow.html#TimeWindow%27"><span class="hs-identifier hs-type">TimeWindow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309864"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.TimeWindow.html#TimeWindow%27"><span class="hs-identifier hs-type">TimeWindow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310116"><span class="annot"><span class="annottext">POSIX
 endTime :: POSIX
 $sel:endTime:TimeWindow' :: TimeWindow -&gt; POSIX
-</span><a href="#local-6989586621679309864"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679309864"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309863"><span class="annot"><span class="annottext">s :: TimeWindow
-</span><a href="#local-6989586621679309863"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.TimeWindow.html#TimeWindow%27"><span class="hs-identifier hs-type">TimeWindow'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309862"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679309862"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimeWindow
-</span><a href="#local-6989586621679309863"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:TimeWindow' :: POSIX
+</span><a href="#local-6989586621679310116"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679310116"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310115"><span class="annot"><span class="annottext">s :: TimeWindow
+</span><a href="#local-6989586621679310115"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.TimeWindow.html#TimeWindow%27"><span class="hs-identifier hs-type">TimeWindow'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310114"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679310114"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimeWindow
+</span><a href="#local-6989586621679310115"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:TimeWindow' :: POSIX
 </span><a href="Network.AWS.WAFRegional.Types.TimeWindow.html#%24sel%3AendTime%3ATimeWindow%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679309862"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.TimeWindow.html#TimeWindow"><span class="hs-identifier hs-type">TimeWindow</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; TimeWindow -&gt; f TimeWindow)
+</span><a href="#local-6989586621679310114"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.TimeWindow.html#TimeWindow"><span class="hs-identifier hs-type">TimeWindow</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; TimeWindow -&gt; f TimeWindow)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
 -&gt; TimeWindow
@@ -237,8 +237,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309859"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.TimeWindow.html#TimeWindow"><span class="hs-identifier hs-type">TimeWindow</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679309857"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TimeWindow
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310111"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.TimeWindow.html#TimeWindow"><span class="hs-identifier hs-type">TimeWindow</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679310109"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TimeWindow
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TimeWindow) -&gt; Value -&gt; Parser TimeWindow
@@ -246,39 +246,39 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TimeWindow&quot;</span></span><span>
-</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679309854"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679309854"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679310106"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679310106"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">POSIX -&gt; POSIX -&gt; TimeWindow
 </span><a href="Network.AWS.WAFRegional.Types.TimeWindow.html#TimeWindow%27"><span class="hs-identifier hs-var">TimeWindow'</span></a></span><span>
 </span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">(POSIX -&gt; POSIX -&gt; TimeWindow)
 -&gt; Parser POSIX -&gt; Parser (POSIX -&gt; TimeWindow)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679309854"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+</span><a href="#local-6989586621679310106"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StartTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Parser (POSIX -&gt; TimeWindow) -&gt; Parser POSIX -&gt; Parser TimeWindow
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679309854"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+</span><a href="#local-6989586621679310106"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EndTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309848"><span id="local-6989586621679309850"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.TimeWindow.html#TimeWindow"><span class="hs-identifier hs-type">TimeWindow</span></a></span></span></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310100"><span id="local-6989586621679310102"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.TimeWindow.html#TimeWindow"><span class="hs-identifier hs-type">TimeWindow</span></a></span></span></span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309845"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.TimeWindow.html#TimeWindow"><span class="hs-identifier hs-type">TimeWindow</span></a></span></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310097"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.TimeWindow.html#TimeWindow"><span class="hs-identifier hs-type">TimeWindow</span></a></span></span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309837"><span id="local-6989586621679309839"><span id="local-6989586621679309841"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.TimeWindow.html#TimeWindow"><span class="hs-identifier hs-type">TimeWindow</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679309835"><span class="annot"><span class="annottext">toJSON :: TimeWindow -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.TimeWindow.html#TimeWindow%27"><span class="hs-identifier hs-type">TimeWindow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309832"><span id="local-6989586621679309833"><span class="annot"><span class="annottext">POSIX
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310089"><span id="local-6989586621679310091"><span id="local-6989586621679310093"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.TimeWindow.html#TimeWindow"><span class="hs-identifier hs-type">TimeWindow</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679310087"><span class="annot"><span class="annottext">toJSON :: TimeWindow -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.TimeWindow.html#TimeWindow%27"><span class="hs-identifier hs-type">TimeWindow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310084"><span id="local-6989586621679310085"><span class="annot"><span class="annottext">POSIX
 endTime :: POSIX
 startTime :: POSIX
 $sel:endTime:TimeWindow' :: TimeWindow -&gt; POSIX
 $sel:startTime:TimeWindow' :: TimeWindow -&gt; POSIX
-</span><a href="#local-6989586621679309832"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679310084"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -290,14 +290,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;StartTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679309833"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679310085"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EndTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679309832"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679310084"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span></pre></body></html>

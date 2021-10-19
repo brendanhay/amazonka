@@ -29,9 +29,9 @@
 </span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#newListDirectories"><span class="hs-identifier">newListDirectories</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-30"></span><span>
 </span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#listDirectories_nextToken"><span class="hs-identifier">listDirectories_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#listDirectories_maxResults"><span class="hs-identifier">listDirectories_maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#listDirectories_state"><span class="hs-identifier">listDirectories_state</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#listDirectories_state"><span class="hs-identifier">listDirectories_state</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#listDirectories_nextToken"><span class="hs-identifier">listDirectories_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#listDirectories_maxResults"><span class="hs-identifier">listDirectories_maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectoriesResponse"><span class="hs-identifier">ListDirectoriesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -52,19 +52,19 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newListDirectories' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679341095"><span id="local-6989586621679341096"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDirectories"><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectories"><span class="hs-identifier hs-var">ListDirectories</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDirectories%27"><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectories%27"><span class="hs-identifier hs-var">ListDirectories'</span></a></span></span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The pagination token.</span><span>
-</span><span id="line-57"></span><span>    </span><span id="%24sel%3AnextToken%3AListDirectories%27"><span class="annot"><span class="annottext">ListDirectories -&gt; Maybe Text
+</span><span id="line-55"></span><span id="local-6989586621679341501"><span id="local-6989586621679341502"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDirectories"><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectories"><span class="hs-identifier hs-var">ListDirectories</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDirectories%27"><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectories%27"><span class="hs-identifier hs-var">ListDirectories'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The state of the directories in the list. Can be either Enabled,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- Disabled, or Deleted.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Astate%3AListDirectories%27"><span class="annot"><span class="annottext">ListDirectories -&gt; Maybe DirectoryState
+</span><a href="Network.AWS.CloudDirectory.ListDirectories.html#%24sel%3Astate%3AListDirectories%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.DirectoryState.html#DirectoryState"><span class="hs-identifier hs-type">DirectoryState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The pagination token.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AnextToken%3AListDirectories%27"><span class="annot"><span class="annottext">ListDirectories -&gt; Maybe Text
 </span><a href="Network.AWS.CloudDirectory.ListDirectories.html#%24sel%3AnextToken%3AListDirectories%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to retrieve.</span><span>
-</span><span id="line-59"></span><span>    </span><span id="%24sel%3AmaxResults%3AListDirectories%27"><span class="annot"><span class="annottext">ListDirectories -&gt; Maybe Natural
-</span><a href="Network.AWS.CloudDirectory.ListDirectories.html#%24sel%3AmaxResults%3AListDirectories%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The state of the directories in the list. Can be either Enabled,</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- Disabled, or Deleted.</span><span>
-</span><span id="line-62"></span><span>    </span><span id="%24sel%3Astate%3AListDirectories%27"><span class="annot"><span class="annottext">ListDirectories -&gt; Maybe DirectoryState
-</span><a href="Network.AWS.CloudDirectory.ListDirectories.html#%24sel%3Astate%3AListDirectories%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.DirectoryState.html#DirectoryState"><span class="hs-identifier hs-type">DirectoryState</span></a></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to retrieve.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AmaxResults%3AListDirectories%27"><span class="annot"><span class="annottext">ListDirectories -&gt; Maybe Natural
+</span><a href="Network.AWS.CloudDirectory.ListDirectories.html#%24sel%3AmaxResults%3AListDirectories%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679341087"><span id="local-6989586621679341089"><span class="annot"><span class="annottext">ListDirectories -&gt; ListDirectories -&gt; Bool
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679341493"><span id="local-6989586621679341495"><span class="annot"><span class="annottext">ListDirectories -&gt; ListDirectories -&gt; Bool
 (ListDirectories -&gt; ListDirectories -&gt; Bool)
 -&gt; (ListDirectories -&gt; ListDirectories -&gt; Bool)
 -&gt; Eq ListDirectories
@@ -73,7 +73,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListDirectories -&gt; ListDirectories -&gt; Bool
 == :: ListDirectories -&gt; ListDirectories -&gt; Bool
 $c== :: ListDirectories -&gt; ListDirectories -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341078"><span id="local-6989586621679341080"><span id="local-6989586621679341082"><span id="local-6989586621679341084"><span class="annot"><span class="annottext">ReadPrec [ListDirectories]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341484"><span id="local-6989586621679341486"><span id="local-6989586621679341488"><span id="local-6989586621679341490"><span class="annot"><span class="annottext">ReadPrec [ListDirectories]
 ReadPrec ListDirectories
 Int -&gt; ReadS ListDirectories
 ReadS [ListDirectories]
@@ -93,7 +93,7 @@ readList :: ReadS [ListDirectories]
 $creadList :: ReadS [ListDirectories]
 readsPrec :: Int -&gt; ReadS ListDirectories
 $creadsPrec :: Int -&gt; ReadS ListDirectories
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341071"><span id="local-6989586621679341073"><span id="local-6989586621679341075"><span class="annot"><span class="annottext">Int -&gt; ListDirectories -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341477"><span id="local-6989586621679341479"><span id="local-6989586621679341481"><span class="annot"><span class="annottext">Int -&gt; ListDirectories -&gt; ShowS
 [ListDirectories] -&gt; ShowS
 ListDirectories -&gt; String
 (Int -&gt; ListDirectories -&gt; ShowS)
@@ -127,76 +127,37 @@ $cfrom :: forall x. ListDirectories -&gt; Rep ListDirectories x
 </span><span id="line-71"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-73"></span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- 'nextToken', 'listDirectories_nextToken' - The pagination token.</span><span>
-</span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 'maxResults', 'listDirectories_maxResults' - The maximum number of results to retrieve.</span><span>
-</span><span id="line-77"></span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- 'state', 'listDirectories_state' - The state of the directories in the list. Can be either Enabled,</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- Disabled, or Deleted.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'state', 'listDirectories_state' - The state of the directories in the list. Can be either Enabled,</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Disabled, or Deleted.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'nextToken', 'listDirectories_nextToken' - The pagination token.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'maxResults', 'listDirectories_maxResults' - The maximum number of results to retrieve.</span><span>
 </span><span id="line-80"></span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#newListDirectories"><span class="hs-identifier hs-type">newListDirectories</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectories"><span class="hs-identifier hs-type">ListDirectories</span></a></span><span>
 </span><span id="line-82"></span><span id="newListDirectories"><span class="annot"><span class="annottext">newListDirectories :: ListDirectories
 </span><a href="Network.AWS.CloudDirectory.ListDirectories.html#newListDirectories"><span class="hs-identifier hs-var hs-var">newListDirectories</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-83"></span><span>  </span><span class="annot"><span class="annottext">ListDirectories' :: Maybe Text
--&gt; Maybe Natural -&gt; Maybe DirectoryState -&gt; ListDirectories
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="annottext">ListDirectories' :: Maybe DirectoryState
+-&gt; Maybe Text -&gt; Maybe Natural -&gt; ListDirectories
 </span><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectories%27"><span class="hs-identifier hs-type">ListDirectories'</span></a></span><span>
-</span><span id="line-84"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListDirectories' :: Maybe Text
+</span><span id="line-84"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:state:ListDirectories' :: Maybe DirectoryState
+</span><a href="Network.AWS.CloudDirectory.ListDirectories.html#%24sel%3Astate%3AListDirectories%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DirectoryState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListDirectories' :: Maybe Text
 </span><a href="Network.AWS.CloudDirectory.ListDirectories.html#%24sel%3AnextToken%3AListDirectories%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListDirectories' :: Maybe Natural
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListDirectories' :: Maybe Natural
 </span><a href="Network.AWS.CloudDirectory.ListDirectories.html#%24sel%3AmaxResults%3AListDirectories%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:ListDirectories' :: Maybe DirectoryState
-</span><a href="Network.AWS.CloudDirectory.ListDirectories.html#%24sel%3Astate%3AListDirectories%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DirectoryState
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-87"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- | The pagination token.</span><span>
-</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#listDirectories_nextToken"><span class="hs-identifier hs-type">listDirectories_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectories"><span class="hs-identifier hs-type">ListDirectories</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span id="listDirectories_nextToken"><span class="annot"><span class="annottext">listDirectories_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListDirectories -&gt; f ListDirectories
-</span><a href="Network.AWS.CloudDirectory.ListDirectories.html#listDirectories_nextToken"><span class="hs-identifier hs-var hs-var">listDirectories_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDirectories -&gt; Maybe Text)
--&gt; (ListDirectories -&gt; Maybe Text -&gt; ListDirectories)
--&gt; Lens ListDirectories ListDirectories (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectories%27"><span class="hs-identifier hs-type">ListDirectories'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341065"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:ListDirectories' :: ListDirectories -&gt; Maybe Text
-</span><a href="#local-6989586621679341065"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679341065"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341064"><span class="annot"><span class="annottext">s :: ListDirectories
-</span><a href="#local-6989586621679341064"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectories%27"><span class="hs-identifier hs-type">ListDirectories'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341063"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679341063"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDirectories
-</span><a href="#local-6989586621679341064"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListDirectories' :: Maybe Text
-</span><a href="Network.AWS.CloudDirectory.ListDirectories.html#%24sel%3AnextToken%3AListDirectories%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679341063"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectories"><span class="hs-identifier hs-type">ListDirectories</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- | The maximum number of results to retrieve.</span><span>
-</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#listDirectories_maxResults"><span class="hs-identifier hs-type">listDirectories_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectories"><span class="hs-identifier hs-type">ListDirectories</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span id="listDirectories_maxResults"><span class="annot"><span class="annottext">listDirectories_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; ListDirectories -&gt; f ListDirectories
-</span><a href="Network.AWS.CloudDirectory.ListDirectories.html#listDirectories_maxResults"><span class="hs-identifier hs-var hs-var">listDirectories_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDirectories -&gt; Maybe Natural)
--&gt; (ListDirectories -&gt; Maybe Natural -&gt; ListDirectories)
--&gt; Lens
-     ListDirectories ListDirectories (Maybe Natural) (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectories%27"><span class="hs-identifier hs-type">ListDirectories'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341062"><span class="annot"><span class="annottext">Maybe Natural
-maxResults :: Maybe Natural
-$sel:maxResults:ListDirectories' :: ListDirectories -&gt; Maybe Natural
-</span><a href="#local-6989586621679341062"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679341062"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341061"><span class="annot"><span class="annottext">s :: ListDirectories
-</span><a href="#local-6989586621679341061"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectories%27"><span class="hs-identifier hs-type">ListDirectories'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341060"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679341060"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDirectories
-</span><a href="#local-6989586621679341061"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListDirectories' :: Maybe Natural
-</span><a href="Network.AWS.CloudDirectory.ListDirectories.html#%24sel%3AmaxResults%3AListDirectories%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679341060"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectories"><span class="hs-identifier hs-type">ListDirectories</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- | The state of the directories in the list. Can be either Enabled,</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- Disabled, or Deleted.</span><span>
-</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#listDirectories_state"><span class="hs-identifier hs-type">listDirectories_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectories"><span class="hs-identifier hs-type">ListDirectories</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.DirectoryState.html#DirectoryState"><span class="hs-identifier hs-type">DirectoryState</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span id="listDirectories_state"><span class="annot"><span class="annottext">listDirectories_state :: (Maybe DirectoryState -&gt; f (Maybe DirectoryState))
+</span><span id="line-89"></span><span class="hs-comment">-- | The state of the directories in the list. Can be either Enabled,</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- Disabled, or Deleted.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#listDirectories_state"><span class="hs-identifier hs-type">listDirectories_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectories"><span class="hs-identifier hs-type">ListDirectories</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.DirectoryState.html#DirectoryState"><span class="hs-identifier hs-type">DirectoryState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="listDirectories_state"><span class="annot"><span class="annottext">listDirectories_state :: (Maybe DirectoryState -&gt; f (Maybe DirectoryState))
 -&gt; ListDirectories -&gt; f ListDirectories
 </span><a href="Network.AWS.CloudDirectory.ListDirectories.html#listDirectories_state"><span class="hs-identifier hs-var hs-var">listDirectories_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDirectories -&gt; Maybe DirectoryState)
 -&gt; (ListDirectories -&gt; Maybe DirectoryState -&gt; ListDirectories)
@@ -206,29 +167,68 @@ $sel:maxResults:ListDirectories' :: ListDirectories -&gt; Maybe Natural
      (Maybe DirectoryState)
      (Maybe DirectoryState)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectories%27"><span class="hs-identifier hs-type">ListDirectories'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341059"><span class="annot"><span class="annottext">Maybe DirectoryState
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectories%27"><span class="hs-identifier hs-type">ListDirectories'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341471"><span class="annot"><span class="annottext">Maybe DirectoryState
 state :: Maybe DirectoryState
 $sel:state:ListDirectories' :: ListDirectories -&gt; Maybe DirectoryState
-</span><a href="#local-6989586621679341059"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DirectoryState
-</span><a href="#local-6989586621679341059"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341058"><span class="annot"><span class="annottext">s :: ListDirectories
-</span><a href="#local-6989586621679341058"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectories%27"><span class="hs-identifier hs-type">ListDirectories'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341057"><span class="annot"><span class="annottext">Maybe DirectoryState
-</span><a href="#local-6989586621679341057"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDirectories
-</span><a href="#local-6989586621679341058"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:ListDirectories' :: Maybe DirectoryState
+</span><a href="#local-6989586621679341471"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DirectoryState
+</span><a href="#local-6989586621679341471"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341470"><span class="annot"><span class="annottext">s :: ListDirectories
+</span><a href="#local-6989586621679341470"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectories%27"><span class="hs-identifier hs-type">ListDirectories'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341469"><span class="annot"><span class="annottext">Maybe DirectoryState
+</span><a href="#local-6989586621679341469"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDirectories
+</span><a href="#local-6989586621679341470"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:ListDirectories' :: Maybe DirectoryState
 </span><a href="Network.AWS.CloudDirectory.ListDirectories.html#%24sel%3Astate%3AListDirectories%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DirectoryState
-</span><a href="#local-6989586621679341057"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectories"><span class="hs-identifier hs-type">ListDirectories</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679341469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectories"><span class="hs-identifier hs-type">ListDirectories</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The pagination token.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#listDirectories_nextToken"><span class="hs-identifier hs-type">listDirectories_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectories"><span class="hs-identifier hs-type">ListDirectories</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="listDirectories_nextToken"><span class="annot"><span class="annottext">listDirectories_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListDirectories -&gt; f ListDirectories
+</span><a href="Network.AWS.CloudDirectory.ListDirectories.html#listDirectories_nextToken"><span class="hs-identifier hs-var hs-var">listDirectories_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDirectories -&gt; Maybe Text)
+-&gt; (ListDirectories -&gt; Maybe Text -&gt; ListDirectories)
+-&gt; Lens ListDirectories ListDirectories (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectories%27"><span class="hs-identifier hs-type">ListDirectories'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341468"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListDirectories' :: ListDirectories -&gt; Maybe Text
+</span><a href="#local-6989586621679341468"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341468"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341467"><span class="annot"><span class="annottext">s :: ListDirectories
+</span><a href="#local-6989586621679341467"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectories%27"><span class="hs-identifier hs-type">ListDirectories'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341466"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341466"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDirectories
+</span><a href="#local-6989586621679341467"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListDirectories' :: Maybe Text
+</span><a href="Network.AWS.CloudDirectory.ListDirectories.html#%24sel%3AnextToken%3AListDirectories%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341466"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectories"><span class="hs-identifier hs-type">ListDirectories</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The maximum number of results to retrieve.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#listDirectories_maxResults"><span class="hs-identifier hs-type">listDirectories_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectories"><span class="hs-identifier hs-type">ListDirectories</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="listDirectories_maxResults"><span class="annot"><span class="annottext">listDirectories_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListDirectories -&gt; f ListDirectories
+</span><a href="Network.AWS.CloudDirectory.ListDirectories.html#listDirectories_maxResults"><span class="hs-identifier hs-var hs-var">listDirectories_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDirectories -&gt; Maybe Natural)
+-&gt; (ListDirectories -&gt; Maybe Natural -&gt; ListDirectories)
+-&gt; Lens
+     ListDirectories ListDirectories (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectories%27"><span class="hs-identifier hs-type">ListDirectories'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341465"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListDirectories' :: ListDirectories -&gt; Maybe Natural
+</span><a href="#local-6989586621679341465"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679341465"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341464"><span class="annot"><span class="annottext">s :: ListDirectories
+</span><a href="#local-6989586621679341464"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectories%27"><span class="hs-identifier hs-type">ListDirectories'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341463"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679341463"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDirectories
+</span><a href="#local-6989586621679341464"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListDirectories' :: Maybe Natural
+</span><a href="Network.AWS.CloudDirectory.ListDirectories.html#%24sel%3AmaxResults%3AListDirectories%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679341463"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectories"><span class="hs-identifier hs-type">ListDirectories</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectories"><span class="hs-identifier hs-type">ListDirectories</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679341053"><span class="annot"><span class="annottext">page :: ListDirectories
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679341459"><span class="annot"><span class="annottext">page :: ListDirectories
 -&gt; AWSResponse ListDirectories -&gt; Maybe ListDirectories
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679341051"><span class="annot"><span class="annottext">ListDirectories
-</span><a href="#local-6989586621679341051"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679341050"><span class="annot"><span class="annottext">AWSResponse ListDirectories
-</span><a href="#local-6989586621679341050"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679341457"><span class="annot"><span class="annottext">ListDirectories
+</span><a href="#local-6989586621679341457"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679341456"><span class="annot"><span class="annottext">AWSResponse ListDirectories
+</span><a href="#local-6989586621679341456"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-104"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-105"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListDirectories
 ListDirectoriesResponse
-</span><a href="#local-6989586621679341050"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679341456"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">ListDirectoriesResponse
 -&gt; Getting (First Text) ListDirectoriesResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -257,7 +257,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-111"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">AWSResponse ListDirectories
 ListDirectoriesResponse
-</span><a href="#local-6989586621679341050"><span class="hs-identifier hs-var">rs</span></a></span><span> </span><span class="annot"><span class="annottext">ListDirectoriesResponse
+</span><a href="#local-6989586621679341456"><span class="hs-identifier hs-var">rs</span></a></span><span> </span><span class="annot"><span class="annottext">ListDirectoriesResponse
 -&gt; Getting [Directory] ListDirectoriesResponse [Directory]
 -&gt; [Directory]
 forall s a. s -&gt; Getting a s a -&gt; a
@@ -276,7 +276,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">ListDirectories
-</span><a href="#local-6989586621679341051"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679341457"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-116"></span><span>          </span><span class="annot"><span class="annottext">ListDirectories
 -&gt; (ListDirectories -&gt; ListDirectories) -&gt; ListDirectories
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -290,7 +290,7 @@ Lens ListDirectories ListDirectories (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListDirectories
 ListDirectoriesResponse
-</span><a href="#local-6989586621679341050"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679341456"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">ListDirectoriesResponse
 -&gt; Getting (First Text) ListDirectoriesResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -315,12 +315,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-122"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-123"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectories"><span class="hs-identifier hs-type">ListDirectories</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectoriesResponse"><span class="hs-identifier hs-type">ListDirectoriesResponse</span></a></span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679341039"><span class="annot"><span class="annottext">request :: ListDirectories -&gt; Request ListDirectories
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679341445"><span class="annot"><span class="annottext">request :: ListDirectories -&gt; Request ListDirectories
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListDirectories -&gt; Request ListDirectories
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudDirectory.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679341035"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679341441"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListDirectories
 -&gt; ClientResponse ClientBody
@@ -344,10 +344,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679341032"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679341032"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679341031"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679341031"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679341030"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679341030"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679341438"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679341438"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679341437"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679341437"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679341436"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679341436"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-129"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; [Directory] -&gt; ListDirectoriesResponse
 </span><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectoriesResponse%27"><span class="hs-identifier hs-var">ListDirectoriesResponse'</span></a></span><span>
 </span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; [Directory] -&gt; ListDirectoriesResponse)
@@ -355,7 +355,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; [Directory] -&gt; ListDirectoriesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679341030"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679341436"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -368,13 +368,13 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679341032"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679341438"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Either String ([Directory] -&gt; ListDirectoriesResponse)
 -&gt; Either String [Directory]
 -&gt; Either String ListDirectoriesResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679341030"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [Directory])
+</span><a href="#local-6989586621679341436"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [Directory])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Directories&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Directory])
@@ -385,61 +385,61 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341021"><span id="local-6989586621679341023"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectories"><span class="hs-identifier hs-type">ListDirectories</span></a></span></span></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341427"><span id="local-6989586621679341429"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectories"><span class="hs-identifier hs-type">ListDirectories</span></a></span></span></span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341018"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectories"><span class="hs-identifier hs-type">ListDirectories</span></a></span></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341424"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectories"><span class="hs-identifier hs-type">ListDirectories</span></a></span></span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectories"><span class="hs-identifier hs-type">ListDirectories</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679341014"><span class="annot"><span class="annottext">toHeaders :: ListDirectories -&gt; ResponseHeaders
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679341420"><span class="annot"><span class="annottext">toHeaders :: ListDirectories -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListDirectories -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341005"><span id="local-6989586621679341007"><span id="local-6989586621679341009"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectories"><span class="hs-identifier hs-type">ListDirectories</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679341003"><span class="annot"><span class="annottext">toJSON :: ListDirectories -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectories%27"><span class="hs-identifier hs-type">ListDirectories'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340999"><span id="local-6989586621679341000"><span id="local-6989586621679341001"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341411"><span id="local-6989586621679341413"><span id="local-6989586621679341415"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectories"><span class="hs-identifier hs-type">ListDirectories</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679341409"><span class="annot"><span class="annottext">toJSON :: ListDirectories -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectories%27"><span class="hs-identifier hs-type">ListDirectories'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341405"><span id="local-6989586621679341406"><span id="local-6989586621679341407"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe DirectoryState
-state :: Maybe DirectoryState
 maxResults :: Maybe Natural
 nextToken :: Maybe Text
-$sel:state:ListDirectories' :: ListDirectories -&gt; Maybe DirectoryState
+state :: Maybe DirectoryState
 $sel:maxResults:ListDirectories' :: ListDirectories -&gt; Maybe Natural
 $sel:nextToken:ListDirectories' :: ListDirectories -&gt; Maybe Text
-</span><a href="#local-6989586621679340999"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:state:ListDirectories' :: ListDirectories -&gt; Maybe DirectoryState
+</span><a href="#local-6989586621679341405"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-146"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679341001"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-147"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679341000"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-148"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;state&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DirectoryState -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(DirectoryState -&gt; Pair) -&gt; Maybe DirectoryState -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DirectoryState
-</span><a href="#local-6989586621679340999"><span class="hs-identifier hs-var">state</span></a></span><span>
+</span><a href="#local-6989586621679341407"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341406"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679341405"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-149"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-150"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectories"><span class="hs-identifier hs-type">ListDirectories</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679340993"><span class="annot"><span class="annottext">toPath :: ListDirectories -&gt; ByteString
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679341399"><span class="annot"><span class="annottext">toPath :: ListDirectories -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-154"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; ListDirectories -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
@@ -448,7 +448,7 @@ forall a b. a -&gt; b -&gt; a
 </span><span class="hs-string">&quot;/amazonclouddirectory/2017-01-11/directory/list&quot;</span></span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectories"><span class="hs-identifier hs-type">ListDirectories</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679340989"><span class="annot"><span class="annottext">toQuery :: ListDirectories -&gt; QueryString
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679341395"><span class="annot"><span class="annottext">toQuery :: ListDirectories -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListDirectories -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -456,7 +456,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-comment">-- | /See:/ 'newListDirectoriesResponse' smart constructor.</span><span>
-</span><span id="line-161"></span><span id="local-6989586621679340986"><span id="local-6989586621679340987"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDirectoriesResponse"><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectoriesResponse"><span class="hs-identifier hs-var">ListDirectoriesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDirectoriesResponse%27"><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectoriesResponse%27"><span class="hs-identifier hs-var">ListDirectoriesResponse'</span></a></span></span><span>
+</span><span id="line-161"></span><span id="local-6989586621679341392"><span id="local-6989586621679341393"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDirectoriesResponse"><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectoriesResponse"><span class="hs-identifier hs-var">ListDirectoriesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDirectoriesResponse%27"><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectoriesResponse%27"><span class="hs-identifier hs-var">ListDirectoriesResponse'</span></a></span></span><span>
 </span><span id="line-162"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The pagination token.</span><span>
 </span><span id="line-163"></span><span>    </span><span id="%24sel%3AnextToken%3AListDirectoriesResponse%27"><span class="annot"><span class="annottext">ListDirectoriesResponse -&gt; Maybe Text
 </span><a href="Network.AWS.CloudDirectory.ListDirectories.html#%24sel%3AnextToken%3AListDirectoriesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -468,7 +468,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-168"></span><span>    </span><span id="%24sel%3Adirectories%3AListDirectoriesResponse%27"><span class="annot"><span class="annottext">ListDirectoriesResponse -&gt; [Directory]
 </span><a href="Network.AWS.CloudDirectory.ListDirectories.html#%24sel%3Adirectories%3AListDirectoriesResponse%27"><span class="hs-identifier hs-var hs-var">directories</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Directory.html#Directory"><span class="hs-identifier hs-type">Directory</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-169"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-170"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679340979"><span id="local-6989586621679340981"><span class="annot"><span class="annottext">ListDirectoriesResponse -&gt; ListDirectoriesResponse -&gt; Bool
+</span><span id="line-170"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679341385"><span id="local-6989586621679341387"><span class="annot"><span class="annottext">ListDirectoriesResponse -&gt; ListDirectoriesResponse -&gt; Bool
 (ListDirectoriesResponse -&gt; ListDirectoriesResponse -&gt; Bool)
 -&gt; (ListDirectoriesResponse -&gt; ListDirectoriesResponse -&gt; Bool)
 -&gt; Eq ListDirectoriesResponse
@@ -477,7 +477,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListDirectoriesResponse -&gt; ListDirectoriesResponse -&gt; Bool
 == :: ListDirectoriesResponse -&gt; ListDirectoriesResponse -&gt; Bool
 $c== :: ListDirectoriesResponse -&gt; ListDirectoriesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679340971"><span id="local-6989586621679340973"><span id="local-6989586621679340975"><span id="local-6989586621679340977"><span class="annot"><span class="annottext">ReadPrec [ListDirectoriesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341377"><span id="local-6989586621679341379"><span id="local-6989586621679341381"><span id="local-6989586621679341383"><span class="annot"><span class="annottext">ReadPrec [ListDirectoriesResponse]
 ReadPrec ListDirectoriesResponse
 Int -&gt; ReadS ListDirectoriesResponse
 ReadS [ListDirectoriesResponse]
@@ -497,7 +497,7 @@ readList :: ReadS [ListDirectoriesResponse]
 $creadList :: ReadS [ListDirectoriesResponse]
 readsPrec :: Int -&gt; ReadS ListDirectoriesResponse
 $creadsPrec :: Int -&gt; ReadS ListDirectoriesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679340965"><span id="local-6989586621679340967"><span id="local-6989586621679340969"><span class="annot"><span class="annottext">Int -&gt; ListDirectoriesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341371"><span id="local-6989586621679341373"><span id="local-6989586621679341375"><span class="annot"><span class="annottext">Int -&gt; ListDirectoriesResponse -&gt; ShowS
 [ListDirectoriesResponse] -&gt; ShowS
 ListDirectoriesResponse -&gt; String
 (Int -&gt; ListDirectoriesResponse -&gt; ShowS)
@@ -544,8 +544,8 @@ $cfrom :: forall x. ListDirectoriesResponse -&gt; Rep ListDirectoriesResponse x
 </span><span id="line-188"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-189"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectoriesResponse"><span class="hs-identifier hs-type">ListDirectoriesResponse</span></a></span><span>
 </span><span id="line-190"></span><span id="newListDirectoriesResponse"><span class="annot"><span class="annottext">newListDirectoriesResponse :: Int -&gt; ListDirectoriesResponse
-</span><a href="Network.AWS.CloudDirectory.ListDirectories.html#newListDirectoriesResponse"><span class="hs-identifier hs-var hs-var">newListDirectoriesResponse</span></a></span></span><span> </span><span id="local-6989586621679340962"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679340962"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudDirectory.ListDirectories.html#newListDirectoriesResponse"><span class="hs-identifier hs-var hs-var">newListDirectoriesResponse</span></a></span></span><span> </span><span id="local-6989586621679341368"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679341368"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-191"></span><span>  </span><span class="annot"><span class="annottext">ListDirectoriesResponse' :: Maybe Text -&gt; Int -&gt; [Directory] -&gt; ListDirectoriesResponse
 </span><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectoriesResponse%27"><span class="hs-identifier hs-type">ListDirectoriesResponse'</span></a></span><span>
 </span><span id="line-192"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListDirectoriesResponse' :: Maybe Text
@@ -555,7 +555,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-194"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListDirectoriesResponse' :: Int
 </span><a href="Network.AWS.CloudDirectory.ListDirectories.html#%24sel%3AhttpStatus%3AListDirectoriesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679340962"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679341368"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">$sel:directories:ListDirectoriesResponse' :: [Directory]
 </span><a href="Network.AWS.CloudDirectory.ListDirectories.html#%24sel%3Adirectories%3AListDirectoriesResponse%27"><span class="hs-identifier hs-var">directories</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Directory]
 forall a. Monoid a =&gt; a
@@ -571,16 +571,16 @@ forall a. Monoid a =&gt; a
     -&gt; Maybe Text -&gt; ListDirectoriesResponse)
 -&gt; Lens' ListDirectoriesResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectoriesResponse%27"><span class="hs-identifier hs-type">ListDirectoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340961"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectoriesResponse%27"><span class="hs-identifier hs-type">ListDirectoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341367"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListDirectoriesResponse' :: ListDirectoriesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679340961"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679340961"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340960"><span class="annot"><span class="annottext">s :: ListDirectoriesResponse
-</span><a href="#local-6989586621679340960"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectoriesResponse%27"><span class="hs-identifier hs-type">ListDirectoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340959"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679340959"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDirectoriesResponse
-</span><a href="#local-6989586621679340960"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListDirectoriesResponse' :: Maybe Text
+</span><a href="#local-6989586621679341367"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341367"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341366"><span class="annot"><span class="annottext">s :: ListDirectoriesResponse
+</span><a href="#local-6989586621679341366"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectoriesResponse%27"><span class="hs-identifier hs-type">ListDirectoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341365"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341365"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDirectoriesResponse
+</span><a href="#local-6989586621679341366"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListDirectoriesResponse' :: Maybe Text
 </span><a href="Network.AWS.CloudDirectory.ListDirectories.html#%24sel%3AnextToken%3AListDirectoriesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679340959"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectoriesResponse"><span class="hs-identifier hs-type">ListDirectoriesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679341365"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectoriesResponse"><span class="hs-identifier hs-type">ListDirectoriesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span><span>
 </span><span id="line-202"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-203"></span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#listDirectoriesResponse_httpStatus"><span class="hs-identifier hs-type">listDirectoriesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectoriesResponse"><span class="hs-identifier hs-type">ListDirectoriesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -590,16 +590,16 @@ $sel:nextToken:ListDirectoriesResponse' :: ListDirectoriesResponse -&gt; Maybe T
 -&gt; (ListDirectoriesResponse -&gt; Int -&gt; ListDirectoriesResponse)
 -&gt; Lens ListDirectoriesResponse ListDirectoriesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectoriesResponse%27"><span class="hs-identifier hs-type">ListDirectoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340958"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectoriesResponse%27"><span class="hs-identifier hs-type">ListDirectoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341364"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListDirectoriesResponse' :: ListDirectoriesResponse -&gt; Int
-</span><a href="#local-6989586621679340958"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679340958"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340957"><span class="annot"><span class="annottext">s :: ListDirectoriesResponse
-</span><a href="#local-6989586621679340957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectoriesResponse%27"><span class="hs-identifier hs-type">ListDirectoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340956"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679340956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDirectoriesResponse
-</span><a href="#local-6989586621679340957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListDirectoriesResponse' :: Int
+</span><a href="#local-6989586621679341364"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679341364"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341363"><span class="annot"><span class="annottext">s :: ListDirectoriesResponse
+</span><a href="#local-6989586621679341363"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectoriesResponse%27"><span class="hs-identifier hs-type">ListDirectoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341362"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679341362"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDirectoriesResponse
+</span><a href="#local-6989586621679341363"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListDirectoriesResponse' :: Int
 </span><a href="Network.AWS.CloudDirectory.ListDirectories.html#%24sel%3AhttpStatus%3AListDirectoriesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679340956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectoriesResponse"><span class="hs-identifier hs-type">ListDirectoriesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679341362"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectoriesResponse"><span class="hs-identifier hs-type">ListDirectoriesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-205"></span><span>
 </span><span id="line-206"></span><span class="hs-comment">-- | Lists all directories that are associated with your account in</span><span>
 </span><span id="line-207"></span><span class="hs-comment">-- pagination fashion.</span><span>
@@ -611,16 +611,16 @@ $sel:httpStatus:ListDirectoriesResponse' :: ListDirectoriesResponse -&gt; Int
     -&gt; [Directory] -&gt; ListDirectoriesResponse)
 -&gt; Lens' ListDirectoriesResponse [Directory]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectoriesResponse%27"><span class="hs-identifier hs-type">ListDirectoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340955"><span class="annot"><span class="annottext">[Directory]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectoriesResponse%27"><span class="hs-identifier hs-type">ListDirectoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341361"><span class="annot"><span class="annottext">[Directory]
 directories :: [Directory]
 $sel:directories:ListDirectoriesResponse' :: ListDirectoriesResponse -&gt; [Directory]
-</span><a href="#local-6989586621679340955"><span class="hs-identifier hs-var hs-var">directories</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Directory]
-</span><a href="#local-6989586621679340955"><span class="hs-identifier hs-var">directories</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340954"><span class="annot"><span class="annottext">s :: ListDirectoriesResponse
-</span><a href="#local-6989586621679340954"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectoriesResponse%27"><span class="hs-identifier hs-type">ListDirectoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340953"><span class="annot"><span class="annottext">[Directory]
-</span><a href="#local-6989586621679340953"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDirectoriesResponse
-</span><a href="#local-6989586621679340954"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directories:ListDirectoriesResponse' :: [Directory]
+</span><a href="#local-6989586621679341361"><span class="hs-identifier hs-var hs-var">directories</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Directory]
+</span><a href="#local-6989586621679341361"><span class="hs-identifier hs-var">directories</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341360"><span class="annot"><span class="annottext">s :: ListDirectoriesResponse
+</span><a href="#local-6989586621679341360"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectoriesResponse%27"><span class="hs-identifier hs-type">ListDirectoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341359"><span class="annot"><span class="annottext">[Directory]
+</span><a href="#local-6989586621679341359"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDirectoriesResponse
+</span><a href="#local-6989586621679341360"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directories:ListDirectoriesResponse' :: [Directory]
 </span><a href="Network.AWS.CloudDirectory.ListDirectories.html#%24sel%3Adirectories%3AListDirectoriesResponse%27"><span class="hs-identifier hs-var">directories</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Directory]
-</span><a href="#local-6989586621679340953"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectoriesResponse"><span class="hs-identifier hs-type">ListDirectoriesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Directory] -&gt; f [Directory])
+</span><a href="#local-6989586621679341359"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectoriesResponse"><span class="hs-identifier hs-type">ListDirectoriesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Directory] -&gt; f [Directory])
  -&gt; ListDirectoriesResponse -&gt; f ListDirectoriesResponse)
 -&gt; (([Directory] -&gt; f [Directory]) -&gt; [Directory] -&gt; f [Directory])
 -&gt; ([Directory] -&gt; f [Directory])
@@ -628,8 +628,8 @@ $sel:directories:ListDirectoriesResponse' :: ListDirectoriesResponse -&gt; [Dire
 -&gt; f ListDirectoriesResponse
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Directory] -&gt; f [Directory]) -&gt; [Directory] -&gt; f [Directory]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-210"></span><span>
-</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679340950"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectoriesResponse"><span class="hs-identifier hs-type">ListDirectoriesResponse</span></a></span></span><span>
+</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341356"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListDirectories.html#ListDirectoriesResponse"><span class="hs-identifier hs-type">ListDirectoriesResponse</span></a></span></span><span>
 </span><span id="line-212"></span></pre></body></html>

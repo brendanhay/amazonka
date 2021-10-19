@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621681080996"><span id="local-6989586621681080997"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InstanceEventWindowState"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowState.html#InstanceEventWindowState"><span class="hs-identifier hs-var">InstanceEventWindowState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceEventWindowState%27"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowState.html#InstanceEventWindowState%27"><span class="hs-identifier hs-var">InstanceEventWindowState'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621681115348"><span id="local-6989586621681115349"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InstanceEventWindowState"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowState.html#InstanceEventWindowState"><span class="hs-identifier hs-var">InstanceEventWindowState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceEventWindowState%27"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindowState.html#InstanceEventWindowState%27"><span class="hs-identifier hs-var">InstanceEventWindowState'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInstanceEventWindowState"><span class="annot"><span class="annottext">InstanceEventWindowState -&gt; Text
 </span><a href="Network.AWS.EC2.Types.InstanceEventWindowState.html#fromInstanceEventWindowState"><span class="hs-identifier hs-var hs-var">fromInstanceEventWindowState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681080988"><span id="local-6989586621681080990"><span id="local-6989586621681080992"><span class="annot"><span class="annottext">Int -&gt; InstanceEventWindowState -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681115340"><span id="local-6989586621681115342"><span id="local-6989586621681115344"><span class="annot"><span class="annottext">Int -&gt; InstanceEventWindowState -&gt; ShowS
 [InstanceEventWindowState] -&gt; ShowS
 InstanceEventWindowState -&gt; String
 (Int -&gt; InstanceEventWindowState -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: InstanceEventWindowState -&gt; String
 showsPrec :: Int -&gt; InstanceEventWindowState -&gt; ShowS
 $cshowsPrec :: Int -&gt; InstanceEventWindowState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681080979"><span id="local-6989586621681080981"><span id="local-6989586621681080983"><span id="local-6989586621681080985"><span class="annot"><span class="annottext">ReadPrec [InstanceEventWindowState]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681115331"><span id="local-6989586621681115333"><span id="local-6989586621681115335"><span id="local-6989586621681115337"><span class="annot"><span class="annottext">ReadPrec [InstanceEventWindowState]
 ReadPrec InstanceEventWindowState
 Int -&gt; ReadS InstanceEventWindowState
 ReadS [InstanceEventWindowState]
@@ -75,7 +75,7 @@ $creadList :: ReadS [InstanceEventWindowState]
 readsPrec :: Int -&gt; ReadS InstanceEventWindowState
 $creadsPrec :: Int -&gt; ReadS InstanceEventWindowState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621681080974"><span id="local-6989586621681080976"><span class="annot"><span class="annottext">InstanceEventWindowState -&gt; InstanceEventWindowState -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681115326"><span id="local-6989586621681115328"><span class="annot"><span class="annottext">InstanceEventWindowState -&gt; InstanceEventWindowState -&gt; Bool
 (InstanceEventWindowState -&gt; InstanceEventWindowState -&gt; Bool)
 -&gt; (InstanceEventWindowState -&gt; InstanceEventWindowState -&gt; Bool)
 -&gt; Eq InstanceEventWindowState
@@ -85,7 +85,7 @@ $c/= :: InstanceEventWindowState -&gt; InstanceEventWindowState -&gt; Bool
 == :: InstanceEventWindowState -&gt; InstanceEventWindowState -&gt; Bool
 $c== :: InstanceEventWindowState -&gt; InstanceEventWindowState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621681080958"><span id="local-6989586621681080960"><span id="local-6989586621681080962"><span id="local-6989586621681080964"><span id="local-6989586621681080966"><span id="local-6989586621681080968"><span id="local-6989586621681080970"><span class="annot"><span class="annottext">Eq InstanceEventWindowState
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621681115310"><span id="local-6989586621681115312"><span id="local-6989586621681115314"><span id="local-6989586621681115316"><span id="local-6989586621681115318"><span id="local-6989586621681115320"><span id="local-6989586621681115322"><span class="annot"><span class="annottext">Eq InstanceEventWindowState
 Eq InstanceEventWindowState
 -&gt; (InstanceEventWindowState
     -&gt; InstanceEventWindowState -&gt; Ordering)
@@ -150,7 +150,7 @@ InstanceEventWindowState -&gt; Rep InstanceEventWindowState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681080950"><span id="local-6989586621681080952"><span class="annot"><span class="annottext">Int -&gt; InstanceEventWindowState -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681115302"><span id="local-6989586621681115304"><span class="annot"><span class="annottext">Int -&gt; InstanceEventWindowState -&gt; Int
 InstanceEventWindowState -&gt; Int
 (Int -&gt; InstanceEventWindowState -&gt; Int)
 -&gt; (InstanceEventWindowState -&gt; Int)
@@ -161,55 +161,55 @@ $chash :: InstanceEventWindowState -&gt; Int
 hashWithSalt :: Int -&gt; InstanceEventWindowState -&gt; Int
 $chashWithSalt :: Int -&gt; InstanceEventWindowState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681080947"><span class="annot"><span class="annottext">InstanceEventWindowState -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681115299"><span class="annot"><span class="annottext">InstanceEventWindowState -&gt; ()
 (InstanceEventWindowState -&gt; ()) -&gt; NFData InstanceEventWindowState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: InstanceEventWindowState -&gt; ()
 $crnf :: InstanceEventWindowState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681080944"><span class="annot"><span class="annottext">Text -&gt; Either String InstanceEventWindowState
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681115296"><span class="annot"><span class="annottext">Text -&gt; Either String InstanceEventWindowState
 (Text -&gt; Either String InstanceEventWindowState)
 -&gt; FromText InstanceEventWindowState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String InstanceEventWindowState
 $cfromText :: Text -&gt; Either String InstanceEventWindowState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681080941"><span class="annot"><span class="annottext">InstanceEventWindowState -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681115293"><span class="annot"><span class="annottext">InstanceEventWindowState -&gt; Text
 (InstanceEventWindowState -&gt; Text)
 -&gt; ToText InstanceEventWindowState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: InstanceEventWindowState -&gt; Text
 $ctoText :: InstanceEventWindowState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681080938"><span class="annot"><span class="annottext">InstanceEventWindowState -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681115290"><span class="annot"><span class="annottext">InstanceEventWindowState -&gt; ByteString
 (InstanceEventWindowState -&gt; ByteString)
 -&gt; ToByteString InstanceEventWindowState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: InstanceEventWindowState -&gt; ByteString
 $ctoBS :: InstanceEventWindowState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681080935"><span class="annot"><span class="annottext">InstanceEventWindowState -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681115287"><span class="annot"><span class="annottext">InstanceEventWindowState -&gt; ByteStringBuilder
 (InstanceEventWindowState -&gt; ByteStringBuilder)
 -&gt; ToLog InstanceEventWindowState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: InstanceEventWindowState -&gt; ByteStringBuilder
 $cbuild :: InstanceEventWindowState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681080932"><span class="annot"><span class="annottext">HeaderName -&gt; InstanceEventWindowState -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681115284"><span class="annot"><span class="annottext">HeaderName -&gt; InstanceEventWindowState -&gt; [Header]
 (HeaderName -&gt; InstanceEventWindowState -&gt; [Header])
 -&gt; ToHeader InstanceEventWindowState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; InstanceEventWindowState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; InstanceEventWindowState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681080929"><span class="annot"><span class="annottext">InstanceEventWindowState -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681115281"><span class="annot"><span class="annottext">InstanceEventWindowState -&gt; QueryString
 (InstanceEventWindowState -&gt; QueryString)
 -&gt; ToQuery InstanceEventWindowState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: InstanceEventWindowState -&gt; QueryString
 $ctoQuery :: InstanceEventWindowState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681080924"><span id="local-6989586621681080926"><span class="annot"><span class="annottext">Value -&gt; Parser [InstanceEventWindowState]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681115276"><span id="local-6989586621681115278"><span class="annot"><span class="annottext">Value -&gt; Parser [InstanceEventWindowState]
 Value -&gt; Parser InstanceEventWindowState
 (Value -&gt; Parser InstanceEventWindowState)
 -&gt; (Value -&gt; Parser [InstanceEventWindowState])
@@ -221,7 +221,7 @@ $cparseJSONList :: Value -&gt; Parser [InstanceEventWindowState]
 parseJSON :: Value -&gt; Parser InstanceEventWindowState
 $cparseJSON :: Value -&gt; Parser InstanceEventWindowState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681080919"><span id="local-6989586621681080921"><span class="annot"><span class="annottext">FromJSONKeyFunction [InstanceEventWindowState]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681115271"><span id="local-6989586621681115273"><span class="annot"><span class="annottext">FromJSONKeyFunction [InstanceEventWindowState]
 FromJSONKeyFunction InstanceEventWindowState
 FromJSONKeyFunction InstanceEventWindowState
 -&gt; FromJSONKeyFunction [InstanceEventWindowState]
@@ -233,7 +233,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [InstanceEventWindowState]
 fromJSONKey :: FromJSONKeyFunction InstanceEventWindowState
 $cfromJSONKey :: FromJSONKeyFunction InstanceEventWindowState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681080910"><span id="local-6989586621681080912"><span id="local-6989586621681080914"><span id="local-6989586621681080916"><span class="annot"><span class="annottext">[InstanceEventWindowState] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681115262"><span id="local-6989586621681115264"><span id="local-6989586621681115266"><span id="local-6989586621681115268"><span class="annot"><span class="annottext">[InstanceEventWindowState] -&gt; Encoding
 [InstanceEventWindowState] -&gt; Value
 InstanceEventWindowState -&gt; Encoding
 InstanceEventWindowState -&gt; Value
@@ -257,7 +257,7 @@ $ctoEncoding :: InstanceEventWindowState -&gt; Encoding
 toJSON :: InstanceEventWindowState -&gt; Value
 $ctoJSON :: InstanceEventWindowState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681080905"><span id="local-6989586621681080907"><span class="annot"><span class="annottext">ToJSONKeyFunction [InstanceEventWindowState]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681115257"><span id="local-6989586621681115259"><span class="annot"><span class="annottext">ToJSONKeyFunction [InstanceEventWindowState]
 ToJSONKeyFunction InstanceEventWindowState
 ToJSONKeyFunction InstanceEventWindowState
 -&gt; ToJSONKeyFunction [InstanceEventWindowState]
@@ -269,14 +269,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [InstanceEventWindowState]
 toJSONKey :: ToJSONKeyFunction InstanceEventWindowState
 $ctoJSONKey :: ToJSONKeyFunction InstanceEventWindowState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621681080902"><span class="annot"><span class="annottext">[Node] -&gt; Either String InstanceEventWindowState
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681115254"><span class="annot"><span class="annottext">[Node] -&gt; Either String InstanceEventWindowState
 ([Node] -&gt; Either String InstanceEventWindowState)
 -&gt; FromXML InstanceEventWindowState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String InstanceEventWindowState
 $cparseXML :: [Node] -&gt; Either String InstanceEventWindowState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621681080899"><span class="annot"><span class="annottext">InstanceEventWindowState -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621681115251"><span class="annot"><span class="annottext">InstanceEventWindowState -&gt; XML
 (InstanceEventWindowState -&gt; XML) -&gt; ToXML InstanceEventWindowState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: InstanceEventWindowState -&gt; XML

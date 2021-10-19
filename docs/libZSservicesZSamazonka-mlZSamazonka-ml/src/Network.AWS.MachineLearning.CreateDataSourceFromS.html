@@ -58,8 +58,8 @@
 </span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#newCreateDataSourceFromS"><span class="hs-identifier">newCreateDataSourceFromS</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#createDataSourceFromS_computeStatistics"><span class="hs-identifier">createDataSourceFromS_computeStatistics</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#createDataSourceFromS_dataSourceName"><span class="hs-identifier">createDataSourceFromS_dataSourceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#createDataSourceFromS_dataSourceName"><span class="hs-identifier">createDataSourceFromS_dataSourceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#createDataSourceFromS_computeStatistics"><span class="hs-identifier">createDataSourceFromS_computeStatistics</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-63"></span><span>    </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#createDataSourceFromS_dataSourceId"><span class="hs-identifier">createDataSourceFromS_dataSourceId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-64"></span><span>    </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#createDataSourceFromS_dataSpec"><span class="hs-identifier">createDataSourceFromS_dataSpec</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-65"></span><span>
@@ -81,17 +81,17 @@
 </span><span id="line-81"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | /See:/ 'newCreateDataSourceFromS' smart constructor.</span><span>
-</span><span id="line-84"></span><span id="local-6989586621679259520"><span id="local-6989586621679259521"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDataSourceFromS"><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromS"><span class="hs-identifier hs-var">CreateDataSourceFromS</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDataSourceFromS%27"><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromS%27"><span class="hs-identifier hs-var">CreateDataSourceFromS'</span></a></span></span><span>
-</span><span id="line-85"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The compute statistics for a @DataSource@. The statistics are generated</span><span>
-</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- from the observation data referenced by a @DataSource@. Amazon ML uses</span><span>
-</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- the statistics internally during @MLModel@ training. This parameter must</span><span>
-</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- be set to @true@ if the @@DataSource@@ needs to be used for @MLModel@</span><span>
-</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- training.</span><span>
-</span><span id="line-90"></span><span>    </span><span id="%24sel%3AcomputeStatistics%3ACreateDataSourceFromS%27"><span class="annot"><span class="annottext">CreateDataSourceFromS -&gt; Maybe Bool
-</span><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#%24sel%3AcomputeStatistics%3ACreateDataSourceFromS%27"><span class="hs-identifier hs-var hs-var">computeStatistics</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- | A user-supplied name or description of the @DataSource@.</span><span>
-</span><span id="line-92"></span><span>    </span><span id="%24sel%3AdataSourceName%3ACreateDataSourceFromS%27"><span class="annot"><span class="annottext">CreateDataSourceFromS -&gt; Maybe Text
+</span><span id="line-84"></span><span id="local-6989586621679259616"><span id="local-6989586621679259617"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDataSourceFromS"><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromS"><span class="hs-identifier hs-var">CreateDataSourceFromS</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDataSourceFromS%27"><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromS%27"><span class="hs-identifier hs-var">CreateDataSourceFromS'</span></a></span></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A user-supplied name or description of the @DataSource@.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3AdataSourceName%3ACreateDataSourceFromS%27"><span class="annot"><span class="annottext">CreateDataSourceFromS -&gt; Maybe Text
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#%24sel%3AdataSourceName%3ACreateDataSourceFromS%27"><span class="hs-identifier hs-var hs-var">dataSourceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | The compute statistics for a @DataSource@. The statistics are generated</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- from the observation data referenced by a @DataSource@. Amazon ML uses</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- the statistics internally during @MLModel@ training. This parameter must</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- be set to @true@ if the @@DataSource@@ needs to be used for @MLModel@</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- training.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3AcomputeStatistics%3ACreateDataSourceFromS%27"><span class="annot"><span class="annottext">CreateDataSourceFromS -&gt; Maybe Bool
+</span><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#%24sel%3AcomputeStatistics%3ACreateDataSourceFromS%27"><span class="hs-identifier hs-var hs-var">computeStatistics</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
 </span><span id="line-93"></span><span>    </span><span class="hs-comment">-- | A user-supplied identifier that uniquely identifies the @DataSource@.</span><span>
 </span><span id="line-94"></span><span>    </span><span id="%24sel%3AdataSourceId%3ACreateDataSourceFromS%27"><span class="annot"><span class="annottext">CreateDataSourceFromS -&gt; Text
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#%24sel%3AdataSourceId%3ACreateDataSourceFromS%27"><span class="hs-identifier hs-var hs-var">dataSourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -112,7 +112,7 @@
 </span><span id="line-109"></span><span>    </span><span id="%24sel%3AdataSpec%3ACreateDataSourceFromS%27"><span class="annot"><span class="annottext">CreateDataSourceFromS -&gt; S3DataSpec
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#%24sel%3AdataSpec%3ACreateDataSourceFromS%27"><span class="hs-identifier hs-var hs-var">dataSpec</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.S3DataSpec.html#S3DataSpec"><span class="hs-identifier hs-type">S3DataSpec</span></a></span><span>
 </span><span id="line-110"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-111"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259511"><span id="local-6989586621679259513"><span class="annot"><span class="annottext">CreateDataSourceFromS -&gt; CreateDataSourceFromS -&gt; Bool
+</span><span id="line-111"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259607"><span id="local-6989586621679259609"><span class="annot"><span class="annottext">CreateDataSourceFromS -&gt; CreateDataSourceFromS -&gt; Bool
 (CreateDataSourceFromS -&gt; CreateDataSourceFromS -&gt; Bool)
 -&gt; (CreateDataSourceFromS -&gt; CreateDataSourceFromS -&gt; Bool)
 -&gt; Eq CreateDataSourceFromS
@@ -121,7 +121,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateDataSourceFromS -&gt; CreateDataSourceFromS -&gt; Bool
 == :: CreateDataSourceFromS -&gt; CreateDataSourceFromS -&gt; Bool
 $c== :: CreateDataSourceFromS -&gt; CreateDataSourceFromS -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259502"><span id="local-6989586621679259504"><span id="local-6989586621679259506"><span id="local-6989586621679259508"><span class="annot"><span class="annottext">ReadPrec [CreateDataSourceFromS]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259598"><span id="local-6989586621679259600"><span id="local-6989586621679259602"><span id="local-6989586621679259604"><span class="annot"><span class="annottext">ReadPrec [CreateDataSourceFromS]
 ReadPrec CreateDataSourceFromS
 Int -&gt; ReadS CreateDataSourceFromS
 ReadS [CreateDataSourceFromS]
@@ -141,7 +141,7 @@ readList :: ReadS [CreateDataSourceFromS]
 $creadList :: ReadS [CreateDataSourceFromS]
 readsPrec :: Int -&gt; ReadS CreateDataSourceFromS
 $creadsPrec :: Int -&gt; ReadS CreateDataSourceFromS
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259495"><span id="local-6989586621679259497"><span id="local-6989586621679259499"><span class="annot"><span class="annottext">Int -&gt; CreateDataSourceFromS -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259591"><span id="local-6989586621679259593"><span id="local-6989586621679259595"><span class="annot"><span class="annottext">Int -&gt; CreateDataSourceFromS -&gt; ShowS
 [CreateDataSourceFromS] -&gt; ShowS
 CreateDataSourceFromS -&gt; String
 (Int -&gt; CreateDataSourceFromS -&gt; ShowS)
@@ -175,13 +175,13 @@ $cfrom :: forall x. CreateDataSourceFromS -&gt; Rep CreateDataSourceFromS x
 </span><span id="line-118"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-120"></span><span class="hs-comment">--</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- 'computeStatistics', 'createDataSourceFromS_computeStatistics' - The compute statistics for a @DataSource@. The statistics are generated</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- from the observation data referenced by a @DataSource@. Amazon ML uses</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- the statistics internally during @MLModel@ training. This parameter must</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- be set to @true@ if the @@DataSource@@ needs to be used for @MLModel@</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- training.</span><span>
-</span><span id="line-126"></span><span class="hs-comment">--</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- 'dataSourceName', 'createDataSourceFromS_dataSourceName' - A user-supplied name or description of the @DataSource@.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'dataSourceName', 'createDataSourceFromS_dataSourceName' - A user-supplied name or description of the @DataSource@.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'computeStatistics', 'createDataSourceFromS_computeStatistics' - The compute statistics for a @DataSource@. The statistics are generated</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- from the observation data referenced by a @DataSource@. Amazon ML uses</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- the statistics internally during @MLModel@ training. This parameter must</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- be set to @true@ if the @@DataSource@@ needs to be used for @MLModel@</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- training.</span><span>
 </span><span id="line-128"></span><span class="hs-comment">--</span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- 'dataSourceId', 'createDataSourceFromS_dataSourceId' - A user-supplied identifier that uniquely identifies the @DataSource@.</span><span>
 </span><span id="line-130"></span><span class="hs-comment">--</span><span>
@@ -206,59 +206,32 @@ $cfrom :: forall x. CreateDataSourceFromS -&gt; Rep CreateDataSourceFromS x
 </span><span id="line-149"></span><span>  </span><span class="annot"><a href="Network.AWS.MachineLearning.Types.S3DataSpec.html#S3DataSpec"><span class="hs-identifier hs-type">S3DataSpec</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-150"></span><span>  </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromS"><span class="hs-identifier hs-type">CreateDataSourceFromS</span></a></span><span>
 </span><span id="line-151"></span><span id="newCreateDataSourceFromS"><span class="annot"><span class="annottext">newCreateDataSourceFromS :: Text -&gt; S3DataSpec -&gt; CreateDataSourceFromS
-</span><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#newCreateDataSourceFromS"><span class="hs-identifier hs-var hs-var">newCreateDataSourceFromS</span></a></span></span><span> </span><span id="local-6989586621679259490"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259490"><span class="hs-identifier hs-var">pDataSourceId_</span></a></span></span><span> </span><span id="local-6989586621679259489"><span class="annot"><span class="annottext">S3DataSpec
-</span><a href="#local-6989586621679259489"><span class="hs-identifier hs-var">pDataSpec_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-152"></span><span>  </span><span class="annot"><span class="annottext">CreateDataSourceFromS' :: Maybe Bool
--&gt; Maybe Text -&gt; Text -&gt; S3DataSpec -&gt; CreateDataSourceFromS
+</span><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#newCreateDataSourceFromS"><span class="hs-identifier hs-var hs-var">newCreateDataSourceFromS</span></a></span></span><span> </span><span id="local-6989586621679259586"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259586"><span class="hs-identifier hs-var">pDataSourceId_</span></a></span></span><span> </span><span id="local-6989586621679259585"><span class="annot"><span class="annottext">S3DataSpec
+</span><a href="#local-6989586621679259585"><span class="hs-identifier hs-var">pDataSpec_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><span class="annottext">CreateDataSourceFromS' :: Maybe Text
+-&gt; Maybe Bool -&gt; Text -&gt; S3DataSpec -&gt; CreateDataSourceFromS
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromS%27"><span class="hs-identifier hs-type">CreateDataSourceFromS'</span></a></span><span>
-</span><span id="line-153"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:computeStatistics:CreateDataSourceFromS' :: Maybe Bool
-</span><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#%24sel%3AcomputeStatistics%3ACreateDataSourceFromS%27"><span class="hs-identifier hs-var">computeStatistics</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-154"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-153"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dataSourceName:CreateDataSourceFromS' :: Maybe Text
+</span><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#%24sel%3AdataSourceName%3ACreateDataSourceFromS%27"><span class="hs-identifier hs-var">dataSourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataSourceName:CreateDataSourceFromS' :: Maybe Text
-</span><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#%24sel%3AdataSourceName%3ACreateDataSourceFromS%27"><span class="hs-identifier hs-var">dataSourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">$sel:computeStatistics:CreateDataSourceFromS' :: Maybe Bool
+</span><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#%24sel%3AcomputeStatistics%3ACreateDataSourceFromS%27"><span class="hs-identifier hs-var">computeStatistics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataSourceId:CreateDataSourceFromS' :: Text
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#%24sel%3AdataSourceId%3ACreateDataSourceFromS%27"><span class="hs-identifier hs-var">dataSourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259490"><span class="hs-identifier hs-var">pDataSourceId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679259586"><span class="hs-identifier hs-var">pDataSourceId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataSpec:CreateDataSourceFromS' :: S3DataSpec
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#%24sel%3AdataSpec%3ACreateDataSourceFromS%27"><span class="hs-identifier hs-var">dataSpec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">S3DataSpec
-</span><a href="#local-6989586621679259489"><span class="hs-identifier hs-var">pDataSpec_</span></a></span><span>
+</span><a href="#local-6989586621679259585"><span class="hs-identifier hs-var">pDataSpec_</span></a></span><span>
 </span><span id="line-158"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- | The compute statistics for a @DataSource@. The statistics are generated</span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- from the observation data referenced by a @DataSource@. Amazon ML uses</span><span>
-</span><span id="line-162"></span><span class="hs-comment">-- the statistics internally during @MLModel@ training. This parameter must</span><span>
-</span><span id="line-163"></span><span class="hs-comment">-- be set to @true@ if the @@DataSource@@ needs to be used for @MLModel@</span><span>
-</span><span id="line-164"></span><span class="hs-comment">-- training.</span><span>
-</span><span id="line-165"></span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#createDataSourceFromS_computeStatistics"><span class="hs-identifier hs-type">createDataSourceFromS_computeStatistics</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromS"><span class="hs-identifier hs-type">CreateDataSourceFromS</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-166"></span><span id="createDataSourceFromS_computeStatistics"><span class="annot"><span class="annottext">createDataSourceFromS_computeStatistics :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; CreateDataSourceFromS -&gt; f CreateDataSourceFromS
-</span><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#createDataSourceFromS_computeStatistics"><span class="hs-identifier hs-var hs-var">createDataSourceFromS_computeStatistics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDataSourceFromS -&gt; Maybe Bool)
--&gt; (CreateDataSourceFromS -&gt; Maybe Bool -&gt; CreateDataSourceFromS)
--&gt; Lens
-     CreateDataSourceFromS
-     CreateDataSourceFromS
-     (Maybe Bool)
-     (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromS%27"><span class="hs-identifier hs-type">CreateDataSourceFromS'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259486"><span class="annot"><span class="annottext">Maybe Bool
-computeStatistics :: Maybe Bool
-$sel:computeStatistics:CreateDataSourceFromS' :: CreateDataSourceFromS -&gt; Maybe Bool
-</span><a href="#local-6989586621679259486"><span class="hs-identifier hs-var hs-var">computeStatistics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679259486"><span class="hs-identifier hs-var">computeStatistics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259485"><span class="annot"><span class="annottext">s :: CreateDataSourceFromS
-</span><a href="#local-6989586621679259485"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromS%27"><span class="hs-identifier hs-type">CreateDataSourceFromS'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259484"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679259484"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataSourceFromS
-</span><a href="#local-6989586621679259485"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:computeStatistics:CreateDataSourceFromS' :: Maybe Bool
-</span><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#%24sel%3AcomputeStatistics%3ACreateDataSourceFromS%27"><span class="hs-identifier hs-var">computeStatistics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679259484"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromS"><span class="hs-identifier hs-type">CreateDataSourceFromS</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-comment">-- | A user-supplied name or description of the @DataSource@.</span><span>
-</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#createDataSourceFromS_dataSourceName"><span class="hs-identifier hs-type">createDataSourceFromS_dataSourceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromS"><span class="hs-identifier hs-type">CreateDataSourceFromS</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-170"></span><span id="createDataSourceFromS_dataSourceName"><span class="annot"><span class="annottext">createDataSourceFromS_dataSourceName :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-160"></span><span class="hs-comment">-- | A user-supplied name or description of the @DataSource@.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#createDataSourceFromS_dataSourceName"><span class="hs-identifier hs-type">createDataSourceFromS_dataSourceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromS"><span class="hs-identifier hs-type">CreateDataSourceFromS</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="createDataSourceFromS_dataSourceName"><span class="annot"><span class="annottext">createDataSourceFromS_dataSourceName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; CreateDataSourceFromS -&gt; f CreateDataSourceFromS
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#createDataSourceFromS_dataSourceName"><span class="hs-identifier hs-var hs-var">createDataSourceFromS_dataSourceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDataSourceFromS -&gt; Maybe Text)
 -&gt; (CreateDataSourceFromS -&gt; Maybe Text -&gt; CreateDataSourceFromS)
@@ -268,16 +241,43 @@ $sel:computeStatistics:CreateDataSourceFromS' :: CreateDataSourceFromS -&gt; May
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromS%27"><span class="hs-identifier hs-type">CreateDataSourceFromS'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259483"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromS%27"><span class="hs-identifier hs-type">CreateDataSourceFromS'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259582"><span class="annot"><span class="annottext">Maybe Text
 dataSourceName :: Maybe Text
 $sel:dataSourceName:CreateDataSourceFromS' :: CreateDataSourceFromS -&gt; Maybe Text
-</span><a href="#local-6989586621679259483"><span class="hs-identifier hs-var hs-var">dataSourceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259483"><span class="hs-identifier hs-var">dataSourceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259482"><span class="annot"><span class="annottext">s :: CreateDataSourceFromS
-</span><a href="#local-6989586621679259482"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromS%27"><span class="hs-identifier hs-type">CreateDataSourceFromS'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259481"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259481"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataSourceFromS
-</span><a href="#local-6989586621679259482"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSourceName:CreateDataSourceFromS' :: Maybe Text
+</span><a href="#local-6989586621679259582"><span class="hs-identifier hs-var hs-var">dataSourceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259582"><span class="hs-identifier hs-var">dataSourceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259581"><span class="annot"><span class="annottext">s :: CreateDataSourceFromS
+</span><a href="#local-6989586621679259581"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromS%27"><span class="hs-identifier hs-type">CreateDataSourceFromS'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259580"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259580"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataSourceFromS
+</span><a href="#local-6989586621679259581"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSourceName:CreateDataSourceFromS' :: Maybe Text
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#%24sel%3AdataSourceName%3ACreateDataSourceFromS%27"><span class="hs-identifier hs-var">dataSourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259481"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromS"><span class="hs-identifier hs-type">CreateDataSourceFromS</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259580"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromS"><span class="hs-identifier hs-type">CreateDataSourceFromS</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | The compute statistics for a @DataSource@. The statistics are generated</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- from the observation data referenced by a @DataSource@. Amazon ML uses</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- the statistics internally during @MLModel@ training. This parameter must</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- be set to @true@ if the @@DataSource@@ needs to be used for @MLModel@</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- training.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#createDataSourceFromS_computeStatistics"><span class="hs-identifier hs-type">createDataSourceFromS_computeStatistics</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromS"><span class="hs-identifier hs-type">CreateDataSourceFromS</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span id="createDataSourceFromS_computeStatistics"><span class="annot"><span class="annottext">createDataSourceFromS_computeStatistics :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; CreateDataSourceFromS -&gt; f CreateDataSourceFromS
+</span><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#createDataSourceFromS_computeStatistics"><span class="hs-identifier hs-var hs-var">createDataSourceFromS_computeStatistics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDataSourceFromS -&gt; Maybe Bool)
+-&gt; (CreateDataSourceFromS -&gt; Maybe Bool -&gt; CreateDataSourceFromS)
+-&gt; Lens
+     CreateDataSourceFromS
+     CreateDataSourceFromS
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromS%27"><span class="hs-identifier hs-type">CreateDataSourceFromS'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259579"><span class="annot"><span class="annottext">Maybe Bool
+computeStatistics :: Maybe Bool
+$sel:computeStatistics:CreateDataSourceFromS' :: CreateDataSourceFromS -&gt; Maybe Bool
+</span><a href="#local-6989586621679259579"><span class="hs-identifier hs-var hs-var">computeStatistics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679259579"><span class="hs-identifier hs-var">computeStatistics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259578"><span class="annot"><span class="annottext">s :: CreateDataSourceFromS
+</span><a href="#local-6989586621679259578"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromS%27"><span class="hs-identifier hs-type">CreateDataSourceFromS'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259577"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679259577"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataSourceFromS
+</span><a href="#local-6989586621679259578"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:computeStatistics:CreateDataSourceFromS' :: Maybe Bool
+</span><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#%24sel%3AcomputeStatistics%3ACreateDataSourceFromS%27"><span class="hs-identifier hs-var">computeStatistics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679259577"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromS"><span class="hs-identifier hs-type">CreateDataSourceFromS</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | A user-supplied identifier that uniquely identifies the @DataSource@.</span><span>
 </span><span id="line-173"></span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#createDataSourceFromS_dataSourceId"><span class="hs-identifier hs-type">createDataSourceFromS_dataSourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromS"><span class="hs-identifier hs-type">CreateDataSourceFromS</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -287,16 +287,16 @@ $sel:dataSourceName:CreateDataSourceFromS' :: CreateDataSourceFromS -&gt; Maybe 
 -&gt; (CreateDataSourceFromS -&gt; Text -&gt; CreateDataSourceFromS)
 -&gt; Lens CreateDataSourceFromS CreateDataSourceFromS Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromS%27"><span class="hs-identifier hs-type">CreateDataSourceFromS'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259480"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromS%27"><span class="hs-identifier hs-type">CreateDataSourceFromS'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259576"><span class="annot"><span class="annottext">Text
 dataSourceId :: Text
 $sel:dataSourceId:CreateDataSourceFromS' :: CreateDataSourceFromS -&gt; Text
-</span><a href="#local-6989586621679259480"><span class="hs-identifier hs-var hs-var">dataSourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259480"><span class="hs-identifier hs-var">dataSourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259479"><span class="annot"><span class="annottext">s :: CreateDataSourceFromS
-</span><a href="#local-6989586621679259479"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromS%27"><span class="hs-identifier hs-type">CreateDataSourceFromS'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259478"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259478"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataSourceFromS
-</span><a href="#local-6989586621679259479"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSourceId:CreateDataSourceFromS' :: Text
+</span><a href="#local-6989586621679259576"><span class="hs-identifier hs-var hs-var">dataSourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259576"><span class="hs-identifier hs-var">dataSourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259575"><span class="annot"><span class="annottext">s :: CreateDataSourceFromS
+</span><a href="#local-6989586621679259575"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromS%27"><span class="hs-identifier hs-type">CreateDataSourceFromS'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259574"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259574"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataSourceFromS
+</span><a href="#local-6989586621679259575"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSourceId:CreateDataSourceFromS' :: Text
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#%24sel%3AdataSourceId%3ACreateDataSourceFromS%27"><span class="hs-identifier hs-var">dataSourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259478"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromS"><span class="hs-identifier hs-type">CreateDataSourceFromS</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259574"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromS"><span class="hs-identifier hs-type">CreateDataSourceFromS</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-comment">-- | The data specification of a @DataSource@:</span><span>
 </span><span id="line-177"></span><span class="hs-comment">--</span><span>
@@ -320,27 +320,27 @@ $sel:dataSourceId:CreateDataSourceFromS' :: CreateDataSourceFromS -&gt; Text
 -&gt; Lens
      CreateDataSourceFromS CreateDataSourceFromS S3DataSpec S3DataSpec
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromS%27"><span class="hs-identifier hs-type">CreateDataSourceFromS'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259477"><span class="annot"><span class="annottext">S3DataSpec
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromS%27"><span class="hs-identifier hs-type">CreateDataSourceFromS'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259573"><span class="annot"><span class="annottext">S3DataSpec
 dataSpec :: S3DataSpec
 $sel:dataSpec:CreateDataSourceFromS' :: CreateDataSourceFromS -&gt; S3DataSpec
-</span><a href="#local-6989586621679259477"><span class="hs-identifier hs-var hs-var">dataSpec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3DataSpec
-</span><a href="#local-6989586621679259477"><span class="hs-identifier hs-var">dataSpec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259476"><span class="annot"><span class="annottext">s :: CreateDataSourceFromS
-</span><a href="#local-6989586621679259476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromS%27"><span class="hs-identifier hs-type">CreateDataSourceFromS'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259475"><span class="annot"><span class="annottext">S3DataSpec
-</span><a href="#local-6989586621679259475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataSourceFromS
-</span><a href="#local-6989586621679259476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSpec:CreateDataSourceFromS' :: S3DataSpec
+</span><a href="#local-6989586621679259573"><span class="hs-identifier hs-var hs-var">dataSpec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3DataSpec
+</span><a href="#local-6989586621679259573"><span class="hs-identifier hs-var">dataSpec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259572"><span class="annot"><span class="annottext">s :: CreateDataSourceFromS
+</span><a href="#local-6989586621679259572"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromS%27"><span class="hs-identifier hs-type">CreateDataSourceFromS'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259571"><span class="annot"><span class="annottext">S3DataSpec
+</span><a href="#local-6989586621679259571"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataSourceFromS
+</span><a href="#local-6989586621679259572"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSpec:CreateDataSourceFromS' :: S3DataSpec
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#%24sel%3AdataSpec%3ACreateDataSourceFromS%27"><span class="hs-identifier hs-var">dataSpec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">S3DataSpec
-</span><a href="#local-6989586621679259475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromS"><span class="hs-identifier hs-type">CreateDataSourceFromS</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259571"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromS"><span class="hs-identifier hs-type">CreateDataSourceFromS</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromS"><span class="hs-identifier hs-type">CreateDataSourceFromS</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-194"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-195"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromS"><span class="hs-identifier hs-type">CreateDataSourceFromS</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-196"></span><span>      </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromSResponse"><span class="hs-identifier hs-type">CreateDataSourceFromSResponse</span></a></span><span>
-</span><span id="line-197"></span><span>  </span><span id="local-6989586621679259471"><span class="annot"><span class="annottext">request :: CreateDataSourceFromS -&gt; Request CreateDataSourceFromS
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679259567"><span class="annot"><span class="annottext">request :: CreateDataSourceFromS -&gt; Request CreateDataSourceFromS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateDataSourceFromS -&gt; Request CreateDataSourceFromS
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MachineLearning.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-198"></span><span>  </span><span id="local-6989586621679259467"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-198"></span><span>  </span><span id="local-6989586621679259563"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateDataSourceFromS
 -&gt; ClientResponse ClientBody
@@ -366,10 +366,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-200"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679259464"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679259464"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679259463"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679259463"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679259462"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679259462"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-200"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679259560"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259560"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679259559"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679259559"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679259558"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679259558"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-201"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; CreateDataSourceFromSResponse
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromSResponse%27"><span class="hs-identifier hs-var">CreateDataSourceFromSResponse'</span></a></span><span>
 </span><span id="line-202"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; CreateDataSourceFromSResponse)
@@ -377,7 +377,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; CreateDataSourceFromSResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679259462"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679259558"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DataSourceId&quot;</span></span><span class="hs-special">)</span><span>
@@ -389,15 +389,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679259464"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259560"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-204"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-205"></span><span>
-</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259454"><span id="local-6989586621679259456"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromS"><span class="hs-identifier hs-type">CreateDataSourceFromS</span></a></span></span></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259550"><span id="local-6989586621679259552"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromS"><span class="hs-identifier hs-type">CreateDataSourceFromS</span></a></span></span></span><span>
 </span><span id="line-207"></span><span>
-</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259451"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromS"><span class="hs-identifier hs-type">CreateDataSourceFromS</span></a></span></span><span>
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259547"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromS"><span class="hs-identifier hs-type">CreateDataSourceFromS</span></a></span></span><span>
 </span><span id="line-209"></span><span>
 </span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromS"><span class="hs-identifier hs-type">CreateDataSourceFromS</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-211"></span><span>  </span><span id="local-6989586621679259447"><span class="annot"><span class="annottext">toHeaders :: CreateDataSourceFromS -&gt; ResponseHeaders
+</span><span id="line-211"></span><span>  </span><span id="local-6989586621679259543"><span class="annot"><span class="annottext">toHeaders :: CreateDataSourceFromS -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-212"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateDataSourceFromS -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -424,68 +424,68 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-222"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-223"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-224"></span><span>
-</span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259437"><span id="local-6989586621679259439"><span id="local-6989586621679259441"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromS"><span class="hs-identifier hs-type">CreateDataSourceFromS</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-226"></span><span>  </span><span id="local-6989586621679259435"><span class="annot"><span class="annottext">toJSON :: CreateDataSourceFromS -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromS%27"><span class="hs-identifier hs-type">CreateDataSourceFromS'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259430"><span id="local-6989586621679259431"><span id="local-6989586621679259432"><span id="local-6989586621679259433"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259533"><span id="local-6989586621679259535"><span id="local-6989586621679259537"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromS"><span class="hs-identifier hs-type">CreateDataSourceFromS</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-226"></span><span>  </span><span id="local-6989586621679259531"><span class="annot"><span class="annottext">toJSON :: CreateDataSourceFromS -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromS%27"><span class="hs-identifier hs-type">CreateDataSourceFromS'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259526"><span id="local-6989586621679259527"><span id="local-6989586621679259528"><span id="local-6989586621679259529"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 Text
 S3DataSpec
 dataSpec :: S3DataSpec
 dataSourceId :: Text
-dataSourceName :: Maybe Text
 computeStatistics :: Maybe Bool
+dataSourceName :: Maybe Text
 $sel:dataSpec:CreateDataSourceFromS' :: CreateDataSourceFromS -&gt; S3DataSpec
 $sel:dataSourceId:CreateDataSourceFromS' :: CreateDataSourceFromS -&gt; Text
-$sel:dataSourceName:CreateDataSourceFromS' :: CreateDataSourceFromS -&gt; Maybe Text
 $sel:computeStatistics:CreateDataSourceFromS' :: CreateDataSourceFromS -&gt; Maybe Bool
-</span><a href="#local-6989586621679259430"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:dataSourceName:CreateDataSourceFromS' :: CreateDataSourceFromS -&gt; Maybe Text
+</span><a href="#local-6989586621679259526"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-227"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-228"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-229"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ComputeStatistics&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-230"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679259433"><span class="hs-identifier hs-var">computeStatistics</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-231"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DataSourceName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-232"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+</span><span id="line-230"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259432"><span class="hs-identifier hs-var">dataSourceName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679259529"><span class="hs-identifier hs-var">dataSourceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ComputeStatistics&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679259528"><span class="hs-identifier hs-var">computeStatistics</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-233"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DataSourceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259431"><span class="hs-identifier hs-var">dataSourceId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679259527"><span class="hs-identifier hs-var">dataSourceId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-234"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DataSpec&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; S3DataSpec -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">S3DataSpec
-</span><a href="#local-6989586621679259430"><span class="hs-identifier hs-var">dataSpec</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259526"><span class="hs-identifier hs-var">dataSpec</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-235"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-236"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-237"></span><span>
 </span><span id="line-238"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromS"><span class="hs-identifier hs-type">CreateDataSourceFromS</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-239"></span><span>  </span><span id="local-6989586621679259424"><span class="annot"><span class="annottext">toPath :: CreateDataSourceFromS -&gt; ByteString
+</span><span id="line-239"></span><span>  </span><span id="local-6989586621679259520"><span class="annot"><span class="annottext">toPath :: CreateDataSourceFromS -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateDataSourceFromS -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-240"></span><span>
 </span><span id="line-241"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromS"><span class="hs-identifier hs-type">CreateDataSourceFromS</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-242"></span><span>  </span><span id="local-6989586621679259420"><span class="annot"><span class="annottext">toQuery :: CreateDataSourceFromS -&gt; QueryString
+</span><span id="line-242"></span><span>  </span><span id="local-6989586621679259516"><span class="annot"><span class="annottext">toQuery :: CreateDataSourceFromS -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateDataSourceFromS -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -500,7 +500,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-249"></span><span class="hs-comment">-- @Status@ parameter.</span><span>
 </span><span id="line-250"></span><span class="hs-comment">--</span><span>
 </span><span id="line-251"></span><span class="hs-comment">-- /See:/ 'newCreateDataSourceFromSResponse' smart constructor.</span><span>
-</span><span id="line-252"></span><span id="local-6989586621679259417"><span id="local-6989586621679259418"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDataSourceFromSResponse"><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromSResponse"><span class="hs-identifier hs-var">CreateDataSourceFromSResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDataSourceFromSResponse%27"><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromSResponse%27"><span class="hs-identifier hs-var">CreateDataSourceFromSResponse'</span></a></span></span><span>
+</span><span id="line-252"></span><span id="local-6989586621679259513"><span id="local-6989586621679259514"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDataSourceFromSResponse"><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromSResponse"><span class="hs-identifier hs-var">CreateDataSourceFromSResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDataSourceFromSResponse%27"><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromSResponse%27"><span class="hs-identifier hs-var">CreateDataSourceFromSResponse'</span></a></span></span><span>
 </span><span id="line-253"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A user-supplied ID that uniquely identifies the @DataSource@. This value</span><span>
 </span><span id="line-254"></span><span>    </span><span class="hs-comment">-- should be identical to the value of the @DataSourceID@ in the request.</span><span>
 </span><span id="line-255"></span><span>    </span><span id="%24sel%3AdataSourceId%3ACreateDataSourceFromSResponse%27"><span class="annot"><span class="annottext">CreateDataSourceFromSResponse -&gt; Maybe Text
@@ -509,7 +509,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-257"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateDataSourceFromSResponse%27"><span class="annot"><span class="annottext">CreateDataSourceFromSResponse -&gt; Int
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#%24sel%3AhttpStatus%3ACreateDataSourceFromSResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-258"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-259"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259411"><span id="local-6989586621679259413"><span class="annot"><span class="annottext">CreateDataSourceFromSResponse
+</span><span id="line-259"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259507"><span id="local-6989586621679259509"><span class="annot"><span class="annottext">CreateDataSourceFromSResponse
 -&gt; CreateDataSourceFromSResponse -&gt; Bool
 (CreateDataSourceFromSResponse
  -&gt; CreateDataSourceFromSResponse -&gt; Bool)
@@ -525,7 +525,7 @@ $c/= :: CreateDataSourceFromSResponse
 -&gt; CreateDataSourceFromSResponse -&gt; Bool
 $c== :: CreateDataSourceFromSResponse
 -&gt; CreateDataSourceFromSResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259403"><span id="local-6989586621679259405"><span id="local-6989586621679259407"><span id="local-6989586621679259409"><span class="annot"><span class="annottext">ReadPrec [CreateDataSourceFromSResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259499"><span id="local-6989586621679259501"><span id="local-6989586621679259503"><span id="local-6989586621679259505"><span class="annot"><span class="annottext">ReadPrec [CreateDataSourceFromSResponse]
 ReadPrec CreateDataSourceFromSResponse
 Int -&gt; ReadS CreateDataSourceFromSResponse
 ReadS [CreateDataSourceFromSResponse]
@@ -545,7 +545,7 @@ readList :: ReadS [CreateDataSourceFromSResponse]
 $creadList :: ReadS [CreateDataSourceFromSResponse]
 readsPrec :: Int -&gt; ReadS CreateDataSourceFromSResponse
 $creadsPrec :: Int -&gt; ReadS CreateDataSourceFromSResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259397"><span id="local-6989586621679259399"><span id="local-6989586621679259401"><span class="annot"><span class="annottext">Int -&gt; CreateDataSourceFromSResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259493"><span id="local-6989586621679259495"><span id="local-6989586621679259497"><span class="annot"><span class="annottext">Int -&gt; CreateDataSourceFromSResponse -&gt; ShowS
 [CreateDataSourceFromSResponse] -&gt; ShowS
 CreateDataSourceFromSResponse -&gt; String
 (Int -&gt; CreateDataSourceFromSResponse -&gt; ShowS)
@@ -600,8 +600,8 @@ CreateDataSourceFromSResponse
 </span><span id="line-275"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-276"></span><span>  </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromSResponse"><span class="hs-identifier hs-type">CreateDataSourceFromSResponse</span></a></span><span>
 </span><span id="line-277"></span><span id="newCreateDataSourceFromSResponse"><span class="annot"><span class="annottext">newCreateDataSourceFromSResponse :: Int -&gt; CreateDataSourceFromSResponse
-</span><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#newCreateDataSourceFromSResponse"><span class="hs-identifier hs-var hs-var">newCreateDataSourceFromSResponse</span></a></span></span><span> </span><span id="local-6989586621679259394"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679259394"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#newCreateDataSourceFromSResponse"><span class="hs-identifier hs-var hs-var">newCreateDataSourceFromSResponse</span></a></span></span><span> </span><span id="local-6989586621679259490"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259490"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-278"></span><span>  </span><span class="annot"><span class="annottext">CreateDataSourceFromSResponse' :: Maybe Text -&gt; Int -&gt; CreateDataSourceFromSResponse
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromSResponse%27"><span class="hs-identifier hs-type">CreateDataSourceFromSResponse'</span></a></span><span>
 </span><span id="line-279"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dataSourceId:CreateDataSourceFromSResponse' :: Maybe Text
@@ -611,7 +611,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-281"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDataSourceFromSResponse' :: Int
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#%24sel%3AhttpStatus%3ACreateDataSourceFromSResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679259394"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679259490"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-282"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-283"></span><span>
 </span><span id="line-284"></span><span class="hs-comment">-- | A user-supplied ID that uniquely identifies the @DataSource@. This value</span><span>
@@ -628,16 +628,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromSResponse%27"><span class="hs-identifier hs-type">CreateDataSourceFromSResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259393"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromSResponse%27"><span class="hs-identifier hs-type">CreateDataSourceFromSResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259489"><span class="annot"><span class="annottext">Maybe Text
 dataSourceId :: Maybe Text
 $sel:dataSourceId:CreateDataSourceFromSResponse' :: CreateDataSourceFromSResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679259393"><span class="hs-identifier hs-var hs-var">dataSourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259393"><span class="hs-identifier hs-var">dataSourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259392"><span class="annot"><span class="annottext">s :: CreateDataSourceFromSResponse
-</span><a href="#local-6989586621679259392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromSResponse%27"><span class="hs-identifier hs-type">CreateDataSourceFromSResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259391"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataSourceFromSResponse
-</span><a href="#local-6989586621679259392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSourceId:CreateDataSourceFromSResponse' :: Maybe Text
+</span><a href="#local-6989586621679259489"><span class="hs-identifier hs-var hs-var">dataSourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259489"><span class="hs-identifier hs-var">dataSourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259488"><span class="annot"><span class="annottext">s :: CreateDataSourceFromSResponse
+</span><a href="#local-6989586621679259488"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromSResponse%27"><span class="hs-identifier hs-type">CreateDataSourceFromSResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259487"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259487"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataSourceFromSResponse
+</span><a href="#local-6989586621679259488"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSourceId:CreateDataSourceFromSResponse' :: Maybe Text
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#%24sel%3AdataSourceId%3ACreateDataSourceFromSResponse%27"><span class="hs-identifier hs-var">dataSourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromSResponse"><span class="hs-identifier hs-type">CreateDataSourceFromSResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromSResponse"><span class="hs-identifier hs-type">CreateDataSourceFromSResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-288"></span><span>
 </span><span id="line-289"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-290"></span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#createDataSourceFromSResponse_httpStatus"><span class="hs-identifier hs-type">createDataSourceFromSResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromSResponse"><span class="hs-identifier hs-type">CreateDataSourceFromSResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -649,16 +649,16 @@ $sel:dataSourceId:CreateDataSourceFromSResponse' :: CreateDataSourceFromSRespons
 -&gt; Lens
      CreateDataSourceFromSResponse CreateDataSourceFromSResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromSResponse%27"><span class="hs-identifier hs-type">CreateDataSourceFromSResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259390"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromSResponse%27"><span class="hs-identifier hs-type">CreateDataSourceFromSResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259486"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateDataSourceFromSResponse' :: CreateDataSourceFromSResponse -&gt; Int
-</span><a href="#local-6989586621679259390"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679259390"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259389"><span class="annot"><span class="annottext">s :: CreateDataSourceFromSResponse
-</span><a href="#local-6989586621679259389"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromSResponse%27"><span class="hs-identifier hs-type">CreateDataSourceFromSResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259388"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679259388"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataSourceFromSResponse
-</span><a href="#local-6989586621679259389"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDataSourceFromSResponse' :: Int
+</span><a href="#local-6989586621679259486"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259486"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259485"><span class="annot"><span class="annottext">s :: CreateDataSourceFromSResponse
+</span><a href="#local-6989586621679259485"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromSResponse%27"><span class="hs-identifier hs-type">CreateDataSourceFromSResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259484"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259484"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataSourceFromSResponse
+</span><a href="#local-6989586621679259485"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDataSourceFromSResponse' :: Int
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#%24sel%3AhttpStatus%3ACreateDataSourceFromSResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679259388"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromSResponse"><span class="hs-identifier hs-type">CreateDataSourceFromSResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259484"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromSResponse"><span class="hs-identifier hs-type">CreateDataSourceFromSResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-292"></span><span>
-</span><span id="line-293"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259386"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromSResponse"><span class="hs-identifier hs-type">CreateDataSourceFromSResponse</span></a></span></span><span>
+</span><span id="line-293"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259482"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromS.html#CreateDataSourceFromSResponse"><span class="hs-identifier hs-type">CreateDataSourceFromSResponse</span></a></span></span><span>
 </span><span id="line-294"></span></pre></body></html>

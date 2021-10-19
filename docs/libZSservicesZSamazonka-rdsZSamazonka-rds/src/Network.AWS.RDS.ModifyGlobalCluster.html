@@ -34,11 +34,11 @@
 </span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#newModifyGlobalCluster"><span class="hs-identifier">newModifyGlobalCluster</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#modifyGlobalCluster_deletionProtection"><span class="hs-identifier">modifyGlobalCluster_deletionProtection</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#modifyGlobalCluster_allowMajorVersionUpgrade"><span class="hs-identifier">modifyGlobalCluster_allowMajorVersionUpgrade</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#modifyGlobalCluster_engineVersion"><span class="hs-identifier">modifyGlobalCluster_engineVersion</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#modifyGlobalCluster_newGlobalClusterIdentifier"><span class="hs-identifier">modifyGlobalCluster_newGlobalClusterIdentifier</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#modifyGlobalCluster_globalClusterIdentifier"><span class="hs-identifier">modifyGlobalCluster_globalClusterIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#modifyGlobalCluster_engineVersion"><span class="hs-identifier">modifyGlobalCluster_engineVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#modifyGlobalCluster_deletionProtection"><span class="hs-identifier">modifyGlobalCluster_deletionProtection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#modifyGlobalCluster_globalClusterIdentifier"><span class="hs-identifier">modifyGlobalCluster_globalClusterIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#modifyGlobalCluster_allowMajorVersionUpgrade"><span class="hs-identifier">modifyGlobalCluster_allowMajorVersionUpgrade</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#modifyGlobalCluster_newGlobalClusterIdentifier"><span class="hs-identifier">modifyGlobalCluster_newGlobalClusterIdentifier</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalClusterResponse"><span class="hs-identifier">ModifyGlobalClusterResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -58,69 +58,69 @@
 </span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newModifyGlobalCluster' smart constructor.</span><span>
-</span><span id="line-61"></span><span id="local-6989586621679779931"><span id="local-6989586621679779932"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyGlobalCluster"><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster"><span class="hs-identifier hs-var">ModifyGlobalCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyGlobalCluster%27"><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster%27"><span class="hs-identifier hs-var">ModifyGlobalCluster'</span></a></span></span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Indicates if the global database cluster has deletion protection</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- enabled. The global database cluster can\'t be deleted when deletion</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- protection is enabled.</span><span>
-</span><span id="line-65"></span><span>    </span><span id="%24sel%3AdeletionProtection%3AModifyGlobalCluster%27"><span class="annot"><span class="annottext">ModifyGlobalCluster -&gt; Maybe Bool
-</span><a href="Network.AWS.RDS.ModifyGlobalCluster.html#%24sel%3AdeletionProtection%3AModifyGlobalCluster%27"><span class="hs-identifier hs-var hs-var">deletionProtection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | A value that indicates whether major version upgrades are allowed.</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- Constraints: You must allow major version upgrades when specifying a</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- value for the @EngineVersion@ parameter that is a different major</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- version than the DB cluster\'s current version.</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- If you upgrade the major version of a global database, the cluster and</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- DB instance parameter groups are set to the default parameter groups for</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- the new version. Apply any custom parameter groups after completing the</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- upgrade.</span><span>
-</span><span id="line-76"></span><span>    </span><span id="%24sel%3AallowMajorVersionUpgrade%3AModifyGlobalCluster%27"><span class="annot"><span class="annottext">ModifyGlobalCluster -&gt; Maybe Bool
-</span><a href="Network.AWS.RDS.ModifyGlobalCluster.html#%24sel%3AallowMajorVersionUpgrade%3AModifyGlobalCluster%27"><span class="hs-identifier hs-var hs-var">allowMajorVersionUpgrade</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The version number of the database engine to which you want to upgrade.</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- Changing this parameter results in an outage. The change is applied</span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- during the next maintenance window unless @ApplyImmediately@ is enabled.</span><span>
-</span><span id="line-80"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- To list all of the available engine versions for @aurora@ (for MySQL</span><span>
-</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- 5.6-compatible Aurora), use the following command:</span><span>
-</span><span id="line-83"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- @aws rds describe-db-engine-versions --engine aurora --query \'*[]|[?SupportsGlobalDatabases == \`true\`].[EngineVersion]\'@</span><span>
-</span><span id="line-85"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- To list all of the available engine versions for @aurora-mysql@ (for</span><span>
-</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- MySQL 5.7-compatible Aurora), use the following command:</span><span>
-</span><span id="line-88"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- @aws rds describe-db-engine-versions --engine aurora-mysql --query \'*[]|[?SupportsGlobalDatabases == \`true\`].[EngineVersion]\'@</span><span>
-</span><span id="line-90"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- To list all of the available engine versions for @aurora-postgresql@,</span><span>
-</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- use the following command:</span><span>
-</span><span id="line-93"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- @aws rds describe-db-engine-versions --engine aurora-postgresql --query \'*[]|[?SupportsGlobalDatabases == \`true\`].[EngineVersion]\'@</span><span>
-</span><span id="line-95"></span><span>    </span><span id="%24sel%3AengineVersion%3AModifyGlobalCluster%27"><span class="annot"><span class="annottext">ModifyGlobalCluster -&gt; Maybe Text
+</span><span id="line-61"></span><span id="local-6989586621679781032"><span id="local-6989586621679781033"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyGlobalCluster"><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster"><span class="hs-identifier hs-var">ModifyGlobalCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyGlobalCluster%27"><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster%27"><span class="hs-identifier hs-var">ModifyGlobalCluster'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The version number of the database engine to which you want to upgrade.</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- Changing this parameter results in an outage. The change is applied</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- during the next maintenance window unless @ApplyImmediately@ is enabled.</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- To list all of the available engine versions for @aurora@ (for MySQL</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- 5.6-compatible Aurora), use the following command:</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- @aws rds describe-db-engine-versions --engine aurora --query \'*[]|[?SupportsGlobalDatabases == \`true\`].[EngineVersion]\'@</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- To list all of the available engine versions for @aurora-mysql@ (for</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- MySQL 5.7-compatible Aurora), use the following command:</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- @aws rds describe-db-engine-versions --engine aurora-mysql --query \'*[]|[?SupportsGlobalDatabases == \`true\`].[EngineVersion]\'@</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- To list all of the available engine versions for @aurora-postgresql@,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- use the following command:</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- @aws rds describe-db-engine-versions --engine aurora-postgresql --query \'*[]|[?SupportsGlobalDatabases == \`true\`].[EngineVersion]\'@</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AengineVersion%3AModifyGlobalCluster%27"><span class="annot"><span class="annottext">ModifyGlobalCluster -&gt; Maybe Text
 </span><a href="Network.AWS.RDS.ModifyGlobalCluster.html#%24sel%3AengineVersion%3AModifyGlobalCluster%27"><span class="hs-identifier hs-var hs-var">engineVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- | The new cluster identifier for the global database cluster when</span><span>
-</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- modifying a global database cluster. This value is stored as a lowercase</span><span>
-</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- string.</span><span>
-</span><span id="line-99"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- Constraints:</span><span>
-</span><span id="line-101"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- -   Must contain from 1 to 63 letters, numbers, or hyphens</span><span>
-</span><span id="line-103"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- -   The first character must be a letter</span><span>
-</span><span id="line-105"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- -   Can\'t end with a hyphen or contain two consecutive hyphens</span><span>
-</span><span id="line-107"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- Example: @my-cluster2@</span><span>
-</span><span id="line-109"></span><span>    </span><span id="%24sel%3AnewGlobalClusterIdentifier%27%3AModifyGlobalCluster%27"><span class="annot"><span class="annottext">ModifyGlobalCluster -&gt; Maybe Text
-</span><a href="Network.AWS.RDS.ModifyGlobalCluster.html#%24sel%3AnewGlobalClusterIdentifier%27%3AModifyGlobalCluster%27"><span class="hs-identifier hs-var hs-var">newGlobalClusterIdentifier'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- | The DB cluster identifier for the global cluster being modified. This</span><span>
-</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- parameter isn\'t case-sensitive.</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | Indicates if the global database cluster has deletion protection</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- enabled. The global database cluster can\'t be deleted when deletion</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- protection is enabled.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3AdeletionProtection%3AModifyGlobalCluster%27"><span class="annot"><span class="annottext">ModifyGlobalCluster -&gt; Maybe Bool
+</span><a href="Network.AWS.RDS.ModifyGlobalCluster.html#%24sel%3AdeletionProtection%3AModifyGlobalCluster%27"><span class="hs-identifier hs-var hs-var">deletionProtection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | The DB cluster identifier for the global cluster being modified. This</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- parameter isn\'t case-sensitive.</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- Constraints:</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- -   Must match the identifier of an existing global database cluster.</span><span>
+</span><span id="line-91"></span><span>    </span><span id="%24sel%3AglobalClusterIdentifier%3AModifyGlobalCluster%27"><span class="annot"><span class="annottext">ModifyGlobalCluster -&gt; Maybe Text
+</span><a href="Network.AWS.RDS.ModifyGlobalCluster.html#%24sel%3AglobalClusterIdentifier%3AModifyGlobalCluster%27"><span class="hs-identifier hs-var hs-var">globalClusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- | A value that indicates whether major version upgrades are allowed.</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- Constraints: You must allow major version upgrades when specifying a</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- value for the @EngineVersion@ parameter that is a different major</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- version than the DB cluster\'s current version.</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- If you upgrade the major version of a global database, the cluster and</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- DB instance parameter groups are set to the default parameter groups for</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- the new version. Apply any custom parameter groups after completing the</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- upgrade.</span><span>
+</span><span id="line-102"></span><span>    </span><span id="%24sel%3AallowMajorVersionUpgrade%3AModifyGlobalCluster%27"><span class="annot"><span class="annottext">ModifyGlobalCluster -&gt; Maybe Bool
+</span><a href="Network.AWS.RDS.ModifyGlobalCluster.html#%24sel%3AallowMajorVersionUpgrade%3AModifyGlobalCluster%27"><span class="hs-identifier hs-var hs-var">allowMajorVersionUpgrade</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- | The new cluster identifier for the global database cluster when</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- modifying a global database cluster. This value is stored as a lowercase</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- string.</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- Constraints:</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- -   Must contain from 1 to 63 letters, numbers, or hyphens</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- -   The first character must be a letter</span><span>
 </span><span id="line-112"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- Constraints:</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- -   Can\'t end with a hyphen or contain two consecutive hyphens</span><span>
 </span><span id="line-114"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- -   Must match the identifier of an existing global database cluster.</span><span>
-</span><span id="line-116"></span><span>    </span><span id="%24sel%3AglobalClusterIdentifier%3AModifyGlobalCluster%27"><span class="annot"><span class="annottext">ModifyGlobalCluster -&gt; Maybe Text
-</span><a href="Network.AWS.RDS.ModifyGlobalCluster.html#%24sel%3AglobalClusterIdentifier%3AModifyGlobalCluster%27"><span class="hs-identifier hs-var hs-var">globalClusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- Example: @my-cluster2@</span><span>
+</span><span id="line-116"></span><span>    </span><span id="%24sel%3AnewGlobalClusterIdentifier%27%3AModifyGlobalCluster%27"><span class="annot"><span class="annottext">ModifyGlobalCluster -&gt; Maybe Text
+</span><a href="Network.AWS.RDS.ModifyGlobalCluster.html#%24sel%3AnewGlobalClusterIdentifier%27%3AModifyGlobalCluster%27"><span class="hs-identifier hs-var hs-var">newGlobalClusterIdentifier'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-117"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-118"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679779921"><span id="local-6989586621679779923"><span class="annot"><span class="annottext">ModifyGlobalCluster -&gt; ModifyGlobalCluster -&gt; Bool
+</span><span id="line-118"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679781022"><span id="local-6989586621679781024"><span class="annot"><span class="annottext">ModifyGlobalCluster -&gt; ModifyGlobalCluster -&gt; Bool
 (ModifyGlobalCluster -&gt; ModifyGlobalCluster -&gt; Bool)
 -&gt; (ModifyGlobalCluster -&gt; ModifyGlobalCluster -&gt; Bool)
 -&gt; Eq ModifyGlobalCluster
@@ -129,7 +129,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ModifyGlobalCluster -&gt; ModifyGlobalCluster -&gt; Bool
 == :: ModifyGlobalCluster -&gt; ModifyGlobalCluster -&gt; Bool
 $c== :: ModifyGlobalCluster -&gt; ModifyGlobalCluster -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679779912"><span id="local-6989586621679779914"><span id="local-6989586621679779916"><span id="local-6989586621679779918"><span class="annot"><span class="annottext">ReadPrec [ModifyGlobalCluster]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679781013"><span id="local-6989586621679781015"><span id="local-6989586621679781017"><span id="local-6989586621679781019"><span class="annot"><span class="annottext">ReadPrec [ModifyGlobalCluster]
 ReadPrec ModifyGlobalCluster
 Int -&gt; ReadS ModifyGlobalCluster
 ReadS [ModifyGlobalCluster]
@@ -149,7 +149,7 @@ readList :: ReadS [ModifyGlobalCluster]
 $creadList :: ReadS [ModifyGlobalCluster]
 readsPrec :: Int -&gt; ReadS ModifyGlobalCluster
 $creadsPrec :: Int -&gt; ReadS ModifyGlobalCluster
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679779905"><span id="local-6989586621679779907"><span id="local-6989586621679779909"><span class="annot"><span class="annottext">Int -&gt; ModifyGlobalCluster -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679781006"><span id="local-6989586621679781008"><span id="local-6989586621679781010"><span class="annot"><span class="annottext">Int -&gt; ModifyGlobalCluster -&gt; ShowS
 [ModifyGlobalCluster] -&gt; ShowS
 ModifyGlobalCluster -&gt; String
 (Int -&gt; ModifyGlobalCluster -&gt; ShowS)
@@ -183,249 +183,249 @@ $cfrom :: forall x. ModifyGlobalCluster -&gt; Rep ModifyGlobalCluster x
 </span><span id="line-125"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-127"></span><span class="hs-comment">--</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- 'deletionProtection', 'modifyGlobalCluster_deletionProtection' - Indicates if the global database cluster has deletion protection</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- enabled. The global database cluster can\'t be deleted when deletion</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- protection is enabled.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'engineVersion', 'modifyGlobalCluster_engineVersion' - The version number of the database engine to which you want to upgrade.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- Changing this parameter results in an outage. The change is applied</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- during the next maintenance window unless @ApplyImmediately@ is enabled.</span><span>
 </span><span id="line-131"></span><span class="hs-comment">--</span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- 'allowMajorVersionUpgrade', 'modifyGlobalCluster_allowMajorVersionUpgrade' - A value that indicates whether major version upgrades are allowed.</span><span>
-</span><span id="line-133"></span><span class="hs-comment">--</span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- Constraints: You must allow major version upgrades when specifying a</span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- value for the @EngineVersion@ parameter that is a different major</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- version than the DB cluster\'s current version.</span><span>
-</span><span id="line-137"></span><span class="hs-comment">--</span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- If you upgrade the major version of a global database, the cluster and</span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- DB instance parameter groups are set to the default parameter groups for</span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- the new version. Apply any custom parameter groups after completing the</span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- upgrade.</span><span>
-</span><span id="line-142"></span><span class="hs-comment">--</span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- 'engineVersion', 'modifyGlobalCluster_engineVersion' - The version number of the database engine to which you want to upgrade.</span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- Changing this parameter results in an outage. The change is applied</span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- during the next maintenance window unless @ApplyImmediately@ is enabled.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- To list all of the available engine versions for @aurora@ (for MySQL</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- 5.6-compatible Aurora), use the following command:</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- @aws rds describe-db-engine-versions --engine aurora --query \'*[]|[?SupportsGlobalDatabases == \`true\`].[EngineVersion]\'@</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- To list all of the available engine versions for @aurora-mysql@ (for</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- MySQL 5.7-compatible Aurora), use the following command:</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- @aws rds describe-db-engine-versions --engine aurora-mysql --query \'*[]|[?SupportsGlobalDatabases == \`true\`].[EngineVersion]\'@</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- To list all of the available engine versions for @aurora-postgresql@,</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- use the following command:</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- @aws rds describe-db-engine-versions --engine aurora-postgresql --query \'*[]|[?SupportsGlobalDatabases == \`true\`].[EngineVersion]\'@</span><span>
 </span><span id="line-146"></span><span class="hs-comment">--</span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- To list all of the available engine versions for @aurora@ (for MySQL</span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- 5.6-compatible Aurora), use the following command:</span><span>
-</span><span id="line-149"></span><span class="hs-comment">--</span><span>
-</span><span id="line-150"></span><span class="hs-comment">-- @aws rds describe-db-engine-versions --engine aurora --query \'*[]|[?SupportsGlobalDatabases == \`true\`].[EngineVersion]\'@</span><span>
-</span><span id="line-151"></span><span class="hs-comment">--</span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- To list all of the available engine versions for @aurora-mysql@ (for</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- MySQL 5.7-compatible Aurora), use the following command:</span><span>
-</span><span id="line-154"></span><span class="hs-comment">--</span><span>
-</span><span id="line-155"></span><span class="hs-comment">-- @aws rds describe-db-engine-versions --engine aurora-mysql --query \'*[]|[?SupportsGlobalDatabases == \`true\`].[EngineVersion]\'@</span><span>
-</span><span id="line-156"></span><span class="hs-comment">--</span><span>
-</span><span id="line-157"></span><span class="hs-comment">-- To list all of the available engine versions for @aurora-postgresql@,</span><span>
-</span><span id="line-158"></span><span class="hs-comment">-- use the following command:</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'deletionProtection', 'modifyGlobalCluster_deletionProtection' - Indicates if the global database cluster has deletion protection</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- enabled. The global database cluster can\'t be deleted when deletion</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- protection is enabled.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- 'globalClusterIdentifier', 'modifyGlobalCluster_globalClusterIdentifier' - The DB cluster identifier for the global cluster being modified. This</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- parameter isn\'t case-sensitive.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- Constraints:</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- -   Must match the identifier of an existing global database cluster.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- 'allowMajorVersionUpgrade', 'modifyGlobalCluster_allowMajorVersionUpgrade' - A value that indicates whether major version upgrades are allowed.</span><span>
 </span><span id="line-159"></span><span class="hs-comment">--</span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- @aws rds describe-db-engine-versions --engine aurora-postgresql --query \'*[]|[?SupportsGlobalDatabases == \`true\`].[EngineVersion]\'@</span><span>
-</span><span id="line-161"></span><span class="hs-comment">--</span><span>
-</span><span id="line-162"></span><span class="hs-comment">-- 'newGlobalClusterIdentifier'', 'modifyGlobalCluster_newGlobalClusterIdentifier' - The new cluster identifier for the global database cluster when</span><span>
-</span><span id="line-163"></span><span class="hs-comment">-- modifying a global database cluster. This value is stored as a lowercase</span><span>
-</span><span id="line-164"></span><span class="hs-comment">-- string.</span><span>
-</span><span id="line-165"></span><span class="hs-comment">--</span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- Constraints:</span><span>
-</span><span id="line-167"></span><span class="hs-comment">--</span><span>
-</span><span id="line-168"></span><span class="hs-comment">-- -   Must contain from 1 to 63 letters, numbers, or hyphens</span><span>
-</span><span id="line-169"></span><span class="hs-comment">--</span><span>
-</span><span id="line-170"></span><span class="hs-comment">-- -   The first character must be a letter</span><span>
-</span><span id="line-171"></span><span class="hs-comment">--</span><span>
-</span><span id="line-172"></span><span class="hs-comment">-- -   Can\'t end with a hyphen or contain two consecutive hyphens</span><span>
-</span><span id="line-173"></span><span class="hs-comment">--</span><span>
-</span><span id="line-174"></span><span class="hs-comment">-- Example: @my-cluster2@</span><span>
-</span><span id="line-175"></span><span class="hs-comment">--</span><span>
-</span><span id="line-176"></span><span class="hs-comment">-- 'globalClusterIdentifier', 'modifyGlobalCluster_globalClusterIdentifier' - The DB cluster identifier for the global cluster being modified. This</span><span>
-</span><span id="line-177"></span><span class="hs-comment">-- parameter isn\'t case-sensitive.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- Constraints: You must allow major version upgrades when specifying a</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- value for the @EngineVersion@ parameter that is a different major</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- version than the DB cluster\'s current version.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- If you upgrade the major version of a global database, the cluster and</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- DB instance parameter groups are set to the default parameter groups for</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- the new version. Apply any custom parameter groups after completing the</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- upgrade.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- 'newGlobalClusterIdentifier'', 'modifyGlobalCluster_newGlobalClusterIdentifier' - The new cluster identifier for the global database cluster when</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- modifying a global database cluster. This value is stored as a lowercase</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- string.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- Constraints:</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- -   Must contain from 1 to 63 letters, numbers, or hyphens</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- -   The first character must be a letter</span><span>
 </span><span id="line-178"></span><span class="hs-comment">--</span><span>
-</span><span id="line-179"></span><span class="hs-comment">-- Constraints:</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- -   Can\'t end with a hyphen or contain two consecutive hyphens</span><span>
 </span><span id="line-180"></span><span class="hs-comment">--</span><span>
-</span><span id="line-181"></span><span class="hs-comment">-- -   Must match the identifier of an existing global database cluster.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- Example: @my-cluster2@</span><span>
 </span><span id="line-182"></span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#newModifyGlobalCluster"><span class="hs-identifier hs-type">newModifyGlobalCluster</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-183"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster"><span class="hs-identifier hs-type">ModifyGlobalCluster</span></a></span><span>
 </span><span id="line-184"></span><span id="newModifyGlobalCluster"><span class="annot"><span class="annottext">newModifyGlobalCluster :: ModifyGlobalCluster
 </span><a href="Network.AWS.RDS.ModifyGlobalCluster.html#newModifyGlobalCluster"><span class="hs-identifier hs-var hs-var">newModifyGlobalCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-185"></span><span>  </span><span class="annot"><span class="annottext">ModifyGlobalCluster' :: Maybe Bool
+</span><span id="line-185"></span><span>  </span><span class="annot"><span class="annottext">ModifyGlobalCluster' :: Maybe Text
 -&gt; Maybe Bool
 -&gt; Maybe Text
--&gt; Maybe Text
+-&gt; Maybe Bool
 -&gt; Maybe Text
 -&gt; ModifyGlobalCluster
 </span><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster%27"><span class="hs-identifier hs-type">ModifyGlobalCluster'</span></a></span><span>
-</span><span id="line-186"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deletionProtection:ModifyGlobalCluster' :: Maybe Bool
-</span><a href="Network.AWS.RDS.ModifyGlobalCluster.html#%24sel%3AdeletionProtection%3AModifyGlobalCluster%27"><span class="hs-identifier hs-var">deletionProtection</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-187"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-186"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:engineVersion:ModifyGlobalCluster' :: Maybe Text
+</span><a href="Network.AWS.RDS.ModifyGlobalCluster.html#%24sel%3AengineVersion%3AModifyGlobalCluster%27"><span class="hs-identifier hs-var">engineVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-187"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-188"></span><span>      </span><span class="annot"><span class="annottext">$sel:allowMajorVersionUpgrade:ModifyGlobalCluster' :: Maybe Bool
+</span><span id="line-188"></span><span>      </span><span class="annot"><span class="annottext">$sel:deletionProtection:ModifyGlobalCluster' :: Maybe Bool
+</span><a href="Network.AWS.RDS.ModifyGlobalCluster.html#%24sel%3AdeletionProtection%3AModifyGlobalCluster%27"><span class="hs-identifier hs-var">deletionProtection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>      </span><span class="annot"><span class="annottext">$sel:globalClusterIdentifier:ModifyGlobalCluster' :: Maybe Text
+</span><a href="Network.AWS.RDS.ModifyGlobalCluster.html#%24sel%3AglobalClusterIdentifier%3AModifyGlobalCluster%27"><span class="hs-identifier hs-var">globalClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>      </span><span class="annot"><span class="annottext">$sel:allowMajorVersionUpgrade:ModifyGlobalCluster' :: Maybe Bool
 </span><a href="Network.AWS.RDS.ModifyGlobalCluster.html#%24sel%3AallowMajorVersionUpgrade%3AModifyGlobalCluster%27"><span class="hs-identifier hs-var">allowMajorVersionUpgrade</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-189"></span><span>      </span><span class="annot"><span class="annottext">$sel:engineVersion:ModifyGlobalCluster' :: Maybe Text
-</span><a href="Network.AWS.RDS.ModifyGlobalCluster.html#%24sel%3AengineVersion%3AModifyGlobalCluster%27"><span class="hs-identifier hs-var">engineVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-190"></span><span>      </span><span class="annot"><span class="annottext">$sel:newGlobalClusterIdentifier':ModifyGlobalCluster' :: Maybe Text
+</span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">$sel:newGlobalClusterIdentifier':ModifyGlobalCluster' :: Maybe Text
 </span><a href="Network.AWS.RDS.ModifyGlobalCluster.html#%24sel%3AnewGlobalClusterIdentifier%27%3AModifyGlobalCluster%27"><span class="hs-identifier hs-var">newGlobalClusterIdentifier'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">$sel:globalClusterIdentifier:ModifyGlobalCluster' :: Maybe Text
-</span><a href="Network.AWS.RDS.ModifyGlobalCluster.html#%24sel%3AglobalClusterIdentifier%3AModifyGlobalCluster%27"><span class="hs-identifier hs-var">globalClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-192"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-193"></span><span>
-</span><span id="line-194"></span><span class="hs-comment">-- | Indicates if the global database cluster has deletion protection</span><span>
-</span><span id="line-195"></span><span class="hs-comment">-- enabled. The global database cluster can\'t be deleted when deletion</span><span>
-</span><span id="line-196"></span><span class="hs-comment">-- protection is enabled.</span><span>
-</span><span id="line-197"></span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#modifyGlobalCluster_deletionProtection"><span class="hs-identifier hs-type">modifyGlobalCluster_deletionProtection</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster"><span class="hs-identifier hs-type">ModifyGlobalCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-198"></span><span id="modifyGlobalCluster_deletionProtection"><span class="annot"><span class="annottext">modifyGlobalCluster_deletionProtection :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; ModifyGlobalCluster -&gt; f ModifyGlobalCluster
-</span><a href="Network.AWS.RDS.ModifyGlobalCluster.html#modifyGlobalCluster_deletionProtection"><span class="hs-identifier hs-var hs-var">modifyGlobalCluster_deletionProtection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyGlobalCluster -&gt; Maybe Bool)
--&gt; (ModifyGlobalCluster -&gt; Maybe Bool -&gt; ModifyGlobalCluster)
--&gt; Lens
-     ModifyGlobalCluster ModifyGlobalCluster (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster%27"><span class="hs-identifier hs-type">ModifyGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679779898"><span class="annot"><span class="annottext">Maybe Bool
-deletionProtection :: Maybe Bool
-$sel:deletionProtection:ModifyGlobalCluster' :: ModifyGlobalCluster -&gt; Maybe Bool
-</span><a href="#local-6989586621679779898"><span class="hs-identifier hs-var hs-var">deletionProtection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679779898"><span class="hs-identifier hs-var">deletionProtection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679779897"><span class="annot"><span class="annottext">s :: ModifyGlobalCluster
-</span><a href="#local-6989586621679779897"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster%27"><span class="hs-identifier hs-type">ModifyGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679779896"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679779896"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyGlobalCluster
-</span><a href="#local-6989586621679779897"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deletionProtection:ModifyGlobalCluster' :: Maybe Bool
-</span><a href="Network.AWS.RDS.ModifyGlobalCluster.html#%24sel%3AdeletionProtection%3AModifyGlobalCluster%27"><span class="hs-identifier hs-var">deletionProtection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679779896"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster"><span class="hs-identifier hs-type">ModifyGlobalCluster</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-199"></span><span>
-</span><span id="line-200"></span><span class="hs-comment">-- | A value that indicates whether major version upgrades are allowed.</span><span>
-</span><span id="line-201"></span><span class="hs-comment">--</span><span>
-</span><span id="line-202"></span><span class="hs-comment">-- Constraints: You must allow major version upgrades when specifying a</span><span>
-</span><span id="line-203"></span><span class="hs-comment">-- value for the @EngineVersion@ parameter that is a different major</span><span>
-</span><span id="line-204"></span><span class="hs-comment">-- version than the DB cluster\'s current version.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | The version number of the database engine to which you want to upgrade.</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- Changing this parameter results in an outage. The change is applied</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- during the next maintenance window unless @ApplyImmediately@ is enabled.</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- To list all of the available engine versions for @aurora@ (for MySQL</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- 5.6-compatible Aurora), use the following command:</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- @aws rds describe-db-engine-versions --engine aurora --query \'*[]|[?SupportsGlobalDatabases == \`true\`].[EngineVersion]\'@</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- To list all of the available engine versions for @aurora-mysql@ (for</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- MySQL 5.7-compatible Aurora), use the following command:</span><span>
 </span><span id="line-205"></span><span class="hs-comment">--</span><span>
-</span><span id="line-206"></span><span class="hs-comment">-- If you upgrade the major version of a global database, the cluster and</span><span>
-</span><span id="line-207"></span><span class="hs-comment">-- DB instance parameter groups are set to the default parameter groups for</span><span>
-</span><span id="line-208"></span><span class="hs-comment">-- the new version. Apply any custom parameter groups after completing the</span><span>
-</span><span id="line-209"></span><span class="hs-comment">-- upgrade.</span><span>
-</span><span id="line-210"></span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#modifyGlobalCluster_allowMajorVersionUpgrade"><span class="hs-identifier hs-type">modifyGlobalCluster_allowMajorVersionUpgrade</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster"><span class="hs-identifier hs-type">ModifyGlobalCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-211"></span><span id="modifyGlobalCluster_allowMajorVersionUpgrade"><span class="annot"><span class="annottext">modifyGlobalCluster_allowMajorVersionUpgrade :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; ModifyGlobalCluster -&gt; f ModifyGlobalCluster
-</span><a href="Network.AWS.RDS.ModifyGlobalCluster.html#modifyGlobalCluster_allowMajorVersionUpgrade"><span class="hs-identifier hs-var hs-var">modifyGlobalCluster_allowMajorVersionUpgrade</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyGlobalCluster -&gt; Maybe Bool)
--&gt; (ModifyGlobalCluster -&gt; Maybe Bool -&gt; ModifyGlobalCluster)
--&gt; Lens
-     ModifyGlobalCluster ModifyGlobalCluster (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster%27"><span class="hs-identifier hs-type">ModifyGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679779895"><span class="annot"><span class="annottext">Maybe Bool
-allowMajorVersionUpgrade :: Maybe Bool
-$sel:allowMajorVersionUpgrade:ModifyGlobalCluster' :: ModifyGlobalCluster -&gt; Maybe Bool
-</span><a href="#local-6989586621679779895"><span class="hs-identifier hs-var hs-var">allowMajorVersionUpgrade</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679779895"><span class="hs-identifier hs-var">allowMajorVersionUpgrade</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679779894"><span class="annot"><span class="annottext">s :: ModifyGlobalCluster
-</span><a href="#local-6989586621679779894"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster%27"><span class="hs-identifier hs-type">ModifyGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679779893"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679779893"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyGlobalCluster
-</span><a href="#local-6989586621679779894"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowMajorVersionUpgrade:ModifyGlobalCluster' :: Maybe Bool
-</span><a href="Network.AWS.RDS.ModifyGlobalCluster.html#%24sel%3AallowMajorVersionUpgrade%3AModifyGlobalCluster%27"><span class="hs-identifier hs-var">allowMajorVersionUpgrade</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679779893"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster"><span class="hs-identifier hs-type">ModifyGlobalCluster</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-212"></span><span>
-</span><span id="line-213"></span><span class="hs-comment">-- | The version number of the database engine to which you want to upgrade.</span><span>
-</span><span id="line-214"></span><span class="hs-comment">-- Changing this parameter results in an outage. The change is applied</span><span>
-</span><span id="line-215"></span><span class="hs-comment">-- during the next maintenance window unless @ApplyImmediately@ is enabled.</span><span>
-</span><span id="line-216"></span><span class="hs-comment">--</span><span>
-</span><span id="line-217"></span><span class="hs-comment">-- To list all of the available engine versions for @aurora@ (for MySQL</span><span>
-</span><span id="line-218"></span><span class="hs-comment">-- 5.6-compatible Aurora), use the following command:</span><span>
-</span><span id="line-219"></span><span class="hs-comment">--</span><span>
-</span><span id="line-220"></span><span class="hs-comment">-- @aws rds describe-db-engine-versions --engine aurora --query \'*[]|[?SupportsGlobalDatabases == \`true\`].[EngineVersion]\'@</span><span>
-</span><span id="line-221"></span><span class="hs-comment">--</span><span>
-</span><span id="line-222"></span><span class="hs-comment">-- To list all of the available engine versions for @aurora-mysql@ (for</span><span>
-</span><span id="line-223"></span><span class="hs-comment">-- MySQL 5.7-compatible Aurora), use the following command:</span><span>
-</span><span id="line-224"></span><span class="hs-comment">--</span><span>
-</span><span id="line-225"></span><span class="hs-comment">-- @aws rds describe-db-engine-versions --engine aurora-mysql --query \'*[]|[?SupportsGlobalDatabases == \`true\`].[EngineVersion]\'@</span><span>
-</span><span id="line-226"></span><span class="hs-comment">--</span><span>
-</span><span id="line-227"></span><span class="hs-comment">-- To list all of the available engine versions for @aurora-postgresql@,</span><span>
-</span><span id="line-228"></span><span class="hs-comment">-- use the following command:</span><span>
-</span><span id="line-229"></span><span class="hs-comment">--</span><span>
-</span><span id="line-230"></span><span class="hs-comment">-- @aws rds describe-db-engine-versions --engine aurora-postgresql --query \'*[]|[?SupportsGlobalDatabases == \`true\`].[EngineVersion]\'@</span><span>
-</span><span id="line-231"></span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#modifyGlobalCluster_engineVersion"><span class="hs-identifier hs-type">modifyGlobalCluster_engineVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster"><span class="hs-identifier hs-type">ModifyGlobalCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-232"></span><span id="modifyGlobalCluster_engineVersion"><span class="annot"><span class="annottext">modifyGlobalCluster_engineVersion :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-206"></span><span class="hs-comment">-- @aws rds describe-db-engine-versions --engine aurora-mysql --query \'*[]|[?SupportsGlobalDatabases == \`true\`].[EngineVersion]\'@</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- To list all of the available engine versions for @aurora-postgresql@,</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- use the following command:</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- @aws rds describe-db-engine-versions --engine aurora-postgresql --query \'*[]|[?SupportsGlobalDatabases == \`true\`].[EngineVersion]\'@</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#modifyGlobalCluster_engineVersion"><span class="hs-identifier hs-type">modifyGlobalCluster_engineVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster"><span class="hs-identifier hs-type">ModifyGlobalCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span id="modifyGlobalCluster_engineVersion"><span class="annot"><span class="annottext">modifyGlobalCluster_engineVersion :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ModifyGlobalCluster -&gt; f ModifyGlobalCluster
 </span><a href="Network.AWS.RDS.ModifyGlobalCluster.html#modifyGlobalCluster_engineVersion"><span class="hs-identifier hs-var hs-var">modifyGlobalCluster_engineVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyGlobalCluster -&gt; Maybe Text)
 -&gt; (ModifyGlobalCluster -&gt; Maybe Text -&gt; ModifyGlobalCluster)
 -&gt; Lens
      ModifyGlobalCluster ModifyGlobalCluster (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster%27"><span class="hs-identifier hs-type">ModifyGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679779892"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster%27"><span class="hs-identifier hs-type">ModifyGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780999"><span class="annot"><span class="annottext">Maybe Text
 engineVersion :: Maybe Text
 $sel:engineVersion:ModifyGlobalCluster' :: ModifyGlobalCluster -&gt; Maybe Text
-</span><a href="#local-6989586621679779892"><span class="hs-identifier hs-var hs-var">engineVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679779892"><span class="hs-identifier hs-var">engineVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679779891"><span class="annot"><span class="annottext">s :: ModifyGlobalCluster
-</span><a href="#local-6989586621679779891"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster%27"><span class="hs-identifier hs-type">ModifyGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679779890"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679779890"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyGlobalCluster
-</span><a href="#local-6989586621679779891"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engineVersion:ModifyGlobalCluster' :: Maybe Text
+</span><a href="#local-6989586621679780999"><span class="hs-identifier hs-var hs-var">engineVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679780999"><span class="hs-identifier hs-var">engineVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679780998"><span class="annot"><span class="annottext">s :: ModifyGlobalCluster
+</span><a href="#local-6989586621679780998"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster%27"><span class="hs-identifier hs-type">ModifyGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679780997"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679780997"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyGlobalCluster
+</span><a href="#local-6989586621679780998"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engineVersion:ModifyGlobalCluster' :: Maybe Text
 </span><a href="Network.AWS.RDS.ModifyGlobalCluster.html#%24sel%3AengineVersion%3AModifyGlobalCluster%27"><span class="hs-identifier hs-var">engineVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679779890"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster"><span class="hs-identifier hs-type">ModifyGlobalCluster</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-233"></span><span>
-</span><span id="line-234"></span><span class="hs-comment">-- | The new cluster identifier for the global database cluster when</span><span>
-</span><span id="line-235"></span><span class="hs-comment">-- modifying a global database cluster. This value is stored as a lowercase</span><span>
-</span><span id="line-236"></span><span class="hs-comment">-- string.</span><span>
-</span><span id="line-237"></span><span class="hs-comment">--</span><span>
-</span><span id="line-238"></span><span class="hs-comment">-- Constraints:</span><span>
-</span><span id="line-239"></span><span class="hs-comment">--</span><span>
-</span><span id="line-240"></span><span class="hs-comment">-- -   Must contain from 1 to 63 letters, numbers, or hyphens</span><span>
-</span><span id="line-241"></span><span class="hs-comment">--</span><span>
-</span><span id="line-242"></span><span class="hs-comment">-- -   The first character must be a letter</span><span>
-</span><span id="line-243"></span><span class="hs-comment">--</span><span>
-</span><span id="line-244"></span><span class="hs-comment">-- -   Can\'t end with a hyphen or contain two consecutive hyphens</span><span>
-</span><span id="line-245"></span><span class="hs-comment">--</span><span>
-</span><span id="line-246"></span><span class="hs-comment">-- Example: @my-cluster2@</span><span>
-</span><span id="line-247"></span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#modifyGlobalCluster_newGlobalClusterIdentifier"><span class="hs-identifier hs-type">modifyGlobalCluster_newGlobalClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster"><span class="hs-identifier hs-type">ModifyGlobalCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-248"></span><span id="modifyGlobalCluster_newGlobalClusterIdentifier"><span class="annot"><span class="annottext">modifyGlobalCluster_newGlobalClusterIdentifier :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679780997"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster"><span class="hs-identifier hs-type">ModifyGlobalCluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- | Indicates if the global database cluster has deletion protection</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- enabled. The global database cluster can\'t be deleted when deletion</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- protection is enabled.</span><span>
+</span><span id="line-218"></span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#modifyGlobalCluster_deletionProtection"><span class="hs-identifier hs-type">modifyGlobalCluster_deletionProtection</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster"><span class="hs-identifier hs-type">ModifyGlobalCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span id="modifyGlobalCluster_deletionProtection"><span class="annot"><span class="annottext">modifyGlobalCluster_deletionProtection :: (Maybe Bool -&gt; f (Maybe Bool))
 -&gt; ModifyGlobalCluster -&gt; f ModifyGlobalCluster
-</span><a href="Network.AWS.RDS.ModifyGlobalCluster.html#modifyGlobalCluster_newGlobalClusterIdentifier"><span class="hs-identifier hs-var hs-var">modifyGlobalCluster_newGlobalClusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyGlobalCluster -&gt; Maybe Text)
--&gt; (ModifyGlobalCluster -&gt; Maybe Text -&gt; ModifyGlobalCluster)
+</span><a href="Network.AWS.RDS.ModifyGlobalCluster.html#modifyGlobalCluster_deletionProtection"><span class="hs-identifier hs-var hs-var">modifyGlobalCluster_deletionProtection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyGlobalCluster -&gt; Maybe Bool)
+-&gt; (ModifyGlobalCluster -&gt; Maybe Bool -&gt; ModifyGlobalCluster)
 -&gt; Lens
-     ModifyGlobalCluster ModifyGlobalCluster (Maybe Text) (Maybe Text)
+     ModifyGlobalCluster ModifyGlobalCluster (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster%27"><span class="hs-identifier hs-type">ModifyGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679779889"><span class="annot"><span class="annottext">Maybe Text
-newGlobalClusterIdentifier' :: Maybe Text
-$sel:newGlobalClusterIdentifier':ModifyGlobalCluster' :: ModifyGlobalCluster -&gt; Maybe Text
-</span><a href="#local-6989586621679779889"><span class="hs-identifier hs-var hs-var">newGlobalClusterIdentifier'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679779889"><span class="hs-identifier hs-var">newGlobalClusterIdentifier'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679779888"><span class="annot"><span class="annottext">s :: ModifyGlobalCluster
-</span><a href="#local-6989586621679779888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster%27"><span class="hs-identifier hs-type">ModifyGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679779887"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679779887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyGlobalCluster
-</span><a href="#local-6989586621679779888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:newGlobalClusterIdentifier':ModifyGlobalCluster' :: Maybe Text
-</span><a href="Network.AWS.RDS.ModifyGlobalCluster.html#%24sel%3AnewGlobalClusterIdentifier%27%3AModifyGlobalCluster%27"><span class="hs-identifier hs-var">newGlobalClusterIdentifier'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679779887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster"><span class="hs-identifier hs-type">ModifyGlobalCluster</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-249"></span><span>
-</span><span id="line-250"></span><span class="hs-comment">-- | The DB cluster identifier for the global cluster being modified. This</span><span>
-</span><span id="line-251"></span><span class="hs-comment">-- parameter isn\'t case-sensitive.</span><span>
-</span><span id="line-252"></span><span class="hs-comment">--</span><span>
-</span><span id="line-253"></span><span class="hs-comment">-- Constraints:</span><span>
-</span><span id="line-254"></span><span class="hs-comment">--</span><span>
-</span><span id="line-255"></span><span class="hs-comment">-- -   Must match the identifier of an existing global database cluster.</span><span>
-</span><span id="line-256"></span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#modifyGlobalCluster_globalClusterIdentifier"><span class="hs-identifier hs-type">modifyGlobalCluster_globalClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster"><span class="hs-identifier hs-type">ModifyGlobalCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-257"></span><span id="modifyGlobalCluster_globalClusterIdentifier"><span class="annot"><span class="annottext">modifyGlobalCluster_globalClusterIdentifier :: (Maybe Text -&gt; f (Maybe Text))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster%27"><span class="hs-identifier hs-type">ModifyGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780996"><span class="annot"><span class="annottext">Maybe Bool
+deletionProtection :: Maybe Bool
+$sel:deletionProtection:ModifyGlobalCluster' :: ModifyGlobalCluster -&gt; Maybe Bool
+</span><a href="#local-6989586621679780996"><span class="hs-identifier hs-var hs-var">deletionProtection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679780996"><span class="hs-identifier hs-var">deletionProtection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679780995"><span class="annot"><span class="annottext">s :: ModifyGlobalCluster
+</span><a href="#local-6989586621679780995"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster%27"><span class="hs-identifier hs-type">ModifyGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679780994"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679780994"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyGlobalCluster
+</span><a href="#local-6989586621679780995"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deletionProtection:ModifyGlobalCluster' :: Maybe Bool
+</span><a href="Network.AWS.RDS.ModifyGlobalCluster.html#%24sel%3AdeletionProtection%3AModifyGlobalCluster%27"><span class="hs-identifier hs-var">deletionProtection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679780994"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster"><span class="hs-identifier hs-type">ModifyGlobalCluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- | The DB cluster identifier for the global cluster being modified. This</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- parameter isn\'t case-sensitive.</span><span>
+</span><span id="line-223"></span><span class="hs-comment">--</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- Constraints:</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- -   Must match the identifier of an existing global database cluster.</span><span>
+</span><span id="line-227"></span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#modifyGlobalCluster_globalClusterIdentifier"><span class="hs-identifier hs-type">modifyGlobalCluster_globalClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster"><span class="hs-identifier hs-type">ModifyGlobalCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span id="modifyGlobalCluster_globalClusterIdentifier"><span class="annot"><span class="annottext">modifyGlobalCluster_globalClusterIdentifier :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ModifyGlobalCluster -&gt; f ModifyGlobalCluster
 </span><a href="Network.AWS.RDS.ModifyGlobalCluster.html#modifyGlobalCluster_globalClusterIdentifier"><span class="hs-identifier hs-var hs-var">modifyGlobalCluster_globalClusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyGlobalCluster -&gt; Maybe Text)
 -&gt; (ModifyGlobalCluster -&gt; Maybe Text -&gt; ModifyGlobalCluster)
 -&gt; Lens
      ModifyGlobalCluster ModifyGlobalCluster (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster%27"><span class="hs-identifier hs-type">ModifyGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679779886"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster%27"><span class="hs-identifier hs-type">ModifyGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780993"><span class="annot"><span class="annottext">Maybe Text
 globalClusterIdentifier :: Maybe Text
 $sel:globalClusterIdentifier:ModifyGlobalCluster' :: ModifyGlobalCluster -&gt; Maybe Text
-</span><a href="#local-6989586621679779886"><span class="hs-identifier hs-var hs-var">globalClusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679779886"><span class="hs-identifier hs-var">globalClusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679779885"><span class="annot"><span class="annottext">s :: ModifyGlobalCluster
-</span><a href="#local-6989586621679779885"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster%27"><span class="hs-identifier hs-type">ModifyGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679779884"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679779884"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyGlobalCluster
-</span><a href="#local-6989586621679779885"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalClusterIdentifier:ModifyGlobalCluster' :: Maybe Text
+</span><a href="#local-6989586621679780993"><span class="hs-identifier hs-var hs-var">globalClusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679780993"><span class="hs-identifier hs-var">globalClusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679780992"><span class="annot"><span class="annottext">s :: ModifyGlobalCluster
+</span><a href="#local-6989586621679780992"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster%27"><span class="hs-identifier hs-type">ModifyGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679780991"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679780991"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyGlobalCluster
+</span><a href="#local-6989586621679780992"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalClusterIdentifier:ModifyGlobalCluster' :: Maybe Text
 </span><a href="Network.AWS.RDS.ModifyGlobalCluster.html#%24sel%3AglobalClusterIdentifier%3AModifyGlobalCluster%27"><span class="hs-identifier hs-var">globalClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679779884"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster"><span class="hs-identifier hs-type">ModifyGlobalCluster</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679780991"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster"><span class="hs-identifier hs-type">ModifyGlobalCluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- | A value that indicates whether major version upgrades are allowed.</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- Constraints: You must allow major version upgrades when specifying a</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- value for the @EngineVersion@ parameter that is a different major</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- version than the DB cluster\'s current version.</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- If you upgrade the major version of a global database, the cluster and</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- DB instance parameter groups are set to the default parameter groups for</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- the new version. Apply any custom parameter groups after completing the</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- upgrade.</span><span>
+</span><span id="line-240"></span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#modifyGlobalCluster_allowMajorVersionUpgrade"><span class="hs-identifier hs-type">modifyGlobalCluster_allowMajorVersionUpgrade</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster"><span class="hs-identifier hs-type">ModifyGlobalCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span id="modifyGlobalCluster_allowMajorVersionUpgrade"><span class="annot"><span class="annottext">modifyGlobalCluster_allowMajorVersionUpgrade :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ModifyGlobalCluster -&gt; f ModifyGlobalCluster
+</span><a href="Network.AWS.RDS.ModifyGlobalCluster.html#modifyGlobalCluster_allowMajorVersionUpgrade"><span class="hs-identifier hs-var hs-var">modifyGlobalCluster_allowMajorVersionUpgrade</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyGlobalCluster -&gt; Maybe Bool)
+-&gt; (ModifyGlobalCluster -&gt; Maybe Bool -&gt; ModifyGlobalCluster)
+-&gt; Lens
+     ModifyGlobalCluster ModifyGlobalCluster (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster%27"><span class="hs-identifier hs-type">ModifyGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780990"><span class="annot"><span class="annottext">Maybe Bool
+allowMajorVersionUpgrade :: Maybe Bool
+$sel:allowMajorVersionUpgrade:ModifyGlobalCluster' :: ModifyGlobalCluster -&gt; Maybe Bool
+</span><a href="#local-6989586621679780990"><span class="hs-identifier hs-var hs-var">allowMajorVersionUpgrade</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679780990"><span class="hs-identifier hs-var">allowMajorVersionUpgrade</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679780989"><span class="annot"><span class="annottext">s :: ModifyGlobalCluster
+</span><a href="#local-6989586621679780989"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster%27"><span class="hs-identifier hs-type">ModifyGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679780988"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679780988"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyGlobalCluster
+</span><a href="#local-6989586621679780989"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowMajorVersionUpgrade:ModifyGlobalCluster' :: Maybe Bool
+</span><a href="Network.AWS.RDS.ModifyGlobalCluster.html#%24sel%3AallowMajorVersionUpgrade%3AModifyGlobalCluster%27"><span class="hs-identifier hs-var">allowMajorVersionUpgrade</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679780988"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster"><span class="hs-identifier hs-type">ModifyGlobalCluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- | The new cluster identifier for the global database cluster when</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- modifying a global database cluster. This value is stored as a lowercase</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- string.</span><span>
+</span><span id="line-246"></span><span class="hs-comment">--</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- Constraints:</span><span>
+</span><span id="line-248"></span><span class="hs-comment">--</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- -   Must contain from 1 to 63 letters, numbers, or hyphens</span><span>
+</span><span id="line-250"></span><span class="hs-comment">--</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- -   The first character must be a letter</span><span>
+</span><span id="line-252"></span><span class="hs-comment">--</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- -   Can\'t end with a hyphen or contain two consecutive hyphens</span><span>
+</span><span id="line-254"></span><span class="hs-comment">--</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- Example: @my-cluster2@</span><span>
+</span><span id="line-256"></span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#modifyGlobalCluster_newGlobalClusterIdentifier"><span class="hs-identifier hs-type">modifyGlobalCluster_newGlobalClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster"><span class="hs-identifier hs-type">ModifyGlobalCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span id="modifyGlobalCluster_newGlobalClusterIdentifier"><span class="annot"><span class="annottext">modifyGlobalCluster_newGlobalClusterIdentifier :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ModifyGlobalCluster -&gt; f ModifyGlobalCluster
+</span><a href="Network.AWS.RDS.ModifyGlobalCluster.html#modifyGlobalCluster_newGlobalClusterIdentifier"><span class="hs-identifier hs-var hs-var">modifyGlobalCluster_newGlobalClusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyGlobalCluster -&gt; Maybe Text)
+-&gt; (ModifyGlobalCluster -&gt; Maybe Text -&gt; ModifyGlobalCluster)
+-&gt; Lens
+     ModifyGlobalCluster ModifyGlobalCluster (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster%27"><span class="hs-identifier hs-type">ModifyGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780987"><span class="annot"><span class="annottext">Maybe Text
+newGlobalClusterIdentifier' :: Maybe Text
+$sel:newGlobalClusterIdentifier':ModifyGlobalCluster' :: ModifyGlobalCluster -&gt; Maybe Text
+</span><a href="#local-6989586621679780987"><span class="hs-identifier hs-var hs-var">newGlobalClusterIdentifier'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679780987"><span class="hs-identifier hs-var">newGlobalClusterIdentifier'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679780986"><span class="annot"><span class="annottext">s :: ModifyGlobalCluster
+</span><a href="#local-6989586621679780986"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster%27"><span class="hs-identifier hs-type">ModifyGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679780985"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679780985"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyGlobalCluster
+</span><a href="#local-6989586621679780986"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:newGlobalClusterIdentifier':ModifyGlobalCluster' :: Maybe Text
+</span><a href="Network.AWS.RDS.ModifyGlobalCluster.html#%24sel%3AnewGlobalClusterIdentifier%27%3AModifyGlobalCluster%27"><span class="hs-identifier hs-var">newGlobalClusterIdentifier'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679780985"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster"><span class="hs-identifier hs-type">ModifyGlobalCluster</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-258"></span><span>
 </span><span id="line-259"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster"><span class="hs-identifier hs-type">ModifyGlobalCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-260"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-261"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster"><span class="hs-identifier hs-type">ModifyGlobalCluster</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-262"></span><span>      </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalClusterResponse"><span class="hs-identifier hs-type">ModifyGlobalClusterResponse</span></a></span><span>
-</span><span id="line-263"></span><span>  </span><span id="local-6989586621679779880"><span class="annot"><span class="annottext">request :: ModifyGlobalCluster -&gt; Request ModifyGlobalCluster
+</span><span id="line-263"></span><span>  </span><span id="local-6989586621679780981"><span class="annot"><span class="annottext">request :: ModifyGlobalCluster -&gt; Request ModifyGlobalCluster
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ModifyGlobalCluster -&gt; Request ModifyGlobalCluster
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.RDS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-264"></span><span>  </span><span id="local-6989586621679779876"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-264"></span><span>  </span><span id="local-6989586621679780977"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ModifyGlobalCluster
 -&gt; ClientResponse ClientBody
@@ -456,10 +456,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-266"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ModifyGlobalClusterResult&quot;</span></span><span>
-</span><span id="line-267"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679779873"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679779873"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679779872"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679779872"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679779871"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679779871"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-267"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679780974"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679780974"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679780973"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679780973"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679780972"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679780972"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-268"></span><span>          </span><span class="annot"><span class="annottext">Maybe GlobalCluster -&gt; Int -&gt; ModifyGlobalClusterResponse
 </span><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalClusterResponse%27"><span class="hs-identifier hs-var">ModifyGlobalClusterResponse'</span></a></span><span>
 </span><span id="line-269"></span><span>            </span><span class="annot"><span class="annottext">(Maybe GlobalCluster -&gt; Int -&gt; ModifyGlobalClusterResponse)
@@ -467,7 +467,7 @@ Text
 -&gt; Either String (Int -&gt; ModifyGlobalClusterResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679779871"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe GlobalCluster)
+</span><a href="#local-6989586621679780972"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe GlobalCluster)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GlobalCluster&quot;</span></span><span class="hs-special">)</span><span>
@@ -479,15 +479,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679779873"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679780974"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-271"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-272"></span><span>
-</span><span id="line-273"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679779863"><span id="local-6989586621679779865"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster"><span class="hs-identifier hs-type">ModifyGlobalCluster</span></a></span></span></span><span>
+</span><span id="line-273"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679780964"><span id="local-6989586621679780966"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster"><span class="hs-identifier hs-type">ModifyGlobalCluster</span></a></span></span></span><span>
 </span><span id="line-274"></span><span>
-</span><span id="line-275"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679779860"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster"><span class="hs-identifier hs-type">ModifyGlobalCluster</span></a></span></span><span>
+</span><span id="line-275"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679780961"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster"><span class="hs-identifier hs-type">ModifyGlobalCluster</span></a></span></span><span>
 </span><span id="line-276"></span><span>
 </span><span id="line-277"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster"><span class="hs-identifier hs-type">ModifyGlobalCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-278"></span><span>  </span><span id="local-6989586621679779856"><span class="annot"><span class="annottext">toHeaders :: ModifyGlobalCluster -&gt; ResponseHeaders
+</span><span id="line-278"></span><span>  </span><span id="local-6989586621679780957"><span class="annot"><span class="annottext">toHeaders :: ModifyGlobalCluster -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ModifyGlobalCluster -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -495,27 +495,27 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-279"></span><span>
 </span><span id="line-280"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster"><span class="hs-identifier hs-type">ModifyGlobalCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-281"></span><span>  </span><span id="local-6989586621679779851"><span class="annot"><span class="annottext">toPath :: ModifyGlobalCluster -&gt; ByteString
+</span><span id="line-281"></span><span>  </span><span id="local-6989586621679780952"><span class="annot"><span class="annottext">toPath :: ModifyGlobalCluster -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ModifyGlobalCluster -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-282"></span><span>
 </span><span id="line-283"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster"><span class="hs-identifier hs-type">ModifyGlobalCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-284"></span><span>  </span><span id="local-6989586621679779847"><span class="annot"><span class="annottext">toQuery :: ModifyGlobalCluster -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster%27"><span class="hs-identifier hs-type">ModifyGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679779841"><span id="local-6989586621679779842"><span id="local-6989586621679779843"><span id="local-6989586621679779844"><span id="local-6989586621679779845"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-284"></span><span>  </span><span id="local-6989586621679780948"><span class="annot"><span class="annottext">toQuery :: ModifyGlobalCluster -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalCluster%27"><span class="hs-identifier hs-type">ModifyGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780942"><span id="local-6989586621679780943"><span id="local-6989586621679780944"><span id="local-6989586621679780945"><span id="local-6989586621679780946"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
-globalClusterIdentifier :: Maybe Text
 newGlobalClusterIdentifier' :: Maybe Text
-engineVersion :: Maybe Text
 allowMajorVersionUpgrade :: Maybe Bool
+globalClusterIdentifier :: Maybe Text
 deletionProtection :: Maybe Bool
-$sel:globalClusterIdentifier:ModifyGlobalCluster' :: ModifyGlobalCluster -&gt; Maybe Text
+engineVersion :: Maybe Text
 $sel:newGlobalClusterIdentifier':ModifyGlobalCluster' :: ModifyGlobalCluster -&gt; Maybe Text
-$sel:engineVersion:ModifyGlobalCluster' :: ModifyGlobalCluster -&gt; Maybe Text
 $sel:allowMajorVersionUpgrade:ModifyGlobalCluster' :: ModifyGlobalCluster -&gt; Maybe Bool
+$sel:globalClusterIdentifier:ModifyGlobalCluster' :: ModifyGlobalCluster -&gt; Maybe Text
 $sel:deletionProtection:ModifyGlobalCluster' :: ModifyGlobalCluster -&gt; Maybe Bool
-</span><a href="#local-6989586621679779841"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:engineVersion:ModifyGlobalCluster' :: ModifyGlobalCluster -&gt; Maybe Text
+</span><a href="#local-6989586621679780942"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-285"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -532,44 +532,44 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;2014-10-31&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-290"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;DeletionProtection&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679779845"><span class="hs-identifier hs-var">deletionProtection</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-291"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;AllowMajorVersionUpgrade&quot;</span></span><span>
-</span><span id="line-292"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679779844"><span class="hs-identifier hs-var">allowMajorVersionUpgrade</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-293"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;EngineVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679779843"><span class="hs-identifier hs-var">engineVersion</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-294"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;NewGlobalClusterIdentifier&quot;</span></span><span>
-</span><span id="line-295"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+</span><a href="#local-6989586621679780946"><span class="hs-identifier hs-var">engineVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-291"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DeletionProtection&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679780945"><span class="hs-identifier hs-var">deletionProtection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-292"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;GlobalClusterIdentifier&quot;</span></span><span>
+</span><span id="line-293"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679779842"><span class="hs-identifier hs-var">newGlobalClusterIdentifier'</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679780944"><span class="hs-identifier hs-var">globalClusterIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-294"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AllowMajorVersionUpgrade&quot;</span></span><span>
+</span><span id="line-295"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679780943"><span class="hs-identifier hs-var">allowMajorVersionUpgrade</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-296"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;GlobalClusterIdentifier&quot;</span></span><span>
+</span><span class="hs-string">&quot;NewGlobalClusterIdentifier&quot;</span></span><span>
 </span><span id="line-297"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679779841"><span class="hs-identifier hs-var">globalClusterIdentifier</span></a></span><span>
+</span><a href="#local-6989586621679780942"><span class="hs-identifier hs-var">newGlobalClusterIdentifier'</span></a></span><span>
 </span><span id="line-298"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-299"></span><span>
 </span><span id="line-300"></span><span class="hs-comment">-- | /See:/ 'newModifyGlobalClusterResponse' smart constructor.</span><span>
-</span><span id="line-301"></span><span id="local-6989586621679779838"><span id="local-6989586621679779839"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyGlobalClusterResponse"><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalClusterResponse"><span class="hs-identifier hs-var">ModifyGlobalClusterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyGlobalClusterResponse%27"><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalClusterResponse%27"><span class="hs-identifier hs-var">ModifyGlobalClusterResponse'</span></a></span></span><span>
+</span><span id="line-301"></span><span id="local-6989586621679780939"><span id="local-6989586621679780940"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyGlobalClusterResponse"><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalClusterResponse"><span class="hs-identifier hs-var">ModifyGlobalClusterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyGlobalClusterResponse%27"><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalClusterResponse%27"><span class="hs-identifier hs-var">ModifyGlobalClusterResponse'</span></a></span></span><span>
 </span><span id="line-302"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AglobalCluster%3AModifyGlobalClusterResponse%27"><span class="annot"><span class="annottext">ModifyGlobalClusterResponse -&gt; Maybe GlobalCluster
 </span><a href="Network.AWS.RDS.ModifyGlobalCluster.html#%24sel%3AglobalCluster%3AModifyGlobalClusterResponse%27"><span class="hs-identifier hs-var hs-var">globalCluster</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.GlobalCluster.html#GlobalCluster"><span class="hs-identifier hs-type">GlobalCluster</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-303"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-304"></span><span>    </span><span id="%24sel%3AhttpStatus%3AModifyGlobalClusterResponse%27"><span class="annot"><span class="annottext">ModifyGlobalClusterResponse -&gt; Int
 </span><a href="Network.AWS.RDS.ModifyGlobalCluster.html#%24sel%3AhttpStatus%3AModifyGlobalClusterResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-305"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-306"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679779832"><span id="local-6989586621679779834"><span class="annot"><span class="annottext">ModifyGlobalClusterResponse -&gt; ModifyGlobalClusterResponse -&gt; Bool
+</span><span id="line-306"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679780933"><span id="local-6989586621679780935"><span class="annot"><span class="annottext">ModifyGlobalClusterResponse -&gt; ModifyGlobalClusterResponse -&gt; Bool
 (ModifyGlobalClusterResponse
  -&gt; ModifyGlobalClusterResponse -&gt; Bool)
 -&gt; (ModifyGlobalClusterResponse
@@ -580,7 +580,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ModifyGlobalClusterResponse -&gt; ModifyGlobalClusterResponse -&gt; Bool
 == :: ModifyGlobalClusterResponse -&gt; ModifyGlobalClusterResponse -&gt; Bool
 $c== :: ModifyGlobalClusterResponse -&gt; ModifyGlobalClusterResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679779824"><span id="local-6989586621679779826"><span id="local-6989586621679779828"><span id="local-6989586621679779830"><span class="annot"><span class="annottext">ReadPrec [ModifyGlobalClusterResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679780925"><span id="local-6989586621679780927"><span id="local-6989586621679780929"><span id="local-6989586621679780931"><span class="annot"><span class="annottext">ReadPrec [ModifyGlobalClusterResponse]
 ReadPrec ModifyGlobalClusterResponse
 Int -&gt; ReadS ModifyGlobalClusterResponse
 ReadS [ModifyGlobalClusterResponse]
@@ -600,7 +600,7 @@ readList :: ReadS [ModifyGlobalClusterResponse]
 $creadList :: ReadS [ModifyGlobalClusterResponse]
 readsPrec :: Int -&gt; ReadS ModifyGlobalClusterResponse
 $creadsPrec :: Int -&gt; ReadS ModifyGlobalClusterResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679779818"><span id="local-6989586621679779820"><span id="local-6989586621679779822"><span class="annot"><span class="annottext">Int -&gt; ModifyGlobalClusterResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679780919"><span id="local-6989586621679780921"><span id="local-6989586621679780923"><span class="annot"><span class="annottext">Int -&gt; ModifyGlobalClusterResponse -&gt; ShowS
 [ModifyGlobalClusterResponse] -&gt; ShowS
 ModifyGlobalClusterResponse -&gt; String
 (Int -&gt; ModifyGlobalClusterResponse -&gt; ShowS)
@@ -648,8 +648,8 @@ ModifyGlobalClusterResponse -&gt; Rep ModifyGlobalClusterResponse x
 </span><span id="line-321"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-322"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalClusterResponse"><span class="hs-identifier hs-type">ModifyGlobalClusterResponse</span></a></span><span>
 </span><span id="line-323"></span><span id="newModifyGlobalClusterResponse"><span class="annot"><span class="annottext">newModifyGlobalClusterResponse :: Int -&gt; ModifyGlobalClusterResponse
-</span><a href="Network.AWS.RDS.ModifyGlobalCluster.html#newModifyGlobalClusterResponse"><span class="hs-identifier hs-var hs-var">newModifyGlobalClusterResponse</span></a></span></span><span> </span><span id="local-6989586621679779815"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679779815"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.RDS.ModifyGlobalCluster.html#newModifyGlobalClusterResponse"><span class="hs-identifier hs-var hs-var">newModifyGlobalClusterResponse</span></a></span></span><span> </span><span id="local-6989586621679780916"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679780916"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-324"></span><span>  </span><span class="annot"><span class="annottext">ModifyGlobalClusterResponse' :: Maybe GlobalCluster -&gt; Int -&gt; ModifyGlobalClusterResponse
 </span><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalClusterResponse%27"><span class="hs-identifier hs-type">ModifyGlobalClusterResponse'</span></a></span><span>
 </span><span id="line-325"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:globalCluster:ModifyGlobalClusterResponse' :: Maybe GlobalCluster
@@ -659,7 +659,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-327"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyGlobalClusterResponse' :: Int
 </span><a href="Network.AWS.RDS.ModifyGlobalCluster.html#%24sel%3AhttpStatus%3AModifyGlobalClusterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679779815"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679780916"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-328"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-329"></span><span>
 </span><span id="line-330"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -675,16 +675,16 @@ forall a. Maybe a
      (Maybe GlobalCluster)
      (Maybe GlobalCluster)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalClusterResponse%27"><span class="hs-identifier hs-type">ModifyGlobalClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679779814"><span class="annot"><span class="annottext">Maybe GlobalCluster
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalClusterResponse%27"><span class="hs-identifier hs-type">ModifyGlobalClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780915"><span class="annot"><span class="annottext">Maybe GlobalCluster
 globalCluster :: Maybe GlobalCluster
 $sel:globalCluster:ModifyGlobalClusterResponse' :: ModifyGlobalClusterResponse -&gt; Maybe GlobalCluster
-</span><a href="#local-6989586621679779814"><span class="hs-identifier hs-var hs-var">globalCluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GlobalCluster
-</span><a href="#local-6989586621679779814"><span class="hs-identifier hs-var">globalCluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679779813"><span class="annot"><span class="annottext">s :: ModifyGlobalClusterResponse
-</span><a href="#local-6989586621679779813"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalClusterResponse%27"><span class="hs-identifier hs-type">ModifyGlobalClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679779812"><span class="annot"><span class="annottext">Maybe GlobalCluster
-</span><a href="#local-6989586621679779812"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyGlobalClusterResponse
-</span><a href="#local-6989586621679779813"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalCluster:ModifyGlobalClusterResponse' :: Maybe GlobalCluster
+</span><a href="#local-6989586621679780915"><span class="hs-identifier hs-var hs-var">globalCluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GlobalCluster
+</span><a href="#local-6989586621679780915"><span class="hs-identifier hs-var">globalCluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679780914"><span class="annot"><span class="annottext">s :: ModifyGlobalClusterResponse
+</span><a href="#local-6989586621679780914"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalClusterResponse%27"><span class="hs-identifier hs-type">ModifyGlobalClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679780913"><span class="annot"><span class="annottext">Maybe GlobalCluster
+</span><a href="#local-6989586621679780913"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyGlobalClusterResponse
+</span><a href="#local-6989586621679780914"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalCluster:ModifyGlobalClusterResponse' :: Maybe GlobalCluster
 </span><a href="Network.AWS.RDS.ModifyGlobalCluster.html#%24sel%3AglobalCluster%3AModifyGlobalClusterResponse%27"><span class="hs-identifier hs-var">globalCluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GlobalCluster
-</span><a href="#local-6989586621679779812"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalClusterResponse"><span class="hs-identifier hs-type">ModifyGlobalClusterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679780913"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalClusterResponse"><span class="hs-identifier hs-type">ModifyGlobalClusterResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-333"></span><span>
 </span><span id="line-334"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-335"></span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#modifyGlobalClusterResponse_httpStatus"><span class="hs-identifier hs-type">modifyGlobalClusterResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalClusterResponse"><span class="hs-identifier hs-type">ModifyGlobalClusterResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -696,16 +696,16 @@ $sel:globalCluster:ModifyGlobalClusterResponse' :: ModifyGlobalClusterResponse -
 -&gt; Lens
      ModifyGlobalClusterResponse ModifyGlobalClusterResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalClusterResponse%27"><span class="hs-identifier hs-type">ModifyGlobalClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679779811"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalClusterResponse%27"><span class="hs-identifier hs-type">ModifyGlobalClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780912"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ModifyGlobalClusterResponse' :: ModifyGlobalClusterResponse -&gt; Int
-</span><a href="#local-6989586621679779811"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679779811"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679779810"><span class="annot"><span class="annottext">s :: ModifyGlobalClusterResponse
-</span><a href="#local-6989586621679779810"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalClusterResponse%27"><span class="hs-identifier hs-type">ModifyGlobalClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679779809"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679779809"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyGlobalClusterResponse
-</span><a href="#local-6989586621679779810"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyGlobalClusterResponse' :: Int
+</span><a href="#local-6989586621679780912"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679780912"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679780911"><span class="annot"><span class="annottext">s :: ModifyGlobalClusterResponse
+</span><a href="#local-6989586621679780911"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalClusterResponse%27"><span class="hs-identifier hs-type">ModifyGlobalClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679780910"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679780910"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyGlobalClusterResponse
+</span><a href="#local-6989586621679780911"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyGlobalClusterResponse' :: Int
 </span><a href="Network.AWS.RDS.ModifyGlobalCluster.html#%24sel%3AhttpStatus%3AModifyGlobalClusterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679779809"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalClusterResponse"><span class="hs-identifier hs-type">ModifyGlobalClusterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679780910"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalClusterResponse"><span class="hs-identifier hs-type">ModifyGlobalClusterResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-337"></span><span>
-</span><span id="line-338"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679779807"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalClusterResponse"><span class="hs-identifier hs-type">ModifyGlobalClusterResponse</span></a></span></span><span>
+</span><span id="line-338"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679780908"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyGlobalCluster.html#ModifyGlobalClusterResponse"><span class="hs-identifier hs-type">ModifyGlobalClusterResponse</span></a></span></span><span>
 </span><span id="line-339"></span></pre></body></html>

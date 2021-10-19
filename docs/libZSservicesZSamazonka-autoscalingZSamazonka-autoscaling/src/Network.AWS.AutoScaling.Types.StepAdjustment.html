@@ -57,32 +57,32 @@
 </span><span id="line-57"></span><span class="hs-comment">-- in the /Amazon EC2 Auto Scaling User Guide/.</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- /See:/ 'newStepAdjustment' smart constructor.</span><span>
-</span><span id="line-60"></span><span id="local-6989586621679332393"><span id="local-6989586621679332394"></span></span><span class="hs-keyword">data</span><span> </span><span id="StepAdjustment"><span class="annot"><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#StepAdjustment"><span class="hs-identifier hs-var">StepAdjustment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StepAdjustment%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#StepAdjustment%27"><span class="hs-identifier hs-var">StepAdjustment'</span></a></span></span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The upper bound for the difference between the alarm threshold and the</span><span>
+</span><span id="line-60"></span><span id="local-6989586621679333056"><span id="local-6989586621679333057"></span></span><span class="hs-keyword">data</span><span> </span><span id="StepAdjustment"><span class="annot"><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#StepAdjustment"><span class="hs-identifier hs-var">StepAdjustment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StepAdjustment%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#StepAdjustment%27"><span class="hs-identifier hs-var">StepAdjustment'</span></a></span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The lower bound for the difference between the alarm threshold and the</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">-- CloudWatch metric. If the metric value is above the breach threshold,</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- the upper bound is exclusive (the metric must be less than the threshold</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- plus the upper bound). Otherwise, it is inclusive (the metric must be</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- less than or equal to the threshold plus the upper bound). A null value</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- indicates positive infinity.</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- The upper bound must be greater than the lower bound.</span><span>
-</span><span id="line-69"></span><span>    </span><span id="%24sel%3AmetricIntervalUpperBound%3AStepAdjustment%27"><span class="annot"><span class="annottext">StepAdjustment -&gt; Maybe Double
-</span><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#%24sel%3AmetricIntervalUpperBound%3AStepAdjustment%27"><span class="hs-identifier hs-var hs-var">metricIntervalUpperBound</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The lower bound for the difference between the alarm threshold and the</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- CloudWatch metric. If the metric value is above the breach threshold,</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- the lower bound is inclusive (the metric must be greater than or equal</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- to the threshold plus the lower bound). Otherwise, it is exclusive (the</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- metric must be greater than the threshold plus the lower bound). A null</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- value indicates negative infinity.</span><span>
-</span><span id="line-76"></span><span>    </span><span id="%24sel%3AmetricIntervalLowerBound%3AStepAdjustment%27"><span class="annot"><span class="annottext">StepAdjustment -&gt; Maybe Double
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- the lower bound is inclusive (the metric must be greater than or equal</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- to the threshold plus the lower bound). Otherwise, it is exclusive (the</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- metric must be greater than the threshold plus the lower bound). A null</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- value indicates negative infinity.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AmetricIntervalLowerBound%3AStepAdjustment%27"><span class="annot"><span class="annottext">StepAdjustment -&gt; Maybe Double
 </span><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#%24sel%3AmetricIntervalLowerBound%3AStepAdjustment%27"><span class="hs-identifier hs-var hs-var">metricIntervalLowerBound</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The upper bound for the difference between the alarm threshold and the</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- CloudWatch metric. If the metric value is above the breach threshold,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- the upper bound is exclusive (the metric must be less than the threshold</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- plus the upper bound). Otherwise, it is inclusive (the metric must be</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- less than or equal to the threshold plus the upper bound). A null value</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- indicates positive infinity.</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- The upper bound must be greater than the lower bound.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AmetricIntervalUpperBound%3AStepAdjustment%27"><span class="annot"><span class="annottext">StepAdjustment -&gt; Maybe Double
+</span><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#%24sel%3AmetricIntervalUpperBound%3AStepAdjustment%27"><span class="hs-identifier hs-var hs-var">metricIntervalUpperBound</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The amount by which to scale, based on the specified adjustment type. A</span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-comment">-- positive value adds to the current capacity while a negative number</span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-comment">-- removes from the current capacity.</span><span>
 </span><span id="line-80"></span><span>    </span><span id="%24sel%3AscalingAdjustment%3AStepAdjustment%27"><span class="annot"><span class="annottext">StepAdjustment -&gt; Int
 </span><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#%24sel%3AscalingAdjustment%3AStepAdjustment%27"><span class="hs-identifier hs-var hs-var">scalingAdjustment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-81"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679332385"><span id="local-6989586621679332387"><span class="annot"><span class="annottext">StepAdjustment -&gt; StepAdjustment -&gt; Bool
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679333048"><span id="local-6989586621679333050"><span class="annot"><span class="annottext">StepAdjustment -&gt; StepAdjustment -&gt; Bool
 (StepAdjustment -&gt; StepAdjustment -&gt; Bool)
 -&gt; (StepAdjustment -&gt; StepAdjustment -&gt; Bool) -&gt; Eq StepAdjustment
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -90,7 +90,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StepAdjustment -&gt; StepAdjustment -&gt; Bool
 == :: StepAdjustment -&gt; StepAdjustment -&gt; Bool
 $c== :: StepAdjustment -&gt; StepAdjustment -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679332376"><span id="local-6989586621679332378"><span id="local-6989586621679332380"><span id="local-6989586621679332382"><span class="annot"><span class="annottext">ReadPrec [StepAdjustment]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679333039"><span id="local-6989586621679333041"><span id="local-6989586621679333043"><span id="local-6989586621679333045"><span class="annot"><span class="annottext">ReadPrec [StepAdjustment]
 ReadPrec StepAdjustment
 Int -&gt; ReadS StepAdjustment
 ReadS [StepAdjustment]
@@ -110,7 +110,7 @@ readList :: ReadS [StepAdjustment]
 $creadList :: ReadS [StepAdjustment]
 readsPrec :: Int -&gt; ReadS StepAdjustment
 $creadsPrec :: Int -&gt; ReadS StepAdjustment
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679332369"><span id="local-6989586621679332371"><span id="local-6989586621679332373"><span class="annot"><span class="annottext">Int -&gt; StepAdjustment -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679333032"><span id="local-6989586621679333034"><span id="local-6989586621679333036"><span class="annot"><span class="annottext">Int -&gt; StepAdjustment -&gt; ShowS
 [StepAdjustment] -&gt; ShowS
 StepAdjustment -&gt; String
 (Int -&gt; StepAdjustment -&gt; ShowS)
@@ -144,21 +144,21 @@ $cfrom :: forall x. StepAdjustment -&gt; Rep StepAdjustment x
 </span><span id="line-89"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-91"></span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- 'metricIntervalUpperBound', 'stepAdjustment_metricIntervalUpperBound' - The upper bound for the difference between the alarm threshold and the</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'metricIntervalLowerBound', 'stepAdjustment_metricIntervalLowerBound' - The lower bound for the difference between the alarm threshold and the</span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- CloudWatch metric. If the metric value is above the breach threshold,</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- the upper bound is exclusive (the metric must be less than the threshold</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- plus the upper bound). Otherwise, it is inclusive (the metric must be</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- less than or equal to the threshold plus the upper bound). A null value</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- indicates positive infinity.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- the lower bound is inclusive (the metric must be greater than or equal</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- to the threshold plus the lower bound). Otherwise, it is exclusive (the</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- metric must be greater than the threshold plus the lower bound). A null</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- value indicates negative infinity.</span><span>
 </span><span id="line-98"></span><span class="hs-comment">--</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- The upper bound must be greater than the lower bound.</span><span>
-</span><span id="line-100"></span><span class="hs-comment">--</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- 'metricIntervalLowerBound', 'stepAdjustment_metricIntervalLowerBound' - The lower bound for the difference between the alarm threshold and the</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- CloudWatch metric. If the metric value is above the breach threshold,</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- the lower bound is inclusive (the metric must be greater than or equal</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- to the threshold plus the lower bound). Otherwise, it is exclusive (the</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- metric must be greater than the threshold plus the lower bound). A null</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- value indicates negative infinity.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'metricIntervalUpperBound', 'stepAdjustment_metricIntervalUpperBound' - The upper bound for the difference between the alarm threshold and the</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- CloudWatch metric. If the metric value is above the breach threshold,</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- the upper bound is exclusive (the metric must be less than the threshold</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- plus the upper bound). Otherwise, it is inclusive (the metric must be</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- less than or equal to the threshold plus the upper bound). A null value</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- indicates positive infinity.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- The upper bound must be greater than the lower bound.</span><span>
 </span><span id="line-107"></span><span class="hs-comment">--</span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- 'scalingAdjustment', 'stepAdjustment_scalingAdjustment' - The amount by which to scale, based on the specified adjustment type. A</span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- positive value adds to the current capacity while a negative number</span><span>
@@ -168,73 +168,73 @@ $cfrom :: forall x. StepAdjustment -&gt; Rep StepAdjustment x
 </span><span id="line-113"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-114"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#StepAdjustment"><span class="hs-identifier hs-type">StepAdjustment</span></a></span><span>
 </span><span id="line-115"></span><span id="newStepAdjustment"><span class="annot"><span class="annottext">newStepAdjustment :: Int -&gt; StepAdjustment
-</span><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#newStepAdjustment"><span class="hs-identifier hs-var hs-var">newStepAdjustment</span></a></span></span><span> </span><span id="local-6989586621679332363"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679332363"><span class="hs-identifier hs-var">pScalingAdjustment_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#newStepAdjustment"><span class="hs-identifier hs-var hs-var">newStepAdjustment</span></a></span></span><span> </span><span id="local-6989586621679333026"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679333026"><span class="hs-identifier hs-var">pScalingAdjustment_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>  </span><span class="annot"><span class="annottext">StepAdjustment' :: Maybe Double -&gt; Maybe Double -&gt; Int -&gt; StepAdjustment
 </span><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#StepAdjustment%27"><span class="hs-identifier hs-type">StepAdjustment'</span></a></span><span>
-</span><span id="line-117"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:metricIntervalUpperBound:StepAdjustment' :: Maybe Double
-</span><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#%24sel%3AmetricIntervalUpperBound%3AStepAdjustment%27"><span class="hs-identifier hs-var">metricIntervalUpperBound</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:metricIntervalLowerBound:StepAdjustment' :: Maybe Double
+</span><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#%24sel%3AmetricIntervalLowerBound%3AStepAdjustment%27"><span class="hs-identifier hs-var">metricIntervalLowerBound</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">Maybe Double
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:metricIntervalLowerBound:StepAdjustment' :: Maybe Double
-</span><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#%24sel%3AmetricIntervalLowerBound%3AStepAdjustment%27"><span class="hs-identifier hs-var">metricIntervalLowerBound</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:metricIntervalUpperBound:StepAdjustment' :: Maybe Double
+</span><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#%24sel%3AmetricIntervalUpperBound%3AStepAdjustment%27"><span class="hs-identifier hs-var">metricIntervalUpperBound</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:scalingAdjustment:StepAdjustment' :: Int
 </span><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#%24sel%3AscalingAdjustment%3AStepAdjustment%27"><span class="hs-identifier hs-var">scalingAdjustment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679332363"><span class="hs-identifier hs-var">pScalingAdjustment_</span></a></span><span>
+</span><a href="#local-6989586621679333026"><span class="hs-identifier hs-var">pScalingAdjustment_</span></a></span><span>
 </span><span id="line-121"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- | The upper bound for the difference between the alarm threshold and the</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The lower bound for the difference between the alarm threshold and the</span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- CloudWatch metric. If the metric value is above the breach threshold,</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- the upper bound is exclusive (the metric must be less than the threshold</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- plus the upper bound). Otherwise, it is inclusive (the metric must be</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- less than or equal to the threshold plus the upper bound). A null value</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- indicates positive infinity.</span><span>
-</span><span id="line-129"></span><span class="hs-comment">--</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- The upper bound must be greater than the lower bound.</span><span>
-</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#stepAdjustment_metricIntervalUpperBound"><span class="hs-identifier hs-type">stepAdjustment_metricIntervalUpperBound</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#StepAdjustment"><span class="hs-identifier hs-type">StepAdjustment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span id="stepAdjustment_metricIntervalUpperBound"><span class="annot"><span class="annottext">stepAdjustment_metricIntervalUpperBound :: (Maybe Double -&gt; f (Maybe Double))
--&gt; StepAdjustment -&gt; f StepAdjustment
-</span><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#stepAdjustment_metricIntervalUpperBound"><span class="hs-identifier hs-var hs-var">stepAdjustment_metricIntervalUpperBound</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StepAdjustment -&gt; Maybe Double)
--&gt; (StepAdjustment -&gt; Maybe Double -&gt; StepAdjustment)
--&gt; Lens StepAdjustment StepAdjustment (Maybe Double) (Maybe Double)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#StepAdjustment%27"><span class="hs-identifier hs-type">StepAdjustment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332359"><span class="annot"><span class="annottext">Maybe Double
-metricIntervalUpperBound :: Maybe Double
-$sel:metricIntervalUpperBound:StepAdjustment' :: StepAdjustment -&gt; Maybe Double
-</span><a href="#local-6989586621679332359"><span class="hs-identifier hs-var hs-var">metricIntervalUpperBound</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679332359"><span class="hs-identifier hs-var">metricIntervalUpperBound</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332358"><span class="annot"><span class="annottext">s :: StepAdjustment
-</span><a href="#local-6989586621679332358"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#StepAdjustment%27"><span class="hs-identifier hs-type">StepAdjustment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332357"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679332357"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StepAdjustment
-</span><a href="#local-6989586621679332358"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricIntervalUpperBound:StepAdjustment' :: Maybe Double
-</span><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#%24sel%3AmetricIntervalUpperBound%3AStepAdjustment%27"><span class="hs-identifier hs-var">metricIntervalUpperBound</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679332357"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#StepAdjustment"><span class="hs-identifier hs-type">StepAdjustment</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- | The lower bound for the difference between the alarm threshold and the</span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- CloudWatch metric. If the metric value is above the breach threshold,</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- the lower bound is inclusive (the metric must be greater than or equal</span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- to the threshold plus the lower bound). Otherwise, it is exclusive (the</span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- metric must be greater than the threshold plus the lower bound). A null</span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- value indicates negative infinity.</span><span>
-</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#stepAdjustment_metricIntervalLowerBound"><span class="hs-identifier hs-type">stepAdjustment_metricIntervalLowerBound</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#StepAdjustment"><span class="hs-identifier hs-type">StepAdjustment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-141"></span><span id="stepAdjustment_metricIntervalLowerBound"><span class="annot"><span class="annottext">stepAdjustment_metricIntervalLowerBound :: (Maybe Double -&gt; f (Maybe Double))
+</span><span id="line-125"></span><span class="hs-comment">-- the lower bound is inclusive (the metric must be greater than or equal</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- to the threshold plus the lower bound). Otherwise, it is exclusive (the</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- metric must be greater than the threshold plus the lower bound). A null</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- value indicates negative infinity.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#stepAdjustment_metricIntervalLowerBound"><span class="hs-identifier hs-type">stepAdjustment_metricIntervalLowerBound</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#StepAdjustment"><span class="hs-identifier hs-type">StepAdjustment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="stepAdjustment_metricIntervalLowerBound"><span class="annot"><span class="annottext">stepAdjustment_metricIntervalLowerBound :: (Maybe Double -&gt; f (Maybe Double))
 -&gt; StepAdjustment -&gt; f StepAdjustment
 </span><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#stepAdjustment_metricIntervalLowerBound"><span class="hs-identifier hs-var hs-var">stepAdjustment_metricIntervalLowerBound</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StepAdjustment -&gt; Maybe Double)
 -&gt; (StepAdjustment -&gt; Maybe Double -&gt; StepAdjustment)
 -&gt; Lens StepAdjustment StepAdjustment (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#StepAdjustment%27"><span class="hs-identifier hs-type">StepAdjustment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332355"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#StepAdjustment%27"><span class="hs-identifier hs-type">StepAdjustment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333022"><span class="annot"><span class="annottext">Maybe Double
 metricIntervalLowerBound :: Maybe Double
 $sel:metricIntervalLowerBound:StepAdjustment' :: StepAdjustment -&gt; Maybe Double
-</span><a href="#local-6989586621679332355"><span class="hs-identifier hs-var hs-var">metricIntervalLowerBound</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679332355"><span class="hs-identifier hs-var">metricIntervalLowerBound</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332354"><span class="annot"><span class="annottext">s :: StepAdjustment
-</span><a href="#local-6989586621679332354"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#StepAdjustment%27"><span class="hs-identifier hs-type">StepAdjustment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332353"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679332353"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StepAdjustment
-</span><a href="#local-6989586621679332354"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricIntervalLowerBound:StepAdjustment' :: Maybe Double
+</span><a href="#local-6989586621679333022"><span class="hs-identifier hs-var hs-var">metricIntervalLowerBound</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679333022"><span class="hs-identifier hs-var">metricIntervalLowerBound</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333021"><span class="annot"><span class="annottext">s :: StepAdjustment
+</span><a href="#local-6989586621679333021"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#StepAdjustment%27"><span class="hs-identifier hs-type">StepAdjustment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333020"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679333020"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StepAdjustment
+</span><a href="#local-6989586621679333021"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricIntervalLowerBound:StepAdjustment' :: Maybe Double
 </span><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#%24sel%3AmetricIntervalLowerBound%3AStepAdjustment%27"><span class="hs-identifier hs-var">metricIntervalLowerBound</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679332353"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#StepAdjustment"><span class="hs-identifier hs-type">StepAdjustment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679333020"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#StepAdjustment"><span class="hs-identifier hs-type">StepAdjustment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The upper bound for the difference between the alarm threshold and the</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- CloudWatch metric. If the metric value is above the breach threshold,</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- the upper bound is exclusive (the metric must be less than the threshold</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- plus the upper bound). Otherwise, it is inclusive (the metric must be</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- less than or equal to the threshold plus the upper bound). A null value</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- indicates positive infinity.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- The upper bound must be greater than the lower bound.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#stepAdjustment_metricIntervalUpperBound"><span class="hs-identifier hs-type">stepAdjustment_metricIntervalUpperBound</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#StepAdjustment"><span class="hs-identifier hs-type">StepAdjustment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="stepAdjustment_metricIntervalUpperBound"><span class="annot"><span class="annottext">stepAdjustment_metricIntervalUpperBound :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; StepAdjustment -&gt; f StepAdjustment
+</span><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#stepAdjustment_metricIntervalUpperBound"><span class="hs-identifier hs-var hs-var">stepAdjustment_metricIntervalUpperBound</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StepAdjustment -&gt; Maybe Double)
+-&gt; (StepAdjustment -&gt; Maybe Double -&gt; StepAdjustment)
+-&gt; Lens StepAdjustment StepAdjustment (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#StepAdjustment%27"><span class="hs-identifier hs-type">StepAdjustment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333018"><span class="annot"><span class="annottext">Maybe Double
+metricIntervalUpperBound :: Maybe Double
+$sel:metricIntervalUpperBound:StepAdjustment' :: StepAdjustment -&gt; Maybe Double
+</span><a href="#local-6989586621679333018"><span class="hs-identifier hs-var hs-var">metricIntervalUpperBound</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679333018"><span class="hs-identifier hs-var">metricIntervalUpperBound</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333017"><span class="annot"><span class="annottext">s :: StepAdjustment
+</span><a href="#local-6989586621679333017"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#StepAdjustment%27"><span class="hs-identifier hs-type">StepAdjustment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333016"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679333016"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StepAdjustment
+</span><a href="#local-6989586621679333017"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricIntervalUpperBound:StepAdjustment' :: Maybe Double
+</span><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#%24sel%3AmetricIntervalUpperBound%3AStepAdjustment%27"><span class="hs-identifier hs-var">metricIntervalUpperBound</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679333016"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#StepAdjustment"><span class="hs-identifier hs-type">StepAdjustment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- | The amount by which to scale, based on the specified adjustment type. A</span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- positive value adds to the current capacity while a negative number</span><span>
@@ -245,21 +245,21 @@ $sel:metricIntervalLowerBound:StepAdjustment' :: StepAdjustment -&gt; Maybe Doub
 -&gt; (StepAdjustment -&gt; Int -&gt; StepAdjustment)
 -&gt; Lens StepAdjustment StepAdjustment Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#StepAdjustment%27"><span class="hs-identifier hs-type">StepAdjustment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332351"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#StepAdjustment%27"><span class="hs-identifier hs-type">StepAdjustment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333014"><span class="annot"><span class="annottext">Int
 scalingAdjustment :: Int
 $sel:scalingAdjustment:StepAdjustment' :: StepAdjustment -&gt; Int
-</span><a href="#local-6989586621679332351"><span class="hs-identifier hs-var hs-var">scalingAdjustment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679332351"><span class="hs-identifier hs-var">scalingAdjustment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332350"><span class="annot"><span class="annottext">s :: StepAdjustment
-</span><a href="#local-6989586621679332350"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#StepAdjustment%27"><span class="hs-identifier hs-type">StepAdjustment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332349"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679332349"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StepAdjustment
-</span><a href="#local-6989586621679332350"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scalingAdjustment:StepAdjustment' :: Int
+</span><a href="#local-6989586621679333014"><span class="hs-identifier hs-var hs-var">scalingAdjustment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679333014"><span class="hs-identifier hs-var">scalingAdjustment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333013"><span class="annot"><span class="annottext">s :: StepAdjustment
+</span><a href="#local-6989586621679333013"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#StepAdjustment%27"><span class="hs-identifier hs-type">StepAdjustment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333012"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679333012"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StepAdjustment
+</span><a href="#local-6989586621679333013"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scalingAdjustment:StepAdjustment' :: Int
 </span><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#%24sel%3AscalingAdjustment%3AStepAdjustment%27"><span class="hs-identifier hs-var">scalingAdjustment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679332349"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#StepAdjustment"><span class="hs-identifier hs-type">StepAdjustment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679333012"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#StepAdjustment"><span class="hs-identifier hs-type">StepAdjustment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#StepAdjustment"><span class="hs-identifier hs-type">StepAdjustment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679332346"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String StepAdjustment
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679332344"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679332344"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679333009"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String StepAdjustment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679333007"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679333007"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">Maybe Double -&gt; Maybe Double -&gt; Int -&gt; StepAdjustment
 </span><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#StepAdjustment%27"><span class="hs-identifier hs-var">StepAdjustment'</span></a></span><span>
 </span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Double -&gt; Maybe Double -&gt; Int -&gt; StepAdjustment)
@@ -267,62 +267,62 @@ $sel:scalingAdjustment:StepAdjustment' :: StepAdjustment -&gt; Int
 -&gt; Either String (Maybe Double -&gt; Int -&gt; StepAdjustment)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679332344"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
+</span><a href="#local-6989586621679333007"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;MetricIntervalUpperBound&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;MetricIntervalLowerBound&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Double -&gt; Int -&gt; StepAdjustment)
 -&gt; Either String (Maybe Double)
 -&gt; Either String (Int -&gt; StepAdjustment)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679332344"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
+</span><a href="#local-6989586621679333007"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;MetricIntervalLowerBound&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;MetricIntervalUpperBound&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">Either String (Int -&gt; StepAdjustment)
 -&gt; Either String Int -&gt; Either String StepAdjustment
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679332344"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
+</span><a href="#local-6989586621679333007"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ScalingAdjustment&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332337"><span id="local-6989586621679332339"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#StepAdjustment"><span class="hs-identifier hs-type">StepAdjustment</span></a></span></span></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333000"><span id="local-6989586621679333002"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#StepAdjustment"><span class="hs-identifier hs-type">StepAdjustment</span></a></span></span></span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332334"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#StepAdjustment"><span class="hs-identifier hs-type">StepAdjustment</span></a></span></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332997"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#StepAdjustment"><span class="hs-identifier hs-type">StepAdjustment</span></a></span></span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#StepAdjustment"><span class="hs-identifier hs-type">StepAdjustment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621679332330"><span class="annot"><span class="annottext">toQuery :: StepAdjustment -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#StepAdjustment%27"><span class="hs-identifier hs-type">StepAdjustment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332326"><span id="local-6989586621679332327"><span id="local-6989586621679332328"><span class="annot"><span class="annottext">Int
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679332993"><span class="annot"><span class="annottext">toQuery :: StepAdjustment -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.StepAdjustment.html#StepAdjustment%27"><span class="hs-identifier hs-type">StepAdjustment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332989"><span id="local-6989586621679332990"><span id="local-6989586621679332991"><span class="annot"><span class="annottext">Int
 Maybe Double
 scalingAdjustment :: Int
-metricIntervalLowerBound :: Maybe Double
 metricIntervalUpperBound :: Maybe Double
+metricIntervalLowerBound :: Maybe Double
 $sel:scalingAdjustment:StepAdjustment' :: StepAdjustment -&gt; Int
-$sel:metricIntervalLowerBound:StepAdjustment' :: StepAdjustment -&gt; Maybe Double
 $sel:metricIntervalUpperBound:StepAdjustment' :: StepAdjustment -&gt; Maybe Double
-</span><a href="#local-6989586621679332326"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:metricIntervalLowerBound:StepAdjustment' :: StepAdjustment -&gt; Maybe Double
+</span><a href="#local-6989586621679332989"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
 </span><span id="line-163"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;MetricIntervalUpperBound&quot;</span></span><span>
+</span><span class="hs-string">&quot;MetricIntervalLowerBound&quot;</span></span><span>
 </span><span id="line-164"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Double -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679332328"><span class="hs-identifier hs-var">metricIntervalUpperBound</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679332991"><span class="hs-identifier hs-var">metricIntervalLowerBound</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;MetricIntervalLowerBound&quot;</span></span><span>
+</span><span class="hs-string">&quot;MetricIntervalUpperBound&quot;</span></span><span>
 </span><span id="line-166"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Double -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679332327"><span class="hs-identifier hs-var">metricIntervalLowerBound</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679332990"><span class="hs-identifier hs-var">metricIntervalUpperBound</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-167"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ScalingAdjustment&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Int -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679332326"><span class="hs-identifier hs-var">scalingAdjustment</span></a></span><span>
+</span><a href="#local-6989586621679332989"><span class="hs-identifier hs-var">scalingAdjustment</span></a></span><span>
 </span><span id="line-168"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-169"></span></pre></body></html>

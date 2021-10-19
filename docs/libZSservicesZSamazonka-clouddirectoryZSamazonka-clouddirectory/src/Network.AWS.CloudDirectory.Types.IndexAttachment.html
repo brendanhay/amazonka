@@ -27,19 +27,19 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Represents an index and an attached object.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newIndexAttachment' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679329261"><span id="local-6989586621679329262"></span></span><span class="hs-keyword">data</span><span> </span><span id="IndexAttachment"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#IndexAttachment"><span class="hs-identifier hs-var">IndexAttachment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IndexAttachment%27"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#IndexAttachment%27"><span class="hs-identifier hs-var">IndexAttachment'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | In response to ListIndex, the @ObjectIdentifier@ of the object attached</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- to the index. In response to ListAttachedIndices, the @ObjectIdentifier@</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- of the index attached to the object. This field will always contain the</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- @ObjectIdentifier@ of the object on the opposite side of the attachment</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- specified in the query.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AobjectIdentifier%3AIndexAttachment%27"><span class="annot"><span class="annottext">IndexAttachment -&gt; Maybe Text
-</span><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#%24sel%3AobjectIdentifier%3AIndexAttachment%27"><span class="hs-identifier hs-var hs-var">objectIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The indexed attribute values.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AindexedAttributes%3AIndexAttachment%27"><span class="annot"><span class="annottext">IndexAttachment -&gt; Maybe [AttributeKeyAndValue]
-</span><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#%24sel%3AindexedAttributes%3AIndexAttachment%27"><span class="hs-identifier hs-var hs-var">indexedAttributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.AttributeKeyAndValue.html#AttributeKeyAndValue"><span class="hs-identifier hs-type">AttributeKeyAndValue</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679329620"><span id="local-6989586621679329621"></span></span><span class="hs-keyword">data</span><span> </span><span id="IndexAttachment"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#IndexAttachment"><span class="hs-identifier hs-var">IndexAttachment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IndexAttachment%27"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#IndexAttachment%27"><span class="hs-identifier hs-var">IndexAttachment'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The indexed attribute values.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AindexedAttributes%3AIndexAttachment%27"><span class="annot"><span class="annottext">IndexAttachment -&gt; Maybe [AttributeKeyAndValue]
+</span><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#%24sel%3AindexedAttributes%3AIndexAttachment%27"><span class="hs-identifier hs-var hs-var">indexedAttributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.AttributeKeyAndValue.html#AttributeKeyAndValue"><span class="hs-identifier hs-type">AttributeKeyAndValue</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | In response to ListIndex, the @ObjectIdentifier@ of the object attached</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- to the index. In response to ListAttachedIndices, the @ObjectIdentifier@</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- of the index attached to the object. This field will always contain the</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- @ObjectIdentifier@ of the object on the opposite side of the attachment</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- specified in the query.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AobjectIdentifier%3AIndexAttachment%27"><span class="annot"><span class="annottext">IndexAttachment -&gt; Maybe Text
+</span><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#%24sel%3AobjectIdentifier%3AIndexAttachment%27"><span class="hs-identifier hs-var hs-var">objectIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679329254"><span id="local-6989586621679329256"><span class="annot"><span class="annottext">IndexAttachment -&gt; IndexAttachment -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679329613"><span id="local-6989586621679329615"><span class="annot"><span class="annottext">IndexAttachment -&gt; IndexAttachment -&gt; Bool
 (IndexAttachment -&gt; IndexAttachment -&gt; Bool)
 -&gt; (IndexAttachment -&gt; IndexAttachment -&gt; Bool)
 -&gt; Eq IndexAttachment
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: IndexAttachment -&gt; IndexAttachment -&gt; Bool
 == :: IndexAttachment -&gt; IndexAttachment -&gt; Bool
 $c== :: IndexAttachment -&gt; IndexAttachment -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679329245"><span id="local-6989586621679329247"><span id="local-6989586621679329249"><span id="local-6989586621679329251"><span class="annot"><span class="annottext">ReadPrec [IndexAttachment]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679329604"><span id="local-6989586621679329606"><span id="local-6989586621679329608"><span id="local-6989586621679329610"><span class="annot"><span class="annottext">ReadPrec [IndexAttachment]
 ReadPrec IndexAttachment
 Int -&gt; ReadS IndexAttachment
 ReadS [IndexAttachment]
@@ -68,7 +68,7 @@ readList :: ReadS [IndexAttachment]
 $creadList :: ReadS [IndexAttachment]
 readsPrec :: Int -&gt; ReadS IndexAttachment
 $creadsPrec :: Int -&gt; ReadS IndexAttachment
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679329238"><span id="local-6989586621679329240"><span id="local-6989586621679329242"><span class="annot"><span class="annottext">Int -&gt; IndexAttachment -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679329597"><span id="local-6989586621679329599"><span id="local-6989586621679329601"><span class="annot"><span class="annottext">Int -&gt; IndexAttachment -&gt; ShowS
 [IndexAttachment] -&gt; ShowS
 IndexAttachment -&gt; String
 (Int -&gt; IndexAttachment -&gt; ShowS)
@@ -102,56 +102,33 @@ $cfrom :: forall x. IndexAttachment -&gt; Rep IndexAttachment x
 </span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- 'objectIdentifier', 'indexAttachment_objectIdentifier' - In response to ListIndex, the @ObjectIdentifier@ of the object attached</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- to the index. In response to ListAttachedIndices, the @ObjectIdentifier@</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- of the index attached to the object. This field will always contain the</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- @ObjectIdentifier@ of the object on the opposite side of the attachment</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- specified in the query.</span><span>
-</span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'indexedAttributes', 'indexAttachment_indexedAttributes' - The indexed attribute values.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'indexedAttributes', 'indexAttachment_indexedAttributes' - The indexed attribute values.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'objectIdentifier', 'indexAttachment_objectIdentifier' - In response to ListIndex, the @ObjectIdentifier@ of the object attached</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- to the index. In response to ListAttachedIndices, the @ObjectIdentifier@</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- of the index attached to the object. This field will always contain the</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- @ObjectIdentifier@ of the object on the opposite side of the attachment</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- specified in the query.</span><span>
 </span><span id="line-57"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#newIndexAttachment"><span class="hs-identifier hs-type">newIndexAttachment</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-58"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#IndexAttachment"><span class="hs-identifier hs-type">IndexAttachment</span></a></span><span>
 </span><span id="line-59"></span><span id="newIndexAttachment"><span class="annot"><span class="annottext">newIndexAttachment :: IndexAttachment
 </span><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#newIndexAttachment"><span class="hs-identifier hs-var hs-var">newIndexAttachment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">IndexAttachment' :: Maybe Text -&gt; Maybe [AttributeKeyAndValue] -&gt; IndexAttachment
+</span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">IndexAttachment' :: Maybe [AttributeKeyAndValue] -&gt; Maybe Text -&gt; IndexAttachment
 </span><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#IndexAttachment%27"><span class="hs-identifier hs-type">IndexAttachment'</span></a></span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:objectIdentifier:IndexAttachment' :: Maybe Text
-</span><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#%24sel%3AobjectIdentifier%3AIndexAttachment%27"><span class="hs-identifier hs-var">objectIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-62"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:indexedAttributes:IndexAttachment' :: Maybe [AttributeKeyAndValue]
+</span><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#%24sel%3AindexedAttributes%3AIndexAttachment%27"><span class="hs-identifier hs-var">indexedAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>        </span><span class="annot"><span class="annottext">Maybe [AttributeKeyAndValue]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:indexedAttributes:IndexAttachment' :: Maybe [AttributeKeyAndValue]
-</span><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#%24sel%3AindexedAttributes%3AIndexAttachment%27"><span class="hs-identifier hs-var">indexedAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeKeyAndValue]
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:objectIdentifier:IndexAttachment' :: Maybe Text
+</span><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#%24sel%3AobjectIdentifier%3AIndexAttachment%27"><span class="hs-identifier hs-var">objectIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- | In response to ListIndex, the @ObjectIdentifier@ of the object attached</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- to the index. In response to ListAttachedIndices, the @ObjectIdentifier@</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- of the index attached to the object. This field will always contain the</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- @ObjectIdentifier@ of the object on the opposite side of the attachment</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- specified in the query.</span><span>
-</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#indexAttachment_objectIdentifier"><span class="hs-identifier hs-type">indexAttachment_objectIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#IndexAttachment"><span class="hs-identifier hs-type">IndexAttachment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span id="indexAttachment_objectIdentifier"><span class="annot"><span class="annottext">indexAttachment_objectIdentifier :: (Maybe Text -&gt; f (Maybe Text))
--&gt; IndexAttachment -&gt; f IndexAttachment
-</span><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#indexAttachment_objectIdentifier"><span class="hs-identifier hs-var hs-var">indexAttachment_objectIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IndexAttachment -&gt; Maybe Text)
--&gt; (IndexAttachment -&gt; Maybe Text -&gt; IndexAttachment)
--&gt; Lens IndexAttachment IndexAttachment (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#IndexAttachment%27"><span class="hs-identifier hs-type">IndexAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329229"><span class="annot"><span class="annottext">Maybe Text
-objectIdentifier :: Maybe Text
-$sel:objectIdentifier:IndexAttachment' :: IndexAttachment -&gt; Maybe Text
-</span><a href="#local-6989586621679329229"><span class="hs-identifier hs-var hs-var">objectIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679329229"><span class="hs-identifier hs-var">objectIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329228"><span class="annot"><span class="annottext">s :: IndexAttachment
-</span><a href="#local-6989586621679329228"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#IndexAttachment%27"><span class="hs-identifier hs-type">IndexAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329227"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679329227"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IndexAttachment
-</span><a href="#local-6989586621679329228"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:objectIdentifier:IndexAttachment' :: Maybe Text
-</span><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#%24sel%3AobjectIdentifier%3AIndexAttachment%27"><span class="hs-identifier hs-var">objectIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679329227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#IndexAttachment"><span class="hs-identifier hs-type">IndexAttachment</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- | The indexed attribute values.</span><span>
-</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#indexAttachment_indexedAttributes"><span class="hs-identifier hs-type">indexAttachment_indexedAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#IndexAttachment"><span class="hs-identifier hs-type">IndexAttachment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.AttributeKeyAndValue.html#AttributeKeyAndValue"><span class="hs-identifier hs-type">AttributeKeyAndValue</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-76"></span><span id="indexAttachment_indexedAttributes"><span class="annot"><span class="annottext">indexAttachment_indexedAttributes :: (Maybe [AttributeKeyAndValue] -&gt; f (Maybe [AttributeKeyAndValue]))
+</span><span id="line-66"></span><span class="hs-comment">-- | The indexed attribute values.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#indexAttachment_indexedAttributes"><span class="hs-identifier hs-type">indexAttachment_indexedAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#IndexAttachment"><span class="hs-identifier hs-type">IndexAttachment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.AttributeKeyAndValue.html#AttributeKeyAndValue"><span class="hs-identifier hs-type">AttributeKeyAndValue</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="indexAttachment_indexedAttributes"><span class="annot"><span class="annottext">indexAttachment_indexedAttributes :: (Maybe [AttributeKeyAndValue] -&gt; f (Maybe [AttributeKeyAndValue]))
 -&gt; IndexAttachment -&gt; f IndexAttachment
 </span><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#indexAttachment_indexedAttributes"><span class="hs-identifier hs-var hs-var">indexAttachment_indexedAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IndexAttachment -&gt; Maybe [AttributeKeyAndValue])
 -&gt; (IndexAttachment
@@ -162,16 +139,16 @@ $sel:objectIdentifier:IndexAttachment' :: IndexAttachment -&gt; Maybe Text
      (Maybe [AttributeKeyAndValue])
      (Maybe [AttributeKeyAndValue])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#IndexAttachment%27"><span class="hs-identifier hs-type">IndexAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329225"><span class="annot"><span class="annottext">Maybe [AttributeKeyAndValue]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#IndexAttachment%27"><span class="hs-identifier hs-type">IndexAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329588"><span class="annot"><span class="annottext">Maybe [AttributeKeyAndValue]
 indexedAttributes :: Maybe [AttributeKeyAndValue]
 $sel:indexedAttributes:IndexAttachment' :: IndexAttachment -&gt; Maybe [AttributeKeyAndValue]
-</span><a href="#local-6989586621679329225"><span class="hs-identifier hs-var hs-var">indexedAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeKeyAndValue]
-</span><a href="#local-6989586621679329225"><span class="hs-identifier hs-var">indexedAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329224"><span class="annot"><span class="annottext">s :: IndexAttachment
-</span><a href="#local-6989586621679329224"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#IndexAttachment%27"><span class="hs-identifier hs-type">IndexAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329223"><span class="annot"><span class="annottext">Maybe [AttributeKeyAndValue]
-</span><a href="#local-6989586621679329223"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IndexAttachment
-</span><a href="#local-6989586621679329224"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexedAttributes:IndexAttachment' :: Maybe [AttributeKeyAndValue]
+</span><a href="#local-6989586621679329588"><span class="hs-identifier hs-var hs-var">indexedAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeKeyAndValue]
+</span><a href="#local-6989586621679329588"><span class="hs-identifier hs-var">indexedAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329587"><span class="annot"><span class="annottext">s :: IndexAttachment
+</span><a href="#local-6989586621679329587"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#IndexAttachment%27"><span class="hs-identifier hs-type">IndexAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329586"><span class="annot"><span class="annottext">Maybe [AttributeKeyAndValue]
+</span><a href="#local-6989586621679329586"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IndexAttachment
+</span><a href="#local-6989586621679329587"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexedAttributes:IndexAttachment' :: Maybe [AttributeKeyAndValue]
 </span><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#%24sel%3AindexedAttributes%3AIndexAttachment%27"><span class="hs-identifier hs-var">indexedAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeKeyAndValue]
-</span><a href="#local-6989586621679329223"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#IndexAttachment"><span class="hs-identifier hs-type">IndexAttachment</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AttributeKeyAndValue] -&gt; f (Maybe [AttributeKeyAndValue]))
+</span><a href="#local-6989586621679329586"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#IndexAttachment"><span class="hs-identifier hs-type">IndexAttachment</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AttributeKeyAndValue] -&gt; f (Maybe [AttributeKeyAndValue]))
  -&gt; IndexAttachment -&gt; f IndexAttachment)
 -&gt; ((Maybe [AttributeKeyAndValue]
      -&gt; f (Maybe [AttributeKeyAndValue]))
@@ -200,11 +177,34 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [AttributeKeyAndValue]
   [AttributeKeyAndValue]
   [AttributeKeyAndValue]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | In response to ListIndex, the @ObjectIdentifier@ of the object attached</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- to the index. In response to ListAttachedIndices, the @ObjectIdentifier@</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- of the index attached to the object. This field will always contain the</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- @ObjectIdentifier@ of the object on the opposite side of the attachment</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- specified in the query.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#indexAttachment_objectIdentifier"><span class="hs-identifier hs-type">indexAttachment_objectIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#IndexAttachment"><span class="hs-identifier hs-type">IndexAttachment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="indexAttachment_objectIdentifier"><span class="annot"><span class="annottext">indexAttachment_objectIdentifier :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; IndexAttachment -&gt; f IndexAttachment
+</span><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#indexAttachment_objectIdentifier"><span class="hs-identifier hs-var hs-var">indexAttachment_objectIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IndexAttachment -&gt; Maybe Text)
+-&gt; (IndexAttachment -&gt; Maybe Text -&gt; IndexAttachment)
+-&gt; Lens IndexAttachment IndexAttachment (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#IndexAttachment%27"><span class="hs-identifier hs-type">IndexAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329581"><span class="annot"><span class="annottext">Maybe Text
+objectIdentifier :: Maybe Text
+$sel:objectIdentifier:IndexAttachment' :: IndexAttachment -&gt; Maybe Text
+</span><a href="#local-6989586621679329581"><span class="hs-identifier hs-var hs-var">objectIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679329581"><span class="hs-identifier hs-var">objectIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329580"><span class="annot"><span class="annottext">s :: IndexAttachment
+</span><a href="#local-6989586621679329580"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#IndexAttachment%27"><span class="hs-identifier hs-type">IndexAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329579"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679329579"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IndexAttachment
+</span><a href="#local-6989586621679329580"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:objectIdentifier:IndexAttachment' :: Maybe Text
+</span><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#%24sel%3AobjectIdentifier%3AIndexAttachment%27"><span class="hs-identifier hs-var">objectIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679329579"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#IndexAttachment"><span class="hs-identifier hs-type">IndexAttachment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329217"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#IndexAttachment"><span class="hs-identifier hs-type">IndexAttachment</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679329215"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser IndexAttachment
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329576"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#IndexAttachment"><span class="hs-identifier hs-type">IndexAttachment</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679329574"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser IndexAttachment
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser IndexAttachment)
@@ -214,38 +214,38 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;IndexAttachment&quot;</span></span><span>
-</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679329212"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679329212"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [AttributeKeyAndValue] -&gt; IndexAttachment
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679329571"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679329571"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Maybe [AttributeKeyAndValue] -&gt; Maybe Text -&gt; IndexAttachment
 </span><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#IndexAttachment%27"><span class="hs-identifier hs-var">IndexAttachment'</span></a></span><span>
-</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [AttributeKeyAndValue] -&gt; IndexAttachment)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe [AttributeKeyAndValue] -&gt; IndexAttachment)
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [AttributeKeyAndValue] -&gt; Maybe Text -&gt; IndexAttachment)
+-&gt; Parser (Maybe [AttributeKeyAndValue])
+-&gt; Parser (Maybe Text -&gt; IndexAttachment)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679329212"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ObjectIdentifier&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [AttributeKeyAndValue] -&gt; IndexAttachment)
--&gt; Parser (Maybe [AttributeKeyAndValue]) -&gt; Parser IndexAttachment
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679329212"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [AttributeKeyAndValue]))
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679329571"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [AttributeKeyAndValue]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IndexedAttributes&quot;</span></span><span>
-</span><span id="line-86"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [AttributeKeyAndValue]))
+</span><span id="line-85"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [AttributeKeyAndValue]))
 -&gt; Maybe [AttributeKeyAndValue]
 -&gt; Parser (Maybe [AttributeKeyAndValue])
 forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeKeyAndValue]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-87"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; IndexAttachment)
+-&gt; Parser (Maybe Text) -&gt; Parser IndexAttachment
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679329571"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ObjectIdentifier&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329205"><span id="local-6989586621679329207"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#IndexAttachment"><span class="hs-identifier hs-type">IndexAttachment</span></a></span></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329564"><span id="local-6989586621679329566"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#IndexAttachment"><span class="hs-identifier hs-type">IndexAttachment</span></a></span></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329202"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#IndexAttachment"><span class="hs-identifier hs-type">IndexAttachment</span></a></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329561"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.IndexAttachment.html#IndexAttachment"><span class="hs-identifier hs-type">IndexAttachment</span></a></span></span><span>
 </span><span id="line-93"></span></pre></body></html>

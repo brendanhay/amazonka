@@ -27,38 +27,38 @@
 </span><span id="line-27"></span><span class="hs-comment">-- to.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newUpgradeTarget' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679767520"><span id="local-6989586621679767521"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpgradeTarget"><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget"><span class="hs-identifier hs-var">UpgradeTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpgradeTarget%27"><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget%27"><span class="hs-identifier hs-var">UpgradeTarget'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A value that indicates whether the target version is applied to any</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- source DB instances that have @AutoMinorVersionUpgrade@ set to true.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AautoUpgrade%3AUpgradeTarget%27"><span class="annot"><span class="annottext">UpgradeTarget -&gt; Maybe Bool
-</span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#%24sel%3AautoUpgrade%3AUpgradeTarget%27"><span class="hs-identifier hs-var hs-var">autoUpgrade</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | A list of the supported DB engine modes for the target engine version.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AsupportedEngineModes%3AUpgradeTarget%27"><span class="annot"><span class="annottext">UpgradeTarget -&gt; Maybe [Text]
-</span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#%24sel%3AsupportedEngineModes%3AUpgradeTarget%27"><span class="hs-identifier hs-var hs-var">supportedEngineModes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The version number of the upgrade target database engine.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AengineVersion%3AUpgradeTarget%27"><span class="annot"><span class="annottext">UpgradeTarget -&gt; Maybe Text
+</span><span id="line-30"></span><span id="local-6989586621679768591"><span id="local-6989586621679768592"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpgradeTarget"><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget"><span class="hs-identifier hs-var">UpgradeTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpgradeTarget%27"><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget%27"><span class="hs-identifier hs-var">UpgradeTarget'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The version number of the upgrade target database engine.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AengineVersion%3AUpgradeTarget%27"><span class="annot"><span class="annottext">UpgradeTarget -&gt; Maybe Text
 </span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#%24sel%3AengineVersion%3AUpgradeTarget%27"><span class="hs-identifier hs-var hs-var">engineVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | A value that indicates whether you can use Aurora global databases with</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- the target engine version.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AsupportsGlobalDatabases%3AUpgradeTarget%27"><span class="annot"><span class="annottext">UpgradeTarget -&gt; Maybe Bool
-</span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#%24sel%3AsupportsGlobalDatabases%3AUpgradeTarget%27"><span class="hs-identifier hs-var hs-var">supportsGlobalDatabases</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The name of the upgrade target database engine.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3Aengine%3AUpgradeTarget%27"><span class="annot"><span class="annottext">UpgradeTarget -&gt; Maybe Text
-</span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#%24sel%3Aengine%3AUpgradeTarget%27"><span class="hs-identifier hs-var hs-var">engine</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The version of the database engine that a DB instance can be upgraded</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- to.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3Adescription%3AUpgradeTarget%27"><span class="annot"><span class="annottext">UpgradeTarget -&gt; Maybe Text
-</span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#%24sel%3Adescription%3AUpgradeTarget%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | A value that indicates whether upgrading to the target version requires</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- upgrading the major version of the database engine.</span><span>
-</span><span id="line-48"></span><span>    </span><span id="%24sel%3AisMajorVersionUpgrade%3AUpgradeTarget%27"><span class="annot"><span class="annottext">UpgradeTarget -&gt; Maybe Bool
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | A list of the supported DB engine modes for the target engine version.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AsupportedEngineModes%3AUpgradeTarget%27"><span class="annot"><span class="annottext">UpgradeTarget -&gt; Maybe [Text]
+</span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#%24sel%3AsupportedEngineModes%3AUpgradeTarget%27"><span class="hs-identifier hs-var hs-var">supportedEngineModes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | A value that indicates whether upgrading to the target version requires</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- upgrading the major version of the database engine.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AisMajorVersionUpgrade%3AUpgradeTarget%27"><span class="annot"><span class="annottext">UpgradeTarget -&gt; Maybe Bool
 </span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#%24sel%3AisMajorVersionUpgrade%3AUpgradeTarget%27"><span class="hs-identifier hs-var hs-var">isMajorVersionUpgrade</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | A value that indicates whether you can use Aurora parallel query with</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- the target engine version.</span><span>
-</span><span id="line-51"></span><span>    </span><span id="%24sel%3AsupportsParallelQuery%3AUpgradeTarget%27"><span class="annot"><span class="annottext">UpgradeTarget -&gt; Maybe Bool
-</span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#%24sel%3AsupportsParallelQuery%3AUpgradeTarget%27"><span class="hs-identifier hs-var hs-var">supportsParallelQuery</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The name of the upgrade target database engine.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aengine%3AUpgradeTarget%27"><span class="annot"><span class="annottext">UpgradeTarget -&gt; Maybe Text
+</span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#%24sel%3Aengine%3AUpgradeTarget%27"><span class="hs-identifier hs-var hs-var">engine</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | A value that indicates whether you can use Aurora global databases with</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- the target engine version.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AsupportsGlobalDatabases%3AUpgradeTarget%27"><span class="annot"><span class="annottext">UpgradeTarget -&gt; Maybe Bool
+</span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#%24sel%3AsupportsGlobalDatabases%3AUpgradeTarget%27"><span class="hs-identifier hs-var hs-var">supportsGlobalDatabases</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | A value that indicates whether the target version is applied to any</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- source DB instances that have @AutoMinorVersionUpgrade@ set to true.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AautoUpgrade%3AUpgradeTarget%27"><span class="annot"><span class="annottext">UpgradeTarget -&gt; Maybe Bool
+</span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#%24sel%3AautoUpgrade%3AUpgradeTarget%27"><span class="hs-identifier hs-var hs-var">autoUpgrade</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | A value that indicates whether you can use Aurora parallel query with</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- the target engine version.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AsupportsParallelQuery%3AUpgradeTarget%27"><span class="annot"><span class="annottext">UpgradeTarget -&gt; Maybe Bool
+</span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#%24sel%3AsupportsParallelQuery%3AUpgradeTarget%27"><span class="hs-identifier hs-var hs-var">supportsParallelQuery</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The version of the database engine that a DB instance can be upgraded</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- to.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3Adescription%3AUpgradeTarget%27"><span class="annot"><span class="annottext">UpgradeTarget -&gt; Maybe Text
+</span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#%24sel%3Adescription%3AUpgradeTarget%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679767507"><span id="local-6989586621679767509"><span class="annot"><span class="annottext">UpgradeTarget -&gt; UpgradeTarget -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679768578"><span id="local-6989586621679768580"><span class="annot"><span class="annottext">UpgradeTarget -&gt; UpgradeTarget -&gt; Bool
 (UpgradeTarget -&gt; UpgradeTarget -&gt; Bool)
 -&gt; (UpgradeTarget -&gt; UpgradeTarget -&gt; Bool) -&gt; Eq UpgradeTarget
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpgradeTarget -&gt; UpgradeTarget -&gt; Bool
 == :: UpgradeTarget -&gt; UpgradeTarget -&gt; Bool
 $c== :: UpgradeTarget -&gt; UpgradeTarget -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679767498"><span id="local-6989586621679767500"><span id="local-6989586621679767502"><span id="local-6989586621679767504"><span class="annot"><span class="annottext">ReadPrec [UpgradeTarget]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679768569"><span id="local-6989586621679768571"><span id="local-6989586621679768573"><span id="local-6989586621679768575"><span class="annot"><span class="annottext">ReadPrec [UpgradeTarget]
 ReadPrec UpgradeTarget
 Int -&gt; ReadS UpgradeTarget
 ReadS [UpgradeTarget]
@@ -86,7 +86,7 @@ readList :: ReadS [UpgradeTarget]
 $creadList :: ReadS [UpgradeTarget]
 readsPrec :: Int -&gt; ReadS UpgradeTarget
 $creadsPrec :: Int -&gt; ReadS UpgradeTarget
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679767491"><span id="local-6989586621679767493"><span id="local-6989586621679767495"><span class="annot"><span class="annottext">Int -&gt; UpgradeTarget -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679768562"><span id="local-6989586621679768564"><span id="local-6989586621679768566"><span class="annot"><span class="annottext">Int -&gt; UpgradeTarget -&gt; ShowS
 [UpgradeTarget] -&gt; ShowS
 UpgradeTarget -&gt; String
 (Int -&gt; UpgradeTarget -&gt; ShowS)
@@ -120,111 +120,110 @@ $cfrom :: forall x. UpgradeTarget -&gt; Rep UpgradeTarget x
 </span><span id="line-60"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'autoUpgrade', 'upgradeTarget_autoUpgrade' - A value that indicates whether the target version is applied to any</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- source DB instances that have @AutoMinorVersionUpgrade@ set to true.</span><span>
-</span><span id="line-65"></span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- 'supportedEngineModes', 'upgradeTarget_supportedEngineModes' - A list of the supported DB engine modes for the target engine version.</span><span>
-</span><span id="line-67"></span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- 'engineVersion', 'upgradeTarget_engineVersion' - The version number of the upgrade target database engine.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'engineVersion', 'upgradeTarget_engineVersion' - The version number of the upgrade target database engine.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'supportedEngineModes', 'upgradeTarget_supportedEngineModes' - A list of the supported DB engine modes for the target engine version.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'isMajorVersionUpgrade', 'upgradeTarget_isMajorVersionUpgrade' - A value that indicates whether upgrading to the target version requires</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- upgrading the major version of the database engine.</span><span>
 </span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'supportsGlobalDatabases', 'upgradeTarget_supportsGlobalDatabases' - A value that indicates whether you can use Aurora global databases with</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- the target engine version.</span><span>
-</span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'engine', 'upgradeTarget_engine' - The name of the upgrade target database engine.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'engine', 'upgradeTarget_engine' - The name of the upgrade target database engine.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'supportsGlobalDatabases', 'upgradeTarget_supportsGlobalDatabases' - A value that indicates whether you can use Aurora global databases with</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- the target engine version.</span><span>
 </span><span id="line-74"></span><span class="hs-comment">--</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- 'description', 'upgradeTarget_description' - The version of the database engine that a DB instance can be upgraded</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- to.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'autoUpgrade', 'upgradeTarget_autoUpgrade' - A value that indicates whether the target version is applied to any</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- source DB instances that have @AutoMinorVersionUpgrade@ set to true.</span><span>
 </span><span id="line-77"></span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- 'isMajorVersionUpgrade', 'upgradeTarget_isMajorVersionUpgrade' - A value that indicates whether upgrading to the target version requires</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- upgrading the major version of the database engine.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'supportsParallelQuery', 'upgradeTarget_supportsParallelQuery' - A value that indicates whether you can use Aurora parallel query with</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- the target engine version.</span><span>
 </span><span id="line-80"></span><span class="hs-comment">--</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- 'supportsParallelQuery', 'upgradeTarget_supportsParallelQuery' - A value that indicates whether you can use Aurora parallel query with</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- the target engine version.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'description', 'upgradeTarget_description' - The version of the database engine that a DB instance can be upgraded</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- to.</span><span>
 </span><span id="line-83"></span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#newUpgradeTarget"><span class="hs-identifier hs-type">newUpgradeTarget</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget"><span class="hs-identifier hs-type">UpgradeTarget</span></a></span><span>
 </span><span id="line-85"></span><span id="newUpgradeTarget"><span class="annot"><span class="annottext">newUpgradeTarget :: UpgradeTarget
 </span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#newUpgradeTarget"><span class="hs-identifier hs-var hs-var">newUpgradeTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-86"></span><span>  </span><span class="annot"><span class="annottext">UpgradeTarget' :: Maybe Bool
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="annottext">UpgradeTarget' :: Maybe Text
 -&gt; Maybe [Text]
--&gt; Maybe Text
 -&gt; Maybe Bool
--&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Bool
 -&gt; Maybe Bool
+-&gt; Maybe Bool
+-&gt; Maybe Text
 -&gt; UpgradeTarget
 </span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget%27"><span class="hs-identifier hs-type">UpgradeTarget'</span></a></span><span>
-</span><span id="line-87"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:autoUpgrade:UpgradeTarget' :: Maybe Bool
-</span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#%24sel%3AautoUpgrade%3AUpgradeTarget%27"><span class="hs-identifier hs-var">autoUpgrade</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-87"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:engineVersion:UpgradeTarget' :: Maybe Text
+</span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#%24sel%3AengineVersion%3AUpgradeTarget%27"><span class="hs-identifier hs-var">engineVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:supportedEngineModes:UpgradeTarget' :: Maybe [Text]
 </span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#%24sel%3AsupportedEngineModes%3AUpgradeTarget%27"><span class="hs-identifier hs-var">supportedEngineModes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:engineVersion:UpgradeTarget' :: Maybe Text
-</span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#%24sel%3AengineVersion%3AUpgradeTarget%27"><span class="hs-identifier hs-var">engineVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:supportsGlobalDatabases:UpgradeTarget' :: Maybe Bool
-</span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#%24sel%3AsupportsGlobalDatabases%3AUpgradeTarget%27"><span class="hs-identifier hs-var">supportsGlobalDatabases</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:engine:UpgradeTarget' :: Maybe Text
-</span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#%24sel%3Aengine%3AUpgradeTarget%27"><span class="hs-identifier hs-var">engine</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:UpgradeTarget' :: Maybe Text
-</span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#%24sel%3Adescription%3AUpgradeTarget%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:isMajorVersionUpgrade:UpgradeTarget' :: Maybe Bool
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:isMajorVersionUpgrade:UpgradeTarget' :: Maybe Bool
 </span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#%24sel%3AisMajorVersionUpgrade%3AUpgradeTarget%27"><span class="hs-identifier hs-var">isMajorVersionUpgrade</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:supportsParallelQuery:UpgradeTarget' :: Maybe Bool
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:engine:UpgradeTarget' :: Maybe Text
+</span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#%24sel%3Aengine%3AUpgradeTarget%27"><span class="hs-identifier hs-var">engine</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:supportsGlobalDatabases:UpgradeTarget' :: Maybe Bool
+</span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#%24sel%3AsupportsGlobalDatabases%3AUpgradeTarget%27"><span class="hs-identifier hs-var">supportsGlobalDatabases</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:autoUpgrade:UpgradeTarget' :: Maybe Bool
+</span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#%24sel%3AautoUpgrade%3AUpgradeTarget%27"><span class="hs-identifier hs-var">autoUpgrade</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:supportsParallelQuery:UpgradeTarget' :: Maybe Bool
 </span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#%24sel%3AsupportsParallelQuery%3AUpgradeTarget%27"><span class="hs-identifier hs-var">supportsParallelQuery</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:UpgradeTarget' :: Maybe Text
+</span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#%24sel%3Adescription%3AUpgradeTarget%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-95"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- | A value that indicates whether the target version is applied to any</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- source DB instances that have @AutoMinorVersionUpgrade@ set to true.</span><span>
-</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#upgradeTarget_autoUpgrade"><span class="hs-identifier hs-type">upgradeTarget_autoUpgrade</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget"><span class="hs-identifier hs-type">UpgradeTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span id="upgradeTarget_autoUpgrade"><span class="annot"><span class="annottext">upgradeTarget_autoUpgrade :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; UpgradeTarget -&gt; f UpgradeTarget
-</span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#upgradeTarget_autoUpgrade"><span class="hs-identifier hs-var hs-var">upgradeTarget_autoUpgrade</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpgradeTarget -&gt; Maybe Bool)
--&gt; (UpgradeTarget -&gt; Maybe Bool -&gt; UpgradeTarget)
--&gt; Lens UpgradeTarget UpgradeTarget (Maybe Bool) (Maybe Bool)
+</span><span id="line-97"></span><span class="hs-comment">-- | The version number of the upgrade target database engine.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#upgradeTarget_engineVersion"><span class="hs-identifier hs-type">upgradeTarget_engineVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget"><span class="hs-identifier hs-type">UpgradeTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="upgradeTarget_engineVersion"><span class="annot"><span class="annottext">upgradeTarget_engineVersion :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpgradeTarget -&gt; f UpgradeTarget
+</span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#upgradeTarget_engineVersion"><span class="hs-identifier hs-var hs-var">upgradeTarget_engineVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpgradeTarget -&gt; Maybe Text)
+-&gt; (UpgradeTarget -&gt; Maybe Text -&gt; UpgradeTarget)
+-&gt; Lens UpgradeTarget UpgradeTarget (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget%27"><span class="hs-identifier hs-type">UpgradeTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679767482"><span class="annot"><span class="annottext">Maybe Bool
-autoUpgrade :: Maybe Bool
-$sel:autoUpgrade:UpgradeTarget' :: UpgradeTarget -&gt; Maybe Bool
-</span><a href="#local-6989586621679767482"><span class="hs-identifier hs-var hs-var">autoUpgrade</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679767482"><span class="hs-identifier hs-var">autoUpgrade</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679767481"><span class="annot"><span class="annottext">s :: UpgradeTarget
-</span><a href="#local-6989586621679767481"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget%27"><span class="hs-identifier hs-type">UpgradeTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679767480"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679767480"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpgradeTarget
-</span><a href="#local-6989586621679767481"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoUpgrade:UpgradeTarget' :: Maybe Bool
-</span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#%24sel%3AautoUpgrade%3AUpgradeTarget%27"><span class="hs-identifier hs-var">autoUpgrade</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679767480"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget"><span class="hs-identifier hs-type">UpgradeTarget</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- | A list of the supported DB engine modes for the target engine version.</span><span>
-</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#upgradeTarget_supportedEngineModes"><span class="hs-identifier hs-type">upgradeTarget_supportedEngineModes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget"><span class="hs-identifier hs-type">UpgradeTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span id="upgradeTarget_supportedEngineModes"><span class="annot"><span class="annottext">upgradeTarget_supportedEngineModes :: (Maybe [Text] -&gt; f (Maybe [Text]))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget%27"><span class="hs-identifier hs-type">UpgradeTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679768553"><span class="annot"><span class="annottext">Maybe Text
+engineVersion :: Maybe Text
+$sel:engineVersion:UpgradeTarget' :: UpgradeTarget -&gt; Maybe Text
+</span><a href="#local-6989586621679768553"><span class="hs-identifier hs-var hs-var">engineVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679768553"><span class="hs-identifier hs-var">engineVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679768552"><span class="annot"><span class="annottext">s :: UpgradeTarget
+</span><a href="#local-6989586621679768552"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget%27"><span class="hs-identifier hs-type">UpgradeTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679768551"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679768551"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpgradeTarget
+</span><a href="#local-6989586621679768552"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engineVersion:UpgradeTarget' :: Maybe Text
+</span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#%24sel%3AengineVersion%3AUpgradeTarget%27"><span class="hs-identifier hs-var">engineVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679768551"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget"><span class="hs-identifier hs-type">UpgradeTarget</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | A list of the supported DB engine modes for the target engine version.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#upgradeTarget_supportedEngineModes"><span class="hs-identifier hs-type">upgradeTarget_supportedEngineModes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget"><span class="hs-identifier hs-type">UpgradeTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="upgradeTarget_supportedEngineModes"><span class="annot"><span class="annottext">upgradeTarget_supportedEngineModes :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; UpgradeTarget -&gt; f UpgradeTarget
 </span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#upgradeTarget_supportedEngineModes"><span class="hs-identifier hs-var hs-var">upgradeTarget_supportedEngineModes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpgradeTarget -&gt; Maybe [Text])
 -&gt; (UpgradeTarget -&gt; Maybe [Text] -&gt; UpgradeTarget)
 -&gt; Lens UpgradeTarget UpgradeTarget (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget%27"><span class="hs-identifier hs-type">UpgradeTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679767478"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget%27"><span class="hs-identifier hs-type">UpgradeTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679768549"><span class="annot"><span class="annottext">Maybe [Text]
 supportedEngineModes :: Maybe [Text]
 $sel:supportedEngineModes:UpgradeTarget' :: UpgradeTarget -&gt; Maybe [Text]
-</span><a href="#local-6989586621679767478"><span class="hs-identifier hs-var hs-var">supportedEngineModes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679767478"><span class="hs-identifier hs-var">supportedEngineModes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679767477"><span class="annot"><span class="annottext">s :: UpgradeTarget
-</span><a href="#local-6989586621679767477"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget%27"><span class="hs-identifier hs-type">UpgradeTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679767476"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679767476"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpgradeTarget
-</span><a href="#local-6989586621679767477"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportedEngineModes:UpgradeTarget' :: Maybe [Text]
+</span><a href="#local-6989586621679768549"><span class="hs-identifier hs-var hs-var">supportedEngineModes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679768549"><span class="hs-identifier hs-var">supportedEngineModes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679768548"><span class="annot"><span class="annottext">s :: UpgradeTarget
+</span><a href="#local-6989586621679768548"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget%27"><span class="hs-identifier hs-type">UpgradeTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679768547"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679768547"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpgradeTarget
+</span><a href="#local-6989586621679768548"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportedEngineModes:UpgradeTarget' :: Maybe [Text]
 </span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#%24sel%3AsupportedEngineModes%3AUpgradeTarget%27"><span class="hs-identifier hs-var">supportedEngineModes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679767476"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget"><span class="hs-identifier hs-type">UpgradeTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679768547"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget"><span class="hs-identifier hs-type">UpgradeTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; UpgradeTarget -&gt; f UpgradeTarget)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -238,184 +237,185 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- | The version number of the upgrade target database engine.</span><span>
-</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#upgradeTarget_engineVersion"><span class="hs-identifier hs-type">upgradeTarget_engineVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget"><span class="hs-identifier hs-type">UpgradeTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span id="upgradeTarget_engineVersion"><span class="annot"><span class="annottext">upgradeTarget_engineVersion :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpgradeTarget -&gt; f UpgradeTarget
-</span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#upgradeTarget_engineVersion"><span class="hs-identifier hs-var hs-var">upgradeTarget_engineVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpgradeTarget -&gt; Maybe Text)
--&gt; (UpgradeTarget -&gt; Maybe Text -&gt; UpgradeTarget)
--&gt; Lens UpgradeTarget UpgradeTarget (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget%27"><span class="hs-identifier hs-type">UpgradeTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679767471"><span class="annot"><span class="annottext">Maybe Text
-engineVersion :: Maybe Text
-$sel:engineVersion:UpgradeTarget' :: UpgradeTarget -&gt; Maybe Text
-</span><a href="#local-6989586621679767471"><span class="hs-identifier hs-var hs-var">engineVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679767471"><span class="hs-identifier hs-var">engineVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679767470"><span class="annot"><span class="annottext">s :: UpgradeTarget
-</span><a href="#local-6989586621679767470"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget%27"><span class="hs-identifier hs-type">UpgradeTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679767469"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679767469"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpgradeTarget
-</span><a href="#local-6989586621679767470"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engineVersion:UpgradeTarget' :: Maybe Text
-</span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#%24sel%3AengineVersion%3AUpgradeTarget%27"><span class="hs-identifier hs-var">engineVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679767469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget"><span class="hs-identifier hs-type">UpgradeTarget</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- | A value that indicates whether you can use Aurora global databases with</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- the target engine version.</span><span>
-</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#upgradeTarget_supportsGlobalDatabases"><span class="hs-identifier hs-type">upgradeTarget_supportsGlobalDatabases</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget"><span class="hs-identifier hs-type">UpgradeTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span id="upgradeTarget_supportsGlobalDatabases"><span class="annot"><span class="annottext">upgradeTarget_supportsGlobalDatabases :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; UpgradeTarget -&gt; f UpgradeTarget
-</span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#upgradeTarget_supportsGlobalDatabases"><span class="hs-identifier hs-var hs-var">upgradeTarget_supportsGlobalDatabases</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpgradeTarget -&gt; Maybe Bool)
--&gt; (UpgradeTarget -&gt; Maybe Bool -&gt; UpgradeTarget)
--&gt; Lens UpgradeTarget UpgradeTarget (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget%27"><span class="hs-identifier hs-type">UpgradeTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679767467"><span class="annot"><span class="annottext">Maybe Bool
-supportsGlobalDatabases :: Maybe Bool
-$sel:supportsGlobalDatabases:UpgradeTarget' :: UpgradeTarget -&gt; Maybe Bool
-</span><a href="#local-6989586621679767467"><span class="hs-identifier hs-var hs-var">supportsGlobalDatabases</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679767467"><span class="hs-identifier hs-var">supportsGlobalDatabases</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679767466"><span class="annot"><span class="annottext">s :: UpgradeTarget
-</span><a href="#local-6989586621679767466"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget%27"><span class="hs-identifier hs-type">UpgradeTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679767465"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679767465"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpgradeTarget
-</span><a href="#local-6989586621679767466"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportsGlobalDatabases:UpgradeTarget' :: Maybe Bool
-</span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#%24sel%3AsupportsGlobalDatabases%3AUpgradeTarget%27"><span class="hs-identifier hs-var">supportsGlobalDatabases</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679767465"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget"><span class="hs-identifier hs-type">UpgradeTarget</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- | The name of the upgrade target database engine.</span><span>
-</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#upgradeTarget_engine"><span class="hs-identifier hs-type">upgradeTarget_engine</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget"><span class="hs-identifier hs-type">UpgradeTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span id="upgradeTarget_engine"><span class="annot"><span class="annottext">upgradeTarget_engine :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpgradeTarget -&gt; f UpgradeTarget
-</span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#upgradeTarget_engine"><span class="hs-identifier hs-var hs-var">upgradeTarget_engine</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpgradeTarget -&gt; Maybe Text)
--&gt; (UpgradeTarget -&gt; Maybe Text -&gt; UpgradeTarget)
--&gt; Lens UpgradeTarget UpgradeTarget (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget%27"><span class="hs-identifier hs-type">UpgradeTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679767463"><span class="annot"><span class="annottext">Maybe Text
-engine :: Maybe Text
-$sel:engine:UpgradeTarget' :: UpgradeTarget -&gt; Maybe Text
-</span><a href="#local-6989586621679767463"><span class="hs-identifier hs-var hs-var">engine</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679767463"><span class="hs-identifier hs-var">engine</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679767462"><span class="annot"><span class="annottext">s :: UpgradeTarget
-</span><a href="#local-6989586621679767462"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget%27"><span class="hs-identifier hs-type">UpgradeTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679767461"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679767461"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpgradeTarget
-</span><a href="#local-6989586621679767462"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engine:UpgradeTarget' :: Maybe Text
-</span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#%24sel%3Aengine%3AUpgradeTarget%27"><span class="hs-identifier hs-var">engine</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679767461"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget"><span class="hs-identifier hs-type">UpgradeTarget</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- | The version of the database engine that a DB instance can be upgraded</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- to.</span><span>
-</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#upgradeTarget_description"><span class="hs-identifier hs-type">upgradeTarget_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget"><span class="hs-identifier hs-type">UpgradeTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span id="upgradeTarget_description"><span class="annot"><span class="annottext">upgradeTarget_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpgradeTarget -&gt; f UpgradeTarget
-</span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#upgradeTarget_description"><span class="hs-identifier hs-var hs-var">upgradeTarget_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpgradeTarget -&gt; Maybe Text)
--&gt; (UpgradeTarget -&gt; Maybe Text -&gt; UpgradeTarget)
--&gt; Lens UpgradeTarget UpgradeTarget (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget%27"><span class="hs-identifier hs-type">UpgradeTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679767459"><span class="annot"><span class="annottext">Maybe Text
-description :: Maybe Text
-$sel:description:UpgradeTarget' :: UpgradeTarget -&gt; Maybe Text
-</span><a href="#local-6989586621679767459"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679767459"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679767458"><span class="annot"><span class="annottext">s :: UpgradeTarget
-</span><a href="#local-6989586621679767458"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget%27"><span class="hs-identifier hs-type">UpgradeTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679767457"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679767457"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpgradeTarget
-</span><a href="#local-6989586621679767458"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpgradeTarget' :: Maybe Text
-</span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#%24sel%3Adescription%3AUpgradeTarget%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679767457"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget"><span class="hs-identifier hs-type">UpgradeTarget</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- | A value that indicates whether upgrading to the target version requires</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- upgrading the major version of the database engine.</span><span>
-</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#upgradeTarget_isMajorVersionUpgrade"><span class="hs-identifier hs-type">upgradeTarget_isMajorVersionUpgrade</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget"><span class="hs-identifier hs-type">UpgradeTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span id="upgradeTarget_isMajorVersionUpgrade"><span class="annot"><span class="annottext">upgradeTarget_isMajorVersionUpgrade :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; UpgradeTarget -&gt; f UpgradeTarget
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | A value that indicates whether upgrading to the target version requires</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- upgrading the major version of the database engine.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#upgradeTarget_isMajorVersionUpgrade"><span class="hs-identifier hs-type">upgradeTarget_isMajorVersionUpgrade</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget"><span class="hs-identifier hs-type">UpgradeTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="upgradeTarget_isMajorVersionUpgrade"><span class="annot"><span class="annottext">upgradeTarget_isMajorVersionUpgrade :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; UpgradeTarget -&gt; f UpgradeTarget
 </span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#upgradeTarget_isMajorVersionUpgrade"><span class="hs-identifier hs-var hs-var">upgradeTarget_isMajorVersionUpgrade</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpgradeTarget -&gt; Maybe Bool)
 -&gt; (UpgradeTarget -&gt; Maybe Bool -&gt; UpgradeTarget)
 -&gt; Lens UpgradeTarget UpgradeTarget (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget%27"><span class="hs-identifier hs-type">UpgradeTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679767455"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget%27"><span class="hs-identifier hs-type">UpgradeTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679768542"><span class="annot"><span class="annottext">Maybe Bool
 isMajorVersionUpgrade :: Maybe Bool
 $sel:isMajorVersionUpgrade:UpgradeTarget' :: UpgradeTarget -&gt; Maybe Bool
-</span><a href="#local-6989586621679767455"><span class="hs-identifier hs-var hs-var">isMajorVersionUpgrade</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679767455"><span class="hs-identifier hs-var">isMajorVersionUpgrade</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679767454"><span class="annot"><span class="annottext">s :: UpgradeTarget
-</span><a href="#local-6989586621679767454"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget%27"><span class="hs-identifier hs-type">UpgradeTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679767453"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679767453"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpgradeTarget
-</span><a href="#local-6989586621679767454"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isMajorVersionUpgrade:UpgradeTarget' :: Maybe Bool
+</span><a href="#local-6989586621679768542"><span class="hs-identifier hs-var hs-var">isMajorVersionUpgrade</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679768542"><span class="hs-identifier hs-var">isMajorVersionUpgrade</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679768541"><span class="annot"><span class="annottext">s :: UpgradeTarget
+</span><a href="#local-6989586621679768541"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget%27"><span class="hs-identifier hs-type">UpgradeTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679768540"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679768540"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpgradeTarget
+</span><a href="#local-6989586621679768541"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isMajorVersionUpgrade:UpgradeTarget' :: Maybe Bool
 </span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#%24sel%3AisMajorVersionUpgrade%3AUpgradeTarget%27"><span class="hs-identifier hs-var">isMajorVersionUpgrade</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679767453"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget"><span class="hs-identifier hs-type">UpgradeTarget</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- | A value that indicates whether you can use Aurora parallel query with</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- the target engine version.</span><span>
-</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#upgradeTarget_supportsParallelQuery"><span class="hs-identifier hs-type">upgradeTarget_supportsParallelQuery</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget"><span class="hs-identifier hs-type">UpgradeTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span id="upgradeTarget_supportsParallelQuery"><span class="annot"><span class="annottext">upgradeTarget_supportsParallelQuery :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; UpgradeTarget -&gt; f UpgradeTarget
+</span><a href="#local-6989586621679768540"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget"><span class="hs-identifier hs-type">UpgradeTarget</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The name of the upgrade target database engine.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#upgradeTarget_engine"><span class="hs-identifier hs-type">upgradeTarget_engine</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget"><span class="hs-identifier hs-type">UpgradeTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="upgradeTarget_engine"><span class="annot"><span class="annottext">upgradeTarget_engine :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpgradeTarget -&gt; f UpgradeTarget
+</span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#upgradeTarget_engine"><span class="hs-identifier hs-var hs-var">upgradeTarget_engine</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpgradeTarget -&gt; Maybe Text)
+-&gt; (UpgradeTarget -&gt; Maybe Text -&gt; UpgradeTarget)
+-&gt; Lens UpgradeTarget UpgradeTarget (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget%27"><span class="hs-identifier hs-type">UpgradeTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679768538"><span class="annot"><span class="annottext">Maybe Text
+engine :: Maybe Text
+$sel:engine:UpgradeTarget' :: UpgradeTarget -&gt; Maybe Text
+</span><a href="#local-6989586621679768538"><span class="hs-identifier hs-var hs-var">engine</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679768538"><span class="hs-identifier hs-var">engine</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679768537"><span class="annot"><span class="annottext">s :: UpgradeTarget
+</span><a href="#local-6989586621679768537"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget%27"><span class="hs-identifier hs-type">UpgradeTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679768536"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679768536"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpgradeTarget
+</span><a href="#local-6989586621679768537"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engine:UpgradeTarget' :: Maybe Text
+</span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#%24sel%3Aengine%3AUpgradeTarget%27"><span class="hs-identifier hs-var">engine</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679768536"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget"><span class="hs-identifier hs-type">UpgradeTarget</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | A value that indicates whether you can use Aurora global databases with</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- the target engine version.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#upgradeTarget_supportsGlobalDatabases"><span class="hs-identifier hs-type">upgradeTarget_supportsGlobalDatabases</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget"><span class="hs-identifier hs-type">UpgradeTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="upgradeTarget_supportsGlobalDatabases"><span class="annot"><span class="annottext">upgradeTarget_supportsGlobalDatabases :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; UpgradeTarget -&gt; f UpgradeTarget
+</span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#upgradeTarget_supportsGlobalDatabases"><span class="hs-identifier hs-var hs-var">upgradeTarget_supportsGlobalDatabases</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpgradeTarget -&gt; Maybe Bool)
+-&gt; (UpgradeTarget -&gt; Maybe Bool -&gt; UpgradeTarget)
+-&gt; Lens UpgradeTarget UpgradeTarget (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget%27"><span class="hs-identifier hs-type">UpgradeTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679768534"><span class="annot"><span class="annottext">Maybe Bool
+supportsGlobalDatabases :: Maybe Bool
+$sel:supportsGlobalDatabases:UpgradeTarget' :: UpgradeTarget -&gt; Maybe Bool
+</span><a href="#local-6989586621679768534"><span class="hs-identifier hs-var hs-var">supportsGlobalDatabases</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679768534"><span class="hs-identifier hs-var">supportsGlobalDatabases</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679768533"><span class="annot"><span class="annottext">s :: UpgradeTarget
+</span><a href="#local-6989586621679768533"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget%27"><span class="hs-identifier hs-type">UpgradeTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679768532"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679768532"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpgradeTarget
+</span><a href="#local-6989586621679768533"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportsGlobalDatabases:UpgradeTarget' :: Maybe Bool
+</span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#%24sel%3AsupportsGlobalDatabases%3AUpgradeTarget%27"><span class="hs-identifier hs-var">supportsGlobalDatabases</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679768532"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget"><span class="hs-identifier hs-type">UpgradeTarget</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | A value that indicates whether the target version is applied to any</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- source DB instances that have @AutoMinorVersionUpgrade@ set to true.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#upgradeTarget_autoUpgrade"><span class="hs-identifier hs-type">upgradeTarget_autoUpgrade</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget"><span class="hs-identifier hs-type">UpgradeTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="upgradeTarget_autoUpgrade"><span class="annot"><span class="annottext">upgradeTarget_autoUpgrade :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; UpgradeTarget -&gt; f UpgradeTarget
+</span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#upgradeTarget_autoUpgrade"><span class="hs-identifier hs-var hs-var">upgradeTarget_autoUpgrade</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpgradeTarget -&gt; Maybe Bool)
+-&gt; (UpgradeTarget -&gt; Maybe Bool -&gt; UpgradeTarget)
+-&gt; Lens UpgradeTarget UpgradeTarget (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget%27"><span class="hs-identifier hs-type">UpgradeTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679768530"><span class="annot"><span class="annottext">Maybe Bool
+autoUpgrade :: Maybe Bool
+$sel:autoUpgrade:UpgradeTarget' :: UpgradeTarget -&gt; Maybe Bool
+</span><a href="#local-6989586621679768530"><span class="hs-identifier hs-var hs-var">autoUpgrade</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679768530"><span class="hs-identifier hs-var">autoUpgrade</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679768529"><span class="annot"><span class="annottext">s :: UpgradeTarget
+</span><a href="#local-6989586621679768529"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget%27"><span class="hs-identifier hs-type">UpgradeTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679768528"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679768528"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpgradeTarget
+</span><a href="#local-6989586621679768529"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoUpgrade:UpgradeTarget' :: Maybe Bool
+</span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#%24sel%3AautoUpgrade%3AUpgradeTarget%27"><span class="hs-identifier hs-var">autoUpgrade</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679768528"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget"><span class="hs-identifier hs-type">UpgradeTarget</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | A value that indicates whether you can use Aurora parallel query with</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- the target engine version.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#upgradeTarget_supportsParallelQuery"><span class="hs-identifier hs-type">upgradeTarget_supportsParallelQuery</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget"><span class="hs-identifier hs-type">UpgradeTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="upgradeTarget_supportsParallelQuery"><span class="annot"><span class="annottext">upgradeTarget_supportsParallelQuery :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; UpgradeTarget -&gt; f UpgradeTarget
 </span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#upgradeTarget_supportsParallelQuery"><span class="hs-identifier hs-var hs-var">upgradeTarget_supportsParallelQuery</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpgradeTarget -&gt; Maybe Bool)
 -&gt; (UpgradeTarget -&gt; Maybe Bool -&gt; UpgradeTarget)
 -&gt; Lens UpgradeTarget UpgradeTarget (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget%27"><span class="hs-identifier hs-type">UpgradeTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679767451"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget%27"><span class="hs-identifier hs-type">UpgradeTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679768526"><span class="annot"><span class="annottext">Maybe Bool
 supportsParallelQuery :: Maybe Bool
 $sel:supportsParallelQuery:UpgradeTarget' :: UpgradeTarget -&gt; Maybe Bool
-</span><a href="#local-6989586621679767451"><span class="hs-identifier hs-var hs-var">supportsParallelQuery</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679767451"><span class="hs-identifier hs-var">supportsParallelQuery</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679767450"><span class="annot"><span class="annottext">s :: UpgradeTarget
-</span><a href="#local-6989586621679767450"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget%27"><span class="hs-identifier hs-type">UpgradeTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679767449"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679767449"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpgradeTarget
-</span><a href="#local-6989586621679767450"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportsParallelQuery:UpgradeTarget' :: Maybe Bool
+</span><a href="#local-6989586621679768526"><span class="hs-identifier hs-var hs-var">supportsParallelQuery</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679768526"><span class="hs-identifier hs-var">supportsParallelQuery</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679768525"><span class="annot"><span class="annottext">s :: UpgradeTarget
+</span><a href="#local-6989586621679768525"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget%27"><span class="hs-identifier hs-type">UpgradeTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679768524"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679768524"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpgradeTarget
+</span><a href="#local-6989586621679768525"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportsParallelQuery:UpgradeTarget' :: Maybe Bool
 </span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#%24sel%3AsupportsParallelQuery%3AUpgradeTarget%27"><span class="hs-identifier hs-var">supportsParallelQuery</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679767449"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget"><span class="hs-identifier hs-type">UpgradeTarget</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679768524"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget"><span class="hs-identifier hs-type">UpgradeTarget</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The version of the database engine that a DB instance can be upgraded</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- to.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#upgradeTarget_description"><span class="hs-identifier hs-type">upgradeTarget_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget"><span class="hs-identifier hs-type">UpgradeTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="upgradeTarget_description"><span class="annot"><span class="annottext">upgradeTarget_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpgradeTarget -&gt; f UpgradeTarget
+</span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#upgradeTarget_description"><span class="hs-identifier hs-var hs-var">upgradeTarget_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpgradeTarget -&gt; Maybe Text)
+-&gt; (UpgradeTarget -&gt; Maybe Text -&gt; UpgradeTarget)
+-&gt; Lens UpgradeTarget UpgradeTarget (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget%27"><span class="hs-identifier hs-type">UpgradeTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679768522"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:UpgradeTarget' :: UpgradeTarget -&gt; Maybe Text
+</span><a href="#local-6989586621679768522"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679768522"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679768521"><span class="annot"><span class="annottext">s :: UpgradeTarget
+</span><a href="#local-6989586621679768521"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget%27"><span class="hs-identifier hs-type">UpgradeTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679768520"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679768520"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpgradeTarget
+</span><a href="#local-6989586621679768521"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpgradeTarget' :: Maybe Text
+</span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#%24sel%3Adescription%3AUpgradeTarget%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679768520"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget"><span class="hs-identifier hs-type">UpgradeTarget</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget"><span class="hs-identifier hs-type">UpgradeTarget</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679767446"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String UpgradeTarget
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679767444"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679767444"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679768517"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String UpgradeTarget
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679768515"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679768515"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [Text]
--&gt; Maybe Text
 -&gt; Maybe Bool
--&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Bool
 -&gt; Maybe Bool
+-&gt; Maybe Bool
+-&gt; Maybe Text
 -&gt; UpgradeTarget
 </span><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget%27"><span class="hs-identifier hs-var">UpgradeTarget'</span></a></span><span>
-</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Bool
+</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
  -&gt; Maybe [Text]
- -&gt; Maybe Text
  -&gt; Maybe Bool
- -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Bool
  -&gt; Maybe Bool
+ -&gt; Maybe Bool
+ -&gt; Maybe Text
  -&gt; UpgradeTarget)
--&gt; Either String (Maybe Bool)
+-&gt; Either String (Maybe Text)
 -&gt; Either
      String
      (Maybe [Text]
-      -&gt; Maybe Text
       -&gt; Maybe Bool
-      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Bool
       -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
       -&gt; UpgradeTarget)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679767444"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621679768515"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AutoUpgrade&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;EngineVersion&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe [Text]
-   -&gt; Maybe Text
    -&gt; Maybe Bool
-   -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Bool
    -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
    -&gt; UpgradeTarget)
 -&gt; Either String (Maybe [Text])
 -&gt; Either
      String
-     (Maybe Text
-      -&gt; Maybe Bool
-      -&gt; Maybe Text
+     (Maybe Bool
       -&gt; Maybe Text
       -&gt; Maybe Bool
       -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
       -&gt; UpgradeTarget)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679767444"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679768515"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SupportedEngineModes&quot;</span></span><span>
@@ -440,89 +440,89 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span id="line-141"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe Text
-   -&gt; Maybe Bool
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Bool
-   -&gt; Maybe Bool
-   -&gt; UpgradeTarget)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe Bool
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Bool
-      -&gt; Maybe Bool
-      -&gt; UpgradeTarget)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679767444"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;EngineVersion&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
   (Maybe Bool
    -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
    -&gt; Maybe Text
-   -&gt; Maybe Bool
-   -&gt; Maybe Bool
    -&gt; UpgradeTarget)
 -&gt; Either String (Maybe Bool)
 -&gt; Either
      String
      (Maybe Text
-      -&gt; Maybe Text -&gt; Maybe Bool -&gt; Maybe Bool -&gt; UpgradeTarget)
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; UpgradeTarget)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679767444"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SupportsGlobalDatabases&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text
-   -&gt; Maybe Text -&gt; Maybe Bool -&gt; Maybe Bool -&gt; UpgradeTarget)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String (Maybe Text -&gt; Maybe Bool -&gt; Maybe Bool -&gt; UpgradeTarget)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679767444"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Engine&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String (Maybe Text -&gt; Maybe Bool -&gt; Maybe Bool -&gt; UpgradeTarget)
--&gt; Either String (Maybe Text)
--&gt; Either String (Maybe Bool -&gt; Maybe Bool -&gt; UpgradeTarget)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679767444"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Bool -&gt; Maybe Bool -&gt; UpgradeTarget)
--&gt; Either String (Maybe Bool)
--&gt; Either String (Maybe Bool -&gt; UpgradeTarget)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679767444"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621679768515"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IsMajorVersionUpgrade&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Bool -&gt; UpgradeTarget)
--&gt; Either String (Maybe Bool) -&gt; Either String UpgradeTarget
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; UpgradeTarget)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Bool
+      -&gt; Maybe Bool -&gt; Maybe Bool -&gt; Maybe Text -&gt; UpgradeTarget)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679767444"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621679768515"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Engine&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Bool
+   -&gt; Maybe Bool -&gt; Maybe Bool -&gt; Maybe Text -&gt; UpgradeTarget)
+-&gt; Either String (Maybe Bool)
+-&gt; Either
+     String (Maybe Bool -&gt; Maybe Bool -&gt; Maybe Text -&gt; UpgradeTarget)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679768515"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SupportsGlobalDatabases&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String (Maybe Bool -&gt; Maybe Bool -&gt; Maybe Text -&gt; UpgradeTarget)
+-&gt; Either String (Maybe Bool)
+-&gt; Either String (Maybe Bool -&gt; Maybe Text -&gt; UpgradeTarget)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679768515"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AutoUpgrade&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Bool -&gt; Maybe Text -&gt; UpgradeTarget)
+-&gt; Either String (Maybe Bool)
+-&gt; Either String (Maybe Text -&gt; UpgradeTarget)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679768515"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SupportsParallelQuery&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; UpgradeTarget)
+-&gt; Either String (Maybe Text) -&gt; Either String UpgradeTarget
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679768515"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679767435"><span id="local-6989586621679767437"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget"><span class="hs-identifier hs-type">UpgradeTarget</span></a></span></span></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679768506"><span id="local-6989586621679768508"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget"><span class="hs-identifier hs-type">UpgradeTarget</span></a></span></span></span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679767432"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget"><span class="hs-identifier hs-type">UpgradeTarget</span></a></span></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679768503"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UpgradeTarget.html#UpgradeTarget"><span class="hs-identifier hs-type">UpgradeTarget</span></a></span></span><span>
 </span><span id="line-152"></span></pre></body></html>

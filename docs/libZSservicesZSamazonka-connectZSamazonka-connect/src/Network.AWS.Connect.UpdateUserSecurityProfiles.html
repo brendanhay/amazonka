@@ -45,7 +45,7 @@
 </span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-46"></span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- | /See:/ 'newUpdateUserSecurityProfiles' smart constructor.</span><span>
-</span><span id="line-48"></span><span id="local-6989586621679433432"><span id="local-6989586621679433433"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateUserSecurityProfiles"><span class="annot"><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#UpdateUserSecurityProfiles"><span class="hs-identifier hs-var">UpdateUserSecurityProfiles</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateUserSecurityProfiles%27"><span class="annot"><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#UpdateUserSecurityProfiles%27"><span class="hs-identifier hs-var">UpdateUserSecurityProfiles'</span></a></span></span><span>
+</span><span id="line-48"></span><span id="local-6989586621679433780"><span id="local-6989586621679433781"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateUserSecurityProfiles"><span class="annot"><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#UpdateUserSecurityProfiles"><span class="hs-identifier hs-var">UpdateUserSecurityProfiles</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateUserSecurityProfiles%27"><span class="annot"><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#UpdateUserSecurityProfiles%27"><span class="hs-identifier hs-var">UpdateUserSecurityProfiles'</span></a></span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifiers of the security profiles for the user.</span><span>
 </span><span id="line-50"></span><span>    </span><span id="%24sel%3AsecurityProfileIds%3AUpdateUserSecurityProfiles%27"><span class="annot"><span class="annottext">UpdateUserSecurityProfiles -&gt; NonEmpty Text
 </span><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#%24sel%3AsecurityProfileIds%3AUpdateUserSecurityProfiles%27"><span class="hs-identifier hs-var hs-var">securityProfileIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -57,7 +57,7 @@
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AinstanceId%3AUpdateUserSecurityProfiles%27"><span class="annot"><span class="annottext">UpdateUserSecurityProfiles -&gt; Text
 </span><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#%24sel%3AinstanceId%3AUpdateUserSecurityProfiles%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679433424"><span id="local-6989586621679433426"><span class="annot"><span class="annottext">UpdateUserSecurityProfiles -&gt; UpdateUserSecurityProfiles -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679433772"><span id="local-6989586621679433774"><span class="annot"><span class="annottext">UpdateUserSecurityProfiles -&gt; UpdateUserSecurityProfiles -&gt; Bool
 (UpdateUserSecurityProfiles -&gt; UpdateUserSecurityProfiles -&gt; Bool)
 -&gt; (UpdateUserSecurityProfiles
     -&gt; UpdateUserSecurityProfiles -&gt; Bool)
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateUserSecurityProfiles -&gt; UpdateUserSecurityProfiles -&gt; Bool
 == :: UpdateUserSecurityProfiles -&gt; UpdateUserSecurityProfiles -&gt; Bool
 $c== :: UpdateUserSecurityProfiles -&gt; UpdateUserSecurityProfiles -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679433415"><span id="local-6989586621679433417"><span id="local-6989586621679433419"><span id="local-6989586621679433421"><span class="annot"><span class="annottext">ReadPrec [UpdateUserSecurityProfiles]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679433763"><span id="local-6989586621679433765"><span id="local-6989586621679433767"><span id="local-6989586621679433769"><span class="annot"><span class="annottext">ReadPrec [UpdateUserSecurityProfiles]
 ReadPrec UpdateUserSecurityProfiles
 Int -&gt; ReadS UpdateUserSecurityProfiles
 ReadS [UpdateUserSecurityProfiles]
@@ -87,7 +87,7 @@ readList :: ReadS [UpdateUserSecurityProfiles]
 $creadList :: ReadS [UpdateUserSecurityProfiles]
 readsPrec :: Int -&gt; ReadS UpdateUserSecurityProfiles
 $creadsPrec :: Int -&gt; ReadS UpdateUserSecurityProfiles
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679433408"><span id="local-6989586621679433410"><span id="local-6989586621679433412"><span class="annot"><span class="annottext">Int -&gt; UpdateUserSecurityProfiles -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679433756"><span id="local-6989586621679433758"><span id="local-6989586621679433760"><span class="annot"><span class="annottext">Int -&gt; UpdateUserSecurityProfiles -&gt; ShowS
 [UpdateUserSecurityProfiles] -&gt; ShowS
 UpdateUserSecurityProfiles -&gt; String
 (Int -&gt; UpdateUserSecurityProfiles -&gt; ShowS)
@@ -143,31 +143,31 @@ UpdateUserSecurityProfiles -&gt; Rep UpdateUserSecurityProfiles x
 </span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#UpdateUserSecurityProfiles"><span class="hs-identifier hs-type">UpdateUserSecurityProfiles</span></a></span><span>
 </span><span id="line-81"></span><span id="newUpdateUserSecurityProfiles"><span class="annot"><span class="annottext">newUpdateUserSecurityProfiles :: NonEmpty Text -&gt; Text -&gt; Text -&gt; UpdateUserSecurityProfiles
 </span><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#newUpdateUserSecurityProfiles"><span class="hs-identifier hs-var hs-var">newUpdateUserSecurityProfiles</span></a></span></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679433403"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679433403"><span class="hs-identifier hs-var">pSecurityProfileIds_</span></a></span></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679433402"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679433402"><span class="hs-identifier hs-var">pUserId_</span></a></span></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679433401"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679433401"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679433751"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679433751"><span class="hs-identifier hs-var">pSecurityProfileIds_</span></a></span></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679433750"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679433750"><span class="hs-identifier hs-var">pUserId_</span></a></span></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679433749"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679433749"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">UpdateUserSecurityProfiles' :: NonEmpty Text -&gt; Text -&gt; Text -&gt; UpdateUserSecurityProfiles
 </span><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#UpdateUserSecurityProfiles%27"><span class="hs-identifier hs-type">UpdateUserSecurityProfiles'</span></a></span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:securityProfileIds:UpdateUserSecurityProfiles' :: NonEmpty Text
 </span><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#%24sel%3AsecurityProfileIds%3AUpdateUserSecurityProfiles%27"><span class="hs-identifier hs-var">securityProfileIds</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
 -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
  -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text)))
 -&gt; NonEmpty Text -&gt; NonEmpty Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679433403"><span class="hs-identifier hs-var">pSecurityProfileIds_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679433751"><span class="hs-identifier hs-var">pSecurityProfileIds_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>        </span><span class="annot"><span class="annottext">$sel:userId:UpdateUserSecurityProfiles' :: Text
 </span><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#%24sel%3AuserId%3AUpdateUserSecurityProfiles%27"><span class="hs-identifier hs-var">userId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679433402"><span class="hs-identifier hs-var">pUserId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679433750"><span class="hs-identifier hs-var">pUserId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>        </span><span class="annot"><span class="annottext">$sel:instanceId:UpdateUserSecurityProfiles' :: Text
 </span><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#%24sel%3AinstanceId%3AUpdateUserSecurityProfiles%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679433401"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span>
+</span><a href="#local-6989586621679433749"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | The identifiers of the security profiles for the user.</span><span>
@@ -183,16 +183,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (NonEmpty Text)
      (NonEmpty Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#UpdateUserSecurityProfiles%27"><span class="hs-identifier hs-type">UpdateUserSecurityProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433396"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#UpdateUserSecurityProfiles%27"><span class="hs-identifier hs-type">UpdateUserSecurityProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433744"><span class="annot"><span class="annottext">NonEmpty Text
 securityProfileIds :: NonEmpty Text
 $sel:securityProfileIds:UpdateUserSecurityProfiles' :: UpdateUserSecurityProfiles -&gt; NonEmpty Text
-</span><a href="#local-6989586621679433396"><span class="hs-identifier hs-var hs-var">securityProfileIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679433396"><span class="hs-identifier hs-var">securityProfileIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433395"><span class="annot"><span class="annottext">s :: UpdateUserSecurityProfiles
-</span><a href="#local-6989586621679433395"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#UpdateUserSecurityProfiles%27"><span class="hs-identifier hs-type">UpdateUserSecurityProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433394"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679433394"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUserSecurityProfiles
-</span><a href="#local-6989586621679433395"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityProfileIds:UpdateUserSecurityProfiles' :: NonEmpty Text
+</span><a href="#local-6989586621679433744"><span class="hs-identifier hs-var hs-var">securityProfileIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679433744"><span class="hs-identifier hs-var">securityProfileIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433743"><span class="annot"><span class="annottext">s :: UpdateUserSecurityProfiles
+</span><a href="#local-6989586621679433743"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#UpdateUserSecurityProfiles%27"><span class="hs-identifier hs-type">UpdateUserSecurityProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433742"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679433742"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUserSecurityProfiles
+</span><a href="#local-6989586621679433743"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityProfileIds:UpdateUserSecurityProfiles' :: NonEmpty Text
 </span><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#%24sel%3AsecurityProfileIds%3AUpdateUserSecurityProfiles%27"><span class="hs-identifier hs-var">securityProfileIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679433394"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#UpdateUserSecurityProfiles"><span class="hs-identifier hs-type">UpdateUserSecurityProfiles</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+</span><a href="#local-6989586621679433742"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#UpdateUserSecurityProfiles"><span class="hs-identifier hs-type">UpdateUserSecurityProfiles</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
  -&gt; UpdateUserSecurityProfiles -&gt; f UpdateUserSecurityProfiles)
 -&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
     -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
@@ -202,8 +202,8 @@ $sel:securityProfileIds:UpdateUserSecurityProfiles' :: UpdateUserSecurityProfile
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; f (NonEmpty Text))
 -&gt; NonEmpty Text -&gt; f (NonEmpty Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | The identifier of the user account.</span><span>
 </span><span id="line-97"></span><span class="annot"><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#updateUserSecurityProfiles_userId"><span class="hs-identifier hs-type">updateUserSecurityProfiles_userId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#UpdateUserSecurityProfiles"><span class="hs-identifier hs-type">UpdateUserSecurityProfiles</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -215,16 +215,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      UpdateUserSecurityProfiles UpdateUserSecurityProfiles Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#UpdateUserSecurityProfiles%27"><span class="hs-identifier hs-type">UpdateUserSecurityProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433392"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#UpdateUserSecurityProfiles%27"><span class="hs-identifier hs-type">UpdateUserSecurityProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433740"><span class="annot"><span class="annottext">Text
 userId :: Text
 $sel:userId:UpdateUserSecurityProfiles' :: UpdateUserSecurityProfiles -&gt; Text
-</span><a href="#local-6989586621679433392"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679433392"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433391"><span class="annot"><span class="annottext">s :: UpdateUserSecurityProfiles
-</span><a href="#local-6989586621679433391"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#UpdateUserSecurityProfiles%27"><span class="hs-identifier hs-type">UpdateUserSecurityProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433390"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679433390"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUserSecurityProfiles
-</span><a href="#local-6989586621679433391"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userId:UpdateUserSecurityProfiles' :: Text
+</span><a href="#local-6989586621679433740"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679433740"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433739"><span class="annot"><span class="annottext">s :: UpdateUserSecurityProfiles
+</span><a href="#local-6989586621679433739"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#UpdateUserSecurityProfiles%27"><span class="hs-identifier hs-type">UpdateUserSecurityProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433738"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679433738"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUserSecurityProfiles
+</span><a href="#local-6989586621679433739"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userId:UpdateUserSecurityProfiles' :: Text
 </span><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#%24sel%3AuserId%3AUpdateUserSecurityProfiles%27"><span class="hs-identifier hs-var">userId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679433390"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#UpdateUserSecurityProfiles"><span class="hs-identifier hs-type">UpdateUserSecurityProfiles</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679433738"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#UpdateUserSecurityProfiles"><span class="hs-identifier hs-type">UpdateUserSecurityProfiles</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | The identifier of the Amazon Connect instance. You can find the</span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- instanceId in the ARN of the instance.</span><span>
@@ -237,28 +237,28 @@ $sel:userId:UpdateUserSecurityProfiles' :: UpdateUserSecurityProfiles -&gt; Text
 -&gt; Lens
      UpdateUserSecurityProfiles UpdateUserSecurityProfiles Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#UpdateUserSecurityProfiles%27"><span class="hs-identifier hs-type">UpdateUserSecurityProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433389"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#UpdateUserSecurityProfiles%27"><span class="hs-identifier hs-type">UpdateUserSecurityProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433737"><span class="annot"><span class="annottext">Text
 instanceId :: Text
 $sel:instanceId:UpdateUserSecurityProfiles' :: UpdateUserSecurityProfiles -&gt; Text
-</span><a href="#local-6989586621679433389"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679433389"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433388"><span class="annot"><span class="annottext">s :: UpdateUserSecurityProfiles
-</span><a href="#local-6989586621679433388"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#UpdateUserSecurityProfiles%27"><span class="hs-identifier hs-type">UpdateUserSecurityProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433387"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679433387"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUserSecurityProfiles
-</span><a href="#local-6989586621679433388"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:UpdateUserSecurityProfiles' :: Text
+</span><a href="#local-6989586621679433737"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679433737"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433736"><span class="annot"><span class="annottext">s :: UpdateUserSecurityProfiles
+</span><a href="#local-6989586621679433736"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#UpdateUserSecurityProfiles%27"><span class="hs-identifier hs-type">UpdateUserSecurityProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433735"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679433735"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUserSecurityProfiles
+</span><a href="#local-6989586621679433736"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:UpdateUserSecurityProfiles' :: Text
 </span><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#%24sel%3AinstanceId%3AUpdateUserSecurityProfiles%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679433387"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#UpdateUserSecurityProfiles"><span class="hs-identifier hs-type">UpdateUserSecurityProfiles</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679433735"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#UpdateUserSecurityProfiles"><span class="hs-identifier hs-type">UpdateUserSecurityProfiles</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#UpdateUserSecurityProfiles"><span class="hs-identifier hs-type">UpdateUserSecurityProfiles</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-106"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-107"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#UpdateUserSecurityProfiles"><span class="hs-identifier hs-type">UpdateUserSecurityProfiles</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>      </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#UpdateUserSecurityProfilesResponse"><span class="hs-identifier hs-type">UpdateUserSecurityProfilesResponse</span></a></span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679433383"><span class="annot"><span class="annottext">request :: UpdateUserSecurityProfiles -&gt; Request UpdateUserSecurityProfiles
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679433731"><span class="annot"><span class="annottext">request :: UpdateUserSecurityProfiles -&gt; Request UpdateUserSecurityProfiles
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; UpdateUserSecurityProfiles -&gt; Request UpdateUserSecurityProfiles
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Connect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679433379"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679433727"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateUserSecurityProfiles
 -&gt; ClientResponse ClientBody
@@ -285,12 +285,12 @@ AWSResponse a
 UpdateUserSecurityProfilesResponse
 </span><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#UpdateUserSecurityProfilesResponse%27"><span class="hs-identifier hs-var">UpdateUserSecurityProfilesResponse'</span></a></span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433372"><span id="local-6989586621679433374"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#UpdateUserSecurityProfiles"><span class="hs-identifier hs-type">UpdateUserSecurityProfiles</span></a></span></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433720"><span id="local-6989586621679433722"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#UpdateUserSecurityProfiles"><span class="hs-identifier hs-type">UpdateUserSecurityProfiles</span></a></span></span></span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433369"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#UpdateUserSecurityProfiles"><span class="hs-identifier hs-type">UpdateUserSecurityProfiles</span></a></span></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433717"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#UpdateUserSecurityProfiles"><span class="hs-identifier hs-type">UpdateUserSecurityProfiles</span></a></span></span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#UpdateUserSecurityProfiles"><span class="hs-identifier hs-type">UpdateUserSecurityProfiles</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679433365"><span class="annot"><span class="annottext">toHeaders :: UpdateUserSecurityProfiles -&gt; [Header]
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679433713"><span class="annot"><span class="annottext">toHeaders :: UpdateUserSecurityProfiles -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; UpdateUserSecurityProfiles -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -309,9 +309,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433355"><span id="local-6989586621679433357"><span id="local-6989586621679433359"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#UpdateUserSecurityProfiles"><span class="hs-identifier hs-type">UpdateUserSecurityProfiles</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679433353"><span class="annot"><span class="annottext">toJSON :: UpdateUserSecurityProfiles -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#UpdateUserSecurityProfiles%27"><span class="hs-identifier hs-type">UpdateUserSecurityProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433349"><span id="local-6989586621679433350"><span id="local-6989586621679433351"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433703"><span id="local-6989586621679433705"><span id="local-6989586621679433707"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#UpdateUserSecurityProfiles"><span class="hs-identifier hs-type">UpdateUserSecurityProfiles</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679433701"><span class="annot"><span class="annottext">toJSON :: UpdateUserSecurityProfiles -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#UpdateUserSecurityProfiles%27"><span class="hs-identifier hs-type">UpdateUserSecurityProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433697"><span id="local-6989586621679433698"><span id="local-6989586621679433699"><span class="annot"><span class="annottext">NonEmpty Text
 Text
 instanceId :: Text
 userId :: Text
@@ -319,7 +319,7 @@ securityProfileIds :: NonEmpty Text
 $sel:instanceId:UpdateUserSecurityProfiles' :: UpdateUserSecurityProfiles -&gt; Text
 $sel:userId:UpdateUserSecurityProfiles' :: UpdateUserSecurityProfiles -&gt; Text
 $sel:securityProfileIds:UpdateUserSecurityProfiles' :: UpdateUserSecurityProfiles -&gt; NonEmpty Text
-</span><a href="#local-6989586621679433349"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679433697"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -332,13 +332,13 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;SecurityProfileIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679433351"><span class="hs-identifier hs-var">securityProfileIds</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679433699"><span class="hs-identifier hs-var">securityProfileIds</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#UpdateUserSecurityProfiles"><span class="hs-identifier hs-type">UpdateUserSecurityProfiles</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679433343"><span class="annot"><span class="annottext">toPath :: UpdateUserSecurityProfiles -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#UpdateUserSecurityProfiles%27"><span class="hs-identifier hs-type">UpdateUserSecurityProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433339"><span id="local-6989586621679433340"><span id="local-6989586621679433341"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679433691"><span class="annot"><span class="annottext">toPath :: UpdateUserSecurityProfiles -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#UpdateUserSecurityProfiles%27"><span class="hs-identifier hs-type">UpdateUserSecurityProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433687"><span id="local-6989586621679433688"><span id="local-6989586621679433689"><span class="annot"><span class="annottext">NonEmpty Text
 Text
 instanceId :: Text
 userId :: Text
@@ -346,7 +346,7 @@ securityProfileIds :: NonEmpty Text
 $sel:instanceId:UpdateUserSecurityProfiles' :: UpdateUserSecurityProfiles -&gt; Text
 $sel:userId:UpdateUserSecurityProfiles' :: UpdateUserSecurityProfiles -&gt; Text
 $sel:securityProfileIds:UpdateUserSecurityProfiles' :: UpdateUserSecurityProfiles -&gt; NonEmpty Text
-</span><a href="#local-6989586621679433339"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679433687"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -355,19 +355,19 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679433339"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679433687"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-144"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679433340"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679433688"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/security-profiles&quot;</span></span><span>
 </span><span id="line-146"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#UpdateUserSecurityProfiles"><span class="hs-identifier hs-type">UpdateUserSecurityProfiles</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679433335"><span class="annot"><span class="annottext">toQuery :: UpdateUserSecurityProfiles -&gt; QueryString
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679433683"><span class="annot"><span class="annottext">toQuery :: UpdateUserSecurityProfiles -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateUserSecurityProfiles -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -375,10 +375,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- | /See:/ 'newUpdateUserSecurityProfilesResponse' smart constructor.</span><span>
-</span><span id="line-152"></span><span id="local-6989586621679433332"><span id="local-6989586621679433333"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateUserSecurityProfilesResponse"><span class="annot"><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#UpdateUserSecurityProfilesResponse"><span class="hs-identifier hs-var">UpdateUserSecurityProfilesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateUserSecurityProfilesResponse%27"><span class="annot"><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#UpdateUserSecurityProfilesResponse%27"><span class="hs-identifier hs-var">UpdateUserSecurityProfilesResponse'</span></a></span></span><span>
+</span><span id="line-152"></span><span id="local-6989586621679433680"><span id="local-6989586621679433681"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateUserSecurityProfilesResponse"><span class="annot"><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#UpdateUserSecurityProfilesResponse"><span class="hs-identifier hs-var">UpdateUserSecurityProfilesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateUserSecurityProfilesResponse%27"><span class="annot"><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#UpdateUserSecurityProfilesResponse%27"><span class="hs-identifier hs-var">UpdateUserSecurityProfilesResponse'</span></a></span></span><span>
 </span><span id="line-153"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-154"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679433328"><span id="local-6989586621679433330"><span class="annot"><span class="annottext">UpdateUserSecurityProfilesResponse
+</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679433676"><span id="local-6989586621679433678"><span class="annot"><span class="annottext">UpdateUserSecurityProfilesResponse
 -&gt; UpdateUserSecurityProfilesResponse -&gt; Bool
 (UpdateUserSecurityProfilesResponse
  -&gt; UpdateUserSecurityProfilesResponse -&gt; Bool)
@@ -394,7 +394,7 @@ $c/= :: UpdateUserSecurityProfilesResponse
 -&gt; UpdateUserSecurityProfilesResponse -&gt; Bool
 $c== :: UpdateUserSecurityProfilesResponse
 -&gt; UpdateUserSecurityProfilesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679433320"><span id="local-6989586621679433322"><span id="local-6989586621679433324"><span id="local-6989586621679433326"><span class="annot"><span class="annottext">ReadPrec [UpdateUserSecurityProfilesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679433668"><span id="local-6989586621679433670"><span id="local-6989586621679433672"><span id="local-6989586621679433674"><span class="annot"><span class="annottext">ReadPrec [UpdateUserSecurityProfilesResponse]
 ReadPrec UpdateUserSecurityProfilesResponse
 Int -&gt; ReadS UpdateUserSecurityProfilesResponse
 ReadS [UpdateUserSecurityProfilesResponse]
@@ -414,7 +414,7 @@ readList :: ReadS [UpdateUserSecurityProfilesResponse]
 $creadList :: ReadS [UpdateUserSecurityProfilesResponse]
 readsPrec :: Int -&gt; ReadS UpdateUserSecurityProfilesResponse
 $creadsPrec :: Int -&gt; ReadS UpdateUserSecurityProfilesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679433314"><span id="local-6989586621679433316"><span id="local-6989586621679433318"><span class="annot"><span class="annottext">Int -&gt; UpdateUserSecurityProfilesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679433662"><span id="local-6989586621679433664"><span id="local-6989586621679433666"><span class="annot"><span class="annottext">Int -&gt; UpdateUserSecurityProfilesResponse -&gt; ShowS
 [UpdateUserSecurityProfilesResponse] -&gt; ShowS
 UpdateUserSecurityProfilesResponse -&gt; String
 (Int -&gt; UpdateUserSecurityProfilesResponse -&gt; ShowS)
@@ -464,6 +464,6 @@ UpdateUserSecurityProfilesResponse
 </span><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#UpdateUserSecurityProfilesResponse%27"><span class="hs-identifier hs-var">UpdateUserSecurityProfilesResponse'</span></a></span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621679433310"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679433658"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-168"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserSecurityProfiles.html#UpdateUserSecurityProfilesResponse"><span class="hs-identifier hs-type">UpdateUserSecurityProfilesResponse</span></a></span></span><span>
 </span><span id="line-169"></span></pre></body></html>

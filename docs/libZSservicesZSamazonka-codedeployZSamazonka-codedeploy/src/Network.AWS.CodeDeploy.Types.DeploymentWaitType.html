@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679307385"><span id="local-6989586621679307386"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeploymentWaitType"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentWaitType.html#DeploymentWaitType"><span class="hs-identifier hs-var">DeploymentWaitType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeploymentWaitType%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentWaitType.html#DeploymentWaitType%27"><span class="hs-identifier hs-var">DeploymentWaitType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679307668"><span id="local-6989586621679307669"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeploymentWaitType"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentWaitType.html#DeploymentWaitType"><span class="hs-identifier hs-var">DeploymentWaitType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeploymentWaitType%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentWaitType.html#DeploymentWaitType%27"><span class="hs-identifier hs-var">DeploymentWaitType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDeploymentWaitType"><span class="annot"><span class="annottext">DeploymentWaitType -&gt; Text
 </span><a href="Network.AWS.CodeDeploy.Types.DeploymentWaitType.html#fromDeploymentWaitType"><span class="hs-identifier hs-var hs-var">fromDeploymentWaitType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679307377"><span id="local-6989586621679307379"><span id="local-6989586621679307381"><span class="annot"><span class="annottext">Int -&gt; DeploymentWaitType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679307660"><span id="local-6989586621679307662"><span id="local-6989586621679307664"><span class="annot"><span class="annottext">Int -&gt; DeploymentWaitType -&gt; ShowS
 [DeploymentWaitType] -&gt; ShowS
 DeploymentWaitType -&gt; String
 (Int -&gt; DeploymentWaitType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: DeploymentWaitType -&gt; String
 showsPrec :: Int -&gt; DeploymentWaitType -&gt; ShowS
 $cshowsPrec :: Int -&gt; DeploymentWaitType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679307368"><span id="local-6989586621679307370"><span id="local-6989586621679307372"><span id="local-6989586621679307374"><span class="annot"><span class="annottext">ReadPrec [DeploymentWaitType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679307651"><span id="local-6989586621679307653"><span id="local-6989586621679307655"><span id="local-6989586621679307657"><span class="annot"><span class="annottext">ReadPrec [DeploymentWaitType]
 ReadPrec DeploymentWaitType
 Int -&gt; ReadS DeploymentWaitType
 ReadS [DeploymentWaitType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [DeploymentWaitType]
 readsPrec :: Int -&gt; ReadS DeploymentWaitType
 $creadsPrec :: Int -&gt; ReadS DeploymentWaitType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679307363"><span id="local-6989586621679307365"><span class="annot"><span class="annottext">DeploymentWaitType -&gt; DeploymentWaitType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679307646"><span id="local-6989586621679307648"><span class="annot"><span class="annottext">DeploymentWaitType -&gt; DeploymentWaitType -&gt; Bool
 (DeploymentWaitType -&gt; DeploymentWaitType -&gt; Bool)
 -&gt; (DeploymentWaitType -&gt; DeploymentWaitType -&gt; Bool)
 -&gt; Eq DeploymentWaitType
@@ -82,7 +82,7 @@ $c/= :: DeploymentWaitType -&gt; DeploymentWaitType -&gt; Bool
 == :: DeploymentWaitType -&gt; DeploymentWaitType -&gt; Bool
 $c== :: DeploymentWaitType -&gt; DeploymentWaitType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679307347"><span id="local-6989586621679307349"><span id="local-6989586621679307351"><span id="local-6989586621679307353"><span id="local-6989586621679307355"><span id="local-6989586621679307357"><span id="local-6989586621679307359"><span class="annot"><span class="annottext">Eq DeploymentWaitType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679307630"><span id="local-6989586621679307632"><span id="local-6989586621679307634"><span id="local-6989586621679307636"><span id="local-6989586621679307638"><span id="local-6989586621679307640"><span id="local-6989586621679307642"><span class="annot"><span class="annottext">Eq DeploymentWaitType
 Eq DeploymentWaitType
 -&gt; (DeploymentWaitType -&gt; DeploymentWaitType -&gt; Ordering)
 -&gt; (DeploymentWaitType -&gt; DeploymentWaitType -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. DeploymentWaitType -&gt; Rep DeploymentWaitType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679307339"><span id="local-6989586621679307341"><span class="annot"><span class="annottext">Int -&gt; DeploymentWaitType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679307622"><span id="local-6989586621679307624"><span class="annot"><span class="annottext">Int -&gt; DeploymentWaitType -&gt; Int
 DeploymentWaitType -&gt; Int
 (Int -&gt; DeploymentWaitType -&gt; Int)
 -&gt; (DeploymentWaitType -&gt; Int) -&gt; Hashable DeploymentWaitType
@@ -143,53 +143,53 @@ $chash :: DeploymentWaitType -&gt; Int
 hashWithSalt :: Int -&gt; DeploymentWaitType -&gt; Int
 $chashWithSalt :: Int -&gt; DeploymentWaitType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679307336"><span class="annot"><span class="annottext">DeploymentWaitType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679307619"><span class="annot"><span class="annottext">DeploymentWaitType -&gt; ()
 (DeploymentWaitType -&gt; ()) -&gt; NFData DeploymentWaitType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DeploymentWaitType -&gt; ()
 $crnf :: DeploymentWaitType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679307333"><span class="annot"><span class="annottext">Text -&gt; Either String DeploymentWaitType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679307616"><span class="annot"><span class="annottext">Text -&gt; Either String DeploymentWaitType
 (Text -&gt; Either String DeploymentWaitType)
 -&gt; FromText DeploymentWaitType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DeploymentWaitType
 $cfromText :: Text -&gt; Either String DeploymentWaitType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679307330"><span class="annot"><span class="annottext">DeploymentWaitType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679307613"><span class="annot"><span class="annottext">DeploymentWaitType -&gt; Text
 (DeploymentWaitType -&gt; Text) -&gt; ToText DeploymentWaitType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DeploymentWaitType -&gt; Text
 $ctoText :: DeploymentWaitType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679307327"><span class="annot"><span class="annottext">DeploymentWaitType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679307610"><span class="annot"><span class="annottext">DeploymentWaitType -&gt; ByteString
 (DeploymentWaitType -&gt; ByteString)
 -&gt; ToByteString DeploymentWaitType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DeploymentWaitType -&gt; ByteString
 $ctoBS :: DeploymentWaitType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679307324"><span class="annot"><span class="annottext">DeploymentWaitType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679307607"><span class="annot"><span class="annottext">DeploymentWaitType -&gt; ByteStringBuilder
 (DeploymentWaitType -&gt; ByteStringBuilder)
 -&gt; ToLog DeploymentWaitType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DeploymentWaitType -&gt; ByteStringBuilder
 $cbuild :: DeploymentWaitType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679307321"><span class="annot"><span class="annottext">HeaderName -&gt; DeploymentWaitType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679307604"><span class="annot"><span class="annottext">HeaderName -&gt; DeploymentWaitType -&gt; [Header]
 (HeaderName -&gt; DeploymentWaitType -&gt; [Header])
 -&gt; ToHeader DeploymentWaitType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DeploymentWaitType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DeploymentWaitType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679307318"><span class="annot"><span class="annottext">DeploymentWaitType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679307601"><span class="annot"><span class="annottext">DeploymentWaitType -&gt; QueryString
 (DeploymentWaitType -&gt; QueryString) -&gt; ToQuery DeploymentWaitType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DeploymentWaitType -&gt; QueryString
 $ctoQuery :: DeploymentWaitType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679307313"><span id="local-6989586621679307315"><span class="annot"><span class="annottext">Value -&gt; Parser [DeploymentWaitType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679307596"><span id="local-6989586621679307598"><span class="annot"><span class="annottext">Value -&gt; Parser [DeploymentWaitType]
 Value -&gt; Parser DeploymentWaitType
 (Value -&gt; Parser DeploymentWaitType)
 -&gt; (Value -&gt; Parser [DeploymentWaitType])
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [DeploymentWaitType]
 parseJSON :: Value -&gt; Parser DeploymentWaitType
 $cparseJSON :: Value -&gt; Parser DeploymentWaitType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679307308"><span id="local-6989586621679307310"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeploymentWaitType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679307591"><span id="local-6989586621679307593"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeploymentWaitType]
 FromJSONKeyFunction DeploymentWaitType
 FromJSONKeyFunction DeploymentWaitType
 -&gt; FromJSONKeyFunction [DeploymentWaitType]
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DeploymentWaitType]
 fromJSONKey :: FromJSONKeyFunction DeploymentWaitType
 $cfromJSONKey :: FromJSONKeyFunction DeploymentWaitType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679307299"><span id="local-6989586621679307301"><span id="local-6989586621679307303"><span id="local-6989586621679307305"><span class="annot"><span class="annottext">[DeploymentWaitType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679307582"><span id="local-6989586621679307584"><span id="local-6989586621679307586"><span id="local-6989586621679307588"><span class="annot"><span class="annottext">[DeploymentWaitType] -&gt; Encoding
 [DeploymentWaitType] -&gt; Value
 DeploymentWaitType -&gt; Encoding
 DeploymentWaitType -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: DeploymentWaitType -&gt; Encoding
 toJSON :: DeploymentWaitType -&gt; Value
 $ctoJSON :: DeploymentWaitType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679307294"><span id="local-6989586621679307296"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeploymentWaitType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679307577"><span id="local-6989586621679307579"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeploymentWaitType]
 ToJSONKeyFunction DeploymentWaitType
 ToJSONKeyFunction DeploymentWaitType
 -&gt; ToJSONKeyFunction [DeploymentWaitType]
@@ -249,14 +249,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DeploymentWaitType]
 toJSONKey :: ToJSONKeyFunction DeploymentWaitType
 $ctoJSONKey :: ToJSONKeyFunction DeploymentWaitType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679307291"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeploymentWaitType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679307574"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeploymentWaitType
 ([Node] -&gt; Either String DeploymentWaitType)
 -&gt; FromXML DeploymentWaitType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DeploymentWaitType
 $cparseXML :: [Node] -&gt; Either String DeploymentWaitType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679307288"><span class="annot"><span class="annottext">DeploymentWaitType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679307571"><span class="annot"><span class="annottext">DeploymentWaitType -&gt; XML
 (DeploymentWaitType -&gt; XML) -&gt; ToXML DeploymentWaitType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DeploymentWaitType -&gt; XML

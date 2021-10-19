@@ -102,10 +102,10 @@
 </span><span id="line-102"></span><span class="hs-comment">-- /See:/ 'description', 'material'.</span><span>
 </span><span id="line-103"></span><span class="annot"><a href="Network.AWS.S3.Encryption.html#kmsKey"><span class="hs-identifier hs-type">kmsKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Types.html#Key"><span class="hs-identifier hs-type">Key</span></a></span><span>
 </span><span id="line-104"></span><span id="kmsKey"><span class="annot"><span class="annottext">kmsKey :: Text -&gt; Key
-</span><a href="Network.AWS.S3.Encryption.html#kmsKey"><span class="hs-identifier hs-var hs-var">kmsKey</span></a></span></span><span> </span><span id="local-6989586621679168649"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679168649"><span class="hs-identifier hs-var">k</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text -&gt; Description -&gt; Key
+</span><a href="Network.AWS.S3.Encryption.html#kmsKey"><span class="hs-identifier hs-var hs-var">kmsKey</span></a></span></span><span> </span><span id="local-6989586621679168648"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679168648"><span class="hs-identifier hs-var">k</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text -&gt; Description -&gt; Key
 </span><a href="Network.AWS.S3.Encryption.Types.html#KMS"><span class="hs-identifier hs-var">KMS</span></a></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679168649"><span class="hs-identifier hs-var">k</span></a></span><span> </span><span class="annot"><span class="annottext">Description
+</span><a href="#local-6989586621679168648"><span class="hs-identifier hs-var">k</span></a></span><span> </span><span class="annot"><span class="annottext">Description
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">mempty</span></span><span>
 </span><span id="line-105"></span><span>
@@ -114,11 +114,11 @@ forall a. Monoid a =&gt; a
 </span><span id="line-108"></span><span class="hs-comment">-- /See:/ 'description', 'material'.</span><span>
 </span><span id="line-109"></span><span class="annot"><a href="Network.AWS.S3.Encryption.html#asymmetricKey"><span class="hs-identifier hs-type">asymmetricKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">PrivateKey</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Types.html#Key"><span class="hs-identifier hs-type">Key</span></a></span><span>
 </span><span id="line-110"></span><span id="asymmetricKey"><span class="annot"><span class="annottext">asymmetricKey :: PrivateKey -&gt; Key
-</span><a href="Network.AWS.S3.Encryption.html#asymmetricKey"><span class="hs-identifier hs-var hs-var">asymmetricKey</span></a></span></span><span> </span><span id="local-6989586621679168647"><span class="annot"><span class="annottext">PrivateKey
-</span><a href="#local-6989586621679168647"><span class="hs-identifier hs-var">k</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">KeyPair -&gt; Description -&gt; Key
+</span><a href="Network.AWS.S3.Encryption.html#asymmetricKey"><span class="hs-identifier hs-var hs-var">asymmetricKey</span></a></span></span><span> </span><span id="local-6989586621679168646"><span class="annot"><span class="annottext">PrivateKey
+</span><a href="#local-6989586621679168646"><span class="hs-identifier hs-var">k</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">KeyPair -&gt; Description -&gt; Key
 </span><a href="Network.AWS.S3.Encryption.Types.html#Asymmetric"><span class="hs-identifier hs-var">Asymmetric</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">PrivateKey -&gt; KeyPair
 </span><span class="hs-identifier hs-var">KeyPair</span></span><span> </span><span class="annot"><span class="annottext">PrivateKey
-</span><a href="#local-6989586621679168647"><span class="hs-identifier hs-var">k</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Description
+</span><a href="#local-6989586621679168646"><span class="hs-identifier hs-var">k</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Description
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">mempty</span></span><span>
 </span><span id="line-111"></span><span>
@@ -128,7 +128,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-115"></span><span class="hs-comment">-- Throws 'EncryptionError', specifically 'CipherFailure'.</span><span>
 </span><span id="line-116"></span><span class="hs-comment">--</span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- /See:/ 'newSecret', 'description', 'material'.</span><span>
-</span><span id="line-118"></span><span id="local-6989586621679168644"><span class="annot"><a href="Network.AWS.S3.Encryption.html#symmetricKey"><span class="hs-identifier hs-type">symmetricKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">MonadIO</span></span><span> </span><span class="annot"><a href="#local-6989586621679168644"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679168644"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Types.html#Key"><span class="hs-identifier hs-type">Key</span></a></span></span><span>
+</span><span id="line-118"></span><span id="local-6989586621679168643"><span class="annot"><a href="Network.AWS.S3.Encryption.html#symmetricKey"><span class="hs-identifier hs-type">symmetricKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">MonadIO</span></span><span> </span><span class="annot"><a href="#local-6989586621679168643"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679168643"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Types.html#Key"><span class="hs-identifier hs-type">Key</span></a></span></span><span>
 </span><span id="line-119"></span><span id="symmetricKey"><span class="annot"><span class="annottext">symmetricKey :: ByteString -&gt; m Key
 </span><a href="Network.AWS.S3.Encryption.html#symmetricKey"><span class="hs-identifier hs-var hs-var">symmetricKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AES256 -&gt; Key) -&gt; m AES256 -&gt; m Key
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
@@ -147,7 +147,7 @@ a -&gt; m b
 </span><span id="line-121"></span><span class="hs-comment">-- | Generate a random shared secret that is of the correct length to use with</span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- 'symmetricKey'. This will need to be stored securely to enable decryption</span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- of any requests that are encrypted using this secret.</span><span>
-</span><span id="line-124"></span><span id="local-6989586621679168640"><span class="annot"><a href="Network.AWS.S3.Encryption.html#newSecret"><span class="hs-identifier hs-type">newSecret</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">MonadRandom</span></span><span> </span><span class="annot"><a href="#local-6989586621679168640"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679168640"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span></span><span>
+</span><span id="line-124"></span><span id="local-6989586621679168639"><span class="annot"><a href="Network.AWS.S3.Encryption.html#newSecret"><span class="hs-identifier hs-type">newSecret</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">MonadRandom</span></span><span> </span><span class="annot"><a href="#local-6989586621679168639"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679168639"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span></span><span>
 </span><span id="line-125"></span><span id="newSecret"><span class="annot"><span class="annottext">newSecret :: m ByteString
 </span><a href="Network.AWS.S3.Encryption.html#newSecret"><span class="hs-identifier hs-var hs-var">newSecret</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int -&gt; m ByteString
 forall (m :: * -&gt; *) byteArray.
@@ -160,33 +160,33 @@ Int -&gt; m byteArray
 </span><span id="line-128"></span><span class="hs-comment">-- headers.</span><span>
 </span><span id="line-129"></span><span class="hs-comment">--</span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- Throws 'EncryptionError', 'AWS.Error'.</span><span>
-</span><span id="line-131"></span><span id="local-6989586621679168637"><span class="annot"><a href="Network.AWS.S3.Encryption.html#encrypt"><span class="hs-identifier hs-type">encrypt</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-132"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">MonadResource</span></span><span> </span><span class="annot"><a href="#local-6989586621679168637"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span>
+</span><span id="line-131"></span><span id="local-6989586621679168636"><span class="annot"><a href="Network.AWS.S3.Encryption.html#encrypt"><span class="hs-identifier hs-type">encrypt</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-132"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">MonadResource</span></span><span> </span><span class="annot"><a href="#local-6989586621679168636"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span>
 </span><span id="line-133"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Encryption.Types.html#Key"><span class="hs-identifier hs-type">Key</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-134"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Env</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-135"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">PutObject</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-136"></span><span>  </span><span class="annot"><a href="#local-6989586621679168637"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">PutObjectResponse</span></span></span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><a href="#local-6989586621679168636"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">PutObjectResponse</span></span></span><span>
 </span><span id="line-137"></span><span id="encrypt"><span class="annot"><span class="annottext">encrypt :: Key -&gt; Env -&gt; PutObject -&gt; m PutObjectResponse
-</span><a href="Network.AWS.S3.Encryption.html#encrypt"><span class="hs-identifier hs-var hs-var">encrypt</span></a></span></span><span> </span><span id="local-6989586621679168636"><span class="annot"><span class="annottext">Key
-</span><a href="#local-6989586621679168636"><span class="hs-identifier hs-var">key</span></a></span></span><span> </span><span id="local-6989586621679168635"><span class="annot"><span class="annottext">Env
-</span><a href="#local-6989586621679168635"><span class="hs-identifier hs-var">env</span></a></span></span><span> </span><span id="local-6989586621679168634"><span class="annot"><span class="annottext">PutObject
-</span><a href="#local-6989586621679168634"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-keyword">do</span><span>
-</span><span id="line-138"></span><span>  </span><span class="hs-special">(</span><span id="local-6989586621679168633"><span class="annot"><span class="annottext">Encrypted PutObject
-</span><a href="#local-6989586621679168633"><span class="hs-identifier hs-var">a</span></a></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">PutInstructions
+</span><a href="Network.AWS.S3.Encryption.html#encrypt"><span class="hs-identifier hs-var hs-var">encrypt</span></a></span></span><span> </span><span id="local-6989586621679168635"><span class="annot"><span class="annottext">Key
+</span><a href="#local-6989586621679168635"><span class="hs-identifier hs-var">key</span></a></span></span><span> </span><span id="local-6989586621679168634"><span class="annot"><span class="annottext">Env
+</span><a href="#local-6989586621679168634"><span class="hs-identifier hs-var">env</span></a></span></span><span> </span><span id="local-6989586621679168633"><span class="annot"><span class="annottext">PutObject
+</span><a href="#local-6989586621679168633"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-keyword">do</span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-special">(</span><span id="local-6989586621679168632"><span class="annot"><span class="annottext">Encrypted PutObject
+</span><a href="#local-6989586621679168632"><span class="hs-identifier hs-var">a</span></a></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">PutInstructions
 </span><span class="hs-identifier">_</span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">Key -&gt; Env -&gt; PutObject -&gt; m (Encrypted PutObject, PutInstructions)
 forall (m :: * -&gt; *) a.
 (MonadResource m, ToEncrypted a) =&gt;
 Key -&gt; Env -&gt; a -&gt; m (Encrypted a, PutInstructions)
 </span><a href="Network.AWS.S3.Encryption.Encrypt.html#encrypted"><span class="hs-identifier hs-var">encrypted</span></a></span><span> </span><span class="annot"><span class="annottext">Key
-</span><a href="#local-6989586621679168636"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="annot"><span class="annottext">Env
-</span><a href="#local-6989586621679168635"><span class="hs-identifier hs-var">env</span></a></span><span> </span><span class="annot"><span class="annottext">PutObject
-</span><a href="#local-6989586621679168634"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><a href="#local-6989586621679168635"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="annot"><span class="annottext">Env
+</span><a href="#local-6989586621679168634"><span class="hs-identifier hs-var">env</span></a></span><span> </span><span class="annot"><span class="annottext">PutObject
+</span><a href="#local-6989586621679168633"><span class="hs-identifier hs-var">x</span></a></span><span>
 </span><span id="line-139"></span><span>  </span><span class="annot"><span class="annottext">Env -&gt; Encrypted PutObject -&gt; m (AWSResponse (Encrypted PutObject))
 forall (m :: * -&gt; *) a.
 (MonadResource m, AWSRequest a) =&gt;
 Env -&gt; a -&gt; m (AWSResponse a)
 </span><span class="hs-identifier hs-var">send</span></span><span> </span><span class="annot"><span class="annottext">Env
-</span><a href="#local-6989586621679168635"><span class="hs-identifier hs-var">env</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ASetter
+</span><a href="#local-6989586621679168634"><span class="hs-identifier hs-var">env</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ASetter
   (Encrypted PutObject) (Encrypted PutObject) Location Location
 -&gt; Location -&gt; Encrypted PutObject -&gt; Encrypted PutObject
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
@@ -195,7 +195,7 @@ forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 forall a. Setter' (Encrypted a) Location
 </span><a href="Network.AWS.S3.Encryption.Encrypt.html#location"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="annot"><span class="annottext">Location
 </span><a href="Network.AWS.S3.Encryption.Types.html#Metadata"><span class="hs-identifier hs-var">Metadata</span></a></span><span> </span><span class="annot"><span class="annottext">Encrypted PutObject
-</span><a href="#local-6989586621679168633"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679168632"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- | Encrypt an object, storing the encryption envelope in an adjacent instruction</span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- file with the same 'ObjectKey' and 'defaultExtension'.</span><span>
@@ -203,42 +203,42 @@ forall a. Setter' (Encrypted a) Location
 </span><span id="line-144"></span><span class="hs-comment">-- storing the actual object.</span><span>
 </span><span id="line-145"></span><span class="hs-comment">--</span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- Throws 'EncryptionError', 'AWS.Error'.</span><span>
-</span><span id="line-147"></span><span id="local-6989586621679168627"><span class="annot"><a href="Network.AWS.S3.Encryption.html#encryptInstructions"><span class="hs-identifier hs-type">encryptInstructions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-148"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">MonadResource</span></span><span> </span><span class="annot"><a href="#local-6989586621679168627"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span>
+</span><span id="line-147"></span><span id="local-6989586621679168626"><span class="annot"><a href="Network.AWS.S3.Encryption.html#encryptInstructions"><span class="hs-identifier hs-type">encryptInstructions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">MonadResource</span></span><span> </span><span class="annot"><a href="#local-6989586621679168626"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span>
 </span><span id="line-149"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Encryption.Types.html#Key"><span class="hs-identifier hs-type">Key</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-150"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Env</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-151"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">PutObject</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-152"></span><span>  </span><span class="annot"><a href="#local-6989586621679168627"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">PutObjectResponse</span></span></span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><a href="#local-6989586621679168626"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">PutObjectResponse</span></span></span><span>
 </span><span id="line-153"></span><span id="encryptInstructions"><span class="annot"><span class="annottext">encryptInstructions :: Key -&gt; Env -&gt; PutObject -&gt; m PutObjectResponse
-</span><a href="Network.AWS.S3.Encryption.html#encryptInstructions"><span class="hs-identifier hs-var hs-var">encryptInstructions</span></a></span></span><span> </span><span id="local-6989586621679168626"><span class="annot"><span class="annottext">Key
-</span><a href="#local-6989586621679168626"><span class="hs-identifier hs-var">key</span></a></span></span><span> </span><span id="local-6989586621679168625"><span class="annot"><span class="annottext">Env
-</span><a href="#local-6989586621679168625"><span class="hs-identifier hs-var">env</span></a></span></span><span> </span><span id="local-6989586621679168624"><span class="annot"><span class="annottext">PutObject
-</span><a href="#local-6989586621679168624"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-keyword">do</span><span>
-</span><span id="line-154"></span><span>  </span><span class="hs-special">(</span><span id="local-6989586621679168623"><span class="annot"><span class="annottext">Encrypted PutObject
-</span><a href="#local-6989586621679168623"><span class="hs-identifier hs-var">a</span></a></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679168622"><span class="annot"><span class="annottext">PutInstructions
-</span><a href="#local-6989586621679168622"><span class="hs-identifier hs-var">b</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">Key -&gt; Env -&gt; PutObject -&gt; m (Encrypted PutObject, PutInstructions)
+</span><a href="Network.AWS.S3.Encryption.html#encryptInstructions"><span class="hs-identifier hs-var hs-var">encryptInstructions</span></a></span></span><span> </span><span id="local-6989586621679168625"><span class="annot"><span class="annottext">Key
+</span><a href="#local-6989586621679168625"><span class="hs-identifier hs-var">key</span></a></span></span><span> </span><span id="local-6989586621679168624"><span class="annot"><span class="annottext">Env
+</span><a href="#local-6989586621679168624"><span class="hs-identifier hs-var">env</span></a></span></span><span> </span><span id="local-6989586621679168623"><span class="annot"><span class="annottext">PutObject
+</span><a href="#local-6989586621679168623"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-keyword">do</span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-special">(</span><span id="local-6989586621679168622"><span class="annot"><span class="annottext">Encrypted PutObject
+</span><a href="#local-6989586621679168622"><span class="hs-identifier hs-var">a</span></a></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679168621"><span class="annot"><span class="annottext">PutInstructions
+</span><a href="#local-6989586621679168621"><span class="hs-identifier hs-var">b</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">Key -&gt; Env -&gt; PutObject -&gt; m (Encrypted PutObject, PutInstructions)
 forall (m :: * -&gt; *) a.
 (MonadResource m, ToEncrypted a) =&gt;
 Key -&gt; Env -&gt; a -&gt; m (Encrypted a, PutInstructions)
 </span><a href="Network.AWS.S3.Encryption.Encrypt.html#encrypted"><span class="hs-identifier hs-var">encrypted</span></a></span><span> </span><span class="annot"><span class="annottext">Key
-</span><a href="#local-6989586621679168626"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="annot"><span class="annottext">Env
-</span><a href="#local-6989586621679168625"><span class="hs-identifier hs-var">env</span></a></span><span> </span><span class="annot"><span class="annottext">PutObject
-</span><a href="#local-6989586621679168624"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><a href="#local-6989586621679168625"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="annot"><span class="annottext">Env
+</span><a href="#local-6989586621679168624"><span class="hs-identifier hs-var">env</span></a></span><span> </span><span class="annot"><span class="annottext">PutObject
+</span><a href="#local-6989586621679168623"><span class="hs-identifier hs-var">x</span></a></span><span>
 </span><span id="line-155"></span><span>  </span><span class="annot"><span class="annottext">PutObjectResponse
 </span><span class="hs-identifier">_</span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">Env -&gt; PutInstructions -&gt; m (AWSResponse PutInstructions)
 forall (m :: * -&gt; *) a.
 (MonadResource m, AWSRequest a) =&gt;
 Env -&gt; a -&gt; m (AWSResponse a)
 </span><span class="hs-identifier hs-var">send</span></span><span> </span><span class="annot"><span class="annottext">Env
-</span><a href="#local-6989586621679168625"><span class="hs-identifier hs-var">env</span></a></span><span> </span><span class="annot"><span class="annottext">PutInstructions
-</span><a href="#local-6989586621679168622"><span class="hs-identifier hs-var">b</span></a></span><span>
+</span><a href="#local-6989586621679168624"><span class="hs-identifier hs-var">env</span></a></span><span> </span><span class="annot"><span class="annottext">PutInstructions
+</span><a href="#local-6989586621679168621"><span class="hs-identifier hs-var">b</span></a></span><span>
 </span><span id="line-156"></span><span>  </span><span class="annot"><span class="annottext">Env -&gt; Encrypted PutObject -&gt; m (AWSResponse (Encrypted PutObject))
 forall (m :: * -&gt; *) a.
 (MonadResource m, AWSRequest a) =&gt;
 Env -&gt; a -&gt; m (AWSResponse a)
 </span><span class="hs-identifier hs-var">send</span></span><span> </span><span class="annot"><span class="annottext">Env
-</span><a href="#local-6989586621679168625"><span class="hs-identifier hs-var">env</span></a></span><span> </span><span class="annot"><span class="annottext">Encrypted PutObject
-</span><a href="#local-6989586621679168623"><span class="hs-identifier hs-var">a</span></a></span><span>
+</span><a href="#local-6989586621679168624"><span class="hs-identifier hs-var">env</span></a></span><span> </span><span class="annot"><span class="annottext">Encrypted PutObject
+</span><a href="#local-6989586621679168622"><span class="hs-identifier hs-var">a</span></a></span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- | Initiate an encrypted multipart upload, storing the encryption envelope</span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- in the @x-amz-meta-*@ headers.</span><span>
@@ -256,12 +256,12 @@ Env -&gt; a -&gt; m (AWSResponse a)
 </span><span id="line-171"></span><span class="hs-comment">-- @</span><span>
 </span><span id="line-172"></span><span class="hs-comment">--</span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- Throws 'EncryptionError', 'AWS.Error'.</span><span>
-</span><span id="line-174"></span><span id="local-6989586621679168621"><span class="annot"><a href="Network.AWS.S3.Encryption.html#initiate"><span class="hs-identifier hs-type">initiate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-175"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">MonadResource</span></span><span> </span><span class="annot"><a href="#local-6989586621679168621"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span>
+</span><span id="line-174"></span><span id="local-6989586621679168620"><span class="annot"><a href="Network.AWS.S3.Encryption.html#initiate"><span class="hs-identifier hs-type">initiate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">MonadResource</span></span><span> </span><span class="annot"><a href="#local-6989586621679168620"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span>
 </span><span id="line-176"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Encryption.Types.html#Key"><span class="hs-identifier hs-type">Key</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-177"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Env</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-178"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">CreateMultipartUpload</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-179"></span><span>  </span><span class="annot"><a href="#local-6989586621679168621"><span class="hs-identifier hs-type">m</span></a></span><span>
+</span><span id="line-179"></span><span>  </span><span class="annot"><a href="#local-6989586621679168620"><span class="hs-identifier hs-type">m</span></a></span><span>
 </span><span id="line-180"></span><span>    </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-identifier hs-type">CreateMultipartUploadResponse</span></span><span class="hs-special">,</span><span>
 </span><span id="line-181"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">UploadPart</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Encrypt.html#Encrypted"><span class="hs-identifier hs-type">Encrypted</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">UploadPart</span></span><span>
 </span><span id="line-182"></span><span>    </span><span class="hs-special">)</span></span><span>
@@ -270,12 +270,12 @@ Env -&gt; a -&gt; m (AWSResponse a)
 -&gt; CreateMultipartUpload
 -&gt; m (CreateMultipartUploadResponse,
       UploadPart -&gt; Encrypted UploadPart)
-</span><a href="Network.AWS.S3.Encryption.html#initiate"><span class="hs-identifier hs-var hs-var">initiate</span></a></span></span><span> </span><span id="local-6989586621679168620"><span class="annot"><span class="annottext">Key
-</span><a href="#local-6989586621679168620"><span class="hs-identifier hs-var">key</span></a></span></span><span> </span><span id="local-6989586621679168619"><span class="annot"><span class="annottext">Env
-</span><a href="#local-6989586621679168619"><span class="hs-identifier hs-var">env</span></a></span></span><span> </span><span id="local-6989586621679168618"><span class="annot"><span class="annottext">CreateMultipartUpload
-</span><a href="#local-6989586621679168618"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-keyword">do</span><span>
-</span><span id="line-184"></span><span>  </span><span class="hs-special">(</span><span id="local-6989586621679168617"><span class="annot"><span class="annottext">Encrypted CreateMultipartUpload
-</span><a href="#local-6989586621679168617"><span class="hs-identifier hs-var">a</span></a></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">PutInstructions
+</span><a href="Network.AWS.S3.Encryption.html#initiate"><span class="hs-identifier hs-var hs-var">initiate</span></a></span></span><span> </span><span id="local-6989586621679168619"><span class="annot"><span class="annottext">Key
+</span><a href="#local-6989586621679168619"><span class="hs-identifier hs-var">key</span></a></span></span><span> </span><span id="local-6989586621679168618"><span class="annot"><span class="annottext">Env
+</span><a href="#local-6989586621679168618"><span class="hs-identifier hs-var">env</span></a></span></span><span> </span><span id="local-6989586621679168617"><span class="annot"><span class="annottext">CreateMultipartUpload
+</span><a href="#local-6989586621679168617"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-keyword">do</span><span>
+</span><span id="line-184"></span><span>  </span><span class="hs-special">(</span><span id="local-6989586621679168616"><span class="annot"><span class="annottext">Encrypted CreateMultipartUpload
+</span><a href="#local-6989586621679168616"><span class="hs-identifier hs-var">a</span></a></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">PutInstructions
 </span><span class="hs-identifier">_</span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">Key
 -&gt; Env
 -&gt; CreateMultipartUpload
@@ -284,18 +284,18 @@ forall (m :: * -&gt; *) a.
 (MonadResource m, ToEncrypted a) =&gt;
 Key -&gt; Env -&gt; a -&gt; m (Encrypted a, PutInstructions)
 </span><a href="Network.AWS.S3.Encryption.Encrypt.html#encrypted"><span class="hs-identifier hs-var">encrypted</span></a></span><span> </span><span class="annot"><span class="annottext">Key
-</span><a href="#local-6989586621679168620"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="annot"><span class="annottext">Env
-</span><a href="#local-6989586621679168619"><span class="hs-identifier hs-var">env</span></a></span><span> </span><span class="annot"><span class="annottext">CreateMultipartUpload
-</span><a href="#local-6989586621679168618"><span class="hs-identifier hs-var">x</span></a></span><span>
-</span><span id="line-185"></span><span>  </span><span id="local-6989586621679168616"><span class="annot"><span class="annottext">CreateMultipartUploadResponse
-</span><a href="#local-6989586621679168616"><span class="hs-identifier hs-var">rs</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">Env
+</span><a href="#local-6989586621679168619"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="annot"><span class="annottext">Env
+</span><a href="#local-6989586621679168618"><span class="hs-identifier hs-var">env</span></a></span><span> </span><span class="annot"><span class="annottext">CreateMultipartUpload
+</span><a href="#local-6989586621679168617"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679168615"><span class="annot"><span class="annottext">CreateMultipartUploadResponse
+</span><a href="#local-6989586621679168615"><span class="hs-identifier hs-var">rs</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">Env
 -&gt; Encrypted CreateMultipartUpload
 -&gt; m (AWSResponse (Encrypted CreateMultipartUpload))
 forall (m :: * -&gt; *) a.
 (MonadResource m, AWSRequest a) =&gt;
 Env -&gt; a -&gt; m (AWSResponse a)
 </span><span class="hs-identifier hs-var">send</span></span><span> </span><span class="annot"><span class="annottext">Env
-</span><a href="#local-6989586621679168619"><span class="hs-identifier hs-var">env</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ASetter
+</span><a href="#local-6989586621679168618"><span class="hs-identifier hs-var">env</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ASetter
   (Encrypted CreateMultipartUpload)
   (Encrypted CreateMultipartUpload)
   Location
@@ -312,16 +312,16 @@ forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 forall a. Setter' (Encrypted a) Location
 </span><a href="Network.AWS.S3.Encryption.Encrypt.html#location"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="annot"><span class="annottext">Location
 </span><a href="Network.AWS.S3.Encryption.Types.html#Metadata"><span class="hs-identifier hs-var">Metadata</span></a></span><span> </span><span class="annot"><span class="annottext">Encrypted CreateMultipartUpload
-</span><a href="#local-6989586621679168617"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679168616"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>  </span><span class="annot"><span class="annottext">(CreateMultipartUploadResponse, UploadPart -&gt; Encrypted UploadPart)
 -&gt; m (CreateMultipartUploadResponse,
       UploadPart -&gt; Encrypted UploadPart)
 forall (m :: * -&gt; *) a. Monad m =&gt; a -&gt; m a
 </span><span class="hs-identifier hs-var">return</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">CreateMultipartUploadResponse
-</span><a href="#local-6989586621679168616"><span class="hs-identifier hs-var">rs</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Encrypted CreateMultipartUpload
+</span><a href="#local-6989586621679168615"><span class="hs-identifier hs-var">rs</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Encrypted CreateMultipartUpload
 -&gt; UploadPart -&gt; Encrypted UploadPart
 </span><a href="Network.AWS.S3.Encryption.Encrypt.html#encryptPart"><span class="hs-identifier hs-var">encryptPart</span></a></span><span> </span><span class="annot"><span class="annottext">Encrypted CreateMultipartUpload
-</span><a href="#local-6989586621679168617"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679168616"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- | Initiate an encrypted multipart upload, storing the encryption envelope</span><span>
 </span><span id="line-189"></span><span class="hs-comment">-- in an adjacent instruction file with the same 'ObjectKey' and 'defaultExtension'.</span><span>
@@ -332,12 +332,12 @@ forall (m :: * -&gt; *) a. Monad m =&gt; a -&gt; m a
 </span><span id="line-194"></span><span class="hs-comment">-- individually encrypted.</span><span>
 </span><span id="line-195"></span><span class="hs-comment">--</span><span>
 </span><span id="line-196"></span><span class="hs-comment">-- Throws 'EncryptionError', 'AWS.Error'.</span><span>
-</span><span id="line-197"></span><span id="local-6989586621679168614"><span class="annot"><a href="Network.AWS.S3.Encryption.html#initiateInstructions"><span class="hs-identifier hs-type">initiateInstructions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-198"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">MonadResource</span></span><span> </span><span class="annot"><a href="#local-6989586621679168614"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span>
+</span><span id="line-197"></span><span id="local-6989586621679168613"><span class="annot"><a href="Network.AWS.S3.Encryption.html#initiateInstructions"><span class="hs-identifier hs-type">initiateInstructions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-198"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">MonadResource</span></span><span> </span><span class="annot"><a href="#local-6989586621679168613"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span>
 </span><span id="line-199"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Encryption.Types.html#Key"><span class="hs-identifier hs-type">Key</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-200"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Env</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-201"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">CreateMultipartUpload</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-202"></span><span>  </span><span class="annot"><a href="#local-6989586621679168614"><span class="hs-identifier hs-type">m</span></a></span><span>
+</span><span id="line-202"></span><span>  </span><span class="annot"><a href="#local-6989586621679168613"><span class="hs-identifier hs-type">m</span></a></span><span>
 </span><span id="line-203"></span><span>    </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-identifier hs-type">CreateMultipartUploadResponse</span></span><span class="hs-special">,</span><span>
 </span><span id="line-204"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">UploadPart</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.S3.Encryption.Encrypt.html#Encrypted"><span class="hs-identifier hs-type">Encrypted</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">UploadPart</span></span><span>
 </span><span id="line-205"></span><span>    </span><span class="hs-special">)</span></span><span>
@@ -346,13 +346,13 @@ forall (m :: * -&gt; *) a. Monad m =&gt; a -&gt; m a
 -&gt; CreateMultipartUpload
 -&gt; m (CreateMultipartUploadResponse,
       UploadPart -&gt; Encrypted UploadPart)
-</span><a href="Network.AWS.S3.Encryption.html#initiateInstructions"><span class="hs-identifier hs-var hs-var">initiateInstructions</span></a></span></span><span> </span><span id="local-6989586621679168613"><span class="annot"><span class="annottext">Key
-</span><a href="#local-6989586621679168613"><span class="hs-identifier hs-var">key</span></a></span></span><span> </span><span id="local-6989586621679168612"><span class="annot"><span class="annottext">Env
-</span><a href="#local-6989586621679168612"><span class="hs-identifier hs-var">env</span></a></span></span><span> </span><span id="local-6989586621679168611"><span class="annot"><span class="annottext">CreateMultipartUpload
-</span><a href="#local-6989586621679168611"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-keyword">do</span><span>
-</span><span id="line-207"></span><span>  </span><span class="hs-special">(</span><span id="local-6989586621679168610"><span class="annot"><span class="annottext">Encrypted CreateMultipartUpload
-</span><a href="#local-6989586621679168610"><span class="hs-identifier hs-var">a</span></a></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679168609"><span class="annot"><span class="annottext">PutInstructions
-</span><a href="#local-6989586621679168609"><span class="hs-identifier hs-var">b</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">Key
+</span><a href="Network.AWS.S3.Encryption.html#initiateInstructions"><span class="hs-identifier hs-var hs-var">initiateInstructions</span></a></span></span><span> </span><span id="local-6989586621679168612"><span class="annot"><span class="annottext">Key
+</span><a href="#local-6989586621679168612"><span class="hs-identifier hs-var">key</span></a></span></span><span> </span><span id="local-6989586621679168611"><span class="annot"><span class="annottext">Env
+</span><a href="#local-6989586621679168611"><span class="hs-identifier hs-var">env</span></a></span></span><span> </span><span id="local-6989586621679168610"><span class="annot"><span class="annottext">CreateMultipartUpload
+</span><a href="#local-6989586621679168610"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-keyword">do</span><span>
+</span><span id="line-207"></span><span>  </span><span class="hs-special">(</span><span id="local-6989586621679168609"><span class="annot"><span class="annottext">Encrypted CreateMultipartUpload
+</span><a href="#local-6989586621679168609"><span class="hs-identifier hs-var">a</span></a></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679168608"><span class="annot"><span class="annottext">PutInstructions
+</span><a href="#local-6989586621679168608"><span class="hs-identifier hs-var">b</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">Key
 -&gt; Env
 -&gt; CreateMultipartUpload
 -&gt; m (Encrypted CreateMultipartUpload, PutInstructions)
@@ -360,74 +360,74 @@ forall (m :: * -&gt; *) a.
 (MonadResource m, ToEncrypted a) =&gt;
 Key -&gt; Env -&gt; a -&gt; m (Encrypted a, PutInstructions)
 </span><a href="Network.AWS.S3.Encryption.Encrypt.html#encrypted"><span class="hs-identifier hs-var">encrypted</span></a></span><span> </span><span class="annot"><span class="annottext">Key
-</span><a href="#local-6989586621679168613"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="annot"><span class="annottext">Env
-</span><a href="#local-6989586621679168612"><span class="hs-identifier hs-var">env</span></a></span><span> </span><span class="annot"><span class="annottext">CreateMultipartUpload
-</span><a href="#local-6989586621679168611"><span class="hs-identifier hs-var">x</span></a></span><span>
-</span><span id="line-208"></span><span>  </span><span id="local-6989586621679168608"><span class="annot"><span class="annottext">CreateMultipartUploadResponse
-</span><a href="#local-6989586621679168608"><span class="hs-identifier hs-var">rs</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">Env
+</span><a href="#local-6989586621679168612"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="annot"><span class="annottext">Env
+</span><a href="#local-6989586621679168611"><span class="hs-identifier hs-var">env</span></a></span><span> </span><span class="annot"><span class="annottext">CreateMultipartUpload
+</span><a href="#local-6989586621679168610"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621679168607"><span class="annot"><span class="annottext">CreateMultipartUploadResponse
+</span><a href="#local-6989586621679168607"><span class="hs-identifier hs-var">rs</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">Env
 -&gt; Encrypted CreateMultipartUpload
 -&gt; m (AWSResponse (Encrypted CreateMultipartUpload))
 forall (m :: * -&gt; *) a.
 (MonadResource m, AWSRequest a) =&gt;
 Env -&gt; a -&gt; m (AWSResponse a)
 </span><span class="hs-identifier hs-var">send</span></span><span> </span><span class="annot"><span class="annottext">Env
-</span><a href="#local-6989586621679168612"><span class="hs-identifier hs-var">env</span></a></span><span> </span><span class="annot"><span class="annottext">Encrypted CreateMultipartUpload
-</span><a href="#local-6989586621679168610"><span class="hs-identifier hs-var">a</span></a></span><span>
+</span><a href="#local-6989586621679168611"><span class="hs-identifier hs-var">env</span></a></span><span> </span><span class="annot"><span class="annottext">Encrypted CreateMultipartUpload
+</span><a href="#local-6989586621679168609"><span class="hs-identifier hs-var">a</span></a></span><span>
 </span><span id="line-209"></span><span>  </span><span class="annot"><span class="annottext">PutObjectResponse
 </span><span class="hs-identifier">_</span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">Env -&gt; PutInstructions -&gt; m (AWSResponse PutInstructions)
 forall (m :: * -&gt; *) a.
 (MonadResource m, AWSRequest a) =&gt;
 Env -&gt; a -&gt; m (AWSResponse a)
 </span><span class="hs-identifier hs-var">send</span></span><span> </span><span class="annot"><span class="annottext">Env
-</span><a href="#local-6989586621679168612"><span class="hs-identifier hs-var">env</span></a></span><span> </span><span class="annot"><span class="annottext">PutInstructions
-</span><a href="#local-6989586621679168609"><span class="hs-identifier hs-var">b</span></a></span><span>
+</span><a href="#local-6989586621679168611"><span class="hs-identifier hs-var">env</span></a></span><span> </span><span class="annot"><span class="annottext">PutInstructions
+</span><a href="#local-6989586621679168608"><span class="hs-identifier hs-var">b</span></a></span><span>
 </span><span id="line-210"></span><span>  </span><span class="annot"><span class="annottext">(CreateMultipartUploadResponse, UploadPart -&gt; Encrypted UploadPart)
 -&gt; m (CreateMultipartUploadResponse,
       UploadPart -&gt; Encrypted UploadPart)
 forall (m :: * -&gt; *) a. Monad m =&gt; a -&gt; m a
 </span><span class="hs-identifier hs-var">return</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">CreateMultipartUploadResponse
-</span><a href="#local-6989586621679168608"><span class="hs-identifier hs-var">rs</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Encrypted CreateMultipartUpload
+</span><a href="#local-6989586621679168607"><span class="hs-identifier hs-var">rs</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Encrypted CreateMultipartUpload
 -&gt; UploadPart -&gt; Encrypted UploadPart
 </span><a href="Network.AWS.S3.Encryption.Encrypt.html#encryptPart"><span class="hs-identifier hs-var">encryptPart</span></a></span><span> </span><span class="annot"><span class="annottext">Encrypted CreateMultipartUpload
-</span><a href="#local-6989586621679168610"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679168609"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-211"></span><span>
 </span><span id="line-212"></span><span class="hs-comment">-- | Retrieve an object, parsing the envelope from any @x-amz-meta-*@ headers</span><span>
 </span><span id="line-213"></span><span class="hs-comment">-- and decrypting the response body.</span><span>
 </span><span id="line-214"></span><span class="hs-comment">--</span><span>
 </span><span id="line-215"></span><span class="hs-comment">-- Throws 'EncryptionError', 'AWS.Error'.</span><span>
-</span><span id="line-216"></span><span id="local-6989586621679168607"><span class="annot"><a href="Network.AWS.S3.Encryption.html#decrypt"><span class="hs-identifier hs-type">decrypt</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-217"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">MonadResource</span></span><span> </span><span class="annot"><a href="#local-6989586621679168607"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span>
+</span><span id="line-216"></span><span id="local-6989586621679168606"><span class="annot"><a href="Network.AWS.S3.Encryption.html#decrypt"><span class="hs-identifier hs-type">decrypt</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-217"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">MonadResource</span></span><span> </span><span class="annot"><a href="#local-6989586621679168606"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span>
 </span><span id="line-218"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Encryption.Types.html#Key"><span class="hs-identifier hs-type">Key</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-219"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Env</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-220"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">GetObject</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-221"></span><span>  </span><span class="annot"><a href="#local-6989586621679168607"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">GetObjectResponse</span></span></span><span>
+</span><span id="line-221"></span><span>  </span><span class="annot"><a href="#local-6989586621679168606"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">GetObjectResponse</span></span></span><span>
 </span><span id="line-222"></span><span id="decrypt"><span class="annot"><span class="annottext">decrypt :: Key -&gt; Env -&gt; GetObject -&gt; m GetObjectResponse
-</span><a href="Network.AWS.S3.Encryption.html#decrypt"><span class="hs-identifier hs-var hs-var">decrypt</span></a></span></span><span> </span><span id="local-6989586621679168606"><span class="annot"><span class="annottext">Key
-</span><a href="#local-6989586621679168606"><span class="hs-identifier hs-var">key</span></a></span></span><span> </span><span id="local-6989586621679168605"><span class="annot"><span class="annottext">Env
-</span><a href="#local-6989586621679168605"><span class="hs-identifier hs-var">env</span></a></span></span><span> </span><span id="local-6989586621679168604"><span class="annot"><span class="annottext">GetObject
-</span><a href="#local-6989586621679168604"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-keyword">do</span><span>
-</span><span id="line-223"></span><span>  </span><span class="hs-keyword">let</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679168603"><span class="annot"><span class="annottext">Decrypt GetObject
-</span><a href="#local-6989586621679168603"><span class="hs-identifier hs-var">a</span></a></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">GetInstructions
+</span><a href="Network.AWS.S3.Encryption.html#decrypt"><span class="hs-identifier hs-var hs-var">decrypt</span></a></span></span><span> </span><span id="local-6989586621679168605"><span class="annot"><span class="annottext">Key
+</span><a href="#local-6989586621679168605"><span class="hs-identifier hs-var">key</span></a></span></span><span> </span><span id="local-6989586621679168604"><span class="annot"><span class="annottext">Env
+</span><a href="#local-6989586621679168604"><span class="hs-identifier hs-var">env</span></a></span></span><span> </span><span id="local-6989586621679168603"><span class="annot"><span class="annottext">GetObject
+</span><a href="#local-6989586621679168603"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-keyword">do</span><span>
+</span><span id="line-223"></span><span>  </span><span class="hs-keyword">let</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679168602"><span class="annot"><span class="annottext">Decrypt GetObject
+</span><a href="#local-6989586621679168602"><span class="hs-identifier hs-var">a</span></a></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">GetInstructions
 </span><span class="hs-identifier">_</span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GetObject -&gt; (Decrypt GetObject, GetInstructions)
 </span><a href="Network.AWS.S3.Encryption.Decrypt.html#decrypted"><span class="hs-identifier hs-var">decrypted</span></a></span><span> </span><span class="annot"><span class="annottext">GetObject
-</span><a href="#local-6989586621679168604"><span class="hs-identifier hs-var">x</span></a></span><span>
-</span><span id="line-224"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Encryption.Decrypt.html#Decrypted"><span class="hs-identifier hs-type">Decrypted</span></a></span><span> </span><span id="local-6989586621679168600"><span class="annot"><span class="annottext">forall (m :: * -&gt; *).
+</span><a href="#local-6989586621679168603"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><span id="line-224"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Encryption.Decrypt.html#Decrypted"><span class="hs-identifier hs-type">Decrypted</span></a></span><span> </span><span id="local-6989586621679168599"><span class="annot"><span class="annottext">forall (m :: * -&gt; *).
 MonadResource m =&gt;
 Key -&gt; Env -&gt; Maybe Envelope -&gt; m GetObjectResponse
-</span><a href="#local-6989586621679168600"><span class="hs-identifier hs-var">f</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">Env -&gt; Decrypt GetObject -&gt; m (AWSResponse (Decrypt GetObject))
+</span><a href="#local-6989586621679168599"><span class="hs-identifier hs-var">f</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">Env -&gt; Decrypt GetObject -&gt; m (AWSResponse (Decrypt GetObject))
 forall (m :: * -&gt; *) a.
 (MonadResource m, AWSRequest a) =&gt;
 Env -&gt; a -&gt; m (AWSResponse a)
 </span><span class="hs-identifier hs-var">send</span></span><span> </span><span class="annot"><span class="annottext">Env
-</span><a href="#local-6989586621679168605"><span class="hs-identifier hs-var">env</span></a></span><span> </span><span class="annot"><span class="annottext">Decrypt GetObject
-</span><a href="#local-6989586621679168603"><span class="hs-identifier hs-var">a</span></a></span><span>
+</span><a href="#local-6989586621679168604"><span class="hs-identifier hs-var">env</span></a></span><span> </span><span class="annot"><span class="annottext">Decrypt GetObject
+</span><a href="#local-6989586621679168602"><span class="hs-identifier hs-var">a</span></a></span><span>
 </span><span id="line-225"></span><span>  </span><span class="annot"><span class="annottext">Key -&gt; Env -&gt; Maybe Envelope -&gt; m GetObjectResponse
 forall (m :: * -&gt; *).
 MonadResource m =&gt;
 Key -&gt; Env -&gt; Maybe Envelope -&gt; m GetObjectResponse
-</span><a href="#local-6989586621679168600"><span class="hs-identifier hs-var">f</span></a></span><span> </span><span class="annot"><span class="annottext">Key
-</span><a href="#local-6989586621679168606"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="annot"><span class="annottext">Env
-</span><a href="#local-6989586621679168605"><span class="hs-identifier hs-var">env</span></a></span><span> </span><span class="annot"><span class="annottext">Maybe Envelope
+</span><a href="#local-6989586621679168599"><span class="hs-identifier hs-var">f</span></a></span><span> </span><span class="annot"><span class="annottext">Key
+</span><a href="#local-6989586621679168605"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="annot"><span class="annottext">Env
+</span><a href="#local-6989586621679168604"><span class="hs-identifier hs-var">env</span></a></span><span> </span><span class="annot"><span class="annottext">Maybe Envelope
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Nothing</span></span><span>
 </span><span id="line-226"></span><span>
@@ -436,54 +436,54 @@ forall a. Maybe a
 </span><span id="line-229"></span><span class="hs-comment">-- Performs two HTTP requests.</span><span>
 </span><span id="line-230"></span><span class="hs-comment">--</span><span>
 </span><span id="line-231"></span><span class="hs-comment">-- Throws 'EncryptionError', 'AWS.Error'.</span><span>
-</span><span id="line-232"></span><span id="local-6989586621679168599"><span class="annot"><a href="Network.AWS.S3.Encryption.html#decryptInstructions"><span class="hs-identifier hs-type">decryptInstructions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-233"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">MonadResource</span></span><span> </span><span class="annot"><a href="#local-6989586621679168599"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span>
+</span><span id="line-232"></span><span id="local-6989586621679168598"><span class="annot"><a href="Network.AWS.S3.Encryption.html#decryptInstructions"><span class="hs-identifier hs-type">decryptInstructions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-233"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">MonadResource</span></span><span> </span><span class="annot"><a href="#local-6989586621679168598"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span>
 </span><span id="line-234"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Encryption.Types.html#Key"><span class="hs-identifier hs-type">Key</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-235"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Env</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-236"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">GetObject</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-237"></span><span>  </span><span class="annot"><a href="#local-6989586621679168599"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">GetObjectResponse</span></span></span><span>
+</span><span id="line-237"></span><span>  </span><span class="annot"><a href="#local-6989586621679168598"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">GetObjectResponse</span></span></span><span>
 </span><span id="line-238"></span><span id="decryptInstructions"><span class="annot"><span class="annottext">decryptInstructions :: Key -&gt; Env -&gt; GetObject -&gt; m GetObjectResponse
-</span><a href="Network.AWS.S3.Encryption.html#decryptInstructions"><span class="hs-identifier hs-var hs-var">decryptInstructions</span></a></span></span><span> </span><span id="local-6989586621679168598"><span class="annot"><span class="annottext">Key
-</span><a href="#local-6989586621679168598"><span class="hs-identifier hs-var">key</span></a></span></span><span> </span><span id="local-6989586621679168597"><span class="annot"><span class="annottext">Env
-</span><a href="#local-6989586621679168597"><span class="hs-identifier hs-var">env</span></a></span></span><span> </span><span id="local-6989586621679168596"><span class="annot"><span class="annottext">GetObject
-</span><a href="#local-6989586621679168596"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-keyword">do</span><span>
-</span><span id="line-239"></span><span>  </span><span class="hs-keyword">let</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679168595"><span class="annot"><span class="annottext">Decrypt GetObject
-</span><a href="#local-6989586621679168595"><span class="hs-identifier hs-var">a</span></a></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679168594"><span class="annot"><span class="annottext">GetInstructions
-</span><a href="#local-6989586621679168594"><span class="hs-identifier hs-var">b</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GetObject -&gt; (Decrypt GetObject, GetInstructions)
+</span><a href="Network.AWS.S3.Encryption.html#decryptInstructions"><span class="hs-identifier hs-var hs-var">decryptInstructions</span></a></span></span><span> </span><span id="local-6989586621679168597"><span class="annot"><span class="annottext">Key
+</span><a href="#local-6989586621679168597"><span class="hs-identifier hs-var">key</span></a></span></span><span> </span><span id="local-6989586621679168596"><span class="annot"><span class="annottext">Env
+</span><a href="#local-6989586621679168596"><span class="hs-identifier hs-var">env</span></a></span></span><span> </span><span id="local-6989586621679168595"><span class="annot"><span class="annottext">GetObject
+</span><a href="#local-6989586621679168595"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-keyword">do</span><span>
+</span><span id="line-239"></span><span>  </span><span class="hs-keyword">let</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679168594"><span class="annot"><span class="annottext">Decrypt GetObject
+</span><a href="#local-6989586621679168594"><span class="hs-identifier hs-var">a</span></a></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679168593"><span class="annot"><span class="annottext">GetInstructions
+</span><a href="#local-6989586621679168593"><span class="hs-identifier hs-var">b</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GetObject -&gt; (Decrypt GetObject, GetInstructions)
 </span><a href="Network.AWS.S3.Encryption.Decrypt.html#decrypted"><span class="hs-identifier hs-var">decrypted</span></a></span><span> </span><span class="annot"><span class="annottext">GetObject
-</span><a href="#local-6989586621679168596"><span class="hs-identifier hs-var">x</span></a></span><span>
-</span><span id="line-240"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Encryption.Instructions.html#Instructions"><span class="hs-identifier hs-type">Instructions</span></a></span><span> </span><span id="local-6989586621679168592"><span class="annot"><span class="annottext">forall (m :: * -&gt; *). MonadResource m =&gt; Key -&gt; Env -&gt; m Envelope
-</span><a href="#local-6989586621679168592"><span class="hs-identifier hs-var">g</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">Env -&gt; GetInstructions -&gt; m (AWSResponse GetInstructions)
+</span><a href="#local-6989586621679168595"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><span id="line-240"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Encryption.Instructions.html#Instructions"><span class="hs-identifier hs-type">Instructions</span></a></span><span> </span><span id="local-6989586621679168591"><span class="annot"><span class="annottext">forall (m :: * -&gt; *). MonadResource m =&gt; Key -&gt; Env -&gt; m Envelope
+</span><a href="#local-6989586621679168591"><span class="hs-identifier hs-var">g</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">Env -&gt; GetInstructions -&gt; m (AWSResponse GetInstructions)
 forall (m :: * -&gt; *) a.
 (MonadResource m, AWSRequest a) =&gt;
 Env -&gt; a -&gt; m (AWSResponse a)
 </span><span class="hs-identifier hs-var">send</span></span><span> </span><span class="annot"><span class="annottext">Env
-</span><a href="#local-6989586621679168597"><span class="hs-identifier hs-var">env</span></a></span><span> </span><span class="annot"><span class="annottext">GetInstructions
-</span><a href="#local-6989586621679168594"><span class="hs-identifier hs-var">b</span></a></span><span>
-</span><span id="line-241"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Encryption.Decrypt.html#Decrypted"><span class="hs-identifier hs-type">Decrypted</span></a></span><span> </span><span id="local-6989586621679168591"><span class="annot"><span class="annottext">forall (m :: * -&gt; *).
+</span><a href="#local-6989586621679168596"><span class="hs-identifier hs-var">env</span></a></span><span> </span><span class="annot"><span class="annottext">GetInstructions
+</span><a href="#local-6989586621679168593"><span class="hs-identifier hs-var">b</span></a></span><span>
+</span><span id="line-241"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Encryption.Decrypt.html#Decrypted"><span class="hs-identifier hs-type">Decrypted</span></a></span><span> </span><span id="local-6989586621679168590"><span class="annot"><span class="annottext">forall (m :: * -&gt; *).
 MonadResource m =&gt;
 Key -&gt; Env -&gt; Maybe Envelope -&gt; m GetObjectResponse
-</span><a href="#local-6989586621679168591"><span class="hs-identifier hs-var">f</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">Env -&gt; Decrypt GetObject -&gt; m (AWSResponse (Decrypt GetObject))
+</span><a href="#local-6989586621679168590"><span class="hs-identifier hs-var">f</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">Env -&gt; Decrypt GetObject -&gt; m (AWSResponse (Decrypt GetObject))
 forall (m :: * -&gt; *) a.
 (MonadResource m, AWSRequest a) =&gt;
 Env -&gt; a -&gt; m (AWSResponse a)
 </span><span class="hs-identifier hs-var">send</span></span><span> </span><span class="annot"><span class="annottext">Env
-</span><a href="#local-6989586621679168597"><span class="hs-identifier hs-var">env</span></a></span><span> </span><span class="annot"><span class="annottext">Decrypt GetObject
-</span><a href="#local-6989586621679168595"><span class="hs-identifier hs-var">a</span></a></span><span>
+</span><a href="#local-6989586621679168596"><span class="hs-identifier hs-var">env</span></a></span><span> </span><span class="annot"><span class="annottext">Decrypt GetObject
+</span><a href="#local-6989586621679168594"><span class="hs-identifier hs-var">a</span></a></span><span>
 </span><span id="line-242"></span><span>  </span><span class="annot"><span class="annottext">Key -&gt; Env -&gt; m Envelope
 forall (m :: * -&gt; *). MonadResource m =&gt; Key -&gt; Env -&gt; m Envelope
-</span><a href="#local-6989586621679168592"><span class="hs-identifier hs-var">g</span></a></span><span> </span><span class="annot"><span class="annottext">Key
-</span><a href="#local-6989586621679168598"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="annot"><span class="annottext">Env
-</span><a href="#local-6989586621679168597"><span class="hs-identifier hs-var">env</span></a></span><span> </span><span class="annot"><span class="annottext">m Envelope
+</span><a href="#local-6989586621679168591"><span class="hs-identifier hs-var">g</span></a></span><span> </span><span class="annot"><span class="annottext">Key
+</span><a href="#local-6989586621679168597"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="annot"><span class="annottext">Env
+</span><a href="#local-6989586621679168596"><span class="hs-identifier hs-var">env</span></a></span><span> </span><span class="annot"><span class="annottext">m Envelope
 -&gt; (Envelope -&gt; m GetObjectResponse) -&gt; m GetObjectResponse
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
 </span><span class="hs-operator hs-var">&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">Key -&gt; Env -&gt; Maybe Envelope -&gt; m GetObjectResponse
 forall (m :: * -&gt; *).
 MonadResource m =&gt;
 Key -&gt; Env -&gt; Maybe Envelope -&gt; m GetObjectResponse
-</span><a href="#local-6989586621679168591"><span class="hs-identifier hs-var">f</span></a></span><span> </span><span class="annot"><span class="annottext">Key
-</span><a href="#local-6989586621679168598"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="annot"><span class="annottext">Env
-</span><a href="#local-6989586621679168597"><span class="hs-identifier hs-var">env</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Envelope -&gt; m GetObjectResponse)
+</span><a href="#local-6989586621679168590"><span class="hs-identifier hs-var">f</span></a></span><span> </span><span class="annot"><span class="annottext">Key
+</span><a href="#local-6989586621679168597"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="annot"><span class="annottext">Env
+</span><a href="#local-6989586621679168596"><span class="hs-identifier hs-var">env</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Envelope -&gt; m GetObjectResponse)
 -&gt; (Envelope -&gt; Maybe Envelope) -&gt; Envelope -&gt; m GetObjectResponse
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">Envelope -&gt; Maybe Envelope
@@ -495,39 +495,39 @@ forall a. a -&gt; Maybe a
 </span><span id="line-246"></span><span class="hs-comment">-- Performs two HTTP requests.</span><span>
 </span><span id="line-247"></span><span class="hs-comment">--</span><span>
 </span><span id="line-248"></span><span class="hs-comment">-- Throws 'EncryptionError', 'AWS.Error'.</span><span>
-</span><span id="line-249"></span><span id="local-6989586621679168589"><span id="local-6989586621679168590"><span class="annot"><a href="Network.AWS.S3.Encryption.html#cleanupInstructions"><span class="hs-identifier hs-type">cleanupInstructions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-250"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-identifier hs-type">MonadResource</span></span><span> </span><span class="annot"><a href="#local-6989586621679168590"><span class="hs-identifier hs-type">m</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-251"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.Encryption.Instructions.html#RemoveInstructions"><span class="hs-identifier hs-type">RemoveInstructions</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679168589"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span id="line-249"></span><span id="local-6989586621679168588"><span id="local-6989586621679168589"><span class="annot"><a href="Network.AWS.S3.Encryption.html#cleanupInstructions"><span class="hs-identifier hs-type">cleanupInstructions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-250"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-identifier hs-type">MonadResource</span></span><span> </span><span class="annot"><a href="#local-6989586621679168589"><span class="hs-identifier hs-type">m</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.Encryption.Instructions.html#RemoveInstructions"><span class="hs-identifier hs-type">RemoveInstructions</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679168588"><span class="hs-identifier hs-type">a</span></a></span><span>
 </span><span id="line-252"></span><span>  </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span>
 </span><span id="line-253"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Env</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-254"></span><span>  </span><span class="annot"><a href="#local-6989586621679168589"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-255"></span><span>  </span><span class="annot"><a href="#local-6989586621679168590"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">AWSResponse</span></span><span> </span><span class="annot"><a href="#local-6989586621679168589"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span></span></span><span>
+</span><span id="line-254"></span><span>  </span><span class="annot"><a href="#local-6989586621679168588"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-255"></span><span>  </span><span class="annot"><a href="#local-6989586621679168589"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">AWSResponse</span></span><span> </span><span class="annot"><a href="#local-6989586621679168588"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span></span></span><span>
 </span><span id="line-256"></span><span id="cleanupInstructions"><span class="annot"><span class="annottext">cleanupInstructions :: Env -&gt; a -&gt; m (AWSResponse a)
-</span><a href="Network.AWS.S3.Encryption.html#cleanupInstructions"><span class="hs-identifier hs-var hs-var">cleanupInstructions</span></a></span></span><span> </span><span id="local-6989586621679168588"><span class="annot"><span class="annottext">Env
-</span><a href="#local-6989586621679168588"><span class="hs-identifier hs-var">env</span></a></span></span><span> </span><span id="local-6989586621679168587"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679168587"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-keyword">do</span><span>
-</span><span id="line-257"></span><span>  </span><span id="local-6989586621679168586"><span class="annot"><span class="annottext">AWSResponse a
-</span><a href="#local-6989586621679168586"><span class="hs-identifier hs-var">rs</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">Env -&gt; a -&gt; m (AWSResponse a)
+</span><a href="Network.AWS.S3.Encryption.html#cleanupInstructions"><span class="hs-identifier hs-var hs-var">cleanupInstructions</span></a></span></span><span> </span><span id="local-6989586621679168587"><span class="annot"><span class="annottext">Env
+</span><a href="#local-6989586621679168587"><span class="hs-identifier hs-var">env</span></a></span></span><span> </span><span id="local-6989586621679168586"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679168586"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-keyword">do</span><span>
+</span><span id="line-257"></span><span>  </span><span id="local-6989586621679168585"><span class="annot"><span class="annottext">AWSResponse a
+</span><a href="#local-6989586621679168585"><span class="hs-identifier hs-var">rs</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">Env -&gt; a -&gt; m (AWSResponse a)
 forall (m :: * -&gt; *) a.
 (MonadResource m, AWSRequest a) =&gt;
 Env -&gt; a -&gt; m (AWSResponse a)
 </span><span class="hs-identifier hs-var">send</span></span><span> </span><span class="annot"><span class="annottext">Env
-</span><a href="#local-6989586621679168588"><span class="hs-identifier hs-var">env</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679168587"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><a href="#local-6989586621679168587"><span class="hs-identifier hs-var">env</span></a></span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679168586"><span class="hs-identifier hs-var">x</span></a></span><span>
 </span><span id="line-258"></span><span>  </span><span class="annot"><span class="annottext">DeleteObjectResponse
 </span><span class="hs-identifier">_</span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">Env -&gt; DeleteInstructions -&gt; m (AWSResponse DeleteInstructions)
 forall (m :: * -&gt; *) a.
 (MonadResource m, AWSRequest a) =&gt;
 Env -&gt; a -&gt; m (AWSResponse a)
 </span><span class="hs-identifier hs-var">send</span></span><span> </span><span class="annot"><span class="annottext">Env
-</span><a href="#local-6989586621679168588"><span class="hs-identifier hs-var">env</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; DeleteInstructions
+</span><a href="#local-6989586621679168587"><span class="hs-identifier hs-var">env</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; DeleteInstructions
 forall a. RemoveInstructions a =&gt; a -&gt; DeleteInstructions
 </span><a href="Network.AWS.S3.Encryption.Instructions.html#deleteInstructions"><span class="hs-identifier hs-var">deleteInstructions</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679168587"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679168586"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-259"></span><span>  </span><span class="annot"><span class="annottext">AWSResponse a -&gt; m (AWSResponse a)
 forall (m :: * -&gt; *) a. Monad m =&gt; a -&gt; m a
 </span><span class="hs-identifier hs-var">return</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse a
-</span><a href="#local-6989586621679168586"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679168585"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-260"></span><span>
 </span><span id="line-261"></span><span class="hs-comment">-- $usage</span><span>
 </span><span id="line-262"></span><span class="hs-comment">-- When sending requests that make use of a master key, an extension to the underlying</span><span>

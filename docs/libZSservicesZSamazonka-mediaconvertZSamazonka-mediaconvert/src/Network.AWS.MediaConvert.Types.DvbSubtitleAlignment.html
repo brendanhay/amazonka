@@ -39,13 +39,13 @@
 </span><span id="line-39"></span><span class="hs-comment">-- source captions that are STL, 608\/embedded or teletext. These source</span><span>
 </span><span id="line-40"></span><span class="hs-comment">-- settings are already pre-defined by the caption stream. All burn-in and</span><span>
 </span><span id="line-41"></span><span class="hs-comment">-- DVB-Sub font settings must match.</span><span>
-</span><span id="line-42"></span><span id="local-6989586621679951993"><span id="local-6989586621679951994"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DvbSubtitleAlignment"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleAlignment.html#DvbSubtitleAlignment"><span class="hs-identifier hs-var">DvbSubtitleAlignment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DvbSubtitleAlignment%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleAlignment.html#DvbSubtitleAlignment%27"><span class="hs-identifier hs-var">DvbSubtitleAlignment'</span></a></span></span><span>
+</span><span id="line-42"></span><span id="local-6989586621679956617"><span id="local-6989586621679956618"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DvbSubtitleAlignment"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleAlignment.html#DvbSubtitleAlignment"><span class="hs-identifier hs-var">DvbSubtitleAlignment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DvbSubtitleAlignment%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleAlignment.html#DvbSubtitleAlignment%27"><span class="hs-identifier hs-var">DvbSubtitleAlignment'</span></a></span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDvbSubtitleAlignment"><span class="annot"><span class="annottext">DvbSubtitleAlignment -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.DvbSubtitleAlignment.html#fromDvbSubtitleAlignment"><span class="hs-identifier hs-var hs-var">fromDvbSubtitleAlignment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-44"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679951985"><span id="local-6989586621679951987"><span id="local-6989586621679951989"><span class="annot"><span class="annottext">Int -&gt; DvbSubtitleAlignment -&gt; ShowS
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679956609"><span id="local-6989586621679956611"><span id="local-6989586621679956613"><span class="annot"><span class="annottext">Int -&gt; DvbSubtitleAlignment -&gt; ShowS
 [DvbSubtitleAlignment] -&gt; ShowS
 DvbSubtitleAlignment -&gt; String
 (Int -&gt; DvbSubtitleAlignment -&gt; ShowS)
@@ -61,7 +61,7 @@ $cshow :: DvbSubtitleAlignment -&gt; String
 showsPrec :: Int -&gt; DvbSubtitleAlignment -&gt; ShowS
 $cshowsPrec :: Int -&gt; DvbSubtitleAlignment -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679951976"><span id="local-6989586621679951978"><span id="local-6989586621679951980"><span id="local-6989586621679951982"><span class="annot"><span class="annottext">ReadPrec [DvbSubtitleAlignment]
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679956600"><span id="local-6989586621679956602"><span id="local-6989586621679956604"><span id="local-6989586621679956606"><span class="annot"><span class="annottext">ReadPrec [DvbSubtitleAlignment]
 ReadPrec DvbSubtitleAlignment
 Int -&gt; ReadS DvbSubtitleAlignment
 ReadS [DvbSubtitleAlignment]
@@ -82,7 +82,7 @@ $creadList :: ReadS [DvbSubtitleAlignment]
 readsPrec :: Int -&gt; ReadS DvbSubtitleAlignment
 $creadsPrec :: Int -&gt; ReadS DvbSubtitleAlignment
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679951971"><span id="local-6989586621679951973"><span class="annot"><span class="annottext">DvbSubtitleAlignment -&gt; DvbSubtitleAlignment -&gt; Bool
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679956595"><span id="local-6989586621679956597"><span class="annot"><span class="annottext">DvbSubtitleAlignment -&gt; DvbSubtitleAlignment -&gt; Bool
 (DvbSubtitleAlignment -&gt; DvbSubtitleAlignment -&gt; Bool)
 -&gt; (DvbSubtitleAlignment -&gt; DvbSubtitleAlignment -&gt; Bool)
 -&gt; Eq DvbSubtitleAlignment
@@ -92,7 +92,7 @@ $c/= :: DvbSubtitleAlignment -&gt; DvbSubtitleAlignment -&gt; Bool
 == :: DvbSubtitleAlignment -&gt; DvbSubtitleAlignment -&gt; Bool
 $c== :: DvbSubtitleAlignment -&gt; DvbSubtitleAlignment -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679951955"><span id="local-6989586621679951957"><span id="local-6989586621679951959"><span id="local-6989586621679951961"><span id="local-6989586621679951963"><span id="local-6989586621679951965"><span id="local-6989586621679951967"><span class="annot"><span class="annottext">Eq DvbSubtitleAlignment
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679956579"><span id="local-6989586621679956581"><span id="local-6989586621679956583"><span id="local-6989586621679956585"><span id="local-6989586621679956587"><span id="local-6989586621679956589"><span id="local-6989586621679956591"><span class="annot"><span class="annottext">Eq DvbSubtitleAlignment
 Eq DvbSubtitleAlignment
 -&gt; (DvbSubtitleAlignment -&gt; DvbSubtitleAlignment -&gt; Ordering)
 -&gt; (DvbSubtitleAlignment -&gt; DvbSubtitleAlignment -&gt; Bool)
@@ -150,7 +150,7 @@ $cfrom :: forall x. DvbSubtitleAlignment -&gt; Rep DvbSubtitleAlignment x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679951947"><span id="local-6989586621679951949"><span class="annot"><span class="annottext">Int -&gt; DvbSubtitleAlignment -&gt; Int
+</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679956571"><span id="local-6989586621679956573"><span class="annot"><span class="annottext">Int -&gt; DvbSubtitleAlignment -&gt; Int
 DvbSubtitleAlignment -&gt; Int
 (Int -&gt; DvbSubtitleAlignment -&gt; Int)
 -&gt; (DvbSubtitleAlignment -&gt; Int) -&gt; Hashable DvbSubtitleAlignment
@@ -160,54 +160,54 @@ $chash :: DvbSubtitleAlignment -&gt; Int
 hashWithSalt :: Int -&gt; DvbSubtitleAlignment -&gt; Int
 $chashWithSalt :: Int -&gt; DvbSubtitleAlignment -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679951944"><span class="annot"><span class="annottext">DvbSubtitleAlignment -&gt; ()
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679956568"><span class="annot"><span class="annottext">DvbSubtitleAlignment -&gt; ()
 (DvbSubtitleAlignment -&gt; ()) -&gt; NFData DvbSubtitleAlignment
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DvbSubtitleAlignment -&gt; ()
 $crnf :: DvbSubtitleAlignment -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679951941"><span class="annot"><span class="annottext">Text -&gt; Either String DvbSubtitleAlignment
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679956565"><span class="annot"><span class="annottext">Text -&gt; Either String DvbSubtitleAlignment
 (Text -&gt; Either String DvbSubtitleAlignment)
 -&gt; FromText DvbSubtitleAlignment
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DvbSubtitleAlignment
 $cfromText :: Text -&gt; Either String DvbSubtitleAlignment
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679951938"><span class="annot"><span class="annottext">DvbSubtitleAlignment -&gt; Text
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679956562"><span class="annot"><span class="annottext">DvbSubtitleAlignment -&gt; Text
 (DvbSubtitleAlignment -&gt; Text) -&gt; ToText DvbSubtitleAlignment
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DvbSubtitleAlignment -&gt; Text
 $ctoText :: DvbSubtitleAlignment -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679951935"><span class="annot"><span class="annottext">DvbSubtitleAlignment -&gt; ByteString
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679956559"><span class="annot"><span class="annottext">DvbSubtitleAlignment -&gt; ByteString
 (DvbSubtitleAlignment -&gt; ByteString)
 -&gt; ToByteString DvbSubtitleAlignment
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DvbSubtitleAlignment -&gt; ByteString
 $ctoBS :: DvbSubtitleAlignment -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679951932"><span class="annot"><span class="annottext">DvbSubtitleAlignment -&gt; ByteStringBuilder
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679956556"><span class="annot"><span class="annottext">DvbSubtitleAlignment -&gt; ByteStringBuilder
 (DvbSubtitleAlignment -&gt; ByteStringBuilder)
 -&gt; ToLog DvbSubtitleAlignment
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DvbSubtitleAlignment -&gt; ByteStringBuilder
 $cbuild :: DvbSubtitleAlignment -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679951929"><span class="annot"><span class="annottext">HeaderName -&gt; DvbSubtitleAlignment -&gt; [Header]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679956553"><span class="annot"><span class="annottext">HeaderName -&gt; DvbSubtitleAlignment -&gt; [Header]
 (HeaderName -&gt; DvbSubtitleAlignment -&gt; [Header])
 -&gt; ToHeader DvbSubtitleAlignment
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DvbSubtitleAlignment -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DvbSubtitleAlignment -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679951926"><span class="annot"><span class="annottext">DvbSubtitleAlignment -&gt; QueryString
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679956550"><span class="annot"><span class="annottext">DvbSubtitleAlignment -&gt; QueryString
 (DvbSubtitleAlignment -&gt; QueryString)
 -&gt; ToQuery DvbSubtitleAlignment
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DvbSubtitleAlignment -&gt; QueryString
 $ctoQuery :: DvbSubtitleAlignment -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679951921"><span id="local-6989586621679951923"><span class="annot"><span class="annottext">Value -&gt; Parser [DvbSubtitleAlignment]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679956545"><span id="local-6989586621679956547"><span class="annot"><span class="annottext">Value -&gt; Parser [DvbSubtitleAlignment]
 Value -&gt; Parser DvbSubtitleAlignment
 (Value -&gt; Parser DvbSubtitleAlignment)
 -&gt; (Value -&gt; Parser [DvbSubtitleAlignment])
@@ -219,7 +219,7 @@ $cparseJSONList :: Value -&gt; Parser [DvbSubtitleAlignment]
 parseJSON :: Value -&gt; Parser DvbSubtitleAlignment
 $cparseJSON :: Value -&gt; Parser DvbSubtitleAlignment
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679951916"><span id="local-6989586621679951918"><span class="annot"><span class="annottext">FromJSONKeyFunction [DvbSubtitleAlignment]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679956540"><span id="local-6989586621679956542"><span class="annot"><span class="annottext">FromJSONKeyFunction [DvbSubtitleAlignment]
 FromJSONKeyFunction DvbSubtitleAlignment
 FromJSONKeyFunction DvbSubtitleAlignment
 -&gt; FromJSONKeyFunction [DvbSubtitleAlignment]
@@ -231,7 +231,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DvbSubtitleAlignment]
 fromJSONKey :: FromJSONKeyFunction DvbSubtitleAlignment
 $cfromJSONKey :: FromJSONKeyFunction DvbSubtitleAlignment
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679951907"><span id="local-6989586621679951909"><span id="local-6989586621679951911"><span id="local-6989586621679951913"><span class="annot"><span class="annottext">[DvbSubtitleAlignment] -&gt; Encoding
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679956531"><span id="local-6989586621679956533"><span id="local-6989586621679956535"><span id="local-6989586621679956537"><span class="annot"><span class="annottext">[DvbSubtitleAlignment] -&gt; Encoding
 [DvbSubtitleAlignment] -&gt; Value
 DvbSubtitleAlignment -&gt; Encoding
 DvbSubtitleAlignment -&gt; Value
@@ -255,7 +255,7 @@ $ctoEncoding :: DvbSubtitleAlignment -&gt; Encoding
 toJSON :: DvbSubtitleAlignment -&gt; Value
 $ctoJSON :: DvbSubtitleAlignment -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679951902"><span id="local-6989586621679951904"><span class="annot"><span class="annottext">ToJSONKeyFunction [DvbSubtitleAlignment]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679956526"><span id="local-6989586621679956528"><span class="annot"><span class="annottext">ToJSONKeyFunction [DvbSubtitleAlignment]
 ToJSONKeyFunction DvbSubtitleAlignment
 ToJSONKeyFunction DvbSubtitleAlignment
 -&gt; ToJSONKeyFunction [DvbSubtitleAlignment]
@@ -267,14 +267,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DvbSubtitleAlignment]
 toJSONKey :: ToJSONKeyFunction DvbSubtitleAlignment
 $ctoJSONKey :: ToJSONKeyFunction DvbSubtitleAlignment
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679951899"><span class="annot"><span class="annottext">[Node] -&gt; Either String DvbSubtitleAlignment
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679956523"><span class="annot"><span class="annottext">[Node] -&gt; Either String DvbSubtitleAlignment
 ([Node] -&gt; Either String DvbSubtitleAlignment)
 -&gt; FromXML DvbSubtitleAlignment
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DvbSubtitleAlignment
 $cparseXML :: [Node] -&gt; Either String DvbSubtitleAlignment
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679951896"><span class="annot"><span class="annottext">DvbSubtitleAlignment -&gt; XML
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679956520"><span class="annot"><span class="annottext">DvbSubtitleAlignment -&gt; XML
 (DvbSubtitleAlignment -&gt; XML) -&gt; ToXML DvbSubtitleAlignment
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DvbSubtitleAlignment -&gt; XML

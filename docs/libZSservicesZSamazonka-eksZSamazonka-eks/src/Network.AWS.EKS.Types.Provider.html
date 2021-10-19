@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- secrets.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newProvider' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679268342"><span id="local-6989586621679268343"></span></span><span class="hs-keyword">data</span><span> </span><span id="Provider"><span class="annot"><a href="Network.AWS.EKS.Types.Provider.html#Provider"><span class="hs-identifier hs-var">Provider</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Provider%27"><span class="annot"><a href="Network.AWS.EKS.Types.Provider.html#Provider%27"><span class="hs-identifier hs-var">Provider'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679268605"><span id="local-6989586621679268606"></span></span><span class="hs-keyword">data</span><span> </span><span id="Provider"><span class="annot"><a href="Network.AWS.EKS.Types.Provider.html#Provider"><span class="hs-identifier hs-var">Provider</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Provider%27"><span class="annot"><a href="Network.AWS.EKS.Types.Provider.html#Provider%27"><span class="hs-identifier hs-var">Provider'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Amazon Resource Name (ARN) or alias of the KMS key. The KMS key must be</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- symmetric, created in the same region as the cluster, and if the KMS key</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- was created in a different account, the user must have access to the KMS</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AkeyArn%3AProvider%27"><span class="annot"><span class="annottext">Provider -&gt; Maybe Text
 </span><a href="Network.AWS.EKS.Types.Provider.html#%24sel%3AkeyArn%3AProvider%27"><span class="hs-identifier hs-var hs-var">keyArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679268336"><span id="local-6989586621679268338"><span class="annot"><span class="annottext">Provider -&gt; Provider -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679268599"><span id="local-6989586621679268601"><span class="annot"><span class="annottext">Provider -&gt; Provider -&gt; Bool
 (Provider -&gt; Provider -&gt; Bool)
 -&gt; (Provider -&gt; Provider -&gt; Bool) -&gt; Eq Provider
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Provider -&gt; Provider -&gt; Bool
 == :: Provider -&gt; Provider -&gt; Bool
 $c== :: Provider -&gt; Provider -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268327"><span id="local-6989586621679268329"><span id="local-6989586621679268331"><span id="local-6989586621679268333"><span class="annot"><span class="annottext">ReadPrec [Provider]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268590"><span id="local-6989586621679268592"><span id="local-6989586621679268594"><span id="local-6989586621679268596"><span class="annot"><span class="annottext">ReadPrec [Provider]
 ReadPrec Provider
 Int -&gt; ReadS Provider
 ReadS [Provider]
@@ -65,7 +65,7 @@ readList :: ReadS [Provider]
 $creadList :: ReadS [Provider]
 readsPrec :: Int -&gt; ReadS Provider
 $creadsPrec :: Int -&gt; ReadS Provider
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268320"><span id="local-6989586621679268322"><span id="local-6989586621679268324"><span class="annot"><span class="annottext">Int -&gt; Provider -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268583"><span id="local-6989586621679268585"><span id="local-6989586621679268587"><span class="annot"><span class="annottext">Int -&gt; Provider -&gt; ShowS
 [Provider] -&gt; ShowS
 Provider -&gt; String
 (Int -&gt; Provider -&gt; ShowS)
@@ -123,45 +123,45 @@ forall a. Maybe a
 -&gt; (Provider -&gt; Maybe Text -&gt; Provider)
 -&gt; Lens Provider Provider (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.Provider.html#Provider%27"><span class="hs-identifier hs-type">Provider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268311"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.Provider.html#Provider%27"><span class="hs-identifier hs-type">Provider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268574"><span class="annot"><span class="annottext">Maybe Text
 keyArn :: Maybe Text
 $sel:keyArn:Provider' :: Provider -&gt; Maybe Text
-</span><a href="#local-6989586621679268311"><span class="hs-identifier hs-var hs-var">keyArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679268311"><span class="hs-identifier hs-var">keyArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268310"><span class="annot"><span class="annottext">s :: Provider
-</span><a href="#local-6989586621679268310"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.Provider.html#Provider%27"><span class="hs-identifier hs-type">Provider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268309"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679268309"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Provider
-</span><a href="#local-6989586621679268310"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyArn:Provider' :: Maybe Text
+</span><a href="#local-6989586621679268574"><span class="hs-identifier hs-var hs-var">keyArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268574"><span class="hs-identifier hs-var">keyArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268573"><span class="annot"><span class="annottext">s :: Provider
+</span><a href="#local-6989586621679268573"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.Provider.html#Provider%27"><span class="hs-identifier hs-type">Provider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268572"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268572"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Provider
+</span><a href="#local-6989586621679268573"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyArn:Provider' :: Maybe Text
 </span><a href="Network.AWS.EKS.Types.Provider.html#%24sel%3AkeyArn%3AProvider%27"><span class="hs-identifier hs-var">keyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679268309"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Provider.html#Provider"><span class="hs-identifier hs-type">Provider</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679268572"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Provider.html#Provider"><span class="hs-identifier hs-type">Provider</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268306"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Provider.html#Provider"><span class="hs-identifier hs-type">Provider</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679268304"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Provider
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268569"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Provider.html#Provider"><span class="hs-identifier hs-type">Provider</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679268567"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Provider
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Provider) -&gt; Value -&gt; Parser Provider
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Provider&quot;</span></span><span>
-</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268301"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679268301"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Provider
+</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268564"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268564"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Provider
 </span><a href="Network.AWS.EKS.Types.Provider.html#Provider%27"><span class="hs-identifier hs-var">Provider'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Provider) -&gt; Parser (Maybe Text) -&gt; Parser Provider
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679268301"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679268564"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;keyArn&quot;</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268295"><span id="local-6989586621679268297"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Provider.html#Provider"><span class="hs-identifier hs-type">Provider</span></a></span></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268558"><span id="local-6989586621679268560"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Provider.html#Provider"><span class="hs-identifier hs-type">Provider</span></a></span></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268292"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Provider.html#Provider"><span class="hs-identifier hs-type">Provider</span></a></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268555"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Provider.html#Provider"><span class="hs-identifier hs-type">Provider</span></a></span></span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268284"><span id="local-6989586621679268286"><span id="local-6989586621679268288"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Provider.html#Provider"><span class="hs-identifier hs-type">Provider</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679268282"><span class="annot"><span class="annottext">toJSON :: Provider -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Provider.html#Provider%27"><span class="hs-identifier hs-type">Provider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268280"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268547"><span id="local-6989586621679268549"><span id="local-6989586621679268551"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Provider.html#Provider"><span class="hs-identifier hs-type">Provider</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679268545"><span class="annot"><span class="annottext">toJSON :: Provider -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Provider.html#Provider%27"><span class="hs-identifier hs-type">Provider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268543"><span class="annot"><span class="annottext">Maybe Text
 keyArn :: Maybe Text
 $sel:keyArn:Provider' :: Provider -&gt; Maybe Text
-</span><a href="#local-6989586621679268280"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679268543"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -173,6 +173,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679268280"><span class="hs-identifier hs-var">keyArn</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679268543"><span class="hs-identifier hs-var">keyArn</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-83"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span></pre></body></html>

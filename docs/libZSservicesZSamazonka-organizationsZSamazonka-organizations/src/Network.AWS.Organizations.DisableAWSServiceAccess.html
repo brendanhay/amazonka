@@ -106,14 +106,14 @@
 </span><span id="line-106"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | /See:/ 'newDisableAWSServiceAccess' smart constructor.</span><span>
-</span><span id="line-109"></span><span id="local-6989586621679247034"><span id="local-6989586621679247035"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisableAWSServiceAccess"><span class="annot"><a href="Network.AWS.Organizations.DisableAWSServiceAccess.html#DisableAWSServiceAccess"><span class="hs-identifier hs-var">DisableAWSServiceAccess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisableAWSServiceAccess%27"><span class="annot"><a href="Network.AWS.Organizations.DisableAWSServiceAccess.html#DisableAWSServiceAccess%27"><span class="hs-identifier hs-var">DisableAWSServiceAccess'</span></a></span></span><span>
+</span><span id="line-109"></span><span id="local-6989586621679247180"><span id="local-6989586621679247181"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisableAWSServiceAccess"><span class="annot"><a href="Network.AWS.Organizations.DisableAWSServiceAccess.html#DisableAWSServiceAccess"><span class="hs-identifier hs-var">DisableAWSServiceAccess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisableAWSServiceAccess%27"><span class="annot"><a href="Network.AWS.Organizations.DisableAWSServiceAccess.html#DisableAWSServiceAccess%27"><span class="hs-identifier hs-var">DisableAWSServiceAccess'</span></a></span></span><span>
 </span><span id="line-110"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The service principal name of the AWS service for which you want to</span><span>
 </span><span id="line-111"></span><span>    </span><span class="hs-comment">-- disable integration with your organization. This is typically in the</span><span>
 </span><span id="line-112"></span><span>    </span><span class="hs-comment">-- form of a URL, such as @ service-abbreviation.amazonaws.com@.</span><span>
 </span><span id="line-113"></span><span>    </span><span id="%24sel%3AservicePrincipal%3ADisableAWSServiceAccess%27"><span class="annot"><span class="annottext">DisableAWSServiceAccess -&gt; Text
 </span><a href="Network.AWS.Organizations.DisableAWSServiceAccess.html#%24sel%3AservicePrincipal%3ADisableAWSServiceAccess%27"><span class="hs-identifier hs-var hs-var">servicePrincipal</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-114"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-115"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679247028"><span id="local-6989586621679247030"><span class="annot"><span class="annottext">DisableAWSServiceAccess -&gt; DisableAWSServiceAccess -&gt; Bool
+</span><span id="line-115"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679247174"><span id="local-6989586621679247176"><span class="annot"><span class="annottext">DisableAWSServiceAccess -&gt; DisableAWSServiceAccess -&gt; Bool
 (DisableAWSServiceAccess -&gt; DisableAWSServiceAccess -&gt; Bool)
 -&gt; (DisableAWSServiceAccess -&gt; DisableAWSServiceAccess -&gt; Bool)
 -&gt; Eq DisableAWSServiceAccess
@@ -122,7 +122,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DisableAWSServiceAccess -&gt; DisableAWSServiceAccess -&gt; Bool
 == :: DisableAWSServiceAccess -&gt; DisableAWSServiceAccess -&gt; Bool
 $c== :: DisableAWSServiceAccess -&gt; DisableAWSServiceAccess -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247019"><span id="local-6989586621679247021"><span id="local-6989586621679247023"><span id="local-6989586621679247025"><span class="annot"><span class="annottext">ReadPrec [DisableAWSServiceAccess]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247165"><span id="local-6989586621679247167"><span id="local-6989586621679247169"><span id="local-6989586621679247171"><span class="annot"><span class="annottext">ReadPrec [DisableAWSServiceAccess]
 ReadPrec DisableAWSServiceAccess
 Int -&gt; ReadS DisableAWSServiceAccess
 ReadS [DisableAWSServiceAccess]
@@ -142,7 +142,7 @@ readList :: ReadS [DisableAWSServiceAccess]
 $creadList :: ReadS [DisableAWSServiceAccess]
 readsPrec :: Int -&gt; ReadS DisableAWSServiceAccess
 $creadsPrec :: Int -&gt; ReadS DisableAWSServiceAccess
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247012"><span id="local-6989586621679247014"><span id="local-6989586621679247016"><span class="annot"><span class="annottext">Int -&gt; DisableAWSServiceAccess -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247158"><span id="local-6989586621679247160"><span id="local-6989586621679247162"><span class="annot"><span class="annottext">Int -&gt; DisableAWSServiceAccess -&gt; ShowS
 [DisableAWSServiceAccess] -&gt; ShowS
 DisableAWSServiceAccess -&gt; String
 (Int -&gt; DisableAWSServiceAccess -&gt; ShowS)
@@ -186,14 +186,14 @@ $cfrom :: forall x. DisableAWSServiceAccess -&gt; Rep DisableAWSServiceAccess x
 </span><span id="line-130"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-131"></span><span>  </span><span class="annot"><a href="Network.AWS.Organizations.DisableAWSServiceAccess.html#DisableAWSServiceAccess"><span class="hs-identifier hs-type">DisableAWSServiceAccess</span></a></span><span>
 </span><span id="line-132"></span><span id="newDisableAWSServiceAccess"><span class="annot"><span class="annottext">newDisableAWSServiceAccess :: Text -&gt; DisableAWSServiceAccess
-</span><a href="Network.AWS.Organizations.DisableAWSServiceAccess.html#newDisableAWSServiceAccess"><span class="hs-identifier hs-var hs-var">newDisableAWSServiceAccess</span></a></span></span><span> </span><span id="local-6989586621679247007"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247007"><span class="hs-identifier hs-var">pServicePrincipal_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Organizations.DisableAWSServiceAccess.html#newDisableAWSServiceAccess"><span class="hs-identifier hs-var hs-var">newDisableAWSServiceAccess</span></a></span></span><span> </span><span id="local-6989586621679247153"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247153"><span class="hs-identifier hs-var">pServicePrincipal_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-133"></span><span>  </span><span class="annot"><span class="annottext">DisableAWSServiceAccess' :: Text -&gt; DisableAWSServiceAccess
 </span><a href="Network.AWS.Organizations.DisableAWSServiceAccess.html#DisableAWSServiceAccess%27"><span class="hs-identifier hs-type">DisableAWSServiceAccess'</span></a></span><span>
 </span><span id="line-134"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:servicePrincipal:DisableAWSServiceAccess' :: Text
 </span><a href="Network.AWS.Organizations.DisableAWSServiceAccess.html#%24sel%3AservicePrincipal%3ADisableAWSServiceAccess%27"><span class="hs-identifier hs-var">servicePrincipal</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247007"><span class="hs-identifier hs-var">pServicePrincipal_</span></a></span><span>
+</span><a href="#local-6989586621679247153"><span class="hs-identifier hs-var">pServicePrincipal_</span></a></span><span>
 </span><span id="line-136"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- | The service principal name of the AWS service for which you want to</span><span>
@@ -206,28 +206,28 @@ $cfrom :: forall x. DisableAWSServiceAccess -&gt; Rep DisableAWSServiceAccess x
 -&gt; (DisableAWSServiceAccess -&gt; Text -&gt; DisableAWSServiceAccess)
 -&gt; Lens DisableAWSServiceAccess DisableAWSServiceAccess Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.DisableAWSServiceAccess.html#DisableAWSServiceAccess%27"><span class="hs-identifier hs-type">DisableAWSServiceAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247004"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.DisableAWSServiceAccess.html#DisableAWSServiceAccess%27"><span class="hs-identifier hs-type">DisableAWSServiceAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247150"><span class="annot"><span class="annottext">Text
 servicePrincipal :: Text
 $sel:servicePrincipal:DisableAWSServiceAccess' :: DisableAWSServiceAccess -&gt; Text
-</span><a href="#local-6989586621679247004"><span class="hs-identifier hs-var hs-var">servicePrincipal</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247004"><span class="hs-identifier hs-var">servicePrincipal</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247003"><span class="annot"><span class="annottext">s :: DisableAWSServiceAccess
-</span><a href="#local-6989586621679247003"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.DisableAWSServiceAccess.html#DisableAWSServiceAccess%27"><span class="hs-identifier hs-type">DisableAWSServiceAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247002"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247002"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisableAWSServiceAccess
-</span><a href="#local-6989586621679247003"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:servicePrincipal:DisableAWSServiceAccess' :: Text
+</span><a href="#local-6989586621679247150"><span class="hs-identifier hs-var hs-var">servicePrincipal</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247150"><span class="hs-identifier hs-var">servicePrincipal</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247149"><span class="annot"><span class="annottext">s :: DisableAWSServiceAccess
+</span><a href="#local-6989586621679247149"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.DisableAWSServiceAccess.html#DisableAWSServiceAccess%27"><span class="hs-identifier hs-type">DisableAWSServiceAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247148"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247148"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisableAWSServiceAccess
+</span><a href="#local-6989586621679247149"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:servicePrincipal:DisableAWSServiceAccess' :: Text
 </span><a href="Network.AWS.Organizations.DisableAWSServiceAccess.html#%24sel%3AservicePrincipal%3ADisableAWSServiceAccess%27"><span class="hs-identifier hs-var">servicePrincipal</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247002"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DisableAWSServiceAccess.html#DisableAWSServiceAccess"><span class="hs-identifier hs-type">DisableAWSServiceAccess</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679247148"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DisableAWSServiceAccess.html#DisableAWSServiceAccess"><span class="hs-identifier hs-type">DisableAWSServiceAccess</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DisableAWSServiceAccess.html#DisableAWSServiceAccess"><span class="hs-identifier hs-type">DisableAWSServiceAccess</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-145"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-146"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DisableAWSServiceAccess.html#DisableAWSServiceAccess"><span class="hs-identifier hs-type">DisableAWSServiceAccess</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-147"></span><span>      </span><span class="annot"><a href="Network.AWS.Organizations.DisableAWSServiceAccess.html#DisableAWSServiceAccessResponse"><span class="hs-identifier hs-type">DisableAWSServiceAccessResponse</span></a></span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679246998"><span class="annot"><span class="annottext">request :: DisableAWSServiceAccess -&gt; Request DisableAWSServiceAccess
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679247144"><span class="annot"><span class="annottext">request :: DisableAWSServiceAccess -&gt; Request DisableAWSServiceAccess
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DisableAWSServiceAccess -&gt; Request DisableAWSServiceAccess
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Organizations.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679246994"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679247140"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DisableAWSServiceAccess
 -&gt; ClientResponse ClientBody
@@ -254,12 +254,12 @@ AWSResponse a
 DisableAWSServiceAccessResponse
 </span><a href="Network.AWS.Organizations.DisableAWSServiceAccess.html#DisableAWSServiceAccessResponse%27"><span class="hs-identifier hs-var">DisableAWSServiceAccessResponse'</span></a></span><span>
 </span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246987"><span id="local-6989586621679246989"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DisableAWSServiceAccess.html#DisableAWSServiceAccess"><span class="hs-identifier hs-type">DisableAWSServiceAccess</span></a></span></span></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247133"><span id="local-6989586621679247135"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DisableAWSServiceAccess.html#DisableAWSServiceAccess"><span class="hs-identifier hs-type">DisableAWSServiceAccess</span></a></span></span></span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246984"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DisableAWSServiceAccess.html#DisableAWSServiceAccess"><span class="hs-identifier hs-type">DisableAWSServiceAccess</span></a></span></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247130"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DisableAWSServiceAccess.html#DisableAWSServiceAccess"><span class="hs-identifier hs-type">DisableAWSServiceAccess</span></a></span></span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DisableAWSServiceAccess.html#DisableAWSServiceAccess"><span class="hs-identifier hs-type">DisableAWSServiceAccess</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679246980"><span class="annot"><span class="annottext">toHeaders :: DisableAWSServiceAccess -&gt; [Header]
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679247126"><span class="annot"><span class="annottext">toHeaders :: DisableAWSServiceAccess -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; DisableAWSServiceAccess -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -286,12 +286,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-169"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-170"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
-</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246970"><span id="local-6989586621679246972"><span id="local-6989586621679246974"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DisableAWSServiceAccess.html#DisableAWSServiceAccess"><span class="hs-identifier hs-type">DisableAWSServiceAccess</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679246968"><span class="annot"><span class="annottext">toJSON :: DisableAWSServiceAccess -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DisableAWSServiceAccess.html#DisableAWSServiceAccess%27"><span class="hs-identifier hs-type">DisableAWSServiceAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679246966"><span class="annot"><span class="annottext">Text
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247116"><span id="local-6989586621679247118"><span id="local-6989586621679247120"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DisableAWSServiceAccess.html#DisableAWSServiceAccess"><span class="hs-identifier hs-type">DisableAWSServiceAccess</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679247114"><span class="annot"><span class="annottext">toJSON :: DisableAWSServiceAccess -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DisableAWSServiceAccess.html#DisableAWSServiceAccess%27"><span class="hs-identifier hs-type">DisableAWSServiceAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247112"><span class="annot"><span class="annottext">Text
 servicePrincipal :: Text
 $sel:servicePrincipal:DisableAWSServiceAccess' :: DisableAWSServiceAccess -&gt; Text
-</span><a href="#local-6989586621679246966"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679247112"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-175"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -304,19 +304,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ServicePrincipal&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679246966"><span class="hs-identifier hs-var">servicePrincipal</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679247112"><span class="hs-identifier hs-var">servicePrincipal</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-179"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DisableAWSServiceAccess.html#DisableAWSServiceAccess"><span class="hs-identifier hs-type">DisableAWSServiceAccess</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-182"></span><span>  </span><span id="local-6989586621679246960"><span class="annot"><span class="annottext">toPath :: DisableAWSServiceAccess -&gt; ByteString
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679247106"><span class="annot"><span class="annottext">toPath :: DisableAWSServiceAccess -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DisableAWSServiceAccess -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DisableAWSServiceAccess.html#DisableAWSServiceAccess"><span class="hs-identifier hs-type">DisableAWSServiceAccess</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-185"></span><span>  </span><span id="local-6989586621679246956"><span class="annot"><span class="annottext">toQuery :: DisableAWSServiceAccess -&gt; QueryString
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679247102"><span class="annot"><span class="annottext">toQuery :: DisableAWSServiceAccess -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DisableAWSServiceAccess -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -324,10 +324,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-comment">-- | /See:/ 'newDisableAWSServiceAccessResponse' smart constructor.</span><span>
-</span><span id="line-188"></span><span id="local-6989586621679246953"><span id="local-6989586621679246954"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisableAWSServiceAccessResponse"><span class="annot"><a href="Network.AWS.Organizations.DisableAWSServiceAccess.html#DisableAWSServiceAccessResponse"><span class="hs-identifier hs-var">DisableAWSServiceAccessResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisableAWSServiceAccessResponse%27"><span class="annot"><a href="Network.AWS.Organizations.DisableAWSServiceAccess.html#DisableAWSServiceAccessResponse%27"><span class="hs-identifier hs-var">DisableAWSServiceAccessResponse'</span></a></span></span><span>
+</span><span id="line-188"></span><span id="local-6989586621679247099"><span id="local-6989586621679247100"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisableAWSServiceAccessResponse"><span class="annot"><a href="Network.AWS.Organizations.DisableAWSServiceAccess.html#DisableAWSServiceAccessResponse"><span class="hs-identifier hs-var">DisableAWSServiceAccessResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisableAWSServiceAccessResponse%27"><span class="annot"><a href="Network.AWS.Organizations.DisableAWSServiceAccess.html#DisableAWSServiceAccessResponse%27"><span class="hs-identifier hs-var">DisableAWSServiceAccessResponse'</span></a></span></span><span>
 </span><span id="line-189"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-190"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-191"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679246949"><span id="local-6989586621679246951"><span class="annot"><span class="annottext">DisableAWSServiceAccessResponse
+</span><span id="line-191"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679247095"><span id="local-6989586621679247097"><span class="annot"><span class="annottext">DisableAWSServiceAccessResponse
 -&gt; DisableAWSServiceAccessResponse -&gt; Bool
 (DisableAWSServiceAccessResponse
  -&gt; DisableAWSServiceAccessResponse -&gt; Bool)
@@ -343,7 +343,7 @@ $c/= :: DisableAWSServiceAccessResponse
 -&gt; DisableAWSServiceAccessResponse -&gt; Bool
 $c== :: DisableAWSServiceAccessResponse
 -&gt; DisableAWSServiceAccessResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679246941"><span id="local-6989586621679246943"><span id="local-6989586621679246945"><span id="local-6989586621679246947"><span class="annot"><span class="annottext">ReadPrec [DisableAWSServiceAccessResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247087"><span id="local-6989586621679247089"><span id="local-6989586621679247091"><span id="local-6989586621679247093"><span class="annot"><span class="annottext">ReadPrec [DisableAWSServiceAccessResponse]
 ReadPrec DisableAWSServiceAccessResponse
 Int -&gt; ReadS DisableAWSServiceAccessResponse
 ReadS [DisableAWSServiceAccessResponse]
@@ -363,7 +363,7 @@ readList :: ReadS [DisableAWSServiceAccessResponse]
 $creadList :: ReadS [DisableAWSServiceAccessResponse]
 readsPrec :: Int -&gt; ReadS DisableAWSServiceAccessResponse
 $creadsPrec :: Int -&gt; ReadS DisableAWSServiceAccessResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679246935"><span id="local-6989586621679246937"><span id="local-6989586621679246939"><span class="annot"><span class="annottext">Int -&gt; DisableAWSServiceAccessResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247081"><span id="local-6989586621679247083"><span id="local-6989586621679247085"><span class="annot"><span class="annottext">Int -&gt; DisableAWSServiceAccessResponse -&gt; ShowS
 [DisableAWSServiceAccessResponse] -&gt; ShowS
 DisableAWSServiceAccessResponse -&gt; String
 (Int -&gt; DisableAWSServiceAccessResponse -&gt; ShowS)
@@ -413,6 +413,6 @@ DisableAWSServiceAccessResponse
 </span><a href="Network.AWS.Organizations.DisableAWSServiceAccess.html#DisableAWSServiceAccessResponse%27"><span class="hs-identifier hs-var">DisableAWSServiceAccessResponse'</span></a></span><span>
 </span><span id="line-201"></span><span>
 </span><span id="line-202"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-203"></span><span>  </span><span id="local-6989586621679246931"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-203"></span><span>  </span><span id="local-6989586621679247077"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-204"></span><span>    </span><span class="annot"><a href="Network.AWS.Organizations.DisableAWSServiceAccess.html#DisableAWSServiceAccessResponse"><span class="hs-identifier hs-type">DisableAWSServiceAccessResponse</span></a></span></span><span>
 </span><span id="line-205"></span></pre></body></html>

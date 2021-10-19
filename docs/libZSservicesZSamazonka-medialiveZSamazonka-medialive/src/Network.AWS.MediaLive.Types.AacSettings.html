@@ -33,10 +33,10 @@
 </span><span id="line-33"></span><span class="hs-comment">-- | Aac Settings</span><span>
 </span><span id="line-34"></span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newAacSettings' smart constructor.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679856457"><span id="local-6989586621679856458"></span></span><span class="hs-keyword">data</span><span> </span><span id="AacSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings"><span class="hs-identifier hs-var">AacSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AacSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings%27"><span class="hs-identifier hs-var">AacSettings'</span></a></span></span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Rate Control Mode.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3ArateControlMode%3AAacSettings%27"><span class="annot"><span class="annottext">AacSettings -&gt; Maybe AacRateControlMode
-</span><a href="Network.AWS.MediaLive.Types.AacSettings.html#%24sel%3ArateControlMode%3AAacSettings%27"><span class="hs-identifier hs-var hs-var">rateControlMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacRateControlMode.html#AacRateControlMode"><span class="hs-identifier hs-type">AacRateControlMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span id="local-6989586621679863114"><span id="local-6989586621679863115"></span></span><span class="hs-keyword">data</span><span> </span><span id="AacSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings"><span class="hs-identifier hs-var">AacSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AacSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings%27"><span class="hs-identifier hs-var">AacSettings'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Sets LATM \/ LOAS AAC output for raw containers.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3ArawFormat%3AAacSettings%27"><span class="annot"><span class="annottext">AacSettings -&gt; Maybe AacRawFormat
+</span><a href="Network.AWS.MediaLive.Types.AacSettings.html#%24sel%3ArawFormat%3AAacSettings%27"><span class="hs-identifier hs-var hs-var">rawFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacRawFormat.html#AacRawFormat"><span class="hs-identifier hs-type">AacRawFormat</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Mono, Stereo, or 5.1 channel layout. Valid values depend on rate control</span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">-- mode and profile. The adReceiverMix setting receives a stereo</span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-comment">-- description plus control track and emits a mono AAC encode of the</span><span>
@@ -44,38 +44,38 @@
 </span><span id="line-43"></span><span>    </span><span class="hs-comment">-- ETSI TS 101 154 Annex E.</span><span>
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3AcodingMode%3AAacSettings%27"><span class="annot"><span class="annottext">AacSettings -&gt; Maybe AacCodingMode
 </span><a href="Network.AWS.MediaLive.Types.AacSettings.html#%24sel%3AcodingMode%3AAacSettings%27"><span class="hs-identifier hs-var hs-var">codingMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacCodingMode.html#AacCodingMode"><span class="hs-identifier hs-type">AacCodingMode</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- Transport Stream containers.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3Aspec%3AAacSettings%27"><span class="annot"><span class="annottext">AacSettings -&gt; Maybe AacSpec
-</span><a href="Network.AWS.MediaLive.Types.AacSettings.html#%24sel%3Aspec%3AAacSettings%27"><span class="hs-identifier hs-var hs-var">spec</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSpec.html#AacSpec"><span class="hs-identifier hs-type">AacSpec</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | Sets LATM \/ LOAS AAC output for raw containers.</span><span>
-</span><span id="line-49"></span><span>    </span><span id="%24sel%3ArawFormat%3AAacSettings%27"><span class="annot"><span class="annottext">AacSettings -&gt; Maybe AacRawFormat
-</span><a href="Network.AWS.MediaLive.Types.AacSettings.html#%24sel%3ArawFormat%3AAacSettings%27"><span class="hs-identifier hs-var hs-var">rawFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacRawFormat.html#AacRawFormat"><span class="hs-identifier hs-type">AacRawFormat</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | Sample rate in Hz. Valid values depend on rate control mode and profile.</span><span>
-</span><span id="line-51"></span><span>    </span><span id="%24sel%3AsampleRate%3AAacSettings%27"><span class="annot"><span class="annottext">AacSettings -&gt; Maybe Double
-</span><a href="Network.AWS.MediaLive.Types.AacSettings.html#%24sel%3AsampleRate%3AAacSettings%27"><span class="hs-identifier hs-var hs-var">sampleRate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | Set to \&quot;broadcasterMixedAd\&quot; when input contains pre-mixed main audio +</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- AD (narration) as a stereo pair. The Audio Type field (audioType) will</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- be set to 3, which signals to downstream systems that this stream</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- contains \&quot;broadcaster mixed AD\&quot;. Note that the input received by the</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- encoder must contain pre-mixed audio; the encoder does not perform the</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- mixing. The values in audioTypeControl and audioType (in</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- AudioDescription) are ignored when set to broadcasterMixedAd. Leave set</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- to \&quot;normal\&quot; when input does not contain pre-mixed audio + AD.</span><span>
-</span><span id="line-60"></span><span>    </span><span id="%24sel%3AinputType%3AAacSettings%27"><span class="annot"><span class="annottext">AacSettings -&gt; Maybe AacInputType
-</span><a href="Network.AWS.MediaLive.Types.AacSettings.html#%24sel%3AinputType%3AAacSettings%27"><span class="hs-identifier hs-var hs-var">inputType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacInputType.html#AacInputType"><span class="hs-identifier hs-type">AacInputType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | AAC Profile.</span><span>
-</span><span id="line-62"></span><span>    </span><span id="%24sel%3Aprofile%3AAacSettings%27"><span class="annot"><span class="annottext">AacSettings -&gt; Maybe AacProfile
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | AAC Profile.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Aprofile%3AAacSettings%27"><span class="annot"><span class="annottext">AacSettings -&gt; Maybe AacProfile
 </span><a href="Network.AWS.MediaLive.Types.AacSettings.html#%24sel%3Aprofile%3AAacSettings%27"><span class="hs-identifier hs-var hs-var">profile</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacProfile.html#AacProfile"><span class="hs-identifier hs-type">AacProfile</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | VBR Quality Level - Only used if rateControlMode is VBR.</span><span>
-</span><span id="line-64"></span><span>    </span><span id="%24sel%3AvbrQuality%3AAacSettings%27"><span class="annot"><span class="annottext">AacSettings -&gt; Maybe AacVbrQuality
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | Rate Control Mode.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3ArateControlMode%3AAacSettings%27"><span class="annot"><span class="annottext">AacSettings -&gt; Maybe AacRateControlMode
+</span><a href="Network.AWS.MediaLive.Types.AacSettings.html#%24sel%3ArateControlMode%3AAacSettings%27"><span class="hs-identifier hs-var hs-var">rateControlMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacRateControlMode.html#AacRateControlMode"><span class="hs-identifier hs-type">AacRateControlMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | Sample rate in Hz. Valid values depend on rate control mode and profile.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AsampleRate%3AAacSettings%27"><span class="annot"><span class="annottext">AacSettings -&gt; Maybe Double
+</span><a href="Network.AWS.MediaLive.Types.AacSettings.html#%24sel%3AsampleRate%3AAacSettings%27"><span class="hs-identifier hs-var hs-var">sampleRate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- Transport Stream containers.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Aspec%3AAacSettings%27"><span class="annot"><span class="annottext">AacSettings -&gt; Maybe AacSpec
+</span><a href="Network.AWS.MediaLive.Types.AacSettings.html#%24sel%3Aspec%3AAacSettings%27"><span class="hs-identifier hs-var hs-var">spec</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSpec.html#AacSpec"><span class="hs-identifier hs-type">AacSpec</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | Average bitrate in bits\/second. Valid values depend on rate control</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- mode and profile.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3Abitrate%3AAacSettings%27"><span class="annot"><span class="annottext">AacSettings -&gt; Maybe Double
+</span><a href="Network.AWS.MediaLive.Types.AacSettings.html#%24sel%3Abitrate%3AAacSettings%27"><span class="hs-identifier hs-var hs-var">bitrate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | VBR Quality Level - Only used if rateControlMode is VBR.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AvbrQuality%3AAacSettings%27"><span class="annot"><span class="annottext">AacSettings -&gt; Maybe AacVbrQuality
 </span><a href="Network.AWS.MediaLive.Types.AacSettings.html#%24sel%3AvbrQuality%3AAacSettings%27"><span class="hs-identifier hs-var hs-var">vbrQuality</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacVbrQuality.html#AacVbrQuality"><span class="hs-identifier hs-type">AacVbrQuality</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | Average bitrate in bits\/second. Valid values depend on rate control</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- mode and profile.</span><span>
-</span><span id="line-67"></span><span>    </span><span id="%24sel%3Abitrate%3AAacSettings%27"><span class="annot"><span class="annottext">AacSettings -&gt; Maybe Double
-</span><a href="Network.AWS.MediaLive.Types.AacSettings.html#%24sel%3Abitrate%3AAacSettings%27"><span class="hs-identifier hs-var hs-var">bitrate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | Set to \&quot;broadcasterMixedAd\&quot; when input contains pre-mixed main audio +</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- AD (narration) as a stereo pair. The Audio Type field (audioType) will</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- be set to 3, which signals to downstream systems that this stream</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- contains \&quot;broadcaster mixed AD\&quot;. Note that the input received by the</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- encoder must contain pre-mixed audio; the encoder does not perform the</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- mixing. The values in audioTypeControl and audioType (in</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- AudioDescription) are ignored when set to broadcasterMixedAd. Leave set</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- to \&quot;normal\&quot; when input does not contain pre-mixed audio + AD.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AinputType%3AAacSettings%27"><span class="annot"><span class="annottext">AacSettings -&gt; Maybe AacInputType
+</span><a href="Network.AWS.MediaLive.Types.AacSettings.html#%24sel%3AinputType%3AAacSettings%27"><span class="hs-identifier hs-var hs-var">inputType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacInputType.html#AacInputType"><span class="hs-identifier hs-type">AacInputType</span></a></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679856443"><span id="local-6989586621679856445"><span class="annot"><span class="annottext">AacSettings -&gt; AacSettings -&gt; Bool
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679863100"><span id="local-6989586621679863102"><span class="annot"><span class="annottext">AacSettings -&gt; AacSettings -&gt; Bool
 (AacSettings -&gt; AacSettings -&gt; Bool)
 -&gt; (AacSettings -&gt; AacSettings -&gt; Bool) -&gt; Eq AacSettings
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -83,7 +83,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AacSettings -&gt; AacSettings -&gt; Bool
 == :: AacSettings -&gt; AacSettings -&gt; Bool
 $c== :: AacSettings -&gt; AacSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679856434"><span id="local-6989586621679856436"><span id="local-6989586621679856438"><span id="local-6989586621679856440"><span class="annot"><span class="annottext">ReadPrec [AacSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679863091"><span id="local-6989586621679863093"><span id="local-6989586621679863095"><span id="local-6989586621679863097"><span class="annot"><span class="annottext">ReadPrec [AacSettings]
 ReadPrec AacSettings
 Int -&gt; ReadS AacSettings
 ReadS [AacSettings]
@@ -103,7 +103,7 @@ readList :: ReadS [AacSettings]
 $creadList :: ReadS [AacSettings]
 readsPrec :: Int -&gt; ReadS AacSettings
 $creadsPrec :: Int -&gt; ReadS AacSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679856427"><span id="local-6989586621679856429"><span id="local-6989586621679856431"><span class="annot"><span class="annottext">Int -&gt; AacSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679863084"><span id="local-6989586621679863086"><span id="local-6989586621679863088"><span class="annot"><span class="annottext">Int -&gt; AacSettings -&gt; ShowS
 [AacSettings] -&gt; ShowS
 AacSettings -&gt; String
 (Int -&gt; AacSettings -&gt; ShowS)
@@ -137,7 +137,7 @@ $cfrom :: forall x. AacSettings -&gt; Rep AacSettings x
 </span><span id="line-76"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-78"></span><span class="hs-comment">--</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- 'rateControlMode', 'aacSettings_rateControlMode' - Rate Control Mode.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'rawFormat', 'aacSettings_rawFormat' - Sets LATM \/ LOAS AAC output for raw containers.</span><span>
 </span><span id="line-80"></span><span class="hs-comment">--</span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- 'codingMode', 'aacSettings_codingMode' - Mono, Stereo, or 5.1 channel layout. Valid values depend on rate control</span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- mode and profile. The adReceiverMix setting receives a stereo</span><span>
@@ -145,103 +145,100 @@ $cfrom :: forall x. AacSettings -&gt; Rep AacSettings x
 </span><span id="line-84"></span><span class="hs-comment">-- description track, with control data emitted in the PES header as per</span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- ETSI TS 101 154 Annex E.</span><span>
 </span><span id="line-86"></span><span class="hs-comment">--</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- 'spec', 'aacSettings_spec' - Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- Transport Stream containers.</span><span>
-</span><span id="line-89"></span><span class="hs-comment">--</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- 'rawFormat', 'aacSettings_rawFormat' - Sets LATM \/ LOAS AAC output for raw containers.</span><span>
-</span><span id="line-91"></span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- 'sampleRate', 'aacSettings_sampleRate' - Sample rate in Hz. Valid values depend on rate control mode and profile.</span><span>
-</span><span id="line-93"></span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- 'inputType', 'aacSettings_inputType' - Set to \&quot;broadcasterMixedAd\&quot; when input contains pre-mixed main audio +</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- AD (narration) as a stereo pair. The Audio Type field (audioType) will</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- be set to 3, which signals to downstream systems that this stream</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- contains \&quot;broadcaster mixed AD\&quot;. Note that the input received by the</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- encoder must contain pre-mixed audio; the encoder does not perform the</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- mixing. The values in audioTypeControl and audioType (in</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- AudioDescription) are ignored when set to broadcasterMixedAd. Leave set</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- to \&quot;normal\&quot; when input does not contain pre-mixed audio + AD.</span><span>
-</span><span id="line-102"></span><span class="hs-comment">--</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- 'profile', 'aacSettings_profile' - AAC Profile.</span><span>
-</span><span id="line-104"></span><span class="hs-comment">--</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- 'vbrQuality', 'aacSettings_vbrQuality' - VBR Quality Level - Only used if rateControlMode is VBR.</span><span>
-</span><span id="line-106"></span><span class="hs-comment">--</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- 'bitrate', 'aacSettings_bitrate' - Average bitrate in bits\/second. Valid values depend on rate control</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- mode and profile.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'profile', 'aacSettings_profile' - AAC Profile.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'rateControlMode', 'aacSettings_rateControlMode' - Rate Control Mode.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'sampleRate', 'aacSettings_sampleRate' - Sample rate in Hz. Valid values depend on rate control mode and profile.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'spec', 'aacSettings_spec' - Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- Transport Stream containers.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'bitrate', 'aacSettings_bitrate' - Average bitrate in bits\/second. Valid values depend on rate control</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- mode and profile.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'vbrQuality', 'aacSettings_vbrQuality' - VBR Quality Level - Only used if rateControlMode is VBR.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'inputType', 'aacSettings_inputType' - Set to \&quot;broadcasterMixedAd\&quot; when input contains pre-mixed main audio +</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- AD (narration) as a stereo pair. The Audio Type field (audioType) will</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- be set to 3, which signals to downstream systems that this stream</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- contains \&quot;broadcaster mixed AD\&quot;. Note that the input received by the</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- encoder must contain pre-mixed audio; the encoder does not perform the</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- mixing. The values in audioTypeControl and audioType (in</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- AudioDescription) are ignored when set to broadcasterMixedAd. Leave set</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- to \&quot;normal\&quot; when input does not contain pre-mixed audio + AD.</span><span>
 </span><span id="line-109"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#newAacSettings"><span class="hs-identifier hs-type">newAacSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-110"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings"><span class="hs-identifier hs-type">AacSettings</span></a></span><span>
 </span><span id="line-111"></span><span id="newAacSettings"><span class="annot"><span class="annottext">newAacSettings :: AacSettings
 </span><a href="Network.AWS.MediaLive.Types.AacSettings.html#newAacSettings"><span class="hs-identifier hs-var hs-var">newAacSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-112"></span><span>  </span><span class="annot"><span class="annottext">AacSettings' :: Maybe AacRateControlMode
+</span><span id="line-112"></span><span>  </span><span class="annot"><span class="annottext">AacSettings' :: Maybe AacRawFormat
 -&gt; Maybe AacCodingMode
--&gt; Maybe AacSpec
--&gt; Maybe AacRawFormat
--&gt; Maybe Double
--&gt; Maybe AacInputType
 -&gt; Maybe AacProfile
--&gt; Maybe AacVbrQuality
+-&gt; Maybe AacRateControlMode
 -&gt; Maybe Double
+-&gt; Maybe AacSpec
+-&gt; Maybe Double
+-&gt; Maybe AacVbrQuality
+-&gt; Maybe AacInputType
 -&gt; AacSettings
 </span><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings%27"><span class="hs-identifier hs-type">AacSettings'</span></a></span><span>
-</span><span id="line-113"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:rateControlMode:AacSettings' :: Maybe AacRateControlMode
-</span><a href="Network.AWS.MediaLive.Types.AacSettings.html#%24sel%3ArateControlMode%3AAacSettings%27"><span class="hs-identifier hs-var">rateControlMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AacRateControlMode
+</span><span id="line-113"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:rawFormat:AacSettings' :: Maybe AacRawFormat
+</span><a href="Network.AWS.MediaLive.Types.AacSettings.html#%24sel%3ArawFormat%3AAacSettings%27"><span class="hs-identifier hs-var">rawFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AacRawFormat
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:codingMode:AacSettings' :: Maybe AacCodingMode
 </span><a href="Network.AWS.MediaLive.Types.AacSettings.html#%24sel%3AcodingMode%3AAacSettings%27"><span class="hs-identifier hs-var">codingMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AacCodingMode
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:spec:AacSettings' :: Maybe AacSpec
-</span><a href="Network.AWS.MediaLive.Types.AacSettings.html#%24sel%3Aspec%3AAacSettings%27"><span class="hs-identifier hs-var">spec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AacSpec
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:profile:AacSettings' :: Maybe AacProfile
+</span><a href="Network.AWS.MediaLive.Types.AacSettings.html#%24sel%3Aprofile%3AAacSettings%27"><span class="hs-identifier hs-var">profile</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AacProfile
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:rawFormat:AacSettings' :: Maybe AacRawFormat
-</span><a href="Network.AWS.MediaLive.Types.AacSettings.html#%24sel%3ArawFormat%3AAacSettings%27"><span class="hs-identifier hs-var">rawFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AacRawFormat
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:rateControlMode:AacSettings' :: Maybe AacRateControlMode
+</span><a href="Network.AWS.MediaLive.Types.AacSettings.html#%24sel%3ArateControlMode%3AAacSettings%27"><span class="hs-identifier hs-var">rateControlMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AacRateControlMode
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:sampleRate:AacSettings' :: Maybe Double
 </span><a href="Network.AWS.MediaLive.Types.AacSettings.html#%24sel%3AsampleRate%3AAacSettings%27"><span class="hs-identifier hs-var">sampleRate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:inputType:AacSettings' :: Maybe AacInputType
-</span><a href="Network.AWS.MediaLive.Types.AacSettings.html#%24sel%3AinputType%3AAacSettings%27"><span class="hs-identifier hs-var">inputType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AacInputType
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:spec:AacSettings' :: Maybe AacSpec
+</span><a href="Network.AWS.MediaLive.Types.AacSettings.html#%24sel%3Aspec%3AAacSettings%27"><span class="hs-identifier hs-var">spec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AacSpec
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:profile:AacSettings' :: Maybe AacProfile
-</span><a href="Network.AWS.MediaLive.Types.AacSettings.html#%24sel%3Aprofile%3AAacSettings%27"><span class="hs-identifier hs-var">profile</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AacProfile
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:bitrate:AacSettings' :: Maybe Double
+</span><a href="Network.AWS.MediaLive.Types.AacSettings.html#%24sel%3Abitrate%3AAacSettings%27"><span class="hs-identifier hs-var">bitrate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:vbrQuality:AacSettings' :: Maybe AacVbrQuality
 </span><a href="Network.AWS.MediaLive.Types.AacSettings.html#%24sel%3AvbrQuality%3AAacSettings%27"><span class="hs-identifier hs-var">vbrQuality</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AacVbrQuality
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:bitrate:AacSettings' :: Maybe Double
-</span><a href="Network.AWS.MediaLive.Types.AacSettings.html#%24sel%3Abitrate%3AAacSettings%27"><span class="hs-identifier hs-var">bitrate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:inputType:AacSettings' :: Maybe AacInputType
+</span><a href="Network.AWS.MediaLive.Types.AacSettings.html#%24sel%3AinputType%3AAacSettings%27"><span class="hs-identifier hs-var">inputType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AacInputType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-122"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- | Rate Control Mode.</span><span>
-</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#aacSettings_rateControlMode"><span class="hs-identifier hs-type">aacSettings_rateControlMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings"><span class="hs-identifier hs-type">AacSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacRateControlMode.html#AacRateControlMode"><span class="hs-identifier hs-type">AacRateControlMode</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span id="aacSettings_rateControlMode"><span class="annot"><span class="annottext">aacSettings_rateControlMode :: (Maybe AacRateControlMode -&gt; f (Maybe AacRateControlMode))
+</span><span id="line-124"></span><span class="hs-comment">-- | Sets LATM \/ LOAS AAC output for raw containers.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#aacSettings_rawFormat"><span class="hs-identifier hs-type">aacSettings_rawFormat</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings"><span class="hs-identifier hs-type">AacSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacRawFormat.html#AacRawFormat"><span class="hs-identifier hs-type">AacRawFormat</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="aacSettings_rawFormat"><span class="annot"><span class="annottext">aacSettings_rawFormat :: (Maybe AacRawFormat -&gt; f (Maybe AacRawFormat))
 -&gt; AacSettings -&gt; f AacSettings
-</span><a href="Network.AWS.MediaLive.Types.AacSettings.html#aacSettings_rateControlMode"><span class="hs-identifier hs-var hs-var">aacSettings_rateControlMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AacSettings -&gt; Maybe AacRateControlMode)
--&gt; (AacSettings -&gt; Maybe AacRateControlMode -&gt; AacSettings)
+</span><a href="Network.AWS.MediaLive.Types.AacSettings.html#aacSettings_rawFormat"><span class="hs-identifier hs-var hs-var">aacSettings_rawFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AacSettings -&gt; Maybe AacRawFormat)
+-&gt; (AacSettings -&gt; Maybe AacRawFormat -&gt; AacSettings)
 -&gt; Lens
-     AacSettings
-     AacSettings
-     (Maybe AacRateControlMode)
-     (Maybe AacRateControlMode)
+     AacSettings AacSettings (Maybe AacRawFormat) (Maybe AacRawFormat)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings%27"><span class="hs-identifier hs-type">AacSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679856418"><span class="annot"><span class="annottext">Maybe AacRateControlMode
-rateControlMode :: Maybe AacRateControlMode
-$sel:rateControlMode:AacSettings' :: AacSettings -&gt; Maybe AacRateControlMode
-</span><a href="#local-6989586621679856418"><span class="hs-identifier hs-var hs-var">rateControlMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AacRateControlMode
-</span><a href="#local-6989586621679856418"><span class="hs-identifier hs-var">rateControlMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679856417"><span class="annot"><span class="annottext">s :: AacSettings
-</span><a href="#local-6989586621679856417"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings%27"><span class="hs-identifier hs-type">AacSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679856416"><span class="annot"><span class="annottext">Maybe AacRateControlMode
-</span><a href="#local-6989586621679856416"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AacSettings
-</span><a href="#local-6989586621679856417"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rateControlMode:AacSettings' :: Maybe AacRateControlMode
-</span><a href="Network.AWS.MediaLive.Types.AacSettings.html#%24sel%3ArateControlMode%3AAacSettings%27"><span class="hs-identifier hs-var">rateControlMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AacRateControlMode
-</span><a href="#local-6989586621679856416"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings"><span class="hs-identifier hs-type">AacSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings%27"><span class="hs-identifier hs-type">AacSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679863075"><span class="annot"><span class="annottext">Maybe AacRawFormat
+rawFormat :: Maybe AacRawFormat
+$sel:rawFormat:AacSettings' :: AacSettings -&gt; Maybe AacRawFormat
+</span><a href="#local-6989586621679863075"><span class="hs-identifier hs-var hs-var">rawFormat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AacRawFormat
+</span><a href="#local-6989586621679863075"><span class="hs-identifier hs-var">rawFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679863074"><span class="annot"><span class="annottext">s :: AacSettings
+</span><a href="#local-6989586621679863074"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings%27"><span class="hs-identifier hs-type">AacSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679863073"><span class="annot"><span class="annottext">Maybe AacRawFormat
+</span><a href="#local-6989586621679863073"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AacSettings
+</span><a href="#local-6989586621679863074"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rawFormat:AacSettings' :: Maybe AacRawFormat
+</span><a href="Network.AWS.MediaLive.Types.AacSettings.html#%24sel%3ArawFormat%3AAacSettings%27"><span class="hs-identifier hs-var">rawFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AacRawFormat
+</span><a href="#local-6989586621679863073"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings"><span class="hs-identifier hs-type">AacSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | Mono, Stereo, or 5.1 channel layout. Valid values depend on rate control</span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- mode and profile. The adReceiverMix setting receives a stereo</span><span>
@@ -256,163 +253,166 @@ $sel:rateControlMode:AacSettings' :: AacSettings -&gt; Maybe AacRateControlMode
 -&gt; Lens
      AacSettings AacSettings (Maybe AacCodingMode) (Maybe AacCodingMode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings%27"><span class="hs-identifier hs-type">AacSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679856414"><span class="annot"><span class="annottext">Maybe AacCodingMode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings%27"><span class="hs-identifier hs-type">AacSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679863071"><span class="annot"><span class="annottext">Maybe AacCodingMode
 codingMode :: Maybe AacCodingMode
 $sel:codingMode:AacSettings' :: AacSettings -&gt; Maybe AacCodingMode
-</span><a href="#local-6989586621679856414"><span class="hs-identifier hs-var hs-var">codingMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AacCodingMode
-</span><a href="#local-6989586621679856414"><span class="hs-identifier hs-var">codingMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679856413"><span class="annot"><span class="annottext">s :: AacSettings
-</span><a href="#local-6989586621679856413"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings%27"><span class="hs-identifier hs-type">AacSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679856412"><span class="annot"><span class="annottext">Maybe AacCodingMode
-</span><a href="#local-6989586621679856412"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AacSettings
-</span><a href="#local-6989586621679856413"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codingMode:AacSettings' :: Maybe AacCodingMode
+</span><a href="#local-6989586621679863071"><span class="hs-identifier hs-var hs-var">codingMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AacCodingMode
+</span><a href="#local-6989586621679863071"><span class="hs-identifier hs-var">codingMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679863070"><span class="annot"><span class="annottext">s :: AacSettings
+</span><a href="#local-6989586621679863070"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings%27"><span class="hs-identifier hs-type">AacSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679863069"><span class="annot"><span class="annottext">Maybe AacCodingMode
+</span><a href="#local-6989586621679863069"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AacSettings
+</span><a href="#local-6989586621679863070"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codingMode:AacSettings' :: Maybe AacCodingMode
 </span><a href="Network.AWS.MediaLive.Types.AacSettings.html#%24sel%3AcodingMode%3AAacSettings%27"><span class="hs-identifier hs-var">codingMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AacCodingMode
-</span><a href="#local-6989586621679856412"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings"><span class="hs-identifier hs-type">AacSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679863069"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings"><span class="hs-identifier hs-type">AacSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- | Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2</span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- Transport Stream containers.</span><span>
-</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#aacSettings_spec"><span class="hs-identifier hs-type">aacSettings_spec</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings"><span class="hs-identifier hs-type">AacSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSpec.html#AacSpec"><span class="hs-identifier hs-type">AacSpec</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-139"></span><span id="aacSettings_spec"><span class="annot"><span class="annottext">aacSettings_spec :: (Maybe AacSpec -&gt; f (Maybe AacSpec))
--&gt; AacSettings -&gt; f AacSettings
-</span><a href="Network.AWS.MediaLive.Types.AacSettings.html#aacSettings_spec"><span class="hs-identifier hs-var hs-var">aacSettings_spec</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AacSettings -&gt; Maybe AacSpec)
--&gt; (AacSettings -&gt; Maybe AacSpec -&gt; AacSettings)
--&gt; Lens AacSettings AacSettings (Maybe AacSpec) (Maybe AacSpec)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings%27"><span class="hs-identifier hs-type">AacSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679856410"><span class="annot"><span class="annottext">Maybe AacSpec
-spec :: Maybe AacSpec
-$sel:spec:AacSettings' :: AacSettings -&gt; Maybe AacSpec
-</span><a href="#local-6989586621679856410"><span class="hs-identifier hs-var hs-var">spec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AacSpec
-</span><a href="#local-6989586621679856410"><span class="hs-identifier hs-var">spec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679856409"><span class="annot"><span class="annottext">s :: AacSettings
-</span><a href="#local-6989586621679856409"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings%27"><span class="hs-identifier hs-type">AacSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679856408"><span class="annot"><span class="annottext">Maybe AacSpec
-</span><a href="#local-6989586621679856408"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AacSettings
-</span><a href="#local-6989586621679856409"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:spec:AacSettings' :: Maybe AacSpec
-</span><a href="Network.AWS.MediaLive.Types.AacSettings.html#%24sel%3Aspec%3AAacSettings%27"><span class="hs-identifier hs-var">spec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AacSpec
-</span><a href="#local-6989586621679856408"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings"><span class="hs-identifier hs-type">AacSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- | Sets LATM \/ LOAS AAC output for raw containers.</span><span>
-</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#aacSettings_rawFormat"><span class="hs-identifier hs-type">aacSettings_rawFormat</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings"><span class="hs-identifier hs-type">AacSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacRawFormat.html#AacRawFormat"><span class="hs-identifier hs-type">AacRawFormat</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span id="aacSettings_rawFormat"><span class="annot"><span class="annottext">aacSettings_rawFormat :: (Maybe AacRawFormat -&gt; f (Maybe AacRawFormat))
--&gt; AacSettings -&gt; f AacSettings
-</span><a href="Network.AWS.MediaLive.Types.AacSettings.html#aacSettings_rawFormat"><span class="hs-identifier hs-var hs-var">aacSettings_rawFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AacSettings -&gt; Maybe AacRawFormat)
--&gt; (AacSettings -&gt; Maybe AacRawFormat -&gt; AacSettings)
--&gt; Lens
-     AacSettings AacSettings (Maybe AacRawFormat) (Maybe AacRawFormat)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings%27"><span class="hs-identifier hs-type">AacSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679856406"><span class="annot"><span class="annottext">Maybe AacRawFormat
-rawFormat :: Maybe AacRawFormat
-$sel:rawFormat:AacSettings' :: AacSettings -&gt; Maybe AacRawFormat
-</span><a href="#local-6989586621679856406"><span class="hs-identifier hs-var hs-var">rawFormat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AacRawFormat
-</span><a href="#local-6989586621679856406"><span class="hs-identifier hs-var">rawFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679856405"><span class="annot"><span class="annottext">s :: AacSettings
-</span><a href="#local-6989586621679856405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings%27"><span class="hs-identifier hs-type">AacSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679856404"><span class="annot"><span class="annottext">Maybe AacRawFormat
-</span><a href="#local-6989586621679856404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AacSettings
-</span><a href="#local-6989586621679856405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rawFormat:AacSettings' :: Maybe AacRawFormat
-</span><a href="Network.AWS.MediaLive.Types.AacSettings.html#%24sel%3ArawFormat%3AAacSettings%27"><span class="hs-identifier hs-var">rawFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AacRawFormat
-</span><a href="#local-6989586621679856404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings"><span class="hs-identifier hs-type">AacSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- | Sample rate in Hz. Valid values depend on rate control mode and profile.</span><span>
-</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#aacSettings_sampleRate"><span class="hs-identifier hs-type">aacSettings_sampleRate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings"><span class="hs-identifier hs-type">AacSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span id="aacSettings_sampleRate"><span class="annot"><span class="annottext">aacSettings_sampleRate :: (Maybe Double -&gt; f (Maybe Double)) -&gt; AacSettings -&gt; f AacSettings
-</span><a href="Network.AWS.MediaLive.Types.AacSettings.html#aacSettings_sampleRate"><span class="hs-identifier hs-var hs-var">aacSettings_sampleRate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AacSettings -&gt; Maybe Double)
--&gt; (AacSettings -&gt; Maybe Double -&gt; AacSettings)
--&gt; Lens AacSettings AacSettings (Maybe Double) (Maybe Double)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings%27"><span class="hs-identifier hs-type">AacSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679856402"><span class="annot"><span class="annottext">Maybe Double
-sampleRate :: Maybe Double
-$sel:sampleRate:AacSettings' :: AacSettings -&gt; Maybe Double
-</span><a href="#local-6989586621679856402"><span class="hs-identifier hs-var hs-var">sampleRate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679856402"><span class="hs-identifier hs-var">sampleRate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679856401"><span class="annot"><span class="annottext">s :: AacSettings
-</span><a href="#local-6989586621679856401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings%27"><span class="hs-identifier hs-type">AacSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679856400"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679856400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AacSettings
-</span><a href="#local-6989586621679856401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sampleRate:AacSettings' :: Maybe Double
-</span><a href="Network.AWS.MediaLive.Types.AacSettings.html#%24sel%3AsampleRate%3AAacSettings%27"><span class="hs-identifier hs-var">sampleRate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679856400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings"><span class="hs-identifier hs-type">AacSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- | Set to \&quot;broadcasterMixedAd\&quot; when input contains pre-mixed main audio +</span><span>
-</span><span id="line-150"></span><span class="hs-comment">-- AD (narration) as a stereo pair. The Audio Type field (audioType) will</span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- be set to 3, which signals to downstream systems that this stream</span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- contains \&quot;broadcaster mixed AD\&quot;. Note that the input received by the</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- encoder must contain pre-mixed audio; the encoder does not perform the</span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- mixing. The values in audioTypeControl and audioType (in</span><span>
-</span><span id="line-155"></span><span class="hs-comment">-- AudioDescription) are ignored when set to broadcasterMixedAd. Leave set</span><span>
-</span><span id="line-156"></span><span class="hs-comment">-- to \&quot;normal\&quot; when input does not contain pre-mixed audio + AD.</span><span>
-</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#aacSettings_inputType"><span class="hs-identifier hs-type">aacSettings_inputType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings"><span class="hs-identifier hs-type">AacSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacInputType.html#AacInputType"><span class="hs-identifier hs-type">AacInputType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-158"></span><span id="aacSettings_inputType"><span class="annot"><span class="annottext">aacSettings_inputType :: (Maybe AacInputType -&gt; f (Maybe AacInputType))
--&gt; AacSettings -&gt; f AacSettings
-</span><a href="Network.AWS.MediaLive.Types.AacSettings.html#aacSettings_inputType"><span class="hs-identifier hs-var hs-var">aacSettings_inputType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AacSettings -&gt; Maybe AacInputType)
--&gt; (AacSettings -&gt; Maybe AacInputType -&gt; AacSettings)
--&gt; Lens
-     AacSettings AacSettings (Maybe AacInputType) (Maybe AacInputType)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings%27"><span class="hs-identifier hs-type">AacSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679856398"><span class="annot"><span class="annottext">Maybe AacInputType
-inputType :: Maybe AacInputType
-$sel:inputType:AacSettings' :: AacSettings -&gt; Maybe AacInputType
-</span><a href="#local-6989586621679856398"><span class="hs-identifier hs-var hs-var">inputType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AacInputType
-</span><a href="#local-6989586621679856398"><span class="hs-identifier hs-var">inputType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679856397"><span class="annot"><span class="annottext">s :: AacSettings
-</span><a href="#local-6989586621679856397"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings%27"><span class="hs-identifier hs-type">AacSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679856396"><span class="annot"><span class="annottext">Maybe AacInputType
-</span><a href="#local-6989586621679856396"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AacSettings
-</span><a href="#local-6989586621679856397"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputType:AacSettings' :: Maybe AacInputType
-</span><a href="Network.AWS.MediaLive.Types.AacSettings.html#%24sel%3AinputType%3AAacSettings%27"><span class="hs-identifier hs-var">inputType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AacInputType
-</span><a href="#local-6989586621679856396"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings"><span class="hs-identifier hs-type">AacSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- | AAC Profile.</span><span>
-</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#aacSettings_profile"><span class="hs-identifier hs-type">aacSettings_profile</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings"><span class="hs-identifier hs-type">AacSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacProfile.html#AacProfile"><span class="hs-identifier hs-type">AacProfile</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-162"></span><span id="aacSettings_profile"><span class="annot"><span class="annottext">aacSettings_profile :: (Maybe AacProfile -&gt; f (Maybe AacProfile))
+</span><span id="line-136"></span><span class="hs-comment">-- | AAC Profile.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#aacSettings_profile"><span class="hs-identifier hs-type">aacSettings_profile</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings"><span class="hs-identifier hs-type">AacSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacProfile.html#AacProfile"><span class="hs-identifier hs-type">AacProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="aacSettings_profile"><span class="annot"><span class="annottext">aacSettings_profile :: (Maybe AacProfile -&gt; f (Maybe AacProfile))
 -&gt; AacSettings -&gt; f AacSettings
 </span><a href="Network.AWS.MediaLive.Types.AacSettings.html#aacSettings_profile"><span class="hs-identifier hs-var hs-var">aacSettings_profile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AacSettings -&gt; Maybe AacProfile)
 -&gt; (AacSettings -&gt; Maybe AacProfile -&gt; AacSettings)
 -&gt; Lens
      AacSettings AacSettings (Maybe AacProfile) (Maybe AacProfile)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings%27"><span class="hs-identifier hs-type">AacSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679856394"><span class="annot"><span class="annottext">Maybe AacProfile
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings%27"><span class="hs-identifier hs-type">AacSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679863067"><span class="annot"><span class="annottext">Maybe AacProfile
 profile :: Maybe AacProfile
 $sel:profile:AacSettings' :: AacSettings -&gt; Maybe AacProfile
-</span><a href="#local-6989586621679856394"><span class="hs-identifier hs-var hs-var">profile</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AacProfile
-</span><a href="#local-6989586621679856394"><span class="hs-identifier hs-var">profile</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679856393"><span class="annot"><span class="annottext">s :: AacSettings
-</span><a href="#local-6989586621679856393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings%27"><span class="hs-identifier hs-type">AacSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679856392"><span class="annot"><span class="annottext">Maybe AacProfile
-</span><a href="#local-6989586621679856392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AacSettings
-</span><a href="#local-6989586621679856393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:profile:AacSettings' :: Maybe AacProfile
+</span><a href="#local-6989586621679863067"><span class="hs-identifier hs-var hs-var">profile</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AacProfile
+</span><a href="#local-6989586621679863067"><span class="hs-identifier hs-var">profile</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679863066"><span class="annot"><span class="annottext">s :: AacSettings
+</span><a href="#local-6989586621679863066"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings%27"><span class="hs-identifier hs-type">AacSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679863065"><span class="annot"><span class="annottext">Maybe AacProfile
+</span><a href="#local-6989586621679863065"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AacSettings
+</span><a href="#local-6989586621679863066"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:profile:AacSettings' :: Maybe AacProfile
 </span><a href="Network.AWS.MediaLive.Types.AacSettings.html#%24sel%3Aprofile%3AAacSettings%27"><span class="hs-identifier hs-var">profile</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AacProfile
-</span><a href="#local-6989586621679856392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings"><span class="hs-identifier hs-type">AacSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-comment">-- | VBR Quality Level - Only used if rateControlMode is VBR.</span><span>
-</span><span id="line-165"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#aacSettings_vbrQuality"><span class="hs-identifier hs-type">aacSettings_vbrQuality</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings"><span class="hs-identifier hs-type">AacSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacVbrQuality.html#AacVbrQuality"><span class="hs-identifier hs-type">AacVbrQuality</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-166"></span><span id="aacSettings_vbrQuality"><span class="annot"><span class="annottext">aacSettings_vbrQuality :: (Maybe AacVbrQuality -&gt; f (Maybe AacVbrQuality))
+</span><a href="#local-6989586621679863065"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings"><span class="hs-identifier hs-type">AacSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | Rate Control Mode.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#aacSettings_rateControlMode"><span class="hs-identifier hs-type">aacSettings_rateControlMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings"><span class="hs-identifier hs-type">AacSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacRateControlMode.html#AacRateControlMode"><span class="hs-identifier hs-type">AacRateControlMode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="aacSettings_rateControlMode"><span class="annot"><span class="annottext">aacSettings_rateControlMode :: (Maybe AacRateControlMode -&gt; f (Maybe AacRateControlMode))
+-&gt; AacSettings -&gt; f AacSettings
+</span><a href="Network.AWS.MediaLive.Types.AacSettings.html#aacSettings_rateControlMode"><span class="hs-identifier hs-var hs-var">aacSettings_rateControlMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AacSettings -&gt; Maybe AacRateControlMode)
+-&gt; (AacSettings -&gt; Maybe AacRateControlMode -&gt; AacSettings)
+-&gt; Lens
+     AacSettings
+     AacSettings
+     (Maybe AacRateControlMode)
+     (Maybe AacRateControlMode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings%27"><span class="hs-identifier hs-type">AacSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679863063"><span class="annot"><span class="annottext">Maybe AacRateControlMode
+rateControlMode :: Maybe AacRateControlMode
+$sel:rateControlMode:AacSettings' :: AacSettings -&gt; Maybe AacRateControlMode
+</span><a href="#local-6989586621679863063"><span class="hs-identifier hs-var hs-var">rateControlMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AacRateControlMode
+</span><a href="#local-6989586621679863063"><span class="hs-identifier hs-var">rateControlMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679863062"><span class="annot"><span class="annottext">s :: AacSettings
+</span><a href="#local-6989586621679863062"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings%27"><span class="hs-identifier hs-type">AacSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679863061"><span class="annot"><span class="annottext">Maybe AacRateControlMode
+</span><a href="#local-6989586621679863061"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AacSettings
+</span><a href="#local-6989586621679863062"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rateControlMode:AacSettings' :: Maybe AacRateControlMode
+</span><a href="Network.AWS.MediaLive.Types.AacSettings.html#%24sel%3ArateControlMode%3AAacSettings%27"><span class="hs-identifier hs-var">rateControlMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AacRateControlMode
+</span><a href="#local-6989586621679863061"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings"><span class="hs-identifier hs-type">AacSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | Sample rate in Hz. Valid values depend on rate control mode and profile.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#aacSettings_sampleRate"><span class="hs-identifier hs-type">aacSettings_sampleRate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings"><span class="hs-identifier hs-type">AacSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="aacSettings_sampleRate"><span class="annot"><span class="annottext">aacSettings_sampleRate :: (Maybe Double -&gt; f (Maybe Double)) -&gt; AacSettings -&gt; f AacSettings
+</span><a href="Network.AWS.MediaLive.Types.AacSettings.html#aacSettings_sampleRate"><span class="hs-identifier hs-var hs-var">aacSettings_sampleRate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AacSettings -&gt; Maybe Double)
+-&gt; (AacSettings -&gt; Maybe Double -&gt; AacSettings)
+-&gt; Lens AacSettings AacSettings (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings%27"><span class="hs-identifier hs-type">AacSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679863059"><span class="annot"><span class="annottext">Maybe Double
+sampleRate :: Maybe Double
+$sel:sampleRate:AacSettings' :: AacSettings -&gt; Maybe Double
+</span><a href="#local-6989586621679863059"><span class="hs-identifier hs-var hs-var">sampleRate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679863059"><span class="hs-identifier hs-var">sampleRate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679863058"><span class="annot"><span class="annottext">s :: AacSettings
+</span><a href="#local-6989586621679863058"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings%27"><span class="hs-identifier hs-type">AacSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679863057"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679863057"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AacSettings
+</span><a href="#local-6989586621679863058"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sampleRate:AacSettings' :: Maybe Double
+</span><a href="Network.AWS.MediaLive.Types.AacSettings.html#%24sel%3AsampleRate%3AAacSettings%27"><span class="hs-identifier hs-var">sampleRate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679863057"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings"><span class="hs-identifier hs-type">AacSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- Transport Stream containers.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#aacSettings_spec"><span class="hs-identifier hs-type">aacSettings_spec</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings"><span class="hs-identifier hs-type">AacSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSpec.html#AacSpec"><span class="hs-identifier hs-type">AacSpec</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span id="aacSettings_spec"><span class="annot"><span class="annottext">aacSettings_spec :: (Maybe AacSpec -&gt; f (Maybe AacSpec))
+-&gt; AacSettings -&gt; f AacSettings
+</span><a href="Network.AWS.MediaLive.Types.AacSettings.html#aacSettings_spec"><span class="hs-identifier hs-var hs-var">aacSettings_spec</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AacSettings -&gt; Maybe AacSpec)
+-&gt; (AacSettings -&gt; Maybe AacSpec -&gt; AacSettings)
+-&gt; Lens AacSettings AacSettings (Maybe AacSpec) (Maybe AacSpec)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings%27"><span class="hs-identifier hs-type">AacSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679863055"><span class="annot"><span class="annottext">Maybe AacSpec
+spec :: Maybe AacSpec
+$sel:spec:AacSettings' :: AacSettings -&gt; Maybe AacSpec
+</span><a href="#local-6989586621679863055"><span class="hs-identifier hs-var hs-var">spec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AacSpec
+</span><a href="#local-6989586621679863055"><span class="hs-identifier hs-var">spec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679863054"><span class="annot"><span class="annottext">s :: AacSettings
+</span><a href="#local-6989586621679863054"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings%27"><span class="hs-identifier hs-type">AacSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679863053"><span class="annot"><span class="annottext">Maybe AacSpec
+</span><a href="#local-6989586621679863053"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AacSettings
+</span><a href="#local-6989586621679863054"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:spec:AacSettings' :: Maybe AacSpec
+</span><a href="Network.AWS.MediaLive.Types.AacSettings.html#%24sel%3Aspec%3AAacSettings%27"><span class="hs-identifier hs-var">spec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AacSpec
+</span><a href="#local-6989586621679863053"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings"><span class="hs-identifier hs-type">AacSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | Average bitrate in bits\/second. Valid values depend on rate control</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- mode and profile.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#aacSettings_bitrate"><span class="hs-identifier hs-type">aacSettings_bitrate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings"><span class="hs-identifier hs-type">AacSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span id="aacSettings_bitrate"><span class="annot"><span class="annottext">aacSettings_bitrate :: (Maybe Double -&gt; f (Maybe Double)) -&gt; AacSettings -&gt; f AacSettings
+</span><a href="Network.AWS.MediaLive.Types.AacSettings.html#aacSettings_bitrate"><span class="hs-identifier hs-var hs-var">aacSettings_bitrate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AacSettings -&gt; Maybe Double)
+-&gt; (AacSettings -&gt; Maybe Double -&gt; AacSettings)
+-&gt; Lens AacSettings AacSettings (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings%27"><span class="hs-identifier hs-type">AacSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679863051"><span class="annot"><span class="annottext">Maybe Double
+bitrate :: Maybe Double
+$sel:bitrate:AacSettings' :: AacSettings -&gt; Maybe Double
+</span><a href="#local-6989586621679863051"><span class="hs-identifier hs-var hs-var">bitrate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679863051"><span class="hs-identifier hs-var">bitrate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679863050"><span class="annot"><span class="annottext">s :: AacSettings
+</span><a href="#local-6989586621679863050"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings%27"><span class="hs-identifier hs-type">AacSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679863049"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679863049"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AacSettings
+</span><a href="#local-6989586621679863050"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bitrate:AacSettings' :: Maybe Double
+</span><a href="Network.AWS.MediaLive.Types.AacSettings.html#%24sel%3Abitrate%3AAacSettings%27"><span class="hs-identifier hs-var">bitrate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679863049"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings"><span class="hs-identifier hs-type">AacSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | VBR Quality Level - Only used if rateControlMode is VBR.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#aacSettings_vbrQuality"><span class="hs-identifier hs-type">aacSettings_vbrQuality</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings"><span class="hs-identifier hs-type">AacSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacVbrQuality.html#AacVbrQuality"><span class="hs-identifier hs-type">AacVbrQuality</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span id="aacSettings_vbrQuality"><span class="annot"><span class="annottext">aacSettings_vbrQuality :: (Maybe AacVbrQuality -&gt; f (Maybe AacVbrQuality))
 -&gt; AacSettings -&gt; f AacSettings
 </span><a href="Network.AWS.MediaLive.Types.AacSettings.html#aacSettings_vbrQuality"><span class="hs-identifier hs-var hs-var">aacSettings_vbrQuality</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AacSettings -&gt; Maybe AacVbrQuality)
 -&gt; (AacSettings -&gt; Maybe AacVbrQuality -&gt; AacSettings)
 -&gt; Lens
      AacSettings AacSettings (Maybe AacVbrQuality) (Maybe AacVbrQuality)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings%27"><span class="hs-identifier hs-type">AacSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679856390"><span class="annot"><span class="annottext">Maybe AacVbrQuality
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings%27"><span class="hs-identifier hs-type">AacSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679863047"><span class="annot"><span class="annottext">Maybe AacVbrQuality
 vbrQuality :: Maybe AacVbrQuality
 $sel:vbrQuality:AacSettings' :: AacSettings -&gt; Maybe AacVbrQuality
-</span><a href="#local-6989586621679856390"><span class="hs-identifier hs-var hs-var">vbrQuality</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AacVbrQuality
-</span><a href="#local-6989586621679856390"><span class="hs-identifier hs-var">vbrQuality</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679856389"><span class="annot"><span class="annottext">s :: AacSettings
-</span><a href="#local-6989586621679856389"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings%27"><span class="hs-identifier hs-type">AacSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679856388"><span class="annot"><span class="annottext">Maybe AacVbrQuality
-</span><a href="#local-6989586621679856388"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AacSettings
-</span><a href="#local-6989586621679856389"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vbrQuality:AacSettings' :: Maybe AacVbrQuality
+</span><a href="#local-6989586621679863047"><span class="hs-identifier hs-var hs-var">vbrQuality</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AacVbrQuality
+</span><a href="#local-6989586621679863047"><span class="hs-identifier hs-var">vbrQuality</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679863046"><span class="annot"><span class="annottext">s :: AacSettings
+</span><a href="#local-6989586621679863046"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings%27"><span class="hs-identifier hs-type">AacSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679863045"><span class="annot"><span class="annottext">Maybe AacVbrQuality
+</span><a href="#local-6989586621679863045"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AacSettings
+</span><a href="#local-6989586621679863046"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vbrQuality:AacSettings' :: Maybe AacVbrQuality
 </span><a href="Network.AWS.MediaLive.Types.AacSettings.html#%24sel%3AvbrQuality%3AAacSettings%27"><span class="hs-identifier hs-var">vbrQuality</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AacVbrQuality
-</span><a href="#local-6989586621679856388"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings"><span class="hs-identifier hs-type">AacSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-comment">-- | Average bitrate in bits\/second. Valid values depend on rate control</span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- mode and profile.</span><span>
-</span><span id="line-170"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#aacSettings_bitrate"><span class="hs-identifier hs-type">aacSettings_bitrate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings"><span class="hs-identifier hs-type">AacSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-171"></span><span id="aacSettings_bitrate"><span class="annot"><span class="annottext">aacSettings_bitrate :: (Maybe Double -&gt; f (Maybe Double)) -&gt; AacSettings -&gt; f AacSettings
-</span><a href="Network.AWS.MediaLive.Types.AacSettings.html#aacSettings_bitrate"><span class="hs-identifier hs-var hs-var">aacSettings_bitrate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AacSettings -&gt; Maybe Double)
--&gt; (AacSettings -&gt; Maybe Double -&gt; AacSettings)
--&gt; Lens AacSettings AacSettings (Maybe Double) (Maybe Double)
+</span><a href="#local-6989586621679863045"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings"><span class="hs-identifier hs-type">AacSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | Set to \&quot;broadcasterMixedAd\&quot; when input contains pre-mixed main audio +</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- AD (narration) as a stereo pair. The Audio Type field (audioType) will</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- be set to 3, which signals to downstream systems that this stream</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- contains \&quot;broadcaster mixed AD\&quot;. Note that the input received by the</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- encoder must contain pre-mixed audio; the encoder does not perform the</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- mixing. The values in audioTypeControl and audioType (in</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- AudioDescription) are ignored when set to broadcasterMixedAd. Leave set</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- to \&quot;normal\&quot; when input does not contain pre-mixed audio + AD.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#aacSettings_inputType"><span class="hs-identifier hs-type">aacSettings_inputType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings"><span class="hs-identifier hs-type">AacSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacInputType.html#AacInputType"><span class="hs-identifier hs-type">AacInputType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span id="aacSettings_inputType"><span class="annot"><span class="annottext">aacSettings_inputType :: (Maybe AacInputType -&gt; f (Maybe AacInputType))
+-&gt; AacSettings -&gt; f AacSettings
+</span><a href="Network.AWS.MediaLive.Types.AacSettings.html#aacSettings_inputType"><span class="hs-identifier hs-var hs-var">aacSettings_inputType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AacSettings -&gt; Maybe AacInputType)
+-&gt; (AacSettings -&gt; Maybe AacInputType -&gt; AacSettings)
+-&gt; Lens
+     AacSettings AacSettings (Maybe AacInputType) (Maybe AacInputType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings%27"><span class="hs-identifier hs-type">AacSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679856386"><span class="annot"><span class="annottext">Maybe Double
-bitrate :: Maybe Double
-$sel:bitrate:AacSettings' :: AacSettings -&gt; Maybe Double
-</span><a href="#local-6989586621679856386"><span class="hs-identifier hs-var hs-var">bitrate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679856386"><span class="hs-identifier hs-var">bitrate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679856385"><span class="annot"><span class="annottext">s :: AacSettings
-</span><a href="#local-6989586621679856385"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings%27"><span class="hs-identifier hs-type">AacSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679856384"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679856384"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AacSettings
-</span><a href="#local-6989586621679856385"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bitrate:AacSettings' :: Maybe Double
-</span><a href="Network.AWS.MediaLive.Types.AacSettings.html#%24sel%3Abitrate%3AAacSettings%27"><span class="hs-identifier hs-var">bitrate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679856384"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings"><span class="hs-identifier hs-type">AacSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings%27"><span class="hs-identifier hs-type">AacSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679863043"><span class="annot"><span class="annottext">Maybe AacInputType
+inputType :: Maybe AacInputType
+$sel:inputType:AacSettings' :: AacSettings -&gt; Maybe AacInputType
+</span><a href="#local-6989586621679863043"><span class="hs-identifier hs-var hs-var">inputType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AacInputType
+</span><a href="#local-6989586621679863043"><span class="hs-identifier hs-var">inputType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679863042"><span class="annot"><span class="annottext">s :: AacSettings
+</span><a href="#local-6989586621679863042"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings%27"><span class="hs-identifier hs-type">AacSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679863041"><span class="annot"><span class="annottext">Maybe AacInputType
+</span><a href="#local-6989586621679863041"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AacSettings
+</span><a href="#local-6989586621679863042"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputType:AacSettings' :: Maybe AacInputType
+</span><a href="Network.AWS.MediaLive.Types.AacSettings.html#%24sel%3AinputType%3AAacSettings%27"><span class="hs-identifier hs-var">inputType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AacInputType
+</span><a href="#local-6989586621679863041"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings"><span class="hs-identifier hs-type">AacSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679856381"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings"><span class="hs-identifier hs-type">AacSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-174"></span><span>  </span><span id="local-6989586621679856379"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AacSettings
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679863038"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings"><span class="hs-identifier hs-type">AacSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679863036"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AacSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-175"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AacSettings) -&gt; Value -&gt; Parser AacSettings
@@ -420,191 +420,192 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AacSettings&quot;</span></span><span>
-</span><span id="line-177"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679856376"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679856376"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-178"></span><span>          </span><span class="annot"><span class="annottext">Maybe AacRateControlMode
+</span><span id="line-177"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679863033"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679863033"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-178"></span><span>          </span><span class="annot"><span class="annottext">Maybe AacRawFormat
 -&gt; Maybe AacCodingMode
--&gt; Maybe AacSpec
--&gt; Maybe AacRawFormat
--&gt; Maybe Double
--&gt; Maybe AacInputType
 -&gt; Maybe AacProfile
--&gt; Maybe AacVbrQuality
+-&gt; Maybe AacRateControlMode
 -&gt; Maybe Double
+-&gt; Maybe AacSpec
+-&gt; Maybe Double
+-&gt; Maybe AacVbrQuality
+-&gt; Maybe AacInputType
 -&gt; AacSettings
 </span><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings%27"><span class="hs-identifier hs-var">AacSettings'</span></a></span><span>
-</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">(Maybe AacRateControlMode
+</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">(Maybe AacRawFormat
  -&gt; Maybe AacCodingMode
- -&gt; Maybe AacSpec
- -&gt; Maybe AacRawFormat
- -&gt; Maybe Double
- -&gt; Maybe AacInputType
  -&gt; Maybe AacProfile
- -&gt; Maybe AacVbrQuality
+ -&gt; Maybe AacRateControlMode
  -&gt; Maybe Double
+ -&gt; Maybe AacSpec
+ -&gt; Maybe Double
+ -&gt; Maybe AacVbrQuality
+ -&gt; Maybe AacInputType
  -&gt; AacSettings)
--&gt; Parser (Maybe AacRateControlMode)
+-&gt; Parser (Maybe AacRawFormat)
 -&gt; Parser
      (Maybe AacCodingMode
-      -&gt; Maybe AacSpec
-      -&gt; Maybe AacRawFormat
-      -&gt; Maybe Double
-      -&gt; Maybe AacInputType
       -&gt; Maybe AacProfile
-      -&gt; Maybe AacVbrQuality
+      -&gt; Maybe AacRateControlMode
       -&gt; Maybe Double
+      -&gt; Maybe AacSpec
+      -&gt; Maybe Double
+      -&gt; Maybe AacVbrQuality
+      -&gt; Maybe AacInputType
       -&gt; AacSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679856376"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AacRateControlMode)
+</span><a href="#local-6989586621679863033"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AacRawFormat)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;rateControlMode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;rawFormat&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe AacCodingMode
-   -&gt; Maybe AacSpec
-   -&gt; Maybe AacRawFormat
-   -&gt; Maybe Double
-   -&gt; Maybe AacInputType
    -&gt; Maybe AacProfile
-   -&gt; Maybe AacVbrQuality
+   -&gt; Maybe AacRateControlMode
    -&gt; Maybe Double
+   -&gt; Maybe AacSpec
+   -&gt; Maybe Double
+   -&gt; Maybe AacVbrQuality
+   -&gt; Maybe AacInputType
    -&gt; AacSettings)
 -&gt; Parser (Maybe AacCodingMode)
 -&gt; Parser
-     (Maybe AacSpec
-      -&gt; Maybe AacRawFormat
+     (Maybe AacProfile
+      -&gt; Maybe AacRateControlMode
       -&gt; Maybe Double
-      -&gt; Maybe AacInputType
-      -&gt; Maybe AacProfile
+      -&gt; Maybe AacSpec
+      -&gt; Maybe Double
       -&gt; Maybe AacVbrQuality
-      -&gt; Maybe Double
+      -&gt; Maybe AacInputType
       -&gt; AacSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679856376"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AacCodingMode)
+</span><a href="#local-6989586621679863033"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AacCodingMode)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;codingMode&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe AacSpec
-   -&gt; Maybe AacRawFormat
+  (Maybe AacProfile
+   -&gt; Maybe AacRateControlMode
    -&gt; Maybe Double
-   -&gt; Maybe AacInputType
-   -&gt; Maybe AacProfile
+   -&gt; Maybe AacSpec
+   -&gt; Maybe Double
    -&gt; Maybe AacVbrQuality
-   -&gt; Maybe Double
+   -&gt; Maybe AacInputType
    -&gt; AacSettings)
--&gt; Parser (Maybe AacSpec)
+-&gt; Parser (Maybe AacProfile)
 -&gt; Parser
-     (Maybe AacRawFormat
+     (Maybe AacRateControlMode
       -&gt; Maybe Double
-      -&gt; Maybe AacInputType
-      -&gt; Maybe AacProfile
+      -&gt; Maybe AacSpec
+      -&gt; Maybe Double
       -&gt; Maybe AacVbrQuality
-      -&gt; Maybe Double
+      -&gt; Maybe AacInputType
       -&gt; AacSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679856376"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AacSpec)
+</span><a href="#local-6989586621679863033"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AacProfile)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;spec&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;profile&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe AacRawFormat
+  (Maybe AacRateControlMode
    -&gt; Maybe Double
-   -&gt; Maybe AacInputType
-   -&gt; Maybe AacProfile
+   -&gt; Maybe AacSpec
+   -&gt; Maybe Double
    -&gt; Maybe AacVbrQuality
-   -&gt; Maybe Double
+   -&gt; Maybe AacInputType
    -&gt; AacSettings)
--&gt; Parser (Maybe AacRawFormat)
+-&gt; Parser (Maybe AacRateControlMode)
 -&gt; Parser
      (Maybe Double
-      -&gt; Maybe AacInputType
-      -&gt; Maybe AacProfile
-      -&gt; Maybe AacVbrQuality
+      -&gt; Maybe AacSpec
       -&gt; Maybe Double
+      -&gt; Maybe AacVbrQuality
+      -&gt; Maybe AacInputType
       -&gt; AacSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679856376"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AacRawFormat)
+</span><a href="#local-6989586621679863033"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AacRateControlMode)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;rawFormat&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;rateControlMode&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Double
-   -&gt; Maybe AacInputType
-   -&gt; Maybe AacProfile
-   -&gt; Maybe AacVbrQuality
+   -&gt; Maybe AacSpec
    -&gt; Maybe Double
+   -&gt; Maybe AacVbrQuality
+   -&gt; Maybe AacInputType
    -&gt; AacSettings)
 -&gt; Parser (Maybe Double)
 -&gt; Parser
-     (Maybe AacInputType
-      -&gt; Maybe AacProfile
-      -&gt; Maybe AacVbrQuality
+     (Maybe AacSpec
       -&gt; Maybe Double
+      -&gt; Maybe AacVbrQuality
+      -&gt; Maybe AacInputType
       -&gt; AacSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679856376"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679863033"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sampleRate&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe AacInputType
-   -&gt; Maybe AacProfile
-   -&gt; Maybe AacVbrQuality
+  (Maybe AacSpec
    -&gt; Maybe Double
+   -&gt; Maybe AacVbrQuality
+   -&gt; Maybe AacInputType
    -&gt; AacSettings)
--&gt; Parser (Maybe AacInputType)
+-&gt; Parser (Maybe AacSpec)
 -&gt; Parser
-     (Maybe AacProfile
-      -&gt; Maybe AacVbrQuality -&gt; Maybe Double -&gt; AacSettings)
+     (Maybe Double
+      -&gt; Maybe AacVbrQuality -&gt; Maybe AacInputType -&gt; AacSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679856376"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AacInputType)
+</span><a href="#local-6989586621679863033"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AacSpec)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;inputType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;spec&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe AacProfile
-   -&gt; Maybe AacVbrQuality -&gt; Maybe Double -&gt; AacSettings)
--&gt; Parser (Maybe AacProfile)
--&gt; Parser (Maybe AacVbrQuality -&gt; Maybe Double -&gt; AacSettings)
+  (Maybe Double
+   -&gt; Maybe AacVbrQuality -&gt; Maybe AacInputType -&gt; AacSettings)
+-&gt; Parser (Maybe Double)
+-&gt; Parser
+     (Maybe AacVbrQuality -&gt; Maybe AacInputType -&gt; AacSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679856376"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AacProfile)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;profile&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe AacVbrQuality -&gt; Maybe Double -&gt; AacSettings)
--&gt; Parser (Maybe AacVbrQuality)
--&gt; Parser (Maybe Double -&gt; AacSettings)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679856376"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AacVbrQuality)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;vbrQuality&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Double -&gt; AacSettings)
--&gt; Parser (Maybe Double) -&gt; Parser AacSettings
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679856376"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679863033"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;bitrate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe AacVbrQuality -&gt; Maybe AacInputType -&gt; AacSettings)
+-&gt; Parser (Maybe AacVbrQuality)
+-&gt; Parser (Maybe AacInputType -&gt; AacSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679863033"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AacVbrQuality)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;vbrQuality&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe AacInputType -&gt; AacSettings)
+-&gt; Parser (Maybe AacInputType) -&gt; Parser AacSettings
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679863033"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AacInputType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;inputType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span><span>
-</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679856370"><span id="local-6989586621679856372"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings"><span class="hs-identifier hs-type">AacSettings</span></a></span></span></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679863027"><span id="local-6989586621679863029"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings"><span class="hs-identifier hs-type">AacSettings</span></a></span></span></span><span>
 </span><span id="line-191"></span><span>
-</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679856367"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings"><span class="hs-identifier hs-type">AacSettings</span></a></span></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679863024"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings"><span class="hs-identifier hs-type">AacSettings</span></a></span></span><span>
 </span><span id="line-193"></span><span>
-</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679856359"><span id="local-6989586621679856361"><span id="local-6989586621679856363"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings"><span class="hs-identifier hs-type">AacSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-195"></span><span>  </span><span id="local-6989586621679856357"><span class="annot"><span class="annottext">toJSON :: AacSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings%27"><span class="hs-identifier hs-type">AacSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679856347"><span id="local-6989586621679856348"><span id="local-6989586621679856349"><span id="local-6989586621679856350"><span id="local-6989586621679856351"><span id="local-6989586621679856352"><span id="local-6989586621679856353"><span id="local-6989586621679856354"><span id="local-6989586621679856355"><span class="annot"><span class="annottext">Maybe Double
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679863016"><span id="local-6989586621679863018"><span id="local-6989586621679863020"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings"><span class="hs-identifier hs-type">AacSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679863014"><span class="annot"><span class="annottext">toJSON :: AacSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AacSettings.html#AacSettings%27"><span class="hs-identifier hs-type">AacSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679863004"><span id="local-6989586621679863005"><span id="local-6989586621679863006"><span id="local-6989586621679863007"><span id="local-6989586621679863008"><span id="local-6989586621679863009"><span id="local-6989586621679863010"><span id="local-6989586621679863011"><span id="local-6989586621679863012"><span class="annot"><span class="annottext">Maybe Double
 Maybe AacCodingMode
 Maybe AacInputType
 Maybe AacProfile
@@ -612,95 +613,95 @@ Maybe AacRateControlMode
 Maybe AacRawFormat
 Maybe AacSpec
 Maybe AacVbrQuality
-bitrate :: Maybe Double
-vbrQuality :: Maybe AacVbrQuality
-profile :: Maybe AacProfile
 inputType :: Maybe AacInputType
-sampleRate :: Maybe Double
-rawFormat :: Maybe AacRawFormat
+vbrQuality :: Maybe AacVbrQuality
+bitrate :: Maybe Double
 spec :: Maybe AacSpec
-codingMode :: Maybe AacCodingMode
+sampleRate :: Maybe Double
 rateControlMode :: Maybe AacRateControlMode
-$sel:bitrate:AacSettings' :: AacSettings -&gt; Maybe Double
-$sel:vbrQuality:AacSettings' :: AacSettings -&gt; Maybe AacVbrQuality
-$sel:profile:AacSettings' :: AacSettings -&gt; Maybe AacProfile
+profile :: Maybe AacProfile
+codingMode :: Maybe AacCodingMode
+rawFormat :: Maybe AacRawFormat
 $sel:inputType:AacSettings' :: AacSettings -&gt; Maybe AacInputType
-$sel:sampleRate:AacSettings' :: AacSettings -&gt; Maybe Double
-$sel:rawFormat:AacSettings' :: AacSettings -&gt; Maybe AacRawFormat
+$sel:vbrQuality:AacSettings' :: AacSettings -&gt; Maybe AacVbrQuality
+$sel:bitrate:AacSettings' :: AacSettings -&gt; Maybe Double
 $sel:spec:AacSettings' :: AacSettings -&gt; Maybe AacSpec
-$sel:codingMode:AacSettings' :: AacSettings -&gt; Maybe AacCodingMode
+$sel:sampleRate:AacSettings' :: AacSettings -&gt; Maybe Double
 $sel:rateControlMode:AacSettings' :: AacSettings -&gt; Maybe AacRateControlMode
-</span><a href="#local-6989586621679856347"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:profile:AacSettings' :: AacSettings -&gt; Maybe AacProfile
+$sel:codingMode:AacSettings' :: AacSettings -&gt; Maybe AacCodingMode
+$sel:rawFormat:AacSettings' :: AacSettings -&gt; Maybe AacRawFormat
+</span><a href="#local-6989586621679863004"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-196"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-197"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-198"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;rateControlMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AacRateControlMode -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-199"></span><span>              </span><span class="annot"><span class="annottext">(AacRateControlMode -&gt; Pair)
--&gt; Maybe AacRateControlMode -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AacRateControlMode
-</span><a href="#local-6989586621679856355"><span class="hs-identifier hs-var">rateControlMode</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-200"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;codingMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AacCodingMode -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AacCodingMode -&gt; Pair) -&gt; Maybe AacCodingMode -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AacCodingMode
-</span><a href="#local-6989586621679856354"><span class="hs-identifier hs-var">codingMode</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-201"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;spec&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AacSpec -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AacSpec -&gt; Pair) -&gt; Maybe AacSpec -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AacSpec
-</span><a href="#local-6989586621679856353"><span class="hs-identifier hs-var">spec</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-202"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;rawFormat&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AacRawFormat -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AacRawFormat -&gt; Pair) -&gt; Maybe AacRawFormat -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AacRawFormat
-</span><a href="#local-6989586621679856352"><span class="hs-identifier hs-var">rawFormat</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679863012"><span class="hs-identifier hs-var">rawFormat</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;codingMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AacCodingMode -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AacCodingMode -&gt; Pair) -&gt; Maybe AacCodingMode -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AacCodingMode
+</span><a href="#local-6989586621679863011"><span class="hs-identifier hs-var">codingMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;profile&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AacProfile -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AacProfile -&gt; Pair) -&gt; Maybe AacProfile -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AacProfile
+</span><a href="#local-6989586621679863010"><span class="hs-identifier hs-var">profile</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;rateControlMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AacRateControlMode -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>              </span><span class="annot"><span class="annottext">(AacRateControlMode -&gt; Pair)
+-&gt; Maybe AacRateControlMode -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AacRateControlMode
+</span><a href="#local-6989586621679863009"><span class="hs-identifier hs-var">rateControlMode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-203"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sampleRate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679856351"><span class="hs-identifier hs-var">sampleRate</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679863008"><span class="hs-identifier hs-var">sampleRate</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-204"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;inputType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AacInputType -&gt; Pair
+</span><span class="hs-string">&quot;spec&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AacSpec -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AacInputType -&gt; Pair) -&gt; Maybe AacInputType -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AacSpec -&gt; Pair) -&gt; Maybe AacSpec -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AacInputType
-</span><a href="#local-6989586621679856350"><span class="hs-identifier hs-var">inputType</span></a></span><span class="hs-special">,</span><span>
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AacSpec
+</span><a href="#local-6989586621679863007"><span class="hs-identifier hs-var">spec</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-205"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;profile&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AacProfile -&gt; Pair
+</span><span class="hs-string">&quot;bitrate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AacProfile -&gt; Pair) -&gt; Maybe AacProfile -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AacProfile
-</span><a href="#local-6989586621679856349"><span class="hs-identifier hs-var">profile</span></a></span><span class="hs-special">,</span><span>
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679863006"><span class="hs-identifier hs-var">bitrate</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-206"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;vbrQuality&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AacVbrQuality -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AacVbrQuality -&gt; Pair) -&gt; Maybe AacVbrQuality -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AacVbrQuality
-</span><a href="#local-6989586621679856348"><span class="hs-identifier hs-var">vbrQuality</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679863005"><span class="hs-identifier hs-var">vbrQuality</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-207"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;bitrate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
+</span><span class="hs-string">&quot;inputType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AacInputType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AacInputType -&gt; Pair) -&gt; Maybe AacInputType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679856347"><span class="hs-identifier hs-var">bitrate</span></a></span><span>
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AacInputType
+</span><a href="#local-6989586621679863004"><span class="hs-identifier hs-var">inputType</span></a></span><span>
 </span><span id="line-208"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-209"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-210"></span></pre></body></html>

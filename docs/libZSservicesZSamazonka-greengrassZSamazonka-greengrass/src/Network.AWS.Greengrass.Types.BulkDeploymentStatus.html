@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-35"></span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- | The current status of the bulk deployment.</span><span>
-</span><span id="line-37"></span><span id="local-6989586621679340734"><span id="local-6989586621679340735"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BulkDeploymentStatus"><span class="annot"><a href="Network.AWS.Greengrass.Types.BulkDeploymentStatus.html#BulkDeploymentStatus"><span class="hs-identifier hs-var">BulkDeploymentStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BulkDeploymentStatus%27"><span class="annot"><a href="Network.AWS.Greengrass.Types.BulkDeploymentStatus.html#BulkDeploymentStatus%27"><span class="hs-identifier hs-var">BulkDeploymentStatus'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679340983"><span id="local-6989586621679340984"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BulkDeploymentStatus"><span class="annot"><a href="Network.AWS.Greengrass.Types.BulkDeploymentStatus.html#BulkDeploymentStatus"><span class="hs-identifier hs-var">BulkDeploymentStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BulkDeploymentStatus%27"><span class="annot"><a href="Network.AWS.Greengrass.Types.BulkDeploymentStatus.html#BulkDeploymentStatus%27"><span class="hs-identifier hs-var">BulkDeploymentStatus'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBulkDeploymentStatus"><span class="annot"><span class="annottext">BulkDeploymentStatus -&gt; Text
 </span><a href="Network.AWS.Greengrass.Types.BulkDeploymentStatus.html#fromBulkDeploymentStatus"><span class="hs-identifier hs-var hs-var">fromBulkDeploymentStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679340726"><span id="local-6989586621679340728"><span id="local-6989586621679340730"><span class="annot"><span class="annottext">Int -&gt; BulkDeploymentStatus -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679340975"><span id="local-6989586621679340977"><span id="local-6989586621679340979"><span class="annot"><span class="annottext">Int -&gt; BulkDeploymentStatus -&gt; ShowS
 [BulkDeploymentStatus] -&gt; ShowS
 BulkDeploymentStatus -&gt; String
 (Int -&gt; BulkDeploymentStatus -&gt; ShowS)
@@ -56,7 +56,7 @@ $cshow :: BulkDeploymentStatus -&gt; String
 showsPrec :: Int -&gt; BulkDeploymentStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; BulkDeploymentStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679340717"><span id="local-6989586621679340719"><span id="local-6989586621679340721"><span id="local-6989586621679340723"><span class="annot"><span class="annottext">ReadPrec [BulkDeploymentStatus]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679340966"><span id="local-6989586621679340968"><span id="local-6989586621679340970"><span id="local-6989586621679340972"><span class="annot"><span class="annottext">ReadPrec [BulkDeploymentStatus]
 ReadPrec BulkDeploymentStatus
 Int -&gt; ReadS BulkDeploymentStatus
 ReadS [BulkDeploymentStatus]
@@ -77,7 +77,7 @@ $creadList :: ReadS [BulkDeploymentStatus]
 readsPrec :: Int -&gt; ReadS BulkDeploymentStatus
 $creadsPrec :: Int -&gt; ReadS BulkDeploymentStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679340712"><span id="local-6989586621679340714"><span class="annot"><span class="annottext">BulkDeploymentStatus -&gt; BulkDeploymentStatus -&gt; Bool
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679340961"><span id="local-6989586621679340963"><span class="annot"><span class="annottext">BulkDeploymentStatus -&gt; BulkDeploymentStatus -&gt; Bool
 (BulkDeploymentStatus -&gt; BulkDeploymentStatus -&gt; Bool)
 -&gt; (BulkDeploymentStatus -&gt; BulkDeploymentStatus -&gt; Bool)
 -&gt; Eq BulkDeploymentStatus
@@ -87,7 +87,7 @@ $c/= :: BulkDeploymentStatus -&gt; BulkDeploymentStatus -&gt; Bool
 == :: BulkDeploymentStatus -&gt; BulkDeploymentStatus -&gt; Bool
 $c== :: BulkDeploymentStatus -&gt; BulkDeploymentStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679340696"><span id="local-6989586621679340698"><span id="local-6989586621679340700"><span id="local-6989586621679340702"><span id="local-6989586621679340704"><span id="local-6989586621679340706"><span id="local-6989586621679340708"><span class="annot"><span class="annottext">Eq BulkDeploymentStatus
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679340945"><span id="local-6989586621679340947"><span id="local-6989586621679340949"><span id="local-6989586621679340951"><span id="local-6989586621679340953"><span id="local-6989586621679340955"><span id="local-6989586621679340957"><span class="annot"><span class="annottext">Eq BulkDeploymentStatus
 Eq BulkDeploymentStatus
 -&gt; (BulkDeploymentStatus -&gt; BulkDeploymentStatus -&gt; Ordering)
 -&gt; (BulkDeploymentStatus -&gt; BulkDeploymentStatus -&gt; Bool)
@@ -145,7 +145,7 @@ $cfrom :: forall x. BulkDeploymentStatus -&gt; Rep BulkDeploymentStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679340688"><span id="local-6989586621679340690"><span class="annot"><span class="annottext">Int -&gt; BulkDeploymentStatus -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679340937"><span id="local-6989586621679340939"><span class="annot"><span class="annottext">Int -&gt; BulkDeploymentStatus -&gt; Int
 BulkDeploymentStatus -&gt; Int
 (Int -&gt; BulkDeploymentStatus -&gt; Int)
 -&gt; (BulkDeploymentStatus -&gt; Int) -&gt; Hashable BulkDeploymentStatus
@@ -155,54 +155,54 @@ $chash :: BulkDeploymentStatus -&gt; Int
 hashWithSalt :: Int -&gt; BulkDeploymentStatus -&gt; Int
 $chashWithSalt :: Int -&gt; BulkDeploymentStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679340685"><span class="annot"><span class="annottext">BulkDeploymentStatus -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679340934"><span class="annot"><span class="annottext">BulkDeploymentStatus -&gt; ()
 (BulkDeploymentStatus -&gt; ()) -&gt; NFData BulkDeploymentStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: BulkDeploymentStatus -&gt; ()
 $crnf :: BulkDeploymentStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679340682"><span class="annot"><span class="annottext">Text -&gt; Either String BulkDeploymentStatus
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679340931"><span class="annot"><span class="annottext">Text -&gt; Either String BulkDeploymentStatus
 (Text -&gt; Either String BulkDeploymentStatus)
 -&gt; FromText BulkDeploymentStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String BulkDeploymentStatus
 $cfromText :: Text -&gt; Either String BulkDeploymentStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679340679"><span class="annot"><span class="annottext">BulkDeploymentStatus -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679340928"><span class="annot"><span class="annottext">BulkDeploymentStatus -&gt; Text
 (BulkDeploymentStatus -&gt; Text) -&gt; ToText BulkDeploymentStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: BulkDeploymentStatus -&gt; Text
 $ctoText :: BulkDeploymentStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679340676"><span class="annot"><span class="annottext">BulkDeploymentStatus -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679340925"><span class="annot"><span class="annottext">BulkDeploymentStatus -&gt; ByteString
 (BulkDeploymentStatus -&gt; ByteString)
 -&gt; ToByteString BulkDeploymentStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: BulkDeploymentStatus -&gt; ByteString
 $ctoBS :: BulkDeploymentStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679340673"><span class="annot"><span class="annottext">BulkDeploymentStatus -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679340922"><span class="annot"><span class="annottext">BulkDeploymentStatus -&gt; ByteStringBuilder
 (BulkDeploymentStatus -&gt; ByteStringBuilder)
 -&gt; ToLog BulkDeploymentStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: BulkDeploymentStatus -&gt; ByteStringBuilder
 $cbuild :: BulkDeploymentStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679340670"><span class="annot"><span class="annottext">HeaderName -&gt; BulkDeploymentStatus -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679340919"><span class="annot"><span class="annottext">HeaderName -&gt; BulkDeploymentStatus -&gt; [Header]
 (HeaderName -&gt; BulkDeploymentStatus -&gt; [Header])
 -&gt; ToHeader BulkDeploymentStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; BulkDeploymentStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; BulkDeploymentStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679340667"><span class="annot"><span class="annottext">BulkDeploymentStatus -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679340916"><span class="annot"><span class="annottext">BulkDeploymentStatus -&gt; QueryString
 (BulkDeploymentStatus -&gt; QueryString)
 -&gt; ToQuery BulkDeploymentStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: BulkDeploymentStatus -&gt; QueryString
 $ctoQuery :: BulkDeploymentStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679340662"><span id="local-6989586621679340664"><span class="annot"><span class="annottext">Value -&gt; Parser [BulkDeploymentStatus]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679340911"><span id="local-6989586621679340913"><span class="annot"><span class="annottext">Value -&gt; Parser [BulkDeploymentStatus]
 Value -&gt; Parser BulkDeploymentStatus
 (Value -&gt; Parser BulkDeploymentStatus)
 -&gt; (Value -&gt; Parser [BulkDeploymentStatus])
@@ -214,7 +214,7 @@ $cparseJSONList :: Value -&gt; Parser [BulkDeploymentStatus]
 parseJSON :: Value -&gt; Parser BulkDeploymentStatus
 $cparseJSON :: Value -&gt; Parser BulkDeploymentStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679340657"><span id="local-6989586621679340659"><span class="annot"><span class="annottext">FromJSONKeyFunction [BulkDeploymentStatus]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679340906"><span id="local-6989586621679340908"><span class="annot"><span class="annottext">FromJSONKeyFunction [BulkDeploymentStatus]
 FromJSONKeyFunction BulkDeploymentStatus
 FromJSONKeyFunction BulkDeploymentStatus
 -&gt; FromJSONKeyFunction [BulkDeploymentStatus]
@@ -226,7 +226,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [BulkDeploymentStatus]
 fromJSONKey :: FromJSONKeyFunction BulkDeploymentStatus
 $cfromJSONKey :: FromJSONKeyFunction BulkDeploymentStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679340648"><span id="local-6989586621679340650"><span id="local-6989586621679340652"><span id="local-6989586621679340654"><span class="annot"><span class="annottext">[BulkDeploymentStatus] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679340897"><span id="local-6989586621679340899"><span id="local-6989586621679340901"><span id="local-6989586621679340903"><span class="annot"><span class="annottext">[BulkDeploymentStatus] -&gt; Encoding
 [BulkDeploymentStatus] -&gt; Value
 BulkDeploymentStatus -&gt; Encoding
 BulkDeploymentStatus -&gt; Value
@@ -250,7 +250,7 @@ $ctoEncoding :: BulkDeploymentStatus -&gt; Encoding
 toJSON :: BulkDeploymentStatus -&gt; Value
 $ctoJSON :: BulkDeploymentStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679340643"><span id="local-6989586621679340645"><span class="annot"><span class="annottext">ToJSONKeyFunction [BulkDeploymentStatus]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679340892"><span id="local-6989586621679340894"><span class="annot"><span class="annottext">ToJSONKeyFunction [BulkDeploymentStatus]
 ToJSONKeyFunction BulkDeploymentStatus
 ToJSONKeyFunction BulkDeploymentStatus
 -&gt; ToJSONKeyFunction [BulkDeploymentStatus]
@@ -262,14 +262,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [BulkDeploymentStatus]
 toJSONKey :: ToJSONKeyFunction BulkDeploymentStatus
 $ctoJSONKey :: ToJSONKeyFunction BulkDeploymentStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679340640"><span class="annot"><span class="annottext">[Node] -&gt; Either String BulkDeploymentStatus
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679340889"><span class="annot"><span class="annottext">[Node] -&gt; Either String BulkDeploymentStatus
 ([Node] -&gt; Either String BulkDeploymentStatus)
 -&gt; FromXML BulkDeploymentStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String BulkDeploymentStatus
 $cparseXML :: [Node] -&gt; Either String BulkDeploymentStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679340637"><span class="annot"><span class="annottext">BulkDeploymentStatus -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679340886"><span class="annot"><span class="annottext">BulkDeploymentStatus -&gt; XML
 (BulkDeploymentStatus -&gt; XML) -&gt; ToXML BulkDeploymentStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: BulkDeploymentStatus -&gt; XML

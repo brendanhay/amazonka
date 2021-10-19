@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-36"></span><span>
-</span><span id="line-37"></span><span id="local-6989586621679263280"><span id="local-6989586621679263281"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AddonStatus"><span class="annot"><a href="Network.AWS.EKS.Types.AddonStatus.html#AddonStatus"><span class="hs-identifier hs-var">AddonStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddonStatus%27"><span class="annot"><a href="Network.AWS.EKS.Types.AddonStatus.html#AddonStatus%27"><span class="hs-identifier hs-var">AddonStatus'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679263527"><span id="local-6989586621679263528"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AddonStatus"><span class="annot"><a href="Network.AWS.EKS.Types.AddonStatus.html#AddonStatus"><span class="hs-identifier hs-var">AddonStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddonStatus%27"><span class="annot"><a href="Network.AWS.EKS.Types.AddonStatus.html#AddonStatus%27"><span class="hs-identifier hs-var">AddonStatus'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAddonStatus"><span class="annot"><span class="annottext">AddonStatus -&gt; Text
 </span><a href="Network.AWS.EKS.Types.AddonStatus.html#fromAddonStatus"><span class="hs-identifier hs-var hs-var">fromAddonStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679263272"><span id="local-6989586621679263274"><span id="local-6989586621679263276"><span class="annot"><span class="annottext">Int -&gt; AddonStatus -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679263519"><span id="local-6989586621679263521"><span id="local-6989586621679263523"><span class="annot"><span class="annottext">Int -&gt; AddonStatus -&gt; ShowS
 [AddonStatus] -&gt; ShowS
 AddonStatus -&gt; String
 (Int -&gt; AddonStatus -&gt; ShowS)
@@ -56,7 +56,7 @@ $cshow :: AddonStatus -&gt; String
 showsPrec :: Int -&gt; AddonStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; AddonStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679263263"><span id="local-6989586621679263265"><span id="local-6989586621679263267"><span id="local-6989586621679263269"><span class="annot"><span class="annottext">ReadPrec [AddonStatus]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679263510"><span id="local-6989586621679263512"><span id="local-6989586621679263514"><span id="local-6989586621679263516"><span class="annot"><span class="annottext">ReadPrec [AddonStatus]
 ReadPrec AddonStatus
 Int -&gt; ReadS AddonStatus
 ReadS [AddonStatus]
@@ -77,7 +77,7 @@ $creadList :: ReadS [AddonStatus]
 readsPrec :: Int -&gt; ReadS AddonStatus
 $creadsPrec :: Int -&gt; ReadS AddonStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679263258"><span id="local-6989586621679263260"><span class="annot"><span class="annottext">AddonStatus -&gt; AddonStatus -&gt; Bool
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679263505"><span id="local-6989586621679263507"><span class="annot"><span class="annottext">AddonStatus -&gt; AddonStatus -&gt; Bool
 (AddonStatus -&gt; AddonStatus -&gt; Bool)
 -&gt; (AddonStatus -&gt; AddonStatus -&gt; Bool) -&gt; Eq AddonStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -86,7 +86,7 @@ $c/= :: AddonStatus -&gt; AddonStatus -&gt; Bool
 == :: AddonStatus -&gt; AddonStatus -&gt; Bool
 $c== :: AddonStatus -&gt; AddonStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679263242"><span id="local-6989586621679263244"><span id="local-6989586621679263246"><span id="local-6989586621679263248"><span id="local-6989586621679263250"><span id="local-6989586621679263252"><span id="local-6989586621679263254"><span class="annot"><span class="annottext">Eq AddonStatus
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679263489"><span id="local-6989586621679263491"><span id="local-6989586621679263493"><span id="local-6989586621679263495"><span id="local-6989586621679263497"><span id="local-6989586621679263499"><span id="local-6989586621679263501"><span class="annot"><span class="annottext">Eq AddonStatus
 Eq AddonStatus
 -&gt; (AddonStatus -&gt; AddonStatus -&gt; Ordering)
 -&gt; (AddonStatus -&gt; AddonStatus -&gt; Bool)
@@ -137,7 +137,7 @@ $cfrom :: forall x. AddonStatus -&gt; Rep AddonStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679263234"><span id="local-6989586621679263236"><span class="annot"><span class="annottext">Int -&gt; AddonStatus -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679263481"><span id="local-6989586621679263483"><span class="annot"><span class="annottext">Int -&gt; AddonStatus -&gt; Int
 AddonStatus -&gt; Int
 (Int -&gt; AddonStatus -&gt; Int)
 -&gt; (AddonStatus -&gt; Int) -&gt; Hashable AddonStatus
@@ -147,49 +147,49 @@ $chash :: AddonStatus -&gt; Int
 hashWithSalt :: Int -&gt; AddonStatus -&gt; Int
 $chashWithSalt :: Int -&gt; AddonStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679263231"><span class="annot"><span class="annottext">AddonStatus -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679263478"><span class="annot"><span class="annottext">AddonStatus -&gt; ()
 (AddonStatus -&gt; ()) -&gt; NFData AddonStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AddonStatus -&gt; ()
 $crnf :: AddonStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679263228"><span class="annot"><span class="annottext">Text -&gt; Either String AddonStatus
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679263475"><span class="annot"><span class="annottext">Text -&gt; Either String AddonStatus
 (Text -&gt; Either String AddonStatus) -&gt; FromText AddonStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AddonStatus
 $cfromText :: Text -&gt; Either String AddonStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679263225"><span class="annot"><span class="annottext">AddonStatus -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679263472"><span class="annot"><span class="annottext">AddonStatus -&gt; Text
 (AddonStatus -&gt; Text) -&gt; ToText AddonStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AddonStatus -&gt; Text
 $ctoText :: AddonStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679263222"><span class="annot"><span class="annottext">AddonStatus -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679263469"><span class="annot"><span class="annottext">AddonStatus -&gt; ByteString
 (AddonStatus -&gt; ByteString) -&gt; ToByteString AddonStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AddonStatus -&gt; ByteString
 $ctoBS :: AddonStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679263219"><span class="annot"><span class="annottext">AddonStatus -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679263466"><span class="annot"><span class="annottext">AddonStatus -&gt; ByteStringBuilder
 (AddonStatus -&gt; ByteStringBuilder) -&gt; ToLog AddonStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AddonStatus -&gt; ByteStringBuilder
 $cbuild :: AddonStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679263216"><span class="annot"><span class="annottext">HeaderName -&gt; AddonStatus -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679263463"><span class="annot"><span class="annottext">HeaderName -&gt; AddonStatus -&gt; [Header]
 (HeaderName -&gt; AddonStatus -&gt; [Header]) -&gt; ToHeader AddonStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AddonStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AddonStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679263213"><span class="annot"><span class="annottext">AddonStatus -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679263460"><span class="annot"><span class="annottext">AddonStatus -&gt; QueryString
 (AddonStatus -&gt; QueryString) -&gt; ToQuery AddonStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AddonStatus -&gt; QueryString
 $ctoQuery :: AddonStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679263208"><span id="local-6989586621679263210"><span class="annot"><span class="annottext">Value -&gt; Parser [AddonStatus]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679263455"><span id="local-6989586621679263457"><span class="annot"><span class="annottext">Value -&gt; Parser [AddonStatus]
 Value -&gt; Parser AddonStatus
 (Value -&gt; Parser AddonStatus)
 -&gt; (Value -&gt; Parser [AddonStatus]) -&gt; FromJSON AddonStatus
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [AddonStatus]
 parseJSON :: Value -&gt; Parser AddonStatus
 $cparseJSON :: Value -&gt; Parser AddonStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679263203"><span id="local-6989586621679263205"><span class="annot"><span class="annottext">FromJSONKeyFunction [AddonStatus]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679263450"><span id="local-6989586621679263452"><span class="annot"><span class="annottext">FromJSONKeyFunction [AddonStatus]
 FromJSONKeyFunction AddonStatus
 FromJSONKeyFunction AddonStatus
 -&gt; FromJSONKeyFunction [AddonStatus] -&gt; FromJSONKey AddonStatus
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AddonStatus]
 fromJSONKey :: FromJSONKeyFunction AddonStatus
 $cfromJSONKey :: FromJSONKeyFunction AddonStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679263194"><span id="local-6989586621679263196"><span id="local-6989586621679263198"><span id="local-6989586621679263200"><span class="annot"><span class="annottext">[AddonStatus] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679263441"><span id="local-6989586621679263443"><span id="local-6989586621679263445"><span id="local-6989586621679263447"><span class="annot"><span class="annottext">[AddonStatus] -&gt; Encoding
 [AddonStatus] -&gt; Value
 AddonStatus -&gt; Encoding
 AddonStatus -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: AddonStatus -&gt; Encoding
 toJSON :: AddonStatus -&gt; Value
 $ctoJSON :: AddonStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679263189"><span id="local-6989586621679263191"><span class="annot"><span class="annottext">ToJSONKeyFunction [AddonStatus]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679263436"><span id="local-6989586621679263438"><span class="annot"><span class="annottext">ToJSONKeyFunction [AddonStatus]
 ToJSONKeyFunction AddonStatus
 ToJSONKeyFunction AddonStatus
 -&gt; ToJSONKeyFunction [AddonStatus] -&gt; ToJSONKey AddonStatus
@@ -246,13 +246,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AddonStatus]
 toJSONKey :: ToJSONKeyFunction AddonStatus
 $ctoJSONKey :: ToJSONKeyFunction AddonStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679263186"><span class="annot"><span class="annottext">[Node] -&gt; Either String AddonStatus
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679263433"><span class="annot"><span class="annottext">[Node] -&gt; Either String AddonStatus
 ([Node] -&gt; Either String AddonStatus) -&gt; FromXML AddonStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AddonStatus
 $cparseXML :: [Node] -&gt; Either String AddonStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679263183"><span class="annot"><span class="annottext">AddonStatus -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679263430"><span class="annot"><span class="annottext">AddonStatus -&gt; XML
 (AddonStatus -&gt; XML) -&gt; ToXML AddonStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AddonStatus -&gt; XML

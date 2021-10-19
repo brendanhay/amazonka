@@ -36,49 +36,49 @@
 </span><span id="line-36"></span><span class="hs-comment">-- default messages that you tailored for specific channels.</span><span>
 </span><span id="line-37"></span><span class="hs-comment">--</span><span>
 </span><span id="line-38"></span><span class="hs-comment">-- /See:/ 'newDirectMessageConfiguration' smart constructor.</span><span>
-</span><span id="line-39"></span><span id="local-6989586621679617161"><span id="local-6989586621679617162"></span></span><span class="hs-keyword">data</span><span> </span><span id="DirectMessageConfiguration"><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration"><span class="hs-identifier hs-var">DirectMessageConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DirectMessageConfiguration%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration%27"><span class="hs-identifier hs-var">DirectMessageConfiguration'</span></a></span></span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The default push notification message for the ADM (Amazon Device</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- Messaging) channel. This message overrides the default push notification</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- message (DefaultPushNotificationMessage).</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AaDMMessage%3ADirectMessageConfiguration%27"><span class="annot"><span class="annottext">DirectMessageConfiguration -&gt; Maybe ADMMessage
-</span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#%24sel%3AaDMMessage%3ADirectMessageConfiguration%27"><span class="hs-identifier hs-var hs-var">aDMMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ADMMessage.html#ADMMessage"><span class="hs-identifier hs-type">ADMMessage</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The default message for all channels.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AdefaultMessage%3ADirectMessageConfiguration%27"><span class="annot"><span class="annottext">DirectMessageConfiguration -&gt; Maybe DefaultMessage
-</span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#%24sel%3AdefaultMessage%3ADirectMessageConfiguration%27"><span class="hs-identifier hs-var hs-var">defaultMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DefaultMessage.html#DefaultMessage"><span class="hs-identifier hs-type">DefaultMessage</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The default message for the voice channel. This message overrides the</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- default message (DefaultMessage).</span><span>
-</span><span id="line-48"></span><span>    </span><span id="%24sel%3AvoiceMessage%3ADirectMessageConfiguration%27"><span class="annot"><span class="annottext">DirectMessageConfiguration -&gt; Maybe VoiceMessage
-</span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#%24sel%3AvoiceMessage%3ADirectMessageConfiguration%27"><span class="hs-identifier hs-var hs-var">voiceMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage"><span class="hs-identifier hs-type">VoiceMessage</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The default push notification message for the GCM channel, which is used</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- to send notifications through the Firebase Cloud Messaging (FCM),</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- formerly Google Cloud Messaging (GCM), service. This message overrides</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- the default push notification message (DefaultPushNotificationMessage).</span><span>
-</span><span id="line-53"></span><span>    </span><span id="%24sel%3AgCMMessage%3ADirectMessageConfiguration%27"><span class="annot"><span class="annottext">DirectMessageConfiguration -&gt; Maybe GCMMessage
-</span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#%24sel%3AgCMMessage%3ADirectMessageConfiguration%27"><span class="hs-identifier hs-var hs-var">gCMMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GCMMessage.html#GCMMessage"><span class="hs-identifier hs-type">GCMMessage</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The default message for the email channel. This message overrides the</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- default message (DefaultMessage).</span><span>
-</span><span id="line-56"></span><span>    </span><span id="%24sel%3AemailMessage%3ADirectMessageConfiguration%27"><span class="annot"><span class="annottext">DirectMessageConfiguration -&gt; Maybe EmailMessage
-</span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#%24sel%3AemailMessage%3ADirectMessageConfiguration%27"><span class="hs-identifier hs-var hs-var">emailMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailMessage.html#EmailMessage"><span class="hs-identifier hs-type">EmailMessage</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The default push notification message for the APNs (Apple Push</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- Notification service) channel. This message overrides the default push</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- notification message (DefaultPushNotificationMessage).</span><span>
-</span><span id="line-60"></span><span>    </span><span id="%24sel%3AaPNSMessage%3ADirectMessageConfiguration%27"><span class="annot"><span class="annottext">DirectMessageConfiguration -&gt; Maybe APNSMessage
+</span><span id="line-39"></span><span id="local-6989586621679617679"><span id="local-6989586621679617680"></span></span><span class="hs-keyword">data</span><span> </span><span id="DirectMessageConfiguration"><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration"><span class="hs-identifier hs-var">DirectMessageConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DirectMessageConfiguration%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration%27"><span class="hs-identifier hs-var">DirectMessageConfiguration'</span></a></span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The default push notification message for the APNs (Apple Push</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- Notification service) channel. This message overrides the default push</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- notification message (DefaultPushNotificationMessage).</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AaPNSMessage%3ADirectMessageConfiguration%27"><span class="annot"><span class="annottext">DirectMessageConfiguration -&gt; Maybe APNSMessage
 </span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#%24sel%3AaPNSMessage%3ADirectMessageConfiguration%27"><span class="hs-identifier hs-var hs-var">aPNSMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSMessage.html#APNSMessage"><span class="hs-identifier hs-type">APNSMessage</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The default message for the SMS channel. This message overrides the</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- default message (DefaultMessage).</span><span>
-</span><span id="line-63"></span><span>    </span><span id="%24sel%3AsMSMessage%3ADirectMessageConfiguration%27"><span class="annot"><span class="annottext">DirectMessageConfiguration -&gt; Maybe SMSMessage
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The default push notification message for the GCM channel, which is used</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- to send notifications through the Firebase Cloud Messaging (FCM),</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- formerly Google Cloud Messaging (GCM), service. This message overrides</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- the default push notification message (DefaultPushNotificationMessage).</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AgCMMessage%3ADirectMessageConfiguration%27"><span class="annot"><span class="annottext">DirectMessageConfiguration -&gt; Maybe GCMMessage
+</span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#%24sel%3AgCMMessage%3ADirectMessageConfiguration%27"><span class="hs-identifier hs-var hs-var">gCMMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GCMMessage.html#GCMMessage"><span class="hs-identifier hs-type">GCMMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The default message for all channels.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AdefaultMessage%3ADirectMessageConfiguration%27"><span class="annot"><span class="annottext">DirectMessageConfiguration -&gt; Maybe DefaultMessage
+</span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#%24sel%3AdefaultMessage%3ADirectMessageConfiguration%27"><span class="hs-identifier hs-var hs-var">defaultMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DefaultMessage.html#DefaultMessage"><span class="hs-identifier hs-type">DefaultMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The default push notification message for the ADM (Amazon Device</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- Messaging) channel. This message overrides the default push notification</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- message (DefaultPushNotificationMessage).</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AaDMMessage%3ADirectMessageConfiguration%27"><span class="annot"><span class="annottext">DirectMessageConfiguration -&gt; Maybe ADMMessage
+</span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#%24sel%3AaDMMessage%3ADirectMessageConfiguration%27"><span class="hs-identifier hs-var hs-var">aDMMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ADMMessage.html#ADMMessage"><span class="hs-identifier hs-type">ADMMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The default message for the SMS channel. This message overrides the</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- default message (DefaultMessage).</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AsMSMessage%3ADirectMessageConfiguration%27"><span class="annot"><span class="annottext">DirectMessageConfiguration -&gt; Maybe SMSMessage
 </span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#%24sel%3AsMSMessage%3ADirectMessageConfiguration%27"><span class="hs-identifier hs-var hs-var">sMSMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SMSMessage.html#SMSMessage"><span class="hs-identifier hs-type">SMSMessage</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The default push notification message for all push notification</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- channels.</span><span>
-</span><span id="line-66"></span><span>    </span><span id="%24sel%3AdefaultPushNotificationMessage%3ADirectMessageConfiguration%27"><span class="annot"><span class="annottext">DirectMessageConfiguration -&gt; Maybe DefaultPushNotificationMessage
-</span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#%24sel%3AdefaultPushNotificationMessage%3ADirectMessageConfiguration%27"><span class="hs-identifier hs-var hs-var">defaultPushNotificationMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DefaultPushNotificationMessage.html#DefaultPushNotificationMessage"><span class="hs-identifier hs-type">DefaultPushNotificationMessage</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The default push notification message for the Baidu (Baidu Cloud Push)</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- channel. This message overrides the default push notification message</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- (DefaultPushNotificationMessage).</span><span>
-</span><span id="line-70"></span><span>    </span><span id="%24sel%3AbaiduMessage%3ADirectMessageConfiguration%27"><span class="annot"><span class="annottext">DirectMessageConfiguration -&gt; Maybe BaiduMessage
-</span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#%24sel%3AbaiduMessage%3ADirectMessageConfiguration%27"><span class="hs-identifier hs-var hs-var">baiduMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage"><span class="hs-identifier hs-type">BaiduMessage</span></a></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The default message for the email channel. This message overrides the</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- default message (DefaultMessage).</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AemailMessage%3ADirectMessageConfiguration%27"><span class="annot"><span class="annottext">DirectMessageConfiguration -&gt; Maybe EmailMessage
+</span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#%24sel%3AemailMessage%3ADirectMessageConfiguration%27"><span class="hs-identifier hs-var hs-var">emailMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailMessage.html#EmailMessage"><span class="hs-identifier hs-type">EmailMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The default message for the voice channel. This message overrides the</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- default message (DefaultMessage).</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AvoiceMessage%3ADirectMessageConfiguration%27"><span class="annot"><span class="annottext">DirectMessageConfiguration -&gt; Maybe VoiceMessage
+</span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#%24sel%3AvoiceMessage%3ADirectMessageConfiguration%27"><span class="hs-identifier hs-var hs-var">voiceMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage"><span class="hs-identifier hs-type">VoiceMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The default push notification message for the Baidu (Baidu Cloud Push)</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- channel. This message overrides the default push notification message</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- (DefaultPushNotificationMessage).</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AbaiduMessage%3ADirectMessageConfiguration%27"><span class="annot"><span class="annottext">DirectMessageConfiguration -&gt; Maybe BaiduMessage
+</span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#%24sel%3AbaiduMessage%3ADirectMessageConfiguration%27"><span class="hs-identifier hs-var hs-var">baiduMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage"><span class="hs-identifier hs-type">BaiduMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The default push notification message for all push notification</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- channels.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AdefaultPushNotificationMessage%3ADirectMessageConfiguration%27"><span class="annot"><span class="annottext">DirectMessageConfiguration -&gt; Maybe DefaultPushNotificationMessage
+</span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#%24sel%3AdefaultPushNotificationMessage%3ADirectMessageConfiguration%27"><span class="hs-identifier hs-var hs-var">defaultPushNotificationMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DefaultPushNotificationMessage.html#DefaultPushNotificationMessage"><span class="hs-identifier hs-type">DefaultPushNotificationMessage</span></a></span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679617147"><span id="local-6989586621679617149"><span class="annot"><span class="annottext">DirectMessageConfiguration -&gt; DirectMessageConfiguration -&gt; Bool
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679617665"><span id="local-6989586621679617667"><span class="annot"><span class="annottext">DirectMessageConfiguration -&gt; DirectMessageConfiguration -&gt; Bool
 (DirectMessageConfiguration -&gt; DirectMessageConfiguration -&gt; Bool)
 -&gt; (DirectMessageConfiguration
     -&gt; DirectMessageConfiguration -&gt; Bool)
@@ -88,7 +88,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DirectMessageConfiguration -&gt; DirectMessageConfiguration -&gt; Bool
 == :: DirectMessageConfiguration -&gt; DirectMessageConfiguration -&gt; Bool
 $c== :: DirectMessageConfiguration -&gt; DirectMessageConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679617138"><span id="local-6989586621679617140"><span id="local-6989586621679617142"><span id="local-6989586621679617144"><span class="annot"><span class="annottext">ReadPrec [DirectMessageConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679617656"><span id="local-6989586621679617658"><span id="local-6989586621679617660"><span id="local-6989586621679617662"><span class="annot"><span class="annottext">ReadPrec [DirectMessageConfiguration]
 ReadPrec DirectMessageConfiguration
 Int -&gt; ReadS DirectMessageConfiguration
 ReadS [DirectMessageConfiguration]
@@ -108,7 +108,7 @@ readList :: ReadS [DirectMessageConfiguration]
 $creadList :: ReadS [DirectMessageConfiguration]
 readsPrec :: Int -&gt; ReadS DirectMessageConfiguration
 $creadsPrec :: Int -&gt; ReadS DirectMessageConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679617131"><span id="local-6989586621679617133"><span id="local-6989586621679617135"><span class="annot"><span class="annottext">Int -&gt; DirectMessageConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679617649"><span id="local-6989586621679617651"><span id="local-6989586621679617653"><span class="annot"><span class="annottext">Int -&gt; DirectMessageConfiguration -&gt; ShowS
 [DirectMessageConfiguration] -&gt; ShowS
 DirectMessageConfiguration -&gt; String
 (Int -&gt; DirectMessageConfiguration -&gt; ShowS)
@@ -148,223 +148,96 @@ DirectMessageConfiguration -&gt; Rep DirectMessageConfiguration x
 </span><span id="line-79"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-81"></span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- 'aDMMessage', 'directMessageConfiguration_aDMMessage' - The default push notification message for the ADM (Amazon Device</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- Messaging) channel. This message overrides the default push notification</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- message (DefaultPushNotificationMessage).</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'aPNSMessage', 'directMessageConfiguration_aPNSMessage' - The default push notification message for the APNs (Apple Push</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Notification service) channel. This message overrides the default push</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- notification message (DefaultPushNotificationMessage).</span><span>
 </span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- 'defaultMessage', 'directMessageConfiguration_defaultMessage' - The default message for all channels.</span><span>
-</span><span id="line-87"></span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- 'voiceMessage', 'directMessageConfiguration_voiceMessage' - The default message for the voice channel. This message overrides the</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- default message (DefaultMessage).</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'gCMMessage', 'directMessageConfiguration_gCMMessage' - The default push notification message for the GCM channel, which is used</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- to send notifications through the Firebase Cloud Messaging (FCM),</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- formerly Google Cloud Messaging (GCM), service. This message overrides</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- the default push notification message (DefaultPushNotificationMessage).</span><span>
 </span><span id="line-90"></span><span class="hs-comment">--</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- 'gCMMessage', 'directMessageConfiguration_gCMMessage' - The default push notification message for the GCM channel, which is used</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- to send notifications through the Firebase Cloud Messaging (FCM),</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- formerly Google Cloud Messaging (GCM), service. This message overrides</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- the default push notification message (DefaultPushNotificationMessage).</span><span>
-</span><span id="line-95"></span><span class="hs-comment">--</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- 'emailMessage', 'directMessageConfiguration_emailMessage' - The default message for the email channel. This message overrides the</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- default message (DefaultMessage).</span><span>
-</span><span id="line-98"></span><span class="hs-comment">--</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- 'aPNSMessage', 'directMessageConfiguration_aPNSMessage' - The default push notification message for the APNs (Apple Push</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- Notification service) channel. This message overrides the default push</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- notification message (DefaultPushNotificationMessage).</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'defaultMessage', 'directMessageConfiguration_defaultMessage' - The default message for all channels.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'aDMMessage', 'directMessageConfiguration_aDMMessage' - The default push notification message for the ADM (Amazon Device</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- Messaging) channel. This message overrides the default push notification</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- message (DefaultPushNotificationMessage).</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'sMSMessage', 'directMessageConfiguration_sMSMessage' - The default message for the SMS channel. This message overrides the</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- default message (DefaultMessage).</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'emailMessage', 'directMessageConfiguration_emailMessage' - The default message for the email channel. This message overrides the</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- default message (DefaultMessage).</span><span>
 </span><span id="line-102"></span><span class="hs-comment">--</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- 'sMSMessage', 'directMessageConfiguration_sMSMessage' - The default message for the SMS channel. This message overrides the</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'voiceMessage', 'directMessageConfiguration_voiceMessage' - The default message for the voice channel. This message overrides the</span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- default message (DefaultMessage).</span><span>
 </span><span id="line-105"></span><span class="hs-comment">--</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- 'defaultPushNotificationMessage', 'directMessageConfiguration_defaultPushNotificationMessage' - The default push notification message for all push notification</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- channels.</span><span>
-</span><span id="line-108"></span><span class="hs-comment">--</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- 'baiduMessage', 'directMessageConfiguration_baiduMessage' - The default push notification message for the Baidu (Baidu Cloud Push)</span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- channel. This message overrides the default push notification message</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- (DefaultPushNotificationMessage).</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'baiduMessage', 'directMessageConfiguration_baiduMessage' - The default push notification message for the Baidu (Baidu Cloud Push)</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- channel. This message overrides the default push notification message</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- (DefaultPushNotificationMessage).</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'defaultPushNotificationMessage', 'directMessageConfiguration_defaultPushNotificationMessage' - The default push notification message for all push notification</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- channels.</span><span>
 </span><span id="line-112"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#newDirectMessageConfiguration"><span class="hs-identifier hs-type">newDirectMessageConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-113"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration"><span class="hs-identifier hs-type">DirectMessageConfiguration</span></a></span><span>
 </span><span id="line-114"></span><span id="newDirectMessageConfiguration"><span class="annot"><span class="annottext">newDirectMessageConfiguration :: DirectMessageConfiguration
 </span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#newDirectMessageConfiguration"><span class="hs-identifier hs-var hs-var">newDirectMessageConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-115"></span><span>  </span><span class="annot"><span class="annottext">DirectMessageConfiguration' :: Maybe ADMMessage
--&gt; Maybe DefaultMessage
--&gt; Maybe VoiceMessage
+</span><span id="line-115"></span><span>  </span><span class="annot"><span class="annottext">DirectMessageConfiguration' :: Maybe APNSMessage
 -&gt; Maybe GCMMessage
--&gt; Maybe EmailMessage
--&gt; Maybe APNSMessage
+-&gt; Maybe DefaultMessage
+-&gt; Maybe ADMMessage
 -&gt; Maybe SMSMessage
--&gt; Maybe DefaultPushNotificationMessage
+-&gt; Maybe EmailMessage
+-&gt; Maybe VoiceMessage
 -&gt; Maybe BaiduMessage
+-&gt; Maybe DefaultPushNotificationMessage
 -&gt; DirectMessageConfiguration
 </span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration%27"><span class="hs-identifier hs-type">DirectMessageConfiguration'</span></a></span><span>
-</span><span id="line-116"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:aDMMessage:DirectMessageConfiguration' :: Maybe ADMMessage
-</span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#%24sel%3AaDMMessage%3ADirectMessageConfiguration%27"><span class="hs-identifier hs-var">aDMMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">Maybe ADMMessage
+</span><span id="line-116"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:aPNSMessage:DirectMessageConfiguration' :: Maybe APNSMessage
+</span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#%24sel%3AaPNSMessage%3ADirectMessageConfiguration%27"><span class="hs-identifier hs-var">aPNSMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">Maybe APNSMessage
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:defaultMessage:DirectMessageConfiguration' :: Maybe DefaultMessage
-</span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#%24sel%3AdefaultMessage%3ADirectMessageConfiguration%27"><span class="hs-identifier hs-var">defaultMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DefaultMessage
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:voiceMessage:DirectMessageConfiguration' :: Maybe VoiceMessage
-</span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#%24sel%3AvoiceMessage%3ADirectMessageConfiguration%27"><span class="hs-identifier hs-var">voiceMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VoiceMessage
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:gCMMessage:DirectMessageConfiguration' :: Maybe GCMMessage
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:gCMMessage:DirectMessageConfiguration' :: Maybe GCMMessage
 </span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#%24sel%3AgCMMessage%3ADirectMessageConfiguration%27"><span class="hs-identifier hs-var">gCMMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GCMMessage
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:emailMessage:DirectMessageConfiguration' :: Maybe EmailMessage
-</span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#%24sel%3AemailMessage%3ADirectMessageConfiguration%27"><span class="hs-identifier hs-var">emailMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EmailMessage
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:defaultMessage:DirectMessageConfiguration' :: Maybe DefaultMessage
+</span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#%24sel%3AdefaultMessage%3ADirectMessageConfiguration%27"><span class="hs-identifier hs-var">defaultMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DefaultMessage
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:aPNSMessage:DirectMessageConfiguration' :: Maybe APNSMessage
-</span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#%24sel%3AaPNSMessage%3ADirectMessageConfiguration%27"><span class="hs-identifier hs-var">aPNSMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe APNSMessage
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:aDMMessage:DirectMessageConfiguration' :: Maybe ADMMessage
+</span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#%24sel%3AaDMMessage%3ADirectMessageConfiguration%27"><span class="hs-identifier hs-var">aDMMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ADMMessage
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:sMSMessage:DirectMessageConfiguration' :: Maybe SMSMessage
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:sMSMessage:DirectMessageConfiguration' :: Maybe SMSMessage
 </span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#%24sel%3AsMSMessage%3ADirectMessageConfiguration%27"><span class="hs-identifier hs-var">sMSMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SMSMessage
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:defaultPushNotificationMessage:DirectMessageConfiguration' :: Maybe DefaultPushNotificationMessage
-</span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#%24sel%3AdefaultPushNotificationMessage%3ADirectMessageConfiguration%27"><span class="hs-identifier hs-var">defaultPushNotificationMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">Maybe DefaultPushNotificationMessage
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:emailMessage:DirectMessageConfiguration' :: Maybe EmailMessage
+</span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#%24sel%3AemailMessage%3ADirectMessageConfiguration%27"><span class="hs-identifier hs-var">emailMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EmailMessage
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:baiduMessage:DirectMessageConfiguration' :: Maybe BaiduMessage
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:voiceMessage:DirectMessageConfiguration' :: Maybe VoiceMessage
+</span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#%24sel%3AvoiceMessage%3ADirectMessageConfiguration%27"><span class="hs-identifier hs-var">voiceMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VoiceMessage
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:baiduMessage:DirectMessageConfiguration' :: Maybe BaiduMessage
 </span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#%24sel%3AbaiduMessage%3ADirectMessageConfiguration%27"><span class="hs-identifier hs-var">baiduMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BaiduMessage
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:defaultPushNotificationMessage:DirectMessageConfiguration' :: Maybe DefaultPushNotificationMessage
+</span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#%24sel%3AdefaultPushNotificationMessage%3ADirectMessageConfiguration%27"><span class="hs-identifier hs-var">defaultPushNotificationMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">Maybe DefaultPushNotificationMessage
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-127"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- | The default push notification message for the ADM (Amazon Device</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- Messaging) channel. This message overrides the default push notification</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- message (DefaultPushNotificationMessage).</span><span>
-</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#directMessageConfiguration_aDMMessage"><span class="hs-identifier hs-type">directMessageConfiguration_aDMMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration"><span class="hs-identifier hs-type">DirectMessageConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ADMMessage.html#ADMMessage"><span class="hs-identifier hs-type">ADMMessage</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span id="directMessageConfiguration_aDMMessage"><span class="annot"><span class="annottext">directMessageConfiguration_aDMMessage :: (Maybe ADMMessage -&gt; f (Maybe ADMMessage))
--&gt; DirectMessageConfiguration -&gt; f DirectMessageConfiguration
-</span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#directMessageConfiguration_aDMMessage"><span class="hs-identifier hs-var hs-var">directMessageConfiguration_aDMMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DirectMessageConfiguration -&gt; Maybe ADMMessage)
--&gt; (DirectMessageConfiguration
-    -&gt; Maybe ADMMessage -&gt; DirectMessageConfiguration)
--&gt; Lens
-     DirectMessageConfiguration
-     DirectMessageConfiguration
-     (Maybe ADMMessage)
-     (Maybe ADMMessage)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration%27"><span class="hs-identifier hs-type">DirectMessageConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679617122"><span class="annot"><span class="annottext">Maybe ADMMessage
-aDMMessage :: Maybe ADMMessage
-$sel:aDMMessage:DirectMessageConfiguration' :: DirectMessageConfiguration -&gt; Maybe ADMMessage
-</span><a href="#local-6989586621679617122"><span class="hs-identifier hs-var hs-var">aDMMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ADMMessage
-</span><a href="#local-6989586621679617122"><span class="hs-identifier hs-var">aDMMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679617121"><span class="annot"><span class="annottext">s :: DirectMessageConfiguration
-</span><a href="#local-6989586621679617121"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration%27"><span class="hs-identifier hs-type">DirectMessageConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679617120"><span class="annot"><span class="annottext">Maybe ADMMessage
-</span><a href="#local-6989586621679617120"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectMessageConfiguration
-</span><a href="#local-6989586621679617121"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aDMMessage:DirectMessageConfiguration' :: Maybe ADMMessage
-</span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#%24sel%3AaDMMessage%3ADirectMessageConfiguration%27"><span class="hs-identifier hs-var">aDMMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ADMMessage
-</span><a href="#local-6989586621679617120"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration"><span class="hs-identifier hs-type">DirectMessageConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- | The default message for all channels.</span><span>
-</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#directMessageConfiguration_defaultMessage"><span class="hs-identifier hs-type">directMessageConfiguration_defaultMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration"><span class="hs-identifier hs-type">DirectMessageConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DefaultMessage.html#DefaultMessage"><span class="hs-identifier hs-type">DefaultMessage</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span id="directMessageConfiguration_defaultMessage"><span class="annot"><span class="annottext">directMessageConfiguration_defaultMessage :: (Maybe DefaultMessage -&gt; f (Maybe DefaultMessage))
--&gt; DirectMessageConfiguration -&gt; f DirectMessageConfiguration
-</span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#directMessageConfiguration_defaultMessage"><span class="hs-identifier hs-var hs-var">directMessageConfiguration_defaultMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DirectMessageConfiguration -&gt; Maybe DefaultMessage)
--&gt; (DirectMessageConfiguration
-    -&gt; Maybe DefaultMessage -&gt; DirectMessageConfiguration)
--&gt; Lens
-     DirectMessageConfiguration
-     DirectMessageConfiguration
-     (Maybe DefaultMessage)
-     (Maybe DefaultMessage)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration%27"><span class="hs-identifier hs-type">DirectMessageConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679617118"><span class="annot"><span class="annottext">Maybe DefaultMessage
-defaultMessage :: Maybe DefaultMessage
-$sel:defaultMessage:DirectMessageConfiguration' :: DirectMessageConfiguration -&gt; Maybe DefaultMessage
-</span><a href="#local-6989586621679617118"><span class="hs-identifier hs-var hs-var">defaultMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DefaultMessage
-</span><a href="#local-6989586621679617118"><span class="hs-identifier hs-var">defaultMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679617117"><span class="annot"><span class="annottext">s :: DirectMessageConfiguration
-</span><a href="#local-6989586621679617117"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration%27"><span class="hs-identifier hs-type">DirectMessageConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679617116"><span class="annot"><span class="annottext">Maybe DefaultMessage
-</span><a href="#local-6989586621679617116"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectMessageConfiguration
-</span><a href="#local-6989586621679617117"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultMessage:DirectMessageConfiguration' :: Maybe DefaultMessage
-</span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#%24sel%3AdefaultMessage%3ADirectMessageConfiguration%27"><span class="hs-identifier hs-var">defaultMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DefaultMessage
-</span><a href="#local-6989586621679617116"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration"><span class="hs-identifier hs-type">DirectMessageConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- | The default message for the voice channel. This message overrides the</span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- default message (DefaultMessage).</span><span>
-</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#directMessageConfiguration_voiceMessage"><span class="hs-identifier hs-type">directMessageConfiguration_voiceMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration"><span class="hs-identifier hs-type">DirectMessageConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage"><span class="hs-identifier hs-type">VoiceMessage</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span id="directMessageConfiguration_voiceMessage"><span class="annot"><span class="annottext">directMessageConfiguration_voiceMessage :: (Maybe VoiceMessage -&gt; f (Maybe VoiceMessage))
--&gt; DirectMessageConfiguration -&gt; f DirectMessageConfiguration
-</span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#directMessageConfiguration_voiceMessage"><span class="hs-identifier hs-var hs-var">directMessageConfiguration_voiceMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DirectMessageConfiguration -&gt; Maybe VoiceMessage)
--&gt; (DirectMessageConfiguration
-    -&gt; Maybe VoiceMessage -&gt; DirectMessageConfiguration)
--&gt; Lens
-     DirectMessageConfiguration
-     DirectMessageConfiguration
-     (Maybe VoiceMessage)
-     (Maybe VoiceMessage)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration%27"><span class="hs-identifier hs-type">DirectMessageConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679617114"><span class="annot"><span class="annottext">Maybe VoiceMessage
-voiceMessage :: Maybe VoiceMessage
-$sel:voiceMessage:DirectMessageConfiguration' :: DirectMessageConfiguration -&gt; Maybe VoiceMessage
-</span><a href="#local-6989586621679617114"><span class="hs-identifier hs-var hs-var">voiceMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VoiceMessage
-</span><a href="#local-6989586621679617114"><span class="hs-identifier hs-var">voiceMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679617113"><span class="annot"><span class="annottext">s :: DirectMessageConfiguration
-</span><a href="#local-6989586621679617113"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration%27"><span class="hs-identifier hs-type">DirectMessageConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679617112"><span class="annot"><span class="annottext">Maybe VoiceMessage
-</span><a href="#local-6989586621679617112"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectMessageConfiguration
-</span><a href="#local-6989586621679617113"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:voiceMessage:DirectMessageConfiguration' :: Maybe VoiceMessage
-</span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#%24sel%3AvoiceMessage%3ADirectMessageConfiguration%27"><span class="hs-identifier hs-var">voiceMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VoiceMessage
-</span><a href="#local-6989586621679617112"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration"><span class="hs-identifier hs-type">DirectMessageConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- | The default push notification message for the GCM channel, which is used</span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- to send notifications through the Firebase Cloud Messaging (FCM),</span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- formerly Google Cloud Messaging (GCM), service. This message overrides</span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- the default push notification message (DefaultPushNotificationMessage).</span><span>
-</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#directMessageConfiguration_gCMMessage"><span class="hs-identifier hs-type">directMessageConfiguration_gCMMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration"><span class="hs-identifier hs-type">DirectMessageConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GCMMessage.html#GCMMessage"><span class="hs-identifier hs-type">GCMMessage</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-149"></span><span id="directMessageConfiguration_gCMMessage"><span class="annot"><span class="annottext">directMessageConfiguration_gCMMessage :: (Maybe GCMMessage -&gt; f (Maybe GCMMessage))
--&gt; DirectMessageConfiguration -&gt; f DirectMessageConfiguration
-</span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#directMessageConfiguration_gCMMessage"><span class="hs-identifier hs-var hs-var">directMessageConfiguration_gCMMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DirectMessageConfiguration -&gt; Maybe GCMMessage)
--&gt; (DirectMessageConfiguration
-    -&gt; Maybe GCMMessage -&gt; DirectMessageConfiguration)
--&gt; Lens
-     DirectMessageConfiguration
-     DirectMessageConfiguration
-     (Maybe GCMMessage)
-     (Maybe GCMMessage)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration%27"><span class="hs-identifier hs-type">DirectMessageConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679617110"><span class="annot"><span class="annottext">Maybe GCMMessage
-gCMMessage :: Maybe GCMMessage
-$sel:gCMMessage:DirectMessageConfiguration' :: DirectMessageConfiguration -&gt; Maybe GCMMessage
-</span><a href="#local-6989586621679617110"><span class="hs-identifier hs-var hs-var">gCMMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GCMMessage
-</span><a href="#local-6989586621679617110"><span class="hs-identifier hs-var">gCMMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679617109"><span class="annot"><span class="annottext">s :: DirectMessageConfiguration
-</span><a href="#local-6989586621679617109"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration%27"><span class="hs-identifier hs-type">DirectMessageConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679617108"><span class="annot"><span class="annottext">Maybe GCMMessage
-</span><a href="#local-6989586621679617108"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectMessageConfiguration
-</span><a href="#local-6989586621679617109"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gCMMessage:DirectMessageConfiguration' :: Maybe GCMMessage
-</span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#%24sel%3AgCMMessage%3ADirectMessageConfiguration%27"><span class="hs-identifier hs-var">gCMMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GCMMessage
-</span><a href="#local-6989586621679617108"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration"><span class="hs-identifier hs-type">DirectMessageConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- | The default message for the email channel. This message overrides the</span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- default message (DefaultMessage).</span><span>
-</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#directMessageConfiguration_emailMessage"><span class="hs-identifier hs-type">directMessageConfiguration_emailMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration"><span class="hs-identifier hs-type">DirectMessageConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailMessage.html#EmailMessage"><span class="hs-identifier hs-type">EmailMessage</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-154"></span><span id="directMessageConfiguration_emailMessage"><span class="annot"><span class="annottext">directMessageConfiguration_emailMessage :: (Maybe EmailMessage -&gt; f (Maybe EmailMessage))
--&gt; DirectMessageConfiguration -&gt; f DirectMessageConfiguration
-</span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#directMessageConfiguration_emailMessage"><span class="hs-identifier hs-var hs-var">directMessageConfiguration_emailMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DirectMessageConfiguration -&gt; Maybe EmailMessage)
--&gt; (DirectMessageConfiguration
-    -&gt; Maybe EmailMessage -&gt; DirectMessageConfiguration)
--&gt; Lens
-     DirectMessageConfiguration
-     DirectMessageConfiguration
-     (Maybe EmailMessage)
-     (Maybe EmailMessage)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration%27"><span class="hs-identifier hs-type">DirectMessageConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679617106"><span class="annot"><span class="annottext">Maybe EmailMessage
-emailMessage :: Maybe EmailMessage
-$sel:emailMessage:DirectMessageConfiguration' :: DirectMessageConfiguration -&gt; Maybe EmailMessage
-</span><a href="#local-6989586621679617106"><span class="hs-identifier hs-var hs-var">emailMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EmailMessage
-</span><a href="#local-6989586621679617106"><span class="hs-identifier hs-var">emailMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679617105"><span class="annot"><span class="annottext">s :: DirectMessageConfiguration
-</span><a href="#local-6989586621679617105"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration%27"><span class="hs-identifier hs-type">DirectMessageConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679617104"><span class="annot"><span class="annottext">Maybe EmailMessage
-</span><a href="#local-6989586621679617104"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectMessageConfiguration
-</span><a href="#local-6989586621679617105"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:emailMessage:DirectMessageConfiguration' :: Maybe EmailMessage
-</span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#%24sel%3AemailMessage%3ADirectMessageConfiguration%27"><span class="hs-identifier hs-var">emailMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EmailMessage
-</span><a href="#local-6989586621679617104"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration"><span class="hs-identifier hs-type">DirectMessageConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-comment">-- | The default push notification message for the APNs (Apple Push</span><span>
-</span><span id="line-157"></span><span class="hs-comment">-- Notification service) channel. This message overrides the default push</span><span>
-</span><span id="line-158"></span><span class="hs-comment">-- notification message (DefaultPushNotificationMessage).</span><span>
-</span><span id="line-159"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#directMessageConfiguration_aPNSMessage"><span class="hs-identifier hs-type">directMessageConfiguration_aPNSMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration"><span class="hs-identifier hs-type">DirectMessageConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSMessage.html#APNSMessage"><span class="hs-identifier hs-type">APNSMessage</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-160"></span><span id="directMessageConfiguration_aPNSMessage"><span class="annot"><span class="annottext">directMessageConfiguration_aPNSMessage :: (Maybe APNSMessage -&gt; f (Maybe APNSMessage))
+</span><span id="line-129"></span><span class="hs-comment">-- | The default push notification message for the APNs (Apple Push</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- Notification service) channel. This message overrides the default push</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- notification message (DefaultPushNotificationMessage).</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#directMessageConfiguration_aPNSMessage"><span class="hs-identifier hs-type">directMessageConfiguration_aPNSMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration"><span class="hs-identifier hs-type">DirectMessageConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSMessage.html#APNSMessage"><span class="hs-identifier hs-type">APNSMessage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="directMessageConfiguration_aPNSMessage"><span class="annot"><span class="annottext">directMessageConfiguration_aPNSMessage :: (Maybe APNSMessage -&gt; f (Maybe APNSMessage))
 -&gt; DirectMessageConfiguration -&gt; f DirectMessageConfiguration
 </span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#directMessageConfiguration_aPNSMessage"><span class="hs-identifier hs-var hs-var">directMessageConfiguration_aPNSMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DirectMessageConfiguration -&gt; Maybe APNSMessage)
 -&gt; (DirectMessageConfiguration
@@ -375,21 +248,98 @@ $sel:emailMessage:DirectMessageConfiguration' :: DirectMessageConfiguration -&gt
      (Maybe APNSMessage)
      (Maybe APNSMessage)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration%27"><span class="hs-identifier hs-type">DirectMessageConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679617102"><span class="annot"><span class="annottext">Maybe APNSMessage
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration%27"><span class="hs-identifier hs-type">DirectMessageConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679617640"><span class="annot"><span class="annottext">Maybe APNSMessage
 aPNSMessage :: Maybe APNSMessage
 $sel:aPNSMessage:DirectMessageConfiguration' :: DirectMessageConfiguration -&gt; Maybe APNSMessage
-</span><a href="#local-6989586621679617102"><span class="hs-identifier hs-var hs-var">aPNSMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe APNSMessage
-</span><a href="#local-6989586621679617102"><span class="hs-identifier hs-var">aPNSMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679617101"><span class="annot"><span class="annottext">s :: DirectMessageConfiguration
-</span><a href="#local-6989586621679617101"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration%27"><span class="hs-identifier hs-type">DirectMessageConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679617100"><span class="annot"><span class="annottext">Maybe APNSMessage
-</span><a href="#local-6989586621679617100"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectMessageConfiguration
-</span><a href="#local-6989586621679617101"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aPNSMessage:DirectMessageConfiguration' :: Maybe APNSMessage
+</span><a href="#local-6989586621679617640"><span class="hs-identifier hs-var hs-var">aPNSMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe APNSMessage
+</span><a href="#local-6989586621679617640"><span class="hs-identifier hs-var">aPNSMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679617639"><span class="annot"><span class="annottext">s :: DirectMessageConfiguration
+</span><a href="#local-6989586621679617639"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration%27"><span class="hs-identifier hs-type">DirectMessageConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679617638"><span class="annot"><span class="annottext">Maybe APNSMessage
+</span><a href="#local-6989586621679617638"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectMessageConfiguration
+</span><a href="#local-6989586621679617639"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aPNSMessage:DirectMessageConfiguration' :: Maybe APNSMessage
 </span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#%24sel%3AaPNSMessage%3ADirectMessageConfiguration%27"><span class="hs-identifier hs-var">aPNSMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe APNSMessage
-</span><a href="#local-6989586621679617100"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration"><span class="hs-identifier hs-type">DirectMessageConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-161"></span><span>
-</span><span id="line-162"></span><span class="hs-comment">-- | The default message for the SMS channel. This message overrides the</span><span>
-</span><span id="line-163"></span><span class="hs-comment">-- default message (DefaultMessage).</span><span>
-</span><span id="line-164"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#directMessageConfiguration_sMSMessage"><span class="hs-identifier hs-type">directMessageConfiguration_sMSMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration"><span class="hs-identifier hs-type">DirectMessageConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SMSMessage.html#SMSMessage"><span class="hs-identifier hs-type">SMSMessage</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-165"></span><span id="directMessageConfiguration_sMSMessage"><span class="annot"><span class="annottext">directMessageConfiguration_sMSMessage :: (Maybe SMSMessage -&gt; f (Maybe SMSMessage))
+</span><a href="#local-6989586621679617638"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration"><span class="hs-identifier hs-type">DirectMessageConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | The default push notification message for the GCM channel, which is used</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- to send notifications through the Firebase Cloud Messaging (FCM),</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- formerly Google Cloud Messaging (GCM), service. This message overrides</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- the default push notification message (DefaultPushNotificationMessage).</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#directMessageConfiguration_gCMMessage"><span class="hs-identifier hs-type">directMessageConfiguration_gCMMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration"><span class="hs-identifier hs-type">DirectMessageConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GCMMessage.html#GCMMessage"><span class="hs-identifier hs-type">GCMMessage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="directMessageConfiguration_gCMMessage"><span class="annot"><span class="annottext">directMessageConfiguration_gCMMessage :: (Maybe GCMMessage -&gt; f (Maybe GCMMessage))
+-&gt; DirectMessageConfiguration -&gt; f DirectMessageConfiguration
+</span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#directMessageConfiguration_gCMMessage"><span class="hs-identifier hs-var hs-var">directMessageConfiguration_gCMMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DirectMessageConfiguration -&gt; Maybe GCMMessage)
+-&gt; (DirectMessageConfiguration
+    -&gt; Maybe GCMMessage -&gt; DirectMessageConfiguration)
+-&gt; Lens
+     DirectMessageConfiguration
+     DirectMessageConfiguration
+     (Maybe GCMMessage)
+     (Maybe GCMMessage)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration%27"><span class="hs-identifier hs-type">DirectMessageConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679617636"><span class="annot"><span class="annottext">Maybe GCMMessage
+gCMMessage :: Maybe GCMMessage
+$sel:gCMMessage:DirectMessageConfiguration' :: DirectMessageConfiguration -&gt; Maybe GCMMessage
+</span><a href="#local-6989586621679617636"><span class="hs-identifier hs-var hs-var">gCMMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GCMMessage
+</span><a href="#local-6989586621679617636"><span class="hs-identifier hs-var">gCMMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679617635"><span class="annot"><span class="annottext">s :: DirectMessageConfiguration
+</span><a href="#local-6989586621679617635"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration%27"><span class="hs-identifier hs-type">DirectMessageConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679617634"><span class="annot"><span class="annottext">Maybe GCMMessage
+</span><a href="#local-6989586621679617634"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectMessageConfiguration
+</span><a href="#local-6989586621679617635"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gCMMessage:DirectMessageConfiguration' :: Maybe GCMMessage
+</span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#%24sel%3AgCMMessage%3ADirectMessageConfiguration%27"><span class="hs-identifier hs-var">gCMMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GCMMessage
+</span><a href="#local-6989586621679617634"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration"><span class="hs-identifier hs-type">DirectMessageConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | The default message for all channels.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#directMessageConfiguration_defaultMessage"><span class="hs-identifier hs-type">directMessageConfiguration_defaultMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration"><span class="hs-identifier hs-type">DirectMessageConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DefaultMessage.html#DefaultMessage"><span class="hs-identifier hs-type">DefaultMessage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="directMessageConfiguration_defaultMessage"><span class="annot"><span class="annottext">directMessageConfiguration_defaultMessage :: (Maybe DefaultMessage -&gt; f (Maybe DefaultMessage))
+-&gt; DirectMessageConfiguration -&gt; f DirectMessageConfiguration
+</span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#directMessageConfiguration_defaultMessage"><span class="hs-identifier hs-var hs-var">directMessageConfiguration_defaultMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DirectMessageConfiguration -&gt; Maybe DefaultMessage)
+-&gt; (DirectMessageConfiguration
+    -&gt; Maybe DefaultMessage -&gt; DirectMessageConfiguration)
+-&gt; Lens
+     DirectMessageConfiguration
+     DirectMessageConfiguration
+     (Maybe DefaultMessage)
+     (Maybe DefaultMessage)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration%27"><span class="hs-identifier hs-type">DirectMessageConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679617632"><span class="annot"><span class="annottext">Maybe DefaultMessage
+defaultMessage :: Maybe DefaultMessage
+$sel:defaultMessage:DirectMessageConfiguration' :: DirectMessageConfiguration -&gt; Maybe DefaultMessage
+</span><a href="#local-6989586621679617632"><span class="hs-identifier hs-var hs-var">defaultMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DefaultMessage
+</span><a href="#local-6989586621679617632"><span class="hs-identifier hs-var">defaultMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679617631"><span class="annot"><span class="annottext">s :: DirectMessageConfiguration
+</span><a href="#local-6989586621679617631"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration%27"><span class="hs-identifier hs-type">DirectMessageConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679617630"><span class="annot"><span class="annottext">Maybe DefaultMessage
+</span><a href="#local-6989586621679617630"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectMessageConfiguration
+</span><a href="#local-6989586621679617631"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultMessage:DirectMessageConfiguration' :: Maybe DefaultMessage
+</span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#%24sel%3AdefaultMessage%3ADirectMessageConfiguration%27"><span class="hs-identifier hs-var">defaultMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DefaultMessage
+</span><a href="#local-6989586621679617630"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration"><span class="hs-identifier hs-type">DirectMessageConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | The default push notification message for the ADM (Amazon Device</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- Messaging) channel. This message overrides the default push notification</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- message (DefaultPushNotificationMessage).</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#directMessageConfiguration_aDMMessage"><span class="hs-identifier hs-type">directMessageConfiguration_aDMMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration"><span class="hs-identifier hs-type">DirectMessageConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ADMMessage.html#ADMMessage"><span class="hs-identifier hs-type">ADMMessage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="directMessageConfiguration_aDMMessage"><span class="annot"><span class="annottext">directMessageConfiguration_aDMMessage :: (Maybe ADMMessage -&gt; f (Maybe ADMMessage))
+-&gt; DirectMessageConfiguration -&gt; f DirectMessageConfiguration
+</span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#directMessageConfiguration_aDMMessage"><span class="hs-identifier hs-var hs-var">directMessageConfiguration_aDMMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DirectMessageConfiguration -&gt; Maybe ADMMessage)
+-&gt; (DirectMessageConfiguration
+    -&gt; Maybe ADMMessage -&gt; DirectMessageConfiguration)
+-&gt; Lens
+     DirectMessageConfiguration
+     DirectMessageConfiguration
+     (Maybe ADMMessage)
+     (Maybe ADMMessage)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration%27"><span class="hs-identifier hs-type">DirectMessageConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679617628"><span class="annot"><span class="annottext">Maybe ADMMessage
+aDMMessage :: Maybe ADMMessage
+$sel:aDMMessage:DirectMessageConfiguration' :: DirectMessageConfiguration -&gt; Maybe ADMMessage
+</span><a href="#local-6989586621679617628"><span class="hs-identifier hs-var hs-var">aDMMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ADMMessage
+</span><a href="#local-6989586621679617628"><span class="hs-identifier hs-var">aDMMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679617627"><span class="annot"><span class="annottext">s :: DirectMessageConfiguration
+</span><a href="#local-6989586621679617627"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration%27"><span class="hs-identifier hs-type">DirectMessageConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679617626"><span class="annot"><span class="annottext">Maybe ADMMessage
+</span><a href="#local-6989586621679617626"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectMessageConfiguration
+</span><a href="#local-6989586621679617627"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aDMMessage:DirectMessageConfiguration' :: Maybe ADMMessage
+</span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#%24sel%3AaDMMessage%3ADirectMessageConfiguration%27"><span class="hs-identifier hs-var">aDMMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ADMMessage
+</span><a href="#local-6989586621679617626"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration"><span class="hs-identifier hs-type">DirectMessageConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | The default message for the SMS channel. This message overrides the</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- default message (DefaultMessage).</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#directMessageConfiguration_sMSMessage"><span class="hs-identifier hs-type">directMessageConfiguration_sMSMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration"><span class="hs-identifier hs-type">DirectMessageConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SMSMessage.html#SMSMessage"><span class="hs-identifier hs-type">SMSMessage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="directMessageConfiguration_sMSMessage"><span class="annot"><span class="annottext">directMessageConfiguration_sMSMessage :: (Maybe SMSMessage -&gt; f (Maybe SMSMessage))
 -&gt; DirectMessageConfiguration -&gt; f DirectMessageConfiguration
 </span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#directMessageConfiguration_sMSMessage"><span class="hs-identifier hs-var hs-var">directMessageConfiguration_sMSMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DirectMessageConfiguration -&gt; Maybe SMSMessage)
 -&gt; (DirectMessageConfiguration
@@ -400,21 +350,97 @@ $sel:aPNSMessage:DirectMessageConfiguration' :: DirectMessageConfiguration -&gt;
      (Maybe SMSMessage)
      (Maybe SMSMessage)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration%27"><span class="hs-identifier hs-type">DirectMessageConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679617098"><span class="annot"><span class="annottext">Maybe SMSMessage
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration%27"><span class="hs-identifier hs-type">DirectMessageConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679617624"><span class="annot"><span class="annottext">Maybe SMSMessage
 sMSMessage :: Maybe SMSMessage
 $sel:sMSMessage:DirectMessageConfiguration' :: DirectMessageConfiguration -&gt; Maybe SMSMessage
-</span><a href="#local-6989586621679617098"><span class="hs-identifier hs-var hs-var">sMSMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SMSMessage
-</span><a href="#local-6989586621679617098"><span class="hs-identifier hs-var">sMSMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679617097"><span class="annot"><span class="annottext">s :: DirectMessageConfiguration
-</span><a href="#local-6989586621679617097"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration%27"><span class="hs-identifier hs-type">DirectMessageConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679617096"><span class="annot"><span class="annottext">Maybe SMSMessage
-</span><a href="#local-6989586621679617096"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectMessageConfiguration
-</span><a href="#local-6989586621679617097"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sMSMessage:DirectMessageConfiguration' :: Maybe SMSMessage
+</span><a href="#local-6989586621679617624"><span class="hs-identifier hs-var hs-var">sMSMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SMSMessage
+</span><a href="#local-6989586621679617624"><span class="hs-identifier hs-var">sMSMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679617623"><span class="annot"><span class="annottext">s :: DirectMessageConfiguration
+</span><a href="#local-6989586621679617623"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration%27"><span class="hs-identifier hs-type">DirectMessageConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679617622"><span class="annot"><span class="annottext">Maybe SMSMessage
+</span><a href="#local-6989586621679617622"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectMessageConfiguration
+</span><a href="#local-6989586621679617623"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sMSMessage:DirectMessageConfiguration' :: Maybe SMSMessage
 </span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#%24sel%3AsMSMessage%3ADirectMessageConfiguration%27"><span class="hs-identifier hs-var">sMSMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SMSMessage
-</span><a href="#local-6989586621679617096"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration"><span class="hs-identifier hs-type">DirectMessageConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679617622"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration"><span class="hs-identifier hs-type">DirectMessageConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | The default message for the email channel. This message overrides the</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- default message (DefaultMessage).</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#directMessageConfiguration_emailMessage"><span class="hs-identifier hs-type">directMessageConfiguration_emailMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration"><span class="hs-identifier hs-type">DirectMessageConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailMessage.html#EmailMessage"><span class="hs-identifier hs-type">EmailMessage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span id="directMessageConfiguration_emailMessage"><span class="annot"><span class="annottext">directMessageConfiguration_emailMessage :: (Maybe EmailMessage -&gt; f (Maybe EmailMessage))
+-&gt; DirectMessageConfiguration -&gt; f DirectMessageConfiguration
+</span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#directMessageConfiguration_emailMessage"><span class="hs-identifier hs-var hs-var">directMessageConfiguration_emailMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DirectMessageConfiguration -&gt; Maybe EmailMessage)
+-&gt; (DirectMessageConfiguration
+    -&gt; Maybe EmailMessage -&gt; DirectMessageConfiguration)
+-&gt; Lens
+     DirectMessageConfiguration
+     DirectMessageConfiguration
+     (Maybe EmailMessage)
+     (Maybe EmailMessage)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration%27"><span class="hs-identifier hs-type">DirectMessageConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679617620"><span class="annot"><span class="annottext">Maybe EmailMessage
+emailMessage :: Maybe EmailMessage
+$sel:emailMessage:DirectMessageConfiguration' :: DirectMessageConfiguration -&gt; Maybe EmailMessage
+</span><a href="#local-6989586621679617620"><span class="hs-identifier hs-var hs-var">emailMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EmailMessage
+</span><a href="#local-6989586621679617620"><span class="hs-identifier hs-var">emailMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679617619"><span class="annot"><span class="annottext">s :: DirectMessageConfiguration
+</span><a href="#local-6989586621679617619"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration%27"><span class="hs-identifier hs-type">DirectMessageConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679617618"><span class="annot"><span class="annottext">Maybe EmailMessage
+</span><a href="#local-6989586621679617618"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectMessageConfiguration
+</span><a href="#local-6989586621679617619"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:emailMessage:DirectMessageConfiguration' :: Maybe EmailMessage
+</span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#%24sel%3AemailMessage%3ADirectMessageConfiguration%27"><span class="hs-identifier hs-var">emailMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EmailMessage
+</span><a href="#local-6989586621679617618"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration"><span class="hs-identifier hs-type">DirectMessageConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | The default message for the voice channel. This message overrides the</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- default message (DefaultMessage).</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#directMessageConfiguration_voiceMessage"><span class="hs-identifier hs-type">directMessageConfiguration_voiceMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration"><span class="hs-identifier hs-type">DirectMessageConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage"><span class="hs-identifier hs-type">VoiceMessage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span id="directMessageConfiguration_voiceMessage"><span class="annot"><span class="annottext">directMessageConfiguration_voiceMessage :: (Maybe VoiceMessage -&gt; f (Maybe VoiceMessage))
+-&gt; DirectMessageConfiguration -&gt; f DirectMessageConfiguration
+</span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#directMessageConfiguration_voiceMessage"><span class="hs-identifier hs-var hs-var">directMessageConfiguration_voiceMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DirectMessageConfiguration -&gt; Maybe VoiceMessage)
+-&gt; (DirectMessageConfiguration
+    -&gt; Maybe VoiceMessage -&gt; DirectMessageConfiguration)
+-&gt; Lens
+     DirectMessageConfiguration
+     DirectMessageConfiguration
+     (Maybe VoiceMessage)
+     (Maybe VoiceMessage)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration%27"><span class="hs-identifier hs-type">DirectMessageConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679617616"><span class="annot"><span class="annottext">Maybe VoiceMessage
+voiceMessage :: Maybe VoiceMessage
+$sel:voiceMessage:DirectMessageConfiguration' :: DirectMessageConfiguration -&gt; Maybe VoiceMessage
+</span><a href="#local-6989586621679617616"><span class="hs-identifier hs-var hs-var">voiceMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VoiceMessage
+</span><a href="#local-6989586621679617616"><span class="hs-identifier hs-var">voiceMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679617615"><span class="annot"><span class="annottext">s :: DirectMessageConfiguration
+</span><a href="#local-6989586621679617615"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration%27"><span class="hs-identifier hs-type">DirectMessageConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679617614"><span class="annot"><span class="annottext">Maybe VoiceMessage
+</span><a href="#local-6989586621679617614"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectMessageConfiguration
+</span><a href="#local-6989586621679617615"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:voiceMessage:DirectMessageConfiguration' :: Maybe VoiceMessage
+</span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#%24sel%3AvoiceMessage%3ADirectMessageConfiguration%27"><span class="hs-identifier hs-var">voiceMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VoiceMessage
+</span><a href="#local-6989586621679617614"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration"><span class="hs-identifier hs-type">DirectMessageConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
-</span><span id="line-167"></span><span class="hs-comment">-- | The default push notification message for all push notification</span><span>
-</span><span id="line-168"></span><span class="hs-comment">-- channels.</span><span>
-</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#directMessageConfiguration_defaultPushNotificationMessage"><span class="hs-identifier hs-type">directMessageConfiguration_defaultPushNotificationMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration"><span class="hs-identifier hs-type">DirectMessageConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DefaultPushNotificationMessage.html#DefaultPushNotificationMessage"><span class="hs-identifier hs-type">DefaultPushNotificationMessage</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-170"></span><span id="directMessageConfiguration_defaultPushNotificationMessage"><span class="annot"><span class="annottext">directMessageConfiguration_defaultPushNotificationMessage :: (Maybe DefaultPushNotificationMessage
+</span><span id="line-167"></span><span class="hs-comment">-- | The default push notification message for the Baidu (Baidu Cloud Push)</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- channel. This message overrides the default push notification message</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- (DefaultPushNotificationMessage).</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#directMessageConfiguration_baiduMessage"><span class="hs-identifier hs-type">directMessageConfiguration_baiduMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration"><span class="hs-identifier hs-type">DirectMessageConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage"><span class="hs-identifier hs-type">BaiduMessage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span id="directMessageConfiguration_baiduMessage"><span class="annot"><span class="annottext">directMessageConfiguration_baiduMessage :: (Maybe BaiduMessage -&gt; f (Maybe BaiduMessage))
+-&gt; DirectMessageConfiguration -&gt; f DirectMessageConfiguration
+</span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#directMessageConfiguration_baiduMessage"><span class="hs-identifier hs-var hs-var">directMessageConfiguration_baiduMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DirectMessageConfiguration -&gt; Maybe BaiduMessage)
+-&gt; (DirectMessageConfiguration
+    -&gt; Maybe BaiduMessage -&gt; DirectMessageConfiguration)
+-&gt; Lens
+     DirectMessageConfiguration
+     DirectMessageConfiguration
+     (Maybe BaiduMessage)
+     (Maybe BaiduMessage)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration%27"><span class="hs-identifier hs-type">DirectMessageConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679617612"><span class="annot"><span class="annottext">Maybe BaiduMessage
+baiduMessage :: Maybe BaiduMessage
+$sel:baiduMessage:DirectMessageConfiguration' :: DirectMessageConfiguration -&gt; Maybe BaiduMessage
+</span><a href="#local-6989586621679617612"><span class="hs-identifier hs-var hs-var">baiduMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BaiduMessage
+</span><a href="#local-6989586621679617612"><span class="hs-identifier hs-var">baiduMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679617611"><span class="annot"><span class="annottext">s :: DirectMessageConfiguration
+</span><a href="#local-6989586621679617611"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration%27"><span class="hs-identifier hs-type">DirectMessageConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679617610"><span class="annot"><span class="annottext">Maybe BaiduMessage
+</span><a href="#local-6989586621679617610"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectMessageConfiguration
+</span><a href="#local-6989586621679617611"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:baiduMessage:DirectMessageConfiguration' :: Maybe BaiduMessage
+</span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#%24sel%3AbaiduMessage%3ADirectMessageConfiguration%27"><span class="hs-identifier hs-var">baiduMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BaiduMessage
+</span><a href="#local-6989586621679617610"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration"><span class="hs-identifier hs-type">DirectMessageConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | The default push notification message for all push notification</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- channels.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#directMessageConfiguration_defaultPushNotificationMessage"><span class="hs-identifier hs-type">directMessageConfiguration_defaultPushNotificationMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration"><span class="hs-identifier hs-type">DirectMessageConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DefaultPushNotificationMessage.html#DefaultPushNotificationMessage"><span class="hs-identifier hs-type">DefaultPushNotificationMessage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span id="directMessageConfiguration_defaultPushNotificationMessage"><span class="annot"><span class="annottext">directMessageConfiguration_defaultPushNotificationMessage :: (Maybe DefaultPushNotificationMessage
  -&gt; f (Maybe DefaultPushNotificationMessage))
 -&gt; DirectMessageConfiguration -&gt; f DirectMessageConfiguration
 </span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#directMessageConfiguration_defaultPushNotificationMessage"><span class="hs-identifier hs-var hs-var">directMessageConfiguration_defaultPushNotificationMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DirectMessageConfiguration
@@ -428,50 +454,24 @@ $sel:sMSMessage:DirectMessageConfiguration' :: DirectMessageConfiguration -&gt; 
      (Maybe DefaultPushNotificationMessage)
      (Maybe DefaultPushNotificationMessage)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration%27"><span class="hs-identifier hs-type">DirectMessageConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679617094"><span class="annot"><span class="annottext">Maybe DefaultPushNotificationMessage
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration%27"><span class="hs-identifier hs-type">DirectMessageConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679617608"><span class="annot"><span class="annottext">Maybe DefaultPushNotificationMessage
 defaultPushNotificationMessage :: Maybe DefaultPushNotificationMessage
 $sel:defaultPushNotificationMessage:DirectMessageConfiguration' :: DirectMessageConfiguration -&gt; Maybe DefaultPushNotificationMessage
-</span><a href="#local-6989586621679617094"><span class="hs-identifier hs-var hs-var">defaultPushNotificationMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DefaultPushNotificationMessage
-</span><a href="#local-6989586621679617094"><span class="hs-identifier hs-var">defaultPushNotificationMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679617093"><span class="annot"><span class="annottext">s :: DirectMessageConfiguration
-</span><a href="#local-6989586621679617093"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration%27"><span class="hs-identifier hs-type">DirectMessageConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679617092"><span class="annot"><span class="annottext">Maybe DefaultPushNotificationMessage
-</span><a href="#local-6989586621679617092"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectMessageConfiguration
-</span><a href="#local-6989586621679617093"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultPushNotificationMessage:DirectMessageConfiguration' :: Maybe DefaultPushNotificationMessage
+</span><a href="#local-6989586621679617608"><span class="hs-identifier hs-var hs-var">defaultPushNotificationMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DefaultPushNotificationMessage
+</span><a href="#local-6989586621679617608"><span class="hs-identifier hs-var">defaultPushNotificationMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679617607"><span class="annot"><span class="annottext">s :: DirectMessageConfiguration
+</span><a href="#local-6989586621679617607"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration%27"><span class="hs-identifier hs-type">DirectMessageConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679617606"><span class="annot"><span class="annottext">Maybe DefaultPushNotificationMessage
+</span><a href="#local-6989586621679617606"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectMessageConfiguration
+</span><a href="#local-6989586621679617607"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultPushNotificationMessage:DirectMessageConfiguration' :: Maybe DefaultPushNotificationMessage
 </span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#%24sel%3AdefaultPushNotificationMessage%3ADirectMessageConfiguration%27"><span class="hs-identifier hs-var">defaultPushNotificationMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DefaultPushNotificationMessage
-</span><a href="#local-6989586621679617092"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration"><span class="hs-identifier hs-type">DirectMessageConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-171"></span><span>
-</span><span id="line-172"></span><span class="hs-comment">-- | The default push notification message for the Baidu (Baidu Cloud Push)</span><span>
-</span><span id="line-173"></span><span class="hs-comment">-- channel. This message overrides the default push notification message</span><span>
-</span><span id="line-174"></span><span class="hs-comment">-- (DefaultPushNotificationMessage).</span><span>
-</span><span id="line-175"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#directMessageConfiguration_baiduMessage"><span class="hs-identifier hs-type">directMessageConfiguration_baiduMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration"><span class="hs-identifier hs-type">DirectMessageConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.BaiduMessage.html#BaiduMessage"><span class="hs-identifier hs-type">BaiduMessage</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-176"></span><span id="directMessageConfiguration_baiduMessage"><span class="annot"><span class="annottext">directMessageConfiguration_baiduMessage :: (Maybe BaiduMessage -&gt; f (Maybe BaiduMessage))
--&gt; DirectMessageConfiguration -&gt; f DirectMessageConfiguration
-</span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#directMessageConfiguration_baiduMessage"><span class="hs-identifier hs-var hs-var">directMessageConfiguration_baiduMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DirectMessageConfiguration -&gt; Maybe BaiduMessage)
--&gt; (DirectMessageConfiguration
-    -&gt; Maybe BaiduMessage -&gt; DirectMessageConfiguration)
--&gt; Lens
-     DirectMessageConfiguration
-     DirectMessageConfiguration
-     (Maybe BaiduMessage)
-     (Maybe BaiduMessage)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration%27"><span class="hs-identifier hs-type">DirectMessageConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679617090"><span class="annot"><span class="annottext">Maybe BaiduMessage
-baiduMessage :: Maybe BaiduMessage
-$sel:baiduMessage:DirectMessageConfiguration' :: DirectMessageConfiguration -&gt; Maybe BaiduMessage
-</span><a href="#local-6989586621679617090"><span class="hs-identifier hs-var hs-var">baiduMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BaiduMessage
-</span><a href="#local-6989586621679617090"><span class="hs-identifier hs-var">baiduMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679617089"><span class="annot"><span class="annottext">s :: DirectMessageConfiguration
-</span><a href="#local-6989586621679617089"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration%27"><span class="hs-identifier hs-type">DirectMessageConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679617088"><span class="annot"><span class="annottext">Maybe BaiduMessage
-</span><a href="#local-6989586621679617088"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectMessageConfiguration
-</span><a href="#local-6989586621679617089"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:baiduMessage:DirectMessageConfiguration' :: Maybe BaiduMessage
-</span><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#%24sel%3AbaiduMessage%3ADirectMessageConfiguration%27"><span class="hs-identifier hs-var">baiduMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BaiduMessage
-</span><a href="#local-6989586621679617088"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration"><span class="hs-identifier hs-type">DirectMessageConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679617606"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration"><span class="hs-identifier hs-type">DirectMessageConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>
-</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679617084"><span id="local-6989586621679617086"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration"><span class="hs-identifier hs-type">DirectMessageConfiguration</span></a></span></span></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679617602"><span id="local-6989586621679617604"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration"><span class="hs-identifier hs-type">DirectMessageConfiguration</span></a></span></span></span><span>
 </span><span id="line-179"></span><span>
-</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679617081"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration"><span class="hs-identifier hs-type">DirectMessageConfiguration</span></a></span></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679617599"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration"><span class="hs-identifier hs-type">DirectMessageConfiguration</span></a></span></span><span>
 </span><span id="line-181"></span><span>
-</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679617073"><span id="local-6989586621679617075"><span id="local-6989586621679617077"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration"><span class="hs-identifier hs-type">DirectMessageConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-183"></span><span>  </span><span id="local-6989586621679617071"><span class="annot"><span class="annottext">toJSON :: DirectMessageConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration%27"><span class="hs-identifier hs-type">DirectMessageConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679617061"><span id="local-6989586621679617062"><span id="local-6989586621679617063"><span id="local-6989586621679617064"><span id="local-6989586621679617065"><span id="local-6989586621679617066"><span id="local-6989586621679617067"><span id="local-6989586621679617068"><span id="local-6989586621679617069"><span class="annot"><span class="annottext">Maybe APNSMessage
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679617591"><span id="local-6989586621679617593"><span id="local-6989586621679617595"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration"><span class="hs-identifier hs-type">DirectMessageConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679617589"><span class="annot"><span class="annottext">toJSON :: DirectMessageConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DirectMessageConfiguration.html#DirectMessageConfiguration%27"><span class="hs-identifier hs-type">DirectMessageConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679617579"><span id="local-6989586621679617580"><span id="local-6989586621679617581"><span id="local-6989586621679617582"><span id="local-6989586621679617583"><span id="local-6989586621679617584"><span id="local-6989586621679617585"><span id="local-6989586621679617586"><span id="local-6989586621679617587"><span class="annot"><span class="annottext">Maybe APNSMessage
 Maybe ADMMessage
 Maybe BaiduMessage
 Maybe DefaultMessage
@@ -480,96 +480,96 @@ Maybe GCMMessage
 Maybe SMSMessage
 Maybe EmailMessage
 Maybe VoiceMessage
-baiduMessage :: Maybe BaiduMessage
 defaultPushNotificationMessage :: Maybe DefaultPushNotificationMessage
-sMSMessage :: Maybe SMSMessage
-aPNSMessage :: Maybe APNSMessage
-emailMessage :: Maybe EmailMessage
-gCMMessage :: Maybe GCMMessage
+baiduMessage :: Maybe BaiduMessage
 voiceMessage :: Maybe VoiceMessage
-defaultMessage :: Maybe DefaultMessage
+emailMessage :: Maybe EmailMessage
+sMSMessage :: Maybe SMSMessage
 aDMMessage :: Maybe ADMMessage
-$sel:baiduMessage:DirectMessageConfiguration' :: DirectMessageConfiguration -&gt; Maybe BaiduMessage
+defaultMessage :: Maybe DefaultMessage
+gCMMessage :: Maybe GCMMessage
+aPNSMessage :: Maybe APNSMessage
 $sel:defaultPushNotificationMessage:DirectMessageConfiguration' :: DirectMessageConfiguration -&gt; Maybe DefaultPushNotificationMessage
-$sel:sMSMessage:DirectMessageConfiguration' :: DirectMessageConfiguration -&gt; Maybe SMSMessage
-$sel:aPNSMessage:DirectMessageConfiguration' :: DirectMessageConfiguration -&gt; Maybe APNSMessage
-$sel:emailMessage:DirectMessageConfiguration' :: DirectMessageConfiguration -&gt; Maybe EmailMessage
-$sel:gCMMessage:DirectMessageConfiguration' :: DirectMessageConfiguration -&gt; Maybe GCMMessage
+$sel:baiduMessage:DirectMessageConfiguration' :: DirectMessageConfiguration -&gt; Maybe BaiduMessage
 $sel:voiceMessage:DirectMessageConfiguration' :: DirectMessageConfiguration -&gt; Maybe VoiceMessage
-$sel:defaultMessage:DirectMessageConfiguration' :: DirectMessageConfiguration -&gt; Maybe DefaultMessage
+$sel:emailMessage:DirectMessageConfiguration' :: DirectMessageConfiguration -&gt; Maybe EmailMessage
+$sel:sMSMessage:DirectMessageConfiguration' :: DirectMessageConfiguration -&gt; Maybe SMSMessage
 $sel:aDMMessage:DirectMessageConfiguration' :: DirectMessageConfiguration -&gt; Maybe ADMMessage
-</span><a href="#local-6989586621679617061"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:defaultMessage:DirectMessageConfiguration' :: DirectMessageConfiguration -&gt; Maybe DefaultMessage
+$sel:gCMMessage:DirectMessageConfiguration' :: DirectMessageConfiguration -&gt; Maybe GCMMessage
+$sel:aPNSMessage:DirectMessageConfiguration' :: DirectMessageConfiguration -&gt; Maybe APNSMessage
+</span><a href="#local-6989586621679617579"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-184"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-185"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-186"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ADMMessage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ADMMessage -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ADMMessage -&gt; Pair) -&gt; Maybe ADMMessage -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ADMMessage
-</span><a href="#local-6989586621679617069"><span class="hs-identifier hs-var">aDMMessage</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-187"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DefaultMessage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DefaultMessage -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-188"></span><span>              </span><span class="annot"><span class="annottext">(DefaultMessage -&gt; Pair) -&gt; Maybe DefaultMessage -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DefaultMessage
-</span><a href="#local-6989586621679617068"><span class="hs-identifier hs-var">defaultMessage</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-189"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;VoiceMessage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; VoiceMessage -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(VoiceMessage -&gt; Pair) -&gt; Maybe VoiceMessage -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe VoiceMessage
-</span><a href="#local-6989586621679617067"><span class="hs-identifier hs-var">voiceMessage</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-190"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;GCMMessage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; GCMMessage -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(GCMMessage -&gt; Pair) -&gt; Maybe GCMMessage -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe GCMMessage
-</span><a href="#local-6989586621679617066"><span class="hs-identifier hs-var">gCMMessage</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-191"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;EmailMessage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EmailMessage -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(EmailMessage -&gt; Pair) -&gt; Maybe EmailMessage -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EmailMessage
-</span><a href="#local-6989586621679617065"><span class="hs-identifier hs-var">emailMessage</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-192"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;APNSMessage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; APNSMessage -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(APNSMessage -&gt; Pair) -&gt; Maybe APNSMessage -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe APNSMessage
-</span><a href="#local-6989586621679617064"><span class="hs-identifier hs-var">aPNSMessage</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-193"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679617587"><span class="hs-identifier hs-var">aPNSMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GCMMessage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; GCMMessage -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(GCMMessage -&gt; Pair) -&gt; Maybe GCMMessage -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe GCMMessage
+</span><a href="#local-6989586621679617586"><span class="hs-identifier hs-var">gCMMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DefaultMessage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DefaultMessage -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>              </span><span class="annot"><span class="annottext">(DefaultMessage -&gt; Pair) -&gt; Maybe DefaultMessage -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DefaultMessage
+</span><a href="#local-6989586621679617585"><span class="hs-identifier hs-var">defaultMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ADMMessage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ADMMessage -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ADMMessage -&gt; Pair) -&gt; Maybe ADMMessage -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ADMMessage
+</span><a href="#local-6989586621679617584"><span class="hs-identifier hs-var">aDMMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SMSMessage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SMSMessage -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SMSMessage -&gt; Pair) -&gt; Maybe SMSMessage -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SMSMessage
-</span><a href="#local-6989586621679617063"><span class="hs-identifier hs-var">sMSMessage</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-194"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DefaultPushNotificationMessage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DefaultPushNotificationMessage -&gt; Pair
+</span><a href="#local-6989586621679617583"><span class="hs-identifier hs-var">sMSMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EmailMessage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EmailMessage -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-195"></span><span>              </span><span class="annot"><span class="annottext">(DefaultPushNotificationMessage -&gt; Pair)
--&gt; Maybe DefaultPushNotificationMessage -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(EmailMessage -&gt; Pair) -&gt; Maybe EmailMessage -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DefaultPushNotificationMessage
-</span><a href="#local-6989586621679617062"><span class="hs-identifier hs-var">defaultPushNotificationMessage</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-196"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EmailMessage
+</span><a href="#local-6989586621679617582"><span class="hs-identifier hs-var">emailMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VoiceMessage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; VoiceMessage -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(VoiceMessage -&gt; Pair) -&gt; Maybe VoiceMessage -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe VoiceMessage
+</span><a href="#local-6989586621679617581"><span class="hs-identifier hs-var">voiceMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BaiduMessage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; BaiduMessage -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(BaiduMessage -&gt; Pair) -&gt; Maybe BaiduMessage -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe BaiduMessage
-</span><a href="#local-6989586621679617061"><span class="hs-identifier hs-var">baiduMessage</span></a></span><span>
+</span><a href="#local-6989586621679617580"><span class="hs-identifier hs-var">baiduMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DefaultPushNotificationMessage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DefaultPushNotificationMessage -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>              </span><span class="annot"><span class="annottext">(DefaultPushNotificationMessage -&gt; Pair)
+-&gt; Maybe DefaultPushNotificationMessage -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DefaultPushNotificationMessage
+</span><a href="#local-6989586621679617579"><span class="hs-identifier hs-var">defaultPushNotificationMessage</span></a></span><span>
 </span><span id="line-197"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-198"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-199"></span></pre></body></html>

@@ -59,13 +59,13 @@
 </span><span id="line-59"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide&gt;.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- /See:/ 'newSetActiveReceiptRuleSet' smart constructor.</span><span>
-</span><span id="line-62"></span><span id="local-6989586621679279031"><span id="local-6989586621679279032"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetActiveReceiptRuleSet"><span class="annot"><a href="Network.AWS.SES.SetActiveReceiptRuleSet.html#SetActiveReceiptRuleSet"><span class="hs-identifier hs-var">SetActiveReceiptRuleSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetActiveReceiptRuleSet%27"><span class="annot"><a href="Network.AWS.SES.SetActiveReceiptRuleSet.html#SetActiveReceiptRuleSet%27"><span class="hs-identifier hs-var">SetActiveReceiptRuleSet'</span></a></span></span><span>
+</span><span id="line-62"></span><span id="local-6989586621679279232"><span id="local-6989586621679279233"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetActiveReceiptRuleSet"><span class="annot"><a href="Network.AWS.SES.SetActiveReceiptRuleSet.html#SetActiveReceiptRuleSet"><span class="hs-identifier hs-var">SetActiveReceiptRuleSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetActiveReceiptRuleSet%27"><span class="annot"><a href="Network.AWS.SES.SetActiveReceiptRuleSet.html#SetActiveReceiptRuleSet%27"><span class="hs-identifier hs-var">SetActiveReceiptRuleSet'</span></a></span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the receipt rule set to make active. Setting this value to</span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-comment">-- null disables all email receiving.</span><span>
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3AruleSetName%3ASetActiveReceiptRuleSet%27"><span class="annot"><span class="annottext">SetActiveReceiptRuleSet -&gt; Maybe Text
 </span><a href="Network.AWS.SES.SetActiveReceiptRuleSet.html#%24sel%3AruleSetName%3ASetActiveReceiptRuleSet%27"><span class="hs-identifier hs-var hs-var">ruleSetName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679279025"><span id="local-6989586621679279027"><span class="annot"><span class="annottext">SetActiveReceiptRuleSet -&gt; SetActiveReceiptRuleSet -&gt; Bool
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679279226"><span id="local-6989586621679279228"><span class="annot"><span class="annottext">SetActiveReceiptRuleSet -&gt; SetActiveReceiptRuleSet -&gt; Bool
 (SetActiveReceiptRuleSet -&gt; SetActiveReceiptRuleSet -&gt; Bool)
 -&gt; (SetActiveReceiptRuleSet -&gt; SetActiveReceiptRuleSet -&gt; Bool)
 -&gt; Eq SetActiveReceiptRuleSet
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SetActiveReceiptRuleSet -&gt; SetActiveReceiptRuleSet -&gt; Bool
 == :: SetActiveReceiptRuleSet -&gt; SetActiveReceiptRuleSet -&gt; Bool
 $c== :: SetActiveReceiptRuleSet -&gt; SetActiveReceiptRuleSet -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279016"><span id="local-6989586621679279018"><span id="local-6989586621679279020"><span id="local-6989586621679279022"><span class="annot"><span class="annottext">ReadPrec [SetActiveReceiptRuleSet]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279217"><span id="local-6989586621679279219"><span id="local-6989586621679279221"><span id="local-6989586621679279223"><span class="annot"><span class="annottext">ReadPrec [SetActiveReceiptRuleSet]
 ReadPrec SetActiveReceiptRuleSet
 Int -&gt; ReadS SetActiveReceiptRuleSet
 ReadS [SetActiveReceiptRuleSet]
@@ -94,7 +94,7 @@ readList :: ReadS [SetActiveReceiptRuleSet]
 $creadList :: ReadS [SetActiveReceiptRuleSet]
 readsPrec :: Int -&gt; ReadS SetActiveReceiptRuleSet
 $creadsPrec :: Int -&gt; ReadS SetActiveReceiptRuleSet
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279009"><span id="local-6989586621679279011"><span id="local-6989586621679279013"><span class="annot"><span class="annottext">Int -&gt; SetActiveReceiptRuleSet -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279210"><span id="local-6989586621679279212"><span id="local-6989586621679279214"><span class="annot"><span class="annottext">Int -&gt; SetActiveReceiptRuleSet -&gt; ShowS
 [SetActiveReceiptRuleSet] -&gt; ShowS
 SetActiveReceiptRuleSet -&gt; String
 (Int -&gt; SetActiveReceiptRuleSet -&gt; ShowS)
@@ -159,28 +159,28 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SetActiveReceiptRuleSet.html#SetActiveReceiptRuleSet%27"><span class="hs-identifier hs-type">SetActiveReceiptRuleSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279002"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SetActiveReceiptRuleSet.html#SetActiveReceiptRuleSet%27"><span class="hs-identifier hs-type">SetActiveReceiptRuleSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279203"><span class="annot"><span class="annottext">Maybe Text
 ruleSetName :: Maybe Text
 $sel:ruleSetName:SetActiveReceiptRuleSet' :: SetActiveReceiptRuleSet -&gt; Maybe Text
-</span><a href="#local-6989586621679279002"><span class="hs-identifier hs-var hs-var">ruleSetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279002"><span class="hs-identifier hs-var">ruleSetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279001"><span class="annot"><span class="annottext">s :: SetActiveReceiptRuleSet
-</span><a href="#local-6989586621679279001"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SetActiveReceiptRuleSet.html#SetActiveReceiptRuleSet%27"><span class="hs-identifier hs-type">SetActiveReceiptRuleSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279000"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279000"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetActiveReceiptRuleSet
-</span><a href="#local-6989586621679279001"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleSetName:SetActiveReceiptRuleSet' :: Maybe Text
+</span><a href="#local-6989586621679279203"><span class="hs-identifier hs-var hs-var">ruleSetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279203"><span class="hs-identifier hs-var">ruleSetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279202"><span class="annot"><span class="annottext">s :: SetActiveReceiptRuleSet
+</span><a href="#local-6989586621679279202"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SetActiveReceiptRuleSet.html#SetActiveReceiptRuleSet%27"><span class="hs-identifier hs-type">SetActiveReceiptRuleSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279201"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279201"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetActiveReceiptRuleSet
+</span><a href="#local-6989586621679279202"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleSetName:SetActiveReceiptRuleSet' :: Maybe Text
 </span><a href="Network.AWS.SES.SetActiveReceiptRuleSet.html#%24sel%3AruleSetName%3ASetActiveReceiptRuleSet%27"><span class="hs-identifier hs-var">ruleSetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679279000"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SetActiveReceiptRuleSet.html#SetActiveReceiptRuleSet"><span class="hs-identifier hs-type">SetActiveReceiptRuleSet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679279201"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SetActiveReceiptRuleSet.html#SetActiveReceiptRuleSet"><span class="hs-identifier hs-type">SetActiveReceiptRuleSet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SetActiveReceiptRuleSet.html#SetActiveReceiptRuleSet"><span class="hs-identifier hs-type">SetActiveReceiptRuleSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-93"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-94"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SetActiveReceiptRuleSet.html#SetActiveReceiptRuleSet"><span class="hs-identifier hs-type">SetActiveReceiptRuleSet</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><a href="Network.AWS.SES.SetActiveReceiptRuleSet.html#SetActiveReceiptRuleSetResponse"><span class="hs-identifier hs-type">SetActiveReceiptRuleSetResponse</span></a></span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679278996"><span class="annot"><span class="annottext">request :: SetActiveReceiptRuleSet -&gt; Request SetActiveReceiptRuleSet
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679279197"><span class="annot"><span class="annottext">request :: SetActiveReceiptRuleSet -&gt; Request SetActiveReceiptRuleSet
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; SetActiveReceiptRuleSet -&gt; Request SetActiveReceiptRuleSet
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SES.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679278992"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679279193"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy SetActiveReceiptRuleSet
 -&gt; ClientResponse ClientBody
@@ -211,10 +211,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SetActiveReceiptRuleSetResult&quot;</span></span><span>
-</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679278989"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679278989"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679278988"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679278988"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679278987"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679278987"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679279190"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279190"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679279189"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679279189"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679279188"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679279188"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; SetActiveReceiptRuleSetResponse
 </span><a href="Network.AWS.SES.SetActiveReceiptRuleSet.html#SetActiveReceiptRuleSetResponse%27"><span class="hs-identifier hs-var">SetActiveReceiptRuleSetResponse'</span></a></span><span>
 </span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; SetActiveReceiptRuleSetResponse)
@@ -226,15 +226,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679278989"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679279190"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278980"><span id="local-6989586621679278982"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SetActiveReceiptRuleSet.html#SetActiveReceiptRuleSet"><span class="hs-identifier hs-type">SetActiveReceiptRuleSet</span></a></span></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279181"><span id="local-6989586621679279183"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SetActiveReceiptRuleSet.html#SetActiveReceiptRuleSet"><span class="hs-identifier hs-type">SetActiveReceiptRuleSet</span></a></span></span></span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278977"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SetActiveReceiptRuleSet.html#SetActiveReceiptRuleSet"><span class="hs-identifier hs-type">SetActiveReceiptRuleSet</span></a></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279178"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SetActiveReceiptRuleSet.html#SetActiveReceiptRuleSet"><span class="hs-identifier hs-type">SetActiveReceiptRuleSet</span></a></span></span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SetActiveReceiptRuleSet.html#SetActiveReceiptRuleSet"><span class="hs-identifier hs-type">SetActiveReceiptRuleSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679278973"><span class="annot"><span class="annottext">toHeaders :: SetActiveReceiptRuleSet -&gt; ResponseHeaders
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679279174"><span class="annot"><span class="annottext">toHeaders :: SetActiveReceiptRuleSet -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; SetActiveReceiptRuleSet -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -242,18 +242,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SetActiveReceiptRuleSet.html#SetActiveReceiptRuleSet"><span class="hs-identifier hs-type">SetActiveReceiptRuleSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679278968"><span class="annot"><span class="annottext">toPath :: SetActiveReceiptRuleSet -&gt; ByteString
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679279169"><span class="annot"><span class="annottext">toPath :: SetActiveReceiptRuleSet -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SetActiveReceiptRuleSet -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SetActiveReceiptRuleSet.html#SetActiveReceiptRuleSet"><span class="hs-identifier hs-type">SetActiveReceiptRuleSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679278964"><span class="annot"><span class="annottext">toQuery :: SetActiveReceiptRuleSet -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SetActiveReceiptRuleSet.html#SetActiveReceiptRuleSet%27"><span class="hs-identifier hs-type">SetActiveReceiptRuleSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278962"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679279165"><span class="annot"><span class="annottext">toQuery :: SetActiveReceiptRuleSet -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SetActiveReceiptRuleSet.html#SetActiveReceiptRuleSet%27"><span class="hs-identifier hs-type">SetActiveReceiptRuleSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279163"><span class="annot"><span class="annottext">Maybe Text
 ruleSetName :: Maybe Text
 $sel:ruleSetName:SetActiveReceiptRuleSet' :: SetActiveReceiptRuleSet -&gt; Maybe Text
-</span><a href="#local-6989586621679278962"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679279163"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -273,18 +273,18 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;RuleSetName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679278962"><span class="hs-identifier hs-var">ruleSetName</span></a></span><span>
+</span><a href="#local-6989586621679279163"><span class="hs-identifier hs-var">ruleSetName</span></a></span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- | An empty element returned on a successful request.</span><span>
 </span><span id="line-126"></span><span class="hs-comment">--</span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- /See:/ 'newSetActiveReceiptRuleSetResponse' smart constructor.</span><span>
-</span><span id="line-128"></span><span id="local-6989586621679278959"><span id="local-6989586621679278960"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetActiveReceiptRuleSetResponse"><span class="annot"><a href="Network.AWS.SES.SetActiveReceiptRuleSet.html#SetActiveReceiptRuleSetResponse"><span class="hs-identifier hs-var">SetActiveReceiptRuleSetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetActiveReceiptRuleSetResponse%27"><span class="annot"><a href="Network.AWS.SES.SetActiveReceiptRuleSet.html#SetActiveReceiptRuleSetResponse%27"><span class="hs-identifier hs-var">SetActiveReceiptRuleSetResponse'</span></a></span></span><span>
+</span><span id="line-128"></span><span id="local-6989586621679279160"><span id="local-6989586621679279161"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetActiveReceiptRuleSetResponse"><span class="annot"><a href="Network.AWS.SES.SetActiveReceiptRuleSet.html#SetActiveReceiptRuleSetResponse"><span class="hs-identifier hs-var">SetActiveReceiptRuleSetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetActiveReceiptRuleSetResponse%27"><span class="annot"><a href="Network.AWS.SES.SetActiveReceiptRuleSet.html#SetActiveReceiptRuleSetResponse%27"><span class="hs-identifier hs-var">SetActiveReceiptRuleSetResponse'</span></a></span></span><span>
 </span><span id="line-129"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-130"></span><span>    </span><span id="%24sel%3AhttpStatus%3ASetActiveReceiptRuleSetResponse%27"><span class="annot"><span class="annottext">SetActiveReceiptRuleSetResponse -&gt; Int
 </span><a href="Network.AWS.SES.SetActiveReceiptRuleSet.html#%24sel%3AhttpStatus%3ASetActiveReceiptRuleSetResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-131"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-132"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679278954"><span id="local-6989586621679278956"><span class="annot"><span class="annottext">SetActiveReceiptRuleSetResponse
+</span><span id="line-132"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679279155"><span id="local-6989586621679279157"><span class="annot"><span class="annottext">SetActiveReceiptRuleSetResponse
 -&gt; SetActiveReceiptRuleSetResponse -&gt; Bool
 (SetActiveReceiptRuleSetResponse
  -&gt; SetActiveReceiptRuleSetResponse -&gt; Bool)
@@ -300,7 +300,7 @@ $c/= :: SetActiveReceiptRuleSetResponse
 -&gt; SetActiveReceiptRuleSetResponse -&gt; Bool
 $c== :: SetActiveReceiptRuleSetResponse
 -&gt; SetActiveReceiptRuleSetResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278946"><span id="local-6989586621679278948"><span id="local-6989586621679278950"><span id="local-6989586621679278952"><span class="annot"><span class="annottext">ReadPrec [SetActiveReceiptRuleSetResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279147"><span id="local-6989586621679279149"><span id="local-6989586621679279151"><span id="local-6989586621679279153"><span class="annot"><span class="annottext">ReadPrec [SetActiveReceiptRuleSetResponse]
 ReadPrec SetActiveReceiptRuleSetResponse
 Int -&gt; ReadS SetActiveReceiptRuleSetResponse
 ReadS [SetActiveReceiptRuleSetResponse]
@@ -320,7 +320,7 @@ readList :: ReadS [SetActiveReceiptRuleSetResponse]
 $creadList :: ReadS [SetActiveReceiptRuleSetResponse]
 readsPrec :: Int -&gt; ReadS SetActiveReceiptRuleSetResponse
 $creadsPrec :: Int -&gt; ReadS SetActiveReceiptRuleSetResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278940"><span id="local-6989586621679278942"><span id="local-6989586621679278944"><span class="annot"><span class="annottext">Int -&gt; SetActiveReceiptRuleSetResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279141"><span id="local-6989586621679279143"><span id="local-6989586621679279145"><span class="annot"><span class="annottext">Int -&gt; SetActiveReceiptRuleSetResponse -&gt; ShowS
 [SetActiveReceiptRuleSetResponse] -&gt; ShowS
 SetActiveReceiptRuleSetResponse -&gt; String
 (Int -&gt; SetActiveReceiptRuleSetResponse -&gt; ShowS)
@@ -372,14 +372,14 @@ SetActiveReceiptRuleSetResponse
 </span><span id="line-145"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-146"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.SetActiveReceiptRuleSet.html#SetActiveReceiptRuleSetResponse"><span class="hs-identifier hs-type">SetActiveReceiptRuleSetResponse</span></a></span><span>
 </span><span id="line-147"></span><span id="newSetActiveReceiptRuleSetResponse"><span class="annot"><span class="annottext">newSetActiveReceiptRuleSetResponse :: Int -&gt; SetActiveReceiptRuleSetResponse
-</span><a href="Network.AWS.SES.SetActiveReceiptRuleSet.html#newSetActiveReceiptRuleSetResponse"><span class="hs-identifier hs-var hs-var">newSetActiveReceiptRuleSetResponse</span></a></span></span><span> </span><span id="local-6989586621679278937"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679278937"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SES.SetActiveReceiptRuleSet.html#newSetActiveReceiptRuleSetResponse"><span class="hs-identifier hs-var hs-var">newSetActiveReceiptRuleSetResponse</span></a></span></span><span> </span><span id="local-6989586621679279138"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279138"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>  </span><span class="annot"><span class="annottext">SetActiveReceiptRuleSetResponse' :: Int -&gt; SetActiveReceiptRuleSetResponse
 </span><a href="Network.AWS.SES.SetActiveReceiptRuleSet.html#SetActiveReceiptRuleSetResponse%27"><span class="hs-identifier hs-type">SetActiveReceiptRuleSetResponse'</span></a></span><span>
 </span><span id="line-149"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:SetActiveReceiptRuleSetResponse' :: Int
 </span><a href="Network.AWS.SES.SetActiveReceiptRuleSet.html#%24sel%3AhttpStatus%3ASetActiveReceiptRuleSetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679278937"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679279138"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-151"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -396,18 +396,18 @@ SetActiveReceiptRuleSetResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SetActiveReceiptRuleSet.html#SetActiveReceiptRuleSetResponse%27"><span class="hs-identifier hs-type">SetActiveReceiptRuleSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278936"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SetActiveReceiptRuleSet.html#SetActiveReceiptRuleSetResponse%27"><span class="hs-identifier hs-type">SetActiveReceiptRuleSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279137"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:SetActiveReceiptRuleSetResponse' :: SetActiveReceiptRuleSetResponse -&gt; Int
-</span><a href="#local-6989586621679278936"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679278936"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278935"><span class="annot"><span class="annottext">s :: SetActiveReceiptRuleSetResponse
-</span><a href="#local-6989586621679278935"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SetActiveReceiptRuleSet.html#SetActiveReceiptRuleSetResponse%27"><span class="hs-identifier hs-type">SetActiveReceiptRuleSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278934"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679278934"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetActiveReceiptRuleSetResponse
-</span><a href="#local-6989586621679278935"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SetActiveReceiptRuleSetResponse' :: Int
+</span><a href="#local-6989586621679279137"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279137"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279136"><span class="annot"><span class="annottext">s :: SetActiveReceiptRuleSetResponse
+</span><a href="#local-6989586621679279136"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SetActiveReceiptRuleSet.html#SetActiveReceiptRuleSetResponse%27"><span class="hs-identifier hs-type">SetActiveReceiptRuleSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279135"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279135"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetActiveReceiptRuleSetResponse
+</span><a href="#local-6989586621679279136"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SetActiveReceiptRuleSetResponse' :: Int
 </span><a href="Network.AWS.SES.SetActiveReceiptRuleSet.html#%24sel%3AhttpStatus%3ASetActiveReceiptRuleSetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679278934"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SetActiveReceiptRuleSet.html#SetActiveReceiptRuleSetResponse"><span class="hs-identifier hs-type">SetActiveReceiptRuleSetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679279135"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SetActiveReceiptRuleSet.html#SetActiveReceiptRuleSetResponse"><span class="hs-identifier hs-type">SetActiveReceiptRuleSetResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679278932"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679279133"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-159"></span><span>    </span><span class="annot"><a href="Network.AWS.SES.SetActiveReceiptRuleSet.html#SetActiveReceiptRuleSetResponse"><span class="hs-identifier hs-type">SetActiveReceiptRuleSetResponse</span></a></span></span><span>
 </span><span id="line-160"></span></pre></body></html>

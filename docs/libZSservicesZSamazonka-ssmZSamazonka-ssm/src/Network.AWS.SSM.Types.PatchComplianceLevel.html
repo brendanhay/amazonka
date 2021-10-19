@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span id="local-6989586621679806591"><span id="local-6989586621679806592"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PatchComplianceLevel"><span class="annot"><a href="Network.AWS.SSM.Types.PatchComplianceLevel.html#PatchComplianceLevel"><span class="hs-identifier hs-var">PatchComplianceLevel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PatchComplianceLevel%27"><span class="annot"><a href="Network.AWS.SSM.Types.PatchComplianceLevel.html#PatchComplianceLevel%27"><span class="hs-identifier hs-var">PatchComplianceLevel'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679808270"><span id="local-6989586621679808271"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PatchComplianceLevel"><span class="annot"><a href="Network.AWS.SSM.Types.PatchComplianceLevel.html#PatchComplianceLevel"><span class="hs-identifier hs-var">PatchComplianceLevel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PatchComplianceLevel%27"><span class="annot"><a href="Network.AWS.SSM.Types.PatchComplianceLevel.html#PatchComplianceLevel%27"><span class="hs-identifier hs-var">PatchComplianceLevel'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPatchComplianceLevel"><span class="annot"><span class="annottext">PatchComplianceLevel -&gt; Text
 </span><a href="Network.AWS.SSM.Types.PatchComplianceLevel.html#fromPatchComplianceLevel"><span class="hs-identifier hs-var hs-var">fromPatchComplianceLevel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679806583"><span id="local-6989586621679806585"><span id="local-6989586621679806587"><span class="annot"><span class="annottext">Int -&gt; PatchComplianceLevel -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679808262"><span id="local-6989586621679808264"><span id="local-6989586621679808266"><span class="annot"><span class="annottext">Int -&gt; PatchComplianceLevel -&gt; ShowS
 [PatchComplianceLevel] -&gt; ShowS
 PatchComplianceLevel -&gt; String
 (Int -&gt; PatchComplianceLevel -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: PatchComplianceLevel -&gt; String
 showsPrec :: Int -&gt; PatchComplianceLevel -&gt; ShowS
 $cshowsPrec :: Int -&gt; PatchComplianceLevel -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679806574"><span id="local-6989586621679806576"><span id="local-6989586621679806578"><span id="local-6989586621679806580"><span class="annot"><span class="annottext">ReadPrec [PatchComplianceLevel]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679808253"><span id="local-6989586621679808255"><span id="local-6989586621679808257"><span id="local-6989586621679808259"><span class="annot"><span class="annottext">ReadPrec [PatchComplianceLevel]
 ReadPrec PatchComplianceLevel
 Int -&gt; ReadS PatchComplianceLevel
 ReadS [PatchComplianceLevel]
@@ -76,7 +76,7 @@ $creadList :: ReadS [PatchComplianceLevel]
 readsPrec :: Int -&gt; ReadS PatchComplianceLevel
 $creadsPrec :: Int -&gt; ReadS PatchComplianceLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679806569"><span id="local-6989586621679806571"><span class="annot"><span class="annottext">PatchComplianceLevel -&gt; PatchComplianceLevel -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679808248"><span id="local-6989586621679808250"><span class="annot"><span class="annottext">PatchComplianceLevel -&gt; PatchComplianceLevel -&gt; Bool
 (PatchComplianceLevel -&gt; PatchComplianceLevel -&gt; Bool)
 -&gt; (PatchComplianceLevel -&gt; PatchComplianceLevel -&gt; Bool)
 -&gt; Eq PatchComplianceLevel
@@ -86,7 +86,7 @@ $c/= :: PatchComplianceLevel -&gt; PatchComplianceLevel -&gt; Bool
 == :: PatchComplianceLevel -&gt; PatchComplianceLevel -&gt; Bool
 $c== :: PatchComplianceLevel -&gt; PatchComplianceLevel -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679806553"><span id="local-6989586621679806555"><span id="local-6989586621679806557"><span id="local-6989586621679806559"><span id="local-6989586621679806561"><span id="local-6989586621679806563"><span id="local-6989586621679806565"><span class="annot"><span class="annottext">Eq PatchComplianceLevel
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679808232"><span id="local-6989586621679808234"><span id="local-6989586621679808236"><span id="local-6989586621679808238"><span id="local-6989586621679808240"><span id="local-6989586621679808242"><span id="local-6989586621679808244"><span class="annot"><span class="annottext">Eq PatchComplianceLevel
 Eq PatchComplianceLevel
 -&gt; (PatchComplianceLevel -&gt; PatchComplianceLevel -&gt; Ordering)
 -&gt; (PatchComplianceLevel -&gt; PatchComplianceLevel -&gt; Bool)
@@ -144,7 +144,7 @@ $cfrom :: forall x. PatchComplianceLevel -&gt; Rep PatchComplianceLevel x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679806545"><span id="local-6989586621679806547"><span class="annot"><span class="annottext">Int -&gt; PatchComplianceLevel -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679808224"><span id="local-6989586621679808226"><span class="annot"><span class="annottext">Int -&gt; PatchComplianceLevel -&gt; Int
 PatchComplianceLevel -&gt; Int
 (Int -&gt; PatchComplianceLevel -&gt; Int)
 -&gt; (PatchComplianceLevel -&gt; Int) -&gt; Hashable PatchComplianceLevel
@@ -154,54 +154,54 @@ $chash :: PatchComplianceLevel -&gt; Int
 hashWithSalt :: Int -&gt; PatchComplianceLevel -&gt; Int
 $chashWithSalt :: Int -&gt; PatchComplianceLevel -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679806542"><span class="annot"><span class="annottext">PatchComplianceLevel -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679808221"><span class="annot"><span class="annottext">PatchComplianceLevel -&gt; ()
 (PatchComplianceLevel -&gt; ()) -&gt; NFData PatchComplianceLevel
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: PatchComplianceLevel -&gt; ()
 $crnf :: PatchComplianceLevel -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679806539"><span class="annot"><span class="annottext">Text -&gt; Either String PatchComplianceLevel
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679808218"><span class="annot"><span class="annottext">Text -&gt; Either String PatchComplianceLevel
 (Text -&gt; Either String PatchComplianceLevel)
 -&gt; FromText PatchComplianceLevel
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String PatchComplianceLevel
 $cfromText :: Text -&gt; Either String PatchComplianceLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679806536"><span class="annot"><span class="annottext">PatchComplianceLevel -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679808215"><span class="annot"><span class="annottext">PatchComplianceLevel -&gt; Text
 (PatchComplianceLevel -&gt; Text) -&gt; ToText PatchComplianceLevel
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: PatchComplianceLevel -&gt; Text
 $ctoText :: PatchComplianceLevel -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679806533"><span class="annot"><span class="annottext">PatchComplianceLevel -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679808212"><span class="annot"><span class="annottext">PatchComplianceLevel -&gt; ByteString
 (PatchComplianceLevel -&gt; ByteString)
 -&gt; ToByteString PatchComplianceLevel
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: PatchComplianceLevel -&gt; ByteString
 $ctoBS :: PatchComplianceLevel -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679806530"><span class="annot"><span class="annottext">PatchComplianceLevel -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679808209"><span class="annot"><span class="annottext">PatchComplianceLevel -&gt; ByteStringBuilder
 (PatchComplianceLevel -&gt; ByteStringBuilder)
 -&gt; ToLog PatchComplianceLevel
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: PatchComplianceLevel -&gt; ByteStringBuilder
 $cbuild :: PatchComplianceLevel -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679806527"><span class="annot"><span class="annottext">HeaderName -&gt; PatchComplianceLevel -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679808206"><span class="annot"><span class="annottext">HeaderName -&gt; PatchComplianceLevel -&gt; [Header]
 (HeaderName -&gt; PatchComplianceLevel -&gt; [Header])
 -&gt; ToHeader PatchComplianceLevel
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; PatchComplianceLevel -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; PatchComplianceLevel -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679806524"><span class="annot"><span class="annottext">PatchComplianceLevel -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679808203"><span class="annot"><span class="annottext">PatchComplianceLevel -&gt; QueryString
 (PatchComplianceLevel -&gt; QueryString)
 -&gt; ToQuery PatchComplianceLevel
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: PatchComplianceLevel -&gt; QueryString
 $ctoQuery :: PatchComplianceLevel -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679806519"><span id="local-6989586621679806521"><span class="annot"><span class="annottext">Value -&gt; Parser [PatchComplianceLevel]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679808198"><span id="local-6989586621679808200"><span class="annot"><span class="annottext">Value -&gt; Parser [PatchComplianceLevel]
 Value -&gt; Parser PatchComplianceLevel
 (Value -&gt; Parser PatchComplianceLevel)
 -&gt; (Value -&gt; Parser [PatchComplianceLevel])
@@ -213,7 +213,7 @@ $cparseJSONList :: Value -&gt; Parser [PatchComplianceLevel]
 parseJSON :: Value -&gt; Parser PatchComplianceLevel
 $cparseJSON :: Value -&gt; Parser PatchComplianceLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679806514"><span id="local-6989586621679806516"><span class="annot"><span class="annottext">FromJSONKeyFunction [PatchComplianceLevel]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679808193"><span id="local-6989586621679808195"><span class="annot"><span class="annottext">FromJSONKeyFunction [PatchComplianceLevel]
 FromJSONKeyFunction PatchComplianceLevel
 FromJSONKeyFunction PatchComplianceLevel
 -&gt; FromJSONKeyFunction [PatchComplianceLevel]
@@ -225,7 +225,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [PatchComplianceLevel]
 fromJSONKey :: FromJSONKeyFunction PatchComplianceLevel
 $cfromJSONKey :: FromJSONKeyFunction PatchComplianceLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679806505"><span id="local-6989586621679806507"><span id="local-6989586621679806509"><span id="local-6989586621679806511"><span class="annot"><span class="annottext">[PatchComplianceLevel] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679808184"><span id="local-6989586621679808186"><span id="local-6989586621679808188"><span id="local-6989586621679808190"><span class="annot"><span class="annottext">[PatchComplianceLevel] -&gt; Encoding
 [PatchComplianceLevel] -&gt; Value
 PatchComplianceLevel -&gt; Encoding
 PatchComplianceLevel -&gt; Value
@@ -249,7 +249,7 @@ $ctoEncoding :: PatchComplianceLevel -&gt; Encoding
 toJSON :: PatchComplianceLevel -&gt; Value
 $ctoJSON :: PatchComplianceLevel -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679806500"><span id="local-6989586621679806502"><span class="annot"><span class="annottext">ToJSONKeyFunction [PatchComplianceLevel]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679808179"><span id="local-6989586621679808181"><span class="annot"><span class="annottext">ToJSONKeyFunction [PatchComplianceLevel]
 ToJSONKeyFunction PatchComplianceLevel
 ToJSONKeyFunction PatchComplianceLevel
 -&gt; ToJSONKeyFunction [PatchComplianceLevel]
@@ -261,14 +261,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [PatchComplianceLevel]
 toJSONKey :: ToJSONKeyFunction PatchComplianceLevel
 $ctoJSONKey :: ToJSONKeyFunction PatchComplianceLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679806497"><span class="annot"><span class="annottext">[Node] -&gt; Either String PatchComplianceLevel
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679808176"><span class="annot"><span class="annottext">[Node] -&gt; Either String PatchComplianceLevel
 ([Node] -&gt; Either String PatchComplianceLevel)
 -&gt; FromXML PatchComplianceLevel
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String PatchComplianceLevel
 $cparseXML :: [Node] -&gt; Either String PatchComplianceLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679806494"><span class="annot"><span class="annottext">PatchComplianceLevel -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679808173"><span class="annot"><span class="annottext">PatchComplianceLevel -&gt; XML
 (PatchComplianceLevel -&gt; XML) -&gt; ToXML PatchComplianceLevel
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: PatchComplianceLevel -&gt; XML

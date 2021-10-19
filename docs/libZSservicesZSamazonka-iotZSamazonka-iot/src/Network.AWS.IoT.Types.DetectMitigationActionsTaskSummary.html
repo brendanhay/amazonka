@@ -31,44 +31,44 @@
 </span><span id="line-31"></span><span class="hs-comment">-- | The summary of the mitigation action tasks.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newDetectMitigationActionsTaskSummary' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679806036"><span id="local-6989586621679806037"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetectMitigationActionsTaskSummary"><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary"><span class="hs-identifier hs-var">DetectMitigationActionsTaskSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetectMitigationActionsTaskSummary%27"><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var">DetectMitigationActionsTaskSummary'</span></a></span></span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The date the task ended.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AtaskEndTime%3ADetectMitigationActionsTaskSummary%27"><span class="annot"><span class="annottext">DetectMitigationActionsTaskSummary -&gt; Maybe POSIX
-</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3AtaskEndTime%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var hs-var">taskEndTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The unique identifier of the task.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AtaskId%3ADetectMitigationActionsTaskSummary%27"><span class="annot"><span class="annottext">DetectMitigationActionsTaskSummary -&gt; Maybe Text
-</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3AtaskId%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var hs-var">taskId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The statistics of a mitigation action task.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AtaskStatistics%3ADetectMitigationActionsTaskSummary%27"><span class="annot"><span class="annottext">DetectMitigationActionsTaskSummary
--&gt; Maybe DetectMitigationActionsTaskStatistics
-</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3AtaskStatistics%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var hs-var">taskStatistics</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskStatistics.html#DetectMitigationActionsTaskStatistics"><span class="hs-identifier hs-type">DetectMitigationActionsTaskStatistics</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Specifies the time period of which violation events occurred between.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AviolationEventOccurrenceRange%3ADetectMitigationActionsTaskSummary%27"><span class="annot"><span class="annottext">DetectMitigationActionsTaskSummary
+</span><span id="line-34"></span><span id="local-6989586621679806929"><span id="local-6989586621679806930"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetectMitigationActionsTaskSummary"><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary"><span class="hs-identifier hs-var">DetectMitigationActionsTaskSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetectMitigationActionsTaskSummary%27"><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var">DetectMitigationActionsTaskSummary'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Includes only active violations.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AonlyActiveViolationsIncluded%3ADetectMitigationActionsTaskSummary%27"><span class="annot"><span class="annottext">DetectMitigationActionsTaskSummary -&gt; Maybe Bool
+</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3AonlyActiveViolationsIncluded%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var hs-var">onlyActiveViolationsIncluded</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Includes suppressed alerts.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AsuppressedAlertsIncluded%3ADetectMitigationActionsTaskSummary%27"><span class="annot"><span class="annottext">DetectMitigationActionsTaskSummary -&gt; Maybe Bool
+</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3AsuppressedAlertsIncluded%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var hs-var">suppressedAlertsIncluded</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Specifies the time period of which violation events occurred between.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AviolationEventOccurrenceRange%3ADetectMitigationActionsTaskSummary%27"><span class="annot"><span class="annottext">DetectMitigationActionsTaskSummary
 -&gt; Maybe ViolationEventOccurrenceRange
 </span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3AviolationEventOccurrenceRange%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var hs-var">violationEventOccurrenceRange</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ViolationEventOccurrenceRange.html#ViolationEventOccurrenceRange"><span class="hs-identifier hs-type">ViolationEventOccurrenceRange</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Includes only active violations.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AonlyActiveViolationsIncluded%3ADetectMitigationActionsTaskSummary%27"><span class="annot"><span class="annottext">DetectMitigationActionsTaskSummary -&gt; Maybe Bool
-</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3AonlyActiveViolationsIncluded%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var hs-var">onlyActiveViolationsIncluded</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | Specifies the ML Detect findings to which the mitigation actions are</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- applied.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3Atarget%3ADetectMitigationActionsTaskSummary%27"><span class="annot"><span class="annottext">DetectMitigationActionsTaskSummary
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The unique identifier of the task.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AtaskId%3ADetectMitigationActionsTaskSummary%27"><span class="annot"><span class="annottext">DetectMitigationActionsTaskSummary -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3AtaskId%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var hs-var">taskId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The date the task started.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AtaskStartTime%3ADetectMitigationActionsTaskSummary%27"><span class="annot"><span class="annottext">DetectMitigationActionsTaskSummary -&gt; Maybe POSIX
+</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3AtaskStartTime%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var hs-var">taskStartTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The statistics of a mitigation action task.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AtaskStatistics%3ADetectMitigationActionsTaskSummary%27"><span class="annot"><span class="annottext">DetectMitigationActionsTaskSummary
+-&gt; Maybe DetectMitigationActionsTaskStatistics
+</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3AtaskStatistics%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var hs-var">taskStatistics</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskStatistics.html#DetectMitigationActionsTaskStatistics"><span class="hs-identifier hs-type">DetectMitigationActionsTaskStatistics</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The definition of the actions.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AactionsDefinition%3ADetectMitigationActionsTaskSummary%27"><span class="annot"><span class="annottext">DetectMitigationActionsTaskSummary -&gt; Maybe [MitigationAction]
+</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3AactionsDefinition%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var hs-var">actionsDefinition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoT.Types.MitigationAction.html#MitigationAction"><span class="hs-identifier hs-type">MitigationAction</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The date the task ended.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AtaskEndTime%3ADetectMitigationActionsTaskSummary%27"><span class="annot"><span class="annottext">DetectMitigationActionsTaskSummary -&gt; Maybe POSIX
+</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3AtaskEndTime%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var hs-var">taskEndTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | Specifies the ML Detect findings to which the mitigation actions are</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- applied.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Atarget%3ADetectMitigationActionsTaskSummary%27"><span class="annot"><span class="annottext">DetectMitigationActionsTaskSummary
 -&gt; Maybe DetectMitigationActionsTaskTarget
 </span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3Atarget%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var hs-var">target</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskTarget.html#DetectMitigationActionsTaskTarget"><span class="hs-identifier hs-type">DetectMitigationActionsTaskTarget</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The status of the task.</span><span>
-</span><span id="line-49"></span><span>    </span><span id="%24sel%3AtaskStatus%3ADetectMitigationActionsTaskSummary%27"><span class="annot"><span class="annottext">DetectMitigationActionsTaskSummary
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The status of the task.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AtaskStatus%3ADetectMitigationActionsTaskSummary%27"><span class="annot"><span class="annottext">DetectMitigationActionsTaskSummary
 -&gt; Maybe DetectMitigationActionsTaskStatus
-</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3AtaskStatus%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var hs-var">taskStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskStatus.html#DetectMitigationActionsTaskStatus"><span class="hs-identifier hs-type">DetectMitigationActionsTaskStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The definition of the actions.</span><span>
-</span><span id="line-51"></span><span>    </span><span id="%24sel%3AactionsDefinition%3ADetectMitigationActionsTaskSummary%27"><span class="annot"><span class="annottext">DetectMitigationActionsTaskSummary -&gt; Maybe [MitigationAction]
-</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3AactionsDefinition%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var hs-var">actionsDefinition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoT.Types.MitigationAction.html#MitigationAction"><span class="hs-identifier hs-type">MitigationAction</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The date the task started.</span><span>
-</span><span id="line-53"></span><span>    </span><span id="%24sel%3AtaskStartTime%3ADetectMitigationActionsTaskSummary%27"><span class="annot"><span class="annottext">DetectMitigationActionsTaskSummary -&gt; Maybe POSIX
-</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3AtaskStartTime%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var hs-var">taskStartTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | Includes suppressed alerts.</span><span>
-</span><span id="line-55"></span><span>    </span><span id="%24sel%3AsuppressedAlertsIncluded%3ADetectMitigationActionsTaskSummary%27"><span class="annot"><span class="annottext">DetectMitigationActionsTaskSummary -&gt; Maybe Bool
-</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3AsuppressedAlertsIncluded%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var hs-var">suppressedAlertsIncluded</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3AtaskStatus%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var hs-var">taskStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskStatus.html#DetectMitigationActionsTaskStatus"><span class="hs-identifier hs-type">DetectMitigationActionsTaskStatus</span></a></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679806021"><span id="local-6989586621679806023"><span class="annot"><span class="annottext">DetectMitigationActionsTaskSummary
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679806914"><span id="local-6989586621679806916"><span class="annot"><span class="annottext">DetectMitigationActionsTaskSummary
 -&gt; DetectMitigationActionsTaskSummary -&gt; Bool
 (DetectMitigationActionsTaskSummary
  -&gt; DetectMitigationActionsTaskSummary -&gt; Bool)
@@ -84,7 +84,7 @@ $c/= :: DetectMitigationActionsTaskSummary
 -&gt; DetectMitigationActionsTaskSummary -&gt; Bool
 $c== :: DetectMitigationActionsTaskSummary
 -&gt; DetectMitigationActionsTaskSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679806012"><span id="local-6989586621679806014"><span id="local-6989586621679806016"><span id="local-6989586621679806018"><span class="annot"><span class="annottext">ReadPrec [DetectMitigationActionsTaskSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679806905"><span id="local-6989586621679806907"><span id="local-6989586621679806909"><span id="local-6989586621679806911"><span class="annot"><span class="annottext">ReadPrec [DetectMitigationActionsTaskSummary]
 ReadPrec DetectMitigationActionsTaskSummary
 Int -&gt; ReadS DetectMitigationActionsTaskSummary
 ReadS [DetectMitigationActionsTaskSummary]
@@ -104,7 +104,7 @@ readList :: ReadS [DetectMitigationActionsTaskSummary]
 $creadList :: ReadS [DetectMitigationActionsTaskSummary]
 readsPrec :: Int -&gt; ReadS DetectMitigationActionsTaskSummary
 $creadsPrec :: Int -&gt; ReadS DetectMitigationActionsTaskSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679806005"><span id="local-6989586621679806007"><span id="local-6989586621679806009"><span class="annot"><span class="annottext">Int -&gt; DetectMitigationActionsTaskSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679806898"><span id="local-6989586621679806900"><span id="local-6989586621679806902"><span class="annot"><span class="annottext">Int -&gt; DetectMitigationActionsTaskSummary -&gt; ShowS
 [DetectMitigationActionsTaskSummary] -&gt; ShowS
 DetectMitigationActionsTaskSummary -&gt; String
 (Int -&gt; DetectMitigationActionsTaskSummary -&gt; ShowS)
@@ -150,53 +150,50 @@ DetectMitigationActionsTaskSummary
 </span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'taskEndTime', 'detectMitigationActionsTaskSummary_taskEndTime' - The date the task ended.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'onlyActiveViolationsIncluded', 'detectMitigationActionsTaskSummary_onlyActiveViolationsIncluded' - Includes only active violations.</span><span>
 </span><span id="line-68"></span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- 'taskId', 'detectMitigationActionsTaskSummary_taskId' - The unique identifier of the task.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'suppressedAlertsIncluded', 'detectMitigationActionsTaskSummary_suppressedAlertsIncluded' - Includes suppressed alerts.</span><span>
 </span><span id="line-70"></span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- 'taskStatistics', 'detectMitigationActionsTaskSummary_taskStatistics' - The statistics of a mitigation action task.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'violationEventOccurrenceRange', 'detectMitigationActionsTaskSummary_violationEventOccurrenceRange' - Specifies the time period of which violation events occurred between.</span><span>
 </span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'violationEventOccurrenceRange', 'detectMitigationActionsTaskSummary_violationEventOccurrenceRange' - Specifies the time period of which violation events occurred between.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'taskId', 'detectMitigationActionsTaskSummary_taskId' - The unique identifier of the task.</span><span>
 </span><span id="line-74"></span><span class="hs-comment">--</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- 'onlyActiveViolationsIncluded', 'detectMitigationActionsTaskSummary_onlyActiveViolationsIncluded' - Includes only active violations.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'taskStartTime', 'detectMitigationActionsTaskSummary_taskStartTime' - The date the task started.</span><span>
 </span><span id="line-76"></span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- 'target', 'detectMitigationActionsTaskSummary_target' - Specifies the ML Detect findings to which the mitigation actions are</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- applied.</span><span>
-</span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'taskStatus', 'detectMitigationActionsTaskSummary_taskStatus' - The status of the task.</span><span>
-</span><span id="line-81"></span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- 'actionsDefinition', 'detectMitigationActionsTaskSummary_actionsDefinition' - The definition of the actions.</span><span>
-</span><span id="line-83"></span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- 'taskStartTime', 'detectMitigationActionsTaskSummary_taskStartTime' - The date the task started.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'taskStatistics', 'detectMitigationActionsTaskSummary_taskStatistics' - The statistics of a mitigation action task.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'actionsDefinition', 'detectMitigationActionsTaskSummary_actionsDefinition' - The definition of the actions.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'taskEndTime', 'detectMitigationActionsTaskSummary_taskEndTime' - The date the task ended.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'target', 'detectMitigationActionsTaskSummary_target' - Specifies the ML Detect findings to which the mitigation actions are</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- applied.</span><span>
 </span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- 'suppressedAlertsIncluded', 'detectMitigationActionsTaskSummary_suppressedAlertsIncluded' - Includes suppressed alerts.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'taskStatus', 'detectMitigationActionsTaskSummary_taskStatus' - The status of the task.</span><span>
 </span><span id="line-87"></span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#newDetectMitigationActionsTaskSummary"><span class="hs-identifier hs-type">newDetectMitigationActionsTaskSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary</span></a></span><span>
 </span><span id="line-89"></span><span id="newDetectMitigationActionsTaskSummary"><span class="annot"><span class="annottext">newDetectMitigationActionsTaskSummary :: DetectMitigationActionsTaskSummary
 </span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#newDetectMitigationActionsTaskSummary"><span class="hs-identifier hs-var hs-var">newDetectMitigationActionsTaskSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-90"></span><span>  </span><span class="annot"><span class="annottext">DetectMitigationActionsTaskSummary' :: Maybe POSIX
--&gt; Maybe Text
--&gt; Maybe DetectMitigationActionsTaskStatistics
--&gt; Maybe ViolationEventOccurrenceRange
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="annottext">DetectMitigationActionsTaskSummary' :: Maybe Bool
 -&gt; Maybe Bool
--&gt; Maybe DetectMitigationActionsTaskTarget
--&gt; Maybe DetectMitigationActionsTaskStatus
+-&gt; Maybe ViolationEventOccurrenceRange
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe DetectMitigationActionsTaskStatistics
 -&gt; Maybe [MitigationAction]
 -&gt; Maybe POSIX
--&gt; Maybe Bool
+-&gt; Maybe DetectMitigationActionsTaskTarget
+-&gt; Maybe DetectMitigationActionsTaskStatus
 -&gt; DetectMitigationActionsTaskSummary
 </span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary'</span></a></span><span>
-</span><span id="line-91"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:taskEndTime:DetectMitigationActionsTaskSummary' :: Maybe POSIX
-</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3AtaskEndTime%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var">taskEndTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-91"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:onlyActiveViolationsIncluded:DetectMitigationActionsTaskSummary' :: Maybe Bool
+</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3AonlyActiveViolationsIncluded%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var">onlyActiveViolationsIncluded</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:taskId:DetectMitigationActionsTaskSummary' :: Maybe Text
-</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3AtaskId%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var">taskId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:taskStatistics:DetectMitigationActionsTaskSummary' :: Maybe DetectMitigationActionsTaskStatistics
-</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3AtaskStatistics%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var">taskStatistics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DetectMitigationActionsTaskStatistics
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:suppressedAlertsIncluded:DetectMitigationActionsTaskSummary' :: Maybe Bool
+</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3AsuppressedAlertsIncluded%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var">suppressedAlertsIncluded</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:violationEventOccurrenceRange:DetectMitigationActionsTaskSummary' :: Maybe ViolationEventOccurrenceRange
@@ -204,40 +201,146 @@ forall a. Maybe a
 </span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">Maybe ViolationEventOccurrenceRange
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:onlyActiveViolationsIncluded:DetectMitigationActionsTaskSummary' :: Maybe Bool
-</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3AonlyActiveViolationsIncluded%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var">onlyActiveViolationsIncluded</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-98"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:taskId:DetectMitigationActionsTaskSummary' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3AtaskId%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var">taskId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:target:DetectMitigationActionsTaskSummary' :: Maybe DetectMitigationActionsTaskTarget
-</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3Atarget%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var">target</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DetectMitigationActionsTaskTarget
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:taskStatus:DetectMitigationActionsTaskSummary' :: Maybe DetectMitigationActionsTaskStatus
-</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3AtaskStatus%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var">taskStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DetectMitigationActionsTaskStatus
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:actionsDefinition:DetectMitigationActionsTaskSummary' :: Maybe [MitigationAction]
-</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3AactionsDefinition%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var">actionsDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MitigationAction]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:taskStartTime:DetectMitigationActionsTaskSummary' :: Maybe POSIX
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:taskStartTime:DetectMitigationActionsTaskSummary' :: Maybe POSIX
 </span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3AtaskStartTime%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var">taskStartTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:suppressedAlertsIncluded:DetectMitigationActionsTaskSummary' :: Maybe Bool
-</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3AsuppressedAlertsIncluded%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var">suppressedAlertsIncluded</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:taskStatistics:DetectMitigationActionsTaskSummary' :: Maybe DetectMitigationActionsTaskStatistics
+</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3AtaskStatistics%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var">taskStatistics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DetectMitigationActionsTaskStatistics
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:actionsDefinition:DetectMitigationActionsTaskSummary' :: Maybe [MitigationAction]
+</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3AactionsDefinition%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var">actionsDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MitigationAction]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:taskEndTime:DetectMitigationActionsTaskSummary' :: Maybe POSIX
+</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3AtaskEndTime%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var">taskEndTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:target:DetectMitigationActionsTaskSummary' :: Maybe DetectMitigationActionsTaskTarget
+</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3Atarget%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var">target</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DetectMitigationActionsTaskTarget
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:taskStatus:DetectMitigationActionsTaskSummary' :: Maybe DetectMitigationActionsTaskStatus
+</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3AtaskStatus%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var">taskStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DetectMitigationActionsTaskStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-105"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- | The date the task ended.</span><span>
-</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#detectMitigationActionsTaskSummary_taskEndTime"><span class="hs-identifier hs-type">detectMitigationActionsTaskSummary_taskEndTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span id="detectMitigationActionsTaskSummary_taskEndTime"><span class="annot"><span class="annottext">detectMitigationActionsTaskSummary_taskEndTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-104"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | Includes only active violations.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#detectMitigationActionsTaskSummary_onlyActiveViolationsIncluded"><span class="hs-identifier hs-type">detectMitigationActionsTaskSummary_onlyActiveViolationsIncluded</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="detectMitigationActionsTaskSummary_onlyActiveViolationsIncluded"><span class="annot"><span class="annottext">detectMitigationActionsTaskSummary_onlyActiveViolationsIncluded :: (Maybe Bool -&gt; f (Maybe Bool))
 -&gt; DetectMitigationActionsTaskSummary
 -&gt; f DetectMitigationActionsTaskSummary
-</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#detectMitigationActionsTaskSummary_taskEndTime"><span class="hs-identifier hs-var hs-var">detectMitigationActionsTaskSummary_taskEndTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetectMitigationActionsTaskSummary -&gt; Maybe POSIX)
+</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#detectMitigationActionsTaskSummary_onlyActiveViolationsIncluded"><span class="hs-identifier hs-var hs-var">detectMitigationActionsTaskSummary_onlyActiveViolationsIncluded</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetectMitigationActionsTaskSummary -&gt; Maybe Bool)
+-&gt; (DetectMitigationActionsTaskSummary
+    -&gt; Maybe Bool -&gt; DetectMitigationActionsTaskSummary)
+-&gt; Lens
+     DetectMitigationActionsTaskSummary
+     DetectMitigationActionsTaskSummary
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679806889"><span class="annot"><span class="annottext">Maybe Bool
+onlyActiveViolationsIncluded :: Maybe Bool
+$sel:onlyActiveViolationsIncluded:DetectMitigationActionsTaskSummary' :: DetectMitigationActionsTaskSummary -&gt; Maybe Bool
+</span><a href="#local-6989586621679806889"><span class="hs-identifier hs-var hs-var">onlyActiveViolationsIncluded</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679806889"><span class="hs-identifier hs-var">onlyActiveViolationsIncluded</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679806888"><span class="annot"><span class="annottext">s :: DetectMitigationActionsTaskSummary
+</span><a href="#local-6989586621679806888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679806887"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679806887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectMitigationActionsTaskSummary
+</span><a href="#local-6989586621679806888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:onlyActiveViolationsIncluded:DetectMitigationActionsTaskSummary' :: Maybe Bool
+</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3AonlyActiveViolationsIncluded%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var">onlyActiveViolationsIncluded</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679806887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | Includes suppressed alerts.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#detectMitigationActionsTaskSummary_suppressedAlertsIncluded"><span class="hs-identifier hs-type">detectMitigationActionsTaskSummary_suppressedAlertsIncluded</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="detectMitigationActionsTaskSummary_suppressedAlertsIncluded"><span class="annot"><span class="annottext">detectMitigationActionsTaskSummary_suppressedAlertsIncluded :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DetectMitigationActionsTaskSummary
+-&gt; f DetectMitigationActionsTaskSummary
+</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#detectMitigationActionsTaskSummary_suppressedAlertsIncluded"><span class="hs-identifier hs-var hs-var">detectMitigationActionsTaskSummary_suppressedAlertsIncluded</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetectMitigationActionsTaskSummary -&gt; Maybe Bool)
+-&gt; (DetectMitigationActionsTaskSummary
+    -&gt; Maybe Bool -&gt; DetectMitigationActionsTaskSummary)
+-&gt; Lens
+     DetectMitigationActionsTaskSummary
+     DetectMitigationActionsTaskSummary
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679806885"><span class="annot"><span class="annottext">Maybe Bool
+suppressedAlertsIncluded :: Maybe Bool
+$sel:suppressedAlertsIncluded:DetectMitigationActionsTaskSummary' :: DetectMitigationActionsTaskSummary -&gt; Maybe Bool
+</span><a href="#local-6989586621679806885"><span class="hs-identifier hs-var hs-var">suppressedAlertsIncluded</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679806885"><span class="hs-identifier hs-var">suppressedAlertsIncluded</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679806884"><span class="annot"><span class="annottext">s :: DetectMitigationActionsTaskSummary
+</span><a href="#local-6989586621679806884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679806883"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679806883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectMitigationActionsTaskSummary
+</span><a href="#local-6989586621679806884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:suppressedAlertsIncluded:DetectMitigationActionsTaskSummary' :: Maybe Bool
+</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3AsuppressedAlertsIncluded%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var">suppressedAlertsIncluded</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679806883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | Specifies the time period of which violation events occurred between.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#detectMitigationActionsTaskSummary_violationEventOccurrenceRange"><span class="hs-identifier hs-type">detectMitigationActionsTaskSummary_violationEventOccurrenceRange</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ViolationEventOccurrenceRange.html#ViolationEventOccurrenceRange"><span class="hs-identifier hs-type">ViolationEventOccurrenceRange</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="detectMitigationActionsTaskSummary_violationEventOccurrenceRange"><span class="annot"><span class="annottext">detectMitigationActionsTaskSummary_violationEventOccurrenceRange :: (Maybe ViolationEventOccurrenceRange
+ -&gt; f (Maybe ViolationEventOccurrenceRange))
+-&gt; DetectMitigationActionsTaskSummary
+-&gt; f DetectMitigationActionsTaskSummary
+</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#detectMitigationActionsTaskSummary_violationEventOccurrenceRange"><span class="hs-identifier hs-var hs-var">detectMitigationActionsTaskSummary_violationEventOccurrenceRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetectMitigationActionsTaskSummary
+ -&gt; Maybe ViolationEventOccurrenceRange)
+-&gt; (DetectMitigationActionsTaskSummary
+    -&gt; Maybe ViolationEventOccurrenceRange
+    -&gt; DetectMitigationActionsTaskSummary)
+-&gt; Lens
+     DetectMitigationActionsTaskSummary
+     DetectMitigationActionsTaskSummary
+     (Maybe ViolationEventOccurrenceRange)
+     (Maybe ViolationEventOccurrenceRange)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679806881"><span class="annot"><span class="annottext">Maybe ViolationEventOccurrenceRange
+violationEventOccurrenceRange :: Maybe ViolationEventOccurrenceRange
+$sel:violationEventOccurrenceRange:DetectMitigationActionsTaskSummary' :: DetectMitigationActionsTaskSummary
+-&gt; Maybe ViolationEventOccurrenceRange
+</span><a href="#local-6989586621679806881"><span class="hs-identifier hs-var hs-var">violationEventOccurrenceRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ViolationEventOccurrenceRange
+</span><a href="#local-6989586621679806881"><span class="hs-identifier hs-var">violationEventOccurrenceRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679806880"><span class="annot"><span class="annottext">s :: DetectMitigationActionsTaskSummary
+</span><a href="#local-6989586621679806880"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679806879"><span class="annot"><span class="annottext">Maybe ViolationEventOccurrenceRange
+</span><a href="#local-6989586621679806879"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectMitigationActionsTaskSummary
+</span><a href="#local-6989586621679806880"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:violationEventOccurrenceRange:DetectMitigationActionsTaskSummary' :: Maybe ViolationEventOccurrenceRange
+</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3AviolationEventOccurrenceRange%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var">violationEventOccurrenceRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ViolationEventOccurrenceRange
+</span><a href="#local-6989586621679806879"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The unique identifier of the task.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#detectMitigationActionsTaskSummary_taskId"><span class="hs-identifier hs-type">detectMitigationActionsTaskSummary_taskId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="detectMitigationActionsTaskSummary_taskId"><span class="annot"><span class="annottext">detectMitigationActionsTaskSummary_taskId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DetectMitigationActionsTaskSummary
+-&gt; f DetectMitigationActionsTaskSummary
+</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#detectMitigationActionsTaskSummary_taskId"><span class="hs-identifier hs-var hs-var">detectMitigationActionsTaskSummary_taskId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetectMitigationActionsTaskSummary -&gt; Maybe Text)
+-&gt; (DetectMitigationActionsTaskSummary
+    -&gt; Maybe Text -&gt; DetectMitigationActionsTaskSummary)
+-&gt; Lens
+     DetectMitigationActionsTaskSummary
+     DetectMitigationActionsTaskSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679806877"><span class="annot"><span class="annottext">Maybe Text
+taskId :: Maybe Text
+$sel:taskId:DetectMitigationActionsTaskSummary' :: DetectMitigationActionsTaskSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679806877"><span class="hs-identifier hs-var hs-var">taskId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679806877"><span class="hs-identifier hs-var">taskId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679806876"><span class="annot"><span class="annottext">s :: DetectMitigationActionsTaskSummary
+</span><a href="#local-6989586621679806876"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679806875"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679806875"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectMitigationActionsTaskSummary
+</span><a href="#local-6989586621679806876"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskId:DetectMitigationActionsTaskSummary' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3AtaskId%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var">taskId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679806875"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | The date the task started.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#detectMitigationActionsTaskSummary_taskStartTime"><span class="hs-identifier hs-type">detectMitigationActionsTaskSummary_taskStartTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="detectMitigationActionsTaskSummary_taskStartTime"><span class="annot"><span class="annottext">detectMitigationActionsTaskSummary_taskStartTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DetectMitigationActionsTaskSummary
+-&gt; f DetectMitigationActionsTaskSummary
+</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#detectMitigationActionsTaskSummary_taskStartTime"><span class="hs-identifier hs-var hs-var">detectMitigationActionsTaskSummary_taskStartTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetectMitigationActionsTaskSummary -&gt; Maybe POSIX)
 -&gt; (DetectMitigationActionsTaskSummary
     -&gt; Maybe POSIX -&gt; DetectMitigationActionsTaskSummary)
 -&gt; Lens
@@ -246,16 +349,16 @@ forall a. Maybe a
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805996"><span class="annot"><span class="annottext">Maybe POSIX
-taskEndTime :: Maybe POSIX
-$sel:taskEndTime:DetectMitigationActionsTaskSummary' :: DetectMitigationActionsTaskSummary -&gt; Maybe POSIX
-</span><a href="#local-6989586621679805996"><span class="hs-identifier hs-var hs-var">taskEndTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679805996"><span class="hs-identifier hs-var">taskEndTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679805995"><span class="annot"><span class="annottext">s :: DetectMitigationActionsTaskSummary
-</span><a href="#local-6989586621679805995"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679805994"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679805994"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectMitigationActionsTaskSummary
-</span><a href="#local-6989586621679805995"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskEndTime:DetectMitigationActionsTaskSummary' :: Maybe POSIX
-</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3AtaskEndTime%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var">taskEndTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679805994"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679806873"><span class="annot"><span class="annottext">Maybe POSIX
+taskStartTime :: Maybe POSIX
+$sel:taskStartTime:DetectMitigationActionsTaskSummary' :: DetectMitigationActionsTaskSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621679806873"><span class="hs-identifier hs-var hs-var">taskStartTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679806873"><span class="hs-identifier hs-var">taskStartTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679806872"><span class="annot"><span class="annottext">s :: DetectMitigationActionsTaskSummary
+</span><a href="#local-6989586621679806872"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679806871"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679806871"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectMitigationActionsTaskSummary
+</span><a href="#local-6989586621679806872"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskStartTime:DetectMitigationActionsTaskSummary' :: Maybe POSIX
+</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3AtaskStartTime%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var">taskStartTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679806871"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; DetectMitigationActionsTaskSummary
  -&gt; f DetectMitigationActionsTaskSummary)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -272,35 +375,10 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- | The unique identifier of the task.</span><span>
-</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#detectMitigationActionsTaskSummary_taskId"><span class="hs-identifier hs-type">detectMitigationActionsTaskSummary_taskId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span id="detectMitigationActionsTaskSummary_taskId"><span class="annot"><span class="annottext">detectMitigationActionsTaskSummary_taskId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DetectMitigationActionsTaskSummary
--&gt; f DetectMitigationActionsTaskSummary
-</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#detectMitigationActionsTaskSummary_taskId"><span class="hs-identifier hs-var hs-var">detectMitigationActionsTaskSummary_taskId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetectMitigationActionsTaskSummary -&gt; Maybe Text)
--&gt; (DetectMitigationActionsTaskSummary
-    -&gt; Maybe Text -&gt; DetectMitigationActionsTaskSummary)
--&gt; Lens
-     DetectMitigationActionsTaskSummary
-     DetectMitigationActionsTaskSummary
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805989"><span class="annot"><span class="annottext">Maybe Text
-taskId :: Maybe Text
-$sel:taskId:DetectMitigationActionsTaskSummary' :: DetectMitigationActionsTaskSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679805989"><span class="hs-identifier hs-var hs-var">taskId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679805989"><span class="hs-identifier hs-var">taskId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679805988"><span class="annot"><span class="annottext">s :: DetectMitigationActionsTaskSummary
-</span><a href="#local-6989586621679805988"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679805987"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679805987"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectMitigationActionsTaskSummary
-</span><a href="#local-6989586621679805988"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskId:DetectMitigationActionsTaskSummary' :: Maybe Text
-</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3AtaskId%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var">taskId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679805987"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- | The statistics of a mitigation action task.</span><span>
-</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#detectMitigationActionsTaskSummary_taskStatistics"><span class="hs-identifier hs-type">detectMitigationActionsTaskSummary_taskStatistics</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskStatistics.html#DetectMitigationActionsTaskStatistics"><span class="hs-identifier hs-type">DetectMitigationActionsTaskStatistics</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span id="detectMitigationActionsTaskSummary_taskStatistics"><span class="annot"><span class="annottext">detectMitigationActionsTaskSummary_taskStatistics :: (Maybe DetectMitigationActionsTaskStatistics
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | The statistics of a mitigation action task.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#detectMitigationActionsTaskSummary_taskStatistics"><span class="hs-identifier hs-type">detectMitigationActionsTaskSummary_taskStatistics</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskStatistics.html#DetectMitigationActionsTaskStatistics"><span class="hs-identifier hs-type">DetectMitigationActionsTaskStatistics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="detectMitigationActionsTaskSummary_taskStatistics"><span class="annot"><span class="annottext">detectMitigationActionsTaskSummary_taskStatistics :: (Maybe DetectMitigationActionsTaskStatistics
  -&gt; f (Maybe DetectMitigationActionsTaskStatistics))
 -&gt; DetectMitigationActionsTaskSummary
 -&gt; f DetectMitigationActionsTaskSummary
@@ -315,134 +393,21 @@ $sel:taskId:DetectMitigationActionsTaskSummary' :: DetectMitigationActionsTaskSu
      (Maybe DetectMitigationActionsTaskStatistics)
      (Maybe DetectMitigationActionsTaskStatistics)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805985"><span class="annot"><span class="annottext">Maybe DetectMitigationActionsTaskStatistics
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679806866"><span class="annot"><span class="annottext">Maybe DetectMitigationActionsTaskStatistics
 taskStatistics :: Maybe DetectMitigationActionsTaskStatistics
 $sel:taskStatistics:DetectMitigationActionsTaskSummary' :: DetectMitigationActionsTaskSummary
 -&gt; Maybe DetectMitigationActionsTaskStatistics
-</span><a href="#local-6989586621679805985"><span class="hs-identifier hs-var hs-var">taskStatistics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DetectMitigationActionsTaskStatistics
-</span><a href="#local-6989586621679805985"><span class="hs-identifier hs-var">taskStatistics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679805984"><span class="annot"><span class="annottext">s :: DetectMitigationActionsTaskSummary
-</span><a href="#local-6989586621679805984"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679805983"><span class="annot"><span class="annottext">Maybe DetectMitigationActionsTaskStatistics
-</span><a href="#local-6989586621679805983"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectMitigationActionsTaskSummary
-</span><a href="#local-6989586621679805984"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskStatistics:DetectMitigationActionsTaskSummary' :: Maybe DetectMitigationActionsTaskStatistics
+</span><a href="#local-6989586621679806866"><span class="hs-identifier hs-var hs-var">taskStatistics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DetectMitigationActionsTaskStatistics
+</span><a href="#local-6989586621679806866"><span class="hs-identifier hs-var">taskStatistics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679806865"><span class="annot"><span class="annottext">s :: DetectMitigationActionsTaskSummary
+</span><a href="#local-6989586621679806865"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679806864"><span class="annot"><span class="annottext">Maybe DetectMitigationActionsTaskStatistics
+</span><a href="#local-6989586621679806864"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectMitigationActionsTaskSummary
+</span><a href="#local-6989586621679806865"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskStatistics:DetectMitigationActionsTaskSummary' :: Maybe DetectMitigationActionsTaskStatistics
 </span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3AtaskStatistics%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var">taskStatistics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DetectMitigationActionsTaskStatistics
-</span><a href="#local-6989586621679805983"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- | Specifies the time period of which violation events occurred between.</span><span>
-</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#detectMitigationActionsTaskSummary_violationEventOccurrenceRange"><span class="hs-identifier hs-type">detectMitigationActionsTaskSummary_violationEventOccurrenceRange</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ViolationEventOccurrenceRange.html#ViolationEventOccurrenceRange"><span class="hs-identifier hs-type">ViolationEventOccurrenceRange</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span id="detectMitigationActionsTaskSummary_violationEventOccurrenceRange"><span class="annot"><span class="annottext">detectMitigationActionsTaskSummary_violationEventOccurrenceRange :: (Maybe ViolationEventOccurrenceRange
- -&gt; f (Maybe ViolationEventOccurrenceRange))
--&gt; DetectMitigationActionsTaskSummary
--&gt; f DetectMitigationActionsTaskSummary
-</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#detectMitigationActionsTaskSummary_violationEventOccurrenceRange"><span class="hs-identifier hs-var hs-var">detectMitigationActionsTaskSummary_violationEventOccurrenceRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetectMitigationActionsTaskSummary
- -&gt; Maybe ViolationEventOccurrenceRange)
--&gt; (DetectMitigationActionsTaskSummary
-    -&gt; Maybe ViolationEventOccurrenceRange
-    -&gt; DetectMitigationActionsTaskSummary)
--&gt; Lens
-     DetectMitigationActionsTaskSummary
-     DetectMitigationActionsTaskSummary
-     (Maybe ViolationEventOccurrenceRange)
-     (Maybe ViolationEventOccurrenceRange)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805981"><span class="annot"><span class="annottext">Maybe ViolationEventOccurrenceRange
-violationEventOccurrenceRange :: Maybe ViolationEventOccurrenceRange
-$sel:violationEventOccurrenceRange:DetectMitigationActionsTaskSummary' :: DetectMitigationActionsTaskSummary
--&gt; Maybe ViolationEventOccurrenceRange
-</span><a href="#local-6989586621679805981"><span class="hs-identifier hs-var hs-var">violationEventOccurrenceRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ViolationEventOccurrenceRange
-</span><a href="#local-6989586621679805981"><span class="hs-identifier hs-var">violationEventOccurrenceRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679805980"><span class="annot"><span class="annottext">s :: DetectMitigationActionsTaskSummary
-</span><a href="#local-6989586621679805980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679805979"><span class="annot"><span class="annottext">Maybe ViolationEventOccurrenceRange
-</span><a href="#local-6989586621679805979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectMitigationActionsTaskSummary
-</span><a href="#local-6989586621679805980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:violationEventOccurrenceRange:DetectMitigationActionsTaskSummary' :: Maybe ViolationEventOccurrenceRange
-</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3AviolationEventOccurrenceRange%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var">violationEventOccurrenceRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ViolationEventOccurrenceRange
-</span><a href="#local-6989586621679805979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- | Includes only active violations.</span><span>
-</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#detectMitigationActionsTaskSummary_onlyActiveViolationsIncluded"><span class="hs-identifier hs-type">detectMitigationActionsTaskSummary_onlyActiveViolationsIncluded</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span id="detectMitigationActionsTaskSummary_onlyActiveViolationsIncluded"><span class="annot"><span class="annottext">detectMitigationActionsTaskSummary_onlyActiveViolationsIncluded :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; DetectMitigationActionsTaskSummary
--&gt; f DetectMitigationActionsTaskSummary
-</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#detectMitigationActionsTaskSummary_onlyActiveViolationsIncluded"><span class="hs-identifier hs-var hs-var">detectMitigationActionsTaskSummary_onlyActiveViolationsIncluded</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetectMitigationActionsTaskSummary -&gt; Maybe Bool)
--&gt; (DetectMitigationActionsTaskSummary
-    -&gt; Maybe Bool -&gt; DetectMitigationActionsTaskSummary)
--&gt; Lens
-     DetectMitigationActionsTaskSummary
-     DetectMitigationActionsTaskSummary
-     (Maybe Bool)
-     (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805977"><span class="annot"><span class="annottext">Maybe Bool
-onlyActiveViolationsIncluded :: Maybe Bool
-$sel:onlyActiveViolationsIncluded:DetectMitigationActionsTaskSummary' :: DetectMitigationActionsTaskSummary -&gt; Maybe Bool
-</span><a href="#local-6989586621679805977"><span class="hs-identifier hs-var hs-var">onlyActiveViolationsIncluded</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679805977"><span class="hs-identifier hs-var">onlyActiveViolationsIncluded</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679805976"><span class="annot"><span class="annottext">s :: DetectMitigationActionsTaskSummary
-</span><a href="#local-6989586621679805976"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679805975"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679805975"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectMitigationActionsTaskSummary
-</span><a href="#local-6989586621679805976"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:onlyActiveViolationsIncluded:DetectMitigationActionsTaskSummary' :: Maybe Bool
-</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3AonlyActiveViolationsIncluded%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var">onlyActiveViolationsIncluded</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679805975"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- | Specifies the ML Detect findings to which the mitigation actions are</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- applied.</span><span>
-</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#detectMitigationActionsTaskSummary_target"><span class="hs-identifier hs-type">detectMitigationActionsTaskSummary_target</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskTarget.html#DetectMitigationActionsTaskTarget"><span class="hs-identifier hs-type">DetectMitigationActionsTaskTarget</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span id="detectMitigationActionsTaskSummary_target"><span class="annot"><span class="annottext">detectMitigationActionsTaskSummary_target :: (Maybe DetectMitigationActionsTaskTarget
- -&gt; f (Maybe DetectMitigationActionsTaskTarget))
--&gt; DetectMitigationActionsTaskSummary
--&gt; f DetectMitigationActionsTaskSummary
-</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#detectMitigationActionsTaskSummary_target"><span class="hs-identifier hs-var hs-var">detectMitigationActionsTaskSummary_target</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetectMitigationActionsTaskSummary
- -&gt; Maybe DetectMitigationActionsTaskTarget)
--&gt; (DetectMitigationActionsTaskSummary
-    -&gt; Maybe DetectMitigationActionsTaskTarget
-    -&gt; DetectMitigationActionsTaskSummary)
--&gt; Lens
-     DetectMitigationActionsTaskSummary
-     DetectMitigationActionsTaskSummary
-     (Maybe DetectMitigationActionsTaskTarget)
-     (Maybe DetectMitigationActionsTaskTarget)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805973"><span class="annot"><span class="annottext">Maybe DetectMitigationActionsTaskTarget
-target :: Maybe DetectMitigationActionsTaskTarget
-$sel:target:DetectMitigationActionsTaskSummary' :: DetectMitigationActionsTaskSummary
--&gt; Maybe DetectMitigationActionsTaskTarget
-</span><a href="#local-6989586621679805973"><span class="hs-identifier hs-var hs-var">target</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DetectMitigationActionsTaskTarget
-</span><a href="#local-6989586621679805973"><span class="hs-identifier hs-var">target</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679805972"><span class="annot"><span class="annottext">s :: DetectMitigationActionsTaskSummary
-</span><a href="#local-6989586621679805972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679805971"><span class="annot"><span class="annottext">Maybe DetectMitigationActionsTaskTarget
-</span><a href="#local-6989586621679805971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectMitigationActionsTaskSummary
-</span><a href="#local-6989586621679805972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:target:DetectMitigationActionsTaskSummary' :: Maybe DetectMitigationActionsTaskTarget
-</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3Atarget%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var">target</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DetectMitigationActionsTaskTarget
-</span><a href="#local-6989586621679805971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- | The status of the task.</span><span>
-</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#detectMitigationActionsTaskSummary_taskStatus"><span class="hs-identifier hs-type">detectMitigationActionsTaskSummary_taskStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskStatus.html#DetectMitigationActionsTaskStatus"><span class="hs-identifier hs-type">DetectMitigationActionsTaskStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span id="detectMitigationActionsTaskSummary_taskStatus"><span class="annot"><span class="annottext">detectMitigationActionsTaskSummary_taskStatus :: (Maybe DetectMitigationActionsTaskStatus
- -&gt; f (Maybe DetectMitigationActionsTaskStatus))
--&gt; DetectMitigationActionsTaskSummary
--&gt; f DetectMitigationActionsTaskSummary
-</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#detectMitigationActionsTaskSummary_taskStatus"><span class="hs-identifier hs-var hs-var">detectMitigationActionsTaskSummary_taskStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetectMitigationActionsTaskSummary
- -&gt; Maybe DetectMitigationActionsTaskStatus)
--&gt; (DetectMitigationActionsTaskSummary
-    -&gt; Maybe DetectMitigationActionsTaskStatus
-    -&gt; DetectMitigationActionsTaskSummary)
--&gt; Lens
-     DetectMitigationActionsTaskSummary
-     DetectMitigationActionsTaskSummary
-     (Maybe DetectMitigationActionsTaskStatus)
-     (Maybe DetectMitigationActionsTaskStatus)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805969"><span class="annot"><span class="annottext">Maybe DetectMitigationActionsTaskStatus
-taskStatus :: Maybe DetectMitigationActionsTaskStatus
-$sel:taskStatus:DetectMitigationActionsTaskSummary' :: DetectMitigationActionsTaskSummary
--&gt; Maybe DetectMitigationActionsTaskStatus
-</span><a href="#local-6989586621679805969"><span class="hs-identifier hs-var hs-var">taskStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DetectMitigationActionsTaskStatus
-</span><a href="#local-6989586621679805969"><span class="hs-identifier hs-var">taskStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679805968"><span class="annot"><span class="annottext">s :: DetectMitigationActionsTaskSummary
-</span><a href="#local-6989586621679805968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679805967"><span class="annot"><span class="annottext">Maybe DetectMitigationActionsTaskStatus
-</span><a href="#local-6989586621679805967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectMitigationActionsTaskSummary
-</span><a href="#local-6989586621679805968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskStatus:DetectMitigationActionsTaskSummary' :: Maybe DetectMitigationActionsTaskStatus
-</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3AtaskStatus%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var">taskStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DetectMitigationActionsTaskStatus
-</span><a href="#local-6989586621679805967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- | The definition of the actions.</span><span>
-</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#detectMitigationActionsTaskSummary_actionsDefinition"><span class="hs-identifier hs-type">detectMitigationActionsTaskSummary_actionsDefinition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoT.Types.MitigationAction.html#MitigationAction"><span class="hs-identifier hs-type">MitigationAction</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-138"></span><span id="detectMitigationActionsTaskSummary_actionsDefinition"><span class="annot"><span class="annottext">detectMitigationActionsTaskSummary_actionsDefinition :: (Maybe [MitigationAction] -&gt; f (Maybe [MitigationAction]))
+</span><a href="#local-6989586621679806864"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | The definition of the actions.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#detectMitigationActionsTaskSummary_actionsDefinition"><span class="hs-identifier hs-type">detectMitigationActionsTaskSummary_actionsDefinition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoT.Types.MitigationAction.html#MitigationAction"><span class="hs-identifier hs-type">MitigationAction</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="detectMitigationActionsTaskSummary_actionsDefinition"><span class="annot"><span class="annottext">detectMitigationActionsTaskSummary_actionsDefinition :: (Maybe [MitigationAction] -&gt; f (Maybe [MitigationAction]))
 -&gt; DetectMitigationActionsTaskSummary
 -&gt; f DetectMitigationActionsTaskSummary
 </span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#detectMitigationActionsTaskSummary_actionsDefinition"><span class="hs-identifier hs-var hs-var">detectMitigationActionsTaskSummary_actionsDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetectMitigationActionsTaskSummary -&gt; Maybe [MitigationAction])
@@ -454,16 +419,16 @@ $sel:taskStatus:DetectMitigationActionsTaskSummary' :: DetectMitigationActionsTa
      (Maybe [MitigationAction])
      (Maybe [MitigationAction])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805965"><span class="annot"><span class="annottext">Maybe [MitigationAction]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679806862"><span class="annot"><span class="annottext">Maybe [MitigationAction]
 actionsDefinition :: Maybe [MitigationAction]
 $sel:actionsDefinition:DetectMitigationActionsTaskSummary' :: DetectMitigationActionsTaskSummary -&gt; Maybe [MitigationAction]
-</span><a href="#local-6989586621679805965"><span class="hs-identifier hs-var hs-var">actionsDefinition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MitigationAction]
-</span><a href="#local-6989586621679805965"><span class="hs-identifier hs-var">actionsDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679805964"><span class="annot"><span class="annottext">s :: DetectMitigationActionsTaskSummary
-</span><a href="#local-6989586621679805964"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679805963"><span class="annot"><span class="annottext">Maybe [MitigationAction]
-</span><a href="#local-6989586621679805963"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectMitigationActionsTaskSummary
-</span><a href="#local-6989586621679805964"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionsDefinition:DetectMitigationActionsTaskSummary' :: Maybe [MitigationAction]
+</span><a href="#local-6989586621679806862"><span class="hs-identifier hs-var hs-var">actionsDefinition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MitigationAction]
+</span><a href="#local-6989586621679806862"><span class="hs-identifier hs-var">actionsDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679806861"><span class="annot"><span class="annottext">s :: DetectMitigationActionsTaskSummary
+</span><a href="#local-6989586621679806861"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679806860"><span class="annot"><span class="annottext">Maybe [MitigationAction]
+</span><a href="#local-6989586621679806860"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectMitigationActionsTaskSummary
+</span><a href="#local-6989586621679806861"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionsDefinition:DetectMitigationActionsTaskSummary' :: Maybe [MitigationAction]
 </span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3AactionsDefinition%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var">actionsDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MitigationAction]
-</span><a href="#local-6989586621679805963"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MitigationAction] -&gt; f (Maybe [MitigationAction]))
+</span><a href="#local-6989586621679806860"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MitigationAction] -&gt; f (Maybe [MitigationAction]))
  -&gt; DetectMitigationActionsTaskSummary
  -&gt; f DetectMitigationActionsTaskSummary)
 -&gt; ((Maybe [MitigationAction] -&gt; f (Maybe [MitigationAction]))
@@ -490,15 +455,15 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [MitigationAction]
   [MitigationAction]
   [MitigationAction]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- | The date the task started.</span><span>
-</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#detectMitigationActionsTaskSummary_taskStartTime"><span class="hs-identifier hs-type">detectMitigationActionsTaskSummary_taskStartTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span id="detectMitigationActionsTaskSummary_taskStartTime"><span class="annot"><span class="annottext">detectMitigationActionsTaskSummary_taskStartTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The date the task ended.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#detectMitigationActionsTaskSummary_taskEndTime"><span class="hs-identifier hs-type">detectMitigationActionsTaskSummary_taskEndTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="detectMitigationActionsTaskSummary_taskEndTime"><span class="annot"><span class="annottext">detectMitigationActionsTaskSummary_taskEndTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; DetectMitigationActionsTaskSummary
 -&gt; f DetectMitigationActionsTaskSummary
-</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#detectMitigationActionsTaskSummary_taskStartTime"><span class="hs-identifier hs-var hs-var">detectMitigationActionsTaskSummary_taskStartTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetectMitigationActionsTaskSummary -&gt; Maybe POSIX)
+</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#detectMitigationActionsTaskSummary_taskEndTime"><span class="hs-identifier hs-var hs-var">detectMitigationActionsTaskSummary_taskEndTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetectMitigationActionsTaskSummary -&gt; Maybe POSIX)
 -&gt; (DetectMitigationActionsTaskSummary
     -&gt; Maybe POSIX -&gt; DetectMitigationActionsTaskSummary)
 -&gt; Lens
@@ -507,16 +472,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805960"><span class="annot"><span class="annottext">Maybe POSIX
-taskStartTime :: Maybe POSIX
-$sel:taskStartTime:DetectMitigationActionsTaskSummary' :: DetectMitigationActionsTaskSummary -&gt; Maybe POSIX
-</span><a href="#local-6989586621679805960"><span class="hs-identifier hs-var hs-var">taskStartTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679805960"><span class="hs-identifier hs-var">taskStartTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679805959"><span class="annot"><span class="annottext">s :: DetectMitigationActionsTaskSummary
-</span><a href="#local-6989586621679805959"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679805958"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679805958"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectMitigationActionsTaskSummary
-</span><a href="#local-6989586621679805959"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskStartTime:DetectMitigationActionsTaskSummary' :: Maybe POSIX
-</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3AtaskStartTime%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var">taskStartTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679805958"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679806857"><span class="annot"><span class="annottext">Maybe POSIX
+taskEndTime :: Maybe POSIX
+$sel:taskEndTime:DetectMitigationActionsTaskSummary' :: DetectMitigationActionsTaskSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621679806857"><span class="hs-identifier hs-var hs-var">taskEndTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679806857"><span class="hs-identifier hs-var">taskEndTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679806856"><span class="annot"><span class="annottext">s :: DetectMitigationActionsTaskSummary
+</span><a href="#local-6989586621679806856"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679806855"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679806855"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectMitigationActionsTaskSummary
+</span><a href="#local-6989586621679806856"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskEndTime:DetectMitigationActionsTaskSummary' :: Maybe POSIX
+</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3AtaskEndTime%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var">taskEndTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679806855"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; DetectMitigationActionsTaskSummary
  -&gt; f DetectMitigationActionsTaskSummary)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -533,270 +498,317 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- | Includes suppressed alerts.</span><span>
-</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#detectMitigationActionsTaskSummary_suppressedAlertsIncluded"><span class="hs-identifier hs-type">detectMitigationActionsTaskSummary_suppressedAlertsIncluded</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-146"></span><span id="detectMitigationActionsTaskSummary_suppressedAlertsIncluded"><span class="annot"><span class="annottext">detectMitigationActionsTaskSummary_suppressedAlertsIncluded :: (Maybe Bool -&gt; f (Maybe Bool))
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | Specifies the ML Detect findings to which the mitigation actions are</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- applied.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#detectMitigationActionsTaskSummary_target"><span class="hs-identifier hs-type">detectMitigationActionsTaskSummary_target</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskTarget.html#DetectMitigationActionsTaskTarget"><span class="hs-identifier hs-type">DetectMitigationActionsTaskTarget</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="detectMitigationActionsTaskSummary_target"><span class="annot"><span class="annottext">detectMitigationActionsTaskSummary_target :: (Maybe DetectMitigationActionsTaskTarget
+ -&gt; f (Maybe DetectMitigationActionsTaskTarget))
 -&gt; DetectMitigationActionsTaskSummary
 -&gt; f DetectMitigationActionsTaskSummary
-</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#detectMitigationActionsTaskSummary_suppressedAlertsIncluded"><span class="hs-identifier hs-var hs-var">detectMitigationActionsTaskSummary_suppressedAlertsIncluded</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetectMitigationActionsTaskSummary -&gt; Maybe Bool)
+</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#detectMitigationActionsTaskSummary_target"><span class="hs-identifier hs-var hs-var">detectMitigationActionsTaskSummary_target</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetectMitigationActionsTaskSummary
+ -&gt; Maybe DetectMitigationActionsTaskTarget)
 -&gt; (DetectMitigationActionsTaskSummary
-    -&gt; Maybe Bool -&gt; DetectMitigationActionsTaskSummary)
+    -&gt; Maybe DetectMitigationActionsTaskTarget
+    -&gt; DetectMitigationActionsTaskSummary)
 -&gt; Lens
      DetectMitigationActionsTaskSummary
      DetectMitigationActionsTaskSummary
-     (Maybe Bool)
-     (Maybe Bool)
+     (Maybe DetectMitigationActionsTaskTarget)
+     (Maybe DetectMitigationActionsTaskTarget)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805956"><span class="annot"><span class="annottext">Maybe Bool
-suppressedAlertsIncluded :: Maybe Bool
-$sel:suppressedAlertsIncluded:DetectMitigationActionsTaskSummary' :: DetectMitigationActionsTaskSummary -&gt; Maybe Bool
-</span><a href="#local-6989586621679805956"><span class="hs-identifier hs-var hs-var">suppressedAlertsIncluded</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679805956"><span class="hs-identifier hs-var">suppressedAlertsIncluded</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679805955"><span class="annot"><span class="annottext">s :: DetectMitigationActionsTaskSummary
-</span><a href="#local-6989586621679805955"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679805954"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679805954"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectMitigationActionsTaskSummary
-</span><a href="#local-6989586621679805955"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:suppressedAlertsIncluded:DetectMitigationActionsTaskSummary' :: Maybe Bool
-</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3AsuppressedAlertsIncluded%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var">suppressedAlertsIncluded</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679805954"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679805951"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
-</span><span id="line-150"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary</span></a></span></span><span>
-</span><span id="line-151"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679805949"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DetectMitigationActionsTaskSummary
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679806853"><span class="annot"><span class="annottext">Maybe DetectMitigationActionsTaskTarget
+target :: Maybe DetectMitigationActionsTaskTarget
+$sel:target:DetectMitigationActionsTaskSummary' :: DetectMitigationActionsTaskSummary
+-&gt; Maybe DetectMitigationActionsTaskTarget
+</span><a href="#local-6989586621679806853"><span class="hs-identifier hs-var hs-var">target</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DetectMitigationActionsTaskTarget
+</span><a href="#local-6989586621679806853"><span class="hs-identifier hs-var">target</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679806852"><span class="annot"><span class="annottext">s :: DetectMitigationActionsTaskSummary
+</span><a href="#local-6989586621679806852"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679806851"><span class="annot"><span class="annottext">Maybe DetectMitigationActionsTaskTarget
+</span><a href="#local-6989586621679806851"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectMitigationActionsTaskSummary
+</span><a href="#local-6989586621679806852"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:target:DetectMitigationActionsTaskSummary' :: Maybe DetectMitigationActionsTaskTarget
+</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3Atarget%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var">target</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DetectMitigationActionsTaskTarget
+</span><a href="#local-6989586621679806851"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | The status of the task.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#detectMitigationActionsTaskSummary_taskStatus"><span class="hs-identifier hs-type">detectMitigationActionsTaskSummary_taskStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskStatus.html#DetectMitigationActionsTaskStatus"><span class="hs-identifier hs-type">DetectMitigationActionsTaskStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="detectMitigationActionsTaskSummary_taskStatus"><span class="annot"><span class="annottext">detectMitigationActionsTaskSummary_taskStatus :: (Maybe DetectMitigationActionsTaskStatus
+ -&gt; f (Maybe DetectMitigationActionsTaskStatus))
+-&gt; DetectMitigationActionsTaskSummary
+-&gt; f DetectMitigationActionsTaskSummary
+</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#detectMitigationActionsTaskSummary_taskStatus"><span class="hs-identifier hs-var hs-var">detectMitigationActionsTaskSummary_taskStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetectMitigationActionsTaskSummary
+ -&gt; Maybe DetectMitigationActionsTaskStatus)
+-&gt; (DetectMitigationActionsTaskSummary
+    -&gt; Maybe DetectMitigationActionsTaskStatus
+    -&gt; DetectMitigationActionsTaskSummary)
+-&gt; Lens
+     DetectMitigationActionsTaskSummary
+     DetectMitigationActionsTaskSummary
+     (Maybe DetectMitigationActionsTaskStatus)
+     (Maybe DetectMitigationActionsTaskStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679806849"><span class="annot"><span class="annottext">Maybe DetectMitigationActionsTaskStatus
+taskStatus :: Maybe DetectMitigationActionsTaskStatus
+$sel:taskStatus:DetectMitigationActionsTaskSummary' :: DetectMitigationActionsTaskSummary
+-&gt; Maybe DetectMitigationActionsTaskStatus
+</span><a href="#local-6989586621679806849"><span class="hs-identifier hs-var hs-var">taskStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DetectMitigationActionsTaskStatus
+</span><a href="#local-6989586621679806849"><span class="hs-identifier hs-var">taskStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679806848"><span class="annot"><span class="annottext">s :: DetectMitigationActionsTaskSummary
+</span><a href="#local-6989586621679806848"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679806847"><span class="annot"><span class="annottext">Maybe DetectMitigationActionsTaskStatus
+</span><a href="#local-6989586621679806847"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectMitigationActionsTaskSummary
+</span><a href="#local-6989586621679806848"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskStatus:DetectMitigationActionsTaskSummary' :: Maybe DetectMitigationActionsTaskStatus
+</span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#%24sel%3AtaskStatus%3ADetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var">taskStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DetectMitigationActionsTaskStatus
+</span><a href="#local-6989586621679806847"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679806844"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary</span></a></span></span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679806842"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DetectMitigationActionsTaskSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DetectMitigationActionsTaskSummary)
 -&gt; Value
 -&gt; Parser DetectMitigationActionsTaskSummary
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DetectMitigationActionsTaskSummary&quot;</span></span><span>
-</span><span id="line-155"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679805946"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679805946"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-156"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
--&gt; Maybe Text
--&gt; Maybe DetectMitigationActionsTaskStatistics
--&gt; Maybe ViolationEventOccurrenceRange
+</span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679806839"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679806839"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-155"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
 -&gt; Maybe Bool
--&gt; Maybe DetectMitigationActionsTaskTarget
--&gt; Maybe DetectMitigationActionsTaskStatus
+-&gt; Maybe ViolationEventOccurrenceRange
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe DetectMitigationActionsTaskStatistics
 -&gt; Maybe [MitigationAction]
 -&gt; Maybe POSIX
--&gt; Maybe Bool
+-&gt; Maybe DetectMitigationActionsTaskTarget
+-&gt; Maybe DetectMitigationActionsTaskStatus
 -&gt; DetectMitigationActionsTaskSummary
 </span><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary%27"><span class="hs-identifier hs-var">DetectMitigationActionsTaskSummary'</span></a></span><span>
-</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
- -&gt; Maybe Text
- -&gt; Maybe DetectMitigationActionsTaskStatistics
- -&gt; Maybe ViolationEventOccurrenceRange
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool
  -&gt; Maybe Bool
- -&gt; Maybe DetectMitigationActionsTaskTarget
- -&gt; Maybe DetectMitigationActionsTaskStatus
+ -&gt; Maybe ViolationEventOccurrenceRange
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe DetectMitigationActionsTaskStatistics
  -&gt; Maybe [MitigationAction]
  -&gt; Maybe POSIX
- -&gt; Maybe Bool
+ -&gt; Maybe DetectMitigationActionsTaskTarget
+ -&gt; Maybe DetectMitigationActionsTaskStatus
  -&gt; DetectMitigationActionsTaskSummary)
--&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe Bool)
 -&gt; Parser
-     (Maybe Text
-      -&gt; Maybe DetectMitigationActionsTaskStatistics
+     (Maybe Bool
       -&gt; Maybe ViolationEventOccurrenceRange
-      -&gt; Maybe Bool
-      -&gt; Maybe DetectMitigationActionsTaskTarget
-      -&gt; Maybe DetectMitigationActionsTaskStatus
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe DetectMitigationActionsTaskStatistics
       -&gt; Maybe [MitigationAction]
       -&gt; Maybe POSIX
-      -&gt; Maybe Bool
+      -&gt; Maybe DetectMitigationActionsTaskTarget
+      -&gt; Maybe DetectMitigationActionsTaskStatus
       -&gt; DetectMitigationActionsTaskSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679805946"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679806839"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;taskEndTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe DetectMitigationActionsTaskStatistics
+</span><span class="hs-string">&quot;onlyActiveViolationsIncluded&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
    -&gt; Maybe ViolationEventOccurrenceRange
-   -&gt; Maybe Bool
-   -&gt; Maybe DetectMitigationActionsTaskTarget
-   -&gt; Maybe DetectMitigationActionsTaskStatus
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe DetectMitigationActionsTaskStatistics
    -&gt; Maybe [MitigationAction]
    -&gt; Maybe POSIX
-   -&gt; Maybe Bool
+   -&gt; Maybe DetectMitigationActionsTaskTarget
+   -&gt; Maybe DetectMitigationActionsTaskStatus
+   -&gt; DetectMitigationActionsTaskSummary)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe ViolationEventOccurrenceRange
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe DetectMitigationActionsTaskStatistics
+      -&gt; Maybe [MitigationAction]
+      -&gt; Maybe POSIX
+      -&gt; Maybe DetectMitigationActionsTaskTarget
+      -&gt; Maybe DetectMitigationActionsTaskStatus
+      -&gt; DetectMitigationActionsTaskSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679806839"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;suppressedAlertsIncluded&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ViolationEventOccurrenceRange
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe DetectMitigationActionsTaskStatistics
+   -&gt; Maybe [MitigationAction]
+   -&gt; Maybe POSIX
+   -&gt; Maybe DetectMitigationActionsTaskTarget
+   -&gt; Maybe DetectMitigationActionsTaskStatus
+   -&gt; DetectMitigationActionsTaskSummary)
+-&gt; Parser (Maybe ViolationEventOccurrenceRange)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe DetectMitigationActionsTaskStatistics
+      -&gt; Maybe [MitigationAction]
+      -&gt; Maybe POSIX
+      -&gt; Maybe DetectMitigationActionsTaskTarget
+      -&gt; Maybe DetectMitigationActionsTaskStatus
+      -&gt; DetectMitigationActionsTaskSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679806839"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ViolationEventOccurrenceRange)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;violationEventOccurrenceRange&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe DetectMitigationActionsTaskStatistics
+   -&gt; Maybe [MitigationAction]
+   -&gt; Maybe POSIX
+   -&gt; Maybe DetectMitigationActionsTaskTarget
+   -&gt; Maybe DetectMitigationActionsTaskStatus
    -&gt; DetectMitigationActionsTaskSummary)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe DetectMitigationActionsTaskStatistics
-      -&gt; Maybe ViolationEventOccurrenceRange
-      -&gt; Maybe Bool
-      -&gt; Maybe DetectMitigationActionsTaskTarget
-      -&gt; Maybe DetectMitigationActionsTaskStatus
+     (Maybe POSIX
+      -&gt; Maybe DetectMitigationActionsTaskStatistics
       -&gt; Maybe [MitigationAction]
       -&gt; Maybe POSIX
-      -&gt; Maybe Bool
+      -&gt; Maybe DetectMitigationActionsTaskTarget
+      -&gt; Maybe DetectMitigationActionsTaskStatus
       -&gt; DetectMitigationActionsTaskSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679805946"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679806839"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;taskId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe DetectMitigationActionsTaskStatistics
-   -&gt; Maybe ViolationEventOccurrenceRange
-   -&gt; Maybe Bool
-   -&gt; Maybe DetectMitigationActionsTaskTarget
-   -&gt; Maybe DetectMitigationActionsTaskStatus
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe DetectMitigationActionsTaskStatistics
    -&gt; Maybe [MitigationAction]
    -&gt; Maybe POSIX
-   -&gt; Maybe Bool
+   -&gt; Maybe DetectMitigationActionsTaskTarget
+   -&gt; Maybe DetectMitigationActionsTaskStatus
    -&gt; DetectMitigationActionsTaskSummary)
--&gt; Parser (Maybe DetectMitigationActionsTaskStatistics)
+-&gt; Parser (Maybe POSIX)
 -&gt; Parser
-     (Maybe ViolationEventOccurrenceRange
-      -&gt; Maybe Bool
-      -&gt; Maybe DetectMitigationActionsTaskTarget
-      -&gt; Maybe DetectMitigationActionsTaskStatus
+     (Maybe DetectMitigationActionsTaskStatistics
       -&gt; Maybe [MitigationAction]
       -&gt; Maybe POSIX
-      -&gt; Maybe Bool
+      -&gt; Maybe DetectMitigationActionsTaskTarget
+      -&gt; Maybe DetectMitigationActionsTaskStatus
       -&gt; DetectMitigationActionsTaskSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679805946"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679806839"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;taskStartTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DetectMitigationActionsTaskStatistics
+   -&gt; Maybe [MitigationAction]
+   -&gt; Maybe POSIX
+   -&gt; Maybe DetectMitigationActionsTaskTarget
+   -&gt; Maybe DetectMitigationActionsTaskStatus
+   -&gt; DetectMitigationActionsTaskSummary)
+-&gt; Parser (Maybe DetectMitigationActionsTaskStatistics)
+-&gt; Parser
+     (Maybe [MitigationAction]
+      -&gt; Maybe POSIX
+      -&gt; Maybe DetectMitigationActionsTaskTarget
+      -&gt; Maybe DetectMitigationActionsTaskStatus
+      -&gt; DetectMitigationActionsTaskSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679806839"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe DetectMitigationActionsTaskStatistics)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;taskStatistics&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe ViolationEventOccurrenceRange
-   -&gt; Maybe Bool
-   -&gt; Maybe DetectMitigationActionsTaskTarget
-   -&gt; Maybe DetectMitigationActionsTaskStatus
-   -&gt; Maybe [MitigationAction]
-   -&gt; Maybe POSIX
-   -&gt; Maybe Bool
-   -&gt; DetectMitigationActionsTaskSummary)
--&gt; Parser (Maybe ViolationEventOccurrenceRange)
--&gt; Parser
-     (Maybe Bool
-      -&gt; Maybe DetectMitigationActionsTaskTarget
-      -&gt; Maybe DetectMitigationActionsTaskStatus
-      -&gt; Maybe [MitigationAction]
-      -&gt; Maybe POSIX
-      -&gt; Maybe Bool
-      -&gt; DetectMitigationActionsTaskSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679805946"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ViolationEventOccurrenceRange)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;violationEventOccurrenceRange&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Bool
-   -&gt; Maybe DetectMitigationActionsTaskTarget
-   -&gt; Maybe DetectMitigationActionsTaskStatus
-   -&gt; Maybe [MitigationAction]
-   -&gt; Maybe POSIX
-   -&gt; Maybe Bool
-   -&gt; DetectMitigationActionsTaskSummary)
--&gt; Parser (Maybe Bool)
--&gt; Parser
-     (Maybe DetectMitigationActionsTaskTarget
-      -&gt; Maybe DetectMitigationActionsTaskStatus
-      -&gt; Maybe [MitigationAction]
-      -&gt; Maybe POSIX
-      -&gt; Maybe Bool
-      -&gt; DetectMitigationActionsTaskSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679805946"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;onlyActiveViolationsIncluded&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe DetectMitigationActionsTaskTarget
-   -&gt; Maybe DetectMitigationActionsTaskStatus
-   -&gt; Maybe [MitigationAction]
-   -&gt; Maybe POSIX
-   -&gt; Maybe Bool
-   -&gt; DetectMitigationActionsTaskSummary)
--&gt; Parser (Maybe DetectMitigationActionsTaskTarget)
--&gt; Parser
-     (Maybe DetectMitigationActionsTaskStatus
-      -&gt; Maybe [MitigationAction]
-      -&gt; Maybe POSIX
-      -&gt; Maybe Bool
-      -&gt; DetectMitigationActionsTaskSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679805946"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DetectMitigationActionsTaskTarget)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;target&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe DetectMitigationActionsTaskStatus
-   -&gt; Maybe [MitigationAction]
-   -&gt; Maybe POSIX
-   -&gt; Maybe Bool
-   -&gt; DetectMitigationActionsTaskSummary)
--&gt; Parser (Maybe DetectMitigationActionsTaskStatus)
--&gt; Parser
-     (Maybe [MitigationAction]
-      -&gt; Maybe POSIX -&gt; Maybe Bool -&gt; DetectMitigationActionsTaskSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679805946"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DetectMitigationActionsTaskStatus)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;taskStatus&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe [MitigationAction]
-   -&gt; Maybe POSIX -&gt; Maybe Bool -&gt; DetectMitigationActionsTaskSummary)
+   -&gt; Maybe POSIX
+   -&gt; Maybe DetectMitigationActionsTaskTarget
+   -&gt; Maybe DetectMitigationActionsTaskStatus
+   -&gt; DetectMitigationActionsTaskSummary)
 -&gt; Parser (Maybe [MitigationAction])
 -&gt; Parser
-     (Maybe POSIX -&gt; Maybe Bool -&gt; DetectMitigationActionsTaskSummary)
+     (Maybe POSIX
+      -&gt; Maybe DetectMitigationActionsTaskTarget
+      -&gt; Maybe DetectMitigationActionsTaskStatus
+      -&gt; DetectMitigationActionsTaskSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679805946"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [MitigationAction]))
+</span><a href="#local-6989586621679806839"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [MitigationAction]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;actionsDefinition&quot;</span></span><span>
-</span><span id="line-165"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [MitigationAction]))
+</span><span id="line-163"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [MitigationAction]))
 -&gt; Maybe [MitigationAction] -&gt; Parser (Maybe [MitigationAction])
 forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [MitigationAction]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-166"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX -&gt; Maybe Bool -&gt; DetectMitigationActionsTaskSummary)
+</span><span id="line-164"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe DetectMitigationActionsTaskTarget
+   -&gt; Maybe DetectMitigationActionsTaskStatus
+   -&gt; DetectMitigationActionsTaskSummary)
 -&gt; Parser (Maybe POSIX)
--&gt; Parser (Maybe Bool -&gt; DetectMitigationActionsTaskSummary)
+-&gt; Parser
+     (Maybe DetectMitigationActionsTaskTarget
+      -&gt; Maybe DetectMitigationActionsTaskStatus
+      -&gt; DetectMitigationActionsTaskSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679805946"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679806839"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;taskStartTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; DetectMitigationActionsTaskSummary)
--&gt; Parser (Maybe Bool) -&gt; Parser DetectMitigationActionsTaskSummary
+</span><span class="hs-string">&quot;taskEndTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DetectMitigationActionsTaskTarget
+   -&gt; Maybe DetectMitigationActionsTaskStatus
+   -&gt; DetectMitigationActionsTaskSummary)
+-&gt; Parser (Maybe DetectMitigationActionsTaskTarget)
+-&gt; Parser
+     (Maybe DetectMitigationActionsTaskStatus
+      -&gt; DetectMitigationActionsTaskSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679805946"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679806839"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DetectMitigationActionsTaskTarget)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;suppressedAlertsIncluded&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-169"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621679805939"><span id="local-6989586621679805941"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
-</span><span id="line-173"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary</span></a></span></span></span><span>
-</span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679805936"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
-</span><span id="line-177"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary</span></a></span></span><span>
-</span><span id="line-178"></span></pre></body></html>
+</span><span class="hs-string">&quot;target&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DetectMitigationActionsTaskStatus
+   -&gt; DetectMitigationActionsTaskSummary)
+-&gt; Parser (Maybe DetectMitigationActionsTaskStatus)
+-&gt; Parser DetectMitigationActionsTaskSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679806839"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DetectMitigationActionsTaskStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;taskStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679806832"><span id="local-6989586621679806834"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary</span></a></span></span></span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679806829"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-176"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.Types.DetectMitigationActionsTaskSummary.html#DetectMitigationActionsTaskSummary"><span class="hs-identifier hs-type">DetectMitigationActionsTaskSummary</span></a></span></span><span>
+</span><span id="line-177"></span></pre></body></html>

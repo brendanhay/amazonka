@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- in the /Amazon EC2 Auto Scaling User Guide/.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newProcessType' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679331002"><span id="local-6989586621679331003"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProcessType"><span class="annot"><a href="Network.AWS.AutoScaling.Types.ProcessType.html#ProcessType"><span class="hs-identifier hs-var">ProcessType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProcessType%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.ProcessType.html#ProcessType%27"><span class="hs-identifier hs-var">ProcessType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679331662"><span id="local-6989586621679331663"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProcessType"><span class="annot"><a href="Network.AWS.AutoScaling.Types.ProcessType.html#ProcessType"><span class="hs-identifier hs-var">ProcessType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProcessType%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.ProcessType.html#ProcessType%27"><span class="hs-identifier hs-var">ProcessType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One of the following processes:</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- -   @Launch@</span><span>
@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AprocessName%3AProcessType%27"><span class="annot"><span class="annottext">ProcessType -&gt; Text
 </span><a href="Network.AWS.AutoScaling.Types.ProcessType.html#%24sel%3AprocessName%3AProcessType%27"><span class="hs-identifier hs-var hs-var">processName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679330996"><span id="local-6989586621679330998"><span class="annot"><span class="annottext">ProcessType -&gt; ProcessType -&gt; Bool
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679331656"><span id="local-6989586621679331658"><span class="annot"><span class="annottext">ProcessType -&gt; ProcessType -&gt; Bool
 (ProcessType -&gt; ProcessType -&gt; Bool)
 -&gt; (ProcessType -&gt; ProcessType -&gt; Bool) -&gt; Eq ProcessType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ProcessType -&gt; ProcessType -&gt; Bool
 == :: ProcessType -&gt; ProcessType -&gt; Bool
 $c== :: ProcessType -&gt; ProcessType -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679330987"><span id="local-6989586621679330989"><span id="local-6989586621679330991"><span id="local-6989586621679330993"><span class="annot"><span class="annottext">ReadPrec [ProcessType]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331647"><span id="local-6989586621679331649"><span id="local-6989586621679331651"><span id="local-6989586621679331653"><span class="annot"><span class="annottext">ReadPrec [ProcessType]
 ReadPrec ProcessType
 Int -&gt; ReadS ProcessType
 ReadS [ProcessType]
@@ -81,7 +81,7 @@ readList :: ReadS [ProcessType]
 $creadList :: ReadS [ProcessType]
 readsPrec :: Int -&gt; ReadS ProcessType
 $creadsPrec :: Int -&gt; ReadS ProcessType
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679330980"><span id="local-6989586621679330982"><span id="local-6989586621679330984"><span class="annot"><span class="annottext">Int -&gt; ProcessType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331640"><span id="local-6989586621679331642"><span id="local-6989586621679331644"><span class="annot"><span class="annottext">Int -&gt; ProcessType -&gt; ShowS
 [ProcessType] -&gt; ShowS
 ProcessType -&gt; String
 (Int -&gt; ProcessType -&gt; ShowS)
@@ -139,12 +139,12 @@ $cfrom :: forall x. ProcessType -&gt; Rep ProcessType x
 </span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.ProcessType.html#ProcessType"><span class="hs-identifier hs-type">ProcessType</span></a></span><span>
 </span><span id="line-88"></span><span id="newProcessType"><span class="annot"><span class="annottext">newProcessType :: Text -&gt; ProcessType
-</span><a href="Network.AWS.AutoScaling.Types.ProcessType.html#newProcessType"><span class="hs-identifier hs-var hs-var">newProcessType</span></a></span></span><span> </span><span id="local-6989586621679330974"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679330974"><span class="hs-identifier hs-var">pProcessName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AutoScaling.Types.ProcessType.html#newProcessType"><span class="hs-identifier hs-var hs-var">newProcessType</span></a></span></span><span> </span><span id="local-6989586621679331634"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331634"><span class="hs-identifier hs-var">pProcessName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>  </span><span class="annot"><span class="annottext">ProcessType' :: Text -&gt; ProcessType
 </span><a href="Network.AWS.AutoScaling.Types.ProcessType.html#ProcessType%27"><span class="hs-identifier hs-type">ProcessType'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:processName:ProcessType' :: Text
 </span><a href="Network.AWS.AutoScaling.Types.ProcessType.html#%24sel%3AprocessName%3AProcessType%27"><span class="hs-identifier hs-var">processName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679330974"><span class="hs-identifier hs-var">pProcessName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679331634"><span class="hs-identifier hs-var">pProcessName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | One of the following processes:</span><span>
 </span><span id="line-92"></span><span class="hs-comment">--</span><span>
@@ -171,32 +171,32 @@ $cfrom :: forall x. ProcessType -&gt; Rep ProcessType x
 -&gt; (ProcessType -&gt; Text -&gt; ProcessType)
 -&gt; Lens ProcessType ProcessType Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.ProcessType.html#ProcessType%27"><span class="hs-identifier hs-type">ProcessType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330970"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.ProcessType.html#ProcessType%27"><span class="hs-identifier hs-type">ProcessType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331630"><span class="annot"><span class="annottext">Text
 processName :: Text
 $sel:processName:ProcessType' :: ProcessType -&gt; Text
-</span><a href="#local-6989586621679330970"><span class="hs-identifier hs-var hs-var">processName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679330970"><span class="hs-identifier hs-var">processName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330969"><span class="annot"><span class="annottext">s :: ProcessType
-</span><a href="#local-6989586621679330969"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.ProcessType.html#ProcessType%27"><span class="hs-identifier hs-type">ProcessType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330968"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679330968"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProcessType
-</span><a href="#local-6989586621679330969"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:processName:ProcessType' :: Text
+</span><a href="#local-6989586621679331630"><span class="hs-identifier hs-var hs-var">processName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331630"><span class="hs-identifier hs-var">processName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331629"><span class="annot"><span class="annottext">s :: ProcessType
+</span><a href="#local-6989586621679331629"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.ProcessType.html#ProcessType%27"><span class="hs-identifier hs-type">ProcessType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331628"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679331628"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProcessType
+</span><a href="#local-6989586621679331629"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:processName:ProcessType' :: Text
 </span><a href="Network.AWS.AutoScaling.Types.ProcessType.html#%24sel%3AprocessName%3AProcessType%27"><span class="hs-identifier hs-var">processName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679330968"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.ProcessType.html#ProcessType"><span class="hs-identifier hs-type">ProcessType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679331628"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.ProcessType.html#ProcessType"><span class="hs-identifier hs-type">ProcessType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.ProcessType.html#ProcessType"><span class="hs-identifier hs-type">ProcessType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679330965"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ProcessType
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679330963"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679330963"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679331625"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ProcessType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679331623"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679331623"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">Text -&gt; ProcessType
 </span><a href="Network.AWS.AutoScaling.Types.ProcessType.html#ProcessType%27"><span class="hs-identifier hs-var">ProcessType'</span></a></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; ProcessType)
 -&gt; Either String Text -&gt; Either String ProcessType
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679330963"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679331623"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ProcessName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330957"><span id="local-6989586621679330959"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.ProcessType.html#ProcessType"><span class="hs-identifier hs-type">ProcessType</span></a></span></span></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331617"><span id="local-6989586621679331619"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.ProcessType.html#ProcessType"><span class="hs-identifier hs-type">ProcessType</span></a></span></span></span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330954"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.ProcessType.html#ProcessType"><span class="hs-identifier hs-type">ProcessType</span></a></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331614"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.ProcessType.html#ProcessType"><span class="hs-identifier hs-type">ProcessType</span></a></span></span><span>
 </span><span id="line-120"></span></pre></body></html>

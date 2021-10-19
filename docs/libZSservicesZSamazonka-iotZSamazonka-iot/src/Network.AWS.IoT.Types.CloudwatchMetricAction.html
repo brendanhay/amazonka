@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Describes an action that captures a CloudWatch metric.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newCloudwatchMetricAction' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679780360"><span id="local-6989586621679780361"></span></span><span class="hs-keyword">data</span><span> </span><span id="CloudwatchMetricAction"><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction"><span class="hs-identifier hs-var">CloudwatchMetricAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CloudwatchMetricAction%27"><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction%27"><span class="hs-identifier hs-var">CloudwatchMetricAction'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679781210"><span id="local-6989586621679781211"></span></span><span class="hs-keyword">data</span><span> </span><span id="CloudwatchMetricAction"><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction"><span class="hs-identifier hs-var">CloudwatchMetricAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CloudwatchMetricAction%27"><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction%27"><span class="hs-identifier hs-var">CloudwatchMetricAction'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An optional</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp Unix timestamp&gt;.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AmetricTimestamp%3ACloudwatchMetricAction%27"><span class="annot"><span class="annottext">CloudwatchMetricAction -&gt; Maybe Text
@@ -49,7 +49,7 @@
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3AmetricUnit%3ACloudwatchMetricAction%27"><span class="annot"><span class="annottext">CloudwatchMetricAction -&gt; Text
 </span><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#%24sel%3AmetricUnit%3ACloudwatchMetricAction%27"><span class="hs-identifier hs-var hs-var">metricUnit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679780349"><span id="local-6989586621679780351"><span class="annot"><span class="annottext">CloudwatchMetricAction -&gt; CloudwatchMetricAction -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679781199"><span id="local-6989586621679781201"><span class="annot"><span class="annottext">CloudwatchMetricAction -&gt; CloudwatchMetricAction -&gt; Bool
 (CloudwatchMetricAction -&gt; CloudwatchMetricAction -&gt; Bool)
 -&gt; (CloudwatchMetricAction -&gt; CloudwatchMetricAction -&gt; Bool)
 -&gt; Eq CloudwatchMetricAction
@@ -58,7 +58,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CloudwatchMetricAction -&gt; CloudwatchMetricAction -&gt; Bool
 == :: CloudwatchMetricAction -&gt; CloudwatchMetricAction -&gt; Bool
 $c== :: CloudwatchMetricAction -&gt; CloudwatchMetricAction -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679780340"><span id="local-6989586621679780342"><span id="local-6989586621679780344"><span id="local-6989586621679780346"><span class="annot"><span class="annottext">ReadPrec [CloudwatchMetricAction]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679781190"><span id="local-6989586621679781192"><span id="local-6989586621679781194"><span id="local-6989586621679781196"><span class="annot"><span class="annottext">ReadPrec [CloudwatchMetricAction]
 ReadPrec CloudwatchMetricAction
 Int -&gt; ReadS CloudwatchMetricAction
 ReadS [CloudwatchMetricAction]
@@ -78,7 +78,7 @@ readList :: ReadS [CloudwatchMetricAction]
 $creadList :: ReadS [CloudwatchMetricAction]
 readsPrec :: Int -&gt; ReadS CloudwatchMetricAction
 $creadsPrec :: Int -&gt; ReadS CloudwatchMetricAction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679780333"><span id="local-6989586621679780335"><span id="local-6989586621679780337"><span class="annot"><span class="annottext">Int -&gt; CloudwatchMetricAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679781183"><span id="local-6989586621679781185"><span id="local-6989586621679781187"><span class="annot"><span class="annottext">Int -&gt; CloudwatchMetricAction -&gt; ShowS
 [CloudwatchMetricAction] -&gt; ShowS
 CloudwatchMetricAction -&gt; String
 (Int -&gt; CloudwatchMetricAction -&gt; ShowS)
@@ -141,16 +141,16 @@ $cfrom :: forall x. CloudwatchMetricAction -&gt; Rep CloudwatchMetricAction x
 </span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction"><span class="hs-identifier hs-type">CloudwatchMetricAction</span></a></span><span>
 </span><span id="line-82"></span><span id="newCloudwatchMetricAction"><span class="annot"><span class="annottext">newCloudwatchMetricAction :: Text -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; CloudwatchMetricAction
 </span><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#newCloudwatchMetricAction"><span class="hs-identifier hs-var hs-var">newCloudwatchMetricAction</span></a></span></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679780327"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780327"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679780326"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780326"><span class="hs-identifier hs-var">pMetricNamespace_</span></a></span></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679780325"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780325"><span class="hs-identifier hs-var">pMetricName_</span></a></span></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679780324"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780324"><span class="hs-identifier hs-var">pMetricValue_</span></a></span></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679780323"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780323"><span class="hs-identifier hs-var">pMetricUnit_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679781177"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679781177"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679781176"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679781176"><span class="hs-identifier hs-var">pMetricNamespace_</span></a></span></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679781175"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679781175"><span class="hs-identifier hs-var">pMetricName_</span></a></span></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679781174"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679781174"><span class="hs-identifier hs-var">pMetricValue_</span></a></span></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679781173"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679781173"><span class="hs-identifier hs-var">pMetricUnit_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">CloudwatchMetricAction' :: Maybe Text
 -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; CloudwatchMetricAction
 </span><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction%27"><span class="hs-identifier hs-type">CloudwatchMetricAction'</span></a></span><span>
@@ -161,19 +161,19 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">$sel:roleArn:CloudwatchMetricAction' :: Text
 </span><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#%24sel%3AroleArn%3ACloudwatchMetricAction%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780327"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679781177"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">$sel:metricNamespace:CloudwatchMetricAction' :: Text
 </span><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#%24sel%3AmetricNamespace%3ACloudwatchMetricAction%27"><span class="hs-identifier hs-var">metricNamespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780326"><span class="hs-identifier hs-var">pMetricNamespace_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679781176"><span class="hs-identifier hs-var">pMetricNamespace_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">$sel:metricName:CloudwatchMetricAction' :: Text
 </span><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#%24sel%3AmetricName%3ACloudwatchMetricAction%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780325"><span class="hs-identifier hs-var">pMetricName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679781175"><span class="hs-identifier hs-var">pMetricName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-94"></span><span>        </span><span class="annot"><span class="annottext">$sel:metricValue:CloudwatchMetricAction' :: Text
 </span><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#%24sel%3AmetricValue%3ACloudwatchMetricAction%27"><span class="hs-identifier hs-var">metricValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780324"><span class="hs-identifier hs-var">pMetricValue_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679781174"><span class="hs-identifier hs-var">pMetricValue_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-95"></span><span>        </span><span class="annot"><span class="annottext">$sel:metricUnit:CloudwatchMetricAction' :: Text
 </span><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#%24sel%3AmetricUnit%3ACloudwatchMetricAction%27"><span class="hs-identifier hs-var">metricUnit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780323"><span class="hs-identifier hs-var">pMetricUnit_</span></a></span><span>
+</span><a href="#local-6989586621679781173"><span class="hs-identifier hs-var">pMetricUnit_</span></a></span><span>
 </span><span id="line-96"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | An optional</span><span>
@@ -189,16 +189,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction%27"><span class="hs-identifier hs-type">CloudwatchMetricAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780319"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction%27"><span class="hs-identifier hs-type">CloudwatchMetricAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679781169"><span class="annot"><span class="annottext">Maybe Text
 metricTimestamp :: Maybe Text
 $sel:metricTimestamp:CloudwatchMetricAction' :: CloudwatchMetricAction -&gt; Maybe Text
-</span><a href="#local-6989586621679780319"><span class="hs-identifier hs-var hs-var">metricTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679780319"><span class="hs-identifier hs-var">metricTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679780318"><span class="annot"><span class="annottext">s :: CloudwatchMetricAction
-</span><a href="#local-6989586621679780318"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction%27"><span class="hs-identifier hs-type">CloudwatchMetricAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679780317"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679780317"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudwatchMetricAction
-</span><a href="#local-6989586621679780318"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricTimestamp:CloudwatchMetricAction' :: Maybe Text
+</span><a href="#local-6989586621679781169"><span class="hs-identifier hs-var hs-var">metricTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679781169"><span class="hs-identifier hs-var">metricTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679781168"><span class="annot"><span class="annottext">s :: CloudwatchMetricAction
+</span><a href="#local-6989586621679781168"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction%27"><span class="hs-identifier hs-type">CloudwatchMetricAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679781167"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679781167"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudwatchMetricAction
+</span><a href="#local-6989586621679781168"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricTimestamp:CloudwatchMetricAction' :: Maybe Text
 </span><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#%24sel%3AmetricTimestamp%3ACloudwatchMetricAction%27"><span class="hs-identifier hs-var">metricTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679780317"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction"><span class="hs-identifier hs-type">CloudwatchMetricAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679781167"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction"><span class="hs-identifier hs-type">CloudwatchMetricAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | The IAM role that allows access to the CloudWatch metric.</span><span>
 </span><span id="line-104"></span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#cloudwatchMetricAction_roleArn"><span class="hs-identifier hs-type">cloudwatchMetricAction_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction"><span class="hs-identifier hs-type">CloudwatchMetricAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -208,16 +208,16 @@ $sel:metricTimestamp:CloudwatchMetricAction' :: CloudwatchMetricAction -&gt; May
 -&gt; (CloudwatchMetricAction -&gt; Text -&gt; CloudwatchMetricAction)
 -&gt; Lens CloudwatchMetricAction CloudwatchMetricAction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction%27"><span class="hs-identifier hs-type">CloudwatchMetricAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780315"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction%27"><span class="hs-identifier hs-type">CloudwatchMetricAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679781165"><span class="annot"><span class="annottext">Text
 roleArn :: Text
 $sel:roleArn:CloudwatchMetricAction' :: CloudwatchMetricAction -&gt; Text
-</span><a href="#local-6989586621679780315"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780315"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679780314"><span class="annot"><span class="annottext">s :: CloudwatchMetricAction
-</span><a href="#local-6989586621679780314"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction%27"><span class="hs-identifier hs-type">CloudwatchMetricAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679780313"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780313"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudwatchMetricAction
-</span><a href="#local-6989586621679780314"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:CloudwatchMetricAction' :: Text
+</span><a href="#local-6989586621679781165"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679781165"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679781164"><span class="annot"><span class="annottext">s :: CloudwatchMetricAction
+</span><a href="#local-6989586621679781164"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction%27"><span class="hs-identifier hs-type">CloudwatchMetricAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679781163"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679781163"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudwatchMetricAction
+</span><a href="#local-6989586621679781164"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:CloudwatchMetricAction' :: Text
 </span><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#%24sel%3AroleArn%3ACloudwatchMetricAction%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780313"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction"><span class="hs-identifier hs-type">CloudwatchMetricAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679781163"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction"><span class="hs-identifier hs-type">CloudwatchMetricAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- | The CloudWatch metric namespace name.</span><span>
 </span><span id="line-108"></span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#cloudwatchMetricAction_metricNamespace"><span class="hs-identifier hs-type">cloudwatchMetricAction_metricNamespace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction"><span class="hs-identifier hs-type">CloudwatchMetricAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -227,16 +227,16 @@ $sel:roleArn:CloudwatchMetricAction' :: CloudwatchMetricAction -&gt; Text
 -&gt; (CloudwatchMetricAction -&gt; Text -&gt; CloudwatchMetricAction)
 -&gt; Lens CloudwatchMetricAction CloudwatchMetricAction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction%27"><span class="hs-identifier hs-type">CloudwatchMetricAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780311"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction%27"><span class="hs-identifier hs-type">CloudwatchMetricAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679781161"><span class="annot"><span class="annottext">Text
 metricNamespace :: Text
 $sel:metricNamespace:CloudwatchMetricAction' :: CloudwatchMetricAction -&gt; Text
-</span><a href="#local-6989586621679780311"><span class="hs-identifier hs-var hs-var">metricNamespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780311"><span class="hs-identifier hs-var">metricNamespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679780310"><span class="annot"><span class="annottext">s :: CloudwatchMetricAction
-</span><a href="#local-6989586621679780310"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction%27"><span class="hs-identifier hs-type">CloudwatchMetricAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679780309"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780309"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudwatchMetricAction
-</span><a href="#local-6989586621679780310"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricNamespace:CloudwatchMetricAction' :: Text
+</span><a href="#local-6989586621679781161"><span class="hs-identifier hs-var hs-var">metricNamespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679781161"><span class="hs-identifier hs-var">metricNamespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679781160"><span class="annot"><span class="annottext">s :: CloudwatchMetricAction
+</span><a href="#local-6989586621679781160"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction%27"><span class="hs-identifier hs-type">CloudwatchMetricAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679781159"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679781159"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudwatchMetricAction
+</span><a href="#local-6989586621679781160"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricNamespace:CloudwatchMetricAction' :: Text
 </span><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#%24sel%3AmetricNamespace%3ACloudwatchMetricAction%27"><span class="hs-identifier hs-var">metricNamespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780309"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction"><span class="hs-identifier hs-type">CloudwatchMetricAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679781159"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction"><span class="hs-identifier hs-type">CloudwatchMetricAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | The CloudWatch metric name.</span><span>
 </span><span id="line-112"></span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#cloudwatchMetricAction_metricName"><span class="hs-identifier hs-type">cloudwatchMetricAction_metricName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction"><span class="hs-identifier hs-type">CloudwatchMetricAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -246,16 +246,16 @@ $sel:metricNamespace:CloudwatchMetricAction' :: CloudwatchMetricAction -&gt; Tex
 -&gt; (CloudwatchMetricAction -&gt; Text -&gt; CloudwatchMetricAction)
 -&gt; Lens CloudwatchMetricAction CloudwatchMetricAction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction%27"><span class="hs-identifier hs-type">CloudwatchMetricAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780307"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction%27"><span class="hs-identifier hs-type">CloudwatchMetricAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679781157"><span class="annot"><span class="annottext">Text
 metricName :: Text
 $sel:metricName:CloudwatchMetricAction' :: CloudwatchMetricAction -&gt; Text
-</span><a href="#local-6989586621679780307"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780307"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679780306"><span class="annot"><span class="annottext">s :: CloudwatchMetricAction
-</span><a href="#local-6989586621679780306"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction%27"><span class="hs-identifier hs-type">CloudwatchMetricAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679780305"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780305"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudwatchMetricAction
-</span><a href="#local-6989586621679780306"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricName:CloudwatchMetricAction' :: Text
+</span><a href="#local-6989586621679781157"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679781157"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679781156"><span class="annot"><span class="annottext">s :: CloudwatchMetricAction
+</span><a href="#local-6989586621679781156"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction%27"><span class="hs-identifier hs-type">CloudwatchMetricAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679781155"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679781155"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudwatchMetricAction
+</span><a href="#local-6989586621679781156"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricName:CloudwatchMetricAction' :: Text
 </span><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#%24sel%3AmetricName%3ACloudwatchMetricAction%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780305"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction"><span class="hs-identifier hs-type">CloudwatchMetricAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679781155"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction"><span class="hs-identifier hs-type">CloudwatchMetricAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- | The CloudWatch metric value.</span><span>
 </span><span id="line-116"></span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#cloudwatchMetricAction_metricValue"><span class="hs-identifier hs-type">cloudwatchMetricAction_metricValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction"><span class="hs-identifier hs-type">CloudwatchMetricAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -265,16 +265,16 @@ $sel:metricName:CloudwatchMetricAction' :: CloudwatchMetricAction -&gt; Text
 -&gt; (CloudwatchMetricAction -&gt; Text -&gt; CloudwatchMetricAction)
 -&gt; Lens CloudwatchMetricAction CloudwatchMetricAction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction%27"><span class="hs-identifier hs-type">CloudwatchMetricAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780303"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction%27"><span class="hs-identifier hs-type">CloudwatchMetricAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679781153"><span class="annot"><span class="annottext">Text
 metricValue :: Text
 $sel:metricValue:CloudwatchMetricAction' :: CloudwatchMetricAction -&gt; Text
-</span><a href="#local-6989586621679780303"><span class="hs-identifier hs-var hs-var">metricValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780303"><span class="hs-identifier hs-var">metricValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679780302"><span class="annot"><span class="annottext">s :: CloudwatchMetricAction
-</span><a href="#local-6989586621679780302"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction%27"><span class="hs-identifier hs-type">CloudwatchMetricAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679780301"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780301"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudwatchMetricAction
-</span><a href="#local-6989586621679780302"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricValue:CloudwatchMetricAction' :: Text
+</span><a href="#local-6989586621679781153"><span class="hs-identifier hs-var hs-var">metricValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679781153"><span class="hs-identifier hs-var">metricValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679781152"><span class="annot"><span class="annottext">s :: CloudwatchMetricAction
+</span><a href="#local-6989586621679781152"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction%27"><span class="hs-identifier hs-type">CloudwatchMetricAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679781151"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679781151"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudwatchMetricAction
+</span><a href="#local-6989586621679781152"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricValue:CloudwatchMetricAction' :: Text
 </span><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#%24sel%3AmetricValue%3ACloudwatchMetricAction%27"><span class="hs-identifier hs-var">metricValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780301"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction"><span class="hs-identifier hs-type">CloudwatchMetricAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679781151"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction"><span class="hs-identifier hs-type">CloudwatchMetricAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | The</span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit metric unit&gt;</span><span>
@@ -286,19 +286,19 @@ $sel:metricValue:CloudwatchMetricAction' :: CloudwatchMetricAction -&gt; Text
 -&gt; (CloudwatchMetricAction -&gt; Text -&gt; CloudwatchMetricAction)
 -&gt; Lens CloudwatchMetricAction CloudwatchMetricAction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction%27"><span class="hs-identifier hs-type">CloudwatchMetricAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780299"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction%27"><span class="hs-identifier hs-type">CloudwatchMetricAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679781149"><span class="annot"><span class="annottext">Text
 metricUnit :: Text
 $sel:metricUnit:CloudwatchMetricAction' :: CloudwatchMetricAction -&gt; Text
-</span><a href="#local-6989586621679780299"><span class="hs-identifier hs-var hs-var">metricUnit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780299"><span class="hs-identifier hs-var">metricUnit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679780298"><span class="annot"><span class="annottext">s :: CloudwatchMetricAction
-</span><a href="#local-6989586621679780298"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction%27"><span class="hs-identifier hs-type">CloudwatchMetricAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679780297"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780297"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudwatchMetricAction
-</span><a href="#local-6989586621679780298"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricUnit:CloudwatchMetricAction' :: Text
+</span><a href="#local-6989586621679781149"><span class="hs-identifier hs-var hs-var">metricUnit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679781149"><span class="hs-identifier hs-var">metricUnit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679781148"><span class="annot"><span class="annottext">s :: CloudwatchMetricAction
+</span><a href="#local-6989586621679781148"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction%27"><span class="hs-identifier hs-type">CloudwatchMetricAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679781147"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679781147"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudwatchMetricAction
+</span><a href="#local-6989586621679781148"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricUnit:CloudwatchMetricAction' :: Text
 </span><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#%24sel%3AmetricUnit%3ACloudwatchMetricAction%27"><span class="hs-identifier hs-var">metricUnit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780297"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction"><span class="hs-identifier hs-type">CloudwatchMetricAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679781147"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction"><span class="hs-identifier hs-type">CloudwatchMetricAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679780294"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction"><span class="hs-identifier hs-type">CloudwatchMetricAction</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679780292"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CloudwatchMetricAction
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679781144"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction"><span class="hs-identifier hs-type">CloudwatchMetricAction</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679781142"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CloudwatchMetricAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CloudwatchMetricAction)
@@ -308,8 +308,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CloudwatchMetricAction&quot;</span></span><span>
-</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679780289"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679780289"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679781139"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679781139"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-130"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; CloudwatchMetricAction
 </span><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction%27"><span class="hs-identifier hs-var">CloudwatchMetricAction'</span></a></span><span>
@@ -320,7 +320,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Text -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; CloudwatchMetricAction)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679780289"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679781139"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;metricTimestamp&quot;</span></span><span class="hs-special">)</span><span>
@@ -330,7 +330,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Text -&gt; Text -&gt; Text -&gt; Text -&gt; CloudwatchMetricAction)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679780289"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679781139"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;roleArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -339,7 +339,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (Text -&gt; Text -&gt; Text -&gt; CloudwatchMetricAction)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679780289"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679781139"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;metricNamespace&quot;</span></span><span class="hs-special">)</span><span>
@@ -347,7 +347,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser (Text -&gt; Text -&gt; CloudwatchMetricAction)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679780289"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679781139"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;metricName&quot;</span></span><span class="hs-special">)</span><span>
@@ -355,7 +355,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser (Text -&gt; CloudwatchMetricAction)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679780289"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679781139"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;metricValue&quot;</span></span><span class="hs-special">)</span><span>
@@ -363,19 +363,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser CloudwatchMetricAction
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679780289"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679781139"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;metricUnit&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679780282"><span id="local-6989586621679780284"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction"><span class="hs-identifier hs-type">CloudwatchMetricAction</span></a></span></span></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679781132"><span id="local-6989586621679781134"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction"><span class="hs-identifier hs-type">CloudwatchMetricAction</span></a></span></span></span><span>
 </span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679780279"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction"><span class="hs-identifier hs-type">CloudwatchMetricAction</span></a></span></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679781129"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction"><span class="hs-identifier hs-type">CloudwatchMetricAction</span></a></span></span><span>
 </span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679780271"><span id="local-6989586621679780273"><span id="local-6989586621679780275"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction"><span class="hs-identifier hs-type">CloudwatchMetricAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679780269"><span class="annot"><span class="annottext">toJSON :: CloudwatchMetricAction -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction%27"><span class="hs-identifier hs-type">CloudwatchMetricAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780262"><span id="local-6989586621679780263"><span id="local-6989586621679780264"><span id="local-6989586621679780265"><span id="local-6989586621679780266"><span id="local-6989586621679780267"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679781121"><span id="local-6989586621679781123"><span id="local-6989586621679781125"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction"><span class="hs-identifier hs-type">CloudwatchMetricAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679781119"><span class="annot"><span class="annottext">toJSON :: CloudwatchMetricAction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction%27"><span class="hs-identifier hs-type">CloudwatchMetricAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679781112"><span id="local-6989586621679781113"><span id="local-6989586621679781114"><span id="local-6989586621679781115"><span id="local-6989586621679781116"><span id="local-6989586621679781117"><span class="annot"><span class="annottext">Maybe Text
 Text
 metricUnit :: Text
 metricValue :: Text
@@ -389,7 +389,7 @@ $sel:metricName:CloudwatchMetricAction' :: CloudwatchMetricAction -&gt; Text
 $sel:metricNamespace:CloudwatchMetricAction' :: CloudwatchMetricAction -&gt; Text
 $sel:roleArn:CloudwatchMetricAction' :: CloudwatchMetricAction -&gt; Text
 $sel:metricTimestamp:CloudwatchMetricAction' :: CloudwatchMetricAction -&gt; Maybe Text
-</span><a href="#local-6989586621679780262"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679781112"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -402,14 +402,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-148"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679780267"><span class="hs-identifier hs-var">metricTimestamp</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679781117"><span class="hs-identifier hs-var">metricTimestamp</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;roleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780266"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679781116"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -417,28 +417,28 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;metricNamespace&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780265"><span class="hs-identifier hs-var">metricNamespace</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679781115"><span class="hs-identifier hs-var">metricNamespace</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;metricName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780264"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679781114"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;metricValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780263"><span class="hs-identifier hs-var">metricValue</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679781113"><span class="hs-identifier hs-var">metricValue</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;metricUnit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780262"><span class="hs-identifier hs-var">metricUnit</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679781112"><span class="hs-identifier hs-var">metricUnit</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-156"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span></pre></body></html>

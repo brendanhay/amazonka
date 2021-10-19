@@ -34,8 +34,8 @@
 </span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#newBatchDeleteBuildsResponse"><span class="hs-identifier">newBatchDeleteBuildsResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#batchDeleteBuildsResponse_buildsDeleted"><span class="hs-identifier">batchDeleteBuildsResponse_buildsDeleted</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#batchDeleteBuildsResponse_buildsNotDeleted"><span class="hs-identifier">batchDeleteBuildsResponse_buildsNotDeleted</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#batchDeleteBuildsResponse_buildsNotDeleted"><span class="hs-identifier">batchDeleteBuildsResponse_buildsNotDeleted</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#batchDeleteBuildsResponse_buildsDeleted"><span class="hs-identifier">batchDeleteBuildsResponse_buildsDeleted</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#batchDeleteBuildsResponse_httpStatus"><span class="hs-identifier">batchDeleteBuildsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-41"></span><span class="hs-keyword">where</span><span>
@@ -48,12 +48,12 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newBatchDeleteBuilds' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679391513"><span id="local-6989586621679391514"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchDeleteBuilds"><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuilds"><span class="hs-identifier hs-var">BatchDeleteBuilds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchDeleteBuilds%27"><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuilds%27"><span class="hs-identifier hs-var">BatchDeleteBuilds'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679393449"><span id="local-6989586621679393450"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchDeleteBuilds"><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuilds"><span class="hs-identifier hs-var">BatchDeleteBuilds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchDeleteBuilds%27"><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuilds%27"><span class="hs-identifier hs-var">BatchDeleteBuilds'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IDs of the builds to delete.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3Aids%3ABatchDeleteBuilds%27"><span class="annot"><span class="annottext">BatchDeleteBuilds -&gt; NonEmpty Text
 </span><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#%24sel%3Aids%3ABatchDeleteBuilds%27"><span class="hs-identifier hs-var hs-var">ids</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679391507"><span id="local-6989586621679391509"><span class="annot"><span class="annottext">BatchDeleteBuilds -&gt; BatchDeleteBuilds -&gt; Bool
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679393443"><span id="local-6989586621679393445"><span class="annot"><span class="annottext">BatchDeleteBuilds -&gt; BatchDeleteBuilds -&gt; Bool
 (BatchDeleteBuilds -&gt; BatchDeleteBuilds -&gt; Bool)
 -&gt; (BatchDeleteBuilds -&gt; BatchDeleteBuilds -&gt; Bool)
 -&gt; Eq BatchDeleteBuilds
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BatchDeleteBuilds -&gt; BatchDeleteBuilds -&gt; Bool
 == :: BatchDeleteBuilds -&gt; BatchDeleteBuilds -&gt; Bool
 $c== :: BatchDeleteBuilds -&gt; BatchDeleteBuilds -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391498"><span id="local-6989586621679391500"><span id="local-6989586621679391502"><span id="local-6989586621679391504"><span class="annot"><span class="annottext">ReadPrec [BatchDeleteBuilds]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393434"><span id="local-6989586621679393436"><span id="local-6989586621679393438"><span id="local-6989586621679393440"><span class="annot"><span class="annottext">ReadPrec [BatchDeleteBuilds]
 ReadPrec BatchDeleteBuilds
 Int -&gt; ReadS BatchDeleteBuilds
 ReadS [BatchDeleteBuilds]
@@ -82,7 +82,7 @@ readList :: ReadS [BatchDeleteBuilds]
 $creadList :: ReadS [BatchDeleteBuilds]
 readsPrec :: Int -&gt; ReadS BatchDeleteBuilds
 $creadsPrec :: Int -&gt; ReadS BatchDeleteBuilds
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391491"><span id="local-6989586621679391493"><span id="local-6989586621679391495"><span class="annot"><span class="annottext">Int -&gt; BatchDeleteBuilds -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393427"><span id="local-6989586621679393429"><span id="local-6989586621679393431"><span class="annot"><span class="annottext">Int -&gt; BatchDeleteBuilds -&gt; ShowS
 [BatchDeleteBuilds] -&gt; ShowS
 BatchDeleteBuilds -&gt; String
 (Int -&gt; BatchDeleteBuilds -&gt; ShowS)
@@ -122,19 +122,19 @@ $cfrom :: forall x. BatchDeleteBuilds -&gt; Rep BatchDeleteBuilds x
 </span><span id="line-68"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuilds"><span class="hs-identifier hs-type">BatchDeleteBuilds</span></a></span><span>
 </span><span id="line-70"></span><span id="newBatchDeleteBuilds"><span class="annot"><span class="annottext">newBatchDeleteBuilds :: NonEmpty Text -&gt; BatchDeleteBuilds
-</span><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#newBatchDeleteBuilds"><span class="hs-identifier hs-var hs-var">newBatchDeleteBuilds</span></a></span></span><span> </span><span id="local-6989586621679391486"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679391486"><span class="hs-identifier hs-var">pIds_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#newBatchDeleteBuilds"><span class="hs-identifier hs-var hs-var">newBatchDeleteBuilds</span></a></span></span><span> </span><span id="local-6989586621679393422"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679393422"><span class="hs-identifier hs-var">pIds_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">BatchDeleteBuilds' :: NonEmpty Text -&gt; BatchDeleteBuilds
 </span><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuilds%27"><span class="hs-identifier hs-type">BatchDeleteBuilds'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ids:BatchDeleteBuilds' :: NonEmpty Text
 </span><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#%24sel%3Aids%3ABatchDeleteBuilds%27"><span class="hs-identifier hs-var">ids</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
 -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
  -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text)))
 -&gt; NonEmpty Text -&gt; NonEmpty Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679391486"><span class="hs-identifier hs-var">pIds_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679393422"><span class="hs-identifier hs-var">pIds_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | The IDs of the builds to delete.</span><span>
 </span><span id="line-74"></span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#batchDeleteBuilds_ids"><span class="hs-identifier hs-type">batchDeleteBuilds_ids</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuilds"><span class="hs-identifier hs-type">BatchDeleteBuilds</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -145,16 +145,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; Lens
      BatchDeleteBuilds BatchDeleteBuilds (NonEmpty Text) (NonEmpty Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuilds%27"><span class="hs-identifier hs-type">BatchDeleteBuilds'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391481"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuilds%27"><span class="hs-identifier hs-type">BatchDeleteBuilds'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393417"><span class="annot"><span class="annottext">NonEmpty Text
 ids :: NonEmpty Text
 $sel:ids:BatchDeleteBuilds' :: BatchDeleteBuilds -&gt; NonEmpty Text
-</span><a href="#local-6989586621679391481"><span class="hs-identifier hs-var hs-var">ids</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679391481"><span class="hs-identifier hs-var">ids</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391480"><span class="annot"><span class="annottext">s :: BatchDeleteBuilds
-</span><a href="#local-6989586621679391480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuilds%27"><span class="hs-identifier hs-type">BatchDeleteBuilds'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391479"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679391479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteBuilds
-</span><a href="#local-6989586621679391480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ids:BatchDeleteBuilds' :: NonEmpty Text
+</span><a href="#local-6989586621679393417"><span class="hs-identifier hs-var hs-var">ids</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679393417"><span class="hs-identifier hs-var">ids</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393416"><span class="annot"><span class="annottext">s :: BatchDeleteBuilds
+</span><a href="#local-6989586621679393416"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuilds%27"><span class="hs-identifier hs-type">BatchDeleteBuilds'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393415"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679393415"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteBuilds
+</span><a href="#local-6989586621679393416"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ids:BatchDeleteBuilds' :: NonEmpty Text
 </span><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#%24sel%3Aids%3ABatchDeleteBuilds%27"><span class="hs-identifier hs-var">ids</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679391479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuilds"><span class="hs-identifier hs-type">BatchDeleteBuilds</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+</span><a href="#local-6989586621679393415"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuilds"><span class="hs-identifier hs-type">BatchDeleteBuilds</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
  -&gt; BatchDeleteBuilds -&gt; f BatchDeleteBuilds)
 -&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
     -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
@@ -164,19 +164,19 @@ $sel:ids:BatchDeleteBuilds' :: BatchDeleteBuilds -&gt; NonEmpty Text
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; f (NonEmpty Text))
 -&gt; NonEmpty Text -&gt; f (NonEmpty Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuilds"><span class="hs-identifier hs-type">BatchDeleteBuilds</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-79"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuilds"><span class="hs-identifier hs-type">BatchDeleteBuilds</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuildsResponse"><span class="hs-identifier hs-type">BatchDeleteBuildsResponse</span></a></span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679391474"><span class="annot"><span class="annottext">request :: BatchDeleteBuilds -&gt; Request BatchDeleteBuilds
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679393410"><span class="annot"><span class="annottext">request :: BatchDeleteBuilds -&gt; Request BatchDeleteBuilds
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; BatchDeleteBuilds -&gt; Request BatchDeleteBuilds
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodeBuild.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679391470"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679393406"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy BatchDeleteBuilds
 -&gt; ClientResponse ClientBody
@@ -202,44 +202,42 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679391467"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679391467"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679391466"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679391466"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679391465"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679391465"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
--&gt; Maybe [BuildNotDeleted] -&gt; Int -&gt; BatchDeleteBuildsResponse
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679393403"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393403"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679393402"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679393402"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679393401"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679393401"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe [BuildNotDeleted]
+-&gt; Maybe (NonEmpty Text) -&gt; Int -&gt; BatchDeleteBuildsResponse
 </span><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuildsResponse%27"><span class="hs-identifier hs-var">BatchDeleteBuildsResponse'</span></a></span><span>
-</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (NonEmpty Text)
- -&gt; Maybe [BuildNotDeleted] -&gt; Int -&gt; BatchDeleteBuildsResponse)
--&gt; Either String (Maybe (NonEmpty Text))
--&gt; Either
-     String
-     (Maybe [BuildNotDeleted] -&gt; Int -&gt; BatchDeleteBuildsResponse)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679391465"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (NonEmpty Text))
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;buildsDeleted&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe [BuildNotDeleted] -&gt; Int -&gt; BatchDeleteBuildsResponse)
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [BuildNotDeleted]
+ -&gt; Maybe (NonEmpty Text) -&gt; Int -&gt; BatchDeleteBuildsResponse)
 -&gt; Either String (Maybe [BuildNotDeleted])
--&gt; Either String (Int -&gt; BatchDeleteBuildsResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679391465"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [BuildNotDeleted]))
+-&gt; Either
+     String (Maybe (NonEmpty Text) -&gt; Int -&gt; BatchDeleteBuildsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679393401"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [BuildNotDeleted]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;buildsNotDeleted&quot;</span></span><span>
-</span><span id="line-88"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [BuildNotDeleted]))
+</span><span id="line-87"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [BuildNotDeleted]))
 -&gt; Maybe [BuildNotDeleted]
 -&gt; Either String (Maybe [BuildNotDeleted])
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [BuildNotDeleted]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-89"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe (NonEmpty Text) -&gt; Int -&gt; BatchDeleteBuildsResponse)
+-&gt; Either String (Maybe (NonEmpty Text))
+-&gt; Either String (Int -&gt; BatchDeleteBuildsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679393401"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (NonEmpty Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;buildsDeleted&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; BatchDeleteBuildsResponse)
 -&gt; Either String Int -&gt; Either String BatchDeleteBuildsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -248,15 +246,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679391467"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679393403"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391456"><span id="local-6989586621679391458"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuilds"><span class="hs-identifier hs-type">BatchDeleteBuilds</span></a></span></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393392"><span id="local-6989586621679393394"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuilds"><span class="hs-identifier hs-type">BatchDeleteBuilds</span></a></span></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391453"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuilds"><span class="hs-identifier hs-type">BatchDeleteBuilds</span></a></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393389"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuilds"><span class="hs-identifier hs-type">BatchDeleteBuilds</span></a></span></span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuilds"><span class="hs-identifier hs-type">BatchDeleteBuilds</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679391449"><span class="annot"><span class="annottext">toHeaders :: BatchDeleteBuilds -&gt; ResponseHeaders
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679393385"><span class="annot"><span class="annottext">toHeaders :: BatchDeleteBuilds -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; BatchDeleteBuilds -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -283,12 +281,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-109"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391439"><span id="local-6989586621679391441"><span id="local-6989586621679391443"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuilds"><span class="hs-identifier hs-type">BatchDeleteBuilds</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679391437"><span class="annot"><span class="annottext">toJSON :: BatchDeleteBuilds -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuilds%27"><span class="hs-identifier hs-type">BatchDeleteBuilds'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391435"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393375"><span id="local-6989586621679393377"><span id="local-6989586621679393379"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuilds"><span class="hs-identifier hs-type">BatchDeleteBuilds</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679393373"><span class="annot"><span class="annottext">toJSON :: BatchDeleteBuilds -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuilds%27"><span class="hs-identifier hs-type">BatchDeleteBuilds'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393371"><span class="annot"><span class="annottext">NonEmpty Text
 ids :: NonEmpty Text
 $sel:ids:BatchDeleteBuilds' :: BatchDeleteBuilds -&gt; NonEmpty Text
-</span><a href="#local-6989586621679391435"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679393371"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -300,18 +298,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ids&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679391435"><span class="hs-identifier hs-var">ids</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679393371"><span class="hs-identifier hs-var">ids</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuilds"><span class="hs-identifier hs-type">BatchDeleteBuilds</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679391429"><span class="annot"><span class="annottext">toPath :: BatchDeleteBuilds -&gt; ByteString
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679393365"><span class="annot"><span class="annottext">toPath :: BatchDeleteBuilds -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; BatchDeleteBuilds -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuilds"><span class="hs-identifier hs-type">BatchDeleteBuilds</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679391425"><span class="annot"><span class="annottext">toQuery :: BatchDeleteBuilds -&gt; QueryString
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679393361"><span class="annot"><span class="annottext">toQuery :: BatchDeleteBuilds -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; BatchDeleteBuilds -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -319,18 +317,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- | /See:/ 'newBatchDeleteBuildsResponse' smart constructor.</span><span>
-</span><span id="line-126"></span><span id="local-6989586621679391422"><span id="local-6989586621679391423"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchDeleteBuildsResponse"><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuildsResponse"><span class="hs-identifier hs-var">BatchDeleteBuildsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchDeleteBuildsResponse%27"><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuildsResponse%27"><span class="hs-identifier hs-var">BatchDeleteBuildsResponse'</span></a></span></span><span>
-</span><span id="line-127"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IDs of the builds that were successfully deleted.</span><span>
-</span><span id="line-128"></span><span>    </span><span id="%24sel%3AbuildsDeleted%3ABatchDeleteBuildsResponse%27"><span class="annot"><span class="annottext">BatchDeleteBuildsResponse -&gt; Maybe (NonEmpty Text)
-</span><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#%24sel%3AbuildsDeleted%3ABatchDeleteBuildsResponse%27"><span class="hs-identifier hs-var hs-var">buildsDeleted</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- | Information about any builds that could not be successfully deleted.</span><span>
-</span><span id="line-130"></span><span>    </span><span id="%24sel%3AbuildsNotDeleted%3ABatchDeleteBuildsResponse%27"><span class="annot"><span class="annottext">BatchDeleteBuildsResponse -&gt; Maybe [BuildNotDeleted]
+</span><span id="line-126"></span><span id="local-6989586621679393358"><span id="local-6989586621679393359"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchDeleteBuildsResponse"><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuildsResponse"><span class="hs-identifier hs-var">BatchDeleteBuildsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchDeleteBuildsResponse%27"><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuildsResponse%27"><span class="hs-identifier hs-var">BatchDeleteBuildsResponse'</span></a></span></span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about any builds that could not be successfully deleted.</span><span>
+</span><span id="line-128"></span><span>    </span><span id="%24sel%3AbuildsNotDeleted%3ABatchDeleteBuildsResponse%27"><span class="annot"><span class="annottext">BatchDeleteBuildsResponse -&gt; Maybe [BuildNotDeleted]
 </span><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#%24sel%3AbuildsNotDeleted%3ABatchDeleteBuildsResponse%27"><span class="hs-identifier hs-var hs-var">buildsNotDeleted</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildNotDeleted.html#BuildNotDeleted"><span class="hs-identifier hs-type">BuildNotDeleted</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- | The IDs of the builds that were successfully deleted.</span><span>
+</span><span id="line-130"></span><span>    </span><span id="%24sel%3AbuildsDeleted%3ABatchDeleteBuildsResponse%27"><span class="annot"><span class="annottext">BatchDeleteBuildsResponse -&gt; Maybe (NonEmpty Text)
+</span><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#%24sel%3AbuildsDeleted%3ABatchDeleteBuildsResponse%27"><span class="hs-identifier hs-var hs-var">buildsDeleted</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-131"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-132"></span><span>    </span><span id="%24sel%3AhttpStatus%3ABatchDeleteBuildsResponse%27"><span class="annot"><span class="annottext">BatchDeleteBuildsResponse -&gt; Int
 </span><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#%24sel%3AhttpStatus%3ABatchDeleteBuildsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-133"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679391415"><span id="local-6989586621679391417"><span class="annot"><span class="annottext">BatchDeleteBuildsResponse -&gt; BatchDeleteBuildsResponse -&gt; Bool
+</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679393351"><span id="local-6989586621679393353"><span class="annot"><span class="annottext">BatchDeleteBuildsResponse -&gt; BatchDeleteBuildsResponse -&gt; Bool
 (BatchDeleteBuildsResponse -&gt; BatchDeleteBuildsResponse -&gt; Bool)
 -&gt; (BatchDeleteBuildsResponse -&gt; BatchDeleteBuildsResponse -&gt; Bool)
 -&gt; Eq BatchDeleteBuildsResponse
@@ -339,7 +337,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BatchDeleteBuildsResponse -&gt; BatchDeleteBuildsResponse -&gt; Bool
 == :: BatchDeleteBuildsResponse -&gt; BatchDeleteBuildsResponse -&gt; Bool
 $c== :: BatchDeleteBuildsResponse -&gt; BatchDeleteBuildsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391407"><span id="local-6989586621679391409"><span id="local-6989586621679391411"><span id="local-6989586621679391413"><span class="annot"><span class="annottext">ReadPrec [BatchDeleteBuildsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393343"><span id="local-6989586621679393345"><span id="local-6989586621679393347"><span id="local-6989586621679393349"><span class="annot"><span class="annottext">ReadPrec [BatchDeleteBuildsResponse]
 ReadPrec BatchDeleteBuildsResponse
 Int -&gt; ReadS BatchDeleteBuildsResponse
 ReadS [BatchDeleteBuildsResponse]
@@ -359,7 +357,7 @@ readList :: ReadS [BatchDeleteBuildsResponse]
 $creadList :: ReadS [BatchDeleteBuildsResponse]
 readsPrec :: Int -&gt; ReadS BatchDeleteBuildsResponse
 $creadsPrec :: Int -&gt; ReadS BatchDeleteBuildsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391401"><span id="local-6989586621679391403"><span id="local-6989586621679391405"><span class="annot"><span class="annottext">Int -&gt; BatchDeleteBuildsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393337"><span id="local-6989586621679393339"><span id="local-6989586621679393341"><span class="annot"><span class="annottext">Int -&gt; BatchDeleteBuildsResponse -&gt; ShowS
 [BatchDeleteBuildsResponse] -&gt; ShowS
 BatchDeleteBuildsResponse -&gt; String
 (Int -&gt; BatchDeleteBuildsResponse -&gt; ShowS)
@@ -399,9 +397,9 @@ BatchDeleteBuildsResponse -&gt; Rep BatchDeleteBuildsResponse x
 </span><span id="line-141"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-143"></span><span class="hs-comment">--</span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- 'buildsDeleted', 'batchDeleteBuildsResponse_buildsDeleted' - The IDs of the builds that were successfully deleted.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 'buildsNotDeleted', 'batchDeleteBuildsResponse_buildsNotDeleted' - Information about any builds that could not be successfully deleted.</span><span>
 </span><span id="line-145"></span><span class="hs-comment">--</span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- 'buildsNotDeleted', 'batchDeleteBuildsResponse_buildsNotDeleted' - Information about any builds that could not be successfully deleted.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 'buildsDeleted', 'batchDeleteBuildsResponse_buildsDeleted' - The IDs of the builds that were successfully deleted.</span><span>
 </span><span id="line-147"></span><span class="hs-comment">--</span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- 'httpStatus', 'batchDeleteBuildsResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-149"></span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#newBatchDeleteBuildsResponse"><span class="hs-identifier hs-type">newBatchDeleteBuildsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -409,73 +407,28 @@ BatchDeleteBuildsResponse -&gt; Rep BatchDeleteBuildsResponse x
 </span><span id="line-151"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-152"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuildsResponse"><span class="hs-identifier hs-type">BatchDeleteBuildsResponse</span></a></span><span>
 </span><span id="line-153"></span><span id="newBatchDeleteBuildsResponse"><span class="annot"><span class="annottext">newBatchDeleteBuildsResponse :: Int -&gt; BatchDeleteBuildsResponse
-</span><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#newBatchDeleteBuildsResponse"><span class="hs-identifier hs-var hs-var">newBatchDeleteBuildsResponse</span></a></span></span><span> </span><span id="local-6989586621679391398"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679391398"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-154"></span><span>  </span><span class="annot"><span class="annottext">BatchDeleteBuildsResponse' :: Maybe (NonEmpty Text)
--&gt; Maybe [BuildNotDeleted] -&gt; Int -&gt; BatchDeleteBuildsResponse
+</span><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#newBatchDeleteBuildsResponse"><span class="hs-identifier hs-var hs-var">newBatchDeleteBuildsResponse</span></a></span></span><span> </span><span id="local-6989586621679393334"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393334"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><span class="annottext">BatchDeleteBuildsResponse' :: Maybe [BuildNotDeleted]
+-&gt; Maybe (NonEmpty Text) -&gt; Int -&gt; BatchDeleteBuildsResponse
 </span><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuildsResponse%27"><span class="hs-identifier hs-type">BatchDeleteBuildsResponse'</span></a></span><span>
-</span><span id="line-155"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:buildsDeleted:BatchDeleteBuildsResponse' :: Maybe (NonEmpty Text)
-</span><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#%24sel%3AbuildsDeleted%3ABatchDeleteBuildsResponse%27"><span class="hs-identifier hs-var">buildsDeleted</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-156"></span><span>        </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span id="line-155"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:buildsNotDeleted:BatchDeleteBuildsResponse' :: Maybe [BuildNotDeleted]
+</span><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#%24sel%3AbuildsNotDeleted%3ABatchDeleteBuildsResponse%27"><span class="hs-identifier hs-var">buildsNotDeleted</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>        </span><span class="annot"><span class="annottext">Maybe [BuildNotDeleted]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">$sel:buildsNotDeleted:BatchDeleteBuildsResponse' :: Maybe [BuildNotDeleted]
-</span><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#%24sel%3AbuildsNotDeleted%3ABatchDeleteBuildsResponse%27"><span class="hs-identifier hs-var">buildsNotDeleted</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [BuildNotDeleted]
+</span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">$sel:buildsDeleted:BatchDeleteBuildsResponse' :: Maybe (NonEmpty Text)
+</span><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#%24sel%3AbuildsDeleted%3ABatchDeleteBuildsResponse%27"><span class="hs-identifier hs-var">buildsDeleted</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:BatchDeleteBuildsResponse' :: Int
 </span><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#%24sel%3AhttpStatus%3ABatchDeleteBuildsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679391398"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679393334"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-159"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-160"></span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- | The IDs of the builds that were successfully deleted.</span><span>
-</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#batchDeleteBuildsResponse_buildsDeleted"><span class="hs-identifier hs-type">batchDeleteBuildsResponse_buildsDeleted</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuildsResponse"><span class="hs-identifier hs-type">BatchDeleteBuildsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-163"></span><span id="batchDeleteBuildsResponse_buildsDeleted"><span class="annot"><span class="annottext">batchDeleteBuildsResponse_buildsDeleted :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
--&gt; BatchDeleteBuildsResponse -&gt; f BatchDeleteBuildsResponse
-</span><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#batchDeleteBuildsResponse_buildsDeleted"><span class="hs-identifier hs-var hs-var">batchDeleteBuildsResponse_buildsDeleted</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchDeleteBuildsResponse -&gt; Maybe (NonEmpty Text))
--&gt; (BatchDeleteBuildsResponse
-    -&gt; Maybe (NonEmpty Text) -&gt; BatchDeleteBuildsResponse)
--&gt; Lens
-     BatchDeleteBuildsResponse
-     BatchDeleteBuildsResponse
-     (Maybe (NonEmpty Text))
-     (Maybe (NonEmpty Text))
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuildsResponse%27"><span class="hs-identifier hs-type">BatchDeleteBuildsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391397"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-buildsDeleted :: Maybe (NonEmpty Text)
-$sel:buildsDeleted:BatchDeleteBuildsResponse' :: BatchDeleteBuildsResponse -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679391397"><span class="hs-identifier hs-var hs-var">buildsDeleted</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679391397"><span class="hs-identifier hs-var">buildsDeleted</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391396"><span class="annot"><span class="annottext">s :: BatchDeleteBuildsResponse
-</span><a href="#local-6989586621679391396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuildsResponse%27"><span class="hs-identifier hs-type">BatchDeleteBuildsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391395"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679391395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteBuildsResponse
-</span><a href="#local-6989586621679391396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:buildsDeleted:BatchDeleteBuildsResponse' :: Maybe (NonEmpty Text)
-</span><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#%24sel%3AbuildsDeleted%3ABatchDeleteBuildsResponse%27"><span class="hs-identifier hs-var">buildsDeleted</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679391395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuildsResponse"><span class="hs-identifier hs-type">BatchDeleteBuildsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
- -&gt; BatchDeleteBuildsResponse -&gt; f BatchDeleteBuildsResponse)
--&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
-    -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
--&gt; (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
--&gt; BatchDeleteBuildsResponse
--&gt; f BatchDeleteBuildsResponse
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
-  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
--&gt; Iso
-     (Maybe (NonEmpty Text))
-     (Maybe (NonEmpty Text))
-     (Maybe (NonEmpty Text))
-     (Maybe (NonEmpty Text))
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
-  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-comment">-- | Information about any builds that could not be successfully deleted.</span><span>
-</span><span id="line-166"></span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#batchDeleteBuildsResponse_buildsNotDeleted"><span class="hs-identifier hs-type">batchDeleteBuildsResponse_buildsNotDeleted</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuildsResponse"><span class="hs-identifier hs-type">BatchDeleteBuildsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildNotDeleted.html#BuildNotDeleted"><span class="hs-identifier hs-type">BuildNotDeleted</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-167"></span><span id="batchDeleteBuildsResponse_buildsNotDeleted"><span class="annot"><span class="annottext">batchDeleteBuildsResponse_buildsNotDeleted :: (Maybe [BuildNotDeleted] -&gt; f (Maybe [BuildNotDeleted]))
+</span><span id="line-161"></span><span class="hs-comment">-- | Information about any builds that could not be successfully deleted.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#batchDeleteBuildsResponse_buildsNotDeleted"><span class="hs-identifier hs-type">batchDeleteBuildsResponse_buildsNotDeleted</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuildsResponse"><span class="hs-identifier hs-type">BatchDeleteBuildsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildNotDeleted.html#BuildNotDeleted"><span class="hs-identifier hs-type">BuildNotDeleted</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="batchDeleteBuildsResponse_buildsNotDeleted"><span class="annot"><span class="annottext">batchDeleteBuildsResponse_buildsNotDeleted :: (Maybe [BuildNotDeleted] -&gt; f (Maybe [BuildNotDeleted]))
 -&gt; BatchDeleteBuildsResponse -&gt; f BatchDeleteBuildsResponse
 </span><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#batchDeleteBuildsResponse_buildsNotDeleted"><span class="hs-identifier hs-var hs-var">batchDeleteBuildsResponse_buildsNotDeleted</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchDeleteBuildsResponse -&gt; Maybe [BuildNotDeleted])
 -&gt; (BatchDeleteBuildsResponse
@@ -486,16 +439,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe [BuildNotDeleted])
      (Maybe [BuildNotDeleted])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuildsResponse%27"><span class="hs-identifier hs-type">BatchDeleteBuildsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391393"><span class="annot"><span class="annottext">Maybe [BuildNotDeleted]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuildsResponse%27"><span class="hs-identifier hs-type">BatchDeleteBuildsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393333"><span class="annot"><span class="annottext">Maybe [BuildNotDeleted]
 buildsNotDeleted :: Maybe [BuildNotDeleted]
 $sel:buildsNotDeleted:BatchDeleteBuildsResponse' :: BatchDeleteBuildsResponse -&gt; Maybe [BuildNotDeleted]
-</span><a href="#local-6989586621679391393"><span class="hs-identifier hs-var hs-var">buildsNotDeleted</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [BuildNotDeleted]
-</span><a href="#local-6989586621679391393"><span class="hs-identifier hs-var">buildsNotDeleted</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391392"><span class="annot"><span class="annottext">s :: BatchDeleteBuildsResponse
-</span><a href="#local-6989586621679391392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuildsResponse%27"><span class="hs-identifier hs-type">BatchDeleteBuildsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391391"><span class="annot"><span class="annottext">Maybe [BuildNotDeleted]
-</span><a href="#local-6989586621679391391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteBuildsResponse
-</span><a href="#local-6989586621679391392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:buildsNotDeleted:BatchDeleteBuildsResponse' :: Maybe [BuildNotDeleted]
+</span><a href="#local-6989586621679393333"><span class="hs-identifier hs-var hs-var">buildsNotDeleted</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [BuildNotDeleted]
+</span><a href="#local-6989586621679393333"><span class="hs-identifier hs-var">buildsNotDeleted</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393332"><span class="annot"><span class="annottext">s :: BatchDeleteBuildsResponse
+</span><a href="#local-6989586621679393332"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuildsResponse%27"><span class="hs-identifier hs-type">BatchDeleteBuildsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393331"><span class="annot"><span class="annottext">Maybe [BuildNotDeleted]
+</span><a href="#local-6989586621679393331"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteBuildsResponse
+</span><a href="#local-6989586621679393332"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:buildsNotDeleted:BatchDeleteBuildsResponse' :: Maybe [BuildNotDeleted]
 </span><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#%24sel%3AbuildsNotDeleted%3ABatchDeleteBuildsResponse%27"><span class="hs-identifier hs-var">buildsNotDeleted</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [BuildNotDeleted]
-</span><a href="#local-6989586621679391391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuildsResponse"><span class="hs-identifier hs-type">BatchDeleteBuildsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [BuildNotDeleted] -&gt; f (Maybe [BuildNotDeleted]))
+</span><a href="#local-6989586621679393331"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuildsResponse"><span class="hs-identifier hs-type">BatchDeleteBuildsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [BuildNotDeleted] -&gt; f (Maybe [BuildNotDeleted]))
  -&gt; BatchDeleteBuildsResponse -&gt; f BatchDeleteBuildsResponse)
 -&gt; ((Maybe [BuildNotDeleted] -&gt; f (Maybe [BuildNotDeleted]))
     -&gt; Maybe [BuildNotDeleted] -&gt; f (Maybe [BuildNotDeleted]))
@@ -521,8 +474,53 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [BuildNotDeleted]
   [BuildNotDeleted]
   [BuildNotDeleted]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The IDs of the builds that were successfully deleted.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#batchDeleteBuildsResponse_buildsDeleted"><span class="hs-identifier hs-type">batchDeleteBuildsResponse_buildsDeleted</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuildsResponse"><span class="hs-identifier hs-type">BatchDeleteBuildsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span id="batchDeleteBuildsResponse_buildsDeleted"><span class="annot"><span class="annottext">batchDeleteBuildsResponse_buildsDeleted :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; BatchDeleteBuildsResponse -&gt; f BatchDeleteBuildsResponse
+</span><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#batchDeleteBuildsResponse_buildsDeleted"><span class="hs-identifier hs-var hs-var">batchDeleteBuildsResponse_buildsDeleted</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchDeleteBuildsResponse -&gt; Maybe (NonEmpty Text))
+-&gt; (BatchDeleteBuildsResponse
+    -&gt; Maybe (NonEmpty Text) -&gt; BatchDeleteBuildsResponse)
+-&gt; Lens
+     BatchDeleteBuildsResponse
+     BatchDeleteBuildsResponse
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuildsResponse%27"><span class="hs-identifier hs-type">BatchDeleteBuildsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393329"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+buildsDeleted :: Maybe (NonEmpty Text)
+$sel:buildsDeleted:BatchDeleteBuildsResponse' :: BatchDeleteBuildsResponse -&gt; Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679393329"><span class="hs-identifier hs-var hs-var">buildsDeleted</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679393329"><span class="hs-identifier hs-var">buildsDeleted</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393328"><span class="annot"><span class="annottext">s :: BatchDeleteBuildsResponse
+</span><a href="#local-6989586621679393328"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuildsResponse%27"><span class="hs-identifier hs-type">BatchDeleteBuildsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393327"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679393327"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteBuildsResponse
+</span><a href="#local-6989586621679393328"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:buildsDeleted:BatchDeleteBuildsResponse' :: Maybe (NonEmpty Text)
+</span><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#%24sel%3AbuildsDeleted%3ABatchDeleteBuildsResponse%27"><span class="hs-identifier hs-var">buildsDeleted</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679393327"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuildsResponse"><span class="hs-identifier hs-type">BatchDeleteBuildsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+ -&gt; BatchDeleteBuildsResponse -&gt; f BatchDeleteBuildsResponse)
+-&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+    -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; BatchDeleteBuildsResponse
+-&gt; f BatchDeleteBuildsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+-&gt; Iso
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-170"></span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#batchDeleteBuildsResponse_httpStatus"><span class="hs-identifier hs-type">batchDeleteBuildsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuildsResponse"><span class="hs-identifier hs-type">BatchDeleteBuildsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -532,16 +530,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (BatchDeleteBuildsResponse -&gt; Int -&gt; BatchDeleteBuildsResponse)
 -&gt; Lens BatchDeleteBuildsResponse BatchDeleteBuildsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuildsResponse%27"><span class="hs-identifier hs-type">BatchDeleteBuildsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391390"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuildsResponse%27"><span class="hs-identifier hs-type">BatchDeleteBuildsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393326"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:BatchDeleteBuildsResponse' :: BatchDeleteBuildsResponse -&gt; Int
-</span><a href="#local-6989586621679391390"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679391390"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391389"><span class="annot"><span class="annottext">s :: BatchDeleteBuildsResponse
-</span><a href="#local-6989586621679391389"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuildsResponse%27"><span class="hs-identifier hs-type">BatchDeleteBuildsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391388"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679391388"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteBuildsResponse
-</span><a href="#local-6989586621679391389"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchDeleteBuildsResponse' :: Int
+</span><a href="#local-6989586621679393326"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393326"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393325"><span class="annot"><span class="annottext">s :: BatchDeleteBuildsResponse
+</span><a href="#local-6989586621679393325"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuildsResponse%27"><span class="hs-identifier hs-type">BatchDeleteBuildsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393324"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393324"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteBuildsResponse
+</span><a href="#local-6989586621679393325"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchDeleteBuildsResponse' :: Int
 </span><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#%24sel%3AhttpStatus%3ABatchDeleteBuildsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679391388"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuildsResponse"><span class="hs-identifier hs-type">BatchDeleteBuildsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679393324"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuildsResponse"><span class="hs-identifier hs-type">BatchDeleteBuildsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391386"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuildsResponse"><span class="hs-identifier hs-type">BatchDeleteBuildsResponse</span></a></span></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393322"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchDeleteBuilds.html#BatchDeleteBuildsResponse"><span class="hs-identifier hs-type">BatchDeleteBuildsResponse</span></a></span></span><span>
 </span><span id="line-174"></span></pre></body></html>

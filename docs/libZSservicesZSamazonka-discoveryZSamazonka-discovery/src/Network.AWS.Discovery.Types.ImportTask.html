@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- file, and more.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newImportTask' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679203972"><span id="local-6989586621679203973"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImportTask"><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-var">ImportTask</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImportTask%27"><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-var">ImportTask'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679204172"><span id="local-6989586621679204173"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImportTask"><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-var">ImportTask</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImportTask%27"><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-var">ImportTask'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The total number of application records in the import file that were</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- successfully imported.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AapplicationImportSuccess%3AImportTask%27"><span class="annot"><span class="annottext">ImportTask -&gt; Maybe Int
@@ -41,65 +41,65 @@
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">-- Migration Hub management console.</span><span>
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3Astatus%3AImportTask%27"><span class="annot"><span class="annottext">ImportTask -&gt; Maybe ImportStatus
 </span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3Astatus%3AImportTask%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportStatus.html#ImportStatus"><span class="hs-identifier hs-type">ImportStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The time that the import task request was made, presented in the Unix</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- time stamp format.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AimportRequestTime%3AImportTask%27"><span class="annot"><span class="annottext">ImportTask -&gt; Maybe POSIX
-</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AimportRequestTime%3AImportTask%27"><span class="hs-identifier hs-var hs-var">importRequestTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The total number of server records in the import file that failed to be</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- imported.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3AserverImportFailure%3AImportTask%27"><span class="annot"><span class="annottext">ImportTask -&gt; Maybe Int
-</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AserverImportFailure%3AImportTask%27"><span class="hs-identifier hs-var hs-var">serverImportFailure</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The unique ID for a specific import task. These IDs aren\'t globally</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- unique, but they are unique within an AWS account.</span><span>
-</span><span id="line-50"></span><span>    </span><span id="%24sel%3AimportTaskId%3AImportTask%27"><span class="annot"><span class="annottext">ImportTask -&gt; Maybe Text
-</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AimportTaskId%3AImportTask%27"><span class="hs-identifier hs-var hs-var">importTaskId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | A link to a compressed archive folder (in the ZIP format) that contains</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- an error log and a file of failed records. You can use these two files</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- to quickly identify records that failed, why they failed, and correct</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- those records. Afterward, you can upload the corrected file to your</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- Amazon S3 bucket and create another import task request.</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- This field also includes authorization information so you can confirm</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- the authenticity of the compressed archive before you download it.</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- If some records failed to be imported we recommend that you correct the</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- records in the failed entries file and then imports that failed entries</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- file. This prevents you from having to correct and update the larger</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- original file and attempt importing it again.</span><span>
-</span><span id="line-64"></span><span>    </span><span id="%24sel%3AerrorsAndFailedEntriesZip%3AImportTask%27"><span class="annot"><span class="annottext">ImportTask -&gt; Maybe Text
-</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AerrorsAndFailedEntriesZip%3AImportTask%27"><span class="hs-identifier hs-var hs-var">errorsAndFailedEntriesZip</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The total number of application records in the import file that failed</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- to be imported.</span><span>
-</span><span id="line-67"></span><span>    </span><span id="%24sel%3AapplicationImportFailure%3AImportTask%27"><span class="annot"><span class="annottext">ImportTask -&gt; Maybe Int
-</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AapplicationImportFailure%3AImportTask%27"><span class="hs-identifier hs-var hs-var">applicationImportFailure</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | A descriptive name for an import task. You can use this name to filter</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- future requests related to this import task, such as identifying</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- applications and servers that were included in this import task. We</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- recommend that you use a meaningful name for each import task.</span><span>
-</span><span id="line-72"></span><span>    </span><span id="%24sel%3Aname%3AImportTask%27"><span class="annot"><span class="annottext">ImportTask -&gt; Maybe Text
-</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3Aname%3AImportTask%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The time that the import task request finished, presented in the Unix</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- time stamp format.</span><span>
-</span><span id="line-75"></span><span>    </span><span id="%24sel%3AimportCompletionTime%3AImportTask%27"><span class="annot"><span class="annottext">ImportTask -&gt; Maybe POSIX
-</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AimportCompletionTime%3AImportTask%27"><span class="hs-identifier hs-var hs-var">importCompletionTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The URL for your import file that you\'ve uploaded to Amazon S3.</span><span>
-</span><span id="line-77"></span><span>    </span><span id="%24sel%3AimportUrl%3AImportTask%27"><span class="annot"><span class="annottext">ImportTask -&gt; Maybe Text
-</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AimportUrl%3AImportTask%27"><span class="hs-identifier hs-var hs-var">importUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | The total number of server records in the import file that were</span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- successfully imported.</span><span>
-</span><span id="line-80"></span><span>    </span><span id="%24sel%3AserverImportSuccess%3AImportTask%27"><span class="annot"><span class="annottext">ImportTask -&gt; Maybe Int
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The total number of server records in the import file that were</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- successfully imported.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AserverImportSuccess%3AImportTask%27"><span class="annot"><span class="annottext">ImportTask -&gt; Maybe Int
 </span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AserverImportSuccess%3AImportTask%27"><span class="hs-identifier hs-var hs-var">serverImportSuccess</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | A unique token used to prevent the same import request from occurring</span><span>
-</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- more than once. If you didn\'t provide a token, a token was</span><span>
-</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- automatically generated when the import task request was sent.</span><span>
-</span><span id="line-84"></span><span>    </span><span id="%24sel%3AclientRequestToken%3AImportTask%27"><span class="annot"><span class="annottext">ImportTask -&gt; Maybe Text
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The time that the import task request finished, presented in the Unix</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- time stamp format.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AimportCompletionTime%3AImportTask%27"><span class="annot"><span class="annottext">ImportTask -&gt; Maybe POSIX
+</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AimportCompletionTime%3AImportTask%27"><span class="hs-identifier hs-var hs-var">importCompletionTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | A descriptive name for an import task. You can use this name to filter</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- future requests related to this import task, such as identifying</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- applications and servers that were included in this import task. We</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- recommend that you use a meaningful name for each import task.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3Aname%3AImportTask%27"><span class="annot"><span class="annottext">ImportTask -&gt; Maybe Text
+</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3Aname%3AImportTask%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The total number of application records in the import file that failed</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- to be imported.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AapplicationImportFailure%3AImportTask%27"><span class="annot"><span class="annottext">ImportTask -&gt; Maybe Int
+</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AapplicationImportFailure%3AImportTask%27"><span class="hs-identifier hs-var hs-var">applicationImportFailure</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | A link to a compressed archive folder (in the ZIP format) that contains</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- an error log and a file of failed records. You can use these two files</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- to quickly identify records that failed, why they failed, and correct</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- those records. Afterward, you can upload the corrected file to your</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- Amazon S3 bucket and create another import task request.</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- This field also includes authorization information so you can confirm</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- the authenticity of the compressed archive before you download it.</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- If some records failed to be imported we recommend that you correct the</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- records in the failed entries file and then imports that failed entries</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- file. This prevents you from having to correct and update the larger</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- original file and attempt importing it again.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AerrorsAndFailedEntriesZip%3AImportTask%27"><span class="annot"><span class="annottext">ImportTask -&gt; Maybe Text
+</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AerrorsAndFailedEntriesZip%3AImportTask%27"><span class="hs-identifier hs-var hs-var">errorsAndFailedEntriesZip</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The unique ID for a specific import task. These IDs aren\'t globally</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- unique, but they are unique within an AWS account.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AimportTaskId%3AImportTask%27"><span class="annot"><span class="annottext">ImportTask -&gt; Maybe Text
+</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AimportTaskId%3AImportTask%27"><span class="hs-identifier hs-var hs-var">importTaskId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The time that the import task request was deleted, presented in the Unix</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- time stamp format.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AimportDeletedTime%3AImportTask%27"><span class="annot"><span class="annottext">ImportTask -&gt; Maybe POSIX
+</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AimportDeletedTime%3AImportTask%27"><span class="hs-identifier hs-var hs-var">importDeletedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The total number of server records in the import file that failed to be</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- imported.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AserverImportFailure%3AImportTask%27"><span class="annot"><span class="annottext">ImportTask -&gt; Maybe Int
+</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AserverImportFailure%3AImportTask%27"><span class="hs-identifier hs-var hs-var">serverImportFailure</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | A unique token used to prevent the same import request from occurring</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- more than once. If you didn\'t provide a token, a token was</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- automatically generated when the import task request was sent.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3AclientRequestToken%3AImportTask%27"><span class="annot"><span class="annottext">ImportTask -&gt; Maybe Text
 </span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AclientRequestToken%3AImportTask%27"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | The time that the import task request was deleted, presented in the Unix</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | The URL for your import file that you\'ve uploaded to Amazon S3.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3AimportUrl%3AImportTask%27"><span class="annot"><span class="annottext">ImportTask -&gt; Maybe Text
+</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AimportUrl%3AImportTask%27"><span class="hs-identifier hs-var hs-var">importUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | The time that the import task request was made, presented in the Unix</span><span>
 </span><span id="line-86"></span><span>    </span><span class="hs-comment">-- time stamp format.</span><span>
-</span><span id="line-87"></span><span>    </span><span id="%24sel%3AimportDeletedTime%3AImportTask%27"><span class="annot"><span class="annottext">ImportTask -&gt; Maybe POSIX
-</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AimportDeletedTime%3AImportTask%27"><span class="hs-identifier hs-var hs-var">importDeletedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3AimportRequestTime%3AImportTask%27"><span class="annot"><span class="annottext">ImportTask -&gt; Maybe POSIX
+</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AimportRequestTime%3AImportTask%27"><span class="hs-identifier hs-var hs-var">importRequestTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-88"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-89"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679203954"><span id="local-6989586621679203956"><span class="annot"><span class="annottext">ImportTask -&gt; ImportTask -&gt; Bool
+</span><span id="line-89"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679204154"><span id="local-6989586621679204156"><span class="annot"><span class="annottext">ImportTask -&gt; ImportTask -&gt; Bool
 (ImportTask -&gt; ImportTask -&gt; Bool)
 -&gt; (ImportTask -&gt; ImportTask -&gt; Bool) -&gt; Eq ImportTask
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -107,7 +107,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ImportTask -&gt; ImportTask -&gt; Bool
 == :: ImportTask -&gt; ImportTask -&gt; Bool
 $c== :: ImportTask -&gt; ImportTask -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203945"><span id="local-6989586621679203947"><span id="local-6989586621679203949"><span id="local-6989586621679203951"><span class="annot"><span class="annottext">ReadPrec [ImportTask]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204145"><span id="local-6989586621679204147"><span id="local-6989586621679204149"><span id="local-6989586621679204151"><span class="annot"><span class="annottext">ReadPrec [ImportTask]
 ReadPrec ImportTask
 Int -&gt; ReadS ImportTask
 ReadS [ImportTask]
@@ -127,7 +127,7 @@ readList :: ReadS [ImportTask]
 $creadList :: ReadS [ImportTask]
 readsPrec :: Int -&gt; ReadS ImportTask
 $creadsPrec :: Int -&gt; ReadS ImportTask
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203938"><span id="local-6989586621679203940"><span id="local-6989586621679203942"><span class="annot"><span class="annottext">Int -&gt; ImportTask -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204138"><span id="local-6989586621679204140"><span id="local-6989586621679204142"><span class="annot"><span class="annottext">Int -&gt; ImportTask -&gt; ShowS
 [ImportTask] -&gt; ShowS
 ImportTask -&gt; String
 (Int -&gt; ImportTask -&gt; ShowS)
@@ -169,50 +169,50 @@ $cfrom :: forall x. ImportTask -&gt; Rep ImportTask x
 </span><span id="line-105"></span><span class="hs-comment">-- archive defined in the @errorsAndFailedEntriesZip@ field, or in the</span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- Migration Hub management console.</span><span>
 </span><span id="line-107"></span><span class="hs-comment">--</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- 'importRequestTime', 'importTask_importRequestTime' - The time that the import task request was made, presented in the Unix</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- time stamp format.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'serverImportSuccess', 'importTask_serverImportSuccess' - The total number of server records in the import file that were</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- successfully imported.</span><span>
 </span><span id="line-110"></span><span class="hs-comment">--</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- 'serverImportFailure', 'importTask_serverImportFailure' - The total number of server records in the import file that failed to be</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- imported.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'importCompletionTime', 'importTask_importCompletionTime' - The time that the import task request finished, presented in the Unix</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- time stamp format.</span><span>
 </span><span id="line-113"></span><span class="hs-comment">--</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- 'importTaskId', 'importTask_importTaskId' - The unique ID for a specific import task. These IDs aren\'t globally</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- unique, but they are unique within an AWS account.</span><span>
-</span><span id="line-116"></span><span class="hs-comment">--</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- 'errorsAndFailedEntriesZip', 'importTask_errorsAndFailedEntriesZip' - A link to a compressed archive folder (in the ZIP format) that contains</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- an error log and a file of failed records. You can use these two files</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- to quickly identify records that failed, why they failed, and correct</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- those records. Afterward, you can upload the corrected file to your</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- Amazon S3 bucket and create another import task request.</span><span>
-</span><span id="line-122"></span><span class="hs-comment">--</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- This field also includes authorization information so you can confirm</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- the authenticity of the compressed archive before you download it.</span><span>
-</span><span id="line-125"></span><span class="hs-comment">--</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- If some records failed to be imported we recommend that you correct the</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- records in the failed entries file and then imports that failed entries</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- file. This prevents you from having to correct and update the larger</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- original file and attempt importing it again.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'name', 'importTask_name' - A descriptive name for an import task. You can use this name to filter</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- future requests related to this import task, such as identifying</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- applications and servers that were included in this import task. We</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- recommend that you use a meaningful name for each import task.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'applicationImportFailure', 'importTask_applicationImportFailure' - The total number of application records in the import file that failed</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- to be imported.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 'errorsAndFailedEntriesZip', 'importTask_errorsAndFailedEntriesZip' - A link to a compressed archive folder (in the ZIP format) that contains</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- an error log and a file of failed records. You can use these two files</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- to quickly identify records that failed, why they failed, and correct</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- those records. Afterward, you can upload the corrected file to your</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- Amazon S3 bucket and create another import task request.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- This field also includes authorization information so you can confirm</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- the authenticity of the compressed archive before you download it.</span><span>
 </span><span id="line-130"></span><span class="hs-comment">--</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- 'applicationImportFailure', 'importTask_applicationImportFailure' - The total number of application records in the import file that failed</span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- to be imported.</span><span>
-</span><span id="line-133"></span><span class="hs-comment">--</span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- 'name', 'importTask_name' - A descriptive name for an import task. You can use this name to filter</span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- future requests related to this import task, such as identifying</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- applications and servers that were included in this import task. We</span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- recommend that you use a meaningful name for each import task.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- If some records failed to be imported we recommend that you correct the</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- records in the failed entries file and then imports that failed entries</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- file. This prevents you from having to correct and update the larger</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- original file and attempt importing it again.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- 'importTaskId', 'importTask_importTaskId' - The unique ID for a specific import task. These IDs aren\'t globally</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- unique, but they are unique within an AWS account.</span><span>
 </span><span id="line-138"></span><span class="hs-comment">--</span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- 'importCompletionTime', 'importTask_importCompletionTime' - The time that the import task request finished, presented in the Unix</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'importDeletedTime', 'importTask_importDeletedTime' - The time that the import task request was deleted, presented in the Unix</span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- time stamp format.</span><span>
 </span><span id="line-141"></span><span class="hs-comment">--</span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- 'importUrl', 'importTask_importUrl' - The URL for your import file that you\'ve uploaded to Amazon S3.</span><span>
-</span><span id="line-143"></span><span class="hs-comment">--</span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- 'serverImportSuccess', 'importTask_serverImportSuccess' - The total number of server records in the import file that were</span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- successfully imported.</span><span>
-</span><span id="line-146"></span><span class="hs-comment">--</span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- 'clientRequestToken', 'importTask_clientRequestToken' - A unique token used to prevent the same import request from occurring</span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- more than once. If you didn\'t provide a token, a token was</span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- automatically generated when the import task request was sent.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- 'serverImportFailure', 'importTask_serverImportFailure' - The total number of server records in the import file that failed to be</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- imported.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- 'clientRequestToken', 'importTask_clientRequestToken' - A unique token used to prevent the same import request from occurring</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- more than once. If you didn\'t provide a token, a token was</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- automatically generated when the import task request was sent.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- 'importUrl', 'importTask_importUrl' - The URL for your import file that you\'ve uploaded to Amazon S3.</span><span>
 </span><span id="line-150"></span><span class="hs-comment">--</span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- 'importDeletedTime', 'importTask_importDeletedTime' - The time that the import task request was deleted, presented in the Unix</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- 'importRequestTime', 'importTask_importRequestTime' - The time that the import task request was made, presented in the Unix</span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- time stamp format.</span><span>
 </span><span id="line-153"></span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#newImportTask"><span class="hs-identifier hs-type">newImportTask</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-154"></span><span>  </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span><span>
@@ -220,15 +220,15 @@ $cfrom :: forall x. ImportTask -&gt; Rep ImportTask x
 </span><a href="Network.AWS.Discovery.Types.ImportTask.html#newImportTask"><span class="hs-identifier hs-var hs-var">newImportTask</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-156"></span><span>  </span><span class="annot"><span class="annottext">ImportTask' :: Maybe Int
 -&gt; Maybe ImportStatus
--&gt; Maybe POSIX
 -&gt; Maybe Int
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Int
--&gt; Maybe Text
 -&gt; Maybe POSIX
 -&gt; Maybe Text
 -&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Int
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe POSIX
 -&gt; ImportTask
@@ -242,48 +242,48 @@ forall a. Maybe a
 </span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3Astatus%3AImportTask%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ImportStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:importRequestTime:ImportTask' :: Maybe POSIX
-</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AimportRequestTime%3AImportTask%27"><span class="hs-identifier hs-var">importRequestTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:serverImportFailure:ImportTask' :: Maybe Int
-</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AserverImportFailure%3AImportTask%27"><span class="hs-identifier hs-var">serverImportFailure</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">$sel:importTaskId:ImportTask' :: Maybe Text
-</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AimportTaskId%3AImportTask%27"><span class="hs-identifier hs-var">importTaskId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorsAndFailedEntriesZip:ImportTask' :: Maybe Text
-</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AerrorsAndFailedEntriesZip%3AImportTask%27"><span class="hs-identifier hs-var">errorsAndFailedEntriesZip</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:applicationImportFailure:ImportTask' :: Maybe Int
-</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AapplicationImportFailure%3AImportTask%27"><span class="hs-identifier hs-var">applicationImportFailure</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:ImportTask' :: Maybe Text
-</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3Aname%3AImportTask%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:importCompletionTime:ImportTask' :: Maybe POSIX
-</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AimportCompletionTime%3AImportTask%27"><span class="hs-identifier hs-var">importCompletionTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:importUrl:ImportTask' :: Maybe Text
-</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AimportUrl%3AImportTask%27"><span class="hs-identifier hs-var">importUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">$sel:serverImportSuccess:ImportTask' :: Maybe Int
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:serverImportSuccess:ImportTask' :: Maybe Int
 </span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AserverImportSuccess%3AImportTask%27"><span class="hs-identifier hs-var">serverImportSuccess</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">$sel:clientRequestToken:ImportTask' :: Maybe Text
+</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:importCompletionTime:ImportTask' :: Maybe POSIX
+</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AimportCompletionTime%3AImportTask%27"><span class="hs-identifier hs-var">importCompletionTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:ImportTask' :: Maybe Text
+</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3Aname%3AImportTask%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:applicationImportFailure:ImportTask' :: Maybe Int
+</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AapplicationImportFailure%3AImportTask%27"><span class="hs-identifier hs-var">applicationImportFailure</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorsAndFailedEntriesZip:ImportTask' :: Maybe Text
+</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AerrorsAndFailedEntriesZip%3AImportTask%27"><span class="hs-identifier hs-var">errorsAndFailedEntriesZip</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:importTaskId:ImportTask' :: Maybe Text
+</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AimportTaskId%3AImportTask%27"><span class="hs-identifier hs-var">importTaskId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:importDeletedTime:ImportTask' :: Maybe POSIX
+</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AimportDeletedTime%3AImportTask%27"><span class="hs-identifier hs-var">importDeletedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:serverImportFailure:ImportTask' :: Maybe Int
+</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AserverImportFailure%3AImportTask%27"><span class="hs-identifier hs-var">serverImportFailure</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">$sel:clientRequestToken:ImportTask' :: Maybe Text
 </span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AclientRequestToken%3AImportTask%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">$sel:importDeletedTime:ImportTask' :: Maybe POSIX
-</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AimportDeletedTime%3AImportTask%27"><span class="hs-identifier hs-var">importDeletedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">$sel:importUrl:ImportTask' :: Maybe Text
+</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AimportUrl%3AImportTask%27"><span class="hs-identifier hs-var">importUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">$sel:importRequestTime:ImportTask' :: Maybe POSIX
+</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AimportRequestTime%3AImportTask%27"><span class="hs-identifier hs-var">importRequestTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-171"></span><span>    </span><span class="hs-special">}</span><span>
@@ -296,16 +296,16 @@ forall a. Maybe a
 -&gt; (ImportTask -&gt; Maybe Int -&gt; ImportTask)
 -&gt; Lens ImportTask ImportTask (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-type">ImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203929"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-type">ImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204129"><span class="annot"><span class="annottext">Maybe Int
 applicationImportSuccess :: Maybe Int
 $sel:applicationImportSuccess:ImportTask' :: ImportTask -&gt; Maybe Int
-</span><a href="#local-6989586621679203929"><span class="hs-identifier hs-var hs-var">applicationImportSuccess</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679203929"><span class="hs-identifier hs-var">applicationImportSuccess</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203928"><span class="annot"><span class="annottext">s :: ImportTask
-</span><a href="#local-6989586621679203928"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-type">ImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203927"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679203927"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportTask
-</span><a href="#local-6989586621679203928"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationImportSuccess:ImportTask' :: Maybe Int
+</span><a href="#local-6989586621679204129"><span class="hs-identifier hs-var hs-var">applicationImportSuccess</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679204129"><span class="hs-identifier hs-var">applicationImportSuccess</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204128"><span class="annot"><span class="annottext">s :: ImportTask
+</span><a href="#local-6989586621679204128"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-type">ImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204127"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679204127"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportTask
+</span><a href="#local-6989586621679204128"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationImportSuccess:ImportTask' :: Maybe Int
 </span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AapplicationImportSuccess%3AImportTask%27"><span class="hs-identifier hs-var">applicationImportSuccess</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679203927"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679204127"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-comment">-- | The status of the import task. An import can have the status of</span><span>
 </span><span id="line-179"></span><span class="hs-comment">-- @IMPORT_COMPLETE@ and still have some records fail to import from the</span><span>
@@ -320,35 +320,54 @@ $sel:applicationImportSuccess:ImportTask' :: ImportTask -&gt; Maybe Int
 -&gt; Lens
      ImportTask ImportTask (Maybe ImportStatus) (Maybe ImportStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-type">ImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203925"><span class="annot"><span class="annottext">Maybe ImportStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-type">ImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204125"><span class="annot"><span class="annottext">Maybe ImportStatus
 status :: Maybe ImportStatus
 $sel:status:ImportTask' :: ImportTask -&gt; Maybe ImportStatus
-</span><a href="#local-6989586621679203925"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ImportStatus
-</span><a href="#local-6989586621679203925"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203924"><span class="annot"><span class="annottext">s :: ImportTask
-</span><a href="#local-6989586621679203924"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-type">ImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203923"><span class="annot"><span class="annottext">Maybe ImportStatus
-</span><a href="#local-6989586621679203923"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportTask
-</span><a href="#local-6989586621679203924"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ImportTask' :: Maybe ImportStatus
+</span><a href="#local-6989586621679204125"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ImportStatus
+</span><a href="#local-6989586621679204125"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204124"><span class="annot"><span class="annottext">s :: ImportTask
+</span><a href="#local-6989586621679204124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-type">ImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204123"><span class="annot"><span class="annottext">Maybe ImportStatus
+</span><a href="#local-6989586621679204123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportTask
+</span><a href="#local-6989586621679204124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ImportTask' :: Maybe ImportStatus
 </span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3Astatus%3AImportTask%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ImportStatus
-</span><a href="#local-6989586621679203923"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679204123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>
-</span><span id="line-186"></span><span class="hs-comment">-- | The time that the import task request was made, presented in the Unix</span><span>
-</span><span id="line-187"></span><span class="hs-comment">-- time stamp format.</span><span>
-</span><span id="line-188"></span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#importTask_importRequestTime"><span class="hs-identifier hs-type">importTask_importRequestTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-189"></span><span id="importTask_importRequestTime"><span class="annot"><span class="annottext">importTask_importRequestTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; ImportTask -&gt; f ImportTask
-</span><a href="Network.AWS.Discovery.Types.ImportTask.html#importTask_importRequestTime"><span class="hs-identifier hs-var hs-var">importTask_importRequestTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportTask -&gt; Maybe POSIX)
+</span><span id="line-186"></span><span class="hs-comment">-- | The total number of server records in the import file that were</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- successfully imported.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#importTask_serverImportSuccess"><span class="hs-identifier hs-type">importTask_serverImportSuccess</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span id="importTask_serverImportSuccess"><span class="annot"><span class="annottext">importTask_serverImportSuccess :: (Maybe Int -&gt; f (Maybe Int)) -&gt; ImportTask -&gt; f ImportTask
+</span><a href="Network.AWS.Discovery.Types.ImportTask.html#importTask_serverImportSuccess"><span class="hs-identifier hs-var hs-var">importTask_serverImportSuccess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportTask -&gt; Maybe Int)
+-&gt; (ImportTask -&gt; Maybe Int -&gt; ImportTask)
+-&gt; Lens ImportTask ImportTask (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-type">ImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204121"><span class="annot"><span class="annottext">Maybe Int
+serverImportSuccess :: Maybe Int
+$sel:serverImportSuccess:ImportTask' :: ImportTask -&gt; Maybe Int
+</span><a href="#local-6989586621679204121"><span class="hs-identifier hs-var hs-var">serverImportSuccess</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679204121"><span class="hs-identifier hs-var">serverImportSuccess</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204120"><span class="annot"><span class="annottext">s :: ImportTask
+</span><a href="#local-6989586621679204120"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-type">ImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204119"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679204119"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportTask
+</span><a href="#local-6989586621679204120"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverImportSuccess:ImportTask' :: Maybe Int
+</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AserverImportSuccess%3AImportTask%27"><span class="hs-identifier hs-var">serverImportSuccess</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679204119"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- | The time that the import task request finished, presented in the Unix</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- time stamp format.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#importTask_importCompletionTime"><span class="hs-identifier hs-type">importTask_importCompletionTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span id="importTask_importCompletionTime"><span class="annot"><span class="annottext">importTask_importCompletionTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; ImportTask -&gt; f ImportTask
+</span><a href="Network.AWS.Discovery.Types.ImportTask.html#importTask_importCompletionTime"><span class="hs-identifier hs-var hs-var">importTask_importCompletionTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportTask -&gt; Maybe POSIX)
 -&gt; (ImportTask -&gt; Maybe POSIX -&gt; ImportTask)
 -&gt; Lens ImportTask ImportTask (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-type">ImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203921"><span class="annot"><span class="annottext">Maybe POSIX
-importRequestTime :: Maybe POSIX
-$sel:importRequestTime:ImportTask' :: ImportTask -&gt; Maybe POSIX
-</span><a href="#local-6989586621679203921"><span class="hs-identifier hs-var hs-var">importRequestTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679203921"><span class="hs-identifier hs-var">importRequestTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203920"><span class="annot"><span class="annottext">s :: ImportTask
-</span><a href="#local-6989586621679203920"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-type">ImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203919"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679203919"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportTask
-</span><a href="#local-6989586621679203920"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:importRequestTime:ImportTask' :: Maybe POSIX
-</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AimportRequestTime%3AImportTask%27"><span class="hs-identifier hs-var">importRequestTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679203919"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; ImportTask -&gt; f ImportTask)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-type">ImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204117"><span class="annot"><span class="annottext">Maybe POSIX
+importCompletionTime :: Maybe POSIX
+$sel:importCompletionTime:ImportTask' :: ImportTask -&gt; Maybe POSIX
+</span><a href="#local-6989586621679204117"><span class="hs-identifier hs-var hs-var">importCompletionTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679204117"><span class="hs-identifier hs-var">importCompletionTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204116"><span class="annot"><span class="annottext">s :: ImportTask
+</span><a href="#local-6989586621679204116"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-type">ImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204115"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679204115"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportTask
+</span><a href="#local-6989586621679204116"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:importCompletionTime:ImportTask' :: Maybe POSIX
+</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AimportCompletionTime%3AImportTask%27"><span class="hs-identifier hs-var">importCompletionTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679204115"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; ImportTask -&gt; f ImportTask)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -363,133 +382,114 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-190"></span><span>
-</span><span id="line-191"></span><span class="hs-comment">-- | The total number of server records in the import file that failed to be</span><span>
-</span><span id="line-192"></span><span class="hs-comment">-- imported.</span><span>
-</span><span id="line-193"></span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#importTask_serverImportFailure"><span class="hs-identifier hs-type">importTask_serverImportFailure</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-194"></span><span id="importTask_serverImportFailure"><span class="annot"><span class="annottext">importTask_serverImportFailure :: (Maybe Int -&gt; f (Maybe Int)) -&gt; ImportTask -&gt; f ImportTask
-</span><a href="Network.AWS.Discovery.Types.ImportTask.html#importTask_serverImportFailure"><span class="hs-identifier hs-var hs-var">importTask_serverImportFailure</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportTask -&gt; Maybe Int)
--&gt; (ImportTask -&gt; Maybe Int -&gt; ImportTask)
--&gt; Lens ImportTask ImportTask (Maybe Int) (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-type">ImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203914"><span class="annot"><span class="annottext">Maybe Int
-serverImportFailure :: Maybe Int
-$sel:serverImportFailure:ImportTask' :: ImportTask -&gt; Maybe Int
-</span><a href="#local-6989586621679203914"><span class="hs-identifier hs-var hs-var">serverImportFailure</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679203914"><span class="hs-identifier hs-var">serverImportFailure</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203913"><span class="annot"><span class="annottext">s :: ImportTask
-</span><a href="#local-6989586621679203913"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-type">ImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203912"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679203912"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportTask
-</span><a href="#local-6989586621679203913"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverImportFailure:ImportTask' :: Maybe Int
-</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AserverImportFailure%3AImportTask%27"><span class="hs-identifier hs-var">serverImportFailure</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679203912"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-195"></span><span>
-</span><span id="line-196"></span><span class="hs-comment">-- | The unique ID for a specific import task. These IDs aren\'t globally</span><span>
-</span><span id="line-197"></span><span class="hs-comment">-- unique, but they are unique within an AWS account.</span><span>
-</span><span id="line-198"></span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#importTask_importTaskId"><span class="hs-identifier hs-type">importTask_importTaskId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-199"></span><span id="importTask_importTaskId"><span class="annot"><span class="annottext">importTask_importTaskId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ImportTask -&gt; f ImportTask
-</span><a href="Network.AWS.Discovery.Types.ImportTask.html#importTask_importTaskId"><span class="hs-identifier hs-var hs-var">importTask_importTaskId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportTask -&gt; Maybe Text)
--&gt; (ImportTask -&gt; Maybe Text -&gt; ImportTask)
--&gt; Lens ImportTask ImportTask (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-type">ImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203910"><span class="annot"><span class="annottext">Maybe Text
-importTaskId :: Maybe Text
-$sel:importTaskId:ImportTask' :: ImportTask -&gt; Maybe Text
-</span><a href="#local-6989586621679203910"><span class="hs-identifier hs-var hs-var">importTaskId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679203910"><span class="hs-identifier hs-var">importTaskId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203909"><span class="annot"><span class="annottext">s :: ImportTask
-</span><a href="#local-6989586621679203909"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-type">ImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203908"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679203908"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportTask
-</span><a href="#local-6989586621679203909"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:importTaskId:ImportTask' :: Maybe Text
-</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AimportTaskId%3AImportTask%27"><span class="hs-identifier hs-var">importTaskId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679203908"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-200"></span><span>
-</span><span id="line-201"></span><span class="hs-comment">-- | A link to a compressed archive folder (in the ZIP format) that contains</span><span>
-</span><span id="line-202"></span><span class="hs-comment">-- an error log and a file of failed records. You can use these two files</span><span>
-</span><span id="line-203"></span><span class="hs-comment">-- to quickly identify records that failed, why they failed, and correct</span><span>
-</span><span id="line-204"></span><span class="hs-comment">-- those records. Afterward, you can upload the corrected file to your</span><span>
-</span><span id="line-205"></span><span class="hs-comment">-- Amazon S3 bucket and create another import task request.</span><span>
-</span><span id="line-206"></span><span class="hs-comment">--</span><span>
-</span><span id="line-207"></span><span class="hs-comment">-- This field also includes authorization information so you can confirm</span><span>
-</span><span id="line-208"></span><span class="hs-comment">-- the authenticity of the compressed archive before you download it.</span><span>
-</span><span id="line-209"></span><span class="hs-comment">--</span><span>
-</span><span id="line-210"></span><span class="hs-comment">-- If some records failed to be imported we recommend that you correct the</span><span>
-</span><span id="line-211"></span><span class="hs-comment">-- records in the failed entries file and then imports that failed entries</span><span>
-</span><span id="line-212"></span><span class="hs-comment">-- file. This prevents you from having to correct and update the larger</span><span>
-</span><span id="line-213"></span><span class="hs-comment">-- original file and attempt importing it again.</span><span>
-</span><span id="line-214"></span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#importTask_errorsAndFailedEntriesZip"><span class="hs-identifier hs-type">importTask_errorsAndFailedEntriesZip</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-215"></span><span id="importTask_errorsAndFailedEntriesZip"><span class="annot"><span class="annottext">importTask_errorsAndFailedEntriesZip :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ImportTask -&gt; f ImportTask
-</span><a href="Network.AWS.Discovery.Types.ImportTask.html#importTask_errorsAndFailedEntriesZip"><span class="hs-identifier hs-var hs-var">importTask_errorsAndFailedEntriesZip</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportTask -&gt; Maybe Text)
--&gt; (ImportTask -&gt; Maybe Text -&gt; ImportTask)
--&gt; Lens ImportTask ImportTask (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-type">ImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203906"><span class="annot"><span class="annottext">Maybe Text
-errorsAndFailedEntriesZip :: Maybe Text
-$sel:errorsAndFailedEntriesZip:ImportTask' :: ImportTask -&gt; Maybe Text
-</span><a href="#local-6989586621679203906"><span class="hs-identifier hs-var hs-var">errorsAndFailedEntriesZip</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679203906"><span class="hs-identifier hs-var">errorsAndFailedEntriesZip</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203905"><span class="annot"><span class="annottext">s :: ImportTask
-</span><a href="#local-6989586621679203905"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-type">ImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203904"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679203904"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportTask
-</span><a href="#local-6989586621679203905"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorsAndFailedEntriesZip:ImportTask' :: Maybe Text
-</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AerrorsAndFailedEntriesZip%3AImportTask%27"><span class="hs-identifier hs-var">errorsAndFailedEntriesZip</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679203904"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-216"></span><span>
-</span><span id="line-217"></span><span class="hs-comment">-- | The total number of application records in the import file that failed</span><span>
-</span><span id="line-218"></span><span class="hs-comment">-- to be imported.</span><span>
-</span><span id="line-219"></span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#importTask_applicationImportFailure"><span class="hs-identifier hs-type">importTask_applicationImportFailure</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-220"></span><span id="importTask_applicationImportFailure"><span class="annot"><span class="annottext">importTask_applicationImportFailure :: (Maybe Int -&gt; f (Maybe Int)) -&gt; ImportTask -&gt; f ImportTask
-</span><a href="Network.AWS.Discovery.Types.ImportTask.html#importTask_applicationImportFailure"><span class="hs-identifier hs-var hs-var">importTask_applicationImportFailure</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportTask -&gt; Maybe Int)
--&gt; (ImportTask -&gt; Maybe Int -&gt; ImportTask)
--&gt; Lens ImportTask ImportTask (Maybe Int) (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-type">ImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203902"><span class="annot"><span class="annottext">Maybe Int
-applicationImportFailure :: Maybe Int
-$sel:applicationImportFailure:ImportTask' :: ImportTask -&gt; Maybe Int
-</span><a href="#local-6989586621679203902"><span class="hs-identifier hs-var hs-var">applicationImportFailure</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679203902"><span class="hs-identifier hs-var">applicationImportFailure</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203901"><span class="annot"><span class="annottext">s :: ImportTask
-</span><a href="#local-6989586621679203901"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-type">ImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203900"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679203900"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportTask
-</span><a href="#local-6989586621679203901"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationImportFailure:ImportTask' :: Maybe Int
-</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AapplicationImportFailure%3AImportTask%27"><span class="hs-identifier hs-var">applicationImportFailure</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679203900"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-221"></span><span>
-</span><span id="line-222"></span><span class="hs-comment">-- | A descriptive name for an import task. You can use this name to filter</span><span>
-</span><span id="line-223"></span><span class="hs-comment">-- future requests related to this import task, such as identifying</span><span>
-</span><span id="line-224"></span><span class="hs-comment">-- applications and servers that were included in this import task. We</span><span>
-</span><span id="line-225"></span><span class="hs-comment">-- recommend that you use a meaningful name for each import task.</span><span>
-</span><span id="line-226"></span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#importTask_name"><span class="hs-identifier hs-type">importTask_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-227"></span><span id="importTask_name"><span class="annot"><span class="annottext">importTask_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ImportTask -&gt; f ImportTask
+</span><span id="line-196"></span><span class="hs-comment">-- | A descriptive name for an import task. You can use this name to filter</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- future requests related to this import task, such as identifying</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- applications and servers that were included in this import task. We</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- recommend that you use a meaningful name for each import task.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#importTask_name"><span class="hs-identifier hs-type">importTask_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span id="importTask_name"><span class="annot"><span class="annottext">importTask_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ImportTask -&gt; f ImportTask
 </span><a href="Network.AWS.Discovery.Types.ImportTask.html#importTask_name"><span class="hs-identifier hs-var hs-var">importTask_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportTask -&gt; Maybe Text)
 -&gt; (ImportTask -&gt; Maybe Text -&gt; ImportTask)
 -&gt; Lens ImportTask ImportTask (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-type">ImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203898"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-type">ImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204110"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:ImportTask' :: ImportTask -&gt; Maybe Text
-</span><a href="#local-6989586621679203898"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679203898"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203897"><span class="annot"><span class="annottext">s :: ImportTask
-</span><a href="#local-6989586621679203897"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-type">ImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203896"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679203896"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportTask
-</span><a href="#local-6989586621679203897"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ImportTask' :: Maybe Text
+</span><a href="#local-6989586621679204110"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679204110"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204109"><span class="annot"><span class="annottext">s :: ImportTask
+</span><a href="#local-6989586621679204109"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-type">ImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204108"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679204108"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportTask
+</span><a href="#local-6989586621679204109"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ImportTask' :: Maybe Text
 </span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3Aname%3AImportTask%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679203896"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679204108"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- | The total number of application records in the import file that failed</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- to be imported.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#importTask_applicationImportFailure"><span class="hs-identifier hs-type">importTask_applicationImportFailure</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span id="importTask_applicationImportFailure"><span class="annot"><span class="annottext">importTask_applicationImportFailure :: (Maybe Int -&gt; f (Maybe Int)) -&gt; ImportTask -&gt; f ImportTask
+</span><a href="Network.AWS.Discovery.Types.ImportTask.html#importTask_applicationImportFailure"><span class="hs-identifier hs-var hs-var">importTask_applicationImportFailure</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportTask -&gt; Maybe Int)
+-&gt; (ImportTask -&gt; Maybe Int -&gt; ImportTask)
+-&gt; Lens ImportTask ImportTask (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-type">ImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204106"><span class="annot"><span class="annottext">Maybe Int
+applicationImportFailure :: Maybe Int
+$sel:applicationImportFailure:ImportTask' :: ImportTask -&gt; Maybe Int
+</span><a href="#local-6989586621679204106"><span class="hs-identifier hs-var hs-var">applicationImportFailure</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679204106"><span class="hs-identifier hs-var">applicationImportFailure</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204105"><span class="annot"><span class="annottext">s :: ImportTask
+</span><a href="#local-6989586621679204105"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-type">ImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204104"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679204104"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportTask
+</span><a href="#local-6989586621679204105"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationImportFailure:ImportTask' :: Maybe Int
+</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AapplicationImportFailure%3AImportTask%27"><span class="hs-identifier hs-var">applicationImportFailure</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679204104"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | A link to a compressed archive folder (in the ZIP format) that contains</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- an error log and a file of failed records. You can use these two files</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- to quickly identify records that failed, why they failed, and correct</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- those records. Afterward, you can upload the corrected file to your</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- Amazon S3 bucket and create another import task request.</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- This field also includes authorization information so you can confirm</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- the authenticity of the compressed archive before you download it.</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- If some records failed to be imported we recommend that you correct the</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- records in the failed entries file and then imports that failed entries</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- file. This prevents you from having to correct and update the larger</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- original file and attempt importing it again.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#importTask_errorsAndFailedEntriesZip"><span class="hs-identifier hs-type">importTask_errorsAndFailedEntriesZip</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span id="importTask_errorsAndFailedEntriesZip"><span class="annot"><span class="annottext">importTask_errorsAndFailedEntriesZip :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ImportTask -&gt; f ImportTask
+</span><a href="Network.AWS.Discovery.Types.ImportTask.html#importTask_errorsAndFailedEntriesZip"><span class="hs-identifier hs-var hs-var">importTask_errorsAndFailedEntriesZip</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportTask -&gt; Maybe Text)
+-&gt; (ImportTask -&gt; Maybe Text -&gt; ImportTask)
+-&gt; Lens ImportTask ImportTask (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-type">ImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204102"><span class="annot"><span class="annottext">Maybe Text
+errorsAndFailedEntriesZip :: Maybe Text
+$sel:errorsAndFailedEntriesZip:ImportTask' :: ImportTask -&gt; Maybe Text
+</span><a href="#local-6989586621679204102"><span class="hs-identifier hs-var hs-var">errorsAndFailedEntriesZip</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679204102"><span class="hs-identifier hs-var">errorsAndFailedEntriesZip</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204101"><span class="annot"><span class="annottext">s :: ImportTask
+</span><a href="#local-6989586621679204101"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-type">ImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204100"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679204100"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportTask
+</span><a href="#local-6989586621679204101"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorsAndFailedEntriesZip:ImportTask' :: Maybe Text
+</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AerrorsAndFailedEntriesZip%3AImportTask%27"><span class="hs-identifier hs-var">errorsAndFailedEntriesZip</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679204100"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | The unique ID for a specific import task. These IDs aren\'t globally</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- unique, but they are unique within an AWS account.</span><span>
+</span><span id="line-226"></span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#importTask_importTaskId"><span class="hs-identifier hs-type">importTask_importTaskId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span id="importTask_importTaskId"><span class="annot"><span class="annottext">importTask_importTaskId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ImportTask -&gt; f ImportTask
+</span><a href="Network.AWS.Discovery.Types.ImportTask.html#importTask_importTaskId"><span class="hs-identifier hs-var hs-var">importTask_importTaskId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportTask -&gt; Maybe Text)
+-&gt; (ImportTask -&gt; Maybe Text -&gt; ImportTask)
+-&gt; Lens ImportTask ImportTask (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-type">ImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204098"><span class="annot"><span class="annottext">Maybe Text
+importTaskId :: Maybe Text
+$sel:importTaskId:ImportTask' :: ImportTask -&gt; Maybe Text
+</span><a href="#local-6989586621679204098"><span class="hs-identifier hs-var hs-var">importTaskId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679204098"><span class="hs-identifier hs-var">importTaskId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204097"><span class="annot"><span class="annottext">s :: ImportTask
+</span><a href="#local-6989586621679204097"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-type">ImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204096"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679204096"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportTask
+</span><a href="#local-6989586621679204097"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:importTaskId:ImportTask' :: Maybe Text
+</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AimportTaskId%3AImportTask%27"><span class="hs-identifier hs-var">importTaskId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679204096"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-228"></span><span>
-</span><span id="line-229"></span><span class="hs-comment">-- | The time that the import task request finished, presented in the Unix</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- | The time that the import task request was deleted, presented in the Unix</span><span>
 </span><span id="line-230"></span><span class="hs-comment">-- time stamp format.</span><span>
-</span><span id="line-231"></span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#importTask_importCompletionTime"><span class="hs-identifier hs-type">importTask_importCompletionTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-232"></span><span id="importTask_importCompletionTime"><span class="annot"><span class="annottext">importTask_importCompletionTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; ImportTask -&gt; f ImportTask
-</span><a href="Network.AWS.Discovery.Types.ImportTask.html#importTask_importCompletionTime"><span class="hs-identifier hs-var hs-var">importTask_importCompletionTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportTask -&gt; Maybe POSIX)
+</span><span id="line-231"></span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#importTask_importDeletedTime"><span class="hs-identifier hs-type">importTask_importDeletedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span id="importTask_importDeletedTime"><span class="annot"><span class="annottext">importTask_importDeletedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; ImportTask -&gt; f ImportTask
+</span><a href="Network.AWS.Discovery.Types.ImportTask.html#importTask_importDeletedTime"><span class="hs-identifier hs-var hs-var">importTask_importDeletedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportTask -&gt; Maybe POSIX)
 -&gt; (ImportTask -&gt; Maybe POSIX -&gt; ImportTask)
 -&gt; Lens ImportTask ImportTask (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-type">ImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203894"><span class="annot"><span class="annottext">Maybe POSIX
-importCompletionTime :: Maybe POSIX
-$sel:importCompletionTime:ImportTask' :: ImportTask -&gt; Maybe POSIX
-</span><a href="#local-6989586621679203894"><span class="hs-identifier hs-var hs-var">importCompletionTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679203894"><span class="hs-identifier hs-var">importCompletionTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203893"><span class="annot"><span class="annottext">s :: ImportTask
-</span><a href="#local-6989586621679203893"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-type">ImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203892"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679203892"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportTask
-</span><a href="#local-6989586621679203893"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:importCompletionTime:ImportTask' :: Maybe POSIX
-</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AimportCompletionTime%3AImportTask%27"><span class="hs-identifier hs-var">importCompletionTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679203892"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; ImportTask -&gt; f ImportTask)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-type">ImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204094"><span class="annot"><span class="annottext">Maybe POSIX
+importDeletedTime :: Maybe POSIX
+$sel:importDeletedTime:ImportTask' :: ImportTask -&gt; Maybe POSIX
+</span><a href="#local-6989586621679204094"><span class="hs-identifier hs-var hs-var">importDeletedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679204094"><span class="hs-identifier hs-var">importDeletedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204093"><span class="annot"><span class="annottext">s :: ImportTask
+</span><a href="#local-6989586621679204093"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-type">ImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204092"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679204092"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportTask
+</span><a href="#local-6989586621679204093"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:importDeletedTime:ImportTask' :: Maybe POSIX
+</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AimportDeletedTime%3AImportTask%27"><span class="hs-identifier hs-var">importDeletedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679204092"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; ImportTask -&gt; f ImportTask)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -505,81 +505,81 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-233"></span><span>
-</span><span id="line-234"></span><span class="hs-comment">-- | The URL for your import file that you\'ve uploaded to Amazon S3.</span><span>
-</span><span id="line-235"></span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#importTask_importUrl"><span class="hs-identifier hs-type">importTask_importUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-236"></span><span id="importTask_importUrl"><span class="annot"><span class="annottext">importTask_importUrl :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ImportTask -&gt; f ImportTask
-</span><a href="Network.AWS.Discovery.Types.ImportTask.html#importTask_importUrl"><span class="hs-identifier hs-var hs-var">importTask_importUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportTask -&gt; Maybe Text)
--&gt; (ImportTask -&gt; Maybe Text -&gt; ImportTask)
--&gt; Lens ImportTask ImportTask (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-type">ImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203890"><span class="annot"><span class="annottext">Maybe Text
-importUrl :: Maybe Text
-$sel:importUrl:ImportTask' :: ImportTask -&gt; Maybe Text
-</span><a href="#local-6989586621679203890"><span class="hs-identifier hs-var hs-var">importUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679203890"><span class="hs-identifier hs-var">importUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203889"><span class="annot"><span class="annottext">s :: ImportTask
-</span><a href="#local-6989586621679203889"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-type">ImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203888"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679203888"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportTask
-</span><a href="#local-6989586621679203889"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:importUrl:ImportTask' :: Maybe Text
-</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AimportUrl%3AImportTask%27"><span class="hs-identifier hs-var">importUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679203888"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-237"></span><span>
-</span><span id="line-238"></span><span class="hs-comment">-- | The total number of server records in the import file that were</span><span>
-</span><span id="line-239"></span><span class="hs-comment">-- successfully imported.</span><span>
-</span><span id="line-240"></span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#importTask_serverImportSuccess"><span class="hs-identifier hs-type">importTask_serverImportSuccess</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-241"></span><span id="importTask_serverImportSuccess"><span class="annot"><span class="annottext">importTask_serverImportSuccess :: (Maybe Int -&gt; f (Maybe Int)) -&gt; ImportTask -&gt; f ImportTask
-</span><a href="Network.AWS.Discovery.Types.ImportTask.html#importTask_serverImportSuccess"><span class="hs-identifier hs-var hs-var">importTask_serverImportSuccess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportTask -&gt; Maybe Int)
+</span><span id="line-234"></span><span class="hs-comment">-- | The total number of server records in the import file that failed to be</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- imported.</span><span>
+</span><span id="line-236"></span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#importTask_serverImportFailure"><span class="hs-identifier hs-type">importTask_serverImportFailure</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span id="importTask_serverImportFailure"><span class="annot"><span class="annottext">importTask_serverImportFailure :: (Maybe Int -&gt; f (Maybe Int)) -&gt; ImportTask -&gt; f ImportTask
+</span><a href="Network.AWS.Discovery.Types.ImportTask.html#importTask_serverImportFailure"><span class="hs-identifier hs-var hs-var">importTask_serverImportFailure</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportTask -&gt; Maybe Int)
 -&gt; (ImportTask -&gt; Maybe Int -&gt; ImportTask)
 -&gt; Lens ImportTask ImportTask (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-type">ImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203886"><span class="annot"><span class="annottext">Maybe Int
-serverImportSuccess :: Maybe Int
-$sel:serverImportSuccess:ImportTask' :: ImportTask -&gt; Maybe Int
-</span><a href="#local-6989586621679203886"><span class="hs-identifier hs-var hs-var">serverImportSuccess</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679203886"><span class="hs-identifier hs-var">serverImportSuccess</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203885"><span class="annot"><span class="annottext">s :: ImportTask
-</span><a href="#local-6989586621679203885"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-type">ImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203884"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679203884"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportTask
-</span><a href="#local-6989586621679203885"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverImportSuccess:ImportTask' :: Maybe Int
-</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AserverImportSuccess%3AImportTask%27"><span class="hs-identifier hs-var">serverImportSuccess</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679203884"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-242"></span><span>
-</span><span id="line-243"></span><span class="hs-comment">-- | A unique token used to prevent the same import request from occurring</span><span>
-</span><span id="line-244"></span><span class="hs-comment">-- more than once. If you didn\'t provide a token, a token was</span><span>
-</span><span id="line-245"></span><span class="hs-comment">-- automatically generated when the import task request was sent.</span><span>
-</span><span id="line-246"></span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#importTask_clientRequestToken"><span class="hs-identifier hs-type">importTask_clientRequestToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-247"></span><span id="importTask_clientRequestToken"><span class="annot"><span class="annottext">importTask_clientRequestToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ImportTask -&gt; f ImportTask
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-type">ImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204090"><span class="annot"><span class="annottext">Maybe Int
+serverImportFailure :: Maybe Int
+$sel:serverImportFailure:ImportTask' :: ImportTask -&gt; Maybe Int
+</span><a href="#local-6989586621679204090"><span class="hs-identifier hs-var hs-var">serverImportFailure</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679204090"><span class="hs-identifier hs-var">serverImportFailure</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204089"><span class="annot"><span class="annottext">s :: ImportTask
+</span><a href="#local-6989586621679204089"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-type">ImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204088"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679204088"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportTask
+</span><a href="#local-6989586621679204089"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverImportFailure:ImportTask' :: Maybe Int
+</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AserverImportFailure%3AImportTask%27"><span class="hs-identifier hs-var">serverImportFailure</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679204088"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- | A unique token used to prevent the same import request from occurring</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- more than once. If you didn\'t provide a token, a token was</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- automatically generated when the import task request was sent.</span><span>
+</span><span id="line-242"></span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#importTask_clientRequestToken"><span class="hs-identifier hs-type">importTask_clientRequestToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span id="importTask_clientRequestToken"><span class="annot"><span class="annottext">importTask_clientRequestToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ImportTask -&gt; f ImportTask
 </span><a href="Network.AWS.Discovery.Types.ImportTask.html#importTask_clientRequestToken"><span class="hs-identifier hs-var hs-var">importTask_clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportTask -&gt; Maybe Text)
 -&gt; (ImportTask -&gt; Maybe Text -&gt; ImportTask)
 -&gt; Lens ImportTask ImportTask (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-type">ImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203882"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-type">ImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204086"><span class="annot"><span class="annottext">Maybe Text
 clientRequestToken :: Maybe Text
 $sel:clientRequestToken:ImportTask' :: ImportTask -&gt; Maybe Text
-</span><a href="#local-6989586621679203882"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679203882"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203881"><span class="annot"><span class="annottext">s :: ImportTask
-</span><a href="#local-6989586621679203881"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-type">ImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203880"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679203880"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportTask
-</span><a href="#local-6989586621679203881"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientRequestToken:ImportTask' :: Maybe Text
+</span><a href="#local-6989586621679204086"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679204086"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204085"><span class="annot"><span class="annottext">s :: ImportTask
+</span><a href="#local-6989586621679204085"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-type">ImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204084"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679204084"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportTask
+</span><a href="#local-6989586621679204085"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientRequestToken:ImportTask' :: Maybe Text
 </span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AclientRequestToken%3AImportTask%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679203880"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679204084"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- | The URL for your import file that you\'ve uploaded to Amazon S3.</span><span>
+</span><span id="line-246"></span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#importTask_importUrl"><span class="hs-identifier hs-type">importTask_importUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span id="importTask_importUrl"><span class="annot"><span class="annottext">importTask_importUrl :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ImportTask -&gt; f ImportTask
+</span><a href="Network.AWS.Discovery.Types.ImportTask.html#importTask_importUrl"><span class="hs-identifier hs-var hs-var">importTask_importUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportTask -&gt; Maybe Text)
+-&gt; (ImportTask -&gt; Maybe Text -&gt; ImportTask)
+-&gt; Lens ImportTask ImportTask (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-type">ImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204082"><span class="annot"><span class="annottext">Maybe Text
+importUrl :: Maybe Text
+$sel:importUrl:ImportTask' :: ImportTask -&gt; Maybe Text
+</span><a href="#local-6989586621679204082"><span class="hs-identifier hs-var hs-var">importUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679204082"><span class="hs-identifier hs-var">importUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204081"><span class="annot"><span class="annottext">s :: ImportTask
+</span><a href="#local-6989586621679204081"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-type">ImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204080"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679204080"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportTask
+</span><a href="#local-6989586621679204081"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:importUrl:ImportTask' :: Maybe Text
+</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AimportUrl%3AImportTask%27"><span class="hs-identifier hs-var">importUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679204080"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-248"></span><span>
-</span><span id="line-249"></span><span class="hs-comment">-- | The time that the import task request was deleted, presented in the Unix</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- | The time that the import task request was made, presented in the Unix</span><span>
 </span><span id="line-250"></span><span class="hs-comment">-- time stamp format.</span><span>
-</span><span id="line-251"></span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#importTask_importDeletedTime"><span class="hs-identifier hs-type">importTask_importDeletedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-252"></span><span id="importTask_importDeletedTime"><span class="annot"><span class="annottext">importTask_importDeletedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; ImportTask -&gt; f ImportTask
-</span><a href="Network.AWS.Discovery.Types.ImportTask.html#importTask_importDeletedTime"><span class="hs-identifier hs-var hs-var">importTask_importDeletedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportTask -&gt; Maybe POSIX)
+</span><span id="line-251"></span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#importTask_importRequestTime"><span class="hs-identifier hs-type">importTask_importRequestTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span id="importTask_importRequestTime"><span class="annot"><span class="annottext">importTask_importRequestTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; ImportTask -&gt; f ImportTask
+</span><a href="Network.AWS.Discovery.Types.ImportTask.html#importTask_importRequestTime"><span class="hs-identifier hs-var hs-var">importTask_importRequestTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportTask -&gt; Maybe POSIX)
 -&gt; (ImportTask -&gt; Maybe POSIX -&gt; ImportTask)
 -&gt; Lens ImportTask ImportTask (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-type">ImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203878"><span class="annot"><span class="annottext">Maybe POSIX
-importDeletedTime :: Maybe POSIX
-$sel:importDeletedTime:ImportTask' :: ImportTask -&gt; Maybe POSIX
-</span><a href="#local-6989586621679203878"><span class="hs-identifier hs-var hs-var">importDeletedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679203878"><span class="hs-identifier hs-var">importDeletedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203877"><span class="annot"><span class="annottext">s :: ImportTask
-</span><a href="#local-6989586621679203877"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-type">ImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203876"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679203876"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportTask
-</span><a href="#local-6989586621679203877"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:importDeletedTime:ImportTask' :: Maybe POSIX
-</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AimportDeletedTime%3AImportTask%27"><span class="hs-identifier hs-var">importDeletedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679203876"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; ImportTask -&gt; f ImportTask)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-type">ImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204078"><span class="annot"><span class="annottext">Maybe POSIX
+importRequestTime :: Maybe POSIX
+$sel:importRequestTime:ImportTask' :: ImportTask -&gt; Maybe POSIX
+</span><a href="#local-6989586621679204078"><span class="hs-identifier hs-var hs-var">importRequestTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679204078"><span class="hs-identifier hs-var">importRequestTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204077"><span class="annot"><span class="annottext">s :: ImportTask
+</span><a href="#local-6989586621679204077"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-type">ImportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204076"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679204076"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportTask
+</span><a href="#local-6989586621679204077"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:importRequestTime:ImportTask' :: Maybe POSIX
+</span><a href="Network.AWS.Discovery.Types.ImportTask.html#%24sel%3AimportRequestTime%3AImportTask%27"><span class="hs-identifier hs-var">importRequestTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679204076"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; ImportTask -&gt; f ImportTask)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -595,8 +595,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-253"></span><span>
-</span><span id="line-254"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203873"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-255"></span><span>  </span><span id="local-6989586621679203871"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ImportTask
+</span><span id="line-254"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204073"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-255"></span><span>  </span><span id="local-6989586621679204071"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ImportTask
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-256"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ImportTask) -&gt; Value -&gt; Parser ImportTask
@@ -604,189 +604,162 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-257"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ImportTask&quot;</span></span><span>
-</span><span id="line-258"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679203868"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679203868"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-258"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679204068"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679204068"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-259"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
 -&gt; Maybe ImportStatus
--&gt; Maybe POSIX
 -&gt; Maybe Int
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Int
--&gt; Maybe Text
 -&gt; Maybe POSIX
 -&gt; Maybe Text
 -&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Int
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe POSIX
 -&gt; ImportTask
 </span><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask%27"><span class="hs-identifier hs-var">ImportTask'</span></a></span><span>
 </span><span id="line-260"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int
  -&gt; Maybe ImportStatus
- -&gt; Maybe POSIX
  -&gt; Maybe Int
- -&gt; Maybe Text
- -&gt; Maybe Text
- -&gt; Maybe Int
- -&gt; Maybe Text
  -&gt; Maybe POSIX
  -&gt; Maybe Text
  -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Int
+ -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe POSIX
  -&gt; ImportTask)
 -&gt; Parser (Maybe Int)
 -&gt; Parser
      (Maybe ImportStatus
-      -&gt; Maybe POSIX
       -&gt; Maybe Int
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Int
-      -&gt; Maybe Text
       -&gt; Maybe POSIX
       -&gt; Maybe Text
       -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Int
+      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe POSIX
       -&gt; ImportTask)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679203868"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679204068"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;applicationImportSuccess&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-261"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe ImportStatus
-   -&gt; Maybe POSIX
    -&gt; Maybe Int
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Int
-   -&gt; Maybe Text
    -&gt; Maybe POSIX
    -&gt; Maybe Text
    -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Int
+   -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe POSIX
    -&gt; ImportTask)
 -&gt; Parser (Maybe ImportStatus)
 -&gt; Parser
-     (Maybe POSIX
-      -&gt; Maybe Int
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Int
-      -&gt; Maybe Text
+     (Maybe Int
       -&gt; Maybe POSIX
       -&gt; Maybe Text
       -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Int
+      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe POSIX
       -&gt; ImportTask)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679203868"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ImportStatus)
+</span><a href="#local-6989586621679204068"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ImportStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-262"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX
-   -&gt; Maybe Int
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Int
-   -&gt; Maybe Text
+  (Maybe Int
    -&gt; Maybe POSIX
    -&gt; Maybe Text
    -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; ImportTask)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; ImportTask)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679204068"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;serverImportSuccess&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Int
+   -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe POSIX
    -&gt; ImportTask)
 -&gt; Parser (Maybe POSIX)
 -&gt; Parser
-     (Maybe Int
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Int
-      -&gt; Maybe Text
-      -&gt; Maybe POSIX
-      -&gt; Maybe Text
-      -&gt; Maybe Int
-      -&gt; Maybe Text
-      -&gt; Maybe POSIX
-      -&gt; ImportTask)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679203868"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;importRequestTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-263"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Int
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Int
-   -&gt; Maybe Text
-   -&gt; Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; Maybe Int
-   -&gt; Maybe Text
-   -&gt; Maybe POSIX
-   -&gt; ImportTask)
--&gt; Parser (Maybe Int)
--&gt; Parser
      (Maybe Text
-      -&gt; Maybe Text
       -&gt; Maybe Int
+      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe POSIX
-      -&gt; Maybe Text
       -&gt; Maybe Int
+      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe POSIX
       -&gt; ImportTask)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679203868"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679204068"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;serverImportFailure&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;importCompletionTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-264"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
-   -&gt; Maybe Text
    -&gt; Maybe Int
+   -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe POSIX
-   -&gt; Maybe Text
    -&gt; Maybe Int
    -&gt; Maybe Text
-   -&gt; Maybe POSIX
-   -&gt; ImportTask)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Int
-      -&gt; Maybe Text
-      -&gt; Maybe POSIX
-      -&gt; Maybe Text
-      -&gt; Maybe Int
-      -&gt; Maybe Text
-      -&gt; Maybe POSIX
-      -&gt; ImportTask)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679203868"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;importTaskId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-265"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Int
-   -&gt; Maybe Text
-   -&gt; Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; Maybe Int
    -&gt; Maybe Text
    -&gt; Maybe POSIX
    -&gt; ImportTask)
@@ -794,120 +767,147 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser
      (Maybe Int
       -&gt; Maybe Text
-      -&gt; Maybe POSIX
       -&gt; Maybe Text
+      -&gt; Maybe POSIX
       -&gt; Maybe Int
+      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe POSIX
       -&gt; ImportTask)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679203868"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679204068"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;errorsAndFailedEntriesZip&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-266"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Int
    -&gt; Maybe Text
-   -&gt; Maybe POSIX
    -&gt; Maybe Text
+   -&gt; Maybe POSIX
    -&gt; Maybe Int
+   -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe POSIX
    -&gt; ImportTask)
 -&gt; Parser (Maybe Int)
 -&gt; Parser
      (Maybe Text
-      -&gt; Maybe POSIX
       -&gt; Maybe Text
+      -&gt; Maybe POSIX
       -&gt; Maybe Int
+      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe POSIX
       -&gt; ImportTask)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679203868"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679204068"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;applicationImportFailure&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; ImportTask)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; ImportTask)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679204068"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;errorsAndFailedEntriesZip&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-267"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe POSIX
-   -&gt; Maybe Text
    -&gt; Maybe Int
+   -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe POSIX
    -&gt; ImportTask)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe POSIX
-      -&gt; Maybe Text
       -&gt; Maybe Int
+      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe POSIX
       -&gt; ImportTask)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679203868"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679204068"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;importTaskId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-268"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe POSIX
-   -&gt; Maybe Text
    -&gt; Maybe Int
+   -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe POSIX
    -&gt; ImportTask)
 -&gt; Parser (Maybe POSIX)
 -&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Int -&gt; Maybe Text -&gt; Maybe POSIX -&gt; ImportTask)
+     (Maybe Int
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe POSIX -&gt; ImportTask)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679203868"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679204068"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;importCompletionTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;importDeletedTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-269"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Int -&gt; Maybe Text -&gt; Maybe POSIX -&gt; ImportTask)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe Int -&gt; Maybe Text -&gt; Maybe POSIX -&gt; ImportTask)
+  (Maybe Int
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe POSIX -&gt; ImportTask)
+-&gt; Parser (Maybe Int)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe POSIX -&gt; ImportTask)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679203868"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679204068"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;importUrl&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-270"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; Maybe Text -&gt; Maybe POSIX -&gt; ImportTask)
--&gt; Parser (Maybe Int)
+</span><span class="hs-string">&quot;serverImportFailure&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe POSIX -&gt; ImportTask)
+-&gt; Parser (Maybe Text)
 -&gt; Parser (Maybe Text -&gt; Maybe POSIX -&gt; ImportTask)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679203868"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679204068"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;serverImportSuccess&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;clientRequestToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-271"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe POSIX -&gt; ImportTask)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe POSIX -&gt; ImportTask)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679203868"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679204068"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;clientRequestToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;importUrl&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-272"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; ImportTask)
 -&gt; Parser (Maybe POSIX) -&gt; Parser ImportTask
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679203868"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679204068"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;importDeletedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;importRequestTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-273"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-274"></span><span>
-</span><span id="line-275"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203862"><span id="local-6989586621679203864"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span></span></span><span>
+</span><span id="line-275"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204062"><span id="local-6989586621679204064"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span></span></span><span>
 </span><span id="line-276"></span><span>
-</span><span id="line-277"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203859"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span></span><span>
+</span><span id="line-277"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204059"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ImportTask.html#ImportTask"><span class="hs-identifier hs-type">ImportTask</span></a></span></span><span>
 </span><span id="line-278"></span></pre></body></html>

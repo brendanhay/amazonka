@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Statistical information about the data store.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newDatastoreStatistics' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679255154"><span id="local-6989586621679255155"></span></span><span class="hs-keyword">data</span><span> </span><span id="DatastoreStatistics"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStatistics.html#DatastoreStatistics"><span class="hs-identifier hs-var">DatastoreStatistics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DatastoreStatistics%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStatistics.html#DatastoreStatistics%27"><span class="hs-identifier hs-var">DatastoreStatistics'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679255356"><span id="local-6989586621679255357"></span></span><span class="hs-keyword">data</span><span> </span><span id="DatastoreStatistics"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStatistics.html#DatastoreStatistics"><span class="hs-identifier hs-var">DatastoreStatistics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DatastoreStatistics%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStatistics.html#DatastoreStatistics%27"><span class="hs-identifier hs-var">DatastoreStatistics'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The estimated size of the data store.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Asize%3ADatastoreStatistics%27"><span class="annot"><span class="annottext">DatastoreStatistics -&gt; Maybe EstimatedResourceSize
 </span><a href="Network.AWS.IoTAnalytics.Types.DatastoreStatistics.html#%24sel%3Asize%3ADatastoreStatistics%27"><span class="hs-identifier hs-var hs-var">size</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#EstimatedResourceSize"><span class="hs-identifier hs-type">EstimatedResourceSize</span></a></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679255148"><span id="local-6989586621679255150"><span class="annot"><span class="annottext">DatastoreStatistics -&gt; DatastoreStatistics -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679255350"><span id="local-6989586621679255352"><span class="annot"><span class="annottext">DatastoreStatistics -&gt; DatastoreStatistics -&gt; Bool
 (DatastoreStatistics -&gt; DatastoreStatistics -&gt; Bool)
 -&gt; (DatastoreStatistics -&gt; DatastoreStatistics -&gt; Bool)
 -&gt; Eq DatastoreStatistics
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DatastoreStatistics -&gt; DatastoreStatistics -&gt; Bool
 == :: DatastoreStatistics -&gt; DatastoreStatistics -&gt; Bool
 $c== :: DatastoreStatistics -&gt; DatastoreStatistics -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255139"><span id="local-6989586621679255141"><span id="local-6989586621679255143"><span id="local-6989586621679255145"><span class="annot"><span class="annottext">ReadPrec [DatastoreStatistics]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255341"><span id="local-6989586621679255343"><span id="local-6989586621679255345"><span id="local-6989586621679255347"><span class="annot"><span class="annottext">ReadPrec [DatastoreStatistics]
 ReadPrec DatastoreStatistics
 Int -&gt; ReadS DatastoreStatistics
 ReadS [DatastoreStatistics]
@@ -61,7 +61,7 @@ readList :: ReadS [DatastoreStatistics]
 $creadList :: ReadS [DatastoreStatistics]
 readsPrec :: Int -&gt; ReadS DatastoreStatistics
 $creadsPrec :: Int -&gt; ReadS DatastoreStatistics
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255132"><span id="local-6989586621679255134"><span id="local-6989586621679255136"><span class="annot"><span class="annottext">Int -&gt; DatastoreStatistics -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255334"><span id="local-6989586621679255336"><span id="local-6989586621679255338"><span class="annot"><span class="annottext">Int -&gt; DatastoreStatistics -&gt; ShowS
 [DatastoreStatistics] -&gt; ShowS
 DatastoreStatistics -&gt; String
 (Int -&gt; DatastoreStatistics -&gt; ShowS)
@@ -119,19 +119,19 @@ forall a. Maybe a
      (Maybe EstimatedResourceSize)
      (Maybe EstimatedResourceSize)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStatistics.html#DatastoreStatistics%27"><span class="hs-identifier hs-type">DatastoreStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255123"><span class="annot"><span class="annottext">Maybe EstimatedResourceSize
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStatistics.html#DatastoreStatistics%27"><span class="hs-identifier hs-type">DatastoreStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255325"><span class="annot"><span class="annottext">Maybe EstimatedResourceSize
 size :: Maybe EstimatedResourceSize
 $sel:size:DatastoreStatistics' :: DatastoreStatistics -&gt; Maybe EstimatedResourceSize
-</span><a href="#local-6989586621679255123"><span class="hs-identifier hs-var hs-var">size</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EstimatedResourceSize
-</span><a href="#local-6989586621679255123"><span class="hs-identifier hs-var">size</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255122"><span class="annot"><span class="annottext">s :: DatastoreStatistics
-</span><a href="#local-6989586621679255122"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStatistics.html#DatastoreStatistics%27"><span class="hs-identifier hs-type">DatastoreStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255121"><span class="annot"><span class="annottext">Maybe EstimatedResourceSize
-</span><a href="#local-6989586621679255121"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatastoreStatistics
-</span><a href="#local-6989586621679255122"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:size:DatastoreStatistics' :: Maybe EstimatedResourceSize
+</span><a href="#local-6989586621679255325"><span class="hs-identifier hs-var hs-var">size</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EstimatedResourceSize
+</span><a href="#local-6989586621679255325"><span class="hs-identifier hs-var">size</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255324"><span class="annot"><span class="annottext">s :: DatastoreStatistics
+</span><a href="#local-6989586621679255324"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStatistics.html#DatastoreStatistics%27"><span class="hs-identifier hs-type">DatastoreStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255323"><span class="annot"><span class="annottext">Maybe EstimatedResourceSize
+</span><a href="#local-6989586621679255323"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatastoreStatistics
+</span><a href="#local-6989586621679255324"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:size:DatastoreStatistics' :: Maybe EstimatedResourceSize
 </span><a href="Network.AWS.IoTAnalytics.Types.DatastoreStatistics.html#%24sel%3Asize%3ADatastoreStatistics%27"><span class="hs-identifier hs-var">size</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EstimatedResourceSize
-</span><a href="#local-6989586621679255121"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStatistics.html#DatastoreStatistics"><span class="hs-identifier hs-type">DatastoreStatistics</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679255323"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStatistics.html#DatastoreStatistics"><span class="hs-identifier hs-type">DatastoreStatistics</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span>
-</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255118"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStatistics.html#DatastoreStatistics"><span class="hs-identifier hs-type">DatastoreStatistics</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621679255116"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DatastoreStatistics
+</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255320"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStatistics.html#DatastoreStatistics"><span class="hs-identifier hs-type">DatastoreStatistics</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621679255318"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DatastoreStatistics
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DatastoreStatistics)
@@ -141,21 +141,21 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DatastoreStatistics&quot;</span></span><span>
-</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679255113"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679255113"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679255315"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679255315"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-59"></span><span>          </span><span class="annot"><span class="annottext">Maybe EstimatedResourceSize -&gt; DatastoreStatistics
 </span><a href="Network.AWS.IoTAnalytics.Types.DatastoreStatistics.html#DatastoreStatistics%27"><span class="hs-identifier hs-var">DatastoreStatistics'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe EstimatedResourceSize -&gt; DatastoreStatistics)
 -&gt; Parser (Maybe EstimatedResourceSize)
 -&gt; Parser DatastoreStatistics
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679255113"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EstimatedResourceSize)
+</span><a href="#local-6989586621679255315"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EstimatedResourceSize)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;size&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255107"><span id="local-6989586621679255109"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStatistics.html#DatastoreStatistics"><span class="hs-identifier hs-type">DatastoreStatistics</span></a></span></span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255309"><span id="local-6989586621679255311"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStatistics.html#DatastoreStatistics"><span class="hs-identifier hs-type">DatastoreStatistics</span></a></span></span></span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255104"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStatistics.html#DatastoreStatistics"><span class="hs-identifier hs-type">DatastoreStatistics</span></a></span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255306"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreStatistics.html#DatastoreStatistics"><span class="hs-identifier hs-type">DatastoreStatistics</span></a></span></span><span>
 </span><span id="line-65"></span></pre></body></html>

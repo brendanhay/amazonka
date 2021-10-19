@@ -26,15 +26,15 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Information about a parameter used to provision a product.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newProvisioningParameter' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679403810"><span id="local-6989586621679403811"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProvisioningParameter"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningParameter.html#ProvisioningParameter"><span class="hs-identifier hs-var">ProvisioningParameter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProvisioningParameter%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningParameter.html#ProvisioningParameter%27"><span class="hs-identifier hs-var">ProvisioningParameter'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The parameter key.</span><span>
-</span><span id="line-31"></span><span>    </span><span id="%24sel%3Akey%3AProvisioningParameter%27"><span class="annot"><span class="annottext">ProvisioningParameter -&gt; Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.Types.ProvisioningParameter.html#%24sel%3Akey%3AProvisioningParameter%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The parameter value.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3Avalue%3AProvisioningParameter%27"><span class="annot"><span class="annottext">ProvisioningParameter -&gt; Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.Types.ProvisioningParameter.html#%24sel%3Avalue%3AProvisioningParameter%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679404261"><span id="local-6989586621679404262"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProvisioningParameter"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningParameter.html#ProvisioningParameter"><span class="hs-identifier hs-var">ProvisioningParameter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProvisioningParameter%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningParameter.html#ProvisioningParameter%27"><span class="hs-identifier hs-var">ProvisioningParameter'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The parameter value.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3Avalue%3AProvisioningParameter%27"><span class="annot"><span class="annottext">ProvisioningParameter -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.ProvisioningParameter.html#%24sel%3Avalue%3AProvisioningParameter%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The parameter key.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Akey%3AProvisioningParameter%27"><span class="annot"><span class="annottext">ProvisioningParameter -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.ProvisioningParameter.html#%24sel%3Akey%3AProvisioningParameter%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679403803"><span id="local-6989586621679403805"><span class="annot"><span class="annottext">ProvisioningParameter -&gt; ProvisioningParameter -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679404254"><span id="local-6989586621679404256"><span class="annot"><span class="annottext">ProvisioningParameter -&gt; ProvisioningParameter -&gt; Bool
 (ProvisioningParameter -&gt; ProvisioningParameter -&gt; Bool)
 -&gt; (ProvisioningParameter -&gt; ProvisioningParameter -&gt; Bool)
 -&gt; Eq ProvisioningParameter
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ProvisioningParameter -&gt; ProvisioningParameter -&gt; Bool
 == :: ProvisioningParameter -&gt; ProvisioningParameter -&gt; Bool
 $c== :: ProvisioningParameter -&gt; ProvisioningParameter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679403794"><span id="local-6989586621679403796"><span id="local-6989586621679403798"><span id="local-6989586621679403800"><span class="annot"><span class="annottext">ReadPrec [ProvisioningParameter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679404245"><span id="local-6989586621679404247"><span id="local-6989586621679404249"><span id="local-6989586621679404251"><span class="annot"><span class="annottext">ReadPrec [ProvisioningParameter]
 ReadPrec ProvisioningParameter
 Int -&gt; ReadS ProvisioningParameter
 ReadS [ProvisioningParameter]
@@ -63,7 +63,7 @@ readList :: ReadS [ProvisioningParameter]
 $creadList :: ReadS [ProvisioningParameter]
 readsPrec :: Int -&gt; ReadS ProvisioningParameter
 $creadsPrec :: Int -&gt; ReadS ProvisioningParameter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679403787"><span id="local-6989586621679403789"><span id="local-6989586621679403791"><span class="annot"><span class="annottext">Int -&gt; ProvisioningParameter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679404238"><span id="local-6989586621679404240"><span id="local-6989586621679404242"><span class="annot"><span class="annottext">Int -&gt; ProvisioningParameter -&gt; ShowS
 [ProvisioningParameter] -&gt; ShowS
 ProvisioningParameter -&gt; String
 (Int -&gt; ProvisioningParameter -&gt; ShowS)
@@ -97,51 +97,28 @@ $cfrom :: forall x. ProvisioningParameter -&gt; Rep ProvisioningParameter x
 </span><span id="line-42"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-43"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-44"></span><span class="hs-comment">--</span><span>
-</span><span id="line-45"></span><span class="hs-comment">-- 'key', 'provisioningParameter_key' - The parameter key.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 'value', 'provisioningParameter_value' - The parameter value.</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'value', 'provisioningParameter_value' - The parameter value.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'key', 'provisioningParameter_key' - The parameter key.</span><span>
 </span><span id="line-48"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningParameter.html#newProvisioningParameter"><span class="hs-identifier hs-type">newProvisioningParameter</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-49"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningParameter.html#ProvisioningParameter"><span class="hs-identifier hs-type">ProvisioningParameter</span></a></span><span>
 </span><span id="line-50"></span><span id="newProvisioningParameter"><span class="annot"><span class="annottext">newProvisioningParameter :: ProvisioningParameter
 </span><a href="Network.AWS.ServiceCatalog.Types.ProvisioningParameter.html#newProvisioningParameter"><span class="hs-identifier hs-var hs-var">newProvisioningParameter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">ProvisioningParameter' :: Maybe Text -&gt; Maybe Text -&gt; ProvisioningParameter
 </span><a href="Network.AWS.ServiceCatalog.Types.ProvisioningParameter.html#ProvisioningParameter%27"><span class="hs-identifier hs-type">ProvisioningParameter'</span></a></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:key:ProvisioningParameter' :: Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.Types.ProvisioningParameter.html#%24sel%3Akey%3AProvisioningParameter%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:value:ProvisioningParameter' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.ProvisioningParameter.html#%24sel%3Avalue%3AProvisioningParameter%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span class="annot"><span class="annottext">$sel:value:ProvisioningParameter' :: Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.Types.ProvisioningParameter.html#%24sel%3Avalue%3AProvisioningParameter%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-53"></span><span>      </span><span class="annot"><span class="annottext">$sel:key:ProvisioningParameter' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.ProvisioningParameter.html#%24sel%3Akey%3AProvisioningParameter%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-55"></span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- | The parameter key.</span><span>
-</span><span id="line-57"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningParameter.html#provisioningParameter_key"><span class="hs-identifier hs-type">provisioningParameter_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningParameter.html#ProvisioningParameter"><span class="hs-identifier hs-type">ProvisioningParameter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-58"></span><span id="provisioningParameter_key"><span class="annot"><span class="annottext">provisioningParameter_key :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ProvisioningParameter -&gt; f ProvisioningParameter
-</span><a href="Network.AWS.ServiceCatalog.Types.ProvisioningParameter.html#provisioningParameter_key"><span class="hs-identifier hs-var hs-var">provisioningParameter_key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProvisioningParameter -&gt; Maybe Text)
--&gt; (ProvisioningParameter -&gt; Maybe Text -&gt; ProvisioningParameter)
--&gt; Lens
-     ProvisioningParameter
-     ProvisioningParameter
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningParameter.html#ProvisioningParameter%27"><span class="hs-identifier hs-type">ProvisioningParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403778"><span class="annot"><span class="annottext">Maybe Text
-key :: Maybe Text
-$sel:key:ProvisioningParameter' :: ProvisioningParameter -&gt; Maybe Text
-</span><a href="#local-6989586621679403778"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679403778"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403777"><span class="annot"><span class="annottext">s :: ProvisioningParameter
-</span><a href="#local-6989586621679403777"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningParameter.html#ProvisioningParameter%27"><span class="hs-identifier hs-type">ProvisioningParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403776"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679403776"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisioningParameter
-</span><a href="#local-6989586621679403777"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:ProvisioningParameter' :: Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.Types.ProvisioningParameter.html#%24sel%3Akey%3AProvisioningParameter%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679403776"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningParameter.html#ProvisioningParameter"><span class="hs-identifier hs-type">ProvisioningParameter</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- | The parameter value.</span><span>
-</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningParameter.html#provisioningParameter_value"><span class="hs-identifier hs-type">provisioningParameter_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningParameter.html#ProvisioningParameter"><span class="hs-identifier hs-type">ProvisioningParameter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-62"></span><span id="provisioningParameter_value"><span class="annot"><span class="annottext">provisioningParameter_value :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-56"></span><span class="hs-comment">-- | The parameter value.</span><span>
+</span><span id="line-57"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningParameter.html#provisioningParameter_value"><span class="hs-identifier hs-type">provisioningParameter_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningParameter.html#ProvisioningParameter"><span class="hs-identifier hs-type">ProvisioningParameter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span id="provisioningParameter_value"><span class="annot"><span class="annottext">provisioningParameter_value :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ProvisioningParameter -&gt; f ProvisioningParameter
 </span><a href="Network.AWS.ServiceCatalog.Types.ProvisioningParameter.html#provisioningParameter_value"><span class="hs-identifier hs-var hs-var">provisioningParameter_value</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProvisioningParameter -&gt; Maybe Text)
 -&gt; (ProvisioningParameter -&gt; Maybe Text -&gt; ProvisioningParameter)
@@ -151,48 +128,71 @@ $sel:key:ProvisioningParameter' :: ProvisioningParameter -&gt; Maybe Text
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningParameter.html#ProvisioningParameter%27"><span class="hs-identifier hs-type">ProvisioningParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403774"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningParameter.html#ProvisioningParameter%27"><span class="hs-identifier hs-type">ProvisioningParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404229"><span class="annot"><span class="annottext">Maybe Text
 value :: Maybe Text
 $sel:value:ProvisioningParameter' :: ProvisioningParameter -&gt; Maybe Text
-</span><a href="#local-6989586621679403774"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679403774"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403773"><span class="annot"><span class="annottext">s :: ProvisioningParameter
-</span><a href="#local-6989586621679403773"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningParameter.html#ProvisioningParameter%27"><span class="hs-identifier hs-type">ProvisioningParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403772"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679403772"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisioningParameter
-</span><a href="#local-6989586621679403773"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:ProvisioningParameter' :: Maybe Text
+</span><a href="#local-6989586621679404229"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404229"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404228"><span class="annot"><span class="annottext">s :: ProvisioningParameter
+</span><a href="#local-6989586621679404228"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningParameter.html#ProvisioningParameter%27"><span class="hs-identifier hs-type">ProvisioningParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404227"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404227"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisioningParameter
+</span><a href="#local-6989586621679404228"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:ProvisioningParameter' :: Maybe Text
 </span><a href="Network.AWS.ServiceCatalog.Types.ProvisioningParameter.html#%24sel%3Avalue%3AProvisioningParameter%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679403772"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningParameter.html#ProvisioningParameter"><span class="hs-identifier hs-type">ProvisioningParameter</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679403768"><span id="local-6989586621679403770"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningParameter.html#ProvisioningParameter"><span class="hs-identifier hs-type">ProvisioningParameter</span></a></span></span></span><span>
-</span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679403765"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningParameter.html#ProvisioningParameter"><span class="hs-identifier hs-type">ProvisioningParameter</span></a></span></span><span>
-</span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679403757"><span id="local-6989586621679403759"><span id="local-6989586621679403761"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningParameter.html#ProvisioningParameter"><span class="hs-identifier hs-type">ProvisioningParameter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679403755"><span class="annot"><span class="annottext">toJSON :: ProvisioningParameter -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningParameter.html#ProvisioningParameter%27"><span class="hs-identifier hs-type">ProvisioningParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403752"><span id="local-6989586621679403753"><span class="annot"><span class="annottext">Maybe Text
-value :: Maybe Text
+</span><a href="#local-6989586621679404227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningParameter.html#ProvisioningParameter"><span class="hs-identifier hs-type">ProvisioningParameter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | The parameter key.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningParameter.html#provisioningParameter_key"><span class="hs-identifier hs-type">provisioningParameter_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningParameter.html#ProvisioningParameter"><span class="hs-identifier hs-type">ProvisioningParameter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span id="provisioningParameter_key"><span class="annot"><span class="annottext">provisioningParameter_key :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ProvisioningParameter -&gt; f ProvisioningParameter
+</span><a href="Network.AWS.ServiceCatalog.Types.ProvisioningParameter.html#provisioningParameter_key"><span class="hs-identifier hs-var hs-var">provisioningParameter_key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProvisioningParameter -&gt; Maybe Text)
+-&gt; (ProvisioningParameter -&gt; Maybe Text -&gt; ProvisioningParameter)
+-&gt; Lens
+     ProvisioningParameter
+     ProvisioningParameter
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningParameter.html#ProvisioningParameter%27"><span class="hs-identifier hs-type">ProvisioningParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404225"><span class="annot"><span class="annottext">Maybe Text
 key :: Maybe Text
-$sel:value:ProvisioningParameter' :: ProvisioningParameter -&gt; Maybe Text
 $sel:key:ProvisioningParameter' :: ProvisioningParameter -&gt; Maybe Text
-</span><a href="#local-6989586621679403752"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679404225"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404225"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404224"><span class="annot"><span class="annottext">s :: ProvisioningParameter
+</span><a href="#local-6989586621679404224"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningParameter.html#ProvisioningParameter%27"><span class="hs-identifier hs-type">ProvisioningParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404223"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404223"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisioningParameter
+</span><a href="#local-6989586621679404224"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:ProvisioningParameter' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.ProvisioningParameter.html#%24sel%3Akey%3AProvisioningParameter%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404223"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningParameter.html#ProvisioningParameter"><span class="hs-identifier hs-type">ProvisioningParameter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679404219"><span id="local-6989586621679404221"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningParameter.html#ProvisioningParameter"><span class="hs-identifier hs-type">ProvisioningParameter</span></a></span></span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679404216"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningParameter.html#ProvisioningParameter"><span class="hs-identifier hs-type">ProvisioningParameter</span></a></span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679404208"><span id="local-6989586621679404210"><span id="local-6989586621679404212"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningParameter.html#ProvisioningParameter"><span class="hs-identifier hs-type">ProvisioningParameter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679404206"><span class="annot"><span class="annottext">toJSON :: ProvisioningParameter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningParameter.html#ProvisioningParameter%27"><span class="hs-identifier hs-type">ProvisioningParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404203"><span id="local-6989586621679404204"><span class="annot"><span class="annottext">Maybe Text
+key :: Maybe Text
+value :: Maybe Text
+$sel:key:ProvisioningParameter' :: ProvisioningParameter -&gt; Maybe Text
+$sel:value:ProvisioningParameter' :: ProvisioningParameter -&gt; Maybe Text
+</span><a href="#local-6989586621679404203"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-72"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679403753"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Value&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679403752"><span class="hs-identifier hs-var">value</span></a></span><span>
+</span><a href="#local-6989586621679404204"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404203"><span class="hs-identifier hs-var">key</span></a></span><span>
 </span><span id="line-74"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-75"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span></pre></body></html>

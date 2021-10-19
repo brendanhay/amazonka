@@ -47,12 +47,12 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newDeleteBroker' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679229026"><span id="local-6989586621679229027"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBroker"><span class="annot"><a href="Network.AWS.MQ.DeleteBroker.html#DeleteBroker"><span class="hs-identifier hs-var">DeleteBroker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBroker%27"><span class="annot"><a href="Network.AWS.MQ.DeleteBroker.html#DeleteBroker%27"><span class="hs-identifier hs-var">DeleteBroker'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679229204"><span id="local-6989586621679229205"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBroker"><span class="annot"><a href="Network.AWS.MQ.DeleteBroker.html#DeleteBroker"><span class="hs-identifier hs-var">DeleteBroker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBroker%27"><span class="annot"><a href="Network.AWS.MQ.DeleteBroker.html#DeleteBroker%27"><span class="hs-identifier hs-var">DeleteBroker'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique ID that Amazon MQ generates for the broker.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AbrokerId%3ADeleteBroker%27"><span class="annot"><span class="annottext">DeleteBroker -&gt; Text
 </span><a href="Network.AWS.MQ.DeleteBroker.html#%24sel%3AbrokerId%3ADeleteBroker%27"><span class="hs-identifier hs-var hs-var">brokerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679229020"><span id="local-6989586621679229022"><span class="annot"><span class="annottext">DeleteBroker -&gt; DeleteBroker -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679229198"><span id="local-6989586621679229200"><span class="annot"><span class="annottext">DeleteBroker -&gt; DeleteBroker -&gt; Bool
 (DeleteBroker -&gt; DeleteBroker -&gt; Bool)
 -&gt; (DeleteBroker -&gt; DeleteBroker -&gt; Bool) -&gt; Eq DeleteBroker
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteBroker -&gt; DeleteBroker -&gt; Bool
 == :: DeleteBroker -&gt; DeleteBroker -&gt; Bool
 $c== :: DeleteBroker -&gt; DeleteBroker -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229011"><span id="local-6989586621679229013"><span id="local-6989586621679229015"><span id="local-6989586621679229017"><span class="annot"><span class="annottext">ReadPrec [DeleteBroker]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229189"><span id="local-6989586621679229191"><span id="local-6989586621679229193"><span id="local-6989586621679229195"><span class="annot"><span class="annottext">ReadPrec [DeleteBroker]
 ReadPrec DeleteBroker
 Int -&gt; ReadS DeleteBroker
 ReadS [DeleteBroker]
@@ -80,7 +80,7 @@ readList :: ReadS [DeleteBroker]
 $creadList :: ReadS [DeleteBroker]
 readsPrec :: Int -&gt; ReadS DeleteBroker
 $creadsPrec :: Int -&gt; ReadS DeleteBroker
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229004"><span id="local-6989586621679229006"><span id="local-6989586621679229008"><span class="annot"><span class="annottext">Int -&gt; DeleteBroker -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229182"><span id="local-6989586621679229184"><span id="local-6989586621679229186"><span class="annot"><span class="annottext">Int -&gt; DeleteBroker -&gt; ShowS
 [DeleteBroker] -&gt; ShowS
 DeleteBroker -&gt; String
 (Int -&gt; DeleteBroker -&gt; ShowS)
@@ -120,12 +120,12 @@ $cfrom :: forall x. DeleteBroker -&gt; Rep DeleteBroker x
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.MQ.DeleteBroker.html#DeleteBroker"><span class="hs-identifier hs-type">DeleteBroker</span></a></span><span>
 </span><span id="line-69"></span><span id="newDeleteBroker"><span class="annot"><span class="annottext">newDeleteBroker :: Text -&gt; DeleteBroker
-</span><a href="Network.AWS.MQ.DeleteBroker.html#newDeleteBroker"><span class="hs-identifier hs-var hs-var">newDeleteBroker</span></a></span></span><span> </span><span id="local-6989586621679228999"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679228999"><span class="hs-identifier hs-var">pBrokerId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MQ.DeleteBroker.html#newDeleteBroker"><span class="hs-identifier hs-var hs-var">newDeleteBroker</span></a></span></span><span> </span><span id="local-6989586621679229177"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229177"><span class="hs-identifier hs-var">pBrokerId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">DeleteBroker' :: Text -&gt; DeleteBroker
 </span><a href="Network.AWS.MQ.DeleteBroker.html#DeleteBroker%27"><span class="hs-identifier hs-type">DeleteBroker'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:brokerId:DeleteBroker' :: Text
 </span><a href="Network.AWS.MQ.DeleteBroker.html#%24sel%3AbrokerId%3ADeleteBroker%27"><span class="hs-identifier hs-var">brokerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679228999"><span class="hs-identifier hs-var">pBrokerId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679229177"><span class="hs-identifier hs-var">pBrokerId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | The unique ID that Amazon MQ generates for the broker.</span><span>
 </span><span id="line-73"></span><span class="annot"><a href="Network.AWS.MQ.DeleteBroker.html#deleteBroker_brokerId"><span class="hs-identifier hs-type">deleteBroker_brokerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.DeleteBroker.html#DeleteBroker"><span class="hs-identifier hs-type">DeleteBroker</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -134,25 +134,25 @@ $cfrom :: forall x. DeleteBroker -&gt; Rep DeleteBroker x
 -&gt; (DeleteBroker -&gt; Text -&gt; DeleteBroker)
 -&gt; Lens DeleteBroker DeleteBroker Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.DeleteBroker.html#DeleteBroker%27"><span class="hs-identifier hs-type">DeleteBroker'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228996"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.DeleteBroker.html#DeleteBroker%27"><span class="hs-identifier hs-type">DeleteBroker'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229174"><span class="annot"><span class="annottext">Text
 brokerId :: Text
 $sel:brokerId:DeleteBroker' :: DeleteBroker -&gt; Text
-</span><a href="#local-6989586621679228996"><span class="hs-identifier hs-var hs-var">brokerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679228996"><span class="hs-identifier hs-var">brokerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228995"><span class="annot"><span class="annottext">s :: DeleteBroker
-</span><a href="#local-6989586621679228995"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.DeleteBroker.html#DeleteBroker%27"><span class="hs-identifier hs-type">DeleteBroker'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228994"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679228994"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBroker
-</span><a href="#local-6989586621679228995"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:brokerId:DeleteBroker' :: Text
+</span><a href="#local-6989586621679229174"><span class="hs-identifier hs-var hs-var">brokerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229174"><span class="hs-identifier hs-var">brokerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229173"><span class="annot"><span class="annottext">s :: DeleteBroker
+</span><a href="#local-6989586621679229173"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.DeleteBroker.html#DeleteBroker%27"><span class="hs-identifier hs-type">DeleteBroker'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229172"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229172"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBroker
+</span><a href="#local-6989586621679229173"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:brokerId:DeleteBroker' :: Text
 </span><a href="Network.AWS.MQ.DeleteBroker.html#%24sel%3AbrokerId%3ADeleteBroker%27"><span class="hs-identifier hs-var">brokerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679228994"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.DeleteBroker.html#DeleteBroker"><span class="hs-identifier hs-type">DeleteBroker</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679229172"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.DeleteBroker.html#DeleteBroker"><span class="hs-identifier hs-type">DeleteBroker</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.DeleteBroker.html#DeleteBroker"><span class="hs-identifier hs-type">DeleteBroker</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-77"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.DeleteBroker.html#DeleteBroker"><span class="hs-identifier hs-type">DeleteBroker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MQ.DeleteBroker.html#DeleteBrokerResponse"><span class="hs-identifier hs-type">DeleteBrokerResponse</span></a></span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679228990"><span class="annot"><span class="annottext">request :: DeleteBroker -&gt; Request DeleteBroker
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679229168"><span class="annot"><span class="annottext">request :: DeleteBroker -&gt; Request DeleteBroker
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteBroker -&gt; Request DeleteBroker
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MQ.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679228986"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679229164"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteBroker
 -&gt; ClientResponse ClientBody
@@ -176,10 +176,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679228983"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679228983"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679228982"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679228982"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679228981"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679228981"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679229161"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229161"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679229160"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679229160"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679229159"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229159"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-82"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; DeleteBrokerResponse
 </span><a href="Network.AWS.MQ.DeleteBroker.html#DeleteBrokerResponse%27"><span class="hs-identifier hs-var">DeleteBrokerResponse'</span></a></span><span>
 </span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; DeleteBrokerResponse)
@@ -187,7 +187,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DeleteBrokerResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679228981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679229159"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;brokerId&quot;</span></span><span class="hs-special">)</span><span>
@@ -199,15 +199,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679228983"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679229161"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679228973"><span id="local-6989586621679228975"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.DeleteBroker.html#DeleteBroker"><span class="hs-identifier hs-type">DeleteBroker</span></a></span></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229151"><span id="local-6989586621679229153"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.DeleteBroker.html#DeleteBroker"><span class="hs-identifier hs-type">DeleteBroker</span></a></span></span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679228970"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.DeleteBroker.html#DeleteBroker"><span class="hs-identifier hs-type">DeleteBroker</span></a></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229148"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.DeleteBroker.html#DeleteBroker"><span class="hs-identifier hs-type">DeleteBroker</span></a></span></span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.DeleteBroker.html#DeleteBroker"><span class="hs-identifier hs-type">DeleteBroker</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679228966"><span class="annot"><span class="annottext">toHeaders :: DeleteBroker -&gt; ResponseHeaders
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679229144"><span class="annot"><span class="annottext">toHeaders :: DeleteBroker -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteBroker -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -227,11 +227,11 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.DeleteBroker.html#DeleteBroker"><span class="hs-identifier hs-type">DeleteBroker</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679228960"><span class="annot"><span class="annottext">toPath :: DeleteBroker -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.DeleteBroker.html#DeleteBroker%27"><span class="hs-identifier hs-type">DeleteBroker'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228958"><span class="annot"><span class="annottext">Text
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679229138"><span class="annot"><span class="annottext">toPath :: DeleteBroker -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.DeleteBroker.html#DeleteBroker%27"><span class="hs-identifier hs-type">DeleteBroker'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229136"><span class="annot"><span class="annottext">Text
 brokerId :: Text
 $sel:brokerId:DeleteBroker' :: DeleteBroker -&gt; Text
-</span><a href="#local-6989586621679228958"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679229136"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -239,10 +239,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/v1/brokers/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679228958"><span class="hs-identifier hs-var">brokerId</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679229136"><span class="hs-identifier hs-var">brokerId</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.DeleteBroker.html#DeleteBroker"><span class="hs-identifier hs-type">DeleteBroker</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679228954"><span class="annot"><span class="annottext">toQuery :: DeleteBroker -&gt; QueryString
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679229132"><span class="annot"><span class="annottext">toQuery :: DeleteBroker -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteBroker -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -250,7 +250,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- | /See:/ 'newDeleteBrokerResponse' smart constructor.</span><span>
-</span><span id="line-111"></span><span id="local-6989586621679228951"><span id="local-6989586621679228952"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBrokerResponse"><span class="annot"><a href="Network.AWS.MQ.DeleteBroker.html#DeleteBrokerResponse"><span class="hs-identifier hs-var">DeleteBrokerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBrokerResponse%27"><span class="annot"><a href="Network.AWS.MQ.DeleteBroker.html#DeleteBrokerResponse%27"><span class="hs-identifier hs-var">DeleteBrokerResponse'</span></a></span></span><span>
+</span><span id="line-111"></span><span id="local-6989586621679229129"><span id="local-6989586621679229130"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBrokerResponse"><span class="annot"><a href="Network.AWS.MQ.DeleteBroker.html#DeleteBrokerResponse"><span class="hs-identifier hs-var">DeleteBrokerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBrokerResponse%27"><span class="annot"><a href="Network.AWS.MQ.DeleteBroker.html#DeleteBrokerResponse%27"><span class="hs-identifier hs-var">DeleteBrokerResponse'</span></a></span></span><span>
 </span><span id="line-112"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique ID that Amazon MQ generates for the broker.</span><span>
 </span><span id="line-113"></span><span>    </span><span id="%24sel%3AbrokerId%3ADeleteBrokerResponse%27"><span class="annot"><span class="annottext">DeleteBrokerResponse -&gt; Maybe Text
 </span><a href="Network.AWS.MQ.DeleteBroker.html#%24sel%3AbrokerId%3ADeleteBrokerResponse%27"><span class="hs-identifier hs-var hs-var">brokerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -258,7 +258,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-115"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteBrokerResponse%27"><span class="annot"><span class="annottext">DeleteBrokerResponse -&gt; Int
 </span><a href="Network.AWS.MQ.DeleteBroker.html#%24sel%3AhttpStatus%3ADeleteBrokerResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-116"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-117"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679228945"><span id="local-6989586621679228947"><span class="annot"><span class="annottext">DeleteBrokerResponse -&gt; DeleteBrokerResponse -&gt; Bool
+</span><span id="line-117"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679229123"><span id="local-6989586621679229125"><span class="annot"><span class="annottext">DeleteBrokerResponse -&gt; DeleteBrokerResponse -&gt; Bool
 (DeleteBrokerResponse -&gt; DeleteBrokerResponse -&gt; Bool)
 -&gt; (DeleteBrokerResponse -&gt; DeleteBrokerResponse -&gt; Bool)
 -&gt; Eq DeleteBrokerResponse
@@ -267,7 +267,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteBrokerResponse -&gt; DeleteBrokerResponse -&gt; Bool
 == :: DeleteBrokerResponse -&gt; DeleteBrokerResponse -&gt; Bool
 $c== :: DeleteBrokerResponse -&gt; DeleteBrokerResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228937"><span id="local-6989586621679228939"><span id="local-6989586621679228941"><span id="local-6989586621679228943"><span class="annot"><span class="annottext">ReadPrec [DeleteBrokerResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229115"><span id="local-6989586621679229117"><span id="local-6989586621679229119"><span id="local-6989586621679229121"><span class="annot"><span class="annottext">ReadPrec [DeleteBrokerResponse]
 ReadPrec DeleteBrokerResponse
 Int -&gt; ReadS DeleteBrokerResponse
 ReadS [DeleteBrokerResponse]
@@ -287,7 +287,7 @@ readList :: ReadS [DeleteBrokerResponse]
 $creadList :: ReadS [DeleteBrokerResponse]
 readsPrec :: Int -&gt; ReadS DeleteBrokerResponse
 $creadsPrec :: Int -&gt; ReadS DeleteBrokerResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228931"><span id="local-6989586621679228933"><span id="local-6989586621679228935"><span class="annot"><span class="annottext">Int -&gt; DeleteBrokerResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229109"><span id="local-6989586621679229111"><span id="local-6989586621679229113"><span class="annot"><span class="annottext">Int -&gt; DeleteBrokerResponse -&gt; ShowS
 [DeleteBrokerResponse] -&gt; ShowS
 DeleteBrokerResponse -&gt; String
 (Int -&gt; DeleteBrokerResponse -&gt; ShowS)
@@ -329,8 +329,8 @@ $cfrom :: forall x. DeleteBrokerResponse -&gt; Rep DeleteBrokerResponse x
 </span><span id="line-132"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-133"></span><span>  </span><span class="annot"><a href="Network.AWS.MQ.DeleteBroker.html#DeleteBrokerResponse"><span class="hs-identifier hs-type">DeleteBrokerResponse</span></a></span><span>
 </span><span id="line-134"></span><span id="newDeleteBrokerResponse"><span class="annot"><span class="annottext">newDeleteBrokerResponse :: Int -&gt; DeleteBrokerResponse
-</span><a href="Network.AWS.MQ.DeleteBroker.html#newDeleteBrokerResponse"><span class="hs-identifier hs-var hs-var">newDeleteBrokerResponse</span></a></span></span><span> </span><span id="local-6989586621679228928"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679228928"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MQ.DeleteBroker.html#newDeleteBrokerResponse"><span class="hs-identifier hs-var hs-var">newDeleteBrokerResponse</span></a></span></span><span> </span><span id="local-6989586621679229106"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229106"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>  </span><span class="annot"><span class="annottext">DeleteBrokerResponse' :: Maybe Text -&gt; Int -&gt; DeleteBrokerResponse
 </span><a href="Network.AWS.MQ.DeleteBroker.html#DeleteBrokerResponse%27"><span class="hs-identifier hs-type">DeleteBrokerResponse'</span></a></span><span>
 </span><span id="line-136"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:brokerId:DeleteBrokerResponse' :: Maybe Text
@@ -339,7 +339,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteBrokerResponse' :: Int
 </span><a href="Network.AWS.MQ.DeleteBroker.html#%24sel%3AhttpStatus%3ADeleteBrokerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679228928"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679229106"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-138"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- | The unique ID that Amazon MQ generates for the broker.</span><span>
@@ -351,16 +351,16 @@ forall a. Maybe a
 -&gt; Lens
      DeleteBrokerResponse DeleteBrokerResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.DeleteBroker.html#DeleteBrokerResponse%27"><span class="hs-identifier hs-type">DeleteBrokerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228927"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.DeleteBroker.html#DeleteBrokerResponse%27"><span class="hs-identifier hs-type">DeleteBrokerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229105"><span class="annot"><span class="annottext">Maybe Text
 brokerId :: Maybe Text
 $sel:brokerId:DeleteBrokerResponse' :: DeleteBrokerResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679228927"><span class="hs-identifier hs-var hs-var">brokerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679228927"><span class="hs-identifier hs-var">brokerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228926"><span class="annot"><span class="annottext">s :: DeleteBrokerResponse
-</span><a href="#local-6989586621679228926"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.DeleteBroker.html#DeleteBrokerResponse%27"><span class="hs-identifier hs-type">DeleteBrokerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228925"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679228925"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBrokerResponse
-</span><a href="#local-6989586621679228926"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:brokerId:DeleteBrokerResponse' :: Maybe Text
+</span><a href="#local-6989586621679229105"><span class="hs-identifier hs-var hs-var">brokerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229105"><span class="hs-identifier hs-var">brokerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229104"><span class="annot"><span class="annottext">s :: DeleteBrokerResponse
+</span><a href="#local-6989586621679229104"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.DeleteBroker.html#DeleteBrokerResponse%27"><span class="hs-identifier hs-type">DeleteBrokerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229103"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229103"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBrokerResponse
+</span><a href="#local-6989586621679229104"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:brokerId:DeleteBrokerResponse' :: Maybe Text
 </span><a href="Network.AWS.MQ.DeleteBroker.html#%24sel%3AbrokerId%3ADeleteBrokerResponse%27"><span class="hs-identifier hs-var">brokerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679228925"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.DeleteBroker.html#DeleteBrokerResponse"><span class="hs-identifier hs-type">DeleteBrokerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679229103"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.DeleteBroker.html#DeleteBrokerResponse"><span class="hs-identifier hs-type">DeleteBrokerResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-145"></span><span class="annot"><a href="Network.AWS.MQ.DeleteBroker.html#deleteBrokerResponse_httpStatus"><span class="hs-identifier hs-type">deleteBrokerResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.DeleteBroker.html#DeleteBrokerResponse"><span class="hs-identifier hs-type">DeleteBrokerResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -369,16 +369,16 @@ $sel:brokerId:DeleteBrokerResponse' :: DeleteBrokerResponse -&gt; Maybe Text
 -&gt; (DeleteBrokerResponse -&gt; Int -&gt; DeleteBrokerResponse)
 -&gt; Lens DeleteBrokerResponse DeleteBrokerResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.DeleteBroker.html#DeleteBrokerResponse%27"><span class="hs-identifier hs-type">DeleteBrokerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228924"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.DeleteBroker.html#DeleteBrokerResponse%27"><span class="hs-identifier hs-type">DeleteBrokerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229102"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteBrokerResponse' :: DeleteBrokerResponse -&gt; Int
-</span><a href="#local-6989586621679228924"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679228924"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228923"><span class="annot"><span class="annottext">s :: DeleteBrokerResponse
-</span><a href="#local-6989586621679228923"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.DeleteBroker.html#DeleteBrokerResponse%27"><span class="hs-identifier hs-type">DeleteBrokerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228922"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679228922"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBrokerResponse
-</span><a href="#local-6989586621679228923"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteBrokerResponse' :: Int
+</span><a href="#local-6989586621679229102"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229102"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229101"><span class="annot"><span class="annottext">s :: DeleteBrokerResponse
+</span><a href="#local-6989586621679229101"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.DeleteBroker.html#DeleteBrokerResponse%27"><span class="hs-identifier hs-type">DeleteBrokerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229100"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229100"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBrokerResponse
+</span><a href="#local-6989586621679229101"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteBrokerResponse' :: Int
 </span><a href="Network.AWS.MQ.DeleteBroker.html#%24sel%3AhttpStatus%3ADeleteBrokerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679228922"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.DeleteBroker.html#DeleteBrokerResponse"><span class="hs-identifier hs-type">DeleteBrokerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679229100"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.DeleteBroker.html#DeleteBrokerResponse"><span class="hs-identifier hs-type">DeleteBrokerResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679228920"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.DeleteBroker.html#DeleteBrokerResponse"><span class="hs-identifier hs-type">DeleteBrokerResponse</span></a></span></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229098"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.DeleteBroker.html#DeleteBrokerResponse"><span class="hs-identifier hs-type">DeleteBrokerResponse</span></a></span></span><span>
 </span><span id="line-149"></span></pre></body></html>

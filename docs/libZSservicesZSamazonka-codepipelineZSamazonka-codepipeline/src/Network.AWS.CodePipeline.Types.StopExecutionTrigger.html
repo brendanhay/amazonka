@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The interaction that stopped a pipeline execution.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newStopExecutionTrigger' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679282547"><span id="local-6989586621679282548"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopExecutionTrigger"><span class="annot"><a href="Network.AWS.CodePipeline.Types.StopExecutionTrigger.html#StopExecutionTrigger"><span class="hs-identifier hs-var">StopExecutionTrigger</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopExecutionTrigger%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.StopExecutionTrigger.html#StopExecutionTrigger%27"><span class="hs-identifier hs-var">StopExecutionTrigger'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679282757"><span id="local-6989586621679282758"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopExecutionTrigger"><span class="annot"><a href="Network.AWS.CodePipeline.Types.StopExecutionTrigger.html#StopExecutionTrigger"><span class="hs-identifier hs-var">StopExecutionTrigger</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopExecutionTrigger%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.StopExecutionTrigger.html#StopExecutionTrigger%27"><span class="hs-identifier hs-var">StopExecutionTrigger'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The user-specified reason the pipeline was stopped.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Areason%3AStopExecutionTrigger%27"><span class="annot"><span class="annottext">StopExecutionTrigger -&gt; Maybe Text
 </span><a href="Network.AWS.CodePipeline.Types.StopExecutionTrigger.html#%24sel%3Areason%3AStopExecutionTrigger%27"><span class="hs-identifier hs-var hs-var">reason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679282541"><span id="local-6989586621679282543"><span class="annot"><span class="annottext">StopExecutionTrigger -&gt; StopExecutionTrigger -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679282751"><span id="local-6989586621679282753"><span class="annot"><span class="annottext">StopExecutionTrigger -&gt; StopExecutionTrigger -&gt; Bool
 (StopExecutionTrigger -&gt; StopExecutionTrigger -&gt; Bool)
 -&gt; (StopExecutionTrigger -&gt; StopExecutionTrigger -&gt; Bool)
 -&gt; Eq StopExecutionTrigger
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StopExecutionTrigger -&gt; StopExecutionTrigger -&gt; Bool
 == :: StopExecutionTrigger -&gt; StopExecutionTrigger -&gt; Bool
 $c== :: StopExecutionTrigger -&gt; StopExecutionTrigger -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679282532"><span id="local-6989586621679282534"><span id="local-6989586621679282536"><span id="local-6989586621679282538"><span class="annot"><span class="annottext">ReadPrec [StopExecutionTrigger]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679282742"><span id="local-6989586621679282744"><span id="local-6989586621679282746"><span id="local-6989586621679282748"><span class="annot"><span class="annottext">ReadPrec [StopExecutionTrigger]
 ReadPrec StopExecutionTrigger
 Int -&gt; ReadS StopExecutionTrigger
 ReadS [StopExecutionTrigger]
@@ -60,7 +60,7 @@ readList :: ReadS [StopExecutionTrigger]
 $creadList :: ReadS [StopExecutionTrigger]
 readsPrec :: Int -&gt; ReadS StopExecutionTrigger
 $creadsPrec :: Int -&gt; ReadS StopExecutionTrigger
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679282525"><span id="local-6989586621679282527"><span id="local-6989586621679282529"><span class="annot"><span class="annottext">Int -&gt; StopExecutionTrigger -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679282735"><span id="local-6989586621679282737"><span id="local-6989586621679282739"><span class="annot"><span class="annottext">Int -&gt; StopExecutionTrigger -&gt; ShowS
 [StopExecutionTrigger] -&gt; ShowS
 StopExecutionTrigger -&gt; String
 (Int -&gt; StopExecutionTrigger -&gt; ShowS)
@@ -114,19 +114,19 @@ forall a. Maybe a
 -&gt; Lens
      StopExecutionTrigger StopExecutionTrigger (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StopExecutionTrigger.html#StopExecutionTrigger%27"><span class="hs-identifier hs-type">StopExecutionTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282516"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StopExecutionTrigger.html#StopExecutionTrigger%27"><span class="hs-identifier hs-type">StopExecutionTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282726"><span class="annot"><span class="annottext">Maybe Text
 reason :: Maybe Text
 $sel:reason:StopExecutionTrigger' :: StopExecutionTrigger -&gt; Maybe Text
-</span><a href="#local-6989586621679282516"><span class="hs-identifier hs-var hs-var">reason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679282516"><span class="hs-identifier hs-var">reason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282515"><span class="annot"><span class="annottext">s :: StopExecutionTrigger
-</span><a href="#local-6989586621679282515"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StopExecutionTrigger.html#StopExecutionTrigger%27"><span class="hs-identifier hs-type">StopExecutionTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282514"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679282514"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopExecutionTrigger
-</span><a href="#local-6989586621679282515"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reason:StopExecutionTrigger' :: Maybe Text
+</span><a href="#local-6989586621679282726"><span class="hs-identifier hs-var hs-var">reason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679282726"><span class="hs-identifier hs-var">reason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282725"><span class="annot"><span class="annottext">s :: StopExecutionTrigger
+</span><a href="#local-6989586621679282725"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StopExecutionTrigger.html#StopExecutionTrigger%27"><span class="hs-identifier hs-type">StopExecutionTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282724"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679282724"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopExecutionTrigger
+</span><a href="#local-6989586621679282725"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reason:StopExecutionTrigger' :: Maybe Text
 </span><a href="Network.AWS.CodePipeline.Types.StopExecutionTrigger.html#%24sel%3Areason%3AStopExecutionTrigger%27"><span class="hs-identifier hs-var">reason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679282514"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StopExecutionTrigger.html#StopExecutionTrigger"><span class="hs-identifier hs-type">StopExecutionTrigger</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679282724"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StopExecutionTrigger.html#StopExecutionTrigger"><span class="hs-identifier hs-type">StopExecutionTrigger</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>
-</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679282511"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StopExecutionTrigger.html#StopExecutionTrigger"><span class="hs-identifier hs-type">StopExecutionTrigger</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-54"></span><span>  </span><span id="local-6989586621679282509"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StopExecutionTrigger
+</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679282721"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StopExecutionTrigger.html#StopExecutionTrigger"><span class="hs-identifier hs-type">StopExecutionTrigger</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621679282719"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StopExecutionTrigger
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser StopExecutionTrigger)
@@ -136,21 +136,21 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;StopExecutionTrigger&quot;</span></span><span>
-</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679282506"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679282506"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679282716"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679282716"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-58"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; StopExecutionTrigger
 </span><a href="Network.AWS.CodePipeline.Types.StopExecutionTrigger.html#StopExecutionTrigger%27"><span class="hs-identifier hs-var">StopExecutionTrigger'</span></a></span><span>
 </span><span id="line-59"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; StopExecutionTrigger)
 -&gt; Parser (Maybe Text) -&gt; Parser StopExecutionTrigger
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679282506"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679282716"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;reason&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679282500"><span id="local-6989586621679282502"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StopExecutionTrigger.html#StopExecutionTrigger"><span class="hs-identifier hs-type">StopExecutionTrigger</span></a></span></span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679282710"><span id="local-6989586621679282712"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StopExecutionTrigger.html#StopExecutionTrigger"><span class="hs-identifier hs-type">StopExecutionTrigger</span></a></span></span></span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679282497"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StopExecutionTrigger.html#StopExecutionTrigger"><span class="hs-identifier hs-type">StopExecutionTrigger</span></a></span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679282707"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StopExecutionTrigger.html#StopExecutionTrigger"><span class="hs-identifier hs-type">StopExecutionTrigger</span></a></span></span><span>
 </span><span id="line-65"></span></pre></body></html>

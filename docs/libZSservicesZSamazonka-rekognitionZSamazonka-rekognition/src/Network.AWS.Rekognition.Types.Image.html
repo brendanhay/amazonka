@@ -53,22 +53,22 @@
 </span><span id="line-53"></span><span class="hs-comment">-- Based Policies in the Amazon Rekognition Developer Guide.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- /See:/ 'newImage' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679329491"><span id="local-6989586621679329492"></span></span><span class="hs-keyword">data</span><span> </span><span id="Image"><span class="annot"><a href="Network.AWS.Rekognition.Types.Image.html#Image"><span class="hs-identifier hs-var">Image</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Image%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.Image.html#Image%27"><span class="hs-identifier hs-var">Image'</span></a></span></span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Blob of image bytes up to 5 MBs.</span><span>
-</span><span id="line-58"></span><span>    </span><span id="%24sel%3Abytes%3AImage%27"><span class="annot"><span class="annottext">Image -&gt; Maybe Base64
-</span><a href="Network.AWS.Rekognition.Types.Image.html#%24sel%3Abytes%3AImage%27"><span class="hs-identifier hs-var hs-var">bytes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Base64</span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | Identifies an S3 object as the image source.</span><span>
-</span><span id="line-60"></span><span>    </span><span id="%24sel%3As3Object%3AImage%27"><span class="annot"><span class="annottext">Image -&gt; Maybe S3Object
-</span><a href="Network.AWS.Rekognition.Types.Image.html#%24sel%3As3Object%3AImage%27"><span class="hs-identifier hs-var hs-var">s3Object</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.S3Object.html#S3Object"><span class="hs-identifier hs-type">S3Object</span></a></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679329778"><span id="local-6989586621679329779"></span></span><span class="hs-keyword">data</span><span> </span><span id="Image"><span class="annot"><a href="Network.AWS.Rekognition.Types.Image.html#Image"><span class="hs-identifier hs-var">Image</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Image%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.Image.html#Image%27"><span class="hs-identifier hs-var">Image'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Identifies an S3 object as the image source.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3As3Object%3AImage%27"><span class="annot"><span class="annottext">Image -&gt; Maybe S3Object
+</span><a href="Network.AWS.Rekognition.Types.Image.html#%24sel%3As3Object%3AImage%27"><span class="hs-identifier hs-var hs-var">s3Object</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.S3Object.html#S3Object"><span class="hs-identifier hs-type">S3Object</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | Blob of image bytes up to 5 MBs.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3Abytes%3AImage%27"><span class="annot"><span class="annottext">Image -&gt; Maybe Base64
+</span><a href="Network.AWS.Rekognition.Types.Image.html#%24sel%3Abytes%3AImage%27"><span class="hs-identifier hs-var hs-var">bytes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Base64</span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679329484"><span id="local-6989586621679329486"><span class="annot"><span class="annottext">Image -&gt; Image -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679329771"><span id="local-6989586621679329773"><span class="annot"><span class="annottext">Image -&gt; Image -&gt; Bool
 (Image -&gt; Image -&gt; Bool) -&gt; (Image -&gt; Image -&gt; Bool) -&gt; Eq Image
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Image -&gt; Image -&gt; Bool
 $c/= :: Image -&gt; Image -&gt; Bool
 == :: Image -&gt; Image -&gt; Bool
 $c== :: Image -&gt; Image -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679329475"><span id="local-6989586621679329477"><span id="local-6989586621679329479"><span id="local-6989586621679329481"><span class="annot"><span class="annottext">ReadPrec [Image]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679329762"><span id="local-6989586621679329764"><span id="local-6989586621679329766"><span id="local-6989586621679329768"><span class="annot"><span class="annottext">ReadPrec [Image]
 ReadPrec Image
 Int -&gt; ReadS Image
 ReadS [Image]
@@ -88,7 +88,7 @@ readList :: ReadS [Image]
 $creadList :: ReadS [Image]
 readsPrec :: Int -&gt; ReadS Image
 $creadsPrec :: Int -&gt; ReadS Image
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679329468"><span id="local-6989586621679329470"><span id="local-6989586621679329472"><span class="annot"><span class="annottext">Int -&gt; Image -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679329755"><span id="local-6989586621679329757"><span id="local-6989586621679329759"><span class="annot"><span class="annottext">Int -&gt; Image -&gt; ShowS
 [Image] -&gt; ShowS
 Image -&gt; String
 (Int -&gt; Image -&gt; ShowS)
@@ -119,50 +119,68 @@ $cfrom :: forall x. Image -&gt; Rep Image x
 </span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-71"></span><span class="hs-comment">--</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- 'bytes', 'image_bytes' - Blob of image bytes up to 5 MBs.--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- -- The underlying isomorphism will encode to Base64 representation during</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- -- serialisation, and decode from Base64 representation during deserialisation.</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- -- This 'Lens' accepts and returns only raw unencoded data.</span><span>
-</span><span id="line-77"></span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- 's3Object', 'image_s3Object' - Identifies an S3 object as the image source.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 's3Object', 'image_s3Object' - Identifies an S3 object as the image source.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'bytes', 'image_bytes' - Blob of image bytes up to 5 MBs.--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- -- The underlying isomorphism will encode to Base64 representation during</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- -- serialisation, and decode from Base64 representation during deserialisation.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- -- This 'Lens' accepts and returns only raw unencoded data.</span><span>
 </span><span id="line-79"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.Image.html#newImage"><span class="hs-identifier hs-type">newImage</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span>
 </span><span id="line-81"></span><span id="newImage"><span class="annot"><span class="annottext">newImage :: Image
 </span><a href="Network.AWS.Rekognition.Types.Image.html#newImage"><span class="hs-identifier hs-var hs-var">newImage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">Image' :: Maybe Base64 -&gt; Maybe S3Object -&gt; Image
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">Image' :: Maybe S3Object -&gt; Maybe Base64 -&gt; Image
 </span><a href="Network.AWS.Rekognition.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span>
-</span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:bytes:Image' :: Maybe Base64
-</span><a href="Network.AWS.Rekognition.Types.Image.html#%24sel%3Abytes%3AImage%27"><span class="hs-identifier hs-var">bytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
+</span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:s3Object:Image' :: Maybe S3Object
+</span><a href="Network.AWS.Rekognition.Types.Image.html#%24sel%3As3Object%3AImage%27"><span class="hs-identifier hs-var">s3Object</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3Object
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3Object:Image' :: Maybe S3Object
-</span><a href="Network.AWS.Rekognition.Types.Image.html#%24sel%3As3Object%3AImage%27"><span class="hs-identifier hs-var">s3Object</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3Object
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:bytes:Image' :: Maybe Base64
+</span><a href="Network.AWS.Rekognition.Types.Image.html#%24sel%3Abytes%3AImage%27"><span class="hs-identifier hs-var">bytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- | Blob of image bytes up to 5 MBs.--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- -- The underlying isomorphism will encode to Base64 representation during</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- -- serialisation, and decode from Base64 representation during deserialisation.</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- -- This 'Lens' accepts and returns only raw unencoded data.</span><span>
-</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.Image.html#image_bytes"><span class="hs-identifier hs-type">image_bytes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span id="image_bytes"><span class="annot"><span class="annottext">image_bytes :: (Maybe ByteString -&gt; f (Maybe ByteString)) -&gt; Image -&gt; f Image
+</span><span id="line-87"></span><span class="hs-comment">-- | Identifies an S3 object as the image source.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.Image.html#image_s3Object"><span class="hs-identifier hs-type">image_s3Object</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.S3Object.html#S3Object"><span class="hs-identifier hs-type">S3Object</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="image_s3Object"><span class="annot"><span class="annottext">image_s3Object :: (Maybe S3Object -&gt; f (Maybe S3Object)) -&gt; Image -&gt; f Image
+</span><a href="Network.AWS.Rekognition.Types.Image.html#image_s3Object"><span class="hs-identifier hs-var hs-var">image_s3Object</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Image -&gt; Maybe S3Object)
+-&gt; (Image -&gt; Maybe S3Object -&gt; Image)
+-&gt; Lens Image Image (Maybe S3Object) (Maybe S3Object)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329746"><span class="annot"><span class="annottext">Maybe S3Object
+s3Object :: Maybe S3Object
+$sel:s3Object:Image' :: Image -&gt; Maybe S3Object
+</span><a href="#local-6989586621679329746"><span class="hs-identifier hs-var hs-var">s3Object</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3Object
+</span><a href="#local-6989586621679329746"><span class="hs-identifier hs-var">s3Object</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329745"><span class="annot"><span class="annottext">s :: Image
+</span><a href="#local-6989586621679329745"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329744"><span class="annot"><span class="annottext">Maybe S3Object
+</span><a href="#local-6989586621679329744"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Image
+</span><a href="#local-6989586621679329745"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Object:Image' :: Maybe S3Object
+</span><a href="Network.AWS.Rekognition.Types.Image.html#%24sel%3As3Object%3AImage%27"><span class="hs-identifier hs-var">s3Object</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3Object
+</span><a href="#local-6989586621679329744"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | Blob of image bytes up to 5 MBs.--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- -- The underlying isomorphism will encode to Base64 representation during</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- -- serialisation, and decode from Base64 representation during deserialisation.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- -- This 'Lens' accepts and returns only raw unencoded data.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.Image.html#image_bytes"><span class="hs-identifier hs-type">image_bytes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="image_bytes"><span class="annot"><span class="annottext">image_bytes :: (Maybe ByteString -&gt; f (Maybe ByteString)) -&gt; Image -&gt; f Image
 </span><a href="Network.AWS.Rekognition.Types.Image.html#image_bytes"><span class="hs-identifier hs-var hs-var">image_bytes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Image -&gt; Maybe Base64)
 -&gt; (Image -&gt; Maybe Base64 -&gt; Image)
 -&gt; Lens Image Image (Maybe Base64) (Maybe Base64)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329459"><span class="annot"><span class="annottext">Maybe Base64
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329742"><span class="annot"><span class="annottext">Maybe Base64
 bytes :: Maybe Base64
 $sel:bytes:Image' :: Image -&gt; Maybe Base64
-</span><a href="#local-6989586621679329459"><span class="hs-identifier hs-var hs-var">bytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679329459"><span class="hs-identifier hs-var">bytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329458"><span class="annot"><span class="annottext">s :: Image
-</span><a href="#local-6989586621679329458"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329457"><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679329457"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Image
-</span><a href="#local-6989586621679329458"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bytes:Image' :: Maybe Base64
+</span><a href="#local-6989586621679329742"><span class="hs-identifier hs-var hs-var">bytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
+</span><a href="#local-6989586621679329742"><span class="hs-identifier hs-var">bytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329741"><span class="annot"><span class="annottext">s :: Image
+</span><a href="#local-6989586621679329741"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329740"><span class="annot"><span class="annottext">Maybe Base64
+</span><a href="#local-6989586621679329740"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Image
+</span><a href="#local-6989586621679329741"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bytes:Image' :: Maybe Base64
 </span><a href="Network.AWS.Rekognition.Types.Image.html#%24sel%3Abytes%3AImage%27"><span class="hs-identifier hs-var">bytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679329457"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe Base64 -&gt; f (Maybe Base64)) -&gt; Image -&gt; f Image)
+</span><a href="#local-6989586621679329740"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe Base64 -&gt; f (Maybe Base64)) -&gt; Image -&gt; f Image)
 -&gt; ((Maybe ByteString -&gt; f (Maybe ByteString))
     -&gt; Maybe Base64 -&gt; f (Maybe Base64))
 -&gt; (Maybe ByteString -&gt; f (Maybe ByteString))
@@ -178,57 +196,39 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso Base64 Base64 ByteString ByteString
 Iso' Base64 ByteString
 </span><span class="hs-identifier hs-var">Core._Base64</span></span><span>
-</span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- | Identifies an S3 object as the image source.</span><span>
-</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.Image.html#image_s3Object"><span class="hs-identifier hs-type">image_s3Object</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.S3Object.html#S3Object"><span class="hs-identifier hs-type">S3Object</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-97"></span><span id="image_s3Object"><span class="annot"><span class="annottext">image_s3Object :: (Maybe S3Object -&gt; f (Maybe S3Object)) -&gt; Image -&gt; f Image
-</span><a href="Network.AWS.Rekognition.Types.Image.html#image_s3Object"><span class="hs-identifier hs-var hs-var">image_s3Object</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Image -&gt; Maybe S3Object)
--&gt; (Image -&gt; Maybe S3Object -&gt; Image)
--&gt; Lens Image Image (Maybe S3Object) (Maybe S3Object)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329452"><span class="annot"><span class="annottext">Maybe S3Object
-s3Object :: Maybe S3Object
-$sel:s3Object:Image' :: Image -&gt; Maybe S3Object
-</span><a href="#local-6989586621679329452"><span class="hs-identifier hs-var hs-var">s3Object</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3Object
-</span><a href="#local-6989586621679329452"><span class="hs-identifier hs-var">s3Object</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329451"><span class="annot"><span class="annottext">s :: Image
-</span><a href="#local-6989586621679329451"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329450"><span class="annot"><span class="annottext">Maybe S3Object
-</span><a href="#local-6989586621679329450"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Image
-</span><a href="#local-6989586621679329451"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Object:Image' :: Maybe S3Object
-</span><a href="Network.AWS.Rekognition.Types.Image.html#%24sel%3As3Object%3AImage%27"><span class="hs-identifier hs-var">s3Object</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3Object
-</span><a href="#local-6989586621679329450"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329446"><span id="local-6989586621679329448"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329733"><span id="local-6989586621679329735"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span></span></span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329443"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329730"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span></span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329435"><span id="local-6989586621679329437"><span id="local-6989586621679329439"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679329433"><span class="annot"><span class="annottext">toJSON :: Image -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329430"><span id="local-6989586621679329431"><span class="annot"><span class="annottext">Maybe Base64
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329722"><span id="local-6989586621679329724"><span id="local-6989586621679329726"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679329720"><span class="annot"><span class="annottext">toJSON :: Image -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Image.html#Image%27"><span class="hs-identifier hs-type">Image'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329717"><span id="local-6989586621679329718"><span class="annot"><span class="annottext">Maybe Base64
 Maybe S3Object
-s3Object :: Maybe S3Object
 bytes :: Maybe Base64
-$sel:s3Object:Image' :: Image -&gt; Maybe S3Object
+s3Object :: Maybe S3Object
 $sel:bytes:Image' :: Image -&gt; Maybe Base64
-</span><a href="#local-6989586621679329430"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:s3Object:Image' :: Image -&gt; Maybe S3Object
+</span><a href="#local-6989586621679329717"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-107"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Bytes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Base64 -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Base64 -&gt; Pair) -&gt; Maybe Base64 -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679329431"><span class="hs-identifier hs-var">bytes</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-108"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3Object&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; S3Object -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(S3Object -&gt; Pair) -&gt; Maybe S3Object -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe S3Object
-</span><a href="#local-6989586621679329430"><span class="hs-identifier hs-var">s3Object</span></a></span><span>
+</span><a href="#local-6989586621679329718"><span class="hs-identifier hs-var">s3Object</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Bytes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Base64 -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Base64 -&gt; Pair) -&gt; Maybe Base64 -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Base64
+</span><a href="#local-6989586621679329717"><span class="hs-identifier hs-var">bytes</span></a></span><span>
 </span><span id="line-109"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span></pre></body></html>

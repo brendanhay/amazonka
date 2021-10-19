@@ -56,7 +56,7 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newCreateCloudFormationStack' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679660323"><span id="local-6989586621679660324"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateCloudFormationStack"><span class="annot"><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#CreateCloudFormationStack"><span class="hs-identifier hs-var">CreateCloudFormationStack</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateCloudFormationStack%27"><span class="annot"><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#CreateCloudFormationStack%27"><span class="hs-identifier hs-var">CreateCloudFormationStack'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621679661376"><span id="local-6989586621679661377"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateCloudFormationStack"><span class="annot"><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#CreateCloudFormationStack"><span class="hs-identifier hs-var">CreateCloudFormationStack</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateCloudFormationStack%27"><span class="annot"><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#CreateCloudFormationStack%27"><span class="hs-identifier hs-var">CreateCloudFormationStack'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of parameters that will be used to create the new Amazon EC2</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- instance. You can only pass one instance entry at a time in this array.</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">-- You will get an invalid parameter error if you pass more than one</span><span>
@@ -64,7 +64,7 @@
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3Ainstances%3ACreateCloudFormationStack%27"><span class="annot"><span class="annottext">CreateCloudFormationStack -&gt; [InstanceEntry]
 </span><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#%24sel%3Ainstances%3ACreateCloudFormationStack%27"><span class="hs-identifier hs-var hs-var">instances</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#InstanceEntry"><span class="hs-identifier hs-type">InstanceEntry</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679660317"><span id="local-6989586621679660319"><span class="annot"><span class="annottext">CreateCloudFormationStack -&gt; CreateCloudFormationStack -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679661370"><span id="local-6989586621679661372"><span class="annot"><span class="annottext">CreateCloudFormationStack -&gt; CreateCloudFormationStack -&gt; Bool
 (CreateCloudFormationStack -&gt; CreateCloudFormationStack -&gt; Bool)
 -&gt; (CreateCloudFormationStack -&gt; CreateCloudFormationStack -&gt; Bool)
 -&gt; Eq CreateCloudFormationStack
@@ -73,7 +73,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateCloudFormationStack -&gt; CreateCloudFormationStack -&gt; Bool
 == :: CreateCloudFormationStack -&gt; CreateCloudFormationStack -&gt; Bool
 $c== :: CreateCloudFormationStack -&gt; CreateCloudFormationStack -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679660308"><span id="local-6989586621679660310"><span id="local-6989586621679660312"><span id="local-6989586621679660314"><span class="annot"><span class="annottext">ReadPrec [CreateCloudFormationStack]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679661361"><span id="local-6989586621679661363"><span id="local-6989586621679661365"><span id="local-6989586621679661367"><span class="annot"><span class="annottext">ReadPrec [CreateCloudFormationStack]
 ReadPrec CreateCloudFormationStack
 Int -&gt; ReadS CreateCloudFormationStack
 ReadS [CreateCloudFormationStack]
@@ -93,7 +93,7 @@ readList :: ReadS [CreateCloudFormationStack]
 $creadList :: ReadS [CreateCloudFormationStack]
 readsPrec :: Int -&gt; ReadS CreateCloudFormationStack
 $creadsPrec :: Int -&gt; ReadS CreateCloudFormationStack
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679660301"><span id="local-6989586621679660303"><span id="local-6989586621679660305"><span class="annot"><span class="annottext">Int -&gt; CreateCloudFormationStack -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679661354"><span id="local-6989586621679661356"><span id="local-6989586621679661358"><span class="annot"><span class="annottext">Int -&gt; CreateCloudFormationStack -&gt; ShowS
 [CreateCloudFormationStack] -&gt; ShowS
 CreateCloudFormationStack -&gt; String
 (Int -&gt; CreateCloudFormationStack -&gt; ShowS)
@@ -166,16 +166,16 @@ forall a. Monoid a =&gt; a
      [InstanceEntry]
      [InstanceEntry]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#CreateCloudFormationStack%27"><span class="hs-identifier hs-type">CreateCloudFormationStack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679660294"><span class="annot"><span class="annottext">[InstanceEntry]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#CreateCloudFormationStack%27"><span class="hs-identifier hs-type">CreateCloudFormationStack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679661347"><span class="annot"><span class="annottext">[InstanceEntry]
 instances :: [InstanceEntry]
 $sel:instances:CreateCloudFormationStack' :: CreateCloudFormationStack -&gt; [InstanceEntry]
-</span><a href="#local-6989586621679660294"><span class="hs-identifier hs-var hs-var">instances</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[InstanceEntry]
-</span><a href="#local-6989586621679660294"><span class="hs-identifier hs-var">instances</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679660293"><span class="annot"><span class="annottext">s :: CreateCloudFormationStack
-</span><a href="#local-6989586621679660293"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#CreateCloudFormationStack%27"><span class="hs-identifier hs-type">CreateCloudFormationStack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679660292"><span class="annot"><span class="annottext">[InstanceEntry]
-</span><a href="#local-6989586621679660292"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCloudFormationStack
-</span><a href="#local-6989586621679660293"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instances:CreateCloudFormationStack' :: [InstanceEntry]
+</span><a href="#local-6989586621679661347"><span class="hs-identifier hs-var hs-var">instances</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[InstanceEntry]
+</span><a href="#local-6989586621679661347"><span class="hs-identifier hs-var">instances</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679661346"><span class="annot"><span class="annottext">s :: CreateCloudFormationStack
+</span><a href="#local-6989586621679661346"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#CreateCloudFormationStack%27"><span class="hs-identifier hs-type">CreateCloudFormationStack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679661345"><span class="annot"><span class="annottext">[InstanceEntry]
+</span><a href="#local-6989586621679661345"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCloudFormationStack
+</span><a href="#local-6989586621679661346"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instances:CreateCloudFormationStack' :: [InstanceEntry]
 </span><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#%24sel%3Ainstances%3ACreateCloudFormationStack%27"><span class="hs-identifier hs-var">instances</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[InstanceEntry]
-</span><a href="#local-6989586621679660292"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#CreateCloudFormationStack"><span class="hs-identifier hs-type">CreateCloudFormationStack</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([InstanceEntry] -&gt; f [InstanceEntry])
+</span><a href="#local-6989586621679661345"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#CreateCloudFormationStack"><span class="hs-identifier hs-type">CreateCloudFormationStack</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([InstanceEntry] -&gt; f [InstanceEntry])
  -&gt; CreateCloudFormationStack -&gt; f CreateCloudFormationStack)
 -&gt; (([InstanceEntry] -&gt; f [InstanceEntry])
     -&gt; [InstanceEntry] -&gt; f [InstanceEntry])
@@ -185,20 +185,20 @@ $sel:instances:CreateCloudFormationStack' :: CreateCloudFormationStack -&gt; [In
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([InstanceEntry] -&gt; f [InstanceEntry])
 -&gt; [InstanceEntry] -&gt; f [InstanceEntry]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#CreateCloudFormationStack"><span class="hs-identifier hs-type">CreateCloudFormationStack</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-96"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-97"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#CreateCloudFormationStack"><span class="hs-identifier hs-type">CreateCloudFormationStack</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#CreateCloudFormationStackResponse"><span class="hs-identifier hs-type">CreateCloudFormationStackResponse</span></a></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679660286"><span class="annot"><span class="annottext">request :: CreateCloudFormationStack -&gt; Request CreateCloudFormationStack
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679661339"><span class="annot"><span class="annottext">request :: CreateCloudFormationStack -&gt; Request CreateCloudFormationStack
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; CreateCloudFormationStack -&gt; Request CreateCloudFormationStack
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679660282"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679661335"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateCloudFormationStack
 -&gt; ClientResponse ClientBody
@@ -224,10 +224,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679660279"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679660279"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679660278"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679660278"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679660277"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679660277"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679661332"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679661332"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679661331"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679661331"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679661330"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679661330"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Operation] -&gt; Int -&gt; CreateCloudFormationStackResponse
 </span><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#CreateCloudFormationStackResponse%27"><span class="hs-identifier hs-var">CreateCloudFormationStackResponse'</span></a></span><span>
 </span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Operation] -&gt; Int -&gt; CreateCloudFormationStackResponse)
@@ -235,7 +235,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; CreateCloudFormationStackResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679660277"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Operation]))
+</span><a href="#local-6989586621679661330"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Operation]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;operations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Operation]))
@@ -253,15 +253,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679660279"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679661332"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679660268"><span id="local-6989586621679660270"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#CreateCloudFormationStack"><span class="hs-identifier hs-type">CreateCloudFormationStack</span></a></span></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679661321"><span id="local-6989586621679661323"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#CreateCloudFormationStack"><span class="hs-identifier hs-type">CreateCloudFormationStack</span></a></span></span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679660265"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#CreateCloudFormationStack"><span class="hs-identifier hs-type">CreateCloudFormationStack</span></a></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679661318"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#CreateCloudFormationStack"><span class="hs-identifier hs-type">CreateCloudFormationStack</span></a></span></span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#CreateCloudFormationStack"><span class="hs-identifier hs-type">CreateCloudFormationStack</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679660261"><span class="annot"><span class="annottext">toHeaders :: CreateCloudFormationStack -&gt; ResponseHeaders
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679661314"><span class="annot"><span class="annottext">toHeaders :: CreateCloudFormationStack -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateCloudFormationStack -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -288,12 +288,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-124"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679660251"><span id="local-6989586621679660253"><span id="local-6989586621679660255"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#CreateCloudFormationStack"><span class="hs-identifier hs-type">CreateCloudFormationStack</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679660249"><span class="annot"><span class="annottext">toJSON :: CreateCloudFormationStack -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#CreateCloudFormationStack%27"><span class="hs-identifier hs-type">CreateCloudFormationStack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679660247"><span class="annot"><span class="annottext">[InstanceEntry]
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679661304"><span id="local-6989586621679661306"><span id="local-6989586621679661308"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#CreateCloudFormationStack"><span class="hs-identifier hs-type">CreateCloudFormationStack</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679661302"><span class="annot"><span class="annottext">toJSON :: CreateCloudFormationStack -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#CreateCloudFormationStack%27"><span class="hs-identifier hs-type">CreateCloudFormationStack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679661300"><span class="annot"><span class="annottext">[InstanceEntry]
 instances :: [InstanceEntry]
 $sel:instances:CreateCloudFormationStack' :: CreateCloudFormationStack -&gt; [InstanceEntry]
-</span><a href="#local-6989586621679660247"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679661300"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -305,18 +305,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;instances&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [InstanceEntry] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[InstanceEntry]
-</span><a href="#local-6989586621679660247"><span class="hs-identifier hs-var">instances</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679661300"><span class="hs-identifier hs-var">instances</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#CreateCloudFormationStack"><span class="hs-identifier hs-type">CreateCloudFormationStack</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679660241"><span class="annot"><span class="annottext">toPath :: CreateCloudFormationStack -&gt; ByteString
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679661294"><span class="annot"><span class="annottext">toPath :: CreateCloudFormationStack -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateCloudFormationStack -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#CreateCloudFormationStack"><span class="hs-identifier hs-type">CreateCloudFormationStack</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679660237"><span class="annot"><span class="annottext">toQuery :: CreateCloudFormationStack -&gt; QueryString
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679661290"><span class="annot"><span class="annottext">toQuery :: CreateCloudFormationStack -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateCloudFormationStack -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -324,7 +324,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- | /See:/ 'newCreateCloudFormationStackResponse' smart constructor.</span><span>
-</span><span id="line-141"></span><span id="local-6989586621679660234"><span id="local-6989586621679660235"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateCloudFormationStackResponse"><span class="annot"><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#CreateCloudFormationStackResponse"><span class="hs-identifier hs-var">CreateCloudFormationStackResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateCloudFormationStackResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#CreateCloudFormationStackResponse%27"><span class="hs-identifier hs-var">CreateCloudFormationStackResponse'</span></a></span></span><span>
+</span><span id="line-141"></span><span id="local-6989586621679661287"><span id="local-6989586621679661288"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateCloudFormationStackResponse"><span class="annot"><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#CreateCloudFormationStackResponse"><span class="hs-identifier hs-var">CreateCloudFormationStackResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateCloudFormationStackResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#CreateCloudFormationStackResponse%27"><span class="hs-identifier hs-var">CreateCloudFormationStackResponse'</span></a></span></span><span>
 </span><span id="line-142"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
 </span><span id="line-143"></span><span>    </span><span class="hs-comment">-- status of the request, the timestamp of the request, and the resources</span><span>
 </span><span id="line-144"></span><span>    </span><span class="hs-comment">-- affected by the request.</span><span>
@@ -334,7 +334,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-147"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateCloudFormationStackResponse%27"><span class="annot"><span class="annottext">CreateCloudFormationStackResponse -&gt; Int
 </span><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#%24sel%3AhttpStatus%3ACreateCloudFormationStackResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-148"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-149"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679660228"><span id="local-6989586621679660230"><span class="annot"><span class="annottext">CreateCloudFormationStackResponse
+</span><span id="line-149"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679661281"><span id="local-6989586621679661283"><span class="annot"><span class="annottext">CreateCloudFormationStackResponse
 -&gt; CreateCloudFormationStackResponse -&gt; Bool
 (CreateCloudFormationStackResponse
  -&gt; CreateCloudFormationStackResponse -&gt; Bool)
@@ -350,7 +350,7 @@ $c/= :: CreateCloudFormationStackResponse
 -&gt; CreateCloudFormationStackResponse -&gt; Bool
 $c== :: CreateCloudFormationStackResponse
 -&gt; CreateCloudFormationStackResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679660220"><span id="local-6989586621679660222"><span id="local-6989586621679660224"><span id="local-6989586621679660226"><span class="annot"><span class="annottext">ReadPrec [CreateCloudFormationStackResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679661273"><span id="local-6989586621679661275"><span id="local-6989586621679661277"><span id="local-6989586621679661279"><span class="annot"><span class="annottext">ReadPrec [CreateCloudFormationStackResponse]
 ReadPrec CreateCloudFormationStackResponse
 Int -&gt; ReadS CreateCloudFormationStackResponse
 ReadS [CreateCloudFormationStackResponse]
@@ -370,7 +370,7 @@ readList :: ReadS [CreateCloudFormationStackResponse]
 $creadList :: ReadS [CreateCloudFormationStackResponse]
 readsPrec :: Int -&gt; ReadS CreateCloudFormationStackResponse
 $creadsPrec :: Int -&gt; ReadS CreateCloudFormationStackResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679660214"><span id="local-6989586621679660216"><span id="local-6989586621679660218"><span class="annot"><span class="annottext">Int -&gt; CreateCloudFormationStackResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679661267"><span id="local-6989586621679661269"><span id="local-6989586621679661271"><span class="annot"><span class="annottext">Int -&gt; CreateCloudFormationStackResponse -&gt; ShowS
 [CreateCloudFormationStackResponse] -&gt; ShowS
 CreateCloudFormationStackResponse -&gt; String
 (Int -&gt; CreateCloudFormationStackResponse -&gt; ShowS)
@@ -426,8 +426,8 @@ CreateCloudFormationStackResponse
 </span><span id="line-166"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-167"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#CreateCloudFormationStackResponse"><span class="hs-identifier hs-type">CreateCloudFormationStackResponse</span></a></span><span>
 </span><span id="line-168"></span><span id="newCreateCloudFormationStackResponse"><span class="annot"><span class="annottext">newCreateCloudFormationStackResponse :: Int -&gt; CreateCloudFormationStackResponse
-</span><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#newCreateCloudFormationStackResponse"><span class="hs-identifier hs-var hs-var">newCreateCloudFormationStackResponse</span></a></span></span><span> </span><span id="local-6989586621679660211"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679660211"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#newCreateCloudFormationStackResponse"><span class="hs-identifier hs-var hs-var">newCreateCloudFormationStackResponse</span></a></span></span><span> </span><span id="local-6989586621679661264"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679661264"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-169"></span><span>  </span><span class="annot"><span class="annottext">CreateCloudFormationStackResponse' :: Maybe [Operation] -&gt; Int -&gt; CreateCloudFormationStackResponse
 </span><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#CreateCloudFormationStackResponse%27"><span class="hs-identifier hs-type">CreateCloudFormationStackResponse'</span></a></span><span>
 </span><span id="line-170"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:operations:CreateCloudFormationStackResponse' :: Maybe [Operation]
@@ -437,7 +437,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-172"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateCloudFormationStackResponse' :: Int
 </span><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#%24sel%3AhttpStatus%3ACreateCloudFormationStackResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679660211"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679661264"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-173"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
@@ -456,16 +456,16 @@ forall a. Maybe a
      (Maybe [Operation])
      (Maybe [Operation])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#CreateCloudFormationStackResponse%27"><span class="hs-identifier hs-type">CreateCloudFormationStackResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679660210"><span class="annot"><span class="annottext">Maybe [Operation]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#CreateCloudFormationStackResponse%27"><span class="hs-identifier hs-type">CreateCloudFormationStackResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679661263"><span class="annot"><span class="annottext">Maybe [Operation]
 operations :: Maybe [Operation]
 $sel:operations:CreateCloudFormationStackResponse' :: CreateCloudFormationStackResponse -&gt; Maybe [Operation]
-</span><a href="#local-6989586621679660210"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679660210"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679660209"><span class="annot"><span class="annottext">s :: CreateCloudFormationStackResponse
-</span><a href="#local-6989586621679660209"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#CreateCloudFormationStackResponse%27"><span class="hs-identifier hs-type">CreateCloudFormationStackResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679660208"><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679660208"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCloudFormationStackResponse
-</span><a href="#local-6989586621679660209"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:CreateCloudFormationStackResponse' :: Maybe [Operation]
+</span><a href="#local-6989586621679661263"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679661263"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679661262"><span class="annot"><span class="annottext">s :: CreateCloudFormationStackResponse
+</span><a href="#local-6989586621679661262"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#CreateCloudFormationStackResponse%27"><span class="hs-identifier hs-type">CreateCloudFormationStackResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679661261"><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679661261"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCloudFormationStackResponse
+</span><a href="#local-6989586621679661262"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:CreateCloudFormationStackResponse' :: Maybe [Operation]
 </span><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#%24sel%3Aoperations%3ACreateCloudFormationStackResponse%27"><span class="hs-identifier hs-var">operations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679660208"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#CreateCloudFormationStackResponse"><span class="hs-identifier hs-type">CreateCloudFormationStackResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Operation] -&gt; f (Maybe [Operation]))
+</span><a href="#local-6989586621679661261"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#CreateCloudFormationStackResponse"><span class="hs-identifier hs-type">CreateCloudFormationStackResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Operation] -&gt; f (Maybe [Operation]))
  -&gt; CreateCloudFormationStackResponse
  -&gt; f CreateCloudFormationStackResponse)
 -&gt; ((Maybe [Operation] -&gt; f (Maybe [Operation]))
@@ -484,8 +484,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Operation] [Operation] [Operation] [Operation]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-182"></span><span class="annot"><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#createCloudFormationStackResponse_httpStatus"><span class="hs-identifier hs-type">createCloudFormationStackResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#CreateCloudFormationStackResponse"><span class="hs-identifier hs-type">CreateCloudFormationStackResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -501,18 +501,18 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#CreateCloudFormationStackResponse%27"><span class="hs-identifier hs-type">CreateCloudFormationStackResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679660206"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#CreateCloudFormationStackResponse%27"><span class="hs-identifier hs-type">CreateCloudFormationStackResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679661259"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateCloudFormationStackResponse' :: CreateCloudFormationStackResponse -&gt; Int
-</span><a href="#local-6989586621679660206"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679660206"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679660205"><span class="annot"><span class="annottext">s :: CreateCloudFormationStackResponse
-</span><a href="#local-6989586621679660205"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#CreateCloudFormationStackResponse%27"><span class="hs-identifier hs-type">CreateCloudFormationStackResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679660204"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679660204"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCloudFormationStackResponse
-</span><a href="#local-6989586621679660205"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateCloudFormationStackResponse' :: Int
+</span><a href="#local-6989586621679661259"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679661259"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679661258"><span class="annot"><span class="annottext">s :: CreateCloudFormationStackResponse
+</span><a href="#local-6989586621679661258"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#CreateCloudFormationStackResponse%27"><span class="hs-identifier hs-type">CreateCloudFormationStackResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679661257"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679661257"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCloudFormationStackResponse
+</span><a href="#local-6989586621679661258"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateCloudFormationStackResponse' :: Int
 </span><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#%24sel%3AhttpStatus%3ACreateCloudFormationStackResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679660204"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#CreateCloudFormationStackResponse"><span class="hs-identifier hs-type">CreateCloudFormationStackResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679661257"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#CreateCloudFormationStackResponse"><span class="hs-identifier hs-type">CreateCloudFormationStackResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-186"></span><span>  </span><span id="local-6989586621679660202"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679661255"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-187"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.CreateCloudFormationStack.html#CreateCloudFormationStackResponse"><span class="hs-identifier hs-type">CreateCloudFormationStackResponse</span></a></span></span><span>
 </span><span id="line-188"></span></pre></body></html>

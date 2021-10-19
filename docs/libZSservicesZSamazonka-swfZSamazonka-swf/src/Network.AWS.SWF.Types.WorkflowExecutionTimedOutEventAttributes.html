@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Provides the details of the @WorkflowExecutionTimedOut@ event.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newWorkflowExecutionTimedOutEventAttributes' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679354195"><span id="local-6989586621679354196"></span></span><span class="hs-keyword">data</span><span> </span><span id="WorkflowExecutionTimedOutEventAttributes"><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionTimedOutEventAttributes.html#WorkflowExecutionTimedOutEventAttributes"><span class="hs-identifier hs-var">WorkflowExecutionTimedOutEventAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WorkflowExecutionTimedOutEventAttributes%27"><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionTimedOutEventAttributes.html#WorkflowExecutionTimedOutEventAttributes%27"><span class="hs-identifier hs-var">WorkflowExecutionTimedOutEventAttributes'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679354273"><span id="local-6989586621679354274"></span></span><span class="hs-keyword">data</span><span> </span><span id="WorkflowExecutionTimedOutEventAttributes"><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionTimedOutEventAttributes.html#WorkflowExecutionTimedOutEventAttributes"><span class="hs-identifier hs-var">WorkflowExecutionTimedOutEventAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WorkflowExecutionTimedOutEventAttributes%27"><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionTimedOutEventAttributes.html#WorkflowExecutionTimedOutEventAttributes%27"><span class="hs-identifier hs-var">WorkflowExecutionTimedOutEventAttributes'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of timeout that caused this event.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AtimeoutType%3AWorkflowExecutionTimedOutEventAttributes%27"><span class="annot"><span class="annottext">WorkflowExecutionTimedOutEventAttributes
 -&gt; WorkflowExecutionTimeoutType
@@ -50,7 +50,7 @@
 </span><span id="line-48"></span><span>    </span><span id="%24sel%3AchildPolicy%3AWorkflowExecutionTimedOutEventAttributes%27"><span class="annot"><span class="annottext">WorkflowExecutionTimedOutEventAttributes -&gt; ChildPolicy
 </span><a href="Network.AWS.SWF.Types.WorkflowExecutionTimedOutEventAttributes.html#%24sel%3AchildPolicy%3AWorkflowExecutionTimedOutEventAttributes%27"><span class="hs-identifier hs-var hs-var">childPolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ChildPolicy.html#ChildPolicy"><span class="hs-identifier hs-type">ChildPolicy</span></a></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679354188"><span id="local-6989586621679354190"><span class="annot"><span class="annottext">WorkflowExecutionTimedOutEventAttributes
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679354266"><span id="local-6989586621679354268"><span class="annot"><span class="annottext">WorkflowExecutionTimedOutEventAttributes
 -&gt; WorkflowExecutionTimedOutEventAttributes -&gt; Bool
 (WorkflowExecutionTimedOutEventAttributes
  -&gt; WorkflowExecutionTimedOutEventAttributes -&gt; Bool)
@@ -66,7 +66,7 @@ $c/= :: WorkflowExecutionTimedOutEventAttributes
 -&gt; WorkflowExecutionTimedOutEventAttributes -&gt; Bool
 $c== :: WorkflowExecutionTimedOutEventAttributes
 -&gt; WorkflowExecutionTimedOutEventAttributes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679354179"><span id="local-6989586621679354181"><span id="local-6989586621679354183"><span id="local-6989586621679354185"><span class="annot"><span class="annottext">ReadPrec [WorkflowExecutionTimedOutEventAttributes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679354257"><span id="local-6989586621679354259"><span id="local-6989586621679354261"><span id="local-6989586621679354263"><span class="annot"><span class="annottext">ReadPrec [WorkflowExecutionTimedOutEventAttributes]
 ReadPrec WorkflowExecutionTimedOutEventAttributes
 Int -&gt; ReadS WorkflowExecutionTimedOutEventAttributes
 ReadS [WorkflowExecutionTimedOutEventAttributes]
@@ -86,7 +86,7 @@ readList :: ReadS [WorkflowExecutionTimedOutEventAttributes]
 $creadList :: ReadS [WorkflowExecutionTimedOutEventAttributes]
 readsPrec :: Int -&gt; ReadS WorkflowExecutionTimedOutEventAttributes
 $creadsPrec :: Int -&gt; ReadS WorkflowExecutionTimedOutEventAttributes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679354172"><span id="local-6989586621679354174"><span id="local-6989586621679354176"><span class="annot"><span class="annottext">Int -&gt; WorkflowExecutionTimedOutEventAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679354250"><span id="local-6989586621679354252"><span id="local-6989586621679354254"><span class="annot"><span class="annottext">Int -&gt; WorkflowExecutionTimedOutEventAttributes -&gt; ShowS
 [WorkflowExecutionTimedOutEventAttributes] -&gt; ShowS
 WorkflowExecutionTimedOutEventAttributes -&gt; String
 (Int -&gt; WorkflowExecutionTimedOutEventAttributes -&gt; ShowS)
@@ -157,20 +157,20 @@ WorkflowExecutionTimedOutEventAttributes
 </span><span id="line-82"></span><span id="newWorkflowExecutionTimedOutEventAttributes"><span class="annot"><span class="annottext">newWorkflowExecutionTimedOutEventAttributes :: WorkflowExecutionTimeoutType
 -&gt; ChildPolicy -&gt; WorkflowExecutionTimedOutEventAttributes
 </span><a href="Network.AWS.SWF.Types.WorkflowExecutionTimedOutEventAttributes.html#newWorkflowExecutionTimedOutEventAttributes"><span class="hs-identifier hs-var hs-var">newWorkflowExecutionTimedOutEventAttributes</span></a></span></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679354166"><span class="annot"><span class="annottext">WorkflowExecutionTimeoutType
-</span><a href="#local-6989586621679354166"><span class="hs-identifier hs-var">pTimeoutType_</span></a></span></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679354165"><span class="annot"><span class="annottext">ChildPolicy
-</span><a href="#local-6989586621679354165"><span class="hs-identifier hs-var">pChildPolicy_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679354244"><span class="annot"><span class="annottext">WorkflowExecutionTimeoutType
+</span><a href="#local-6989586621679354244"><span class="hs-identifier hs-var">pTimeoutType_</span></a></span></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679354243"><span class="annot"><span class="annottext">ChildPolicy
+</span><a href="#local-6989586621679354243"><span class="hs-identifier hs-var">pChildPolicy_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">WorkflowExecutionTimedOutEventAttributes' :: WorkflowExecutionTimeoutType
 -&gt; ChildPolicy -&gt; WorkflowExecutionTimedOutEventAttributes
 </span><a href="Network.AWS.SWF.Types.WorkflowExecutionTimedOutEventAttributes.html#WorkflowExecutionTimedOutEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionTimedOutEventAttributes'</span></a></span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:timeoutType:WorkflowExecutionTimedOutEventAttributes' :: WorkflowExecutionTimeoutType
 </span><a href="Network.AWS.SWF.Types.WorkflowExecutionTimedOutEventAttributes.html#%24sel%3AtimeoutType%3AWorkflowExecutionTimedOutEventAttributes%27"><span class="hs-identifier hs-var">timeoutType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">WorkflowExecutionTimeoutType
-</span><a href="#local-6989586621679354166"><span class="hs-identifier hs-var">pTimeoutType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679354244"><span class="hs-identifier hs-var">pTimeoutType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>        </span><span class="annot"><span class="annottext">$sel:childPolicy:WorkflowExecutionTimedOutEventAttributes' :: ChildPolicy
 </span><a href="Network.AWS.SWF.Types.WorkflowExecutionTimedOutEventAttributes.html#%24sel%3AchildPolicy%3AWorkflowExecutionTimedOutEventAttributes%27"><span class="hs-identifier hs-var">childPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ChildPolicy
-</span><a href="#local-6989586621679354165"><span class="hs-identifier hs-var">pChildPolicy_</span></a></span><span>
+</span><a href="#local-6989586621679354243"><span class="hs-identifier hs-var">pChildPolicy_</span></a></span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | The type of timeout that caused this event.</span><span>
@@ -189,17 +189,17 @@ WorkflowExecutionTimedOutEventAttributes
      WorkflowExecutionTimeoutType
      WorkflowExecutionTimeoutType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionTimedOutEventAttributes.html#WorkflowExecutionTimedOutEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionTimedOutEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354161"><span class="annot"><span class="annottext">WorkflowExecutionTimeoutType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionTimedOutEventAttributes.html#WorkflowExecutionTimedOutEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionTimedOutEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354239"><span class="annot"><span class="annottext">WorkflowExecutionTimeoutType
 timeoutType :: WorkflowExecutionTimeoutType
 $sel:timeoutType:WorkflowExecutionTimedOutEventAttributes' :: WorkflowExecutionTimedOutEventAttributes
 -&gt; WorkflowExecutionTimeoutType
-</span><a href="#local-6989586621679354161"><span class="hs-identifier hs-var hs-var">timeoutType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowExecutionTimeoutType
-</span><a href="#local-6989586621679354161"><span class="hs-identifier hs-var">timeoutType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354160"><span class="annot"><span class="annottext">s :: WorkflowExecutionTimedOutEventAttributes
-</span><a href="#local-6989586621679354160"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionTimedOutEventAttributes.html#WorkflowExecutionTimedOutEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionTimedOutEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354159"><span class="annot"><span class="annottext">WorkflowExecutionTimeoutType
-</span><a href="#local-6989586621679354159"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowExecutionTimedOutEventAttributes
-</span><a href="#local-6989586621679354160"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeoutType:WorkflowExecutionTimedOutEventAttributes' :: WorkflowExecutionTimeoutType
+</span><a href="#local-6989586621679354239"><span class="hs-identifier hs-var hs-var">timeoutType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowExecutionTimeoutType
+</span><a href="#local-6989586621679354239"><span class="hs-identifier hs-var">timeoutType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354238"><span class="annot"><span class="annottext">s :: WorkflowExecutionTimedOutEventAttributes
+</span><a href="#local-6989586621679354238"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionTimedOutEventAttributes.html#WorkflowExecutionTimedOutEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionTimedOutEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354237"><span class="annot"><span class="annottext">WorkflowExecutionTimeoutType
+</span><a href="#local-6989586621679354237"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowExecutionTimedOutEventAttributes
+</span><a href="#local-6989586621679354238"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeoutType:WorkflowExecutionTimedOutEventAttributes' :: WorkflowExecutionTimeoutType
 </span><a href="Network.AWS.SWF.Types.WorkflowExecutionTimedOutEventAttributes.html#%24sel%3AtimeoutType%3AWorkflowExecutionTimedOutEventAttributes%27"><span class="hs-identifier hs-var">timeoutType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">WorkflowExecutionTimeoutType
-</span><a href="#local-6989586621679354159"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionTimedOutEventAttributes.html#WorkflowExecutionTimedOutEventAttributes"><span class="hs-identifier hs-type">WorkflowExecutionTimedOutEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679354237"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionTimedOutEventAttributes.html#WorkflowExecutionTimedOutEventAttributes"><span class="hs-identifier hs-type">WorkflowExecutionTimedOutEventAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | The policy used for the child workflow executions of this workflow</span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- execution.</span><span>
@@ -228,22 +228,22 @@ $sel:timeoutType:WorkflowExecutionTimedOutEventAttributes' :: WorkflowExecutionT
      ChildPolicy
      ChildPolicy
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionTimedOutEventAttributes.html#WorkflowExecutionTimedOutEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionTimedOutEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354157"><span class="annot"><span class="annottext">ChildPolicy
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionTimedOutEventAttributes.html#WorkflowExecutionTimedOutEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionTimedOutEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354235"><span class="annot"><span class="annottext">ChildPolicy
 childPolicy :: ChildPolicy
 $sel:childPolicy:WorkflowExecutionTimedOutEventAttributes' :: WorkflowExecutionTimedOutEventAttributes -&gt; ChildPolicy
-</span><a href="#local-6989586621679354157"><span class="hs-identifier hs-var hs-var">childPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChildPolicy
-</span><a href="#local-6989586621679354157"><span class="hs-identifier hs-var">childPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354156"><span class="annot"><span class="annottext">s :: WorkflowExecutionTimedOutEventAttributes
-</span><a href="#local-6989586621679354156"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionTimedOutEventAttributes.html#WorkflowExecutionTimedOutEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionTimedOutEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354155"><span class="annot"><span class="annottext">ChildPolicy
-</span><a href="#local-6989586621679354155"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowExecutionTimedOutEventAttributes
-</span><a href="#local-6989586621679354156"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:childPolicy:WorkflowExecutionTimedOutEventAttributes' :: ChildPolicy
+</span><a href="#local-6989586621679354235"><span class="hs-identifier hs-var hs-var">childPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChildPolicy
+</span><a href="#local-6989586621679354235"><span class="hs-identifier hs-var">childPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354234"><span class="annot"><span class="annottext">s :: WorkflowExecutionTimedOutEventAttributes
+</span><a href="#local-6989586621679354234"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionTimedOutEventAttributes.html#WorkflowExecutionTimedOutEventAttributes%27"><span class="hs-identifier hs-type">WorkflowExecutionTimedOutEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354233"><span class="annot"><span class="annottext">ChildPolicy
+</span><a href="#local-6989586621679354233"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowExecutionTimedOutEventAttributes
+</span><a href="#local-6989586621679354234"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:childPolicy:WorkflowExecutionTimedOutEventAttributes' :: ChildPolicy
 </span><a href="Network.AWS.SWF.Types.WorkflowExecutionTimedOutEventAttributes.html#%24sel%3AchildPolicy%3AWorkflowExecutionTimedOutEventAttributes%27"><span class="hs-identifier hs-var">childPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ChildPolicy
-</span><a href="#local-6989586621679354155"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionTimedOutEventAttributes.html#WorkflowExecutionTimedOutEventAttributes"><span class="hs-identifier hs-type">WorkflowExecutionTimedOutEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679354233"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionTimedOutEventAttributes.html#WorkflowExecutionTimedOutEventAttributes"><span class="hs-identifier hs-type">WorkflowExecutionTimedOutEventAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679354152"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679354230"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionTimedOutEventAttributes.html#WorkflowExecutionTimedOutEventAttributes"><span class="hs-identifier hs-type">WorkflowExecutionTimedOutEventAttributes</span></a></span></span><span>
 </span><span id="line-115"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679354150"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser WorkflowExecutionTimedOutEventAttributes
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679354228"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser WorkflowExecutionTimedOutEventAttributes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser WorkflowExecutionTimedOutEventAttributes)
@@ -253,8 +253,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;WorkflowExecutionTimedOutEventAttributes&quot;</span></span><span>
-</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679354147"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679354147"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679354225"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679354225"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-120"></span><span>          </span><span class="annot"><span class="annottext">WorkflowExecutionTimeoutType
 -&gt; ChildPolicy -&gt; WorkflowExecutionTimedOutEventAttributes
 </span><a href="Network.AWS.SWF.Types.WorkflowExecutionTimedOutEventAttributes.html#WorkflowExecutionTimedOutEventAttributes%27"><span class="hs-identifier hs-var">WorkflowExecutionTimedOutEventAttributes'</span></a></span><span>
@@ -264,7 +264,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (ChildPolicy -&gt; WorkflowExecutionTimedOutEventAttributes)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679354147"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser WorkflowExecutionTimeoutType
+</span><a href="#local-6989586621679354225"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser WorkflowExecutionTimeoutType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;timeoutType&quot;</span></span><span class="hs-special">)</span><span>
@@ -273,17 +273,17 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser WorkflowExecutionTimedOutEventAttributes
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679354147"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ChildPolicy
+</span><a href="#local-6989586621679354225"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ChildPolicy
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;childPolicy&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679354141"><span id="local-6989586621679354143"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679354219"><span id="local-6989586621679354221"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-127"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionTimedOutEventAttributes.html#WorkflowExecutionTimedOutEventAttributes"><span class="hs-identifier hs-type">WorkflowExecutionTimedOutEventAttributes</span></a></span></span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679354138"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679354216"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-131"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionTimedOutEventAttributes.html#WorkflowExecutionTimedOutEventAttributes"><span class="hs-identifier hs-type">WorkflowExecutionTimedOutEventAttributes</span></a></span></span><span>
 </span><span id="line-132"></span></pre></body></html>

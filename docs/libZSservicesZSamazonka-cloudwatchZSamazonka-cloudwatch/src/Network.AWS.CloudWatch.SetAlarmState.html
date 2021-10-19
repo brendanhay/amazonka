@@ -65,7 +65,7 @@
 </span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | /See:/ 'newSetAlarmState' smart constructor.</span><span>
-</span><span id="line-68"></span><span id="local-6989586621679259470"><span id="local-6989586621679259471"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetAlarmState"><span class="annot"><a href="Network.AWS.CloudWatch.SetAlarmState.html#SetAlarmState"><span class="hs-identifier hs-var">SetAlarmState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetAlarmState%27"><span class="annot"><a href="Network.AWS.CloudWatch.SetAlarmState.html#SetAlarmState%27"><span class="hs-identifier hs-var">SetAlarmState'</span></a></span></span><span>
+</span><span id="line-68"></span><span id="local-6989586621679259815"><span id="local-6989586621679259816"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetAlarmState"><span class="annot"><a href="Network.AWS.CloudWatch.SetAlarmState.html#SetAlarmState"><span class="hs-identifier hs-var">SetAlarmState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetAlarmState%27"><span class="annot"><a href="Network.AWS.CloudWatch.SetAlarmState.html#SetAlarmState%27"><span class="hs-identifier hs-var">SetAlarmState'</span></a></span></span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The reason that this alarm is set to this specific state, in JSON</span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-comment">-- format.</span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -85,7 +85,7 @@
 </span><span id="line-82"></span><span>    </span><span id="%24sel%3AstateReason%3ASetAlarmState%27"><span class="annot"><span class="annottext">SetAlarmState -&gt; Text
 </span><a href="Network.AWS.CloudWatch.SetAlarmState.html#%24sel%3AstateReason%3ASetAlarmState%27"><span class="hs-identifier hs-var hs-var">stateReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-83"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259461"><span id="local-6989586621679259463"><span class="annot"><span class="annottext">SetAlarmState -&gt; SetAlarmState -&gt; Bool
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259806"><span id="local-6989586621679259808"><span class="annot"><span class="annottext">SetAlarmState -&gt; SetAlarmState -&gt; Bool
 (SetAlarmState -&gt; SetAlarmState -&gt; Bool)
 -&gt; (SetAlarmState -&gt; SetAlarmState -&gt; Bool) -&gt; Eq SetAlarmState
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -93,7 +93,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SetAlarmState -&gt; SetAlarmState -&gt; Bool
 == :: SetAlarmState -&gt; SetAlarmState -&gt; Bool
 $c== :: SetAlarmState -&gt; SetAlarmState -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259452"><span id="local-6989586621679259454"><span id="local-6989586621679259456"><span id="local-6989586621679259458"><span class="annot"><span class="annottext">ReadPrec [SetAlarmState]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259797"><span id="local-6989586621679259799"><span id="local-6989586621679259801"><span id="local-6989586621679259803"><span class="annot"><span class="annottext">ReadPrec [SetAlarmState]
 ReadPrec SetAlarmState
 Int -&gt; ReadS SetAlarmState
 ReadS [SetAlarmState]
@@ -113,7 +113,7 @@ readList :: ReadS [SetAlarmState]
 $creadList :: ReadS [SetAlarmState]
 readsPrec :: Int -&gt; ReadS SetAlarmState
 $creadsPrec :: Int -&gt; ReadS SetAlarmState
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259445"><span id="local-6989586621679259447"><span id="local-6989586621679259449"><span class="annot"><span class="annottext">Int -&gt; SetAlarmState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259790"><span id="local-6989586621679259792"><span id="local-6989586621679259794"><span class="annot"><span class="annottext">Int -&gt; SetAlarmState -&gt; ShowS
 [SetAlarmState] -&gt; ShowS
 SetAlarmState -&gt; String
 (Int -&gt; SetAlarmState -&gt; ShowS)
@@ -170,12 +170,12 @@ $cfrom :: forall x. SetAlarmState -&gt; Rep SetAlarmState x
 </span><span id="line-114"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatch.SetAlarmState.html#SetAlarmState"><span class="hs-identifier hs-type">SetAlarmState</span></a></span><span>
 </span><span id="line-115"></span><span id="newSetAlarmState"><span class="annot"><span class="annottext">newSetAlarmState :: Text -&gt; StateValue -&gt; Text -&gt; SetAlarmState
 </span><a href="Network.AWS.CloudWatch.SetAlarmState.html#newSetAlarmState"><span class="hs-identifier hs-var hs-var">newSetAlarmState</span></a></span></span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679259440"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259440"><span class="hs-identifier hs-var">pAlarmName_</span></a></span></span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679259439"><span class="annot"><span class="annottext">StateValue
-</span><a href="#local-6989586621679259439"><span class="hs-identifier hs-var">pStateValue_</span></a></span></span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679259438"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259438"><span class="hs-identifier hs-var">pStateReason_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679259785"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259785"><span class="hs-identifier hs-var">pAlarmName_</span></a></span></span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679259784"><span class="annot"><span class="annottext">StateValue
+</span><a href="#local-6989586621679259784"><span class="hs-identifier hs-var">pStateValue_</span></a></span></span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679259783"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259783"><span class="hs-identifier hs-var">pStateReason_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">SetAlarmState' :: Maybe Text -&gt; Text -&gt; StateValue -&gt; Text -&gt; SetAlarmState
 </span><a href="Network.AWS.CloudWatch.SetAlarmState.html#SetAlarmState%27"><span class="hs-identifier hs-type">SetAlarmState'</span></a></span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:stateReasonData:SetAlarmState' :: Maybe Text
@@ -184,13 +184,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">$sel:alarmName:SetAlarmState' :: Text
 </span><a href="Network.AWS.CloudWatch.SetAlarmState.html#%24sel%3AalarmName%3ASetAlarmState%27"><span class="hs-identifier hs-var">alarmName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259440"><span class="hs-identifier hs-var">pAlarmName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679259785"><span class="hs-identifier hs-var">pAlarmName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">$sel:stateValue:SetAlarmState' :: StateValue
 </span><a href="Network.AWS.CloudWatch.SetAlarmState.html#%24sel%3AstateValue%3ASetAlarmState%27"><span class="hs-identifier hs-var">stateValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StateValue
-</span><a href="#local-6989586621679259439"><span class="hs-identifier hs-var">pStateValue_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679259784"><span class="hs-identifier hs-var">pStateValue_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">$sel:stateReason:SetAlarmState' :: Text
 </span><a href="Network.AWS.CloudWatch.SetAlarmState.html#%24sel%3AstateReason%3ASetAlarmState%27"><span class="hs-identifier hs-var">stateReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259438"><span class="hs-identifier hs-var">pStateReason_</span></a></span><span>
+</span><a href="#local-6989586621679259783"><span class="hs-identifier hs-var">pStateReason_</span></a></span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | The reason that this alarm is set to this specific state, in JSON</span><span>
@@ -205,16 +205,16 @@ forall a. Maybe a
 -&gt; (SetAlarmState -&gt; Maybe Text -&gt; SetAlarmState)
 -&gt; Lens SetAlarmState SetAlarmState (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.SetAlarmState.html#SetAlarmState%27"><span class="hs-identifier hs-type">SetAlarmState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259435"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.SetAlarmState.html#SetAlarmState%27"><span class="hs-identifier hs-type">SetAlarmState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259780"><span class="annot"><span class="annottext">Maybe Text
 stateReasonData :: Maybe Text
 $sel:stateReasonData:SetAlarmState' :: SetAlarmState -&gt; Maybe Text
-</span><a href="#local-6989586621679259435"><span class="hs-identifier hs-var hs-var">stateReasonData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259435"><span class="hs-identifier hs-var">stateReasonData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259434"><span class="annot"><span class="annottext">s :: SetAlarmState
-</span><a href="#local-6989586621679259434"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.SetAlarmState.html#SetAlarmState%27"><span class="hs-identifier hs-type">SetAlarmState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259433"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259433"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetAlarmState
-</span><a href="#local-6989586621679259434"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateReasonData:SetAlarmState' :: Maybe Text
+</span><a href="#local-6989586621679259780"><span class="hs-identifier hs-var hs-var">stateReasonData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259780"><span class="hs-identifier hs-var">stateReasonData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259779"><span class="annot"><span class="annottext">s :: SetAlarmState
+</span><a href="#local-6989586621679259779"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.SetAlarmState.html#SetAlarmState%27"><span class="hs-identifier hs-type">SetAlarmState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259778"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259778"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetAlarmState
+</span><a href="#local-6989586621679259779"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateReasonData:SetAlarmState' :: Maybe Text
 </span><a href="Network.AWS.CloudWatch.SetAlarmState.html#%24sel%3AstateReasonData%3ASetAlarmState%27"><span class="hs-identifier hs-var">stateReasonData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259433"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.SetAlarmState.html#SetAlarmState"><span class="hs-identifier hs-type">SetAlarmState</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259778"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.SetAlarmState.html#SetAlarmState"><span class="hs-identifier hs-type">SetAlarmState</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | The name of the alarm.</span><span>
 </span><span id="line-136"></span><span class="annot"><a href="Network.AWS.CloudWatch.SetAlarmState.html#setAlarmState_alarmName"><span class="hs-identifier hs-type">setAlarmState_alarmName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.SetAlarmState.html#SetAlarmState"><span class="hs-identifier hs-type">SetAlarmState</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -223,16 +223,16 @@ $sel:stateReasonData:SetAlarmState' :: SetAlarmState -&gt; Maybe Text
 -&gt; (SetAlarmState -&gt; Text -&gt; SetAlarmState)
 -&gt; Lens SetAlarmState SetAlarmState Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.SetAlarmState.html#SetAlarmState%27"><span class="hs-identifier hs-type">SetAlarmState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259432"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.SetAlarmState.html#SetAlarmState%27"><span class="hs-identifier hs-type">SetAlarmState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259777"><span class="annot"><span class="annottext">Text
 alarmName :: Text
 $sel:alarmName:SetAlarmState' :: SetAlarmState -&gt; Text
-</span><a href="#local-6989586621679259432"><span class="hs-identifier hs-var hs-var">alarmName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259432"><span class="hs-identifier hs-var">alarmName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259431"><span class="annot"><span class="annottext">s :: SetAlarmState
-</span><a href="#local-6989586621679259431"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.SetAlarmState.html#SetAlarmState%27"><span class="hs-identifier hs-type">SetAlarmState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259430"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259430"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetAlarmState
-</span><a href="#local-6989586621679259431"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alarmName:SetAlarmState' :: Text
+</span><a href="#local-6989586621679259777"><span class="hs-identifier hs-var hs-var">alarmName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259777"><span class="hs-identifier hs-var">alarmName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259776"><span class="annot"><span class="annottext">s :: SetAlarmState
+</span><a href="#local-6989586621679259776"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.SetAlarmState.html#SetAlarmState%27"><span class="hs-identifier hs-type">SetAlarmState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259775"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259775"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetAlarmState
+</span><a href="#local-6989586621679259776"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alarmName:SetAlarmState' :: Text
 </span><a href="Network.AWS.CloudWatch.SetAlarmState.html#%24sel%3AalarmName%3ASetAlarmState%27"><span class="hs-identifier hs-var">alarmName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259430"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.SetAlarmState.html#SetAlarmState"><span class="hs-identifier hs-type">SetAlarmState</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259775"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.SetAlarmState.html#SetAlarmState"><span class="hs-identifier hs-type">SetAlarmState</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | The value of the state.</span><span>
 </span><span id="line-140"></span><span class="annot"><a href="Network.AWS.CloudWatch.SetAlarmState.html#setAlarmState_stateValue"><span class="hs-identifier hs-type">setAlarmState_stateValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.SetAlarmState.html#SetAlarmState"><span class="hs-identifier hs-type">SetAlarmState</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.StateValue.html#StateValue"><span class="hs-identifier hs-type">StateValue</span></a></span><span>
@@ -241,16 +241,16 @@ $sel:alarmName:SetAlarmState' :: SetAlarmState -&gt; Text
 -&gt; (SetAlarmState -&gt; StateValue -&gt; SetAlarmState)
 -&gt; Lens SetAlarmState SetAlarmState StateValue StateValue
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.SetAlarmState.html#SetAlarmState%27"><span class="hs-identifier hs-type">SetAlarmState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259429"><span class="annot"><span class="annottext">StateValue
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.SetAlarmState.html#SetAlarmState%27"><span class="hs-identifier hs-type">SetAlarmState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259774"><span class="annot"><span class="annottext">StateValue
 stateValue :: StateValue
 $sel:stateValue:SetAlarmState' :: SetAlarmState -&gt; StateValue
-</span><a href="#local-6989586621679259429"><span class="hs-identifier hs-var hs-var">stateValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StateValue
-</span><a href="#local-6989586621679259429"><span class="hs-identifier hs-var">stateValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259428"><span class="annot"><span class="annottext">s :: SetAlarmState
-</span><a href="#local-6989586621679259428"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.SetAlarmState.html#SetAlarmState%27"><span class="hs-identifier hs-type">SetAlarmState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259427"><span class="annot"><span class="annottext">StateValue
-</span><a href="#local-6989586621679259427"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetAlarmState
-</span><a href="#local-6989586621679259428"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateValue:SetAlarmState' :: StateValue
+</span><a href="#local-6989586621679259774"><span class="hs-identifier hs-var hs-var">stateValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StateValue
+</span><a href="#local-6989586621679259774"><span class="hs-identifier hs-var">stateValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259773"><span class="annot"><span class="annottext">s :: SetAlarmState
+</span><a href="#local-6989586621679259773"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.SetAlarmState.html#SetAlarmState%27"><span class="hs-identifier hs-type">SetAlarmState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259772"><span class="annot"><span class="annottext">StateValue
+</span><a href="#local-6989586621679259772"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetAlarmState
+</span><a href="#local-6989586621679259773"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateValue:SetAlarmState' :: StateValue
 </span><a href="Network.AWS.CloudWatch.SetAlarmState.html#%24sel%3AstateValue%3ASetAlarmState%27"><span class="hs-identifier hs-var">stateValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StateValue
-</span><a href="#local-6989586621679259427"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.SetAlarmState.html#SetAlarmState"><span class="hs-identifier hs-type">SetAlarmState</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259772"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.SetAlarmState.html#SetAlarmState"><span class="hs-identifier hs-type">SetAlarmState</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- | The reason that this alarm is set to this specific state, in text</span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- format.</span><span>
@@ -260,27 +260,27 @@ $sel:stateValue:SetAlarmState' :: SetAlarmState -&gt; StateValue
 -&gt; (SetAlarmState -&gt; Text -&gt; SetAlarmState)
 -&gt; Lens SetAlarmState SetAlarmState Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.SetAlarmState.html#SetAlarmState%27"><span class="hs-identifier hs-type">SetAlarmState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259426"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.SetAlarmState.html#SetAlarmState%27"><span class="hs-identifier hs-type">SetAlarmState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259771"><span class="annot"><span class="annottext">Text
 stateReason :: Text
 $sel:stateReason:SetAlarmState' :: SetAlarmState -&gt; Text
-</span><a href="#local-6989586621679259426"><span class="hs-identifier hs-var hs-var">stateReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259426"><span class="hs-identifier hs-var">stateReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259425"><span class="annot"><span class="annottext">s :: SetAlarmState
-</span><a href="#local-6989586621679259425"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.SetAlarmState.html#SetAlarmState%27"><span class="hs-identifier hs-type">SetAlarmState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259424"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259424"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetAlarmState
-</span><a href="#local-6989586621679259425"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateReason:SetAlarmState' :: Text
+</span><a href="#local-6989586621679259771"><span class="hs-identifier hs-var hs-var">stateReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259771"><span class="hs-identifier hs-var">stateReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259770"><span class="annot"><span class="annottext">s :: SetAlarmState
+</span><a href="#local-6989586621679259770"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.SetAlarmState.html#SetAlarmState%27"><span class="hs-identifier hs-type">SetAlarmState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259769"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259769"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetAlarmState
+</span><a href="#local-6989586621679259770"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateReason:SetAlarmState' :: Text
 </span><a href="Network.AWS.CloudWatch.SetAlarmState.html#%24sel%3AstateReason%3ASetAlarmState%27"><span class="hs-identifier hs-var">stateReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259424"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.SetAlarmState.html#SetAlarmState"><span class="hs-identifier hs-type">SetAlarmState</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259769"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.SetAlarmState.html#SetAlarmState"><span class="hs-identifier hs-type">SetAlarmState</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.SetAlarmState.html#SetAlarmState"><span class="hs-identifier hs-type">SetAlarmState</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-149"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-150"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.SetAlarmState.html#SetAlarmState"><span class="hs-identifier hs-type">SetAlarmState</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudWatch.SetAlarmState.html#SetAlarmStateResponse"><span class="hs-identifier hs-type">SetAlarmStateResponse</span></a></span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679259420"><span class="annot"><span class="annottext">request :: SetAlarmState -&gt; Request SetAlarmState
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679259765"><span class="annot"><span class="annottext">request :: SetAlarmState -&gt; Request SetAlarmState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; SetAlarmState -&gt; Request SetAlarmState
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudWatch.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679259416"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679259761"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy SetAlarmState
 -&gt; ClientResponse ClientBody
@@ -304,12 +304,12 @@ AWSResponse a
 SetAlarmStateResponse
 </span><a href="Network.AWS.CloudWatch.SetAlarmState.html#SetAlarmStateResponse%27"><span class="hs-identifier hs-var">SetAlarmStateResponse'</span></a></span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259409"><span id="local-6989586621679259411"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.SetAlarmState.html#SetAlarmState"><span class="hs-identifier hs-type">SetAlarmState</span></a></span></span></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259754"><span id="local-6989586621679259756"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.SetAlarmState.html#SetAlarmState"><span class="hs-identifier hs-type">SetAlarmState</span></a></span></span></span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259406"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.SetAlarmState.html#SetAlarmState"><span class="hs-identifier hs-type">SetAlarmState</span></a></span></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259751"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.SetAlarmState.html#SetAlarmState"><span class="hs-identifier hs-type">SetAlarmState</span></a></span></span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.SetAlarmState.html#SetAlarmState"><span class="hs-identifier hs-type">SetAlarmState</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621679259402"><span class="annot"><span class="annottext">toHeaders :: SetAlarmState -&gt; [Header]
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679259747"><span class="annot"><span class="annottext">toHeaders :: SetAlarmState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; SetAlarmState -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -317,15 +317,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.SetAlarmState.html#SetAlarmState"><span class="hs-identifier hs-type">SetAlarmState</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-164"></span><span>  </span><span id="local-6989586621679259397"><span class="annot"><span class="annottext">toPath :: SetAlarmState -&gt; ByteString
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679259742"><span class="annot"><span class="annottext">toPath :: SetAlarmState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SetAlarmState -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.SetAlarmState.html#SetAlarmState"><span class="hs-identifier hs-type">SetAlarmState</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621679259393"><span class="annot"><span class="annottext">toQuery :: SetAlarmState -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.SetAlarmState.html#SetAlarmState%27"><span class="hs-identifier hs-type">SetAlarmState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259388"><span id="local-6989586621679259389"><span id="local-6989586621679259390"><span id="local-6989586621679259391"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679259738"><span class="annot"><span class="annottext">toQuery :: SetAlarmState -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.SetAlarmState.html#SetAlarmState%27"><span class="hs-identifier hs-type">SetAlarmState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259733"><span id="local-6989586621679259734"><span id="local-6989586621679259735"><span id="local-6989586621679259736"><span class="annot"><span class="annottext">Maybe Text
 Text
 StateValue
 stateReason :: Text
@@ -336,7 +336,7 @@ $sel:stateReason:SetAlarmState' :: SetAlarmState -&gt; Text
 $sel:stateValue:SetAlarmState' :: SetAlarmState -&gt; StateValue
 $sel:alarmName:SetAlarmState' :: SetAlarmState -&gt; Text
 $sel:stateReasonData:SetAlarmState' :: SetAlarmState -&gt; Maybe Text
-</span><a href="#local-6989586621679259388"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679259733"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -356,29 +356,29 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;StateReasonData&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259391"><span class="hs-identifier hs-var">stateReasonData</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679259736"><span class="hs-identifier hs-var">stateReasonData</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-174"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;AlarmName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259390"><span class="hs-identifier hs-var">alarmName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679259735"><span class="hs-identifier hs-var">alarmName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-175"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;StateValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StateValue -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">StateValue
-</span><a href="#local-6989586621679259389"><span class="hs-identifier hs-var">stateValue</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679259734"><span class="hs-identifier hs-var">stateValue</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-176"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;StateReason&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259388"><span class="hs-identifier hs-var">stateReason</span></a></span><span>
+</span><a href="#local-6989586621679259733"><span class="hs-identifier hs-var">stateReason</span></a></span><span>
 </span><span id="line-177"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-comment">-- | /See:/ 'newSetAlarmStateResponse' smart constructor.</span><span>
-</span><span id="line-180"></span><span id="local-6989586621679259385"><span id="local-6989586621679259386"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetAlarmStateResponse"><span class="annot"><a href="Network.AWS.CloudWatch.SetAlarmState.html#SetAlarmStateResponse"><span class="hs-identifier hs-var">SetAlarmStateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetAlarmStateResponse%27"><span class="annot"><a href="Network.AWS.CloudWatch.SetAlarmState.html#SetAlarmStateResponse%27"><span class="hs-identifier hs-var">SetAlarmStateResponse'</span></a></span></span><span>
+</span><span id="line-180"></span><span id="local-6989586621679259730"><span id="local-6989586621679259731"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetAlarmStateResponse"><span class="annot"><a href="Network.AWS.CloudWatch.SetAlarmState.html#SetAlarmStateResponse"><span class="hs-identifier hs-var">SetAlarmStateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetAlarmStateResponse%27"><span class="annot"><a href="Network.AWS.CloudWatch.SetAlarmState.html#SetAlarmStateResponse%27"><span class="hs-identifier hs-var">SetAlarmStateResponse'</span></a></span></span><span>
 </span><span id="line-181"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-182"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-183"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259381"><span id="local-6989586621679259383"><span class="annot"><span class="annottext">SetAlarmStateResponse -&gt; SetAlarmStateResponse -&gt; Bool
+</span><span id="line-183"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259726"><span id="local-6989586621679259728"><span class="annot"><span class="annottext">SetAlarmStateResponse -&gt; SetAlarmStateResponse -&gt; Bool
 (SetAlarmStateResponse -&gt; SetAlarmStateResponse -&gt; Bool)
 -&gt; (SetAlarmStateResponse -&gt; SetAlarmStateResponse -&gt; Bool)
 -&gt; Eq SetAlarmStateResponse
@@ -387,7 +387,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SetAlarmStateResponse -&gt; SetAlarmStateResponse -&gt; Bool
 == :: SetAlarmStateResponse -&gt; SetAlarmStateResponse -&gt; Bool
 $c== :: SetAlarmStateResponse -&gt; SetAlarmStateResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259373"><span id="local-6989586621679259375"><span id="local-6989586621679259377"><span id="local-6989586621679259379"><span class="annot"><span class="annottext">ReadPrec [SetAlarmStateResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259718"><span id="local-6989586621679259720"><span id="local-6989586621679259722"><span id="local-6989586621679259724"><span class="annot"><span class="annottext">ReadPrec [SetAlarmStateResponse]
 ReadPrec SetAlarmStateResponse
 Int -&gt; ReadS SetAlarmStateResponse
 ReadS [SetAlarmStateResponse]
@@ -407,7 +407,7 @@ readList :: ReadS [SetAlarmStateResponse]
 $creadList :: ReadS [SetAlarmStateResponse]
 readsPrec :: Int -&gt; ReadS SetAlarmStateResponse
 $creadsPrec :: Int -&gt; ReadS SetAlarmStateResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259367"><span id="local-6989586621679259369"><span id="local-6989586621679259371"><span class="annot"><span class="annottext">Int -&gt; SetAlarmStateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259712"><span id="local-6989586621679259714"><span id="local-6989586621679259716"><span class="annot"><span class="annottext">Int -&gt; SetAlarmStateResponse -&gt; ShowS
 [SetAlarmStateResponse] -&gt; ShowS
 SetAlarmStateResponse -&gt; String
 (Int -&gt; SetAlarmStateResponse -&gt; ShowS)
@@ -443,5 +443,5 @@ $cfrom :: forall x. SetAlarmStateResponse -&gt; Rep SetAlarmStateResponse x
 </span><a href="Network.AWS.CloudWatch.SetAlarmState.html#newSetAlarmStateResponse"><span class="hs-identifier hs-var hs-var">newSetAlarmStateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SetAlarmStateResponse
 </span><a href="Network.AWS.CloudWatch.SetAlarmState.html#SetAlarmStateResponse%27"><span class="hs-identifier hs-var">SetAlarmStateResponse'</span></a></span><span>
 </span><span id="line-192"></span><span>
-</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259363"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.SetAlarmState.html#SetAlarmStateResponse"><span class="hs-identifier hs-type">SetAlarmStateResponse</span></a></span></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259708"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.SetAlarmState.html#SetAlarmStateResponse"><span class="hs-identifier hs-type">SetAlarmStateResponse</span></a></span></span><span>
 </span><span id="line-194"></span></pre></body></html>

@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- GetServiceLastAccessedDetailsWithEntities operations.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newErrorDetails' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679424673"><span id="local-6989586621679424674"></span></span><span class="hs-keyword">data</span><span> </span><span id="ErrorDetails"><span class="annot"><a href="Network.AWS.IAM.Types.ErrorDetails.html#ErrorDetails"><span class="hs-identifier hs-var">ErrorDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ErrorDetails%27"><span class="annot"><a href="Network.AWS.IAM.Types.ErrorDetails.html#ErrorDetails%27"><span class="hs-identifier hs-var">ErrorDetails'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679425177"><span id="local-6989586621679425178"></span></span><span class="hs-keyword">data</span><span> </span><span id="ErrorDetails"><span class="annot"><a href="Network.AWS.IAM.Types.ErrorDetails.html#ErrorDetails"><span class="hs-identifier hs-var">ErrorDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ErrorDetails%27"><span class="annot"><a href="Network.AWS.IAM.Types.ErrorDetails.html#ErrorDetails%27"><span class="hs-identifier hs-var">ErrorDetails'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Detailed information about the reason that the operation failed.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Amessage%3AErrorDetails%27"><span class="annot"><span class="annottext">ErrorDetails -&gt; Text
 </span><a href="Network.AWS.IAM.Types.ErrorDetails.html#%24sel%3Amessage%3AErrorDetails%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -38,7 +38,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3Acode%3AErrorDetails%27"><span class="annot"><span class="annottext">ErrorDetails -&gt; Text
 </span><a href="Network.AWS.IAM.Types.ErrorDetails.html#%24sel%3Acode%3AErrorDetails%27"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679424666"><span id="local-6989586621679424668"><span class="annot"><span class="annottext">ErrorDetails -&gt; ErrorDetails -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679425170"><span id="local-6989586621679425172"><span class="annot"><span class="annottext">ErrorDetails -&gt; ErrorDetails -&gt; Bool
 (ErrorDetails -&gt; ErrorDetails -&gt; Bool)
 -&gt; (ErrorDetails -&gt; ErrorDetails -&gt; Bool) -&gt; Eq ErrorDetails
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ErrorDetails -&gt; ErrorDetails -&gt; Bool
 == :: ErrorDetails -&gt; ErrorDetails -&gt; Bool
 $c== :: ErrorDetails -&gt; ErrorDetails -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679424657"><span id="local-6989586621679424659"><span id="local-6989586621679424661"><span id="local-6989586621679424663"><span class="annot"><span class="annottext">ReadPrec [ErrorDetails]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679425161"><span id="local-6989586621679425163"><span id="local-6989586621679425165"><span id="local-6989586621679425167"><span class="annot"><span class="annottext">ReadPrec [ErrorDetails]
 ReadPrec ErrorDetails
 Int -&gt; ReadS ErrorDetails
 ReadS [ErrorDetails]
@@ -66,7 +66,7 @@ readList :: ReadS [ErrorDetails]
 $creadList :: ReadS [ErrorDetails]
 readsPrec :: Int -&gt; ReadS ErrorDetails
 $creadsPrec :: Int -&gt; ReadS ErrorDetails
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679424650"><span id="local-6989586621679424652"><span id="local-6989586621679424654"><span class="annot"><span class="annottext">Int -&gt; ErrorDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679425154"><span id="local-6989586621679425156"><span id="local-6989586621679425158"><span class="annot"><span class="annottext">Int -&gt; ErrorDetails -&gt; ShowS
 [ErrorDetails] -&gt; ShowS
 ErrorDetails -&gt; String
 (Int -&gt; ErrorDetails -&gt; ShowS)
@@ -110,15 +110,15 @@ $cfrom :: forall x. ErrorDetails -&gt; Rep ErrorDetails x
 </span><span id="line-56"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.Types.ErrorDetails.html#ErrorDetails"><span class="hs-identifier hs-type">ErrorDetails</span></a></span><span>
 </span><span id="line-58"></span><span id="newErrorDetails"><span class="annot"><span class="annottext">newErrorDetails :: Text -&gt; Text -&gt; ErrorDetails
-</span><a href="Network.AWS.IAM.Types.ErrorDetails.html#newErrorDetails"><span class="hs-identifier hs-var hs-var">newErrorDetails</span></a></span></span><span> </span><span id="local-6989586621679424644"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679424644"><span class="hs-identifier hs-var">pMessage_</span></a></span></span><span> </span><span id="local-6989586621679424643"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679424643"><span class="hs-identifier hs-var">pCode_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IAM.Types.ErrorDetails.html#newErrorDetails"><span class="hs-identifier hs-var hs-var">newErrorDetails</span></a></span></span><span> </span><span id="local-6989586621679425148"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679425148"><span class="hs-identifier hs-var">pMessage_</span></a></span></span><span> </span><span id="local-6989586621679425147"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679425147"><span class="hs-identifier hs-var">pCode_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">ErrorDetails' :: Text -&gt; Text -&gt; ErrorDetails
 </span><a href="Network.AWS.IAM.Types.ErrorDetails.html#ErrorDetails%27"><span class="hs-identifier hs-type">ErrorDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:ErrorDetails' :: Text
 </span><a href="Network.AWS.IAM.Types.ErrorDetails.html#%24sel%3Amessage%3AErrorDetails%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679424644"><span class="hs-identifier hs-var">pMessage_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:code:ErrorDetails' :: Text
+</span><a href="#local-6989586621679425148"><span class="hs-identifier hs-var">pMessage_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:code:ErrorDetails' :: Text
 </span><a href="Network.AWS.IAM.Types.ErrorDetails.html#%24sel%3Acode%3AErrorDetails%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679424643"><span class="hs-identifier hs-var">pCode_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679425147"><span class="hs-identifier hs-var">pCode_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | Detailed information about the reason that the operation failed.</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.IAM.Types.ErrorDetails.html#errorDetails_message"><span class="hs-identifier hs-type">errorDetails_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ErrorDetails.html#ErrorDetails"><span class="hs-identifier hs-type">ErrorDetails</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -127,16 +127,16 @@ $cfrom :: forall x. ErrorDetails -&gt; Rep ErrorDetails x
 -&gt; (ErrorDetails -&gt; Text -&gt; ErrorDetails)
 -&gt; Lens ErrorDetails ErrorDetails Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.ErrorDetails.html#ErrorDetails%27"><span class="hs-identifier hs-type">ErrorDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424639"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.ErrorDetails.html#ErrorDetails%27"><span class="hs-identifier hs-type">ErrorDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425143"><span class="annot"><span class="annottext">Text
 message :: Text
 $sel:message:ErrorDetails' :: ErrorDetails -&gt; Text
-</span><a href="#local-6989586621679424639"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679424639"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424638"><span class="annot"><span class="annottext">s :: ErrorDetails
-</span><a href="#local-6989586621679424638"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.ErrorDetails.html#ErrorDetails%27"><span class="hs-identifier hs-type">ErrorDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424637"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679424637"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ErrorDetails
-</span><a href="#local-6989586621679424638"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:ErrorDetails' :: Text
+</span><a href="#local-6989586621679425143"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679425143"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425142"><span class="annot"><span class="annottext">s :: ErrorDetails
+</span><a href="#local-6989586621679425142"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.ErrorDetails.html#ErrorDetails%27"><span class="hs-identifier hs-type">ErrorDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425141"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679425141"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ErrorDetails
+</span><a href="#local-6989586621679425142"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:ErrorDetails' :: Text
 </span><a href="Network.AWS.IAM.Types.ErrorDetails.html#%24sel%3Amessage%3AErrorDetails%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679424637"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ErrorDetails.html#ErrorDetails"><span class="hs-identifier hs-type">ErrorDetails</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679425141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ErrorDetails.html#ErrorDetails"><span class="hs-identifier hs-type">ErrorDetails</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | The error code associated with the operation failure.</span><span>
 </span><span id="line-66"></span><span class="annot"><a href="Network.AWS.IAM.Types.ErrorDetails.html#errorDetails_code"><span class="hs-identifier hs-type">errorDetails_code</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ErrorDetails.html#ErrorDetails"><span class="hs-identifier hs-type">ErrorDetails</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -145,40 +145,40 @@ $sel:message:ErrorDetails' :: ErrorDetails -&gt; Text
 -&gt; (ErrorDetails -&gt; Text -&gt; ErrorDetails)
 -&gt; Lens ErrorDetails ErrorDetails Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.ErrorDetails.html#ErrorDetails%27"><span class="hs-identifier hs-type">ErrorDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424635"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.ErrorDetails.html#ErrorDetails%27"><span class="hs-identifier hs-type">ErrorDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425139"><span class="annot"><span class="annottext">Text
 code :: Text
 $sel:code:ErrorDetails' :: ErrorDetails -&gt; Text
-</span><a href="#local-6989586621679424635"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679424635"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424634"><span class="annot"><span class="annottext">s :: ErrorDetails
-</span><a href="#local-6989586621679424634"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.ErrorDetails.html#ErrorDetails%27"><span class="hs-identifier hs-type">ErrorDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424633"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679424633"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ErrorDetails
-</span><a href="#local-6989586621679424634"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:ErrorDetails' :: Text
+</span><a href="#local-6989586621679425139"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679425139"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425138"><span class="annot"><span class="annottext">s :: ErrorDetails
+</span><a href="#local-6989586621679425138"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.ErrorDetails.html#ErrorDetails%27"><span class="hs-identifier hs-type">ErrorDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425137"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679425137"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ErrorDetails
+</span><a href="#local-6989586621679425138"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:ErrorDetails' :: Text
 </span><a href="Network.AWS.IAM.Types.ErrorDetails.html#%24sel%3Acode%3AErrorDetails%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679424633"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ErrorDetails.html#ErrorDetails"><span class="hs-identifier hs-type">ErrorDetails</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679425137"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ErrorDetails.html#ErrorDetails"><span class="hs-identifier hs-type">ErrorDetails</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ErrorDetails.html#ErrorDetails"><span class="hs-identifier hs-type">ErrorDetails</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679424630"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ErrorDetails
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679424628"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679424628"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679425134"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ErrorDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679425132"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679425132"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; ErrorDetails
 </span><a href="Network.AWS.IAM.Types.ErrorDetails.html#ErrorDetails%27"><span class="hs-identifier hs-var">ErrorDetails'</span></a></span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; ErrorDetails)
 -&gt; Either String Text -&gt; Either String (Text -&gt; ErrorDetails)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679424628"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679425132"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Message&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Either String (Text -&gt; ErrorDetails)
 -&gt; Either String Text -&gt; Either String ErrorDetails
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679424628"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679425132"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Code&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679424622"><span id="local-6989586621679424624"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ErrorDetails.html#ErrorDetails"><span class="hs-identifier hs-type">ErrorDetails</span></a></span></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679425126"><span id="local-6989586621679425128"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ErrorDetails.html#ErrorDetails"><span class="hs-identifier hs-type">ErrorDetails</span></a></span></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679424619"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ErrorDetails.html#ErrorDetails"><span class="hs-identifier hs-type">ErrorDetails</span></a></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679425123"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ErrorDetails.html#ErrorDetails"><span class="hs-identifier hs-type">ErrorDetails</span></a></span></span><span>
 </span><span id="line-77"></span></pre></body></html>

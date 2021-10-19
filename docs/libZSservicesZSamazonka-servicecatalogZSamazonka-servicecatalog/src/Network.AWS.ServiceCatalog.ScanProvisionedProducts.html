@@ -31,18 +31,18 @@
 </span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#newScanProvisionedProducts"><span class="hs-identifier">newScanProvisionedProducts</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-32"></span><span>
 </span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#scanProvisionedProducts_pageSize"><span class="hs-identifier">scanProvisionedProducts_pageSize</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#scanProvisionedProducts_pageToken"><span class="hs-identifier">scanProvisionedProducts_pageToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#scanProvisionedProducts_accessLevelFilter"><span class="hs-identifier">scanProvisionedProducts_accessLevelFilter</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#scanProvisionedProducts_acceptLanguage"><span class="hs-identifier">scanProvisionedProducts_acceptLanguage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#scanProvisionedProducts_acceptLanguage"><span class="hs-identifier">scanProvisionedProducts_acceptLanguage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#scanProvisionedProducts_accessLevelFilter"><span class="hs-identifier">scanProvisionedProducts_accessLevelFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#scanProvisionedProducts_pageToken"><span class="hs-identifier">scanProvisionedProducts_pageToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#scanProvisionedProducts_pageSize"><span class="hs-identifier">scanProvisionedProducts_pageSize</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProductsResponse"><span class="hs-identifier">ScanProvisionedProductsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#newScanProvisionedProductsResponse"><span class="hs-identifier">newScanProvisionedProductsResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#scanProvisionedProductsResponse_provisionedProducts"><span class="hs-identifier">scanProvisionedProductsResponse_provisionedProducts</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#scanProvisionedProductsResponse_nextPageToken"><span class="hs-identifier">scanProvisionedProductsResponse_nextPageToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#scanProvisionedProductsResponse_nextPageToken"><span class="hs-identifier">scanProvisionedProductsResponse_nextPageToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#scanProvisionedProductsResponse_provisionedProducts"><span class="hs-identifier">scanProvisionedProductsResponse_provisionedProducts</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#scanProvisionedProductsResponse_httpStatus"><span class="hs-identifier">scanProvisionedProductsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span class="hs-keyword">where</span><span>
@@ -55,28 +55,28 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.html"><span class="hs-identifier">Network.AWS.ServiceCatalog.Types</span></a></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newScanProvisionedProducts' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679411438"><span id="local-6989586621679411439"></span></span><span class="hs-keyword">data</span><span> </span><span id="ScanProvisionedProducts"><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProducts"><span class="hs-identifier hs-var">ScanProvisionedProducts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScanProvisionedProducts%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProducts%27"><span class="hs-identifier hs-var">ScanProvisionedProducts'</span></a></span></span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The maximum number of items to return with this call.</span><span>
-</span><span id="line-60"></span><span>    </span><span id="%24sel%3ApageSize%3AScanProvisionedProducts%27"><span class="annot"><span class="annottext">ScanProvisionedProducts -&gt; Maybe Natural
-</span><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#%24sel%3ApageSize%3AScanProvisionedProducts%27"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The page token for the next set of results. To retrieve the first set of</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- results, use null.</span><span>
-</span><span id="line-63"></span><span>    </span><span id="%24sel%3ApageToken%3AScanProvisionedProducts%27"><span class="annot"><span class="annottext">ScanProvisionedProducts -&gt; Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#%24sel%3ApageToken%3AScanProvisionedProducts%27"><span class="hs-identifier hs-var hs-var">pageToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The access level to use to obtain results. The default is @User@.</span><span>
-</span><span id="line-65"></span><span>    </span><span id="%24sel%3AaccessLevelFilter%3AScanProvisionedProducts%27"><span class="annot"><span class="annottext">ScanProvisionedProducts -&gt; Maybe AccessLevelFilter
+</span><span id="line-58"></span><span id="local-6989586621679411906"><span id="local-6989586621679411907"></span></span><span class="hs-keyword">data</span><span> </span><span id="ScanProvisionedProducts"><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProducts"><span class="hs-identifier hs-var">ScanProvisionedProducts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScanProvisionedProducts%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProducts%27"><span class="hs-identifier hs-var">ScanProvisionedProducts'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The language code.</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- -   @en@ - English (default)</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- -   @jp@ - Japanese</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- -   @zh@ - Chinese</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AacceptLanguage%3AScanProvisionedProducts%27"><span class="annot"><span class="annottext">ScanProvisionedProducts -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#%24sel%3AacceptLanguage%3AScanProvisionedProducts%27"><span class="hs-identifier hs-var hs-var">acceptLanguage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The access level to use to obtain results. The default is @User@.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AaccessLevelFilter%3AScanProvisionedProducts%27"><span class="annot"><span class="annottext">ScanProvisionedProducts -&gt; Maybe AccessLevelFilter
 </span><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#%24sel%3AaccessLevelFilter%3AScanProvisionedProducts%27"><span class="hs-identifier hs-var hs-var">accessLevelFilter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#AccessLevelFilter"><span class="hs-identifier hs-type">AccessLevelFilter</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The language code.</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- -   @en@ - English (default)</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- -   @jp@ - Japanese</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- -   @zh@ - Chinese</span><span>
-</span><span id="line-73"></span><span>    </span><span id="%24sel%3AacceptLanguage%3AScanProvisionedProducts%27"><span class="annot"><span class="annottext">ScanProvisionedProducts -&gt; Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#%24sel%3AacceptLanguage%3AScanProvisionedProducts%27"><span class="hs-identifier hs-var hs-var">acceptLanguage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The page token for the next set of results. To retrieve the first set of</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- results, use null.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3ApageToken%3AScanProvisionedProducts%27"><span class="annot"><span class="annottext">ScanProvisionedProducts -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#%24sel%3ApageToken%3AScanProvisionedProducts%27"><span class="hs-identifier hs-var hs-var">pageToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The maximum number of items to return with this call.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3ApageSize%3AScanProvisionedProducts%27"><span class="annot"><span class="annottext">ScanProvisionedProducts -&gt; Maybe Natural
+</span><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#%24sel%3ApageSize%3AScanProvisionedProducts%27"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-74"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679411429"><span id="local-6989586621679411431"><span class="annot"><span class="annottext">ScanProvisionedProducts -&gt; ScanProvisionedProducts -&gt; Bool
+</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679411897"><span id="local-6989586621679411899"><span class="annot"><span class="annottext">ScanProvisionedProducts -&gt; ScanProvisionedProducts -&gt; Bool
 (ScanProvisionedProducts -&gt; ScanProvisionedProducts -&gt; Bool)
 -&gt; (ScanProvisionedProducts -&gt; ScanProvisionedProducts -&gt; Bool)
 -&gt; Eq ScanProvisionedProducts
@@ -85,7 +85,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ScanProvisionedProducts -&gt; ScanProvisionedProducts -&gt; Bool
 == :: ScanProvisionedProducts -&gt; ScanProvisionedProducts -&gt; Bool
 $c== :: ScanProvisionedProducts -&gt; ScanProvisionedProducts -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679411420"><span id="local-6989586621679411422"><span id="local-6989586621679411424"><span id="local-6989586621679411426"><span class="annot"><span class="annottext">ReadPrec [ScanProvisionedProducts]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679411888"><span id="local-6989586621679411890"><span id="local-6989586621679411892"><span id="local-6989586621679411894"><span class="annot"><span class="annottext">ReadPrec [ScanProvisionedProducts]
 ReadPrec ScanProvisionedProducts
 Int -&gt; ReadS ScanProvisionedProducts
 ReadS [ScanProvisionedProducts]
@@ -105,7 +105,7 @@ readList :: ReadS [ScanProvisionedProducts]
 $creadList :: ReadS [ScanProvisionedProducts]
 readsPrec :: Int -&gt; ReadS ScanProvisionedProducts
 $creadsPrec :: Int -&gt; ReadS ScanProvisionedProducts
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679411413"><span id="local-6989586621679411415"><span id="local-6989586621679411417"><span class="annot"><span class="annottext">Int -&gt; ScanProvisionedProducts -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679411881"><span id="local-6989586621679411883"><span id="local-6989586621679411885"><span class="annot"><span class="annottext">Int -&gt; ScanProvisionedProducts -&gt; ShowS
 [ScanProvisionedProducts] -&gt; ShowS
 ScanProvisionedProducts -&gt; String
 (Int -&gt; ScanProvisionedProducts -&gt; ShowS)
@@ -141,131 +141,58 @@ $cfrom :: forall x. ScanProvisionedProducts -&gt; Rep ScanProvisionedProducts x
 </span><span id="line-82"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-84"></span><span class="hs-comment">--</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- 'pageSize', 'scanProvisionedProducts_pageSize' - The maximum number of items to return with this call.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'acceptLanguage', 'scanProvisionedProducts_acceptLanguage' - The language code.</span><span>
 </span><span id="line-86"></span><span class="hs-comment">--</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- 'pageToken', 'scanProvisionedProducts_pageToken' - The page token for the next set of results. To retrieve the first set of</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- results, use null.</span><span>
-</span><span id="line-89"></span><span class="hs-comment">--</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- 'accessLevelFilter', 'scanProvisionedProducts_accessLevelFilter' - The access level to use to obtain results. The default is @User@.</span><span>
-</span><span id="line-91"></span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- 'acceptLanguage', 'scanProvisionedProducts_acceptLanguage' - The language code.</span><span>
-</span><span id="line-93"></span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- -   @en@ - English (default)</span><span>
-</span><span id="line-95"></span><span class="hs-comment">--</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- -   @jp@ - Japanese</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- -   @en@ - English (default)</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- -   @jp@ - Japanese</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- -   @zh@ - Chinese</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'accessLevelFilter', 'scanProvisionedProducts_accessLevelFilter' - The access level to use to obtain results. The default is @User@.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'pageToken', 'scanProvisionedProducts_pageToken' - The page token for the next set of results. To retrieve the first set of</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- results, use null.</span><span>
 </span><span id="line-97"></span><span class="hs-comment">--</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- -   @zh@ - Chinese</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'pageSize', 'scanProvisionedProducts_pageSize' - The maximum number of items to return with this call.</span><span>
 </span><span id="line-99"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#newScanProvisionedProducts"><span class="hs-identifier hs-type">newScanProvisionedProducts</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-100"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProducts"><span class="hs-identifier hs-type">ScanProvisionedProducts</span></a></span><span>
 </span><span id="line-101"></span><span id="newScanProvisionedProducts"><span class="annot"><span class="annottext">newScanProvisionedProducts :: ScanProvisionedProducts
 </span><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#newScanProvisionedProducts"><span class="hs-identifier hs-var hs-var">newScanProvisionedProducts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-102"></span><span>  </span><span class="annot"><span class="annottext">ScanProvisionedProducts' :: Maybe Natural
--&gt; Maybe Text
+</span><span id="line-102"></span><span>  </span><span class="annot"><span class="annottext">ScanProvisionedProducts' :: Maybe Text
 -&gt; Maybe AccessLevelFilter
 -&gt; Maybe Text
+-&gt; Maybe Natural
 -&gt; ScanProvisionedProducts
 </span><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProducts%27"><span class="hs-identifier hs-type">ScanProvisionedProducts'</span></a></span><span>
-</span><span id="line-103"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pageSize:ScanProvisionedProducts' :: Maybe Natural
-</span><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#%24sel%3ApageSize%3AScanProvisionedProducts%27"><span class="hs-identifier hs-var">pageSize</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-103"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:acceptLanguage:ScanProvisionedProducts' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#%24sel%3AacceptLanguage%3AScanProvisionedProducts%27"><span class="hs-identifier hs-var">acceptLanguage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:pageToken:ScanProvisionedProducts' :: Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#%24sel%3ApageToken%3AScanProvisionedProducts%27"><span class="hs-identifier hs-var">pageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:accessLevelFilter:ScanProvisionedProducts' :: Maybe AccessLevelFilter
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:accessLevelFilter:ScanProvisionedProducts' :: Maybe AccessLevelFilter
 </span><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#%24sel%3AaccessLevelFilter%3AScanProvisionedProducts%27"><span class="hs-identifier hs-var">accessLevelFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccessLevelFilter
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:acceptLanguage:ScanProvisionedProducts' :: Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#%24sel%3AacceptLanguage%3AScanProvisionedProducts%27"><span class="hs-identifier hs-var">acceptLanguage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:pageToken:ScanProvisionedProducts' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#%24sel%3ApageToken%3AScanProvisionedProducts%27"><span class="hs-identifier hs-var">pageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:pageSize:ScanProvisionedProducts' :: Maybe Natural
+</span><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#%24sel%3ApageSize%3AScanProvisionedProducts%27"><span class="hs-identifier hs-var">pageSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-108"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- | The maximum number of items to return with this call.</span><span>
-</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#scanProvisionedProducts_pageSize"><span class="hs-identifier hs-type">scanProvisionedProducts_pageSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProducts"><span class="hs-identifier hs-type">ScanProvisionedProducts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span id="scanProvisionedProducts_pageSize"><span class="annot"><span class="annottext">scanProvisionedProducts_pageSize :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; ScanProvisionedProducts -&gt; f ScanProvisionedProducts
-</span><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#scanProvisionedProducts_pageSize"><span class="hs-identifier hs-var hs-var">scanProvisionedProducts_pageSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScanProvisionedProducts -&gt; Maybe Natural)
--&gt; (ScanProvisionedProducts
-    -&gt; Maybe Natural -&gt; ScanProvisionedProducts)
--&gt; Lens
-     ScanProvisionedProducts
-     ScanProvisionedProducts
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProducts%27"><span class="hs-identifier hs-type">ScanProvisionedProducts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411407"><span class="annot"><span class="annottext">Maybe Natural
-pageSize :: Maybe Natural
-$sel:pageSize:ScanProvisionedProducts' :: ScanProvisionedProducts -&gt; Maybe Natural
-</span><a href="#local-6989586621679411407"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679411407"><span class="hs-identifier hs-var">pageSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411406"><span class="annot"><span class="annottext">s :: ScanProvisionedProducts
-</span><a href="#local-6989586621679411406"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProducts%27"><span class="hs-identifier hs-type">ScanProvisionedProducts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411405"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679411405"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScanProvisionedProducts
-</span><a href="#local-6989586621679411406"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageSize:ScanProvisionedProducts' :: Maybe Natural
-</span><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#%24sel%3ApageSize%3AScanProvisionedProducts%27"><span class="hs-identifier hs-var">pageSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679411405"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProducts"><span class="hs-identifier hs-type">ScanProvisionedProducts</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- | The page token for the next set of results. To retrieve the first set of</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- results, use null.</span><span>
-</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#scanProvisionedProducts_pageToken"><span class="hs-identifier hs-type">scanProvisionedProducts_pageToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProducts"><span class="hs-identifier hs-type">ScanProvisionedProducts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span id="scanProvisionedProducts_pageToken"><span class="annot"><span class="annottext">scanProvisionedProducts_pageToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ScanProvisionedProducts -&gt; f ScanProvisionedProducts
-</span><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#scanProvisionedProducts_pageToken"><span class="hs-identifier hs-var hs-var">scanProvisionedProducts_pageToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScanProvisionedProducts -&gt; Maybe Text)
--&gt; (ScanProvisionedProducts
-    -&gt; Maybe Text -&gt; ScanProvisionedProducts)
--&gt; Lens
-     ScanProvisionedProducts
-     ScanProvisionedProducts
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProducts%27"><span class="hs-identifier hs-type">ScanProvisionedProducts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411404"><span class="annot"><span class="annottext">Maybe Text
-pageToken :: Maybe Text
-$sel:pageToken:ScanProvisionedProducts' :: ScanProvisionedProducts -&gt; Maybe Text
-</span><a href="#local-6989586621679411404"><span class="hs-identifier hs-var hs-var">pageToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679411404"><span class="hs-identifier hs-var">pageToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411403"><span class="annot"><span class="annottext">s :: ScanProvisionedProducts
-</span><a href="#local-6989586621679411403"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProducts%27"><span class="hs-identifier hs-type">ScanProvisionedProducts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411402"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679411402"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScanProvisionedProducts
-</span><a href="#local-6989586621679411403"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageToken:ScanProvisionedProducts' :: Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#%24sel%3ApageToken%3AScanProvisionedProducts%27"><span class="hs-identifier hs-var">pageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679411402"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProducts"><span class="hs-identifier hs-type">ScanProvisionedProducts</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- | The access level to use to obtain results. The default is @User@.</span><span>
-</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#scanProvisionedProducts_accessLevelFilter"><span class="hs-identifier hs-type">scanProvisionedProducts_accessLevelFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProducts"><span class="hs-identifier hs-type">ScanProvisionedProducts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#AccessLevelFilter"><span class="hs-identifier hs-type">AccessLevelFilter</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span id="scanProvisionedProducts_accessLevelFilter"><span class="annot"><span class="annottext">scanProvisionedProducts_accessLevelFilter :: (Maybe AccessLevelFilter -&gt; f (Maybe AccessLevelFilter))
--&gt; ScanProvisionedProducts -&gt; f ScanProvisionedProducts
-</span><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#scanProvisionedProducts_accessLevelFilter"><span class="hs-identifier hs-var hs-var">scanProvisionedProducts_accessLevelFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScanProvisionedProducts -&gt; Maybe AccessLevelFilter)
--&gt; (ScanProvisionedProducts
-    -&gt; Maybe AccessLevelFilter -&gt; ScanProvisionedProducts)
--&gt; Lens
-     ScanProvisionedProducts
-     ScanProvisionedProducts
-     (Maybe AccessLevelFilter)
-     (Maybe AccessLevelFilter)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProducts%27"><span class="hs-identifier hs-type">ScanProvisionedProducts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411401"><span class="annot"><span class="annottext">Maybe AccessLevelFilter
-accessLevelFilter :: Maybe AccessLevelFilter
-$sel:accessLevelFilter:ScanProvisionedProducts' :: ScanProvisionedProducts -&gt; Maybe AccessLevelFilter
-</span><a href="#local-6989586621679411401"><span class="hs-identifier hs-var hs-var">accessLevelFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AccessLevelFilter
-</span><a href="#local-6989586621679411401"><span class="hs-identifier hs-var">accessLevelFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411400"><span class="annot"><span class="annottext">s :: ScanProvisionedProducts
-</span><a href="#local-6989586621679411400"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProducts%27"><span class="hs-identifier hs-type">ScanProvisionedProducts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411399"><span class="annot"><span class="annottext">Maybe AccessLevelFilter
-</span><a href="#local-6989586621679411399"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScanProvisionedProducts
-</span><a href="#local-6989586621679411400"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessLevelFilter:ScanProvisionedProducts' :: Maybe AccessLevelFilter
-</span><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#%24sel%3AaccessLevelFilter%3AScanProvisionedProducts%27"><span class="hs-identifier hs-var">accessLevelFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccessLevelFilter
-</span><a href="#local-6989586621679411399"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProducts"><span class="hs-identifier hs-type">ScanProvisionedProducts</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- | The language code.</span><span>
-</span><span id="line-124"></span><span class="hs-comment">--</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- -   @en@ - English (default)</span><span>
-</span><span id="line-126"></span><span class="hs-comment">--</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- -   @jp@ - Japanese</span><span>
-</span><span id="line-128"></span><span class="hs-comment">--</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- -   @zh@ - Chinese</span><span>
-</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#scanProvisionedProducts_acceptLanguage"><span class="hs-identifier hs-type">scanProvisionedProducts_acceptLanguage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProducts"><span class="hs-identifier hs-type">ScanProvisionedProducts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span id="scanProvisionedProducts_acceptLanguage"><span class="annot"><span class="annottext">scanProvisionedProducts_acceptLanguage :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-110"></span><span class="hs-comment">-- | The language code.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- -   @en@ - English (default)</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- -   @jp@ - Japanese</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- -   @zh@ - Chinese</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#scanProvisionedProducts_acceptLanguage"><span class="hs-identifier hs-type">scanProvisionedProducts_acceptLanguage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProducts"><span class="hs-identifier hs-type">ScanProvisionedProducts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="scanProvisionedProducts_acceptLanguage"><span class="annot"><span class="annottext">scanProvisionedProducts_acceptLanguage :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ScanProvisionedProducts -&gt; f ScanProvisionedProducts
 </span><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#scanProvisionedProducts_acceptLanguage"><span class="hs-identifier hs-var hs-var">scanProvisionedProducts_acceptLanguage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScanProvisionedProducts -&gt; Maybe Text)
 -&gt; (ScanProvisionedProducts
@@ -276,30 +203,103 @@ $sel:accessLevelFilter:ScanProvisionedProducts' :: ScanProvisionedProducts -&gt;
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProducts%27"><span class="hs-identifier hs-type">ScanProvisionedProducts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411398"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProducts%27"><span class="hs-identifier hs-type">ScanProvisionedProducts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411875"><span class="annot"><span class="annottext">Maybe Text
 acceptLanguage :: Maybe Text
 $sel:acceptLanguage:ScanProvisionedProducts' :: ScanProvisionedProducts -&gt; Maybe Text
-</span><a href="#local-6989586621679411398"><span class="hs-identifier hs-var hs-var">acceptLanguage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679411398"><span class="hs-identifier hs-var">acceptLanguage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411397"><span class="annot"><span class="annottext">s :: ScanProvisionedProducts
-</span><a href="#local-6989586621679411397"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProducts%27"><span class="hs-identifier hs-type">ScanProvisionedProducts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411396"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679411396"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScanProvisionedProducts
-</span><a href="#local-6989586621679411397"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:acceptLanguage:ScanProvisionedProducts' :: Maybe Text
+</span><a href="#local-6989586621679411875"><span class="hs-identifier hs-var hs-var">acceptLanguage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679411875"><span class="hs-identifier hs-var">acceptLanguage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411874"><span class="annot"><span class="annottext">s :: ScanProvisionedProducts
+</span><a href="#local-6989586621679411874"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProducts%27"><span class="hs-identifier hs-type">ScanProvisionedProducts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411873"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679411873"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScanProvisionedProducts
+</span><a href="#local-6989586621679411874"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:acceptLanguage:ScanProvisionedProducts' :: Maybe Text
 </span><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#%24sel%3AacceptLanguage%3AScanProvisionedProducts%27"><span class="hs-identifier hs-var">acceptLanguage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679411396"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProducts"><span class="hs-identifier hs-type">ScanProvisionedProducts</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679411873"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProducts"><span class="hs-identifier hs-type">ScanProvisionedProducts</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The access level to use to obtain results. The default is @User@.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#scanProvisionedProducts_accessLevelFilter"><span class="hs-identifier hs-type">scanProvisionedProducts_accessLevelFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProducts"><span class="hs-identifier hs-type">ScanProvisionedProducts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#AccessLevelFilter"><span class="hs-identifier hs-type">AccessLevelFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="scanProvisionedProducts_accessLevelFilter"><span class="annot"><span class="annottext">scanProvisionedProducts_accessLevelFilter :: (Maybe AccessLevelFilter -&gt; f (Maybe AccessLevelFilter))
+-&gt; ScanProvisionedProducts -&gt; f ScanProvisionedProducts
+</span><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#scanProvisionedProducts_accessLevelFilter"><span class="hs-identifier hs-var hs-var">scanProvisionedProducts_accessLevelFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScanProvisionedProducts -&gt; Maybe AccessLevelFilter)
+-&gt; (ScanProvisionedProducts
+    -&gt; Maybe AccessLevelFilter -&gt; ScanProvisionedProducts)
+-&gt; Lens
+     ScanProvisionedProducts
+     ScanProvisionedProducts
+     (Maybe AccessLevelFilter)
+     (Maybe AccessLevelFilter)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProducts%27"><span class="hs-identifier hs-type">ScanProvisionedProducts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411872"><span class="annot"><span class="annottext">Maybe AccessLevelFilter
+accessLevelFilter :: Maybe AccessLevelFilter
+$sel:accessLevelFilter:ScanProvisionedProducts' :: ScanProvisionedProducts -&gt; Maybe AccessLevelFilter
+</span><a href="#local-6989586621679411872"><span class="hs-identifier hs-var hs-var">accessLevelFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AccessLevelFilter
+</span><a href="#local-6989586621679411872"><span class="hs-identifier hs-var">accessLevelFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411871"><span class="annot"><span class="annottext">s :: ScanProvisionedProducts
+</span><a href="#local-6989586621679411871"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProducts%27"><span class="hs-identifier hs-type">ScanProvisionedProducts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411870"><span class="annot"><span class="annottext">Maybe AccessLevelFilter
+</span><a href="#local-6989586621679411870"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScanProvisionedProducts
+</span><a href="#local-6989586621679411871"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessLevelFilter:ScanProvisionedProducts' :: Maybe AccessLevelFilter
+</span><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#%24sel%3AaccessLevelFilter%3AScanProvisionedProducts%27"><span class="hs-identifier hs-var">accessLevelFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccessLevelFilter
+</span><a href="#local-6989586621679411870"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProducts"><span class="hs-identifier hs-type">ScanProvisionedProducts</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The page token for the next set of results. To retrieve the first set of</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- results, use null.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#scanProvisionedProducts_pageToken"><span class="hs-identifier hs-type">scanProvisionedProducts_pageToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProducts"><span class="hs-identifier hs-type">ScanProvisionedProducts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="scanProvisionedProducts_pageToken"><span class="annot"><span class="annottext">scanProvisionedProducts_pageToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ScanProvisionedProducts -&gt; f ScanProvisionedProducts
+</span><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#scanProvisionedProducts_pageToken"><span class="hs-identifier hs-var hs-var">scanProvisionedProducts_pageToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScanProvisionedProducts -&gt; Maybe Text)
+-&gt; (ScanProvisionedProducts
+    -&gt; Maybe Text -&gt; ScanProvisionedProducts)
+-&gt; Lens
+     ScanProvisionedProducts
+     ScanProvisionedProducts
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProducts%27"><span class="hs-identifier hs-type">ScanProvisionedProducts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411869"><span class="annot"><span class="annottext">Maybe Text
+pageToken :: Maybe Text
+$sel:pageToken:ScanProvisionedProducts' :: ScanProvisionedProducts -&gt; Maybe Text
+</span><a href="#local-6989586621679411869"><span class="hs-identifier hs-var hs-var">pageToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679411869"><span class="hs-identifier hs-var">pageToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411868"><span class="annot"><span class="annottext">s :: ScanProvisionedProducts
+</span><a href="#local-6989586621679411868"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProducts%27"><span class="hs-identifier hs-type">ScanProvisionedProducts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411867"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679411867"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScanProvisionedProducts
+</span><a href="#local-6989586621679411868"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageToken:ScanProvisionedProducts' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#%24sel%3ApageToken%3AScanProvisionedProducts%27"><span class="hs-identifier hs-var">pageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679411867"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProducts"><span class="hs-identifier hs-type">ScanProvisionedProducts</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The maximum number of items to return with this call.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#scanProvisionedProducts_pageSize"><span class="hs-identifier hs-type">scanProvisionedProducts_pageSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProducts"><span class="hs-identifier hs-type">ScanProvisionedProducts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="scanProvisionedProducts_pageSize"><span class="annot"><span class="annottext">scanProvisionedProducts_pageSize :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ScanProvisionedProducts -&gt; f ScanProvisionedProducts
+</span><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#scanProvisionedProducts_pageSize"><span class="hs-identifier hs-var hs-var">scanProvisionedProducts_pageSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScanProvisionedProducts -&gt; Maybe Natural)
+-&gt; (ScanProvisionedProducts
+    -&gt; Maybe Natural -&gt; ScanProvisionedProducts)
+-&gt; Lens
+     ScanProvisionedProducts
+     ScanProvisionedProducts
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProducts%27"><span class="hs-identifier hs-type">ScanProvisionedProducts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411866"><span class="annot"><span class="annottext">Maybe Natural
+pageSize :: Maybe Natural
+$sel:pageSize:ScanProvisionedProducts' :: ScanProvisionedProducts -&gt; Maybe Natural
+</span><a href="#local-6989586621679411866"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679411866"><span class="hs-identifier hs-var">pageSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411865"><span class="annot"><span class="annottext">s :: ScanProvisionedProducts
+</span><a href="#local-6989586621679411865"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProducts%27"><span class="hs-identifier hs-type">ScanProvisionedProducts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411864"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679411864"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScanProvisionedProducts
+</span><a href="#local-6989586621679411865"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageSize:ScanProvisionedProducts' :: Maybe Natural
+</span><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#%24sel%3ApageSize%3AScanProvisionedProducts%27"><span class="hs-identifier hs-var">pageSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679411864"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProducts"><span class="hs-identifier hs-type">ScanProvisionedProducts</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProducts"><span class="hs-identifier hs-type">ScanProvisionedProducts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679411392"><span class="annot"><span class="annottext">page :: ScanProvisionedProducts
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679411860"><span class="annot"><span class="annottext">page :: ScanProvisionedProducts
 -&gt; AWSResponse ScanProvisionedProducts
 -&gt; Maybe ScanProvisionedProducts
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679411390"><span class="annot"><span class="annottext">ScanProvisionedProducts
-</span><a href="#local-6989586621679411390"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679411389"><span class="annot"><span class="annottext">AWSResponse ScanProvisionedProducts
-</span><a href="#local-6989586621679411389"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679411858"><span class="annot"><span class="annottext">ScanProvisionedProducts
+</span><a href="#local-6989586621679411858"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679411857"><span class="annot"><span class="annottext">AWSResponse ScanProvisionedProducts
+</span><a href="#local-6989586621679411857"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-135"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-136"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ScanProvisionedProducts
 ScanProvisionedProductsResponse
-</span><a href="#local-6989586621679411389"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679411857"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">ScanProvisionedProductsResponse
 -&gt; Getting (First Text) ScanProvisionedProductsResponse Text
 -&gt; Maybe Text
@@ -329,7 +329,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-142"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ScanProvisionedProducts
 ScanProvisionedProductsResponse
-</span><a href="#local-6989586621679411389"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679411857"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">ScanProvisionedProductsResponse
 -&gt; Getting
      (First [ProvisionedProductDetail])
@@ -388,7 +388,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">ScanProvisionedProducts
-</span><a href="#local-6989586621679411390"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679411858"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-150"></span><span>          </span><span class="annot"><span class="annottext">ScanProvisionedProducts
 -&gt; (ScanProvisionedProducts -&gt; ScanProvisionedProducts)
 -&gt; ScanProvisionedProducts
@@ -407,7 +407,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ScanProvisionedProducts
 ScanProvisionedProductsResponse
-</span><a href="#local-6989586621679411389"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679411857"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-152"></span><span>          </span><span class="annot"><span class="annottext">ScanProvisionedProductsResponse
 -&gt; Getting (First Text) ScanProvisionedProductsResponse Text
 -&gt; Maybe Text
@@ -433,13 +433,13 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-156"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-157"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProducts"><span class="hs-identifier hs-type">ScanProvisionedProducts</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-158"></span><span>      </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProductsResponse"><span class="hs-identifier hs-type">ScanProvisionedProductsResponse</span></a></span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679411379"><span class="annot"><span class="annottext">request :: ScanProvisionedProducts -&gt; Request ScanProvisionedProducts
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679411847"><span class="annot"><span class="annottext">request :: ScanProvisionedProducts -&gt; Request ScanProvisionedProducts
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; ScanProvisionedProducts -&gt; Request ScanProvisionedProducts
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ServiceCatalog.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679411375"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679411843"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ScanProvisionedProducts
 -&gt; ClientResponse ClientBody
@@ -465,43 +465,51 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-162"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679411372"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679411372"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679411371"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679411371"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679411370"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679411370"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-163"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ProvisionedProductDetail]
--&gt; Maybe Text -&gt; Int -&gt; ScanProvisionedProductsResponse
+</span><span id="line-162"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679411840"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679411840"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679411839"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679411839"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679411838"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679411838"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-163"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [ProvisionedProductDetail]
+-&gt; Int
+-&gt; ScanProvisionedProductsResponse
 </span><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProductsResponse%27"><span class="hs-identifier hs-var">ScanProvisionedProductsResponse'</span></a></span><span>
-</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ProvisionedProductDetail]
- -&gt; Maybe Text -&gt; Int -&gt; ScanProvisionedProductsResponse)
--&gt; Either String (Maybe [ProvisionedProductDetail])
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [ProvisionedProductDetail]
+ -&gt; Int
+ -&gt; ScanProvisionedProductsResponse)
+-&gt; Either String (Maybe Text)
 -&gt; Either
-     String (Maybe Text -&gt; Int -&gt; ScanProvisionedProductsResponse)
+     String
+     (Maybe [ProvisionedProductDetail]
+      -&gt; Int -&gt; ScanProvisionedProductsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679411370"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679411838"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextPageToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [ProvisionedProductDetail]
+   -&gt; Int -&gt; ScanProvisionedProductsResponse)
+-&gt; Either String (Maybe [ProvisionedProductDetail])
+-&gt; Either String (Int -&gt; ScanProvisionedProductsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679411838"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [ProvisionedProductDetail]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ProvisionedProducts&quot;</span></span><span>
-</span><span id="line-165"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ProvisionedProductDetail]))
+</span><span id="line-166"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ProvisionedProductDetail]))
 -&gt; Maybe [ProvisionedProductDetail]
 -&gt; Either String (Maybe [ProvisionedProductDetail])
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ProvisionedProductDetail]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-166"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String (Maybe Text -&gt; Int -&gt; ScanProvisionedProductsResponse)
--&gt; Either String (Maybe Text)
--&gt; Either String (Int -&gt; ScanProvisionedProductsResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679411370"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextPageToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ScanProvisionedProductsResponse)
 -&gt; Either String Int
 -&gt; Either String ScanProvisionedProductsResponse
@@ -511,15 +519,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679411372"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679411840"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679411361"><span id="local-6989586621679411363"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProducts"><span class="hs-identifier hs-type">ScanProvisionedProducts</span></a></span></span></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679411829"><span id="local-6989586621679411831"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProducts"><span class="hs-identifier hs-type">ScanProvisionedProducts</span></a></span></span></span><span>
 </span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679411358"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProducts"><span class="hs-identifier hs-type">ScanProvisionedProducts</span></a></span></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679411826"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProducts"><span class="hs-identifier hs-type">ScanProvisionedProducts</span></a></span></span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProducts"><span class="hs-identifier hs-type">ScanProvisionedProducts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679411354"><span class="annot"><span class="annottext">toHeaders :: ScanProvisionedProducts -&gt; ResponseHeaders
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679411822"><span class="annot"><span class="annottext">toHeaders :: ScanProvisionedProducts -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ScanProvisionedProducts -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -546,39 +554,33 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-187"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-188"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span><span>
-</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679411344"><span id="local-6989586621679411346"><span id="local-6989586621679411348"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProducts"><span class="hs-identifier hs-type">ScanProvisionedProducts</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-191"></span><span>  </span><span id="local-6989586621679411342"><span class="annot"><span class="annottext">toJSON :: ScanProvisionedProducts -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProducts%27"><span class="hs-identifier hs-type">ScanProvisionedProducts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411337"><span id="local-6989586621679411338"><span id="local-6989586621679411339"><span id="local-6989586621679411340"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679411812"><span id="local-6989586621679411814"><span id="local-6989586621679411816"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProducts"><span class="hs-identifier hs-type">ScanProvisionedProducts</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679411810"><span class="annot"><span class="annottext">toJSON :: ScanProvisionedProducts -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProducts%27"><span class="hs-identifier hs-type">ScanProvisionedProducts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411805"><span id="local-6989586621679411806"><span id="local-6989586621679411807"><span id="local-6989586621679411808"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe AccessLevelFilter
-acceptLanguage :: Maybe Text
-accessLevelFilter :: Maybe AccessLevelFilter
-pageToken :: Maybe Text
 pageSize :: Maybe Natural
-$sel:acceptLanguage:ScanProvisionedProducts' :: ScanProvisionedProducts -&gt; Maybe Text
-$sel:accessLevelFilter:ScanProvisionedProducts' :: ScanProvisionedProducts -&gt; Maybe AccessLevelFilter
-$sel:pageToken:ScanProvisionedProducts' :: ScanProvisionedProducts -&gt; Maybe Text
+pageToken :: Maybe Text
+accessLevelFilter :: Maybe AccessLevelFilter
+acceptLanguage :: Maybe Text
 $sel:pageSize:ScanProvisionedProducts' :: ScanProvisionedProducts -&gt; Maybe Natural
-</span><a href="#local-6989586621679411337"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:pageToken:ScanProvisionedProducts' :: ScanProvisionedProducts -&gt; Maybe Text
+$sel:accessLevelFilter:ScanProvisionedProducts' :: ScanProvisionedProducts -&gt; Maybe AccessLevelFilter
+$sel:acceptLanguage:ScanProvisionedProducts' :: ScanProvisionedProducts -&gt; Maybe Text
+</span><a href="#local-6989586621679411805"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-192"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-193"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-194"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;PageSize&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+</span><span class="hs-string">&quot;AcceptLanguage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679411340"><span class="hs-identifier hs-var">pageSize</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-195"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;PageToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679411339"><span class="hs-identifier hs-var">pageToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679411808"><span class="hs-identifier hs-var">acceptLanguage</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-196"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AccessLevelFilter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AccessLevelFilter -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -587,27 +589,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe AccessLevelFilter -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AccessLevelFilter
-</span><a href="#local-6989586621679411338"><span class="hs-identifier hs-var">accessLevelFilter</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679411807"><span class="hs-identifier hs-var">accessLevelFilter</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-198"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AcceptLanguage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><span class="hs-string">&quot;PageToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-199"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679411337"><span class="hs-identifier hs-var">acceptLanguage</span></a></span><span>
+</span><a href="#local-6989586621679411806"><span class="hs-identifier hs-var">pageToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PageSize&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679411805"><span class="hs-identifier hs-var">pageSize</span></a></span><span>
 </span><span id="line-200"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-201"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-202"></span><span>
 </span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProducts"><span class="hs-identifier hs-type">ScanProvisionedProducts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-204"></span><span>  </span><span id="local-6989586621679411331"><span class="annot"><span class="annottext">toPath :: ScanProvisionedProducts -&gt; ByteString
+</span><span id="line-204"></span><span>  </span><span id="local-6989586621679411799"><span class="annot"><span class="annottext">toPath :: ScanProvisionedProducts -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ScanProvisionedProducts -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-205"></span><span>
 </span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProducts"><span class="hs-identifier hs-type">ScanProvisionedProducts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-207"></span><span>  </span><span id="local-6989586621679411327"><span class="annot"><span class="annottext">toQuery :: ScanProvisionedProducts -&gt; QueryString
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679411795"><span class="annot"><span class="annottext">toQuery :: ScanProvisionedProducts -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ScanProvisionedProducts -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -615,19 +623,19 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-208"></span><span>
 </span><span id="line-209"></span><span class="hs-comment">-- | /See:/ 'newScanProvisionedProductsResponse' smart constructor.</span><span>
-</span><span id="line-210"></span><span id="local-6989586621679411324"><span id="local-6989586621679411325"></span></span><span class="hs-keyword">data</span><span> </span><span id="ScanProvisionedProductsResponse"><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProductsResponse"><span class="hs-identifier hs-var">ScanProvisionedProductsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScanProvisionedProductsResponse%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProductsResponse%27"><span class="hs-identifier hs-var">ScanProvisionedProductsResponse'</span></a></span></span><span>
-</span><span id="line-211"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the provisioned products.</span><span>
-</span><span id="line-212"></span><span>    </span><span id="%24sel%3AprovisionedProducts%3AScanProvisionedProductsResponse%27"><span class="annot"><span class="annottext">ScanProvisionedProductsResponse -&gt; Maybe [ProvisionedProductDetail]
-</span><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#%24sel%3AprovisionedProducts%3AScanProvisionedProductsResponse%27"><span class="hs-identifier hs-var hs-var">provisionedProducts</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductDetail.html#ProvisionedProductDetail"><span class="hs-identifier hs-type">ProvisionedProductDetail</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-213"></span><span>    </span><span class="hs-comment">-- | The page token to use to retrieve the next set of results. If there are</span><span>
-</span><span id="line-214"></span><span>    </span><span class="hs-comment">-- no additional results, this value is null.</span><span>
-</span><span id="line-215"></span><span>    </span><span id="%24sel%3AnextPageToken%3AScanProvisionedProductsResponse%27"><span class="annot"><span class="annottext">ScanProvisionedProductsResponse -&gt; Maybe Text
+</span><span id="line-210"></span><span id="local-6989586621679411792"><span id="local-6989586621679411793"></span></span><span class="hs-keyword">data</span><span> </span><span id="ScanProvisionedProductsResponse"><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProductsResponse"><span class="hs-identifier hs-var">ScanProvisionedProductsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScanProvisionedProductsResponse%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProductsResponse%27"><span class="hs-identifier hs-var">ScanProvisionedProductsResponse'</span></a></span></span><span>
+</span><span id="line-211"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The page token to use to retrieve the next set of results. If there are</span><span>
+</span><span id="line-212"></span><span>    </span><span class="hs-comment">-- no additional results, this value is null.</span><span>
+</span><span id="line-213"></span><span>    </span><span id="%24sel%3AnextPageToken%3AScanProvisionedProductsResponse%27"><span class="annot"><span class="annottext">ScanProvisionedProductsResponse -&gt; Maybe Text
 </span><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#%24sel%3AnextPageToken%3AScanProvisionedProductsResponse%27"><span class="hs-identifier hs-var hs-var">nextPageToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>    </span><span class="hs-comment">-- | Information about the provisioned products.</span><span>
+</span><span id="line-215"></span><span>    </span><span id="%24sel%3AprovisionedProducts%3AScanProvisionedProductsResponse%27"><span class="annot"><span class="annottext">ScanProvisionedProductsResponse -&gt; Maybe [ProvisionedProductDetail]
+</span><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#%24sel%3AprovisionedProducts%3AScanProvisionedProductsResponse%27"><span class="hs-identifier hs-var hs-var">provisionedProducts</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductDetail.html#ProvisionedProductDetail"><span class="hs-identifier hs-type">ProvisionedProductDetail</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-216"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-217"></span><span>    </span><span id="%24sel%3AhttpStatus%3AScanProvisionedProductsResponse%27"><span class="annot"><span class="annottext">ScanProvisionedProductsResponse -&gt; Int
 </span><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#%24sel%3AhttpStatus%3AScanProvisionedProductsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-218"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-219"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679411317"><span id="local-6989586621679411319"><span class="annot"><span class="annottext">ScanProvisionedProductsResponse
+</span><span id="line-219"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679411785"><span id="local-6989586621679411787"><span class="annot"><span class="annottext">ScanProvisionedProductsResponse
 -&gt; ScanProvisionedProductsResponse -&gt; Bool
 (ScanProvisionedProductsResponse
  -&gt; ScanProvisionedProductsResponse -&gt; Bool)
@@ -643,7 +651,7 @@ $c/= :: ScanProvisionedProductsResponse
 -&gt; ScanProvisionedProductsResponse -&gt; Bool
 $c== :: ScanProvisionedProductsResponse
 -&gt; ScanProvisionedProductsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679411309"><span id="local-6989586621679411311"><span id="local-6989586621679411313"><span id="local-6989586621679411315"><span class="annot"><span class="annottext">ReadPrec [ScanProvisionedProductsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679411777"><span id="local-6989586621679411779"><span id="local-6989586621679411781"><span id="local-6989586621679411783"><span class="annot"><span class="annottext">ReadPrec [ScanProvisionedProductsResponse]
 ReadPrec ScanProvisionedProductsResponse
 Int -&gt; ReadS ScanProvisionedProductsResponse
 ReadS [ScanProvisionedProductsResponse]
@@ -663,7 +671,7 @@ readList :: ReadS [ScanProvisionedProductsResponse]
 $creadList :: ReadS [ScanProvisionedProductsResponse]
 readsPrec :: Int -&gt; ReadS ScanProvisionedProductsResponse
 $creadsPrec :: Int -&gt; ReadS ScanProvisionedProductsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679411303"><span id="local-6989586621679411305"><span id="local-6989586621679411307"><span class="annot"><span class="annottext">Int -&gt; ScanProvisionedProductsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679411771"><span id="local-6989586621679411773"><span id="local-6989586621679411775"><span class="annot"><span class="annottext">Int -&gt; ScanProvisionedProductsResponse -&gt; ShowS
 [ScanProvisionedProductsResponse] -&gt; ShowS
 ScanProvisionedProductsResponse -&gt; String
 (Int -&gt; ScanProvisionedProductsResponse -&gt; ShowS)
@@ -709,10 +717,10 @@ ScanProvisionedProductsResponse
 </span><span id="line-226"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-227"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-228"></span><span class="hs-comment">--</span><span>
-</span><span id="line-229"></span><span class="hs-comment">-- 'provisionedProducts', 'scanProvisionedProductsResponse_provisionedProducts' - Information about the provisioned products.</span><span>
-</span><span id="line-230"></span><span class="hs-comment">--</span><span>
-</span><span id="line-231"></span><span class="hs-comment">-- 'nextPageToken', 'scanProvisionedProductsResponse_nextPageToken' - The page token to use to retrieve the next set of results. If there are</span><span>
-</span><span id="line-232"></span><span class="hs-comment">-- no additional results, this value is null.</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- 'nextPageToken', 'scanProvisionedProductsResponse_nextPageToken' - The page token to use to retrieve the next set of results. If there are</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- no additional results, this value is null.</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- 'provisionedProducts', 'scanProvisionedProductsResponse_provisionedProducts' - Information about the provisioned products.</span><span>
 </span><span id="line-233"></span><span class="hs-comment">--</span><span>
 </span><span id="line-234"></span><span class="hs-comment">-- 'httpStatus', 'scanProvisionedProductsResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-235"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#newScanProvisionedProductsResponse"><span class="hs-identifier hs-type">newScanProvisionedProductsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -720,28 +728,52 @@ ScanProvisionedProductsResponse
 </span><span id="line-237"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-238"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProductsResponse"><span class="hs-identifier hs-type">ScanProvisionedProductsResponse</span></a></span><span>
 </span><span id="line-239"></span><span id="newScanProvisionedProductsResponse"><span class="annot"><span class="annottext">newScanProvisionedProductsResponse :: Int -&gt; ScanProvisionedProductsResponse
-</span><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#newScanProvisionedProductsResponse"><span class="hs-identifier hs-var hs-var">newScanProvisionedProductsResponse</span></a></span></span><span> </span><span id="local-6989586621679411300"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679411300"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-240"></span><span>  </span><span class="annot"><span class="annottext">ScanProvisionedProductsResponse' :: Maybe [ProvisionedProductDetail]
--&gt; Maybe Text -&gt; Int -&gt; ScanProvisionedProductsResponse
+</span><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#newScanProvisionedProductsResponse"><span class="hs-identifier hs-var hs-var">newScanProvisionedProductsResponse</span></a></span></span><span> </span><span id="local-6989586621679411768"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679411768"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-240"></span><span>  </span><span class="annot"><span class="annottext">ScanProvisionedProductsResponse' :: Maybe Text
+-&gt; Maybe [ProvisionedProductDetail]
+-&gt; Int
+-&gt; ScanProvisionedProductsResponse
 </span><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProductsResponse%27"><span class="hs-identifier hs-type">ScanProvisionedProductsResponse'</span></a></span><span>
-</span><span id="line-241"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:provisionedProducts:ScanProvisionedProductsResponse' :: Maybe [ProvisionedProductDetail]
-</span><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#%24sel%3AprovisionedProducts%3AScanProvisionedProductsResponse%27"><span class="hs-identifier hs-var">provisionedProducts</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-242"></span><span>        </span><span class="annot"><span class="annottext">Maybe [ProvisionedProductDetail]
+</span><span id="line-241"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextPageToken:ScanProvisionedProductsResponse' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#%24sel%3AnextPageToken%3AScanProvisionedProductsResponse%27"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-242"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-243"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextPageToken:ScanProvisionedProductsResponse' :: Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#%24sel%3AnextPageToken%3AScanProvisionedProductsResponse%27"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-243"></span><span>      </span><span class="annot"><span class="annottext">$sel:provisionedProducts:ScanProvisionedProductsResponse' :: Maybe [ProvisionedProductDetail]
+</span><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#%24sel%3AprovisionedProducts%3AScanProvisionedProductsResponse%27"><span class="hs-identifier hs-var">provisionedProducts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ProvisionedProductDetail]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-244"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ScanProvisionedProductsResponse' :: Int
 </span><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#%24sel%3AhttpStatus%3AScanProvisionedProductsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679411300"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679411768"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-245"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-246"></span><span>
-</span><span id="line-247"></span><span class="hs-comment">-- | Information about the provisioned products.</span><span>
-</span><span id="line-248"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#scanProvisionedProductsResponse_provisionedProducts"><span class="hs-identifier hs-type">scanProvisionedProductsResponse_provisionedProducts</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProductsResponse"><span class="hs-identifier hs-type">ScanProvisionedProductsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductDetail.html#ProvisionedProductDetail"><span class="hs-identifier hs-type">ProvisionedProductDetail</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-249"></span><span id="scanProvisionedProductsResponse_provisionedProducts"><span class="annot"><span class="annottext">scanProvisionedProductsResponse_provisionedProducts :: (Maybe [ProvisionedProductDetail]
+</span><span id="line-247"></span><span class="hs-comment">-- | The page token to use to retrieve the next set of results. If there are</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- no additional results, this value is null.</span><span>
+</span><span id="line-249"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#scanProvisionedProductsResponse_nextPageToken"><span class="hs-identifier hs-type">scanProvisionedProductsResponse_nextPageToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProductsResponse"><span class="hs-identifier hs-type">ScanProvisionedProductsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span id="scanProvisionedProductsResponse_nextPageToken"><span class="annot"><span class="annottext">scanProvisionedProductsResponse_nextPageToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ScanProvisionedProductsResponse
+-&gt; f ScanProvisionedProductsResponse
+</span><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#scanProvisionedProductsResponse_nextPageToken"><span class="hs-identifier hs-var hs-var">scanProvisionedProductsResponse_nextPageToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScanProvisionedProductsResponse -&gt; Maybe Text)
+-&gt; (ScanProvisionedProductsResponse
+    -&gt; Maybe Text -&gt; ScanProvisionedProductsResponse)
+-&gt; Lens' ScanProvisionedProductsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProductsResponse%27"><span class="hs-identifier hs-type">ScanProvisionedProductsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411767"><span class="annot"><span class="annottext">Maybe Text
+nextPageToken :: Maybe Text
+$sel:nextPageToken:ScanProvisionedProductsResponse' :: ScanProvisionedProductsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679411767"><span class="hs-identifier hs-var hs-var">nextPageToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679411767"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411766"><span class="annot"><span class="annottext">s :: ScanProvisionedProductsResponse
+</span><a href="#local-6989586621679411766"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProductsResponse%27"><span class="hs-identifier hs-type">ScanProvisionedProductsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411765"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679411765"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScanProvisionedProductsResponse
+</span><a href="#local-6989586621679411766"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextPageToken:ScanProvisionedProductsResponse' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#%24sel%3AnextPageToken%3AScanProvisionedProductsResponse%27"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679411765"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProductsResponse"><span class="hs-identifier hs-type">ScanProvisionedProductsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- | Information about the provisioned products.</span><span>
+</span><span id="line-253"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#scanProvisionedProductsResponse_provisionedProducts"><span class="hs-identifier hs-type">scanProvisionedProductsResponse_provisionedProducts</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProductsResponse"><span class="hs-identifier hs-type">ScanProvisionedProductsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductDetail.html#ProvisionedProductDetail"><span class="hs-identifier hs-type">ProvisionedProductDetail</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span id="scanProvisionedProductsResponse_provisionedProducts"><span class="annot"><span class="annottext">scanProvisionedProductsResponse_provisionedProducts :: (Maybe [ProvisionedProductDetail]
  -&gt; f (Maybe [ProvisionedProductDetail]))
 -&gt; ScanProvisionedProductsResponse
 -&gt; f ScanProvisionedProductsResponse
@@ -753,16 +785,16 @@ forall a. Maybe a
 -&gt; Lens'
      ScanProvisionedProductsResponse (Maybe [ProvisionedProductDetail])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProductsResponse%27"><span class="hs-identifier hs-type">ScanProvisionedProductsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411299"><span class="annot"><span class="annottext">Maybe [ProvisionedProductDetail]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProductsResponse%27"><span class="hs-identifier hs-type">ScanProvisionedProductsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411764"><span class="annot"><span class="annottext">Maybe [ProvisionedProductDetail]
 provisionedProducts :: Maybe [ProvisionedProductDetail]
 $sel:provisionedProducts:ScanProvisionedProductsResponse' :: ScanProvisionedProductsResponse -&gt; Maybe [ProvisionedProductDetail]
-</span><a href="#local-6989586621679411299"><span class="hs-identifier hs-var hs-var">provisionedProducts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ProvisionedProductDetail]
-</span><a href="#local-6989586621679411299"><span class="hs-identifier hs-var">provisionedProducts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411298"><span class="annot"><span class="annottext">s :: ScanProvisionedProductsResponse
-</span><a href="#local-6989586621679411298"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProductsResponse%27"><span class="hs-identifier hs-type">ScanProvisionedProductsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411297"><span class="annot"><span class="annottext">Maybe [ProvisionedProductDetail]
-</span><a href="#local-6989586621679411297"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScanProvisionedProductsResponse
-</span><a href="#local-6989586621679411298"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisionedProducts:ScanProvisionedProductsResponse' :: Maybe [ProvisionedProductDetail]
+</span><a href="#local-6989586621679411764"><span class="hs-identifier hs-var hs-var">provisionedProducts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ProvisionedProductDetail]
+</span><a href="#local-6989586621679411764"><span class="hs-identifier hs-var">provisionedProducts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411763"><span class="annot"><span class="annottext">s :: ScanProvisionedProductsResponse
+</span><a href="#local-6989586621679411763"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProductsResponse%27"><span class="hs-identifier hs-type">ScanProvisionedProductsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411762"><span class="annot"><span class="annottext">Maybe [ProvisionedProductDetail]
+</span><a href="#local-6989586621679411762"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScanProvisionedProductsResponse
+</span><a href="#local-6989586621679411763"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisionedProducts:ScanProvisionedProductsResponse' :: Maybe [ProvisionedProductDetail]
 </span><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#%24sel%3AprovisionedProducts%3AScanProvisionedProductsResponse%27"><span class="hs-identifier hs-var">provisionedProducts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ProvisionedProductDetail]
-</span><a href="#local-6989586621679411297"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProductsResponse"><span class="hs-identifier hs-type">ScanProvisionedProductsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ProvisionedProductDetail]
+</span><a href="#local-6989586621679411762"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProductsResponse"><span class="hs-identifier hs-type">ScanProvisionedProductsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ProvisionedProductDetail]
   -&gt; f (Maybe [ProvisionedProductDetail]))
  -&gt; ScanProvisionedProductsResponse
  -&gt; f ScanProvisionedProductsResponse)
@@ -793,30 +825,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [ProvisionedProductDetail]
   [ProvisionedProductDetail]
   [ProvisionedProductDetail]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-250"></span><span>
-</span><span id="line-251"></span><span class="hs-comment">-- | The page token to use to retrieve the next set of results. If there are</span><span>
-</span><span id="line-252"></span><span class="hs-comment">-- no additional results, this value is null.</span><span>
-</span><span id="line-253"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#scanProvisionedProductsResponse_nextPageToken"><span class="hs-identifier hs-type">scanProvisionedProductsResponse_nextPageToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProductsResponse"><span class="hs-identifier hs-type">ScanProvisionedProductsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-254"></span><span id="scanProvisionedProductsResponse_nextPageToken"><span class="annot"><span class="annottext">scanProvisionedProductsResponse_nextPageToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ScanProvisionedProductsResponse
--&gt; f ScanProvisionedProductsResponse
-</span><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#scanProvisionedProductsResponse_nextPageToken"><span class="hs-identifier hs-var hs-var">scanProvisionedProductsResponse_nextPageToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScanProvisionedProductsResponse -&gt; Maybe Text)
--&gt; (ScanProvisionedProductsResponse
-    -&gt; Maybe Text -&gt; ScanProvisionedProductsResponse)
--&gt; Lens' ScanProvisionedProductsResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProductsResponse%27"><span class="hs-identifier hs-type">ScanProvisionedProductsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411294"><span class="annot"><span class="annottext">Maybe Text
-nextPageToken :: Maybe Text
-$sel:nextPageToken:ScanProvisionedProductsResponse' :: ScanProvisionedProductsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679411294"><span class="hs-identifier hs-var hs-var">nextPageToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679411294"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411293"><span class="annot"><span class="annottext">s :: ScanProvisionedProductsResponse
-</span><a href="#local-6989586621679411293"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProductsResponse%27"><span class="hs-identifier hs-type">ScanProvisionedProductsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411292"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679411292"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScanProvisionedProductsResponse
-</span><a href="#local-6989586621679411293"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextPageToken:ScanProvisionedProductsResponse' :: Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#%24sel%3AnextPageToken%3AScanProvisionedProductsResponse%27"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679411292"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProductsResponse"><span class="hs-identifier hs-type">ScanProvisionedProductsResponse</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-255"></span><span>
 </span><span id="line-256"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-257"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#scanProvisionedProductsResponse_httpStatus"><span class="hs-identifier hs-type">scanProvisionedProductsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProductsResponse"><span class="hs-identifier hs-type">ScanProvisionedProductsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -832,18 +842,18 @@ $sel:nextPageToken:ScanProvisionedProductsResponse' :: ScanProvisionedProductsRe
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProductsResponse%27"><span class="hs-identifier hs-type">ScanProvisionedProductsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411291"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProductsResponse%27"><span class="hs-identifier hs-type">ScanProvisionedProductsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411759"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ScanProvisionedProductsResponse' :: ScanProvisionedProductsResponse -&gt; Int
-</span><a href="#local-6989586621679411291"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679411291"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411290"><span class="annot"><span class="annottext">s :: ScanProvisionedProductsResponse
-</span><a href="#local-6989586621679411290"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProductsResponse%27"><span class="hs-identifier hs-type">ScanProvisionedProductsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411289"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679411289"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScanProvisionedProductsResponse
-</span><a href="#local-6989586621679411290"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ScanProvisionedProductsResponse' :: Int
+</span><a href="#local-6989586621679411759"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679411759"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411758"><span class="annot"><span class="annottext">s :: ScanProvisionedProductsResponse
+</span><a href="#local-6989586621679411758"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProductsResponse%27"><span class="hs-identifier hs-type">ScanProvisionedProductsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411757"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679411757"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScanProvisionedProductsResponse
+</span><a href="#local-6989586621679411758"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ScanProvisionedProductsResponse' :: Int
 </span><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#%24sel%3AhttpStatus%3AScanProvisionedProductsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679411289"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProductsResponse"><span class="hs-identifier hs-type">ScanProvisionedProductsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679411757"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProductsResponse"><span class="hs-identifier hs-type">ScanProvisionedProductsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-259"></span><span>
 </span><span id="line-260"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-261"></span><span>  </span><span id="local-6989586621679411287"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-261"></span><span>  </span><span id="local-6989586621679411755"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-262"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ScanProvisionedProducts.html#ScanProvisionedProductsResponse"><span class="hs-identifier hs-type">ScanProvisionedProductsResponse</span></a></span></span><span>
 </span><span id="line-263"></span></pre></body></html>

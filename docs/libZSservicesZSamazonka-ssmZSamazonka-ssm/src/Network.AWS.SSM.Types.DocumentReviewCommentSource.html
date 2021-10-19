@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Information about comments added to a document review request.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newDocumentReviewCommentSource' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679792713"><span id="local-6989586621679792714"></span></span><span class="hs-keyword">data</span><span> </span><span id="DocumentReviewCommentSource"><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewCommentSource.html#DocumentReviewCommentSource"><span class="hs-identifier hs-var">DocumentReviewCommentSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DocumentReviewCommentSource%27"><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewCommentSource.html#DocumentReviewCommentSource%27"><span class="hs-identifier hs-var">DocumentReviewCommentSource'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679794339"><span id="local-6989586621679794340"></span></span><span class="hs-keyword">data</span><span> </span><span id="DocumentReviewCommentSource"><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewCommentSource.html#DocumentReviewCommentSource"><span class="hs-identifier hs-var">DocumentReviewCommentSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DocumentReviewCommentSource%27"><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewCommentSource.html#DocumentReviewCommentSource%27"><span class="hs-identifier hs-var">DocumentReviewCommentSource'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The content of a comment entered by a user who requests a review of a</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- new document version, or who reviews the new version.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Acontent%3ADocumentReviewCommentSource%27"><span class="annot"><span class="annottext">DocumentReviewCommentSource -&gt; Maybe Text
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Atype%27%3ADocumentReviewCommentSource%27"><span class="annot"><span class="annottext">DocumentReviewCommentSource -&gt; Maybe DocumentReviewCommentType
 </span><a href="Network.AWS.SSM.Types.DocumentReviewCommentSource.html#%24sel%3Atype%27%3ADocumentReviewCommentSource%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewCommentType.html#DocumentReviewCommentType"><span class="hs-identifier hs-type">DocumentReviewCommentType</span></a></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679792706"><span id="local-6989586621679792708"><span class="annot"><span class="annottext">DocumentReviewCommentSource -&gt; DocumentReviewCommentSource -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679794332"><span id="local-6989586621679794334"><span class="annot"><span class="annottext">DocumentReviewCommentSource -&gt; DocumentReviewCommentSource -&gt; Bool
 (DocumentReviewCommentSource
  -&gt; DocumentReviewCommentSource -&gt; Bool)
 -&gt; (DocumentReviewCommentSource
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DocumentReviewCommentSource -&gt; DocumentReviewCommentSource -&gt; Bool
 == :: DocumentReviewCommentSource -&gt; DocumentReviewCommentSource -&gt; Bool
 $c== :: DocumentReviewCommentSource -&gt; DocumentReviewCommentSource -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679792697"><span id="local-6989586621679792699"><span id="local-6989586621679792701"><span id="local-6989586621679792703"><span class="annot"><span class="annottext">ReadPrec [DocumentReviewCommentSource]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679794323"><span id="local-6989586621679794325"><span id="local-6989586621679794327"><span id="local-6989586621679794329"><span class="annot"><span class="annottext">ReadPrec [DocumentReviewCommentSource]
 ReadPrec DocumentReviewCommentSource
 Int -&gt; ReadS DocumentReviewCommentSource
 ReadS [DocumentReviewCommentSource]
@@ -68,7 +68,7 @@ readList :: ReadS [DocumentReviewCommentSource]
 $creadList :: ReadS [DocumentReviewCommentSource]
 readsPrec :: Int -&gt; ReadS DocumentReviewCommentSource
 $creadsPrec :: Int -&gt; ReadS DocumentReviewCommentSource
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679792690"><span id="local-6989586621679792692"><span id="local-6989586621679792694"><span class="annot"><span class="annottext">Int -&gt; DocumentReviewCommentSource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679794316"><span id="local-6989586621679794318"><span id="local-6989586621679794320"><span class="annot"><span class="annottext">Int -&gt; DocumentReviewCommentSource -&gt; ShowS
 [DocumentReviewCommentSource] -&gt; ShowS
 DocumentReviewCommentSource -&gt; String
 (Int -&gt; DocumentReviewCommentSource -&gt; ShowS)
@@ -145,16 +145,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewCommentSource.html#DocumentReviewCommentSource%27"><span class="hs-identifier hs-type">DocumentReviewCommentSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679792681"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewCommentSource.html#DocumentReviewCommentSource%27"><span class="hs-identifier hs-type">DocumentReviewCommentSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679794307"><span class="annot"><span class="annottext">Maybe Text
 content :: Maybe Text
 $sel:content:DocumentReviewCommentSource' :: DocumentReviewCommentSource -&gt; Maybe Text
-</span><a href="#local-6989586621679792681"><span class="hs-identifier hs-var hs-var">content</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679792681"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679792680"><span class="annot"><span class="annottext">s :: DocumentReviewCommentSource
-</span><a href="#local-6989586621679792680"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewCommentSource.html#DocumentReviewCommentSource%27"><span class="hs-identifier hs-type">DocumentReviewCommentSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679792679"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679792679"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentReviewCommentSource
-</span><a href="#local-6989586621679792680"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:content:DocumentReviewCommentSource' :: Maybe Text
+</span><a href="#local-6989586621679794307"><span class="hs-identifier hs-var hs-var">content</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679794307"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679794306"><span class="annot"><span class="annottext">s :: DocumentReviewCommentSource
+</span><a href="#local-6989586621679794306"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewCommentSource.html#DocumentReviewCommentSource%27"><span class="hs-identifier hs-type">DocumentReviewCommentSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679794305"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679794305"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentReviewCommentSource
+</span><a href="#local-6989586621679794306"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:content:DocumentReviewCommentSource' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.DocumentReviewCommentSource.html#%24sel%3Acontent%3ADocumentReviewCommentSource%27"><span class="hs-identifier hs-var">content</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679792679"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewCommentSource.html#DocumentReviewCommentSource"><span class="hs-identifier hs-type">DocumentReviewCommentSource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679794305"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewCommentSource.html#DocumentReviewCommentSource"><span class="hs-identifier hs-type">DocumentReviewCommentSource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | The type of information added to a review request. Currently, only the</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- value @Comment@ is supported.</span><span>
@@ -171,19 +171,19 @@ $sel:content:DocumentReviewCommentSource' :: DocumentReviewCommentSource -&gt; M
      (Maybe DocumentReviewCommentType)
      (Maybe DocumentReviewCommentType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewCommentSource.html#DocumentReviewCommentSource%27"><span class="hs-identifier hs-type">DocumentReviewCommentSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679792677"><span class="annot"><span class="annottext">Maybe DocumentReviewCommentType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewCommentSource.html#DocumentReviewCommentSource%27"><span class="hs-identifier hs-type">DocumentReviewCommentSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679794303"><span class="annot"><span class="annottext">Maybe DocumentReviewCommentType
 type' :: Maybe DocumentReviewCommentType
 $sel:type':DocumentReviewCommentSource' :: DocumentReviewCommentSource -&gt; Maybe DocumentReviewCommentType
-</span><a href="#local-6989586621679792677"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DocumentReviewCommentType
-</span><a href="#local-6989586621679792677"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679792676"><span class="annot"><span class="annottext">s :: DocumentReviewCommentSource
-</span><a href="#local-6989586621679792676"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewCommentSource.html#DocumentReviewCommentSource%27"><span class="hs-identifier hs-type">DocumentReviewCommentSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679792675"><span class="annot"><span class="annottext">Maybe DocumentReviewCommentType
-</span><a href="#local-6989586621679792675"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentReviewCommentSource
-</span><a href="#local-6989586621679792676"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':DocumentReviewCommentSource' :: Maybe DocumentReviewCommentType
+</span><a href="#local-6989586621679794303"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DocumentReviewCommentType
+</span><a href="#local-6989586621679794303"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679794302"><span class="annot"><span class="annottext">s :: DocumentReviewCommentSource
+</span><a href="#local-6989586621679794302"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewCommentSource.html#DocumentReviewCommentSource%27"><span class="hs-identifier hs-type">DocumentReviewCommentSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679794301"><span class="annot"><span class="annottext">Maybe DocumentReviewCommentType
+</span><a href="#local-6989586621679794301"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentReviewCommentSource
+</span><a href="#local-6989586621679794302"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':DocumentReviewCommentSource' :: Maybe DocumentReviewCommentType
 </span><a href="Network.AWS.SSM.Types.DocumentReviewCommentSource.html#%24sel%3Atype%27%3ADocumentReviewCommentSource%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DocumentReviewCommentType
-</span><a href="#local-6989586621679792675"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewCommentSource.html#DocumentReviewCommentSource"><span class="hs-identifier hs-type">DocumentReviewCommentSource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679794301"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewCommentSource.html#DocumentReviewCommentSource"><span class="hs-identifier hs-type">DocumentReviewCommentSource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679792672"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewCommentSource.html#DocumentReviewCommentSource"><span class="hs-identifier hs-type">DocumentReviewCommentSource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679792670"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DocumentReviewCommentSource
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679794298"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewCommentSource.html#DocumentReviewCommentSource"><span class="hs-identifier hs-type">DocumentReviewCommentSource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679794296"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DocumentReviewCommentSource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DocumentReviewCommentSource)
@@ -193,8 +193,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DocumentReviewCommentSource&quot;</span></span><span>
-</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679792667"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679792667"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679794293"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679794293"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe DocumentReviewCommentType -&gt; DocumentReviewCommentSource
 </span><a href="Network.AWS.SSM.Types.DocumentReviewCommentSource.html#DocumentReviewCommentSource%27"><span class="hs-identifier hs-var">DocumentReviewCommentSource'</span></a></span><span>
@@ -205,7 +205,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe DocumentReviewCommentType -&gt; DocumentReviewCommentSource)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679792667"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679794293"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Content&quot;</span></span><span class="hs-special">)</span><span>
@@ -215,25 +215,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser DocumentReviewCommentSource
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679792667"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DocumentReviewCommentType)
+</span><a href="#local-6989586621679794293"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DocumentReviewCommentType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679792661"><span id="local-6989586621679792663"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewCommentSource.html#DocumentReviewCommentSource"><span class="hs-identifier hs-type">DocumentReviewCommentSource</span></a></span></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679794287"><span id="local-6989586621679794289"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewCommentSource.html#DocumentReviewCommentSource"><span class="hs-identifier hs-type">DocumentReviewCommentSource</span></a></span></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679792658"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewCommentSource.html#DocumentReviewCommentSource"><span class="hs-identifier hs-type">DocumentReviewCommentSource</span></a></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679794284"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewCommentSource.html#DocumentReviewCommentSource"><span class="hs-identifier hs-type">DocumentReviewCommentSource</span></a></span></span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679792650"><span id="local-6989586621679792652"><span id="local-6989586621679792654"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewCommentSource.html#DocumentReviewCommentSource"><span class="hs-identifier hs-type">DocumentReviewCommentSource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679792648"><span class="annot"><span class="annottext">toJSON :: DocumentReviewCommentSource -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewCommentSource.html#DocumentReviewCommentSource%27"><span class="hs-identifier hs-type">DocumentReviewCommentSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679792645"><span id="local-6989586621679792646"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679794276"><span id="local-6989586621679794278"><span id="local-6989586621679794280"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewCommentSource.html#DocumentReviewCommentSource"><span class="hs-identifier hs-type">DocumentReviewCommentSource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679794274"><span class="annot"><span class="annottext">toJSON :: DocumentReviewCommentSource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviewCommentSource.html#DocumentReviewCommentSource%27"><span class="hs-identifier hs-type">DocumentReviewCommentSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679794271"><span id="local-6989586621679794272"><span class="annot"><span class="annottext">Maybe Text
 Maybe DocumentReviewCommentType
 type' :: Maybe DocumentReviewCommentType
 content :: Maybe Text
 $sel:type':DocumentReviewCommentSource' :: DocumentReviewCommentSource -&gt; Maybe DocumentReviewCommentType
 $sel:content:DocumentReviewCommentSource' :: DocumentReviewCommentSource -&gt; Maybe Text
-</span><a href="#local-6989586621679792645"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679794271"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -245,7 +245,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679792646"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679794272"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-91"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DocumentReviewCommentType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -253,7 +253,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe DocumentReviewCommentType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DocumentReviewCommentType
-</span><a href="#local-6989586621679792645"><span class="hs-identifier hs-var">type'</span></a></span><span>
+</span><a href="#local-6989586621679794271"><span class="hs-identifier hs-var">type'</span></a></span><span>
 </span><span id="line-92"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span></pre></body></html>

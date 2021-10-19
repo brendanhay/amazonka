@@ -34,8 +34,8 @@
 </span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#newBatchGetProjectsResponse"><span class="hs-identifier">newBatchGetProjectsResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#batchGetProjectsResponse_projects"><span class="hs-identifier">batchGetProjectsResponse_projects</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#batchGetProjectsResponse_projectsNotFound"><span class="hs-identifier">batchGetProjectsResponse_projectsNotFound</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#batchGetProjectsResponse_projectsNotFound"><span class="hs-identifier">batchGetProjectsResponse_projectsNotFound</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#batchGetProjectsResponse_projects"><span class="hs-identifier">batchGetProjectsResponse_projects</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#batchGetProjectsResponse_httpStatus"><span class="hs-identifier">batchGetProjectsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-41"></span><span class="hs-keyword">where</span><span>
@@ -48,14 +48,14 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newBatchGetProjects' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679390798"><span id="local-6989586621679390799"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetProjects"><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjects"><span class="hs-identifier hs-var">BatchGetProjects</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetProjects%27"><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjects%27"><span class="hs-identifier hs-var">BatchGetProjects'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679392731"><span id="local-6989586621679392732"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetProjects"><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjects"><span class="hs-identifier hs-var">BatchGetProjects</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetProjects%27"><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjects%27"><span class="hs-identifier hs-var">BatchGetProjects'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The names or ARNs of the build projects. To get information about a</span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-comment">-- project shared with your Amazon Web Services account, its ARN must be</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- specified. You cannot specify a shared project using its name.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3Anames%3ABatchGetProjects%27"><span class="annot"><span class="annottext">BatchGetProjects -&gt; NonEmpty Text
 </span><a href="Network.AWS.CodeBuild.BatchGetProjects.html#%24sel%3Anames%3ABatchGetProjects%27"><span class="hs-identifier hs-var hs-var">names</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679390792"><span id="local-6989586621679390794"><span class="annot"><span class="annottext">BatchGetProjects -&gt; BatchGetProjects -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679392725"><span id="local-6989586621679392727"><span class="annot"><span class="annottext">BatchGetProjects -&gt; BatchGetProjects -&gt; Bool
 (BatchGetProjects -&gt; BatchGetProjects -&gt; Bool)
 -&gt; (BatchGetProjects -&gt; BatchGetProjects -&gt; Bool)
 -&gt; Eq BatchGetProjects
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BatchGetProjects -&gt; BatchGetProjects -&gt; Bool
 == :: BatchGetProjects -&gt; BatchGetProjects -&gt; Bool
 $c== :: BatchGetProjects -&gt; BatchGetProjects -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390783"><span id="local-6989586621679390785"><span id="local-6989586621679390787"><span id="local-6989586621679390789"><span class="annot"><span class="annottext">ReadPrec [BatchGetProjects]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392716"><span id="local-6989586621679392718"><span id="local-6989586621679392720"><span id="local-6989586621679392722"><span class="annot"><span class="annottext">ReadPrec [BatchGetProjects]
 ReadPrec BatchGetProjects
 Int -&gt; ReadS BatchGetProjects
 ReadS [BatchGetProjects]
@@ -84,7 +84,7 @@ readList :: ReadS [BatchGetProjects]
 $creadList :: ReadS [BatchGetProjects]
 readsPrec :: Int -&gt; ReadS BatchGetProjects
 $creadsPrec :: Int -&gt; ReadS BatchGetProjects
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390776"><span id="local-6989586621679390778"><span id="local-6989586621679390780"><span class="annot"><span class="annottext">Int -&gt; BatchGetProjects -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392709"><span id="local-6989586621679392711"><span id="local-6989586621679392713"><span class="annot"><span class="annottext">Int -&gt; BatchGetProjects -&gt; ShowS
 [BatchGetProjects] -&gt; ShowS
 BatchGetProjects -&gt; String
 (Int -&gt; BatchGetProjects -&gt; ShowS)
@@ -126,21 +126,21 @@ $cfrom :: forall x. BatchGetProjects -&gt; Rep BatchGetProjects x
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjects"><span class="hs-identifier hs-type">BatchGetProjects</span></a></span><span>
 </span><span id="line-74"></span><span id="newBatchGetProjects"><span class="annot"><span class="annottext">newBatchGetProjects :: NonEmpty Text -&gt; BatchGetProjects
-</span><a href="Network.AWS.CodeBuild.BatchGetProjects.html#newBatchGetProjects"><span class="hs-identifier hs-var hs-var">newBatchGetProjects</span></a></span></span><span> </span><span id="local-6989586621679390771"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679390771"><span class="hs-identifier hs-var">pNames_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeBuild.BatchGetProjects.html#newBatchGetProjects"><span class="hs-identifier hs-var hs-var">newBatchGetProjects</span></a></span></span><span> </span><span id="local-6989586621679392704"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679392704"><span class="hs-identifier hs-var">pNames_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">BatchGetProjects' :: NonEmpty Text -&gt; BatchGetProjects
 </span><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjects%27"><span class="hs-identifier hs-type">BatchGetProjects'</span></a></span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:names:BatchGetProjects' :: NonEmpty Text
 </span><a href="Network.AWS.CodeBuild.BatchGetProjects.html#%24sel%3Anames%3ABatchGetProjects%27"><span class="hs-identifier hs-var">names</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>        </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
 -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
  -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text)))
 -&gt; NonEmpty Text -&gt; NonEmpty Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679390771"><span class="hs-identifier hs-var">pNames_</span></a></span><span>
+</span><a href="#local-6989586621679392704"><span class="hs-identifier hs-var">pNames_</span></a></span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | The names or ARNs of the build projects. To get information about a</span><span>
@@ -154,16 +154,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; Lens
      BatchGetProjects BatchGetProjects (NonEmpty Text) (NonEmpty Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjects%27"><span class="hs-identifier hs-type">BatchGetProjects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390766"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjects%27"><span class="hs-identifier hs-type">BatchGetProjects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392699"><span class="annot"><span class="annottext">NonEmpty Text
 names :: NonEmpty Text
 $sel:names:BatchGetProjects' :: BatchGetProjects -&gt; NonEmpty Text
-</span><a href="#local-6989586621679390766"><span class="hs-identifier hs-var hs-var">names</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679390766"><span class="hs-identifier hs-var">names</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390765"><span class="annot"><span class="annottext">s :: BatchGetProjects
-</span><a href="#local-6989586621679390765"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjects%27"><span class="hs-identifier hs-type">BatchGetProjects'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390764"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679390764"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetProjects
-</span><a href="#local-6989586621679390765"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:names:BatchGetProjects' :: NonEmpty Text
+</span><a href="#local-6989586621679392699"><span class="hs-identifier hs-var hs-var">names</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679392699"><span class="hs-identifier hs-var">names</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392698"><span class="annot"><span class="annottext">s :: BatchGetProjects
+</span><a href="#local-6989586621679392698"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjects%27"><span class="hs-identifier hs-type">BatchGetProjects'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392697"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679392697"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetProjects
+</span><a href="#local-6989586621679392698"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:names:BatchGetProjects' :: NonEmpty Text
 </span><a href="Network.AWS.CodeBuild.BatchGetProjects.html#%24sel%3Anames%3ABatchGetProjects%27"><span class="hs-identifier hs-var">names</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679390764"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjects"><span class="hs-identifier hs-type">BatchGetProjects</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+</span><a href="#local-6989586621679392697"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjects"><span class="hs-identifier hs-type">BatchGetProjects</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
  -&gt; BatchGetProjects -&gt; f BatchGetProjects)
 -&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
     -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
@@ -173,19 +173,19 @@ $sel:names:BatchGetProjects' :: BatchGetProjects -&gt; NonEmpty Text
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; f (NonEmpty Text))
 -&gt; NonEmpty Text -&gt; f (NonEmpty Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjects"><span class="hs-identifier hs-type">BatchGetProjects</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-87"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-88"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjects"><span class="hs-identifier hs-type">BatchGetProjects</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjectsResponse"><span class="hs-identifier hs-type">BatchGetProjectsResponse</span></a></span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679390759"><span class="annot"><span class="annottext">request :: BatchGetProjects -&gt; Request BatchGetProjects
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679392692"><span class="annot"><span class="annottext">request :: BatchGetProjects -&gt; Request BatchGetProjects
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; BatchGetProjects -&gt; Request BatchGetProjects
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodeBuild.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679390755"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679392688"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy BatchGetProjects
 -&gt; ClientResponse ClientBody
@@ -209,21 +209,30 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679390752"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390752"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679390751"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679390751"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679390750"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679390750"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Project]
--&gt; Maybe (NonEmpty Text) -&gt; Int -&gt; BatchGetProjectsResponse
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679392685"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679392685"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679392684"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679392684"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679392683"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679392683"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+-&gt; Maybe [Project] -&gt; Int -&gt; BatchGetProjectsResponse
 </span><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjectsResponse%27"><span class="hs-identifier hs-var">BatchGetProjectsResponse'</span></a></span><span>
-</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Project]
- -&gt; Maybe (NonEmpty Text) -&gt; Int -&gt; BatchGetProjectsResponse)
--&gt; Either String (Maybe [Project])
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (NonEmpty Text)
+ -&gt; Maybe [Project] -&gt; Int -&gt; BatchGetProjectsResponse)
+-&gt; Either String (Maybe (NonEmpty Text))
 -&gt; Either
-     String (Maybe (NonEmpty Text) -&gt; Int -&gt; BatchGetProjectsResponse)
+     String (Maybe [Project] -&gt; Int -&gt; BatchGetProjectsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679390750"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Project]))
+</span><a href="#local-6989586621679392683"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (NonEmpty Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;projectsNotFound&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe [Project] -&gt; Int -&gt; BatchGetProjectsResponse)
+-&gt; Either String (Maybe [Project])
+-&gt; Either String (Int -&gt; BatchGetProjectsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679392683"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Project]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;projects&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Project]))
@@ -232,16 +241,6 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Project]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String (Maybe (NonEmpty Text) -&gt; Int -&gt; BatchGetProjectsResponse)
--&gt; Either String (Maybe (NonEmpty Text))
--&gt; Either String (Int -&gt; BatchGetProjectsResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679390750"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (NonEmpty Text))
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;projectsNotFound&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; BatchGetProjectsResponse)
 -&gt; Either String Int -&gt; Either String BatchGetProjectsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -250,15 +249,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390752"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679392685"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390741"><span id="local-6989586621679390743"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjects"><span class="hs-identifier hs-type">BatchGetProjects</span></a></span></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392674"><span id="local-6989586621679392676"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjects"><span class="hs-identifier hs-type">BatchGetProjects</span></a></span></span></span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390738"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjects"><span class="hs-identifier hs-type">BatchGetProjects</span></a></span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392671"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjects"><span class="hs-identifier hs-type">BatchGetProjects</span></a></span></span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjects"><span class="hs-identifier hs-type">BatchGetProjects</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679390734"><span class="annot"><span class="annottext">toHeaders :: BatchGetProjects -&gt; ResponseHeaders
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679392667"><span class="annot"><span class="annottext">toHeaders :: BatchGetProjects -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; BatchGetProjects -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -285,12 +284,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-116"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390724"><span id="local-6989586621679390726"><span id="local-6989586621679390728"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjects"><span class="hs-identifier hs-type">BatchGetProjects</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679390722"><span class="annot"><span class="annottext">toJSON :: BatchGetProjects -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjects%27"><span class="hs-identifier hs-type">BatchGetProjects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390720"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392657"><span id="local-6989586621679392659"><span id="local-6989586621679392661"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjects"><span class="hs-identifier hs-type">BatchGetProjects</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679392655"><span class="annot"><span class="annottext">toJSON :: BatchGetProjects -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjects%27"><span class="hs-identifier hs-type">BatchGetProjects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392653"><span class="annot"><span class="annottext">NonEmpty Text
 names :: NonEmpty Text
 $sel:names:BatchGetProjects' :: BatchGetProjects -&gt; NonEmpty Text
-</span><a href="#local-6989586621679390720"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679392653"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -302,18 +301,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;names&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679390720"><span class="hs-identifier hs-var">names</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679392653"><span class="hs-identifier hs-var">names</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjects"><span class="hs-identifier hs-type">BatchGetProjects</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679390714"><span class="annot"><span class="annottext">toPath :: BatchGetProjects -&gt; ByteString
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679392647"><span class="annot"><span class="annottext">toPath :: BatchGetProjects -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; BatchGetProjects -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjects"><span class="hs-identifier hs-type">BatchGetProjects</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679390710"><span class="annot"><span class="annottext">toQuery :: BatchGetProjects -&gt; QueryString
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679392643"><span class="annot"><span class="annottext">toQuery :: BatchGetProjects -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; BatchGetProjects -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -321,18 +320,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- | /See:/ 'newBatchGetProjectsResponse' smart constructor.</span><span>
-</span><span id="line-133"></span><span id="local-6989586621679390707"><span id="local-6989586621679390708"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetProjectsResponse"><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjectsResponse"><span class="hs-identifier hs-var">BatchGetProjectsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetProjectsResponse%27"><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjectsResponse%27"><span class="hs-identifier hs-var">BatchGetProjectsResponse'</span></a></span></span><span>
-</span><span id="line-134"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the requested build projects.</span><span>
-</span><span id="line-135"></span><span>    </span><span id="%24sel%3Aprojects%3ABatchGetProjectsResponse%27"><span class="annot"><span class="annottext">BatchGetProjectsResponse -&gt; Maybe [Project]
-</span><a href="Network.AWS.CodeBuild.BatchGetProjects.html#%24sel%3Aprojects%3ABatchGetProjectsResponse%27"><span class="hs-identifier hs-var hs-var">projects</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- | The names of build projects for which information could not be found.</span><span>
-</span><span id="line-137"></span><span>    </span><span id="%24sel%3AprojectsNotFound%3ABatchGetProjectsResponse%27"><span class="annot"><span class="annottext">BatchGetProjectsResponse -&gt; Maybe (NonEmpty Text)
+</span><span id="line-133"></span><span id="local-6989586621679392640"><span id="local-6989586621679392641"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetProjectsResponse"><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjectsResponse"><span class="hs-identifier hs-var">BatchGetProjectsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetProjectsResponse%27"><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjectsResponse%27"><span class="hs-identifier hs-var">BatchGetProjectsResponse'</span></a></span></span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The names of build projects for which information could not be found.</span><span>
+</span><span id="line-135"></span><span>    </span><span id="%24sel%3AprojectsNotFound%3ABatchGetProjectsResponse%27"><span class="annot"><span class="annottext">BatchGetProjectsResponse -&gt; Maybe (NonEmpty Text)
 </span><a href="Network.AWS.CodeBuild.BatchGetProjects.html#%24sel%3AprojectsNotFound%3ABatchGetProjectsResponse%27"><span class="hs-identifier hs-var hs-var">projectsNotFound</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- | Information about the requested build projects.</span><span>
+</span><span id="line-137"></span><span>    </span><span id="%24sel%3Aprojects%3ABatchGetProjectsResponse%27"><span class="annot"><span class="annottext">BatchGetProjectsResponse -&gt; Maybe [Project]
+</span><a href="Network.AWS.CodeBuild.BatchGetProjects.html#%24sel%3Aprojects%3ABatchGetProjectsResponse%27"><span class="hs-identifier hs-var hs-var">projects</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-138"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-139"></span><span>    </span><span id="%24sel%3AhttpStatus%3ABatchGetProjectsResponse%27"><span class="annot"><span class="annottext">BatchGetProjectsResponse -&gt; Int
 </span><a href="Network.AWS.CodeBuild.BatchGetProjects.html#%24sel%3AhttpStatus%3ABatchGetProjectsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-140"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-141"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679390700"><span id="local-6989586621679390702"><span class="annot"><span class="annottext">BatchGetProjectsResponse -&gt; BatchGetProjectsResponse -&gt; Bool
+</span><span id="line-141"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679392633"><span id="local-6989586621679392635"><span class="annot"><span class="annottext">BatchGetProjectsResponse -&gt; BatchGetProjectsResponse -&gt; Bool
 (BatchGetProjectsResponse -&gt; BatchGetProjectsResponse -&gt; Bool)
 -&gt; (BatchGetProjectsResponse -&gt; BatchGetProjectsResponse -&gt; Bool)
 -&gt; Eq BatchGetProjectsResponse
@@ -341,7 +340,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BatchGetProjectsResponse -&gt; BatchGetProjectsResponse -&gt; Bool
 == :: BatchGetProjectsResponse -&gt; BatchGetProjectsResponse -&gt; Bool
 $c== :: BatchGetProjectsResponse -&gt; BatchGetProjectsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390692"><span id="local-6989586621679390694"><span id="local-6989586621679390696"><span id="local-6989586621679390698"><span class="annot"><span class="annottext">ReadPrec [BatchGetProjectsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392625"><span id="local-6989586621679392627"><span id="local-6989586621679392629"><span id="local-6989586621679392631"><span class="annot"><span class="annottext">ReadPrec [BatchGetProjectsResponse]
 ReadPrec BatchGetProjectsResponse
 Int -&gt; ReadS BatchGetProjectsResponse
 ReadS [BatchGetProjectsResponse]
@@ -361,7 +360,7 @@ readList :: ReadS [BatchGetProjectsResponse]
 $creadList :: ReadS [BatchGetProjectsResponse]
 readsPrec :: Int -&gt; ReadS BatchGetProjectsResponse
 $creadsPrec :: Int -&gt; ReadS BatchGetProjectsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390686"><span id="local-6989586621679390688"><span id="local-6989586621679390690"><span class="annot"><span class="annottext">Int -&gt; BatchGetProjectsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392619"><span id="local-6989586621679392621"><span id="local-6989586621679392623"><span class="annot"><span class="annottext">Int -&gt; BatchGetProjectsResponse -&gt; ShowS
 [BatchGetProjectsResponse] -&gt; ShowS
 BatchGetProjectsResponse -&gt; String
 (Int -&gt; BatchGetProjectsResponse -&gt; ShowS)
@@ -401,9 +400,9 @@ BatchGetProjectsResponse -&gt; Rep BatchGetProjectsResponse x
 </span><span id="line-148"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-150"></span><span class="hs-comment">--</span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- 'projects', 'batchGetProjectsResponse_projects' - Information about the requested build projects.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- 'projectsNotFound', 'batchGetProjectsResponse_projectsNotFound' - The names of build projects for which information could not be found.</span><span>
 </span><span id="line-152"></span><span class="hs-comment">--</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- 'projectsNotFound', 'batchGetProjectsResponse_projectsNotFound' - The names of build projects for which information could not be found.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- 'projects', 'batchGetProjectsResponse_projects' - Information about the requested build projects.</span><span>
 </span><span id="line-154"></span><span class="hs-comment">--</span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- 'httpStatus', 'batchGetProjectsResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-156"></span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#newBatchGetProjectsResponse"><span class="hs-identifier hs-type">newBatchGetProjectsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -411,71 +410,28 @@ BatchGetProjectsResponse -&gt; Rep BatchGetProjectsResponse x
 </span><span id="line-158"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-159"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjectsResponse"><span class="hs-identifier hs-type">BatchGetProjectsResponse</span></a></span><span>
 </span><span id="line-160"></span><span id="newBatchGetProjectsResponse"><span class="annot"><span class="annottext">newBatchGetProjectsResponse :: Int -&gt; BatchGetProjectsResponse
-</span><a href="Network.AWS.CodeBuild.BatchGetProjects.html#newBatchGetProjectsResponse"><span class="hs-identifier hs-var hs-var">newBatchGetProjectsResponse</span></a></span></span><span> </span><span id="local-6989586621679390683"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390683"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-161"></span><span>  </span><span class="annot"><span class="annottext">BatchGetProjectsResponse' :: Maybe [Project]
--&gt; Maybe (NonEmpty Text) -&gt; Int -&gt; BatchGetProjectsResponse
+</span><a href="Network.AWS.CodeBuild.BatchGetProjects.html#newBatchGetProjectsResponse"><span class="hs-identifier hs-var hs-var">newBatchGetProjectsResponse</span></a></span></span><span> </span><span id="local-6989586621679392616"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679392616"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><span class="annottext">BatchGetProjectsResponse' :: Maybe (NonEmpty Text)
+-&gt; Maybe [Project] -&gt; Int -&gt; BatchGetProjectsResponse
 </span><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjectsResponse%27"><span class="hs-identifier hs-type">BatchGetProjectsResponse'</span></a></span><span>
-</span><span id="line-162"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:projects:BatchGetProjectsResponse' :: Maybe [Project]
-</span><a href="Network.AWS.CodeBuild.BatchGetProjects.html#%24sel%3Aprojects%3ABatchGetProjectsResponse%27"><span class="hs-identifier hs-var">projects</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Project]
+</span><span id="line-162"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:projectsNotFound:BatchGetProjectsResponse' :: Maybe (NonEmpty Text)
+</span><a href="Network.AWS.CodeBuild.BatchGetProjects.html#%24sel%3AprojectsNotFound%3ABatchGetProjectsResponse%27"><span class="hs-identifier hs-var">projectsNotFound</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:projectsNotFound:BatchGetProjectsResponse' :: Maybe (NonEmpty Text)
-</span><a href="Network.AWS.CodeBuild.BatchGetProjects.html#%24sel%3AprojectsNotFound%3ABatchGetProjectsResponse%27"><span class="hs-identifier hs-var">projectsNotFound</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:projects:BatchGetProjectsResponse' :: Maybe [Project]
+</span><a href="Network.AWS.CodeBuild.BatchGetProjects.html#%24sel%3Aprojects%3ABatchGetProjectsResponse%27"><span class="hs-identifier hs-var">projects</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Project]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:BatchGetProjectsResponse' :: Int
 </span><a href="Network.AWS.CodeBuild.BatchGetProjects.html#%24sel%3AhttpStatus%3ABatchGetProjectsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390683"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679392616"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-166"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-comment">-- | Information about the requested build projects.</span><span>
-</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#batchGetProjectsResponse_projects"><span class="hs-identifier hs-type">batchGetProjectsResponse_projects</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjectsResponse"><span class="hs-identifier hs-type">BatchGetProjectsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-170"></span><span id="batchGetProjectsResponse_projects"><span class="annot"><span class="annottext">batchGetProjectsResponse_projects :: (Maybe [Project] -&gt; f (Maybe [Project]))
--&gt; BatchGetProjectsResponse -&gt; f BatchGetProjectsResponse
-</span><a href="Network.AWS.CodeBuild.BatchGetProjects.html#batchGetProjectsResponse_projects"><span class="hs-identifier hs-var hs-var">batchGetProjectsResponse_projects</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetProjectsResponse -&gt; Maybe [Project])
--&gt; (BatchGetProjectsResponse
-    -&gt; Maybe [Project] -&gt; BatchGetProjectsResponse)
--&gt; Lens
-     BatchGetProjectsResponse
-     BatchGetProjectsResponse
-     (Maybe [Project])
-     (Maybe [Project])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjectsResponse%27"><span class="hs-identifier hs-type">BatchGetProjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390682"><span class="annot"><span class="annottext">Maybe [Project]
-projects :: Maybe [Project]
-$sel:projects:BatchGetProjectsResponse' :: BatchGetProjectsResponse -&gt; Maybe [Project]
-</span><a href="#local-6989586621679390682"><span class="hs-identifier hs-var hs-var">projects</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Project]
-</span><a href="#local-6989586621679390682"><span class="hs-identifier hs-var">projects</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390681"><span class="annot"><span class="annottext">s :: BatchGetProjectsResponse
-</span><a href="#local-6989586621679390681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjectsResponse%27"><span class="hs-identifier hs-type">BatchGetProjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390680"><span class="annot"><span class="annottext">Maybe [Project]
-</span><a href="#local-6989586621679390680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetProjectsResponse
-</span><a href="#local-6989586621679390681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projects:BatchGetProjectsResponse' :: Maybe [Project]
-</span><a href="Network.AWS.CodeBuild.BatchGetProjects.html#%24sel%3Aprojects%3ABatchGetProjectsResponse%27"><span class="hs-identifier hs-var">projects</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Project]
-</span><a href="#local-6989586621679390680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjectsResponse"><span class="hs-identifier hs-type">BatchGetProjectsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Project] -&gt; f (Maybe [Project]))
- -&gt; BatchGetProjectsResponse -&gt; f BatchGetProjectsResponse)
--&gt; ((Maybe [Project] -&gt; f (Maybe [Project]))
-    -&gt; Maybe [Project] -&gt; f (Maybe [Project]))
--&gt; (Maybe [Project] -&gt; f (Maybe [Project]))
--&gt; BatchGetProjectsResponse
--&gt; f BatchGetProjectsResponse
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Project] [Project] [Project] [Project]
--&gt; Iso
-     (Maybe [Project])
-     (Maybe [Project])
-     (Maybe [Project])
-     (Maybe [Project])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Project] [Project] [Project] [Project]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-171"></span><span>
-</span><span id="line-172"></span><span class="hs-comment">-- | The names of build projects for which information could not be found.</span><span>
-</span><span id="line-173"></span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#batchGetProjectsResponse_projectsNotFound"><span class="hs-identifier hs-type">batchGetProjectsResponse_projectsNotFound</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjectsResponse"><span class="hs-identifier hs-type">BatchGetProjectsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-174"></span><span id="batchGetProjectsResponse_projectsNotFound"><span class="annot"><span class="annottext">batchGetProjectsResponse_projectsNotFound :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><span id="line-168"></span><span class="hs-comment">-- | The names of build projects for which information could not be found.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#batchGetProjectsResponse_projectsNotFound"><span class="hs-identifier hs-type">batchGetProjectsResponse_projectsNotFound</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjectsResponse"><span class="hs-identifier hs-type">BatchGetProjectsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span id="batchGetProjectsResponse_projectsNotFound"><span class="annot"><span class="annottext">batchGetProjectsResponse_projectsNotFound :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
 -&gt; BatchGetProjectsResponse -&gt; f BatchGetProjectsResponse
 </span><a href="Network.AWS.CodeBuild.BatchGetProjects.html#batchGetProjectsResponse_projectsNotFound"><span class="hs-identifier hs-var hs-var">batchGetProjectsResponse_projectsNotFound</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetProjectsResponse -&gt; Maybe (NonEmpty Text))
 -&gt; (BatchGetProjectsResponse
@@ -486,16 +442,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe (NonEmpty Text))
      (Maybe (NonEmpty Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjectsResponse%27"><span class="hs-identifier hs-type">BatchGetProjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390678"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjectsResponse%27"><span class="hs-identifier hs-type">BatchGetProjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392615"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 projectsNotFound :: Maybe (NonEmpty Text)
 $sel:projectsNotFound:BatchGetProjectsResponse' :: BatchGetProjectsResponse -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679390678"><span class="hs-identifier hs-var hs-var">projectsNotFound</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679390678"><span class="hs-identifier hs-var">projectsNotFound</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390677"><span class="annot"><span class="annottext">s :: BatchGetProjectsResponse
-</span><a href="#local-6989586621679390677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjectsResponse%27"><span class="hs-identifier hs-type">BatchGetProjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390676"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679390676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetProjectsResponse
-</span><a href="#local-6989586621679390677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectsNotFound:BatchGetProjectsResponse' :: Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679392615"><span class="hs-identifier hs-var hs-var">projectsNotFound</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679392615"><span class="hs-identifier hs-var">projectsNotFound</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392614"><span class="annot"><span class="annottext">s :: BatchGetProjectsResponse
+</span><a href="#local-6989586621679392614"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjectsResponse%27"><span class="hs-identifier hs-type">BatchGetProjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392613"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679392613"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetProjectsResponse
+</span><a href="#local-6989586621679392614"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectsNotFound:BatchGetProjectsResponse' :: Maybe (NonEmpty Text)
 </span><a href="Network.AWS.CodeBuild.BatchGetProjects.html#%24sel%3AprojectsNotFound%3ABatchGetProjectsResponse%27"><span class="hs-identifier hs-var">projectsNotFound</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679390676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjectsResponse"><span class="hs-identifier hs-type">BatchGetProjectsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><a href="#local-6989586621679392613"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjectsResponse"><span class="hs-identifier hs-type">BatchGetProjectsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
  -&gt; BatchGetProjectsResponse -&gt; f BatchGetProjectsResponse)
 -&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
     -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
@@ -515,8 +471,51 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | Information about the requested build projects.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#batchGetProjectsResponse_projects"><span class="hs-identifier hs-type">batchGetProjectsResponse_projects</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjectsResponse"><span class="hs-identifier hs-type">BatchGetProjectsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span id="batchGetProjectsResponse_projects"><span class="annot"><span class="annottext">batchGetProjectsResponse_projects :: (Maybe [Project] -&gt; f (Maybe [Project]))
+-&gt; BatchGetProjectsResponse -&gt; f BatchGetProjectsResponse
+</span><a href="Network.AWS.CodeBuild.BatchGetProjects.html#batchGetProjectsResponse_projects"><span class="hs-identifier hs-var hs-var">batchGetProjectsResponse_projects</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetProjectsResponse -&gt; Maybe [Project])
+-&gt; (BatchGetProjectsResponse
+    -&gt; Maybe [Project] -&gt; BatchGetProjectsResponse)
+-&gt; Lens
+     BatchGetProjectsResponse
+     BatchGetProjectsResponse
+     (Maybe [Project])
+     (Maybe [Project])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjectsResponse%27"><span class="hs-identifier hs-type">BatchGetProjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392611"><span class="annot"><span class="annottext">Maybe [Project]
+projects :: Maybe [Project]
+$sel:projects:BatchGetProjectsResponse' :: BatchGetProjectsResponse -&gt; Maybe [Project]
+</span><a href="#local-6989586621679392611"><span class="hs-identifier hs-var hs-var">projects</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Project]
+</span><a href="#local-6989586621679392611"><span class="hs-identifier hs-var">projects</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392610"><span class="annot"><span class="annottext">s :: BatchGetProjectsResponse
+</span><a href="#local-6989586621679392610"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjectsResponse%27"><span class="hs-identifier hs-type">BatchGetProjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392609"><span class="annot"><span class="annottext">Maybe [Project]
+</span><a href="#local-6989586621679392609"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetProjectsResponse
+</span><a href="#local-6989586621679392610"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projects:BatchGetProjectsResponse' :: Maybe [Project]
+</span><a href="Network.AWS.CodeBuild.BatchGetProjects.html#%24sel%3Aprojects%3ABatchGetProjectsResponse%27"><span class="hs-identifier hs-var">projects</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Project]
+</span><a href="#local-6989586621679392609"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjectsResponse"><span class="hs-identifier hs-type">BatchGetProjectsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Project] -&gt; f (Maybe [Project]))
+ -&gt; BatchGetProjectsResponse -&gt; f BatchGetProjectsResponse)
+-&gt; ((Maybe [Project] -&gt; f (Maybe [Project]))
+    -&gt; Maybe [Project] -&gt; f (Maybe [Project]))
+-&gt; (Maybe [Project] -&gt; f (Maybe [Project]))
+-&gt; BatchGetProjectsResponse
+-&gt; f BatchGetProjectsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Project] [Project] [Project] [Project]
+-&gt; Iso
+     (Maybe [Project])
+     (Maybe [Project])
+     (Maybe [Project])
+     (Maybe [Project])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Project] [Project] [Project] [Project]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-177"></span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#batchGetProjectsResponse_httpStatus"><span class="hs-identifier hs-type">batchGetProjectsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjectsResponse"><span class="hs-identifier hs-type">BatchGetProjectsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -526,16 +525,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (BatchGetProjectsResponse -&gt; Int -&gt; BatchGetProjectsResponse)
 -&gt; Lens BatchGetProjectsResponse BatchGetProjectsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjectsResponse%27"><span class="hs-identifier hs-type">BatchGetProjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390675"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjectsResponse%27"><span class="hs-identifier hs-type">BatchGetProjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392608"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:BatchGetProjectsResponse' :: BatchGetProjectsResponse -&gt; Int
-</span><a href="#local-6989586621679390675"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390675"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390674"><span class="annot"><span class="annottext">s :: BatchGetProjectsResponse
-</span><a href="#local-6989586621679390674"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjectsResponse%27"><span class="hs-identifier hs-type">BatchGetProjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390673"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390673"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetProjectsResponse
-</span><a href="#local-6989586621679390674"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchGetProjectsResponse' :: Int
+</span><a href="#local-6989586621679392608"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679392608"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392607"><span class="annot"><span class="annottext">s :: BatchGetProjectsResponse
+</span><a href="#local-6989586621679392607"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjectsResponse%27"><span class="hs-identifier hs-type">BatchGetProjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392606"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679392606"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetProjectsResponse
+</span><a href="#local-6989586621679392607"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchGetProjectsResponse' :: Int
 </span><a href="Network.AWS.CodeBuild.BatchGetProjects.html#%24sel%3AhttpStatus%3ABatchGetProjectsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390673"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjectsResponse"><span class="hs-identifier hs-type">BatchGetProjectsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679392606"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjectsResponse"><span class="hs-identifier hs-type">BatchGetProjectsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>
-</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390671"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjectsResponse"><span class="hs-identifier hs-type">BatchGetProjectsResponse</span></a></span></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392604"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.BatchGetProjects.html#BatchGetProjectsResponse"><span class="hs-identifier hs-type">BatchGetProjectsResponse</span></a></span></span><span>
 </span><span id="line-181"></span></pre></body></html>

@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- | Audio Only Hls Track Type</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679859585"><span id="local-6989586621679859586"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AudioOnlyHlsTrackType"><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsTrackType.html#AudioOnlyHlsTrackType"><span class="hs-identifier hs-var">AudioOnlyHlsTrackType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AudioOnlyHlsTrackType%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsTrackType.html#AudioOnlyHlsTrackType%27"><span class="hs-identifier hs-var">AudioOnlyHlsTrackType'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679866242"><span id="local-6989586621679866243"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AudioOnlyHlsTrackType"><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsTrackType.html#AudioOnlyHlsTrackType"><span class="hs-identifier hs-var">AudioOnlyHlsTrackType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AudioOnlyHlsTrackType%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsTrackType.html#AudioOnlyHlsTrackType%27"><span class="hs-identifier hs-var">AudioOnlyHlsTrackType'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAudioOnlyHlsTrackType"><span class="annot"><span class="annottext">AudioOnlyHlsTrackType -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsTrackType.html#fromAudioOnlyHlsTrackType"><span class="hs-identifier hs-var hs-var">fromAudioOnlyHlsTrackType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679859577"><span id="local-6989586621679859579"><span id="local-6989586621679859581"><span class="annot"><span class="annottext">Int -&gt; AudioOnlyHlsTrackType -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679866234"><span id="local-6989586621679866236"><span id="local-6989586621679866238"><span class="annot"><span class="annottext">Int -&gt; AudioOnlyHlsTrackType -&gt; ShowS
 [AudioOnlyHlsTrackType] -&gt; ShowS
 AudioOnlyHlsTrackType -&gt; String
 (Int -&gt; AudioOnlyHlsTrackType -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: AudioOnlyHlsTrackType -&gt; String
 showsPrec :: Int -&gt; AudioOnlyHlsTrackType -&gt; ShowS
 $cshowsPrec :: Int -&gt; AudioOnlyHlsTrackType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679859568"><span id="local-6989586621679859570"><span id="local-6989586621679859572"><span id="local-6989586621679859574"><span class="annot"><span class="annottext">ReadPrec [AudioOnlyHlsTrackType]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679866225"><span id="local-6989586621679866227"><span id="local-6989586621679866229"><span id="local-6989586621679866231"><span class="annot"><span class="annottext">ReadPrec [AudioOnlyHlsTrackType]
 ReadPrec AudioOnlyHlsTrackType
 Int -&gt; ReadS AudioOnlyHlsTrackType
 ReadS [AudioOnlyHlsTrackType]
@@ -75,7 +75,7 @@ $creadList :: ReadS [AudioOnlyHlsTrackType]
 readsPrec :: Int -&gt; ReadS AudioOnlyHlsTrackType
 $creadsPrec :: Int -&gt; ReadS AudioOnlyHlsTrackType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679859563"><span id="local-6989586621679859565"><span class="annot"><span class="annottext">AudioOnlyHlsTrackType -&gt; AudioOnlyHlsTrackType -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679866220"><span id="local-6989586621679866222"><span class="annot"><span class="annottext">AudioOnlyHlsTrackType -&gt; AudioOnlyHlsTrackType -&gt; Bool
 (AudioOnlyHlsTrackType -&gt; AudioOnlyHlsTrackType -&gt; Bool)
 -&gt; (AudioOnlyHlsTrackType -&gt; AudioOnlyHlsTrackType -&gt; Bool)
 -&gt; Eq AudioOnlyHlsTrackType
@@ -85,7 +85,7 @@ $c/= :: AudioOnlyHlsTrackType -&gt; AudioOnlyHlsTrackType -&gt; Bool
 == :: AudioOnlyHlsTrackType -&gt; AudioOnlyHlsTrackType -&gt; Bool
 $c== :: AudioOnlyHlsTrackType -&gt; AudioOnlyHlsTrackType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679859547"><span id="local-6989586621679859549"><span id="local-6989586621679859551"><span id="local-6989586621679859553"><span id="local-6989586621679859555"><span id="local-6989586621679859557"><span id="local-6989586621679859559"><span class="annot"><span class="annottext">Eq AudioOnlyHlsTrackType
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679866204"><span id="local-6989586621679866206"><span id="local-6989586621679866208"><span id="local-6989586621679866210"><span id="local-6989586621679866212"><span id="local-6989586621679866214"><span id="local-6989586621679866216"><span class="annot"><span class="annottext">Eq AudioOnlyHlsTrackType
 Eq AudioOnlyHlsTrackType
 -&gt; (AudioOnlyHlsTrackType -&gt; AudioOnlyHlsTrackType -&gt; Ordering)
 -&gt; (AudioOnlyHlsTrackType -&gt; AudioOnlyHlsTrackType -&gt; Bool)
@@ -143,7 +143,7 @@ $cfrom :: forall x. AudioOnlyHlsTrackType -&gt; Rep AudioOnlyHlsTrackType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679859539"><span id="local-6989586621679859541"><span class="annot"><span class="annottext">Int -&gt; AudioOnlyHlsTrackType -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679866196"><span id="local-6989586621679866198"><span class="annot"><span class="annottext">Int -&gt; AudioOnlyHlsTrackType -&gt; Int
 AudioOnlyHlsTrackType -&gt; Int
 (Int -&gt; AudioOnlyHlsTrackType -&gt; Int)
 -&gt; (AudioOnlyHlsTrackType -&gt; Int) -&gt; Hashable AudioOnlyHlsTrackType
@@ -153,54 +153,54 @@ $chash :: AudioOnlyHlsTrackType -&gt; Int
 hashWithSalt :: Int -&gt; AudioOnlyHlsTrackType -&gt; Int
 $chashWithSalt :: Int -&gt; AudioOnlyHlsTrackType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679859536"><span class="annot"><span class="annottext">AudioOnlyHlsTrackType -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679866193"><span class="annot"><span class="annottext">AudioOnlyHlsTrackType -&gt; ()
 (AudioOnlyHlsTrackType -&gt; ()) -&gt; NFData AudioOnlyHlsTrackType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AudioOnlyHlsTrackType -&gt; ()
 $crnf :: AudioOnlyHlsTrackType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679859533"><span class="annot"><span class="annottext">Text -&gt; Either String AudioOnlyHlsTrackType
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679866190"><span class="annot"><span class="annottext">Text -&gt; Either String AudioOnlyHlsTrackType
 (Text -&gt; Either String AudioOnlyHlsTrackType)
 -&gt; FromText AudioOnlyHlsTrackType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AudioOnlyHlsTrackType
 $cfromText :: Text -&gt; Either String AudioOnlyHlsTrackType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679859530"><span class="annot"><span class="annottext">AudioOnlyHlsTrackType -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679866187"><span class="annot"><span class="annottext">AudioOnlyHlsTrackType -&gt; Text
 (AudioOnlyHlsTrackType -&gt; Text) -&gt; ToText AudioOnlyHlsTrackType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AudioOnlyHlsTrackType -&gt; Text
 $ctoText :: AudioOnlyHlsTrackType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679859527"><span class="annot"><span class="annottext">AudioOnlyHlsTrackType -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679866184"><span class="annot"><span class="annottext">AudioOnlyHlsTrackType -&gt; ByteString
 (AudioOnlyHlsTrackType -&gt; ByteString)
 -&gt; ToByteString AudioOnlyHlsTrackType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AudioOnlyHlsTrackType -&gt; ByteString
 $ctoBS :: AudioOnlyHlsTrackType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679859524"><span class="annot"><span class="annottext">AudioOnlyHlsTrackType -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679866181"><span class="annot"><span class="annottext">AudioOnlyHlsTrackType -&gt; ByteStringBuilder
 (AudioOnlyHlsTrackType -&gt; ByteStringBuilder)
 -&gt; ToLog AudioOnlyHlsTrackType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AudioOnlyHlsTrackType -&gt; ByteStringBuilder
 $cbuild :: AudioOnlyHlsTrackType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679859521"><span class="annot"><span class="annottext">HeaderName -&gt; AudioOnlyHlsTrackType -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679866178"><span class="annot"><span class="annottext">HeaderName -&gt; AudioOnlyHlsTrackType -&gt; [Header]
 (HeaderName -&gt; AudioOnlyHlsTrackType -&gt; [Header])
 -&gt; ToHeader AudioOnlyHlsTrackType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AudioOnlyHlsTrackType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AudioOnlyHlsTrackType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679859518"><span class="annot"><span class="annottext">AudioOnlyHlsTrackType -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679866175"><span class="annot"><span class="annottext">AudioOnlyHlsTrackType -&gt; QueryString
 (AudioOnlyHlsTrackType -&gt; QueryString)
 -&gt; ToQuery AudioOnlyHlsTrackType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AudioOnlyHlsTrackType -&gt; QueryString
 $ctoQuery :: AudioOnlyHlsTrackType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679859513"><span id="local-6989586621679859515"><span class="annot"><span class="annottext">Value -&gt; Parser [AudioOnlyHlsTrackType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679866170"><span id="local-6989586621679866172"><span class="annot"><span class="annottext">Value -&gt; Parser [AudioOnlyHlsTrackType]
 Value -&gt; Parser AudioOnlyHlsTrackType
 (Value -&gt; Parser AudioOnlyHlsTrackType)
 -&gt; (Value -&gt; Parser [AudioOnlyHlsTrackType])
@@ -212,7 +212,7 @@ $cparseJSONList :: Value -&gt; Parser [AudioOnlyHlsTrackType]
 parseJSON :: Value -&gt; Parser AudioOnlyHlsTrackType
 $cparseJSON :: Value -&gt; Parser AudioOnlyHlsTrackType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679859508"><span id="local-6989586621679859510"><span class="annot"><span class="annottext">FromJSONKeyFunction [AudioOnlyHlsTrackType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679866165"><span id="local-6989586621679866167"><span class="annot"><span class="annottext">FromJSONKeyFunction [AudioOnlyHlsTrackType]
 FromJSONKeyFunction AudioOnlyHlsTrackType
 FromJSONKeyFunction AudioOnlyHlsTrackType
 -&gt; FromJSONKeyFunction [AudioOnlyHlsTrackType]
@@ -224,7 +224,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AudioOnlyHlsTrackType]
 fromJSONKey :: FromJSONKeyFunction AudioOnlyHlsTrackType
 $cfromJSONKey :: FromJSONKeyFunction AudioOnlyHlsTrackType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679859499"><span id="local-6989586621679859501"><span id="local-6989586621679859503"><span id="local-6989586621679859505"><span class="annot"><span class="annottext">[AudioOnlyHlsTrackType] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679866156"><span id="local-6989586621679866158"><span id="local-6989586621679866160"><span id="local-6989586621679866162"><span class="annot"><span class="annottext">[AudioOnlyHlsTrackType] -&gt; Encoding
 [AudioOnlyHlsTrackType] -&gt; Value
 AudioOnlyHlsTrackType -&gt; Encoding
 AudioOnlyHlsTrackType -&gt; Value
@@ -248,7 +248,7 @@ $ctoEncoding :: AudioOnlyHlsTrackType -&gt; Encoding
 toJSON :: AudioOnlyHlsTrackType -&gt; Value
 $ctoJSON :: AudioOnlyHlsTrackType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679859494"><span id="local-6989586621679859496"><span class="annot"><span class="annottext">ToJSONKeyFunction [AudioOnlyHlsTrackType]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679866151"><span id="local-6989586621679866153"><span class="annot"><span class="annottext">ToJSONKeyFunction [AudioOnlyHlsTrackType]
 ToJSONKeyFunction AudioOnlyHlsTrackType
 ToJSONKeyFunction AudioOnlyHlsTrackType
 -&gt; ToJSONKeyFunction [AudioOnlyHlsTrackType]
@@ -260,14 +260,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AudioOnlyHlsTrackType]
 toJSONKey :: ToJSONKeyFunction AudioOnlyHlsTrackType
 $ctoJSONKey :: ToJSONKeyFunction AudioOnlyHlsTrackType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679859491"><span class="annot"><span class="annottext">[Node] -&gt; Either String AudioOnlyHlsTrackType
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679866148"><span class="annot"><span class="annottext">[Node] -&gt; Either String AudioOnlyHlsTrackType
 ([Node] -&gt; Either String AudioOnlyHlsTrackType)
 -&gt; FromXML AudioOnlyHlsTrackType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AudioOnlyHlsTrackType
 $cparseXML :: [Node] -&gt; Either String AudioOnlyHlsTrackType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679859488"><span class="annot"><span class="annottext">AudioOnlyHlsTrackType -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679866145"><span class="annot"><span class="annottext">AudioOnlyHlsTrackType -&gt; XML
 (AudioOnlyHlsTrackType -&gt; XML) -&gt; ToXML AudioOnlyHlsTrackType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AudioOnlyHlsTrackType -&gt; XML

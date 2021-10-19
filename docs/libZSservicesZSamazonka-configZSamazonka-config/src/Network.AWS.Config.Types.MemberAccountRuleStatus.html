@@ -36,13 +36,13 @@
 </span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-37"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-38"></span><span>
-</span><span id="line-39"></span><span id="local-6989586621679400959"><span id="local-6989586621679400960"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MemberAccountRuleStatus"><span class="annot"><a href="Network.AWS.Config.Types.MemberAccountRuleStatus.html#MemberAccountRuleStatus"><span class="hs-identifier hs-var">MemberAccountRuleStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MemberAccountRuleStatus%27"><span class="annot"><a href="Network.AWS.Config.Types.MemberAccountRuleStatus.html#MemberAccountRuleStatus%27"><span class="hs-identifier hs-var">MemberAccountRuleStatus'</span></a></span></span><span>
+</span><span id="line-39"></span><span id="local-6989586621679401542"><span id="local-6989586621679401543"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MemberAccountRuleStatus"><span class="annot"><a href="Network.AWS.Config.Types.MemberAccountRuleStatus.html#MemberAccountRuleStatus"><span class="hs-identifier hs-var">MemberAccountRuleStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MemberAccountRuleStatus%27"><span class="annot"><a href="Network.AWS.Config.Types.MemberAccountRuleStatus.html#MemberAccountRuleStatus%27"><span class="hs-identifier hs-var">MemberAccountRuleStatus'</span></a></span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMemberAccountRuleStatus"><span class="annot"><span class="annottext">MemberAccountRuleStatus -&gt; Text
 </span><a href="Network.AWS.Config.Types.MemberAccountRuleStatus.html#fromMemberAccountRuleStatus"><span class="hs-identifier hs-var hs-var">fromMemberAccountRuleStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-41"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679400951"><span id="local-6989586621679400953"><span id="local-6989586621679400955"><span class="annot"><span class="annottext">Int -&gt; MemberAccountRuleStatus -&gt; ShowS
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679401534"><span id="local-6989586621679401536"><span id="local-6989586621679401538"><span class="annot"><span class="annottext">Int -&gt; MemberAccountRuleStatus -&gt; ShowS
 [MemberAccountRuleStatus] -&gt; ShowS
 MemberAccountRuleStatus -&gt; String
 (Int -&gt; MemberAccountRuleStatus -&gt; ShowS)
@@ -58,7 +58,7 @@ $cshow :: MemberAccountRuleStatus -&gt; String
 showsPrec :: Int -&gt; MemberAccountRuleStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; MemberAccountRuleStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679400942"><span id="local-6989586621679400944"><span id="local-6989586621679400946"><span id="local-6989586621679400948"><span class="annot"><span class="annottext">ReadPrec [MemberAccountRuleStatus]
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679401525"><span id="local-6989586621679401527"><span id="local-6989586621679401529"><span id="local-6989586621679401531"><span class="annot"><span class="annottext">ReadPrec [MemberAccountRuleStatus]
 ReadPrec MemberAccountRuleStatus
 Int -&gt; ReadS MemberAccountRuleStatus
 ReadS [MemberAccountRuleStatus]
@@ -79,7 +79,7 @@ $creadList :: ReadS [MemberAccountRuleStatus]
 readsPrec :: Int -&gt; ReadS MemberAccountRuleStatus
 $creadsPrec :: Int -&gt; ReadS MemberAccountRuleStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679400937"><span id="local-6989586621679400939"><span class="annot"><span class="annottext">MemberAccountRuleStatus -&gt; MemberAccountRuleStatus -&gt; Bool
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679401520"><span id="local-6989586621679401522"><span class="annot"><span class="annottext">MemberAccountRuleStatus -&gt; MemberAccountRuleStatus -&gt; Bool
 (MemberAccountRuleStatus -&gt; MemberAccountRuleStatus -&gt; Bool)
 -&gt; (MemberAccountRuleStatus -&gt; MemberAccountRuleStatus -&gt; Bool)
 -&gt; Eq MemberAccountRuleStatus
@@ -89,7 +89,7 @@ $c/= :: MemberAccountRuleStatus -&gt; MemberAccountRuleStatus -&gt; Bool
 == :: MemberAccountRuleStatus -&gt; MemberAccountRuleStatus -&gt; Bool
 $c== :: MemberAccountRuleStatus -&gt; MemberAccountRuleStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679400921"><span id="local-6989586621679400923"><span id="local-6989586621679400925"><span id="local-6989586621679400927"><span id="local-6989586621679400929"><span id="local-6989586621679400931"><span id="local-6989586621679400933"><span class="annot"><span class="annottext">Eq MemberAccountRuleStatus
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679401504"><span id="local-6989586621679401506"><span id="local-6989586621679401508"><span id="local-6989586621679401510"><span id="local-6989586621679401512"><span id="local-6989586621679401514"><span id="local-6989586621679401516"><span class="annot"><span class="annottext">Eq MemberAccountRuleStatus
 Eq MemberAccountRuleStatus
 -&gt; (MemberAccountRuleStatus -&gt; MemberAccountRuleStatus -&gt; Ordering)
 -&gt; (MemberAccountRuleStatus -&gt; MemberAccountRuleStatus -&gt; Bool)
@@ -149,7 +149,7 @@ $cfrom :: forall x. MemberAccountRuleStatus -&gt; Rep MemberAccountRuleStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-49"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679400913"><span id="local-6989586621679400915"><span class="annot"><span class="annottext">Int -&gt; MemberAccountRuleStatus -&gt; Int
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679401496"><span id="local-6989586621679401498"><span class="annot"><span class="annottext">Int -&gt; MemberAccountRuleStatus -&gt; Int
 MemberAccountRuleStatus -&gt; Int
 (Int -&gt; MemberAccountRuleStatus -&gt; Int)
 -&gt; (MemberAccountRuleStatus -&gt; Int)
@@ -160,54 +160,54 @@ $chash :: MemberAccountRuleStatus -&gt; Int
 hashWithSalt :: Int -&gt; MemberAccountRuleStatus -&gt; Int
 $chashWithSalt :: Int -&gt; MemberAccountRuleStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679400910"><span class="annot"><span class="annottext">MemberAccountRuleStatus -&gt; ()
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679401493"><span class="annot"><span class="annottext">MemberAccountRuleStatus -&gt; ()
 (MemberAccountRuleStatus -&gt; ()) -&gt; NFData MemberAccountRuleStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: MemberAccountRuleStatus -&gt; ()
 $crnf :: MemberAccountRuleStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679400907"><span class="annot"><span class="annottext">Text -&gt; Either String MemberAccountRuleStatus
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679401490"><span class="annot"><span class="annottext">Text -&gt; Either String MemberAccountRuleStatus
 (Text -&gt; Either String MemberAccountRuleStatus)
 -&gt; FromText MemberAccountRuleStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String MemberAccountRuleStatus
 $cfromText :: Text -&gt; Either String MemberAccountRuleStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679400904"><span class="annot"><span class="annottext">MemberAccountRuleStatus -&gt; Text
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679401487"><span class="annot"><span class="annottext">MemberAccountRuleStatus -&gt; Text
 (MemberAccountRuleStatus -&gt; Text) -&gt; ToText MemberAccountRuleStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: MemberAccountRuleStatus -&gt; Text
 $ctoText :: MemberAccountRuleStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679400901"><span class="annot"><span class="annottext">MemberAccountRuleStatus -&gt; ByteString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679401484"><span class="annot"><span class="annottext">MemberAccountRuleStatus -&gt; ByteString
 (MemberAccountRuleStatus -&gt; ByteString)
 -&gt; ToByteString MemberAccountRuleStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: MemberAccountRuleStatus -&gt; ByteString
 $ctoBS :: MemberAccountRuleStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679400898"><span class="annot"><span class="annottext">MemberAccountRuleStatus -&gt; ByteStringBuilder
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679401481"><span class="annot"><span class="annottext">MemberAccountRuleStatus -&gt; ByteStringBuilder
 (MemberAccountRuleStatus -&gt; ByteStringBuilder)
 -&gt; ToLog MemberAccountRuleStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: MemberAccountRuleStatus -&gt; ByteStringBuilder
 $cbuild :: MemberAccountRuleStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679400895"><span class="annot"><span class="annottext">HeaderName -&gt; MemberAccountRuleStatus -&gt; [Header]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679401478"><span class="annot"><span class="annottext">HeaderName -&gt; MemberAccountRuleStatus -&gt; [Header]
 (HeaderName -&gt; MemberAccountRuleStatus -&gt; [Header])
 -&gt; ToHeader MemberAccountRuleStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; MemberAccountRuleStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; MemberAccountRuleStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679400892"><span class="annot"><span class="annottext">MemberAccountRuleStatus -&gt; QueryString
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679401475"><span class="annot"><span class="annottext">MemberAccountRuleStatus -&gt; QueryString
 (MemberAccountRuleStatus -&gt; QueryString)
 -&gt; ToQuery MemberAccountRuleStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: MemberAccountRuleStatus -&gt; QueryString
 $ctoQuery :: MemberAccountRuleStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679400887"><span id="local-6989586621679400889"><span class="annot"><span class="annottext">Value -&gt; Parser [MemberAccountRuleStatus]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679401470"><span id="local-6989586621679401472"><span class="annot"><span class="annottext">Value -&gt; Parser [MemberAccountRuleStatus]
 Value -&gt; Parser MemberAccountRuleStatus
 (Value -&gt; Parser MemberAccountRuleStatus)
 -&gt; (Value -&gt; Parser [MemberAccountRuleStatus])
@@ -219,7 +219,7 @@ $cparseJSONList :: Value -&gt; Parser [MemberAccountRuleStatus]
 parseJSON :: Value -&gt; Parser MemberAccountRuleStatus
 $cparseJSON :: Value -&gt; Parser MemberAccountRuleStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679400882"><span id="local-6989586621679400884"><span class="annot"><span class="annottext">FromJSONKeyFunction [MemberAccountRuleStatus]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679401465"><span id="local-6989586621679401467"><span class="annot"><span class="annottext">FromJSONKeyFunction [MemberAccountRuleStatus]
 FromJSONKeyFunction MemberAccountRuleStatus
 FromJSONKeyFunction MemberAccountRuleStatus
 -&gt; FromJSONKeyFunction [MemberAccountRuleStatus]
@@ -231,7 +231,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [MemberAccountRuleStatus]
 fromJSONKey :: FromJSONKeyFunction MemberAccountRuleStatus
 $cfromJSONKey :: FromJSONKeyFunction MemberAccountRuleStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679400873"><span id="local-6989586621679400875"><span id="local-6989586621679400877"><span id="local-6989586621679400879"><span class="annot"><span class="annottext">[MemberAccountRuleStatus] -&gt; Encoding
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679401456"><span id="local-6989586621679401458"><span id="local-6989586621679401460"><span id="local-6989586621679401462"><span class="annot"><span class="annottext">[MemberAccountRuleStatus] -&gt; Encoding
 [MemberAccountRuleStatus] -&gt; Value
 MemberAccountRuleStatus -&gt; Encoding
 MemberAccountRuleStatus -&gt; Value
@@ -255,7 +255,7 @@ $ctoEncoding :: MemberAccountRuleStatus -&gt; Encoding
 toJSON :: MemberAccountRuleStatus -&gt; Value
 $ctoJSON :: MemberAccountRuleStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679400868"><span id="local-6989586621679400870"><span class="annot"><span class="annottext">ToJSONKeyFunction [MemberAccountRuleStatus]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679401451"><span id="local-6989586621679401453"><span class="annot"><span class="annottext">ToJSONKeyFunction [MemberAccountRuleStatus]
 ToJSONKeyFunction MemberAccountRuleStatus
 ToJSONKeyFunction MemberAccountRuleStatus
 -&gt; ToJSONKeyFunction [MemberAccountRuleStatus]
@@ -267,14 +267,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [MemberAccountRuleStatus]
 toJSONKey :: ToJSONKeyFunction MemberAccountRuleStatus
 $ctoJSONKey :: ToJSONKeyFunction MemberAccountRuleStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679400865"><span class="annot"><span class="annottext">[Node] -&gt; Either String MemberAccountRuleStatus
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679401448"><span class="annot"><span class="annottext">[Node] -&gt; Either String MemberAccountRuleStatus
 ([Node] -&gt; Either String MemberAccountRuleStatus)
 -&gt; FromXML MemberAccountRuleStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String MemberAccountRuleStatus
 $cparseXML :: [Node] -&gt; Either String MemberAccountRuleStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679400862"><span class="annot"><span class="annottext">MemberAccountRuleStatus -&gt; XML
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679401445"><span class="annot"><span class="annottext">MemberAccountRuleStatus -&gt; XML
 (MemberAccountRuleStatus -&gt; XML) -&gt; ToXML MemberAccountRuleStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: MemberAccountRuleStatus -&gt; XML

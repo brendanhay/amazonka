@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-comment">-- | Represents a scalable resource.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newScalingPlanResource' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679179125"><span id="local-6989586621679179126"></span></span><span class="hs-keyword">data</span><span> </span><span id="ScalingPlanResource"><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource"><span class="hs-identifier hs-var">ScalingPlanResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScalingPlanResource%27"><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource%27"><span class="hs-identifier hs-var">ScalingPlanResource'</span></a></span></span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The scaling policies.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AscalingPolicies%3AScalingPlanResource%27"><span class="annot"><span class="annottext">ScalingPlanResource -&gt; Maybe [ScalingPolicy]
-</span><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#%24sel%3AscalingPolicies%3AScalingPlanResource%27"><span class="hs-identifier hs-var hs-var">scalingPolicies</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPolicy.html#ScalingPolicy"><span class="hs-identifier hs-type">ScalingPolicy</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | A simple message about the current scaling status of the resource.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AscalingStatusMessage%3AScalingPlanResource%27"><span class="annot"><span class="annottext">ScalingPlanResource -&gt; Maybe Text
+</span><span id="line-33"></span><span id="local-6989586621679179189"><span id="local-6989586621679179190"></span></span><span class="hs-keyword">data</span><span> </span><span id="ScalingPlanResource"><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource"><span class="hs-identifier hs-var">ScalingPlanResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScalingPlanResource%27"><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource%27"><span class="hs-identifier hs-var">ScalingPlanResource'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A simple message about the current scaling status of the resource.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AscalingStatusMessage%3AScalingPlanResource%27"><span class="annot"><span class="annottext">ScalingPlanResource -&gt; Maybe Text
 </span><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#%24sel%3AscalingStatusMessage%3AScalingPlanResource%27"><span class="hs-identifier hs-var hs-var">scalingStatusMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The scaling policies.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AscalingPolicies%3AScalingPlanResource%27"><span class="annot"><span class="annottext">ScalingPlanResource -&gt; Maybe [ScalingPolicy]
+</span><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#%24sel%3AscalingPolicies%3AScalingPlanResource%27"><span class="hs-identifier hs-var hs-var">scalingPolicies</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPolicy.html#ScalingPolicy"><span class="hs-identifier hs-type">ScalingPolicy</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The name of the scaling plan.</span><span>
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3AscalingPlanName%3AScalingPlanResource%27"><span class="annot"><span class="annottext">ScalingPlanResource -&gt; Text
 </span><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#%24sel%3AscalingPlanName%3AScalingPlanResource%27"><span class="hs-identifier hs-var hs-var">scalingPlanName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -115,7 +115,7 @@
 </span><span id="line-108"></span><span>    </span><span id="%24sel%3AscalingStatusCode%3AScalingPlanResource%27"><span class="annot"><span class="annottext">ScalingPlanResource -&gt; ScalingStatusCode
 </span><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#%24sel%3AscalingStatusCode%3AScalingPlanResource%27"><span class="hs-identifier hs-var hs-var">scalingStatusCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingStatusCode.html#ScalingStatusCode"><span class="hs-identifier hs-type">ScalingStatusCode</span></a></span><span>
 </span><span id="line-109"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-110"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679179112"><span id="local-6989586621679179114"><span class="annot"><span class="annottext">ScalingPlanResource -&gt; ScalingPlanResource -&gt; Bool
+</span><span id="line-110"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679179176"><span id="local-6989586621679179178"><span class="annot"><span class="annottext">ScalingPlanResource -&gt; ScalingPlanResource -&gt; Bool
 (ScalingPlanResource -&gt; ScalingPlanResource -&gt; Bool)
 -&gt; (ScalingPlanResource -&gt; ScalingPlanResource -&gt; Bool)
 -&gt; Eq ScalingPlanResource
@@ -124,7 +124,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ScalingPlanResource -&gt; ScalingPlanResource -&gt; Bool
 == :: ScalingPlanResource -&gt; ScalingPlanResource -&gt; Bool
 $c== :: ScalingPlanResource -&gt; ScalingPlanResource -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179103"><span id="local-6989586621679179105"><span id="local-6989586621679179107"><span id="local-6989586621679179109"><span class="annot"><span class="annottext">ReadPrec [ScalingPlanResource]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179167"><span id="local-6989586621679179169"><span id="local-6989586621679179171"><span id="local-6989586621679179173"><span class="annot"><span class="annottext">ReadPrec [ScalingPlanResource]
 ReadPrec ScalingPlanResource
 Int -&gt; ReadS ScalingPlanResource
 ReadS [ScalingPlanResource]
@@ -144,7 +144,7 @@ readList :: ReadS [ScalingPlanResource]
 $creadList :: ReadS [ScalingPlanResource]
 readsPrec :: Int -&gt; ReadS ScalingPlanResource
 $creadsPrec :: Int -&gt; ReadS ScalingPlanResource
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179096"><span id="local-6989586621679179098"><span id="local-6989586621679179100"><span class="annot"><span class="annottext">Int -&gt; ScalingPlanResource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179160"><span id="local-6989586621679179162"><span id="local-6989586621679179164"><span class="annot"><span class="annottext">Int -&gt; ScalingPlanResource -&gt; ShowS
 [ScalingPlanResource] -&gt; ShowS
 ScalingPlanResource -&gt; String
 (Int -&gt; ScalingPlanResource -&gt; ShowS)
@@ -178,9 +178,9 @@ $cfrom :: forall x. ScalingPlanResource -&gt; Rep ScalingPlanResource x
 </span><span id="line-117"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-119"></span><span class="hs-comment">--</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- 'scalingPolicies', 'scalingPlanResource_scalingPolicies' - The scaling policies.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'scalingStatusMessage', 'scalingPlanResource_scalingStatusMessage' - A simple message about the current scaling status of the resource.</span><span>
 </span><span id="line-121"></span><span class="hs-comment">--</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- 'scalingStatusMessage', 'scalingPlanResource_scalingStatusMessage' - A simple message about the current scaling status of the resource.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 'scalingPolicies', 'scalingPlanResource_scalingPolicies' - The scaling policies.</span><span>
 </span><span id="line-123"></span><span class="hs-comment">--</span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- 'scalingPlanName', 'scalingPlanResource_scalingPlanName' - The name of the scaling plan.</span><span>
 </span><span id="line-125"></span><span class="hs-comment">--</span><span>
@@ -274,20 +274,20 @@ $cfrom :: forall x. ScalingPlanResource -&gt; Rep ScalingPlanResource x
 -&gt; ScalingStatusCode
 -&gt; ScalingPlanResource
 </span><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#newScalingPlanResource"><span class="hs-identifier hs-var hs-var">newScalingPlanResource</span></a></span></span><span>
-</span><span id="line-209"></span><span>  </span><span id="local-6989586621679179090"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679179090"><span class="hs-identifier hs-var">pScalingPlanName_</span></a></span></span><span>
-</span><span id="line-210"></span><span>  </span><span id="local-6989586621679179089"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679179089"><span class="hs-identifier hs-var">pScalingPlanVersion_</span></a></span></span><span>
-</span><span id="line-211"></span><span>  </span><span id="local-6989586621679179088"><span class="annot"><span class="annottext">ServiceNamespace
-</span><a href="#local-6989586621679179088"><span class="hs-identifier hs-var">pServiceNamespace_</span></a></span></span><span>
-</span><span id="line-212"></span><span>  </span><span id="local-6989586621679179087"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679179087"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span>
-</span><span id="line-213"></span><span>  </span><span id="local-6989586621679179086"><span class="annot"><span class="annottext">ScalableDimension
-</span><a href="#local-6989586621679179086"><span class="hs-identifier hs-var">pScalableDimension_</span></a></span></span><span>
-</span><span id="line-214"></span><span>  </span><span id="local-6989586621679179085"><span class="annot"><span class="annottext">ScalingStatusCode
-</span><a href="#local-6989586621679179085"><span class="hs-identifier hs-var">pScalingStatusCode_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-215"></span><span>    </span><span class="annot"><span class="annottext">ScalingPlanResource' :: Maybe [ScalingPolicy]
--&gt; Maybe Text
+</span><span id="line-209"></span><span>  </span><span id="local-6989586621679179154"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179154"><span class="hs-identifier hs-var">pScalingPlanName_</span></a></span></span><span>
+</span><span id="line-210"></span><span>  </span><span id="local-6989586621679179153"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679179153"><span class="hs-identifier hs-var">pScalingPlanVersion_</span></a></span></span><span>
+</span><span id="line-211"></span><span>  </span><span id="local-6989586621679179152"><span class="annot"><span class="annottext">ServiceNamespace
+</span><a href="#local-6989586621679179152"><span class="hs-identifier hs-var">pServiceNamespace_</span></a></span></span><span>
+</span><span id="line-212"></span><span>  </span><span id="local-6989586621679179151"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179151"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span>
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679179150"><span class="annot"><span class="annottext">ScalableDimension
+</span><a href="#local-6989586621679179150"><span class="hs-identifier hs-var">pScalableDimension_</span></a></span></span><span>
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621679179149"><span class="annot"><span class="annottext">ScalingStatusCode
+</span><a href="#local-6989586621679179149"><span class="hs-identifier hs-var">pScalingStatusCode_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-215"></span><span>    </span><span class="annot"><span class="annottext">ScalingPlanResource' :: Maybe Text
+-&gt; Maybe [ScalingPolicy]
 -&gt; Text
 -&gt; Integer
 -&gt; ServiceNamespace
@@ -296,38 +296,58 @@ $cfrom :: forall x. ScalingPlanResource -&gt; Rep ScalingPlanResource x
 -&gt; ScalingStatusCode
 -&gt; ScalingPlanResource
 </span><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource%27"><span class="hs-identifier hs-type">ScalingPlanResource'</span></a></span><span>
-</span><span id="line-216"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:scalingPolicies:ScalingPlanResource' :: Maybe [ScalingPolicy]
-</span><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#%24sel%3AscalingPolicies%3AScalingPlanResource%27"><span class="hs-identifier hs-var">scalingPolicies</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-217"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ScalingPolicy]
+</span><span id="line-216"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:scalingStatusMessage:ScalingPlanResource' :: Maybe Text
+</span><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#%24sel%3AscalingStatusMessage%3AScalingPlanResource%27"><span class="hs-identifier hs-var">scalingStatusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-217"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-218"></span><span>        </span><span class="annot"><span class="annottext">$sel:scalingStatusMessage:ScalingPlanResource' :: Maybe Text
-</span><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#%24sel%3AscalingStatusMessage%3AScalingPlanResource%27"><span class="hs-identifier hs-var">scalingStatusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-218"></span><span>        </span><span class="annot"><span class="annottext">$sel:scalingPolicies:ScalingPlanResource' :: Maybe [ScalingPolicy]
+</span><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#%24sel%3AscalingPolicies%3AScalingPlanResource%27"><span class="hs-identifier hs-var">scalingPolicies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ScalingPolicy]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-219"></span><span>        </span><span class="annot"><span class="annottext">$sel:scalingPlanName:ScalingPlanResource' :: Text
 </span><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#%24sel%3AscalingPlanName%3AScalingPlanResource%27"><span class="hs-identifier hs-var">scalingPlanName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679179090"><span class="hs-identifier hs-var">pScalingPlanName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679179154"><span class="hs-identifier hs-var">pScalingPlanName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-220"></span><span>        </span><span class="annot"><span class="annottext">$sel:scalingPlanVersion:ScalingPlanResource' :: Integer
 </span><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#%24sel%3AscalingPlanVersion%3AScalingPlanResource%27"><span class="hs-identifier hs-var">scalingPlanVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679179089"><span class="hs-identifier hs-var">pScalingPlanVersion_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679179153"><span class="hs-identifier hs-var">pScalingPlanVersion_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-221"></span><span>        </span><span class="annot"><span class="annottext">$sel:serviceNamespace:ScalingPlanResource' :: ServiceNamespace
 </span><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#%24sel%3AserviceNamespace%3AScalingPlanResource%27"><span class="hs-identifier hs-var">serviceNamespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceNamespace
-</span><a href="#local-6989586621679179088"><span class="hs-identifier hs-var">pServiceNamespace_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679179152"><span class="hs-identifier hs-var">pServiceNamespace_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-222"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceId:ScalingPlanResource' :: Text
 </span><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#%24sel%3AresourceId%3AScalingPlanResource%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679179087"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679179151"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-223"></span><span>        </span><span class="annot"><span class="annottext">$sel:scalableDimension:ScalingPlanResource' :: ScalableDimension
 </span><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#%24sel%3AscalableDimension%3AScalingPlanResource%27"><span class="hs-identifier hs-var">scalableDimension</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ScalableDimension
-</span><a href="#local-6989586621679179086"><span class="hs-identifier hs-var">pScalableDimension_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679179150"><span class="hs-identifier hs-var">pScalableDimension_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-224"></span><span>        </span><span class="annot"><span class="annottext">$sel:scalingStatusCode:ScalingPlanResource' :: ScalingStatusCode
 </span><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#%24sel%3AscalingStatusCode%3AScalingPlanResource%27"><span class="hs-identifier hs-var">scalingStatusCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ScalingStatusCode
-</span><a href="#local-6989586621679179085"><span class="hs-identifier hs-var">pScalingStatusCode_</span></a></span><span>
+</span><a href="#local-6989586621679179149"><span class="hs-identifier hs-var">pScalingStatusCode_</span></a></span><span>
 </span><span id="line-225"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-226"></span><span>
-</span><span id="line-227"></span><span class="hs-comment">-- | The scaling policies.</span><span>
-</span><span id="line-228"></span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#scalingPlanResource_scalingPolicies"><span class="hs-identifier hs-type">scalingPlanResource_scalingPolicies</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource"><span class="hs-identifier hs-type">ScalingPlanResource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPolicy.html#ScalingPolicy"><span class="hs-identifier hs-type">ScalingPolicy</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-229"></span><span id="scalingPlanResource_scalingPolicies"><span class="annot"><span class="annottext">scalingPlanResource_scalingPolicies :: (Maybe [ScalingPolicy] -&gt; f (Maybe [ScalingPolicy]))
+</span><span id="line-227"></span><span class="hs-comment">-- | A simple message about the current scaling status of the resource.</span><span>
+</span><span id="line-228"></span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#scalingPlanResource_scalingStatusMessage"><span class="hs-identifier hs-type">scalingPlanResource_scalingStatusMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource"><span class="hs-identifier hs-type">ScalingPlanResource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span id="scalingPlanResource_scalingStatusMessage"><span class="annot"><span class="annottext">scalingPlanResource_scalingStatusMessage :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ScalingPlanResource -&gt; f ScalingPlanResource
+</span><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#scalingPlanResource_scalingStatusMessage"><span class="hs-identifier hs-var hs-var">scalingPlanResource_scalingStatusMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScalingPlanResource -&gt; Maybe Text)
+-&gt; (ScalingPlanResource -&gt; Maybe Text -&gt; ScalingPlanResource)
+-&gt; Lens
+     ScalingPlanResource ScalingPlanResource (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource%27"><span class="hs-identifier hs-type">ScalingPlanResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179145"><span class="annot"><span class="annottext">Maybe Text
+scalingStatusMessage :: Maybe Text
+$sel:scalingStatusMessage:ScalingPlanResource' :: ScalingPlanResource -&gt; Maybe Text
+</span><a href="#local-6989586621679179145"><span class="hs-identifier hs-var hs-var">scalingStatusMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179145"><span class="hs-identifier hs-var">scalingStatusMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179144"><span class="annot"><span class="annottext">s :: ScalingPlanResource
+</span><a href="#local-6989586621679179144"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource%27"><span class="hs-identifier hs-type">ScalingPlanResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179143"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179143"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingPlanResource
+</span><a href="#local-6989586621679179144"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scalingStatusMessage:ScalingPlanResource' :: Maybe Text
+</span><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#%24sel%3AscalingStatusMessage%3AScalingPlanResource%27"><span class="hs-identifier hs-var">scalingStatusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179143"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource"><span class="hs-identifier hs-type">ScalingPlanResource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- | The scaling policies.</span><span>
+</span><span id="line-232"></span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#scalingPlanResource_scalingPolicies"><span class="hs-identifier hs-type">scalingPlanResource_scalingPolicies</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource"><span class="hs-identifier hs-type">ScalingPlanResource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPolicy.html#ScalingPolicy"><span class="hs-identifier hs-type">ScalingPolicy</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span id="scalingPlanResource_scalingPolicies"><span class="annot"><span class="annottext">scalingPlanResource_scalingPolicies :: (Maybe [ScalingPolicy] -&gt; f (Maybe [ScalingPolicy]))
 -&gt; ScalingPlanResource -&gt; f ScalingPlanResource
 </span><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#scalingPlanResource_scalingPolicies"><span class="hs-identifier hs-var hs-var">scalingPlanResource_scalingPolicies</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScalingPlanResource -&gt; Maybe [ScalingPolicy])
 -&gt; (ScalingPlanResource
@@ -338,16 +358,16 @@ forall a. Maybe a
      (Maybe [ScalingPolicy])
      (Maybe [ScalingPolicy])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource%27"><span class="hs-identifier hs-type">ScalingPlanResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179081"><span class="annot"><span class="annottext">Maybe [ScalingPolicy]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource%27"><span class="hs-identifier hs-type">ScalingPlanResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179141"><span class="annot"><span class="annottext">Maybe [ScalingPolicy]
 scalingPolicies :: Maybe [ScalingPolicy]
 $sel:scalingPolicies:ScalingPlanResource' :: ScalingPlanResource -&gt; Maybe [ScalingPolicy]
-</span><a href="#local-6989586621679179081"><span class="hs-identifier hs-var hs-var">scalingPolicies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ScalingPolicy]
-</span><a href="#local-6989586621679179081"><span class="hs-identifier hs-var">scalingPolicies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179080"><span class="annot"><span class="annottext">s :: ScalingPlanResource
-</span><a href="#local-6989586621679179080"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource%27"><span class="hs-identifier hs-type">ScalingPlanResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179079"><span class="annot"><span class="annottext">Maybe [ScalingPolicy]
-</span><a href="#local-6989586621679179079"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingPlanResource
-</span><a href="#local-6989586621679179080"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scalingPolicies:ScalingPlanResource' :: Maybe [ScalingPolicy]
+</span><a href="#local-6989586621679179141"><span class="hs-identifier hs-var hs-var">scalingPolicies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ScalingPolicy]
+</span><a href="#local-6989586621679179141"><span class="hs-identifier hs-var">scalingPolicies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179140"><span class="annot"><span class="annottext">s :: ScalingPlanResource
+</span><a href="#local-6989586621679179140"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource%27"><span class="hs-identifier hs-type">ScalingPlanResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179139"><span class="annot"><span class="annottext">Maybe [ScalingPolicy]
+</span><a href="#local-6989586621679179139"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingPlanResource
+</span><a href="#local-6989586621679179140"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scalingPolicies:ScalingPlanResource' :: Maybe [ScalingPolicy]
 </span><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#%24sel%3AscalingPolicies%3AScalingPlanResource%27"><span class="hs-identifier hs-var">scalingPolicies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ScalingPolicy]
-</span><a href="#local-6989586621679179079"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource"><span class="hs-identifier hs-type">ScalingPlanResource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ScalingPolicy] -&gt; f (Maybe [ScalingPolicy]))
+</span><a href="#local-6989586621679179139"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource"><span class="hs-identifier hs-type">ScalingPlanResource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ScalingPolicy] -&gt; f (Maybe [ScalingPolicy]))
  -&gt; ScalingPlanResource -&gt; f ScalingPlanResource)
 -&gt; ((Maybe [ScalingPolicy] -&gt; f (Maybe [ScalingPolicy]))
     -&gt; Maybe [ScalingPolicy] -&gt; f (Maybe [ScalingPolicy]))
@@ -367,28 +387,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   [ScalingPolicy] [ScalingPolicy] [ScalingPolicy] [ScalingPolicy]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-230"></span><span>
-</span><span id="line-231"></span><span class="hs-comment">-- | A simple message about the current scaling status of the resource.</span><span>
-</span><span id="line-232"></span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#scalingPlanResource_scalingStatusMessage"><span class="hs-identifier hs-type">scalingPlanResource_scalingStatusMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource"><span class="hs-identifier hs-type">ScalingPlanResource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-233"></span><span id="scalingPlanResource_scalingStatusMessage"><span class="annot"><span class="annottext">scalingPlanResource_scalingStatusMessage :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ScalingPlanResource -&gt; f ScalingPlanResource
-</span><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#scalingPlanResource_scalingStatusMessage"><span class="hs-identifier hs-var hs-var">scalingPlanResource_scalingStatusMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScalingPlanResource -&gt; Maybe Text)
--&gt; (ScalingPlanResource -&gt; Maybe Text -&gt; ScalingPlanResource)
--&gt; Lens
-     ScalingPlanResource ScalingPlanResource (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource%27"><span class="hs-identifier hs-type">ScalingPlanResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179074"><span class="annot"><span class="annottext">Maybe Text
-scalingStatusMessage :: Maybe Text
-$sel:scalingStatusMessage:ScalingPlanResource' :: ScalingPlanResource -&gt; Maybe Text
-</span><a href="#local-6989586621679179074"><span class="hs-identifier hs-var hs-var">scalingStatusMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679179074"><span class="hs-identifier hs-var">scalingStatusMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179073"><span class="annot"><span class="annottext">s :: ScalingPlanResource
-</span><a href="#local-6989586621679179073"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource%27"><span class="hs-identifier hs-type">ScalingPlanResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179072"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679179072"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingPlanResource
-</span><a href="#local-6989586621679179073"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scalingStatusMessage:ScalingPlanResource' :: Maybe Text
-</span><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#%24sel%3AscalingStatusMessage%3AScalingPlanResource%27"><span class="hs-identifier hs-var">scalingStatusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679179072"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource"><span class="hs-identifier hs-type">ScalingPlanResource</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-234"></span><span>
 </span><span id="line-235"></span><span class="hs-comment">-- | The name of the scaling plan.</span><span>
 </span><span id="line-236"></span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#scalingPlanResource_scalingPlanName"><span class="hs-identifier hs-type">scalingPlanResource_scalingPlanName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource"><span class="hs-identifier hs-type">ScalingPlanResource</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -397,16 +397,16 @@ $sel:scalingStatusMessage:ScalingPlanResource' :: ScalingPlanResource -&gt; Mayb
 -&gt; (ScalingPlanResource -&gt; Text -&gt; ScalingPlanResource)
 -&gt; Lens ScalingPlanResource ScalingPlanResource Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource%27"><span class="hs-identifier hs-type">ScalingPlanResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179070"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource%27"><span class="hs-identifier hs-type">ScalingPlanResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179134"><span class="annot"><span class="annottext">Text
 scalingPlanName :: Text
 $sel:scalingPlanName:ScalingPlanResource' :: ScalingPlanResource -&gt; Text
-</span><a href="#local-6989586621679179070"><span class="hs-identifier hs-var hs-var">scalingPlanName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679179070"><span class="hs-identifier hs-var">scalingPlanName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179069"><span class="annot"><span class="annottext">s :: ScalingPlanResource
-</span><a href="#local-6989586621679179069"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource%27"><span class="hs-identifier hs-type">ScalingPlanResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179068"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679179068"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingPlanResource
-</span><a href="#local-6989586621679179069"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scalingPlanName:ScalingPlanResource' :: Text
+</span><a href="#local-6989586621679179134"><span class="hs-identifier hs-var hs-var">scalingPlanName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179134"><span class="hs-identifier hs-var">scalingPlanName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179133"><span class="annot"><span class="annottext">s :: ScalingPlanResource
+</span><a href="#local-6989586621679179133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource%27"><span class="hs-identifier hs-type">ScalingPlanResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179132"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingPlanResource
+</span><a href="#local-6989586621679179133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scalingPlanName:ScalingPlanResource' :: Text
 </span><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#%24sel%3AscalingPlanName%3AScalingPlanResource%27"><span class="hs-identifier hs-var">scalingPlanName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679179068"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource"><span class="hs-identifier hs-type">ScalingPlanResource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679179132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource"><span class="hs-identifier hs-type">ScalingPlanResource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-238"></span><span>
 </span><span id="line-239"></span><span class="hs-comment">-- | The version number of the scaling plan.</span><span>
 </span><span id="line-240"></span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#scalingPlanResource_scalingPlanVersion"><span class="hs-identifier hs-type">scalingPlanResource_scalingPlanVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource"><span class="hs-identifier hs-type">ScalingPlanResource</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
@@ -416,16 +416,16 @@ $sel:scalingPlanName:ScalingPlanResource' :: ScalingPlanResource -&gt; Text
 -&gt; (ScalingPlanResource -&gt; Integer -&gt; ScalingPlanResource)
 -&gt; Lens ScalingPlanResource ScalingPlanResource Integer Integer
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource%27"><span class="hs-identifier hs-type">ScalingPlanResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179066"><span class="annot"><span class="annottext">Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource%27"><span class="hs-identifier hs-type">ScalingPlanResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179130"><span class="annot"><span class="annottext">Integer
 scalingPlanVersion :: Integer
 $sel:scalingPlanVersion:ScalingPlanResource' :: ScalingPlanResource -&gt; Integer
-</span><a href="#local-6989586621679179066"><span class="hs-identifier hs-var hs-var">scalingPlanVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679179066"><span class="hs-identifier hs-var">scalingPlanVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179065"><span class="annot"><span class="annottext">s :: ScalingPlanResource
-</span><a href="#local-6989586621679179065"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource%27"><span class="hs-identifier hs-type">ScalingPlanResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179064"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679179064"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingPlanResource
-</span><a href="#local-6989586621679179065"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scalingPlanVersion:ScalingPlanResource' :: Integer
+</span><a href="#local-6989586621679179130"><span class="hs-identifier hs-var hs-var">scalingPlanVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679179130"><span class="hs-identifier hs-var">scalingPlanVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179129"><span class="annot"><span class="annottext">s :: ScalingPlanResource
+</span><a href="#local-6989586621679179129"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource%27"><span class="hs-identifier hs-type">ScalingPlanResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179128"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679179128"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingPlanResource
+</span><a href="#local-6989586621679179129"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scalingPlanVersion:ScalingPlanResource' :: Integer
 </span><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#%24sel%3AscalingPlanVersion%3AScalingPlanResource%27"><span class="hs-identifier hs-var">scalingPlanVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679179064"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource"><span class="hs-identifier hs-type">ScalingPlanResource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679179128"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource"><span class="hs-identifier hs-type">ScalingPlanResource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-242"></span><span>
 </span><span id="line-243"></span><span class="hs-comment">-- | The namespace of the AWS service.</span><span>
 </span><span id="line-244"></span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#scalingPlanResource_serviceNamespace"><span class="hs-identifier hs-type">scalingPlanResource_serviceNamespace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource"><span class="hs-identifier hs-type">ScalingPlanResource</span></a></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ServiceNamespace.html#ServiceNamespace"><span class="hs-identifier hs-type">ServiceNamespace</span></a></span><span>
@@ -439,16 +439,16 @@ $sel:scalingPlanVersion:ScalingPlanResource' :: ScalingPlanResource -&gt; Intege
      ServiceNamespace
      ServiceNamespace
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource%27"><span class="hs-identifier hs-type">ScalingPlanResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179062"><span class="annot"><span class="annottext">ServiceNamespace
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource%27"><span class="hs-identifier hs-type">ScalingPlanResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179126"><span class="annot"><span class="annottext">ServiceNamespace
 serviceNamespace :: ServiceNamespace
 $sel:serviceNamespace:ScalingPlanResource' :: ScalingPlanResource -&gt; ServiceNamespace
-</span><a href="#local-6989586621679179062"><span class="hs-identifier hs-var hs-var">serviceNamespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceNamespace
-</span><a href="#local-6989586621679179062"><span class="hs-identifier hs-var">serviceNamespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179061"><span class="annot"><span class="annottext">s :: ScalingPlanResource
-</span><a href="#local-6989586621679179061"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource%27"><span class="hs-identifier hs-type">ScalingPlanResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179060"><span class="annot"><span class="annottext">ServiceNamespace
-</span><a href="#local-6989586621679179060"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingPlanResource
-</span><a href="#local-6989586621679179061"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceNamespace:ScalingPlanResource' :: ServiceNamespace
+</span><a href="#local-6989586621679179126"><span class="hs-identifier hs-var hs-var">serviceNamespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceNamespace
+</span><a href="#local-6989586621679179126"><span class="hs-identifier hs-var">serviceNamespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179125"><span class="annot"><span class="annottext">s :: ScalingPlanResource
+</span><a href="#local-6989586621679179125"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource%27"><span class="hs-identifier hs-type">ScalingPlanResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179124"><span class="annot"><span class="annottext">ServiceNamespace
+</span><a href="#local-6989586621679179124"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingPlanResource
+</span><a href="#local-6989586621679179125"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceNamespace:ScalingPlanResource' :: ServiceNamespace
 </span><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#%24sel%3AserviceNamespace%3AScalingPlanResource%27"><span class="hs-identifier hs-var">serviceNamespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceNamespace
-</span><a href="#local-6989586621679179060"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource"><span class="hs-identifier hs-type">ScalingPlanResource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679179124"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource"><span class="hs-identifier hs-type">ScalingPlanResource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-246"></span><span>
 </span><span id="line-247"></span><span class="hs-comment">-- | The ID of the resource. This string consists of the resource type and</span><span>
 </span><span id="line-248"></span><span class="hs-comment">-- unique identifier.</span><span>
@@ -480,16 +480,16 @@ $sel:serviceNamespace:ScalingPlanResource' :: ScalingPlanResource -&gt; ServiceN
 -&gt; (ScalingPlanResource -&gt; Text -&gt; ScalingPlanResource)
 -&gt; Lens ScalingPlanResource ScalingPlanResource Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource%27"><span class="hs-identifier hs-type">ScalingPlanResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179058"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource%27"><span class="hs-identifier hs-type">ScalingPlanResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179122"><span class="annot"><span class="annottext">Text
 resourceId :: Text
 $sel:resourceId:ScalingPlanResource' :: ScalingPlanResource -&gt; Text
-</span><a href="#local-6989586621679179058"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679179058"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179057"><span class="annot"><span class="annottext">s :: ScalingPlanResource
-</span><a href="#local-6989586621679179057"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource%27"><span class="hs-identifier hs-type">ScalingPlanResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179056"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679179056"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingPlanResource
-</span><a href="#local-6989586621679179057"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:ScalingPlanResource' :: Text
+</span><a href="#local-6989586621679179122"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179122"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179121"><span class="annot"><span class="annottext">s :: ScalingPlanResource
+</span><a href="#local-6989586621679179121"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource%27"><span class="hs-identifier hs-type">ScalingPlanResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179120"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179120"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingPlanResource
+</span><a href="#local-6989586621679179121"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:ScalingPlanResource' :: Text
 </span><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#%24sel%3AresourceId%3AScalingPlanResource%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679179056"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource"><span class="hs-identifier hs-type">ScalingPlanResource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679179120"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource"><span class="hs-identifier hs-type">ScalingPlanResource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-273"></span><span>
 </span><span id="line-274"></span><span class="hs-comment">-- | The scalable dimension for the resource.</span><span>
 </span><span id="line-275"></span><span class="hs-comment">--</span><span>
@@ -529,16 +529,16 @@ $sel:resourceId:ScalingPlanResource' :: ScalingPlanResource -&gt; Text
      ScalableDimension
      ScalableDimension
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource%27"><span class="hs-identifier hs-type">ScalingPlanResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179054"><span class="annot"><span class="annottext">ScalableDimension
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource%27"><span class="hs-identifier hs-type">ScalingPlanResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179118"><span class="annot"><span class="annottext">ScalableDimension
 scalableDimension :: ScalableDimension
 $sel:scalableDimension:ScalingPlanResource' :: ScalingPlanResource -&gt; ScalableDimension
-</span><a href="#local-6989586621679179054"><span class="hs-identifier hs-var hs-var">scalableDimension</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalableDimension
-</span><a href="#local-6989586621679179054"><span class="hs-identifier hs-var">scalableDimension</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179053"><span class="annot"><span class="annottext">s :: ScalingPlanResource
-</span><a href="#local-6989586621679179053"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource%27"><span class="hs-identifier hs-type">ScalingPlanResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179052"><span class="annot"><span class="annottext">ScalableDimension
-</span><a href="#local-6989586621679179052"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingPlanResource
-</span><a href="#local-6989586621679179053"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scalableDimension:ScalingPlanResource' :: ScalableDimension
+</span><a href="#local-6989586621679179118"><span class="hs-identifier hs-var hs-var">scalableDimension</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalableDimension
+</span><a href="#local-6989586621679179118"><span class="hs-identifier hs-var">scalableDimension</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179117"><span class="annot"><span class="annottext">s :: ScalingPlanResource
+</span><a href="#local-6989586621679179117"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource%27"><span class="hs-identifier hs-type">ScalingPlanResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179116"><span class="annot"><span class="annottext">ScalableDimension
+</span><a href="#local-6989586621679179116"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingPlanResource
+</span><a href="#local-6989586621679179117"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scalableDimension:ScalingPlanResource' :: ScalableDimension
 </span><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#%24sel%3AscalableDimension%3AScalingPlanResource%27"><span class="hs-identifier hs-var">scalableDimension</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ScalableDimension
-</span><a href="#local-6989586621679179052"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource"><span class="hs-identifier hs-type">ScalingPlanResource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679179116"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource"><span class="hs-identifier hs-type">ScalingPlanResource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-302"></span><span>
 </span><span id="line-303"></span><span class="hs-comment">-- | The scaling status of the resource.</span><span>
 </span><span id="line-304"></span><span class="hs-comment">--</span><span>
@@ -564,19 +564,19 @@ $sel:scalableDimension:ScalingPlanResource' :: ScalingPlanResource -&gt; Scalabl
      ScalingStatusCode
      ScalingStatusCode
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource%27"><span class="hs-identifier hs-type">ScalingPlanResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179050"><span class="annot"><span class="annottext">ScalingStatusCode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource%27"><span class="hs-identifier hs-type">ScalingPlanResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179114"><span class="annot"><span class="annottext">ScalingStatusCode
 scalingStatusCode :: ScalingStatusCode
 $sel:scalingStatusCode:ScalingPlanResource' :: ScalingPlanResource -&gt; ScalingStatusCode
-</span><a href="#local-6989586621679179050"><span class="hs-identifier hs-var hs-var">scalingStatusCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingStatusCode
-</span><a href="#local-6989586621679179050"><span class="hs-identifier hs-var">scalingStatusCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179049"><span class="annot"><span class="annottext">s :: ScalingPlanResource
-</span><a href="#local-6989586621679179049"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource%27"><span class="hs-identifier hs-type">ScalingPlanResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179048"><span class="annot"><span class="annottext">ScalingStatusCode
-</span><a href="#local-6989586621679179048"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingPlanResource
-</span><a href="#local-6989586621679179049"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scalingStatusCode:ScalingPlanResource' :: ScalingStatusCode
+</span><a href="#local-6989586621679179114"><span class="hs-identifier hs-var hs-var">scalingStatusCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingStatusCode
+</span><a href="#local-6989586621679179114"><span class="hs-identifier hs-var">scalingStatusCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179113"><span class="annot"><span class="annottext">s :: ScalingPlanResource
+</span><a href="#local-6989586621679179113"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource%27"><span class="hs-identifier hs-type">ScalingPlanResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179112"><span class="annot"><span class="annottext">ScalingStatusCode
+</span><a href="#local-6989586621679179112"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingPlanResource
+</span><a href="#local-6989586621679179113"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scalingStatusCode:ScalingPlanResource' :: ScalingStatusCode
 </span><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#%24sel%3AscalingStatusCode%3AScalingPlanResource%27"><span class="hs-identifier hs-var">scalingStatusCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ScalingStatusCode
-</span><a href="#local-6989586621679179048"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource"><span class="hs-identifier hs-type">ScalingPlanResource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679179112"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource"><span class="hs-identifier hs-type">ScalingPlanResource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-317"></span><span>
-</span><span id="line-318"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179045"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource"><span class="hs-identifier hs-type">ScalingPlanResource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-319"></span><span>  </span><span id="local-6989586621679179043"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ScalingPlanResource
+</span><span id="line-318"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179109"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource"><span class="hs-identifier hs-type">ScalingPlanResource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-319"></span><span>  </span><span id="local-6989586621679179107"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ScalingPlanResource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-320"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ScalingPlanResource)
@@ -586,10 +586,10 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-321"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ScalingPlanResource&quot;</span></span><span>
-</span><span id="line-322"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679179040"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679179040"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-323"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ScalingPolicy]
--&gt; Maybe Text
+</span><span id="line-322"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679179104"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679179104"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-323"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [ScalingPolicy]
 -&gt; Text
 -&gt; Integer
 -&gt; ServiceNamespace
@@ -598,8 +598,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; ScalingStatusCode
 -&gt; ScalingPlanResource
 </span><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource%27"><span class="hs-identifier hs-var">ScalingPlanResource'</span></a></span><span>
-</span><span id="line-324"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ScalingPolicy]
- -&gt; Maybe Text
+</span><span id="line-324"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [ScalingPolicy]
  -&gt; Text
  -&gt; Integer
  -&gt; ServiceNamespace
@@ -607,9 +607,9 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
  -&gt; ScalableDimension
  -&gt; ScalingStatusCode
  -&gt; ScalingPlanResource)
--&gt; Parser (Maybe [ScalingPolicy])
+-&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe Text
+     (Maybe [ScalingPolicy]
       -&gt; Text
       -&gt; Integer
       -&gt; ServiceNamespace
@@ -618,20 +618,13 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; ScalingStatusCode
       -&gt; ScalingPlanResource)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679179040"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ScalingPolicy]))
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679179104"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ScalingPolicies&quot;</span></span><span>
-</span><span id="line-325"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [ScalingPolicy]))
--&gt; Maybe [ScalingPolicy] -&gt; Parser (Maybe [ScalingPolicy])
-forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
-</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ScalingPolicy]
-forall a. Monoid a =&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-326"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-327"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
+</span><span class="hs-string">&quot;ScalingStatusMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-325"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [ScalingPolicy]
    -&gt; Text
    -&gt; Integer
    -&gt; ServiceNamespace
@@ -639,7 +632,7 @@ forall a. Monoid a =&gt; a
    -&gt; ScalableDimension
    -&gt; ScalingStatusCode
    -&gt; ScalingPlanResource)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe [ScalingPolicy])
 -&gt; Parser
      (Text
       -&gt; Integer
@@ -649,11 +642,18 @@ forall a. Monoid a =&gt; a
       -&gt; ScalingStatusCode
       -&gt; ScalingPlanResource)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679179040"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679179104"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ScalingPolicy]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ScalingStatusMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;ScalingPolicies&quot;</span></span><span>
+</span><span id="line-326"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [ScalingPolicy]))
+-&gt; Maybe [ScalingPolicy] -&gt; Parser (Maybe [ScalingPolicy])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ScalingPolicy]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-327"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-328"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Text
    -&gt; Integer
@@ -672,7 +672,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ScalingPlanResource)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679179040"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679179104"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ScalingPlanName&quot;</span></span><span class="hs-special">)</span><span>
@@ -692,7 +692,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
       -&gt; ScalingPlanResource)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679179040"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
+</span><a href="#local-6989586621679179104"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ScalingPlanVersion&quot;</span></span><span class="hs-special">)</span><span>
@@ -708,7 +708,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
       -&gt; ScalableDimension -&gt; ScalingStatusCode -&gt; ScalingPlanResource)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679179040"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ServiceNamespace
+</span><a href="#local-6989586621679179104"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ServiceNamespace
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ServiceNamespace&quot;</span></span><span class="hs-special">)</span><span>
@@ -720,7 +720,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
      (ScalableDimension -&gt; ScalingStatusCode -&gt; ScalingPlanResource)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679179040"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679179104"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceId&quot;</span></span><span class="hs-special">)</span><span>
@@ -730,7 +730,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (ScalingStatusCode -&gt; ScalingPlanResource)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679179040"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ScalableDimension
+</span><a href="#local-6989586621679179104"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ScalableDimension
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ScalableDimension&quot;</span></span><span class="hs-special">)</span><span>
@@ -738,13 +738,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser ScalingStatusCode -&gt; Parser ScalingPlanResource
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679179040"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ScalingStatusCode
+</span><a href="#local-6989586621679179104"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ScalingStatusCode
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ScalingStatusCode&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-334"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-335"></span><span>
-</span><span id="line-336"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179032"><span id="local-6989586621679179034"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource"><span class="hs-identifier hs-type">ScalingPlanResource</span></a></span></span></span><span>
+</span><span id="line-336"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179096"><span id="local-6989586621679179098"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource"><span class="hs-identifier hs-type">ScalingPlanResource</span></a></span></span></span><span>
 </span><span id="line-337"></span><span>
-</span><span id="line-338"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179029"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource"><span class="hs-identifier hs-type">ScalingPlanResource</span></a></span></span><span>
+</span><span id="line-338"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179093"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource"><span class="hs-identifier hs-type">ScalingPlanResource</span></a></span></span><span>
 </span><span id="line-339"></span></pre></body></html>

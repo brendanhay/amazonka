@@ -40,9 +40,9 @@
 </span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.Types.IntegrationResponse.html#integrationResponse_contentHandling"><span class="hs-identifier">integrationResponse_contentHandling</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.Types.IntegrationResponse.html#integrationResponse_responseTemplates"><span class="hs-identifier">integrationResponse_responseTemplates</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.Types.IntegrationResponse.html#integrationResponse_responseParameters"><span class="hs-identifier">integrationResponse_responseParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.Types.IntegrationResponse.html#integrationResponse_selectionPattern"><span class="hs-identifier">integrationResponse_selectionPattern</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.Types.IntegrationResponse.html#integrationResponse_statusCode"><span class="hs-identifier">integrationResponse_statusCode</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.Types.IntegrationResponse.html#integrationResponse_selectionPattern"><span class="hs-identifier">integrationResponse_selectionPattern</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.Types.IntegrationResponse.html#integrationResponse_responseParameters"><span class="hs-identifier">integrationResponse_responseParameters</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span class="hs-keyword">where</span><span>
 </span><span id="line-48"></span><span>
@@ -56,7 +56,7 @@
 </span><span id="line-56"></span><span class="hs-comment">-- | Represents an update integration response request.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- /See:/ 'newUpdateIntegrationResponse' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679395645"><span id="local-6989586621679395646"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateIntegrationResponse"><span class="annot"><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#UpdateIntegrationResponse"><span class="hs-identifier hs-var">UpdateIntegrationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateIntegrationResponse%27"><span class="annot"><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#UpdateIntegrationResponse%27"><span class="hs-identifier hs-var">UpdateIntegrationResponse'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621679396222"><span id="local-6989586621679396223"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateIntegrationResponse"><span class="annot"><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#UpdateIntegrationResponse"><span class="hs-identifier hs-var">UpdateIntegrationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateIntegrationResponse%27"><span class="annot"><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#UpdateIntegrationResponse%27"><span class="hs-identifier hs-var">UpdateIntegrationResponse'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of update operations to be applied to the specified resource and</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- in the order specified in this list.</span><span>
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3ApatchOperations%3AUpdateIntegrationResponse%27"><span class="annot"><span class="annottext">UpdateIntegrationResponse -&gt; Maybe [PatchOperation]
@@ -77,7 +77,7 @@
 </span><span id="line-73"></span><span>    </span><span id="%24sel%3AstatusCode%3AUpdateIntegrationResponse%27"><span class="annot"><span class="annottext">UpdateIntegrationResponse -&gt; Text
 </span><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#%24sel%3AstatusCode%3AUpdateIntegrationResponse%27"><span class="hs-identifier hs-var hs-var">statusCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-74"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679395635"><span id="local-6989586621679395637"><span class="annot"><span class="annottext">UpdateIntegrationResponse -&gt; UpdateIntegrationResponse -&gt; Bool
+</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679396212"><span id="local-6989586621679396214"><span class="annot"><span class="annottext">UpdateIntegrationResponse -&gt; UpdateIntegrationResponse -&gt; Bool
 (UpdateIntegrationResponse -&gt; UpdateIntegrationResponse -&gt; Bool)
 -&gt; (UpdateIntegrationResponse -&gt; UpdateIntegrationResponse -&gt; Bool)
 -&gt; Eq UpdateIntegrationResponse
@@ -86,7 +86,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateIntegrationResponse -&gt; UpdateIntegrationResponse -&gt; Bool
 == :: UpdateIntegrationResponse -&gt; UpdateIntegrationResponse -&gt; Bool
 $c== :: UpdateIntegrationResponse -&gt; UpdateIntegrationResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395626"><span id="local-6989586621679395628"><span id="local-6989586621679395630"><span id="local-6989586621679395632"><span class="annot"><span class="annottext">ReadPrec [UpdateIntegrationResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396203"><span id="local-6989586621679396205"><span id="local-6989586621679396207"><span id="local-6989586621679396209"><span class="annot"><span class="annottext">ReadPrec [UpdateIntegrationResponse]
 ReadPrec UpdateIntegrationResponse
 Int -&gt; ReadS UpdateIntegrationResponse
 ReadS [UpdateIntegrationResponse]
@@ -106,7 +106,7 @@ readList :: ReadS [UpdateIntegrationResponse]
 $creadList :: ReadS [UpdateIntegrationResponse]
 readsPrec :: Int -&gt; ReadS UpdateIntegrationResponse
 $creadsPrec :: Int -&gt; ReadS UpdateIntegrationResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395619"><span id="local-6989586621679395621"><span id="local-6989586621679395623"><span class="annot"><span class="annottext">Int -&gt; UpdateIntegrationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396196"><span id="local-6989586621679396198"><span id="local-6989586621679396200"><span class="annot"><span class="annottext">Int -&gt; UpdateIntegrationResponse -&gt; ShowS
 [UpdateIntegrationResponse] -&gt; ShowS
 UpdateIntegrationResponse -&gt; String
 (Int -&gt; UpdateIntegrationResponse -&gt; ShowS)
@@ -171,14 +171,14 @@ UpdateIntegrationResponse -&gt; Rep UpdateIntegrationResponse x
 </span><span id="line-107"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#UpdateIntegrationResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponse</span></a></span><span>
 </span><span id="line-108"></span><span id="newUpdateIntegrationResponse"><span class="annot"><span class="annottext">newUpdateIntegrationResponse :: Text -&gt; Text -&gt; Text -&gt; Text -&gt; UpdateIntegrationResponse
 </span><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#newUpdateIntegrationResponse"><span class="hs-identifier hs-var hs-var">newUpdateIntegrationResponse</span></a></span></span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679395614"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395614"><span class="hs-identifier hs-var">pRestApiId_</span></a></span></span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679395613"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395613"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679395612"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395612"><span class="hs-identifier hs-var">pHttpMethod_</span></a></span></span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679395611"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395611"><span class="hs-identifier hs-var">pStatusCode_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679396191"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679396191"><span class="hs-identifier hs-var">pRestApiId_</span></a></span></span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679396190"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679396190"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679396189"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679396189"><span class="hs-identifier hs-var">pHttpMethod_</span></a></span></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679396188"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679396188"><span class="hs-identifier hs-var">pStatusCode_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">UpdateIntegrationResponse' :: Maybe [PatchOperation]
 -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; UpdateIntegrationResponse
 </span><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#UpdateIntegrationResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponse'</span></a></span><span>
@@ -189,16 +189,16 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">$sel:restApiId:UpdateIntegrationResponse' :: Text
 </span><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#%24sel%3ArestApiId%3AUpdateIntegrationResponse%27"><span class="hs-identifier hs-var">restApiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395614"><span class="hs-identifier hs-var">pRestApiId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679396191"><span class="hs-identifier hs-var">pRestApiId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceId:UpdateIntegrationResponse' :: Text
 </span><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#%24sel%3AresourceId%3AUpdateIntegrationResponse%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395613"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679396190"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpMethod:UpdateIntegrationResponse' :: Text
 </span><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#%24sel%3AhttpMethod%3AUpdateIntegrationResponse%27"><span class="hs-identifier hs-var">httpMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395612"><span class="hs-identifier hs-var">pHttpMethod_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679396189"><span class="hs-identifier hs-var">pHttpMethod_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">$sel:statusCode:UpdateIntegrationResponse' :: Text
 </span><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#%24sel%3AstatusCode%3AUpdateIntegrationResponse%27"><span class="hs-identifier hs-var">statusCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395611"><span class="hs-identifier hs-var">pStatusCode_</span></a></span><span>
+</span><a href="#local-6989586621679396188"><span class="hs-identifier hs-var">pStatusCode_</span></a></span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- | A list of update operations to be applied to the specified resource and</span><span>
@@ -215,16 +215,16 @@ forall a. Maybe a
      (Maybe [PatchOperation])
      (Maybe [PatchOperation])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#UpdateIntegrationResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395608"><span class="annot"><span class="annottext">Maybe [PatchOperation]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#UpdateIntegrationResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396185"><span class="annot"><span class="annottext">Maybe [PatchOperation]
 patchOperations :: Maybe [PatchOperation]
 $sel:patchOperations:UpdateIntegrationResponse' :: UpdateIntegrationResponse -&gt; Maybe [PatchOperation]
-</span><a href="#local-6989586621679395608"><span class="hs-identifier hs-var hs-var">patchOperations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PatchOperation]
-</span><a href="#local-6989586621679395608"><span class="hs-identifier hs-var">patchOperations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395607"><span class="annot"><span class="annottext">s :: UpdateIntegrationResponse
-</span><a href="#local-6989586621679395607"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#UpdateIntegrationResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395606"><span class="annot"><span class="annottext">Maybe [PatchOperation]
-</span><a href="#local-6989586621679395606"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateIntegrationResponse
-</span><a href="#local-6989586621679395607"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:patchOperations:UpdateIntegrationResponse' :: Maybe [PatchOperation]
+</span><a href="#local-6989586621679396185"><span class="hs-identifier hs-var hs-var">patchOperations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PatchOperation]
+</span><a href="#local-6989586621679396185"><span class="hs-identifier hs-var">patchOperations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396184"><span class="annot"><span class="annottext">s :: UpdateIntegrationResponse
+</span><a href="#local-6989586621679396184"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#UpdateIntegrationResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396183"><span class="annot"><span class="annottext">Maybe [PatchOperation]
+</span><a href="#local-6989586621679396183"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateIntegrationResponse
+</span><a href="#local-6989586621679396184"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:patchOperations:UpdateIntegrationResponse' :: Maybe [PatchOperation]
 </span><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#%24sel%3ApatchOperations%3AUpdateIntegrationResponse%27"><span class="hs-identifier hs-var">patchOperations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PatchOperation]
-</span><a href="#local-6989586621679395606"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#UpdateIntegrationResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PatchOperation] -&gt; f (Maybe [PatchOperation]))
+</span><a href="#local-6989586621679396183"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#UpdateIntegrationResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PatchOperation] -&gt; f (Maybe [PatchOperation]))
  -&gt; UpdateIntegrationResponse -&gt; f UpdateIntegrationResponse)
 -&gt; ((Maybe [PatchOperation] -&gt; f (Maybe [PatchOperation]))
     -&gt; Maybe [PatchOperation] -&gt; f (Maybe [PatchOperation]))
@@ -244,8 +244,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   [PatchOperation] [PatchOperation] [PatchOperation] [PatchOperation]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- | [Required] The string identifier of the associated RestApi.</span><span>
 </span><span id="line-128"></span><span class="annot"><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#updateIntegrationResponse_restApiId"><span class="hs-identifier hs-type">updateIntegrationResponse_restApiId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#UpdateIntegrationResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -256,16 +256,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      UpdateIntegrationResponse UpdateIntegrationResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#UpdateIntegrationResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395602"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#UpdateIntegrationResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396179"><span class="annot"><span class="annottext">Text
 restApiId :: Text
 $sel:restApiId:UpdateIntegrationResponse' :: UpdateIntegrationResponse -&gt; Text
-</span><a href="#local-6989586621679395602"><span class="hs-identifier hs-var hs-var">restApiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395602"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395601"><span class="annot"><span class="annottext">s :: UpdateIntegrationResponse
-</span><a href="#local-6989586621679395601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#UpdateIntegrationResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395600"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateIntegrationResponse
-</span><a href="#local-6989586621679395601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restApiId:UpdateIntegrationResponse' :: Text
+</span><a href="#local-6989586621679396179"><span class="hs-identifier hs-var hs-var">restApiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679396179"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396178"><span class="annot"><span class="annottext">s :: UpdateIntegrationResponse
+</span><a href="#local-6989586621679396178"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#UpdateIntegrationResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396177"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679396177"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateIntegrationResponse
+</span><a href="#local-6989586621679396178"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restApiId:UpdateIntegrationResponse' :: Text
 </span><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#%24sel%3ArestApiId%3AUpdateIntegrationResponse%27"><span class="hs-identifier hs-var">restApiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#UpdateIntegrationResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679396177"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#UpdateIntegrationResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- | [Required] Specifies an update integration response request\'s resource</span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- identifier.</span><span>
@@ -277,16 +277,16 @@ $sel:restApiId:UpdateIntegrationResponse' :: UpdateIntegrationResponse -&gt; Tex
 -&gt; Lens
      UpdateIntegrationResponse UpdateIntegrationResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#UpdateIntegrationResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395599"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#UpdateIntegrationResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396176"><span class="annot"><span class="annottext">Text
 resourceId :: Text
 $sel:resourceId:UpdateIntegrationResponse' :: UpdateIntegrationResponse -&gt; Text
-</span><a href="#local-6989586621679395599"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395599"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395598"><span class="annot"><span class="annottext">s :: UpdateIntegrationResponse
-</span><a href="#local-6989586621679395598"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#UpdateIntegrationResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395597"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395597"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateIntegrationResponse
-</span><a href="#local-6989586621679395598"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:UpdateIntegrationResponse' :: Text
+</span><a href="#local-6989586621679396176"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679396176"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396175"><span class="annot"><span class="annottext">s :: UpdateIntegrationResponse
+</span><a href="#local-6989586621679396175"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#UpdateIntegrationResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396174"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679396174"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateIntegrationResponse
+</span><a href="#local-6989586621679396175"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:UpdateIntegrationResponse' :: Text
 </span><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#%24sel%3AresourceId%3AUpdateIntegrationResponse%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395597"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#UpdateIntegrationResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679396174"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#UpdateIntegrationResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- | [Required] Specifies an update integration response request\'s HTTP</span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- method.</span><span>
@@ -298,16 +298,16 @@ $sel:resourceId:UpdateIntegrationResponse' :: UpdateIntegrationResponse -&gt; Te
 -&gt; Lens
      UpdateIntegrationResponse UpdateIntegrationResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#UpdateIntegrationResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395596"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#UpdateIntegrationResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396173"><span class="annot"><span class="annottext">Text
 httpMethod :: Text
 $sel:httpMethod:UpdateIntegrationResponse' :: UpdateIntegrationResponse -&gt; Text
-</span><a href="#local-6989586621679395596"><span class="hs-identifier hs-var hs-var">httpMethod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395596"><span class="hs-identifier hs-var">httpMethod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395595"><span class="annot"><span class="annottext">s :: UpdateIntegrationResponse
-</span><a href="#local-6989586621679395595"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#UpdateIntegrationResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395594"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395594"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateIntegrationResponse
-</span><a href="#local-6989586621679395595"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpMethod:UpdateIntegrationResponse' :: Text
+</span><a href="#local-6989586621679396173"><span class="hs-identifier hs-var hs-var">httpMethod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679396173"><span class="hs-identifier hs-var">httpMethod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396172"><span class="annot"><span class="annottext">s :: UpdateIntegrationResponse
+</span><a href="#local-6989586621679396172"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#UpdateIntegrationResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396171"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679396171"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateIntegrationResponse
+</span><a href="#local-6989586621679396172"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpMethod:UpdateIntegrationResponse' :: Text
 </span><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#%24sel%3AhttpMethod%3AUpdateIntegrationResponse%27"><span class="hs-identifier hs-var">httpMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395594"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#UpdateIntegrationResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679396171"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#UpdateIntegrationResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- | [Required] Specifies an update integration response request\'s status</span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- code.</span><span>
@@ -319,28 +319,28 @@ $sel:httpMethod:UpdateIntegrationResponse' :: UpdateIntegrationResponse -&gt; Te
 -&gt; Lens
      UpdateIntegrationResponse UpdateIntegrationResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#UpdateIntegrationResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395593"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#UpdateIntegrationResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396170"><span class="annot"><span class="annottext">Text
 statusCode :: Text
 $sel:statusCode:UpdateIntegrationResponse' :: UpdateIntegrationResponse -&gt; Text
-</span><a href="#local-6989586621679395593"><span class="hs-identifier hs-var hs-var">statusCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395593"><span class="hs-identifier hs-var">statusCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395592"><span class="annot"><span class="annottext">s :: UpdateIntegrationResponse
-</span><a href="#local-6989586621679395592"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#UpdateIntegrationResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395591"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395591"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateIntegrationResponse
-</span><a href="#local-6989586621679395592"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusCode:UpdateIntegrationResponse' :: Text
+</span><a href="#local-6989586621679396170"><span class="hs-identifier hs-var hs-var">statusCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679396170"><span class="hs-identifier hs-var">statusCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396169"><span class="annot"><span class="annottext">s :: UpdateIntegrationResponse
+</span><a href="#local-6989586621679396169"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#UpdateIntegrationResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396168"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679396168"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateIntegrationResponse
+</span><a href="#local-6989586621679396169"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusCode:UpdateIntegrationResponse' :: Text
 </span><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#%24sel%3AstatusCode%3AUpdateIntegrationResponse%27"><span class="hs-identifier hs-var">statusCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395591"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#UpdateIntegrationResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679396168"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#UpdateIntegrationResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#UpdateIntegrationResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponse</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-147"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-148"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#UpdateIntegrationResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponse</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-149"></span><span>      </span><span class="annot"><a href="Network.AWS.APIGateway.Types.IntegrationResponse.html#IntegrationResponse"><span class="hs-identifier hs-type">IntegrationResponse</span></a></span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679395587"><span class="annot"><span class="annottext">request :: UpdateIntegrationResponse -&gt; Request UpdateIntegrationResponse
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679396164"><span class="annot"><span class="annottext">request :: UpdateIntegrationResponse -&gt; Request UpdateIntegrationResponse
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; UpdateIntegrationResponse -&gt; Request UpdateIntegrationResponse
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.patchJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.APIGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679395583"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679396160"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateIntegrationResponse
 -&gt; ClientResponse ClientBody
@@ -366,20 +366,20 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395580"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679395580"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679395579"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679395579"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679395578"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679395578"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String IntegrationResponse
+</span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396157"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679396157"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679396156"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679396156"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679396155"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679396155"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String IntegrationResponse
 forall a. FromJSON a =&gt; Object -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679395578"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679396155"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395573"><span id="local-6989586621679395575"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#UpdateIntegrationResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponse</span></a></span></span></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396150"><span id="local-6989586621679396152"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#UpdateIntegrationResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponse</span></a></span></span></span><span>
 </span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395570"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#UpdateIntegrationResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponse</span></a></span></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396147"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#UpdateIntegrationResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponse</span></a></span></span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#UpdateIntegrationResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponse</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679395566"><span class="annot"><span class="annottext">toHeaders :: UpdateIntegrationResponse -&gt; ResponseHeaders
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679396143"><span class="annot"><span class="annottext">toHeaders :: UpdateIntegrationResponse -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-161"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateIntegrationResponse -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -396,9 +396,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-165"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-166"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395556"><span id="local-6989586621679395558"><span id="local-6989586621679395560"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#UpdateIntegrationResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponse</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621679395554"><span class="annot"><span class="annottext">toJSON :: UpdateIntegrationResponse -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#UpdateIntegrationResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395548"><span id="local-6989586621679395549"><span id="local-6989586621679395550"><span id="local-6989586621679395551"><span id="local-6989586621679395552"><span class="annot"><span class="annottext">Maybe [PatchOperation]
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396133"><span id="local-6989586621679396135"><span id="local-6989586621679396137"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#UpdateIntegrationResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponse</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679396131"><span class="annot"><span class="annottext">toJSON :: UpdateIntegrationResponse -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#UpdateIntegrationResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396125"><span id="local-6989586621679396126"><span id="local-6989586621679396127"><span id="local-6989586621679396128"><span id="local-6989586621679396129"><span class="annot"><span class="annottext">Maybe [PatchOperation]
 Text
 statusCode :: Text
 httpMethod :: Text
@@ -410,7 +410,7 @@ $sel:httpMethod:UpdateIntegrationResponse' :: UpdateIntegrationResponse -&gt; Te
 $sel:resourceId:UpdateIntegrationResponse' :: UpdateIntegrationResponse -&gt; Text
 $sel:restApiId:UpdateIntegrationResponse' :: UpdateIntegrationResponse -&gt; Text
 $sel:patchOperations:UpdateIntegrationResponse' :: UpdateIntegrationResponse -&gt; Maybe [PatchOperation]
-</span><a href="#local-6989586621679395548"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679396125"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-171"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -423,13 +423,13 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-173"></span><span>              </span><span class="annot"><span class="annottext">([PatchOperation] -&gt; Pair) -&gt; Maybe [PatchOperation] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PatchOperation]
-</span><a href="#local-6989586621679395552"><span class="hs-identifier hs-var">patchOperations</span></a></span><span>
+</span><a href="#local-6989586621679396129"><span class="hs-identifier hs-var">patchOperations</span></a></span><span>
 </span><span id="line-174"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-175"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#UpdateIntegrationResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponse</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679395541"><span class="annot"><span class="annottext">toPath :: UpdateIntegrationResponse -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#UpdateIntegrationResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395535"><span id="local-6989586621679395536"><span id="local-6989586621679395537"><span id="local-6989586621679395538"><span id="local-6989586621679395539"><span class="annot"><span class="annottext">Maybe [PatchOperation]
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679396118"><span class="annot"><span class="annottext">toPath :: UpdateIntegrationResponse -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#UpdateIntegrationResponse%27"><span class="hs-identifier hs-type">UpdateIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396112"><span id="local-6989586621679396113"><span id="local-6989586621679396114"><span id="local-6989586621679396115"><span id="local-6989586621679396116"><span class="annot"><span class="annottext">Maybe [PatchOperation]
 Text
 statusCode :: Text
 httpMethod :: Text
@@ -441,7 +441,7 @@ $sel:httpMethod:UpdateIntegrationResponse' :: UpdateIntegrationResponse -&gt; Te
 $sel:resourceId:UpdateIntegrationResponse' :: UpdateIntegrationResponse -&gt; Text
 $sel:restApiId:UpdateIntegrationResponse' :: UpdateIntegrationResponse -&gt; Text
 $sel:patchOperations:UpdateIntegrationResponse' :: UpdateIntegrationResponse -&gt; Maybe [PatchOperation]
-</span><a href="#local-6989586621679395535"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679396112"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-179"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -450,29 +450,29 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-181"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395538"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679396115"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-182"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/resources/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-183"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395537"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679396114"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-184"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/methods/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-185"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395536"><span class="hs-identifier hs-var">httpMethod</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679396113"><span class="hs-identifier hs-var">httpMethod</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-186"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/integration/responses/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-187"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395535"><span class="hs-identifier hs-var">statusCode</span></a></span><span>
+</span><a href="#local-6989586621679396112"><span class="hs-identifier hs-var">statusCode</span></a></span><span>
 </span><span id="line-188"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-189"></span><span>
 </span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateIntegrationResponse.html#UpdateIntegrationResponse"><span class="hs-identifier hs-type">UpdateIntegrationResponse</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-191"></span><span>  </span><span id="local-6989586621679395531"><span class="annot"><span class="annottext">toQuery :: UpdateIntegrationResponse -&gt; QueryString
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679396108"><span class="annot"><span class="annottext">toQuery :: UpdateIntegrationResponse -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateIntegrationResponse -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString

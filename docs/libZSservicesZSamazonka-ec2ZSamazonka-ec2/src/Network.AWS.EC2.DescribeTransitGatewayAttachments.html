@@ -32,11 +32,11 @@
 </span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#newDescribeTransitGatewayAttachments"><span class="hs-identifier">newDescribeTransitGatewayAttachments</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-33"></span><span>
 </span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#describeTransitGatewayAttachments_nextToken"><span class="hs-identifier">describeTransitGatewayAttachments_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#describeTransitGatewayAttachments_maxResults"><span class="hs-identifier">describeTransitGatewayAttachments_maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#describeTransitGatewayAttachments_dryRun"><span class="hs-identifier">describeTransitGatewayAttachments_dryRun</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#describeTransitGatewayAttachments_transitGatewayAttachmentIds"><span class="hs-identifier">describeTransitGatewayAttachments_transitGatewayAttachmentIds</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#describeTransitGatewayAttachments_filters"><span class="hs-identifier">describeTransitGatewayAttachments_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#describeTransitGatewayAttachments_filters"><span class="hs-identifier">describeTransitGatewayAttachments_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#describeTransitGatewayAttachments_nextToken"><span class="hs-identifier">describeTransitGatewayAttachments_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#describeTransitGatewayAttachments_transitGatewayAttachmentIds"><span class="hs-identifier">describeTransitGatewayAttachments_transitGatewayAttachmentIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#describeTransitGatewayAttachments_dryRun"><span class="hs-identifier">describeTransitGatewayAttachments_dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#describeTransitGatewayAttachments_maxResults"><span class="hs-identifier">describeTransitGatewayAttachments_maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>
 </span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachmentsResponse"><span class="hs-identifier">DescribeTransitGatewayAttachmentsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -57,55 +57,55 @@
 </span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newDescribeTransitGatewayAttachments' smart constructor.</span><span>
-</span><span id="line-60"></span><span id="local-6989586621681209838"><span id="local-6989586621681209839"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeTransitGatewayAttachments"><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments"><span class="hs-identifier hs-var">DescribeTransitGatewayAttachments</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeTransitGatewayAttachments%27"><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-var">DescribeTransitGatewayAttachments'</span></a></span></span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next page of results.</span><span>
-</span><span id="line-62"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeTransitGatewayAttachments%27"><span class="annot"><span class="annottext">DescribeTransitGatewayAttachments -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#%24sel%3AnextToken%3ADescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return with a single call. To retrieve</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- the remaining results, make another call with the returned @nextToken@</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- value.</span><span>
-</span><span id="line-66"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeTransitGatewayAttachments%27"><span class="annot"><span class="annottext">DescribeTransitGatewayAttachments -&gt; Maybe Natural
-</span><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#%24sel%3AmaxResults%3ADescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-71"></span><span>    </span><span id="%24sel%3AdryRun%3ADescribeTransitGatewayAttachments%27"><span class="annot"><span class="annottext">DescribeTransitGatewayAttachments -&gt; Maybe Bool
-</span><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#%24sel%3AdryRun%3ADescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The IDs of the attachments.</span><span>
-</span><span id="line-73"></span><span>    </span><span id="%24sel%3AtransitGatewayAttachmentIds%3ADescribeTransitGatewayAttachments%27"><span class="annot"><span class="annottext">DescribeTransitGatewayAttachments -&gt; Maybe [Text]
-</span><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#%24sel%3AtransitGatewayAttachmentIds%3ADescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-var hs-var">transitGatewayAttachmentIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | One or more filters. The possible values are:</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- -   @association.state@ - The state of the association (@associating@ |</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">--     @associated@ | @disassociating@).</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- -   @association.transit-gateway-route-table-id@ - The ID of the route</span><span>
-</span><span id="line-80"></span><span>    </span><span class="hs-comment">--     table for the transit gateway.</span><span>
+</span><span id="line-60"></span><span id="local-6989586621681245522"><span id="local-6989586621681245523"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeTransitGatewayAttachments"><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments"><span class="hs-identifier hs-var">DescribeTransitGatewayAttachments</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeTransitGatewayAttachments%27"><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-var">DescribeTransitGatewayAttachments'</span></a></span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One or more filters. The possible values are:</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- -   @association.state@ - The state of the association (@associating@ |</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--     @associated@ | @disassociating@).</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- -   @association.transit-gateway-route-table-id@ - The ID of the route</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--     table for the transit gateway.</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- -   @resource-id@ - The ID of the resource.</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- -   @resource-owner-id@ - The ID of the Amazon Web Services account that</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--     owns the resource.</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- -   @resource-type@ - The resource type. Valid values are @vpc@ | @vpn@</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">--     | @direct-connect-gateway@ | @peering@ | @connect@.</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- -   @state@ - The state of the attachment. Valid values are @available@</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--     | @deleted@ | @deleting@ | @failed@ | @failing@ |</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--     @initiatingRequest@ | @modifying@ | @pendingAcceptance@ | @pending@</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--     | @rollingBack@ | @rejected@ | @rejecting@.</span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- -   @resource-id@ - The ID of the resource.</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- -   @transit-gateway-attachment-id@ - The ID of the attachment.</span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- -   @resource-owner-id@ - The ID of the Amazon Web Services account that</span><span>
-</span><span id="line-85"></span><span>    </span><span class="hs-comment">--     owns the resource.</span><span>
-</span><span id="line-86"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- -   @resource-type@ - The resource type. Valid values are @vpc@ | @vpn@</span><span>
-</span><span id="line-88"></span><span>    </span><span class="hs-comment">--     | @direct-connect-gateway@ | @peering@ | @connect@.</span><span>
-</span><span id="line-89"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- -   @state@ - The state of the attachment. Valid values are @available@</span><span>
-</span><span id="line-91"></span><span>    </span><span class="hs-comment">--     | @deleted@ | @deleting@ | @failed@ | @failing@ |</span><span>
-</span><span id="line-92"></span><span>    </span><span class="hs-comment">--     @initiatingRequest@ | @modifying@ | @pendingAcceptance@ | @pending@</span><span>
-</span><span id="line-93"></span><span>    </span><span class="hs-comment">--     | @rollingBack@ | @rejected@ | @rejecting@.</span><span>
-</span><span id="line-94"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- -   @transit-gateway-attachment-id@ - The ID of the attachment.</span><span>
-</span><span id="line-96"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- -   @transit-gateway-id@ - The ID of the transit gateway.</span><span>
-</span><span id="line-98"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- -   @transit-gateway-owner-id@ - The ID of the Amazon Web Services</span><span>
-</span><span id="line-100"></span><span>    </span><span class="hs-comment">--     account that owns the transit gateway.</span><span>
-</span><span id="line-101"></span><span>    </span><span id="%24sel%3Afilters%3ADescribeTransitGatewayAttachments%27"><span class="annot"><span class="annottext">DescribeTransitGatewayAttachments -&gt; Maybe [Filter]
-</span><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#%24sel%3Afilters%3ADescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- -   @transit-gateway-id@ - The ID of the transit gateway.</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- -   @transit-gateway-owner-id@ - The ID of the Amazon Web Services</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">--     account that owns the transit gateway.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3Afilters%3ADescribeTransitGatewayAttachments%27"><span class="annot"><span class="annottext">DescribeTransitGatewayAttachments -&gt; Maybe [Filter]
+</span><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#%24sel%3Afilters%3ADescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- | The token for the next page of results.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeTransitGatewayAttachments%27"><span class="annot"><span class="annottext">DescribeTransitGatewayAttachments -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#%24sel%3AnextToken%3ADescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- | The IDs of the attachments.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3AtransitGatewayAttachmentIds%3ADescribeTransitGatewayAttachments%27"><span class="annot"><span class="annottext">DescribeTransitGatewayAttachments -&gt; Maybe [Text]
+</span><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#%24sel%3AtransitGatewayAttachmentIds%3ADescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-var hs-var">transitGatewayAttachmentIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-97"></span><span>    </span><span id="%24sel%3AdryRun%3ADescribeTransitGatewayAttachments%27"><span class="annot"><span class="annottext">DescribeTransitGatewayAttachments -&gt; Maybe Bool
+</span><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#%24sel%3AdryRun%3ADescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return with a single call. To retrieve</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- the remaining results, make another call with the returned @nextToken@</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-101"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeTransitGatewayAttachments%27"><span class="annot"><span class="annottext">DescribeTransitGatewayAttachments -&gt; Maybe Natural
+</span><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#%24sel%3AmaxResults%3ADescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-102"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-103"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681209828"><span id="local-6989586621681209830"><span class="annot"><span class="annottext">DescribeTransitGatewayAttachments
+</span><span id="line-103"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681245512"><span id="local-6989586621681245514"><span class="annot"><span class="annottext">DescribeTransitGatewayAttachments
 -&gt; DescribeTransitGatewayAttachments -&gt; Bool
 (DescribeTransitGatewayAttachments
  -&gt; DescribeTransitGatewayAttachments -&gt; Bool)
@@ -121,7 +121,7 @@ $c/= :: DescribeTransitGatewayAttachments
 -&gt; DescribeTransitGatewayAttachments -&gt; Bool
 $c== :: DescribeTransitGatewayAttachments
 -&gt; DescribeTransitGatewayAttachments -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681209819"><span id="local-6989586621681209821"><span id="local-6989586621681209823"><span id="local-6989586621681209825"><span class="annot"><span class="annottext">ReadPrec [DescribeTransitGatewayAttachments]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681245503"><span id="local-6989586621681245505"><span id="local-6989586621681245507"><span id="local-6989586621681245509"><span class="annot"><span class="annottext">ReadPrec [DescribeTransitGatewayAttachments]
 ReadPrec DescribeTransitGatewayAttachments
 Int -&gt; ReadS DescribeTransitGatewayAttachments
 ReadS [DescribeTransitGatewayAttachments]
@@ -141,7 +141,7 @@ readList :: ReadS [DescribeTransitGatewayAttachments]
 $creadList :: ReadS [DescribeTransitGatewayAttachments]
 readsPrec :: Int -&gt; ReadS DescribeTransitGatewayAttachments
 $creadsPrec :: Int -&gt; ReadS DescribeTransitGatewayAttachments
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681209812"><span id="local-6989586621681209814"><span id="local-6989586621681209816"><span class="annot"><span class="annottext">Int -&gt; DescribeTransitGatewayAttachments -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681245496"><span id="local-6989586621681245498"><span id="local-6989586621681245500"><span class="annot"><span class="annottext">Int -&gt; DescribeTransitGatewayAttachments -&gt; ShowS
 [DescribeTransitGatewayAttachments] -&gt; ShowS
 DescribeTransitGatewayAttachments -&gt; String
 (Int -&gt; DescribeTransitGatewayAttachments -&gt; ShowS)
@@ -187,231 +187,110 @@ DescribeTransitGatewayAttachments
 </span><span id="line-110"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-112"></span><span class="hs-comment">--</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- 'nextToken', 'describeTransitGatewayAttachments_nextToken' - The token for the next page of results.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'filters', 'describeTransitGatewayAttachments_filters' - One or more filters. The possible values are:</span><span>
 </span><span id="line-114"></span><span class="hs-comment">--</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- 'maxResults', 'describeTransitGatewayAttachments_maxResults' - The maximum number of results to return with a single call. To retrieve</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- the remaining results, make another call with the returned @nextToken@</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- value.</span><span>
-</span><span id="line-118"></span><span class="hs-comment">--</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- 'dryRun', 'describeTransitGatewayAttachments_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-123"></span><span class="hs-comment">--</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- 'transitGatewayAttachmentIds', 'describeTransitGatewayAttachments_transitGatewayAttachmentIds' - The IDs of the attachments.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- -   @association.state@ - The state of the association (@associating@ |</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--     @associated@ | @disassociating@).</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- -   @association.transit-gateway-route-table-id@ - The ID of the route</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--     table for the transit gateway.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- -   @resource-id@ - The ID of the resource.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- -   @resource-owner-id@ - The ID of the Amazon Web Services account that</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--     owns the resource.</span><span>
 </span><span id="line-125"></span><span class="hs-comment">--</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- 'filters', 'describeTransitGatewayAttachments_filters' - One or more filters. The possible values are:</span><span>
-</span><span id="line-127"></span><span class="hs-comment">--</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- -   @association.state@ - The state of the association (@associating@ |</span><span>
-</span><span id="line-129"></span><span class="hs-comment">--     @associated@ | @disassociating@).</span><span>
-</span><span id="line-130"></span><span class="hs-comment">--</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- -   @association.transit-gateway-route-table-id@ - The ID of the route</span><span>
-</span><span id="line-132"></span><span class="hs-comment">--     table for the transit gateway.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- -   @resource-type@ - The resource type. Valid values are @vpc@ | @vpn@</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--     | @direct-connect-gateway@ | @peering@ | @connect@.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- -   @state@ - The state of the attachment. Valid values are @available@</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--     | @deleted@ | @deleting@ | @failed@ | @failing@ |</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--     @initiatingRequest@ | @modifying@ | @pendingAcceptance@ | @pending@</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--     | @rollingBack@ | @rejected@ | @rejecting@.</span><span>
 </span><span id="line-133"></span><span class="hs-comment">--</span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- -   @resource-id@ - The ID of the resource.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- -   @transit-gateway-attachment-id@ - The ID of the attachment.</span><span>
 </span><span id="line-135"></span><span class="hs-comment">--</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- -   @resource-owner-id@ - The ID of the Amazon Web Services account that</span><span>
-</span><span id="line-137"></span><span class="hs-comment">--     owns the resource.</span><span>
-</span><span id="line-138"></span><span class="hs-comment">--</span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- -   @resource-type@ - The resource type. Valid values are @vpc@ | @vpn@</span><span>
-</span><span id="line-140"></span><span class="hs-comment">--     | @direct-connect-gateway@ | @peering@ | @connect@.</span><span>
-</span><span id="line-141"></span><span class="hs-comment">--</span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- -   @state@ - The state of the attachment. Valid values are @available@</span><span>
-</span><span id="line-143"></span><span class="hs-comment">--     | @deleted@ | @deleting@ | @failed@ | @failing@ |</span><span>
-</span><span id="line-144"></span><span class="hs-comment">--     @initiatingRequest@ | @modifying@ | @pendingAcceptance@ | @pending@</span><span>
-</span><span id="line-145"></span><span class="hs-comment">--     | @rollingBack@ | @rejected@ | @rejecting@.</span><span>
-</span><span id="line-146"></span><span class="hs-comment">--</span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- -   @transit-gateway-attachment-id@ - The ID of the attachment.</span><span>
-</span><span id="line-148"></span><span class="hs-comment">--</span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- -   @transit-gateway-id@ - The ID of the transit gateway.</span><span>
-</span><span id="line-150"></span><span class="hs-comment">--</span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- -   @transit-gateway-owner-id@ - The ID of the Amazon Web Services</span><span>
-</span><span id="line-152"></span><span class="hs-comment">--     account that owns the transit gateway.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- -   @transit-gateway-id@ - The ID of the transit gateway.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- -   @transit-gateway-owner-id@ - The ID of the Amazon Web Services</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--     account that owns the transit gateway.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- 'nextToken', 'describeTransitGatewayAttachments_nextToken' - The token for the next page of results.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- 'transitGatewayAttachmentIds', 'describeTransitGatewayAttachments_transitGatewayAttachmentIds' - The IDs of the attachments.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- 'dryRun', 'describeTransitGatewayAttachments_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'maxResults', 'describeTransitGatewayAttachments_maxResults' - The maximum number of results to return with a single call. To retrieve</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- the remaining results, make another call with the returned @nextToken@</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- value.</span><span>
 </span><span id="line-153"></span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#newDescribeTransitGatewayAttachments"><span class="hs-identifier hs-type">newDescribeTransitGatewayAttachments</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-154"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachments</span></a></span><span>
 </span><span id="line-155"></span><span id="newDescribeTransitGatewayAttachments"><span class="annot"><span class="annottext">newDescribeTransitGatewayAttachments :: DescribeTransitGatewayAttachments
 </span><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#newDescribeTransitGatewayAttachments"><span class="hs-identifier hs-var hs-var">newDescribeTransitGatewayAttachments</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-156"></span><span>  </span><span class="annot"><span class="annottext">DescribeTransitGatewayAttachments' :: Maybe Text
--&gt; Maybe Natural
--&gt; Maybe Bool
+</span><span id="line-156"></span><span>  </span><span class="annot"><span class="annottext">DescribeTransitGatewayAttachments' :: Maybe [Filter]
+-&gt; Maybe Text
 -&gt; Maybe [Text]
--&gt; Maybe [Filter]
+-&gt; Maybe Bool
+-&gt; Maybe Natural
 -&gt; DescribeTransitGatewayAttachments
 </span><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachments'</span></a></span><span>
-</span><span id="line-157"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeTransitGatewayAttachments' :: Maybe Text
-</span><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#%24sel%3AnextToken%3ADescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-157"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:filters:DescribeTransitGatewayAttachments' :: Maybe [Filter]
+</span><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#%24sel%3Afilters%3ADescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Filter]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:DescribeTransitGatewayAttachments' :: Maybe Natural
-</span><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#%24sel%3AmaxResults%3ADescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeTransitGatewayAttachments' :: Maybe Text
+</span><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#%24sel%3AnextToken%3ADescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:dryRun:DescribeTransitGatewayAttachments' :: Maybe Bool
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:transitGatewayAttachmentIds:DescribeTransitGatewayAttachments' :: Maybe [Text]
+</span><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#%24sel%3AtransitGatewayAttachmentIds%3ADescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-var">transitGatewayAttachmentIds</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">$sel:dryRun:DescribeTransitGatewayAttachments' :: Maybe Bool
 </span><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#%24sel%3AdryRun%3ADescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:transitGatewayAttachmentIds:DescribeTransitGatewayAttachments' :: Maybe [Text]
-</span><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#%24sel%3AtransitGatewayAttachmentIds%3ADescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-var">transitGatewayAttachmentIds</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:filters:DescribeTransitGatewayAttachments' :: Maybe [Filter]
-</span><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#%24sel%3Afilters%3ADescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:DescribeTransitGatewayAttachments' :: Maybe Natural
+</span><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#%24sel%3AmaxResults%3ADescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-164"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-165"></span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- | The token for the next page of results.</span><span>
-</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#describeTransitGatewayAttachments_nextToken"><span class="hs-identifier hs-type">describeTransitGatewayAttachments_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachments</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-168"></span><span id="describeTransitGatewayAttachments_nextToken"><span class="annot"><span class="annottext">describeTransitGatewayAttachments_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribeTransitGatewayAttachments
--&gt; f DescribeTransitGatewayAttachments
-</span><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#describeTransitGatewayAttachments_nextToken"><span class="hs-identifier hs-var hs-var">describeTransitGatewayAttachments_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeTransitGatewayAttachments -&gt; Maybe Text)
--&gt; (DescribeTransitGatewayAttachments
-    -&gt; Maybe Text -&gt; DescribeTransitGatewayAttachments)
--&gt; Lens
-     DescribeTransitGatewayAttachments
-     DescribeTransitGatewayAttachments
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681209806"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:DescribeTransitGatewayAttachments' :: DescribeTransitGatewayAttachments -&gt; Maybe Text
-</span><a href="#local-6989586621681209806"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681209806"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681209805"><span class="annot"><span class="annottext">s :: DescribeTransitGatewayAttachments
-</span><a href="#local-6989586621681209805"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681209804"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681209804"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTransitGatewayAttachments
-</span><a href="#local-6989586621681209805"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeTransitGatewayAttachments' :: Maybe Text
-</span><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#%24sel%3AnextToken%3ADescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681209804"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachments</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-169"></span><span>
-</span><span id="line-170"></span><span class="hs-comment">-- | The maximum number of results to return with a single call. To retrieve</span><span>
-</span><span id="line-171"></span><span class="hs-comment">-- the remaining results, make another call with the returned @nextToken@</span><span>
-</span><span id="line-172"></span><span class="hs-comment">-- value.</span><span>
-</span><span id="line-173"></span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#describeTransitGatewayAttachments_maxResults"><span class="hs-identifier hs-type">describeTransitGatewayAttachments_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachments</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-174"></span><span id="describeTransitGatewayAttachments_maxResults"><span class="annot"><span class="annottext">describeTransitGatewayAttachments_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; DescribeTransitGatewayAttachments
--&gt; f DescribeTransitGatewayAttachments
-</span><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#describeTransitGatewayAttachments_maxResults"><span class="hs-identifier hs-var hs-var">describeTransitGatewayAttachments_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeTransitGatewayAttachments -&gt; Maybe Natural)
--&gt; (DescribeTransitGatewayAttachments
-    -&gt; Maybe Natural -&gt; DescribeTransitGatewayAttachments)
--&gt; Lens
-     DescribeTransitGatewayAttachments
-     DescribeTransitGatewayAttachments
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681209803"><span class="annot"><span class="annottext">Maybe Natural
-maxResults :: Maybe Natural
-$sel:maxResults:DescribeTransitGatewayAttachments' :: DescribeTransitGatewayAttachments -&gt; Maybe Natural
-</span><a href="#local-6989586621681209803"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621681209803"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681209802"><span class="annot"><span class="annottext">s :: DescribeTransitGatewayAttachments
-</span><a href="#local-6989586621681209802"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681209801"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621681209801"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTransitGatewayAttachments
-</span><a href="#local-6989586621681209802"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeTransitGatewayAttachments' :: Maybe Natural
-</span><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#%24sel%3AmaxResults%3ADescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621681209801"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachments</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-175"></span><span>
-</span><span id="line-176"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-177"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-178"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-179"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-180"></span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#describeTransitGatewayAttachments_dryRun"><span class="hs-identifier hs-type">describeTransitGatewayAttachments_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachments</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-181"></span><span id="describeTransitGatewayAttachments_dryRun"><span class="annot"><span class="annottext">describeTransitGatewayAttachments_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; DescribeTransitGatewayAttachments
--&gt; f DescribeTransitGatewayAttachments
-</span><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#describeTransitGatewayAttachments_dryRun"><span class="hs-identifier hs-var hs-var">describeTransitGatewayAttachments_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeTransitGatewayAttachments -&gt; Maybe Bool)
--&gt; (DescribeTransitGatewayAttachments
-    -&gt; Maybe Bool -&gt; DescribeTransitGatewayAttachments)
--&gt; Lens
-     DescribeTransitGatewayAttachments
-     DescribeTransitGatewayAttachments
-     (Maybe Bool)
-     (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681209800"><span class="annot"><span class="annottext">Maybe Bool
-dryRun :: Maybe Bool
-$sel:dryRun:DescribeTransitGatewayAttachments' :: DescribeTransitGatewayAttachments -&gt; Maybe Bool
-</span><a href="#local-6989586621681209800"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681209800"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681209799"><span class="annot"><span class="annottext">s :: DescribeTransitGatewayAttachments
-</span><a href="#local-6989586621681209799"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681209798"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681209798"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTransitGatewayAttachments
-</span><a href="#local-6989586621681209799"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DescribeTransitGatewayAttachments' :: Maybe Bool
-</span><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#%24sel%3AdryRun%3ADescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681209798"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachments</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-182"></span><span>
-</span><span id="line-183"></span><span class="hs-comment">-- | The IDs of the attachments.</span><span>
-</span><span id="line-184"></span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#describeTransitGatewayAttachments_transitGatewayAttachmentIds"><span class="hs-identifier hs-type">describeTransitGatewayAttachments_transitGatewayAttachmentIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachments</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-185"></span><span id="describeTransitGatewayAttachments_transitGatewayAttachmentIds"><span class="annot"><span class="annottext">describeTransitGatewayAttachments_transitGatewayAttachmentIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; DescribeTransitGatewayAttachments
--&gt; f DescribeTransitGatewayAttachments
-</span><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#describeTransitGatewayAttachments_transitGatewayAttachmentIds"><span class="hs-identifier hs-var hs-var">describeTransitGatewayAttachments_transitGatewayAttachmentIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeTransitGatewayAttachments -&gt; Maybe [Text])
--&gt; (DescribeTransitGatewayAttachments
-    -&gt; Maybe [Text] -&gt; DescribeTransitGatewayAttachments)
--&gt; Lens
-     DescribeTransitGatewayAttachments
-     DescribeTransitGatewayAttachments
-     (Maybe [Text])
-     (Maybe [Text])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681209797"><span class="annot"><span class="annottext">Maybe [Text]
-transitGatewayAttachmentIds :: Maybe [Text]
-$sel:transitGatewayAttachmentIds:DescribeTransitGatewayAttachments' :: DescribeTransitGatewayAttachments -&gt; Maybe [Text]
-</span><a href="#local-6989586621681209797"><span class="hs-identifier hs-var hs-var">transitGatewayAttachmentIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681209797"><span class="hs-identifier hs-var">transitGatewayAttachmentIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681209796"><span class="annot"><span class="annottext">s :: DescribeTransitGatewayAttachments
-</span><a href="#local-6989586621681209796"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681209795"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681209795"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTransitGatewayAttachments
-</span><a href="#local-6989586621681209796"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayAttachmentIds:DescribeTransitGatewayAttachments' :: Maybe [Text]
-</span><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#%24sel%3AtransitGatewayAttachmentIds%3ADescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-var">transitGatewayAttachmentIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681209795"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachments</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
- -&gt; DescribeTransitGatewayAttachments
- -&gt; f DescribeTransitGatewayAttachments)
--&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
-    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; DescribeTransitGatewayAttachments
--&gt; f DescribeTransitGatewayAttachments
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
--&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-186"></span><span>
-</span><span id="line-187"></span><span class="hs-comment">-- | One or more filters. The possible values are:</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | One or more filters. The possible values are:</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- -   @association.state@ - The state of the association (@associating@ |</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--     @associated@ | @disassociating@).</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- -   @association.transit-gateway-route-table-id@ - The ID of the route</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--     table for the transit gateway.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- -   @resource-id@ - The ID of the resource.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- -   @resource-owner-id@ - The ID of the Amazon Web Services account that</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--     owns the resource.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- -   @resource-type@ - The resource type. Valid values are @vpc@ | @vpn@</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--     | @direct-connect-gateway@ | @peering@ | @connect@.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- -   @state@ - The state of the attachment. Valid values are @available@</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--     | @deleted@ | @deleting@ | @failed@ | @failing@ |</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--     @initiatingRequest@ | @modifying@ | @pendingAcceptance@ | @pending@</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--     | @rollingBack@ | @rejected@ | @rejecting@.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- -   @transit-gateway-attachment-id@ - The ID of the attachment.</span><span>
 </span><span id="line-188"></span><span class="hs-comment">--</span><span>
-</span><span id="line-189"></span><span class="hs-comment">-- -   @association.state@ - The state of the association (@associating@ |</span><span>
-</span><span id="line-190"></span><span class="hs-comment">--     @associated@ | @disassociating@).</span><span>
-</span><span id="line-191"></span><span class="hs-comment">--</span><span>
-</span><span id="line-192"></span><span class="hs-comment">-- -   @association.transit-gateway-route-table-id@ - The ID of the route</span><span>
-</span><span id="line-193"></span><span class="hs-comment">--     table for the transit gateway.</span><span>
-</span><span id="line-194"></span><span class="hs-comment">--</span><span>
-</span><span id="line-195"></span><span class="hs-comment">-- -   @resource-id@ - The ID of the resource.</span><span>
-</span><span id="line-196"></span><span class="hs-comment">--</span><span>
-</span><span id="line-197"></span><span class="hs-comment">-- -   @resource-owner-id@ - The ID of the Amazon Web Services account that</span><span>
-</span><span id="line-198"></span><span class="hs-comment">--     owns the resource.</span><span>
-</span><span id="line-199"></span><span class="hs-comment">--</span><span>
-</span><span id="line-200"></span><span class="hs-comment">-- -   @resource-type@ - The resource type. Valid values are @vpc@ | @vpn@</span><span>
-</span><span id="line-201"></span><span class="hs-comment">--     | @direct-connect-gateway@ | @peering@ | @connect@.</span><span>
-</span><span id="line-202"></span><span class="hs-comment">--</span><span>
-</span><span id="line-203"></span><span class="hs-comment">-- -   @state@ - The state of the attachment. Valid values are @available@</span><span>
-</span><span id="line-204"></span><span class="hs-comment">--     | @deleted@ | @deleting@ | @failed@ | @failing@ |</span><span>
-</span><span id="line-205"></span><span class="hs-comment">--     @initiatingRequest@ | @modifying@ | @pendingAcceptance@ | @pending@</span><span>
-</span><span id="line-206"></span><span class="hs-comment">--     | @rollingBack@ | @rejected@ | @rejecting@.</span><span>
-</span><span id="line-207"></span><span class="hs-comment">--</span><span>
-</span><span id="line-208"></span><span class="hs-comment">-- -   @transit-gateway-attachment-id@ - The ID of the attachment.</span><span>
-</span><span id="line-209"></span><span class="hs-comment">--</span><span>
-</span><span id="line-210"></span><span class="hs-comment">-- -   @transit-gateway-id@ - The ID of the transit gateway.</span><span>
-</span><span id="line-211"></span><span class="hs-comment">--</span><span>
-</span><span id="line-212"></span><span class="hs-comment">-- -   @transit-gateway-owner-id@ - The ID of the Amazon Web Services</span><span>
-</span><span id="line-213"></span><span class="hs-comment">--     account that owns the transit gateway.</span><span>
-</span><span id="line-214"></span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#describeTransitGatewayAttachments_filters"><span class="hs-identifier hs-type">describeTransitGatewayAttachments_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachments</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-215"></span><span id="describeTransitGatewayAttachments_filters"><span class="annot"><span class="annottext">describeTransitGatewayAttachments_filters :: (Maybe [Filter] -&gt; f (Maybe [Filter]))
+</span><span id="line-189"></span><span class="hs-comment">-- -   @transit-gateway-id@ - The ID of the transit gateway.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- -   @transit-gateway-owner-id@ - The ID of the Amazon Web Services</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--     account that owns the transit gateway.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#describeTransitGatewayAttachments_filters"><span class="hs-identifier hs-type">describeTransitGatewayAttachments_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachments</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span id="describeTransitGatewayAttachments_filters"><span class="annot"><span class="annottext">describeTransitGatewayAttachments_filters :: (Maybe [Filter] -&gt; f (Maybe [Filter]))
 -&gt; DescribeTransitGatewayAttachments
 -&gt; f DescribeTransitGatewayAttachments
 </span><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#describeTransitGatewayAttachments_filters"><span class="hs-identifier hs-var hs-var">describeTransitGatewayAttachments_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeTransitGatewayAttachments -&gt; Maybe [Filter])
@@ -423,16 +302,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe [Filter])
      (Maybe [Filter])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681209791"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681245490"><span class="annot"><span class="annottext">Maybe [Filter]
 filters :: Maybe [Filter]
 $sel:filters:DescribeTransitGatewayAttachments' :: DescribeTransitGatewayAttachments -&gt; Maybe [Filter]
-</span><a href="#local-6989586621681209791"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681209791"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681209790"><span class="annot"><span class="annottext">s :: DescribeTransitGatewayAttachments
-</span><a href="#local-6989586621681209790"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681209789"><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681209789"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTransitGatewayAttachments
-</span><a href="#local-6989586621681209790"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeTransitGatewayAttachments' :: Maybe [Filter]
+</span><a href="#local-6989586621681245490"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681245490"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681245489"><span class="annot"><span class="annottext">s :: DescribeTransitGatewayAttachments
+</span><a href="#local-6989586621681245489"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681245488"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681245488"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTransitGatewayAttachments
+</span><a href="#local-6989586621681245489"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeTransitGatewayAttachments' :: Maybe [Filter]
 </span><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#%24sel%3Afilters%3ADescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681209789"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachments</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
+</span><a href="#local-6989586621681245488"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachments</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
  -&gt; DescribeTransitGatewayAttachments
  -&gt; f DescribeTransitGatewayAttachments)
 -&gt; ((Maybe [Filter] -&gt; f (Maybe [Filter]))
@@ -448,25 +327,146 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Filter] [Filter] [Filter] [Filter]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | The token for the next page of results.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#describeTransitGatewayAttachments_nextToken"><span class="hs-identifier hs-type">describeTransitGatewayAttachments_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachments</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span id="describeTransitGatewayAttachments_nextToken"><span class="annot"><span class="annottext">describeTransitGatewayAttachments_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeTransitGatewayAttachments
+-&gt; f DescribeTransitGatewayAttachments
+</span><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#describeTransitGatewayAttachments_nextToken"><span class="hs-identifier hs-var hs-var">describeTransitGatewayAttachments_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeTransitGatewayAttachments -&gt; Maybe Text)
+-&gt; (DescribeTransitGatewayAttachments
+    -&gt; Maybe Text -&gt; DescribeTransitGatewayAttachments)
+-&gt; Lens
+     DescribeTransitGatewayAttachments
+     DescribeTransitGatewayAttachments
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681245484"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeTransitGatewayAttachments' :: DescribeTransitGatewayAttachments -&gt; Maybe Text
+</span><a href="#local-6989586621681245484"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681245484"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681245483"><span class="annot"><span class="annottext">s :: DescribeTransitGatewayAttachments
+</span><a href="#local-6989586621681245483"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681245482"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681245482"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTransitGatewayAttachments
+</span><a href="#local-6989586621681245483"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeTransitGatewayAttachments' :: Maybe Text
+</span><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#%24sel%3AnextToken%3ADescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681245482"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachments</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | The IDs of the attachments.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#describeTransitGatewayAttachments_transitGatewayAttachmentIds"><span class="hs-identifier hs-type">describeTransitGatewayAttachments_transitGatewayAttachmentIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachments</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span id="describeTransitGatewayAttachments_transitGatewayAttachmentIds"><span class="annot"><span class="annottext">describeTransitGatewayAttachments_transitGatewayAttachmentIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeTransitGatewayAttachments
+-&gt; f DescribeTransitGatewayAttachments
+</span><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#describeTransitGatewayAttachments_transitGatewayAttachmentIds"><span class="hs-identifier hs-var hs-var">describeTransitGatewayAttachments_transitGatewayAttachmentIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeTransitGatewayAttachments -&gt; Maybe [Text])
+-&gt; (DescribeTransitGatewayAttachments
+    -&gt; Maybe [Text] -&gt; DescribeTransitGatewayAttachments)
+-&gt; Lens
+     DescribeTransitGatewayAttachments
+     DescribeTransitGatewayAttachments
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681245481"><span class="annot"><span class="annottext">Maybe [Text]
+transitGatewayAttachmentIds :: Maybe [Text]
+$sel:transitGatewayAttachmentIds:DescribeTransitGatewayAttachments' :: DescribeTransitGatewayAttachments -&gt; Maybe [Text]
+</span><a href="#local-6989586621681245481"><span class="hs-identifier hs-var hs-var">transitGatewayAttachmentIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681245481"><span class="hs-identifier hs-var">transitGatewayAttachmentIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681245480"><span class="annot"><span class="annottext">s :: DescribeTransitGatewayAttachments
+</span><a href="#local-6989586621681245480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681245479"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681245479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTransitGatewayAttachments
+</span><a href="#local-6989586621681245480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayAttachmentIds:DescribeTransitGatewayAttachments' :: Maybe [Text]
+</span><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#%24sel%3AtransitGatewayAttachmentIds%3ADescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-var">transitGatewayAttachmentIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681245479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachments</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; DescribeTransitGatewayAttachments
+ -&gt; f DescribeTransitGatewayAttachments)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeTransitGatewayAttachments
+-&gt; f DescribeTransitGatewayAttachments
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#describeTransitGatewayAttachments_dryRun"><span class="hs-identifier hs-type">describeTransitGatewayAttachments_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachments</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span id="describeTransitGatewayAttachments_dryRun"><span class="annot"><span class="annottext">describeTransitGatewayAttachments_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DescribeTransitGatewayAttachments
+-&gt; f DescribeTransitGatewayAttachments
+</span><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#describeTransitGatewayAttachments_dryRun"><span class="hs-identifier hs-var hs-var">describeTransitGatewayAttachments_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeTransitGatewayAttachments -&gt; Maybe Bool)
+-&gt; (DescribeTransitGatewayAttachments
+    -&gt; Maybe Bool -&gt; DescribeTransitGatewayAttachments)
+-&gt; Lens
+     DescribeTransitGatewayAttachments
+     DescribeTransitGatewayAttachments
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681245478"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:DescribeTransitGatewayAttachments' :: DescribeTransitGatewayAttachments -&gt; Maybe Bool
+</span><a href="#local-6989586621681245478"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681245478"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681245477"><span class="annot"><span class="annottext">s :: DescribeTransitGatewayAttachments
+</span><a href="#local-6989586621681245477"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681245476"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681245476"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTransitGatewayAttachments
+</span><a href="#local-6989586621681245477"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DescribeTransitGatewayAttachments' :: Maybe Bool
+</span><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#%24sel%3AdryRun%3ADescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681245476"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachments</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | The maximum number of results to return with a single call. To retrieve</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- the remaining results, make another call with the returned @nextToken@</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#describeTransitGatewayAttachments_maxResults"><span class="hs-identifier hs-type">describeTransitGatewayAttachments_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachments</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span id="describeTransitGatewayAttachments_maxResults"><span class="annot"><span class="annottext">describeTransitGatewayAttachments_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DescribeTransitGatewayAttachments
+-&gt; f DescribeTransitGatewayAttachments
+</span><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#describeTransitGatewayAttachments_maxResults"><span class="hs-identifier hs-var hs-var">describeTransitGatewayAttachments_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeTransitGatewayAttachments -&gt; Maybe Natural)
+-&gt; (DescribeTransitGatewayAttachments
+    -&gt; Maybe Natural -&gt; DescribeTransitGatewayAttachments)
+-&gt; Lens
+     DescribeTransitGatewayAttachments
+     DescribeTransitGatewayAttachments
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681245475"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:DescribeTransitGatewayAttachments' :: DescribeTransitGatewayAttachments -&gt; Maybe Natural
+</span><a href="#local-6989586621681245475"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681245475"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681245474"><span class="annot"><span class="annottext">s :: DescribeTransitGatewayAttachments
+</span><a href="#local-6989586621681245474"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681245473"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681245473"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTransitGatewayAttachments
+</span><a href="#local-6989586621681245474"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeTransitGatewayAttachments' :: Maybe Natural
+</span><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#%24sel%3AmaxResults%3ADescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681245473"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachments</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-216"></span><span>
 </span><span id="line-217"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-218"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span>
 </span><span id="line-219"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachments</span></a></span><span>
 </span><span id="line-220"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-221"></span><span>  </span><span id="local-6989586621681209785"><span class="annot"><span class="annottext">page :: DescribeTransitGatewayAttachments
+</span><span id="line-221"></span><span>  </span><span id="local-6989586621681245469"><span class="annot"><span class="annottext">page :: DescribeTransitGatewayAttachments
 -&gt; AWSResponse DescribeTransitGatewayAttachments
 -&gt; Maybe DescribeTransitGatewayAttachments
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621681209783"><span class="annot"><span class="annottext">DescribeTransitGatewayAttachments
-</span><a href="#local-6989586621681209783"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621681209782"><span class="annot"><span class="annottext">AWSResponse DescribeTransitGatewayAttachments
-</span><a href="#local-6989586621681209782"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621681245467"><span class="annot"><span class="annottext">DescribeTransitGatewayAttachments
+</span><a href="#local-6989586621681245467"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621681245466"><span class="annot"><span class="annottext">AWSResponse DescribeTransitGatewayAttachments
+</span><a href="#local-6989586621681245466"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-222"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-223"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeTransitGatewayAttachments
 DescribeTransitGatewayAttachmentsResponse
-</span><a href="#local-6989586621681209782"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621681245466"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-224"></span><span>            </span><span class="annot"><span class="annottext">DescribeTransitGatewayAttachmentsResponse
 -&gt; Getting
      (First Text) DescribeTransitGatewayAttachmentsResponse Text
@@ -498,7 +498,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-229"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeTransitGatewayAttachments
 DescribeTransitGatewayAttachmentsResponse
-</span><a href="#local-6989586621681209782"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621681245466"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-230"></span><span>            </span><span class="annot"><span class="annottext">DescribeTransitGatewayAttachmentsResponse
 -&gt; Getting
      (First [TransitGatewayAttachment])
@@ -563,7 +563,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-236"></span><span>        </span><span class="annot"><span class="annottext">DescribeTransitGatewayAttachments
-</span><a href="#local-6989586621681209783"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621681245467"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-237"></span><span>          </span><span class="annot"><span class="annottext">DescribeTransitGatewayAttachments
 -&gt; (DescribeTransitGatewayAttachments
     -&gt; DescribeTransitGatewayAttachments)
@@ -587,7 +587,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeTransitGatewayAttachments
 DescribeTransitGatewayAttachmentsResponse
-</span><a href="#local-6989586621681209782"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621681245466"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-239"></span><span>          </span><span class="annot"><span class="annottext">DescribeTransitGatewayAttachmentsResponse
 -&gt; Getting
      (First Text) DescribeTransitGatewayAttachmentsResponse Text
@@ -618,7 +618,7 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-246"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-247"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachments</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-248"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachmentsResponse"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachmentsResponse</span></a></span><span>
-</span><span id="line-249"></span><span>  </span><span id="local-6989586621681209773"><span class="annot"><span class="annottext">request :: DescribeTransitGatewayAttachments
+</span><span id="line-249"></span><span>  </span><span id="local-6989586621681245457"><span class="annot"><span class="annottext">request :: DescribeTransitGatewayAttachments
 -&gt; Request DescribeTransitGatewayAttachments
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeTransitGatewayAttachments
@@ -626,7 +626,7 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-250"></span><span>  </span><span id="local-6989586621681209769"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-250"></span><span>  </span><span id="local-6989586621681245453"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeTransitGatewayAttachments
 -&gt; ClientResponse ClientBody
@@ -654,10 +654,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-252"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681209766"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681209766"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681209765"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621681209765"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681209764"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681209764"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-252"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681245450"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681245450"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681245449"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681245449"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681245448"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681245448"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-253"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [TransitGatewayAttachment]
 -&gt; Int
@@ -674,7 +674,7 @@ MonadResource m =&gt;
       -&gt; Int -&gt; DescribeTransitGatewayAttachmentsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681209764"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681245448"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -686,7 +686,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; DescribeTransitGatewayAttachmentsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681209764"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681245448"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;transitGatewayAttachments&quot;</span></span><span>
@@ -718,22 +718,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681209766"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681245450"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-260"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-261"></span><span>
 </span><span id="line-262"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-263"></span><span>  </span><span id="local-6989586621681209753"><span id="local-6989586621681209755"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-263"></span><span>  </span><span id="local-6989586621681245437"><span id="local-6989586621681245439"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-264"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachments</span></a></span></span></span><span>
 </span><span id="line-265"></span><span>
 </span><span id="line-266"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-267"></span><span>  </span><span id="local-6989586621681209750"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-267"></span><span>  </span><span id="local-6989586621681245434"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-268"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachments</span></a></span></span><span>
 </span><span id="line-269"></span><span>
 </span><span id="line-270"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-271"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-272"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachments</span></a></span><span>
 </span><span id="line-273"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-274"></span><span>  </span><span id="local-6989586621681209746"><span class="annot"><span class="annottext">toHeaders :: DescribeTransitGatewayAttachments -&gt; ResponseHeaders
+</span><span id="line-274"></span><span>  </span><span id="local-6989586621681245430"><span class="annot"><span class="annottext">toHeaders :: DescribeTransitGatewayAttachments -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; DescribeTransitGatewayAttachments -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -745,7 +745,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-277"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
 </span><span id="line-278"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachments</span></a></span><span>
 </span><span id="line-279"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-280"></span><span>  </span><span id="local-6989586621681209741"><span class="annot"><span class="annottext">toPath :: DescribeTransitGatewayAttachments -&gt; ByteString
+</span><span id="line-280"></span><span>  </span><span id="local-6989586621681245425"><span class="annot"><span class="annottext">toPath :: DescribeTransitGatewayAttachments -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeTransitGatewayAttachments -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
@@ -755,23 +755,23 @@ forall a b. a -&gt; b -&gt; a
 </span><span id="line-283"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
 </span><span id="line-284"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachments</span></a></span><span>
 </span><span id="line-285"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-286"></span><span>  </span><span id="local-6989586621681209737"><span class="annot"><span class="annottext">toQuery :: DescribeTransitGatewayAttachments -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681209731"><span id="local-6989586621681209732"><span id="local-6989586621681209733"><span id="local-6989586621681209734"><span id="local-6989586621681209735"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-286"></span><span>  </span><span id="local-6989586621681245421"><span class="annot"><span class="annottext">toQuery :: DescribeTransitGatewayAttachments -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachments%27"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681245415"><span id="local-6989586621681245416"><span id="local-6989586621681245417"><span id="local-6989586621681245418"><span id="local-6989586621681245419"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Natural
 Maybe [Text]
 Maybe [Filter]
 Maybe Text
-filters :: Maybe [Filter]
-transitGatewayAttachmentIds :: Maybe [Text]
-dryRun :: Maybe Bool
 maxResults :: Maybe Natural
+dryRun :: Maybe Bool
+transitGatewayAttachmentIds :: Maybe [Text]
 nextToken :: Maybe Text
-$sel:filters:DescribeTransitGatewayAttachments' :: DescribeTransitGatewayAttachments -&gt; Maybe [Filter]
-$sel:transitGatewayAttachmentIds:DescribeTransitGatewayAttachments' :: DescribeTransitGatewayAttachments -&gt; Maybe [Text]
-$sel:dryRun:DescribeTransitGatewayAttachments' :: DescribeTransitGatewayAttachments -&gt; Maybe Bool
+filters :: Maybe [Filter]
 $sel:maxResults:DescribeTransitGatewayAttachments' :: DescribeTransitGatewayAttachments -&gt; Maybe Natural
+$sel:dryRun:DescribeTransitGatewayAttachments' :: DescribeTransitGatewayAttachments -&gt; Maybe Bool
+$sel:transitGatewayAttachmentIds:DescribeTransitGatewayAttachments' :: DescribeTransitGatewayAttachments -&gt; Maybe [Text]
 $sel:nextToken:DescribeTransitGatewayAttachments' :: DescribeTransitGatewayAttachments -&gt; Maybe Text
-</span><a href="#local-6989586621681209731"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:filters:DescribeTransitGatewayAttachments' :: DescribeTransitGatewayAttachments -&gt; Maybe [Filter]
+</span><a href="#local-6989586621681245415"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-287"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -789,21 +789,23 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-294"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span id="line-294"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-295"></span><span>          </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Filter] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Filter] -&gt; QueryString) -&gt; Maybe [Filter] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681245419"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-296"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681209735"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-295"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621681209734"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-296"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681209733"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681245418"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-297"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
@@ -816,24 +818,22 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-299"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681209732"><span class="hs-identifier hs-var">transitGatewayAttachmentIds</span></a></span><span>
+</span><a href="#local-6989586621681245417"><span class="hs-identifier hs-var">transitGatewayAttachmentIds</span></a></span><span>
 </span><span id="line-300"></span><span>          </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-301"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
-forall a. ToQuery a =&gt; a -&gt; QueryString
-</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
-</span><span id="line-302"></span><span>          </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Filter] -&gt; QueryString
-forall a.
-(IsList a, ToQuery (Item a)) =&gt;
-ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;Filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Filter] -&gt; QueryString) -&gt; Maybe [Filter] -&gt; Maybe QueryString
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681209731"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-301"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681245416"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-302"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681245415"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-303"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-304"></span><span>
 </span><span id="line-305"></span><span class="hs-comment">-- | /See:/ 'newDescribeTransitGatewayAttachmentsResponse' smart constructor.</span><span>
-</span><span id="line-306"></span><span id="local-6989586621681209727"><span id="local-6989586621681209728"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeTransitGatewayAttachmentsResponse"><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachmentsResponse"><span class="hs-identifier hs-var">DescribeTransitGatewayAttachmentsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeTransitGatewayAttachmentsResponse%27"><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachmentsResponse%27"><span class="hs-identifier hs-var">DescribeTransitGatewayAttachmentsResponse'</span></a></span></span><span>
+</span><span id="line-306"></span><span id="local-6989586621681245411"><span id="local-6989586621681245412"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeTransitGatewayAttachmentsResponse"><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachmentsResponse"><span class="hs-identifier hs-var">DescribeTransitGatewayAttachmentsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeTransitGatewayAttachmentsResponse%27"><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachmentsResponse%27"><span class="hs-identifier hs-var">DescribeTransitGatewayAttachmentsResponse'</span></a></span></span><span>
 </span><span id="line-307"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to use to retrieve the next page of results. This value is</span><span>
 </span><span id="line-308"></span><span>    </span><span class="hs-comment">-- @null@ when there are no more results to return.</span><span>
 </span><span id="line-309"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeTransitGatewayAttachmentsResponse%27"><span class="annot"><span class="annottext">DescribeTransitGatewayAttachmentsResponse -&gt; Maybe Text
@@ -846,7 +846,7 @@ forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span id="line-313"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeTransitGatewayAttachmentsResponse%27"><span class="annot"><span class="annottext">DescribeTransitGatewayAttachmentsResponse -&gt; Int
 </span><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#%24sel%3AhttpStatus%3ADescribeTransitGatewayAttachmentsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-314"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-315"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681209720"><span id="local-6989586621681209722"><span class="annot"><span class="annottext">DescribeTransitGatewayAttachmentsResponse
+</span><span id="line-315"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681245404"><span id="local-6989586621681245406"><span class="annot"><span class="annottext">DescribeTransitGatewayAttachmentsResponse
 -&gt; DescribeTransitGatewayAttachmentsResponse -&gt; Bool
 (DescribeTransitGatewayAttachmentsResponse
  -&gt; DescribeTransitGatewayAttachmentsResponse -&gt; Bool)
@@ -862,7 +862,7 @@ $c/= :: DescribeTransitGatewayAttachmentsResponse
 -&gt; DescribeTransitGatewayAttachmentsResponse -&gt; Bool
 $c== :: DescribeTransitGatewayAttachmentsResponse
 -&gt; DescribeTransitGatewayAttachmentsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681209712"><span id="local-6989586621681209714"><span id="local-6989586621681209716"><span id="local-6989586621681209718"><span class="annot"><span class="annottext">ReadPrec [DescribeTransitGatewayAttachmentsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681245396"><span id="local-6989586621681245398"><span id="local-6989586621681245400"><span id="local-6989586621681245402"><span class="annot"><span class="annottext">ReadPrec [DescribeTransitGatewayAttachmentsResponse]
 ReadPrec DescribeTransitGatewayAttachmentsResponse
 Int -&gt; ReadS DescribeTransitGatewayAttachmentsResponse
 ReadS [DescribeTransitGatewayAttachmentsResponse]
@@ -882,7 +882,7 @@ readList :: ReadS [DescribeTransitGatewayAttachmentsResponse]
 $creadList :: ReadS [DescribeTransitGatewayAttachmentsResponse]
 readsPrec :: Int -&gt; ReadS DescribeTransitGatewayAttachmentsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeTransitGatewayAttachmentsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681209706"><span id="local-6989586621681209708"><span id="local-6989586621681209710"><span class="annot"><span class="annottext">Int -&gt; DescribeTransitGatewayAttachmentsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681245390"><span id="local-6989586621681245392"><span id="local-6989586621681245394"><span class="annot"><span class="annottext">Int -&gt; DescribeTransitGatewayAttachmentsResponse -&gt; ShowS
 [DescribeTransitGatewayAttachmentsResponse] -&gt; ShowS
 DescribeTransitGatewayAttachmentsResponse -&gt; String
 (Int -&gt; DescribeTransitGatewayAttachmentsResponse -&gt; ShowS)
@@ -940,8 +940,8 @@ DescribeTransitGatewayAttachmentsResponse
 </span><span id="line-334"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachmentsResponse"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachmentsResponse</span></a></span><span>
 </span><span id="line-335"></span><span id="newDescribeTransitGatewayAttachmentsResponse"><span class="annot"><span class="annottext">newDescribeTransitGatewayAttachmentsResponse :: Int -&gt; DescribeTransitGatewayAttachmentsResponse
 </span><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#newDescribeTransitGatewayAttachmentsResponse"><span class="hs-identifier hs-var hs-var">newDescribeTransitGatewayAttachmentsResponse</span></a></span></span><span>
-</span><span id="line-336"></span><span>  </span><span id="local-6989586621681209703"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681209703"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-336"></span><span>  </span><span id="local-6989586621681245387"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681245387"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-337"></span><span>    </span><span class="annot"><span class="annottext">DescribeTransitGatewayAttachmentsResponse' :: Maybe Text
 -&gt; Maybe [TransitGatewayAttachment]
 -&gt; Int
@@ -959,7 +959,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-342"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeTransitGatewayAttachmentsResponse' :: Int
 </span><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#%24sel%3AhttpStatus%3ADescribeTransitGatewayAttachmentsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681209703"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621681245387"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-343"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-344"></span><span>
 </span><span id="line-345"></span><span class="hs-comment">-- | The token to use to retrieve the next page of results. This value is</span><span>
@@ -973,16 +973,16 @@ forall a. Maybe a
     -&gt; Maybe Text -&gt; DescribeTransitGatewayAttachmentsResponse)
 -&gt; Lens' DescribeTransitGatewayAttachmentsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachmentsResponse%27"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681209702"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachmentsResponse%27"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681245386"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeTransitGatewayAttachmentsResponse' :: DescribeTransitGatewayAttachmentsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621681209702"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681209702"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681209701"><span class="annot"><span class="annottext">s :: DescribeTransitGatewayAttachmentsResponse
-</span><a href="#local-6989586621681209701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachmentsResponse%27"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681209700"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681209700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTransitGatewayAttachmentsResponse
-</span><a href="#local-6989586621681209701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeTransitGatewayAttachmentsResponse' :: Maybe Text
+</span><a href="#local-6989586621681245386"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681245386"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681245385"><span class="annot"><span class="annottext">s :: DescribeTransitGatewayAttachmentsResponse
+</span><a href="#local-6989586621681245385"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachmentsResponse%27"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681245384"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681245384"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTransitGatewayAttachmentsResponse
+</span><a href="#local-6989586621681245385"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeTransitGatewayAttachmentsResponse' :: Maybe Text
 </span><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#%24sel%3AnextToken%3ADescribeTransitGatewayAttachmentsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681209700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachmentsResponse"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachmentsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681245384"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachmentsResponse"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachmentsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-349"></span><span>
 </span><span id="line-350"></span><span class="hs-comment">-- | Information about the attachments.</span><span>
 </span><span id="line-351"></span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#describeTransitGatewayAttachmentsResponse_transitGatewayAttachments"><span class="hs-identifier hs-type">describeTransitGatewayAttachmentsResponse_transitGatewayAttachments</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachmentsResponse"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachmentsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachment.html#TransitGatewayAttachment"><span class="hs-identifier hs-type">TransitGatewayAttachment</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -999,17 +999,17 @@ $sel:nextToken:DescribeTransitGatewayAttachmentsResponse' :: DescribeTransitGate
      DescribeTransitGatewayAttachmentsResponse
      (Maybe [TransitGatewayAttachment])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachmentsResponse%27"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681209699"><span class="annot"><span class="annottext">Maybe [TransitGatewayAttachment]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachmentsResponse%27"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681245383"><span class="annot"><span class="annottext">Maybe [TransitGatewayAttachment]
 transitGatewayAttachments :: Maybe [TransitGatewayAttachment]
 $sel:transitGatewayAttachments:DescribeTransitGatewayAttachmentsResponse' :: DescribeTransitGatewayAttachmentsResponse
 -&gt; Maybe [TransitGatewayAttachment]
-</span><a href="#local-6989586621681209699"><span class="hs-identifier hs-var hs-var">transitGatewayAttachments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TransitGatewayAttachment]
-</span><a href="#local-6989586621681209699"><span class="hs-identifier hs-var">transitGatewayAttachments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681209698"><span class="annot"><span class="annottext">s :: DescribeTransitGatewayAttachmentsResponse
-</span><a href="#local-6989586621681209698"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachmentsResponse%27"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681209697"><span class="annot"><span class="annottext">Maybe [TransitGatewayAttachment]
-</span><a href="#local-6989586621681209697"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTransitGatewayAttachmentsResponse
-</span><a href="#local-6989586621681209698"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayAttachments:DescribeTransitGatewayAttachmentsResponse' :: Maybe [TransitGatewayAttachment]
+</span><a href="#local-6989586621681245383"><span class="hs-identifier hs-var hs-var">transitGatewayAttachments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TransitGatewayAttachment]
+</span><a href="#local-6989586621681245383"><span class="hs-identifier hs-var">transitGatewayAttachments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681245382"><span class="annot"><span class="annottext">s :: DescribeTransitGatewayAttachmentsResponse
+</span><a href="#local-6989586621681245382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachmentsResponse%27"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681245381"><span class="annot"><span class="annottext">Maybe [TransitGatewayAttachment]
+</span><a href="#local-6989586621681245381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTransitGatewayAttachmentsResponse
+</span><a href="#local-6989586621681245382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayAttachments:DescribeTransitGatewayAttachmentsResponse' :: Maybe [TransitGatewayAttachment]
 </span><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#%24sel%3AtransitGatewayAttachments%3ADescribeTransitGatewayAttachmentsResponse%27"><span class="hs-identifier hs-var">transitGatewayAttachments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TransitGatewayAttachment]
-</span><a href="#local-6989586621681209697"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachmentsResponse"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachmentsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TransitGatewayAttachment]
+</span><a href="#local-6989586621681245381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachmentsResponse"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachmentsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TransitGatewayAttachment]
   -&gt; f (Maybe [TransitGatewayAttachment]))
  -&gt; DescribeTransitGatewayAttachmentsResponse
  -&gt; f DescribeTransitGatewayAttachmentsResponse)
@@ -1040,8 +1040,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [TransitGatewayAttachment]
   [TransitGatewayAttachment]
   [TransitGatewayAttachment]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-353"></span><span>
 </span><span id="line-354"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-355"></span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#describeTransitGatewayAttachmentsResponse_httpStatus"><span class="hs-identifier hs-type">describeTransitGatewayAttachmentsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachmentsResponse"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachmentsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -1057,18 +1057,18 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachmentsResponse%27"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681209696"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachmentsResponse%27"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681245380"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeTransitGatewayAttachmentsResponse' :: DescribeTransitGatewayAttachmentsResponse -&gt; Int
-</span><a href="#local-6989586621681209696"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681209696"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681209695"><span class="annot"><span class="annottext">s :: DescribeTransitGatewayAttachmentsResponse
-</span><a href="#local-6989586621681209695"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachmentsResponse%27"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681209694"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681209694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTransitGatewayAttachmentsResponse
-</span><a href="#local-6989586621681209695"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeTransitGatewayAttachmentsResponse' :: Int
+</span><a href="#local-6989586621681245380"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681245380"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681245379"><span class="annot"><span class="annottext">s :: DescribeTransitGatewayAttachmentsResponse
+</span><a href="#local-6989586621681245379"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachmentsResponse%27"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681245378"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681245378"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTransitGatewayAttachmentsResponse
+</span><a href="#local-6989586621681245379"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeTransitGatewayAttachmentsResponse' :: Int
 </span><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#%24sel%3AhttpStatus%3ADescribeTransitGatewayAttachmentsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681209694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachmentsResponse"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachmentsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681245378"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachmentsResponse"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachmentsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-357"></span><span>
 </span><span id="line-358"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-359"></span><span>  </span><span id="local-6989586621681209692"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-359"></span><span>  </span><span id="local-6989586621681245376"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-360"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeTransitGatewayAttachments.html#DescribeTransitGatewayAttachmentsResponse"><span class="hs-identifier hs-type">DescribeTransitGatewayAttachmentsResponse</span></a></span></span><span>
 </span><span id="line-361"></span></pre></body></html>

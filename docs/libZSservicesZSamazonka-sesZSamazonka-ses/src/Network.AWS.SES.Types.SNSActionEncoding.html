@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679274763"><span id="local-6989586621679274764"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SNSActionEncoding"><span class="annot"><a href="Network.AWS.SES.Types.SNSActionEncoding.html#SNSActionEncoding"><span class="hs-identifier hs-var">SNSActionEncoding</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SNSActionEncoding%27"><span class="annot"><a href="Network.AWS.SES.Types.SNSActionEncoding.html#SNSActionEncoding%27"><span class="hs-identifier hs-var">SNSActionEncoding'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679274960"><span id="local-6989586621679274961"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SNSActionEncoding"><span class="annot"><a href="Network.AWS.SES.Types.SNSActionEncoding.html#SNSActionEncoding"><span class="hs-identifier hs-var">SNSActionEncoding</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SNSActionEncoding%27"><span class="annot"><a href="Network.AWS.SES.Types.SNSActionEncoding.html#SNSActionEncoding%27"><span class="hs-identifier hs-var">SNSActionEncoding'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSNSActionEncoding"><span class="annot"><span class="annottext">SNSActionEncoding -&gt; Text
 </span><a href="Network.AWS.SES.Types.SNSActionEncoding.html#fromSNSActionEncoding"><span class="hs-identifier hs-var hs-var">fromSNSActionEncoding</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679274755"><span id="local-6989586621679274757"><span id="local-6989586621679274759"><span class="annot"><span class="annottext">Int -&gt; SNSActionEncoding -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679274952"><span id="local-6989586621679274954"><span id="local-6989586621679274956"><span class="annot"><span class="annottext">Int -&gt; SNSActionEncoding -&gt; ShowS
 [SNSActionEncoding] -&gt; ShowS
 SNSActionEncoding -&gt; String
 (Int -&gt; SNSActionEncoding -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: SNSActionEncoding -&gt; String
 showsPrec :: Int -&gt; SNSActionEncoding -&gt; ShowS
 $cshowsPrec :: Int -&gt; SNSActionEncoding -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679274746"><span id="local-6989586621679274748"><span id="local-6989586621679274750"><span id="local-6989586621679274752"><span class="annot"><span class="annottext">ReadPrec [SNSActionEncoding]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679274943"><span id="local-6989586621679274945"><span id="local-6989586621679274947"><span id="local-6989586621679274949"><span class="annot"><span class="annottext">ReadPrec [SNSActionEncoding]
 ReadPrec SNSActionEncoding
 Int -&gt; ReadS SNSActionEncoding
 ReadS [SNSActionEncoding]
@@ -72,7 +72,7 @@ $creadList :: ReadS [SNSActionEncoding]
 readsPrec :: Int -&gt; ReadS SNSActionEncoding
 $creadsPrec :: Int -&gt; ReadS SNSActionEncoding
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679274741"><span id="local-6989586621679274743"><span class="annot"><span class="annottext">SNSActionEncoding -&gt; SNSActionEncoding -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679274938"><span id="local-6989586621679274940"><span class="annot"><span class="annottext">SNSActionEncoding -&gt; SNSActionEncoding -&gt; Bool
 (SNSActionEncoding -&gt; SNSActionEncoding -&gt; Bool)
 -&gt; (SNSActionEncoding -&gt; SNSActionEncoding -&gt; Bool)
 -&gt; Eq SNSActionEncoding
@@ -82,7 +82,7 @@ $c/= :: SNSActionEncoding -&gt; SNSActionEncoding -&gt; Bool
 == :: SNSActionEncoding -&gt; SNSActionEncoding -&gt; Bool
 $c== :: SNSActionEncoding -&gt; SNSActionEncoding -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679274725"><span id="local-6989586621679274727"><span id="local-6989586621679274729"><span id="local-6989586621679274731"><span id="local-6989586621679274733"><span id="local-6989586621679274735"><span id="local-6989586621679274737"><span class="annot"><span class="annottext">Eq SNSActionEncoding
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679274922"><span id="local-6989586621679274924"><span id="local-6989586621679274926"><span id="local-6989586621679274928"><span id="local-6989586621679274930"><span id="local-6989586621679274932"><span id="local-6989586621679274934"><span class="annot"><span class="annottext">Eq SNSActionEncoding
 Eq SNSActionEncoding
 -&gt; (SNSActionEncoding -&gt; SNSActionEncoding -&gt; Ordering)
 -&gt; (SNSActionEncoding -&gt; SNSActionEncoding -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. SNSActionEncoding -&gt; Rep SNSActionEncoding x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679274717"><span id="local-6989586621679274719"><span class="annot"><span class="annottext">Int -&gt; SNSActionEncoding -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679274914"><span id="local-6989586621679274916"><span class="annot"><span class="annottext">Int -&gt; SNSActionEncoding -&gt; Int
 SNSActionEncoding -&gt; Int
 (Int -&gt; SNSActionEncoding -&gt; Int)
 -&gt; (SNSActionEncoding -&gt; Int) -&gt; Hashable SNSActionEncoding
@@ -143,51 +143,51 @@ $chash :: SNSActionEncoding -&gt; Int
 hashWithSalt :: Int -&gt; SNSActionEncoding -&gt; Int
 $chashWithSalt :: Int -&gt; SNSActionEncoding -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679274714"><span class="annot"><span class="annottext">SNSActionEncoding -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679274911"><span class="annot"><span class="annottext">SNSActionEncoding -&gt; ()
 (SNSActionEncoding -&gt; ()) -&gt; NFData SNSActionEncoding
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: SNSActionEncoding -&gt; ()
 $crnf :: SNSActionEncoding -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679274711"><span class="annot"><span class="annottext">Text -&gt; Either String SNSActionEncoding
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679274908"><span class="annot"><span class="annottext">Text -&gt; Either String SNSActionEncoding
 (Text -&gt; Either String SNSActionEncoding)
 -&gt; FromText SNSActionEncoding
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String SNSActionEncoding
 $cfromText :: Text -&gt; Either String SNSActionEncoding
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679274708"><span class="annot"><span class="annottext">SNSActionEncoding -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679274905"><span class="annot"><span class="annottext">SNSActionEncoding -&gt; Text
 (SNSActionEncoding -&gt; Text) -&gt; ToText SNSActionEncoding
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: SNSActionEncoding -&gt; Text
 $ctoText :: SNSActionEncoding -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679274705"><span class="annot"><span class="annottext">SNSActionEncoding -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679274902"><span class="annot"><span class="annottext">SNSActionEncoding -&gt; ByteString
 (SNSActionEncoding -&gt; ByteString) -&gt; ToByteString SNSActionEncoding
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: SNSActionEncoding -&gt; ByteString
 $ctoBS :: SNSActionEncoding -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679274702"><span class="annot"><span class="annottext">SNSActionEncoding -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679274899"><span class="annot"><span class="annottext">SNSActionEncoding -&gt; ByteStringBuilder
 (SNSActionEncoding -&gt; ByteStringBuilder) -&gt; ToLog SNSActionEncoding
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: SNSActionEncoding -&gt; ByteStringBuilder
 $cbuild :: SNSActionEncoding -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679274699"><span class="annot"><span class="annottext">HeaderName -&gt; SNSActionEncoding -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679274896"><span class="annot"><span class="annottext">HeaderName -&gt; SNSActionEncoding -&gt; [Header]
 (HeaderName -&gt; SNSActionEncoding -&gt; [Header])
 -&gt; ToHeader SNSActionEncoding
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; SNSActionEncoding -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; SNSActionEncoding -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679274696"><span class="annot"><span class="annottext">SNSActionEncoding -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679274893"><span class="annot"><span class="annottext">SNSActionEncoding -&gt; QueryString
 (SNSActionEncoding -&gt; QueryString) -&gt; ToQuery SNSActionEncoding
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: SNSActionEncoding -&gt; QueryString
 $ctoQuery :: SNSActionEncoding -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679274691"><span id="local-6989586621679274693"><span class="annot"><span class="annottext">Value -&gt; Parser [SNSActionEncoding]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679274888"><span id="local-6989586621679274890"><span class="annot"><span class="annottext">Value -&gt; Parser [SNSActionEncoding]
 Value -&gt; Parser SNSActionEncoding
 (Value -&gt; Parser SNSActionEncoding)
 -&gt; (Value -&gt; Parser [SNSActionEncoding])
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [SNSActionEncoding]
 parseJSON :: Value -&gt; Parser SNSActionEncoding
 $cparseJSON :: Value -&gt; Parser SNSActionEncoding
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679274686"><span id="local-6989586621679274688"><span class="annot"><span class="annottext">FromJSONKeyFunction [SNSActionEncoding]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679274883"><span id="local-6989586621679274885"><span class="annot"><span class="annottext">FromJSONKeyFunction [SNSActionEncoding]
 FromJSONKeyFunction SNSActionEncoding
 FromJSONKeyFunction SNSActionEncoding
 -&gt; FromJSONKeyFunction [SNSActionEncoding]
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [SNSActionEncoding]
 fromJSONKey :: FromJSONKeyFunction SNSActionEncoding
 $cfromJSONKey :: FromJSONKeyFunction SNSActionEncoding
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679274677"><span id="local-6989586621679274679"><span id="local-6989586621679274681"><span id="local-6989586621679274683"><span class="annot"><span class="annottext">[SNSActionEncoding] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679274874"><span id="local-6989586621679274876"><span id="local-6989586621679274878"><span id="local-6989586621679274880"><span class="annot"><span class="annottext">[SNSActionEncoding] -&gt; Encoding
 [SNSActionEncoding] -&gt; Value
 SNSActionEncoding -&gt; Encoding
 SNSActionEncoding -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: SNSActionEncoding -&gt; Encoding
 toJSON :: SNSActionEncoding -&gt; Value
 $ctoJSON :: SNSActionEncoding -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679274672"><span id="local-6989586621679274674"><span class="annot"><span class="annottext">ToJSONKeyFunction [SNSActionEncoding]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679274869"><span id="local-6989586621679274871"><span class="annot"><span class="annottext">ToJSONKeyFunction [SNSActionEncoding]
 ToJSONKeyFunction SNSActionEncoding
 ToJSONKeyFunction SNSActionEncoding
 -&gt; ToJSONKeyFunction [SNSActionEncoding]
@@ -247,14 +247,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [SNSActionEncoding]
 toJSONKey :: ToJSONKeyFunction SNSActionEncoding
 $ctoJSONKey :: ToJSONKeyFunction SNSActionEncoding
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679274669"><span class="annot"><span class="annottext">[Node] -&gt; Either String SNSActionEncoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679274866"><span class="annot"><span class="annottext">[Node] -&gt; Either String SNSActionEncoding
 ([Node] -&gt; Either String SNSActionEncoding)
 -&gt; FromXML SNSActionEncoding
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String SNSActionEncoding
 $cparseXML :: [Node] -&gt; Either String SNSActionEncoding
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679274666"><span class="annot"><span class="annottext">SNSActionEncoding -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679274863"><span class="annot"><span class="annottext">SNSActionEncoding -&gt; XML
 (SNSActionEncoding -&gt; XML) -&gt; ToXML SNSActionEncoding
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: SNSActionEncoding -&gt; XML

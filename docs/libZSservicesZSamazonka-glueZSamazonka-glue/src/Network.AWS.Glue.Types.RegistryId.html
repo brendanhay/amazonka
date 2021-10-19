@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- Resource Name (ARN).</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newRegistryId' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679693366"><span id="local-6989586621679693367"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegistryId"><span class="annot"><a href="Network.AWS.Glue.Types.RegistryId.html#RegistryId"><span class="hs-identifier hs-var">RegistryId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegistryId%27"><span class="annot"><a href="Network.AWS.Glue.Types.RegistryId.html#RegistryId%27"><span class="hs-identifier hs-var">RegistryId'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679695042"><span id="local-6989586621679695043"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegistryId"><span class="annot"><a href="Network.AWS.Glue.Types.RegistryId.html#RegistryId"><span class="hs-identifier hs-var">RegistryId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegistryId%27"><span class="annot"><a href="Network.AWS.Glue.Types.RegistryId.html#RegistryId%27"><span class="hs-identifier hs-var">RegistryId'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Name of the registry. Used only for lookup. One of @RegistryArn@ or</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- @RegistryName@ has to be provided.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AregistryName%3ARegistryId%27"><span class="annot"><span class="annottext">RegistryId -&gt; Maybe Text
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AregistryArn%3ARegistryId%27"><span class="annot"><span class="annottext">RegistryId -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.Types.RegistryId.html#%24sel%3AregistryArn%3ARegistryId%27"><span class="hs-identifier hs-var hs-var">registryArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679693359"><span id="local-6989586621679693361"><span class="annot"><span class="annottext">RegistryId -&gt; RegistryId -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679695035"><span id="local-6989586621679695037"><span class="annot"><span class="annottext">RegistryId -&gt; RegistryId -&gt; Bool
 (RegistryId -&gt; RegistryId -&gt; Bool)
 -&gt; (RegistryId -&gt; RegistryId -&gt; Bool) -&gt; Eq RegistryId
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RegistryId -&gt; RegistryId -&gt; Bool
 == :: RegistryId -&gt; RegistryId -&gt; Bool
 $c== :: RegistryId -&gt; RegistryId -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679693350"><span id="local-6989586621679693352"><span id="local-6989586621679693354"><span id="local-6989586621679693356"><span class="annot"><span class="annottext">ReadPrec [RegistryId]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679695026"><span id="local-6989586621679695028"><span id="local-6989586621679695030"><span id="local-6989586621679695032"><span class="annot"><span class="annottext">ReadPrec [RegistryId]
 ReadPrec RegistryId
 Int -&gt; ReadS RegistryId
 ReadS [RegistryId]
@@ -65,7 +65,7 @@ readList :: ReadS [RegistryId]
 $creadList :: ReadS [RegistryId]
 readsPrec :: Int -&gt; ReadS RegistryId
 $creadsPrec :: Int -&gt; ReadS RegistryId
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679693343"><span id="local-6989586621679693345"><span id="local-6989586621679693347"><span class="annot"><span class="annottext">Int -&gt; RegistryId -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679695019"><span id="local-6989586621679695021"><span id="local-6989586621679695023"><span class="annot"><span class="annottext">Int -&gt; RegistryId -&gt; ShowS
 [RegistryId] -&gt; ShowS
 RegistryId -&gt; String
 (Int -&gt; RegistryId -&gt; ShowS)
@@ -127,16 +127,16 @@ forall a. Maybe a
 -&gt; (RegistryId -&gt; Maybe Text -&gt; RegistryId)
 -&gt; Lens RegistryId RegistryId (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.RegistryId.html#RegistryId%27"><span class="hs-identifier hs-type">RegistryId'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679693334"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.RegistryId.html#RegistryId%27"><span class="hs-identifier hs-type">RegistryId'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679695010"><span class="annot"><span class="annottext">Maybe Text
 registryName :: Maybe Text
 $sel:registryName:RegistryId' :: RegistryId -&gt; Maybe Text
-</span><a href="#local-6989586621679693334"><span class="hs-identifier hs-var hs-var">registryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679693334"><span class="hs-identifier hs-var">registryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679693333"><span class="annot"><span class="annottext">s :: RegistryId
-</span><a href="#local-6989586621679693333"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.RegistryId.html#RegistryId%27"><span class="hs-identifier hs-type">RegistryId'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679693332"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679693332"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegistryId
-</span><a href="#local-6989586621679693333"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryName:RegistryId' :: Maybe Text
+</span><a href="#local-6989586621679695010"><span class="hs-identifier hs-var hs-var">registryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679695010"><span class="hs-identifier hs-var">registryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679695009"><span class="annot"><span class="annottext">s :: RegistryId
+</span><a href="#local-6989586621679695009"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.RegistryId.html#RegistryId%27"><span class="hs-identifier hs-type">RegistryId'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679695008"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679695008"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegistryId
+</span><a href="#local-6989586621679695009"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryName:RegistryId' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.RegistryId.html#%24sel%3AregistryName%3ARegistryId%27"><span class="hs-identifier hs-var">registryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679693332"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.RegistryId.html#RegistryId"><span class="hs-identifier hs-type">RegistryId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679695008"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.RegistryId.html#RegistryId"><span class="hs-identifier hs-type">RegistryId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | Arn of the registry to be updated. One of @RegistryArn@ or</span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- @RegistryName@ has to be provided.</span><span>
@@ -146,29 +146,29 @@ $sel:registryName:RegistryId' :: RegistryId -&gt; Maybe Text
 -&gt; (RegistryId -&gt; Maybe Text -&gt; RegistryId)
 -&gt; Lens RegistryId RegistryId (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.RegistryId.html#RegistryId%27"><span class="hs-identifier hs-type">RegistryId'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679693330"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.RegistryId.html#RegistryId%27"><span class="hs-identifier hs-type">RegistryId'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679695006"><span class="annot"><span class="annottext">Maybe Text
 registryArn :: Maybe Text
 $sel:registryArn:RegistryId' :: RegistryId -&gt; Maybe Text
-</span><a href="#local-6989586621679693330"><span class="hs-identifier hs-var hs-var">registryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679693330"><span class="hs-identifier hs-var">registryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679693329"><span class="annot"><span class="annottext">s :: RegistryId
-</span><a href="#local-6989586621679693329"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.RegistryId.html#RegistryId%27"><span class="hs-identifier hs-type">RegistryId'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679693328"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679693328"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegistryId
-</span><a href="#local-6989586621679693329"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryArn:RegistryId' :: Maybe Text
+</span><a href="#local-6989586621679695006"><span class="hs-identifier hs-var hs-var">registryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679695006"><span class="hs-identifier hs-var">registryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679695005"><span class="annot"><span class="annottext">s :: RegistryId
+</span><a href="#local-6989586621679695005"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.RegistryId.html#RegistryId%27"><span class="hs-identifier hs-type">RegistryId'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679695004"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679695004"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegistryId
+</span><a href="#local-6989586621679695005"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryArn:RegistryId' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.RegistryId.html#%24sel%3AregistryArn%3ARegistryId%27"><span class="hs-identifier hs-var">registryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679693328"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.RegistryId.html#RegistryId"><span class="hs-identifier hs-type">RegistryId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679695004"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.RegistryId.html#RegistryId"><span class="hs-identifier hs-type">RegistryId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679693324"><span id="local-6989586621679693326"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.RegistryId.html#RegistryId"><span class="hs-identifier hs-type">RegistryId</span></a></span></span></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679695000"><span id="local-6989586621679695002"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.RegistryId.html#RegistryId"><span class="hs-identifier hs-type">RegistryId</span></a></span></span></span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679693321"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.RegistryId.html#RegistryId"><span class="hs-identifier hs-type">RegistryId</span></a></span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679694997"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.RegistryId.html#RegistryId"><span class="hs-identifier hs-type">RegistryId</span></a></span></span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679693313"><span id="local-6989586621679693315"><span id="local-6989586621679693317"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.RegistryId.html#RegistryId"><span class="hs-identifier hs-type">RegistryId</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679693311"><span class="annot"><span class="annottext">toJSON :: RegistryId -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.RegistryId.html#RegistryId%27"><span class="hs-identifier hs-type">RegistryId'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679693308"><span id="local-6989586621679693309"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679694989"><span id="local-6989586621679694991"><span id="local-6989586621679694993"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.RegistryId.html#RegistryId"><span class="hs-identifier hs-type">RegistryId</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679694987"><span class="annot"><span class="annottext">toJSON :: RegistryId -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.RegistryId.html#RegistryId%27"><span class="hs-identifier hs-type">RegistryId'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679694984"><span id="local-6989586621679694985"><span class="annot"><span class="annottext">Maybe Text
 registryArn :: Maybe Text
 registryName :: Maybe Text
 $sel:registryArn:RegistryId' :: RegistryId -&gt; Maybe Text
 $sel:registryName:RegistryId' :: RegistryId -&gt; Maybe Text
-</span><a href="#local-6989586621679693308"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679694984"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -180,14 +180,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679693309"><span class="hs-identifier hs-var">registryName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679694985"><span class="hs-identifier hs-var">registryName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-80"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RegistryArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679693308"><span class="hs-identifier hs-var">registryArn</span></a></span><span>
+</span><a href="#local-6989586621679694984"><span class="hs-identifier hs-var">registryArn</span></a></span><span>
 </span><span id="line-81"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span></pre></body></html>

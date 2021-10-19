@@ -29,40 +29,40 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | An object representing a repository.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newRepository' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679234486"><span id="local-6989586621679234487"></span></span><span class="hs-keyword">data</span><span> </span><span id="Repository"><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository"><span class="hs-identifier hs-var">Repository</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Repository%27"><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository%27"><span class="hs-identifier hs-var">Repository'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The encryption configuration for the repository. This determines how the</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- contents of your repository are encrypted at rest.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AencryptionConfiguration%3ARepository%27"><span class="annot"><span class="annottext">Repository -&gt; Maybe EncryptionConfiguration
-</span><a href="Network.AWS.ECR.Types.Repository.html#%24sel%3AencryptionConfiguration%3ARepository%27"><span class="hs-identifier hs-var hs-var">encryptionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.EncryptionConfiguration.html#EncryptionConfiguration"><span class="hs-identifier hs-type">EncryptionConfiguration</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The URI for the repository. You can use this URI for container image</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- @push@ and @pull@ operations.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3ArepositoryUri%3ARepository%27"><span class="annot"><span class="annottext">Repository -&gt; Maybe Text
-</span><a href="Network.AWS.ECR.Types.Repository.html#%24sel%3ArepositoryUri%3ARepository%27"><span class="hs-identifier hs-var hs-var">repositoryUri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The Amazon Web Services account ID associated with the registry that</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- contains the repository.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AregistryId%3ARepository%27"><span class="annot"><span class="annottext">Repository -&gt; Maybe Text
-</span><a href="Network.AWS.ECR.Types.Repository.html#%24sel%3AregistryId%3ARepository%27"><span class="hs-identifier hs-var hs-var">registryId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The date and time, in JavaScript date format, when the repository was</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- created.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AcreatedAt%3ARepository%27"><span class="annot"><span class="annottext">Repository -&gt; Maybe POSIX
-</span><a href="Network.AWS.ECR.Types.Repository.html#%24sel%3AcreatedAt%3ARepository%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The name of the repository.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3ArepositoryName%3ARepository%27"><span class="annot"><span class="annottext">Repository -&gt; Maybe Text
-</span><a href="Network.AWS.ECR.Types.Repository.html#%24sel%3ArepositoryName%3ARepository%27"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that identifies the repository. The ARN</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- contains the @arn:aws:ecr@ namespace, followed by the region of the</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- repository, Amazon Web Services account ID of the repository owner,</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- repository namespace, and repository name. For example,</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- @arn:aws:ecr:region:012345678910:repository\/test@.</span><span>
-</span><span id="line-52"></span><span>    </span><span id="%24sel%3ArepositoryArn%3ARepository%27"><span class="annot"><span class="annottext">Repository -&gt; Maybe Text
+</span><span id="line-32"></span><span id="local-6989586621679234634"><span id="local-6989586621679234635"></span></span><span class="hs-keyword">data</span><span> </span><span id="Repository"><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository"><span class="hs-identifier hs-var">Repository</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Repository%27"><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository%27"><span class="hs-identifier hs-var">Repository'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that identifies the repository. The ARN</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- contains the @arn:aws:ecr@ namespace, followed by the region of the</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- repository, Amazon Web Services account ID of the repository owner,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- repository namespace, and repository name. For example,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- @arn:aws:ecr:region:012345678910:repository\/test@.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3ArepositoryArn%3ARepository%27"><span class="annot"><span class="annottext">Repository -&gt; Maybe Text
 </span><a href="Network.AWS.ECR.Types.Repository.html#%24sel%3ArepositoryArn%3ARepository%27"><span class="hs-identifier hs-var hs-var">repositoryArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>    </span><span id="%24sel%3AimageScanningConfiguration%3ARepository%27"><span class="annot"><span class="annottext">Repository -&gt; Maybe ImageScanningConfiguration
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The date and time, in JavaScript date format, when the repository was</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AcreatedAt%3ARepository%27"><span class="annot"><span class="annottext">Repository -&gt; Maybe POSIX
+</span><a href="Network.AWS.ECR.Types.Repository.html#%24sel%3AcreatedAt%3ARepository%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The Amazon Web Services account ID associated with the registry that</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- contains the repository.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AregistryId%3ARepository%27"><span class="annot"><span class="annottext">Repository -&gt; Maybe Text
+</span><a href="Network.AWS.ECR.Types.Repository.html#%24sel%3AregistryId%3ARepository%27"><span class="hs-identifier hs-var hs-var">registryId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AimageScanningConfiguration%3ARepository%27"><span class="annot"><span class="annottext">Repository -&gt; Maybe ImageScanningConfiguration
 </span><a href="Network.AWS.ECR.Types.Repository.html#%24sel%3AimageScanningConfiguration%3ARepository%27"><span class="hs-identifier hs-var hs-var">imageScanningConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanningConfiguration.html#ImageScanningConfiguration"><span class="hs-identifier hs-type">ImageScanningConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The URI for the repository. You can use this URI for container image</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- @push@ and @pull@ operations.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3ArepositoryUri%3ARepository%27"><span class="annot"><span class="annottext">Repository -&gt; Maybe Text
+</span><a href="Network.AWS.ECR.Types.Repository.html#%24sel%3ArepositoryUri%3ARepository%27"><span class="hs-identifier hs-var hs-var">repositoryUri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The encryption configuration for the repository. This determines how the</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- contents of your repository are encrypted at rest.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AencryptionConfiguration%3ARepository%27"><span class="annot"><span class="annottext">Repository -&gt; Maybe EncryptionConfiguration
+</span><a href="Network.AWS.ECR.Types.Repository.html#%24sel%3AencryptionConfiguration%3ARepository%27"><span class="hs-identifier hs-var hs-var">encryptionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.EncryptionConfiguration.html#EncryptionConfiguration"><span class="hs-identifier hs-type">EncryptionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The name of the repository.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3ArepositoryName%3ARepository%27"><span class="annot"><span class="annottext">Repository -&gt; Maybe Text
+</span><a href="Network.AWS.ECR.Types.Repository.html#%24sel%3ArepositoryName%3ARepository%27"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The tag mutability setting for the repository.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AimageTagMutability%3ARepository%27"><span class="annot"><span class="annottext">Repository -&gt; Maybe ImageTagMutability
 </span><a href="Network.AWS.ECR.Types.Repository.html#%24sel%3AimageTagMutability%3ARepository%27"><span class="hs-identifier hs-var hs-var">imageTagMutability</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageTagMutability.html#ImageTagMutability"><span class="hs-identifier hs-type">ImageTagMutability</span></a></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679234473"><span id="local-6989586621679234475"><span class="annot"><span class="annottext">Repository -&gt; Repository -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679234621"><span id="local-6989586621679234623"><span class="annot"><span class="annottext">Repository -&gt; Repository -&gt; Bool
 (Repository -&gt; Repository -&gt; Bool)
 -&gt; (Repository -&gt; Repository -&gt; Bool) -&gt; Eq Repository
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -70,7 +70,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Repository -&gt; Repository -&gt; Bool
 == :: Repository -&gt; Repository -&gt; Bool
 $c== :: Repository -&gt; Repository -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679234464"><span id="local-6989586621679234466"><span id="local-6989586621679234468"><span id="local-6989586621679234470"><span class="annot"><span class="annottext">ReadPrec [Repository]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679234612"><span id="local-6989586621679234614"><span id="local-6989586621679234616"><span id="local-6989586621679234618"><span class="annot"><span class="annottext">ReadPrec [Repository]
 ReadPrec Repository
 Int -&gt; ReadS Repository
 ReadS [Repository]
@@ -90,7 +90,7 @@ readList :: ReadS [Repository]
 $creadList :: ReadS [Repository]
 readsPrec :: Int -&gt; ReadS Repository
 $creadsPrec :: Int -&gt; ReadS Repository
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679234457"><span id="local-6989586621679234459"><span id="local-6989586621679234461"><span class="annot"><span class="annottext">Int -&gt; Repository -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679234605"><span id="local-6989586621679234607"><span id="local-6989586621679234609"><span class="annot"><span class="annottext">Int -&gt; Repository -&gt; ShowS
 [Repository] -&gt; ShowS
 Repository -&gt; String
 (Int -&gt; Repository -&gt; ShowS)
@@ -123,159 +123,117 @@ $cfrom :: forall x. Repository -&gt; Rep Repository x
 </span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'encryptionConfiguration', 'repository_encryptionConfiguration' - The encryption configuration for the repository. This determines how the</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- contents of your repository are encrypted at rest.</span><span>
-</span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'repositoryUri', 'repository_repositoryUri' - The URI for the repository. You can use this URI for container image</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- @push@ and @pull@ operations.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'repositoryArn', 'repository_repositoryArn' - The Amazon Resource Name (ARN) that identifies the repository. The ARN</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- contains the @arn:aws:ecr@ namespace, followed by the region of the</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- repository, Amazon Web Services account ID of the repository owner,</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- repository namespace, and repository name. For example,</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- @arn:aws:ecr:region:012345678910:repository\/test@.</span><span>
 </span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'registryId', 'repository_registryId' - The Amazon Web Services account ID associated with the registry that</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- contains the repository.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'createdAt', 'repository_createdAt' - The date and time, in JavaScript date format, when the repository was</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- created.</span><span>
 </span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 'createdAt', 'repository_createdAt' - The date and time, in JavaScript date format, when the repository was</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'registryId', 'repository_registryId' - The Amazon Web Services account ID associated with the registry that</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- contains the repository.</span><span>
 </span><span id="line-78"></span><span class="hs-comment">--</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- 'repositoryName', 'repository_repositoryName' - The name of the repository.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'imageScanningConfiguration', 'repository_imageScanningConfiguration' - Undocumented member.</span><span>
 </span><span id="line-80"></span><span class="hs-comment">--</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- 'repositoryArn', 'repository_repositoryArn' - The Amazon Resource Name (ARN) that identifies the repository. The ARN</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- contains the @arn:aws:ecr@ namespace, followed by the region of the</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- repository, Amazon Web Services account ID of the repository owner,</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- repository namespace, and repository name. For example,</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- @arn:aws:ecr:region:012345678910:repository\/test@.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'repositoryUri', 'repository_repositoryUri' - The URI for the repository. You can use this URI for container image</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- @push@ and @pull@ operations.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'encryptionConfiguration', 'repository_encryptionConfiguration' - The encryption configuration for the repository. This determines how the</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- contents of your repository are encrypted at rest.</span><span>
 </span><span id="line-86"></span><span class="hs-comment">--</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- 'imageScanningConfiguration', 'repository_imageScanningConfiguration' - Undocumented member.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'repositoryName', 'repository_repositoryName' - The name of the repository.</span><span>
 </span><span id="line-88"></span><span class="hs-comment">--</span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- 'imageTagMutability', 'repository_imageTagMutability' - The tag mutability setting for the repository.</span><span>
 </span><span id="line-90"></span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#newRepository"><span class="hs-identifier hs-type">newRepository</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository"><span class="hs-identifier hs-type">Repository</span></a></span><span>
 </span><span id="line-92"></span><span id="newRepository"><span class="annot"><span class="annottext">newRepository :: Repository
 </span><a href="Network.AWS.ECR.Types.Repository.html#newRepository"><span class="hs-identifier hs-var hs-var">newRepository</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-93"></span><span>  </span><span class="annot"><span class="annottext">Repository' :: Maybe EncryptionConfiguration
--&gt; Maybe Text
--&gt; Maybe Text
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="annottext">Repository' :: Maybe Text
 -&gt; Maybe POSIX
 -&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe ImageScanningConfiguration
+-&gt; Maybe Text
+-&gt; Maybe EncryptionConfiguration
+-&gt; Maybe Text
 -&gt; Maybe ImageTagMutability
 -&gt; Repository
 </span><a href="Network.AWS.ECR.Types.Repository.html#Repository%27"><span class="hs-identifier hs-type">Repository'</span></a></span><span>
-</span><span id="line-94"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:encryptionConfiguration:Repository' :: Maybe EncryptionConfiguration
-</span><a href="Network.AWS.ECR.Types.Repository.html#%24sel%3AencryptionConfiguration%3ARepository%27"><span class="hs-identifier hs-var">encryptionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-95"></span><span>        </span><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:repositoryUri:Repository' :: Maybe Text
-</span><a href="Network.AWS.ECR.Types.Repository.html#%24sel%3ArepositoryUri%3ARepository%27"><span class="hs-identifier hs-var">repositoryUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:registryId:Repository' :: Maybe Text
-</span><a href="Network.AWS.ECR.Types.Repository.html#%24sel%3AregistryId%3ARepository%27"><span class="hs-identifier hs-var">registryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdAt:Repository' :: Maybe POSIX
-</span><a href="Network.AWS.ECR.Types.Repository.html#%24sel%3AcreatedAt%3ARepository%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:repositoryName:Repository' :: Maybe Text
-</span><a href="Network.AWS.ECR.Types.Repository.html#%24sel%3ArepositoryName%3ARepository%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:repositoryArn:Repository' :: Maybe Text
+</span><span id="line-94"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:repositoryArn:Repository' :: Maybe Text
 </span><a href="Network.AWS.ECR.Types.Repository.html#%24sel%3ArepositoryArn%3ARepository%27"><span class="hs-identifier hs-var">repositoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:imageScanningConfiguration:Repository' :: Maybe ImageScanningConfiguration
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdAt:Repository' :: Maybe POSIX
+</span><a href="Network.AWS.ECR.Types.Repository.html#%24sel%3AcreatedAt%3ARepository%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:registryId:Repository' :: Maybe Text
+</span><a href="Network.AWS.ECR.Types.Repository.html#%24sel%3AregistryId%3ARepository%27"><span class="hs-identifier hs-var">registryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:imageScanningConfiguration:Repository' :: Maybe ImageScanningConfiguration
 </span><a href="Network.AWS.ECR.Types.Repository.html#%24sel%3AimageScanningConfiguration%3ARepository%27"><span class="hs-identifier hs-var">imageScanningConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ImageScanningConfiguration
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:imageTagMutability:Repository' :: Maybe ImageTagMutability
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:repositoryUri:Repository' :: Maybe Text
+</span><a href="Network.AWS.ECR.Types.Repository.html#%24sel%3ArepositoryUri%3ARepository%27"><span class="hs-identifier hs-var">repositoryUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:encryptionConfiguration:Repository' :: Maybe EncryptionConfiguration
+</span><a href="Network.AWS.ECR.Types.Repository.html#%24sel%3AencryptionConfiguration%3ARepository%27"><span class="hs-identifier hs-var">encryptionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:repositoryName:Repository' :: Maybe Text
+</span><a href="Network.AWS.ECR.Types.Repository.html#%24sel%3ArepositoryName%3ARepository%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:imageTagMutability:Repository' :: Maybe ImageTagMutability
 </span><a href="Network.AWS.ECR.Types.Repository.html#%24sel%3AimageTagMutability%3ARepository%27"><span class="hs-identifier hs-var">imageTagMutability</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ImageTagMutability
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-103"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- | The encryption configuration for the repository. This determines how the</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- contents of your repository are encrypted at rest.</span><span>
-</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#repository_encryptionConfiguration"><span class="hs-identifier hs-type">repository_encryptionConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository"><span class="hs-identifier hs-type">Repository</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.EncryptionConfiguration.html#EncryptionConfiguration"><span class="hs-identifier hs-type">EncryptionConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span id="repository_encryptionConfiguration"><span class="annot"><span class="annottext">repository_encryptionConfiguration :: (Maybe EncryptionConfiguration
- -&gt; f (Maybe EncryptionConfiguration))
--&gt; Repository -&gt; f Repository
-</span><a href="Network.AWS.ECR.Types.Repository.html#repository_encryptionConfiguration"><span class="hs-identifier hs-var hs-var">repository_encryptionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Repository -&gt; Maybe EncryptionConfiguration)
--&gt; (Repository -&gt; Maybe EncryptionConfiguration -&gt; Repository)
--&gt; Lens
-     Repository
-     Repository
-     (Maybe EncryptionConfiguration)
-     (Maybe EncryptionConfiguration)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository%27"><span class="hs-identifier hs-type">Repository'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234448"><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
-encryptionConfiguration :: Maybe EncryptionConfiguration
-$sel:encryptionConfiguration:Repository' :: Repository -&gt; Maybe EncryptionConfiguration
-</span><a href="#local-6989586621679234448"><span class="hs-identifier hs-var hs-var">encryptionConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
-</span><a href="#local-6989586621679234448"><span class="hs-identifier hs-var">encryptionConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679234447"><span class="annot"><span class="annottext">s :: Repository
-</span><a href="#local-6989586621679234447"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository%27"><span class="hs-identifier hs-type">Repository'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679234446"><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
-</span><a href="#local-6989586621679234446"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Repository
-</span><a href="#local-6989586621679234447"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionConfiguration:Repository' :: Maybe EncryptionConfiguration
-</span><a href="Network.AWS.ECR.Types.Repository.html#%24sel%3AencryptionConfiguration%3ARepository%27"><span class="hs-identifier hs-var">encryptionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
-</span><a href="#local-6989586621679234446"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository"><span class="hs-identifier hs-type">Repository</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- | The URI for the repository. You can use this URI for container image</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- @push@ and @pull@ operations.</span><span>
-</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#repository_repositoryUri"><span class="hs-identifier hs-type">repository_repositoryUri</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository"><span class="hs-identifier hs-type">Repository</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span id="repository_repositoryUri"><span class="annot"><span class="annottext">repository_repositoryUri :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Repository -&gt; f Repository
-</span><a href="Network.AWS.ECR.Types.Repository.html#repository_repositoryUri"><span class="hs-identifier hs-var hs-var">repository_repositoryUri</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Repository -&gt; Maybe Text)
+</span><span id="line-102"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that identifies the repository. The ARN</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- contains the @arn:aws:ecr@ namespace, followed by the region of the</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- repository, Amazon Web Services account ID of the repository owner,</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- repository namespace, and repository name. For example,</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- @arn:aws:ecr:region:012345678910:repository\/test@.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#repository_repositoryArn"><span class="hs-identifier hs-type">repository_repositoryArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository"><span class="hs-identifier hs-type">Repository</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="repository_repositoryArn"><span class="annot"><span class="annottext">repository_repositoryArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Repository -&gt; f Repository
+</span><a href="Network.AWS.ECR.Types.Repository.html#repository_repositoryArn"><span class="hs-identifier hs-var hs-var">repository_repositoryArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Repository -&gt; Maybe Text)
 -&gt; (Repository -&gt; Maybe Text -&gt; Repository)
 -&gt; Lens Repository Repository (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository%27"><span class="hs-identifier hs-type">Repository'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234444"><span class="annot"><span class="annottext">Maybe Text
-repositoryUri :: Maybe Text
-$sel:repositoryUri:Repository' :: Repository -&gt; Maybe Text
-</span><a href="#local-6989586621679234444"><span class="hs-identifier hs-var hs-var">repositoryUri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679234444"><span class="hs-identifier hs-var">repositoryUri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679234443"><span class="annot"><span class="annottext">s :: Repository
-</span><a href="#local-6989586621679234443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository%27"><span class="hs-identifier hs-type">Repository'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679234442"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679234442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Repository
-</span><a href="#local-6989586621679234443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryUri:Repository' :: Maybe Text
-</span><a href="Network.AWS.ECR.Types.Repository.html#%24sel%3ArepositoryUri%3ARepository%27"><span class="hs-identifier hs-var">repositoryUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679234442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository"><span class="hs-identifier hs-type">Repository</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- | The Amazon Web Services account ID associated with the registry that</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- contains the repository.</span><span>
-</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#repository_registryId"><span class="hs-identifier hs-type">repository_registryId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository"><span class="hs-identifier hs-type">Repository</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span id="repository_registryId"><span class="annot"><span class="annottext">repository_registryId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Repository -&gt; f Repository
-</span><a href="Network.AWS.ECR.Types.Repository.html#repository_registryId"><span class="hs-identifier hs-var hs-var">repository_registryId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Repository -&gt; Maybe Text)
--&gt; (Repository -&gt; Maybe Text -&gt; Repository)
--&gt; Lens Repository Repository (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository%27"><span class="hs-identifier hs-type">Repository'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234440"><span class="annot"><span class="annottext">Maybe Text
-registryId :: Maybe Text
-$sel:registryId:Repository' :: Repository -&gt; Maybe Text
-</span><a href="#local-6989586621679234440"><span class="hs-identifier hs-var hs-var">registryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679234440"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679234439"><span class="annot"><span class="annottext">s :: Repository
-</span><a href="#local-6989586621679234439"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository%27"><span class="hs-identifier hs-type">Repository'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679234438"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679234438"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Repository
-</span><a href="#local-6989586621679234439"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryId:Repository' :: Maybe Text
-</span><a href="Network.AWS.ECR.Types.Repository.html#%24sel%3AregistryId%3ARepository%27"><span class="hs-identifier hs-var">registryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679234438"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository"><span class="hs-identifier hs-type">Repository</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- | The date and time, in JavaScript date format, when the repository was</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- created.</span><span>
-</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#repository_createdAt"><span class="hs-identifier hs-type">repository_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository"><span class="hs-identifier hs-type">Repository</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-123"></span><span id="repository_createdAt"><span class="annot"><span class="annottext">repository_createdAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Repository -&gt; f Repository
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository%27"><span class="hs-identifier hs-type">Repository'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234596"><span class="annot"><span class="annottext">Maybe Text
+repositoryArn :: Maybe Text
+$sel:repositoryArn:Repository' :: Repository -&gt; Maybe Text
+</span><a href="#local-6989586621679234596"><span class="hs-identifier hs-var hs-var">repositoryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679234596"><span class="hs-identifier hs-var">repositoryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679234595"><span class="annot"><span class="annottext">s :: Repository
+</span><a href="#local-6989586621679234595"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository%27"><span class="hs-identifier hs-type">Repository'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679234594"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679234594"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Repository
+</span><a href="#local-6989586621679234595"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryArn:Repository' :: Maybe Text
+</span><a href="Network.AWS.ECR.Types.Repository.html#%24sel%3ArepositoryArn%3ARepository%27"><span class="hs-identifier hs-var">repositoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679234594"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository"><span class="hs-identifier hs-type">Repository</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The date and time, in JavaScript date format, when the repository was</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#repository_createdAt"><span class="hs-identifier hs-type">repository_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository"><span class="hs-identifier hs-type">Repository</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="repository_createdAt"><span class="annot"><span class="annottext">repository_createdAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Repository -&gt; f Repository
 </span><a href="Network.AWS.ECR.Types.Repository.html#repository_createdAt"><span class="hs-identifier hs-var hs-var">repository_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Repository -&gt; Maybe POSIX)
 -&gt; (Repository -&gt; Maybe POSIX -&gt; Repository)
 -&gt; Lens Repository Repository (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository%27"><span class="hs-identifier hs-type">Repository'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234436"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository%27"><span class="hs-identifier hs-type">Repository'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234592"><span class="annot"><span class="annottext">Maybe POSIX
 createdAt :: Maybe POSIX
 $sel:createdAt:Repository' :: Repository -&gt; Maybe POSIX
-</span><a href="#local-6989586621679234436"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679234436"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679234435"><span class="annot"><span class="annottext">s :: Repository
-</span><a href="#local-6989586621679234435"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository%27"><span class="hs-identifier hs-type">Repository'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679234434"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679234434"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Repository
-</span><a href="#local-6989586621679234435"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:Repository' :: Maybe POSIX
+</span><a href="#local-6989586621679234592"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679234592"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679234591"><span class="annot"><span class="annottext">s :: Repository
+</span><a href="#local-6989586621679234591"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository%27"><span class="hs-identifier hs-type">Repository'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679234590"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679234590"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Repository
+</span><a href="#local-6989586621679234591"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:Repository' :: Maybe POSIX
 </span><a href="Network.AWS.ECR.Types.Repository.html#%24sel%3AcreatedAt%3ARepository%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679234434"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository"><span class="hs-identifier hs-type">Repository</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Repository -&gt; f Repository)
+</span><a href="#local-6989586621679234590"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository"><span class="hs-identifier hs-type">Repository</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Repository -&gt; f Repository)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -290,50 +248,29 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- | The name of the repository.</span><span>
-</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#repository_repositoryName"><span class="hs-identifier hs-type">repository_repositoryName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository"><span class="hs-identifier hs-type">Repository</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span id="repository_repositoryName"><span class="annot"><span class="annottext">repository_repositoryName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Repository -&gt; f Repository
-</span><a href="Network.AWS.ECR.Types.Repository.html#repository_repositoryName"><span class="hs-identifier hs-var hs-var">repository_repositoryName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Repository -&gt; Maybe Text)
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | The Amazon Web Services account ID associated with the registry that</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- contains the repository.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#repository_registryId"><span class="hs-identifier hs-type">repository_registryId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository"><span class="hs-identifier hs-type">Repository</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="repository_registryId"><span class="annot"><span class="annottext">repository_registryId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Repository -&gt; f Repository
+</span><a href="Network.AWS.ECR.Types.Repository.html#repository_registryId"><span class="hs-identifier hs-var hs-var">repository_registryId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Repository -&gt; Maybe Text)
 -&gt; (Repository -&gt; Maybe Text -&gt; Repository)
 -&gt; Lens Repository Repository (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository%27"><span class="hs-identifier hs-type">Repository'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234429"><span class="annot"><span class="annottext">Maybe Text
-repositoryName :: Maybe Text
-$sel:repositoryName:Repository' :: Repository -&gt; Maybe Text
-</span><a href="#local-6989586621679234429"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679234429"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679234428"><span class="annot"><span class="annottext">s :: Repository
-</span><a href="#local-6989586621679234428"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository%27"><span class="hs-identifier hs-type">Repository'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679234427"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679234427"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Repository
-</span><a href="#local-6989586621679234428"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:Repository' :: Maybe Text
-</span><a href="Network.AWS.ECR.Types.Repository.html#%24sel%3ArepositoryName%3ARepository%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679234427"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository"><span class="hs-identifier hs-type">Repository</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that identifies the repository. The ARN</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- contains the @arn:aws:ecr@ namespace, followed by the region of the</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- repository, Amazon Web Services account ID of the repository owner,</span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- repository namespace, and repository name. For example,</span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- @arn:aws:ecr:region:012345678910:repository\/test@.</span><span>
-</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#repository_repositoryArn"><span class="hs-identifier hs-type">repository_repositoryArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository"><span class="hs-identifier hs-type">Repository</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span id="repository_repositoryArn"><span class="annot"><span class="annottext">repository_repositoryArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Repository -&gt; f Repository
-</span><a href="Network.AWS.ECR.Types.Repository.html#repository_repositoryArn"><span class="hs-identifier hs-var hs-var">repository_repositoryArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Repository -&gt; Maybe Text)
--&gt; (Repository -&gt; Maybe Text -&gt; Repository)
--&gt; Lens Repository Repository (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository%27"><span class="hs-identifier hs-type">Repository'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234425"><span class="annot"><span class="annottext">Maybe Text
-repositoryArn :: Maybe Text
-$sel:repositoryArn:Repository' :: Repository -&gt; Maybe Text
-</span><a href="#local-6989586621679234425"><span class="hs-identifier hs-var hs-var">repositoryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679234425"><span class="hs-identifier hs-var">repositoryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679234424"><span class="annot"><span class="annottext">s :: Repository
-</span><a href="#local-6989586621679234424"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository%27"><span class="hs-identifier hs-type">Repository'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679234423"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679234423"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Repository
-</span><a href="#local-6989586621679234424"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryArn:Repository' :: Maybe Text
-</span><a href="Network.AWS.ECR.Types.Repository.html#%24sel%3ArepositoryArn%3ARepository%27"><span class="hs-identifier hs-var">repositoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679234423"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository"><span class="hs-identifier hs-type">Repository</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- | Undocumented member.</span><span>
-</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#repository_imageScanningConfiguration"><span class="hs-identifier hs-type">repository_imageScanningConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository"><span class="hs-identifier hs-type">Repository</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanningConfiguration.html#ImageScanningConfiguration"><span class="hs-identifier hs-type">ImageScanningConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-139"></span><span id="repository_imageScanningConfiguration"><span class="annot"><span class="annottext">repository_imageScanningConfiguration :: (Maybe ImageScanningConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository%27"><span class="hs-identifier hs-type">Repository'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234585"><span class="annot"><span class="annottext">Maybe Text
+registryId :: Maybe Text
+$sel:registryId:Repository' :: Repository -&gt; Maybe Text
+</span><a href="#local-6989586621679234585"><span class="hs-identifier hs-var hs-var">registryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679234585"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679234584"><span class="annot"><span class="annottext">s :: Repository
+</span><a href="#local-6989586621679234584"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository%27"><span class="hs-identifier hs-type">Repository'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679234583"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679234583"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Repository
+</span><a href="#local-6989586621679234584"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryId:Repository' :: Maybe Text
+</span><a href="Network.AWS.ECR.Types.Repository.html#%24sel%3AregistryId%3ARepository%27"><span class="hs-identifier hs-var">registryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679234583"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository"><span class="hs-identifier hs-type">Repository</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#repository_imageScanningConfiguration"><span class="hs-identifier hs-type">repository_imageScanningConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository"><span class="hs-identifier hs-type">Repository</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanningConfiguration.html#ImageScanningConfiguration"><span class="hs-identifier hs-type">ImageScanningConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="repository_imageScanningConfiguration"><span class="annot"><span class="annottext">repository_imageScanningConfiguration :: (Maybe ImageScanningConfiguration
  -&gt; f (Maybe ImageScanningConfiguration))
 -&gt; Repository -&gt; f Repository
 </span><a href="Network.AWS.ECR.Types.Repository.html#repository_imageScanningConfiguration"><span class="hs-identifier hs-var hs-var">repository_imageScanningConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Repository -&gt; Maybe ImageScanningConfiguration)
@@ -344,20 +281,82 @@ $sel:repositoryArn:Repository' :: Repository -&gt; Maybe Text
      (Maybe ImageScanningConfiguration)
      (Maybe ImageScanningConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository%27"><span class="hs-identifier hs-type">Repository'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234421"><span class="annot"><span class="annottext">Maybe ImageScanningConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository%27"><span class="hs-identifier hs-type">Repository'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234581"><span class="annot"><span class="annottext">Maybe ImageScanningConfiguration
 imageScanningConfiguration :: Maybe ImageScanningConfiguration
 $sel:imageScanningConfiguration:Repository' :: Repository -&gt; Maybe ImageScanningConfiguration
-</span><a href="#local-6989586621679234421"><span class="hs-identifier hs-var hs-var">imageScanningConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ImageScanningConfiguration
-</span><a href="#local-6989586621679234421"><span class="hs-identifier hs-var">imageScanningConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679234420"><span class="annot"><span class="annottext">s :: Repository
-</span><a href="#local-6989586621679234420"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository%27"><span class="hs-identifier hs-type">Repository'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679234419"><span class="annot"><span class="annottext">Maybe ImageScanningConfiguration
-</span><a href="#local-6989586621679234419"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Repository
-</span><a href="#local-6989586621679234420"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageScanningConfiguration:Repository' :: Maybe ImageScanningConfiguration
+</span><a href="#local-6989586621679234581"><span class="hs-identifier hs-var hs-var">imageScanningConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ImageScanningConfiguration
+</span><a href="#local-6989586621679234581"><span class="hs-identifier hs-var">imageScanningConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679234580"><span class="annot"><span class="annottext">s :: Repository
+</span><a href="#local-6989586621679234580"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository%27"><span class="hs-identifier hs-type">Repository'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679234579"><span class="annot"><span class="annottext">Maybe ImageScanningConfiguration
+</span><a href="#local-6989586621679234579"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Repository
+</span><a href="#local-6989586621679234580"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageScanningConfiguration:Repository' :: Maybe ImageScanningConfiguration
 </span><a href="Network.AWS.ECR.Types.Repository.html#%24sel%3AimageScanningConfiguration%3ARepository%27"><span class="hs-identifier hs-var">imageScanningConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ImageScanningConfiguration
-</span><a href="#local-6989586621679234419"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository"><span class="hs-identifier hs-type">Repository</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- | The tag mutability setting for the repository.</span><span>
-</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#repository_imageTagMutability"><span class="hs-identifier hs-type">repository_imageTagMutability</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository"><span class="hs-identifier hs-type">Repository</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageTagMutability.html#ImageTagMutability"><span class="hs-identifier hs-type">ImageTagMutability</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span id="repository_imageTagMutability"><span class="annot"><span class="annottext">repository_imageTagMutability :: (Maybe ImageTagMutability -&gt; f (Maybe ImageTagMutability))
+</span><a href="#local-6989586621679234579"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository"><span class="hs-identifier hs-type">Repository</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | The URI for the repository. You can use this URI for container image</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- @push@ and @pull@ operations.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#repository_repositoryUri"><span class="hs-identifier hs-type">repository_repositoryUri</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository"><span class="hs-identifier hs-type">Repository</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="repository_repositoryUri"><span class="annot"><span class="annottext">repository_repositoryUri :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Repository -&gt; f Repository
+</span><a href="Network.AWS.ECR.Types.Repository.html#repository_repositoryUri"><span class="hs-identifier hs-var hs-var">repository_repositoryUri</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Repository -&gt; Maybe Text)
+-&gt; (Repository -&gt; Maybe Text -&gt; Repository)
+-&gt; Lens Repository Repository (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository%27"><span class="hs-identifier hs-type">Repository'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234577"><span class="annot"><span class="annottext">Maybe Text
+repositoryUri :: Maybe Text
+$sel:repositoryUri:Repository' :: Repository -&gt; Maybe Text
+</span><a href="#local-6989586621679234577"><span class="hs-identifier hs-var hs-var">repositoryUri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679234577"><span class="hs-identifier hs-var">repositoryUri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679234576"><span class="annot"><span class="annottext">s :: Repository
+</span><a href="#local-6989586621679234576"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository%27"><span class="hs-identifier hs-type">Repository'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679234575"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679234575"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Repository
+</span><a href="#local-6989586621679234576"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryUri:Repository' :: Maybe Text
+</span><a href="Network.AWS.ECR.Types.Repository.html#%24sel%3ArepositoryUri%3ARepository%27"><span class="hs-identifier hs-var">repositoryUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679234575"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository"><span class="hs-identifier hs-type">Repository</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | The encryption configuration for the repository. This determines how the</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- contents of your repository are encrypted at rest.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#repository_encryptionConfiguration"><span class="hs-identifier hs-type">repository_encryptionConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository"><span class="hs-identifier hs-type">Repository</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.EncryptionConfiguration.html#EncryptionConfiguration"><span class="hs-identifier hs-type">EncryptionConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="repository_encryptionConfiguration"><span class="annot"><span class="annottext">repository_encryptionConfiguration :: (Maybe EncryptionConfiguration
+ -&gt; f (Maybe EncryptionConfiguration))
+-&gt; Repository -&gt; f Repository
+</span><a href="Network.AWS.ECR.Types.Repository.html#repository_encryptionConfiguration"><span class="hs-identifier hs-var hs-var">repository_encryptionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Repository -&gt; Maybe EncryptionConfiguration)
+-&gt; (Repository -&gt; Maybe EncryptionConfiguration -&gt; Repository)
+-&gt; Lens
+     Repository
+     Repository
+     (Maybe EncryptionConfiguration)
+     (Maybe EncryptionConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository%27"><span class="hs-identifier hs-type">Repository'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234573"><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
+encryptionConfiguration :: Maybe EncryptionConfiguration
+$sel:encryptionConfiguration:Repository' :: Repository -&gt; Maybe EncryptionConfiguration
+</span><a href="#local-6989586621679234573"><span class="hs-identifier hs-var hs-var">encryptionConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
+</span><a href="#local-6989586621679234573"><span class="hs-identifier hs-var">encryptionConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679234572"><span class="annot"><span class="annottext">s :: Repository
+</span><a href="#local-6989586621679234572"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository%27"><span class="hs-identifier hs-type">Repository'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679234571"><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
+</span><a href="#local-6989586621679234571"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Repository
+</span><a href="#local-6989586621679234572"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionConfiguration:Repository' :: Maybe EncryptionConfiguration
+</span><a href="Network.AWS.ECR.Types.Repository.html#%24sel%3AencryptionConfiguration%3ARepository%27"><span class="hs-identifier hs-var">encryptionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
+</span><a href="#local-6989586621679234571"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository"><span class="hs-identifier hs-type">Repository</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | The name of the repository.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#repository_repositoryName"><span class="hs-identifier hs-type">repository_repositoryName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository"><span class="hs-identifier hs-type">Repository</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="repository_repositoryName"><span class="annot"><span class="annottext">repository_repositoryName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Repository -&gt; f Repository
+</span><a href="Network.AWS.ECR.Types.Repository.html#repository_repositoryName"><span class="hs-identifier hs-var hs-var">repository_repositoryName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Repository -&gt; Maybe Text)
+-&gt; (Repository -&gt; Maybe Text -&gt; Repository)
+-&gt; Lens Repository Repository (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository%27"><span class="hs-identifier hs-type">Repository'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234569"><span class="annot"><span class="annottext">Maybe Text
+repositoryName :: Maybe Text
+$sel:repositoryName:Repository' :: Repository -&gt; Maybe Text
+</span><a href="#local-6989586621679234569"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679234569"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679234568"><span class="annot"><span class="annottext">s :: Repository
+</span><a href="#local-6989586621679234568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository%27"><span class="hs-identifier hs-type">Repository'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679234567"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679234567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Repository
+</span><a href="#local-6989586621679234568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:Repository' :: Maybe Text
+</span><a href="Network.AWS.ECR.Types.Repository.html#%24sel%3ArepositoryName%3ARepository%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679234567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository"><span class="hs-identifier hs-type">Repository</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | The tag mutability setting for the repository.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#repository_imageTagMutability"><span class="hs-identifier hs-type">repository_imageTagMutability</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository"><span class="hs-identifier hs-type">Repository</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageTagMutability.html#ImageTagMutability"><span class="hs-identifier hs-type">ImageTagMutability</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="repository_imageTagMutability"><span class="annot"><span class="annottext">repository_imageTagMutability :: (Maybe ImageTagMutability -&gt; f (Maybe ImageTagMutability))
 -&gt; Repository -&gt; f Repository
 </span><a href="Network.AWS.ECR.Types.Repository.html#repository_imageTagMutability"><span class="hs-identifier hs-var hs-var">repository_imageTagMutability</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Repository -&gt; Maybe ImageTagMutability)
 -&gt; (Repository -&gt; Maybe ImageTagMutability -&gt; Repository)
@@ -367,184 +366,176 @@ $sel:imageScanningConfiguration:Repository' :: Repository -&gt; Maybe ImageScann
      (Maybe ImageTagMutability)
      (Maybe ImageTagMutability)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository%27"><span class="hs-identifier hs-type">Repository'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234417"><span class="annot"><span class="annottext">Maybe ImageTagMutability
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository%27"><span class="hs-identifier hs-type">Repository'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234565"><span class="annot"><span class="annottext">Maybe ImageTagMutability
 imageTagMutability :: Maybe ImageTagMutability
 $sel:imageTagMutability:Repository' :: Repository -&gt; Maybe ImageTagMutability
-</span><a href="#local-6989586621679234417"><span class="hs-identifier hs-var hs-var">imageTagMutability</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ImageTagMutability
-</span><a href="#local-6989586621679234417"><span class="hs-identifier hs-var">imageTagMutability</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679234416"><span class="annot"><span class="annottext">s :: Repository
-</span><a href="#local-6989586621679234416"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository%27"><span class="hs-identifier hs-type">Repository'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679234415"><span class="annot"><span class="annottext">Maybe ImageTagMutability
-</span><a href="#local-6989586621679234415"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Repository
-</span><a href="#local-6989586621679234416"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageTagMutability:Repository' :: Maybe ImageTagMutability
+</span><a href="#local-6989586621679234565"><span class="hs-identifier hs-var hs-var">imageTagMutability</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ImageTagMutability
+</span><a href="#local-6989586621679234565"><span class="hs-identifier hs-var">imageTagMutability</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679234564"><span class="annot"><span class="annottext">s :: Repository
+</span><a href="#local-6989586621679234564"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository%27"><span class="hs-identifier hs-type">Repository'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679234563"><span class="annot"><span class="annottext">Maybe ImageTagMutability
+</span><a href="#local-6989586621679234563"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Repository
+</span><a href="#local-6989586621679234564"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageTagMutability:Repository' :: Maybe ImageTagMutability
 </span><a href="Network.AWS.ECR.Types.Repository.html#%24sel%3AimageTagMutability%3ARepository%27"><span class="hs-identifier hs-var">imageTagMutability</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ImageTagMutability
-</span><a href="#local-6989586621679234415"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository"><span class="hs-identifier hs-type">Repository</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679234412"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository"><span class="hs-identifier hs-type">Repository</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679234410"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Repository
+</span><a href="#local-6989586621679234563"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository"><span class="hs-identifier hs-type">Repository</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679234560"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository"><span class="hs-identifier hs-type">Repository</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679234558"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Repository
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-147"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser Repository) -&gt; Value -&gt; Parser Repository
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Repository&quot;</span></span><span>
-</span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679234407"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679234407"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-150"></span><span>          </span><span class="annot"><span class="annottext">Maybe EncryptionConfiguration
--&gt; Maybe Text
--&gt; Maybe Text
+</span><span id="line-148"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679234555"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679234555"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-149"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe POSIX
 -&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe ImageScanningConfiguration
+-&gt; Maybe Text
+-&gt; Maybe EncryptionConfiguration
+-&gt; Maybe Text
 -&gt; Maybe ImageTagMutability
 -&gt; Repository
 </span><a href="Network.AWS.ECR.Types.Repository.html#Repository%27"><span class="hs-identifier hs-var">Repository'</span></a></span><span>
-</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">(Maybe EncryptionConfiguration
- -&gt; Maybe Text
- -&gt; Maybe Text
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
  -&gt; Maybe POSIX
  -&gt; Maybe Text
- -&gt; Maybe Text
  -&gt; Maybe ImageScanningConfiguration
+ -&gt; Maybe Text
+ -&gt; Maybe EncryptionConfiguration
+ -&gt; Maybe Text
  -&gt; Maybe ImageTagMutability
  -&gt; Repository)
--&gt; Parser (Maybe EncryptionConfiguration)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe POSIX
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe ImageScanningConfiguration
-      -&gt; Maybe ImageTagMutability
-      -&gt; Repository)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679234407"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EncryptionConfiguration)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;encryptionConfiguration&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe ImageScanningConfiguration
-   -&gt; Maybe ImageTagMutability
-   -&gt; Repository)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe POSIX
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe ImageScanningConfiguration
-      -&gt; Maybe ImageTagMutability
-      -&gt; Repository)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679234407"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;repositoryUri&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe ImageScanningConfiguration
-   -&gt; Maybe ImageTagMutability
-   -&gt; Repository)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe POSIX
       -&gt; Maybe Text
-      -&gt; Maybe Text
       -&gt; Maybe ImageScanningConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe EncryptionConfiguration
+      -&gt; Maybe Text
       -&gt; Maybe ImageTagMutability
       -&gt; Repository)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679234407"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679234555"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;registryId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span class="hs-string">&quot;repositoryArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe POSIX
    -&gt; Maybe Text
-   -&gt; Maybe Text
    -&gt; Maybe ImageScanningConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe EncryptionConfiguration
+   -&gt; Maybe Text
    -&gt; Maybe ImageTagMutability
    -&gt; Repository)
 -&gt; Parser (Maybe POSIX)
 -&gt; Parser
      (Maybe Text
-      -&gt; Maybe Text
       -&gt; Maybe ImageScanningConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe EncryptionConfiguration
+      -&gt; Maybe Text
       -&gt; Maybe ImageTagMutability
       -&gt; Repository)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679234407"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679234555"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;createdAt&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
+   -&gt; Maybe ImageScanningConfiguration
    -&gt; Maybe Text
-   -&gt; Maybe ImageScanningConfiguration
-   -&gt; Maybe ImageTagMutability
-   -&gt; Repository)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe ImageScanningConfiguration
-      -&gt; Maybe ImageTagMutability
-      -&gt; Repository)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679234407"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;repositoryName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe ImageScanningConfiguration
+   -&gt; Maybe EncryptionConfiguration
+   -&gt; Maybe Text
    -&gt; Maybe ImageTagMutability
    -&gt; Repository)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe ImageScanningConfiguration
-      -&gt; Maybe ImageTagMutability -&gt; Repository)
+      -&gt; Maybe Text
+      -&gt; Maybe EncryptionConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe ImageTagMutability
+      -&gt; Repository)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679234407"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679234555"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;repositoryArn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span class="hs-string">&quot;registryId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe ImageScanningConfiguration
-   -&gt; Maybe ImageTagMutability -&gt; Repository)
+   -&gt; Maybe Text
+   -&gt; Maybe EncryptionConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe ImageTagMutability
+   -&gt; Repository)
 -&gt; Parser (Maybe ImageScanningConfiguration)
--&gt; Parser (Maybe ImageTagMutability -&gt; Repository)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe EncryptionConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe ImageTagMutability
+      -&gt; Repository)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679234407"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ImageScanningConfiguration)
+</span><a href="#local-6989586621679234555"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ImageScanningConfiguration)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;imageScanningConfiguration&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ImageTagMutability -&gt; Repository)
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe EncryptionConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe ImageTagMutability
+   -&gt; Repository)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe EncryptionConfiguration
+      -&gt; Maybe Text -&gt; Maybe ImageTagMutability -&gt; Repository)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679234555"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;repositoryUri&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe EncryptionConfiguration
+   -&gt; Maybe Text -&gt; Maybe ImageTagMutability -&gt; Repository)
+-&gt; Parser (Maybe EncryptionConfiguration)
+-&gt; Parser (Maybe Text -&gt; Maybe ImageTagMutability -&gt; Repository)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679234555"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EncryptionConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;encryptionConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe ImageTagMutability -&gt; Repository)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe ImageTagMutability -&gt; Repository)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679234555"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;repositoryName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ImageTagMutability -&gt; Repository)
 -&gt; Parser (Maybe ImageTagMutability) -&gt; Parser Repository
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679234407"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ImageTagMutability)
+</span><a href="#local-6989586621679234555"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ImageTagMutability)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;imageTagMutability&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-159"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-160"></span><span>
-</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679234401"><span id="local-6989586621679234403"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository"><span class="hs-identifier hs-type">Repository</span></a></span></span></span><span>
-</span><span id="line-162"></span><span>
-</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679234398"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository"><span class="hs-identifier hs-type">Repository</span></a></span></span><span>
-</span><span id="line-164"></span></pre></body></html>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679234549"><span id="local-6989586621679234551"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository"><span class="hs-identifier hs-type">Repository</span></a></span></span></span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679234546"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Repository.html#Repository"><span class="hs-identifier hs-type">Repository</span></a></span></span><span>
+</span><span id="line-163"></span></pre></body></html>

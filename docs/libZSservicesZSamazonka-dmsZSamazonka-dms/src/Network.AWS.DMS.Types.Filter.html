@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- optional parameter for certain API operations.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newFilter' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679432222"><span id="local-6989586621679432223"></span></span><span class="hs-keyword">data</span><span> </span><span id="Filter"><span class="annot"><a href="Network.AWS.DMS.Types.Filter.html#Filter"><span class="hs-identifier hs-var">Filter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Filter%27"><span class="annot"><a href="Network.AWS.DMS.Types.Filter.html#Filter%27"><span class="hs-identifier hs-var">Filter'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679432496"><span id="local-6989586621679432497"></span></span><span class="hs-keyword">data</span><span> </span><span id="Filter"><span class="annot"><a href="Network.AWS.DMS.Types.Filter.html#Filter"><span class="hs-identifier hs-var">Filter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Filter%27"><span class="annot"><a href="Network.AWS.DMS.Types.Filter.html#Filter%27"><span class="hs-identifier hs-var">Filter'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the filter as specified for a @Describe*@ or similar</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- operation.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Aname%3AFilter%27"><span class="annot"><span class="annottext">Filter -&gt; Text
@@ -39,7 +39,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3Avalues%3AFilter%27"><span class="annot"><span class="annottext">Filter -&gt; [Text]
 </span><a href="Network.AWS.DMS.Types.Filter.html#%24sel%3Avalues%3AFilter%27"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679432215"><span id="local-6989586621679432217"><span class="annot"><span class="annottext">Filter -&gt; Filter -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679432489"><span id="local-6989586621679432491"><span class="annot"><span class="annottext">Filter -&gt; Filter -&gt; Bool
 (Filter -&gt; Filter -&gt; Bool)
 -&gt; (Filter -&gt; Filter -&gt; Bool) -&gt; Eq Filter
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Filter -&gt; Filter -&gt; Bool
 == :: Filter -&gt; Filter -&gt; Bool
 $c== :: Filter -&gt; Filter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679432206"><span id="local-6989586621679432208"><span id="local-6989586621679432210"><span id="local-6989586621679432212"><span class="annot"><span class="annottext">ReadPrec [Filter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679432480"><span id="local-6989586621679432482"><span id="local-6989586621679432484"><span id="local-6989586621679432486"><span class="annot"><span class="annottext">ReadPrec [Filter]
 ReadPrec Filter
 Int -&gt; ReadS Filter
 ReadS [Filter]
@@ -67,7 +67,7 @@ readList :: ReadS [Filter]
 $creadList :: ReadS [Filter]
 readsPrec :: Int -&gt; ReadS Filter
 $creadsPrec :: Int -&gt; ReadS Filter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679432199"><span id="local-6989586621679432201"><span id="local-6989586621679432203"><span class="annot"><span class="annottext">Int -&gt; Filter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679432473"><span id="local-6989586621679432475"><span id="local-6989586621679432477"><span class="annot"><span class="annottext">Int -&gt; Filter -&gt; ShowS
 [Filter] -&gt; ShowS
 Filter -&gt; String
 (Int -&gt; Filter -&gt; ShowS)
@@ -108,12 +108,12 @@ $cfrom :: forall x. Filter -&gt; Rep Filter x
 </span><span id="line-57"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-58"></span><span>  </span><span class="annot"><a href="Network.AWS.DMS.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span>
 </span><span id="line-59"></span><span id="newFilter"><span class="annot"><span class="annottext">newFilter :: Text -&gt; Filter
-</span><a href="Network.AWS.DMS.Types.Filter.html#newFilter"><span class="hs-identifier hs-var hs-var">newFilter</span></a></span></span><span> </span><span id="local-6989586621679432193"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432193"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DMS.Types.Filter.html#newFilter"><span class="hs-identifier hs-var hs-var">newFilter</span></a></span></span><span> </span><span id="local-6989586621679432467"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679432467"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">Filter' :: Text -&gt; [Text] -&gt; Filter
 </span><a href="Network.AWS.DMS.Types.Filter.html#Filter%27"><span class="hs-identifier hs-type">Filter'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Filter' :: Text
 </span><a href="Network.AWS.DMS.Types.Filter.html#%24sel%3Aname%3AFilter%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432193"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:values:Filter' :: [Text]
+</span><a href="#local-6989586621679432467"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:values:Filter' :: [Text]
 </span><a href="Network.AWS.DMS.Types.Filter.html#%24sel%3Avalues%3AFilter%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">}</span><span>
@@ -125,16 +125,16 @@ forall a. Monoid a =&gt; a
 </span><a href="Network.AWS.DMS.Types.Filter.html#filter_name"><span class="hs-identifier hs-var hs-var">filter_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Filter -&gt; Text)
 -&gt; (Filter -&gt; Text -&gt; Filter) -&gt; Lens Filter Filter Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.Filter.html#Filter%27"><span class="hs-identifier hs-type">Filter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432189"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.Filter.html#Filter%27"><span class="hs-identifier hs-type">Filter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432463"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:Filter' :: Filter -&gt; Text
-</span><a href="#local-6989586621679432189"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432189"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432188"><span class="annot"><span class="annottext">s :: Filter
-</span><a href="#local-6989586621679432188"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.Filter.html#Filter%27"><span class="hs-identifier hs-type">Filter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432187"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432187"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Filter
-</span><a href="#local-6989586621679432188"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Filter' :: Text
+</span><a href="#local-6989586621679432463"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679432463"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432462"><span class="annot"><span class="annottext">s :: Filter
+</span><a href="#local-6989586621679432462"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.Filter.html#Filter%27"><span class="hs-identifier hs-type">Filter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432461"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679432461"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Filter
+</span><a href="#local-6989586621679432462"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Filter' :: Text
 </span><a href="Network.AWS.DMS.Types.Filter.html#%24sel%3Aname%3AFilter%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432187"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679432461"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | The filter value, which can specify one or more values used to narrow</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- the returned results.</span><span>
@@ -143,38 +143,38 @@ $sel:name:Filter' :: Filter -&gt; Text
 </span><a href="Network.AWS.DMS.Types.Filter.html#filter_values"><span class="hs-identifier hs-var hs-var">filter_values</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Filter -&gt; [Text])
 -&gt; (Filter -&gt; [Text] -&gt; Filter) -&gt; Lens Filter Filter [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.Filter.html#Filter%27"><span class="hs-identifier hs-type">Filter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432185"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.Filter.html#Filter%27"><span class="hs-identifier hs-type">Filter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432459"><span class="annot"><span class="annottext">[Text]
 values :: [Text]
 $sel:values:Filter' :: Filter -&gt; [Text]
-</span><a href="#local-6989586621679432185"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679432185"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432184"><span class="annot"><span class="annottext">s :: Filter
-</span><a href="#local-6989586621679432184"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.Filter.html#Filter%27"><span class="hs-identifier hs-type">Filter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432183"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679432183"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Filter
-</span><a href="#local-6989586621679432184"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:Filter' :: [Text]
+</span><a href="#local-6989586621679432459"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679432459"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432458"><span class="annot"><span class="annottext">s :: Filter
+</span><a href="#local-6989586621679432458"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.Filter.html#Filter%27"><span class="hs-identifier hs-type">Filter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432457"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679432457"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Filter
+</span><a href="#local-6989586621679432458"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:Filter' :: [Text]
 </span><a href="Network.AWS.DMS.Types.Filter.html#%24sel%3Avalues%3AFilter%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679432183"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; Filter -&gt; f Filter)
+</span><a href="#local-6989586621679432457"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; Filter -&gt; f Filter)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
 -&gt; Filter
 -&gt; f Filter
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679432177"><span id="local-6989586621679432179"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span></span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679432451"><span id="local-6989586621679432453"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span></span></span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679432174"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679432448"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679432166"><span id="local-6989586621679432168"><span id="local-6989586621679432170"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679432164"><span class="annot"><span class="annottext">toJSON :: Filter -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.Filter.html#Filter%27"><span class="hs-identifier hs-type">Filter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432161"><span id="local-6989586621679432162"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679432440"><span id="local-6989586621679432442"><span id="local-6989586621679432444"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679432438"><span class="annot"><span class="annottext">toJSON :: Filter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.Filter.html#Filter%27"><span class="hs-identifier hs-type">Filter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432435"><span id="local-6989586621679432436"><span class="annot"><span class="annottext">[Text]
 Text
 values :: [Text]
 name :: Text
 $sel:values:Filter' :: Filter -&gt; [Text]
 $sel:name:Filter' :: Filter -&gt; Text
-</span><a href="#local-6989586621679432161"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679432435"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -186,14 +186,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432162"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679432436"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Values&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679432161"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679432435"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-83"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span></pre></body></html>

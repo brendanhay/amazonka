@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Describes the monitoring of an instance.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newMonitoring' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621681093020"><span id="local-6989586621681093021"></span></span><span class="hs-keyword">data</span><span> </span><span id="Monitoring"><span class="annot"><a href="Network.AWS.EC2.Types.Monitoring.html#Monitoring"><span class="hs-identifier hs-var">Monitoring</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Monitoring%27"><span class="annot"><a href="Network.AWS.EC2.Types.Monitoring.html#Monitoring%27"><span class="hs-identifier hs-var">Monitoring'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621681127712"><span id="local-6989586621681127713"></span></span><span class="hs-keyword">data</span><span> </span><span id="Monitoring"><span class="annot"><a href="Network.AWS.EC2.Types.Monitoring.html#Monitoring"><span class="hs-identifier hs-var">Monitoring</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Monitoring%27"><span class="annot"><a href="Network.AWS.EC2.Types.Monitoring.html#Monitoring%27"><span class="hs-identifier hs-var">Monitoring'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Indicates whether detailed monitoring is enabled. Otherwise, basic</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- monitoring is enabled.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Astate%3AMonitoring%27"><span class="annot"><span class="annottext">Monitoring -&gt; Maybe MonitoringState
 </span><a href="Network.AWS.EC2.Types.Monitoring.html#%24sel%3Astate%3AMonitoring%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.MonitoringState.html#MonitoringState"><span class="hs-identifier hs-type">MonitoringState</span></a></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681093014"><span id="local-6989586621681093016"><span class="annot"><span class="annottext">Monitoring -&gt; Monitoring -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681127706"><span id="local-6989586621681127708"><span class="annot"><span class="annottext">Monitoring -&gt; Monitoring -&gt; Bool
 (Monitoring -&gt; Monitoring -&gt; Bool)
 -&gt; (Monitoring -&gt; Monitoring -&gt; Bool) -&gt; Eq Monitoring
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Monitoring -&gt; Monitoring -&gt; Bool
 == :: Monitoring -&gt; Monitoring -&gt; Bool
 $c== :: Monitoring -&gt; Monitoring -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681093005"><span id="local-6989586621681093007"><span id="local-6989586621681093009"><span id="local-6989586621681093011"><span class="annot"><span class="annottext">ReadPrec [Monitoring]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681127697"><span id="local-6989586621681127699"><span id="local-6989586621681127701"><span id="local-6989586621681127703"><span class="annot"><span class="annottext">ReadPrec [Monitoring]
 ReadPrec Monitoring
 Int -&gt; ReadS Monitoring
 ReadS [Monitoring]
@@ -62,7 +62,7 @@ readList :: ReadS [Monitoring]
 $creadList :: ReadS [Monitoring]
 readsPrec :: Int -&gt; ReadS Monitoring
 $creadsPrec :: Int -&gt; ReadS Monitoring
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681092998"><span id="local-6989586621681093000"><span id="local-6989586621681093002"><span class="annot"><span class="annottext">Int -&gt; Monitoring -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681127690"><span id="local-6989586621681127692"><span id="local-6989586621681127694"><span class="annot"><span class="annottext">Int -&gt; Monitoring -&gt; ShowS
 [Monitoring] -&gt; ShowS
 Monitoring -&gt; String
 (Int -&gt; Monitoring -&gt; ShowS)
@@ -119,33 +119,33 @@ forall a. Maybe a
      (Maybe MonitoringState)
      (Maybe MonitoringState)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.Monitoring.html#Monitoring%27"><span class="hs-identifier hs-type">Monitoring'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681092989"><span class="annot"><span class="annottext">Maybe MonitoringState
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.Monitoring.html#Monitoring%27"><span class="hs-identifier hs-type">Monitoring'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681127681"><span class="annot"><span class="annottext">Maybe MonitoringState
 state :: Maybe MonitoringState
 $sel:state:Monitoring' :: Monitoring -&gt; Maybe MonitoringState
-</span><a href="#local-6989586621681092989"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringState
-</span><a href="#local-6989586621681092989"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681092988"><span class="annot"><span class="annottext">s :: Monitoring
-</span><a href="#local-6989586621681092988"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.Monitoring.html#Monitoring%27"><span class="hs-identifier hs-type">Monitoring'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681092987"><span class="annot"><span class="annottext">Maybe MonitoringState
-</span><a href="#local-6989586621681092987"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Monitoring
-</span><a href="#local-6989586621681092988"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:Monitoring' :: Maybe MonitoringState
+</span><a href="#local-6989586621681127681"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringState
+</span><a href="#local-6989586621681127681"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681127680"><span class="annot"><span class="annottext">s :: Monitoring
+</span><a href="#local-6989586621681127680"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.Monitoring.html#Monitoring%27"><span class="hs-identifier hs-type">Monitoring'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681127679"><span class="annot"><span class="annottext">Maybe MonitoringState
+</span><a href="#local-6989586621681127679"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Monitoring
+</span><a href="#local-6989586621681127680"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:Monitoring' :: Maybe MonitoringState
 </span><a href="Network.AWS.EC2.Types.Monitoring.html#%24sel%3Astate%3AMonitoring%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringState
-</span><a href="#local-6989586621681092987"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Monitoring.html#Monitoring"><span class="hs-identifier hs-type">Monitoring</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681127679"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Monitoring.html#Monitoring"><span class="hs-identifier hs-type">Monitoring</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Monitoring.html#Monitoring"><span class="hs-identifier hs-type">Monitoring</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-58"></span><span>  </span><span id="local-6989586621681092984"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Monitoring
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681092982"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681092982"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>  </span><span id="local-6989586621681127676"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Monitoring
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681127674"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681127674"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>    </span><span class="annot"><span class="annottext">Maybe MonitoringState -&gt; Monitoring
 </span><a href="Network.AWS.EC2.Types.Monitoring.html#Monitoring%27"><span class="hs-identifier hs-var">Monitoring'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe MonitoringState -&gt; Monitoring)
 -&gt; Either String (Maybe MonitoringState)
 -&gt; Either String Monitoring
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681092982"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe MonitoringState)
+</span><a href="#local-6989586621681127674"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe MonitoringState)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;state&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681092976"><span id="local-6989586621681092978"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Monitoring.html#Monitoring"><span class="hs-identifier hs-type">Monitoring</span></a></span></span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681127668"><span id="local-6989586621681127670"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Monitoring.html#Monitoring"><span class="hs-identifier hs-type">Monitoring</span></a></span></span></span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681092973"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Monitoring.html#Monitoring"><span class="hs-identifier hs-type">Monitoring</span></a></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681127665"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Monitoring.html#Monitoring"><span class="hs-identifier hs-type">Monitoring</span></a></span></span><span>
 </span><span id="line-64"></span></pre></body></html>

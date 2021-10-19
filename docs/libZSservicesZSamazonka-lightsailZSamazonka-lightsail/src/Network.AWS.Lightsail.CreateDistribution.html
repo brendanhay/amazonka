@@ -32,10 +32,10 @@
 </span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#newCreateDistribution"><span class="hs-identifier">newCreateDistribution</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-33"></span><span>
 </span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#createDistribution_ipAddressType"><span class="hs-identifier">createDistribution_ipAddressType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#createDistribution_cacheBehaviorSettings"><span class="hs-identifier">createDistribution_cacheBehaviorSettings</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#createDistribution_tags"><span class="hs-identifier">createDistribution_tags</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#createDistribution_cacheBehaviors"><span class="hs-identifier">createDistribution_cacheBehaviors</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#createDistribution_cacheBehaviorSettings"><span class="hs-identifier">createDistribution_cacheBehaviorSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#createDistribution_ipAddressType"><span class="hs-identifier">createDistribution_ipAddressType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#createDistribution_cacheBehaviors"><span class="hs-identifier">createDistribution_cacheBehaviors</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#createDistribution_tags"><span class="hs-identifier">createDistribution_tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#createDistribution_distributionName"><span class="hs-identifier">createDistribution_distributionName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#createDistribution_origin"><span class="hs-identifier">createDistribution_origin</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#createDistribution_defaultCacheBehavior"><span class="hs-identifier">createDistribution_defaultCacheBehavior</span></a></span><span class="hs-special">,</span><span>
@@ -46,8 +46,8 @@
 </span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#newCreateDistributionResponse"><span class="hs-identifier">newCreateDistributionResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>
 </span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#createDistributionResponse_operation"><span class="hs-identifier">createDistributionResponse_operation</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#createDistributionResponse_distribution"><span class="hs-identifier">createDistributionResponse_distribution</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#createDistributionResponse_distribution"><span class="hs-identifier">createDistributionResponse_distribution</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#createDistributionResponse_operation"><span class="hs-identifier">createDistributionResponse_operation</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#createDistributionResponse_httpStatus"><span class="hs-identifier">createDistributionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span class="hs-keyword">where</span><span>
@@ -60,29 +60,29 @@
 </span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newCreateDistribution' smart constructor.</span><span>
-</span><span id="line-63"></span><span id="local-6989586621679658339"><span id="local-6989586621679658340"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDistribution"><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution"><span class="hs-identifier hs-var">CreateDistribution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDistribution%27"><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution%27"><span class="hs-identifier hs-var">CreateDistribution'</span></a></span></span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IP address type for the distribution.</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- The possible values are @ipv4@ for IPv4 only, and @dualstack@ for IPv4</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- and IPv6.</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- The default value is @dualstack@.</span><span>
-</span><span id="line-70"></span><span>    </span><span id="%24sel%3AipAddressType%3ACreateDistribution%27"><span class="annot"><span class="annottext">CreateDistribution -&gt; Maybe IpAddressType
-</span><a href="Network.AWS.Lightsail.CreateDistribution.html#%24sel%3AipAddressType%3ACreateDistribution%27"><span class="hs-identifier hs-var hs-var">ipAddressType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.IpAddressType.html#IpAddressType"><span class="hs-identifier hs-type">IpAddressType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | An object that describes the cache behavior settings for the</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- distribution.</span><span>
-</span><span id="line-73"></span><span>    </span><span id="%24sel%3AcacheBehaviorSettings%3ACreateDistribution%27"><span class="annot"><span class="annottext">CreateDistribution -&gt; Maybe CacheSettings
+</span><span id="line-63"></span><span id="local-6989586621679659385"><span id="local-6989586621679659386"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDistribution"><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution"><span class="hs-identifier hs-var">CreateDistribution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDistribution%27"><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution%27"><span class="hs-identifier hs-var">CreateDistribution'</span></a></span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An object that describes the cache behavior settings for the</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- distribution.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AcacheBehaviorSettings%3ACreateDistribution%27"><span class="annot"><span class="annottext">CreateDistribution -&gt; Maybe CacheSettings
 </span><a href="Network.AWS.Lightsail.CreateDistribution.html#%24sel%3AcacheBehaviorSettings%3ACreateDistribution%27"><span class="hs-identifier hs-var hs-var">cacheBehaviorSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings"><span class="hs-identifier hs-type">CacheSettings</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The tag keys and optional values to add to the distribution during</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- create.</span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- Use the @TagResource@ action to tag a resource after it\'s created.</span><span>
-</span><span id="line-78"></span><span>    </span><span id="%24sel%3Atags%3ACreateDistribution%27"><span class="annot"><span class="annottext">CreateDistribution -&gt; Maybe [Tag]
-</span><a href="Network.AWS.Lightsail.CreateDistribution.html#%24sel%3Atags%3ACreateDistribution%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | An array of objects that describe the per-path cache behavior for the</span><span>
-</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- distribution.</span><span>
-</span><span id="line-81"></span><span>    </span><span id="%24sel%3AcacheBehaviors%3ACreateDistribution%27"><span class="annot"><span class="annottext">CreateDistribution -&gt; Maybe [CacheBehaviorPerPath]
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The IP address type for the distribution.</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- The possible values are @ipv4@ for IPv4 only, and @dualstack@ for IPv4</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- and IPv6.</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- The default value is @dualstack@.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AipAddressType%3ACreateDistribution%27"><span class="annot"><span class="annottext">CreateDistribution -&gt; Maybe IpAddressType
+</span><a href="Network.AWS.Lightsail.CreateDistribution.html#%24sel%3AipAddressType%3ACreateDistribution%27"><span class="hs-identifier hs-var hs-var">ipAddressType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.IpAddressType.html#IpAddressType"><span class="hs-identifier hs-type">IpAddressType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | An array of objects that describe the per-path cache behavior for the</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- distribution.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AcacheBehaviors%3ACreateDistribution%27"><span class="annot"><span class="annottext">CreateDistribution -&gt; Maybe [CacheBehaviorPerPath]
 </span><a href="Network.AWS.Lightsail.CreateDistribution.html#%24sel%3AcacheBehaviors%3ACreateDistribution%27"><span class="hs-identifier hs-var hs-var">cacheBehaviors</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheBehaviorPerPath.html#CacheBehaviorPerPath"><span class="hs-identifier hs-type">CacheBehaviorPerPath</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The tag keys and optional values to add to the distribution during</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- create.</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- Use the @TagResource@ action to tag a resource after it\'s created.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3Atags%3ACreateDistribution%27"><span class="annot"><span class="annottext">CreateDistribution -&gt; Maybe [Tag]
+</span><a href="Network.AWS.Lightsail.CreateDistribution.html#%24sel%3Atags%3ACreateDistribution%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | The name for the distribution.</span><span>
 </span><span id="line-83"></span><span>    </span><span id="%24sel%3AdistributionName%3ACreateDistribution%27"><span class="annot"><span class="annottext">CreateDistribution -&gt; Text
 </span><a href="Network.AWS.Lightsail.CreateDistribution.html#%24sel%3AdistributionName%3ACreateDistribution%27"><span class="hs-identifier hs-var hs-var">distributionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -106,7 +106,7 @@
 </span><span id="line-99"></span><span>    </span><span id="%24sel%3AbundleId%3ACreateDistribution%27"><span class="annot"><span class="annottext">CreateDistribution -&gt; Text
 </span><a href="Network.AWS.Lightsail.CreateDistribution.html#%24sel%3AbundleId%3ACreateDistribution%27"><span class="hs-identifier hs-var hs-var">bundleId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-100"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-101"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679658326"><span id="local-6989586621679658328"><span class="annot"><span class="annottext">CreateDistribution -&gt; CreateDistribution -&gt; Bool
+</span><span id="line-101"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679659372"><span id="local-6989586621679659374"><span class="annot"><span class="annottext">CreateDistribution -&gt; CreateDistribution -&gt; Bool
 (CreateDistribution -&gt; CreateDistribution -&gt; Bool)
 -&gt; (CreateDistribution -&gt; CreateDistribution -&gt; Bool)
 -&gt; Eq CreateDistribution
@@ -115,7 +115,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateDistribution -&gt; CreateDistribution -&gt; Bool
 == :: CreateDistribution -&gt; CreateDistribution -&gt; Bool
 $c== :: CreateDistribution -&gt; CreateDistribution -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679658317"><span id="local-6989586621679658319"><span id="local-6989586621679658321"><span id="local-6989586621679658323"><span class="annot"><span class="annottext">ReadPrec [CreateDistribution]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679659363"><span id="local-6989586621679659365"><span id="local-6989586621679659367"><span id="local-6989586621679659369"><span class="annot"><span class="annottext">ReadPrec [CreateDistribution]
 ReadPrec CreateDistribution
 Int -&gt; ReadS CreateDistribution
 ReadS [CreateDistribution]
@@ -135,7 +135,7 @@ readList :: ReadS [CreateDistribution]
 $creadList :: ReadS [CreateDistribution]
 readsPrec :: Int -&gt; ReadS CreateDistribution
 $creadsPrec :: Int -&gt; ReadS CreateDistribution
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679658310"><span id="local-6989586621679658312"><span id="local-6989586621679658314"><span class="annot"><span class="annottext">Int -&gt; CreateDistribution -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679659356"><span id="local-6989586621679659358"><span id="local-6989586621679659360"><span class="annot"><span class="annottext">Int -&gt; CreateDistribution -&gt; ShowS
 [CreateDistribution] -&gt; ShowS
 CreateDistribution -&gt; String
 (Int -&gt; CreateDistribution -&gt; ShowS)
@@ -169,23 +169,23 @@ $cfrom :: forall x. CreateDistribution -&gt; Rep CreateDistribution x
 </span><span id="line-108"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-110"></span><span class="hs-comment">--</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- 'ipAddressType', 'createDistribution_ipAddressType' - The IP address type for the distribution.</span><span>
-</span><span id="line-112"></span><span class="hs-comment">--</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- The possible values are @ipv4@ for IPv4 only, and @dualstack@ for IPv4</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- and IPv6.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'cacheBehaviorSettings', 'createDistribution_cacheBehaviorSettings' - An object that describes the cache behavior settings for the</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- distribution.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'ipAddressType', 'createDistribution_ipAddressType' - The IP address type for the distribution.</span><span>
 </span><span id="line-115"></span><span class="hs-comment">--</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- The default value is @dualstack@.</span><span>
-</span><span id="line-117"></span><span class="hs-comment">--</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- 'cacheBehaviorSettings', 'createDistribution_cacheBehaviorSettings' - An object that describes the cache behavior settings for the</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- distribution.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- The possible values are @ipv4@ for IPv4 only, and @dualstack@ for IPv4</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- and IPv6.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- The default value is @dualstack@.</span><span>
 </span><span id="line-120"></span><span class="hs-comment">--</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- 'tags', 'createDistribution_tags' - The tag keys and optional values to add to the distribution during</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- create.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'cacheBehaviors', 'createDistribution_cacheBehaviors' - An array of objects that describe the per-path cache behavior for the</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- distribution.</span><span>
 </span><span id="line-123"></span><span class="hs-comment">--</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- Use the @TagResource@ action to tag a resource after it\'s created.</span><span>
-</span><span id="line-125"></span><span class="hs-comment">--</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- 'cacheBehaviors', 'createDistribution_cacheBehaviors' - An array of objects that describe the per-path cache behavior for the</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- distribution.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'tags', 'createDistribution_tags' - The tag keys and optional values to add to the distribution during</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- create.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- Use the @TagResource@ action to tag a resource after it\'s created.</span><span>
 </span><span id="line-128"></span><span class="hs-comment">--</span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- 'distributionName', 'createDistribution_distributionName' - The name for the distribution.</span><span>
 </span><span id="line-130"></span><span class="hs-comment">--</span><span>
@@ -216,88 +216,59 @@ $cfrom :: forall x. CreateDistribution -&gt; Rep CreateDistribution x
 </span><span id="line-155"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution"><span class="hs-identifier hs-type">CreateDistribution</span></a></span><span>
 </span><span id="line-156"></span><span id="newCreateDistribution"><span class="annot"><span class="annottext">newCreateDistribution :: Text -&gt; InputOrigin -&gt; CacheBehavior -&gt; Text -&gt; CreateDistribution
 </span><a href="Network.AWS.Lightsail.CreateDistribution.html#newCreateDistribution"><span class="hs-identifier hs-var hs-var">newCreateDistribution</span></a></span></span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679658305"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679658305"><span class="hs-identifier hs-var">pDistributionName_</span></a></span></span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679658304"><span class="annot"><span class="annottext">InputOrigin
-</span><a href="#local-6989586621679658304"><span class="hs-identifier hs-var">pOrigin_</span></a></span></span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679658303"><span class="annot"><span class="annottext">CacheBehavior
-</span><a href="#local-6989586621679658303"><span class="hs-identifier hs-var">pDefaultCacheBehavior_</span></a></span></span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679658302"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679658302"><span class="hs-identifier hs-var">pBundleId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-161"></span><span>    </span><span class="annot"><span class="annottext">CreateDistribution' :: Maybe IpAddressType
--&gt; Maybe CacheSettings
--&gt; Maybe [Tag]
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679659351"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679659351"><span class="hs-identifier hs-var">pDistributionName_</span></a></span></span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679659350"><span class="annot"><span class="annottext">InputOrigin
+</span><a href="#local-6989586621679659350"><span class="hs-identifier hs-var">pOrigin_</span></a></span></span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679659349"><span class="annot"><span class="annottext">CacheBehavior
+</span><a href="#local-6989586621679659349"><span class="hs-identifier hs-var">pDefaultCacheBehavior_</span></a></span></span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679659348"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679659348"><span class="hs-identifier hs-var">pBundleId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><span class="annottext">CreateDistribution' :: Maybe CacheSettings
+-&gt; Maybe IpAddressType
 -&gt; Maybe [CacheBehaviorPerPath]
+-&gt; Maybe [Tag]
 -&gt; Text
 -&gt; InputOrigin
 -&gt; CacheBehavior
 -&gt; Text
 -&gt; CreateDistribution
 </span><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution%27"><span class="hs-identifier hs-type">CreateDistribution'</span></a></span><span>
-</span><span id="line-162"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ipAddressType:CreateDistribution' :: Maybe IpAddressType
-</span><a href="Network.AWS.Lightsail.CreateDistribution.html#%24sel%3AipAddressType%3ACreateDistribution%27"><span class="hs-identifier hs-var">ipAddressType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-163"></span><span>          </span><span class="annot"><span class="annottext">Maybe IpAddressType
+</span><span id="line-162"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cacheBehaviorSettings:CreateDistribution' :: Maybe CacheSettings
+</span><a href="Network.AWS.Lightsail.CreateDistribution.html#%24sel%3AcacheBehaviorSettings%3ACreateDistribution%27"><span class="hs-identifier hs-var">cacheBehaviorSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>          </span><span class="annot"><span class="annottext">Maybe CacheSettings
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">$sel:cacheBehaviorSettings:CreateDistribution' :: Maybe CacheSettings
-</span><a href="Network.AWS.Lightsail.CreateDistribution.html#%24sel%3AcacheBehaviorSettings%3ACreateDistribution%27"><span class="hs-identifier hs-var">cacheBehaviorSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CacheSettings
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">$sel:ipAddressType:CreateDistribution' :: Maybe IpAddressType
+</span><a href="Network.AWS.Lightsail.CreateDistribution.html#%24sel%3AipAddressType%3ACreateDistribution%27"><span class="hs-identifier hs-var">ipAddressType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IpAddressType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreateDistribution' :: Maybe [Tag]
-</span><a href="Network.AWS.Lightsail.CreateDistribution.html#%24sel%3Atags%3ACreateDistribution%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">$sel:cacheBehaviors:CreateDistribution' :: Maybe [CacheBehaviorPerPath]
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">$sel:cacheBehaviors:CreateDistribution' :: Maybe [CacheBehaviorPerPath]
 </span><a href="Network.AWS.Lightsail.CreateDistribution.html#%24sel%3AcacheBehaviors%3ACreateDistribution%27"><span class="hs-identifier hs-var">cacheBehaviors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CacheBehaviorPerPath]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreateDistribution' :: Maybe [Tag]
+</span><a href="Network.AWS.Lightsail.CreateDistribution.html#%24sel%3Atags%3ACreateDistribution%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-167"></span><span>        </span><span class="annot"><span class="annottext">$sel:distributionName:CreateDistribution' :: Text
 </span><a href="Network.AWS.Lightsail.CreateDistribution.html#%24sel%3AdistributionName%3ACreateDistribution%27"><span class="hs-identifier hs-var">distributionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679658305"><span class="hs-identifier hs-var">pDistributionName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679659351"><span class="hs-identifier hs-var">pDistributionName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-168"></span><span>        </span><span class="annot"><span class="annottext">$sel:origin:CreateDistribution' :: InputOrigin
 </span><a href="Network.AWS.Lightsail.CreateDistribution.html#%24sel%3Aorigin%3ACreateDistribution%27"><span class="hs-identifier hs-var">origin</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InputOrigin
-</span><a href="#local-6989586621679658304"><span class="hs-identifier hs-var">pOrigin_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679659350"><span class="hs-identifier hs-var">pOrigin_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">$sel:defaultCacheBehavior:CreateDistribution' :: CacheBehavior
 </span><a href="Network.AWS.Lightsail.CreateDistribution.html#%24sel%3AdefaultCacheBehavior%3ACreateDistribution%27"><span class="hs-identifier hs-var">defaultCacheBehavior</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CacheBehavior
-</span><a href="#local-6989586621679658303"><span class="hs-identifier hs-var">pDefaultCacheBehavior_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679659349"><span class="hs-identifier hs-var">pDefaultCacheBehavior_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">$sel:bundleId:CreateDistribution' :: Text
 </span><a href="Network.AWS.Lightsail.CreateDistribution.html#%24sel%3AbundleId%3ACreateDistribution%27"><span class="hs-identifier hs-var">bundleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679658302"><span class="hs-identifier hs-var">pBundleId_</span></a></span><span>
+</span><a href="#local-6989586621679659348"><span class="hs-identifier hs-var">pBundleId_</span></a></span><span>
 </span><span id="line-171"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-comment">-- | The IP address type for the distribution.</span><span>
-</span><span id="line-174"></span><span class="hs-comment">--</span><span>
-</span><span id="line-175"></span><span class="hs-comment">-- The possible values are @ipv4@ for IPv4 only, and @dualstack@ for IPv4</span><span>
-</span><span id="line-176"></span><span class="hs-comment">-- and IPv6.</span><span>
-</span><span id="line-177"></span><span class="hs-comment">--</span><span>
-</span><span id="line-178"></span><span class="hs-comment">-- The default value is @dualstack@.</span><span>
-</span><span id="line-179"></span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#createDistribution_ipAddressType"><span class="hs-identifier hs-type">createDistribution_ipAddressType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution"><span class="hs-identifier hs-type">CreateDistribution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.IpAddressType.html#IpAddressType"><span class="hs-identifier hs-type">IpAddressType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-180"></span><span id="createDistribution_ipAddressType"><span class="annot"><span class="annottext">createDistribution_ipAddressType :: (Maybe IpAddressType -&gt; f (Maybe IpAddressType))
--&gt; CreateDistribution -&gt; f CreateDistribution
-</span><a href="Network.AWS.Lightsail.CreateDistribution.html#createDistribution_ipAddressType"><span class="hs-identifier hs-var hs-var">createDistribution_ipAddressType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDistribution -&gt; Maybe IpAddressType)
--&gt; (CreateDistribution
-    -&gt; Maybe IpAddressType -&gt; CreateDistribution)
--&gt; Lens
-     CreateDistribution
-     CreateDistribution
-     (Maybe IpAddressType)
-     (Maybe IpAddressType)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution%27"><span class="hs-identifier hs-type">CreateDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679658299"><span class="annot"><span class="annottext">Maybe IpAddressType
-ipAddressType :: Maybe IpAddressType
-$sel:ipAddressType:CreateDistribution' :: CreateDistribution -&gt; Maybe IpAddressType
-</span><a href="#local-6989586621679658299"><span class="hs-identifier hs-var hs-var">ipAddressType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IpAddressType
-</span><a href="#local-6989586621679658299"><span class="hs-identifier hs-var">ipAddressType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679658298"><span class="annot"><span class="annottext">s :: CreateDistribution
-</span><a href="#local-6989586621679658298"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution%27"><span class="hs-identifier hs-type">CreateDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679658297"><span class="annot"><span class="annottext">Maybe IpAddressType
-</span><a href="#local-6989586621679658297"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDistribution
-</span><a href="#local-6989586621679658298"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipAddressType:CreateDistribution' :: Maybe IpAddressType
-</span><a href="Network.AWS.Lightsail.CreateDistribution.html#%24sel%3AipAddressType%3ACreateDistribution%27"><span class="hs-identifier hs-var">ipAddressType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IpAddressType
-</span><a href="#local-6989586621679658297"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution"><span class="hs-identifier hs-type">CreateDistribution</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-181"></span><span>
-</span><span id="line-182"></span><span class="hs-comment">-- | An object that describes the cache behavior settings for the</span><span>
-</span><span id="line-183"></span><span class="hs-comment">-- distribution.</span><span>
-</span><span id="line-184"></span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#createDistribution_cacheBehaviorSettings"><span class="hs-identifier hs-type">createDistribution_cacheBehaviorSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution"><span class="hs-identifier hs-type">CreateDistribution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings"><span class="hs-identifier hs-type">CacheSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-185"></span><span id="createDistribution_cacheBehaviorSettings"><span class="annot"><span class="annottext">createDistribution_cacheBehaviorSettings :: (Maybe CacheSettings -&gt; f (Maybe CacheSettings))
+</span><span id="line-173"></span><span class="hs-comment">-- | An object that describes the cache behavior settings for the</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- distribution.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#createDistribution_cacheBehaviorSettings"><span class="hs-identifier hs-type">createDistribution_cacheBehaviorSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution"><span class="hs-identifier hs-type">CreateDistribution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheSettings.html#CacheSettings"><span class="hs-identifier hs-type">CacheSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span id="createDistribution_cacheBehaviorSettings"><span class="annot"><span class="annottext">createDistribution_cacheBehaviorSettings :: (Maybe CacheSettings -&gt; f (Maybe CacheSettings))
 -&gt; CreateDistribution -&gt; f CreateDistribution
 </span><a href="Network.AWS.Lightsail.CreateDistribution.html#createDistribution_cacheBehaviorSettings"><span class="hs-identifier hs-var hs-var">createDistribution_cacheBehaviorSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDistribution -&gt; Maybe CacheSettings)
 -&gt; (CreateDistribution
@@ -308,59 +279,50 @@ $sel:ipAddressType:CreateDistribution' :: CreateDistribution -&gt; Maybe IpAddre
      (Maybe CacheSettings)
      (Maybe CacheSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution%27"><span class="hs-identifier hs-type">CreateDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679658296"><span class="annot"><span class="annottext">Maybe CacheSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution%27"><span class="hs-identifier hs-type">CreateDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679659345"><span class="annot"><span class="annottext">Maybe CacheSettings
 cacheBehaviorSettings :: Maybe CacheSettings
 $sel:cacheBehaviorSettings:CreateDistribution' :: CreateDistribution -&gt; Maybe CacheSettings
-</span><a href="#local-6989586621679658296"><span class="hs-identifier hs-var hs-var">cacheBehaviorSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CacheSettings
-</span><a href="#local-6989586621679658296"><span class="hs-identifier hs-var">cacheBehaviorSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679658295"><span class="annot"><span class="annottext">s :: CreateDistribution
-</span><a href="#local-6989586621679658295"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution%27"><span class="hs-identifier hs-type">CreateDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679658294"><span class="annot"><span class="annottext">Maybe CacheSettings
-</span><a href="#local-6989586621679658294"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDistribution
-</span><a href="#local-6989586621679658295"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheBehaviorSettings:CreateDistribution' :: Maybe CacheSettings
+</span><a href="#local-6989586621679659345"><span class="hs-identifier hs-var hs-var">cacheBehaviorSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CacheSettings
+</span><a href="#local-6989586621679659345"><span class="hs-identifier hs-var">cacheBehaviorSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679659344"><span class="annot"><span class="annottext">s :: CreateDistribution
+</span><a href="#local-6989586621679659344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution%27"><span class="hs-identifier hs-type">CreateDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679659343"><span class="annot"><span class="annottext">Maybe CacheSettings
+</span><a href="#local-6989586621679659343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDistribution
+</span><a href="#local-6989586621679659344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheBehaviorSettings:CreateDistribution' :: Maybe CacheSettings
 </span><a href="Network.AWS.Lightsail.CreateDistribution.html#%24sel%3AcacheBehaviorSettings%3ACreateDistribution%27"><span class="hs-identifier hs-var">cacheBehaviorSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CacheSettings
-</span><a href="#local-6989586621679658294"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution"><span class="hs-identifier hs-type">CreateDistribution</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-186"></span><span>
-</span><span id="line-187"></span><span class="hs-comment">-- | The tag keys and optional values to add to the distribution during</span><span>
-</span><span id="line-188"></span><span class="hs-comment">-- create.</span><span>
-</span><span id="line-189"></span><span class="hs-comment">--</span><span>
-</span><span id="line-190"></span><span class="hs-comment">-- Use the @TagResource@ action to tag a resource after it\'s created.</span><span>
-</span><span id="line-191"></span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#createDistribution_tags"><span class="hs-identifier hs-type">createDistribution_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution"><span class="hs-identifier hs-type">CreateDistribution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-192"></span><span id="createDistribution_tags"><span class="annot"><span class="annottext">createDistribution_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621679659343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution"><span class="hs-identifier hs-type">CreateDistribution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | The IP address type for the distribution.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- The possible values are @ipv4@ for IPv4 only, and @dualstack@ for IPv4</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- and IPv6.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- The default value is @dualstack@.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#createDistribution_ipAddressType"><span class="hs-identifier hs-type">createDistribution_ipAddressType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution"><span class="hs-identifier hs-type">CreateDistribution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.IpAddressType.html#IpAddressType"><span class="hs-identifier hs-type">IpAddressType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span id="createDistribution_ipAddressType"><span class="annot"><span class="annottext">createDistribution_ipAddressType :: (Maybe IpAddressType -&gt; f (Maybe IpAddressType))
 -&gt; CreateDistribution -&gt; f CreateDistribution
-</span><a href="Network.AWS.Lightsail.CreateDistribution.html#createDistribution_tags"><span class="hs-identifier hs-var hs-var">createDistribution_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDistribution -&gt; Maybe [Tag])
--&gt; (CreateDistribution -&gt; Maybe [Tag] -&gt; CreateDistribution)
+</span><a href="Network.AWS.Lightsail.CreateDistribution.html#createDistribution_ipAddressType"><span class="hs-identifier hs-var hs-var">createDistribution_ipAddressType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDistribution -&gt; Maybe IpAddressType)
+-&gt; (CreateDistribution
+    -&gt; Maybe IpAddressType -&gt; CreateDistribution)
 -&gt; Lens
-     CreateDistribution CreateDistribution (Maybe [Tag]) (Maybe [Tag])
+     CreateDistribution
+     CreateDistribution
+     (Maybe IpAddressType)
+     (Maybe IpAddressType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution%27"><span class="hs-identifier hs-type">CreateDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679658293"><span class="annot"><span class="annottext">Maybe [Tag]
-tags :: Maybe [Tag]
-$sel:tags:CreateDistribution' :: CreateDistribution -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679658293"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679658293"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679658292"><span class="annot"><span class="annottext">s :: CreateDistribution
-</span><a href="#local-6989586621679658292"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution%27"><span class="hs-identifier hs-type">CreateDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679658291"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679658291"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDistribution
-</span><a href="#local-6989586621679658292"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateDistribution' :: Maybe [Tag]
-</span><a href="Network.AWS.Lightsail.CreateDistribution.html#%24sel%3Atags%3ACreateDistribution%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679658291"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution"><span class="hs-identifier hs-type">CreateDistribution</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
- -&gt; CreateDistribution -&gt; f CreateDistribution)
--&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
-    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
--&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
--&gt; CreateDistribution
--&gt; f CreateDistribution
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
--&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-193"></span><span>
-</span><span id="line-194"></span><span class="hs-comment">-- | An array of objects that describe the per-path cache behavior for the</span><span>
-</span><span id="line-195"></span><span class="hs-comment">-- distribution.</span><span>
-</span><span id="line-196"></span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#createDistribution_cacheBehaviors"><span class="hs-identifier hs-type">createDistribution_cacheBehaviors</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution"><span class="hs-identifier hs-type">CreateDistribution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheBehaviorPerPath.html#CacheBehaviorPerPath"><span class="hs-identifier hs-type">CacheBehaviorPerPath</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-197"></span><span id="createDistribution_cacheBehaviors"><span class="annot"><span class="annottext">createDistribution_cacheBehaviors :: (Maybe [CacheBehaviorPerPath] -&gt; f (Maybe [CacheBehaviorPerPath]))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution%27"><span class="hs-identifier hs-type">CreateDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679659342"><span class="annot"><span class="annottext">Maybe IpAddressType
+ipAddressType :: Maybe IpAddressType
+$sel:ipAddressType:CreateDistribution' :: CreateDistribution -&gt; Maybe IpAddressType
+</span><a href="#local-6989586621679659342"><span class="hs-identifier hs-var hs-var">ipAddressType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IpAddressType
+</span><a href="#local-6989586621679659342"><span class="hs-identifier hs-var">ipAddressType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679659341"><span class="annot"><span class="annottext">s :: CreateDistribution
+</span><a href="#local-6989586621679659341"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution%27"><span class="hs-identifier hs-type">CreateDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679659340"><span class="annot"><span class="annottext">Maybe IpAddressType
+</span><a href="#local-6989586621679659340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDistribution
+</span><a href="#local-6989586621679659341"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipAddressType:CreateDistribution' :: Maybe IpAddressType
+</span><a href="Network.AWS.Lightsail.CreateDistribution.html#%24sel%3AipAddressType%3ACreateDistribution%27"><span class="hs-identifier hs-var">ipAddressType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IpAddressType
+</span><a href="#local-6989586621679659340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution"><span class="hs-identifier hs-type">CreateDistribution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | An array of objects that describe the per-path cache behavior for the</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- distribution.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#createDistribution_cacheBehaviors"><span class="hs-identifier hs-type">createDistribution_cacheBehaviors</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution"><span class="hs-identifier hs-type">CreateDistribution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Lightsail.Types.CacheBehaviorPerPath.html#CacheBehaviorPerPath"><span class="hs-identifier hs-type">CacheBehaviorPerPath</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="createDistribution_cacheBehaviors"><span class="annot"><span class="annottext">createDistribution_cacheBehaviors :: (Maybe [CacheBehaviorPerPath] -&gt; f (Maybe [CacheBehaviorPerPath]))
 -&gt; CreateDistribution -&gt; f CreateDistribution
 </span><a href="Network.AWS.Lightsail.CreateDistribution.html#createDistribution_cacheBehaviors"><span class="hs-identifier hs-var hs-var">createDistribution_cacheBehaviors</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDistribution -&gt; Maybe [CacheBehaviorPerPath])
 -&gt; (CreateDistribution
@@ -371,16 +333,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe [CacheBehaviorPerPath])
      (Maybe [CacheBehaviorPerPath])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution%27"><span class="hs-identifier hs-type">CreateDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679658287"><span class="annot"><span class="annottext">Maybe [CacheBehaviorPerPath]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution%27"><span class="hs-identifier hs-type">CreateDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679659339"><span class="annot"><span class="annottext">Maybe [CacheBehaviorPerPath]
 cacheBehaviors :: Maybe [CacheBehaviorPerPath]
 $sel:cacheBehaviors:CreateDistribution' :: CreateDistribution -&gt; Maybe [CacheBehaviorPerPath]
-</span><a href="#local-6989586621679658287"><span class="hs-identifier hs-var hs-var">cacheBehaviors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CacheBehaviorPerPath]
-</span><a href="#local-6989586621679658287"><span class="hs-identifier hs-var">cacheBehaviors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679658286"><span class="annot"><span class="annottext">s :: CreateDistribution
-</span><a href="#local-6989586621679658286"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution%27"><span class="hs-identifier hs-type">CreateDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679658285"><span class="annot"><span class="annottext">Maybe [CacheBehaviorPerPath]
-</span><a href="#local-6989586621679658285"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDistribution
-</span><a href="#local-6989586621679658286"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheBehaviors:CreateDistribution' :: Maybe [CacheBehaviorPerPath]
+</span><a href="#local-6989586621679659339"><span class="hs-identifier hs-var hs-var">cacheBehaviors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CacheBehaviorPerPath]
+</span><a href="#local-6989586621679659339"><span class="hs-identifier hs-var">cacheBehaviors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679659338"><span class="annot"><span class="annottext">s :: CreateDistribution
+</span><a href="#local-6989586621679659338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution%27"><span class="hs-identifier hs-type">CreateDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679659337"><span class="annot"><span class="annottext">Maybe [CacheBehaviorPerPath]
+</span><a href="#local-6989586621679659337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDistribution
+</span><a href="#local-6989586621679659338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheBehaviors:CreateDistribution' :: Maybe [CacheBehaviorPerPath]
 </span><a href="Network.AWS.Lightsail.CreateDistribution.html#%24sel%3AcacheBehaviors%3ACreateDistribution%27"><span class="hs-identifier hs-var">cacheBehaviors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CacheBehaviorPerPath]
-</span><a href="#local-6989586621679658285"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution"><span class="hs-identifier hs-type">CreateDistribution</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CacheBehaviorPerPath] -&gt; f (Maybe [CacheBehaviorPerPath]))
+</span><a href="#local-6989586621679659337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution"><span class="hs-identifier hs-type">CreateDistribution</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CacheBehaviorPerPath] -&gt; f (Maybe [CacheBehaviorPerPath]))
  -&gt; CreateDistribution -&gt; f CreateDistribution)
 -&gt; ((Maybe [CacheBehaviorPerPath]
      -&gt; f (Maybe [CacheBehaviorPerPath]))
@@ -409,8 +371,46 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [CacheBehaviorPerPath]
   [CacheBehaviorPerPath]
   [CacheBehaviorPerPath]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | The tag keys and optional values to add to the distribution during</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- create.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- Use the @TagResource@ action to tag a resource after it\'s created.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#createDistribution_tags"><span class="hs-identifier hs-type">createDistribution_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution"><span class="hs-identifier hs-type">CreateDistribution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span id="createDistribution_tags"><span class="annot"><span class="annottext">createDistribution_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateDistribution -&gt; f CreateDistribution
+</span><a href="Network.AWS.Lightsail.CreateDistribution.html#createDistribution_tags"><span class="hs-identifier hs-var hs-var">createDistribution_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDistribution -&gt; Maybe [Tag])
+-&gt; (CreateDistribution -&gt; Maybe [Tag] -&gt; CreateDistribution)
+-&gt; Lens
+     CreateDistribution CreateDistribution (Maybe [Tag]) (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution%27"><span class="hs-identifier hs-type">CreateDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679659333"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:CreateDistribution' :: CreateDistribution -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679659333"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679659333"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679659332"><span class="annot"><span class="annottext">s :: CreateDistribution
+</span><a href="#local-6989586621679659332"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution%27"><span class="hs-identifier hs-type">CreateDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679659331"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679659331"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDistribution
+</span><a href="#local-6989586621679659332"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateDistribution' :: Maybe [Tag]
+</span><a href="Network.AWS.Lightsail.CreateDistribution.html#%24sel%3Atags%3ACreateDistribution%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679659331"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution"><span class="hs-identifier hs-type">CreateDistribution</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; CreateDistribution -&gt; f CreateDistribution)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateDistribution
+-&gt; f CreateDistribution
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-comment">-- | The name for the distribution.</span><span>
 </span><span id="line-200"></span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#createDistribution_distributionName"><span class="hs-identifier hs-type">createDistribution_distributionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution"><span class="hs-identifier hs-type">CreateDistribution</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -419,16 +419,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (CreateDistribution -&gt; Text -&gt; CreateDistribution)
 -&gt; Lens CreateDistribution CreateDistribution Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution%27"><span class="hs-identifier hs-type">CreateDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679658284"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution%27"><span class="hs-identifier hs-type">CreateDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679659330"><span class="annot"><span class="annottext">Text
 distributionName :: Text
 $sel:distributionName:CreateDistribution' :: CreateDistribution -&gt; Text
-</span><a href="#local-6989586621679658284"><span class="hs-identifier hs-var hs-var">distributionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679658284"><span class="hs-identifier hs-var">distributionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679658283"><span class="annot"><span class="annottext">s :: CreateDistribution
-</span><a href="#local-6989586621679658283"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution%27"><span class="hs-identifier hs-type">CreateDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679658282"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679658282"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDistribution
-</span><a href="#local-6989586621679658283"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:distributionName:CreateDistribution' :: Text
+</span><a href="#local-6989586621679659330"><span class="hs-identifier hs-var hs-var">distributionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679659330"><span class="hs-identifier hs-var">distributionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679659329"><span class="annot"><span class="annottext">s :: CreateDistribution
+</span><a href="#local-6989586621679659329"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution%27"><span class="hs-identifier hs-type">CreateDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679659328"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679659328"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDistribution
+</span><a href="#local-6989586621679659329"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:distributionName:CreateDistribution' :: Text
 </span><a href="Network.AWS.Lightsail.CreateDistribution.html#%24sel%3AdistributionName%3ACreateDistribution%27"><span class="hs-identifier hs-var">distributionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679658282"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution"><span class="hs-identifier hs-type">CreateDistribution</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679659328"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution"><span class="hs-identifier hs-type">CreateDistribution</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-202"></span><span>
 </span><span id="line-203"></span><span class="hs-comment">-- | An object that describes the origin resource for the distribution, such</span><span>
 </span><span id="line-204"></span><span class="hs-comment">-- as a Lightsail instance or load balancer.</span><span>
@@ -442,16 +442,16 @@ $sel:distributionName:CreateDistribution' :: CreateDistribution -&gt; Text
 -&gt; Lens
      CreateDistribution CreateDistribution InputOrigin InputOrigin
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution%27"><span class="hs-identifier hs-type">CreateDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679658281"><span class="annot"><span class="annottext">InputOrigin
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution%27"><span class="hs-identifier hs-type">CreateDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679659327"><span class="annot"><span class="annottext">InputOrigin
 origin :: InputOrigin
 $sel:origin:CreateDistribution' :: CreateDistribution -&gt; InputOrigin
-</span><a href="#local-6989586621679658281"><span class="hs-identifier hs-var hs-var">origin</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputOrigin
-</span><a href="#local-6989586621679658281"><span class="hs-identifier hs-var">origin</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679658280"><span class="annot"><span class="annottext">s :: CreateDistribution
-</span><a href="#local-6989586621679658280"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution%27"><span class="hs-identifier hs-type">CreateDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679658279"><span class="annot"><span class="annottext">InputOrigin
-</span><a href="#local-6989586621679658279"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDistribution
-</span><a href="#local-6989586621679658280"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:origin:CreateDistribution' :: InputOrigin
+</span><a href="#local-6989586621679659327"><span class="hs-identifier hs-var hs-var">origin</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputOrigin
+</span><a href="#local-6989586621679659327"><span class="hs-identifier hs-var">origin</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679659326"><span class="annot"><span class="annottext">s :: CreateDistribution
+</span><a href="#local-6989586621679659326"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution%27"><span class="hs-identifier hs-type">CreateDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679659325"><span class="annot"><span class="annottext">InputOrigin
+</span><a href="#local-6989586621679659325"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDistribution
+</span><a href="#local-6989586621679659326"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:origin:CreateDistribution' :: InputOrigin
 </span><a href="Network.AWS.Lightsail.CreateDistribution.html#%24sel%3Aorigin%3ACreateDistribution%27"><span class="hs-identifier hs-var">origin</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InputOrigin
-</span><a href="#local-6989586621679658279"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution"><span class="hs-identifier hs-type">CreateDistribution</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679659325"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution"><span class="hs-identifier hs-type">CreateDistribution</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-209"></span><span>
 </span><span id="line-210"></span><span class="hs-comment">-- | An object that describes the default cache behavior for the</span><span>
 </span><span id="line-211"></span><span class="hs-comment">-- distribution.</span><span>
@@ -463,16 +463,16 @@ $sel:origin:CreateDistribution' :: CreateDistribution -&gt; InputOrigin
 -&gt; Lens
      CreateDistribution CreateDistribution CacheBehavior CacheBehavior
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution%27"><span class="hs-identifier hs-type">CreateDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679658278"><span class="annot"><span class="annottext">CacheBehavior
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution%27"><span class="hs-identifier hs-type">CreateDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679659324"><span class="annot"><span class="annottext">CacheBehavior
 defaultCacheBehavior :: CacheBehavior
 $sel:defaultCacheBehavior:CreateDistribution' :: CreateDistribution -&gt; CacheBehavior
-</span><a href="#local-6989586621679658278"><span class="hs-identifier hs-var hs-var">defaultCacheBehavior</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheBehavior
-</span><a href="#local-6989586621679658278"><span class="hs-identifier hs-var">defaultCacheBehavior</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679658277"><span class="annot"><span class="annottext">s :: CreateDistribution
-</span><a href="#local-6989586621679658277"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution%27"><span class="hs-identifier hs-type">CreateDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679658276"><span class="annot"><span class="annottext">CacheBehavior
-</span><a href="#local-6989586621679658276"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDistribution
-</span><a href="#local-6989586621679658277"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultCacheBehavior:CreateDistribution' :: CacheBehavior
+</span><a href="#local-6989586621679659324"><span class="hs-identifier hs-var hs-var">defaultCacheBehavior</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CacheBehavior
+</span><a href="#local-6989586621679659324"><span class="hs-identifier hs-var">defaultCacheBehavior</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679659323"><span class="annot"><span class="annottext">s :: CreateDistribution
+</span><a href="#local-6989586621679659323"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution%27"><span class="hs-identifier hs-type">CreateDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679659322"><span class="annot"><span class="annottext">CacheBehavior
+</span><a href="#local-6989586621679659322"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDistribution
+</span><a href="#local-6989586621679659323"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultCacheBehavior:CreateDistribution' :: CacheBehavior
 </span><a href="Network.AWS.Lightsail.CreateDistribution.html#%24sel%3AdefaultCacheBehavior%3ACreateDistribution%27"><span class="hs-identifier hs-var">defaultCacheBehavior</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CacheBehavior
-</span><a href="#local-6989586621679658276"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution"><span class="hs-identifier hs-type">CreateDistribution</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679659322"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution"><span class="hs-identifier hs-type">CreateDistribution</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-214"></span><span>
 </span><span id="line-215"></span><span class="hs-comment">-- | The bundle ID to use for the distribution.</span><span>
 </span><span id="line-216"></span><span class="hs-comment">--</span><span>
@@ -487,27 +487,27 @@ $sel:defaultCacheBehavior:CreateDistribution' :: CreateDistribution -&gt; CacheB
 -&gt; (CreateDistribution -&gt; Text -&gt; CreateDistribution)
 -&gt; Lens CreateDistribution CreateDistribution Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution%27"><span class="hs-identifier hs-type">CreateDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679658275"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution%27"><span class="hs-identifier hs-type">CreateDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679659321"><span class="annot"><span class="annottext">Text
 bundleId :: Text
 $sel:bundleId:CreateDistribution' :: CreateDistribution -&gt; Text
-</span><a href="#local-6989586621679658275"><span class="hs-identifier hs-var hs-var">bundleId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679658275"><span class="hs-identifier hs-var">bundleId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679658274"><span class="annot"><span class="annottext">s :: CreateDistribution
-</span><a href="#local-6989586621679658274"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution%27"><span class="hs-identifier hs-type">CreateDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679658273"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679658273"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDistribution
-</span><a href="#local-6989586621679658274"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bundleId:CreateDistribution' :: Text
+</span><a href="#local-6989586621679659321"><span class="hs-identifier hs-var hs-var">bundleId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679659321"><span class="hs-identifier hs-var">bundleId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679659320"><span class="annot"><span class="annottext">s :: CreateDistribution
+</span><a href="#local-6989586621679659320"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution%27"><span class="hs-identifier hs-type">CreateDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679659319"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679659319"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDistribution
+</span><a href="#local-6989586621679659320"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bundleId:CreateDistribution' :: Text
 </span><a href="Network.AWS.Lightsail.CreateDistribution.html#%24sel%3AbundleId%3ACreateDistribution%27"><span class="hs-identifier hs-var">bundleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679658273"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution"><span class="hs-identifier hs-type">CreateDistribution</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679659319"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution"><span class="hs-identifier hs-type">CreateDistribution</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-224"></span><span>
 </span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution"><span class="hs-identifier hs-type">CreateDistribution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-226"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-227"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution"><span class="hs-identifier hs-type">CreateDistribution</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-228"></span><span>      </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistributionResponse"><span class="hs-identifier hs-type">CreateDistributionResponse</span></a></span><span>
-</span><span id="line-229"></span><span>  </span><span id="local-6989586621679658269"><span class="annot"><span class="annottext">request :: CreateDistribution -&gt; Request CreateDistribution
+</span><span id="line-229"></span><span>  </span><span id="local-6989586621679659315"><span class="annot"><span class="annottext">request :: CreateDistribution -&gt; Request CreateDistribution
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateDistribution -&gt; Request CreateDistribution
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-230"></span><span>  </span><span id="local-6989586621679658265"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-230"></span><span>  </span><span id="local-6989586621679659311"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateDistribution
 -&gt; ClientResponse ClientBody
@@ -533,38 +533,34 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-232"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679658262"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679658262"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679658261"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679658261"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679658260"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679658260"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-233"></span><span>          </span><span class="annot"><span class="annottext">Maybe Operation
--&gt; Maybe LightsailDistribution -&gt; Int -&gt; CreateDistributionResponse
+</span><span id="line-232"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679659308"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679659308"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679659307"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679659307"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679659306"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679659306"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-233"></span><span>          </span><span class="annot"><span class="annottext">Maybe LightsailDistribution
+-&gt; Maybe Operation -&gt; Int -&gt; CreateDistributionResponse
 </span><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistributionResponse%27"><span class="hs-identifier hs-var">CreateDistributionResponse'</span></a></span><span>
-</span><span id="line-234"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Operation
- -&gt; Maybe LightsailDistribution
- -&gt; Int
- -&gt; CreateDistributionResponse)
--&gt; Either String (Maybe Operation)
+</span><span id="line-234"></span><span>            </span><span class="annot"><span class="annottext">(Maybe LightsailDistribution
+ -&gt; Maybe Operation -&gt; Int -&gt; CreateDistributionResponse)
+-&gt; Either String (Maybe LightsailDistribution)
 -&gt; Either
-     String
-     (Maybe LightsailDistribution -&gt; Int -&gt; CreateDistributionResponse)
+     String (Maybe Operation -&gt; Int -&gt; CreateDistributionResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679658260"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Operation)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;operation&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-235"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe LightsailDistribution -&gt; Int -&gt; CreateDistributionResponse)
--&gt; Either String (Maybe LightsailDistribution)
--&gt; Either String (Int -&gt; CreateDistributionResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679658260"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe LightsailDistribution)
+</span><a href="#local-6989586621679659306"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe LightsailDistribution)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;distribution&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Operation -&gt; Int -&gt; CreateDistributionResponse)
+-&gt; Either String (Maybe Operation)
+-&gt; Either String (Int -&gt; CreateDistributionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679659306"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Operation)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;operation&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-236"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateDistributionResponse)
 -&gt; Either String Int -&gt; Either String CreateDistributionResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -573,15 +569,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679658262"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679659308"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-237"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-238"></span><span>
-</span><span id="line-239"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679658252"><span id="local-6989586621679658254"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution"><span class="hs-identifier hs-type">CreateDistribution</span></a></span></span></span><span>
+</span><span id="line-239"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679659298"><span id="local-6989586621679659300"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution"><span class="hs-identifier hs-type">CreateDistribution</span></a></span></span></span><span>
 </span><span id="line-240"></span><span>
-</span><span id="line-241"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679658249"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution"><span class="hs-identifier hs-type">CreateDistribution</span></a></span></span><span>
+</span><span id="line-241"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679659295"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution"><span class="hs-identifier hs-type">CreateDistribution</span></a></span></span><span>
 </span><span id="line-242"></span><span>
 </span><span id="line-243"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution"><span class="hs-identifier hs-type">CreateDistribution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-244"></span><span>  </span><span id="local-6989586621679658245"><span class="annot"><span class="annottext">toHeaders :: CreateDistribution -&gt; ResponseHeaders
+</span><span id="line-244"></span><span>  </span><span id="local-6989586621679659291"><span class="annot"><span class="annottext">toHeaders :: CreateDistribution -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-245"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateDistribution -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -608,9 +604,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-255"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-256"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-257"></span><span>
-</span><span id="line-258"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679658235"><span id="local-6989586621679658237"><span id="local-6989586621679658239"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution"><span class="hs-identifier hs-type">CreateDistribution</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-259"></span><span>  </span><span id="local-6989586621679658233"><span class="annot"><span class="annottext">toJSON :: CreateDistribution -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution%27"><span class="hs-identifier hs-type">CreateDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679658224"><span id="local-6989586621679658225"><span id="local-6989586621679658226"><span id="local-6989586621679658227"><span id="local-6989586621679658228"><span id="local-6989586621679658229"><span id="local-6989586621679658230"><span id="local-6989586621679658231"><span class="annot"><span class="annottext">Maybe [CacheBehaviorPerPath]
+</span><span id="line-258"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679659281"><span id="local-6989586621679659283"><span id="local-6989586621679659285"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution"><span class="hs-identifier hs-type">CreateDistribution</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-259"></span><span>  </span><span id="local-6989586621679659279"><span class="annot"><span class="annottext">toJSON :: CreateDistribution -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution%27"><span class="hs-identifier hs-type">CreateDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679659270"><span id="local-6989586621679659271"><span id="local-6989586621679659272"><span id="local-6989586621679659273"><span id="local-6989586621679659274"><span id="local-6989586621679659275"><span id="local-6989586621679659276"><span id="local-6989586621679659277"><span class="annot"><span class="annottext">Maybe [CacheBehaviorPerPath]
 Maybe [Tag]
 Maybe IpAddressType
 Maybe CacheSettings
@@ -621,55 +617,55 @@ bundleId :: Text
 defaultCacheBehavior :: CacheBehavior
 origin :: InputOrigin
 distributionName :: Text
-cacheBehaviors :: Maybe [CacheBehaviorPerPath]
 tags :: Maybe [Tag]
-cacheBehaviorSettings :: Maybe CacheSettings
+cacheBehaviors :: Maybe [CacheBehaviorPerPath]
 ipAddressType :: Maybe IpAddressType
+cacheBehaviorSettings :: Maybe CacheSettings
 $sel:bundleId:CreateDistribution' :: CreateDistribution -&gt; Text
 $sel:defaultCacheBehavior:CreateDistribution' :: CreateDistribution -&gt; CacheBehavior
 $sel:origin:CreateDistribution' :: CreateDistribution -&gt; InputOrigin
 $sel:distributionName:CreateDistribution' :: CreateDistribution -&gt; Text
-$sel:cacheBehaviors:CreateDistribution' :: CreateDistribution -&gt; Maybe [CacheBehaviorPerPath]
 $sel:tags:CreateDistribution' :: CreateDistribution -&gt; Maybe [Tag]
-$sel:cacheBehaviorSettings:CreateDistribution' :: CreateDistribution -&gt; Maybe CacheSettings
+$sel:cacheBehaviors:CreateDistribution' :: CreateDistribution -&gt; Maybe [CacheBehaviorPerPath]
 $sel:ipAddressType:CreateDistribution' :: CreateDistribution -&gt; Maybe IpAddressType
-</span><a href="#local-6989586621679658224"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:cacheBehaviorSettings:CreateDistribution' :: CreateDistribution -&gt; Maybe CacheSettings
+</span><a href="#local-6989586621679659270"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-260"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-261"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-262"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;cacheBehaviorSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CacheSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span>              </span><span class="annot"><span class="annottext">(CacheSettings -&gt; Pair) -&gt; Maybe CacheSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CacheSettings
+</span><a href="#local-6989586621679659277"><span class="hs-identifier hs-var">cacheBehaviorSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-264"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ipAddressType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; IpAddressType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(IpAddressType -&gt; Pair) -&gt; Maybe IpAddressType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe IpAddressType
-</span><a href="#local-6989586621679658231"><span class="hs-identifier hs-var">ipAddressType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-263"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;cacheBehaviorSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CacheSettings -&gt; Pair
+</span><a href="#local-6989586621679659276"><span class="hs-identifier hs-var">ipAddressType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-265"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;cacheBehaviors&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [CacheBehaviorPerPath] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-264"></span><span>              </span><span class="annot"><span class="annottext">(CacheSettings -&gt; Pair) -&gt; Maybe CacheSettings -&gt; Maybe Pair
+</span><span id="line-266"></span><span>              </span><span class="annot"><span class="annottext">([CacheBehaviorPerPath] -&gt; Pair)
+-&gt; Maybe [CacheBehaviorPerPath] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CacheSettings
-</span><a href="#local-6989586621679658230"><span class="hs-identifier hs-var">cacheBehaviorSettings</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-265"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [CacheBehaviorPerPath]
+</span><a href="#local-6989586621679659275"><span class="hs-identifier hs-var">cacheBehaviors</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-267"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679658229"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-266"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;cacheBehaviors&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [CacheBehaviorPerPath] -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-267"></span><span>              </span><span class="annot"><span class="annottext">([CacheBehaviorPerPath] -&gt; Pair)
--&gt; Maybe [CacheBehaviorPerPath] -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [CacheBehaviorPerPath]
-</span><a href="#local-6989586621679658228"><span class="hs-identifier hs-var">cacheBehaviors</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679659274"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-268"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -677,14 +673,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;distributionName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679658227"><span class="hs-identifier hs-var">distributionName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679659273"><span class="hs-identifier hs-var">distributionName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-270"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;origin&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InputOrigin -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">InputOrigin
-</span><a href="#local-6989586621679658226"><span class="hs-identifier hs-var">origin</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679659272"><span class="hs-identifier hs-var">origin</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-271"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -693,7 +689,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-273"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; CacheBehavior -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">CacheBehavior
-</span><a href="#local-6989586621679658225"><span class="hs-identifier hs-var">defaultCacheBehavior</span></a></span><span>
+</span><a href="#local-6989586621679659271"><span class="hs-identifier hs-var">defaultCacheBehavior</span></a></span><span>
 </span><span id="line-274"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-275"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -701,19 +697,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;bundleId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679658224"><span class="hs-identifier hs-var">bundleId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679659270"><span class="hs-identifier hs-var">bundleId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-276"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-277"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-278"></span><span>
 </span><span id="line-279"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution"><span class="hs-identifier hs-type">CreateDistribution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-280"></span><span>  </span><span id="local-6989586621679658218"><span class="annot"><span class="annottext">toPath :: CreateDistribution -&gt; ByteString
+</span><span id="line-280"></span><span>  </span><span id="local-6989586621679659264"><span class="annot"><span class="annottext">toPath :: CreateDistribution -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateDistribution -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-281"></span><span>
 </span><span id="line-282"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistribution"><span class="hs-identifier hs-type">CreateDistribution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-283"></span><span>  </span><span id="local-6989586621679658214"><span class="annot"><span class="annottext">toQuery :: CreateDistribution -&gt; QueryString
+</span><span id="line-283"></span><span>  </span><span id="local-6989586621679659260"><span class="annot"><span class="annottext">toQuery :: CreateDistribution -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateDistribution -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -721,20 +717,20 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-284"></span><span>
 </span><span id="line-285"></span><span class="hs-comment">-- | /See:/ 'newCreateDistributionResponse' smart constructor.</span><span>
-</span><span id="line-286"></span><span id="local-6989586621679658211"><span id="local-6989586621679658212"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDistributionResponse"><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistributionResponse"><span class="hs-identifier hs-var">CreateDistributionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDistributionResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistributionResponse%27"><span class="hs-identifier hs-var">CreateDistributionResponse'</span></a></span></span><span>
-</span><span id="line-287"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
-</span><span id="line-288"></span><span>    </span><span class="hs-comment">-- status of the request, the timestamp of the request, and the resources</span><span>
-</span><span id="line-289"></span><span>    </span><span class="hs-comment">-- affected by the request.</span><span>
-</span><span id="line-290"></span><span>    </span><span id="%24sel%3Aoperation%3ACreateDistributionResponse%27"><span class="annot"><span class="annottext">CreateDistributionResponse -&gt; Maybe Operation
-</span><a href="Network.AWS.Lightsail.CreateDistribution.html#%24sel%3Aoperation%3ACreateDistributionResponse%27"><span class="hs-identifier hs-var hs-var">operation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation"><span class="hs-identifier hs-type">Operation</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-291"></span><span>    </span><span class="hs-comment">-- | An object that describes the distribution created.</span><span>
-</span><span id="line-292"></span><span>    </span><span id="%24sel%3Adistribution%3ACreateDistributionResponse%27"><span class="annot"><span class="annottext">CreateDistributionResponse -&gt; Maybe LightsailDistribution
+</span><span id="line-286"></span><span id="local-6989586621679659257"><span id="local-6989586621679659258"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDistributionResponse"><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistributionResponse"><span class="hs-identifier hs-var">CreateDistributionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDistributionResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistributionResponse%27"><span class="hs-identifier hs-var">CreateDistributionResponse'</span></a></span></span><span>
+</span><span id="line-287"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An object that describes the distribution created.</span><span>
+</span><span id="line-288"></span><span>    </span><span id="%24sel%3Adistribution%3ACreateDistributionResponse%27"><span class="annot"><span class="annottext">CreateDistributionResponse -&gt; Maybe LightsailDistribution
 </span><a href="Network.AWS.Lightsail.CreateDistribution.html#%24sel%3Adistribution%3ACreateDistributionResponse%27"><span class="hs-identifier hs-var hs-var">distribution</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.LightsailDistribution.html#LightsailDistribution"><span class="hs-identifier hs-type">LightsailDistribution</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-289"></span><span>    </span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
+</span><span id="line-290"></span><span>    </span><span class="hs-comment">-- status of the request, the timestamp of the request, and the resources</span><span>
+</span><span id="line-291"></span><span>    </span><span class="hs-comment">-- affected by the request.</span><span>
+</span><span id="line-292"></span><span>    </span><span id="%24sel%3Aoperation%3ACreateDistributionResponse%27"><span class="annot"><span class="annottext">CreateDistributionResponse -&gt; Maybe Operation
+</span><a href="Network.AWS.Lightsail.CreateDistribution.html#%24sel%3Aoperation%3ACreateDistributionResponse%27"><span class="hs-identifier hs-var hs-var">operation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation"><span class="hs-identifier hs-type">Operation</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-293"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-294"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateDistributionResponse%27"><span class="annot"><span class="annottext">CreateDistributionResponse -&gt; Int
 </span><a href="Network.AWS.Lightsail.CreateDistribution.html#%24sel%3AhttpStatus%3ACreateDistributionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-295"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-296"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679658204"><span id="local-6989586621679658206"><span class="annot"><span class="annottext">CreateDistributionResponse -&gt; CreateDistributionResponse -&gt; Bool
+</span><span id="line-296"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679659250"><span id="local-6989586621679659252"><span class="annot"><span class="annottext">CreateDistributionResponse -&gt; CreateDistributionResponse -&gt; Bool
 (CreateDistributionResponse -&gt; CreateDistributionResponse -&gt; Bool)
 -&gt; (CreateDistributionResponse
     -&gt; CreateDistributionResponse -&gt; Bool)
@@ -744,7 +740,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateDistributionResponse -&gt; CreateDistributionResponse -&gt; Bool
 == :: CreateDistributionResponse -&gt; CreateDistributionResponse -&gt; Bool
 $c== :: CreateDistributionResponse -&gt; CreateDistributionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679658196"><span id="local-6989586621679658198"><span id="local-6989586621679658200"><span id="local-6989586621679658202"><span class="annot"><span class="annottext">ReadPrec [CreateDistributionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679659242"><span id="local-6989586621679659244"><span id="local-6989586621679659246"><span id="local-6989586621679659248"><span class="annot"><span class="annottext">ReadPrec [CreateDistributionResponse]
 ReadPrec CreateDistributionResponse
 Int -&gt; ReadS CreateDistributionResponse
 ReadS [CreateDistributionResponse]
@@ -764,7 +760,7 @@ readList :: ReadS [CreateDistributionResponse]
 $creadList :: ReadS [CreateDistributionResponse]
 readsPrec :: Int -&gt; ReadS CreateDistributionResponse
 $creadsPrec :: Int -&gt; ReadS CreateDistributionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679658190"><span id="local-6989586621679658192"><span id="local-6989586621679658194"><span class="annot"><span class="annottext">Int -&gt; CreateDistributionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679659236"><span id="local-6989586621679659238"><span id="local-6989586621679659240"><span class="annot"><span class="annottext">Int -&gt; CreateDistributionResponse -&gt; ShowS
 [CreateDistributionResponse] -&gt; ShowS
 CreateDistributionResponse -&gt; String
 (Int -&gt; CreateDistributionResponse -&gt; ShowS)
@@ -804,11 +800,11 @@ CreateDistributionResponse -&gt; Rep CreateDistributionResponse x
 </span><span id="line-303"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-304"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-305"></span><span class="hs-comment">--</span><span>
-</span><span id="line-306"></span><span class="hs-comment">-- 'operation', 'createDistributionResponse_operation' - An array of objects that describe the result of the action, such as the</span><span>
-</span><span id="line-307"></span><span class="hs-comment">-- status of the request, the timestamp of the request, and the resources</span><span>
-</span><span id="line-308"></span><span class="hs-comment">-- affected by the request.</span><span>
-</span><span id="line-309"></span><span class="hs-comment">--</span><span>
-</span><span id="line-310"></span><span class="hs-comment">-- 'distribution', 'createDistributionResponse_distribution' - An object that describes the distribution created.</span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- 'distribution', 'createDistributionResponse_distribution' - An object that describes the distribution created.</span><span>
+</span><span id="line-307"></span><span class="hs-comment">--</span><span>
+</span><span id="line-308"></span><span class="hs-comment">-- 'operation', 'createDistributionResponse_operation' - An array of objects that describe the result of the action, such as the</span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- status of the request, the timestamp of the request, and the resources</span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- affected by the request.</span><span>
 </span><span id="line-311"></span><span class="hs-comment">--</span><span>
 </span><span id="line-312"></span><span class="hs-comment">-- 'httpStatus', 'createDistributionResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-313"></span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#newCreateDistributionResponse"><span class="hs-identifier hs-type">newCreateDistributionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -816,54 +812,28 @@ CreateDistributionResponse -&gt; Rep CreateDistributionResponse x
 </span><span id="line-315"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-316"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistributionResponse"><span class="hs-identifier hs-type">CreateDistributionResponse</span></a></span><span>
 </span><span id="line-317"></span><span id="newCreateDistributionResponse"><span class="annot"><span class="annottext">newCreateDistributionResponse :: Int -&gt; CreateDistributionResponse
-</span><a href="Network.AWS.Lightsail.CreateDistribution.html#newCreateDistributionResponse"><span class="hs-identifier hs-var hs-var">newCreateDistributionResponse</span></a></span></span><span> </span><span id="local-6989586621679658187"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679658187"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-318"></span><span>  </span><span class="annot"><span class="annottext">CreateDistributionResponse' :: Maybe Operation
--&gt; Maybe LightsailDistribution -&gt; Int -&gt; CreateDistributionResponse
+</span><a href="Network.AWS.Lightsail.CreateDistribution.html#newCreateDistributionResponse"><span class="hs-identifier hs-var hs-var">newCreateDistributionResponse</span></a></span></span><span> </span><span id="local-6989586621679659233"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679659233"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-318"></span><span>  </span><span class="annot"><span class="annottext">CreateDistributionResponse' :: Maybe LightsailDistribution
+-&gt; Maybe Operation -&gt; Int -&gt; CreateDistributionResponse
 </span><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistributionResponse%27"><span class="hs-identifier hs-type">CreateDistributionResponse'</span></a></span><span>
-</span><span id="line-319"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:operation:CreateDistributionResponse' :: Maybe Operation
-</span><a href="Network.AWS.Lightsail.CreateDistribution.html#%24sel%3Aoperation%3ACreateDistributionResponse%27"><span class="hs-identifier hs-var">operation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-320"></span><span>        </span><span class="annot"><span class="annottext">Maybe Operation
+</span><span id="line-319"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:distribution:CreateDistributionResponse' :: Maybe LightsailDistribution
+</span><a href="Network.AWS.Lightsail.CreateDistribution.html#%24sel%3Adistribution%3ACreateDistributionResponse%27"><span class="hs-identifier hs-var">distribution</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-320"></span><span>        </span><span class="annot"><span class="annottext">Maybe LightsailDistribution
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-321"></span><span>      </span><span class="annot"><span class="annottext">$sel:distribution:CreateDistributionResponse' :: Maybe LightsailDistribution
-</span><a href="Network.AWS.Lightsail.CreateDistribution.html#%24sel%3Adistribution%3ACreateDistributionResponse%27"><span class="hs-identifier hs-var">distribution</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LightsailDistribution
+</span><span id="line-321"></span><span>      </span><span class="annot"><span class="annottext">$sel:operation:CreateDistributionResponse' :: Maybe Operation
+</span><a href="Network.AWS.Lightsail.CreateDistribution.html#%24sel%3Aoperation%3ACreateDistributionResponse%27"><span class="hs-identifier hs-var">operation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Operation
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-322"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDistributionResponse' :: Int
 </span><a href="Network.AWS.Lightsail.CreateDistribution.html#%24sel%3AhttpStatus%3ACreateDistributionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679658187"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679659233"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-323"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-324"></span><span>
-</span><span id="line-325"></span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
-</span><span id="line-326"></span><span class="hs-comment">-- status of the request, the timestamp of the request, and the resources</span><span>
-</span><span id="line-327"></span><span class="hs-comment">-- affected by the request.</span><span>
-</span><span id="line-328"></span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#createDistributionResponse_operation"><span class="hs-identifier hs-type">createDistributionResponse_operation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistributionResponse"><span class="hs-identifier hs-type">CreateDistributionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation"><span class="hs-identifier hs-type">Operation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-329"></span><span id="createDistributionResponse_operation"><span class="annot"><span class="annottext">createDistributionResponse_operation :: (Maybe Operation -&gt; f (Maybe Operation))
--&gt; CreateDistributionResponse -&gt; f CreateDistributionResponse
-</span><a href="Network.AWS.Lightsail.CreateDistribution.html#createDistributionResponse_operation"><span class="hs-identifier hs-var hs-var">createDistributionResponse_operation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDistributionResponse -&gt; Maybe Operation)
--&gt; (CreateDistributionResponse
-    -&gt; Maybe Operation -&gt; CreateDistributionResponse)
--&gt; Lens
-     CreateDistributionResponse
-     CreateDistributionResponse
-     (Maybe Operation)
-     (Maybe Operation)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistributionResponse%27"><span class="hs-identifier hs-type">CreateDistributionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679658186"><span class="annot"><span class="annottext">Maybe Operation
-operation :: Maybe Operation
-$sel:operation:CreateDistributionResponse' :: CreateDistributionResponse -&gt; Maybe Operation
-</span><a href="#local-6989586621679658186"><span class="hs-identifier hs-var hs-var">operation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Operation
-</span><a href="#local-6989586621679658186"><span class="hs-identifier hs-var">operation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679658185"><span class="annot"><span class="annottext">s :: CreateDistributionResponse
-</span><a href="#local-6989586621679658185"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistributionResponse%27"><span class="hs-identifier hs-type">CreateDistributionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679658184"><span class="annot"><span class="annottext">Maybe Operation
-</span><a href="#local-6989586621679658184"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDistributionResponse
-</span><a href="#local-6989586621679658185"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operation:CreateDistributionResponse' :: Maybe Operation
-</span><a href="Network.AWS.Lightsail.CreateDistribution.html#%24sel%3Aoperation%3ACreateDistributionResponse%27"><span class="hs-identifier hs-var">operation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Operation
-</span><a href="#local-6989586621679658184"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistributionResponse"><span class="hs-identifier hs-type">CreateDistributionResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-330"></span><span>
-</span><span id="line-331"></span><span class="hs-comment">-- | An object that describes the distribution created.</span><span>
-</span><span id="line-332"></span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#createDistributionResponse_distribution"><span class="hs-identifier hs-type">createDistributionResponse_distribution</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistributionResponse"><span class="hs-identifier hs-type">CreateDistributionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.LightsailDistribution.html#LightsailDistribution"><span class="hs-identifier hs-type">LightsailDistribution</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-333"></span><span id="createDistributionResponse_distribution"><span class="annot"><span class="annottext">createDistributionResponse_distribution :: (Maybe LightsailDistribution -&gt; f (Maybe LightsailDistribution))
+</span><span id="line-325"></span><span class="hs-comment">-- | An object that describes the distribution created.</span><span>
+</span><span id="line-326"></span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#createDistributionResponse_distribution"><span class="hs-identifier hs-type">createDistributionResponse_distribution</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistributionResponse"><span class="hs-identifier hs-type">CreateDistributionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.LightsailDistribution.html#LightsailDistribution"><span class="hs-identifier hs-type">LightsailDistribution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-327"></span><span id="createDistributionResponse_distribution"><span class="annot"><span class="annottext">createDistributionResponse_distribution :: (Maybe LightsailDistribution -&gt; f (Maybe LightsailDistribution))
 -&gt; CreateDistributionResponse -&gt; f CreateDistributionResponse
 </span><a href="Network.AWS.Lightsail.CreateDistribution.html#createDistributionResponse_distribution"><span class="hs-identifier hs-var hs-var">createDistributionResponse_distribution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDistributionResponse -&gt; Maybe LightsailDistribution)
 -&gt; (CreateDistributionResponse
@@ -874,16 +844,42 @@ $sel:operation:CreateDistributionResponse' :: CreateDistributionResponse -&gt; M
      (Maybe LightsailDistribution)
      (Maybe LightsailDistribution)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistributionResponse%27"><span class="hs-identifier hs-type">CreateDistributionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679658183"><span class="annot"><span class="annottext">Maybe LightsailDistribution
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistributionResponse%27"><span class="hs-identifier hs-type">CreateDistributionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679659232"><span class="annot"><span class="annottext">Maybe LightsailDistribution
 distribution :: Maybe LightsailDistribution
 $sel:distribution:CreateDistributionResponse' :: CreateDistributionResponse -&gt; Maybe LightsailDistribution
-</span><a href="#local-6989586621679658183"><span class="hs-identifier hs-var hs-var">distribution</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LightsailDistribution
-</span><a href="#local-6989586621679658183"><span class="hs-identifier hs-var">distribution</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679658182"><span class="annot"><span class="annottext">s :: CreateDistributionResponse
-</span><a href="#local-6989586621679658182"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistributionResponse%27"><span class="hs-identifier hs-type">CreateDistributionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679658181"><span class="annot"><span class="annottext">Maybe LightsailDistribution
-</span><a href="#local-6989586621679658181"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDistributionResponse
-</span><a href="#local-6989586621679658182"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:distribution:CreateDistributionResponse' :: Maybe LightsailDistribution
+</span><a href="#local-6989586621679659232"><span class="hs-identifier hs-var hs-var">distribution</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LightsailDistribution
+</span><a href="#local-6989586621679659232"><span class="hs-identifier hs-var">distribution</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679659231"><span class="annot"><span class="annottext">s :: CreateDistributionResponse
+</span><a href="#local-6989586621679659231"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistributionResponse%27"><span class="hs-identifier hs-type">CreateDistributionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679659230"><span class="annot"><span class="annottext">Maybe LightsailDistribution
+</span><a href="#local-6989586621679659230"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDistributionResponse
+</span><a href="#local-6989586621679659231"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:distribution:CreateDistributionResponse' :: Maybe LightsailDistribution
 </span><a href="Network.AWS.Lightsail.CreateDistribution.html#%24sel%3Adistribution%3ACreateDistributionResponse%27"><span class="hs-identifier hs-var">distribution</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LightsailDistribution
-</span><a href="#local-6989586621679658181"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistributionResponse"><span class="hs-identifier hs-type">CreateDistributionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679659230"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistributionResponse"><span class="hs-identifier hs-type">CreateDistributionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-328"></span><span>
+</span><span id="line-329"></span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
+</span><span id="line-330"></span><span class="hs-comment">-- status of the request, the timestamp of the request, and the resources</span><span>
+</span><span id="line-331"></span><span class="hs-comment">-- affected by the request.</span><span>
+</span><span id="line-332"></span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#createDistributionResponse_operation"><span class="hs-identifier hs-type">createDistributionResponse_operation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistributionResponse"><span class="hs-identifier hs-type">CreateDistributionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Operation.html#Operation"><span class="hs-identifier hs-type">Operation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-333"></span><span id="createDistributionResponse_operation"><span class="annot"><span class="annottext">createDistributionResponse_operation :: (Maybe Operation -&gt; f (Maybe Operation))
+-&gt; CreateDistributionResponse -&gt; f CreateDistributionResponse
+</span><a href="Network.AWS.Lightsail.CreateDistribution.html#createDistributionResponse_operation"><span class="hs-identifier hs-var hs-var">createDistributionResponse_operation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDistributionResponse -&gt; Maybe Operation)
+-&gt; (CreateDistributionResponse
+    -&gt; Maybe Operation -&gt; CreateDistributionResponse)
+-&gt; Lens
+     CreateDistributionResponse
+     CreateDistributionResponse
+     (Maybe Operation)
+     (Maybe Operation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistributionResponse%27"><span class="hs-identifier hs-type">CreateDistributionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679659229"><span class="annot"><span class="annottext">Maybe Operation
+operation :: Maybe Operation
+$sel:operation:CreateDistributionResponse' :: CreateDistributionResponse -&gt; Maybe Operation
+</span><a href="#local-6989586621679659229"><span class="hs-identifier hs-var hs-var">operation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Operation
+</span><a href="#local-6989586621679659229"><span class="hs-identifier hs-var">operation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679659228"><span class="annot"><span class="annottext">s :: CreateDistributionResponse
+</span><a href="#local-6989586621679659228"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistributionResponse%27"><span class="hs-identifier hs-type">CreateDistributionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679659227"><span class="annot"><span class="annottext">Maybe Operation
+</span><a href="#local-6989586621679659227"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDistributionResponse
+</span><a href="#local-6989586621679659228"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operation:CreateDistributionResponse' :: Maybe Operation
+</span><a href="Network.AWS.Lightsail.CreateDistribution.html#%24sel%3Aoperation%3ACreateDistributionResponse%27"><span class="hs-identifier hs-var">operation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Operation
+</span><a href="#local-6989586621679659227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistributionResponse"><span class="hs-identifier hs-type">CreateDistributionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-334"></span><span>
 </span><span id="line-335"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-336"></span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#createDistributionResponse_httpStatus"><span class="hs-identifier hs-type">createDistributionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistributionResponse"><span class="hs-identifier hs-type">CreateDistributionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -895,16 +891,16 @@ $sel:distribution:CreateDistributionResponse' :: CreateDistributionResponse -&gt
 -&gt; Lens
      CreateDistributionResponse CreateDistributionResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistributionResponse%27"><span class="hs-identifier hs-type">CreateDistributionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679658180"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistributionResponse%27"><span class="hs-identifier hs-type">CreateDistributionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679659226"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateDistributionResponse' :: CreateDistributionResponse -&gt; Int
-</span><a href="#local-6989586621679658180"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679658180"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679658179"><span class="annot"><span class="annottext">s :: CreateDistributionResponse
-</span><a href="#local-6989586621679658179"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistributionResponse%27"><span class="hs-identifier hs-type">CreateDistributionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679658178"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679658178"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDistributionResponse
-</span><a href="#local-6989586621679658179"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDistributionResponse' :: Int
+</span><a href="#local-6989586621679659226"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679659226"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679659225"><span class="annot"><span class="annottext">s :: CreateDistributionResponse
+</span><a href="#local-6989586621679659225"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistributionResponse%27"><span class="hs-identifier hs-type">CreateDistributionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679659224"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679659224"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDistributionResponse
+</span><a href="#local-6989586621679659225"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDistributionResponse' :: Int
 </span><a href="Network.AWS.Lightsail.CreateDistribution.html#%24sel%3AhttpStatus%3ACreateDistributionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679658178"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistributionResponse"><span class="hs-identifier hs-type">CreateDistributionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679659224"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistributionResponse"><span class="hs-identifier hs-type">CreateDistributionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-338"></span><span>
-</span><span id="line-339"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679658176"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistributionResponse"><span class="hs-identifier hs-type">CreateDistributionResponse</span></a></span></span><span>
+</span><span id="line-339"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679659222"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateDistribution.html#CreateDistributionResponse"><span class="hs-identifier hs-type">CreateDistributionResponse</span></a></span></span><span>
 </span><span id="line-340"></span></pre></body></html>

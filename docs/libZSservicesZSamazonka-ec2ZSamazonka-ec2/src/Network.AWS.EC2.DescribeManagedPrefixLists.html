@@ -33,11 +33,11 @@
 </span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#newDescribeManagedPrefixLists"><span class="hs-identifier">newDescribeManagedPrefixLists</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>
 </span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#describeManagedPrefixLists_prefixListIds"><span class="hs-identifier">describeManagedPrefixLists_prefixListIds</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#describeManagedPrefixLists_nextToken"><span class="hs-identifier">describeManagedPrefixLists_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#describeManagedPrefixLists_maxResults"><span class="hs-identifier">describeManagedPrefixLists_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#describeManagedPrefixLists_filters"><span class="hs-identifier">describeManagedPrefixLists_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#describeManagedPrefixLists_prefixListIds"><span class="hs-identifier">describeManagedPrefixLists_prefixListIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#describeManagedPrefixLists_nextToken"><span class="hs-identifier">describeManagedPrefixLists_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#describeManagedPrefixLists_dryRun"><span class="hs-identifier">describeManagedPrefixLists_dryRun</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#describeManagedPrefixLists_filters"><span class="hs-identifier">describeManagedPrefixLists_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#describeManagedPrefixLists_maxResults"><span class="hs-identifier">describeManagedPrefixLists_maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>
 </span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixListsResponse"><span class="hs-identifier">DescribeManagedPrefixListsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -58,35 +58,35 @@
 </span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newDescribeManagedPrefixLists' smart constructor.</span><span>
-</span><span id="line-61"></span><span id="local-6989586621681220937"><span id="local-6989586621681220938"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeManagedPrefixLists"><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists"><span class="hs-identifier hs-var">DescribeManagedPrefixLists</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeManagedPrefixLists%27"><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists%27"><span class="hs-identifier hs-var">DescribeManagedPrefixLists'</span></a></span></span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One or more prefix list IDs.</span><span>
-</span><span id="line-63"></span><span>    </span><span id="%24sel%3AprefixListIds%3ADescribeManagedPrefixLists%27"><span class="annot"><span class="annottext">DescribeManagedPrefixLists -&gt; Maybe [Text]
+</span><span id="line-61"></span><span id="local-6989586621681256663"><span id="local-6989586621681256664"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeManagedPrefixLists"><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists"><span class="hs-identifier hs-var">DescribeManagedPrefixLists</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeManagedPrefixLists%27"><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists%27"><span class="hs-identifier hs-var">DescribeManagedPrefixLists'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One or more filters.</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- -   @owner-id@ - The ID of the prefix list owner.</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- -   @prefix-list-id@ - The ID of the prefix list.</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- -   @prefix-list-name@ - The name of the prefix list.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3Afilters%3ADescribeManagedPrefixLists%27"><span class="annot"><span class="annottext">DescribeManagedPrefixLists -&gt; Maybe [Filter]
+</span><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#%24sel%3Afilters%3ADescribeManagedPrefixLists%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | One or more prefix list IDs.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AprefixListIds%3ADescribeManagedPrefixLists%27"><span class="annot"><span class="annottext">DescribeManagedPrefixLists -&gt; Maybe [Text]
 </span><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#%24sel%3AprefixListIds%3ADescribeManagedPrefixLists%27"><span class="hs-identifier hs-var hs-var">prefixListIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The token for the next page of results.</span><span>
-</span><span id="line-65"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeManagedPrefixLists%27"><span class="annot"><span class="annottext">DescribeManagedPrefixLists -&gt; Maybe Text
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The token for the next page of results.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeManagedPrefixLists%27"><span class="annot"><span class="annottext">DescribeManagedPrefixLists -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#%24sel%3AnextToken%3ADescribeManagedPrefixLists%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return with a single call. To retrieve</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- the remaining results, make another call with the returned @nextToken@</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- value.</span><span>
-</span><span id="line-69"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeManagedPrefixLists%27"><span class="annot"><span class="annottext">DescribeManagedPrefixLists -&gt; Maybe Natural
-</span><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#%24sel%3AmaxResults%3ADescribeManagedPrefixLists%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-74"></span><span>    </span><span id="%24sel%3AdryRun%3ADescribeManagedPrefixLists%27"><span class="annot"><span class="annottext">DescribeManagedPrefixLists -&gt; Maybe Bool
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AdryRun%3ADescribeManagedPrefixLists%27"><span class="annot"><span class="annottext">DescribeManagedPrefixLists -&gt; Maybe Bool
 </span><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#%24sel%3AdryRun%3ADescribeManagedPrefixLists%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | One or more filters.</span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- -   @owner-id@ - The ID of the prefix list owner.</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- -   @prefix-list-id@ - The ID of the prefix list.</span><span>
-</span><span id="line-80"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- -   @prefix-list-name@ - The name of the prefix list.</span><span>
-</span><span id="line-82"></span><span>    </span><span id="%24sel%3Afilters%3ADescribeManagedPrefixLists%27"><span class="annot"><span class="annottext">DescribeManagedPrefixLists -&gt; Maybe [Filter]
-</span><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#%24sel%3Afilters%3ADescribeManagedPrefixLists%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return with a single call. To retrieve</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- the remaining results, make another call with the returned @nextToken@</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeManagedPrefixLists%27"><span class="annot"><span class="annottext">DescribeManagedPrefixLists -&gt; Maybe Natural
+</span><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#%24sel%3AmaxResults%3ADescribeManagedPrefixLists%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-83"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681220927"><span id="local-6989586621681220929"><span class="annot"><span class="annottext">DescribeManagedPrefixLists -&gt; DescribeManagedPrefixLists -&gt; Bool
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681256653"><span id="local-6989586621681256655"><span class="annot"><span class="annottext">DescribeManagedPrefixLists -&gt; DescribeManagedPrefixLists -&gt; Bool
 (DescribeManagedPrefixLists -&gt; DescribeManagedPrefixLists -&gt; Bool)
 -&gt; (DescribeManagedPrefixLists
     -&gt; DescribeManagedPrefixLists -&gt; Bool)
@@ -96,7 +96,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeManagedPrefixLists -&gt; DescribeManagedPrefixLists -&gt; Bool
 == :: DescribeManagedPrefixLists -&gt; DescribeManagedPrefixLists -&gt; Bool
 $c== :: DescribeManagedPrefixLists -&gt; DescribeManagedPrefixLists -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681220918"><span id="local-6989586621681220920"><span id="local-6989586621681220922"><span id="local-6989586621681220924"><span class="annot"><span class="annottext">ReadPrec [DescribeManagedPrefixLists]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681256644"><span id="local-6989586621681256646"><span id="local-6989586621681256648"><span id="local-6989586621681256650"><span class="annot"><span class="annottext">ReadPrec [DescribeManagedPrefixLists]
 ReadPrec DescribeManagedPrefixLists
 Int -&gt; ReadS DescribeManagedPrefixLists
 ReadS [DescribeManagedPrefixLists]
@@ -116,7 +116,7 @@ readList :: ReadS [DescribeManagedPrefixLists]
 $creadList :: ReadS [DescribeManagedPrefixLists]
 readsPrec :: Int -&gt; ReadS DescribeManagedPrefixLists
 $creadsPrec :: Int -&gt; ReadS DescribeManagedPrefixLists
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681220911"><span id="local-6989586621681220913"><span id="local-6989586621681220915"><span class="annot"><span class="annottext">Int -&gt; DescribeManagedPrefixLists -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681256637"><span id="local-6989586621681256639"><span id="local-6989586621681256641"><span class="annot"><span class="annottext">Int -&gt; DescribeManagedPrefixLists -&gt; ShowS
 [DescribeManagedPrefixLists] -&gt; ShowS
 DescribeManagedPrefixLists -&gt; String
 (Int -&gt; DescribeManagedPrefixLists -&gt; ShowS)
@@ -156,185 +156,69 @@ DescribeManagedPrefixLists -&gt; Rep DescribeManagedPrefixLists x
 </span><span id="line-91"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-93"></span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- 'prefixListIds', 'describeManagedPrefixLists_prefixListIds' - One or more prefix list IDs.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'filters', 'describeManagedPrefixLists_filters' - One or more filters.</span><span>
 </span><span id="line-95"></span><span class="hs-comment">--</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- 'nextToken', 'describeManagedPrefixLists_nextToken' - The token for the next page of results.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- -   @owner-id@ - The ID of the prefix list owner.</span><span>
 </span><span id="line-97"></span><span class="hs-comment">--</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- 'maxResults', 'describeManagedPrefixLists_maxResults' - The maximum number of results to return with a single call. To retrieve</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- the remaining results, make another call with the returned @nextToken@</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- -   @prefix-list-id@ - The ID of the prefix list.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- -   @prefix-list-name@ - The name of the prefix list.</span><span>
 </span><span id="line-101"></span><span class="hs-comment">--</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- 'dryRun', 'describeManagedPrefixLists_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-106"></span><span class="hs-comment">--</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- 'filters', 'describeManagedPrefixLists_filters' - One or more filters.</span><span>
-</span><span id="line-108"></span><span class="hs-comment">--</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- -   @owner-id@ - The ID of the prefix list owner.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'prefixListIds', 'describeManagedPrefixLists_prefixListIds' - One or more prefix list IDs.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'nextToken', 'describeManagedPrefixLists_nextToken' - The token for the next page of results.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'dryRun', 'describeManagedPrefixLists_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
 </span><span id="line-110"></span><span class="hs-comment">--</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- -   @prefix-list-id@ - The ID of the prefix list.</span><span>
-</span><span id="line-112"></span><span class="hs-comment">--</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- -   @prefix-list-name@ - The name of the prefix list.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'maxResults', 'describeManagedPrefixLists_maxResults' - The maximum number of results to return with a single call. To retrieve</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- the remaining results, make another call with the returned @nextToken@</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- value.</span><span>
 </span><span id="line-114"></span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#newDescribeManagedPrefixLists"><span class="hs-identifier hs-type">newDescribeManagedPrefixLists</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-115"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists"><span class="hs-identifier hs-type">DescribeManagedPrefixLists</span></a></span><span>
 </span><span id="line-116"></span><span id="newDescribeManagedPrefixLists"><span class="annot"><span class="annottext">newDescribeManagedPrefixLists :: DescribeManagedPrefixLists
 </span><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#newDescribeManagedPrefixLists"><span class="hs-identifier hs-var hs-var">newDescribeManagedPrefixLists</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-117"></span><span>  </span><span class="annot"><span class="annottext">DescribeManagedPrefixLists' :: Maybe [Text]
+</span><span id="line-117"></span><span>  </span><span class="annot"><span class="annottext">DescribeManagedPrefixLists' :: Maybe [Filter]
+-&gt; Maybe [Text]
 -&gt; Maybe Text
--&gt; Maybe Natural
 -&gt; Maybe Bool
--&gt; Maybe [Filter]
+-&gt; Maybe Natural
 -&gt; DescribeManagedPrefixLists
 </span><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists%27"><span class="hs-identifier hs-type">DescribeManagedPrefixLists'</span></a></span><span>
-</span><span id="line-118"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:prefixListIds:DescribeManagedPrefixLists' :: Maybe [Text]
-</span><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#%24sel%3AprefixListIds%3ADescribeManagedPrefixLists%27"><span class="hs-identifier hs-var">prefixListIds</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-118"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:filters:DescribeManagedPrefixLists' :: Maybe [Filter]
+</span><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#%24sel%3Afilters%3ADescribeManagedPrefixLists%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Filter]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeManagedPrefixLists' :: Maybe Text
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:prefixListIds:DescribeManagedPrefixLists' :: Maybe [Text]
+</span><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#%24sel%3AprefixListIds%3ADescribeManagedPrefixLists%27"><span class="hs-identifier hs-var">prefixListIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeManagedPrefixLists' :: Maybe Text
 </span><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#%24sel%3AnextToken%3ADescribeManagedPrefixLists%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:DescribeManagedPrefixLists' :: Maybe Natural
-</span><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#%24sel%3AmaxResults%3ADescribeManagedPrefixLists%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:dryRun:DescribeManagedPrefixLists' :: Maybe Bool
 </span><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#%24sel%3AdryRun%3ADescribeManagedPrefixLists%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:filters:DescribeManagedPrefixLists' :: Maybe [Filter]
-</span><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#%24sel%3Afilters%3ADescribeManagedPrefixLists%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:DescribeManagedPrefixLists' :: Maybe Natural
+</span><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#%24sel%3AmaxResults%3ADescribeManagedPrefixLists%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-124"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- | One or more prefix list IDs.</span><span>
-</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#describeManagedPrefixLists_prefixListIds"><span class="hs-identifier hs-type">describeManagedPrefixLists_prefixListIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists"><span class="hs-identifier hs-type">DescribeManagedPrefixLists</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span id="describeManagedPrefixLists_prefixListIds"><span class="annot"><span class="annottext">describeManagedPrefixLists_prefixListIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; DescribeManagedPrefixLists -&gt; f DescribeManagedPrefixLists
-</span><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#describeManagedPrefixLists_prefixListIds"><span class="hs-identifier hs-var hs-var">describeManagedPrefixLists_prefixListIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeManagedPrefixLists -&gt; Maybe [Text])
--&gt; (DescribeManagedPrefixLists
-    -&gt; Maybe [Text] -&gt; DescribeManagedPrefixLists)
--&gt; Lens
-     DescribeManagedPrefixLists
-     DescribeManagedPrefixLists
-     (Maybe [Text])
-     (Maybe [Text])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists%27"><span class="hs-identifier hs-type">DescribeManagedPrefixLists'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681220905"><span class="annot"><span class="annottext">Maybe [Text]
-prefixListIds :: Maybe [Text]
-$sel:prefixListIds:DescribeManagedPrefixLists' :: DescribeManagedPrefixLists -&gt; Maybe [Text]
-</span><a href="#local-6989586621681220905"><span class="hs-identifier hs-var hs-var">prefixListIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681220905"><span class="hs-identifier hs-var">prefixListIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681220904"><span class="annot"><span class="annottext">s :: DescribeManagedPrefixLists
-</span><a href="#local-6989586621681220904"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists%27"><span class="hs-identifier hs-type">DescribeManagedPrefixLists'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681220903"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681220903"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeManagedPrefixLists
-</span><a href="#local-6989586621681220904"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prefixListIds:DescribeManagedPrefixLists' :: Maybe [Text]
-</span><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#%24sel%3AprefixListIds%3ADescribeManagedPrefixLists%27"><span class="hs-identifier hs-var">prefixListIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681220903"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists"><span class="hs-identifier hs-type">DescribeManagedPrefixLists</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
- -&gt; DescribeManagedPrefixLists -&gt; f DescribeManagedPrefixLists)
--&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
-    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; DescribeManagedPrefixLists
--&gt; f DescribeManagedPrefixLists
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
--&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- | The token for the next page of results.</span><span>
-</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#describeManagedPrefixLists_nextToken"><span class="hs-identifier hs-type">describeManagedPrefixLists_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists"><span class="hs-identifier hs-type">DescribeManagedPrefixLists</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span id="describeManagedPrefixLists_nextToken"><span class="annot"><span class="annottext">describeManagedPrefixLists_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribeManagedPrefixLists -&gt; f DescribeManagedPrefixLists
-</span><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#describeManagedPrefixLists_nextToken"><span class="hs-identifier hs-var hs-var">describeManagedPrefixLists_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeManagedPrefixLists -&gt; Maybe Text)
--&gt; (DescribeManagedPrefixLists
-    -&gt; Maybe Text -&gt; DescribeManagedPrefixLists)
--&gt; Lens
-     DescribeManagedPrefixLists
-     DescribeManagedPrefixLists
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists%27"><span class="hs-identifier hs-type">DescribeManagedPrefixLists'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681220899"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:DescribeManagedPrefixLists' :: DescribeManagedPrefixLists -&gt; Maybe Text
-</span><a href="#local-6989586621681220899"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681220899"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681220898"><span class="annot"><span class="annottext">s :: DescribeManagedPrefixLists
-</span><a href="#local-6989586621681220898"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists%27"><span class="hs-identifier hs-type">DescribeManagedPrefixLists'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681220897"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681220897"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeManagedPrefixLists
-</span><a href="#local-6989586621681220898"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeManagedPrefixLists' :: Maybe Text
-</span><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#%24sel%3AnextToken%3ADescribeManagedPrefixLists%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681220897"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists"><span class="hs-identifier hs-type">DescribeManagedPrefixLists</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- | The maximum number of results to return with a single call. To retrieve</span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- the remaining results, make another call with the returned @nextToken@</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- value.</span><span>
-</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#describeManagedPrefixLists_maxResults"><span class="hs-identifier hs-type">describeManagedPrefixLists_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists"><span class="hs-identifier hs-type">DescribeManagedPrefixLists</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-138"></span><span id="describeManagedPrefixLists_maxResults"><span class="annot"><span class="annottext">describeManagedPrefixLists_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; DescribeManagedPrefixLists -&gt; f DescribeManagedPrefixLists
-</span><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#describeManagedPrefixLists_maxResults"><span class="hs-identifier hs-var hs-var">describeManagedPrefixLists_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeManagedPrefixLists -&gt; Maybe Natural)
--&gt; (DescribeManagedPrefixLists
-    -&gt; Maybe Natural -&gt; DescribeManagedPrefixLists)
--&gt; Lens
-     DescribeManagedPrefixLists
-     DescribeManagedPrefixLists
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists%27"><span class="hs-identifier hs-type">DescribeManagedPrefixLists'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681220896"><span class="annot"><span class="annottext">Maybe Natural
-maxResults :: Maybe Natural
-$sel:maxResults:DescribeManagedPrefixLists' :: DescribeManagedPrefixLists -&gt; Maybe Natural
-</span><a href="#local-6989586621681220896"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621681220896"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681220895"><span class="annot"><span class="annottext">s :: DescribeManagedPrefixLists
-</span><a href="#local-6989586621681220895"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists%27"><span class="hs-identifier hs-type">DescribeManagedPrefixLists'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681220894"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621681220894"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeManagedPrefixLists
-</span><a href="#local-6989586621681220895"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeManagedPrefixLists' :: Maybe Natural
-</span><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#%24sel%3AmaxResults%3ADescribeManagedPrefixLists%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621681220894"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists"><span class="hs-identifier hs-type">DescribeManagedPrefixLists</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#describeManagedPrefixLists_dryRun"><span class="hs-identifier hs-type">describeManagedPrefixLists_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists"><span class="hs-identifier hs-type">DescribeManagedPrefixLists</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-145"></span><span id="describeManagedPrefixLists_dryRun"><span class="annot"><span class="annottext">describeManagedPrefixLists_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; DescribeManagedPrefixLists -&gt; f DescribeManagedPrefixLists
-</span><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#describeManagedPrefixLists_dryRun"><span class="hs-identifier hs-var hs-var">describeManagedPrefixLists_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeManagedPrefixLists -&gt; Maybe Bool)
--&gt; (DescribeManagedPrefixLists
-    -&gt; Maybe Bool -&gt; DescribeManagedPrefixLists)
--&gt; Lens
-     DescribeManagedPrefixLists
-     DescribeManagedPrefixLists
-     (Maybe Bool)
-     (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists%27"><span class="hs-identifier hs-type">DescribeManagedPrefixLists'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681220893"><span class="annot"><span class="annottext">Maybe Bool
-dryRun :: Maybe Bool
-$sel:dryRun:DescribeManagedPrefixLists' :: DescribeManagedPrefixLists -&gt; Maybe Bool
-</span><a href="#local-6989586621681220893"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681220893"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681220892"><span class="annot"><span class="annottext">s :: DescribeManagedPrefixLists
-</span><a href="#local-6989586621681220892"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists%27"><span class="hs-identifier hs-type">DescribeManagedPrefixLists'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681220891"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681220891"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeManagedPrefixLists
-</span><a href="#local-6989586621681220892"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DescribeManagedPrefixLists' :: Maybe Bool
-</span><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#%24sel%3AdryRun%3ADescribeManagedPrefixLists%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681220891"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists"><span class="hs-identifier hs-type">DescribeManagedPrefixLists</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- | One or more filters.</span><span>
-</span><span id="line-148"></span><span class="hs-comment">--</span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- -   @owner-id@ - The ID of the prefix list owner.</span><span>
-</span><span id="line-150"></span><span class="hs-comment">--</span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- -   @prefix-list-id@ - The ID of the prefix list.</span><span>
-</span><span id="line-152"></span><span class="hs-comment">--</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- -   @prefix-list-name@ - The name of the prefix list.</span><span>
-</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#describeManagedPrefixLists_filters"><span class="hs-identifier hs-type">describeManagedPrefixLists_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists"><span class="hs-identifier hs-type">DescribeManagedPrefixLists</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-155"></span><span id="describeManagedPrefixLists_filters"><span class="annot"><span class="annottext">describeManagedPrefixLists_filters :: (Maybe [Filter] -&gt; f (Maybe [Filter]))
+</span><span id="line-126"></span><span class="hs-comment">-- | One or more filters.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- -   @owner-id@ - The ID of the prefix list owner.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- -   @prefix-list-id@ - The ID of the prefix list.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- -   @prefix-list-name@ - The name of the prefix list.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#describeManagedPrefixLists_filters"><span class="hs-identifier hs-type">describeManagedPrefixLists_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists"><span class="hs-identifier hs-type">DescribeManagedPrefixLists</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="describeManagedPrefixLists_filters"><span class="annot"><span class="annottext">describeManagedPrefixLists_filters :: (Maybe [Filter] -&gt; f (Maybe [Filter]))
 -&gt; DescribeManagedPrefixLists -&gt; f DescribeManagedPrefixLists
 </span><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#describeManagedPrefixLists_filters"><span class="hs-identifier hs-var hs-var">describeManagedPrefixLists_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeManagedPrefixLists -&gt; Maybe [Filter])
 -&gt; (DescribeManagedPrefixLists
@@ -345,16 +229,16 @@ $sel:dryRun:DescribeManagedPrefixLists' :: DescribeManagedPrefixLists -&gt; Mayb
      (Maybe [Filter])
      (Maybe [Filter])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists%27"><span class="hs-identifier hs-type">DescribeManagedPrefixLists'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681220890"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists%27"><span class="hs-identifier hs-type">DescribeManagedPrefixLists'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681256631"><span class="annot"><span class="annottext">Maybe [Filter]
 filters :: Maybe [Filter]
 $sel:filters:DescribeManagedPrefixLists' :: DescribeManagedPrefixLists -&gt; Maybe [Filter]
-</span><a href="#local-6989586621681220890"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681220890"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681220889"><span class="annot"><span class="annottext">s :: DescribeManagedPrefixLists
-</span><a href="#local-6989586621681220889"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists%27"><span class="hs-identifier hs-type">DescribeManagedPrefixLists'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681220888"><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681220888"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeManagedPrefixLists
-</span><a href="#local-6989586621681220889"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeManagedPrefixLists' :: Maybe [Filter]
+</span><a href="#local-6989586621681256631"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681256631"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681256630"><span class="annot"><span class="annottext">s :: DescribeManagedPrefixLists
+</span><a href="#local-6989586621681256630"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists%27"><span class="hs-identifier hs-type">DescribeManagedPrefixLists'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681256629"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681256629"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeManagedPrefixLists
+</span><a href="#local-6989586621681256630"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeManagedPrefixLists' :: Maybe [Filter]
 </span><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#%24sel%3Afilters%3ADescribeManagedPrefixLists%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681220888"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists"><span class="hs-identifier hs-type">DescribeManagedPrefixLists</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
+</span><a href="#local-6989586621681256629"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists"><span class="hs-identifier hs-type">DescribeManagedPrefixLists</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
  -&gt; DescribeManagedPrefixLists -&gt; f DescribeManagedPrefixLists)
 -&gt; ((Maybe [Filter] -&gt; f (Maybe [Filter]))
     -&gt; Maybe [Filter] -&gt; f (Maybe [Filter]))
@@ -369,22 +253,138 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Filter] [Filter] [Filter] [Filter]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | One or more prefix list IDs.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#describeManagedPrefixLists_prefixListIds"><span class="hs-identifier hs-type">describeManagedPrefixLists_prefixListIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists"><span class="hs-identifier hs-type">DescribeManagedPrefixLists</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="describeManagedPrefixLists_prefixListIds"><span class="annot"><span class="annottext">describeManagedPrefixLists_prefixListIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeManagedPrefixLists -&gt; f DescribeManagedPrefixLists
+</span><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#describeManagedPrefixLists_prefixListIds"><span class="hs-identifier hs-var hs-var">describeManagedPrefixLists_prefixListIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeManagedPrefixLists -&gt; Maybe [Text])
+-&gt; (DescribeManagedPrefixLists
+    -&gt; Maybe [Text] -&gt; DescribeManagedPrefixLists)
+-&gt; Lens
+     DescribeManagedPrefixLists
+     DescribeManagedPrefixLists
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists%27"><span class="hs-identifier hs-type">DescribeManagedPrefixLists'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681256625"><span class="annot"><span class="annottext">Maybe [Text]
+prefixListIds :: Maybe [Text]
+$sel:prefixListIds:DescribeManagedPrefixLists' :: DescribeManagedPrefixLists -&gt; Maybe [Text]
+</span><a href="#local-6989586621681256625"><span class="hs-identifier hs-var hs-var">prefixListIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681256625"><span class="hs-identifier hs-var">prefixListIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681256624"><span class="annot"><span class="annottext">s :: DescribeManagedPrefixLists
+</span><a href="#local-6989586621681256624"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists%27"><span class="hs-identifier hs-type">DescribeManagedPrefixLists'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681256623"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681256623"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeManagedPrefixLists
+</span><a href="#local-6989586621681256624"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prefixListIds:DescribeManagedPrefixLists' :: Maybe [Text]
+</span><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#%24sel%3AprefixListIds%3ADescribeManagedPrefixLists%27"><span class="hs-identifier hs-var">prefixListIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681256623"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists"><span class="hs-identifier hs-type">DescribeManagedPrefixLists</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; DescribeManagedPrefixLists -&gt; f DescribeManagedPrefixLists)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeManagedPrefixLists
+-&gt; f DescribeManagedPrefixLists
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | The token for the next page of results.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#describeManagedPrefixLists_nextToken"><span class="hs-identifier hs-type">describeManagedPrefixLists_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists"><span class="hs-identifier hs-type">DescribeManagedPrefixLists</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="describeManagedPrefixLists_nextToken"><span class="annot"><span class="annottext">describeManagedPrefixLists_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeManagedPrefixLists -&gt; f DescribeManagedPrefixLists
+</span><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#describeManagedPrefixLists_nextToken"><span class="hs-identifier hs-var hs-var">describeManagedPrefixLists_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeManagedPrefixLists -&gt; Maybe Text)
+-&gt; (DescribeManagedPrefixLists
+    -&gt; Maybe Text -&gt; DescribeManagedPrefixLists)
+-&gt; Lens
+     DescribeManagedPrefixLists
+     DescribeManagedPrefixLists
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists%27"><span class="hs-identifier hs-type">DescribeManagedPrefixLists'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681256622"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeManagedPrefixLists' :: DescribeManagedPrefixLists -&gt; Maybe Text
+</span><a href="#local-6989586621681256622"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681256622"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681256621"><span class="annot"><span class="annottext">s :: DescribeManagedPrefixLists
+</span><a href="#local-6989586621681256621"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists%27"><span class="hs-identifier hs-type">DescribeManagedPrefixLists'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681256620"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681256620"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeManagedPrefixLists
+</span><a href="#local-6989586621681256621"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeManagedPrefixLists' :: Maybe Text
+</span><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#%24sel%3AnextToken%3ADescribeManagedPrefixLists%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681256620"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists"><span class="hs-identifier hs-type">DescribeManagedPrefixLists</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#describeManagedPrefixLists_dryRun"><span class="hs-identifier hs-type">describeManagedPrefixLists_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists"><span class="hs-identifier hs-type">DescribeManagedPrefixLists</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="describeManagedPrefixLists_dryRun"><span class="annot"><span class="annottext">describeManagedPrefixLists_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DescribeManagedPrefixLists -&gt; f DescribeManagedPrefixLists
+</span><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#describeManagedPrefixLists_dryRun"><span class="hs-identifier hs-var hs-var">describeManagedPrefixLists_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeManagedPrefixLists -&gt; Maybe Bool)
+-&gt; (DescribeManagedPrefixLists
+    -&gt; Maybe Bool -&gt; DescribeManagedPrefixLists)
+-&gt; Lens
+     DescribeManagedPrefixLists
+     DescribeManagedPrefixLists
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists%27"><span class="hs-identifier hs-type">DescribeManagedPrefixLists'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681256619"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:DescribeManagedPrefixLists' :: DescribeManagedPrefixLists -&gt; Maybe Bool
+</span><a href="#local-6989586621681256619"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681256619"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681256618"><span class="annot"><span class="annottext">s :: DescribeManagedPrefixLists
+</span><a href="#local-6989586621681256618"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists%27"><span class="hs-identifier hs-type">DescribeManagedPrefixLists'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681256617"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681256617"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeManagedPrefixLists
+</span><a href="#local-6989586621681256618"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DescribeManagedPrefixLists' :: Maybe Bool
+</span><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#%24sel%3AdryRun%3ADescribeManagedPrefixLists%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681256617"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists"><span class="hs-identifier hs-type">DescribeManagedPrefixLists</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | The maximum number of results to return with a single call. To retrieve</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- the remaining results, make another call with the returned @nextToken@</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#describeManagedPrefixLists_maxResults"><span class="hs-identifier hs-type">describeManagedPrefixLists_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists"><span class="hs-identifier hs-type">DescribeManagedPrefixLists</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="describeManagedPrefixLists_maxResults"><span class="annot"><span class="annottext">describeManagedPrefixLists_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DescribeManagedPrefixLists -&gt; f DescribeManagedPrefixLists
+</span><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#describeManagedPrefixLists_maxResults"><span class="hs-identifier hs-var hs-var">describeManagedPrefixLists_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeManagedPrefixLists -&gt; Maybe Natural)
+-&gt; (DescribeManagedPrefixLists
+    -&gt; Maybe Natural -&gt; DescribeManagedPrefixLists)
+-&gt; Lens
+     DescribeManagedPrefixLists
+     DescribeManagedPrefixLists
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists%27"><span class="hs-identifier hs-type">DescribeManagedPrefixLists'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681256616"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:DescribeManagedPrefixLists' :: DescribeManagedPrefixLists -&gt; Maybe Natural
+</span><a href="#local-6989586621681256616"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681256616"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681256615"><span class="annot"><span class="annottext">s :: DescribeManagedPrefixLists
+</span><a href="#local-6989586621681256615"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists%27"><span class="hs-identifier hs-type">DescribeManagedPrefixLists'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681256614"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681256614"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeManagedPrefixLists
+</span><a href="#local-6989586621681256615"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeManagedPrefixLists' :: Maybe Natural
+</span><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#%24sel%3AmaxResults%3ADescribeManagedPrefixLists%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681256614"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists"><span class="hs-identifier hs-type">DescribeManagedPrefixLists</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists"><span class="hs-identifier hs-type">DescribeManagedPrefixLists</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621681220884"><span class="annot"><span class="annottext">page :: DescribeManagedPrefixLists
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621681256610"><span class="annot"><span class="annottext">page :: DescribeManagedPrefixLists
 -&gt; AWSResponse DescribeManagedPrefixLists
 -&gt; Maybe DescribeManagedPrefixLists
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621681220882"><span class="annot"><span class="annottext">DescribeManagedPrefixLists
-</span><a href="#local-6989586621681220882"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621681220881"><span class="annot"><span class="annottext">AWSResponse DescribeManagedPrefixLists
-</span><a href="#local-6989586621681220881"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621681256608"><span class="annot"><span class="annottext">DescribeManagedPrefixLists
+</span><a href="#local-6989586621681256608"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621681256607"><span class="annot"><span class="annottext">AWSResponse DescribeManagedPrefixLists
+</span><a href="#local-6989586621681256607"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-159"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-160"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeManagedPrefixLists
 DescribeManagedPrefixListsResponse
-</span><a href="#local-6989586621681220881"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621681256607"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">DescribeManagedPrefixListsResponse
 -&gt; Getting (First Text) DescribeManagedPrefixListsResponse Text
 -&gt; Maybe Text
@@ -414,7 +414,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-166"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeManagedPrefixLists
 DescribeManagedPrefixListsResponse
-</span><a href="#local-6989586621681220881"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621681256607"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">DescribeManagedPrefixListsResponse
 -&gt; Getting
      (First [ManagedPrefixList])
@@ -463,7 +463,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">DescribeManagedPrefixLists
-</span><a href="#local-6989586621681220882"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621681256608"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-174"></span><span>          </span><span class="annot"><span class="annottext">DescribeManagedPrefixLists
 -&gt; (DescribeManagedPrefixLists -&gt; DescribeManagedPrefixLists)
 -&gt; DescribeManagedPrefixLists
@@ -486,7 +486,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeManagedPrefixLists
 DescribeManagedPrefixListsResponse
-</span><a href="#local-6989586621681220881"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621681256607"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-176"></span><span>          </span><span class="annot"><span class="annottext">DescribeManagedPrefixListsResponse
 -&gt; Getting (First Text) DescribeManagedPrefixListsResponse Text
 -&gt; Maybe Text
@@ -512,13 +512,13 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-180"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-181"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists"><span class="hs-identifier hs-type">DescribeManagedPrefixLists</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-182"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixListsResponse"><span class="hs-identifier hs-type">DescribeManagedPrefixListsResponse</span></a></span><span>
-</span><span id="line-183"></span><span>  </span><span id="local-6989586621681220872"><span class="annot"><span class="annottext">request :: DescribeManagedPrefixLists -&gt; Request DescribeManagedPrefixLists
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621681256598"><span class="annot"><span class="annottext">request :: DescribeManagedPrefixLists -&gt; Request DescribeManagedPrefixLists
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeManagedPrefixLists -&gt; Request DescribeManagedPrefixLists
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-184"></span><span>  </span><span id="local-6989586621681220868"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621681256594"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeManagedPrefixLists
 -&gt; ClientResponse ClientBody
@@ -544,10 +544,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-186"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681220865"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681220865"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681220864"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621681220864"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681220863"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681220863"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681256591"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681256591"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681256590"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681256590"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681256589"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681256589"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-187"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [ManagedPrefixList]
 -&gt; Int
@@ -564,7 +564,7 @@ MonadResource m =&gt;
       -&gt; Int -&gt; DescribeManagedPrefixListsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681220863"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681256589"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -576,7 +576,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; DescribeManagedPrefixListsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681220863"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681256589"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;prefixListSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -607,15 +607,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681220865"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681256591"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-194"></span><span>
-</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681220852"><span id="local-6989586621681220854"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists"><span class="hs-identifier hs-type">DescribeManagedPrefixLists</span></a></span></span></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681256578"><span id="local-6989586621681256580"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists"><span class="hs-identifier hs-type">DescribeManagedPrefixLists</span></a></span></span></span><span>
 </span><span id="line-196"></span><span>
-</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681220849"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists"><span class="hs-identifier hs-type">DescribeManagedPrefixLists</span></a></span></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681256575"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists"><span class="hs-identifier hs-type">DescribeManagedPrefixLists</span></a></span></span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists"><span class="hs-identifier hs-type">DescribeManagedPrefixLists</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-200"></span><span>  </span><span id="local-6989586621681220845"><span class="annot"><span class="annottext">toHeaders :: DescribeManagedPrefixLists -&gt; ResponseHeaders
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621681256571"><span class="annot"><span class="annottext">toHeaders :: DescribeManagedPrefixLists -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeManagedPrefixLists -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -623,30 +623,30 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-201"></span><span>
 </span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists"><span class="hs-identifier hs-type">DescribeManagedPrefixLists</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-203"></span><span>  </span><span id="local-6989586621681220840"><span class="annot"><span class="annottext">toPath :: DescribeManagedPrefixLists -&gt; ByteString
+</span><span id="line-203"></span><span>  </span><span id="local-6989586621681256566"><span class="annot"><span class="annottext">toPath :: DescribeManagedPrefixLists -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeManagedPrefixLists -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-204"></span><span>
 </span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists"><span class="hs-identifier hs-type">DescribeManagedPrefixLists</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-206"></span><span>  </span><span id="local-6989586621681220836"><span class="annot"><span class="annottext">toQuery :: DescribeManagedPrefixLists -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists%27"><span class="hs-identifier hs-type">DescribeManagedPrefixLists'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681220830"><span id="local-6989586621681220831"><span id="local-6989586621681220832"><span id="local-6989586621681220833"><span id="local-6989586621681220834"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-206"></span><span>  </span><span id="local-6989586621681256562"><span class="annot"><span class="annottext">toQuery :: DescribeManagedPrefixLists -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixLists%27"><span class="hs-identifier hs-type">DescribeManagedPrefixLists'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681256556"><span id="local-6989586621681256557"><span id="local-6989586621681256558"><span id="local-6989586621681256559"><span id="local-6989586621681256560"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Natural
 Maybe [Text]
 Maybe [Filter]
 Maybe Text
-filters :: Maybe [Filter]
-dryRun :: Maybe Bool
 maxResults :: Maybe Natural
+dryRun :: Maybe Bool
 nextToken :: Maybe Text
 prefixListIds :: Maybe [Text]
-$sel:filters:DescribeManagedPrefixLists' :: DescribeManagedPrefixLists -&gt; Maybe [Filter]
-$sel:dryRun:DescribeManagedPrefixLists' :: DescribeManagedPrefixLists -&gt; Maybe Bool
+filters :: Maybe [Filter]
 $sel:maxResults:DescribeManagedPrefixLists' :: DescribeManagedPrefixLists -&gt; Maybe Natural
+$sel:dryRun:DescribeManagedPrefixLists' :: DescribeManagedPrefixLists -&gt; Maybe Bool
 $sel:nextToken:DescribeManagedPrefixLists' :: DescribeManagedPrefixLists -&gt; Maybe Text
 $sel:prefixListIds:DescribeManagedPrefixLists' :: DescribeManagedPrefixLists -&gt; Maybe [Text]
-</span><a href="#local-6989586621681220830"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:filters:DescribeManagedPrefixLists' :: DescribeManagedPrefixLists -&gt; Maybe [Filter]
+</span><a href="#local-6989586621681256556"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-207"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -665,36 +665,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-212"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
-</span><span id="line-213"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
-forall a.
-(IsList a, ToQuery (Item a)) =&gt;
-ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;PrefixListId&quot;</span></span><span>
-</span><span id="line-214"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681220834"><span class="hs-identifier hs-var">prefixListIds</span></a></span><span>
-</span><span id="line-215"></span><span>          </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-216"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681220833"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-217"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621681220832"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-218"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681220831"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-219"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
-forall a. ToQuery a =&gt; a -&gt; QueryString
-</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
-</span><span id="line-220"></span><span>          </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Filter] -&gt; QueryString
+</span><span id="line-213"></span><span>          </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Filter] -&gt; QueryString
 forall a.
 (IsList a, ToQuery (Item a)) =&gt;
 ByteString -&gt; a -&gt; QueryString
@@ -702,11 +673,40 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;Filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Filter] -&gt; QueryString) -&gt; Maybe [Filter] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681220830"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681256560"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-215"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;PrefixListId&quot;</span></span><span>
+</span><span id="line-216"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681256559"><span class="hs-identifier hs-var">prefixListIds</span></a></span><span>
+</span><span id="line-217"></span><span>          </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681256558"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681256557"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681256556"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-221"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-222"></span><span>
 </span><span id="line-223"></span><span class="hs-comment">-- | /See:/ 'newDescribeManagedPrefixListsResponse' smart constructor.</span><span>
-</span><span id="line-224"></span><span id="local-6989586621681220826"><span id="local-6989586621681220827"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeManagedPrefixListsResponse"><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixListsResponse"><span class="hs-identifier hs-var">DescribeManagedPrefixListsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeManagedPrefixListsResponse%27"><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixListsResponse%27"><span class="hs-identifier hs-var">DescribeManagedPrefixListsResponse'</span></a></span></span><span>
+</span><span id="line-224"></span><span id="local-6989586621681256552"><span id="local-6989586621681256553"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeManagedPrefixListsResponse"><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixListsResponse"><span class="hs-identifier hs-var">DescribeManagedPrefixListsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeManagedPrefixListsResponse%27"><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixListsResponse%27"><span class="hs-identifier hs-var">DescribeManagedPrefixListsResponse'</span></a></span></span><span>
 </span><span id="line-225"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to use to retrieve the next page of results. This value is</span><span>
 </span><span id="line-226"></span><span>    </span><span class="hs-comment">-- @null@ when there are no more results to return.</span><span>
 </span><span id="line-227"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeManagedPrefixListsResponse%27"><span class="annot"><span class="annottext">DescribeManagedPrefixListsResponse -&gt; Maybe Text
@@ -718,7 +718,7 @@ forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span id="line-231"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeManagedPrefixListsResponse%27"><span class="annot"><span class="annottext">DescribeManagedPrefixListsResponse -&gt; Int
 </span><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#%24sel%3AhttpStatus%3ADescribeManagedPrefixListsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-232"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-233"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681220819"><span id="local-6989586621681220821"><span class="annot"><span class="annottext">DescribeManagedPrefixListsResponse
+</span><span id="line-233"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681256545"><span id="local-6989586621681256547"><span class="annot"><span class="annottext">DescribeManagedPrefixListsResponse
 -&gt; DescribeManagedPrefixListsResponse -&gt; Bool
 (DescribeManagedPrefixListsResponse
  -&gt; DescribeManagedPrefixListsResponse -&gt; Bool)
@@ -734,7 +734,7 @@ $c/= :: DescribeManagedPrefixListsResponse
 -&gt; DescribeManagedPrefixListsResponse -&gt; Bool
 $c== :: DescribeManagedPrefixListsResponse
 -&gt; DescribeManagedPrefixListsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681220811"><span id="local-6989586621681220813"><span id="local-6989586621681220815"><span id="local-6989586621681220817"><span class="annot"><span class="annottext">ReadPrec [DescribeManagedPrefixListsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681256537"><span id="local-6989586621681256539"><span id="local-6989586621681256541"><span id="local-6989586621681256543"><span class="annot"><span class="annottext">ReadPrec [DescribeManagedPrefixListsResponse]
 ReadPrec DescribeManagedPrefixListsResponse
 Int -&gt; ReadS DescribeManagedPrefixListsResponse
 ReadS [DescribeManagedPrefixListsResponse]
@@ -754,7 +754,7 @@ readList :: ReadS [DescribeManagedPrefixListsResponse]
 $creadList :: ReadS [DescribeManagedPrefixListsResponse]
 readsPrec :: Int -&gt; ReadS DescribeManagedPrefixListsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeManagedPrefixListsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681220805"><span id="local-6989586621681220807"><span id="local-6989586621681220809"><span class="annot"><span class="annottext">Int -&gt; DescribeManagedPrefixListsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681256531"><span id="local-6989586621681256533"><span id="local-6989586621681256535"><span class="annot"><span class="annottext">Int -&gt; DescribeManagedPrefixListsResponse -&gt; ShowS
 [DescribeManagedPrefixListsResponse] -&gt; ShowS
 DescribeManagedPrefixListsResponse -&gt; String
 (Int -&gt; DescribeManagedPrefixListsResponse -&gt; ShowS)
@@ -811,8 +811,8 @@ DescribeManagedPrefixListsResponse
 </span><span id="line-251"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-252"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixListsResponse"><span class="hs-identifier hs-type">DescribeManagedPrefixListsResponse</span></a></span><span>
 </span><span id="line-253"></span><span id="newDescribeManagedPrefixListsResponse"><span class="annot"><span class="annottext">newDescribeManagedPrefixListsResponse :: Int -&gt; DescribeManagedPrefixListsResponse
-</span><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#newDescribeManagedPrefixListsResponse"><span class="hs-identifier hs-var hs-var">newDescribeManagedPrefixListsResponse</span></a></span></span><span> </span><span id="local-6989586621681220802"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681220802"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#newDescribeManagedPrefixListsResponse"><span class="hs-identifier hs-var hs-var">newDescribeManagedPrefixListsResponse</span></a></span></span><span> </span><span id="local-6989586621681256528"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681256528"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-254"></span><span>  </span><span class="annot"><span class="annottext">DescribeManagedPrefixListsResponse' :: Maybe Text
 -&gt; Maybe [ManagedPrefixList]
 -&gt; Int
@@ -829,7 +829,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-258"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeManagedPrefixListsResponse' :: Int
 </span><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#%24sel%3AhttpStatus%3ADescribeManagedPrefixListsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681220802"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621681256528"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-259"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-260"></span><span>
 </span><span id="line-261"></span><span class="hs-comment">-- | The token to use to retrieve the next page of results. This value is</span><span>
@@ -843,16 +843,16 @@ forall a. Maybe a
     -&gt; Maybe Text -&gt; DescribeManagedPrefixListsResponse)
 -&gt; Lens' DescribeManagedPrefixListsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixListsResponse%27"><span class="hs-identifier hs-type">DescribeManagedPrefixListsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681220801"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixListsResponse%27"><span class="hs-identifier hs-type">DescribeManagedPrefixListsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681256527"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeManagedPrefixListsResponse' :: DescribeManagedPrefixListsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621681220801"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681220801"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681220800"><span class="annot"><span class="annottext">s :: DescribeManagedPrefixListsResponse
-</span><a href="#local-6989586621681220800"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixListsResponse%27"><span class="hs-identifier hs-type">DescribeManagedPrefixListsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681220799"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681220799"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeManagedPrefixListsResponse
-</span><a href="#local-6989586621681220800"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeManagedPrefixListsResponse' :: Maybe Text
+</span><a href="#local-6989586621681256527"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681256527"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681256526"><span class="annot"><span class="annottext">s :: DescribeManagedPrefixListsResponse
+</span><a href="#local-6989586621681256526"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixListsResponse%27"><span class="hs-identifier hs-type">DescribeManagedPrefixListsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681256525"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681256525"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeManagedPrefixListsResponse
+</span><a href="#local-6989586621681256526"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeManagedPrefixListsResponse' :: Maybe Text
 </span><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#%24sel%3AnextToken%3ADescribeManagedPrefixListsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681220799"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixListsResponse"><span class="hs-identifier hs-type">DescribeManagedPrefixListsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681256525"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixListsResponse"><span class="hs-identifier hs-type">DescribeManagedPrefixListsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-265"></span><span>
 </span><span id="line-266"></span><span class="hs-comment">-- | Information about the prefix lists.</span><span>
 </span><span id="line-267"></span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#describeManagedPrefixListsResponse_prefixLists"><span class="hs-identifier hs-type">describeManagedPrefixListsResponse_prefixLists</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixListsResponse"><span class="hs-identifier hs-type">DescribeManagedPrefixListsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.ManagedPrefixList.html#ManagedPrefixList"><span class="hs-identifier hs-type">ManagedPrefixList</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -865,16 +865,16 @@ $sel:nextToken:DescribeManagedPrefixListsResponse' :: DescribeManagedPrefixLists
 -&gt; Lens'
      DescribeManagedPrefixListsResponse (Maybe [ManagedPrefixList])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixListsResponse%27"><span class="hs-identifier hs-type">DescribeManagedPrefixListsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681220798"><span class="annot"><span class="annottext">Maybe [ManagedPrefixList]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixListsResponse%27"><span class="hs-identifier hs-type">DescribeManagedPrefixListsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681256524"><span class="annot"><span class="annottext">Maybe [ManagedPrefixList]
 prefixLists :: Maybe [ManagedPrefixList]
 $sel:prefixLists:DescribeManagedPrefixListsResponse' :: DescribeManagedPrefixListsResponse -&gt; Maybe [ManagedPrefixList]
-</span><a href="#local-6989586621681220798"><span class="hs-identifier hs-var hs-var">prefixLists</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ManagedPrefixList]
-</span><a href="#local-6989586621681220798"><span class="hs-identifier hs-var">prefixLists</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681220797"><span class="annot"><span class="annottext">s :: DescribeManagedPrefixListsResponse
-</span><a href="#local-6989586621681220797"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixListsResponse%27"><span class="hs-identifier hs-type">DescribeManagedPrefixListsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681220796"><span class="annot"><span class="annottext">Maybe [ManagedPrefixList]
-</span><a href="#local-6989586621681220796"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeManagedPrefixListsResponse
-</span><a href="#local-6989586621681220797"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prefixLists:DescribeManagedPrefixListsResponse' :: Maybe [ManagedPrefixList]
+</span><a href="#local-6989586621681256524"><span class="hs-identifier hs-var hs-var">prefixLists</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ManagedPrefixList]
+</span><a href="#local-6989586621681256524"><span class="hs-identifier hs-var">prefixLists</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681256523"><span class="annot"><span class="annottext">s :: DescribeManagedPrefixListsResponse
+</span><a href="#local-6989586621681256523"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixListsResponse%27"><span class="hs-identifier hs-type">DescribeManagedPrefixListsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681256522"><span class="annot"><span class="annottext">Maybe [ManagedPrefixList]
+</span><a href="#local-6989586621681256522"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeManagedPrefixListsResponse
+</span><a href="#local-6989586621681256523"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prefixLists:DescribeManagedPrefixListsResponse' :: Maybe [ManagedPrefixList]
 </span><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#%24sel%3AprefixLists%3ADescribeManagedPrefixListsResponse%27"><span class="hs-identifier hs-var">prefixLists</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ManagedPrefixList]
-</span><a href="#local-6989586621681220796"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixListsResponse"><span class="hs-identifier hs-type">DescribeManagedPrefixListsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ManagedPrefixList] -&gt; f (Maybe [ManagedPrefixList]))
+</span><a href="#local-6989586621681256522"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixListsResponse"><span class="hs-identifier hs-type">DescribeManagedPrefixListsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ManagedPrefixList] -&gt; f (Maybe [ManagedPrefixList]))
  -&gt; DescribeManagedPrefixListsResponse
  -&gt; f DescribeManagedPrefixListsResponse)
 -&gt; ((Maybe [ManagedPrefixList] -&gt; f (Maybe [ManagedPrefixList]))
@@ -901,8 +901,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [ManagedPrefixList]
   [ManagedPrefixList]
   [ManagedPrefixList]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-269"></span><span>
 </span><span id="line-270"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-271"></span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#describeManagedPrefixListsResponse_httpStatus"><span class="hs-identifier hs-type">describeManagedPrefixListsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixListsResponse"><span class="hs-identifier hs-type">DescribeManagedPrefixListsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -918,18 +918,18 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixListsResponse%27"><span class="hs-identifier hs-type">DescribeManagedPrefixListsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681220795"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixListsResponse%27"><span class="hs-identifier hs-type">DescribeManagedPrefixListsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681256521"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeManagedPrefixListsResponse' :: DescribeManagedPrefixListsResponse -&gt; Int
-</span><a href="#local-6989586621681220795"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681220795"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681220794"><span class="annot"><span class="annottext">s :: DescribeManagedPrefixListsResponse
-</span><a href="#local-6989586621681220794"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixListsResponse%27"><span class="hs-identifier hs-type">DescribeManagedPrefixListsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681220793"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681220793"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeManagedPrefixListsResponse
-</span><a href="#local-6989586621681220794"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeManagedPrefixListsResponse' :: Int
+</span><a href="#local-6989586621681256521"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681256521"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681256520"><span class="annot"><span class="annottext">s :: DescribeManagedPrefixListsResponse
+</span><a href="#local-6989586621681256520"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixListsResponse%27"><span class="hs-identifier hs-type">DescribeManagedPrefixListsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681256519"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681256519"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeManagedPrefixListsResponse
+</span><a href="#local-6989586621681256520"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeManagedPrefixListsResponse' :: Int
 </span><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#%24sel%3AhttpStatus%3ADescribeManagedPrefixListsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681220793"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixListsResponse"><span class="hs-identifier hs-type">DescribeManagedPrefixListsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681256519"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixListsResponse"><span class="hs-identifier hs-type">DescribeManagedPrefixListsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-273"></span><span>
 </span><span id="line-274"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-275"></span><span>  </span><span id="local-6989586621681220791"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-275"></span><span>  </span><span id="local-6989586621681256517"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-276"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeManagedPrefixLists.html#DescribeManagedPrefixListsResponse"><span class="hs-identifier hs-type">DescribeManagedPrefixListsResponse</span></a></span></span><span>
 </span><span id="line-277"></span></pre></body></html>

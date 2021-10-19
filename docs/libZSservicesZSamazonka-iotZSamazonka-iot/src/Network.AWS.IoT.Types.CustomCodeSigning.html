@@ -28,21 +28,21 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Describes a custom method used to code sign a file.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newCustomCodeSigning' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679781207"><span id="local-6989586621679781208"></span></span><span class="hs-keyword">data</span><span> </span><span id="CustomCodeSigning"><span class="annot"><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#CustomCodeSigning"><span class="hs-identifier hs-var">CustomCodeSigning</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CustomCodeSigning%27"><span class="annot"><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#CustomCodeSigning%27"><span class="hs-identifier hs-var">CustomCodeSigning'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679782057"><span id="local-6989586621679782058"></span></span><span class="hs-keyword">data</span><span> </span><span id="CustomCodeSigning"><span class="annot"><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#CustomCodeSigning"><span class="hs-identifier hs-var">CustomCodeSigning</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CustomCodeSigning%27"><span class="annot"><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#CustomCodeSigning%27"><span class="hs-identifier hs-var">CustomCodeSigning'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The signature for the file.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Asignature%3ACustomCodeSigning%27"><span class="annot"><span class="annottext">CustomCodeSigning -&gt; Maybe CodeSigningSignature
 </span><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#%24sel%3Asignature%3ACustomCodeSigning%27"><span class="hs-keyword hs-var hs-var">signature</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CodeSigningSignature.html#CodeSigningSignature"><span class="hs-identifier hs-type">CodeSigningSignature</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The signature algorithm used to code sign the file.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AsignatureAlgorithm%3ACustomCodeSigning%27"><span class="annot"><span class="annottext">CustomCodeSigning -&gt; Maybe Text
-</span><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#%24sel%3AsignatureAlgorithm%3ACustomCodeSigning%27"><span class="hs-identifier hs-var hs-var">signatureAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The hash algorithm used to code sign the file.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AhashAlgorithm%3ACustomCodeSigning%27"><span class="annot"><span class="annottext">CustomCodeSigning -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#%24sel%3AhashAlgorithm%3ACustomCodeSigning%27"><span class="hs-identifier hs-var hs-var">hashAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The certificate chain.</span><span>
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AcertificateChain%3ACustomCodeSigning%27"><span class="annot"><span class="annottext">CustomCodeSigning -&gt; Maybe CodeSigningCertificateChain
 </span><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#%24sel%3AcertificateChain%3ACustomCodeSigning%27"><span class="hs-identifier hs-var hs-var">certificateChain</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CodeSigningCertificateChain.html#CodeSigningCertificateChain"><span class="hs-identifier hs-type">CodeSigningCertificateChain</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The hash algorithm used to code sign the file.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AhashAlgorithm%3ACustomCodeSigning%27"><span class="annot"><span class="annottext">CustomCodeSigning -&gt; Maybe Text
-</span><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#%24sel%3AhashAlgorithm%3ACustomCodeSigning%27"><span class="hs-identifier hs-var hs-var">hashAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The signature algorithm used to code sign the file.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AsignatureAlgorithm%3ACustomCodeSigning%27"><span class="annot"><span class="annottext">CustomCodeSigning -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#%24sel%3AsignatureAlgorithm%3ACustomCodeSigning%27"><span class="hs-identifier hs-var hs-var">signatureAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679781198"><span id="local-6989586621679781200"><span class="annot"><span class="annottext">CustomCodeSigning -&gt; CustomCodeSigning -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679782048"><span id="local-6989586621679782050"><span class="annot"><span class="annottext">CustomCodeSigning -&gt; CustomCodeSigning -&gt; Bool
 (CustomCodeSigning -&gt; CustomCodeSigning -&gt; Bool)
 -&gt; (CustomCodeSigning -&gt; CustomCodeSigning -&gt; Bool)
 -&gt; Eq CustomCodeSigning
@@ -51,7 +51,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CustomCodeSigning -&gt; CustomCodeSigning -&gt; Bool
 == :: CustomCodeSigning -&gt; CustomCodeSigning -&gt; Bool
 $c== :: CustomCodeSigning -&gt; CustomCodeSigning -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679781189"><span id="local-6989586621679781191"><span id="local-6989586621679781193"><span id="local-6989586621679781195"><span class="annot"><span class="annottext">ReadPrec [CustomCodeSigning]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679782039"><span id="local-6989586621679782041"><span id="local-6989586621679782043"><span id="local-6989586621679782045"><span class="annot"><span class="annottext">ReadPrec [CustomCodeSigning]
 ReadPrec CustomCodeSigning
 Int -&gt; ReadS CustomCodeSigning
 ReadS [CustomCodeSigning]
@@ -71,7 +71,7 @@ readList :: ReadS [CustomCodeSigning]
 $creadList :: ReadS [CustomCodeSigning]
 readsPrec :: Int -&gt; ReadS CustomCodeSigning
 $creadsPrec :: Int -&gt; ReadS CustomCodeSigning
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679781182"><span id="local-6989586621679781184"><span id="local-6989586621679781186"><span class="annot"><span class="annottext">Int -&gt; CustomCodeSigning -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679782032"><span id="local-6989586621679782034"><span id="local-6989586621679782036"><span class="annot"><span class="annottext">Int -&gt; CustomCodeSigning -&gt; ShowS
 [CustomCodeSigning] -&gt; ShowS
 CustomCodeSigning -&gt; String
 (Int -&gt; CustomCodeSigning -&gt; ShowS)
@@ -107,11 +107,11 @@ $cfrom :: forall x. CustomCodeSigning -&gt; Rep CustomCodeSigning x
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- 'signature', 'customCodeSigning_signature' - The signature for the file.</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'signatureAlgorithm', 'customCodeSigning_signatureAlgorithm' - The signature algorithm used to code sign the file.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'hashAlgorithm', 'customCodeSigning_hashAlgorithm' - The hash algorithm used to code sign the file.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- 'certificateChain', 'customCodeSigning_certificateChain' - The certificate chain.</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'hashAlgorithm', 'customCodeSigning_hashAlgorithm' - The hash algorithm used to code sign the file.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'signatureAlgorithm', 'customCodeSigning_signatureAlgorithm' - The signature algorithm used to code sign the file.</span><span>
 </span><span id="line-58"></span><span class="annot"><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#newCustomCodeSigning"><span class="hs-identifier hs-type">newCustomCodeSigning</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-59"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#CustomCodeSigning"><span class="hs-identifier hs-type">CustomCodeSigning</span></a></span><span>
 </span><span id="line-60"></span><span id="newCustomCodeSigning"><span class="annot"><span class="annottext">newCustomCodeSigning :: CustomCodeSigning
@@ -126,16 +126,16 @@ $cfrom :: forall x. CustomCodeSigning -&gt; Rep CustomCodeSigning x
 </span><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#%24sel%3Asignature%3ACustomCodeSigning%27"><span class="hs-keyword hs-var">signature</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CodeSigningSignature
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:signatureAlgorithm:CustomCodeSigning' :: Maybe Text
-</span><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#%24sel%3AsignatureAlgorithm%3ACustomCodeSigning%27"><span class="hs-identifier hs-var">signatureAlgorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:hashAlgorithm:CustomCodeSigning' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#%24sel%3AhashAlgorithm%3ACustomCodeSigning%27"><span class="hs-identifier hs-var">hashAlgorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:certificateChain:CustomCodeSigning' :: Maybe CodeSigningCertificateChain
 </span><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#%24sel%3AcertificateChain%3ACustomCodeSigning%27"><span class="hs-identifier hs-var">certificateChain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CodeSigningCertificateChain
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:hashAlgorithm:CustomCodeSigning' :: Maybe Text
-</span><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#%24sel%3AhashAlgorithm%3ACustomCodeSigning%27"><span class="hs-identifier hs-var">hashAlgorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:signatureAlgorithm:CustomCodeSigning' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#%24sel%3AsignatureAlgorithm%3ACustomCodeSigning%27"><span class="hs-identifier hs-var">signatureAlgorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-special">}</span><span>
@@ -153,36 +153,36 @@ forall a. Maybe a
      (Maybe CodeSigningSignature)
      (Maybe CodeSigningSignature)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#CustomCodeSigning%27"><span class="hs-identifier hs-type">CustomCodeSigning'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679781173"><span class="annot"><span class="annottext">Maybe CodeSigningSignature
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#CustomCodeSigning%27"><span class="hs-identifier hs-type">CustomCodeSigning'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679782023"><span class="annot"><span class="annottext">Maybe CodeSigningSignature
 signature :: Maybe CodeSigningSignature
 $sel:signature:CustomCodeSigning' :: CustomCodeSigning -&gt; Maybe CodeSigningSignature
-</span><a href="#local-6989586621679781173"><span class="hs-keyword hs-var hs-var">signature</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CodeSigningSignature
-</span><a href="#local-6989586621679781173"><span class="hs-keyword hs-var">signature</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679781172"><span class="annot"><span class="annottext">s :: CustomCodeSigning
-</span><a href="#local-6989586621679781172"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#CustomCodeSigning%27"><span class="hs-identifier hs-type">CustomCodeSigning'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679781171"><span class="annot"><span class="annottext">Maybe CodeSigningSignature
-</span><a href="#local-6989586621679781171"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomCodeSigning
-</span><a href="#local-6989586621679781172"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:signature:CustomCodeSigning' :: Maybe CodeSigningSignature
+</span><a href="#local-6989586621679782023"><span class="hs-keyword hs-var hs-var">signature</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CodeSigningSignature
+</span><a href="#local-6989586621679782023"><span class="hs-keyword hs-var">signature</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679782022"><span class="annot"><span class="annottext">s :: CustomCodeSigning
+</span><a href="#local-6989586621679782022"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#CustomCodeSigning%27"><span class="hs-identifier hs-type">CustomCodeSigning'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679782021"><span class="annot"><span class="annottext">Maybe CodeSigningSignature
+</span><a href="#local-6989586621679782021"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomCodeSigning
+</span><a href="#local-6989586621679782022"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:signature:CustomCodeSigning' :: Maybe CodeSigningSignature
 </span><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#%24sel%3Asignature%3ACustomCodeSigning%27"><span class="hs-keyword hs-var">signature</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CodeSigningSignature
-</span><a href="#local-6989586621679781171"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#CustomCodeSigning"><span class="hs-identifier hs-type">CustomCodeSigning</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679782021"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#CustomCodeSigning"><span class="hs-identifier hs-type">CustomCodeSigning</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- | The signature algorithm used to code sign the file.</span><span>
-</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#customCodeSigning_signatureAlgorithm"><span class="hs-identifier hs-type">customCodeSigning_signatureAlgorithm</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#CustomCodeSigning"><span class="hs-identifier hs-type">CustomCodeSigning</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span id="customCodeSigning_signatureAlgorithm"><span class="annot"><span class="annottext">customCodeSigning_signatureAlgorithm :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-72"></span><span class="hs-comment">-- | The hash algorithm used to code sign the file.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#customCodeSigning_hashAlgorithm"><span class="hs-identifier hs-type">customCodeSigning_hashAlgorithm</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#CustomCodeSigning"><span class="hs-identifier hs-type">CustomCodeSigning</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="customCodeSigning_hashAlgorithm"><span class="annot"><span class="annottext">customCodeSigning_hashAlgorithm :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; CustomCodeSigning -&gt; f CustomCodeSigning
-</span><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#customCodeSigning_signatureAlgorithm"><span class="hs-identifier hs-var hs-var">customCodeSigning_signatureAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CustomCodeSigning -&gt; Maybe Text)
+</span><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#customCodeSigning_hashAlgorithm"><span class="hs-identifier hs-var hs-var">customCodeSigning_hashAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CustomCodeSigning -&gt; Maybe Text)
 -&gt; (CustomCodeSigning -&gt; Maybe Text -&gt; CustomCodeSigning)
 -&gt; Lens
      CustomCodeSigning CustomCodeSigning (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#CustomCodeSigning%27"><span class="hs-identifier hs-type">CustomCodeSigning'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679781169"><span class="annot"><span class="annottext">Maybe Text
-signatureAlgorithm :: Maybe Text
-$sel:signatureAlgorithm:CustomCodeSigning' :: CustomCodeSigning -&gt; Maybe Text
-</span><a href="#local-6989586621679781169"><span class="hs-identifier hs-var hs-var">signatureAlgorithm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679781169"><span class="hs-identifier hs-var">signatureAlgorithm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679781168"><span class="annot"><span class="annottext">s :: CustomCodeSigning
-</span><a href="#local-6989586621679781168"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#CustomCodeSigning%27"><span class="hs-identifier hs-type">CustomCodeSigning'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679781167"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679781167"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomCodeSigning
-</span><a href="#local-6989586621679781168"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:signatureAlgorithm:CustomCodeSigning' :: Maybe Text
-</span><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#%24sel%3AsignatureAlgorithm%3ACustomCodeSigning%27"><span class="hs-identifier hs-var">signatureAlgorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679781167"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#CustomCodeSigning"><span class="hs-identifier hs-type">CustomCodeSigning</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#CustomCodeSigning%27"><span class="hs-identifier hs-type">CustomCodeSigning'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679782019"><span class="annot"><span class="annottext">Maybe Text
+hashAlgorithm :: Maybe Text
+$sel:hashAlgorithm:CustomCodeSigning' :: CustomCodeSigning -&gt; Maybe Text
+</span><a href="#local-6989586621679782019"><span class="hs-identifier hs-var hs-var">hashAlgorithm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679782019"><span class="hs-identifier hs-var">hashAlgorithm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679782018"><span class="annot"><span class="annottext">s :: CustomCodeSigning
+</span><a href="#local-6989586621679782018"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#CustomCodeSigning%27"><span class="hs-identifier hs-type">CustomCodeSigning'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679782017"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679782017"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomCodeSigning
+</span><a href="#local-6989586621679782018"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hashAlgorithm:CustomCodeSigning' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#%24sel%3AhashAlgorithm%3ACustomCodeSigning%27"><span class="hs-identifier hs-var">hashAlgorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679782017"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#CustomCodeSigning"><span class="hs-identifier hs-type">CustomCodeSigning</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | The certificate chain.</span><span>
 </span><span id="line-77"></span><span class="annot"><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#customCodeSigning_certificateChain"><span class="hs-identifier hs-type">customCodeSigning_certificateChain</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#CustomCodeSigning"><span class="hs-identifier hs-type">CustomCodeSigning</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CodeSigningCertificateChain.html#CodeSigningCertificateChain"><span class="hs-identifier hs-type">CodeSigningCertificateChain</span></a></span><span class="hs-special">)</span><span>
@@ -198,39 +198,39 @@ $sel:signatureAlgorithm:CustomCodeSigning' :: CustomCodeSigning -&gt; Maybe Text
      (Maybe CodeSigningCertificateChain)
      (Maybe CodeSigningCertificateChain)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#CustomCodeSigning%27"><span class="hs-identifier hs-type">CustomCodeSigning'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679781165"><span class="annot"><span class="annottext">Maybe CodeSigningCertificateChain
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#CustomCodeSigning%27"><span class="hs-identifier hs-type">CustomCodeSigning'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679782015"><span class="annot"><span class="annottext">Maybe CodeSigningCertificateChain
 certificateChain :: Maybe CodeSigningCertificateChain
 $sel:certificateChain:CustomCodeSigning' :: CustomCodeSigning -&gt; Maybe CodeSigningCertificateChain
-</span><a href="#local-6989586621679781165"><span class="hs-identifier hs-var hs-var">certificateChain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CodeSigningCertificateChain
-</span><a href="#local-6989586621679781165"><span class="hs-identifier hs-var">certificateChain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679781164"><span class="annot"><span class="annottext">s :: CustomCodeSigning
-</span><a href="#local-6989586621679781164"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#CustomCodeSigning%27"><span class="hs-identifier hs-type">CustomCodeSigning'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679781163"><span class="annot"><span class="annottext">Maybe CodeSigningCertificateChain
-</span><a href="#local-6989586621679781163"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomCodeSigning
-</span><a href="#local-6989586621679781164"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateChain:CustomCodeSigning' :: Maybe CodeSigningCertificateChain
+</span><a href="#local-6989586621679782015"><span class="hs-identifier hs-var hs-var">certificateChain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CodeSigningCertificateChain
+</span><a href="#local-6989586621679782015"><span class="hs-identifier hs-var">certificateChain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679782014"><span class="annot"><span class="annottext">s :: CustomCodeSigning
+</span><a href="#local-6989586621679782014"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#CustomCodeSigning%27"><span class="hs-identifier hs-type">CustomCodeSigning'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679782013"><span class="annot"><span class="annottext">Maybe CodeSigningCertificateChain
+</span><a href="#local-6989586621679782013"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomCodeSigning
+</span><a href="#local-6989586621679782014"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateChain:CustomCodeSigning' :: Maybe CodeSigningCertificateChain
 </span><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#%24sel%3AcertificateChain%3ACustomCodeSigning%27"><span class="hs-identifier hs-var">certificateChain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CodeSigningCertificateChain
-</span><a href="#local-6989586621679781163"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#CustomCodeSigning"><span class="hs-identifier hs-type">CustomCodeSigning</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679782013"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#CustomCodeSigning"><span class="hs-identifier hs-type">CustomCodeSigning</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- | The hash algorithm used to code sign the file.</span><span>
-</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#customCodeSigning_hashAlgorithm"><span class="hs-identifier hs-type">customCodeSigning_hashAlgorithm</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#CustomCodeSigning"><span class="hs-identifier hs-type">CustomCodeSigning</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span id="customCodeSigning_hashAlgorithm"><span class="annot"><span class="annottext">customCodeSigning_hashAlgorithm :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-80"></span><span class="hs-comment">-- | The signature algorithm used to code sign the file.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#customCodeSigning_signatureAlgorithm"><span class="hs-identifier hs-type">customCodeSigning_signatureAlgorithm</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#CustomCodeSigning"><span class="hs-identifier hs-type">CustomCodeSigning</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="customCodeSigning_signatureAlgorithm"><span class="annot"><span class="annottext">customCodeSigning_signatureAlgorithm :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; CustomCodeSigning -&gt; f CustomCodeSigning
-</span><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#customCodeSigning_hashAlgorithm"><span class="hs-identifier hs-var hs-var">customCodeSigning_hashAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CustomCodeSigning -&gt; Maybe Text)
+</span><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#customCodeSigning_signatureAlgorithm"><span class="hs-identifier hs-var hs-var">customCodeSigning_signatureAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CustomCodeSigning -&gt; Maybe Text)
 -&gt; (CustomCodeSigning -&gt; Maybe Text -&gt; CustomCodeSigning)
 -&gt; Lens
      CustomCodeSigning CustomCodeSigning (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#CustomCodeSigning%27"><span class="hs-identifier hs-type">CustomCodeSigning'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679781161"><span class="annot"><span class="annottext">Maybe Text
-hashAlgorithm :: Maybe Text
-$sel:hashAlgorithm:CustomCodeSigning' :: CustomCodeSigning -&gt; Maybe Text
-</span><a href="#local-6989586621679781161"><span class="hs-identifier hs-var hs-var">hashAlgorithm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679781161"><span class="hs-identifier hs-var">hashAlgorithm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679781160"><span class="annot"><span class="annottext">s :: CustomCodeSigning
-</span><a href="#local-6989586621679781160"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#CustomCodeSigning%27"><span class="hs-identifier hs-type">CustomCodeSigning'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679781159"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679781159"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomCodeSigning
-</span><a href="#local-6989586621679781160"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hashAlgorithm:CustomCodeSigning' :: Maybe Text
-</span><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#%24sel%3AhashAlgorithm%3ACustomCodeSigning%27"><span class="hs-identifier hs-var">hashAlgorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679781159"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#CustomCodeSigning"><span class="hs-identifier hs-type">CustomCodeSigning</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#CustomCodeSigning%27"><span class="hs-identifier hs-type">CustomCodeSigning'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679782011"><span class="annot"><span class="annottext">Maybe Text
+signatureAlgorithm :: Maybe Text
+$sel:signatureAlgorithm:CustomCodeSigning' :: CustomCodeSigning -&gt; Maybe Text
+</span><a href="#local-6989586621679782011"><span class="hs-identifier hs-var hs-var">signatureAlgorithm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679782011"><span class="hs-identifier hs-var">signatureAlgorithm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679782010"><span class="annot"><span class="annottext">s :: CustomCodeSigning
+</span><a href="#local-6989586621679782010"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#CustomCodeSigning%27"><span class="hs-identifier hs-type">CustomCodeSigning'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679782009"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679782009"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomCodeSigning
+</span><a href="#local-6989586621679782010"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:signatureAlgorithm:CustomCodeSigning' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#%24sel%3AsignatureAlgorithm%3ACustomCodeSigning%27"><span class="hs-identifier hs-var">signatureAlgorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679782009"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#CustomCodeSigning"><span class="hs-identifier hs-type">CustomCodeSigning</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679781156"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#CustomCodeSigning"><span class="hs-identifier hs-type">CustomCodeSigning</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679781154"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CustomCodeSigning
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679782006"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#CustomCodeSigning"><span class="hs-identifier hs-type">CustomCodeSigning</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679782004"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CustomCodeSigning
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CustomCodeSigning)
@@ -240,8 +240,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CustomCodeSigning&quot;</span></span><span>
-</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679781151"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679781151"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679782001"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679782001"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Maybe CodeSigningSignature
 -&gt; Maybe Text
 -&gt; Maybe CodeSigningCertificateChain
@@ -261,7 +261,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; CustomCodeSigning)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679781151"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CodeSigningSignature)
+</span><a href="#local-6989586621679782001"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CodeSigningSignature)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;signature&quot;</span></span><span class="hs-special">)</span><span>
@@ -276,10 +276,10 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe Text -&gt; CustomCodeSigning)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679781151"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679782001"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;signatureAlgorithm&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;hashAlgorithm&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe CodeSigningCertificateChain
    -&gt; Maybe Text -&gt; CustomCodeSigning)
@@ -287,7 +287,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; CustomCodeSigning)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679781151"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CodeSigningCertificateChain)
+</span><a href="#local-6989586621679782001"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CodeSigningCertificateChain)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;certificateChain&quot;</span></span><span class="hs-special">)</span><span>
@@ -295,30 +295,30 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser CustomCodeSigning
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679781151"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679782001"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;hashAlgorithm&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;signatureAlgorithm&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679781145"><span id="local-6989586621679781147"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#CustomCodeSigning"><span class="hs-identifier hs-type">CustomCodeSigning</span></a></span></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679781995"><span id="local-6989586621679781997"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#CustomCodeSigning"><span class="hs-identifier hs-type">CustomCodeSigning</span></a></span></span></span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679781142"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#CustomCodeSigning"><span class="hs-identifier hs-type">CustomCodeSigning</span></a></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679781992"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#CustomCodeSigning"><span class="hs-identifier hs-type">CustomCodeSigning</span></a></span></span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679781134"><span id="local-6989586621679781136"><span id="local-6989586621679781138"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#CustomCodeSigning"><span class="hs-identifier hs-type">CustomCodeSigning</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679781132"><span class="annot"><span class="annottext">toJSON :: CustomCodeSigning -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#CustomCodeSigning%27"><span class="hs-identifier hs-type">CustomCodeSigning'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679781127"><span id="local-6989586621679781128"><span id="local-6989586621679781129"><span id="local-6989586621679781130"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679781984"><span id="local-6989586621679781986"><span id="local-6989586621679781988"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#CustomCodeSigning"><span class="hs-identifier hs-type">CustomCodeSigning</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679781982"><span class="annot"><span class="annottext">toJSON :: CustomCodeSigning -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CustomCodeSigning.html#CustomCodeSigning%27"><span class="hs-identifier hs-type">CustomCodeSigning'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679781977"><span id="local-6989586621679781978"><span id="local-6989586621679781979"><span id="local-6989586621679781980"><span class="annot"><span class="annottext">Maybe Text
 Maybe CodeSigningCertificateChain
 Maybe CodeSigningSignature
-hashAlgorithm :: Maybe Text
-certificateChain :: Maybe CodeSigningCertificateChain
 signatureAlgorithm :: Maybe Text
+certificateChain :: Maybe CodeSigningCertificateChain
+hashAlgorithm :: Maybe Text
 signature :: Maybe CodeSigningSignature
-$sel:hashAlgorithm:CustomCodeSigning' :: CustomCodeSigning -&gt; Maybe Text
-$sel:certificateChain:CustomCodeSigning' :: CustomCodeSigning -&gt; Maybe CodeSigningCertificateChain
 $sel:signatureAlgorithm:CustomCodeSigning' :: CustomCodeSigning -&gt; Maybe Text
+$sel:certificateChain:CustomCodeSigning' :: CustomCodeSigning -&gt; Maybe CodeSigningCertificateChain
+$sel:hashAlgorithm:CustomCodeSigning' :: CustomCodeSigning -&gt; Maybe Text
 $sel:signature:CustomCodeSigning' :: CustomCodeSigning -&gt; Maybe CodeSigningSignature
-</span><a href="#local-6989586621679781127"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679781977"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -331,31 +331,31 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe CodeSigningSignature -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CodeSigningSignature
-</span><a href="#local-6989586621679781130"><span class="hs-keyword hs-var">signature</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679781980"><span class="hs-keyword hs-var">signature</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;signatureAlgorithm&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679781129"><span class="hs-identifier hs-var">signatureAlgorithm</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-107"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;certificateChain&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CodeSigningCertificateChain -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span>              </span><span class="annot"><span class="annottext">(CodeSigningCertificateChain -&gt; Pair)
--&gt; Maybe CodeSigningCertificateChain -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CodeSigningCertificateChain
-</span><a href="#local-6989586621679781128"><span class="hs-identifier hs-var">certificateChain</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-109"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;hashAlgorithm&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679781127"><span class="hs-identifier hs-var">hashAlgorithm</span></a></span><span>
+</span><a href="#local-6989586621679781979"><span class="hs-identifier hs-var">hashAlgorithm</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;certificateChain&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CodeSigningCertificateChain -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>              </span><span class="annot"><span class="annottext">(CodeSigningCertificateChain -&gt; Pair)
+-&gt; Maybe CodeSigningCertificateChain -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CodeSigningCertificateChain
+</span><a href="#local-6989586621679781978"><span class="hs-identifier hs-var">certificateChain</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;signatureAlgorithm&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679781977"><span class="hs-identifier hs-var">signatureAlgorithm</span></a></span><span>
 </span><span id="line-110"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span></pre></body></html>

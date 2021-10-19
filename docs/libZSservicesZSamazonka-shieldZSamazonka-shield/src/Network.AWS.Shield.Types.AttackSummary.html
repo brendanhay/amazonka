@@ -27,28 +27,28 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Summarizes all DDoS attacks for a specified time period.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAttackSummary' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679201256"><span id="local-6989586621679201257"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttackSummary"><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary"><span class="hs-identifier hs-var">AttackSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttackSummary%27"><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary%27"><span class="hs-identifier hs-var">AttackSummary'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN (Amazon Resource Name) of the resource that was attacked.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3AresourceArn%3AAttackSummary%27"><span class="annot"><span class="annottext">AttackSummary -&gt; Maybe Text
-</span><a href="Network.AWS.Shield.Types.AttackSummary.html#%24sel%3AresourceArn%3AAttackSummary%27"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The start time of the attack, in Unix time in seconds. For more</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- information see</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp&gt;.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AstartTime%3AAttackSummary%27"><span class="annot"><span class="annottext">AttackSummary -&gt; Maybe POSIX
-</span><a href="Network.AWS.Shield.Types.AttackSummary.html#%24sel%3AstartTime%3AAttackSummary%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The end time of the attack, in Unix time in seconds. For more</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- information see</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp&gt;.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AendTime%3AAttackSummary%27"><span class="annot"><span class="annottext">AttackSummary -&gt; Maybe POSIX
-</span><a href="Network.AWS.Shield.Types.AttackSummary.html#%24sel%3AendTime%3AAttackSummary%27"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The unique identifier (ID) of the attack.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AattackId%3AAttackSummary%27"><span class="annot"><span class="annottext">AttackSummary -&gt; Maybe Text
+</span><span id="line-30"></span><span id="local-6989586621679201379"><span id="local-6989586621679201380"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttackSummary"><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary"><span class="hs-identifier hs-var">AttackSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttackSummary%27"><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary%27"><span class="hs-identifier hs-var">AttackSummary'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of attacks for a specified time period.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AattackVectors%3AAttackSummary%27"><span class="annot"><span class="annottext">AttackSummary -&gt; Maybe [AttackVectorDescription]
+</span><a href="Network.AWS.Shield.Types.AttackSummary.html#%24sel%3AattackVectors%3AAttackSummary%27"><span class="hs-identifier hs-var hs-var">attackVectors</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Shield.Types.AttackVectorDescription.html#AttackVectorDescription"><span class="hs-identifier hs-type">AttackVectorDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The unique identifier (ID) of the attack.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AattackId%3AAttackSummary%27"><span class="annot"><span class="annottext">AttackSummary -&gt; Maybe Text
 </span><a href="Network.AWS.Shield.Types.AttackSummary.html#%24sel%3AattackId%3AAttackSummary%27"><span class="hs-identifier hs-var hs-var">attackId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The list of attacks for a specified time period.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AattackVectors%3AAttackSummary%27"><span class="annot"><span class="annottext">AttackSummary -&gt; Maybe [AttackVectorDescription]
-</span><a href="Network.AWS.Shield.Types.AttackSummary.html#%24sel%3AattackVectors%3AAttackSummary%27"><span class="hs-identifier hs-var hs-var">attackVectors</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Shield.Types.AttackVectorDescription.html#AttackVectorDescription"><span class="hs-identifier hs-type">AttackVectorDescription</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The start time of the attack, in Unix time in seconds. For more</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- information see</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp&gt;.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AstartTime%3AAttackSummary%27"><span class="annot"><span class="annottext">AttackSummary -&gt; Maybe POSIX
+</span><a href="Network.AWS.Shield.Types.AttackSummary.html#%24sel%3AstartTime%3AAttackSummary%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The ARN (Amazon Resource Name) of the resource that was attacked.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AresourceArn%3AAttackSummary%27"><span class="annot"><span class="annottext">AttackSummary -&gt; Maybe Text
+</span><a href="Network.AWS.Shield.Types.AttackSummary.html#%24sel%3AresourceArn%3AAttackSummary%27"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The end time of the attack, in Unix time in seconds. For more</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- information see</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp&gt;.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AendTime%3AAttackSummary%27"><span class="annot"><span class="annottext">AttackSummary -&gt; Maybe POSIX
+</span><a href="Network.AWS.Shield.Types.AttackSummary.html#%24sel%3AendTime%3AAttackSummary%27"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679201246"><span id="local-6989586621679201248"><span class="annot"><span class="annottext">AttackSummary -&gt; AttackSummary -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679201369"><span id="local-6989586621679201371"><span class="annot"><span class="annottext">AttackSummary -&gt; AttackSummary -&gt; Bool
 (AttackSummary -&gt; AttackSummary -&gt; Bool)
 -&gt; (AttackSummary -&gt; AttackSummary -&gt; Bool) -&gt; Eq AttackSummary
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -56,7 +56,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AttackSummary -&gt; AttackSummary -&gt; Bool
 == :: AttackSummary -&gt; AttackSummary -&gt; Bool
 $c== :: AttackSummary -&gt; AttackSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201237"><span id="local-6989586621679201239"><span id="local-6989586621679201241"><span id="local-6989586621679201243"><span class="annot"><span class="annottext">ReadPrec [AttackSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201360"><span id="local-6989586621679201362"><span id="local-6989586621679201364"><span id="local-6989586621679201366"><span class="annot"><span class="annottext">ReadPrec [AttackSummary]
 ReadPrec AttackSummary
 Int -&gt; ReadS AttackSummary
 ReadS [AttackSummary]
@@ -76,7 +76,7 @@ readList :: ReadS [AttackSummary]
 $creadList :: ReadS [AttackSummary]
 readsPrec :: Int -&gt; ReadS AttackSummary
 $creadsPrec :: Int -&gt; ReadS AttackSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201230"><span id="local-6989586621679201232"><span id="local-6989586621679201234"><span class="annot"><span class="annottext">Int -&gt; AttackSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201353"><span id="local-6989586621679201355"><span id="local-6989586621679201357"><span class="annot"><span class="annottext">Int -&gt; AttackSummary -&gt; ShowS
 [AttackSummary] -&gt; ShowS
 AttackSummary -&gt; String
 (Int -&gt; AttackSummary -&gt; ShowS)
@@ -110,163 +110,55 @@ $cfrom :: forall x. AttackSummary -&gt; Rep AttackSummary x
 </span><span id="line-53"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'resourceArn', 'attackSummary_resourceArn' - The ARN (Amazon Resource Name) of the resource that was attacked.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'attackVectors', 'attackSummary_attackVectors' - The list of attacks for a specified time period.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'startTime', 'attackSummary_startTime' - The start time of the attack, in Unix time in seconds. For more</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- information see</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp&gt;.</span><span>
-</span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'endTime', 'attackSummary_endTime' - The end time of the attack, in Unix time in seconds. For more</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- information see</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp&gt;.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'attackId', 'attackSummary_attackId' - The unique identifier (ID) of the attack.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'startTime', 'attackSummary_startTime' - The start time of the attack, in Unix time in seconds. For more</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- information see</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp&gt;.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'resourceArn', 'attackSummary_resourceArn' - The ARN (Amazon Resource Name) of the resource that was attacked.</span><span>
 </span><span id="line-65"></span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- 'attackId', 'attackSummary_attackId' - The unique identifier (ID) of the attack.</span><span>
-</span><span id="line-67"></span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- 'attackVectors', 'attackSummary_attackVectors' - The list of attacks for a specified time period.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'endTime', 'attackSummary_endTime' - The end time of the attack, in Unix time in seconds. For more</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- information see</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp&gt;.</span><span>
 </span><span id="line-69"></span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#newAttackSummary"><span class="hs-identifier hs-type">newAttackSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary"><span class="hs-identifier hs-type">AttackSummary</span></a></span><span>
 </span><span id="line-71"></span><span id="newAttackSummary"><span class="annot"><span class="annottext">newAttackSummary :: AttackSummary
 </span><a href="Network.AWS.Shield.Types.AttackSummary.html#newAttackSummary"><span class="hs-identifier hs-var hs-var">newAttackSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">AttackSummary' :: Maybe Text
--&gt; Maybe POSIX
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">AttackSummary' :: Maybe [AttackVectorDescription]
+-&gt; Maybe Text
 -&gt; Maybe POSIX
 -&gt; Maybe Text
--&gt; Maybe [AttackVectorDescription]
+-&gt; Maybe POSIX
 -&gt; AttackSummary
 </span><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary%27"><span class="hs-identifier hs-type">AttackSummary'</span></a></span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceArn:AttackSummary' :: Maybe Text
-</span><a href="Network.AWS.Shield.Types.AttackSummary.html#%24sel%3AresourceArn%3AAttackSummary%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-73"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:attackVectors:AttackSummary' :: Maybe [AttackVectorDescription]
+</span><a href="Network.AWS.Shield.Types.AttackSummary.html#%24sel%3AattackVectors%3AAttackSummary%27"><span class="hs-identifier hs-var">attackVectors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AttackVectorDescription]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:startTime:AttackSummary' :: Maybe POSIX
-</span><a href="Network.AWS.Shield.Types.AttackSummary.html#%24sel%3AstartTime%3AAttackSummary%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:endTime:AttackSummary' :: Maybe POSIX
-</span><a href="Network.AWS.Shield.Types.AttackSummary.html#%24sel%3AendTime%3AAttackSummary%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:attackId:AttackSummary' :: Maybe Text
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:attackId:AttackSummary' :: Maybe Text
 </span><a href="Network.AWS.Shield.Types.AttackSummary.html#%24sel%3AattackId%3AAttackSummary%27"><span class="hs-identifier hs-var">attackId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:attackVectors:AttackSummary' :: Maybe [AttackVectorDescription]
-</span><a href="Network.AWS.Shield.Types.AttackSummary.html#%24sel%3AattackVectors%3AAttackSummary%27"><span class="hs-identifier hs-var">attackVectors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AttackVectorDescription]
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:startTime:AttackSummary' :: Maybe POSIX
+</span><a href="Network.AWS.Shield.Types.AttackSummary.html#%24sel%3AstartTime%3AAttackSummary%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceArn:AttackSummary' :: Maybe Text
+</span><a href="Network.AWS.Shield.Types.AttackSummary.html#%24sel%3AresourceArn%3AAttackSummary%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:endTime:AttackSummary' :: Maybe POSIX
+</span><a href="Network.AWS.Shield.Types.AttackSummary.html#%24sel%3AendTime%3AAttackSummary%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- | The ARN (Amazon Resource Name) of the resource that was attacked.</span><span>
-</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#attackSummary_resourceArn"><span class="hs-identifier hs-type">attackSummary_resourceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary"><span class="hs-identifier hs-type">AttackSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span id="attackSummary_resourceArn"><span class="annot"><span class="annottext">attackSummary_resourceArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; AttackSummary -&gt; f AttackSummary
-</span><a href="Network.AWS.Shield.Types.AttackSummary.html#attackSummary_resourceArn"><span class="hs-identifier hs-var hs-var">attackSummary_resourceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AttackSummary -&gt; Maybe Text)
--&gt; (AttackSummary -&gt; Maybe Text -&gt; AttackSummary)
--&gt; Lens AttackSummary AttackSummary (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary%27"><span class="hs-identifier hs-type">AttackSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201221"><span class="annot"><span class="annottext">Maybe Text
-resourceArn :: Maybe Text
-$sel:resourceArn:AttackSummary' :: AttackSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679201221"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679201221"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201220"><span class="annot"><span class="annottext">s :: AttackSummary
-</span><a href="#local-6989586621679201220"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary%27"><span class="hs-identifier hs-type">AttackSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201219"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679201219"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttackSummary
-</span><a href="#local-6989586621679201220"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:AttackSummary' :: Maybe Text
-</span><a href="Network.AWS.Shield.Types.AttackSummary.html#%24sel%3AresourceArn%3AAttackSummary%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679201219"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary"><span class="hs-identifier hs-type">AttackSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- | The start time of the attack, in Unix time in seconds. For more</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- information see</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp&gt;.</span><span>
-</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#attackSummary_startTime"><span class="hs-identifier hs-type">attackSummary_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary"><span class="hs-identifier hs-type">AttackSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span id="attackSummary_startTime"><span class="annot"><span class="annottext">attackSummary_startTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; AttackSummary -&gt; f AttackSummary
-</span><a href="Network.AWS.Shield.Types.AttackSummary.html#attackSummary_startTime"><span class="hs-identifier hs-var hs-var">attackSummary_startTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AttackSummary -&gt; Maybe POSIX)
--&gt; (AttackSummary -&gt; Maybe POSIX -&gt; AttackSummary)
--&gt; Lens AttackSummary AttackSummary (Maybe POSIX) (Maybe POSIX)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary%27"><span class="hs-identifier hs-type">AttackSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201217"><span class="annot"><span class="annottext">Maybe POSIX
-startTime :: Maybe POSIX
-$sel:startTime:AttackSummary' :: AttackSummary -&gt; Maybe POSIX
-</span><a href="#local-6989586621679201217"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679201217"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201216"><span class="annot"><span class="annottext">s :: AttackSummary
-</span><a href="#local-6989586621679201216"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary%27"><span class="hs-identifier hs-type">AttackSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201215"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679201215"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttackSummary
-</span><a href="#local-6989586621679201216"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:AttackSummary' :: Maybe POSIX
-</span><a href="Network.AWS.Shield.Types.AttackSummary.html#%24sel%3AstartTime%3AAttackSummary%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679201215"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary"><span class="hs-identifier hs-type">AttackSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
- -&gt; AttackSummary -&gt; f AttackSummary)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; AttackSummary
--&gt; f AttackSummary
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- | The end time of the attack, in Unix time in seconds. For more</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- information see</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp&gt;.</span><span>
-</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#attackSummary_endTime"><span class="hs-identifier hs-type">attackSummary_endTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary"><span class="hs-identifier hs-type">AttackSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span id="attackSummary_endTime"><span class="annot"><span class="annottext">attackSummary_endTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; AttackSummary -&gt; f AttackSummary
-</span><a href="Network.AWS.Shield.Types.AttackSummary.html#attackSummary_endTime"><span class="hs-identifier hs-var hs-var">attackSummary_endTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AttackSummary -&gt; Maybe POSIX)
--&gt; (AttackSummary -&gt; Maybe POSIX -&gt; AttackSummary)
--&gt; Lens AttackSummary AttackSummary (Maybe POSIX) (Maybe POSIX)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary%27"><span class="hs-identifier hs-type">AttackSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201210"><span class="annot"><span class="annottext">Maybe POSIX
-endTime :: Maybe POSIX
-$sel:endTime:AttackSummary' :: AttackSummary -&gt; Maybe POSIX
-</span><a href="#local-6989586621679201210"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679201210"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201209"><span class="annot"><span class="annottext">s :: AttackSummary
-</span><a href="#local-6989586621679201209"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary%27"><span class="hs-identifier hs-type">AttackSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201208"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679201208"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttackSummary
-</span><a href="#local-6989586621679201209"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:AttackSummary' :: Maybe POSIX
-</span><a href="Network.AWS.Shield.Types.AttackSummary.html#%24sel%3AendTime%3AAttackSummary%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679201208"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary"><span class="hs-identifier hs-type">AttackSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
- -&gt; AttackSummary -&gt; f AttackSummary)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; AttackSummary
--&gt; f AttackSummary
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- | The unique identifier (ID) of the attack.</span><span>
-</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#attackSummary_attackId"><span class="hs-identifier hs-type">attackSummary_attackId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary"><span class="hs-identifier hs-type">AttackSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span id="attackSummary_attackId"><span class="annot"><span class="annottext">attackSummary_attackId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; AttackSummary -&gt; f AttackSummary
-</span><a href="Network.AWS.Shield.Types.AttackSummary.html#attackSummary_attackId"><span class="hs-identifier hs-var hs-var">attackSummary_attackId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AttackSummary -&gt; Maybe Text)
--&gt; (AttackSummary -&gt; Maybe Text -&gt; AttackSummary)
--&gt; Lens AttackSummary AttackSummary (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary%27"><span class="hs-identifier hs-type">AttackSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201206"><span class="annot"><span class="annottext">Maybe Text
-attackId :: Maybe Text
-$sel:attackId:AttackSummary' :: AttackSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679201206"><span class="hs-identifier hs-var hs-var">attackId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679201206"><span class="hs-identifier hs-var">attackId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201205"><span class="annot"><span class="annottext">s :: AttackSummary
-</span><a href="#local-6989586621679201205"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary%27"><span class="hs-identifier hs-type">AttackSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201204"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679201204"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttackSummary
-</span><a href="#local-6989586621679201205"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attackId:AttackSummary' :: Maybe Text
-</span><a href="Network.AWS.Shield.Types.AttackSummary.html#%24sel%3AattackId%3AAttackSummary%27"><span class="hs-identifier hs-var">attackId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679201204"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary"><span class="hs-identifier hs-type">AttackSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- | The list of attacks for a specified time period.</span><span>
-</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#attackSummary_attackVectors"><span class="hs-identifier hs-type">attackSummary_attackVectors</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary"><span class="hs-identifier hs-type">AttackSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Shield.Types.AttackVectorDescription.html#AttackVectorDescription"><span class="hs-identifier hs-type">AttackVectorDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span id="attackSummary_attackVectors"><span class="annot"><span class="annottext">attackSummary_attackVectors :: (Maybe [AttackVectorDescription]
+</span><span id="line-80"></span><span class="hs-comment">-- | The list of attacks for a specified time period.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#attackSummary_attackVectors"><span class="hs-identifier hs-type">attackSummary_attackVectors</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary"><span class="hs-identifier hs-type">AttackSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Shield.Types.AttackVectorDescription.html#AttackVectorDescription"><span class="hs-identifier hs-type">AttackVectorDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="attackSummary_attackVectors"><span class="annot"><span class="annottext">attackSummary_attackVectors :: (Maybe [AttackVectorDescription]
  -&gt; f (Maybe [AttackVectorDescription]))
 -&gt; AttackSummary -&gt; f AttackSummary
 </span><a href="Network.AWS.Shield.Types.AttackSummary.html#attackSummary_attackVectors"><span class="hs-identifier hs-var hs-var">attackSummary_attackVectors</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AttackSummary -&gt; Maybe [AttackVectorDescription])
@@ -278,16 +170,16 @@ $sel:attackId:AttackSummary' :: AttackSummary -&gt; Maybe Text
      (Maybe [AttackVectorDescription])
      (Maybe [AttackVectorDescription])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary%27"><span class="hs-identifier hs-type">AttackSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201202"><span class="annot"><span class="annottext">Maybe [AttackVectorDescription]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary%27"><span class="hs-identifier hs-type">AttackSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201344"><span class="annot"><span class="annottext">Maybe [AttackVectorDescription]
 attackVectors :: Maybe [AttackVectorDescription]
 $sel:attackVectors:AttackSummary' :: AttackSummary -&gt; Maybe [AttackVectorDescription]
-</span><a href="#local-6989586621679201202"><span class="hs-identifier hs-var hs-var">attackVectors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AttackVectorDescription]
-</span><a href="#local-6989586621679201202"><span class="hs-identifier hs-var">attackVectors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201201"><span class="annot"><span class="annottext">s :: AttackSummary
-</span><a href="#local-6989586621679201201"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary%27"><span class="hs-identifier hs-type">AttackSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201200"><span class="annot"><span class="annottext">Maybe [AttackVectorDescription]
-</span><a href="#local-6989586621679201200"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttackSummary
-</span><a href="#local-6989586621679201201"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attackVectors:AttackSummary' :: Maybe [AttackVectorDescription]
+</span><a href="#local-6989586621679201344"><span class="hs-identifier hs-var hs-var">attackVectors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AttackVectorDescription]
+</span><a href="#local-6989586621679201344"><span class="hs-identifier hs-var">attackVectors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201343"><span class="annot"><span class="annottext">s :: AttackSummary
+</span><a href="#local-6989586621679201343"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary%27"><span class="hs-identifier hs-type">AttackSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201342"><span class="annot"><span class="annottext">Maybe [AttackVectorDescription]
+</span><a href="#local-6989586621679201342"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttackSummary
+</span><a href="#local-6989586621679201343"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attackVectors:AttackSummary' :: Maybe [AttackVectorDescription]
 </span><a href="Network.AWS.Shield.Types.AttackSummary.html#%24sel%3AattackVectors%3AAttackSummary%27"><span class="hs-identifier hs-var">attackVectors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AttackVectorDescription]
-</span><a href="#local-6989586621679201200"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary"><span class="hs-identifier hs-type">AttackSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AttackVectorDescription]
+</span><a href="#local-6989586621679201342"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary"><span class="hs-identifier hs-type">AttackSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AttackVectorDescription]
   -&gt; f (Maybe [AttackVectorDescription]))
  -&gt; AttackSummary -&gt; f AttackSummary)
 -&gt; ((Maybe [AttackVectorDescription]
@@ -317,11 +209,119 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [AttackVectorDescription]
   [AttackVectorDescription]
   [AttackVectorDescription]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The unique identifier (ID) of the attack.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#attackSummary_attackId"><span class="hs-identifier hs-type">attackSummary_attackId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary"><span class="hs-identifier hs-type">AttackSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="attackSummary_attackId"><span class="annot"><span class="annottext">attackSummary_attackId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; AttackSummary -&gt; f AttackSummary
+</span><a href="Network.AWS.Shield.Types.AttackSummary.html#attackSummary_attackId"><span class="hs-identifier hs-var hs-var">attackSummary_attackId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AttackSummary -&gt; Maybe Text)
+-&gt; (AttackSummary -&gt; Maybe Text -&gt; AttackSummary)
+-&gt; Lens AttackSummary AttackSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary%27"><span class="hs-identifier hs-type">AttackSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201337"><span class="annot"><span class="annottext">Maybe Text
+attackId :: Maybe Text
+$sel:attackId:AttackSummary' :: AttackSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679201337"><span class="hs-identifier hs-var hs-var">attackId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201337"><span class="hs-identifier hs-var">attackId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201336"><span class="annot"><span class="annottext">s :: AttackSummary
+</span><a href="#local-6989586621679201336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary%27"><span class="hs-identifier hs-type">AttackSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201335"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttackSummary
+</span><a href="#local-6989586621679201336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attackId:AttackSummary' :: Maybe Text
+</span><a href="Network.AWS.Shield.Types.AttackSummary.html#%24sel%3AattackId%3AAttackSummary%27"><span class="hs-identifier hs-var">attackId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary"><span class="hs-identifier hs-type">AttackSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The start time of the attack, in Unix time in seconds. For more</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- information see</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp&gt;.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#attackSummary_startTime"><span class="hs-identifier hs-type">attackSummary_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary"><span class="hs-identifier hs-type">AttackSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="attackSummary_startTime"><span class="annot"><span class="annottext">attackSummary_startTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AttackSummary -&gt; f AttackSummary
+</span><a href="Network.AWS.Shield.Types.AttackSummary.html#attackSummary_startTime"><span class="hs-identifier hs-var hs-var">attackSummary_startTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AttackSummary -&gt; Maybe POSIX)
+-&gt; (AttackSummary -&gt; Maybe POSIX -&gt; AttackSummary)
+-&gt; Lens AttackSummary AttackSummary (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary%27"><span class="hs-identifier hs-type">AttackSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201333"><span class="annot"><span class="annottext">Maybe POSIX
+startTime :: Maybe POSIX
+$sel:startTime:AttackSummary' :: AttackSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621679201333"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679201333"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201332"><span class="annot"><span class="annottext">s :: AttackSummary
+</span><a href="#local-6989586621679201332"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary%27"><span class="hs-identifier hs-type">AttackSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201331"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679201331"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttackSummary
+</span><a href="#local-6989586621679201332"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:AttackSummary' :: Maybe POSIX
+</span><a href="Network.AWS.Shield.Types.AttackSummary.html#%24sel%3AstartTime%3AAttackSummary%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679201331"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary"><span class="hs-identifier hs-type">AttackSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; AttackSummary -&gt; f AttackSummary)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AttackSummary
+-&gt; f AttackSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The ARN (Amazon Resource Name) of the resource that was attacked.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#attackSummary_resourceArn"><span class="hs-identifier hs-type">attackSummary_resourceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary"><span class="hs-identifier hs-type">AttackSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="attackSummary_resourceArn"><span class="annot"><span class="annottext">attackSummary_resourceArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; AttackSummary -&gt; f AttackSummary
+</span><a href="Network.AWS.Shield.Types.AttackSummary.html#attackSummary_resourceArn"><span class="hs-identifier hs-var hs-var">attackSummary_resourceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AttackSummary -&gt; Maybe Text)
+-&gt; (AttackSummary -&gt; Maybe Text -&gt; AttackSummary)
+-&gt; Lens AttackSummary AttackSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary%27"><span class="hs-identifier hs-type">AttackSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201328"><span class="annot"><span class="annottext">Maybe Text
+resourceArn :: Maybe Text
+$sel:resourceArn:AttackSummary' :: AttackSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679201328"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201328"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201327"><span class="annot"><span class="annottext">s :: AttackSummary
+</span><a href="#local-6989586621679201327"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary%27"><span class="hs-identifier hs-type">AttackSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201326"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201326"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttackSummary
+</span><a href="#local-6989586621679201327"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:AttackSummary' :: Maybe Text
+</span><a href="Network.AWS.Shield.Types.AttackSummary.html#%24sel%3AresourceArn%3AAttackSummary%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201326"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary"><span class="hs-identifier hs-type">AttackSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The end time of the attack, in Unix time in seconds. For more</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- information see</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp&gt;.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#attackSummary_endTime"><span class="hs-identifier hs-type">attackSummary_endTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary"><span class="hs-identifier hs-type">AttackSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="attackSummary_endTime"><span class="annot"><span class="annottext">attackSummary_endTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AttackSummary -&gt; f AttackSummary
+</span><a href="Network.AWS.Shield.Types.AttackSummary.html#attackSummary_endTime"><span class="hs-identifier hs-var hs-var">attackSummary_endTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AttackSummary -&gt; Maybe POSIX)
+-&gt; (AttackSummary -&gt; Maybe POSIX -&gt; AttackSummary)
+-&gt; Lens AttackSummary AttackSummary (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary%27"><span class="hs-identifier hs-type">AttackSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201324"><span class="annot"><span class="annottext">Maybe POSIX
+endTime :: Maybe POSIX
+$sel:endTime:AttackSummary' :: AttackSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621679201324"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679201324"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201323"><span class="annot"><span class="annottext">s :: AttackSummary
+</span><a href="#local-6989586621679201323"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary%27"><span class="hs-identifier hs-type">AttackSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201322"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679201322"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttackSummary
+</span><a href="#local-6989586621679201323"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:AttackSummary' :: Maybe POSIX
+</span><a href="Network.AWS.Shield.Types.AttackSummary.html#%24sel%3AendTime%3AAttackSummary%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679201322"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary"><span class="hs-identifier hs-type">AttackSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; AttackSummary -&gt; f AttackSummary)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AttackSummary
+-&gt; f AttackSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201196"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary"><span class="hs-identifier hs-type">AttackSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679201194"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AttackSummary
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201319"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary"><span class="hs-identifier hs-type">AttackSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679201317"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AttackSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AttackSummary)
@@ -331,77 +331,28 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AttackSummary&quot;</span></span><span>
-</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679201191"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679201191"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe POSIX
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679201314"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679201314"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">Maybe [AttackVectorDescription]
+-&gt; Maybe Text
 -&gt; Maybe POSIX
 -&gt; Maybe Text
--&gt; Maybe [AttackVectorDescription]
+-&gt; Maybe POSIX
 -&gt; AttackSummary
 </span><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary%27"><span class="hs-identifier hs-var">AttackSummary'</span></a></span><span>
-</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe POSIX
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [AttackVectorDescription]
+ -&gt; Maybe Text
  -&gt; Maybe POSIX
  -&gt; Maybe Text
- -&gt; Maybe [AttackVectorDescription]
+ -&gt; Maybe POSIX
  -&gt; AttackSummary)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe [AttackVectorDescription])
 -&gt; Parser
-     (Maybe POSIX
-      -&gt; Maybe POSIX
-      -&gt; Maybe Text
-      -&gt; Maybe [AttackVectorDescription]
-      -&gt; AttackSummary)
+     (Maybe Text
+      -&gt; Maybe POSIX -&gt; Maybe Text -&gt; Maybe POSIX -&gt; AttackSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679201191"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ResourceArn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX
-   -&gt; Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; Maybe [AttackVectorDescription]
-   -&gt; AttackSummary)
--&gt; Parser (Maybe POSIX)
--&gt; Parser
-     (Maybe POSIX
-      -&gt; Maybe Text -&gt; Maybe [AttackVectorDescription] -&gt; AttackSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679201191"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;StartTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX
-   -&gt; Maybe Text -&gt; Maybe [AttackVectorDescription] -&gt; AttackSummary)
--&gt; Parser (Maybe POSIX)
--&gt; Parser
-     (Maybe Text -&gt; Maybe [AttackVectorDescription] -&gt; AttackSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679201191"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;EndTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text -&gt; Maybe [AttackVectorDescription] -&gt; AttackSummary)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe [AttackVectorDescription] -&gt; AttackSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679201191"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AttackId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [AttackVectorDescription] -&gt; AttackSummary)
--&gt; Parser (Maybe [AttackVectorDescription]) -&gt; Parser AttackSummary
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679201191"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [AttackVectorDescription]))
+</span><a href="#local-6989586621679201314"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [AttackVectorDescription]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AttackVectors&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [AttackVectorDescription]))
@@ -411,9 +362,46 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AttackVectorDescription]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX -&gt; Maybe Text -&gt; Maybe POSIX -&gt; AttackSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX -&gt; Maybe Text -&gt; Maybe POSIX -&gt; AttackSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679201314"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AttackId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe Text -&gt; Maybe POSIX -&gt; AttackSummary)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe Text -&gt; Maybe POSIX -&gt; AttackSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679201314"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StartTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe POSIX -&gt; AttackSummary)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe POSIX -&gt; AttackSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679201314"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; AttackSummary)
+-&gt; Parser (Maybe POSIX) -&gt; Parser AttackSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679201314"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201184"><span id="local-6989586621679201186"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary"><span class="hs-identifier hs-type">AttackSummary</span></a></span></span></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201307"><span id="local-6989586621679201309"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary"><span class="hs-identifier hs-type">AttackSummary</span></a></span></span></span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201181"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary"><span class="hs-identifier hs-type">AttackSummary</span></a></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201304"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackSummary.html#AttackSummary"><span class="hs-identifier hs-type">AttackSummary</span></a></span></span><span>
 </span><span id="line-120"></span></pre></body></html>

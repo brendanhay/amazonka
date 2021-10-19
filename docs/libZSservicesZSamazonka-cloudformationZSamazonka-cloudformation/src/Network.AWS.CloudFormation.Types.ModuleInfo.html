@@ -32,34 +32,34 @@
 </span><span id="line-32"></span><span class="hs-comment">-- in the /CloudFormation User Guide/.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newModuleInfo' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679416982"><span id="local-6989586621679416983"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModuleInfo"><span class="annot"><a href="Network.AWS.CloudFormation.Types.ModuleInfo.html#ModuleInfo"><span class="hs-identifier hs-var">ModuleInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModuleInfo%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.ModuleInfo.html#ModuleInfo%27"><span class="hs-identifier hs-var">ModuleInfo'</span></a></span></span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A concantenated list of the logical IDs of the module or modules</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- containing the resource. Modules are listed starting with the inner-most</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- nested module, and separated by @\/@.</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679417382"><span id="local-6989586621679417383"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModuleInfo"><span class="annot"><a href="Network.AWS.CloudFormation.Types.ModuleInfo.html#ModuleInfo"><span class="hs-identifier hs-var">ModuleInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModuleInfo%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.ModuleInfo.html#ModuleInfo%27"><span class="hs-identifier hs-var">ModuleInfo'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A concantenated list of the the module type or types containing the</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- resource. Module types are listed starting with the inner-most nested</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- module, and separated by @\/@.</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- In the following example, the resource was created from a module,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- @moduleA@, that is nested inside a parent module, @moduleB@.</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- @moduleA\/moduleB@</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- &lt;AWSCloudFormation/latest/UserGuide/modules.html#module-ref-resources Referencing resources in a module&gt;</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- in the /CloudFormation User Guide/.</span><span>
-</span><span id="line-48"></span><span>    </span><span id="%24sel%3AlogicalIdHierarchy%3AModuleInfo%27"><span class="annot"><span class="annottext">ModuleInfo -&gt; Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.ModuleInfo.html#%24sel%3AlogicalIdHierarchy%3AModuleInfo%27"><span class="hs-identifier hs-var hs-var">logicalIdHierarchy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | A concantenated list of the the module type or types containing the</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- resource. Module types are listed starting with the inner-most nested</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- module, and separated by @\/@.</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- In the following example, the resource was created from a module of type</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- @AWS::First::Example::MODULE@, that is nested inside a parent module of</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- type @AWS::Second::Example::MODULE@.</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- @AWS::First::Example::MODULE\/AWS::Second::Example::MODULE@</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AtypeHierarchy%3AModuleInfo%27"><span class="annot"><span class="annottext">ModuleInfo -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.ModuleInfo.html#%24sel%3AtypeHierarchy%3AModuleInfo%27"><span class="hs-identifier hs-var hs-var">typeHierarchy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | A concantenated list of the logical IDs of the module or modules</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- containing the resource. Modules are listed starting with the inner-most</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- nested module, and separated by @\/@.</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- In the following example, the resource was created from a module,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- @moduleA@, that is nested inside a parent module, @moduleB@.</span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- In the following example, the resource was created from a module of type</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- @AWS::First::Example::MODULE@, that is nested inside a parent module of</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- type @AWS::Second::Example::MODULE@.</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- @AWS::First::Example::MODULE\/AWS::Second::Example::MODULE@</span><span>
-</span><span id="line-58"></span><span>    </span><span id="%24sel%3AtypeHierarchy%3AModuleInfo%27"><span class="annot"><span class="annottext">ModuleInfo -&gt; Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.ModuleInfo.html#%24sel%3AtypeHierarchy%3AModuleInfo%27"><span class="hs-identifier hs-var hs-var">typeHierarchy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- @moduleA\/moduleB@</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- &lt;AWSCloudFormation/latest/UserGuide/modules.html#module-ref-resources Referencing resources in a module&gt;</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- in the /CloudFormation User Guide/.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AlogicalIdHierarchy%3AModuleInfo%27"><span class="annot"><span class="annottext">ModuleInfo -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.ModuleInfo.html#%24sel%3AlogicalIdHierarchy%3AModuleInfo%27"><span class="hs-identifier hs-var hs-var">logicalIdHierarchy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679416975"><span id="local-6989586621679416977"><span class="annot"><span class="annottext">ModuleInfo -&gt; ModuleInfo -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679417375"><span id="local-6989586621679417377"><span class="annot"><span class="annottext">ModuleInfo -&gt; ModuleInfo -&gt; Bool
 (ModuleInfo -&gt; ModuleInfo -&gt; Bool)
 -&gt; (ModuleInfo -&gt; ModuleInfo -&gt; Bool) -&gt; Eq ModuleInfo
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ModuleInfo -&gt; ModuleInfo -&gt; Bool
 == :: ModuleInfo -&gt; ModuleInfo -&gt; Bool
 $c== :: ModuleInfo -&gt; ModuleInfo -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416966"><span id="local-6989586621679416968"><span id="local-6989586621679416970"><span id="local-6989586621679416972"><span class="annot"><span class="annottext">ReadPrec [ModuleInfo]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679417366"><span id="local-6989586621679417368"><span id="local-6989586621679417370"><span id="local-6989586621679417372"><span class="annot"><span class="annottext">ReadPrec [ModuleInfo]
 ReadPrec ModuleInfo
 Int -&gt; ReadS ModuleInfo
 ReadS [ModuleInfo]
@@ -87,7 +87,7 @@ readList :: ReadS [ModuleInfo]
 $creadList :: ReadS [ModuleInfo]
 readsPrec :: Int -&gt; ReadS ModuleInfo
 $creadsPrec :: Int -&gt; ReadS ModuleInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416959"><span id="local-6989586621679416961"><span id="local-6989586621679416963"><span class="annot"><span class="annottext">Int -&gt; ModuleInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679417359"><span id="local-6989586621679417361"><span id="local-6989586621679417363"><span class="annot"><span class="annottext">Int -&gt; ModuleInfo -&gt; ShowS
 [ModuleInfo] -&gt; ShowS
 ModuleInfo -&gt; String
 (Int -&gt; ModuleInfo -&gt; ShowS)
@@ -120,103 +120,103 @@ $cfrom :: forall x. ModuleInfo -&gt; Rep ModuleInfo x
 </span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'logicalIdHierarchy', 'moduleInfo_logicalIdHierarchy' - A concantenated list of the logical IDs of the module or modules</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- containing the resource. Modules are listed starting with the inner-most</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- nested module, and separated by @\/@.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'typeHierarchy', 'moduleInfo_typeHierarchy' - A concantenated list of the the module type or types containing the</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- resource. Module types are listed starting with the inner-most nested</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- module, and separated by @\/@.</span><span>
 </span><span id="line-73"></span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- In the following example, the resource was created from a module,</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- @moduleA@, that is nested inside a parent module, @moduleB@.</span><span>
-</span><span id="line-76"></span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- @moduleA\/moduleB@</span><span>
-</span><span id="line-78"></span><span class="hs-comment">--</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- For more information, see</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- &lt;AWSCloudFormation/latest/UserGuide/modules.html#module-ref-resources Referencing resources in a module&gt;</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- in the /CloudFormation User Guide/.</span><span>
-</span><span id="line-82"></span><span class="hs-comment">--</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- 'typeHierarchy', 'moduleInfo_typeHierarchy' - A concantenated list of the the module type or types containing the</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- resource. Module types are listed starting with the inner-most nested</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- module, and separated by @\/@.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- In the following example, the resource was created from a module of type</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- @AWS::First::Example::MODULE@, that is nested inside a parent module of</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- type @AWS::Second::Example::MODULE@.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- @AWS::First::Example::MODULE\/AWS::Second::Example::MODULE@</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'logicalIdHierarchy', 'moduleInfo_logicalIdHierarchy' - A concantenated list of the logical IDs of the module or modules</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- containing the resource. Modules are listed starting with the inner-most</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- nested module, and separated by @\/@.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- In the following example, the resource was created from a module,</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- @moduleA@, that is nested inside a parent module, @moduleB@.</span><span>
 </span><span id="line-86"></span><span class="hs-comment">--</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- In the following example, the resource was created from a module of type</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- @AWS::First::Example::MODULE@, that is nested inside a parent module of</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- type @AWS::Second::Example::MODULE@.</span><span>
-</span><span id="line-90"></span><span class="hs-comment">--</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- @AWS::First::Example::MODULE\/AWS::Second::Example::MODULE@</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- @moduleA\/moduleB@</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- &lt;AWSCloudFormation/latest/UserGuide/modules.html#module-ref-resources Referencing resources in a module&gt;</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- in the /CloudFormation User Guide/.</span><span>
 </span><span id="line-92"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ModuleInfo.html#newModuleInfo"><span class="hs-identifier hs-type">newModuleInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ModuleInfo.html#ModuleInfo"><span class="hs-identifier hs-type">ModuleInfo</span></a></span><span>
 </span><span id="line-94"></span><span id="newModuleInfo"><span class="annot"><span class="annottext">newModuleInfo :: ModuleInfo
 </span><a href="Network.AWS.CloudFormation.Types.ModuleInfo.html#newModuleInfo"><span class="hs-identifier hs-var hs-var">newModuleInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>  </span><span class="annot"><span class="annottext">ModuleInfo' :: Maybe Text -&gt; Maybe Text -&gt; ModuleInfo
 </span><a href="Network.AWS.CloudFormation.Types.ModuleInfo.html#ModuleInfo%27"><span class="hs-identifier hs-type">ModuleInfo'</span></a></span><span>
-</span><span id="line-96"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:logicalIdHierarchy:ModuleInfo' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.ModuleInfo.html#%24sel%3AlogicalIdHierarchy%3AModuleInfo%27"><span class="hs-identifier hs-var">logicalIdHierarchy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-96"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:typeHierarchy:ModuleInfo' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.ModuleInfo.html#%24sel%3AtypeHierarchy%3AModuleInfo%27"><span class="hs-identifier hs-var">typeHierarchy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:typeHierarchy:ModuleInfo' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.ModuleInfo.html#%24sel%3AtypeHierarchy%3AModuleInfo%27"><span class="hs-identifier hs-var">typeHierarchy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:logicalIdHierarchy:ModuleInfo' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.ModuleInfo.html#%24sel%3AlogicalIdHierarchy%3AModuleInfo%27"><span class="hs-identifier hs-var">logicalIdHierarchy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-98"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- | A concantenated list of the logical IDs of the module or modules</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- containing the resource. Modules are listed starting with the inner-most</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- nested module, and separated by @\/@.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | A concantenated list of the the module type or types containing the</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- resource. Module types are listed starting with the inner-most nested</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- module, and separated by @\/@.</span><span>
 </span><span id="line-103"></span><span class="hs-comment">--</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- In the following example, the resource was created from a module,</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- @moduleA@, that is nested inside a parent module, @moduleB@.</span><span>
-</span><span id="line-106"></span><span class="hs-comment">--</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- @moduleA\/moduleB@</span><span>
-</span><span id="line-108"></span><span class="hs-comment">--</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- For more information, see</span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- &lt;AWSCloudFormation/latest/UserGuide/modules.html#module-ref-resources Referencing resources in a module&gt;</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- in the /CloudFormation User Guide/.</span><span>
-</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ModuleInfo.html#moduleInfo_logicalIdHierarchy"><span class="hs-identifier hs-type">moduleInfo_logicalIdHierarchy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ModuleInfo.html#ModuleInfo"><span class="hs-identifier hs-type">ModuleInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span id="moduleInfo_logicalIdHierarchy"><span class="annot"><span class="annottext">moduleInfo_logicalIdHierarchy :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ModuleInfo -&gt; f ModuleInfo
-</span><a href="Network.AWS.CloudFormation.Types.ModuleInfo.html#moduleInfo_logicalIdHierarchy"><span class="hs-identifier hs-var hs-var">moduleInfo_logicalIdHierarchy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModuleInfo -&gt; Maybe Text)
--&gt; (ModuleInfo -&gt; Maybe Text -&gt; ModuleInfo)
--&gt; Lens ModuleInfo ModuleInfo (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ModuleInfo.html#ModuleInfo%27"><span class="hs-identifier hs-type">ModuleInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416950"><span class="annot"><span class="annottext">Maybe Text
-logicalIdHierarchy :: Maybe Text
-$sel:logicalIdHierarchy:ModuleInfo' :: ModuleInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679416950"><span class="hs-identifier hs-var hs-var">logicalIdHierarchy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416950"><span class="hs-identifier hs-var">logicalIdHierarchy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416949"><span class="annot"><span class="annottext">s :: ModuleInfo
-</span><a href="#local-6989586621679416949"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ModuleInfo.html#ModuleInfo%27"><span class="hs-identifier hs-type">ModuleInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416948"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416948"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModuleInfo
-</span><a href="#local-6989586621679416949"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logicalIdHierarchy:ModuleInfo' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.ModuleInfo.html#%24sel%3AlogicalIdHierarchy%3AModuleInfo%27"><span class="hs-identifier hs-var">logicalIdHierarchy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416948"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ModuleInfo.html#ModuleInfo"><span class="hs-identifier hs-type">ModuleInfo</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- | A concantenated list of the the module type or types containing the</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- resource. Module types are listed starting with the inner-most nested</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- module, and separated by @\/@.</span><span>
-</span><span id="line-118"></span><span class="hs-comment">--</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- In the following example, the resource was created from a module of type</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- @AWS::First::Example::MODULE@, that is nested inside a parent module of</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- type @AWS::Second::Example::MODULE@.</span><span>
-</span><span id="line-122"></span><span class="hs-comment">--</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- @AWS::First::Example::MODULE\/AWS::Second::Example::MODULE@</span><span>
-</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ModuleInfo.html#moduleInfo_typeHierarchy"><span class="hs-identifier hs-type">moduleInfo_typeHierarchy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ModuleInfo.html#ModuleInfo"><span class="hs-identifier hs-type">ModuleInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span id="moduleInfo_typeHierarchy"><span class="annot"><span class="annottext">moduleInfo_typeHierarchy :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ModuleInfo -&gt; f ModuleInfo
+</span><span id="line-104"></span><span class="hs-comment">-- In the following example, the resource was created from a module of type</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- @AWS::First::Example::MODULE@, that is nested inside a parent module of</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- type @AWS::Second::Example::MODULE@.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- @AWS::First::Example::MODULE\/AWS::Second::Example::MODULE@</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ModuleInfo.html#moduleInfo_typeHierarchy"><span class="hs-identifier hs-type">moduleInfo_typeHierarchy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ModuleInfo.html#ModuleInfo"><span class="hs-identifier hs-type">ModuleInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="moduleInfo_typeHierarchy"><span class="annot"><span class="annottext">moduleInfo_typeHierarchy :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ModuleInfo -&gt; f ModuleInfo
 </span><a href="Network.AWS.CloudFormation.Types.ModuleInfo.html#moduleInfo_typeHierarchy"><span class="hs-identifier hs-var hs-var">moduleInfo_typeHierarchy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModuleInfo -&gt; Maybe Text)
 -&gt; (ModuleInfo -&gt; Maybe Text -&gt; ModuleInfo)
 -&gt; Lens ModuleInfo ModuleInfo (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ModuleInfo.html#ModuleInfo%27"><span class="hs-identifier hs-type">ModuleInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416946"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ModuleInfo.html#ModuleInfo%27"><span class="hs-identifier hs-type">ModuleInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417350"><span class="annot"><span class="annottext">Maybe Text
 typeHierarchy :: Maybe Text
 $sel:typeHierarchy:ModuleInfo' :: ModuleInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679416946"><span class="hs-identifier hs-var hs-var">typeHierarchy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416946"><span class="hs-identifier hs-var">typeHierarchy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416945"><span class="annot"><span class="annottext">s :: ModuleInfo
-</span><a href="#local-6989586621679416945"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ModuleInfo.html#ModuleInfo%27"><span class="hs-identifier hs-type">ModuleInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416944"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416944"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModuleInfo
-</span><a href="#local-6989586621679416945"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:typeHierarchy:ModuleInfo' :: Maybe Text
+</span><a href="#local-6989586621679417350"><span class="hs-identifier hs-var hs-var">typeHierarchy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679417350"><span class="hs-identifier hs-var">typeHierarchy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417349"><span class="annot"><span class="annottext">s :: ModuleInfo
+</span><a href="#local-6989586621679417349"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ModuleInfo.html#ModuleInfo%27"><span class="hs-identifier hs-type">ModuleInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417348"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679417348"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModuleInfo
+</span><a href="#local-6989586621679417349"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:typeHierarchy:ModuleInfo' :: Maybe Text
 </span><a href="Network.AWS.CloudFormation.Types.ModuleInfo.html#%24sel%3AtypeHierarchy%3AModuleInfo%27"><span class="hs-identifier hs-var">typeHierarchy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416944"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ModuleInfo.html#ModuleInfo"><span class="hs-identifier hs-type">ModuleInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679417348"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ModuleInfo.html#ModuleInfo"><span class="hs-identifier hs-type">ModuleInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | A concantenated list of the logical IDs of the module or modules</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- containing the resource. Modules are listed starting with the inner-most</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- nested module, and separated by @\/@.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- In the following example, the resource was created from a module,</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- @moduleA@, that is nested inside a parent module, @moduleB@.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- @moduleA\/moduleB@</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- &lt;AWSCloudFormation/latest/UserGuide/modules.html#module-ref-resources Referencing resources in a module&gt;</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- in the /CloudFormation User Guide/.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ModuleInfo.html#moduleInfo_logicalIdHierarchy"><span class="hs-identifier hs-type">moduleInfo_logicalIdHierarchy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ModuleInfo.html#ModuleInfo"><span class="hs-identifier hs-type">ModuleInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="moduleInfo_logicalIdHierarchy"><span class="annot"><span class="annottext">moduleInfo_logicalIdHierarchy :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ModuleInfo -&gt; f ModuleInfo
+</span><a href="Network.AWS.CloudFormation.Types.ModuleInfo.html#moduleInfo_logicalIdHierarchy"><span class="hs-identifier hs-var hs-var">moduleInfo_logicalIdHierarchy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModuleInfo -&gt; Maybe Text)
+-&gt; (ModuleInfo -&gt; Maybe Text -&gt; ModuleInfo)
+-&gt; Lens ModuleInfo ModuleInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ModuleInfo.html#ModuleInfo%27"><span class="hs-identifier hs-type">ModuleInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417346"><span class="annot"><span class="annottext">Maybe Text
+logicalIdHierarchy :: Maybe Text
+$sel:logicalIdHierarchy:ModuleInfo' :: ModuleInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679417346"><span class="hs-identifier hs-var hs-var">logicalIdHierarchy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679417346"><span class="hs-identifier hs-var">logicalIdHierarchy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417345"><span class="annot"><span class="annottext">s :: ModuleInfo
+</span><a href="#local-6989586621679417345"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ModuleInfo.html#ModuleInfo%27"><span class="hs-identifier hs-type">ModuleInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417344"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679417344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModuleInfo
+</span><a href="#local-6989586621679417345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logicalIdHierarchy:ModuleInfo' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.ModuleInfo.html#%24sel%3AlogicalIdHierarchy%3AModuleInfo%27"><span class="hs-identifier hs-var">logicalIdHierarchy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679417344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ModuleInfo.html#ModuleInfo"><span class="hs-identifier hs-type">ModuleInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ModuleInfo.html#ModuleInfo"><span class="hs-identifier hs-type">ModuleInfo</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679416941"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ModuleInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679416939"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679416939"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679417341"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ModuleInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679417339"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679417339"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; ModuleInfo
 </span><a href="Network.AWS.CloudFormation.Types.ModuleInfo.html#ModuleInfo%27"><span class="hs-identifier hs-var">ModuleInfo'</span></a></span><span>
 </span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; ModuleInfo)
@@ -224,20 +224,20 @@ $sel:typeHierarchy:ModuleInfo' :: ModuleInfo -&gt; Maybe Text
 -&gt; Either String (Maybe Text -&gt; ModuleInfo)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679416939"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679417339"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LogicalIdHierarchy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;TypeHierarchy&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; ModuleInfo)
 -&gt; Either String (Maybe Text) -&gt; Either String ModuleInfo
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679416939"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679417339"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;TypeHierarchy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;LogicalIdHierarchy&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679416933"><span id="local-6989586621679416935"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ModuleInfo.html#ModuleInfo"><span class="hs-identifier hs-type">ModuleInfo</span></a></span></span></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679417333"><span id="local-6989586621679417335"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ModuleInfo.html#ModuleInfo"><span class="hs-identifier hs-type">ModuleInfo</span></a></span></span></span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679416930"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ModuleInfo.html#ModuleInfo"><span class="hs-identifier hs-type">ModuleInfo</span></a></span></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679417330"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ModuleInfo.html#ModuleInfo"><span class="hs-identifier hs-type">ModuleInfo</span></a></span></span><span>
 </span><span id="line-136"></span></pre></body></html>

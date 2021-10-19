@@ -28,18 +28,18 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | A PartiQL batch statement response..</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newBatchStatementResponse' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679369073"><span id="local-6989586621679369074"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchStatementResponse"><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#BatchStatementResponse"><span class="hs-identifier hs-var">BatchStatementResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchStatementResponse%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#BatchStatementResponse%27"><span class="hs-identifier hs-var">BatchStatementResponse'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The table name associated with a failed PartiQL batch statement.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AtableName%3ABatchStatementResponse%27"><span class="annot"><span class="annottext">BatchStatementResponse -&gt; Maybe Text
-</span><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#%24sel%3AtableName%3ABatchStatementResponse%27"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679369733"><span id="local-6989586621679369734"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchStatementResponse"><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#BatchStatementResponse"><span class="hs-identifier hs-var">BatchStatementResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchStatementResponse%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#BatchStatementResponse%27"><span class="hs-identifier hs-var">BatchStatementResponse'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The error associated with a failed PartiQL batch statement.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aerror%3ABatchStatementResponse%27"><span class="annot"><span class="annottext">BatchStatementResponse -&gt; Maybe BatchStatementError
+</span><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#%24sel%3Aerror%3ABatchStatementResponse%27"><span class="hs-identifier hs-var hs-var">error</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementError.html#BatchStatementError"><span class="hs-identifier hs-type">BatchStatementError</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | A DynamoDB item associated with a BatchStatementResponse</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Aitem%3ABatchStatementResponse%27"><span class="annot"><span class="annottext">BatchStatementResponse -&gt; Maybe (HashMap Text AttributeValue)
 </span><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#%24sel%3Aitem%3ABatchStatementResponse%27"><span class="hs-identifier hs-var hs-var">item</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The error associated with a failed PartiQL batch statement.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aerror%3ABatchStatementResponse%27"><span class="annot"><span class="annottext">BatchStatementResponse -&gt; Maybe BatchStatementError
-</span><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#%24sel%3Aerror%3ABatchStatementResponse%27"><span class="hs-identifier hs-var hs-var">error</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementError.html#BatchStatementError"><span class="hs-identifier hs-type">BatchStatementError</span></a></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The table name associated with a failed PartiQL batch statement.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AtableName%3ABatchStatementResponse%27"><span class="annot"><span class="annottext">BatchStatementResponse -&gt; Maybe Text
+</span><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#%24sel%3AtableName%3ABatchStatementResponse%27"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679369065"><span id="local-6989586621679369067"><span class="annot"><span class="annottext">BatchStatementResponse -&gt; BatchStatementResponse -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679369725"><span id="local-6989586621679369727"><span class="annot"><span class="annottext">BatchStatementResponse -&gt; BatchStatementResponse -&gt; Bool
 (BatchStatementResponse -&gt; BatchStatementResponse -&gt; Bool)
 -&gt; (BatchStatementResponse -&gt; BatchStatementResponse -&gt; Bool)
 -&gt; Eq BatchStatementResponse
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BatchStatementResponse -&gt; BatchStatementResponse -&gt; Bool
 == :: BatchStatementResponse -&gt; BatchStatementResponse -&gt; Bool
 $c== :: BatchStatementResponse -&gt; BatchStatementResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369056"><span id="local-6989586621679369058"><span id="local-6989586621679369060"><span id="local-6989586621679369062"><span class="annot"><span class="annottext">ReadPrec [BatchStatementResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369716"><span id="local-6989586621679369718"><span id="local-6989586621679369720"><span id="local-6989586621679369722"><span class="annot"><span class="annottext">ReadPrec [BatchStatementResponse]
 ReadPrec BatchStatementResponse
 Int -&gt; ReadS BatchStatementResponse
 ReadS [BatchStatementResponse]
@@ -68,7 +68,7 @@ readList :: ReadS [BatchStatementResponse]
 $creadList :: ReadS [BatchStatementResponse]
 readsPrec :: Int -&gt; ReadS BatchStatementResponse
 $creadsPrec :: Int -&gt; ReadS BatchStatementResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369049"><span id="local-6989586621679369051"><span id="local-6989586621679369053"><span class="annot"><span class="annottext">Int -&gt; BatchStatementResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369709"><span id="local-6989586621679369711"><span id="local-6989586621679369713"><span class="annot"><span class="annottext">Int -&gt; BatchStatementResponse -&gt; ShowS
 [BatchStatementResponse] -&gt; ShowS
 BatchStatementResponse -&gt; String
 (Int -&gt; BatchStatementResponse -&gt; ShowS)
@@ -103,61 +103,61 @@ $cfrom :: forall x. BatchStatementResponse -&gt; Rep BatchStatementResponse x
 </span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'tableName', 'batchStatementResponse_tableName' - The table name associated with a failed PartiQL batch statement.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'error', 'batchStatementResponse_error' - The error associated with a failed PartiQL batch statement.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- 'item', 'batchStatementResponse_item' - A DynamoDB item associated with a BatchStatementResponse</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'error', 'batchStatementResponse_error' - The error associated with a failed PartiQL batch statement.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'tableName', 'batchStatementResponse_tableName' - The table name associated with a failed PartiQL batch statement.</span><span>
 </span><span id="line-54"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#newBatchStatementResponse"><span class="hs-identifier hs-type">newBatchStatementResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#BatchStatementResponse"><span class="hs-identifier hs-type">BatchStatementResponse</span></a></span><span>
 </span><span id="line-56"></span><span id="newBatchStatementResponse"><span class="annot"><span class="annottext">newBatchStatementResponse :: BatchStatementResponse
 </span><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#newBatchStatementResponse"><span class="hs-identifier hs-var hs-var">newBatchStatementResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">BatchStatementResponse' :: Maybe Text
+</span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">BatchStatementResponse' :: Maybe BatchStatementError
 -&gt; Maybe (HashMap Text AttributeValue)
--&gt; Maybe BatchStatementError
+-&gt; Maybe Text
 -&gt; BatchStatementResponse
 </span><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#BatchStatementResponse%27"><span class="hs-identifier hs-type">BatchStatementResponse'</span></a></span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tableName:BatchStatementResponse' :: Maybe Text
-</span><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#%24sel%3AtableName%3ABatchStatementResponse%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-59"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:error:BatchStatementResponse' :: Maybe BatchStatementError
+</span><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#%24sel%3Aerror%3ABatchStatementResponse%27"><span class="hs-identifier hs-var">error</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BatchStatementError
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:item:BatchStatementResponse' :: Maybe (HashMap Text AttributeValue)
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:item:BatchStatementResponse' :: Maybe (HashMap Text AttributeValue)
 </span><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#%24sel%3Aitem%3ABatchStatementResponse%27"><span class="hs-identifier hs-var">item</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:error:BatchStatementResponse' :: Maybe BatchStatementError
-</span><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#%24sel%3Aerror%3ABatchStatementResponse%27"><span class="hs-identifier hs-var">error</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BatchStatementError
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:tableName:BatchStatementResponse' :: Maybe Text
+</span><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#%24sel%3AtableName%3ABatchStatementResponse%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- | The table name associated with a failed PartiQL batch statement.</span><span>
-</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#batchStatementResponse_tableName"><span class="hs-identifier hs-type">batchStatementResponse_tableName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#BatchStatementResponse"><span class="hs-identifier hs-type">BatchStatementResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-66"></span><span id="batchStatementResponse_tableName"><span class="annot"><span class="annottext">batchStatementResponse_tableName :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | The error associated with a failed PartiQL batch statement.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#batchStatementResponse_error"><span class="hs-identifier hs-type">batchStatementResponse_error</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#BatchStatementResponse"><span class="hs-identifier hs-type">BatchStatementResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementError.html#BatchStatementError"><span class="hs-identifier hs-type">BatchStatementError</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="batchStatementResponse_error"><span class="annot"><span class="annottext">batchStatementResponse_error :: (Maybe BatchStatementError -&gt; f (Maybe BatchStatementError))
 -&gt; BatchStatementResponse -&gt; f BatchStatementResponse
-</span><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#batchStatementResponse_tableName"><span class="hs-identifier hs-var hs-var">batchStatementResponse_tableName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchStatementResponse -&gt; Maybe Text)
--&gt; (BatchStatementResponse -&gt; Maybe Text -&gt; BatchStatementResponse)
+</span><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#batchStatementResponse_error"><span class="hs-identifier hs-var hs-var">batchStatementResponse_error</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchStatementResponse -&gt; Maybe BatchStatementError)
+-&gt; (BatchStatementResponse
+    -&gt; Maybe BatchStatementError -&gt; BatchStatementResponse)
 -&gt; Lens
      BatchStatementResponse
      BatchStatementResponse
-     (Maybe Text)
-     (Maybe Text)
+     (Maybe BatchStatementError)
+     (Maybe BatchStatementError)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#BatchStatementResponse%27"><span class="hs-identifier hs-type">BatchStatementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369040"><span class="annot"><span class="annottext">Maybe Text
-tableName :: Maybe Text
-$sel:tableName:BatchStatementResponse' :: BatchStatementResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679369040"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679369040"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369039"><span class="annot"><span class="annottext">s :: BatchStatementResponse
-</span><a href="#local-6989586621679369039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#BatchStatementResponse%27"><span class="hs-identifier hs-type">BatchStatementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369038"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679369038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchStatementResponse
-</span><a href="#local-6989586621679369039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:BatchStatementResponse' :: Maybe Text
-</span><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#%24sel%3AtableName%3ABatchStatementResponse%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679369038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#BatchStatementResponse"><span class="hs-identifier hs-type">BatchStatementResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- | A DynamoDB item associated with a BatchStatementResponse</span><span>
-</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#batchStatementResponse_item"><span class="hs-identifier hs-type">batchStatementResponse_item</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#BatchStatementResponse"><span class="hs-identifier hs-type">BatchStatementResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-70"></span><span id="batchStatementResponse_item"><span class="annot"><span class="annottext">batchStatementResponse_item :: (Maybe (HashMap Text AttributeValue)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#BatchStatementResponse%27"><span class="hs-identifier hs-type">BatchStatementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369700"><span class="annot"><span class="annottext">Maybe BatchStatementError
+error :: Maybe BatchStatementError
+$sel:error:BatchStatementResponse' :: BatchStatementResponse -&gt; Maybe BatchStatementError
+</span><a href="#local-6989586621679369700"><span class="hs-identifier hs-var hs-var">error</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BatchStatementError
+</span><a href="#local-6989586621679369700"><span class="hs-identifier hs-var">error</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369699"><span class="annot"><span class="annottext">s :: BatchStatementResponse
+</span><a href="#local-6989586621679369699"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#BatchStatementResponse%27"><span class="hs-identifier hs-type">BatchStatementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369698"><span class="annot"><span class="annottext">Maybe BatchStatementError
+</span><a href="#local-6989586621679369698"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchStatementResponse
+</span><a href="#local-6989586621679369699"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:error:BatchStatementResponse' :: Maybe BatchStatementError
+</span><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#%24sel%3Aerror%3ABatchStatementResponse%27"><span class="hs-identifier hs-var">error</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BatchStatementError
+</span><a href="#local-6989586621679369698"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#BatchStatementResponse"><span class="hs-identifier hs-type">BatchStatementResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | A DynamoDB item associated with a BatchStatementResponse</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#batchStatementResponse_item"><span class="hs-identifier hs-type">batchStatementResponse_item</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#BatchStatementResponse"><span class="hs-identifier hs-type">BatchStatementResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="batchStatementResponse_item"><span class="annot"><span class="annottext">batchStatementResponse_item :: (Maybe (HashMap Text AttributeValue)
  -&gt; f (Maybe (HashMap Text AttributeValue)))
 -&gt; BatchStatementResponse -&gt; f BatchStatementResponse
 </span><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#batchStatementResponse_item"><span class="hs-identifier hs-var hs-var">batchStatementResponse_item</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchStatementResponse -&gt; Maybe (HashMap Text AttributeValue))
@@ -169,16 +169,16 @@ $sel:tableName:BatchStatementResponse' :: BatchStatementResponse -&gt; Maybe Tex
      (Maybe (HashMap Text AttributeValue))
      (Maybe (HashMap Text AttributeValue))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#BatchStatementResponse%27"><span class="hs-identifier hs-type">BatchStatementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369036"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#BatchStatementResponse%27"><span class="hs-identifier hs-type">BatchStatementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369696"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
 item :: Maybe (HashMap Text AttributeValue)
 $sel:item:BatchStatementResponse' :: BatchStatementResponse -&gt; Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679369036"><span class="hs-identifier hs-var hs-var">item</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679369036"><span class="hs-identifier hs-var">item</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369035"><span class="annot"><span class="annottext">s :: BatchStatementResponse
-</span><a href="#local-6989586621679369035"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#BatchStatementResponse%27"><span class="hs-identifier hs-type">BatchStatementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369034"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679369034"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchStatementResponse
-</span><a href="#local-6989586621679369035"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:item:BatchStatementResponse' :: Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679369696"><span class="hs-identifier hs-var hs-var">item</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679369696"><span class="hs-identifier hs-var">item</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369695"><span class="annot"><span class="annottext">s :: BatchStatementResponse
+</span><a href="#local-6989586621679369695"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#BatchStatementResponse%27"><span class="hs-identifier hs-type">BatchStatementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369694"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679369694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchStatementResponse
+</span><a href="#local-6989586621679369695"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:item:BatchStatementResponse' :: Maybe (HashMap Text AttributeValue)
 </span><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#%24sel%3Aitem%3ABatchStatementResponse%27"><span class="hs-identifier hs-var">item</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679369034"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#BatchStatementResponse"><span class="hs-identifier hs-type">BatchStatementResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679369694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#BatchStatementResponse"><span class="hs-identifier hs-type">BatchStatementResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text AttributeValue)
   -&gt; f (Maybe (HashMap Text AttributeValue)))
  -&gt; BatchStatementResponse -&gt; f BatchStatementResponse)
 -&gt; ((Maybe (HashMap Text AttributeValue)
@@ -208,73 +208,72 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text AttributeValue)
   (HashMap Text AttributeValue)
   (HashMap Text AttributeValue)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- | The error associated with a failed PartiQL batch statement.</span><span>
-</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#batchStatementResponse_error"><span class="hs-identifier hs-type">batchStatementResponse_error</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#BatchStatementResponse"><span class="hs-identifier hs-type">BatchStatementResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementError.html#BatchStatementError"><span class="hs-identifier hs-type">BatchStatementError</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span id="batchStatementResponse_error"><span class="annot"><span class="annottext">batchStatementResponse_error :: (Maybe BatchStatementError -&gt; f (Maybe BatchStatementError))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The table name associated with a failed PartiQL batch statement.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#batchStatementResponse_tableName"><span class="hs-identifier hs-type">batchStatementResponse_tableName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#BatchStatementResponse"><span class="hs-identifier hs-type">BatchStatementResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span id="batchStatementResponse_tableName"><span class="annot"><span class="annottext">batchStatementResponse_tableName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; BatchStatementResponse -&gt; f BatchStatementResponse
-</span><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#batchStatementResponse_error"><span class="hs-identifier hs-var hs-var">batchStatementResponse_error</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchStatementResponse -&gt; Maybe BatchStatementError)
--&gt; (BatchStatementResponse
-    -&gt; Maybe BatchStatementError -&gt; BatchStatementResponse)
+</span><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#batchStatementResponse_tableName"><span class="hs-identifier hs-var hs-var">batchStatementResponse_tableName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchStatementResponse -&gt; Maybe Text)
+-&gt; (BatchStatementResponse -&gt; Maybe Text -&gt; BatchStatementResponse)
 -&gt; Lens
      BatchStatementResponse
      BatchStatementResponse
-     (Maybe BatchStatementError)
-     (Maybe BatchStatementError)
+     (Maybe Text)
+     (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#BatchStatementResponse%27"><span class="hs-identifier hs-type">BatchStatementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369029"><span class="annot"><span class="annottext">Maybe BatchStatementError
-error :: Maybe BatchStatementError
-$sel:error:BatchStatementResponse' :: BatchStatementResponse -&gt; Maybe BatchStatementError
-</span><a href="#local-6989586621679369029"><span class="hs-identifier hs-var hs-var">error</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BatchStatementError
-</span><a href="#local-6989586621679369029"><span class="hs-identifier hs-var">error</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369028"><span class="annot"><span class="annottext">s :: BatchStatementResponse
-</span><a href="#local-6989586621679369028"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#BatchStatementResponse%27"><span class="hs-identifier hs-type">BatchStatementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369027"><span class="annot"><span class="annottext">Maybe BatchStatementError
-</span><a href="#local-6989586621679369027"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchStatementResponse
-</span><a href="#local-6989586621679369028"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:error:BatchStatementResponse' :: Maybe BatchStatementError
-</span><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#%24sel%3Aerror%3ABatchStatementResponse%27"><span class="hs-identifier hs-var">error</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BatchStatementError
-</span><a href="#local-6989586621679369027"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#BatchStatementResponse"><span class="hs-identifier hs-type">BatchStatementResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369024"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#BatchStatementResponse"><span class="hs-identifier hs-type">BatchStatementResponse</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679369022"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BatchStatementResponse
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#BatchStatementResponse%27"><span class="hs-identifier hs-type">BatchStatementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369689"><span class="annot"><span class="annottext">Maybe Text
+tableName :: Maybe Text
+$sel:tableName:BatchStatementResponse' :: BatchStatementResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679369689"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369689"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369688"><span class="annot"><span class="annottext">s :: BatchStatementResponse
+</span><a href="#local-6989586621679369688"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#BatchStatementResponse%27"><span class="hs-identifier hs-type">BatchStatementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369687"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369687"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchStatementResponse
+</span><a href="#local-6989586621679369688"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:BatchStatementResponse' :: Maybe Text
+</span><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#%24sel%3AtableName%3ABatchStatementResponse%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369687"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#BatchStatementResponse"><span class="hs-identifier hs-type">BatchStatementResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369684"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#BatchStatementResponse"><span class="hs-identifier hs-type">BatchStatementResponse</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679369682"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BatchStatementResponse
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser BatchStatementResponse)
 -&gt; Value
 -&gt; Parser BatchStatementResponse
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;BatchStatementResponse&quot;</span></span><span>
-</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679369019"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679369019"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679369679"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369679"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>          </span><span class="annot"><span class="annottext">Maybe BatchStatementError
 -&gt; Maybe (HashMap Text AttributeValue)
--&gt; Maybe BatchStatementError
+-&gt; Maybe Text
 -&gt; BatchStatementResponse
 </span><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#BatchStatementResponse%27"><span class="hs-identifier hs-var">BatchStatementResponse'</span></a></span><span>
-</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">(Maybe BatchStatementError
  -&gt; Maybe (HashMap Text AttributeValue)
- -&gt; Maybe BatchStatementError
+ -&gt; Maybe Text
  -&gt; BatchStatementResponse)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe BatchStatementError)
 -&gt; Parser
      (Maybe (HashMap Text AttributeValue)
-      -&gt; Maybe BatchStatementError -&gt; BatchStatementResponse)
+      -&gt; Maybe Text -&gt; BatchStatementResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679369019"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679369679"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BatchStatementError)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;TableName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span class="hs-string">&quot;Error&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe (HashMap Text AttributeValue)
-   -&gt; Maybe BatchStatementError -&gt; BatchStatementResponse)
+   -&gt; Maybe Text -&gt; BatchStatementResponse)
 -&gt; Parser (Maybe (HashMap Text AttributeValue))
--&gt; Parser (Maybe BatchStatementError -&gt; BatchStatementResponse)
+-&gt; Parser (Maybe Text -&gt; BatchStatementResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679369019"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369679"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text AttributeValue)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -285,18 +284,17 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe BatchStatementError -&gt; BatchStatementResponse)
--&gt; Parser (Maybe BatchStatementError)
--&gt; Parser BatchStatementResponse
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; BatchStatementResponse)
+-&gt; Parser (Maybe Text) -&gt; Parser BatchStatementResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679369019"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BatchStatementError)
+</span><a href="#local-6989586621679369679"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Error&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369012"><span id="local-6989586621679369014"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#BatchStatementResponse"><span class="hs-identifier hs-type">BatchStatementResponse</span></a></span></span></span><span>
-</span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369009"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#BatchStatementResponse"><span class="hs-identifier hs-type">BatchStatementResponse</span></a></span></span><span>
-</span><span id="line-90"></span></pre></body></html>
+</span><span class="hs-string">&quot;TableName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369672"><span id="local-6989586621679369674"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#BatchStatementResponse"><span class="hs-identifier hs-type">BatchStatementResponse</span></a></span></span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369669"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#BatchStatementResponse"><span class="hs-identifier hs-type">BatchStatementResponse</span></a></span></span><span>
+</span><span id="line-89"></span></pre></body></html>

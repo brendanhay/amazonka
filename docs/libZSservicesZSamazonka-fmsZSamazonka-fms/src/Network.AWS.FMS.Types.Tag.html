@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- to each Amazon Web Services resource.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newTag' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679249708"><span id="local-6989586621679249709"></span></span><span class="hs-keyword">data</span><span> </span><span id="Tag"><span class="annot"><a href="Network.AWS.FMS.Types.Tag.html#Tag"><span class="hs-identifier hs-var">Tag</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Tag%27"><span class="annot"><a href="Network.AWS.FMS.Types.Tag.html#Tag%27"><span class="hs-identifier hs-var">Tag'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679249953"><span id="local-6989586621679249954"></span></span><span class="hs-keyword">data</span><span> </span><span id="Tag"><span class="annot"><a href="Network.AWS.FMS.Types.Tag.html#Tag"><span class="hs-identifier hs-var">Tag</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Tag%27"><span class="annot"><a href="Network.AWS.FMS.Types.Tag.html#Tag%27"><span class="hs-identifier hs-var">Tag'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Part of the key:value pair that defines a tag. You can use a tag key to</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- describe a category of information, such as \&quot;customer.\&quot; Tag keys are</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- case-sensitive.</span><span>
@@ -43,14 +43,14 @@
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3Avalue%3ATag%27"><span class="annot"><span class="annottext">Tag -&gt; Text
 </span><a href="Network.AWS.FMS.Types.Tag.html#%24sel%3Avalue%3ATag%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679249701"><span id="local-6989586621679249703"><span class="annot"><span class="annottext">Tag -&gt; Tag -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679249946"><span id="local-6989586621679249948"><span class="annot"><span class="annottext">Tag -&gt; Tag -&gt; Bool
 (Tag -&gt; Tag -&gt; Bool) -&gt; (Tag -&gt; Tag -&gt; Bool) -&gt; Eq Tag
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Tag -&gt; Tag -&gt; Bool
 $c/= :: Tag -&gt; Tag -&gt; Bool
 == :: Tag -&gt; Tag -&gt; Bool
 $c== :: Tag -&gt; Tag -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249692"><span id="local-6989586621679249694"><span id="local-6989586621679249696"><span id="local-6989586621679249698"><span class="annot"><span class="annottext">ReadPrec [Tag]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249937"><span id="local-6989586621679249939"><span id="local-6989586621679249941"><span id="local-6989586621679249943"><span class="annot"><span class="annottext">ReadPrec [Tag]
 ReadPrec Tag
 Int -&gt; ReadS Tag
 ReadS [Tag]
@@ -67,7 +67,7 @@ readList :: ReadS [Tag]
 $creadList :: ReadS [Tag]
 readsPrec :: Int -&gt; ReadS Tag
 $creadsPrec :: Int -&gt; ReadS Tag
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249685"><span id="local-6989586621679249687"><span id="local-6989586621679249689"><span class="annot"><span class="annottext">Int -&gt; Tag -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249930"><span id="local-6989586621679249932"><span id="local-6989586621679249934"><span class="annot"><span class="annottext">Int -&gt; Tag -&gt; ShowS
 [Tag] -&gt; ShowS
 Tag -&gt; String
 (Int -&gt; Tag -&gt; ShowS)
@@ -112,15 +112,15 @@ $cfrom :: forall x. Tag -&gt; Rep Tag x
 </span><span id="line-65"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.FMS.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span>
 </span><span id="line-67"></span><span id="newTag"><span class="annot"><span class="annottext">newTag :: Text -&gt; Text -&gt; Tag
-</span><a href="Network.AWS.FMS.Types.Tag.html#newTag"><span class="hs-identifier hs-var hs-var">newTag</span></a></span></span><span> </span><span id="local-6989586621679249679"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679249679"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span id="local-6989586621679249678"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679249678"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.FMS.Types.Tag.html#newTag"><span class="hs-identifier hs-var hs-var">newTag</span></a></span></span><span> </span><span id="local-6989586621679249924"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249924"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span id="local-6989586621679249923"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249923"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">Tag' :: Text -&gt; Text -&gt; Tag
 </span><a href="Network.AWS.FMS.Types.Tag.html#Tag%27"><span class="hs-identifier hs-type">Tag'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:Tag' :: Text
 </span><a href="Network.AWS.FMS.Types.Tag.html#%24sel%3Akey%3ATag%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679249679"><span class="hs-identifier hs-var">pKey_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:value:Tag' :: Text
+</span><a href="#local-6989586621679249924"><span class="hs-identifier hs-var">pKey_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:value:Tag' :: Text
 </span><a href="Network.AWS.FMS.Types.Tag.html#%24sel%3Avalue%3ATag%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679249678"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679249923"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- | Part of the key:value pair that defines a tag. You can use a tag key to</span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- describe a category of information, such as \&quot;customer.\&quot; Tag keys are</span><span>
@@ -129,16 +129,16 @@ $cfrom :: forall x. Tag -&gt; Rep Tag x
 </span><span id="line-74"></span><span id="tag_key"><span class="annot"><span class="annottext">tag_key :: (Text -&gt; f Text) -&gt; Tag -&gt; f Tag
 </span><a href="Network.AWS.FMS.Types.Tag.html#tag_key"><span class="hs-identifier hs-var hs-var">tag_key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Tag -&gt; Text) -&gt; (Tag -&gt; Text -&gt; Tag) -&gt; Lens Tag Tag Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.Tag.html#Tag%27"><span class="hs-identifier hs-type">Tag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249674"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.Tag.html#Tag%27"><span class="hs-identifier hs-type">Tag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249919"><span class="annot"><span class="annottext">Text
 key :: Text
 $sel:key:Tag' :: Tag -&gt; Text
-</span><a href="#local-6989586621679249674"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679249674"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249673"><span class="annot"><span class="annottext">s :: Tag
-</span><a href="#local-6989586621679249673"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.Tag.html#Tag%27"><span class="hs-identifier hs-type">Tag'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249672"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679249672"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Tag
-</span><a href="#local-6989586621679249673"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:Tag' :: Text
+</span><a href="#local-6989586621679249919"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249919"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249918"><span class="annot"><span class="annottext">s :: Tag
+</span><a href="#local-6989586621679249918"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.Tag.html#Tag%27"><span class="hs-identifier hs-type">Tag'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249917"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249917"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Tag
+</span><a href="#local-6989586621679249918"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:Tag' :: Text
 </span><a href="Network.AWS.FMS.Types.Tag.html#%24sel%3Akey%3ATag%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679249672"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249917"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | Part of the key:value pair that defines a tag. You can use a tag value</span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- to describe a specific value within a category, such as \&quot;companyA\&quot; or</span><span>
@@ -147,56 +147,56 @@ $sel:key:Tag' :: Tag -&gt; Text
 </span><span id="line-80"></span><span id="tag_value"><span class="annot"><span class="annottext">tag_value :: (Text -&gt; f Text) -&gt; Tag -&gt; f Tag
 </span><a href="Network.AWS.FMS.Types.Tag.html#tag_value"><span class="hs-identifier hs-var hs-var">tag_value</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Tag -&gt; Text) -&gt; (Tag -&gt; Text -&gt; Tag) -&gt; Lens Tag Tag Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.Tag.html#Tag%27"><span class="hs-identifier hs-type">Tag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249670"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.Tag.html#Tag%27"><span class="hs-identifier hs-type">Tag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249915"><span class="annot"><span class="annottext">Text
 value :: Text
 $sel:value:Tag' :: Tag -&gt; Text
-</span><a href="#local-6989586621679249670"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679249670"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249669"><span class="annot"><span class="annottext">s :: Tag
-</span><a href="#local-6989586621679249669"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.Tag.html#Tag%27"><span class="hs-identifier hs-type">Tag'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249668"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679249668"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Tag
-</span><a href="#local-6989586621679249669"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Tag' :: Text
+</span><a href="#local-6989586621679249915"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249915"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249914"><span class="annot"><span class="annottext">s :: Tag
+</span><a href="#local-6989586621679249914"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.Tag.html#Tag%27"><span class="hs-identifier hs-type">Tag'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249913"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249913"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Tag
+</span><a href="#local-6989586621679249914"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Tag' :: Text
 </span><a href="Network.AWS.FMS.Types.Tag.html#%24sel%3Avalue%3ATag%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679249668"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249913"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249665"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679249663"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Tag
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249910"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679249908"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Tag
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Tag) -&gt; Value -&gt; Parser Tag
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Tag&quot;</span></span><span>
-</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679249660"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249660"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679249905"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679249905"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Tag
 </span><a href="Network.AWS.FMS.Types.Tag.html#Tag%27"><span class="hs-identifier hs-var">Tag'</span></a></span><span>
 </span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; Tag) -&gt; Parser Text -&gt; Parser (Text -&gt; Tag)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249660"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679249905"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Key&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Text -&gt; Tag) -&gt; Parser Text -&gt; Parser Tag
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249660"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679249905"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Value&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249654"><span id="local-6989586621679249656"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249899"><span id="local-6989586621679249901"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span></span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249651"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249896"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249643"><span id="local-6989586621679249645"><span id="local-6989586621679249647"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679249641"><span class="annot"><span class="annottext">toJSON :: Tag -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Tag.html#Tag%27"><span class="hs-identifier hs-type">Tag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249638"><span id="local-6989586621679249639"><span class="annot"><span class="annottext">Text
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249888"><span id="local-6989586621679249890"><span id="local-6989586621679249892"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679249886"><span class="annot"><span class="annottext">toJSON :: Tag -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Tag.html#Tag%27"><span class="hs-identifier hs-type">Tag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249883"><span id="local-6989586621679249884"><span class="annot"><span class="annottext">Text
 value :: Text
 key :: Text
 $sel:value:Tag' :: Tag -&gt; Text
 $sel:key:Tag' :: Tag -&gt; Text
-</span><a href="#local-6989586621679249638"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679249883"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -208,14 +208,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679249639"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679249884"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Value&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679249638"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249883"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span></pre></body></html>

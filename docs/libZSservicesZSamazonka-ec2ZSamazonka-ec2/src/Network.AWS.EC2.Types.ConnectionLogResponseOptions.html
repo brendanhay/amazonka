@@ -28,21 +28,21 @@
 </span><span id="line-28"></span><span class="hs-comment">-- endpoint.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newConnectionLogResponseOptions' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621681062334"><span id="local-6989586621681062335"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConnectionLogResponseOptions"><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#ConnectionLogResponseOptions"><span class="hs-identifier hs-var">ConnectionLogResponseOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConnectionLogResponseOptions%27"><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#ConnectionLogResponseOptions%27"><span class="hs-identifier hs-var">ConnectionLogResponseOptions'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the Amazon CloudWatch Logs log stream to which connection</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- logging data is published.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AcloudwatchLogStream%3AConnectionLogResponseOptions%27"><span class="annot"><span class="annottext">ConnectionLogResponseOptions -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#%24sel%3AcloudwatchLogStream%3AConnectionLogResponseOptions%27"><span class="hs-identifier hs-var hs-var">cloudwatchLogStream</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Indicates whether client connection logging is enabled for the Client</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- VPN endpoint.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aenabled%3AConnectionLogResponseOptions%27"><span class="annot"><span class="annottext">ConnectionLogResponseOptions -&gt; Maybe Bool
+</span><span id="line-31"></span><span id="local-6989586621681095908"><span id="local-6989586621681095909"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConnectionLogResponseOptions"><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#ConnectionLogResponseOptions"><span class="hs-identifier hs-var">ConnectionLogResponseOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConnectionLogResponseOptions%27"><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#ConnectionLogResponseOptions%27"><span class="hs-identifier hs-var">ConnectionLogResponseOptions'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Indicates whether client connection logging is enabled for the Client</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- VPN endpoint.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Aenabled%3AConnectionLogResponseOptions%27"><span class="annot"><span class="annottext">ConnectionLogResponseOptions -&gt; Maybe Bool
 </span><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#%24sel%3Aenabled%3AConnectionLogResponseOptions%27"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The name of the Amazon CloudWatch Logs log stream to which connection</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- logging data is published.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AcloudwatchLogStream%3AConnectionLogResponseOptions%27"><span class="annot"><span class="annottext">ConnectionLogResponseOptions -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#%24sel%3AcloudwatchLogStream%3AConnectionLogResponseOptions%27"><span class="hs-identifier hs-var hs-var">cloudwatchLogStream</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The name of the Amazon CloudWatch Logs log group to which connection</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- logging data is published.</span><span>
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3AcloudwatchLogGroup%3AConnectionLogResponseOptions%27"><span class="annot"><span class="annottext">ConnectionLogResponseOptions -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#%24sel%3AcloudwatchLogGroup%3AConnectionLogResponseOptions%27"><span class="hs-identifier hs-var hs-var">cloudwatchLogGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681062326"><span id="local-6989586621681062328"><span class="annot"><span class="annottext">ConnectionLogResponseOptions
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681095900"><span id="local-6989586621681095902"><span class="annot"><span class="annottext">ConnectionLogResponseOptions
 -&gt; ConnectionLogResponseOptions -&gt; Bool
 (ConnectionLogResponseOptions
  -&gt; ConnectionLogResponseOptions -&gt; Bool)
@@ -58,7 +58,7 @@ $c/= :: ConnectionLogResponseOptions
 -&gt; ConnectionLogResponseOptions -&gt; Bool
 $c== :: ConnectionLogResponseOptions
 -&gt; ConnectionLogResponseOptions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681062317"><span id="local-6989586621681062319"><span id="local-6989586621681062321"><span id="local-6989586621681062323"><span class="annot"><span class="annottext">ReadPrec [ConnectionLogResponseOptions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681095891"><span id="local-6989586621681095893"><span id="local-6989586621681095895"><span id="local-6989586621681095897"><span class="annot"><span class="annottext">ReadPrec [ConnectionLogResponseOptions]
 ReadPrec ConnectionLogResponseOptions
 Int -&gt; ReadS ConnectionLogResponseOptions
 ReadS [ConnectionLogResponseOptions]
@@ -78,7 +78,7 @@ readList :: ReadS [ConnectionLogResponseOptions]
 $creadList :: ReadS [ConnectionLogResponseOptions]
 readsPrec :: Int -&gt; ReadS ConnectionLogResponseOptions
 $creadsPrec :: Int -&gt; ReadS ConnectionLogResponseOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681062310"><span id="local-6989586621681062312"><span id="local-6989586621681062314"><span class="annot"><span class="annottext">Int -&gt; ConnectionLogResponseOptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681095884"><span id="local-6989586621681095886"><span id="local-6989586621681095888"><span class="annot"><span class="annottext">Int -&gt; ConnectionLogResponseOptions -&gt; ShowS
 [ConnectionLogResponseOptions] -&gt; ShowS
 ConnectionLogResponseOptions -&gt; String
 (Int -&gt; ConnectionLogResponseOptions -&gt; ShowS)
@@ -118,11 +118,11 @@ ConnectionLogResponseOptions -&gt; Rep ConnectionLogResponseOptions x
 </span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- 'cloudwatchLogStream', 'connectionLogResponseOptions_cloudwatchLogStream' - The name of the Amazon CloudWatch Logs log stream to which connection</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- logging data is published.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'enabled', 'connectionLogResponseOptions_enabled' - Indicates whether client connection logging is enabled for the Client</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- VPN endpoint.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'enabled', 'connectionLogResponseOptions_enabled' - Indicates whether client connection logging is enabled for the Client</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- VPN endpoint.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'cloudwatchLogStream', 'connectionLogResponseOptions_cloudwatchLogStream' - The name of the Amazon CloudWatch Logs log stream to which connection</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- logging data is published.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- 'cloudwatchLogGroup', 'connectionLogResponseOptions_cloudwatchLogGroup' - The name of the Amazon CloudWatch Logs log group to which connection</span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- logging data is published.</span><span>
@@ -130,16 +130,16 @@ ConnectionLogResponseOptions -&gt; Rep ConnectionLogResponseOptions x
 </span><span id="line-61"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#ConnectionLogResponseOptions"><span class="hs-identifier hs-type">ConnectionLogResponseOptions</span></a></span><span>
 </span><span id="line-62"></span><span id="newConnectionLogResponseOptions"><span class="annot"><span class="annottext">newConnectionLogResponseOptions :: ConnectionLogResponseOptions
 </span><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#newConnectionLogResponseOptions"><span class="hs-identifier hs-var hs-var">newConnectionLogResponseOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-63"></span><span>  </span><span class="annot"><span class="annottext">ConnectionLogResponseOptions' :: Maybe Text
--&gt; Maybe Bool -&gt; Maybe Text -&gt; ConnectionLogResponseOptions
+</span><span id="line-63"></span><span>  </span><span class="annot"><span class="annottext">ConnectionLogResponseOptions' :: Maybe Bool
+-&gt; Maybe Text -&gt; Maybe Text -&gt; ConnectionLogResponseOptions
 </span><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#ConnectionLogResponseOptions%27"><span class="hs-identifier hs-type">ConnectionLogResponseOptions'</span></a></span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cloudwatchLogStream:ConnectionLogResponseOptions' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#%24sel%3AcloudwatchLogStream%3AConnectionLogResponseOptions%27"><span class="hs-identifier hs-var">cloudwatchLogStream</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-65"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-64"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:enabled:ConnectionLogResponseOptions' :: Maybe Bool
+</span><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#%24sel%3Aenabled%3AConnectionLogResponseOptions%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-65"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:enabled:ConnectionLogResponseOptions' :: Maybe Bool
-</span><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#%24sel%3Aenabled%3AConnectionLogResponseOptions%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:cloudwatchLogStream:ConnectionLogResponseOptions' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#%24sel%3AcloudwatchLogStream%3AConnectionLogResponseOptions%27"><span class="hs-identifier hs-var">cloudwatchLogStream</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:cloudwatchLogGroup:ConnectionLogResponseOptions' :: Maybe Text
@@ -148,35 +148,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-68"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- | The name of the Amazon CloudWatch Logs log stream to which connection</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- logging data is published.</span><span>
-</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#connectionLogResponseOptions_cloudwatchLogStream"><span class="hs-identifier hs-type">connectionLogResponseOptions_cloudwatchLogStream</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#ConnectionLogResponseOptions"><span class="hs-identifier hs-type">ConnectionLogResponseOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span id="connectionLogResponseOptions_cloudwatchLogStream"><span class="annot"><span class="annottext">connectionLogResponseOptions_cloudwatchLogStream :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ConnectionLogResponseOptions -&gt; f ConnectionLogResponseOptions
-</span><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#connectionLogResponseOptions_cloudwatchLogStream"><span class="hs-identifier hs-var hs-var">connectionLogResponseOptions_cloudwatchLogStream</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectionLogResponseOptions -&gt; Maybe Text)
--&gt; (ConnectionLogResponseOptions
-    -&gt; Maybe Text -&gt; ConnectionLogResponseOptions)
--&gt; Lens
-     ConnectionLogResponseOptions
-     ConnectionLogResponseOptions
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#ConnectionLogResponseOptions%27"><span class="hs-identifier hs-type">ConnectionLogResponseOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681062301"><span class="annot"><span class="annottext">Maybe Text
-cloudwatchLogStream :: Maybe Text
-$sel:cloudwatchLogStream:ConnectionLogResponseOptions' :: ConnectionLogResponseOptions -&gt; Maybe Text
-</span><a href="#local-6989586621681062301"><span class="hs-identifier hs-var hs-var">cloudwatchLogStream</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681062301"><span class="hs-identifier hs-var">cloudwatchLogStream</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681062300"><span class="annot"><span class="annottext">s :: ConnectionLogResponseOptions
-</span><a href="#local-6989586621681062300"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#ConnectionLogResponseOptions%27"><span class="hs-identifier hs-type">ConnectionLogResponseOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681062299"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681062299"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionLogResponseOptions
-</span><a href="#local-6989586621681062300"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudwatchLogStream:ConnectionLogResponseOptions' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#%24sel%3AcloudwatchLogStream%3AConnectionLogResponseOptions%27"><span class="hs-identifier hs-var">cloudwatchLogStream</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681062299"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#ConnectionLogResponseOptions"><span class="hs-identifier hs-type">ConnectionLogResponseOptions</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- | Indicates whether client connection logging is enabled for the Client</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- VPN endpoint.</span><span>
-</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#connectionLogResponseOptions_enabled"><span class="hs-identifier hs-type">connectionLogResponseOptions_enabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#ConnectionLogResponseOptions"><span class="hs-identifier hs-type">ConnectionLogResponseOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-78"></span><span id="connectionLogResponseOptions_enabled"><span class="annot"><span class="annottext">connectionLogResponseOptions_enabled :: (Maybe Bool -&gt; f (Maybe Bool))
+</span><span id="line-70"></span><span class="hs-comment">-- | Indicates whether client connection logging is enabled for the Client</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- VPN endpoint.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#connectionLogResponseOptions_enabled"><span class="hs-identifier hs-type">connectionLogResponseOptions_enabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#ConnectionLogResponseOptions"><span class="hs-identifier hs-type">ConnectionLogResponseOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span id="connectionLogResponseOptions_enabled"><span class="annot"><span class="annottext">connectionLogResponseOptions_enabled :: (Maybe Bool -&gt; f (Maybe Bool))
 -&gt; ConnectionLogResponseOptions -&gt; f ConnectionLogResponseOptions
 </span><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#connectionLogResponseOptions_enabled"><span class="hs-identifier hs-var hs-var">connectionLogResponseOptions_enabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectionLogResponseOptions -&gt; Maybe Bool)
 -&gt; (ConnectionLogResponseOptions
@@ -187,16 +162,41 @@ $sel:cloudwatchLogStream:ConnectionLogResponseOptions' :: ConnectionLogResponseO
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#ConnectionLogResponseOptions%27"><span class="hs-identifier hs-type">ConnectionLogResponseOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681062297"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#ConnectionLogResponseOptions%27"><span class="hs-identifier hs-type">ConnectionLogResponseOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681095875"><span class="annot"><span class="annottext">Maybe Bool
 enabled :: Maybe Bool
 $sel:enabled:ConnectionLogResponseOptions' :: ConnectionLogResponseOptions -&gt; Maybe Bool
-</span><a href="#local-6989586621681062297"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681062297"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681062296"><span class="annot"><span class="annottext">s :: ConnectionLogResponseOptions
-</span><a href="#local-6989586621681062296"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#ConnectionLogResponseOptions%27"><span class="hs-identifier hs-type">ConnectionLogResponseOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681062295"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681062295"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionLogResponseOptions
-</span><a href="#local-6989586621681062296"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:ConnectionLogResponseOptions' :: Maybe Bool
+</span><a href="#local-6989586621681095875"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681095875"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681095874"><span class="annot"><span class="annottext">s :: ConnectionLogResponseOptions
+</span><a href="#local-6989586621681095874"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#ConnectionLogResponseOptions%27"><span class="hs-identifier hs-type">ConnectionLogResponseOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681095873"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681095873"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionLogResponseOptions
+</span><a href="#local-6989586621681095874"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:ConnectionLogResponseOptions' :: Maybe Bool
 </span><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#%24sel%3Aenabled%3AConnectionLogResponseOptions%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681062295"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#ConnectionLogResponseOptions"><span class="hs-identifier hs-type">ConnectionLogResponseOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681095873"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#ConnectionLogResponseOptions"><span class="hs-identifier hs-type">ConnectionLogResponseOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | The name of the Amazon CloudWatch Logs log stream to which connection</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- logging data is published.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#connectionLogResponseOptions_cloudwatchLogStream"><span class="hs-identifier hs-type">connectionLogResponseOptions_cloudwatchLogStream</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#ConnectionLogResponseOptions"><span class="hs-identifier hs-type">ConnectionLogResponseOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="connectionLogResponseOptions_cloudwatchLogStream"><span class="annot"><span class="annottext">connectionLogResponseOptions_cloudwatchLogStream :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ConnectionLogResponseOptions -&gt; f ConnectionLogResponseOptions
+</span><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#connectionLogResponseOptions_cloudwatchLogStream"><span class="hs-identifier hs-var hs-var">connectionLogResponseOptions_cloudwatchLogStream</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectionLogResponseOptions -&gt; Maybe Text)
+-&gt; (ConnectionLogResponseOptions
+    -&gt; Maybe Text -&gt; ConnectionLogResponseOptions)
+-&gt; Lens
+     ConnectionLogResponseOptions
+     ConnectionLogResponseOptions
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#ConnectionLogResponseOptions%27"><span class="hs-identifier hs-type">ConnectionLogResponseOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681095871"><span class="annot"><span class="annottext">Maybe Text
+cloudwatchLogStream :: Maybe Text
+$sel:cloudwatchLogStream:ConnectionLogResponseOptions' :: ConnectionLogResponseOptions -&gt; Maybe Text
+</span><a href="#local-6989586621681095871"><span class="hs-identifier hs-var hs-var">cloudwatchLogStream</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681095871"><span class="hs-identifier hs-var">cloudwatchLogStream</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681095870"><span class="annot"><span class="annottext">s :: ConnectionLogResponseOptions
+</span><a href="#local-6989586621681095870"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#ConnectionLogResponseOptions%27"><span class="hs-identifier hs-type">ConnectionLogResponseOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681095869"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681095869"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionLogResponseOptions
+</span><a href="#local-6989586621681095870"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudwatchLogStream:ConnectionLogResponseOptions' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#%24sel%3AcloudwatchLogStream%3AConnectionLogResponseOptions%27"><span class="hs-identifier hs-var">cloudwatchLogStream</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681095869"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#ConnectionLogResponseOptions"><span class="hs-identifier hs-type">ConnectionLogResponseOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | The name of the Amazon CloudWatch Logs log group to which connection</span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- logging data is published.</span><span>
@@ -212,58 +212,58 @@ $sel:enabled:ConnectionLogResponseOptions' :: ConnectionLogResponseOptions -&gt;
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#ConnectionLogResponseOptions%27"><span class="hs-identifier hs-type">ConnectionLogResponseOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681062293"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#ConnectionLogResponseOptions%27"><span class="hs-identifier hs-type">ConnectionLogResponseOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681095867"><span class="annot"><span class="annottext">Maybe Text
 cloudwatchLogGroup :: Maybe Text
 $sel:cloudwatchLogGroup:ConnectionLogResponseOptions' :: ConnectionLogResponseOptions -&gt; Maybe Text
-</span><a href="#local-6989586621681062293"><span class="hs-identifier hs-var hs-var">cloudwatchLogGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681062293"><span class="hs-identifier hs-var">cloudwatchLogGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681062292"><span class="annot"><span class="annottext">s :: ConnectionLogResponseOptions
-</span><a href="#local-6989586621681062292"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#ConnectionLogResponseOptions%27"><span class="hs-identifier hs-type">ConnectionLogResponseOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681062291"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681062291"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionLogResponseOptions
-</span><a href="#local-6989586621681062292"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudwatchLogGroup:ConnectionLogResponseOptions' :: Maybe Text
+</span><a href="#local-6989586621681095867"><span class="hs-identifier hs-var hs-var">cloudwatchLogGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681095867"><span class="hs-identifier hs-var">cloudwatchLogGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681095866"><span class="annot"><span class="annottext">s :: ConnectionLogResponseOptions
+</span><a href="#local-6989586621681095866"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#ConnectionLogResponseOptions%27"><span class="hs-identifier hs-type">ConnectionLogResponseOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681095865"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681095865"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionLogResponseOptions
+</span><a href="#local-6989586621681095866"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudwatchLogGroup:ConnectionLogResponseOptions' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#%24sel%3AcloudwatchLogGroup%3AConnectionLogResponseOptions%27"><span class="hs-identifier hs-var">cloudwatchLogGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681062291"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#ConnectionLogResponseOptions"><span class="hs-identifier hs-type">ConnectionLogResponseOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681095865"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#ConnectionLogResponseOptions"><span class="hs-identifier hs-type">ConnectionLogResponseOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#ConnectionLogResponseOptions"><span class="hs-identifier hs-type">ConnectionLogResponseOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621681062288"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ConnectionLogResponseOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681062286"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681062286"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe Bool -&gt; Maybe Text -&gt; ConnectionLogResponseOptions
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621681095862"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ConnectionLogResponseOptions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681095860"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681095860"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">Maybe Bool
+-&gt; Maybe Text -&gt; Maybe Text -&gt; ConnectionLogResponseOptions
 </span><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#ConnectionLogResponseOptions%27"><span class="hs-identifier hs-var">ConnectionLogResponseOptions'</span></a></span><span>
-</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe Bool -&gt; Maybe Text -&gt; ConnectionLogResponseOptions)
--&gt; Either String (Maybe Text)
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Bool
+ -&gt; Maybe Text -&gt; Maybe Text -&gt; ConnectionLogResponseOptions)
+-&gt; Either String (Maybe Bool)
 -&gt; Either
-     String (Maybe Bool -&gt; Maybe Text -&gt; ConnectionLogResponseOptions)
+     String (Maybe Text -&gt; Maybe Text -&gt; ConnectionLogResponseOptions)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681062286"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CloudwatchLogStream&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String (Maybe Bool -&gt; Maybe Text -&gt; ConnectionLogResponseOptions)
--&gt; Either String (Maybe Bool)
--&gt; Either String (Maybe Text -&gt; ConnectionLogResponseOptions)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681062286"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621681095860"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Enabled&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Maybe Text -&gt; ConnectionLogResponseOptions)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; ConnectionLogResponseOptions)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681095860"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CloudwatchLogStream&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; ConnectionLogResponseOptions)
 -&gt; Either String (Maybe Text)
 -&gt; Either String ConnectionLogResponseOptions
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681062286"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681095860"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CloudwatchLogGroup&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621681062280"><span id="local-6989586621681062282"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621681095854"><span id="local-6989586621681095856"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#ConnectionLogResponseOptions"><span class="hs-identifier hs-type">ConnectionLogResponseOptions</span></a></span></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681062277"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#ConnectionLogResponseOptions"><span class="hs-identifier hs-type">ConnectionLogResponseOptions</span></a></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681095851"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionLogResponseOptions.html#ConnectionLogResponseOptions"><span class="hs-identifier hs-type">ConnectionLogResponseOptions</span></a></span></span><span>
 </span><span id="line-97"></span></pre></body></html>

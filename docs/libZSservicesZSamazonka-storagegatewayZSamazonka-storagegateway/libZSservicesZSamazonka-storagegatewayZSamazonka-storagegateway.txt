@@ -2,7 +2,7 @@
 -- See Hoogle, http://www.haskell.org/hoogle/
 
 @package libZSservicesZSamazonka-storagegatewayZSamazonka-storagegateway
-@version 1.6.1
+@version 2.0
 
 
 module Network.AWS.StorageGateway.Types.ActiveDirectoryStatus
@@ -859,6 +859,43 @@ instance Data.Hashable.Class.Hashable Network.AWS.StorageGateway.Types.FileShare
 instance Control.DeepSeq.NFData Network.AWS.StorageGateway.Types.FileShareInfo.FileShareInfo
 
 
+module Network.AWS.StorageGateway.Types.FileSystemAssociationStatusDetail
+
+-- | Detailed information on file system association status.
+--   
+--   <i>See:</i> <a>newFileSystemAssociationStatusDetail</a> smart
+--   constructor.
+data FileSystemAssociationStatusDetail
+FileSystemAssociationStatusDetail' :: Maybe Text -> FileSystemAssociationStatusDetail
+
+-- | The error code for a given file system association status.
+[$sel:errorCode:FileSystemAssociationStatusDetail'] :: FileSystemAssociationStatusDetail -> Maybe Text
+
+-- | Create a value of <a>FileSystemAssociationStatusDetail</a> with all
+--   optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:errorCode:FileSystemAssociationStatusDetail'</a>,
+--   <a>fileSystemAssociationStatusDetail_errorCode</a> - The error code
+--   for a given file system association status.
+newFileSystemAssociationStatusDetail :: FileSystemAssociationStatusDetail
+
+-- | The error code for a given file system association status.
+fileSystemAssociationStatusDetail_errorCode :: Lens' FileSystemAssociationStatusDetail (Maybe Text)
+instance GHC.Generics.Generic Network.AWS.StorageGateway.Types.FileSystemAssociationStatusDetail.FileSystemAssociationStatusDetail
+instance GHC.Show.Show Network.AWS.StorageGateway.Types.FileSystemAssociationStatusDetail.FileSystemAssociationStatusDetail
+instance GHC.Read.Read Network.AWS.StorageGateway.Types.FileSystemAssociationStatusDetail.FileSystemAssociationStatusDetail
+instance GHC.Classes.Eq Network.AWS.StorageGateway.Types.FileSystemAssociationStatusDetail.FileSystemAssociationStatusDetail
+instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.StorageGateway.Types.FileSystemAssociationStatusDetail.FileSystemAssociationStatusDetail
+instance Data.Hashable.Class.Hashable Network.AWS.StorageGateway.Types.FileSystemAssociationStatusDetail.FileSystemAssociationStatusDetail
+instance Control.DeepSeq.NFData Network.AWS.StorageGateway.Types.FileSystemAssociationStatusDetail.FileSystemAssociationStatusDetail
+
+
 module Network.AWS.StorageGateway.Types.FileSystemAssociationSummary
 
 -- | Gets the summary returned by <tt>ListFileSystemAssociation</tt>, which
@@ -965,11 +1002,13 @@ module Network.AWS.StorageGateway.Types.GatewayInfo
 data GatewayInfo
 GatewayInfo' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> GatewayInfo
 
--- | The Region where the Amazon EC2 instance is located.
+-- | The Amazon Web Services Region where the Amazon EC2 instance is
+--   located.
 [$sel:ec2InstanceRegion:GatewayInfo'] :: GatewayInfo -> Maybe Text
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
---   operation to return a list of gateways for your account and Region.
+--   operation to return a list of gateways for your account and Amazon Web
+--   Services Region.
 [$sel:gatewayARN:GatewayInfo'] :: GatewayInfo -> Maybe Text
 
 -- | The ID of the Amazon EC2 instance that was used to launch the gateway.
@@ -1000,12 +1039,13 @@ GatewayInfo' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Te
 --   lenses provided for backwards compatibility:
 --   
 --   <a>$sel:ec2InstanceRegion:GatewayInfo'</a>,
---   <a>gatewayInfo_ec2InstanceRegion</a> - The Region where the Amazon EC2
---   instance is located.
+--   <a>gatewayInfo_ec2InstanceRegion</a> - The Amazon Web Services Region
+--   where the Amazon EC2 instance is located.
 --   
 --   <a>$sel:gatewayARN:GatewayInfo'</a>, <a>gatewayInfo_gatewayARN</a> -
 --   The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
---   operation to return a list of gateways for your account and Region.
+--   operation to return a list of gateways for your account and Amazon Web
+--   Services Region.
 --   
 --   <a>$sel:ec2InstanceId:GatewayInfo'</a>,
 --   <a>gatewayInfo_ec2InstanceId</a> - The ID of the Amazon EC2 instance
@@ -1028,11 +1068,13 @@ GatewayInfo' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Te
 --   The type of the gateway.
 newGatewayInfo :: GatewayInfo
 
--- | The Region where the Amazon EC2 instance is located.
+-- | The Amazon Web Services Region where the Amazon EC2 instance is
+--   located.
 gatewayInfo_ec2InstanceRegion :: Lens' GatewayInfo (Maybe Text)
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
---   operation to return a list of gateways for your account and Region.
+--   operation to return a list of gateways for your account and Amazon Web
+--   Services Region.
 gatewayInfo_gatewayARN :: Lens' GatewayInfo (Maybe Text)
 
 -- | The ID of the Amazon EC2 instance that was used to launch the gateway.
@@ -1338,6 +1380,59 @@ instance GHC.Read.Read Network.AWS.StorageGateway.Types.RetentionLockType.Retent
 instance GHC.Show.Show Network.AWS.StorageGateway.Types.RetentionLockType.RetentionLockType
 
 
+module Network.AWS.StorageGateway.Types.SMBLocalGroups
+
+-- | A list of Active Directory users and groups that have special
+--   permissions for SMB file shares on the gateway.
+--   
+--   <i>See:</i> <a>newSMBLocalGroups</a> smart constructor.
+data SMBLocalGroups
+SMBLocalGroups' :: Maybe [Text] -> SMBLocalGroups
+
+-- | A list of Active Directory users and groups that have local Gateway
+--   Admin permissions. Acceptable formats include: <tt>DOMAIN\User1</tt>,
+--   <tt>user1</tt>, <tt>DOMAIN\group1</tt>, and <tt>group1</tt>.
+--   
+--   Gateway Admins can use the Shared Folders Microsoft Management Console
+--   snap-in to force-close files that are open and locked.
+[$sel:gatewayAdmins:SMBLocalGroups'] :: SMBLocalGroups -> Maybe [Text]
+
+-- | Create a value of <a>SMBLocalGroups</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:gatewayAdmins:SMBLocalGroups'</a>,
+--   <a>sMBLocalGroups_gatewayAdmins</a> - A list of Active Directory users
+--   and groups that have local Gateway Admin permissions. Acceptable
+--   formats include: <tt>DOMAIN\User1</tt>, <tt>user1</tt>,
+--   <tt>DOMAIN\group1</tt>, and <tt>group1</tt>.
+--   
+--   Gateway Admins can use the Shared Folders Microsoft Management Console
+--   snap-in to force-close files that are open and locked.
+newSMBLocalGroups :: SMBLocalGroups
+
+-- | A list of Active Directory users and groups that have local Gateway
+--   Admin permissions. Acceptable formats include: <tt>DOMAIN\User1</tt>,
+--   <tt>user1</tt>, <tt>DOMAIN\group1</tt>, and <tt>group1</tt>.
+--   
+--   Gateway Admins can use the Shared Folders Microsoft Management Console
+--   snap-in to force-close files that are open and locked.
+sMBLocalGroups_gatewayAdmins :: Lens' SMBLocalGroups (Maybe [Text])
+instance GHC.Generics.Generic Network.AWS.StorageGateway.Types.SMBLocalGroups.SMBLocalGroups
+instance GHC.Show.Show Network.AWS.StorageGateway.Types.SMBLocalGroups.SMBLocalGroups
+instance GHC.Read.Read Network.AWS.StorageGateway.Types.SMBLocalGroups.SMBLocalGroups
+instance GHC.Classes.Eq Network.AWS.StorageGateway.Types.SMBLocalGroups.SMBLocalGroups
+instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.StorageGateway.Types.SMBLocalGroups.SMBLocalGroups
+instance Data.Hashable.Class.Hashable Network.AWS.StorageGateway.Types.SMBLocalGroups.SMBLocalGroups
+instance Control.DeepSeq.NFData Network.AWS.StorageGateway.Types.SMBLocalGroups.SMBLocalGroups
+instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.StorageGateway.Types.SMBLocalGroups.SMBLocalGroups
+
+
 module Network.AWS.StorageGateway.Types.SMBSecurityStrategy
 newtype SMBSecurityStrategy
 SMBSecurityStrategy' :: Text -> SMBSecurityStrategy
@@ -1488,7 +1583,8 @@ SMBFileShareInfo' :: Maybe Bool -> Maybe [Text] -> Maybe Text -> Maybe Text -> M
 -- | The name of the file share. Optional.
 --   
 --   <tt>FileShareName</tt> must be set if an S3 prefix name is set in
---   <tt>LocationARN</tt>.
+--   <tt>LocationARN</tt>, or if an access point or access point alias is
+--   used.
 [$sel:fileShareName:SMBFileShareInfo'] :: SMBFileShareInfo -> Maybe Text
 [$sel:role':SMBFileShareInfo'] :: SMBFileShareInfo -> Maybe Text
 
@@ -1684,7 +1780,8 @@ SMBFileShareInfo' :: Maybe Bool -> Maybe [Text] -> Maybe Text -> Maybe Text -> M
 --   Optional.
 --   
 --   <tt>FileShareName</tt> must be set if an S3 prefix name is set in
---   <tt>LocationARN</tt>.
+--   <tt>LocationARN</tt>, or if an access point or access point alias is
+--   used.
 --   
 --   <a>$sel:role':SMBFileShareInfo'</a>, <a>sMBFileShareInfo_role</a> -
 --   Undocumented member.
@@ -1870,7 +1967,8 @@ sMBFileShareInfo_defaultStorageClass :: Lens' SMBFileShareInfo (Maybe Text)
 -- | The name of the file share. Optional.
 --   
 --   <tt>FileShareName</tt> must be set if an S3 prefix name is set in
---   <tt>LocationARN</tt>.
+--   <tt>LocationARN</tt>, or if an access point or access point alias is
+--   used.
 sMBFileShareInfo_fileShareName :: Lens' SMBFileShareInfo (Maybe Text)
 
 -- | Undocumented member.
@@ -1988,7 +2086,10 @@ module Network.AWS.StorageGateway.Types.NFSFileShareInfo
 --   
 --   <i>See:</i> <a>newNFSFileShareInfo</a> smart constructor.
 data NFSFileShareInfo
-NFSFileShareInfo' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe CacheAttributes -> Maybe ObjectACL -> Maybe Bool -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Bool -> Maybe NFSFileShareDefaults -> Maybe Text -> Maybe (NonEmpty Text) -> Maybe Bool -> Maybe Bool -> Maybe Text -> Maybe [Tag] -> NFSFileShareInfo
+NFSFileShareInfo' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe CacheAttributes -> Maybe ObjectACL -> Maybe Bool -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Bool -> Maybe NFSFileShareDefaults -> Maybe Text -> Maybe (NonEmpty Text) -> Maybe Bool -> Maybe Bool -> Maybe Text -> Maybe [Tag] -> NFSFileShareInfo
+
+-- | The Amazon Resource Name (ARN) of the storage used for audit logs.
+[$sel:auditDestinationARN:NFSFileShareInfo'] :: NFSFileShareInfo -> Maybe Text
 [$sel:fileShareStatus:NFSFileShareInfo'] :: NFSFileShareInfo -> Maybe Text
 [$sel:kmsKey:NFSFileShareInfo'] :: NFSFileShareInfo -> Maybe Text
 [$sel:gatewayARN:NFSFileShareInfo'] :: NFSFileShareInfo -> Maybe Text
@@ -2026,7 +2127,8 @@ NFSFileShareInfo' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> May
 -- | The name of the file share. Optional.
 --   
 --   <tt>FileShareName</tt> must be set if an S3 prefix name is set in
---   <tt>LocationARN</tt>.
+--   <tt>LocationARN</tt>, or if an access point or access point alias is
+--   used.
 [$sel:fileShareName:NFSFileShareInfo'] :: NFSFileShareInfo -> Maybe Text
 [$sel:role':NFSFileShareInfo'] :: NFSFileShareInfo -> Maybe Text
 
@@ -2110,6 +2212,10 @@ NFSFileShareInfo' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> May
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:auditDestinationARN:NFSFileShareInfo'</a>,
+--   <a>nFSFileShareInfo_auditDestinationARN</a> - The Amazon Resource Name
+--   (ARN) of the storage used for audit logs.
+--   
 --   <a>$sel:fileShareStatus:NFSFileShareInfo'</a>,
 --   <a>nFSFileShareInfo_fileShareStatus</a> - Undocumented member.
 --   
@@ -2164,7 +2270,8 @@ NFSFileShareInfo' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> May
 --   Optional.
 --   
 --   <tt>FileShareName</tt> must be set if an S3 prefix name is set in
---   <tt>LocationARN</tt>.
+--   <tt>LocationARN</tt>, or if an access point or access point alias is
+--   used.
 --   
 --   <a>$sel:role':NFSFileShareInfo'</a>, <a>nFSFileShareInfo_role</a> -
 --   Undocumented member.
@@ -2250,6 +2357,9 @@ NFSFileShareInfo' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> May
 --   the <tt>ListTagsForResource</tt> API operation.
 newNFSFileShareInfo :: NFSFileShareInfo
 
+-- | The Amazon Resource Name (ARN) of the storage used for audit logs.
+nFSFileShareInfo_auditDestinationARN :: Lens' NFSFileShareInfo (Maybe Text)
+
 -- | Undocumented member.
 nFSFileShareInfo_fileShareStatus :: Lens' NFSFileShareInfo (Maybe Text)
 
@@ -2300,7 +2410,8 @@ nFSFileShareInfo_defaultStorageClass :: Lens' NFSFileShareInfo (Maybe Text)
 -- | The name of the file share. Optional.
 --   
 --   <tt>FileShareName</tt> must be set if an S3 prefix name is set in
---   <tt>LocationARN</tt>.
+--   <tt>LocationARN</tt>, or if an access point or access point alias is
+--   used.
 nFSFileShareInfo_fileShareName :: Lens' NFSFileShareInfo (Maybe Text)
 
 -- | Undocumented member.
@@ -2401,7 +2512,7 @@ module Network.AWS.StorageGateway.Types.FileSystemAssociationInfo
 --   
 --   <i>See:</i> <a>newFileSystemAssociationInfo</a> smart constructor.
 data FileSystemAssociationInfo
-FileSystemAssociationInfo' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe CacheAttributes -> Maybe EndpointNetworkConfiguration -> Maybe Text -> Maybe Text -> Maybe [Tag] -> FileSystemAssociationInfo
+FileSystemAssociationInfo' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe CacheAttributes -> Maybe [FileSystemAssociationStatusDetail] -> Maybe EndpointNetworkConfiguration -> Maybe Text -> Maybe Text -> Maybe [Tag] -> FileSystemAssociationInfo
 
 -- | The Amazon Resource Name (ARN) of the storage used for the audit logs.
 [$sel:auditDestinationARN:FileSystemAssociationInfo'] :: FileSystemAssociationInfo -> Maybe Text
@@ -2410,6 +2521,10 @@ FileSystemAssociationInfo' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Ca
 [$sel:fileSystemAssociationARN:FileSystemAssociationInfo'] :: FileSystemAssociationInfo -> Maybe Text
 [$sel:gatewayARN:FileSystemAssociationInfo'] :: FileSystemAssociationInfo -> Maybe Text
 [$sel:cacheAttributes:FileSystemAssociationInfo'] :: FileSystemAssociationInfo -> Maybe CacheAttributes
+
+-- | An array containing the FileSystemAssociationStatusDetail data type,
+--   which provides detailed information on file system association status.
+[$sel:fileSystemAssociationStatusDetails:FileSystemAssociationInfo'] :: FileSystemAssociationInfo -> Maybe [FileSystemAssociationStatusDetail]
 
 -- | Specifies network configuration information for the gateway associated
 --   with the Amazon FSx file system.
@@ -2456,6 +2571,12 @@ FileSystemAssociationInfo' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Ca
 --   <a>fileSystemAssociationInfo_cacheAttributes</a> - Undocumented
 --   member.
 --   
+--   
+--   <a>$sel:fileSystemAssociationStatusDetails:FileSystemAssociationInfo'</a>,
+--   <a>fileSystemAssociationInfo_fileSystemAssociationStatusDetails</a> -
+--   An array containing the FileSystemAssociationStatusDetail data type,
+--   which provides detailed information on file system association status.
+--   
 --   <a>$sel:endpointNetworkConfiguration:FileSystemAssociationInfo'</a>,
 --   <a>fileSystemAssociationInfo_endpointNetworkConfiguration</a> -
 --   Specifies network configuration information for the gateway associated
@@ -2492,6 +2613,10 @@ fileSystemAssociationInfo_gatewayARN :: Lens' FileSystemAssociationInfo (Maybe T
 
 -- | Undocumented member.
 fileSystemAssociationInfo_cacheAttributes :: Lens' FileSystemAssociationInfo (Maybe CacheAttributes)
+
+-- | An array containing the FileSystemAssociationStatusDetail data type,
+--   which provides detailed information on file system association status.
+fileSystemAssociationInfo_fileSystemAssociationStatusDetails :: Lens' FileSystemAssociationInfo (Maybe [FileSystemAssociationStatusDetail])
 
 -- | Specifies network configuration information for the gateway associated
 --   with the Amazon FSx file system.
@@ -2916,7 +3041,8 @@ TapeInfo' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Integ
 [$sel:tapeARN:TapeInfo'] :: TapeInfo -> Maybe Text
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
---   operation to return a list of gateways for your account and Region.
+--   operation to return a list of gateways for your account and Amazon Web
+--   Services Region.
 [$sel:gatewayARN:TapeInfo'] :: TapeInfo -> Maybe Text
 
 -- | The size, in bytes, of a virtual tape.
@@ -2957,7 +3083,8 @@ TapeInfo' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Integ
 --   
 --   <a>$sel:gatewayARN:TapeInfo'</a>, <a>tapeInfo_gatewayARN</a> - The
 --   Amazon Resource Name (ARN) of the gateway. Use the ListGateways
---   operation to return a list of gateways for your account and Region.
+--   operation to return a list of gateways for your account and Amazon Web
+--   Services Region.
 --   
 --   <a>$sel:tapeSizeInBytes:TapeInfo'</a>, <a>tapeInfo_tapeSizeInBytes</a>
 --   - The size, in bytes, of a virtual tape.
@@ -2990,7 +3117,8 @@ tapeInfo_tapeStatus :: Lens' TapeInfo (Maybe Text)
 tapeInfo_tapeARN :: Lens' TapeInfo (Maybe Text)
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
---   operation to return a list of gateways for your account and Region.
+--   operation to return a list of gateways for your account and Amazon Web
+--   Services Region.
 tapeInfo_gatewayARN :: Lens' TapeInfo (Maybe Text)
 
 -- | The size, in bytes, of a virtual tape.
@@ -3134,10 +3262,11 @@ data PoolInfo
 PoolInfo' :: Maybe RetentionLockType -> Maybe Natural -> Maybe Text -> Maybe TapeStorageClass -> Maybe PoolStatus -> Maybe Text -> PoolInfo
 
 -- | Tape retention lock type, which can be configured in two modes. When
---   configured in governance mode, accounts with specific IAM permissions
---   are authorized to remove the tape retention lock from archived virtual
---   tapes. When configured in compliance mode, the tape retention lock
---   cannot be removed by any user, including the root account.
+--   configured in governance mode, Amazon Web Services accounts with
+--   specific IAM permissions are authorized to remove the tape retention
+--   lock from archived virtual tapes. When configured in compliance mode,
+--   the tape retention lock cannot be removed by any user, including the
+--   root Amazon Web Services account.
 [$sel:retentionLockType:PoolInfo'] :: PoolInfo -> Maybe RetentionLockType
 
 -- | Tape retention lock time is set in days. Tape retention lock can be
@@ -3160,7 +3289,7 @@ PoolInfo' :: Maybe RetentionLockType -> Maybe Natural -> Maybe Text -> Maybe Tap
 
 -- | The Amazon Resource Name (ARN) of the custom tape pool. Use the
 --   ListTapePools operation to return a list of custom tape pools for your
---   account and Region.
+--   account and Amazon Web Services Region.
 [$sel:poolARN:PoolInfo'] :: PoolInfo -> Maybe Text
 
 -- | Create a value of <a>PoolInfo</a> with all optional fields omitted.
@@ -3174,10 +3303,11 @@ PoolInfo' :: Maybe RetentionLockType -> Maybe Natural -> Maybe Text -> Maybe Tap
 --   <a>$sel:retentionLockType:PoolInfo'</a>,
 --   <a>poolInfo_retentionLockType</a> - Tape retention lock type, which
 --   can be configured in two modes. When configured in governance mode,
---   accounts with specific IAM permissions are authorized to remove the
---   tape retention lock from archived virtual tapes. When configured in
---   compliance mode, the tape retention lock cannot be removed by any
---   user, including the root account.
+--   Amazon Web Services accounts with specific IAM permissions are
+--   authorized to remove the tape retention lock from archived virtual
+--   tapes. When configured in compliance mode, the tape retention lock
+--   cannot be removed by any user, including the root Amazon Web Services
+--   account.
 --   
 --   <a>$sel:retentionLockTimeInDays:PoolInfo'</a>,
 --   <a>poolInfo_retentionLockTimeInDays</a> - Tape retention lock time is
@@ -3201,14 +3331,15 @@ PoolInfo' :: Maybe RetentionLockType -> Maybe Natural -> Maybe Text -> Maybe Tap
 --   <a>$sel:poolARN:PoolInfo'</a>, <a>poolInfo_poolARN</a> - The Amazon
 --   Resource Name (ARN) of the custom tape pool. Use the ListTapePools
 --   operation to return a list of custom tape pools for your account and
---   Region.
+--   Amazon Web Services Region.
 newPoolInfo :: PoolInfo
 
 -- | Tape retention lock type, which can be configured in two modes. When
---   configured in governance mode, accounts with specific IAM permissions
---   are authorized to remove the tape retention lock from archived virtual
---   tapes. When configured in compliance mode, the tape retention lock
---   cannot be removed by any user, including the root account.
+--   configured in governance mode, Amazon Web Services accounts with
+--   specific IAM permissions are authorized to remove the tape retention
+--   lock from archived virtual tapes. When configured in compliance mode,
+--   the tape retention lock cannot be removed by any user, including the
+--   root Amazon Web Services account.
 poolInfo_retentionLockType :: Lens' PoolInfo (Maybe RetentionLockType)
 
 -- | Tape retention lock time is set in days. Tape retention lock can be
@@ -3231,7 +3362,7 @@ poolInfo_poolStatus :: Lens' PoolInfo (Maybe PoolStatus)
 
 -- | The Amazon Resource Name (ARN) of the custom tape pool. Use the
 --   ListTapePools operation to return a list of custom tape pools for your
---   account and Region.
+--   account and Amazon Web Services Region.
 poolInfo_poolARN :: Lens' PoolInfo (Maybe Text)
 instance GHC.Generics.Generic Network.AWS.StorageGateway.Types.PoolInfo.PoolInfo
 instance GHC.Show.Show Network.AWS.StorageGateway.Types.PoolInfo.PoolInfo
@@ -5082,7 +5213,7 @@ fileShareInfo_fileShareType :: Lens' FileShareInfo (Maybe FileShareType)
 --   
 --   <i>See:</i> <a>newFileSystemAssociationInfo</a> smart constructor.
 data FileSystemAssociationInfo
-FileSystemAssociationInfo' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe CacheAttributes -> Maybe EndpointNetworkConfiguration -> Maybe Text -> Maybe Text -> Maybe [Tag] -> FileSystemAssociationInfo
+FileSystemAssociationInfo' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe CacheAttributes -> Maybe [FileSystemAssociationStatusDetail] -> Maybe EndpointNetworkConfiguration -> Maybe Text -> Maybe Text -> Maybe [Tag] -> FileSystemAssociationInfo
 
 -- | The Amazon Resource Name (ARN) of the storage used for the audit logs.
 [$sel:auditDestinationARN:FileSystemAssociationInfo'] :: FileSystemAssociationInfo -> Maybe Text
@@ -5091,6 +5222,10 @@ FileSystemAssociationInfo' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Ca
 [$sel:fileSystemAssociationARN:FileSystemAssociationInfo'] :: FileSystemAssociationInfo -> Maybe Text
 [$sel:gatewayARN:FileSystemAssociationInfo'] :: FileSystemAssociationInfo -> Maybe Text
 [$sel:cacheAttributes:FileSystemAssociationInfo'] :: FileSystemAssociationInfo -> Maybe CacheAttributes
+
+-- | An array containing the FileSystemAssociationStatusDetail data type,
+--   which provides detailed information on file system association status.
+[$sel:fileSystemAssociationStatusDetails:FileSystemAssociationInfo'] :: FileSystemAssociationInfo -> Maybe [FileSystemAssociationStatusDetail]
 
 -- | Specifies network configuration information for the gateway associated
 --   with the Amazon FSx file system.
@@ -5137,6 +5272,12 @@ FileSystemAssociationInfo' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Ca
 --   <a>fileSystemAssociationInfo_cacheAttributes</a> - Undocumented
 --   member.
 --   
+--   
+--   <a>$sel:fileSystemAssociationStatusDetails:FileSystemAssociationInfo'</a>,
+--   <a>fileSystemAssociationInfo_fileSystemAssociationStatusDetails</a> -
+--   An array containing the FileSystemAssociationStatusDetail data type,
+--   which provides detailed information on file system association status.
+--   
 --   <a>$sel:endpointNetworkConfiguration:FileSystemAssociationInfo'</a>,
 --   <a>fileSystemAssociationInfo_endpointNetworkConfiguration</a> -
 --   Specifies network configuration information for the gateway associated
@@ -5174,6 +5315,10 @@ fileSystemAssociationInfo_gatewayARN :: Lens' FileSystemAssociationInfo (Maybe T
 -- | Undocumented member.
 fileSystemAssociationInfo_cacheAttributes :: Lens' FileSystemAssociationInfo (Maybe CacheAttributes)
 
+-- | An array containing the FileSystemAssociationStatusDetail data type,
+--   which provides detailed information on file system association status.
+fileSystemAssociationInfo_fileSystemAssociationStatusDetails :: Lens' FileSystemAssociationInfo (Maybe [FileSystemAssociationStatusDetail])
+
 -- | Specifies network configuration information for the gateway associated
 --   with the Amazon FSx file system.
 --   
@@ -5194,6 +5339,33 @@ fileSystemAssociationInfo_fileSystemAssociationStatus :: Lens' FileSystemAssocia
 -- | A list of up to 50 tags assigned to the SMB file share, sorted
 --   alphabetically by key name. Each tag is a key-value pair.
 fileSystemAssociationInfo_tags :: Lens' FileSystemAssociationInfo (Maybe [Tag])
+
+-- | Detailed information on file system association status.
+--   
+--   <i>See:</i> <a>newFileSystemAssociationStatusDetail</a> smart
+--   constructor.
+data FileSystemAssociationStatusDetail
+FileSystemAssociationStatusDetail' :: Maybe Text -> FileSystemAssociationStatusDetail
+
+-- | The error code for a given file system association status.
+[$sel:errorCode:FileSystemAssociationStatusDetail'] :: FileSystemAssociationStatusDetail -> Maybe Text
+
+-- | Create a value of <a>FileSystemAssociationStatusDetail</a> with all
+--   optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:errorCode:FileSystemAssociationStatusDetail'</a>,
+--   <a>fileSystemAssociationStatusDetail_errorCode</a> - The error code
+--   for a given file system association status.
+newFileSystemAssociationStatusDetail :: FileSystemAssociationStatusDetail
+
+-- | The error code for a given file system association status.
+fileSystemAssociationStatusDetail_errorCode :: Lens' FileSystemAssociationStatusDetail (Maybe Text)
 
 -- | Gets the summary returned by <tt>ListFileSystemAssociation</tt>, which
 --   is a summary of a created file system association.
@@ -5261,11 +5433,13 @@ fileSystemAssociationSummary_fileSystemAssociationStatus :: Lens' FileSystemAsso
 data GatewayInfo
 GatewayInfo' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> GatewayInfo
 
--- | The Region where the Amazon EC2 instance is located.
+-- | The Amazon Web Services Region where the Amazon EC2 instance is
+--   located.
 [$sel:ec2InstanceRegion:GatewayInfo'] :: GatewayInfo -> Maybe Text
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
---   operation to return a list of gateways for your account and Region.
+--   operation to return a list of gateways for your account and Amazon Web
+--   Services Region.
 [$sel:gatewayARN:GatewayInfo'] :: GatewayInfo -> Maybe Text
 
 -- | The ID of the Amazon EC2 instance that was used to launch the gateway.
@@ -5296,12 +5470,13 @@ GatewayInfo' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Te
 --   lenses provided for backwards compatibility:
 --   
 --   <a>$sel:ec2InstanceRegion:GatewayInfo'</a>,
---   <a>gatewayInfo_ec2InstanceRegion</a> - The Region where the Amazon EC2
---   instance is located.
+--   <a>gatewayInfo_ec2InstanceRegion</a> - The Amazon Web Services Region
+--   where the Amazon EC2 instance is located.
 --   
 --   <a>$sel:gatewayARN:GatewayInfo'</a>, <a>gatewayInfo_gatewayARN</a> -
 --   The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
---   operation to return a list of gateways for your account and Region.
+--   operation to return a list of gateways for your account and Amazon Web
+--   Services Region.
 --   
 --   <a>$sel:ec2InstanceId:GatewayInfo'</a>,
 --   <a>gatewayInfo_ec2InstanceId</a> - The ID of the Amazon EC2 instance
@@ -5324,11 +5499,13 @@ GatewayInfo' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Te
 --   The type of the gateway.
 newGatewayInfo :: GatewayInfo
 
--- | The Region where the Amazon EC2 instance is located.
+-- | The Amazon Web Services Region where the Amazon EC2 instance is
+--   located.
 gatewayInfo_ec2InstanceRegion :: Lens' GatewayInfo (Maybe Text)
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
---   operation to return a list of gateways for your account and Region.
+--   operation to return a list of gateways for your account and Amazon Web
+--   Services Region.
 gatewayInfo_gatewayARN :: Lens' GatewayInfo (Maybe Text)
 
 -- | The ID of the Amazon EC2 instance that was used to launch the gateway.
@@ -5436,7 +5613,10 @@ nFSFileShareDefaults_groupId :: Lens' NFSFileShareDefaults (Maybe Natural)
 --   
 --   <i>See:</i> <a>newNFSFileShareInfo</a> smart constructor.
 data NFSFileShareInfo
-NFSFileShareInfo' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe CacheAttributes -> Maybe ObjectACL -> Maybe Bool -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Bool -> Maybe NFSFileShareDefaults -> Maybe Text -> Maybe (NonEmpty Text) -> Maybe Bool -> Maybe Bool -> Maybe Text -> Maybe [Tag] -> NFSFileShareInfo
+NFSFileShareInfo' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe CacheAttributes -> Maybe ObjectACL -> Maybe Bool -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Bool -> Maybe NFSFileShareDefaults -> Maybe Text -> Maybe (NonEmpty Text) -> Maybe Bool -> Maybe Bool -> Maybe Text -> Maybe [Tag] -> NFSFileShareInfo
+
+-- | The Amazon Resource Name (ARN) of the storage used for audit logs.
+[$sel:auditDestinationARN:NFSFileShareInfo'] :: NFSFileShareInfo -> Maybe Text
 [$sel:fileShareStatus:NFSFileShareInfo'] :: NFSFileShareInfo -> Maybe Text
 [$sel:kmsKey:NFSFileShareInfo'] :: NFSFileShareInfo -> Maybe Text
 [$sel:gatewayARN:NFSFileShareInfo'] :: NFSFileShareInfo -> Maybe Text
@@ -5474,7 +5654,8 @@ NFSFileShareInfo' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> May
 -- | The name of the file share. Optional.
 --   
 --   <tt>FileShareName</tt> must be set if an S3 prefix name is set in
---   <tt>LocationARN</tt>.
+--   <tt>LocationARN</tt>, or if an access point or access point alias is
+--   used.
 [$sel:fileShareName:NFSFileShareInfo'] :: NFSFileShareInfo -> Maybe Text
 [$sel:role':NFSFileShareInfo'] :: NFSFileShareInfo -> Maybe Text
 
@@ -5558,6 +5739,10 @@ NFSFileShareInfo' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> May
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:auditDestinationARN:NFSFileShareInfo'</a>,
+--   <a>nFSFileShareInfo_auditDestinationARN</a> - The Amazon Resource Name
+--   (ARN) of the storage used for audit logs.
+--   
 --   <a>$sel:fileShareStatus:NFSFileShareInfo'</a>,
 --   <a>nFSFileShareInfo_fileShareStatus</a> - Undocumented member.
 --   
@@ -5612,7 +5797,8 @@ NFSFileShareInfo' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> May
 --   Optional.
 --   
 --   <tt>FileShareName</tt> must be set if an S3 prefix name is set in
---   <tt>LocationARN</tt>.
+--   <tt>LocationARN</tt>, or if an access point or access point alias is
+--   used.
 --   
 --   <a>$sel:role':NFSFileShareInfo'</a>, <a>nFSFileShareInfo_role</a> -
 --   Undocumented member.
@@ -5698,6 +5884,9 @@ NFSFileShareInfo' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> May
 --   the <tt>ListTagsForResource</tt> API operation.
 newNFSFileShareInfo :: NFSFileShareInfo
 
+-- | The Amazon Resource Name (ARN) of the storage used for audit logs.
+nFSFileShareInfo_auditDestinationARN :: Lens' NFSFileShareInfo (Maybe Text)
+
 -- | Undocumented member.
 nFSFileShareInfo_fileShareStatus :: Lens' NFSFileShareInfo (Maybe Text)
 
@@ -5748,7 +5937,8 @@ nFSFileShareInfo_defaultStorageClass :: Lens' NFSFileShareInfo (Maybe Text)
 -- | The name of the file share. Optional.
 --   
 --   <tt>FileShareName</tt> must be set if an S3 prefix name is set in
---   <tt>LocationARN</tt>.
+--   <tt>LocationARN</tt>, or if an access point or access point alias is
+--   used.
 nFSFileShareInfo_fileShareName :: Lens' NFSFileShareInfo (Maybe Text)
 
 -- | Undocumented member.
@@ -5894,10 +6084,11 @@ data PoolInfo
 PoolInfo' :: Maybe RetentionLockType -> Maybe Natural -> Maybe Text -> Maybe TapeStorageClass -> Maybe PoolStatus -> Maybe Text -> PoolInfo
 
 -- | Tape retention lock type, which can be configured in two modes. When
---   configured in governance mode, accounts with specific IAM permissions
---   are authorized to remove the tape retention lock from archived virtual
---   tapes. When configured in compliance mode, the tape retention lock
---   cannot be removed by any user, including the root account.
+--   configured in governance mode, Amazon Web Services accounts with
+--   specific IAM permissions are authorized to remove the tape retention
+--   lock from archived virtual tapes. When configured in compliance mode,
+--   the tape retention lock cannot be removed by any user, including the
+--   root Amazon Web Services account.
 [$sel:retentionLockType:PoolInfo'] :: PoolInfo -> Maybe RetentionLockType
 
 -- | Tape retention lock time is set in days. Tape retention lock can be
@@ -5920,7 +6111,7 @@ PoolInfo' :: Maybe RetentionLockType -> Maybe Natural -> Maybe Text -> Maybe Tap
 
 -- | The Amazon Resource Name (ARN) of the custom tape pool. Use the
 --   ListTapePools operation to return a list of custom tape pools for your
---   account and Region.
+--   account and Amazon Web Services Region.
 [$sel:poolARN:PoolInfo'] :: PoolInfo -> Maybe Text
 
 -- | Create a value of <a>PoolInfo</a> with all optional fields omitted.
@@ -5934,10 +6125,11 @@ PoolInfo' :: Maybe RetentionLockType -> Maybe Natural -> Maybe Text -> Maybe Tap
 --   <a>$sel:retentionLockType:PoolInfo'</a>,
 --   <a>poolInfo_retentionLockType</a> - Tape retention lock type, which
 --   can be configured in two modes. When configured in governance mode,
---   accounts with specific IAM permissions are authorized to remove the
---   tape retention lock from archived virtual tapes. When configured in
---   compliance mode, the tape retention lock cannot be removed by any
---   user, including the root account.
+--   Amazon Web Services accounts with specific IAM permissions are
+--   authorized to remove the tape retention lock from archived virtual
+--   tapes. When configured in compliance mode, the tape retention lock
+--   cannot be removed by any user, including the root Amazon Web Services
+--   account.
 --   
 --   <a>$sel:retentionLockTimeInDays:PoolInfo'</a>,
 --   <a>poolInfo_retentionLockTimeInDays</a> - Tape retention lock time is
@@ -5961,14 +6153,15 @@ PoolInfo' :: Maybe RetentionLockType -> Maybe Natural -> Maybe Text -> Maybe Tap
 --   <a>$sel:poolARN:PoolInfo'</a>, <a>poolInfo_poolARN</a> - The Amazon
 --   Resource Name (ARN) of the custom tape pool. Use the ListTapePools
 --   operation to return a list of custom tape pools for your account and
---   Region.
+--   Amazon Web Services Region.
 newPoolInfo :: PoolInfo
 
 -- | Tape retention lock type, which can be configured in two modes. When
---   configured in governance mode, accounts with specific IAM permissions
---   are authorized to remove the tape retention lock from archived virtual
---   tapes. When configured in compliance mode, the tape retention lock
---   cannot be removed by any user, including the root account.
+--   configured in governance mode, Amazon Web Services accounts with
+--   specific IAM permissions are authorized to remove the tape retention
+--   lock from archived virtual tapes. When configured in compliance mode,
+--   the tape retention lock cannot be removed by any user, including the
+--   root Amazon Web Services account.
 poolInfo_retentionLockType :: Lens' PoolInfo (Maybe RetentionLockType)
 
 -- | Tape retention lock time is set in days. Tape retention lock can be
@@ -5991,7 +6184,7 @@ poolInfo_poolStatus :: Lens' PoolInfo (Maybe PoolStatus)
 
 -- | The Amazon Resource Name (ARN) of the custom tape pool. Use the
 --   ListTapePools operation to return a list of custom tape pools for your
---   account and Region.
+--   account and Amazon Web Services Region.
 poolInfo_poolARN :: Lens' PoolInfo (Maybe Text)
 
 -- | The Windows file permissions and ownership information assigned, by
@@ -6069,7 +6262,8 @@ SMBFileShareInfo' :: Maybe Bool -> Maybe [Text] -> Maybe Text -> Maybe Text -> M
 -- | The name of the file share. Optional.
 --   
 --   <tt>FileShareName</tt> must be set if an S3 prefix name is set in
---   <tt>LocationARN</tt>.
+--   <tt>LocationARN</tt>, or if an access point or access point alias is
+--   used.
 [$sel:fileShareName:SMBFileShareInfo'] :: SMBFileShareInfo -> Maybe Text
 [$sel:role':SMBFileShareInfo'] :: SMBFileShareInfo -> Maybe Text
 
@@ -6265,7 +6459,8 @@ SMBFileShareInfo' :: Maybe Bool -> Maybe [Text] -> Maybe Text -> Maybe Text -> M
 --   Optional.
 --   
 --   <tt>FileShareName</tt> must be set if an S3 prefix name is set in
---   <tt>LocationARN</tt>.
+--   <tt>LocationARN</tt>, or if an access point or access point alias is
+--   used.
 --   
 --   <a>$sel:role':SMBFileShareInfo'</a>, <a>sMBFileShareInfo_role</a> -
 --   Undocumented member.
@@ -6451,7 +6646,8 @@ sMBFileShareInfo_defaultStorageClass :: Lens' SMBFileShareInfo (Maybe Text)
 -- | The name of the file share. Optional.
 --   
 --   <tt>FileShareName</tt> must be set if an S3 prefix name is set in
---   <tt>LocationARN</tt>.
+--   <tt>LocationARN</tt>, or if an access point or access point alias is
+--   used.
 sMBFileShareInfo_fileShareName :: Lens' SMBFileShareInfo (Maybe Text)
 
 -- | Undocumented member.
@@ -6552,6 +6748,48 @@ sMBFileShareInfo_caseSensitivity :: Lens' SMBFileShareInfo (Maybe CaseSensitivit
 --   gateway with more than 10 tags assigned, you can view all tags using
 --   the <tt>ListTagsForResource</tt> API operation.
 sMBFileShareInfo_tags :: Lens' SMBFileShareInfo (Maybe [Tag])
+
+-- | A list of Active Directory users and groups that have special
+--   permissions for SMB file shares on the gateway.
+--   
+--   <i>See:</i> <a>newSMBLocalGroups</a> smart constructor.
+data SMBLocalGroups
+SMBLocalGroups' :: Maybe [Text] -> SMBLocalGroups
+
+-- | A list of Active Directory users and groups that have local Gateway
+--   Admin permissions. Acceptable formats include: <tt>DOMAIN\User1</tt>,
+--   <tt>user1</tt>, <tt>DOMAIN\group1</tt>, and <tt>group1</tt>.
+--   
+--   Gateway Admins can use the Shared Folders Microsoft Management Console
+--   snap-in to force-close files that are open and locked.
+[$sel:gatewayAdmins:SMBLocalGroups'] :: SMBLocalGroups -> Maybe [Text]
+
+-- | Create a value of <a>SMBLocalGroups</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:gatewayAdmins:SMBLocalGroups'</a>,
+--   <a>sMBLocalGroups_gatewayAdmins</a> - A list of Active Directory users
+--   and groups that have local Gateway Admin permissions. Acceptable
+--   formats include: <tt>DOMAIN\User1</tt>, <tt>user1</tt>,
+--   <tt>DOMAIN\group1</tt>, and <tt>group1</tt>.
+--   
+--   Gateway Admins can use the Shared Folders Microsoft Management Console
+--   snap-in to force-close files that are open and locked.
+newSMBLocalGroups :: SMBLocalGroups
+
+-- | A list of Active Directory users and groups that have local Gateway
+--   Admin permissions. Acceptable formats include: <tt>DOMAIN\User1</tt>,
+--   <tt>user1</tt>, <tt>DOMAIN\group1</tt>, and <tt>group1</tt>.
+--   
+--   Gateway Admins can use the Shared Folders Microsoft Management Console
+--   snap-in to force-close files that are open and locked.
+sMBLocalGroups_gatewayAdmins :: Lens' SMBLocalGroups (Maybe [Text])
 
 -- | Describes an iSCSI stored volume.
 --   
@@ -7211,7 +7449,8 @@ TapeInfo' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Integ
 [$sel:tapeARN:TapeInfo'] :: TapeInfo -> Maybe Text
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
---   operation to return a list of gateways for your account and Region.
+--   operation to return a list of gateways for your account and Amazon Web
+--   Services Region.
 [$sel:gatewayARN:TapeInfo'] :: TapeInfo -> Maybe Text
 
 -- | The size, in bytes, of a virtual tape.
@@ -7252,7 +7491,8 @@ TapeInfo' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Integ
 --   
 --   <a>$sel:gatewayARN:TapeInfo'</a>, <a>tapeInfo_gatewayARN</a> - The
 --   Amazon Resource Name (ARN) of the gateway. Use the ListGateways
---   operation to return a list of gateways for your account and Region.
+--   operation to return a list of gateways for your account and Amazon Web
+--   Services Region.
 --   
 --   <a>$sel:tapeSizeInBytes:TapeInfo'</a>, <a>tapeInfo_tapeSizeInBytes</a>
 --   - The size, in bytes, of a virtual tape.
@@ -7285,7 +7525,8 @@ tapeInfo_tapeStatus :: Lens' TapeInfo (Maybe Text)
 tapeInfo_tapeARN :: Lens' TapeInfo (Maybe Text)
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
---   operation to return a list of gateways for your account and Region.
+--   operation to return a list of gateways for your account and Amazon Web
+--   Services Region.
 tapeInfo_gatewayARN :: Lens' TapeInfo (Maybe Text)
 
 -- | The size, in bytes, of a virtual tape.
@@ -8302,7 +8543,7 @@ RetrieveTapeArchive' :: Text -> Text -> RetrieveTapeArchive
 
 -- | The Amazon Resource Name (ARN) of the gateway you want to retrieve the
 --   virtual tape to. Use the ListGateways operation to return a list of
---   gateways for your account and Region.
+--   gateways for your account and Amazon Web Services Region.
 --   
 --   You retrieve archived virtual tapes to only one gateway and the
 --   gateway must be a tape gateway.
@@ -8326,7 +8567,7 @@ RetrieveTapeArchive' :: Text -> Text -> RetrieveTapeArchive
 --   <a>retrieveTapeArchive_gatewayARN</a> - The Amazon Resource Name (ARN)
 --   of the gateway you want to retrieve the virtual tape to. Use the
 --   ListGateways operation to return a list of gateways for your account
---   and Region.
+--   and Amazon Web Services Region.
 --   
 --   You retrieve archived virtual tapes to only one gateway and the
 --   gateway must be a tape gateway.
@@ -8338,7 +8579,7 @@ retrieveTapeArchive_tapeARN :: Lens' RetrieveTapeArchive Text
 
 -- | The Amazon Resource Name (ARN) of the gateway you want to retrieve the
 --   virtual tape to. Use the ListGateways operation to return a list of
---   gateways for your account and Region.
+--   gateways for your account and Amazon Web Services Region.
 --   
 --   You retrieve archived virtual tapes to only one gateway and the
 --   gateway must be a tape gateway.
@@ -9721,9 +9962,9 @@ instance Network.AWS.Data.Path.ToPath Network.AWS.StorageGateway.ListLocalDisks.
 instance Network.AWS.Data.Query.ToQuery Network.AWS.StorageGateway.ListLocalDisks.ListLocalDisks
 
 
--- | Lists gateways owned by an account in an Region specified in the
---   request. The returned list is ordered by gateway Amazon Resource Name
---   (ARN).
+-- | Lists gateways owned by an Amazon Web Services account in an Amazon
+--   Web Services Region specified in the request. The returned list is
+--   ordered by gateway Amazon Resource Name (ARN).
 --   
 --   By default, the operation returns a maximum of 100 gateways. This
 --   operation supports pagination that allows you to optionally reduce the
@@ -10263,7 +10504,7 @@ JoinDomain' :: Maybe Text -> Maybe Natural -> Maybe [Text] -> Text -> Text -> Te
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the
 --   <tt>ListGateways</tt> operation to return a list of gateways for your
---   account and Region.
+--   account and Amazon Web Services Region.
 [$sel:gatewayARN:JoinDomain'] :: JoinDomain -> Text
 
 -- | The name of the domain that you want the gateway to join.
@@ -10308,7 +10549,7 @@ JoinDomain' :: Maybe Text -> Maybe Natural -> Maybe [Text] -> Text -> Text -> Te
 --   <a>$sel:gatewayARN:JoinDomain'</a>, <a>joinDomain_gatewayARN</a> - The
 --   Amazon Resource Name (ARN) of the gateway. Use the
 --   <tt>ListGateways</tt> operation to return a list of gateways for your
---   account and Region.
+--   account and Amazon Web Services Region.
 --   
 --   <a>$sel:domainName:JoinDomain'</a>, <a>joinDomain_domainName</a> - The
 --   name of the domain that you want the gateway to join.
@@ -10342,7 +10583,7 @@ joinDomain_domainControllers :: Lens' JoinDomain (Maybe [Text])
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the
 --   <tt>ListGateways</tt> operation to return a list of gateways for your
---   account and Region.
+--   account and Amazon Web Services Region.
 joinDomain_gatewayARN :: Lens' JoinDomain Text
 
 -- | The name of the domain that you want the gateway to join.
@@ -12073,7 +12314,7 @@ describeSMBSettings_gatewayARN :: Lens' DescribeSMBSettings Text
 
 -- | <i>See:</i> <a>newDescribeSMBSettingsResponse</a> smart constructor.
 data DescribeSMBSettingsResponse
-DescribeSMBSettingsResponse' :: Maybe Text -> Maybe Bool -> Maybe ActiveDirectoryStatus -> Maybe Text -> Maybe Bool -> Maybe SMBSecurityStrategy -> Int -> DescribeSMBSettingsResponse
+DescribeSMBSettingsResponse' :: Maybe Text -> Maybe Bool -> Maybe ActiveDirectoryStatus -> Maybe Text -> Maybe SMBLocalGroups -> Maybe Bool -> Maybe SMBSecurityStrategy -> Int -> DescribeSMBSettingsResponse
 [$sel:gatewayARN:DescribeSMBSettingsResponse'] :: DescribeSMBSettingsResponse -> Maybe Text
 
 -- | The shares on this gateway appear when listing shares. Only supported
@@ -12104,6 +12345,10 @@ DescribeSMBSettingsResponse' :: Maybe Text -> Maybe Bool -> Maybe ActiveDirector
 
 -- | The name of the domain that the gateway is joined to.
 [$sel:domainName:DescribeSMBSettingsResponse'] :: DescribeSMBSettingsResponse -> Maybe Text
+
+-- | A list of Active Directory users and groups that have special
+--   permissions for SMB file shares on the gateway.
+[$sel:sMBLocalGroups:DescribeSMBSettingsResponse'] :: DescribeSMBSettingsResponse -> Maybe SMBLocalGroups
 
 -- | This value is <tt>true</tt> if a password for the guest user
 --   <tt>smbguest</tt> is set, otherwise <tt>false</tt>. Only supported for
@@ -12178,6 +12423,11 @@ DescribeSMBSettingsResponse' :: Maybe Text -> Maybe Bool -> Maybe ActiveDirector
 --   <a>describeSMBSettingsResponse_domainName</a> - The name of the domain
 --   that the gateway is joined to.
 --   
+--   <a>$sel:sMBLocalGroups:DescribeSMBSettingsResponse'</a>,
+--   <a>describeSMBSettingsResponse_sMBLocalGroups</a> - A list of Active
+--   Directory users and groups that have special permissions for SMB file
+--   shares on the gateway.
+--   
 --   <a>$sel:sMBGuestPasswordSet:DescribeSMBSettingsResponse'</a>,
 --   <a>describeSMBSettingsResponse_sMBGuestPasswordSet</a> - This value is
 --   <tt>true</tt> if a password for the guest user <tt>smbguest</tt> is
@@ -12241,6 +12491,10 @@ describeSMBSettingsResponse_activeDirectoryStatus :: Lens' DescribeSMBSettingsRe
 
 -- | The name of the domain that the gateway is joined to.
 describeSMBSettingsResponse_domainName :: Lens' DescribeSMBSettingsResponse (Maybe Text)
+
+-- | A list of Active Directory users and groups that have special
+--   permissions for SMB file shares on the gateway.
+describeSMBSettingsResponse_sMBLocalGroups :: Lens' DescribeSMBSettingsResponse (Maybe SMBLocalGroups)
 
 -- | This value is <tt>true</tt> if a password for the guest user
 --   <tt>smbguest</tt> is set, otherwise <tt>false</tt>. Only supported for
@@ -12667,7 +12921,8 @@ DescribeGatewayInformationResponse' :: Maybe Text -> Maybe Text -> Maybe Text ->
 -- | A value that indicates the operating state of the gateway.
 [$sel:gatewayState:DescribeGatewayInformationResponse'] :: DescribeGatewayInformationResponse -> Maybe Text
 
--- | The Region where the Amazon EC2 instance is located.
+-- | The Amazon Web Services Region where the Amazon EC2 instance is
+--   located.
 [$sel:ec2InstanceRegion:DescribeGatewayInformationResponse'] :: DescribeGatewayInformationResponse -> Maybe Text
 [$sel:gatewayARN:DescribeGatewayInformationResponse'] :: DescribeGatewayInformationResponse -> Maybe Text
 
@@ -12757,7 +13012,7 @@ DescribeGatewayInformationResponse' :: Maybe Text -> Maybe Text -> Maybe Text ->
 --   
 --   <a>$sel:ec2InstanceRegion:DescribeGatewayInformationResponse'</a>,
 --   <a>describeGatewayInformationResponse_ec2InstanceRegion</a> - The
---   Region where the Amazon EC2 instance is located.
+--   Amazon Web Services Region where the Amazon EC2 instance is located.
 --   
 --   <a>$sel:gatewayARN:DescribeGatewayInformation'</a>,
 --   <a>describeGatewayInformationResponse_gatewayARN</a> - Undocumented
@@ -12860,7 +13115,8 @@ newDescribeGatewayInformationResponse :: Int -> DescribeGatewayInformationRespon
 -- | A value that indicates the operating state of the gateway.
 describeGatewayInformationResponse_gatewayState :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 
--- | The Region where the Amazon EC2 instance is located.
+-- | The Amazon Web Services Region where the Amazon EC2 instance is
+--   located.
 describeGatewayInformationResponse_ec2InstanceRegion :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 
 -- | Undocumented member.
@@ -14090,7 +14346,8 @@ DeleteTape' :: Maybe Bool -> Text -> Text -> DeleteTape
 
 -- | The unique Amazon Resource Name (ARN) of the gateway that the virtual
 --   tape to delete is associated with. Use the ListGateways operation to
---   return a list of gateways for your account and Region.
+--   return a list of gateways for your account and Amazon Web Services
+--   Region.
 [$sel:gatewayARN:DeleteTape'] :: DeleteTape -> Text
 
 -- | The Amazon Resource Name (ARN) of the virtual tape to delete.
@@ -14114,7 +14371,7 @@ DeleteTape' :: Maybe Bool -> Text -> Text -> DeleteTape
 --   <a>$sel:gatewayARN:DeleteTape'</a>, <a>deleteTape_gatewayARN</a> - The
 --   unique Amazon Resource Name (ARN) of the gateway that the virtual tape
 --   to delete is associated with. Use the ListGateways operation to return
---   a list of gateways for your account and Region.
+--   a list of gateways for your account and Amazon Web Services Region.
 --   
 --   <a>$sel:tapeARN:DeleteTape'</a>, <a>deleteTape_tapeARN</a> - The
 --   Amazon Resource Name (ARN) of the virtual tape to delete.
@@ -14129,7 +14386,8 @@ deleteTape_bypassGovernanceRetention :: Lens' DeleteTape (Maybe Bool)
 
 -- | The unique Amazon Resource Name (ARN) of the gateway that the virtual
 --   tape to delete is associated with. Use the ListGateways operation to
---   return a list of gateways for your account and Region.
+--   return a list of gateways for your account and Amazon Web Services
+--   Region.
 deleteTape_gatewayARN :: Lens' DeleteTape Text
 
 -- | The Amazon Resource Name (ARN) of the virtual tape to delete.
@@ -14834,7 +15092,8 @@ CreateTapes' :: Maybe Text -> Maybe Bool -> Maybe Text -> Maybe Bool -> Maybe [T
 
 -- | The unique Amazon Resource Name (ARN) that represents the gateway to
 --   associate the virtual tapes with. Use the ListGateways operation to
---   return a list of gateways for your account and Region.
+--   return a list of gateways for your account and Amazon Web Services
+--   Region.
 [$sel:gatewayARN:CreateTapes'] :: CreateTapes -> Text
 
 -- | The size, in bytes, of the virtual tapes that you want to create.
@@ -14906,7 +15165,8 @@ CreateTapes' :: Maybe Text -> Maybe Bool -> Maybe Text -> Maybe Bool -> Maybe [T
 --   <a>$sel:gatewayARN:CreateTapes'</a>, <a>createTapes_gatewayARN</a> -
 --   The unique Amazon Resource Name (ARN) that represents the gateway to
 --   associate the virtual tapes with. Use the ListGateways operation to
---   return a list of gateways for your account and Region.
+--   return a list of gateways for your account and Amazon Web Services
+--   Region.
 --   
 --   <a>$sel:tapeSizeInBytes:CreateTapes'</a>,
 --   <a>createTapes_tapeSizeInBytes</a> - The size, in bytes, of the
@@ -14972,7 +15232,8 @@ createTapes_tags :: Lens' CreateTapes (Maybe [Tag])
 
 -- | The unique Amazon Resource Name (ARN) that represents the gateway to
 --   associate the virtual tapes with. Use the ListGateways operation to
---   return a list of gateways for your account and Region.
+--   return a list of gateways for your account and Amazon Web Services
+--   Region.
 createTapes_gatewayARN :: Lens' CreateTapes Text
 
 -- | The size, in bytes, of the virtual tapes that you want to create.
@@ -15107,7 +15368,8 @@ CreateTapeWithBarcode' :: Maybe Text -> Maybe Bool -> Maybe Text -> Maybe Bool -
 
 -- | The unique Amazon Resource Name (ARN) that represents the gateway to
 --   associate the virtual tape with. Use the ListGateways operation to
---   return a list of gateways for your account and Region.
+--   return a list of gateways for your account and Amazon Web Services
+--   Region.
 [$sel:gatewayARN:CreateTapeWithBarcode'] :: CreateTapeWithBarcode -> Text
 
 -- | The size, in bytes, of the virtual tape that you want to create.
@@ -15173,7 +15435,7 @@ CreateTapeWithBarcode' :: Maybe Text -> Maybe Bool -> Maybe Text -> Maybe Bool -
 --   <a>createTapeWithBarcode_gatewayARN</a> - The unique Amazon Resource
 --   Name (ARN) that represents the gateway to associate the virtual tape
 --   with. Use the ListGateways operation to return a list of gateways for
---   your account and Region.
+--   your account and Amazon Web Services Region.
 --   
 --   <a>$sel:tapeSizeInBytes:CreateTapeWithBarcode'</a>,
 --   <a>createTapeWithBarcode_tapeSizeInBytes</a> - The size, in bytes, of
@@ -15226,7 +15488,8 @@ createTapeWithBarcode_tags :: Lens' CreateTapeWithBarcode (Maybe [Tag])
 
 -- | The unique Amazon Resource Name (ARN) that represents the gateway to
 --   associate the virtual tape with. Use the ListGateways operation to
---   return a list of gateways for your account and Region.
+--   return a list of gateways for your account and Amazon Web Services
+--   Region.
 createTapeWithBarcode_gatewayARN :: Lens' CreateTapeWithBarcode Text
 
 -- | The size, in bytes, of the virtual tape that you want to create.
@@ -15304,10 +15567,11 @@ data CreateTapePool
 CreateTapePool' :: Maybe RetentionLockType -> Maybe Natural -> Maybe [Tag] -> Text -> TapeStorageClass -> CreateTapePool
 
 -- | Tape retention lock can be configured in two modes. When configured in
---   governance mode, accounts with specific IAM permissions are authorized
---   to remove the tape retention lock from archived virtual tapes. When
---   configured in compliance mode, the tape retention lock cannot be
---   removed by any user, including the root account.
+--   governance mode, Amazon Web Services accounts with specific IAM
+--   permissions are authorized to remove the tape retention lock from
+--   archived virtual tapes. When configured in compliance mode, the tape
+--   retention lock cannot be removed by any user, including the root
+--   Amazon Web Services account.
 [$sel:retentionLockType:CreateTapePool'] :: CreateTapePool -> Maybe RetentionLockType
 
 -- | Tape retention lock time is set in days. Tape retention lock can be
@@ -15343,11 +15607,11 @@ CreateTapePool' :: Maybe RetentionLockType -> Maybe Natural -> Maybe [Tag] -> Te
 --   
 --   <a>$sel:retentionLockType:CreateTapePool'</a>,
 --   <a>createTapePool_retentionLockType</a> - Tape retention lock can be
---   configured in two modes. When configured in governance mode, accounts
---   with specific IAM permissions are authorized to remove the tape
---   retention lock from archived virtual tapes. When configured in
---   compliance mode, the tape retention lock cannot be removed by any
---   user, including the root account.
+--   configured in two modes. When configured in governance mode, Amazon
+--   Web Services accounts with specific IAM permissions are authorized to
+--   remove the tape retention lock from archived virtual tapes. When
+--   configured in compliance mode, the tape retention lock cannot be
+--   removed by any user, including the root Amazon Web Services account.
 --   
 --   <a>$sel:retentionLockTimeInDays:CreateTapePool'</a>,
 --   <a>createTapePool_retentionLockTimeInDays</a> - Tape retention lock
@@ -15375,10 +15639,11 @@ CreateTapePool' :: Maybe RetentionLockType -> Maybe Natural -> Maybe [Tag] -> Te
 newCreateTapePool :: Text -> TapeStorageClass -> CreateTapePool
 
 -- | Tape retention lock can be configured in two modes. When configured in
---   governance mode, accounts with specific IAM permissions are authorized
---   to remove the tape retention lock from archived virtual tapes. When
---   configured in compliance mode, the tape retention lock cannot be
---   removed by any user, including the root account.
+--   governance mode, Amazon Web Services accounts with specific IAM
+--   permissions are authorized to remove the tape retention lock from
+--   archived virtual tapes. When configured in compliance mode, the tape
+--   retention lock cannot be removed by any user, including the root
+--   Amazon Web Services account.
 createTapePool_retentionLockType :: Lens' CreateTapePool (Maybe RetentionLockType)
 
 -- | Tape retention lock time is set in days. Tape retention lock can be
@@ -15409,7 +15674,7 @@ CreateTapePoolResponse' :: Maybe Text -> Int -> CreateTapePoolResponse
 
 -- | The unique Amazon Resource Name (ARN) that represents the custom tape
 --   pool. Use the ListTapePools operation to return a list of tape pools
---   for your account and Region.
+--   for your account and Amazon Web Services Region.
 [$sel:poolARN:CreateTapePoolResponse'] :: CreateTapePoolResponse -> Maybe Text
 
 -- | The response's http status code.
@@ -15427,7 +15692,8 @@ CreateTapePoolResponse' :: Maybe Text -> Int -> CreateTapePoolResponse
 --   <a>$sel:poolARN:CreateTapePoolResponse'</a>,
 --   <a>createTapePoolResponse_poolARN</a> - The unique Amazon Resource
 --   Name (ARN) that represents the custom tape pool. Use the ListTapePools
---   operation to return a list of tape pools for your account and Region.
+--   operation to return a list of tape pools for your account and Amazon
+--   Web Services Region.
 --   
 --   <a>$sel:httpStatus:CreateTapePoolResponse'</a>,
 --   <a>createTapePoolResponse_httpStatus</a> - The response's http status
@@ -15436,7 +15702,7 @@ newCreateTapePoolResponse :: Int -> CreateTapePoolResponse
 
 -- | The unique Amazon Resource Name (ARN) that represents the custom tape
 --   pool. Use the ListTapePools operation to return a list of tape pools
---   for your account and Region.
+--   for your account and Amazon Web Services Region.
 createTapePoolResponse_poolARN :: Lens' CreateTapePoolResponse (Maybe Text)
 
 -- | The response's http status code.
@@ -16130,12 +16396,15 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.StorageGateway.CreateSnapsho
 --   using an SMB interface. This operation is only supported for S3 File
 --   Gateways.
 --   
---   S3 File Gateways require Security Token Service (STS) to be activated
---   to enable you to create a file share. Make sure that STS is activated
---   in the Region you are creating your S3 File Gateway in. If STS is not
---   activated in this Region, activate it. For information about how to
---   activate STS, see <a>Activating and deactivating STS in an Region</a>
---   in the <i>Identity and Access Management User Guide</i>.
+--   S3 File Gateways require Security Token Service (Amazon Web Services
+--   STS) to be activated to enable you to create a file share. Make sure
+--   that Amazon Web Services STS is activated in the Amazon Web Services
+--   Region you are creating your S3 File Gateway in. If Amazon Web
+--   Services STS is not activated in this Amazon Web Services Region,
+--   activate it. For information about how to activate Amazon Web Services
+--   STS, see <a>Activating and deactivating Amazon Web Services STS in an
+--   Amazon Web Services Region</a> in the <i>Identity and Access
+--   Management User Guide</i>.
 --   
 --   File gateways don't support creating hard or symbolic links on a file
 --   share.
@@ -16224,7 +16493,8 @@ CreateSMBFileShare' :: Maybe Bool -> Maybe [Text] -> Maybe Text -> Maybe [Text] 
 -- | The name of the file share. Optional.
 --   
 --   <tt>FileShareName</tt> must be set if an S3 prefix name is set in
---   <tt>LocationARN</tt>.
+--   <tt>LocationARN</tt>, or if an access point or access point alias is
+--   used.
 [$sel:fileShareName:CreateSMBFileShare'] :: CreateSMBFileShare -> Maybe Text
 
 -- | Set this value to <tt>true</tt> to enable access control list (ACL) on
@@ -16336,20 +16606,35 @@ CreateSMBFileShare' :: Maybe Bool -> Maybe [Text] -> Maybe Text -> Maybe [Text] 
 --   File Gateway assumes when it accesses the underlying storage.
 [$sel:role':CreateSMBFileShare'] :: CreateSMBFileShare -> Text
 
--- | The ARN of the backend storage used for storing file data. A prefix
---   name can be added to the S3 bucket name. It must end with a "/".
+-- | A custom ARN for the backend storage used for storing data for file
+--   shares. It includes a resource ARN with an optional prefix
+--   concatenation. The prefix must end with a forward slash (/).
 --   
---   You can specify a bucket attached to an access point using a complete
---   ARN that includes the bucket region as shown:
+--   You can specify LocationARN as a bucket ARN, access point ARN or
+--   access point alias, as shown in the following examples.
+--   
+--   Bucket ARN:
 --   
 --   <pre>
---   arn:aws:s3:region:account-id:accesspoint/access-point-name
+--   arn:aws:s3:::my-bucket/prefix/
 --   </pre>
 --   
---   If you specify a bucket attached to an access point, the bucket policy
---   must be configured to delegate access control to the access point. For
---   information, see <a>Delegating access control to access points</a> in
---   the <i>Amazon S3 User Guide</i>.
+--   Access point ARN:
+--   
+--   <pre>
+--   arn:aws:s3:region:account-id:accesspoint/access-point-name/prefix/
+--   </pre>
+--   
+--   If you specify an access point, the bucket policy must be configured
+--   to delegate access control to the access point. For information, see
+--   <a>Delegating access control to access points</a> in the <i>Amazon S3
+--   User Guide</i>.
+--   
+--   Access point alias:
+--   
+--   <pre>
+--   test-ap-ab123cdef4gehijklmn5opqrstuvuse1a-s3alias
+--   </pre>
 [$sel:locationARN:CreateSMBFileShare'] :: CreateSMBFileShare -> Text
 
 -- | Create a value of <a>CreateSMBFileShare</a> with all optional fields
@@ -16447,7 +16732,8 @@ CreateSMBFileShare' :: Maybe Bool -> Maybe [Text] -> Maybe Text -> Maybe [Text] 
 --   Optional.
 --   
 --   <tt>FileShareName</tt> must be set if an S3 prefix name is set in
---   <tt>LocationARN</tt>.
+--   <tt>LocationARN</tt>, or if an access point or access point alias is
+--   used.
 --   
 --   <a>$sel:sMBACLEnabled:CreateSMBFileShare'</a>,
 --   <a>createSMBFileShare_sMBACLEnabled</a> - Set this value to
@@ -16563,21 +16849,36 @@ CreateSMBFileShare' :: Maybe Bool -> Maybe [Text] -> Maybe Text -> Maybe [Text] 
 --   File Gateway assumes when it accesses the underlying storage.
 --   
 --   <a>$sel:locationARN:CreateSMBFileShare'</a>,
---   <a>createSMBFileShare_locationARN</a> - The ARN of the backend storage
---   used for storing file data. A prefix name can be added to the S3
---   bucket name. It must end with a "/".
+--   <a>createSMBFileShare_locationARN</a> - A custom ARN for the backend
+--   storage used for storing data for file shares. It includes a resource
+--   ARN with an optional prefix concatenation. The prefix must end with a
+--   forward slash (/).
 --   
---   You can specify a bucket attached to an access point using a complete
---   ARN that includes the bucket region as shown:
+--   You can specify LocationARN as a bucket ARN, access point ARN or
+--   access point alias, as shown in the following examples.
+--   
+--   Bucket ARN:
 --   
 --   <pre>
---   arn:aws:s3:region:account-id:accesspoint/access-point-name
+--   arn:aws:s3:::my-bucket/prefix/
 --   </pre>
 --   
---   If you specify a bucket attached to an access point, the bucket policy
---   must be configured to delegate access control to the access point. For
---   information, see <a>Delegating access control to access points</a> in
---   the <i>Amazon S3 User Guide</i>.
+--   Access point ARN:
+--   
+--   <pre>
+--   arn:aws:s3:region:account-id:accesspoint/access-point-name/prefix/
+--   </pre>
+--   
+--   If you specify an access point, the bucket policy must be configured
+--   to delegate access control to the access point. For information, see
+--   <a>Delegating access control to access points</a> in the <i>Amazon S3
+--   User Guide</i>.
+--   
+--   Access point alias:
+--   
+--   <pre>
+--   test-ap-ab123cdef4gehijklmn5opqrstuvuse1a-s3alias
+--   </pre>
 newCreateSMBFileShare :: Text -> Text -> Text -> Text -> CreateSMBFileShare
 
 -- | The files and folders on this share will only be visible to users with
@@ -16657,7 +16958,8 @@ createSMBFileShare_defaultStorageClass :: Lens' CreateSMBFileShare (Maybe Text)
 -- | The name of the file share. Optional.
 --   
 --   <tt>FileShareName</tt> must be set if an S3 prefix name is set in
---   <tt>LocationARN</tt>.
+--   <tt>LocationARN</tt>, or if an access point or access point alias is
+--   used.
 createSMBFileShare_fileShareName :: Lens' CreateSMBFileShare (Maybe Text)
 
 -- | Set this value to <tt>true</tt> to enable access control list (ACL) on
@@ -16769,20 +17071,35 @@ createSMBFileShare_gatewayARN :: Lens' CreateSMBFileShare Text
 --   File Gateway assumes when it accesses the underlying storage.
 createSMBFileShare_role :: Lens' CreateSMBFileShare Text
 
--- | The ARN of the backend storage used for storing file data. A prefix
---   name can be added to the S3 bucket name. It must end with a "/".
+-- | A custom ARN for the backend storage used for storing data for file
+--   shares. It includes a resource ARN with an optional prefix
+--   concatenation. The prefix must end with a forward slash (/).
 --   
---   You can specify a bucket attached to an access point using a complete
---   ARN that includes the bucket region as shown:
+--   You can specify LocationARN as a bucket ARN, access point ARN or
+--   access point alias, as shown in the following examples.
+--   
+--   Bucket ARN:
 --   
 --   <pre>
---   arn:aws:s3:region:account-id:accesspoint/access-point-name
+--   arn:aws:s3:::my-bucket/prefix/
 --   </pre>
 --   
---   If you specify a bucket attached to an access point, the bucket policy
---   must be configured to delegate access control to the access point. For
---   information, see <a>Delegating access control to access points</a> in
---   the <i>Amazon S3 User Guide</i>.
+--   Access point ARN:
+--   
+--   <pre>
+--   arn:aws:s3:region:account-id:accesspoint/access-point-name/prefix/
+--   </pre>
+--   
+--   If you specify an access point, the bucket policy must be configured
+--   to delegate access control to the access point. For information, see
+--   <a>Delegating access control to access points</a> in the <i>Amazon S3
+--   User Guide</i>.
+--   
+--   Access point alias:
+--   
+--   <pre>
+--   test-ap-ab123cdef4gehijklmn5opqrstuvuse1a-s3alias
+--   </pre>
 createSMBFileShare_locationARN :: Lens' CreateSMBFileShare Text
 
 -- | CreateSMBFileShareOutput
@@ -16844,12 +17161,15 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.StorageGateway.CreateSMBFile
 --   using an NFS interface. This operation is only supported for S3 File
 --   Gateways.
 --   
---   S3 File gateway requires Security Token Service (STS) to be activated
---   to enable you to create a file share. Make sure STS is activated in
---   the Region you are creating your S3 File Gateway in. If STS is not
---   activated in the Region, activate it. For information about how to
---   activate STS, see <a>Activating and deactivating STS in an Region</a>
---   in the <i>Identity and Access Management User Guide</i>.
+--   S3 File gateway requires Security Token Service (Amazon Web Services
+--   STS) to be activated to enable you to create a file share. Make sure
+--   Amazon Web Services STS is activated in the Amazon Web Services Region
+--   you are creating your S3 File Gateway in. If Amazon Web Services STS
+--   is not activated in the Amazon Web Services Region, activate it. For
+--   information about how to activate Amazon Web Services STS, see
+--   <a>Activating and deactivating Amazon Web Services STS in an Amazon
+--   Web Services Region</a> in the <i>Identity and Access Management User
+--   Guide</i>.
 --   
 --   S3 File Gateways do not support creating hard or symbolic links on a
 --   file share.
@@ -16859,7 +17179,10 @@ module Network.AWS.StorageGateway.CreateNFSFileShare
 --   
 --   <i>See:</i> <a>newCreateNFSFileShare</a> smart constructor.
 data CreateNFSFileShare
-CreateNFSFileShare' :: Maybe Text -> Maybe Text -> Maybe CacheAttributes -> Maybe ObjectACL -> Maybe Bool -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Bool -> Maybe NFSFileShareDefaults -> Maybe (NonEmpty Text) -> Maybe Bool -> Maybe Bool -> Maybe Text -> Maybe [Tag] -> Text -> Text -> Text -> Text -> CreateNFSFileShare
+CreateNFSFileShare' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe CacheAttributes -> Maybe ObjectACL -> Maybe Bool -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Bool -> Maybe NFSFileShareDefaults -> Maybe (NonEmpty Text) -> Maybe Bool -> Maybe Bool -> Maybe Text -> Maybe [Tag] -> Text -> Text -> Text -> Text -> CreateNFSFileShare
+
+-- | The Amazon Resource Name (ARN) of the storage used for audit logs.
+[$sel:auditDestinationARN:CreateNFSFileShare'] :: CreateNFSFileShare -> Maybe Text
 
 -- | The Amazon Resource Name (ARN) of a symmetric customer master key
 --   (CMK) used for Amazon S3 server-side encryption. Storage Gateway does
@@ -16901,7 +17224,8 @@ CreateNFSFileShare' :: Maybe Text -> Maybe Text -> Maybe CacheAttributes -> Mayb
 -- | The name of the file share. Optional.
 --   
 --   <tt>FileShareName</tt> must be set if an S3 prefix name is set in
---   <tt>LocationARN</tt>.
+--   <tt>LocationARN</tt>, or if an access point or access point alias is
+--   used.
 [$sel:fileShareName:CreateNFSFileShare'] :: CreateNFSFileShare -> Maybe Text
 
 -- | The notification policy of the file share.
@@ -17004,20 +17328,35 @@ CreateNFSFileShare' :: Maybe Text -> Maybe Text -> Maybe CacheAttributes -> Mayb
 --   File Gateway assumes when it accesses the underlying storage.
 [$sel:role':CreateNFSFileShare'] :: CreateNFSFileShare -> Text
 
--- | The ARN of the backend storage used for storing file data. A prefix
---   name can be added to the S3 bucket name. It must end with a "/".
+-- | A custom ARN for the backend storage used for storing data for file
+--   shares. It includes a resource ARN with an optional prefix
+--   concatenation. The prefix must end with a forward slash (/).
 --   
---   You can specify a bucket attached to an access point using a complete
---   ARN that includes the bucket region as shown:
+--   You can specify LocationARN as a bucket ARN, access point ARN or
+--   access point alias, as shown in the following examples.
+--   
+--   Bucket ARN:
 --   
 --   <pre>
---   arn:aws:s3:region:account-id:accesspoint/access-point-name
+--   arn:aws:s3:::my-bucket/prefix/
 --   </pre>
 --   
---   If you specify a bucket attached to an access point, the bucket policy
---   must be configured to delegate access control to the access point. For
---   information, see <a>Delegating access control to access points</a> in
---   the <i>Amazon S3 User Guide</i>.
+--   Access point ARN:
+--   
+--   <pre>
+--   arn:aws:s3:region:account-id:accesspoint/access-point-name/prefix/
+--   </pre>
+--   
+--   If you specify an access point, the bucket policy must be configured
+--   to delegate access control to the access point. For information, see
+--   <a>Delegating access control to access points</a> in the <i>Amazon S3
+--   User Guide</i>.
+--   
+--   Access point alias:
+--   
+--   <pre>
+--   test-ap-ab123cdef4gehijklmn5opqrstuvuse1a-s3alias
+--   </pre>
 [$sel:locationARN:CreateNFSFileShare'] :: CreateNFSFileShare -> Text
 
 -- | Create a value of <a>CreateNFSFileShare</a> with all optional fields
@@ -17028,6 +17367,10 @@ CreateNFSFileShare' :: Maybe Text -> Maybe Text -> Maybe CacheAttributes -> Mayb
 --   
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:auditDestinationARN:CreateNFSFileShare'</a>,
+--   <a>createNFSFileShare_auditDestinationARN</a> - The Amazon Resource
+--   Name (ARN) of the storage used for audit logs.
 --   
 --   <a>$sel:kmsKey:CreateNFSFileShare'</a>,
 --   <a>createNFSFileShare_kmsKey</a> - The Amazon Resource Name (ARN) of a
@@ -17074,7 +17417,8 @@ CreateNFSFileShare' :: Maybe Text -> Maybe Text -> Maybe CacheAttributes -> Mayb
 --   Optional.
 --   
 --   <tt>FileShareName</tt> must be set if an S3 prefix name is set in
---   <tt>LocationARN</tt>.
+--   <tt>LocationARN</tt>, or if an access point or access point alias is
+--   used.
 --   
 --   <a>$sel:notificationPolicy:CreateNFSFileShare'</a>,
 --   <a>createNFSFileShare_notificationPolicy</a> - The notification policy
@@ -17182,22 +17526,40 @@ CreateNFSFileShare' :: Maybe Text -> Maybe Text -> Maybe CacheAttributes -> Mayb
 --   File Gateway assumes when it accesses the underlying storage.
 --   
 --   <a>$sel:locationARN:CreateNFSFileShare'</a>,
---   <a>createNFSFileShare_locationARN</a> - The ARN of the backend storage
---   used for storing file data. A prefix name can be added to the S3
---   bucket name. It must end with a "/".
+--   <a>createNFSFileShare_locationARN</a> - A custom ARN for the backend
+--   storage used for storing data for file shares. It includes a resource
+--   ARN with an optional prefix concatenation. The prefix must end with a
+--   forward slash (/).
 --   
---   You can specify a bucket attached to an access point using a complete
---   ARN that includes the bucket region as shown:
+--   You can specify LocationARN as a bucket ARN, access point ARN or
+--   access point alias, as shown in the following examples.
+--   
+--   Bucket ARN:
 --   
 --   <pre>
---   arn:aws:s3:region:account-id:accesspoint/access-point-name
+--   arn:aws:s3:::my-bucket/prefix/
 --   </pre>
 --   
---   If you specify a bucket attached to an access point, the bucket policy
---   must be configured to delegate access control to the access point. For
---   information, see <a>Delegating access control to access points</a> in
---   the <i>Amazon S3 User Guide</i>.
+--   Access point ARN:
+--   
+--   <pre>
+--   arn:aws:s3:region:account-id:accesspoint/access-point-name/prefix/
+--   </pre>
+--   
+--   If you specify an access point, the bucket policy must be configured
+--   to delegate access control to the access point. For information, see
+--   <a>Delegating access control to access points</a> in the <i>Amazon S3
+--   User Guide</i>.
+--   
+--   Access point alias:
+--   
+--   <pre>
+--   test-ap-ab123cdef4gehijklmn5opqrstuvuse1a-s3alias
+--   </pre>
 newCreateNFSFileShare :: Text -> Text -> Text -> Text -> CreateNFSFileShare
+
+-- | The Amazon Resource Name (ARN) of the storage used for audit logs.
+createNFSFileShare_auditDestinationARN :: Lens' CreateNFSFileShare (Maybe Text)
 
 -- | The Amazon Resource Name (ARN) of a symmetric customer master key
 --   (CMK) used for Amazon S3 server-side encryption. Storage Gateway does
@@ -17239,7 +17601,8 @@ createNFSFileShare_defaultStorageClass :: Lens' CreateNFSFileShare (Maybe Text)
 -- | The name of the file share. Optional.
 --   
 --   <tt>FileShareName</tt> must be set if an S3 prefix name is set in
---   <tt>LocationARN</tt>.
+--   <tt>LocationARN</tt>, or if an access point or access point alias is
+--   used.
 createNFSFileShare_fileShareName :: Lens' CreateNFSFileShare (Maybe Text)
 
 -- | The notification policy of the file share.
@@ -17342,20 +17705,35 @@ createNFSFileShare_gatewayARN :: Lens' CreateNFSFileShare Text
 --   File Gateway assumes when it accesses the underlying storage.
 createNFSFileShare_role :: Lens' CreateNFSFileShare Text
 
--- | The ARN of the backend storage used for storing file data. A prefix
---   name can be added to the S3 bucket name. It must end with a "/".
+-- | A custom ARN for the backend storage used for storing data for file
+--   shares. It includes a resource ARN with an optional prefix
+--   concatenation. The prefix must end with a forward slash (/).
 --   
---   You can specify a bucket attached to an access point using a complete
---   ARN that includes the bucket region as shown:
+--   You can specify LocationARN as a bucket ARN, access point ARN or
+--   access point alias, as shown in the following examples.
+--   
+--   Bucket ARN:
 --   
 --   <pre>
---   arn:aws:s3:region:account-id:accesspoint/access-point-name
+--   arn:aws:s3:::my-bucket/prefix/
 --   </pre>
 --   
---   If you specify a bucket attached to an access point, the bucket policy
---   must be configured to delegate access control to the access point. For
---   information, see <a>Delegating access control to access points</a> in
---   the <i>Amazon S3 User Guide</i>.
+--   Access point ARN:
+--   
+--   <pre>
+--   arn:aws:s3:region:account-id:accesspoint/access-point-name/prefix/
+--   </pre>
+--   
+--   If you specify an access point, the bucket policy must be configured
+--   to delegate access control to the access point. For information, see
+--   <a>Delegating access control to access points</a> in the <i>Amazon S3
+--   User Guide</i>.
+--   
+--   Access point alias:
+--   
+--   <pre>
+--   test-ap-ab123cdef4gehijklmn5opqrstuvuse1a-s3alias
+--   </pre>
 createNFSFileShare_locationARN :: Lens' CreateNFSFileShare Text
 
 -- | CreateNFSFileShareOutput
@@ -18842,12 +19220,12 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.StorageGateway.AddCache.AddC
 
 
 -- | Activates the gateway you previously deployed on your host. In the
---   activation process, you specify information such as the Region that
---   you want to use for storing snapshots or tapes, the time zone for
---   scheduled snapshots the gateway snapshot schedule window, an
---   activation key, and a name for your gateway. The activation process
---   also associates your gateway with your account. For more information,
---   see UpdateGatewayInformation.
+--   activation process, you specify information such as the Amazon Web
+--   Services Region that you want to use for storing snapshots or tapes,
+--   the time zone for scheduled snapshots the gateway snapshot schedule
+--   window, an activation key, and a name for your gateway. The activation
+--   process also associates your gateway with your account. For more
+--   information, see UpdateGatewayInformation.
 --   
 --   You must turn on the gateway VM before you can activate your gateway.
 module Network.AWS.StorageGateway.ActivateGateway
@@ -18923,12 +19301,13 @@ ActivateGateway' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe [Tag] -> Tex
 --   schedule.
 [$sel:gatewayTimezone:ActivateGateway'] :: ActivateGateway -> Text
 
--- | A value that indicates the Region where you want to store your data.
---   The gateway Region specified must be the same Region as the Region in
---   your <tt>Host</tt> header in the request. For more information about
---   available Regions and endpoints for Storage Gateway, see <a>Storage
---   Gateway endpoints and quotas</a> in the <i>Amazon Web Services General
---   Reference</i>.
+-- | A value that indicates the Amazon Web Services Region where you want
+--   to store your data. The gateway Amazon Web Services Region specified
+--   must be the same Amazon Web Services Region as the Amazon Web Services
+--   Region in your <tt>Host</tt> header in the request. For more
+--   information about available Amazon Web Services Regions and endpoints
+--   for Storage Gateway, see <a>Storage Gateway endpoints and quotas</a>
+--   in the <i>Amazon Web Services General Reference</i>.
 --   
 --   Valid Values: See <a>Storage Gateway endpoints and quotas</a> in the
 --   <i>Amazon Web Services General Reference</i>.
@@ -19004,11 +19383,13 @@ ActivateGateway' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe [Tag] -> Tex
 --   
 --   <a>$sel:gatewayRegion:ActivateGateway'</a>,
 --   <a>activateGateway_gatewayRegion</a> - A value that indicates the
---   Region where you want to store your data. The gateway Region specified
---   must be the same Region as the Region in your <tt>Host</tt> header in
---   the request. For more information about available Regions and
---   endpoints for Storage Gateway, see <a>Storage Gateway endpoints and
---   quotas</a> in the <i>Amazon Web Services General Reference</i>.
+--   Amazon Web Services Region where you want to store your data. The
+--   gateway Amazon Web Services Region specified must be the same Amazon
+--   Web Services Region as the Amazon Web Services Region in your
+--   <tt>Host</tt> header in the request. For more information about
+--   available Amazon Web Services Regions and endpoints for Storage
+--   Gateway, see <a>Storage Gateway endpoints and quotas</a> in the
+--   <i>Amazon Web Services General Reference</i>.
 --   
 --   Valid Values: See <a>Storage Gateway endpoints and quotas</a> in the
 --   <i>Amazon Web Services General Reference</i>.
@@ -19069,12 +19450,13 @@ activateGateway_gatewayName :: Lens' ActivateGateway Text
 --   schedule.
 activateGateway_gatewayTimezone :: Lens' ActivateGateway Text
 
--- | A value that indicates the Region where you want to store your data.
---   The gateway Region specified must be the same Region as the Region in
---   your <tt>Host</tt> header in the request. For more information about
---   available Regions and endpoints for Storage Gateway, see <a>Storage
---   Gateway endpoints and quotas</a> in the <i>Amazon Web Services General
---   Reference</i>.
+-- | A value that indicates the Amazon Web Services Region where you want
+--   to store your data. The gateway Amazon Web Services Region specified
+--   must be the same Amazon Web Services Region as the Amazon Web Services
+--   Region in your <tt>Host</tt> header in the request. For more
+--   information about available Amazon Web Services Regions and endpoints
+--   for Storage Gateway, see <a>Storage Gateway endpoints and quotas</a>
+--   in the <i>Amazon Web Services General Reference</i>.
 --   
 --   Valid Values: See <a>Storage Gateway endpoints and quotas</a> in the
 --   <i>Amazon Web Services General Reference</i>.
@@ -19082,9 +19464,9 @@ activateGateway_gatewayRegion :: Lens' ActivateGateway Text
 
 -- | Storage Gateway returns the Amazon Resource Name (ARN) of the
 --   activated gateway. It is a string made of information such as your
---   account, gateway name, and Region. This ARN is used to reference the
---   gateway in other API operations as well as resource-based
---   authorization.
+--   account, gateway name, and Amazon Web Services Region. This ARN is
+--   used to reference the gateway in other API operations as well as
+--   resource-based authorization.
 --   
 --   For gateways activated prior to September 02, 2015, the gateway ARN
 --   contains the gateway name rather than the gateway ID. Changing the
@@ -20154,7 +20536,10 @@ module Network.AWS.StorageGateway.UpdateNFSFileShare
 --   
 --   <i>See:</i> <a>newUpdateNFSFileShare</a> smart constructor.
 data UpdateNFSFileShare
-UpdateNFSFileShare' :: Maybe Text -> Maybe CacheAttributes -> Maybe ObjectACL -> Maybe Bool -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Bool -> Maybe NFSFileShareDefaults -> Maybe (NonEmpty Text) -> Maybe Bool -> Maybe Bool -> Text -> UpdateNFSFileShare
+UpdateNFSFileShare' :: Maybe Text -> Maybe Text -> Maybe CacheAttributes -> Maybe ObjectACL -> Maybe Bool -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Bool -> Maybe NFSFileShareDefaults -> Maybe (NonEmpty Text) -> Maybe Bool -> Maybe Bool -> Text -> UpdateNFSFileShare
+
+-- | The Amazon Resource Name (ARN) of the storage used for audit logs.
+[$sel:auditDestinationARN:UpdateNFSFileShare'] :: UpdateNFSFileShare -> Maybe Text
 
 -- | The Amazon Resource Name (ARN) of a symmetric customer master key
 --   (CMK) used for Amazon S3 server-side encryption. Storage Gateway does
@@ -20162,7 +20547,7 @@ UpdateNFSFileShare' :: Maybe Text -> Maybe CacheAttributes -> Maybe ObjectACL ->
 --   <tt>KMSEncrypted</tt> is <tt>true</tt>. Optional.
 [$sel:kmsKey:UpdateNFSFileShare'] :: UpdateNFSFileShare -> Maybe Text
 
--- | specifies refresh cache information for the file share.
+-- | Specifies refresh cache information for the file share.
 [$sel:cacheAttributes:UpdateNFSFileShare'] :: UpdateNFSFileShare -> Maybe CacheAttributes
 
 -- | A value that sets the access control list (ACL) permission for objects
@@ -20188,7 +20573,8 @@ UpdateNFSFileShare' :: Maybe Text -> Maybe CacheAttributes -> Maybe ObjectACL ->
 -- | The name of the file share. Optional.
 --   
 --   <tt>FileShareName</tt> must be set if an S3 prefix name is set in
---   <tt>LocationARN</tt>.
+--   <tt>LocationARN</tt>, or if an access point or access point alias is
+--   used.
 [$sel:fileShareName:UpdateNFSFileShare'] :: UpdateNFSFileShare -> Maybe Text
 
 -- | The notification policy of the file share.
@@ -20274,6 +20660,10 @@ UpdateNFSFileShare' :: Maybe Text -> Maybe CacheAttributes -> Maybe ObjectACL ->
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:auditDestinationARN:UpdateNFSFileShare'</a>,
+--   <a>updateNFSFileShare_auditDestinationARN</a> - The Amazon Resource
+--   Name (ARN) of the storage used for audit logs.
+--   
 --   <a>$sel:kmsKey:UpdateNFSFileShare'</a>,
 --   <a>updateNFSFileShare_kmsKey</a> - The Amazon Resource Name (ARN) of a
 --   symmetric customer master key (CMK) used for Amazon S3 server-side
@@ -20282,7 +20672,7 @@ UpdateNFSFileShare' :: Maybe Text -> Maybe CacheAttributes -> Maybe ObjectACL ->
 --   Optional.
 --   
 --   <a>$sel:cacheAttributes:UpdateNFSFileShare'</a>,
---   <a>updateNFSFileShare_cacheAttributes</a> - specifies refresh cache
+--   <a>updateNFSFileShare_cacheAttributes</a> - Specifies refresh cache
 --   information for the file share.
 --   
 --   <a>$sel:objectACL:UpdateNFSFileShare'</a>,
@@ -20310,7 +20700,8 @@ UpdateNFSFileShare' :: Maybe Text -> Maybe CacheAttributes -> Maybe ObjectACL ->
 --   Optional.
 --   
 --   <tt>FileShareName</tt> must be set if an S3 prefix name is set in
---   <tt>LocationARN</tt>.
+--   <tt>LocationARN</tt>, or if an access point or access point alias is
+--   used.
 --   
 --   <a>$sel:notificationPolicy:UpdateNFSFileShare'</a>,
 --   <a>updateNFSFileShare_notificationPolicy</a> - The notification policy
@@ -20391,13 +20782,16 @@ UpdateNFSFileShare' :: Maybe Text -> Maybe CacheAttributes -> Maybe ObjectACL ->
 --   (ARN) of the file share to be updated.
 newUpdateNFSFileShare :: Text -> UpdateNFSFileShare
 
+-- | The Amazon Resource Name (ARN) of the storage used for audit logs.
+updateNFSFileShare_auditDestinationARN :: Lens' UpdateNFSFileShare (Maybe Text)
+
 -- | The Amazon Resource Name (ARN) of a symmetric customer master key
 --   (CMK) used for Amazon S3 server-side encryption. Storage Gateway does
 --   not support asymmetric CMKs. This value can only be set when
 --   <tt>KMSEncrypted</tt> is <tt>true</tt>. Optional.
 updateNFSFileShare_kmsKey :: Lens' UpdateNFSFileShare (Maybe Text)
 
--- | specifies refresh cache information for the file share.
+-- | Specifies refresh cache information for the file share.
 updateNFSFileShare_cacheAttributes :: Lens' UpdateNFSFileShare (Maybe CacheAttributes)
 
 -- | A value that sets the access control list (ACL) permission for objects
@@ -20423,7 +20817,8 @@ updateNFSFileShare_defaultStorageClass :: Lens' UpdateNFSFileShare (Maybe Text)
 -- | The name of the file share. Optional.
 --   
 --   <tt>FileShareName</tt> must be set if an S3 prefix name is set in
---   <tt>LocationARN</tt>.
+--   <tt>LocationARN</tt>, or if an access point or access point alias is
+--   used.
 updateNFSFileShare_fileShareName :: Lens' UpdateNFSFileShare (Maybe Text)
 
 -- | The notification policy of the file share.
@@ -20559,12 +20954,15 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.StorageGateway.UpdateNFSFile
 --   To leave a file share field unchanged, set the corresponding input
 --   field to null.
 --   
---   File gateways require Security Token Service (STS) to be activated to
---   enable you to create a file share. Make sure that STS is activated in
---   the Region you are creating your file gateway in. If STS is not
---   activated in this Region, activate it. For information about how to
---   activate STS, see <a>Activating and deactivating STS in an Region</a>
---   in the <i>Identity and Access Management User Guide</i>.
+--   File gateways require Security Token Service (Amazon Web Services STS)
+--   to be activated to enable you to create a file share. Make sure that
+--   Amazon Web Services STS is activated in the Amazon Web Services Region
+--   you are creating your file gateway in. If Amazon Web Services STS is
+--   not activated in this Amazon Web Services Region, activate it. For
+--   information about how to activate Amazon Web Services STS, see
+--   <a>Activating and deactivating Amazon Web Services STS in an Amazon
+--   Web Services Region</a> in the <i>Identity and Access Management User
+--   Guide</i>.
 --   
 --   File gateways don't support creating hard or symbolic links on a file
 --   share.
@@ -20636,7 +21034,8 @@ UpdateSMBFileShare' :: Maybe Bool -> Maybe [Text] -> Maybe Text -> Maybe [Text] 
 -- | The name of the file share. Optional.
 --   
 --   <tt>FileShareName</tt> must be set if an S3 prefix name is set in
---   <tt>LocationARN</tt>.
+--   <tt>LocationARN</tt>, or if an access point or access point alias is
+--   used.
 [$sel:fileShareName:UpdateSMBFileShare'] :: UpdateSMBFileShare -> Maybe Text
 
 -- | Set this value to <tt>true</tt> to enable access control list (ACL) on
@@ -20800,7 +21199,8 @@ UpdateSMBFileShare' :: Maybe Bool -> Maybe [Text] -> Maybe Text -> Maybe [Text] 
 --   Optional.
 --   
 --   <tt>FileShareName</tt> must be set if an S3 prefix name is set in
---   <tt>LocationARN</tt>.
+--   <tt>LocationARN</tt>, or if an access point or access point alias is
+--   used.
 --   
 --   <a>$sel:sMBACLEnabled:UpdateSMBFileShare'</a>,
 --   <a>updateSMBFileShare_sMBACLEnabled</a> - Set this value to
@@ -20950,7 +21350,8 @@ updateSMBFileShare_defaultStorageClass :: Lens' UpdateSMBFileShare (Maybe Text)
 -- | The name of the file share. Optional.
 --   
 --   <tt>FileShareName</tt> must be set if an S3 prefix name is set in
---   <tt>LocationARN</tt>.
+--   <tt>LocationARN</tt>, or if an access point or access point alias is
+--   used.
 updateSMBFileShare_fileShareName :: Lens' UpdateSMBFileShare (Maybe Text)
 
 -- | Set this value to <tt>true</tt> to enable access control list (ACL) on
@@ -21174,6 +21575,92 @@ instance Network.AWS.Data.Headers.ToHeaders Network.AWS.StorageGateway.UpdateSMB
 instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.StorageGateway.UpdateSMBFileShareVisibility.UpdateSMBFileShareVisibility
 instance Network.AWS.Data.Path.ToPath Network.AWS.StorageGateway.UpdateSMBFileShareVisibility.UpdateSMBFileShareVisibility
 instance Network.AWS.Data.Query.ToQuery Network.AWS.StorageGateway.UpdateSMBFileShareVisibility.UpdateSMBFileShareVisibility
+
+
+-- | Updates the list of Active Directory users and groups that have
+--   special permissions for SMB file shares on the gateway.
+module Network.AWS.StorageGateway.UpdateSMBLocalGroups
+
+-- | <i>See:</i> <a>newUpdateSMBLocalGroups</a> smart constructor.
+data UpdateSMBLocalGroups
+UpdateSMBLocalGroups' :: Text -> SMBLocalGroups -> UpdateSMBLocalGroups
+[$sel:gatewayARN:UpdateSMBLocalGroups'] :: UpdateSMBLocalGroups -> Text
+
+-- | A list of Active Directory users and groups that you want to grant
+--   special permissions for SMB file shares on the gateway.
+[$sel:sMBLocalGroups:UpdateSMBLocalGroups'] :: UpdateSMBLocalGroups -> SMBLocalGroups
+
+-- | Create a value of <a>UpdateSMBLocalGroups</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:gatewayARN:UpdateSMBLocalGroups'</a>,
+--   <a>updateSMBLocalGroups_gatewayARN</a> - Undocumented member.
+--   
+--   <a>$sel:sMBLocalGroups:UpdateSMBLocalGroups'</a>,
+--   <a>updateSMBLocalGroups_sMBLocalGroups</a> - A list of Active
+--   Directory users and groups that you want to grant special permissions
+--   for SMB file shares on the gateway.
+newUpdateSMBLocalGroups :: Text -> SMBLocalGroups -> UpdateSMBLocalGroups
+
+-- | Undocumented member.
+updateSMBLocalGroups_gatewayARN :: Lens' UpdateSMBLocalGroups Text
+
+-- | A list of Active Directory users and groups that you want to grant
+--   special permissions for SMB file shares on the gateway.
+updateSMBLocalGroups_sMBLocalGroups :: Lens' UpdateSMBLocalGroups SMBLocalGroups
+
+-- | <i>See:</i> <a>newUpdateSMBLocalGroupsResponse</a> smart constructor.
+data UpdateSMBLocalGroupsResponse
+UpdateSMBLocalGroupsResponse' :: Maybe Text -> Int -> UpdateSMBLocalGroupsResponse
+[$sel:gatewayARN:UpdateSMBLocalGroupsResponse'] :: UpdateSMBLocalGroupsResponse -> Maybe Text
+
+-- | The response's http status code.
+[$sel:httpStatus:UpdateSMBLocalGroupsResponse'] :: UpdateSMBLocalGroupsResponse -> Int
+
+-- | Create a value of <a>UpdateSMBLocalGroupsResponse</a> with all
+--   optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:gatewayARN:UpdateSMBLocalGroups'</a>,
+--   <a>updateSMBLocalGroupsResponse_gatewayARN</a> - Undocumented member.
+--   
+--   <a>$sel:httpStatus:UpdateSMBLocalGroupsResponse'</a>,
+--   <a>updateSMBLocalGroupsResponse_httpStatus</a> - The response's http
+--   status code.
+newUpdateSMBLocalGroupsResponse :: Int -> UpdateSMBLocalGroupsResponse
+
+-- | Undocumented member.
+updateSMBLocalGroupsResponse_gatewayARN :: Lens' UpdateSMBLocalGroupsResponse (Maybe Text)
+
+-- | The response's http status code.
+updateSMBLocalGroupsResponse_httpStatus :: Lens' UpdateSMBLocalGroupsResponse Int
+instance GHC.Generics.Generic Network.AWS.StorageGateway.UpdateSMBLocalGroups.UpdateSMBLocalGroups
+instance GHC.Show.Show Network.AWS.StorageGateway.UpdateSMBLocalGroups.UpdateSMBLocalGroups
+instance GHC.Read.Read Network.AWS.StorageGateway.UpdateSMBLocalGroups.UpdateSMBLocalGroups
+instance GHC.Classes.Eq Network.AWS.StorageGateway.UpdateSMBLocalGroups.UpdateSMBLocalGroups
+instance GHC.Generics.Generic Network.AWS.StorageGateway.UpdateSMBLocalGroups.UpdateSMBLocalGroupsResponse
+instance GHC.Show.Show Network.AWS.StorageGateway.UpdateSMBLocalGroups.UpdateSMBLocalGroupsResponse
+instance GHC.Read.Read Network.AWS.StorageGateway.UpdateSMBLocalGroups.UpdateSMBLocalGroupsResponse
+instance GHC.Classes.Eq Network.AWS.StorageGateway.UpdateSMBLocalGroups.UpdateSMBLocalGroupsResponse
+instance Network.AWS.Types.AWSRequest Network.AWS.StorageGateway.UpdateSMBLocalGroups.UpdateSMBLocalGroups
+instance Control.DeepSeq.NFData Network.AWS.StorageGateway.UpdateSMBLocalGroups.UpdateSMBLocalGroupsResponse
+instance Data.Hashable.Class.Hashable Network.AWS.StorageGateway.UpdateSMBLocalGroups.UpdateSMBLocalGroups
+instance Control.DeepSeq.NFData Network.AWS.StorageGateway.UpdateSMBLocalGroups.UpdateSMBLocalGroups
+instance Network.AWS.Data.Headers.ToHeaders Network.AWS.StorageGateway.UpdateSMBLocalGroups.UpdateSMBLocalGroups
+instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.StorageGateway.UpdateSMBLocalGroups.UpdateSMBLocalGroups
+instance Network.AWS.Data.Path.ToPath Network.AWS.StorageGateway.UpdateSMBLocalGroups.UpdateSMBLocalGroups
+instance Network.AWS.Data.Query.ToQuery Network.AWS.StorageGateway.UpdateSMBLocalGroups.UpdateSMBLocalGroups
 
 
 -- | Updates the SMB security strategy on a file gateway. This action is
@@ -21695,6 +22182,22 @@ describeFileSystemAssociationsResponse_fileSystemAssociationInfoList :: Lens' De
 -- | The response's http status code.
 describeFileSystemAssociationsResponse_httpStatus :: Lens' DescribeFileSystemAssociationsResponse Int
 
+-- | Undocumented member.
+updateSMBLocalGroups_gatewayARN :: Lens' UpdateSMBLocalGroups Text
+
+-- | A list of Active Directory users and groups that you want to grant
+--   special permissions for SMB file shares on the gateway.
+updateSMBLocalGroups_sMBLocalGroups :: Lens' UpdateSMBLocalGroups SMBLocalGroups
+
+-- | Undocumented member.
+updateSMBLocalGroupsResponse_gatewayARN :: Lens' UpdateSMBLocalGroupsResponse (Maybe Text)
+
+-- | The response's http status code.
+updateSMBLocalGroupsResponse_httpStatus :: Lens' UpdateSMBLocalGroupsResponse Int
+
+-- | The Amazon Resource Name (ARN) of the storage used for audit logs.
+createNFSFileShare_auditDestinationARN :: Lens' CreateNFSFileShare (Maybe Text)
+
 -- | The Amazon Resource Name (ARN) of a symmetric customer master key
 --   (CMK) used for Amazon S3 server-side encryption. Storage Gateway does
 --   not support asymmetric CMKs. This value can only be set when
@@ -21735,7 +22238,8 @@ createNFSFileShare_defaultStorageClass :: Lens' CreateNFSFileShare (Maybe Text)
 -- | The name of the file share. Optional.
 --   
 --   <tt>FileShareName</tt> must be set if an S3 prefix name is set in
---   <tt>LocationARN</tt>.
+--   <tt>LocationARN</tt>, or if an access point or access point alias is
+--   used.
 createNFSFileShare_fileShareName :: Lens' CreateNFSFileShare (Maybe Text)
 
 -- | The notification policy of the file share.
@@ -21838,20 +22342,35 @@ createNFSFileShare_gatewayARN :: Lens' CreateNFSFileShare Text
 --   File Gateway assumes when it accesses the underlying storage.
 createNFSFileShare_role :: Lens' CreateNFSFileShare Text
 
--- | The ARN of the backend storage used for storing file data. A prefix
---   name can be added to the S3 bucket name. It must end with a "/".
+-- | A custom ARN for the backend storage used for storing data for file
+--   shares. It includes a resource ARN with an optional prefix
+--   concatenation. The prefix must end with a forward slash (/).
 --   
---   You can specify a bucket attached to an access point using a complete
---   ARN that includes the bucket region as shown:
+--   You can specify LocationARN as a bucket ARN, access point ARN or
+--   access point alias, as shown in the following examples.
+--   
+--   Bucket ARN:
 --   
 --   <pre>
---   arn:aws:s3:region:account-id:accesspoint/access-point-name
+--   arn:aws:s3:::my-bucket/prefix/
 --   </pre>
 --   
---   If you specify a bucket attached to an access point, the bucket policy
---   must be configured to delegate access control to the access point. For
---   information, see <a>Delegating access control to access points</a> in
---   the <i>Amazon S3 User Guide</i>.
+--   Access point ARN:
+--   
+--   <pre>
+--   arn:aws:s3:region:account-id:accesspoint/access-point-name/prefix/
+--   </pre>
+--   
+--   If you specify an access point, the bucket policy must be configured
+--   to delegate access control to the access point. For information, see
+--   <a>Delegating access control to access points</a> in the <i>Amazon S3
+--   User Guide</i>.
+--   
+--   Access point alias:
+--   
+--   <pre>
+--   test-ap-ab123cdef4gehijklmn5opqrstuvuse1a-s3alias
+--   </pre>
 createNFSFileShare_locationARN :: Lens' CreateNFSFileShare Text
 
 -- | The Amazon Resource Name (ARN) of the newly created file share.
@@ -21997,7 +22516,8 @@ createTapes_tags :: Lens' CreateTapes (Maybe [Tag])
 
 -- | The unique Amazon Resource Name (ARN) that represents the gateway to
 --   associate the virtual tapes with. Use the ListGateways operation to
---   return a list of gateways for your account and Region.
+--   return a list of gateways for your account and Amazon Web Services
+--   Region.
 createTapes_gatewayARN :: Lens' CreateTapes Text
 
 -- | The size, in bytes, of the virtual tapes that you want to create.
@@ -22170,7 +22690,7 @@ joinDomain_domainControllers :: Lens' JoinDomain (Maybe [Text])
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the
 --   <tt>ListGateways</tt> operation to return a list of gateways for your
---   account and Region.
+--   account and Amazon Web Services Region.
 joinDomain_gatewayARN :: Lens' JoinDomain Text
 
 -- | The name of the domain that you want the gateway to join.
@@ -22475,10 +22995,11 @@ addCacheResponse_gatewayARN :: Lens' AddCacheResponse (Maybe Text)
 addCacheResponse_httpStatus :: Lens' AddCacheResponse Int
 
 -- | Tape retention lock can be configured in two modes. When configured in
---   governance mode, accounts with specific IAM permissions are authorized
---   to remove the tape retention lock from archived virtual tapes. When
---   configured in compliance mode, the tape retention lock cannot be
---   removed by any user, including the root account.
+--   governance mode, Amazon Web Services accounts with specific IAM
+--   permissions are authorized to remove the tape retention lock from
+--   archived virtual tapes. When configured in compliance mode, the tape
+--   retention lock cannot be removed by any user, including the root
+--   Amazon Web Services account.
 createTapePool_retentionLockType :: Lens' CreateTapePool (Maybe RetentionLockType)
 
 -- | Tape retention lock time is set in days. Tape retention lock can be
@@ -22505,7 +23026,7 @@ createTapePool_storageClass :: Lens' CreateTapePool TapeStorageClass
 
 -- | The unique Amazon Resource Name (ARN) that represents the custom tape
 --   pool. Use the ListTapePools operation to return a list of tape pools
---   for your account and Region.
+--   for your account and Amazon Web Services Region.
 createTapePoolResponse_poolARN :: Lens' CreateTapePoolResponse (Maybe Text)
 
 -- | The response's http status code.
@@ -22665,7 +23186,8 @@ createSMBFileShare_defaultStorageClass :: Lens' CreateSMBFileShare (Maybe Text)
 -- | The name of the file share. Optional.
 --   
 --   <tt>FileShareName</tt> must be set if an S3 prefix name is set in
---   <tt>LocationARN</tt>.
+--   <tt>LocationARN</tt>, or if an access point or access point alias is
+--   used.
 createSMBFileShare_fileShareName :: Lens' CreateSMBFileShare (Maybe Text)
 
 -- | Set this value to <tt>true</tt> to enable access control list (ACL) on
@@ -22777,20 +23299,35 @@ createSMBFileShare_gatewayARN :: Lens' CreateSMBFileShare Text
 --   File Gateway assumes when it accesses the underlying storage.
 createSMBFileShare_role :: Lens' CreateSMBFileShare Text
 
--- | The ARN of the backend storage used for storing file data. A prefix
---   name can be added to the S3 bucket name. It must end with a "/".
+-- | A custom ARN for the backend storage used for storing data for file
+--   shares. It includes a resource ARN with an optional prefix
+--   concatenation. The prefix must end with a forward slash (/).
 --   
---   You can specify a bucket attached to an access point using a complete
---   ARN that includes the bucket region as shown:
+--   You can specify LocationARN as a bucket ARN, access point ARN or
+--   access point alias, as shown in the following examples.
+--   
+--   Bucket ARN:
 --   
 --   <pre>
---   arn:aws:s3:region:account-id:accesspoint/access-point-name
+--   arn:aws:s3:::my-bucket/prefix/
 --   </pre>
 --   
---   If you specify a bucket attached to an access point, the bucket policy
---   must be configured to delegate access control to the access point. For
---   information, see <a>Delegating access control to access points</a> in
---   the <i>Amazon S3 User Guide</i>.
+--   Access point ARN:
+--   
+--   <pre>
+--   arn:aws:s3:region:account-id:accesspoint/access-point-name/prefix/
+--   </pre>
+--   
+--   If you specify an access point, the bucket policy must be configured
+--   to delegate access control to the access point. For information, see
+--   <a>Delegating access control to access points</a> in the <i>Amazon S3
+--   User Guide</i>.
+--   
+--   Access point alias:
+--   
+--   <pre>
+--   test-ap-ab123cdef4gehijklmn5opqrstuvuse1a-s3alias
+--   </pre>
 createSMBFileShare_locationARN :: Lens' CreateSMBFileShare Text
 
 -- | The Amazon Resource Name (ARN) of the newly created file share.
@@ -23162,7 +23699,8 @@ describeGatewayInformation_gatewayARN :: Lens' DescribeGatewayInformation Text
 -- | A value that indicates the operating state of the gateway.
 describeGatewayInformationResponse_gatewayState :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 
--- | The Region where the Amazon EC2 instance is located.
+-- | The Amazon Web Services Region where the Amazon EC2 instance is
+--   located.
 describeGatewayInformationResponse_ec2InstanceRegion :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 
 -- | Undocumented member.
@@ -23270,13 +23808,16 @@ refreshCacheResponse_notificationId :: Lens' RefreshCacheResponse (Maybe Text)
 -- | The response's http status code.
 refreshCacheResponse_httpStatus :: Lens' RefreshCacheResponse Int
 
+-- | The Amazon Resource Name (ARN) of the storage used for audit logs.
+updateNFSFileShare_auditDestinationARN :: Lens' UpdateNFSFileShare (Maybe Text)
+
 -- | The Amazon Resource Name (ARN) of a symmetric customer master key
 --   (CMK) used for Amazon S3 server-side encryption. Storage Gateway does
 --   not support asymmetric CMKs. This value can only be set when
 --   <tt>KMSEncrypted</tt> is <tt>true</tt>. Optional.
 updateNFSFileShare_kmsKey :: Lens' UpdateNFSFileShare (Maybe Text)
 
--- | specifies refresh cache information for the file share.
+-- | Specifies refresh cache information for the file share.
 updateNFSFileShare_cacheAttributes :: Lens' UpdateNFSFileShare (Maybe CacheAttributes)
 
 -- | A value that sets the access control list (ACL) permission for objects
@@ -23302,7 +23843,8 @@ updateNFSFileShare_defaultStorageClass :: Lens' UpdateNFSFileShare (Maybe Text)
 -- | The name of the file share. Optional.
 --   
 --   <tt>FileShareName</tt> must be set if an S3 prefix name is set in
---   <tt>LocationARN</tt>.
+--   <tt>LocationARN</tt>, or if an access point or access point alias is
+--   used.
 updateNFSFileShare_fileShareName :: Lens' UpdateNFSFileShare (Maybe Text)
 
 -- | The notification policy of the file share.
@@ -23391,7 +23933,7 @@ retrieveTapeArchive_tapeARN :: Lens' RetrieveTapeArchive Text
 
 -- | The Amazon Resource Name (ARN) of the gateway you want to retrieve the
 --   virtual tape to. Use the ListGateways operation to return a list of
---   gateways for your account and Region.
+--   gateways for your account and Amazon Web Services Region.
 --   
 --   You retrieve archived virtual tapes to only one gateway and the
 --   gateway must be a tape gateway.
@@ -23490,6 +24032,10 @@ describeSMBSettingsResponse_activeDirectoryStatus :: Lens' DescribeSMBSettingsRe
 -- | The name of the domain that the gateway is joined to.
 describeSMBSettingsResponse_domainName :: Lens' DescribeSMBSettingsResponse (Maybe Text)
 
+-- | A list of Active Directory users and groups that have special
+--   permissions for SMB file shares on the gateway.
+describeSMBSettingsResponse_sMBLocalGroups :: Lens' DescribeSMBSettingsResponse (Maybe SMBLocalGroups)
+
 -- | This value is <tt>true</tt> if a password for the guest user
 --   <tt>smbguest</tt> is set, otherwise <tt>false</tt>. Only supported for
 --   S3 File Gateways.
@@ -23587,7 +24133,8 @@ createTapeWithBarcode_tags :: Lens' CreateTapeWithBarcode (Maybe [Tag])
 
 -- | The unique Amazon Resource Name (ARN) that represents the gateway to
 --   associate the virtual tape with. Use the ListGateways operation to
---   return a list of gateways for your account and Region.
+--   return a list of gateways for your account and Amazon Web Services
+--   Region.
 createTapeWithBarcode_gatewayARN :: Lens' CreateTapeWithBarcode Text
 
 -- | The size, in bytes, of the virtual tape that you want to create.
@@ -23943,7 +24490,8 @@ updateSMBFileShare_defaultStorageClass :: Lens' UpdateSMBFileShare (Maybe Text)
 -- | The name of the file share. Optional.
 --   
 --   <tt>FileShareName</tt> must be set if an S3 prefix name is set in
---   <tt>LocationARN</tt>.
+--   <tt>LocationARN</tt>, or if an access point or access point alias is
+--   used.
 updateSMBFileShare_fileShareName :: Lens' UpdateSMBFileShare (Maybe Text)
 
 -- | Set this value to <tt>true</tt> to enable access control list (ACL) on
@@ -24128,7 +24676,8 @@ deleteTape_bypassGovernanceRetention :: Lens' DeleteTape (Maybe Bool)
 
 -- | The unique Amazon Resource Name (ARN) of the gateway that the virtual
 --   tape to delete is associated with. Use the ListGateways operation to
---   return a list of gateways for your account and Region.
+--   return a list of gateways for your account and Amazon Web Services
+--   Region.
 deleteTape_gatewayARN :: Lens' DeleteTape Text
 
 -- | The Amazon Resource Name (ARN) of the virtual tape to delete.
@@ -24312,12 +24861,13 @@ activateGateway_gatewayName :: Lens' ActivateGateway Text
 --   schedule.
 activateGateway_gatewayTimezone :: Lens' ActivateGateway Text
 
--- | A value that indicates the Region where you want to store your data.
---   The gateway Region specified must be the same Region as the Region in
---   your <tt>Host</tt> header in the request. For more information about
---   available Regions and endpoints for Storage Gateway, see <a>Storage
---   Gateway endpoints and quotas</a> in the <i>Amazon Web Services General
---   Reference</i>.
+-- | A value that indicates the Amazon Web Services Region where you want
+--   to store your data. The gateway Amazon Web Services Region specified
+--   must be the same Amazon Web Services Region as the Amazon Web Services
+--   Region in your <tt>Host</tt> header in the request. For more
+--   information about available Amazon Web Services Regions and endpoints
+--   for Storage Gateway, see <a>Storage Gateway endpoints and quotas</a>
+--   in the <i>Amazon Web Services General Reference</i>.
 --   
 --   Valid Values: See <a>Storage Gateway endpoints and quotas</a> in the
 --   <i>Amazon Web Services General Reference</i>.
@@ -24617,6 +25167,10 @@ fileSystemAssociationInfo_gatewayARN :: Lens' FileSystemAssociationInfo (Maybe T
 -- | Undocumented member.
 fileSystemAssociationInfo_cacheAttributes :: Lens' FileSystemAssociationInfo (Maybe CacheAttributes)
 
+-- | An array containing the FileSystemAssociationStatusDetail data type,
+--   which provides detailed information on file system association status.
+fileSystemAssociationInfo_fileSystemAssociationStatusDetails :: Lens' FileSystemAssociationInfo (Maybe [FileSystemAssociationStatusDetail])
+
 -- | Specifies network configuration information for the gateway associated
 --   with the Amazon FSx file system.
 --   
@@ -24638,6 +25192,9 @@ fileSystemAssociationInfo_fileSystemAssociationStatus :: Lens' FileSystemAssocia
 --   alphabetically by key name. Each tag is a key-value pair.
 fileSystemAssociationInfo_tags :: Lens' FileSystemAssociationInfo (Maybe [Tag])
 
+-- | The error code for a given file system association status.
+fileSystemAssociationStatusDetail_errorCode :: Lens' FileSystemAssociationStatusDetail (Maybe Text)
+
 -- | The Amazon Resource Name (ARN) of the file system association.
 fileSystemAssociationSummary_fileSystemAssociationARN :: Lens' FileSystemAssociationSummary (Maybe Text)
 
@@ -24652,11 +25209,13 @@ fileSystemAssociationSummary_fileSystemAssociationId :: Lens' FileSystemAssociat
 --   <tt>UPDATING</tt> | <tt>ERROR</tt>
 fileSystemAssociationSummary_fileSystemAssociationStatus :: Lens' FileSystemAssociationSummary (Maybe Text)
 
--- | The Region where the Amazon EC2 instance is located.
+-- | The Amazon Web Services Region where the Amazon EC2 instance is
+--   located.
 gatewayInfo_ec2InstanceRegion :: Lens' GatewayInfo (Maybe Text)
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
---   operation to return a list of gateways for your account and Region.
+--   operation to return a list of gateways for your account and Amazon Web
+--   Services Region.
 gatewayInfo_gatewayARN :: Lens' GatewayInfo (Maybe Text)
 
 -- | The ID of the Amazon EC2 instance that was used to launch the gateway.
@@ -24696,6 +25255,9 @@ nFSFileShareDefaults_directoryMode :: Lens' NFSFileShareDefaults (Maybe Text)
 -- | The default group ID for the file share (unless the files have another
 --   group ID specified). The default value is <tt>nfsnobody</tt>.
 nFSFileShareDefaults_groupId :: Lens' NFSFileShareDefaults (Maybe Natural)
+
+-- | The Amazon Resource Name (ARN) of the storage used for audit logs.
+nFSFileShareInfo_auditDestinationARN :: Lens' NFSFileShareInfo (Maybe Text)
 
 -- | Undocumented member.
 nFSFileShareInfo_fileShareStatus :: Lens' NFSFileShareInfo (Maybe Text)
@@ -24747,7 +25309,8 @@ nFSFileShareInfo_defaultStorageClass :: Lens' NFSFileShareInfo (Maybe Text)
 -- | The name of the file share. Optional.
 --   
 --   <tt>FileShareName</tt> must be set if an S3 prefix name is set in
---   <tt>LocationARN</tt>.
+--   <tt>LocationARN</tt>, or if an access point or access point alias is
+--   used.
 nFSFileShareInfo_fileShareName :: Lens' NFSFileShareInfo (Maybe Text)
 
 -- | Undocumented member.
@@ -24845,10 +25408,11 @@ networkInterface_macAddress :: Lens' NetworkInterface (Maybe Text)
 networkInterface_ipv4Address :: Lens' NetworkInterface (Maybe Text)
 
 -- | Tape retention lock type, which can be configured in two modes. When
---   configured in governance mode, accounts with specific IAM permissions
---   are authorized to remove the tape retention lock from archived virtual
---   tapes. When configured in compliance mode, the tape retention lock
---   cannot be removed by any user, including the root account.
+--   configured in governance mode, Amazon Web Services accounts with
+--   specific IAM permissions are authorized to remove the tape retention
+--   lock from archived virtual tapes. When configured in compliance mode,
+--   the tape retention lock cannot be removed by any user, including the
+--   root Amazon Web Services account.
 poolInfo_retentionLockType :: Lens' PoolInfo (Maybe RetentionLockType)
 
 -- | Tape retention lock time is set in days. Tape retention lock can be
@@ -24871,7 +25435,7 @@ poolInfo_poolStatus :: Lens' PoolInfo (Maybe PoolStatus)
 
 -- | The Amazon Resource Name (ARN) of the custom tape pool. Use the
 --   ListTapePools operation to return a list of custom tape pools for your
---   account and Region.
+--   account and Amazon Web Services Region.
 poolInfo_poolARN :: Lens' PoolInfo (Maybe Text)
 
 -- | Indicates whether <tt>AccessBasedEnumeration</tt> is enabled.
@@ -24955,7 +25519,8 @@ sMBFileShareInfo_defaultStorageClass :: Lens' SMBFileShareInfo (Maybe Text)
 -- | The name of the file share. Optional.
 --   
 --   <tt>FileShareName</tt> must be set if an S3 prefix name is set in
---   <tt>LocationARN</tt>.
+--   <tt>LocationARN</tt>, or if an access point or access point alias is
+--   used.
 sMBFileShareInfo_fileShareName :: Lens' SMBFileShareInfo (Maybe Text)
 
 -- | Undocumented member.
@@ -25056,6 +25621,14 @@ sMBFileShareInfo_caseSensitivity :: Lens' SMBFileShareInfo (Maybe CaseSensitivit
 --   gateway with more than 10 tags assigned, you can view all tags using
 --   the <tt>ListTagsForResource</tt> API operation.
 sMBFileShareInfo_tags :: Lens' SMBFileShareInfo (Maybe [Tag])
+
+-- | A list of Active Directory users and groups that have local Gateway
+--   Admin permissions. Acceptable formats include: <tt>DOMAIN\User1</tt>,
+--   <tt>user1</tt>, <tt>DOMAIN\group1</tt>, and <tt>group1</tt>.
+--   
+--   Gateway Admins can use the Shared Folders Microsoft Management Console
+--   snap-in to force-close files that are open and locked.
+sMBLocalGroups_gatewayAdmins :: Lens' SMBLocalGroups (Maybe [Text])
 
 -- | An VolumeiSCSIAttributes object that represents a collection of iSCSI
 --   attributes for one stored volume.
@@ -25259,7 +25832,8 @@ tapeInfo_tapeStatus :: Lens' TapeInfo (Maybe Text)
 tapeInfo_tapeARN :: Lens' TapeInfo (Maybe Text)
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
---   operation to return a list of gateways for your account and Region.
+--   operation to return a list of gateways for your account and Amazon Web
+--   Services Region.
 tapeInfo_gatewayARN :: Lens' TapeInfo (Maybe Text)
 
 -- | The size, in bytes, of a virtual tape.
@@ -25401,8 +25975,8 @@ module Network.AWS.StorageGateway.Waiters
 --   appliance with cloud-based storage to provide seamless and secure
 --   integration between an organization's on-premises IT environment and
 --   the Amazon Web Services storage infrastructure. The service enables
---   you to securely upload data to the Cloud for cost effective backup and
---   rapid disaster recovery.
+--   you to securely upload data to the Amazon Web Services Cloud for cost
+--   effective backup and rapid disaster recovery.
 --   
 --   Use the following links to get started using the /Storage Gateway
 --   Service API Reference/:
@@ -25421,8 +25995,8 @@ module Network.AWS.StorageGateway.Waiters
 --   parameters, response elements, possible errors, and examples of
 --   requests and responses.</li>
 --   <li><a>Storage Gateway endpoints and quotas</a>: Provides a list of
---   each Region and the endpoints available for use with Storage
---   Gateway.</li>
+--   each Amazon Web Services Region and the endpoints available for use
+--   with Storage Gateway.</li>
 --   </ul>
 --   
 --   Storage Gateway resource IDs are in uppercase. When you use these
@@ -25685,11 +26259,54 @@ DescribeFileSystemAssociationsResponse' :: Maybe [FileSystemAssociationInfo] -> 
 --   response's http status code.
 newDescribeFileSystemAssociationsResponse :: Int -> DescribeFileSystemAssociationsResponse
 
+-- | <i>See:</i> <a>newUpdateSMBLocalGroups</a> smart constructor.
+data UpdateSMBLocalGroups
+UpdateSMBLocalGroups' :: Text -> SMBLocalGroups -> UpdateSMBLocalGroups
+
+-- | Create a value of <a>UpdateSMBLocalGroups</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:gatewayARN:UpdateSMBLocalGroups'</a>,
+--   <a>updateSMBLocalGroups_gatewayARN</a> - Undocumented member.
+--   
+--   <a>$sel:sMBLocalGroups:UpdateSMBLocalGroups'</a>,
+--   <a>updateSMBLocalGroups_sMBLocalGroups</a> - A list of Active
+--   Directory users and groups that you want to grant special permissions
+--   for SMB file shares on the gateway.
+newUpdateSMBLocalGroups :: Text -> SMBLocalGroups -> UpdateSMBLocalGroups
+
+-- | <i>See:</i> <a>newUpdateSMBLocalGroupsResponse</a> smart constructor.
+data UpdateSMBLocalGroupsResponse
+UpdateSMBLocalGroupsResponse' :: Maybe Text -> Int -> UpdateSMBLocalGroupsResponse
+
+-- | Create a value of <a>UpdateSMBLocalGroupsResponse</a> with all
+--   optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:gatewayARN:UpdateSMBLocalGroups'</a>,
+--   <a>updateSMBLocalGroupsResponse_gatewayARN</a> - Undocumented member.
+--   
+--   <a>$sel:httpStatus:UpdateSMBLocalGroupsResponse'</a>,
+--   <a>updateSMBLocalGroupsResponse_httpStatus</a> - The response's http
+--   status code.
+newUpdateSMBLocalGroupsResponse :: Int -> UpdateSMBLocalGroupsResponse
+
 -- | CreateNFSFileShareInput
 --   
 --   <i>See:</i> <a>newCreateNFSFileShare</a> smart constructor.
 data CreateNFSFileShare
-CreateNFSFileShare' :: Maybe Text -> Maybe Text -> Maybe CacheAttributes -> Maybe ObjectACL -> Maybe Bool -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Bool -> Maybe NFSFileShareDefaults -> Maybe (NonEmpty Text) -> Maybe Bool -> Maybe Bool -> Maybe Text -> Maybe [Tag] -> Text -> Text -> Text -> Text -> CreateNFSFileShare
+CreateNFSFileShare' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe CacheAttributes -> Maybe ObjectACL -> Maybe Bool -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Bool -> Maybe NFSFileShareDefaults -> Maybe (NonEmpty Text) -> Maybe Bool -> Maybe Bool -> Maybe Text -> Maybe [Tag] -> Text -> Text -> Text -> Text -> CreateNFSFileShare
 
 -- | Create a value of <a>CreateNFSFileShare</a> with all optional fields
 --   omitted.
@@ -25699,6 +26316,10 @@ CreateNFSFileShare' :: Maybe Text -> Maybe Text -> Maybe CacheAttributes -> Mayb
 --   
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:auditDestinationARN:CreateNFSFileShare'</a>,
+--   <a>createNFSFileShare_auditDestinationARN</a> - The Amazon Resource
+--   Name (ARN) of the storage used for audit logs.
 --   
 --   <a>$sel:kmsKey:CreateNFSFileShare'</a>,
 --   <a>createNFSFileShare_kmsKey</a> - The Amazon Resource Name (ARN) of a
@@ -25745,7 +26366,8 @@ CreateNFSFileShare' :: Maybe Text -> Maybe Text -> Maybe CacheAttributes -> Mayb
 --   Optional.
 --   
 --   <tt>FileShareName</tt> must be set if an S3 prefix name is set in
---   <tt>LocationARN</tt>.
+--   <tt>LocationARN</tt>, or if an access point or access point alias is
+--   used.
 --   
 --   <a>$sel:notificationPolicy:CreateNFSFileShare'</a>,
 --   <a>createNFSFileShare_notificationPolicy</a> - The notification policy
@@ -25853,21 +26475,36 @@ CreateNFSFileShare' :: Maybe Text -> Maybe Text -> Maybe CacheAttributes -> Mayb
 --   File Gateway assumes when it accesses the underlying storage.
 --   
 --   <a>$sel:locationARN:CreateNFSFileShare'</a>,
---   <a>createNFSFileShare_locationARN</a> - The ARN of the backend storage
---   used for storing file data. A prefix name can be added to the S3
---   bucket name. It must end with a "/".
+--   <a>createNFSFileShare_locationARN</a> - A custom ARN for the backend
+--   storage used for storing data for file shares. It includes a resource
+--   ARN with an optional prefix concatenation. The prefix must end with a
+--   forward slash (/).
 --   
---   You can specify a bucket attached to an access point using a complete
---   ARN that includes the bucket region as shown:
+--   You can specify LocationARN as a bucket ARN, access point ARN or
+--   access point alias, as shown in the following examples.
+--   
+--   Bucket ARN:
 --   
 --   <pre>
---   arn:aws:s3:region:account-id:accesspoint/access-point-name
+--   arn:aws:s3:::my-bucket/prefix/
 --   </pre>
 --   
---   If you specify a bucket attached to an access point, the bucket policy
---   must be configured to delegate access control to the access point. For
---   information, see <a>Delegating access control to access points</a> in
---   the <i>Amazon S3 User Guide</i>.
+--   Access point ARN:
+--   
+--   <pre>
+--   arn:aws:s3:region:account-id:accesspoint/access-point-name/prefix/
+--   </pre>
+--   
+--   If you specify an access point, the bucket policy must be configured
+--   to delegate access control to the access point. For information, see
+--   <a>Delegating access control to access points</a> in the <i>Amazon S3
+--   User Guide</i>.
+--   
+--   Access point alias:
+--   
+--   <pre>
+--   test-ap-ab123cdef4gehijklmn5opqrstuvuse1a-s3alias
+--   </pre>
 newCreateNFSFileShare :: Text -> Text -> Text -> Text -> CreateNFSFileShare
 
 -- | CreateNFSFileShareOutput
@@ -26186,7 +26823,8 @@ CreateTapes' :: Maybe Text -> Maybe Bool -> Maybe Text -> Maybe Bool -> Maybe [T
 --   <a>$sel:gatewayARN:CreateTapes'</a>, <a>createTapes_gatewayARN</a> -
 --   The unique Amazon Resource Name (ARN) that represents the gateway to
 --   associate the virtual tapes with. Use the ListGateways operation to
---   return a list of gateways for your account and Region.
+--   return a list of gateways for your account and Amazon Web Services
+--   Region.
 --   
 --   <a>$sel:tapeSizeInBytes:CreateTapes'</a>,
 --   <a>createTapes_tapeSizeInBytes</a> - The size, in bytes, of the
@@ -26498,7 +27136,7 @@ JoinDomain' :: Maybe Text -> Maybe Natural -> Maybe [Text] -> Text -> Text -> Te
 --   <a>$sel:gatewayARN:JoinDomain'</a>, <a>joinDomain_gatewayARN</a> - The
 --   Amazon Resource Name (ARN) of the gateway. Use the
 --   <tt>ListGateways</tt> operation to return a list of gateways for your
---   account and Region.
+--   account and Amazon Web Services Region.
 --   
 --   <a>$sel:domainName:JoinDomain'</a>, <a>joinDomain_domainName</a> - The
 --   name of the domain that you want the gateway to join.
@@ -27274,11 +27912,11 @@ CreateTapePool' :: Maybe RetentionLockType -> Maybe Natural -> Maybe [Tag] -> Te
 --   
 --   <a>$sel:retentionLockType:CreateTapePool'</a>,
 --   <a>createTapePool_retentionLockType</a> - Tape retention lock can be
---   configured in two modes. When configured in governance mode, accounts
---   with specific IAM permissions are authorized to remove the tape
---   retention lock from archived virtual tapes. When configured in
---   compliance mode, the tape retention lock cannot be removed by any
---   user, including the root account.
+--   configured in two modes. When configured in governance mode, Amazon
+--   Web Services accounts with specific IAM permissions are authorized to
+--   remove the tape retention lock from archived virtual tapes. When
+--   configured in compliance mode, the tape retention lock cannot be
+--   removed by any user, including the root Amazon Web Services account.
 --   
 --   <a>$sel:retentionLockTimeInDays:CreateTapePool'</a>,
 --   <a>createTapePool_retentionLockTimeInDays</a> - Tape retention lock
@@ -27321,7 +27959,8 @@ CreateTapePoolResponse' :: Maybe Text -> Int -> CreateTapePoolResponse
 --   <a>$sel:poolARN:CreateTapePoolResponse'</a>,
 --   <a>createTapePoolResponse_poolARN</a> - The unique Amazon Resource
 --   Name (ARN) that represents the custom tape pool. Use the ListTapePools
---   operation to return a list of tape pools for your account and Region.
+--   operation to return a list of tape pools for your account and Amazon
+--   Web Services Region.
 --   
 --   <a>$sel:httpStatus:CreateTapePoolResponse'</a>,
 --   <a>createTapePoolResponse_httpStatus</a> - The response's http status
@@ -27718,7 +28357,8 @@ CreateSMBFileShare' :: Maybe Bool -> Maybe [Text] -> Maybe Text -> Maybe [Text] 
 --   Optional.
 --   
 --   <tt>FileShareName</tt> must be set if an S3 prefix name is set in
---   <tt>LocationARN</tt>.
+--   <tt>LocationARN</tt>, or if an access point or access point alias is
+--   used.
 --   
 --   <a>$sel:sMBACLEnabled:CreateSMBFileShare'</a>,
 --   <a>createSMBFileShare_sMBACLEnabled</a> - Set this value to
@@ -27834,21 +28474,36 @@ CreateSMBFileShare' :: Maybe Bool -> Maybe [Text] -> Maybe Text -> Maybe [Text] 
 --   File Gateway assumes when it accesses the underlying storage.
 --   
 --   <a>$sel:locationARN:CreateSMBFileShare'</a>,
---   <a>createSMBFileShare_locationARN</a> - The ARN of the backend storage
---   used for storing file data. A prefix name can be added to the S3
---   bucket name. It must end with a "/".
+--   <a>createSMBFileShare_locationARN</a> - A custom ARN for the backend
+--   storage used for storing data for file shares. It includes a resource
+--   ARN with an optional prefix concatenation. The prefix must end with a
+--   forward slash (/).
 --   
---   You can specify a bucket attached to an access point using a complete
---   ARN that includes the bucket region as shown:
+--   You can specify LocationARN as a bucket ARN, access point ARN or
+--   access point alias, as shown in the following examples.
+--   
+--   Bucket ARN:
 --   
 --   <pre>
---   arn:aws:s3:region:account-id:accesspoint/access-point-name
+--   arn:aws:s3:::my-bucket/prefix/
 --   </pre>
 --   
---   If you specify a bucket attached to an access point, the bucket policy
---   must be configured to delegate access control to the access point. For
---   information, see <a>Delegating access control to access points</a> in
---   the <i>Amazon S3 User Guide</i>.
+--   Access point ARN:
+--   
+--   <pre>
+--   arn:aws:s3:region:account-id:accesspoint/access-point-name/prefix/
+--   </pre>
+--   
+--   If you specify an access point, the bucket policy must be configured
+--   to delegate access control to the access point. For information, see
+--   <a>Delegating access control to access points</a> in the <i>Amazon S3
+--   User Guide</i>.
+--   
+--   Access point alias:
+--   
+--   <pre>
+--   test-ap-ab123cdef4gehijklmn5opqrstuvuse1a-s3alias
+--   </pre>
 newCreateSMBFileShare :: Text -> Text -> Text -> Text -> CreateSMBFileShare
 
 -- | CreateSMBFileShareOutput
@@ -28777,7 +29432,7 @@ DescribeGatewayInformationResponse' :: Maybe Text -> Maybe Text -> Maybe Text ->
 --   
 --   <a>$sel:ec2InstanceRegion:DescribeGatewayInformationResponse'</a>,
 --   <a>describeGatewayInformationResponse_ec2InstanceRegion</a> - The
---   Region where the Amazon EC2 instance is located.
+--   Amazon Web Services Region where the Amazon EC2 instance is located.
 --   
 --   <a>$sel:gatewayARN:DescribeGatewayInformation'</a>,
 --   <a>describeGatewayInformationResponse_gatewayARN</a> - Undocumented
@@ -28946,7 +29601,7 @@ newRefreshCacheResponse :: Int -> RefreshCacheResponse
 --   
 --   <i>See:</i> <a>newUpdateNFSFileShare</a> smart constructor.
 data UpdateNFSFileShare
-UpdateNFSFileShare' :: Maybe Text -> Maybe CacheAttributes -> Maybe ObjectACL -> Maybe Bool -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Bool -> Maybe NFSFileShareDefaults -> Maybe (NonEmpty Text) -> Maybe Bool -> Maybe Bool -> Text -> UpdateNFSFileShare
+UpdateNFSFileShare' :: Maybe Text -> Maybe Text -> Maybe CacheAttributes -> Maybe ObjectACL -> Maybe Bool -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Bool -> Maybe NFSFileShareDefaults -> Maybe (NonEmpty Text) -> Maybe Bool -> Maybe Bool -> Text -> UpdateNFSFileShare
 
 -- | Create a value of <a>UpdateNFSFileShare</a> with all optional fields
 --   omitted.
@@ -28957,6 +29612,10 @@ UpdateNFSFileShare' :: Maybe Text -> Maybe CacheAttributes -> Maybe ObjectACL ->
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:auditDestinationARN:UpdateNFSFileShare'</a>,
+--   <a>updateNFSFileShare_auditDestinationARN</a> - The Amazon Resource
+--   Name (ARN) of the storage used for audit logs.
+--   
 --   <a>$sel:kmsKey:UpdateNFSFileShare'</a>,
 --   <a>updateNFSFileShare_kmsKey</a> - The Amazon Resource Name (ARN) of a
 --   symmetric customer master key (CMK) used for Amazon S3 server-side
@@ -28965,7 +29624,7 @@ UpdateNFSFileShare' :: Maybe Text -> Maybe CacheAttributes -> Maybe ObjectACL ->
 --   Optional.
 --   
 --   <a>$sel:cacheAttributes:UpdateNFSFileShare'</a>,
---   <a>updateNFSFileShare_cacheAttributes</a> - specifies refresh cache
+--   <a>updateNFSFileShare_cacheAttributes</a> - Specifies refresh cache
 --   information for the file share.
 --   
 --   <a>$sel:objectACL:UpdateNFSFileShare'</a>,
@@ -28993,7 +29652,8 @@ UpdateNFSFileShare' :: Maybe Text -> Maybe CacheAttributes -> Maybe ObjectACL ->
 --   Optional.
 --   
 --   <tt>FileShareName</tt> must be set if an S3 prefix name is set in
---   <tt>LocationARN</tt>.
+--   <tt>LocationARN</tt>, or if an access point or access point alias is
+--   used.
 --   
 --   <a>$sel:notificationPolicy:UpdateNFSFileShare'</a>,
 --   <a>updateNFSFileShare_notificationPolicy</a> - The notification policy
@@ -29122,7 +29782,7 @@ RetrieveTapeArchive' :: Text -> Text -> RetrieveTapeArchive
 --   <a>retrieveTapeArchive_gatewayARN</a> - The Amazon Resource Name (ARN)
 --   of the gateway you want to retrieve the virtual tape to. Use the
 --   ListGateways operation to return a list of gateways for your account
---   and Region.
+--   and Amazon Web Services Region.
 --   
 --   You retrieve archived virtual tapes to only one gateway and the
 --   gateway must be a tape gateway.
@@ -29328,7 +29988,7 @@ newDescribeSMBSettings :: Text -> DescribeSMBSettings
 
 -- | <i>See:</i> <a>newDescribeSMBSettingsResponse</a> smart constructor.
 data DescribeSMBSettingsResponse
-DescribeSMBSettingsResponse' :: Maybe Text -> Maybe Bool -> Maybe ActiveDirectoryStatus -> Maybe Text -> Maybe Bool -> Maybe SMBSecurityStrategy -> Int -> DescribeSMBSettingsResponse
+DescribeSMBSettingsResponse' :: Maybe Text -> Maybe Bool -> Maybe ActiveDirectoryStatus -> Maybe Text -> Maybe SMBLocalGroups -> Maybe Bool -> Maybe SMBSecurityStrategy -> Int -> DescribeSMBSettingsResponse
 
 -- | Create a value of <a>DescribeSMBSettingsResponse</a> with all optional
 --   fields omitted.
@@ -29373,6 +30033,11 @@ DescribeSMBSettingsResponse' :: Maybe Text -> Maybe Bool -> Maybe ActiveDirector
 --   <a>$sel:domainName:DescribeSMBSettingsResponse'</a>,
 --   <a>describeSMBSettingsResponse_domainName</a> - The name of the domain
 --   that the gateway is joined to.
+--   
+--   <a>$sel:sMBLocalGroups:DescribeSMBSettingsResponse'</a>,
+--   <a>describeSMBSettingsResponse_sMBLocalGroups</a> - A list of Active
+--   Directory users and groups that have special permissions for SMB file
+--   shares on the gateway.
 --   
 --   <a>$sel:sMBGuestPasswordSet:DescribeSMBSettingsResponse'</a>,
 --   <a>describeSMBSettingsResponse_sMBGuestPasswordSet</a> - This value is
@@ -29534,7 +30199,7 @@ CreateTapeWithBarcode' :: Maybe Text -> Maybe Bool -> Maybe Text -> Maybe Bool -
 --   <a>createTapeWithBarcode_gatewayARN</a> - The unique Amazon Resource
 --   Name (ARN) that represents the gateway to associate the virtual tape
 --   with. Use the ListGateways operation to return a list of gateways for
---   your account and Region.
+--   your account and Amazon Web Services Region.
 --   
 --   <a>$sel:tapeSizeInBytes:CreateTapeWithBarcode'</a>,
 --   <a>createTapeWithBarcode_tapeSizeInBytes</a> - The size, in bytes, of
@@ -30423,7 +31088,8 @@ UpdateSMBFileShare' :: Maybe Bool -> Maybe [Text] -> Maybe Text -> Maybe [Text] 
 --   Optional.
 --   
 --   <tt>FileShareName</tt> must be set if an S3 prefix name is set in
---   <tt>LocationARN</tt>.
+--   <tt>LocationARN</tt>, or if an access point or access point alias is
+--   used.
 --   
 --   <a>$sel:sMBACLEnabled:UpdateSMBFileShare'</a>,
 --   <a>updateSMBFileShare_sMBACLEnabled</a> - Set this value to
@@ -30850,7 +31516,7 @@ DeleteTape' :: Maybe Bool -> Text -> Text -> DeleteTape
 --   <a>$sel:gatewayARN:DeleteTape'</a>, <a>deleteTape_gatewayARN</a> - The
 --   unique Amazon Resource Name (ARN) of the gateway that the virtual tape
 --   to delete is associated with. Use the ListGateways operation to return
---   a list of gateways for your account and Region.
+--   a list of gateways for your account and Amazon Web Services Region.
 --   
 --   <a>$sel:tapeARN:DeleteTape'</a>, <a>deleteTape_tapeARN</a> - The
 --   Amazon Resource Name (ARN) of the virtual tape to delete.
@@ -31325,11 +31991,13 @@ ActivateGateway' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe [Tag] -> Tex
 --   
 --   <a>$sel:gatewayRegion:ActivateGateway'</a>,
 --   <a>activateGateway_gatewayRegion</a> - A value that indicates the
---   Region where you want to store your data. The gateway Region specified
---   must be the same Region as the Region in your <tt>Host</tt> header in
---   the request. For more information about available Regions and
---   endpoints for Storage Gateway, see <a>Storage Gateway endpoints and
---   quotas</a> in the <i>Amazon Web Services General Reference</i>.
+--   Amazon Web Services Region where you want to store your data. The
+--   gateway Amazon Web Services Region specified must be the same Amazon
+--   Web Services Region as the Amazon Web Services Region in your
+--   <tt>Host</tt> header in the request. For more information about
+--   available Amazon Web Services Regions and endpoints for Storage
+--   Gateway, see <a>Storage Gateway endpoints and quotas</a> in the
+--   <i>Amazon Web Services General Reference</i>.
 --   
 --   Valid Values: See <a>Storage Gateway endpoints and quotas</a> in the
 --   <i>Amazon Web Services General Reference</i>.
@@ -31337,9 +32005,9 @@ newActivateGateway :: Text -> Text -> Text -> Text -> ActivateGateway
 
 -- | Storage Gateway returns the Amazon Resource Name (ARN) of the
 --   activated gateway. It is a string made of information such as your
---   account, gateway name, and Region. This ARN is used to reference the
---   gateway in other API operations as well as resource-based
---   authorization.
+--   account, gateway name, and Amazon Web Services Region. This ARN is
+--   used to reference the gateway in other API operations as well as
+--   resource-based authorization.
 --   
 --   For gateways activated prior to September 02, 2015, the gateway ARN
 --   contains the gateway name rather than the gateway ID. Changing the
@@ -31992,7 +32660,7 @@ newFileShareInfo :: FileShareInfo
 --   
 --   <i>See:</i> <a>newFileSystemAssociationInfo</a> smart constructor.
 data FileSystemAssociationInfo
-FileSystemAssociationInfo' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe CacheAttributes -> Maybe EndpointNetworkConfiguration -> Maybe Text -> Maybe Text -> Maybe [Tag] -> FileSystemAssociationInfo
+FileSystemAssociationInfo' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe CacheAttributes -> Maybe [FileSystemAssociationStatusDetail] -> Maybe EndpointNetworkConfiguration -> Maybe Text -> Maybe Text -> Maybe [Tag] -> FileSystemAssociationInfo
 
 -- | Create a value of <a>FileSystemAssociationInfo</a> with all optional
 --   fields omitted.
@@ -32018,6 +32686,12 @@ FileSystemAssociationInfo' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Ca
 --   <a>fileSystemAssociationInfo_cacheAttributes</a> - Undocumented
 --   member.
 --   
+--   
+--   <a>$sel:fileSystemAssociationStatusDetails:FileSystemAssociationInfo'</a>,
+--   <a>fileSystemAssociationInfo_fileSystemAssociationStatusDetails</a> -
+--   An array containing the FileSystemAssociationStatusDetail data type,
+--   which provides detailed information on file system association status.
+--   
 --   <a>$sel:endpointNetworkConfiguration:FileSystemAssociationInfo'</a>,
 --   <a>fileSystemAssociationInfo_endpointNetworkConfiguration</a> -
 --   Specifies network configuration information for the gateway associated
@@ -32042,6 +32716,27 @@ FileSystemAssociationInfo' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Ca
 --   assigned to the SMB file share, sorted alphabetically by key name.
 --   Each tag is a key-value pair.
 newFileSystemAssociationInfo :: FileSystemAssociationInfo
+
+-- | Detailed information on file system association status.
+--   
+--   <i>See:</i> <a>newFileSystemAssociationStatusDetail</a> smart
+--   constructor.
+data FileSystemAssociationStatusDetail
+FileSystemAssociationStatusDetail' :: Maybe Text -> FileSystemAssociationStatusDetail
+
+-- | Create a value of <a>FileSystemAssociationStatusDetail</a> with all
+--   optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:errorCode:FileSystemAssociationStatusDetail'</a>,
+--   <a>fileSystemAssociationStatusDetail_errorCode</a> - The error code
+--   for a given file system association status.
+newFileSystemAssociationStatusDetail :: FileSystemAssociationStatusDetail
 
 -- | Gets the summary returned by <tt>ListFileSystemAssociation</tt>, which
 --   is a summary of a created file system association.
@@ -32092,12 +32787,13 @@ GatewayInfo' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Te
 --   lenses provided for backwards compatibility:
 --   
 --   <a>$sel:ec2InstanceRegion:GatewayInfo'</a>,
---   <a>gatewayInfo_ec2InstanceRegion</a> - The Region where the Amazon EC2
---   instance is located.
+--   <a>gatewayInfo_ec2InstanceRegion</a> - The Amazon Web Services Region
+--   where the Amazon EC2 instance is located.
 --   
 --   <a>$sel:gatewayARN:GatewayInfo'</a>, <a>gatewayInfo_gatewayARN</a> -
 --   The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
---   operation to return a list of gateways for your account and Region.
+--   operation to return a list of gateways for your account and Amazon Web
+--   Services Region.
 --   
 --   <a>$sel:ec2InstanceId:GatewayInfo'</a>,
 --   <a>gatewayInfo_ec2InstanceId</a> - The ID of the Amazon EC2 instance
@@ -32168,7 +32864,7 @@ newNFSFileShareDefaults :: NFSFileShareDefaults
 --   
 --   <i>See:</i> <a>newNFSFileShareInfo</a> smart constructor.
 data NFSFileShareInfo
-NFSFileShareInfo' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe CacheAttributes -> Maybe ObjectACL -> Maybe Bool -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Bool -> Maybe NFSFileShareDefaults -> Maybe Text -> Maybe (NonEmpty Text) -> Maybe Bool -> Maybe Bool -> Maybe Text -> Maybe [Tag] -> NFSFileShareInfo
+NFSFileShareInfo' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe CacheAttributes -> Maybe ObjectACL -> Maybe Bool -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Bool -> Maybe NFSFileShareDefaults -> Maybe Text -> Maybe (NonEmpty Text) -> Maybe Bool -> Maybe Bool -> Maybe Text -> Maybe [Tag] -> NFSFileShareInfo
 
 -- | Create a value of <a>NFSFileShareInfo</a> with all optional fields
 --   omitted.
@@ -32178,6 +32874,10 @@ NFSFileShareInfo' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> May
 --   
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:auditDestinationARN:NFSFileShareInfo'</a>,
+--   <a>nFSFileShareInfo_auditDestinationARN</a> - The Amazon Resource Name
+--   (ARN) of the storage used for audit logs.
 --   
 --   <a>$sel:fileShareStatus:NFSFileShareInfo'</a>,
 --   <a>nFSFileShareInfo_fileShareStatus</a> - Undocumented member.
@@ -32233,7 +32933,8 @@ NFSFileShareInfo' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> May
 --   Optional.
 --   
 --   <tt>FileShareName</tt> must be set if an S3 prefix name is set in
---   <tt>LocationARN</tt>.
+--   <tt>LocationARN</tt>, or if an access point or access point alias is
+--   used.
 --   
 --   <a>$sel:role':NFSFileShareInfo'</a>, <a>nFSFileShareInfo_role</a> -
 --   Undocumented member.
@@ -32366,10 +33067,11 @@ PoolInfo' :: Maybe RetentionLockType -> Maybe Natural -> Maybe Text -> Maybe Tap
 --   <a>$sel:retentionLockType:PoolInfo'</a>,
 --   <a>poolInfo_retentionLockType</a> - Tape retention lock type, which
 --   can be configured in two modes. When configured in governance mode,
---   accounts with specific IAM permissions are authorized to remove the
---   tape retention lock from archived virtual tapes. When configured in
---   compliance mode, the tape retention lock cannot be removed by any
---   user, including the root account.
+--   Amazon Web Services accounts with specific IAM permissions are
+--   authorized to remove the tape retention lock from archived virtual
+--   tapes. When configured in compliance mode, the tape retention lock
+--   cannot be removed by any user, including the root Amazon Web Services
+--   account.
 --   
 --   <a>$sel:retentionLockTimeInDays:PoolInfo'</a>,
 --   <a>poolInfo_retentionLockTimeInDays</a> - Tape retention lock time is
@@ -32393,7 +33095,7 @@ PoolInfo' :: Maybe RetentionLockType -> Maybe Natural -> Maybe Text -> Maybe Tap
 --   <a>$sel:poolARN:PoolInfo'</a>, <a>poolInfo_poolARN</a> - The Amazon
 --   Resource Name (ARN) of the custom tape pool. Use the ListTapePools
 --   operation to return a list of custom tape pools for your account and
---   Region.
+--   Amazon Web Services Region.
 newPoolInfo :: PoolInfo
 
 -- | The Windows file permissions and ownership information assigned, by
@@ -32502,7 +33204,8 @@ SMBFileShareInfo' :: Maybe Bool -> Maybe [Text] -> Maybe Text -> Maybe Text -> M
 --   Optional.
 --   
 --   <tt>FileShareName</tt> must be set if an S3 prefix name is set in
---   <tt>LocationARN</tt>.
+--   <tt>LocationARN</tt>, or if an access point or access point alias is
+--   used.
 --   
 --   <a>$sel:role':SMBFileShareInfo'</a>, <a>sMBFileShareInfo_role</a> -
 --   Undocumented member.
@@ -32606,6 +33309,32 @@ SMBFileShareInfo' :: Maybe Bool -> Maybe [Text] -> Maybe Text -> Maybe Text -> M
 --   gateway with more than 10 tags assigned, you can view all tags using
 --   the <tt>ListTagsForResource</tt> API operation.
 newSMBFileShareInfo :: SMBFileShareInfo
+
+-- | A list of Active Directory users and groups that have special
+--   permissions for SMB file shares on the gateway.
+--   
+--   <i>See:</i> <a>newSMBLocalGroups</a> smart constructor.
+data SMBLocalGroups
+SMBLocalGroups' :: Maybe [Text] -> SMBLocalGroups
+
+-- | Create a value of <a>SMBLocalGroups</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:gatewayAdmins:SMBLocalGroups'</a>,
+--   <a>sMBLocalGroups_gatewayAdmins</a> - A list of Active Directory users
+--   and groups that have local Gateway Admin permissions. Acceptable
+--   formats include: <tt>DOMAIN\User1</tt>, <tt>user1</tt>,
+--   <tt>DOMAIN\group1</tt>, and <tt>group1</tt>.
+--   
+--   Gateway Admins can use the Shared Folders Microsoft Management Console
+--   snap-in to force-close files that are open and locked.
+newSMBLocalGroups :: SMBLocalGroups
 
 -- | Describes an iSCSI stored volume.
 --   
@@ -32896,7 +33625,8 @@ TapeInfo' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Integ
 --   
 --   <a>$sel:gatewayARN:TapeInfo'</a>, <a>tapeInfo_gatewayARN</a> - The
 --   Amazon Resource Name (ARN) of the gateway. Use the ListGateways
---   operation to return a list of gateways for your account and Region.
+--   operation to return a list of gateways for your account and Amazon Web
+--   Services Region.
 --   
 --   <a>$sel:tapeSizeInBytes:TapeInfo'</a>, <a>tapeInfo_tapeSizeInBytes</a>
 --   - The size, in bytes, of a virtual tape.

@@ -29,32 +29,32 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Describes an IPv4 address pool.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newPublicIpv4Pool' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621681123150"><span id="local-6989586621681123151"></span></span><span class="hs-keyword">data</span><span> </span><span id="PublicIpv4Pool"><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool"><span class="hs-identifier hs-var">PublicIpv4Pool</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PublicIpv4Pool%27"><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool%27"><span class="hs-identifier hs-var">PublicIpv4Pool'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the address pool.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3ApoolId%3APublicIpv4Pool%27"><span class="annot"><span class="annottext">PublicIpv4Pool -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#%24sel%3ApoolId%3APublicIpv4Pool%27"><span class="hs-identifier hs-var hs-var">poolId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The address ranges.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3ApoolAddressRanges%3APublicIpv4Pool%27"><span class="annot"><span class="annottext">PublicIpv4Pool -&gt; Maybe [PublicIpv4PoolRange]
-</span><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#%24sel%3ApoolAddressRanges%3APublicIpv4Pool%27"><span class="hs-identifier hs-var hs-var">poolAddressRanges</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4PoolRange.html#PublicIpv4PoolRange"><span class="hs-identifier hs-type">PublicIpv4PoolRange</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The total number of addresses.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AtotalAddressCount%3APublicIpv4Pool%27"><span class="annot"><span class="annottext">PublicIpv4Pool -&gt; Maybe Int
+</span><span id="line-32"></span><span id="local-6989586621681158012"><span id="local-6989586621681158013"></span></span><span class="hs-keyword">data</span><span> </span><span id="PublicIpv4Pool"><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool"><span class="hs-identifier hs-var">PublicIpv4Pool</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PublicIpv4Pool%27"><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool%27"><span class="hs-identifier hs-var">PublicIpv4Pool'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The total number of addresses.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AtotalAddressCount%3APublicIpv4Pool%27"><span class="annot"><span class="annottext">PublicIpv4Pool -&gt; Maybe Int
 </span><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#%24sel%3AtotalAddressCount%3APublicIpv4Pool%27"><span class="hs-identifier hs-var hs-var">totalAddressCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Any tags for the address pool.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3Atags%3APublicIpv4Pool%27"><span class="annot"><span class="annottext">PublicIpv4Pool -&gt; Maybe [Tag]
-</span><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#%24sel%3Atags%3APublicIpv4Pool%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | A description of the address pool.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3Adescription%3APublicIpv4Pool%27"><span class="annot"><span class="annottext">PublicIpv4Pool -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#%24sel%3Adescription%3APublicIpv4Pool%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The total number of available addresses.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AtotalAvailableAddressCount%3APublicIpv4Pool%27"><span class="annot"><span class="annottext">PublicIpv4Pool -&gt; Maybe Int
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The name of the location from which the address pool is advertised. A</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- network border group is a unique set of Availability Zones or Local</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- Zones from where Amazon Web Services advertises public IP addresses.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AnetworkBorderGroup%3APublicIpv4Pool%27"><span class="annot"><span class="annottext">PublicIpv4Pool -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#%24sel%3AnetworkBorderGroup%3APublicIpv4Pool%27"><span class="hs-identifier hs-var hs-var">networkBorderGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The total number of available addresses.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AtotalAvailableAddressCount%3APublicIpv4Pool%27"><span class="annot"><span class="annottext">PublicIpv4Pool -&gt; Maybe Int
 </span><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#%24sel%3AtotalAvailableAddressCount%3APublicIpv4Pool%27"><span class="hs-identifier hs-var hs-var">totalAvailableAddressCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The name of the location from which the address pool is advertised. A</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- network border group is a unique set of Availability Zones or Local</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- Zones from where Amazon Web Services advertises public IP addresses.</span><span>
-</span><span id="line-48"></span><span>    </span><span id="%24sel%3AnetworkBorderGroup%3APublicIpv4Pool%27"><span class="annot"><span class="annottext">PublicIpv4Pool -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#%24sel%3AnetworkBorderGroup%3APublicIpv4Pool%27"><span class="hs-identifier hs-var hs-var">networkBorderGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The address ranges.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3ApoolAddressRanges%3APublicIpv4Pool%27"><span class="annot"><span class="annottext">PublicIpv4Pool -&gt; Maybe [PublicIpv4PoolRange]
+</span><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#%24sel%3ApoolAddressRanges%3APublicIpv4Pool%27"><span class="hs-identifier hs-var hs-var">poolAddressRanges</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4PoolRange.html#PublicIpv4PoolRange"><span class="hs-identifier hs-type">PublicIpv4PoolRange</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The ID of the address pool.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3ApoolId%3APublicIpv4Pool%27"><span class="annot"><span class="annottext">PublicIpv4Pool -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#%24sel%3ApoolId%3APublicIpv4Pool%27"><span class="hs-identifier hs-var hs-var">poolId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | A description of the address pool.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Adescription%3APublicIpv4Pool%27"><span class="annot"><span class="annottext">PublicIpv4Pool -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#%24sel%3Adescription%3APublicIpv4Pool%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | Any tags for the address pool.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Atags%3APublicIpv4Pool%27"><span class="annot"><span class="annottext">PublicIpv4Pool -&gt; Maybe [Tag]
+</span><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#%24sel%3Atags%3APublicIpv4Pool%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681123138"><span id="local-6989586621681123140"><span class="annot"><span class="annottext">PublicIpv4Pool -&gt; PublicIpv4Pool -&gt; Bool
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681158000"><span id="local-6989586621681158002"><span class="annot"><span class="annottext">PublicIpv4Pool -&gt; PublicIpv4Pool -&gt; Bool
 (PublicIpv4Pool -&gt; PublicIpv4Pool -&gt; Bool)
 -&gt; (PublicIpv4Pool -&gt; PublicIpv4Pool -&gt; Bool) -&gt; Eq PublicIpv4Pool
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PublicIpv4Pool -&gt; PublicIpv4Pool -&gt; Bool
 == :: PublicIpv4Pool -&gt; PublicIpv4Pool -&gt; Bool
 $c== :: PublicIpv4Pool -&gt; PublicIpv4Pool -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681123129"><span id="local-6989586621681123131"><span id="local-6989586621681123133"><span id="local-6989586621681123135"><span class="annot"><span class="annottext">ReadPrec [PublicIpv4Pool]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681157991"><span id="local-6989586621681157993"><span id="local-6989586621681157995"><span id="local-6989586621681157997"><span class="annot"><span class="annottext">ReadPrec [PublicIpv4Pool]
 ReadPrec PublicIpv4Pool
 Int -&gt; ReadS PublicIpv4Pool
 ReadS [PublicIpv4Pool]
@@ -82,7 +82,7 @@ readList :: ReadS [PublicIpv4Pool]
 $creadList :: ReadS [PublicIpv4Pool]
 readsPrec :: Int -&gt; ReadS PublicIpv4Pool
 $creadsPrec :: Int -&gt; ReadS PublicIpv4Pool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681123122"><span id="local-6989586621681123124"><span id="local-6989586621681123126"><span class="annot"><span class="annottext">Int -&gt; PublicIpv4Pool -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681157984"><span id="local-6989586621681157986"><span id="local-6989586621681157988"><span class="annot"><span class="annottext">Int -&gt; PublicIpv4Pool -&gt; ShowS
 [PublicIpv4Pool] -&gt; ShowS
 PublicIpv4Pool -&gt; String
 (Int -&gt; PublicIpv4Pool -&gt; ShowS)
@@ -116,86 +116,125 @@ $cfrom :: forall x. PublicIpv4Pool -&gt; Rep PublicIpv4Pool x
 </span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'poolId', 'publicIpv4Pool_poolId' - The ID of the address pool.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'totalAddressCount', 'publicIpv4Pool_totalAddressCount' - The total number of addresses.</span><span>
 </span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'poolAddressRanges', 'publicIpv4Pool_poolAddressRanges' - The address ranges.</span><span>
-</span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- 'totalAddressCount', 'publicIpv4Pool_totalAddressCount' - The total number of addresses.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'networkBorderGroup', 'publicIpv4Pool_networkBorderGroup' - The name of the location from which the address pool is advertised. A</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- network border group is a unique set of Availability Zones or Local</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Zones from where Amazon Web Services advertises public IP addresses.</span><span>
 </span><span id="line-65"></span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- 'tags', 'publicIpv4Pool_tags' - Any tags for the address pool.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'totalAvailableAddressCount', 'publicIpv4Pool_totalAvailableAddressCount' - The total number of available addresses.</span><span>
 </span><span id="line-67"></span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- 'description', 'publicIpv4Pool_description' - A description of the address pool.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'poolAddressRanges', 'publicIpv4Pool_poolAddressRanges' - The address ranges.</span><span>
 </span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'totalAvailableAddressCount', 'publicIpv4Pool_totalAvailableAddressCount' - The total number of available addresses.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'poolId', 'publicIpv4Pool_poolId' - The ID of the address pool.</span><span>
 </span><span id="line-71"></span><span class="hs-comment">--</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- 'networkBorderGroup', 'publicIpv4Pool_networkBorderGroup' - The name of the location from which the address pool is advertised. A</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- network border group is a unique set of Availability Zones or Local</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- Zones from where Amazon Web Services advertises public IP addresses.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'description', 'publicIpv4Pool_description' - A description of the address pool.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'tags', 'publicIpv4Pool_tags' - Any tags for the address pool.</span><span>
 </span><span id="line-75"></span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#newPublicIpv4Pool"><span class="hs-identifier hs-type">newPublicIpv4Pool</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool"><span class="hs-identifier hs-type">PublicIpv4Pool</span></a></span><span>
 </span><span id="line-77"></span><span id="newPublicIpv4Pool"><span class="annot"><span class="annottext">newPublicIpv4Pool :: PublicIpv4Pool
 </span><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#newPublicIpv4Pool"><span class="hs-identifier hs-var hs-var">newPublicIpv4Pool</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">PublicIpv4Pool' :: Maybe Text
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">PublicIpv4Pool' :: Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Int
 -&gt; Maybe [PublicIpv4PoolRange]
--&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe [Tag]
--&gt; Maybe Text
--&gt; Maybe Int
--&gt; Maybe Text
 -&gt; PublicIpv4Pool
 </span><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool%27"><span class="hs-identifier hs-type">PublicIpv4Pool'</span></a></span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:poolId:PublicIpv4Pool' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#%24sel%3ApoolId%3APublicIpv4Pool%27"><span class="hs-identifier hs-var">poolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:totalAddressCount:PublicIpv4Pool' :: Maybe Int
+</span><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#%24sel%3AtotalAddressCount%3APublicIpv4Pool%27"><span class="hs-identifier hs-var">totalAddressCount</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:poolAddressRanges:PublicIpv4Pool' :: Maybe [PublicIpv4PoolRange]
-</span><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#%24sel%3ApoolAddressRanges%3APublicIpv4Pool%27"><span class="hs-identifier hs-var">poolAddressRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PublicIpv4PoolRange]
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:networkBorderGroup:PublicIpv4Pool' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#%24sel%3AnetworkBorderGroup%3APublicIpv4Pool%27"><span class="hs-identifier hs-var">networkBorderGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:totalAddressCount:PublicIpv4Pool' :: Maybe Int
-</span><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#%24sel%3AtotalAddressCount%3APublicIpv4Pool%27"><span class="hs-identifier hs-var">totalAddressCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:PublicIpv4Pool' :: Maybe [Tag]
-</span><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#%24sel%3Atags%3APublicIpv4Pool%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:PublicIpv4Pool' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#%24sel%3Adescription%3APublicIpv4Pool%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:totalAvailableAddressCount:PublicIpv4Pool' :: Maybe Int
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:totalAvailableAddressCount:PublicIpv4Pool' :: Maybe Int
 </span><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#%24sel%3AtotalAvailableAddressCount%3APublicIpv4Pool%27"><span class="hs-identifier hs-var">totalAvailableAddressCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:networkBorderGroup:PublicIpv4Pool' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#%24sel%3AnetworkBorderGroup%3APublicIpv4Pool%27"><span class="hs-identifier hs-var">networkBorderGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:poolAddressRanges:PublicIpv4Pool' :: Maybe [PublicIpv4PoolRange]
+</span><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#%24sel%3ApoolAddressRanges%3APublicIpv4Pool%27"><span class="hs-identifier hs-var">poolAddressRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PublicIpv4PoolRange]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:poolId:PublicIpv4Pool' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#%24sel%3ApoolId%3APublicIpv4Pool%27"><span class="hs-identifier hs-var">poolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:PublicIpv4Pool' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#%24sel%3Adescription%3APublicIpv4Pool%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:PublicIpv4Pool' :: Maybe [Tag]
+</span><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#%24sel%3Atags%3APublicIpv4Pool%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-86"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- | The ID of the address pool.</span><span>
-</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#publicIpv4Pool_poolId"><span class="hs-identifier hs-type">publicIpv4Pool_poolId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool"><span class="hs-identifier hs-type">PublicIpv4Pool</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span id="publicIpv4Pool_poolId"><span class="annot"><span class="annottext">publicIpv4Pool_poolId :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-87"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The total number of addresses.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#publicIpv4Pool_totalAddressCount"><span class="hs-identifier hs-type">publicIpv4Pool_totalAddressCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool"><span class="hs-identifier hs-type">PublicIpv4Pool</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="publicIpv4Pool_totalAddressCount"><span class="annot"><span class="annottext">publicIpv4Pool_totalAddressCount :: (Maybe Int -&gt; f (Maybe Int)) -&gt; PublicIpv4Pool -&gt; f PublicIpv4Pool
+</span><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#publicIpv4Pool_totalAddressCount"><span class="hs-identifier hs-var hs-var">publicIpv4Pool_totalAddressCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PublicIpv4Pool -&gt; Maybe Int)
+-&gt; (PublicIpv4Pool -&gt; Maybe Int -&gt; PublicIpv4Pool)
+-&gt; Lens PublicIpv4Pool PublicIpv4Pool (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool%27"><span class="hs-identifier hs-type">PublicIpv4Pool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681157975"><span class="annot"><span class="annottext">Maybe Int
+totalAddressCount :: Maybe Int
+$sel:totalAddressCount:PublicIpv4Pool' :: PublicIpv4Pool -&gt; Maybe Int
+</span><a href="#local-6989586621681157975"><span class="hs-identifier hs-var hs-var">totalAddressCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681157975"><span class="hs-identifier hs-var">totalAddressCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681157974"><span class="annot"><span class="annottext">s :: PublicIpv4Pool
+</span><a href="#local-6989586621681157974"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool%27"><span class="hs-identifier hs-type">PublicIpv4Pool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681157973"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681157973"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicIpv4Pool
+</span><a href="#local-6989586621681157974"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalAddressCount:PublicIpv4Pool' :: Maybe Int
+</span><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#%24sel%3AtotalAddressCount%3APublicIpv4Pool%27"><span class="hs-identifier hs-var">totalAddressCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681157973"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool"><span class="hs-identifier hs-type">PublicIpv4Pool</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The name of the location from which the address pool is advertised. A</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- network border group is a unique set of Availability Zones or Local</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- Zones from where Amazon Web Services advertises public IP addresses.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#publicIpv4Pool_networkBorderGroup"><span class="hs-identifier hs-type">publicIpv4Pool_networkBorderGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool"><span class="hs-identifier hs-type">PublicIpv4Pool</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="publicIpv4Pool_networkBorderGroup"><span class="annot"><span class="annottext">publicIpv4Pool_networkBorderGroup :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; PublicIpv4Pool -&gt; f PublicIpv4Pool
-</span><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#publicIpv4Pool_poolId"><span class="hs-identifier hs-var hs-var">publicIpv4Pool_poolId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PublicIpv4Pool -&gt; Maybe Text)
+</span><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#publicIpv4Pool_networkBorderGroup"><span class="hs-identifier hs-var hs-var">publicIpv4Pool_networkBorderGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PublicIpv4Pool -&gt; Maybe Text)
 -&gt; (PublicIpv4Pool -&gt; Maybe Text -&gt; PublicIpv4Pool)
 -&gt; Lens PublicIpv4Pool PublicIpv4Pool (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool%27"><span class="hs-identifier hs-type">PublicIpv4Pool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681123113"><span class="annot"><span class="annottext">Maybe Text
-poolId :: Maybe Text
-$sel:poolId:PublicIpv4Pool' :: PublicIpv4Pool -&gt; Maybe Text
-</span><a href="#local-6989586621681123113"><span class="hs-identifier hs-var hs-var">poolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681123113"><span class="hs-identifier hs-var">poolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681123112"><span class="annot"><span class="annottext">s :: PublicIpv4Pool
-</span><a href="#local-6989586621681123112"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool%27"><span class="hs-identifier hs-type">PublicIpv4Pool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681123111"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681123111"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicIpv4Pool
-</span><a href="#local-6989586621681123112"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:poolId:PublicIpv4Pool' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#%24sel%3ApoolId%3APublicIpv4Pool%27"><span class="hs-identifier hs-var">poolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681123111"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool"><span class="hs-identifier hs-type">PublicIpv4Pool</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- | The address ranges.</span><span>
-</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#publicIpv4Pool_poolAddressRanges"><span class="hs-identifier hs-type">publicIpv4Pool_poolAddressRanges</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool"><span class="hs-identifier hs-type">PublicIpv4Pool</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4PoolRange.html#PublicIpv4PoolRange"><span class="hs-identifier hs-type">PublicIpv4PoolRange</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span id="publicIpv4Pool_poolAddressRanges"><span class="annot"><span class="annottext">publicIpv4Pool_poolAddressRanges :: (Maybe [PublicIpv4PoolRange] -&gt; f (Maybe [PublicIpv4PoolRange]))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool%27"><span class="hs-identifier hs-type">PublicIpv4Pool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681157971"><span class="annot"><span class="annottext">Maybe Text
+networkBorderGroup :: Maybe Text
+$sel:networkBorderGroup:PublicIpv4Pool' :: PublicIpv4Pool -&gt; Maybe Text
+</span><a href="#local-6989586621681157971"><span class="hs-identifier hs-var hs-var">networkBorderGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681157971"><span class="hs-identifier hs-var">networkBorderGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681157970"><span class="annot"><span class="annottext">s :: PublicIpv4Pool
+</span><a href="#local-6989586621681157970"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool%27"><span class="hs-identifier hs-type">PublicIpv4Pool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681157969"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681157969"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicIpv4Pool
+</span><a href="#local-6989586621681157970"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkBorderGroup:PublicIpv4Pool' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#%24sel%3AnetworkBorderGroup%3APublicIpv4Pool%27"><span class="hs-identifier hs-var">networkBorderGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681157969"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool"><span class="hs-identifier hs-type">PublicIpv4Pool</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The total number of available addresses.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#publicIpv4Pool_totalAvailableAddressCount"><span class="hs-identifier hs-type">publicIpv4Pool_totalAvailableAddressCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool"><span class="hs-identifier hs-type">PublicIpv4Pool</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="publicIpv4Pool_totalAvailableAddressCount"><span class="annot"><span class="annottext">publicIpv4Pool_totalAvailableAddressCount :: (Maybe Int -&gt; f (Maybe Int)) -&gt; PublicIpv4Pool -&gt; f PublicIpv4Pool
+</span><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#publicIpv4Pool_totalAvailableAddressCount"><span class="hs-identifier hs-var hs-var">publicIpv4Pool_totalAvailableAddressCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PublicIpv4Pool -&gt; Maybe Int)
+-&gt; (PublicIpv4Pool -&gt; Maybe Int -&gt; PublicIpv4Pool)
+-&gt; Lens PublicIpv4Pool PublicIpv4Pool (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool%27"><span class="hs-identifier hs-type">PublicIpv4Pool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681157967"><span class="annot"><span class="annottext">Maybe Int
+totalAvailableAddressCount :: Maybe Int
+$sel:totalAvailableAddressCount:PublicIpv4Pool' :: PublicIpv4Pool -&gt; Maybe Int
+</span><a href="#local-6989586621681157967"><span class="hs-identifier hs-var hs-var">totalAvailableAddressCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681157967"><span class="hs-identifier hs-var">totalAvailableAddressCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681157966"><span class="annot"><span class="annottext">s :: PublicIpv4Pool
+</span><a href="#local-6989586621681157966"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool%27"><span class="hs-identifier hs-type">PublicIpv4Pool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681157965"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681157965"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicIpv4Pool
+</span><a href="#local-6989586621681157966"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalAvailableAddressCount:PublicIpv4Pool' :: Maybe Int
+</span><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#%24sel%3AtotalAvailableAddressCount%3APublicIpv4Pool%27"><span class="hs-identifier hs-var">totalAvailableAddressCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681157965"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool"><span class="hs-identifier hs-type">PublicIpv4Pool</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The address ranges.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#publicIpv4Pool_poolAddressRanges"><span class="hs-identifier hs-type">publicIpv4Pool_poolAddressRanges</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool"><span class="hs-identifier hs-type">PublicIpv4Pool</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4PoolRange.html#PublicIpv4PoolRange"><span class="hs-identifier hs-type">PublicIpv4PoolRange</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="publicIpv4Pool_poolAddressRanges"><span class="annot"><span class="annottext">publicIpv4Pool_poolAddressRanges :: (Maybe [PublicIpv4PoolRange] -&gt; f (Maybe [PublicIpv4PoolRange]))
 -&gt; PublicIpv4Pool -&gt; f PublicIpv4Pool
 </span><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#publicIpv4Pool_poolAddressRanges"><span class="hs-identifier hs-var hs-var">publicIpv4Pool_poolAddressRanges</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PublicIpv4Pool -&gt; Maybe [PublicIpv4PoolRange])
 -&gt; (PublicIpv4Pool
@@ -206,16 +245,16 @@ $sel:poolId:PublicIpv4Pool' :: PublicIpv4Pool -&gt; Maybe Text
      (Maybe [PublicIpv4PoolRange])
      (Maybe [PublicIpv4PoolRange])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool%27"><span class="hs-identifier hs-type">PublicIpv4Pool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681123109"><span class="annot"><span class="annottext">Maybe [PublicIpv4PoolRange]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool%27"><span class="hs-identifier hs-type">PublicIpv4Pool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681157963"><span class="annot"><span class="annottext">Maybe [PublicIpv4PoolRange]
 poolAddressRanges :: Maybe [PublicIpv4PoolRange]
 $sel:poolAddressRanges:PublicIpv4Pool' :: PublicIpv4Pool -&gt; Maybe [PublicIpv4PoolRange]
-</span><a href="#local-6989586621681123109"><span class="hs-identifier hs-var hs-var">poolAddressRanges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PublicIpv4PoolRange]
-</span><a href="#local-6989586621681123109"><span class="hs-identifier hs-var">poolAddressRanges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681123108"><span class="annot"><span class="annottext">s :: PublicIpv4Pool
-</span><a href="#local-6989586621681123108"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool%27"><span class="hs-identifier hs-type">PublicIpv4Pool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681123107"><span class="annot"><span class="annottext">Maybe [PublicIpv4PoolRange]
-</span><a href="#local-6989586621681123107"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicIpv4Pool
-</span><a href="#local-6989586621681123108"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:poolAddressRanges:PublicIpv4Pool' :: Maybe [PublicIpv4PoolRange]
+</span><a href="#local-6989586621681157963"><span class="hs-identifier hs-var hs-var">poolAddressRanges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PublicIpv4PoolRange]
+</span><a href="#local-6989586621681157963"><span class="hs-identifier hs-var">poolAddressRanges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681157962"><span class="annot"><span class="annottext">s :: PublicIpv4Pool
+</span><a href="#local-6989586621681157962"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool%27"><span class="hs-identifier hs-type">PublicIpv4Pool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681157961"><span class="annot"><span class="annottext">Maybe [PublicIpv4PoolRange]
+</span><a href="#local-6989586621681157961"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicIpv4Pool
+</span><a href="#local-6989586621681157962"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:poolAddressRanges:PublicIpv4Pool' :: Maybe [PublicIpv4PoolRange]
 </span><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#%24sel%3ApoolAddressRanges%3APublicIpv4Pool%27"><span class="hs-identifier hs-var">poolAddressRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PublicIpv4PoolRange]
-</span><a href="#local-6989586621681123107"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool"><span class="hs-identifier hs-type">PublicIpv4Pool</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PublicIpv4PoolRange] -&gt; f (Maybe [PublicIpv4PoolRange]))
+</span><a href="#local-6989586621681157961"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool"><span class="hs-identifier hs-type">PublicIpv4Pool</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PublicIpv4PoolRange] -&gt; f (Maybe [PublicIpv4PoolRange]))
  -&gt; PublicIpv4Pool -&gt; f PublicIpv4Pool)
 -&gt; ((Maybe [PublicIpv4PoolRange]
      -&gt; f (Maybe [PublicIpv4PoolRange]))
@@ -242,45 +281,65 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [PublicIpv4PoolRange]
   [PublicIpv4PoolRange]
   [PublicIpv4PoolRange]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- | The total number of addresses.</span><span>
-</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#publicIpv4Pool_totalAddressCount"><span class="hs-identifier hs-type">publicIpv4Pool_totalAddressCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool"><span class="hs-identifier hs-type">PublicIpv4Pool</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span id="publicIpv4Pool_totalAddressCount"><span class="annot"><span class="annottext">publicIpv4Pool_totalAddressCount :: (Maybe Int -&gt; f (Maybe Int)) -&gt; PublicIpv4Pool -&gt; f PublicIpv4Pool
-</span><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#publicIpv4Pool_totalAddressCount"><span class="hs-identifier hs-var hs-var">publicIpv4Pool_totalAddressCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PublicIpv4Pool -&gt; Maybe Int)
--&gt; (PublicIpv4Pool -&gt; Maybe Int -&gt; PublicIpv4Pool)
--&gt; Lens PublicIpv4Pool PublicIpv4Pool (Maybe Int) (Maybe Int)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The ID of the address pool.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#publicIpv4Pool_poolId"><span class="hs-identifier hs-type">publicIpv4Pool_poolId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool"><span class="hs-identifier hs-type">PublicIpv4Pool</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="publicIpv4Pool_poolId"><span class="annot"><span class="annottext">publicIpv4Pool_poolId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PublicIpv4Pool -&gt; f PublicIpv4Pool
+</span><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#publicIpv4Pool_poolId"><span class="hs-identifier hs-var hs-var">publicIpv4Pool_poolId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PublicIpv4Pool -&gt; Maybe Text)
+-&gt; (PublicIpv4Pool -&gt; Maybe Text -&gt; PublicIpv4Pool)
+-&gt; Lens PublicIpv4Pool PublicIpv4Pool (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool%27"><span class="hs-identifier hs-type">PublicIpv4Pool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681123102"><span class="annot"><span class="annottext">Maybe Int
-totalAddressCount :: Maybe Int
-$sel:totalAddressCount:PublicIpv4Pool' :: PublicIpv4Pool -&gt; Maybe Int
-</span><a href="#local-6989586621681123102"><span class="hs-identifier hs-var hs-var">totalAddressCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681123102"><span class="hs-identifier hs-var">totalAddressCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681123101"><span class="annot"><span class="annottext">s :: PublicIpv4Pool
-</span><a href="#local-6989586621681123101"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool%27"><span class="hs-identifier hs-type">PublicIpv4Pool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681123100"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681123100"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicIpv4Pool
-</span><a href="#local-6989586621681123101"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalAddressCount:PublicIpv4Pool' :: Maybe Int
-</span><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#%24sel%3AtotalAddressCount%3APublicIpv4Pool%27"><span class="hs-identifier hs-var">totalAddressCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681123100"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool"><span class="hs-identifier hs-type">PublicIpv4Pool</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- | Any tags for the address pool.</span><span>
-</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#publicIpv4Pool_tags"><span class="hs-identifier hs-type">publicIpv4Pool_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool"><span class="hs-identifier hs-type">PublicIpv4Pool</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span id="publicIpv4Pool_tags"><span class="annot"><span class="annottext">publicIpv4Pool_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool%27"><span class="hs-identifier hs-type">PublicIpv4Pool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681157956"><span class="annot"><span class="annottext">Maybe Text
+poolId :: Maybe Text
+$sel:poolId:PublicIpv4Pool' :: PublicIpv4Pool -&gt; Maybe Text
+</span><a href="#local-6989586621681157956"><span class="hs-identifier hs-var hs-var">poolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681157956"><span class="hs-identifier hs-var">poolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681157955"><span class="annot"><span class="annottext">s :: PublicIpv4Pool
+</span><a href="#local-6989586621681157955"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool%27"><span class="hs-identifier hs-type">PublicIpv4Pool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681157954"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681157954"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicIpv4Pool
+</span><a href="#local-6989586621681157955"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:poolId:PublicIpv4Pool' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#%24sel%3ApoolId%3APublicIpv4Pool%27"><span class="hs-identifier hs-var">poolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681157954"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool"><span class="hs-identifier hs-type">PublicIpv4Pool</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | A description of the address pool.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#publicIpv4Pool_description"><span class="hs-identifier hs-type">publicIpv4Pool_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool"><span class="hs-identifier hs-type">PublicIpv4Pool</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="publicIpv4Pool_description"><span class="annot"><span class="annottext">publicIpv4Pool_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PublicIpv4Pool -&gt; f PublicIpv4Pool
+</span><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#publicIpv4Pool_description"><span class="hs-identifier hs-var hs-var">publicIpv4Pool_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PublicIpv4Pool -&gt; Maybe Text)
+-&gt; (PublicIpv4Pool -&gt; Maybe Text -&gt; PublicIpv4Pool)
+-&gt; Lens PublicIpv4Pool PublicIpv4Pool (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool%27"><span class="hs-identifier hs-type">PublicIpv4Pool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681157952"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:PublicIpv4Pool' :: PublicIpv4Pool -&gt; Maybe Text
+</span><a href="#local-6989586621681157952"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681157952"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681157951"><span class="annot"><span class="annottext">s :: PublicIpv4Pool
+</span><a href="#local-6989586621681157951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool%27"><span class="hs-identifier hs-type">PublicIpv4Pool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681157950"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681157950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicIpv4Pool
+</span><a href="#local-6989586621681157951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:PublicIpv4Pool' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#%24sel%3Adescription%3APublicIpv4Pool%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681157950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool"><span class="hs-identifier hs-type">PublicIpv4Pool</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | Any tags for the address pool.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#publicIpv4Pool_tags"><span class="hs-identifier hs-type">publicIpv4Pool_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool"><span class="hs-identifier hs-type">PublicIpv4Pool</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="publicIpv4Pool_tags"><span class="annot"><span class="annottext">publicIpv4Pool_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
 -&gt; PublicIpv4Pool -&gt; f PublicIpv4Pool
 </span><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#publicIpv4Pool_tags"><span class="hs-identifier hs-var hs-var">publicIpv4Pool_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PublicIpv4Pool -&gt; Maybe [Tag])
 -&gt; (PublicIpv4Pool -&gt; Maybe [Tag] -&gt; PublicIpv4Pool)
 -&gt; Lens PublicIpv4Pool PublicIpv4Pool (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool%27"><span class="hs-identifier hs-type">PublicIpv4Pool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681123098"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool%27"><span class="hs-identifier hs-type">PublicIpv4Pool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681157948"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:PublicIpv4Pool' :: PublicIpv4Pool -&gt; Maybe [Tag]
-</span><a href="#local-6989586621681123098"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681123098"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681123097"><span class="annot"><span class="annottext">s :: PublicIpv4Pool
-</span><a href="#local-6989586621681123097"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool%27"><span class="hs-identifier hs-type">PublicIpv4Pool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681123096"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681123096"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicIpv4Pool
-</span><a href="#local-6989586621681123097"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:PublicIpv4Pool' :: Maybe [Tag]
+</span><a href="#local-6989586621681157948"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681157948"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681157947"><span class="annot"><span class="annottext">s :: PublicIpv4Pool
+</span><a href="#local-6989586621681157947"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool%27"><span class="hs-identifier hs-type">PublicIpv4Pool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681157946"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681157946"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicIpv4Pool
+</span><a href="#local-6989586621681157947"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:PublicIpv4Pool' :: Maybe [Tag]
 </span><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#%24sel%3Atags%3APublicIpv4Pool%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681123096"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool"><span class="hs-identifier hs-type">PublicIpv4Pool</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621681157946"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool"><span class="hs-identifier hs-type">PublicIpv4Pool</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; PublicIpv4Pool -&gt; f PublicIpv4Pool)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -294,134 +353,108 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- | A description of the address pool.</span><span>
-</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#publicIpv4Pool_description"><span class="hs-identifier hs-type">publicIpv4Pool_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool"><span class="hs-identifier hs-type">PublicIpv4Pool</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span id="publicIpv4Pool_description"><span class="annot"><span class="annottext">publicIpv4Pool_description :: (Maybe Text -&gt; f (Maybe Text))
--&gt; PublicIpv4Pool -&gt; f PublicIpv4Pool
-</span><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#publicIpv4Pool_description"><span class="hs-identifier hs-var hs-var">publicIpv4Pool_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PublicIpv4Pool -&gt; Maybe Text)
--&gt; (PublicIpv4Pool -&gt; Maybe Text -&gt; PublicIpv4Pool)
--&gt; Lens PublicIpv4Pool PublicIpv4Pool (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool%27"><span class="hs-identifier hs-type">PublicIpv4Pool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681123094"><span class="annot"><span class="annottext">Maybe Text
-description :: Maybe Text
-$sel:description:PublicIpv4Pool' :: PublicIpv4Pool -&gt; Maybe Text
-</span><a href="#local-6989586621681123094"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681123094"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681123093"><span class="annot"><span class="annottext">s :: PublicIpv4Pool
-</span><a href="#local-6989586621681123093"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool%27"><span class="hs-identifier hs-type">PublicIpv4Pool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681123092"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681123092"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicIpv4Pool
-</span><a href="#local-6989586621681123093"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:PublicIpv4Pool' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#%24sel%3Adescription%3APublicIpv4Pool%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681123092"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool"><span class="hs-identifier hs-type">PublicIpv4Pool</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- | The total number of available addresses.</span><span>
-</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#publicIpv4Pool_totalAvailableAddressCount"><span class="hs-identifier hs-type">publicIpv4Pool_totalAvailableAddressCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool"><span class="hs-identifier hs-type">PublicIpv4Pool</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span id="publicIpv4Pool_totalAvailableAddressCount"><span class="annot"><span class="annottext">publicIpv4Pool_totalAvailableAddressCount :: (Maybe Int -&gt; f (Maybe Int)) -&gt; PublicIpv4Pool -&gt; f PublicIpv4Pool
-</span><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#publicIpv4Pool_totalAvailableAddressCount"><span class="hs-identifier hs-var hs-var">publicIpv4Pool_totalAvailableAddressCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PublicIpv4Pool -&gt; Maybe Int)
--&gt; (PublicIpv4Pool -&gt; Maybe Int -&gt; PublicIpv4Pool)
--&gt; Lens PublicIpv4Pool PublicIpv4Pool (Maybe Int) (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool%27"><span class="hs-identifier hs-type">PublicIpv4Pool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681123090"><span class="annot"><span class="annottext">Maybe Int
-totalAvailableAddressCount :: Maybe Int
-$sel:totalAvailableAddressCount:PublicIpv4Pool' :: PublicIpv4Pool -&gt; Maybe Int
-</span><a href="#local-6989586621681123090"><span class="hs-identifier hs-var hs-var">totalAvailableAddressCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681123090"><span class="hs-identifier hs-var">totalAvailableAddressCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681123089"><span class="annot"><span class="annottext">s :: PublicIpv4Pool
-</span><a href="#local-6989586621681123089"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool%27"><span class="hs-identifier hs-type">PublicIpv4Pool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681123088"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681123088"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicIpv4Pool
-</span><a href="#local-6989586621681123089"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalAvailableAddressCount:PublicIpv4Pool' :: Maybe Int
-</span><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#%24sel%3AtotalAvailableAddressCount%3APublicIpv4Pool%27"><span class="hs-identifier hs-var">totalAvailableAddressCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681123088"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool"><span class="hs-identifier hs-type">PublicIpv4Pool</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- | The name of the location from which the address pool is advertised. A</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- network border group is a unique set of Availability Zones or Local</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- Zones from where Amazon Web Services advertises public IP addresses.</span><span>
-</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#publicIpv4Pool_networkBorderGroup"><span class="hs-identifier hs-type">publicIpv4Pool_networkBorderGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool"><span class="hs-identifier hs-type">PublicIpv4Pool</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span id="publicIpv4Pool_networkBorderGroup"><span class="annot"><span class="annottext">publicIpv4Pool_networkBorderGroup :: (Maybe Text -&gt; f (Maybe Text))
--&gt; PublicIpv4Pool -&gt; f PublicIpv4Pool
-</span><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#publicIpv4Pool_networkBorderGroup"><span class="hs-identifier hs-var hs-var">publicIpv4Pool_networkBorderGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PublicIpv4Pool -&gt; Maybe Text)
--&gt; (PublicIpv4Pool -&gt; Maybe Text -&gt; PublicIpv4Pool)
--&gt; Lens PublicIpv4Pool PublicIpv4Pool (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool%27"><span class="hs-identifier hs-type">PublicIpv4Pool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681123086"><span class="annot"><span class="annottext">Maybe Text
-networkBorderGroup :: Maybe Text
-$sel:networkBorderGroup:PublicIpv4Pool' :: PublicIpv4Pool -&gt; Maybe Text
-</span><a href="#local-6989586621681123086"><span class="hs-identifier hs-var hs-var">networkBorderGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681123086"><span class="hs-identifier hs-var">networkBorderGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681123085"><span class="annot"><span class="annottext">s :: PublicIpv4Pool
-</span><a href="#local-6989586621681123085"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool%27"><span class="hs-identifier hs-type">PublicIpv4Pool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681123084"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681123084"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicIpv4Pool
-</span><a href="#local-6989586621681123085"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkBorderGroup:PublicIpv4Pool' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#%24sel%3AnetworkBorderGroup%3APublicIpv4Pool%27"><span class="hs-identifier hs-var">networkBorderGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681123084"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool"><span class="hs-identifier hs-type">PublicIpv4Pool</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool"><span class="hs-identifier hs-type">PublicIpv4Pool</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621681123081"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String PublicIpv4Pool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681123079"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681123079"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool"><span class="hs-identifier hs-type">PublicIpv4Pool</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621681157943"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String PublicIpv4Pool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681157941"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681157941"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Int
 -&gt; Maybe [PublicIpv4PoolRange]
--&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe [Tag]
--&gt; Maybe Text
--&gt; Maybe Int
--&gt; Maybe Text
 -&gt; PublicIpv4Pool
 </span><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool%27"><span class="hs-identifier hs-var">PublicIpv4Pool'</span></a></span><span>
-</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe Int
  -&gt; Maybe [PublicIpv4PoolRange]
- -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; Maybe [Tag]
- -&gt; Maybe Text
- -&gt; Maybe Int
- -&gt; Maybe Text
  -&gt; PublicIpv4Pool)
--&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Int)
 -&gt; Either
      String
-     (Maybe [PublicIpv4PoolRange]
+     (Maybe Text
       -&gt; Maybe Int
+      -&gt; Maybe [PublicIpv4PoolRange]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe [Tag]
-      -&gt; Maybe Text
-      -&gt; Maybe Int
-      -&gt; Maybe Text
       -&gt; PublicIpv4Pool)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681123079"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681157941"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;poolId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span class="hs-string">&quot;totalAddressCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe [PublicIpv4PoolRange]
+  (Maybe Text
    -&gt; Maybe Int
+   -&gt; Maybe [PublicIpv4PoolRange]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; Maybe [Tag]
-   -&gt; Maybe Text
-   -&gt; Maybe Int
-   -&gt; Maybe Text
    -&gt; PublicIpv4Pool)
--&gt; Either String (Maybe [PublicIpv4PoolRange])
+-&gt; Either String (Maybe Text)
 -&gt; Either
      String
      (Maybe Int
+      -&gt; Maybe [PublicIpv4PoolRange]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe [Tag]
-      -&gt; Maybe Text
-      -&gt; Maybe Int
-      -&gt; Maybe Text
       -&gt; PublicIpv4Pool)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681157941"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;networkBorderGroup&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Int
+   -&gt; Maybe [PublicIpv4PoolRange]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Tag]
+   -&gt; PublicIpv4Pool)
+-&gt; Either String (Maybe Int)
+-&gt; Either
+     String
+     (Maybe [PublicIpv4PoolRange]
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; PublicIpv4Pool)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681157941"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;totalAvailableAddressCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [PublicIpv4PoolRange]
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; PublicIpv4Pool)
+-&gt; Either String (Maybe [PublicIpv4PoolRange])
+-&gt; Either
+     String (Maybe Text -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; PublicIpv4Pool)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681123079"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681157941"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;poolAddressRangeSet&quot;</span></span><span>
-</span><span id="line-123"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+</span><span id="line-126"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-124"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-127"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [PublicIpv4PoolRange]))
 -&gt; Either String (Maybe [PublicIpv4PoolRange])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -434,36 +467,31 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Int
-   -&gt; Maybe [Tag]
-   -&gt; Maybe Text
-   -&gt; Maybe Int
-   -&gt; Maybe Text
-   -&gt; PublicIpv4Pool)
--&gt; Either String (Maybe Int)
--&gt; Either
-     String
-     (Maybe [Tag]
-      -&gt; Maybe Text -&gt; Maybe Int -&gt; Maybe Text -&gt; PublicIpv4Pool)
+</span><span id="line-128"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; PublicIpv4Pool)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Maybe [Tag] -&gt; PublicIpv4Pool)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681123079"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621681157941"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;totalAddressCount&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe [Tag]
-   -&gt; Maybe Text -&gt; Maybe Int -&gt; Maybe Text -&gt; PublicIpv4Pool)
--&gt; Either String (Maybe [Tag])
--&gt; Either
-     String (Maybe Text -&gt; Maybe Int -&gt; Maybe Text -&gt; PublicIpv4Pool)
+</span><span class="hs-string">&quot;poolId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe [Tag] -&gt; PublicIpv4Pool)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe [Tag] -&gt; PublicIpv4Pool)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681157941"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [Tag] -&gt; PublicIpv4Pool)
+-&gt; Either String (Maybe [Tag]) -&gt; Either String PublicIpv4Pool
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681123079"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681157941"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tagSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -471,7 +499,7 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-128"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-132"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [Tag]))
 -&gt; Either String (Maybe [Tag])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -484,36 +512,9 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-129"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String (Maybe Text -&gt; Maybe Int -&gt; Maybe Text -&gt; PublicIpv4Pool)
--&gt; Either String (Maybe Text)
--&gt; Either String (Maybe Int -&gt; Maybe Text -&gt; PublicIpv4Pool)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681123079"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Int -&gt; Maybe Text -&gt; PublicIpv4Pool)
--&gt; Either String (Maybe Int)
--&gt; Either String (Maybe Text -&gt; PublicIpv4Pool)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681123079"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;totalAvailableAddressCount&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; PublicIpv4Pool)
--&gt; Either String (Maybe Text) -&gt; Either String PublicIpv4Pool
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681123079"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;networkBorderGroup&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681123070"><span id="local-6989586621681123072"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool"><span class="hs-identifier hs-type">PublicIpv4Pool</span></a></span></span></span><span>
-</span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681123067"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool"><span class="hs-identifier hs-type">PublicIpv4Pool</span></a></span></span><span>
-</span><span id="line-137"></span></pre></body></html>
+</span><span id="line-133"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681157932"><span id="local-6989586621681157934"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool"><span class="hs-identifier hs-type">PublicIpv4Pool</span></a></span></span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681157929"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PublicIpv4Pool.html#PublicIpv4Pool"><span class="hs-identifier hs-type">PublicIpv4Pool</span></a></span></span><span>
+</span><span id="line-138"></span></pre></body></html>

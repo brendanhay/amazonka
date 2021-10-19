@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- CloudWatch Logs, built in a specified S3 bucket, or both.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newLogsConfig' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679375042"><span id="local-6989586621679375043"></span></span><span class="hs-keyword">data</span><span> </span><span id="LogsConfig"><span class="annot"><a href="Network.AWS.CodeBuild.Types.LogsConfig.html#LogsConfig"><span class="hs-identifier hs-var">LogsConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LogsConfig%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.LogsConfig.html#LogsConfig%27"><span class="hs-identifier hs-var">LogsConfig'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679376925"><span id="local-6989586621679376926"></span></span><span class="hs-keyword">data</span><span> </span><span id="LogsConfig"><span class="annot"><a href="Network.AWS.CodeBuild.Types.LogsConfig.html#LogsConfig"><span class="hs-identifier hs-var">LogsConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LogsConfig%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.LogsConfig.html#LogsConfig%27"><span class="hs-identifier hs-var">LogsConfig'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about logs built to an S3 bucket for a build project. S3</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- logs are not enabled by default.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3As3Logs%3ALogsConfig%27"><span class="annot"><span class="annottext">LogsConfig -&gt; Maybe S3LogsConfig
@@ -39,7 +39,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AcloudWatchLogs%3ALogsConfig%27"><span class="annot"><span class="annottext">LogsConfig -&gt; Maybe CloudWatchLogsConfig
 </span><a href="Network.AWS.CodeBuild.Types.LogsConfig.html#%24sel%3AcloudWatchLogs%3ALogsConfig%27"><span class="hs-identifier hs-var hs-var">cloudWatchLogs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CloudWatchLogsConfig.html#CloudWatchLogsConfig"><span class="hs-identifier hs-type">CloudWatchLogsConfig</span></a></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679375035"><span id="local-6989586621679375037"><span class="annot"><span class="annottext">LogsConfig -&gt; LogsConfig -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679376918"><span id="local-6989586621679376920"><span class="annot"><span class="annottext">LogsConfig -&gt; LogsConfig -&gt; Bool
 (LogsConfig -&gt; LogsConfig -&gt; Bool)
 -&gt; (LogsConfig -&gt; LogsConfig -&gt; Bool) -&gt; Eq LogsConfig
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LogsConfig -&gt; LogsConfig -&gt; Bool
 == :: LogsConfig -&gt; LogsConfig -&gt; Bool
 $c== :: LogsConfig -&gt; LogsConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679375026"><span id="local-6989586621679375028"><span id="local-6989586621679375030"><span id="local-6989586621679375032"><span class="annot"><span class="annottext">ReadPrec [LogsConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376909"><span id="local-6989586621679376911"><span id="local-6989586621679376913"><span id="local-6989586621679376915"><span class="annot"><span class="annottext">ReadPrec [LogsConfig]
 ReadPrec LogsConfig
 Int -&gt; ReadS LogsConfig
 ReadS [LogsConfig]
@@ -67,7 +67,7 @@ readList :: ReadS [LogsConfig]
 $creadList :: ReadS [LogsConfig]
 readsPrec :: Int -&gt; ReadS LogsConfig
 $creadsPrec :: Int -&gt; ReadS LogsConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679375019"><span id="local-6989586621679375021"><span id="local-6989586621679375023"><span class="annot"><span class="annottext">Int -&gt; LogsConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376902"><span id="local-6989586621679376904"><span id="local-6989586621679376906"><span class="annot"><span class="annottext">Int -&gt; LogsConfig -&gt; ShowS
 [LogsConfig] -&gt; ShowS
 LogsConfig -&gt; String
 (Int -&gt; LogsConfig -&gt; ShowS)
@@ -131,16 +131,16 @@ forall a. Maybe a
 -&gt; Lens
      LogsConfig LogsConfig (Maybe S3LogsConfig) (Maybe S3LogsConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.LogsConfig.html#LogsConfig%27"><span class="hs-identifier hs-type">LogsConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679375010"><span class="annot"><span class="annottext">Maybe S3LogsConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.LogsConfig.html#LogsConfig%27"><span class="hs-identifier hs-type">LogsConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376893"><span class="annot"><span class="annottext">Maybe S3LogsConfig
 s3Logs :: Maybe S3LogsConfig
 $sel:s3Logs:LogsConfig' :: LogsConfig -&gt; Maybe S3LogsConfig
-</span><a href="#local-6989586621679375010"><span class="hs-identifier hs-var hs-var">s3Logs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3LogsConfig
-</span><a href="#local-6989586621679375010"><span class="hs-identifier hs-var">s3Logs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679375009"><span class="annot"><span class="annottext">s :: LogsConfig
-</span><a href="#local-6989586621679375009"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.LogsConfig.html#LogsConfig%27"><span class="hs-identifier hs-type">LogsConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679375008"><span class="annot"><span class="annottext">Maybe S3LogsConfig
-</span><a href="#local-6989586621679375008"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogsConfig
-</span><a href="#local-6989586621679375009"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Logs:LogsConfig' :: Maybe S3LogsConfig
+</span><a href="#local-6989586621679376893"><span class="hs-identifier hs-var hs-var">s3Logs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3LogsConfig
+</span><a href="#local-6989586621679376893"><span class="hs-identifier hs-var">s3Logs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376892"><span class="annot"><span class="annottext">s :: LogsConfig
+</span><a href="#local-6989586621679376892"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.LogsConfig.html#LogsConfig%27"><span class="hs-identifier hs-type">LogsConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376891"><span class="annot"><span class="annottext">Maybe S3LogsConfig
+</span><a href="#local-6989586621679376891"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogsConfig
+</span><a href="#local-6989586621679376892"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Logs:LogsConfig' :: Maybe S3LogsConfig
 </span><a href="Network.AWS.CodeBuild.Types.LogsConfig.html#%24sel%3As3Logs%3ALogsConfig%27"><span class="hs-identifier hs-var">s3Logs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3LogsConfig
-</span><a href="#local-6989586621679375008"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.LogsConfig.html#LogsConfig"><span class="hs-identifier hs-type">LogsConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679376891"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.LogsConfig.html#LogsConfig"><span class="hs-identifier hs-type">LogsConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | Information about CloudWatch Logs for a build project. CloudWatch Logs</span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- are enabled by default.</span><span>
@@ -155,19 +155,19 @@ $sel:s3Logs:LogsConfig' :: LogsConfig -&gt; Maybe S3LogsConfig
      (Maybe CloudWatchLogsConfig)
      (Maybe CloudWatchLogsConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.LogsConfig.html#LogsConfig%27"><span class="hs-identifier hs-type">LogsConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679375006"><span class="annot"><span class="annottext">Maybe CloudWatchLogsConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.LogsConfig.html#LogsConfig%27"><span class="hs-identifier hs-type">LogsConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376889"><span class="annot"><span class="annottext">Maybe CloudWatchLogsConfig
 cloudWatchLogs :: Maybe CloudWatchLogsConfig
 $sel:cloudWatchLogs:LogsConfig' :: LogsConfig -&gt; Maybe CloudWatchLogsConfig
-</span><a href="#local-6989586621679375006"><span class="hs-identifier hs-var hs-var">cloudWatchLogs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLogsConfig
-</span><a href="#local-6989586621679375006"><span class="hs-identifier hs-var">cloudWatchLogs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679375005"><span class="annot"><span class="annottext">s :: LogsConfig
-</span><a href="#local-6989586621679375005"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.LogsConfig.html#LogsConfig%27"><span class="hs-identifier hs-type">LogsConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679375004"><span class="annot"><span class="annottext">Maybe CloudWatchLogsConfig
-</span><a href="#local-6989586621679375004"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogsConfig
-</span><a href="#local-6989586621679375005"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudWatchLogs:LogsConfig' :: Maybe CloudWatchLogsConfig
+</span><a href="#local-6989586621679376889"><span class="hs-identifier hs-var hs-var">cloudWatchLogs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLogsConfig
+</span><a href="#local-6989586621679376889"><span class="hs-identifier hs-var">cloudWatchLogs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376888"><span class="annot"><span class="annottext">s :: LogsConfig
+</span><a href="#local-6989586621679376888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.LogsConfig.html#LogsConfig%27"><span class="hs-identifier hs-type">LogsConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376887"><span class="annot"><span class="annottext">Maybe CloudWatchLogsConfig
+</span><a href="#local-6989586621679376887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogsConfig
+</span><a href="#local-6989586621679376888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudWatchLogs:LogsConfig' :: Maybe CloudWatchLogsConfig
 </span><a href="Network.AWS.CodeBuild.Types.LogsConfig.html#%24sel%3AcloudWatchLogs%3ALogsConfig%27"><span class="hs-identifier hs-var">cloudWatchLogs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLogsConfig
-</span><a href="#local-6989586621679375004"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.LogsConfig.html#LogsConfig"><span class="hs-identifier hs-type">LogsConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679376887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.LogsConfig.html#LogsConfig"><span class="hs-identifier hs-type">LogsConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679375001"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.LogsConfig.html#LogsConfig"><span class="hs-identifier hs-type">LogsConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679374999"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LogsConfig
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376884"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.LogsConfig.html#LogsConfig"><span class="hs-identifier hs-type">LogsConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679376882"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LogsConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser LogsConfig) -&gt; Value -&gt; Parser LogsConfig
@@ -175,8 +175,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;LogsConfig&quot;</span></span><span>
-</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679374996"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679374996"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679376879"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679376879"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>          </span><span class="annot"><span class="annottext">Maybe S3LogsConfig -&gt; Maybe CloudWatchLogsConfig -&gt; LogsConfig
 </span><a href="Network.AWS.CodeBuild.Types.LogsConfig.html#LogsConfig%27"><span class="hs-identifier hs-var">LogsConfig'</span></a></span><span>
 </span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">(Maybe S3LogsConfig -&gt; Maybe CloudWatchLogsConfig -&gt; LogsConfig)
@@ -184,7 +184,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe CloudWatchLogsConfig -&gt; LogsConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679374996"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe S3LogsConfig)
+</span><a href="#local-6989586621679376879"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe S3LogsConfig)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;s3Logs&quot;</span></span><span class="hs-special">)</span><span>
@@ -192,25 +192,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe CloudWatchLogsConfig) -&gt; Parser LogsConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679374996"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CloudWatchLogsConfig)
+</span><a href="#local-6989586621679376879"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CloudWatchLogsConfig)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cloudWatchLogs&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374990"><span id="local-6989586621679374992"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.LogsConfig.html#LogsConfig"><span class="hs-identifier hs-type">LogsConfig</span></a></span></span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376873"><span id="local-6989586621679376875"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.LogsConfig.html#LogsConfig"><span class="hs-identifier hs-type">LogsConfig</span></a></span></span></span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374987"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.LogsConfig.html#LogsConfig"><span class="hs-identifier hs-type">LogsConfig</span></a></span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376870"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.LogsConfig.html#LogsConfig"><span class="hs-identifier hs-type">LogsConfig</span></a></span></span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374979"><span id="local-6989586621679374981"><span id="local-6989586621679374983"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.LogsConfig.html#LogsConfig"><span class="hs-identifier hs-type">LogsConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679374977"><span class="annot"><span class="annottext">toJSON :: LogsConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.LogsConfig.html#LogsConfig%27"><span class="hs-identifier hs-type">LogsConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374974"><span id="local-6989586621679374975"><span class="annot"><span class="annottext">Maybe CloudWatchLogsConfig
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376862"><span id="local-6989586621679376864"><span id="local-6989586621679376866"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.LogsConfig.html#LogsConfig"><span class="hs-identifier hs-type">LogsConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679376860"><span class="annot"><span class="annottext">toJSON :: LogsConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.LogsConfig.html#LogsConfig%27"><span class="hs-identifier hs-type">LogsConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376857"><span id="local-6989586621679376858"><span class="annot"><span class="annottext">Maybe CloudWatchLogsConfig
 Maybe S3LogsConfig
 cloudWatchLogs :: Maybe CloudWatchLogsConfig
 s3Logs :: Maybe S3LogsConfig
 $sel:cloudWatchLogs:LogsConfig' :: LogsConfig -&gt; Maybe CloudWatchLogsConfig
 $sel:s3Logs:LogsConfig' :: LogsConfig -&gt; Maybe S3LogsConfig
-</span><a href="#local-6989586621679374974"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679376857"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -222,7 +222,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(S3LogsConfig -&gt; Pair) -&gt; Maybe S3LogsConfig -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe S3LogsConfig
-</span><a href="#local-6989586621679374975"><span class="hs-identifier hs-var">s3Logs</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679376858"><span class="hs-identifier hs-var">s3Logs</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-92"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cloudWatchLogs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CloudWatchLogsConfig -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -231,7 +231,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe CloudWatchLogsConfig -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLogsConfig
-</span><a href="#local-6989586621679374974"><span class="hs-identifier hs-var">cloudWatchLogs</span></a></span><span>
+</span><a href="#local-6989586621679376857"><span class="hs-identifier hs-var">cloudWatchLogs</span></a></span><span>
 </span><span id="line-94"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span></pre></body></html>

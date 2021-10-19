@@ -42,8 +42,8 @@
 </span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#newGetObjectTorrent"><span class="hs-identifier">newGetObjectTorrent</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>
 </span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#getObjectTorrent_expectedBucketOwner"><span class="hs-identifier">getObjectTorrent_expectedBucketOwner</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#getObjectTorrent_requestPayer"><span class="hs-identifier">getObjectTorrent_requestPayer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#getObjectTorrent_requestPayer"><span class="hs-identifier">getObjectTorrent_requestPayer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#getObjectTorrent_expectedBucketOwner"><span class="hs-identifier">getObjectTorrent_expectedBucketOwner</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#getObjectTorrent_bucket"><span class="hs-identifier">getObjectTorrent_bucket</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#getObjectTorrent_key"><span class="hs-identifier">getObjectTorrent_key</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-49"></span><span>
@@ -66,14 +66,14 @@
 </span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.html"><span class="hs-identifier">Network.AWS.S3.Types</span></a></span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | /See:/ 'newGetObjectTorrent' smart constructor.</span><span>
-</span><span id="line-69"></span><span id="local-6989586621679571249"><span id="local-6989586621679571250"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetObjectTorrent"><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent"><span class="hs-identifier hs-var">GetObjectTorrent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetObjectTorrent%27"><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent%27"><span class="hs-identifier hs-var">GetObjectTorrent'</span></a></span></span><span>
-</span><span id="line-70"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
-</span><span id="line-73"></span><span>    </span><span id="%24sel%3AexpectedBucketOwner%3AGetObjectTorrent%27"><span class="annot"><span class="annottext">GetObjectTorrent -&gt; Maybe Text
-</span><a href="Network.AWS.S3.GetObjectTorrent.html#%24sel%3AexpectedBucketOwner%3AGetObjectTorrent%27"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>    </span><span id="%24sel%3ArequestPayer%3AGetObjectTorrent%27"><span class="annot"><span class="annottext">GetObjectTorrent -&gt; Maybe RequestPayer
+</span><span id="line-69"></span><span id="local-6989586621679572107"><span id="local-6989586621679572108"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetObjectTorrent"><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent"><span class="hs-identifier hs-var">GetObjectTorrent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetObjectTorrent%27"><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent%27"><span class="hs-identifier hs-var">GetObjectTorrent'</span></a></span></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3ArequestPayer%3AGetObjectTorrent%27"><span class="annot"><span class="annottext">GetObjectTorrent -&gt; Maybe RequestPayer
 </span><a href="Network.AWS.S3.GetObjectTorrent.html#%24sel%3ArequestPayer%3AGetObjectTorrent%27"><span class="hs-identifier hs-var hs-var">requestPayer</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RequestPayer.html#RequestPayer"><span class="hs-identifier hs-type">RequestPayer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AexpectedBucketOwner%3AGetObjectTorrent%27"><span class="annot"><span class="annottext">GetObjectTorrent -&gt; Maybe Text
+</span><a href="Network.AWS.S3.GetObjectTorrent.html#%24sel%3AexpectedBucketOwner%3AGetObjectTorrent%27"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The name of the bucket containing the object for which to get the</span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-comment">-- torrent files.</span><span>
 </span><span id="line-77"></span><span>    </span><span id="%24sel%3Abucket%3AGetObjectTorrent%27"><span class="annot"><span class="annottext">GetObjectTorrent -&gt; BucketName
@@ -82,7 +82,7 @@
 </span><span id="line-79"></span><span>    </span><span id="%24sel%3Akey%3AGetObjectTorrent%27"><span class="annot"><span class="annottext">GetObjectTorrent -&gt; ObjectKey
 </span><a href="Network.AWS.S3.GetObjectTorrent.html#%24sel%3Akey%3AGetObjectTorrent%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-type">ObjectKey</span></a></span><span>
 </span><span id="line-80"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-81"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679571240"><span id="local-6989586621679571242"><span class="annot"><span class="annottext">GetObjectTorrent -&gt; GetObjectTorrent -&gt; Bool
+</span><span id="line-81"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679572098"><span id="local-6989586621679572100"><span class="annot"><span class="annottext">GetObjectTorrent -&gt; GetObjectTorrent -&gt; Bool
 (GetObjectTorrent -&gt; GetObjectTorrent -&gt; Bool)
 -&gt; (GetObjectTorrent -&gt; GetObjectTorrent -&gt; Bool)
 -&gt; Eq GetObjectTorrent
@@ -91,7 +91,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetObjectTorrent -&gt; GetObjectTorrent -&gt; Bool
 == :: GetObjectTorrent -&gt; GetObjectTorrent -&gt; Bool
 $c== :: GetObjectTorrent -&gt; GetObjectTorrent -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679571231"><span id="local-6989586621679571233"><span id="local-6989586621679571235"><span id="local-6989586621679571237"><span class="annot"><span class="annottext">ReadPrec [GetObjectTorrent]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679572089"><span id="local-6989586621679572091"><span id="local-6989586621679572093"><span id="local-6989586621679572095"><span class="annot"><span class="annottext">ReadPrec [GetObjectTorrent]
 ReadPrec GetObjectTorrent
 Int -&gt; ReadS GetObjectTorrent
 ReadS [GetObjectTorrent]
@@ -111,7 +111,7 @@ readList :: ReadS [GetObjectTorrent]
 $creadList :: ReadS [GetObjectTorrent]
 readsPrec :: Int -&gt; ReadS GetObjectTorrent
 $creadsPrec :: Int -&gt; ReadS GetObjectTorrent
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679571224"><span id="local-6989586621679571226"><span id="local-6989586621679571228"><span class="annot"><span class="annottext">Int -&gt; GetObjectTorrent -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679572082"><span id="local-6989586621679572084"><span id="local-6989586621679572086"><span class="annot"><span class="annottext">Int -&gt; GetObjectTorrent -&gt; ShowS
 [GetObjectTorrent] -&gt; ShowS
 GetObjectTorrent -&gt; String
 (Int -&gt; GetObjectTorrent -&gt; ShowS)
@@ -145,11 +145,11 @@ $cfrom :: forall x. GetObjectTorrent -&gt; Rep GetObjectTorrent x
 </span><span id="line-88"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-90"></span><span class="hs-comment">--</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- 'expectedBucketOwner', 'getObjectTorrent_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
-</span><span id="line-94"></span><span class="hs-comment">--</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- 'requestPayer', 'getObjectTorrent_requestPayer' - Undocumented member.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'requestPayer', 'getObjectTorrent_requestPayer' - Undocumented member.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'expectedBucketOwner', 'getObjectTorrent_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
 </span><span id="line-96"></span><span class="hs-comment">--</span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- 'bucket', 'getObjectTorrent_bucket' - The name of the bucket containing the object for which to get the</span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- torrent files.</span><span>
@@ -162,56 +162,31 @@ $cfrom :: forall x. GetObjectTorrent -&gt; Rep GetObjectTorrent x
 </span><span id="line-105"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-type">ObjectKey</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-106"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent"><span class="hs-identifier hs-type">GetObjectTorrent</span></a></span><span>
 </span><span id="line-107"></span><span id="newGetObjectTorrent"><span class="annot"><span class="annottext">newGetObjectTorrent :: BucketName -&gt; ObjectKey -&gt; GetObjectTorrent
-</span><a href="Network.AWS.S3.GetObjectTorrent.html#newGetObjectTorrent"><span class="hs-identifier hs-var hs-var">newGetObjectTorrent</span></a></span></span><span> </span><span id="local-6989586621679571219"><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679571219"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span> </span><span id="local-6989586621679571218"><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679571218"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-108"></span><span>  </span><span class="annot"><span class="annottext">GetObjectTorrent' :: Maybe Text
--&gt; Maybe RequestPayer
--&gt; BucketName
--&gt; ObjectKey
--&gt; GetObjectTorrent
+</span><a href="Network.AWS.S3.GetObjectTorrent.html#newGetObjectTorrent"><span class="hs-identifier hs-var hs-var">newGetObjectTorrent</span></a></span></span><span> </span><span id="local-6989586621679572077"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679572077"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span> </span><span id="local-6989586621679572076"><span class="annot"><span class="annottext">ObjectKey
+</span><a href="#local-6989586621679572076"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><span class="annottext">GetObjectTorrent' :: Maybe RequestPayer
+-&gt; Maybe Text -&gt; BucketName -&gt; ObjectKey -&gt; GetObjectTorrent
 </span><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent%27"><span class="hs-identifier hs-type">GetObjectTorrent'</span></a></span><span>
-</span><span id="line-109"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:GetObjectTorrent' :: Maybe Text
-</span><a href="Network.AWS.S3.GetObjectTorrent.html#%24sel%3AexpectedBucketOwner%3AGetObjectTorrent%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:requestPayer:GetObjectTorrent' :: Maybe RequestPayer
+</span><span id="line-109"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:requestPayer:GetObjectTorrent' :: Maybe RequestPayer
 </span><a href="Network.AWS.S3.GetObjectTorrent.html#%24sel%3ArequestPayer%3AGetObjectTorrent%27"><span class="hs-identifier hs-var">requestPayer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RequestPayer
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucket:GetObjectTorrent' :: BucketName
-</span><a href="Network.AWS.S3.GetObjectTorrent.html#%24sel%3Abucket%3AGetObjectTorrent%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679571219"><span class="hs-identifier hs-var">pBucket_</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:key:GetObjectTorrent' :: ObjectKey
-</span><a href="Network.AWS.S3.GetObjectTorrent.html#%24sel%3Akey%3AGetObjectTorrent%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679571218"><span class="hs-identifier hs-var">pKey_</span></a></span><span>
-</span><span id="line-114"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
-</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#getObjectTorrent_expectedBucketOwner"><span class="hs-identifier hs-type">getObjectTorrent_expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent"><span class="hs-identifier hs-type">GetObjectTorrent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span id="getObjectTorrent_expectedBucketOwner"><span class="annot"><span class="annottext">getObjectTorrent_expectedBucketOwner :: (Maybe Text -&gt; f (Maybe Text))
--&gt; GetObjectTorrent -&gt; f GetObjectTorrent
-</span><a href="Network.AWS.S3.GetObjectTorrent.html#getObjectTorrent_expectedBucketOwner"><span class="hs-identifier hs-var hs-var">getObjectTorrent_expectedBucketOwner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetObjectTorrent -&gt; Maybe Text)
--&gt; (GetObjectTorrent -&gt; Maybe Text -&gt; GetObjectTorrent)
--&gt; Lens GetObjectTorrent GetObjectTorrent (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent%27"><span class="hs-identifier hs-type">GetObjectTorrent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679571215"><span class="annot"><span class="annottext">Maybe Text
-expectedBucketOwner :: Maybe Text
-$sel:expectedBucketOwner:GetObjectTorrent' :: GetObjectTorrent -&gt; Maybe Text
-</span><a href="#local-6989586621679571215"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679571215"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679571214"><span class="annot"><span class="annottext">s :: GetObjectTorrent
-</span><a href="#local-6989586621679571214"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent%27"><span class="hs-identifier hs-type">GetObjectTorrent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679571213"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679571213"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectTorrent
-</span><a href="#local-6989586621679571214"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:GetObjectTorrent' :: Maybe Text
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:GetObjectTorrent' :: Maybe Text
 </span><a href="Network.AWS.S3.GetObjectTorrent.html#%24sel%3AexpectedBucketOwner%3AGetObjectTorrent%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679571213"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent"><span class="hs-identifier hs-type">GetObjectTorrent</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- | Undocumented member.</span><span>
-</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#getObjectTorrent_requestPayer"><span class="hs-identifier hs-type">getObjectTorrent_requestPayer</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent"><span class="hs-identifier hs-type">GetObjectTorrent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RequestPayer.html#RequestPayer"><span class="hs-identifier hs-type">RequestPayer</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span id="getObjectTorrent_requestPayer"><span class="annot"><span class="annottext">getObjectTorrent_requestPayer :: (Maybe RequestPayer -&gt; f (Maybe RequestPayer))
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucket:GetObjectTorrent' :: BucketName
+</span><a href="Network.AWS.S3.GetObjectTorrent.html#%24sel%3Abucket%3AGetObjectTorrent%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679572077"><span class="hs-identifier hs-var">pBucket_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:key:GetObjectTorrent' :: ObjectKey
+</span><a href="Network.AWS.S3.GetObjectTorrent.html#%24sel%3Akey%3AGetObjectTorrent%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectKey
+</span><a href="#local-6989586621679572076"><span class="hs-identifier hs-var">pKey_</span></a></span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#getObjectTorrent_requestPayer"><span class="hs-identifier hs-type">getObjectTorrent_requestPayer</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent"><span class="hs-identifier hs-type">GetObjectTorrent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RequestPayer.html#RequestPayer"><span class="hs-identifier hs-type">RequestPayer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="getObjectTorrent_requestPayer"><span class="annot"><span class="annottext">getObjectTorrent_requestPayer :: (Maybe RequestPayer -&gt; f (Maybe RequestPayer))
 -&gt; GetObjectTorrent -&gt; f GetObjectTorrent
 </span><a href="Network.AWS.S3.GetObjectTorrent.html#getObjectTorrent_requestPayer"><span class="hs-identifier hs-var hs-var">getObjectTorrent_requestPayer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetObjectTorrent -&gt; Maybe RequestPayer)
 -&gt; (GetObjectTorrent -&gt; Maybe RequestPayer -&gt; GetObjectTorrent)
@@ -221,72 +196,102 @@ $sel:expectedBucketOwner:GetObjectTorrent' :: GetObjectTorrent -&gt; Maybe Text
      (Maybe RequestPayer)
      (Maybe RequestPayer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent%27"><span class="hs-identifier hs-type">GetObjectTorrent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679571212"><span class="annot"><span class="annottext">Maybe RequestPayer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent%27"><span class="hs-identifier hs-type">GetObjectTorrent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679572073"><span class="annot"><span class="annottext">Maybe RequestPayer
 requestPayer :: Maybe RequestPayer
 $sel:requestPayer:GetObjectTorrent' :: GetObjectTorrent -&gt; Maybe RequestPayer
-</span><a href="#local-6989586621679571212"><span class="hs-identifier hs-var hs-var">requestPayer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RequestPayer
-</span><a href="#local-6989586621679571212"><span class="hs-identifier hs-var">requestPayer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679571211"><span class="annot"><span class="annottext">s :: GetObjectTorrent
-</span><a href="#local-6989586621679571211"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent%27"><span class="hs-identifier hs-type">GetObjectTorrent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679571210"><span class="annot"><span class="annottext">Maybe RequestPayer
-</span><a href="#local-6989586621679571210"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectTorrent
-</span><a href="#local-6989586621679571211"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestPayer:GetObjectTorrent' :: Maybe RequestPayer
+</span><a href="#local-6989586621679572073"><span class="hs-identifier hs-var hs-var">requestPayer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RequestPayer
+</span><a href="#local-6989586621679572073"><span class="hs-identifier hs-var">requestPayer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679572072"><span class="annot"><span class="annottext">s :: GetObjectTorrent
+</span><a href="#local-6989586621679572072"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent%27"><span class="hs-identifier hs-type">GetObjectTorrent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679572071"><span class="annot"><span class="annottext">Maybe RequestPayer
+</span><a href="#local-6989586621679572071"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectTorrent
+</span><a href="#local-6989586621679572072"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestPayer:GetObjectTorrent' :: Maybe RequestPayer
 </span><a href="Network.AWS.S3.GetObjectTorrent.html#%24sel%3ArequestPayer%3AGetObjectTorrent%27"><span class="hs-identifier hs-var">requestPayer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RequestPayer
-</span><a href="#local-6989586621679571210"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent"><span class="hs-identifier hs-type">GetObjectTorrent</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- | The name of the bucket containing the object for which to get the</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- torrent files.</span><span>
-</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#getObjectTorrent_bucket"><span class="hs-identifier hs-type">getObjectTorrent_bucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent"><span class="hs-identifier hs-type">GetObjectTorrent</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span>
-</span><span id="line-129"></span><span id="getObjectTorrent_bucket"><span class="annot"><span class="annottext">getObjectTorrent_bucket :: (BucketName -&gt; f BucketName)
+</span><a href="#local-6989586621679572071"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent"><span class="hs-identifier hs-type">GetObjectTorrent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#getObjectTorrent_expectedBucketOwner"><span class="hs-identifier hs-type">getObjectTorrent_expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent"><span class="hs-identifier hs-type">GetObjectTorrent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="getObjectTorrent_expectedBucketOwner"><span class="annot"><span class="annottext">getObjectTorrent_expectedBucketOwner :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetObjectTorrent -&gt; f GetObjectTorrent
+</span><a href="Network.AWS.S3.GetObjectTorrent.html#getObjectTorrent_expectedBucketOwner"><span class="hs-identifier hs-var hs-var">getObjectTorrent_expectedBucketOwner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetObjectTorrent -&gt; Maybe Text)
+-&gt; (GetObjectTorrent -&gt; Maybe Text -&gt; GetObjectTorrent)
+-&gt; Lens GetObjectTorrent GetObjectTorrent (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent%27"><span class="hs-identifier hs-type">GetObjectTorrent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679572070"><span class="annot"><span class="annottext">Maybe Text
+expectedBucketOwner :: Maybe Text
+$sel:expectedBucketOwner:GetObjectTorrent' :: GetObjectTorrent -&gt; Maybe Text
+</span><a href="#local-6989586621679572070"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679572070"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679572069"><span class="annot"><span class="annottext">s :: GetObjectTorrent
+</span><a href="#local-6989586621679572069"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent%27"><span class="hs-identifier hs-type">GetObjectTorrent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679572068"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679572068"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectTorrent
+</span><a href="#local-6989586621679572069"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:GetObjectTorrent' :: Maybe Text
+</span><a href="Network.AWS.S3.GetObjectTorrent.html#%24sel%3AexpectedBucketOwner%3AGetObjectTorrent%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679572068"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent"><span class="hs-identifier hs-type">GetObjectTorrent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The name of the bucket containing the object for which to get the</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- torrent files.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#getObjectTorrent_bucket"><span class="hs-identifier hs-type">getObjectTorrent_bucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent"><span class="hs-identifier hs-type">GetObjectTorrent</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span>
+</span><span id="line-128"></span><span id="getObjectTorrent_bucket"><span class="annot"><span class="annottext">getObjectTorrent_bucket :: (BucketName -&gt; f BucketName)
 -&gt; GetObjectTorrent -&gt; f GetObjectTorrent
 </span><a href="Network.AWS.S3.GetObjectTorrent.html#getObjectTorrent_bucket"><span class="hs-identifier hs-var hs-var">getObjectTorrent_bucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetObjectTorrent -&gt; BucketName)
 -&gt; (GetObjectTorrent -&gt; BucketName -&gt; GetObjectTorrent)
 -&gt; Lens GetObjectTorrent GetObjectTorrent BucketName BucketName
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent%27"><span class="hs-identifier hs-type">GetObjectTorrent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679571209"><span class="annot"><span class="annottext">BucketName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent%27"><span class="hs-identifier hs-type">GetObjectTorrent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679572067"><span class="annot"><span class="annottext">BucketName
 bucket :: BucketName
 $sel:bucket:GetObjectTorrent' :: GetObjectTorrent -&gt; BucketName
-</span><a href="#local-6989586621679571209"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679571209"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679571208"><span class="annot"><span class="annottext">s :: GetObjectTorrent
-</span><a href="#local-6989586621679571208"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent%27"><span class="hs-identifier hs-type">GetObjectTorrent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679571207"><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679571207"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectTorrent
-</span><a href="#local-6989586621679571208"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:GetObjectTorrent' :: BucketName
+</span><a href="#local-6989586621679572067"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679572067"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679572066"><span class="annot"><span class="annottext">s :: GetObjectTorrent
+</span><a href="#local-6989586621679572066"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent%27"><span class="hs-identifier hs-type">GetObjectTorrent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679572065"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679572065"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectTorrent
+</span><a href="#local-6989586621679572066"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:GetObjectTorrent' :: BucketName
 </span><a href="Network.AWS.S3.GetObjectTorrent.html#%24sel%3Abucket%3AGetObjectTorrent%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679571207"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent"><span class="hs-identifier hs-type">GetObjectTorrent</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- | The object key for which to get the information.</span><span>
-</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#getObjectTorrent_key"><span class="hs-identifier hs-type">getObjectTorrent_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent"><span class="hs-identifier hs-type">GetObjectTorrent</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-type">ObjectKey</span></a></span><span>
-</span><span id="line-133"></span><span id="getObjectTorrent_key"><span class="annot"><span class="annottext">getObjectTorrent_key :: (ObjectKey -&gt; f ObjectKey)
+</span><a href="#local-6989586621679572065"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent"><span class="hs-identifier hs-type">GetObjectTorrent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | The object key for which to get the information.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#getObjectTorrent_key"><span class="hs-identifier hs-type">getObjectTorrent_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent"><span class="hs-identifier hs-type">GetObjectTorrent</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-type">ObjectKey</span></a></span><span>
+</span><span id="line-132"></span><span id="getObjectTorrent_key"><span class="annot"><span class="annottext">getObjectTorrent_key :: (ObjectKey -&gt; f ObjectKey)
 -&gt; GetObjectTorrent -&gt; f GetObjectTorrent
 </span><a href="Network.AWS.S3.GetObjectTorrent.html#getObjectTorrent_key"><span class="hs-identifier hs-var hs-var">getObjectTorrent_key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetObjectTorrent -&gt; ObjectKey)
 -&gt; (GetObjectTorrent -&gt; ObjectKey -&gt; GetObjectTorrent)
 -&gt; Lens GetObjectTorrent GetObjectTorrent ObjectKey ObjectKey
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent%27"><span class="hs-identifier hs-type">GetObjectTorrent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679571206"><span class="annot"><span class="annottext">ObjectKey
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent%27"><span class="hs-identifier hs-type">GetObjectTorrent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679572064"><span class="annot"><span class="annottext">ObjectKey
 key :: ObjectKey
 $sel:key:GetObjectTorrent' :: GetObjectTorrent -&gt; ObjectKey
-</span><a href="#local-6989586621679571206"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679571206"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679571205"><span class="annot"><span class="annottext">s :: GetObjectTorrent
-</span><a href="#local-6989586621679571205"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent%27"><span class="hs-identifier hs-type">GetObjectTorrent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679571204"><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679571204"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectTorrent
-</span><a href="#local-6989586621679571205"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:GetObjectTorrent' :: ObjectKey
+</span><a href="#local-6989586621679572064"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectKey
+</span><a href="#local-6989586621679572064"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679572063"><span class="annot"><span class="annottext">s :: GetObjectTorrent
+</span><a href="#local-6989586621679572063"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent%27"><span class="hs-identifier hs-type">GetObjectTorrent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679572062"><span class="annot"><span class="annottext">ObjectKey
+</span><a href="#local-6989586621679572062"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectTorrent
+</span><a href="#local-6989586621679572063"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:GetObjectTorrent' :: ObjectKey
 </span><a href="Network.AWS.S3.GetObjectTorrent.html#%24sel%3Akey%3AGetObjectTorrent%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679571204"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent"><span class="hs-identifier hs-type">GetObjectTorrent</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent"><span class="hs-identifier hs-type">GetObjectTorrent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span class="hs-keyword">type</span><span>
-</span><span id="line-137"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent"><span class="hs-identifier hs-type">GetObjectTorrent</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-138"></span><span>      </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrentResponse"><span class="hs-identifier hs-type">GetObjectTorrentResponse</span></a></span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679571200"><span class="annot"><span class="annottext">request :: GetObjectTorrent -&gt; Request GetObjectTorrent
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetObjectTorrent -&gt; Request GetObjectTorrent
+</span><a href="#local-6989586621679572062"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent"><span class="hs-identifier hs-type">GetObjectTorrent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent"><span class="hs-identifier hs-type">GetObjectTorrent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-136"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent"><span class="hs-identifier hs-type">GetObjectTorrent</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>      </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrentResponse"><span class="hs-identifier hs-type">GetObjectTorrentResponse</span></a></span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679572058"><span class="annot"><span class="annottext">request :: GetObjectTorrent -&gt; Request GetObjectTorrent
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">Request GetObjectTorrent -&gt; Request GetObjectTorrent
+forall a. Request a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.s3vhost</span></span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">(Request GetObjectTorrent -&gt; Request GetObjectTorrent)
+-&gt; (GetObjectTorrent -&gt; Request GetObjectTorrent)
+-&gt; GetObjectTorrent
+-&gt; Request GetObjectTorrent
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetObjectTorrent -&gt; Request GetObjectTorrent
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.S3.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679571196"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679572052"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetObjectTorrent
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse GetObjectTorrent)))
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">(Int
+</span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">(Int
  -&gt; ResponseHeaders
  -&gt; ResponseBody
  -&gt; Either String (AWSResponse GetObjectTorrent))
@@ -307,27 +312,27 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveBody</span></span><span>
-</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679571193"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679571193"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679571192"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679571192"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679571191"><span class="annot"><span class="annottext">ResponseBody
-</span><a href="#local-6989586621679571191"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-143"></span><span>          </span><span class="annot"><span class="annottext">Maybe RequestCharged
+</span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679572049"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679572049"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679572048"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679572048"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679572047"><span class="annot"><span class="annottext">ResponseBody
+</span><a href="#local-6989586621679572047"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-144"></span><span>          </span><span class="annot"><span class="annottext">Maybe RequestCharged
 -&gt; Int -&gt; ResponseBody -&gt; GetObjectTorrentResponse
 </span><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrentResponse%27"><span class="hs-identifier hs-var">GetObjectTorrentResponse'</span></a></span><span>
-</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">(Maybe RequestCharged
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">(Maybe RequestCharged
  -&gt; Int -&gt; ResponseBody -&gt; GetObjectTorrentResponse)
 -&gt; Either String (Maybe RequestCharged)
 -&gt; Either String (Int -&gt; ResponseBody -&gt; GetObjectTorrentResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679571192"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679572048"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; HeaderName -&gt; Either String (Maybe RequestCharged)
 forall a.
 FromText a =&gt;
 ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..#?</span></span><span> </span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;x-amz-request-charged&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ResponseBody -&gt; GetObjectTorrentResponse)
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ResponseBody -&gt; GetObjectTorrentResponse)
 -&gt; Either String Int
 -&gt; Either String (ResponseBody -&gt; GetObjectTorrentResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -336,101 +341,101 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679571193"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Either String (ResponseBody -&gt; GetObjectTorrentResponse)
+</span><a href="#local-6989586621679572049"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Either String (ResponseBody -&gt; GetObjectTorrentResponse)
 -&gt; Either String ResponseBody
 -&gt; Either String GetObjectTorrentResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseBody -&gt; Either String ResponseBody
 forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="annot"><span class="annottext">ResponseBody
-</span><a href="#local-6989586621679571191"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679571183"><span id="local-6989586621679571185"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent"><span class="hs-identifier hs-type">GetObjectTorrent</span></a></span></span></span><span>
-</span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679571180"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent"><span class="hs-identifier hs-type">GetObjectTorrent</span></a></span></span><span>
-</span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent"><span class="hs-identifier hs-type">GetObjectTorrent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679571176"><span class="annot"><span class="annottext">toHeaders :: GetObjectTorrent -&gt; ResponseHeaders
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent%27"><span class="hs-identifier hs-type">GetObjectTorrent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679571171"><span id="local-6989586621679571172"><span id="local-6989586621679571173"><span id="local-6989586621679571174"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679572047"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679572039"><span id="local-6989586621679572041"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent"><span class="hs-identifier hs-type">GetObjectTorrent</span></a></span></span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679572036"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent"><span class="hs-identifier hs-type">GetObjectTorrent</span></a></span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent"><span class="hs-identifier hs-type">GetObjectTorrent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679572032"><span class="annot"><span class="annottext">toHeaders :: GetObjectTorrent -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent%27"><span class="hs-identifier hs-type">GetObjectTorrent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679572027"><span id="local-6989586621679572028"><span id="local-6989586621679572029"><span id="local-6989586621679572030"><span class="annot"><span class="annottext">Maybe Text
 Maybe RequestPayer
 ObjectKey
 BucketName
 key :: ObjectKey
 bucket :: BucketName
-requestPayer :: Maybe RequestPayer
 expectedBucketOwner :: Maybe Text
+requestPayer :: Maybe RequestPayer
 $sel:key:GetObjectTorrent' :: GetObjectTorrent -&gt; ObjectKey
 $sel:bucket:GetObjectTorrent' :: GetObjectTorrent -&gt; BucketName
-$sel:requestPayer:GetObjectTorrent' :: GetObjectTorrent -&gt; Maybe RequestPayer
 $sel:expectedBucketOwner:GetObjectTorrent' :: GetObjectTorrent -&gt; Maybe Text
-</span><a href="#local-6989586621679571171"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+$sel:requestPayer:GetObjectTorrent' :: GetObjectTorrent -&gt; Maybe RequestPayer
+</span><a href="#local-6989586621679572027"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
-</span><span id="line-156"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
-</span><span class="hs-string">&quot;x-amz-expected-bucket-owner&quot;</span></span><span>
-</span><span id="line-157"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
-forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
-</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679571174"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
+</span><span id="line-157"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;x-amz-request-payer&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe RequestPayer -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe RequestPayer
-</span><a href="#local-6989586621679571173"><span class="hs-identifier hs-var">requestPayer</span></a></span><span>
-</span><span id="line-159"></span><span>      </span><span class="hs-special">]</span><span>
-</span><span id="line-160"></span><span>
-</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent"><span class="hs-identifier hs-type">GetObjectTorrent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679571167"><span class="annot"><span class="annottext">toPath :: GetObjectTorrent -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent%27"><span class="hs-identifier hs-type">GetObjectTorrent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679571162"><span id="local-6989586621679571163"><span id="local-6989586621679571164"><span id="local-6989586621679571165"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679572030"><span class="hs-identifier hs-var">requestPayer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-expected-bucket-owner&quot;</span></span><span>
+</span><span id="line-159"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679572029"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent"><span class="hs-identifier hs-type">GetObjectTorrent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679572023"><span class="annot"><span class="annottext">toPath :: GetObjectTorrent -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent%27"><span class="hs-identifier hs-type">GetObjectTorrent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679572018"><span id="local-6989586621679572019"><span id="local-6989586621679572020"><span id="local-6989586621679572021"><span class="annot"><span class="annottext">Maybe Text
 Maybe RequestPayer
 ObjectKey
 BucketName
 key :: ObjectKey
 bucket :: BucketName
-requestPayer :: Maybe RequestPayer
 expectedBucketOwner :: Maybe Text
+requestPayer :: Maybe RequestPayer
 $sel:key:GetObjectTorrent' :: GetObjectTorrent -&gt; ObjectKey
 $sel:bucket:GetObjectTorrent' :: GetObjectTorrent -&gt; BucketName
-$sel:requestPayer:GetObjectTorrent' :: GetObjectTorrent -&gt; Maybe RequestPayer
 $sel:expectedBucketOwner:GetObjectTorrent' :: GetObjectTorrent -&gt; Maybe Text
-</span><a href="#local-6989586621679571162"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+$sel:requestPayer:GetObjectTorrent' :: GetObjectTorrent -&gt; Maybe RequestPayer
+</span><a href="#local-6989586621679572018"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
-</span><span id="line-164"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span id="line-165"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">BucketName -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679571163"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679572019"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ObjectKey -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679571162"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">]</span><span>
-</span><span id="line-165"></span><span>
-</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent"><span class="hs-identifier hs-type">GetObjectTorrent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621679571158"><span class="annot"><span class="annottext">toQuery :: GetObjectTorrent -&gt; QueryString
+</span><a href="#local-6989586621679572018"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrent"><span class="hs-identifier hs-type">GetObjectTorrent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679572014"><span class="annot"><span class="annottext">toQuery :: GetObjectTorrent -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetObjectTorrent -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">QueryString
 </span><span class="hs-string">&quot;torrent&quot;</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-168"></span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- | /See:/ 'newGetObjectTorrentResponse' smart constructor.</span><span>
-</span><span id="line-170"></span><span id="local-6989586621679571154"><span id="local-6989586621679571155"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetObjectTorrentResponse"><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrentResponse"><span class="hs-identifier hs-var">GetObjectTorrentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetObjectTorrentResponse%27"><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrentResponse%27"><span class="hs-identifier hs-var">GetObjectTorrentResponse'</span></a></span></span><span>
-</span><span id="line-171"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3ArequestCharged%3AGetObjectTorrentResponse%27"><span class="annot"><span class="annottext">GetObjectTorrentResponse -&gt; Maybe RequestCharged
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | /See:/ 'newGetObjectTorrentResponse' smart constructor.</span><span>
+</span><span id="line-171"></span><span id="local-6989586621679572010"><span id="local-6989586621679572011"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetObjectTorrentResponse"><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrentResponse"><span class="hs-identifier hs-var">GetObjectTorrentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetObjectTorrentResponse%27"><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrentResponse%27"><span class="hs-identifier hs-var">GetObjectTorrentResponse'</span></a></span></span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3ArequestCharged%3AGetObjectTorrentResponse%27"><span class="annot"><span class="annottext">GetObjectTorrentResponse -&gt; Maybe RequestCharged
 </span><a href="Network.AWS.S3.GetObjectTorrent.html#%24sel%3ArequestCharged%3AGetObjectTorrentResponse%27"><span class="hs-identifier hs-var hs-var">requestCharged</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RequestCharged.html#RequestCharged"><span class="hs-identifier hs-type">RequestCharged</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-172"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-173"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetObjectTorrentResponse%27"><span class="annot"><span class="annottext">GetObjectTorrentResponse -&gt; Int
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-174"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetObjectTorrentResponse%27"><span class="annot"><span class="annottext">GetObjectTorrentResponse -&gt; Int
 </span><a href="Network.AWS.S3.GetObjectTorrent.html#%24sel%3AhttpStatus%3AGetObjectTorrentResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-174"></span><span>    </span><span class="hs-comment">-- | A Bencoded dictionary as defined by the BitTorrent specification</span><span>
-</span><span id="line-175"></span><span>    </span><span id="%24sel%3Abody%3AGetObjectTorrentResponse%27"><span class="annot"><span class="annottext">GetObjectTorrentResponse -&gt; ResponseBody
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">-- | A Bencoded dictionary as defined by the BitTorrent specification</span><span>
+</span><span id="line-176"></span><span>    </span><span id="%24sel%3Abody%3AGetObjectTorrentResponse%27"><span class="annot"><span class="annottext">GetObjectTorrentResponse -&gt; ResponseBody
 </span><a href="Network.AWS.S3.GetObjectTorrent.html#%24sel%3Abody%3AGetObjectTorrentResponse%27"><span class="hs-identifier hs-var hs-var">body</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ResponseBody</span></span><span>
-</span><span id="line-176"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-177"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679571145"><span id="local-6989586621679571147"><span id="local-6989586621679571149"><span class="annot"><span class="annottext">Int -&gt; GetObjectTorrentResponse -&gt; ShowS
+</span><span id="line-177"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-178"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679572001"><span id="local-6989586621679572003"><span id="local-6989586621679572005"><span class="annot"><span class="annottext">Int -&gt; GetObjectTorrentResponse -&gt; ShowS
 [GetObjectTorrentResponse] -&gt; ShowS
 GetObjectTorrentResponse -&gt; String
 (Int -&gt; GetObjectTorrentResponse -&gt; ShowS)
@@ -461,49 +466,49 @@ Rep GetObjectTorrentResponse x -&gt; GetObjectTorrentResponse
 $cfrom :: forall x.
 GetObjectTorrentResponse -&gt; Rep GetObjectTorrentResponse x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
-</span><span id="line-178"></span><span>
-</span><span id="line-179"></span><span class="hs-comment">-- |</span><span>
-</span><span id="line-180"></span><span class="hs-comment">-- Create a value of 'GetObjectTorrentResponse' with all optional fields omitted.</span><span>
-</span><span id="line-181"></span><span class="hs-comment">--</span><span>
-</span><span id="line-182"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
-</span><span id="line-183"></span><span class="hs-comment">--</span><span>
-</span><span id="line-184"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
-</span><span id="line-185"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
-</span><span id="line-186"></span><span class="hs-comment">--</span><span>
-</span><span id="line-187"></span><span class="hs-comment">-- 'requestCharged', 'getObjectTorrentResponse_requestCharged' - Undocumented member.</span><span>
-</span><span id="line-188"></span><span class="hs-comment">--</span><span>
-</span><span id="line-189"></span><span class="hs-comment">-- 'httpStatus', 'getObjectTorrentResponse_httpStatus' - The response's http status code.</span><span>
-</span><span id="line-190"></span><span class="hs-comment">--</span><span>
-</span><span id="line-191"></span><span class="hs-comment">-- 'body', 'getObjectTorrentResponse_body' - A Bencoded dictionary as defined by the BitTorrent specification</span><span>
-</span><span id="line-192"></span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#newGetObjectTorrentResponse"><span class="hs-identifier hs-type">newGetObjectTorrentResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-193"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
-</span><span id="line-194"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-195"></span><span>  </span><span class="hs-comment">-- | 'body'</span><span>
-</span><span id="line-196"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ResponseBody</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-197"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrentResponse"><span class="hs-identifier hs-type">GetObjectTorrentResponse</span></a></span><span>
-</span><span id="line-198"></span><span id="newGetObjectTorrentResponse"><span class="annot"><span class="annottext">newGetObjectTorrentResponse :: Int -&gt; ResponseBody -&gt; GetObjectTorrentResponse
-</span><a href="Network.AWS.S3.GetObjectTorrent.html#newGetObjectTorrentResponse"><span class="hs-identifier hs-var hs-var">newGetObjectTorrentResponse</span></a></span></span><span> </span><span id="local-6989586621679571142"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679571142"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679571141"><span class="annot"><span class="annottext">ResponseBody
-</span><a href="#local-6989586621679571141"><span class="hs-identifier hs-var">pBody_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-199"></span><span>  </span><span class="annot"><span class="annottext">GetObjectTorrentResponse' :: Maybe RequestCharged
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- Create a value of 'GetObjectTorrentResponse' with all optional fields omitted.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'requestCharged', 'getObjectTorrentResponse_requestCharged' - Undocumented member.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'httpStatus', 'getObjectTorrentResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- 'body', 'getObjectTorrentResponse_body' - A Bencoded dictionary as defined by the BitTorrent specification</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#newGetObjectTorrentResponse"><span class="hs-identifier hs-type">newGetObjectTorrentResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-194"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-195"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-196"></span><span>  </span><span class="hs-comment">-- | 'body'</span><span>
+</span><span id="line-197"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ResponseBody</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-198"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrentResponse"><span class="hs-identifier hs-type">GetObjectTorrentResponse</span></a></span><span>
+</span><span id="line-199"></span><span id="newGetObjectTorrentResponse"><span class="annot"><span class="annottext">newGetObjectTorrentResponse :: Int -&gt; ResponseBody -&gt; GetObjectTorrentResponse
+</span><a href="Network.AWS.S3.GetObjectTorrent.html#newGetObjectTorrentResponse"><span class="hs-identifier hs-var hs-var">newGetObjectTorrentResponse</span></a></span></span><span> </span><span id="local-6989586621679571998"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679571998"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679571997"><span class="annot"><span class="annottext">ResponseBody
+</span><a href="#local-6989586621679571997"><span class="hs-identifier hs-var">pBody_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-200"></span><span>  </span><span class="annot"><span class="annottext">GetObjectTorrentResponse' :: Maybe RequestCharged
 -&gt; Int -&gt; ResponseBody -&gt; GetObjectTorrentResponse
 </span><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrentResponse%27"><span class="hs-identifier hs-type">GetObjectTorrentResponse'</span></a></span><span>
-</span><span id="line-200"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:requestCharged:GetObjectTorrentResponse' :: Maybe RequestCharged
+</span><span id="line-201"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:requestCharged:GetObjectTorrentResponse' :: Maybe RequestCharged
 </span><a href="Network.AWS.S3.GetObjectTorrent.html#%24sel%3ArequestCharged%3AGetObjectTorrentResponse%27"><span class="hs-identifier hs-var">requestCharged</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-201"></span><span>        </span><span class="annot"><span class="annottext">Maybe RequestCharged
+</span><span id="line-202"></span><span>        </span><span class="annot"><span class="annottext">Maybe RequestCharged
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-202"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetObjectTorrentResponse' :: Int
+</span><span id="line-203"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetObjectTorrentResponse' :: Int
 </span><a href="Network.AWS.S3.GetObjectTorrent.html#%24sel%3AhttpStatus%3AGetObjectTorrentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679571142"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-203"></span><span>      </span><span class="annot"><span class="annottext">$sel:body:GetObjectTorrentResponse' :: ResponseBody
+</span><a href="#local-6989586621679571998"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>      </span><span class="annot"><span class="annottext">$sel:body:GetObjectTorrentResponse' :: ResponseBody
 </span><a href="Network.AWS.S3.GetObjectTorrent.html#%24sel%3Abody%3AGetObjectTorrentResponse%27"><span class="hs-identifier hs-var">body</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseBody
-</span><a href="#local-6989586621679571141"><span class="hs-identifier hs-var">pBody_</span></a></span><span>
-</span><span id="line-204"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-205"></span><span>
-</span><span id="line-206"></span><span class="hs-comment">-- | Undocumented member.</span><span>
-</span><span id="line-207"></span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#getObjectTorrentResponse_requestCharged"><span class="hs-identifier hs-type">getObjectTorrentResponse_requestCharged</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrentResponse"><span class="hs-identifier hs-type">GetObjectTorrentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RequestCharged.html#RequestCharged"><span class="hs-identifier hs-type">RequestCharged</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-208"></span><span id="getObjectTorrentResponse_requestCharged"><span class="annot"><span class="annottext">getObjectTorrentResponse_requestCharged :: (Maybe RequestCharged -&gt; f (Maybe RequestCharged))
+</span><a href="#local-6989586621679571997"><span class="hs-identifier hs-var">pBody_</span></a></span><span>
+</span><span id="line-205"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#getObjectTorrentResponse_requestCharged"><span class="hs-identifier hs-type">getObjectTorrentResponse_requestCharged</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrentResponse"><span class="hs-identifier hs-type">GetObjectTorrentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RequestCharged.html#RequestCharged"><span class="hs-identifier hs-type">RequestCharged</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span id="getObjectTorrentResponse_requestCharged"><span class="annot"><span class="annottext">getObjectTorrentResponse_requestCharged :: (Maybe RequestCharged -&gt; f (Maybe RequestCharged))
 -&gt; GetObjectTorrentResponse -&gt; f GetObjectTorrentResponse
 </span><a href="Network.AWS.S3.GetObjectTorrent.html#getObjectTorrentResponse_requestCharged"><span class="hs-identifier hs-var hs-var">getObjectTorrentResponse_requestCharged</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetObjectTorrentResponse -&gt; Maybe RequestCharged)
 -&gt; (GetObjectTorrentResponse
@@ -514,39 +519,39 @@ forall a. Maybe a
      (Maybe RequestCharged)
      (Maybe RequestCharged)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrentResponse%27"><span class="hs-identifier hs-type">GetObjectTorrentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679571140"><span class="annot"><span class="annottext">Maybe RequestCharged
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrentResponse%27"><span class="hs-identifier hs-type">GetObjectTorrentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679571996"><span class="annot"><span class="annottext">Maybe RequestCharged
 requestCharged :: Maybe RequestCharged
 $sel:requestCharged:GetObjectTorrentResponse' :: GetObjectTorrentResponse -&gt; Maybe RequestCharged
-</span><a href="#local-6989586621679571140"><span class="hs-identifier hs-var hs-var">requestCharged</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RequestCharged
-</span><a href="#local-6989586621679571140"><span class="hs-identifier hs-var">requestCharged</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679571139"><span class="annot"><span class="annottext">s :: GetObjectTorrentResponse
-</span><a href="#local-6989586621679571139"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrentResponse%27"><span class="hs-identifier hs-type">GetObjectTorrentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679571138"><span class="annot"><span class="annottext">Maybe RequestCharged
-</span><a href="#local-6989586621679571138"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectTorrentResponse
-</span><a href="#local-6989586621679571139"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestCharged:GetObjectTorrentResponse' :: Maybe RequestCharged
+</span><a href="#local-6989586621679571996"><span class="hs-identifier hs-var hs-var">requestCharged</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RequestCharged
+</span><a href="#local-6989586621679571996"><span class="hs-identifier hs-var">requestCharged</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679571995"><span class="annot"><span class="annottext">s :: GetObjectTorrentResponse
+</span><a href="#local-6989586621679571995"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrentResponse%27"><span class="hs-identifier hs-type">GetObjectTorrentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679571994"><span class="annot"><span class="annottext">Maybe RequestCharged
+</span><a href="#local-6989586621679571994"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectTorrentResponse
+</span><a href="#local-6989586621679571995"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestCharged:GetObjectTorrentResponse' :: Maybe RequestCharged
 </span><a href="Network.AWS.S3.GetObjectTorrent.html#%24sel%3ArequestCharged%3AGetObjectTorrentResponse%27"><span class="hs-identifier hs-var">requestCharged</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RequestCharged
-</span><a href="#local-6989586621679571138"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrentResponse"><span class="hs-identifier hs-type">GetObjectTorrentResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-209"></span><span>
-</span><span id="line-210"></span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-211"></span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#getObjectTorrentResponse_httpStatus"><span class="hs-identifier hs-type">getObjectTorrentResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrentResponse"><span class="hs-identifier hs-type">GetObjectTorrentResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-212"></span><span id="getObjectTorrentResponse_httpStatus"><span class="annot"><span class="annottext">getObjectTorrentResponse_httpStatus :: (Int -&gt; f Int)
+</span><a href="#local-6989586621679571994"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrentResponse"><span class="hs-identifier hs-type">GetObjectTorrentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#getObjectTorrentResponse_httpStatus"><span class="hs-identifier hs-type">getObjectTorrentResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrentResponse"><span class="hs-identifier hs-type">GetObjectTorrentResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-213"></span><span id="getObjectTorrentResponse_httpStatus"><span class="annot"><span class="annottext">getObjectTorrentResponse_httpStatus :: (Int -&gt; f Int)
 -&gt; GetObjectTorrentResponse -&gt; f GetObjectTorrentResponse
 </span><a href="Network.AWS.S3.GetObjectTorrent.html#getObjectTorrentResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getObjectTorrentResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetObjectTorrentResponse -&gt; Int)
 -&gt; (GetObjectTorrentResponse -&gt; Int -&gt; GetObjectTorrentResponse)
 -&gt; Lens GetObjectTorrentResponse GetObjectTorrentResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrentResponse%27"><span class="hs-identifier hs-type">GetObjectTorrentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679571137"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrentResponse%27"><span class="hs-identifier hs-type">GetObjectTorrentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679571993"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetObjectTorrentResponse' :: GetObjectTorrentResponse -&gt; Int
-</span><a href="#local-6989586621679571137"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679571137"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679571136"><span class="annot"><span class="annottext">s :: GetObjectTorrentResponse
-</span><a href="#local-6989586621679571136"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrentResponse%27"><span class="hs-identifier hs-type">GetObjectTorrentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679571135"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679571135"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectTorrentResponse
-</span><a href="#local-6989586621679571136"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetObjectTorrentResponse' :: Int
+</span><a href="#local-6989586621679571993"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679571993"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679571992"><span class="annot"><span class="annottext">s :: GetObjectTorrentResponse
+</span><a href="#local-6989586621679571992"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrentResponse%27"><span class="hs-identifier hs-type">GetObjectTorrentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679571991"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679571991"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectTorrentResponse
+</span><a href="#local-6989586621679571992"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetObjectTorrentResponse' :: Int
 </span><a href="Network.AWS.S3.GetObjectTorrent.html#%24sel%3AhttpStatus%3AGetObjectTorrentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679571135"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrentResponse"><span class="hs-identifier hs-type">GetObjectTorrentResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-213"></span><span>
-</span><span id="line-214"></span><span class="hs-comment">-- | A Bencoded dictionary as defined by the BitTorrent specification</span><span>
-</span><span id="line-215"></span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#getObjectTorrentResponse_body"><span class="hs-identifier hs-type">getObjectTorrentResponse_body</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrentResponse"><span class="hs-identifier hs-type">GetObjectTorrentResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ResponseBody</span></span><span>
-</span><span id="line-216"></span><span id="getObjectTorrentResponse_body"><span class="annot"><span class="annottext">getObjectTorrentResponse_body :: (ResponseBody -&gt; f ResponseBody)
+</span><a href="#local-6989586621679571991"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrentResponse"><span class="hs-identifier hs-type">GetObjectTorrentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- | A Bencoded dictionary as defined by the BitTorrent specification</span><span>
+</span><span id="line-216"></span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#getObjectTorrentResponse_body"><span class="hs-identifier hs-type">getObjectTorrentResponse_body</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrentResponse"><span class="hs-identifier hs-type">GetObjectTorrentResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ResponseBody</span></span><span>
+</span><span id="line-217"></span><span id="getObjectTorrentResponse_body"><span class="annot"><span class="annottext">getObjectTorrentResponse_body :: (ResponseBody -&gt; f ResponseBody)
 -&gt; GetObjectTorrentResponse -&gt; f GetObjectTorrentResponse
 </span><a href="Network.AWS.S3.GetObjectTorrent.html#getObjectTorrentResponse_body"><span class="hs-identifier hs-var hs-var">getObjectTorrentResponse_body</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetObjectTorrentResponse -&gt; ResponseBody)
 -&gt; (GetObjectTorrentResponse
@@ -557,14 +562,14 @@ $sel:httpStatus:GetObjectTorrentResponse' :: GetObjectTorrentResponse -&gt; Int
      ResponseBody
      ResponseBody
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrentResponse%27"><span class="hs-identifier hs-type">GetObjectTorrentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679571134"><span class="annot"><span class="annottext">ResponseBody
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrentResponse%27"><span class="hs-identifier hs-type">GetObjectTorrentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679571990"><span class="annot"><span class="annottext">ResponseBody
 body :: ResponseBody
 $sel:body:GetObjectTorrentResponse' :: GetObjectTorrentResponse -&gt; ResponseBody
-</span><a href="#local-6989586621679571134"><span class="hs-identifier hs-var hs-var">body</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResponseBody
-</span><a href="#local-6989586621679571134"><span class="hs-identifier hs-var">body</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679571133"><span class="annot"><span class="annottext">s :: GetObjectTorrentResponse
-</span><a href="#local-6989586621679571133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrentResponse%27"><span class="hs-identifier hs-type">GetObjectTorrentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679571132"><span class="annot"><span class="annottext">ResponseBody
-</span><a href="#local-6989586621679571132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectTorrentResponse
-</span><a href="#local-6989586621679571133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:body:GetObjectTorrentResponse' :: ResponseBody
+</span><a href="#local-6989586621679571990"><span class="hs-identifier hs-var hs-var">body</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResponseBody
+</span><a href="#local-6989586621679571990"><span class="hs-identifier hs-var">body</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679571989"><span class="annot"><span class="annottext">s :: GetObjectTorrentResponse
+</span><a href="#local-6989586621679571989"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrentResponse%27"><span class="hs-identifier hs-type">GetObjectTorrentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679571988"><span class="annot"><span class="annottext">ResponseBody
+</span><a href="#local-6989586621679571988"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectTorrentResponse
+</span><a href="#local-6989586621679571989"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:body:GetObjectTorrentResponse' :: ResponseBody
 </span><a href="Network.AWS.S3.GetObjectTorrent.html#%24sel%3Abody%3AGetObjectTorrentResponse%27"><span class="hs-identifier hs-var">body</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseBody
-</span><a href="#local-6989586621679571132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrentResponse"><span class="hs-identifier hs-type">GetObjectTorrentResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-217"></span></pre></body></html>
+</span><a href="#local-6989586621679571988"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTorrent.html#GetObjectTorrentResponse"><span class="hs-identifier hs-type">GetObjectTorrentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span></pre></body></html>

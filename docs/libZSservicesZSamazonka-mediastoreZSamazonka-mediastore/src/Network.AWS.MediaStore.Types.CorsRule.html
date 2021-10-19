@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- rule listed.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newCorsRule' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679163836"><span id="local-6989586621679163837"></span></span><span class="hs-keyword">data</span><span> </span><span id="CorsRule"><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#CorsRule"><span class="hs-identifier hs-var">CorsRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CorsRule%27"><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#CorsRule%27"><span class="hs-identifier hs-var">CorsRule'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679163893"><span id="local-6989586621679163894"></span></span><span class="hs-keyword">data</span><span> </span><span id="CorsRule"><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#CorsRule"><span class="hs-identifier hs-var">CorsRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CorsRule%27"><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#CorsRule%27"><span class="hs-identifier hs-var">CorsRule'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Identifies an HTTP method that the origin that is specified in the rule</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- is allowed to execute.</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -70,7 +70,7 @@
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3AallowedHeaders%3ACorsRule%27"><span class="annot"><span class="annottext">CorsRule -&gt; [Text]
 </span><a href="Network.AWS.MediaStore.Types.CorsRule.html#%24sel%3AallowedHeaders%3ACorsRule%27"><span class="hs-identifier hs-var hs-var">allowedHeaders</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679163826"><span id="local-6989586621679163828"><span class="annot"><span class="annottext">CorsRule -&gt; CorsRule -&gt; Bool
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679163883"><span id="local-6989586621679163885"><span class="annot"><span class="annottext">CorsRule -&gt; CorsRule -&gt; Bool
 (CorsRule -&gt; CorsRule -&gt; Bool)
 -&gt; (CorsRule -&gt; CorsRule -&gt; Bool) -&gt; Eq CorsRule
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -78,7 +78,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CorsRule -&gt; CorsRule -&gt; Bool
 == :: CorsRule -&gt; CorsRule -&gt; Bool
 $c== :: CorsRule -&gt; CorsRule -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679163817"><span id="local-6989586621679163819"><span id="local-6989586621679163821"><span id="local-6989586621679163823"><span class="annot"><span class="annottext">ReadPrec [CorsRule]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679163874"><span id="local-6989586621679163876"><span id="local-6989586621679163878"><span id="local-6989586621679163880"><span class="annot"><span class="annottext">ReadPrec [CorsRule]
 ReadPrec CorsRule
 Int -&gt; ReadS CorsRule
 ReadS [CorsRule]
@@ -98,7 +98,7 @@ readList :: ReadS [CorsRule]
 $creadList :: ReadS [CorsRule]
 readsPrec :: Int -&gt; ReadS CorsRule
 $creadsPrec :: Int -&gt; ReadS CorsRule
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679163810"><span id="local-6989586621679163812"><span id="local-6989586621679163814"><span class="annot"><span class="annottext">Int -&gt; CorsRule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679163867"><span id="local-6989586621679163869"><span id="local-6989586621679163871"><span class="annot"><span class="annottext">Int -&gt; CorsRule -&gt; ShowS
 [CorsRule] -&gt; ShowS
 CorsRule -&gt; String
 (Int -&gt; CorsRule -&gt; ShowS)
@@ -167,8 +167,8 @@ $cfrom :: forall x. CorsRule -&gt; Rep CorsRule x
 </span><span id="line-113"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-114"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#CorsRule"><span class="hs-identifier hs-type">CorsRule</span></a></span><span>
 </span><span id="line-115"></span><span id="newCorsRule"><span class="annot"><span class="annottext">newCorsRule :: NonEmpty Text -&gt; CorsRule
-</span><a href="Network.AWS.MediaStore.Types.CorsRule.html#newCorsRule"><span class="hs-identifier hs-var hs-var">newCorsRule</span></a></span></span><span> </span><span id="local-6989586621679163804"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679163804"><span class="hs-identifier hs-var">pAllowedOrigins_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaStore.Types.CorsRule.html#newCorsRule"><span class="hs-identifier hs-var hs-var">newCorsRule</span></a></span></span><span> </span><span id="local-6989586621679163861"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679163861"><span class="hs-identifier hs-var">pAllowedOrigins_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>  </span><span class="annot"><span class="annottext">CorsRule' :: Maybe (NonEmpty MethodName)
 -&gt; Maybe Natural
 -&gt; Maybe [Text]
@@ -192,13 +192,13 @@ forall a. Maybe a
 </span><a href="Network.AWS.MediaStore.Types.CorsRule.html#%24sel%3AallowedOrigins%3ACorsRule%27"><span class="hs-identifier hs-var">allowedOrigins</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
 -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
  -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text)))
 -&gt; NonEmpty Text -&gt; NonEmpty Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679163804"><span class="hs-identifier hs-var">pAllowedOrigins_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679163861"><span class="hs-identifier hs-var">pAllowedOrigins_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:allowedHeaders:CorsRule' :: [Text]
 </span><a href="Network.AWS.MediaStore.Types.CorsRule.html#%24sel%3AallowedHeaders%3ACorsRule%27"><span class="hs-identifier hs-var">allowedHeaders</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
 forall a. Monoid a =&gt; a
@@ -221,16 +221,16 @@ forall a. Monoid a =&gt; a
      (Maybe (NonEmpty MethodName))
      (Maybe (NonEmpty MethodName))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#CorsRule%27"><span class="hs-identifier hs-type">CorsRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163798"><span class="annot"><span class="annottext">Maybe (NonEmpty MethodName)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#CorsRule%27"><span class="hs-identifier hs-type">CorsRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163855"><span class="annot"><span class="annottext">Maybe (NonEmpty MethodName)
 allowedMethods :: Maybe (NonEmpty MethodName)
 $sel:allowedMethods:CorsRule' :: CorsRule -&gt; Maybe (NonEmpty MethodName)
-</span><a href="#local-6989586621679163798"><span class="hs-identifier hs-var hs-var">allowedMethods</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty MethodName)
-</span><a href="#local-6989586621679163798"><span class="hs-identifier hs-var">allowedMethods</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679163797"><span class="annot"><span class="annottext">s :: CorsRule
-</span><a href="#local-6989586621679163797"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#CorsRule%27"><span class="hs-identifier hs-type">CorsRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679163796"><span class="annot"><span class="annottext">Maybe (NonEmpty MethodName)
-</span><a href="#local-6989586621679163796"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CorsRule
-</span><a href="#local-6989586621679163797"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowedMethods:CorsRule' :: Maybe (NonEmpty MethodName)
+</span><a href="#local-6989586621679163855"><span class="hs-identifier hs-var hs-var">allowedMethods</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty MethodName)
+</span><a href="#local-6989586621679163855"><span class="hs-identifier hs-var">allowedMethods</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679163854"><span class="annot"><span class="annottext">s :: CorsRule
+</span><a href="#local-6989586621679163854"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#CorsRule%27"><span class="hs-identifier hs-type">CorsRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679163853"><span class="annot"><span class="annottext">Maybe (NonEmpty MethodName)
+</span><a href="#local-6989586621679163853"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CorsRule
+</span><a href="#local-6989586621679163854"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowedMethods:CorsRule' :: Maybe (NonEmpty MethodName)
 </span><a href="Network.AWS.MediaStore.Types.CorsRule.html#%24sel%3AallowedMethods%3ACorsRule%27"><span class="hs-identifier hs-var">allowedMethods</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty MethodName)
-</span><a href="#local-6989586621679163796"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#CorsRule"><span class="hs-identifier hs-type">CorsRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty MethodName) -&gt; f (Maybe (NonEmpty MethodName)))
+</span><a href="#local-6989586621679163853"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#CorsRule"><span class="hs-identifier hs-type">CorsRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty MethodName) -&gt; f (Maybe (NonEmpty MethodName)))
  -&gt; CorsRule -&gt; f CorsRule)
 -&gt; ((Maybe (NonEmpty MethodName)
      -&gt; f (Maybe (NonEmpty MethodName)))
@@ -257,8 +257,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (NonEmpty MethodName)
   (NonEmpty MethodName)
   (NonEmpty MethodName)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | The time in seconds that your browser caches the preflight response for</span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- the specified resource.</span><span>
@@ -270,16 +270,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (CorsRule -&gt; Maybe Natural -&gt; CorsRule)
 -&gt; Lens CorsRule CorsRule (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#CorsRule%27"><span class="hs-identifier hs-type">CorsRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163792"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#CorsRule%27"><span class="hs-identifier hs-type">CorsRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163849"><span class="annot"><span class="annottext">Maybe Natural
 maxAgeSeconds :: Maybe Natural
 $sel:maxAgeSeconds:CorsRule' :: CorsRule -&gt; Maybe Natural
-</span><a href="#local-6989586621679163792"><span class="hs-identifier hs-var hs-var">maxAgeSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679163792"><span class="hs-identifier hs-var">maxAgeSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679163791"><span class="annot"><span class="annottext">s :: CorsRule
-</span><a href="#local-6989586621679163791"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#CorsRule%27"><span class="hs-identifier hs-type">CorsRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679163790"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679163790"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CorsRule
-</span><a href="#local-6989586621679163791"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxAgeSeconds:CorsRule' :: Maybe Natural
+</span><a href="#local-6989586621679163849"><span class="hs-identifier hs-var hs-var">maxAgeSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679163849"><span class="hs-identifier hs-var">maxAgeSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679163848"><span class="annot"><span class="annottext">s :: CorsRule
+</span><a href="#local-6989586621679163848"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#CorsRule%27"><span class="hs-identifier hs-type">CorsRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679163847"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679163847"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CorsRule
+</span><a href="#local-6989586621679163848"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxAgeSeconds:CorsRule' :: Maybe Natural
 </span><a href="Network.AWS.MediaStore.Types.CorsRule.html#%24sel%3AmaxAgeSeconds%3ACorsRule%27"><span class="hs-identifier hs-var">maxAgeSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679163790"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#CorsRule"><span class="hs-identifier hs-type">CorsRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679163847"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#CorsRule"><span class="hs-identifier hs-type">CorsRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- | One or more headers in the response that you want users to be able to</span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- access from their applications (for example, from a JavaScript</span><span>
@@ -292,16 +292,16 @@ $sel:maxAgeSeconds:CorsRule' :: CorsRule -&gt; Maybe Natural
 -&gt; (CorsRule -&gt; Maybe [Text] -&gt; CorsRule)
 -&gt; Lens CorsRule CorsRule (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#CorsRule%27"><span class="hs-identifier hs-type">CorsRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163788"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#CorsRule%27"><span class="hs-identifier hs-type">CorsRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163845"><span class="annot"><span class="annottext">Maybe [Text]
 exposeHeaders :: Maybe [Text]
 $sel:exposeHeaders:CorsRule' :: CorsRule -&gt; Maybe [Text]
-</span><a href="#local-6989586621679163788"><span class="hs-identifier hs-var hs-var">exposeHeaders</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679163788"><span class="hs-identifier hs-var">exposeHeaders</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679163787"><span class="annot"><span class="annottext">s :: CorsRule
-</span><a href="#local-6989586621679163787"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#CorsRule%27"><span class="hs-identifier hs-type">CorsRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679163786"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679163786"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CorsRule
-</span><a href="#local-6989586621679163787"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exposeHeaders:CorsRule' :: Maybe [Text]
+</span><a href="#local-6989586621679163845"><span class="hs-identifier hs-var hs-var">exposeHeaders</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679163845"><span class="hs-identifier hs-var">exposeHeaders</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679163844"><span class="annot"><span class="annottext">s :: CorsRule
+</span><a href="#local-6989586621679163844"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#CorsRule%27"><span class="hs-identifier hs-type">CorsRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679163843"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679163843"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CorsRule
+</span><a href="#local-6989586621679163844"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exposeHeaders:CorsRule' :: Maybe [Text]
 </span><a href="Network.AWS.MediaStore.Types.CorsRule.html#%24sel%3AexposeHeaders%3ACorsRule%27"><span class="hs-identifier hs-var">exposeHeaders</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679163786"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#CorsRule"><span class="hs-identifier hs-type">CorsRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; CorsRule -&gt; f CorsRule)
+</span><a href="#local-6989586621679163843"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#CorsRule"><span class="hs-identifier hs-type">CorsRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; CorsRule -&gt; f CorsRule)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -314,8 +314,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- | One or more response headers that you want users to be able to access</span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- from their applications (for example, from a JavaScript @XMLHttpRequest@</span><span>
@@ -331,16 +331,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (CorsRule -&gt; NonEmpty Text -&gt; CorsRule)
 -&gt; Lens CorsRule CorsRule (NonEmpty Text) (NonEmpty Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#CorsRule%27"><span class="hs-identifier hs-type">CorsRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163784"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#CorsRule%27"><span class="hs-identifier hs-type">CorsRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163841"><span class="annot"><span class="annottext">NonEmpty Text
 allowedOrigins :: NonEmpty Text
 $sel:allowedOrigins:CorsRule' :: CorsRule -&gt; NonEmpty Text
-</span><a href="#local-6989586621679163784"><span class="hs-identifier hs-var hs-var">allowedOrigins</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679163784"><span class="hs-identifier hs-var">allowedOrigins</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679163783"><span class="annot"><span class="annottext">s :: CorsRule
-</span><a href="#local-6989586621679163783"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#CorsRule%27"><span class="hs-identifier hs-type">CorsRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679163782"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679163782"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CorsRule
-</span><a href="#local-6989586621679163783"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowedOrigins:CorsRule' :: NonEmpty Text
+</span><a href="#local-6989586621679163841"><span class="hs-identifier hs-var hs-var">allowedOrigins</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679163841"><span class="hs-identifier hs-var">allowedOrigins</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679163840"><span class="annot"><span class="annottext">s :: CorsRule
+</span><a href="#local-6989586621679163840"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#CorsRule%27"><span class="hs-identifier hs-type">CorsRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679163839"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679163839"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CorsRule
+</span><a href="#local-6989586621679163840"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowedOrigins:CorsRule' :: NonEmpty Text
 </span><a href="Network.AWS.MediaStore.Types.CorsRule.html#%24sel%3AallowedOrigins%3ACorsRule%27"><span class="hs-identifier hs-var">allowedOrigins</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679163782"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#CorsRule"><span class="hs-identifier hs-type">CorsRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text)) -&gt; CorsRule -&gt; f CorsRule)
+</span><a href="#local-6989586621679163839"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#CorsRule"><span class="hs-identifier hs-type">CorsRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text)) -&gt; CorsRule -&gt; f CorsRule)
 -&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
     -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
 -&gt; (NonEmpty Text -&gt; f (NonEmpty Text))
@@ -349,8 +349,8 @@ $sel:allowedOrigins:CorsRule' :: CorsRule -&gt; NonEmpty Text
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; f (NonEmpty Text))
 -&gt; NonEmpty Text -&gt; f (NonEmpty Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- | Specifies which headers are allowed in a preflight @OPTIONS@ request</span><span>
 </span><span id="line-160"></span><span class="hs-comment">-- through the @Access-Control-Request-Headers@ header. Each header name</span><span>
@@ -365,35 +365,35 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (CorsRule -&gt; [Text] -&gt; CorsRule)
 -&gt; Lens CorsRule CorsRule [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#CorsRule%27"><span class="hs-identifier hs-type">CorsRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163780"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#CorsRule%27"><span class="hs-identifier hs-type">CorsRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163837"><span class="annot"><span class="annottext">[Text]
 allowedHeaders :: [Text]
 $sel:allowedHeaders:CorsRule' :: CorsRule -&gt; [Text]
-</span><a href="#local-6989586621679163780"><span class="hs-identifier hs-var hs-var">allowedHeaders</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679163780"><span class="hs-identifier hs-var">allowedHeaders</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679163779"><span class="annot"><span class="annottext">s :: CorsRule
-</span><a href="#local-6989586621679163779"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#CorsRule%27"><span class="hs-identifier hs-type">CorsRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679163778"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679163778"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CorsRule
-</span><a href="#local-6989586621679163779"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowedHeaders:CorsRule' :: [Text]
+</span><a href="#local-6989586621679163837"><span class="hs-identifier hs-var hs-var">allowedHeaders</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679163837"><span class="hs-identifier hs-var">allowedHeaders</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679163836"><span class="annot"><span class="annottext">s :: CorsRule
+</span><a href="#local-6989586621679163836"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#CorsRule%27"><span class="hs-identifier hs-type">CorsRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679163835"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679163835"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CorsRule
+</span><a href="#local-6989586621679163836"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowedHeaders:CorsRule' :: [Text]
 </span><a href="Network.AWS.MediaStore.Types.CorsRule.html#%24sel%3AallowedHeaders%3ACorsRule%27"><span class="hs-identifier hs-var">allowedHeaders</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679163778"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#CorsRule"><span class="hs-identifier hs-type">CorsRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; CorsRule -&gt; f CorsRule)
+</span><a href="#local-6989586621679163835"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#CorsRule"><span class="hs-identifier hs-type">CorsRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; CorsRule -&gt; f CorsRule)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
 -&gt; CorsRule
 -&gt; f CorsRule
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-168"></span><span>
-</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679163775"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#CorsRule"><span class="hs-identifier hs-type">CorsRule</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621679163773"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CorsRule
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679163832"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#CorsRule"><span class="hs-identifier hs-type">CorsRule</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679163830"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CorsRule
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-171"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser CorsRule) -&gt; Value -&gt; Parser CorsRule
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-172"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CorsRule&quot;</span></span><span>
-</span><span id="line-173"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679163770"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679163770"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679163827"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679163827"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-174"></span><span>          </span><span class="annot"><span class="annottext">Maybe (NonEmpty MethodName)
 -&gt; Maybe Natural
 -&gt; Maybe [Text]
@@ -413,7 +413,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe [Text] -&gt; NonEmpty Text -&gt; [Text] -&gt; CorsRule)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679163770"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty MethodName))
+</span><a href="#local-6989586621679163827"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty MethodName))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AllowedMethods&quot;</span></span><span class="hs-special">)</span><span>
@@ -424,7 +424,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [Text] -&gt; NonEmpty Text -&gt; [Text] -&gt; CorsRule)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679163770"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679163827"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxAgeSeconds&quot;</span></span><span class="hs-special">)</span><span>
@@ -433,7 +433,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (NonEmpty Text -&gt; [Text] -&gt; CorsRule)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679163770"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679163827"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ExposeHeaders&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -446,14 +446,14 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (NonEmpty Text) -&gt; Parser ([Text] -&gt; CorsRule)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679163770"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty Text)
+</span><a href="#local-6989586621679163827"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AllowedOrigins&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Parser ([Text] -&gt; CorsRule) -&gt; Parser [Text] -&gt; Parser CorsRule
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679163770"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Text])
+</span><a href="#local-6989586621679163827"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Text])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AllowedHeaders&quot;</span></span><span>
@@ -465,13 +465,13 @@ forall a. Monoid a =&gt; a
 </span><span id="line-181"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-183"></span><span>
-</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679163762"><span id="local-6989586621679163764"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#CorsRule"><span class="hs-identifier hs-type">CorsRule</span></a></span></span></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679163819"><span id="local-6989586621679163821"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#CorsRule"><span class="hs-identifier hs-type">CorsRule</span></a></span></span></span><span>
 </span><span id="line-185"></span><span>
-</span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679163759"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#CorsRule"><span class="hs-identifier hs-type">CorsRule</span></a></span></span><span>
+</span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679163816"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#CorsRule"><span class="hs-identifier hs-type">CorsRule</span></a></span></span><span>
 </span><span id="line-187"></span><span>
-</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679163751"><span id="local-6989586621679163753"><span id="local-6989586621679163755"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#CorsRule"><span class="hs-identifier hs-type">CorsRule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-189"></span><span>  </span><span id="local-6989586621679163749"><span class="annot"><span class="annottext">toJSON :: CorsRule -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#CorsRule%27"><span class="hs-identifier hs-type">CorsRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163743"><span id="local-6989586621679163744"><span id="local-6989586621679163745"><span id="local-6989586621679163746"><span id="local-6989586621679163747"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679163808"><span id="local-6989586621679163810"><span id="local-6989586621679163812"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#CorsRule"><span class="hs-identifier hs-type">CorsRule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621679163806"><span class="annot"><span class="annottext">toJSON :: CorsRule -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#CorsRule%27"><span class="hs-identifier hs-type">CorsRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163800"><span id="local-6989586621679163801"><span id="local-6989586621679163802"><span id="local-6989586621679163803"><span id="local-6989586621679163804"><span class="annot"><span class="annottext">[Text]
 Maybe Natural
 Maybe [Text]
 Maybe (NonEmpty MethodName)
@@ -486,7 +486,7 @@ $sel:allowedOrigins:CorsRule' :: CorsRule -&gt; NonEmpty Text
 $sel:exposeHeaders:CorsRule' :: CorsRule -&gt; Maybe [Text]
 $sel:maxAgeSeconds:CorsRule' :: CorsRule -&gt; Maybe Natural
 $sel:allowedMethods:CorsRule' :: CorsRule -&gt; Maybe (NonEmpty MethodName)
-</span><a href="#local-6989586621679163743"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679163800"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-190"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-191"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -500,21 +500,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (NonEmpty MethodName) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty MethodName)
-</span><a href="#local-6989586621679163747"><span class="hs-identifier hs-var">allowedMethods</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679163804"><span class="hs-identifier hs-var">allowedMethods</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-194"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxAgeSeconds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679163746"><span class="hs-identifier hs-var">maxAgeSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679163803"><span class="hs-identifier hs-var">maxAgeSeconds</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-195"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ExposeHeaders&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679163745"><span class="hs-identifier hs-var">exposeHeaders</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679163802"><span class="hs-identifier hs-var">exposeHeaders</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-196"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -522,7 +522,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;AllowedOrigins&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679163744"><span class="hs-identifier hs-var">allowedOrigins</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679163801"><span class="hs-identifier hs-var">allowedOrigins</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-198"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -530,7 +530,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;AllowedHeaders&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679163743"><span class="hs-identifier hs-var">allowedHeaders</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679163800"><span class="hs-identifier hs-var">allowedHeaders</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-200"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-201"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-202"></span></pre></body></html>

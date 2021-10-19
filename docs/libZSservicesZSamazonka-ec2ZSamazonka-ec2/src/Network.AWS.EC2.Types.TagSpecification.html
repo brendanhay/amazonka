@@ -29,36 +29,15 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | The tags to apply to a resource when the resource is being created.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newTagSpecification' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621681129320"><span id="local-6989586621681129321"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagSpecification"><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#TagSpecification"><span class="hs-identifier hs-var">TagSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagSpecification%27"><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#TagSpecification%27"><span class="hs-identifier hs-var">TagSpecification'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of resource to tag on creation. The possible values are:</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- @capacity-reservation@ | @carrier-gateway@ | @client-vpn-endpoint@ |</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- @customer-gateway@ | @dedicated-host@ | @dhcp-options@ |</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- @egress-only-internet-gateway@ | @elastic-gpu@ | @elastic-ip@ |</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- @export-image-task@ | @export-instance-task@ | @fleet@ | @fpga-image@ |</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- @host-reservation@ | @image@ | @import-image-task@ |</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- @import-snapshot-task@ | @instance@ | @instance-event-window@ |</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- @internet-gateway@ | @ipv4pool-ec2@ | @ipv6pool-ec2@ | @key-pair@ |</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- @launch-template@ | @local-gateway-route-table-vpc-association@ |</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- @natgateway@ | @network-acl@ | @network-insights-analysis@ |</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- @network-insights-path@ | @network-interface@ | @placement-group@ |</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- @prefix-list@ | @reserved-instances@ | @route-table@ | @security-group@</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | @security-group-rule@ | @snapshot@ | @spot-fleet-request@ |</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- @spot-instances-request@ | @subnet@ | @traffic-mirror-filter@ |</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- @traffic-mirror-session@ | @traffic-mirror-target@ | @transit-gateway@ |</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- @transit-gateway-attachment@ | @transit-gateway-multicast-domain@ |</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- @transit-gateway-route-table@ | @volume@ | @vpc@ | @vpc-endpoint@ |</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- @vpc-endpoint-service@ | @vpc-flow-log@ | @vpc-peering-connection@ |</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- @vpn-connection@ | @vpn-gateway@.</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- To tag a resource after it has been created, see</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html CreateTags&gt;.</span><span>
-</span><span id="line-55"></span><span>    </span><span id="%24sel%3AresourceType%3ATagSpecification%27"><span class="annot"><span class="annottext">TagSpecification -&gt; Maybe ResourceType
+</span><span id="line-32"></span><span id="local-6989586621681164428"><span id="local-6989586621681164429"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagSpecification"><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#TagSpecification"><span class="hs-identifier hs-var">TagSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagSpecification%27"><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#TagSpecification%27"><span class="hs-identifier hs-var">TagSpecification'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of resource to tag on creation.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AresourceType%3ATagSpecification%27"><span class="annot"><span class="annottext">TagSpecification -&gt; Maybe ResourceType
 </span><a href="Network.AWS.EC2.Types.TagSpecification.html#%24sel%3AresourceType%3ATagSpecification%27"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ResourceType.html#ResourceType"><span class="hs-identifier hs-type">ResourceType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The tags to apply to the resource.</span><span>
-</span><span id="line-57"></span><span>    </span><span id="%24sel%3Atags%3ATagSpecification%27"><span class="annot"><span class="annottext">TagSpecification -&gt; Maybe [Tag]
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The tags to apply to the resource.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Atags%3ATagSpecification%27"><span class="annot"><span class="annottext">TagSpecification -&gt; Maybe [Tag]
 </span><a href="Network.AWS.EC2.Types.TagSpecification.html#%24sel%3Atags%3ATagSpecification%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681129313"><span id="local-6989586621681129315"><span class="annot"><span class="annottext">TagSpecification -&gt; TagSpecification -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681164421"><span id="local-6989586621681164423"><span class="annot"><span class="annottext">TagSpecification -&gt; TagSpecification -&gt; Bool
 (TagSpecification -&gt; TagSpecification -&gt; Bool)
 -&gt; (TagSpecification -&gt; TagSpecification -&gt; Bool)
 -&gt; Eq TagSpecification
@@ -67,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TagSpecification -&gt; TagSpecification -&gt; Bool
 == :: TagSpecification -&gt; TagSpecification -&gt; Bool
 $c== :: TagSpecification -&gt; TagSpecification -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681129304"><span id="local-6989586621681129306"><span id="local-6989586621681129308"><span id="local-6989586621681129310"><span class="annot"><span class="annottext">ReadPrec [TagSpecification]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681164412"><span id="local-6989586621681164414"><span id="local-6989586621681164416"><span id="local-6989586621681164418"><span class="annot"><span class="annottext">ReadPrec [TagSpecification]
 ReadPrec TagSpecification
 Int -&gt; ReadS TagSpecification
 ReadS [TagSpecification]
@@ -87,7 +66,7 @@ readList :: ReadS [TagSpecification]
 $creadList :: ReadS [TagSpecification]
 readsPrec :: Int -&gt; ReadS TagSpecification
 $creadsPrec :: Int -&gt; ReadS TagSpecification
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681129297"><span id="local-6989586621681129299"><span id="local-6989586621681129301"><span class="annot"><span class="annottext">Int -&gt; TagSpecification -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681164405"><span id="local-6989586621681164407"><span id="local-6989586621681164409"><span class="annot"><span class="annottext">Int -&gt; TagSpecification -&gt; ShowS
 [TagSpecification] -&gt; ShowS
 TagSpecification -&gt; String
 (Int -&gt; TagSpecification -&gt; ShowS)
@@ -112,79 +91,37 @@ forall a.
 $cto :: forall x. Rep TagSpecification x -&gt; TagSpecification
 $cfrom :: forall x. TagSpecification -&gt; Rep TagSpecification x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
-</span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'TagSpecification' with all optional fields omitted.</span><span>
-</span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
-</span><span id="line-65"></span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
-</span><span id="line-68"></span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- 'resourceType', 'tagSpecification_resourceType' - The type of resource to tag on creation. The possible values are:</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- @capacity-reservation@ | @carrier-gateway@ | @client-vpn-endpoint@ |</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- @customer-gateway@ | @dedicated-host@ | @dhcp-options@ |</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- @egress-only-internet-gateway@ | @elastic-gpu@ | @elastic-ip@ |</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- @export-image-task@ | @export-instance-task@ | @fleet@ | @fpga-image@ |</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- @host-reservation@ | @image@ | @import-image-task@ |</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- @import-snapshot-task@ | @instance@ | @instance-event-window@ |</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- @internet-gateway@ | @ipv4pool-ec2@ | @ipv6pool-ec2@ | @key-pair@ |</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- @launch-template@ | @local-gateway-route-table-vpc-association@ |</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- @natgateway@ | @network-acl@ | @network-insights-analysis@ |</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- @network-insights-path@ | @network-interface@ | @placement-group@ |</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- @prefix-list@ | @reserved-instances@ | @route-table@ | @security-group@</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- | @security-group-rule@ | @snapshot@ | @spot-fleet-request@ |</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- @spot-instances-request@ | @subnet@ | @traffic-mirror-filter@ |</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- @traffic-mirror-session@ | @traffic-mirror-target@ | @transit-gateway@ |</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- @transit-gateway-attachment@ | @transit-gateway-multicast-domain@ |</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- @transit-gateway-route-table@ | @volume@ | @vpc@ | @vpc-endpoint@ |</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- @vpc-endpoint-service@ | @vpc-flow-log@ | @vpc-peering-connection@ |</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- @vpn-connection@ | @vpn-gateway@.</span><span>
-</span><span id="line-88"></span><span class="hs-comment">--</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- To tag a resource after it has been created, see</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html CreateTags&gt;.</span><span>
-</span><span id="line-91"></span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- 'tags', 'tagSpecification_tags' - The tags to apply to the resource.</span><span>
-</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#newTagSpecification"><span class="hs-identifier hs-type">newTagSpecification</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#TagSpecification"><span class="hs-identifier hs-type">TagSpecification</span></a></span><span>
-</span><span id="line-95"></span><span id="newTagSpecification"><span class="annot"><span class="annottext">newTagSpecification :: TagSpecification
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Create a value of 'TagSpecification' with all optional fields omitted.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'resourceType', 'tagSpecification_resourceType' - The type of resource to tag on creation.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'tags', 'tagSpecification_tags' - The tags to apply to the resource.</span><span>
+</span><span id="line-51"></span><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#newTagSpecification"><span class="hs-identifier hs-type">newTagSpecification</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-52"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#TagSpecification"><span class="hs-identifier hs-type">TagSpecification</span></a></span><span>
+</span><span id="line-53"></span><span id="newTagSpecification"><span class="annot"><span class="annottext">newTagSpecification :: TagSpecification
 </span><a href="Network.AWS.EC2.Types.TagSpecification.html#newTagSpecification"><span class="hs-identifier hs-var hs-var">newTagSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-96"></span><span>  </span><span class="annot"><span class="annottext">TagSpecification' :: Maybe ResourceType -&gt; Maybe [Tag] -&gt; TagSpecification
+</span><span id="line-54"></span><span>  </span><span class="annot"><span class="annottext">TagSpecification' :: Maybe ResourceType -&gt; Maybe [Tag] -&gt; TagSpecification
 </span><a href="Network.AWS.EC2.Types.TagSpecification.html#TagSpecification%27"><span class="hs-identifier hs-type">TagSpecification'</span></a></span><span>
-</span><span id="line-97"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceType:TagSpecification' :: Maybe ResourceType
+</span><span id="line-55"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceType:TagSpecification' :: Maybe ResourceType
 </span><a href="Network.AWS.EC2.Types.TagSpecification.html#%24sel%3AresourceType%3ATagSpecification%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:TagSpecification' :: Maybe [Tag]
+</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:TagSpecification' :: Maybe [Tag]
 </span><a href="Network.AWS.EC2.Types.TagSpecification.html#%24sel%3Atags%3ATagSpecification%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-99"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- | The type of resource to tag on creation. The possible values are:</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- @capacity-reservation@ | @carrier-gateway@ | @client-vpn-endpoint@ |</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- @customer-gateway@ | @dedicated-host@ | @dhcp-options@ |</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- @egress-only-internet-gateway@ | @elastic-gpu@ | @elastic-ip@ |</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- @export-image-task@ | @export-instance-task@ | @fleet@ | @fpga-image@ |</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- @host-reservation@ | @image@ | @import-image-task@ |</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- @import-snapshot-task@ | @instance@ | @instance-event-window@ |</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- @internet-gateway@ | @ipv4pool-ec2@ | @ipv6pool-ec2@ | @key-pair@ |</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- @launch-template@ | @local-gateway-route-table-vpc-association@ |</span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- @natgateway@ | @network-acl@ | @network-insights-analysis@ |</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- @network-insights-path@ | @network-interface@ | @placement-group@ |</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- @prefix-list@ | @reserved-instances@ | @route-table@ | @security-group@</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- | @security-group-rule@ | @snapshot@ | @spot-fleet-request@ |</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- @spot-instances-request@ | @subnet@ | @traffic-mirror-filter@ |</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- @traffic-mirror-session@ | @traffic-mirror-target@ | @transit-gateway@ |</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- @transit-gateway-attachment@ | @transit-gateway-multicast-domain@ |</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- @transit-gateway-route-table@ | @volume@ | @vpc@ | @vpc-endpoint@ |</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- @vpc-endpoint-service@ | @vpc-flow-log@ | @vpc-peering-connection@ |</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- @vpn-connection@ | @vpn-gateway@.</span><span>
-</span><span id="line-120"></span><span class="hs-comment">--</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- To tag a resource after it has been created, see</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html CreateTags&gt;.</span><span>
-</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#tagSpecification_resourceType"><span class="hs-identifier hs-type">tagSpecification_resourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#TagSpecification"><span class="hs-identifier hs-type">TagSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ResourceType.html#ResourceType"><span class="hs-identifier hs-type">ResourceType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span id="tagSpecification_resourceType"><span class="annot"><span class="annottext">tagSpecification_resourceType :: (Maybe ResourceType -&gt; f (Maybe ResourceType))
+</span><span id="line-57"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | The type of resource to tag on creation.</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#tagSpecification_resourceType"><span class="hs-identifier hs-type">tagSpecification_resourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#TagSpecification"><span class="hs-identifier hs-type">TagSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ResourceType.html#ResourceType"><span class="hs-identifier hs-type">ResourceType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span id="tagSpecification_resourceType"><span class="annot"><span class="annottext">tagSpecification_resourceType :: (Maybe ResourceType -&gt; f (Maybe ResourceType))
 -&gt; TagSpecification -&gt; f TagSpecification
 </span><a href="Network.AWS.EC2.Types.TagSpecification.html#tagSpecification_resourceType"><span class="hs-identifier hs-var hs-var">tagSpecification_resourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TagSpecification -&gt; Maybe ResourceType)
 -&gt; (TagSpecification -&gt; Maybe ResourceType -&gt; TagSpecification)
@@ -194,36 +131,36 @@ forall a. Maybe a
      (Maybe ResourceType)
      (Maybe ResourceType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#TagSpecification%27"><span class="hs-identifier hs-type">TagSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681129288"><span class="annot"><span class="annottext">Maybe ResourceType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#TagSpecification%27"><span class="hs-identifier hs-type">TagSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681164396"><span class="annot"><span class="annottext">Maybe ResourceType
 resourceType :: Maybe ResourceType
 $sel:resourceType:TagSpecification' :: TagSpecification -&gt; Maybe ResourceType
-</span><a href="#local-6989586621681129288"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceType
-</span><a href="#local-6989586621681129288"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681129287"><span class="annot"><span class="annottext">s :: TagSpecification
-</span><a href="#local-6989586621681129287"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#TagSpecification%27"><span class="hs-identifier hs-type">TagSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681129286"><span class="annot"><span class="annottext">Maybe ResourceType
-</span><a href="#local-6989586621681129286"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagSpecification
-</span><a href="#local-6989586621681129287"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:TagSpecification' :: Maybe ResourceType
+</span><a href="#local-6989586621681164396"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceType
+</span><a href="#local-6989586621681164396"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681164395"><span class="annot"><span class="annottext">s :: TagSpecification
+</span><a href="#local-6989586621681164395"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#TagSpecification%27"><span class="hs-identifier hs-type">TagSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681164394"><span class="annot"><span class="annottext">Maybe ResourceType
+</span><a href="#local-6989586621681164394"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagSpecification
+</span><a href="#local-6989586621681164395"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:TagSpecification' :: Maybe ResourceType
 </span><a href="Network.AWS.EC2.Types.TagSpecification.html#%24sel%3AresourceType%3ATagSpecification%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceType
-</span><a href="#local-6989586621681129286"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#TagSpecification"><span class="hs-identifier hs-type">TagSpecification</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- | The tags to apply to the resource.</span><span>
-</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#tagSpecification_tags"><span class="hs-identifier hs-type">tagSpecification_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#TagSpecification"><span class="hs-identifier hs-type">TagSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span id="tagSpecification_tags"><span class="annot"><span class="annottext">tagSpecification_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621681164394"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#TagSpecification"><span class="hs-identifier hs-type">TagSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | The tags to apply to the resource.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#tagSpecification_tags"><span class="hs-identifier hs-type">tagSpecification_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#TagSpecification"><span class="hs-identifier hs-type">TagSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="tagSpecification_tags"><span class="annot"><span class="annottext">tagSpecification_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
 -&gt; TagSpecification -&gt; f TagSpecification
 </span><a href="Network.AWS.EC2.Types.TagSpecification.html#tagSpecification_tags"><span class="hs-identifier hs-var hs-var">tagSpecification_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TagSpecification -&gt; Maybe [Tag])
 -&gt; (TagSpecification -&gt; Maybe [Tag] -&gt; TagSpecification)
 -&gt; Lens
      TagSpecification TagSpecification (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#TagSpecification%27"><span class="hs-identifier hs-type">TagSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681129284"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#TagSpecification%27"><span class="hs-identifier hs-type">TagSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681164392"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:TagSpecification' :: TagSpecification -&gt; Maybe [Tag]
-</span><a href="#local-6989586621681129284"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681129284"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681129283"><span class="annot"><span class="annottext">s :: TagSpecification
-</span><a href="#local-6989586621681129283"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#TagSpecification%27"><span class="hs-identifier hs-type">TagSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681129282"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681129282"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagSpecification
-</span><a href="#local-6989586621681129283"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:TagSpecification' :: Maybe [Tag]
+</span><a href="#local-6989586621681164392"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681164392"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681164391"><span class="annot"><span class="annottext">s :: TagSpecification
+</span><a href="#local-6989586621681164391"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#TagSpecification%27"><span class="hs-identifier hs-type">TagSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681164390"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681164390"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagSpecification
+</span><a href="#local-6989586621681164391"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:TagSpecification' :: Maybe [Tag]
 </span><a href="Network.AWS.EC2.Types.TagSpecification.html#%24sel%3Atags%3ATagSpecification%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681129282"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#TagSpecification"><span class="hs-identifier hs-type">TagSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621681164390"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#TagSpecification"><span class="hs-identifier hs-type">TagSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; TagSpecification -&gt; f TagSpecification)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -237,29 +174,29 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#TagSpecification"><span class="hs-identifier hs-type">TagSpecification</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621681129276"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String TagSpecification
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681129274"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681129274"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">Maybe ResourceType -&gt; Maybe [Tag] -&gt; TagSpecification
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#TagSpecification"><span class="hs-identifier hs-type">TagSpecification</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621681164384"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String TagSpecification
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681164382"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681164382"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">Maybe ResourceType -&gt; Maybe [Tag] -&gt; TagSpecification
 </span><a href="Network.AWS.EC2.Types.TagSpecification.html#TagSpecification%27"><span class="hs-identifier hs-var">TagSpecification'</span></a></span><span>
-</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">(Maybe ResourceType -&gt; Maybe [Tag] -&gt; TagSpecification)
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">(Maybe ResourceType -&gt; Maybe [Tag] -&gt; TagSpecification)
 -&gt; Either String (Maybe ResourceType)
 -&gt; Either String (Maybe [Tag] -&gt; TagSpecification)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681129274"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ResourceType)
+</span><a href="#local-6989586621681164382"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ResourceType)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;resourceType&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [Tag] -&gt; TagSpecification)
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [Tag] -&gt; TagSpecification)
 -&gt; Either String (Maybe [Tag]) -&gt; Either String TagSpecification
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681129274"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681164382"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tag&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -267,7 +204,7 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-135"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-72"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [Tag]))
 -&gt; Either String (Maybe [Tag])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -280,33 +217,33 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681129265"><span id="local-6989586621681129267"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#TagSpecification"><span class="hs-identifier hs-type">TagSpecification</span></a></span></span></span><span>
-</span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681129262"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#TagSpecification"><span class="hs-identifier hs-type">TagSpecification</span></a></span></span><span>
-</span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#TagSpecification"><span class="hs-identifier hs-type">TagSpecification</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621681129258"><span class="annot"><span class="annottext">toQuery :: TagSpecification -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#TagSpecification%27"><span class="hs-identifier hs-type">TagSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681129255"><span id="local-6989586621681129256"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span id="line-73"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681164373"><span id="local-6989586621681164375"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#TagSpecification"><span class="hs-identifier hs-type">TagSpecification</span></a></span></span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681164370"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#TagSpecification"><span class="hs-identifier hs-type">TagSpecification</span></a></span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#TagSpecification"><span class="hs-identifier hs-type">TagSpecification</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621681164366"><span class="annot"><span class="annottext">toQuery :: TagSpecification -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#TagSpecification%27"><span class="hs-identifier hs-type">TagSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681164363"><span id="local-6989586621681164364"><span class="annot"><span class="annottext">Maybe [Tag]
 Maybe ResourceType
 tags :: Maybe [Tag]
 resourceType :: Maybe ResourceType
 $sel:tags:TagSpecification' :: TagSpecification -&gt; Maybe [Tag]
 $sel:resourceType:TagSpecification' :: TagSpecification -&gt; Maybe ResourceType
-</span><a href="#local-6989586621681129255"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+</span><a href="#local-6989586621681164363"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
-</span><span id="line-145"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span id="line-82"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ResourceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe ResourceType -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe ResourceType
-</span><a href="#local-6989586621681129256"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+</span><a href="#local-6989586621681164364"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
-</span><span id="line-147"></span><span>          </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Tag] -&gt; QueryString
+</span><span id="line-84"></span><span>          </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Tag] -&gt; QueryString
 forall a.
 (IsList a, ToQuery (Item a)) =&gt;
 ByteString -&gt; a -&gt; QueryString
@@ -314,6 +251,6 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;Tag&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; QueryString) -&gt; Maybe [Tag] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681129255"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-148"></span><span>      </span><span class="hs-special">]</span><span>
-</span><span id="line-149"></span></pre></body></html>
+</span><a href="#local-6989586621681164363"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-86"></span></pre></body></html>

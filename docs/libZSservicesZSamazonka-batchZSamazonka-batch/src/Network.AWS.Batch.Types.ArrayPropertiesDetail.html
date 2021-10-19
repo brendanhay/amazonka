@@ -26,21 +26,21 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | An object representing the array properties of a job.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newArrayPropertiesDetail' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679257533"><span id="local-6989586621679257534"></span></span><span class="hs-keyword">data</span><span> </span><span id="ArrayPropertiesDetail"><span class="annot"><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#ArrayPropertiesDetail"><span class="hs-identifier hs-var">ArrayPropertiesDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ArrayPropertiesDetail%27"><span class="annot"><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#ArrayPropertiesDetail%27"><span class="hs-identifier hs-var">ArrayPropertiesDetail'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The job index within the array that\'s associated with this job. This</span><span>
-</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- parameter is returned for array job children.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3Aindex%3AArrayPropertiesDetail%27"><span class="annot"><span class="annottext">ArrayPropertiesDetail -&gt; Maybe Int
-</span><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#%24sel%3Aindex%3AArrayPropertiesDetail%27"><span class="hs-identifier hs-var hs-var">index</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679257811"><span id="local-6989586621679257812"></span></span><span class="hs-keyword">data</span><span> </span><span id="ArrayPropertiesDetail"><span class="annot"><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#ArrayPropertiesDetail"><span class="hs-identifier hs-var">ArrayPropertiesDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ArrayPropertiesDetail%27"><span class="annot"><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#ArrayPropertiesDetail%27"><span class="hs-identifier hs-var">ArrayPropertiesDetail'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The size of the array job. This parameter is returned for parent array</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- jobs.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Asize%3AArrayPropertiesDetail%27"><span class="annot"><span class="annottext">ArrayPropertiesDetail -&gt; Maybe Int
+</span><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#%24sel%3Asize%3AArrayPropertiesDetail%27"><span class="hs-identifier hs-var hs-var">size</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | A summary of the number of array job children in each available job</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- status. This parameter is returned for parent array jobs.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AstatusSummary%3AArrayPropertiesDetail%27"><span class="annot"><span class="annottext">ArrayPropertiesDetail -&gt; Maybe (HashMap Text Int)
 </span><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#%24sel%3AstatusSummary%3AArrayPropertiesDetail%27"><span class="hs-identifier hs-var hs-var">statusSummary</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The size of the array job. This parameter is returned for parent array</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- jobs.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3Asize%3AArrayPropertiesDetail%27"><span class="annot"><span class="annottext">ArrayPropertiesDetail -&gt; Maybe Int
-</span><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#%24sel%3Asize%3AArrayPropertiesDetail%27"><span class="hs-identifier hs-var hs-var">size</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The job index within the array that\'s associated with this job. This</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- parameter is returned for array job children.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Aindex%3AArrayPropertiesDetail%27"><span class="annot"><span class="annottext">ArrayPropertiesDetail -&gt; Maybe Int
+</span><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#%24sel%3Aindex%3AArrayPropertiesDetail%27"><span class="hs-identifier hs-var hs-var">index</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679257525"><span id="local-6989586621679257527"><span class="annot"><span class="annottext">ArrayPropertiesDetail -&gt; ArrayPropertiesDetail -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679257803"><span id="local-6989586621679257805"><span class="annot"><span class="annottext">ArrayPropertiesDetail -&gt; ArrayPropertiesDetail -&gt; Bool
 (ArrayPropertiesDetail -&gt; ArrayPropertiesDetail -&gt; Bool)
 -&gt; (ArrayPropertiesDetail -&gt; ArrayPropertiesDetail -&gt; Bool)
 -&gt; Eq ArrayPropertiesDetail
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ArrayPropertiesDetail -&gt; ArrayPropertiesDetail -&gt; Bool
 == :: ArrayPropertiesDetail -&gt; ArrayPropertiesDetail -&gt; Bool
 $c== :: ArrayPropertiesDetail -&gt; ArrayPropertiesDetail -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257516"><span id="local-6989586621679257518"><span id="local-6989586621679257520"><span id="local-6989586621679257522"><span class="annot"><span class="annottext">ReadPrec [ArrayPropertiesDetail]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257794"><span id="local-6989586621679257796"><span id="local-6989586621679257798"><span id="local-6989586621679257800"><span class="annot"><span class="annottext">ReadPrec [ArrayPropertiesDetail]
 ReadPrec ArrayPropertiesDetail
 Int -&gt; ReadS ArrayPropertiesDetail
 ReadS [ArrayPropertiesDetail]
@@ -69,7 +69,7 @@ readList :: ReadS [ArrayPropertiesDetail]
 $creadList :: ReadS [ArrayPropertiesDetail]
 readsPrec :: Int -&gt; ReadS ArrayPropertiesDetail
 $creadsPrec :: Int -&gt; ReadS ArrayPropertiesDetail
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257509"><span id="local-6989586621679257511"><span id="local-6989586621679257513"><span class="annot"><span class="annottext">Int -&gt; ArrayPropertiesDetail -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257787"><span id="local-6989586621679257789"><span id="local-6989586621679257791"><span class="annot"><span class="annottext">Int -&gt; ArrayPropertiesDetail -&gt; ShowS
 [ArrayPropertiesDetail] -&gt; ShowS
 ArrayPropertiesDetail -&gt; String
 (Int -&gt; ArrayPropertiesDetail -&gt; ShowS)
@@ -103,14 +103,14 @@ $cfrom :: forall x. ArrayPropertiesDetail -&gt; Rep ArrayPropertiesDetail x
 </span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- 'index', 'arrayPropertiesDetail_index' - The job index within the array that\'s associated with this job. This</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- parameter is returned for array job children.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'size', 'arrayPropertiesDetail_size' - The size of the array job. This parameter is returned for parent array</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- jobs.</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- 'statusSummary', 'arrayPropertiesDetail_statusSummary' - A summary of the number of array job children in each available job</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- status. This parameter is returned for parent array jobs.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'size', 'arrayPropertiesDetail_size' - The size of the array job. This parameter is returned for parent array</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- jobs.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'index', 'arrayPropertiesDetail_index' - The job index within the array that\'s associated with this job. This</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- parameter is returned for array job children.</span><span>
 </span><span id="line-58"></span><span class="annot"><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#newArrayPropertiesDetail"><span class="hs-identifier hs-type">newArrayPropertiesDetail</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-59"></span><span>  </span><span class="annot"><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#ArrayPropertiesDetail"><span class="hs-identifier hs-type">ArrayPropertiesDetail</span></a></span><span>
 </span><span id="line-60"></span><span id="newArrayPropertiesDetail"><span class="annot"><span class="annottext">newArrayPropertiesDetail :: ArrayPropertiesDetail
@@ -118,40 +118,40 @@ $cfrom :: forall x. ArrayPropertiesDetail -&gt; Rep ArrayPropertiesDetail x
 </span><span id="line-61"></span><span>  </span><span class="annot"><span class="annottext">ArrayPropertiesDetail' :: Maybe Int
 -&gt; Maybe (HashMap Text Int) -&gt; Maybe Int -&gt; ArrayPropertiesDetail
 </span><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#ArrayPropertiesDetail%27"><span class="hs-identifier hs-type">ArrayPropertiesDetail'</span></a></span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:index:ArrayPropertiesDetail' :: Maybe Int
-</span><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#%24sel%3Aindex%3AArrayPropertiesDetail%27"><span class="hs-identifier hs-var">index</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-62"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:size:ArrayPropertiesDetail' :: Maybe Int
+</span><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#%24sel%3Asize%3AArrayPropertiesDetail%27"><span class="hs-identifier hs-var">size</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:statusSummary:ArrayPropertiesDetail' :: Maybe (HashMap Text Int)
 </span><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#%24sel%3AstatusSummary%3AArrayPropertiesDetail%27"><span class="hs-identifier hs-var">statusSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Int)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:size:ArrayPropertiesDetail' :: Maybe Int
-</span><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#%24sel%3Asize%3AArrayPropertiesDetail%27"><span class="hs-identifier hs-var">size</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:index:ArrayPropertiesDetail' :: Maybe Int
+</span><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#%24sel%3Aindex%3AArrayPropertiesDetail%27"><span class="hs-identifier hs-var">index</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- | The job index within the array that\'s associated with this job. This</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- parameter is returned for array job children.</span><span>
-</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#arrayPropertiesDetail_index"><span class="hs-identifier hs-type">arrayPropertiesDetail_index</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#ArrayPropertiesDetail"><span class="hs-identifier hs-type">ArrayPropertiesDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-70"></span><span id="arrayPropertiesDetail_index"><span class="annot"><span class="annottext">arrayPropertiesDetail_index :: (Maybe Int -&gt; f (Maybe Int))
+</span><span id="line-67"></span><span class="hs-comment">-- | The size of the array job. This parameter is returned for parent array</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- jobs.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#arrayPropertiesDetail_size"><span class="hs-identifier hs-type">arrayPropertiesDetail_size</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#ArrayPropertiesDetail"><span class="hs-identifier hs-type">ArrayPropertiesDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span id="arrayPropertiesDetail_size"><span class="annot"><span class="annottext">arrayPropertiesDetail_size :: (Maybe Int -&gt; f (Maybe Int))
 -&gt; ArrayPropertiesDetail -&gt; f ArrayPropertiesDetail
-</span><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#arrayPropertiesDetail_index"><span class="hs-identifier hs-var hs-var">arrayPropertiesDetail_index</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ArrayPropertiesDetail -&gt; Maybe Int)
+</span><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#arrayPropertiesDetail_size"><span class="hs-identifier hs-var hs-var">arrayPropertiesDetail_size</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ArrayPropertiesDetail -&gt; Maybe Int)
 -&gt; (ArrayPropertiesDetail -&gt; Maybe Int -&gt; ArrayPropertiesDetail)
 -&gt; Lens
      ArrayPropertiesDetail ArrayPropertiesDetail (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#ArrayPropertiesDetail%27"><span class="hs-identifier hs-type">ArrayPropertiesDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257500"><span class="annot"><span class="annottext">Maybe Int
-index :: Maybe Int
-$sel:index:ArrayPropertiesDetail' :: ArrayPropertiesDetail -&gt; Maybe Int
-</span><a href="#local-6989586621679257500"><span class="hs-identifier hs-var hs-var">index</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679257500"><span class="hs-identifier hs-var">index</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257499"><span class="annot"><span class="annottext">s :: ArrayPropertiesDetail
-</span><a href="#local-6989586621679257499"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#ArrayPropertiesDetail%27"><span class="hs-identifier hs-type">ArrayPropertiesDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257498"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679257498"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArrayPropertiesDetail
-</span><a href="#local-6989586621679257499"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:index:ArrayPropertiesDetail' :: Maybe Int
-</span><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#%24sel%3Aindex%3AArrayPropertiesDetail%27"><span class="hs-identifier hs-var">index</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679257498"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#ArrayPropertiesDetail"><span class="hs-identifier hs-type">ArrayPropertiesDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#ArrayPropertiesDetail%27"><span class="hs-identifier hs-type">ArrayPropertiesDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257778"><span class="annot"><span class="annottext">Maybe Int
+size :: Maybe Int
+$sel:size:ArrayPropertiesDetail' :: ArrayPropertiesDetail -&gt; Maybe Int
+</span><a href="#local-6989586621679257778"><span class="hs-identifier hs-var hs-var">size</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679257778"><span class="hs-identifier hs-var">size</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257777"><span class="annot"><span class="annottext">s :: ArrayPropertiesDetail
+</span><a href="#local-6989586621679257777"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#ArrayPropertiesDetail%27"><span class="hs-identifier hs-type">ArrayPropertiesDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257776"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679257776"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArrayPropertiesDetail
+</span><a href="#local-6989586621679257777"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:size:ArrayPropertiesDetail' :: Maybe Int
+</span><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#%24sel%3Asize%3AArrayPropertiesDetail%27"><span class="hs-identifier hs-var">size</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679257776"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#ArrayPropertiesDetail"><span class="hs-identifier hs-type">ArrayPropertiesDetail</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | A summary of the number of array job children in each available job</span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- status. This parameter is returned for parent array jobs.</span><span>
@@ -167,16 +167,16 @@ $sel:index:ArrayPropertiesDetail' :: ArrayPropertiesDetail -&gt; Maybe Int
      (Maybe (HashMap Text Int))
      (Maybe (HashMap Text Int))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#ArrayPropertiesDetail%27"><span class="hs-identifier hs-type">ArrayPropertiesDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257496"><span class="annot"><span class="annottext">Maybe (HashMap Text Int)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#ArrayPropertiesDetail%27"><span class="hs-identifier hs-type">ArrayPropertiesDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257774"><span class="annot"><span class="annottext">Maybe (HashMap Text Int)
 statusSummary :: Maybe (HashMap Text Int)
 $sel:statusSummary:ArrayPropertiesDetail' :: ArrayPropertiesDetail -&gt; Maybe (HashMap Text Int)
-</span><a href="#local-6989586621679257496"><span class="hs-identifier hs-var hs-var">statusSummary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Int)
-</span><a href="#local-6989586621679257496"><span class="hs-identifier hs-var">statusSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257495"><span class="annot"><span class="annottext">s :: ArrayPropertiesDetail
-</span><a href="#local-6989586621679257495"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#ArrayPropertiesDetail%27"><span class="hs-identifier hs-type">ArrayPropertiesDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257494"><span class="annot"><span class="annottext">Maybe (HashMap Text Int)
-</span><a href="#local-6989586621679257494"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArrayPropertiesDetail
-</span><a href="#local-6989586621679257495"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusSummary:ArrayPropertiesDetail' :: Maybe (HashMap Text Int)
+</span><a href="#local-6989586621679257774"><span class="hs-identifier hs-var hs-var">statusSummary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Int)
+</span><a href="#local-6989586621679257774"><span class="hs-identifier hs-var">statusSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257773"><span class="annot"><span class="annottext">s :: ArrayPropertiesDetail
+</span><a href="#local-6989586621679257773"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#ArrayPropertiesDetail%27"><span class="hs-identifier hs-type">ArrayPropertiesDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257772"><span class="annot"><span class="annottext">Maybe (HashMap Text Int)
+</span><a href="#local-6989586621679257772"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArrayPropertiesDetail
+</span><a href="#local-6989586621679257773"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusSummary:ArrayPropertiesDetail' :: Maybe (HashMap Text Int)
 </span><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#%24sel%3AstatusSummary%3AArrayPropertiesDetail%27"><span class="hs-identifier hs-var">statusSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Int)
-</span><a href="#local-6989586621679257494"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#ArrayPropertiesDetail"><span class="hs-identifier hs-type">ArrayPropertiesDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Int) -&gt; f (Maybe (HashMap Text Int)))
+</span><a href="#local-6989586621679257772"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#ArrayPropertiesDetail"><span class="hs-identifier hs-type">ArrayPropertiesDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Int) -&gt; f (Maybe (HashMap Text Int)))
  -&gt; ArrayPropertiesDetail -&gt; f ArrayPropertiesDetail)
 -&gt; ((Maybe (HashMap Text Int) -&gt; f (Maybe (HashMap Text Int)))
     -&gt; Maybe (HashMap Text Int) -&gt; f (Maybe (HashMap Text Int)))
@@ -202,32 +202,32 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Int)
   (HashMap Text Int)
   (HashMap Text Int)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- | The size of the array job. This parameter is returned for parent array</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- jobs.</span><span>
-</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#arrayPropertiesDetail_size"><span class="hs-identifier hs-type">arrayPropertiesDetail_size</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#ArrayPropertiesDetail"><span class="hs-identifier hs-type">ArrayPropertiesDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span id="arrayPropertiesDetail_size"><span class="annot"><span class="annottext">arrayPropertiesDetail_size :: (Maybe Int -&gt; f (Maybe Int))
+</span><span id="line-77"></span><span class="hs-comment">-- | The job index within the array that\'s associated with this job. This</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- parameter is returned for array job children.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#arrayPropertiesDetail_index"><span class="hs-identifier hs-type">arrayPropertiesDetail_index</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#ArrayPropertiesDetail"><span class="hs-identifier hs-type">ArrayPropertiesDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="arrayPropertiesDetail_index"><span class="annot"><span class="annottext">arrayPropertiesDetail_index :: (Maybe Int -&gt; f (Maybe Int))
 -&gt; ArrayPropertiesDetail -&gt; f ArrayPropertiesDetail
-</span><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#arrayPropertiesDetail_size"><span class="hs-identifier hs-var hs-var">arrayPropertiesDetail_size</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ArrayPropertiesDetail -&gt; Maybe Int)
+</span><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#arrayPropertiesDetail_index"><span class="hs-identifier hs-var hs-var">arrayPropertiesDetail_index</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ArrayPropertiesDetail -&gt; Maybe Int)
 -&gt; (ArrayPropertiesDetail -&gt; Maybe Int -&gt; ArrayPropertiesDetail)
 -&gt; Lens
      ArrayPropertiesDetail ArrayPropertiesDetail (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#ArrayPropertiesDetail%27"><span class="hs-identifier hs-type">ArrayPropertiesDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257489"><span class="annot"><span class="annottext">Maybe Int
-size :: Maybe Int
-$sel:size:ArrayPropertiesDetail' :: ArrayPropertiesDetail -&gt; Maybe Int
-</span><a href="#local-6989586621679257489"><span class="hs-identifier hs-var hs-var">size</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679257489"><span class="hs-identifier hs-var">size</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257488"><span class="annot"><span class="annottext">s :: ArrayPropertiesDetail
-</span><a href="#local-6989586621679257488"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#ArrayPropertiesDetail%27"><span class="hs-identifier hs-type">ArrayPropertiesDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257487"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679257487"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArrayPropertiesDetail
-</span><a href="#local-6989586621679257488"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:size:ArrayPropertiesDetail' :: Maybe Int
-</span><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#%24sel%3Asize%3AArrayPropertiesDetail%27"><span class="hs-identifier hs-var">size</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679257487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#ArrayPropertiesDetail"><span class="hs-identifier hs-type">ArrayPropertiesDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#ArrayPropertiesDetail%27"><span class="hs-identifier hs-type">ArrayPropertiesDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257767"><span class="annot"><span class="annottext">Maybe Int
+index :: Maybe Int
+$sel:index:ArrayPropertiesDetail' :: ArrayPropertiesDetail -&gt; Maybe Int
+</span><a href="#local-6989586621679257767"><span class="hs-identifier hs-var hs-var">index</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679257767"><span class="hs-identifier hs-var">index</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257766"><span class="annot"><span class="annottext">s :: ArrayPropertiesDetail
+</span><a href="#local-6989586621679257766"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#ArrayPropertiesDetail%27"><span class="hs-identifier hs-type">ArrayPropertiesDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257765"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679257765"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArrayPropertiesDetail
+</span><a href="#local-6989586621679257766"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:index:ArrayPropertiesDetail' :: Maybe Int
+</span><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#%24sel%3Aindex%3AArrayPropertiesDetail%27"><span class="hs-identifier hs-var">index</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679257765"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#ArrayPropertiesDetail"><span class="hs-identifier hs-type">ArrayPropertiesDetail</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257484"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#ArrayPropertiesDetail"><span class="hs-identifier hs-type">ArrayPropertiesDetail</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679257482"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ArrayPropertiesDetail
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257762"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#ArrayPropertiesDetail"><span class="hs-identifier hs-type">ArrayPropertiesDetail</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679257760"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ArrayPropertiesDetail
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ArrayPropertiesDetail)
@@ -237,8 +237,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ArrayPropertiesDetail&quot;</span></span><span>
-</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679257479"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679257479"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679257757"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679257757"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
 -&gt; Maybe (HashMap Text Int) -&gt; Maybe Int -&gt; ArrayPropertiesDetail
 </span><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#ArrayPropertiesDetail%27"><span class="hs-identifier hs-var">ArrayPropertiesDetail'</span></a></span><span>
@@ -249,17 +249,17 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe (HashMap Text Int) -&gt; Maybe Int -&gt; ArrayPropertiesDetail)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679257479"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679257757"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;index&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;size&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe (HashMap Text Int) -&gt; Maybe Int -&gt; ArrayPropertiesDetail)
 -&gt; Parser (Maybe (HashMap Text Int))
 -&gt; Parser (Maybe Int -&gt; ArrayPropertiesDetail)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679257479"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Int)))
+</span><a href="#local-6989586621679257757"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Int)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;statusSummary&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Int)))
@@ -272,13 +272,13 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Int) -&gt; Parser ArrayPropertiesDetail
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679257479"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679257757"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;size&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;index&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257472"><span id="local-6989586621679257474"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#ArrayPropertiesDetail"><span class="hs-identifier hs-type">ArrayPropertiesDetail</span></a></span></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257750"><span id="local-6989586621679257752"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#ArrayPropertiesDetail"><span class="hs-identifier hs-type">ArrayPropertiesDetail</span></a></span></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257469"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#ArrayPropertiesDetail"><span class="hs-identifier hs-type">ArrayPropertiesDetail</span></a></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257747"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ArrayPropertiesDetail.html#ArrayPropertiesDetail"><span class="hs-identifier hs-type">ArrayPropertiesDetail</span></a></span></span><span>
 </span><span id="line-96"></span></pre></body></html>

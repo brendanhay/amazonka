@@ -28,14 +28,14 @@
 </span><span id="line-28"></span><span class="hs-comment">-- Enclaves.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newEnclaveOptions' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621681070047"><span id="local-6989586621681070048"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnclaveOptions"><span class="annot"><a href="Network.AWS.EC2.Types.EnclaveOptions.html#EnclaveOptions"><span class="hs-identifier hs-var">EnclaveOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnclaveOptions%27"><span class="annot"><a href="Network.AWS.EC2.Types.EnclaveOptions.html#EnclaveOptions%27"><span class="hs-identifier hs-var">EnclaveOptions'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621681103982"><span id="local-6989586621681103983"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnclaveOptions"><span class="annot"><a href="Network.AWS.EC2.Types.EnclaveOptions.html#EnclaveOptions"><span class="hs-identifier hs-var">EnclaveOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnclaveOptions%27"><span class="annot"><a href="Network.AWS.EC2.Types.EnclaveOptions.html#EnclaveOptions%27"><span class="hs-identifier hs-var">EnclaveOptions'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If this parameter is set to @true@, the instance is enabled for Amazon</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- Web Services Nitro Enclaves; otherwise, it is not enabled for Amazon Web</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- Services Nitro Enclaves.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Aenabled%3AEnclaveOptions%27"><span class="annot"><span class="annottext">EnclaveOptions -&gt; Maybe Bool
 </span><a href="Network.AWS.EC2.Types.EnclaveOptions.html#%24sel%3Aenabled%3AEnclaveOptions%27"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681070041"><span id="local-6989586621681070043"><span class="annot"><span class="annottext">EnclaveOptions -&gt; EnclaveOptions -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681103976"><span id="local-6989586621681103978"><span class="annot"><span class="annottext">EnclaveOptions -&gt; EnclaveOptions -&gt; Bool
 (EnclaveOptions -&gt; EnclaveOptions -&gt; Bool)
 -&gt; (EnclaveOptions -&gt; EnclaveOptions -&gt; Bool) -&gt; Eq EnclaveOptions
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EnclaveOptions -&gt; EnclaveOptions -&gt; Bool
 == :: EnclaveOptions -&gt; EnclaveOptions -&gt; Bool
 $c== :: EnclaveOptions -&gt; EnclaveOptions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681070032"><span id="local-6989586621681070034"><span id="local-6989586621681070036"><span id="local-6989586621681070038"><span class="annot"><span class="annottext">ReadPrec [EnclaveOptions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681103967"><span id="local-6989586621681103969"><span id="local-6989586621681103971"><span id="local-6989586621681103973"><span class="annot"><span class="annottext">ReadPrec [EnclaveOptions]
 ReadPrec EnclaveOptions
 Int -&gt; ReadS EnclaveOptions
 ReadS [EnclaveOptions]
@@ -63,7 +63,7 @@ readList :: ReadS [EnclaveOptions]
 $creadList :: ReadS [EnclaveOptions]
 readsPrec :: Int -&gt; ReadS EnclaveOptions
 $creadsPrec :: Int -&gt; ReadS EnclaveOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681070025"><span id="local-6989586621681070027"><span id="local-6989586621681070029"><span class="annot"><span class="annottext">Int -&gt; EnclaveOptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681103960"><span id="local-6989586621681103962"><span id="local-6989586621681103964"><span class="annot"><span class="annottext">Int -&gt; EnclaveOptions -&gt; ShowS
 [EnclaveOptions] -&gt; ShowS
 EnclaveOptions -&gt; String
 (Int -&gt; EnclaveOptions -&gt; ShowS)
@@ -120,32 +120,32 @@ forall a. Maybe a
 -&gt; (EnclaveOptions -&gt; Maybe Bool -&gt; EnclaveOptions)
 -&gt; Lens EnclaveOptions EnclaveOptions (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.EnclaveOptions.html#EnclaveOptions%27"><span class="hs-identifier hs-type">EnclaveOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681070016"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.EnclaveOptions.html#EnclaveOptions%27"><span class="hs-identifier hs-type">EnclaveOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681103951"><span class="annot"><span class="annottext">Maybe Bool
 enabled :: Maybe Bool
 $sel:enabled:EnclaveOptions' :: EnclaveOptions -&gt; Maybe Bool
-</span><a href="#local-6989586621681070016"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681070016"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681070015"><span class="annot"><span class="annottext">s :: EnclaveOptions
-</span><a href="#local-6989586621681070015"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.EnclaveOptions.html#EnclaveOptions%27"><span class="hs-identifier hs-type">EnclaveOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681070014"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681070014"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnclaveOptions
-</span><a href="#local-6989586621681070015"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:EnclaveOptions' :: Maybe Bool
+</span><a href="#local-6989586621681103951"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681103951"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681103950"><span class="annot"><span class="annottext">s :: EnclaveOptions
+</span><a href="#local-6989586621681103950"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.EnclaveOptions.html#EnclaveOptions%27"><span class="hs-identifier hs-type">EnclaveOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681103949"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681103949"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnclaveOptions
+</span><a href="#local-6989586621681103950"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:EnclaveOptions' :: Maybe Bool
 </span><a href="Network.AWS.EC2.Types.EnclaveOptions.html#%24sel%3Aenabled%3AEnclaveOptions%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681070014"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnclaveOptions.html#EnclaveOptions"><span class="hs-identifier hs-type">EnclaveOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681103949"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnclaveOptions.html#EnclaveOptions"><span class="hs-identifier hs-type">EnclaveOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnclaveOptions.html#EnclaveOptions"><span class="hs-identifier hs-type">EnclaveOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-62"></span><span>  </span><span id="local-6989586621681070011"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String EnclaveOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681070009"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681070009"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>  </span><span id="local-6989586621681103946"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String EnclaveOptions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681103944"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681103944"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-63"></span><span>    </span><span class="annot"><span class="annottext">Maybe Bool -&gt; EnclaveOptions
 </span><a href="Network.AWS.EC2.Types.EnclaveOptions.html#EnclaveOptions%27"><span class="hs-identifier hs-var">EnclaveOptions'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; EnclaveOptions)
 -&gt; Either String (Maybe Bool) -&gt; Either String EnclaveOptions
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681070009"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621681103944"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;enabled&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681070003"><span id="local-6989586621681070005"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnclaveOptions.html#EnclaveOptions"><span class="hs-identifier hs-type">EnclaveOptions</span></a></span></span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681103938"><span id="local-6989586621681103940"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnclaveOptions.html#EnclaveOptions"><span class="hs-identifier hs-type">EnclaveOptions</span></a></span></span></span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681070000"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnclaveOptions.html#EnclaveOptions"><span class="hs-identifier hs-type">EnclaveOptions</span></a></span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681103935"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnclaveOptions.html#EnclaveOptions"><span class="hs-identifier hs-type">EnclaveOptions</span></a></span></span><span>
 </span><span id="line-68"></span></pre></body></html>

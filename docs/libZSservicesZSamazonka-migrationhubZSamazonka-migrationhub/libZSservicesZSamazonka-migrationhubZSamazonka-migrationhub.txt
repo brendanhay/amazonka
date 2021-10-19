@@ -2,7 +2,7 @@
 -- See Hoogle, http://www.haskell.org/hoogle/
 
 @package libZSservicesZSamazonka-migrationhubZSamazonka-migrationhub
-@version 1.6.1
+@version 2.0
 
 
 module Network.AWS.MigrationHub.Types.ApplicationStatus
@@ -41,7 +41,10 @@ module Network.AWS.MigrationHub.Types.ApplicationState
 --   
 --   <i>See:</i> <a>newApplicationState</a> smart constructor.
 data ApplicationState
-ApplicationState' :: Maybe Text -> Maybe ApplicationStatus -> Maybe POSIX -> ApplicationState
+ApplicationState' :: Maybe POSIX -> Maybe Text -> Maybe ApplicationStatus -> ApplicationState
+
+-- | The timestamp when the application status was last updated.
+[$sel:lastUpdatedTime:ApplicationState'] :: ApplicationState -> Maybe POSIX
 
 -- | The configurationId from the Application Discovery Service that
 --   uniquely identifies an application.
@@ -49,9 +52,6 @@ ApplicationState' :: Maybe Text -> Maybe ApplicationStatus -> Maybe POSIX -> App
 
 -- | The current status of an application.
 [$sel:applicationStatus:ApplicationState'] :: ApplicationState -> Maybe ApplicationStatus
-
--- | The timestamp when the application status was last updated.
-[$sel:lastUpdatedTime:ApplicationState'] :: ApplicationState -> Maybe POSIX
 
 -- | Create a value of <a>ApplicationState</a> with all optional fields
 --   omitted.
@@ -62,6 +62,10 @@ ApplicationState' :: Maybe Text -> Maybe ApplicationStatus -> Maybe POSIX -> App
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:lastUpdatedTime:ApplicationState'</a>,
+--   <a>applicationState_lastUpdatedTime</a> - The timestamp when the
+--   application status was last updated.
+--   
 --   <a>$sel:applicationId:ApplicationState'</a>,
 --   <a>applicationState_applicationId</a> - The configurationId from the
 --   Application Discovery Service that uniquely identifies an application.
@@ -69,11 +73,10 @@ ApplicationState' :: Maybe Text -> Maybe ApplicationStatus -> Maybe POSIX -> App
 --   <a>$sel:applicationStatus:ApplicationState'</a>,
 --   <a>applicationState_applicationStatus</a> - The current status of an
 --   application.
---   
---   <a>$sel:lastUpdatedTime:ApplicationState'</a>,
---   <a>applicationState_lastUpdatedTime</a> - The timestamp when the
---   application status was last updated.
 newApplicationState :: ApplicationState
+
+-- | The timestamp when the application status was last updated.
+applicationState_lastUpdatedTime :: Lens' ApplicationState (Maybe UTCTime)
 
 -- | The configurationId from the Application Discovery Service that
 --   uniquely identifies an application.
@@ -81,9 +84,6 @@ applicationState_applicationId :: Lens' ApplicationState (Maybe Text)
 
 -- | The current status of an application.
 applicationState_applicationStatus :: Lens' ApplicationState (Maybe ApplicationStatus)
-
--- | The timestamp when the application status was last updated.
-applicationState_lastUpdatedTime :: Lens' ApplicationState (Maybe UTCTime)
 instance GHC.Generics.Generic Network.AWS.MigrationHub.Types.ApplicationState.ApplicationState
 instance GHC.Show.Show Network.AWS.MigrationHub.Types.ApplicationState.ApplicationState
 instance GHC.Read.Read Network.AWS.MigrationHub.Types.ApplicationState.ApplicationState
@@ -233,28 +233,28 @@ module Network.AWS.MigrationHub.Types.MigrationTaskSummary
 --   
 --   <i>See:</i> <a>newMigrationTaskSummary</a> smart constructor.
 data MigrationTaskSummary
-MigrationTaskSummary' :: Maybe MigrationStatus -> Maybe Natural -> Maybe POSIX -> Maybe Text -> Maybe Text -> Maybe Text -> MigrationTaskSummary
+MigrationTaskSummary' :: Maybe MigrationStatus -> Maybe POSIX -> Maybe Natural -> Maybe Text -> Maybe Text -> Maybe Text -> MigrationTaskSummary
 
 -- | Status of the task.
 [$sel:status:MigrationTaskSummary'] :: MigrationTaskSummary -> Maybe MigrationStatus
 
--- | Indication of the percentage completion of the task.
-[$sel:progressPercent:MigrationTaskSummary'] :: MigrationTaskSummary -> Maybe Natural
-
 -- | The timestamp when the task was gathered.
 [$sel:updateDateTime:MigrationTaskSummary'] :: MigrationTaskSummary -> Maybe POSIX
+
+-- | Indication of the percentage completion of the task.
+[$sel:progressPercent:MigrationTaskSummary'] :: MigrationTaskSummary -> Maybe Natural
 
 -- | Detail information of what is being done within the overall status
 --   state.
 [$sel:statusDetail:MigrationTaskSummary'] :: MigrationTaskSummary -> Maybe Text
 
--- | Unique identifier that references the migration task. /Do not store
---   personal data in this field./
-[$sel:migrationTaskName:MigrationTaskSummary'] :: MigrationTaskSummary -> Maybe Text
-
 -- | An AWS resource used for access control. It should uniquely identify
 --   the migration tool as it is used for all updates made by the tool.
 [$sel:progressUpdateStream:MigrationTaskSummary'] :: MigrationTaskSummary -> Maybe Text
+
+-- | Unique identifier that references the migration task. /Do not store
+--   personal data in this field./
+[$sel:migrationTaskName:MigrationTaskSummary'] :: MigrationTaskSummary -> Maybe Text
 
 -- | Create a value of <a>MigrationTaskSummary</a> with all optional fields
 --   omitted.
@@ -268,49 +268,49 @@ MigrationTaskSummary' :: Maybe MigrationStatus -> Maybe Natural -> Maybe POSIX -
 --   <a>$sel:status:MigrationTaskSummary'</a>,
 --   <a>migrationTaskSummary_status</a> - Status of the task.
 --   
---   <a>$sel:progressPercent:MigrationTaskSummary'</a>,
---   <a>migrationTaskSummary_progressPercent</a> - Indication of the
---   percentage completion of the task.
---   
 --   <a>$sel:updateDateTime:MigrationTaskSummary'</a>,
 --   <a>migrationTaskSummary_updateDateTime</a> - The timestamp when the
 --   task was gathered.
+--   
+--   <a>$sel:progressPercent:MigrationTaskSummary'</a>,
+--   <a>migrationTaskSummary_progressPercent</a> - Indication of the
+--   percentage completion of the task.
 --   
 --   <a>$sel:statusDetail:MigrationTaskSummary'</a>,
 --   <a>migrationTaskSummary_statusDetail</a> - Detail information of what
 --   is being done within the overall status state.
 --   
---   <a>$sel:migrationTaskName:MigrationTaskSummary'</a>,
---   <a>migrationTaskSummary_migrationTaskName</a> - Unique identifier that
---   references the migration task. /Do not store personal data in this
---   field./
---   
 --   <a>$sel:progressUpdateStream:MigrationTaskSummary'</a>,
 --   <a>migrationTaskSummary_progressUpdateStream</a> - An AWS resource
 --   used for access control. It should uniquely identify the migration
 --   tool as it is used for all updates made by the tool.
+--   
+--   <a>$sel:migrationTaskName:MigrationTaskSummary'</a>,
+--   <a>migrationTaskSummary_migrationTaskName</a> - Unique identifier that
+--   references the migration task. /Do not store personal data in this
+--   field./
 newMigrationTaskSummary :: MigrationTaskSummary
 
 -- | Status of the task.
 migrationTaskSummary_status :: Lens' MigrationTaskSummary (Maybe MigrationStatus)
 
--- | Indication of the percentage completion of the task.
-migrationTaskSummary_progressPercent :: Lens' MigrationTaskSummary (Maybe Natural)
-
 -- | The timestamp when the task was gathered.
 migrationTaskSummary_updateDateTime :: Lens' MigrationTaskSummary (Maybe UTCTime)
+
+-- | Indication of the percentage completion of the task.
+migrationTaskSummary_progressPercent :: Lens' MigrationTaskSummary (Maybe Natural)
 
 -- | Detail information of what is being done within the overall status
 --   state.
 migrationTaskSummary_statusDetail :: Lens' MigrationTaskSummary (Maybe Text)
 
--- | Unique identifier that references the migration task. /Do not store
---   personal data in this field./
-migrationTaskSummary_migrationTaskName :: Lens' MigrationTaskSummary (Maybe Text)
-
 -- | An AWS resource used for access control. It should uniquely identify
 --   the migration tool as it is used for all updates made by the tool.
 migrationTaskSummary_progressUpdateStream :: Lens' MigrationTaskSummary (Maybe Text)
+
+-- | Unique identifier that references the migration task. /Do not store
+--   personal data in this field./
+migrationTaskSummary_migrationTaskName :: Lens' MigrationTaskSummary (Maybe Text)
 instance GHC.Generics.Generic Network.AWS.MigrationHub.Types.MigrationTaskSummary.MigrationTaskSummary
 instance GHC.Show.Show Network.AWS.MigrationHub.Types.MigrationTaskSummary.MigrationTaskSummary
 instance GHC.Read.Read Network.AWS.MigrationHub.Types.MigrationTaskSummary.MigrationTaskSummary
@@ -517,25 +517,25 @@ module Network.AWS.MigrationHub.Types.MigrationTask
 --   
 --   <i>See:</i> <a>newMigrationTask</a> smart constructor.
 data MigrationTask
-MigrationTask' :: Maybe [ResourceAttribute] -> Maybe POSIX -> Maybe Task -> Maybe Text -> Maybe Text -> MigrationTask
+MigrationTask' :: Maybe POSIX -> Maybe [ResourceAttribute] -> Maybe Task -> Maybe Text -> Maybe Text -> MigrationTask
+
+-- | The timestamp when the task was gathered.
+[$sel:updateDateTime:MigrationTask'] :: MigrationTask -> Maybe POSIX
 
 -- | Information about the resource that is being migrated. This data will
 --   be used to map the task to a resource in the Application Discovery
 --   Service repository.
 [$sel:resourceAttributeList:MigrationTask'] :: MigrationTask -> Maybe [ResourceAttribute]
 
--- | The timestamp when the task was gathered.
-[$sel:updateDateTime:MigrationTask'] :: MigrationTask -> Maybe POSIX
-
 -- | Task object encapsulating task information.
 [$sel:task:MigrationTask'] :: MigrationTask -> Maybe Task
+
+-- | A name that identifies the vendor of the migration tool being used.
+[$sel:progressUpdateStream:MigrationTask'] :: MigrationTask -> Maybe Text
 
 -- | Unique identifier that references the migration task. /Do not store
 --   personal data in this field./
 [$sel:migrationTaskName:MigrationTask'] :: MigrationTask -> Maybe Text
-
--- | A name that identifies the vendor of the migration tool being used.
-[$sel:progressUpdateStream:MigrationTask'] :: MigrationTask -> Maybe Text
 
 -- | Create a value of <a>MigrationTask</a> with all optional fields
 --   omitted.
@@ -546,45 +546,45 @@ MigrationTask' :: Maybe [ResourceAttribute] -> Maybe POSIX -> Maybe Task -> Mayb
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:updateDateTime:MigrationTask'</a>,
+--   <a>migrationTask_updateDateTime</a> - The timestamp when the task was
+--   gathered.
+--   
 --   <a>$sel:resourceAttributeList:MigrationTask'</a>,
 --   <a>migrationTask_resourceAttributeList</a> - Information about the
 --   resource that is being migrated. This data will be used to map the
 --   task to a resource in the Application Discovery Service repository.
 --   
---   <a>$sel:updateDateTime:MigrationTask'</a>,
---   <a>migrationTask_updateDateTime</a> - The timestamp when the task was
---   gathered.
---   
 --   <a>$sel:task:MigrationTask'</a>, <a>migrationTask_task</a> - Task
 --   object encapsulating task information.
+--   
+--   <a>$sel:progressUpdateStream:MigrationTask'</a>,
+--   <a>migrationTask_progressUpdateStream</a> - A name that identifies the
+--   vendor of the migration tool being used.
 --   
 --   <a>$sel:migrationTaskName:MigrationTask'</a>,
 --   <a>migrationTask_migrationTaskName</a> - Unique identifier that
 --   references the migration task. /Do not store personal data in this
 --   field./
---   
---   <a>$sel:progressUpdateStream:MigrationTask'</a>,
---   <a>migrationTask_progressUpdateStream</a> - A name that identifies the
---   vendor of the migration tool being used.
 newMigrationTask :: MigrationTask
+
+-- | The timestamp when the task was gathered.
+migrationTask_updateDateTime :: Lens' MigrationTask (Maybe UTCTime)
 
 -- | Information about the resource that is being migrated. This data will
 --   be used to map the task to a resource in the Application Discovery
 --   Service repository.
 migrationTask_resourceAttributeList :: Lens' MigrationTask (Maybe [ResourceAttribute])
 
--- | The timestamp when the task was gathered.
-migrationTask_updateDateTime :: Lens' MigrationTask (Maybe UTCTime)
-
 -- | Task object encapsulating task information.
 migrationTask_task :: Lens' MigrationTask (Maybe Task)
+
+-- | A name that identifies the vendor of the migration tool being used.
+migrationTask_progressUpdateStream :: Lens' MigrationTask (Maybe Text)
 
 -- | Unique identifier that references the migration task. /Do not store
 --   personal data in this field./
 migrationTask_migrationTaskName :: Lens' MigrationTask (Maybe Text)
-
--- | A name that identifies the vendor of the migration tool being used.
-migrationTask_progressUpdateStream :: Lens' MigrationTask (Maybe Text)
 instance GHC.Generics.Generic Network.AWS.MigrationHub.Types.MigrationTask.MigrationTask
 instance GHC.Show.Show Network.AWS.MigrationHub.Types.MigrationTask.MigrationTask
 instance GHC.Read.Read Network.AWS.MigrationHub.Types.MigrationTask.MigrationTask
@@ -600,24 +600,15 @@ module Network.AWS.MigrationHub.Types
 --   configuration.
 defaultService :: Service
 
--- | Exception raised to indicate a request was not authorized when the
+-- | You do not have sufficient access to perform this action.
+_AccessDeniedException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The home region is not set. Set the home region to continue.
+_HomeRegionNotSetException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | Exception raised to indicate a successfully authorized action when the
 --   <tt>DryRun</tt> flag is set to "true".
-_UnauthorizedOperation :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | Exception raised when there is an internal, configuration, or
---   dependency error encountered.
-_ServiceUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | Exception raised when the provided input violates a policy constraint
---   or is entered in the wrong format or data type.
-_InvalidInputException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | Exception raised when an internal, configuration, or dependency error
---   is encountered.
-_InternalServerError :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The request was denied due to request throttling.
-_ThrottlingException :: AsError a => Getting (First ServiceError) a ServiceError
+_DryRunOperation :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | Exception raised when there are problems accessing Application
 --   Discovery Service (Application Discovery Service); most likely due to
@@ -625,11 +616,20 @@ _ThrottlingException :: AsError a => Getting (First ServiceError) a ServiceError
 --   missing or not configured correctly.
 _PolicyErrorException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The home region is not set. Set the home region to continue.
-_HomeRegionNotSetException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The request was denied due to request throttling.
+_ThrottlingException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | You do not have sufficient access to perform this action.
-_AccessDeniedException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | Exception raised when an internal, configuration, or dependency error
+--   is encountered.
+_InternalServerError :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | Exception raised when the provided input violates a policy constraint
+--   or is entered in the wrong format or data type.
+_InvalidInputException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | Exception raised when there is an internal, configuration, or
+--   dependency error encountered.
+_ServiceUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | Exception raised when the request references a resource (Application
 --   Discovery Service configuration, update stream, migration task, etc.)
@@ -637,9 +637,9 @@ _AccessDeniedException :: AsError a => Getting (First ServiceError) a ServiceErr
 --   Discovery Service) or in Migration Hub's repository.
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | Exception raised to indicate a successfully authorized action when the
+-- | Exception raised to indicate a request was not authorized when the
 --   <tt>DryRun</tt> flag is set to "true".
-_DryRunOperation :: AsError a => Getting (First ServiceError) a ServiceError
+_UnauthorizedOperation :: AsError a => Getting (First ServiceError) a ServiceError
 newtype ApplicationStatus
 ApplicationStatus' :: Text -> ApplicationStatus
 [fromApplicationStatus] :: ApplicationStatus -> Text
@@ -673,7 +673,10 @@ pattern ResourceAttributeType_VM_PATH :: ResourceAttributeType
 --   
 --   <i>See:</i> <a>newApplicationState</a> smart constructor.
 data ApplicationState
-ApplicationState' :: Maybe Text -> Maybe ApplicationStatus -> Maybe POSIX -> ApplicationState
+ApplicationState' :: Maybe POSIX -> Maybe Text -> Maybe ApplicationStatus -> ApplicationState
+
+-- | The timestamp when the application status was last updated.
+[$sel:lastUpdatedTime:ApplicationState'] :: ApplicationState -> Maybe POSIX
 
 -- | The configurationId from the Application Discovery Service that
 --   uniquely identifies an application.
@@ -681,9 +684,6 @@ ApplicationState' :: Maybe Text -> Maybe ApplicationStatus -> Maybe POSIX -> App
 
 -- | The current status of an application.
 [$sel:applicationStatus:ApplicationState'] :: ApplicationState -> Maybe ApplicationStatus
-
--- | The timestamp when the application status was last updated.
-[$sel:lastUpdatedTime:ApplicationState'] :: ApplicationState -> Maybe POSIX
 
 -- | Create a value of <a>ApplicationState</a> with all optional fields
 --   omitted.
@@ -694,6 +694,10 @@ ApplicationState' :: Maybe Text -> Maybe ApplicationStatus -> Maybe POSIX -> App
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:lastUpdatedTime:ApplicationState'</a>,
+--   <a>applicationState_lastUpdatedTime</a> - The timestamp when the
+--   application status was last updated.
+--   
 --   <a>$sel:applicationId:ApplicationState'</a>,
 --   <a>applicationState_applicationId</a> - The configurationId from the
 --   Application Discovery Service that uniquely identifies an application.
@@ -701,11 +705,10 @@ ApplicationState' :: Maybe Text -> Maybe ApplicationStatus -> Maybe POSIX -> App
 --   <a>$sel:applicationStatus:ApplicationState'</a>,
 --   <a>applicationState_applicationStatus</a> - The current status of an
 --   application.
---   
---   <a>$sel:lastUpdatedTime:ApplicationState'</a>,
---   <a>applicationState_lastUpdatedTime</a> - The timestamp when the
---   application status was last updated.
 newApplicationState :: ApplicationState
+
+-- | The timestamp when the application status was last updated.
+applicationState_lastUpdatedTime :: Lens' ApplicationState (Maybe UTCTime)
 
 -- | The configurationId from the Application Discovery Service that
 --   uniquely identifies an application.
@@ -713,9 +716,6 @@ applicationState_applicationId :: Lens' ApplicationState (Maybe Text)
 
 -- | The current status of an application.
 applicationState_applicationStatus :: Lens' ApplicationState (Maybe ApplicationStatus)
-
--- | The timestamp when the application status was last updated.
-applicationState_lastUpdatedTime :: Lens' ApplicationState (Maybe UTCTime)
 
 -- | An ARN of the AWS cloud resource target receiving the migration (e.g.,
 --   AMI, EC2 instance, RDS instance, etc.).
@@ -802,25 +802,25 @@ discoveredResource_configurationId :: Lens' DiscoveredResource Text
 --   
 --   <i>See:</i> <a>newMigrationTask</a> smart constructor.
 data MigrationTask
-MigrationTask' :: Maybe [ResourceAttribute] -> Maybe POSIX -> Maybe Task -> Maybe Text -> Maybe Text -> MigrationTask
+MigrationTask' :: Maybe POSIX -> Maybe [ResourceAttribute] -> Maybe Task -> Maybe Text -> Maybe Text -> MigrationTask
+
+-- | The timestamp when the task was gathered.
+[$sel:updateDateTime:MigrationTask'] :: MigrationTask -> Maybe POSIX
 
 -- | Information about the resource that is being migrated. This data will
 --   be used to map the task to a resource in the Application Discovery
 --   Service repository.
 [$sel:resourceAttributeList:MigrationTask'] :: MigrationTask -> Maybe [ResourceAttribute]
 
--- | The timestamp when the task was gathered.
-[$sel:updateDateTime:MigrationTask'] :: MigrationTask -> Maybe POSIX
-
 -- | Task object encapsulating task information.
 [$sel:task:MigrationTask'] :: MigrationTask -> Maybe Task
+
+-- | A name that identifies the vendor of the migration tool being used.
+[$sel:progressUpdateStream:MigrationTask'] :: MigrationTask -> Maybe Text
 
 -- | Unique identifier that references the migration task. /Do not store
 --   personal data in this field./
 [$sel:migrationTaskName:MigrationTask'] :: MigrationTask -> Maybe Text
-
--- | A name that identifies the vendor of the migration tool being used.
-[$sel:progressUpdateStream:MigrationTask'] :: MigrationTask -> Maybe Text
 
 -- | Create a value of <a>MigrationTask</a> with all optional fields
 --   omitted.
@@ -831,45 +831,45 @@ MigrationTask' :: Maybe [ResourceAttribute] -> Maybe POSIX -> Maybe Task -> Mayb
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:updateDateTime:MigrationTask'</a>,
+--   <a>migrationTask_updateDateTime</a> - The timestamp when the task was
+--   gathered.
+--   
 --   <a>$sel:resourceAttributeList:MigrationTask'</a>,
 --   <a>migrationTask_resourceAttributeList</a> - Information about the
 --   resource that is being migrated. This data will be used to map the
 --   task to a resource in the Application Discovery Service repository.
 --   
---   <a>$sel:updateDateTime:MigrationTask'</a>,
---   <a>migrationTask_updateDateTime</a> - The timestamp when the task was
---   gathered.
---   
 --   <a>$sel:task:MigrationTask'</a>, <a>migrationTask_task</a> - Task
 --   object encapsulating task information.
+--   
+--   <a>$sel:progressUpdateStream:MigrationTask'</a>,
+--   <a>migrationTask_progressUpdateStream</a> - A name that identifies the
+--   vendor of the migration tool being used.
 --   
 --   <a>$sel:migrationTaskName:MigrationTask'</a>,
 --   <a>migrationTask_migrationTaskName</a> - Unique identifier that
 --   references the migration task. /Do not store personal data in this
 --   field./
---   
---   <a>$sel:progressUpdateStream:MigrationTask'</a>,
---   <a>migrationTask_progressUpdateStream</a> - A name that identifies the
---   vendor of the migration tool being used.
 newMigrationTask :: MigrationTask
+
+-- | The timestamp when the task was gathered.
+migrationTask_updateDateTime :: Lens' MigrationTask (Maybe UTCTime)
 
 -- | Information about the resource that is being migrated. This data will
 --   be used to map the task to a resource in the Application Discovery
 --   Service repository.
 migrationTask_resourceAttributeList :: Lens' MigrationTask (Maybe [ResourceAttribute])
 
--- | The timestamp when the task was gathered.
-migrationTask_updateDateTime :: Lens' MigrationTask (Maybe UTCTime)
-
 -- | Task object encapsulating task information.
 migrationTask_task :: Lens' MigrationTask (Maybe Task)
+
+-- | A name that identifies the vendor of the migration tool being used.
+migrationTask_progressUpdateStream :: Lens' MigrationTask (Maybe Text)
 
 -- | Unique identifier that references the migration task. /Do not store
 --   personal data in this field./
 migrationTask_migrationTaskName :: Lens' MigrationTask (Maybe Text)
-
--- | A name that identifies the vendor of the migration tool being used.
-migrationTask_progressUpdateStream :: Lens' MigrationTask (Maybe Text)
 
 -- | MigrationTaskSummary includes <tt>MigrationTaskName</tt>,
 --   <tt>ProgressPercent</tt>, <tt>ProgressUpdateStream</tt>,
@@ -877,28 +877,28 @@ migrationTask_progressUpdateStream :: Lens' MigrationTask (Maybe Text)
 --   
 --   <i>See:</i> <a>newMigrationTaskSummary</a> smart constructor.
 data MigrationTaskSummary
-MigrationTaskSummary' :: Maybe MigrationStatus -> Maybe Natural -> Maybe POSIX -> Maybe Text -> Maybe Text -> Maybe Text -> MigrationTaskSummary
+MigrationTaskSummary' :: Maybe MigrationStatus -> Maybe POSIX -> Maybe Natural -> Maybe Text -> Maybe Text -> Maybe Text -> MigrationTaskSummary
 
 -- | Status of the task.
 [$sel:status:MigrationTaskSummary'] :: MigrationTaskSummary -> Maybe MigrationStatus
 
--- | Indication of the percentage completion of the task.
-[$sel:progressPercent:MigrationTaskSummary'] :: MigrationTaskSummary -> Maybe Natural
-
 -- | The timestamp when the task was gathered.
 [$sel:updateDateTime:MigrationTaskSummary'] :: MigrationTaskSummary -> Maybe POSIX
+
+-- | Indication of the percentage completion of the task.
+[$sel:progressPercent:MigrationTaskSummary'] :: MigrationTaskSummary -> Maybe Natural
 
 -- | Detail information of what is being done within the overall status
 --   state.
 [$sel:statusDetail:MigrationTaskSummary'] :: MigrationTaskSummary -> Maybe Text
 
--- | Unique identifier that references the migration task. /Do not store
---   personal data in this field./
-[$sel:migrationTaskName:MigrationTaskSummary'] :: MigrationTaskSummary -> Maybe Text
-
 -- | An AWS resource used for access control. It should uniquely identify
 --   the migration tool as it is used for all updates made by the tool.
 [$sel:progressUpdateStream:MigrationTaskSummary'] :: MigrationTaskSummary -> Maybe Text
+
+-- | Unique identifier that references the migration task. /Do not store
+--   personal data in this field./
+[$sel:migrationTaskName:MigrationTaskSummary'] :: MigrationTaskSummary -> Maybe Text
 
 -- | Create a value of <a>MigrationTaskSummary</a> with all optional fields
 --   omitted.
@@ -912,49 +912,49 @@ MigrationTaskSummary' :: Maybe MigrationStatus -> Maybe Natural -> Maybe POSIX -
 --   <a>$sel:status:MigrationTaskSummary'</a>,
 --   <a>migrationTaskSummary_status</a> - Status of the task.
 --   
---   <a>$sel:progressPercent:MigrationTaskSummary'</a>,
---   <a>migrationTaskSummary_progressPercent</a> - Indication of the
---   percentage completion of the task.
---   
 --   <a>$sel:updateDateTime:MigrationTaskSummary'</a>,
 --   <a>migrationTaskSummary_updateDateTime</a> - The timestamp when the
 --   task was gathered.
+--   
+--   <a>$sel:progressPercent:MigrationTaskSummary'</a>,
+--   <a>migrationTaskSummary_progressPercent</a> - Indication of the
+--   percentage completion of the task.
 --   
 --   <a>$sel:statusDetail:MigrationTaskSummary'</a>,
 --   <a>migrationTaskSummary_statusDetail</a> - Detail information of what
 --   is being done within the overall status state.
 --   
---   <a>$sel:migrationTaskName:MigrationTaskSummary'</a>,
---   <a>migrationTaskSummary_migrationTaskName</a> - Unique identifier that
---   references the migration task. /Do not store personal data in this
---   field./
---   
 --   <a>$sel:progressUpdateStream:MigrationTaskSummary'</a>,
 --   <a>migrationTaskSummary_progressUpdateStream</a> - An AWS resource
 --   used for access control. It should uniquely identify the migration
 --   tool as it is used for all updates made by the tool.
+--   
+--   <a>$sel:migrationTaskName:MigrationTaskSummary'</a>,
+--   <a>migrationTaskSummary_migrationTaskName</a> - Unique identifier that
+--   references the migration task. /Do not store personal data in this
+--   field./
 newMigrationTaskSummary :: MigrationTaskSummary
 
 -- | Status of the task.
 migrationTaskSummary_status :: Lens' MigrationTaskSummary (Maybe MigrationStatus)
 
--- | Indication of the percentage completion of the task.
-migrationTaskSummary_progressPercent :: Lens' MigrationTaskSummary (Maybe Natural)
-
 -- | The timestamp when the task was gathered.
 migrationTaskSummary_updateDateTime :: Lens' MigrationTaskSummary (Maybe UTCTime)
+
+-- | Indication of the percentage completion of the task.
+migrationTaskSummary_progressPercent :: Lens' MigrationTaskSummary (Maybe Natural)
 
 -- | Detail information of what is being done within the overall status
 --   state.
 migrationTaskSummary_statusDetail :: Lens' MigrationTaskSummary (Maybe Text)
 
--- | Unique identifier that references the migration task. /Do not store
---   personal data in this field./
-migrationTaskSummary_migrationTaskName :: Lens' MigrationTaskSummary (Maybe Text)
-
 -- | An AWS resource used for access control. It should uniquely identify
 --   the migration tool as it is used for all updates made by the tool.
 migrationTaskSummary_progressUpdateStream :: Lens' MigrationTaskSummary (Maybe Text)
+
+-- | Unique identifier that references the migration task. /Do not store
+--   personal data in this field./
+migrationTaskSummary_migrationTaskName :: Lens' MigrationTaskSummary (Maybe Text)
 
 -- | Summary of the AWS resource used for access control that is implicitly
 --   linked to your AWS account.
@@ -1423,14 +1423,14 @@ module Network.AWS.MigrationHub.NotifyApplicationState
 
 -- | <i>See:</i> <a>newNotifyApplicationState</a> smart constructor.
 data NotifyApplicationState
-NotifyApplicationState' :: Maybe Bool -> Maybe POSIX -> Text -> ApplicationStatus -> NotifyApplicationState
+NotifyApplicationState' :: Maybe POSIX -> Maybe Bool -> Text -> ApplicationStatus -> NotifyApplicationState
+
+-- | The timestamp when the application state changed.
+[$sel:updateDateTime:NotifyApplicationState'] :: NotifyApplicationState -> Maybe POSIX
 
 -- | Optional boolean flag to indicate whether any effect should take
 --   place. Used to test if the caller has permission to make the call.
 [$sel:dryRun:NotifyApplicationState'] :: NotifyApplicationState -> Maybe Bool
-
--- | The timestamp when the application state changed.
-[$sel:updateDateTime:NotifyApplicationState'] :: NotifyApplicationState -> Maybe POSIX
 
 -- | The configurationId in Application Discovery Service that uniquely
 --   identifies the grouped application.
@@ -1448,14 +1448,14 @@ NotifyApplicationState' :: Maybe Bool -> Maybe POSIX -> Text -> ApplicationStatu
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:updateDateTime:NotifyApplicationState'</a>,
+--   <a>notifyApplicationState_updateDateTime</a> - The timestamp when the
+--   application state changed.
+--   
 --   <a>$sel:dryRun:NotifyApplicationState'</a>,
 --   <a>notifyApplicationState_dryRun</a> - Optional boolean flag to
 --   indicate whether any effect should take place. Used to test if the
 --   caller has permission to make the call.
---   
---   <a>$sel:updateDateTime:NotifyApplicationState'</a>,
---   <a>notifyApplicationState_updateDateTime</a> - The timestamp when the
---   application state changed.
 --   
 --   <a>$sel:applicationId:NotifyApplicationState'</a>,
 --   <a>notifyApplicationState_applicationId</a> - The configurationId in
@@ -1467,12 +1467,12 @@ NotifyApplicationState' :: Maybe Bool -> Maybe POSIX -> Text -> ApplicationStatu
 --   Started, In-Progress, Complete.
 newNotifyApplicationState :: Text -> ApplicationStatus -> NotifyApplicationState
 
+-- | The timestamp when the application state changed.
+notifyApplicationState_updateDateTime :: Lens' NotifyApplicationState (Maybe UTCTime)
+
 -- | Optional boolean flag to indicate whether any effect should take
 --   place. Used to test if the caller has permission to make the call.
 notifyApplicationState_dryRun :: Lens' NotifyApplicationState (Maybe Bool)
-
--- | The timestamp when the application state changed.
-notifyApplicationState_updateDateTime :: Lens' NotifyApplicationState (Maybe UTCTime)
 
 -- | The configurationId in Application Discovery Service that uniquely
 --   identifies the grouped application.
@@ -1572,16 +1572,16 @@ listProgressUpdateStreams_maxResults :: Lens' ListProgressUpdateStreams (Maybe N
 -- | <i>See:</i> <a>newListProgressUpdateStreamsResponse</a> smart
 --   constructor.
 data ListProgressUpdateStreamsResponse
-ListProgressUpdateStreamsResponse' :: Maybe Text -> Maybe [ProgressUpdateStreamSummary] -> Int -> ListProgressUpdateStreamsResponse
+ListProgressUpdateStreamsResponse' :: Maybe [ProgressUpdateStreamSummary] -> Maybe Text -> Int -> ListProgressUpdateStreamsResponse
+
+-- | List of progress update streams up to the max number of results passed
+--   in the input.
+[$sel:progressUpdateStreamSummaryList:ListProgressUpdateStreamsResponse'] :: ListProgressUpdateStreamsResponse -> Maybe [ProgressUpdateStreamSummary]
 
 -- | If there are more streams created than the max result, return the next
 --   token to be passed to the next call as a bookmark of where to start
 --   from.
 [$sel:nextToken:ListProgressUpdateStreamsResponse'] :: ListProgressUpdateStreamsResponse -> Maybe Text
-
--- | List of progress update streams up to the max number of results passed
---   in the input.
-[$sel:progressUpdateStreamSummaryList:ListProgressUpdateStreamsResponse'] :: ListProgressUpdateStreamsResponse -> Maybe [ProgressUpdateStreamSummary]
 
 -- | The response's http status code.
 [$sel:httpStatus:ListProgressUpdateStreamsResponse'] :: ListProgressUpdateStreamsResponse -> Int
@@ -1595,30 +1595,30 @@ ListProgressUpdateStreamsResponse' :: Maybe Text -> Maybe [ProgressUpdateStreamS
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:nextToken:ListProgressUpdateStreams'</a>,
---   <a>listProgressUpdateStreamsResponse_nextToken</a> - If there are more
---   streams created than the max result, return the next token to be
---   passed to the next call as a bookmark of where to start from.
---   
 --   
 --   <a>$sel:progressUpdateStreamSummaryList:ListProgressUpdateStreamsResponse'</a>,
 --   <a>listProgressUpdateStreamsResponse_progressUpdateStreamSummaryList</a>
 --   - List of progress update streams up to the max number of results
 --   passed in the input.
 --   
+--   <a>$sel:nextToken:ListProgressUpdateStreams'</a>,
+--   <a>listProgressUpdateStreamsResponse_nextToken</a> - If there are more
+--   streams created than the max result, return the next token to be
+--   passed to the next call as a bookmark of where to start from.
+--   
 --   <a>$sel:httpStatus:ListProgressUpdateStreamsResponse'</a>,
 --   <a>listProgressUpdateStreamsResponse_httpStatus</a> - The response's
 --   http status code.
 newListProgressUpdateStreamsResponse :: Int -> ListProgressUpdateStreamsResponse
 
+-- | List of progress update streams up to the max number of results passed
+--   in the input.
+listProgressUpdateStreamsResponse_progressUpdateStreamSummaryList :: Lens' ListProgressUpdateStreamsResponse (Maybe [ProgressUpdateStreamSummary])
+
 -- | If there are more streams created than the max result, return the next
 --   token to be passed to the next call as a bookmark of where to start
 --   from.
 listProgressUpdateStreamsResponse_nextToken :: Lens' ListProgressUpdateStreamsResponse (Maybe Text)
-
--- | List of progress update streams up to the max number of results passed
---   in the input.
-listProgressUpdateStreamsResponse_progressUpdateStreamSummaryList :: Lens' ListProgressUpdateStreamsResponse (Maybe [ProgressUpdateStreamSummary])
 
 -- | The response's http status code.
 listProgressUpdateStreamsResponse_httpStatus :: Lens' ListProgressUpdateStreamsResponse Int
@@ -1657,7 +1657,10 @@ module Network.AWS.MigrationHub.ListMigrationTasks
 
 -- | <i>See:</i> <a>newListMigrationTasks</a> smart constructor.
 data ListMigrationTasks
-ListMigrationTasks' :: Maybe Text -> Maybe Natural -> Maybe Text -> ListMigrationTasks
+ListMigrationTasks' :: Maybe Text -> Maybe Text -> Maybe Natural -> ListMigrationTasks
+
+-- | Filter migration tasks by discovered resource name.
+[$sel:resourceName:ListMigrationTasks'] :: ListMigrationTasks -> Maybe Text
 
 -- | If a <tt>NextToken</tt> was returned by a previous call, there are
 --   more results available. To retrieve the next page of results, make the
@@ -1666,9 +1669,6 @@ ListMigrationTasks' :: Maybe Text -> Maybe Natural -> Maybe Text -> ListMigratio
 
 -- | Value to specify how many results are returned per page.
 [$sel:maxResults:ListMigrationTasks'] :: ListMigrationTasks -> Maybe Natural
-
--- | Filter migration tasks by discovered resource name.
-[$sel:resourceName:ListMigrationTasks'] :: ListMigrationTasks -> Maybe Text
 
 -- | Create a value of <a>ListMigrationTasks</a> with all optional fields
 --   omitted.
@@ -1679,6 +1679,10 @@ ListMigrationTasks' :: Maybe Text -> Maybe Natural -> Maybe Text -> ListMigratio
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:resourceName:ListMigrationTasks'</a>,
+--   <a>listMigrationTasks_resourceName</a> - Filter migration tasks by
+--   discovered resource name.
+--   
 --   <a>$sel:nextToken:ListMigrationTasks'</a>,
 --   <a>listMigrationTasks_nextToken</a> - If a <tt>NextToken</tt> was
 --   returned by a previous call, there are more results available. To
@@ -1688,11 +1692,10 @@ ListMigrationTasks' :: Maybe Text -> Maybe Natural -> Maybe Text -> ListMigratio
 --   <a>$sel:maxResults:ListMigrationTasks'</a>,
 --   <a>listMigrationTasks_maxResults</a> - Value to specify how many
 --   results are returned per page.
---   
---   <a>$sel:resourceName:ListMigrationTasks'</a>,
---   <a>listMigrationTasks_resourceName</a> - Filter migration tasks by
---   discovered resource name.
 newListMigrationTasks :: ListMigrationTasks
+
+-- | Filter migration tasks by discovered resource name.
+listMigrationTasks_resourceName :: Lens' ListMigrationTasks (Maybe Text)
 
 -- | If a <tt>NextToken</tt> was returned by a previous call, there are
 --   more results available. To retrieve the next page of results, make the
@@ -1701,9 +1704,6 @@ listMigrationTasks_nextToken :: Lens' ListMigrationTasks (Maybe Text)
 
 -- | Value to specify how many results are returned per page.
 listMigrationTasks_maxResults :: Lens' ListMigrationTasks (Maybe Natural)
-
--- | Filter migration tasks by discovered resource name.
-listMigrationTasks_resourceName :: Lens' ListMigrationTasks (Maybe Text)
 
 -- | <i>See:</i> <a>newListMigrationTasksResponse</a> smart constructor.
 data ListMigrationTasksResponse
@@ -1851,16 +1851,16 @@ listDiscoveredResources_migrationTaskName :: Lens' ListDiscoveredResources Text
 -- | <i>See:</i> <a>newListDiscoveredResourcesResponse</a> smart
 --   constructor.
 data ListDiscoveredResourcesResponse
-ListDiscoveredResourcesResponse' :: Maybe Text -> Maybe [DiscoveredResource] -> Int -> ListDiscoveredResourcesResponse
+ListDiscoveredResourcesResponse' :: Maybe [DiscoveredResource] -> Maybe Text -> Int -> ListDiscoveredResourcesResponse
+
+-- | Returned list of discovered resources associated with the given
+--   MigrationTask.
+[$sel:discoveredResourceList:ListDiscoveredResourcesResponse'] :: ListDiscoveredResourcesResponse -> Maybe [DiscoveredResource]
 
 -- | If there are more discovered resources than the max result, return the
 --   next token to be passed to the next call as a bookmark of where to
 --   start from.
 [$sel:nextToken:ListDiscoveredResourcesResponse'] :: ListDiscoveredResourcesResponse -> Maybe Text
-
--- | Returned list of discovered resources associated with the given
---   MigrationTask.
-[$sel:discoveredResourceList:ListDiscoveredResourcesResponse'] :: ListDiscoveredResourcesResponse -> Maybe [DiscoveredResource]
 
 -- | The response's http status code.
 [$sel:httpStatus:ListDiscoveredResourcesResponse'] :: ListDiscoveredResourcesResponse -> Int
@@ -1874,29 +1874,29 @@ ListDiscoveredResourcesResponse' :: Maybe Text -> Maybe [DiscoveredResource] -> 
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:nextToken:ListDiscoveredResources'</a>,
---   <a>listDiscoveredResourcesResponse_nextToken</a> - If there are more
---   discovered resources than the max result, return the next token to be
---   passed to the next call as a bookmark of where to start from.
---   
 --   <a>$sel:discoveredResourceList:ListDiscoveredResourcesResponse'</a>,
 --   <a>listDiscoveredResourcesResponse_discoveredResourceList</a> -
 --   Returned list of discovered resources associated with the given
 --   MigrationTask.
+--   
+--   <a>$sel:nextToken:ListDiscoveredResources'</a>,
+--   <a>listDiscoveredResourcesResponse_nextToken</a> - If there are more
+--   discovered resources than the max result, return the next token to be
+--   passed to the next call as a bookmark of where to start from.
 --   
 --   <a>$sel:httpStatus:ListDiscoveredResourcesResponse'</a>,
 --   <a>listDiscoveredResourcesResponse_httpStatus</a> - The response's
 --   http status code.
 newListDiscoveredResourcesResponse :: Int -> ListDiscoveredResourcesResponse
 
+-- | Returned list of discovered resources associated with the given
+--   MigrationTask.
+listDiscoveredResourcesResponse_discoveredResourceList :: Lens' ListDiscoveredResourcesResponse (Maybe [DiscoveredResource])
+
 -- | If there are more discovered resources than the max result, return the
 --   next token to be passed to the next call as a bookmark of where to
 --   start from.
 listDiscoveredResourcesResponse_nextToken :: Lens' ListDiscoveredResourcesResponse (Maybe Text)
-
--- | Returned list of discovered resources associated with the given
---   MigrationTask.
-listDiscoveredResourcesResponse_discoveredResourceList :: Lens' ListDiscoveredResourcesResponse (Maybe [DiscoveredResource])
 
 -- | The response's http status code.
 listDiscoveredResourcesResponse_httpStatus :: Lens' ListDiscoveredResourcesResponse Int
@@ -1998,16 +1998,16 @@ listCreatedArtifacts_migrationTaskName :: Lens' ListCreatedArtifacts Text
 
 -- | <i>See:</i> <a>newListCreatedArtifactsResponse</a> smart constructor.
 data ListCreatedArtifactsResponse
-ListCreatedArtifactsResponse' :: Maybe [CreatedArtifact] -> Maybe Text -> Int -> ListCreatedArtifactsResponse
-
--- | List of created artifacts up to the maximum number of results
---   specified in the request.
-[$sel:createdArtifactList:ListCreatedArtifactsResponse'] :: ListCreatedArtifactsResponse -> Maybe [CreatedArtifact]
+ListCreatedArtifactsResponse' :: Maybe Text -> Maybe [CreatedArtifact] -> Int -> ListCreatedArtifactsResponse
 
 -- | If there are more created artifacts than the max result, return the
 --   next token to be passed to the next call as a bookmark of where to
 --   start from.
 [$sel:nextToken:ListCreatedArtifactsResponse'] :: ListCreatedArtifactsResponse -> Maybe Text
+
+-- | List of created artifacts up to the maximum number of results
+--   specified in the request.
+[$sel:createdArtifactList:ListCreatedArtifactsResponse'] :: ListCreatedArtifactsResponse -> Maybe [CreatedArtifact]
 
 -- | The response's http status code.
 [$sel:httpStatus:ListCreatedArtifactsResponse'] :: ListCreatedArtifactsResponse -> Int
@@ -2021,29 +2021,29 @@ ListCreatedArtifactsResponse' :: Maybe [CreatedArtifact] -> Maybe Text -> Int ->
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:createdArtifactList:ListCreatedArtifactsResponse'</a>,
---   <a>listCreatedArtifactsResponse_createdArtifactList</a> - List of
---   created artifacts up to the maximum number of results specified in the
---   request.
---   
 --   <a>$sel:nextToken:ListCreatedArtifacts'</a>,
 --   <a>listCreatedArtifactsResponse_nextToken</a> - If there are more
 --   created artifacts than the max result, return the next token to be
 --   passed to the next call as a bookmark of where to start from.
+--   
+--   <a>$sel:createdArtifactList:ListCreatedArtifactsResponse'</a>,
+--   <a>listCreatedArtifactsResponse_createdArtifactList</a> - List of
+--   created artifacts up to the maximum number of results specified in the
+--   request.
 --   
 --   <a>$sel:httpStatus:ListCreatedArtifactsResponse'</a>,
 --   <a>listCreatedArtifactsResponse_httpStatus</a> - The response's http
 --   status code.
 newListCreatedArtifactsResponse :: Int -> ListCreatedArtifactsResponse
 
--- | List of created artifacts up to the maximum number of results
---   specified in the request.
-listCreatedArtifactsResponse_createdArtifactList :: Lens' ListCreatedArtifactsResponse (Maybe [CreatedArtifact])
-
 -- | If there are more created artifacts than the max result, return the
 --   next token to be passed to the next call as a bookmark of where to
 --   start from.
 listCreatedArtifactsResponse_nextToken :: Lens' ListCreatedArtifactsResponse (Maybe Text)
+
+-- | List of created artifacts up to the maximum number of results
+--   specified in the request.
+listCreatedArtifactsResponse_createdArtifactList :: Lens' ListCreatedArtifactsResponse (Maybe [CreatedArtifact])
 
 -- | The response's http status code.
 listCreatedArtifactsResponse_httpStatus :: Lens' ListCreatedArtifactsResponse Int
@@ -2075,19 +2075,19 @@ module Network.AWS.MigrationHub.ListApplicationStates
 
 -- | <i>See:</i> <a>newListApplicationStates</a> smart constructor.
 data ListApplicationStates
-ListApplicationStates' :: Maybe Text -> Maybe Natural -> Maybe (NonEmpty Text) -> ListApplicationStates
+ListApplicationStates' :: Maybe Text -> Maybe (NonEmpty Text) -> Maybe Natural -> ListApplicationStates
 
 -- | If a <tt>NextToken</tt> was returned by a previous call, there are
 --   more results available. To retrieve the next page of results, make the
 --   call again using the returned token in <tt>NextToken</tt>.
 [$sel:nextToken:ListApplicationStates'] :: ListApplicationStates -> Maybe Text
 
--- | Maximum number of results to be returned per page.
-[$sel:maxResults:ListApplicationStates'] :: ListApplicationStates -> Maybe Natural
-
 -- | The configurationIds from the Application Discovery Service that
 --   uniquely identifies your applications.
 [$sel:applicationIds:ListApplicationStates'] :: ListApplicationStates -> Maybe (NonEmpty Text)
+
+-- | Maximum number of results to be returned per page.
+[$sel:maxResults:ListApplicationStates'] :: ListApplicationStates -> Maybe Natural
 
 -- | Create a value of <a>ListApplicationStates</a> with all optional
 --   fields omitted.
@@ -2104,14 +2104,14 @@ ListApplicationStates' :: Maybe Text -> Maybe Natural -> Maybe (NonEmpty Text) -
 --   retrieve the next page of results, make the call again using the
 --   returned token in <tt>NextToken</tt>.
 --   
---   <a>$sel:maxResults:ListApplicationStates'</a>,
---   <a>listApplicationStates_maxResults</a> - Maximum number of results to
---   be returned per page.
---   
 --   <a>$sel:applicationIds:ListApplicationStates'</a>,
 --   <a>listApplicationStates_applicationIds</a> - The configurationIds
 --   from the Application Discovery Service that uniquely identifies your
 --   applications.
+--   
+--   <a>$sel:maxResults:ListApplicationStates'</a>,
+--   <a>listApplicationStates_maxResults</a> - Maximum number of results to
+--   be returned per page.
 newListApplicationStates :: ListApplicationStates
 
 -- | If a <tt>NextToken</tt> was returned by a previous call, there are
@@ -2119,12 +2119,12 @@ newListApplicationStates :: ListApplicationStates
 --   call again using the returned token in <tt>NextToken</tt>.
 listApplicationStates_nextToken :: Lens' ListApplicationStates (Maybe Text)
 
--- | Maximum number of results to be returned per page.
-listApplicationStates_maxResults :: Lens' ListApplicationStates (Maybe Natural)
-
 -- | The configurationIds from the Application Discovery Service that
 --   uniquely identifies your applications.
 listApplicationStates_applicationIds :: Lens' ListApplicationStates (Maybe (NonEmpty Text))
+
+-- | Maximum number of results to be returned per page.
+listApplicationStates_maxResults :: Lens' ListApplicationStates (Maybe Natural)
 
 -- | <i>See:</i> <a>newListApplicationStatesResponse</a> smart constructor.
 data ListApplicationStatesResponse
@@ -2651,13 +2651,13 @@ describeApplicationState_applicationId :: Lens' DescribeApplicationState Text
 -- | <i>See:</i> <a>newDescribeApplicationStateResponse</a> smart
 --   constructor.
 data DescribeApplicationStateResponse
-DescribeApplicationStateResponse' :: Maybe ApplicationStatus -> Maybe POSIX -> Int -> DescribeApplicationStateResponse
-
--- | Status of the application - Not Started, In-Progress, Complete.
-[$sel:applicationStatus:DescribeApplicationStateResponse'] :: DescribeApplicationStateResponse -> Maybe ApplicationStatus
+DescribeApplicationStateResponse' :: Maybe POSIX -> Maybe ApplicationStatus -> Int -> DescribeApplicationStateResponse
 
 -- | The timestamp when the application status was last updated.
 [$sel:lastUpdatedTime:DescribeApplicationStateResponse'] :: DescribeApplicationStateResponse -> Maybe POSIX
+
+-- | Status of the application - Not Started, In-Progress, Complete.
+[$sel:applicationStatus:DescribeApplicationStateResponse'] :: DescribeApplicationStateResponse -> Maybe ApplicationStatus
 
 -- | The response's http status code.
 [$sel:httpStatus:DescribeApplicationStateResponse'] :: DescribeApplicationStateResponse -> Int
@@ -2671,24 +2671,24 @@ DescribeApplicationStateResponse' :: Maybe ApplicationStatus -> Maybe POSIX -> I
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:applicationStatus:DescribeApplicationStateResponse'</a>,
---   <a>describeApplicationStateResponse_applicationStatus</a> - Status of
---   the application - Not Started, In-Progress, Complete.
---   
 --   <a>$sel:lastUpdatedTime:DescribeApplicationStateResponse'</a>,
 --   <a>describeApplicationStateResponse_lastUpdatedTime</a> - The
 --   timestamp when the application status was last updated.
+--   
+--   <a>$sel:applicationStatus:DescribeApplicationStateResponse'</a>,
+--   <a>describeApplicationStateResponse_applicationStatus</a> - Status of
+--   the application - Not Started, In-Progress, Complete.
 --   
 --   <a>$sel:httpStatus:DescribeApplicationStateResponse'</a>,
 --   <a>describeApplicationStateResponse_httpStatus</a> - The response's
 --   http status code.
 newDescribeApplicationStateResponse :: Int -> DescribeApplicationStateResponse
 
--- | Status of the application - Not Started, In-Progress, Complete.
-describeApplicationStateResponse_applicationStatus :: Lens' DescribeApplicationStateResponse (Maybe ApplicationStatus)
-
 -- | The timestamp when the application status was last updated.
 describeApplicationStateResponse_lastUpdatedTime :: Lens' DescribeApplicationStateResponse (Maybe UTCTime)
+
+-- | Status of the application - Not Started, In-Progress, Complete.
+describeApplicationStateResponse_applicationStatus :: Lens' DescribeApplicationStateResponse (Maybe ApplicationStatus)
 
 -- | The response's http status code.
 describeApplicationStateResponse_httpStatus :: Lens' DescribeApplicationStateResponse Int
@@ -3137,6 +3137,57 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.MigrationHub.AssociateCreate
 
 module Network.AWS.MigrationHub.Lens
 
+-- | Optional boolean flag to indicate whether any effect should take
+--   place. Used to test if the caller has permission to make the call.
+associateDiscoveredResource_dryRun :: Lens' AssociateDiscoveredResource (Maybe Bool)
+
+-- | The name of the ProgressUpdateStream.
+associateDiscoveredResource_progressUpdateStream :: Lens' AssociateDiscoveredResource Text
+
+-- | The identifier given to the MigrationTask. /Do not store personal data
+--   in this field./
+associateDiscoveredResource_migrationTaskName :: Lens' AssociateDiscoveredResource Text
+
+-- | Object representing a Resource.
+associateDiscoveredResource_discoveredResource :: Lens' AssociateDiscoveredResource DiscoveredResource
+
+-- | The response's http status code.
+associateDiscoveredResourceResponse_httpStatus :: Lens' AssociateDiscoveredResourceResponse Int
+
+-- | Optional boolean flag to indicate whether any effect should take
+--   place. Used to test if the caller has permission to make the call.
+createProgressUpdateStream_dryRun :: Lens' CreateProgressUpdateStream (Maybe Bool)
+
+-- | The name of the ProgressUpdateStream. /Do not store personal data in
+--   this field./
+createProgressUpdateStream_progressUpdateStreamName :: Lens' CreateProgressUpdateStream Text
+
+-- | The response's http status code.
+createProgressUpdateStreamResponse_httpStatus :: Lens' CreateProgressUpdateStreamResponse Int
+
+-- | If a <tt>NextToken</tt> was returned by a previous call, there are
+--   more results available. To retrieve the next page of results, make the
+--   call again using the returned token in <tt>NextToken</tt>.
+listApplicationStates_nextToken :: Lens' ListApplicationStates (Maybe Text)
+
+-- | The configurationIds from the Application Discovery Service that
+--   uniquely identifies your applications.
+listApplicationStates_applicationIds :: Lens' ListApplicationStates (Maybe (NonEmpty Text))
+
+-- | Maximum number of results to be returned per page.
+listApplicationStates_maxResults :: Lens' ListApplicationStates (Maybe Natural)
+
+-- | A list of Applications that exist in Application Discovery Service.
+listApplicationStatesResponse_applicationStateList :: Lens' ListApplicationStatesResponse (Maybe [ApplicationState])
+
+-- | If a <tt>NextToken</tt> was returned by a previous call, there are
+--   more results available. To retrieve the next page of results, make the
+--   call again using the returned token in <tt>NextToken</tt>.
+listApplicationStatesResponse_nextToken :: Lens' ListApplicationStatesResponse (Maybe Text)
+
+-- | The response's http status code.
+listApplicationStatesResponse_httpStatus :: Lens' ListApplicationStatesResponse Int
+
 -- | If a <tt>NextToken</tt> was returned by a previous call, there are
 --   more results available. To retrieve the next page of results, make the
 --   call again using the returned token in <tt>NextToken</tt>.
@@ -3152,28 +3203,129 @@ listCreatedArtifacts_progressUpdateStream :: Lens' ListCreatedArtifacts Text
 --   personal data in this field./
 listCreatedArtifacts_migrationTaskName :: Lens' ListCreatedArtifacts Text
 
--- | List of created artifacts up to the maximum number of results
---   specified in the request.
-listCreatedArtifactsResponse_createdArtifactList :: Lens' ListCreatedArtifactsResponse (Maybe [CreatedArtifact])
-
 -- | If there are more created artifacts than the max result, return the
 --   next token to be passed to the next call as a bookmark of where to
 --   start from.
 listCreatedArtifactsResponse_nextToken :: Lens' ListCreatedArtifactsResponse (Maybe Text)
+
+-- | List of created artifacts up to the maximum number of results
+--   specified in the request.
+listCreatedArtifactsResponse_createdArtifactList :: Lens' ListCreatedArtifactsResponse (Maybe [CreatedArtifact])
 
 -- | The response's http status code.
 listCreatedArtifactsResponse_httpStatus :: Lens' ListCreatedArtifactsResponse Int
 
 -- | Optional boolean flag to indicate whether any effect should take
 --   place. Used to test if the caller has permission to make the call.
-createProgressUpdateStream_dryRun :: Lens' CreateProgressUpdateStream (Maybe Bool)
+disassociateDiscoveredResource_dryRun :: Lens' DisassociateDiscoveredResource (Maybe Bool)
+
+-- | The name of the ProgressUpdateStream.
+disassociateDiscoveredResource_progressUpdateStream :: Lens' DisassociateDiscoveredResource Text
+
+-- | The identifier given to the MigrationTask. /Do not store personal data
+--   in this field./
+disassociateDiscoveredResource_migrationTaskName :: Lens' DisassociateDiscoveredResource Text
+
+-- | ConfigurationId of the Application Discovery Service resource to be
+--   disassociated.
+disassociateDiscoveredResource_configurationId :: Lens' DisassociateDiscoveredResource Text
+
+-- | The response's http status code.
+disassociateDiscoveredResourceResponse_httpStatus :: Lens' DisassociateDiscoveredResourceResponse Int
+
+-- | The timestamp when the application state changed.
+notifyApplicationState_updateDateTime :: Lens' NotifyApplicationState (Maybe UTCTime)
+
+-- | Optional boolean flag to indicate whether any effect should take
+--   place. Used to test if the caller has permission to make the call.
+notifyApplicationState_dryRun :: Lens' NotifyApplicationState (Maybe Bool)
+
+-- | The configurationId in Application Discovery Service that uniquely
+--   identifies the grouped application.
+notifyApplicationState_applicationId :: Lens' NotifyApplicationState Text
+
+-- | Status of the application - Not Started, In-Progress, Complete.
+notifyApplicationState_status :: Lens' NotifyApplicationState ApplicationStatus
+
+-- | The response's http status code.
+notifyApplicationStateResponse_httpStatus :: Lens' NotifyApplicationStateResponse Int
+
+-- | Optional boolean flag to indicate whether any effect should take
+--   place. Used to test if the caller has permission to make the call.
+deleteProgressUpdateStream_dryRun :: Lens' DeleteProgressUpdateStream (Maybe Bool)
 
 -- | The name of the ProgressUpdateStream. /Do not store personal data in
 --   this field./
-createProgressUpdateStream_progressUpdateStreamName :: Lens' CreateProgressUpdateStream Text
+deleteProgressUpdateStream_progressUpdateStreamName :: Lens' DeleteProgressUpdateStream Text
 
 -- | The response's http status code.
-createProgressUpdateStreamResponse_httpStatus :: Lens' CreateProgressUpdateStreamResponse Int
+deleteProgressUpdateStreamResponse_httpStatus :: Lens' DeleteProgressUpdateStreamResponse Int
+
+-- | If a <tt>NextToken</tt> was returned by a previous call, there are
+--   more results available. To retrieve the next page of results, make the
+--   call again using the returned token in <tt>NextToken</tt>.
+listProgressUpdateStreams_nextToken :: Lens' ListProgressUpdateStreams (Maybe Text)
+
+-- | Filter to limit the maximum number of results to list per page.
+listProgressUpdateStreams_maxResults :: Lens' ListProgressUpdateStreams (Maybe Natural)
+
+-- | List of progress update streams up to the max number of results passed
+--   in the input.
+listProgressUpdateStreamsResponse_progressUpdateStreamSummaryList :: Lens' ListProgressUpdateStreamsResponse (Maybe [ProgressUpdateStreamSummary])
+
+-- | If there are more streams created than the max result, return the next
+--   token to be passed to the next call as a bookmark of where to start
+--   from.
+listProgressUpdateStreamsResponse_nextToken :: Lens' ListProgressUpdateStreamsResponse (Maybe Text)
+
+-- | The response's http status code.
+listProgressUpdateStreamsResponse_httpStatus :: Lens' ListProgressUpdateStreamsResponse Int
+
+-- | Optional boolean flag to indicate whether any effect should take
+--   place. Used to test if the caller has permission to make the call.
+disassociateCreatedArtifact_dryRun :: Lens' DisassociateCreatedArtifact (Maybe Bool)
+
+-- | The name of the ProgressUpdateStream.
+disassociateCreatedArtifact_progressUpdateStream :: Lens' DisassociateCreatedArtifact Text
+
+-- | Unique identifier that references the migration task to be
+--   disassociated with the artifact. <i>Do not store personal data in this
+--   field.</i>
+disassociateCreatedArtifact_migrationTaskName :: Lens' DisassociateCreatedArtifact Text
+
+-- | An ARN of the AWS resource related to the migration (e.g., AMI, EC2
+--   instance, RDS instance, etc.)
+disassociateCreatedArtifact_createdArtifactName :: Lens' DisassociateCreatedArtifact Text
+
+-- | The response's http status code.
+disassociateCreatedArtifactResponse_httpStatus :: Lens' DisassociateCreatedArtifactResponse Int
+
+-- | Optional boolean flag to indicate whether any effect should take
+--   place. Used to test if the caller has permission to make the call.
+importMigrationTask_dryRun :: Lens' ImportMigrationTask (Maybe Bool)
+
+-- | The name of the ProgressUpdateStream. &gt;
+importMigrationTask_progressUpdateStream :: Lens' ImportMigrationTask Text
+
+-- | Unique identifier that references the migration task. /Do not store
+--   personal data in this field./
+importMigrationTask_migrationTaskName :: Lens' ImportMigrationTask Text
+
+-- | The response's http status code.
+importMigrationTaskResponse_httpStatus :: Lens' ImportMigrationTaskResponse Int
+
+-- | The name of the ProgressUpdateStream.
+describeMigrationTask_progressUpdateStream :: Lens' DescribeMigrationTask Text
+
+-- | The identifier given to the MigrationTask. /Do not store personal data
+--   in this field./
+describeMigrationTask_migrationTaskName :: Lens' DescribeMigrationTask Text
+
+-- | Object encapsulating information about the migration task.
+describeMigrationTaskResponse_migrationTask :: Lens' DescribeMigrationTaskResponse (Maybe MigrationTask)
+
+-- | The response's http status code.
+describeMigrationTaskResponse_httpStatus :: Lens' DescribeMigrationTaskResponse Int
 
 -- | Optional boolean flag to indicate whether any effect should take
 --   place. Used to test if the caller has permission to make the call.
@@ -3217,87 +3369,21 @@ putResourceAttributesResponse_httpStatus :: Lens' PutResourceAttributesResponse 
 
 -- | Optional boolean flag to indicate whether any effect should take
 --   place. Used to test if the caller has permission to make the call.
-importMigrationTask_dryRun :: Lens' ImportMigrationTask (Maybe Bool)
+associateCreatedArtifact_dryRun :: Lens' AssociateCreatedArtifact (Maybe Bool)
 
--- | The name of the ProgressUpdateStream. &gt;
-importMigrationTask_progressUpdateStream :: Lens' ImportMigrationTask Text
+-- | The name of the ProgressUpdateStream.
+associateCreatedArtifact_progressUpdateStream :: Lens' AssociateCreatedArtifact Text
 
 -- | Unique identifier that references the migration task. /Do not store
 --   personal data in this field./
-importMigrationTask_migrationTaskName :: Lens' ImportMigrationTask Text
-
--- | The response's http status code.
-importMigrationTaskResponse_httpStatus :: Lens' ImportMigrationTaskResponse Int
-
--- | Optional boolean flag to indicate whether any effect should take
---   place. Used to test if the caller has permission to make the call.
-disassociateCreatedArtifact_dryRun :: Lens' DisassociateCreatedArtifact (Maybe Bool)
-
--- | The name of the ProgressUpdateStream.
-disassociateCreatedArtifact_progressUpdateStream :: Lens' DisassociateCreatedArtifact Text
-
--- | Unique identifier that references the migration task to be
---   disassociated with the artifact. <i>Do not store personal data in this
---   field.</i>
-disassociateCreatedArtifact_migrationTaskName :: Lens' DisassociateCreatedArtifact Text
+associateCreatedArtifact_migrationTaskName :: Lens' AssociateCreatedArtifact Text
 
 -- | An ARN of the AWS resource related to the migration (e.g., AMI, EC2
 --   instance, RDS instance, etc.)
-disassociateCreatedArtifact_createdArtifactName :: Lens' DisassociateCreatedArtifact Text
+associateCreatedArtifact_createdArtifact :: Lens' AssociateCreatedArtifact CreatedArtifact
 
 -- | The response's http status code.
-disassociateCreatedArtifactResponse_httpStatus :: Lens' DisassociateCreatedArtifactResponse Int
-
--- | The name of the ProgressUpdateStream.
-describeMigrationTask_progressUpdateStream :: Lens' DescribeMigrationTask Text
-
--- | The identifier given to the MigrationTask. /Do not store personal data
---   in this field./
-describeMigrationTask_migrationTaskName :: Lens' DescribeMigrationTask Text
-
--- | Object encapsulating information about the migration task.
-describeMigrationTaskResponse_migrationTask :: Lens' DescribeMigrationTaskResponse (Maybe MigrationTask)
-
--- | The response's http status code.
-describeMigrationTaskResponse_httpStatus :: Lens' DescribeMigrationTaskResponse Int
-
--- | If a <tt>NextToken</tt> was returned by a previous call, there are
---   more results available. To retrieve the next page of results, make the
---   call again using the returned token in <tt>NextToken</tt>.
-listDiscoveredResources_nextToken :: Lens' ListDiscoveredResources (Maybe Text)
-
--- | The maximum number of results returned per page.
-listDiscoveredResources_maxResults :: Lens' ListDiscoveredResources (Maybe Natural)
-
--- | The name of the ProgressUpdateStream.
-listDiscoveredResources_progressUpdateStream :: Lens' ListDiscoveredResources Text
-
--- | The name of the MigrationTask. /Do not store personal data in this
---   field./
-listDiscoveredResources_migrationTaskName :: Lens' ListDiscoveredResources Text
-
--- | If there are more discovered resources than the max result, return the
---   next token to be passed to the next call as a bookmark of where to
---   start from.
-listDiscoveredResourcesResponse_nextToken :: Lens' ListDiscoveredResourcesResponse (Maybe Text)
-
--- | Returned list of discovered resources associated with the given
---   MigrationTask.
-listDiscoveredResourcesResponse_discoveredResourceList :: Lens' ListDiscoveredResourcesResponse (Maybe [DiscoveredResource])
-
--- | The response's http status code.
-listDiscoveredResourcesResponse_httpStatus :: Lens' ListDiscoveredResourcesResponse Int
-
--- | Optional boolean flag to indicate whether any effect should take
---   place. Used to test if the caller has permission to make the call.
-deleteProgressUpdateStream_dryRun :: Lens' DeleteProgressUpdateStream (Maybe Bool)
-
--- | The name of the ProgressUpdateStream. /Do not store personal data in
---   this field./
-deleteProgressUpdateStream_progressUpdateStreamName :: Lens' DeleteProgressUpdateStream Text
-
--- | The response's http status code.
-deleteProgressUpdateStreamResponse_httpStatus :: Lens' DeleteProgressUpdateStreamResponse Int
+associateCreatedArtifactResponse_httpStatus :: Lens' AssociateCreatedArtifactResponse Int
 
 -- | Optional boolean flag to indicate whether any effect should take
 --   place. Used to test if the caller has permission to make the call.
@@ -3325,100 +3411,21 @@ notifyMigrationTaskState_nextUpdateSeconds :: Lens' NotifyMigrationTaskState Nat
 -- | The response's http status code.
 notifyMigrationTaskStateResponse_httpStatus :: Lens' NotifyMigrationTaskStateResponse Int
 
--- | Optional boolean flag to indicate whether any effect should take
---   place. Used to test if the caller has permission to make the call.
-disassociateDiscoveredResource_dryRun :: Lens' DisassociateDiscoveredResource (Maybe Bool)
-
--- | The name of the ProgressUpdateStream.
-disassociateDiscoveredResource_progressUpdateStream :: Lens' DisassociateDiscoveredResource Text
-
--- | The identifier given to the MigrationTask. /Do not store personal data
---   in this field./
-disassociateDiscoveredResource_migrationTaskName :: Lens' DisassociateDiscoveredResource Text
-
--- | ConfigurationId of the Application Discovery Service resource to be
---   disassociated.
-disassociateDiscoveredResource_configurationId :: Lens' DisassociateDiscoveredResource Text
-
--- | The response's http status code.
-disassociateDiscoveredResourceResponse_httpStatus :: Lens' DisassociateDiscoveredResourceResponse Int
-
--- | Optional boolean flag to indicate whether any effect should take
---   place. Used to test if the caller has permission to make the call.
-associateDiscoveredResource_dryRun :: Lens' AssociateDiscoveredResource (Maybe Bool)
-
--- | The name of the ProgressUpdateStream.
-associateDiscoveredResource_progressUpdateStream :: Lens' AssociateDiscoveredResource Text
-
--- | The identifier given to the MigrationTask. /Do not store personal data
---   in this field./
-associateDiscoveredResource_migrationTaskName :: Lens' AssociateDiscoveredResource Text
-
--- | Object representing a Resource.
-associateDiscoveredResource_discoveredResource :: Lens' AssociateDiscoveredResource DiscoveredResource
-
--- | The response's http status code.
-associateDiscoveredResourceResponse_httpStatus :: Lens' AssociateDiscoveredResourceResponse Int
-
--- | If a <tt>NextToken</tt> was returned by a previous call, there are
---   more results available. To retrieve the next page of results, make the
---   call again using the returned token in <tt>NextToken</tt>.
-listApplicationStates_nextToken :: Lens' ListApplicationStates (Maybe Text)
-
--- | Maximum number of results to be returned per page.
-listApplicationStates_maxResults :: Lens' ListApplicationStates (Maybe Natural)
-
--- | The configurationIds from the Application Discovery Service that
---   uniquely identifies your applications.
-listApplicationStates_applicationIds :: Lens' ListApplicationStates (Maybe (NonEmpty Text))
-
--- | A list of Applications that exist in Application Discovery Service.
-listApplicationStatesResponse_applicationStateList :: Lens' ListApplicationStatesResponse (Maybe [ApplicationState])
-
--- | If a <tt>NextToken</tt> was returned by a previous call, there are
---   more results available. To retrieve the next page of results, make the
---   call again using the returned token in <tt>NextToken</tt>.
-listApplicationStatesResponse_nextToken :: Lens' ListApplicationStatesResponse (Maybe Text)
-
--- | The response's http status code.
-listApplicationStatesResponse_httpStatus :: Lens' ListApplicationStatesResponse Int
-
--- | If a <tt>NextToken</tt> was returned by a previous call, there are
---   more results available. To retrieve the next page of results, make the
---   call again using the returned token in <tt>NextToken</tt>.
-listProgressUpdateStreams_nextToken :: Lens' ListProgressUpdateStreams (Maybe Text)
-
--- | Filter to limit the maximum number of results to list per page.
-listProgressUpdateStreams_maxResults :: Lens' ListProgressUpdateStreams (Maybe Natural)
-
--- | If there are more streams created than the max result, return the next
---   token to be passed to the next call as a bookmark of where to start
---   from.
-listProgressUpdateStreamsResponse_nextToken :: Lens' ListProgressUpdateStreamsResponse (Maybe Text)
-
--- | List of progress update streams up to the max number of results passed
---   in the input.
-listProgressUpdateStreamsResponse_progressUpdateStreamSummaryList :: Lens' ListProgressUpdateStreamsResponse (Maybe [ProgressUpdateStreamSummary])
-
--- | The response's http status code.
-listProgressUpdateStreamsResponse_httpStatus :: Lens' ListProgressUpdateStreamsResponse Int
-
--- | Optional boolean flag to indicate whether any effect should take
---   place. Used to test if the caller has permission to make the call.
-notifyApplicationState_dryRun :: Lens' NotifyApplicationState (Maybe Bool)
-
--- | The timestamp when the application state changed.
-notifyApplicationState_updateDateTime :: Lens' NotifyApplicationState (Maybe UTCTime)
-
 -- | The configurationId in Application Discovery Service that uniquely
 --   identifies the grouped application.
-notifyApplicationState_applicationId :: Lens' NotifyApplicationState Text
+describeApplicationState_applicationId :: Lens' DescribeApplicationState Text
+
+-- | The timestamp when the application status was last updated.
+describeApplicationStateResponse_lastUpdatedTime :: Lens' DescribeApplicationStateResponse (Maybe UTCTime)
 
 -- | Status of the application - Not Started, In-Progress, Complete.
-notifyApplicationState_status :: Lens' NotifyApplicationState ApplicationStatus
+describeApplicationStateResponse_applicationStatus :: Lens' DescribeApplicationStateResponse (Maybe ApplicationStatus)
 
 -- | The response's http status code.
-notifyApplicationStateResponse_httpStatus :: Lens' NotifyApplicationStateResponse Int
+describeApplicationStateResponse_httpStatus :: Lens' DescribeApplicationStateResponse Int
+
+-- | Filter migration tasks by discovered resource name.
+listMigrationTasks_resourceName :: Lens' ListMigrationTasks (Maybe Text)
 
 -- | If a <tt>NextToken</tt> was returned by a previous call, there are
 --   more results available. To retrieve the next page of results, make the
@@ -3427,9 +3434,6 @@ listMigrationTasks_nextToken :: Lens' ListMigrationTasks (Maybe Text)
 
 -- | Value to specify how many results are returned per page.
 listMigrationTasks_maxResults :: Lens' ListMigrationTasks (Maybe Natural)
-
--- | Filter migration tasks by discovered resource name.
-listMigrationTasks_resourceName :: Lens' ListMigrationTasks (Maybe Text)
 
 -- | Lists the migration task's summary which includes:
 --   <tt>MigrationTaskName</tt>, <tt>ProgressPercent</tt>,
@@ -3445,36 +3449,35 @@ listMigrationTasksResponse_nextToken :: Lens' ListMigrationTasksResponse (Maybe 
 -- | The response's http status code.
 listMigrationTasksResponse_httpStatus :: Lens' ListMigrationTasksResponse Int
 
--- | The configurationId in Application Discovery Service that uniquely
---   identifies the grouped application.
-describeApplicationState_applicationId :: Lens' DescribeApplicationState Text
+-- | If a <tt>NextToken</tt> was returned by a previous call, there are
+--   more results available. To retrieve the next page of results, make the
+--   call again using the returned token in <tt>NextToken</tt>.
+listDiscoveredResources_nextToken :: Lens' ListDiscoveredResources (Maybe Text)
 
--- | Status of the application - Not Started, In-Progress, Complete.
-describeApplicationStateResponse_applicationStatus :: Lens' DescribeApplicationStateResponse (Maybe ApplicationStatus)
-
--- | The timestamp when the application status was last updated.
-describeApplicationStateResponse_lastUpdatedTime :: Lens' DescribeApplicationStateResponse (Maybe UTCTime)
-
--- | The response's http status code.
-describeApplicationStateResponse_httpStatus :: Lens' DescribeApplicationStateResponse Int
-
--- | Optional boolean flag to indicate whether any effect should take
---   place. Used to test if the caller has permission to make the call.
-associateCreatedArtifact_dryRun :: Lens' AssociateCreatedArtifact (Maybe Bool)
+-- | The maximum number of results returned per page.
+listDiscoveredResources_maxResults :: Lens' ListDiscoveredResources (Maybe Natural)
 
 -- | The name of the ProgressUpdateStream.
-associateCreatedArtifact_progressUpdateStream :: Lens' AssociateCreatedArtifact Text
+listDiscoveredResources_progressUpdateStream :: Lens' ListDiscoveredResources Text
 
--- | Unique identifier that references the migration task. /Do not store
---   personal data in this field./
-associateCreatedArtifact_migrationTaskName :: Lens' AssociateCreatedArtifact Text
+-- | The name of the MigrationTask. /Do not store personal data in this
+--   field./
+listDiscoveredResources_migrationTaskName :: Lens' ListDiscoveredResources Text
 
--- | An ARN of the AWS resource related to the migration (e.g., AMI, EC2
---   instance, RDS instance, etc.)
-associateCreatedArtifact_createdArtifact :: Lens' AssociateCreatedArtifact CreatedArtifact
+-- | Returned list of discovered resources associated with the given
+--   MigrationTask.
+listDiscoveredResourcesResponse_discoveredResourceList :: Lens' ListDiscoveredResourcesResponse (Maybe [DiscoveredResource])
+
+-- | If there are more discovered resources than the max result, return the
+--   next token to be passed to the next call as a bookmark of where to
+--   start from.
+listDiscoveredResourcesResponse_nextToken :: Lens' ListDiscoveredResourcesResponse (Maybe Text)
 
 -- | The response's http status code.
-associateCreatedArtifactResponse_httpStatus :: Lens' AssociateCreatedArtifactResponse Int
+listDiscoveredResourcesResponse_httpStatus :: Lens' ListDiscoveredResourcesResponse Int
+
+-- | The timestamp when the application status was last updated.
+applicationState_lastUpdatedTime :: Lens' ApplicationState (Maybe UTCTime)
 
 -- | The configurationId from the Application Discovery Service that
 --   uniquely identifies an application.
@@ -3482,9 +3485,6 @@ applicationState_applicationId :: Lens' ApplicationState (Maybe Text)
 
 -- | The current status of an application.
 applicationState_applicationStatus :: Lens' ApplicationState (Maybe ApplicationStatus)
-
--- | The timestamp when the application status was last updated.
-applicationState_lastUpdatedTime :: Lens' ApplicationState (Maybe UTCTime)
 
 -- | A description that can be free-form text to record additional detail
 --   about the artifact for clarity or for later reference.
@@ -3501,44 +3501,44 @@ discoveredResource_description :: Lens' DiscoveredResource (Maybe Text)
 --   identifies the on-premise resource.
 discoveredResource_configurationId :: Lens' DiscoveredResource Text
 
+-- | The timestamp when the task was gathered.
+migrationTask_updateDateTime :: Lens' MigrationTask (Maybe UTCTime)
+
 -- | Information about the resource that is being migrated. This data will
 --   be used to map the task to a resource in the Application Discovery
 --   Service repository.
 migrationTask_resourceAttributeList :: Lens' MigrationTask (Maybe [ResourceAttribute])
 
--- | The timestamp when the task was gathered.
-migrationTask_updateDateTime :: Lens' MigrationTask (Maybe UTCTime)
-
 -- | Task object encapsulating task information.
 migrationTask_task :: Lens' MigrationTask (Maybe Task)
+
+-- | A name that identifies the vendor of the migration tool being used.
+migrationTask_progressUpdateStream :: Lens' MigrationTask (Maybe Text)
 
 -- | Unique identifier that references the migration task. /Do not store
 --   personal data in this field./
 migrationTask_migrationTaskName :: Lens' MigrationTask (Maybe Text)
 
--- | A name that identifies the vendor of the migration tool being used.
-migrationTask_progressUpdateStream :: Lens' MigrationTask (Maybe Text)
-
 -- | Status of the task.
 migrationTaskSummary_status :: Lens' MigrationTaskSummary (Maybe MigrationStatus)
 
--- | Indication of the percentage completion of the task.
-migrationTaskSummary_progressPercent :: Lens' MigrationTaskSummary (Maybe Natural)
-
 -- | The timestamp when the task was gathered.
 migrationTaskSummary_updateDateTime :: Lens' MigrationTaskSummary (Maybe UTCTime)
+
+-- | Indication of the percentage completion of the task.
+migrationTaskSummary_progressPercent :: Lens' MigrationTaskSummary (Maybe Natural)
 
 -- | Detail information of what is being done within the overall status
 --   state.
 migrationTaskSummary_statusDetail :: Lens' MigrationTaskSummary (Maybe Text)
 
--- | Unique identifier that references the migration task. /Do not store
---   personal data in this field./
-migrationTaskSummary_migrationTaskName :: Lens' MigrationTaskSummary (Maybe Text)
-
 -- | An AWS resource used for access control. It should uniquely identify
 --   the migration tool as it is used for all updates made by the tool.
 migrationTaskSummary_progressUpdateStream :: Lens' MigrationTaskSummary (Maybe Text)
+
+-- | Unique identifier that references the migration task. /Do not store
+--   personal data in this field./
+migrationTaskSummary_migrationTaskName :: Lens' MigrationTaskSummary (Maybe Text)
 
 -- | The name of the ProgressUpdateStream. /Do not store personal data in
 --   this field./
@@ -3582,24 +3582,15 @@ module Network.AWS.MigrationHub
 --   configuration.
 defaultService :: Service
 
--- | Exception raised to indicate a request was not authorized when the
+-- | You do not have sufficient access to perform this action.
+_AccessDeniedException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The home region is not set. Set the home region to continue.
+_HomeRegionNotSetException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | Exception raised to indicate a successfully authorized action when the
 --   <tt>DryRun</tt> flag is set to "true".
-_UnauthorizedOperation :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | Exception raised when there is an internal, configuration, or
---   dependency error encountered.
-_ServiceUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | Exception raised when the provided input violates a policy constraint
---   or is entered in the wrong format or data type.
-_InvalidInputException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | Exception raised when an internal, configuration, or dependency error
---   is encountered.
-_InternalServerError :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The request was denied due to request throttling.
-_ThrottlingException :: AsError a => Getting (First ServiceError) a ServiceError
+_DryRunOperation :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | Exception raised when there are problems accessing Application
 --   Discovery Service (Application Discovery Service); most likely due to
@@ -3607,11 +3598,20 @@ _ThrottlingException :: AsError a => Getting (First ServiceError) a ServiceError
 --   missing or not configured correctly.
 _PolicyErrorException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The home region is not set. Set the home region to continue.
-_HomeRegionNotSetException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The request was denied due to request throttling.
+_ThrottlingException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | You do not have sufficient access to perform this action.
-_AccessDeniedException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | Exception raised when an internal, configuration, or dependency error
+--   is encountered.
+_InternalServerError :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | Exception raised when the provided input violates a policy constraint
+--   or is entered in the wrong format or data type.
+_InvalidInputException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | Exception raised when there is an internal, configuration, or
+--   dependency error encountered.
+_ServiceUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | Exception raised when the request references a resource (Application
 --   Discovery Service configuration, update stream, migration task, etc.)
@@ -3619,16 +3619,16 @@ _AccessDeniedException :: AsError a => Getting (First ServiceError) a ServiceErr
 --   Discovery Service) or in Migration Hub's repository.
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | Exception raised to indicate a successfully authorized action when the
+-- | Exception raised to indicate a request was not authorized when the
 --   <tt>DryRun</tt> flag is set to "true".
-_DryRunOperation :: AsError a => Getting (First ServiceError) a ServiceError
+_UnauthorizedOperation :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | <i>See:</i> <a>newListCreatedArtifacts</a> smart constructor.
-data ListCreatedArtifacts
-ListCreatedArtifacts' :: Maybe Text -> Maybe Natural -> Text -> Text -> ListCreatedArtifacts
+-- | <i>See:</i> <a>newAssociateDiscoveredResource</a> smart constructor.
+data AssociateDiscoveredResource
+AssociateDiscoveredResource' :: Maybe Bool -> Text -> Text -> DiscoveredResource -> AssociateDiscoveredResource
 
--- | Create a value of <a>ListCreatedArtifacts</a> with all optional fields
---   omitted.
+-- | Create a value of <a>AssociateDiscoveredResource</a> with all optional
+--   fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
@@ -3636,31 +3636,31 @@ ListCreatedArtifacts' :: Maybe Text -> Maybe Natural -> Text -> Text -> ListCrea
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:nextToken:ListCreatedArtifacts'</a>,
---   <a>listCreatedArtifacts_nextToken</a> - If a <tt>NextToken</tt> was
---   returned by a previous call, there are more results available. To
---   retrieve the next page of results, make the call again using the
---   returned token in <tt>NextToken</tt>.
+--   <a>$sel:dryRun:AssociateDiscoveredResource'</a>,
+--   <a>associateDiscoveredResource_dryRun</a> - Optional boolean flag to
+--   indicate whether any effect should take place. Used to test if the
+--   caller has permission to make the call.
 --   
---   <a>$sel:maxResults:ListCreatedArtifacts'</a>,
---   <a>listCreatedArtifacts_maxResults</a> - Maximum number of results to
---   be returned per page.
+--   <a>$sel:progressUpdateStream:AssociateDiscoveredResource'</a>,
+--   <a>associateDiscoveredResource_progressUpdateStream</a> - The name of
+--   the ProgressUpdateStream.
 --   
---   <a>$sel:progressUpdateStream:ListCreatedArtifacts'</a>,
---   <a>listCreatedArtifacts_progressUpdateStream</a> - The name of the
---   ProgressUpdateStream.
---   
---   <a>$sel:migrationTaskName:ListCreatedArtifacts'</a>,
---   <a>listCreatedArtifacts_migrationTaskName</a> - Unique identifier that
---   references the migration task. /Do not store personal data in this
+--   <a>$sel:migrationTaskName:AssociateDiscoveredResource'</a>,
+--   <a>associateDiscoveredResource_migrationTaskName</a> - The identifier
+--   given to the MigrationTask. /Do not store personal data in this
 --   field./
-newListCreatedArtifacts :: Text -> Text -> ListCreatedArtifacts
+--   
+--   <a>$sel:discoveredResource:AssociateDiscoveredResource'</a>,
+--   <a>associateDiscoveredResource_discoveredResource</a> - Object
+--   representing a Resource.
+newAssociateDiscoveredResource :: Text -> Text -> DiscoveredResource -> AssociateDiscoveredResource
 
--- | <i>See:</i> <a>newListCreatedArtifactsResponse</a> smart constructor.
-data ListCreatedArtifactsResponse
-ListCreatedArtifactsResponse' :: Maybe [CreatedArtifact] -> Maybe Text -> Int -> ListCreatedArtifactsResponse
+-- | <i>See:</i> <a>newAssociateDiscoveredResourceResponse</a> smart
+--   constructor.
+data AssociateDiscoveredResourceResponse
+AssociateDiscoveredResourceResponse' :: Int -> AssociateDiscoveredResourceResponse
 
--- | Create a value of <a>ListCreatedArtifactsResponse</a> with all
+-- | Create a value of <a>AssociateDiscoveredResourceResponse</a> with all
 --   optional fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -3669,20 +3669,10 @@ ListCreatedArtifactsResponse' :: Maybe [CreatedArtifact] -> Maybe Text -> Int ->
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:createdArtifactList:ListCreatedArtifactsResponse'</a>,
---   <a>listCreatedArtifactsResponse_createdArtifactList</a> - List of
---   created artifacts up to the maximum number of results specified in the
---   request.
---   
---   <a>$sel:nextToken:ListCreatedArtifacts'</a>,
---   <a>listCreatedArtifactsResponse_nextToken</a> - If there are more
---   created artifacts than the max result, return the next token to be
---   passed to the next call as a bookmark of where to start from.
---   
---   <a>$sel:httpStatus:ListCreatedArtifactsResponse'</a>,
---   <a>listCreatedArtifactsResponse_httpStatus</a> - The response's http
---   status code.
-newListCreatedArtifactsResponse :: Int -> ListCreatedArtifactsResponse
+--   <a>$sel:httpStatus:AssociateDiscoveredResourceResponse'</a>,
+--   <a>associateDiscoveredResourceResponse_httpStatus</a> - The response's
+--   http status code.
+newAssociateDiscoveredResourceResponse :: Int -> AssociateDiscoveredResourceResponse
 
 -- | <i>See:</i> <a>newCreateProgressUpdateStream</a> smart constructor.
 data CreateProgressUpdateStream
@@ -3726,6 +3716,467 @@ CreateProgressUpdateStreamResponse' :: Int -> CreateProgressUpdateStreamResponse
 --   <a>createProgressUpdateStreamResponse_httpStatus</a> - The response's
 --   http status code.
 newCreateProgressUpdateStreamResponse :: Int -> CreateProgressUpdateStreamResponse
+
+-- | <i>See:</i> <a>newListApplicationStates</a> smart constructor.
+data ListApplicationStates
+ListApplicationStates' :: Maybe Text -> Maybe (NonEmpty Text) -> Maybe Natural -> ListApplicationStates
+
+-- | Create a value of <a>ListApplicationStates</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:nextToken:ListApplicationStates'</a>,
+--   <a>listApplicationStates_nextToken</a> - If a <tt>NextToken</tt> was
+--   returned by a previous call, there are more results available. To
+--   retrieve the next page of results, make the call again using the
+--   returned token in <tt>NextToken</tt>.
+--   
+--   <a>$sel:applicationIds:ListApplicationStates'</a>,
+--   <a>listApplicationStates_applicationIds</a> - The configurationIds
+--   from the Application Discovery Service that uniquely identifies your
+--   applications.
+--   
+--   <a>$sel:maxResults:ListApplicationStates'</a>,
+--   <a>listApplicationStates_maxResults</a> - Maximum number of results to
+--   be returned per page.
+newListApplicationStates :: ListApplicationStates
+
+-- | <i>See:</i> <a>newListApplicationStatesResponse</a> smart constructor.
+data ListApplicationStatesResponse
+ListApplicationStatesResponse' :: Maybe [ApplicationState] -> Maybe Text -> Int -> ListApplicationStatesResponse
+
+-- | Create a value of <a>ListApplicationStatesResponse</a> with all
+--   optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:applicationStateList:ListApplicationStatesResponse'</a>,
+--   <a>listApplicationStatesResponse_applicationStateList</a> - A list of
+--   Applications that exist in Application Discovery Service.
+--   
+--   <a>$sel:nextToken:ListApplicationStates'</a>,
+--   <a>listApplicationStatesResponse_nextToken</a> - If a
+--   <tt>NextToken</tt> was returned by a previous call, there are more
+--   results available. To retrieve the next page of results, make the call
+--   again using the returned token in <tt>NextToken</tt>.
+--   
+--   <a>$sel:httpStatus:ListApplicationStatesResponse'</a>,
+--   <a>listApplicationStatesResponse_httpStatus</a> - The response's http
+--   status code.
+newListApplicationStatesResponse :: Int -> ListApplicationStatesResponse
+
+-- | <i>See:</i> <a>newListCreatedArtifacts</a> smart constructor.
+data ListCreatedArtifacts
+ListCreatedArtifacts' :: Maybe Text -> Maybe Natural -> Text -> Text -> ListCreatedArtifacts
+
+-- | Create a value of <a>ListCreatedArtifacts</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:nextToken:ListCreatedArtifacts'</a>,
+--   <a>listCreatedArtifacts_nextToken</a> - If a <tt>NextToken</tt> was
+--   returned by a previous call, there are more results available. To
+--   retrieve the next page of results, make the call again using the
+--   returned token in <tt>NextToken</tt>.
+--   
+--   <a>$sel:maxResults:ListCreatedArtifacts'</a>,
+--   <a>listCreatedArtifacts_maxResults</a> - Maximum number of results to
+--   be returned per page.
+--   
+--   <a>$sel:progressUpdateStream:ListCreatedArtifacts'</a>,
+--   <a>listCreatedArtifacts_progressUpdateStream</a> - The name of the
+--   ProgressUpdateStream.
+--   
+--   <a>$sel:migrationTaskName:ListCreatedArtifacts'</a>,
+--   <a>listCreatedArtifacts_migrationTaskName</a> - Unique identifier that
+--   references the migration task. /Do not store personal data in this
+--   field./
+newListCreatedArtifacts :: Text -> Text -> ListCreatedArtifacts
+
+-- | <i>See:</i> <a>newListCreatedArtifactsResponse</a> smart constructor.
+data ListCreatedArtifactsResponse
+ListCreatedArtifactsResponse' :: Maybe Text -> Maybe [CreatedArtifact] -> Int -> ListCreatedArtifactsResponse
+
+-- | Create a value of <a>ListCreatedArtifactsResponse</a> with all
+--   optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:nextToken:ListCreatedArtifacts'</a>,
+--   <a>listCreatedArtifactsResponse_nextToken</a> - If there are more
+--   created artifacts than the max result, return the next token to be
+--   passed to the next call as a bookmark of where to start from.
+--   
+--   <a>$sel:createdArtifactList:ListCreatedArtifactsResponse'</a>,
+--   <a>listCreatedArtifactsResponse_createdArtifactList</a> - List of
+--   created artifacts up to the maximum number of results specified in the
+--   request.
+--   
+--   <a>$sel:httpStatus:ListCreatedArtifactsResponse'</a>,
+--   <a>listCreatedArtifactsResponse_httpStatus</a> - The response's http
+--   status code.
+newListCreatedArtifactsResponse :: Int -> ListCreatedArtifactsResponse
+
+-- | <i>See:</i> <a>newDisassociateDiscoveredResource</a> smart
+--   constructor.
+data DisassociateDiscoveredResource
+DisassociateDiscoveredResource' :: Maybe Bool -> Text -> Text -> Text -> DisassociateDiscoveredResource
+
+-- | Create a value of <a>DisassociateDiscoveredResource</a> with all
+--   optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:dryRun:DisassociateDiscoveredResource'</a>,
+--   <a>disassociateDiscoveredResource_dryRun</a> - Optional boolean flag
+--   to indicate whether any effect should take place. Used to test if the
+--   caller has permission to make the call.
+--   
+--   <a>$sel:progressUpdateStream:DisassociateDiscoveredResource'</a>,
+--   <a>disassociateDiscoveredResource_progressUpdateStream</a> - The name
+--   of the ProgressUpdateStream.
+--   
+--   <a>$sel:migrationTaskName:DisassociateDiscoveredResource'</a>,
+--   <a>disassociateDiscoveredResource_migrationTaskName</a> - The
+--   identifier given to the MigrationTask. /Do not store personal data in
+--   this field./
+--   
+--   <a>$sel:configurationId:DisassociateDiscoveredResource'</a>,
+--   <a>disassociateDiscoveredResource_configurationId</a> -
+--   ConfigurationId of the Application Discovery Service resource to be
+--   disassociated.
+newDisassociateDiscoveredResource :: Text -> Text -> Text -> DisassociateDiscoveredResource
+
+-- | <i>See:</i> <a>newDisassociateDiscoveredResourceResponse</a> smart
+--   constructor.
+data DisassociateDiscoveredResourceResponse
+DisassociateDiscoveredResourceResponse' :: Int -> DisassociateDiscoveredResourceResponse
+
+-- | Create a value of <a>DisassociateDiscoveredResourceResponse</a> with
+--   all optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:httpStatus:DisassociateDiscoveredResourceResponse'</a>,
+--   <a>disassociateDiscoveredResourceResponse_httpStatus</a> - The
+--   response's http status code.
+newDisassociateDiscoveredResourceResponse :: Int -> DisassociateDiscoveredResourceResponse
+
+-- | <i>See:</i> <a>newNotifyApplicationState</a> smart constructor.
+data NotifyApplicationState
+NotifyApplicationState' :: Maybe POSIX -> Maybe Bool -> Text -> ApplicationStatus -> NotifyApplicationState
+
+-- | Create a value of <a>NotifyApplicationState</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:updateDateTime:NotifyApplicationState'</a>,
+--   <a>notifyApplicationState_updateDateTime</a> - The timestamp when the
+--   application state changed.
+--   
+--   <a>$sel:dryRun:NotifyApplicationState'</a>,
+--   <a>notifyApplicationState_dryRun</a> - Optional boolean flag to
+--   indicate whether any effect should take place. Used to test if the
+--   caller has permission to make the call.
+--   
+--   <a>$sel:applicationId:NotifyApplicationState'</a>,
+--   <a>notifyApplicationState_applicationId</a> - The configurationId in
+--   Application Discovery Service that uniquely identifies the grouped
+--   application.
+--   
+--   <a>$sel:status:NotifyApplicationState'</a>,
+--   <a>notifyApplicationState_status</a> - Status of the application - Not
+--   Started, In-Progress, Complete.
+newNotifyApplicationState :: Text -> ApplicationStatus -> NotifyApplicationState
+
+-- | <i>See:</i> <a>newNotifyApplicationStateResponse</a> smart
+--   constructor.
+data NotifyApplicationStateResponse
+NotifyApplicationStateResponse' :: Int -> NotifyApplicationStateResponse
+
+-- | Create a value of <a>NotifyApplicationStateResponse</a> with all
+--   optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:httpStatus:NotifyApplicationStateResponse'</a>,
+--   <a>notifyApplicationStateResponse_httpStatus</a> - The response's http
+--   status code.
+newNotifyApplicationStateResponse :: Int -> NotifyApplicationStateResponse
+
+-- | <i>See:</i> <a>newDeleteProgressUpdateStream</a> smart constructor.
+data DeleteProgressUpdateStream
+DeleteProgressUpdateStream' :: Maybe Bool -> Text -> DeleteProgressUpdateStream
+
+-- | Create a value of <a>DeleteProgressUpdateStream</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:dryRun:DeleteProgressUpdateStream'</a>,
+--   <a>deleteProgressUpdateStream_dryRun</a> - Optional boolean flag to
+--   indicate whether any effect should take place. Used to test if the
+--   caller has permission to make the call.
+--   
+--   <a>$sel:progressUpdateStreamName:DeleteProgressUpdateStream'</a>,
+--   <a>deleteProgressUpdateStream_progressUpdateStreamName</a> - The name
+--   of the ProgressUpdateStream. /Do not store personal data in this
+--   field./
+newDeleteProgressUpdateStream :: Text -> DeleteProgressUpdateStream
+
+-- | <i>See:</i> <a>newDeleteProgressUpdateStreamResponse</a> smart
+--   constructor.
+data DeleteProgressUpdateStreamResponse
+DeleteProgressUpdateStreamResponse' :: Int -> DeleteProgressUpdateStreamResponse
+
+-- | Create a value of <a>DeleteProgressUpdateStreamResponse</a> with all
+--   optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:httpStatus:DeleteProgressUpdateStreamResponse'</a>,
+--   <a>deleteProgressUpdateStreamResponse_httpStatus</a> - The response's
+--   http status code.
+newDeleteProgressUpdateStreamResponse :: Int -> DeleteProgressUpdateStreamResponse
+
+-- | <i>See:</i> <a>newListProgressUpdateStreams</a> smart constructor.
+data ListProgressUpdateStreams
+ListProgressUpdateStreams' :: Maybe Text -> Maybe Natural -> ListProgressUpdateStreams
+
+-- | Create a value of <a>ListProgressUpdateStreams</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:nextToken:ListProgressUpdateStreams'</a>,
+--   <a>listProgressUpdateStreams_nextToken</a> - If a <tt>NextToken</tt>
+--   was returned by a previous call, there are more results available. To
+--   retrieve the next page of results, make the call again using the
+--   returned token in <tt>NextToken</tt>.
+--   
+--   <a>$sel:maxResults:ListProgressUpdateStreams'</a>,
+--   <a>listProgressUpdateStreams_maxResults</a> - Filter to limit the
+--   maximum number of results to list per page.
+newListProgressUpdateStreams :: ListProgressUpdateStreams
+
+-- | <i>See:</i> <a>newListProgressUpdateStreamsResponse</a> smart
+--   constructor.
+data ListProgressUpdateStreamsResponse
+ListProgressUpdateStreamsResponse' :: Maybe [ProgressUpdateStreamSummary] -> Maybe Text -> Int -> ListProgressUpdateStreamsResponse
+
+-- | Create a value of <a>ListProgressUpdateStreamsResponse</a> with all
+--   optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   
+--   <a>$sel:progressUpdateStreamSummaryList:ListProgressUpdateStreamsResponse'</a>,
+--   <a>listProgressUpdateStreamsResponse_progressUpdateStreamSummaryList</a>
+--   - List of progress update streams up to the max number of results
+--   passed in the input.
+--   
+--   <a>$sel:nextToken:ListProgressUpdateStreams'</a>,
+--   <a>listProgressUpdateStreamsResponse_nextToken</a> - If there are more
+--   streams created than the max result, return the next token to be
+--   passed to the next call as a bookmark of where to start from.
+--   
+--   <a>$sel:httpStatus:ListProgressUpdateStreamsResponse'</a>,
+--   <a>listProgressUpdateStreamsResponse_httpStatus</a> - The response's
+--   http status code.
+newListProgressUpdateStreamsResponse :: Int -> ListProgressUpdateStreamsResponse
+
+-- | <i>See:</i> <a>newDisassociateCreatedArtifact</a> smart constructor.
+data DisassociateCreatedArtifact
+DisassociateCreatedArtifact' :: Maybe Bool -> Text -> Text -> Text -> DisassociateCreatedArtifact
+
+-- | Create a value of <a>DisassociateCreatedArtifact</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:dryRun:DisassociateCreatedArtifact'</a>,
+--   <a>disassociateCreatedArtifact_dryRun</a> - Optional boolean flag to
+--   indicate whether any effect should take place. Used to test if the
+--   caller has permission to make the call.
+--   
+--   <a>$sel:progressUpdateStream:DisassociateCreatedArtifact'</a>,
+--   <a>disassociateCreatedArtifact_progressUpdateStream</a> - The name of
+--   the ProgressUpdateStream.
+--   
+--   <a>$sel:migrationTaskName:DisassociateCreatedArtifact'</a>,
+--   <a>disassociateCreatedArtifact_migrationTaskName</a> - Unique
+--   identifier that references the migration task to be disassociated with
+--   the artifact. <i>Do not store personal data in this field.</i>
+--   
+--   <a>$sel:createdArtifactName:DisassociateCreatedArtifact'</a>,
+--   <a>disassociateCreatedArtifact_createdArtifactName</a> - An ARN of the
+--   AWS resource related to the migration (e.g., AMI, EC2 instance, RDS
+--   instance, etc.)
+newDisassociateCreatedArtifact :: Text -> Text -> Text -> DisassociateCreatedArtifact
+
+-- | <i>See:</i> <a>newDisassociateCreatedArtifactResponse</a> smart
+--   constructor.
+data DisassociateCreatedArtifactResponse
+DisassociateCreatedArtifactResponse' :: Int -> DisassociateCreatedArtifactResponse
+
+-- | Create a value of <a>DisassociateCreatedArtifactResponse</a> with all
+--   optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:httpStatus:DisassociateCreatedArtifactResponse'</a>,
+--   <a>disassociateCreatedArtifactResponse_httpStatus</a> - The response's
+--   http status code.
+newDisassociateCreatedArtifactResponse :: Int -> DisassociateCreatedArtifactResponse
+
+-- | <i>See:</i> <a>newImportMigrationTask</a> smart constructor.
+data ImportMigrationTask
+ImportMigrationTask' :: Maybe Bool -> Text -> Text -> ImportMigrationTask
+
+-- | Create a value of <a>ImportMigrationTask</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:dryRun:ImportMigrationTask'</a>,
+--   <a>importMigrationTask_dryRun</a> - Optional boolean flag to indicate
+--   whether any effect should take place. Used to test if the caller has
+--   permission to make the call.
+--   
+--   <a>$sel:progressUpdateStream:ImportMigrationTask'</a>,
+--   <a>importMigrationTask_progressUpdateStream</a> - The name of the
+--   ProgressUpdateStream. &gt;
+--   
+--   <a>$sel:migrationTaskName:ImportMigrationTask'</a>,
+--   <a>importMigrationTask_migrationTaskName</a> - Unique identifier that
+--   references the migration task. /Do not store personal data in this
+--   field./
+newImportMigrationTask :: Text -> Text -> ImportMigrationTask
+
+-- | <i>See:</i> <a>newImportMigrationTaskResponse</a> smart constructor.
+data ImportMigrationTaskResponse
+ImportMigrationTaskResponse' :: Int -> ImportMigrationTaskResponse
+
+-- | Create a value of <a>ImportMigrationTaskResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:httpStatus:ImportMigrationTaskResponse'</a>,
+--   <a>importMigrationTaskResponse_httpStatus</a> - The response's http
+--   status code.
+newImportMigrationTaskResponse :: Int -> ImportMigrationTaskResponse
+
+-- | <i>See:</i> <a>newDescribeMigrationTask</a> smart constructor.
+data DescribeMigrationTask
+DescribeMigrationTask' :: Text -> Text -> DescribeMigrationTask
+
+-- | Create a value of <a>DescribeMigrationTask</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:progressUpdateStream:DescribeMigrationTask'</a>,
+--   <a>describeMigrationTask_progressUpdateStream</a> - The name of the
+--   ProgressUpdateStream.
+--   
+--   <a>$sel:migrationTaskName:DescribeMigrationTask'</a>,
+--   <a>describeMigrationTask_migrationTaskName</a> - The identifier given
+--   to the MigrationTask. /Do not store personal data in this field./
+newDescribeMigrationTask :: Text -> Text -> DescribeMigrationTask
+
+-- | <i>See:</i> <a>newDescribeMigrationTaskResponse</a> smart constructor.
+data DescribeMigrationTaskResponse
+DescribeMigrationTaskResponse' :: Maybe MigrationTask -> Int -> DescribeMigrationTaskResponse
+
+-- | Create a value of <a>DescribeMigrationTaskResponse</a> with all
+--   optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:migrationTask:DescribeMigrationTaskResponse'</a>,
+--   <a>describeMigrationTaskResponse_migrationTask</a> - Object
+--   encapsulating information about the migration task.
+--   
+--   <a>$sel:httpStatus:DescribeMigrationTaskResponse'</a>,
+--   <a>describeMigrationTaskResponse_httpStatus</a> - The response's http
+--   status code.
+newDescribeMigrationTaskResponse :: Int -> DescribeMigrationTaskResponse
 
 -- | <i>See:</i> <a>newPutResourceAttributes</a> smart constructor.
 data PutResourceAttributes
@@ -3799,39 +4250,11 @@ PutResourceAttributesResponse' :: Int -> PutResourceAttributesResponse
 --   status code.
 newPutResourceAttributesResponse :: Int -> PutResourceAttributesResponse
 
--- | <i>See:</i> <a>newImportMigrationTask</a> smart constructor.
-data ImportMigrationTask
-ImportMigrationTask' :: Maybe Bool -> Text -> Text -> ImportMigrationTask
+-- | <i>See:</i> <a>newAssociateCreatedArtifact</a> smart constructor.
+data AssociateCreatedArtifact
+AssociateCreatedArtifact' :: Maybe Bool -> Text -> Text -> CreatedArtifact -> AssociateCreatedArtifact
 
--- | Create a value of <a>ImportMigrationTask</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:dryRun:ImportMigrationTask'</a>,
---   <a>importMigrationTask_dryRun</a> - Optional boolean flag to indicate
---   whether any effect should take place. Used to test if the caller has
---   permission to make the call.
---   
---   <a>$sel:progressUpdateStream:ImportMigrationTask'</a>,
---   <a>importMigrationTask_progressUpdateStream</a> - The name of the
---   ProgressUpdateStream. &gt;
---   
---   <a>$sel:migrationTaskName:ImportMigrationTask'</a>,
---   <a>importMigrationTask_migrationTaskName</a> - Unique identifier that
---   references the migration task. /Do not store personal data in this
---   field./
-newImportMigrationTask :: Text -> Text -> ImportMigrationTask
-
--- | <i>See:</i> <a>newImportMigrationTaskResponse</a> smart constructor.
-data ImportMigrationTaskResponse
-ImportMigrationTaskResponse' :: Int -> ImportMigrationTaskResponse
-
--- | Create a value of <a>ImportMigrationTaskResponse</a> with all optional
+-- | Create a value of <a>AssociateCreatedArtifact</a> with all optional
 --   fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -3840,50 +4263,32 @@ ImportMigrationTaskResponse' :: Int -> ImportMigrationTaskResponse
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:httpStatus:ImportMigrationTaskResponse'</a>,
---   <a>importMigrationTaskResponse_httpStatus</a> - The response's http
---   status code.
-newImportMigrationTaskResponse :: Int -> ImportMigrationTaskResponse
-
--- | <i>See:</i> <a>newDisassociateCreatedArtifact</a> smart constructor.
-data DisassociateCreatedArtifact
-DisassociateCreatedArtifact' :: Maybe Bool -> Text -> Text -> Text -> DisassociateCreatedArtifact
-
--- | Create a value of <a>DisassociateCreatedArtifact</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:dryRun:DisassociateCreatedArtifact'</a>,
---   <a>disassociateCreatedArtifact_dryRun</a> - Optional boolean flag to
+--   <a>$sel:dryRun:AssociateCreatedArtifact'</a>,
+--   <a>associateCreatedArtifact_dryRun</a> - Optional boolean flag to
 --   indicate whether any effect should take place. Used to test if the
 --   caller has permission to make the call.
 --   
---   <a>$sel:progressUpdateStream:DisassociateCreatedArtifact'</a>,
---   <a>disassociateCreatedArtifact_progressUpdateStream</a> - The name of
---   the ProgressUpdateStream.
+--   <a>$sel:progressUpdateStream:AssociateCreatedArtifact'</a>,
+--   <a>associateCreatedArtifact_progressUpdateStream</a> - The name of the
+--   ProgressUpdateStream.
 --   
---   <a>$sel:migrationTaskName:DisassociateCreatedArtifact'</a>,
---   <a>disassociateCreatedArtifact_migrationTaskName</a> - Unique
---   identifier that references the migration task to be disassociated with
---   the artifact. <i>Do not store personal data in this field.</i>
+--   <a>$sel:migrationTaskName:AssociateCreatedArtifact'</a>,
+--   <a>associateCreatedArtifact_migrationTaskName</a> - Unique identifier
+--   that references the migration task. /Do not store personal data in
+--   this field./
 --   
---   <a>$sel:createdArtifactName:DisassociateCreatedArtifact'</a>,
---   <a>disassociateCreatedArtifact_createdArtifactName</a> - An ARN of the
---   AWS resource related to the migration (e.g., AMI, EC2 instance, RDS
+--   <a>$sel:createdArtifact:AssociateCreatedArtifact'</a>,
+--   <a>associateCreatedArtifact_createdArtifact</a> - An ARN of the AWS
+--   resource related to the migration (e.g., AMI, EC2 instance, RDS
 --   instance, etc.)
-newDisassociateCreatedArtifact :: Text -> Text -> Text -> DisassociateCreatedArtifact
+newAssociateCreatedArtifact :: Text -> Text -> CreatedArtifact -> AssociateCreatedArtifact
 
--- | <i>See:</i> <a>newDisassociateCreatedArtifactResponse</a> smart
+-- | <i>See:</i> <a>newAssociateCreatedArtifactResponse</a> smart
 --   constructor.
-data DisassociateCreatedArtifactResponse
-DisassociateCreatedArtifactResponse' :: Int -> DisassociateCreatedArtifactResponse
+data AssociateCreatedArtifactResponse
+AssociateCreatedArtifactResponse' :: Int -> AssociateCreatedArtifactResponse
 
--- | Create a value of <a>DisassociateCreatedArtifactResponse</a> with all
+-- | Create a value of <a>AssociateCreatedArtifactResponse</a> with all
 --   optional fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -3892,158 +4297,10 @@ DisassociateCreatedArtifactResponse' :: Int -> DisassociateCreatedArtifactRespon
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:httpStatus:DisassociateCreatedArtifactResponse'</a>,
---   <a>disassociateCreatedArtifactResponse_httpStatus</a> - The response's
+--   <a>$sel:httpStatus:AssociateCreatedArtifactResponse'</a>,
+--   <a>associateCreatedArtifactResponse_httpStatus</a> - The response's
 --   http status code.
-newDisassociateCreatedArtifactResponse :: Int -> DisassociateCreatedArtifactResponse
-
--- | <i>See:</i> <a>newDescribeMigrationTask</a> smart constructor.
-data DescribeMigrationTask
-DescribeMigrationTask' :: Text -> Text -> DescribeMigrationTask
-
--- | Create a value of <a>DescribeMigrationTask</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:progressUpdateStream:DescribeMigrationTask'</a>,
---   <a>describeMigrationTask_progressUpdateStream</a> - The name of the
---   ProgressUpdateStream.
---   
---   <a>$sel:migrationTaskName:DescribeMigrationTask'</a>,
---   <a>describeMigrationTask_migrationTaskName</a> - The identifier given
---   to the MigrationTask. /Do not store personal data in this field./
-newDescribeMigrationTask :: Text -> Text -> DescribeMigrationTask
-
--- | <i>See:</i> <a>newDescribeMigrationTaskResponse</a> smart constructor.
-data DescribeMigrationTaskResponse
-DescribeMigrationTaskResponse' :: Maybe MigrationTask -> Int -> DescribeMigrationTaskResponse
-
--- | Create a value of <a>DescribeMigrationTaskResponse</a> with all
---   optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:migrationTask:DescribeMigrationTaskResponse'</a>,
---   <a>describeMigrationTaskResponse_migrationTask</a> - Object
---   encapsulating information about the migration task.
---   
---   <a>$sel:httpStatus:DescribeMigrationTaskResponse'</a>,
---   <a>describeMigrationTaskResponse_httpStatus</a> - The response's http
---   status code.
-newDescribeMigrationTaskResponse :: Int -> DescribeMigrationTaskResponse
-
--- | <i>See:</i> <a>newListDiscoveredResources</a> smart constructor.
-data ListDiscoveredResources
-ListDiscoveredResources' :: Maybe Text -> Maybe Natural -> Text -> Text -> ListDiscoveredResources
-
--- | Create a value of <a>ListDiscoveredResources</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:nextToken:ListDiscoveredResources'</a>,
---   <a>listDiscoveredResources_nextToken</a> - If a <tt>NextToken</tt> was
---   returned by a previous call, there are more results available. To
---   retrieve the next page of results, make the call again using the
---   returned token in <tt>NextToken</tt>.
---   
---   <a>$sel:maxResults:ListDiscoveredResources'</a>,
---   <a>listDiscoveredResources_maxResults</a> - The maximum number of
---   results returned per page.
---   
---   <a>$sel:progressUpdateStream:ListDiscoveredResources'</a>,
---   <a>listDiscoveredResources_progressUpdateStream</a> - The name of the
---   ProgressUpdateStream.
---   
---   <a>$sel:migrationTaskName:ListDiscoveredResources'</a>,
---   <a>listDiscoveredResources_migrationTaskName</a> - The name of the
---   MigrationTask. /Do not store personal data in this field./
-newListDiscoveredResources :: Text -> Text -> ListDiscoveredResources
-
--- | <i>See:</i> <a>newListDiscoveredResourcesResponse</a> smart
---   constructor.
-data ListDiscoveredResourcesResponse
-ListDiscoveredResourcesResponse' :: Maybe Text -> Maybe [DiscoveredResource] -> Int -> ListDiscoveredResourcesResponse
-
--- | Create a value of <a>ListDiscoveredResourcesResponse</a> with all
---   optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:nextToken:ListDiscoveredResources'</a>,
---   <a>listDiscoveredResourcesResponse_nextToken</a> - If there are more
---   discovered resources than the max result, return the next token to be
---   passed to the next call as a bookmark of where to start from.
---   
---   <a>$sel:discoveredResourceList:ListDiscoveredResourcesResponse'</a>,
---   <a>listDiscoveredResourcesResponse_discoveredResourceList</a> -
---   Returned list of discovered resources associated with the given
---   MigrationTask.
---   
---   <a>$sel:httpStatus:ListDiscoveredResourcesResponse'</a>,
---   <a>listDiscoveredResourcesResponse_httpStatus</a> - The response's
---   http status code.
-newListDiscoveredResourcesResponse :: Int -> ListDiscoveredResourcesResponse
-
--- | <i>See:</i> <a>newDeleteProgressUpdateStream</a> smart constructor.
-data DeleteProgressUpdateStream
-DeleteProgressUpdateStream' :: Maybe Bool -> Text -> DeleteProgressUpdateStream
-
--- | Create a value of <a>DeleteProgressUpdateStream</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:dryRun:DeleteProgressUpdateStream'</a>,
---   <a>deleteProgressUpdateStream_dryRun</a> - Optional boolean flag to
---   indicate whether any effect should take place. Used to test if the
---   caller has permission to make the call.
---   
---   <a>$sel:progressUpdateStreamName:DeleteProgressUpdateStream'</a>,
---   <a>deleteProgressUpdateStream_progressUpdateStreamName</a> - The name
---   of the ProgressUpdateStream. /Do not store personal data in this
---   field./
-newDeleteProgressUpdateStream :: Text -> DeleteProgressUpdateStream
-
--- | <i>See:</i> <a>newDeleteProgressUpdateStreamResponse</a> smart
---   constructor.
-data DeleteProgressUpdateStreamResponse
-DeleteProgressUpdateStreamResponse' :: Int -> DeleteProgressUpdateStreamResponse
-
--- | Create a value of <a>DeleteProgressUpdateStreamResponse</a> with all
---   optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:httpStatus:DeleteProgressUpdateStreamResponse'</a>,
---   <a>deleteProgressUpdateStreamResponse_httpStatus</a> - The response's
---   http status code.
-newDeleteProgressUpdateStreamResponse :: Int -> DeleteProgressUpdateStreamResponse
+newAssociateCreatedArtifactResponse :: Int -> AssociateCreatedArtifactResponse
 
 -- | <i>See:</i> <a>newNotifyMigrationTaskState</a> smart constructor.
 data NotifyMigrationTaskState
@@ -4106,64 +4363,11 @@ NotifyMigrationTaskStateResponse' :: Int -> NotifyMigrationTaskStateResponse
 --   http status code.
 newNotifyMigrationTaskStateResponse :: Int -> NotifyMigrationTaskStateResponse
 
--- | <i>See:</i> <a>newDisassociateDiscoveredResource</a> smart
---   constructor.
-data DisassociateDiscoveredResource
-DisassociateDiscoveredResource' :: Maybe Bool -> Text -> Text -> Text -> DisassociateDiscoveredResource
+-- | <i>See:</i> <a>newDescribeApplicationState</a> smart constructor.
+data DescribeApplicationState
+DescribeApplicationState' :: Text -> DescribeApplicationState
 
--- | Create a value of <a>DisassociateDiscoveredResource</a> with all
---   optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:dryRun:DisassociateDiscoveredResource'</a>,
---   <a>disassociateDiscoveredResource_dryRun</a> - Optional boolean flag
---   to indicate whether any effect should take place. Used to test if the
---   caller has permission to make the call.
---   
---   <a>$sel:progressUpdateStream:DisassociateDiscoveredResource'</a>,
---   <a>disassociateDiscoveredResource_progressUpdateStream</a> - The name
---   of the ProgressUpdateStream.
---   
---   <a>$sel:migrationTaskName:DisassociateDiscoveredResource'</a>,
---   <a>disassociateDiscoveredResource_migrationTaskName</a> - The
---   identifier given to the MigrationTask. /Do not store personal data in
---   this field./
---   
---   <a>$sel:configurationId:DisassociateDiscoveredResource'</a>,
---   <a>disassociateDiscoveredResource_configurationId</a> -
---   ConfigurationId of the Application Discovery Service resource to be
---   disassociated.
-newDisassociateDiscoveredResource :: Text -> Text -> Text -> DisassociateDiscoveredResource
-
--- | <i>See:</i> <a>newDisassociateDiscoveredResourceResponse</a> smart
---   constructor.
-data DisassociateDiscoveredResourceResponse
-DisassociateDiscoveredResourceResponse' :: Int -> DisassociateDiscoveredResourceResponse
-
--- | Create a value of <a>DisassociateDiscoveredResourceResponse</a> with
---   all optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:httpStatus:DisassociateDiscoveredResourceResponse'</a>,
---   <a>disassociateDiscoveredResourceResponse_httpStatus</a> - The
---   response's http status code.
-newDisassociateDiscoveredResourceResponse :: Int -> DisassociateDiscoveredResourceResponse
-
--- | <i>See:</i> <a>newAssociateDiscoveredResource</a> smart constructor.
-data AssociateDiscoveredResource
-AssociateDiscoveredResource' :: Maybe Bool -> Text -> Text -> DiscoveredResource -> AssociateDiscoveredResource
-
--- | Create a value of <a>AssociateDiscoveredResource</a> with all optional
+-- | Create a value of <a>DescribeApplicationState</a> with all optional
 --   fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -4172,193 +4376,18 @@ AssociateDiscoveredResource' :: Maybe Bool -> Text -> Text -> DiscoveredResource
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:dryRun:AssociateDiscoveredResource'</a>,
---   <a>associateDiscoveredResource_dryRun</a> - Optional boolean flag to
---   indicate whether any effect should take place. Used to test if the
---   caller has permission to make the call.
---   
---   <a>$sel:progressUpdateStream:AssociateDiscoveredResource'</a>,
---   <a>associateDiscoveredResource_progressUpdateStream</a> - The name of
---   the ProgressUpdateStream.
---   
---   <a>$sel:migrationTaskName:AssociateDiscoveredResource'</a>,
---   <a>associateDiscoveredResource_migrationTaskName</a> - The identifier
---   given to the MigrationTask. /Do not store personal data in this
---   field./
---   
---   <a>$sel:discoveredResource:AssociateDiscoveredResource'</a>,
---   <a>associateDiscoveredResource_discoveredResource</a> - Object
---   representing a Resource.
-newAssociateDiscoveredResource :: Text -> Text -> DiscoveredResource -> AssociateDiscoveredResource
-
--- | <i>See:</i> <a>newAssociateDiscoveredResourceResponse</a> smart
---   constructor.
-data AssociateDiscoveredResourceResponse
-AssociateDiscoveredResourceResponse' :: Int -> AssociateDiscoveredResourceResponse
-
--- | Create a value of <a>AssociateDiscoveredResourceResponse</a> with all
---   optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:httpStatus:AssociateDiscoveredResourceResponse'</a>,
---   <a>associateDiscoveredResourceResponse_httpStatus</a> - The response's
---   http status code.
-newAssociateDiscoveredResourceResponse :: Int -> AssociateDiscoveredResourceResponse
-
--- | <i>See:</i> <a>newListApplicationStates</a> smart constructor.
-data ListApplicationStates
-ListApplicationStates' :: Maybe Text -> Maybe Natural -> Maybe (NonEmpty Text) -> ListApplicationStates
-
--- | Create a value of <a>ListApplicationStates</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:nextToken:ListApplicationStates'</a>,
---   <a>listApplicationStates_nextToken</a> - If a <tt>NextToken</tt> was
---   returned by a previous call, there are more results available. To
---   retrieve the next page of results, make the call again using the
---   returned token in <tt>NextToken</tt>.
---   
---   <a>$sel:maxResults:ListApplicationStates'</a>,
---   <a>listApplicationStates_maxResults</a> - Maximum number of results to
---   be returned per page.
---   
---   <a>$sel:applicationIds:ListApplicationStates'</a>,
---   <a>listApplicationStates_applicationIds</a> - The configurationIds
---   from the Application Discovery Service that uniquely identifies your
---   applications.
-newListApplicationStates :: ListApplicationStates
-
--- | <i>See:</i> <a>newListApplicationStatesResponse</a> smart constructor.
-data ListApplicationStatesResponse
-ListApplicationStatesResponse' :: Maybe [ApplicationState] -> Maybe Text -> Int -> ListApplicationStatesResponse
-
--- | Create a value of <a>ListApplicationStatesResponse</a> with all
---   optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:applicationStateList:ListApplicationStatesResponse'</a>,
---   <a>listApplicationStatesResponse_applicationStateList</a> - A list of
---   Applications that exist in Application Discovery Service.
---   
---   <a>$sel:nextToken:ListApplicationStates'</a>,
---   <a>listApplicationStatesResponse_nextToken</a> - If a
---   <tt>NextToken</tt> was returned by a previous call, there are more
---   results available. To retrieve the next page of results, make the call
---   again using the returned token in <tt>NextToken</tt>.
---   
---   <a>$sel:httpStatus:ListApplicationStatesResponse'</a>,
---   <a>listApplicationStatesResponse_httpStatus</a> - The response's http
---   status code.
-newListApplicationStatesResponse :: Int -> ListApplicationStatesResponse
-
--- | <i>See:</i> <a>newListProgressUpdateStreams</a> smart constructor.
-data ListProgressUpdateStreams
-ListProgressUpdateStreams' :: Maybe Text -> Maybe Natural -> ListProgressUpdateStreams
-
--- | Create a value of <a>ListProgressUpdateStreams</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:nextToken:ListProgressUpdateStreams'</a>,
---   <a>listProgressUpdateStreams_nextToken</a> - If a <tt>NextToken</tt>
---   was returned by a previous call, there are more results available. To
---   retrieve the next page of results, make the call again using the
---   returned token in <tt>NextToken</tt>.
---   
---   <a>$sel:maxResults:ListProgressUpdateStreams'</a>,
---   <a>listProgressUpdateStreams_maxResults</a> - Filter to limit the
---   maximum number of results to list per page.
-newListProgressUpdateStreams :: ListProgressUpdateStreams
-
--- | <i>See:</i> <a>newListProgressUpdateStreamsResponse</a> smart
---   constructor.
-data ListProgressUpdateStreamsResponse
-ListProgressUpdateStreamsResponse' :: Maybe Text -> Maybe [ProgressUpdateStreamSummary] -> Int -> ListProgressUpdateStreamsResponse
-
--- | Create a value of <a>ListProgressUpdateStreamsResponse</a> with all
---   optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:nextToken:ListProgressUpdateStreams'</a>,
---   <a>listProgressUpdateStreamsResponse_nextToken</a> - If there are more
---   streams created than the max result, return the next token to be
---   passed to the next call as a bookmark of where to start from.
---   
---   
---   <a>$sel:progressUpdateStreamSummaryList:ListProgressUpdateStreamsResponse'</a>,
---   <a>listProgressUpdateStreamsResponse_progressUpdateStreamSummaryList</a>
---   - List of progress update streams up to the max number of results
---   passed in the input.
---   
---   <a>$sel:httpStatus:ListProgressUpdateStreamsResponse'</a>,
---   <a>listProgressUpdateStreamsResponse_httpStatus</a> - The response's
---   http status code.
-newListProgressUpdateStreamsResponse :: Int -> ListProgressUpdateStreamsResponse
-
--- | <i>See:</i> <a>newNotifyApplicationState</a> smart constructor.
-data NotifyApplicationState
-NotifyApplicationState' :: Maybe Bool -> Maybe POSIX -> Text -> ApplicationStatus -> NotifyApplicationState
-
--- | Create a value of <a>NotifyApplicationState</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:dryRun:NotifyApplicationState'</a>,
---   <a>notifyApplicationState_dryRun</a> - Optional boolean flag to
---   indicate whether any effect should take place. Used to test if the
---   caller has permission to make the call.
---   
---   <a>$sel:updateDateTime:NotifyApplicationState'</a>,
---   <a>notifyApplicationState_updateDateTime</a> - The timestamp when the
---   application state changed.
---   
---   <a>$sel:applicationId:NotifyApplicationState'</a>,
---   <a>notifyApplicationState_applicationId</a> - The configurationId in
+--   <a>$sel:applicationId:DescribeApplicationState'</a>,
+--   <a>describeApplicationState_applicationId</a> - The configurationId in
 --   Application Discovery Service that uniquely identifies the grouped
 --   application.
---   
---   <a>$sel:status:NotifyApplicationState'</a>,
---   <a>notifyApplicationState_status</a> - Status of the application - Not
---   Started, In-Progress, Complete.
-newNotifyApplicationState :: Text -> ApplicationStatus -> NotifyApplicationState
+newDescribeApplicationState :: Text -> DescribeApplicationState
 
--- | <i>See:</i> <a>newNotifyApplicationStateResponse</a> smart
+-- | <i>See:</i> <a>newDescribeApplicationStateResponse</a> smart
 --   constructor.
-data NotifyApplicationStateResponse
-NotifyApplicationStateResponse' :: Int -> NotifyApplicationStateResponse
+data DescribeApplicationStateResponse
+DescribeApplicationStateResponse' :: Maybe POSIX -> Maybe ApplicationStatus -> Int -> DescribeApplicationStateResponse
 
--- | Create a value of <a>NotifyApplicationStateResponse</a> with all
+-- | Create a value of <a>DescribeApplicationStateResponse</a> with all
 --   optional fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -4367,14 +4396,22 @@ NotifyApplicationStateResponse' :: Int -> NotifyApplicationStateResponse
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:httpStatus:NotifyApplicationStateResponse'</a>,
---   <a>notifyApplicationStateResponse_httpStatus</a> - The response's http
---   status code.
-newNotifyApplicationStateResponse :: Int -> NotifyApplicationStateResponse
+--   <a>$sel:lastUpdatedTime:DescribeApplicationStateResponse'</a>,
+--   <a>describeApplicationStateResponse_lastUpdatedTime</a> - The
+--   timestamp when the application status was last updated.
+--   
+--   <a>$sel:applicationStatus:DescribeApplicationStateResponse'</a>,
+--   <a>describeApplicationStateResponse_applicationStatus</a> - Status of
+--   the application - Not Started, In-Progress, Complete.
+--   
+--   <a>$sel:httpStatus:DescribeApplicationStateResponse'</a>,
+--   <a>describeApplicationStateResponse_httpStatus</a> - The response's
+--   http status code.
+newDescribeApplicationStateResponse :: Int -> DescribeApplicationStateResponse
 
 -- | <i>See:</i> <a>newListMigrationTasks</a> smart constructor.
 data ListMigrationTasks
-ListMigrationTasks' :: Maybe Text -> Maybe Natural -> Maybe Text -> ListMigrationTasks
+ListMigrationTasks' :: Maybe Text -> Maybe Text -> Maybe Natural -> ListMigrationTasks
 
 -- | Create a value of <a>ListMigrationTasks</a> with all optional fields
 --   omitted.
@@ -4385,6 +4422,10 @@ ListMigrationTasks' :: Maybe Text -> Maybe Natural -> Maybe Text -> ListMigratio
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:resourceName:ListMigrationTasks'</a>,
+--   <a>listMigrationTasks_resourceName</a> - Filter migration tasks by
+--   discovered resource name.
+--   
 --   <a>$sel:nextToken:ListMigrationTasks'</a>,
 --   <a>listMigrationTasks_nextToken</a> - If a <tt>NextToken</tt> was
 --   returned by a previous call, there are more results available. To
@@ -4394,10 +4435,6 @@ ListMigrationTasks' :: Maybe Text -> Maybe Natural -> Maybe Text -> ListMigratio
 --   <a>$sel:maxResults:ListMigrationTasks'</a>,
 --   <a>listMigrationTasks_maxResults</a> - Value to specify how many
 --   results are returned per page.
---   
---   <a>$sel:resourceName:ListMigrationTasks'</a>,
---   <a>listMigrationTasks_resourceName</a> - Filter migration tasks by
---   discovered resource name.
 newListMigrationTasks :: ListMigrationTasks
 
 -- | <i>See:</i> <a>newListMigrationTasksResponse</a> smart constructor.
@@ -4429,11 +4466,11 @@ ListMigrationTasksResponse' :: Maybe [MigrationTaskSummary] -> Maybe Text -> Int
 --   status code.
 newListMigrationTasksResponse :: Int -> ListMigrationTasksResponse
 
--- | <i>See:</i> <a>newDescribeApplicationState</a> smart constructor.
-data DescribeApplicationState
-DescribeApplicationState' :: Text -> DescribeApplicationState
+-- | <i>See:</i> <a>newListDiscoveredResources</a> smart constructor.
+data ListDiscoveredResources
+ListDiscoveredResources' :: Maybe Text -> Maybe Natural -> Text -> Text -> ListDiscoveredResources
 
--- | Create a value of <a>DescribeApplicationState</a> with all optional
+-- | Create a value of <a>ListDiscoveredResources</a> with all optional
 --   fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -4442,78 +4479,31 @@ DescribeApplicationState' :: Text -> DescribeApplicationState
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:applicationId:DescribeApplicationState'</a>,
---   <a>describeApplicationState_applicationId</a> - The configurationId in
---   Application Discovery Service that uniquely identifies the grouped
---   application.
-newDescribeApplicationState :: Text -> DescribeApplicationState
-
--- | <i>See:</i> <a>newDescribeApplicationStateResponse</a> smart
---   constructor.
-data DescribeApplicationStateResponse
-DescribeApplicationStateResponse' :: Maybe ApplicationStatus -> Maybe POSIX -> Int -> DescribeApplicationStateResponse
-
--- | Create a value of <a>DescribeApplicationStateResponse</a> with all
---   optional fields omitted.
+--   <a>$sel:nextToken:ListDiscoveredResources'</a>,
+--   <a>listDiscoveredResources_nextToken</a> - If a <tt>NextToken</tt> was
+--   returned by a previous call, there are more results available. To
+--   retrieve the next page of results, make the call again using the
+--   returned token in <tt>NextToken</tt>.
 --   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
+--   <a>$sel:maxResults:ListDiscoveredResources'</a>,
+--   <a>listDiscoveredResources_maxResults</a> - The maximum number of
+--   results returned per page.
 --   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:applicationStatus:DescribeApplicationStateResponse'</a>,
---   <a>describeApplicationStateResponse_applicationStatus</a> - Status of
---   the application - Not Started, In-Progress, Complete.
---   
---   <a>$sel:lastUpdatedTime:DescribeApplicationStateResponse'</a>,
---   <a>describeApplicationStateResponse_lastUpdatedTime</a> - The
---   timestamp when the application status was last updated.
---   
---   <a>$sel:httpStatus:DescribeApplicationStateResponse'</a>,
---   <a>describeApplicationStateResponse_httpStatus</a> - The response's
---   http status code.
-newDescribeApplicationStateResponse :: Int -> DescribeApplicationStateResponse
-
--- | <i>See:</i> <a>newAssociateCreatedArtifact</a> smart constructor.
-data AssociateCreatedArtifact
-AssociateCreatedArtifact' :: Maybe Bool -> Text -> Text -> CreatedArtifact -> AssociateCreatedArtifact
-
--- | Create a value of <a>AssociateCreatedArtifact</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:dryRun:AssociateCreatedArtifact'</a>,
---   <a>associateCreatedArtifact_dryRun</a> - Optional boolean flag to
---   indicate whether any effect should take place. Used to test if the
---   caller has permission to make the call.
---   
---   <a>$sel:progressUpdateStream:AssociateCreatedArtifact'</a>,
---   <a>associateCreatedArtifact_progressUpdateStream</a> - The name of the
+--   <a>$sel:progressUpdateStream:ListDiscoveredResources'</a>,
+--   <a>listDiscoveredResources_progressUpdateStream</a> - The name of the
 --   ProgressUpdateStream.
 --   
---   <a>$sel:migrationTaskName:AssociateCreatedArtifact'</a>,
---   <a>associateCreatedArtifact_migrationTaskName</a> - Unique identifier
---   that references the migration task. /Do not store personal data in
---   this field./
---   
---   <a>$sel:createdArtifact:AssociateCreatedArtifact'</a>,
---   <a>associateCreatedArtifact_createdArtifact</a> - An ARN of the AWS
---   resource related to the migration (e.g., AMI, EC2 instance, RDS
---   instance, etc.)
-newAssociateCreatedArtifact :: Text -> Text -> CreatedArtifact -> AssociateCreatedArtifact
+--   <a>$sel:migrationTaskName:ListDiscoveredResources'</a>,
+--   <a>listDiscoveredResources_migrationTaskName</a> - The name of the
+--   MigrationTask. /Do not store personal data in this field./
+newListDiscoveredResources :: Text -> Text -> ListDiscoveredResources
 
--- | <i>See:</i> <a>newAssociateCreatedArtifactResponse</a> smart
+-- | <i>See:</i> <a>newListDiscoveredResourcesResponse</a> smart
 --   constructor.
-data AssociateCreatedArtifactResponse
-AssociateCreatedArtifactResponse' :: Int -> AssociateCreatedArtifactResponse
+data ListDiscoveredResourcesResponse
+ListDiscoveredResourcesResponse' :: Maybe [DiscoveredResource] -> Maybe Text -> Int -> ListDiscoveredResourcesResponse
 
--- | Create a value of <a>AssociateCreatedArtifactResponse</a> with all
+-- | Create a value of <a>ListDiscoveredResourcesResponse</a> with all
 --   optional fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -4522,10 +4512,20 @@ AssociateCreatedArtifactResponse' :: Int -> AssociateCreatedArtifactResponse
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:httpStatus:AssociateCreatedArtifactResponse'</a>,
---   <a>associateCreatedArtifactResponse_httpStatus</a> - The response's
+--   <a>$sel:discoveredResourceList:ListDiscoveredResourcesResponse'</a>,
+--   <a>listDiscoveredResourcesResponse_discoveredResourceList</a> -
+--   Returned list of discovered resources associated with the given
+--   MigrationTask.
+--   
+--   <a>$sel:nextToken:ListDiscoveredResources'</a>,
+--   <a>listDiscoveredResourcesResponse_nextToken</a> - If there are more
+--   discovered resources than the max result, return the next token to be
+--   passed to the next call as a bookmark of where to start from.
+--   
+--   <a>$sel:httpStatus:ListDiscoveredResourcesResponse'</a>,
+--   <a>listDiscoveredResourcesResponse_httpStatus</a> - The response's
 --   http status code.
-newAssociateCreatedArtifactResponse :: Int -> AssociateCreatedArtifactResponse
+newListDiscoveredResourcesResponse :: Int -> ListDiscoveredResourcesResponse
 newtype ApplicationStatus
 ApplicationStatus' :: Text -> ApplicationStatus
 [fromApplicationStatus] :: ApplicationStatus -> Text
@@ -4559,7 +4559,7 @@ pattern ResourceAttributeType_VM_PATH :: ResourceAttributeType
 --   
 --   <i>See:</i> <a>newApplicationState</a> smart constructor.
 data ApplicationState
-ApplicationState' :: Maybe Text -> Maybe ApplicationStatus -> Maybe POSIX -> ApplicationState
+ApplicationState' :: Maybe POSIX -> Maybe Text -> Maybe ApplicationStatus -> ApplicationState
 
 -- | Create a value of <a>ApplicationState</a> with all optional fields
 --   omitted.
@@ -4570,6 +4570,10 @@ ApplicationState' :: Maybe Text -> Maybe ApplicationStatus -> Maybe POSIX -> App
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:lastUpdatedTime:ApplicationState'</a>,
+--   <a>applicationState_lastUpdatedTime</a> - The timestamp when the
+--   application status was last updated.
+--   
 --   <a>$sel:applicationId:ApplicationState'</a>,
 --   <a>applicationState_applicationId</a> - The configurationId from the
 --   Application Discovery Service that uniquely identifies an application.
@@ -4577,10 +4581,6 @@ ApplicationState' :: Maybe Text -> Maybe ApplicationStatus -> Maybe POSIX -> App
 --   <a>$sel:applicationStatus:ApplicationState'</a>,
 --   <a>applicationState_applicationStatus</a> - The current status of an
 --   application.
---   
---   <a>$sel:lastUpdatedTime:ApplicationState'</a>,
---   <a>applicationState_lastUpdatedTime</a> - The timestamp when the
---   application status was last updated.
 newApplicationState :: ApplicationState
 
 -- | An ARN of the AWS cloud resource target receiving the migration (e.g.,
@@ -4638,7 +4638,7 @@ newDiscoveredResource :: Text -> DiscoveredResource
 --   
 --   <i>See:</i> <a>newMigrationTask</a> smart constructor.
 data MigrationTask
-MigrationTask' :: Maybe [ResourceAttribute] -> Maybe POSIX -> Maybe Task -> Maybe Text -> Maybe Text -> MigrationTask
+MigrationTask' :: Maybe POSIX -> Maybe [ResourceAttribute] -> Maybe Task -> Maybe Text -> Maybe Text -> MigrationTask
 
 -- | Create a value of <a>MigrationTask</a> with all optional fields
 --   omitted.
@@ -4649,26 +4649,26 @@ MigrationTask' :: Maybe [ResourceAttribute] -> Maybe POSIX -> Maybe Task -> Mayb
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:updateDateTime:MigrationTask'</a>,
+--   <a>migrationTask_updateDateTime</a> - The timestamp when the task was
+--   gathered.
+--   
 --   <a>$sel:resourceAttributeList:MigrationTask'</a>,
 --   <a>migrationTask_resourceAttributeList</a> - Information about the
 --   resource that is being migrated. This data will be used to map the
 --   task to a resource in the Application Discovery Service repository.
 --   
---   <a>$sel:updateDateTime:MigrationTask'</a>,
---   <a>migrationTask_updateDateTime</a> - The timestamp when the task was
---   gathered.
---   
 --   <a>$sel:task:MigrationTask'</a>, <a>migrationTask_task</a> - Task
 --   object encapsulating task information.
+--   
+--   <a>$sel:progressUpdateStream:MigrationTask'</a>,
+--   <a>migrationTask_progressUpdateStream</a> - A name that identifies the
+--   vendor of the migration tool being used.
 --   
 --   <a>$sel:migrationTaskName:MigrationTask'</a>,
 --   <a>migrationTask_migrationTaskName</a> - Unique identifier that
 --   references the migration task. /Do not store personal data in this
 --   field./
---   
---   <a>$sel:progressUpdateStream:MigrationTask'</a>,
---   <a>migrationTask_progressUpdateStream</a> - A name that identifies the
---   vendor of the migration tool being used.
 newMigrationTask :: MigrationTask
 
 -- | MigrationTaskSummary includes <tt>MigrationTaskName</tt>,
@@ -4677,7 +4677,7 @@ newMigrationTask :: MigrationTask
 --   
 --   <i>See:</i> <a>newMigrationTaskSummary</a> smart constructor.
 data MigrationTaskSummary
-MigrationTaskSummary' :: Maybe MigrationStatus -> Maybe Natural -> Maybe POSIX -> Maybe Text -> Maybe Text -> Maybe Text -> MigrationTaskSummary
+MigrationTaskSummary' :: Maybe MigrationStatus -> Maybe POSIX -> Maybe Natural -> Maybe Text -> Maybe Text -> Maybe Text -> MigrationTaskSummary
 
 -- | Create a value of <a>MigrationTaskSummary</a> with all optional fields
 --   omitted.
@@ -4691,27 +4691,27 @@ MigrationTaskSummary' :: Maybe MigrationStatus -> Maybe Natural -> Maybe POSIX -
 --   <a>$sel:status:MigrationTaskSummary'</a>,
 --   <a>migrationTaskSummary_status</a> - Status of the task.
 --   
---   <a>$sel:progressPercent:MigrationTaskSummary'</a>,
---   <a>migrationTaskSummary_progressPercent</a> - Indication of the
---   percentage completion of the task.
---   
 --   <a>$sel:updateDateTime:MigrationTaskSummary'</a>,
 --   <a>migrationTaskSummary_updateDateTime</a> - The timestamp when the
 --   task was gathered.
+--   
+--   <a>$sel:progressPercent:MigrationTaskSummary'</a>,
+--   <a>migrationTaskSummary_progressPercent</a> - Indication of the
+--   percentage completion of the task.
 --   
 --   <a>$sel:statusDetail:MigrationTaskSummary'</a>,
 --   <a>migrationTaskSummary_statusDetail</a> - Detail information of what
 --   is being done within the overall status state.
 --   
---   <a>$sel:migrationTaskName:MigrationTaskSummary'</a>,
---   <a>migrationTaskSummary_migrationTaskName</a> - Unique identifier that
---   references the migration task. /Do not store personal data in this
---   field./
---   
 --   <a>$sel:progressUpdateStream:MigrationTaskSummary'</a>,
 --   <a>migrationTaskSummary_progressUpdateStream</a> - An AWS resource
 --   used for access control. It should uniquely identify the migration
 --   tool as it is used for all updates made by the tool.
+--   
+--   <a>$sel:migrationTaskName:MigrationTaskSummary'</a>,
+--   <a>migrationTaskSummary_migrationTaskName</a> - Unique identifier that
+--   references the migration task. /Do not store personal data in this
+--   field./
 newMigrationTaskSummary :: MigrationTaskSummary
 
 -- | Summary of the AWS resource used for access control that is implicitly

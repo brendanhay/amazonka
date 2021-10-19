@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | An origin in an origin group.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newOriginGroupMember' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679395619"><span id="local-6989586621679395620"></span></span><span class="hs-keyword">data</span><span> </span><span id="OriginGroupMember"><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginGroupMember.html#OriginGroupMember"><span class="hs-identifier hs-var">OriginGroupMember</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OriginGroupMember%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginGroupMember.html#OriginGroupMember%27"><span class="hs-identifier hs-var">OriginGroupMember'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679395868"><span id="local-6989586621679395869"></span></span><span class="hs-keyword">data</span><span> </span><span id="OriginGroupMember"><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginGroupMember.html#OriginGroupMember"><span class="hs-identifier hs-var">OriginGroupMember</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OriginGroupMember%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginGroupMember.html#OriginGroupMember%27"><span class="hs-identifier hs-var">OriginGroupMember'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID for an origin in an origin group.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AoriginId%3AOriginGroupMember%27"><span class="annot"><span class="annottext">OriginGroupMember -&gt; Text
 </span><a href="Network.AWS.CloudFront.Types.OriginGroupMember.html#%24sel%3AoriginId%3AOriginGroupMember%27"><span class="hs-identifier hs-var hs-var">originId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679395613"><span id="local-6989586621679395615"><span class="annot"><span class="annottext">OriginGroupMember -&gt; OriginGroupMember -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679395862"><span id="local-6989586621679395864"><span class="annot"><span class="annottext">OriginGroupMember -&gt; OriginGroupMember -&gt; Bool
 (OriginGroupMember -&gt; OriginGroupMember -&gt; Bool)
 -&gt; (OriginGroupMember -&gt; OriginGroupMember -&gt; Bool)
 -&gt; Eq OriginGroupMember
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: OriginGroupMember -&gt; OriginGroupMember -&gt; Bool
 == :: OriginGroupMember -&gt; OriginGroupMember -&gt; Bool
 $c== :: OriginGroupMember -&gt; OriginGroupMember -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395604"><span id="local-6989586621679395606"><span id="local-6989586621679395608"><span id="local-6989586621679395610"><span class="annot"><span class="annottext">ReadPrec [OriginGroupMember]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395853"><span id="local-6989586621679395855"><span id="local-6989586621679395857"><span id="local-6989586621679395859"><span class="annot"><span class="annottext">ReadPrec [OriginGroupMember]
 ReadPrec OriginGroupMember
 Int -&gt; ReadS OriginGroupMember
 ReadS [OriginGroupMember]
@@ -60,7 +60,7 @@ readList :: ReadS [OriginGroupMember]
 $creadList :: ReadS [OriginGroupMember]
 readsPrec :: Int -&gt; ReadS OriginGroupMember
 $creadsPrec :: Int -&gt; ReadS OriginGroupMember
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395597"><span id="local-6989586621679395599"><span id="local-6989586621679395601"><span class="annot"><span class="annottext">Int -&gt; OriginGroupMember -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395846"><span id="local-6989586621679395848"><span id="local-6989586621679395850"><span class="annot"><span class="annottext">Int -&gt; OriginGroupMember -&gt; ShowS
 [OriginGroupMember] -&gt; ShowS
 OriginGroupMember -&gt; String
 (Int -&gt; OriginGroupMember -&gt; ShowS)
@@ -100,12 +100,12 @@ $cfrom :: forall x. OriginGroupMember -&gt; Rep OriginGroupMember x
 </span><span id="line-46"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-47"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginGroupMember.html#OriginGroupMember"><span class="hs-identifier hs-type">OriginGroupMember</span></a></span><span>
 </span><span id="line-48"></span><span id="newOriginGroupMember"><span class="annot"><span class="annottext">newOriginGroupMember :: Text -&gt; OriginGroupMember
-</span><a href="Network.AWS.CloudFront.Types.OriginGroupMember.html#newOriginGroupMember"><span class="hs-identifier hs-var hs-var">newOriginGroupMember</span></a></span></span><span> </span><span id="local-6989586621679395591"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395591"><span class="hs-identifier hs-var">pOriginId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFront.Types.OriginGroupMember.html#newOriginGroupMember"><span class="hs-identifier hs-var hs-var">newOriginGroupMember</span></a></span></span><span> </span><span id="local-6989586621679395840"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679395840"><span class="hs-identifier hs-var">pOriginId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-49"></span><span>  </span><span class="annot"><span class="annottext">OriginGroupMember' :: Text -&gt; OriginGroupMember
 </span><a href="Network.AWS.CloudFront.Types.OriginGroupMember.html#OriginGroupMember%27"><span class="hs-identifier hs-type">OriginGroupMember'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:originId:OriginGroupMember' :: Text
 </span><a href="Network.AWS.CloudFront.Types.OriginGroupMember.html#%24sel%3AoriginId%3AOriginGroupMember%27"><span class="hs-identifier hs-var">originId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395591"><span class="hs-identifier hs-var">pOriginId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679395840"><span class="hs-identifier hs-var">pOriginId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | The ID for an origin in an origin group.</span><span>
 </span><span id="line-52"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginGroupMember.html#originGroupMember_originId"><span class="hs-identifier hs-type">originGroupMember_originId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginGroupMember.html#OriginGroupMember"><span class="hs-identifier hs-type">OriginGroupMember</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -114,47 +114,47 @@ $cfrom :: forall x. OriginGroupMember -&gt; Rep OriginGroupMember x
 -&gt; (OriginGroupMember -&gt; Text -&gt; OriginGroupMember)
 -&gt; Lens OriginGroupMember OriginGroupMember Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginGroupMember.html#OriginGroupMember%27"><span class="hs-identifier hs-type">OriginGroupMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395587"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginGroupMember.html#OriginGroupMember%27"><span class="hs-identifier hs-type">OriginGroupMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395836"><span class="annot"><span class="annottext">Text
 originId :: Text
 $sel:originId:OriginGroupMember' :: OriginGroupMember -&gt; Text
-</span><a href="#local-6989586621679395587"><span class="hs-identifier hs-var hs-var">originId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395587"><span class="hs-identifier hs-var">originId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395586"><span class="annot"><span class="annottext">s :: OriginGroupMember
-</span><a href="#local-6989586621679395586"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginGroupMember.html#OriginGroupMember%27"><span class="hs-identifier hs-type">OriginGroupMember'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395585"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395585"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OriginGroupMember
-</span><a href="#local-6989586621679395586"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:originId:OriginGroupMember' :: Text
+</span><a href="#local-6989586621679395836"><span class="hs-identifier hs-var hs-var">originId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679395836"><span class="hs-identifier hs-var">originId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395835"><span class="annot"><span class="annottext">s :: OriginGroupMember
+</span><a href="#local-6989586621679395835"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginGroupMember.html#OriginGroupMember%27"><span class="hs-identifier hs-type">OriginGroupMember'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395834"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679395834"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OriginGroupMember
+</span><a href="#local-6989586621679395835"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:originId:OriginGroupMember' :: Text
 </span><a href="Network.AWS.CloudFront.Types.OriginGroupMember.html#%24sel%3AoriginId%3AOriginGroupMember%27"><span class="hs-identifier hs-var">originId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395585"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginGroupMember.html#OriginGroupMember"><span class="hs-identifier hs-type">OriginGroupMember</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679395834"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginGroupMember.html#OriginGroupMember"><span class="hs-identifier hs-type">OriginGroupMember</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginGroupMember.html#OriginGroupMember"><span class="hs-identifier hs-type">OriginGroupMember</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-56"></span><span>  </span><span id="local-6989586621679395582"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String OriginGroupMember
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679395580"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679395580"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-56"></span><span>  </span><span id="local-6989586621679395831"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String OriginGroupMember
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679395829"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679395829"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-57"></span><span>    </span><span class="annot"><span class="annottext">Text -&gt; OriginGroupMember
 </span><a href="Network.AWS.CloudFront.Types.OriginGroupMember.html#OriginGroupMember%27"><span class="hs-identifier hs-var">OriginGroupMember'</span></a></span><span>
 </span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">(Text -&gt; OriginGroupMember)
 -&gt; Either String Text -&gt; Either String OriginGroupMember
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679395580"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679395829"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OriginId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395574"><span id="local-6989586621679395576"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginGroupMember.html#OriginGroupMember"><span class="hs-identifier hs-type">OriginGroupMember</span></a></span></span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395823"><span id="local-6989586621679395825"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginGroupMember.html#OriginGroupMember"><span class="hs-identifier hs-type">OriginGroupMember</span></a></span></span></span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395571"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginGroupMember.html#OriginGroupMember"><span class="hs-identifier hs-type">OriginGroupMember</span></a></span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395820"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginGroupMember.html#OriginGroupMember"><span class="hs-identifier hs-type">OriginGroupMember</span></a></span></span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginGroupMember.html#OriginGroupMember"><span class="hs-identifier hs-type">OriginGroupMember</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679395567"><span class="annot"><span class="annottext">toXML :: OriginGroupMember -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginGroupMember.html#OriginGroupMember%27"><span class="hs-identifier hs-type">OriginGroupMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395565"><span class="annot"><span class="annottext">Text
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679395816"><span class="annot"><span class="annottext">toXML :: OriginGroupMember -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginGroupMember.html#OriginGroupMember%27"><span class="hs-identifier hs-type">OriginGroupMember'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395814"><span class="annot"><span class="annottext">Text
 originId :: Text
 $sel:originId:OriginGroupMember' :: OriginGroupMember -&gt; Text
-</span><a href="#local-6989586621679395565"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679395814"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;OriginId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395565"><span class="hs-identifier hs-var">originId</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679395814"><span class="hs-identifier hs-var">originId</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-67"></span></pre></body></html>

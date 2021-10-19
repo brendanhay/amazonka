@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- in the /Amazon Elastic Container Service Developer Guide/.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newDeploymentController' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679450061"><span id="local-6989586621679450062"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeploymentController"><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentController.html#DeploymentController"><span class="hs-identifier hs-var">DeploymentController</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeploymentController%27"><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentController.html#DeploymentController%27"><span class="hs-identifier hs-var">DeploymentController'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679450772"><span id="local-6989586621679450773"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeploymentController"><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentController.html#DeploymentController"><span class="hs-identifier hs-var">DeploymentController</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeploymentController%27"><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentController.html#DeploymentController%27"><span class="hs-identifier hs-var">DeploymentController'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The deployment controller type to use.</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- There are three deployment controller types available:</span><span>
@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3Atype%27%3ADeploymentController%27"><span class="annot"><span class="annottext">DeploymentController -&gt; DeploymentControllerType
 </span><a href="Network.AWS.ECS.Types.DeploymentController.html#%24sel%3Atype%27%3ADeploymentController%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentControllerType.html#DeploymentControllerType"><span class="hs-identifier hs-type">DeploymentControllerType</span></a></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679450055"><span id="local-6989586621679450057"><span class="annot"><span class="annottext">DeploymentController -&gt; DeploymentController -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679450766"><span id="local-6989586621679450768"><span class="annot"><span class="annottext">DeploymentController -&gt; DeploymentController -&gt; Bool
 (DeploymentController -&gt; DeploymentController -&gt; Bool)
 -&gt; (DeploymentController -&gt; DeploymentController -&gt; Bool)
 -&gt; Eq DeploymentController
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeploymentController -&gt; DeploymentController -&gt; Bool
 == :: DeploymentController -&gt; DeploymentController -&gt; Bool
 $c== :: DeploymentController -&gt; DeploymentController -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679450046"><span id="local-6989586621679450048"><span id="local-6989586621679450050"><span id="local-6989586621679450052"><span class="annot"><span class="annottext">ReadPrec [DeploymentController]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679450757"><span id="local-6989586621679450759"><span id="local-6989586621679450761"><span id="local-6989586621679450763"><span class="annot"><span class="annottext">ReadPrec [DeploymentController]
 ReadPrec DeploymentController
 Int -&gt; ReadS DeploymentController
 ReadS [DeploymentController]
@@ -84,7 +84,7 @@ readList :: ReadS [DeploymentController]
 $creadList :: ReadS [DeploymentController]
 readsPrec :: Int -&gt; ReadS DeploymentController
 $creadsPrec :: Int -&gt; ReadS DeploymentController
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679450039"><span id="local-6989586621679450041"><span id="local-6989586621679450043"><span class="annot"><span class="annottext">Int -&gt; DeploymentController -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679450750"><span id="local-6989586621679450752"><span id="local-6989586621679450754"><span class="annot"><span class="annottext">Int -&gt; DeploymentController -&gt; ShowS
 [DeploymentController] -&gt; ShowS
 DeploymentController -&gt; String
 (Int -&gt; DeploymentController -&gt; ShowS)
@@ -144,12 +144,12 @@ $cfrom :: forall x. DeploymentController -&gt; Rep DeploymentController x
 </span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentControllerType.html#DeploymentControllerType"><span class="hs-identifier hs-type">DeploymentControllerType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentController.html#DeploymentController"><span class="hs-identifier hs-type">DeploymentController</span></a></span><span>
 </span><span id="line-92"></span><span id="newDeploymentController"><span class="annot"><span class="annottext">newDeploymentController :: DeploymentControllerType -&gt; DeploymentController
-</span><a href="Network.AWS.ECS.Types.DeploymentController.html#newDeploymentController"><span class="hs-identifier hs-var hs-var">newDeploymentController</span></a></span></span><span> </span><span id="local-6989586621679450033"><span class="annot"><span class="annottext">DeploymentControllerType
-</span><a href="#local-6989586621679450033"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ECS.Types.DeploymentController.html#newDeploymentController"><span class="hs-identifier hs-var hs-var">newDeploymentController</span></a></span></span><span> </span><span id="local-6989586621679450744"><span class="annot"><span class="annottext">DeploymentControllerType
+</span><a href="#local-6989586621679450744"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>  </span><span class="annot"><span class="annottext">DeploymentController' :: DeploymentControllerType -&gt; DeploymentController
 </span><a href="Network.AWS.ECS.Types.DeploymentController.html#DeploymentController%27"><span class="hs-identifier hs-type">DeploymentController'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':DeploymentController' :: DeploymentControllerType
 </span><a href="Network.AWS.ECS.Types.DeploymentController.html#%24sel%3Atype%27%3ADeploymentController%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeploymentControllerType
-</span><a href="#local-6989586621679450033"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679450744"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | The deployment controller type to use.</span><span>
 </span><span id="line-96"></span><span class="hs-comment">--</span><span>
@@ -184,19 +184,19 @@ $cfrom :: forall x. DeploymentController -&gt; Rep DeploymentController x
      DeploymentControllerType
      DeploymentControllerType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentController.html#DeploymentController%27"><span class="hs-identifier hs-type">DeploymentController'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679450029"><span class="annot"><span class="annottext">DeploymentControllerType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentController.html#DeploymentController%27"><span class="hs-identifier hs-type">DeploymentController'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679450740"><span class="annot"><span class="annottext">DeploymentControllerType
 type' :: DeploymentControllerType
 $sel:type':DeploymentController' :: DeploymentController -&gt; DeploymentControllerType
-</span><a href="#local-6989586621679450029"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeploymentControllerType
-</span><a href="#local-6989586621679450029"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679450028"><span class="annot"><span class="annottext">s :: DeploymentController
-</span><a href="#local-6989586621679450028"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentController.html#DeploymentController%27"><span class="hs-identifier hs-type">DeploymentController'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679450027"><span class="annot"><span class="annottext">DeploymentControllerType
-</span><a href="#local-6989586621679450027"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeploymentController
-</span><a href="#local-6989586621679450028"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':DeploymentController' :: DeploymentControllerType
+</span><a href="#local-6989586621679450740"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeploymentControllerType
+</span><a href="#local-6989586621679450740"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679450739"><span class="annot"><span class="annottext">s :: DeploymentController
+</span><a href="#local-6989586621679450739"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentController.html#DeploymentController%27"><span class="hs-identifier hs-type">DeploymentController'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679450738"><span class="annot"><span class="annottext">DeploymentControllerType
+</span><a href="#local-6989586621679450738"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeploymentController
+</span><a href="#local-6989586621679450739"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':DeploymentController' :: DeploymentControllerType
 </span><a href="Network.AWS.ECS.Types.DeploymentController.html#%24sel%3Atype%27%3ADeploymentController%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeploymentControllerType
-</span><a href="#local-6989586621679450027"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentController.html#DeploymentController"><span class="hs-identifier hs-type">DeploymentController</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679450738"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentController.html#DeploymentController"><span class="hs-identifier hs-type">DeploymentController</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679450024"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentController.html#DeploymentController"><span class="hs-identifier hs-type">DeploymentController</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679450022"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DeploymentController
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679450735"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentController.html#DeploymentController"><span class="hs-identifier hs-type">DeploymentController</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679450733"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DeploymentController
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DeploymentController)
@@ -206,29 +206,29 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DeploymentController&quot;</span></span><span>
-</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679450019"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679450019"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679450730"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679450730"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">DeploymentControllerType -&gt; DeploymentController
 </span><a href="Network.AWS.ECS.Types.DeploymentController.html#DeploymentController%27"><span class="hs-identifier hs-var">DeploymentController'</span></a></span><span> </span><span class="annot"><span class="annottext">(DeploymentControllerType -&gt; DeploymentController)
 -&gt; Parser DeploymentControllerType -&gt; Parser DeploymentController
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679450019"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser DeploymentControllerType
+</span><a href="#local-6989586621679450730"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser DeploymentControllerType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679450013"><span id="local-6989586621679450015"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentController.html#DeploymentController"><span class="hs-identifier hs-type">DeploymentController</span></a></span></span></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679450724"><span id="local-6989586621679450726"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentController.html#DeploymentController"><span class="hs-identifier hs-type">DeploymentController</span></a></span></span></span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679450010"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentController.html#DeploymentController"><span class="hs-identifier hs-type">DeploymentController</span></a></span></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679450721"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentController.html#DeploymentController"><span class="hs-identifier hs-type">DeploymentController</span></a></span></span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679450002"><span id="local-6989586621679450004"><span id="local-6989586621679450006"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentController.html#DeploymentController"><span class="hs-identifier hs-type">DeploymentController</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679450000"><span class="annot"><span class="annottext">toJSON :: DeploymentController -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentController.html#DeploymentController%27"><span class="hs-identifier hs-type">DeploymentController'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449998"><span class="annot"><span class="annottext">DeploymentControllerType
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679450713"><span id="local-6989586621679450715"><span id="local-6989586621679450717"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentController.html#DeploymentController"><span class="hs-identifier hs-type">DeploymentController</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679450711"><span class="annot"><span class="annottext">toJSON :: DeploymentController -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentController.html#DeploymentController%27"><span class="hs-identifier hs-type">DeploymentController'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679450709"><span class="annot"><span class="annottext">DeploymentControllerType
 type' :: DeploymentControllerType
 $sel:type':DeploymentController' :: DeploymentController -&gt; DeploymentControllerType
-</span><a href="#local-6989586621679449998"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679450709"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -240,6 +240,6 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DeploymentControllerType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">DeploymentControllerType
-</span><a href="#local-6989586621679449998"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679450709"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span></pre></body></html>

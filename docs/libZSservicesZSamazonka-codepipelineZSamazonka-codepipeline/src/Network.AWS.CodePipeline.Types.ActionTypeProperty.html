@@ -28,15 +28,15 @@
 </span><span id="line-28"></span><span class="hs-comment">-- customer using the action type.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newActionTypeProperty' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679275010"><span id="local-6989586621679275011"></span></span><span class="hs-keyword">data</span><span> </span><span id="ActionTypeProperty"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty"><span class="hs-identifier hs-var">ActionTypeProperty</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActionTypeProperty%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty%27"><span class="hs-identifier hs-var">ActionTypeProperty'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The description of the property that is displayed to users.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3Adescription%3AActionTypeProperty%27"><span class="annot"><span class="annottext">ActionTypeProperty -&gt; Maybe Text
-</span><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#%24sel%3Adescription%3AActionTypeProperty%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Indicates that the property is used with polling. An action type can</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- have up to one queryable property. If it has one, that property must be</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- both required and not secret.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aqueryable%3AActionTypeProperty%27"><span class="annot"><span class="annottext">ActionTypeProperty -&gt; Maybe Bool
+</span><span id="line-31"></span><span id="local-6989586621679275209"><span id="local-6989586621679275210"></span></span><span class="hs-keyword">data</span><span> </span><span id="ActionTypeProperty"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty"><span class="hs-identifier hs-var">ActionTypeProperty</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActionTypeProperty%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty%27"><span class="hs-identifier hs-var">ActionTypeProperty'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Indicates that the property is used with polling. An action type can</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- have up to one queryable property. If it has one, that property must be</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- both required and not secret.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aqueryable%3AActionTypeProperty%27"><span class="annot"><span class="annottext">ActionTypeProperty -&gt; Maybe Bool
 </span><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#%24sel%3Aqueryable%3AActionTypeProperty%27"><span class="hs-identifier hs-var hs-var">queryable</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The description of the property that is displayed to users.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Adescription%3AActionTypeProperty%27"><span class="annot"><span class="annottext">ActionTypeProperty -&gt; Maybe Text
+</span><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#%24sel%3Adescription%3AActionTypeProperty%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The property name that is displayed to users.</span><span>
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3Aname%3AActionTypeProperty%27"><span class="annot"><span class="annottext">ActionTypeProperty -&gt; Text
 </span><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#%24sel%3Aname%3AActionTypeProperty%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -52,7 +52,7 @@
 </span><span id="line-47"></span><span>    </span><span id="%24sel%3AnoEcho%3AActionTypeProperty%27"><span class="annot"><span class="annottext">ActionTypeProperty -&gt; Bool
 </span><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#%24sel%3AnoEcho%3AActionTypeProperty%27"><span class="hs-identifier hs-var hs-var">noEcho</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274999"><span id="local-6989586621679275001"><span class="annot"><span class="annottext">ActionTypeProperty -&gt; ActionTypeProperty -&gt; Bool
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275198"><span id="local-6989586621679275200"><span class="annot"><span class="annottext">ActionTypeProperty -&gt; ActionTypeProperty -&gt; Bool
 (ActionTypeProperty -&gt; ActionTypeProperty -&gt; Bool)
 -&gt; (ActionTypeProperty -&gt; ActionTypeProperty -&gt; Bool)
 -&gt; Eq ActionTypeProperty
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ActionTypeProperty -&gt; ActionTypeProperty -&gt; Bool
 == :: ActionTypeProperty -&gt; ActionTypeProperty -&gt; Bool
 $c== :: ActionTypeProperty -&gt; ActionTypeProperty -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274990"><span id="local-6989586621679274992"><span id="local-6989586621679274994"><span id="local-6989586621679274996"><span class="annot"><span class="annottext">ReadPrec [ActionTypeProperty]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275189"><span id="local-6989586621679275191"><span id="local-6989586621679275193"><span id="local-6989586621679275195"><span class="annot"><span class="annottext">ReadPrec [ActionTypeProperty]
 ReadPrec ActionTypeProperty
 Int -&gt; ReadS ActionTypeProperty
 ReadS [ActionTypeProperty]
@@ -81,7 +81,7 @@ readList :: ReadS [ActionTypeProperty]
 $creadList :: ReadS [ActionTypeProperty]
 readsPrec :: Int -&gt; ReadS ActionTypeProperty
 $creadsPrec :: Int -&gt; ReadS ActionTypeProperty
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274983"><span id="local-6989586621679274985"><span id="local-6989586621679274987"><span class="annot"><span class="annottext">Int -&gt; ActionTypeProperty -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275182"><span id="local-6989586621679275184"><span id="local-6989586621679275186"><span class="annot"><span class="annottext">Int -&gt; ActionTypeProperty -&gt; ShowS
 [ActionTypeProperty] -&gt; ShowS
 ActionTypeProperty -&gt; String
 (Int -&gt; ActionTypeProperty -&gt; ShowS)
@@ -115,11 +115,11 @@ $cfrom :: forall x. ActionTypeProperty -&gt; Rep ActionTypeProperty x
 </span><span id="line-56"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'description', 'actionTypeProperty_description' - The description of the property that is displayed to users.</span><span>
-</span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'queryable', 'actionTypeProperty_queryable' - Indicates that the property is used with polling. An action type can</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- have up to one queryable property. If it has one, that property must be</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- both required and not secret.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'queryable', 'actionTypeProperty_queryable' - Indicates that the property is used with polling. An action type can</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- have up to one queryable property. If it has one, that property must be</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- both required and not secret.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'description', 'actionTypeProperty_description' - The description of the property that is displayed to users.</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- 'name', 'actionTypeProperty_name' - The property name that is displayed to users.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
@@ -142,80 +142,80 @@ $cfrom :: forall x. ActionTypeProperty -&gt; Rep ActionTypeProperty x
 </span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty"><span class="hs-identifier hs-type">ActionTypeProperty</span></a></span><span>
 </span><span id="line-84"></span><span id="newActionTypeProperty"><span class="annot"><span class="annottext">newActionTypeProperty :: Text -&gt; Bool -&gt; Bool -&gt; Bool -&gt; ActionTypeProperty
 </span><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#newActionTypeProperty"><span class="hs-identifier hs-var hs-var">newActionTypeProperty</span></a></span></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679274977"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274977"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679274976"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679274976"><span class="hs-identifier hs-var">pOptional_</span></a></span></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679274975"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679274975"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679274974"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679274974"><span class="hs-identifier hs-var">pNoEcho_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">ActionTypeProperty' :: Maybe Text
--&gt; Maybe Bool -&gt; Text -&gt; Bool -&gt; Bool -&gt; Bool -&gt; ActionTypeProperty
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679275176"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275176"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679275175"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679275175"><span class="hs-identifier hs-var">pOptional_</span></a></span></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679275174"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679275174"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679275173"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679275173"><span class="hs-identifier hs-var">pNoEcho_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">ActionTypeProperty' :: Maybe Bool
+-&gt; Maybe Text -&gt; Text -&gt; Bool -&gt; Bool -&gt; Bool -&gt; ActionTypeProperty
 </span><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty%27"><span class="hs-identifier hs-type">ActionTypeProperty'</span></a></span><span>
-</span><span id="line-90"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:description:ActionTypeProperty' :: Maybe Text
-</span><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#%24sel%3Adescription%3AActionTypeProperty%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-90"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:queryable:ActionTypeProperty' :: Maybe Bool
+</span><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#%24sel%3Aqueryable%3AActionTypeProperty%27"><span class="hs-identifier hs-var">queryable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">$sel:queryable:ActionTypeProperty' :: Maybe Bool
-</span><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#%24sel%3Aqueryable%3AActionTypeProperty%27"><span class="hs-identifier hs-var">queryable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">$sel:description:ActionTypeProperty' :: Maybe Text
+</span><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#%24sel%3Adescription%3AActionTypeProperty%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">$sel:name:ActionTypeProperty' :: Text
 </span><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#%24sel%3Aname%3AActionTypeProperty%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274977"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679275176"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">$sel:optional:ActionTypeProperty' :: Bool
 </span><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#%24sel%3Aoptional%3AActionTypeProperty%27"><span class="hs-identifier hs-var">optional</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679274976"><span class="hs-identifier hs-var">pOptional_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679275175"><span class="hs-identifier hs-var">pOptional_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-94"></span><span>        </span><span class="annot"><span class="annottext">$sel:key:ActionTypeProperty' :: Bool
 </span><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#%24sel%3Akey%3AActionTypeProperty%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679274975"><span class="hs-identifier hs-var">pKey_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679275174"><span class="hs-identifier hs-var">pKey_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-95"></span><span>        </span><span class="annot"><span class="annottext">$sel:noEcho:ActionTypeProperty' :: Bool
 </span><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#%24sel%3AnoEcho%3AActionTypeProperty%27"><span class="hs-identifier hs-var">noEcho</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679274974"><span class="hs-identifier hs-var">pNoEcho_</span></a></span><span>
+</span><a href="#local-6989586621679275173"><span class="hs-identifier hs-var">pNoEcho_</span></a></span><span>
 </span><span id="line-96"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- | The description of the property that is displayed to users.</span><span>
-</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#actionTypeProperty_description"><span class="hs-identifier hs-type">actionTypeProperty_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty"><span class="hs-identifier hs-type">ActionTypeProperty</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span id="actionTypeProperty_description"><span class="annot"><span class="annottext">actionTypeProperty_description :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ActionTypeProperty -&gt; f ActionTypeProperty
-</span><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#actionTypeProperty_description"><span class="hs-identifier hs-var hs-var">actionTypeProperty_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActionTypeProperty -&gt; Maybe Text)
--&gt; (ActionTypeProperty -&gt; Maybe Text -&gt; ActionTypeProperty)
--&gt; Lens
-     ActionTypeProperty ActionTypeProperty (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty%27"><span class="hs-identifier hs-type">ActionTypeProperty'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274970"><span class="annot"><span class="annottext">Maybe Text
-description :: Maybe Text
-$sel:description:ActionTypeProperty' :: ActionTypeProperty -&gt; Maybe Text
-</span><a href="#local-6989586621679274970"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679274970"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274969"><span class="annot"><span class="annottext">s :: ActionTypeProperty
-</span><a href="#local-6989586621679274969"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty%27"><span class="hs-identifier hs-type">ActionTypeProperty'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274968"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679274968"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionTypeProperty
-</span><a href="#local-6989586621679274969"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ActionTypeProperty' :: Maybe Text
-</span><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#%24sel%3Adescription%3AActionTypeProperty%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679274968"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty"><span class="hs-identifier hs-type">ActionTypeProperty</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- | Indicates that the property is used with polling. An action type can</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- have up to one queryable property. If it has one, that property must be</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- both required and not secret.</span><span>
-</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#actionTypeProperty_queryable"><span class="hs-identifier hs-type">actionTypeProperty_queryable</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty"><span class="hs-identifier hs-type">ActionTypeProperty</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span id="actionTypeProperty_queryable"><span class="annot"><span class="annottext">actionTypeProperty_queryable :: (Maybe Bool -&gt; f (Maybe Bool))
+</span><span id="line-98"></span><span class="hs-comment">-- | Indicates that the property is used with polling. An action type can</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- have up to one queryable property. If it has one, that property must be</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- both required and not secret.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#actionTypeProperty_queryable"><span class="hs-identifier hs-type">actionTypeProperty_queryable</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty"><span class="hs-identifier hs-type">ActionTypeProperty</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="actionTypeProperty_queryable"><span class="annot"><span class="annottext">actionTypeProperty_queryable :: (Maybe Bool -&gt; f (Maybe Bool))
 -&gt; ActionTypeProperty -&gt; f ActionTypeProperty
 </span><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#actionTypeProperty_queryable"><span class="hs-identifier hs-var hs-var">actionTypeProperty_queryable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActionTypeProperty -&gt; Maybe Bool)
 -&gt; (ActionTypeProperty -&gt; Maybe Bool -&gt; ActionTypeProperty)
 -&gt; Lens
      ActionTypeProperty ActionTypeProperty (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty%27"><span class="hs-identifier hs-type">ActionTypeProperty'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274966"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty%27"><span class="hs-identifier hs-type">ActionTypeProperty'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275169"><span class="annot"><span class="annottext">Maybe Bool
 queryable :: Maybe Bool
 $sel:queryable:ActionTypeProperty' :: ActionTypeProperty -&gt; Maybe Bool
-</span><a href="#local-6989586621679274966"><span class="hs-identifier hs-var hs-var">queryable</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679274966"><span class="hs-identifier hs-var">queryable</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274965"><span class="annot"><span class="annottext">s :: ActionTypeProperty
-</span><a href="#local-6989586621679274965"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty%27"><span class="hs-identifier hs-type">ActionTypeProperty'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274964"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679274964"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionTypeProperty
-</span><a href="#local-6989586621679274965"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryable:ActionTypeProperty' :: Maybe Bool
+</span><a href="#local-6989586621679275169"><span class="hs-identifier hs-var hs-var">queryable</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679275169"><span class="hs-identifier hs-var">queryable</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275168"><span class="annot"><span class="annottext">s :: ActionTypeProperty
+</span><a href="#local-6989586621679275168"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty%27"><span class="hs-identifier hs-type">ActionTypeProperty'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275167"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679275167"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionTypeProperty
+</span><a href="#local-6989586621679275168"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryable:ActionTypeProperty' :: Maybe Bool
 </span><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#%24sel%3Aqueryable%3AActionTypeProperty%27"><span class="hs-identifier hs-var">queryable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679274964"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty"><span class="hs-identifier hs-type">ActionTypeProperty</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679275167"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty"><span class="hs-identifier hs-type">ActionTypeProperty</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The description of the property that is displayed to users.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#actionTypeProperty_description"><span class="hs-identifier hs-type">actionTypeProperty_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty"><span class="hs-identifier hs-type">ActionTypeProperty</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="actionTypeProperty_description"><span class="annot"><span class="annottext">actionTypeProperty_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ActionTypeProperty -&gt; f ActionTypeProperty
+</span><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#actionTypeProperty_description"><span class="hs-identifier hs-var hs-var">actionTypeProperty_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActionTypeProperty -&gt; Maybe Text)
+-&gt; (ActionTypeProperty -&gt; Maybe Text -&gt; ActionTypeProperty)
+-&gt; Lens
+     ActionTypeProperty ActionTypeProperty (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty%27"><span class="hs-identifier hs-type">ActionTypeProperty'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275165"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:ActionTypeProperty' :: ActionTypeProperty -&gt; Maybe Text
+</span><a href="#local-6989586621679275165"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275165"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275164"><span class="annot"><span class="annottext">s :: ActionTypeProperty
+</span><a href="#local-6989586621679275164"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty%27"><span class="hs-identifier hs-type">ActionTypeProperty'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275163"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275163"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionTypeProperty
+</span><a href="#local-6989586621679275164"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ActionTypeProperty' :: Maybe Text
+</span><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#%24sel%3Adescription%3AActionTypeProperty%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275163"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty"><span class="hs-identifier hs-type">ActionTypeProperty</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | The property name that is displayed to users.</span><span>
 </span><span id="line-109"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#actionTypeProperty_name"><span class="hs-identifier hs-type">actionTypeProperty_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty"><span class="hs-identifier hs-type">ActionTypeProperty</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -224,16 +224,16 @@ $sel:queryable:ActionTypeProperty' :: ActionTypeProperty -&gt; Maybe Bool
 -&gt; (ActionTypeProperty -&gt; Text -&gt; ActionTypeProperty)
 -&gt; Lens ActionTypeProperty ActionTypeProperty Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty%27"><span class="hs-identifier hs-type">ActionTypeProperty'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274962"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty%27"><span class="hs-identifier hs-type">ActionTypeProperty'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275161"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:ActionTypeProperty' :: ActionTypeProperty -&gt; Text
-</span><a href="#local-6989586621679274962"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274962"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274961"><span class="annot"><span class="annottext">s :: ActionTypeProperty
-</span><a href="#local-6989586621679274961"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty%27"><span class="hs-identifier hs-type">ActionTypeProperty'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274960"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274960"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionTypeProperty
-</span><a href="#local-6989586621679274961"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ActionTypeProperty' :: Text
+</span><a href="#local-6989586621679275161"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275161"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275160"><span class="annot"><span class="annottext">s :: ActionTypeProperty
+</span><a href="#local-6989586621679275160"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty%27"><span class="hs-identifier hs-type">ActionTypeProperty'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275159"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275159"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionTypeProperty
+</span><a href="#local-6989586621679275160"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ActionTypeProperty' :: Text
 </span><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#%24sel%3Aname%3AActionTypeProperty%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274960"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty"><span class="hs-identifier hs-type">ActionTypeProperty</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679275159"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty"><span class="hs-identifier hs-type">ActionTypeProperty</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- | Whether the configuration property is an optional value.</span><span>
 </span><span id="line-113"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#actionTypeProperty_optional"><span class="hs-identifier hs-type">actionTypeProperty_optional</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty"><span class="hs-identifier hs-type">ActionTypeProperty</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
@@ -242,16 +242,16 @@ $sel:name:ActionTypeProperty' :: ActionTypeProperty -&gt; Text
 -&gt; (ActionTypeProperty -&gt; Bool -&gt; ActionTypeProperty)
 -&gt; Lens ActionTypeProperty ActionTypeProperty Bool Bool
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty%27"><span class="hs-identifier hs-type">ActionTypeProperty'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274958"><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty%27"><span class="hs-identifier hs-type">ActionTypeProperty'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275157"><span class="annot"><span class="annottext">Bool
 optional :: Bool
 $sel:optional:ActionTypeProperty' :: ActionTypeProperty -&gt; Bool
-</span><a href="#local-6989586621679274958"><span class="hs-identifier hs-var hs-var">optional</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679274958"><span class="hs-identifier hs-var">optional</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274957"><span class="annot"><span class="annottext">s :: ActionTypeProperty
-</span><a href="#local-6989586621679274957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty%27"><span class="hs-identifier hs-type">ActionTypeProperty'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274956"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679274956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionTypeProperty
-</span><a href="#local-6989586621679274957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:optional:ActionTypeProperty' :: Bool
+</span><a href="#local-6989586621679275157"><span class="hs-identifier hs-var hs-var">optional</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679275157"><span class="hs-identifier hs-var">optional</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275156"><span class="annot"><span class="annottext">s :: ActionTypeProperty
+</span><a href="#local-6989586621679275156"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty%27"><span class="hs-identifier hs-type">ActionTypeProperty'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275155"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679275155"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionTypeProperty
+</span><a href="#local-6989586621679275156"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:optional:ActionTypeProperty' :: Bool
 </span><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#%24sel%3Aoptional%3AActionTypeProperty%27"><span class="hs-identifier hs-var">optional</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679274956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty"><span class="hs-identifier hs-type">ActionTypeProperty</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679275155"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty"><span class="hs-identifier hs-type">ActionTypeProperty</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | Whether the configuration property is a key.</span><span>
 </span><span id="line-117"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#actionTypeProperty_key"><span class="hs-identifier hs-type">actionTypeProperty_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty"><span class="hs-identifier hs-type">ActionTypeProperty</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
@@ -260,16 +260,16 @@ $sel:optional:ActionTypeProperty' :: ActionTypeProperty -&gt; Bool
 -&gt; (ActionTypeProperty -&gt; Bool -&gt; ActionTypeProperty)
 -&gt; Lens ActionTypeProperty ActionTypeProperty Bool Bool
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty%27"><span class="hs-identifier hs-type">ActionTypeProperty'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274954"><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty%27"><span class="hs-identifier hs-type">ActionTypeProperty'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275153"><span class="annot"><span class="annottext">Bool
 key :: Bool
 $sel:key:ActionTypeProperty' :: ActionTypeProperty -&gt; Bool
-</span><a href="#local-6989586621679274954"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679274954"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274953"><span class="annot"><span class="annottext">s :: ActionTypeProperty
-</span><a href="#local-6989586621679274953"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty%27"><span class="hs-identifier hs-type">ActionTypeProperty'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274952"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679274952"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionTypeProperty
-</span><a href="#local-6989586621679274953"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:ActionTypeProperty' :: Bool
+</span><a href="#local-6989586621679275153"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679275153"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275152"><span class="annot"><span class="annottext">s :: ActionTypeProperty
+</span><a href="#local-6989586621679275152"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty%27"><span class="hs-identifier hs-type">ActionTypeProperty'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275151"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679275151"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionTypeProperty
+</span><a href="#local-6989586621679275152"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:ActionTypeProperty' :: Bool
 </span><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#%24sel%3Akey%3AActionTypeProperty%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679274952"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty"><span class="hs-identifier hs-type">ActionTypeProperty</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679275151"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty"><span class="hs-identifier hs-type">ActionTypeProperty</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- | Whether to omit the field value entered by the customer in the log. If</span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- @true@, the value is not saved in CloudTrail logs for the action</span><span>
@@ -280,19 +280,19 @@ $sel:key:ActionTypeProperty' :: ActionTypeProperty -&gt; Bool
 -&gt; (ActionTypeProperty -&gt; Bool -&gt; ActionTypeProperty)
 -&gt; Lens ActionTypeProperty ActionTypeProperty Bool Bool
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty%27"><span class="hs-identifier hs-type">ActionTypeProperty'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274950"><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty%27"><span class="hs-identifier hs-type">ActionTypeProperty'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275149"><span class="annot"><span class="annottext">Bool
 noEcho :: Bool
 $sel:noEcho:ActionTypeProperty' :: ActionTypeProperty -&gt; Bool
-</span><a href="#local-6989586621679274950"><span class="hs-identifier hs-var hs-var">noEcho</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679274950"><span class="hs-identifier hs-var">noEcho</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274949"><span class="annot"><span class="annottext">s :: ActionTypeProperty
-</span><a href="#local-6989586621679274949"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty%27"><span class="hs-identifier hs-type">ActionTypeProperty'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274948"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679274948"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionTypeProperty
-</span><a href="#local-6989586621679274949"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:noEcho:ActionTypeProperty' :: Bool
+</span><a href="#local-6989586621679275149"><span class="hs-identifier hs-var hs-var">noEcho</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679275149"><span class="hs-identifier hs-var">noEcho</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275148"><span class="annot"><span class="annottext">s :: ActionTypeProperty
+</span><a href="#local-6989586621679275148"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty%27"><span class="hs-identifier hs-type">ActionTypeProperty'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275147"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679275147"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionTypeProperty
+</span><a href="#local-6989586621679275148"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:noEcho:ActionTypeProperty' :: Bool
 </span><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#%24sel%3AnoEcho%3AActionTypeProperty%27"><span class="hs-identifier hs-var">noEcho</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679274948"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty"><span class="hs-identifier hs-type">ActionTypeProperty</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679275147"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty"><span class="hs-identifier hs-type">ActionTypeProperty</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274945"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty"><span class="hs-identifier hs-type">ActionTypeProperty</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679274943"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ActionTypeProperty
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275144"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty"><span class="hs-identifier hs-type">ActionTypeProperty</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679275142"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ActionTypeProperty
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ActionTypeProperty)
@@ -302,43 +302,43 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ActionTypeProperty&quot;</span></span><span>
-</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679274940"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274940"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe Bool -&gt; Text -&gt; Bool -&gt; Bool -&gt; Bool -&gt; ActionTypeProperty
+</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679275139"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679275139"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+-&gt; Maybe Text -&gt; Text -&gt; Bool -&gt; Bool -&gt; Bool -&gt; ActionTypeProperty
 </span><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty%27"><span class="hs-identifier hs-var">ActionTypeProperty'</span></a></span><span>
-</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe Bool
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool
+ -&gt; Maybe Text
  -&gt; Text
  -&gt; Bool
  -&gt; Bool
  -&gt; Bool
  -&gt; ActionTypeProperty)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Bool)
 -&gt; Parser
-     (Maybe Bool -&gt; Text -&gt; Bool -&gt; Bool -&gt; Bool -&gt; ActionTypeProperty)
+     (Maybe Text -&gt; Text -&gt; Bool -&gt; Bool -&gt; Bool -&gt; ActionTypeProperty)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274940"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Bool -&gt; Text -&gt; Bool -&gt; Bool -&gt; Bool -&gt; ActionTypeProperty)
--&gt; Parser (Maybe Bool)
--&gt; Parser (Text -&gt; Bool -&gt; Bool -&gt; Bool -&gt; ActionTypeProperty)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274940"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679275139"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;queryable&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Text -&gt; Bool -&gt; Bool -&gt; Bool -&gt; ActionTypeProperty)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Text -&gt; Bool -&gt; Bool -&gt; Bool -&gt; ActionTypeProperty)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679275139"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Bool -&gt; Bool -&gt; Bool -&gt; ActionTypeProperty)
 -&gt; Parser Text
 -&gt; Parser (Bool -&gt; Bool -&gt; Bool -&gt; ActionTypeProperty)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274940"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679275139"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
@@ -346,7 +346,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Bool -&gt; Parser (Bool -&gt; Bool -&gt; ActionTypeProperty)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274940"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Bool
+</span><a href="#local-6989586621679275139"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Bool
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;optional&quot;</span></span><span class="hs-special">)</span><span>
@@ -354,7 +354,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Bool -&gt; Parser (Bool -&gt; ActionTypeProperty)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274940"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Bool
+</span><a href="#local-6989586621679275139"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Bool
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;key&quot;</span></span><span class="hs-special">)</span><span>
@@ -362,19 +362,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Bool -&gt; Parser ActionTypeProperty
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274940"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Bool
+</span><a href="#local-6989586621679275139"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Bool
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;noEcho&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274933"><span id="local-6989586621679274935"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty"><span class="hs-identifier hs-type">ActionTypeProperty</span></a></span></span></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275132"><span id="local-6989586621679275134"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty"><span class="hs-identifier hs-type">ActionTypeProperty</span></a></span></span></span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274930"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty"><span class="hs-identifier hs-type">ActionTypeProperty</span></a></span></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275129"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty"><span class="hs-identifier hs-type">ActionTypeProperty</span></a></span></span><span>
 </span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274922"><span id="local-6989586621679274924"><span id="local-6989586621679274926"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty"><span class="hs-identifier hs-type">ActionTypeProperty</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679274920"><span class="annot"><span class="annottext">toJSON :: ActionTypeProperty -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty%27"><span class="hs-identifier hs-type">ActionTypeProperty'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274913"><span id="local-6989586621679274914"><span id="local-6989586621679274915"><span id="local-6989586621679274916"><span id="local-6989586621679274917"><span id="local-6989586621679274918"><span class="annot"><span class="annottext">Bool
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275121"><span id="local-6989586621679275123"><span id="local-6989586621679275125"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty"><span class="hs-identifier hs-type">ActionTypeProperty</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679275119"><span class="annot"><span class="annottext">toJSON :: ActionTypeProperty -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypeProperty.html#ActionTypeProperty%27"><span class="hs-identifier hs-type">ActionTypeProperty'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275112"><span id="local-6989586621679275113"><span id="local-6989586621679275114"><span id="local-6989586621679275115"><span id="local-6989586621679275116"><span id="local-6989586621679275117"><span class="annot"><span class="annottext">Bool
 Maybe Bool
 Maybe Text
 Text
@@ -382,62 +382,62 @@ noEcho :: Bool
 key :: Bool
 optional :: Bool
 name :: Text
-queryable :: Maybe Bool
 description :: Maybe Text
+queryable :: Maybe Bool
 $sel:noEcho:ActionTypeProperty' :: ActionTypeProperty -&gt; Bool
 $sel:key:ActionTypeProperty' :: ActionTypeProperty -&gt; Bool
 $sel:optional:ActionTypeProperty' :: ActionTypeProperty -&gt; Bool
 $sel:name:ActionTypeProperty' :: ActionTypeProperty -&gt; Text
-$sel:queryable:ActionTypeProperty' :: ActionTypeProperty -&gt; Maybe Bool
 $sel:description:ActionTypeProperty' :: ActionTypeProperty -&gt; Maybe Text
-</span><a href="#local-6989586621679274913"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:queryable:ActionTypeProperty' :: ActionTypeProperty -&gt; Maybe Bool
+</span><a href="#local-6989586621679275112"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-148"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679274918"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-149"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;queryable&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679274917"><span class="hs-identifier hs-var">queryable</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679275117"><span class="hs-identifier hs-var">queryable</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275116"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274916"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679275115"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;optional&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679274915"><span class="hs-identifier hs-var">optional</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679275114"><span class="hs-identifier hs-var">optional</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679274914"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679275113"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;noEcho&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679274913"><span class="hs-identifier hs-var">noEcho</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679275112"><span class="hs-identifier hs-var">noEcho</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span></pre></body></html>

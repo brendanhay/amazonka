@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | Specifies the rollback state while disabling Auto-Tune for the domain.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- Valid values are NO_ROLLBACK, DEFAULT_ROLLBACK.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679300024"><span id="local-6989586621679300025"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RollbackOnDisable"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.RollbackOnDisable.html#RollbackOnDisable"><span class="hs-identifier hs-var">RollbackOnDisable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RollbackOnDisable%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.RollbackOnDisable.html#RollbackOnDisable%27"><span class="hs-identifier hs-var">RollbackOnDisable'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679300233"><span id="local-6989586621679300234"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RollbackOnDisable"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.RollbackOnDisable.html#RollbackOnDisable"><span class="hs-identifier hs-var">RollbackOnDisable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RollbackOnDisable%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.RollbackOnDisable.html#RollbackOnDisable%27"><span class="hs-identifier hs-var">RollbackOnDisable'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRollbackOnDisable"><span class="annot"><span class="annottext">RollbackOnDisable -&gt; Text
 </span><a href="Network.AWS.ElasticSearch.Types.RollbackOnDisable.html#fromRollbackOnDisable"><span class="hs-identifier hs-var hs-var">fromRollbackOnDisable</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679300016"><span id="local-6989586621679300018"><span id="local-6989586621679300020"><span class="annot"><span class="annottext">Int -&gt; RollbackOnDisable -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679300225"><span id="local-6989586621679300227"><span id="local-6989586621679300229"><span class="annot"><span class="annottext">Int -&gt; RollbackOnDisable -&gt; ShowS
 [RollbackOnDisable] -&gt; ShowS
 RollbackOnDisable -&gt; String
 (Int -&gt; RollbackOnDisable -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: RollbackOnDisable -&gt; String
 showsPrec :: Int -&gt; RollbackOnDisable -&gt; ShowS
 $cshowsPrec :: Int -&gt; RollbackOnDisable -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679300007"><span id="local-6989586621679300009"><span id="local-6989586621679300011"><span id="local-6989586621679300013"><span class="annot"><span class="annottext">ReadPrec [RollbackOnDisable]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679300216"><span id="local-6989586621679300218"><span id="local-6989586621679300220"><span id="local-6989586621679300222"><span class="annot"><span class="annottext">ReadPrec [RollbackOnDisable]
 ReadPrec RollbackOnDisable
 Int -&gt; ReadS RollbackOnDisable
 ReadS [RollbackOnDisable]
@@ -74,7 +74,7 @@ $creadList :: ReadS [RollbackOnDisable]
 readsPrec :: Int -&gt; ReadS RollbackOnDisable
 $creadsPrec :: Int -&gt; ReadS RollbackOnDisable
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679300002"><span id="local-6989586621679300004"><span class="annot"><span class="annottext">RollbackOnDisable -&gt; RollbackOnDisable -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679300211"><span id="local-6989586621679300213"><span class="annot"><span class="annottext">RollbackOnDisable -&gt; RollbackOnDisable -&gt; Bool
 (RollbackOnDisable -&gt; RollbackOnDisable -&gt; Bool)
 -&gt; (RollbackOnDisable -&gt; RollbackOnDisable -&gt; Bool)
 -&gt; Eq RollbackOnDisable
@@ -84,7 +84,7 @@ $c/= :: RollbackOnDisable -&gt; RollbackOnDisable -&gt; Bool
 == :: RollbackOnDisable -&gt; RollbackOnDisable -&gt; Bool
 $c== :: RollbackOnDisable -&gt; RollbackOnDisable -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679299986"><span id="local-6989586621679299988"><span id="local-6989586621679299990"><span id="local-6989586621679299992"><span id="local-6989586621679299994"><span id="local-6989586621679299996"><span id="local-6989586621679299998"><span class="annot"><span class="annottext">Eq RollbackOnDisable
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679300195"><span id="local-6989586621679300197"><span id="local-6989586621679300199"><span id="local-6989586621679300201"><span id="local-6989586621679300203"><span id="local-6989586621679300205"><span id="local-6989586621679300207"><span class="annot"><span class="annottext">Eq RollbackOnDisable
 Eq RollbackOnDisable
 -&gt; (RollbackOnDisable -&gt; RollbackOnDisable -&gt; Ordering)
 -&gt; (RollbackOnDisable -&gt; RollbackOnDisable -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. RollbackOnDisable -&gt; Rep RollbackOnDisable x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679299978"><span id="local-6989586621679299980"><span class="annot"><span class="annottext">Int -&gt; RollbackOnDisable -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679300187"><span id="local-6989586621679300189"><span class="annot"><span class="annottext">Int -&gt; RollbackOnDisable -&gt; Int
 RollbackOnDisable -&gt; Int
 (Int -&gt; RollbackOnDisable -&gt; Int)
 -&gt; (RollbackOnDisable -&gt; Int) -&gt; Hashable RollbackOnDisable
@@ -145,51 +145,51 @@ $chash :: RollbackOnDisable -&gt; Int
 hashWithSalt :: Int -&gt; RollbackOnDisable -&gt; Int
 $chashWithSalt :: Int -&gt; RollbackOnDisable -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679299975"><span class="annot"><span class="annottext">RollbackOnDisable -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679300184"><span class="annot"><span class="annottext">RollbackOnDisable -&gt; ()
 (RollbackOnDisable -&gt; ()) -&gt; NFData RollbackOnDisable
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: RollbackOnDisable -&gt; ()
 $crnf :: RollbackOnDisable -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679299972"><span class="annot"><span class="annottext">Text -&gt; Either String RollbackOnDisable
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679300181"><span class="annot"><span class="annottext">Text -&gt; Either String RollbackOnDisable
 (Text -&gt; Either String RollbackOnDisable)
 -&gt; FromText RollbackOnDisable
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String RollbackOnDisable
 $cfromText :: Text -&gt; Either String RollbackOnDisable
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679299969"><span class="annot"><span class="annottext">RollbackOnDisable -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679300178"><span class="annot"><span class="annottext">RollbackOnDisable -&gt; Text
 (RollbackOnDisable -&gt; Text) -&gt; ToText RollbackOnDisable
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: RollbackOnDisable -&gt; Text
 $ctoText :: RollbackOnDisable -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679299966"><span class="annot"><span class="annottext">RollbackOnDisable -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679300175"><span class="annot"><span class="annottext">RollbackOnDisable -&gt; ByteString
 (RollbackOnDisable -&gt; ByteString) -&gt; ToByteString RollbackOnDisable
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: RollbackOnDisable -&gt; ByteString
 $ctoBS :: RollbackOnDisable -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679299963"><span class="annot"><span class="annottext">RollbackOnDisable -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679300172"><span class="annot"><span class="annottext">RollbackOnDisable -&gt; ByteStringBuilder
 (RollbackOnDisable -&gt; ByteStringBuilder) -&gt; ToLog RollbackOnDisable
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: RollbackOnDisable -&gt; ByteStringBuilder
 $cbuild :: RollbackOnDisable -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679299960"><span class="annot"><span class="annottext">HeaderName -&gt; RollbackOnDisable -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679300169"><span class="annot"><span class="annottext">HeaderName -&gt; RollbackOnDisable -&gt; [Header]
 (HeaderName -&gt; RollbackOnDisable -&gt; [Header])
 -&gt; ToHeader RollbackOnDisable
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; RollbackOnDisable -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; RollbackOnDisable -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679299957"><span class="annot"><span class="annottext">RollbackOnDisable -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679300166"><span class="annot"><span class="annottext">RollbackOnDisable -&gt; QueryString
 (RollbackOnDisable -&gt; QueryString) -&gt; ToQuery RollbackOnDisable
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: RollbackOnDisable -&gt; QueryString
 $ctoQuery :: RollbackOnDisable -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679299952"><span id="local-6989586621679299954"><span class="annot"><span class="annottext">Value -&gt; Parser [RollbackOnDisable]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679300161"><span id="local-6989586621679300163"><span class="annot"><span class="annottext">Value -&gt; Parser [RollbackOnDisable]
 Value -&gt; Parser RollbackOnDisable
 (Value -&gt; Parser RollbackOnDisable)
 -&gt; (Value -&gt; Parser [RollbackOnDisable])
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [RollbackOnDisable]
 parseJSON :: Value -&gt; Parser RollbackOnDisable
 $cparseJSON :: Value -&gt; Parser RollbackOnDisable
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679299947"><span id="local-6989586621679299949"><span class="annot"><span class="annottext">FromJSONKeyFunction [RollbackOnDisable]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679300156"><span id="local-6989586621679300158"><span class="annot"><span class="annottext">FromJSONKeyFunction [RollbackOnDisable]
 FromJSONKeyFunction RollbackOnDisable
 FromJSONKeyFunction RollbackOnDisable
 -&gt; FromJSONKeyFunction [RollbackOnDisable]
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [RollbackOnDisable]
 fromJSONKey :: FromJSONKeyFunction RollbackOnDisable
 $cfromJSONKey :: FromJSONKeyFunction RollbackOnDisable
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679299938"><span id="local-6989586621679299940"><span id="local-6989586621679299942"><span id="local-6989586621679299944"><span class="annot"><span class="annottext">[RollbackOnDisable] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679300147"><span id="local-6989586621679300149"><span id="local-6989586621679300151"><span id="local-6989586621679300153"><span class="annot"><span class="annottext">[RollbackOnDisable] -&gt; Encoding
 [RollbackOnDisable] -&gt; Value
 RollbackOnDisable -&gt; Encoding
 RollbackOnDisable -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: RollbackOnDisable -&gt; Encoding
 toJSON :: RollbackOnDisable -&gt; Value
 $ctoJSON :: RollbackOnDisable -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679299933"><span id="local-6989586621679299935"><span class="annot"><span class="annottext">ToJSONKeyFunction [RollbackOnDisable]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679300142"><span id="local-6989586621679300144"><span class="annot"><span class="annottext">ToJSONKeyFunction [RollbackOnDisable]
 ToJSONKeyFunction RollbackOnDisable
 ToJSONKeyFunction RollbackOnDisable
 -&gt; ToJSONKeyFunction [RollbackOnDisable]
@@ -249,14 +249,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [RollbackOnDisable]
 toJSONKey :: ToJSONKeyFunction RollbackOnDisable
 $ctoJSONKey :: ToJSONKeyFunction RollbackOnDisable
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679299930"><span class="annot"><span class="annottext">[Node] -&gt; Either String RollbackOnDisable
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679300139"><span class="annot"><span class="annottext">[Node] -&gt; Either String RollbackOnDisable
 ([Node] -&gt; Either String RollbackOnDisable)
 -&gt; FromXML RollbackOnDisable
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String RollbackOnDisable
 $cparseXML :: [Node] -&gt; Either String RollbackOnDisable
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679299927"><span class="annot"><span class="annottext">RollbackOnDisable -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679300136"><span class="annot"><span class="annottext">RollbackOnDisable -&gt; XML
 (RollbackOnDisable -&gt; XML) -&gt; ToXML RollbackOnDisable
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: RollbackOnDisable -&gt; XML

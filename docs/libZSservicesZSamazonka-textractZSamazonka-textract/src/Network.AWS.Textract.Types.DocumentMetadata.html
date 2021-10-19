@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Information about the input document.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newDocumentMetadata' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679174927"><span id="local-6989586621679174928"></span></span><span class="hs-keyword">data</span><span> </span><span id="DocumentMetadata"><span class="annot"><a href="Network.AWS.Textract.Types.DocumentMetadata.html#DocumentMetadata"><span class="hs-identifier hs-var">DocumentMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DocumentMetadata%27"><span class="annot"><a href="Network.AWS.Textract.Types.DocumentMetadata.html#DocumentMetadata%27"><span class="hs-identifier hs-var">DocumentMetadata'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679175008"><span id="local-6989586621679175009"></span></span><span class="hs-keyword">data</span><span> </span><span id="DocumentMetadata"><span class="annot"><a href="Network.AWS.Textract.Types.DocumentMetadata.html#DocumentMetadata"><span class="hs-identifier hs-var">DocumentMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DocumentMetadata%27"><span class="annot"><a href="Network.AWS.Textract.Types.DocumentMetadata.html#DocumentMetadata%27"><span class="hs-identifier hs-var">DocumentMetadata'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of pages that are detected in the document.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Apages%3ADocumentMetadata%27"><span class="annot"><span class="annottext">DocumentMetadata -&gt; Maybe Natural
 </span><a href="Network.AWS.Textract.Types.DocumentMetadata.html#%24sel%3Apages%3ADocumentMetadata%27"><span class="hs-identifier hs-var hs-var">pages</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679174921"><span id="local-6989586621679174923"><span class="annot"><span class="annottext">DocumentMetadata -&gt; DocumentMetadata -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175002"><span id="local-6989586621679175004"><span class="annot"><span class="annottext">DocumentMetadata -&gt; DocumentMetadata -&gt; Bool
 (DocumentMetadata -&gt; DocumentMetadata -&gt; Bool)
 -&gt; (DocumentMetadata -&gt; DocumentMetadata -&gt; Bool)
 -&gt; Eq DocumentMetadata
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DocumentMetadata -&gt; DocumentMetadata -&gt; Bool
 == :: DocumentMetadata -&gt; DocumentMetadata -&gt; Bool
 $c== :: DocumentMetadata -&gt; DocumentMetadata -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174912"><span id="local-6989586621679174914"><span id="local-6989586621679174916"><span id="local-6989586621679174918"><span class="annot"><span class="annottext">ReadPrec [DocumentMetadata]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174993"><span id="local-6989586621679174995"><span id="local-6989586621679174997"><span id="local-6989586621679174999"><span class="annot"><span class="annottext">ReadPrec [DocumentMetadata]
 ReadPrec DocumentMetadata
 Int -&gt; ReadS DocumentMetadata
 ReadS [DocumentMetadata]
@@ -60,7 +60,7 @@ readList :: ReadS [DocumentMetadata]
 $creadList :: ReadS [DocumentMetadata]
 readsPrec :: Int -&gt; ReadS DocumentMetadata
 $creadsPrec :: Int -&gt; ReadS DocumentMetadata
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174905"><span id="local-6989586621679174907"><span id="local-6989586621679174909"><span class="annot"><span class="annottext">Int -&gt; DocumentMetadata -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174986"><span id="local-6989586621679174988"><span id="local-6989586621679174990"><span class="annot"><span class="annottext">Int -&gt; DocumentMetadata -&gt; ShowS
 [DocumentMetadata] -&gt; ShowS
 DocumentMetadata -&gt; String
 (Int -&gt; DocumentMetadata -&gt; ShowS)
@@ -114,19 +114,19 @@ forall a. Maybe a
 -&gt; Lens
      DocumentMetadata DocumentMetadata (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.DocumentMetadata.html#DocumentMetadata%27"><span class="hs-identifier hs-type">DocumentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174896"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.DocumentMetadata.html#DocumentMetadata%27"><span class="hs-identifier hs-type">DocumentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174977"><span class="annot"><span class="annottext">Maybe Natural
 pages :: Maybe Natural
 $sel:pages:DocumentMetadata' :: DocumentMetadata -&gt; Maybe Natural
-</span><a href="#local-6989586621679174896"><span class="hs-identifier hs-var hs-var">pages</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679174896"><span class="hs-identifier hs-var">pages</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174895"><span class="annot"><span class="annottext">s :: DocumentMetadata
-</span><a href="#local-6989586621679174895"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.DocumentMetadata.html#DocumentMetadata%27"><span class="hs-identifier hs-type">DocumentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174894"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679174894"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentMetadata
-</span><a href="#local-6989586621679174895"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pages:DocumentMetadata' :: Maybe Natural
+</span><a href="#local-6989586621679174977"><span class="hs-identifier hs-var hs-var">pages</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679174977"><span class="hs-identifier hs-var">pages</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174976"><span class="annot"><span class="annottext">s :: DocumentMetadata
+</span><a href="#local-6989586621679174976"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.DocumentMetadata.html#DocumentMetadata%27"><span class="hs-identifier hs-type">DocumentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174975"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679174975"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentMetadata
+</span><a href="#local-6989586621679174976"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pages:DocumentMetadata' :: Maybe Natural
 </span><a href="Network.AWS.Textract.Types.DocumentMetadata.html#%24sel%3Apages%3ADocumentMetadata%27"><span class="hs-identifier hs-var">pages</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679174894"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.DocumentMetadata.html#DocumentMetadata"><span class="hs-identifier hs-type">DocumentMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679174975"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.DocumentMetadata.html#DocumentMetadata"><span class="hs-identifier hs-type">DocumentMetadata</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>
-</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174891"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.DocumentMetadata.html#DocumentMetadata"><span class="hs-identifier hs-type">DocumentMetadata</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-54"></span><span>  </span><span id="local-6989586621679174889"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DocumentMetadata
+</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174972"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.DocumentMetadata.html#DocumentMetadata"><span class="hs-identifier hs-type">DocumentMetadata</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621679174970"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DocumentMetadata
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DocumentMetadata)
@@ -136,20 +136,20 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DocumentMetadata&quot;</span></span><span>
-</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679174886"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679174886"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679174967"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679174967"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-58"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural -&gt; DocumentMetadata
 </span><a href="Network.AWS.Textract.Types.DocumentMetadata.html#DocumentMetadata%27"><span class="hs-identifier hs-var">DocumentMetadata'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Natural -&gt; DocumentMetadata)
 -&gt; Parser (Maybe Natural) -&gt; Parser DocumentMetadata
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679174886"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679174967"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Pages&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174880"><span id="local-6989586621679174882"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.DocumentMetadata.html#DocumentMetadata"><span class="hs-identifier hs-type">DocumentMetadata</span></a></span></span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174961"><span id="local-6989586621679174963"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.DocumentMetadata.html#DocumentMetadata"><span class="hs-identifier hs-type">DocumentMetadata</span></a></span></span></span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174877"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.DocumentMetadata.html#DocumentMetadata"><span class="hs-identifier hs-type">DocumentMetadata</span></a></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174958"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.DocumentMetadata.html#DocumentMetadata"><span class="hs-identifier hs-type">DocumentMetadata</span></a></span></span><span>
 </span><span id="line-64"></span></pre></body></html>

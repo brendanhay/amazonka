@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span id="local-6989586621679309954"><span id="local-6989586621679309955"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LifecycleEventStatus"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LifecycleEventStatus.html#LifecycleEventStatus"><span class="hs-identifier hs-var">LifecycleEventStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LifecycleEventStatus%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LifecycleEventStatus.html#LifecycleEventStatus%27"><span class="hs-identifier hs-var">LifecycleEventStatus'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679310240"><span id="local-6989586621679310241"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LifecycleEventStatus"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LifecycleEventStatus.html#LifecycleEventStatus"><span class="hs-identifier hs-var">LifecycleEventStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LifecycleEventStatus%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LifecycleEventStatus.html#LifecycleEventStatus%27"><span class="hs-identifier hs-var">LifecycleEventStatus'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromLifecycleEventStatus"><span class="annot"><span class="annottext">LifecycleEventStatus -&gt; Text
 </span><a href="Network.AWS.CodeDeploy.Types.LifecycleEventStatus.html#fromLifecycleEventStatus"><span class="hs-identifier hs-var hs-var">fromLifecycleEventStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679309946"><span id="local-6989586621679309948"><span id="local-6989586621679309950"><span class="annot"><span class="annottext">Int -&gt; LifecycleEventStatus -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679310232"><span id="local-6989586621679310234"><span id="local-6989586621679310236"><span class="annot"><span class="annottext">Int -&gt; LifecycleEventStatus -&gt; ShowS
 [LifecycleEventStatus] -&gt; ShowS
 LifecycleEventStatus -&gt; String
 (Int -&gt; LifecycleEventStatus -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: LifecycleEventStatus -&gt; String
 showsPrec :: Int -&gt; LifecycleEventStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; LifecycleEventStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679309937"><span id="local-6989586621679309939"><span id="local-6989586621679309941"><span id="local-6989586621679309943"><span class="annot"><span class="annottext">ReadPrec [LifecycleEventStatus]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679310223"><span id="local-6989586621679310225"><span id="local-6989586621679310227"><span id="local-6989586621679310229"><span class="annot"><span class="annottext">ReadPrec [LifecycleEventStatus]
 ReadPrec LifecycleEventStatus
 Int -&gt; ReadS LifecycleEventStatus
 ReadS [LifecycleEventStatus]
@@ -76,7 +76,7 @@ $creadList :: ReadS [LifecycleEventStatus]
 readsPrec :: Int -&gt; ReadS LifecycleEventStatus
 $creadsPrec :: Int -&gt; ReadS LifecycleEventStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679309932"><span id="local-6989586621679309934"><span class="annot"><span class="annottext">LifecycleEventStatus -&gt; LifecycleEventStatus -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679310218"><span id="local-6989586621679310220"><span class="annot"><span class="annottext">LifecycleEventStatus -&gt; LifecycleEventStatus -&gt; Bool
 (LifecycleEventStatus -&gt; LifecycleEventStatus -&gt; Bool)
 -&gt; (LifecycleEventStatus -&gt; LifecycleEventStatus -&gt; Bool)
 -&gt; Eq LifecycleEventStatus
@@ -86,7 +86,7 @@ $c/= :: LifecycleEventStatus -&gt; LifecycleEventStatus -&gt; Bool
 == :: LifecycleEventStatus -&gt; LifecycleEventStatus -&gt; Bool
 $c== :: LifecycleEventStatus -&gt; LifecycleEventStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679309916"><span id="local-6989586621679309918"><span id="local-6989586621679309920"><span id="local-6989586621679309922"><span id="local-6989586621679309924"><span id="local-6989586621679309926"><span id="local-6989586621679309928"><span class="annot"><span class="annottext">Eq LifecycleEventStatus
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679310202"><span id="local-6989586621679310204"><span id="local-6989586621679310206"><span id="local-6989586621679310208"><span id="local-6989586621679310210"><span id="local-6989586621679310212"><span id="local-6989586621679310214"><span class="annot"><span class="annottext">Eq LifecycleEventStatus
 Eq LifecycleEventStatus
 -&gt; (LifecycleEventStatus -&gt; LifecycleEventStatus -&gt; Ordering)
 -&gt; (LifecycleEventStatus -&gt; LifecycleEventStatus -&gt; Bool)
@@ -144,7 +144,7 @@ $cfrom :: forall x. LifecycleEventStatus -&gt; Rep LifecycleEventStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679309908"><span id="local-6989586621679309910"><span class="annot"><span class="annottext">Int -&gt; LifecycleEventStatus -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679310194"><span id="local-6989586621679310196"><span class="annot"><span class="annottext">Int -&gt; LifecycleEventStatus -&gt; Int
 LifecycleEventStatus -&gt; Int
 (Int -&gt; LifecycleEventStatus -&gt; Int)
 -&gt; (LifecycleEventStatus -&gt; Int) -&gt; Hashable LifecycleEventStatus
@@ -154,54 +154,54 @@ $chash :: LifecycleEventStatus -&gt; Int
 hashWithSalt :: Int -&gt; LifecycleEventStatus -&gt; Int
 $chashWithSalt :: Int -&gt; LifecycleEventStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679309905"><span class="annot"><span class="annottext">LifecycleEventStatus -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679310191"><span class="annot"><span class="annottext">LifecycleEventStatus -&gt; ()
 (LifecycleEventStatus -&gt; ()) -&gt; NFData LifecycleEventStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: LifecycleEventStatus -&gt; ()
 $crnf :: LifecycleEventStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679309902"><span class="annot"><span class="annottext">Text -&gt; Either String LifecycleEventStatus
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679310188"><span class="annot"><span class="annottext">Text -&gt; Either String LifecycleEventStatus
 (Text -&gt; Either String LifecycleEventStatus)
 -&gt; FromText LifecycleEventStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String LifecycleEventStatus
 $cfromText :: Text -&gt; Either String LifecycleEventStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679309899"><span class="annot"><span class="annottext">LifecycleEventStatus -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679310185"><span class="annot"><span class="annottext">LifecycleEventStatus -&gt; Text
 (LifecycleEventStatus -&gt; Text) -&gt; ToText LifecycleEventStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: LifecycleEventStatus -&gt; Text
 $ctoText :: LifecycleEventStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679309896"><span class="annot"><span class="annottext">LifecycleEventStatus -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679310182"><span class="annot"><span class="annottext">LifecycleEventStatus -&gt; ByteString
 (LifecycleEventStatus -&gt; ByteString)
 -&gt; ToByteString LifecycleEventStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: LifecycleEventStatus -&gt; ByteString
 $ctoBS :: LifecycleEventStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679309893"><span class="annot"><span class="annottext">LifecycleEventStatus -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679310179"><span class="annot"><span class="annottext">LifecycleEventStatus -&gt; ByteStringBuilder
 (LifecycleEventStatus -&gt; ByteStringBuilder)
 -&gt; ToLog LifecycleEventStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: LifecycleEventStatus -&gt; ByteStringBuilder
 $cbuild :: LifecycleEventStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679309890"><span class="annot"><span class="annottext">HeaderName -&gt; LifecycleEventStatus -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679310176"><span class="annot"><span class="annottext">HeaderName -&gt; LifecycleEventStatus -&gt; [Header]
 (HeaderName -&gt; LifecycleEventStatus -&gt; [Header])
 -&gt; ToHeader LifecycleEventStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; LifecycleEventStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; LifecycleEventStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679309887"><span class="annot"><span class="annottext">LifecycleEventStatus -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679310173"><span class="annot"><span class="annottext">LifecycleEventStatus -&gt; QueryString
 (LifecycleEventStatus -&gt; QueryString)
 -&gt; ToQuery LifecycleEventStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: LifecycleEventStatus -&gt; QueryString
 $ctoQuery :: LifecycleEventStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679309882"><span id="local-6989586621679309884"><span class="annot"><span class="annottext">Value -&gt; Parser [LifecycleEventStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679310168"><span id="local-6989586621679310170"><span class="annot"><span class="annottext">Value -&gt; Parser [LifecycleEventStatus]
 Value -&gt; Parser LifecycleEventStatus
 (Value -&gt; Parser LifecycleEventStatus)
 -&gt; (Value -&gt; Parser [LifecycleEventStatus])
@@ -213,7 +213,7 @@ $cparseJSONList :: Value -&gt; Parser [LifecycleEventStatus]
 parseJSON :: Value -&gt; Parser LifecycleEventStatus
 $cparseJSON :: Value -&gt; Parser LifecycleEventStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679309877"><span id="local-6989586621679309879"><span class="annot"><span class="annottext">FromJSONKeyFunction [LifecycleEventStatus]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679310163"><span id="local-6989586621679310165"><span class="annot"><span class="annottext">FromJSONKeyFunction [LifecycleEventStatus]
 FromJSONKeyFunction LifecycleEventStatus
 FromJSONKeyFunction LifecycleEventStatus
 -&gt; FromJSONKeyFunction [LifecycleEventStatus]
@@ -225,7 +225,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [LifecycleEventStatus]
 fromJSONKey :: FromJSONKeyFunction LifecycleEventStatus
 $cfromJSONKey :: FromJSONKeyFunction LifecycleEventStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679309868"><span id="local-6989586621679309870"><span id="local-6989586621679309872"><span id="local-6989586621679309874"><span class="annot"><span class="annottext">[LifecycleEventStatus] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679310154"><span id="local-6989586621679310156"><span id="local-6989586621679310158"><span id="local-6989586621679310160"><span class="annot"><span class="annottext">[LifecycleEventStatus] -&gt; Encoding
 [LifecycleEventStatus] -&gt; Value
 LifecycleEventStatus -&gt; Encoding
 LifecycleEventStatus -&gt; Value
@@ -249,7 +249,7 @@ $ctoEncoding :: LifecycleEventStatus -&gt; Encoding
 toJSON :: LifecycleEventStatus -&gt; Value
 $ctoJSON :: LifecycleEventStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679309863"><span id="local-6989586621679309865"><span class="annot"><span class="annottext">ToJSONKeyFunction [LifecycleEventStatus]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679310149"><span id="local-6989586621679310151"><span class="annot"><span class="annottext">ToJSONKeyFunction [LifecycleEventStatus]
 ToJSONKeyFunction LifecycleEventStatus
 ToJSONKeyFunction LifecycleEventStatus
 -&gt; ToJSONKeyFunction [LifecycleEventStatus]
@@ -261,14 +261,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [LifecycleEventStatus]
 toJSONKey :: ToJSONKeyFunction LifecycleEventStatus
 $ctoJSONKey :: ToJSONKeyFunction LifecycleEventStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679309860"><span class="annot"><span class="annottext">[Node] -&gt; Either String LifecycleEventStatus
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679310146"><span class="annot"><span class="annottext">[Node] -&gt; Either String LifecycleEventStatus
 ([Node] -&gt; Either String LifecycleEventStatus)
 -&gt; FromXML LifecycleEventStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String LifecycleEventStatus
 $cparseXML :: [Node] -&gt; Either String LifecycleEventStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679309857"><span class="annot"><span class="annottext">LifecycleEventStatus -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679310143"><span class="annot"><span class="annottext">LifecycleEventStatus -&gt; XML
 (LifecycleEventStatus -&gt; XML) -&gt; ToXML LifecycleEventStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: LifecycleEventStatus -&gt; XML

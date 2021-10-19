@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newCreateSubnetGroup' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679200528"><span id="local-6989586621679200529"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateSubnetGroup"><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroup"><span class="hs-identifier hs-var">CreateSubnetGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateSubnetGroup%27"><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroup%27"><span class="hs-identifier hs-var">CreateSubnetGroup'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679200666"><span id="local-6989586621679200667"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateSubnetGroup"><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroup"><span class="hs-identifier hs-var">CreateSubnetGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateSubnetGroup%27"><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroup%27"><span class="hs-identifier hs-var">CreateSubnetGroup'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A description for the subnet group</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3Adescription%3ACreateSubnetGroup%27"><span class="annot"><span class="annottext">CreateSubnetGroup -&gt; Maybe Text
 </span><a href="Network.AWS.DAX.CreateSubnetGroup.html#%24sel%3Adescription%3ACreateSubnetGroup%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -60,7 +60,7 @@
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AsubnetIds%3ACreateSubnetGroup%27"><span class="annot"><span class="annottext">CreateSubnetGroup -&gt; [Text]
 </span><a href="Network.AWS.DAX.CreateSubnetGroup.html#%24sel%3AsubnetIds%3ACreateSubnetGroup%27"><span class="hs-identifier hs-var hs-var">subnetIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200520"><span id="local-6989586621679200522"><span class="annot"><span class="annottext">CreateSubnetGroup -&gt; CreateSubnetGroup -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200658"><span id="local-6989586621679200660"><span class="annot"><span class="annottext">CreateSubnetGroup -&gt; CreateSubnetGroup -&gt; Bool
 (CreateSubnetGroup -&gt; CreateSubnetGroup -&gt; Bool)
 -&gt; (CreateSubnetGroup -&gt; CreateSubnetGroup -&gt; Bool)
 -&gt; Eq CreateSubnetGroup
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateSubnetGroup -&gt; CreateSubnetGroup -&gt; Bool
 == :: CreateSubnetGroup -&gt; CreateSubnetGroup -&gt; Bool
 $c== :: CreateSubnetGroup -&gt; CreateSubnetGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200511"><span id="local-6989586621679200513"><span id="local-6989586621679200515"><span id="local-6989586621679200517"><span class="annot"><span class="annottext">ReadPrec [CreateSubnetGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200649"><span id="local-6989586621679200651"><span id="local-6989586621679200653"><span id="local-6989586621679200655"><span class="annot"><span class="annottext">ReadPrec [CreateSubnetGroup]
 ReadPrec CreateSubnetGroup
 Int -&gt; ReadS CreateSubnetGroup
 ReadS [CreateSubnetGroup]
@@ -89,7 +89,7 @@ readList :: ReadS [CreateSubnetGroup]
 $creadList :: ReadS [CreateSubnetGroup]
 readsPrec :: Int -&gt; ReadS CreateSubnetGroup
 $creadsPrec :: Int -&gt; ReadS CreateSubnetGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200504"><span id="local-6989586621679200506"><span id="local-6989586621679200508"><span class="annot"><span class="annottext">Int -&gt; CreateSubnetGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200642"><span id="local-6989586621679200644"><span id="local-6989586621679200646"><span class="annot"><span class="annottext">Int -&gt; CreateSubnetGroup -&gt; ShowS
 [CreateSubnetGroup] -&gt; ShowS
 CreateSubnetGroup -&gt; String
 (Int -&gt; CreateSubnetGroup -&gt; ShowS)
@@ -133,8 +133,8 @@ $cfrom :: forall x. CreateSubnetGroup -&gt; Rep CreateSubnetGroup x
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroup"><span class="hs-identifier hs-type">CreateSubnetGroup</span></a></span><span>
 </span><span id="line-79"></span><span id="newCreateSubnetGroup"><span class="annot"><span class="annottext">newCreateSubnetGroup :: Text -&gt; CreateSubnetGroup
-</span><a href="Network.AWS.DAX.CreateSubnetGroup.html#newCreateSubnetGroup"><span class="hs-identifier hs-var hs-var">newCreateSubnetGroup</span></a></span></span><span> </span><span id="local-6989586621679200499"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200499"><span class="hs-identifier hs-var">pSubnetGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DAX.CreateSubnetGroup.html#newCreateSubnetGroup"><span class="hs-identifier hs-var hs-var">newCreateSubnetGroup</span></a></span></span><span> </span><span id="local-6989586621679200637"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200637"><span class="hs-identifier hs-var">pSubnetGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">CreateSubnetGroup' :: Maybe Text -&gt; Text -&gt; [Text] -&gt; CreateSubnetGroup
 </span><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroup%27"><span class="hs-identifier hs-type">CreateSubnetGroup'</span></a></span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:description:CreateSubnetGroup' :: Maybe Text
@@ -143,7 +143,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:subnetGroupName:CreateSubnetGroup' :: Text
 </span><a href="Network.AWS.DAX.CreateSubnetGroup.html#%24sel%3AsubnetGroupName%3ACreateSubnetGroup%27"><span class="hs-identifier hs-var">subnetGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200499"><span class="hs-identifier hs-var">pSubnetGroupName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679200637"><span class="hs-identifier hs-var">pSubnetGroupName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:subnetIds:CreateSubnetGroup' :: [Text]
 </span><a href="Network.AWS.DAX.CreateSubnetGroup.html#%24sel%3AsubnetIds%3ACreateSubnetGroup%27"><span class="hs-identifier hs-var">subnetIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
 forall a. Monoid a =&gt; a
@@ -159,16 +159,16 @@ forall a. Monoid a =&gt; a
 -&gt; Lens
      CreateSubnetGroup CreateSubnetGroup (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroup%27"><span class="hs-identifier hs-type">CreateSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200496"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroup%27"><span class="hs-identifier hs-type">CreateSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200634"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:CreateSubnetGroup' :: CreateSubnetGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679200496"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679200496"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200495"><span class="annot"><span class="annottext">s :: CreateSubnetGroup
-</span><a href="#local-6989586621679200495"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroup%27"><span class="hs-identifier hs-type">CreateSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200494"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679200494"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSubnetGroup
-</span><a href="#local-6989586621679200495"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateSubnetGroup' :: Maybe Text
+</span><a href="#local-6989586621679200634"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679200634"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200633"><span class="annot"><span class="annottext">s :: CreateSubnetGroup
+</span><a href="#local-6989586621679200633"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroup%27"><span class="hs-identifier hs-type">CreateSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200632"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679200632"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSubnetGroup
+</span><a href="#local-6989586621679200633"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateSubnetGroup' :: Maybe Text
 </span><a href="Network.AWS.DAX.CreateSubnetGroup.html#%24sel%3Adescription%3ACreateSubnetGroup%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679200494"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroup"><span class="hs-identifier hs-type">CreateSubnetGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679200632"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroup"><span class="hs-identifier hs-type">CreateSubnetGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | A name for the subnet group. This value is stored as a lowercase string.</span><span>
 </span><span id="line-91"></span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#createSubnetGroup_subnetGroupName"><span class="hs-identifier hs-type">createSubnetGroup_subnetGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroup"><span class="hs-identifier hs-type">CreateSubnetGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -177,16 +177,16 @@ $sel:description:CreateSubnetGroup' :: CreateSubnetGroup -&gt; Maybe Text
 -&gt; (CreateSubnetGroup -&gt; Text -&gt; CreateSubnetGroup)
 -&gt; Lens CreateSubnetGroup CreateSubnetGroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroup%27"><span class="hs-identifier hs-type">CreateSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200493"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroup%27"><span class="hs-identifier hs-type">CreateSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200631"><span class="annot"><span class="annottext">Text
 subnetGroupName :: Text
 $sel:subnetGroupName:CreateSubnetGroup' :: CreateSubnetGroup -&gt; Text
-</span><a href="#local-6989586621679200493"><span class="hs-identifier hs-var hs-var">subnetGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200493"><span class="hs-identifier hs-var">subnetGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200492"><span class="annot"><span class="annottext">s :: CreateSubnetGroup
-</span><a href="#local-6989586621679200492"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroup%27"><span class="hs-identifier hs-type">CreateSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200491"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200491"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSubnetGroup
-</span><a href="#local-6989586621679200492"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetGroupName:CreateSubnetGroup' :: Text
+</span><a href="#local-6989586621679200631"><span class="hs-identifier hs-var hs-var">subnetGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200631"><span class="hs-identifier hs-var">subnetGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200630"><span class="annot"><span class="annottext">s :: CreateSubnetGroup
+</span><a href="#local-6989586621679200630"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroup%27"><span class="hs-identifier hs-type">CreateSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200629"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200629"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSubnetGroup
+</span><a href="#local-6989586621679200630"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetGroupName:CreateSubnetGroup' :: Text
 </span><a href="Network.AWS.DAX.CreateSubnetGroup.html#%24sel%3AsubnetGroupName%3ACreateSubnetGroup%27"><span class="hs-identifier hs-var">subnetGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200491"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroup"><span class="hs-identifier hs-type">CreateSubnetGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679200629"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroup"><span class="hs-identifier hs-type">CreateSubnetGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | A list of VPC subnet IDs for the subnet group.</span><span>
 </span><span id="line-95"></span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#createSubnetGroup_subnetIds"><span class="hs-identifier hs-type">createSubnetGroup_subnetIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroup"><span class="hs-identifier hs-type">CreateSubnetGroup</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
@@ -195,35 +195,35 @@ $sel:subnetGroupName:CreateSubnetGroup' :: CreateSubnetGroup -&gt; Text
 -&gt; (CreateSubnetGroup -&gt; [Text] -&gt; CreateSubnetGroup)
 -&gt; Lens CreateSubnetGroup CreateSubnetGroup [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroup%27"><span class="hs-identifier hs-type">CreateSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200490"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroup%27"><span class="hs-identifier hs-type">CreateSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200628"><span class="annot"><span class="annottext">[Text]
 subnetIds :: [Text]
 $sel:subnetIds:CreateSubnetGroup' :: CreateSubnetGroup -&gt; [Text]
-</span><a href="#local-6989586621679200490"><span class="hs-identifier hs-var hs-var">subnetIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679200490"><span class="hs-identifier hs-var">subnetIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200489"><span class="annot"><span class="annottext">s :: CreateSubnetGroup
-</span><a href="#local-6989586621679200489"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroup%27"><span class="hs-identifier hs-type">CreateSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200488"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679200488"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSubnetGroup
-</span><a href="#local-6989586621679200489"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetIds:CreateSubnetGroup' :: [Text]
+</span><a href="#local-6989586621679200628"><span class="hs-identifier hs-var hs-var">subnetIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679200628"><span class="hs-identifier hs-var">subnetIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200627"><span class="annot"><span class="annottext">s :: CreateSubnetGroup
+</span><a href="#local-6989586621679200627"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroup%27"><span class="hs-identifier hs-type">CreateSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200626"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679200626"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSubnetGroup
+</span><a href="#local-6989586621679200627"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetIds:CreateSubnetGroup' :: [Text]
 </span><a href="Network.AWS.DAX.CreateSubnetGroup.html#%24sel%3AsubnetIds%3ACreateSubnetGroup%27"><span class="hs-identifier hs-var">subnetIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679200488"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroup"><span class="hs-identifier hs-type">CreateSubnetGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; CreateSubnetGroup -&gt; f CreateSubnetGroup)
+</span><a href="#local-6989586621679200626"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroup"><span class="hs-identifier hs-type">CreateSubnetGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; CreateSubnetGroup -&gt; f CreateSubnetGroup)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
 -&gt; CreateSubnetGroup
 -&gt; f CreateSubnetGroup
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroup"><span class="hs-identifier hs-type">CreateSubnetGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-99"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-100"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroup"><span class="hs-identifier hs-type">CreateSubnetGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroupResponse"><span class="hs-identifier hs-type">CreateSubnetGroupResponse</span></a></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679200482"><span class="annot"><span class="annottext">request :: CreateSubnetGroup -&gt; Request CreateSubnetGroup
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679200620"><span class="annot"><span class="annottext">request :: CreateSubnetGroup -&gt; Request CreateSubnetGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateSubnetGroup -&gt; Request CreateSubnetGroup
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DAX.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679200478"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679200616"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateSubnetGroup
 -&gt; ClientResponse ClientBody
@@ -249,10 +249,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679200475"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200475"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679200474"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679200474"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679200473"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679200473"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679200613"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200613"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679200612"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679200612"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679200611"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200611"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Maybe SubnetGroup -&gt; Int -&gt; CreateSubnetGroupResponse
 </span><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroupResponse%27"><span class="hs-identifier hs-var">CreateSubnetGroupResponse'</span></a></span><span>
 </span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">(Maybe SubnetGroup -&gt; Int -&gt; CreateSubnetGroupResponse)
@@ -260,7 +260,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; CreateSubnetGroupResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679200473"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe SubnetGroup)
+</span><a href="#local-6989586621679200611"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe SubnetGroup)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SubnetGroup&quot;</span></span><span class="hs-special">)</span><span>
@@ -272,15 +272,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200475"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679200613"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200465"><span id="local-6989586621679200467"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroup"><span class="hs-identifier hs-type">CreateSubnetGroup</span></a></span></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200603"><span id="local-6989586621679200605"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroup"><span class="hs-identifier hs-type">CreateSubnetGroup</span></a></span></span></span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200462"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroup"><span class="hs-identifier hs-type">CreateSubnetGroup</span></a></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200600"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroup"><span class="hs-identifier hs-type">CreateSubnetGroup</span></a></span></span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroup"><span class="hs-identifier hs-type">CreateSubnetGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679200458"><span class="annot"><span class="annottext">toHeaders :: CreateSubnetGroup -&gt; ResponseHeaders
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679200596"><span class="annot"><span class="annottext">toHeaders :: CreateSubnetGroup -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateSubnetGroup -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -307,9 +307,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-127"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200448"><span id="local-6989586621679200450"><span id="local-6989586621679200452"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroup"><span class="hs-identifier hs-type">CreateSubnetGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679200446"><span class="annot"><span class="annottext">toJSON :: CreateSubnetGroup -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroup%27"><span class="hs-identifier hs-type">CreateSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200442"><span id="local-6989586621679200443"><span id="local-6989586621679200444"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200586"><span id="local-6989586621679200588"><span id="local-6989586621679200590"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroup"><span class="hs-identifier hs-type">CreateSubnetGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679200584"><span class="annot"><span class="annottext">toJSON :: CreateSubnetGroup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroup%27"><span class="hs-identifier hs-type">CreateSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200580"><span id="local-6989586621679200581"><span id="local-6989586621679200582"><span class="annot"><span class="annottext">[Text]
 Maybe Text
 Text
 subnetIds :: [Text]
@@ -318,7 +318,7 @@ description :: Maybe Text
 $sel:subnetIds:CreateSubnetGroup' :: CreateSubnetGroup -&gt; [Text]
 $sel:subnetGroupName:CreateSubnetGroup' :: CreateSubnetGroup -&gt; Text
 $sel:description:CreateSubnetGroup' :: CreateSubnetGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679200442"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679200580"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -330,7 +330,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679200444"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679200582"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -338,26 +338,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;SubnetGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200443"><span class="hs-identifier hs-var">subnetGroupName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679200581"><span class="hs-identifier hs-var">subnetGroupName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SubnetIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679200442"><span class="hs-identifier hs-var">subnetIds</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679200580"><span class="hs-identifier hs-var">subnetIds</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroup"><span class="hs-identifier hs-type">CreateSubnetGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679200436"><span class="annot"><span class="annottext">toPath :: CreateSubnetGroup -&gt; ByteString
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679200574"><span class="annot"><span class="annottext">toPath :: CreateSubnetGroup -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateSubnetGroup -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroup"><span class="hs-identifier hs-type">CreateSubnetGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679200432"><span class="annot"><span class="annottext">toQuery :: CreateSubnetGroup -&gt; QueryString
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679200570"><span class="annot"><span class="annottext">toQuery :: CreateSubnetGroup -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateSubnetGroup -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -365,7 +365,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- | /See:/ 'newCreateSubnetGroupResponse' smart constructor.</span><span>
-</span><span id="line-148"></span><span id="local-6989586621679200429"><span id="local-6989586621679200430"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateSubnetGroupResponse"><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroupResponse"><span class="hs-identifier hs-var">CreateSubnetGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateSubnetGroupResponse%27"><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroupResponse%27"><span class="hs-identifier hs-var">CreateSubnetGroupResponse'</span></a></span></span><span>
+</span><span id="line-148"></span><span id="local-6989586621679200567"><span id="local-6989586621679200568"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateSubnetGroupResponse"><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroupResponse"><span class="hs-identifier hs-var">CreateSubnetGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateSubnetGroupResponse%27"><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroupResponse%27"><span class="hs-identifier hs-var">CreateSubnetGroupResponse'</span></a></span></span><span>
 </span><span id="line-149"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Represents the output of a /CreateSubnetGroup/ operation.</span><span>
 </span><span id="line-150"></span><span>    </span><span id="%24sel%3AsubnetGroup%3ACreateSubnetGroupResponse%27"><span class="annot"><span class="annottext">CreateSubnetGroupResponse -&gt; Maybe SubnetGroup
 </span><a href="Network.AWS.DAX.CreateSubnetGroup.html#%24sel%3AsubnetGroup%3ACreateSubnetGroupResponse%27"><span class="hs-identifier hs-var hs-var">subnetGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.SubnetGroup.html#SubnetGroup"><span class="hs-identifier hs-type">SubnetGroup</span></a></span><span class="hs-special">,</span><span>
@@ -373,7 +373,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-152"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateSubnetGroupResponse%27"><span class="annot"><span class="annottext">CreateSubnetGroupResponse -&gt; Int
 </span><a href="Network.AWS.DAX.CreateSubnetGroup.html#%24sel%3AhttpStatus%3ACreateSubnetGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-153"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-154"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200423"><span id="local-6989586621679200425"><span class="annot"><span class="annottext">CreateSubnetGroupResponse -&gt; CreateSubnetGroupResponse -&gt; Bool
+</span><span id="line-154"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200561"><span id="local-6989586621679200563"><span class="annot"><span class="annottext">CreateSubnetGroupResponse -&gt; CreateSubnetGroupResponse -&gt; Bool
 (CreateSubnetGroupResponse -&gt; CreateSubnetGroupResponse -&gt; Bool)
 -&gt; (CreateSubnetGroupResponse -&gt; CreateSubnetGroupResponse -&gt; Bool)
 -&gt; Eq CreateSubnetGroupResponse
@@ -382,7 +382,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateSubnetGroupResponse -&gt; CreateSubnetGroupResponse -&gt; Bool
 == :: CreateSubnetGroupResponse -&gt; CreateSubnetGroupResponse -&gt; Bool
 $c== :: CreateSubnetGroupResponse -&gt; CreateSubnetGroupResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200415"><span id="local-6989586621679200417"><span id="local-6989586621679200419"><span id="local-6989586621679200421"><span class="annot"><span class="annottext">ReadPrec [CreateSubnetGroupResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200553"><span id="local-6989586621679200555"><span id="local-6989586621679200557"><span id="local-6989586621679200559"><span class="annot"><span class="annottext">ReadPrec [CreateSubnetGroupResponse]
 ReadPrec CreateSubnetGroupResponse
 Int -&gt; ReadS CreateSubnetGroupResponse
 ReadS [CreateSubnetGroupResponse]
@@ -402,7 +402,7 @@ readList :: ReadS [CreateSubnetGroupResponse]
 $creadList :: ReadS [CreateSubnetGroupResponse]
 readsPrec :: Int -&gt; ReadS CreateSubnetGroupResponse
 $creadsPrec :: Int -&gt; ReadS CreateSubnetGroupResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200409"><span id="local-6989586621679200411"><span id="local-6989586621679200413"><span class="annot"><span class="annottext">Int -&gt; CreateSubnetGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200547"><span id="local-6989586621679200549"><span id="local-6989586621679200551"><span class="annot"><span class="annottext">Int -&gt; CreateSubnetGroupResponse -&gt; ShowS
 [CreateSubnetGroupResponse] -&gt; ShowS
 CreateSubnetGroupResponse -&gt; String
 (Int -&gt; CreateSubnetGroupResponse -&gt; ShowS)
@@ -450,8 +450,8 @@ CreateSubnetGroupResponse -&gt; Rep CreateSubnetGroupResponse x
 </span><span id="line-169"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-170"></span><span>  </span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroupResponse"><span class="hs-identifier hs-type">CreateSubnetGroupResponse</span></a></span><span>
 </span><span id="line-171"></span><span id="newCreateSubnetGroupResponse"><span class="annot"><span class="annottext">newCreateSubnetGroupResponse :: Int -&gt; CreateSubnetGroupResponse
-</span><a href="Network.AWS.DAX.CreateSubnetGroup.html#newCreateSubnetGroupResponse"><span class="hs-identifier hs-var hs-var">newCreateSubnetGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679200406"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200406"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DAX.CreateSubnetGroup.html#newCreateSubnetGroupResponse"><span class="hs-identifier hs-var hs-var">newCreateSubnetGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679200544"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200544"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-172"></span><span>  </span><span class="annot"><span class="annottext">CreateSubnetGroupResponse' :: Maybe SubnetGroup -&gt; Int -&gt; CreateSubnetGroupResponse
 </span><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroupResponse%27"><span class="hs-identifier hs-type">CreateSubnetGroupResponse'</span></a></span><span>
 </span><span id="line-173"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:subnetGroup:CreateSubnetGroupResponse' :: Maybe SubnetGroup
@@ -461,7 +461,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateSubnetGroupResponse' :: Int
 </span><a href="Network.AWS.DAX.CreateSubnetGroup.html#%24sel%3AhttpStatus%3ACreateSubnetGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200406"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679200544"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-176"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-comment">-- | Represents the output of a /CreateSubnetGroup/ operation.</span><span>
@@ -477,16 +477,16 @@ forall a. Maybe a
      (Maybe SubnetGroup)
      (Maybe SubnetGroup)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroupResponse%27"><span class="hs-identifier hs-type">CreateSubnetGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200405"><span class="annot"><span class="annottext">Maybe SubnetGroup
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroupResponse%27"><span class="hs-identifier hs-type">CreateSubnetGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200543"><span class="annot"><span class="annottext">Maybe SubnetGroup
 subnetGroup :: Maybe SubnetGroup
 $sel:subnetGroup:CreateSubnetGroupResponse' :: CreateSubnetGroupResponse -&gt; Maybe SubnetGroup
-</span><a href="#local-6989586621679200405"><span class="hs-identifier hs-var hs-var">subnetGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SubnetGroup
-</span><a href="#local-6989586621679200405"><span class="hs-identifier hs-var">subnetGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200404"><span class="annot"><span class="annottext">s :: CreateSubnetGroupResponse
-</span><a href="#local-6989586621679200404"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroupResponse%27"><span class="hs-identifier hs-type">CreateSubnetGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200403"><span class="annot"><span class="annottext">Maybe SubnetGroup
-</span><a href="#local-6989586621679200403"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSubnetGroupResponse
-</span><a href="#local-6989586621679200404"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetGroup:CreateSubnetGroupResponse' :: Maybe SubnetGroup
+</span><a href="#local-6989586621679200543"><span class="hs-identifier hs-var hs-var">subnetGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SubnetGroup
+</span><a href="#local-6989586621679200543"><span class="hs-identifier hs-var">subnetGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200542"><span class="annot"><span class="annottext">s :: CreateSubnetGroupResponse
+</span><a href="#local-6989586621679200542"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroupResponse%27"><span class="hs-identifier hs-type">CreateSubnetGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200541"><span class="annot"><span class="annottext">Maybe SubnetGroup
+</span><a href="#local-6989586621679200541"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSubnetGroupResponse
+</span><a href="#local-6989586621679200542"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetGroup:CreateSubnetGroupResponse' :: Maybe SubnetGroup
 </span><a href="Network.AWS.DAX.CreateSubnetGroup.html#%24sel%3AsubnetGroup%3ACreateSubnetGroupResponse%27"><span class="hs-identifier hs-var">subnetGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SubnetGroup
-</span><a href="#local-6989586621679200403"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroupResponse"><span class="hs-identifier hs-type">CreateSubnetGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679200541"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroupResponse"><span class="hs-identifier hs-type">CreateSubnetGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-183"></span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#createSubnetGroupResponse_httpStatus"><span class="hs-identifier hs-type">createSubnetGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroupResponse"><span class="hs-identifier hs-type">CreateSubnetGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -496,16 +496,16 @@ $sel:subnetGroup:CreateSubnetGroupResponse' :: CreateSubnetGroupResponse -&gt; M
 -&gt; (CreateSubnetGroupResponse -&gt; Int -&gt; CreateSubnetGroupResponse)
 -&gt; Lens CreateSubnetGroupResponse CreateSubnetGroupResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroupResponse%27"><span class="hs-identifier hs-type">CreateSubnetGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200402"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroupResponse%27"><span class="hs-identifier hs-type">CreateSubnetGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200540"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateSubnetGroupResponse' :: CreateSubnetGroupResponse -&gt; Int
-</span><a href="#local-6989586621679200402"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200402"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200401"><span class="annot"><span class="annottext">s :: CreateSubnetGroupResponse
-</span><a href="#local-6989586621679200401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroupResponse%27"><span class="hs-identifier hs-type">CreateSubnetGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200400"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSubnetGroupResponse
-</span><a href="#local-6989586621679200401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateSubnetGroupResponse' :: Int
+</span><a href="#local-6989586621679200540"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200540"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200539"><span class="annot"><span class="annottext">s :: CreateSubnetGroupResponse
+</span><a href="#local-6989586621679200539"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroupResponse%27"><span class="hs-identifier hs-type">CreateSubnetGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200538"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200538"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSubnetGroupResponse
+</span><a href="#local-6989586621679200539"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateSubnetGroupResponse' :: Int
 </span><a href="Network.AWS.DAX.CreateSubnetGroup.html#%24sel%3AhttpStatus%3ACreateSubnetGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroupResponse"><span class="hs-identifier hs-type">CreateSubnetGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679200538"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroupResponse"><span class="hs-identifier hs-type">CreateSubnetGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>
-</span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200398"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroupResponse"><span class="hs-identifier hs-type">CreateSubnetGroupResponse</span></a></span></span><span>
+</span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200536"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.CreateSubnetGroup.html#CreateSubnetGroupResponse"><span class="hs-identifier hs-type">CreateSubnetGroupResponse</span></a></span></span><span>
 </span><span id="line-187"></span></pre></body></html>

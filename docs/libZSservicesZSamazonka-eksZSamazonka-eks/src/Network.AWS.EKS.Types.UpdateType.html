@@ -35,13 +35,13 @@
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-37"></span><span>
-</span><span id="line-38"></span><span id="local-6989586621679270232"><span id="local-6989586621679270233"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UpdateType"><span class="annot"><a href="Network.AWS.EKS.Types.UpdateType.html#UpdateType"><span class="hs-identifier hs-var">UpdateType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateType%27"><span class="annot"><a href="Network.AWS.EKS.Types.UpdateType.html#UpdateType%27"><span class="hs-identifier hs-var">UpdateType'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679270501"><span id="local-6989586621679270502"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UpdateType"><span class="annot"><a href="Network.AWS.EKS.Types.UpdateType.html#UpdateType"><span class="hs-identifier hs-var">UpdateType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateType%27"><span class="annot"><a href="Network.AWS.EKS.Types.UpdateType.html#UpdateType%27"><span class="hs-identifier hs-var">UpdateType'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromUpdateType"><span class="annot"><span class="annottext">UpdateType -&gt; Text
 </span><a href="Network.AWS.EKS.Types.UpdateType.html#fromUpdateType"><span class="hs-identifier hs-var hs-var">fromUpdateType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679270224"><span id="local-6989586621679270226"><span id="local-6989586621679270228"><span class="annot"><span class="annottext">Int -&gt; UpdateType -&gt; ShowS
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679270493"><span id="local-6989586621679270495"><span id="local-6989586621679270497"><span class="annot"><span class="annottext">Int -&gt; UpdateType -&gt; ShowS
 [UpdateType] -&gt; ShowS
 UpdateType -&gt; String
 (Int -&gt; UpdateType -&gt; ShowS)
@@ -57,7 +57,7 @@ $cshow :: UpdateType -&gt; String
 showsPrec :: Int -&gt; UpdateType -&gt; ShowS
 $cshowsPrec :: Int -&gt; UpdateType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679270215"><span id="local-6989586621679270217"><span id="local-6989586621679270219"><span id="local-6989586621679270221"><span class="annot"><span class="annottext">ReadPrec [UpdateType]
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679270484"><span id="local-6989586621679270486"><span id="local-6989586621679270488"><span id="local-6989586621679270490"><span class="annot"><span class="annottext">ReadPrec [UpdateType]
 ReadPrec UpdateType
 Int -&gt; ReadS UpdateType
 ReadS [UpdateType]
@@ -78,7 +78,7 @@ $creadList :: ReadS [UpdateType]
 readsPrec :: Int -&gt; ReadS UpdateType
 $creadsPrec :: Int -&gt; ReadS UpdateType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679270210"><span id="local-6989586621679270212"><span class="annot"><span class="annottext">UpdateType -&gt; UpdateType -&gt; Bool
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679270479"><span id="local-6989586621679270481"><span class="annot"><span class="annottext">UpdateType -&gt; UpdateType -&gt; Bool
 (UpdateType -&gt; UpdateType -&gt; Bool)
 -&gt; (UpdateType -&gt; UpdateType -&gt; Bool) -&gt; Eq UpdateType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -87,7 +87,7 @@ $c/= :: UpdateType -&gt; UpdateType -&gt; Bool
 == :: UpdateType -&gt; UpdateType -&gt; Bool
 $c== :: UpdateType -&gt; UpdateType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679270194"><span id="local-6989586621679270196"><span id="local-6989586621679270198"><span id="local-6989586621679270200"><span id="local-6989586621679270202"><span id="local-6989586621679270204"><span id="local-6989586621679270206"><span class="annot"><span class="annottext">Eq UpdateType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679270463"><span id="local-6989586621679270465"><span id="local-6989586621679270467"><span id="local-6989586621679270469"><span id="local-6989586621679270471"><span id="local-6989586621679270473"><span id="local-6989586621679270475"><span class="annot"><span class="annottext">Eq UpdateType
 Eq UpdateType
 -&gt; (UpdateType -&gt; UpdateType -&gt; Ordering)
 -&gt; (UpdateType -&gt; UpdateType -&gt; Bool)
@@ -137,7 +137,7 @@ $cfrom :: forall x. UpdateType -&gt; Rep UpdateType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679270186"><span id="local-6989586621679270188"><span class="annot"><span class="annottext">Int -&gt; UpdateType -&gt; Int
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679270455"><span id="local-6989586621679270457"><span class="annot"><span class="annottext">Int -&gt; UpdateType -&gt; Int
 UpdateType -&gt; Int
 (Int -&gt; UpdateType -&gt; Int)
 -&gt; (UpdateType -&gt; Int) -&gt; Hashable UpdateType
@@ -147,49 +147,49 @@ $chash :: UpdateType -&gt; Int
 hashWithSalt :: Int -&gt; UpdateType -&gt; Int
 $chashWithSalt :: Int -&gt; UpdateType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679270183"><span class="annot"><span class="annottext">UpdateType -&gt; ()
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679270452"><span class="annot"><span class="annottext">UpdateType -&gt; ()
 (UpdateType -&gt; ()) -&gt; NFData UpdateType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: UpdateType -&gt; ()
 $crnf :: UpdateType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679270180"><span class="annot"><span class="annottext">Text -&gt; Either String UpdateType
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679270449"><span class="annot"><span class="annottext">Text -&gt; Either String UpdateType
 (Text -&gt; Either String UpdateType) -&gt; FromText UpdateType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String UpdateType
 $cfromText :: Text -&gt; Either String UpdateType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679270177"><span class="annot"><span class="annottext">UpdateType -&gt; Text
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679270446"><span class="annot"><span class="annottext">UpdateType -&gt; Text
 (UpdateType -&gt; Text) -&gt; ToText UpdateType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: UpdateType -&gt; Text
 $ctoText :: UpdateType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679270174"><span class="annot"><span class="annottext">UpdateType -&gt; ByteString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679270443"><span class="annot"><span class="annottext">UpdateType -&gt; ByteString
 (UpdateType -&gt; ByteString) -&gt; ToByteString UpdateType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: UpdateType -&gt; ByteString
 $ctoBS :: UpdateType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679270171"><span class="annot"><span class="annottext">UpdateType -&gt; ByteStringBuilder
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679270440"><span class="annot"><span class="annottext">UpdateType -&gt; ByteStringBuilder
 (UpdateType -&gt; ByteStringBuilder) -&gt; ToLog UpdateType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: UpdateType -&gt; ByteStringBuilder
 $cbuild :: UpdateType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679270168"><span class="annot"><span class="annottext">HeaderName -&gt; UpdateType -&gt; [Header]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679270437"><span class="annot"><span class="annottext">HeaderName -&gt; UpdateType -&gt; [Header]
 (HeaderName -&gt; UpdateType -&gt; [Header]) -&gt; ToHeader UpdateType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; UpdateType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; UpdateType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679270165"><span class="annot"><span class="annottext">UpdateType -&gt; QueryString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679270434"><span class="annot"><span class="annottext">UpdateType -&gt; QueryString
 (UpdateType -&gt; QueryString) -&gt; ToQuery UpdateType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: UpdateType -&gt; QueryString
 $ctoQuery :: UpdateType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679270160"><span id="local-6989586621679270162"><span class="annot"><span class="annottext">Value -&gt; Parser [UpdateType]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679270429"><span id="local-6989586621679270431"><span class="annot"><span class="annottext">Value -&gt; Parser [UpdateType]
 Value -&gt; Parser UpdateType
 (Value -&gt; Parser UpdateType)
 -&gt; (Value -&gt; Parser [UpdateType]) -&gt; FromJSON UpdateType
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [UpdateType]
 parseJSON :: Value -&gt; Parser UpdateType
 $cparseJSON :: Value -&gt; Parser UpdateType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679270155"><span id="local-6989586621679270157"><span class="annot"><span class="annottext">FromJSONKeyFunction [UpdateType]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679270424"><span id="local-6989586621679270426"><span class="annot"><span class="annottext">FromJSONKeyFunction [UpdateType]
 FromJSONKeyFunction UpdateType
 FromJSONKeyFunction UpdateType
 -&gt; FromJSONKeyFunction [UpdateType] -&gt; FromJSONKey UpdateType
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [UpdateType]
 fromJSONKey :: FromJSONKeyFunction UpdateType
 $cfromJSONKey :: FromJSONKeyFunction UpdateType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679270146"><span id="local-6989586621679270148"><span id="local-6989586621679270150"><span id="local-6989586621679270152"><span class="annot"><span class="annottext">[UpdateType] -&gt; Encoding
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679270415"><span id="local-6989586621679270417"><span id="local-6989586621679270419"><span id="local-6989586621679270421"><span class="annot"><span class="annottext">[UpdateType] -&gt; Encoding
 [UpdateType] -&gt; Value
 UpdateType -&gt; Encoding
 UpdateType -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: UpdateType -&gt; Encoding
 toJSON :: UpdateType -&gt; Value
 $ctoJSON :: UpdateType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679270141"><span id="local-6989586621679270143"><span class="annot"><span class="annottext">ToJSONKeyFunction [UpdateType]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679270410"><span id="local-6989586621679270412"><span class="annot"><span class="annottext">ToJSONKeyFunction [UpdateType]
 ToJSONKeyFunction UpdateType
 ToJSONKeyFunction UpdateType
 -&gt; ToJSONKeyFunction [UpdateType] -&gt; ToJSONKey UpdateType
@@ -246,13 +246,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [UpdateType]
 toJSONKey :: ToJSONKeyFunction UpdateType
 $ctoJSONKey :: ToJSONKeyFunction UpdateType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679270138"><span class="annot"><span class="annottext">[Node] -&gt; Either String UpdateType
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679270407"><span class="annot"><span class="annottext">[Node] -&gt; Either String UpdateType
 ([Node] -&gt; Either String UpdateType) -&gt; FromXML UpdateType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String UpdateType
 $cparseXML :: [Node] -&gt; Either String UpdateType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679270135"><span class="annot"><span class="annottext">UpdateType -&gt; XML
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679270404"><span class="annot"><span class="annottext">UpdateType -&gt; XML
 (UpdateType -&gt; XML) -&gt; ToXML UpdateType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: UpdateType -&gt; XML

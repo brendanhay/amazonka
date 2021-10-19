@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679371891"><span id="local-6989586621679371892"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MarketType"><span class="annot"><a href="Network.AWS.EMR.Types.MarketType.html#MarketType"><span class="hs-identifier hs-var">MarketType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MarketType%27"><span class="annot"><a href="Network.AWS.EMR.Types.MarketType.html#MarketType%27"><span class="hs-identifier hs-var">MarketType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679372242"><span id="local-6989586621679372243"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MarketType"><span class="annot"><a href="Network.AWS.EMR.Types.MarketType.html#MarketType"><span class="hs-identifier hs-var">MarketType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MarketType%27"><span class="annot"><a href="Network.AWS.EMR.Types.MarketType.html#MarketType%27"><span class="hs-identifier hs-var">MarketType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMarketType"><span class="annot"><span class="annottext">MarketType -&gt; Text
 </span><a href="Network.AWS.EMR.Types.MarketType.html#fromMarketType"><span class="hs-identifier hs-var hs-var">fromMarketType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679371883"><span id="local-6989586621679371885"><span id="local-6989586621679371887"><span class="annot"><span class="annottext">Int -&gt; MarketType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679372234"><span id="local-6989586621679372236"><span id="local-6989586621679372238"><span class="annot"><span class="annottext">Int -&gt; MarketType -&gt; ShowS
 [MarketType] -&gt; ShowS
 MarketType -&gt; String
 (Int -&gt; MarketType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: MarketType -&gt; String
 showsPrec :: Int -&gt; MarketType -&gt; ShowS
 $cshowsPrec :: Int -&gt; MarketType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679371874"><span id="local-6989586621679371876"><span id="local-6989586621679371878"><span id="local-6989586621679371880"><span class="annot"><span class="annottext">ReadPrec [MarketType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679372225"><span id="local-6989586621679372227"><span id="local-6989586621679372229"><span id="local-6989586621679372231"><span class="annot"><span class="annottext">ReadPrec [MarketType]
 ReadPrec MarketType
 Int -&gt; ReadS MarketType
 ReadS [MarketType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [MarketType]
 readsPrec :: Int -&gt; ReadS MarketType
 $creadsPrec :: Int -&gt; ReadS MarketType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679371869"><span id="local-6989586621679371871"><span class="annot"><span class="annottext">MarketType -&gt; MarketType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679372220"><span id="local-6989586621679372222"><span class="annot"><span class="annottext">MarketType -&gt; MarketType -&gt; Bool
 (MarketType -&gt; MarketType -&gt; Bool)
 -&gt; (MarketType -&gt; MarketType -&gt; Bool) -&gt; Eq MarketType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: MarketType -&gt; MarketType -&gt; Bool
 == :: MarketType -&gt; MarketType -&gt; Bool
 $c== :: MarketType -&gt; MarketType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679371853"><span id="local-6989586621679371855"><span id="local-6989586621679371857"><span id="local-6989586621679371859"><span id="local-6989586621679371861"><span id="local-6989586621679371863"><span id="local-6989586621679371865"><span class="annot"><span class="annottext">Eq MarketType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679372204"><span id="local-6989586621679372206"><span id="local-6989586621679372208"><span id="local-6989586621679372210"><span id="local-6989586621679372212"><span id="local-6989586621679372214"><span id="local-6989586621679372216"><span class="annot"><span class="annottext">Eq MarketType
 Eq MarketType
 -&gt; (MarketType -&gt; MarketType -&gt; Ordering)
 -&gt; (MarketType -&gt; MarketType -&gt; Bool)
@@ -131,7 +131,7 @@ $cfrom :: forall x. MarketType -&gt; Rep MarketType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679371845"><span id="local-6989586621679371847"><span class="annot"><span class="annottext">Int -&gt; MarketType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679372196"><span id="local-6989586621679372198"><span class="annot"><span class="annottext">Int -&gt; MarketType -&gt; Int
 MarketType -&gt; Int
 (Int -&gt; MarketType -&gt; Int)
 -&gt; (MarketType -&gt; Int) -&gt; Hashable MarketType
@@ -141,49 +141,49 @@ $chash :: MarketType -&gt; Int
 hashWithSalt :: Int -&gt; MarketType -&gt; Int
 $chashWithSalt :: Int -&gt; MarketType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679371842"><span class="annot"><span class="annottext">MarketType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679372193"><span class="annot"><span class="annottext">MarketType -&gt; ()
 (MarketType -&gt; ()) -&gt; NFData MarketType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: MarketType -&gt; ()
 $crnf :: MarketType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679371839"><span class="annot"><span class="annottext">Text -&gt; Either String MarketType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679372190"><span class="annot"><span class="annottext">Text -&gt; Either String MarketType
 (Text -&gt; Either String MarketType) -&gt; FromText MarketType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String MarketType
 $cfromText :: Text -&gt; Either String MarketType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679371836"><span class="annot"><span class="annottext">MarketType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679372187"><span class="annot"><span class="annottext">MarketType -&gt; Text
 (MarketType -&gt; Text) -&gt; ToText MarketType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: MarketType -&gt; Text
 $ctoText :: MarketType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679371833"><span class="annot"><span class="annottext">MarketType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679372184"><span class="annot"><span class="annottext">MarketType -&gt; ByteString
 (MarketType -&gt; ByteString) -&gt; ToByteString MarketType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: MarketType -&gt; ByteString
 $ctoBS :: MarketType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679371830"><span class="annot"><span class="annottext">MarketType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679372181"><span class="annot"><span class="annottext">MarketType -&gt; ByteStringBuilder
 (MarketType -&gt; ByteStringBuilder) -&gt; ToLog MarketType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: MarketType -&gt; ByteStringBuilder
 $cbuild :: MarketType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679371827"><span class="annot"><span class="annottext">HeaderName -&gt; MarketType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679372178"><span class="annot"><span class="annottext">HeaderName -&gt; MarketType -&gt; [Header]
 (HeaderName -&gt; MarketType -&gt; [Header]) -&gt; ToHeader MarketType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; MarketType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; MarketType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679371824"><span class="annot"><span class="annottext">MarketType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679372175"><span class="annot"><span class="annottext">MarketType -&gt; QueryString
 (MarketType -&gt; QueryString) -&gt; ToQuery MarketType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: MarketType -&gt; QueryString
 $ctoQuery :: MarketType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679371819"><span id="local-6989586621679371821"><span class="annot"><span class="annottext">Value -&gt; Parser [MarketType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679372170"><span id="local-6989586621679372172"><span class="annot"><span class="annottext">Value -&gt; Parser [MarketType]
 Value -&gt; Parser MarketType
 (Value -&gt; Parser MarketType)
 -&gt; (Value -&gt; Parser [MarketType]) -&gt; FromJSON MarketType
@@ -194,7 +194,7 @@ $cparseJSONList :: Value -&gt; Parser [MarketType]
 parseJSON :: Value -&gt; Parser MarketType
 $cparseJSON :: Value -&gt; Parser MarketType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679371814"><span id="local-6989586621679371816"><span class="annot"><span class="annottext">FromJSONKeyFunction [MarketType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679372165"><span id="local-6989586621679372167"><span class="annot"><span class="annottext">FromJSONKeyFunction [MarketType]
 FromJSONKeyFunction MarketType
 FromJSONKeyFunction MarketType
 -&gt; FromJSONKeyFunction [MarketType] -&gt; FromJSONKey MarketType
@@ -205,7 +205,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [MarketType]
 fromJSONKey :: FromJSONKeyFunction MarketType
 $cfromJSONKey :: FromJSONKeyFunction MarketType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679371805"><span id="local-6989586621679371807"><span id="local-6989586621679371809"><span id="local-6989586621679371811"><span class="annot"><span class="annottext">[MarketType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679372156"><span id="local-6989586621679372158"><span id="local-6989586621679372160"><span id="local-6989586621679372162"><span class="annot"><span class="annottext">[MarketType] -&gt; Encoding
 [MarketType] -&gt; Value
 MarketType -&gt; Encoding
 MarketType -&gt; Value
@@ -229,7 +229,7 @@ $ctoEncoding :: MarketType -&gt; Encoding
 toJSON :: MarketType -&gt; Value
 $ctoJSON :: MarketType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679371800"><span id="local-6989586621679371802"><span class="annot"><span class="annottext">ToJSONKeyFunction [MarketType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679372151"><span id="local-6989586621679372153"><span class="annot"><span class="annottext">ToJSONKeyFunction [MarketType]
 ToJSONKeyFunction MarketType
 ToJSONKeyFunction MarketType
 -&gt; ToJSONKeyFunction [MarketType] -&gt; ToJSONKey MarketType
@@ -240,13 +240,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [MarketType]
 toJSONKey :: ToJSONKeyFunction MarketType
 $ctoJSONKey :: ToJSONKeyFunction MarketType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679371797"><span class="annot"><span class="annottext">[Node] -&gt; Either String MarketType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679372148"><span class="annot"><span class="annottext">[Node] -&gt; Either String MarketType
 ([Node] -&gt; Either String MarketType) -&gt; FromXML MarketType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String MarketType
 $cparseXML :: [Node] -&gt; Either String MarketType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679371794"><span class="annot"><span class="annottext">MarketType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679372145"><span class="annot"><span class="annottext">MarketType -&gt; XML
 (MarketType -&gt; XML) -&gt; ToXML MarketType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: MarketType -&gt; XML

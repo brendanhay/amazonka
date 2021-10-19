@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- | Eac3 Bitstream Mode</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679866206"><span id="local-6989586621679866207"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Eac3BitstreamMode"><span class="annot"><a href="Network.AWS.MediaLive.Types.Eac3BitstreamMode.html#Eac3BitstreamMode"><span class="hs-identifier hs-var">Eac3BitstreamMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Eac3BitstreamMode%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.Eac3BitstreamMode.html#Eac3BitstreamMode%27"><span class="hs-identifier hs-var">Eac3BitstreamMode'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679872867"><span id="local-6989586621679872868"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Eac3BitstreamMode"><span class="annot"><a href="Network.AWS.MediaLive.Types.Eac3BitstreamMode.html#Eac3BitstreamMode"><span class="hs-identifier hs-var">Eac3BitstreamMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Eac3BitstreamMode%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.Eac3BitstreamMode.html#Eac3BitstreamMode%27"><span class="hs-identifier hs-var">Eac3BitstreamMode'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEac3BitstreamMode"><span class="annot"><span class="annottext">Eac3BitstreamMode -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.Eac3BitstreamMode.html#fromEac3BitstreamMode"><span class="hs-identifier hs-var hs-var">fromEac3BitstreamMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679866198"><span id="local-6989586621679866200"><span id="local-6989586621679866202"><span class="annot"><span class="annottext">Int -&gt; Eac3BitstreamMode -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679872859"><span id="local-6989586621679872861"><span id="local-6989586621679872863"><span class="annot"><span class="annottext">Int -&gt; Eac3BitstreamMode -&gt; ShowS
 [Eac3BitstreamMode] -&gt; ShowS
 Eac3BitstreamMode -&gt; String
 (Int -&gt; Eac3BitstreamMode -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: Eac3BitstreamMode -&gt; String
 showsPrec :: Int -&gt; Eac3BitstreamMode -&gt; ShowS
 $cshowsPrec :: Int -&gt; Eac3BitstreamMode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679866189"><span id="local-6989586621679866191"><span id="local-6989586621679866193"><span id="local-6989586621679866195"><span class="annot"><span class="annottext">ReadPrec [Eac3BitstreamMode]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679872850"><span id="local-6989586621679872852"><span id="local-6989586621679872854"><span id="local-6989586621679872856"><span class="annot"><span class="annottext">ReadPrec [Eac3BitstreamMode]
 ReadPrec Eac3BitstreamMode
 Int -&gt; ReadS Eac3BitstreamMode
 ReadS [Eac3BitstreamMode]
@@ -76,7 +76,7 @@ $creadList :: ReadS [Eac3BitstreamMode]
 readsPrec :: Int -&gt; ReadS Eac3BitstreamMode
 $creadsPrec :: Int -&gt; ReadS Eac3BitstreamMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679866184"><span id="local-6989586621679866186"><span class="annot"><span class="annottext">Eac3BitstreamMode -&gt; Eac3BitstreamMode -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679872845"><span id="local-6989586621679872847"><span class="annot"><span class="annottext">Eac3BitstreamMode -&gt; Eac3BitstreamMode -&gt; Bool
 (Eac3BitstreamMode -&gt; Eac3BitstreamMode -&gt; Bool)
 -&gt; (Eac3BitstreamMode -&gt; Eac3BitstreamMode -&gt; Bool)
 -&gt; Eq Eac3BitstreamMode
@@ -86,7 +86,7 @@ $c/= :: Eac3BitstreamMode -&gt; Eac3BitstreamMode -&gt; Bool
 == :: Eac3BitstreamMode -&gt; Eac3BitstreamMode -&gt; Bool
 $c== :: Eac3BitstreamMode -&gt; Eac3BitstreamMode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679866168"><span id="local-6989586621679866170"><span id="local-6989586621679866172"><span id="local-6989586621679866174"><span id="local-6989586621679866176"><span id="local-6989586621679866178"><span id="local-6989586621679866180"><span class="annot"><span class="annottext">Eq Eac3BitstreamMode
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679872829"><span id="local-6989586621679872831"><span id="local-6989586621679872833"><span id="local-6989586621679872835"><span id="local-6989586621679872837"><span id="local-6989586621679872839"><span id="local-6989586621679872841"><span class="annot"><span class="annottext">Eq Eac3BitstreamMode
 Eq Eac3BitstreamMode
 -&gt; (Eac3BitstreamMode -&gt; Eac3BitstreamMode -&gt; Ordering)
 -&gt; (Eac3BitstreamMode -&gt; Eac3BitstreamMode -&gt; Bool)
@@ -137,7 +137,7 @@ $cfrom :: forall x. Eac3BitstreamMode -&gt; Rep Eac3BitstreamMode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679866160"><span id="local-6989586621679866162"><span class="annot"><span class="annottext">Int -&gt; Eac3BitstreamMode -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679872821"><span id="local-6989586621679872823"><span class="annot"><span class="annottext">Int -&gt; Eac3BitstreamMode -&gt; Int
 Eac3BitstreamMode -&gt; Int
 (Int -&gt; Eac3BitstreamMode -&gt; Int)
 -&gt; (Eac3BitstreamMode -&gt; Int) -&gt; Hashable Eac3BitstreamMode
@@ -147,51 +147,51 @@ $chash :: Eac3BitstreamMode -&gt; Int
 hashWithSalt :: Int -&gt; Eac3BitstreamMode -&gt; Int
 $chashWithSalt :: Int -&gt; Eac3BitstreamMode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679866157"><span class="annot"><span class="annottext">Eac3BitstreamMode -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679872818"><span class="annot"><span class="annottext">Eac3BitstreamMode -&gt; ()
 (Eac3BitstreamMode -&gt; ()) -&gt; NFData Eac3BitstreamMode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Eac3BitstreamMode -&gt; ()
 $crnf :: Eac3BitstreamMode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679866154"><span class="annot"><span class="annottext">Text -&gt; Either String Eac3BitstreamMode
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679872815"><span class="annot"><span class="annottext">Text -&gt; Either String Eac3BitstreamMode
 (Text -&gt; Either String Eac3BitstreamMode)
 -&gt; FromText Eac3BitstreamMode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Eac3BitstreamMode
 $cfromText :: Text -&gt; Either String Eac3BitstreamMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679866151"><span class="annot"><span class="annottext">Eac3BitstreamMode -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679872812"><span class="annot"><span class="annottext">Eac3BitstreamMode -&gt; Text
 (Eac3BitstreamMode -&gt; Text) -&gt; ToText Eac3BitstreamMode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Eac3BitstreamMode -&gt; Text
 $ctoText :: Eac3BitstreamMode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679866148"><span class="annot"><span class="annottext">Eac3BitstreamMode -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679872809"><span class="annot"><span class="annottext">Eac3BitstreamMode -&gt; ByteString
 (Eac3BitstreamMode -&gt; ByteString) -&gt; ToByteString Eac3BitstreamMode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Eac3BitstreamMode -&gt; ByteString
 $ctoBS :: Eac3BitstreamMode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679866145"><span class="annot"><span class="annottext">Eac3BitstreamMode -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679872806"><span class="annot"><span class="annottext">Eac3BitstreamMode -&gt; ByteStringBuilder
 (Eac3BitstreamMode -&gt; ByteStringBuilder) -&gt; ToLog Eac3BitstreamMode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Eac3BitstreamMode -&gt; ByteStringBuilder
 $cbuild :: Eac3BitstreamMode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679866142"><span class="annot"><span class="annottext">HeaderName -&gt; Eac3BitstreamMode -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679872803"><span class="annot"><span class="annottext">HeaderName -&gt; Eac3BitstreamMode -&gt; [Header]
 (HeaderName -&gt; Eac3BitstreamMode -&gt; [Header])
 -&gt; ToHeader Eac3BitstreamMode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Eac3BitstreamMode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Eac3BitstreamMode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679866139"><span class="annot"><span class="annottext">Eac3BitstreamMode -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679872800"><span class="annot"><span class="annottext">Eac3BitstreamMode -&gt; QueryString
 (Eac3BitstreamMode -&gt; QueryString) -&gt; ToQuery Eac3BitstreamMode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Eac3BitstreamMode -&gt; QueryString
 $ctoQuery :: Eac3BitstreamMode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679866134"><span id="local-6989586621679866136"><span class="annot"><span class="annottext">Value -&gt; Parser [Eac3BitstreamMode]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679872795"><span id="local-6989586621679872797"><span class="annot"><span class="annottext">Value -&gt; Parser [Eac3BitstreamMode]
 Value -&gt; Parser Eac3BitstreamMode
 (Value -&gt; Parser Eac3BitstreamMode)
 -&gt; (Value -&gt; Parser [Eac3BitstreamMode])
@@ -203,7 +203,7 @@ $cparseJSONList :: Value -&gt; Parser [Eac3BitstreamMode]
 parseJSON :: Value -&gt; Parser Eac3BitstreamMode
 $cparseJSON :: Value -&gt; Parser Eac3BitstreamMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679866129"><span id="local-6989586621679866131"><span class="annot"><span class="annottext">FromJSONKeyFunction [Eac3BitstreamMode]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679872790"><span id="local-6989586621679872792"><span class="annot"><span class="annottext">FromJSONKeyFunction [Eac3BitstreamMode]
 FromJSONKeyFunction Eac3BitstreamMode
 FromJSONKeyFunction Eac3BitstreamMode
 -&gt; FromJSONKeyFunction [Eac3BitstreamMode]
@@ -215,7 +215,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Eac3BitstreamMode]
 fromJSONKey :: FromJSONKeyFunction Eac3BitstreamMode
 $cfromJSONKey :: FromJSONKeyFunction Eac3BitstreamMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679866120"><span id="local-6989586621679866122"><span id="local-6989586621679866124"><span id="local-6989586621679866126"><span class="annot"><span class="annottext">[Eac3BitstreamMode] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679872781"><span id="local-6989586621679872783"><span id="local-6989586621679872785"><span id="local-6989586621679872787"><span class="annot"><span class="annottext">[Eac3BitstreamMode] -&gt; Encoding
 [Eac3BitstreamMode] -&gt; Value
 Eac3BitstreamMode -&gt; Encoding
 Eac3BitstreamMode -&gt; Value
@@ -239,7 +239,7 @@ $ctoEncoding :: Eac3BitstreamMode -&gt; Encoding
 toJSON :: Eac3BitstreamMode -&gt; Value
 $ctoJSON :: Eac3BitstreamMode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679866115"><span id="local-6989586621679866117"><span class="annot"><span class="annottext">ToJSONKeyFunction [Eac3BitstreamMode]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679872776"><span id="local-6989586621679872778"><span class="annot"><span class="annottext">ToJSONKeyFunction [Eac3BitstreamMode]
 ToJSONKeyFunction Eac3BitstreamMode
 ToJSONKeyFunction Eac3BitstreamMode
 -&gt; ToJSONKeyFunction [Eac3BitstreamMode]
@@ -251,14 +251,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Eac3BitstreamMode]
 toJSONKey :: ToJSONKeyFunction Eac3BitstreamMode
 $ctoJSONKey :: ToJSONKeyFunction Eac3BitstreamMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679866112"><span class="annot"><span class="annottext">[Node] -&gt; Either String Eac3BitstreamMode
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679872773"><span class="annot"><span class="annottext">[Node] -&gt; Either String Eac3BitstreamMode
 ([Node] -&gt; Either String Eac3BitstreamMode)
 -&gt; FromXML Eac3BitstreamMode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Eac3BitstreamMode
 $cparseXML :: [Node] -&gt; Either String Eac3BitstreamMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679866109"><span class="annot"><span class="annottext">Eac3BitstreamMode -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679872770"><span class="annot"><span class="annottext">Eac3BitstreamMode -&gt; XML
 (Eac3BitstreamMode -&gt; XML) -&gt; ToXML Eac3BitstreamMode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Eac3BitstreamMode -&gt; XML

@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Represents a file to stream.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newStreamFile' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679799200"><span id="local-6989586621679799201"></span></span><span class="hs-keyword">data</span><span> </span><span id="StreamFile"><span class="annot"><a href="Network.AWS.IoT.Types.StreamFile.html#StreamFile"><span class="hs-identifier hs-var">StreamFile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StreamFile%27"><span class="annot"><a href="Network.AWS.IoT.Types.StreamFile.html#StreamFile%27"><span class="hs-identifier hs-var">StreamFile'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679800073"><span id="local-6989586621679800074"></span></span><span class="hs-keyword">data</span><span> </span><span id="StreamFile"><span class="annot"><a href="Network.AWS.IoT.Types.StreamFile.html#StreamFile"><span class="hs-identifier hs-var">StreamFile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StreamFile%27"><span class="annot"><a href="Network.AWS.IoT.Types.StreamFile.html#StreamFile%27"><span class="hs-identifier hs-var">StreamFile'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The location of the file in S3.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3As3Location%3AStreamFile%27"><span class="annot"><span class="annottext">StreamFile -&gt; Maybe S3Location
 </span><a href="Network.AWS.IoT.Types.StreamFile.html#%24sel%3As3Location%3AStreamFile%27"><span class="hs-identifier hs-var hs-var">s3Location</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.S3Location.html#S3Location"><span class="hs-identifier hs-type">S3Location</span></a></span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AfileId%3AStreamFile%27"><span class="annot"><span class="annottext">StreamFile -&gt; Maybe Natural
 </span><a href="Network.AWS.IoT.Types.StreamFile.html#%24sel%3AfileId%3AStreamFile%27"><span class="hs-identifier hs-var hs-var">fileId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679799193"><span id="local-6989586621679799195"><span class="annot"><span class="annottext">StreamFile -&gt; StreamFile -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679800066"><span id="local-6989586621679800068"><span class="annot"><span class="annottext">StreamFile -&gt; StreamFile -&gt; Bool
 (StreamFile -&gt; StreamFile -&gt; Bool)
 -&gt; (StreamFile -&gt; StreamFile -&gt; Bool) -&gt; Eq StreamFile
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StreamFile -&gt; StreamFile -&gt; Bool
 == :: StreamFile -&gt; StreamFile -&gt; Bool
 $c== :: StreamFile -&gt; StreamFile -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679799184"><span id="local-6989586621679799186"><span id="local-6989586621679799188"><span id="local-6989586621679799190"><span class="annot"><span class="annottext">ReadPrec [StreamFile]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679800057"><span id="local-6989586621679800059"><span id="local-6989586621679800061"><span id="local-6989586621679800063"><span class="annot"><span class="annottext">ReadPrec [StreamFile]
 ReadPrec StreamFile
 Int -&gt; ReadS StreamFile
 ReadS [StreamFile]
@@ -63,7 +63,7 @@ readList :: ReadS [StreamFile]
 $creadList :: ReadS [StreamFile]
 readsPrec :: Int -&gt; ReadS StreamFile
 $creadsPrec :: Int -&gt; ReadS StreamFile
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679799177"><span id="local-6989586621679799179"><span id="local-6989586621679799181"><span class="annot"><span class="annottext">Int -&gt; StreamFile -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679800050"><span id="local-6989586621679800052"><span id="local-6989586621679800054"><span class="annot"><span class="annottext">Int -&gt; StreamFile -&gt; ShowS
 [StreamFile] -&gt; ShowS
 StreamFile -&gt; String
 (Int -&gt; StreamFile -&gt; ShowS)
@@ -123,16 +123,16 @@ forall a. Maybe a
 -&gt; (StreamFile -&gt; Maybe S3Location -&gt; StreamFile)
 -&gt; Lens StreamFile StreamFile (Maybe S3Location) (Maybe S3Location)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.StreamFile.html#StreamFile%27"><span class="hs-identifier hs-type">StreamFile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799168"><span class="annot"><span class="annottext">Maybe S3Location
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.StreamFile.html#StreamFile%27"><span class="hs-identifier hs-type">StreamFile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800041"><span class="annot"><span class="annottext">Maybe S3Location
 s3Location :: Maybe S3Location
 $sel:s3Location:StreamFile' :: StreamFile -&gt; Maybe S3Location
-</span><a href="#local-6989586621679799168"><span class="hs-identifier hs-var hs-var">s3Location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3Location
-</span><a href="#local-6989586621679799168"><span class="hs-identifier hs-var">s3Location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799167"><span class="annot"><span class="annottext">s :: StreamFile
-</span><a href="#local-6989586621679799167"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.StreamFile.html#StreamFile%27"><span class="hs-identifier hs-type">StreamFile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799166"><span class="annot"><span class="annottext">Maybe S3Location
-</span><a href="#local-6989586621679799166"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamFile
-</span><a href="#local-6989586621679799167"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Location:StreamFile' :: Maybe S3Location
+</span><a href="#local-6989586621679800041"><span class="hs-identifier hs-var hs-var">s3Location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3Location
+</span><a href="#local-6989586621679800041"><span class="hs-identifier hs-var">s3Location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800040"><span class="annot"><span class="annottext">s :: StreamFile
+</span><a href="#local-6989586621679800040"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.StreamFile.html#StreamFile%27"><span class="hs-identifier hs-type">StreamFile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800039"><span class="annot"><span class="annottext">Maybe S3Location
+</span><a href="#local-6989586621679800039"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamFile
+</span><a href="#local-6989586621679800040"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Location:StreamFile' :: Maybe S3Location
 </span><a href="Network.AWS.IoT.Types.StreamFile.html#%24sel%3As3Location%3AStreamFile%27"><span class="hs-identifier hs-var">s3Location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3Location
-</span><a href="#local-6989586621679799166"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.StreamFile.html#StreamFile"><span class="hs-identifier hs-type">StreamFile</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679800039"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.StreamFile.html#StreamFile"><span class="hs-identifier hs-type">StreamFile</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | The file ID.</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.IoT.Types.StreamFile.html#streamFile_fileId"><span class="hs-identifier hs-type">streamFile_fileId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.StreamFile.html#StreamFile"><span class="hs-identifier hs-type">StreamFile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -141,19 +141,19 @@ $sel:s3Location:StreamFile' :: StreamFile -&gt; Maybe S3Location
 -&gt; (StreamFile -&gt; Maybe Natural -&gt; StreamFile)
 -&gt; Lens StreamFile StreamFile (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.StreamFile.html#StreamFile%27"><span class="hs-identifier hs-type">StreamFile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799164"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.StreamFile.html#StreamFile%27"><span class="hs-identifier hs-type">StreamFile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800037"><span class="annot"><span class="annottext">Maybe Natural
 fileId :: Maybe Natural
 $sel:fileId:StreamFile' :: StreamFile -&gt; Maybe Natural
-</span><a href="#local-6989586621679799164"><span class="hs-identifier hs-var hs-var">fileId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679799164"><span class="hs-identifier hs-var">fileId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799163"><span class="annot"><span class="annottext">s :: StreamFile
-</span><a href="#local-6989586621679799163"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.StreamFile.html#StreamFile%27"><span class="hs-identifier hs-type">StreamFile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799162"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679799162"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamFile
-</span><a href="#local-6989586621679799163"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileId:StreamFile' :: Maybe Natural
+</span><a href="#local-6989586621679800037"><span class="hs-identifier hs-var hs-var">fileId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679800037"><span class="hs-identifier hs-var">fileId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800036"><span class="annot"><span class="annottext">s :: StreamFile
+</span><a href="#local-6989586621679800036"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.StreamFile.html#StreamFile%27"><span class="hs-identifier hs-type">StreamFile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800035"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679800035"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamFile
+</span><a href="#local-6989586621679800036"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileId:StreamFile' :: Maybe Natural
 </span><a href="Network.AWS.IoT.Types.StreamFile.html#%24sel%3AfileId%3AStreamFile%27"><span class="hs-identifier hs-var">fileId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679799162"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.StreamFile.html#StreamFile"><span class="hs-identifier hs-type">StreamFile</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679800035"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.StreamFile.html#StreamFile"><span class="hs-identifier hs-type">StreamFile</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679799159"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.StreamFile.html#StreamFile"><span class="hs-identifier hs-type">StreamFile</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679799157"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StreamFile
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679800032"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.StreamFile.html#StreamFile"><span class="hs-identifier hs-type">StreamFile</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679800030"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StreamFile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser StreamFile) -&gt; Value -&gt; Parser StreamFile
@@ -161,8 +161,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;StreamFile&quot;</span></span><span>
-</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679799154"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679799154"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679800027"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679800027"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe S3Location -&gt; Maybe Natural -&gt; StreamFile
 </span><a href="Network.AWS.IoT.Types.StreamFile.html#StreamFile%27"><span class="hs-identifier hs-var">StreamFile'</span></a></span><span>
 </span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe S3Location -&gt; Maybe Natural -&gt; StreamFile)
@@ -170,7 +170,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Natural -&gt; StreamFile)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679799154"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe S3Location)
+</span><a href="#local-6989586621679800027"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe S3Location)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;s3Location&quot;</span></span><span class="hs-special">)</span><span>
@@ -178,25 +178,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Natural) -&gt; Parser StreamFile
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679799154"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679800027"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;fileId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679799148"><span id="local-6989586621679799150"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.StreamFile.html#StreamFile"><span class="hs-identifier hs-type">StreamFile</span></a></span></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679800021"><span id="local-6989586621679800023"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.StreamFile.html#StreamFile"><span class="hs-identifier hs-type">StreamFile</span></a></span></span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679799145"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.StreamFile.html#StreamFile"><span class="hs-identifier hs-type">StreamFile</span></a></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679800018"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.StreamFile.html#StreamFile"><span class="hs-identifier hs-type">StreamFile</span></a></span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679799137"><span id="local-6989586621679799139"><span id="local-6989586621679799141"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.StreamFile.html#StreamFile"><span class="hs-identifier hs-type">StreamFile</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679799135"><span class="annot"><span class="annottext">toJSON :: StreamFile -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.StreamFile.html#StreamFile%27"><span class="hs-identifier hs-type">StreamFile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799132"><span id="local-6989586621679799133"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679800010"><span id="local-6989586621679800012"><span id="local-6989586621679800014"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.StreamFile.html#StreamFile"><span class="hs-identifier hs-type">StreamFile</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679800008"><span class="annot"><span class="annottext">toJSON :: StreamFile -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.StreamFile.html#StreamFile%27"><span class="hs-identifier hs-type">StreamFile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800005"><span id="local-6989586621679800006"><span class="annot"><span class="annottext">Maybe Natural
 Maybe S3Location
 fileId :: Maybe Natural
 s3Location :: Maybe S3Location
 $sel:fileId:StreamFile' :: StreamFile -&gt; Maybe Natural
 $sel:s3Location:StreamFile' :: StreamFile -&gt; Maybe S3Location
-</span><a href="#local-6989586621679799132"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679800005"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -208,14 +208,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(S3Location -&gt; Pair) -&gt; Maybe S3Location -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe S3Location
-</span><a href="#local-6989586621679799133"><span class="hs-identifier hs-var">s3Location</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679800006"><span class="hs-identifier hs-var">s3Location</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-84"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;fileId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679799132"><span class="hs-identifier hs-var">fileId</span></a></span><span>
+</span><a href="#local-6989586621679800005"><span class="hs-identifier hs-var">fileId</span></a></span><span>
 </span><span id="line-85"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span></pre></body></html>

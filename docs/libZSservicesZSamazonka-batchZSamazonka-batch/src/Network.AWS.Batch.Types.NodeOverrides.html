@@ -31,26 +31,26 @@
 </span><span id="line-31"></span><span class="hs-comment">-- shouldn\'t be provided; use @containerOverrides@ instead.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newNodeOverrides' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679264074"><span id="local-6989586621679264075"></span></span><span class="hs-keyword">data</span><span> </span><span id="NodeOverrides"><span class="annot"><a href="Network.AWS.Batch.Types.NodeOverrides.html#NodeOverrides"><span class="hs-identifier hs-var">NodeOverrides</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NodeOverrides%27"><span class="annot"><a href="Network.AWS.Batch.Types.NodeOverrides.html#NodeOverrides%27"><span class="hs-identifier hs-var">NodeOverrides'</span></a></span></span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The node property overrides for the job.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AnodePropertyOverrides%3ANodeOverrides%27"><span class="annot"><span class="annottext">NodeOverrides -&gt; Maybe [NodePropertyOverride]
-</span><a href="Network.AWS.Batch.Types.NodeOverrides.html#%24sel%3AnodePropertyOverrides%3ANodeOverrides%27"><span class="hs-identifier hs-var hs-var">nodePropertyOverrides</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Batch.Types.NodePropertyOverride.html#NodePropertyOverride"><span class="hs-identifier hs-type">NodePropertyOverride</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The number of nodes to use with a multi-node parallel job. This value</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- overrides the number of nodes that are specified in the job definition.</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- To use this override:</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- -   There must be at least one node range in your job definition that</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">--     has an open upper boundary (such as @:@ or @n:@).</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- -   The lower boundary of the node range specified in the job definition</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">--     must be fewer than the number of nodes specified in the override.</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- -   The main node index specified in the job definition must be fewer</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">--     than the number of nodes specified in the override.</span><span>
-</span><span id="line-49"></span><span>    </span><span id="%24sel%3AnumNodes%3ANodeOverrides%27"><span class="annot"><span class="annottext">NodeOverrides -&gt; Maybe Int
-</span><a href="Network.AWS.Batch.Types.NodeOverrides.html#%24sel%3AnumNodes%3ANodeOverrides%27"><span class="hs-identifier hs-var hs-var">numNodes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679264361"><span id="local-6989586621679264362"></span></span><span class="hs-keyword">data</span><span> </span><span id="NodeOverrides"><span class="annot"><a href="Network.AWS.Batch.Types.NodeOverrides.html#NodeOverrides"><span class="hs-identifier hs-var">NodeOverrides</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NodeOverrides%27"><span class="annot"><a href="Network.AWS.Batch.Types.NodeOverrides.html#NodeOverrides%27"><span class="hs-identifier hs-var">NodeOverrides'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of nodes to use with a multi-node parallel job. This value</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- overrides the number of nodes that are specified in the job definition.</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- To use this override:</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- -   There must be at least one node range in your job definition that</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">--     has an open upper boundary (such as @:@ or @n:@).</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- -   The lower boundary of the node range specified in the job definition</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">--     must be fewer than the number of nodes specified in the override.</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- -   The main node index specified in the job definition must be fewer</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--     than the number of nodes specified in the override.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AnumNodes%3ANodeOverrides%27"><span class="annot"><span class="annottext">NodeOverrides -&gt; Maybe Int
+</span><a href="Network.AWS.Batch.Types.NodeOverrides.html#%24sel%3AnumNodes%3ANodeOverrides%27"><span class="hs-identifier hs-var hs-var">numNodes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The node property overrides for the job.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AnodePropertyOverrides%3ANodeOverrides%27"><span class="annot"><span class="annottext">NodeOverrides -&gt; Maybe [NodePropertyOverride]
+</span><a href="Network.AWS.Batch.Types.NodeOverrides.html#%24sel%3AnodePropertyOverrides%3ANodeOverrides%27"><span class="hs-identifier hs-var hs-var">nodePropertyOverrides</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Batch.Types.NodePropertyOverride.html#NodePropertyOverride"><span class="hs-identifier hs-type">NodePropertyOverride</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679264067"><span id="local-6989586621679264069"><span class="annot"><span class="annottext">NodeOverrides -&gt; NodeOverrides -&gt; Bool
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679264354"><span id="local-6989586621679264356"><span class="annot"><span class="annottext">NodeOverrides -&gt; NodeOverrides -&gt; Bool
 (NodeOverrides -&gt; NodeOverrides -&gt; Bool)
 -&gt; (NodeOverrides -&gt; NodeOverrides -&gt; Bool) -&gt; Eq NodeOverrides
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -58,7 +58,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: NodeOverrides -&gt; NodeOverrides -&gt; Bool
 == :: NodeOverrides -&gt; NodeOverrides -&gt; Bool
 $c== :: NodeOverrides -&gt; NodeOverrides -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264058"><span id="local-6989586621679264060"><span id="local-6989586621679264062"><span id="local-6989586621679264064"><span class="annot"><span class="annottext">ReadPrec [NodeOverrides]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264345"><span id="local-6989586621679264347"><span id="local-6989586621679264349"><span id="local-6989586621679264351"><span class="annot"><span class="annottext">ReadPrec [NodeOverrides]
 ReadPrec NodeOverrides
 Int -&gt; ReadS NodeOverrides
 ReadS [NodeOverrides]
@@ -78,7 +78,7 @@ readList :: ReadS [NodeOverrides]
 $creadList :: ReadS [NodeOverrides]
 readsPrec :: Int -&gt; ReadS NodeOverrides
 $creadsPrec :: Int -&gt; ReadS NodeOverrides
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264051"><span id="local-6989586621679264053"><span id="local-6989586621679264055"><span class="annot"><span class="annottext">Int -&gt; NodeOverrides -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264338"><span id="local-6989586621679264340"><span id="local-6989586621679264342"><span class="annot"><span class="annottext">Int -&gt; NodeOverrides -&gt; ShowS
 [NodeOverrides] -&gt; ShowS
 NodeOverrides -&gt; String
 (Int -&gt; NodeOverrides -&gt; ShowS)
@@ -112,40 +112,68 @@ $cfrom :: forall x. NodeOverrides -&gt; Rep NodeOverrides x
 </span><span id="line-58"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'nodePropertyOverrides', 'nodeOverrides_nodePropertyOverrides' - The node property overrides for the job.</span><span>
-</span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'numNodes', 'nodeOverrides_numNodes' - The number of nodes to use with a multi-node parallel job. This value</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- overrides the number of nodes that are specified in the job definition.</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- To use this override:</span><span>
-</span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- -   There must be at least one node range in your job definition that</span><span>
-</span><span id="line-68"></span><span class="hs-comment">--     has an open upper boundary (such as @:@ or @n:@).</span><span>
-</span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- -   The lower boundary of the node range specified in the job definition</span><span>
-</span><span id="line-71"></span><span class="hs-comment">--     must be fewer than the number of nodes specified in the override.</span><span>
-</span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- -   The main node index specified in the job definition must be fewer</span><span>
-</span><span id="line-74"></span><span class="hs-comment">--     than the number of nodes specified in the override.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'numNodes', 'nodeOverrides_numNodes' - The number of nodes to use with a multi-node parallel job. This value</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- overrides the number of nodes that are specified in the job definition.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- To use this override:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- -   There must be at least one node range in your job definition that</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--     has an open upper boundary (such as @:@ or @n:@).</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- -   The lower boundary of the node range specified in the job definition</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--     must be fewer than the number of nodes specified in the override.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- -   The main node index specified in the job definition must be fewer</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--     than the number of nodes specified in the override.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'nodePropertyOverrides', 'nodeOverrides_nodePropertyOverrides' - The node property overrides for the job.</span><span>
 </span><span id="line-75"></span><span class="annot"><a href="Network.AWS.Batch.Types.NodeOverrides.html#newNodeOverrides"><span class="hs-identifier hs-type">newNodeOverrides</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.Batch.Types.NodeOverrides.html#NodeOverrides"><span class="hs-identifier hs-type">NodeOverrides</span></a></span><span>
 </span><span id="line-77"></span><span id="newNodeOverrides"><span class="annot"><span class="annottext">newNodeOverrides :: NodeOverrides
 </span><a href="Network.AWS.Batch.Types.NodeOverrides.html#newNodeOverrides"><span class="hs-identifier hs-var hs-var">newNodeOverrides</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">NodeOverrides' :: Maybe [NodePropertyOverride] -&gt; Maybe Int -&gt; NodeOverrides
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">NodeOverrides' :: Maybe Int -&gt; Maybe [NodePropertyOverride] -&gt; NodeOverrides
 </span><a href="Network.AWS.Batch.Types.NodeOverrides.html#NodeOverrides%27"><span class="hs-identifier hs-type">NodeOverrides'</span></a></span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nodePropertyOverrides:NodeOverrides' :: Maybe [NodePropertyOverride]
-</span><a href="Network.AWS.Batch.Types.NodeOverrides.html#%24sel%3AnodePropertyOverrides%3ANodeOverrides%27"><span class="hs-identifier hs-var">nodePropertyOverrides</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-80"></span><span>        </span><span class="annot"><span class="annottext">Maybe [NodePropertyOverride]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:numNodes:NodeOverrides' :: Maybe Int
+</span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:numNodes:NodeOverrides' :: Maybe Int
 </span><a href="Network.AWS.Batch.Types.NodeOverrides.html#%24sel%3AnumNodes%3ANodeOverrides%27"><span class="hs-identifier hs-var">numNodes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:nodePropertyOverrides:NodeOverrides' :: Maybe [NodePropertyOverride]
+</span><a href="Network.AWS.Batch.Types.NodeOverrides.html#%24sel%3AnodePropertyOverrides%3ANodeOverrides%27"><span class="hs-identifier hs-var">nodePropertyOverrides</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [NodePropertyOverride]
+forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-82"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- | The node property overrides for the job.</span><span>
-</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.Batch.Types.NodeOverrides.html#nodeOverrides_nodePropertyOverrides"><span class="hs-identifier hs-type">nodeOverrides_nodePropertyOverrides</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.NodeOverrides.html#NodeOverrides"><span class="hs-identifier hs-type">NodeOverrides</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Batch.Types.NodePropertyOverride.html#NodePropertyOverride"><span class="hs-identifier hs-type">NodePropertyOverride</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span id="nodeOverrides_nodePropertyOverrides"><span class="annot"><span class="annottext">nodeOverrides_nodePropertyOverrides :: (Maybe [NodePropertyOverride] -&gt; f (Maybe [NodePropertyOverride]))
+</span><span id="line-81"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | The number of nodes to use with a multi-node parallel job. This value</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- overrides the number of nodes that are specified in the job definition.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- To use this override:</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- -   There must be at least one node range in your job definition that</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--     has an open upper boundary (such as @:@ or @n:@).</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- -   The lower boundary of the node range specified in the job definition</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--     must be fewer than the number of nodes specified in the override.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- -   The main node index specified in the job definition must be fewer</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--     than the number of nodes specified in the override.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.Batch.Types.NodeOverrides.html#nodeOverrides_numNodes"><span class="hs-identifier hs-type">nodeOverrides_numNodes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.NodeOverrides.html#NodeOverrides"><span class="hs-identifier hs-type">NodeOverrides</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="nodeOverrides_numNodes"><span class="annot"><span class="annottext">nodeOverrides_numNodes :: (Maybe Int -&gt; f (Maybe Int)) -&gt; NodeOverrides -&gt; f NodeOverrides
+</span><a href="Network.AWS.Batch.Types.NodeOverrides.html#nodeOverrides_numNodes"><span class="hs-identifier hs-var hs-var">nodeOverrides_numNodes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NodeOverrides -&gt; Maybe Int)
+-&gt; (NodeOverrides -&gt; Maybe Int -&gt; NodeOverrides)
+-&gt; Lens NodeOverrides NodeOverrides (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.NodeOverrides.html#NodeOverrides%27"><span class="hs-identifier hs-type">NodeOverrides'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264329"><span class="annot"><span class="annottext">Maybe Int
+numNodes :: Maybe Int
+$sel:numNodes:NodeOverrides' :: NodeOverrides -&gt; Maybe Int
+</span><a href="#local-6989586621679264329"><span class="hs-identifier hs-var hs-var">numNodes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679264329"><span class="hs-identifier hs-var">numNodes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264328"><span class="annot"><span class="annottext">s :: NodeOverrides
+</span><a href="#local-6989586621679264328"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.NodeOverrides.html#NodeOverrides%27"><span class="hs-identifier hs-type">NodeOverrides'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264327"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679264327"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeOverrides
+</span><a href="#local-6989586621679264328"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numNodes:NodeOverrides' :: Maybe Int
+</span><a href="Network.AWS.Batch.Types.NodeOverrides.html#%24sel%3AnumNodes%3ANodeOverrides%27"><span class="hs-identifier hs-var">numNodes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679264327"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.NodeOverrides.html#NodeOverrides"><span class="hs-identifier hs-type">NodeOverrides</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The node property overrides for the job.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.Batch.Types.NodeOverrides.html#nodeOverrides_nodePropertyOverrides"><span class="hs-identifier hs-type">nodeOverrides_nodePropertyOverrides</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.NodeOverrides.html#NodeOverrides"><span class="hs-identifier hs-type">NodeOverrides</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Batch.Types.NodePropertyOverride.html#NodePropertyOverride"><span class="hs-identifier hs-type">NodePropertyOverride</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="nodeOverrides_nodePropertyOverrides"><span class="annot"><span class="annottext">nodeOverrides_nodePropertyOverrides :: (Maybe [NodePropertyOverride] -&gt; f (Maybe [NodePropertyOverride]))
 -&gt; NodeOverrides -&gt; f NodeOverrides
 </span><a href="Network.AWS.Batch.Types.NodeOverrides.html#nodeOverrides_nodePropertyOverrides"><span class="hs-identifier hs-var hs-var">nodeOverrides_nodePropertyOverrides</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NodeOverrides -&gt; Maybe [NodePropertyOverride])
 -&gt; (NodeOverrides -&gt; Maybe [NodePropertyOverride] -&gt; NodeOverrides)
@@ -155,16 +183,16 @@ forall a. Maybe a
      (Maybe [NodePropertyOverride])
      (Maybe [NodePropertyOverride])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.NodeOverrides.html#NodeOverrides%27"><span class="hs-identifier hs-type">NodeOverrides'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264042"><span class="annot"><span class="annottext">Maybe [NodePropertyOverride]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.NodeOverrides.html#NodeOverrides%27"><span class="hs-identifier hs-type">NodeOverrides'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264325"><span class="annot"><span class="annottext">Maybe [NodePropertyOverride]
 nodePropertyOverrides :: Maybe [NodePropertyOverride]
 $sel:nodePropertyOverrides:NodeOverrides' :: NodeOverrides -&gt; Maybe [NodePropertyOverride]
-</span><a href="#local-6989586621679264042"><span class="hs-identifier hs-var hs-var">nodePropertyOverrides</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [NodePropertyOverride]
-</span><a href="#local-6989586621679264042"><span class="hs-identifier hs-var">nodePropertyOverrides</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264041"><span class="annot"><span class="annottext">s :: NodeOverrides
-</span><a href="#local-6989586621679264041"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.NodeOverrides.html#NodeOverrides%27"><span class="hs-identifier hs-type">NodeOverrides'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264040"><span class="annot"><span class="annottext">Maybe [NodePropertyOverride]
-</span><a href="#local-6989586621679264040"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeOverrides
-</span><a href="#local-6989586621679264041"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodePropertyOverrides:NodeOverrides' :: Maybe [NodePropertyOverride]
+</span><a href="#local-6989586621679264325"><span class="hs-identifier hs-var hs-var">nodePropertyOverrides</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [NodePropertyOverride]
+</span><a href="#local-6989586621679264325"><span class="hs-identifier hs-var">nodePropertyOverrides</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264324"><span class="annot"><span class="annottext">s :: NodeOverrides
+</span><a href="#local-6989586621679264324"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.NodeOverrides.html#NodeOverrides%27"><span class="hs-identifier hs-type">NodeOverrides'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264323"><span class="annot"><span class="annottext">Maybe [NodePropertyOverride]
+</span><a href="#local-6989586621679264323"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeOverrides
+</span><a href="#local-6989586621679264324"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodePropertyOverrides:NodeOverrides' :: Maybe [NodePropertyOverride]
 </span><a href="Network.AWS.Batch.Types.NodeOverrides.html#%24sel%3AnodePropertyOverrides%3ANodeOverrides%27"><span class="hs-identifier hs-var">nodePropertyOverrides</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [NodePropertyOverride]
-</span><a href="#local-6989586621679264040"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.NodeOverrides.html#NodeOverrides"><span class="hs-identifier hs-type">NodeOverrides</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [NodePropertyOverride] -&gt; f (Maybe [NodePropertyOverride]))
+</span><a href="#local-6989586621679264323"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.NodeOverrides.html#NodeOverrides"><span class="hs-identifier hs-type">NodeOverrides</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [NodePropertyOverride] -&gt; f (Maybe [NodePropertyOverride]))
  -&gt; NodeOverrides -&gt; f NodeOverrides)
 -&gt; ((Maybe [NodePropertyOverride]
      -&gt; f (Maybe [NodePropertyOverride]))
@@ -193,57 +221,35 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [NodePropertyOverride]
   [NodePropertyOverride]
   [NodePropertyOverride]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- | The number of nodes to use with a multi-node parallel job. This value</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- overrides the number of nodes that are specified in the job definition.</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- To use this override:</span><span>
-</span><span id="line-91"></span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- -   There must be at least one node range in your job definition that</span><span>
-</span><span id="line-93"></span><span class="hs-comment">--     has an open upper boundary (such as @:@ or @n:@).</span><span>
-</span><span id="line-94"></span><span class="hs-comment">--</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- -   The lower boundary of the node range specified in the job definition</span><span>
-</span><span id="line-96"></span><span class="hs-comment">--     must be fewer than the number of nodes specified in the override.</span><span>
-</span><span id="line-97"></span><span class="hs-comment">--</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- -   The main node index specified in the job definition must be fewer</span><span>
-</span><span id="line-99"></span><span class="hs-comment">--     than the number of nodes specified in the override.</span><span>
-</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.Batch.Types.NodeOverrides.html#nodeOverrides_numNodes"><span class="hs-identifier hs-type">nodeOverrides_numNodes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.NodeOverrides.html#NodeOverrides"><span class="hs-identifier hs-type">NodeOverrides</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span id="nodeOverrides_numNodes"><span class="annot"><span class="annottext">nodeOverrides_numNodes :: (Maybe Int -&gt; f (Maybe Int)) -&gt; NodeOverrides -&gt; f NodeOverrides
-</span><a href="Network.AWS.Batch.Types.NodeOverrides.html#nodeOverrides_numNodes"><span class="hs-identifier hs-var hs-var">nodeOverrides_numNodes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NodeOverrides -&gt; Maybe Int)
--&gt; (NodeOverrides -&gt; Maybe Int -&gt; NodeOverrides)
--&gt; Lens NodeOverrides NodeOverrides (Maybe Int) (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.NodeOverrides.html#NodeOverrides%27"><span class="hs-identifier hs-type">NodeOverrides'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264035"><span class="annot"><span class="annottext">Maybe Int
-numNodes :: Maybe Int
-$sel:numNodes:NodeOverrides' :: NodeOverrides -&gt; Maybe Int
-</span><a href="#local-6989586621679264035"><span class="hs-identifier hs-var hs-var">numNodes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679264035"><span class="hs-identifier hs-var">numNodes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264034"><span class="annot"><span class="annottext">s :: NodeOverrides
-</span><a href="#local-6989586621679264034"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.NodeOverrides.html#NodeOverrides%27"><span class="hs-identifier hs-type">NodeOverrides'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264033"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679264033"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeOverrides
-</span><a href="#local-6989586621679264034"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numNodes:NodeOverrides' :: Maybe Int
-</span><a href="Network.AWS.Batch.Types.NodeOverrides.html#%24sel%3AnumNodes%3ANodeOverrides%27"><span class="hs-identifier hs-var">numNodes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679264033"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.NodeOverrides.html#NodeOverrides"><span class="hs-identifier hs-type">NodeOverrides</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264029"><span id="local-6989586621679264031"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.NodeOverrides.html#NodeOverrides"><span class="hs-identifier hs-type">NodeOverrides</span></a></span></span></span><span>
-</span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264026"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.NodeOverrides.html#NodeOverrides"><span class="hs-identifier hs-type">NodeOverrides</span></a></span></span><span>
-</span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264018"><span id="local-6989586621679264020"><span id="local-6989586621679264022"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.NodeOverrides.html#NodeOverrides"><span class="hs-identifier hs-type">NodeOverrides</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679264016"><span class="annot"><span class="annottext">toJSON :: NodeOverrides -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.NodeOverrides.html#NodeOverrides%27"><span class="hs-identifier hs-type">NodeOverrides'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264013"><span id="local-6989586621679264014"><span class="annot"><span class="annottext">Maybe Int
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264316"><span id="local-6989586621679264318"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.NodeOverrides.html#NodeOverrides"><span class="hs-identifier hs-type">NodeOverrides</span></a></span></span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264313"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.NodeOverrides.html#NodeOverrides"><span class="hs-identifier hs-type">NodeOverrides</span></a></span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264305"><span id="local-6989586621679264307"><span id="local-6989586621679264309"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.NodeOverrides.html#NodeOverrides"><span class="hs-identifier hs-type">NodeOverrides</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679264303"><span class="annot"><span class="annottext">toJSON :: NodeOverrides -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.NodeOverrides.html#NodeOverrides%27"><span class="hs-identifier hs-type">NodeOverrides'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264300"><span id="local-6989586621679264301"><span class="annot"><span class="annottext">Maybe Int
 Maybe [NodePropertyOverride]
-numNodes :: Maybe Int
 nodePropertyOverrides :: Maybe [NodePropertyOverride]
-$sel:numNodes:NodeOverrides' :: NodeOverrides -&gt; Maybe Int
+numNodes :: Maybe Int
 $sel:nodePropertyOverrides:NodeOverrides' :: NodeOverrides -&gt; Maybe [NodePropertyOverride]
-</span><a href="#local-6989586621679264013"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+$sel:numNodes:NodeOverrides' :: NodeOverrides -&gt; Maybe Int
+</span><a href="#local-6989586621679264300"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
-</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
-</span><span id="line-111"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-110"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;numNodes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679264301"><span class="hs-identifier hs-var">numNodes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nodePropertyOverrides&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [NodePropertyOverride] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
@@ -251,14 +257,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [NodePropertyOverride] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [NodePropertyOverride]
-</span><a href="#local-6989586621679264014"><span class="hs-identifier hs-var">nodePropertyOverrides</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-113"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;numNodes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679264013"><span class="hs-identifier hs-var">numNodes</span></a></span><span>
-</span><span id="line-114"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span></pre></body></html>
+</span><a href="#local-6989586621679264300"><span class="hs-identifier hs-var">nodePropertyOverrides</span></a></span><span>
+</span><span id="line-113"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span></pre></body></html>

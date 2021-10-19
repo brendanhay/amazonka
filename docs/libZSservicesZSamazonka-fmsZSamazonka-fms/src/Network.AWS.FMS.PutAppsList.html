@@ -35,8 +35,8 @@
 </span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#newPutAppsListResponse"><span class="hs-identifier">newPutAppsListResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#putAppsListResponse_appsList"><span class="hs-identifier">putAppsListResponse_appsList</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#putAppsListResponse_appsListArn"><span class="hs-identifier">putAppsListResponse_appsListArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#putAppsListResponse_appsListArn"><span class="hs-identifier">putAppsListResponse_appsListArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#putAppsListResponse_appsList"><span class="hs-identifier">putAppsListResponse_appsList</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#putAppsListResponse_httpStatus"><span class="hs-identifier">putAppsListResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span class="hs-keyword">where</span><span>
@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newPutAppsList' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679253538"><span id="local-6989586621679253539"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutAppsList"><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsList"><span class="hs-identifier hs-var">PutAppsList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutAppsList%27"><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsList%27"><span class="hs-identifier hs-var">PutAppsList'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679253795"><span id="local-6989586621679253796"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutAppsList"><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsList"><span class="hs-identifier hs-var">PutAppsList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutAppsList%27"><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsList%27"><span class="hs-identifier hs-var">PutAppsList'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The tags associated with the resource.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AtagList%3APutAppsList%27"><span class="annot"><span class="annottext">PutAppsList -&gt; Maybe [Tag]
 </span><a href="Network.AWS.FMS.PutAppsList.html#%24sel%3AtagList%3APutAppsList%27"><span class="hs-identifier hs-var hs-var">tagList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.FMS.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -57,7 +57,7 @@
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AappsList%3APutAppsList%27"><span class="annot"><span class="annottext">PutAppsList -&gt; AppsListData
 </span><a href="Network.AWS.FMS.PutAppsList.html#%24sel%3AappsList%3APutAppsList%27"><span class="hs-identifier hs-var hs-var">appsList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.AppsListData.html#AppsListData"><span class="hs-identifier hs-type">AppsListData</span></a></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679253531"><span id="local-6989586621679253533"><span class="annot"><span class="annottext">PutAppsList -&gt; PutAppsList -&gt; Bool
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679253788"><span id="local-6989586621679253790"><span class="annot"><span class="annottext">PutAppsList -&gt; PutAppsList -&gt; Bool
 (PutAppsList -&gt; PutAppsList -&gt; Bool)
 -&gt; (PutAppsList -&gt; PutAppsList -&gt; Bool) -&gt; Eq PutAppsList
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutAppsList -&gt; PutAppsList -&gt; Bool
 == :: PutAppsList -&gt; PutAppsList -&gt; Bool
 $c== :: PutAppsList -&gt; PutAppsList -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253522"><span id="local-6989586621679253524"><span id="local-6989586621679253526"><span id="local-6989586621679253528"><span class="annot"><span class="annottext">ReadPrec [PutAppsList]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253779"><span id="local-6989586621679253781"><span id="local-6989586621679253783"><span id="local-6989586621679253785"><span class="annot"><span class="annottext">ReadPrec [PutAppsList]
 ReadPrec PutAppsList
 Int -&gt; ReadS PutAppsList
 ReadS [PutAppsList]
@@ -85,7 +85,7 @@ readList :: ReadS [PutAppsList]
 $creadList :: ReadS [PutAppsList]
 readsPrec :: Int -&gt; ReadS PutAppsList
 $creadsPrec :: Int -&gt; ReadS PutAppsList
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253515"><span id="local-6989586621679253517"><span id="local-6989586621679253519"><span class="annot"><span class="annottext">Int -&gt; PutAppsList -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253772"><span id="local-6989586621679253774"><span id="local-6989586621679253776"><span class="annot"><span class="annottext">Int -&gt; PutAppsList -&gt; ShowS
 [PutAppsList] -&gt; ShowS
 PutAppsList -&gt; String
 (Int -&gt; PutAppsList -&gt; ShowS)
@@ -127,8 +127,8 @@ $cfrom :: forall x. PutAppsList -&gt; Rep PutAppsList x
 </span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.FMS.Types.AppsListData.html#AppsListData"><span class="hs-identifier hs-type">AppsListData</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsList"><span class="hs-identifier hs-type">PutAppsList</span></a></span><span>
 </span><span id="line-75"></span><span id="newPutAppsList"><span class="annot"><span class="annottext">newPutAppsList :: AppsListData -&gt; PutAppsList
-</span><a href="Network.AWS.FMS.PutAppsList.html#newPutAppsList"><span class="hs-identifier hs-var hs-var">newPutAppsList</span></a></span></span><span> </span><span id="local-6989586621679253510"><span class="annot"><span class="annottext">AppsListData
-</span><a href="#local-6989586621679253510"><span class="hs-identifier hs-var">pAppsList_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.FMS.PutAppsList.html#newPutAppsList"><span class="hs-identifier hs-var hs-var">newPutAppsList</span></a></span></span><span> </span><span id="local-6989586621679253767"><span class="annot"><span class="annottext">AppsListData
+</span><a href="#local-6989586621679253767"><span class="hs-identifier hs-var">pAppsList_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">PutAppsList' :: Maybe [Tag] -&gt; AppsListData -&gt; PutAppsList
 </span><a href="Network.AWS.FMS.PutAppsList.html#PutAppsList%27"><span class="hs-identifier hs-type">PutAppsList'</span></a></span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tagList:PutAppsList' :: Maybe [Tag]
@@ -137,7 +137,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:appsList:PutAppsList' :: AppsListData
 </span><a href="Network.AWS.FMS.PutAppsList.html#%24sel%3AappsList%3APutAppsList%27"><span class="hs-identifier hs-var">appsList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AppsListData
-</span><a href="#local-6989586621679253510"><span class="hs-identifier hs-var">pAppsList_</span></a></span><span>
+</span><a href="#local-6989586621679253767"><span class="hs-identifier hs-var">pAppsList_</span></a></span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | The tags associated with the resource.</span><span>
@@ -147,16 +147,16 @@ forall a. Maybe a
 -&gt; (PutAppsList -&gt; Maybe [Tag] -&gt; PutAppsList)
 -&gt; Lens PutAppsList PutAppsList (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsList%27"><span class="hs-identifier hs-type">PutAppsList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253507"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsList%27"><span class="hs-identifier hs-type">PutAppsList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253764"><span class="annot"><span class="annottext">Maybe [Tag]
 tagList :: Maybe [Tag]
 $sel:tagList:PutAppsList' :: PutAppsList -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679253507"><span class="hs-identifier hs-var hs-var">tagList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679253507"><span class="hs-identifier hs-var">tagList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253506"><span class="annot"><span class="annottext">s :: PutAppsList
-</span><a href="#local-6989586621679253506"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsList%27"><span class="hs-identifier hs-type">PutAppsList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253505"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679253505"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAppsList
-</span><a href="#local-6989586621679253506"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagList:PutAppsList' :: Maybe [Tag]
+</span><a href="#local-6989586621679253764"><span class="hs-identifier hs-var hs-var">tagList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679253764"><span class="hs-identifier hs-var">tagList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253763"><span class="annot"><span class="annottext">s :: PutAppsList
+</span><a href="#local-6989586621679253763"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsList%27"><span class="hs-identifier hs-type">PutAppsList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253762"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679253762"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAppsList
+</span><a href="#local-6989586621679253763"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagList:PutAppsList' :: Maybe [Tag]
 </span><a href="Network.AWS.FMS.PutAppsList.html#%24sel%3AtagList%3APutAppsList%27"><span class="hs-identifier hs-var">tagList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679253505"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsList"><span class="hs-identifier hs-type">PutAppsList</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; PutAppsList -&gt; f PutAppsList)
+</span><a href="#local-6989586621679253762"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsList"><span class="hs-identifier hs-type">PutAppsList</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; PutAppsList -&gt; f PutAppsList)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
 -&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -169,8 +169,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The details of the Firewall Manager applications list to be created.</span><span>
 </span><span id="line-86"></span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#putAppsList_appsList"><span class="hs-identifier hs-type">putAppsList_appsList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsList"><span class="hs-identifier hs-type">PutAppsList</span></a></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.AppsListData.html#AppsListData"><span class="hs-identifier hs-type">AppsListData</span></a></span><span>
@@ -179,25 +179,25 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (PutAppsList -&gt; AppsListData -&gt; PutAppsList)
 -&gt; Lens PutAppsList PutAppsList AppsListData AppsListData
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsList%27"><span class="hs-identifier hs-type">PutAppsList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253501"><span class="annot"><span class="annottext">AppsListData
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsList%27"><span class="hs-identifier hs-type">PutAppsList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253758"><span class="annot"><span class="annottext">AppsListData
 appsList :: AppsListData
 $sel:appsList:PutAppsList' :: PutAppsList -&gt; AppsListData
-</span><a href="#local-6989586621679253501"><span class="hs-identifier hs-var hs-var">appsList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AppsListData
-</span><a href="#local-6989586621679253501"><span class="hs-identifier hs-var">appsList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253500"><span class="annot"><span class="annottext">s :: PutAppsList
-</span><a href="#local-6989586621679253500"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsList%27"><span class="hs-identifier hs-type">PutAppsList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253499"><span class="annot"><span class="annottext">AppsListData
-</span><a href="#local-6989586621679253499"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAppsList
-</span><a href="#local-6989586621679253500"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appsList:PutAppsList' :: AppsListData
+</span><a href="#local-6989586621679253758"><span class="hs-identifier hs-var hs-var">appsList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AppsListData
+</span><a href="#local-6989586621679253758"><span class="hs-identifier hs-var">appsList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253757"><span class="annot"><span class="annottext">s :: PutAppsList
+</span><a href="#local-6989586621679253757"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsList%27"><span class="hs-identifier hs-type">PutAppsList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253756"><span class="annot"><span class="annottext">AppsListData
+</span><a href="#local-6989586621679253756"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAppsList
+</span><a href="#local-6989586621679253757"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appsList:PutAppsList' :: AppsListData
 </span><a href="Network.AWS.FMS.PutAppsList.html#%24sel%3AappsList%3APutAppsList%27"><span class="hs-identifier hs-var">appsList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AppsListData
-</span><a href="#local-6989586621679253499"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsList"><span class="hs-identifier hs-type">PutAppsList</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679253756"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsList"><span class="hs-identifier hs-type">PutAppsList</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsList"><span class="hs-identifier hs-type">PutAppsList</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-90"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsList"><span class="hs-identifier hs-type">PutAppsList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsListResponse"><span class="hs-identifier hs-type">PutAppsListResponse</span></a></span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679253495"><span class="annot"><span class="annottext">request :: PutAppsList -&gt; Request PutAppsList
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679253752"><span class="annot"><span class="annottext">request :: PutAppsList -&gt; Request PutAppsList
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutAppsList -&gt; Request PutAppsList
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.FMS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679253491"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679253748"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutAppsList
 -&gt; ClientResponse ClientBody
@@ -221,30 +221,30 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679253488"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679253488"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679253487"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679253487"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679253486"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679253486"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Maybe AppsListData -&gt; Maybe Text -&gt; Int -&gt; PutAppsListResponse
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679253745"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253745"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679253744"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679253744"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679253743"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679253743"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe AppsListData -&gt; Int -&gt; PutAppsListResponse
 </span><a href="Network.AWS.FMS.PutAppsList.html#PutAppsListResponse%27"><span class="hs-identifier hs-var">PutAppsListResponse'</span></a></span><span>
-</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">(Maybe AppsListData -&gt; Maybe Text -&gt; Int -&gt; PutAppsListResponse)
--&gt; Either String (Maybe AppsListData)
--&gt; Either String (Maybe Text -&gt; Int -&gt; PutAppsListResponse)
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe AppsListData -&gt; Int -&gt; PutAppsListResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe AppsListData -&gt; Int -&gt; PutAppsListResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679253486"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe AppsListData)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AppsList&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; PutAppsListResponse)
--&gt; Either String (Maybe Text)
--&gt; Either String (Int -&gt; PutAppsListResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679253486"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679253743"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AppsListArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe AppsListData -&gt; Int -&gt; PutAppsListResponse)
+-&gt; Either String (Maybe AppsListData)
+-&gt; Either String (Int -&gt; PutAppsListResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679253743"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe AppsListData)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AppsList&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; PutAppsListResponse)
 -&gt; Either String Int -&gt; Either String PutAppsListResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -253,15 +253,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679253488"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679253745"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253478"><span id="local-6989586621679253480"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsList"><span class="hs-identifier hs-type">PutAppsList</span></a></span></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253735"><span id="local-6989586621679253737"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsList"><span class="hs-identifier hs-type">PutAppsList</span></a></span></span></span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253475"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsList"><span class="hs-identifier hs-type">PutAppsList</span></a></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253732"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsList"><span class="hs-identifier hs-type">PutAppsList</span></a></span></span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsList"><span class="hs-identifier hs-type">PutAppsList</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679253471"><span class="annot"><span class="annottext">toHeaders :: PutAppsList -&gt; ResponseHeaders
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679253728"><span class="annot"><span class="annottext">toHeaders :: PutAppsList -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PutAppsList -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -288,15 +288,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253461"><span id="local-6989586621679253463"><span id="local-6989586621679253465"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsList"><span class="hs-identifier hs-type">PutAppsList</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679253459"><span class="annot"><span class="annottext">toJSON :: PutAppsList -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsList%27"><span class="hs-identifier hs-type">PutAppsList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253456"><span id="local-6989586621679253457"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253718"><span id="local-6989586621679253720"><span id="local-6989586621679253722"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsList"><span class="hs-identifier hs-type">PutAppsList</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679253716"><span class="annot"><span class="annottext">toJSON :: PutAppsList -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsList%27"><span class="hs-identifier hs-type">PutAppsList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253713"><span id="local-6989586621679253714"><span class="annot"><span class="annottext">Maybe [Tag]
 AppsListData
 appsList :: AppsListData
 tagList :: Maybe [Tag]
 $sel:appsList:PutAppsList' :: PutAppsList -&gt; AppsListData
 $sel:tagList:PutAppsList' :: PutAppsList -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679253456"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679253713"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -308,26 +308,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679253457"><span class="hs-identifier hs-var">tagList</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679253714"><span class="hs-identifier hs-var">tagList</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AppsList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AppsListData -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">AppsListData
-</span><a href="#local-6989586621679253456"><span class="hs-identifier hs-var">appsList</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679253713"><span class="hs-identifier hs-var">appsList</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsList"><span class="hs-identifier hs-type">PutAppsList</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679253450"><span class="annot"><span class="annottext">toPath :: PutAppsList -&gt; ByteString
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679253707"><span class="annot"><span class="annottext">toPath :: PutAppsList -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutAppsList -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsList"><span class="hs-identifier hs-type">PutAppsList</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679253446"><span class="annot"><span class="annottext">toQuery :: PutAppsList -&gt; QueryString
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679253703"><span class="annot"><span class="annottext">toQuery :: PutAppsList -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutAppsList -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -335,18 +335,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | /See:/ 'newPutAppsListResponse' smart constructor.</span><span>
-</span><span id="line-136"></span><span id="local-6989586621679253443"><span id="local-6989586621679253444"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutAppsListResponse"><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsListResponse"><span class="hs-identifier hs-var">PutAppsListResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutAppsListResponse%27"><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsListResponse%27"><span class="hs-identifier hs-var">PutAppsListResponse'</span></a></span></span><span>
-</span><span id="line-137"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The details of the Firewall Manager applications list.</span><span>
-</span><span id="line-138"></span><span>    </span><span id="%24sel%3AappsList%3APutAppsListResponse%27"><span class="annot"><span class="annottext">PutAppsListResponse -&gt; Maybe AppsListData
-</span><a href="Network.AWS.FMS.PutAppsList.html#%24sel%3AappsList%3APutAppsListResponse%27"><span class="hs-identifier hs-var hs-var">appsList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.AppsListData.html#AppsListData"><span class="hs-identifier hs-type">AppsListData</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the applications list.</span><span>
-</span><span id="line-140"></span><span>    </span><span id="%24sel%3AappsListArn%3APutAppsListResponse%27"><span class="annot"><span class="annottext">PutAppsListResponse -&gt; Maybe Text
+</span><span id="line-136"></span><span id="local-6989586621679253700"><span id="local-6989586621679253701"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutAppsListResponse"><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsListResponse"><span class="hs-identifier hs-var">PutAppsListResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutAppsListResponse%27"><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsListResponse%27"><span class="hs-identifier hs-var">PutAppsListResponse'</span></a></span></span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the applications list.</span><span>
+</span><span id="line-138"></span><span>    </span><span id="%24sel%3AappsListArn%3APutAppsListResponse%27"><span class="annot"><span class="annottext">PutAppsListResponse -&gt; Maybe Text
 </span><a href="Network.AWS.FMS.PutAppsList.html#%24sel%3AappsListArn%3APutAppsListResponse%27"><span class="hs-identifier hs-var hs-var">appsListArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- | The details of the Firewall Manager applications list.</span><span>
+</span><span id="line-140"></span><span>    </span><span id="%24sel%3AappsList%3APutAppsListResponse%27"><span class="annot"><span class="annottext">PutAppsListResponse -&gt; Maybe AppsListData
+</span><a href="Network.AWS.FMS.PutAppsList.html#%24sel%3AappsList%3APutAppsListResponse%27"><span class="hs-identifier hs-var hs-var">appsList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.AppsListData.html#AppsListData"><span class="hs-identifier hs-type">AppsListData</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-141"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-142"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutAppsListResponse%27"><span class="annot"><span class="annottext">PutAppsListResponse -&gt; Int
 </span><a href="Network.AWS.FMS.PutAppsList.html#%24sel%3AhttpStatus%3APutAppsListResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-143"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679253436"><span id="local-6989586621679253438"><span class="annot"><span class="annottext">PutAppsListResponse -&gt; PutAppsListResponse -&gt; Bool
+</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679253693"><span id="local-6989586621679253695"><span class="annot"><span class="annottext">PutAppsListResponse -&gt; PutAppsListResponse -&gt; Bool
 (PutAppsListResponse -&gt; PutAppsListResponse -&gt; Bool)
 -&gt; (PutAppsListResponse -&gt; PutAppsListResponse -&gt; Bool)
 -&gt; Eq PutAppsListResponse
@@ -355,7 +355,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutAppsListResponse -&gt; PutAppsListResponse -&gt; Bool
 == :: PutAppsListResponse -&gt; PutAppsListResponse -&gt; Bool
 $c== :: PutAppsListResponse -&gt; PutAppsListResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253428"><span id="local-6989586621679253430"><span id="local-6989586621679253432"><span id="local-6989586621679253434"><span class="annot"><span class="annottext">ReadPrec [PutAppsListResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253685"><span id="local-6989586621679253687"><span id="local-6989586621679253689"><span id="local-6989586621679253691"><span class="annot"><span class="annottext">ReadPrec [PutAppsListResponse]
 ReadPrec PutAppsListResponse
 Int -&gt; ReadS PutAppsListResponse
 ReadS [PutAppsListResponse]
@@ -375,7 +375,7 @@ readList :: ReadS [PutAppsListResponse]
 $creadList :: ReadS [PutAppsListResponse]
 readsPrec :: Int -&gt; ReadS PutAppsListResponse
 $creadsPrec :: Int -&gt; ReadS PutAppsListResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253422"><span id="local-6989586621679253424"><span id="local-6989586621679253426"><span class="annot"><span class="annottext">Int -&gt; PutAppsListResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253679"><span id="local-6989586621679253681"><span id="local-6989586621679253683"><span class="annot"><span class="annottext">Int -&gt; PutAppsListResponse -&gt; ShowS
 [PutAppsListResponse] -&gt; ShowS
 PutAppsListResponse -&gt; String
 (Int -&gt; PutAppsListResponse -&gt; ShowS)
@@ -409,9 +409,9 @@ $cfrom :: forall x. PutAppsListResponse -&gt; Rep PutAppsListResponse x
 </span><span id="line-151"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-153"></span><span class="hs-comment">--</span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- 'appsList', 'putAppsListResponse_appsList' - The details of the Firewall Manager applications list.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- 'appsListArn', 'putAppsListResponse_appsListArn' - The Amazon Resource Name (ARN) of the applications list.</span><span>
 </span><span id="line-155"></span><span class="hs-comment">--</span><span>
-</span><span id="line-156"></span><span class="hs-comment">-- 'appsListArn', 'putAppsListResponse_appsListArn' - The Amazon Resource Name (ARN) of the applications list.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'appsList', 'putAppsListResponse_appsList' - The details of the Firewall Manager applications list.</span><span>
 </span><span id="line-157"></span><span class="hs-comment">--</span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- 'httpStatus', 'putAppsListResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-159"></span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#newPutAppsListResponse"><span class="hs-identifier hs-type">newPutAppsListResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -419,26 +419,46 @@ $cfrom :: forall x. PutAppsListResponse -&gt; Rep PutAppsListResponse x
 </span><span id="line-161"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-162"></span><span>  </span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsListResponse"><span class="hs-identifier hs-type">PutAppsListResponse</span></a></span><span>
 </span><span id="line-163"></span><span id="newPutAppsListResponse"><span class="annot"><span class="annottext">newPutAppsListResponse :: Int -&gt; PutAppsListResponse
-</span><a href="Network.AWS.FMS.PutAppsList.html#newPutAppsListResponse"><span class="hs-identifier hs-var hs-var">newPutAppsListResponse</span></a></span></span><span> </span><span id="local-6989586621679253419"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679253419"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-164"></span><span>  </span><span class="annot"><span class="annottext">PutAppsListResponse' :: Maybe AppsListData -&gt; Maybe Text -&gt; Int -&gt; PutAppsListResponse
+</span><a href="Network.AWS.FMS.PutAppsList.html#newPutAppsListResponse"><span class="hs-identifier hs-var hs-var">newPutAppsListResponse</span></a></span></span><span> </span><span id="local-6989586621679253676"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253676"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>  </span><span class="annot"><span class="annottext">PutAppsListResponse' :: Maybe Text -&gt; Maybe AppsListData -&gt; Int -&gt; PutAppsListResponse
 </span><a href="Network.AWS.FMS.PutAppsList.html#PutAppsListResponse%27"><span class="hs-identifier hs-type">PutAppsListResponse'</span></a></span><span>
-</span><span id="line-165"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:appsList:PutAppsListResponse' :: Maybe AppsListData
-</span><a href="Network.AWS.FMS.PutAppsList.html#%24sel%3AappsList%3APutAppsListResponse%27"><span class="hs-identifier hs-var">appsList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AppsListData
+</span><span id="line-165"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:appsListArn:PutAppsListResponse' :: Maybe Text
+</span><a href="Network.AWS.FMS.PutAppsList.html#%24sel%3AappsListArn%3APutAppsListResponse%27"><span class="hs-identifier hs-var">appsListArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:appsListArn:PutAppsListResponse' :: Maybe Text
-</span><a href="Network.AWS.FMS.PutAppsList.html#%24sel%3AappsListArn%3APutAppsListResponse%27"><span class="hs-identifier hs-var">appsListArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:appsList:PutAppsListResponse' :: Maybe AppsListData
+</span><a href="Network.AWS.FMS.PutAppsList.html#%24sel%3AappsList%3APutAppsListResponse%27"><span class="hs-identifier hs-var">appsList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AppsListData
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:PutAppsListResponse' :: Int
 </span><a href="Network.AWS.FMS.PutAppsList.html#%24sel%3AhttpStatus%3APutAppsListResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679253419"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679253676"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-168"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-169"></span><span>
-</span><span id="line-170"></span><span class="hs-comment">-- | The details of the Firewall Manager applications list.</span><span>
-</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#putAppsListResponse_appsList"><span class="hs-identifier hs-type">putAppsListResponse_appsList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsListResponse"><span class="hs-identifier hs-type">PutAppsListResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.AppsListData.html#AppsListData"><span class="hs-identifier hs-type">AppsListData</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-172"></span><span id="putAppsListResponse_appsList"><span class="annot"><span class="annottext">putAppsListResponse_appsList :: (Maybe AppsListData -&gt; f (Maybe AppsListData))
+</span><span id="line-170"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the applications list.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#putAppsListResponse_appsListArn"><span class="hs-identifier hs-type">putAppsListResponse_appsListArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsListResponse"><span class="hs-identifier hs-type">PutAppsListResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span id="putAppsListResponse_appsListArn"><span class="annot"><span class="annottext">putAppsListResponse_appsListArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PutAppsListResponse -&gt; f PutAppsListResponse
+</span><a href="Network.AWS.FMS.PutAppsList.html#putAppsListResponse_appsListArn"><span class="hs-identifier hs-var hs-var">putAppsListResponse_appsListArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutAppsListResponse -&gt; Maybe Text)
+-&gt; (PutAppsListResponse -&gt; Maybe Text -&gt; PutAppsListResponse)
+-&gt; Lens
+     PutAppsListResponse PutAppsListResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsListResponse%27"><span class="hs-identifier hs-type">PutAppsListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253675"><span class="annot"><span class="annottext">Maybe Text
+appsListArn :: Maybe Text
+$sel:appsListArn:PutAppsListResponse' :: PutAppsListResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679253675"><span class="hs-identifier hs-var hs-var">appsListArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253675"><span class="hs-identifier hs-var">appsListArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253674"><span class="annot"><span class="annottext">s :: PutAppsListResponse
+</span><a href="#local-6989586621679253674"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsListResponse%27"><span class="hs-identifier hs-type">PutAppsListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253673"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253673"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAppsListResponse
+</span><a href="#local-6989586621679253674"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appsListArn:PutAppsListResponse' :: Maybe Text
+</span><a href="Network.AWS.FMS.PutAppsList.html#%24sel%3AappsListArn%3APutAppsListResponse%27"><span class="hs-identifier hs-var">appsListArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253673"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsListResponse"><span class="hs-identifier hs-type">PutAppsListResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | The details of the Firewall Manager applications list.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#putAppsListResponse_appsList"><span class="hs-identifier hs-type">putAppsListResponse_appsList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsListResponse"><span class="hs-identifier hs-type">PutAppsListResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.AppsListData.html#AppsListData"><span class="hs-identifier hs-type">AppsListData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span id="putAppsListResponse_appsList"><span class="annot"><span class="annottext">putAppsListResponse_appsList :: (Maybe AppsListData -&gt; f (Maybe AppsListData))
 -&gt; PutAppsListResponse -&gt; f PutAppsListResponse
 </span><a href="Network.AWS.FMS.PutAppsList.html#putAppsListResponse_appsList"><span class="hs-identifier hs-var hs-var">putAppsListResponse_appsList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutAppsListResponse -&gt; Maybe AppsListData)
 -&gt; (PutAppsListResponse
@@ -449,36 +469,16 @@ forall a. Maybe a
      (Maybe AppsListData)
      (Maybe AppsListData)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsListResponse%27"><span class="hs-identifier hs-type">PutAppsListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253418"><span class="annot"><span class="annottext">Maybe AppsListData
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsListResponse%27"><span class="hs-identifier hs-type">PutAppsListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253672"><span class="annot"><span class="annottext">Maybe AppsListData
 appsList :: Maybe AppsListData
 $sel:appsList:PutAppsListResponse' :: PutAppsListResponse -&gt; Maybe AppsListData
-</span><a href="#local-6989586621679253418"><span class="hs-identifier hs-var hs-var">appsList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AppsListData
-</span><a href="#local-6989586621679253418"><span class="hs-identifier hs-var">appsList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253417"><span class="annot"><span class="annottext">s :: PutAppsListResponse
-</span><a href="#local-6989586621679253417"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsListResponse%27"><span class="hs-identifier hs-type">PutAppsListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253416"><span class="annot"><span class="annottext">Maybe AppsListData
-</span><a href="#local-6989586621679253416"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAppsListResponse
-</span><a href="#local-6989586621679253417"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appsList:PutAppsListResponse' :: Maybe AppsListData
+</span><a href="#local-6989586621679253672"><span class="hs-identifier hs-var hs-var">appsList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AppsListData
+</span><a href="#local-6989586621679253672"><span class="hs-identifier hs-var">appsList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253671"><span class="annot"><span class="annottext">s :: PutAppsListResponse
+</span><a href="#local-6989586621679253671"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsListResponse%27"><span class="hs-identifier hs-type">PutAppsListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253670"><span class="annot"><span class="annottext">Maybe AppsListData
+</span><a href="#local-6989586621679253670"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAppsListResponse
+</span><a href="#local-6989586621679253671"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appsList:PutAppsListResponse' :: Maybe AppsListData
 </span><a href="Network.AWS.FMS.PutAppsList.html#%24sel%3AappsList%3APutAppsListResponse%27"><span class="hs-identifier hs-var">appsList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AppsListData
-</span><a href="#local-6989586621679253416"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsListResponse"><span class="hs-identifier hs-type">PutAppsListResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-173"></span><span>
-</span><span id="line-174"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the applications list.</span><span>
-</span><span id="line-175"></span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#putAppsListResponse_appsListArn"><span class="hs-identifier hs-type">putAppsListResponse_appsListArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsListResponse"><span class="hs-identifier hs-type">PutAppsListResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-176"></span><span id="putAppsListResponse_appsListArn"><span class="annot"><span class="annottext">putAppsListResponse_appsListArn :: (Maybe Text -&gt; f (Maybe Text))
--&gt; PutAppsListResponse -&gt; f PutAppsListResponse
-</span><a href="Network.AWS.FMS.PutAppsList.html#putAppsListResponse_appsListArn"><span class="hs-identifier hs-var hs-var">putAppsListResponse_appsListArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutAppsListResponse -&gt; Maybe Text)
--&gt; (PutAppsListResponse -&gt; Maybe Text -&gt; PutAppsListResponse)
--&gt; Lens
-     PutAppsListResponse PutAppsListResponse (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsListResponse%27"><span class="hs-identifier hs-type">PutAppsListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253415"><span class="annot"><span class="annottext">Maybe Text
-appsListArn :: Maybe Text
-$sel:appsListArn:PutAppsListResponse' :: PutAppsListResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679253415"><span class="hs-identifier hs-var hs-var">appsListArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679253415"><span class="hs-identifier hs-var">appsListArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253414"><span class="annot"><span class="annottext">s :: PutAppsListResponse
-</span><a href="#local-6989586621679253414"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsListResponse%27"><span class="hs-identifier hs-type">PutAppsListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253413"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679253413"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAppsListResponse
-</span><a href="#local-6989586621679253414"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appsListArn:PutAppsListResponse' :: Maybe Text
-</span><a href="Network.AWS.FMS.PutAppsList.html#%24sel%3AappsListArn%3APutAppsListResponse%27"><span class="hs-identifier hs-var">appsListArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679253413"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsListResponse"><span class="hs-identifier hs-type">PutAppsListResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679253670"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsListResponse"><span class="hs-identifier hs-type">PutAppsListResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-179"></span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#putAppsListResponse_httpStatus"><span class="hs-identifier hs-type">putAppsListResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsListResponse"><span class="hs-identifier hs-type">PutAppsListResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -487,16 +487,16 @@ $sel:appsListArn:PutAppsListResponse' :: PutAppsListResponse -&gt; Maybe Text
 -&gt; (PutAppsListResponse -&gt; Int -&gt; PutAppsListResponse)
 -&gt; Lens PutAppsListResponse PutAppsListResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsListResponse%27"><span class="hs-identifier hs-type">PutAppsListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253412"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsListResponse%27"><span class="hs-identifier hs-type">PutAppsListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253669"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:PutAppsListResponse' :: PutAppsListResponse -&gt; Int
-</span><a href="#local-6989586621679253412"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679253412"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253411"><span class="annot"><span class="annottext">s :: PutAppsListResponse
-</span><a href="#local-6989586621679253411"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsListResponse%27"><span class="hs-identifier hs-type">PutAppsListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253410"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679253410"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAppsListResponse
-</span><a href="#local-6989586621679253411"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutAppsListResponse' :: Int
+</span><a href="#local-6989586621679253669"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253669"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253668"><span class="annot"><span class="annottext">s :: PutAppsListResponse
+</span><a href="#local-6989586621679253668"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsListResponse%27"><span class="hs-identifier hs-type">PutAppsListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253667"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253667"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAppsListResponse
+</span><a href="#local-6989586621679253668"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutAppsListResponse' :: Int
 </span><a href="Network.AWS.FMS.PutAppsList.html#%24sel%3AhttpStatus%3APutAppsListResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679253410"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsListResponse"><span class="hs-identifier hs-type">PutAppsListResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679253667"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsListResponse"><span class="hs-identifier hs-type">PutAppsListResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-181"></span><span>
-</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253408"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsListResponse"><span class="hs-identifier hs-type">PutAppsListResponse</span></a></span></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253665"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.PutAppsList.html#PutAppsListResponse"><span class="hs-identifier hs-type">PutAppsListResponse</span></a></span></span><span>
 </span><span id="line-183"></span></pre></body></html>

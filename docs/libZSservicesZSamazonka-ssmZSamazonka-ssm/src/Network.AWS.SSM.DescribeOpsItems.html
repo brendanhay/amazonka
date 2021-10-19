@@ -39,9 +39,9 @@
 </span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#newDescribeOpsItems"><span class="hs-identifier">newDescribeOpsItems</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>
 </span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#describeOpsItems_nextToken"><span class="hs-identifier">describeOpsItems_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#describeOpsItems_maxResults"><span class="hs-identifier">describeOpsItems_maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#describeOpsItems_opsItemFilters"><span class="hs-identifier">describeOpsItems_opsItemFilters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#describeOpsItems_opsItemFilters"><span class="hs-identifier">describeOpsItems_opsItemFilters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#describeOpsItems_nextToken"><span class="hs-identifier">describeOpsItems_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#describeOpsItems_maxResults"><span class="hs-identifier">describeOpsItems_maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>
 </span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItemsResponse"><span class="hs-identifier">DescribeOpsItemsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -62,81 +62,81 @@
 </span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.html"><span class="hs-identifier">Network.AWS.SSM.Types</span></a></span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | /See:/ 'newDescribeOpsItems' smart constructor.</span><span>
-</span><span id="line-65"></span><span id="local-6989586621679840521"><span id="local-6989586621679840522"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeOpsItems"><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItems"><span class="hs-identifier hs-var">DescribeOpsItems</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeOpsItems%27"><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItems%27"><span class="hs-identifier hs-var">DescribeOpsItems'</span></a></span></span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token to start the list. Use this token to get the next set of</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- results.</span><span>
-</span><span id="line-68"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeOpsItems%27"><span class="annot"><span class="annottext">DescribeOpsItems -&gt; Maybe Text
+</span><span id="line-65"></span><span id="local-6989586621679842319"><span id="local-6989586621679842320"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeOpsItems"><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItems"><span class="hs-identifier hs-var">DescribeOpsItems</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeOpsItems%27"><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItems%27"><span class="hs-identifier hs-var">DescribeOpsItems'</span></a></span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One or more filters to limit the response.</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- -   Key: CreatedTime</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--     Operations: GreaterThan, LessThan</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- -   Key: LastModifiedBy</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--     Operations: Contains, Equals</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- -   Key: LastModifiedTime</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--     Operations: GreaterThan, LessThan</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- -   Key: Priority</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--     Operations: Equals</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- -   Key: Source</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">--     Operations: Contains, Equals</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- -   Key: Status</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">--     Operations: Equals</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- -   Key: Title*</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">--     Operations: Equals,Contains</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- -   Key: OperationalData**</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">--     Operations: Equals</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- -   Key: OperationalDataKey</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">--     Operations: Equals</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- -   Key: OperationalDataValue</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">--     Operations: Equals, Contains</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- -   Key: OpsItemId</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">--     Operations: Equals</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- -   Key: ResourceId</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">--     Operations: Contains</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- -   Key: AutomationId</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">--     Operations: Equals</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- *The Equals operator for Title matches the first 100 characters. If you</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- specify more than 100 characters, they system returns an error that the</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- filter value exceeds the length limit.</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- **If you filter the response by using the OperationalData operator,</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- specify a key-value pair by using the following JSON format:</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- {\&quot;key\&quot;:\&quot;key_name\&quot;,\&quot;value\&quot;:\&quot;a_value\&quot;}</span><span>
+</span><span id="line-127"></span><span>    </span><span id="%24sel%3AopsItemFilters%3ADescribeOpsItems%27"><span class="annot"><span class="annottext">DescribeOpsItems -&gt; Maybe [OpsItemFilter]
+</span><a href="Network.AWS.SSM.DescribeOpsItems.html#%24sel%3AopsItemFilters%3ADescribeOpsItems%27"><span class="hs-identifier hs-var hs-var">opsItemFilters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemFilter.html#OpsItemFilter"><span class="hs-identifier hs-type">OpsItemFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- | A token to start the list. Use this token to get the next set of</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-130"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeOpsItems%27"><span class="annot"><span class="annottext">DescribeOpsItems -&gt; Maybe Text
 </span><a href="Network.AWS.SSM.DescribeOpsItems.html#%24sel%3AnextToken%3ADescribeOpsItems%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The maximum number of items to return for this call. The call also</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- returns a token that you can specify in a subsequent call to get the</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- next set of results.</span><span>
-</span><span id="line-72"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeOpsItems%27"><span class="annot"><span class="annottext">DescribeOpsItems -&gt; Maybe Natural
-</span><a href="Network.AWS.SSM.DescribeOpsItems.html#%24sel%3AmaxResults%3ADescribeOpsItems%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | One or more filters to limit the response.</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- -   Key: CreatedTime</span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">--     Operations: GreaterThan, LessThan</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- -   Key: LastModifiedBy</span><span>
-</span><span id="line-80"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-81"></span><span>    </span><span class="hs-comment">--     Operations: Contains, Equals</span><span>
-</span><span id="line-82"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- -   Key: LastModifiedTime</span><span>
-</span><span id="line-84"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-85"></span><span>    </span><span class="hs-comment">--     Operations: GreaterThan, LessThan</span><span>
-</span><span id="line-86"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- -   Key: Priority</span><span>
-</span><span id="line-88"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-89"></span><span>    </span><span class="hs-comment">--     Operations: Equals</span><span>
-</span><span id="line-90"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- -   Key: Source</span><span>
-</span><span id="line-92"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-93"></span><span>    </span><span class="hs-comment">--     Operations: Contains, Equals</span><span>
-</span><span id="line-94"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- -   Key: Status</span><span>
-</span><span id="line-96"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-97"></span><span>    </span><span class="hs-comment">--     Operations: Equals</span><span>
-</span><span id="line-98"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- -   Key: Title*</span><span>
-</span><span id="line-100"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-101"></span><span>    </span><span class="hs-comment">--     Operations: Equals,Contains</span><span>
-</span><span id="line-102"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- -   Key: OperationalData**</span><span>
-</span><span id="line-104"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-105"></span><span>    </span><span class="hs-comment">--     Operations: Equals</span><span>
-</span><span id="line-106"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- -   Key: OperationalDataKey</span><span>
-</span><span id="line-108"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-109"></span><span>    </span><span class="hs-comment">--     Operations: Equals</span><span>
-</span><span id="line-110"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- -   Key: OperationalDataValue</span><span>
-</span><span id="line-112"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-113"></span><span>    </span><span class="hs-comment">--     Operations: Equals, Contains</span><span>
-</span><span id="line-114"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- -   Key: OpsItemId</span><span>
-</span><span id="line-116"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-117"></span><span>    </span><span class="hs-comment">--     Operations: Equals</span><span>
-</span><span id="line-118"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- -   Key: ResourceId</span><span>
-</span><span id="line-120"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-121"></span><span>    </span><span class="hs-comment">--     Operations: Contains</span><span>
-</span><span id="line-122"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- -   Key: AutomationId</span><span>
-</span><span id="line-124"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-125"></span><span>    </span><span class="hs-comment">--     Operations: Equals</span><span>
-</span><span id="line-126"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- *The Equals operator for Title matches the first 100 characters. If you</span><span>
-</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- specify more than 100 characters, they system returns an error that the</span><span>
-</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- filter value exceeds the length limit.</span><span>
-</span><span id="line-130"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- **If you filter the response by using the OperationalData operator,</span><span>
-</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- specify a key-value pair by using the following JSON format:</span><span>
-</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- {\&quot;key\&quot;:\&quot;key_name\&quot;,\&quot;value\&quot;:\&quot;a_value\&quot;}</span><span>
-</span><span id="line-134"></span><span>    </span><span id="%24sel%3AopsItemFilters%3ADescribeOpsItems%27"><span class="annot"><span class="annottext">DescribeOpsItems -&gt; Maybe [OpsItemFilter]
-</span><a href="Network.AWS.SSM.DescribeOpsItems.html#%24sel%3AopsItemFilters%3ADescribeOpsItems%27"><span class="hs-identifier hs-var hs-var">opsItemFilters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemFilter.html#OpsItemFilter"><span class="hs-identifier hs-type">OpsItemFilter</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- | The maximum number of items to return for this call. The call also</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- returns a token that you can specify in a subsequent call to get the</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- next set of results.</span><span>
+</span><span id="line-134"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeOpsItems%27"><span class="annot"><span class="annottext">DescribeOpsItems -&gt; Maybe Natural
+</span><a href="Network.AWS.SSM.DescribeOpsItems.html#%24sel%3AmaxResults%3ADescribeOpsItems%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-135"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-136"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679840513"><span id="local-6989586621679840515"><span class="annot"><span class="annottext">DescribeOpsItems -&gt; DescribeOpsItems -&gt; Bool
+</span><span id="line-136"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679842311"><span id="local-6989586621679842313"><span class="annot"><span class="annottext">DescribeOpsItems -&gt; DescribeOpsItems -&gt; Bool
 (DescribeOpsItems -&gt; DescribeOpsItems -&gt; Bool)
 -&gt; (DescribeOpsItems -&gt; DescribeOpsItems -&gt; Bool)
 -&gt; Eq DescribeOpsItems
@@ -145,7 +145,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeOpsItems -&gt; DescribeOpsItems -&gt; Bool
 == :: DescribeOpsItems -&gt; DescribeOpsItems -&gt; Bool
 $c== :: DescribeOpsItems -&gt; DescribeOpsItems -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679840504"><span id="local-6989586621679840506"><span id="local-6989586621679840508"><span id="local-6989586621679840510"><span class="annot"><span class="annottext">ReadPrec [DescribeOpsItems]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679842302"><span id="local-6989586621679842304"><span id="local-6989586621679842306"><span id="local-6989586621679842308"><span class="annot"><span class="annottext">ReadPrec [DescribeOpsItems]
 ReadPrec DescribeOpsItems
 Int -&gt; ReadS DescribeOpsItems
 ReadS [DescribeOpsItems]
@@ -165,7 +165,7 @@ readList :: ReadS [DescribeOpsItems]
 $creadList :: ReadS [DescribeOpsItems]
 readsPrec :: Int -&gt; ReadS DescribeOpsItems
 $creadsPrec :: Int -&gt; ReadS DescribeOpsItems
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679840497"><span id="local-6989586621679840499"><span id="local-6989586621679840501"><span class="annot"><span class="annottext">Int -&gt; DescribeOpsItems -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679842295"><span id="local-6989586621679842297"><span id="local-6989586621679842299"><span class="annot"><span class="annottext">Int -&gt; DescribeOpsItems -&gt; ShowS
 [DescribeOpsItems] -&gt; ShowS
 DescribeOpsItems -&gt; String
 (Int -&gt; DescribeOpsItems -&gt; ShowS)
@@ -199,200 +199,158 @@ $cfrom :: forall x. DescribeOpsItems -&gt; Rep DescribeOpsItems x
 </span><span id="line-143"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-145"></span><span class="hs-comment">--</span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- 'nextToken', 'describeOpsItems_nextToken' - A token to start the list. Use this token to get the next set of</span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- results.</span><span>
-</span><span id="line-148"></span><span class="hs-comment">--</span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- 'maxResults', 'describeOpsItems_maxResults' - The maximum number of items to return for this call. The call also</span><span>
-</span><span id="line-150"></span><span class="hs-comment">-- returns a token that you can specify in a subsequent call to get the</span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- next set of results.</span><span>
-</span><span id="line-152"></span><span class="hs-comment">--</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- 'opsItemFilters', 'describeOpsItems_opsItemFilters' - One or more filters to limit the response.</span><span>
-</span><span id="line-154"></span><span class="hs-comment">--</span><span>
-</span><span id="line-155"></span><span class="hs-comment">-- -   Key: CreatedTime</span><span>
-</span><span id="line-156"></span><span class="hs-comment">--</span><span>
-</span><span id="line-157"></span><span class="hs-comment">--     Operations: GreaterThan, LessThan</span><span>
-</span><span id="line-158"></span><span class="hs-comment">--</span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- -   Key: LastModifiedBy</span><span>
-</span><span id="line-160"></span><span class="hs-comment">--</span><span>
-</span><span id="line-161"></span><span class="hs-comment">--     Operations: Contains, Equals</span><span>
-</span><span id="line-162"></span><span class="hs-comment">--</span><span>
-</span><span id="line-163"></span><span class="hs-comment">-- -   Key: LastModifiedTime</span><span>
-</span><span id="line-164"></span><span class="hs-comment">--</span><span>
-</span><span id="line-165"></span><span class="hs-comment">--     Operations: GreaterThan, LessThan</span><span>
-</span><span id="line-166"></span><span class="hs-comment">--</span><span>
-</span><span id="line-167"></span><span class="hs-comment">-- -   Key: Priority</span><span>
-</span><span id="line-168"></span><span class="hs-comment">--</span><span>
-</span><span id="line-169"></span><span class="hs-comment">--     Operations: Equals</span><span>
-</span><span id="line-170"></span><span class="hs-comment">--</span><span>
-</span><span id="line-171"></span><span class="hs-comment">-- -   Key: Source</span><span>
-</span><span id="line-172"></span><span class="hs-comment">--</span><span>
-</span><span id="line-173"></span><span class="hs-comment">--     Operations: Contains, Equals</span><span>
-</span><span id="line-174"></span><span class="hs-comment">--</span><span>
-</span><span id="line-175"></span><span class="hs-comment">-- -   Key: Status</span><span>
-</span><span id="line-176"></span><span class="hs-comment">--</span><span>
-</span><span id="line-177"></span><span class="hs-comment">--     Operations: Equals</span><span>
-</span><span id="line-178"></span><span class="hs-comment">--</span><span>
-</span><span id="line-179"></span><span class="hs-comment">-- -   Key: Title*</span><span>
-</span><span id="line-180"></span><span class="hs-comment">--</span><span>
-</span><span id="line-181"></span><span class="hs-comment">--     Operations: Equals,Contains</span><span>
-</span><span id="line-182"></span><span class="hs-comment">--</span><span>
-</span><span id="line-183"></span><span class="hs-comment">-- -   Key: OperationalData**</span><span>
-</span><span id="line-184"></span><span class="hs-comment">--</span><span>
-</span><span id="line-185"></span><span class="hs-comment">--     Operations: Equals</span><span>
-</span><span id="line-186"></span><span class="hs-comment">--</span><span>
-</span><span id="line-187"></span><span class="hs-comment">-- -   Key: OperationalDataKey</span><span>
-</span><span id="line-188"></span><span class="hs-comment">--</span><span>
-</span><span id="line-189"></span><span class="hs-comment">--     Operations: Equals</span><span>
-</span><span id="line-190"></span><span class="hs-comment">--</span><span>
-</span><span id="line-191"></span><span class="hs-comment">-- -   Key: OperationalDataValue</span><span>
-</span><span id="line-192"></span><span class="hs-comment">--</span><span>
-</span><span id="line-193"></span><span class="hs-comment">--     Operations: Equals, Contains</span><span>
-</span><span id="line-194"></span><span class="hs-comment">--</span><span>
-</span><span id="line-195"></span><span class="hs-comment">-- -   Key: OpsItemId</span><span>
-</span><span id="line-196"></span><span class="hs-comment">--</span><span>
-</span><span id="line-197"></span><span class="hs-comment">--     Operations: Equals</span><span>
-</span><span id="line-198"></span><span class="hs-comment">--</span><span>
-</span><span id="line-199"></span><span class="hs-comment">-- -   Key: ResourceId</span><span>
-</span><span id="line-200"></span><span class="hs-comment">--</span><span>
-</span><span id="line-201"></span><span class="hs-comment">--     Operations: Contains</span><span>
-</span><span id="line-202"></span><span class="hs-comment">--</span><span>
-</span><span id="line-203"></span><span class="hs-comment">-- -   Key: AutomationId</span><span>
-</span><span id="line-204"></span><span class="hs-comment">--</span><span>
-</span><span id="line-205"></span><span class="hs-comment">--     Operations: Equals</span><span>
-</span><span id="line-206"></span><span class="hs-comment">--</span><span>
-</span><span id="line-207"></span><span class="hs-comment">-- *The Equals operator for Title matches the first 100 characters. If you</span><span>
-</span><span id="line-208"></span><span class="hs-comment">-- specify more than 100 characters, they system returns an error that the</span><span>
-</span><span id="line-209"></span><span class="hs-comment">-- filter value exceeds the length limit.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 'opsItemFilters', 'describeOpsItems_opsItemFilters' - One or more filters to limit the response.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- -   Key: CreatedTime</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--     Operations: GreaterThan, LessThan</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- -   Key: LastModifiedBy</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--     Operations: Contains, Equals</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- -   Key: LastModifiedTime</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--     Operations: GreaterThan, LessThan</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- -   Key: Priority</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--     Operations: Equals</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- -   Key: Source</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--     Operations: Contains, Equals</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- -   Key: Status</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--     Operations: Equals</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- -   Key: Title*</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--     Operations: Equals,Contains</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- -   Key: OperationalData**</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--     Operations: Equals</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- -   Key: OperationalDataKey</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--     Operations: Equals</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- -   Key: OperationalDataValue</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--     Operations: Equals, Contains</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- -   Key: OpsItemId</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--     Operations: Equals</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- -   Key: ResourceId</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--     Operations: Contains</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- -   Key: AutomationId</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--     Operations: Equals</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- *The Equals operator for Title matches the first 100 characters. If you</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- specify more than 100 characters, they system returns an error that the</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- filter value exceeds the length limit.</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- **If you filter the response by using the OperationalData operator,</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- specify a key-value pair by using the following JSON format:</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- {\&quot;key\&quot;:\&quot;key_name\&quot;,\&quot;value\&quot;:\&quot;a_value\&quot;}</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- 'nextToken', 'describeOpsItems_nextToken' - A token to start the list. Use this token to get the next set of</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- results.</span><span>
 </span><span id="line-210"></span><span class="hs-comment">--</span><span>
-</span><span id="line-211"></span><span class="hs-comment">-- **If you filter the response by using the OperationalData operator,</span><span>
-</span><span id="line-212"></span><span class="hs-comment">-- specify a key-value pair by using the following JSON format:</span><span>
-</span><span id="line-213"></span><span class="hs-comment">-- {\&quot;key\&quot;:\&quot;key_name\&quot;,\&quot;value\&quot;:\&quot;a_value\&quot;}</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- 'maxResults', 'describeOpsItems_maxResults' - The maximum number of items to return for this call. The call also</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- returns a token that you can specify in a subsequent call to get the</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- next set of results.</span><span>
 </span><span id="line-214"></span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#newDescribeOpsItems"><span class="hs-identifier hs-type">newDescribeOpsItems</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-215"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItems"><span class="hs-identifier hs-type">DescribeOpsItems</span></a></span><span>
 </span><span id="line-216"></span><span id="newDescribeOpsItems"><span class="annot"><span class="annottext">newDescribeOpsItems :: DescribeOpsItems
 </span><a href="Network.AWS.SSM.DescribeOpsItems.html#newDescribeOpsItems"><span class="hs-identifier hs-var hs-var">newDescribeOpsItems</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-217"></span><span>  </span><span class="annot"><span class="annottext">DescribeOpsItems' :: Maybe Text
--&gt; Maybe Natural -&gt; Maybe [OpsItemFilter] -&gt; DescribeOpsItems
+</span><span id="line-217"></span><span>  </span><span class="annot"><span class="annottext">DescribeOpsItems' :: Maybe [OpsItemFilter]
+-&gt; Maybe Text -&gt; Maybe Natural -&gt; DescribeOpsItems
 </span><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItems%27"><span class="hs-identifier hs-type">DescribeOpsItems'</span></a></span><span>
-</span><span id="line-218"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeOpsItems' :: Maybe Text
+</span><span id="line-218"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:opsItemFilters:DescribeOpsItems' :: Maybe [OpsItemFilter]
+</span><a href="Network.AWS.SSM.DescribeOpsItems.html#%24sel%3AopsItemFilters%3ADescribeOpsItems%27"><span class="hs-identifier hs-var">opsItemFilters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [OpsItemFilter]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeOpsItems' :: Maybe Text
 </span><a href="Network.AWS.SSM.DescribeOpsItems.html#%24sel%3AnextToken%3ADescribeOpsItems%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-219"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:DescribeOpsItems' :: Maybe Natural
+</span><span id="line-220"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:DescribeOpsItems' :: Maybe Natural
 </span><a href="Network.AWS.SSM.DescribeOpsItems.html#%24sel%3AmaxResults%3ADescribeOpsItems%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-220"></span><span>      </span><span class="annot"><span class="annottext">$sel:opsItemFilters:DescribeOpsItems' :: Maybe [OpsItemFilter]
-</span><a href="Network.AWS.SSM.DescribeOpsItems.html#%24sel%3AopsItemFilters%3ADescribeOpsItems%27"><span class="hs-identifier hs-var">opsItemFilters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [OpsItemFilter]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-221"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-222"></span><span>
-</span><span id="line-223"></span><span class="hs-comment">-- | A token to start the list. Use this token to get the next set of</span><span>
-</span><span id="line-224"></span><span class="hs-comment">-- results.</span><span>
-</span><span id="line-225"></span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#describeOpsItems_nextToken"><span class="hs-identifier hs-type">describeOpsItems_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItems"><span class="hs-identifier hs-type">DescribeOpsItems</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-226"></span><span id="describeOpsItems_nextToken"><span class="annot"><span class="annottext">describeOpsItems_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribeOpsItems -&gt; f DescribeOpsItems
-</span><a href="Network.AWS.SSM.DescribeOpsItems.html#describeOpsItems_nextToken"><span class="hs-identifier hs-var hs-var">describeOpsItems_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeOpsItems -&gt; Maybe Text)
--&gt; (DescribeOpsItems -&gt; Maybe Text -&gt; DescribeOpsItems)
--&gt; Lens DescribeOpsItems DescribeOpsItems (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItems%27"><span class="hs-identifier hs-type">DescribeOpsItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679840491"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:DescribeOpsItems' :: DescribeOpsItems -&gt; Maybe Text
-</span><a href="#local-6989586621679840491"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679840491"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679840490"><span class="annot"><span class="annottext">s :: DescribeOpsItems
-</span><a href="#local-6989586621679840490"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItems%27"><span class="hs-identifier hs-type">DescribeOpsItems'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679840489"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679840489"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOpsItems
-</span><a href="#local-6989586621679840490"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeOpsItems' :: Maybe Text
-</span><a href="Network.AWS.SSM.DescribeOpsItems.html#%24sel%3AnextToken%3ADescribeOpsItems%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679840489"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItems"><span class="hs-identifier hs-type">DescribeOpsItems</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-227"></span><span>
-</span><span id="line-228"></span><span class="hs-comment">-- | The maximum number of items to return for this call. The call also</span><span>
-</span><span id="line-229"></span><span class="hs-comment">-- returns a token that you can specify in a subsequent call to get the</span><span>
-</span><span id="line-230"></span><span class="hs-comment">-- next set of results.</span><span>
-</span><span id="line-231"></span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#describeOpsItems_maxResults"><span class="hs-identifier hs-type">describeOpsItems_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItems"><span class="hs-identifier hs-type">DescribeOpsItems</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-232"></span><span id="describeOpsItems_maxResults"><span class="annot"><span class="annottext">describeOpsItems_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; DescribeOpsItems -&gt; f DescribeOpsItems
-</span><a href="Network.AWS.SSM.DescribeOpsItems.html#describeOpsItems_maxResults"><span class="hs-identifier hs-var hs-var">describeOpsItems_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeOpsItems -&gt; Maybe Natural)
--&gt; (DescribeOpsItems -&gt; Maybe Natural -&gt; DescribeOpsItems)
--&gt; Lens
-     DescribeOpsItems DescribeOpsItems (Maybe Natural) (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItems%27"><span class="hs-identifier hs-type">DescribeOpsItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679840488"><span class="annot"><span class="annottext">Maybe Natural
-maxResults :: Maybe Natural
-$sel:maxResults:DescribeOpsItems' :: DescribeOpsItems -&gt; Maybe Natural
-</span><a href="#local-6989586621679840488"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679840488"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679840487"><span class="annot"><span class="annottext">s :: DescribeOpsItems
-</span><a href="#local-6989586621679840487"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItems%27"><span class="hs-identifier hs-type">DescribeOpsItems'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679840486"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679840486"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOpsItems
-</span><a href="#local-6989586621679840487"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeOpsItems' :: Maybe Natural
-</span><a href="Network.AWS.SSM.DescribeOpsItems.html#%24sel%3AmaxResults%3ADescribeOpsItems%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679840486"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItems"><span class="hs-identifier hs-type">DescribeOpsItems</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-233"></span><span>
-</span><span id="line-234"></span><span class="hs-comment">-- | One or more filters to limit the response.</span><span>
-</span><span id="line-235"></span><span class="hs-comment">--</span><span>
-</span><span id="line-236"></span><span class="hs-comment">-- -   Key: CreatedTime</span><span>
-</span><span id="line-237"></span><span class="hs-comment">--</span><span>
-</span><span id="line-238"></span><span class="hs-comment">--     Operations: GreaterThan, LessThan</span><span>
-</span><span id="line-239"></span><span class="hs-comment">--</span><span>
-</span><span id="line-240"></span><span class="hs-comment">-- -   Key: LastModifiedBy</span><span>
-</span><span id="line-241"></span><span class="hs-comment">--</span><span>
-</span><span id="line-242"></span><span class="hs-comment">--     Operations: Contains, Equals</span><span>
-</span><span id="line-243"></span><span class="hs-comment">--</span><span>
-</span><span id="line-244"></span><span class="hs-comment">-- -   Key: LastModifiedTime</span><span>
-</span><span id="line-245"></span><span class="hs-comment">--</span><span>
-</span><span id="line-246"></span><span class="hs-comment">--     Operations: GreaterThan, LessThan</span><span>
-</span><span id="line-247"></span><span class="hs-comment">--</span><span>
-</span><span id="line-248"></span><span class="hs-comment">-- -   Key: Priority</span><span>
-</span><span id="line-249"></span><span class="hs-comment">--</span><span>
-</span><span id="line-250"></span><span class="hs-comment">--     Operations: Equals</span><span>
-</span><span id="line-251"></span><span class="hs-comment">--</span><span>
-</span><span id="line-252"></span><span class="hs-comment">-- -   Key: Source</span><span>
-</span><span id="line-253"></span><span class="hs-comment">--</span><span>
-</span><span id="line-254"></span><span class="hs-comment">--     Operations: Contains, Equals</span><span>
-</span><span id="line-255"></span><span class="hs-comment">--</span><span>
-</span><span id="line-256"></span><span class="hs-comment">-- -   Key: Status</span><span>
-</span><span id="line-257"></span><span class="hs-comment">--</span><span>
-</span><span id="line-258"></span><span class="hs-comment">--     Operations: Equals</span><span>
-</span><span id="line-259"></span><span class="hs-comment">--</span><span>
-</span><span id="line-260"></span><span class="hs-comment">-- -   Key: Title*</span><span>
-</span><span id="line-261"></span><span class="hs-comment">--</span><span>
-</span><span id="line-262"></span><span class="hs-comment">--     Operations: Equals,Contains</span><span>
-</span><span id="line-263"></span><span class="hs-comment">--</span><span>
-</span><span id="line-264"></span><span class="hs-comment">-- -   Key: OperationalData**</span><span>
-</span><span id="line-265"></span><span class="hs-comment">--</span><span>
-</span><span id="line-266"></span><span class="hs-comment">--     Operations: Equals</span><span>
-</span><span id="line-267"></span><span class="hs-comment">--</span><span>
-</span><span id="line-268"></span><span class="hs-comment">-- -   Key: OperationalDataKey</span><span>
-</span><span id="line-269"></span><span class="hs-comment">--</span><span>
-</span><span id="line-270"></span><span class="hs-comment">--     Operations: Equals</span><span>
-</span><span id="line-271"></span><span class="hs-comment">--</span><span>
-</span><span id="line-272"></span><span class="hs-comment">-- -   Key: OperationalDataValue</span><span>
-</span><span id="line-273"></span><span class="hs-comment">--</span><span>
-</span><span id="line-274"></span><span class="hs-comment">--     Operations: Equals, Contains</span><span>
-</span><span id="line-275"></span><span class="hs-comment">--</span><span>
-</span><span id="line-276"></span><span class="hs-comment">-- -   Key: OpsItemId</span><span>
-</span><span id="line-277"></span><span class="hs-comment">--</span><span>
-</span><span id="line-278"></span><span class="hs-comment">--     Operations: Equals</span><span>
-</span><span id="line-279"></span><span class="hs-comment">--</span><span>
-</span><span id="line-280"></span><span class="hs-comment">-- -   Key: ResourceId</span><span>
-</span><span id="line-281"></span><span class="hs-comment">--</span><span>
-</span><span id="line-282"></span><span class="hs-comment">--     Operations: Contains</span><span>
-</span><span id="line-283"></span><span class="hs-comment">--</span><span>
-</span><span id="line-284"></span><span class="hs-comment">-- -   Key: AutomationId</span><span>
-</span><span id="line-285"></span><span class="hs-comment">--</span><span>
-</span><span id="line-286"></span><span class="hs-comment">--     Operations: Equals</span><span>
-</span><span id="line-287"></span><span class="hs-comment">--</span><span>
-</span><span id="line-288"></span><span class="hs-comment">-- *The Equals operator for Title matches the first 100 characters. If you</span><span>
-</span><span id="line-289"></span><span class="hs-comment">-- specify more than 100 characters, they system returns an error that the</span><span>
-</span><span id="line-290"></span><span class="hs-comment">-- filter value exceeds the length limit.</span><span>
-</span><span id="line-291"></span><span class="hs-comment">--</span><span>
-</span><span id="line-292"></span><span class="hs-comment">-- **If you filter the response by using the OperationalData operator,</span><span>
-</span><span id="line-293"></span><span class="hs-comment">-- specify a key-value pair by using the following JSON format:</span><span>
-</span><span id="line-294"></span><span class="hs-comment">-- {\&quot;key\&quot;:\&quot;key_name\&quot;,\&quot;value\&quot;:\&quot;a_value\&quot;}</span><span>
-</span><span id="line-295"></span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#describeOpsItems_opsItemFilters"><span class="hs-identifier hs-type">describeOpsItems_opsItemFilters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItems"><span class="hs-identifier hs-type">DescribeOpsItems</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemFilter.html#OpsItemFilter"><span class="hs-identifier hs-type">OpsItemFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-296"></span><span id="describeOpsItems_opsItemFilters"><span class="annot"><span class="annottext">describeOpsItems_opsItemFilters :: (Maybe [OpsItemFilter] -&gt; f (Maybe [OpsItemFilter]))
+</span><span id="line-223"></span><span class="hs-comment">-- | One or more filters to limit the response.</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- -   Key: CreatedTime</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--     Operations: GreaterThan, LessThan</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- -   Key: LastModifiedBy</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--     Operations: Contains, Equals</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- -   Key: LastModifiedTime</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--     Operations: GreaterThan, LessThan</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- -   Key: Priority</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--     Operations: Equals</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- -   Key: Source</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--</span><span>
+</span><span id="line-243"></span><span class="hs-comment">--     Operations: Contains, Equals</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- -   Key: Status</span><span>
+</span><span id="line-246"></span><span class="hs-comment">--</span><span>
+</span><span id="line-247"></span><span class="hs-comment">--     Operations: Equals</span><span>
+</span><span id="line-248"></span><span class="hs-comment">--</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- -   Key: Title*</span><span>
+</span><span id="line-250"></span><span class="hs-comment">--</span><span>
+</span><span id="line-251"></span><span class="hs-comment">--     Operations: Equals,Contains</span><span>
+</span><span id="line-252"></span><span class="hs-comment">--</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- -   Key: OperationalData**</span><span>
+</span><span id="line-254"></span><span class="hs-comment">--</span><span>
+</span><span id="line-255"></span><span class="hs-comment">--     Operations: Equals</span><span>
+</span><span id="line-256"></span><span class="hs-comment">--</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- -   Key: OperationalDataKey</span><span>
+</span><span id="line-258"></span><span class="hs-comment">--</span><span>
+</span><span id="line-259"></span><span class="hs-comment">--     Operations: Equals</span><span>
+</span><span id="line-260"></span><span class="hs-comment">--</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- -   Key: OperationalDataValue</span><span>
+</span><span id="line-262"></span><span class="hs-comment">--</span><span>
+</span><span id="line-263"></span><span class="hs-comment">--     Operations: Equals, Contains</span><span>
+</span><span id="line-264"></span><span class="hs-comment">--</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- -   Key: OpsItemId</span><span>
+</span><span id="line-266"></span><span class="hs-comment">--</span><span>
+</span><span id="line-267"></span><span class="hs-comment">--     Operations: Equals</span><span>
+</span><span id="line-268"></span><span class="hs-comment">--</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- -   Key: ResourceId</span><span>
+</span><span id="line-270"></span><span class="hs-comment">--</span><span>
+</span><span id="line-271"></span><span class="hs-comment">--     Operations: Contains</span><span>
+</span><span id="line-272"></span><span class="hs-comment">--</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- -   Key: AutomationId</span><span>
+</span><span id="line-274"></span><span class="hs-comment">--</span><span>
+</span><span id="line-275"></span><span class="hs-comment">--     Operations: Equals</span><span>
+</span><span id="line-276"></span><span class="hs-comment">--</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- *The Equals operator for Title matches the first 100 characters. If you</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- specify more than 100 characters, they system returns an error that the</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- filter value exceeds the length limit.</span><span>
+</span><span id="line-280"></span><span class="hs-comment">--</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- **If you filter the response by using the OperationalData operator,</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- specify a key-value pair by using the following JSON format:</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- {\&quot;key\&quot;:\&quot;key_name\&quot;,\&quot;value\&quot;:\&quot;a_value\&quot;}</span><span>
+</span><span id="line-284"></span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#describeOpsItems_opsItemFilters"><span class="hs-identifier hs-type">describeOpsItems_opsItemFilters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItems"><span class="hs-identifier hs-type">DescribeOpsItems</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemFilter.html#OpsItemFilter"><span class="hs-identifier hs-type">OpsItemFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-285"></span><span id="describeOpsItems_opsItemFilters"><span class="annot"><span class="annottext">describeOpsItems_opsItemFilters :: (Maybe [OpsItemFilter] -&gt; f (Maybe [OpsItemFilter]))
 -&gt; DescribeOpsItems -&gt; f DescribeOpsItems
 </span><a href="Network.AWS.SSM.DescribeOpsItems.html#describeOpsItems_opsItemFilters"><span class="hs-identifier hs-var hs-var">describeOpsItems_opsItemFilters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeOpsItems -&gt; Maybe [OpsItemFilter])
 -&gt; (DescribeOpsItems -&gt; Maybe [OpsItemFilter] -&gt; DescribeOpsItems)
@@ -402,16 +360,16 @@ $sel:maxResults:DescribeOpsItems' :: DescribeOpsItems -&gt; Maybe Natural
      (Maybe [OpsItemFilter])
      (Maybe [OpsItemFilter])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItems%27"><span class="hs-identifier hs-type">DescribeOpsItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679840485"><span class="annot"><span class="annottext">Maybe [OpsItemFilter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItems%27"><span class="hs-identifier hs-type">DescribeOpsItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679842289"><span class="annot"><span class="annottext">Maybe [OpsItemFilter]
 opsItemFilters :: Maybe [OpsItemFilter]
 $sel:opsItemFilters:DescribeOpsItems' :: DescribeOpsItems -&gt; Maybe [OpsItemFilter]
-</span><a href="#local-6989586621679840485"><span class="hs-identifier hs-var hs-var">opsItemFilters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [OpsItemFilter]
-</span><a href="#local-6989586621679840485"><span class="hs-identifier hs-var">opsItemFilters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679840484"><span class="annot"><span class="annottext">s :: DescribeOpsItems
-</span><a href="#local-6989586621679840484"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItems%27"><span class="hs-identifier hs-type">DescribeOpsItems'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679840483"><span class="annot"><span class="annottext">Maybe [OpsItemFilter]
-</span><a href="#local-6989586621679840483"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOpsItems
-</span><a href="#local-6989586621679840484"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:opsItemFilters:DescribeOpsItems' :: Maybe [OpsItemFilter]
+</span><a href="#local-6989586621679842289"><span class="hs-identifier hs-var hs-var">opsItemFilters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [OpsItemFilter]
+</span><a href="#local-6989586621679842289"><span class="hs-identifier hs-var">opsItemFilters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679842288"><span class="annot"><span class="annottext">s :: DescribeOpsItems
+</span><a href="#local-6989586621679842288"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItems%27"><span class="hs-identifier hs-type">DescribeOpsItems'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679842287"><span class="annot"><span class="annottext">Maybe [OpsItemFilter]
+</span><a href="#local-6989586621679842287"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOpsItems
+</span><a href="#local-6989586621679842288"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:opsItemFilters:DescribeOpsItems' :: Maybe [OpsItemFilter]
 </span><a href="Network.AWS.SSM.DescribeOpsItems.html#%24sel%3AopsItemFilters%3ADescribeOpsItems%27"><span class="hs-identifier hs-var">opsItemFilters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [OpsItemFilter]
-</span><a href="#local-6989586621679840483"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItems"><span class="hs-identifier hs-type">DescribeOpsItems</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [OpsItemFilter] -&gt; f (Maybe [OpsItemFilter]))
+</span><a href="#local-6989586621679842287"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItems"><span class="hs-identifier hs-type">DescribeOpsItems</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [OpsItemFilter] -&gt; f (Maybe [OpsItemFilter]))
  -&gt; DescribeOpsItems -&gt; f DescribeOpsItems)
 -&gt; ((Maybe [OpsItemFilter] -&gt; f (Maybe [OpsItemFilter]))
     -&gt; Maybe [OpsItemFilter] -&gt; f (Maybe [OpsItemFilter]))
@@ -431,21 +389,63 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   [OpsItemFilter] [OpsItemFilter] [OpsItemFilter] [OpsItemFilter]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-286"></span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- | A token to start the list. Use this token to get the next set of</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-289"></span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#describeOpsItems_nextToken"><span class="hs-identifier hs-type">describeOpsItems_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItems"><span class="hs-identifier hs-type">DescribeOpsItems</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-290"></span><span id="describeOpsItems_nextToken"><span class="annot"><span class="annottext">describeOpsItems_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeOpsItems -&gt; f DescribeOpsItems
+</span><a href="Network.AWS.SSM.DescribeOpsItems.html#describeOpsItems_nextToken"><span class="hs-identifier hs-var hs-var">describeOpsItems_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeOpsItems -&gt; Maybe Text)
+-&gt; (DescribeOpsItems -&gt; Maybe Text -&gt; DescribeOpsItems)
+-&gt; Lens DescribeOpsItems DescribeOpsItems (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItems%27"><span class="hs-identifier hs-type">DescribeOpsItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679842283"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeOpsItems' :: DescribeOpsItems -&gt; Maybe Text
+</span><a href="#local-6989586621679842283"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679842283"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679842282"><span class="annot"><span class="annottext">s :: DescribeOpsItems
+</span><a href="#local-6989586621679842282"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItems%27"><span class="hs-identifier hs-type">DescribeOpsItems'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679842281"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679842281"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOpsItems
+</span><a href="#local-6989586621679842282"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeOpsItems' :: Maybe Text
+</span><a href="Network.AWS.SSM.DescribeOpsItems.html#%24sel%3AnextToken%3ADescribeOpsItems%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679842281"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItems"><span class="hs-identifier hs-type">DescribeOpsItems</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- | The maximum number of items to return for this call. The call also</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- returns a token that you can specify in a subsequent call to get the</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- next set of results.</span><span>
+</span><span id="line-295"></span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#describeOpsItems_maxResults"><span class="hs-identifier hs-type">describeOpsItems_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItems"><span class="hs-identifier hs-type">DescribeOpsItems</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-296"></span><span id="describeOpsItems_maxResults"><span class="annot"><span class="annottext">describeOpsItems_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DescribeOpsItems -&gt; f DescribeOpsItems
+</span><a href="Network.AWS.SSM.DescribeOpsItems.html#describeOpsItems_maxResults"><span class="hs-identifier hs-var hs-var">describeOpsItems_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeOpsItems -&gt; Maybe Natural)
+-&gt; (DescribeOpsItems -&gt; Maybe Natural -&gt; DescribeOpsItems)
+-&gt; Lens
+     DescribeOpsItems DescribeOpsItems (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItems%27"><span class="hs-identifier hs-type">DescribeOpsItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679842280"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:DescribeOpsItems' :: DescribeOpsItems -&gt; Maybe Natural
+</span><a href="#local-6989586621679842280"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679842280"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679842279"><span class="annot"><span class="annottext">s :: DescribeOpsItems
+</span><a href="#local-6989586621679842279"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItems%27"><span class="hs-identifier hs-type">DescribeOpsItems'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679842278"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679842278"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOpsItems
+</span><a href="#local-6989586621679842279"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeOpsItems' :: Maybe Natural
+</span><a href="Network.AWS.SSM.DescribeOpsItems.html#%24sel%3AmaxResults%3ADescribeOpsItems%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679842278"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItems"><span class="hs-identifier hs-type">DescribeOpsItems</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-297"></span><span>
 </span><span id="line-298"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItems"><span class="hs-identifier hs-type">DescribeOpsItems</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-299"></span><span>  </span><span id="local-6989586621679840476"><span class="annot"><span class="annottext">page :: DescribeOpsItems
+</span><span id="line-299"></span><span>  </span><span id="local-6989586621679842274"><span class="annot"><span class="annottext">page :: DescribeOpsItems
 -&gt; AWSResponse DescribeOpsItems -&gt; Maybe DescribeOpsItems
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679840474"><span class="annot"><span class="annottext">DescribeOpsItems
-</span><a href="#local-6989586621679840474"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679840473"><span class="annot"><span class="annottext">AWSResponse DescribeOpsItems
-</span><a href="#local-6989586621679840473"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679842272"><span class="annot"><span class="annottext">DescribeOpsItems
+</span><a href="#local-6989586621679842272"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679842271"><span class="annot"><span class="annottext">AWSResponse DescribeOpsItems
+</span><a href="#local-6989586621679842271"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-300"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-301"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeOpsItems
 DescribeOpsItemsResponse
-</span><a href="#local-6989586621679840473"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679842271"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-302"></span><span>            </span><span class="annot"><span class="annottext">DescribeOpsItemsResponse
 -&gt; Getting (First Text) DescribeOpsItemsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -474,7 +474,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-307"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeOpsItems
 DescribeOpsItemsResponse
-</span><a href="#local-6989586621679840473"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679842271"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-308"></span><span>            </span><span class="annot"><span class="annottext">DescribeOpsItemsResponse
 -&gt; Getting
      (First [OpsItemSummary]) DescribeOpsItemsResponse [OpsItemSummary]
@@ -516,7 +516,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-314"></span><span>        </span><span class="annot"><span class="annottext">DescribeOpsItems
-</span><a href="#local-6989586621679840474"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679842272"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-315"></span><span>          </span><span class="annot"><span class="annottext">DescribeOpsItems
 -&gt; (DescribeOpsItems -&gt; DescribeOpsItems) -&gt; DescribeOpsItems
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -530,7 +530,7 @@ Lens DescribeOpsItems DescribeOpsItems (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeOpsItems
 DescribeOpsItemsResponse
-</span><a href="#local-6989586621679840473"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679842271"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-317"></span><span>          </span><span class="annot"><span class="annottext">DescribeOpsItemsResponse
 -&gt; Getting (First Text) DescribeOpsItemsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -555,12 +555,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-321"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-322"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItems"><span class="hs-identifier hs-type">DescribeOpsItems</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-323"></span><span>      </span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItemsResponse"><span class="hs-identifier hs-type">DescribeOpsItemsResponse</span></a></span><span>
-</span><span id="line-324"></span><span>  </span><span id="local-6989586621679840464"><span class="annot"><span class="annottext">request :: DescribeOpsItems -&gt; Request DescribeOpsItems
+</span><span id="line-324"></span><span>  </span><span id="local-6989586621679842262"><span class="annot"><span class="annottext">request :: DescribeOpsItems -&gt; Request DescribeOpsItems
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeOpsItems -&gt; Request DescribeOpsItems
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SSM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-325"></span><span>  </span><span id="local-6989586621679840460"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-325"></span><span>  </span><span id="local-6989586621679842258"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeOpsItems
 -&gt; ClientResponse ClientBody
@@ -584,10 +584,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-327"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679840457"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679840457"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679840456"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679840456"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679840455"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679840455"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-327"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679842255"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679842255"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679842254"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679842254"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679842253"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679842253"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-328"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [OpsItemSummary] -&gt; Int -&gt; DescribeOpsItemsResponse
 </span><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItemsResponse%27"><span class="hs-identifier hs-var">DescribeOpsItemsResponse'</span></a></span><span>
@@ -598,7 +598,7 @@ MonadResource m =&gt;
      String (Maybe [OpsItemSummary] -&gt; Int -&gt; DescribeOpsItemsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679840455"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679842253"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -608,7 +608,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; DescribeOpsItemsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679840455"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [OpsItemSummary]))
+</span><a href="#local-6989586621679842253"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [OpsItemSummary]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OpsItemSummaries&quot;</span></span><span>
@@ -627,15 +627,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679840457"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679842255"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-334"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-335"></span><span>
-</span><span id="line-336"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679840446"><span id="local-6989586621679840448"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItems"><span class="hs-identifier hs-type">DescribeOpsItems</span></a></span></span></span><span>
+</span><span id="line-336"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679842244"><span id="local-6989586621679842246"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItems"><span class="hs-identifier hs-type">DescribeOpsItems</span></a></span></span></span><span>
 </span><span id="line-337"></span><span>
-</span><span id="line-338"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679840443"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItems"><span class="hs-identifier hs-type">DescribeOpsItems</span></a></span></span><span>
+</span><span id="line-338"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679842241"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItems"><span class="hs-identifier hs-type">DescribeOpsItems</span></a></span></span><span>
 </span><span id="line-339"></span><span>
 </span><span id="line-340"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItems"><span class="hs-identifier hs-type">DescribeOpsItems</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-341"></span><span>  </span><span id="local-6989586621679840439"><span class="annot"><span class="annottext">toHeaders :: DescribeOpsItems -&gt; ResponseHeaders
+</span><span id="line-341"></span><span>  </span><span id="local-6989586621679842237"><span class="annot"><span class="annottext">toHeaders :: DescribeOpsItems -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-342"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeOpsItems -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -660,57 +660,57 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-350"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-351"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-352"></span><span>
-</span><span id="line-353"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679840429"><span id="local-6989586621679840431"><span id="local-6989586621679840433"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItems"><span class="hs-identifier hs-type">DescribeOpsItems</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-354"></span><span>  </span><span id="local-6989586621679840427"><span class="annot"><span class="annottext">toJSON :: DescribeOpsItems -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItems%27"><span class="hs-identifier hs-type">DescribeOpsItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679840423"><span id="local-6989586621679840424"><span id="local-6989586621679840425"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-353"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679842227"><span id="local-6989586621679842229"><span id="local-6989586621679842231"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItems"><span class="hs-identifier hs-type">DescribeOpsItems</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-354"></span><span>  </span><span id="local-6989586621679842225"><span class="annot"><span class="annottext">toJSON :: DescribeOpsItems -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItems%27"><span class="hs-identifier hs-type">DescribeOpsItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679842221"><span id="local-6989586621679842222"><span id="local-6989586621679842223"><span class="annot"><span class="annottext">Maybe Natural
 Maybe [OpsItemFilter]
 Maybe Text
-opsItemFilters :: Maybe [OpsItemFilter]
 maxResults :: Maybe Natural
 nextToken :: Maybe Text
-$sel:opsItemFilters:DescribeOpsItems' :: DescribeOpsItems -&gt; Maybe [OpsItemFilter]
+opsItemFilters :: Maybe [OpsItemFilter]
 $sel:maxResults:DescribeOpsItems' :: DescribeOpsItems -&gt; Maybe Natural
 $sel:nextToken:DescribeOpsItems' :: DescribeOpsItems -&gt; Maybe Text
-</span><a href="#local-6989586621679840423"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:opsItemFilters:DescribeOpsItems' :: DescribeOpsItems -&gt; Maybe [OpsItemFilter]
+</span><a href="#local-6989586621679842221"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-355"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-356"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-357"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OpsItemFilters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [OpsItemFilter] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-358"></span><span>              </span><span class="annot"><span class="annottext">([OpsItemFilter] -&gt; Pair) -&gt; Maybe [OpsItemFilter] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [OpsItemFilter]
+</span><a href="#local-6989586621679842223"><span class="hs-identifier hs-var">opsItemFilters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-359"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679840425"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-358"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679842222"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-360"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679840424"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-359"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;OpsItemFilters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [OpsItemFilter] -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-360"></span><span>              </span><span class="annot"><span class="annottext">([OpsItemFilter] -&gt; Pair) -&gt; Maybe [OpsItemFilter] -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [OpsItemFilter]
-</span><a href="#local-6989586621679840423"><span class="hs-identifier hs-var">opsItemFilters</span></a></span><span>
+</span><a href="#local-6989586621679842221"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-361"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-362"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-363"></span><span>
 </span><span id="line-364"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItems"><span class="hs-identifier hs-type">DescribeOpsItems</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-365"></span><span>  </span><span id="local-6989586621679840417"><span class="annot"><span class="annottext">toPath :: DescribeOpsItems -&gt; ByteString
+</span><span id="line-365"></span><span>  </span><span id="local-6989586621679842215"><span class="annot"><span class="annottext">toPath :: DescribeOpsItems -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeOpsItems -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-366"></span><span>
 </span><span id="line-367"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItems"><span class="hs-identifier hs-type">DescribeOpsItems</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-368"></span><span>  </span><span id="local-6989586621679840413"><span class="annot"><span class="annottext">toQuery :: DescribeOpsItems -&gt; QueryString
+</span><span id="line-368"></span><span>  </span><span id="local-6989586621679842211"><span class="annot"><span class="annottext">toQuery :: DescribeOpsItems -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeOpsItems -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -718,7 +718,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-369"></span><span>
 </span><span id="line-370"></span><span class="hs-comment">-- | /See:/ 'newDescribeOpsItemsResponse' smart constructor.</span><span>
-</span><span id="line-371"></span><span id="local-6989586621679840410"><span id="local-6989586621679840411"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeOpsItemsResponse"><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItemsResponse"><span class="hs-identifier hs-var">DescribeOpsItemsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeOpsItemsResponse%27"><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItemsResponse%27"><span class="hs-identifier hs-var">DescribeOpsItemsResponse'</span></a></span></span><span>
+</span><span id="line-371"></span><span id="local-6989586621679842208"><span id="local-6989586621679842209"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeOpsItemsResponse"><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItemsResponse"><span class="hs-identifier hs-var">DescribeOpsItemsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeOpsItemsResponse%27"><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItemsResponse%27"><span class="hs-identifier hs-var">DescribeOpsItemsResponse'</span></a></span></span><span>
 </span><span id="line-372"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next set of items to return. Use this token to get the</span><span>
 </span><span id="line-373"></span><span>    </span><span class="hs-comment">-- next set of results.</span><span>
 </span><span id="line-374"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeOpsItemsResponse%27"><span class="annot"><span class="annottext">DescribeOpsItemsResponse -&gt; Maybe Text
@@ -730,7 +730,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-378"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeOpsItemsResponse%27"><span class="annot"><span class="annottext">DescribeOpsItemsResponse -&gt; Int
 </span><a href="Network.AWS.SSM.DescribeOpsItems.html#%24sel%3AhttpStatus%3ADescribeOpsItemsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-379"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-380"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679840403"><span id="local-6989586621679840405"><span class="annot"><span class="annottext">DescribeOpsItemsResponse -&gt; DescribeOpsItemsResponse -&gt; Bool
+</span><span id="line-380"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679842201"><span id="local-6989586621679842203"><span class="annot"><span class="annottext">DescribeOpsItemsResponse -&gt; DescribeOpsItemsResponse -&gt; Bool
 (DescribeOpsItemsResponse -&gt; DescribeOpsItemsResponse -&gt; Bool)
 -&gt; (DescribeOpsItemsResponse -&gt; DescribeOpsItemsResponse -&gt; Bool)
 -&gt; Eq DescribeOpsItemsResponse
@@ -739,7 +739,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeOpsItemsResponse -&gt; DescribeOpsItemsResponse -&gt; Bool
 == :: DescribeOpsItemsResponse -&gt; DescribeOpsItemsResponse -&gt; Bool
 $c== :: DescribeOpsItemsResponse -&gt; DescribeOpsItemsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679840395"><span id="local-6989586621679840397"><span id="local-6989586621679840399"><span id="local-6989586621679840401"><span class="annot"><span class="annottext">ReadPrec [DescribeOpsItemsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679842193"><span id="local-6989586621679842195"><span id="local-6989586621679842197"><span id="local-6989586621679842199"><span class="annot"><span class="annottext">ReadPrec [DescribeOpsItemsResponse]
 ReadPrec DescribeOpsItemsResponse
 Int -&gt; ReadS DescribeOpsItemsResponse
 ReadS [DescribeOpsItemsResponse]
@@ -759,7 +759,7 @@ readList :: ReadS [DescribeOpsItemsResponse]
 $creadList :: ReadS [DescribeOpsItemsResponse]
 readsPrec :: Int -&gt; ReadS DescribeOpsItemsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeOpsItemsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679840389"><span id="local-6989586621679840391"><span id="local-6989586621679840393"><span class="annot"><span class="annottext">Int -&gt; DescribeOpsItemsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679842187"><span id="local-6989586621679842189"><span id="local-6989586621679842191"><span class="annot"><span class="annottext">Int -&gt; DescribeOpsItemsResponse -&gt; ShowS
 [DescribeOpsItemsResponse] -&gt; ShowS
 DescribeOpsItemsResponse -&gt; String
 (Int -&gt; DescribeOpsItemsResponse -&gt; ShowS)
@@ -810,8 +810,8 @@ DescribeOpsItemsResponse -&gt; Rep DescribeOpsItemsResponse x
 </span><span id="line-398"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-399"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItemsResponse"><span class="hs-identifier hs-type">DescribeOpsItemsResponse</span></a></span><span>
 </span><span id="line-400"></span><span id="newDescribeOpsItemsResponse"><span class="annot"><span class="annottext">newDescribeOpsItemsResponse :: Int -&gt; DescribeOpsItemsResponse
-</span><a href="Network.AWS.SSM.DescribeOpsItems.html#newDescribeOpsItemsResponse"><span class="hs-identifier hs-var hs-var">newDescribeOpsItemsResponse</span></a></span></span><span> </span><span id="local-6989586621679840386"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679840386"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.DescribeOpsItems.html#newDescribeOpsItemsResponse"><span class="hs-identifier hs-var hs-var">newDescribeOpsItemsResponse</span></a></span></span><span> </span><span id="local-6989586621679842184"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679842184"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-401"></span><span>  </span><span class="annot"><span class="annottext">DescribeOpsItemsResponse' :: Maybe Text
 -&gt; Maybe [OpsItemSummary] -&gt; Int -&gt; DescribeOpsItemsResponse
 </span><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItemsResponse%27"><span class="hs-identifier hs-type">DescribeOpsItemsResponse'</span></a></span><span>
@@ -826,7 +826,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-405"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeOpsItemsResponse' :: Int
 </span><a href="Network.AWS.SSM.DescribeOpsItems.html#%24sel%3AhttpStatus%3ADescribeOpsItemsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679840386"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679842184"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-406"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-407"></span><span>
 </span><span id="line-408"></span><span class="hs-comment">-- | The token for the next set of items to return. Use this token to get the</span><span>
@@ -839,16 +839,16 @@ forall a. Maybe a
     -&gt; Maybe Text -&gt; DescribeOpsItemsResponse)
 -&gt; Lens' DescribeOpsItemsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItemsResponse%27"><span class="hs-identifier hs-type">DescribeOpsItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679840385"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItemsResponse%27"><span class="hs-identifier hs-type">DescribeOpsItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679842183"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeOpsItemsResponse' :: DescribeOpsItemsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679840385"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679840385"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679840384"><span class="annot"><span class="annottext">s :: DescribeOpsItemsResponse
-</span><a href="#local-6989586621679840384"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItemsResponse%27"><span class="hs-identifier hs-type">DescribeOpsItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679840383"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679840383"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOpsItemsResponse
-</span><a href="#local-6989586621679840384"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeOpsItemsResponse' :: Maybe Text
+</span><a href="#local-6989586621679842183"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679842183"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679842182"><span class="annot"><span class="annottext">s :: DescribeOpsItemsResponse
+</span><a href="#local-6989586621679842182"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItemsResponse%27"><span class="hs-identifier hs-type">DescribeOpsItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679842181"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679842181"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOpsItemsResponse
+</span><a href="#local-6989586621679842182"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeOpsItemsResponse' :: Maybe Text
 </span><a href="Network.AWS.SSM.DescribeOpsItems.html#%24sel%3AnextToken%3ADescribeOpsItemsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679840383"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItemsResponse"><span class="hs-identifier hs-type">DescribeOpsItemsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679842181"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItemsResponse"><span class="hs-identifier hs-type">DescribeOpsItemsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-412"></span><span>
 </span><span id="line-413"></span><span class="hs-comment">-- | A list of OpsItems.</span><span>
 </span><span id="line-414"></span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#describeOpsItemsResponse_opsItemSummaries"><span class="hs-identifier hs-type">describeOpsItemsResponse_opsItemSummaries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItemsResponse"><span class="hs-identifier hs-type">DescribeOpsItemsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemSummary.html#OpsItemSummary"><span class="hs-identifier hs-type">OpsItemSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -859,16 +859,16 @@ $sel:nextToken:DescribeOpsItemsResponse' :: DescribeOpsItemsResponse -&gt; Maybe
     -&gt; Maybe [OpsItemSummary] -&gt; DescribeOpsItemsResponse)
 -&gt; Lens' DescribeOpsItemsResponse (Maybe [OpsItemSummary])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItemsResponse%27"><span class="hs-identifier hs-type">DescribeOpsItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679840382"><span class="annot"><span class="annottext">Maybe [OpsItemSummary]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItemsResponse%27"><span class="hs-identifier hs-type">DescribeOpsItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679842180"><span class="annot"><span class="annottext">Maybe [OpsItemSummary]
 opsItemSummaries :: Maybe [OpsItemSummary]
 $sel:opsItemSummaries:DescribeOpsItemsResponse' :: DescribeOpsItemsResponse -&gt; Maybe [OpsItemSummary]
-</span><a href="#local-6989586621679840382"><span class="hs-identifier hs-var hs-var">opsItemSummaries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [OpsItemSummary]
-</span><a href="#local-6989586621679840382"><span class="hs-identifier hs-var">opsItemSummaries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679840381"><span class="annot"><span class="annottext">s :: DescribeOpsItemsResponse
-</span><a href="#local-6989586621679840381"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItemsResponse%27"><span class="hs-identifier hs-type">DescribeOpsItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679840380"><span class="annot"><span class="annottext">Maybe [OpsItemSummary]
-</span><a href="#local-6989586621679840380"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOpsItemsResponse
-</span><a href="#local-6989586621679840381"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:opsItemSummaries:DescribeOpsItemsResponse' :: Maybe [OpsItemSummary]
+</span><a href="#local-6989586621679842180"><span class="hs-identifier hs-var hs-var">opsItemSummaries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [OpsItemSummary]
+</span><a href="#local-6989586621679842180"><span class="hs-identifier hs-var">opsItemSummaries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679842179"><span class="annot"><span class="annottext">s :: DescribeOpsItemsResponse
+</span><a href="#local-6989586621679842179"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItemsResponse%27"><span class="hs-identifier hs-type">DescribeOpsItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679842178"><span class="annot"><span class="annottext">Maybe [OpsItemSummary]
+</span><a href="#local-6989586621679842178"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOpsItemsResponse
+</span><a href="#local-6989586621679842179"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:opsItemSummaries:DescribeOpsItemsResponse' :: Maybe [OpsItemSummary]
 </span><a href="Network.AWS.SSM.DescribeOpsItems.html#%24sel%3AopsItemSummaries%3ADescribeOpsItemsResponse%27"><span class="hs-identifier hs-var">opsItemSummaries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [OpsItemSummary]
-</span><a href="#local-6989586621679840380"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItemsResponse"><span class="hs-identifier hs-type">DescribeOpsItemsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [OpsItemSummary] -&gt; f (Maybe [OpsItemSummary]))
+</span><a href="#local-6989586621679842178"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItemsResponse"><span class="hs-identifier hs-type">DescribeOpsItemsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [OpsItemSummary] -&gt; f (Maybe [OpsItemSummary]))
  -&gt; DescribeOpsItemsResponse -&gt; f DescribeOpsItemsResponse)
 -&gt; ((Maybe [OpsItemSummary] -&gt; f (Maybe [OpsItemSummary]))
     -&gt; Maybe [OpsItemSummary] -&gt; f (Maybe [OpsItemSummary]))
@@ -888,8 +888,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   [OpsItemSummary] [OpsItemSummary] [OpsItemSummary] [OpsItemSummary]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-416"></span><span>
 </span><span id="line-417"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-418"></span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#describeOpsItemsResponse_httpStatus"><span class="hs-identifier hs-type">describeOpsItemsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItemsResponse"><span class="hs-identifier hs-type">DescribeOpsItemsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -899,16 +899,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (DescribeOpsItemsResponse -&gt; Int -&gt; DescribeOpsItemsResponse)
 -&gt; Lens DescribeOpsItemsResponse DescribeOpsItemsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItemsResponse%27"><span class="hs-identifier hs-type">DescribeOpsItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679840379"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItemsResponse%27"><span class="hs-identifier hs-type">DescribeOpsItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679842177"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeOpsItemsResponse' :: DescribeOpsItemsResponse -&gt; Int
-</span><a href="#local-6989586621679840379"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679840379"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679840378"><span class="annot"><span class="annottext">s :: DescribeOpsItemsResponse
-</span><a href="#local-6989586621679840378"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItemsResponse%27"><span class="hs-identifier hs-type">DescribeOpsItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679840377"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679840377"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOpsItemsResponse
-</span><a href="#local-6989586621679840378"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeOpsItemsResponse' :: Int
+</span><a href="#local-6989586621679842177"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679842177"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679842176"><span class="annot"><span class="annottext">s :: DescribeOpsItemsResponse
+</span><a href="#local-6989586621679842176"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItemsResponse%27"><span class="hs-identifier hs-type">DescribeOpsItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679842175"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679842175"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOpsItemsResponse
+</span><a href="#local-6989586621679842176"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeOpsItemsResponse' :: Int
 </span><a href="Network.AWS.SSM.DescribeOpsItems.html#%24sel%3AhttpStatus%3ADescribeOpsItemsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679840377"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItemsResponse"><span class="hs-identifier hs-type">DescribeOpsItemsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679842175"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItemsResponse"><span class="hs-identifier hs-type">DescribeOpsItemsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-420"></span><span>
-</span><span id="line-421"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679840375"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItemsResponse"><span class="hs-identifier hs-type">DescribeOpsItemsResponse</span></a></span></span><span>
+</span><span id="line-421"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679842173"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeOpsItems.html#DescribeOpsItemsResponse"><span class="hs-identifier hs-type">DescribeOpsItemsResponse</span></a></span></span><span>
 </span><span id="line-422"></span></pre></body></html>

@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- | Smooth Group Event Id Mode</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679913239"><span id="local-6989586621679913240"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SmoothGroupEventIdMode"><span class="annot"><a href="Network.AWS.MediaLive.Types.SmoothGroupEventIdMode.html#SmoothGroupEventIdMode"><span class="hs-identifier hs-var">SmoothGroupEventIdMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SmoothGroupEventIdMode%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.SmoothGroupEventIdMode.html#SmoothGroupEventIdMode%27"><span class="hs-identifier hs-var">SmoothGroupEventIdMode'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679920741"><span id="local-6989586621679920742"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SmoothGroupEventIdMode"><span class="annot"><a href="Network.AWS.MediaLive.Types.SmoothGroupEventIdMode.html#SmoothGroupEventIdMode"><span class="hs-identifier hs-var">SmoothGroupEventIdMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SmoothGroupEventIdMode%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.SmoothGroupEventIdMode.html#SmoothGroupEventIdMode%27"><span class="hs-identifier hs-var">SmoothGroupEventIdMode'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSmoothGroupEventIdMode"><span class="annot"><span class="annottext">SmoothGroupEventIdMode -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.SmoothGroupEventIdMode.html#fromSmoothGroupEventIdMode"><span class="hs-identifier hs-var hs-var">fromSmoothGroupEventIdMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679913231"><span id="local-6989586621679913233"><span id="local-6989586621679913235"><span class="annot"><span class="annottext">Int -&gt; SmoothGroupEventIdMode -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679920733"><span id="local-6989586621679920735"><span id="local-6989586621679920737"><span class="annot"><span class="annottext">Int -&gt; SmoothGroupEventIdMode -&gt; ShowS
 [SmoothGroupEventIdMode] -&gt; ShowS
 SmoothGroupEventIdMode -&gt; String
 (Int -&gt; SmoothGroupEventIdMode -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: SmoothGroupEventIdMode -&gt; String
 showsPrec :: Int -&gt; SmoothGroupEventIdMode -&gt; ShowS
 $cshowsPrec :: Int -&gt; SmoothGroupEventIdMode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679913222"><span id="local-6989586621679913224"><span id="local-6989586621679913226"><span id="local-6989586621679913228"><span class="annot"><span class="annottext">ReadPrec [SmoothGroupEventIdMode]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679920724"><span id="local-6989586621679920726"><span id="local-6989586621679920728"><span id="local-6989586621679920730"><span class="annot"><span class="annottext">ReadPrec [SmoothGroupEventIdMode]
 ReadPrec SmoothGroupEventIdMode
 Int -&gt; ReadS SmoothGroupEventIdMode
 ReadS [SmoothGroupEventIdMode]
@@ -74,7 +74,7 @@ $creadList :: ReadS [SmoothGroupEventIdMode]
 readsPrec :: Int -&gt; ReadS SmoothGroupEventIdMode
 $creadsPrec :: Int -&gt; ReadS SmoothGroupEventIdMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679913217"><span id="local-6989586621679913219"><span class="annot"><span class="annottext">SmoothGroupEventIdMode -&gt; SmoothGroupEventIdMode -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679920719"><span id="local-6989586621679920721"><span class="annot"><span class="annottext">SmoothGroupEventIdMode -&gt; SmoothGroupEventIdMode -&gt; Bool
 (SmoothGroupEventIdMode -&gt; SmoothGroupEventIdMode -&gt; Bool)
 -&gt; (SmoothGroupEventIdMode -&gt; SmoothGroupEventIdMode -&gt; Bool)
 -&gt; Eq SmoothGroupEventIdMode
@@ -84,7 +84,7 @@ $c/= :: SmoothGroupEventIdMode -&gt; SmoothGroupEventIdMode -&gt; Bool
 == :: SmoothGroupEventIdMode -&gt; SmoothGroupEventIdMode -&gt; Bool
 $c== :: SmoothGroupEventIdMode -&gt; SmoothGroupEventIdMode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679913201"><span id="local-6989586621679913203"><span id="local-6989586621679913205"><span id="local-6989586621679913207"><span id="local-6989586621679913209"><span id="local-6989586621679913211"><span id="local-6989586621679913213"><span class="annot"><span class="annottext">Eq SmoothGroupEventIdMode
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679920703"><span id="local-6989586621679920705"><span id="local-6989586621679920707"><span id="local-6989586621679920709"><span id="local-6989586621679920711"><span id="local-6989586621679920713"><span id="local-6989586621679920715"><span class="annot"><span class="annottext">Eq SmoothGroupEventIdMode
 Eq SmoothGroupEventIdMode
 -&gt; (SmoothGroupEventIdMode -&gt; SmoothGroupEventIdMode -&gt; Ordering)
 -&gt; (SmoothGroupEventIdMode -&gt; SmoothGroupEventIdMode -&gt; Bool)
@@ -143,7 +143,7 @@ $cfrom :: forall x. SmoothGroupEventIdMode -&gt; Rep SmoothGroupEventIdMode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679913193"><span id="local-6989586621679913195"><span class="annot"><span class="annottext">Int -&gt; SmoothGroupEventIdMode -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679920695"><span id="local-6989586621679920697"><span class="annot"><span class="annottext">Int -&gt; SmoothGroupEventIdMode -&gt; Int
 SmoothGroupEventIdMode -&gt; Int
 (Int -&gt; SmoothGroupEventIdMode -&gt; Int)
 -&gt; (SmoothGroupEventIdMode -&gt; Int)
@@ -154,54 +154,54 @@ $chash :: SmoothGroupEventIdMode -&gt; Int
 hashWithSalt :: Int -&gt; SmoothGroupEventIdMode -&gt; Int
 $chashWithSalt :: Int -&gt; SmoothGroupEventIdMode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679913190"><span class="annot"><span class="annottext">SmoothGroupEventIdMode -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679920692"><span class="annot"><span class="annottext">SmoothGroupEventIdMode -&gt; ()
 (SmoothGroupEventIdMode -&gt; ()) -&gt; NFData SmoothGroupEventIdMode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: SmoothGroupEventIdMode -&gt; ()
 $crnf :: SmoothGroupEventIdMode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679913187"><span class="annot"><span class="annottext">Text -&gt; Either String SmoothGroupEventIdMode
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679920689"><span class="annot"><span class="annottext">Text -&gt; Either String SmoothGroupEventIdMode
 (Text -&gt; Either String SmoothGroupEventIdMode)
 -&gt; FromText SmoothGroupEventIdMode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String SmoothGroupEventIdMode
 $cfromText :: Text -&gt; Either String SmoothGroupEventIdMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679913184"><span class="annot"><span class="annottext">SmoothGroupEventIdMode -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679920686"><span class="annot"><span class="annottext">SmoothGroupEventIdMode -&gt; Text
 (SmoothGroupEventIdMode -&gt; Text) -&gt; ToText SmoothGroupEventIdMode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: SmoothGroupEventIdMode -&gt; Text
 $ctoText :: SmoothGroupEventIdMode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679913181"><span class="annot"><span class="annottext">SmoothGroupEventIdMode -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679920683"><span class="annot"><span class="annottext">SmoothGroupEventIdMode -&gt; ByteString
 (SmoothGroupEventIdMode -&gt; ByteString)
 -&gt; ToByteString SmoothGroupEventIdMode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: SmoothGroupEventIdMode -&gt; ByteString
 $ctoBS :: SmoothGroupEventIdMode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679913178"><span class="annot"><span class="annottext">SmoothGroupEventIdMode -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679920680"><span class="annot"><span class="annottext">SmoothGroupEventIdMode -&gt; ByteStringBuilder
 (SmoothGroupEventIdMode -&gt; ByteStringBuilder)
 -&gt; ToLog SmoothGroupEventIdMode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: SmoothGroupEventIdMode -&gt; ByteStringBuilder
 $cbuild :: SmoothGroupEventIdMode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679913175"><span class="annot"><span class="annottext">HeaderName -&gt; SmoothGroupEventIdMode -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679920677"><span class="annot"><span class="annottext">HeaderName -&gt; SmoothGroupEventIdMode -&gt; [Header]
 (HeaderName -&gt; SmoothGroupEventIdMode -&gt; [Header])
 -&gt; ToHeader SmoothGroupEventIdMode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; SmoothGroupEventIdMode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; SmoothGroupEventIdMode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679913172"><span class="annot"><span class="annottext">SmoothGroupEventIdMode -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679920674"><span class="annot"><span class="annottext">SmoothGroupEventIdMode -&gt; QueryString
 (SmoothGroupEventIdMode -&gt; QueryString)
 -&gt; ToQuery SmoothGroupEventIdMode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: SmoothGroupEventIdMode -&gt; QueryString
 $ctoQuery :: SmoothGroupEventIdMode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679913167"><span id="local-6989586621679913169"><span class="annot"><span class="annottext">Value -&gt; Parser [SmoothGroupEventIdMode]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679920669"><span id="local-6989586621679920671"><span class="annot"><span class="annottext">Value -&gt; Parser [SmoothGroupEventIdMode]
 Value -&gt; Parser SmoothGroupEventIdMode
 (Value -&gt; Parser SmoothGroupEventIdMode)
 -&gt; (Value -&gt; Parser [SmoothGroupEventIdMode])
@@ -213,7 +213,7 @@ $cparseJSONList :: Value -&gt; Parser [SmoothGroupEventIdMode]
 parseJSON :: Value -&gt; Parser SmoothGroupEventIdMode
 $cparseJSON :: Value -&gt; Parser SmoothGroupEventIdMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679913162"><span id="local-6989586621679913164"><span class="annot"><span class="annottext">FromJSONKeyFunction [SmoothGroupEventIdMode]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679920664"><span id="local-6989586621679920666"><span class="annot"><span class="annottext">FromJSONKeyFunction [SmoothGroupEventIdMode]
 FromJSONKeyFunction SmoothGroupEventIdMode
 FromJSONKeyFunction SmoothGroupEventIdMode
 -&gt; FromJSONKeyFunction [SmoothGroupEventIdMode]
@@ -225,7 +225,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [SmoothGroupEventIdMode]
 fromJSONKey :: FromJSONKeyFunction SmoothGroupEventIdMode
 $cfromJSONKey :: FromJSONKeyFunction SmoothGroupEventIdMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679913153"><span id="local-6989586621679913155"><span id="local-6989586621679913157"><span id="local-6989586621679913159"><span class="annot"><span class="annottext">[SmoothGroupEventIdMode] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679920655"><span id="local-6989586621679920657"><span id="local-6989586621679920659"><span id="local-6989586621679920661"><span class="annot"><span class="annottext">[SmoothGroupEventIdMode] -&gt; Encoding
 [SmoothGroupEventIdMode] -&gt; Value
 SmoothGroupEventIdMode -&gt; Encoding
 SmoothGroupEventIdMode -&gt; Value
@@ -249,7 +249,7 @@ $ctoEncoding :: SmoothGroupEventIdMode -&gt; Encoding
 toJSON :: SmoothGroupEventIdMode -&gt; Value
 $ctoJSON :: SmoothGroupEventIdMode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679913148"><span id="local-6989586621679913150"><span class="annot"><span class="annottext">ToJSONKeyFunction [SmoothGroupEventIdMode]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679920650"><span id="local-6989586621679920652"><span class="annot"><span class="annottext">ToJSONKeyFunction [SmoothGroupEventIdMode]
 ToJSONKeyFunction SmoothGroupEventIdMode
 ToJSONKeyFunction SmoothGroupEventIdMode
 -&gt; ToJSONKeyFunction [SmoothGroupEventIdMode]
@@ -261,14 +261,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [SmoothGroupEventIdMode]
 toJSONKey :: ToJSONKeyFunction SmoothGroupEventIdMode
 $ctoJSONKey :: ToJSONKeyFunction SmoothGroupEventIdMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679913145"><span class="annot"><span class="annottext">[Node] -&gt; Either String SmoothGroupEventIdMode
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679920647"><span class="annot"><span class="annottext">[Node] -&gt; Either String SmoothGroupEventIdMode
 ([Node] -&gt; Either String SmoothGroupEventIdMode)
 -&gt; FromXML SmoothGroupEventIdMode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String SmoothGroupEventIdMode
 $cparseXML :: [Node] -&gt; Either String SmoothGroupEventIdMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679913142"><span class="annot"><span class="annottext">SmoothGroupEventIdMode -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679920644"><span class="annot"><span class="annottext">SmoothGroupEventIdMode -&gt; XML
 (SmoothGroupEventIdMode -&gt; XML) -&gt; ToXML SmoothGroupEventIdMode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: SmoothGroupEventIdMode -&gt; XML

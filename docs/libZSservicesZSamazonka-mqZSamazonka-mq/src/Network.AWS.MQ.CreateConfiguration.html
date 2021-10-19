@@ -39,12 +39,12 @@
 </span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#newCreateConfigurationResponse"><span class="hs-identifier">newCreateConfigurationResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>
 </span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#createConfigurationResponse_authenticationStrategy"><span class="hs-identifier">createConfigurationResponse_authenticationStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#createConfigurationResponse_arn"><span class="hs-identifier">createConfigurationResponse_arn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#createConfigurationResponse_latestRevision"><span class="hs-identifier">createConfigurationResponse_latestRevision</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#createConfigurationResponse_arn"><span class="hs-identifier">createConfigurationResponse_arn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#createConfigurationResponse_id"><span class="hs-identifier">createConfigurationResponse_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#createConfigurationResponse_created"><span class="hs-identifier">createConfigurationResponse_created</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#createConfigurationResponse_authenticationStrategy"><span class="hs-identifier">createConfigurationResponse_authenticationStrategy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#createConfigurationResponse_name"><span class="hs-identifier">createConfigurationResponse_name</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#createConfigurationResponse_created"><span class="hs-identifier">createConfigurationResponse_created</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#createConfigurationResponse_id"><span class="hs-identifier">createConfigurationResponse_id</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#createConfigurationResponse_httpStatus"><span class="hs-identifier">createConfigurationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-50"></span><span class="hs-keyword">where</span><span>
@@ -60,7 +60,7 @@
 </span><span id="line-60"></span><span class="hs-comment">-- MQ uses the default configuration (the engine type and version).</span><span>
 </span><span id="line-61"></span><span class="hs-comment">--</span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- /See:/ 'newCreateConfiguration' smart constructor.</span><span>
-</span><span id="line-63"></span><span id="local-6989586621679229733"><span id="local-6989586621679229734"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateConfiguration"><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfiguration"><span class="hs-identifier hs-var">CreateConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateConfiguration%27"><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfiguration%27"><span class="hs-identifier hs-var">CreateConfiguration'</span></a></span></span><span>
+</span><span id="line-63"></span><span id="local-6989586621679229913"><span id="local-6989586621679229914"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateConfiguration"><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfiguration"><span class="hs-identifier hs-var">CreateConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateConfiguration%27"><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfiguration%27"><span class="hs-identifier hs-var">CreateConfiguration'</span></a></span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Optional. The authentication strategy associated with the configuration.</span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-comment">-- The default is SIMPLE.</span><span>
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3AauthenticationStrategy%3ACreateConfiguration%27"><span class="annot"><span class="annottext">CreateConfiguration -&gt; Maybe AuthenticationStrategy
@@ -83,7 +83,7 @@
 </span><span id="line-79"></span><span>    </span><span id="%24sel%3Aname%3ACreateConfiguration%27"><span class="annot"><span class="annottext">CreateConfiguration -&gt; Text
 </span><a href="Network.AWS.MQ.CreateConfiguration.html#%24sel%3Aname%3ACreateConfiguration%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-80"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-81"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679229723"><span id="local-6989586621679229725"><span class="annot"><span class="annottext">CreateConfiguration -&gt; CreateConfiguration -&gt; Bool
+</span><span id="line-81"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679229903"><span id="local-6989586621679229905"><span class="annot"><span class="annottext">CreateConfiguration -&gt; CreateConfiguration -&gt; Bool
 (CreateConfiguration -&gt; CreateConfiguration -&gt; Bool)
 -&gt; (CreateConfiguration -&gt; CreateConfiguration -&gt; Bool)
 -&gt; Eq CreateConfiguration
@@ -92,7 +92,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateConfiguration -&gt; CreateConfiguration -&gt; Bool
 == :: CreateConfiguration -&gt; CreateConfiguration -&gt; Bool
 $c== :: CreateConfiguration -&gt; CreateConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229714"><span id="local-6989586621679229716"><span id="local-6989586621679229718"><span id="local-6989586621679229720"><span class="annot"><span class="annottext">ReadPrec [CreateConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229894"><span id="local-6989586621679229896"><span id="local-6989586621679229898"><span id="local-6989586621679229900"><span class="annot"><span class="annottext">ReadPrec [CreateConfiguration]
 ReadPrec CreateConfiguration
 Int -&gt; ReadS CreateConfiguration
 ReadS [CreateConfiguration]
@@ -112,7 +112,7 @@ readList :: ReadS [CreateConfiguration]
 $creadList :: ReadS [CreateConfiguration]
 readsPrec :: Int -&gt; ReadS CreateConfiguration
 $creadsPrec :: Int -&gt; ReadS CreateConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229707"><span id="local-6989586621679229709"><span id="local-6989586621679229711"><span class="annot"><span class="annottext">Int -&gt; CreateConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229887"><span id="local-6989586621679229889"><span id="local-6989586621679229891"><span class="annot"><span class="annottext">Int -&gt; CreateConfiguration -&gt; ShowS
 [CreateConfiguration] -&gt; ShowS
 CreateConfiguration -&gt; String
 (Int -&gt; CreateConfiguration -&gt; ShowS)
@@ -171,12 +171,12 @@ $cfrom :: forall x. CreateConfiguration -&gt; Rep CreateConfiguration x
 </span><span id="line-113"></span><span>  </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfiguration"><span class="hs-identifier hs-type">CreateConfiguration</span></a></span><span>
 </span><span id="line-114"></span><span id="newCreateConfiguration"><span class="annot"><span class="annottext">newCreateConfiguration :: Text -&gt; EngineType -&gt; Text -&gt; CreateConfiguration
 </span><a href="Network.AWS.MQ.CreateConfiguration.html#newCreateConfiguration"><span class="hs-identifier hs-var hs-var">newCreateConfiguration</span></a></span></span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679229702"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229702"><span class="hs-identifier hs-var">pEngineVersion_</span></a></span></span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679229701"><span class="annot"><span class="annottext">EngineType
-</span><a href="#local-6989586621679229701"><span class="hs-identifier hs-var">pEngineType_</span></a></span></span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679229700"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229700"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679229882"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229882"><span class="hs-identifier hs-var">pEngineVersion_</span></a></span></span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679229881"><span class="annot"><span class="annottext">EngineType
+</span><a href="#local-6989586621679229881"><span class="hs-identifier hs-var">pEngineType_</span></a></span></span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679229880"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229880"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">CreateConfiguration' :: Maybe AuthenticationStrategy
 -&gt; Maybe (HashMap Text Text)
 -&gt; Text
@@ -195,13 +195,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">$sel:engineVersion:CreateConfiguration' :: Text
 </span><a href="Network.AWS.MQ.CreateConfiguration.html#%24sel%3AengineVersion%3ACreateConfiguration%27"><span class="hs-identifier hs-var">engineVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229702"><span class="hs-identifier hs-var">pEngineVersion_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679229882"><span class="hs-identifier hs-var">pEngineVersion_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">$sel:engineType:CreateConfiguration' :: EngineType
 </span><a href="Network.AWS.MQ.CreateConfiguration.html#%24sel%3AengineType%3ACreateConfiguration%27"><span class="hs-identifier hs-var">engineType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EngineType
-</span><a href="#local-6989586621679229701"><span class="hs-identifier hs-var">pEngineType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679229881"><span class="hs-identifier hs-var">pEngineType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">$sel:name:CreateConfiguration' :: Text
 </span><a href="Network.AWS.MQ.CreateConfiguration.html#%24sel%3Aname%3ACreateConfiguration%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229700"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><a href="#local-6989586621679229880"><span class="hs-identifier hs-var">pName_</span></a></span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- | Optional. The authentication strategy associated with the configuration.</span><span>
@@ -218,16 +218,16 @@ forall a. Maybe a
      (Maybe AuthenticationStrategy)
      (Maybe AuthenticationStrategy)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfiguration%27"><span class="hs-identifier hs-type">CreateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229697"><span class="annot"><span class="annottext">Maybe AuthenticationStrategy
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfiguration%27"><span class="hs-identifier hs-type">CreateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229877"><span class="annot"><span class="annottext">Maybe AuthenticationStrategy
 authenticationStrategy :: Maybe AuthenticationStrategy
 $sel:authenticationStrategy:CreateConfiguration' :: CreateConfiguration -&gt; Maybe AuthenticationStrategy
-</span><a href="#local-6989586621679229697"><span class="hs-identifier hs-var hs-var">authenticationStrategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AuthenticationStrategy
-</span><a href="#local-6989586621679229697"><span class="hs-identifier hs-var">authenticationStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229696"><span class="annot"><span class="annottext">s :: CreateConfiguration
-</span><a href="#local-6989586621679229696"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfiguration%27"><span class="hs-identifier hs-type">CreateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229695"><span class="annot"><span class="annottext">Maybe AuthenticationStrategy
-</span><a href="#local-6989586621679229695"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConfiguration
-</span><a href="#local-6989586621679229696"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authenticationStrategy:CreateConfiguration' :: Maybe AuthenticationStrategy
+</span><a href="#local-6989586621679229877"><span class="hs-identifier hs-var hs-var">authenticationStrategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AuthenticationStrategy
+</span><a href="#local-6989586621679229877"><span class="hs-identifier hs-var">authenticationStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229876"><span class="annot"><span class="annottext">s :: CreateConfiguration
+</span><a href="#local-6989586621679229876"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfiguration%27"><span class="hs-identifier hs-type">CreateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229875"><span class="annot"><span class="annottext">Maybe AuthenticationStrategy
+</span><a href="#local-6989586621679229875"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConfiguration
+</span><a href="#local-6989586621679229876"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authenticationStrategy:CreateConfiguration' :: Maybe AuthenticationStrategy
 </span><a href="Network.AWS.MQ.CreateConfiguration.html#%24sel%3AauthenticationStrategy%3ACreateConfiguration%27"><span class="hs-identifier hs-var">authenticationStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuthenticationStrategy
-</span><a href="#local-6989586621679229695"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfiguration"><span class="hs-identifier hs-type">CreateConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679229875"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfiguration"><span class="hs-identifier hs-type">CreateConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- | Create tags when creating the configuration.</span><span>
 </span><span id="line-133"></span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#createConfiguration_tags"><span class="hs-identifier hs-type">createConfiguration_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfiguration"><span class="hs-identifier hs-type">CreateConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
@@ -242,16 +242,16 @@ $sel:authenticationStrategy:CreateConfiguration' :: CreateConfiguration -&gt; Ma
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfiguration%27"><span class="hs-identifier hs-type">CreateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229694"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfiguration%27"><span class="hs-identifier hs-type">CreateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229874"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 tags :: Maybe (HashMap Text Text)
 $sel:tags:CreateConfiguration' :: CreateConfiguration -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679229694"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679229694"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229693"><span class="annot"><span class="annottext">s :: CreateConfiguration
-</span><a href="#local-6989586621679229693"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfiguration%27"><span class="hs-identifier hs-type">CreateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229692"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679229692"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConfiguration
-</span><a href="#local-6989586621679229693"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateConfiguration' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679229874"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679229874"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229873"><span class="annot"><span class="annottext">s :: CreateConfiguration
+</span><a href="#local-6989586621679229873"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfiguration%27"><span class="hs-identifier hs-type">CreateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229872"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679229872"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConfiguration
+</span><a href="#local-6989586621679229873"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateConfiguration' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.MQ.CreateConfiguration.html#%24sel%3Atags%3ACreateConfiguration%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679229692"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfiguration"><span class="hs-identifier hs-type">CreateConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679229872"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfiguration"><span class="hs-identifier hs-type">CreateConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; CreateConfiguration -&gt; f CreateConfiguration)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -277,8 +277,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Text)
   (HashMap Text Text)
   (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- | Required. The broker engine\'s version. For a list of supported engine</span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- versions, see</span><span>
@@ -289,16 +289,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (CreateConfiguration -&gt; Text -&gt; CreateConfiguration)
 -&gt; Lens CreateConfiguration CreateConfiguration Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfiguration%27"><span class="hs-identifier hs-type">CreateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229688"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfiguration%27"><span class="hs-identifier hs-type">CreateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229868"><span class="annot"><span class="annottext">Text
 engineVersion :: Text
 $sel:engineVersion:CreateConfiguration' :: CreateConfiguration -&gt; Text
-</span><a href="#local-6989586621679229688"><span class="hs-identifier hs-var hs-var">engineVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229688"><span class="hs-identifier hs-var">engineVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229687"><span class="annot"><span class="annottext">s :: CreateConfiguration
-</span><a href="#local-6989586621679229687"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfiguration%27"><span class="hs-identifier hs-type">CreateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229686"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229686"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConfiguration
-</span><a href="#local-6989586621679229687"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engineVersion:CreateConfiguration' :: Text
+</span><a href="#local-6989586621679229868"><span class="hs-identifier hs-var hs-var">engineVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229868"><span class="hs-identifier hs-var">engineVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229867"><span class="annot"><span class="annottext">s :: CreateConfiguration
+</span><a href="#local-6989586621679229867"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfiguration%27"><span class="hs-identifier hs-type">CreateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229866"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229866"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConfiguration
+</span><a href="#local-6989586621679229867"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engineVersion:CreateConfiguration' :: Text
 </span><a href="Network.AWS.MQ.CreateConfiguration.html#%24sel%3AengineVersion%3ACreateConfiguration%27"><span class="hs-identifier hs-var">engineVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229686"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfiguration"><span class="hs-identifier hs-type">CreateConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679229866"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfiguration"><span class="hs-identifier hs-type">CreateConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | Required. The type of broker engine. Currently, Amazon MQ supports</span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- ACTIVEMQ and RABBITMQ.</span><span>
@@ -310,16 +310,16 @@ $sel:engineVersion:CreateConfiguration' :: CreateConfiguration -&gt; Text
 -&gt; Lens
      CreateConfiguration CreateConfiguration EngineType EngineType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfiguration%27"><span class="hs-identifier hs-type">CreateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229685"><span class="annot"><span class="annottext">EngineType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfiguration%27"><span class="hs-identifier hs-type">CreateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229865"><span class="annot"><span class="annottext">EngineType
 engineType :: EngineType
 $sel:engineType:CreateConfiguration' :: CreateConfiguration -&gt; EngineType
-</span><a href="#local-6989586621679229685"><span class="hs-identifier hs-var hs-var">engineType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EngineType
-</span><a href="#local-6989586621679229685"><span class="hs-identifier hs-var">engineType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229684"><span class="annot"><span class="annottext">s :: CreateConfiguration
-</span><a href="#local-6989586621679229684"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfiguration%27"><span class="hs-identifier hs-type">CreateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229683"><span class="annot"><span class="annottext">EngineType
-</span><a href="#local-6989586621679229683"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConfiguration
-</span><a href="#local-6989586621679229684"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engineType:CreateConfiguration' :: EngineType
+</span><a href="#local-6989586621679229865"><span class="hs-identifier hs-var hs-var">engineType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EngineType
+</span><a href="#local-6989586621679229865"><span class="hs-identifier hs-var">engineType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229864"><span class="annot"><span class="annottext">s :: CreateConfiguration
+</span><a href="#local-6989586621679229864"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfiguration%27"><span class="hs-identifier hs-type">CreateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229863"><span class="annot"><span class="annottext">EngineType
+</span><a href="#local-6989586621679229863"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConfiguration
+</span><a href="#local-6989586621679229864"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engineType:CreateConfiguration' :: EngineType
 </span><a href="Network.AWS.MQ.CreateConfiguration.html#%24sel%3AengineType%3ACreateConfiguration%27"><span class="hs-identifier hs-var">engineType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EngineType
-</span><a href="#local-6989586621679229683"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfiguration"><span class="hs-identifier hs-type">CreateConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679229863"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfiguration"><span class="hs-identifier hs-type">CreateConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- | Required. The name of the configuration. This value can contain only</span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- alphanumeric characters, dashes, periods, underscores, and tildes (- . _</span><span>
@@ -330,27 +330,27 @@ $sel:engineType:CreateConfiguration' :: CreateConfiguration -&gt; EngineType
 -&gt; (CreateConfiguration -&gt; Text -&gt; CreateConfiguration)
 -&gt; Lens CreateConfiguration CreateConfiguration Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfiguration%27"><span class="hs-identifier hs-type">CreateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229682"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfiguration%27"><span class="hs-identifier hs-type">CreateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229862"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:CreateConfiguration' :: CreateConfiguration -&gt; Text
-</span><a href="#local-6989586621679229682"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229682"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229681"><span class="annot"><span class="annottext">s :: CreateConfiguration
-</span><a href="#local-6989586621679229681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfiguration%27"><span class="hs-identifier hs-type">CreateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229680"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConfiguration
-</span><a href="#local-6989586621679229681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateConfiguration' :: Text
+</span><a href="#local-6989586621679229862"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229862"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229861"><span class="annot"><span class="annottext">s :: CreateConfiguration
+</span><a href="#local-6989586621679229861"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfiguration%27"><span class="hs-identifier hs-type">CreateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229860"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229860"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConfiguration
+</span><a href="#local-6989586621679229861"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateConfiguration' :: Text
 </span><a href="Network.AWS.MQ.CreateConfiguration.html#%24sel%3Aname%3ACreateConfiguration%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfiguration"><span class="hs-identifier hs-type">CreateConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679229860"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfiguration"><span class="hs-identifier hs-type">CreateConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfiguration"><span class="hs-identifier hs-type">CreateConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-154"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-155"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfiguration"><span class="hs-identifier hs-type">CreateConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-156"></span><span>      </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse"><span class="hs-identifier hs-type">CreateConfigurationResponse</span></a></span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679229676"><span class="annot"><span class="annottext">request :: CreateConfiguration -&gt; Request CreateConfiguration
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679229856"><span class="annot"><span class="annottext">request :: CreateConfiguration -&gt; Request CreateConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateConfiguration -&gt; Request CreateConfiguration
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MQ.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679229672"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679229852"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateConfiguration
 -&gt; ClientResponse ClientBody
@@ -376,121 +376,120 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-160"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679229669"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679229669"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679229668"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679229668"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679229667"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679229667"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-161"></span><span>          </span><span class="annot"><span class="annottext">Maybe AuthenticationStrategy
+</span><span id="line-160"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679229849"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229849"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679229848"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679229848"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679229847"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229847"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-161"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe ConfigurationRevision
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe POSIX
+-&gt; Maybe AuthenticationStrategy
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Int
 -&gt; CreateConfigurationResponse
 </span><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse%27"><span class="hs-identifier hs-var">CreateConfigurationResponse'</span></a></span><span>
-</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">(Maybe AuthenticationStrategy
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
  -&gt; Maybe ConfigurationRevision
- -&gt; Maybe Text
- -&gt; Maybe Text
- -&gt; Maybe Text
  -&gt; Maybe POSIX
+ -&gt; Maybe AuthenticationStrategy
+ -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; Int
  -&gt; CreateConfigurationResponse)
--&gt; Either String (Maybe AuthenticationStrategy)
+-&gt; Either String (Maybe Text)
 -&gt; Either
      String
      (Maybe ConfigurationRevision
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
       -&gt; Maybe POSIX
+      -&gt; Maybe AuthenticationStrategy
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Int
       -&gt; CreateConfigurationResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679229667"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe AuthenticationStrategy)
+</span><a href="#local-6989586621679229847"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;authenticationStrategy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (Maybe ConfigurationRevision
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
    -&gt; Maybe POSIX
+   -&gt; Maybe AuthenticationStrategy
+   -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; Int
    -&gt; CreateConfigurationResponse)
 -&gt; Either String (Maybe ConfigurationRevision)
 -&gt; Either
      String
-     (Maybe Text
+     (Maybe POSIX
+      -&gt; Maybe AuthenticationStrategy
       -&gt; Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe POSIX
       -&gt; Int
       -&gt; CreateConfigurationResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679229667"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ConfigurationRevision)
+</span><a href="#local-6989586621679229847"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ConfigurationRevision)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;latestRevision&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe Text
+  (Maybe POSIX
+   -&gt; Maybe AuthenticationStrategy
    -&gt; Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe POSIX
    -&gt; Int
    -&gt; CreateConfigurationResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe Text
-      -&gt; Maybe Text -&gt; Maybe POSIX -&gt; Int -&gt; CreateConfigurationResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679229667"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text
-   -&gt; Maybe Text -&gt; Maybe POSIX -&gt; Int -&gt; CreateConfigurationResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe Text -&gt; Maybe POSIX -&gt; Int -&gt; CreateConfigurationResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679229667"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text -&gt; Maybe POSIX -&gt; Int -&gt; CreateConfigurationResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String (Maybe POSIX -&gt; Int -&gt; CreateConfigurationResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679229667"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe POSIX -&gt; Int -&gt; CreateConfigurationResponse)
 -&gt; Either String (Maybe POSIX)
--&gt; Either String (Int -&gt; CreateConfigurationResponse)
+-&gt; Either
+     String
+     (Maybe AuthenticationStrategy
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateConfigurationResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679229667"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+</span><a href="#local-6989586621679229847"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;created&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe AuthenticationStrategy
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateConfigurationResponse)
+-&gt; Either String (Maybe AuthenticationStrategy)
+-&gt; Either
+     String
+     (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateConfigurationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229847"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe AuthenticationStrategy)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;authenticationStrategy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateConfigurationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; CreateConfigurationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229847"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; CreateConfigurationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; CreateConfigurationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229847"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateConfigurationResponse)
 -&gt; Either String Int -&gt; Either String CreateConfigurationResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -499,15 +498,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679229669"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679229849"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229659"><span id="local-6989586621679229661"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfiguration"><span class="hs-identifier hs-type">CreateConfiguration</span></a></span></span></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229839"><span id="local-6989586621679229841"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfiguration"><span class="hs-identifier hs-type">CreateConfiguration</span></a></span></span></span><span>
 </span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229656"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfiguration"><span class="hs-identifier hs-type">CreateConfiguration</span></a></span></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229836"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfiguration"><span class="hs-identifier hs-type">CreateConfiguration</span></a></span></span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfiguration"><span class="hs-identifier hs-type">CreateConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679229652"><span class="annot"><span class="annottext">toHeaders :: CreateConfiguration -&gt; ResponseHeaders
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679229832"><span class="annot"><span class="annottext">toHeaders :: CreateConfiguration -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateConfiguration -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -526,9 +525,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-183"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-184"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>
-</span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229642"><span id="local-6989586621679229644"><span id="local-6989586621679229646"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfiguration"><span class="hs-identifier hs-type">CreateConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-187"></span><span>  </span><span id="local-6989586621679229640"><span class="annot"><span class="annottext">toJSON :: CreateConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfiguration%27"><span class="hs-identifier hs-type">CreateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229634"><span id="local-6989586621679229635"><span id="local-6989586621679229636"><span id="local-6989586621679229637"><span id="local-6989586621679229638"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229822"><span id="local-6989586621679229824"><span id="local-6989586621679229826"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfiguration"><span class="hs-identifier hs-type">CreateConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679229820"><span class="annot"><span class="annottext">toJSON :: CreateConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfiguration%27"><span class="hs-identifier hs-type">CreateConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229814"><span id="local-6989586621679229815"><span id="local-6989586621679229816"><span id="local-6989586621679229817"><span id="local-6989586621679229818"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 Maybe AuthenticationStrategy
 Text
 EngineType
@@ -542,7 +541,7 @@ $sel:engineType:CreateConfiguration' :: CreateConfiguration -&gt; EngineType
 $sel:engineVersion:CreateConfiguration' :: CreateConfiguration -&gt; Text
 $sel:tags:CreateConfiguration' :: CreateConfiguration -&gt; Maybe (HashMap Text Text)
 $sel:authenticationStrategy:CreateConfiguration' :: CreateConfiguration -&gt; Maybe AuthenticationStrategy
-</span><a href="#local-6989586621679229634"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679229814"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-188"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-189"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -556,7 +555,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe AuthenticationStrategy -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AuthenticationStrategy
-</span><a href="#local-6989586621679229638"><span class="hs-identifier hs-var">authenticationStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679229818"><span class="hs-identifier hs-var">authenticationStrategy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-192"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -564,40 +563,40 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679229637"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679229817"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;engineVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229636"><span class="hs-identifier hs-var">engineVersion</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679229816"><span class="hs-identifier hs-var">engineVersion</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;engineType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EngineType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">EngineType
-</span><a href="#local-6989586621679229635"><span class="hs-identifier hs-var">engineType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679229815"><span class="hs-identifier hs-var">engineType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-195"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229634"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679229814"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-196"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-197"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfiguration"><span class="hs-identifier hs-type">CreateConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-200"></span><span>  </span><span id="local-6989586621679229628"><span class="annot"><span class="annottext">toPath :: CreateConfiguration -&gt; ByteString
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679229808"><span class="annot"><span class="annottext">toPath :: CreateConfiguration -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateConfiguration -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/v1/configurations&quot;</span></span><span>
 </span><span id="line-201"></span><span>
 </span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfiguration"><span class="hs-identifier hs-type">CreateConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-203"></span><span>  </span><span id="local-6989586621679229624"><span class="annot"><span class="annottext">toQuery :: CreateConfiguration -&gt; QueryString
+</span><span id="line-203"></span><span>  </span><span id="local-6989586621679229804"><span class="annot"><span class="annottext">toQuery :: CreateConfiguration -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateConfiguration -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -605,33 +604,33 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-204"></span><span>
 </span><span id="line-205"></span><span class="hs-comment">-- | /See:/ 'newCreateConfigurationResponse' smart constructor.</span><span>
-</span><span id="line-206"></span><span id="local-6989586621679229621"><span id="local-6989586621679229622"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateConfigurationResponse"><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse"><span class="hs-identifier hs-var">CreateConfigurationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateConfigurationResponse%27"><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse%27"><span class="hs-identifier hs-var">CreateConfigurationResponse'</span></a></span></span><span>
-</span><span id="line-207"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Optional. The authentication strategy associated with the configuration.</span><span>
-</span><span id="line-208"></span><span>    </span><span class="hs-comment">-- The default is SIMPLE.</span><span>
-</span><span id="line-209"></span><span>    </span><span id="%24sel%3AauthenticationStrategy%3ACreateConfigurationResponse%27"><span class="annot"><span class="annottext">CreateConfigurationResponse -&gt; Maybe AuthenticationStrategy
-</span><a href="Network.AWS.MQ.CreateConfiguration.html#%24sel%3AauthenticationStrategy%3ACreateConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">authenticationStrategy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.AuthenticationStrategy.html#AuthenticationStrategy"><span class="hs-identifier hs-type">AuthenticationStrategy</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-210"></span><span>    </span><span class="hs-comment">-- | The latest revision of the configuration.</span><span>
-</span><span id="line-211"></span><span>    </span><span id="%24sel%3AlatestRevision%3ACreateConfigurationResponse%27"><span class="annot"><span class="annottext">CreateConfigurationResponse -&gt; Maybe ConfigurationRevision
-</span><a href="Network.AWS.MQ.CreateConfiguration.html#%24sel%3AlatestRevision%3ACreateConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">latestRevision</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.ConfigurationRevision.html#ConfigurationRevision"><span class="hs-identifier hs-type">ConfigurationRevision</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-212"></span><span>    </span><span class="hs-comment">-- | Required. The Amazon Resource Name (ARN) of the configuration.</span><span>
-</span><span id="line-213"></span><span>    </span><span id="%24sel%3Aarn%3ACreateConfigurationResponse%27"><span class="annot"><span class="annottext">CreateConfigurationResponse -&gt; Maybe Text
+</span><span id="line-206"></span><span id="local-6989586621679229801"><span id="local-6989586621679229802"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateConfigurationResponse"><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse"><span class="hs-identifier hs-var">CreateConfigurationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateConfigurationResponse%27"><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse%27"><span class="hs-identifier hs-var">CreateConfigurationResponse'</span></a></span></span><span>
+</span><span id="line-207"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Required. The Amazon Resource Name (ARN) of the configuration.</span><span>
+</span><span id="line-208"></span><span>    </span><span id="%24sel%3Aarn%3ACreateConfigurationResponse%27"><span class="annot"><span class="annottext">CreateConfigurationResponse -&gt; Maybe Text
 </span><a href="Network.AWS.MQ.CreateConfiguration.html#%24sel%3Aarn%3ACreateConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-214"></span><span>    </span><span class="hs-comment">-- | Required. The unique ID that Amazon MQ generates for the configuration.</span><span>
-</span><span id="line-215"></span><span>    </span><span id="%24sel%3Aid%3ACreateConfigurationResponse%27"><span class="annot"><span class="annottext">CreateConfigurationResponse -&gt; Maybe Text
-</span><a href="Network.AWS.MQ.CreateConfiguration.html#%24sel%3Aid%3ACreateConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>    </span><span class="hs-comment">-- | The latest revision of the configuration.</span><span>
+</span><span id="line-210"></span><span>    </span><span id="%24sel%3AlatestRevision%3ACreateConfigurationResponse%27"><span class="annot"><span class="annottext">CreateConfigurationResponse -&gt; Maybe ConfigurationRevision
+</span><a href="Network.AWS.MQ.CreateConfiguration.html#%24sel%3AlatestRevision%3ACreateConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">latestRevision</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.ConfigurationRevision.html#ConfigurationRevision"><span class="hs-identifier hs-type">ConfigurationRevision</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>    </span><span class="hs-comment">-- | Required. The date and time of the configuration.</span><span>
+</span><span id="line-212"></span><span>    </span><span id="%24sel%3Acreated%3ACreateConfigurationResponse%27"><span class="annot"><span class="annottext">CreateConfigurationResponse -&gt; Maybe POSIX
+</span><a href="Network.AWS.MQ.CreateConfiguration.html#%24sel%3Acreated%3ACreateConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">created</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>    </span><span class="hs-comment">-- | Optional. The authentication strategy associated with the configuration.</span><span>
+</span><span id="line-214"></span><span>    </span><span class="hs-comment">-- The default is SIMPLE.</span><span>
+</span><span id="line-215"></span><span>    </span><span id="%24sel%3AauthenticationStrategy%3ACreateConfigurationResponse%27"><span class="annot"><span class="annottext">CreateConfigurationResponse -&gt; Maybe AuthenticationStrategy
+</span><a href="Network.AWS.MQ.CreateConfiguration.html#%24sel%3AauthenticationStrategy%3ACreateConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">authenticationStrategy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.AuthenticationStrategy.html#AuthenticationStrategy"><span class="hs-identifier hs-type">AuthenticationStrategy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-216"></span><span>    </span><span class="hs-comment">-- | Required. The name of the configuration. This value can contain only</span><span>
 </span><span id="line-217"></span><span>    </span><span class="hs-comment">-- alphanumeric characters, dashes, periods, underscores, and tildes (- . _</span><span>
 </span><span id="line-218"></span><span>    </span><span class="hs-comment">-- ~). This value must be 1-150 characters long.</span><span>
 </span><span id="line-219"></span><span>    </span><span id="%24sel%3Aname%3ACreateConfigurationResponse%27"><span class="annot"><span class="annottext">CreateConfigurationResponse -&gt; Maybe Text
 </span><a href="Network.AWS.MQ.CreateConfiguration.html#%24sel%3Aname%3ACreateConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-220"></span><span>    </span><span class="hs-comment">-- | Required. The date and time of the configuration.</span><span>
-</span><span id="line-221"></span><span>    </span><span id="%24sel%3Acreated%3ACreateConfigurationResponse%27"><span class="annot"><span class="annottext">CreateConfigurationResponse -&gt; Maybe POSIX
-</span><a href="Network.AWS.MQ.CreateConfiguration.html#%24sel%3Acreated%3ACreateConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">created</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>    </span><span class="hs-comment">-- | Required. The unique ID that Amazon MQ generates for the configuration.</span><span>
+</span><span id="line-221"></span><span>    </span><span id="%24sel%3Aid%3ACreateConfigurationResponse%27"><span class="annot"><span class="annottext">CreateConfigurationResponse -&gt; Maybe Text
+</span><a href="Network.AWS.MQ.CreateConfiguration.html#%24sel%3Aid%3ACreateConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-222"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-223"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateConfigurationResponse%27"><span class="annot"><span class="annottext">CreateConfigurationResponse -&gt; Int
 </span><a href="Network.AWS.MQ.CreateConfiguration.html#%24sel%3AhttpStatus%3ACreateConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-224"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-225"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679229610"><span id="local-6989586621679229612"><span class="annot"><span class="annottext">CreateConfigurationResponse -&gt; CreateConfigurationResponse -&gt; Bool
+</span><span id="line-225"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679229790"><span id="local-6989586621679229792"><span class="annot"><span class="annottext">CreateConfigurationResponse -&gt; CreateConfigurationResponse -&gt; Bool
 (CreateConfigurationResponse
  -&gt; CreateConfigurationResponse -&gt; Bool)
 -&gt; (CreateConfigurationResponse
@@ -642,7 +641,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateConfigurationResponse -&gt; CreateConfigurationResponse -&gt; Bool
 == :: CreateConfigurationResponse -&gt; CreateConfigurationResponse -&gt; Bool
 $c== :: CreateConfigurationResponse -&gt; CreateConfigurationResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229602"><span id="local-6989586621679229604"><span id="local-6989586621679229606"><span id="local-6989586621679229608"><span class="annot"><span class="annottext">ReadPrec [CreateConfigurationResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229782"><span id="local-6989586621679229784"><span id="local-6989586621679229786"><span id="local-6989586621679229788"><span class="annot"><span class="annottext">ReadPrec [CreateConfigurationResponse]
 ReadPrec CreateConfigurationResponse
 Int -&gt; ReadS CreateConfigurationResponse
 ReadS [CreateConfigurationResponse]
@@ -662,7 +661,7 @@ readList :: ReadS [CreateConfigurationResponse]
 $creadList :: ReadS [CreateConfigurationResponse]
 readsPrec :: Int -&gt; ReadS CreateConfigurationResponse
 $creadsPrec :: Int -&gt; ReadS CreateConfigurationResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229596"><span id="local-6989586621679229598"><span id="local-6989586621679229600"><span class="annot"><span class="annottext">Int -&gt; CreateConfigurationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229776"><span id="local-6989586621679229778"><span id="local-6989586621679229780"><span class="annot"><span class="annottext">Int -&gt; CreateConfigurationResponse -&gt; ShowS
 [CreateConfigurationResponse] -&gt; ShowS
 CreateConfigurationResponse -&gt; String
 (Int -&gt; CreateConfigurationResponse -&gt; ShowS)
@@ -702,20 +701,20 @@ CreateConfigurationResponse -&gt; Rep CreateConfigurationResponse x
 </span><span id="line-232"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-233"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-234"></span><span class="hs-comment">--</span><span>
-</span><span id="line-235"></span><span class="hs-comment">-- 'authenticationStrategy', 'createConfigurationResponse_authenticationStrategy' - Optional. The authentication strategy associated with the configuration.</span><span>
-</span><span id="line-236"></span><span class="hs-comment">-- The default is SIMPLE.</span><span>
-</span><span id="line-237"></span><span class="hs-comment">--</span><span>
-</span><span id="line-238"></span><span class="hs-comment">-- 'latestRevision', 'createConfigurationResponse_latestRevision' - The latest revision of the configuration.</span><span>
-</span><span id="line-239"></span><span class="hs-comment">--</span><span>
-</span><span id="line-240"></span><span class="hs-comment">-- 'arn', 'createConfigurationResponse_arn' - Required. The Amazon Resource Name (ARN) of the configuration.</span><span>
-</span><span id="line-241"></span><span class="hs-comment">--</span><span>
-</span><span id="line-242"></span><span class="hs-comment">-- 'id', 'createConfigurationResponse_id' - Required. The unique ID that Amazon MQ generates for the configuration.</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- 'arn', 'createConfigurationResponse_arn' - Required. The Amazon Resource Name (ARN) of the configuration.</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- 'latestRevision', 'createConfigurationResponse_latestRevision' - The latest revision of the configuration.</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- 'created', 'createConfigurationResponse_created' - Required. The date and time of the configuration.</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- 'authenticationStrategy', 'createConfigurationResponse_authenticationStrategy' - Optional. The authentication strategy associated with the configuration.</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- The default is SIMPLE.</span><span>
 </span><span id="line-243"></span><span class="hs-comment">--</span><span>
 </span><span id="line-244"></span><span class="hs-comment">-- 'name', 'createConfigurationResponse_name' - Required. The name of the configuration. This value can contain only</span><span>
 </span><span id="line-245"></span><span class="hs-comment">-- alphanumeric characters, dashes, periods, underscores, and tildes (- . _</span><span>
 </span><span id="line-246"></span><span class="hs-comment">-- ~). This value must be 1-150 characters long.</span><span>
 </span><span id="line-247"></span><span class="hs-comment">--</span><span>
-</span><span id="line-248"></span><span class="hs-comment">-- 'created', 'createConfigurationResponse_created' - Required. The date and time of the configuration.</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- 'id', 'createConfigurationResponse_id' - Required. The unique ID that Amazon MQ generates for the configuration.</span><span>
 </span><span id="line-249"></span><span class="hs-comment">--</span><span>
 </span><span id="line-250"></span><span class="hs-comment">-- 'httpStatus', 'createConfigurationResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-251"></span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#newCreateConfigurationResponse"><span class="hs-identifier hs-type">newCreateConfigurationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -723,99 +722,49 @@ CreateConfigurationResponse -&gt; Rep CreateConfigurationResponse x
 </span><span id="line-253"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-254"></span><span>  </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse"><span class="hs-identifier hs-type">CreateConfigurationResponse</span></a></span><span>
 </span><span id="line-255"></span><span id="newCreateConfigurationResponse"><span class="annot"><span class="annottext">newCreateConfigurationResponse :: Int -&gt; CreateConfigurationResponse
-</span><a href="Network.AWS.MQ.CreateConfiguration.html#newCreateConfigurationResponse"><span class="hs-identifier hs-var hs-var">newCreateConfigurationResponse</span></a></span></span><span> </span><span id="local-6989586621679229593"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679229593"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-256"></span><span>  </span><span class="annot"><span class="annottext">CreateConfigurationResponse' :: Maybe AuthenticationStrategy
+</span><a href="Network.AWS.MQ.CreateConfiguration.html#newCreateConfigurationResponse"><span class="hs-identifier hs-var hs-var">newCreateConfigurationResponse</span></a></span></span><span> </span><span id="local-6989586621679229773"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229773"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-256"></span><span>  </span><span class="annot"><span class="annottext">CreateConfigurationResponse' :: Maybe Text
 -&gt; Maybe ConfigurationRevision
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe POSIX
+-&gt; Maybe AuthenticationStrategy
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Int
 -&gt; CreateConfigurationResponse
 </span><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse%27"><span class="hs-identifier hs-type">CreateConfigurationResponse'</span></a></span><span>
-</span><span id="line-257"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:authenticationStrategy:CreateConfigurationResponse' :: Maybe AuthenticationStrategy
-</span><a href="Network.AWS.MQ.CreateConfiguration.html#%24sel%3AauthenticationStrategy%3ACreateConfigurationResponse%27"><span class="hs-identifier hs-var">authenticationStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-258"></span><span>        </span><span class="annot"><span class="annottext">Maybe AuthenticationStrategy
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-259"></span><span>      </span><span class="annot"><span class="annottext">$sel:latestRevision:CreateConfigurationResponse' :: Maybe ConfigurationRevision
-</span><a href="Network.AWS.MQ.CreateConfiguration.html#%24sel%3AlatestRevision%3ACreateConfigurationResponse%27"><span class="hs-identifier hs-var">latestRevision</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigurationRevision
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-260"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:CreateConfigurationResponse' :: Maybe Text
+</span><span id="line-257"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:arn:CreateConfigurationResponse' :: Maybe Text
 </span><a href="Network.AWS.MQ.CreateConfiguration.html#%24sel%3Aarn%3ACreateConfigurationResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-261"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:CreateConfigurationResponse' :: Maybe Text
-</span><a href="Network.AWS.MQ.CreateConfiguration.html#%24sel%3Aid%3ACreateConfigurationResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-258"></span><span>      </span><span class="annot"><span class="annottext">$sel:latestRevision:CreateConfigurationResponse' :: Maybe ConfigurationRevision
+</span><a href="Network.AWS.MQ.CreateConfiguration.html#%24sel%3AlatestRevision%3ACreateConfigurationResponse%27"><span class="hs-identifier hs-var">latestRevision</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigurationRevision
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-262"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:CreateConfigurationResponse' :: Maybe Text
-</span><a href="Network.AWS.MQ.CreateConfiguration.html#%24sel%3Aname%3ACreateConfigurationResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-263"></span><span>      </span><span class="annot"><span class="annottext">$sel:created:CreateConfigurationResponse' :: Maybe POSIX
+</span><span id="line-259"></span><span>      </span><span class="annot"><span class="annottext">$sel:created:CreateConfigurationResponse' :: Maybe POSIX
 </span><a href="Network.AWS.MQ.CreateConfiguration.html#%24sel%3Acreated%3ACreateConfigurationResponse%27"><span class="hs-identifier hs-var">created</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-264"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateConfigurationResponse' :: Int
-</span><a href="Network.AWS.MQ.CreateConfiguration.html#%24sel%3AhttpStatus%3ACreateConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679229593"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
-</span><span id="line-265"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-266"></span><span>
-</span><span id="line-267"></span><span class="hs-comment">-- | Optional. The authentication strategy associated with the configuration.</span><span>
-</span><span id="line-268"></span><span class="hs-comment">-- The default is SIMPLE.</span><span>
-</span><span id="line-269"></span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#createConfigurationResponse_authenticationStrategy"><span class="hs-identifier hs-type">createConfigurationResponse_authenticationStrategy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse"><span class="hs-identifier hs-type">CreateConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.AuthenticationStrategy.html#AuthenticationStrategy"><span class="hs-identifier hs-type">AuthenticationStrategy</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-270"></span><span id="createConfigurationResponse_authenticationStrategy"><span class="annot"><span class="annottext">createConfigurationResponse_authenticationStrategy :: (Maybe AuthenticationStrategy -&gt; f (Maybe AuthenticationStrategy))
--&gt; CreateConfigurationResponse -&gt; f CreateConfigurationResponse
-</span><a href="Network.AWS.MQ.CreateConfiguration.html#createConfigurationResponse_authenticationStrategy"><span class="hs-identifier hs-var hs-var">createConfigurationResponse_authenticationStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConfigurationResponse -&gt; Maybe AuthenticationStrategy)
--&gt; (CreateConfigurationResponse
-    -&gt; Maybe AuthenticationStrategy -&gt; CreateConfigurationResponse)
--&gt; Lens
-     CreateConfigurationResponse
-     CreateConfigurationResponse
-     (Maybe AuthenticationStrategy)
-     (Maybe AuthenticationStrategy)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse%27"><span class="hs-identifier hs-type">CreateConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229592"><span class="annot"><span class="annottext">Maybe AuthenticationStrategy
-authenticationStrategy :: Maybe AuthenticationStrategy
-$sel:authenticationStrategy:CreateConfigurationResponse' :: CreateConfigurationResponse -&gt; Maybe AuthenticationStrategy
-</span><a href="#local-6989586621679229592"><span class="hs-identifier hs-var hs-var">authenticationStrategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AuthenticationStrategy
-</span><a href="#local-6989586621679229592"><span class="hs-identifier hs-var">authenticationStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229591"><span class="annot"><span class="annottext">s :: CreateConfigurationResponse
-</span><a href="#local-6989586621679229591"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse%27"><span class="hs-identifier hs-type">CreateConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229590"><span class="annot"><span class="annottext">Maybe AuthenticationStrategy
-</span><a href="#local-6989586621679229590"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConfigurationResponse
-</span><a href="#local-6989586621679229591"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authenticationStrategy:CreateConfigurationResponse' :: Maybe AuthenticationStrategy
+</span><span id="line-260"></span><span>      </span><span class="annot"><span class="annottext">$sel:authenticationStrategy:CreateConfigurationResponse' :: Maybe AuthenticationStrategy
 </span><a href="Network.AWS.MQ.CreateConfiguration.html#%24sel%3AauthenticationStrategy%3ACreateConfigurationResponse%27"><span class="hs-identifier hs-var">authenticationStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuthenticationStrategy
-</span><a href="#local-6989586621679229590"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse"><span class="hs-identifier hs-type">CreateConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-271"></span><span>
-</span><span id="line-272"></span><span class="hs-comment">-- | The latest revision of the configuration.</span><span>
-</span><span id="line-273"></span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#createConfigurationResponse_latestRevision"><span class="hs-identifier hs-type">createConfigurationResponse_latestRevision</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse"><span class="hs-identifier hs-type">CreateConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.ConfigurationRevision.html#ConfigurationRevision"><span class="hs-identifier hs-type">ConfigurationRevision</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-274"></span><span id="createConfigurationResponse_latestRevision"><span class="annot"><span class="annottext">createConfigurationResponse_latestRevision :: (Maybe ConfigurationRevision -&gt; f (Maybe ConfigurationRevision))
--&gt; CreateConfigurationResponse -&gt; f CreateConfigurationResponse
-</span><a href="Network.AWS.MQ.CreateConfiguration.html#createConfigurationResponse_latestRevision"><span class="hs-identifier hs-var hs-var">createConfigurationResponse_latestRevision</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConfigurationResponse -&gt; Maybe ConfigurationRevision)
--&gt; (CreateConfigurationResponse
-    -&gt; Maybe ConfigurationRevision -&gt; CreateConfigurationResponse)
--&gt; Lens
-     CreateConfigurationResponse
-     CreateConfigurationResponse
-     (Maybe ConfigurationRevision)
-     (Maybe ConfigurationRevision)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse%27"><span class="hs-identifier hs-type">CreateConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229589"><span class="annot"><span class="annottext">Maybe ConfigurationRevision
-latestRevision :: Maybe ConfigurationRevision
-$sel:latestRevision:CreateConfigurationResponse' :: CreateConfigurationResponse -&gt; Maybe ConfigurationRevision
-</span><a href="#local-6989586621679229589"><span class="hs-identifier hs-var hs-var">latestRevision</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigurationRevision
-</span><a href="#local-6989586621679229589"><span class="hs-identifier hs-var">latestRevision</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229588"><span class="annot"><span class="annottext">s :: CreateConfigurationResponse
-</span><a href="#local-6989586621679229588"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse%27"><span class="hs-identifier hs-type">CreateConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229587"><span class="annot"><span class="annottext">Maybe ConfigurationRevision
-</span><a href="#local-6989586621679229587"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConfigurationResponse
-</span><a href="#local-6989586621679229588"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:latestRevision:CreateConfigurationResponse' :: Maybe ConfigurationRevision
-</span><a href="Network.AWS.MQ.CreateConfiguration.html#%24sel%3AlatestRevision%3ACreateConfigurationResponse%27"><span class="hs-identifier hs-var">latestRevision</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigurationRevision
-</span><a href="#local-6989586621679229587"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse"><span class="hs-identifier hs-type">CreateConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-275"></span><span>
-</span><span id="line-276"></span><span class="hs-comment">-- | Required. The Amazon Resource Name (ARN) of the configuration.</span><span>
-</span><span id="line-277"></span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#createConfigurationResponse_arn"><span class="hs-identifier hs-type">createConfigurationResponse_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse"><span class="hs-identifier hs-type">CreateConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-278"></span><span id="createConfigurationResponse_arn"><span class="annot"><span class="annottext">createConfigurationResponse_arn :: (Maybe Text -&gt; f (Maybe Text))
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-261"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:CreateConfigurationResponse' :: Maybe Text
+</span><a href="Network.AWS.MQ.CreateConfiguration.html#%24sel%3Aname%3ACreateConfigurationResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-262"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:CreateConfigurationResponse' :: Maybe Text
+</span><a href="Network.AWS.MQ.CreateConfiguration.html#%24sel%3Aid%3ACreateConfigurationResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-263"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateConfigurationResponse' :: Int
+</span><a href="Network.AWS.MQ.CreateConfiguration.html#%24sel%3AhttpStatus%3ACreateConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229773"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-264"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-265"></span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- | Required. The Amazon Resource Name (ARN) of the configuration.</span><span>
+</span><span id="line-267"></span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#createConfigurationResponse_arn"><span class="hs-identifier hs-type">createConfigurationResponse_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse"><span class="hs-identifier hs-type">CreateConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span id="createConfigurationResponse_arn"><span class="annot"><span class="annottext">createConfigurationResponse_arn :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; CreateConfigurationResponse -&gt; f CreateConfigurationResponse
 </span><a href="Network.AWS.MQ.CreateConfiguration.html#createConfigurationResponse_arn"><span class="hs-identifier hs-var hs-var">createConfigurationResponse_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConfigurationResponse -&gt; Maybe Text)
 -&gt; (CreateConfigurationResponse
@@ -826,70 +775,44 @@ $sel:latestRevision:CreateConfigurationResponse' :: CreateConfigurationResponse 
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse%27"><span class="hs-identifier hs-type">CreateConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229586"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse%27"><span class="hs-identifier hs-type">CreateConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229772"><span class="annot"><span class="annottext">Maybe Text
 arn :: Maybe Text
 $sel:arn:CreateConfigurationResponse' :: CreateConfigurationResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679229586"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679229586"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229585"><span class="annot"><span class="annottext">s :: CreateConfigurationResponse
-</span><a href="#local-6989586621679229585"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse%27"><span class="hs-identifier hs-type">CreateConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229584"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679229584"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConfigurationResponse
-</span><a href="#local-6989586621679229585"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:CreateConfigurationResponse' :: Maybe Text
+</span><a href="#local-6989586621679229772"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229772"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229771"><span class="annot"><span class="annottext">s :: CreateConfigurationResponse
+</span><a href="#local-6989586621679229771"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse%27"><span class="hs-identifier hs-type">CreateConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229770"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229770"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConfigurationResponse
+</span><a href="#local-6989586621679229771"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:CreateConfigurationResponse' :: Maybe Text
 </span><a href="Network.AWS.MQ.CreateConfiguration.html#%24sel%3Aarn%3ACreateConfigurationResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679229584"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse"><span class="hs-identifier hs-type">CreateConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-279"></span><span>
-</span><span id="line-280"></span><span class="hs-comment">-- | Required. The unique ID that Amazon MQ generates for the configuration.</span><span>
-</span><span id="line-281"></span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#createConfigurationResponse_id"><span class="hs-identifier hs-type">createConfigurationResponse_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse"><span class="hs-identifier hs-type">CreateConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-282"></span><span id="createConfigurationResponse_id"><span class="annot"><span class="annottext">createConfigurationResponse_id :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679229770"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse"><span class="hs-identifier hs-type">CreateConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- | The latest revision of the configuration.</span><span>
+</span><span id="line-271"></span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#createConfigurationResponse_latestRevision"><span class="hs-identifier hs-type">createConfigurationResponse_latestRevision</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse"><span class="hs-identifier hs-type">CreateConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.ConfigurationRevision.html#ConfigurationRevision"><span class="hs-identifier hs-type">ConfigurationRevision</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span id="createConfigurationResponse_latestRevision"><span class="annot"><span class="annottext">createConfigurationResponse_latestRevision :: (Maybe ConfigurationRevision -&gt; f (Maybe ConfigurationRevision))
 -&gt; CreateConfigurationResponse -&gt; f CreateConfigurationResponse
-</span><a href="Network.AWS.MQ.CreateConfiguration.html#createConfigurationResponse_id"><span class="hs-identifier hs-var hs-var">createConfigurationResponse_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConfigurationResponse -&gt; Maybe Text)
+</span><a href="Network.AWS.MQ.CreateConfiguration.html#createConfigurationResponse_latestRevision"><span class="hs-identifier hs-var hs-var">createConfigurationResponse_latestRevision</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConfigurationResponse -&gt; Maybe ConfigurationRevision)
 -&gt; (CreateConfigurationResponse
-    -&gt; Maybe Text -&gt; CreateConfigurationResponse)
+    -&gt; Maybe ConfigurationRevision -&gt; CreateConfigurationResponse)
 -&gt; Lens
      CreateConfigurationResponse
      CreateConfigurationResponse
-     (Maybe Text)
-     (Maybe Text)
+     (Maybe ConfigurationRevision)
+     (Maybe ConfigurationRevision)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse%27"><span class="hs-identifier hs-type">CreateConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229583"><span class="annot"><span class="annottext">Maybe Text
-id :: Maybe Text
-$sel:id:CreateConfigurationResponse' :: CreateConfigurationResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679229583"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679229583"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229582"><span class="annot"><span class="annottext">s :: CreateConfigurationResponse
-</span><a href="#local-6989586621679229582"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse%27"><span class="hs-identifier hs-type">CreateConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229581"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679229581"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConfigurationResponse
-</span><a href="#local-6989586621679229582"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:CreateConfigurationResponse' :: Maybe Text
-</span><a href="Network.AWS.MQ.CreateConfiguration.html#%24sel%3Aid%3ACreateConfigurationResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679229581"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse"><span class="hs-identifier hs-type">CreateConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-283"></span><span>
-</span><span id="line-284"></span><span class="hs-comment">-- | Required. The name of the configuration. This value can contain only</span><span>
-</span><span id="line-285"></span><span class="hs-comment">-- alphanumeric characters, dashes, periods, underscores, and tildes (- . _</span><span>
-</span><span id="line-286"></span><span class="hs-comment">-- ~). This value must be 1-150 characters long.</span><span>
-</span><span id="line-287"></span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#createConfigurationResponse_name"><span class="hs-identifier hs-type">createConfigurationResponse_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse"><span class="hs-identifier hs-type">CreateConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-288"></span><span id="createConfigurationResponse_name"><span class="annot"><span class="annottext">createConfigurationResponse_name :: (Maybe Text -&gt; f (Maybe Text))
--&gt; CreateConfigurationResponse -&gt; f CreateConfigurationResponse
-</span><a href="Network.AWS.MQ.CreateConfiguration.html#createConfigurationResponse_name"><span class="hs-identifier hs-var hs-var">createConfigurationResponse_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConfigurationResponse -&gt; Maybe Text)
--&gt; (CreateConfigurationResponse
-    -&gt; Maybe Text -&gt; CreateConfigurationResponse)
--&gt; Lens
-     CreateConfigurationResponse
-     CreateConfigurationResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse%27"><span class="hs-identifier hs-type">CreateConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229580"><span class="annot"><span class="annottext">Maybe Text
-name :: Maybe Text
-$sel:name:CreateConfigurationResponse' :: CreateConfigurationResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679229580"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679229580"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229579"><span class="annot"><span class="annottext">s :: CreateConfigurationResponse
-</span><a href="#local-6989586621679229579"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse%27"><span class="hs-identifier hs-type">CreateConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229578"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679229578"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConfigurationResponse
-</span><a href="#local-6989586621679229579"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateConfigurationResponse' :: Maybe Text
-</span><a href="Network.AWS.MQ.CreateConfiguration.html#%24sel%3Aname%3ACreateConfigurationResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679229578"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse"><span class="hs-identifier hs-type">CreateConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-289"></span><span>
-</span><span id="line-290"></span><span class="hs-comment">-- | Required. The date and time of the configuration.</span><span>
-</span><span id="line-291"></span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#createConfigurationResponse_created"><span class="hs-identifier hs-type">createConfigurationResponse_created</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse"><span class="hs-identifier hs-type">CreateConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-292"></span><span id="createConfigurationResponse_created"><span class="annot"><span class="annottext">createConfigurationResponse_created :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse%27"><span class="hs-identifier hs-type">CreateConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229769"><span class="annot"><span class="annottext">Maybe ConfigurationRevision
+latestRevision :: Maybe ConfigurationRevision
+$sel:latestRevision:CreateConfigurationResponse' :: CreateConfigurationResponse -&gt; Maybe ConfigurationRevision
+</span><a href="#local-6989586621679229769"><span class="hs-identifier hs-var hs-var">latestRevision</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigurationRevision
+</span><a href="#local-6989586621679229769"><span class="hs-identifier hs-var">latestRevision</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229768"><span class="annot"><span class="annottext">s :: CreateConfigurationResponse
+</span><a href="#local-6989586621679229768"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse%27"><span class="hs-identifier hs-type">CreateConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229767"><span class="annot"><span class="annottext">Maybe ConfigurationRevision
+</span><a href="#local-6989586621679229767"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConfigurationResponse
+</span><a href="#local-6989586621679229768"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:latestRevision:CreateConfigurationResponse' :: Maybe ConfigurationRevision
+</span><a href="Network.AWS.MQ.CreateConfiguration.html#%24sel%3AlatestRevision%3ACreateConfigurationResponse%27"><span class="hs-identifier hs-var">latestRevision</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigurationRevision
+</span><a href="#local-6989586621679229767"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse"><span class="hs-identifier hs-type">CreateConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-273"></span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- | Required. The date and time of the configuration.</span><span>
+</span><span id="line-275"></span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#createConfigurationResponse_created"><span class="hs-identifier hs-type">createConfigurationResponse_created</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse"><span class="hs-identifier hs-type">CreateConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-276"></span><span id="createConfigurationResponse_created"><span class="annot"><span class="annottext">createConfigurationResponse_created :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; CreateConfigurationResponse -&gt; f CreateConfigurationResponse
 </span><a href="Network.AWS.MQ.CreateConfiguration.html#createConfigurationResponse_created"><span class="hs-identifier hs-var hs-var">createConfigurationResponse_created</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConfigurationResponse -&gt; Maybe POSIX)
 -&gt; (CreateConfigurationResponse
@@ -900,16 +823,16 @@ $sel:name:CreateConfigurationResponse' :: CreateConfigurationResponse -&gt; Mayb
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse%27"><span class="hs-identifier hs-type">CreateConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229577"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse%27"><span class="hs-identifier hs-type">CreateConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229766"><span class="annot"><span class="annottext">Maybe POSIX
 created :: Maybe POSIX
 $sel:created:CreateConfigurationResponse' :: CreateConfigurationResponse -&gt; Maybe POSIX
-</span><a href="#local-6989586621679229577"><span class="hs-identifier hs-var hs-var">created</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679229577"><span class="hs-identifier hs-var">created</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229576"><span class="annot"><span class="annottext">s :: CreateConfigurationResponse
-</span><a href="#local-6989586621679229576"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse%27"><span class="hs-identifier hs-type">CreateConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229575"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679229575"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConfigurationResponse
-</span><a href="#local-6989586621679229576"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:created:CreateConfigurationResponse' :: Maybe POSIX
+</span><a href="#local-6989586621679229766"><span class="hs-identifier hs-var hs-var">created</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679229766"><span class="hs-identifier hs-var">created</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229765"><span class="annot"><span class="annottext">s :: CreateConfigurationResponse
+</span><a href="#local-6989586621679229765"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse%27"><span class="hs-identifier hs-type">CreateConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229764"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679229764"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConfigurationResponse
+</span><a href="#local-6989586621679229765"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:created:CreateConfigurationResponse' :: Maybe POSIX
 </span><a href="Network.AWS.MQ.CreateConfiguration.html#%24sel%3Acreated%3ACreateConfigurationResponse%27"><span class="hs-identifier hs-var">created</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679229575"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse"><span class="hs-identifier hs-type">CreateConfigurationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679229764"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse"><span class="hs-identifier hs-type">CreateConfigurationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; CreateConfigurationResponse -&gt; f CreateConfigurationResponse)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -925,10 +848,85 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-293"></span><span>
-</span><span id="line-294"></span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-295"></span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#createConfigurationResponse_httpStatus"><span class="hs-identifier hs-type">createConfigurationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse"><span class="hs-identifier hs-type">CreateConfigurationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-296"></span><span id="createConfigurationResponse_httpStatus"><span class="annot"><span class="annottext">createConfigurationResponse_httpStatus :: (Int -&gt; f Int)
+</span><span id="line-277"></span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- | Optional. The authentication strategy associated with the configuration.</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- The default is SIMPLE.</span><span>
+</span><span id="line-280"></span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#createConfigurationResponse_authenticationStrategy"><span class="hs-identifier hs-type">createConfigurationResponse_authenticationStrategy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse"><span class="hs-identifier hs-type">CreateConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.AuthenticationStrategy.html#AuthenticationStrategy"><span class="hs-identifier hs-type">AuthenticationStrategy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-281"></span><span id="createConfigurationResponse_authenticationStrategy"><span class="annot"><span class="annottext">createConfigurationResponse_authenticationStrategy :: (Maybe AuthenticationStrategy -&gt; f (Maybe AuthenticationStrategy))
+-&gt; CreateConfigurationResponse -&gt; f CreateConfigurationResponse
+</span><a href="Network.AWS.MQ.CreateConfiguration.html#createConfigurationResponse_authenticationStrategy"><span class="hs-identifier hs-var hs-var">createConfigurationResponse_authenticationStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConfigurationResponse -&gt; Maybe AuthenticationStrategy)
+-&gt; (CreateConfigurationResponse
+    -&gt; Maybe AuthenticationStrategy -&gt; CreateConfigurationResponse)
+-&gt; Lens
+     CreateConfigurationResponse
+     CreateConfigurationResponse
+     (Maybe AuthenticationStrategy)
+     (Maybe AuthenticationStrategy)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse%27"><span class="hs-identifier hs-type">CreateConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229762"><span class="annot"><span class="annottext">Maybe AuthenticationStrategy
+authenticationStrategy :: Maybe AuthenticationStrategy
+$sel:authenticationStrategy:CreateConfigurationResponse' :: CreateConfigurationResponse -&gt; Maybe AuthenticationStrategy
+</span><a href="#local-6989586621679229762"><span class="hs-identifier hs-var hs-var">authenticationStrategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AuthenticationStrategy
+</span><a href="#local-6989586621679229762"><span class="hs-identifier hs-var">authenticationStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229761"><span class="annot"><span class="annottext">s :: CreateConfigurationResponse
+</span><a href="#local-6989586621679229761"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse%27"><span class="hs-identifier hs-type">CreateConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229760"><span class="annot"><span class="annottext">Maybe AuthenticationStrategy
+</span><a href="#local-6989586621679229760"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConfigurationResponse
+</span><a href="#local-6989586621679229761"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authenticationStrategy:CreateConfigurationResponse' :: Maybe AuthenticationStrategy
+</span><a href="Network.AWS.MQ.CreateConfiguration.html#%24sel%3AauthenticationStrategy%3ACreateConfigurationResponse%27"><span class="hs-identifier hs-var">authenticationStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuthenticationStrategy
+</span><a href="#local-6989586621679229760"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse"><span class="hs-identifier hs-type">CreateConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-282"></span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- | Required. The name of the configuration. This value can contain only</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- alphanumeric characters, dashes, periods, underscores, and tildes (- . _</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- ~). This value must be 1-150 characters long.</span><span>
+</span><span id="line-286"></span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#createConfigurationResponse_name"><span class="hs-identifier hs-type">createConfigurationResponse_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse"><span class="hs-identifier hs-type">CreateConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span id="createConfigurationResponse_name"><span class="annot"><span class="annottext">createConfigurationResponse_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateConfigurationResponse -&gt; f CreateConfigurationResponse
+</span><a href="Network.AWS.MQ.CreateConfiguration.html#createConfigurationResponse_name"><span class="hs-identifier hs-var hs-var">createConfigurationResponse_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConfigurationResponse -&gt; Maybe Text)
+-&gt; (CreateConfigurationResponse
+    -&gt; Maybe Text -&gt; CreateConfigurationResponse)
+-&gt; Lens
+     CreateConfigurationResponse
+     CreateConfigurationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse%27"><span class="hs-identifier hs-type">CreateConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229759"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:CreateConfigurationResponse' :: CreateConfigurationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679229759"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229759"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229758"><span class="annot"><span class="annottext">s :: CreateConfigurationResponse
+</span><a href="#local-6989586621679229758"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse%27"><span class="hs-identifier hs-type">CreateConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229757"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229757"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConfigurationResponse
+</span><a href="#local-6989586621679229758"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateConfigurationResponse' :: Maybe Text
+</span><a href="Network.AWS.MQ.CreateConfiguration.html#%24sel%3Aname%3ACreateConfigurationResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229757"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse"><span class="hs-identifier hs-type">CreateConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-288"></span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- | Required. The unique ID that Amazon MQ generates for the configuration.</span><span>
+</span><span id="line-290"></span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#createConfigurationResponse_id"><span class="hs-identifier hs-type">createConfigurationResponse_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse"><span class="hs-identifier hs-type">CreateConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span id="createConfigurationResponse_id"><span class="annot"><span class="annottext">createConfigurationResponse_id :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateConfigurationResponse -&gt; f CreateConfigurationResponse
+</span><a href="Network.AWS.MQ.CreateConfiguration.html#createConfigurationResponse_id"><span class="hs-identifier hs-var hs-var">createConfigurationResponse_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConfigurationResponse -&gt; Maybe Text)
+-&gt; (CreateConfigurationResponse
+    -&gt; Maybe Text -&gt; CreateConfigurationResponse)
+-&gt; Lens
+     CreateConfigurationResponse
+     CreateConfigurationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse%27"><span class="hs-identifier hs-type">CreateConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229756"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:CreateConfigurationResponse' :: CreateConfigurationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679229756"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229756"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229755"><span class="annot"><span class="annottext">s :: CreateConfigurationResponse
+</span><a href="#local-6989586621679229755"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse%27"><span class="hs-identifier hs-type">CreateConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229754"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229754"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConfigurationResponse
+</span><a href="#local-6989586621679229755"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:CreateConfigurationResponse' :: Maybe Text
+</span><a href="Network.AWS.MQ.CreateConfiguration.html#%24sel%3Aid%3ACreateConfigurationResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229754"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse"><span class="hs-identifier hs-type">CreateConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-294"></span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#createConfigurationResponse_httpStatus"><span class="hs-identifier hs-type">createConfigurationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse"><span class="hs-identifier hs-type">CreateConfigurationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-295"></span><span id="createConfigurationResponse_httpStatus"><span class="annot"><span class="annottext">createConfigurationResponse_httpStatus :: (Int -&gt; f Int)
 -&gt; CreateConfigurationResponse -&gt; f CreateConfigurationResponse
 </span><a href="Network.AWS.MQ.CreateConfiguration.html#createConfigurationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createConfigurationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateConfigurationResponse -&gt; Int)
 -&gt; (CreateConfigurationResponse
@@ -936,16 +934,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; Lens
      CreateConfigurationResponse CreateConfigurationResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse%27"><span class="hs-identifier hs-type">CreateConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229573"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse%27"><span class="hs-identifier hs-type">CreateConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229753"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateConfigurationResponse' :: CreateConfigurationResponse -&gt; Int
-</span><a href="#local-6989586621679229573"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679229573"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229572"><span class="annot"><span class="annottext">s :: CreateConfigurationResponse
-</span><a href="#local-6989586621679229572"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse%27"><span class="hs-identifier hs-type">CreateConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229571"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679229571"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConfigurationResponse
-</span><a href="#local-6989586621679229572"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateConfigurationResponse' :: Int
+</span><a href="#local-6989586621679229753"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229753"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229752"><span class="annot"><span class="annottext">s :: CreateConfigurationResponse
+</span><a href="#local-6989586621679229752"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse%27"><span class="hs-identifier hs-type">CreateConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229751"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229751"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateConfigurationResponse
+</span><a href="#local-6989586621679229752"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateConfigurationResponse' :: Int
 </span><a href="Network.AWS.MQ.CreateConfiguration.html#%24sel%3AhttpStatus%3ACreateConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679229571"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse"><span class="hs-identifier hs-type">CreateConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-297"></span><span>
-</span><span id="line-298"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229569"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse"><span class="hs-identifier hs-type">CreateConfigurationResponse</span></a></span></span><span>
-</span><span id="line-299"></span></pre></body></html>
+</span><a href="#local-6989586621679229751"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse"><span class="hs-identifier hs-type">CreateConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-296"></span><span>
+</span><span id="line-297"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229749"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateConfiguration.html#CreateConfigurationResponse"><span class="hs-identifier hs-type">CreateConfigurationResponse</span></a></span></span><span>
+</span><span id="line-298"></span></pre></body></html>

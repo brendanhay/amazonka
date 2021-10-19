@@ -24,7 +24,7 @@
 </span><span id="line-24"></span><span class="hs-comment">--</span><span>
 </span><span id="line-25"></span><span class="hs-comment">-- Terminating a WorkSpace is a permanent action and cannot be undone. The</span><span>
 </span><span id="line-26"></span><span class="hs-comment">-- user\'s data is destroyed. If you need to archive any user data, contact</span><span>
-</span><span id="line-27"></span><span class="hs-comment">-- AWS Support before terminating the WorkSpace.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- Amazon Web Services Support before terminating the WorkSpace.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- You can terminate a WorkSpace that is in any state except @SUSPENDED@.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
@@ -43,7 +43,7 @@
 </span><span id="line-43"></span><span class="hs-comment">-- Simple AD or AD Connector directory for 30 consecutive days, this</span><span>
 </span><span id="line-44"></span><span class="hs-comment">-- directory will be automatically deregistered for use with Amazon</span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- WorkSpaces, and you will be charged for this directory as per the</span><span>
-</span><span id="line-46"></span><span class="hs-comment">-- &lt;http://aws.amazon.com/directoryservice/pricing/ AWS Directory Services pricing terms&gt;.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- &lt;http://aws.amazon.com/directoryservice/pricing/ Directory Service pricing terms&gt;.</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- To delete empty directories, see</span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workspaces/latest/adminguide/delete-workspaces-directory.html Delete the Directory for Your WorkSpaces&gt;.</span><span>
@@ -75,12 +75,12 @@
 </span><span id="line-75"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.html"><span class="hs-identifier">Network.AWS.WorkSpaces.Types</span></a></span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | /See:/ 'newTerminateWorkspaces' smart constructor.</span><span>
-</span><span id="line-78"></span><span id="local-6989586621679275384"><span id="local-6989586621679275385"></span></span><span class="hs-keyword">data</span><span> </span><span id="TerminateWorkspaces"><span class="annot"><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#TerminateWorkspaces"><span class="hs-identifier hs-var">TerminateWorkspaces</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TerminateWorkspaces%27"><span class="annot"><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#TerminateWorkspaces%27"><span class="hs-identifier hs-var">TerminateWorkspaces'</span></a></span></span><span>
+</span><span id="line-78"></span><span id="local-6989586621679278232"><span id="local-6989586621679278233"></span></span><span class="hs-keyword">data</span><span> </span><span id="TerminateWorkspaces"><span class="annot"><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#TerminateWorkspaces"><span class="hs-identifier hs-var">TerminateWorkspaces</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TerminateWorkspaces%27"><span class="annot"><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#TerminateWorkspaces%27"><span class="hs-identifier hs-var">TerminateWorkspaces'</span></a></span></span><span>
 </span><span id="line-79"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The WorkSpaces to terminate. You can specify up to 25 WorkSpaces.</span><span>
 </span><span id="line-80"></span><span>    </span><span id="%24sel%3AterminateWorkspaceRequests%3ATerminateWorkspaces%27"><span class="annot"><span class="annottext">TerminateWorkspaces -&gt; NonEmpty TerminateRequest
 </span><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#%24sel%3AterminateWorkspaceRequests%3ATerminateWorkspaces%27"><span class="hs-identifier hs-var hs-var">terminateWorkspaceRequests</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.TerminateRequest.html#TerminateRequest"><span class="hs-identifier hs-type">TerminateRequest</span></a></span><span>
 </span><span id="line-81"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275378"><span id="local-6989586621679275380"><span class="annot"><span class="annottext">TerminateWorkspaces -&gt; TerminateWorkspaces -&gt; Bool
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679278226"><span id="local-6989586621679278228"><span class="annot"><span class="annottext">TerminateWorkspaces -&gt; TerminateWorkspaces -&gt; Bool
 (TerminateWorkspaces -&gt; TerminateWorkspaces -&gt; Bool)
 -&gt; (TerminateWorkspaces -&gt; TerminateWorkspaces -&gt; Bool)
 -&gt; Eq TerminateWorkspaces
@@ -89,7 +89,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TerminateWorkspaces -&gt; TerminateWorkspaces -&gt; Bool
 == :: TerminateWorkspaces -&gt; TerminateWorkspaces -&gt; Bool
 $c== :: TerminateWorkspaces -&gt; TerminateWorkspaces -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275369"><span id="local-6989586621679275371"><span id="local-6989586621679275373"><span id="local-6989586621679275375"><span class="annot"><span class="annottext">ReadPrec [TerminateWorkspaces]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278217"><span id="local-6989586621679278219"><span id="local-6989586621679278221"><span id="local-6989586621679278223"><span class="annot"><span class="annottext">ReadPrec [TerminateWorkspaces]
 ReadPrec TerminateWorkspaces
 Int -&gt; ReadS TerminateWorkspaces
 ReadS [TerminateWorkspaces]
@@ -109,7 +109,7 @@ readList :: ReadS [TerminateWorkspaces]
 $creadList :: ReadS [TerminateWorkspaces]
 readsPrec :: Int -&gt; ReadS TerminateWorkspaces
 $creadsPrec :: Int -&gt; ReadS TerminateWorkspaces
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275362"><span id="local-6989586621679275364"><span id="local-6989586621679275366"><span class="annot"><span class="annottext">Int -&gt; TerminateWorkspaces -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278210"><span id="local-6989586621679278212"><span id="local-6989586621679278214"><span class="annot"><span class="annottext">Int -&gt; TerminateWorkspaces -&gt; ShowS
 [TerminateWorkspaces] -&gt; ShowS
 TerminateWorkspaces -&gt; String
 (Int -&gt; TerminateWorkspaces -&gt; ShowS)
@@ -149,8 +149,8 @@ $cfrom :: forall x. TerminateWorkspaces -&gt; Rep TerminateWorkspaces x
 </span><span id="line-95"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.TerminateRequest.html#TerminateRequest"><span class="hs-identifier hs-type">TerminateRequest</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#TerminateWorkspaces"><span class="hs-identifier hs-type">TerminateWorkspaces</span></a></span><span>
 </span><span id="line-97"></span><span id="newTerminateWorkspaces"><span class="annot"><span class="annottext">newTerminateWorkspaces :: NonEmpty TerminateRequest -&gt; TerminateWorkspaces
-</span><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#newTerminateWorkspaces"><span class="hs-identifier hs-var hs-var">newTerminateWorkspaces</span></a></span></span><span> </span><span id="local-6989586621679275357"><span class="annot"><span class="annottext">NonEmpty TerminateRequest
-</span><a href="#local-6989586621679275357"><span class="hs-identifier hs-var">pTerminateWorkspaceRequests_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#newTerminateWorkspaces"><span class="hs-identifier hs-var hs-var">newTerminateWorkspaces</span></a></span></span><span> </span><span id="local-6989586621679278205"><span class="annot"><span class="annottext">NonEmpty TerminateRequest
+</span><a href="#local-6989586621679278205"><span class="hs-identifier hs-var">pTerminateWorkspaceRequests_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>  </span><span class="annot"><span class="annottext">TerminateWorkspaces' :: NonEmpty TerminateRequest -&gt; TerminateWorkspaces
 </span><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#TerminateWorkspaces%27"><span class="hs-identifier hs-type">TerminateWorkspaces'</span></a></span><span>
 </span><span id="line-99"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:terminateWorkspaceRequests:TerminateWorkspaces' :: NonEmpty TerminateRequest
@@ -159,15 +159,15 @@ $cfrom :: forall x. TerminateWorkspaces -&gt; Rep TerminateWorkspaces x
   (NonEmpty TerminateRequest) (Identity (NonEmpty TerminateRequest))
 -&gt; Tagged
      (NonEmpty TerminateRequest) (Identity (NonEmpty TerminateRequest))
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged
    (NonEmpty TerminateRequest) (Identity (NonEmpty TerminateRequest))
  -&gt; Tagged
       (NonEmpty TerminateRequest) (Identity (NonEmpty TerminateRequest)))
 -&gt; NonEmpty TerminateRequest -&gt; NonEmpty TerminateRequest
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty TerminateRequest
-</span><a href="#local-6989586621679275357"><span class="hs-identifier hs-var">pTerminateWorkspaceRequests_</span></a></span><span>
+</span><a href="#local-6989586621679278205"><span class="hs-identifier hs-var">pTerminateWorkspaceRequests_</span></a></span><span>
 </span><span id="line-101"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | The WorkSpaces to terminate. You can specify up to 25 WorkSpaces.</span><span>
@@ -183,16 +183,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (NonEmpty TerminateRequest)
      (NonEmpty TerminateRequest)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#TerminateWorkspaces%27"><span class="hs-identifier hs-type">TerminateWorkspaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275352"><span class="annot"><span class="annottext">NonEmpty TerminateRequest
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#TerminateWorkspaces%27"><span class="hs-identifier hs-type">TerminateWorkspaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278200"><span class="annot"><span class="annottext">NonEmpty TerminateRequest
 terminateWorkspaceRequests :: NonEmpty TerminateRequest
 $sel:terminateWorkspaceRequests:TerminateWorkspaces' :: TerminateWorkspaces -&gt; NonEmpty TerminateRequest
-</span><a href="#local-6989586621679275352"><span class="hs-identifier hs-var hs-var">terminateWorkspaceRequests</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty TerminateRequest
-</span><a href="#local-6989586621679275352"><span class="hs-identifier hs-var">terminateWorkspaceRequests</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275351"><span class="annot"><span class="annottext">s :: TerminateWorkspaces
-</span><a href="#local-6989586621679275351"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#TerminateWorkspaces%27"><span class="hs-identifier hs-type">TerminateWorkspaces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275350"><span class="annot"><span class="annottext">NonEmpty TerminateRequest
-</span><a href="#local-6989586621679275350"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TerminateWorkspaces
-</span><a href="#local-6989586621679275351"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:terminateWorkspaceRequests:TerminateWorkspaces' :: NonEmpty TerminateRequest
+</span><a href="#local-6989586621679278200"><span class="hs-identifier hs-var hs-var">terminateWorkspaceRequests</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty TerminateRequest
+</span><a href="#local-6989586621679278200"><span class="hs-identifier hs-var">terminateWorkspaceRequests</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278199"><span class="annot"><span class="annottext">s :: TerminateWorkspaces
+</span><a href="#local-6989586621679278199"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#TerminateWorkspaces%27"><span class="hs-identifier hs-type">TerminateWorkspaces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278198"><span class="annot"><span class="annottext">NonEmpty TerminateRequest
+</span><a href="#local-6989586621679278198"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TerminateWorkspaces
+</span><a href="#local-6989586621679278199"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:terminateWorkspaceRequests:TerminateWorkspaces' :: NonEmpty TerminateRequest
 </span><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#%24sel%3AterminateWorkspaceRequests%3ATerminateWorkspaces%27"><span class="hs-identifier hs-var">terminateWorkspaceRequests</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty TerminateRequest
-</span><a href="#local-6989586621679275350"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#TerminateWorkspaces"><span class="hs-identifier hs-type">TerminateWorkspaces</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty TerminateRequest -&gt; f (NonEmpty TerminateRequest))
+</span><a href="#local-6989586621679278198"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#TerminateWorkspaces"><span class="hs-identifier hs-type">TerminateWorkspaces</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty TerminateRequest -&gt; f (NonEmpty TerminateRequest))
  -&gt; TerminateWorkspaces -&gt; f TerminateWorkspaces)
 -&gt; ((NonEmpty TerminateRequest -&gt; f (NonEmpty TerminateRequest))
     -&gt; NonEmpty TerminateRequest -&gt; f (NonEmpty TerminateRequest))
@@ -202,19 +202,19 @@ $sel:terminateWorkspaceRequests:TerminateWorkspaces' :: TerminateWorkspaces -&gt
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty TerminateRequest -&gt; f (NonEmpty TerminateRequest))
 -&gt; NonEmpty TerminateRequest -&gt; f (NonEmpty TerminateRequest)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#TerminateWorkspaces"><span class="hs-identifier hs-type">TerminateWorkspaces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-108"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-109"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#TerminateWorkspaces"><span class="hs-identifier hs-type">TerminateWorkspaces</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>      </span><span class="annot"><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#TerminateWorkspacesResponse"><span class="hs-identifier hs-type">TerminateWorkspacesResponse</span></a></span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679275345"><span class="annot"><span class="annottext">request :: TerminateWorkspaces -&gt; Request TerminateWorkspaces
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679278193"><span class="annot"><span class="annottext">request :: TerminateWorkspaces -&gt; Request TerminateWorkspaces
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; TerminateWorkspaces -&gt; Request TerminateWorkspaces
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.WorkSpaces.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679275341"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679278189"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy TerminateWorkspaces
 -&gt; ClientResponse ClientBody
@@ -240,10 +240,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679275338"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679275338"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679275337"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679275337"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679275336"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679275336"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679278186"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679278186"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679278185"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679278185"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679278184"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679278184"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">Maybe [FailedWorkspaceChangeRequest]
 -&gt; Int -&gt; TerminateWorkspacesResponse
 </span><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#TerminateWorkspacesResponse%27"><span class="hs-identifier hs-var">TerminateWorkspacesResponse'</span></a></span><span>
@@ -253,7 +253,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; TerminateWorkspacesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679275336"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679278184"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Either String (Maybe (Maybe [FailedWorkspaceChangeRequest]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
@@ -273,15 +273,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679275338"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679278186"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275327"><span id="local-6989586621679275329"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#TerminateWorkspaces"><span class="hs-identifier hs-type">TerminateWorkspaces</span></a></span></span></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278175"><span id="local-6989586621679278177"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#TerminateWorkspaces"><span class="hs-identifier hs-type">TerminateWorkspaces</span></a></span></span></span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275324"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#TerminateWorkspaces"><span class="hs-identifier hs-type">TerminateWorkspaces</span></a></span></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278172"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#TerminateWorkspaces"><span class="hs-identifier hs-type">TerminateWorkspaces</span></a></span></span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#TerminateWorkspaces"><span class="hs-identifier hs-type">TerminateWorkspaces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679275320"><span class="annot"><span class="annottext">toHeaders :: TerminateWorkspaces -&gt; ResponseHeaders
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679278168"><span class="annot"><span class="annottext">toHeaders :: TerminateWorkspaces -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; TerminateWorkspaces -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -308,12 +308,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-136"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275310"><span id="local-6989586621679275312"><span id="local-6989586621679275314"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#TerminateWorkspaces"><span class="hs-identifier hs-type">TerminateWorkspaces</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679275308"><span class="annot"><span class="annottext">toJSON :: TerminateWorkspaces -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#TerminateWorkspaces%27"><span class="hs-identifier hs-type">TerminateWorkspaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275306"><span class="annot"><span class="annottext">NonEmpty TerminateRequest
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278158"><span id="local-6989586621679278160"><span id="local-6989586621679278162"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#TerminateWorkspaces"><span class="hs-identifier hs-type">TerminateWorkspaces</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679278156"><span class="annot"><span class="annottext">toJSON :: TerminateWorkspaces -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#TerminateWorkspaces%27"><span class="hs-identifier hs-type">TerminateWorkspaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278154"><span class="annot"><span class="annottext">NonEmpty TerminateRequest
 terminateWorkspaceRequests :: NonEmpty TerminateRequest
 $sel:terminateWorkspaceRequests:TerminateWorkspaces' :: TerminateWorkspaces -&gt; NonEmpty TerminateRequest
-</span><a href="#local-6989586621679275306"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679278154"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -327,20 +327,20 @@ forall a. a -&gt; Maybe a
 </span><span id="line-145"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty TerminateRequest -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty TerminateRequest
-</span><a href="#local-6989586621679275306"><span class="hs-identifier hs-var">terminateWorkspaceRequests</span></a></span><span>
+</span><a href="#local-6989586621679278154"><span class="hs-identifier hs-var">terminateWorkspaceRequests</span></a></span><span>
 </span><span id="line-146"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#TerminateWorkspaces"><span class="hs-identifier hs-type">TerminateWorkspaces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679275300"><span class="annot"><span class="annottext">toPath :: TerminateWorkspaces -&gt; ByteString
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679278148"><span class="annot"><span class="annottext">toPath :: TerminateWorkspaces -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; TerminateWorkspaces -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#TerminateWorkspaces"><span class="hs-identifier hs-type">TerminateWorkspaces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679275296"><span class="annot"><span class="annottext">toQuery :: TerminateWorkspaces -&gt; QueryString
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679278144"><span class="annot"><span class="annottext">toQuery :: TerminateWorkspaces -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; TerminateWorkspaces -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -348,7 +348,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- | /See:/ 'newTerminateWorkspacesResponse' smart constructor.</span><span>
-</span><span id="line-157"></span><span id="local-6989586621679275293"><span id="local-6989586621679275294"></span></span><span class="hs-keyword">data</span><span> </span><span id="TerminateWorkspacesResponse"><span class="annot"><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#TerminateWorkspacesResponse"><span class="hs-identifier hs-var">TerminateWorkspacesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TerminateWorkspacesResponse%27"><span class="annot"><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#TerminateWorkspacesResponse%27"><span class="hs-identifier hs-var">TerminateWorkspacesResponse'</span></a></span></span><span>
+</span><span id="line-157"></span><span id="local-6989586621679278141"><span id="local-6989586621679278142"></span></span><span class="hs-keyword">data</span><span> </span><span id="TerminateWorkspacesResponse"><span class="annot"><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#TerminateWorkspacesResponse"><span class="hs-identifier hs-var">TerminateWorkspacesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TerminateWorkspacesResponse%27"><span class="annot"><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#TerminateWorkspacesResponse%27"><span class="hs-identifier hs-var">TerminateWorkspacesResponse'</span></a></span></span><span>
 </span><span id="line-158"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the WorkSpaces that could not be terminated.</span><span>
 </span><span id="line-159"></span><span>    </span><span id="%24sel%3AfailedRequests%3ATerminateWorkspacesResponse%27"><span class="annot"><span class="annottext">TerminateWorkspacesResponse -&gt; Maybe [FailedWorkspaceChangeRequest]
 </span><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#%24sel%3AfailedRequests%3ATerminateWorkspacesResponse%27"><span class="hs-identifier hs-var hs-var">failedRequests</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#FailedWorkspaceChangeRequest"><span class="hs-identifier hs-type">FailedWorkspaceChangeRequest</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -356,7 +356,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-161"></span><span>    </span><span id="%24sel%3AhttpStatus%3ATerminateWorkspacesResponse%27"><span class="annot"><span class="annottext">TerminateWorkspacesResponse -&gt; Int
 </span><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#%24sel%3AhttpStatus%3ATerminateWorkspacesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-162"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-163"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275287"><span id="local-6989586621679275289"><span class="annot"><span class="annottext">TerminateWorkspacesResponse -&gt; TerminateWorkspacesResponse -&gt; Bool
+</span><span id="line-163"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679278135"><span id="local-6989586621679278137"><span class="annot"><span class="annottext">TerminateWorkspacesResponse -&gt; TerminateWorkspacesResponse -&gt; Bool
 (TerminateWorkspacesResponse
  -&gt; TerminateWorkspacesResponse -&gt; Bool)
 -&gt; (TerminateWorkspacesResponse
@@ -367,7 +367,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TerminateWorkspacesResponse -&gt; TerminateWorkspacesResponse -&gt; Bool
 == :: TerminateWorkspacesResponse -&gt; TerminateWorkspacesResponse -&gt; Bool
 $c== :: TerminateWorkspacesResponse -&gt; TerminateWorkspacesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275279"><span id="local-6989586621679275281"><span id="local-6989586621679275283"><span id="local-6989586621679275285"><span class="annot"><span class="annottext">ReadPrec [TerminateWorkspacesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278127"><span id="local-6989586621679278129"><span id="local-6989586621679278131"><span id="local-6989586621679278133"><span class="annot"><span class="annottext">ReadPrec [TerminateWorkspacesResponse]
 ReadPrec TerminateWorkspacesResponse
 Int -&gt; ReadS TerminateWorkspacesResponse
 ReadS [TerminateWorkspacesResponse]
@@ -387,7 +387,7 @@ readList :: ReadS [TerminateWorkspacesResponse]
 $creadList :: ReadS [TerminateWorkspacesResponse]
 readsPrec :: Int -&gt; ReadS TerminateWorkspacesResponse
 $creadsPrec :: Int -&gt; ReadS TerminateWorkspacesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275273"><span id="local-6989586621679275275"><span id="local-6989586621679275277"><span class="annot"><span class="annottext">Int -&gt; TerminateWorkspacesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278121"><span id="local-6989586621679278123"><span id="local-6989586621679278125"><span class="annot"><span class="annottext">Int -&gt; TerminateWorkspacesResponse -&gt; ShowS
 [TerminateWorkspacesResponse] -&gt; ShowS
 TerminateWorkspacesResponse -&gt; String
 (Int -&gt; TerminateWorkspacesResponse -&gt; ShowS)
@@ -435,8 +435,8 @@ TerminateWorkspacesResponse -&gt; Rep TerminateWorkspacesResponse x
 </span><span id="line-178"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-179"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#TerminateWorkspacesResponse"><span class="hs-identifier hs-type">TerminateWorkspacesResponse</span></a></span><span>
 </span><span id="line-180"></span><span id="newTerminateWorkspacesResponse"><span class="annot"><span class="annottext">newTerminateWorkspacesResponse :: Int -&gt; TerminateWorkspacesResponse
-</span><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#newTerminateWorkspacesResponse"><span class="hs-identifier hs-var hs-var">newTerminateWorkspacesResponse</span></a></span></span><span> </span><span id="local-6989586621679275270"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679275270"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#newTerminateWorkspacesResponse"><span class="hs-identifier hs-var hs-var">newTerminateWorkspacesResponse</span></a></span></span><span> </span><span id="local-6989586621679278118"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679278118"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-181"></span><span>  </span><span class="annot"><span class="annottext">TerminateWorkspacesResponse' :: Maybe [FailedWorkspaceChangeRequest]
 -&gt; Int -&gt; TerminateWorkspacesResponse
 </span><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#TerminateWorkspacesResponse%27"><span class="hs-identifier hs-type">TerminateWorkspacesResponse'</span></a></span><span>
@@ -447,7 +447,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:TerminateWorkspacesResponse' :: Int
 </span><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#%24sel%3AhttpStatus%3ATerminateWorkspacesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679275270"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679278118"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-185"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-comment">-- | Information about the WorkSpaces that could not be terminated.</span><span>
@@ -466,16 +466,16 @@ forall a. Maybe a
      (Maybe [FailedWorkspaceChangeRequest])
      (Maybe [FailedWorkspaceChangeRequest])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#TerminateWorkspacesResponse%27"><span class="hs-identifier hs-type">TerminateWorkspacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275269"><span class="annot"><span class="annottext">Maybe [FailedWorkspaceChangeRequest]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#TerminateWorkspacesResponse%27"><span class="hs-identifier hs-type">TerminateWorkspacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278117"><span class="annot"><span class="annottext">Maybe [FailedWorkspaceChangeRequest]
 failedRequests :: Maybe [FailedWorkspaceChangeRequest]
 $sel:failedRequests:TerminateWorkspacesResponse' :: TerminateWorkspacesResponse -&gt; Maybe [FailedWorkspaceChangeRequest]
-</span><a href="#local-6989586621679275269"><span class="hs-identifier hs-var hs-var">failedRequests</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FailedWorkspaceChangeRequest]
-</span><a href="#local-6989586621679275269"><span class="hs-identifier hs-var">failedRequests</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275268"><span class="annot"><span class="annottext">s :: TerminateWorkspacesResponse
-</span><a href="#local-6989586621679275268"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#TerminateWorkspacesResponse%27"><span class="hs-identifier hs-type">TerminateWorkspacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275267"><span class="annot"><span class="annottext">Maybe [FailedWorkspaceChangeRequest]
-</span><a href="#local-6989586621679275267"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TerminateWorkspacesResponse
-</span><a href="#local-6989586621679275268"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failedRequests:TerminateWorkspacesResponse' :: Maybe [FailedWorkspaceChangeRequest]
+</span><a href="#local-6989586621679278117"><span class="hs-identifier hs-var hs-var">failedRequests</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FailedWorkspaceChangeRequest]
+</span><a href="#local-6989586621679278117"><span class="hs-identifier hs-var">failedRequests</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278116"><span class="annot"><span class="annottext">s :: TerminateWorkspacesResponse
+</span><a href="#local-6989586621679278116"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#TerminateWorkspacesResponse%27"><span class="hs-identifier hs-type">TerminateWorkspacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278115"><span class="annot"><span class="annottext">Maybe [FailedWorkspaceChangeRequest]
+</span><a href="#local-6989586621679278115"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TerminateWorkspacesResponse
+</span><a href="#local-6989586621679278116"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failedRequests:TerminateWorkspacesResponse' :: Maybe [FailedWorkspaceChangeRequest]
 </span><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#%24sel%3AfailedRequests%3ATerminateWorkspacesResponse%27"><span class="hs-identifier hs-var">failedRequests</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FailedWorkspaceChangeRequest]
-</span><a href="#local-6989586621679275267"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#TerminateWorkspacesResponse"><span class="hs-identifier hs-type">TerminateWorkspacesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FailedWorkspaceChangeRequest]
+</span><a href="#local-6989586621679278115"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#TerminateWorkspacesResponse"><span class="hs-identifier hs-type">TerminateWorkspacesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FailedWorkspaceChangeRequest]
   -&gt; f (Maybe [FailedWorkspaceChangeRequest]))
  -&gt; TerminateWorkspacesResponse -&gt; f TerminateWorkspacesResponse)
 -&gt; ((Maybe [FailedWorkspaceChangeRequest]
@@ -505,8 +505,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [FailedWorkspaceChangeRequest]
   [FailedWorkspaceChangeRequest]
   [FailedWorkspaceChangeRequest]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-192"></span><span class="annot"><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#terminateWorkspacesResponse_httpStatus"><span class="hs-identifier hs-type">terminateWorkspacesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#TerminateWorkspacesResponse"><span class="hs-identifier hs-type">TerminateWorkspacesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -518,16 +518,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      TerminateWorkspacesResponse TerminateWorkspacesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#TerminateWorkspacesResponse%27"><span class="hs-identifier hs-type">TerminateWorkspacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275265"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#TerminateWorkspacesResponse%27"><span class="hs-identifier hs-type">TerminateWorkspacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278113"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:TerminateWorkspacesResponse' :: TerminateWorkspacesResponse -&gt; Int
-</span><a href="#local-6989586621679275265"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679275265"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275264"><span class="annot"><span class="annottext">s :: TerminateWorkspacesResponse
-</span><a href="#local-6989586621679275264"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#TerminateWorkspacesResponse%27"><span class="hs-identifier hs-type">TerminateWorkspacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275263"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679275263"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TerminateWorkspacesResponse
-</span><a href="#local-6989586621679275264"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:TerminateWorkspacesResponse' :: Int
+</span><a href="#local-6989586621679278113"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679278113"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278112"><span class="annot"><span class="annottext">s :: TerminateWorkspacesResponse
+</span><a href="#local-6989586621679278112"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#TerminateWorkspacesResponse%27"><span class="hs-identifier hs-type">TerminateWorkspacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278111"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679278111"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TerminateWorkspacesResponse
+</span><a href="#local-6989586621679278112"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:TerminateWorkspacesResponse' :: Int
 </span><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#%24sel%3AhttpStatus%3ATerminateWorkspacesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679275263"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#TerminateWorkspacesResponse"><span class="hs-identifier hs-type">TerminateWorkspacesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679278111"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#TerminateWorkspacesResponse"><span class="hs-identifier hs-type">TerminateWorkspacesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-194"></span><span>
-</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275261"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#TerminateWorkspacesResponse"><span class="hs-identifier hs-type">TerminateWorkspacesResponse</span></a></span></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278109"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.TerminateWorkspaces.html#TerminateWorkspacesResponse"><span class="hs-identifier hs-type">TerminateWorkspacesResponse</span></a></span></span><span>
 </span><span id="line-196"></span></pre></body></html>

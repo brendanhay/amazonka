@@ -27,14 +27,14 @@
 </span><span id="line-27"></span><span class="hs-comment">-- for other event types.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newLambdaFunctionStartedEventAttributes' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679346609"><span id="local-6989586621679346610"></span></span><span class="hs-keyword">data</span><span> </span><span id="LambdaFunctionStartedEventAttributes"><span class="annot"><a href="Network.AWS.SWF.Types.LambdaFunctionStartedEventAttributes.html#LambdaFunctionStartedEventAttributes"><span class="hs-identifier hs-var">LambdaFunctionStartedEventAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LambdaFunctionStartedEventAttributes%27"><span class="annot"><a href="Network.AWS.SWF.Types.LambdaFunctionStartedEventAttributes.html#LambdaFunctionStartedEventAttributes%27"><span class="hs-identifier hs-var">LambdaFunctionStartedEventAttributes'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679346686"><span id="local-6989586621679346687"></span></span><span class="hs-keyword">data</span><span> </span><span id="LambdaFunctionStartedEventAttributes"><span class="annot"><a href="Network.AWS.SWF.Types.LambdaFunctionStartedEventAttributes.html#LambdaFunctionStartedEventAttributes"><span class="hs-identifier hs-var">LambdaFunctionStartedEventAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LambdaFunctionStartedEventAttributes%27"><span class="annot"><a href="Network.AWS.SWF.Types.LambdaFunctionStartedEventAttributes.html#LambdaFunctionStartedEventAttributes%27"><span class="hs-identifier hs-var">LambdaFunctionStartedEventAttributes'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the @LambdaFunctionScheduled@ event that was recorded when</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- this activity task was scheduled. To help diagnose issues, use this</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- information to trace back the chain of events leading up to this event.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AscheduledEventId%3ALambdaFunctionStartedEventAttributes%27"><span class="annot"><span class="annottext">LambdaFunctionStartedEventAttributes -&gt; Integer
 </span><a href="Network.AWS.SWF.Types.LambdaFunctionStartedEventAttributes.html#%24sel%3AscheduledEventId%3ALambdaFunctionStartedEventAttributes%27"><span class="hs-identifier hs-var hs-var">scheduledEventId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679346603"><span id="local-6989586621679346605"><span class="annot"><span class="annottext">LambdaFunctionStartedEventAttributes
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679346680"><span id="local-6989586621679346682"><span class="annot"><span class="annottext">LambdaFunctionStartedEventAttributes
 -&gt; LambdaFunctionStartedEventAttributes -&gt; Bool
 (LambdaFunctionStartedEventAttributes
  -&gt; LambdaFunctionStartedEventAttributes -&gt; Bool)
@@ -50,7 +50,7 @@ $c/= :: LambdaFunctionStartedEventAttributes
 -&gt; LambdaFunctionStartedEventAttributes -&gt; Bool
 $c== :: LambdaFunctionStartedEventAttributes
 -&gt; LambdaFunctionStartedEventAttributes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346594"><span id="local-6989586621679346596"><span id="local-6989586621679346598"><span id="local-6989586621679346600"><span class="annot"><span class="annottext">ReadPrec [LambdaFunctionStartedEventAttributes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346671"><span id="local-6989586621679346673"><span id="local-6989586621679346675"><span id="local-6989586621679346677"><span class="annot"><span class="annottext">ReadPrec [LambdaFunctionStartedEventAttributes]
 ReadPrec LambdaFunctionStartedEventAttributes
 Int -&gt; ReadS LambdaFunctionStartedEventAttributes
 ReadS [LambdaFunctionStartedEventAttributes]
@@ -70,7 +70,7 @@ readList :: ReadS [LambdaFunctionStartedEventAttributes]
 $creadList :: ReadS [LambdaFunctionStartedEventAttributes]
 readsPrec :: Int -&gt; ReadS LambdaFunctionStartedEventAttributes
 $creadsPrec :: Int -&gt; ReadS LambdaFunctionStartedEventAttributes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346587"><span id="local-6989586621679346589"><span id="local-6989586621679346591"><span class="annot"><span class="annottext">Int -&gt; LambdaFunctionStartedEventAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346664"><span id="local-6989586621679346666"><span id="local-6989586621679346668"><span class="annot"><span class="annottext">Int -&gt; LambdaFunctionStartedEventAttributes -&gt; ShowS
 [LambdaFunctionStartedEventAttributes] -&gt; ShowS
 LambdaFunctionStartedEventAttributes -&gt; String
 (Int -&gt; LambdaFunctionStartedEventAttributes -&gt; ShowS)
@@ -125,14 +125,14 @@ LambdaFunctionStartedEventAttributes
 </span><span id="line-52"></span><span>  </span><span class="annot"><a href="Network.AWS.SWF.Types.LambdaFunctionStartedEventAttributes.html#LambdaFunctionStartedEventAttributes"><span class="hs-identifier hs-type">LambdaFunctionStartedEventAttributes</span></a></span><span>
 </span><span id="line-53"></span><span id="newLambdaFunctionStartedEventAttributes"><span class="annot"><span class="annottext">newLambdaFunctionStartedEventAttributes :: Integer -&gt; LambdaFunctionStartedEventAttributes
 </span><a href="Network.AWS.SWF.Types.LambdaFunctionStartedEventAttributes.html#newLambdaFunctionStartedEventAttributes"><span class="hs-identifier hs-var hs-var">newLambdaFunctionStartedEventAttributes</span></a></span></span><span>
-</span><span id="line-54"></span><span>  </span><span id="local-6989586621679346581"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679346581"><span class="hs-identifier hs-var">pScheduledEventId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621679346658"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679346658"><span class="hs-identifier hs-var">pScheduledEventId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><span class="annottext">LambdaFunctionStartedEventAttributes' :: Integer -&gt; LambdaFunctionStartedEventAttributes
 </span><a href="Network.AWS.SWF.Types.LambdaFunctionStartedEventAttributes.html#LambdaFunctionStartedEventAttributes%27"><span class="hs-identifier hs-type">LambdaFunctionStartedEventAttributes'</span></a></span><span>
 </span><span id="line-56"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:scheduledEventId:LambdaFunctionStartedEventAttributes' :: Integer
 </span><a href="Network.AWS.SWF.Types.LambdaFunctionStartedEventAttributes.html#%24sel%3AscheduledEventId%3ALambdaFunctionStartedEventAttributes%27"><span class="hs-identifier hs-var">scheduledEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-57"></span><span>          </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679346581"><span class="hs-identifier hs-var">pScheduledEventId_</span></a></span><span>
+</span><a href="#local-6989586621679346658"><span class="hs-identifier hs-var">pScheduledEventId_</span></a></span><span>
 </span><span id="line-58"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | The ID of the @LambdaFunctionScheduled@ event that was recorded when</span><span>
@@ -151,22 +151,22 @@ LambdaFunctionStartedEventAttributes
      Integer
      Integer
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.LambdaFunctionStartedEventAttributes.html#LambdaFunctionStartedEventAttributes%27"><span class="hs-identifier hs-type">LambdaFunctionStartedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346577"><span class="annot"><span class="annottext">Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.LambdaFunctionStartedEventAttributes.html#LambdaFunctionStartedEventAttributes%27"><span class="hs-identifier hs-type">LambdaFunctionStartedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346654"><span class="annot"><span class="annottext">Integer
 scheduledEventId :: Integer
 $sel:scheduledEventId:LambdaFunctionStartedEventAttributes' :: LambdaFunctionStartedEventAttributes -&gt; Integer
-</span><a href="#local-6989586621679346577"><span class="hs-identifier hs-var hs-var">scheduledEventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679346577"><span class="hs-identifier hs-var">scheduledEventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346576"><span class="annot"><span class="annottext">s :: LambdaFunctionStartedEventAttributes
-</span><a href="#local-6989586621679346576"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.LambdaFunctionStartedEventAttributes.html#LambdaFunctionStartedEventAttributes%27"><span class="hs-identifier hs-type">LambdaFunctionStartedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346575"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679346575"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaFunctionStartedEventAttributes
-</span><a href="#local-6989586621679346576"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduledEventId:LambdaFunctionStartedEventAttributes' :: Integer
+</span><a href="#local-6989586621679346654"><span class="hs-identifier hs-var hs-var">scheduledEventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679346654"><span class="hs-identifier hs-var">scheduledEventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346653"><span class="annot"><span class="annottext">s :: LambdaFunctionStartedEventAttributes
+</span><a href="#local-6989586621679346653"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.LambdaFunctionStartedEventAttributes.html#LambdaFunctionStartedEventAttributes%27"><span class="hs-identifier hs-type">LambdaFunctionStartedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346652"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679346652"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaFunctionStartedEventAttributes
+</span><a href="#local-6989586621679346653"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduledEventId:LambdaFunctionStartedEventAttributes' :: Integer
 </span><a href="Network.AWS.SWF.Types.LambdaFunctionStartedEventAttributes.html#%24sel%3AscheduledEventId%3ALambdaFunctionStartedEventAttributes%27"><span class="hs-identifier hs-var">scheduledEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679346575"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.LambdaFunctionStartedEventAttributes.html#LambdaFunctionStartedEventAttributes"><span class="hs-identifier hs-type">LambdaFunctionStartedEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679346652"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.LambdaFunctionStartedEventAttributes.html#LambdaFunctionStartedEventAttributes"><span class="hs-identifier hs-type">LambdaFunctionStartedEventAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679346572"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679346649"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.Types.LambdaFunctionStartedEventAttributes.html#LambdaFunctionStartedEventAttributes"><span class="hs-identifier hs-type">LambdaFunctionStartedEventAttributes</span></a></span></span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679346570"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LambdaFunctionStartedEventAttributes
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679346647"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LambdaFunctionStartedEventAttributes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser LambdaFunctionStartedEventAttributes)
@@ -176,25 +176,25 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;LambdaFunctionStartedEventAttributes&quot;</span></span><span>
-</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679346567"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679346567"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679346644"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679346644"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Integer -&gt; LambdaFunctionStartedEventAttributes
 </span><a href="Network.AWS.SWF.Types.LambdaFunctionStartedEventAttributes.html#LambdaFunctionStartedEventAttributes%27"><span class="hs-identifier hs-var">LambdaFunctionStartedEventAttributes'</span></a></span><span>
 </span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">(Integer -&gt; LambdaFunctionStartedEventAttributes)
 -&gt; Parser Integer -&gt; Parser LambdaFunctionStartedEventAttributes
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679346567"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
+</span><a href="#local-6989586621679346644"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;scheduledEventId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679346561"><span id="local-6989586621679346563"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679346638"><span id="local-6989586621679346640"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.Types.LambdaFunctionStartedEventAttributes.html#LambdaFunctionStartedEventAttributes"><span class="hs-identifier hs-type">LambdaFunctionStartedEventAttributes</span></a></span></span></span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679346558"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679346635"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.Types.LambdaFunctionStartedEventAttributes.html#LambdaFunctionStartedEventAttributes"><span class="hs-identifier hs-type">LambdaFunctionStartedEventAttributes</span></a></span></span><span>
 </span><span id="line-85"></span></pre></body></html>

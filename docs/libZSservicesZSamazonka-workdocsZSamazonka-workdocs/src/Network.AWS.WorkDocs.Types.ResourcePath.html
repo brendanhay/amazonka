@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Describes the path information of a resource.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newResourcePath' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679261945"><span id="local-6989586621679261946"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourcePath"><span class="annot"><a href="Network.AWS.WorkDocs.Types.ResourcePath.html#ResourcePath"><span class="hs-identifier hs-var">ResourcePath</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourcePath%27"><span class="annot"><a href="Network.AWS.WorkDocs.Types.ResourcePath.html#ResourcePath%27"><span class="hs-identifier hs-var">ResourcePath'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679262065"><span id="local-6989586621679262066"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourcePath"><span class="annot"><a href="Network.AWS.WorkDocs.Types.ResourcePath.html#ResourcePath"><span class="hs-identifier hs-var">ResourcePath</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourcePath%27"><span class="annot"><a href="Network.AWS.WorkDocs.Types.ResourcePath.html#ResourcePath%27"><span class="hs-identifier hs-var">ResourcePath'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The components of the resource path.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Acomponents%3AResourcePath%27"><span class="annot"><span class="annottext">ResourcePath -&gt; Maybe [ResourcePathComponent]
 </span><a href="Network.AWS.WorkDocs.Types.ResourcePath.html#%24sel%3Acomponents%3AResourcePath%27"><span class="hs-identifier hs-var hs-var">components</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ResourcePathComponent.html#ResourcePathComponent"><span class="hs-identifier hs-type">ResourcePathComponent</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679261939"><span id="local-6989586621679261941"><span class="annot"><span class="annottext">ResourcePath -&gt; ResourcePath -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679262059"><span id="local-6989586621679262061"><span class="annot"><span class="annottext">ResourcePath -&gt; ResourcePath -&gt; Bool
 (ResourcePath -&gt; ResourcePath -&gt; Bool)
 -&gt; (ResourcePath -&gt; ResourcePath -&gt; Bool) -&gt; Eq ResourcePath
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ResourcePath -&gt; ResourcePath -&gt; Bool
 == :: ResourcePath -&gt; ResourcePath -&gt; Bool
 $c== :: ResourcePath -&gt; ResourcePath -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261930"><span id="local-6989586621679261932"><span id="local-6989586621679261934"><span id="local-6989586621679261936"><span class="annot"><span class="annottext">ReadPrec [ResourcePath]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262050"><span id="local-6989586621679262052"><span id="local-6989586621679262054"><span id="local-6989586621679262056"><span class="annot"><span class="annottext">ReadPrec [ResourcePath]
 ReadPrec ResourcePath
 Int -&gt; ReadS ResourcePath
 ReadS [ResourcePath]
@@ -60,7 +60,7 @@ readList :: ReadS [ResourcePath]
 $creadList :: ReadS [ResourcePath]
 readsPrec :: Int -&gt; ReadS ResourcePath
 $creadsPrec :: Int -&gt; ReadS ResourcePath
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261923"><span id="local-6989586621679261925"><span id="local-6989586621679261927"><span class="annot"><span class="annottext">Int -&gt; ResourcePath -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262043"><span id="local-6989586621679262045"><span id="local-6989586621679262047"><span class="annot"><span class="annottext">Int -&gt; ResourcePath -&gt; ShowS
 [ResourcePath] -&gt; ShowS
 ResourcePath -&gt; String
 (Int -&gt; ResourcePath -&gt; ShowS)
@@ -118,16 +118,16 @@ forall a. Maybe a
      (Maybe [ResourcePathComponent])
      (Maybe [ResourcePathComponent])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ResourcePath.html#ResourcePath%27"><span class="hs-identifier hs-type">ResourcePath'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261914"><span class="annot"><span class="annottext">Maybe [ResourcePathComponent]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ResourcePath.html#ResourcePath%27"><span class="hs-identifier hs-type">ResourcePath'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262034"><span class="annot"><span class="annottext">Maybe [ResourcePathComponent]
 components :: Maybe [ResourcePathComponent]
 $sel:components:ResourcePath' :: ResourcePath -&gt; Maybe [ResourcePathComponent]
-</span><a href="#local-6989586621679261914"><span class="hs-identifier hs-var hs-var">components</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourcePathComponent]
-</span><a href="#local-6989586621679261914"><span class="hs-identifier hs-var">components</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261913"><span class="annot"><span class="annottext">s :: ResourcePath
-</span><a href="#local-6989586621679261913"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ResourcePath.html#ResourcePath%27"><span class="hs-identifier hs-type">ResourcePath'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261912"><span class="annot"><span class="annottext">Maybe [ResourcePathComponent]
-</span><a href="#local-6989586621679261912"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourcePath
-</span><a href="#local-6989586621679261913"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:components:ResourcePath' :: Maybe [ResourcePathComponent]
+</span><a href="#local-6989586621679262034"><span class="hs-identifier hs-var hs-var">components</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourcePathComponent]
+</span><a href="#local-6989586621679262034"><span class="hs-identifier hs-var">components</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262033"><span class="annot"><span class="annottext">s :: ResourcePath
+</span><a href="#local-6989586621679262033"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ResourcePath.html#ResourcePath%27"><span class="hs-identifier hs-type">ResourcePath'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262032"><span class="annot"><span class="annottext">Maybe [ResourcePathComponent]
+</span><a href="#local-6989586621679262032"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourcePath
+</span><a href="#local-6989586621679262033"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:components:ResourcePath' :: Maybe [ResourcePathComponent]
 </span><a href="Network.AWS.WorkDocs.Types.ResourcePath.html#%24sel%3Acomponents%3AResourcePath%27"><span class="hs-identifier hs-var">components</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourcePathComponent]
-</span><a href="#local-6989586621679261912"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ResourcePath.html#ResourcePath"><span class="hs-identifier hs-type">ResourcePath</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ResourcePathComponent]
+</span><a href="#local-6989586621679262032"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ResourcePath.html#ResourcePath"><span class="hs-identifier hs-type">ResourcePath</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ResourcePathComponent]
   -&gt; f (Maybe [ResourcePathComponent]))
  -&gt; ResourcePath -&gt; f ResourcePath)
 -&gt; ((Maybe [ResourcePathComponent]
@@ -157,11 +157,11 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [ResourcePathComponent]
   [ResourcePathComponent]
   [ResourcePathComponent]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-53"></span><span>
-</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261906"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ResourcePath.html#ResourcePath"><span class="hs-identifier hs-type">ResourcePath</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621679261904"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResourcePath
+</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262026"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ResourcePath.html#ResourcePath"><span class="hs-identifier hs-type">ResourcePath</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621679262024"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResourcePath
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ResourcePath) -&gt; Value -&gt; Parser ResourcePath
@@ -169,15 +169,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ResourcePath&quot;</span></span><span>
-</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679261901"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679261901"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679262021"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262021"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-59"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ResourcePathComponent] -&gt; ResourcePath
 </span><a href="Network.AWS.WorkDocs.Types.ResourcePath.html#ResourcePath%27"><span class="hs-identifier hs-var">ResourcePath'</span></a></span><span>
 </span><span id="line-60"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ResourcePathComponent] -&gt; ResourcePath)
 -&gt; Parser (Maybe [ResourcePathComponent]) -&gt; Parser ResourcePath
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679261901"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ResourcePathComponent]))
+</span><a href="#local-6989586621679262021"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ResourcePathComponent]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Components&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [ResourcePathComponent]))
@@ -189,7 +189,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261894"><span id="local-6989586621679261896"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ResourcePath.html#ResourcePath"><span class="hs-identifier hs-type">ResourcePath</span></a></span></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262014"><span id="local-6989586621679262016"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ResourcePath.html#ResourcePath"><span class="hs-identifier hs-type">ResourcePath</span></a></span></span></span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261891"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ResourcePath.html#ResourcePath"><span class="hs-identifier hs-type">ResourcePath</span></a></span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262011"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.ResourcePath.html#ResourcePath"><span class="hs-identifier hs-type">ResourcePath</span></a></span></span><span>
 </span><span id="line-66"></span></pre></body></html>

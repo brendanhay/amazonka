@@ -54,8 +54,8 @@
 </span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#newGetOpenIdTokenForDeveloperIdentityResponse"><span class="hs-identifier">newGetOpenIdTokenForDeveloperIdentityResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#getOpenIdTokenForDeveloperIdentityResponse_identityId"><span class="hs-identifier">getOpenIdTokenForDeveloperIdentityResponse_identityId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#getOpenIdTokenForDeveloperIdentityResponse_token"><span class="hs-identifier">getOpenIdTokenForDeveloperIdentityResponse_token</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#getOpenIdTokenForDeveloperIdentityResponse_token"><span class="hs-identifier">getOpenIdTokenForDeveloperIdentityResponse_token</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#getOpenIdTokenForDeveloperIdentityResponse_identityId"><span class="hs-identifier">getOpenIdTokenForDeveloperIdentityResponse_identityId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#getOpenIdTokenForDeveloperIdentityResponse_httpStatus"><span class="hs-identifier">getOpenIdTokenForDeveloperIdentityResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span class="hs-keyword">where</span><span>
@@ -70,7 +70,7 @@
 </span><span id="line-70"></span><span class="hs-comment">-- | Input to the @GetOpenIdTokenForDeveloperIdentity@ action.</span><span>
 </span><span id="line-71"></span><span class="hs-comment">--</span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- /See:/ 'newGetOpenIdTokenForDeveloperIdentity' smart constructor.</span><span>
-</span><span id="line-73"></span><span id="local-6989586621679186621"><span id="local-6989586621679186622"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetOpenIdTokenForDeveloperIdentity"><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentity"><span class="hs-identifier hs-var">GetOpenIdTokenForDeveloperIdentity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetOpenIdTokenForDeveloperIdentity%27"><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentity%27"><span class="hs-identifier hs-var">GetOpenIdTokenForDeveloperIdentity'</span></a></span></span><span>
+</span><span id="line-73"></span><span id="local-6989586621679186796"><span id="local-6989586621679186797"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetOpenIdTokenForDeveloperIdentity"><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentity"><span class="hs-identifier hs-var">GetOpenIdTokenForDeveloperIdentity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetOpenIdTokenForDeveloperIdentity%27"><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentity%27"><span class="hs-identifier hs-var">GetOpenIdTokenForDeveloperIdentity'</span></a></span></span><span>
 </span><span id="line-74"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The expiration time of the token, in seconds. You can specify a custom</span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-comment">-- expiration time for the token so that you can cache it. If you don\'t</span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-comment">-- provide an expiration time, the token is valid for 15 minutes. You can</span><span>
@@ -107,7 +107,7 @@
 </span><span id="line-103"></span><span>    </span><span id="%24sel%3Alogins%3AGetOpenIdTokenForDeveloperIdentity%27"><span class="annot"><span class="annottext">GetOpenIdTokenForDeveloperIdentity -&gt; HashMap Text Text
 </span><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#%24sel%3Alogins%3AGetOpenIdTokenForDeveloperIdentity%27"><span class="hs-identifier hs-var hs-var">logins</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-104"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-105"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679186611"><span id="local-6989586621679186613"><span class="annot"><span class="annottext">GetOpenIdTokenForDeveloperIdentity
+</span><span id="line-105"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679186786"><span id="local-6989586621679186788"><span class="annot"><span class="annottext">GetOpenIdTokenForDeveloperIdentity
 -&gt; GetOpenIdTokenForDeveloperIdentity -&gt; Bool
 (GetOpenIdTokenForDeveloperIdentity
  -&gt; GetOpenIdTokenForDeveloperIdentity -&gt; Bool)
@@ -123,7 +123,7 @@ $c/= :: GetOpenIdTokenForDeveloperIdentity
 -&gt; GetOpenIdTokenForDeveloperIdentity -&gt; Bool
 $c== :: GetOpenIdTokenForDeveloperIdentity
 -&gt; GetOpenIdTokenForDeveloperIdentity -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679186602"><span id="local-6989586621679186604"><span id="local-6989586621679186606"><span id="local-6989586621679186608"><span class="annot"><span class="annottext">ReadPrec [GetOpenIdTokenForDeveloperIdentity]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679186777"><span id="local-6989586621679186779"><span id="local-6989586621679186781"><span id="local-6989586621679186783"><span class="annot"><span class="annottext">ReadPrec [GetOpenIdTokenForDeveloperIdentity]
 ReadPrec GetOpenIdTokenForDeveloperIdentity
 Int -&gt; ReadS GetOpenIdTokenForDeveloperIdentity
 ReadS [GetOpenIdTokenForDeveloperIdentity]
@@ -143,7 +143,7 @@ readList :: ReadS [GetOpenIdTokenForDeveloperIdentity]
 $creadList :: ReadS [GetOpenIdTokenForDeveloperIdentity]
 readsPrec :: Int -&gt; ReadS GetOpenIdTokenForDeveloperIdentity
 $creadsPrec :: Int -&gt; ReadS GetOpenIdTokenForDeveloperIdentity
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679186595"><span id="local-6989586621679186597"><span id="local-6989586621679186599"><span class="annot"><span class="annottext">Int -&gt; GetOpenIdTokenForDeveloperIdentity -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679186770"><span id="local-6989586621679186772"><span id="local-6989586621679186774"><span class="annot"><span class="annottext">Int -&gt; GetOpenIdTokenForDeveloperIdentity -&gt; ShowS
 [GetOpenIdTokenForDeveloperIdentity] -&gt; ShowS
 GetOpenIdTokenForDeveloperIdentity -&gt; String
 (Int -&gt; GetOpenIdTokenForDeveloperIdentity -&gt; ShowS)
@@ -224,8 +224,8 @@ GetOpenIdTokenForDeveloperIdentity
 </span><span id="line-147"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentity"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentity</span></a></span><span>
 </span><span id="line-148"></span><span id="newGetOpenIdTokenForDeveloperIdentity"><span class="annot"><span class="annottext">newGetOpenIdTokenForDeveloperIdentity :: Text -&gt; GetOpenIdTokenForDeveloperIdentity
 </span><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#newGetOpenIdTokenForDeveloperIdentity"><span class="hs-identifier hs-var hs-var">newGetOpenIdTokenForDeveloperIdentity</span></a></span></span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679186590"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679186590"><span class="hs-identifier hs-var">pIdentityPoolId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679186765"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186765"><span class="hs-identifier hs-var">pIdentityPoolId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">GetOpenIdTokenForDeveloperIdentity' :: Maybe Natural
 -&gt; Maybe (HashMap Text Text)
 -&gt; Maybe Text
@@ -248,7 +248,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-155"></span><span>        </span><span class="annot"><span class="annottext">$sel:identityPoolId:GetOpenIdTokenForDeveloperIdentity' :: Text
 </span><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#%24sel%3AidentityPoolId%3AGetOpenIdTokenForDeveloperIdentity%27"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679186590"><span class="hs-identifier hs-var">pIdentityPoolId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679186765"><span class="hs-identifier hs-var">pIdentityPoolId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-156"></span><span>        </span><span class="annot"><span class="annottext">$sel:logins:GetOpenIdTokenForDeveloperIdentity' :: HashMap Text Text
 </span><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#%24sel%3Alogins%3AGetOpenIdTokenForDeveloperIdentity%27"><span class="hs-identifier hs-var">logins</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
 forall a. Monoid a =&gt; a
@@ -280,16 +280,16 @@ forall a. Monoid a =&gt; a
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentity%27"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186587"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentity%27"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186762"><span class="annot"><span class="annottext">Maybe Natural
 tokenDuration :: Maybe Natural
 $sel:tokenDuration:GetOpenIdTokenForDeveloperIdentity' :: GetOpenIdTokenForDeveloperIdentity -&gt; Maybe Natural
-</span><a href="#local-6989586621679186587"><span class="hs-identifier hs-var hs-var">tokenDuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679186587"><span class="hs-identifier hs-var">tokenDuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186586"><span class="annot"><span class="annottext">s :: GetOpenIdTokenForDeveloperIdentity
-</span><a href="#local-6989586621679186586"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentity%27"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186585"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679186585"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOpenIdTokenForDeveloperIdentity
-</span><a href="#local-6989586621679186586"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tokenDuration:GetOpenIdTokenForDeveloperIdentity' :: Maybe Natural
+</span><a href="#local-6989586621679186762"><span class="hs-identifier hs-var hs-var">tokenDuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679186762"><span class="hs-identifier hs-var">tokenDuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186761"><span class="annot"><span class="annottext">s :: GetOpenIdTokenForDeveloperIdentity
+</span><a href="#local-6989586621679186761"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentity%27"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186760"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679186760"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOpenIdTokenForDeveloperIdentity
+</span><a href="#local-6989586621679186761"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tokenDuration:GetOpenIdTokenForDeveloperIdentity' :: Maybe Natural
 </span><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#%24sel%3AtokenDuration%3AGetOpenIdTokenForDeveloperIdentity%27"><span class="hs-identifier hs-var">tokenDuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679186585"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentity"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679186760"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentity"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-comment">-- | Use this operation to configure attribute mappings for custom providers.</span><span>
 </span><span id="line-175"></span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#getOpenIdTokenForDeveloperIdentity_principalTags"><span class="hs-identifier hs-type">getOpenIdTokenForDeveloperIdentity_principalTags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentity"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
@@ -305,16 +305,16 @@ $sel:tokenDuration:GetOpenIdTokenForDeveloperIdentity' :: GetOpenIdTokenForDevel
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentity%27"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186584"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentity%27"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186759"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 principalTags :: Maybe (HashMap Text Text)
 $sel:principalTags:GetOpenIdTokenForDeveloperIdentity' :: GetOpenIdTokenForDeveloperIdentity -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679186584"><span class="hs-identifier hs-var hs-var">principalTags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679186584"><span class="hs-identifier hs-var">principalTags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186583"><span class="annot"><span class="annottext">s :: GetOpenIdTokenForDeveloperIdentity
-</span><a href="#local-6989586621679186583"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentity%27"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186582"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679186582"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOpenIdTokenForDeveloperIdentity
-</span><a href="#local-6989586621679186583"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:principalTags:GetOpenIdTokenForDeveloperIdentity' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679186759"><span class="hs-identifier hs-var hs-var">principalTags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679186759"><span class="hs-identifier hs-var">principalTags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186758"><span class="annot"><span class="annottext">s :: GetOpenIdTokenForDeveloperIdentity
+</span><a href="#local-6989586621679186758"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentity%27"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186757"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679186757"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOpenIdTokenForDeveloperIdentity
+</span><a href="#local-6989586621679186758"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:principalTags:GetOpenIdTokenForDeveloperIdentity' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#%24sel%3AprincipalTags%3AGetOpenIdTokenForDeveloperIdentity%27"><span class="hs-identifier hs-var">principalTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679186582"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentity"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentity</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679186757"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentity"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentity</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; GetOpenIdTokenForDeveloperIdentity
  -&gt; f GetOpenIdTokenForDeveloperIdentity)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -341,8 +341,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Text)
   (HashMap Text Text)
   (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-comment">-- | A unique identifier in the format REGION:GUID.</span><span>
 </span><span id="line-179"></span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#getOpenIdTokenForDeveloperIdentity_identityId"><span class="hs-identifier hs-type">getOpenIdTokenForDeveloperIdentity_identityId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentity"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -358,16 +358,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentity%27"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186578"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentity%27"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186753"><span class="annot"><span class="annottext">Maybe Text
 identityId :: Maybe Text
 $sel:identityId:GetOpenIdTokenForDeveloperIdentity' :: GetOpenIdTokenForDeveloperIdentity -&gt; Maybe Text
-</span><a href="#local-6989586621679186578"><span class="hs-identifier hs-var hs-var">identityId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679186578"><span class="hs-identifier hs-var">identityId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186577"><span class="annot"><span class="annottext">s :: GetOpenIdTokenForDeveloperIdentity
-</span><a href="#local-6989586621679186577"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentity%27"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186576"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679186576"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOpenIdTokenForDeveloperIdentity
-</span><a href="#local-6989586621679186577"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityId:GetOpenIdTokenForDeveloperIdentity' :: Maybe Text
+</span><a href="#local-6989586621679186753"><span class="hs-identifier hs-var hs-var">identityId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679186753"><span class="hs-identifier hs-var">identityId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186752"><span class="annot"><span class="annottext">s :: GetOpenIdTokenForDeveloperIdentity
+</span><a href="#local-6989586621679186752"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentity%27"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186751"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679186751"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOpenIdTokenForDeveloperIdentity
+</span><a href="#local-6989586621679186752"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityId:GetOpenIdTokenForDeveloperIdentity' :: Maybe Text
 </span><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#%24sel%3AidentityId%3AGetOpenIdTokenForDeveloperIdentity%27"><span class="hs-identifier hs-var">identityId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679186576"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentity"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679186751"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentity"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-comment">-- | An identity pool ID in the format REGION:GUID.</span><span>
 </span><span id="line-183"></span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#getOpenIdTokenForDeveloperIdentity_identityPoolId"><span class="hs-identifier hs-type">getOpenIdTokenForDeveloperIdentity_identityPoolId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentity"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentity</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -383,16 +383,16 @@ $sel:identityId:GetOpenIdTokenForDeveloperIdentity' :: GetOpenIdTokenForDevelope
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentity%27"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186575"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentity%27"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186750"><span class="annot"><span class="annottext">Text
 identityPoolId :: Text
 $sel:identityPoolId:GetOpenIdTokenForDeveloperIdentity' :: GetOpenIdTokenForDeveloperIdentity -&gt; Text
-</span><a href="#local-6989586621679186575"><span class="hs-identifier hs-var hs-var">identityPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679186575"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186574"><span class="annot"><span class="annottext">s :: GetOpenIdTokenForDeveloperIdentity
-</span><a href="#local-6989586621679186574"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentity%27"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186573"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679186573"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOpenIdTokenForDeveloperIdentity
-</span><a href="#local-6989586621679186574"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityPoolId:GetOpenIdTokenForDeveloperIdentity' :: Text
+</span><a href="#local-6989586621679186750"><span class="hs-identifier hs-var hs-var">identityPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186750"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186749"><span class="annot"><span class="annottext">s :: GetOpenIdTokenForDeveloperIdentity
+</span><a href="#local-6989586621679186749"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentity%27"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186748"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186748"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOpenIdTokenForDeveloperIdentity
+</span><a href="#local-6989586621679186749"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityPoolId:GetOpenIdTokenForDeveloperIdentity' :: Text
 </span><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#%24sel%3AidentityPoolId%3AGetOpenIdTokenForDeveloperIdentity%27"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679186573"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentity"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679186748"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentity"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-comment">-- | A set of optional name-value pairs that map provider names to provider</span><span>
 </span><span id="line-187"></span><span class="hs-comment">-- tokens. Each name-value pair represents a user from a public provider or</span><span>
@@ -417,16 +417,16 @@ $sel:identityPoolId:GetOpenIdTokenForDeveloperIdentity' :: GetOpenIdTokenForDeve
      (HashMap Text Text)
      (HashMap Text Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentity%27"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186572"><span class="annot"><span class="annottext">HashMap Text Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentity%27"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186747"><span class="annot"><span class="annottext">HashMap Text Text
 logins :: HashMap Text Text
 $sel:logins:GetOpenIdTokenForDeveloperIdentity' :: GetOpenIdTokenForDeveloperIdentity -&gt; HashMap Text Text
-</span><a href="#local-6989586621679186572"><span class="hs-identifier hs-var hs-var">logins</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
-</span><a href="#local-6989586621679186572"><span class="hs-identifier hs-var">logins</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186571"><span class="annot"><span class="annottext">s :: GetOpenIdTokenForDeveloperIdentity
-</span><a href="#local-6989586621679186571"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentity%27"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186570"><span class="annot"><span class="annottext">HashMap Text Text
-</span><a href="#local-6989586621679186570"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOpenIdTokenForDeveloperIdentity
-</span><a href="#local-6989586621679186571"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logins:GetOpenIdTokenForDeveloperIdentity' :: HashMap Text Text
+</span><a href="#local-6989586621679186747"><span class="hs-identifier hs-var hs-var">logins</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679186747"><span class="hs-identifier hs-var">logins</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186746"><span class="annot"><span class="annottext">s :: GetOpenIdTokenForDeveloperIdentity
+</span><a href="#local-6989586621679186746"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentity%27"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186745"><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679186745"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOpenIdTokenForDeveloperIdentity
+</span><a href="#local-6989586621679186746"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logins:GetOpenIdTokenForDeveloperIdentity' :: HashMap Text Text
 </span><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#%24sel%3Alogins%3AGetOpenIdTokenForDeveloperIdentity%27"><span class="hs-identifier hs-var">logins</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
-</span><a href="#local-6989586621679186570"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentity"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentity</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text Text -&gt; f (HashMap Text Text))
+</span><a href="#local-6989586621679186745"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentity"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentity</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text Text -&gt; f (HashMap Text Text))
  -&gt; GetOpenIdTokenForDeveloperIdentity
  -&gt; f GetOpenIdTokenForDeveloperIdentity)
 -&gt; ((HashMap Text Text -&gt; f (HashMap Text Text))
@@ -437,8 +437,8 @@ $sel:logins:GetOpenIdTokenForDeveloperIdentity' :: GetOpenIdTokenForDeveloperIde
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; f (HashMap Text Text))
 -&gt; HashMap Text Text -&gt; f (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-200"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
@@ -447,7 +447,7 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 </span><span id="line-203"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-204"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentity"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentity</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-205"></span><span>      </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentityResponse"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentityResponse</span></a></span><span>
-</span><span id="line-206"></span><span>  </span><span id="local-6989586621679186566"><span class="annot"><span class="annottext">request :: GetOpenIdTokenForDeveloperIdentity
+</span><span id="line-206"></span><span>  </span><span id="local-6989586621679186741"><span class="annot"><span class="annottext">request :: GetOpenIdTokenForDeveloperIdentity
 -&gt; Request GetOpenIdTokenForDeveloperIdentity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; GetOpenIdTokenForDeveloperIdentity
@@ -455,7 +455,7 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CognitoIdentity.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-207"></span><span>  </span><span id="local-6989586621679186562"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679186737"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetOpenIdTokenForDeveloperIdentity
 -&gt; ClientResponse ClientBody
@@ -483,10 +483,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-209"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679186559"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679186559"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679186558"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679186558"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679186557"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679186557"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-209"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679186734"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679186734"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679186733"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679186733"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679186732"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679186732"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-210"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text -&gt; Int -&gt; GetOpenIdTokenForDeveloperIdentityResponse
 </span><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentityResponse%27"><span class="hs-identifier hs-var">GetOpenIdTokenForDeveloperIdentityResponse'</span></a></span><span>
@@ -498,10 +498,10 @@ MonadResource m =&gt;
      (Maybe Text -&gt; Int -&gt; GetOpenIdTokenForDeveloperIdentityResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679186557"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679186732"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;IdentityId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Token&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-212"></span><span>              </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text -&gt; Int -&gt; GetOpenIdTokenForDeveloperIdentityResponse)
@@ -510,10 +510,10 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
      String (Int -&gt; GetOpenIdTokenForDeveloperIdentityResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679186557"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679186732"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Token&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;IdentityId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-213"></span><span>              </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetOpenIdTokenForDeveloperIdentityResponse)
 -&gt; Either String Int
 -&gt; Either String GetOpenIdTokenForDeveloperIdentityResponse
@@ -523,22 +523,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679186559"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679186734"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-214"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-215"></span><span>
 </span><span id="line-216"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-217"></span><span>  </span><span id="local-6989586621679186549"><span id="local-6989586621679186551"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-217"></span><span>  </span><span id="local-6989586621679186724"><span id="local-6989586621679186726"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-218"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentity"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentity</span></a></span></span></span><span>
 </span><span id="line-219"></span><span>
 </span><span id="line-220"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-221"></span><span>  </span><span id="local-6989586621679186546"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-221"></span><span>  </span><span id="local-6989586621679186721"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-222"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentity"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentity</span></a></span></span><span>
 </span><span id="line-223"></span><span>
 </span><span id="line-224"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-225"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-226"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentity"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentity</span></a></span><span>
 </span><span id="line-227"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-228"></span><span>  </span><span id="local-6989586621679186542"><span class="annot"><span class="annottext">toHeaders :: GetOpenIdTokenForDeveloperIdentity -&gt; ResponseHeaders
+</span><span id="line-228"></span><span>  </span><span id="local-6989586621679186717"><span class="annot"><span class="annottext">toHeaders :: GetOpenIdTokenForDeveloperIdentity -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-229"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; GetOpenIdTokenForDeveloperIdentity -&gt; ResponseHeaders
@@ -567,11 +567,11 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-240"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-241"></span><span>
 </span><span id="line-242"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-243"></span><span>  </span><span id="local-6989586621679186532"><span id="local-6989586621679186534"><span id="local-6989586621679186536"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-243"></span><span>  </span><span id="local-6989586621679186707"><span id="local-6989586621679186709"><span id="local-6989586621679186711"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
 </span><span id="line-244"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentity"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentity</span></a></span></span></span></span><span>
 </span><span id="line-245"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-246"></span><span>  </span><span id="local-6989586621679186530"><span class="annot"><span class="annottext">toJSON :: GetOpenIdTokenForDeveloperIdentity -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentity%27"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186524"><span id="local-6989586621679186525"><span id="local-6989586621679186526"><span id="local-6989586621679186527"><span id="local-6989586621679186528"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-246"></span><span>  </span><span id="local-6989586621679186705"><span class="annot"><span class="annottext">toJSON :: GetOpenIdTokenForDeveloperIdentity -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentity%27"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186699"><span id="local-6989586621679186700"><span id="local-6989586621679186701"><span id="local-6989586621679186702"><span id="local-6989586621679186703"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe (HashMap Text Text)
 Text
@@ -586,7 +586,7 @@ $sel:identityPoolId:GetOpenIdTokenForDeveloperIdentity' :: GetOpenIdTokenForDeve
 $sel:identityId:GetOpenIdTokenForDeveloperIdentity' :: GetOpenIdTokenForDeveloperIdentity -&gt; Maybe Text
 $sel:principalTags:GetOpenIdTokenForDeveloperIdentity' :: GetOpenIdTokenForDeveloperIdentity -&gt; Maybe (HashMap Text Text)
 $sel:tokenDuration:GetOpenIdTokenForDeveloperIdentity' :: GetOpenIdTokenForDeveloperIdentity -&gt; Maybe Natural
-</span><a href="#local-6989586621679186524"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679186699"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-247"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-248"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -598,7 +598,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679186528"><span class="hs-identifier hs-var">tokenDuration</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679186703"><span class="hs-identifier hs-var">tokenDuration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-250"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PrincipalTags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -606,14 +606,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679186527"><span class="hs-identifier hs-var">principalTags</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679186702"><span class="hs-identifier hs-var">principalTags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-251"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IdentityId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679186526"><span class="hs-identifier hs-var">identityId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679186701"><span class="hs-identifier hs-var">identityId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-252"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -621,14 +621,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;IdentityPoolId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679186525"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679186700"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-254"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Logins&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
-</span><a href="#local-6989586621679186524"><span class="hs-identifier hs-var">logins</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679186699"><span class="hs-identifier hs-var">logins</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-255"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-256"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-257"></span><span>
@@ -636,7 +636,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-259"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
 </span><span id="line-260"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentity"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentity</span></a></span><span>
 </span><span id="line-261"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-262"></span><span>  </span><span id="local-6989586621679186518"><span class="annot"><span class="annottext">toPath :: GetOpenIdTokenForDeveloperIdentity -&gt; ByteString
+</span><span id="line-262"></span><span>  </span><span id="local-6989586621679186693"><span class="annot"><span class="annottext">toPath :: GetOpenIdTokenForDeveloperIdentity -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetOpenIdTokenForDeveloperIdentity -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
@@ -646,7 +646,7 @@ forall a b. a -&gt; b -&gt; a
 </span><span id="line-265"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
 </span><span id="line-266"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentity"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentity</span></a></span><span>
 </span><span id="line-267"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-268"></span><span>  </span><span id="local-6989586621679186514"><span class="annot"><span class="annottext">toQuery :: GetOpenIdTokenForDeveloperIdentity -&gt; QueryString
+</span><span id="line-268"></span><span>  </span><span id="local-6989586621679186689"><span class="annot"><span class="annottext">toQuery :: GetOpenIdTokenForDeveloperIdentity -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetOpenIdTokenForDeveloperIdentity -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -657,18 +657,18 @@ forall a. Monoid a =&gt; a
 </span><span id="line-271"></span><span class="hs-comment">-- @GetOpenIdTokenForDeveloperIdentity@ request.</span><span>
 </span><span id="line-272"></span><span class="hs-comment">--</span><span>
 </span><span id="line-273"></span><span class="hs-comment">-- /See:/ 'newGetOpenIdTokenForDeveloperIdentityResponse' smart constructor.</span><span>
-</span><span id="line-274"></span><span id="local-6989586621679186511"><span id="local-6989586621679186512"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetOpenIdTokenForDeveloperIdentityResponse"><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentityResponse"><span class="hs-identifier hs-var">GetOpenIdTokenForDeveloperIdentityResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetOpenIdTokenForDeveloperIdentityResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentityResponse%27"><span class="hs-identifier hs-var">GetOpenIdTokenForDeveloperIdentityResponse'</span></a></span></span><span>
-</span><span id="line-275"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique identifier in the format REGION:GUID.</span><span>
-</span><span id="line-276"></span><span>    </span><span id="%24sel%3AidentityId%3AGetOpenIdTokenForDeveloperIdentityResponse%27"><span class="annot"><span class="annottext">GetOpenIdTokenForDeveloperIdentityResponse -&gt; Maybe Text
-</span><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#%24sel%3AidentityId%3AGetOpenIdTokenForDeveloperIdentityResponse%27"><span class="hs-identifier hs-var hs-var">identityId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-277"></span><span>    </span><span class="hs-comment">-- | An OpenID token.</span><span>
-</span><span id="line-278"></span><span>    </span><span id="%24sel%3Atoken%3AGetOpenIdTokenForDeveloperIdentityResponse%27"><span class="annot"><span class="annottext">GetOpenIdTokenForDeveloperIdentityResponse -&gt; Maybe Text
+</span><span id="line-274"></span><span id="local-6989586621679186686"><span id="local-6989586621679186687"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetOpenIdTokenForDeveloperIdentityResponse"><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentityResponse"><span class="hs-identifier hs-var">GetOpenIdTokenForDeveloperIdentityResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetOpenIdTokenForDeveloperIdentityResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentityResponse%27"><span class="hs-identifier hs-var">GetOpenIdTokenForDeveloperIdentityResponse'</span></a></span></span><span>
+</span><span id="line-275"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An OpenID token.</span><span>
+</span><span id="line-276"></span><span>    </span><span id="%24sel%3Atoken%3AGetOpenIdTokenForDeveloperIdentityResponse%27"><span class="annot"><span class="annottext">GetOpenIdTokenForDeveloperIdentityResponse -&gt; Maybe Text
 </span><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#%24sel%3Atoken%3AGetOpenIdTokenForDeveloperIdentityResponse%27"><span class="hs-identifier hs-var hs-var">token</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-277"></span><span>    </span><span class="hs-comment">-- | A unique identifier in the format REGION:GUID.</span><span>
+</span><span id="line-278"></span><span>    </span><span id="%24sel%3AidentityId%3AGetOpenIdTokenForDeveloperIdentityResponse%27"><span class="annot"><span class="annottext">GetOpenIdTokenForDeveloperIdentityResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#%24sel%3AidentityId%3AGetOpenIdTokenForDeveloperIdentityResponse%27"><span class="hs-identifier hs-var hs-var">identityId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-279"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-280"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetOpenIdTokenForDeveloperIdentityResponse%27"><span class="annot"><span class="annottext">GetOpenIdTokenForDeveloperIdentityResponse -&gt; Int
 </span><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#%24sel%3AhttpStatus%3AGetOpenIdTokenForDeveloperIdentityResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-281"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-282"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679186504"><span id="local-6989586621679186506"><span class="annot"><span class="annottext">GetOpenIdTokenForDeveloperIdentityResponse
+</span><span id="line-282"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679186679"><span id="local-6989586621679186681"><span class="annot"><span class="annottext">GetOpenIdTokenForDeveloperIdentityResponse
 -&gt; GetOpenIdTokenForDeveloperIdentityResponse -&gt; Bool
 (GetOpenIdTokenForDeveloperIdentityResponse
  -&gt; GetOpenIdTokenForDeveloperIdentityResponse -&gt; Bool)
@@ -684,7 +684,7 @@ $c/= :: GetOpenIdTokenForDeveloperIdentityResponse
 -&gt; GetOpenIdTokenForDeveloperIdentityResponse -&gt; Bool
 $c== :: GetOpenIdTokenForDeveloperIdentityResponse
 -&gt; GetOpenIdTokenForDeveloperIdentityResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679186496"><span id="local-6989586621679186498"><span id="local-6989586621679186500"><span id="local-6989586621679186502"><span class="annot"><span class="annottext">ReadPrec [GetOpenIdTokenForDeveloperIdentityResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679186671"><span id="local-6989586621679186673"><span id="local-6989586621679186675"><span id="local-6989586621679186677"><span class="annot"><span class="annottext">ReadPrec [GetOpenIdTokenForDeveloperIdentityResponse]
 ReadPrec GetOpenIdTokenForDeveloperIdentityResponse
 Int -&gt; ReadS GetOpenIdTokenForDeveloperIdentityResponse
 ReadS [GetOpenIdTokenForDeveloperIdentityResponse]
@@ -704,7 +704,7 @@ readList :: ReadS [GetOpenIdTokenForDeveloperIdentityResponse]
 $creadList :: ReadS [GetOpenIdTokenForDeveloperIdentityResponse]
 readsPrec :: Int -&gt; ReadS GetOpenIdTokenForDeveloperIdentityResponse
 $creadsPrec :: Int -&gt; ReadS GetOpenIdTokenForDeveloperIdentityResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679186490"><span id="local-6989586621679186492"><span id="local-6989586621679186494"><span class="annot"><span class="annottext">Int -&gt; GetOpenIdTokenForDeveloperIdentityResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679186665"><span id="local-6989586621679186667"><span id="local-6989586621679186669"><span class="annot"><span class="annottext">Int -&gt; GetOpenIdTokenForDeveloperIdentityResponse -&gt; ShowS
 [GetOpenIdTokenForDeveloperIdentityResponse] -&gt; ShowS
 GetOpenIdTokenForDeveloperIdentityResponse -&gt; String
 (Int -&gt; GetOpenIdTokenForDeveloperIdentityResponse -&gt; ShowS)
@@ -750,9 +750,9 @@ GetOpenIdTokenForDeveloperIdentityResponse
 </span><span id="line-289"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-290"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-291"></span><span class="hs-comment">--</span><span>
-</span><span id="line-292"></span><span class="hs-comment">-- 'identityId', 'getOpenIdTokenForDeveloperIdentityResponse_identityId' - A unique identifier in the format REGION:GUID.</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- 'token', 'getOpenIdTokenForDeveloperIdentityResponse_token' - An OpenID token.</span><span>
 </span><span id="line-293"></span><span class="hs-comment">--</span><span>
-</span><span id="line-294"></span><span class="hs-comment">-- 'token', 'getOpenIdTokenForDeveloperIdentityResponse_token' - An OpenID token.</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- 'identityId', 'getOpenIdTokenForDeveloperIdentityResponse_identityId' - A unique identifier in the format REGION:GUID.</span><span>
 </span><span id="line-295"></span><span class="hs-comment">--</span><span>
 </span><span id="line-296"></span><span class="hs-comment">-- 'httpStatus', 'getOpenIdTokenForDeveloperIdentityResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-297"></span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#newGetOpenIdTokenForDeveloperIdentityResponse"><span class="hs-identifier hs-type">newGetOpenIdTokenForDeveloperIdentityResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -761,53 +761,28 @@ GetOpenIdTokenForDeveloperIdentityResponse
 </span><span id="line-300"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentityResponse"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentityResponse</span></a></span><span>
 </span><span id="line-301"></span><span id="newGetOpenIdTokenForDeveloperIdentityResponse"><span class="annot"><span class="annottext">newGetOpenIdTokenForDeveloperIdentityResponse :: Int -&gt; GetOpenIdTokenForDeveloperIdentityResponse
 </span><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#newGetOpenIdTokenForDeveloperIdentityResponse"><span class="hs-identifier hs-var hs-var">newGetOpenIdTokenForDeveloperIdentityResponse</span></a></span></span><span>
-</span><span id="line-302"></span><span>  </span><span id="local-6989586621679186487"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679186487"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-302"></span><span>  </span><span id="local-6989586621679186662"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679186662"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-303"></span><span>    </span><span class="annot"><span class="annottext">GetOpenIdTokenForDeveloperIdentityResponse' :: Maybe Text
 -&gt; Maybe Text -&gt; Int -&gt; GetOpenIdTokenForDeveloperIdentityResponse
 </span><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentityResponse%27"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentityResponse'</span></a></span><span>
-</span><span id="line-304"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:identityId:GetOpenIdTokenForDeveloperIdentityResponse' :: Maybe Text
-</span><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#%24sel%3AidentityId%3AGetOpenIdTokenForDeveloperIdentityResponse%27"><span class="hs-identifier hs-var">identityId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-304"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:token:GetOpenIdTokenForDeveloperIdentityResponse' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#%24sel%3Atoken%3AGetOpenIdTokenForDeveloperIdentityResponse%27"><span class="hs-identifier hs-var">token</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-305"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-306"></span><span>        </span><span class="annot"><span class="annottext">$sel:token:GetOpenIdTokenForDeveloperIdentityResponse' :: Maybe Text
-</span><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#%24sel%3Atoken%3AGetOpenIdTokenForDeveloperIdentityResponse%27"><span class="hs-identifier hs-var">token</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-306"></span><span>        </span><span class="annot"><span class="annottext">$sel:identityId:GetOpenIdTokenForDeveloperIdentityResponse' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#%24sel%3AidentityId%3AGetOpenIdTokenForDeveloperIdentityResponse%27"><span class="hs-identifier hs-var">identityId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-307"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:GetOpenIdTokenForDeveloperIdentityResponse' :: Int
 </span><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#%24sel%3AhttpStatus%3AGetOpenIdTokenForDeveloperIdentityResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679186487"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679186662"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-308"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-309"></span><span>
-</span><span id="line-310"></span><span class="hs-comment">-- | A unique identifier in the format REGION:GUID.</span><span>
-</span><span id="line-311"></span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#getOpenIdTokenForDeveloperIdentityResponse_identityId"><span class="hs-identifier hs-type">getOpenIdTokenForDeveloperIdentityResponse_identityId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentityResponse"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentityResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-312"></span><span id="getOpenIdTokenForDeveloperIdentityResponse_identityId"><span class="annot"><span class="annottext">getOpenIdTokenForDeveloperIdentityResponse_identityId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; GetOpenIdTokenForDeveloperIdentityResponse
--&gt; f GetOpenIdTokenForDeveloperIdentityResponse
-</span><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#getOpenIdTokenForDeveloperIdentityResponse_identityId"><span class="hs-identifier hs-var hs-var">getOpenIdTokenForDeveloperIdentityResponse_identityId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetOpenIdTokenForDeveloperIdentityResponse -&gt; Maybe Text)
--&gt; (GetOpenIdTokenForDeveloperIdentityResponse
-    -&gt; Maybe Text -&gt; GetOpenIdTokenForDeveloperIdentityResponse)
--&gt; Lens
-     GetOpenIdTokenForDeveloperIdentityResponse
-     GetOpenIdTokenForDeveloperIdentityResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentityResponse%27"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186486"><span class="annot"><span class="annottext">Maybe Text
-identityId :: Maybe Text
-$sel:identityId:GetOpenIdTokenForDeveloperIdentityResponse' :: GetOpenIdTokenForDeveloperIdentityResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679186486"><span class="hs-identifier hs-var hs-var">identityId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679186486"><span class="hs-identifier hs-var">identityId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186485"><span class="annot"><span class="annottext">s :: GetOpenIdTokenForDeveloperIdentityResponse
-</span><a href="#local-6989586621679186485"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentityResponse%27"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186484"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679186484"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOpenIdTokenForDeveloperIdentityResponse
-</span><a href="#local-6989586621679186485"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityId:GetOpenIdTokenForDeveloperIdentityResponse' :: Maybe Text
-</span><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#%24sel%3AidentityId%3AGetOpenIdTokenForDeveloperIdentityResponse%27"><span class="hs-identifier hs-var">identityId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679186484"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentityResponse"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentityResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-313"></span><span>
-</span><span id="line-314"></span><span class="hs-comment">-- | An OpenID token.</span><span>
-</span><span id="line-315"></span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#getOpenIdTokenForDeveloperIdentityResponse_token"><span class="hs-identifier hs-type">getOpenIdTokenForDeveloperIdentityResponse_token</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentityResponse"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentityResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-316"></span><span id="getOpenIdTokenForDeveloperIdentityResponse_token"><span class="annot"><span class="annottext">getOpenIdTokenForDeveloperIdentityResponse_token :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-310"></span><span class="hs-comment">-- | An OpenID token.</span><span>
+</span><span id="line-311"></span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#getOpenIdTokenForDeveloperIdentityResponse_token"><span class="hs-identifier hs-type">getOpenIdTokenForDeveloperIdentityResponse_token</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentityResponse"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentityResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-312"></span><span id="getOpenIdTokenForDeveloperIdentityResponse_token"><span class="annot"><span class="annottext">getOpenIdTokenForDeveloperIdentityResponse_token :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; GetOpenIdTokenForDeveloperIdentityResponse
 -&gt; f GetOpenIdTokenForDeveloperIdentityResponse
 </span><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#getOpenIdTokenForDeveloperIdentityResponse_token"><span class="hs-identifier hs-var hs-var">getOpenIdTokenForDeveloperIdentityResponse_token</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetOpenIdTokenForDeveloperIdentityResponse -&gt; Maybe Text)
@@ -819,16 +794,41 @@ $sel:identityId:GetOpenIdTokenForDeveloperIdentityResponse' :: GetOpenIdTokenFor
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentityResponse%27"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186483"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentityResponse%27"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186661"><span class="annot"><span class="annottext">Maybe Text
 token :: Maybe Text
 $sel:token:GetOpenIdTokenForDeveloperIdentityResponse' :: GetOpenIdTokenForDeveloperIdentityResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679186483"><span class="hs-identifier hs-var hs-var">token</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679186483"><span class="hs-identifier hs-var">token</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186482"><span class="annot"><span class="annottext">s :: GetOpenIdTokenForDeveloperIdentityResponse
-</span><a href="#local-6989586621679186482"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentityResponse%27"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186481"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679186481"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOpenIdTokenForDeveloperIdentityResponse
-</span><a href="#local-6989586621679186482"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:token:GetOpenIdTokenForDeveloperIdentityResponse' :: Maybe Text
+</span><a href="#local-6989586621679186661"><span class="hs-identifier hs-var hs-var">token</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679186661"><span class="hs-identifier hs-var">token</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186660"><span class="annot"><span class="annottext">s :: GetOpenIdTokenForDeveloperIdentityResponse
+</span><a href="#local-6989586621679186660"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentityResponse%27"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186659"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679186659"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOpenIdTokenForDeveloperIdentityResponse
+</span><a href="#local-6989586621679186660"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:token:GetOpenIdTokenForDeveloperIdentityResponse' :: Maybe Text
 </span><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#%24sel%3Atoken%3AGetOpenIdTokenForDeveloperIdentityResponse%27"><span class="hs-identifier hs-var">token</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679186481"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentityResponse"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentityResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679186659"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentityResponse"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentityResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-313"></span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- | A unique identifier in the format REGION:GUID.</span><span>
+</span><span id="line-315"></span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#getOpenIdTokenForDeveloperIdentityResponse_identityId"><span class="hs-identifier hs-type">getOpenIdTokenForDeveloperIdentityResponse_identityId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentityResponse"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentityResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-316"></span><span id="getOpenIdTokenForDeveloperIdentityResponse_identityId"><span class="annot"><span class="annottext">getOpenIdTokenForDeveloperIdentityResponse_identityId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetOpenIdTokenForDeveloperIdentityResponse
+-&gt; f GetOpenIdTokenForDeveloperIdentityResponse
+</span><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#getOpenIdTokenForDeveloperIdentityResponse_identityId"><span class="hs-identifier hs-var hs-var">getOpenIdTokenForDeveloperIdentityResponse_identityId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetOpenIdTokenForDeveloperIdentityResponse -&gt; Maybe Text)
+-&gt; (GetOpenIdTokenForDeveloperIdentityResponse
+    -&gt; Maybe Text -&gt; GetOpenIdTokenForDeveloperIdentityResponse)
+-&gt; Lens
+     GetOpenIdTokenForDeveloperIdentityResponse
+     GetOpenIdTokenForDeveloperIdentityResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentityResponse%27"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186658"><span class="annot"><span class="annottext">Maybe Text
+identityId :: Maybe Text
+$sel:identityId:GetOpenIdTokenForDeveloperIdentityResponse' :: GetOpenIdTokenForDeveloperIdentityResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679186658"><span class="hs-identifier hs-var hs-var">identityId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679186658"><span class="hs-identifier hs-var">identityId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186657"><span class="annot"><span class="annottext">s :: GetOpenIdTokenForDeveloperIdentityResponse
+</span><a href="#local-6989586621679186657"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentityResponse%27"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186656"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679186656"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOpenIdTokenForDeveloperIdentityResponse
+</span><a href="#local-6989586621679186657"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityId:GetOpenIdTokenForDeveloperIdentityResponse' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#%24sel%3AidentityId%3AGetOpenIdTokenForDeveloperIdentityResponse%27"><span class="hs-identifier hs-var">identityId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679186656"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentityResponse"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentityResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-317"></span><span>
 </span><span id="line-318"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-319"></span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#getOpenIdTokenForDeveloperIdentityResponse_httpStatus"><span class="hs-identifier hs-type">getOpenIdTokenForDeveloperIdentityResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentityResponse"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentityResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -844,18 +844,18 @@ $sel:token:GetOpenIdTokenForDeveloperIdentityResponse' :: GetOpenIdTokenForDevel
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentityResponse%27"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186480"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentityResponse%27"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186655"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetOpenIdTokenForDeveloperIdentityResponse' :: GetOpenIdTokenForDeveloperIdentityResponse -&gt; Int
-</span><a href="#local-6989586621679186480"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679186480"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186479"><span class="annot"><span class="annottext">s :: GetOpenIdTokenForDeveloperIdentityResponse
-</span><a href="#local-6989586621679186479"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentityResponse%27"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186478"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679186478"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOpenIdTokenForDeveloperIdentityResponse
-</span><a href="#local-6989586621679186479"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetOpenIdTokenForDeveloperIdentityResponse' :: Int
+</span><a href="#local-6989586621679186655"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679186655"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186654"><span class="annot"><span class="annottext">s :: GetOpenIdTokenForDeveloperIdentityResponse
+</span><a href="#local-6989586621679186654"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentityResponse%27"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186653"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679186653"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOpenIdTokenForDeveloperIdentityResponse
+</span><a href="#local-6989586621679186654"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetOpenIdTokenForDeveloperIdentityResponse' :: Int
 </span><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#%24sel%3AhttpStatus%3AGetOpenIdTokenForDeveloperIdentityResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679186478"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentityResponse"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentityResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679186653"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentityResponse"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentityResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-321"></span><span>
 </span><span id="line-322"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-323"></span><span>  </span><span id="local-6989586621679186476"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-323"></span><span>  </span><span id="local-6989586621679186651"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-324"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity.html#GetOpenIdTokenForDeveloperIdentityResponse"><span class="hs-identifier hs-type">GetOpenIdTokenForDeveloperIdentityResponse</span></a></span></span><span>
 </span><span id="line-325"></span></pre></body></html>

@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621681151500"><span id="local-6989586621681151501"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="VpcAttributeName"><span class="annot"><a href="Network.AWS.EC2.Types.VpcAttributeName.html#VpcAttributeName"><span class="hs-identifier hs-var">VpcAttributeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VpcAttributeName%27"><span class="annot"><a href="Network.AWS.EC2.Types.VpcAttributeName.html#VpcAttributeName%27"><span class="hs-identifier hs-var">VpcAttributeName'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681186682"><span id="local-6989586621681186683"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="VpcAttributeName"><span class="annot"><a href="Network.AWS.EC2.Types.VpcAttributeName.html#VpcAttributeName"><span class="hs-identifier hs-var">VpcAttributeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VpcAttributeName%27"><span class="annot"><a href="Network.AWS.EC2.Types.VpcAttributeName.html#VpcAttributeName%27"><span class="hs-identifier hs-var">VpcAttributeName'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromVpcAttributeName"><span class="annot"><span class="annottext">VpcAttributeName -&gt; Text
 </span><a href="Network.AWS.EC2.Types.VpcAttributeName.html#fromVpcAttributeName"><span class="hs-identifier hs-var hs-var">fromVpcAttributeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681151492"><span id="local-6989586621681151494"><span id="local-6989586621681151496"><span class="annot"><span class="annottext">Int -&gt; VpcAttributeName -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681186674"><span id="local-6989586621681186676"><span id="local-6989586621681186678"><span class="annot"><span class="annottext">Int -&gt; VpcAttributeName -&gt; ShowS
 [VpcAttributeName] -&gt; ShowS
 VpcAttributeName -&gt; String
 (Int -&gt; VpcAttributeName -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: VpcAttributeName -&gt; String
 showsPrec :: Int -&gt; VpcAttributeName -&gt; ShowS
 $cshowsPrec :: Int -&gt; VpcAttributeName -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621681151483"><span id="local-6989586621681151485"><span id="local-6989586621681151487"><span id="local-6989586621681151489"><span class="annot"><span class="annottext">ReadPrec [VpcAttributeName]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681186665"><span id="local-6989586621681186667"><span id="local-6989586621681186669"><span id="local-6989586621681186671"><span class="annot"><span class="annottext">ReadPrec [VpcAttributeName]
 ReadPrec VpcAttributeName
 Int -&gt; ReadS VpcAttributeName
 ReadS [VpcAttributeName]
@@ -73,7 +73,7 @@ $creadList :: ReadS [VpcAttributeName]
 readsPrec :: Int -&gt; ReadS VpcAttributeName
 $creadsPrec :: Int -&gt; ReadS VpcAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681151478"><span id="local-6989586621681151480"><span class="annot"><span class="annottext">VpcAttributeName -&gt; VpcAttributeName -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681186660"><span id="local-6989586621681186662"><span class="annot"><span class="annottext">VpcAttributeName -&gt; VpcAttributeName -&gt; Bool
 (VpcAttributeName -&gt; VpcAttributeName -&gt; Bool)
 -&gt; (VpcAttributeName -&gt; VpcAttributeName -&gt; Bool)
 -&gt; Eq VpcAttributeName
@@ -83,7 +83,7 @@ $c/= :: VpcAttributeName -&gt; VpcAttributeName -&gt; Bool
 == :: VpcAttributeName -&gt; VpcAttributeName -&gt; Bool
 $c== :: VpcAttributeName -&gt; VpcAttributeName -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681151462"><span id="local-6989586621681151464"><span id="local-6989586621681151466"><span id="local-6989586621681151468"><span id="local-6989586621681151470"><span id="local-6989586621681151472"><span id="local-6989586621681151474"><span class="annot"><span class="annottext">Eq VpcAttributeName
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681186644"><span id="local-6989586621681186646"><span id="local-6989586621681186648"><span id="local-6989586621681186650"><span id="local-6989586621681186652"><span id="local-6989586621681186654"><span id="local-6989586621681186656"><span class="annot"><span class="annottext">Eq VpcAttributeName
 Eq VpcAttributeName
 -&gt; (VpcAttributeName -&gt; VpcAttributeName -&gt; Ordering)
 -&gt; (VpcAttributeName -&gt; VpcAttributeName -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. VpcAttributeName -&gt; Rep VpcAttributeName x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681151454"><span id="local-6989586621681151456"><span class="annot"><span class="annottext">Int -&gt; VpcAttributeName -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681186636"><span id="local-6989586621681186638"><span class="annot"><span class="annottext">Int -&gt; VpcAttributeName -&gt; Int
 VpcAttributeName -&gt; Int
 (Int -&gt; VpcAttributeName -&gt; Int)
 -&gt; (VpcAttributeName -&gt; Int) -&gt; Hashable VpcAttributeName
@@ -144,51 +144,51 @@ $chash :: VpcAttributeName -&gt; Int
 hashWithSalt :: Int -&gt; VpcAttributeName -&gt; Int
 $chashWithSalt :: Int -&gt; VpcAttributeName -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681151451"><span class="annot"><span class="annottext">VpcAttributeName -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681186633"><span class="annot"><span class="annottext">VpcAttributeName -&gt; ()
 (VpcAttributeName -&gt; ()) -&gt; NFData VpcAttributeName
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: VpcAttributeName -&gt; ()
 $crnf :: VpcAttributeName -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681151448"><span class="annot"><span class="annottext">Text -&gt; Either String VpcAttributeName
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681186630"><span class="annot"><span class="annottext">Text -&gt; Either String VpcAttributeName
 (Text -&gt; Either String VpcAttributeName)
 -&gt; FromText VpcAttributeName
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String VpcAttributeName
 $cfromText :: Text -&gt; Either String VpcAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681151445"><span class="annot"><span class="annottext">VpcAttributeName -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681186627"><span class="annot"><span class="annottext">VpcAttributeName -&gt; Text
 (VpcAttributeName -&gt; Text) -&gt; ToText VpcAttributeName
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: VpcAttributeName -&gt; Text
 $ctoText :: VpcAttributeName -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681151442"><span class="annot"><span class="annottext">VpcAttributeName -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681186624"><span class="annot"><span class="annottext">VpcAttributeName -&gt; ByteString
 (VpcAttributeName -&gt; ByteString) -&gt; ToByteString VpcAttributeName
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: VpcAttributeName -&gt; ByteString
 $ctoBS :: VpcAttributeName -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681151439"><span class="annot"><span class="annottext">VpcAttributeName -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681186621"><span class="annot"><span class="annottext">VpcAttributeName -&gt; ByteStringBuilder
 (VpcAttributeName -&gt; ByteStringBuilder) -&gt; ToLog VpcAttributeName
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: VpcAttributeName -&gt; ByteStringBuilder
 $cbuild :: VpcAttributeName -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681151436"><span class="annot"><span class="annottext">HeaderName -&gt; VpcAttributeName -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681186618"><span class="annot"><span class="annottext">HeaderName -&gt; VpcAttributeName -&gt; [Header]
 (HeaderName -&gt; VpcAttributeName -&gt; [Header])
 -&gt; ToHeader VpcAttributeName
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; VpcAttributeName -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; VpcAttributeName -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681151433"><span class="annot"><span class="annottext">VpcAttributeName -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681186615"><span class="annot"><span class="annottext">VpcAttributeName -&gt; QueryString
 (VpcAttributeName -&gt; QueryString) -&gt; ToQuery VpcAttributeName
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: VpcAttributeName -&gt; QueryString
 $ctoQuery :: VpcAttributeName -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681151428"><span id="local-6989586621681151430"><span class="annot"><span class="annottext">Value -&gt; Parser [VpcAttributeName]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681186610"><span id="local-6989586621681186612"><span class="annot"><span class="annottext">Value -&gt; Parser [VpcAttributeName]
 Value -&gt; Parser VpcAttributeName
 (Value -&gt; Parser VpcAttributeName)
 -&gt; (Value -&gt; Parser [VpcAttributeName])
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [VpcAttributeName]
 parseJSON :: Value -&gt; Parser VpcAttributeName
 $cparseJSON :: Value -&gt; Parser VpcAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681151423"><span id="local-6989586621681151425"><span class="annot"><span class="annottext">FromJSONKeyFunction [VpcAttributeName]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681186605"><span id="local-6989586621681186607"><span class="annot"><span class="annottext">FromJSONKeyFunction [VpcAttributeName]
 FromJSONKeyFunction VpcAttributeName
 FromJSONKeyFunction VpcAttributeName
 -&gt; FromJSONKeyFunction [VpcAttributeName]
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [VpcAttributeName]
 fromJSONKey :: FromJSONKeyFunction VpcAttributeName
 $cfromJSONKey :: FromJSONKeyFunction VpcAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681151414"><span id="local-6989586621681151416"><span id="local-6989586621681151418"><span id="local-6989586621681151420"><span class="annot"><span class="annottext">[VpcAttributeName] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681186596"><span id="local-6989586621681186598"><span id="local-6989586621681186600"><span id="local-6989586621681186602"><span class="annot"><span class="annottext">[VpcAttributeName] -&gt; Encoding
 [VpcAttributeName] -&gt; Value
 VpcAttributeName -&gt; Encoding
 VpcAttributeName -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: VpcAttributeName -&gt; Encoding
 toJSON :: VpcAttributeName -&gt; Value
 $ctoJSON :: VpcAttributeName -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681151409"><span id="local-6989586621681151411"><span class="annot"><span class="annottext">ToJSONKeyFunction [VpcAttributeName]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681186591"><span id="local-6989586621681186593"><span class="annot"><span class="annottext">ToJSONKeyFunction [VpcAttributeName]
 ToJSONKeyFunction VpcAttributeName
 ToJSONKeyFunction VpcAttributeName
 -&gt; ToJSONKeyFunction [VpcAttributeName]
@@ -248,14 +248,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [VpcAttributeName]
 toJSONKey :: ToJSONKeyFunction VpcAttributeName
 $ctoJSONKey :: ToJSONKeyFunction VpcAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681151406"><span class="annot"><span class="annottext">[Node] -&gt; Either String VpcAttributeName
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681186588"><span class="annot"><span class="annottext">[Node] -&gt; Either String VpcAttributeName
 ([Node] -&gt; Either String VpcAttributeName)
 -&gt; FromXML VpcAttributeName
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String VpcAttributeName
 $cparseXML :: [Node] -&gt; Either String VpcAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681151403"><span class="annot"><span class="annottext">VpcAttributeName -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681186585"><span class="annot"><span class="annottext">VpcAttributeName -&gt; XML
 (VpcAttributeName -&gt; XML) -&gt; ToXML VpcAttributeName
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: VpcAttributeName -&gt; XML

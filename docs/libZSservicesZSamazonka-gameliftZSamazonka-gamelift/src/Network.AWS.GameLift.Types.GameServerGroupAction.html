@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679431246"><span id="local-6989586621679431247"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="GameServerGroupAction"><span class="annot"><a href="Network.AWS.GameLift.Types.GameServerGroupAction.html#GameServerGroupAction"><span class="hs-identifier hs-var">GameServerGroupAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GameServerGroupAction%27"><span class="annot"><a href="Network.AWS.GameLift.Types.GameServerGroupAction.html#GameServerGroupAction%27"><span class="hs-identifier hs-var">GameServerGroupAction'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679431691"><span id="local-6989586621679431692"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="GameServerGroupAction"><span class="annot"><a href="Network.AWS.GameLift.Types.GameServerGroupAction.html#GameServerGroupAction"><span class="hs-identifier hs-var">GameServerGroupAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GameServerGroupAction%27"><span class="annot"><a href="Network.AWS.GameLift.Types.GameServerGroupAction.html#GameServerGroupAction%27"><span class="hs-identifier hs-var">GameServerGroupAction'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromGameServerGroupAction"><span class="annot"><span class="annottext">GameServerGroupAction -&gt; Text
 </span><a href="Network.AWS.GameLift.Types.GameServerGroupAction.html#fromGameServerGroupAction"><span class="hs-identifier hs-var hs-var">fromGameServerGroupAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679431238"><span id="local-6989586621679431240"><span id="local-6989586621679431242"><span class="annot"><span class="annottext">Int -&gt; GameServerGroupAction -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679431683"><span id="local-6989586621679431685"><span id="local-6989586621679431687"><span class="annot"><span class="annottext">Int -&gt; GameServerGroupAction -&gt; ShowS
 [GameServerGroupAction] -&gt; ShowS
 GameServerGroupAction -&gt; String
 (Int -&gt; GameServerGroupAction -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: GameServerGroupAction -&gt; String
 showsPrec :: Int -&gt; GameServerGroupAction -&gt; ShowS
 $cshowsPrec :: Int -&gt; GameServerGroupAction -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679431229"><span id="local-6989586621679431231"><span id="local-6989586621679431233"><span id="local-6989586621679431235"><span class="annot"><span class="annottext">ReadPrec [GameServerGroupAction]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679431674"><span id="local-6989586621679431676"><span id="local-6989586621679431678"><span id="local-6989586621679431680"><span class="annot"><span class="annottext">ReadPrec [GameServerGroupAction]
 ReadPrec GameServerGroupAction
 Int -&gt; ReadS GameServerGroupAction
 ReadS [GameServerGroupAction]
@@ -71,7 +71,7 @@ $creadList :: ReadS [GameServerGroupAction]
 readsPrec :: Int -&gt; ReadS GameServerGroupAction
 $creadsPrec :: Int -&gt; ReadS GameServerGroupAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679431224"><span id="local-6989586621679431226"><span class="annot"><span class="annottext">GameServerGroupAction -&gt; GameServerGroupAction -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679431669"><span id="local-6989586621679431671"><span class="annot"><span class="annottext">GameServerGroupAction -&gt; GameServerGroupAction -&gt; Bool
 (GameServerGroupAction -&gt; GameServerGroupAction -&gt; Bool)
 -&gt; (GameServerGroupAction -&gt; GameServerGroupAction -&gt; Bool)
 -&gt; Eq GameServerGroupAction
@@ -81,7 +81,7 @@ $c/= :: GameServerGroupAction -&gt; GameServerGroupAction -&gt; Bool
 == :: GameServerGroupAction -&gt; GameServerGroupAction -&gt; Bool
 $c== :: GameServerGroupAction -&gt; GameServerGroupAction -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679431208"><span id="local-6989586621679431210"><span id="local-6989586621679431212"><span id="local-6989586621679431214"><span id="local-6989586621679431216"><span id="local-6989586621679431218"><span id="local-6989586621679431220"><span class="annot"><span class="annottext">Eq GameServerGroupAction
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679431653"><span id="local-6989586621679431655"><span id="local-6989586621679431657"><span id="local-6989586621679431659"><span id="local-6989586621679431661"><span id="local-6989586621679431663"><span id="local-6989586621679431665"><span class="annot"><span class="annottext">Eq GameServerGroupAction
 Eq GameServerGroupAction
 -&gt; (GameServerGroupAction -&gt; GameServerGroupAction -&gt; Ordering)
 -&gt; (GameServerGroupAction -&gt; GameServerGroupAction -&gt; Bool)
@@ -139,7 +139,7 @@ $cfrom :: forall x. GameServerGroupAction -&gt; Rep GameServerGroupAction x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679431200"><span id="local-6989586621679431202"><span class="annot"><span class="annottext">Int -&gt; GameServerGroupAction -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679431645"><span id="local-6989586621679431647"><span class="annot"><span class="annottext">Int -&gt; GameServerGroupAction -&gt; Int
 GameServerGroupAction -&gt; Int
 (Int -&gt; GameServerGroupAction -&gt; Int)
 -&gt; (GameServerGroupAction -&gt; Int) -&gt; Hashable GameServerGroupAction
@@ -149,54 +149,54 @@ $chash :: GameServerGroupAction -&gt; Int
 hashWithSalt :: Int -&gt; GameServerGroupAction -&gt; Int
 $chashWithSalt :: Int -&gt; GameServerGroupAction -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679431197"><span class="annot"><span class="annottext">GameServerGroupAction -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679431642"><span class="annot"><span class="annottext">GameServerGroupAction -&gt; ()
 (GameServerGroupAction -&gt; ()) -&gt; NFData GameServerGroupAction
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: GameServerGroupAction -&gt; ()
 $crnf :: GameServerGroupAction -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679431194"><span class="annot"><span class="annottext">Text -&gt; Either String GameServerGroupAction
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679431639"><span class="annot"><span class="annottext">Text -&gt; Either String GameServerGroupAction
 (Text -&gt; Either String GameServerGroupAction)
 -&gt; FromText GameServerGroupAction
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String GameServerGroupAction
 $cfromText :: Text -&gt; Either String GameServerGroupAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679431191"><span class="annot"><span class="annottext">GameServerGroupAction -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679431636"><span class="annot"><span class="annottext">GameServerGroupAction -&gt; Text
 (GameServerGroupAction -&gt; Text) -&gt; ToText GameServerGroupAction
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: GameServerGroupAction -&gt; Text
 $ctoText :: GameServerGroupAction -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679431188"><span class="annot"><span class="annottext">GameServerGroupAction -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679431633"><span class="annot"><span class="annottext">GameServerGroupAction -&gt; ByteString
 (GameServerGroupAction -&gt; ByteString)
 -&gt; ToByteString GameServerGroupAction
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: GameServerGroupAction -&gt; ByteString
 $ctoBS :: GameServerGroupAction -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679431185"><span class="annot"><span class="annottext">GameServerGroupAction -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679431630"><span class="annot"><span class="annottext">GameServerGroupAction -&gt; ByteStringBuilder
 (GameServerGroupAction -&gt; ByteStringBuilder)
 -&gt; ToLog GameServerGroupAction
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: GameServerGroupAction -&gt; ByteStringBuilder
 $cbuild :: GameServerGroupAction -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679431182"><span class="annot"><span class="annottext">HeaderName -&gt; GameServerGroupAction -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679431627"><span class="annot"><span class="annottext">HeaderName -&gt; GameServerGroupAction -&gt; [Header]
 (HeaderName -&gt; GameServerGroupAction -&gt; [Header])
 -&gt; ToHeader GameServerGroupAction
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; GameServerGroupAction -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; GameServerGroupAction -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679431179"><span class="annot"><span class="annottext">GameServerGroupAction -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679431624"><span class="annot"><span class="annottext">GameServerGroupAction -&gt; QueryString
 (GameServerGroupAction -&gt; QueryString)
 -&gt; ToQuery GameServerGroupAction
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: GameServerGroupAction -&gt; QueryString
 $ctoQuery :: GameServerGroupAction -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679431174"><span id="local-6989586621679431176"><span class="annot"><span class="annottext">Value -&gt; Parser [GameServerGroupAction]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679431619"><span id="local-6989586621679431621"><span class="annot"><span class="annottext">Value -&gt; Parser [GameServerGroupAction]
 Value -&gt; Parser GameServerGroupAction
 (Value -&gt; Parser GameServerGroupAction)
 -&gt; (Value -&gt; Parser [GameServerGroupAction])
@@ -208,7 +208,7 @@ $cparseJSONList :: Value -&gt; Parser [GameServerGroupAction]
 parseJSON :: Value -&gt; Parser GameServerGroupAction
 $cparseJSON :: Value -&gt; Parser GameServerGroupAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679431169"><span id="local-6989586621679431171"><span class="annot"><span class="annottext">FromJSONKeyFunction [GameServerGroupAction]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679431614"><span id="local-6989586621679431616"><span class="annot"><span class="annottext">FromJSONKeyFunction [GameServerGroupAction]
 FromJSONKeyFunction GameServerGroupAction
 FromJSONKeyFunction GameServerGroupAction
 -&gt; FromJSONKeyFunction [GameServerGroupAction]
@@ -220,7 +220,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [GameServerGroupAction]
 fromJSONKey :: FromJSONKeyFunction GameServerGroupAction
 $cfromJSONKey :: FromJSONKeyFunction GameServerGroupAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679431160"><span id="local-6989586621679431162"><span id="local-6989586621679431164"><span id="local-6989586621679431166"><span class="annot"><span class="annottext">[GameServerGroupAction] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679431605"><span id="local-6989586621679431607"><span id="local-6989586621679431609"><span id="local-6989586621679431611"><span class="annot"><span class="annottext">[GameServerGroupAction] -&gt; Encoding
 [GameServerGroupAction] -&gt; Value
 GameServerGroupAction -&gt; Encoding
 GameServerGroupAction -&gt; Value
@@ -244,7 +244,7 @@ $ctoEncoding :: GameServerGroupAction -&gt; Encoding
 toJSON :: GameServerGroupAction -&gt; Value
 $ctoJSON :: GameServerGroupAction -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679431155"><span id="local-6989586621679431157"><span class="annot"><span class="annottext">ToJSONKeyFunction [GameServerGroupAction]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679431600"><span id="local-6989586621679431602"><span class="annot"><span class="annottext">ToJSONKeyFunction [GameServerGroupAction]
 ToJSONKeyFunction GameServerGroupAction
 ToJSONKeyFunction GameServerGroupAction
 -&gt; ToJSONKeyFunction [GameServerGroupAction]
@@ -256,14 +256,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [GameServerGroupAction]
 toJSONKey :: ToJSONKeyFunction GameServerGroupAction
 $ctoJSONKey :: ToJSONKeyFunction GameServerGroupAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679431152"><span class="annot"><span class="annottext">[Node] -&gt; Either String GameServerGroupAction
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679431597"><span class="annot"><span class="annottext">[Node] -&gt; Either String GameServerGroupAction
 ([Node] -&gt; Either String GameServerGroupAction)
 -&gt; FromXML GameServerGroupAction
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String GameServerGroupAction
 $cparseXML :: [Node] -&gt; Either String GameServerGroupAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679431149"><span class="annot"><span class="annottext">GameServerGroupAction -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679431594"><span class="annot"><span class="annottext">GameServerGroupAction -&gt; XML
 (GameServerGroupAction -&gt; XML) -&gt; ToXML GameServerGroupAction
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: GameServerGroupAction -&gt; XML

@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679303525"><span id="local-6989586621679303526"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PlacementConstraintType"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.PlacementConstraintType.html#PlacementConstraintType"><span class="hs-identifier hs-var">PlacementConstraintType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PlacementConstraintType%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.PlacementConstraintType.html#PlacementConstraintType%27"><span class="hs-identifier hs-var">PlacementConstraintType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679303707"><span id="local-6989586621679303708"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PlacementConstraintType"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.PlacementConstraintType.html#PlacementConstraintType"><span class="hs-identifier hs-var">PlacementConstraintType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PlacementConstraintType%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.PlacementConstraintType.html#PlacementConstraintType%27"><span class="hs-identifier hs-var">PlacementConstraintType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPlacementConstraintType"><span class="annot"><span class="annottext">PlacementConstraintType -&gt; Text
 </span><a href="Network.AWS.CloudWatchEvents.Types.PlacementConstraintType.html#fromPlacementConstraintType"><span class="hs-identifier hs-var hs-var">fromPlacementConstraintType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679303517"><span id="local-6989586621679303519"><span id="local-6989586621679303521"><span class="annot"><span class="annottext">Int -&gt; PlacementConstraintType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679303699"><span id="local-6989586621679303701"><span id="local-6989586621679303703"><span class="annot"><span class="annottext">Int -&gt; PlacementConstraintType -&gt; ShowS
 [PlacementConstraintType] -&gt; ShowS
 PlacementConstraintType -&gt; String
 (Int -&gt; PlacementConstraintType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: PlacementConstraintType -&gt; String
 showsPrec :: Int -&gt; PlacementConstraintType -&gt; ShowS
 $cshowsPrec :: Int -&gt; PlacementConstraintType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679303508"><span id="local-6989586621679303510"><span id="local-6989586621679303512"><span id="local-6989586621679303514"><span class="annot"><span class="annottext">ReadPrec [PlacementConstraintType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679303690"><span id="local-6989586621679303692"><span id="local-6989586621679303694"><span id="local-6989586621679303696"><span class="annot"><span class="annottext">ReadPrec [PlacementConstraintType]
 ReadPrec PlacementConstraintType
 Int -&gt; ReadS PlacementConstraintType
 ReadS [PlacementConstraintType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [PlacementConstraintType]
 readsPrec :: Int -&gt; ReadS PlacementConstraintType
 $creadsPrec :: Int -&gt; ReadS PlacementConstraintType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679303503"><span id="local-6989586621679303505"><span class="annot"><span class="annottext">PlacementConstraintType -&gt; PlacementConstraintType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679303685"><span id="local-6989586621679303687"><span class="annot"><span class="annottext">PlacementConstraintType -&gt; PlacementConstraintType -&gt; Bool
 (PlacementConstraintType -&gt; PlacementConstraintType -&gt; Bool)
 -&gt; (PlacementConstraintType -&gt; PlacementConstraintType -&gt; Bool)
 -&gt; Eq PlacementConstraintType
@@ -82,7 +82,7 @@ $c/= :: PlacementConstraintType -&gt; PlacementConstraintType -&gt; Bool
 == :: PlacementConstraintType -&gt; PlacementConstraintType -&gt; Bool
 $c== :: PlacementConstraintType -&gt; PlacementConstraintType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679303487"><span id="local-6989586621679303489"><span id="local-6989586621679303491"><span id="local-6989586621679303493"><span id="local-6989586621679303495"><span id="local-6989586621679303497"><span id="local-6989586621679303499"><span class="annot"><span class="annottext">Eq PlacementConstraintType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679303669"><span id="local-6989586621679303671"><span id="local-6989586621679303673"><span id="local-6989586621679303675"><span id="local-6989586621679303677"><span id="local-6989586621679303679"><span id="local-6989586621679303681"><span class="annot"><span class="annottext">Eq PlacementConstraintType
 Eq PlacementConstraintType
 -&gt; (PlacementConstraintType -&gt; PlacementConstraintType -&gt; Ordering)
 -&gt; (PlacementConstraintType -&gt; PlacementConstraintType -&gt; Bool)
@@ -142,7 +142,7 @@ $cfrom :: forall x. PlacementConstraintType -&gt; Rep PlacementConstraintType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679303479"><span id="local-6989586621679303481"><span class="annot"><span class="annottext">Int -&gt; PlacementConstraintType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679303661"><span id="local-6989586621679303663"><span class="annot"><span class="annottext">Int -&gt; PlacementConstraintType -&gt; Int
 PlacementConstraintType -&gt; Int
 (Int -&gt; PlacementConstraintType -&gt; Int)
 -&gt; (PlacementConstraintType -&gt; Int)
@@ -153,54 +153,54 @@ $chash :: PlacementConstraintType -&gt; Int
 hashWithSalt :: Int -&gt; PlacementConstraintType -&gt; Int
 $chashWithSalt :: Int -&gt; PlacementConstraintType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679303476"><span class="annot"><span class="annottext">PlacementConstraintType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679303658"><span class="annot"><span class="annottext">PlacementConstraintType -&gt; ()
 (PlacementConstraintType -&gt; ()) -&gt; NFData PlacementConstraintType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: PlacementConstraintType -&gt; ()
 $crnf :: PlacementConstraintType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679303473"><span class="annot"><span class="annottext">Text -&gt; Either String PlacementConstraintType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679303655"><span class="annot"><span class="annottext">Text -&gt; Either String PlacementConstraintType
 (Text -&gt; Either String PlacementConstraintType)
 -&gt; FromText PlacementConstraintType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String PlacementConstraintType
 $cfromText :: Text -&gt; Either String PlacementConstraintType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679303470"><span class="annot"><span class="annottext">PlacementConstraintType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679303652"><span class="annot"><span class="annottext">PlacementConstraintType -&gt; Text
 (PlacementConstraintType -&gt; Text) -&gt; ToText PlacementConstraintType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: PlacementConstraintType -&gt; Text
 $ctoText :: PlacementConstraintType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679303467"><span class="annot"><span class="annottext">PlacementConstraintType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679303649"><span class="annot"><span class="annottext">PlacementConstraintType -&gt; ByteString
 (PlacementConstraintType -&gt; ByteString)
 -&gt; ToByteString PlacementConstraintType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: PlacementConstraintType -&gt; ByteString
 $ctoBS :: PlacementConstraintType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679303464"><span class="annot"><span class="annottext">PlacementConstraintType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679303646"><span class="annot"><span class="annottext">PlacementConstraintType -&gt; ByteStringBuilder
 (PlacementConstraintType -&gt; ByteStringBuilder)
 -&gt; ToLog PlacementConstraintType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: PlacementConstraintType -&gt; ByteStringBuilder
 $cbuild :: PlacementConstraintType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679303461"><span class="annot"><span class="annottext">HeaderName -&gt; PlacementConstraintType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679303643"><span class="annot"><span class="annottext">HeaderName -&gt; PlacementConstraintType -&gt; [Header]
 (HeaderName -&gt; PlacementConstraintType -&gt; [Header])
 -&gt; ToHeader PlacementConstraintType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; PlacementConstraintType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; PlacementConstraintType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679303458"><span class="annot"><span class="annottext">PlacementConstraintType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679303640"><span class="annot"><span class="annottext">PlacementConstraintType -&gt; QueryString
 (PlacementConstraintType -&gt; QueryString)
 -&gt; ToQuery PlacementConstraintType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: PlacementConstraintType -&gt; QueryString
 $ctoQuery :: PlacementConstraintType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679303453"><span id="local-6989586621679303455"><span class="annot"><span class="annottext">Value -&gt; Parser [PlacementConstraintType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679303635"><span id="local-6989586621679303637"><span class="annot"><span class="annottext">Value -&gt; Parser [PlacementConstraintType]
 Value -&gt; Parser PlacementConstraintType
 (Value -&gt; Parser PlacementConstraintType)
 -&gt; (Value -&gt; Parser [PlacementConstraintType])
@@ -212,7 +212,7 @@ $cparseJSONList :: Value -&gt; Parser [PlacementConstraintType]
 parseJSON :: Value -&gt; Parser PlacementConstraintType
 $cparseJSON :: Value -&gt; Parser PlacementConstraintType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679303448"><span id="local-6989586621679303450"><span class="annot"><span class="annottext">FromJSONKeyFunction [PlacementConstraintType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679303630"><span id="local-6989586621679303632"><span class="annot"><span class="annottext">FromJSONKeyFunction [PlacementConstraintType]
 FromJSONKeyFunction PlacementConstraintType
 FromJSONKeyFunction PlacementConstraintType
 -&gt; FromJSONKeyFunction [PlacementConstraintType]
@@ -224,7 +224,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [PlacementConstraintType]
 fromJSONKey :: FromJSONKeyFunction PlacementConstraintType
 $cfromJSONKey :: FromJSONKeyFunction PlacementConstraintType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679303439"><span id="local-6989586621679303441"><span id="local-6989586621679303443"><span id="local-6989586621679303445"><span class="annot"><span class="annottext">[PlacementConstraintType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679303621"><span id="local-6989586621679303623"><span id="local-6989586621679303625"><span id="local-6989586621679303627"><span class="annot"><span class="annottext">[PlacementConstraintType] -&gt; Encoding
 [PlacementConstraintType] -&gt; Value
 PlacementConstraintType -&gt; Encoding
 PlacementConstraintType -&gt; Value
@@ -248,7 +248,7 @@ $ctoEncoding :: PlacementConstraintType -&gt; Encoding
 toJSON :: PlacementConstraintType -&gt; Value
 $ctoJSON :: PlacementConstraintType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679303434"><span id="local-6989586621679303436"><span class="annot"><span class="annottext">ToJSONKeyFunction [PlacementConstraintType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679303616"><span id="local-6989586621679303618"><span class="annot"><span class="annottext">ToJSONKeyFunction [PlacementConstraintType]
 ToJSONKeyFunction PlacementConstraintType
 ToJSONKeyFunction PlacementConstraintType
 -&gt; ToJSONKeyFunction [PlacementConstraintType]
@@ -260,14 +260,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [PlacementConstraintType]
 toJSONKey :: ToJSONKeyFunction PlacementConstraintType
 $ctoJSONKey :: ToJSONKeyFunction PlacementConstraintType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679303431"><span class="annot"><span class="annottext">[Node] -&gt; Either String PlacementConstraintType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679303613"><span class="annot"><span class="annottext">[Node] -&gt; Either String PlacementConstraintType
 ([Node] -&gt; Either String PlacementConstraintType)
 -&gt; FromXML PlacementConstraintType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String PlacementConstraintType
 $cparseXML :: [Node] -&gt; Either String PlacementConstraintType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679303428"><span class="annot"><span class="annottext">PlacementConstraintType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679303610"><span class="annot"><span class="annottext">PlacementConstraintType -&gt; XML
 (PlacementConstraintType -&gt; XML) -&gt; ToXML PlacementConstraintType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: PlacementConstraintType -&gt; XML

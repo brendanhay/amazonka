@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Represents the output of a @BatchUpdate@ response operation.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newBatchUpdateObjectAttributesResponse' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679323294"><span id="local-6989586621679323295"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchUpdateObjectAttributesResponse"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchUpdateObjectAttributesResponse.html#BatchUpdateObjectAttributesResponse"><span class="hs-identifier hs-var">BatchUpdateObjectAttributesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchUpdateObjectAttributesResponse%27"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchUpdateObjectAttributesResponse.html#BatchUpdateObjectAttributesResponse%27"><span class="hs-identifier hs-var">BatchUpdateObjectAttributesResponse'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679323641"><span id="local-6989586621679323642"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchUpdateObjectAttributesResponse"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchUpdateObjectAttributesResponse.html#BatchUpdateObjectAttributesResponse"><span class="hs-identifier hs-var">BatchUpdateObjectAttributesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchUpdateObjectAttributesResponse%27"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchUpdateObjectAttributesResponse.html#BatchUpdateObjectAttributesResponse%27"><span class="hs-identifier hs-var">BatchUpdateObjectAttributesResponse'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | ID that is associated with the object.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AobjectIdentifier%3ABatchUpdateObjectAttributesResponse%27"><span class="annot"><span class="annottext">BatchUpdateObjectAttributesResponse -&gt; Maybe Text
 </span><a href="Network.AWS.CloudDirectory.Types.BatchUpdateObjectAttributesResponse.html#%24sel%3AobjectIdentifier%3ABatchUpdateObjectAttributesResponse%27"><span class="hs-identifier hs-var hs-var">objectIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679323288"><span id="local-6989586621679323290"><span class="annot"><span class="annottext">BatchUpdateObjectAttributesResponse
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679323635"><span id="local-6989586621679323637"><span class="annot"><span class="annottext">BatchUpdateObjectAttributesResponse
 -&gt; BatchUpdateObjectAttributesResponse -&gt; Bool
 (BatchUpdateObjectAttributesResponse
  -&gt; BatchUpdateObjectAttributesResponse -&gt; Bool)
@@ -47,7 +47,7 @@ $c/= :: BatchUpdateObjectAttributesResponse
 -&gt; BatchUpdateObjectAttributesResponse -&gt; Bool
 $c== :: BatchUpdateObjectAttributesResponse
 -&gt; BatchUpdateObjectAttributesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679323279"><span id="local-6989586621679323281"><span id="local-6989586621679323283"><span id="local-6989586621679323285"><span class="annot"><span class="annottext">ReadPrec [BatchUpdateObjectAttributesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679323626"><span id="local-6989586621679323628"><span id="local-6989586621679323630"><span id="local-6989586621679323632"><span class="annot"><span class="annottext">ReadPrec [BatchUpdateObjectAttributesResponse]
 ReadPrec BatchUpdateObjectAttributesResponse
 Int -&gt; ReadS BatchUpdateObjectAttributesResponse
 ReadS [BatchUpdateObjectAttributesResponse]
@@ -67,7 +67,7 @@ readList :: ReadS [BatchUpdateObjectAttributesResponse]
 $creadList :: ReadS [BatchUpdateObjectAttributesResponse]
 readsPrec :: Int -&gt; ReadS BatchUpdateObjectAttributesResponse
 $creadsPrec :: Int -&gt; ReadS BatchUpdateObjectAttributesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679323272"><span id="local-6989586621679323274"><span id="local-6989586621679323276"><span class="annot"><span class="annottext">Int -&gt; BatchUpdateObjectAttributesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679323619"><span id="local-6989586621679323621"><span id="local-6989586621679323623"><span class="annot"><span class="annottext">Int -&gt; BatchUpdateObjectAttributesResponse -&gt; ShowS
 [BatchUpdateObjectAttributesResponse] -&gt; ShowS
 BatchUpdateObjectAttributesResponse -&gt; String
 (Int -&gt; BatchUpdateObjectAttributesResponse -&gt; ShowS)
@@ -141,22 +141,22 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchUpdateObjectAttributesResponse.html#BatchUpdateObjectAttributesResponse%27"><span class="hs-identifier hs-type">BatchUpdateObjectAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323263"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchUpdateObjectAttributesResponse.html#BatchUpdateObjectAttributesResponse%27"><span class="hs-identifier hs-type">BatchUpdateObjectAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323610"><span class="annot"><span class="annottext">Maybe Text
 objectIdentifier :: Maybe Text
 $sel:objectIdentifier:BatchUpdateObjectAttributesResponse' :: BatchUpdateObjectAttributesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679323263"><span class="hs-identifier hs-var hs-var">objectIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679323263"><span class="hs-identifier hs-var">objectIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679323262"><span class="annot"><span class="annottext">s :: BatchUpdateObjectAttributesResponse
-</span><a href="#local-6989586621679323262"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchUpdateObjectAttributesResponse.html#BatchUpdateObjectAttributesResponse%27"><span class="hs-identifier hs-type">BatchUpdateObjectAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679323261"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679323261"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchUpdateObjectAttributesResponse
-</span><a href="#local-6989586621679323262"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:objectIdentifier:BatchUpdateObjectAttributesResponse' :: Maybe Text
+</span><a href="#local-6989586621679323610"><span class="hs-identifier hs-var hs-var">objectIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679323610"><span class="hs-identifier hs-var">objectIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679323609"><span class="annot"><span class="annottext">s :: BatchUpdateObjectAttributesResponse
+</span><a href="#local-6989586621679323609"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchUpdateObjectAttributesResponse.html#BatchUpdateObjectAttributesResponse%27"><span class="hs-identifier hs-type">BatchUpdateObjectAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679323608"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679323608"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchUpdateObjectAttributesResponse
+</span><a href="#local-6989586621679323609"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:objectIdentifier:BatchUpdateObjectAttributesResponse' :: Maybe Text
 </span><a href="Network.AWS.CloudDirectory.Types.BatchUpdateObjectAttributesResponse.html#%24sel%3AobjectIdentifier%3ABatchUpdateObjectAttributesResponse%27"><span class="hs-identifier hs-var">objectIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679323261"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchUpdateObjectAttributesResponse.html#BatchUpdateObjectAttributesResponse"><span class="hs-identifier hs-type">BatchUpdateObjectAttributesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679323608"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchUpdateObjectAttributesResponse.html#BatchUpdateObjectAttributesResponse"><span class="hs-identifier hs-type">BatchUpdateObjectAttributesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-57"></span><span>  </span><span id="local-6989586621679323258"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-57"></span><span>  </span><span id="local-6989586621679323605"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchUpdateObjectAttributesResponse.html#BatchUpdateObjectAttributesResponse"><span class="hs-identifier hs-type">BatchUpdateObjectAttributesResponse</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-60"></span><span>  </span><span id="local-6989586621679323256"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BatchUpdateObjectAttributesResponse
+</span><span id="line-60"></span><span>  </span><span id="local-6989586621679323603"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BatchUpdateObjectAttributesResponse
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-61"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser BatchUpdateObjectAttributesResponse)
@@ -166,8 +166,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;BatchUpdateObjectAttributesResponse&quot;</span></span><span>
-</span><span id="line-63"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679323253"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679323253"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-63"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679323600"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679323600"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-64"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; BatchUpdateObjectAttributesResponse
 </span><a href="Network.AWS.CloudDirectory.Types.BatchUpdateObjectAttributesResponse.html#BatchUpdateObjectAttributesResponse%27"><span class="hs-identifier hs-var">BatchUpdateObjectAttributesResponse'</span></a></span><span>
 </span><span id="line-65"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; BatchUpdateObjectAttributesResponse)
@@ -175,17 +175,17 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser BatchUpdateObjectAttributesResponse
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679323253"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679323600"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ObjectIdentifier&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679323247"><span id="local-6989586621679323249"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679323594"><span id="local-6989586621679323596"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchUpdateObjectAttributesResponse.html#BatchUpdateObjectAttributesResponse"><span class="hs-identifier hs-type">BatchUpdateObjectAttributesResponse</span></a></span></span></span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679323244"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679323591"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchUpdateObjectAttributesResponse.html#BatchUpdateObjectAttributesResponse"><span class="hs-identifier hs-type">BatchUpdateObjectAttributesResponse</span></a></span></span><span>
 </span><span id="line-75"></span></pre></body></html>

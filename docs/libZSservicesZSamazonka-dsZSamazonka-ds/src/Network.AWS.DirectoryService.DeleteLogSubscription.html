@@ -46,12 +46,12 @@
 </span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-47"></span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newDeleteLogSubscription' smart constructor.</span><span>
-</span><span id="line-49"></span><span id="local-6989586621679312281"><span id="local-6989586621679312282"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteLogSubscription"><span class="annot"><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#DeleteLogSubscription"><span class="hs-identifier hs-var">DeleteLogSubscription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteLogSubscription%27"><span class="annot"><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#DeleteLogSubscription%27"><span class="hs-identifier hs-var">DeleteLogSubscription'</span></a></span></span><span>
+</span><span id="line-49"></span><span id="local-6989586621679312500"><span id="local-6989586621679312501"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteLogSubscription"><span class="annot"><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#DeleteLogSubscription"><span class="hs-identifier hs-var">DeleteLogSubscription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteLogSubscription%27"><span class="annot"><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#DeleteLogSubscription%27"><span class="hs-identifier hs-var">DeleteLogSubscription'</span></a></span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Identifier of the directory whose log subscription you want to delete.</span><span>
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3AdirectoryId%3ADeleteLogSubscription%27"><span class="annot"><span class="annottext">DeleteLogSubscription -&gt; Text
 </span><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#%24sel%3AdirectoryId%3ADeleteLogSubscription%27"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312275"><span id="local-6989586621679312277"><span class="annot"><span class="annottext">DeleteLogSubscription -&gt; DeleteLogSubscription -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312494"><span id="local-6989586621679312496"><span class="annot"><span class="annottext">DeleteLogSubscription -&gt; DeleteLogSubscription -&gt; Bool
 (DeleteLogSubscription -&gt; DeleteLogSubscription -&gt; Bool)
 -&gt; (DeleteLogSubscription -&gt; DeleteLogSubscription -&gt; Bool)
 -&gt; Eq DeleteLogSubscription
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteLogSubscription -&gt; DeleteLogSubscription -&gt; Bool
 == :: DeleteLogSubscription -&gt; DeleteLogSubscription -&gt; Bool
 $c== :: DeleteLogSubscription -&gt; DeleteLogSubscription -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312266"><span id="local-6989586621679312268"><span id="local-6989586621679312270"><span id="local-6989586621679312272"><span class="annot"><span class="annottext">ReadPrec [DeleteLogSubscription]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312485"><span id="local-6989586621679312487"><span id="local-6989586621679312489"><span id="local-6989586621679312491"><span class="annot"><span class="annottext">ReadPrec [DeleteLogSubscription]
 ReadPrec DeleteLogSubscription
 Int -&gt; ReadS DeleteLogSubscription
 ReadS [DeleteLogSubscription]
@@ -80,7 +80,7 @@ readList :: ReadS [DeleteLogSubscription]
 $creadList :: ReadS [DeleteLogSubscription]
 readsPrec :: Int -&gt; ReadS DeleteLogSubscription
 $creadsPrec :: Int -&gt; ReadS DeleteLogSubscription
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312259"><span id="local-6989586621679312261"><span id="local-6989586621679312263"><span class="annot"><span class="annottext">Int -&gt; DeleteLogSubscription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312478"><span id="local-6989586621679312480"><span id="local-6989586621679312482"><span class="annot"><span class="annottext">Int -&gt; DeleteLogSubscription -&gt; ShowS
 [DeleteLogSubscription] -&gt; ShowS
 DeleteLogSubscription -&gt; String
 (Int -&gt; DeleteLogSubscription -&gt; ShowS)
@@ -120,12 +120,12 @@ $cfrom :: forall x. DeleteLogSubscription -&gt; Rep DeleteLogSubscription x
 </span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#DeleteLogSubscription"><span class="hs-identifier hs-type">DeleteLogSubscription</span></a></span><span>
 </span><span id="line-68"></span><span id="newDeleteLogSubscription"><span class="annot"><span class="annottext">newDeleteLogSubscription :: Text -&gt; DeleteLogSubscription
-</span><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#newDeleteLogSubscription"><span class="hs-identifier hs-var hs-var">newDeleteLogSubscription</span></a></span></span><span> </span><span id="local-6989586621679312254"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679312254"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#newDeleteLogSubscription"><span class="hs-identifier hs-var hs-var">newDeleteLogSubscription</span></a></span></span><span> </span><span id="local-6989586621679312473"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312473"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">DeleteLogSubscription' :: Text -&gt; DeleteLogSubscription
 </span><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#DeleteLogSubscription%27"><span class="hs-identifier hs-type">DeleteLogSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryId:DeleteLogSubscription' :: Text
 </span><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#%24sel%3AdirectoryId%3ADeleteLogSubscription%27"><span class="hs-identifier hs-var">directoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679312254"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679312473"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | Identifier of the directory whose log subscription you want to delete.</span><span>
 </span><span id="line-72"></span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#deleteLogSubscription_directoryId"><span class="hs-identifier hs-type">deleteLogSubscription_directoryId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#DeleteLogSubscription"><span class="hs-identifier hs-type">DeleteLogSubscription</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -135,27 +135,27 @@ $cfrom :: forall x. DeleteLogSubscription -&gt; Rep DeleteLogSubscription x
 -&gt; (DeleteLogSubscription -&gt; Text -&gt; DeleteLogSubscription)
 -&gt; Lens DeleteLogSubscription DeleteLogSubscription Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#DeleteLogSubscription%27"><span class="hs-identifier hs-type">DeleteLogSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312251"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#DeleteLogSubscription%27"><span class="hs-identifier hs-type">DeleteLogSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312470"><span class="annot"><span class="annottext">Text
 directoryId :: Text
 $sel:directoryId:DeleteLogSubscription' :: DeleteLogSubscription -&gt; Text
-</span><a href="#local-6989586621679312251"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679312251"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312250"><span class="annot"><span class="annottext">s :: DeleteLogSubscription
-</span><a href="#local-6989586621679312250"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#DeleteLogSubscription%27"><span class="hs-identifier hs-type">DeleteLogSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312249"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679312249"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteLogSubscription
-</span><a href="#local-6989586621679312250"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryId:DeleteLogSubscription' :: Text
+</span><a href="#local-6989586621679312470"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312470"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312469"><span class="annot"><span class="annottext">s :: DeleteLogSubscription
+</span><a href="#local-6989586621679312469"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#DeleteLogSubscription%27"><span class="hs-identifier hs-type">DeleteLogSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312468"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312468"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteLogSubscription
+</span><a href="#local-6989586621679312469"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryId:DeleteLogSubscription' :: Text
 </span><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#%24sel%3AdirectoryId%3ADeleteLogSubscription%27"><span class="hs-identifier hs-var">directoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679312249"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#DeleteLogSubscription"><span class="hs-identifier hs-type">DeleteLogSubscription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312468"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#DeleteLogSubscription"><span class="hs-identifier hs-type">DeleteLogSubscription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#DeleteLogSubscription"><span class="hs-identifier hs-type">DeleteLogSubscription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-77"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#DeleteLogSubscription"><span class="hs-identifier hs-type">DeleteLogSubscription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#DeleteLogSubscriptionResponse"><span class="hs-identifier hs-type">DeleteLogSubscriptionResponse</span></a></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679312245"><span class="annot"><span class="annottext">request :: DeleteLogSubscription -&gt; Request DeleteLogSubscription
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679312464"><span class="annot"><span class="annottext">request :: DeleteLogSubscription -&gt; Request DeleteLogSubscription
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteLogSubscription -&gt; Request DeleteLogSubscription
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DirectoryService.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679312241"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679312460"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteLogSubscription
 -&gt; ClientResponse ClientBody
@@ -181,10 +181,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679312238"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679312238"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679312237"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679312237"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679312236"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679312236"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679312457"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312457"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679312456"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679312456"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679312455"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679312455"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteLogSubscriptionResponse
 </span><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#DeleteLogSubscriptionResponse%27"><span class="hs-identifier hs-var">DeleteLogSubscriptionResponse'</span></a></span><span>
 </span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteLogSubscriptionResponse)
@@ -195,15 +195,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679312238"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312457"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312229"><span id="local-6989586621679312231"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#DeleteLogSubscription"><span class="hs-identifier hs-type">DeleteLogSubscription</span></a></span></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312448"><span id="local-6989586621679312450"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#DeleteLogSubscription"><span class="hs-identifier hs-type">DeleteLogSubscription</span></a></span></span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312226"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#DeleteLogSubscription"><span class="hs-identifier hs-type">DeleteLogSubscription</span></a></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312445"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#DeleteLogSubscription"><span class="hs-identifier hs-type">DeleteLogSubscription</span></a></span></span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#DeleteLogSubscription"><span class="hs-identifier hs-type">DeleteLogSubscription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679312222"><span class="annot"><span class="annottext">toHeaders :: DeleteLogSubscription -&gt; ResponseHeaders
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679312441"><span class="annot"><span class="annottext">toHeaders :: DeleteLogSubscription -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteLogSubscription -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -230,12 +230,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-103"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312212"><span id="local-6989586621679312214"><span id="local-6989586621679312216"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#DeleteLogSubscription"><span class="hs-identifier hs-type">DeleteLogSubscription</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679312210"><span class="annot"><span class="annottext">toJSON :: DeleteLogSubscription -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#DeleteLogSubscription%27"><span class="hs-identifier hs-type">DeleteLogSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312208"><span class="annot"><span class="annottext">Text
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312431"><span id="local-6989586621679312433"><span id="local-6989586621679312435"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#DeleteLogSubscription"><span class="hs-identifier hs-type">DeleteLogSubscription</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679312429"><span class="annot"><span class="annottext">toJSON :: DeleteLogSubscription -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#DeleteLogSubscription%27"><span class="hs-identifier hs-type">DeleteLogSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312427"><span class="annot"><span class="annottext">Text
 directoryId :: Text
 $sel:directoryId:DeleteLogSubscription' :: DeleteLogSubscription -&gt; Text
-</span><a href="#local-6989586621679312208"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679312427"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -247,18 +247,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;DirectoryId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679312208"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679312427"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#DeleteLogSubscription"><span class="hs-identifier hs-type">DeleteLogSubscription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679312202"><span class="annot"><span class="annottext">toPath :: DeleteLogSubscription -&gt; ByteString
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679312421"><span class="annot"><span class="annottext">toPath :: DeleteLogSubscription -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteLogSubscription -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#DeleteLogSubscription"><span class="hs-identifier hs-type">DeleteLogSubscription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679312198"><span class="annot"><span class="annottext">toQuery :: DeleteLogSubscription -&gt; QueryString
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679312417"><span class="annot"><span class="annottext">toQuery :: DeleteLogSubscription -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteLogSubscription -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -266,12 +266,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | /See:/ 'newDeleteLogSubscriptionResponse' smart constructor.</span><span>
-</span><span id="line-120"></span><span id="local-6989586621679312195"><span id="local-6989586621679312196"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteLogSubscriptionResponse"><span class="annot"><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#DeleteLogSubscriptionResponse"><span class="hs-identifier hs-var">DeleteLogSubscriptionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteLogSubscriptionResponse%27"><span class="annot"><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#DeleteLogSubscriptionResponse%27"><span class="hs-identifier hs-var">DeleteLogSubscriptionResponse'</span></a></span></span><span>
+</span><span id="line-120"></span><span id="local-6989586621679312414"><span id="local-6989586621679312415"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteLogSubscriptionResponse"><span class="annot"><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#DeleteLogSubscriptionResponse"><span class="hs-identifier hs-var">DeleteLogSubscriptionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteLogSubscriptionResponse%27"><span class="annot"><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#DeleteLogSubscriptionResponse%27"><span class="hs-identifier hs-var">DeleteLogSubscriptionResponse'</span></a></span></span><span>
 </span><span id="line-121"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-122"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteLogSubscriptionResponse%27"><span class="annot"><span class="annottext">DeleteLogSubscriptionResponse -&gt; Int
 </span><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#%24sel%3AhttpStatus%3ADeleteLogSubscriptionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-123"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312190"><span id="local-6989586621679312192"><span class="annot"><span class="annottext">DeleteLogSubscriptionResponse
+</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312409"><span id="local-6989586621679312411"><span class="annot"><span class="annottext">DeleteLogSubscriptionResponse
 -&gt; DeleteLogSubscriptionResponse -&gt; Bool
 (DeleteLogSubscriptionResponse
  -&gt; DeleteLogSubscriptionResponse -&gt; Bool)
@@ -287,7 +287,7 @@ $c/= :: DeleteLogSubscriptionResponse
 -&gt; DeleteLogSubscriptionResponse -&gt; Bool
 $c== :: DeleteLogSubscriptionResponse
 -&gt; DeleteLogSubscriptionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312182"><span id="local-6989586621679312184"><span id="local-6989586621679312186"><span id="local-6989586621679312188"><span class="annot"><span class="annottext">ReadPrec [DeleteLogSubscriptionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312401"><span id="local-6989586621679312403"><span id="local-6989586621679312405"><span id="local-6989586621679312407"><span class="annot"><span class="annottext">ReadPrec [DeleteLogSubscriptionResponse]
 ReadPrec DeleteLogSubscriptionResponse
 Int -&gt; ReadS DeleteLogSubscriptionResponse
 ReadS [DeleteLogSubscriptionResponse]
@@ -307,7 +307,7 @@ readList :: ReadS [DeleteLogSubscriptionResponse]
 $creadList :: ReadS [DeleteLogSubscriptionResponse]
 readsPrec :: Int -&gt; ReadS DeleteLogSubscriptionResponse
 $creadsPrec :: Int -&gt; ReadS DeleteLogSubscriptionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312176"><span id="local-6989586621679312178"><span id="local-6989586621679312180"><span class="annot"><span class="annottext">Int -&gt; DeleteLogSubscriptionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312395"><span id="local-6989586621679312397"><span id="local-6989586621679312399"><span class="annot"><span class="annottext">Int -&gt; DeleteLogSubscriptionResponse -&gt; ShowS
 [DeleteLogSubscriptionResponse] -&gt; ShowS
 DeleteLogSubscriptionResponse -&gt; String
 (Int -&gt; DeleteLogSubscriptionResponse -&gt; ShowS)
@@ -359,14 +359,14 @@ DeleteLogSubscriptionResponse
 </span><span id="line-137"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-138"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#DeleteLogSubscriptionResponse"><span class="hs-identifier hs-type">DeleteLogSubscriptionResponse</span></a></span><span>
 </span><span id="line-139"></span><span id="newDeleteLogSubscriptionResponse"><span class="annot"><span class="annottext">newDeleteLogSubscriptionResponse :: Int -&gt; DeleteLogSubscriptionResponse
-</span><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#newDeleteLogSubscriptionResponse"><span class="hs-identifier hs-var hs-var">newDeleteLogSubscriptionResponse</span></a></span></span><span> </span><span id="local-6989586621679312173"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679312173"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#newDeleteLogSubscriptionResponse"><span class="hs-identifier hs-var hs-var">newDeleteLogSubscriptionResponse</span></a></span></span><span> </span><span id="local-6989586621679312392"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312392"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>  </span><span class="annot"><span class="annottext">DeleteLogSubscriptionResponse' :: Int -&gt; DeleteLogSubscriptionResponse
 </span><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#DeleteLogSubscriptionResponse%27"><span class="hs-identifier hs-type">DeleteLogSubscriptionResponse'</span></a></span><span>
 </span><span id="line-141"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteLogSubscriptionResponse' :: Int
 </span><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#%24sel%3AhttpStatus%3ADeleteLogSubscriptionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679312173"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679312392"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-143"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -379,16 +379,16 @@ DeleteLogSubscriptionResponse
 -&gt; Lens
      DeleteLogSubscriptionResponse DeleteLogSubscriptionResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#DeleteLogSubscriptionResponse%27"><span class="hs-identifier hs-type">DeleteLogSubscriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312172"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#DeleteLogSubscriptionResponse%27"><span class="hs-identifier hs-type">DeleteLogSubscriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312391"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteLogSubscriptionResponse' :: DeleteLogSubscriptionResponse -&gt; Int
-</span><a href="#local-6989586621679312172"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679312172"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312171"><span class="annot"><span class="annottext">s :: DeleteLogSubscriptionResponse
-</span><a href="#local-6989586621679312171"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#DeleteLogSubscriptionResponse%27"><span class="hs-identifier hs-type">DeleteLogSubscriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312170"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679312170"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteLogSubscriptionResponse
-</span><a href="#local-6989586621679312171"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteLogSubscriptionResponse' :: Int
+</span><a href="#local-6989586621679312391"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312391"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312390"><span class="annot"><span class="annottext">s :: DeleteLogSubscriptionResponse
+</span><a href="#local-6989586621679312390"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#DeleteLogSubscriptionResponse%27"><span class="hs-identifier hs-type">DeleteLogSubscriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312389"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312389"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteLogSubscriptionResponse
+</span><a href="#local-6989586621679312390"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteLogSubscriptionResponse' :: Int
 </span><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#%24sel%3AhttpStatus%3ADeleteLogSubscriptionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679312170"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#DeleteLogSubscriptionResponse"><span class="hs-identifier hs-type">DeleteLogSubscriptionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312389"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#DeleteLogSubscriptionResponse"><span class="hs-identifier hs-type">DeleteLogSubscriptionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312168"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#DeleteLogSubscriptionResponse"><span class="hs-identifier hs-type">DeleteLogSubscriptionResponse</span></a></span></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312387"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeleteLogSubscription.html#DeleteLogSubscriptionResponse"><span class="hs-identifier hs-type">DeleteLogSubscriptionResponse</span></a></span></span><span>
 </span><span id="line-150"></span></pre></body></html>

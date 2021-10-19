@@ -83,7 +83,7 @@
 </span><span id="line-83"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | /See:/ 'newTagResource' smart constructor.</span><span>
-</span><span id="line-86"></span><span id="local-6989586621679443370"><span id="local-6989586621679443371"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagResource"><span class="annot"><a href="Network.AWS.GameLift.TagResource.html#TagResource"><span class="hs-identifier hs-var">TagResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagResource%27"><span class="annot"><a href="Network.AWS.GameLift.TagResource.html#TagResource%27"><span class="hs-identifier hs-var">TagResource'</span></a></span></span><span>
+</span><span id="line-86"></span><span id="local-6989586621679443833"><span id="local-6989586621679443834"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagResource"><span class="annot"><a href="Network.AWS.GameLift.TagResource.html#TagResource"><span class="hs-identifier hs-var">TagResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagResource%27"><span class="annot"><a href="Network.AWS.GameLift.TagResource.html#TagResource%27"><span class="hs-identifier hs-var">TagResource'</span></a></span></span><span>
 </span><span id="line-87"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name</span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN&gt;)</span><span>
 </span><span id="line-89"></span><span>    </span><span class="hs-comment">-- that is assigned to and uniquely identifies the GameLift resource that</span><span>
@@ -100,7 +100,7 @@
 </span><span id="line-99"></span><span>    </span><span id="%24sel%3Atags%3ATagResource%27"><span class="annot"><span class="annottext">TagResource -&gt; [Tag]
 </span><a href="Network.AWS.GameLift.TagResource.html#%24sel%3Atags%3ATagResource%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GameLift.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-100"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-101"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679443363"><span id="local-6989586621679443365"><span class="annot"><span class="annottext">TagResource -&gt; TagResource -&gt; Bool
+</span><span id="line-101"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679443826"><span id="local-6989586621679443828"><span class="annot"><span class="annottext">TagResource -&gt; TagResource -&gt; Bool
 (TagResource -&gt; TagResource -&gt; Bool)
 -&gt; (TagResource -&gt; TagResource -&gt; Bool) -&gt; Eq TagResource
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -108,7 +108,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TagResource -&gt; TagResource -&gt; Bool
 == :: TagResource -&gt; TagResource -&gt; Bool
 $c== :: TagResource -&gt; TagResource -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679443354"><span id="local-6989586621679443356"><span id="local-6989586621679443358"><span id="local-6989586621679443360"><span class="annot"><span class="annottext">ReadPrec [TagResource]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679443817"><span id="local-6989586621679443819"><span id="local-6989586621679443821"><span id="local-6989586621679443823"><span class="annot"><span class="annottext">ReadPrec [TagResource]
 ReadPrec TagResource
 Int -&gt; ReadS TagResource
 ReadS [TagResource]
@@ -128,7 +128,7 @@ readList :: ReadS [TagResource]
 $creadList :: ReadS [TagResource]
 readsPrec :: Int -&gt; ReadS TagResource
 $creadsPrec :: Int -&gt; ReadS TagResource
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679443347"><span id="local-6989586621679443349"><span id="local-6989586621679443351"><span class="annot"><span class="annottext">Int -&gt; TagResource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679443810"><span id="local-6989586621679443812"><span id="local-6989586621679443814"><span class="annot"><span class="annottext">Int -&gt; TagResource -&gt; ShowS
 [TagResource] -&gt; ShowS
 TagResource -&gt; String
 (Int -&gt; TagResource -&gt; ShowS)
@@ -179,13 +179,13 @@ $cfrom :: forall x. TagResource -&gt; Rep TagResource x
 </span><span id="line-125"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-126"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span><span>
 </span><span id="line-127"></span><span id="newTagResource"><span class="annot"><span class="annottext">newTagResource :: Text -&gt; TagResource
-</span><a href="Network.AWS.GameLift.TagResource.html#newTagResource"><span class="hs-identifier hs-var hs-var">newTagResource</span></a></span></span><span> </span><span id="local-6989586621679443342"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679443342"><span class="hs-identifier hs-var">pResourceARN_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GameLift.TagResource.html#newTagResource"><span class="hs-identifier hs-var hs-var">newTagResource</span></a></span></span><span> </span><span id="local-6989586621679443805"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679443805"><span class="hs-identifier hs-var">pResourceARN_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>  </span><span class="annot"><span class="annottext">TagResource' :: Text -&gt; [Tag] -&gt; TagResource
 </span><a href="Network.AWS.GameLift.TagResource.html#TagResource%27"><span class="hs-identifier hs-type">TagResource'</span></a></span><span>
 </span><span id="line-129"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceARN:TagResource' :: Text
 </span><a href="Network.AWS.GameLift.TagResource.html#%24sel%3AresourceARN%3ATagResource%27"><span class="hs-identifier hs-var">resourceARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679443342"><span class="hs-identifier hs-var">pResourceARN_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679443805"><span class="hs-identifier hs-var">pResourceARN_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:TagResource' :: [Tag]
 </span><a href="Network.AWS.GameLift.TagResource.html#%24sel%3Atags%3ATagResource%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Tag]
 forall a. Monoid a =&gt; a
@@ -204,16 +204,16 @@ forall a. Monoid a =&gt; a
 -&gt; (TagResource -&gt; Text -&gt; TagResource)
 -&gt; Lens TagResource TagResource Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.TagResource.html#TagResource%27"><span class="hs-identifier hs-type">TagResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443339"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.TagResource.html#TagResource%27"><span class="hs-identifier hs-type">TagResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443802"><span class="annot"><span class="annottext">Text
 resourceARN :: Text
 $sel:resourceARN:TagResource' :: TagResource -&gt; Text
-</span><a href="#local-6989586621679443339"><span class="hs-identifier hs-var hs-var">resourceARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679443339"><span class="hs-identifier hs-var">resourceARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443338"><span class="annot"><span class="annottext">s :: TagResource
-</span><a href="#local-6989586621679443338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.TagResource.html#TagResource%27"><span class="hs-identifier hs-type">TagResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443337"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679443337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagResource
-</span><a href="#local-6989586621679443338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceARN:TagResource' :: Text
+</span><a href="#local-6989586621679443802"><span class="hs-identifier hs-var hs-var">resourceARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679443802"><span class="hs-identifier hs-var">resourceARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443801"><span class="annot"><span class="annottext">s :: TagResource
+</span><a href="#local-6989586621679443801"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.TagResource.html#TagResource%27"><span class="hs-identifier hs-type">TagResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443800"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679443800"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagResource
+</span><a href="#local-6989586621679443801"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceARN:TagResource' :: Text
 </span><a href="Network.AWS.GameLift.TagResource.html#%24sel%3AresourceARN%3ATagResource%27"><span class="hs-identifier hs-var">resourceARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679443337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679443800"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | A list of one or more tags to assign to the specified GameLift resource.</span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- Tags are developer-defined and structured as key-value pairs. The</span><span>
@@ -226,33 +226,33 @@ $sel:resourceARN:TagResource' :: TagResource -&gt; Text
 -&gt; (TagResource -&gt; [Tag] -&gt; TagResource)
 -&gt; Lens TagResource TagResource [Tag] [Tag]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.TagResource.html#TagResource%27"><span class="hs-identifier hs-type">TagResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443336"><span class="annot"><span class="annottext">[Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.TagResource.html#TagResource%27"><span class="hs-identifier hs-type">TagResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443799"><span class="annot"><span class="annottext">[Tag]
 tags :: [Tag]
 $sel:tags:TagResource' :: TagResource -&gt; [Tag]
-</span><a href="#local-6989586621679443336"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679443336"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443335"><span class="annot"><span class="annottext">s :: TagResource
-</span><a href="#local-6989586621679443335"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.TagResource.html#TagResource%27"><span class="hs-identifier hs-type">TagResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443334"><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679443334"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagResource
-</span><a href="#local-6989586621679443335"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:TagResource' :: [Tag]
+</span><a href="#local-6989586621679443799"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Tag]
+</span><a href="#local-6989586621679443799"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443798"><span class="annot"><span class="annottext">s :: TagResource
+</span><a href="#local-6989586621679443798"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.TagResource.html#TagResource%27"><span class="hs-identifier hs-type">TagResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443797"><span class="annot"><span class="annottext">[Tag]
+</span><a href="#local-6989586621679443797"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagResource
+</span><a href="#local-6989586621679443798"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:TagResource' :: [Tag]
 </span><a href="Network.AWS.GameLift.TagResource.html#%24sel%3Atags%3ATagResource%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679443334"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Tag] -&gt; f [Tag]) -&gt; TagResource -&gt; f TagResource)
+</span><a href="#local-6989586621679443797"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Tag] -&gt; f [Tag]) -&gt; TagResource -&gt; f TagResource)
 -&gt; (([Tag] -&gt; f [Tag]) -&gt; [Tag] -&gt; f [Tag])
 -&gt; ([Tag] -&gt; f [Tag])
 -&gt; TagResource
 -&gt; f TagResource
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; f [Tag]) -&gt; [Tag] -&gt; f [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-151"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.TagResource.html#TagResourceResponse"><span class="hs-identifier hs-type">TagResourceResponse</span></a></span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679443328"><span class="annot"><span class="annottext">request :: TagResource -&gt; Request TagResource
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679443791"><span class="annot"><span class="annottext">request :: TagResource -&gt; Request TagResource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; TagResource -&gt; Request TagResource
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.GameLift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679443324"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679443787"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy TagResource
 -&gt; ClientResponse ClientBody
@@ -276,10 +276,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-155"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679443321"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679443321"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679443320"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679443320"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679443319"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679443319"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679443784"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679443784"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679443783"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679443783"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679443782"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679443782"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-156"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; TagResourceResponse
 </span><a href="Network.AWS.GameLift.TagResource.html#TagResourceResponse%27"><span class="hs-identifier hs-var">TagResourceResponse'</span></a></span><span>
 </span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; TagResourceResponse)
@@ -290,15 +290,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679443321"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679443784"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679443312"><span id="local-6989586621679443314"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span></span></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679443775"><span id="local-6989586621679443777"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span></span></span><span>
 </span><span id="line-161"></span><span>
-</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679443309"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679443772"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span></span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621679443305"><span class="annot"><span class="annottext">toHeaders :: TagResource -&gt; ResponseHeaders
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679443768"><span class="annot"><span class="annottext">toHeaders :: TagResource -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-166"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; TagResource -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -323,15 +323,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-174"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-175"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
-</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679443295"><span id="local-6989586621679443297"><span id="local-6989586621679443299"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679443293"><span class="annot"><span class="annottext">toJSON :: TagResource -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.TagResource.html#TagResource%27"><span class="hs-identifier hs-type">TagResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443290"><span id="local-6989586621679443291"><span class="annot"><span class="annottext">[Tag]
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679443758"><span id="local-6989586621679443760"><span id="local-6989586621679443762"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679443756"><span class="annot"><span class="annottext">toJSON :: TagResource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.TagResource.html#TagResource%27"><span class="hs-identifier hs-type">TagResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443753"><span id="local-6989586621679443754"><span class="annot"><span class="annottext">[Tag]
 Text
 tags :: [Tag]
 resourceARN :: Text
 $sel:tags:TagResource' :: TagResource -&gt; [Tag]
 $sel:resourceARN:TagResource' :: TagResource -&gt; Text
-</span><a href="#local-6989586621679443290"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679443753"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-179"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-180"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -343,26 +343,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ResourceARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679443291"><span class="hs-identifier hs-var">resourceARN</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679443754"><span class="hs-identifier hs-var">resourceARN</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679443290"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679443753"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-183"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-184"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-187"></span><span>  </span><span id="local-6989586621679443284"><span class="annot"><span class="annottext">toPath :: TagResource -&gt; ByteString
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679443747"><span class="annot"><span class="annottext">toPath :: TagResource -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; TagResource -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-188"></span><span>
 </span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-190"></span><span>  </span><span id="local-6989586621679443280"><span class="annot"><span class="annottext">toQuery :: TagResource -&gt; QueryString
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679443743"><span class="annot"><span class="annottext">toQuery :: TagResource -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; TagResource -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -370,12 +370,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-191"></span><span>
 </span><span id="line-192"></span><span class="hs-comment">-- | /See:/ 'newTagResourceResponse' smart constructor.</span><span>
-</span><span id="line-193"></span><span id="local-6989586621679443277"><span id="local-6989586621679443278"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagResourceResponse"><span class="annot"><a href="Network.AWS.GameLift.TagResource.html#TagResourceResponse"><span class="hs-identifier hs-var">TagResourceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagResourceResponse%27"><span class="annot"><a href="Network.AWS.GameLift.TagResource.html#TagResourceResponse%27"><span class="hs-identifier hs-var">TagResourceResponse'</span></a></span></span><span>
+</span><span id="line-193"></span><span id="local-6989586621679443740"><span id="local-6989586621679443741"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagResourceResponse"><span class="annot"><a href="Network.AWS.GameLift.TagResource.html#TagResourceResponse"><span class="hs-identifier hs-var">TagResourceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagResourceResponse%27"><span class="annot"><a href="Network.AWS.GameLift.TagResource.html#TagResourceResponse%27"><span class="hs-identifier hs-var">TagResourceResponse'</span></a></span></span><span>
 </span><span id="line-194"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-195"></span><span>    </span><span id="%24sel%3AhttpStatus%3ATagResourceResponse%27"><span class="annot"><span class="annottext">TagResourceResponse -&gt; Int
 </span><a href="Network.AWS.GameLift.TagResource.html#%24sel%3AhttpStatus%3ATagResourceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-196"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-197"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679443272"><span id="local-6989586621679443274"><span class="annot"><span class="annottext">TagResourceResponse -&gt; TagResourceResponse -&gt; Bool
+</span><span id="line-197"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679443735"><span id="local-6989586621679443737"><span class="annot"><span class="annottext">TagResourceResponse -&gt; TagResourceResponse -&gt; Bool
 (TagResourceResponse -&gt; TagResourceResponse -&gt; Bool)
 -&gt; (TagResourceResponse -&gt; TagResourceResponse -&gt; Bool)
 -&gt; Eq TagResourceResponse
@@ -384,7 +384,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TagResourceResponse -&gt; TagResourceResponse -&gt; Bool
 == :: TagResourceResponse -&gt; TagResourceResponse -&gt; Bool
 $c== :: TagResourceResponse -&gt; TagResourceResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679443264"><span id="local-6989586621679443266"><span id="local-6989586621679443268"><span id="local-6989586621679443270"><span class="annot"><span class="annottext">ReadPrec [TagResourceResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679443727"><span id="local-6989586621679443729"><span id="local-6989586621679443731"><span id="local-6989586621679443733"><span class="annot"><span class="annottext">ReadPrec [TagResourceResponse]
 ReadPrec TagResourceResponse
 Int -&gt; ReadS TagResourceResponse
 ReadS [TagResourceResponse]
@@ -404,7 +404,7 @@ readList :: ReadS [TagResourceResponse]
 $creadList :: ReadS [TagResourceResponse]
 readsPrec :: Int -&gt; ReadS TagResourceResponse
 $creadsPrec :: Int -&gt; ReadS TagResourceResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679443258"><span id="local-6989586621679443260"><span id="local-6989586621679443262"><span class="annot"><span class="annottext">Int -&gt; TagResourceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679443721"><span id="local-6989586621679443723"><span id="local-6989586621679443725"><span class="annot"><span class="annottext">Int -&gt; TagResourceResponse -&gt; ShowS
 [TagResourceResponse] -&gt; ShowS
 TagResourceResponse -&gt; String
 (Int -&gt; TagResourceResponse -&gt; ShowS)
@@ -444,12 +444,12 @@ $cfrom :: forall x. TagResourceResponse -&gt; Rep TagResourceResponse x
 </span><span id="line-210"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-211"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.TagResource.html#TagResourceResponse"><span class="hs-identifier hs-type">TagResourceResponse</span></a></span><span>
 </span><span id="line-212"></span><span id="newTagResourceResponse"><span class="annot"><span class="annottext">newTagResourceResponse :: Int -&gt; TagResourceResponse
-</span><a href="Network.AWS.GameLift.TagResource.html#newTagResourceResponse"><span class="hs-identifier hs-var hs-var">newTagResourceResponse</span></a></span></span><span> </span><span id="local-6989586621679443255"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679443255"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GameLift.TagResource.html#newTagResourceResponse"><span class="hs-identifier hs-var hs-var">newTagResourceResponse</span></a></span></span><span> </span><span id="local-6989586621679443718"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679443718"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-213"></span><span>  </span><span class="annot"><span class="annottext">TagResourceResponse' :: Int -&gt; TagResourceResponse
 </span><a href="Network.AWS.GameLift.TagResource.html#TagResourceResponse%27"><span class="hs-identifier hs-type">TagResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:TagResourceResponse' :: Int
 </span><a href="Network.AWS.GameLift.TagResource.html#%24sel%3AhttpStatus%3ATagResourceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679443255"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679443718"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-214"></span><span>
 </span><span id="line-215"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-216"></span><span class="annot"><a href="Network.AWS.GameLift.TagResource.html#tagResourceResponse_httpStatus"><span class="hs-identifier hs-type">tagResourceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.TagResource.html#TagResourceResponse"><span class="hs-identifier hs-type">TagResourceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -458,16 +458,16 @@ $cfrom :: forall x. TagResourceResponse -&gt; Rep TagResourceResponse x
 -&gt; (TagResourceResponse -&gt; Int -&gt; TagResourceResponse)
 -&gt; Lens TagResourceResponse TagResourceResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.TagResource.html#TagResourceResponse%27"><span class="hs-identifier hs-type">TagResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443254"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.TagResource.html#TagResourceResponse%27"><span class="hs-identifier hs-type">TagResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443717"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:TagResourceResponse' :: TagResourceResponse -&gt; Int
-</span><a href="#local-6989586621679443254"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679443254"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443253"><span class="annot"><span class="annottext">s :: TagResourceResponse
-</span><a href="#local-6989586621679443253"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.TagResource.html#TagResourceResponse%27"><span class="hs-identifier hs-type">TagResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443252"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679443252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagResourceResponse
-</span><a href="#local-6989586621679443253"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:TagResourceResponse' :: Int
+</span><a href="#local-6989586621679443717"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679443717"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443716"><span class="annot"><span class="annottext">s :: TagResourceResponse
+</span><a href="#local-6989586621679443716"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.TagResource.html#TagResourceResponse%27"><span class="hs-identifier hs-type">TagResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443715"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679443715"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagResourceResponse
+</span><a href="#local-6989586621679443716"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:TagResourceResponse' :: Int
 </span><a href="Network.AWS.GameLift.TagResource.html#%24sel%3AhttpStatus%3ATagResourceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679443252"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.TagResource.html#TagResourceResponse"><span class="hs-identifier hs-type">TagResourceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679443715"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.TagResource.html#TagResourceResponse"><span class="hs-identifier hs-type">TagResourceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-218"></span><span>
-</span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679443250"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.TagResource.html#TagResourceResponse"><span class="hs-identifier hs-type">TagResourceResponse</span></a></span></span><span>
+</span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679443713"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.TagResource.html#TagResourceResponse"><span class="hs-identifier hs-type">TagResourceResponse</span></a></span></span><span>
 </span><span id="line-220"></span></pre></body></html>

@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-comment">-- | Input for SetEndpointAttributes action.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- /See:/ 'newSetEndpointAttributes' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679194017"><span id="local-6989586621679194018"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetEndpointAttributes"><span class="annot"><a href="Network.AWS.SNS.SetEndpointAttributes.html#SetEndpointAttributes"><span class="hs-identifier hs-var">SetEndpointAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetEndpointAttributes%27"><span class="annot"><a href="Network.AWS.SNS.SetEndpointAttributes.html#SetEndpointAttributes%27"><span class="hs-identifier hs-var">SetEndpointAttributes'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679194153"><span id="local-6989586621679194154"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetEndpointAttributes"><span class="annot"><a href="Network.AWS.SNS.SetEndpointAttributes.html#SetEndpointAttributes"><span class="hs-identifier hs-var">SetEndpointAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetEndpointAttributes%27"><span class="annot"><a href="Network.AWS.SNS.SetEndpointAttributes.html#SetEndpointAttributes%27"><span class="hs-identifier hs-var">SetEndpointAttributes'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | EndpointArn used for SetEndpointAttributes action.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AendpointArn%3ASetEndpointAttributes%27"><span class="annot"><span class="annottext">SetEndpointAttributes -&gt; Text
 </span><a href="Network.AWS.SNS.SetEndpointAttributes.html#%24sel%3AendpointArn%3ASetEndpointAttributes%27"><span class="hs-identifier hs-var hs-var">endpointArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -72,7 +72,7 @@
 </span><span id="line-71"></span><span>    </span><span id="%24sel%3Aattributes%3ASetEndpointAttributes%27"><span class="annot"><span class="annottext">SetEndpointAttributes -&gt; HashMap Text Text
 </span><a href="Network.AWS.SNS.SetEndpointAttributes.html#%24sel%3Aattributes%3ASetEndpointAttributes%27"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679194010"><span id="local-6989586621679194012"><span class="annot"><span class="annottext">SetEndpointAttributes -&gt; SetEndpointAttributes -&gt; Bool
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679194146"><span id="local-6989586621679194148"><span class="annot"><span class="annottext">SetEndpointAttributes -&gt; SetEndpointAttributes -&gt; Bool
 (SetEndpointAttributes -&gt; SetEndpointAttributes -&gt; Bool)
 -&gt; (SetEndpointAttributes -&gt; SetEndpointAttributes -&gt; Bool)
 -&gt; Eq SetEndpointAttributes
@@ -81,7 +81,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SetEndpointAttributes -&gt; SetEndpointAttributes -&gt; Bool
 == :: SetEndpointAttributes -&gt; SetEndpointAttributes -&gt; Bool
 $c== :: SetEndpointAttributes -&gt; SetEndpointAttributes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194001"><span id="local-6989586621679194003"><span id="local-6989586621679194005"><span id="local-6989586621679194007"><span class="annot"><span class="annottext">ReadPrec [SetEndpointAttributes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194137"><span id="local-6989586621679194139"><span id="local-6989586621679194141"><span id="local-6989586621679194143"><span class="annot"><span class="annottext">ReadPrec [SetEndpointAttributes]
 ReadPrec SetEndpointAttributes
 Int -&gt; ReadS SetEndpointAttributes
 ReadS [SetEndpointAttributes]
@@ -101,7 +101,7 @@ readList :: ReadS [SetEndpointAttributes]
 $creadList :: ReadS [SetEndpointAttributes]
 readsPrec :: Int -&gt; ReadS SetEndpointAttributes
 $creadsPrec :: Int -&gt; ReadS SetEndpointAttributes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679193994"><span id="local-6989586621679193996"><span id="local-6989586621679193998"><span class="annot"><span class="annottext">Int -&gt; SetEndpointAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194130"><span id="local-6989586621679194132"><span id="local-6989586621679194134"><span class="annot"><span class="annottext">Int -&gt; SetEndpointAttributes -&gt; ShowS
 [SetEndpointAttributes] -&gt; ShowS
 SetEndpointAttributes -&gt; String
 (Int -&gt; SetEndpointAttributes -&gt; ShowS)
@@ -158,13 +158,13 @@ $cfrom :: forall x. SetEndpointAttributes -&gt; Rep SetEndpointAttributes x
 </span><span id="line-103"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-104"></span><span>  </span><span class="annot"><a href="Network.AWS.SNS.SetEndpointAttributes.html#SetEndpointAttributes"><span class="hs-identifier hs-type">SetEndpointAttributes</span></a></span><span>
 </span><span id="line-105"></span><span id="newSetEndpointAttributes"><span class="annot"><span class="annottext">newSetEndpointAttributes :: Text -&gt; SetEndpointAttributes
-</span><a href="Network.AWS.SNS.SetEndpointAttributes.html#newSetEndpointAttributes"><span class="hs-identifier hs-var hs-var">newSetEndpointAttributes</span></a></span></span><span> </span><span id="local-6989586621679193989"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679193989"><span class="hs-identifier hs-var">pEndpointArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SNS.SetEndpointAttributes.html#newSetEndpointAttributes"><span class="hs-identifier hs-var hs-var">newSetEndpointAttributes</span></a></span></span><span> </span><span id="local-6989586621679194125"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679194125"><span class="hs-identifier hs-var">pEndpointArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>  </span><span class="annot"><span class="annottext">SetEndpointAttributes' :: Text -&gt; HashMap Text Text -&gt; SetEndpointAttributes
 </span><a href="Network.AWS.SNS.SetEndpointAttributes.html#SetEndpointAttributes%27"><span class="hs-identifier hs-type">SetEndpointAttributes'</span></a></span><span>
 </span><span id="line-107"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:endpointArn:SetEndpointAttributes' :: Text
 </span><a href="Network.AWS.SNS.SetEndpointAttributes.html#%24sel%3AendpointArn%3ASetEndpointAttributes%27"><span class="hs-identifier hs-var">endpointArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679193989"><span class="hs-identifier hs-var">pEndpointArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679194125"><span class="hs-identifier hs-var">pEndpointArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:attributes:SetEndpointAttributes' :: HashMap Text Text
 </span><a href="Network.AWS.SNS.SetEndpointAttributes.html#%24sel%3Aattributes%3ASetEndpointAttributes%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
 forall a. Monoid a =&gt; a
@@ -179,16 +179,16 @@ forall a. Monoid a =&gt; a
 -&gt; (SetEndpointAttributes -&gt; Text -&gt; SetEndpointAttributes)
 -&gt; Lens SetEndpointAttributes SetEndpointAttributes Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.SetEndpointAttributes.html#SetEndpointAttributes%27"><span class="hs-identifier hs-type">SetEndpointAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679193986"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.SetEndpointAttributes.html#SetEndpointAttributes%27"><span class="hs-identifier hs-type">SetEndpointAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194122"><span class="annot"><span class="annottext">Text
 endpointArn :: Text
 $sel:endpointArn:SetEndpointAttributes' :: SetEndpointAttributes -&gt; Text
-</span><a href="#local-6989586621679193986"><span class="hs-identifier hs-var hs-var">endpointArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679193986"><span class="hs-identifier hs-var">endpointArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679193985"><span class="annot"><span class="annottext">s :: SetEndpointAttributes
-</span><a href="#local-6989586621679193985"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.SetEndpointAttributes.html#SetEndpointAttributes%27"><span class="hs-identifier hs-type">SetEndpointAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679193984"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679193984"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetEndpointAttributes
-</span><a href="#local-6989586621679193985"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointArn:SetEndpointAttributes' :: Text
+</span><a href="#local-6989586621679194122"><span class="hs-identifier hs-var hs-var">endpointArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679194122"><span class="hs-identifier hs-var">endpointArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194121"><span class="annot"><span class="annottext">s :: SetEndpointAttributes
+</span><a href="#local-6989586621679194121"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.SetEndpointAttributes.html#SetEndpointAttributes%27"><span class="hs-identifier hs-type">SetEndpointAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194120"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679194120"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetEndpointAttributes
+</span><a href="#local-6989586621679194121"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointArn:SetEndpointAttributes' :: Text
 </span><a href="Network.AWS.SNS.SetEndpointAttributes.html#%24sel%3AendpointArn%3ASetEndpointAttributes%27"><span class="hs-identifier hs-var">endpointArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679193984"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.SetEndpointAttributes.html#SetEndpointAttributes"><span class="hs-identifier hs-type">SetEndpointAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679194120"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.SetEndpointAttributes.html#SetEndpointAttributes"><span class="hs-identifier hs-type">SetEndpointAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- | A map of the endpoint attributes. Attributes in this map include the</span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- following:</span><span>
@@ -218,16 +218,16 @@ $sel:endpointArn:SetEndpointAttributes' :: SetEndpointAttributes -&gt; Text
      (HashMap Text Text)
      (HashMap Text Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.SetEndpointAttributes.html#SetEndpointAttributes%27"><span class="hs-identifier hs-type">SetEndpointAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679193983"><span class="annot"><span class="annottext">HashMap Text Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.SetEndpointAttributes.html#SetEndpointAttributes%27"><span class="hs-identifier hs-type">SetEndpointAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194119"><span class="annot"><span class="annottext">HashMap Text Text
 attributes :: HashMap Text Text
 $sel:attributes:SetEndpointAttributes' :: SetEndpointAttributes -&gt; HashMap Text Text
-</span><a href="#local-6989586621679193983"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
-</span><a href="#local-6989586621679193983"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679193982"><span class="annot"><span class="annottext">s :: SetEndpointAttributes
-</span><a href="#local-6989586621679193982"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.SetEndpointAttributes.html#SetEndpointAttributes%27"><span class="hs-identifier hs-type">SetEndpointAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679193981"><span class="annot"><span class="annottext">HashMap Text Text
-</span><a href="#local-6989586621679193981"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetEndpointAttributes
-</span><a href="#local-6989586621679193982"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:SetEndpointAttributes' :: HashMap Text Text
+</span><a href="#local-6989586621679194119"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679194119"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194118"><span class="annot"><span class="annottext">s :: SetEndpointAttributes
+</span><a href="#local-6989586621679194118"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.SetEndpointAttributes.html#SetEndpointAttributes%27"><span class="hs-identifier hs-type">SetEndpointAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194117"><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679194117"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetEndpointAttributes
+</span><a href="#local-6989586621679194118"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:SetEndpointAttributes' :: HashMap Text Text
 </span><a href="Network.AWS.SNS.SetEndpointAttributes.html#%24sel%3Aattributes%3ASetEndpointAttributes%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
-</span><a href="#local-6989586621679193981"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.SetEndpointAttributes.html#SetEndpointAttributes"><span class="hs-identifier hs-type">SetEndpointAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text Text -&gt; f (HashMap Text Text))
+</span><a href="#local-6989586621679194117"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.SetEndpointAttributes.html#SetEndpointAttributes"><span class="hs-identifier hs-type">SetEndpointAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text Text -&gt; f (HashMap Text Text))
  -&gt; SetEndpointAttributes -&gt; f SetEndpointAttributes)
 -&gt; ((HashMap Text Text -&gt; f (HashMap Text Text))
     -&gt; HashMap Text Text -&gt; f (HashMap Text Text))
@@ -237,19 +237,19 @@ $sel:attributes:SetEndpointAttributes' :: SetEndpointAttributes -&gt; HashMap Te
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; f (HashMap Text Text))
 -&gt; HashMap Text Text -&gt; f (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.SetEndpointAttributes.html#SetEndpointAttributes"><span class="hs-identifier hs-type">SetEndpointAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-135"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-136"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.SetEndpointAttributes.html#SetEndpointAttributes"><span class="hs-identifier hs-type">SetEndpointAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-137"></span><span>      </span><span class="annot"><a href="Network.AWS.SNS.SetEndpointAttributes.html#SetEndpointAttributesResponse"><span class="hs-identifier hs-type">SetEndpointAttributesResponse</span></a></span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679193975"><span class="annot"><span class="annottext">request :: SetEndpointAttributes -&gt; Request SetEndpointAttributes
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679194111"><span class="annot"><span class="annottext">request :: SetEndpointAttributes -&gt; Request SetEndpointAttributes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; SetEndpointAttributes -&gt; Request SetEndpointAttributes
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SNS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679193971"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679194107"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy SetEndpointAttributes
 -&gt; ClientResponse ClientBody
@@ -275,12 +275,12 @@ AWSResponse a
 SetEndpointAttributesResponse
 </span><a href="Network.AWS.SNS.SetEndpointAttributes.html#SetEndpointAttributesResponse%27"><span class="hs-identifier hs-var">SetEndpointAttributesResponse'</span></a></span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679193964"><span id="local-6989586621679193966"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.SetEndpointAttributes.html#SetEndpointAttributes"><span class="hs-identifier hs-type">SetEndpointAttributes</span></a></span></span></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194100"><span id="local-6989586621679194102"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.SetEndpointAttributes.html#SetEndpointAttributes"><span class="hs-identifier hs-type">SetEndpointAttributes</span></a></span></span></span><span>
 </span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679193961"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.SetEndpointAttributes.html#SetEndpointAttributes"><span class="hs-identifier hs-type">SetEndpointAttributes</span></a></span></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194097"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.SetEndpointAttributes.html#SetEndpointAttributes"><span class="hs-identifier hs-type">SetEndpointAttributes</span></a></span></span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.SetEndpointAttributes.html#SetEndpointAttributes"><span class="hs-identifier hs-type">SetEndpointAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679193957"><span class="annot"><span class="annottext">toHeaders :: SetEndpointAttributes -&gt; [Header]
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679194093"><span class="annot"><span class="annottext">toHeaders :: SetEndpointAttributes -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; SetEndpointAttributes -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -288,21 +288,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.SetEndpointAttributes.html#SetEndpointAttributes"><span class="hs-identifier hs-type">SetEndpointAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679193952"><span class="annot"><span class="annottext">toPath :: SetEndpointAttributes -&gt; ByteString
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679194088"><span class="annot"><span class="annottext">toPath :: SetEndpointAttributes -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SetEndpointAttributes -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.SetEndpointAttributes.html#SetEndpointAttributes"><span class="hs-identifier hs-type">SetEndpointAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679193948"><span class="annot"><span class="annottext">toQuery :: SetEndpointAttributes -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.SetEndpointAttributes.html#SetEndpointAttributes%27"><span class="hs-identifier hs-type">SetEndpointAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679193945"><span id="local-6989586621679193946"><span class="annot"><span class="annottext">Text
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679194084"><span class="annot"><span class="annottext">toQuery :: SetEndpointAttributes -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.SetEndpointAttributes.html#SetEndpointAttributes%27"><span class="hs-identifier hs-type">SetEndpointAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194081"><span id="local-6989586621679194082"><span class="annot"><span class="annottext">Text
 HashMap Text Text
 attributes :: HashMap Text Text
 endpointArn :: Text
 $sel:attributes:SetEndpointAttributes' :: SetEndpointAttributes -&gt; HashMap Text Text
 $sel:endpointArn:SetEndpointAttributes' :: SetEndpointAttributes -&gt; Text
-</span><a href="#local-6989586621679193945"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679194081"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-154"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -322,7 +322,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;EndpointArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679193946"><span class="hs-identifier hs-var">endpointArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679194082"><span class="hs-identifier hs-var">endpointArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Attributes&quot;</span></span><span>
 </span><span id="line-161"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
@@ -337,14 +337,14 @@ ByteString
 </span><span class="hs-string">&quot;entry&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;key&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;value&quot;</span></span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
-</span><a href="#local-6989586621679193945"><span class="hs-identifier hs-var">attributes</span></a></span><span>
+</span><a href="#local-6989586621679194081"><span class="hs-identifier hs-var">attributes</span></a></span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- | /See:/ 'newSetEndpointAttributesResponse' smart constructor.</span><span>
-</span><span id="line-165"></span><span id="local-6989586621679193941"><span id="local-6989586621679193942"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetEndpointAttributesResponse"><span class="annot"><a href="Network.AWS.SNS.SetEndpointAttributes.html#SetEndpointAttributesResponse"><span class="hs-identifier hs-var">SetEndpointAttributesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetEndpointAttributesResponse%27"><span class="annot"><a href="Network.AWS.SNS.SetEndpointAttributes.html#SetEndpointAttributesResponse%27"><span class="hs-identifier hs-var">SetEndpointAttributesResponse'</span></a></span></span><span>
+</span><span id="line-165"></span><span id="local-6989586621679194077"><span id="local-6989586621679194078"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetEndpointAttributesResponse"><span class="annot"><a href="Network.AWS.SNS.SetEndpointAttributes.html#SetEndpointAttributesResponse"><span class="hs-identifier hs-var">SetEndpointAttributesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetEndpointAttributesResponse%27"><span class="annot"><a href="Network.AWS.SNS.SetEndpointAttributes.html#SetEndpointAttributesResponse%27"><span class="hs-identifier hs-var">SetEndpointAttributesResponse'</span></a></span></span><span>
 </span><span id="line-166"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-167"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-168"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679193937"><span id="local-6989586621679193939"><span class="annot"><span class="annottext">SetEndpointAttributesResponse
+</span><span id="line-168"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679194073"><span id="local-6989586621679194075"><span class="annot"><span class="annottext">SetEndpointAttributesResponse
 -&gt; SetEndpointAttributesResponse -&gt; Bool
 (SetEndpointAttributesResponse
  -&gt; SetEndpointAttributesResponse -&gt; Bool)
@@ -360,7 +360,7 @@ $c/= :: SetEndpointAttributesResponse
 -&gt; SetEndpointAttributesResponse -&gt; Bool
 $c== :: SetEndpointAttributesResponse
 -&gt; SetEndpointAttributesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679193929"><span id="local-6989586621679193931"><span id="local-6989586621679193933"><span id="local-6989586621679193935"><span class="annot"><span class="annottext">ReadPrec [SetEndpointAttributesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194065"><span id="local-6989586621679194067"><span id="local-6989586621679194069"><span id="local-6989586621679194071"><span class="annot"><span class="annottext">ReadPrec [SetEndpointAttributesResponse]
 ReadPrec SetEndpointAttributesResponse
 Int -&gt; ReadS SetEndpointAttributesResponse
 ReadS [SetEndpointAttributesResponse]
@@ -380,7 +380,7 @@ readList :: ReadS [SetEndpointAttributesResponse]
 $creadList :: ReadS [SetEndpointAttributesResponse]
 readsPrec :: Int -&gt; ReadS SetEndpointAttributesResponse
 $creadsPrec :: Int -&gt; ReadS SetEndpointAttributesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679193923"><span id="local-6989586621679193925"><span id="local-6989586621679193927"><span class="annot"><span class="annottext">Int -&gt; SetEndpointAttributesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194059"><span id="local-6989586621679194061"><span id="local-6989586621679194063"><span class="annot"><span class="annottext">Int -&gt; SetEndpointAttributesResponse -&gt; ShowS
 [SetEndpointAttributesResponse] -&gt; ShowS
 SetEndpointAttributesResponse -&gt; String
 (Int -&gt; SetEndpointAttributesResponse -&gt; ShowS)
@@ -429,5 +429,5 @@ SetEndpointAttributesResponse
 </span><span id="line-177"></span><span>  </span><span class="annot"><span class="annottext">SetEndpointAttributesResponse
 </span><a href="Network.AWS.SNS.SetEndpointAttributes.html#SetEndpointAttributesResponse%27"><span class="hs-identifier hs-var">SetEndpointAttributesResponse'</span></a></span><span>
 </span><span id="line-178"></span><span>
-</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679193919"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.SetEndpointAttributes.html#SetEndpointAttributesResponse"><span class="hs-identifier hs-type">SetEndpointAttributesResponse</span></a></span></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194055"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.SetEndpointAttributes.html#SetEndpointAttributesResponse"><span class="hs-identifier hs-type">SetEndpointAttributesResponse</span></a></span></span><span>
 </span><span id="line-180"></span></pre></body></html>

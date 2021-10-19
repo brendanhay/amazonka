@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-36"></span><span>
-</span><span id="line-37"></span><span id="local-6989586621679225442"><span id="local-6989586621679225443"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SnowballType"><span class="annot"><a href="Network.AWS.Snowball.Types.SnowballType.html#SnowballType"><span class="hs-identifier hs-var">SnowballType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SnowballType%27"><span class="annot"><a href="Network.AWS.Snowball.Types.SnowballType.html#SnowballType%27"><span class="hs-identifier hs-var">SnowballType'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679225500"><span id="local-6989586621679225501"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SnowballType"><span class="annot"><a href="Network.AWS.Snowball.Types.SnowballType.html#SnowballType"><span class="hs-identifier hs-var">SnowballType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SnowballType%27"><span class="annot"><a href="Network.AWS.Snowball.Types.SnowballType.html#SnowballType%27"><span class="hs-identifier hs-var">SnowballType'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSnowballType"><span class="annot"><span class="annottext">SnowballType -&gt; Text
 </span><a href="Network.AWS.Snowball.Types.SnowballType.html#fromSnowballType"><span class="hs-identifier hs-var hs-var">fromSnowballType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679225434"><span id="local-6989586621679225436"><span id="local-6989586621679225438"><span class="annot"><span class="annottext">Int -&gt; SnowballType -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679225492"><span id="local-6989586621679225494"><span id="local-6989586621679225496"><span class="annot"><span class="annottext">Int -&gt; SnowballType -&gt; ShowS
 [SnowballType] -&gt; ShowS
 SnowballType -&gt; String
 (Int -&gt; SnowballType -&gt; ShowS)
@@ -56,7 +56,7 @@ $cshow :: SnowballType -&gt; String
 showsPrec :: Int -&gt; SnowballType -&gt; ShowS
 $cshowsPrec :: Int -&gt; SnowballType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679225425"><span id="local-6989586621679225427"><span id="local-6989586621679225429"><span id="local-6989586621679225431"><span class="annot"><span class="annottext">ReadPrec [SnowballType]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679225483"><span id="local-6989586621679225485"><span id="local-6989586621679225487"><span id="local-6989586621679225489"><span class="annot"><span class="annottext">ReadPrec [SnowballType]
 ReadPrec SnowballType
 Int -&gt; ReadS SnowballType
 ReadS [SnowballType]
@@ -77,7 +77,7 @@ $creadList :: ReadS [SnowballType]
 readsPrec :: Int -&gt; ReadS SnowballType
 $creadsPrec :: Int -&gt; ReadS SnowballType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679225420"><span id="local-6989586621679225422"><span class="annot"><span class="annottext">SnowballType -&gt; SnowballType -&gt; Bool
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679225478"><span id="local-6989586621679225480"><span class="annot"><span class="annottext">SnowballType -&gt; SnowballType -&gt; Bool
 (SnowballType -&gt; SnowballType -&gt; Bool)
 -&gt; (SnowballType -&gt; SnowballType -&gt; Bool) -&gt; Eq SnowballType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -86,7 +86,7 @@ $c/= :: SnowballType -&gt; SnowballType -&gt; Bool
 == :: SnowballType -&gt; SnowballType -&gt; Bool
 $c== :: SnowballType -&gt; SnowballType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679225404"><span id="local-6989586621679225406"><span id="local-6989586621679225408"><span id="local-6989586621679225410"><span id="local-6989586621679225412"><span id="local-6989586621679225414"><span id="local-6989586621679225416"><span class="annot"><span class="annottext">Eq SnowballType
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679225462"><span id="local-6989586621679225464"><span id="local-6989586621679225466"><span id="local-6989586621679225468"><span id="local-6989586621679225470"><span id="local-6989586621679225472"><span id="local-6989586621679225474"><span class="annot"><span class="annottext">Eq SnowballType
 Eq SnowballType
 -&gt; (SnowballType -&gt; SnowballType -&gt; Ordering)
 -&gt; (SnowballType -&gt; SnowballType -&gt; Bool)
@@ -137,7 +137,7 @@ $cfrom :: forall x. SnowballType -&gt; Rep SnowballType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679225396"><span id="local-6989586621679225398"><span class="annot"><span class="annottext">Int -&gt; SnowballType -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679225454"><span id="local-6989586621679225456"><span class="annot"><span class="annottext">Int -&gt; SnowballType -&gt; Int
 SnowballType -&gt; Int
 (Int -&gt; SnowballType -&gt; Int)
 -&gt; (SnowballType -&gt; Int) -&gt; Hashable SnowballType
@@ -147,49 +147,49 @@ $chash :: SnowballType -&gt; Int
 hashWithSalt :: Int -&gt; SnowballType -&gt; Int
 $chashWithSalt :: Int -&gt; SnowballType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679225393"><span class="annot"><span class="annottext">SnowballType -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679225451"><span class="annot"><span class="annottext">SnowballType -&gt; ()
 (SnowballType -&gt; ()) -&gt; NFData SnowballType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: SnowballType -&gt; ()
 $crnf :: SnowballType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679225390"><span class="annot"><span class="annottext">Text -&gt; Either String SnowballType
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679225448"><span class="annot"><span class="annottext">Text -&gt; Either String SnowballType
 (Text -&gt; Either String SnowballType) -&gt; FromText SnowballType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String SnowballType
 $cfromText :: Text -&gt; Either String SnowballType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679225387"><span class="annot"><span class="annottext">SnowballType -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679225445"><span class="annot"><span class="annottext">SnowballType -&gt; Text
 (SnowballType -&gt; Text) -&gt; ToText SnowballType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: SnowballType -&gt; Text
 $ctoText :: SnowballType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679225384"><span class="annot"><span class="annottext">SnowballType -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679225442"><span class="annot"><span class="annottext">SnowballType -&gt; ByteString
 (SnowballType -&gt; ByteString) -&gt; ToByteString SnowballType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: SnowballType -&gt; ByteString
 $ctoBS :: SnowballType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679225381"><span class="annot"><span class="annottext">SnowballType -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679225439"><span class="annot"><span class="annottext">SnowballType -&gt; ByteStringBuilder
 (SnowballType -&gt; ByteStringBuilder) -&gt; ToLog SnowballType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: SnowballType -&gt; ByteStringBuilder
 $cbuild :: SnowballType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679225378"><span class="annot"><span class="annottext">HeaderName -&gt; SnowballType -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679225436"><span class="annot"><span class="annottext">HeaderName -&gt; SnowballType -&gt; [Header]
 (HeaderName -&gt; SnowballType -&gt; [Header]) -&gt; ToHeader SnowballType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; SnowballType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; SnowballType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679225375"><span class="annot"><span class="annottext">SnowballType -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679225433"><span class="annot"><span class="annottext">SnowballType -&gt; QueryString
 (SnowballType -&gt; QueryString) -&gt; ToQuery SnowballType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: SnowballType -&gt; QueryString
 $ctoQuery :: SnowballType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679225370"><span id="local-6989586621679225372"><span class="annot"><span class="annottext">Value -&gt; Parser [SnowballType]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679225428"><span id="local-6989586621679225430"><span class="annot"><span class="annottext">Value -&gt; Parser [SnowballType]
 Value -&gt; Parser SnowballType
 (Value -&gt; Parser SnowballType)
 -&gt; (Value -&gt; Parser [SnowballType]) -&gt; FromJSON SnowballType
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [SnowballType]
 parseJSON :: Value -&gt; Parser SnowballType
 $cparseJSON :: Value -&gt; Parser SnowballType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679225365"><span id="local-6989586621679225367"><span class="annot"><span class="annottext">FromJSONKeyFunction [SnowballType]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679225423"><span id="local-6989586621679225425"><span class="annot"><span class="annottext">FromJSONKeyFunction [SnowballType]
 FromJSONKeyFunction SnowballType
 FromJSONKeyFunction SnowballType
 -&gt; FromJSONKeyFunction [SnowballType] -&gt; FromJSONKey SnowballType
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [SnowballType]
 fromJSONKey :: FromJSONKeyFunction SnowballType
 $cfromJSONKey :: FromJSONKeyFunction SnowballType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679225356"><span id="local-6989586621679225358"><span id="local-6989586621679225360"><span id="local-6989586621679225362"><span class="annot"><span class="annottext">[SnowballType] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679225414"><span id="local-6989586621679225416"><span id="local-6989586621679225418"><span id="local-6989586621679225420"><span class="annot"><span class="annottext">[SnowballType] -&gt; Encoding
 [SnowballType] -&gt; Value
 SnowballType -&gt; Encoding
 SnowballType -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: SnowballType -&gt; Encoding
 toJSON :: SnowballType -&gt; Value
 $ctoJSON :: SnowballType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679225351"><span id="local-6989586621679225353"><span class="annot"><span class="annottext">ToJSONKeyFunction [SnowballType]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679225409"><span id="local-6989586621679225411"><span class="annot"><span class="annottext">ToJSONKeyFunction [SnowballType]
 ToJSONKeyFunction SnowballType
 ToJSONKeyFunction SnowballType
 -&gt; ToJSONKeyFunction [SnowballType] -&gt; ToJSONKey SnowballType
@@ -246,13 +246,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [SnowballType]
 toJSONKey :: ToJSONKeyFunction SnowballType
 $ctoJSONKey :: ToJSONKeyFunction SnowballType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679225348"><span class="annot"><span class="annottext">[Node] -&gt; Either String SnowballType
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679225406"><span class="annot"><span class="annottext">[Node] -&gt; Either String SnowballType
 ([Node] -&gt; Either String SnowballType) -&gt; FromXML SnowballType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String SnowballType
 $cparseXML :: [Node] -&gt; Either String SnowballType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679225345"><span class="annot"><span class="annottext">SnowballType -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679225403"><span class="annot"><span class="annottext">SnowballType -&gt; XML
 (SnowballType -&gt; XML) -&gt; ToXML SnowballType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: SnowballType -&gt; XML

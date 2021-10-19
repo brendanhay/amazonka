@@ -32,30 +32,30 @@
 </span><span id="line-32"></span><span class="hs-comment">-- EMBEDDED, EMBEDDED_PLUS_SCTE20, or SCTE20_PLUS_EMBEDDED.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newEmbeddedDestinationSettings' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679958424"><span id="local-6989586621679958425"></span></span><span class="hs-keyword">data</span><span> </span><span id="EmbeddedDestinationSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#EmbeddedDestinationSettings"><span class="hs-identifier hs-var">EmbeddedDestinationSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EmbeddedDestinationSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#EmbeddedDestinationSettings%27"><span class="hs-identifier hs-var">EmbeddedDestinationSettings'</span></a></span></span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Ignore this setting unless your input captions are SCC format and you</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- want both 608 and 708 captions embedded in your output stream.</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- Optionally, specify the 708 service number for each output captions</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- channel. Choose a different number for each channel. To use this</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- setting, also set Force 608 to 708 upconvert (Convert608To708) to</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- Upconvert (UPCONVERT) in your input captions selector settings. If you</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- choose to upconvert but don\'t specify a 708 service number,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- MediaConvert uses the number that you specify for CC channel number</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- (destination608ChannelNumber) for the 708 service number. For more</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- information, see</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/dual-scc-to-embedded.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3Adestination708ServiceNumber%3AEmbeddedDestinationSettings%27"><span class="annot"><span class="annottext">EmbeddedDestinationSettings -&gt; Maybe Natural
-</span><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#%24sel%3Adestination708ServiceNumber%3AEmbeddedDestinationSettings%27"><span class="hs-identifier hs-var hs-var">destination708ServiceNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | Ignore this setting unless your input captions are SCC format and your</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- output captions are embedded in the video stream. Specify a CC number</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- for each captions channel in this output. If you have two channels,</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- choose CC numbers that aren\'t in the same field. For example, choose 1</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- and 3. For more information, see</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679963048"><span id="local-6989586621679963049"></span></span><span class="hs-keyword">data</span><span> </span><span id="EmbeddedDestinationSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#EmbeddedDestinationSettings"><span class="hs-identifier hs-var">EmbeddedDestinationSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EmbeddedDestinationSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#EmbeddedDestinationSettings%27"><span class="hs-identifier hs-var">EmbeddedDestinationSettings'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Ignore this setting unless your input captions are SCC format and your</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- output captions are embedded in the video stream. Specify a CC number</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- for each captions channel in this output. If you have two channels,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- choose CC numbers that aren\'t in the same field. For example, choose 1</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- and 3. For more information, see</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/dual-scc-to-embedded.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Adestination608ChannelNumber%3AEmbeddedDestinationSettings%27"><span class="annot"><span class="annottext">EmbeddedDestinationSettings -&gt; Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#%24sel%3Adestination608ChannelNumber%3AEmbeddedDestinationSettings%27"><span class="hs-identifier hs-var hs-var">destination608ChannelNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Ignore this setting unless your input captions are SCC format and you</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- want both 608 and 708 captions embedded in your output stream.</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- Optionally, specify the 708 service number for each output captions</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- channel. Choose a different number for each channel. To use this</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- setting, also set Force 608 to 708 upconvert (Convert608To708) to</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- Upconvert (UPCONVERT) in your input captions selector settings. If you</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- choose to upconvert but don\'t specify a 708 service number,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- MediaConvert uses the number that you specify for CC channel number</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- (destination608ChannelNumber) for the 708 service number. For more</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- information, see</span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/dual-scc-to-embedded.</span><span>
-</span><span id="line-54"></span><span>    </span><span id="%24sel%3Adestination608ChannelNumber%3AEmbeddedDestinationSettings%27"><span class="annot"><span class="annottext">EmbeddedDestinationSettings -&gt; Maybe Natural
-</span><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#%24sel%3Adestination608ChannelNumber%3AEmbeddedDestinationSettings%27"><span class="hs-identifier hs-var hs-var">destination608ChannelNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3Adestination708ServiceNumber%3AEmbeddedDestinationSettings%27"><span class="annot"><span class="annottext">EmbeddedDestinationSettings -&gt; Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#%24sel%3Adestination708ServiceNumber%3AEmbeddedDestinationSettings%27"><span class="hs-identifier hs-var hs-var">destination708ServiceNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679958417"><span id="local-6989586621679958419"><span class="annot"><span class="annottext">EmbeddedDestinationSettings -&gt; EmbeddedDestinationSettings -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679963041"><span id="local-6989586621679963043"><span class="annot"><span class="annottext">EmbeddedDestinationSettings -&gt; EmbeddedDestinationSettings -&gt; Bool
 (EmbeddedDestinationSettings
  -&gt; EmbeddedDestinationSettings -&gt; Bool)
 -&gt; (EmbeddedDestinationSettings
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EmbeddedDestinationSettings -&gt; EmbeddedDestinationSettings -&gt; Bool
 == :: EmbeddedDestinationSettings -&gt; EmbeddedDestinationSettings -&gt; Bool
 $c== :: EmbeddedDestinationSettings -&gt; EmbeddedDestinationSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679958408"><span id="local-6989586621679958410"><span id="local-6989586621679958412"><span id="local-6989586621679958414"><span class="annot"><span class="annottext">ReadPrec [EmbeddedDestinationSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679963032"><span id="local-6989586621679963034"><span id="local-6989586621679963036"><span id="local-6989586621679963038"><span class="annot"><span class="annottext">ReadPrec [EmbeddedDestinationSettings]
 ReadPrec EmbeddedDestinationSettings
 Int -&gt; ReadS EmbeddedDestinationSettings
 ReadS [EmbeddedDestinationSettings]
@@ -86,7 +86,7 @@ readList :: ReadS [EmbeddedDestinationSettings]
 $creadList :: ReadS [EmbeddedDestinationSettings]
 readsPrec :: Int -&gt; ReadS EmbeddedDestinationSettings
 $creadsPrec :: Int -&gt; ReadS EmbeddedDestinationSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679958401"><span id="local-6989586621679958403"><span id="local-6989586621679958405"><span class="annot"><span class="annottext">Int -&gt; EmbeddedDestinationSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679963025"><span id="local-6989586621679963027"><span id="local-6989586621679963029"><span class="annot"><span class="annottext">Int -&gt; EmbeddedDestinationSettings -&gt; ShowS
 [EmbeddedDestinationSettings] -&gt; ShowS
 EmbeddedDestinationSettings -&gt; String
 (Int -&gt; EmbeddedDestinationSettings -&gt; ShowS)
@@ -126,23 +126,23 @@ EmbeddedDestinationSettings -&gt; Rep EmbeddedDestinationSettings x
 </span><span id="line-63"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-65"></span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- 'destination708ServiceNumber', 'embeddedDestinationSettings_destination708ServiceNumber' - Ignore this setting unless your input captions are SCC format and you</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- want both 608 and 708 captions embedded in your output stream.</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- Optionally, specify the 708 service number for each output captions</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- channel. Choose a different number for each channel. To use this</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- setting, also set Force 608 to 708 upconvert (Convert608To708) to</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- Upconvert (UPCONVERT) in your input captions selector settings. If you</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- choose to upconvert but don\'t specify a 708 service number,</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- MediaConvert uses the number that you specify for CC channel number</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- (destination608ChannelNumber) for the 708 service number. For more</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- information, see</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/dual-scc-to-embedded.</span><span>
-</span><span id="line-77"></span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- 'destination608ChannelNumber', 'embeddedDestinationSettings_destination608ChannelNumber' - Ignore this setting unless your input captions are SCC format and your</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- output captions are embedded in the video stream. Specify a CC number</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- for each captions channel in this output. If you have two channels,</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- choose CC numbers that aren\'t in the same field. For example, choose 1</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- and 3. For more information, see</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'destination608ChannelNumber', 'embeddedDestinationSettings_destination608ChannelNumber' - Ignore this setting unless your input captions are SCC format and your</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- output captions are embedded in the video stream. Specify a CC number</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- for each captions channel in this output. If you have two channels,</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- choose CC numbers that aren\'t in the same field. For example, choose 1</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- and 3. For more information, see</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/dual-scc-to-embedded.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'destination708ServiceNumber', 'embeddedDestinationSettings_destination708ServiceNumber' - Ignore this setting unless your input captions are SCC format and you</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- want both 608 and 708 captions embedded in your output stream.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Optionally, specify the 708 service number for each output captions</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- channel. Choose a different number for each channel. To use this</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- setting, also set Force 608 to 708 upconvert (Convert608To708) to</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Upconvert (UPCONVERT) in your input captions selector settings. If you</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- choose to upconvert but don\'t specify a 708 service number,</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- MediaConvert uses the number that you specify for CC channel number</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- (destination608ChannelNumber) for the 708 service number. For more</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- information, see</span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/dual-scc-to-embedded.</span><span>
 </span><span id="line-84"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#newEmbeddedDestinationSettings"><span class="hs-identifier hs-type">newEmbeddedDestinationSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#EmbeddedDestinationSettings"><span class="hs-identifier hs-type">EmbeddedDestinationSettings</span></a></span><span>
@@ -150,59 +150,25 @@ EmbeddedDestinationSettings -&gt; Rep EmbeddedDestinationSettings x
 </span><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#newEmbeddedDestinationSettings"><span class="hs-identifier hs-var hs-var">newEmbeddedDestinationSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">EmbeddedDestinationSettings' :: Maybe Natural -&gt; Maybe Natural -&gt; EmbeddedDestinationSettings
 </span><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#EmbeddedDestinationSettings%27"><span class="hs-identifier hs-type">EmbeddedDestinationSettings'</span></a></span><span>
-</span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:destination708ServiceNumber:EmbeddedDestinationSettings' :: Maybe Natural
-</span><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#%24sel%3Adestination708ServiceNumber%3AEmbeddedDestinationSettings%27"><span class="hs-identifier hs-var">destination708ServiceNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:destination608ChannelNumber:EmbeddedDestinationSettings' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#%24sel%3Adestination608ChannelNumber%3AEmbeddedDestinationSettings%27"><span class="hs-identifier hs-var">destination608ChannelNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:destination608ChannelNumber:EmbeddedDestinationSettings' :: Maybe Natural
-</span><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#%24sel%3Adestination608ChannelNumber%3AEmbeddedDestinationSettings%27"><span class="hs-identifier hs-var">destination608ChannelNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:destination708ServiceNumber:EmbeddedDestinationSettings' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#%24sel%3Adestination708ServiceNumber%3AEmbeddedDestinationSettings%27"><span class="hs-identifier hs-var">destination708ServiceNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- | Ignore this setting unless your input captions are SCC format and you</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- want both 608 and 708 captions embedded in your output stream.</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- Optionally, specify the 708 service number for each output captions</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- channel. Choose a different number for each channel. To use this</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- setting, also set Force 608 to 708 upconvert (Convert608To708) to</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- Upconvert (UPCONVERT) in your input captions selector settings. If you</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- choose to upconvert but don\'t specify a 708 service number,</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- MediaConvert uses the number that you specify for CC channel number</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- (destination608ChannelNumber) for the 708 service number. For more</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- information, see</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/dual-scc-to-embedded.</span><span>
-</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#embeddedDestinationSettings_destination708ServiceNumber"><span class="hs-identifier hs-type">embeddedDestinationSettings_destination708ServiceNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#EmbeddedDestinationSettings"><span class="hs-identifier hs-type">EmbeddedDestinationSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span id="embeddedDestinationSettings_destination708ServiceNumber"><span class="annot"><span class="annottext">embeddedDestinationSettings_destination708ServiceNumber :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; EmbeddedDestinationSettings -&gt; f EmbeddedDestinationSettings
-</span><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#embeddedDestinationSettings_destination708ServiceNumber"><span class="hs-identifier hs-var hs-var">embeddedDestinationSettings_destination708ServiceNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EmbeddedDestinationSettings -&gt; Maybe Natural)
--&gt; (EmbeddedDestinationSettings
-    -&gt; Maybe Natural -&gt; EmbeddedDestinationSettings)
--&gt; Lens
-     EmbeddedDestinationSettings
-     EmbeddedDestinationSettings
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#EmbeddedDestinationSettings%27"><span class="hs-identifier hs-type">EmbeddedDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679958392"><span class="annot"><span class="annottext">Maybe Natural
-destination708ServiceNumber :: Maybe Natural
-$sel:destination708ServiceNumber:EmbeddedDestinationSettings' :: EmbeddedDestinationSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679958392"><span class="hs-identifier hs-var hs-var">destination708ServiceNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679958392"><span class="hs-identifier hs-var">destination708ServiceNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679958391"><span class="annot"><span class="annottext">s :: EmbeddedDestinationSettings
-</span><a href="#local-6989586621679958391"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#EmbeddedDestinationSettings%27"><span class="hs-identifier hs-type">EmbeddedDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679958390"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679958390"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmbeddedDestinationSettings
-</span><a href="#local-6989586621679958391"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destination708ServiceNumber:EmbeddedDestinationSettings' :: Maybe Natural
-</span><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#%24sel%3Adestination708ServiceNumber%3AEmbeddedDestinationSettings%27"><span class="hs-identifier hs-var">destination708ServiceNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679958390"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#EmbeddedDestinationSettings"><span class="hs-identifier hs-type">EmbeddedDestinationSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- | Ignore this setting unless your input captions are SCC format and your</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- output captions are embedded in the video stream. Specify a CC number</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- for each captions channel in this output. If you have two channels,</span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- choose CC numbers that aren\'t in the same field. For example, choose 1</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- and 3. For more information, see</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/dual-scc-to-embedded.</span><span>
-</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#embeddedDestinationSettings_destination608ChannelNumber"><span class="hs-identifier hs-type">embeddedDestinationSettings_destination608ChannelNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#EmbeddedDestinationSettings"><span class="hs-identifier hs-type">EmbeddedDestinationSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span id="embeddedDestinationSettings_destination608ChannelNumber"><span class="annot"><span class="annottext">embeddedDestinationSettings_destination608ChannelNumber :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><span id="line-93"></span><span class="hs-comment">-- | Ignore this setting unless your input captions are SCC format and your</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- output captions are embedded in the video stream. Specify a CC number</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- for each captions channel in this output. If you have two channels,</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- choose CC numbers that aren\'t in the same field. For example, choose 1</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- and 3. For more information, see</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/dual-scc-to-embedded.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#embeddedDestinationSettings_destination608ChannelNumber"><span class="hs-identifier hs-type">embeddedDestinationSettings_destination608ChannelNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#EmbeddedDestinationSettings"><span class="hs-identifier hs-type">EmbeddedDestinationSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="embeddedDestinationSettings_destination608ChannelNumber"><span class="annot"><span class="annottext">embeddedDestinationSettings_destination608ChannelNumber :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; EmbeddedDestinationSettings -&gt; f EmbeddedDestinationSettings
 </span><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#embeddedDestinationSettings_destination608ChannelNumber"><span class="hs-identifier hs-var hs-var">embeddedDestinationSettings_destination608ChannelNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EmbeddedDestinationSettings -&gt; Maybe Natural)
 -&gt; (EmbeddedDestinationSettings
@@ -213,19 +179,53 @@ $sel:destination708ServiceNumber:EmbeddedDestinationSettings' :: EmbeddedDestina
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#EmbeddedDestinationSettings%27"><span class="hs-identifier hs-type">EmbeddedDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679958388"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#EmbeddedDestinationSettings%27"><span class="hs-identifier hs-type">EmbeddedDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679963016"><span class="annot"><span class="annottext">Maybe Natural
 destination608ChannelNumber :: Maybe Natural
 $sel:destination608ChannelNumber:EmbeddedDestinationSettings' :: EmbeddedDestinationSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679958388"><span class="hs-identifier hs-var hs-var">destination608ChannelNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679958388"><span class="hs-identifier hs-var">destination608ChannelNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679958387"><span class="annot"><span class="annottext">s :: EmbeddedDestinationSettings
-</span><a href="#local-6989586621679958387"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#EmbeddedDestinationSettings%27"><span class="hs-identifier hs-type">EmbeddedDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679958386"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679958386"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmbeddedDestinationSettings
-</span><a href="#local-6989586621679958387"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destination608ChannelNumber:EmbeddedDestinationSettings' :: Maybe Natural
+</span><a href="#local-6989586621679963016"><span class="hs-identifier hs-var hs-var">destination608ChannelNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679963016"><span class="hs-identifier hs-var">destination608ChannelNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679963015"><span class="annot"><span class="annottext">s :: EmbeddedDestinationSettings
+</span><a href="#local-6989586621679963015"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#EmbeddedDestinationSettings%27"><span class="hs-identifier hs-type">EmbeddedDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679963014"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679963014"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmbeddedDestinationSettings
+</span><a href="#local-6989586621679963015"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destination608ChannelNumber:EmbeddedDestinationSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#%24sel%3Adestination608ChannelNumber%3AEmbeddedDestinationSettings%27"><span class="hs-identifier hs-var">destination608ChannelNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679958386"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#EmbeddedDestinationSettings"><span class="hs-identifier hs-type">EmbeddedDestinationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679963014"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#EmbeddedDestinationSettings"><span class="hs-identifier hs-type">EmbeddedDestinationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | Ignore this setting unless your input captions are SCC format and you</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- want both 608 and 708 captions embedded in your output stream.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- Optionally, specify the 708 service number for each output captions</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- channel. Choose a different number for each channel. To use this</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- setting, also set Force 608 to 708 upconvert (Convert608To708) to</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- Upconvert (UPCONVERT) in your input captions selector settings. If you</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- choose to upconvert but don\'t specify a 708 service number,</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- MediaConvert uses the number that you specify for CC channel number</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- (destination608ChannelNumber) for the 708 service number. For more</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/dual-scc-to-embedded.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#embeddedDestinationSettings_destination708ServiceNumber"><span class="hs-identifier hs-type">embeddedDestinationSettings_destination708ServiceNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#EmbeddedDestinationSettings"><span class="hs-identifier hs-type">EmbeddedDestinationSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="embeddedDestinationSettings_destination708ServiceNumber"><span class="annot"><span class="annottext">embeddedDestinationSettings_destination708ServiceNumber :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; EmbeddedDestinationSettings -&gt; f EmbeddedDestinationSettings
+</span><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#embeddedDestinationSettings_destination708ServiceNumber"><span class="hs-identifier hs-var hs-var">embeddedDestinationSettings_destination708ServiceNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EmbeddedDestinationSettings -&gt; Maybe Natural)
+-&gt; (EmbeddedDestinationSettings
+    -&gt; Maybe Natural -&gt; EmbeddedDestinationSettings)
+-&gt; Lens
+     EmbeddedDestinationSettings
+     EmbeddedDestinationSettings
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#EmbeddedDestinationSettings%27"><span class="hs-identifier hs-type">EmbeddedDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679963012"><span class="annot"><span class="annottext">Maybe Natural
+destination708ServiceNumber :: Maybe Natural
+$sel:destination708ServiceNumber:EmbeddedDestinationSettings' :: EmbeddedDestinationSettings -&gt; Maybe Natural
+</span><a href="#local-6989586621679963012"><span class="hs-identifier hs-var hs-var">destination708ServiceNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679963012"><span class="hs-identifier hs-var">destination708ServiceNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679963011"><span class="annot"><span class="annottext">s :: EmbeddedDestinationSettings
+</span><a href="#local-6989586621679963011"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#EmbeddedDestinationSettings%27"><span class="hs-identifier hs-type">EmbeddedDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679963010"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679963010"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmbeddedDestinationSettings
+</span><a href="#local-6989586621679963011"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destination708ServiceNumber:EmbeddedDestinationSettings' :: Maybe Natural
+</span><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#%24sel%3Adestination708ServiceNumber%3AEmbeddedDestinationSettings%27"><span class="hs-identifier hs-var">destination708ServiceNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679963010"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#EmbeddedDestinationSettings"><span class="hs-identifier hs-type">EmbeddedDestinationSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679958383"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#EmbeddedDestinationSettings"><span class="hs-identifier hs-type">EmbeddedDestinationSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679958381"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EmbeddedDestinationSettings
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679963007"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#EmbeddedDestinationSettings"><span class="hs-identifier hs-type">EmbeddedDestinationSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679963005"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EmbeddedDestinationSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser EmbeddedDestinationSettings)
@@ -235,8 +235,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;EmbeddedDestinationSettings&quot;</span></span><span>
-</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679958378"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679958378"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679963002"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679963002"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural -&gt; Maybe Natural -&gt; EmbeddedDestinationSettings
 </span><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#EmbeddedDestinationSettings%27"><span class="hs-identifier hs-var">EmbeddedDestinationSettings'</span></a></span><span>
 </span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural -&gt; Maybe Natural -&gt; EmbeddedDestinationSettings)
@@ -244,53 +244,53 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Natural -&gt; EmbeddedDestinationSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679958378"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679963002"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;destination708ServiceNumber&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;destination608ChannelNumber&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; EmbeddedDestinationSettings)
 -&gt; Parser (Maybe Natural) -&gt; Parser EmbeddedDestinationSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679958378"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679963002"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;destination608ChannelNumber&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;destination708ServiceNumber&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679958372"><span id="local-6989586621679958374"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#EmbeddedDestinationSettings"><span class="hs-identifier hs-type">EmbeddedDestinationSettings</span></a></span></span></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679962996"><span id="local-6989586621679962998"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#EmbeddedDestinationSettings"><span class="hs-identifier hs-type">EmbeddedDestinationSettings</span></a></span></span></span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679958369"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#EmbeddedDestinationSettings"><span class="hs-identifier hs-type">EmbeddedDestinationSettings</span></a></span></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679962993"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#EmbeddedDestinationSettings"><span class="hs-identifier hs-type">EmbeddedDestinationSettings</span></a></span></span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679958361"><span id="local-6989586621679958363"><span id="local-6989586621679958365"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#EmbeddedDestinationSettings"><span class="hs-identifier hs-type">EmbeddedDestinationSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679958359"><span class="annot"><span class="annottext">toJSON :: EmbeddedDestinationSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#EmbeddedDestinationSettings%27"><span class="hs-identifier hs-type">EmbeddedDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679958356"><span id="local-6989586621679958357"><span class="annot"><span class="annottext">Maybe Natural
-destination608ChannelNumber :: Maybe Natural
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679962985"><span id="local-6989586621679962987"><span id="local-6989586621679962989"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#EmbeddedDestinationSettings"><span class="hs-identifier hs-type">EmbeddedDestinationSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679962983"><span class="annot"><span class="annottext">toJSON :: EmbeddedDestinationSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings.html#EmbeddedDestinationSettings%27"><span class="hs-identifier hs-type">EmbeddedDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679962980"><span id="local-6989586621679962981"><span class="annot"><span class="annottext">Maybe Natural
 destination708ServiceNumber :: Maybe Natural
-$sel:destination608ChannelNumber:EmbeddedDestinationSettings' :: EmbeddedDestinationSettings -&gt; Maybe Natural
+destination608ChannelNumber :: Maybe Natural
 $sel:destination708ServiceNumber:EmbeddedDestinationSettings' :: EmbeddedDestinationSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679958356"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:destination608ChannelNumber:EmbeddedDestinationSettings' :: EmbeddedDestinationSettings -&gt; Maybe Natural
+</span><a href="#local-6989586621679962980"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-134"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;destination708ServiceNumber&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+</span><span class="hs-string">&quot;destination608ChannelNumber&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679958357"><span class="hs-identifier hs-var">destination708ServiceNumber</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679962981"><span class="hs-identifier hs-var">destination608ChannelNumber</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-136"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;destination608ChannelNumber&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+</span><span class="hs-string">&quot;destination708ServiceNumber&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679958356"><span class="hs-identifier hs-var">destination608ChannelNumber</span></a></span><span>
+</span><a href="#local-6989586621679962980"><span class="hs-identifier hs-var">destination708ServiceNumber</span></a></span><span>
 </span><span id="line-138"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span></pre></body></html>

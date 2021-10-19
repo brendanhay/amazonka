@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- enabled. Default is @false@</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newTracingConfiguration' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679228520"><span id="local-6989586621679228521"></span></span><span class="hs-keyword">data</span><span> </span><span id="TracingConfiguration"><span class="annot"><a href="Network.AWS.StepFunctions.Types.TracingConfiguration.html#TracingConfiguration"><span class="hs-identifier hs-var">TracingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TracingConfiguration%27"><span class="annot"><a href="Network.AWS.StepFunctions.Types.TracingConfiguration.html#TracingConfiguration%27"><span class="hs-identifier hs-var">TracingConfiguration'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679228565"><span id="local-6989586621679228566"></span></span><span class="hs-keyword">data</span><span> </span><span id="TracingConfiguration"><span class="annot"><a href="Network.AWS.StepFunctions.Types.TracingConfiguration.html#TracingConfiguration"><span class="hs-identifier hs-var">TracingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TracingConfiguration%27"><span class="annot"><a href="Network.AWS.StepFunctions.Types.TracingConfiguration.html#TracingConfiguration%27"><span class="hs-identifier hs-var">TracingConfiguration'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When set to @true@, AWS X-Ray tracing is enabled.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Aenabled%3ATracingConfiguration%27"><span class="annot"><span class="annottext">TracingConfiguration -&gt; Maybe Bool
 </span><a href="Network.AWS.StepFunctions.Types.TracingConfiguration.html#%24sel%3Aenabled%3ATracingConfiguration%27"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679228514"><span id="local-6989586621679228516"><span class="annot"><span class="annottext">TracingConfiguration -&gt; TracingConfiguration -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679228559"><span id="local-6989586621679228561"><span class="annot"><span class="annottext">TracingConfiguration -&gt; TracingConfiguration -&gt; Bool
 (TracingConfiguration -&gt; TracingConfiguration -&gt; Bool)
 -&gt; (TracingConfiguration -&gt; TracingConfiguration -&gt; Bool)
 -&gt; Eq TracingConfiguration
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TracingConfiguration -&gt; TracingConfiguration -&gt; Bool
 == :: TracingConfiguration -&gt; TracingConfiguration -&gt; Bool
 $c== :: TracingConfiguration -&gt; TracingConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228505"><span id="local-6989586621679228507"><span id="local-6989586621679228509"><span id="local-6989586621679228511"><span class="annot"><span class="annottext">ReadPrec [TracingConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228550"><span id="local-6989586621679228552"><span id="local-6989586621679228554"><span id="local-6989586621679228556"><span class="annot"><span class="annottext">ReadPrec [TracingConfiguration]
 ReadPrec TracingConfiguration
 Int -&gt; ReadS TracingConfiguration
 ReadS [TracingConfiguration]
@@ -61,7 +61,7 @@ readList :: ReadS [TracingConfiguration]
 $creadList :: ReadS [TracingConfiguration]
 readsPrec :: Int -&gt; ReadS TracingConfiguration
 $creadsPrec :: Int -&gt; ReadS TracingConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228498"><span id="local-6989586621679228500"><span id="local-6989586621679228502"><span class="annot"><span class="annottext">Int -&gt; TracingConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228543"><span id="local-6989586621679228545"><span id="local-6989586621679228547"><span class="annot"><span class="annottext">Int -&gt; TracingConfiguration -&gt; ShowS
 [TracingConfiguration] -&gt; ShowS
 TracingConfiguration -&gt; String
 (Int -&gt; TracingConfiguration -&gt; ShowS)
@@ -115,19 +115,19 @@ forall a. Maybe a
 -&gt; Lens
      TracingConfiguration TracingConfiguration (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.TracingConfiguration.html#TracingConfiguration%27"><span class="hs-identifier hs-type">TracingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228489"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.TracingConfiguration.html#TracingConfiguration%27"><span class="hs-identifier hs-type">TracingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228534"><span class="annot"><span class="annottext">Maybe Bool
 enabled :: Maybe Bool
 $sel:enabled:TracingConfiguration' :: TracingConfiguration -&gt; Maybe Bool
-</span><a href="#local-6989586621679228489"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679228489"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228488"><span class="annot"><span class="annottext">s :: TracingConfiguration
-</span><a href="#local-6989586621679228488"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.TracingConfiguration.html#TracingConfiguration%27"><span class="hs-identifier hs-type">TracingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228487"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679228487"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TracingConfiguration
-</span><a href="#local-6989586621679228488"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:TracingConfiguration' :: Maybe Bool
+</span><a href="#local-6989586621679228534"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679228534"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228533"><span class="annot"><span class="annottext">s :: TracingConfiguration
+</span><a href="#local-6989586621679228533"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.TracingConfiguration.html#TracingConfiguration%27"><span class="hs-identifier hs-type">TracingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228532"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679228532"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TracingConfiguration
+</span><a href="#local-6989586621679228533"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:TracingConfiguration' :: Maybe Bool
 </span><a href="Network.AWS.StepFunctions.Types.TracingConfiguration.html#%24sel%3Aenabled%3ATracingConfiguration%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679228487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.TracingConfiguration.html#TracingConfiguration"><span class="hs-identifier hs-type">TracingConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679228532"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.TracingConfiguration.html#TracingConfiguration"><span class="hs-identifier hs-type">TracingConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span>
-</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679228484"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.TracingConfiguration.html#TracingConfiguration"><span class="hs-identifier hs-type">TracingConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621679228482"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TracingConfiguration
+</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679228529"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.TracingConfiguration.html#TracingConfiguration"><span class="hs-identifier hs-type">TracingConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621679228527"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TracingConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TracingConfiguration)
@@ -137,30 +137,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TracingConfiguration&quot;</span></span><span>
-</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679228479"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679228479"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679228524"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679228524"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-59"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool -&gt; TracingConfiguration
 </span><a href="Network.AWS.StepFunctions.Types.TracingConfiguration.html#TracingConfiguration%27"><span class="hs-identifier hs-var">TracingConfiguration'</span></a></span><span>
 </span><span id="line-60"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; TracingConfiguration)
 -&gt; Parser (Maybe Bool) -&gt; Parser TracingConfiguration
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679228479"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679228524"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;enabled&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679228473"><span id="local-6989586621679228475"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.TracingConfiguration.html#TracingConfiguration"><span class="hs-identifier hs-type">TracingConfiguration</span></a></span></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679228518"><span id="local-6989586621679228520"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.TracingConfiguration.html#TracingConfiguration"><span class="hs-identifier hs-type">TracingConfiguration</span></a></span></span></span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679228470"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.TracingConfiguration.html#TracingConfiguration"><span class="hs-identifier hs-type">TracingConfiguration</span></a></span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679228515"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.TracingConfiguration.html#TracingConfiguration"><span class="hs-identifier hs-type">TracingConfiguration</span></a></span></span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679228462"><span id="local-6989586621679228464"><span id="local-6989586621679228466"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.TracingConfiguration.html#TracingConfiguration"><span class="hs-identifier hs-type">TracingConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679228460"><span class="annot"><span class="annottext">toJSON :: TracingConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.TracingConfiguration.html#TracingConfiguration%27"><span class="hs-identifier hs-type">TracingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228458"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679228507"><span id="local-6989586621679228509"><span id="local-6989586621679228511"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.TracingConfiguration.html#TracingConfiguration"><span class="hs-identifier hs-type">TracingConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679228505"><span class="annot"><span class="annottext">toJSON :: TracingConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.TracingConfiguration.html#TracingConfiguration%27"><span class="hs-identifier hs-type">TracingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228503"><span class="annot"><span class="annottext">Maybe Bool
 enabled :: Maybe Bool
 $sel:enabled:TracingConfiguration' :: TracingConfiguration -&gt; Maybe Bool
-</span><a href="#local-6989586621679228458"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679228503"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -172,6 +172,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679228458"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679228503"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span></pre></body></html>

@@ -32,7 +32,7 @@
 </span><span id="line-32"></span><span class="hs-comment">-- command, of containers that are deployed to your container service.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newContainerServiceDeploymentRequest' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679609534"><span id="local-6989586621679609535"></span></span><span class="hs-keyword">data</span><span> </span><span id="ContainerServiceDeploymentRequest"><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceDeploymentRequest.html#ContainerServiceDeploymentRequest"><span class="hs-identifier hs-var">ContainerServiceDeploymentRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContainerServiceDeploymentRequest%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceDeploymentRequest.html#ContainerServiceDeploymentRequest%27"><span class="hs-identifier hs-var">ContainerServiceDeploymentRequest'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679610425"><span id="local-6989586621679610426"></span></span><span class="hs-keyword">data</span><span> </span><span id="ContainerServiceDeploymentRequest"><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceDeploymentRequest.html#ContainerServiceDeploymentRequest"><span class="hs-identifier hs-var">ContainerServiceDeploymentRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContainerServiceDeploymentRequest%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceDeploymentRequest.html#ContainerServiceDeploymentRequest%27"><span class="hs-identifier hs-var">ContainerServiceDeploymentRequest'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An object that describes the endpoint of the deployment.</span><span>
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3ApublicEndpoint%3AContainerServiceDeploymentRequest%27"><span class="annot"><span class="annottext">ContainerServiceDeploymentRequest -&gt; Maybe EndpointRequest
 </span><a href="Network.AWS.Lightsail.Types.ContainerServiceDeploymentRequest.html#%24sel%3ApublicEndpoint%3AContainerServiceDeploymentRequest%27"><span class="hs-identifier hs-var hs-var">publicEndpoint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.EndpointRequest.html#EndpointRequest"><span class="hs-identifier hs-type">EndpointRequest</span></a></span><span class="hs-special">,</span><span>
@@ -41,7 +41,7 @@
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3Acontainers%3AContainerServiceDeploymentRequest%27"><span class="annot"><span class="annottext">ContainerServiceDeploymentRequest -&gt; Maybe (HashMap Text Container)
 </span><a href="Network.AWS.Lightsail.Types.ContainerServiceDeploymentRequest.html#%24sel%3Acontainers%3AContainerServiceDeploymentRequest%27"><span class="hs-identifier hs-var hs-var">containers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679609527"><span id="local-6989586621679609529"><span class="annot"><span class="annottext">ContainerServiceDeploymentRequest
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679610418"><span id="local-6989586621679610420"><span class="annot"><span class="annottext">ContainerServiceDeploymentRequest
 -&gt; ContainerServiceDeploymentRequest -&gt; Bool
 (ContainerServiceDeploymentRequest
  -&gt; ContainerServiceDeploymentRequest -&gt; Bool)
@@ -57,7 +57,7 @@ $c/= :: ContainerServiceDeploymentRequest
 -&gt; ContainerServiceDeploymentRequest -&gt; Bool
 $c== :: ContainerServiceDeploymentRequest
 -&gt; ContainerServiceDeploymentRequest -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679609518"><span id="local-6989586621679609520"><span id="local-6989586621679609522"><span id="local-6989586621679609524"><span class="annot"><span class="annottext">ReadPrec [ContainerServiceDeploymentRequest]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679610409"><span id="local-6989586621679610411"><span id="local-6989586621679610413"><span id="local-6989586621679610415"><span class="annot"><span class="annottext">ReadPrec [ContainerServiceDeploymentRequest]
 ReadPrec ContainerServiceDeploymentRequest
 Int -&gt; ReadS ContainerServiceDeploymentRequest
 ReadS [ContainerServiceDeploymentRequest]
@@ -77,7 +77,7 @@ readList :: ReadS [ContainerServiceDeploymentRequest]
 $creadList :: ReadS [ContainerServiceDeploymentRequest]
 readsPrec :: Int -&gt; ReadS ContainerServiceDeploymentRequest
 $creadsPrec :: Int -&gt; ReadS ContainerServiceDeploymentRequest
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679609511"><span id="local-6989586621679609513"><span id="local-6989586621679609515"><span class="annot"><span class="annottext">Int -&gt; ContainerServiceDeploymentRequest -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679610402"><span id="local-6989586621679610404"><span id="local-6989586621679610406"><span class="annot"><span class="annottext">Int -&gt; ContainerServiceDeploymentRequest -&gt; ShowS
 [ContainerServiceDeploymentRequest] -&gt; ShowS
 ContainerServiceDeploymentRequest -&gt; String
 (Int -&gt; ContainerServiceDeploymentRequest -&gt; ShowS)
@@ -160,16 +160,16 @@ forall a. Maybe a
      (Maybe EndpointRequest)
      (Maybe EndpointRequest)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceDeploymentRequest.html#ContainerServiceDeploymentRequest%27"><span class="hs-identifier hs-type">ContainerServiceDeploymentRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679609502"><span class="annot"><span class="annottext">Maybe EndpointRequest
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceDeploymentRequest.html#ContainerServiceDeploymentRequest%27"><span class="hs-identifier hs-type">ContainerServiceDeploymentRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610393"><span class="annot"><span class="annottext">Maybe EndpointRequest
 publicEndpoint :: Maybe EndpointRequest
 $sel:publicEndpoint:ContainerServiceDeploymentRequest' :: ContainerServiceDeploymentRequest -&gt; Maybe EndpointRequest
-</span><a href="#local-6989586621679609502"><span class="hs-identifier hs-var hs-var">publicEndpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EndpointRequest
-</span><a href="#local-6989586621679609502"><span class="hs-identifier hs-var">publicEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679609501"><span class="annot"><span class="annottext">s :: ContainerServiceDeploymentRequest
-</span><a href="#local-6989586621679609501"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceDeploymentRequest.html#ContainerServiceDeploymentRequest%27"><span class="hs-identifier hs-type">ContainerServiceDeploymentRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679609500"><span class="annot"><span class="annottext">Maybe EndpointRequest
-</span><a href="#local-6989586621679609500"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerServiceDeploymentRequest
-</span><a href="#local-6989586621679609501"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:publicEndpoint:ContainerServiceDeploymentRequest' :: Maybe EndpointRequest
+</span><a href="#local-6989586621679610393"><span class="hs-identifier hs-var hs-var">publicEndpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EndpointRequest
+</span><a href="#local-6989586621679610393"><span class="hs-identifier hs-var">publicEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610392"><span class="annot"><span class="annottext">s :: ContainerServiceDeploymentRequest
+</span><a href="#local-6989586621679610392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceDeploymentRequest.html#ContainerServiceDeploymentRequest%27"><span class="hs-identifier hs-type">ContainerServiceDeploymentRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610391"><span class="annot"><span class="annottext">Maybe EndpointRequest
+</span><a href="#local-6989586621679610391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerServiceDeploymentRequest
+</span><a href="#local-6989586621679610392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:publicEndpoint:ContainerServiceDeploymentRequest' :: Maybe EndpointRequest
 </span><a href="Network.AWS.Lightsail.Types.ContainerServiceDeploymentRequest.html#%24sel%3ApublicEndpoint%3AContainerServiceDeploymentRequest%27"><span class="hs-identifier hs-var">publicEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EndpointRequest
-</span><a href="#local-6989586621679609500"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceDeploymentRequest.html#ContainerServiceDeploymentRequest"><span class="hs-identifier hs-type">ContainerServiceDeploymentRequest</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679610391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceDeploymentRequest.html#ContainerServiceDeploymentRequest"><span class="hs-identifier hs-type">ContainerServiceDeploymentRequest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | An object that describes the configuration for the containers of the</span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- deployment.</span><span>
@@ -189,16 +189,16 @@ $sel:publicEndpoint:ContainerServiceDeploymentRequest' :: ContainerServiceDeploy
      (Maybe (HashMap Text Container))
      (Maybe (HashMap Text Container))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceDeploymentRequest.html#ContainerServiceDeploymentRequest%27"><span class="hs-identifier hs-type">ContainerServiceDeploymentRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679609498"><span class="annot"><span class="annottext">Maybe (HashMap Text Container)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceDeploymentRequest.html#ContainerServiceDeploymentRequest%27"><span class="hs-identifier hs-type">ContainerServiceDeploymentRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610389"><span class="annot"><span class="annottext">Maybe (HashMap Text Container)
 containers :: Maybe (HashMap Text Container)
 $sel:containers:ContainerServiceDeploymentRequest' :: ContainerServiceDeploymentRequest -&gt; Maybe (HashMap Text Container)
-</span><a href="#local-6989586621679609498"><span class="hs-identifier hs-var hs-var">containers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Container)
-</span><a href="#local-6989586621679609498"><span class="hs-identifier hs-var">containers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679609497"><span class="annot"><span class="annottext">s :: ContainerServiceDeploymentRequest
-</span><a href="#local-6989586621679609497"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceDeploymentRequest.html#ContainerServiceDeploymentRequest%27"><span class="hs-identifier hs-type">ContainerServiceDeploymentRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679609496"><span class="annot"><span class="annottext">Maybe (HashMap Text Container)
-</span><a href="#local-6989586621679609496"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerServiceDeploymentRequest
-</span><a href="#local-6989586621679609497"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containers:ContainerServiceDeploymentRequest' :: Maybe (HashMap Text Container)
+</span><a href="#local-6989586621679610389"><span class="hs-identifier hs-var hs-var">containers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Container)
+</span><a href="#local-6989586621679610389"><span class="hs-identifier hs-var">containers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610388"><span class="annot"><span class="annottext">s :: ContainerServiceDeploymentRequest
+</span><a href="#local-6989586621679610388"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceDeploymentRequest.html#ContainerServiceDeploymentRequest%27"><span class="hs-identifier hs-type">ContainerServiceDeploymentRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610387"><span class="annot"><span class="annottext">Maybe (HashMap Text Container)
+</span><a href="#local-6989586621679610387"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerServiceDeploymentRequest
+</span><a href="#local-6989586621679610388"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containers:ContainerServiceDeploymentRequest' :: Maybe (HashMap Text Container)
 </span><a href="Network.AWS.Lightsail.Types.ContainerServiceDeploymentRequest.html#%24sel%3Acontainers%3AContainerServiceDeploymentRequest%27"><span class="hs-identifier hs-var">containers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Container)
-</span><a href="#local-6989586621679609496"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceDeploymentRequest.html#ContainerServiceDeploymentRequest"><span class="hs-identifier hs-type">ContainerServiceDeploymentRequest</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Container)
+</span><a href="#local-6989586621679610387"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceDeploymentRequest.html#ContainerServiceDeploymentRequest"><span class="hs-identifier hs-type">ContainerServiceDeploymentRequest</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Container)
   -&gt; f (Maybe (HashMap Text Container)))
  -&gt; ContainerServiceDeploymentRequest
  -&gt; f ContainerServiceDeploymentRequest)
@@ -229,29 +229,29 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Container)
   (HashMap Text Container)
   (HashMap Text Container)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679609489"><span id="local-6989586621679609491"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679610380"><span id="local-6989586621679610382"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceDeploymentRequest.html#ContainerServiceDeploymentRequest"><span class="hs-identifier hs-type">ContainerServiceDeploymentRequest</span></a></span></span></span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679609486"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679610377"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceDeploymentRequest.html#ContainerServiceDeploymentRequest"><span class="hs-identifier hs-type">ContainerServiceDeploymentRequest</span></a></span></span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679609478"><span id="local-6989586621679609480"><span id="local-6989586621679609482"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679610369"><span id="local-6989586621679610371"><span id="local-6989586621679610373"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceDeploymentRequest.html#ContainerServiceDeploymentRequest"><span class="hs-identifier hs-type">ContainerServiceDeploymentRequest</span></a></span></span></span></span><span>
 </span><span id="line-85"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679609476"><span class="annot"><span class="annottext">toJSON :: ContainerServiceDeploymentRequest -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceDeploymentRequest.html#ContainerServiceDeploymentRequest%27"><span class="hs-identifier hs-type">ContainerServiceDeploymentRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679609473"><span id="local-6989586621679609474"><span class="annot"><span class="annottext">Maybe (HashMap Text Container)
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679610367"><span class="annot"><span class="annottext">toJSON :: ContainerServiceDeploymentRequest -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceDeploymentRequest.html#ContainerServiceDeploymentRequest%27"><span class="hs-identifier hs-type">ContainerServiceDeploymentRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610364"><span id="local-6989586621679610365"><span class="annot"><span class="annottext">Maybe (HashMap Text Container)
 Maybe EndpointRequest
 containers :: Maybe (HashMap Text Container)
 publicEndpoint :: Maybe EndpointRequest
 $sel:containers:ContainerServiceDeploymentRequest' :: ContainerServiceDeploymentRequest -&gt; Maybe (HashMap Text Container)
 $sel:publicEndpoint:ContainerServiceDeploymentRequest' :: ContainerServiceDeploymentRequest -&gt; Maybe EndpointRequest
-</span><a href="#local-6989586621679609473"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679610364"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -264,7 +264,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-90"></span><span>              </span><span class="annot"><span class="annottext">(EndpointRequest -&gt; Pair) -&gt; Maybe EndpointRequest -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EndpointRequest
-</span><a href="#local-6989586621679609474"><span class="hs-identifier hs-var">publicEndpoint</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679610365"><span class="hs-identifier hs-var">publicEndpoint</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-91"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;containers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Container -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -272,7 +272,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Container) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Container)
-</span><a href="#local-6989586621679609473"><span class="hs-identifier hs-var">containers</span></a></span><span>
+</span><a href="#local-6989586621679610364"><span class="hs-identifier hs-var">containers</span></a></span><span>
 </span><span id="line-92"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span></pre></body></html>

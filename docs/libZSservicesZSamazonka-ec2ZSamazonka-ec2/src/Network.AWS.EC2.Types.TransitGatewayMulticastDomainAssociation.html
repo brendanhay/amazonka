@@ -30,26 +30,26 @@
 </span><span id="line-30"></span><span class="hs-comment">-- domain.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newTransitGatewayMulticastDomainAssociation' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621681136772"><span id="local-6989586621681136773"></span></span><span class="hs-keyword">data</span><span> </span><span id="TransitGatewayMulticastDomainAssociation"><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#TransitGatewayMulticastDomainAssociation"><span class="hs-identifier hs-var">TransitGatewayMulticastDomainAssociation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransitGatewayMulticastDomainAssociation%27"><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#TransitGatewayMulticastDomainAssociation%27"><span class="hs-identifier hs-var">TransitGatewayMulticastDomainAssociation'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681171910"><span id="local-6989586621681171911"></span></span><span class="hs-keyword">data</span><span> </span><span id="TransitGatewayMulticastDomainAssociation"><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#TransitGatewayMulticastDomainAssociation"><span class="hs-identifier hs-var">TransitGatewayMulticastDomainAssociation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransitGatewayMulticastDomainAssociation%27"><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#TransitGatewayMulticastDomainAssociation%27"><span class="hs-identifier hs-var">TransitGatewayMulticastDomainAssociation'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the resource.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AresourceId%3ATransitGatewayMulticastDomainAssociation%27"><span class="annot"><span class="annottext">TransitGatewayMulticastDomainAssociation -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#%24sel%3AresourceId%3ATransitGatewayMulticastDomainAssociation%27"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The subnet associated with the transit gateway multicast domain.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3Asubnet%3ATransitGatewayMulticastDomainAssociation%27"><span class="annot"><span class="annottext">TransitGatewayMulticastDomainAssociation -&gt; Maybe SubnetAssociation
-</span><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#%24sel%3Asubnet%3ATransitGatewayMulticastDomainAssociation%27"><span class="hs-identifier hs-var hs-var">subnet</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetAssociation.html#SubnetAssociation"><span class="hs-identifier hs-type">SubnetAssociation</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The type of resource, for example a VPC attachment.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AresourceType%3ATransitGatewayMulticastDomainAssociation%27"><span class="annot"><span class="annottext">TransitGatewayMulticastDomainAssociation
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The type of resource, for example a VPC attachment.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AresourceType%3ATransitGatewayMulticastDomainAssociation%27"><span class="annot"><span class="annottext">TransitGatewayMulticastDomainAssociation
 -&gt; Maybe TransitGatewayAttachmentResourceType
 </span><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#%24sel%3AresourceType%3ATransitGatewayMulticastDomainAssociation%27"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentResourceType.html#TransitGatewayAttachmentResourceType"><span class="hs-identifier hs-type">TransitGatewayAttachmentResourceType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The ID of the Amazon Web Services account that owns the transit gateway</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- multicast domain association resource.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AresourceOwnerId%3ATransitGatewayMulticastDomainAssociation%27"><span class="annot"><span class="annottext">TransitGatewayMulticastDomainAssociation -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#%24sel%3AresourceOwnerId%3ATransitGatewayMulticastDomainAssociation%27"><span class="hs-identifier hs-var hs-var">resourceOwnerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The ID of the transit gateway attachment.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AtransitGatewayAttachmentId%3ATransitGatewayMulticastDomainAssociation%27"><span class="annot"><span class="annottext">TransitGatewayMulticastDomainAssociation -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#%24sel%3AtransitGatewayAttachmentId%3ATransitGatewayMulticastDomainAssociation%27"><span class="hs-identifier hs-var hs-var">transitGatewayAttachmentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The subnet associated with the transit gateway multicast domain.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Asubnet%3ATransitGatewayMulticastDomainAssociation%27"><span class="annot"><span class="annottext">TransitGatewayMulticastDomainAssociation -&gt; Maybe SubnetAssociation
+</span><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#%24sel%3Asubnet%3ATransitGatewayMulticastDomainAssociation%27"><span class="hs-identifier hs-var hs-var">subnet</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetAssociation.html#SubnetAssociation"><span class="hs-identifier hs-type">SubnetAssociation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The ID of the transit gateway attachment.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AtransitGatewayAttachmentId%3ATransitGatewayMulticastDomainAssociation%27"><span class="annot"><span class="annottext">TransitGatewayMulticastDomainAssociation -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#%24sel%3AtransitGatewayAttachmentId%3ATransitGatewayMulticastDomainAssociation%27"><span class="hs-identifier hs-var hs-var">transitGatewayAttachmentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The ID of the Amazon Web Services account that owns the transit gateway</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- multicast domain association resource.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AresourceOwnerId%3ATransitGatewayMulticastDomainAssociation%27"><span class="annot"><span class="annottext">TransitGatewayMulticastDomainAssociation -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#%24sel%3AresourceOwnerId%3ATransitGatewayMulticastDomainAssociation%27"><span class="hs-identifier hs-var hs-var">resourceOwnerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681136762"><span id="local-6989586621681136764"><span class="annot"><span class="annottext">TransitGatewayMulticastDomainAssociation
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681171900"><span id="local-6989586621681171902"><span class="annot"><span class="annottext">TransitGatewayMulticastDomainAssociation
 -&gt; TransitGatewayMulticastDomainAssociation -&gt; Bool
 (TransitGatewayMulticastDomainAssociation
  -&gt; TransitGatewayMulticastDomainAssociation -&gt; Bool)
@@ -65,7 +65,7 @@ $c/= :: TransitGatewayMulticastDomainAssociation
 -&gt; TransitGatewayMulticastDomainAssociation -&gt; Bool
 $c== :: TransitGatewayMulticastDomainAssociation
 -&gt; TransitGatewayMulticastDomainAssociation -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681136753"><span id="local-6989586621681136755"><span id="local-6989586621681136757"><span id="local-6989586621681136759"><span class="annot"><span class="annottext">ReadPrec [TransitGatewayMulticastDomainAssociation]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681171891"><span id="local-6989586621681171893"><span id="local-6989586621681171895"><span id="local-6989586621681171897"><span class="annot"><span class="annottext">ReadPrec [TransitGatewayMulticastDomainAssociation]
 ReadPrec TransitGatewayMulticastDomainAssociation
 Int -&gt; ReadS TransitGatewayMulticastDomainAssociation
 ReadS [TransitGatewayMulticastDomainAssociation]
@@ -85,7 +85,7 @@ readList :: ReadS [TransitGatewayMulticastDomainAssociation]
 $creadList :: ReadS [TransitGatewayMulticastDomainAssociation]
 readsPrec :: Int -&gt; ReadS TransitGatewayMulticastDomainAssociation
 $creadsPrec :: Int -&gt; ReadS TransitGatewayMulticastDomainAssociation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681136746"><span id="local-6989586621681136748"><span id="local-6989586621681136750"><span class="annot"><span class="annottext">Int -&gt; TransitGatewayMulticastDomainAssociation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681171884"><span id="local-6989586621681171886"><span id="local-6989586621681171888"><span class="annot"><span class="annottext">Int -&gt; TransitGatewayMulticastDomainAssociation -&gt; ShowS
 [TransitGatewayMulticastDomainAssociation] -&gt; ShowS
 TransitGatewayMulticastDomainAssociation -&gt; String
 (Int -&gt; TransitGatewayMulticastDomainAssociation -&gt; ShowS)
@@ -133,21 +133,21 @@ TransitGatewayMulticastDomainAssociation
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- 'resourceId', 'transitGatewayMulticastDomainAssociation_resourceId' - The ID of the resource.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'subnet', 'transitGatewayMulticastDomainAssociation_subnet' - The subnet associated with the transit gateway multicast domain.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'resourceType', 'transitGatewayMulticastDomainAssociation_resourceType' - The type of resource, for example a VPC attachment.</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'resourceType', 'transitGatewayMulticastDomainAssociation_resourceType' - The type of resource, for example a VPC attachment.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'subnet', 'transitGatewayMulticastDomainAssociation_subnet' - The subnet associated with the transit gateway multicast domain.</span><span>
 </span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'resourceOwnerId', 'transitGatewayMulticastDomainAssociation_resourceOwnerId' - The ID of the Amazon Web Services account that owns the transit gateway</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- multicast domain association resource.</span><span>
-</span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'transitGatewayAttachmentId', 'transitGatewayMulticastDomainAssociation_transitGatewayAttachmentId' - The ID of the transit gateway attachment.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'transitGatewayAttachmentId', 'transitGatewayMulticastDomainAssociation_transitGatewayAttachmentId' - The ID of the transit gateway attachment.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'resourceOwnerId', 'transitGatewayMulticastDomainAssociation_resourceOwnerId' - The ID of the Amazon Web Services account that owns the transit gateway</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- multicast domain association resource.</span><span>
 </span><span id="line-66"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#newTransitGatewayMulticastDomainAssociation"><span class="hs-identifier hs-type">newTransitGatewayMulticastDomainAssociation</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#TransitGatewayMulticastDomainAssociation"><span class="hs-identifier hs-type">TransitGatewayMulticastDomainAssociation</span></a></span><span>
 </span><span id="line-68"></span><span id="newTransitGatewayMulticastDomainAssociation"><span class="annot"><span class="annottext">newTransitGatewayMulticastDomainAssociation :: TransitGatewayMulticastDomainAssociation
 </span><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#newTransitGatewayMulticastDomainAssociation"><span class="hs-identifier hs-var hs-var">newTransitGatewayMulticastDomainAssociation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">TransitGatewayMulticastDomainAssociation' :: Maybe Text
--&gt; Maybe SubnetAssociation
 -&gt; Maybe TransitGatewayAttachmentResourceType
+-&gt; Maybe SubnetAssociation
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; TransitGatewayMulticastDomainAssociation
@@ -157,21 +157,21 @@ TransitGatewayMulticastDomainAssociation
 </span><span id="line-71"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:subnet:TransitGatewayMulticastDomainAssociation' :: Maybe SubnetAssociation
-</span><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#%24sel%3Asubnet%3ATransitGatewayMulticastDomainAssociation%27"><span class="hs-identifier hs-var">subnet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SubnetAssociation
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceType:TransitGatewayMulticastDomainAssociation' :: Maybe TransitGatewayAttachmentResourceType
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceType:TransitGatewayMulticastDomainAssociation' :: Maybe TransitGatewayAttachmentResourceType
 </span><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#%24sel%3AresourceType%3ATransitGatewayMulticastDomainAssociation%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayAttachmentResourceType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceOwnerId:TransitGatewayMulticastDomainAssociation' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#%24sel%3AresourceOwnerId%3ATransitGatewayMulticastDomainAssociation%27"><span class="hs-identifier hs-var">resourceOwnerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:subnet:TransitGatewayMulticastDomainAssociation' :: Maybe SubnetAssociation
+</span><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#%24sel%3Asubnet%3ATransitGatewayMulticastDomainAssociation%27"><span class="hs-identifier hs-var">subnet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SubnetAssociation
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:transitGatewayAttachmentId:TransitGatewayMulticastDomainAssociation' :: Maybe Text
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:transitGatewayAttachmentId:TransitGatewayMulticastDomainAssociation' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#%24sel%3AtransitGatewayAttachmentId%3ATransitGatewayMulticastDomainAssociation%27"><span class="hs-identifier hs-var">transitGatewayAttachmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-76"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceOwnerId:TransitGatewayMulticastDomainAssociation' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#%24sel%3AresourceOwnerId%3ATransitGatewayMulticastDomainAssociation%27"><span class="hs-identifier hs-var">resourceOwnerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-special">}</span><span>
@@ -190,47 +190,20 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#TransitGatewayMulticastDomainAssociation%27"><span class="hs-identifier hs-type">TransitGatewayMulticastDomainAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681136737"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#TransitGatewayMulticastDomainAssociation%27"><span class="hs-identifier hs-type">TransitGatewayMulticastDomainAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681171875"><span class="annot"><span class="annottext">Maybe Text
 resourceId :: Maybe Text
 $sel:resourceId:TransitGatewayMulticastDomainAssociation' :: TransitGatewayMulticastDomainAssociation -&gt; Maybe Text
-</span><a href="#local-6989586621681136737"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681136737"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681136736"><span class="annot"><span class="annottext">s :: TransitGatewayMulticastDomainAssociation
-</span><a href="#local-6989586621681136736"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#TransitGatewayMulticastDomainAssociation%27"><span class="hs-identifier hs-type">TransitGatewayMulticastDomainAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681136735"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681136735"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayMulticastDomainAssociation
-</span><a href="#local-6989586621681136736"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:TransitGatewayMulticastDomainAssociation' :: Maybe Text
+</span><a href="#local-6989586621681171875"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681171875"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681171874"><span class="annot"><span class="annottext">s :: TransitGatewayMulticastDomainAssociation
+</span><a href="#local-6989586621681171874"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#TransitGatewayMulticastDomainAssociation%27"><span class="hs-identifier hs-type">TransitGatewayMulticastDomainAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681171873"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681171873"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayMulticastDomainAssociation
+</span><a href="#local-6989586621681171874"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:TransitGatewayMulticastDomainAssociation' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#%24sel%3AresourceId%3ATransitGatewayMulticastDomainAssociation%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681136735"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#TransitGatewayMulticastDomainAssociation"><span class="hs-identifier hs-type">TransitGatewayMulticastDomainAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681171873"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#TransitGatewayMulticastDomainAssociation"><span class="hs-identifier hs-type">TransitGatewayMulticastDomainAssociation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- | The subnet associated with the transit gateway multicast domain.</span><span>
-</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#transitGatewayMulticastDomainAssociation_subnet"><span class="hs-identifier hs-type">transitGatewayMulticastDomainAssociation_subnet</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#TransitGatewayMulticastDomainAssociation"><span class="hs-identifier hs-type">TransitGatewayMulticastDomainAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetAssociation.html#SubnetAssociation"><span class="hs-identifier hs-type">SubnetAssociation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span id="transitGatewayMulticastDomainAssociation_subnet"><span class="annot"><span class="annottext">transitGatewayMulticastDomainAssociation_subnet :: (Maybe SubnetAssociation -&gt; f (Maybe SubnetAssociation))
--&gt; TransitGatewayMulticastDomainAssociation
--&gt; f TransitGatewayMulticastDomainAssociation
-</span><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#transitGatewayMulticastDomainAssociation_subnet"><span class="hs-identifier hs-var hs-var">transitGatewayMulticastDomainAssociation_subnet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransitGatewayMulticastDomainAssociation
- -&gt; Maybe SubnetAssociation)
--&gt; (TransitGatewayMulticastDomainAssociation
-    -&gt; Maybe SubnetAssociation
-    -&gt; TransitGatewayMulticastDomainAssociation)
--&gt; Lens
-     TransitGatewayMulticastDomainAssociation
-     TransitGatewayMulticastDomainAssociation
-     (Maybe SubnetAssociation)
-     (Maybe SubnetAssociation)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#TransitGatewayMulticastDomainAssociation%27"><span class="hs-identifier hs-type">TransitGatewayMulticastDomainAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681136733"><span class="annot"><span class="annottext">Maybe SubnetAssociation
-subnet :: Maybe SubnetAssociation
-$sel:subnet:TransitGatewayMulticastDomainAssociation' :: TransitGatewayMulticastDomainAssociation -&gt; Maybe SubnetAssociation
-</span><a href="#local-6989586621681136733"><span class="hs-identifier hs-var hs-var">subnet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SubnetAssociation
-</span><a href="#local-6989586621681136733"><span class="hs-identifier hs-var">subnet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681136732"><span class="annot"><span class="annottext">s :: TransitGatewayMulticastDomainAssociation
-</span><a href="#local-6989586621681136732"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#TransitGatewayMulticastDomainAssociation%27"><span class="hs-identifier hs-type">TransitGatewayMulticastDomainAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681136731"><span class="annot"><span class="annottext">Maybe SubnetAssociation
-</span><a href="#local-6989586621681136731"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayMulticastDomainAssociation
-</span><a href="#local-6989586621681136732"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnet:TransitGatewayMulticastDomainAssociation' :: Maybe SubnetAssociation
-</span><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#%24sel%3Asubnet%3ATransitGatewayMulticastDomainAssociation%27"><span class="hs-identifier hs-var">subnet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SubnetAssociation
-</span><a href="#local-6989586621681136731"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#TransitGatewayMulticastDomainAssociation"><span class="hs-identifier hs-type">TransitGatewayMulticastDomainAssociation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- | The type of resource, for example a VPC attachment.</span><span>
-</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#transitGatewayMulticastDomainAssociation_resourceType"><span class="hs-identifier hs-type">transitGatewayMulticastDomainAssociation_resourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#TransitGatewayMulticastDomainAssociation"><span class="hs-identifier hs-type">TransitGatewayMulticastDomainAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentResourceType.html#TransitGatewayAttachmentResourceType"><span class="hs-identifier hs-type">TransitGatewayAttachmentResourceType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span id="transitGatewayMulticastDomainAssociation_resourceType"><span class="annot"><span class="annottext">transitGatewayMulticastDomainAssociation_resourceType :: (Maybe TransitGatewayAttachmentResourceType
+</span><span id="line-83"></span><span class="hs-comment">-- | The type of resource, for example a VPC attachment.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#transitGatewayMulticastDomainAssociation_resourceType"><span class="hs-identifier hs-type">transitGatewayMulticastDomainAssociation_resourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#TransitGatewayMulticastDomainAssociation"><span class="hs-identifier hs-type">TransitGatewayMulticastDomainAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentResourceType.html#TransitGatewayAttachmentResourceType"><span class="hs-identifier hs-type">TransitGatewayAttachmentResourceType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="transitGatewayMulticastDomainAssociation_resourceType"><span class="annot"><span class="annottext">transitGatewayMulticastDomainAssociation_resourceType :: (Maybe TransitGatewayAttachmentResourceType
  -&gt; f (Maybe TransitGatewayAttachmentResourceType))
 -&gt; TransitGatewayMulticastDomainAssociation
 -&gt; f TransitGatewayMulticastDomainAssociation
@@ -245,47 +218,48 @@ $sel:subnet:TransitGatewayMulticastDomainAssociation' :: TransitGatewayMulticast
      (Maybe TransitGatewayAttachmentResourceType)
      (Maybe TransitGatewayAttachmentResourceType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#TransitGatewayMulticastDomainAssociation%27"><span class="hs-identifier hs-type">TransitGatewayMulticastDomainAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681136729"><span class="annot"><span class="annottext">Maybe TransitGatewayAttachmentResourceType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#TransitGatewayMulticastDomainAssociation%27"><span class="hs-identifier hs-type">TransitGatewayMulticastDomainAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681171871"><span class="annot"><span class="annottext">Maybe TransitGatewayAttachmentResourceType
 resourceType :: Maybe TransitGatewayAttachmentResourceType
 $sel:resourceType:TransitGatewayMulticastDomainAssociation' :: TransitGatewayMulticastDomainAssociation
 -&gt; Maybe TransitGatewayAttachmentResourceType
-</span><a href="#local-6989586621681136729"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayAttachmentResourceType
-</span><a href="#local-6989586621681136729"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681136728"><span class="annot"><span class="annottext">s :: TransitGatewayMulticastDomainAssociation
-</span><a href="#local-6989586621681136728"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#TransitGatewayMulticastDomainAssociation%27"><span class="hs-identifier hs-type">TransitGatewayMulticastDomainAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681136727"><span class="annot"><span class="annottext">Maybe TransitGatewayAttachmentResourceType
-</span><a href="#local-6989586621681136727"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayMulticastDomainAssociation
-</span><a href="#local-6989586621681136728"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:TransitGatewayMulticastDomainAssociation' :: Maybe TransitGatewayAttachmentResourceType
+</span><a href="#local-6989586621681171871"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayAttachmentResourceType
+</span><a href="#local-6989586621681171871"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681171870"><span class="annot"><span class="annottext">s :: TransitGatewayMulticastDomainAssociation
+</span><a href="#local-6989586621681171870"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#TransitGatewayMulticastDomainAssociation%27"><span class="hs-identifier hs-type">TransitGatewayMulticastDomainAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681171869"><span class="annot"><span class="annottext">Maybe TransitGatewayAttachmentResourceType
+</span><a href="#local-6989586621681171869"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayMulticastDomainAssociation
+</span><a href="#local-6989586621681171870"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:TransitGatewayMulticastDomainAssociation' :: Maybe TransitGatewayAttachmentResourceType
 </span><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#%24sel%3AresourceType%3ATransitGatewayMulticastDomainAssociation%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayAttachmentResourceType
-</span><a href="#local-6989586621681136727"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#TransitGatewayMulticastDomainAssociation"><span class="hs-identifier hs-type">TransitGatewayMulticastDomainAssociation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- | The ID of the Amazon Web Services account that owns the transit gateway</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- multicast domain association resource.</span><span>
-</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#transitGatewayMulticastDomainAssociation_resourceOwnerId"><span class="hs-identifier hs-type">transitGatewayMulticastDomainAssociation_resourceOwnerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#TransitGatewayMulticastDomainAssociation"><span class="hs-identifier hs-type">TransitGatewayMulticastDomainAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span id="transitGatewayMulticastDomainAssociation_resourceOwnerId"><span class="annot"><span class="annottext">transitGatewayMulticastDomainAssociation_resourceOwnerId :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621681171869"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#TransitGatewayMulticastDomainAssociation"><span class="hs-identifier hs-type">TransitGatewayMulticastDomainAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The subnet associated with the transit gateway multicast domain.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#transitGatewayMulticastDomainAssociation_subnet"><span class="hs-identifier hs-type">transitGatewayMulticastDomainAssociation_subnet</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#TransitGatewayMulticastDomainAssociation"><span class="hs-identifier hs-type">TransitGatewayMulticastDomainAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetAssociation.html#SubnetAssociation"><span class="hs-identifier hs-type">SubnetAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="transitGatewayMulticastDomainAssociation_subnet"><span class="annot"><span class="annottext">transitGatewayMulticastDomainAssociation_subnet :: (Maybe SubnetAssociation -&gt; f (Maybe SubnetAssociation))
 -&gt; TransitGatewayMulticastDomainAssociation
 -&gt; f TransitGatewayMulticastDomainAssociation
-</span><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#transitGatewayMulticastDomainAssociation_resourceOwnerId"><span class="hs-identifier hs-var hs-var">transitGatewayMulticastDomainAssociation_resourceOwnerId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransitGatewayMulticastDomainAssociation -&gt; Maybe Text)
+</span><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#transitGatewayMulticastDomainAssociation_subnet"><span class="hs-identifier hs-var hs-var">transitGatewayMulticastDomainAssociation_subnet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransitGatewayMulticastDomainAssociation
+ -&gt; Maybe SubnetAssociation)
 -&gt; (TransitGatewayMulticastDomainAssociation
-    -&gt; Maybe Text -&gt; TransitGatewayMulticastDomainAssociation)
+    -&gt; Maybe SubnetAssociation
+    -&gt; TransitGatewayMulticastDomainAssociation)
 -&gt; Lens
      TransitGatewayMulticastDomainAssociation
      TransitGatewayMulticastDomainAssociation
-     (Maybe Text)
-     (Maybe Text)
+     (Maybe SubnetAssociation)
+     (Maybe SubnetAssociation)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#TransitGatewayMulticastDomainAssociation%27"><span class="hs-identifier hs-type">TransitGatewayMulticastDomainAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681136725"><span class="annot"><span class="annottext">Maybe Text
-resourceOwnerId :: Maybe Text
-$sel:resourceOwnerId:TransitGatewayMulticastDomainAssociation' :: TransitGatewayMulticastDomainAssociation -&gt; Maybe Text
-</span><a href="#local-6989586621681136725"><span class="hs-identifier hs-var hs-var">resourceOwnerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681136725"><span class="hs-identifier hs-var">resourceOwnerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681136724"><span class="annot"><span class="annottext">s :: TransitGatewayMulticastDomainAssociation
-</span><a href="#local-6989586621681136724"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#TransitGatewayMulticastDomainAssociation%27"><span class="hs-identifier hs-type">TransitGatewayMulticastDomainAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681136723"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681136723"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayMulticastDomainAssociation
-</span><a href="#local-6989586621681136724"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceOwnerId:TransitGatewayMulticastDomainAssociation' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#%24sel%3AresourceOwnerId%3ATransitGatewayMulticastDomainAssociation%27"><span class="hs-identifier hs-var">resourceOwnerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681136723"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#TransitGatewayMulticastDomainAssociation"><span class="hs-identifier hs-type">TransitGatewayMulticastDomainAssociation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- | The ID of the transit gateway attachment.</span><span>
-</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#transitGatewayMulticastDomainAssociation_transitGatewayAttachmentId"><span class="hs-identifier hs-type">transitGatewayMulticastDomainAssociation_transitGatewayAttachmentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#TransitGatewayMulticastDomainAssociation"><span class="hs-identifier hs-type">TransitGatewayMulticastDomainAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span id="transitGatewayMulticastDomainAssociation_transitGatewayAttachmentId"><span class="annot"><span class="annottext">transitGatewayMulticastDomainAssociation_transitGatewayAttachmentId :: (Maybe Text -&gt; f (Maybe Text))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#TransitGatewayMulticastDomainAssociation%27"><span class="hs-identifier hs-type">TransitGatewayMulticastDomainAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681171867"><span class="annot"><span class="annottext">Maybe SubnetAssociation
+subnet :: Maybe SubnetAssociation
+$sel:subnet:TransitGatewayMulticastDomainAssociation' :: TransitGatewayMulticastDomainAssociation -&gt; Maybe SubnetAssociation
+</span><a href="#local-6989586621681171867"><span class="hs-identifier hs-var hs-var">subnet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SubnetAssociation
+</span><a href="#local-6989586621681171867"><span class="hs-identifier hs-var">subnet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681171866"><span class="annot"><span class="annottext">s :: TransitGatewayMulticastDomainAssociation
+</span><a href="#local-6989586621681171866"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#TransitGatewayMulticastDomainAssociation%27"><span class="hs-identifier hs-type">TransitGatewayMulticastDomainAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681171865"><span class="annot"><span class="annottext">Maybe SubnetAssociation
+</span><a href="#local-6989586621681171865"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayMulticastDomainAssociation
+</span><a href="#local-6989586621681171866"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnet:TransitGatewayMulticastDomainAssociation' :: Maybe SubnetAssociation
+</span><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#%24sel%3Asubnet%3ATransitGatewayMulticastDomainAssociation%27"><span class="hs-identifier hs-var">subnet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SubnetAssociation
+</span><a href="#local-6989586621681171865"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#TransitGatewayMulticastDomainAssociation"><span class="hs-identifier hs-type">TransitGatewayMulticastDomainAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The ID of the transit gateway attachment.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#transitGatewayMulticastDomainAssociation_transitGatewayAttachmentId"><span class="hs-identifier hs-type">transitGatewayMulticastDomainAssociation_transitGatewayAttachmentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#TransitGatewayMulticastDomainAssociation"><span class="hs-identifier hs-type">TransitGatewayMulticastDomainAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="transitGatewayMulticastDomainAssociation_transitGatewayAttachmentId"><span class="annot"><span class="annottext">transitGatewayMulticastDomainAssociation_transitGatewayAttachmentId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; TransitGatewayMulticastDomainAssociation
 -&gt; f TransitGatewayMulticastDomainAssociation
 </span><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#transitGatewayMulticastDomainAssociation_transitGatewayAttachmentId"><span class="hs-identifier hs-var hs-var">transitGatewayMulticastDomainAssociation_transitGatewayAttachmentId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransitGatewayMulticastDomainAssociation -&gt; Maybe Text)
@@ -297,90 +271,116 @@ $sel:resourceOwnerId:TransitGatewayMulticastDomainAssociation' :: TransitGateway
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#TransitGatewayMulticastDomainAssociation%27"><span class="hs-identifier hs-type">TransitGatewayMulticastDomainAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681136721"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#TransitGatewayMulticastDomainAssociation%27"><span class="hs-identifier hs-type">TransitGatewayMulticastDomainAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681171863"><span class="annot"><span class="annottext">Maybe Text
 transitGatewayAttachmentId :: Maybe Text
 $sel:transitGatewayAttachmentId:TransitGatewayMulticastDomainAssociation' :: TransitGatewayMulticastDomainAssociation -&gt; Maybe Text
-</span><a href="#local-6989586621681136721"><span class="hs-identifier hs-var hs-var">transitGatewayAttachmentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681136721"><span class="hs-identifier hs-var">transitGatewayAttachmentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681136720"><span class="annot"><span class="annottext">s :: TransitGatewayMulticastDomainAssociation
-</span><a href="#local-6989586621681136720"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#TransitGatewayMulticastDomainAssociation%27"><span class="hs-identifier hs-type">TransitGatewayMulticastDomainAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681136719"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681136719"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayMulticastDomainAssociation
-</span><a href="#local-6989586621681136720"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayAttachmentId:TransitGatewayMulticastDomainAssociation' :: Maybe Text
+</span><a href="#local-6989586621681171863"><span class="hs-identifier hs-var hs-var">transitGatewayAttachmentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681171863"><span class="hs-identifier hs-var">transitGatewayAttachmentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681171862"><span class="annot"><span class="annottext">s :: TransitGatewayMulticastDomainAssociation
+</span><a href="#local-6989586621681171862"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#TransitGatewayMulticastDomainAssociation%27"><span class="hs-identifier hs-type">TransitGatewayMulticastDomainAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681171861"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681171861"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayMulticastDomainAssociation
+</span><a href="#local-6989586621681171862"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayAttachmentId:TransitGatewayMulticastDomainAssociation' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#%24sel%3AtransitGatewayAttachmentId%3ATransitGatewayMulticastDomainAssociation%27"><span class="hs-identifier hs-var">transitGatewayAttachmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681136719"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#TransitGatewayMulticastDomainAssociation"><span class="hs-identifier hs-type">TransitGatewayMulticastDomainAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681171861"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#TransitGatewayMulticastDomainAssociation"><span class="hs-identifier hs-type">TransitGatewayMulticastDomainAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The ID of the Amazon Web Services account that owns the transit gateway</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- multicast domain association resource.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#transitGatewayMulticastDomainAssociation_resourceOwnerId"><span class="hs-identifier hs-type">transitGatewayMulticastDomainAssociation_resourceOwnerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#TransitGatewayMulticastDomainAssociation"><span class="hs-identifier hs-type">TransitGatewayMulticastDomainAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="transitGatewayMulticastDomainAssociation_resourceOwnerId"><span class="annot"><span class="annottext">transitGatewayMulticastDomainAssociation_resourceOwnerId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; TransitGatewayMulticastDomainAssociation
+-&gt; f TransitGatewayMulticastDomainAssociation
+</span><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#transitGatewayMulticastDomainAssociation_resourceOwnerId"><span class="hs-identifier hs-var hs-var">transitGatewayMulticastDomainAssociation_resourceOwnerId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransitGatewayMulticastDomainAssociation -&gt; Maybe Text)
+-&gt; (TransitGatewayMulticastDomainAssociation
+    -&gt; Maybe Text -&gt; TransitGatewayMulticastDomainAssociation)
+-&gt; Lens
+     TransitGatewayMulticastDomainAssociation
+     TransitGatewayMulticastDomainAssociation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#TransitGatewayMulticastDomainAssociation%27"><span class="hs-identifier hs-type">TransitGatewayMulticastDomainAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681171859"><span class="annot"><span class="annottext">Maybe Text
+resourceOwnerId :: Maybe Text
+$sel:resourceOwnerId:TransitGatewayMulticastDomainAssociation' :: TransitGatewayMulticastDomainAssociation -&gt; Maybe Text
+</span><a href="#local-6989586621681171859"><span class="hs-identifier hs-var hs-var">resourceOwnerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681171859"><span class="hs-identifier hs-var">resourceOwnerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681171858"><span class="annot"><span class="annottext">s :: TransitGatewayMulticastDomainAssociation
+</span><a href="#local-6989586621681171858"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#TransitGatewayMulticastDomainAssociation%27"><span class="hs-identifier hs-type">TransitGatewayMulticastDomainAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681171857"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681171857"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayMulticastDomainAssociation
+</span><a href="#local-6989586621681171858"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceOwnerId:TransitGatewayMulticastDomainAssociation' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#%24sel%3AresourceOwnerId%3ATransitGatewayMulticastDomainAssociation%27"><span class="hs-identifier hs-var">resourceOwnerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681171857"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#TransitGatewayMulticastDomainAssociation"><span class="hs-identifier hs-type">TransitGatewayMulticastDomainAssociation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-101"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#TransitGatewayMulticastDomainAssociation"><span class="hs-identifier hs-type">TransitGatewayMulticastDomainAssociation</span></a></span><span>
 </span><span id="line-103"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621681136716"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String TransitGatewayMulticastDomainAssociation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681136714"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681136714"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621681171854"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String TransitGatewayMulticastDomainAssociation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681171852"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681171852"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe SubnetAssociation
 -&gt; Maybe TransitGatewayAttachmentResourceType
+-&gt; Maybe SubnetAssociation
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; TransitGatewayMulticastDomainAssociation
 </span><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#TransitGatewayMulticastDomainAssociation%27"><span class="hs-identifier hs-var">TransitGatewayMulticastDomainAssociation'</span></a></span><span>
 </span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe SubnetAssociation
  -&gt; Maybe TransitGatewayAttachmentResourceType
+ -&gt; Maybe SubnetAssociation
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; TransitGatewayMulticastDomainAssociation)
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
-     (Maybe SubnetAssociation
-      -&gt; Maybe TransitGatewayAttachmentResourceType
+     (Maybe TransitGatewayAttachmentResourceType
+      -&gt; Maybe SubnetAssociation
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; TransitGatewayMulticastDomainAssociation)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681136714"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681171852"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;resourceId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">Either
   String
+  (Maybe TransitGatewayAttachmentResourceType
+   -&gt; Maybe SubnetAssociation
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; TransitGatewayMulticastDomainAssociation)
+-&gt; Either String (Maybe TransitGatewayAttachmentResourceType)
+-&gt; Either
+     String
+     (Maybe SubnetAssociation
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; TransitGatewayMulticastDomainAssociation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681171852"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+-&gt; Text
+-&gt; Either String (Maybe TransitGatewayAttachmentResourceType)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">Either
+  String
   (Maybe SubnetAssociation
-   -&gt; Maybe TransitGatewayAttachmentResourceType
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; TransitGatewayMulticastDomainAssociation)
 -&gt; Either String (Maybe SubnetAssociation)
 -&gt; Either
      String
-     (Maybe TransitGatewayAttachmentResourceType
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; TransitGatewayMulticastDomainAssociation)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681136714"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe SubnetAssociation)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;subnet&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe TransitGatewayAttachmentResourceType
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; TransitGatewayMulticastDomainAssociation)
--&gt; Either String (Maybe TransitGatewayAttachmentResourceType)
--&gt; Either
-     String
      (Maybe Text
       -&gt; Maybe Text -&gt; TransitGatewayMulticastDomainAssociation)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681136714"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
--&gt; Text
--&gt; Either String (Maybe TransitGatewayAttachmentResourceType)
+</span><a href="#local-6989586621681171852"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe SubnetAssociation)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;resourceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;subnet&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
@@ -390,26 +390,26 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      String (Maybe Text -&gt; TransitGatewayMulticastDomainAssociation)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681136714"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681171852"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;resourceOwnerId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;transitGatewayAttachmentId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">Either
   String (Maybe Text -&gt; TransitGatewayMulticastDomainAssociation)
 -&gt; Either String (Maybe Text)
 -&gt; Either String TransitGatewayMulticastDomainAssociation
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681136714"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681171852"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;transitGatewayAttachmentId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;resourceOwnerId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621681136708"><span id="local-6989586621681136710"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621681171846"><span id="local-6989586621681171848"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#TransitGatewayMulticastDomainAssociation"><span class="hs-identifier hs-type">TransitGatewayMulticastDomainAssociation</span></a></span></span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621681136705"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621681171843"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation.html#TransitGatewayMulticastDomainAssociation"><span class="hs-identifier hs-type">TransitGatewayMulticastDomainAssociation</span></a></span></span><span>
 </span><span id="line-119"></span></pre></body></html>

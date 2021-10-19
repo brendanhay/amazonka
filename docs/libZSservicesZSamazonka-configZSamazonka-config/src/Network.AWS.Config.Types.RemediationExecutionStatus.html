@@ -30,23 +30,23 @@
 </span><span id="line-30"></span><span class="hs-comment">-- for that resource.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newRemediationExecutionStatus' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679406368"><span id="local-6989586621679406369"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemediationExecutionStatus"><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#RemediationExecutionStatus"><span class="hs-identifier hs-var">RemediationExecutionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemediationExecutionStatus%27"><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#RemediationExecutionStatus%27"><span class="hs-identifier hs-var">RemediationExecutionStatus'</span></a></span></span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Start time when the remediation was executed.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AinvocationTime%3ARemediationExecutionStatus%27"><span class="annot"><span class="annottext">RemediationExecutionStatus -&gt; Maybe POSIX
-</span><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#%24sel%3AinvocationTime%3ARemediationExecutionStatus%27"><span class="hs-identifier hs-var hs-var">invocationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AresourceKey%3ARemediationExecutionStatus%27"><span class="annot"><span class="annottext">RemediationExecutionStatus -&gt; Maybe ResourceKey
-</span><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#%24sel%3AresourceKey%3ARemediationExecutionStatus%27"><span class="hs-identifier hs-var hs-var">resourceKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ResourceKey.html#ResourceKey"><span class="hs-identifier hs-type">ResourceKey</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | ENUM of the values.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3Astate%3ARemediationExecutionStatus%27"><span class="annot"><span class="annottext">RemediationExecutionStatus -&gt; Maybe RemediationExecutionState
+</span><span id="line-33"></span><span id="local-6989586621679406966"><span id="local-6989586621679406967"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemediationExecutionStatus"><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#RemediationExecutionStatus"><span class="hs-identifier hs-var">RemediationExecutionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemediationExecutionStatus%27"><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#RemediationExecutionStatus%27"><span class="hs-identifier hs-var">RemediationExecutionStatus'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | ENUM of the values.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Astate%3ARemediationExecutionStatus%27"><span class="annot"><span class="annottext">RemediationExecutionStatus -&gt; Maybe RemediationExecutionState
 </span><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#%24sel%3Astate%3ARemediationExecutionStatus%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionState.html#RemediationExecutionState"><span class="hs-identifier hs-type">RemediationExecutionState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The time when the remediation execution was last updated.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AlastUpdatedTime%3ARemediationExecutionStatus%27"><span class="annot"><span class="annottext">RemediationExecutionStatus -&gt; Maybe POSIX
+</span><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#%24sel%3AlastUpdatedTime%3ARemediationExecutionStatus%27"><span class="hs-identifier hs-var hs-var">lastUpdatedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AresourceKey%3ARemediationExecutionStatus%27"><span class="annot"><span class="annottext">RemediationExecutionStatus -&gt; Maybe ResourceKey
+</span><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#%24sel%3AresourceKey%3ARemediationExecutionStatus%27"><span class="hs-identifier hs-var hs-var">resourceKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ResourceKey.html#ResourceKey"><span class="hs-identifier hs-type">ResourceKey</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Details of every step.</span><span>
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3AstepDetails%3ARemediationExecutionStatus%27"><span class="annot"><span class="annottext">RemediationExecutionStatus -&gt; Maybe [RemediationExecutionStep]
 </span><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#%24sel%3AstepDetails%3ARemediationExecutionStatus%27"><span class="hs-identifier hs-var hs-var">stepDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStep.html#RemediationExecutionStep"><span class="hs-identifier hs-type">RemediationExecutionStep</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The time when the remediation execution was last updated.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AlastUpdatedTime%3ARemediationExecutionStatus%27"><span class="annot"><span class="annottext">RemediationExecutionStatus -&gt; Maybe POSIX
-</span><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#%24sel%3AlastUpdatedTime%3ARemediationExecutionStatus%27"><span class="hs-identifier hs-var hs-var">lastUpdatedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Start time when the remediation was executed.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AinvocationTime%3ARemediationExecutionStatus%27"><span class="annot"><span class="annottext">RemediationExecutionStatus -&gt; Maybe POSIX
+</span><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#%24sel%3AinvocationTime%3ARemediationExecutionStatus%27"><span class="hs-identifier hs-var hs-var">invocationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679406358"><span id="local-6989586621679406360"><span class="annot"><span class="annottext">RemediationExecutionStatus -&gt; RemediationExecutionStatus -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679406956"><span id="local-6989586621679406958"><span class="annot"><span class="annottext">RemediationExecutionStatus -&gt; RemediationExecutionStatus -&gt; Bool
 (RemediationExecutionStatus -&gt; RemediationExecutionStatus -&gt; Bool)
 -&gt; (RemediationExecutionStatus
     -&gt; RemediationExecutionStatus -&gt; Bool)
@@ -56,7 +56,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RemediationExecutionStatus -&gt; RemediationExecutionStatus -&gt; Bool
 == :: RemediationExecutionStatus -&gt; RemediationExecutionStatus -&gt; Bool
 $c== :: RemediationExecutionStatus -&gt; RemediationExecutionStatus -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679406349"><span id="local-6989586621679406351"><span id="local-6989586621679406353"><span id="local-6989586621679406355"><span class="annot"><span class="annottext">ReadPrec [RemediationExecutionStatus]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679406947"><span id="local-6989586621679406949"><span id="local-6989586621679406951"><span id="local-6989586621679406953"><span class="annot"><span class="annottext">ReadPrec [RemediationExecutionStatus]
 ReadPrec RemediationExecutionStatus
 Int -&gt; ReadS RemediationExecutionStatus
 ReadS [RemediationExecutionStatus]
@@ -76,7 +76,7 @@ readList :: ReadS [RemediationExecutionStatus]
 $creadList :: ReadS [RemediationExecutionStatus]
 readsPrec :: Int -&gt; ReadS RemediationExecutionStatus
 $creadsPrec :: Int -&gt; ReadS RemediationExecutionStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679406342"><span id="local-6989586621679406344"><span id="local-6989586621679406346"><span class="annot"><span class="annottext">Int -&gt; RemediationExecutionStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679406940"><span id="local-6989586621679406942"><span id="local-6989586621679406944"><span class="annot"><span class="annottext">Int -&gt; RemediationExecutionStatus -&gt; ShowS
 [RemediationExecutionStatus] -&gt; ShowS
 RemediationExecutionStatus -&gt; String
 (Int -&gt; RemediationExecutionStatus -&gt; ShowS)
@@ -116,54 +116,79 @@ RemediationExecutionStatus -&gt; Rep RemediationExecutionStatus x
 </span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- 'invocationTime', 'remediationExecutionStatus_invocationTime' - Start time when the remediation was executed.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'state', 'remediationExecutionStatus_state' - ENUM of the values.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'resourceKey', 'remediationExecutionStatus_resourceKey' - Undocumented member.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'lastUpdatedTime', 'remediationExecutionStatus_lastUpdatedTime' - The time when the remediation execution was last updated.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'state', 'remediationExecutionStatus_state' - ENUM of the values.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'resourceKey', 'remediationExecutionStatus_resourceKey' - Undocumented member.</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- 'stepDetails', 'remediationExecutionStatus_stepDetails' - Details of every step.</span><span>
 </span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'lastUpdatedTime', 'remediationExecutionStatus_lastUpdatedTime' - The time when the remediation execution was last updated.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'invocationTime', 'remediationExecutionStatus_invocationTime' - Start time when the remediation was executed.</span><span>
 </span><span id="line-63"></span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#newRemediationExecutionStatus"><span class="hs-identifier hs-type">newRemediationExecutionStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#RemediationExecutionStatus"><span class="hs-identifier hs-type">RemediationExecutionStatus</span></a></span><span>
 </span><span id="line-65"></span><span id="newRemediationExecutionStatus"><span class="annot"><span class="annottext">newRemediationExecutionStatus :: RemediationExecutionStatus
 </span><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#newRemediationExecutionStatus"><span class="hs-identifier hs-var hs-var">newRemediationExecutionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-66"></span><span>  </span><span class="annot"><span class="annottext">RemediationExecutionStatus' :: Maybe POSIX
+</span><span id="line-66"></span><span>  </span><span class="annot"><span class="annottext">RemediationExecutionStatus' :: Maybe RemediationExecutionState
+-&gt; Maybe POSIX
 -&gt; Maybe ResourceKey
--&gt; Maybe RemediationExecutionState
 -&gt; Maybe [RemediationExecutionStep]
 -&gt; Maybe POSIX
 -&gt; RemediationExecutionStatus
 </span><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#RemediationExecutionStatus%27"><span class="hs-identifier hs-type">RemediationExecutionStatus'</span></a></span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:invocationTime:RemediationExecutionStatus' :: Maybe POSIX
-</span><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#%24sel%3AinvocationTime%3ARemediationExecutionStatus%27"><span class="hs-identifier hs-var">invocationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-68"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-67"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:state:RemediationExecutionStatus' :: Maybe RemediationExecutionState
+</span><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#%24sel%3Astate%3ARemediationExecutionStatus%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>        </span><span class="annot"><span class="annottext">Maybe RemediationExecutionState
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceKey:RemediationExecutionStatus' :: Maybe ResourceKey
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdatedTime:RemediationExecutionStatus' :: Maybe POSIX
+</span><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#%24sel%3AlastUpdatedTime%3ARemediationExecutionStatus%27"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceKey:RemediationExecutionStatus' :: Maybe ResourceKey
 </span><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#%24sel%3AresourceKey%3ARemediationExecutionStatus%27"><span class="hs-identifier hs-var">resourceKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceKey
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:RemediationExecutionStatus' :: Maybe RemediationExecutionState
-</span><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#%24sel%3Astate%3ARemediationExecutionStatus%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RemediationExecutionState
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:stepDetails:RemediationExecutionStatus' :: Maybe [RemediationExecutionStep]
 </span><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#%24sel%3AstepDetails%3ARemediationExecutionStatus%27"><span class="hs-identifier hs-var">stepDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RemediationExecutionStep]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdatedTime:RemediationExecutionStatus' :: Maybe POSIX
-</span><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#%24sel%3AlastUpdatedTime%3ARemediationExecutionStatus%27"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:invocationTime:RemediationExecutionStatus' :: Maybe POSIX
+</span><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#%24sel%3AinvocationTime%3ARemediationExecutionStatus%27"><span class="hs-identifier hs-var">invocationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- | Start time when the remediation was executed.</span><span>
-</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#remediationExecutionStatus_invocationTime"><span class="hs-identifier hs-type">remediationExecutionStatus_invocationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#RemediationExecutionStatus"><span class="hs-identifier hs-type">RemediationExecutionStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-77"></span><span id="remediationExecutionStatus_invocationTime"><span class="annot"><span class="annottext">remediationExecutionStatus_invocationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-75"></span><span class="hs-comment">-- | ENUM of the values.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#remediationExecutionStatus_state"><span class="hs-identifier hs-type">remediationExecutionStatus_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#RemediationExecutionStatus"><span class="hs-identifier hs-type">RemediationExecutionStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionState.html#RemediationExecutionState"><span class="hs-identifier hs-type">RemediationExecutionState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span id="remediationExecutionStatus_state"><span class="annot"><span class="annottext">remediationExecutionStatus_state :: (Maybe RemediationExecutionState
+ -&gt; f (Maybe RemediationExecutionState))
 -&gt; RemediationExecutionStatus -&gt; f RemediationExecutionStatus
-</span><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#remediationExecutionStatus_invocationTime"><span class="hs-identifier hs-var hs-var">remediationExecutionStatus_invocationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemediationExecutionStatus -&gt; Maybe POSIX)
+</span><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#remediationExecutionStatus_state"><span class="hs-identifier hs-var hs-var">remediationExecutionStatus_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemediationExecutionStatus -&gt; Maybe RemediationExecutionState)
+-&gt; (RemediationExecutionStatus
+    -&gt; Maybe RemediationExecutionState -&gt; RemediationExecutionStatus)
+-&gt; Lens
+     RemediationExecutionStatus
+     RemediationExecutionStatus
+     (Maybe RemediationExecutionState)
+     (Maybe RemediationExecutionState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#RemediationExecutionStatus%27"><span class="hs-identifier hs-type">RemediationExecutionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406931"><span class="annot"><span class="annottext">Maybe RemediationExecutionState
+state :: Maybe RemediationExecutionState
+$sel:state:RemediationExecutionStatus' :: RemediationExecutionStatus -&gt; Maybe RemediationExecutionState
+</span><a href="#local-6989586621679406931"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RemediationExecutionState
+</span><a href="#local-6989586621679406931"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406930"><span class="annot"><span class="annottext">s :: RemediationExecutionStatus
+</span><a href="#local-6989586621679406930"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#RemediationExecutionStatus%27"><span class="hs-identifier hs-type">RemediationExecutionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406929"><span class="annot"><span class="annottext">Maybe RemediationExecutionState
+</span><a href="#local-6989586621679406929"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemediationExecutionStatus
+</span><a href="#local-6989586621679406930"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:RemediationExecutionStatus' :: Maybe RemediationExecutionState
+</span><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#%24sel%3Astate%3ARemediationExecutionStatus%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RemediationExecutionState
+</span><a href="#local-6989586621679406929"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#RemediationExecutionStatus"><span class="hs-identifier hs-type">RemediationExecutionStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | The time when the remediation execution was last updated.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#remediationExecutionStatus_lastUpdatedTime"><span class="hs-identifier hs-type">remediationExecutionStatus_lastUpdatedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#RemediationExecutionStatus"><span class="hs-identifier hs-type">RemediationExecutionStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="remediationExecutionStatus_lastUpdatedTime"><span class="annot"><span class="annottext">remediationExecutionStatus_lastUpdatedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; RemediationExecutionStatus -&gt; f RemediationExecutionStatus
+</span><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#remediationExecutionStatus_lastUpdatedTime"><span class="hs-identifier hs-var hs-var">remediationExecutionStatus_lastUpdatedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemediationExecutionStatus -&gt; Maybe POSIX)
 -&gt; (RemediationExecutionStatus
     -&gt; Maybe POSIX -&gt; RemediationExecutionStatus)
 -&gt; Lens
@@ -172,16 +197,16 @@ forall a. Maybe a
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#RemediationExecutionStatus%27"><span class="hs-identifier hs-type">RemediationExecutionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406333"><span class="annot"><span class="annottext">Maybe POSIX
-invocationTime :: Maybe POSIX
-$sel:invocationTime:RemediationExecutionStatus' :: RemediationExecutionStatus -&gt; Maybe POSIX
-</span><a href="#local-6989586621679406333"><span class="hs-identifier hs-var hs-var">invocationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679406333"><span class="hs-identifier hs-var">invocationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406332"><span class="annot"><span class="annottext">s :: RemediationExecutionStatus
-</span><a href="#local-6989586621679406332"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#RemediationExecutionStatus%27"><span class="hs-identifier hs-type">RemediationExecutionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406331"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679406331"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemediationExecutionStatus
-</span><a href="#local-6989586621679406332"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:invocationTime:RemediationExecutionStatus' :: Maybe POSIX
-</span><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#%24sel%3AinvocationTime%3ARemediationExecutionStatus%27"><span class="hs-identifier hs-var">invocationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679406331"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#RemediationExecutionStatus"><span class="hs-identifier hs-type">RemediationExecutionStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#RemediationExecutionStatus%27"><span class="hs-identifier hs-type">RemediationExecutionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406927"><span class="annot"><span class="annottext">Maybe POSIX
+lastUpdatedTime :: Maybe POSIX
+$sel:lastUpdatedTime:RemediationExecutionStatus' :: RemediationExecutionStatus -&gt; Maybe POSIX
+</span><a href="#local-6989586621679406927"><span class="hs-identifier hs-var hs-var">lastUpdatedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679406927"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406926"><span class="annot"><span class="annottext">s :: RemediationExecutionStatus
+</span><a href="#local-6989586621679406926"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#RemediationExecutionStatus%27"><span class="hs-identifier hs-type">RemediationExecutionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406925"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679406925"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemediationExecutionStatus
+</span><a href="#local-6989586621679406926"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedTime:RemediationExecutionStatus' :: Maybe POSIX
+</span><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#%24sel%3AlastUpdatedTime%3ARemediationExecutionStatus%27"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679406925"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#RemediationExecutionStatus"><span class="hs-identifier hs-type">RemediationExecutionStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; RemediationExecutionStatus -&gt; f RemediationExecutionStatus)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -197,10 +222,10 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- | Undocumented member.</span><span>
-</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#remediationExecutionStatus_resourceKey"><span class="hs-identifier hs-type">remediationExecutionStatus_resourceKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#RemediationExecutionStatus"><span class="hs-identifier hs-type">RemediationExecutionStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ResourceKey.html#ResourceKey"><span class="hs-identifier hs-type">ResourceKey</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span id="remediationExecutionStatus_resourceKey"><span class="annot"><span class="annottext">remediationExecutionStatus_resourceKey :: (Maybe ResourceKey -&gt; f (Maybe ResourceKey))
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#remediationExecutionStatus_resourceKey"><span class="hs-identifier hs-type">remediationExecutionStatus_resourceKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#RemediationExecutionStatus"><span class="hs-identifier hs-type">RemediationExecutionStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ResourceKey.html#ResourceKey"><span class="hs-identifier hs-type">ResourceKey</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="remediationExecutionStatus_resourceKey"><span class="annot"><span class="annottext">remediationExecutionStatus_resourceKey :: (Maybe ResourceKey -&gt; f (Maybe ResourceKey))
 -&gt; RemediationExecutionStatus -&gt; f RemediationExecutionStatus
 </span><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#remediationExecutionStatus_resourceKey"><span class="hs-identifier hs-var hs-var">remediationExecutionStatus_resourceKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemediationExecutionStatus -&gt; Maybe ResourceKey)
 -&gt; (RemediationExecutionStatus
@@ -211,41 +236,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe ResourceKey)
      (Maybe ResourceKey)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#RemediationExecutionStatus%27"><span class="hs-identifier hs-type">RemediationExecutionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406326"><span class="annot"><span class="annottext">Maybe ResourceKey
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#RemediationExecutionStatus%27"><span class="hs-identifier hs-type">RemediationExecutionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406920"><span class="annot"><span class="annottext">Maybe ResourceKey
 resourceKey :: Maybe ResourceKey
 $sel:resourceKey:RemediationExecutionStatus' :: RemediationExecutionStatus -&gt; Maybe ResourceKey
-</span><a href="#local-6989586621679406326"><span class="hs-identifier hs-var hs-var">resourceKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceKey
-</span><a href="#local-6989586621679406326"><span class="hs-identifier hs-var">resourceKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406325"><span class="annot"><span class="annottext">s :: RemediationExecutionStatus
-</span><a href="#local-6989586621679406325"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#RemediationExecutionStatus%27"><span class="hs-identifier hs-type">RemediationExecutionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406324"><span class="annot"><span class="annottext">Maybe ResourceKey
-</span><a href="#local-6989586621679406324"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemediationExecutionStatus
-</span><a href="#local-6989586621679406325"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceKey:RemediationExecutionStatus' :: Maybe ResourceKey
+</span><a href="#local-6989586621679406920"><span class="hs-identifier hs-var hs-var">resourceKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceKey
+</span><a href="#local-6989586621679406920"><span class="hs-identifier hs-var">resourceKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406919"><span class="annot"><span class="annottext">s :: RemediationExecutionStatus
+</span><a href="#local-6989586621679406919"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#RemediationExecutionStatus%27"><span class="hs-identifier hs-type">RemediationExecutionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406918"><span class="annot"><span class="annottext">Maybe ResourceKey
+</span><a href="#local-6989586621679406918"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemediationExecutionStatus
+</span><a href="#local-6989586621679406919"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceKey:RemediationExecutionStatus' :: Maybe ResourceKey
 </span><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#%24sel%3AresourceKey%3ARemediationExecutionStatus%27"><span class="hs-identifier hs-var">resourceKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceKey
-</span><a href="#local-6989586621679406324"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#RemediationExecutionStatus"><span class="hs-identifier hs-type">RemediationExecutionStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- | ENUM of the values.</span><span>
-</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#remediationExecutionStatus_state"><span class="hs-identifier hs-type">remediationExecutionStatus_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#RemediationExecutionStatus"><span class="hs-identifier hs-type">RemediationExecutionStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionState.html#RemediationExecutionState"><span class="hs-identifier hs-type">RemediationExecutionState</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span id="remediationExecutionStatus_state"><span class="annot"><span class="annottext">remediationExecutionStatus_state :: (Maybe RemediationExecutionState
- -&gt; f (Maybe RemediationExecutionState))
--&gt; RemediationExecutionStatus -&gt; f RemediationExecutionStatus
-</span><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#remediationExecutionStatus_state"><span class="hs-identifier hs-var hs-var">remediationExecutionStatus_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemediationExecutionStatus -&gt; Maybe RemediationExecutionState)
--&gt; (RemediationExecutionStatus
-    -&gt; Maybe RemediationExecutionState -&gt; RemediationExecutionStatus)
--&gt; Lens
-     RemediationExecutionStatus
-     RemediationExecutionStatus
-     (Maybe RemediationExecutionState)
-     (Maybe RemediationExecutionState)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#RemediationExecutionStatus%27"><span class="hs-identifier hs-type">RemediationExecutionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406322"><span class="annot"><span class="annottext">Maybe RemediationExecutionState
-state :: Maybe RemediationExecutionState
-$sel:state:RemediationExecutionStatus' :: RemediationExecutionStatus -&gt; Maybe RemediationExecutionState
-</span><a href="#local-6989586621679406322"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RemediationExecutionState
-</span><a href="#local-6989586621679406322"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406321"><span class="annot"><span class="annottext">s :: RemediationExecutionStatus
-</span><a href="#local-6989586621679406321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#RemediationExecutionStatus%27"><span class="hs-identifier hs-type">RemediationExecutionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406320"><span class="annot"><span class="annottext">Maybe RemediationExecutionState
-</span><a href="#local-6989586621679406320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemediationExecutionStatus
-</span><a href="#local-6989586621679406321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:RemediationExecutionStatus' :: Maybe RemediationExecutionState
-</span><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#%24sel%3Astate%3ARemediationExecutionStatus%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RemediationExecutionState
-</span><a href="#local-6989586621679406320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#RemediationExecutionStatus"><span class="hs-identifier hs-type">RemediationExecutionStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679406918"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#RemediationExecutionStatus"><span class="hs-identifier hs-type">RemediationExecutionStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | Details of every step.</span><span>
 </span><span id="line-88"></span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#remediationExecutionStatus_stepDetails"><span class="hs-identifier hs-type">remediationExecutionStatus_stepDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#RemediationExecutionStatus"><span class="hs-identifier hs-type">RemediationExecutionStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStep.html#RemediationExecutionStep"><span class="hs-identifier hs-type">RemediationExecutionStep</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -261,16 +261,16 @@ $sel:state:RemediationExecutionStatus' :: RemediationExecutionStatus -&gt; Maybe
      (Maybe [RemediationExecutionStep])
      (Maybe [RemediationExecutionStep])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#RemediationExecutionStatus%27"><span class="hs-identifier hs-type">RemediationExecutionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406318"><span class="annot"><span class="annottext">Maybe [RemediationExecutionStep]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#RemediationExecutionStatus%27"><span class="hs-identifier hs-type">RemediationExecutionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406916"><span class="annot"><span class="annottext">Maybe [RemediationExecutionStep]
 stepDetails :: Maybe [RemediationExecutionStep]
 $sel:stepDetails:RemediationExecutionStatus' :: RemediationExecutionStatus -&gt; Maybe [RemediationExecutionStep]
-</span><a href="#local-6989586621679406318"><span class="hs-identifier hs-var hs-var">stepDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RemediationExecutionStep]
-</span><a href="#local-6989586621679406318"><span class="hs-identifier hs-var">stepDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406317"><span class="annot"><span class="annottext">s :: RemediationExecutionStatus
-</span><a href="#local-6989586621679406317"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#RemediationExecutionStatus%27"><span class="hs-identifier hs-type">RemediationExecutionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406316"><span class="annot"><span class="annottext">Maybe [RemediationExecutionStep]
-</span><a href="#local-6989586621679406316"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemediationExecutionStatus
-</span><a href="#local-6989586621679406317"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stepDetails:RemediationExecutionStatus' :: Maybe [RemediationExecutionStep]
+</span><a href="#local-6989586621679406916"><span class="hs-identifier hs-var hs-var">stepDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RemediationExecutionStep]
+</span><a href="#local-6989586621679406916"><span class="hs-identifier hs-var">stepDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406915"><span class="annot"><span class="annottext">s :: RemediationExecutionStatus
+</span><a href="#local-6989586621679406915"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#RemediationExecutionStatus%27"><span class="hs-identifier hs-type">RemediationExecutionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406914"><span class="annot"><span class="annottext">Maybe [RemediationExecutionStep]
+</span><a href="#local-6989586621679406914"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemediationExecutionStatus
+</span><a href="#local-6989586621679406915"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stepDetails:RemediationExecutionStatus' :: Maybe [RemediationExecutionStep]
 </span><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#%24sel%3AstepDetails%3ARemediationExecutionStatus%27"><span class="hs-identifier hs-var">stepDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RemediationExecutionStep]
-</span><a href="#local-6989586621679406316"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#RemediationExecutionStatus"><span class="hs-identifier hs-type">RemediationExecutionStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RemediationExecutionStep]
+</span><a href="#local-6989586621679406914"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#RemediationExecutionStatus"><span class="hs-identifier hs-type">RemediationExecutionStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RemediationExecutionStep]
   -&gt; f (Maybe [RemediationExecutionStep]))
  -&gt; RemediationExecutionStatus -&gt; f RemediationExecutionStatus)
 -&gt; ((Maybe [RemediationExecutionStep]
@@ -300,14 +300,14 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [RemediationExecutionStep]
   [RemediationExecutionStep]
   [RemediationExecutionStep]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- | The time when the remediation execution was last updated.</span><span>
-</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#remediationExecutionStatus_lastUpdatedTime"><span class="hs-identifier hs-type">remediationExecutionStatus_lastUpdatedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#RemediationExecutionStatus"><span class="hs-identifier hs-type">RemediationExecutionStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span id="remediationExecutionStatus_lastUpdatedTime"><span class="annot"><span class="annottext">remediationExecutionStatus_lastUpdatedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-91"></span><span class="hs-comment">-- | Start time when the remediation was executed.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#remediationExecutionStatus_invocationTime"><span class="hs-identifier hs-type">remediationExecutionStatus_invocationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#RemediationExecutionStatus"><span class="hs-identifier hs-type">RemediationExecutionStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="remediationExecutionStatus_invocationTime"><span class="annot"><span class="annottext">remediationExecutionStatus_invocationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; RemediationExecutionStatus -&gt; f RemediationExecutionStatus
-</span><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#remediationExecutionStatus_lastUpdatedTime"><span class="hs-identifier hs-var hs-var">remediationExecutionStatus_lastUpdatedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemediationExecutionStatus -&gt; Maybe POSIX)
+</span><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#remediationExecutionStatus_invocationTime"><span class="hs-identifier hs-var hs-var">remediationExecutionStatus_invocationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemediationExecutionStatus -&gt; Maybe POSIX)
 -&gt; (RemediationExecutionStatus
     -&gt; Maybe POSIX -&gt; RemediationExecutionStatus)
 -&gt; Lens
@@ -316,16 +316,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#RemediationExecutionStatus%27"><span class="hs-identifier hs-type">RemediationExecutionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406313"><span class="annot"><span class="annottext">Maybe POSIX
-lastUpdatedTime :: Maybe POSIX
-$sel:lastUpdatedTime:RemediationExecutionStatus' :: RemediationExecutionStatus -&gt; Maybe POSIX
-</span><a href="#local-6989586621679406313"><span class="hs-identifier hs-var hs-var">lastUpdatedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679406313"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406312"><span class="annot"><span class="annottext">s :: RemediationExecutionStatus
-</span><a href="#local-6989586621679406312"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#RemediationExecutionStatus%27"><span class="hs-identifier hs-type">RemediationExecutionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406311"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679406311"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemediationExecutionStatus
-</span><a href="#local-6989586621679406312"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedTime:RemediationExecutionStatus' :: Maybe POSIX
-</span><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#%24sel%3AlastUpdatedTime%3ARemediationExecutionStatus%27"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679406311"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#RemediationExecutionStatus"><span class="hs-identifier hs-type">RemediationExecutionStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#RemediationExecutionStatus%27"><span class="hs-identifier hs-type">RemediationExecutionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406911"><span class="annot"><span class="annottext">Maybe POSIX
+invocationTime :: Maybe POSIX
+$sel:invocationTime:RemediationExecutionStatus' :: RemediationExecutionStatus -&gt; Maybe POSIX
+</span><a href="#local-6989586621679406911"><span class="hs-identifier hs-var hs-var">invocationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679406911"><span class="hs-identifier hs-var">invocationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406910"><span class="annot"><span class="annottext">s :: RemediationExecutionStatus
+</span><a href="#local-6989586621679406910"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#RemediationExecutionStatus%27"><span class="hs-identifier hs-type">RemediationExecutionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406909"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679406909"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemediationExecutionStatus
+</span><a href="#local-6989586621679406910"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:invocationTime:RemediationExecutionStatus' :: Maybe POSIX
+</span><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#%24sel%3AinvocationTime%3ARemediationExecutionStatus%27"><span class="hs-identifier hs-var">invocationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679406909"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#RemediationExecutionStatus"><span class="hs-identifier hs-type">RemediationExecutionStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; RemediationExecutionStatus -&gt; f RemediationExecutionStatus)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -342,8 +342,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679406308"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#RemediationExecutionStatus"><span class="hs-identifier hs-type">RemediationExecutionStatus</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679406306"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RemediationExecutionStatus
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679406906"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#RemediationExecutionStatus"><span class="hs-identifier hs-type">RemediationExecutionStatus</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679406904"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RemediationExecutionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser RemediationExecutionStatus)
@@ -353,67 +353,67 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;RemediationExecutionStatus&quot;</span></span><span>
-</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679406303"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679406303"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679406901"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679406901"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Maybe RemediationExecutionState
+-&gt; Maybe POSIX
 -&gt; Maybe ResourceKey
--&gt; Maybe RemediationExecutionState
 -&gt; Maybe [RemediationExecutionStep]
 -&gt; Maybe POSIX
 -&gt; RemediationExecutionStatus
 </span><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#RemediationExecutionStatus%27"><span class="hs-identifier hs-var">RemediationExecutionStatus'</span></a></span><span>
-</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">(Maybe RemediationExecutionState
+ -&gt; Maybe POSIX
  -&gt; Maybe ResourceKey
- -&gt; Maybe RemediationExecutionState
  -&gt; Maybe [RemediationExecutionStep]
  -&gt; Maybe POSIX
  -&gt; RemediationExecutionStatus)
--&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe RemediationExecutionState)
 -&gt; Parser
-     (Maybe ResourceKey
-      -&gt; Maybe RemediationExecutionState
+     (Maybe POSIX
+      -&gt; Maybe ResourceKey
       -&gt; Maybe [RemediationExecutionStep]
       -&gt; Maybe POSIX
       -&gt; RemediationExecutionStatus)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679406303"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679406901"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RemediationExecutionState)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;InvocationTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;State&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe ResourceKey
-   -&gt; Maybe RemediationExecutionState
+  (Maybe POSIX
+   -&gt; Maybe ResourceKey
    -&gt; Maybe [RemediationExecutionStep]
    -&gt; Maybe POSIX
    -&gt; RemediationExecutionStatus)
--&gt; Parser (Maybe ResourceKey)
+-&gt; Parser (Maybe POSIX)
 -&gt; Parser
-     (Maybe RemediationExecutionState
+     (Maybe ResourceKey
       -&gt; Maybe [RemediationExecutionStep]
       -&gt; Maybe POSIX
       -&gt; RemediationExecutionStatus)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679406303"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResourceKey)
+</span><a href="#local-6989586621679406901"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ResourceKey&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;LastUpdatedTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe RemediationExecutionState
+  (Maybe ResourceKey
    -&gt; Maybe [RemediationExecutionStep]
    -&gt; Maybe POSIX
    -&gt; RemediationExecutionStatus)
--&gt; Parser (Maybe RemediationExecutionState)
+-&gt; Parser (Maybe ResourceKey)
 -&gt; Parser
      (Maybe [RemediationExecutionStep]
       -&gt; Maybe POSIX -&gt; RemediationExecutionStatus)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679406303"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RemediationExecutionState)
+</span><a href="#local-6989586621679406901"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResourceKey)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;State&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;ResourceKey&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe [RemediationExecutionStep]
    -&gt; Maybe POSIX -&gt; RemediationExecutionStatus)
@@ -421,7 +421,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe POSIX -&gt; RemediationExecutionStatus)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679406303"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [RemediationExecutionStep]))
+</span><a href="#local-6989586621679406901"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [RemediationExecutionStep]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StepDetails&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [RemediationExecutionStep]))
@@ -435,13 +435,13 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe POSIX) -&gt; Parser RemediationExecutionStatus
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679406303"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679406901"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LastUpdatedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;InvocationTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679406296"><span id="local-6989586621679406298"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#RemediationExecutionStatus"><span class="hs-identifier hs-type">RemediationExecutionStatus</span></a></span></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679406894"><span id="local-6989586621679406896"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#RemediationExecutionStatus"><span class="hs-identifier hs-type">RemediationExecutionStatus</span></a></span></span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679406293"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#RemediationExecutionStatus"><span class="hs-identifier hs-type">RemediationExecutionStatus</span></a></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679406891"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationExecutionStatus.html#RemediationExecutionStatus"><span class="hs-identifier hs-type">RemediationExecutionStatus</span></a></span></span><span>
 </span><span id="line-111"></span></pre></body></html>

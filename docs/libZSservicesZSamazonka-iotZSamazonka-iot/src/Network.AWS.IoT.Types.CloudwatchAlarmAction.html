@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Describes an action that updates a CloudWatch alarm.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newCloudwatchAlarmAction' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679780086"><span id="local-6989586621679780087"></span></span><span class="hs-keyword">data</span><span> </span><span id="CloudwatchAlarmAction"><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#CloudwatchAlarmAction"><span class="hs-identifier hs-var">CloudwatchAlarmAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CloudwatchAlarmAction%27"><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#CloudwatchAlarmAction%27"><span class="hs-identifier hs-var">CloudwatchAlarmAction'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679780936"><span id="local-6989586621679780937"></span></span><span class="hs-keyword">data</span><span> </span><span id="CloudwatchAlarmAction"><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#CloudwatchAlarmAction"><span class="hs-identifier hs-var">CloudwatchAlarmAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CloudwatchAlarmAction%27"><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#CloudwatchAlarmAction%27"><span class="hs-identifier hs-var">CloudwatchAlarmAction'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IAM role that allows access to the CloudWatch alarm.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AroleArn%3ACloudwatchAlarmAction%27"><span class="annot"><span class="annottext">CloudwatchAlarmAction -&gt; Text
 </span><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#%24sel%3AroleArn%3ACloudwatchAlarmAction%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -41,7 +41,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AstateValue%3ACloudwatchAlarmAction%27"><span class="annot"><span class="annottext">CloudwatchAlarmAction -&gt; Text
 </span><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#%24sel%3AstateValue%3ACloudwatchAlarmAction%27"><span class="hs-identifier hs-var hs-var">stateValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679780077"><span id="local-6989586621679780079"><span class="annot"><span class="annottext">CloudwatchAlarmAction -&gt; CloudwatchAlarmAction -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679780927"><span id="local-6989586621679780929"><span class="annot"><span class="annottext">CloudwatchAlarmAction -&gt; CloudwatchAlarmAction -&gt; Bool
 (CloudwatchAlarmAction -&gt; CloudwatchAlarmAction -&gt; Bool)
 -&gt; (CloudwatchAlarmAction -&gt; CloudwatchAlarmAction -&gt; Bool)
 -&gt; Eq CloudwatchAlarmAction
@@ -50,7 +50,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CloudwatchAlarmAction -&gt; CloudwatchAlarmAction -&gt; Bool
 == :: CloudwatchAlarmAction -&gt; CloudwatchAlarmAction -&gt; Bool
 $c== :: CloudwatchAlarmAction -&gt; CloudwatchAlarmAction -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679780068"><span id="local-6989586621679780070"><span id="local-6989586621679780072"><span id="local-6989586621679780074"><span class="annot"><span class="annottext">ReadPrec [CloudwatchAlarmAction]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679780918"><span id="local-6989586621679780920"><span id="local-6989586621679780922"><span id="local-6989586621679780924"><span class="annot"><span class="annottext">ReadPrec [CloudwatchAlarmAction]
 ReadPrec CloudwatchAlarmAction
 Int -&gt; ReadS CloudwatchAlarmAction
 ReadS [CloudwatchAlarmAction]
@@ -70,7 +70,7 @@ readList :: ReadS [CloudwatchAlarmAction]
 $creadList :: ReadS [CloudwatchAlarmAction]
 readsPrec :: Int -&gt; ReadS CloudwatchAlarmAction
 $creadsPrec :: Int -&gt; ReadS CloudwatchAlarmAction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679780061"><span id="local-6989586621679780063"><span id="local-6989586621679780065"><span class="annot"><span class="annottext">Int -&gt; CloudwatchAlarmAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679780911"><span id="local-6989586621679780913"><span id="local-6989586621679780915"><span class="annot"><span class="annottext">Int -&gt; CloudwatchAlarmAction -&gt; ShowS
 [CloudwatchAlarmAction] -&gt; ShowS
 CloudwatchAlarmAction -&gt; String
 (Int -&gt; CloudwatchAlarmAction -&gt; ShowS)
@@ -124,28 +124,28 @@ $cfrom :: forall x. CloudwatchAlarmAction -&gt; Rep CloudwatchAlarmAction x
 </span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#CloudwatchAlarmAction"><span class="hs-identifier hs-type">CloudwatchAlarmAction</span></a></span><span>
 </span><span id="line-68"></span><span id="newCloudwatchAlarmAction"><span class="annot"><span class="annottext">newCloudwatchAlarmAction :: Text -&gt; Text -&gt; Text -&gt; Text -&gt; CloudwatchAlarmAction
 </span><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#newCloudwatchAlarmAction"><span class="hs-identifier hs-var hs-var">newCloudwatchAlarmAction</span></a></span></span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679780055"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780055"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679780054"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780054"><span class="hs-identifier hs-var">pAlarmName_</span></a></span></span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679780053"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780053"><span class="hs-identifier hs-var">pStateReason_</span></a></span></span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679780052"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780052"><span class="hs-identifier hs-var">pStateValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679780905"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679780905"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679780904"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679780904"><span class="hs-identifier hs-var">pAlarmName_</span></a></span></span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679780903"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679780903"><span class="hs-identifier hs-var">pStateReason_</span></a></span></span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679780902"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679780902"><span class="hs-identifier hs-var">pStateValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">CloudwatchAlarmAction' :: Text -&gt; Text -&gt; Text -&gt; Text -&gt; CloudwatchAlarmAction
 </span><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#CloudwatchAlarmAction%27"><span class="hs-identifier hs-type">CloudwatchAlarmAction'</span></a></span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:roleArn:CloudwatchAlarmAction' :: Text
 </span><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#%24sel%3AroleArn%3ACloudwatchAlarmAction%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780055"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679780905"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">$sel:alarmName:CloudwatchAlarmAction' :: Text
 </span><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#%24sel%3AalarmName%3ACloudwatchAlarmAction%27"><span class="hs-identifier hs-var">alarmName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780054"><span class="hs-identifier hs-var">pAlarmName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679780904"><span class="hs-identifier hs-var">pAlarmName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-76"></span><span>        </span><span class="annot"><span class="annottext">$sel:stateReason:CloudwatchAlarmAction' :: Text
 </span><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#%24sel%3AstateReason%3ACloudwatchAlarmAction%27"><span class="hs-identifier hs-var">stateReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780053"><span class="hs-identifier hs-var">pStateReason_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679780903"><span class="hs-identifier hs-var">pStateReason_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-77"></span><span>        </span><span class="annot"><span class="annottext">$sel:stateValue:CloudwatchAlarmAction' :: Text
 </span><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#%24sel%3AstateValue%3ACloudwatchAlarmAction%27"><span class="hs-identifier hs-var">stateValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780052"><span class="hs-identifier hs-var">pStateValue_</span></a></span><span>
+</span><a href="#local-6989586621679780902"><span class="hs-identifier hs-var">pStateValue_</span></a></span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | The IAM role that allows access to the CloudWatch alarm.</span><span>
@@ -156,16 +156,16 @@ $cfrom :: forall x. CloudwatchAlarmAction -&gt; Rep CloudwatchAlarmAction x
 -&gt; (CloudwatchAlarmAction -&gt; Text -&gt; CloudwatchAlarmAction)
 -&gt; Lens CloudwatchAlarmAction CloudwatchAlarmAction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#CloudwatchAlarmAction%27"><span class="hs-identifier hs-type">CloudwatchAlarmAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780048"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#CloudwatchAlarmAction%27"><span class="hs-identifier hs-type">CloudwatchAlarmAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780898"><span class="annot"><span class="annottext">Text
 roleArn :: Text
 $sel:roleArn:CloudwatchAlarmAction' :: CloudwatchAlarmAction -&gt; Text
-</span><a href="#local-6989586621679780048"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780048"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679780047"><span class="annot"><span class="annottext">s :: CloudwatchAlarmAction
-</span><a href="#local-6989586621679780047"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#CloudwatchAlarmAction%27"><span class="hs-identifier hs-type">CloudwatchAlarmAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679780046"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780046"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudwatchAlarmAction
-</span><a href="#local-6989586621679780047"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:CloudwatchAlarmAction' :: Text
+</span><a href="#local-6989586621679780898"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679780898"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679780897"><span class="annot"><span class="annottext">s :: CloudwatchAlarmAction
+</span><a href="#local-6989586621679780897"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#CloudwatchAlarmAction%27"><span class="hs-identifier hs-type">CloudwatchAlarmAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679780896"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679780896"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudwatchAlarmAction
+</span><a href="#local-6989586621679780897"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:CloudwatchAlarmAction' :: Text
 </span><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#%24sel%3AroleArn%3ACloudwatchAlarmAction%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780046"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#CloudwatchAlarmAction"><span class="hs-identifier hs-type">CloudwatchAlarmAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679780896"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#CloudwatchAlarmAction"><span class="hs-identifier hs-type">CloudwatchAlarmAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | The CloudWatch alarm name.</span><span>
 </span><span id="line-85"></span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#cloudwatchAlarmAction_alarmName"><span class="hs-identifier hs-type">cloudwatchAlarmAction_alarmName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#CloudwatchAlarmAction"><span class="hs-identifier hs-type">CloudwatchAlarmAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -175,16 +175,16 @@ $sel:roleArn:CloudwatchAlarmAction' :: CloudwatchAlarmAction -&gt; Text
 -&gt; (CloudwatchAlarmAction -&gt; Text -&gt; CloudwatchAlarmAction)
 -&gt; Lens CloudwatchAlarmAction CloudwatchAlarmAction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#CloudwatchAlarmAction%27"><span class="hs-identifier hs-type">CloudwatchAlarmAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780044"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#CloudwatchAlarmAction%27"><span class="hs-identifier hs-type">CloudwatchAlarmAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780894"><span class="annot"><span class="annottext">Text
 alarmName :: Text
 $sel:alarmName:CloudwatchAlarmAction' :: CloudwatchAlarmAction -&gt; Text
-</span><a href="#local-6989586621679780044"><span class="hs-identifier hs-var hs-var">alarmName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780044"><span class="hs-identifier hs-var">alarmName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679780043"><span class="annot"><span class="annottext">s :: CloudwatchAlarmAction
-</span><a href="#local-6989586621679780043"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#CloudwatchAlarmAction%27"><span class="hs-identifier hs-type">CloudwatchAlarmAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679780042"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780042"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudwatchAlarmAction
-</span><a href="#local-6989586621679780043"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alarmName:CloudwatchAlarmAction' :: Text
+</span><a href="#local-6989586621679780894"><span class="hs-identifier hs-var hs-var">alarmName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679780894"><span class="hs-identifier hs-var">alarmName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679780893"><span class="annot"><span class="annottext">s :: CloudwatchAlarmAction
+</span><a href="#local-6989586621679780893"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#CloudwatchAlarmAction%27"><span class="hs-identifier hs-type">CloudwatchAlarmAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679780892"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679780892"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudwatchAlarmAction
+</span><a href="#local-6989586621679780893"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alarmName:CloudwatchAlarmAction' :: Text
 </span><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#%24sel%3AalarmName%3ACloudwatchAlarmAction%27"><span class="hs-identifier hs-var">alarmName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780042"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#CloudwatchAlarmAction"><span class="hs-identifier hs-type">CloudwatchAlarmAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679780892"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#CloudwatchAlarmAction"><span class="hs-identifier hs-type">CloudwatchAlarmAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | The reason for the alarm change.</span><span>
 </span><span id="line-89"></span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#cloudwatchAlarmAction_stateReason"><span class="hs-identifier hs-type">cloudwatchAlarmAction_stateReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#CloudwatchAlarmAction"><span class="hs-identifier hs-type">CloudwatchAlarmAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -194,16 +194,16 @@ $sel:alarmName:CloudwatchAlarmAction' :: CloudwatchAlarmAction -&gt; Text
 -&gt; (CloudwatchAlarmAction -&gt; Text -&gt; CloudwatchAlarmAction)
 -&gt; Lens CloudwatchAlarmAction CloudwatchAlarmAction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#CloudwatchAlarmAction%27"><span class="hs-identifier hs-type">CloudwatchAlarmAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780040"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#CloudwatchAlarmAction%27"><span class="hs-identifier hs-type">CloudwatchAlarmAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780890"><span class="annot"><span class="annottext">Text
 stateReason :: Text
 $sel:stateReason:CloudwatchAlarmAction' :: CloudwatchAlarmAction -&gt; Text
-</span><a href="#local-6989586621679780040"><span class="hs-identifier hs-var hs-var">stateReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780040"><span class="hs-identifier hs-var">stateReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679780039"><span class="annot"><span class="annottext">s :: CloudwatchAlarmAction
-</span><a href="#local-6989586621679780039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#CloudwatchAlarmAction%27"><span class="hs-identifier hs-type">CloudwatchAlarmAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679780038"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudwatchAlarmAction
-</span><a href="#local-6989586621679780039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateReason:CloudwatchAlarmAction' :: Text
+</span><a href="#local-6989586621679780890"><span class="hs-identifier hs-var hs-var">stateReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679780890"><span class="hs-identifier hs-var">stateReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679780889"><span class="annot"><span class="annottext">s :: CloudwatchAlarmAction
+</span><a href="#local-6989586621679780889"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#CloudwatchAlarmAction%27"><span class="hs-identifier hs-type">CloudwatchAlarmAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679780888"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679780888"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudwatchAlarmAction
+</span><a href="#local-6989586621679780889"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateReason:CloudwatchAlarmAction' :: Text
 </span><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#%24sel%3AstateReason%3ACloudwatchAlarmAction%27"><span class="hs-identifier hs-var">stateReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#CloudwatchAlarmAction"><span class="hs-identifier hs-type">CloudwatchAlarmAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679780888"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#CloudwatchAlarmAction"><span class="hs-identifier hs-type">CloudwatchAlarmAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | The value of the alarm state. Acceptable values are: OK, ALARM,</span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- INSUFFICIENT_DATA.</span><span>
@@ -214,19 +214,19 @@ $sel:stateReason:CloudwatchAlarmAction' :: CloudwatchAlarmAction -&gt; Text
 -&gt; (CloudwatchAlarmAction -&gt; Text -&gt; CloudwatchAlarmAction)
 -&gt; Lens CloudwatchAlarmAction CloudwatchAlarmAction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#CloudwatchAlarmAction%27"><span class="hs-identifier hs-type">CloudwatchAlarmAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780036"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#CloudwatchAlarmAction%27"><span class="hs-identifier hs-type">CloudwatchAlarmAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780886"><span class="annot"><span class="annottext">Text
 stateValue :: Text
 $sel:stateValue:CloudwatchAlarmAction' :: CloudwatchAlarmAction -&gt; Text
-</span><a href="#local-6989586621679780036"><span class="hs-identifier hs-var hs-var">stateValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780036"><span class="hs-identifier hs-var">stateValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679780035"><span class="annot"><span class="annottext">s :: CloudwatchAlarmAction
-</span><a href="#local-6989586621679780035"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#CloudwatchAlarmAction%27"><span class="hs-identifier hs-type">CloudwatchAlarmAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679780034"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780034"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudwatchAlarmAction
-</span><a href="#local-6989586621679780035"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateValue:CloudwatchAlarmAction' :: Text
+</span><a href="#local-6989586621679780886"><span class="hs-identifier hs-var hs-var">stateValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679780886"><span class="hs-identifier hs-var">stateValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679780885"><span class="annot"><span class="annottext">s :: CloudwatchAlarmAction
+</span><a href="#local-6989586621679780885"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#CloudwatchAlarmAction%27"><span class="hs-identifier hs-type">CloudwatchAlarmAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679780884"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679780884"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudwatchAlarmAction
+</span><a href="#local-6989586621679780885"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateValue:CloudwatchAlarmAction' :: Text
 </span><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#%24sel%3AstateValue%3ACloudwatchAlarmAction%27"><span class="hs-identifier hs-var">stateValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780034"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#CloudwatchAlarmAction"><span class="hs-identifier hs-type">CloudwatchAlarmAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679780884"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#CloudwatchAlarmAction"><span class="hs-identifier hs-type">CloudwatchAlarmAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679780031"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#CloudwatchAlarmAction"><span class="hs-identifier hs-type">CloudwatchAlarmAction</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679780029"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CloudwatchAlarmAction
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679780881"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#CloudwatchAlarmAction"><span class="hs-identifier hs-type">CloudwatchAlarmAction</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679780879"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CloudwatchAlarmAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CloudwatchAlarmAction)
@@ -236,8 +236,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CloudwatchAlarmAction&quot;</span></span><span>
-</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679780026"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679780026"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679780876"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679780876"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Text -&gt; Text -&gt; CloudwatchAlarmAction
 </span><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#CloudwatchAlarmAction%27"><span class="hs-identifier hs-var">CloudwatchAlarmAction'</span></a></span><span>
 </span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; Text -&gt; Text -&gt; CloudwatchAlarmAction)
@@ -245,7 +245,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Text -&gt; Text -&gt; Text -&gt; CloudwatchAlarmAction)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679780026"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679780876"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;roleArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -253,7 +253,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser (Text -&gt; Text -&gt; CloudwatchAlarmAction)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679780026"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679780876"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;alarmName&quot;</span></span><span class="hs-special">)</span><span>
@@ -261,7 +261,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser (Text -&gt; CloudwatchAlarmAction)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679780026"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679780876"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;stateReason&quot;</span></span><span class="hs-special">)</span><span>
@@ -269,19 +269,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser CloudwatchAlarmAction
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679780026"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679780876"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;stateValue&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679780020"><span id="local-6989586621679780022"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#CloudwatchAlarmAction"><span class="hs-identifier hs-type">CloudwatchAlarmAction</span></a></span></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679780870"><span id="local-6989586621679780872"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#CloudwatchAlarmAction"><span class="hs-identifier hs-type">CloudwatchAlarmAction</span></a></span></span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679780017"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#CloudwatchAlarmAction"><span class="hs-identifier hs-type">CloudwatchAlarmAction</span></a></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679780867"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#CloudwatchAlarmAction"><span class="hs-identifier hs-type">CloudwatchAlarmAction</span></a></span></span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679780009"><span id="local-6989586621679780011"><span id="local-6989586621679780013"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#CloudwatchAlarmAction"><span class="hs-identifier hs-type">CloudwatchAlarmAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679780007"><span class="annot"><span class="annottext">toJSON :: CloudwatchAlarmAction -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#CloudwatchAlarmAction%27"><span class="hs-identifier hs-type">CloudwatchAlarmAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780002"><span id="local-6989586621679780003"><span id="local-6989586621679780004"><span id="local-6989586621679780005"><span class="annot"><span class="annottext">Text
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679780859"><span id="local-6989586621679780861"><span id="local-6989586621679780863"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#CloudwatchAlarmAction"><span class="hs-identifier hs-type">CloudwatchAlarmAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679780857"><span class="annot"><span class="annottext">toJSON :: CloudwatchAlarmAction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#CloudwatchAlarmAction%27"><span class="hs-identifier hs-type">CloudwatchAlarmAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780852"><span id="local-6989586621679780853"><span id="local-6989586621679780854"><span id="local-6989586621679780855"><span class="annot"><span class="annottext">Text
 stateValue :: Text
 stateReason :: Text
 alarmName :: Text
@@ -290,7 +290,7 @@ $sel:stateValue:CloudwatchAlarmAction' :: CloudwatchAlarmAction -&gt; Text
 $sel:stateReason:CloudwatchAlarmAction' :: CloudwatchAlarmAction -&gt; Text
 $sel:alarmName:CloudwatchAlarmAction' :: CloudwatchAlarmAction -&gt; Text
 $sel:roleArn:CloudwatchAlarmAction' :: CloudwatchAlarmAction -&gt; Text
-</span><a href="#local-6989586621679780002"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679780852"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -302,28 +302,28 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;roleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780005"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679780855"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;alarmName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780004"><span class="hs-identifier hs-var">alarmName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679780854"><span class="hs-identifier hs-var">alarmName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;stateReason&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780003"><span class="hs-identifier hs-var">stateReason</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679780853"><span class="hs-identifier hs-var">stateReason</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;stateValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780002"><span class="hs-identifier hs-var">stateValue</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679780852"><span class="hs-identifier hs-var">stateValue</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span></pre></body></html>

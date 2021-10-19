@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621681152323"><span id="local-6989586621681152324"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="VpcEndpointType"><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointType.html#VpcEndpointType"><span class="hs-identifier hs-var">VpcEndpointType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VpcEndpointType%27"><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointType.html#VpcEndpointType%27"><span class="hs-identifier hs-var">VpcEndpointType'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621681187508"><span id="local-6989586621681187509"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="VpcEndpointType"><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointType.html#VpcEndpointType"><span class="hs-identifier hs-var">VpcEndpointType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VpcEndpointType%27"><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointType.html#VpcEndpointType%27"><span class="hs-identifier hs-var">VpcEndpointType'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromVpcEndpointType"><span class="annot"><span class="annottext">VpcEndpointType -&gt; Text
 </span><a href="Network.AWS.EC2.Types.VpcEndpointType.html#fromVpcEndpointType"><span class="hs-identifier hs-var hs-var">fromVpcEndpointType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681152315"><span id="local-6989586621681152317"><span id="local-6989586621681152319"><span class="annot"><span class="annottext">Int -&gt; VpcEndpointType -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681187500"><span id="local-6989586621681187502"><span id="local-6989586621681187504"><span class="annot"><span class="annottext">Int -&gt; VpcEndpointType -&gt; ShowS
 [VpcEndpointType] -&gt; ShowS
 VpcEndpointType -&gt; String
 (Int -&gt; VpcEndpointType -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: VpcEndpointType -&gt; String
 showsPrec :: Int -&gt; VpcEndpointType -&gt; ShowS
 $cshowsPrec :: Int -&gt; VpcEndpointType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681152306"><span id="local-6989586621681152308"><span id="local-6989586621681152310"><span id="local-6989586621681152312"><span class="annot"><span class="annottext">ReadPrec [VpcEndpointType]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681187491"><span id="local-6989586621681187493"><span id="local-6989586621681187495"><span id="local-6989586621681187497"><span class="annot"><span class="annottext">ReadPrec [VpcEndpointType]
 ReadPrec VpcEndpointType
 Int -&gt; ReadS VpcEndpointType
 ReadS [VpcEndpointType]
@@ -74,7 +74,7 @@ $creadList :: ReadS [VpcEndpointType]
 readsPrec :: Int -&gt; ReadS VpcEndpointType
 $creadsPrec :: Int -&gt; ReadS VpcEndpointType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681152301"><span id="local-6989586621681152303"><span class="annot"><span class="annottext">VpcEndpointType -&gt; VpcEndpointType -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681187486"><span id="local-6989586621681187488"><span class="annot"><span class="annottext">VpcEndpointType -&gt; VpcEndpointType -&gt; Bool
 (VpcEndpointType -&gt; VpcEndpointType -&gt; Bool)
 -&gt; (VpcEndpointType -&gt; VpcEndpointType -&gt; Bool)
 -&gt; Eq VpcEndpointType
@@ -84,7 +84,7 @@ $c/= :: VpcEndpointType -&gt; VpcEndpointType -&gt; Bool
 == :: VpcEndpointType -&gt; VpcEndpointType -&gt; Bool
 $c== :: VpcEndpointType -&gt; VpcEndpointType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621681152285"><span id="local-6989586621681152287"><span id="local-6989586621681152289"><span id="local-6989586621681152291"><span id="local-6989586621681152293"><span id="local-6989586621681152295"><span id="local-6989586621681152297"><span class="annot"><span class="annottext">Eq VpcEndpointType
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681187470"><span id="local-6989586621681187472"><span id="local-6989586621681187474"><span id="local-6989586621681187476"><span id="local-6989586621681187478"><span id="local-6989586621681187480"><span id="local-6989586621681187482"><span class="annot"><span class="annottext">Eq VpcEndpointType
 Eq VpcEndpointType
 -&gt; (VpcEndpointType -&gt; VpcEndpointType -&gt; Ordering)
 -&gt; (VpcEndpointType -&gt; VpcEndpointType -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. VpcEndpointType -&gt; Rep VpcEndpointType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681152277"><span id="local-6989586621681152279"><span class="annot"><span class="annottext">Int -&gt; VpcEndpointType -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681187462"><span id="local-6989586621681187464"><span class="annot"><span class="annottext">Int -&gt; VpcEndpointType -&gt; Int
 VpcEndpointType -&gt; Int
 (Int -&gt; VpcEndpointType -&gt; Int)
 -&gt; (VpcEndpointType -&gt; Int) -&gt; Hashable VpcEndpointType
@@ -145,50 +145,50 @@ $chash :: VpcEndpointType -&gt; Int
 hashWithSalt :: Int -&gt; VpcEndpointType -&gt; Int
 $chashWithSalt :: Int -&gt; VpcEndpointType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681152274"><span class="annot"><span class="annottext">VpcEndpointType -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681187459"><span class="annot"><span class="annottext">VpcEndpointType -&gt; ()
 (VpcEndpointType -&gt; ()) -&gt; NFData VpcEndpointType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: VpcEndpointType -&gt; ()
 $crnf :: VpcEndpointType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681152271"><span class="annot"><span class="annottext">Text -&gt; Either String VpcEndpointType
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681187456"><span class="annot"><span class="annottext">Text -&gt; Either String VpcEndpointType
 (Text -&gt; Either String VpcEndpointType) -&gt; FromText VpcEndpointType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String VpcEndpointType
 $cfromText :: Text -&gt; Either String VpcEndpointType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681152268"><span class="annot"><span class="annottext">VpcEndpointType -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681187453"><span class="annot"><span class="annottext">VpcEndpointType -&gt; Text
 (VpcEndpointType -&gt; Text) -&gt; ToText VpcEndpointType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: VpcEndpointType -&gt; Text
 $ctoText :: VpcEndpointType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681152265"><span class="annot"><span class="annottext">VpcEndpointType -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681187450"><span class="annot"><span class="annottext">VpcEndpointType -&gt; ByteString
 (VpcEndpointType -&gt; ByteString) -&gt; ToByteString VpcEndpointType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: VpcEndpointType -&gt; ByteString
 $ctoBS :: VpcEndpointType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681152262"><span class="annot"><span class="annottext">VpcEndpointType -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681187447"><span class="annot"><span class="annottext">VpcEndpointType -&gt; ByteStringBuilder
 (VpcEndpointType -&gt; ByteStringBuilder) -&gt; ToLog VpcEndpointType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: VpcEndpointType -&gt; ByteStringBuilder
 $cbuild :: VpcEndpointType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681152259"><span class="annot"><span class="annottext">HeaderName -&gt; VpcEndpointType -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681187444"><span class="annot"><span class="annottext">HeaderName -&gt; VpcEndpointType -&gt; [Header]
 (HeaderName -&gt; VpcEndpointType -&gt; [Header])
 -&gt; ToHeader VpcEndpointType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; VpcEndpointType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; VpcEndpointType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681152256"><span class="annot"><span class="annottext">VpcEndpointType -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681187441"><span class="annot"><span class="annottext">VpcEndpointType -&gt; QueryString
 (VpcEndpointType -&gt; QueryString) -&gt; ToQuery VpcEndpointType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: VpcEndpointType -&gt; QueryString
 $ctoQuery :: VpcEndpointType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681152251"><span id="local-6989586621681152253"><span class="annot"><span class="annottext">Value -&gt; Parser [VpcEndpointType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681187436"><span id="local-6989586621681187438"><span class="annot"><span class="annottext">Value -&gt; Parser [VpcEndpointType]
 Value -&gt; Parser VpcEndpointType
 (Value -&gt; Parser VpcEndpointType)
 -&gt; (Value -&gt; Parser [VpcEndpointType]) -&gt; FromJSON VpcEndpointType
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [VpcEndpointType]
 parseJSON :: Value -&gt; Parser VpcEndpointType
 $cparseJSON :: Value -&gt; Parser VpcEndpointType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681152246"><span id="local-6989586621681152248"><span class="annot"><span class="annottext">FromJSONKeyFunction [VpcEndpointType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681187431"><span id="local-6989586621681187433"><span class="annot"><span class="annottext">FromJSONKeyFunction [VpcEndpointType]
 FromJSONKeyFunction VpcEndpointType
 FromJSONKeyFunction VpcEndpointType
 -&gt; FromJSONKeyFunction [VpcEndpointType]
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [VpcEndpointType]
 fromJSONKey :: FromJSONKeyFunction VpcEndpointType
 $cfromJSONKey :: FromJSONKeyFunction VpcEndpointType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681152237"><span id="local-6989586621681152239"><span id="local-6989586621681152241"><span id="local-6989586621681152243"><span class="annot"><span class="annottext">[VpcEndpointType] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681187422"><span id="local-6989586621681187424"><span id="local-6989586621681187426"><span id="local-6989586621681187428"><span class="annot"><span class="annottext">[VpcEndpointType] -&gt; Encoding
 [VpcEndpointType] -&gt; Value
 VpcEndpointType -&gt; Encoding
 VpcEndpointType -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: VpcEndpointType -&gt; Encoding
 toJSON :: VpcEndpointType -&gt; Value
 $ctoJSON :: VpcEndpointType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681152232"><span id="local-6989586621681152234"><span class="annot"><span class="annottext">ToJSONKeyFunction [VpcEndpointType]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681187417"><span id="local-6989586621681187419"><span class="annot"><span class="annottext">ToJSONKeyFunction [VpcEndpointType]
 ToJSONKeyFunction VpcEndpointType
 ToJSONKeyFunction VpcEndpointType
 -&gt; ToJSONKeyFunction [VpcEndpointType] -&gt; ToJSONKey VpcEndpointType
@@ -246,14 +246,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [VpcEndpointType]
 toJSONKey :: ToJSONKeyFunction VpcEndpointType
 $ctoJSONKey :: ToJSONKeyFunction VpcEndpointType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681152229"><span class="annot"><span class="annottext">[Node] -&gt; Either String VpcEndpointType
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681187414"><span class="annot"><span class="annottext">[Node] -&gt; Either String VpcEndpointType
 ([Node] -&gt; Either String VpcEndpointType)
 -&gt; FromXML VpcEndpointType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String VpcEndpointType
 $cparseXML :: [Node] -&gt; Either String VpcEndpointType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621681152226"><span class="annot"><span class="annottext">VpcEndpointType -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681187411"><span class="annot"><span class="annottext">VpcEndpointType -&gt; XML
 (VpcEndpointType -&gt; XML) -&gt; ToXML VpcEndpointType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: VpcEndpointType -&gt; XML

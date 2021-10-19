@@ -34,19 +34,19 @@
 </span><span id="line-34"></span><span class="hs-comment">-- in the /Amazon Redshift Cluster Management Guide/.</span><span>
 </span><span id="line-35"></span><span class="hs-comment">--</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- /See:/ 'newSnapshotCopyGrant' smart constructor.</span><span>
-</span><span id="line-37"></span><span id="local-6989586621679499107"><span id="local-6989586621679499108"></span></span><span class="hs-keyword">data</span><span> </span><span id="SnapshotCopyGrant"><span class="annot"><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#SnapshotCopyGrant"><span class="hs-identifier hs-var">SnapshotCopyGrant</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SnapshotCopyGrant%27"><span class="annot"><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#SnapshotCopyGrant%27"><span class="hs-identifier hs-var">SnapshotCopyGrant'</span></a></span></span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the snapshot copy grant.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AsnapshotCopyGrantName%3ASnapshotCopyGrant%27"><span class="annot"><span class="annottext">SnapshotCopyGrant -&gt; Maybe Text
-</span><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#%24sel%3AsnapshotCopyGrantName%3ASnapshotCopyGrant%27"><span class="hs-identifier hs-var hs-var">snapshotCopyGrantName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The unique identifier of the customer master key (CMK) in Amazon Web</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- Services KMS to which Amazon Redshift is granted permission.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AkmsKeyId%3ASnapshotCopyGrant%27"><span class="annot"><span class="annottext">SnapshotCopyGrant -&gt; Maybe Text
+</span><span id="line-37"></span><span id="local-6989586621679499768"><span id="local-6989586621679499769"></span></span><span class="hs-keyword">data</span><span> </span><span id="SnapshotCopyGrant"><span class="annot"><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#SnapshotCopyGrant"><span class="hs-identifier hs-var">SnapshotCopyGrant</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SnapshotCopyGrant%27"><span class="annot"><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#SnapshotCopyGrant%27"><span class="hs-identifier hs-var">SnapshotCopyGrant'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier of the customer master key (CMK) in Amazon Web</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- Services KMS to which Amazon Redshift is granted permission.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AkmsKeyId%3ASnapshotCopyGrant%27"><span class="annot"><span class="annottext">SnapshotCopyGrant -&gt; Maybe Text
 </span><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#%24sel%3AkmsKeyId%3ASnapshotCopyGrant%27"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The name of the snapshot copy grant.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AsnapshotCopyGrantName%3ASnapshotCopyGrant%27"><span class="annot"><span class="annottext">SnapshotCopyGrant -&gt; Maybe Text
+</span><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#%24sel%3AsnapshotCopyGrantName%3ASnapshotCopyGrant%27"><span class="hs-identifier hs-var hs-var">snapshotCopyGrantName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | A list of tag instances.</span><span>
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3Atags%3ASnapshotCopyGrant%27"><span class="annot"><span class="annottext">SnapshotCopyGrant -&gt; Maybe [Tag]
 </span><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#%24sel%3Atags%3ASnapshotCopyGrant%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Redshift.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679499099"><span id="local-6989586621679499101"><span class="annot"><span class="annottext">SnapshotCopyGrant -&gt; SnapshotCopyGrant -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679499760"><span id="local-6989586621679499762"><span class="annot"><span class="annottext">SnapshotCopyGrant -&gt; SnapshotCopyGrant -&gt; Bool
 (SnapshotCopyGrant -&gt; SnapshotCopyGrant -&gt; Bool)
 -&gt; (SnapshotCopyGrant -&gt; SnapshotCopyGrant -&gt; Bool)
 -&gt; Eq SnapshotCopyGrant
@@ -55,7 +55,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SnapshotCopyGrant -&gt; SnapshotCopyGrant -&gt; Bool
 == :: SnapshotCopyGrant -&gt; SnapshotCopyGrant -&gt; Bool
 $c== :: SnapshotCopyGrant -&gt; SnapshotCopyGrant -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679499090"><span id="local-6989586621679499092"><span id="local-6989586621679499094"><span id="local-6989586621679499096"><span class="annot"><span class="annottext">ReadPrec [SnapshotCopyGrant]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679499751"><span id="local-6989586621679499753"><span id="local-6989586621679499755"><span id="local-6989586621679499757"><span class="annot"><span class="annottext">ReadPrec [SnapshotCopyGrant]
 ReadPrec SnapshotCopyGrant
 Int -&gt; ReadS SnapshotCopyGrant
 ReadS [SnapshotCopyGrant]
@@ -75,7 +75,7 @@ readList :: ReadS [SnapshotCopyGrant]
 $creadList :: ReadS [SnapshotCopyGrant]
 readsPrec :: Int -&gt; ReadS SnapshotCopyGrant
 $creadsPrec :: Int -&gt; ReadS SnapshotCopyGrant
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679499083"><span id="local-6989586621679499085"><span id="local-6989586621679499087"><span class="annot"><span class="annottext">Int -&gt; SnapshotCopyGrant -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679499744"><span id="local-6989586621679499746"><span id="local-6989586621679499748"><span class="annot"><span class="annottext">Int -&gt; SnapshotCopyGrant -&gt; ShowS
 [SnapshotCopyGrant] -&gt; ShowS
 SnapshotCopyGrant -&gt; String
 (Int -&gt; SnapshotCopyGrant -&gt; ShowS)
@@ -109,10 +109,10 @@ $cfrom :: forall x. SnapshotCopyGrant -&gt; Rep SnapshotCopyGrant x
 </span><span id="line-53"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'snapshotCopyGrantName', 'snapshotCopyGrant_snapshotCopyGrantName' - The name of the snapshot copy grant.</span><span>
-</span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'kmsKeyId', 'snapshotCopyGrant_kmsKeyId' - The unique identifier of the customer master key (CMK) in Amazon Web</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- Services KMS to which Amazon Redshift is granted permission.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'kmsKeyId', 'snapshotCopyGrant_kmsKeyId' - The unique identifier of the customer master key (CMK) in Amazon Web</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Services KMS to which Amazon Redshift is granted permission.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'snapshotCopyGrantName', 'snapshotCopyGrant_snapshotCopyGrantName' - The name of the snapshot copy grant.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- 'tags', 'snapshotCopyGrant_tags' - A list of tag instances.</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#newSnapshotCopyGrant"><span class="hs-identifier hs-type">newSnapshotCopyGrant</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -121,81 +121,80 @@ $cfrom :: forall x. SnapshotCopyGrant -&gt; Rep SnapshotCopyGrant x
 </span><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#newSnapshotCopyGrant"><span class="hs-identifier hs-var hs-var">newSnapshotCopyGrant</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-65"></span><span>  </span><span class="annot"><span class="annottext">SnapshotCopyGrant' :: Maybe Text -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; SnapshotCopyGrant
 </span><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#SnapshotCopyGrant%27"><span class="hs-identifier hs-type">SnapshotCopyGrant'</span></a></span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:snapshotCopyGrantName:SnapshotCopyGrant' :: Maybe Text
-</span><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#%24sel%3AsnapshotCopyGrantName%3ASnapshotCopyGrant%27"><span class="hs-identifier hs-var">snapshotCopyGrantName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-67"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:kmsKeyId:SnapshotCopyGrant' :: Maybe Text
+</span><span id="line-66"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:kmsKeyId:SnapshotCopyGrant' :: Maybe Text
 </span><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#%24sel%3AkmsKeyId%3ASnapshotCopyGrant%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:SnapshotCopyGrant' :: Maybe [Tag]
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:snapshotCopyGrantName:SnapshotCopyGrant' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#%24sel%3AsnapshotCopyGrantName%3ASnapshotCopyGrant%27"><span class="hs-identifier hs-var">snapshotCopyGrantName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:SnapshotCopyGrant' :: Maybe [Tag]
 </span><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#%24sel%3Atags%3ASnapshotCopyGrant%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- | The name of the snapshot copy grant.</span><span>
-</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#snapshotCopyGrant_snapshotCopyGrantName"><span class="hs-identifier hs-type">snapshotCopyGrant_snapshotCopyGrantName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#SnapshotCopyGrant"><span class="hs-identifier hs-type">SnapshotCopyGrant</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span id="snapshotCopyGrant_snapshotCopyGrantName"><span class="annot"><span class="annottext">snapshotCopyGrant_snapshotCopyGrantName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; SnapshotCopyGrant -&gt; f SnapshotCopyGrant
-</span><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#snapshotCopyGrant_snapshotCopyGrantName"><span class="hs-identifier hs-var hs-var">snapshotCopyGrant_snapshotCopyGrantName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SnapshotCopyGrant -&gt; Maybe Text)
--&gt; (SnapshotCopyGrant -&gt; Maybe Text -&gt; SnapshotCopyGrant)
--&gt; Lens
-     SnapshotCopyGrant SnapshotCopyGrant (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#SnapshotCopyGrant%27"><span class="hs-identifier hs-type">SnapshotCopyGrant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679499074"><span class="annot"><span class="annottext">Maybe Text
-snapshotCopyGrantName :: Maybe Text
-$sel:snapshotCopyGrantName:SnapshotCopyGrant' :: SnapshotCopyGrant -&gt; Maybe Text
-</span><a href="#local-6989586621679499074"><span class="hs-identifier hs-var hs-var">snapshotCopyGrantName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679499074"><span class="hs-identifier hs-var">snapshotCopyGrantName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679499073"><span class="annot"><span class="annottext">s :: SnapshotCopyGrant
-</span><a href="#local-6989586621679499073"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#SnapshotCopyGrant%27"><span class="hs-identifier hs-type">SnapshotCopyGrant'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679499072"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679499072"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SnapshotCopyGrant
-</span><a href="#local-6989586621679499073"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshotCopyGrantName:SnapshotCopyGrant' :: Maybe Text
-</span><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#%24sel%3AsnapshotCopyGrantName%3ASnapshotCopyGrant%27"><span class="hs-identifier hs-var">snapshotCopyGrantName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679499072"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#SnapshotCopyGrant"><span class="hs-identifier hs-type">SnapshotCopyGrant</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- | The unique identifier of the customer master key (CMK) in Amazon Web</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- Services KMS to which Amazon Redshift is granted permission.</span><span>
-</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#snapshotCopyGrant_kmsKeyId"><span class="hs-identifier hs-type">snapshotCopyGrant_kmsKeyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#SnapshotCopyGrant"><span class="hs-identifier hs-type">SnapshotCopyGrant</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-79"></span><span id="snapshotCopyGrant_kmsKeyId"><span class="annot"><span class="annottext">snapshotCopyGrant_kmsKeyId :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-69"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The unique identifier of the customer master key (CMK) in Amazon Web</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Services KMS to which Amazon Redshift is granted permission.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#snapshotCopyGrant_kmsKeyId"><span class="hs-identifier hs-type">snapshotCopyGrant_kmsKeyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#SnapshotCopyGrant"><span class="hs-identifier hs-type">SnapshotCopyGrant</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="snapshotCopyGrant_kmsKeyId"><span class="annot"><span class="annottext">snapshotCopyGrant_kmsKeyId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; SnapshotCopyGrant -&gt; f SnapshotCopyGrant
 </span><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#snapshotCopyGrant_kmsKeyId"><span class="hs-identifier hs-var hs-var">snapshotCopyGrant_kmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SnapshotCopyGrant -&gt; Maybe Text)
 -&gt; (SnapshotCopyGrant -&gt; Maybe Text -&gt; SnapshotCopyGrant)
 -&gt; Lens
      SnapshotCopyGrant SnapshotCopyGrant (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#SnapshotCopyGrant%27"><span class="hs-identifier hs-type">SnapshotCopyGrant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679499070"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#SnapshotCopyGrant%27"><span class="hs-identifier hs-type">SnapshotCopyGrant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679499735"><span class="annot"><span class="annottext">Maybe Text
 kmsKeyId :: Maybe Text
 $sel:kmsKeyId:SnapshotCopyGrant' :: SnapshotCopyGrant -&gt; Maybe Text
-</span><a href="#local-6989586621679499070"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679499070"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679499069"><span class="annot"><span class="annottext">s :: SnapshotCopyGrant
-</span><a href="#local-6989586621679499069"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#SnapshotCopyGrant%27"><span class="hs-identifier hs-type">SnapshotCopyGrant'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679499068"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679499068"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SnapshotCopyGrant
-</span><a href="#local-6989586621679499069"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyId:SnapshotCopyGrant' :: Maybe Text
+</span><a href="#local-6989586621679499735"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679499735"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679499734"><span class="annot"><span class="annottext">s :: SnapshotCopyGrant
+</span><a href="#local-6989586621679499734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#SnapshotCopyGrant%27"><span class="hs-identifier hs-type">SnapshotCopyGrant'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679499733"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679499733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SnapshotCopyGrant
+</span><a href="#local-6989586621679499734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyId:SnapshotCopyGrant' :: Maybe Text
 </span><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#%24sel%3AkmsKeyId%3ASnapshotCopyGrant%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679499068"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#SnapshotCopyGrant"><span class="hs-identifier hs-type">SnapshotCopyGrant</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- | A list of tag instances.</span><span>
-</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#snapshotCopyGrant_tags"><span class="hs-identifier hs-type">snapshotCopyGrant_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#SnapshotCopyGrant"><span class="hs-identifier hs-type">SnapshotCopyGrant</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Redshift.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span id="snapshotCopyGrant_tags"><span class="annot"><span class="annottext">snapshotCopyGrant_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621679499733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#SnapshotCopyGrant"><span class="hs-identifier hs-type">SnapshotCopyGrant</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The name of the snapshot copy grant.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#snapshotCopyGrant_snapshotCopyGrantName"><span class="hs-identifier hs-type">snapshotCopyGrant_snapshotCopyGrantName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#SnapshotCopyGrant"><span class="hs-identifier hs-type">SnapshotCopyGrant</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="snapshotCopyGrant_snapshotCopyGrantName"><span class="annot"><span class="annottext">snapshotCopyGrant_snapshotCopyGrantName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SnapshotCopyGrant -&gt; f SnapshotCopyGrant
+</span><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#snapshotCopyGrant_snapshotCopyGrantName"><span class="hs-identifier hs-var hs-var">snapshotCopyGrant_snapshotCopyGrantName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SnapshotCopyGrant -&gt; Maybe Text)
+-&gt; (SnapshotCopyGrant -&gt; Maybe Text -&gt; SnapshotCopyGrant)
+-&gt; Lens
+     SnapshotCopyGrant SnapshotCopyGrant (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#SnapshotCopyGrant%27"><span class="hs-identifier hs-type">SnapshotCopyGrant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679499731"><span class="annot"><span class="annottext">Maybe Text
+snapshotCopyGrantName :: Maybe Text
+$sel:snapshotCopyGrantName:SnapshotCopyGrant' :: SnapshotCopyGrant -&gt; Maybe Text
+</span><a href="#local-6989586621679499731"><span class="hs-identifier hs-var hs-var">snapshotCopyGrantName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679499731"><span class="hs-identifier hs-var">snapshotCopyGrantName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679499730"><span class="annot"><span class="annottext">s :: SnapshotCopyGrant
+</span><a href="#local-6989586621679499730"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#SnapshotCopyGrant%27"><span class="hs-identifier hs-type">SnapshotCopyGrant'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679499729"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679499729"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SnapshotCopyGrant
+</span><a href="#local-6989586621679499730"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshotCopyGrantName:SnapshotCopyGrant' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#%24sel%3AsnapshotCopyGrantName%3ASnapshotCopyGrant%27"><span class="hs-identifier hs-var">snapshotCopyGrantName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679499729"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#SnapshotCopyGrant"><span class="hs-identifier hs-type">SnapshotCopyGrant</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | A list of tag instances.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#snapshotCopyGrant_tags"><span class="hs-identifier hs-type">snapshotCopyGrant_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#SnapshotCopyGrant"><span class="hs-identifier hs-type">SnapshotCopyGrant</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Redshift.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="snapshotCopyGrant_tags"><span class="annot"><span class="annottext">snapshotCopyGrant_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
 -&gt; SnapshotCopyGrant -&gt; f SnapshotCopyGrant
 </span><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#snapshotCopyGrant_tags"><span class="hs-identifier hs-var hs-var">snapshotCopyGrant_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SnapshotCopyGrant -&gt; Maybe [Tag])
 -&gt; (SnapshotCopyGrant -&gt; Maybe [Tag] -&gt; SnapshotCopyGrant)
 -&gt; Lens
      SnapshotCopyGrant SnapshotCopyGrant (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#SnapshotCopyGrant%27"><span class="hs-identifier hs-type">SnapshotCopyGrant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679499066"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#SnapshotCopyGrant%27"><span class="hs-identifier hs-type">SnapshotCopyGrant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679499727"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:SnapshotCopyGrant' :: SnapshotCopyGrant -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679499066"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679499066"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679499065"><span class="annot"><span class="annottext">s :: SnapshotCopyGrant
-</span><a href="#local-6989586621679499065"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#SnapshotCopyGrant%27"><span class="hs-identifier hs-type">SnapshotCopyGrant'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679499064"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679499064"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SnapshotCopyGrant
-</span><a href="#local-6989586621679499065"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:SnapshotCopyGrant' :: Maybe [Tag]
+</span><a href="#local-6989586621679499727"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679499727"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679499726"><span class="annot"><span class="annottext">s :: SnapshotCopyGrant
+</span><a href="#local-6989586621679499726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#SnapshotCopyGrant%27"><span class="hs-identifier hs-type">SnapshotCopyGrant'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679499725"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679499725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SnapshotCopyGrant
+</span><a href="#local-6989586621679499726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:SnapshotCopyGrant' :: Maybe [Tag]
 </span><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#%24sel%3Atags%3ASnapshotCopyGrant%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679499064"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#SnapshotCopyGrant"><span class="hs-identifier hs-type">SnapshotCopyGrant</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621679499725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#SnapshotCopyGrant"><span class="hs-identifier hs-type">SnapshotCopyGrant</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; SnapshotCopyGrant -&gt; f SnapshotCopyGrant)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -209,38 +208,38 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#SnapshotCopyGrant"><span class="hs-identifier hs-type">SnapshotCopyGrant</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679499058"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String SnapshotCopyGrant
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679499056"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679499056"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; SnapshotCopyGrant
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#SnapshotCopyGrant"><span class="hs-identifier hs-type">SnapshotCopyGrant</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679499719"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String SnapshotCopyGrant
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679499717"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679499717"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; SnapshotCopyGrant
 </span><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#SnapshotCopyGrant%27"><span class="hs-identifier hs-var">SnapshotCopyGrant'</span></a></span><span>
-</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; SnapshotCopyGrant)
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; SnapshotCopyGrant)
 -&gt; Either String (Maybe Text)
 -&gt; Either String (Maybe Text -&gt; Maybe [Tag] -&gt; SnapshotCopyGrant)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679499056"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679499717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SnapshotCopyGrantName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe [Tag] -&gt; SnapshotCopyGrant)
+</span><span class="hs-string">&quot;KmsKeyId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe [Tag] -&gt; SnapshotCopyGrant)
 -&gt; Either String (Maybe Text)
 -&gt; Either String (Maybe [Tag] -&gt; SnapshotCopyGrant)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679499056"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679499717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;KmsKeyId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [Tag] -&gt; SnapshotCopyGrant)
+</span><span class="hs-string">&quot;SnapshotCopyGrantName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [Tag] -&gt; SnapshotCopyGrant)
 -&gt; Either String (Maybe [Tag]) -&gt; Either String SnapshotCopyGrant
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679499056"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679499717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -248,7 +247,7 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-91"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-90"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [Tag]))
 -&gt; Either String (Maybe [Tag])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -261,9 +260,9 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tag&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679499047"><span id="local-6989586621679499049"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#SnapshotCopyGrant"><span class="hs-identifier hs-type">SnapshotCopyGrant</span></a></span></span></span><span>
-</span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679499044"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#SnapshotCopyGrant"><span class="hs-identifier hs-type">SnapshotCopyGrant</span></a></span></span><span>
-</span><span id="line-97"></span></pre></body></html>
+</span><span id="line-91"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679499708"><span id="local-6989586621679499710"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#SnapshotCopyGrant"><span class="hs-identifier hs-type">SnapshotCopyGrant</span></a></span></span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679499705"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#SnapshotCopyGrant"><span class="hs-identifier hs-type">SnapshotCopyGrant</span></a></span></span><span>
+</span><span id="line-96"></span></pre></body></html>

@@ -28,8 +28,8 @@
 </span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#newCreateApiKey"><span class="hs-identifier">newCreateApiKey</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-29"></span><span>
 </span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#createApiKey_description"><span class="hs-identifier">createApiKey_description</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#createApiKey_expires"><span class="hs-identifier">createApiKey_expires</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#createApiKey_expires"><span class="hs-identifier">createApiKey_expires</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#createApiKey_description"><span class="hs-identifier">createApiKey_description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#createApiKey_apiId"><span class="hs-identifier">createApiKey_apiId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>
 </span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -50,21 +50,21 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newCreateApiKey' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679260512"><span id="local-6989586621679260513"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateApiKey"><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKey"><span class="hs-identifier hs-var">CreateApiKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateApiKey%27"><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKey%27"><span class="hs-identifier hs-var">CreateApiKey'</span></a></span></span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A description of the purpose of the API key.</span><span>
-</span><span id="line-55"></span><span>    </span><span id="%24sel%3Adescription%3ACreateApiKey%27"><span class="annot"><span class="annottext">CreateApiKey -&gt; Maybe Text
-</span><a href="Network.AWS.AppSync.CreateApiKey.html#%24sel%3Adescription%3ACreateApiKey%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The time from creation time after which the API key expires. The date is</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- represented as seconds since the epoch, rounded down to the nearest</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- hour. The default value for this parameter is 7 days from creation time.</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- For more information, see .</span><span>
-</span><span id="line-60"></span><span>    </span><span id="%24sel%3Aexpires%3ACreateApiKey%27"><span class="annot"><span class="annottext">CreateApiKey -&gt; Maybe Integer
+</span><span id="line-53"></span><span id="local-6989586621679260601"><span id="local-6989586621679260602"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateApiKey"><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKey"><span class="hs-identifier hs-var">CreateApiKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateApiKey%27"><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKey%27"><span class="hs-identifier hs-var">CreateApiKey'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time from creation time after which the API key expires. The date is</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- represented as seconds since the epoch, rounded down to the nearest</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- hour. The default value for this parameter is 7 days from creation time.</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- For more information, see .</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Aexpires%3ACreateApiKey%27"><span class="annot"><span class="annottext">CreateApiKey -&gt; Maybe Integer
 </span><a href="Network.AWS.AppSync.CreateApiKey.html#%24sel%3Aexpires%3ACreateApiKey%27"><span class="hs-identifier hs-var hs-var">expires</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | A description of the purpose of the API key.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3Adescription%3ACreateApiKey%27"><span class="annot"><span class="annottext">CreateApiKey -&gt; Maybe Text
+</span><a href="Network.AWS.AppSync.CreateApiKey.html#%24sel%3Adescription%3ACreateApiKey%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The ID for your GraphQL API.</span><span>
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AapiId%3ACreateApiKey%27"><span class="annot"><span class="annottext">CreateApiKey -&gt; Text
 </span><a href="Network.AWS.AppSync.CreateApiKey.html#%24sel%3AapiId%3ACreateApiKey%27"><span class="hs-identifier hs-var hs-var">apiId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679260504"><span id="local-6989586621679260506"><span class="annot"><span class="annottext">CreateApiKey -&gt; CreateApiKey -&gt; Bool
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679260593"><span id="local-6989586621679260595"><span class="annot"><span class="annottext">CreateApiKey -&gt; CreateApiKey -&gt; Bool
 (CreateApiKey -&gt; CreateApiKey -&gt; Bool)
 -&gt; (CreateApiKey -&gt; CreateApiKey -&gt; Bool) -&gt; Eq CreateApiKey
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -72,7 +72,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateApiKey -&gt; CreateApiKey -&gt; Bool
 == :: CreateApiKey -&gt; CreateApiKey -&gt; Bool
 $c== :: CreateApiKey -&gt; CreateApiKey -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260495"><span id="local-6989586621679260497"><span id="local-6989586621679260499"><span id="local-6989586621679260501"><span class="annot"><span class="annottext">ReadPrec [CreateApiKey]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260584"><span id="local-6989586621679260586"><span id="local-6989586621679260588"><span id="local-6989586621679260590"><span class="annot"><span class="annottext">ReadPrec [CreateApiKey]
 ReadPrec CreateApiKey
 Int -&gt; ReadS CreateApiKey
 ReadS [CreateApiKey]
@@ -92,7 +92,7 @@ readList :: ReadS [CreateApiKey]
 $creadList :: ReadS [CreateApiKey]
 readsPrec :: Int -&gt; ReadS CreateApiKey
 $creadsPrec :: Int -&gt; ReadS CreateApiKey
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260488"><span id="local-6989586621679260490"><span id="local-6989586621679260492"><span class="annot"><span class="annottext">Int -&gt; CreateApiKey -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260577"><span id="local-6989586621679260579"><span id="local-6989586621679260581"><span class="annot"><span class="annottext">Int -&gt; CreateApiKey -&gt; ShowS
 [CreateApiKey] -&gt; ShowS
 CreateApiKey -&gt; String
 (Int -&gt; CreateApiKey -&gt; ShowS)
@@ -126,12 +126,12 @@ $cfrom :: forall x. CreateApiKey -&gt; Rep CreateApiKey x
 </span><span id="line-71"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-73"></span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- 'description', 'createApiKey_description' - A description of the purpose of the API key.</span><span>
-</span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 'expires', 'createApiKey_expires' - The time from creation time after which the API key expires. The date is</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- represented as seconds since the epoch, rounded down to the nearest</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- hour. The default value for this parameter is 7 days from creation time.</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- For more information, see .</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'expires', 'createApiKey_expires' - The time from creation time after which the API key expires. The date is</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- represented as seconds since the epoch, rounded down to the nearest</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- hour. The default value for this parameter is 7 days from creation time.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- For more information, see .</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'description', 'createApiKey_description' - A description of the purpose of the API key.</span><span>
 </span><span id="line-80"></span><span class="hs-comment">--</span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- 'apiId', 'createApiKey_apiId' - The ID for your GraphQL API.</span><span>
 </span><span id="line-82"></span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#newCreateApiKey"><span class="hs-identifier hs-type">newCreateApiKey</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -139,62 +139,62 @@ $cfrom :: forall x. CreateApiKey -&gt; Rep CreateApiKey x
 </span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKey"><span class="hs-identifier hs-type">CreateApiKey</span></a></span><span>
 </span><span id="line-86"></span><span id="newCreateApiKey"><span class="annot"><span class="annottext">newCreateApiKey :: Text -&gt; CreateApiKey
-</span><a href="Network.AWS.AppSync.CreateApiKey.html#newCreateApiKey"><span class="hs-identifier hs-var hs-var">newCreateApiKey</span></a></span></span><span> </span><span id="local-6989586621679260483"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679260483"><span class="hs-identifier hs-var">pApiId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">CreateApiKey' :: Maybe Text -&gt; Maybe Integer -&gt; Text -&gt; CreateApiKey
+</span><a href="Network.AWS.AppSync.CreateApiKey.html#newCreateApiKey"><span class="hs-identifier hs-var hs-var">newCreateApiKey</span></a></span></span><span> </span><span id="local-6989586621679260572"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679260572"><span class="hs-identifier hs-var">pApiId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">CreateApiKey' :: Maybe Integer -&gt; Maybe Text -&gt; Text -&gt; CreateApiKey
 </span><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKey%27"><span class="hs-identifier hs-type">CreateApiKey'</span></a></span><span>
-</span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:description:CreateApiKey' :: Maybe Text
-</span><a href="Network.AWS.AppSync.CreateApiKey.html#%24sel%3Adescription%3ACreateApiKey%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:expires:CreateApiKey' :: Maybe Integer
+</span><a href="Network.AWS.AppSync.CreateApiKey.html#%24sel%3Aexpires%3ACreateApiKey%27"><span class="hs-identifier hs-var">expires</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:expires:CreateApiKey' :: Maybe Integer
-</span><a href="Network.AWS.AppSync.CreateApiKey.html#%24sel%3Aexpires%3ACreateApiKey%27"><span class="hs-identifier hs-var">expires</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:CreateApiKey' :: Maybe Text
+</span><a href="Network.AWS.AppSync.CreateApiKey.html#%24sel%3Adescription%3ACreateApiKey%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:apiId:CreateApiKey' :: Text
 </span><a href="Network.AWS.AppSync.CreateApiKey.html#%24sel%3AapiId%3ACreateApiKey%27"><span class="hs-identifier hs-var">apiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679260483"><span class="hs-identifier hs-var">pApiId_</span></a></span><span>
+</span><a href="#local-6989586621679260572"><span class="hs-identifier hs-var">pApiId_</span></a></span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- | A description of the purpose of the API key.</span><span>
-</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#createApiKey_description"><span class="hs-identifier hs-type">createApiKey_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKey"><span class="hs-identifier hs-type">CreateApiKey</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span id="createApiKey_description"><span class="annot"><span class="annottext">createApiKey_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateApiKey -&gt; f CreateApiKey
-</span><a href="Network.AWS.AppSync.CreateApiKey.html#createApiKey_description"><span class="hs-identifier hs-var hs-var">createApiKey_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateApiKey -&gt; Maybe Text)
--&gt; (CreateApiKey -&gt; Maybe Text -&gt; CreateApiKey)
--&gt; Lens CreateApiKey CreateApiKey (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKey%27"><span class="hs-identifier hs-type">CreateApiKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260480"><span class="annot"><span class="annottext">Maybe Text
-description :: Maybe Text
-$sel:description:CreateApiKey' :: CreateApiKey -&gt; Maybe Text
-</span><a href="#local-6989586621679260480"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679260480"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260479"><span class="annot"><span class="annottext">s :: CreateApiKey
-</span><a href="#local-6989586621679260479"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKey%27"><span class="hs-identifier hs-type">CreateApiKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260478"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679260478"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApiKey
-</span><a href="#local-6989586621679260479"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateApiKey' :: Maybe Text
-</span><a href="Network.AWS.AppSync.CreateApiKey.html#%24sel%3Adescription%3ACreateApiKey%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679260478"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKey"><span class="hs-identifier hs-type">CreateApiKey</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- | The time from creation time after which the API key expires. The date is</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- represented as seconds since the epoch, rounded down to the nearest</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- hour. The default value for this parameter is 7 days from creation time.</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- For more information, see .</span><span>
-</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#createApiKey_expires"><span class="hs-identifier hs-type">createApiKey_expires</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKey"><span class="hs-identifier hs-type">CreateApiKey</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span id="createApiKey_expires"><span class="annot"><span class="annottext">createApiKey_expires :: (Maybe Integer -&gt; f (Maybe Integer))
+</span><span id="line-93"></span><span class="hs-comment">-- | The time from creation time after which the API key expires. The date is</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- represented as seconds since the epoch, rounded down to the nearest</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- hour. The default value for this parameter is 7 days from creation time.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- For more information, see .</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#createApiKey_expires"><span class="hs-identifier hs-type">createApiKey_expires</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKey"><span class="hs-identifier hs-type">CreateApiKey</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="createApiKey_expires"><span class="annot"><span class="annottext">createApiKey_expires :: (Maybe Integer -&gt; f (Maybe Integer))
 -&gt; CreateApiKey -&gt; f CreateApiKey
 </span><a href="Network.AWS.AppSync.CreateApiKey.html#createApiKey_expires"><span class="hs-identifier hs-var hs-var">createApiKey_expires</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateApiKey -&gt; Maybe Integer)
 -&gt; (CreateApiKey -&gt; Maybe Integer -&gt; CreateApiKey)
 -&gt; Lens CreateApiKey CreateApiKey (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKey%27"><span class="hs-identifier hs-type">CreateApiKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260477"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKey%27"><span class="hs-identifier hs-type">CreateApiKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260569"><span class="annot"><span class="annottext">Maybe Integer
 expires :: Maybe Integer
 $sel:expires:CreateApiKey' :: CreateApiKey -&gt; Maybe Integer
-</span><a href="#local-6989586621679260477"><span class="hs-identifier hs-var hs-var">expires</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679260477"><span class="hs-identifier hs-var">expires</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260476"><span class="annot"><span class="annottext">s :: CreateApiKey
-</span><a href="#local-6989586621679260476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKey%27"><span class="hs-identifier hs-type">CreateApiKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260475"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679260475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApiKey
-</span><a href="#local-6989586621679260476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expires:CreateApiKey' :: Maybe Integer
+</span><a href="#local-6989586621679260569"><span class="hs-identifier hs-var hs-var">expires</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679260569"><span class="hs-identifier hs-var">expires</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260568"><span class="annot"><span class="annottext">s :: CreateApiKey
+</span><a href="#local-6989586621679260568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKey%27"><span class="hs-identifier hs-type">CreateApiKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260567"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679260567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApiKey
+</span><a href="#local-6989586621679260568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expires:CreateApiKey' :: Maybe Integer
 </span><a href="Network.AWS.AppSync.CreateApiKey.html#%24sel%3Aexpires%3ACreateApiKey%27"><span class="hs-identifier hs-var">expires</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679260475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKey"><span class="hs-identifier hs-type">CreateApiKey</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679260567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKey"><span class="hs-identifier hs-type">CreateApiKey</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | A description of the purpose of the API key.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#createApiKey_description"><span class="hs-identifier hs-type">createApiKey_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKey"><span class="hs-identifier hs-type">CreateApiKey</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="createApiKey_description"><span class="annot"><span class="annottext">createApiKey_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateApiKey -&gt; f CreateApiKey
+</span><a href="Network.AWS.AppSync.CreateApiKey.html#createApiKey_description"><span class="hs-identifier hs-var hs-var">createApiKey_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateApiKey -&gt; Maybe Text)
+-&gt; (CreateApiKey -&gt; Maybe Text -&gt; CreateApiKey)
+-&gt; Lens CreateApiKey CreateApiKey (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKey%27"><span class="hs-identifier hs-type">CreateApiKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260566"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:CreateApiKey' :: CreateApiKey -&gt; Maybe Text
+</span><a href="#local-6989586621679260566"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260566"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260565"><span class="annot"><span class="annottext">s :: CreateApiKey
+</span><a href="#local-6989586621679260565"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKey%27"><span class="hs-identifier hs-type">CreateApiKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260564"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260564"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApiKey
+</span><a href="#local-6989586621679260565"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateApiKey' :: Maybe Text
+</span><a href="Network.AWS.AppSync.CreateApiKey.html#%24sel%3Adescription%3ACreateApiKey%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260564"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKey"><span class="hs-identifier hs-type">CreateApiKey</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | The ID for your GraphQL API.</span><span>
 </span><span id="line-105"></span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#createApiKey_apiId"><span class="hs-identifier hs-type">createApiKey_apiId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKey"><span class="hs-identifier hs-type">CreateApiKey</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -203,25 +203,25 @@ $sel:expires:CreateApiKey' :: CreateApiKey -&gt; Maybe Integer
 -&gt; (CreateApiKey -&gt; Text -&gt; CreateApiKey)
 -&gt; Lens CreateApiKey CreateApiKey Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKey%27"><span class="hs-identifier hs-type">CreateApiKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260474"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKey%27"><span class="hs-identifier hs-type">CreateApiKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260563"><span class="annot"><span class="annottext">Text
 apiId :: Text
 $sel:apiId:CreateApiKey' :: CreateApiKey -&gt; Text
-</span><a href="#local-6989586621679260474"><span class="hs-identifier hs-var hs-var">apiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679260474"><span class="hs-identifier hs-var">apiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260473"><span class="annot"><span class="annottext">s :: CreateApiKey
-</span><a href="#local-6989586621679260473"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKey%27"><span class="hs-identifier hs-type">CreateApiKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260472"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679260472"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApiKey
-</span><a href="#local-6989586621679260473"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiId:CreateApiKey' :: Text
+</span><a href="#local-6989586621679260563"><span class="hs-identifier hs-var hs-var">apiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679260563"><span class="hs-identifier hs-var">apiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260562"><span class="annot"><span class="annottext">s :: CreateApiKey
+</span><a href="#local-6989586621679260562"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKey%27"><span class="hs-identifier hs-type">CreateApiKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260561"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679260561"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApiKey
+</span><a href="#local-6989586621679260562"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiId:CreateApiKey' :: Text
 </span><a href="Network.AWS.AppSync.CreateApiKey.html#%24sel%3AapiId%3ACreateApiKey%27"><span class="hs-identifier hs-var">apiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679260472"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKey"><span class="hs-identifier hs-type">CreateApiKey</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679260561"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKey"><span class="hs-identifier hs-type">CreateApiKey</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKey"><span class="hs-identifier hs-type">CreateApiKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-109"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKey"><span class="hs-identifier hs-type">CreateApiKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKeyResponse"><span class="hs-identifier hs-type">CreateApiKeyResponse</span></a></span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679260468"><span class="annot"><span class="annottext">request :: CreateApiKey -&gt; Request CreateApiKey
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679260557"><span class="annot"><span class="annottext">request :: CreateApiKey -&gt; Request CreateApiKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateApiKey -&gt; Request CreateApiKey
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AppSync.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679260464"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679260553"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateApiKey
 -&gt; ClientResponse ClientBody
@@ -245,10 +245,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679260461"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679260461"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679260460"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679260460"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679260459"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679260459"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679260550"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679260550"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679260549"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679260549"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679260548"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679260548"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">Maybe ApiKey -&gt; Int -&gt; CreateApiKeyResponse
 </span><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKeyResponse%27"><span class="hs-identifier hs-var">CreateApiKeyResponse'</span></a></span><span>
 </span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ApiKey -&gt; Int -&gt; CreateApiKeyResponse)
@@ -256,7 +256,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; CreateApiKeyResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679260459"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ApiKey)
+</span><a href="#local-6989586621679260548"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ApiKey)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;apiKey&quot;</span></span><span class="hs-special">)</span><span>
@@ -268,15 +268,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679260461"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679260550"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260451"><span id="local-6989586621679260453"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKey"><span class="hs-identifier hs-type">CreateApiKey</span></a></span></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260540"><span id="local-6989586621679260542"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKey"><span class="hs-identifier hs-type">CreateApiKey</span></a></span></span></span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260448"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKey"><span class="hs-identifier hs-type">CreateApiKey</span></a></span></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260537"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKey"><span class="hs-identifier hs-type">CreateApiKey</span></a></span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKey"><span class="hs-identifier hs-type">CreateApiKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679260444"><span class="annot"><span class="annottext">toHeaders :: CreateApiKey -&gt; ResponseHeaders
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679260533"><span class="annot"><span class="annottext">toHeaders :: CreateApiKey -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateApiKey -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -295,52 +295,52 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-131"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260434"><span id="local-6989586621679260436"><span id="local-6989586621679260438"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKey"><span class="hs-identifier hs-type">CreateApiKey</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679260432"><span class="annot"><span class="annottext">toJSON :: CreateApiKey -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKey%27"><span class="hs-identifier hs-type">CreateApiKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260428"><span id="local-6989586621679260429"><span id="local-6989586621679260430"><span class="annot"><span class="annottext">Maybe Integer
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260523"><span id="local-6989586621679260525"><span id="local-6989586621679260527"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKey"><span class="hs-identifier hs-type">CreateApiKey</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679260521"><span class="annot"><span class="annottext">toJSON :: CreateApiKey -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKey%27"><span class="hs-identifier hs-type">CreateApiKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260517"><span id="local-6989586621679260518"><span id="local-6989586621679260519"><span class="annot"><span class="annottext">Maybe Integer
 Maybe Text
 Text
 apiId :: Text
-expires :: Maybe Integer
 description :: Maybe Text
+expires :: Maybe Integer
 $sel:apiId:CreateApiKey' :: CreateApiKey -&gt; Text
-$sel:expires:CreateApiKey' :: CreateApiKey -&gt; Maybe Integer
 $sel:description:CreateApiKey' :: CreateApiKey -&gt; Maybe Text
-</span><a href="#local-6989586621679260428"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:expires:CreateApiKey' :: CreateApiKey -&gt; Maybe Integer
+</span><a href="#local-6989586621679260517"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-138"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679260430"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-139"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;expires&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Integer -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Integer -&gt; Pair) -&gt; Maybe Integer -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679260429"><span class="hs-identifier hs-var">expires</span></a></span><span>
+</span><a href="#local-6989586621679260519"><span class="hs-identifier hs-var">expires</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260518"><span class="hs-identifier hs-var">description</span></a></span><span>
 </span><span id="line-140"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKey"><span class="hs-identifier hs-type">CreateApiKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679260422"><span class="annot"><span class="annottext">toPath :: CreateApiKey -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKey%27"><span class="hs-identifier hs-type">CreateApiKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260418"><span id="local-6989586621679260419"><span id="local-6989586621679260420"><span class="annot"><span class="annottext">Maybe Integer
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679260511"><span class="annot"><span class="annottext">toPath :: CreateApiKey -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKey%27"><span class="hs-identifier hs-type">CreateApiKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260507"><span id="local-6989586621679260508"><span id="local-6989586621679260509"><span class="annot"><span class="annottext">Maybe Integer
 Maybe Text
 Text
 apiId :: Text
-expires :: Maybe Integer
 description :: Maybe Text
+expires :: Maybe Integer
 $sel:apiId:CreateApiKey' :: CreateApiKey -&gt; Text
-$sel:expires:CreateApiKey' :: CreateApiKey -&gt; Maybe Integer
 $sel:description:CreateApiKey' :: CreateApiKey -&gt; Maybe Text
-</span><a href="#local-6989586621679260418"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:expires:CreateApiKey' :: CreateApiKey -&gt; Maybe Integer
+</span><a href="#local-6989586621679260507"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -348,11 +348,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/v1/apis/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679260418"><span class="hs-identifier hs-var">apiId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679260507"><span class="hs-identifier hs-var">apiId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/apikeys&quot;</span></span><span class="hs-special">]</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKey"><span class="hs-identifier hs-type">CreateApiKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679260414"><span class="annot"><span class="annottext">toQuery :: CreateApiKey -&gt; QueryString
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679260503"><span class="annot"><span class="annottext">toQuery :: CreateApiKey -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateApiKey -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -360,7 +360,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- | /See:/ 'newCreateApiKeyResponse' smart constructor.</span><span>
-</span><span id="line-152"></span><span id="local-6989586621679260411"><span id="local-6989586621679260412"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateApiKeyResponse"><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKeyResponse"><span class="hs-identifier hs-var">CreateApiKeyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateApiKeyResponse%27"><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKeyResponse%27"><span class="hs-identifier hs-var">CreateApiKeyResponse'</span></a></span></span><span>
+</span><span id="line-152"></span><span id="local-6989586621679260500"><span id="local-6989586621679260501"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateApiKeyResponse"><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKeyResponse"><span class="hs-identifier hs-var">CreateApiKeyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateApiKeyResponse%27"><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKeyResponse%27"><span class="hs-identifier hs-var">CreateApiKeyResponse'</span></a></span></span><span>
 </span><span id="line-153"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The API key.</span><span>
 </span><span id="line-154"></span><span>    </span><span id="%24sel%3AapiKey%3ACreateApiKeyResponse%27"><span class="annot"><span class="annottext">CreateApiKeyResponse -&gt; Maybe ApiKey
 </span><a href="Network.AWS.AppSync.CreateApiKey.html#%24sel%3AapiKey%3ACreateApiKeyResponse%27"><span class="hs-identifier hs-var hs-var">apiKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiKey.html#ApiKey"><span class="hs-identifier hs-type">ApiKey</span></a></span><span class="hs-special">,</span><span>
@@ -368,7 +368,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-156"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateApiKeyResponse%27"><span class="annot"><span class="annottext">CreateApiKeyResponse -&gt; Int
 </span><a href="Network.AWS.AppSync.CreateApiKey.html#%24sel%3AhttpStatus%3ACreateApiKeyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-157"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-158"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679260405"><span id="local-6989586621679260407"><span class="annot"><span class="annottext">CreateApiKeyResponse -&gt; CreateApiKeyResponse -&gt; Bool
+</span><span id="line-158"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679260494"><span id="local-6989586621679260496"><span class="annot"><span class="annottext">CreateApiKeyResponse -&gt; CreateApiKeyResponse -&gt; Bool
 (CreateApiKeyResponse -&gt; CreateApiKeyResponse -&gt; Bool)
 -&gt; (CreateApiKeyResponse -&gt; CreateApiKeyResponse -&gt; Bool)
 -&gt; Eq CreateApiKeyResponse
@@ -377,7 +377,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateApiKeyResponse -&gt; CreateApiKeyResponse -&gt; Bool
 == :: CreateApiKeyResponse -&gt; CreateApiKeyResponse -&gt; Bool
 $c== :: CreateApiKeyResponse -&gt; CreateApiKeyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260397"><span id="local-6989586621679260399"><span id="local-6989586621679260401"><span id="local-6989586621679260403"><span class="annot"><span class="annottext">ReadPrec [CreateApiKeyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260486"><span id="local-6989586621679260488"><span id="local-6989586621679260490"><span id="local-6989586621679260492"><span class="annot"><span class="annottext">ReadPrec [CreateApiKeyResponse]
 ReadPrec CreateApiKeyResponse
 Int -&gt; ReadS CreateApiKeyResponse
 ReadS [CreateApiKeyResponse]
@@ -397,7 +397,7 @@ readList :: ReadS [CreateApiKeyResponse]
 $creadList :: ReadS [CreateApiKeyResponse]
 readsPrec :: Int -&gt; ReadS CreateApiKeyResponse
 $creadsPrec :: Int -&gt; ReadS CreateApiKeyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260391"><span id="local-6989586621679260393"><span id="local-6989586621679260395"><span class="annot"><span class="annottext">Int -&gt; CreateApiKeyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260480"><span id="local-6989586621679260482"><span id="local-6989586621679260484"><span class="annot"><span class="annottext">Int -&gt; CreateApiKeyResponse -&gt; ShowS
 [CreateApiKeyResponse] -&gt; ShowS
 CreateApiKeyResponse -&gt; String
 (Int -&gt; CreateApiKeyResponse -&gt; ShowS)
@@ -439,8 +439,8 @@ $cfrom :: forall x. CreateApiKeyResponse -&gt; Rep CreateApiKeyResponse x
 </span><span id="line-173"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-174"></span><span>  </span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKeyResponse"><span class="hs-identifier hs-type">CreateApiKeyResponse</span></a></span><span>
 </span><span id="line-175"></span><span id="newCreateApiKeyResponse"><span class="annot"><span class="annottext">newCreateApiKeyResponse :: Int -&gt; CreateApiKeyResponse
-</span><a href="Network.AWS.AppSync.CreateApiKey.html#newCreateApiKeyResponse"><span class="hs-identifier hs-var hs-var">newCreateApiKeyResponse</span></a></span></span><span> </span><span id="local-6989586621679260388"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679260388"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AppSync.CreateApiKey.html#newCreateApiKeyResponse"><span class="hs-identifier hs-var hs-var">newCreateApiKeyResponse</span></a></span></span><span> </span><span id="local-6989586621679260477"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679260477"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-176"></span><span>  </span><span class="annot"><span class="annottext">CreateApiKeyResponse' :: Maybe ApiKey -&gt; Int -&gt; CreateApiKeyResponse
 </span><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKeyResponse%27"><span class="hs-identifier hs-type">CreateApiKeyResponse'</span></a></span><span>
 </span><span id="line-177"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:apiKey:CreateApiKeyResponse' :: Maybe ApiKey
@@ -449,7 +449,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateApiKeyResponse' :: Int
 </span><a href="Network.AWS.AppSync.CreateApiKey.html#%24sel%3AhttpStatus%3ACreateApiKeyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679260388"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679260477"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-179"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- | The API key.</span><span>
@@ -464,16 +464,16 @@ forall a. Maybe a
      (Maybe ApiKey)
      (Maybe ApiKey)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKeyResponse%27"><span class="hs-identifier hs-type">CreateApiKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260387"><span class="annot"><span class="annottext">Maybe ApiKey
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKeyResponse%27"><span class="hs-identifier hs-type">CreateApiKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260476"><span class="annot"><span class="annottext">Maybe ApiKey
 apiKey :: Maybe ApiKey
 $sel:apiKey:CreateApiKeyResponse' :: CreateApiKeyResponse -&gt; Maybe ApiKey
-</span><a href="#local-6989586621679260387"><span class="hs-identifier hs-var hs-var">apiKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ApiKey
-</span><a href="#local-6989586621679260387"><span class="hs-identifier hs-var">apiKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260386"><span class="annot"><span class="annottext">s :: CreateApiKeyResponse
-</span><a href="#local-6989586621679260386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKeyResponse%27"><span class="hs-identifier hs-type">CreateApiKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260385"><span class="annot"><span class="annottext">Maybe ApiKey
-</span><a href="#local-6989586621679260385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApiKeyResponse
-</span><a href="#local-6989586621679260386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiKey:CreateApiKeyResponse' :: Maybe ApiKey
+</span><a href="#local-6989586621679260476"><span class="hs-identifier hs-var hs-var">apiKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ApiKey
+</span><a href="#local-6989586621679260476"><span class="hs-identifier hs-var">apiKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260475"><span class="annot"><span class="annottext">s :: CreateApiKeyResponse
+</span><a href="#local-6989586621679260475"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKeyResponse%27"><span class="hs-identifier hs-type">CreateApiKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260474"><span class="annot"><span class="annottext">Maybe ApiKey
+</span><a href="#local-6989586621679260474"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApiKeyResponse
+</span><a href="#local-6989586621679260475"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiKey:CreateApiKeyResponse' :: Maybe ApiKey
 </span><a href="Network.AWS.AppSync.CreateApiKey.html#%24sel%3AapiKey%3ACreateApiKeyResponse%27"><span class="hs-identifier hs-var">apiKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApiKey
-</span><a href="#local-6989586621679260385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKeyResponse"><span class="hs-identifier hs-type">CreateApiKeyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679260474"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKeyResponse"><span class="hs-identifier hs-type">CreateApiKeyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-186"></span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#createApiKeyResponse_httpStatus"><span class="hs-identifier hs-type">createApiKeyResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKeyResponse"><span class="hs-identifier hs-type">CreateApiKeyResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -482,16 +482,16 @@ $sel:apiKey:CreateApiKeyResponse' :: CreateApiKeyResponse -&gt; Maybe ApiKey
 -&gt; (CreateApiKeyResponse -&gt; Int -&gt; CreateApiKeyResponse)
 -&gt; Lens CreateApiKeyResponse CreateApiKeyResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKeyResponse%27"><span class="hs-identifier hs-type">CreateApiKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260384"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKeyResponse%27"><span class="hs-identifier hs-type">CreateApiKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260473"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateApiKeyResponse' :: CreateApiKeyResponse -&gt; Int
-</span><a href="#local-6989586621679260384"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679260384"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260383"><span class="annot"><span class="annottext">s :: CreateApiKeyResponse
-</span><a href="#local-6989586621679260383"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKeyResponse%27"><span class="hs-identifier hs-type">CreateApiKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260382"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679260382"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApiKeyResponse
-</span><a href="#local-6989586621679260383"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateApiKeyResponse' :: Int
+</span><a href="#local-6989586621679260473"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679260473"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260472"><span class="annot"><span class="annottext">s :: CreateApiKeyResponse
+</span><a href="#local-6989586621679260472"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKeyResponse%27"><span class="hs-identifier hs-type">CreateApiKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260471"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679260471"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApiKeyResponse
+</span><a href="#local-6989586621679260472"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateApiKeyResponse' :: Int
 </span><a href="Network.AWS.AppSync.CreateApiKey.html#%24sel%3AhttpStatus%3ACreateApiKeyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679260382"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKeyResponse"><span class="hs-identifier hs-type">CreateApiKeyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679260471"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKeyResponse"><span class="hs-identifier hs-type">CreateApiKeyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>
-</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260380"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKeyResponse"><span class="hs-identifier hs-type">CreateApiKeyResponse</span></a></span></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260469"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.CreateApiKey.html#CreateApiKeyResponse"><span class="hs-identifier hs-type">CreateApiKeyResponse</span></a></span></span><span>
 </span><span id="line-190"></span></pre></body></html>

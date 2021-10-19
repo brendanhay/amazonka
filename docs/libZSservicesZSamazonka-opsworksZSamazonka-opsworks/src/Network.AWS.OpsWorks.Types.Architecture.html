@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679371730"><span id="local-6989586621679371731"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Architecture"><span class="annot"><a href="Network.AWS.OpsWorks.Types.Architecture.html#Architecture"><span class="hs-identifier hs-var">Architecture</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Architecture%27"><span class="annot"><a href="Network.AWS.OpsWorks.Types.Architecture.html#Architecture%27"><span class="hs-identifier hs-var">Architecture'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679372121"><span id="local-6989586621679372122"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Architecture"><span class="annot"><a href="Network.AWS.OpsWorks.Types.Architecture.html#Architecture"><span class="hs-identifier hs-var">Architecture</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Architecture%27"><span class="annot"><a href="Network.AWS.OpsWorks.Types.Architecture.html#Architecture%27"><span class="hs-identifier hs-var">Architecture'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromArchitecture"><span class="annot"><span class="annottext">Architecture -&gt; Text
 </span><a href="Network.AWS.OpsWorks.Types.Architecture.html#fromArchitecture"><span class="hs-identifier hs-var hs-var">fromArchitecture</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679371722"><span id="local-6989586621679371724"><span id="local-6989586621679371726"><span class="annot"><span class="annottext">Int -&gt; Architecture -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679372113"><span id="local-6989586621679372115"><span id="local-6989586621679372117"><span class="annot"><span class="annottext">Int -&gt; Architecture -&gt; ShowS
 [Architecture] -&gt; ShowS
 Architecture -&gt; String
 (Int -&gt; Architecture -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: Architecture -&gt; String
 showsPrec :: Int -&gt; Architecture -&gt; ShowS
 $cshowsPrec :: Int -&gt; Architecture -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679371713"><span id="local-6989586621679371715"><span id="local-6989586621679371717"><span id="local-6989586621679371719"><span class="annot"><span class="annottext">ReadPrec [Architecture]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679372104"><span id="local-6989586621679372106"><span id="local-6989586621679372108"><span id="local-6989586621679372110"><span class="annot"><span class="annottext">ReadPrec [Architecture]
 ReadPrec Architecture
 Int -&gt; ReadS Architecture
 ReadS [Architecture]
@@ -72,7 +72,7 @@ $creadList :: ReadS [Architecture]
 readsPrec :: Int -&gt; ReadS Architecture
 $creadsPrec :: Int -&gt; ReadS Architecture
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679371708"><span id="local-6989586621679371710"><span class="annot"><span class="annottext">Architecture -&gt; Architecture -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679372099"><span id="local-6989586621679372101"><span class="annot"><span class="annottext">Architecture -&gt; Architecture -&gt; Bool
 (Architecture -&gt; Architecture -&gt; Bool)
 -&gt; (Architecture -&gt; Architecture -&gt; Bool) -&gt; Eq Architecture
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: Architecture -&gt; Architecture -&gt; Bool
 == :: Architecture -&gt; Architecture -&gt; Bool
 $c== :: Architecture -&gt; Architecture -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679371692"><span id="local-6989586621679371694"><span id="local-6989586621679371696"><span id="local-6989586621679371698"><span id="local-6989586621679371700"><span id="local-6989586621679371702"><span id="local-6989586621679371704"><span class="annot"><span class="annottext">Eq Architecture
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679372083"><span id="local-6989586621679372085"><span id="local-6989586621679372087"><span id="local-6989586621679372089"><span id="local-6989586621679372091"><span id="local-6989586621679372093"><span id="local-6989586621679372095"><span class="annot"><span class="annottext">Eq Architecture
 Eq Architecture
 -&gt; (Architecture -&gt; Architecture -&gt; Ordering)
 -&gt; (Architecture -&gt; Architecture -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. Architecture -&gt; Rep Architecture x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679371684"><span id="local-6989586621679371686"><span class="annot"><span class="annottext">Int -&gt; Architecture -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679372075"><span id="local-6989586621679372077"><span class="annot"><span class="annottext">Int -&gt; Architecture -&gt; Int
 Architecture -&gt; Int
 (Int -&gt; Architecture -&gt; Int)
 -&gt; (Architecture -&gt; Int) -&gt; Hashable Architecture
@@ -142,49 +142,49 @@ $chash :: Architecture -&gt; Int
 hashWithSalt :: Int -&gt; Architecture -&gt; Int
 $chashWithSalt :: Int -&gt; Architecture -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679371681"><span class="annot"><span class="annottext">Architecture -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679372072"><span class="annot"><span class="annottext">Architecture -&gt; ()
 (Architecture -&gt; ()) -&gt; NFData Architecture
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Architecture -&gt; ()
 $crnf :: Architecture -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679371678"><span class="annot"><span class="annottext">Text -&gt; Either String Architecture
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679372069"><span class="annot"><span class="annottext">Text -&gt; Either String Architecture
 (Text -&gt; Either String Architecture) -&gt; FromText Architecture
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Architecture
 $cfromText :: Text -&gt; Either String Architecture
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679371675"><span class="annot"><span class="annottext">Architecture -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679372066"><span class="annot"><span class="annottext">Architecture -&gt; Text
 (Architecture -&gt; Text) -&gt; ToText Architecture
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Architecture -&gt; Text
 $ctoText :: Architecture -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679371672"><span class="annot"><span class="annottext">Architecture -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679372063"><span class="annot"><span class="annottext">Architecture -&gt; ByteString
 (Architecture -&gt; ByteString) -&gt; ToByteString Architecture
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Architecture -&gt; ByteString
 $ctoBS :: Architecture -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679371669"><span class="annot"><span class="annottext">Architecture -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679372060"><span class="annot"><span class="annottext">Architecture -&gt; ByteStringBuilder
 (Architecture -&gt; ByteStringBuilder) -&gt; ToLog Architecture
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Architecture -&gt; ByteStringBuilder
 $cbuild :: Architecture -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679371666"><span class="annot"><span class="annottext">HeaderName -&gt; Architecture -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679372057"><span class="annot"><span class="annottext">HeaderName -&gt; Architecture -&gt; [Header]
 (HeaderName -&gt; Architecture -&gt; [Header]) -&gt; ToHeader Architecture
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Architecture -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Architecture -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679371663"><span class="annot"><span class="annottext">Architecture -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679372054"><span class="annot"><span class="annottext">Architecture -&gt; QueryString
 (Architecture -&gt; QueryString) -&gt; ToQuery Architecture
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Architecture -&gt; QueryString
 $ctoQuery :: Architecture -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679371658"><span id="local-6989586621679371660"><span class="annot"><span class="annottext">Value -&gt; Parser [Architecture]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679372049"><span id="local-6989586621679372051"><span class="annot"><span class="annottext">Value -&gt; Parser [Architecture]
 Value -&gt; Parser Architecture
 (Value -&gt; Parser Architecture)
 -&gt; (Value -&gt; Parser [Architecture]) -&gt; FromJSON Architecture
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [Architecture]
 parseJSON :: Value -&gt; Parser Architecture
 $cparseJSON :: Value -&gt; Parser Architecture
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679371653"><span id="local-6989586621679371655"><span class="annot"><span class="annottext">FromJSONKeyFunction [Architecture]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679372044"><span id="local-6989586621679372046"><span class="annot"><span class="annottext">FromJSONKeyFunction [Architecture]
 FromJSONKeyFunction Architecture
 FromJSONKeyFunction Architecture
 -&gt; FromJSONKeyFunction [Architecture] -&gt; FromJSONKey Architecture
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Architecture]
 fromJSONKey :: FromJSONKeyFunction Architecture
 $cfromJSONKey :: FromJSONKeyFunction Architecture
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679371644"><span id="local-6989586621679371646"><span id="local-6989586621679371648"><span id="local-6989586621679371650"><span class="annot"><span class="annottext">[Architecture] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679372035"><span id="local-6989586621679372037"><span id="local-6989586621679372039"><span id="local-6989586621679372041"><span class="annot"><span class="annottext">[Architecture] -&gt; Encoding
 [Architecture] -&gt; Value
 Architecture -&gt; Encoding
 Architecture -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: Architecture -&gt; Encoding
 toJSON :: Architecture -&gt; Value
 $ctoJSON :: Architecture -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679371639"><span id="local-6989586621679371641"><span class="annot"><span class="annottext">ToJSONKeyFunction [Architecture]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679372030"><span id="local-6989586621679372032"><span class="annot"><span class="annottext">ToJSONKeyFunction [Architecture]
 ToJSONKeyFunction Architecture
 ToJSONKeyFunction Architecture
 -&gt; ToJSONKeyFunction [Architecture] -&gt; ToJSONKey Architecture
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Architecture]
 toJSONKey :: ToJSONKeyFunction Architecture
 $ctoJSONKey :: ToJSONKeyFunction Architecture
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679371636"><span class="annot"><span class="annottext">[Node] -&gt; Either String Architecture
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679372027"><span class="annot"><span class="annottext">[Node] -&gt; Either String Architecture
 ([Node] -&gt; Either String Architecture) -&gt; FromXML Architecture
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Architecture
 $cparseXML :: [Node] -&gt; Either String Architecture
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679371633"><span class="annot"><span class="annottext">Architecture -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679372024"><span class="annot"><span class="annottext">Architecture -&gt; XML
 (Architecture -&gt; XML) -&gt; ToXML Architecture
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Architecture -&gt; XML

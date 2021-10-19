@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- global database.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newFailoverState' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679760598"><span id="local-6989586621679760599"></span></span><span class="hs-keyword">data</span><span> </span><span id="FailoverState"><span class="annot"><a href="Network.AWS.RDS.Types.FailoverState.html#FailoverState"><span class="hs-identifier hs-var">FailoverState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FailoverState%27"><span class="annot"><a href="Network.AWS.RDS.Types.FailoverState.html#FailoverState%27"><span class="hs-identifier hs-var">FailoverState'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679761645"><span id="local-6989586621679761646"></span></span><span class="hs-keyword">data</span><span> </span><span id="FailoverState"><span class="annot"><a href="Network.AWS.RDS.Types.FailoverState.html#FailoverState"><span class="hs-identifier hs-var">FailoverState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FailoverState%27"><span class="annot"><a href="Network.AWS.RDS.Types.FailoverState.html#FailoverState%27"><span class="hs-identifier hs-var">FailoverState'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current status of the Aurora global database (GlobalCluster).</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- Possible values are as follows:</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -59,7 +59,7 @@
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AfromDbClusterArn%3AFailoverState%27"><span class="annot"><span class="annottext">FailoverState -&gt; Maybe Text
 </span><a href="Network.AWS.RDS.Types.FailoverState.html#%24sel%3AfromDbClusterArn%3AFailoverState%27"><span class="hs-identifier hs-var hs-var">fromDbClusterArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679760590"><span id="local-6989586621679760592"><span class="annot"><span class="annottext">FailoverState -&gt; FailoverState -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679761637"><span id="local-6989586621679761639"><span class="annot"><span class="annottext">FailoverState -&gt; FailoverState -&gt; Bool
 (FailoverState -&gt; FailoverState -&gt; Bool)
 -&gt; (FailoverState -&gt; FailoverState -&gt; Bool) -&gt; Eq FailoverState
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: FailoverState -&gt; FailoverState -&gt; Bool
 == :: FailoverState -&gt; FailoverState -&gt; Bool
 $c== :: FailoverState -&gt; FailoverState -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679760581"><span id="local-6989586621679760583"><span id="local-6989586621679760585"><span id="local-6989586621679760587"><span class="annot"><span class="annottext">ReadPrec [FailoverState]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679761628"><span id="local-6989586621679761630"><span id="local-6989586621679761632"><span id="local-6989586621679761634"><span class="annot"><span class="annottext">ReadPrec [FailoverState]
 ReadPrec FailoverState
 Int -&gt; ReadS FailoverState
 ReadS [FailoverState]
@@ -87,7 +87,7 @@ readList :: ReadS [FailoverState]
 $creadList :: ReadS [FailoverState]
 readsPrec :: Int -&gt; ReadS FailoverState
 $creadsPrec :: Int -&gt; ReadS FailoverState
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679760574"><span id="local-6989586621679760576"><span id="local-6989586621679760578"><span class="annot"><span class="annottext">Int -&gt; FailoverState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679761621"><span id="local-6989586621679761623"><span id="local-6989586621679761625"><span class="annot"><span class="annottext">Int -&gt; FailoverState -&gt; ShowS
 [FailoverState] -&gt; ShowS
 FailoverState -&gt; String
 (Int -&gt; FailoverState -&gt; ShowS)
@@ -192,16 +192,16 @@ forall a. Maybe a
      (Maybe FailoverStatus)
      (Maybe FailoverStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.FailoverState.html#FailoverState%27"><span class="hs-identifier hs-type">FailoverState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679760565"><span class="annot"><span class="annottext">Maybe FailoverStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.FailoverState.html#FailoverState%27"><span class="hs-identifier hs-type">FailoverState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679761612"><span class="annot"><span class="annottext">Maybe FailoverStatus
 status :: Maybe FailoverStatus
 $sel:status:FailoverState' :: FailoverState -&gt; Maybe FailoverStatus
-</span><a href="#local-6989586621679760565"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FailoverStatus
-</span><a href="#local-6989586621679760565"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679760564"><span class="annot"><span class="annottext">s :: FailoverState
-</span><a href="#local-6989586621679760564"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.FailoverState.html#FailoverState%27"><span class="hs-identifier hs-type">FailoverState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679760563"><span class="annot"><span class="annottext">Maybe FailoverStatus
-</span><a href="#local-6989586621679760563"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailoverState
-</span><a href="#local-6989586621679760564"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:FailoverState' :: Maybe FailoverStatus
+</span><a href="#local-6989586621679761612"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FailoverStatus
+</span><a href="#local-6989586621679761612"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679761611"><span class="annot"><span class="annottext">s :: FailoverState
+</span><a href="#local-6989586621679761611"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.FailoverState.html#FailoverState%27"><span class="hs-identifier hs-type">FailoverState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679761610"><span class="annot"><span class="annottext">Maybe FailoverStatus
+</span><a href="#local-6989586621679761610"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailoverState
+</span><a href="#local-6989586621679761611"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:FailoverState' :: Maybe FailoverStatus
 </span><a href="Network.AWS.RDS.Types.FailoverState.html#%24sel%3Astatus%3AFailoverState%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FailoverStatus
-</span><a href="#local-6989586621679760563"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.FailoverState.html#FailoverState"><span class="hs-identifier hs-type">FailoverState</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679761610"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.FailoverState.html#FailoverState"><span class="hs-identifier hs-type">FailoverState</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Aurora DB cluster that is</span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- currently being promoted, and which is associated with this state.</span><span>
@@ -211,16 +211,16 @@ $sel:status:FailoverState' :: FailoverState -&gt; Maybe FailoverStatus
 -&gt; (FailoverState -&gt; Maybe Text -&gt; FailoverState)
 -&gt; Lens FailoverState FailoverState (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.FailoverState.html#FailoverState%27"><span class="hs-identifier hs-type">FailoverState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679760561"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.FailoverState.html#FailoverState%27"><span class="hs-identifier hs-type">FailoverState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679761608"><span class="annot"><span class="annottext">Maybe Text
 toDbClusterArn :: Maybe Text
 $sel:toDbClusterArn:FailoverState' :: FailoverState -&gt; Maybe Text
-</span><a href="#local-6989586621679760561"><span class="hs-identifier hs-var hs-var">toDbClusterArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679760561"><span class="hs-identifier hs-var">toDbClusterArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679760560"><span class="annot"><span class="annottext">s :: FailoverState
-</span><a href="#local-6989586621679760560"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.FailoverState.html#FailoverState%27"><span class="hs-identifier hs-type">FailoverState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679760559"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679760559"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailoverState
-</span><a href="#local-6989586621679760560"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:toDbClusterArn:FailoverState' :: Maybe Text
+</span><a href="#local-6989586621679761608"><span class="hs-identifier hs-var hs-var">toDbClusterArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679761608"><span class="hs-identifier hs-var">toDbClusterArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679761607"><span class="annot"><span class="annottext">s :: FailoverState
+</span><a href="#local-6989586621679761607"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.FailoverState.html#FailoverState%27"><span class="hs-identifier hs-type">FailoverState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679761606"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679761606"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailoverState
+</span><a href="#local-6989586621679761607"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:toDbClusterArn:FailoverState' :: Maybe Text
 </span><a href="Network.AWS.RDS.Types.FailoverState.html#%24sel%3AtoDbClusterArn%3AFailoverState%27"><span class="hs-identifier hs-var">toDbClusterArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679760559"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.FailoverState.html#FailoverState"><span class="hs-identifier hs-type">FailoverState</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679761606"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.FailoverState.html#FailoverState"><span class="hs-identifier hs-type">FailoverState</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Aurora DB cluster that is</span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- currently being demoted, and which is associated with this state.</span><span>
@@ -230,21 +230,21 @@ $sel:toDbClusterArn:FailoverState' :: FailoverState -&gt; Maybe Text
 -&gt; (FailoverState -&gt; Maybe Text -&gt; FailoverState)
 -&gt; Lens FailoverState FailoverState (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.FailoverState.html#FailoverState%27"><span class="hs-identifier hs-type">FailoverState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679760557"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.FailoverState.html#FailoverState%27"><span class="hs-identifier hs-type">FailoverState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679761604"><span class="annot"><span class="annottext">Maybe Text
 fromDbClusterArn :: Maybe Text
 $sel:fromDbClusterArn:FailoverState' :: FailoverState -&gt; Maybe Text
-</span><a href="#local-6989586621679760557"><span class="hs-identifier hs-var hs-var">fromDbClusterArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679760557"><span class="hs-identifier hs-var">fromDbClusterArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679760556"><span class="annot"><span class="annottext">s :: FailoverState
-</span><a href="#local-6989586621679760556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.FailoverState.html#FailoverState%27"><span class="hs-identifier hs-type">FailoverState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679760555"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679760555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailoverState
-</span><a href="#local-6989586621679760556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fromDbClusterArn:FailoverState' :: Maybe Text
+</span><a href="#local-6989586621679761604"><span class="hs-identifier hs-var hs-var">fromDbClusterArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679761604"><span class="hs-identifier hs-var">fromDbClusterArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679761603"><span class="annot"><span class="annottext">s :: FailoverState
+</span><a href="#local-6989586621679761603"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.FailoverState.html#FailoverState%27"><span class="hs-identifier hs-type">FailoverState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679761602"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679761602"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailoverState
+</span><a href="#local-6989586621679761603"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fromDbClusterArn:FailoverState' :: Maybe Text
 </span><a href="Network.AWS.RDS.Types.FailoverState.html#%24sel%3AfromDbClusterArn%3AFailoverState%27"><span class="hs-identifier hs-var">fromDbClusterArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679760555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.FailoverState.html#FailoverState"><span class="hs-identifier hs-type">FailoverState</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679761602"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.FailoverState.html#FailoverState"><span class="hs-identifier hs-type">FailoverState</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.FailoverState.html#FailoverState"><span class="hs-identifier hs-type">FailoverState</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679760552"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String FailoverState
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679760550"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679760550"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679761599"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String FailoverState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679761597"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679761597"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">Maybe FailoverStatus -&gt; Maybe Text -&gt; Maybe Text -&gt; FailoverState
 </span><a href="Network.AWS.RDS.Types.FailoverState.html#FailoverState%27"><span class="hs-identifier hs-var">FailoverState'</span></a></span><span>
 </span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">(Maybe FailoverStatus -&gt; Maybe Text -&gt; Maybe Text -&gt; FailoverState)
@@ -252,7 +252,7 @@ $sel:fromDbClusterArn:FailoverState' :: FailoverState -&gt; Maybe Text
 -&gt; Either String (Maybe Text -&gt; Maybe Text -&gt; FailoverState)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679760550"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe FailoverStatus)
+</span><a href="#local-6989586621679761597"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe FailoverStatus)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
@@ -261,7 +261,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text -&gt; FailoverState)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679760550"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679761597"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ToDbClusterArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -269,12 +269,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text) -&gt; Either String FailoverState
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679760550"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679761597"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FromDbClusterArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679760544"><span id="local-6989586621679760546"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.FailoverState.html#FailoverState"><span class="hs-identifier hs-type">FailoverState</span></a></span></span></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679761591"><span id="local-6989586621679761593"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.FailoverState.html#FailoverState"><span class="hs-identifier hs-type">FailoverState</span></a></span></span></span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679760541"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.FailoverState.html#FailoverState"><span class="hs-identifier hs-type">FailoverState</span></a></span></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679761588"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.FailoverState.html#FailoverState"><span class="hs-identifier hs-type">FailoverState</span></a></span></span><span>
 </span><span id="line-141"></span></pre></body></html>

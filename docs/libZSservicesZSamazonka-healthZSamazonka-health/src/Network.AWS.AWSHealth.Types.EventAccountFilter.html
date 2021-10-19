@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- operations.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newEventAccountFilter' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679186159"><span id="local-6989586621679186160"></span></span><span class="hs-keyword">data</span><span> </span><span id="EventAccountFilter"><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventAccountFilter.html#EventAccountFilter"><span class="hs-identifier hs-var">EventAccountFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EventAccountFilter%27"><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventAccountFilter.html#EventAccountFilter%27"><span class="hs-identifier hs-var">EventAccountFilter'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679186372"><span id="local-6989586621679186373"></span></span><span class="hs-keyword">data</span><span> </span><span id="EventAccountFilter"><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventAccountFilter.html#EventAccountFilter"><span class="hs-identifier hs-var">EventAccountFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EventAccountFilter%27"><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventAccountFilter.html#EventAccountFilter%27"><span class="hs-identifier hs-var">EventAccountFilter'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The 12-digit AWS account numbers that contains the affected entities.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AawsAccountId%3AEventAccountFilter%27"><span class="annot"><span class="annottext">EventAccountFilter -&gt; Maybe Text
 </span><a href="Network.AWS.AWSHealth.Types.EventAccountFilter.html#%24sel%3AawsAccountId%3AEventAccountFilter%27"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -44,7 +44,7 @@
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3AeventArn%3AEventAccountFilter%27"><span class="annot"><span class="annottext">EventAccountFilter -&gt; Text
 </span><a href="Network.AWS.AWSHealth.Types.EventAccountFilter.html#%24sel%3AeventArn%3AEventAccountFilter%27"><span class="hs-identifier hs-var hs-var">eventArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679186152"><span id="local-6989586621679186154"><span class="annot"><span class="annottext">EventAccountFilter -&gt; EventAccountFilter -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679186365"><span id="local-6989586621679186367"><span class="annot"><span class="annottext">EventAccountFilter -&gt; EventAccountFilter -&gt; Bool
 (EventAccountFilter -&gt; EventAccountFilter -&gt; Bool)
 -&gt; (EventAccountFilter -&gt; EventAccountFilter -&gt; Bool)
 -&gt; Eq EventAccountFilter
@@ -53,7 +53,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EventAccountFilter -&gt; EventAccountFilter -&gt; Bool
 == :: EventAccountFilter -&gt; EventAccountFilter -&gt; Bool
 $c== :: EventAccountFilter -&gt; EventAccountFilter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679186143"><span id="local-6989586621679186145"><span id="local-6989586621679186147"><span id="local-6989586621679186149"><span class="annot"><span class="annottext">ReadPrec [EventAccountFilter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679186356"><span id="local-6989586621679186358"><span id="local-6989586621679186360"><span id="local-6989586621679186362"><span class="annot"><span class="annottext">ReadPrec [EventAccountFilter]
 ReadPrec EventAccountFilter
 Int -&gt; ReadS EventAccountFilter
 ReadS [EventAccountFilter]
@@ -73,7 +73,7 @@ readList :: ReadS [EventAccountFilter]
 $creadList :: ReadS [EventAccountFilter]
 readsPrec :: Int -&gt; ReadS EventAccountFilter
 $creadsPrec :: Int -&gt; ReadS EventAccountFilter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679186136"><span id="local-6989586621679186138"><span id="local-6989586621679186140"><span class="annot"><span class="annottext">Int -&gt; EventAccountFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679186349"><span id="local-6989586621679186351"><span id="local-6989586621679186353"><span class="annot"><span class="annottext">Int -&gt; EventAccountFilter -&gt; ShowS
 [EventAccountFilter] -&gt; ShowS
 EventAccountFilter -&gt; String
 (Int -&gt; EventAccountFilter -&gt; ShowS)
@@ -121,8 +121,8 @@ $cfrom :: forall x. EventAccountFilter -&gt; Rep EventAccountFilter x
 </span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventAccountFilter.html#EventAccountFilter"><span class="hs-identifier hs-type">EventAccountFilter</span></a></span><span>
 </span><span id="line-68"></span><span id="newEventAccountFilter"><span class="annot"><span class="annottext">newEventAccountFilter :: Text -&gt; EventAccountFilter
-</span><a href="Network.AWS.AWSHealth.Types.EventAccountFilter.html#newEventAccountFilter"><span class="hs-identifier hs-var hs-var">newEventAccountFilter</span></a></span></span><span> </span><span id="local-6989586621679186130"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679186130"><span class="hs-identifier hs-var">pEventArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AWSHealth.Types.EventAccountFilter.html#newEventAccountFilter"><span class="hs-identifier hs-var hs-var">newEventAccountFilter</span></a></span></span><span> </span><span id="local-6989586621679186343"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186343"><span class="hs-identifier hs-var">pEventArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">EventAccountFilter' :: Maybe Text -&gt; Text -&gt; EventAccountFilter
 </span><a href="Network.AWS.AWSHealth.Types.EventAccountFilter.html#EventAccountFilter%27"><span class="hs-identifier hs-type">EventAccountFilter'</span></a></span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:awsAccountId:EventAccountFilter' :: Maybe Text
@@ -131,7 +131,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:eventArn:EventAccountFilter' :: Text
 </span><a href="Network.AWS.AWSHealth.Types.EventAccountFilter.html#%24sel%3AeventArn%3AEventAccountFilter%27"><span class="hs-identifier hs-var">eventArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679186130"><span class="hs-identifier hs-var">pEventArn_</span></a></span><span>
+</span><a href="#local-6989586621679186343"><span class="hs-identifier hs-var">pEventArn_</span></a></span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | The 12-digit AWS account numbers that contains the affected entities.</span><span>
@@ -143,16 +143,16 @@ forall a. Maybe a
 -&gt; Lens
      EventAccountFilter EventAccountFilter (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventAccountFilter.html#EventAccountFilter%27"><span class="hs-identifier hs-type">EventAccountFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186126"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventAccountFilter.html#EventAccountFilter%27"><span class="hs-identifier hs-type">EventAccountFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186339"><span class="annot"><span class="annottext">Maybe Text
 awsAccountId :: Maybe Text
 $sel:awsAccountId:EventAccountFilter' :: EventAccountFilter -&gt; Maybe Text
-</span><a href="#local-6989586621679186126"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679186126"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186125"><span class="annot"><span class="annottext">s :: EventAccountFilter
-</span><a href="#local-6989586621679186125"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventAccountFilter.html#EventAccountFilter%27"><span class="hs-identifier hs-type">EventAccountFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186124"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679186124"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventAccountFilter
-</span><a href="#local-6989586621679186125"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsAccountId:EventAccountFilter' :: Maybe Text
+</span><a href="#local-6989586621679186339"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679186339"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186338"><span class="annot"><span class="annottext">s :: EventAccountFilter
+</span><a href="#local-6989586621679186338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventAccountFilter.html#EventAccountFilter%27"><span class="hs-identifier hs-type">EventAccountFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186337"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679186337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventAccountFilter
+</span><a href="#local-6989586621679186338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsAccountId:EventAccountFilter' :: Maybe Text
 </span><a href="Network.AWS.AWSHealth.Types.EventAccountFilter.html#%24sel%3AawsAccountId%3AEventAccountFilter%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679186124"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventAccountFilter.html#EventAccountFilter"><span class="hs-identifier hs-type">EventAccountFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679186337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventAccountFilter.html#EventAccountFilter"><span class="hs-identifier hs-type">EventAccountFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | The unique identifier for the event. The event ARN has the</span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @</span><span>
@@ -167,30 +167,30 @@ $sel:awsAccountId:EventAccountFilter' :: EventAccountFilter -&gt; Maybe Text
 -&gt; (EventAccountFilter -&gt; Text -&gt; EventAccountFilter)
 -&gt; Lens EventAccountFilter EventAccountFilter Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventAccountFilter.html#EventAccountFilter%27"><span class="hs-identifier hs-type">EventAccountFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186122"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventAccountFilter.html#EventAccountFilter%27"><span class="hs-identifier hs-type">EventAccountFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186335"><span class="annot"><span class="annottext">Text
 eventArn :: Text
 $sel:eventArn:EventAccountFilter' :: EventAccountFilter -&gt; Text
-</span><a href="#local-6989586621679186122"><span class="hs-identifier hs-var hs-var">eventArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679186122"><span class="hs-identifier hs-var">eventArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186121"><span class="annot"><span class="annottext">s :: EventAccountFilter
-</span><a href="#local-6989586621679186121"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventAccountFilter.html#EventAccountFilter%27"><span class="hs-identifier hs-type">EventAccountFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186120"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679186120"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventAccountFilter
-</span><a href="#local-6989586621679186121"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventArn:EventAccountFilter' :: Text
+</span><a href="#local-6989586621679186335"><span class="hs-identifier hs-var hs-var">eventArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186335"><span class="hs-identifier hs-var">eventArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186334"><span class="annot"><span class="annottext">s :: EventAccountFilter
+</span><a href="#local-6989586621679186334"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventAccountFilter.html#EventAccountFilter%27"><span class="hs-identifier hs-type">EventAccountFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186333"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186333"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventAccountFilter
+</span><a href="#local-6989586621679186334"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventArn:EventAccountFilter' :: Text
 </span><a href="Network.AWS.AWSHealth.Types.EventAccountFilter.html#%24sel%3AeventArn%3AEventAccountFilter%27"><span class="hs-identifier hs-var">eventArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679186120"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventAccountFilter.html#EventAccountFilter"><span class="hs-identifier hs-type">EventAccountFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679186333"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventAccountFilter.html#EventAccountFilter"><span class="hs-identifier hs-type">EventAccountFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679186116"><span id="local-6989586621679186118"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventAccountFilter.html#EventAccountFilter"><span class="hs-identifier hs-type">EventAccountFilter</span></a></span></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679186329"><span id="local-6989586621679186331"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventAccountFilter.html#EventAccountFilter"><span class="hs-identifier hs-type">EventAccountFilter</span></a></span></span></span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679186113"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventAccountFilter.html#EventAccountFilter"><span class="hs-identifier hs-type">EventAccountFilter</span></a></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679186326"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventAccountFilter.html#EventAccountFilter"><span class="hs-identifier hs-type">EventAccountFilter</span></a></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679186105"><span id="local-6989586621679186107"><span id="local-6989586621679186109"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventAccountFilter.html#EventAccountFilter"><span class="hs-identifier hs-type">EventAccountFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679186103"><span class="annot"><span class="annottext">toJSON :: EventAccountFilter -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventAccountFilter.html#EventAccountFilter%27"><span class="hs-identifier hs-type">EventAccountFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186100"><span id="local-6989586621679186101"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679186318"><span id="local-6989586621679186320"><span id="local-6989586621679186322"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventAccountFilter.html#EventAccountFilter"><span class="hs-identifier hs-type">EventAccountFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679186316"><span class="annot"><span class="annottext">toJSON :: EventAccountFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventAccountFilter.html#EventAccountFilter%27"><span class="hs-identifier hs-type">EventAccountFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186313"><span id="local-6989586621679186314"><span class="annot"><span class="annottext">Maybe Text
 Text
 eventArn :: Text
 awsAccountId :: Maybe Text
 $sel:eventArn:EventAccountFilter' :: EventAccountFilter -&gt; Text
 $sel:awsAccountId:EventAccountFilter' :: EventAccountFilter -&gt; Maybe Text
-</span><a href="#local-6989586621679186100"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679186313"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -202,14 +202,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679186101"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679186314"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;eventArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679186100"><span class="hs-identifier hs-var">eventArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679186313"><span class="hs-identifier hs-var">eventArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span></pre></body></html>

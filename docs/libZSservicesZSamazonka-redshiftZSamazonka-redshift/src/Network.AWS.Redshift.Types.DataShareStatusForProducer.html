@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Internal.html"><span class="hs-identifier">Network.AWS.Redshift.Internal</span></a></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span id="local-6989586621679491268"><span id="local-6989586621679491269"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DataShareStatusForProducer"><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareStatusForProducer.html#DataShareStatusForProducer"><span class="hs-identifier hs-var">DataShareStatusForProducer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DataShareStatusForProducer%27"><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareStatusForProducer.html#DataShareStatusForProducer%27"><span class="hs-identifier hs-var">DataShareStatusForProducer'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679491908"><span id="local-6989586621679491909"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DataShareStatusForProducer"><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareStatusForProducer.html#DataShareStatusForProducer"><span class="hs-identifier hs-var">DataShareStatusForProducer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DataShareStatusForProducer%27"><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareStatusForProducer.html#DataShareStatusForProducer%27"><span class="hs-identifier hs-var">DataShareStatusForProducer'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDataShareStatusForProducer"><span class="annot"><span class="annottext">DataShareStatusForProducer -&gt; Text
 </span><a href="Network.AWS.Redshift.Types.DataShareStatusForProducer.html#fromDataShareStatusForProducer"><span class="hs-identifier hs-var hs-var">fromDataShareStatusForProducer</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679491260"><span id="local-6989586621679491262"><span id="local-6989586621679491264"><span class="annot"><span class="annottext">Int -&gt; DataShareStatusForProducer -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679491900"><span id="local-6989586621679491902"><span id="local-6989586621679491904"><span class="annot"><span class="annottext">Int -&gt; DataShareStatusForProducer -&gt; ShowS
 [DataShareStatusForProducer] -&gt; ShowS
 DataShareStatusForProducer -&gt; String
 (Int -&gt; DataShareStatusForProducer -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: DataShareStatusForProducer -&gt; String
 showsPrec :: Int -&gt; DataShareStatusForProducer -&gt; ShowS
 $cshowsPrec :: Int -&gt; DataShareStatusForProducer -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679491251"><span id="local-6989586621679491253"><span id="local-6989586621679491255"><span id="local-6989586621679491257"><span class="annot"><span class="annottext">ReadPrec [DataShareStatusForProducer]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679491891"><span id="local-6989586621679491893"><span id="local-6989586621679491895"><span id="local-6989586621679491897"><span class="annot"><span class="annottext">ReadPrec [DataShareStatusForProducer]
 ReadPrec DataShareStatusForProducer
 Int -&gt; ReadS DataShareStatusForProducer
 ReadS [DataShareStatusForProducer]
@@ -76,7 +76,7 @@ $creadList :: ReadS [DataShareStatusForProducer]
 readsPrec :: Int -&gt; ReadS DataShareStatusForProducer
 $creadsPrec :: Int -&gt; ReadS DataShareStatusForProducer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679491246"><span id="local-6989586621679491248"><span class="annot"><span class="annottext">DataShareStatusForProducer -&gt; DataShareStatusForProducer -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679491886"><span id="local-6989586621679491888"><span class="annot"><span class="annottext">DataShareStatusForProducer -&gt; DataShareStatusForProducer -&gt; Bool
 (DataShareStatusForProducer -&gt; DataShareStatusForProducer -&gt; Bool)
 -&gt; (DataShareStatusForProducer
     -&gt; DataShareStatusForProducer -&gt; Bool)
@@ -87,7 +87,7 @@ $c/= :: DataShareStatusForProducer -&gt; DataShareStatusForProducer -&gt; Bool
 == :: DataShareStatusForProducer -&gt; DataShareStatusForProducer -&gt; Bool
 $c== :: DataShareStatusForProducer -&gt; DataShareStatusForProducer -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679491230"><span id="local-6989586621679491232"><span id="local-6989586621679491234"><span id="local-6989586621679491236"><span id="local-6989586621679491238"><span id="local-6989586621679491240"><span id="local-6989586621679491242"><span class="annot"><span class="annottext">Eq DataShareStatusForProducer
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679491870"><span id="local-6989586621679491872"><span id="local-6989586621679491874"><span id="local-6989586621679491876"><span id="local-6989586621679491878"><span id="local-6989586621679491880"><span id="local-6989586621679491882"><span class="annot"><span class="annottext">Eq DataShareStatusForProducer
 Eq DataShareStatusForProducer
 -&gt; (DataShareStatusForProducer
     -&gt; DataShareStatusForProducer -&gt; Ordering)
@@ -159,7 +159,7 @@ DataShareStatusForProducer -&gt; Rep DataShareStatusForProducer x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679491222"><span id="local-6989586621679491224"><span class="annot"><span class="annottext">Int -&gt; DataShareStatusForProducer -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679491862"><span id="local-6989586621679491864"><span class="annot"><span class="annottext">Int -&gt; DataShareStatusForProducer -&gt; Int
 DataShareStatusForProducer -&gt; Int
 (Int -&gt; DataShareStatusForProducer -&gt; Int)
 -&gt; (DataShareStatusForProducer -&gt; Int)
@@ -170,56 +170,56 @@ $chash :: DataShareStatusForProducer -&gt; Int
 hashWithSalt :: Int -&gt; DataShareStatusForProducer -&gt; Int
 $chashWithSalt :: Int -&gt; DataShareStatusForProducer -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679491219"><span class="annot"><span class="annottext">DataShareStatusForProducer -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679491859"><span class="annot"><span class="annottext">DataShareStatusForProducer -&gt; ()
 (DataShareStatusForProducer -&gt; ())
 -&gt; NFData DataShareStatusForProducer
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DataShareStatusForProducer -&gt; ()
 $crnf :: DataShareStatusForProducer -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679491216"><span class="annot"><span class="annottext">Text -&gt; Either String DataShareStatusForProducer
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679491856"><span class="annot"><span class="annottext">Text -&gt; Either String DataShareStatusForProducer
 (Text -&gt; Either String DataShareStatusForProducer)
 -&gt; FromText DataShareStatusForProducer
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DataShareStatusForProducer
 $cfromText :: Text -&gt; Either String DataShareStatusForProducer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679491213"><span class="annot"><span class="annottext">DataShareStatusForProducer -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679491853"><span class="annot"><span class="annottext">DataShareStatusForProducer -&gt; Text
 (DataShareStatusForProducer -&gt; Text)
 -&gt; ToText DataShareStatusForProducer
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DataShareStatusForProducer -&gt; Text
 $ctoText :: DataShareStatusForProducer -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679491210"><span class="annot"><span class="annottext">DataShareStatusForProducer -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679491850"><span class="annot"><span class="annottext">DataShareStatusForProducer -&gt; ByteString
 (DataShareStatusForProducer -&gt; ByteString)
 -&gt; ToByteString DataShareStatusForProducer
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DataShareStatusForProducer -&gt; ByteString
 $ctoBS :: DataShareStatusForProducer -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679491207"><span class="annot"><span class="annottext">DataShareStatusForProducer -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679491847"><span class="annot"><span class="annottext">DataShareStatusForProducer -&gt; ByteStringBuilder
 (DataShareStatusForProducer -&gt; ByteStringBuilder)
 -&gt; ToLog DataShareStatusForProducer
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DataShareStatusForProducer -&gt; ByteStringBuilder
 $cbuild :: DataShareStatusForProducer -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679491204"><span class="annot"><span class="annottext">HeaderName -&gt; DataShareStatusForProducer -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679491844"><span class="annot"><span class="annottext">HeaderName -&gt; DataShareStatusForProducer -&gt; [Header]
 (HeaderName -&gt; DataShareStatusForProducer -&gt; [Header])
 -&gt; ToHeader DataShareStatusForProducer
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DataShareStatusForProducer -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DataShareStatusForProducer -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679491201"><span class="annot"><span class="annottext">DataShareStatusForProducer -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679491841"><span class="annot"><span class="annottext">DataShareStatusForProducer -&gt; QueryString
 (DataShareStatusForProducer -&gt; QueryString)
 -&gt; ToQuery DataShareStatusForProducer
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DataShareStatusForProducer -&gt; QueryString
 $ctoQuery :: DataShareStatusForProducer -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679491196"><span id="local-6989586621679491198"><span class="annot"><span class="annottext">Value -&gt; Parser [DataShareStatusForProducer]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679491836"><span id="local-6989586621679491838"><span class="annot"><span class="annottext">Value -&gt; Parser [DataShareStatusForProducer]
 Value -&gt; Parser DataShareStatusForProducer
 (Value -&gt; Parser DataShareStatusForProducer)
 -&gt; (Value -&gt; Parser [DataShareStatusForProducer])
@@ -231,7 +231,7 @@ $cparseJSONList :: Value -&gt; Parser [DataShareStatusForProducer]
 parseJSON :: Value -&gt; Parser DataShareStatusForProducer
 $cparseJSON :: Value -&gt; Parser DataShareStatusForProducer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679491191"><span id="local-6989586621679491193"><span class="annot"><span class="annottext">FromJSONKeyFunction [DataShareStatusForProducer]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679491831"><span id="local-6989586621679491833"><span class="annot"><span class="annottext">FromJSONKeyFunction [DataShareStatusForProducer]
 FromJSONKeyFunction DataShareStatusForProducer
 FromJSONKeyFunction DataShareStatusForProducer
 -&gt; FromJSONKeyFunction [DataShareStatusForProducer]
@@ -243,7 +243,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DataShareStatusForProducer]
 fromJSONKey :: FromJSONKeyFunction DataShareStatusForProducer
 $cfromJSONKey :: FromJSONKeyFunction DataShareStatusForProducer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679491182"><span id="local-6989586621679491184"><span id="local-6989586621679491186"><span id="local-6989586621679491188"><span class="annot"><span class="annottext">[DataShareStatusForProducer] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679491822"><span id="local-6989586621679491824"><span id="local-6989586621679491826"><span id="local-6989586621679491828"><span class="annot"><span class="annottext">[DataShareStatusForProducer] -&gt; Encoding
 [DataShareStatusForProducer] -&gt; Value
 DataShareStatusForProducer -&gt; Encoding
 DataShareStatusForProducer -&gt; Value
@@ -267,7 +267,7 @@ $ctoEncoding :: DataShareStatusForProducer -&gt; Encoding
 toJSON :: DataShareStatusForProducer -&gt; Value
 $ctoJSON :: DataShareStatusForProducer -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679491177"><span id="local-6989586621679491179"><span class="annot"><span class="annottext">ToJSONKeyFunction [DataShareStatusForProducer]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679491817"><span id="local-6989586621679491819"><span class="annot"><span class="annottext">ToJSONKeyFunction [DataShareStatusForProducer]
 ToJSONKeyFunction DataShareStatusForProducer
 ToJSONKeyFunction DataShareStatusForProducer
 -&gt; ToJSONKeyFunction [DataShareStatusForProducer]
@@ -279,14 +279,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DataShareStatusForProducer]
 toJSONKey :: ToJSONKeyFunction DataShareStatusForProducer
 $ctoJSONKey :: ToJSONKeyFunction DataShareStatusForProducer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679491174"><span class="annot"><span class="annottext">[Node] -&gt; Either String DataShareStatusForProducer
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679491814"><span class="annot"><span class="annottext">[Node] -&gt; Either String DataShareStatusForProducer
 ([Node] -&gt; Either String DataShareStatusForProducer)
 -&gt; FromXML DataShareStatusForProducer
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DataShareStatusForProducer
 $cparseXML :: [Node] -&gt; Either String DataShareStatusForProducer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679491171"><span class="annot"><span class="annottext">DataShareStatusForProducer -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679491811"><span class="annot"><span class="annottext">DataShareStatusForProducer -&gt; XML
 (DataShareStatusForProducer -&gt; XML)
 -&gt; ToXML DataShareStatusForProducer
 forall a. (a -&gt; XML) -&gt; ToXML a

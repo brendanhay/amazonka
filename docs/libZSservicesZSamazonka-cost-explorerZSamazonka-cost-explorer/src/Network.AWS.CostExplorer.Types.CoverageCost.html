@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | How much it costs to run an instance.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newCoverageCost' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679327939"><span id="local-6989586621679327940"></span></span><span class="hs-keyword">data</span><span> </span><span id="CoverageCost"><span class="annot"><a href="Network.AWS.CostExplorer.Types.CoverageCost.html#CoverageCost"><span class="hs-identifier hs-var">CoverageCost</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CoverageCost%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.CoverageCost.html#CoverageCost%27"><span class="hs-identifier hs-var">CoverageCost'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679328268"><span id="local-6989586621679328269"></span></span><span class="hs-keyword">data</span><span> </span><span id="CoverageCost"><span class="annot"><a href="Network.AWS.CostExplorer.Types.CoverageCost.html#CoverageCost"><span class="hs-identifier hs-var">CoverageCost</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CoverageCost%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.CoverageCost.html#CoverageCost%27"><span class="hs-identifier hs-var">CoverageCost'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | How much an On-Demand Instance costs.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AonDemandCost%3ACoverageCost%27"><span class="annot"><span class="annottext">CoverageCost -&gt; Maybe Text
 </span><a href="Network.AWS.CostExplorer.Types.CoverageCost.html#%24sel%3AonDemandCost%3ACoverageCost%27"><span class="hs-identifier hs-var hs-var">onDemandCost</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679327933"><span id="local-6989586621679327935"><span class="annot"><span class="annottext">CoverageCost -&gt; CoverageCost -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679328262"><span id="local-6989586621679328264"><span class="annot"><span class="annottext">CoverageCost -&gt; CoverageCost -&gt; Bool
 (CoverageCost -&gt; CoverageCost -&gt; Bool)
 -&gt; (CoverageCost -&gt; CoverageCost -&gt; Bool) -&gt; Eq CoverageCost
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -39,7 +39,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CoverageCost -&gt; CoverageCost -&gt; Bool
 == :: CoverageCost -&gt; CoverageCost -&gt; Bool
 $c== :: CoverageCost -&gt; CoverageCost -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679327924"><span id="local-6989586621679327926"><span id="local-6989586621679327928"><span id="local-6989586621679327930"><span class="annot"><span class="annottext">ReadPrec [CoverageCost]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679328253"><span id="local-6989586621679328255"><span id="local-6989586621679328257"><span id="local-6989586621679328259"><span class="annot"><span class="annottext">ReadPrec [CoverageCost]
 ReadPrec CoverageCost
 Int -&gt; ReadS CoverageCost
 ReadS [CoverageCost]
@@ -59,7 +59,7 @@ readList :: ReadS [CoverageCost]
 $creadList :: ReadS [CoverageCost]
 readsPrec :: Int -&gt; ReadS CoverageCost
 $creadsPrec :: Int -&gt; ReadS CoverageCost
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679327917"><span id="local-6989586621679327919"><span id="local-6989586621679327921"><span class="annot"><span class="annottext">Int -&gt; CoverageCost -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679328246"><span id="local-6989586621679328248"><span id="local-6989586621679328250"><span class="annot"><span class="annottext">Int -&gt; CoverageCost -&gt; ShowS
 [CoverageCost] -&gt; ShowS
 CoverageCost -&gt; String
 (Int -&gt; CoverageCost -&gt; ShowS)
@@ -111,19 +111,19 @@ forall a. Maybe a
 -&gt; (CoverageCost -&gt; Maybe Text -&gt; CoverageCost)
 -&gt; Lens CoverageCost CoverageCost (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CoverageCost.html#CoverageCost%27"><span class="hs-identifier hs-type">CoverageCost'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327908"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CoverageCost.html#CoverageCost%27"><span class="hs-identifier hs-type">CoverageCost'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328237"><span class="annot"><span class="annottext">Maybe Text
 onDemandCost :: Maybe Text
 $sel:onDemandCost:CoverageCost' :: CoverageCost -&gt; Maybe Text
-</span><a href="#local-6989586621679327908"><span class="hs-identifier hs-var hs-var">onDemandCost</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679327908"><span class="hs-identifier hs-var">onDemandCost</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679327907"><span class="annot"><span class="annottext">s :: CoverageCost
-</span><a href="#local-6989586621679327907"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CoverageCost.html#CoverageCost%27"><span class="hs-identifier hs-type">CoverageCost'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679327906"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679327906"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CoverageCost
-</span><a href="#local-6989586621679327907"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:onDemandCost:CoverageCost' :: Maybe Text
+</span><a href="#local-6989586621679328237"><span class="hs-identifier hs-var hs-var">onDemandCost</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679328237"><span class="hs-identifier hs-var">onDemandCost</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328236"><span class="annot"><span class="annottext">s :: CoverageCost
+</span><a href="#local-6989586621679328236"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CoverageCost.html#CoverageCost%27"><span class="hs-identifier hs-type">CoverageCost'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328235"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679328235"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CoverageCost
+</span><a href="#local-6989586621679328236"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:onDemandCost:CoverageCost' :: Maybe Text
 </span><a href="Network.AWS.CostExplorer.Types.CoverageCost.html#%24sel%3AonDemandCost%3ACoverageCost%27"><span class="hs-identifier hs-var">onDemandCost</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679327906"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CoverageCost.html#CoverageCost"><span class="hs-identifier hs-type">CoverageCost</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679328235"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CoverageCost.html#CoverageCost"><span class="hs-identifier hs-type">CoverageCost</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>
-</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679327903"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CoverageCost.html#CoverageCost"><span class="hs-identifier hs-type">CoverageCost</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-54"></span><span>  </span><span id="local-6989586621679327901"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CoverageCost
+</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328232"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CoverageCost.html#CoverageCost"><span class="hs-identifier hs-type">CoverageCost</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621679328230"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CoverageCost
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CoverageCost) -&gt; Value -&gt; Parser CoverageCost
@@ -131,21 +131,21 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CoverageCost&quot;</span></span><span>
-</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679327898"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679327898"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679328227"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679328227"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-58"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; CoverageCost
 </span><a href="Network.AWS.CostExplorer.Types.CoverageCost.html#CoverageCost%27"><span class="hs-identifier hs-var">CoverageCost'</span></a></span><span>
 </span><span id="line-59"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; CoverageCost)
 -&gt; Parser (Maybe Text) -&gt; Parser CoverageCost
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679327898"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679328227"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OnDemandCost&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679327892"><span id="local-6989586621679327894"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CoverageCost.html#CoverageCost"><span class="hs-identifier hs-type">CoverageCost</span></a></span></span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328221"><span id="local-6989586621679328223"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CoverageCost.html#CoverageCost"><span class="hs-identifier hs-type">CoverageCost</span></a></span></span></span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679327889"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CoverageCost.html#CoverageCost"><span class="hs-identifier hs-type">CoverageCost</span></a></span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328218"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CoverageCost.html#CoverageCost"><span class="hs-identifier hs-type">CoverageCost</span></a></span></span><span>
 </span><span id="line-65"></span></pre></body></html>

@@ -31,8 +31,8 @@
 </span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#newModifyDocumentPermission"><span class="hs-identifier">newModifyDocumentPermission</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-32"></span><span>
 </span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#modifyDocumentPermission_accountIdsToAdd"><span class="hs-identifier">modifyDocumentPermission_accountIdsToAdd</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#modifyDocumentPermission_sharedDocumentVersion"><span class="hs-identifier">modifyDocumentPermission_sharedDocumentVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#modifyDocumentPermission_sharedDocumentVersion"><span class="hs-identifier">modifyDocumentPermission_sharedDocumentVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#modifyDocumentPermission_accountIdsToAdd"><span class="hs-identifier">modifyDocumentPermission_accountIdsToAdd</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#modifyDocumentPermission_accountIdsToRemove"><span class="hs-identifier">modifyDocumentPermission_accountIdsToRemove</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#modifyDocumentPermission_name"><span class="hs-identifier">modifyDocumentPermission_name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#modifyDocumentPermission_permissionType"><span class="hs-identifier">modifyDocumentPermission_permissionType</span></a></span><span class="hs-special">,</span><span>
@@ -54,15 +54,15 @@
 </span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.html"><span class="hs-identifier">Network.AWS.SSM.Types</span></a></span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newModifyDocumentPermission' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679827122"><span id="local-6989586621679827123"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyDocumentPermission"><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission"><span class="hs-identifier hs-var">ModifyDocumentPermission</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyDocumentPermission%27"><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission%27"><span class="hs-identifier hs-var">ModifyDocumentPermission'</span></a></span></span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Web Services user accounts that should have access to the</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- document. The account IDs can either be a group of account IDs or /All/.</span><span>
-</span><span id="line-60"></span><span>    </span><span id="%24sel%3AaccountIdsToAdd%3AModifyDocumentPermission%27"><span class="annot"><span class="annottext">ModifyDocumentPermission -&gt; Maybe [Text]
-</span><a href="Network.AWS.SSM.ModifyDocumentPermission.html#%24sel%3AaccountIdsToAdd%3AModifyDocumentPermission%27"><span class="hs-identifier hs-var hs-var">accountIdsToAdd</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | (Optional) The version of the document to share. If it isn\'t specified,</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- the system choose the @Default@ version to share.</span><span>
-</span><span id="line-63"></span><span>    </span><span id="%24sel%3AsharedDocumentVersion%3AModifyDocumentPermission%27"><span class="annot"><span class="annottext">ModifyDocumentPermission -&gt; Maybe Text
+</span><span id="line-57"></span><span id="local-6989586621679828879"><span id="local-6989586621679828880"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyDocumentPermission"><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission"><span class="hs-identifier hs-var">ModifyDocumentPermission</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyDocumentPermission%27"><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission%27"><span class="hs-identifier hs-var">ModifyDocumentPermission'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | (Optional) The version of the document to share. If it isn\'t specified,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- the system choose the @Default@ version to share.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AsharedDocumentVersion%3AModifyDocumentPermission%27"><span class="annot"><span class="annottext">ModifyDocumentPermission -&gt; Maybe Text
 </span><a href="Network.AWS.SSM.ModifyDocumentPermission.html#%24sel%3AsharedDocumentVersion%3AModifyDocumentPermission%27"><span class="hs-identifier hs-var hs-var">sharedDocumentVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The Amazon Web Services user accounts that should have access to the</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- document. The account IDs can either be a group of account IDs or /All/.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AaccountIdsToAdd%3AModifyDocumentPermission%27"><span class="annot"><span class="annottext">ModifyDocumentPermission -&gt; Maybe [Text]
+</span><a href="Network.AWS.SSM.ModifyDocumentPermission.html#%24sel%3AaccountIdsToAdd%3AModifyDocumentPermission%27"><span class="hs-identifier hs-var hs-var">accountIdsToAdd</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The Amazon Web Services user accounts that should no longer have access</span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-comment">-- to the document. The Amazon Web Services user account can either be a</span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-comment">-- group of account IDs or /All/. This action has a higher priority than</span><span>
@@ -78,7 +78,7 @@
 </span><span id="line-74"></span><span>    </span><span id="%24sel%3ApermissionType%3AModifyDocumentPermission%27"><span class="annot"><span class="annottext">ModifyDocumentPermission -&gt; DocumentPermissionType
 </span><a href="Network.AWS.SSM.ModifyDocumentPermission.html#%24sel%3ApermissionType%3AModifyDocumentPermission%27"><span class="hs-identifier hs-var hs-var">permissionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentPermissionType.html#DocumentPermissionType"><span class="hs-identifier hs-type">DocumentPermissionType</span></a></span><span>
 </span><span id="line-75"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679827112"><span id="local-6989586621679827114"><span class="annot"><span class="annottext">ModifyDocumentPermission -&gt; ModifyDocumentPermission -&gt; Bool
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679828869"><span id="local-6989586621679828871"><span class="annot"><span class="annottext">ModifyDocumentPermission -&gt; ModifyDocumentPermission -&gt; Bool
 (ModifyDocumentPermission -&gt; ModifyDocumentPermission -&gt; Bool)
 -&gt; (ModifyDocumentPermission -&gt; ModifyDocumentPermission -&gt; Bool)
 -&gt; Eq ModifyDocumentPermission
@@ -87,7 +87,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ModifyDocumentPermission -&gt; ModifyDocumentPermission -&gt; Bool
 == :: ModifyDocumentPermission -&gt; ModifyDocumentPermission -&gt; Bool
 $c== :: ModifyDocumentPermission -&gt; ModifyDocumentPermission -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679827103"><span id="local-6989586621679827105"><span id="local-6989586621679827107"><span id="local-6989586621679827109"><span class="annot"><span class="annottext">ReadPrec [ModifyDocumentPermission]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679828860"><span id="local-6989586621679828862"><span id="local-6989586621679828864"><span id="local-6989586621679828866"><span class="annot"><span class="annottext">ReadPrec [ModifyDocumentPermission]
 ReadPrec ModifyDocumentPermission
 Int -&gt; ReadS ModifyDocumentPermission
 ReadS [ModifyDocumentPermission]
@@ -107,7 +107,7 @@ readList :: ReadS [ModifyDocumentPermission]
 $creadList :: ReadS [ModifyDocumentPermission]
 readsPrec :: Int -&gt; ReadS ModifyDocumentPermission
 $creadsPrec :: Int -&gt; ReadS ModifyDocumentPermission
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679827096"><span id="local-6989586621679827098"><span id="local-6989586621679827100"><span class="annot"><span class="annottext">Int -&gt; ModifyDocumentPermission -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679828853"><span id="local-6989586621679828855"><span id="local-6989586621679828857"><span class="annot"><span class="annottext">Int -&gt; ModifyDocumentPermission -&gt; ShowS
 [ModifyDocumentPermission] -&gt; ShowS
 ModifyDocumentPermission -&gt; String
 (Int -&gt; ModifyDocumentPermission -&gt; ShowS)
@@ -147,11 +147,11 @@ ModifyDocumentPermission -&gt; Rep ModifyDocumentPermission x
 </span><span id="line-83"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- 'accountIdsToAdd', 'modifyDocumentPermission_accountIdsToAdd' - The Amazon Web Services user accounts that should have access to the</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- document. The account IDs can either be a group of account IDs or /All/.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'sharedDocumentVersion', 'modifyDocumentPermission_sharedDocumentVersion' - (Optional) The version of the document to share. If it isn\'t specified,</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- the system choose the @Default@ version to share.</span><span>
 </span><span id="line-88"></span><span class="hs-comment">--</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- 'sharedDocumentVersion', 'modifyDocumentPermission_sharedDocumentVersion' - (Optional) The version of the document to share. If it isn\'t specified,</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- the system choose the @Default@ version to share.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'accountIdsToAdd', 'modifyDocumentPermission_accountIdsToAdd' - The Amazon Web Services user accounts that should have access to the</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- document. The account IDs can either be a group of account IDs or /All/.</span><span>
 </span><span id="line-91"></span><span class="hs-comment">--</span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- 'accountIdsToRemove', 'modifyDocumentPermission_accountIdsToRemove' - The Amazon Web Services user accounts that should no longer have access</span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- to the document. The Amazon Web Services user account can either be a</span><span>
@@ -170,23 +170,23 @@ ModifyDocumentPermission -&gt; Rep ModifyDocumentPermission x
 </span><span id="line-106"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentPermissionType.html#DocumentPermissionType"><span class="hs-identifier hs-type">DocumentPermissionType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-107"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission"><span class="hs-identifier hs-type">ModifyDocumentPermission</span></a></span><span>
 </span><span id="line-108"></span><span id="newModifyDocumentPermission"><span class="annot"><span class="annottext">newModifyDocumentPermission :: Text -&gt; DocumentPermissionType -&gt; ModifyDocumentPermission
-</span><a href="Network.AWS.SSM.ModifyDocumentPermission.html#newModifyDocumentPermission"><span class="hs-identifier hs-var hs-var">newModifyDocumentPermission</span></a></span></span><span> </span><span id="local-6989586621679827091"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679827091"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679827090"><span class="annot"><span class="annottext">DocumentPermissionType
-</span><a href="#local-6989586621679827090"><span class="hs-identifier hs-var">pPermissionType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-109"></span><span>  </span><span class="annot"><span class="annottext">ModifyDocumentPermission' :: Maybe [Text]
--&gt; Maybe Text
+</span><a href="Network.AWS.SSM.ModifyDocumentPermission.html#newModifyDocumentPermission"><span class="hs-identifier hs-var hs-var">newModifyDocumentPermission</span></a></span></span><span> </span><span id="local-6989586621679828848"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679828848"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679828847"><span class="annot"><span class="annottext">DocumentPermissionType
+</span><a href="#local-6989586621679828847"><span class="hs-identifier hs-var">pPermissionType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><span class="annottext">ModifyDocumentPermission' :: Maybe Text
+-&gt; Maybe [Text]
 -&gt; Maybe [Text]
 -&gt; Text
 -&gt; DocumentPermissionType
 -&gt; ModifyDocumentPermission
 </span><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission%27"><span class="hs-identifier hs-type">ModifyDocumentPermission'</span></a></span><span>
-</span><span id="line-110"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accountIdsToAdd:ModifyDocumentPermission' :: Maybe [Text]
-</span><a href="Network.AWS.SSM.ModifyDocumentPermission.html#%24sel%3AaccountIdsToAdd%3AModifyDocumentPermission%27"><span class="hs-identifier hs-var">accountIdsToAdd</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-110"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sharedDocumentVersion:ModifyDocumentPermission' :: Maybe Text
+</span><a href="Network.AWS.SSM.ModifyDocumentPermission.html#%24sel%3AsharedDocumentVersion%3AModifyDocumentPermission%27"><span class="hs-identifier hs-var">sharedDocumentVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:sharedDocumentVersion:ModifyDocumentPermission' :: Maybe Text
-</span><a href="Network.AWS.SSM.ModifyDocumentPermission.html#%24sel%3AsharedDocumentVersion%3AModifyDocumentPermission%27"><span class="hs-identifier hs-var">sharedDocumentVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:accountIdsToAdd:ModifyDocumentPermission' :: Maybe [Text]
+</span><a href="Network.AWS.SSM.ModifyDocumentPermission.html#%24sel%3AaccountIdsToAdd%3AModifyDocumentPermission%27"><span class="hs-identifier hs-var">accountIdsToAdd</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:accountIdsToRemove:ModifyDocumentPermission' :: Maybe [Text]
@@ -195,16 +195,41 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:ModifyDocumentPermission' :: Text
 </span><a href="Network.AWS.SSM.ModifyDocumentPermission.html#%24sel%3Aname%3AModifyDocumentPermission%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679827091"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679828848"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:permissionType:ModifyDocumentPermission' :: DocumentPermissionType
 </span><a href="Network.AWS.SSM.ModifyDocumentPermission.html#%24sel%3ApermissionType%3AModifyDocumentPermission%27"><span class="hs-identifier hs-var">permissionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DocumentPermissionType
-</span><a href="#local-6989586621679827090"><span class="hs-identifier hs-var">pPermissionType_</span></a></span><span>
+</span><a href="#local-6989586621679828847"><span class="hs-identifier hs-var">pPermissionType_</span></a></span><span>
 </span><span id="line-116"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- | The Amazon Web Services user accounts that should have access to the</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- document. The account IDs can either be a group of account IDs or /All/.</span><span>
-</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#modifyDocumentPermission_accountIdsToAdd"><span class="hs-identifier hs-type">modifyDocumentPermission_accountIdsToAdd</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission"><span class="hs-identifier hs-type">ModifyDocumentPermission</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span id="modifyDocumentPermission_accountIdsToAdd"><span class="annot"><span class="annottext">modifyDocumentPermission_accountIdsToAdd :: (Maybe [Text] -&gt; f (Maybe [Text]))
+</span><span id="line-118"></span><span class="hs-comment">-- | (Optional) The version of the document to share. If it isn\'t specified,</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- the system choose the @Default@ version to share.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#modifyDocumentPermission_sharedDocumentVersion"><span class="hs-identifier hs-type">modifyDocumentPermission_sharedDocumentVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission"><span class="hs-identifier hs-type">ModifyDocumentPermission</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="modifyDocumentPermission_sharedDocumentVersion"><span class="annot"><span class="annottext">modifyDocumentPermission_sharedDocumentVersion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ModifyDocumentPermission -&gt; f ModifyDocumentPermission
+</span><a href="Network.AWS.SSM.ModifyDocumentPermission.html#modifyDocumentPermission_sharedDocumentVersion"><span class="hs-identifier hs-var hs-var">modifyDocumentPermission_sharedDocumentVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyDocumentPermission -&gt; Maybe Text)
+-&gt; (ModifyDocumentPermission
+    -&gt; Maybe Text -&gt; ModifyDocumentPermission)
+-&gt; Lens
+     ModifyDocumentPermission
+     ModifyDocumentPermission
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission%27"><span class="hs-identifier hs-type">ModifyDocumentPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828844"><span class="annot"><span class="annottext">Maybe Text
+sharedDocumentVersion :: Maybe Text
+$sel:sharedDocumentVersion:ModifyDocumentPermission' :: ModifyDocumentPermission -&gt; Maybe Text
+</span><a href="#local-6989586621679828844"><span class="hs-identifier hs-var hs-var">sharedDocumentVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679828844"><span class="hs-identifier hs-var">sharedDocumentVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828843"><span class="annot"><span class="annottext">s :: ModifyDocumentPermission
+</span><a href="#local-6989586621679828843"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission%27"><span class="hs-identifier hs-type">ModifyDocumentPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828842"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679828842"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyDocumentPermission
+</span><a href="#local-6989586621679828843"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sharedDocumentVersion:ModifyDocumentPermission' :: Maybe Text
+</span><a href="Network.AWS.SSM.ModifyDocumentPermission.html#%24sel%3AsharedDocumentVersion%3AModifyDocumentPermission%27"><span class="hs-identifier hs-var">sharedDocumentVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679828842"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission"><span class="hs-identifier hs-type">ModifyDocumentPermission</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The Amazon Web Services user accounts that should have access to the</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- document. The account IDs can either be a group of account IDs or /All/.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#modifyDocumentPermission_accountIdsToAdd"><span class="hs-identifier hs-type">modifyDocumentPermission_accountIdsToAdd</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission"><span class="hs-identifier hs-type">ModifyDocumentPermission</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="modifyDocumentPermission_accountIdsToAdd"><span class="annot"><span class="annottext">modifyDocumentPermission_accountIdsToAdd :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; ModifyDocumentPermission -&gt; f ModifyDocumentPermission
 </span><a href="Network.AWS.SSM.ModifyDocumentPermission.html#modifyDocumentPermission_accountIdsToAdd"><span class="hs-identifier hs-var hs-var">modifyDocumentPermission_accountIdsToAdd</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyDocumentPermission -&gt; Maybe [Text])
 -&gt; (ModifyDocumentPermission
@@ -215,16 +240,16 @@ forall a. Maybe a
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission%27"><span class="hs-identifier hs-type">ModifyDocumentPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827087"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission%27"><span class="hs-identifier hs-type">ModifyDocumentPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828841"><span class="annot"><span class="annottext">Maybe [Text]
 accountIdsToAdd :: Maybe [Text]
 $sel:accountIdsToAdd:ModifyDocumentPermission' :: ModifyDocumentPermission -&gt; Maybe [Text]
-</span><a href="#local-6989586621679827087"><span class="hs-identifier hs-var hs-var">accountIdsToAdd</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679827087"><span class="hs-identifier hs-var">accountIdsToAdd</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827086"><span class="annot"><span class="annottext">s :: ModifyDocumentPermission
-</span><a href="#local-6989586621679827086"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission%27"><span class="hs-identifier hs-type">ModifyDocumentPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827085"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679827085"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyDocumentPermission
-</span><a href="#local-6989586621679827086"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountIdsToAdd:ModifyDocumentPermission' :: Maybe [Text]
+</span><a href="#local-6989586621679828841"><span class="hs-identifier hs-var hs-var">accountIdsToAdd</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679828841"><span class="hs-identifier hs-var">accountIdsToAdd</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828840"><span class="annot"><span class="annottext">s :: ModifyDocumentPermission
+</span><a href="#local-6989586621679828840"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission%27"><span class="hs-identifier hs-type">ModifyDocumentPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828839"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679828839"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyDocumentPermission
+</span><a href="#local-6989586621679828840"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountIdsToAdd:ModifyDocumentPermission' :: Maybe [Text]
 </span><a href="Network.AWS.SSM.ModifyDocumentPermission.html#%24sel%3AaccountIdsToAdd%3AModifyDocumentPermission%27"><span class="hs-identifier hs-var">accountIdsToAdd</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679827085"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission"><span class="hs-identifier hs-type">ModifyDocumentPermission</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679828839"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission"><span class="hs-identifier hs-type">ModifyDocumentPermission</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ModifyDocumentPermission -&gt; f ModifyDocumentPermission)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -238,33 +263,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- | (Optional) The version of the document to share. If it isn\'t specified,</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- the system choose the @Default@ version to share.</span><span>
-</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#modifyDocumentPermission_sharedDocumentVersion"><span class="hs-identifier hs-type">modifyDocumentPermission_sharedDocumentVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission"><span class="hs-identifier hs-type">ModifyDocumentPermission</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span id="modifyDocumentPermission_sharedDocumentVersion"><span class="annot"><span class="annottext">modifyDocumentPermission_sharedDocumentVersion :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ModifyDocumentPermission -&gt; f ModifyDocumentPermission
-</span><a href="Network.AWS.SSM.ModifyDocumentPermission.html#modifyDocumentPermission_sharedDocumentVersion"><span class="hs-identifier hs-var hs-var">modifyDocumentPermission_sharedDocumentVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyDocumentPermission -&gt; Maybe Text)
--&gt; (ModifyDocumentPermission
-    -&gt; Maybe Text -&gt; ModifyDocumentPermission)
--&gt; Lens
-     ModifyDocumentPermission
-     ModifyDocumentPermission
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission%27"><span class="hs-identifier hs-type">ModifyDocumentPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827081"><span class="annot"><span class="annottext">Maybe Text
-sharedDocumentVersion :: Maybe Text
-$sel:sharedDocumentVersion:ModifyDocumentPermission' :: ModifyDocumentPermission -&gt; Maybe Text
-</span><a href="#local-6989586621679827081"><span class="hs-identifier hs-var hs-var">sharedDocumentVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679827081"><span class="hs-identifier hs-var">sharedDocumentVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827080"><span class="annot"><span class="annottext">s :: ModifyDocumentPermission
-</span><a href="#local-6989586621679827080"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission%27"><span class="hs-identifier hs-type">ModifyDocumentPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827079"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679827079"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyDocumentPermission
-</span><a href="#local-6989586621679827080"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sharedDocumentVersion:ModifyDocumentPermission' :: Maybe Text
-</span><a href="Network.AWS.SSM.ModifyDocumentPermission.html#%24sel%3AsharedDocumentVersion%3AModifyDocumentPermission%27"><span class="hs-identifier hs-var">sharedDocumentVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679827079"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission"><span class="hs-identifier hs-type">ModifyDocumentPermission</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | The Amazon Web Services user accounts that should no longer have access</span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- to the document. The Amazon Web Services user account can either be a</span><span>
@@ -283,16 +283,16 @@ $sel:sharedDocumentVersion:ModifyDocumentPermission' :: ModifyDocumentPermission
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission%27"><span class="hs-identifier hs-type">ModifyDocumentPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827078"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission%27"><span class="hs-identifier hs-type">ModifyDocumentPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828835"><span class="annot"><span class="annottext">Maybe [Text]
 accountIdsToRemove :: Maybe [Text]
 $sel:accountIdsToRemove:ModifyDocumentPermission' :: ModifyDocumentPermission -&gt; Maybe [Text]
-</span><a href="#local-6989586621679827078"><span class="hs-identifier hs-var hs-var">accountIdsToRemove</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679827078"><span class="hs-identifier hs-var">accountIdsToRemove</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827077"><span class="annot"><span class="annottext">s :: ModifyDocumentPermission
-</span><a href="#local-6989586621679827077"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission%27"><span class="hs-identifier hs-type">ModifyDocumentPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827076"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679827076"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyDocumentPermission
-</span><a href="#local-6989586621679827077"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountIdsToRemove:ModifyDocumentPermission' :: Maybe [Text]
+</span><a href="#local-6989586621679828835"><span class="hs-identifier hs-var hs-var">accountIdsToRemove</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679828835"><span class="hs-identifier hs-var">accountIdsToRemove</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828834"><span class="annot"><span class="annottext">s :: ModifyDocumentPermission
+</span><a href="#local-6989586621679828834"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission%27"><span class="hs-identifier hs-type">ModifyDocumentPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828833"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679828833"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyDocumentPermission
+</span><a href="#local-6989586621679828834"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountIdsToRemove:ModifyDocumentPermission' :: Maybe [Text]
 </span><a href="Network.AWS.SSM.ModifyDocumentPermission.html#%24sel%3AaccountIdsToRemove%3AModifyDocumentPermission%27"><span class="hs-identifier hs-var">accountIdsToRemove</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679827076"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission"><span class="hs-identifier hs-type">ModifyDocumentPermission</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679828833"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission"><span class="hs-identifier hs-type">ModifyDocumentPermission</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ModifyDocumentPermission -&gt; f ModifyDocumentPermission)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -306,8 +306,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- | The name of the document that you want to share.</span><span>
 </span><span id="line-137"></span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#modifyDocumentPermission_name"><span class="hs-identifier hs-type">modifyDocumentPermission_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission"><span class="hs-identifier hs-type">ModifyDocumentPermission</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -317,16 +317,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (ModifyDocumentPermission -&gt; Text -&gt; ModifyDocumentPermission)
 -&gt; Lens ModifyDocumentPermission ModifyDocumentPermission Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission%27"><span class="hs-identifier hs-type">ModifyDocumentPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827075"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission%27"><span class="hs-identifier hs-type">ModifyDocumentPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828832"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:ModifyDocumentPermission' :: ModifyDocumentPermission -&gt; Text
-</span><a href="#local-6989586621679827075"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679827075"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827074"><span class="annot"><span class="annottext">s :: ModifyDocumentPermission
-</span><a href="#local-6989586621679827074"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission%27"><span class="hs-identifier hs-type">ModifyDocumentPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827073"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679827073"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyDocumentPermission
-</span><a href="#local-6989586621679827074"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ModifyDocumentPermission' :: Text
+</span><a href="#local-6989586621679828832"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679828832"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828831"><span class="annot"><span class="annottext">s :: ModifyDocumentPermission
+</span><a href="#local-6989586621679828831"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission%27"><span class="hs-identifier hs-type">ModifyDocumentPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828830"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679828830"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyDocumentPermission
+</span><a href="#local-6989586621679828831"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ModifyDocumentPermission' :: Text
 </span><a href="Network.AWS.SSM.ModifyDocumentPermission.html#%24sel%3Aname%3AModifyDocumentPermission%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679827073"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission"><span class="hs-identifier hs-type">ModifyDocumentPermission</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679828830"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission"><span class="hs-identifier hs-type">ModifyDocumentPermission</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- | The permission type for the document. The permission type can be</span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- /Share/.</span><span>
@@ -342,28 +342,28 @@ $sel:name:ModifyDocumentPermission' :: ModifyDocumentPermission -&gt; Text
      DocumentPermissionType
      DocumentPermissionType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission%27"><span class="hs-identifier hs-type">ModifyDocumentPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827072"><span class="annot"><span class="annottext">DocumentPermissionType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission%27"><span class="hs-identifier hs-type">ModifyDocumentPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828829"><span class="annot"><span class="annottext">DocumentPermissionType
 permissionType :: DocumentPermissionType
 $sel:permissionType:ModifyDocumentPermission' :: ModifyDocumentPermission -&gt; DocumentPermissionType
-</span><a href="#local-6989586621679827072"><span class="hs-identifier hs-var hs-var">permissionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentPermissionType
-</span><a href="#local-6989586621679827072"><span class="hs-identifier hs-var">permissionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827071"><span class="annot"><span class="annottext">s :: ModifyDocumentPermission
-</span><a href="#local-6989586621679827071"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission%27"><span class="hs-identifier hs-type">ModifyDocumentPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827070"><span class="annot"><span class="annottext">DocumentPermissionType
-</span><a href="#local-6989586621679827070"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyDocumentPermission
-</span><a href="#local-6989586621679827071"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permissionType:ModifyDocumentPermission' :: DocumentPermissionType
+</span><a href="#local-6989586621679828829"><span class="hs-identifier hs-var hs-var">permissionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentPermissionType
+</span><a href="#local-6989586621679828829"><span class="hs-identifier hs-var">permissionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828828"><span class="annot"><span class="annottext">s :: ModifyDocumentPermission
+</span><a href="#local-6989586621679828828"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission%27"><span class="hs-identifier hs-type">ModifyDocumentPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828827"><span class="annot"><span class="annottext">DocumentPermissionType
+</span><a href="#local-6989586621679828827"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyDocumentPermission
+</span><a href="#local-6989586621679828828"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permissionType:ModifyDocumentPermission' :: DocumentPermissionType
 </span><a href="Network.AWS.SSM.ModifyDocumentPermission.html#%24sel%3ApermissionType%3AModifyDocumentPermission%27"><span class="hs-identifier hs-var">permissionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DocumentPermissionType
-</span><a href="#local-6989586621679827070"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission"><span class="hs-identifier hs-type">ModifyDocumentPermission</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679828827"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission"><span class="hs-identifier hs-type">ModifyDocumentPermission</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission"><span class="hs-identifier hs-type">ModifyDocumentPermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-146"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-147"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission"><span class="hs-identifier hs-type">ModifyDocumentPermission</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>      </span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermissionResponse"><span class="hs-identifier hs-type">ModifyDocumentPermissionResponse</span></a></span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679827066"><span class="annot"><span class="annottext">request :: ModifyDocumentPermission -&gt; Request ModifyDocumentPermission
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679828823"><span class="annot"><span class="annottext">request :: ModifyDocumentPermission -&gt; Request ModifyDocumentPermission
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; ModifyDocumentPermission -&gt; Request ModifyDocumentPermission
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SSM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679827062"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679828819"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ModifyDocumentPermission
 -&gt; ClientResponse ClientBody
@@ -389,10 +389,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679827059"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679827059"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679827058"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679827058"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679827057"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679827057"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679828816"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679828816"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679828815"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679828815"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679828814"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679828814"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-153"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; ModifyDocumentPermissionResponse
 </span><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermissionResponse%27"><span class="hs-identifier hs-var">ModifyDocumentPermissionResponse'</span></a></span><span>
 </span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; ModifyDocumentPermissionResponse)
@@ -404,15 +404,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679827059"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679828816"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679827050"><span id="local-6989586621679827052"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission"><span class="hs-identifier hs-type">ModifyDocumentPermission</span></a></span></span></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679828807"><span id="local-6989586621679828809"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission"><span class="hs-identifier hs-type">ModifyDocumentPermission</span></a></span></span></span><span>
 </span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679827047"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission"><span class="hs-identifier hs-type">ModifyDocumentPermission</span></a></span></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679828804"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission"><span class="hs-identifier hs-type">ModifyDocumentPermission</span></a></span></span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission"><span class="hs-identifier hs-type">ModifyDocumentPermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679827043"><span class="annot"><span class="annottext">toHeaders :: ModifyDocumentPermission -&gt; ResponseHeaders
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679828800"><span class="annot"><span class="annottext">toHeaders :: ModifyDocumentPermission -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ModifyDocumentPermission -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -439,44 +439,44 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-173"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-174"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
-</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679827033"><span id="local-6989586621679827035"><span id="local-6989586621679827037"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission"><span class="hs-identifier hs-type">ModifyDocumentPermission</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-177"></span><span>  </span><span id="local-6989586621679827031"><span class="annot"><span class="annottext">toJSON :: ModifyDocumentPermission -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission%27"><span class="hs-identifier hs-type">ModifyDocumentPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827025"><span id="local-6989586621679827026"><span id="local-6989586621679827027"><span id="local-6989586621679827028"><span id="local-6989586621679827029"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679828790"><span id="local-6989586621679828792"><span id="local-6989586621679828794"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission"><span class="hs-identifier hs-type">ModifyDocumentPermission</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679828788"><span class="annot"><span class="annottext">toJSON :: ModifyDocumentPermission -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission%27"><span class="hs-identifier hs-type">ModifyDocumentPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828782"><span id="local-6989586621679828783"><span id="local-6989586621679828784"><span id="local-6989586621679828785"><span id="local-6989586621679828786"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe Text
 Text
 DocumentPermissionType
 permissionType :: DocumentPermissionType
 name :: Text
 accountIdsToRemove :: Maybe [Text]
-sharedDocumentVersion :: Maybe Text
 accountIdsToAdd :: Maybe [Text]
+sharedDocumentVersion :: Maybe Text
 $sel:permissionType:ModifyDocumentPermission' :: ModifyDocumentPermission -&gt; DocumentPermissionType
 $sel:name:ModifyDocumentPermission' :: ModifyDocumentPermission -&gt; Text
 $sel:accountIdsToRemove:ModifyDocumentPermission' :: ModifyDocumentPermission -&gt; Maybe [Text]
-$sel:sharedDocumentVersion:ModifyDocumentPermission' :: ModifyDocumentPermission -&gt; Maybe Text
 $sel:accountIdsToAdd:ModifyDocumentPermission' :: ModifyDocumentPermission -&gt; Maybe [Text]
-</span><a href="#local-6989586621679827025"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:sharedDocumentVersion:ModifyDocumentPermission' :: ModifyDocumentPermission -&gt; Maybe Text
+</span><a href="#local-6989586621679828782"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-179"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-180"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AccountIdsToAdd&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-181"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679827029"><span class="hs-identifier hs-var">accountIdsToAdd</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-182"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SharedDocumentVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-183"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+</span><span id="line-181"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679827028"><span class="hs-identifier hs-var">sharedDocumentVersion</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679828786"><span class="hs-identifier hs-var">sharedDocumentVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AccountIdsToAdd&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679828785"><span class="hs-identifier hs-var">accountIdsToAdd</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-184"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AccountIdsToRemove&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -484,14 +484,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-185"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679827027"><span class="hs-identifier hs-var">accountIdsToRemove</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679828784"><span class="hs-identifier hs-var">accountIdsToRemove</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679827026"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679828783"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -499,19 +499,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;PermissionType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DocumentPermissionType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">DocumentPermissionType
-</span><a href="#local-6989586621679827025"><span class="hs-identifier hs-var">permissionType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679828782"><span class="hs-identifier hs-var">permissionType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-190"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-191"></span><span>
 </span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission"><span class="hs-identifier hs-type">ModifyDocumentPermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-193"></span><span>  </span><span id="local-6989586621679827019"><span class="annot"><span class="annottext">toPath :: ModifyDocumentPermission -&gt; ByteString
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621679828776"><span class="annot"><span class="annottext">toPath :: ModifyDocumentPermission -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ModifyDocumentPermission -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-194"></span><span>
 </span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermission"><span class="hs-identifier hs-type">ModifyDocumentPermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-196"></span><span>  </span><span id="local-6989586621679827015"><span class="annot"><span class="annottext">toQuery :: ModifyDocumentPermission -&gt; QueryString
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679828772"><span class="annot"><span class="annottext">toQuery :: ModifyDocumentPermission -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ModifyDocumentPermission -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -519,12 +519,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-comment">-- | /See:/ 'newModifyDocumentPermissionResponse' smart constructor.</span><span>
-</span><span id="line-199"></span><span id="local-6989586621679827012"><span id="local-6989586621679827013"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyDocumentPermissionResponse"><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermissionResponse"><span class="hs-identifier hs-var">ModifyDocumentPermissionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyDocumentPermissionResponse%27"><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermissionResponse%27"><span class="hs-identifier hs-var">ModifyDocumentPermissionResponse'</span></a></span></span><span>
+</span><span id="line-199"></span><span id="local-6989586621679828769"><span id="local-6989586621679828770"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyDocumentPermissionResponse"><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermissionResponse"><span class="hs-identifier hs-var">ModifyDocumentPermissionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyDocumentPermissionResponse%27"><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermissionResponse%27"><span class="hs-identifier hs-var">ModifyDocumentPermissionResponse'</span></a></span></span><span>
 </span><span id="line-200"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-201"></span><span>    </span><span id="%24sel%3AhttpStatus%3AModifyDocumentPermissionResponse%27"><span class="annot"><span class="annottext">ModifyDocumentPermissionResponse -&gt; Int
 </span><a href="Network.AWS.SSM.ModifyDocumentPermission.html#%24sel%3AhttpStatus%3AModifyDocumentPermissionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-202"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-203"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679827007"><span id="local-6989586621679827009"><span class="annot"><span class="annottext">ModifyDocumentPermissionResponse
+</span><span id="line-203"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679828764"><span id="local-6989586621679828766"><span class="annot"><span class="annottext">ModifyDocumentPermissionResponse
 -&gt; ModifyDocumentPermissionResponse -&gt; Bool
 (ModifyDocumentPermissionResponse
  -&gt; ModifyDocumentPermissionResponse -&gt; Bool)
@@ -540,7 +540,7 @@ $c/= :: ModifyDocumentPermissionResponse
 -&gt; ModifyDocumentPermissionResponse -&gt; Bool
 $c== :: ModifyDocumentPermissionResponse
 -&gt; ModifyDocumentPermissionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679826999"><span id="local-6989586621679827001"><span id="local-6989586621679827003"><span id="local-6989586621679827005"><span class="annot"><span class="annottext">ReadPrec [ModifyDocumentPermissionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679828756"><span id="local-6989586621679828758"><span id="local-6989586621679828760"><span id="local-6989586621679828762"><span class="annot"><span class="annottext">ReadPrec [ModifyDocumentPermissionResponse]
 ReadPrec ModifyDocumentPermissionResponse
 Int -&gt; ReadS ModifyDocumentPermissionResponse
 ReadS [ModifyDocumentPermissionResponse]
@@ -560,7 +560,7 @@ readList :: ReadS [ModifyDocumentPermissionResponse]
 $creadList :: ReadS [ModifyDocumentPermissionResponse]
 readsPrec :: Int -&gt; ReadS ModifyDocumentPermissionResponse
 $creadsPrec :: Int -&gt; ReadS ModifyDocumentPermissionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679826993"><span id="local-6989586621679826995"><span id="local-6989586621679826997"><span class="annot"><span class="annottext">Int -&gt; ModifyDocumentPermissionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679828750"><span id="local-6989586621679828752"><span id="local-6989586621679828754"><span class="annot"><span class="annottext">Int -&gt; ModifyDocumentPermissionResponse -&gt; ShowS
 [ModifyDocumentPermissionResponse] -&gt; ShowS
 ModifyDocumentPermissionResponse -&gt; String
 (Int -&gt; ModifyDocumentPermissionResponse -&gt; ShowS)
@@ -612,14 +612,14 @@ ModifyDocumentPermissionResponse
 </span><span id="line-216"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-217"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermissionResponse"><span class="hs-identifier hs-type">ModifyDocumentPermissionResponse</span></a></span><span>
 </span><span id="line-218"></span><span id="newModifyDocumentPermissionResponse"><span class="annot"><span class="annottext">newModifyDocumentPermissionResponse :: Int -&gt; ModifyDocumentPermissionResponse
-</span><a href="Network.AWS.SSM.ModifyDocumentPermission.html#newModifyDocumentPermissionResponse"><span class="hs-identifier hs-var hs-var">newModifyDocumentPermissionResponse</span></a></span></span><span> </span><span id="local-6989586621679826990"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679826990"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.ModifyDocumentPermission.html#newModifyDocumentPermissionResponse"><span class="hs-identifier hs-var hs-var">newModifyDocumentPermissionResponse</span></a></span></span><span> </span><span id="local-6989586621679828747"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679828747"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-219"></span><span>  </span><span class="annot"><span class="annottext">ModifyDocumentPermissionResponse' :: Int -&gt; ModifyDocumentPermissionResponse
 </span><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermissionResponse%27"><span class="hs-identifier hs-type">ModifyDocumentPermissionResponse'</span></a></span><span>
 </span><span id="line-220"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyDocumentPermissionResponse' :: Int
 </span><a href="Network.AWS.SSM.ModifyDocumentPermission.html#%24sel%3AhttpStatus%3AModifyDocumentPermissionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-221"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679826990"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679828747"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-222"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-223"></span><span>
 </span><span id="line-224"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -636,18 +636,18 @@ ModifyDocumentPermissionResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermissionResponse%27"><span class="hs-identifier hs-type">ModifyDocumentPermissionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679826989"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermissionResponse%27"><span class="hs-identifier hs-type">ModifyDocumentPermissionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828746"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ModifyDocumentPermissionResponse' :: ModifyDocumentPermissionResponse -&gt; Int
-</span><a href="#local-6989586621679826989"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679826989"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679826988"><span class="annot"><span class="annottext">s :: ModifyDocumentPermissionResponse
-</span><a href="#local-6989586621679826988"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermissionResponse%27"><span class="hs-identifier hs-type">ModifyDocumentPermissionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679826987"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679826987"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyDocumentPermissionResponse
-</span><a href="#local-6989586621679826988"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyDocumentPermissionResponse' :: Int
+</span><a href="#local-6989586621679828746"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679828746"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828745"><span class="annot"><span class="annottext">s :: ModifyDocumentPermissionResponse
+</span><a href="#local-6989586621679828745"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermissionResponse%27"><span class="hs-identifier hs-type">ModifyDocumentPermissionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828744"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679828744"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyDocumentPermissionResponse
+</span><a href="#local-6989586621679828745"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyDocumentPermissionResponse' :: Int
 </span><a href="Network.AWS.SSM.ModifyDocumentPermission.html#%24sel%3AhttpStatus%3AModifyDocumentPermissionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679826987"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermissionResponse"><span class="hs-identifier hs-type">ModifyDocumentPermissionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679828744"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermissionResponse"><span class="hs-identifier hs-type">ModifyDocumentPermissionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-227"></span><span>
 </span><span id="line-228"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-229"></span><span>  </span><span id="local-6989586621679826985"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-229"></span><span>  </span><span id="local-6989586621679828742"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-230"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ModifyDocumentPermission.html#ModifyDocumentPermissionResponse"><span class="hs-identifier hs-type">ModifyDocumentPermissionResponse</span></a></span></span><span>
 </span><span id="line-231"></span></pre></body></html>

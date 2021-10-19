@@ -48,13 +48,13 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-50"></span><span>
-</span><span id="line-51"></span><span id="local-6989586621679176207"><span id="local-6989586621679176208"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="QueueAttributeName"><span class="annot"><a href="Network.AWS.SQS.Types.QueueAttributeName.html#QueueAttributeName"><span class="hs-identifier hs-var">QueueAttributeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="QueueAttributeName%27"><span class="annot"><a href="Network.AWS.SQS.Types.QueueAttributeName.html#QueueAttributeName%27"><span class="hs-identifier hs-var">QueueAttributeName'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679176347"><span id="local-6989586621679176348"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="QueueAttributeName"><span class="annot"><a href="Network.AWS.SQS.Types.QueueAttributeName.html#QueueAttributeName"><span class="hs-identifier hs-var">QueueAttributeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="QueueAttributeName%27"><span class="annot"><a href="Network.AWS.SQS.Types.QueueAttributeName.html#QueueAttributeName%27"><span class="hs-identifier hs-var">QueueAttributeName'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromQueueAttributeName"><span class="annot"><span class="annottext">QueueAttributeName -&gt; Text
 </span><a href="Network.AWS.SQS.Types.QueueAttributeName.html#fromQueueAttributeName"><span class="hs-identifier hs-var hs-var">fromQueueAttributeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-53"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679176199"><span id="local-6989586621679176201"><span id="local-6989586621679176203"><span class="annot"><span class="annottext">Int -&gt; QueueAttributeName -&gt; ShowS
+</span><span id="line-56"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679176339"><span id="local-6989586621679176341"><span id="local-6989586621679176343"><span class="annot"><span class="annottext">Int -&gt; QueueAttributeName -&gt; ShowS
 [QueueAttributeName] -&gt; ShowS
 QueueAttributeName -&gt; String
 (Int -&gt; QueueAttributeName -&gt; ShowS)
@@ -70,7 +70,7 @@ $cshow :: QueueAttributeName -&gt; String
 showsPrec :: Int -&gt; QueueAttributeName -&gt; ShowS
 $cshowsPrec :: Int -&gt; QueueAttributeName -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679176190"><span id="local-6989586621679176192"><span id="local-6989586621679176194"><span id="local-6989586621679176196"><span class="annot"><span class="annottext">ReadPrec [QueueAttributeName]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679176330"><span id="local-6989586621679176332"><span id="local-6989586621679176334"><span id="local-6989586621679176336"><span class="annot"><span class="annottext">ReadPrec [QueueAttributeName]
 ReadPrec QueueAttributeName
 Int -&gt; ReadS QueueAttributeName
 ReadS [QueueAttributeName]
@@ -91,7 +91,7 @@ $creadList :: ReadS [QueueAttributeName]
 readsPrec :: Int -&gt; ReadS QueueAttributeName
 $creadsPrec :: Int -&gt; ReadS QueueAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679176185"><span id="local-6989586621679176187"><span class="annot"><span class="annottext">QueueAttributeName -&gt; QueueAttributeName -&gt; Bool
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679176325"><span id="local-6989586621679176327"><span class="annot"><span class="annottext">QueueAttributeName -&gt; QueueAttributeName -&gt; Bool
 (QueueAttributeName -&gt; QueueAttributeName -&gt; Bool)
 -&gt; (QueueAttributeName -&gt; QueueAttributeName -&gt; Bool)
 -&gt; Eq QueueAttributeName
@@ -101,7 +101,7 @@ $c/= :: QueueAttributeName -&gt; QueueAttributeName -&gt; Bool
 == :: QueueAttributeName -&gt; QueueAttributeName -&gt; Bool
 $c== :: QueueAttributeName -&gt; QueueAttributeName -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679176169"><span id="local-6989586621679176171"><span id="local-6989586621679176173"><span id="local-6989586621679176175"><span id="local-6989586621679176177"><span id="local-6989586621679176179"><span id="local-6989586621679176181"><span class="annot"><span class="annottext">Eq QueueAttributeName
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679176309"><span id="local-6989586621679176311"><span id="local-6989586621679176313"><span id="local-6989586621679176315"><span id="local-6989586621679176317"><span id="local-6989586621679176319"><span id="local-6989586621679176321"><span class="annot"><span class="annottext">Eq QueueAttributeName
 Eq QueueAttributeName
 -&gt; (QueueAttributeName -&gt; QueueAttributeName -&gt; Ordering)
 -&gt; (QueueAttributeName -&gt; QueueAttributeName -&gt; Bool)
@@ -152,7 +152,7 @@ $cfrom :: forall x. QueueAttributeName -&gt; Rep QueueAttributeName x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679176161"><span id="local-6989586621679176163"><span class="annot"><span class="annottext">Int -&gt; QueueAttributeName -&gt; Int
+</span><span id="line-63"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679176301"><span id="local-6989586621679176303"><span class="annot"><span class="annottext">Int -&gt; QueueAttributeName -&gt; Int
 QueueAttributeName -&gt; Int
 (Int -&gt; QueueAttributeName -&gt; Int)
 -&gt; (QueueAttributeName -&gt; Int) -&gt; Hashable QueueAttributeName
@@ -162,53 +162,53 @@ $chash :: QueueAttributeName -&gt; Int
 hashWithSalt :: Int -&gt; QueueAttributeName -&gt; Int
 $chashWithSalt :: Int -&gt; QueueAttributeName -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679176158"><span class="annot"><span class="annottext">QueueAttributeName -&gt; ()
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679176298"><span class="annot"><span class="annottext">QueueAttributeName -&gt; ()
 (QueueAttributeName -&gt; ()) -&gt; NFData QueueAttributeName
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: QueueAttributeName -&gt; ()
 $crnf :: QueueAttributeName -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679176155"><span class="annot"><span class="annottext">Text -&gt; Either String QueueAttributeName
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679176295"><span class="annot"><span class="annottext">Text -&gt; Either String QueueAttributeName
 (Text -&gt; Either String QueueAttributeName)
 -&gt; FromText QueueAttributeName
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String QueueAttributeName
 $cfromText :: Text -&gt; Either String QueueAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679176152"><span class="annot"><span class="annottext">QueueAttributeName -&gt; Text
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679176292"><span class="annot"><span class="annottext">QueueAttributeName -&gt; Text
 (QueueAttributeName -&gt; Text) -&gt; ToText QueueAttributeName
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: QueueAttributeName -&gt; Text
 $ctoText :: QueueAttributeName -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679176149"><span class="annot"><span class="annottext">QueueAttributeName -&gt; ByteString
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679176289"><span class="annot"><span class="annottext">QueueAttributeName -&gt; ByteString
 (QueueAttributeName -&gt; ByteString)
 -&gt; ToByteString QueueAttributeName
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: QueueAttributeName -&gt; ByteString
 $ctoBS :: QueueAttributeName -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679176146"><span class="annot"><span class="annottext">QueueAttributeName -&gt; ByteStringBuilder
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679176286"><span class="annot"><span class="annottext">QueueAttributeName -&gt; ByteStringBuilder
 (QueueAttributeName -&gt; ByteStringBuilder)
 -&gt; ToLog QueueAttributeName
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: QueueAttributeName -&gt; ByteStringBuilder
 $cbuild :: QueueAttributeName -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679176143"><span class="annot"><span class="annottext">HeaderName -&gt; QueueAttributeName -&gt; [Header]
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679176283"><span class="annot"><span class="annottext">HeaderName -&gt; QueueAttributeName -&gt; [Header]
 (HeaderName -&gt; QueueAttributeName -&gt; [Header])
 -&gt; ToHeader QueueAttributeName
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; QueueAttributeName -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; QueueAttributeName -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621679176140"><span class="annot"><span class="annottext">QueueAttributeName -&gt; QueryString
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679176280"><span class="annot"><span class="annottext">QueueAttributeName -&gt; QueryString
 (QueueAttributeName -&gt; QueryString) -&gt; ToQuery QueueAttributeName
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: QueueAttributeName -&gt; QueryString
 $ctoQuery :: QueueAttributeName -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span id="local-6989586621679176135"><span id="local-6989586621679176137"><span class="annot"><span class="annottext">Value -&gt; Parser [QueueAttributeName]
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679176275"><span id="local-6989586621679176277"><span class="annot"><span class="annottext">Value -&gt; Parser [QueueAttributeName]
 Value -&gt; Parser QueueAttributeName
 (Value -&gt; Parser QueueAttributeName)
 -&gt; (Value -&gt; Parser [QueueAttributeName])
@@ -220,7 +220,7 @@ $cparseJSONList :: Value -&gt; Parser [QueueAttributeName]
 parseJSON :: Value -&gt; Parser QueueAttributeName
 $cparseJSON :: Value -&gt; Parser QueueAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span id="local-6989586621679176130"><span id="local-6989586621679176132"><span class="annot"><span class="annottext">FromJSONKeyFunction [QueueAttributeName]
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679176270"><span id="local-6989586621679176272"><span class="annot"><span class="annottext">FromJSONKeyFunction [QueueAttributeName]
 FromJSONKeyFunction QueueAttributeName
 FromJSONKeyFunction QueueAttributeName
 -&gt; FromJSONKeyFunction [QueueAttributeName]
@@ -232,7 +232,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [QueueAttributeName]
 fromJSONKey :: FromJSONKeyFunction QueueAttributeName
 $cfromJSONKey :: FromJSONKeyFunction QueueAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span id="local-6989586621679176121"><span id="local-6989586621679176123"><span id="local-6989586621679176125"><span id="local-6989586621679176127"><span class="annot"><span class="annottext">[QueueAttributeName] -&gt; Encoding
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679176261"><span id="local-6989586621679176263"><span id="local-6989586621679176265"><span id="local-6989586621679176267"><span class="annot"><span class="annottext">[QueueAttributeName] -&gt; Encoding
 [QueueAttributeName] -&gt; Value
 QueueAttributeName -&gt; Encoding
 QueueAttributeName -&gt; Value
@@ -256,7 +256,7 @@ $ctoEncoding :: QueueAttributeName -&gt; Encoding
 toJSON :: QueueAttributeName -&gt; Value
 $ctoJSON :: QueueAttributeName -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span id="local-6989586621679176116"><span id="local-6989586621679176118"><span class="annot"><span class="annottext">ToJSONKeyFunction [QueueAttributeName]
+</span><span id="line-74"></span><span>      </span><span id="local-6989586621679176256"><span id="local-6989586621679176258"><span class="annot"><span class="annottext">ToJSONKeyFunction [QueueAttributeName]
 ToJSONKeyFunction QueueAttributeName
 ToJSONKeyFunction QueueAttributeName
 -&gt; ToJSONKeyFunction [QueueAttributeName]
@@ -268,14 +268,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [QueueAttributeName]
 toJSONKey :: ToJSONKeyFunction QueueAttributeName
 $ctoJSONKey :: ToJSONKeyFunction QueueAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span id="local-6989586621679176113"><span class="annot"><span class="annottext">[Node] -&gt; Either String QueueAttributeName
+</span><span id="line-75"></span><span>      </span><span id="local-6989586621679176253"><span class="annot"><span class="annottext">[Node] -&gt; Either String QueueAttributeName
 ([Node] -&gt; Either String QueueAttributeName)
 -&gt; FromXML QueueAttributeName
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String QueueAttributeName
 $cparseXML :: [Node] -&gt; Either String QueueAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span id="local-6989586621679176110"><span class="annot"><span class="annottext">QueueAttributeName -&gt; XML
+</span><span id="line-76"></span><span>      </span><span id="local-6989586621679176250"><span class="annot"><span class="annottext">QueueAttributeName -&gt; XML
 (QueueAttributeName -&gt; XML) -&gt; ToXML QueueAttributeName
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: QueueAttributeName -&gt; XML

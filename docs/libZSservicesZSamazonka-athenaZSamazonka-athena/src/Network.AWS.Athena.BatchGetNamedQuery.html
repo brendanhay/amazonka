@@ -57,12 +57,12 @@
 </span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newBatchGetNamedQuery' smart constructor.</span><span>
-</span><span id="line-60"></span><span id="local-6989586621679227325"><span id="local-6989586621679227326"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetNamedQuery"><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQuery"><span class="hs-identifier hs-var">BatchGetNamedQuery</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetNamedQuery%27"><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQuery%27"><span class="hs-identifier hs-var">BatchGetNamedQuery'</span></a></span></span><span>
+</span><span id="line-60"></span><span id="local-6989586621679227503"><span id="local-6989586621679227504"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetNamedQuery"><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQuery"><span class="hs-identifier hs-var">BatchGetNamedQuery</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetNamedQuery%27"><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQuery%27"><span class="hs-identifier hs-var">BatchGetNamedQuery'</span></a></span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of query IDs.</span><span>
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AnamedQueryIds%3ABatchGetNamedQuery%27"><span class="annot"><span class="annottext">BatchGetNamedQuery -&gt; NonEmpty Text
 </span><a href="Network.AWS.Athena.BatchGetNamedQuery.html#%24sel%3AnamedQueryIds%3ABatchGetNamedQuery%27"><span class="hs-identifier hs-var hs-var">namedQueryIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679227319"><span id="local-6989586621679227321"><span class="annot"><span class="annottext">BatchGetNamedQuery -&gt; BatchGetNamedQuery -&gt; Bool
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679227497"><span id="local-6989586621679227499"><span class="annot"><span class="annottext">BatchGetNamedQuery -&gt; BatchGetNamedQuery -&gt; Bool
 (BatchGetNamedQuery -&gt; BatchGetNamedQuery -&gt; Bool)
 -&gt; (BatchGetNamedQuery -&gt; BatchGetNamedQuery -&gt; Bool)
 -&gt; Eq BatchGetNamedQuery
@@ -71,7 +71,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BatchGetNamedQuery -&gt; BatchGetNamedQuery -&gt; Bool
 == :: BatchGetNamedQuery -&gt; BatchGetNamedQuery -&gt; Bool
 $c== :: BatchGetNamedQuery -&gt; BatchGetNamedQuery -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227310"><span id="local-6989586621679227312"><span id="local-6989586621679227314"><span id="local-6989586621679227316"><span class="annot"><span class="annottext">ReadPrec [BatchGetNamedQuery]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227488"><span id="local-6989586621679227490"><span id="local-6989586621679227492"><span id="local-6989586621679227494"><span class="annot"><span class="annottext">ReadPrec [BatchGetNamedQuery]
 ReadPrec BatchGetNamedQuery
 Int -&gt; ReadS BatchGetNamedQuery
 ReadS [BatchGetNamedQuery]
@@ -91,7 +91,7 @@ readList :: ReadS [BatchGetNamedQuery]
 $creadList :: ReadS [BatchGetNamedQuery]
 readsPrec :: Int -&gt; ReadS BatchGetNamedQuery
 $creadsPrec :: Int -&gt; ReadS BatchGetNamedQuery
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227303"><span id="local-6989586621679227305"><span id="local-6989586621679227307"><span class="annot"><span class="annottext">Int -&gt; BatchGetNamedQuery -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227481"><span id="local-6989586621679227483"><span id="local-6989586621679227485"><span class="annot"><span class="annottext">Int -&gt; BatchGetNamedQuery -&gt; ShowS
 [BatchGetNamedQuery] -&gt; ShowS
 BatchGetNamedQuery -&gt; String
 (Int -&gt; BatchGetNamedQuery -&gt; ShowS)
@@ -131,21 +131,21 @@ $cfrom :: forall x. BatchGetNamedQuery -&gt; Rep BatchGetNamedQuery x
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQuery"><span class="hs-identifier hs-type">BatchGetNamedQuery</span></a></span><span>
 </span><span id="line-79"></span><span id="newBatchGetNamedQuery"><span class="annot"><span class="annottext">newBatchGetNamedQuery :: NonEmpty Text -&gt; BatchGetNamedQuery
-</span><a href="Network.AWS.Athena.BatchGetNamedQuery.html#newBatchGetNamedQuery"><span class="hs-identifier hs-var hs-var">newBatchGetNamedQuery</span></a></span></span><span> </span><span id="local-6989586621679227298"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679227298"><span class="hs-identifier hs-var">pNamedQueryIds_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Athena.BatchGetNamedQuery.html#newBatchGetNamedQuery"><span class="hs-identifier hs-var hs-var">newBatchGetNamedQuery</span></a></span></span><span> </span><span id="local-6989586621679227476"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679227476"><span class="hs-identifier hs-var">pNamedQueryIds_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">BatchGetNamedQuery' :: NonEmpty Text -&gt; BatchGetNamedQuery
 </span><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQuery%27"><span class="hs-identifier hs-type">BatchGetNamedQuery'</span></a></span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:namedQueryIds:BatchGetNamedQuery' :: NonEmpty Text
 </span><a href="Network.AWS.Athena.BatchGetNamedQuery.html#%24sel%3AnamedQueryIds%3ABatchGetNamedQuery%27"><span class="hs-identifier hs-var">namedQueryIds</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
 -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
  -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text)))
 -&gt; NonEmpty Text -&gt; NonEmpty Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679227298"><span class="hs-identifier hs-var">pNamedQueryIds_</span></a></span><span>
+</span><a href="#local-6989586621679227476"><span class="hs-identifier hs-var">pNamedQueryIds_</span></a></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | An array of query IDs.</span><span>
@@ -160,16 +160,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (NonEmpty Text)
      (NonEmpty Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQuery%27"><span class="hs-identifier hs-type">BatchGetNamedQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227293"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQuery%27"><span class="hs-identifier hs-type">BatchGetNamedQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227471"><span class="annot"><span class="annottext">NonEmpty Text
 namedQueryIds :: NonEmpty Text
 $sel:namedQueryIds:BatchGetNamedQuery' :: BatchGetNamedQuery -&gt; NonEmpty Text
-</span><a href="#local-6989586621679227293"><span class="hs-identifier hs-var hs-var">namedQueryIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679227293"><span class="hs-identifier hs-var">namedQueryIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227292"><span class="annot"><span class="annottext">s :: BatchGetNamedQuery
-</span><a href="#local-6989586621679227292"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQuery%27"><span class="hs-identifier hs-type">BatchGetNamedQuery'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227291"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679227291"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetNamedQuery
-</span><a href="#local-6989586621679227292"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namedQueryIds:BatchGetNamedQuery' :: NonEmpty Text
+</span><a href="#local-6989586621679227471"><span class="hs-identifier hs-var hs-var">namedQueryIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679227471"><span class="hs-identifier hs-var">namedQueryIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227470"><span class="annot"><span class="annottext">s :: BatchGetNamedQuery
+</span><a href="#local-6989586621679227470"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQuery%27"><span class="hs-identifier hs-type">BatchGetNamedQuery'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227469"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679227469"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetNamedQuery
+</span><a href="#local-6989586621679227470"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namedQueryIds:BatchGetNamedQuery' :: NonEmpty Text
 </span><a href="Network.AWS.Athena.BatchGetNamedQuery.html#%24sel%3AnamedQueryIds%3ABatchGetNamedQuery%27"><span class="hs-identifier hs-var">namedQueryIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679227291"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQuery"><span class="hs-identifier hs-type">BatchGetNamedQuery</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+</span><a href="#local-6989586621679227469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQuery"><span class="hs-identifier hs-type">BatchGetNamedQuery</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
  -&gt; BatchGetNamedQuery -&gt; f BatchGetNamedQuery)
 -&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
     -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
@@ -179,19 +179,19 @@ $sel:namedQueryIds:BatchGetNamedQuery' :: BatchGetNamedQuery -&gt; NonEmpty Text
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; f (NonEmpty Text))
 -&gt; NonEmpty Text -&gt; f (NonEmpty Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQuery"><span class="hs-identifier hs-type">BatchGetNamedQuery</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-90"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-91"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQuery"><span class="hs-identifier hs-type">BatchGetNamedQuery</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>      </span><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQueryResponse"><span class="hs-identifier hs-type">BatchGetNamedQueryResponse</span></a></span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679227286"><span class="annot"><span class="annottext">request :: BatchGetNamedQuery -&gt; Request BatchGetNamedQuery
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679227464"><span class="annot"><span class="annottext">request :: BatchGetNamedQuery -&gt; Request BatchGetNamedQuery
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; BatchGetNamedQuery -&gt; Request BatchGetNamedQuery
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Athena.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679227282"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679227460"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy BatchGetNamedQuery
 -&gt; ClientResponse ClientBody
@@ -217,10 +217,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679227279"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679227279"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679227278"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679227278"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679227277"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679227277"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679227457"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227457"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679227456"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679227456"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679227455"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679227455"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe [NamedQuery]
 -&gt; Maybe [UnprocessedNamedQueryId]
 -&gt; Int
@@ -237,7 +237,7 @@ MonadResource m =&gt;
       -&gt; Int -&gt; BatchGetNamedQueryResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679227277"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [NamedQuery]))
+</span><a href="#local-6989586621679227455"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [NamedQuery]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NamedQueries&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [NamedQuery]))
@@ -254,7 +254,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; BatchGetNamedQueryResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679227277"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679227455"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [UnprocessedNamedQueryId]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -275,15 +275,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679227279"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679227457"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227268"><span id="local-6989586621679227270"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQuery"><span class="hs-identifier hs-type">BatchGetNamedQuery</span></a></span></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227446"><span id="local-6989586621679227448"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQuery"><span class="hs-identifier hs-type">BatchGetNamedQuery</span></a></span></span></span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227265"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQuery"><span class="hs-identifier hs-type">BatchGetNamedQuery</span></a></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227443"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQuery"><span class="hs-identifier hs-type">BatchGetNamedQuery</span></a></span></span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQuery"><span class="hs-identifier hs-type">BatchGetNamedQuery</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679227261"><span class="annot"><span class="annottext">toHeaders :: BatchGetNamedQuery -&gt; ResponseHeaders
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679227439"><span class="annot"><span class="annottext">toHeaders :: BatchGetNamedQuery -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; BatchGetNamedQuery -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -310,12 +310,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-121"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227251"><span id="local-6989586621679227253"><span id="local-6989586621679227255"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQuery"><span class="hs-identifier hs-type">BatchGetNamedQuery</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679227249"><span class="annot"><span class="annottext">toJSON :: BatchGetNamedQuery -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQuery%27"><span class="hs-identifier hs-type">BatchGetNamedQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227247"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227429"><span id="local-6989586621679227431"><span id="local-6989586621679227433"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQuery"><span class="hs-identifier hs-type">BatchGetNamedQuery</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679227427"><span class="annot"><span class="annottext">toJSON :: BatchGetNamedQuery -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQuery%27"><span class="hs-identifier hs-type">BatchGetNamedQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227425"><span class="annot"><span class="annottext">NonEmpty Text
 namedQueryIds :: NonEmpty Text
 $sel:namedQueryIds:BatchGetNamedQuery' :: BatchGetNamedQuery -&gt; NonEmpty Text
-</span><a href="#local-6989586621679227247"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679227425"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -328,19 +328,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;NamedQueryIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679227247"><span class="hs-identifier hs-var">namedQueryIds</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679227425"><span class="hs-identifier hs-var">namedQueryIds</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQuery"><span class="hs-identifier hs-type">BatchGetNamedQuery</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679227241"><span class="annot"><span class="annottext">toPath :: BatchGetNamedQuery -&gt; ByteString
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679227419"><span class="annot"><span class="annottext">toPath :: BatchGetNamedQuery -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; BatchGetNamedQuery -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQuery"><span class="hs-identifier hs-type">BatchGetNamedQuery</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679227237"><span class="annot"><span class="annottext">toQuery :: BatchGetNamedQuery -&gt; QueryString
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679227415"><span class="annot"><span class="annottext">toQuery :: BatchGetNamedQuery -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; BatchGetNamedQuery -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -348,7 +348,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | /See:/ 'newBatchGetNamedQueryResponse' smart constructor.</span><span>
-</span><span id="line-140"></span><span id="local-6989586621679227234"><span id="local-6989586621679227235"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetNamedQueryResponse"><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQueryResponse"><span class="hs-identifier hs-var">BatchGetNamedQueryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetNamedQueryResponse%27"><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQueryResponse%27"><span class="hs-identifier hs-var">BatchGetNamedQueryResponse'</span></a></span></span><span>
+</span><span id="line-140"></span><span id="local-6989586621679227412"><span id="local-6989586621679227413"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetNamedQueryResponse"><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQueryResponse"><span class="hs-identifier hs-var">BatchGetNamedQueryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetNamedQueryResponse%27"><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQueryResponse%27"><span class="hs-identifier hs-var">BatchGetNamedQueryResponse'</span></a></span></span><span>
 </span><span id="line-141"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the named query IDs submitted.</span><span>
 </span><span id="line-142"></span><span>    </span><span id="%24sel%3AnamedQueries%3ABatchGetNamedQueryResponse%27"><span class="annot"><span class="annottext">BatchGetNamedQueryResponse -&gt; Maybe [NamedQuery]
 </span><a href="Network.AWS.Athena.BatchGetNamedQuery.html#%24sel%3AnamedQueries%3ABatchGetNamedQueryResponse%27"><span class="hs-identifier hs-var hs-var">namedQueries</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Athena.Types.NamedQuery.html#NamedQuery"><span class="hs-identifier hs-type">NamedQuery</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -359,7 +359,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-146"></span><span>    </span><span id="%24sel%3AhttpStatus%3ABatchGetNamedQueryResponse%27"><span class="annot"><span class="annottext">BatchGetNamedQueryResponse -&gt; Int
 </span><a href="Network.AWS.Athena.BatchGetNamedQuery.html#%24sel%3AhttpStatus%3ABatchGetNamedQueryResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-147"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-148"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679227227"><span id="local-6989586621679227229"><span class="annot"><span class="annottext">BatchGetNamedQueryResponse -&gt; BatchGetNamedQueryResponse -&gt; Bool
+</span><span id="line-148"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679227405"><span id="local-6989586621679227407"><span class="annot"><span class="annottext">BatchGetNamedQueryResponse -&gt; BatchGetNamedQueryResponse -&gt; Bool
 (BatchGetNamedQueryResponse -&gt; BatchGetNamedQueryResponse -&gt; Bool)
 -&gt; (BatchGetNamedQueryResponse
     -&gt; BatchGetNamedQueryResponse -&gt; Bool)
@@ -369,7 +369,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BatchGetNamedQueryResponse -&gt; BatchGetNamedQueryResponse -&gt; Bool
 == :: BatchGetNamedQueryResponse -&gt; BatchGetNamedQueryResponse -&gt; Bool
 $c== :: BatchGetNamedQueryResponse -&gt; BatchGetNamedQueryResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227219"><span id="local-6989586621679227221"><span id="local-6989586621679227223"><span id="local-6989586621679227225"><span class="annot"><span class="annottext">ReadPrec [BatchGetNamedQueryResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227397"><span id="local-6989586621679227399"><span id="local-6989586621679227401"><span id="local-6989586621679227403"><span class="annot"><span class="annottext">ReadPrec [BatchGetNamedQueryResponse]
 ReadPrec BatchGetNamedQueryResponse
 Int -&gt; ReadS BatchGetNamedQueryResponse
 ReadS [BatchGetNamedQueryResponse]
@@ -389,7 +389,7 @@ readList :: ReadS [BatchGetNamedQueryResponse]
 $creadList :: ReadS [BatchGetNamedQueryResponse]
 readsPrec :: Int -&gt; ReadS BatchGetNamedQueryResponse
 $creadsPrec :: Int -&gt; ReadS BatchGetNamedQueryResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227213"><span id="local-6989586621679227215"><span id="local-6989586621679227217"><span class="annot"><span class="annottext">Int -&gt; BatchGetNamedQueryResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227391"><span id="local-6989586621679227393"><span id="local-6989586621679227395"><span class="annot"><span class="annottext">Int -&gt; BatchGetNamedQueryResponse -&gt; ShowS
 [BatchGetNamedQueryResponse] -&gt; ShowS
 BatchGetNamedQueryResponse -&gt; String
 (Int -&gt; BatchGetNamedQueryResponse -&gt; ShowS)
@@ -439,8 +439,8 @@ BatchGetNamedQueryResponse -&gt; Rep BatchGetNamedQueryResponse x
 </span><span id="line-165"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-166"></span><span>  </span><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQueryResponse"><span class="hs-identifier hs-type">BatchGetNamedQueryResponse</span></a></span><span>
 </span><span id="line-167"></span><span id="newBatchGetNamedQueryResponse"><span class="annot"><span class="annottext">newBatchGetNamedQueryResponse :: Int -&gt; BatchGetNamedQueryResponse
-</span><a href="Network.AWS.Athena.BatchGetNamedQuery.html#newBatchGetNamedQueryResponse"><span class="hs-identifier hs-var hs-var">newBatchGetNamedQueryResponse</span></a></span></span><span> </span><span id="local-6989586621679227210"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679227210"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Athena.BatchGetNamedQuery.html#newBatchGetNamedQueryResponse"><span class="hs-identifier hs-var hs-var">newBatchGetNamedQueryResponse</span></a></span></span><span> </span><span id="local-6989586621679227388"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227388"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-168"></span><span>  </span><span class="annot"><span class="annottext">BatchGetNamedQueryResponse' :: Maybe [NamedQuery]
 -&gt; Maybe [UnprocessedNamedQueryId]
 -&gt; Int
@@ -457,7 +457,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-172"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:BatchGetNamedQueryResponse' :: Int
 </span><a href="Network.AWS.Athena.BatchGetNamedQuery.html#%24sel%3AhttpStatus%3ABatchGetNamedQueryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679227210"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679227388"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-173"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-comment">-- | Information about the named query IDs submitted.</span><span>
@@ -473,16 +473,16 @@ forall a. Maybe a
      (Maybe [NamedQuery])
      (Maybe [NamedQuery])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQueryResponse%27"><span class="hs-identifier hs-type">BatchGetNamedQueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227209"><span class="annot"><span class="annottext">Maybe [NamedQuery]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQueryResponse%27"><span class="hs-identifier hs-type">BatchGetNamedQueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227387"><span class="annot"><span class="annottext">Maybe [NamedQuery]
 namedQueries :: Maybe [NamedQuery]
 $sel:namedQueries:BatchGetNamedQueryResponse' :: BatchGetNamedQueryResponse -&gt; Maybe [NamedQuery]
-</span><a href="#local-6989586621679227209"><span class="hs-identifier hs-var hs-var">namedQueries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [NamedQuery]
-</span><a href="#local-6989586621679227209"><span class="hs-identifier hs-var">namedQueries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227208"><span class="annot"><span class="annottext">s :: BatchGetNamedQueryResponse
-</span><a href="#local-6989586621679227208"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQueryResponse%27"><span class="hs-identifier hs-type">BatchGetNamedQueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227207"><span class="annot"><span class="annottext">Maybe [NamedQuery]
-</span><a href="#local-6989586621679227207"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetNamedQueryResponse
-</span><a href="#local-6989586621679227208"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namedQueries:BatchGetNamedQueryResponse' :: Maybe [NamedQuery]
+</span><a href="#local-6989586621679227387"><span class="hs-identifier hs-var hs-var">namedQueries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [NamedQuery]
+</span><a href="#local-6989586621679227387"><span class="hs-identifier hs-var">namedQueries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227386"><span class="annot"><span class="annottext">s :: BatchGetNamedQueryResponse
+</span><a href="#local-6989586621679227386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQueryResponse%27"><span class="hs-identifier hs-type">BatchGetNamedQueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227385"><span class="annot"><span class="annottext">Maybe [NamedQuery]
+</span><a href="#local-6989586621679227385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetNamedQueryResponse
+</span><a href="#local-6989586621679227386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namedQueries:BatchGetNamedQueryResponse' :: Maybe [NamedQuery]
 </span><a href="Network.AWS.Athena.BatchGetNamedQuery.html#%24sel%3AnamedQueries%3ABatchGetNamedQueryResponse%27"><span class="hs-identifier hs-var">namedQueries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [NamedQuery]
-</span><a href="#local-6989586621679227207"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQueryResponse"><span class="hs-identifier hs-type">BatchGetNamedQueryResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [NamedQuery] -&gt; f (Maybe [NamedQuery]))
+</span><a href="#local-6989586621679227385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQueryResponse"><span class="hs-identifier hs-type">BatchGetNamedQueryResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [NamedQuery] -&gt; f (Maybe [NamedQuery]))
  -&gt; BatchGetNamedQueryResponse -&gt; f BatchGetNamedQueryResponse)
 -&gt; ((Maybe [NamedQuery] -&gt; f (Maybe [NamedQuery]))
     -&gt; Maybe [NamedQuery] -&gt; f (Maybe [NamedQuery]))
@@ -500,8 +500,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [NamedQuery] [NamedQuery] [NamedQuery] [NamedQuery]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-comment">-- | Information about provided query IDs.</span><span>
 </span><span id="line-180"></span><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#batchGetNamedQueryResponse_unprocessedNamedQueryIds"><span class="hs-identifier hs-type">batchGetNamedQueryResponse_unprocessedNamedQueryIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQueryResponse"><span class="hs-identifier hs-type">BatchGetNamedQueryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Athena.Types.UnprocessedNamedQueryId.html#UnprocessedNamedQueryId"><span class="hs-identifier hs-type">UnprocessedNamedQueryId</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -517,16 +517,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe [UnprocessedNamedQueryId])
      (Maybe [UnprocessedNamedQueryId])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQueryResponse%27"><span class="hs-identifier hs-type">BatchGetNamedQueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227205"><span class="annot"><span class="annottext">Maybe [UnprocessedNamedQueryId]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQueryResponse%27"><span class="hs-identifier hs-type">BatchGetNamedQueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227383"><span class="annot"><span class="annottext">Maybe [UnprocessedNamedQueryId]
 unprocessedNamedQueryIds :: Maybe [UnprocessedNamedQueryId]
 $sel:unprocessedNamedQueryIds:BatchGetNamedQueryResponse' :: BatchGetNamedQueryResponse -&gt; Maybe [UnprocessedNamedQueryId]
-</span><a href="#local-6989586621679227205"><span class="hs-identifier hs-var hs-var">unprocessedNamedQueryIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [UnprocessedNamedQueryId]
-</span><a href="#local-6989586621679227205"><span class="hs-identifier hs-var">unprocessedNamedQueryIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227204"><span class="annot"><span class="annottext">s :: BatchGetNamedQueryResponse
-</span><a href="#local-6989586621679227204"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQueryResponse%27"><span class="hs-identifier hs-type">BatchGetNamedQueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227203"><span class="annot"><span class="annottext">Maybe [UnprocessedNamedQueryId]
-</span><a href="#local-6989586621679227203"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetNamedQueryResponse
-</span><a href="#local-6989586621679227204"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unprocessedNamedQueryIds:BatchGetNamedQueryResponse' :: Maybe [UnprocessedNamedQueryId]
+</span><a href="#local-6989586621679227383"><span class="hs-identifier hs-var hs-var">unprocessedNamedQueryIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [UnprocessedNamedQueryId]
+</span><a href="#local-6989586621679227383"><span class="hs-identifier hs-var">unprocessedNamedQueryIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227382"><span class="annot"><span class="annottext">s :: BatchGetNamedQueryResponse
+</span><a href="#local-6989586621679227382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQueryResponse%27"><span class="hs-identifier hs-type">BatchGetNamedQueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227381"><span class="annot"><span class="annottext">Maybe [UnprocessedNamedQueryId]
+</span><a href="#local-6989586621679227381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetNamedQueryResponse
+</span><a href="#local-6989586621679227382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unprocessedNamedQueryIds:BatchGetNamedQueryResponse' :: Maybe [UnprocessedNamedQueryId]
 </span><a href="Network.AWS.Athena.BatchGetNamedQuery.html#%24sel%3AunprocessedNamedQueryIds%3ABatchGetNamedQueryResponse%27"><span class="hs-identifier hs-var">unprocessedNamedQueryIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UnprocessedNamedQueryId]
-</span><a href="#local-6989586621679227203"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQueryResponse"><span class="hs-identifier hs-type">BatchGetNamedQueryResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [UnprocessedNamedQueryId]
+</span><a href="#local-6989586621679227381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQueryResponse"><span class="hs-identifier hs-type">BatchGetNamedQueryResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [UnprocessedNamedQueryId]
   -&gt; f (Maybe [UnprocessedNamedQueryId]))
  -&gt; BatchGetNamedQueryResponse -&gt; f BatchGetNamedQueryResponse)
 -&gt; ((Maybe [UnprocessedNamedQueryId]
@@ -556,8 +556,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [UnprocessedNamedQueryId]
   [UnprocessedNamedQueryId]
   [UnprocessedNamedQueryId]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-184"></span><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#batchGetNamedQueryResponse_httpStatus"><span class="hs-identifier hs-type">batchGetNamedQueryResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQueryResponse"><span class="hs-identifier hs-type">BatchGetNamedQueryResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -569,16 +569,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      BatchGetNamedQueryResponse BatchGetNamedQueryResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQueryResponse%27"><span class="hs-identifier hs-type">BatchGetNamedQueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227202"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQueryResponse%27"><span class="hs-identifier hs-type">BatchGetNamedQueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227380"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:BatchGetNamedQueryResponse' :: BatchGetNamedQueryResponse -&gt; Int
-</span><a href="#local-6989586621679227202"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679227202"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227201"><span class="annot"><span class="annottext">s :: BatchGetNamedQueryResponse
-</span><a href="#local-6989586621679227201"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQueryResponse%27"><span class="hs-identifier hs-type">BatchGetNamedQueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227200"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679227200"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetNamedQueryResponse
-</span><a href="#local-6989586621679227201"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchGetNamedQueryResponse' :: Int
+</span><a href="#local-6989586621679227380"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227380"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227379"><span class="annot"><span class="annottext">s :: BatchGetNamedQueryResponse
+</span><a href="#local-6989586621679227379"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQueryResponse%27"><span class="hs-identifier hs-type">BatchGetNamedQueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227378"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227378"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetNamedQueryResponse
+</span><a href="#local-6989586621679227379"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchGetNamedQueryResponse' :: Int
 </span><a href="Network.AWS.Athena.BatchGetNamedQuery.html#%24sel%3AhttpStatus%3ABatchGetNamedQueryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679227200"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQueryResponse"><span class="hs-identifier hs-type">BatchGetNamedQueryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679227378"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQueryResponse"><span class="hs-identifier hs-type">BatchGetNamedQueryResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>
-</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227198"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQueryResponse"><span class="hs-identifier hs-type">BatchGetNamedQueryResponse</span></a></span></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227376"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.BatchGetNamedQuery.html#BatchGetNamedQueryResponse"><span class="hs-identifier hs-type">BatchGetNamedQueryResponse</span></a></span></span><span>
 </span><span id="line-188"></span></pre></body></html>

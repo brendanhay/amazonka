@@ -59,12 +59,12 @@
 </span><span id="line-59"></span><span class="hs-comment">-- configuration set.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- /See:/ 'newUpdateConfigurationSetEventDestination' smart constructor.</span><span>
-</span><span id="line-62"></span><span id="local-6989586621679350527"><span id="local-6989586621679350528"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateConfigurationSetEventDestination"><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#UpdateConfigurationSetEventDestination"><span class="hs-identifier hs-var">UpdateConfigurationSetEventDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateConfigurationSetEventDestination%27"><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#UpdateConfigurationSetEventDestination%27"><span class="hs-identifier hs-var">UpdateConfigurationSetEventDestination'</span></a></span></span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the configuration set that contains the event destination</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- that you want to modify.</span><span>
+</span><span id="line-62"></span><span id="local-6989586621679353113"><span id="local-6989586621679353114"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateConfigurationSetEventDestination"><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#UpdateConfigurationSetEventDestination"><span class="hs-identifier hs-var">UpdateConfigurationSetEventDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateConfigurationSetEventDestination%27"><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#UpdateConfigurationSetEventDestination%27"><span class="hs-identifier hs-var">UpdateConfigurationSetEventDestination'</span></a></span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the configuration set that contains the event destination to</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- modify.</span><span>
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3AconfigurationSetName%3AUpdateConfigurationSetEventDestination%27"><span class="annot"><span class="annottext">UpdateConfigurationSetEventDestination -&gt; Text
 </span><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#%24sel%3AconfigurationSetName%3AUpdateConfigurationSetEventDestination%27"><span class="hs-identifier hs-var hs-var">configurationSetName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The name of the event destination that you want to modify.</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The name of the event destination.</span><span>
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3AeventDestinationName%3AUpdateConfigurationSetEventDestination%27"><span class="annot"><span class="annottext">UpdateConfigurationSetEventDestination -&gt; Text
 </span><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#%24sel%3AeventDestinationName%3AUpdateConfigurationSetEventDestination%27"><span class="hs-identifier hs-var hs-var">eventDestinationName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | An object that defines the event destination.</span><span>
@@ -72,7 +72,7 @@
 -&gt; EventDestinationDefinition
 </span><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#%24sel%3AeventDestination%3AUpdateConfigurationSetEventDestination%27"><span class="hs-identifier hs-var hs-var">eventDestination</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.EventDestinationDefinition.html#EventDestinationDefinition"><span class="hs-identifier hs-type">EventDestinationDefinition</span></a></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679350519"><span id="local-6989586621679350521"><span class="annot"><span class="annottext">UpdateConfigurationSetEventDestination
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679353105"><span id="local-6989586621679353107"><span class="annot"><span class="annottext">UpdateConfigurationSetEventDestination
 -&gt; UpdateConfigurationSetEventDestination -&gt; Bool
 (UpdateConfigurationSetEventDestination
  -&gt; UpdateConfigurationSetEventDestination -&gt; Bool)
@@ -88,7 +88,7 @@ $c/= :: UpdateConfigurationSetEventDestination
 -&gt; UpdateConfigurationSetEventDestination -&gt; Bool
 $c== :: UpdateConfigurationSetEventDestination
 -&gt; UpdateConfigurationSetEventDestination -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350510"><span id="local-6989586621679350512"><span id="local-6989586621679350514"><span id="local-6989586621679350516"><span class="annot"><span class="annottext">ReadPrec [UpdateConfigurationSetEventDestination]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679353096"><span id="local-6989586621679353098"><span id="local-6989586621679353100"><span id="local-6989586621679353102"><span class="annot"><span class="annottext">ReadPrec [UpdateConfigurationSetEventDestination]
 ReadPrec UpdateConfigurationSetEventDestination
 Int -&gt; ReadS UpdateConfigurationSetEventDestination
 ReadS [UpdateConfigurationSetEventDestination]
@@ -108,7 +108,7 @@ readList :: ReadS [UpdateConfigurationSetEventDestination]
 $creadList :: ReadS [UpdateConfigurationSetEventDestination]
 readsPrec :: Int -&gt; ReadS UpdateConfigurationSetEventDestination
 $creadsPrec :: Int -&gt; ReadS UpdateConfigurationSetEventDestination
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350503"><span id="local-6989586621679350505"><span id="local-6989586621679350507"><span class="annot"><span class="annottext">Int -&gt; UpdateConfigurationSetEventDestination -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679353089"><span id="local-6989586621679353091"><span id="local-6989586621679353093"><span class="annot"><span class="annottext">Int -&gt; UpdateConfigurationSetEventDestination -&gt; ShowS
 [UpdateConfigurationSetEventDestination] -&gt; ShowS
 UpdateConfigurationSetEventDestination -&gt; String
 (Int -&gt; UpdateConfigurationSetEventDestination -&gt; ShowS)
@@ -154,10 +154,10 @@ UpdateConfigurationSetEventDestination
 </span><span id="line-78"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-80"></span><span class="hs-comment">--</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- 'configurationSetName', 'updateConfigurationSetEventDestination_configurationSetName' - The name of the configuration set that contains the event destination</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- that you want to modify.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'configurationSetName', 'updateConfigurationSetEventDestination_configurationSetName' - The name of the configuration set that contains the event destination to</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- modify.</span><span>
 </span><span id="line-83"></span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- 'eventDestinationName', 'updateConfigurationSetEventDestination_eventDestinationName' - The name of the event destination that you want to modify.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'eventDestinationName', 'updateConfigurationSetEventDestination_eventDestinationName' - The name of the event destination.</span><span>
 </span><span id="line-85"></span><span class="hs-comment">--</span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- 'eventDestination', 'updateConfigurationSetEventDestination_eventDestination' - An object that defines the event destination.</span><span>
 </span><span id="line-87"></span><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#newUpdateConfigurationSetEventDestination"><span class="hs-identifier hs-type">newUpdateConfigurationSetEventDestination</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -173,12 +173,12 @@ UpdateConfigurationSetEventDestination
 -&gt; EventDestinationDefinition
 -&gt; UpdateConfigurationSetEventDestination
 </span><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#newUpdateConfigurationSetEventDestination"><span class="hs-identifier hs-var hs-var">newUpdateConfigurationSetEventDestination</span></a></span></span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679350498"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679350498"><span class="hs-identifier hs-var">pConfigurationSetName_</span></a></span></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679350497"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679350497"><span class="hs-identifier hs-var">pEventDestinationName_</span></a></span></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679350496"><span class="annot"><span class="annottext">EventDestinationDefinition
-</span><a href="#local-6989586621679350496"><span class="hs-identifier hs-var">pEventDestination_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679353084"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679353084"><span class="hs-identifier hs-var">pConfigurationSetName_</span></a></span></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679353083"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679353083"><span class="hs-identifier hs-var">pEventDestinationName_</span></a></span></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679353082"><span class="annot"><span class="annottext">EventDestinationDefinition
+</span><a href="#local-6989586621679353082"><span class="hs-identifier hs-var">pEventDestination_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">UpdateConfigurationSetEventDestination' :: Text
 -&gt; Text
 -&gt; EventDestinationDefinition
@@ -187,19 +187,19 @@ UpdateConfigurationSetEventDestination
 </span><span id="line-100"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:configurationSetName:UpdateConfigurationSetEventDestination' :: Text
 </span><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#%24sel%3AconfigurationSetName%3AUpdateConfigurationSetEventDestination%27"><span class="hs-identifier hs-var">configurationSetName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679350498"><span class="hs-identifier hs-var">pConfigurationSetName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679353084"><span class="hs-identifier hs-var">pConfigurationSetName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">$sel:eventDestinationName:UpdateConfigurationSetEventDestination' :: Text
 </span><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#%24sel%3AeventDestinationName%3AUpdateConfigurationSetEventDestination%27"><span class="hs-identifier hs-var">eventDestinationName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679350497"><span class="hs-identifier hs-var">pEventDestinationName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679353083"><span class="hs-identifier hs-var">pEventDestinationName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">$sel:eventDestination:UpdateConfigurationSetEventDestination' :: EventDestinationDefinition
 </span><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#%24sel%3AeventDestination%3AUpdateConfigurationSetEventDestination%27"><span class="hs-identifier hs-var">eventDestination</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">EventDestinationDefinition
-</span><a href="#local-6989586621679350496"><span class="hs-identifier hs-var">pEventDestination_</span></a></span><span>
+</span><a href="#local-6989586621679353082"><span class="hs-identifier hs-var">pEventDestination_</span></a></span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- | The name of the configuration set that contains the event destination</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- that you want to modify.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The name of the configuration set that contains the event destination to</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- modify.</span><span>
 </span><span id="line-110"></span><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#updateConfigurationSetEventDestination_configurationSetName"><span class="hs-identifier hs-type">updateConfigurationSetEventDestination_configurationSetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#UpdateConfigurationSetEventDestination"><span class="hs-identifier hs-type">UpdateConfigurationSetEventDestination</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-111"></span><span id="updateConfigurationSetEventDestination_configurationSetName"><span class="annot"><span class="annottext">updateConfigurationSetEventDestination_configurationSetName :: (Text -&gt; f Text)
 -&gt; UpdateConfigurationSetEventDestination
@@ -213,18 +213,18 @@ UpdateConfigurationSetEventDestination
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#UpdateConfigurationSetEventDestination%27"><span class="hs-identifier hs-type">UpdateConfigurationSetEventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350493"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#UpdateConfigurationSetEventDestination%27"><span class="hs-identifier hs-type">UpdateConfigurationSetEventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353079"><span class="annot"><span class="annottext">Text
 configurationSetName :: Text
 $sel:configurationSetName:UpdateConfigurationSetEventDestination' :: UpdateConfigurationSetEventDestination -&gt; Text
-</span><a href="#local-6989586621679350493"><span class="hs-identifier hs-var hs-var">configurationSetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679350493"><span class="hs-identifier hs-var">configurationSetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350492"><span class="annot"><span class="annottext">s :: UpdateConfigurationSetEventDestination
-</span><a href="#local-6989586621679350492"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#UpdateConfigurationSetEventDestination%27"><span class="hs-identifier hs-type">UpdateConfigurationSetEventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350491"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679350491"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateConfigurationSetEventDestination
-</span><a href="#local-6989586621679350492"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationSetName:UpdateConfigurationSetEventDestination' :: Text
+</span><a href="#local-6989586621679353079"><span class="hs-identifier hs-var hs-var">configurationSetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679353079"><span class="hs-identifier hs-var">configurationSetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353078"><span class="annot"><span class="annottext">s :: UpdateConfigurationSetEventDestination
+</span><a href="#local-6989586621679353078"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#UpdateConfigurationSetEventDestination%27"><span class="hs-identifier hs-type">UpdateConfigurationSetEventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353077"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679353077"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateConfigurationSetEventDestination
+</span><a href="#local-6989586621679353078"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationSetName:UpdateConfigurationSetEventDestination' :: Text
 </span><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#%24sel%3AconfigurationSetName%3AUpdateConfigurationSetEventDestination%27"><span class="hs-identifier hs-var">configurationSetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679350491"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#UpdateConfigurationSetEventDestination"><span class="hs-identifier hs-type">UpdateConfigurationSetEventDestination</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679353077"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#UpdateConfigurationSetEventDestination"><span class="hs-identifier hs-type">UpdateConfigurationSetEventDestination</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- | The name of the event destination that you want to modify.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The name of the event destination.</span><span>
 </span><span id="line-114"></span><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#updateConfigurationSetEventDestination_eventDestinationName"><span class="hs-identifier hs-type">updateConfigurationSetEventDestination_eventDestinationName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#UpdateConfigurationSetEventDestination"><span class="hs-identifier hs-type">UpdateConfigurationSetEventDestination</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-115"></span><span id="updateConfigurationSetEventDestination_eventDestinationName"><span class="annot"><span class="annottext">updateConfigurationSetEventDestination_eventDestinationName :: (Text -&gt; f Text)
 -&gt; UpdateConfigurationSetEventDestination
@@ -238,16 +238,16 @@ $sel:configurationSetName:UpdateConfigurationSetEventDestination' :: UpdateConfi
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#UpdateConfigurationSetEventDestination%27"><span class="hs-identifier hs-type">UpdateConfigurationSetEventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350490"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#UpdateConfigurationSetEventDestination%27"><span class="hs-identifier hs-type">UpdateConfigurationSetEventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353076"><span class="annot"><span class="annottext">Text
 eventDestinationName :: Text
 $sel:eventDestinationName:UpdateConfigurationSetEventDestination' :: UpdateConfigurationSetEventDestination -&gt; Text
-</span><a href="#local-6989586621679350490"><span class="hs-identifier hs-var hs-var">eventDestinationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679350490"><span class="hs-identifier hs-var">eventDestinationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350489"><span class="annot"><span class="annottext">s :: UpdateConfigurationSetEventDestination
-</span><a href="#local-6989586621679350489"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#UpdateConfigurationSetEventDestination%27"><span class="hs-identifier hs-type">UpdateConfigurationSetEventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350488"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679350488"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateConfigurationSetEventDestination
-</span><a href="#local-6989586621679350489"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventDestinationName:UpdateConfigurationSetEventDestination' :: Text
+</span><a href="#local-6989586621679353076"><span class="hs-identifier hs-var hs-var">eventDestinationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679353076"><span class="hs-identifier hs-var">eventDestinationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353075"><span class="annot"><span class="annottext">s :: UpdateConfigurationSetEventDestination
+</span><a href="#local-6989586621679353075"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#UpdateConfigurationSetEventDestination%27"><span class="hs-identifier hs-type">UpdateConfigurationSetEventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353074"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679353074"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateConfigurationSetEventDestination
+</span><a href="#local-6989586621679353075"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventDestinationName:UpdateConfigurationSetEventDestination' :: Text
 </span><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#%24sel%3AeventDestinationName%3AUpdateConfigurationSetEventDestination%27"><span class="hs-identifier hs-var">eventDestinationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679350488"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#UpdateConfigurationSetEventDestination"><span class="hs-identifier hs-type">UpdateConfigurationSetEventDestination</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679353074"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#UpdateConfigurationSetEventDestination"><span class="hs-identifier hs-type">UpdateConfigurationSetEventDestination</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- | An object that defines the event destination.</span><span>
 </span><span id="line-118"></span><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#updateConfigurationSetEventDestination_eventDestination"><span class="hs-identifier hs-type">updateConfigurationSetEventDestination_eventDestination</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#UpdateConfigurationSetEventDestination"><span class="hs-identifier hs-type">UpdateConfigurationSetEventDestination</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.EventDestinationDefinition.html#EventDestinationDefinition"><span class="hs-identifier hs-type">EventDestinationDefinition</span></a></span><span>
@@ -265,17 +265,17 @@ $sel:eventDestinationName:UpdateConfigurationSetEventDestination' :: UpdateConfi
      EventDestinationDefinition
      EventDestinationDefinition
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#UpdateConfigurationSetEventDestination%27"><span class="hs-identifier hs-type">UpdateConfigurationSetEventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350487"><span class="annot"><span class="annottext">EventDestinationDefinition
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#UpdateConfigurationSetEventDestination%27"><span class="hs-identifier hs-type">UpdateConfigurationSetEventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353073"><span class="annot"><span class="annottext">EventDestinationDefinition
 eventDestination :: EventDestinationDefinition
 $sel:eventDestination:UpdateConfigurationSetEventDestination' :: UpdateConfigurationSetEventDestination
 -&gt; EventDestinationDefinition
-</span><a href="#local-6989586621679350487"><span class="hs-identifier hs-var hs-var">eventDestination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventDestinationDefinition
-</span><a href="#local-6989586621679350487"><span class="hs-identifier hs-var">eventDestination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350486"><span class="annot"><span class="annottext">s :: UpdateConfigurationSetEventDestination
-</span><a href="#local-6989586621679350486"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#UpdateConfigurationSetEventDestination%27"><span class="hs-identifier hs-type">UpdateConfigurationSetEventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350485"><span class="annot"><span class="annottext">EventDestinationDefinition
-</span><a href="#local-6989586621679350485"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateConfigurationSetEventDestination
-</span><a href="#local-6989586621679350486"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventDestination:UpdateConfigurationSetEventDestination' :: EventDestinationDefinition
+</span><a href="#local-6989586621679353073"><span class="hs-identifier hs-var hs-var">eventDestination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventDestinationDefinition
+</span><a href="#local-6989586621679353073"><span class="hs-identifier hs-var">eventDestination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353072"><span class="annot"><span class="annottext">s :: UpdateConfigurationSetEventDestination
+</span><a href="#local-6989586621679353072"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#UpdateConfigurationSetEventDestination%27"><span class="hs-identifier hs-type">UpdateConfigurationSetEventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353071"><span class="annot"><span class="annottext">EventDestinationDefinition
+</span><a href="#local-6989586621679353071"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateConfigurationSetEventDestination
+</span><a href="#local-6989586621679353072"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventDestination:UpdateConfigurationSetEventDestination' :: EventDestinationDefinition
 </span><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#%24sel%3AeventDestination%3AUpdateConfigurationSetEventDestination%27"><span class="hs-identifier hs-var">eventDestination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EventDestinationDefinition
-</span><a href="#local-6989586621679350485"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#UpdateConfigurationSetEventDestination"><span class="hs-identifier hs-type">UpdateConfigurationSetEventDestination</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679353071"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#UpdateConfigurationSetEventDestination"><span class="hs-identifier hs-type">UpdateConfigurationSetEventDestination</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-122"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
@@ -285,7 +285,7 @@ $sel:eventDestination:UpdateConfigurationSetEventDestination' :: UpdateConfigura
 </span><span id="line-126"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span>
 </span><span id="line-127"></span><span>      </span><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#UpdateConfigurationSetEventDestination"><span class="hs-identifier hs-type">UpdateConfigurationSetEventDestination</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>      </span><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#UpdateConfigurationSetEventDestinationResponse"><span class="hs-identifier hs-type">UpdateConfigurationSetEventDestinationResponse</span></a></span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679350481"><span class="annot"><span class="annottext">request :: UpdateConfigurationSetEventDestination
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679353067"><span class="annot"><span class="annottext">request :: UpdateConfigurationSetEventDestination
 -&gt; Request UpdateConfigurationSetEventDestination
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; UpdateConfigurationSetEventDestination
@@ -293,7 +293,7 @@ $sel:eventDestination:UpdateConfigurationSetEventDestination' :: UpdateConfigura
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SESv2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679350477"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679353063"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateConfigurationSetEventDestination
 -&gt; ClientResponse ClientBody
@@ -324,10 +324,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679350474"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679350474"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679350473"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679350473"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679350472"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679350472"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679353060"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679353060"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679353059"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679353059"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679353058"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679353058"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; UpdateConfigurationSetEventDestinationResponse
 </span><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#UpdateConfigurationSetEventDestinationResponse%27"><span class="hs-identifier hs-var">UpdateConfigurationSetEventDestinationResponse'</span></a></span><span>
 </span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; UpdateConfigurationSetEventDestinationResponse)
@@ -339,22 +339,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679350474"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679353060"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679350465"><span id="local-6989586621679350467"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679353051"><span id="local-6989586621679353053"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-139"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#UpdateConfigurationSetEventDestination"><span class="hs-identifier hs-type">UpdateConfigurationSetEventDestination</span></a></span></span></span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679350462"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679353048"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-143"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#UpdateConfigurationSetEventDestination"><span class="hs-identifier hs-type">UpdateConfigurationSetEventDestination</span></a></span></span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-146"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-147"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#UpdateConfigurationSetEventDestination"><span class="hs-identifier hs-type">UpdateConfigurationSetEventDestination</span></a></span><span>
 </span><span id="line-148"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679350458"><span class="annot"><span class="annottext">toHeaders :: UpdateConfigurationSetEventDestination -&gt; ResponseHeaders
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679353044"><span class="annot"><span class="annottext">toHeaders :: UpdateConfigurationSetEventDestination -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; UpdateConfigurationSetEventDestination -&gt; ResponseHeaders
@@ -375,11 +375,11 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-157"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679350448"><span id="local-6989586621679350450"><span id="local-6989586621679350452"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679353034"><span id="local-6989586621679353036"><span id="local-6989586621679353038"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
 </span><span id="line-161"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#UpdateConfigurationSetEventDestination"><span class="hs-identifier hs-type">UpdateConfigurationSetEventDestination</span></a></span></span></span></span><span>
 </span><span id="line-162"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679350446"><span class="annot"><span class="annottext">toJSON :: UpdateConfigurationSetEventDestination -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#UpdateConfigurationSetEventDestination%27"><span class="hs-identifier hs-type">UpdateConfigurationSetEventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350442"><span id="local-6989586621679350443"><span id="local-6989586621679350444"><span class="annot"><span class="annottext">Text
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679353032"><span class="annot"><span class="annottext">toJSON :: UpdateConfigurationSetEventDestination -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#UpdateConfigurationSetEventDestination%27"><span class="hs-identifier hs-type">UpdateConfigurationSetEventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353028"><span id="local-6989586621679353029"><span id="local-6989586621679353030"><span class="annot"><span class="annottext">Text
 EventDestinationDefinition
 eventDestination :: EventDestinationDefinition
 eventDestinationName :: Text
@@ -388,7 +388,7 @@ $sel:eventDestination:UpdateConfigurationSetEventDestination' :: UpdateConfigura
 -&gt; EventDestinationDefinition
 $sel:eventDestinationName:UpdateConfigurationSetEventDestination' :: UpdateConfigurationSetEventDestination -&gt; Text
 $sel:configurationSetName:UpdateConfigurationSetEventDestination' :: UpdateConfigurationSetEventDestination -&gt; Text
-</span><a href="#local-6989586621679350442"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679353028"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-165"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -401,7 +401,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;EventDestination&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EventDestinationDefinition -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">EventDestinationDefinition
-</span><a href="#local-6989586621679350442"><span class="hs-identifier hs-var">eventDestination</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679353028"><span class="hs-identifier hs-var">eventDestination</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-169"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
@@ -409,8 +409,8 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-172"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
 </span><span id="line-173"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#UpdateConfigurationSetEventDestination"><span class="hs-identifier hs-type">UpdateConfigurationSetEventDestination</span></a></span><span>
 </span><span id="line-174"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-175"></span><span>  </span><span id="local-6989586621679350436"><span class="annot"><span class="annottext">toPath :: UpdateConfigurationSetEventDestination -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#UpdateConfigurationSetEventDestination%27"><span class="hs-identifier hs-type">UpdateConfigurationSetEventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350432"><span id="local-6989586621679350433"><span id="local-6989586621679350434"><span class="annot"><span class="annottext">Text
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679353022"><span class="annot"><span class="annottext">toPath :: UpdateConfigurationSetEventDestination -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#UpdateConfigurationSetEventDestination%27"><span class="hs-identifier hs-type">UpdateConfigurationSetEventDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353018"><span id="local-6989586621679353019"><span id="local-6989586621679353020"><span class="annot"><span class="annottext">Text
 EventDestinationDefinition
 eventDestination :: EventDestinationDefinition
 eventDestinationName :: Text
@@ -419,7 +419,7 @@ $sel:eventDestination:UpdateConfigurationSetEventDestination' :: UpdateConfigura
 -&gt; EventDestinationDefinition
 $sel:eventDestinationName:UpdateConfigurationSetEventDestination' :: UpdateConfigurationSetEventDestination -&gt; Text
 $sel:configurationSetName:UpdateConfigurationSetEventDestination' :: UpdateConfigurationSetEventDestination -&gt; Text
-</span><a href="#local-6989586621679350432"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679353018"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-176"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -428,20 +428,20 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-178"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679350434"><span class="hs-identifier hs-var">configurationSetName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679353020"><span class="hs-identifier hs-var">configurationSetName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/event-destinations/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-180"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679350433"><span class="hs-identifier hs-var">eventDestinationName</span></a></span><span>
+</span><a href="#local-6989586621679353019"><span class="hs-identifier hs-var">eventDestinationName</span></a></span><span>
 </span><span id="line-181"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-184"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
 </span><span id="line-185"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#UpdateConfigurationSetEventDestination"><span class="hs-identifier hs-type">UpdateConfigurationSetEventDestination</span></a></span><span>
 </span><span id="line-186"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-187"></span><span>  </span><span id="local-6989586621679350428"><span class="annot"><span class="annottext">toQuery :: UpdateConfigurationSetEventDestination -&gt; QueryString
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679353014"><span class="annot"><span class="annottext">toQuery :: UpdateConfigurationSetEventDestination -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString
 -&gt; UpdateConfigurationSetEventDestination -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
@@ -453,12 +453,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-190"></span><span class="hs-comment">-- request fails.</span><span>
 </span><span id="line-191"></span><span class="hs-comment">--</span><span>
 </span><span id="line-192"></span><span class="hs-comment">-- /See:/ 'newUpdateConfigurationSetEventDestinationResponse' smart constructor.</span><span>
-</span><span id="line-193"></span><span id="local-6989586621679350425"><span id="local-6989586621679350426"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateConfigurationSetEventDestinationResponse"><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#UpdateConfigurationSetEventDestinationResponse"><span class="hs-identifier hs-var">UpdateConfigurationSetEventDestinationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateConfigurationSetEventDestinationResponse%27"><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#UpdateConfigurationSetEventDestinationResponse%27"><span class="hs-identifier hs-var">UpdateConfigurationSetEventDestinationResponse'</span></a></span></span><span>
+</span><span id="line-193"></span><span id="local-6989586621679353011"><span id="local-6989586621679353012"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateConfigurationSetEventDestinationResponse"><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#UpdateConfigurationSetEventDestinationResponse"><span class="hs-identifier hs-var">UpdateConfigurationSetEventDestinationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateConfigurationSetEventDestinationResponse%27"><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#UpdateConfigurationSetEventDestinationResponse%27"><span class="hs-identifier hs-var">UpdateConfigurationSetEventDestinationResponse'</span></a></span></span><span>
 </span><span id="line-194"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-195"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateConfigurationSetEventDestinationResponse%27"><span class="annot"><span class="annottext">UpdateConfigurationSetEventDestinationResponse -&gt; Int
 </span><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#%24sel%3AhttpStatus%3AUpdateConfigurationSetEventDestinationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-196"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-197"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679350420"><span id="local-6989586621679350422"><span class="annot"><span class="annottext">UpdateConfigurationSetEventDestinationResponse
+</span><span id="line-197"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679353006"><span id="local-6989586621679353008"><span class="annot"><span class="annottext">UpdateConfigurationSetEventDestinationResponse
 -&gt; UpdateConfigurationSetEventDestinationResponse -&gt; Bool
 (UpdateConfigurationSetEventDestinationResponse
  -&gt; UpdateConfigurationSetEventDestinationResponse -&gt; Bool)
@@ -474,7 +474,7 @@ $c/= :: UpdateConfigurationSetEventDestinationResponse
 -&gt; UpdateConfigurationSetEventDestinationResponse -&gt; Bool
 $c== :: UpdateConfigurationSetEventDestinationResponse
 -&gt; UpdateConfigurationSetEventDestinationResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350412"><span id="local-6989586621679350414"><span id="local-6989586621679350416"><span id="local-6989586621679350418"><span class="annot"><span class="annottext">ReadPrec [UpdateConfigurationSetEventDestinationResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679352998"><span id="local-6989586621679353000"><span id="local-6989586621679353002"><span id="local-6989586621679353004"><span class="annot"><span class="annottext">ReadPrec [UpdateConfigurationSetEventDestinationResponse]
 ReadPrec UpdateConfigurationSetEventDestinationResponse
 Int -&gt; ReadS UpdateConfigurationSetEventDestinationResponse
 ReadS [UpdateConfigurationSetEventDestinationResponse]
@@ -494,7 +494,7 @@ readList :: ReadS [UpdateConfigurationSetEventDestinationResponse]
 $creadList :: ReadS [UpdateConfigurationSetEventDestinationResponse]
 readsPrec :: Int -&gt; ReadS UpdateConfigurationSetEventDestinationResponse
 $creadsPrec :: Int -&gt; ReadS UpdateConfigurationSetEventDestinationResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350406"><span id="local-6989586621679350408"><span id="local-6989586621679350410"><span class="annot"><span class="annottext">Int -&gt; UpdateConfigurationSetEventDestinationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679352992"><span id="local-6989586621679352994"><span id="local-6989586621679352996"><span class="annot"><span class="annottext">Int -&gt; UpdateConfigurationSetEventDestinationResponse -&gt; ShowS
 [UpdateConfigurationSetEventDestinationResponse] -&gt; ShowS
 UpdateConfigurationSetEventDestinationResponse -&gt; String
 (Int -&gt; UpdateConfigurationSetEventDestinationResponse -&gt; ShowS)
@@ -547,14 +547,14 @@ UpdateConfigurationSetEventDestinationResponse
 </span><span id="line-211"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#UpdateConfigurationSetEventDestinationResponse"><span class="hs-identifier hs-type">UpdateConfigurationSetEventDestinationResponse</span></a></span><span>
 </span><span id="line-212"></span><span id="newUpdateConfigurationSetEventDestinationResponse"><span class="annot"><span class="annottext">newUpdateConfigurationSetEventDestinationResponse :: Int -&gt; UpdateConfigurationSetEventDestinationResponse
 </span><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#newUpdateConfigurationSetEventDestinationResponse"><span class="hs-identifier hs-var hs-var">newUpdateConfigurationSetEventDestinationResponse</span></a></span></span><span>
-</span><span id="line-213"></span><span>  </span><span id="local-6989586621679350403"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679350403"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679352989"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679352989"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-214"></span><span>    </span><span class="annot"><span class="annottext">UpdateConfigurationSetEventDestinationResponse' :: Int -&gt; UpdateConfigurationSetEventDestinationResponse
 </span><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#UpdateConfigurationSetEventDestinationResponse%27"><span class="hs-identifier hs-type">UpdateConfigurationSetEventDestinationResponse'</span></a></span><span>
 </span><span id="line-215"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateConfigurationSetEventDestinationResponse' :: Int
 </span><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#%24sel%3AhttpStatus%3AUpdateConfigurationSetEventDestinationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-216"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679350403"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679352989"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-217"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-218"></span><span>
 </span><span id="line-219"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -571,18 +571,18 @@ UpdateConfigurationSetEventDestinationResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#UpdateConfigurationSetEventDestinationResponse%27"><span class="hs-identifier hs-type">UpdateConfigurationSetEventDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350402"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#UpdateConfigurationSetEventDestinationResponse%27"><span class="hs-identifier hs-type">UpdateConfigurationSetEventDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679352988"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateConfigurationSetEventDestinationResponse' :: UpdateConfigurationSetEventDestinationResponse -&gt; Int
-</span><a href="#local-6989586621679350402"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679350402"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350401"><span class="annot"><span class="annottext">s :: UpdateConfigurationSetEventDestinationResponse
-</span><a href="#local-6989586621679350401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#UpdateConfigurationSetEventDestinationResponse%27"><span class="hs-identifier hs-type">UpdateConfigurationSetEventDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350400"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679350400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateConfigurationSetEventDestinationResponse
-</span><a href="#local-6989586621679350401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateConfigurationSetEventDestinationResponse' :: Int
+</span><a href="#local-6989586621679352988"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679352988"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679352987"><span class="annot"><span class="annottext">s :: UpdateConfigurationSetEventDestinationResponse
+</span><a href="#local-6989586621679352987"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#UpdateConfigurationSetEventDestinationResponse%27"><span class="hs-identifier hs-type">UpdateConfigurationSetEventDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679352986"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679352986"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateConfigurationSetEventDestinationResponse
+</span><a href="#local-6989586621679352987"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateConfigurationSetEventDestinationResponse' :: Int
 </span><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#%24sel%3AhttpStatus%3AUpdateConfigurationSetEventDestinationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679350400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#UpdateConfigurationSetEventDestinationResponse"><span class="hs-identifier hs-type">UpdateConfigurationSetEventDestinationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679352986"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#UpdateConfigurationSetEventDestinationResponse"><span class="hs-identifier hs-type">UpdateConfigurationSetEventDestinationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-222"></span><span>
 </span><span id="line-223"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-224"></span><span>  </span><span id="local-6989586621679350398"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-224"></span><span>  </span><span id="local-6989586621679352984"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-225"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.UpdateConfigurationSetEventDestination.html#UpdateConfigurationSetEventDestinationResponse"><span class="hs-identifier hs-type">UpdateConfigurationSetEventDestinationResponse</span></a></span></span><span>
 </span><span id="line-226"></span></pre></body></html>

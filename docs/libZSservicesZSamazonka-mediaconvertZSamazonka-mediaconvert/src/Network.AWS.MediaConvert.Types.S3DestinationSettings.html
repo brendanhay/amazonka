@@ -28,18 +28,18 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Settings associated with S3 destination</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newS3DestinationSettings' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679998438"><span id="local-6989586621679998439"></span></span><span class="hs-keyword">data</span><span> </span><span id="S3DestinationSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#S3DestinationSettings"><span class="hs-identifier hs-var">S3DestinationSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3DestinationSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#S3DestinationSettings%27"><span class="hs-identifier hs-var">S3DestinationSettings'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Settings for how your job outputs are encrypted as they are uploaded to</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- Amazon S3.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3Aencryption%3AS3DestinationSettings%27"><span class="annot"><span class="annottext">S3DestinationSettings -&gt; Maybe S3EncryptionSettings
-</span><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#%24sel%3Aencryption%3AS3DestinationSettings%27"><span class="hs-identifier hs-var hs-var">encryption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3EncryptionSettings.html#S3EncryptionSettings"><span class="hs-identifier hs-type">S3EncryptionSettings</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Optional. Have MediaConvert automatically apply Amazon S3 access control</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- for the outputs in this output group. When you don\'t use this setting,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- S3 automatically applies the default access control list PRIVATE.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AaccessControl%3AS3DestinationSettings%27"><span class="annot"><span class="annottext">S3DestinationSettings -&gt; Maybe S3DestinationAccessControl
-</span><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#%24sel%3AaccessControl%3AS3DestinationSettings%27"><span class="hs-identifier hs-var hs-var">accessControl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3DestinationAccessControl.html#S3DestinationAccessControl"><span class="hs-identifier hs-type">S3DestinationAccessControl</span></a></span><span>
+</span><span id="line-31"></span><span id="local-6989586621680003362"><span id="local-6989586621680003363"></span></span><span class="hs-keyword">data</span><span> </span><span id="S3DestinationSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#S3DestinationSettings"><span class="hs-identifier hs-var">S3DestinationSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3DestinationSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#S3DestinationSettings%27"><span class="hs-identifier hs-var">S3DestinationSettings'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Optional. Have MediaConvert automatically apply Amazon S3 access control</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- for the outputs in this output group. When you don\'t use this setting,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- S3 automatically applies the default access control list PRIVATE.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AaccessControl%3AS3DestinationSettings%27"><span class="annot"><span class="annottext">S3DestinationSettings -&gt; Maybe S3DestinationAccessControl
+</span><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#%24sel%3AaccessControl%3AS3DestinationSettings%27"><span class="hs-identifier hs-var hs-var">accessControl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3DestinationAccessControl.html#S3DestinationAccessControl"><span class="hs-identifier hs-type">S3DestinationAccessControl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Settings for how your job outputs are encrypted as they are uploaded to</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- Amazon S3.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Aencryption%3AS3DestinationSettings%27"><span class="annot"><span class="annottext">S3DestinationSettings -&gt; Maybe S3EncryptionSettings
+</span><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#%24sel%3Aencryption%3AS3DestinationSettings%27"><span class="hs-identifier hs-var hs-var">encryption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3EncryptionSettings.html#S3EncryptionSettings"><span class="hs-identifier hs-type">S3EncryptionSettings</span></a></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679998431"><span id="local-6989586621679998433"><span class="annot"><span class="annottext">S3DestinationSettings -&gt; S3DestinationSettings -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680003355"><span id="local-6989586621680003357"><span class="annot"><span class="annottext">S3DestinationSettings -&gt; S3DestinationSettings -&gt; Bool
 (S3DestinationSettings -&gt; S3DestinationSettings -&gt; Bool)
 -&gt; (S3DestinationSettings -&gt; S3DestinationSettings -&gt; Bool)
 -&gt; Eq S3DestinationSettings
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: S3DestinationSettings -&gt; S3DestinationSettings -&gt; Bool
 == :: S3DestinationSettings -&gt; S3DestinationSettings -&gt; Bool
 $c== :: S3DestinationSettings -&gt; S3DestinationSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679998422"><span id="local-6989586621679998424"><span id="local-6989586621679998426"><span id="local-6989586621679998428"><span class="annot"><span class="annottext">ReadPrec [S3DestinationSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680003346"><span id="local-6989586621680003348"><span id="local-6989586621680003350"><span id="local-6989586621680003352"><span class="annot"><span class="annottext">ReadPrec [S3DestinationSettings]
 ReadPrec S3DestinationSettings
 Int -&gt; ReadS S3DestinationSettings
 ReadS [S3DestinationSettings]
@@ -68,7 +68,7 @@ readList :: ReadS [S3DestinationSettings]
 $creadList :: ReadS [S3DestinationSettings]
 readsPrec :: Int -&gt; ReadS S3DestinationSettings
 $creadsPrec :: Int -&gt; ReadS S3DestinationSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679998415"><span id="local-6989586621679998417"><span id="local-6989586621679998419"><span class="annot"><span class="annottext">Int -&gt; S3DestinationSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680003339"><span id="local-6989586621680003341"><span id="local-6989586621680003343"><span class="annot"><span class="annottext">Int -&gt; S3DestinationSettings -&gt; ShowS
 [S3DestinationSettings] -&gt; ShowS
 S3DestinationSettings -&gt; String
 (Int -&gt; S3DestinationSettings -&gt; ShowS)
@@ -102,60 +102,35 @@ $cfrom :: forall x. S3DestinationSettings -&gt; Rep S3DestinationSettings x
 </span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- 'encryption', 's3DestinationSettings_encryption' - Settings for how your job outputs are encrypted as they are uploaded to</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- Amazon S3.</span><span>
-</span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'accessControl', 's3DestinationSettings_accessControl' - Optional. Have MediaConvert automatically apply Amazon S3 access control</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- for the outputs in this output group. When you don\'t use this setting,</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- S3 automatically applies the default access control list PRIVATE.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'accessControl', 's3DestinationSettings_accessControl' - Optional. Have MediaConvert automatically apply Amazon S3 access control</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- for the outputs in this output group. When you don\'t use this setting,</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- S3 automatically applies the default access control list PRIVATE.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'encryption', 's3DestinationSettings_encryption' - Settings for how your job outputs are encrypted as they are uploaded to</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Amazon S3.</span><span>
 </span><span id="line-56"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#newS3DestinationSettings"><span class="hs-identifier hs-type">newS3DestinationSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#S3DestinationSettings"><span class="hs-identifier hs-type">S3DestinationSettings</span></a></span><span>
 </span><span id="line-58"></span><span id="newS3DestinationSettings"><span class="annot"><span class="annottext">newS3DestinationSettings :: S3DestinationSettings
 </span><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#newS3DestinationSettings"><span class="hs-identifier hs-var hs-var">newS3DestinationSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">S3DestinationSettings' :: Maybe S3EncryptionSettings
--&gt; Maybe S3DestinationAccessControl -&gt; S3DestinationSettings
+</span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">S3DestinationSettings' :: Maybe S3DestinationAccessControl
+-&gt; Maybe S3EncryptionSettings -&gt; S3DestinationSettings
 </span><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#S3DestinationSettings%27"><span class="hs-identifier hs-type">S3DestinationSettings'</span></a></span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:encryption:S3DestinationSettings' :: Maybe S3EncryptionSettings
-</span><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#%24sel%3Aencryption%3AS3DestinationSettings%27"><span class="hs-identifier hs-var">encryption</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-61"></span><span>        </span><span class="annot"><span class="annottext">Maybe S3EncryptionSettings
+</span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accessControl:S3DestinationSettings' :: Maybe S3DestinationAccessControl
+</span><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#%24sel%3AaccessControl%3AS3DestinationSettings%27"><span class="hs-identifier hs-var">accessControl</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-61"></span><span>        </span><span class="annot"><span class="annottext">Maybe S3DestinationAccessControl
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:accessControl:S3DestinationSettings' :: Maybe S3DestinationAccessControl
-</span><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#%24sel%3AaccessControl%3AS3DestinationSettings%27"><span class="hs-identifier hs-var">accessControl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3DestinationAccessControl
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:encryption:S3DestinationSettings' :: Maybe S3EncryptionSettings
+</span><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#%24sel%3Aencryption%3AS3DestinationSettings%27"><span class="hs-identifier hs-var">encryption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3EncryptionSettings
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- | Settings for how your job outputs are encrypted as they are uploaded to</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- Amazon S3.</span><span>
-</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#s3DestinationSettings_encryption"><span class="hs-identifier hs-type">s3DestinationSettings_encryption</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#S3DestinationSettings"><span class="hs-identifier hs-type">S3DestinationSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3EncryptionSettings.html#S3EncryptionSettings"><span class="hs-identifier hs-type">S3EncryptionSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-68"></span><span id="s3DestinationSettings_encryption"><span class="annot"><span class="annottext">s3DestinationSettings_encryption :: (Maybe S3EncryptionSettings -&gt; f (Maybe S3EncryptionSettings))
--&gt; S3DestinationSettings -&gt; f S3DestinationSettings
-</span><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#s3DestinationSettings_encryption"><span class="hs-identifier hs-var hs-var">s3DestinationSettings_encryption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(S3DestinationSettings -&gt; Maybe S3EncryptionSettings)
--&gt; (S3DestinationSettings
-    -&gt; Maybe S3EncryptionSettings -&gt; S3DestinationSettings)
--&gt; Lens
-     S3DestinationSettings
-     S3DestinationSettings
-     (Maybe S3EncryptionSettings)
-     (Maybe S3EncryptionSettings)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#S3DestinationSettings%27"><span class="hs-identifier hs-type">S3DestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679998406"><span class="annot"><span class="annottext">Maybe S3EncryptionSettings
-encryption :: Maybe S3EncryptionSettings
-$sel:encryption:S3DestinationSettings' :: S3DestinationSettings -&gt; Maybe S3EncryptionSettings
-</span><a href="#local-6989586621679998406"><span class="hs-identifier hs-var hs-var">encryption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3EncryptionSettings
-</span><a href="#local-6989586621679998406"><span class="hs-identifier hs-var">encryption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679998405"><span class="annot"><span class="annottext">s :: S3DestinationSettings
-</span><a href="#local-6989586621679998405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#S3DestinationSettings%27"><span class="hs-identifier hs-type">S3DestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679998404"><span class="annot"><span class="annottext">Maybe S3EncryptionSettings
-</span><a href="#local-6989586621679998404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3DestinationSettings
-</span><a href="#local-6989586621679998405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryption:S3DestinationSettings' :: Maybe S3EncryptionSettings
-</span><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#%24sel%3Aencryption%3AS3DestinationSettings%27"><span class="hs-identifier hs-var">encryption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3EncryptionSettings
-</span><a href="#local-6989586621679998404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#S3DestinationSettings"><span class="hs-identifier hs-type">S3DestinationSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- | Optional. Have MediaConvert automatically apply Amazon S3 access control</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- for the outputs in this output group. When you don\'t use this setting,</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- S3 automatically applies the default access control list PRIVATE.</span><span>
-</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#s3DestinationSettings_accessControl"><span class="hs-identifier hs-type">s3DestinationSettings_accessControl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#S3DestinationSettings"><span class="hs-identifier hs-type">S3DestinationSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3DestinationAccessControl.html#S3DestinationAccessControl"><span class="hs-identifier hs-type">S3DestinationAccessControl</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span id="s3DestinationSettings_accessControl"><span class="annot"><span class="annottext">s3DestinationSettings_accessControl :: (Maybe S3DestinationAccessControl
+</span><span id="line-65"></span><span class="hs-comment">-- | Optional. Have MediaConvert automatically apply Amazon S3 access control</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- for the outputs in this output group. When you don\'t use this setting,</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- S3 automatically applies the default access control list PRIVATE.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#s3DestinationSettings_accessControl"><span class="hs-identifier hs-type">s3DestinationSettings_accessControl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#S3DestinationSettings"><span class="hs-identifier hs-type">S3DestinationSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3DestinationAccessControl.html#S3DestinationAccessControl"><span class="hs-identifier hs-type">S3DestinationAccessControl</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="s3DestinationSettings_accessControl"><span class="annot"><span class="annottext">s3DestinationSettings_accessControl :: (Maybe S3DestinationAccessControl
  -&gt; f (Maybe S3DestinationAccessControl))
 -&gt; S3DestinationSettings -&gt; f S3DestinationSettings
 </span><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#s3DestinationSettings_accessControl"><span class="hs-identifier hs-var hs-var">s3DestinationSettings_accessControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(S3DestinationSettings -&gt; Maybe S3DestinationAccessControl)
@@ -167,19 +142,44 @@ $sel:encryption:S3DestinationSettings' :: S3DestinationSettings -&gt; Maybe S3En
      (Maybe S3DestinationAccessControl)
      (Maybe S3DestinationAccessControl)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#S3DestinationSettings%27"><span class="hs-identifier hs-type">S3DestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679998402"><span class="annot"><span class="annottext">Maybe S3DestinationAccessControl
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#S3DestinationSettings%27"><span class="hs-identifier hs-type">S3DestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680003330"><span class="annot"><span class="annottext">Maybe S3DestinationAccessControl
 accessControl :: Maybe S3DestinationAccessControl
 $sel:accessControl:S3DestinationSettings' :: S3DestinationSettings -&gt; Maybe S3DestinationAccessControl
-</span><a href="#local-6989586621679998402"><span class="hs-identifier hs-var hs-var">accessControl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3DestinationAccessControl
-</span><a href="#local-6989586621679998402"><span class="hs-identifier hs-var">accessControl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679998401"><span class="annot"><span class="annottext">s :: S3DestinationSettings
-</span><a href="#local-6989586621679998401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#S3DestinationSettings%27"><span class="hs-identifier hs-type">S3DestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679998400"><span class="annot"><span class="annottext">Maybe S3DestinationAccessControl
-</span><a href="#local-6989586621679998400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3DestinationSettings
-</span><a href="#local-6989586621679998401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessControl:S3DestinationSettings' :: Maybe S3DestinationAccessControl
+</span><a href="#local-6989586621680003330"><span class="hs-identifier hs-var hs-var">accessControl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3DestinationAccessControl
+</span><a href="#local-6989586621680003330"><span class="hs-identifier hs-var">accessControl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680003329"><span class="annot"><span class="annottext">s :: S3DestinationSettings
+</span><a href="#local-6989586621680003329"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#S3DestinationSettings%27"><span class="hs-identifier hs-type">S3DestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680003328"><span class="annot"><span class="annottext">Maybe S3DestinationAccessControl
+</span><a href="#local-6989586621680003328"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3DestinationSettings
+</span><a href="#local-6989586621680003329"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessControl:S3DestinationSettings' :: Maybe S3DestinationAccessControl
 </span><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#%24sel%3AaccessControl%3AS3DestinationSettings%27"><span class="hs-identifier hs-var">accessControl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3DestinationAccessControl
-</span><a href="#local-6989586621679998400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#S3DestinationSettings"><span class="hs-identifier hs-type">S3DestinationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680003328"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#S3DestinationSettings"><span class="hs-identifier hs-type">S3DestinationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | Settings for how your job outputs are encrypted as they are uploaded to</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Amazon S3.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#s3DestinationSettings_encryption"><span class="hs-identifier hs-type">s3DestinationSettings_encryption</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#S3DestinationSettings"><span class="hs-identifier hs-type">S3DestinationSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3EncryptionSettings.html#S3EncryptionSettings"><span class="hs-identifier hs-type">S3EncryptionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="s3DestinationSettings_encryption"><span class="annot"><span class="annottext">s3DestinationSettings_encryption :: (Maybe S3EncryptionSettings -&gt; f (Maybe S3EncryptionSettings))
+-&gt; S3DestinationSettings -&gt; f S3DestinationSettings
+</span><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#s3DestinationSettings_encryption"><span class="hs-identifier hs-var hs-var">s3DestinationSettings_encryption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(S3DestinationSettings -&gt; Maybe S3EncryptionSettings)
+-&gt; (S3DestinationSettings
+    -&gt; Maybe S3EncryptionSettings -&gt; S3DestinationSettings)
+-&gt; Lens
+     S3DestinationSettings
+     S3DestinationSettings
+     (Maybe S3EncryptionSettings)
+     (Maybe S3EncryptionSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#S3DestinationSettings%27"><span class="hs-identifier hs-type">S3DestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680003326"><span class="annot"><span class="annottext">Maybe S3EncryptionSettings
+encryption :: Maybe S3EncryptionSettings
+$sel:encryption:S3DestinationSettings' :: S3DestinationSettings -&gt; Maybe S3EncryptionSettings
+</span><a href="#local-6989586621680003326"><span class="hs-identifier hs-var hs-var">encryption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3EncryptionSettings
+</span><a href="#local-6989586621680003326"><span class="hs-identifier hs-var">encryption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680003325"><span class="annot"><span class="annottext">s :: S3DestinationSettings
+</span><a href="#local-6989586621680003325"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#S3DestinationSettings%27"><span class="hs-identifier hs-type">S3DestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680003324"><span class="annot"><span class="annottext">Maybe S3EncryptionSettings
+</span><a href="#local-6989586621680003324"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3DestinationSettings
+</span><a href="#local-6989586621680003325"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryption:S3DestinationSettings' :: Maybe S3EncryptionSettings
+</span><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#%24sel%3Aencryption%3AS3DestinationSettings%27"><span class="hs-identifier hs-var">encryption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3EncryptionSettings
+</span><a href="#local-6989586621680003324"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#S3DestinationSettings"><span class="hs-identifier hs-type">S3DestinationSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679998397"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#S3DestinationSettings"><span class="hs-identifier hs-type">S3DestinationSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679998395"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser S3DestinationSettings
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680003321"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#S3DestinationSettings"><span class="hs-identifier hs-type">S3DestinationSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621680003319"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser S3DestinationSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser S3DestinationSettings)
@@ -189,67 +189,66 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;S3DestinationSettings&quot;</span></span><span>
-</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679998392"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679998392"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Maybe S3EncryptionSettings
--&gt; Maybe S3DestinationAccessControl -&gt; S3DestinationSettings
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680003316"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680003316"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Maybe S3DestinationAccessControl
+-&gt; Maybe S3EncryptionSettings -&gt; S3DestinationSettings
 </span><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#S3DestinationSettings%27"><span class="hs-identifier hs-var">S3DestinationSettings'</span></a></span><span>
-</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">(Maybe S3EncryptionSettings
- -&gt; Maybe S3DestinationAccessControl -&gt; S3DestinationSettings)
--&gt; Parser (Maybe S3EncryptionSettings)
--&gt; Parser
-     (Maybe S3DestinationAccessControl -&gt; S3DestinationSettings)
+</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">(Maybe S3DestinationAccessControl
+ -&gt; Maybe S3EncryptionSettings -&gt; S3DestinationSettings)
+-&gt; Parser (Maybe S3DestinationAccessControl)
+-&gt; Parser (Maybe S3EncryptionSettings -&gt; S3DestinationSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679998392"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe S3EncryptionSettings)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;encryption&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe S3DestinationAccessControl -&gt; S3DestinationSettings)
--&gt; Parser (Maybe S3DestinationAccessControl)
--&gt; Parser S3DestinationSettings
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679998392"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe S3DestinationAccessControl)
+</span><a href="#local-6989586621680003316"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe S3DestinationAccessControl)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;accessControl&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe S3EncryptionSettings -&gt; S3DestinationSettings)
+-&gt; Parser (Maybe S3EncryptionSettings)
+-&gt; Parser S3DestinationSettings
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680003316"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe S3EncryptionSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;encryption&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679998386"><span id="local-6989586621679998388"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#S3DestinationSettings"><span class="hs-identifier hs-type">S3DestinationSettings</span></a></span></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680003310"><span id="local-6989586621680003312"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#S3DestinationSettings"><span class="hs-identifier hs-type">S3DestinationSettings</span></a></span></span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679998383"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#S3DestinationSettings"><span class="hs-identifier hs-type">S3DestinationSettings</span></a></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680003307"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#S3DestinationSettings"><span class="hs-identifier hs-type">S3DestinationSettings</span></a></span></span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679998375"><span id="local-6989586621679998377"><span id="local-6989586621679998379"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#S3DestinationSettings"><span class="hs-identifier hs-type">S3DestinationSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679998373"><span class="annot"><span class="annottext">toJSON :: S3DestinationSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#S3DestinationSettings%27"><span class="hs-identifier hs-type">S3DestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679998370"><span id="local-6989586621679998371"><span class="annot"><span class="annottext">Maybe S3DestinationAccessControl
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680003299"><span id="local-6989586621680003301"><span id="local-6989586621680003303"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#S3DestinationSettings"><span class="hs-identifier hs-type">S3DestinationSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621680003297"><span class="annot"><span class="annottext">toJSON :: S3DestinationSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3DestinationSettings.html#S3DestinationSettings%27"><span class="hs-identifier hs-type">S3DestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680003294"><span id="local-6989586621680003295"><span class="annot"><span class="annottext">Maybe S3DestinationAccessControl
 Maybe S3EncryptionSettings
-accessControl :: Maybe S3DestinationAccessControl
 encryption :: Maybe S3EncryptionSettings
-$sel:accessControl:S3DestinationSettings' :: S3DestinationSettings -&gt; Maybe S3DestinationAccessControl
+accessControl :: Maybe S3DestinationAccessControl
 $sel:encryption:S3DestinationSettings' :: S3DestinationSettings -&gt; Maybe S3EncryptionSettings
-</span><a href="#local-6989586621679998370"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:accessControl:S3DestinationSettings' :: S3DestinationSettings -&gt; Maybe S3DestinationAccessControl
+</span><a href="#local-6989586621680003294"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-94"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;encryption&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; S3EncryptionSettings -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(S3EncryptionSettings -&gt; Pair)
--&gt; Maybe S3EncryptionSettings -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe S3EncryptionSettings
-</span><a href="#local-6989586621679998371"><span class="hs-identifier hs-var">encryption</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-95"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;accessControl&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; S3DestinationAccessControl -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(S3DestinationAccessControl -&gt; Pair)
 -&gt; Maybe S3DestinationAccessControl -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe S3DestinationAccessControl
-</span><a href="#local-6989586621679998370"><span class="hs-identifier hs-var">accessControl</span></a></span><span>
+</span><a href="#local-6989586621680003295"><span class="hs-identifier hs-var">accessControl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;encryption&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; S3EncryptionSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(S3EncryptionSettings -&gt; Pair)
+-&gt; Maybe S3EncryptionSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe S3EncryptionSettings
+</span><a href="#local-6989586621680003294"><span class="hs-identifier hs-var">encryption</span></a></span><span>
 </span><span id="line-96"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span></pre></body></html>

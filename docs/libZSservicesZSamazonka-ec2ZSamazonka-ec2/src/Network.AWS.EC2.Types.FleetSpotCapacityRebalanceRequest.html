@@ -32,7 +32,7 @@
 </span><span id="line-32"></span><span class="hs-comment">-- in the /Amazon EC2 User Guide/.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newFleetSpotCapacityRebalanceRequest' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621681074554"><span id="local-6989586621681074555"></span></span><span class="hs-keyword">data</span><span> </span><span id="FleetSpotCapacityRebalanceRequest"><span class="annot"><a href="Network.AWS.EC2.Types.FleetSpotCapacityRebalanceRequest.html#FleetSpotCapacityRebalanceRequest"><span class="hs-identifier hs-var">FleetSpotCapacityRebalanceRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FleetSpotCapacityRebalanceRequest%27"><span class="annot"><a href="Network.AWS.EC2.Types.FleetSpotCapacityRebalanceRequest.html#FleetSpotCapacityRebalanceRequest%27"><span class="hs-identifier hs-var">FleetSpotCapacityRebalanceRequest'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621681108902"><span id="local-6989586621681108903"></span></span><span class="hs-keyword">data</span><span> </span><span id="FleetSpotCapacityRebalanceRequest"><span class="annot"><a href="Network.AWS.EC2.Types.FleetSpotCapacityRebalanceRequest.html#FleetSpotCapacityRebalanceRequest"><span class="hs-identifier hs-var">FleetSpotCapacityRebalanceRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FleetSpotCapacityRebalanceRequest%27"><span class="annot"><a href="Network.AWS.EC2.Types.FleetSpotCapacityRebalanceRequest.html#FleetSpotCapacityRebalanceRequest%27"><span class="hs-identifier hs-var">FleetSpotCapacityRebalanceRequest'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The replacement strategy to use. Only available for fleets of type</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- @maintain@.</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -48,7 +48,7 @@
 </span><span id="line-48"></span><span>    </span><span id="%24sel%3AreplacementStrategy%3AFleetSpotCapacityRebalanceRequest%27"><span class="annot"><span class="annottext">FleetSpotCapacityRebalanceRequest -&gt; Maybe FleetReplacementStrategy
 </span><a href="Network.AWS.EC2.Types.FleetSpotCapacityRebalanceRequest.html#%24sel%3AreplacementStrategy%3AFleetSpotCapacityRebalanceRequest%27"><span class="hs-identifier hs-var hs-var">replacementStrategy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetReplacementStrategy.html#FleetReplacementStrategy"><span class="hs-identifier hs-type">FleetReplacementStrategy</span></a></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681074548"><span id="local-6989586621681074550"><span class="annot"><span class="annottext">FleetSpotCapacityRebalanceRequest
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681108896"><span id="local-6989586621681108898"><span class="annot"><span class="annottext">FleetSpotCapacityRebalanceRequest
 -&gt; FleetSpotCapacityRebalanceRequest -&gt; Bool
 (FleetSpotCapacityRebalanceRequest
  -&gt; FleetSpotCapacityRebalanceRequest -&gt; Bool)
@@ -64,7 +64,7 @@ $c/= :: FleetSpotCapacityRebalanceRequest
 -&gt; FleetSpotCapacityRebalanceRequest -&gt; Bool
 $c== :: FleetSpotCapacityRebalanceRequest
 -&gt; FleetSpotCapacityRebalanceRequest -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681074539"><span id="local-6989586621681074541"><span id="local-6989586621681074543"><span id="local-6989586621681074545"><span class="annot"><span class="annottext">ReadPrec [FleetSpotCapacityRebalanceRequest]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681108887"><span id="local-6989586621681108889"><span id="local-6989586621681108891"><span id="local-6989586621681108893"><span class="annot"><span class="annottext">ReadPrec [FleetSpotCapacityRebalanceRequest]
 ReadPrec FleetSpotCapacityRebalanceRequest
 Int -&gt; ReadS FleetSpotCapacityRebalanceRequest
 ReadS [FleetSpotCapacityRebalanceRequest]
@@ -84,7 +84,7 @@ readList :: ReadS [FleetSpotCapacityRebalanceRequest]
 $creadList :: ReadS [FleetSpotCapacityRebalanceRequest]
 readsPrec :: Int -&gt; ReadS FleetSpotCapacityRebalanceRequest
 $creadsPrec :: Int -&gt; ReadS FleetSpotCapacityRebalanceRequest
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681074532"><span id="local-6989586621681074534"><span id="local-6989586621681074536"><span class="annot"><span class="annottext">Int -&gt; FleetSpotCapacityRebalanceRequest -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681108880"><span id="local-6989586621681108882"><span id="local-6989586621681108884"><span class="annot"><span class="annottext">Int -&gt; FleetSpotCapacityRebalanceRequest -&gt; ShowS
 [FleetSpotCapacityRebalanceRequest] -&gt; ShowS
 FleetSpotCapacityRebalanceRequest -&gt; String
 (Int -&gt; FleetSpotCapacityRebalanceRequest -&gt; ShowS)
@@ -183,34 +183,34 @@ forall a. Maybe a
      (Maybe FleetReplacementStrategy)
      (Maybe FleetReplacementStrategy)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.FleetSpotCapacityRebalanceRequest.html#FleetSpotCapacityRebalanceRequest%27"><span class="hs-identifier hs-type">FleetSpotCapacityRebalanceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681074523"><span class="annot"><span class="annottext">Maybe FleetReplacementStrategy
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.FleetSpotCapacityRebalanceRequest.html#FleetSpotCapacityRebalanceRequest%27"><span class="hs-identifier hs-type">FleetSpotCapacityRebalanceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681108871"><span class="annot"><span class="annottext">Maybe FleetReplacementStrategy
 replacementStrategy :: Maybe FleetReplacementStrategy
 $sel:replacementStrategy:FleetSpotCapacityRebalanceRequest' :: FleetSpotCapacityRebalanceRequest -&gt; Maybe FleetReplacementStrategy
-</span><a href="#local-6989586621681074523"><span class="hs-identifier hs-var hs-var">replacementStrategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FleetReplacementStrategy
-</span><a href="#local-6989586621681074523"><span class="hs-identifier hs-var">replacementStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681074522"><span class="annot"><span class="annottext">s :: FleetSpotCapacityRebalanceRequest
-</span><a href="#local-6989586621681074522"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.FleetSpotCapacityRebalanceRequest.html#FleetSpotCapacityRebalanceRequest%27"><span class="hs-identifier hs-type">FleetSpotCapacityRebalanceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681074521"><span class="annot"><span class="annottext">Maybe FleetReplacementStrategy
-</span><a href="#local-6989586621681074521"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FleetSpotCapacityRebalanceRequest
-</span><a href="#local-6989586621681074522"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replacementStrategy:FleetSpotCapacityRebalanceRequest' :: Maybe FleetReplacementStrategy
+</span><a href="#local-6989586621681108871"><span class="hs-identifier hs-var hs-var">replacementStrategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FleetReplacementStrategy
+</span><a href="#local-6989586621681108871"><span class="hs-identifier hs-var">replacementStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681108870"><span class="annot"><span class="annottext">s :: FleetSpotCapacityRebalanceRequest
+</span><a href="#local-6989586621681108870"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.FleetSpotCapacityRebalanceRequest.html#FleetSpotCapacityRebalanceRequest%27"><span class="hs-identifier hs-type">FleetSpotCapacityRebalanceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681108869"><span class="annot"><span class="annottext">Maybe FleetReplacementStrategy
+</span><a href="#local-6989586621681108869"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FleetSpotCapacityRebalanceRequest
+</span><a href="#local-6989586621681108870"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replacementStrategy:FleetSpotCapacityRebalanceRequest' :: Maybe FleetReplacementStrategy
 </span><a href="Network.AWS.EC2.Types.FleetSpotCapacityRebalanceRequest.html#%24sel%3AreplacementStrategy%3AFleetSpotCapacityRebalanceRequest%27"><span class="hs-identifier hs-var">replacementStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FleetReplacementStrategy
-</span><a href="#local-6989586621681074521"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetSpotCapacityRebalanceRequest.html#FleetSpotCapacityRebalanceRequest"><span class="hs-identifier hs-type">FleetSpotCapacityRebalanceRequest</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681108869"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetSpotCapacityRebalanceRequest.html#FleetSpotCapacityRebalanceRequest"><span class="hs-identifier hs-type">FleetSpotCapacityRebalanceRequest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621681074517"><span id="local-6989586621681074519"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621681108865"><span id="local-6989586621681108867"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetSpotCapacityRebalanceRequest.html#FleetSpotCapacityRebalanceRequest"><span class="hs-identifier hs-type">FleetSpotCapacityRebalanceRequest</span></a></span></span></span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621681074514"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621681108862"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-101"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetSpotCapacityRebalanceRequest.html#FleetSpotCapacityRebalanceRequest"><span class="hs-identifier hs-type">FleetSpotCapacityRebalanceRequest</span></a></span></span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-104"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetSpotCapacityRebalanceRequest.html#FleetSpotCapacityRebalanceRequest"><span class="hs-identifier hs-type">FleetSpotCapacityRebalanceRequest</span></a></span><span>
 </span><span id="line-106"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621681074510"><span class="annot"><span class="annottext">toQuery :: FleetSpotCapacityRebalanceRequest -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetSpotCapacityRebalanceRequest.html#FleetSpotCapacityRebalanceRequest%27"><span class="hs-identifier hs-type">FleetSpotCapacityRebalanceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681074508"><span class="annot"><span class="annottext">Maybe FleetReplacementStrategy
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621681108858"><span class="annot"><span class="annottext">toQuery :: FleetSpotCapacityRebalanceRequest -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetSpotCapacityRebalanceRequest.html#FleetSpotCapacityRebalanceRequest%27"><span class="hs-identifier hs-type">FleetSpotCapacityRebalanceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681108856"><span class="annot"><span class="annottext">Maybe FleetReplacementStrategy
 replacementStrategy :: Maybe FleetReplacementStrategy
 $sel:replacementStrategy:FleetSpotCapacityRebalanceRequest' :: FleetSpotCapacityRebalanceRequest -&gt; Maybe FleetReplacementStrategy
-</span><a href="#local-6989586621681074508"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681108856"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -218,5 +218,5 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;ReplacementStrategy&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe FleetReplacementStrategy -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe FleetReplacementStrategy
-</span><a href="#local-6989586621681074508"><span class="hs-identifier hs-var">replacementStrategy</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621681108856"><span class="hs-identifier hs-var">replacementStrategy</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-110"></span></pre></body></html>

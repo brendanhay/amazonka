@@ -47,13 +47,13 @@
 </span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#newPublish"><span class="hs-identifier">newPublish</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#publish_phoneNumber"><span class="hs-identifier">publish_phoneNumber</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#publish_messageStructure"><span class="hs-identifier">publish_messageStructure</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#publish_messageDeduplicationId"><span class="hs-identifier">publish_messageDeduplicationId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#publish_targetArn"><span class="hs-identifier">publish_targetArn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#publish_messageAttributes"><span class="hs-identifier">publish_messageAttributes</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#publish_topicArn"><span class="hs-identifier">publish_topicArn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#publish_subject"><span class="hs-identifier">publish_subject</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#publish_subject"><span class="hs-identifier">publish_subject</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#publish_targetArn"><span class="hs-identifier">publish_targetArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#publish_messageAttributes"><span class="hs-identifier">publish_messageAttributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#publish_topicArn"><span class="hs-identifier">publish_topicArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#publish_phoneNumber"><span class="hs-identifier">publish_phoneNumber</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#publish_messageDeduplicationId"><span class="hs-identifier">publish_messageDeduplicationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#publish_messageStructure"><span class="hs-identifier">publish_messageStructure</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#publish_messageGroupId"><span class="hs-identifier">publish_messageGroupId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#publish_message"><span class="hs-identifier">publish_message</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-59"></span><span>
@@ -78,69 +78,69 @@
 </span><span id="line-78"></span><span class="hs-comment">-- | Input for Publish action.</span><span>
 </span><span id="line-79"></span><span class="hs-comment">--</span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- /See:/ 'newPublish' smart constructor.</span><span>
-</span><span id="line-81"></span><span id="local-6989586621679194403"><span id="local-6989586621679194404"></span></span><span class="hs-keyword">data</span><span> </span><span id="Publish"><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish"><span class="hs-identifier hs-var">Publish</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Publish%27"><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish%27"><span class="hs-identifier hs-var">Publish'</span></a></span></span><span>
-</span><span id="line-82"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The phone number to which you want to deliver an SMS message. Use E.164</span><span>
-</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- format.</span><span>
-</span><span id="line-84"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- If you don\'t specify a value for the @PhoneNumber@ parameter, you must</span><span>
-</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- specify a value for the @TargetArn@ or @TopicArn@ parameters.</span><span>
-</span><span id="line-87"></span><span>    </span><span id="%24sel%3AphoneNumber%3APublish%27"><span class="annot"><span class="annottext">Publish -&gt; Maybe Text
-</span><a href="Network.AWS.SNS.Publish.html#%24sel%3AphoneNumber%3APublish%27"><span class="hs-identifier hs-var hs-var">phoneNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | Set @MessageStructure@ to @json@ if you want to send a different message</span><span>
-</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- for each protocol. For example, using one publish action, you can send a</span><span>
-</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- short message to your SMS subscribers and a longer message to your email</span><span>
-</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- subscribers. If you set @MessageStructure@ to @json@, the value of the</span><span>
-</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- @Message@ parameter must:</span><span>
-</span><span id="line-93"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- -   be a syntactically valid JSON object; and</span><span>
-</span><span id="line-95"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- -   contain at least a top-level JSON key of \&quot;default\&quot; with a value</span><span>
-</span><span id="line-97"></span><span>    </span><span class="hs-comment">--     that is a string.</span><span>
-</span><span id="line-98"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- You can define other top-level keys that define the message you want to</span><span>
-</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- send to a specific transport protocol (e.g., \&quot;http\&quot;).</span><span>
-</span><span id="line-101"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- Valid value: @json@</span><span>
-</span><span id="line-103"></span><span>    </span><span id="%24sel%3AmessageStructure%3APublish%27"><span class="annot"><span class="annottext">Publish -&gt; Maybe Text
-</span><a href="Network.AWS.SNS.Publish.html#%24sel%3AmessageStructure%3APublish%27"><span class="hs-identifier hs-var hs-var">messageStructure</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- | This parameter applies only to FIFO (first-in-first-out) topics. The</span><span>
-</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- @MessageDeduplicationId@ can contain up to 128 alphanumeric characters</span><span>
-</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- (a-z, A-Z, 0-9) and punctuation</span><span>
-</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- @(!\&quot;#$%&amp;\'()*+,-.\/:;\&lt;=&gt;?\@[\\]^_\`{|}~)@.</span><span>
-</span><span id="line-108"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- Every message must have a unique @MessageDeduplicationId@, which is a</span><span>
-</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- token used for deduplication of sent messages. If a message with a</span><span>
-</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- particular @MessageDeduplicationId@ is sent successfully, any message</span><span>
-</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- sent with the same @MessageDeduplicationId@ during the 5-minute</span><span>
-</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- deduplication interval is treated as a duplicate.</span><span>
-</span><span id="line-114"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- If the topic has @ContentBasedDeduplication@ set, the system generates a</span><span>
-</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- @MessageDeduplicationId@ based on the contents of the message. Your</span><span>
-</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- @MessageDeduplicationId@ overrides the generated one.</span><span>
-</span><span id="line-118"></span><span>    </span><span id="%24sel%3AmessageDeduplicationId%3APublish%27"><span class="annot"><span class="annottext">Publish -&gt; Maybe Text
-</span><a href="Network.AWS.SNS.Publish.html#%24sel%3AmessageDeduplicationId%3APublish%27"><span class="hs-identifier hs-var hs-var">messageDeduplicationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- | If you don\'t specify a value for the @TargetArn@ parameter, you must</span><span>
-</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- specify a value for the @PhoneNumber@ or @TopicArn@ parameters.</span><span>
-</span><span id="line-121"></span><span>    </span><span id="%24sel%3AtargetArn%3APublish%27"><span class="annot"><span class="annottext">Publish -&gt; Maybe Text
-</span><a href="Network.AWS.SNS.Publish.html#%24sel%3AtargetArn%3APublish%27"><span class="hs-identifier hs-var hs-var">targetArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- | Message attributes for Publish action.</span><span>
-</span><span id="line-123"></span><span>    </span><span id="%24sel%3AmessageAttributes%3APublish%27"><span class="annot"><span class="annottext">Publish -&gt; Maybe (HashMap Text MessageAttributeValue)
-</span><a href="Network.AWS.SNS.Publish.html#%24sel%3AmessageAttributes%3APublish%27"><span class="hs-identifier hs-var hs-var">messageAttributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Types.MessageAttributeValue.html#MessageAttributeValue"><span class="hs-identifier hs-type">MessageAttributeValue</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- | The topic you want to publish to.</span><span>
-</span><span id="line-125"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- If you don\'t specify a value for the @TopicArn@ parameter, you must</span><span>
-</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- specify a value for the @PhoneNumber@ or @TargetArn@ parameters.</span><span>
-</span><span id="line-128"></span><span>    </span><span id="%24sel%3AtopicArn%3APublish%27"><span class="annot"><span class="annottext">Publish -&gt; Maybe Text
-</span><a href="Network.AWS.SNS.Publish.html#%24sel%3AtopicArn%3APublish%27"><span class="hs-identifier hs-var hs-var">topicArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- | Optional parameter to be used as the \&quot;Subject\&quot; line when the message</span><span>
-</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- is delivered to email endpoints. This field will also be included, if</span><span>
-</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- present, in the standard JSON messages delivered to other endpoints.</span><span>
-</span><span id="line-132"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- Constraints: Subjects must be ASCII text that begins with a letter,</span><span>
-</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- number, or punctuation mark; must not include line breaks or control</span><span>
-</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- characters; and must be less than 100 characters long.</span><span>
-</span><span id="line-136"></span><span>    </span><span id="%24sel%3Asubject%3APublish%27"><span class="annot"><span class="annottext">Publish -&gt; Maybe Text
+</span><span id="line-81"></span><span id="local-6989586621679194541"><span id="local-6989586621679194542"></span></span><span class="hs-keyword">data</span><span> </span><span id="Publish"><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish"><span class="hs-identifier hs-var">Publish</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Publish%27"><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish%27"><span class="hs-identifier hs-var">Publish'</span></a></span></span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Optional parameter to be used as the \&quot;Subject\&quot; line when the message</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- is delivered to email endpoints. This field will also be included, if</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- present, in the standard JSON messages delivered to other endpoints.</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- Constraints: Subjects must be ASCII text that begins with a letter,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- number, or punctuation mark; must not include line breaks or control</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- characters; and must be less than 100 characters long.</span><span>
+</span><span id="line-89"></span><span>    </span><span id="%24sel%3Asubject%3APublish%27"><span class="annot"><span class="annottext">Publish -&gt; Maybe Text
 </span><a href="Network.AWS.SNS.Publish.html#%24sel%3Asubject%3APublish%27"><span class="hs-identifier hs-var hs-var">subject</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- | If you don\'t specify a value for the @TargetArn@ parameter, you must</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- specify a value for the @PhoneNumber@ or @TopicArn@ parameters.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3AtargetArn%3APublish%27"><span class="annot"><span class="annottext">Publish -&gt; Maybe Text
+</span><a href="Network.AWS.SNS.Publish.html#%24sel%3AtargetArn%3APublish%27"><span class="hs-identifier hs-var hs-var">targetArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- | Message attributes for Publish action.</span><span>
+</span><span id="line-94"></span><span>    </span><span id="%24sel%3AmessageAttributes%3APublish%27"><span class="annot"><span class="annottext">Publish -&gt; Maybe (HashMap Text MessageAttributeValue)
+</span><a href="Network.AWS.SNS.Publish.html#%24sel%3AmessageAttributes%3APublish%27"><span class="hs-identifier hs-var hs-var">messageAttributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Types.MessageAttributeValue.html#MessageAttributeValue"><span class="hs-identifier hs-type">MessageAttributeValue</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- | The topic you want to publish to.</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- If you don\'t specify a value for the @TopicArn@ parameter, you must</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- specify a value for the @PhoneNumber@ or @TargetArn@ parameters.</span><span>
+</span><span id="line-99"></span><span>    </span><span id="%24sel%3AtopicArn%3APublish%27"><span class="annot"><span class="annottext">Publish -&gt; Maybe Text
+</span><a href="Network.AWS.SNS.Publish.html#%24sel%3AtopicArn%3APublish%27"><span class="hs-identifier hs-var hs-var">topicArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- | The phone number to which you want to deliver an SMS message. Use E.164</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- format.</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- If you don\'t specify a value for the @PhoneNumber@ parameter, you must</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- specify a value for the @TargetArn@ or @TopicArn@ parameters.</span><span>
+</span><span id="line-105"></span><span>    </span><span id="%24sel%3AphoneNumber%3APublish%27"><span class="annot"><span class="annottext">Publish -&gt; Maybe Text
+</span><a href="Network.AWS.SNS.Publish.html#%24sel%3AphoneNumber%3APublish%27"><span class="hs-identifier hs-var hs-var">phoneNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- | This parameter applies only to FIFO (first-in-first-out) topics. The</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- @MessageDeduplicationId@ can contain up to 128 alphanumeric characters</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- (a-z, A-Z, 0-9) and punctuation</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- @(!\&quot;#$%&amp;\'()*+,-.\/:;\&lt;=&gt;?\@[\\]^_\`{|}~)@.</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- Every message must have a unique @MessageDeduplicationId@, which is a</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- token used for deduplication of sent messages. If a message with a</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- particular @MessageDeduplicationId@ is sent successfully, any message</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- sent with the same @MessageDeduplicationId@ during the 5-minute</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- deduplication interval is treated as a duplicate.</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- If the topic has @ContentBasedDeduplication@ set, the system generates a</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- @MessageDeduplicationId@ based on the contents of the message. Your</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- @MessageDeduplicationId@ overrides the generated one.</span><span>
+</span><span id="line-120"></span><span>    </span><span id="%24sel%3AmessageDeduplicationId%3APublish%27"><span class="annot"><span class="annottext">Publish -&gt; Maybe Text
+</span><a href="Network.AWS.SNS.Publish.html#%24sel%3AmessageDeduplicationId%3APublish%27"><span class="hs-identifier hs-var hs-var">messageDeduplicationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- | Set @MessageStructure@ to @json@ if you want to send a different message</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- for each protocol. For example, using one publish action, you can send a</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- short message to your SMS subscribers and a longer message to your email</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- subscribers. If you set @MessageStructure@ to @json@, the value of the</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- @Message@ parameter must:</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- -   be a syntactically valid JSON object; and</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- -   contain at least a top-level JSON key of \&quot;default\&quot; with a value</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">--     that is a string.</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- You can define other top-level keys that define the message you want to</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- send to a specific transport protocol (e.g., \&quot;http\&quot;).</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- Valid value: @json@</span><span>
+</span><span id="line-136"></span><span>    </span><span id="%24sel%3AmessageStructure%3APublish%27"><span class="annot"><span class="annottext">Publish -&gt; Maybe Text
+</span><a href="Network.AWS.SNS.Publish.html#%24sel%3AmessageStructure%3APublish%27"><span class="hs-identifier hs-var hs-var">messageStructure</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-137"></span><span>    </span><span class="hs-comment">-- | This parameter applies only to FIFO (first-in-first-out) topics. The</span><span>
 </span><span id="line-138"></span><span>    </span><span class="hs-comment">-- @MessageGroupId@ can contain up to 128 alphanumeric characters (a-z,</span><span>
 </span><span id="line-139"></span><span>    </span><span class="hs-comment">-- A-Z, 0-9) and punctuation @(!\&quot;#$%&amp;\'()*+,-.\/:;\&lt;=&gt;?\@[\\]^_\`{|}~)@.</span><span>
@@ -207,7 +207,7 @@
 </span><span id="line-199"></span><span>    </span><span id="%24sel%3Amessage%3APublish%27"><span class="annot"><span class="annottext">Publish -&gt; Text
 </span><a href="Network.AWS.SNS.Publish.html#%24sel%3Amessage%3APublish%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-200"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-201"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679194389"><span id="local-6989586621679194391"><span class="annot"><span class="annottext">Publish -&gt; Publish -&gt; Bool
+</span><span id="line-201"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679194527"><span id="local-6989586621679194529"><span class="annot"><span class="annottext">Publish -&gt; Publish -&gt; Bool
 (Publish -&gt; Publish -&gt; Bool)
 -&gt; (Publish -&gt; Publish -&gt; Bool) -&gt; Eq Publish
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -215,7 +215,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Publish -&gt; Publish -&gt; Bool
 == :: Publish -&gt; Publish -&gt; Bool
 $c== :: Publish -&gt; Publish -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194380"><span id="local-6989586621679194382"><span id="local-6989586621679194384"><span id="local-6989586621679194386"><span class="annot"><span class="annottext">ReadPrec [Publish]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194518"><span id="local-6989586621679194520"><span id="local-6989586621679194522"><span id="local-6989586621679194524"><span class="annot"><span class="annottext">ReadPrec [Publish]
 ReadPrec Publish
 Int -&gt; ReadS Publish
 ReadS [Publish]
@@ -235,7 +235,7 @@ readList :: ReadS [Publish]
 $creadList :: ReadS [Publish]
 readsPrec :: Int -&gt; ReadS Publish
 $creadsPrec :: Int -&gt; ReadS Publish
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194373"><span id="local-6989586621679194375"><span id="local-6989586621679194377"><span class="annot"><span class="annottext">Int -&gt; Publish -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194511"><span id="local-6989586621679194513"><span id="local-6989586621679194515"><span class="annot"><span class="annottext">Int -&gt; Publish -&gt; ShowS
 [Publish] -&gt; ShowS
 Publish -&gt; String
 (Int -&gt; Publish -&gt; ShowS)
@@ -266,60 +266,60 @@ $cfrom :: forall x. Publish -&gt; Rep Publish x
 </span><span id="line-208"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-209"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-210"></span><span class="hs-comment">--</span><span>
-</span><span id="line-211"></span><span class="hs-comment">-- 'phoneNumber', 'publish_phoneNumber' - The phone number to which you want to deliver an SMS message. Use E.164</span><span>
-</span><span id="line-212"></span><span class="hs-comment">-- format.</span><span>
-</span><span id="line-213"></span><span class="hs-comment">--</span><span>
-</span><span id="line-214"></span><span class="hs-comment">-- If you don\'t specify a value for the @PhoneNumber@ parameter, you must</span><span>
-</span><span id="line-215"></span><span class="hs-comment">-- specify a value for the @TargetArn@ or @TopicArn@ parameters.</span><span>
-</span><span id="line-216"></span><span class="hs-comment">--</span><span>
-</span><span id="line-217"></span><span class="hs-comment">-- 'messageStructure', 'publish_messageStructure' - Set @MessageStructure@ to @json@ if you want to send a different message</span><span>
-</span><span id="line-218"></span><span class="hs-comment">-- for each protocol. For example, using one publish action, you can send a</span><span>
-</span><span id="line-219"></span><span class="hs-comment">-- short message to your SMS subscribers and a longer message to your email</span><span>
-</span><span id="line-220"></span><span class="hs-comment">-- subscribers. If you set @MessageStructure@ to @json@, the value of the</span><span>
-</span><span id="line-221"></span><span class="hs-comment">-- @Message@ parameter must:</span><span>
-</span><span id="line-222"></span><span class="hs-comment">--</span><span>
-</span><span id="line-223"></span><span class="hs-comment">-- -   be a syntactically valid JSON object; and</span><span>
-</span><span id="line-224"></span><span class="hs-comment">--</span><span>
-</span><span id="line-225"></span><span class="hs-comment">-- -   contain at least a top-level JSON key of \&quot;default\&quot; with a value</span><span>
-</span><span id="line-226"></span><span class="hs-comment">--     that is a string.</span><span>
-</span><span id="line-227"></span><span class="hs-comment">--</span><span>
-</span><span id="line-228"></span><span class="hs-comment">-- You can define other top-level keys that define the message you want to</span><span>
-</span><span id="line-229"></span><span class="hs-comment">-- send to a specific transport protocol (e.g., \&quot;http\&quot;).</span><span>
-</span><span id="line-230"></span><span class="hs-comment">--</span><span>
-</span><span id="line-231"></span><span class="hs-comment">-- Valid value: @json@</span><span>
-</span><span id="line-232"></span><span class="hs-comment">--</span><span>
-</span><span id="line-233"></span><span class="hs-comment">-- 'messageDeduplicationId', 'publish_messageDeduplicationId' - This parameter applies only to FIFO (first-in-first-out) topics. The</span><span>
-</span><span id="line-234"></span><span class="hs-comment">-- @MessageDeduplicationId@ can contain up to 128 alphanumeric characters</span><span>
-</span><span id="line-235"></span><span class="hs-comment">-- (a-z, A-Z, 0-9) and punctuation</span><span>
-</span><span id="line-236"></span><span class="hs-comment">-- @(!\&quot;#$%&amp;\'()*+,-.\/:;\&lt;=&gt;?\@[\\]^_\`{|}~)@.</span><span>
-</span><span id="line-237"></span><span class="hs-comment">--</span><span>
-</span><span id="line-238"></span><span class="hs-comment">-- Every message must have a unique @MessageDeduplicationId@, which is a</span><span>
-</span><span id="line-239"></span><span class="hs-comment">-- token used for deduplication of sent messages. If a message with a</span><span>
-</span><span id="line-240"></span><span class="hs-comment">-- particular @MessageDeduplicationId@ is sent successfully, any message</span><span>
-</span><span id="line-241"></span><span class="hs-comment">-- sent with the same @MessageDeduplicationId@ during the 5-minute</span><span>
-</span><span id="line-242"></span><span class="hs-comment">-- deduplication interval is treated as a duplicate.</span><span>
-</span><span id="line-243"></span><span class="hs-comment">--</span><span>
-</span><span id="line-244"></span><span class="hs-comment">-- If the topic has @ContentBasedDeduplication@ set, the system generates a</span><span>
-</span><span id="line-245"></span><span class="hs-comment">-- @MessageDeduplicationId@ based on the contents of the message. Your</span><span>
-</span><span id="line-246"></span><span class="hs-comment">-- @MessageDeduplicationId@ overrides the generated one.</span><span>
-</span><span id="line-247"></span><span class="hs-comment">--</span><span>
-</span><span id="line-248"></span><span class="hs-comment">-- 'targetArn', 'publish_targetArn' - If you don\'t specify a value for the @TargetArn@ parameter, you must</span><span>
-</span><span id="line-249"></span><span class="hs-comment">-- specify a value for the @PhoneNumber@ or @TopicArn@ parameters.</span><span>
-</span><span id="line-250"></span><span class="hs-comment">--</span><span>
-</span><span id="line-251"></span><span class="hs-comment">-- 'messageAttributes', 'publish_messageAttributes' - Message attributes for Publish action.</span><span>
-</span><span id="line-252"></span><span class="hs-comment">--</span><span>
-</span><span id="line-253"></span><span class="hs-comment">-- 'topicArn', 'publish_topicArn' - The topic you want to publish to.</span><span>
-</span><span id="line-254"></span><span class="hs-comment">--</span><span>
-</span><span id="line-255"></span><span class="hs-comment">-- If you don\'t specify a value for the @TopicArn@ parameter, you must</span><span>
-</span><span id="line-256"></span><span class="hs-comment">-- specify a value for the @PhoneNumber@ or @TargetArn@ parameters.</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- 'subject', 'publish_subject' - Optional parameter to be used as the \&quot;Subject\&quot; line when the message</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- is delivered to email endpoints. This field will also be included, if</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- present, in the standard JSON messages delivered to other endpoints.</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- Constraints: Subjects must be ASCII text that begins with a letter,</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- number, or punctuation mark; must not include line breaks or control</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- characters; and must be less than 100 characters long.</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- 'targetArn', 'publish_targetArn' - If you don\'t specify a value for the @TargetArn@ parameter, you must</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- specify a value for the @PhoneNumber@ or @TopicArn@ parameters.</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- 'messageAttributes', 'publish_messageAttributes' - Message attributes for Publish action.</span><span>
+</span><span id="line-223"></span><span class="hs-comment">--</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- 'topicArn', 'publish_topicArn' - The topic you want to publish to.</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- If you don\'t specify a value for the @TopicArn@ parameter, you must</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- specify a value for the @PhoneNumber@ or @TargetArn@ parameters.</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- 'phoneNumber', 'publish_phoneNumber' - The phone number to which you want to deliver an SMS message. Use E.164</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- format.</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- If you don\'t specify a value for the @PhoneNumber@ parameter, you must</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- specify a value for the @TargetArn@ or @TopicArn@ parameters.</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- 'messageDeduplicationId', 'publish_messageDeduplicationId' - This parameter applies only to FIFO (first-in-first-out) topics. The</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- @MessageDeduplicationId@ can contain up to 128 alphanumeric characters</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- (a-z, A-Z, 0-9) and punctuation</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- @(!\&quot;#$%&amp;\'()*+,-.\/:;\&lt;=&gt;?\@[\\]^_\`{|}~)@.</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- Every message must have a unique @MessageDeduplicationId@, which is a</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- token used for deduplication of sent messages. If a message with a</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- particular @MessageDeduplicationId@ is sent successfully, any message</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- sent with the same @MessageDeduplicationId@ during the 5-minute</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- deduplication interval is treated as a duplicate.</span><span>
+</span><span id="line-245"></span><span class="hs-comment">--</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- If the topic has @ContentBasedDeduplication@ set, the system generates a</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- @MessageDeduplicationId@ based on the contents of the message. Your</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- @MessageDeduplicationId@ overrides the generated one.</span><span>
+</span><span id="line-249"></span><span class="hs-comment">--</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- 'messageStructure', 'publish_messageStructure' - Set @MessageStructure@ to @json@ if you want to send a different message</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- for each protocol. For example, using one publish action, you can send a</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- short message to your SMS subscribers and a longer message to your email</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- subscribers. If you set @MessageStructure@ to @json@, the value of the</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- @Message@ parameter must:</span><span>
+</span><span id="line-255"></span><span class="hs-comment">--</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- -   be a syntactically valid JSON object; and</span><span>
 </span><span id="line-257"></span><span class="hs-comment">--</span><span>
-</span><span id="line-258"></span><span class="hs-comment">-- 'subject', 'publish_subject' - Optional parameter to be used as the \&quot;Subject\&quot; line when the message</span><span>
-</span><span id="line-259"></span><span class="hs-comment">-- is delivered to email endpoints. This field will also be included, if</span><span>
-</span><span id="line-260"></span><span class="hs-comment">-- present, in the standard JSON messages delivered to other endpoints.</span><span>
-</span><span id="line-261"></span><span class="hs-comment">--</span><span>
-</span><span id="line-262"></span><span class="hs-comment">-- Constraints: Subjects must be ASCII text that begins with a letter,</span><span>
-</span><span id="line-263"></span><span class="hs-comment">-- number, or punctuation mark; must not include line breaks or control</span><span>
-</span><span id="line-264"></span><span class="hs-comment">-- characters; and must be less than 100 characters long.</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- -   contain at least a top-level JSON key of \&quot;default\&quot; with a value</span><span>
+</span><span id="line-259"></span><span class="hs-comment">--     that is a string.</span><span>
+</span><span id="line-260"></span><span class="hs-comment">--</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- You can define other top-level keys that define the message you want to</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- send to a specific transport protocol (e.g., \&quot;http\&quot;).</span><span>
+</span><span id="line-263"></span><span class="hs-comment">--</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- Valid value: @json@</span><span>
 </span><span id="line-265"></span><span class="hs-comment">--</span><span>
 </span><span id="line-266"></span><span class="hs-comment">-- 'messageGroupId', 'publish_messageGroupId' - This parameter applies only to FIFO (first-in-first-out) topics. The</span><span>
 </span><span id="line-267"></span><span class="hs-comment">-- @MessageGroupId@ can contain up to 128 alphanumeric characters (a-z,</span><span>
@@ -388,45 +388,45 @@ $cfrom :: forall x. Publish -&gt; Rep Publish x
 </span><span id="line-330"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-331"></span><span>  </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span>
 </span><span id="line-332"></span><span id="newPublish"><span class="annot"><span class="annottext">newPublish :: Text -&gt; Publish
-</span><a href="Network.AWS.SNS.Publish.html#newPublish"><span class="hs-identifier hs-var hs-var">newPublish</span></a></span></span><span> </span><span id="local-6989586621679194368"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679194368"><span class="hs-identifier hs-var">pMessage_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SNS.Publish.html#newPublish"><span class="hs-identifier hs-var hs-var">newPublish</span></a></span></span><span> </span><span id="local-6989586621679194506"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679194506"><span class="hs-identifier hs-var">pMessage_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-333"></span><span>  </span><span class="annot"><span class="annottext">Publish' :: Maybe Text
 -&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe (HashMap Text MessageAttributeValue)
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Text
 -&gt; Publish
 </span><a href="Network.AWS.SNS.Publish.html#Publish%27"><span class="hs-identifier hs-type">Publish'</span></a></span><span>
-</span><span id="line-334"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:phoneNumber:Publish' :: Maybe Text
-</span><a href="Network.AWS.SNS.Publish.html#%24sel%3AphoneNumber%3APublish%27"><span class="hs-identifier hs-var">phoneNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-334"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:subject:Publish' :: Maybe Text
+</span><a href="Network.AWS.SNS.Publish.html#%24sel%3Asubject%3APublish%27"><span class="hs-identifier hs-var">subject</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-335"></span><span>      </span><span class="annot"><span class="annottext">$sel:messageStructure:Publish' :: Maybe Text
-</span><a href="Network.AWS.SNS.Publish.html#%24sel%3AmessageStructure%3APublish%27"><span class="hs-identifier hs-var">messageStructure</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-336"></span><span>      </span><span class="annot"><span class="annottext">$sel:messageDeduplicationId:Publish' :: Maybe Text
-</span><a href="Network.AWS.SNS.Publish.html#%24sel%3AmessageDeduplicationId%3APublish%27"><span class="hs-identifier hs-var">messageDeduplicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-337"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetArn:Publish' :: Maybe Text
+</span><span id="line-335"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetArn:Publish' :: Maybe Text
 </span><a href="Network.AWS.SNS.Publish.html#%24sel%3AtargetArn%3APublish%27"><span class="hs-identifier hs-var">targetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-338"></span><span>      </span><span class="annot"><span class="annottext">$sel:messageAttributes:Publish' :: Maybe (HashMap Text MessageAttributeValue)
+</span><span id="line-336"></span><span>      </span><span class="annot"><span class="annottext">$sel:messageAttributes:Publish' :: Maybe (HashMap Text MessageAttributeValue)
 </span><a href="Network.AWS.SNS.Publish.html#%24sel%3AmessageAttributes%3APublish%27"><span class="hs-identifier hs-var">messageAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text MessageAttributeValue)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-339"></span><span>      </span><span class="annot"><span class="annottext">$sel:topicArn:Publish' :: Maybe Text
+</span><span id="line-337"></span><span>      </span><span class="annot"><span class="annottext">$sel:topicArn:Publish' :: Maybe Text
 </span><a href="Network.AWS.SNS.Publish.html#%24sel%3AtopicArn%3APublish%27"><span class="hs-identifier hs-var">topicArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-340"></span><span>      </span><span class="annot"><span class="annottext">$sel:subject:Publish' :: Maybe Text
-</span><a href="Network.AWS.SNS.Publish.html#%24sel%3Asubject%3APublish%27"><span class="hs-identifier hs-var">subject</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-338"></span><span>      </span><span class="annot"><span class="annottext">$sel:phoneNumber:Publish' :: Maybe Text
+</span><a href="Network.AWS.SNS.Publish.html#%24sel%3AphoneNumber%3APublish%27"><span class="hs-identifier hs-var">phoneNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-339"></span><span>      </span><span class="annot"><span class="annottext">$sel:messageDeduplicationId:Publish' :: Maybe Text
+</span><a href="Network.AWS.SNS.Publish.html#%24sel%3AmessageDeduplicationId%3APublish%27"><span class="hs-identifier hs-var">messageDeduplicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-340"></span><span>      </span><span class="annot"><span class="annottext">$sel:messageStructure:Publish' :: Maybe Text
+</span><a href="Network.AWS.SNS.Publish.html#%24sel%3AmessageStructure%3APublish%27"><span class="hs-identifier hs-var">messageStructure</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-341"></span><span>      </span><span class="annot"><span class="annottext">$sel:messageGroupId:Publish' :: Maybe Text
@@ -435,116 +435,55 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-342"></span><span>      </span><span class="annot"><span class="annottext">$sel:message:Publish' :: Text
 </span><a href="Network.AWS.SNS.Publish.html#%24sel%3Amessage%3APublish%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679194368"><span class="hs-identifier hs-var">pMessage_</span></a></span><span>
+</span><a href="#local-6989586621679194506"><span class="hs-identifier hs-var">pMessage_</span></a></span><span>
 </span><span id="line-343"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-344"></span><span>
-</span><span id="line-345"></span><span class="hs-comment">-- | The phone number to which you want to deliver an SMS message. Use E.164</span><span>
-</span><span id="line-346"></span><span class="hs-comment">-- format.</span><span>
-</span><span id="line-347"></span><span class="hs-comment">--</span><span>
-</span><span id="line-348"></span><span class="hs-comment">-- If you don\'t specify a value for the @PhoneNumber@ parameter, you must</span><span>
-</span><span id="line-349"></span><span class="hs-comment">-- specify a value for the @TargetArn@ or @TopicArn@ parameters.</span><span>
-</span><span id="line-350"></span><span class="annot"><a href="Network.AWS.SNS.Publish.html#publish_phoneNumber"><span class="hs-identifier hs-type">publish_phoneNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-351"></span><span id="publish_phoneNumber"><span class="annot"><span class="annottext">publish_phoneNumber :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Publish -&gt; f Publish
-</span><a href="Network.AWS.SNS.Publish.html#publish_phoneNumber"><span class="hs-identifier hs-var hs-var">publish_phoneNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Publish -&gt; Maybe Text)
+</span><span id="line-345"></span><span class="hs-comment">-- | Optional parameter to be used as the \&quot;Subject\&quot; line when the message</span><span>
+</span><span id="line-346"></span><span class="hs-comment">-- is delivered to email endpoints. This field will also be included, if</span><span>
+</span><span id="line-347"></span><span class="hs-comment">-- present, in the standard JSON messages delivered to other endpoints.</span><span>
+</span><span id="line-348"></span><span class="hs-comment">--</span><span>
+</span><span id="line-349"></span><span class="hs-comment">-- Constraints: Subjects must be ASCII text that begins with a letter,</span><span>
+</span><span id="line-350"></span><span class="hs-comment">-- number, or punctuation mark; must not include line breaks or control</span><span>
+</span><span id="line-351"></span><span class="hs-comment">-- characters; and must be less than 100 characters long.</span><span>
+</span><span id="line-352"></span><span class="annot"><a href="Network.AWS.SNS.Publish.html#publish_subject"><span class="hs-identifier hs-type">publish_subject</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-353"></span><span id="publish_subject"><span class="annot"><span class="annottext">publish_subject :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Publish -&gt; f Publish
+</span><a href="Network.AWS.SNS.Publish.html#publish_subject"><span class="hs-identifier hs-var hs-var">publish_subject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Publish -&gt; Maybe Text)
 -&gt; (Publish -&gt; Maybe Text -&gt; Publish)
 -&gt; Lens Publish Publish (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish%27"><span class="hs-identifier hs-type">Publish'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194365"><span class="annot"><span class="annottext">Maybe Text
-phoneNumber :: Maybe Text
-$sel:phoneNumber:Publish' :: Publish -&gt; Maybe Text
-</span><a href="#local-6989586621679194365"><span class="hs-identifier hs-var hs-var">phoneNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679194365"><span class="hs-identifier hs-var">phoneNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194364"><span class="annot"><span class="annottext">s :: Publish
-</span><a href="#local-6989586621679194364"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish%27"><span class="hs-identifier hs-type">Publish'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194363"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679194363"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Publish
-</span><a href="#local-6989586621679194364"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:phoneNumber:Publish' :: Maybe Text
-</span><a href="Network.AWS.SNS.Publish.html#%24sel%3AphoneNumber%3APublish%27"><span class="hs-identifier hs-var">phoneNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679194363"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-352"></span><span>
-</span><span id="line-353"></span><span class="hs-comment">-- | Set @MessageStructure@ to @json@ if you want to send a different message</span><span>
-</span><span id="line-354"></span><span class="hs-comment">-- for each protocol. For example, using one publish action, you can send a</span><span>
-</span><span id="line-355"></span><span class="hs-comment">-- short message to your SMS subscribers and a longer message to your email</span><span>
-</span><span id="line-356"></span><span class="hs-comment">-- subscribers. If you set @MessageStructure@ to @json@, the value of the</span><span>
-</span><span id="line-357"></span><span class="hs-comment">-- @Message@ parameter must:</span><span>
-</span><span id="line-358"></span><span class="hs-comment">--</span><span>
-</span><span id="line-359"></span><span class="hs-comment">-- -   be a syntactically valid JSON object; and</span><span>
-</span><span id="line-360"></span><span class="hs-comment">--</span><span>
-</span><span id="line-361"></span><span class="hs-comment">-- -   contain at least a top-level JSON key of \&quot;default\&quot; with a value</span><span>
-</span><span id="line-362"></span><span class="hs-comment">--     that is a string.</span><span>
-</span><span id="line-363"></span><span class="hs-comment">--</span><span>
-</span><span id="line-364"></span><span class="hs-comment">-- You can define other top-level keys that define the message you want to</span><span>
-</span><span id="line-365"></span><span class="hs-comment">-- send to a specific transport protocol (e.g., \&quot;http\&quot;).</span><span>
-</span><span id="line-366"></span><span class="hs-comment">--</span><span>
-</span><span id="line-367"></span><span class="hs-comment">-- Valid value: @json@</span><span>
-</span><span id="line-368"></span><span class="annot"><a href="Network.AWS.SNS.Publish.html#publish_messageStructure"><span class="hs-identifier hs-type">publish_messageStructure</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-369"></span><span id="publish_messageStructure"><span class="annot"><span class="annottext">publish_messageStructure :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Publish -&gt; f Publish
-</span><a href="Network.AWS.SNS.Publish.html#publish_messageStructure"><span class="hs-identifier hs-var hs-var">publish_messageStructure</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Publish -&gt; Maybe Text)
--&gt; (Publish -&gt; Maybe Text -&gt; Publish)
--&gt; Lens Publish Publish (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish%27"><span class="hs-identifier hs-type">Publish'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194362"><span class="annot"><span class="annottext">Maybe Text
-messageStructure :: Maybe Text
-$sel:messageStructure:Publish' :: Publish -&gt; Maybe Text
-</span><a href="#local-6989586621679194362"><span class="hs-identifier hs-var hs-var">messageStructure</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679194362"><span class="hs-identifier hs-var">messageStructure</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194361"><span class="annot"><span class="annottext">s :: Publish
-</span><a href="#local-6989586621679194361"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish%27"><span class="hs-identifier hs-type">Publish'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194360"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679194360"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Publish
-</span><a href="#local-6989586621679194361"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageStructure:Publish' :: Maybe Text
-</span><a href="Network.AWS.SNS.Publish.html#%24sel%3AmessageStructure%3APublish%27"><span class="hs-identifier hs-var">messageStructure</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679194360"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-370"></span><span>
-</span><span id="line-371"></span><span class="hs-comment">-- | This parameter applies only to FIFO (first-in-first-out) topics. The</span><span>
-</span><span id="line-372"></span><span class="hs-comment">-- @MessageDeduplicationId@ can contain up to 128 alphanumeric characters</span><span>
-</span><span id="line-373"></span><span class="hs-comment">-- (a-z, A-Z, 0-9) and punctuation</span><span>
-</span><span id="line-374"></span><span class="hs-comment">-- @(!\&quot;#$%&amp;\'()*+,-.\/:;\&lt;=&gt;?\@[\\]^_\`{|}~)@.</span><span>
-</span><span id="line-375"></span><span class="hs-comment">--</span><span>
-</span><span id="line-376"></span><span class="hs-comment">-- Every message must have a unique @MessageDeduplicationId@, which is a</span><span>
-</span><span id="line-377"></span><span class="hs-comment">-- token used for deduplication of sent messages. If a message with a</span><span>
-</span><span id="line-378"></span><span class="hs-comment">-- particular @MessageDeduplicationId@ is sent successfully, any message</span><span>
-</span><span id="line-379"></span><span class="hs-comment">-- sent with the same @MessageDeduplicationId@ during the 5-minute</span><span>
-</span><span id="line-380"></span><span class="hs-comment">-- deduplication interval is treated as a duplicate.</span><span>
-</span><span id="line-381"></span><span class="hs-comment">--</span><span>
-</span><span id="line-382"></span><span class="hs-comment">-- If the topic has @ContentBasedDeduplication@ set, the system generates a</span><span>
-</span><span id="line-383"></span><span class="hs-comment">-- @MessageDeduplicationId@ based on the contents of the message. Your</span><span>
-</span><span id="line-384"></span><span class="hs-comment">-- @MessageDeduplicationId@ overrides the generated one.</span><span>
-</span><span id="line-385"></span><span class="annot"><a href="Network.AWS.SNS.Publish.html#publish_messageDeduplicationId"><span class="hs-identifier hs-type">publish_messageDeduplicationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-386"></span><span id="publish_messageDeduplicationId"><span class="annot"><span class="annottext">publish_messageDeduplicationId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Publish -&gt; f Publish
-</span><a href="Network.AWS.SNS.Publish.html#publish_messageDeduplicationId"><span class="hs-identifier hs-var hs-var">publish_messageDeduplicationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Publish -&gt; Maybe Text)
--&gt; (Publish -&gt; Maybe Text -&gt; Publish)
--&gt; Lens Publish Publish (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish%27"><span class="hs-identifier hs-type">Publish'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194359"><span class="annot"><span class="annottext">Maybe Text
-messageDeduplicationId :: Maybe Text
-$sel:messageDeduplicationId:Publish' :: Publish -&gt; Maybe Text
-</span><a href="#local-6989586621679194359"><span class="hs-identifier hs-var hs-var">messageDeduplicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679194359"><span class="hs-identifier hs-var">messageDeduplicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194358"><span class="annot"><span class="annottext">s :: Publish
-</span><a href="#local-6989586621679194358"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish%27"><span class="hs-identifier hs-type">Publish'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194357"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679194357"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Publish
-</span><a href="#local-6989586621679194358"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageDeduplicationId:Publish' :: Maybe Text
-</span><a href="Network.AWS.SNS.Publish.html#%24sel%3AmessageDeduplicationId%3APublish%27"><span class="hs-identifier hs-var">messageDeduplicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679194357"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-387"></span><span>
-</span><span id="line-388"></span><span class="hs-comment">-- | If you don\'t specify a value for the @TargetArn@ parameter, you must</span><span>
-</span><span id="line-389"></span><span class="hs-comment">-- specify a value for the @PhoneNumber@ or @TopicArn@ parameters.</span><span>
-</span><span id="line-390"></span><span class="annot"><a href="Network.AWS.SNS.Publish.html#publish_targetArn"><span class="hs-identifier hs-type">publish_targetArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-391"></span><span id="publish_targetArn"><span class="annot"><span class="annottext">publish_targetArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Publish -&gt; f Publish
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish%27"><span class="hs-identifier hs-type">Publish'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194503"><span class="annot"><span class="annottext">Maybe Text
+subject :: Maybe Text
+$sel:subject:Publish' :: Publish -&gt; Maybe Text
+</span><a href="#local-6989586621679194503"><span class="hs-identifier hs-var hs-var">subject</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194503"><span class="hs-identifier hs-var">subject</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194502"><span class="annot"><span class="annottext">s :: Publish
+</span><a href="#local-6989586621679194502"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish%27"><span class="hs-identifier hs-type">Publish'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194501"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194501"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Publish
+</span><a href="#local-6989586621679194502"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subject:Publish' :: Maybe Text
+</span><a href="Network.AWS.SNS.Publish.html#%24sel%3Asubject%3APublish%27"><span class="hs-identifier hs-var">subject</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194501"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-354"></span><span>
+</span><span id="line-355"></span><span class="hs-comment">-- | If you don\'t specify a value for the @TargetArn@ parameter, you must</span><span>
+</span><span id="line-356"></span><span class="hs-comment">-- specify a value for the @PhoneNumber@ or @TopicArn@ parameters.</span><span>
+</span><span id="line-357"></span><span class="annot"><a href="Network.AWS.SNS.Publish.html#publish_targetArn"><span class="hs-identifier hs-type">publish_targetArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-358"></span><span id="publish_targetArn"><span class="annot"><span class="annottext">publish_targetArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Publish -&gt; f Publish
 </span><a href="Network.AWS.SNS.Publish.html#publish_targetArn"><span class="hs-identifier hs-var hs-var">publish_targetArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Publish -&gt; Maybe Text)
 -&gt; (Publish -&gt; Maybe Text -&gt; Publish)
 -&gt; Lens Publish Publish (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish%27"><span class="hs-identifier hs-type">Publish'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194356"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish%27"><span class="hs-identifier hs-type">Publish'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194500"><span class="annot"><span class="annottext">Maybe Text
 targetArn :: Maybe Text
 $sel:targetArn:Publish' :: Publish -&gt; Maybe Text
-</span><a href="#local-6989586621679194356"><span class="hs-identifier hs-var hs-var">targetArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679194356"><span class="hs-identifier hs-var">targetArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194355"><span class="annot"><span class="annottext">s :: Publish
-</span><a href="#local-6989586621679194355"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish%27"><span class="hs-identifier hs-type">Publish'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194354"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679194354"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Publish
-</span><a href="#local-6989586621679194355"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetArn:Publish' :: Maybe Text
+</span><a href="#local-6989586621679194500"><span class="hs-identifier hs-var hs-var">targetArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194500"><span class="hs-identifier hs-var">targetArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194499"><span class="annot"><span class="annottext">s :: Publish
+</span><a href="#local-6989586621679194499"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish%27"><span class="hs-identifier hs-type">Publish'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194498"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194498"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Publish
+</span><a href="#local-6989586621679194499"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetArn:Publish' :: Maybe Text
 </span><a href="Network.AWS.SNS.Publish.html#%24sel%3AtargetArn%3APublish%27"><span class="hs-identifier hs-var">targetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679194354"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-392"></span><span>
-</span><span id="line-393"></span><span class="hs-comment">-- | Message attributes for Publish action.</span><span>
-</span><span id="line-394"></span><span class="annot"><a href="Network.AWS.SNS.Publish.html#publish_messageAttributes"><span class="hs-identifier hs-type">publish_messageAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Types.MessageAttributeValue.html#MessageAttributeValue"><span class="hs-identifier hs-type">MessageAttributeValue</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-395"></span><span id="publish_messageAttributes"><span class="annot"><span class="annottext">publish_messageAttributes :: (Maybe (HashMap Text MessageAttributeValue)
+</span><a href="#local-6989586621679194498"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-359"></span><span>
+</span><span id="line-360"></span><span class="hs-comment">-- | Message attributes for Publish action.</span><span>
+</span><span id="line-361"></span><span class="annot"><a href="Network.AWS.SNS.Publish.html#publish_messageAttributes"><span class="hs-identifier hs-type">publish_messageAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Types.MessageAttributeValue.html#MessageAttributeValue"><span class="hs-identifier hs-type">MessageAttributeValue</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-362"></span><span id="publish_messageAttributes"><span class="annot"><span class="annottext">publish_messageAttributes :: (Maybe (HashMap Text MessageAttributeValue)
  -&gt; f (Maybe (HashMap Text MessageAttributeValue)))
 -&gt; Publish -&gt; f Publish
 </span><a href="Network.AWS.SNS.Publish.html#publish_messageAttributes"><span class="hs-identifier hs-var hs-var">publish_messageAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Publish -&gt; Maybe (HashMap Text MessageAttributeValue))
@@ -556,16 +495,16 @@ $sel:targetArn:Publish' :: Publish -&gt; Maybe Text
      (Maybe (HashMap Text MessageAttributeValue))
      (Maybe (HashMap Text MessageAttributeValue))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish%27"><span class="hs-identifier hs-type">Publish'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194353"><span class="annot"><span class="annottext">Maybe (HashMap Text MessageAttributeValue)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish%27"><span class="hs-identifier hs-type">Publish'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194497"><span class="annot"><span class="annottext">Maybe (HashMap Text MessageAttributeValue)
 messageAttributes :: Maybe (HashMap Text MessageAttributeValue)
 $sel:messageAttributes:Publish' :: Publish -&gt; Maybe (HashMap Text MessageAttributeValue)
-</span><a href="#local-6989586621679194353"><span class="hs-identifier hs-var hs-var">messageAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text MessageAttributeValue)
-</span><a href="#local-6989586621679194353"><span class="hs-identifier hs-var">messageAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194352"><span class="annot"><span class="annottext">s :: Publish
-</span><a href="#local-6989586621679194352"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish%27"><span class="hs-identifier hs-type">Publish'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194351"><span class="annot"><span class="annottext">Maybe (HashMap Text MessageAttributeValue)
-</span><a href="#local-6989586621679194351"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Publish
-</span><a href="#local-6989586621679194352"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageAttributes:Publish' :: Maybe (HashMap Text MessageAttributeValue)
+</span><a href="#local-6989586621679194497"><span class="hs-identifier hs-var hs-var">messageAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text MessageAttributeValue)
+</span><a href="#local-6989586621679194497"><span class="hs-identifier hs-var">messageAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194496"><span class="annot"><span class="annottext">s :: Publish
+</span><a href="#local-6989586621679194496"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish%27"><span class="hs-identifier hs-type">Publish'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194495"><span class="annot"><span class="annottext">Maybe (HashMap Text MessageAttributeValue)
+</span><a href="#local-6989586621679194495"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Publish
+</span><a href="#local-6989586621679194496"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageAttributes:Publish' :: Maybe (HashMap Text MessageAttributeValue)
 </span><a href="Network.AWS.SNS.Publish.html#%24sel%3AmessageAttributes%3APublish%27"><span class="hs-identifier hs-var">messageAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text MessageAttributeValue)
-</span><a href="#local-6989586621679194351"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text MessageAttributeValue)
+</span><a href="#local-6989586621679194495"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text MessageAttributeValue)
   -&gt; f (Maybe (HashMap Text MessageAttributeValue)))
  -&gt; Publish -&gt; f Publish)
 -&gt; ((Maybe (HashMap Text MessageAttributeValue)
@@ -595,53 +534,114 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text MessageAttributeValue)
   (HashMap Text MessageAttributeValue)
   (HashMap Text MessageAttributeValue)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-396"></span><span>
-</span><span id="line-397"></span><span class="hs-comment">-- | The topic you want to publish to.</span><span>
-</span><span id="line-398"></span><span class="hs-comment">--</span><span>
-</span><span id="line-399"></span><span class="hs-comment">-- If you don\'t specify a value for the @TopicArn@ parameter, you must</span><span>
-</span><span id="line-400"></span><span class="hs-comment">-- specify a value for the @PhoneNumber@ or @TargetArn@ parameters.</span><span>
-</span><span id="line-401"></span><span class="annot"><a href="Network.AWS.SNS.Publish.html#publish_topicArn"><span class="hs-identifier hs-type">publish_topicArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-402"></span><span id="publish_topicArn"><span class="annot"><span class="annottext">publish_topicArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Publish -&gt; f Publish
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-363"></span><span>
+</span><span id="line-364"></span><span class="hs-comment">-- | The topic you want to publish to.</span><span>
+</span><span id="line-365"></span><span class="hs-comment">--</span><span>
+</span><span id="line-366"></span><span class="hs-comment">-- If you don\'t specify a value for the @TopicArn@ parameter, you must</span><span>
+</span><span id="line-367"></span><span class="hs-comment">-- specify a value for the @PhoneNumber@ or @TargetArn@ parameters.</span><span>
+</span><span id="line-368"></span><span class="annot"><a href="Network.AWS.SNS.Publish.html#publish_topicArn"><span class="hs-identifier hs-type">publish_topicArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-369"></span><span id="publish_topicArn"><span class="annot"><span class="annottext">publish_topicArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Publish -&gt; f Publish
 </span><a href="Network.AWS.SNS.Publish.html#publish_topicArn"><span class="hs-identifier hs-var hs-var">publish_topicArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Publish -&gt; Maybe Text)
 -&gt; (Publish -&gt; Maybe Text -&gt; Publish)
 -&gt; Lens Publish Publish (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish%27"><span class="hs-identifier hs-type">Publish'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194347"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish%27"><span class="hs-identifier hs-type">Publish'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194491"><span class="annot"><span class="annottext">Maybe Text
 topicArn :: Maybe Text
 $sel:topicArn:Publish' :: Publish -&gt; Maybe Text
-</span><a href="#local-6989586621679194347"><span class="hs-identifier hs-var hs-var">topicArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679194347"><span class="hs-identifier hs-var">topicArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194346"><span class="annot"><span class="annottext">s :: Publish
-</span><a href="#local-6989586621679194346"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish%27"><span class="hs-identifier hs-type">Publish'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194345"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679194345"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Publish
-</span><a href="#local-6989586621679194346"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topicArn:Publish' :: Maybe Text
+</span><a href="#local-6989586621679194491"><span class="hs-identifier hs-var hs-var">topicArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194491"><span class="hs-identifier hs-var">topicArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194490"><span class="annot"><span class="annottext">s :: Publish
+</span><a href="#local-6989586621679194490"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish%27"><span class="hs-identifier hs-type">Publish'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194489"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194489"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Publish
+</span><a href="#local-6989586621679194490"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topicArn:Publish' :: Maybe Text
 </span><a href="Network.AWS.SNS.Publish.html#%24sel%3AtopicArn%3APublish%27"><span class="hs-identifier hs-var">topicArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679194345"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-403"></span><span>
-</span><span id="line-404"></span><span class="hs-comment">-- | Optional parameter to be used as the \&quot;Subject\&quot; line when the message</span><span>
-</span><span id="line-405"></span><span class="hs-comment">-- is delivered to email endpoints. This field will also be included, if</span><span>
-</span><span id="line-406"></span><span class="hs-comment">-- present, in the standard JSON messages delivered to other endpoints.</span><span>
-</span><span id="line-407"></span><span class="hs-comment">--</span><span>
-</span><span id="line-408"></span><span class="hs-comment">-- Constraints: Subjects must be ASCII text that begins with a letter,</span><span>
-</span><span id="line-409"></span><span class="hs-comment">-- number, or punctuation mark; must not include line breaks or control</span><span>
-</span><span id="line-410"></span><span class="hs-comment">-- characters; and must be less than 100 characters long.</span><span>
-</span><span id="line-411"></span><span class="annot"><a href="Network.AWS.SNS.Publish.html#publish_subject"><span class="hs-identifier hs-type">publish_subject</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-412"></span><span id="publish_subject"><span class="annot"><span class="annottext">publish_subject :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Publish -&gt; f Publish
-</span><a href="Network.AWS.SNS.Publish.html#publish_subject"><span class="hs-identifier hs-var hs-var">publish_subject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Publish -&gt; Maybe Text)
+</span><a href="#local-6989586621679194489"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-370"></span><span>
+</span><span id="line-371"></span><span class="hs-comment">-- | The phone number to which you want to deliver an SMS message. Use E.164</span><span>
+</span><span id="line-372"></span><span class="hs-comment">-- format.</span><span>
+</span><span id="line-373"></span><span class="hs-comment">--</span><span>
+</span><span id="line-374"></span><span class="hs-comment">-- If you don\'t specify a value for the @PhoneNumber@ parameter, you must</span><span>
+</span><span id="line-375"></span><span class="hs-comment">-- specify a value for the @TargetArn@ or @TopicArn@ parameters.</span><span>
+</span><span id="line-376"></span><span class="annot"><a href="Network.AWS.SNS.Publish.html#publish_phoneNumber"><span class="hs-identifier hs-type">publish_phoneNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-377"></span><span id="publish_phoneNumber"><span class="annot"><span class="annottext">publish_phoneNumber :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Publish -&gt; f Publish
+</span><a href="Network.AWS.SNS.Publish.html#publish_phoneNumber"><span class="hs-identifier hs-var hs-var">publish_phoneNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Publish -&gt; Maybe Text)
 -&gt; (Publish -&gt; Maybe Text -&gt; Publish)
 -&gt; Lens Publish Publish (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish%27"><span class="hs-identifier hs-type">Publish'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194344"><span class="annot"><span class="annottext">Maybe Text
-subject :: Maybe Text
-$sel:subject:Publish' :: Publish -&gt; Maybe Text
-</span><a href="#local-6989586621679194344"><span class="hs-identifier hs-var hs-var">subject</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679194344"><span class="hs-identifier hs-var">subject</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194343"><span class="annot"><span class="annottext">s :: Publish
-</span><a href="#local-6989586621679194343"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish%27"><span class="hs-identifier hs-type">Publish'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194342"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679194342"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Publish
-</span><a href="#local-6989586621679194343"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subject:Publish' :: Maybe Text
-</span><a href="Network.AWS.SNS.Publish.html#%24sel%3Asubject%3APublish%27"><span class="hs-identifier hs-var">subject</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679194342"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish%27"><span class="hs-identifier hs-type">Publish'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194488"><span class="annot"><span class="annottext">Maybe Text
+phoneNumber :: Maybe Text
+$sel:phoneNumber:Publish' :: Publish -&gt; Maybe Text
+</span><a href="#local-6989586621679194488"><span class="hs-identifier hs-var hs-var">phoneNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194488"><span class="hs-identifier hs-var">phoneNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194487"><span class="annot"><span class="annottext">s :: Publish
+</span><a href="#local-6989586621679194487"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish%27"><span class="hs-identifier hs-type">Publish'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194486"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194486"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Publish
+</span><a href="#local-6989586621679194487"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:phoneNumber:Publish' :: Maybe Text
+</span><a href="Network.AWS.SNS.Publish.html#%24sel%3AphoneNumber%3APublish%27"><span class="hs-identifier hs-var">phoneNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194486"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-378"></span><span>
+</span><span id="line-379"></span><span class="hs-comment">-- | This parameter applies only to FIFO (first-in-first-out) topics. The</span><span>
+</span><span id="line-380"></span><span class="hs-comment">-- @MessageDeduplicationId@ can contain up to 128 alphanumeric characters</span><span>
+</span><span id="line-381"></span><span class="hs-comment">-- (a-z, A-Z, 0-9) and punctuation</span><span>
+</span><span id="line-382"></span><span class="hs-comment">-- @(!\&quot;#$%&amp;\'()*+,-.\/:;\&lt;=&gt;?\@[\\]^_\`{|}~)@.</span><span>
+</span><span id="line-383"></span><span class="hs-comment">--</span><span>
+</span><span id="line-384"></span><span class="hs-comment">-- Every message must have a unique @MessageDeduplicationId@, which is a</span><span>
+</span><span id="line-385"></span><span class="hs-comment">-- token used for deduplication of sent messages. If a message with a</span><span>
+</span><span id="line-386"></span><span class="hs-comment">-- particular @MessageDeduplicationId@ is sent successfully, any message</span><span>
+</span><span id="line-387"></span><span class="hs-comment">-- sent with the same @MessageDeduplicationId@ during the 5-minute</span><span>
+</span><span id="line-388"></span><span class="hs-comment">-- deduplication interval is treated as a duplicate.</span><span>
+</span><span id="line-389"></span><span class="hs-comment">--</span><span>
+</span><span id="line-390"></span><span class="hs-comment">-- If the topic has @ContentBasedDeduplication@ set, the system generates a</span><span>
+</span><span id="line-391"></span><span class="hs-comment">-- @MessageDeduplicationId@ based on the contents of the message. Your</span><span>
+</span><span id="line-392"></span><span class="hs-comment">-- @MessageDeduplicationId@ overrides the generated one.</span><span>
+</span><span id="line-393"></span><span class="annot"><a href="Network.AWS.SNS.Publish.html#publish_messageDeduplicationId"><span class="hs-identifier hs-type">publish_messageDeduplicationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-394"></span><span id="publish_messageDeduplicationId"><span class="annot"><span class="annottext">publish_messageDeduplicationId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Publish -&gt; f Publish
+</span><a href="Network.AWS.SNS.Publish.html#publish_messageDeduplicationId"><span class="hs-identifier hs-var hs-var">publish_messageDeduplicationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Publish -&gt; Maybe Text)
+-&gt; (Publish -&gt; Maybe Text -&gt; Publish)
+-&gt; Lens Publish Publish (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish%27"><span class="hs-identifier hs-type">Publish'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194485"><span class="annot"><span class="annottext">Maybe Text
+messageDeduplicationId :: Maybe Text
+$sel:messageDeduplicationId:Publish' :: Publish -&gt; Maybe Text
+</span><a href="#local-6989586621679194485"><span class="hs-identifier hs-var hs-var">messageDeduplicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194485"><span class="hs-identifier hs-var">messageDeduplicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194484"><span class="annot"><span class="annottext">s :: Publish
+</span><a href="#local-6989586621679194484"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish%27"><span class="hs-identifier hs-type">Publish'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194483"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194483"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Publish
+</span><a href="#local-6989586621679194484"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageDeduplicationId:Publish' :: Maybe Text
+</span><a href="Network.AWS.SNS.Publish.html#%24sel%3AmessageDeduplicationId%3APublish%27"><span class="hs-identifier hs-var">messageDeduplicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194483"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-395"></span><span>
+</span><span id="line-396"></span><span class="hs-comment">-- | Set @MessageStructure@ to @json@ if you want to send a different message</span><span>
+</span><span id="line-397"></span><span class="hs-comment">-- for each protocol. For example, using one publish action, you can send a</span><span>
+</span><span id="line-398"></span><span class="hs-comment">-- short message to your SMS subscribers and a longer message to your email</span><span>
+</span><span id="line-399"></span><span class="hs-comment">-- subscribers. If you set @MessageStructure@ to @json@, the value of the</span><span>
+</span><span id="line-400"></span><span class="hs-comment">-- @Message@ parameter must:</span><span>
+</span><span id="line-401"></span><span class="hs-comment">--</span><span>
+</span><span id="line-402"></span><span class="hs-comment">-- -   be a syntactically valid JSON object; and</span><span>
+</span><span id="line-403"></span><span class="hs-comment">--</span><span>
+</span><span id="line-404"></span><span class="hs-comment">-- -   contain at least a top-level JSON key of \&quot;default\&quot; with a value</span><span>
+</span><span id="line-405"></span><span class="hs-comment">--     that is a string.</span><span>
+</span><span id="line-406"></span><span class="hs-comment">--</span><span>
+</span><span id="line-407"></span><span class="hs-comment">-- You can define other top-level keys that define the message you want to</span><span>
+</span><span id="line-408"></span><span class="hs-comment">-- send to a specific transport protocol (e.g., \&quot;http\&quot;).</span><span>
+</span><span id="line-409"></span><span class="hs-comment">--</span><span>
+</span><span id="line-410"></span><span class="hs-comment">-- Valid value: @json@</span><span>
+</span><span id="line-411"></span><span class="annot"><a href="Network.AWS.SNS.Publish.html#publish_messageStructure"><span class="hs-identifier hs-type">publish_messageStructure</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-412"></span><span id="publish_messageStructure"><span class="annot"><span class="annottext">publish_messageStructure :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Publish -&gt; f Publish
+</span><a href="Network.AWS.SNS.Publish.html#publish_messageStructure"><span class="hs-identifier hs-var hs-var">publish_messageStructure</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Publish -&gt; Maybe Text)
+-&gt; (Publish -&gt; Maybe Text -&gt; Publish)
+-&gt; Lens Publish Publish (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish%27"><span class="hs-identifier hs-type">Publish'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194482"><span class="annot"><span class="annottext">Maybe Text
+messageStructure :: Maybe Text
+$sel:messageStructure:Publish' :: Publish -&gt; Maybe Text
+</span><a href="#local-6989586621679194482"><span class="hs-identifier hs-var hs-var">messageStructure</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194482"><span class="hs-identifier hs-var">messageStructure</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194481"><span class="annot"><span class="annottext">s :: Publish
+</span><a href="#local-6989586621679194481"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish%27"><span class="hs-identifier hs-type">Publish'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194480"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194480"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Publish
+</span><a href="#local-6989586621679194481"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageStructure:Publish' :: Maybe Text
+</span><a href="Network.AWS.SNS.Publish.html#%24sel%3AmessageStructure%3APublish%27"><span class="hs-identifier hs-var">messageStructure</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194480"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-413"></span><span>
 </span><span id="line-414"></span><span class="hs-comment">-- | This parameter applies only to FIFO (first-in-first-out) topics. The</span><span>
 </span><span id="line-415"></span><span class="hs-comment">-- @MessageGroupId@ can contain up to 128 alphanumeric characters (a-z,</span><span>
@@ -658,16 +658,16 @@ $sel:subject:Publish' :: Publish -&gt; Maybe Text
 -&gt; (Publish -&gt; Maybe Text -&gt; Publish)
 -&gt; Lens Publish Publish (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish%27"><span class="hs-identifier hs-type">Publish'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194341"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish%27"><span class="hs-identifier hs-type">Publish'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194479"><span class="annot"><span class="annottext">Maybe Text
 messageGroupId :: Maybe Text
 $sel:messageGroupId:Publish' :: Publish -&gt; Maybe Text
-</span><a href="#local-6989586621679194341"><span class="hs-identifier hs-var hs-var">messageGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679194341"><span class="hs-identifier hs-var">messageGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194340"><span class="annot"><span class="annottext">s :: Publish
-</span><a href="#local-6989586621679194340"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish%27"><span class="hs-identifier hs-type">Publish'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194339"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679194339"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Publish
-</span><a href="#local-6989586621679194340"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageGroupId:Publish' :: Maybe Text
+</span><a href="#local-6989586621679194479"><span class="hs-identifier hs-var hs-var">messageGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194479"><span class="hs-identifier hs-var">messageGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194478"><span class="annot"><span class="annottext">s :: Publish
+</span><a href="#local-6989586621679194478"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish%27"><span class="hs-identifier hs-type">Publish'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194477"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194477"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Publish
+</span><a href="#local-6989586621679194478"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageGroupId:Publish' :: Maybe Text
 </span><a href="Network.AWS.SNS.Publish.html#%24sel%3AmessageGroupId%3APublish%27"><span class="hs-identifier hs-var">messageGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679194339"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679194477"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-425"></span><span>
 </span><span id="line-426"></span><span class="hs-comment">-- | The message you want to send.</span><span>
 </span><span id="line-427"></span><span class="hs-comment">--</span><span>
@@ -726,25 +726,25 @@ $sel:messageGroupId:Publish' :: Publish -&gt; Maybe Text
 </span><a href="Network.AWS.SNS.Publish.html#publish_message"><span class="hs-identifier hs-var hs-var">publish_message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Publish -&gt; Text)
 -&gt; (Publish -&gt; Text -&gt; Publish) -&gt; Lens Publish Publish Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish%27"><span class="hs-identifier hs-type">Publish'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194338"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish%27"><span class="hs-identifier hs-type">Publish'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194476"><span class="annot"><span class="annottext">Text
 message :: Text
 $sel:message:Publish' :: Publish -&gt; Text
-</span><a href="#local-6989586621679194338"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679194338"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194337"><span class="annot"><span class="annottext">s :: Publish
-</span><a href="#local-6989586621679194337"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish%27"><span class="hs-identifier hs-type">Publish'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194336"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679194336"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Publish
-</span><a href="#local-6989586621679194337"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:Publish' :: Text
+</span><a href="#local-6989586621679194476"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679194476"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194475"><span class="annot"><span class="annottext">s :: Publish
+</span><a href="#local-6989586621679194475"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish%27"><span class="hs-identifier hs-type">Publish'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194474"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679194474"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Publish
+</span><a href="#local-6989586621679194475"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:Publish' :: Text
 </span><a href="Network.AWS.SNS.Publish.html#%24sel%3Amessage%3APublish%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679194336"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679194474"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-480"></span><span>
 </span><span id="line-481"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-482"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#PublishResponse"><span class="hs-identifier hs-type">PublishResponse</span></a></span><span>
-</span><span id="line-483"></span><span>  </span><span id="local-6989586621679194332"><span class="annot"><span class="annottext">request :: Publish -&gt; Request Publish
+</span><span id="line-483"></span><span>  </span><span id="local-6989586621679194470"><span class="annot"><span class="annottext">request :: Publish -&gt; Request Publish
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; Publish -&gt; Request Publish
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SNS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-484"></span><span>  </span><span id="local-6989586621679194328"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-484"></span><span>  </span><span id="local-6989586621679194466"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy Publish
 -&gt; ClientResponse ClientBody
@@ -773,10 +773,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-486"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PublishResult&quot;</span></span><span>
-</span><span id="line-487"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679194325"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679194325"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679194324"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679194324"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679194323"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679194323"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-487"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679194463"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679194463"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679194462"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679194462"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679194461"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679194461"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-488"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Int -&gt; PublishResponse
 </span><a href="Network.AWS.SNS.Publish.html#PublishResponse%27"><span class="hs-identifier hs-var">PublishResponse'</span></a></span><span>
 </span><span id="line-489"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Int -&gt; PublishResponse)
@@ -784,7 +784,7 @@ Text
 -&gt; Either String (Maybe Text -&gt; Int -&gt; PublishResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679194323"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679194461"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SequenceNumber&quot;</span></span><span class="hs-special">)</span><span>
@@ -793,7 +793,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; PublishResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679194323"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679194461"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MessageId&quot;</span></span><span class="hs-special">)</span><span>
@@ -805,15 +805,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679194325"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679194463"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-492"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-493"></span><span>
-</span><span id="line-494"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194315"><span id="local-6989586621679194317"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span></span></span><span>
+</span><span id="line-494"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194453"><span id="local-6989586621679194455"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span></span></span><span>
 </span><span id="line-495"></span><span>
-</span><span id="line-496"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194312"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span></span><span>
+</span><span id="line-496"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194450"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span></span><span>
 </span><span id="line-497"></span><span>
 </span><span id="line-498"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-499"></span><span>  </span><span id="local-6989586621679194308"><span class="annot"><span class="annottext">toHeaders :: Publish -&gt; ResponseHeaders
+</span><span id="line-499"></span><span>  </span><span id="local-6989586621679194446"><span class="annot"><span class="annottext">toHeaders :: Publish -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; Publish -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -821,36 +821,36 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-500"></span><span>
 </span><span id="line-501"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-502"></span><span>  </span><span id="local-6989586621679194303"><span class="annot"><span class="annottext">toPath :: Publish -&gt; ByteString
+</span><span id="line-502"></span><span>  </span><span id="local-6989586621679194441"><span class="annot"><span class="annottext">toPath :: Publish -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Publish -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-503"></span><span>
 </span><span id="line-504"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish"><span class="hs-identifier hs-type">Publish</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-505"></span><span>  </span><span id="local-6989586621679194299"><span class="annot"><span class="annottext">toQuery :: Publish -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish%27"><span class="hs-identifier hs-type">Publish'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194289"><span id="local-6989586621679194290"><span id="local-6989586621679194291"><span id="local-6989586621679194292"><span id="local-6989586621679194293"><span id="local-6989586621679194294"><span id="local-6989586621679194295"><span id="local-6989586621679194296"><span id="local-6989586621679194297"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-505"></span><span>  </span><span id="local-6989586621679194437"><span class="annot"><span class="annottext">toQuery :: Publish -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#Publish%27"><span class="hs-identifier hs-type">Publish'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194427"><span id="local-6989586621679194428"><span id="local-6989586621679194429"><span id="local-6989586621679194430"><span id="local-6989586621679194431"><span id="local-6989586621679194432"><span id="local-6989586621679194433"><span id="local-6989586621679194434"><span id="local-6989586621679194435"><span class="annot"><span class="annottext">Maybe Text
 Maybe (HashMap Text MessageAttributeValue)
 Text
 message :: Text
 messageGroupId :: Maybe Text
-subject :: Maybe Text
+messageStructure :: Maybe Text
+messageDeduplicationId :: Maybe Text
+phoneNumber :: Maybe Text
 topicArn :: Maybe Text
 messageAttributes :: Maybe (HashMap Text MessageAttributeValue)
 targetArn :: Maybe Text
-messageDeduplicationId :: Maybe Text
-messageStructure :: Maybe Text
-phoneNumber :: Maybe Text
+subject :: Maybe Text
 $sel:message:Publish' :: Publish -&gt; Text
 $sel:messageGroupId:Publish' :: Publish -&gt; Maybe Text
-$sel:subject:Publish' :: Publish -&gt; Maybe Text
+$sel:messageStructure:Publish' :: Publish -&gt; Maybe Text
+$sel:messageDeduplicationId:Publish' :: Publish -&gt; Maybe Text
+$sel:phoneNumber:Publish' :: Publish -&gt; Maybe Text
 $sel:topicArn:Publish' :: Publish -&gt; Maybe Text
 $sel:messageAttributes:Publish' :: Publish -&gt; Maybe (HashMap Text MessageAttributeValue)
 $sel:targetArn:Publish' :: Publish -&gt; Maybe Text
-$sel:messageDeduplicationId:Publish' :: Publish -&gt; Maybe Text
-$sel:messageStructure:Publish' :: Publish -&gt; Maybe Text
-$sel:phoneNumber:Publish' :: Publish -&gt; Maybe Text
-</span><a href="#local-6989586621679194289"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:subject:Publish' :: Publish -&gt; Maybe Text
+</span><a href="#local-6989586621679194427"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-506"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -866,34 +866,23 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;2010-03-31&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-510"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;PhoneNumber&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+</span><span class="hs-string">&quot;Subject&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679194297"><span class="hs-identifier hs-var">phoneNumber</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679194435"><span class="hs-identifier hs-var">subject</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-511"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;MessageStructure&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679194296"><span class="hs-identifier hs-var">messageStructure</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-512"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;MessageDeduplicationId&quot;</span></span><span>
-</span><span id="line-513"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679194295"><span class="hs-identifier hs-var">messageDeduplicationId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-514"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;TargetArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679194294"><span class="hs-identifier hs-var">targetArn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-515"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679194434"><span class="hs-identifier hs-var">targetArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-512"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;MessageAttributes&quot;</span></span><span>
-</span><span id="line-516"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+</span><span id="line-513"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
-</span><span id="line-517"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span id="line-514"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
 -&gt; ByteString
 -&gt; ByteString
 -&gt; HashMap Text MessageAttributeValue
@@ -906,38 +895,49 @@ ByteString
 </span><span class="hs-string">&quot;entry&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Value&quot;</span></span><span>
-</span><span id="line-518"></span><span>                </span><span class="annot"><span class="annottext">(HashMap Text MessageAttributeValue -&gt; QueryString)
+</span><span id="line-515"></span><span>                </span><span class="annot"><span class="annottext">(HashMap Text MessageAttributeValue -&gt; QueryString)
 -&gt; Maybe (HashMap Text MessageAttributeValue) -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text MessageAttributeValue)
-</span><a href="#local-6989586621679194293"><span class="hs-identifier hs-var">messageAttributes</span></a></span><span>
-</span><span id="line-519"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-520"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679194433"><span class="hs-identifier hs-var">messageAttributes</span></a></span><span>
+</span><span id="line-516"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-517"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;TopicArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679194292"><span class="hs-identifier hs-var">topicArn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-521"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;Subject&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+</span><a href="#local-6989586621679194432"><span class="hs-identifier hs-var">topicArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-518"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;PhoneNumber&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679194291"><span class="hs-identifier hs-var">subject</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679194431"><span class="hs-identifier hs-var">phoneNumber</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-519"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MessageDeduplicationId&quot;</span></span><span>
+</span><span id="line-520"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194430"><span class="hs-identifier hs-var">messageDeduplicationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-521"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MessageStructure&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194429"><span class="hs-identifier hs-var">messageStructure</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-522"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;MessageGroupId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679194290"><span class="hs-identifier hs-var">messageGroupId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679194428"><span class="hs-identifier hs-var">messageGroupId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-523"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Message&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679194289"><span class="hs-identifier hs-var">message</span></a></span><span>
+</span><a href="#local-6989586621679194427"><span class="hs-identifier hs-var">message</span></a></span><span>
 </span><span id="line-524"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-525"></span><span>
 </span><span id="line-526"></span><span class="hs-comment">-- | Response for Publish action.</span><span>
 </span><span id="line-527"></span><span class="hs-comment">--</span><span>
 </span><span id="line-528"></span><span class="hs-comment">-- /See:/ 'newPublishResponse' smart constructor.</span><span>
-</span><span id="line-529"></span><span id="local-6989586621679194285"><span id="local-6989586621679194286"></span></span><span class="hs-keyword">data</span><span> </span><span id="PublishResponse"><span class="annot"><a href="Network.AWS.SNS.Publish.html#PublishResponse"><span class="hs-identifier hs-var">PublishResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PublishResponse%27"><span class="annot"><a href="Network.AWS.SNS.Publish.html#PublishResponse%27"><span class="hs-identifier hs-var">PublishResponse'</span></a></span></span><span>
+</span><span id="line-529"></span><span id="local-6989586621679194423"><span id="local-6989586621679194424"></span></span><span class="hs-keyword">data</span><span> </span><span id="PublishResponse"><span class="annot"><a href="Network.AWS.SNS.Publish.html#PublishResponse"><span class="hs-identifier hs-var">PublishResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PublishResponse%27"><span class="annot"><a href="Network.AWS.SNS.Publish.html#PublishResponse%27"><span class="hs-identifier hs-var">PublishResponse'</span></a></span></span><span>
 </span><span id="line-530"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | This response element applies only to FIFO (first-in-first-out) topics.</span><span>
 </span><span id="line-531"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-532"></span><span>    </span><span class="hs-comment">-- The sequence number is a large, non-consecutive number that Amazon SNS</span><span>
@@ -954,7 +954,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-541"></span><span>    </span><span id="%24sel%3AhttpStatus%3APublishResponse%27"><span class="annot"><span class="annottext">PublishResponse -&gt; Int
 </span><a href="Network.AWS.SNS.Publish.html#%24sel%3AhttpStatus%3APublishResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-542"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-543"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679194278"><span id="local-6989586621679194280"><span class="annot"><span class="annottext">PublishResponse -&gt; PublishResponse -&gt; Bool
+</span><span id="line-543"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679194416"><span id="local-6989586621679194418"><span class="annot"><span class="annottext">PublishResponse -&gt; PublishResponse -&gt; Bool
 (PublishResponse -&gt; PublishResponse -&gt; Bool)
 -&gt; (PublishResponse -&gt; PublishResponse -&gt; Bool)
 -&gt; Eq PublishResponse
@@ -963,7 +963,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PublishResponse -&gt; PublishResponse -&gt; Bool
 == :: PublishResponse -&gt; PublishResponse -&gt; Bool
 $c== :: PublishResponse -&gt; PublishResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194270"><span id="local-6989586621679194272"><span id="local-6989586621679194274"><span id="local-6989586621679194276"><span class="annot"><span class="annottext">ReadPrec [PublishResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194408"><span id="local-6989586621679194410"><span id="local-6989586621679194412"><span id="local-6989586621679194414"><span class="annot"><span class="annottext">ReadPrec [PublishResponse]
 ReadPrec PublishResponse
 Int -&gt; ReadS PublishResponse
 ReadS [PublishResponse]
@@ -983,7 +983,7 @@ readList :: ReadS [PublishResponse]
 $creadList :: ReadS [PublishResponse]
 readsPrec :: Int -&gt; ReadS PublishResponse
 $creadsPrec :: Int -&gt; ReadS PublishResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194264"><span id="local-6989586621679194266"><span id="local-6989586621679194268"><span class="annot"><span class="annottext">Int -&gt; PublishResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194402"><span id="local-6989586621679194404"><span id="local-6989586621679194406"><span class="annot"><span class="annottext">Int -&gt; PublishResponse -&gt; ShowS
 [PublishResponse] -&gt; ShowS
 PublishResponse -&gt; String
 (Int -&gt; PublishResponse -&gt; ShowS)
@@ -1033,8 +1033,8 @@ $cfrom :: forall x. PublishResponse -&gt; Rep PublishResponse x
 </span><span id="line-566"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-567"></span><span>  </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#PublishResponse"><span class="hs-identifier hs-type">PublishResponse</span></a></span><span>
 </span><span id="line-568"></span><span id="newPublishResponse"><span class="annot"><span class="annottext">newPublishResponse :: Int -&gt; PublishResponse
-</span><a href="Network.AWS.SNS.Publish.html#newPublishResponse"><span class="hs-identifier hs-var hs-var">newPublishResponse</span></a></span></span><span> </span><span id="local-6989586621679194261"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679194261"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SNS.Publish.html#newPublishResponse"><span class="hs-identifier hs-var hs-var">newPublishResponse</span></a></span></span><span> </span><span id="local-6989586621679194399"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679194399"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-569"></span><span>  </span><span class="annot"><span class="annottext">PublishResponse' :: Maybe Text -&gt; Maybe Text -&gt; Int -&gt; PublishResponse
 </span><a href="Network.AWS.SNS.Publish.html#PublishResponse%27"><span class="hs-identifier hs-type">PublishResponse'</span></a></span><span>
 </span><span id="line-570"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sequenceNumber:PublishResponse' :: Maybe Text
@@ -1047,7 +1047,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-572"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:PublishResponse' :: Int
 </span><a href="Network.AWS.SNS.Publish.html#%24sel%3AhttpStatus%3APublishResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679194261"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679194399"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-573"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-574"></span><span>
 </span><span id="line-575"></span><span class="hs-comment">-- | This response element applies only to FIFO (first-in-first-out) topics.</span><span>
@@ -1062,16 +1062,16 @@ forall a. Maybe a
 -&gt; (PublishResponse -&gt; Maybe Text -&gt; PublishResponse)
 -&gt; Lens PublishResponse PublishResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Publish.html#PublishResponse%27"><span class="hs-identifier hs-type">PublishResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194260"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Publish.html#PublishResponse%27"><span class="hs-identifier hs-type">PublishResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194398"><span class="annot"><span class="annottext">Maybe Text
 sequenceNumber :: Maybe Text
 $sel:sequenceNumber:PublishResponse' :: PublishResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679194260"><span class="hs-identifier hs-var hs-var">sequenceNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679194260"><span class="hs-identifier hs-var">sequenceNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194259"><span class="annot"><span class="annottext">s :: PublishResponse
-</span><a href="#local-6989586621679194259"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Publish.html#PublishResponse%27"><span class="hs-identifier hs-type">PublishResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194258"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679194258"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublishResponse
-</span><a href="#local-6989586621679194259"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sequenceNumber:PublishResponse' :: Maybe Text
+</span><a href="#local-6989586621679194398"><span class="hs-identifier hs-var hs-var">sequenceNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194398"><span class="hs-identifier hs-var">sequenceNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194397"><span class="annot"><span class="annottext">s :: PublishResponse
+</span><a href="#local-6989586621679194397"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Publish.html#PublishResponse%27"><span class="hs-identifier hs-type">PublishResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194396"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194396"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublishResponse
+</span><a href="#local-6989586621679194397"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sequenceNumber:PublishResponse' :: Maybe Text
 </span><a href="Network.AWS.SNS.Publish.html#%24sel%3AsequenceNumber%3APublishResponse%27"><span class="hs-identifier hs-var">sequenceNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679194258"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#PublishResponse"><span class="hs-identifier hs-type">PublishResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679194396"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#PublishResponse"><span class="hs-identifier hs-type">PublishResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-582"></span><span>
 </span><span id="line-583"></span><span class="hs-comment">-- | Unique identifier assigned to the published message.</span><span>
 </span><span id="line-584"></span><span class="hs-comment">--</span><span>
@@ -1083,16 +1083,16 @@ $sel:sequenceNumber:PublishResponse' :: PublishResponse -&gt; Maybe Text
 -&gt; (PublishResponse -&gt; Maybe Text -&gt; PublishResponse)
 -&gt; Lens PublishResponse PublishResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Publish.html#PublishResponse%27"><span class="hs-identifier hs-type">PublishResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194257"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Publish.html#PublishResponse%27"><span class="hs-identifier hs-type">PublishResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194395"><span class="annot"><span class="annottext">Maybe Text
 messageId :: Maybe Text
 $sel:messageId:PublishResponse' :: PublishResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679194257"><span class="hs-identifier hs-var hs-var">messageId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679194257"><span class="hs-identifier hs-var">messageId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194256"><span class="annot"><span class="annottext">s :: PublishResponse
-</span><a href="#local-6989586621679194256"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Publish.html#PublishResponse%27"><span class="hs-identifier hs-type">PublishResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194255"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679194255"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublishResponse
-</span><a href="#local-6989586621679194256"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageId:PublishResponse' :: Maybe Text
+</span><a href="#local-6989586621679194395"><span class="hs-identifier hs-var hs-var">messageId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194395"><span class="hs-identifier hs-var">messageId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194394"><span class="annot"><span class="annottext">s :: PublishResponse
+</span><a href="#local-6989586621679194394"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Publish.html#PublishResponse%27"><span class="hs-identifier hs-type">PublishResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194393"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194393"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublishResponse
+</span><a href="#local-6989586621679194394"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageId:PublishResponse' :: Maybe Text
 </span><a href="Network.AWS.SNS.Publish.html#%24sel%3AmessageId%3APublishResponse%27"><span class="hs-identifier hs-var">messageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679194255"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#PublishResponse"><span class="hs-identifier hs-type">PublishResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679194393"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#PublishResponse"><span class="hs-identifier hs-type">PublishResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-588"></span><span>
 </span><span id="line-589"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-590"></span><span class="annot"><a href="Network.AWS.SNS.Publish.html#publishResponse_httpStatus"><span class="hs-identifier hs-type">publishResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#PublishResponse"><span class="hs-identifier hs-type">PublishResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -1101,16 +1101,16 @@ $sel:messageId:PublishResponse' :: PublishResponse -&gt; Maybe Text
 -&gt; (PublishResponse -&gt; Int -&gt; PublishResponse)
 -&gt; Lens PublishResponse PublishResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Publish.html#PublishResponse%27"><span class="hs-identifier hs-type">PublishResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194254"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Publish.html#PublishResponse%27"><span class="hs-identifier hs-type">PublishResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194392"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:PublishResponse' :: PublishResponse -&gt; Int
-</span><a href="#local-6989586621679194254"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679194254"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194253"><span class="annot"><span class="annottext">s :: PublishResponse
-</span><a href="#local-6989586621679194253"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Publish.html#PublishResponse%27"><span class="hs-identifier hs-type">PublishResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194252"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679194252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublishResponse
-</span><a href="#local-6989586621679194253"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PublishResponse' :: Int
+</span><a href="#local-6989586621679194392"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679194392"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194391"><span class="annot"><span class="annottext">s :: PublishResponse
+</span><a href="#local-6989586621679194391"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Publish.html#PublishResponse%27"><span class="hs-identifier hs-type">PublishResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194390"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679194390"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublishResponse
+</span><a href="#local-6989586621679194391"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PublishResponse' :: Int
 </span><a href="Network.AWS.SNS.Publish.html#%24sel%3AhttpStatus%3APublishResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679194252"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#PublishResponse"><span class="hs-identifier hs-type">PublishResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679194390"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#PublishResponse"><span class="hs-identifier hs-type">PublishResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-592"></span><span>
-</span><span id="line-593"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194250"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#PublishResponse"><span class="hs-identifier hs-type">PublishResponse</span></a></span></span><span>
+</span><span id="line-593"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194388"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Publish.html#PublishResponse"><span class="hs-identifier hs-type">PublishResponse</span></a></span></span><span>
 </span><span id="line-594"></span></pre></body></html>

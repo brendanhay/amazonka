@@ -52,12 +52,12 @@
 </span><span id="line-52"></span><span class="hs-comment">-- | Input for GetEndpointAttributes action.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- /See:/ 'newGetEndpointAttributes' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679198092"><span id="local-6989586621679198093"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetEndpointAttributes"><span class="annot"><a href="Network.AWS.SNS.GetEndpointAttributes.html#GetEndpointAttributes"><span class="hs-identifier hs-var">GetEndpointAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetEndpointAttributes%27"><span class="annot"><a href="Network.AWS.SNS.GetEndpointAttributes.html#GetEndpointAttributes%27"><span class="hs-identifier hs-var">GetEndpointAttributes'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679198245"><span id="local-6989586621679198246"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetEndpointAttributes"><span class="annot"><a href="Network.AWS.SNS.GetEndpointAttributes.html#GetEndpointAttributes"><span class="hs-identifier hs-var">GetEndpointAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetEndpointAttributes%27"><span class="annot"><a href="Network.AWS.SNS.GetEndpointAttributes.html#GetEndpointAttributes%27"><span class="hs-identifier hs-var">GetEndpointAttributes'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | EndpointArn for GetEndpointAttributes input.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AendpointArn%3AGetEndpointAttributes%27"><span class="annot"><span class="annottext">GetEndpointAttributes -&gt; Text
 </span><a href="Network.AWS.SNS.GetEndpointAttributes.html#%24sel%3AendpointArn%3AGetEndpointAttributes%27"><span class="hs-identifier hs-var hs-var">endpointArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679198086"><span id="local-6989586621679198088"><span class="annot"><span class="annottext">GetEndpointAttributes -&gt; GetEndpointAttributes -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679198239"><span id="local-6989586621679198241"><span class="annot"><span class="annottext">GetEndpointAttributes -&gt; GetEndpointAttributes -&gt; Bool
 (GetEndpointAttributes -&gt; GetEndpointAttributes -&gt; Bool)
 -&gt; (GetEndpointAttributes -&gt; GetEndpointAttributes -&gt; Bool)
 -&gt; Eq GetEndpointAttributes
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetEndpointAttributes -&gt; GetEndpointAttributes -&gt; Bool
 == :: GetEndpointAttributes -&gt; GetEndpointAttributes -&gt; Bool
 $c== :: GetEndpointAttributes -&gt; GetEndpointAttributes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198077"><span id="local-6989586621679198079"><span id="local-6989586621679198081"><span id="local-6989586621679198083"><span class="annot"><span class="annottext">ReadPrec [GetEndpointAttributes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198230"><span id="local-6989586621679198232"><span id="local-6989586621679198234"><span id="local-6989586621679198236"><span class="annot"><span class="annottext">ReadPrec [GetEndpointAttributes]
 ReadPrec GetEndpointAttributes
 Int -&gt; ReadS GetEndpointAttributes
 ReadS [GetEndpointAttributes]
@@ -86,7 +86,7 @@ readList :: ReadS [GetEndpointAttributes]
 $creadList :: ReadS [GetEndpointAttributes]
 readsPrec :: Int -&gt; ReadS GetEndpointAttributes
 $creadsPrec :: Int -&gt; ReadS GetEndpointAttributes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198070"><span id="local-6989586621679198072"><span id="local-6989586621679198074"><span class="annot"><span class="annottext">Int -&gt; GetEndpointAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198223"><span id="local-6989586621679198225"><span id="local-6989586621679198227"><span class="annot"><span class="annottext">Int -&gt; GetEndpointAttributes -&gt; ShowS
 [GetEndpointAttributes] -&gt; ShowS
 GetEndpointAttributes -&gt; String
 (Int -&gt; GetEndpointAttributes -&gt; ShowS)
@@ -126,12 +126,12 @@ $cfrom :: forall x. GetEndpointAttributes -&gt; Rep GetEndpointAttributes x
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.SNS.GetEndpointAttributes.html#GetEndpointAttributes"><span class="hs-identifier hs-type">GetEndpointAttributes</span></a></span><span>
 </span><span id="line-74"></span><span id="newGetEndpointAttributes"><span class="annot"><span class="annottext">newGetEndpointAttributes :: Text -&gt; GetEndpointAttributes
-</span><a href="Network.AWS.SNS.GetEndpointAttributes.html#newGetEndpointAttributes"><span class="hs-identifier hs-var hs-var">newGetEndpointAttributes</span></a></span></span><span> </span><span id="local-6989586621679198065"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679198065"><span class="hs-identifier hs-var">pEndpointArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SNS.GetEndpointAttributes.html#newGetEndpointAttributes"><span class="hs-identifier hs-var hs-var">newGetEndpointAttributes</span></a></span></span><span> </span><span id="local-6989586621679198218"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679198218"><span class="hs-identifier hs-var">pEndpointArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">GetEndpointAttributes' :: Text -&gt; GetEndpointAttributes
 </span><a href="Network.AWS.SNS.GetEndpointAttributes.html#GetEndpointAttributes%27"><span class="hs-identifier hs-type">GetEndpointAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointArn:GetEndpointAttributes' :: Text
 </span><a href="Network.AWS.SNS.GetEndpointAttributes.html#%24sel%3AendpointArn%3AGetEndpointAttributes%27"><span class="hs-identifier hs-var">endpointArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679198065"><span class="hs-identifier hs-var">pEndpointArn_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679198218"><span class="hs-identifier hs-var">pEndpointArn_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | EndpointArn for GetEndpointAttributes input.</span><span>
 </span><span id="line-78"></span><span class="annot"><a href="Network.AWS.SNS.GetEndpointAttributes.html#getEndpointAttributes_endpointArn"><span class="hs-identifier hs-type">getEndpointAttributes_endpointArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetEndpointAttributes.html#GetEndpointAttributes"><span class="hs-identifier hs-type">GetEndpointAttributes</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -141,27 +141,27 @@ $cfrom :: forall x. GetEndpointAttributes -&gt; Rep GetEndpointAttributes x
 -&gt; (GetEndpointAttributes -&gt; Text -&gt; GetEndpointAttributes)
 -&gt; Lens GetEndpointAttributes GetEndpointAttributes Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.GetEndpointAttributes.html#GetEndpointAttributes%27"><span class="hs-identifier hs-type">GetEndpointAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198062"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.GetEndpointAttributes.html#GetEndpointAttributes%27"><span class="hs-identifier hs-type">GetEndpointAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198215"><span class="annot"><span class="annottext">Text
 endpointArn :: Text
 $sel:endpointArn:GetEndpointAttributes' :: GetEndpointAttributes -&gt; Text
-</span><a href="#local-6989586621679198062"><span class="hs-identifier hs-var hs-var">endpointArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679198062"><span class="hs-identifier hs-var">endpointArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198061"><span class="annot"><span class="annottext">s :: GetEndpointAttributes
-</span><a href="#local-6989586621679198061"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.GetEndpointAttributes.html#GetEndpointAttributes%27"><span class="hs-identifier hs-type">GetEndpointAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198060"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679198060"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEndpointAttributes
-</span><a href="#local-6989586621679198061"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointArn:GetEndpointAttributes' :: Text
+</span><a href="#local-6989586621679198215"><span class="hs-identifier hs-var hs-var">endpointArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679198215"><span class="hs-identifier hs-var">endpointArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198214"><span class="annot"><span class="annottext">s :: GetEndpointAttributes
+</span><a href="#local-6989586621679198214"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.GetEndpointAttributes.html#GetEndpointAttributes%27"><span class="hs-identifier hs-type">GetEndpointAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198213"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679198213"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEndpointAttributes
+</span><a href="#local-6989586621679198214"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointArn:GetEndpointAttributes' :: Text
 </span><a href="Network.AWS.SNS.GetEndpointAttributes.html#%24sel%3AendpointArn%3AGetEndpointAttributes%27"><span class="hs-identifier hs-var">endpointArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679198060"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetEndpointAttributes.html#GetEndpointAttributes"><span class="hs-identifier hs-type">GetEndpointAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679198213"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetEndpointAttributes.html#GetEndpointAttributes"><span class="hs-identifier hs-type">GetEndpointAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetEndpointAttributes.html#GetEndpointAttributes"><span class="hs-identifier hs-type">GetEndpointAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-82"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-83"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetEndpointAttributes.html#GetEndpointAttributes"><span class="hs-identifier hs-type">GetEndpointAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><a href="Network.AWS.SNS.GetEndpointAttributes.html#GetEndpointAttributesResponse"><span class="hs-identifier hs-type">GetEndpointAttributesResponse</span></a></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679198056"><span class="annot"><span class="annottext">request :: GetEndpointAttributes -&gt; Request GetEndpointAttributes
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679198209"><span class="annot"><span class="annottext">request :: GetEndpointAttributes -&gt; Request GetEndpointAttributes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetEndpointAttributes -&gt; Request GetEndpointAttributes
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SNS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679198052"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679198205"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetEndpointAttributes
 -&gt; ClientResponse ClientBody
@@ -192,10 +192,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GetEndpointAttributesResult&quot;</span></span><span>
-</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679198049"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679198049"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679198048"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679198048"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679198047"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679198047"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679198202"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679198202"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679198201"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679198201"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679198200"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679198200"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text) -&gt; Int -&gt; GetEndpointAttributesResponse
 </span><a href="Network.AWS.SNS.GetEndpointAttributes.html#GetEndpointAttributesResponse%27"><span class="hs-identifier hs-var">GetEndpointAttributesResponse'</span></a></span><span>
 </span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (HashMap Text Text) -&gt; Int -&gt; GetEndpointAttributesResponse)
@@ -203,7 +203,7 @@ Text
 -&gt; Either String (Int -&gt; GetEndpointAttributesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679198047"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679198200"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Attributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -237,15 +237,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679198049"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679198202"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198036"><span id="local-6989586621679198038"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetEndpointAttributes.html#GetEndpointAttributes"><span class="hs-identifier hs-type">GetEndpointAttributes</span></a></span></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198189"><span id="local-6989586621679198191"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetEndpointAttributes.html#GetEndpointAttributes"><span class="hs-identifier hs-type">GetEndpointAttributes</span></a></span></span></span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198033"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetEndpointAttributes.html#GetEndpointAttributes"><span class="hs-identifier hs-type">GetEndpointAttributes</span></a></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198186"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetEndpointAttributes.html#GetEndpointAttributes"><span class="hs-identifier hs-type">GetEndpointAttributes</span></a></span></span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetEndpointAttributes.html#GetEndpointAttributes"><span class="hs-identifier hs-type">GetEndpointAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679198029"><span class="annot"><span class="annottext">toHeaders :: GetEndpointAttributes -&gt; ResponseHeaders
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679198182"><span class="annot"><span class="annottext">toHeaders :: GetEndpointAttributes -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetEndpointAttributes -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -253,18 +253,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetEndpointAttributes.html#GetEndpointAttributes"><span class="hs-identifier hs-type">GetEndpointAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679198024"><span class="annot"><span class="annottext">toPath :: GetEndpointAttributes -&gt; ByteString
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679198177"><span class="annot"><span class="annottext">toPath :: GetEndpointAttributes -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetEndpointAttributes -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetEndpointAttributes.html#GetEndpointAttributes"><span class="hs-identifier hs-type">GetEndpointAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679198020"><span class="annot"><span class="annottext">toQuery :: GetEndpointAttributes -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetEndpointAttributes.html#GetEndpointAttributes%27"><span class="hs-identifier hs-type">GetEndpointAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198018"><span class="annot"><span class="annottext">Text
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679198173"><span class="annot"><span class="annottext">toQuery :: GetEndpointAttributes -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetEndpointAttributes.html#GetEndpointAttributes%27"><span class="hs-identifier hs-type">GetEndpointAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198171"><span class="annot"><span class="annottext">Text
 endpointArn :: Text
 $sel:endpointArn:GetEndpointAttributes' :: GetEndpointAttributes -&gt; Text
-</span><a href="#local-6989586621679198018"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679198171"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -284,13 +284,13 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;EndpointArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679198018"><span class="hs-identifier hs-var">endpointArn</span></a></span><span>
+</span><a href="#local-6989586621679198171"><span class="hs-identifier hs-var">endpointArn</span></a></span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- | Response from GetEndpointAttributes of the EndpointArn.</span><span>
 </span><span id="line-118"></span><span class="hs-comment">--</span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- /See:/ 'newGetEndpointAttributesResponse' smart constructor.</span><span>
-</span><span id="line-120"></span><span id="local-6989586621679198015"><span id="local-6989586621679198016"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetEndpointAttributesResponse"><span class="annot"><a href="Network.AWS.SNS.GetEndpointAttributes.html#GetEndpointAttributesResponse"><span class="hs-identifier hs-var">GetEndpointAttributesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetEndpointAttributesResponse%27"><span class="annot"><a href="Network.AWS.SNS.GetEndpointAttributes.html#GetEndpointAttributesResponse%27"><span class="hs-identifier hs-var">GetEndpointAttributesResponse'</span></a></span></span><span>
+</span><span id="line-120"></span><span id="local-6989586621679198168"><span id="local-6989586621679198169"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetEndpointAttributesResponse"><span class="annot"><a href="Network.AWS.SNS.GetEndpointAttributes.html#GetEndpointAttributesResponse"><span class="hs-identifier hs-var">GetEndpointAttributesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetEndpointAttributesResponse%27"><span class="annot"><a href="Network.AWS.SNS.GetEndpointAttributes.html#GetEndpointAttributesResponse%27"><span class="hs-identifier hs-var">GetEndpointAttributesResponse'</span></a></span></span><span>
 </span><span id="line-121"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Attributes include the following:</span><span>
 </span><span id="line-122"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-123"></span><span>    </span><span class="hs-comment">-- -   @CustomUserData@ &#8211; arbitrary user data to associate with the</span><span>
@@ -314,7 +314,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-140"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetEndpointAttributesResponse%27"><span class="annot"><span class="annottext">GetEndpointAttributesResponse -&gt; Int
 </span><a href="Network.AWS.SNS.GetEndpointAttributes.html#%24sel%3AhttpStatus%3AGetEndpointAttributesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-141"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-142"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679198009"><span id="local-6989586621679198011"><span class="annot"><span class="annottext">GetEndpointAttributesResponse
+</span><span id="line-142"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679198162"><span id="local-6989586621679198164"><span class="annot"><span class="annottext">GetEndpointAttributesResponse
 -&gt; GetEndpointAttributesResponse -&gt; Bool
 (GetEndpointAttributesResponse
  -&gt; GetEndpointAttributesResponse -&gt; Bool)
@@ -330,7 +330,7 @@ $c/= :: GetEndpointAttributesResponse
 -&gt; GetEndpointAttributesResponse -&gt; Bool
 $c== :: GetEndpointAttributesResponse
 -&gt; GetEndpointAttributesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198001"><span id="local-6989586621679198003"><span id="local-6989586621679198005"><span id="local-6989586621679198007"><span class="annot"><span class="annottext">ReadPrec [GetEndpointAttributesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198154"><span id="local-6989586621679198156"><span id="local-6989586621679198158"><span id="local-6989586621679198160"><span class="annot"><span class="annottext">ReadPrec [GetEndpointAttributesResponse]
 ReadPrec GetEndpointAttributesResponse
 Int -&gt; ReadS GetEndpointAttributesResponse
 ReadS [GetEndpointAttributesResponse]
@@ -350,7 +350,7 @@ readList :: ReadS [GetEndpointAttributesResponse]
 $creadList :: ReadS [GetEndpointAttributesResponse]
 readsPrec :: Int -&gt; ReadS GetEndpointAttributesResponse
 $creadsPrec :: Int -&gt; ReadS GetEndpointAttributesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197995"><span id="local-6989586621679197997"><span id="local-6989586621679197999"><span class="annot"><span class="annottext">Int -&gt; GetEndpointAttributesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198148"><span id="local-6989586621679198150"><span id="local-6989586621679198152"><span class="annot"><span class="annottext">Int -&gt; GetEndpointAttributesResponse -&gt; ShowS
 [GetEndpointAttributesResponse] -&gt; ShowS
 GetEndpointAttributesResponse -&gt; String
 (Int -&gt; GetEndpointAttributesResponse -&gt; ShowS)
@@ -420,8 +420,8 @@ GetEndpointAttributesResponse
 </span><span id="line-173"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-174"></span><span>  </span><span class="annot"><a href="Network.AWS.SNS.GetEndpointAttributes.html#GetEndpointAttributesResponse"><span class="hs-identifier hs-type">GetEndpointAttributesResponse</span></a></span><span>
 </span><span id="line-175"></span><span id="newGetEndpointAttributesResponse"><span class="annot"><span class="annottext">newGetEndpointAttributesResponse :: Int -&gt; GetEndpointAttributesResponse
-</span><a href="Network.AWS.SNS.GetEndpointAttributes.html#newGetEndpointAttributesResponse"><span class="hs-identifier hs-var hs-var">newGetEndpointAttributesResponse</span></a></span></span><span> </span><span id="local-6989586621679197992"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679197992"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SNS.GetEndpointAttributes.html#newGetEndpointAttributesResponse"><span class="hs-identifier hs-var hs-var">newGetEndpointAttributesResponse</span></a></span></span><span> </span><span id="local-6989586621679198145"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679198145"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-176"></span><span>  </span><span class="annot"><span class="annottext">GetEndpointAttributesResponse' :: Maybe (HashMap Text Text) -&gt; Int -&gt; GetEndpointAttributesResponse
 </span><a href="Network.AWS.SNS.GetEndpointAttributes.html#GetEndpointAttributesResponse%27"><span class="hs-identifier hs-type">GetEndpointAttributesResponse'</span></a></span><span>
 </span><span id="line-177"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:attributes:GetEndpointAttributesResponse' :: Maybe (HashMap Text Text)
@@ -431,7 +431,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetEndpointAttributesResponse' :: Int
 </span><a href="Network.AWS.SNS.GetEndpointAttributes.html#%24sel%3AhttpStatus%3AGetEndpointAttributesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679197992"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679198145"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-180"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-comment">-- | Attributes include the following:</span><span>
@@ -463,16 +463,16 @@ forall a. Maybe a
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.GetEndpointAttributes.html#GetEndpointAttributesResponse%27"><span class="hs-identifier hs-type">GetEndpointAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197991"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.GetEndpointAttributes.html#GetEndpointAttributesResponse%27"><span class="hs-identifier hs-type">GetEndpointAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198144"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 attributes :: Maybe (HashMap Text Text)
 $sel:attributes:GetEndpointAttributesResponse' :: GetEndpointAttributesResponse -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679197991"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679197991"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197990"><span class="annot"><span class="annottext">s :: GetEndpointAttributesResponse
-</span><a href="#local-6989586621679197990"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.GetEndpointAttributes.html#GetEndpointAttributesResponse%27"><span class="hs-identifier hs-type">GetEndpointAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197989"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679197989"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEndpointAttributesResponse
-</span><a href="#local-6989586621679197990"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:GetEndpointAttributesResponse' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679198144"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679198144"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198143"><span class="annot"><span class="annottext">s :: GetEndpointAttributesResponse
+</span><a href="#local-6989586621679198143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.GetEndpointAttributes.html#GetEndpointAttributesResponse%27"><span class="hs-identifier hs-type">GetEndpointAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198142"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679198142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEndpointAttributesResponse
+</span><a href="#local-6989586621679198143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:GetEndpointAttributesResponse' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.SNS.GetEndpointAttributes.html#%24sel%3Aattributes%3AGetEndpointAttributesResponse%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679197989"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetEndpointAttributes.html#GetEndpointAttributesResponse"><span class="hs-identifier hs-type">GetEndpointAttributesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679198142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetEndpointAttributes.html#GetEndpointAttributesResponse"><span class="hs-identifier hs-type">GetEndpointAttributesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; GetEndpointAttributesResponse
  -&gt; f GetEndpointAttributesResponse)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -499,8 +499,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Text)
   (HashMap Text Text)
   (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-201"></span><span>
 </span><span id="line-202"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-203"></span><span class="annot"><a href="Network.AWS.SNS.GetEndpointAttributes.html#getEndpointAttributesResponse_httpStatus"><span class="hs-identifier hs-type">getEndpointAttributesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetEndpointAttributes.html#GetEndpointAttributesResponse"><span class="hs-identifier hs-type">GetEndpointAttributesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -512,16 +512,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      GetEndpointAttributesResponse GetEndpointAttributesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.GetEndpointAttributes.html#GetEndpointAttributesResponse%27"><span class="hs-identifier hs-type">GetEndpointAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197985"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.GetEndpointAttributes.html#GetEndpointAttributesResponse%27"><span class="hs-identifier hs-type">GetEndpointAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198138"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetEndpointAttributesResponse' :: GetEndpointAttributesResponse -&gt; Int
-</span><a href="#local-6989586621679197985"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679197985"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197984"><span class="annot"><span class="annottext">s :: GetEndpointAttributesResponse
-</span><a href="#local-6989586621679197984"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.GetEndpointAttributes.html#GetEndpointAttributesResponse%27"><span class="hs-identifier hs-type">GetEndpointAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197983"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679197983"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEndpointAttributesResponse
-</span><a href="#local-6989586621679197984"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetEndpointAttributesResponse' :: Int
+</span><a href="#local-6989586621679198138"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679198138"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198137"><span class="annot"><span class="annottext">s :: GetEndpointAttributesResponse
+</span><a href="#local-6989586621679198137"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.GetEndpointAttributes.html#GetEndpointAttributesResponse%27"><span class="hs-identifier hs-type">GetEndpointAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198136"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679198136"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEndpointAttributesResponse
+</span><a href="#local-6989586621679198137"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetEndpointAttributesResponse' :: Int
 </span><a href="Network.AWS.SNS.GetEndpointAttributes.html#%24sel%3AhttpStatus%3AGetEndpointAttributesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679197983"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetEndpointAttributes.html#GetEndpointAttributesResponse"><span class="hs-identifier hs-type">GetEndpointAttributesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679198136"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetEndpointAttributes.html#GetEndpointAttributesResponse"><span class="hs-identifier hs-type">GetEndpointAttributesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-205"></span><span>
-</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197981"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetEndpointAttributes.html#GetEndpointAttributesResponse"><span class="hs-identifier hs-type">GetEndpointAttributesResponse</span></a></span></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198134"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetEndpointAttributes.html#GetEndpointAttributesResponse"><span class="hs-identifier hs-type">GetEndpointAttributesResponse</span></a></span></span><span>
 </span><span id="line-207"></span></pre></body></html>

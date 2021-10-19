@@ -27,11 +27,11 @@
 </span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#newUpdateRoom"><span class="hs-identifier">newUpdateRoom</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-28"></span><span>
 </span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#updateRoom_roomArn"><span class="hs-identifier">updateRoom_roomArn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#updateRoom_profileArn"><span class="hs-identifier">updateRoom_profileArn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#updateRoom_description"><span class="hs-identifier">updateRoom_description</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#updateRoom_providerCalendarId"><span class="hs-identifier">updateRoom_providerCalendarId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#updateRoom_roomName"><span class="hs-identifier">updateRoom_roomName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#updateRoom_profileArn"><span class="hs-identifier">updateRoom_profileArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#updateRoom_providerCalendarId"><span class="hs-identifier">updateRoom_providerCalendarId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#updateRoom_roomArn"><span class="hs-identifier">updateRoom_roomArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#updateRoom_roomName"><span class="hs-identifier">updateRoom_roomName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#updateRoom_description"><span class="hs-identifier">updateRoom_description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoomResponse"><span class="hs-identifier">UpdateRoomResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -50,24 +50,24 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newUpdateRoom' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679396635"><span id="local-6989586621679396636"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRoom"><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-var">UpdateRoom</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRoom%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom%27"><span class="hs-identifier hs-var">UpdateRoom'</span></a></span></span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the room to update.</span><span>
-</span><span id="line-55"></span><span>    </span><span id="%24sel%3AroomArn%3AUpdateRoom%27"><span class="annot"><span class="annottext">UpdateRoom -&gt; Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#%24sel%3AroomArn%3AUpdateRoom%27"><span class="hs-identifier hs-var hs-var">roomArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The updated profile ARN for the room.</span><span>
-</span><span id="line-57"></span><span>    </span><span id="%24sel%3AprofileArn%3AUpdateRoom%27"><span class="annot"><span class="annottext">UpdateRoom -&gt; Maybe Text
+</span><span id="line-53"></span><span id="local-6989586621679397012"><span id="local-6989586621679397013"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRoom"><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-var">UpdateRoom</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRoom%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom%27"><span class="hs-identifier hs-var">UpdateRoom'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The updated profile ARN for the room.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AprofileArn%3AUpdateRoom%27"><span class="annot"><span class="annottext">UpdateRoom -&gt; Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#%24sel%3AprofileArn%3AUpdateRoom%27"><span class="hs-identifier hs-var hs-var">profileArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The updated description for the room.</span><span>
-</span><span id="line-59"></span><span>    </span><span id="%24sel%3Adescription%3AUpdateRoom%27"><span class="annot"><span class="annottext">UpdateRoom -&gt; Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#%24sel%3Adescription%3AUpdateRoom%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The updated provider calendar ARN for the room.</span><span>
-</span><span id="line-61"></span><span>    </span><span id="%24sel%3AproviderCalendarId%3AUpdateRoom%27"><span class="annot"><span class="annottext">UpdateRoom -&gt; Maybe Text
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The updated provider calendar ARN for the room.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AproviderCalendarId%3AUpdateRoom%27"><span class="annot"><span class="annottext">UpdateRoom -&gt; Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#%24sel%3AproviderCalendarId%3AUpdateRoom%27"><span class="hs-identifier hs-var hs-var">providerCalendarId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The updated name for the room.</span><span>
-</span><span id="line-63"></span><span>    </span><span id="%24sel%3AroomName%3AUpdateRoom%27"><span class="annot"><span class="annottext">UpdateRoom -&gt; Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#%24sel%3AroomName%3AUpdateRoom%27"><span class="hs-identifier hs-var hs-var">roomName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The ARN of the room to update.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AroomArn%3AUpdateRoom%27"><span class="annot"><span class="annottext">UpdateRoom -&gt; Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#%24sel%3AroomArn%3AUpdateRoom%27"><span class="hs-identifier hs-var hs-var">roomArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The updated name for the room.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AroomName%3AUpdateRoom%27"><span class="annot"><span class="annottext">UpdateRoom -&gt; Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#%24sel%3AroomName%3AUpdateRoom%27"><span class="hs-identifier hs-var hs-var">roomName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The updated description for the room.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3Adescription%3AUpdateRoom%27"><span class="annot"><span class="annottext">UpdateRoom -&gt; Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#%24sel%3Adescription%3AUpdateRoom%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679396625"><span id="local-6989586621679396627"><span class="annot"><span class="annottext">UpdateRoom -&gt; UpdateRoom -&gt; Bool
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679397002"><span id="local-6989586621679397004"><span class="annot"><span class="annottext">UpdateRoom -&gt; UpdateRoom -&gt; Bool
 (UpdateRoom -&gt; UpdateRoom -&gt; Bool)
 -&gt; (UpdateRoom -&gt; UpdateRoom -&gt; Bool) -&gt; Eq UpdateRoom
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateRoom -&gt; UpdateRoom -&gt; Bool
 == :: UpdateRoom -&gt; UpdateRoom -&gt; Bool
 $c== :: UpdateRoom -&gt; UpdateRoom -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396616"><span id="local-6989586621679396618"><span id="local-6989586621679396620"><span id="local-6989586621679396622"><span class="annot"><span class="annottext">ReadPrec [UpdateRoom]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396993"><span id="local-6989586621679396995"><span id="local-6989586621679396997"><span id="local-6989586621679396999"><span class="annot"><span class="annottext">ReadPrec [UpdateRoom]
 ReadPrec UpdateRoom
 Int -&gt; ReadS UpdateRoom
 ReadS [UpdateRoom]
@@ -95,7 +95,7 @@ readList :: ReadS [UpdateRoom]
 $creadList :: ReadS [UpdateRoom]
 readsPrec :: Int -&gt; ReadS UpdateRoom
 $creadsPrec :: Int -&gt; ReadS UpdateRoom
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396609"><span id="local-6989586621679396611"><span id="local-6989586621679396613"><span class="annot"><span class="annottext">Int -&gt; UpdateRoom -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396986"><span id="local-6989586621679396988"><span id="local-6989586621679396990"><span class="annot"><span class="annottext">Int -&gt; UpdateRoom -&gt; ShowS
 [UpdateRoom] -&gt; ShowS
 UpdateRoom -&gt; String
 (Int -&gt; UpdateRoom -&gt; ShowS)
@@ -128,15 +128,15 @@ $cfrom :: forall x. UpdateRoom -&gt; Rep UpdateRoom x
 </span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-74"></span><span class="hs-comment">--</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- 'roomArn', 'updateRoom_roomArn' - The ARN of the room to update.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'profileArn', 'updateRoom_profileArn' - The updated profile ARN for the room.</span><span>
 </span><span id="line-76"></span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- 'profileArn', 'updateRoom_profileArn' - The updated profile ARN for the room.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'providerCalendarId', 'updateRoom_providerCalendarId' - The updated provider calendar ARN for the room.</span><span>
 </span><span id="line-78"></span><span class="hs-comment">--</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- 'description', 'updateRoom_description' - The updated description for the room.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'roomArn', 'updateRoom_roomArn' - The ARN of the room to update.</span><span>
 </span><span id="line-80"></span><span class="hs-comment">--</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- 'providerCalendarId', 'updateRoom_providerCalendarId' - The updated provider calendar ARN for the room.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'roomName', 'updateRoom_roomName' - The updated name for the room.</span><span>
 </span><span id="line-82"></span><span class="hs-comment">--</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- 'roomName', 'updateRoom_roomName' - The updated name for the room.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'description', 'updateRoom_description' - The updated description for the room.</span><span>
 </span><span id="line-84"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#newUpdateRoom"><span class="hs-identifier hs-type">newUpdateRoom</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-type">UpdateRoom</span></a></span><span>
 </span><span id="line-86"></span><span id="newUpdateRoom"><span class="annot"><span class="annottext">newUpdateRoom :: UpdateRoom
@@ -148,126 +148,126 @@ $cfrom :: forall x. UpdateRoom -&gt; Rep UpdateRoom x
 -&gt; Maybe Text
 -&gt; UpdateRoom
 </span><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom%27"><span class="hs-identifier hs-type">UpdateRoom'</span></a></span><span>
-</span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:roomArn:UpdateRoom' :: Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#%24sel%3AroomArn%3AUpdateRoom%27"><span class="hs-identifier hs-var">roomArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:profileArn:UpdateRoom' :: Maybe Text
+</span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:profileArn:UpdateRoom' :: Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#%24sel%3AprofileArn%3AUpdateRoom%27"><span class="hs-identifier hs-var">profileArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:UpdateRoom' :: Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#%24sel%3Adescription%3AUpdateRoom%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:providerCalendarId:UpdateRoom' :: Maybe Text
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:providerCalendarId:UpdateRoom' :: Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#%24sel%3AproviderCalendarId%3AUpdateRoom%27"><span class="hs-identifier hs-var">providerCalendarId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:roomName:UpdateRoom' :: Maybe Text
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:roomArn:UpdateRoom' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#%24sel%3AroomArn%3AUpdateRoom%27"><span class="hs-identifier hs-var">roomArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:roomName:UpdateRoom' :: Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#%24sel%3AroomName%3AUpdateRoom%27"><span class="hs-identifier hs-var">roomName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:UpdateRoom' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#%24sel%3Adescription%3AUpdateRoom%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-93"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- | The ARN of the room to update.</span><span>
-</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#updateRoom_roomArn"><span class="hs-identifier hs-type">updateRoom_roomArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-type">UpdateRoom</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-97"></span><span id="updateRoom_roomArn"><span class="annot"><span class="annottext">updateRoom_roomArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateRoom -&gt; f UpdateRoom
-</span><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#updateRoom_roomArn"><span class="hs-identifier hs-var hs-var">updateRoom_roomArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRoom -&gt; Maybe Text)
--&gt; (UpdateRoom -&gt; Maybe Text -&gt; UpdateRoom)
--&gt; Lens UpdateRoom UpdateRoom (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom%27"><span class="hs-identifier hs-type">UpdateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396602"><span class="annot"><span class="annottext">Maybe Text
-roomArn :: Maybe Text
-$sel:roomArn:UpdateRoom' :: UpdateRoom -&gt; Maybe Text
-</span><a href="#local-6989586621679396602"><span class="hs-identifier hs-var hs-var">roomArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679396602"><span class="hs-identifier hs-var">roomArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396601"><span class="annot"><span class="annottext">s :: UpdateRoom
-</span><a href="#local-6989586621679396601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom%27"><span class="hs-identifier hs-type">UpdateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396600"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679396600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRoom
-</span><a href="#local-6989586621679396601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roomArn:UpdateRoom' :: Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#%24sel%3AroomArn%3AUpdateRoom%27"><span class="hs-identifier hs-var">roomArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679396600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-type">UpdateRoom</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- | The updated profile ARN for the room.</span><span>
-</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#updateRoom_profileArn"><span class="hs-identifier hs-type">updateRoom_profileArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-type">UpdateRoom</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span id="updateRoom_profileArn"><span class="annot"><span class="annottext">updateRoom_profileArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateRoom -&gt; f UpdateRoom
+</span><span id="line-95"></span><span class="hs-comment">-- | The updated profile ARN for the room.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#updateRoom_profileArn"><span class="hs-identifier hs-type">updateRoom_profileArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-type">UpdateRoom</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="updateRoom_profileArn"><span class="annot"><span class="annottext">updateRoom_profileArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateRoom -&gt; f UpdateRoom
 </span><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#updateRoom_profileArn"><span class="hs-identifier hs-var hs-var">updateRoom_profileArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRoom -&gt; Maybe Text)
 -&gt; (UpdateRoom -&gt; Maybe Text -&gt; UpdateRoom)
 -&gt; Lens UpdateRoom UpdateRoom (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom%27"><span class="hs-identifier hs-type">UpdateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396599"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom%27"><span class="hs-identifier hs-type">UpdateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396979"><span class="annot"><span class="annottext">Maybe Text
 profileArn :: Maybe Text
 $sel:profileArn:UpdateRoom' :: UpdateRoom -&gt; Maybe Text
-</span><a href="#local-6989586621679396599"><span class="hs-identifier hs-var hs-var">profileArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679396599"><span class="hs-identifier hs-var">profileArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396598"><span class="annot"><span class="annottext">s :: UpdateRoom
-</span><a href="#local-6989586621679396598"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom%27"><span class="hs-identifier hs-type">UpdateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396597"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679396597"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRoom
-</span><a href="#local-6989586621679396598"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:profileArn:UpdateRoom' :: Maybe Text
+</span><a href="#local-6989586621679396979"><span class="hs-identifier hs-var hs-var">profileArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396979"><span class="hs-identifier hs-var">profileArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396978"><span class="annot"><span class="annottext">s :: UpdateRoom
+</span><a href="#local-6989586621679396978"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom%27"><span class="hs-identifier hs-type">UpdateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396977"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396977"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRoom
+</span><a href="#local-6989586621679396978"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:profileArn:UpdateRoom' :: Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#%24sel%3AprofileArn%3AUpdateRoom%27"><span class="hs-identifier hs-var">profileArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679396597"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-type">UpdateRoom</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- | The updated description for the room.</span><span>
-</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#updateRoom_description"><span class="hs-identifier hs-type">updateRoom_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-type">UpdateRoom</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span id="updateRoom_description"><span class="annot"><span class="annottext">updateRoom_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateRoom -&gt; f UpdateRoom
-</span><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#updateRoom_description"><span class="hs-identifier hs-var hs-var">updateRoom_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRoom -&gt; Maybe Text)
--&gt; (UpdateRoom -&gt; Maybe Text -&gt; UpdateRoom)
--&gt; Lens UpdateRoom UpdateRoom (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom%27"><span class="hs-identifier hs-type">UpdateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396596"><span class="annot"><span class="annottext">Maybe Text
-description :: Maybe Text
-$sel:description:UpdateRoom' :: UpdateRoom -&gt; Maybe Text
-</span><a href="#local-6989586621679396596"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679396596"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396595"><span class="annot"><span class="annottext">s :: UpdateRoom
-</span><a href="#local-6989586621679396595"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom%27"><span class="hs-identifier hs-type">UpdateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396594"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679396594"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRoom
-</span><a href="#local-6989586621679396595"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateRoom' :: Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#%24sel%3Adescription%3AUpdateRoom%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679396594"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-type">UpdateRoom</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- | The updated provider calendar ARN for the room.</span><span>
-</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#updateRoom_providerCalendarId"><span class="hs-identifier hs-type">updateRoom_providerCalendarId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-type">UpdateRoom</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span id="updateRoom_providerCalendarId"><span class="annot"><span class="annottext">updateRoom_providerCalendarId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateRoom -&gt; f UpdateRoom
+</span><a href="#local-6989586621679396977"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-type">UpdateRoom</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The updated provider calendar ARN for the room.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#updateRoom_providerCalendarId"><span class="hs-identifier hs-type">updateRoom_providerCalendarId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-type">UpdateRoom</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="updateRoom_providerCalendarId"><span class="annot"><span class="annottext">updateRoom_providerCalendarId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateRoom -&gt; f UpdateRoom
 </span><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#updateRoom_providerCalendarId"><span class="hs-identifier hs-var hs-var">updateRoom_providerCalendarId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRoom -&gt; Maybe Text)
 -&gt; (UpdateRoom -&gt; Maybe Text -&gt; UpdateRoom)
 -&gt; Lens UpdateRoom UpdateRoom (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom%27"><span class="hs-identifier hs-type">UpdateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396593"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom%27"><span class="hs-identifier hs-type">UpdateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396976"><span class="annot"><span class="annottext">Maybe Text
 providerCalendarId :: Maybe Text
 $sel:providerCalendarId:UpdateRoom' :: UpdateRoom -&gt; Maybe Text
-</span><a href="#local-6989586621679396593"><span class="hs-identifier hs-var hs-var">providerCalendarId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679396593"><span class="hs-identifier hs-var">providerCalendarId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396592"><span class="annot"><span class="annottext">s :: UpdateRoom
-</span><a href="#local-6989586621679396592"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom%27"><span class="hs-identifier hs-type">UpdateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396591"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679396591"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRoom
-</span><a href="#local-6989586621679396592"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:providerCalendarId:UpdateRoom' :: Maybe Text
+</span><a href="#local-6989586621679396976"><span class="hs-identifier hs-var hs-var">providerCalendarId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396976"><span class="hs-identifier hs-var">providerCalendarId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396975"><span class="annot"><span class="annottext">s :: UpdateRoom
+</span><a href="#local-6989586621679396975"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom%27"><span class="hs-identifier hs-type">UpdateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396974"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396974"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRoom
+</span><a href="#local-6989586621679396975"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:providerCalendarId:UpdateRoom' :: Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#%24sel%3AproviderCalendarId%3AUpdateRoom%27"><span class="hs-identifier hs-var">providerCalendarId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679396591"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-type">UpdateRoom</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- | The updated name for the room.</span><span>
-</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#updateRoom_roomName"><span class="hs-identifier hs-type">updateRoom_roomName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-type">UpdateRoom</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span id="updateRoom_roomName"><span class="annot"><span class="annottext">updateRoom_roomName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateRoom -&gt; f UpdateRoom
+</span><a href="#local-6989586621679396974"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-type">UpdateRoom</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The ARN of the room to update.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#updateRoom_roomArn"><span class="hs-identifier hs-type">updateRoom_roomArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-type">UpdateRoom</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="updateRoom_roomArn"><span class="annot"><span class="annottext">updateRoom_roomArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateRoom -&gt; f UpdateRoom
+</span><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#updateRoom_roomArn"><span class="hs-identifier hs-var hs-var">updateRoom_roomArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRoom -&gt; Maybe Text)
+-&gt; (UpdateRoom -&gt; Maybe Text -&gt; UpdateRoom)
+-&gt; Lens UpdateRoom UpdateRoom (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom%27"><span class="hs-identifier hs-type">UpdateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396973"><span class="annot"><span class="annottext">Maybe Text
+roomArn :: Maybe Text
+$sel:roomArn:UpdateRoom' :: UpdateRoom -&gt; Maybe Text
+</span><a href="#local-6989586621679396973"><span class="hs-identifier hs-var hs-var">roomArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396973"><span class="hs-identifier hs-var">roomArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396972"><span class="annot"><span class="annottext">s :: UpdateRoom
+</span><a href="#local-6989586621679396972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom%27"><span class="hs-identifier hs-type">UpdateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396971"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRoom
+</span><a href="#local-6989586621679396972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roomArn:UpdateRoom' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#%24sel%3AroomArn%3AUpdateRoom%27"><span class="hs-identifier hs-var">roomArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-type">UpdateRoom</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The updated name for the room.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#updateRoom_roomName"><span class="hs-identifier hs-type">updateRoom_roomName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-type">UpdateRoom</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="updateRoom_roomName"><span class="annot"><span class="annottext">updateRoom_roomName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateRoom -&gt; f UpdateRoom
 </span><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#updateRoom_roomName"><span class="hs-identifier hs-var hs-var">updateRoom_roomName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRoom -&gt; Maybe Text)
 -&gt; (UpdateRoom -&gt; Maybe Text -&gt; UpdateRoom)
 -&gt; Lens UpdateRoom UpdateRoom (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom%27"><span class="hs-identifier hs-type">UpdateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396590"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom%27"><span class="hs-identifier hs-type">UpdateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396970"><span class="annot"><span class="annottext">Maybe Text
 roomName :: Maybe Text
 $sel:roomName:UpdateRoom' :: UpdateRoom -&gt; Maybe Text
-</span><a href="#local-6989586621679396590"><span class="hs-identifier hs-var hs-var">roomName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679396590"><span class="hs-identifier hs-var">roomName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396589"><span class="annot"><span class="annottext">s :: UpdateRoom
-</span><a href="#local-6989586621679396589"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom%27"><span class="hs-identifier hs-type">UpdateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396588"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679396588"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRoom
-</span><a href="#local-6989586621679396589"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roomName:UpdateRoom' :: Maybe Text
+</span><a href="#local-6989586621679396970"><span class="hs-identifier hs-var hs-var">roomName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396970"><span class="hs-identifier hs-var">roomName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396969"><span class="annot"><span class="annottext">s :: UpdateRoom
+</span><a href="#local-6989586621679396969"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom%27"><span class="hs-identifier hs-type">UpdateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396968"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396968"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRoom
+</span><a href="#local-6989586621679396969"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roomName:UpdateRoom' :: Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#%24sel%3AroomName%3AUpdateRoom%27"><span class="hs-identifier hs-var">roomName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679396588"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-type">UpdateRoom</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679396968"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-type">UpdateRoom</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The updated description for the room.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#updateRoom_description"><span class="hs-identifier hs-type">updateRoom_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-type">UpdateRoom</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="updateRoom_description"><span class="annot"><span class="annottext">updateRoom_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateRoom -&gt; f UpdateRoom
+</span><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#updateRoom_description"><span class="hs-identifier hs-var hs-var">updateRoom_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRoom -&gt; Maybe Text)
+-&gt; (UpdateRoom -&gt; Maybe Text -&gt; UpdateRoom)
+-&gt; Lens UpdateRoom UpdateRoom (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom%27"><span class="hs-identifier hs-type">UpdateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396967"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:UpdateRoom' :: UpdateRoom -&gt; Maybe Text
+</span><a href="#local-6989586621679396967"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396967"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396966"><span class="annot"><span class="annottext">s :: UpdateRoom
+</span><a href="#local-6989586621679396966"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom%27"><span class="hs-identifier hs-type">UpdateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396965"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396965"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRoom
+</span><a href="#local-6989586621679396966"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateRoom' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#%24sel%3Adescription%3AUpdateRoom%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396965"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-type">UpdateRoom</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-type">UpdateRoom</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-116"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-type">UpdateRoom</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoomResponse"><span class="hs-identifier hs-type">UpdateRoomResponse</span></a></span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679396584"><span class="annot"><span class="annottext">request :: UpdateRoom -&gt; Request UpdateRoom
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679396961"><span class="annot"><span class="annottext">request :: UpdateRoom -&gt; Request UpdateRoom
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateRoom -&gt; Request UpdateRoom
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AlexaBusiness.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679396580"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679396957"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateRoom
 -&gt; ClientResponse ClientBody
@@ -289,10 +289,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679396577"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679396577"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679396576"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679396576"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679396575"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679396575"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679396954"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679396954"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679396953"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679396953"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679396952"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679396952"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; UpdateRoomResponse
 </span><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoomResponse%27"><span class="hs-identifier hs-var">UpdateRoomResponse'</span></a></span><span>
 </span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; UpdateRoomResponse)
@@ -303,15 +303,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679396577"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679396954"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396568"><span id="local-6989586621679396570"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-type">UpdateRoom</span></a></span></span></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396945"><span id="local-6989586621679396947"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-type">UpdateRoom</span></a></span></span></span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396565"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-type">UpdateRoom</span></a></span></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396942"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-type">UpdateRoom</span></a></span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-type">UpdateRoom</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679396561"><span class="annot"><span class="annottext">toHeaders :: UpdateRoom -&gt; ResponseHeaders
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679396938"><span class="annot"><span class="annottext">toHeaders :: UpdateRoom -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateRoom -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -338,73 +338,73 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-141"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396551"><span id="local-6989586621679396553"><span id="local-6989586621679396555"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-type">UpdateRoom</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679396549"><span class="annot"><span class="annottext">toJSON :: UpdateRoom -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom%27"><span class="hs-identifier hs-type">UpdateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396543"><span id="local-6989586621679396544"><span id="local-6989586621679396545"><span id="local-6989586621679396546"><span id="local-6989586621679396547"><span class="annot"><span class="annottext">Maybe Text
-roomName :: Maybe Text
-providerCalendarId :: Maybe Text
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396928"><span id="local-6989586621679396930"><span id="local-6989586621679396932"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-type">UpdateRoom</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679396926"><span class="annot"><span class="annottext">toJSON :: UpdateRoom -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom%27"><span class="hs-identifier hs-type">UpdateRoom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396920"><span id="local-6989586621679396921"><span id="local-6989586621679396922"><span id="local-6989586621679396923"><span id="local-6989586621679396924"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
-profileArn :: Maybe Text
+roomName :: Maybe Text
 roomArn :: Maybe Text
-$sel:roomName:UpdateRoom' :: UpdateRoom -&gt; Maybe Text
-$sel:providerCalendarId:UpdateRoom' :: UpdateRoom -&gt; Maybe Text
+providerCalendarId :: Maybe Text
+profileArn :: Maybe Text
 $sel:description:UpdateRoom' :: UpdateRoom -&gt; Maybe Text
-$sel:profileArn:UpdateRoom' :: UpdateRoom -&gt; Maybe Text
+$sel:roomName:UpdateRoom' :: UpdateRoom -&gt; Maybe Text
 $sel:roomArn:UpdateRoom' :: UpdateRoom -&gt; Maybe Text
-</span><a href="#local-6989586621679396543"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:providerCalendarId:UpdateRoom' :: UpdateRoom -&gt; Maybe Text
+$sel:profileArn:UpdateRoom' :: UpdateRoom -&gt; Maybe Text
+</span><a href="#local-6989586621679396920"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-148"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;RoomArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679396547"><span class="hs-identifier hs-var">roomArn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-149"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ProfileArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679396546"><span class="hs-identifier hs-var">profileArn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-150"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><a href="#local-6989586621679396924"><span class="hs-identifier hs-var">profileArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProviderCalendarId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396923"><span class="hs-identifier hs-var">providerCalendarId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoomArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679396545"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-151"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ProviderCalendarId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-152"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679396544"><span class="hs-identifier hs-var">providerCalendarId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-153"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679396922"><span class="hs-identifier hs-var">roomArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RoomName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679396543"><span class="hs-identifier hs-var">roomName</span></a></span><span>
+</span><a href="#local-6989586621679396921"><span class="hs-identifier hs-var">roomName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396920"><span class="hs-identifier hs-var">description</span></a></span><span>
 </span><span id="line-154"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-type">UpdateRoom</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679396537"><span class="annot"><span class="annottext">toPath :: UpdateRoom -&gt; ByteString
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679396914"><span class="annot"><span class="annottext">toPath :: UpdateRoom -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateRoom -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoom"><span class="hs-identifier hs-type">UpdateRoom</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621679396533"><span class="annot"><span class="annottext">toQuery :: UpdateRoom -&gt; QueryString
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679396910"><span class="annot"><span class="annottext">toQuery :: UpdateRoom -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateRoom -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -412,12 +412,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- | /See:/ 'newUpdateRoomResponse' smart constructor.</span><span>
-</span><span id="line-164"></span><span id="local-6989586621679396530"><span id="local-6989586621679396531"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRoomResponse"><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoomResponse"><span class="hs-identifier hs-var">UpdateRoomResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRoomResponse%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoomResponse%27"><span class="hs-identifier hs-var">UpdateRoomResponse'</span></a></span></span><span>
+</span><span id="line-164"></span><span id="local-6989586621679396907"><span id="local-6989586621679396908"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRoomResponse"><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoomResponse"><span class="hs-identifier hs-var">UpdateRoomResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRoomResponse%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoomResponse%27"><span class="hs-identifier hs-var">UpdateRoomResponse'</span></a></span></span><span>
 </span><span id="line-165"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-166"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateRoomResponse%27"><span class="annot"><span class="annottext">UpdateRoomResponse -&gt; Int
 </span><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#%24sel%3AhttpStatus%3AUpdateRoomResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-167"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-168"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679396525"><span id="local-6989586621679396527"><span class="annot"><span class="annottext">UpdateRoomResponse -&gt; UpdateRoomResponse -&gt; Bool
+</span><span id="line-168"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679396902"><span id="local-6989586621679396904"><span class="annot"><span class="annottext">UpdateRoomResponse -&gt; UpdateRoomResponse -&gt; Bool
 (UpdateRoomResponse -&gt; UpdateRoomResponse -&gt; Bool)
 -&gt; (UpdateRoomResponse -&gt; UpdateRoomResponse -&gt; Bool)
 -&gt; Eq UpdateRoomResponse
@@ -426,7 +426,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateRoomResponse -&gt; UpdateRoomResponse -&gt; Bool
 == :: UpdateRoomResponse -&gt; UpdateRoomResponse -&gt; Bool
 $c== :: UpdateRoomResponse -&gt; UpdateRoomResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396517"><span id="local-6989586621679396519"><span id="local-6989586621679396521"><span id="local-6989586621679396523"><span class="annot"><span class="annottext">ReadPrec [UpdateRoomResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396894"><span id="local-6989586621679396896"><span id="local-6989586621679396898"><span id="local-6989586621679396900"><span class="annot"><span class="annottext">ReadPrec [UpdateRoomResponse]
 ReadPrec UpdateRoomResponse
 Int -&gt; ReadS UpdateRoomResponse
 ReadS [UpdateRoomResponse]
@@ -446,7 +446,7 @@ readList :: ReadS [UpdateRoomResponse]
 $creadList :: ReadS [UpdateRoomResponse]
 readsPrec :: Int -&gt; ReadS UpdateRoomResponse
 $creadsPrec :: Int -&gt; ReadS UpdateRoomResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396511"><span id="local-6989586621679396513"><span id="local-6989586621679396515"><span class="annot"><span class="annottext">Int -&gt; UpdateRoomResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396888"><span id="local-6989586621679396890"><span id="local-6989586621679396892"><span class="annot"><span class="annottext">Int -&gt; UpdateRoomResponse -&gt; ShowS
 [UpdateRoomResponse] -&gt; ShowS
 UpdateRoomResponse -&gt; String
 (Int -&gt; UpdateRoomResponse -&gt; ShowS)
@@ -486,12 +486,12 @@ $cfrom :: forall x. UpdateRoomResponse -&gt; Rep UpdateRoomResponse x
 </span><span id="line-181"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-182"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoomResponse"><span class="hs-identifier hs-type">UpdateRoomResponse</span></a></span><span>
 </span><span id="line-183"></span><span id="newUpdateRoomResponse"><span class="annot"><span class="annottext">newUpdateRoomResponse :: Int -&gt; UpdateRoomResponse
-</span><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#newUpdateRoomResponse"><span class="hs-identifier hs-var hs-var">newUpdateRoomResponse</span></a></span></span><span> </span><span id="local-6989586621679396508"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679396508"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#newUpdateRoomResponse"><span class="hs-identifier hs-var hs-var">newUpdateRoomResponse</span></a></span></span><span> </span><span id="local-6989586621679396885"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679396885"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-184"></span><span>  </span><span class="annot"><span class="annottext">UpdateRoomResponse' :: Int -&gt; UpdateRoomResponse
 </span><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoomResponse%27"><span class="hs-identifier hs-type">UpdateRoomResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateRoomResponse' :: Int
 </span><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#%24sel%3AhttpStatus%3AUpdateRoomResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679396508"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679396885"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-187"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#updateRoomResponse_httpStatus"><span class="hs-identifier hs-type">updateRoomResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoomResponse"><span class="hs-identifier hs-type">UpdateRoomResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -500,16 +500,16 @@ $cfrom :: forall x. UpdateRoomResponse -&gt; Rep UpdateRoomResponse x
 -&gt; (UpdateRoomResponse -&gt; Int -&gt; UpdateRoomResponse)
 -&gt; Lens UpdateRoomResponse UpdateRoomResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoomResponse%27"><span class="hs-identifier hs-type">UpdateRoomResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396507"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoomResponse%27"><span class="hs-identifier hs-type">UpdateRoomResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396884"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateRoomResponse' :: UpdateRoomResponse -&gt; Int
-</span><a href="#local-6989586621679396507"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679396507"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396506"><span class="annot"><span class="annottext">s :: UpdateRoomResponse
-</span><a href="#local-6989586621679396506"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoomResponse%27"><span class="hs-identifier hs-type">UpdateRoomResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396505"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679396505"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRoomResponse
-</span><a href="#local-6989586621679396506"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateRoomResponse' :: Int
+</span><a href="#local-6989586621679396884"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679396884"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396883"><span class="annot"><span class="annottext">s :: UpdateRoomResponse
+</span><a href="#local-6989586621679396883"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoomResponse%27"><span class="hs-identifier hs-type">UpdateRoomResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396882"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679396882"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRoomResponse
+</span><a href="#local-6989586621679396883"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateRoomResponse' :: Int
 </span><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#%24sel%3AhttpStatus%3AUpdateRoomResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679396505"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoomResponse"><span class="hs-identifier hs-type">UpdateRoomResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679396882"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoomResponse"><span class="hs-identifier hs-type">UpdateRoomResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span><span>
-</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396503"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoomResponse"><span class="hs-identifier hs-type">UpdateRoomResponse</span></a></span></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396880"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateRoom.html#UpdateRoomResponse"><span class="hs-identifier hs-type">UpdateRoomResponse</span></a></span></span><span>
 </span><span id="line-191"></span></pre></body></html>

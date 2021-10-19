@@ -48,9 +48,9 @@
 </span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#newDescribeStackDriftDetectionStatusResponse"><span class="hs-identifier">newDescribeStackDriftDetectionStatusResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#describeStackDriftDetectionStatusResponse_detectionStatusReason"><span class="hs-identifier">describeStackDriftDetectionStatusResponse_detectionStatusReason</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#describeStackDriftDetectionStatusResponse_stackDriftStatus"><span class="hs-identifier">describeStackDriftDetectionStatusResponse_stackDriftStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#describeStackDriftDetectionStatusResponse_driftedStackResourceCount"><span class="hs-identifier">describeStackDriftDetectionStatusResponse_driftedStackResourceCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#describeStackDriftDetectionStatusResponse_stackDriftStatus"><span class="hs-identifier">describeStackDriftDetectionStatusResponse_stackDriftStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#describeStackDriftDetectionStatusResponse_driftedStackResourceCount"><span class="hs-identifier">describeStackDriftDetectionStatusResponse_driftedStackResourceCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#describeStackDriftDetectionStatusResponse_detectionStatusReason"><span class="hs-identifier">describeStackDriftDetectionStatusResponse_detectionStatusReason</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#describeStackDriftDetectionStatusResponse_httpStatus"><span class="hs-identifier">describeStackDriftDetectionStatusResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#describeStackDriftDetectionStatusResponse_stackId"><span class="hs-identifier">describeStackDriftDetectionStatusResponse_stackId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#describeStackDriftDetectionStatusResponse_stackDriftDetectionId"><span class="hs-identifier">describeStackDriftDetectionStatusResponse_stackDriftDetectionId</span></a></span><span class="hs-special">,</span><span>
@@ -67,7 +67,7 @@
 </span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | /See:/ 'newDescribeStackDriftDetectionStatus' smart constructor.</span><span>
-</span><span id="line-70"></span><span id="local-6989586621679439554"><span id="local-6989586621679439555"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeStackDriftDetectionStatus"><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatus"><span class="hs-identifier hs-var">DescribeStackDriftDetectionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeStackDriftDetectionStatus%27"><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatus%27"><span class="hs-identifier hs-var">DescribeStackDriftDetectionStatus'</span></a></span></span><span>
+</span><span id="line-70"></span><span id="local-6989586621679439993"><span id="local-6989586621679439994"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeStackDriftDetectionStatus"><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatus"><span class="hs-identifier hs-var">DescribeStackDriftDetectionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeStackDriftDetectionStatus%27"><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatus%27"><span class="hs-identifier hs-var">DescribeStackDriftDetectionStatus'</span></a></span></span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the drift detection results of this operation.</span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-comment">-- CloudFormation generates new results, with a new drift detection ID,</span><span>
@@ -76,7 +76,7 @@
 </span><span id="line-76"></span><span>    </span><span id="%24sel%3AstackDriftDetectionId%3ADescribeStackDriftDetectionStatus%27"><span class="annot"><span class="annottext">DescribeStackDriftDetectionStatus -&gt; Text
 </span><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#%24sel%3AstackDriftDetectionId%3ADescribeStackDriftDetectionStatus%27"><span class="hs-identifier hs-var hs-var">stackDriftDetectionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-77"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679439548"><span id="local-6989586621679439550"><span class="annot"><span class="annottext">DescribeStackDriftDetectionStatus
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679439987"><span id="local-6989586621679439989"><span class="annot"><span class="annottext">DescribeStackDriftDetectionStatus
 -&gt; DescribeStackDriftDetectionStatus -&gt; Bool
 (DescribeStackDriftDetectionStatus
  -&gt; DescribeStackDriftDetectionStatus -&gt; Bool)
@@ -92,7 +92,7 @@ $c/= :: DescribeStackDriftDetectionStatus
 -&gt; DescribeStackDriftDetectionStatus -&gt; Bool
 $c== :: DescribeStackDriftDetectionStatus
 -&gt; DescribeStackDriftDetectionStatus -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679439539"><span id="local-6989586621679439541"><span id="local-6989586621679439543"><span id="local-6989586621679439545"><span class="annot"><span class="annottext">ReadPrec [DescribeStackDriftDetectionStatus]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679439978"><span id="local-6989586621679439980"><span id="local-6989586621679439982"><span id="local-6989586621679439984"><span class="annot"><span class="annottext">ReadPrec [DescribeStackDriftDetectionStatus]
 ReadPrec DescribeStackDriftDetectionStatus
 Int -&gt; ReadS DescribeStackDriftDetectionStatus
 ReadS [DescribeStackDriftDetectionStatus]
@@ -112,7 +112,7 @@ readList :: ReadS [DescribeStackDriftDetectionStatus]
 $creadList :: ReadS [DescribeStackDriftDetectionStatus]
 readsPrec :: Int -&gt; ReadS DescribeStackDriftDetectionStatus
 $creadsPrec :: Int -&gt; ReadS DescribeStackDriftDetectionStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679439532"><span id="local-6989586621679439534"><span id="local-6989586621679439536"><span class="annot"><span class="annottext">Int -&gt; DescribeStackDriftDetectionStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679439971"><span id="local-6989586621679439973"><span id="local-6989586621679439975"><span class="annot"><span class="annottext">Int -&gt; DescribeStackDriftDetectionStatus -&gt; ShowS
 [DescribeStackDriftDetectionStatus] -&gt; ShowS
 DescribeStackDriftDetectionStatus -&gt; String
 (Int -&gt; DescribeStackDriftDetectionStatus -&gt; ShowS)
@@ -169,14 +169,14 @@ DescribeStackDriftDetectionStatus
 </span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatus"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatus</span></a></span><span>
 </span><span id="line-97"></span><span id="newDescribeStackDriftDetectionStatus"><span class="annot"><span class="annottext">newDescribeStackDriftDetectionStatus :: Text -&gt; DescribeStackDriftDetectionStatus
 </span><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#newDescribeStackDriftDetectionStatus"><span class="hs-identifier hs-var hs-var">newDescribeStackDriftDetectionStatus</span></a></span></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679439527"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679439527"><span class="hs-identifier hs-var">pStackDriftDetectionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679439966"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679439966"><span class="hs-identifier hs-var">pStackDriftDetectionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">DescribeStackDriftDetectionStatus' :: Text -&gt; DescribeStackDriftDetectionStatus
 </span><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatus%27"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatus'</span></a></span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:stackDriftDetectionId:DescribeStackDriftDetectionStatus' :: Text
 </span><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#%24sel%3AstackDriftDetectionId%3ADescribeStackDriftDetectionStatus%27"><span class="hs-identifier hs-var">stackDriftDetectionId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679439527"><span class="hs-identifier hs-var">pStackDriftDetectionId_</span></a></span><span>
+</span><a href="#local-6989586621679439966"><span class="hs-identifier hs-var">pStackDriftDetectionId_</span></a></span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | The ID of the drift detection results of this operation.</span><span>
@@ -197,16 +197,16 @@ DescribeStackDriftDetectionStatus
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatus%27"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439524"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatus%27"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439963"><span class="annot"><span class="annottext">Text
 stackDriftDetectionId :: Text
 $sel:stackDriftDetectionId:DescribeStackDriftDetectionStatus' :: DescribeStackDriftDetectionStatus -&gt; Text
-</span><a href="#local-6989586621679439524"><span class="hs-identifier hs-var hs-var">stackDriftDetectionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679439524"><span class="hs-identifier hs-var">stackDriftDetectionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439523"><span class="annot"><span class="annottext">s :: DescribeStackDriftDetectionStatus
-</span><a href="#local-6989586621679439523"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatus%27"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439522"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679439522"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStackDriftDetectionStatus
-</span><a href="#local-6989586621679439523"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackDriftDetectionId:DescribeStackDriftDetectionStatus' :: Text
+</span><a href="#local-6989586621679439963"><span class="hs-identifier hs-var hs-var">stackDriftDetectionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679439963"><span class="hs-identifier hs-var">stackDriftDetectionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439962"><span class="annot"><span class="annottext">s :: DescribeStackDriftDetectionStatus
+</span><a href="#local-6989586621679439962"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatus%27"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439961"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679439961"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStackDriftDetectionStatus
+</span><a href="#local-6989586621679439962"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackDriftDetectionId:DescribeStackDriftDetectionStatus' :: Text
 </span><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#%24sel%3AstackDriftDetectionId%3ADescribeStackDriftDetectionStatus%27"><span class="hs-identifier hs-var">stackDriftDetectionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679439522"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatus"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679439961"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatus"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-113"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
@@ -215,7 +215,7 @@ $sel:stackDriftDetectionId:DescribeStackDriftDetectionStatus' :: DescribeStackDr
 </span><span id="line-116"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-117"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatus"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse</span></a></span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679439518"><span class="annot"><span class="annottext">request :: DescribeStackDriftDetectionStatus
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679439957"><span class="annot"><span class="annottext">request :: DescribeStackDriftDetectionStatus
 -&gt; Request DescribeStackDriftDetectionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeStackDriftDetectionStatus
@@ -223,7 +223,7 @@ $sel:stackDriftDetectionId:DescribeStackDriftDetectionStatus' :: DescribeStackDr
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudFormation.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679439514"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679439953"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeStackDriftDetectionStatus
 -&gt; ClientResponse ClientBody
@@ -256,13 +256,13 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DescribeStackDriftDetectionStatusResult&quot;</span></span><span>
-</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679439511"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679439511"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679439510"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679439510"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679439509"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679439509"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe StackDriftStatus
+</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679439950"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679439950"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679439949"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679439949"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679439948"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679439948"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">Maybe StackDriftStatus
 -&gt; Maybe Int
+-&gt; Maybe Text
 -&gt; Int
 -&gt; Text
 -&gt; Text
@@ -270,20 +270,20 @@ Text
 -&gt; ISO8601
 -&gt; DescribeStackDriftDetectionStatusResponse
 </span><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-var">DescribeStackDriftDetectionStatusResponse'</span></a></span><span>
-</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe StackDriftStatus
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">(Maybe StackDriftStatus
  -&gt; Maybe Int
+ -&gt; Maybe Text
  -&gt; Int
  -&gt; Text
  -&gt; Text
  -&gt; StackDriftDetectionStatus
  -&gt; ISO8601
  -&gt; DescribeStackDriftDetectionStatusResponse)
--&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe StackDriftStatus)
 -&gt; Either
      String
-     (Maybe StackDriftStatus
-      -&gt; Maybe Int
+     (Maybe Int
+      -&gt; Maybe Text
       -&gt; Int
       -&gt; Text
       -&gt; Text
@@ -292,24 +292,24 @@ Text
       -&gt; DescribeStackDriftDetectionStatusResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679439509"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679439948"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe StackDriftStatus)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DetectionStatusReason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;StackDriftStatus&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>              </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe StackDriftStatus
-   -&gt; Maybe Int
+  (Maybe Int
+   -&gt; Maybe Text
    -&gt; Int
    -&gt; Text
    -&gt; Text
    -&gt; StackDriftDetectionStatus
    -&gt; ISO8601
    -&gt; DescribeStackDriftDetectionStatusResponse)
--&gt; Either String (Maybe StackDriftStatus)
+-&gt; Either String (Maybe Int)
 -&gt; Either
      String
-     (Maybe Int
+     (Maybe Text
       -&gt; Int
       -&gt; Text
       -&gt; Text
@@ -318,20 +318,20 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; DescribeStackDriftDetectionStatusResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679439509"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe StackDriftStatus)
+</span><a href="#local-6989586621679439948"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;StackDriftStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;DriftedStackResourceCount&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>              </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe Int
+  (Maybe Text
    -&gt; Int
    -&gt; Text
    -&gt; Text
    -&gt; StackDriftDetectionStatus
    -&gt; ISO8601
    -&gt; DescribeStackDriftDetectionStatusResponse)
--&gt; Either String (Maybe Int)
+-&gt; Either String (Maybe Text)
 -&gt; Either
      String
      (Int
@@ -342,10 +342,10 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; DescribeStackDriftDetectionStatusResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679439509"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621679439948"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DriftedStackResourceCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;DetectionStatusReason&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>              </span><span class="annot"><span class="annottext">Either
   String
   (Int
@@ -368,7 +368,7 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679439511"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679439950"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>              </span><span class="annot"><span class="annottext">Either
   String
   (Text
@@ -385,7 +385,7 @@ forall a. Enum a =&gt; a -&gt; Int
       -&gt; DescribeStackDriftDetectionStatusResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679439509"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679439948"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StackId&quot;</span></span><span class="hs-special">)</span><span>
@@ -402,7 +402,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
       -&gt; ISO8601 -&gt; DescribeStackDriftDetectionStatusResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679439509"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679439948"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StackDriftDetectionId&quot;</span></span><span class="hs-special">)</span><span>
@@ -415,7 +415,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
      String (ISO8601 -&gt; DescribeStackDriftDetectionStatusResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679439509"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String StackDriftDetectionStatus
+</span><a href="#local-6989586621679439948"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String StackDriftDetectionStatus
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DetectionStatus&quot;</span></span><span class="hs-special">)</span><span>
@@ -425,25 +425,25 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String DescribeStackDriftDetectionStatusResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679439509"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ISO8601
+</span><a href="#local-6989586621679439948"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ISO8601
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Timestamp&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679439500"><span id="local-6989586621679439502"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679439939"><span id="local-6989586621679439941"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-137"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatus"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatus</span></a></span></span></span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679439497"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679439936"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-141"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatus"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatus</span></a></span></span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-144"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-145"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatus"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatus</span></a></span><span>
 </span><span id="line-146"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679439493"><span class="annot"><span class="annottext">toHeaders :: DescribeStackDriftDetectionStatus -&gt; ResponseHeaders
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679439932"><span class="annot"><span class="annottext">toHeaders :: DescribeStackDriftDetectionStatus -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; DescribeStackDriftDetectionStatus -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -455,7 +455,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-150"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
 </span><span id="line-151"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatus"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatus</span></a></span><span>
 </span><span id="line-152"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679439488"><span class="annot"><span class="annottext">toPath :: DescribeStackDriftDetectionStatus -&gt; ByteString
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679439927"><span class="annot"><span class="annottext">toPath :: DescribeStackDriftDetectionStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeStackDriftDetectionStatus -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
@@ -465,11 +465,11 @@ forall a b. a -&gt; b -&gt; a
 </span><span id="line-156"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
 </span><span id="line-157"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatus"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatus</span></a></span><span>
 </span><span id="line-158"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679439484"><span class="annot"><span class="annottext">toQuery :: DescribeStackDriftDetectionStatus -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatus%27"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439482"><span class="annot"><span class="annottext">Text
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679439923"><span class="annot"><span class="annottext">toQuery :: DescribeStackDriftDetectionStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatus%27"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439921"><span class="annot"><span class="annottext">Text
 stackDriftDetectionId :: Text
 $sel:stackDriftDetectionId:DescribeStackDriftDetectionStatus' :: DescribeStackDriftDetectionStatus -&gt; Text
-</span><a href="#local-6989586621679439482"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679439921"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -492,35 +492,35 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-168"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679439482"><span class="hs-identifier hs-var">stackDriftDetectionId</span></a></span><span>
+</span><a href="#local-6989586621679439921"><span class="hs-identifier hs-var">stackDriftDetectionId</span></a></span><span>
 </span><span id="line-169"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- | /See:/ 'newDescribeStackDriftDetectionStatusResponse' smart constructor.</span><span>
-</span><span id="line-172"></span><span id="local-6989586621679439479"><span id="local-6989586621679439480"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeStackDriftDetectionStatusResponse"><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse"><span class="hs-identifier hs-var">DescribeStackDriftDetectionStatusResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeStackDriftDetectionStatusResponse%27"><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-var">DescribeStackDriftDetectionStatusResponse'</span></a></span></span><span>
-</span><span id="line-173"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The reason the stack drift detection operation has its current status.</span><span>
-</span><span id="line-174"></span><span>    </span><span id="%24sel%3AdetectionStatusReason%3ADescribeStackDriftDetectionStatusResponse%27"><span class="annot"><span class="annottext">DescribeStackDriftDetectionStatusResponse -&gt; Maybe Text
-</span><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#%24sel%3AdetectionStatusReason%3ADescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-var hs-var">detectionStatusReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-175"></span><span>    </span><span class="hs-comment">-- | Status of the stack\'s actual configuration compared to its expected</span><span>
-</span><span id="line-176"></span><span>    </span><span class="hs-comment">-- configuration.</span><span>
-</span><span id="line-177"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-178"></span><span>    </span><span class="hs-comment">-- -   @DRIFTED@: The stack differs from its expected template</span><span>
-</span><span id="line-179"></span><span>    </span><span class="hs-comment">--     configuration. A stack is considered to have drifted if one or more</span><span>
-</span><span id="line-180"></span><span>    </span><span class="hs-comment">--     of its resources have drifted.</span><span>
-</span><span id="line-181"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-182"></span><span>    </span><span class="hs-comment">-- -   @NOT_CHECKED@: CloudFormation has not checked if the stack differs</span><span>
-</span><span id="line-183"></span><span>    </span><span class="hs-comment">--     from its expected template configuration.</span><span>
-</span><span id="line-184"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-185"></span><span>    </span><span class="hs-comment">-- -   @IN_SYNC@: The stack\'s actual configuration matches its expected</span><span>
-</span><span id="line-186"></span><span>    </span><span class="hs-comment">--     template configuration.</span><span>
-</span><span id="line-187"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-188"></span><span>    </span><span class="hs-comment">-- -   @UNKNOWN@: This value is reserved for future use.</span><span>
-</span><span id="line-189"></span><span>    </span><span id="%24sel%3AstackDriftStatus%3ADescribeStackDriftDetectionStatusResponse%27"><span class="annot"><span class="annottext">DescribeStackDriftDetectionStatusResponse -&gt; Maybe StackDriftStatus
+</span><span id="line-172"></span><span id="local-6989586621679439918"><span id="local-6989586621679439919"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeStackDriftDetectionStatusResponse"><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse"><span class="hs-identifier hs-var">DescribeStackDriftDetectionStatusResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeStackDriftDetectionStatusResponse%27"><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-var">DescribeStackDriftDetectionStatusResponse'</span></a></span></span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Status of the stack\'s actual configuration compared to its expected</span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span>    </span><span class="hs-comment">-- -   @DRIFTED@: The stack differs from its expected template</span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-comment">--     configuration. A stack is considered to have drifted if one or more</span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-comment">--     of its resources have drifted.</span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-comment">-- -   @NOT_CHECKED@: CloudFormation has not checked if the stack differs</span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-comment">--     from its expected template configuration.</span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-comment">-- -   @IN_SYNC@: The stack\'s actual configuration matches its expected</span><span>
+</span><span id="line-184"></span><span>    </span><span class="hs-comment">--     template configuration.</span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-comment">-- -   @UNKNOWN@: This value is reserved for future use.</span><span>
+</span><span id="line-187"></span><span>    </span><span id="%24sel%3AstackDriftStatus%3ADescribeStackDriftDetectionStatusResponse%27"><span class="annot"><span class="annottext">DescribeStackDriftDetectionStatusResponse -&gt; Maybe StackDriftStatus
 </span><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#%24sel%3AstackDriftStatus%3ADescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-var hs-var">stackDriftStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackDriftStatus.html#StackDriftStatus"><span class="hs-identifier hs-type">StackDriftStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-190"></span><span>    </span><span class="hs-comment">-- | Total number of stack resources that have drifted. This is NULL until</span><span>
-</span><span id="line-191"></span><span>    </span><span class="hs-comment">-- the drift detection operation reaches a status of @DETECTION_COMPLETE@.</span><span>
-</span><span id="line-192"></span><span>    </span><span class="hs-comment">-- This value will be 0 for stacks whose drift status is @IN_SYNC@.</span><span>
-</span><span id="line-193"></span><span>    </span><span id="%24sel%3AdriftedStackResourceCount%3ADescribeStackDriftDetectionStatusResponse%27"><span class="annot"><span class="annottext">DescribeStackDriftDetectionStatusResponse -&gt; Maybe Int
+</span><span id="line-188"></span><span>    </span><span class="hs-comment">-- | Total number of stack resources that have drifted. This is NULL until</span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-comment">-- the drift detection operation reaches a status of @DETECTION_COMPLETE@.</span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-comment">-- This value will be 0 for stacks whose drift status is @IN_SYNC@.</span><span>
+</span><span id="line-191"></span><span>    </span><span id="%24sel%3AdriftedStackResourceCount%3ADescribeStackDriftDetectionStatusResponse%27"><span class="annot"><span class="annottext">DescribeStackDriftDetectionStatusResponse -&gt; Maybe Int
 </span><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#%24sel%3AdriftedStackResourceCount%3ADescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-var hs-var">driftedStackResourceCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-comment">-- | The reason the stack drift detection operation has its current status.</span><span>
+</span><span id="line-193"></span><span>    </span><span id="%24sel%3AdetectionStatusReason%3ADescribeStackDriftDetectionStatusResponse%27"><span class="annot"><span class="annottext">DescribeStackDriftDetectionStatusResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#%24sel%3AdetectionStatusReason%3ADescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-var hs-var">detectionStatusReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-194"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-195"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeStackDriftDetectionStatusResponse%27"><span class="annot"><span class="annottext">DescribeStackDriftDetectionStatusResponse -&gt; Int
 </span><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#%24sel%3AhttpStatus%3ADescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -559,7 +559,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-224"></span><span>    </span><span id="%24sel%3Atimestamp%3ADescribeStackDriftDetectionStatusResponse%27"><span class="annot"><span class="annottext">DescribeStackDriftDetectionStatusResponse -&gt; ISO8601
 </span><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#%24sel%3Atimestamp%3ADescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span>
 </span><span id="line-225"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-226"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679439467"><span id="local-6989586621679439469"><span class="annot"><span class="annottext">DescribeStackDriftDetectionStatusResponse
+</span><span id="line-226"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679439906"><span id="local-6989586621679439908"><span class="annot"><span class="annottext">DescribeStackDriftDetectionStatusResponse
 -&gt; DescribeStackDriftDetectionStatusResponse -&gt; Bool
 (DescribeStackDriftDetectionStatusResponse
  -&gt; DescribeStackDriftDetectionStatusResponse -&gt; Bool)
@@ -575,7 +575,7 @@ $c/= :: DescribeStackDriftDetectionStatusResponse
 -&gt; DescribeStackDriftDetectionStatusResponse -&gt; Bool
 $c== :: DescribeStackDriftDetectionStatusResponse
 -&gt; DescribeStackDriftDetectionStatusResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679439459"><span id="local-6989586621679439461"><span id="local-6989586621679439463"><span id="local-6989586621679439465"><span class="annot"><span class="annottext">ReadPrec [DescribeStackDriftDetectionStatusResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679439898"><span id="local-6989586621679439900"><span id="local-6989586621679439902"><span id="local-6989586621679439904"><span class="annot"><span class="annottext">ReadPrec [DescribeStackDriftDetectionStatusResponse]
 ReadPrec DescribeStackDriftDetectionStatusResponse
 Int -&gt; ReadS DescribeStackDriftDetectionStatusResponse
 ReadS [DescribeStackDriftDetectionStatusResponse]
@@ -595,7 +595,7 @@ readList :: ReadS [DescribeStackDriftDetectionStatusResponse]
 $creadList :: ReadS [DescribeStackDriftDetectionStatusResponse]
 readsPrec :: Int -&gt; ReadS DescribeStackDriftDetectionStatusResponse
 $creadsPrec :: Int -&gt; ReadS DescribeStackDriftDetectionStatusResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679439453"><span id="local-6989586621679439455"><span id="local-6989586621679439457"><span class="annot"><span class="annottext">Int -&gt; DescribeStackDriftDetectionStatusResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679439892"><span id="local-6989586621679439894"><span id="local-6989586621679439896"><span class="annot"><span class="annottext">Int -&gt; DescribeStackDriftDetectionStatusResponse -&gt; ShowS
 [DescribeStackDriftDetectionStatusResponse] -&gt; ShowS
 DescribeStackDriftDetectionStatusResponse -&gt; String
 (Int -&gt; DescribeStackDriftDetectionStatusResponse -&gt; ShowS)
@@ -641,26 +641,26 @@ DescribeStackDriftDetectionStatusResponse
 </span><span id="line-233"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-234"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-235"></span><span class="hs-comment">--</span><span>
-</span><span id="line-236"></span><span class="hs-comment">-- 'detectionStatusReason', 'describeStackDriftDetectionStatusResponse_detectionStatusReason' - The reason the stack drift detection operation has its current status.</span><span>
-</span><span id="line-237"></span><span class="hs-comment">--</span><span>
-</span><span id="line-238"></span><span class="hs-comment">-- 'stackDriftStatus', 'describeStackDriftDetectionStatusResponse_stackDriftStatus' - Status of the stack\'s actual configuration compared to its expected</span><span>
-</span><span id="line-239"></span><span class="hs-comment">-- configuration.</span><span>
-</span><span id="line-240"></span><span class="hs-comment">--</span><span>
-</span><span id="line-241"></span><span class="hs-comment">-- -   @DRIFTED@: The stack differs from its expected template</span><span>
-</span><span id="line-242"></span><span class="hs-comment">--     configuration. A stack is considered to have drifted if one or more</span><span>
-</span><span id="line-243"></span><span class="hs-comment">--     of its resources have drifted.</span><span>
-</span><span id="line-244"></span><span class="hs-comment">--</span><span>
-</span><span id="line-245"></span><span class="hs-comment">-- -   @NOT_CHECKED@: CloudFormation has not checked if the stack differs</span><span>
-</span><span id="line-246"></span><span class="hs-comment">--     from its expected template configuration.</span><span>
-</span><span id="line-247"></span><span class="hs-comment">--</span><span>
-</span><span id="line-248"></span><span class="hs-comment">-- -   @IN_SYNC@: The stack\'s actual configuration matches its expected</span><span>
-</span><span id="line-249"></span><span class="hs-comment">--     template configuration.</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- 'stackDriftStatus', 'describeStackDriftDetectionStatusResponse_stackDriftStatus' - Status of the stack\'s actual configuration compared to its expected</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- -   @DRIFTED@: The stack differs from its expected template</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--     configuration. A stack is considered to have drifted if one or more</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--     of its resources have drifted.</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- -   @NOT_CHECKED@: CloudFormation has not checked if the stack differs</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--     from its expected template configuration.</span><span>
+</span><span id="line-245"></span><span class="hs-comment">--</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- -   @IN_SYNC@: The stack\'s actual configuration matches its expected</span><span>
+</span><span id="line-247"></span><span class="hs-comment">--     template configuration.</span><span>
+</span><span id="line-248"></span><span class="hs-comment">--</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- -   @UNKNOWN@: This value is reserved for future use.</span><span>
 </span><span id="line-250"></span><span class="hs-comment">--</span><span>
-</span><span id="line-251"></span><span class="hs-comment">-- -   @UNKNOWN@: This value is reserved for future use.</span><span>
-</span><span id="line-252"></span><span class="hs-comment">--</span><span>
-</span><span id="line-253"></span><span class="hs-comment">-- 'driftedStackResourceCount', 'describeStackDriftDetectionStatusResponse_driftedStackResourceCount' - Total number of stack resources that have drifted. This is NULL until</span><span>
-</span><span id="line-254"></span><span class="hs-comment">-- the drift detection operation reaches a status of @DETECTION_COMPLETE@.</span><span>
-</span><span id="line-255"></span><span class="hs-comment">-- This value will be 0 for stacks whose drift status is @IN_SYNC@.</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- 'driftedStackResourceCount', 'describeStackDriftDetectionStatusResponse_driftedStackResourceCount' - Total number of stack resources that have drifted. This is NULL until</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- the drift detection operation reaches a status of @DETECTION_COMPLETE@.</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- This value will be 0 for stacks whose drift status is @IN_SYNC@.</span><span>
+</span><span id="line-254"></span><span class="hs-comment">--</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- 'detectionStatusReason', 'describeStackDriftDetectionStatusResponse_detectionStatusReason' - The reason the stack drift detection operation has its current status.</span><span>
 </span><span id="line-256"></span><span class="hs-comment">--</span><span>
 </span><span id="line-257"></span><span class="hs-comment">-- 'httpStatus', 'describeStackDriftDetectionStatusResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-258"></span><span class="hs-comment">--</span><span>
@@ -711,19 +711,19 @@ DescribeStackDriftDetectionStatusResponse
 -&gt; UTCTime
 -&gt; DescribeStackDriftDetectionStatusResponse
 </span><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#newDescribeStackDriftDetectionStatusResponse"><span class="hs-identifier hs-var hs-var">newDescribeStackDriftDetectionStatusResponse</span></a></span></span><span>
-</span><span id="line-300"></span><span>  </span><span id="local-6989586621679439450"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679439450"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-301"></span><span>  </span><span id="local-6989586621679439449"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679439449"><span class="hs-identifier hs-var">pStackId_</span></a></span></span><span>
-</span><span id="line-302"></span><span>  </span><span id="local-6989586621679439448"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679439448"><span class="hs-identifier hs-var">pStackDriftDetectionId_</span></a></span></span><span>
-</span><span id="line-303"></span><span>  </span><span id="local-6989586621679439447"><span class="annot"><span class="annottext">StackDriftDetectionStatus
-</span><a href="#local-6989586621679439447"><span class="hs-identifier hs-var">pDetectionStatus_</span></a></span></span><span>
-</span><span id="line-304"></span><span>  </span><span id="local-6989586621679439446"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679439446"><span class="hs-identifier hs-var">pTimestamp_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-305"></span><span>    </span><span class="annot"><span class="annottext">DescribeStackDriftDetectionStatusResponse' :: Maybe Text
--&gt; Maybe StackDriftStatus
+</span><span id="line-300"></span><span>  </span><span id="local-6989586621679439889"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679439889"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-301"></span><span>  </span><span id="local-6989586621679439888"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679439888"><span class="hs-identifier hs-var">pStackId_</span></a></span></span><span>
+</span><span id="line-302"></span><span>  </span><span id="local-6989586621679439887"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679439887"><span class="hs-identifier hs-var">pStackDriftDetectionId_</span></a></span></span><span>
+</span><span id="line-303"></span><span>  </span><span id="local-6989586621679439886"><span class="annot"><span class="annottext">StackDriftDetectionStatus
+</span><a href="#local-6989586621679439886"><span class="hs-identifier hs-var">pDetectionStatus_</span></a></span></span><span>
+</span><span id="line-304"></span><span>  </span><span id="local-6989586621679439885"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679439885"><span class="hs-identifier hs-var">pTimestamp_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-305"></span><span>    </span><span class="annot"><span class="annottext">DescribeStackDriftDetectionStatusResponse' :: Maybe StackDriftStatus
 -&gt; Maybe Int
+-&gt; Maybe Text
 -&gt; Int
 -&gt; Text
 -&gt; Text
@@ -731,35 +731,35 @@ DescribeStackDriftDetectionStatusResponse
 -&gt; ISO8601
 -&gt; DescribeStackDriftDetectionStatusResponse
 </span><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse'</span></a></span><span>
-</span><span id="line-306"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:detectionStatusReason:DescribeStackDriftDetectionStatusResponse' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#%24sel%3AdetectionStatusReason%3ADescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-var">detectionStatusReason</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-307"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-308"></span><span>        </span><span class="annot"><span class="annottext">$sel:stackDriftStatus:DescribeStackDriftDetectionStatusResponse' :: Maybe StackDriftStatus
+</span><span id="line-306"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:stackDriftStatus:DescribeStackDriftDetectionStatusResponse' :: Maybe StackDriftStatus
 </span><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#%24sel%3AstackDriftStatus%3ADescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-var">stackDriftStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-309"></span><span>          </span><span class="annot"><span class="annottext">Maybe StackDriftStatus
+</span><span id="line-307"></span><span>          </span><span class="annot"><span class="annottext">Maybe StackDriftStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-310"></span><span>        </span><span class="annot"><span class="annottext">$sel:driftedStackResourceCount:DescribeStackDriftDetectionStatusResponse' :: Maybe Int
+</span><span id="line-308"></span><span>        </span><span class="annot"><span class="annottext">$sel:driftedStackResourceCount:DescribeStackDriftDetectionStatusResponse' :: Maybe Int
 </span><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#%24sel%3AdriftedStackResourceCount%3ADescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-var">driftedStackResourceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-311"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-309"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-310"></span><span>        </span><span class="annot"><span class="annottext">$sel:detectionStatusReason:DescribeStackDriftDetectionStatusResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#%24sel%3AdetectionStatusReason%3ADescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-var">detectionStatusReason</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-311"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-312"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeStackDriftDetectionStatusResponse' :: Int
 </span><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#%24sel%3AhttpStatus%3ADescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679439450"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679439889"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-313"></span><span>        </span><span class="annot"><span class="annottext">$sel:stackId:DescribeStackDriftDetectionStatusResponse' :: Text
 </span><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#%24sel%3AstackId%3ADescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-var">stackId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679439449"><span class="hs-identifier hs-var">pStackId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679439888"><span class="hs-identifier hs-var">pStackId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-314"></span><span>        </span><span class="annot"><span class="annottext">$sel:stackDriftDetectionId:DescribeStackDriftDetectionStatusResponse' :: Text
 </span><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#%24sel%3AstackDriftDetectionId%3ADescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-var">stackDriftDetectionId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-315"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679439448"><span class="hs-identifier hs-var">pStackDriftDetectionId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679439887"><span class="hs-identifier hs-var">pStackDriftDetectionId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-316"></span><span>        </span><span class="annot"><span class="annottext">$sel:detectionStatus:DescribeStackDriftDetectionStatusResponse' :: StackDriftDetectionStatus
 </span><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#%24sel%3AdetectionStatus%3ADescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-var">detectionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-317"></span><span>          </span><span class="annot"><span class="annottext">StackDriftDetectionStatus
-</span><a href="#local-6989586621679439447"><span class="hs-identifier hs-var">pDetectionStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679439886"><span class="hs-identifier hs-var">pDetectionStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-318"></span><span>        </span><span class="annot"><span class="annottext">$sel:timestamp:DescribeStackDriftDetectionStatusResponse' :: ISO8601
 </span><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#%24sel%3Atimestamp%3ADescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-319"></span><span>          </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime)
@@ -770,50 +770,25 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; ISO8601
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679439446"><span class="hs-identifier hs-var">pTimestamp_</span></a></span><span>
+</span><a href="#local-6989586621679439885"><span class="hs-identifier hs-var">pTimestamp_</span></a></span><span>
 </span><span id="line-320"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-321"></span><span>
-</span><span id="line-322"></span><span class="hs-comment">-- | The reason the stack drift detection operation has its current status.</span><span>
-</span><span id="line-323"></span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#describeStackDriftDetectionStatusResponse_detectionStatusReason"><span class="hs-identifier hs-type">describeStackDriftDetectionStatusResponse_detectionStatusReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-324"></span><span id="describeStackDriftDetectionStatusResponse_detectionStatusReason"><span class="annot"><span class="annottext">describeStackDriftDetectionStatusResponse_detectionStatusReason :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribeStackDriftDetectionStatusResponse
--&gt; f DescribeStackDriftDetectionStatusResponse
-</span><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#describeStackDriftDetectionStatusResponse_detectionStatusReason"><span class="hs-identifier hs-var hs-var">describeStackDriftDetectionStatusResponse_detectionStatusReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeStackDriftDetectionStatusResponse -&gt; Maybe Text)
--&gt; (DescribeStackDriftDetectionStatusResponse
-    -&gt; Maybe Text -&gt; DescribeStackDriftDetectionStatusResponse)
--&gt; Lens
-     DescribeStackDriftDetectionStatusResponse
-     DescribeStackDriftDetectionStatusResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439443"><span class="annot"><span class="annottext">Maybe Text
-detectionStatusReason :: Maybe Text
-$sel:detectionStatusReason:DescribeStackDriftDetectionStatusResponse' :: DescribeStackDriftDetectionStatusResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679439443"><span class="hs-identifier hs-var hs-var">detectionStatusReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679439443"><span class="hs-identifier hs-var">detectionStatusReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439442"><span class="annot"><span class="annottext">s :: DescribeStackDriftDetectionStatusResponse
-</span><a href="#local-6989586621679439442"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439441"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679439441"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStackDriftDetectionStatusResponse
-</span><a href="#local-6989586621679439442"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectionStatusReason:DescribeStackDriftDetectionStatusResponse' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#%24sel%3AdetectionStatusReason%3ADescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-var">detectionStatusReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679439441"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-325"></span><span>
-</span><span id="line-326"></span><span class="hs-comment">-- | Status of the stack\'s actual configuration compared to its expected</span><span>
-</span><span id="line-327"></span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-322"></span><span class="hs-comment">-- | Status of the stack\'s actual configuration compared to its expected</span><span>
+</span><span id="line-323"></span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-324"></span><span class="hs-comment">--</span><span>
+</span><span id="line-325"></span><span class="hs-comment">-- -   @DRIFTED@: The stack differs from its expected template</span><span>
+</span><span id="line-326"></span><span class="hs-comment">--     configuration. A stack is considered to have drifted if one or more</span><span>
+</span><span id="line-327"></span><span class="hs-comment">--     of its resources have drifted.</span><span>
 </span><span id="line-328"></span><span class="hs-comment">--</span><span>
-</span><span id="line-329"></span><span class="hs-comment">-- -   @DRIFTED@: The stack differs from its expected template</span><span>
-</span><span id="line-330"></span><span class="hs-comment">--     configuration. A stack is considered to have drifted if one or more</span><span>
-</span><span id="line-331"></span><span class="hs-comment">--     of its resources have drifted.</span><span>
-</span><span id="line-332"></span><span class="hs-comment">--</span><span>
-</span><span id="line-333"></span><span class="hs-comment">-- -   @NOT_CHECKED@: CloudFormation has not checked if the stack differs</span><span>
-</span><span id="line-334"></span><span class="hs-comment">--     from its expected template configuration.</span><span>
-</span><span id="line-335"></span><span class="hs-comment">--</span><span>
-</span><span id="line-336"></span><span class="hs-comment">-- -   @IN_SYNC@: The stack\'s actual configuration matches its expected</span><span>
-</span><span id="line-337"></span><span class="hs-comment">--     template configuration.</span><span>
-</span><span id="line-338"></span><span class="hs-comment">--</span><span>
-</span><span id="line-339"></span><span class="hs-comment">-- -   @UNKNOWN@: This value is reserved for future use.</span><span>
-</span><span id="line-340"></span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#describeStackDriftDetectionStatusResponse_stackDriftStatus"><span class="hs-identifier hs-type">describeStackDriftDetectionStatusResponse_stackDriftStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackDriftStatus.html#StackDriftStatus"><span class="hs-identifier hs-type">StackDriftStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-341"></span><span id="describeStackDriftDetectionStatusResponse_stackDriftStatus"><span class="annot"><span class="annottext">describeStackDriftDetectionStatusResponse_stackDriftStatus :: (Maybe StackDriftStatus -&gt; f (Maybe StackDriftStatus))
+</span><span id="line-329"></span><span class="hs-comment">-- -   @NOT_CHECKED@: CloudFormation has not checked if the stack differs</span><span>
+</span><span id="line-330"></span><span class="hs-comment">--     from its expected template configuration.</span><span>
+</span><span id="line-331"></span><span class="hs-comment">--</span><span>
+</span><span id="line-332"></span><span class="hs-comment">-- -   @IN_SYNC@: The stack\'s actual configuration matches its expected</span><span>
+</span><span id="line-333"></span><span class="hs-comment">--     template configuration.</span><span>
+</span><span id="line-334"></span><span class="hs-comment">--</span><span>
+</span><span id="line-335"></span><span class="hs-comment">-- -   @UNKNOWN@: This value is reserved for future use.</span><span>
+</span><span id="line-336"></span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#describeStackDriftDetectionStatusResponse_stackDriftStatus"><span class="hs-identifier hs-type">describeStackDriftDetectionStatusResponse_stackDriftStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackDriftStatus.html#StackDriftStatus"><span class="hs-identifier hs-type">StackDriftStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-337"></span><span id="describeStackDriftDetectionStatusResponse_stackDriftStatus"><span class="annot"><span class="annottext">describeStackDriftDetectionStatusResponse_stackDriftStatus :: (Maybe StackDriftStatus -&gt; f (Maybe StackDriftStatus))
 -&gt; DescribeStackDriftDetectionStatusResponse
 -&gt; f DescribeStackDriftDetectionStatusResponse
 </span><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#describeStackDriftDetectionStatusResponse_stackDriftStatus"><span class="hs-identifier hs-var hs-var">describeStackDriftDetectionStatusResponse_stackDriftStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeStackDriftDetectionStatusResponse
@@ -827,22 +802,22 @@ $sel:detectionStatusReason:DescribeStackDriftDetectionStatusResponse' :: Describ
      (Maybe StackDriftStatus)
      (Maybe StackDriftStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439440"><span class="annot"><span class="annottext">Maybe StackDriftStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439882"><span class="annot"><span class="annottext">Maybe StackDriftStatus
 stackDriftStatus :: Maybe StackDriftStatus
 $sel:stackDriftStatus:DescribeStackDriftDetectionStatusResponse' :: DescribeStackDriftDetectionStatusResponse -&gt; Maybe StackDriftStatus
-</span><a href="#local-6989586621679439440"><span class="hs-identifier hs-var hs-var">stackDriftStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StackDriftStatus
-</span><a href="#local-6989586621679439440"><span class="hs-identifier hs-var">stackDriftStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439439"><span class="annot"><span class="annottext">s :: DescribeStackDriftDetectionStatusResponse
-</span><a href="#local-6989586621679439439"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439438"><span class="annot"><span class="annottext">Maybe StackDriftStatus
-</span><a href="#local-6989586621679439438"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStackDriftDetectionStatusResponse
-</span><a href="#local-6989586621679439439"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackDriftStatus:DescribeStackDriftDetectionStatusResponse' :: Maybe StackDriftStatus
+</span><a href="#local-6989586621679439882"><span class="hs-identifier hs-var hs-var">stackDriftStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StackDriftStatus
+</span><a href="#local-6989586621679439882"><span class="hs-identifier hs-var">stackDriftStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439881"><span class="annot"><span class="annottext">s :: DescribeStackDriftDetectionStatusResponse
+</span><a href="#local-6989586621679439881"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439880"><span class="annot"><span class="annottext">Maybe StackDriftStatus
+</span><a href="#local-6989586621679439880"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStackDriftDetectionStatusResponse
+</span><a href="#local-6989586621679439881"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackDriftStatus:DescribeStackDriftDetectionStatusResponse' :: Maybe StackDriftStatus
 </span><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#%24sel%3AstackDriftStatus%3ADescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-var">stackDriftStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StackDriftStatus
-</span><a href="#local-6989586621679439438"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-342"></span><span>
-</span><span id="line-343"></span><span class="hs-comment">-- | Total number of stack resources that have drifted. This is NULL until</span><span>
-</span><span id="line-344"></span><span class="hs-comment">-- the drift detection operation reaches a status of @DETECTION_COMPLETE@.</span><span>
-</span><span id="line-345"></span><span class="hs-comment">-- This value will be 0 for stacks whose drift status is @IN_SYNC@.</span><span>
-</span><span id="line-346"></span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#describeStackDriftDetectionStatusResponse_driftedStackResourceCount"><span class="hs-identifier hs-type">describeStackDriftDetectionStatusResponse_driftedStackResourceCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-347"></span><span id="describeStackDriftDetectionStatusResponse_driftedStackResourceCount"><span class="annot"><span class="annottext">describeStackDriftDetectionStatusResponse_driftedStackResourceCount :: (Maybe Int -&gt; f (Maybe Int))
+</span><a href="#local-6989586621679439880"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-338"></span><span>
+</span><span id="line-339"></span><span class="hs-comment">-- | Total number of stack resources that have drifted. This is NULL until</span><span>
+</span><span id="line-340"></span><span class="hs-comment">-- the drift detection operation reaches a status of @DETECTION_COMPLETE@.</span><span>
+</span><span id="line-341"></span><span class="hs-comment">-- This value will be 0 for stacks whose drift status is @IN_SYNC@.</span><span>
+</span><span id="line-342"></span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#describeStackDriftDetectionStatusResponse_driftedStackResourceCount"><span class="hs-identifier hs-type">describeStackDriftDetectionStatusResponse_driftedStackResourceCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-343"></span><span id="describeStackDriftDetectionStatusResponse_driftedStackResourceCount"><span class="annot"><span class="annottext">describeStackDriftDetectionStatusResponse_driftedStackResourceCount :: (Maybe Int -&gt; f (Maybe Int))
 -&gt; DescribeStackDriftDetectionStatusResponse
 -&gt; f DescribeStackDriftDetectionStatusResponse
 </span><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#describeStackDriftDetectionStatusResponse_driftedStackResourceCount"><span class="hs-identifier hs-var hs-var">describeStackDriftDetectionStatusResponse_driftedStackResourceCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeStackDriftDetectionStatusResponse -&gt; Maybe Int)
@@ -854,16 +829,41 @@ $sel:stackDriftStatus:DescribeStackDriftDetectionStatusResponse' :: DescribeStac
      (Maybe Int)
      (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439437"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439879"><span class="annot"><span class="annottext">Maybe Int
 driftedStackResourceCount :: Maybe Int
 $sel:driftedStackResourceCount:DescribeStackDriftDetectionStatusResponse' :: DescribeStackDriftDetectionStatusResponse -&gt; Maybe Int
-</span><a href="#local-6989586621679439437"><span class="hs-identifier hs-var hs-var">driftedStackResourceCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679439437"><span class="hs-identifier hs-var">driftedStackResourceCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439436"><span class="annot"><span class="annottext">s :: DescribeStackDriftDetectionStatusResponse
-</span><a href="#local-6989586621679439436"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439435"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679439435"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStackDriftDetectionStatusResponse
-</span><a href="#local-6989586621679439436"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:driftedStackResourceCount:DescribeStackDriftDetectionStatusResponse' :: Maybe Int
+</span><a href="#local-6989586621679439879"><span class="hs-identifier hs-var hs-var">driftedStackResourceCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679439879"><span class="hs-identifier hs-var">driftedStackResourceCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439878"><span class="annot"><span class="annottext">s :: DescribeStackDriftDetectionStatusResponse
+</span><a href="#local-6989586621679439878"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439877"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679439877"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStackDriftDetectionStatusResponse
+</span><a href="#local-6989586621679439878"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:driftedStackResourceCount:DescribeStackDriftDetectionStatusResponse' :: Maybe Int
 </span><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#%24sel%3AdriftedStackResourceCount%3ADescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-var">driftedStackResourceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679439435"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679439877"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-344"></span><span>
+</span><span id="line-345"></span><span class="hs-comment">-- | The reason the stack drift detection operation has its current status.</span><span>
+</span><span id="line-346"></span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#describeStackDriftDetectionStatusResponse_detectionStatusReason"><span class="hs-identifier hs-type">describeStackDriftDetectionStatusResponse_detectionStatusReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-347"></span><span id="describeStackDriftDetectionStatusResponse_detectionStatusReason"><span class="annot"><span class="annottext">describeStackDriftDetectionStatusResponse_detectionStatusReason :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeStackDriftDetectionStatusResponse
+-&gt; f DescribeStackDriftDetectionStatusResponse
+</span><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#describeStackDriftDetectionStatusResponse_detectionStatusReason"><span class="hs-identifier hs-var hs-var">describeStackDriftDetectionStatusResponse_detectionStatusReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeStackDriftDetectionStatusResponse -&gt; Maybe Text)
+-&gt; (DescribeStackDriftDetectionStatusResponse
+    -&gt; Maybe Text -&gt; DescribeStackDriftDetectionStatusResponse)
+-&gt; Lens
+     DescribeStackDriftDetectionStatusResponse
+     DescribeStackDriftDetectionStatusResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439876"><span class="annot"><span class="annottext">Maybe Text
+detectionStatusReason :: Maybe Text
+$sel:detectionStatusReason:DescribeStackDriftDetectionStatusResponse' :: DescribeStackDriftDetectionStatusResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679439876"><span class="hs-identifier hs-var hs-var">detectionStatusReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679439876"><span class="hs-identifier hs-var">detectionStatusReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439875"><span class="annot"><span class="annottext">s :: DescribeStackDriftDetectionStatusResponse
+</span><a href="#local-6989586621679439875"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439874"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679439874"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStackDriftDetectionStatusResponse
+</span><a href="#local-6989586621679439875"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectionStatusReason:DescribeStackDriftDetectionStatusResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#%24sel%3AdetectionStatusReason%3ADescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-var">detectionStatusReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679439874"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-348"></span><span>
 </span><span id="line-349"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-350"></span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#describeStackDriftDetectionStatusResponse_httpStatus"><span class="hs-identifier hs-type">describeStackDriftDetectionStatusResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -879,16 +879,16 @@ $sel:driftedStackResourceCount:DescribeStackDriftDetectionStatusResponse' :: Des
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439434"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439873"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeStackDriftDetectionStatusResponse' :: DescribeStackDriftDetectionStatusResponse -&gt; Int
-</span><a href="#local-6989586621679439434"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679439434"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439433"><span class="annot"><span class="annottext">s :: DescribeStackDriftDetectionStatusResponse
-</span><a href="#local-6989586621679439433"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439432"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679439432"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStackDriftDetectionStatusResponse
-</span><a href="#local-6989586621679439433"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeStackDriftDetectionStatusResponse' :: Int
+</span><a href="#local-6989586621679439873"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679439873"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439872"><span class="annot"><span class="annottext">s :: DescribeStackDriftDetectionStatusResponse
+</span><a href="#local-6989586621679439872"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439871"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679439871"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStackDriftDetectionStatusResponse
+</span><a href="#local-6989586621679439872"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeStackDriftDetectionStatusResponse' :: Int
 </span><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#%24sel%3AhttpStatus%3ADescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679439432"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679439871"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-352"></span><span>
 </span><span id="line-353"></span><span class="hs-comment">-- | The ID of the stack.</span><span>
 </span><span id="line-354"></span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#describeStackDriftDetectionStatusResponse_stackId"><span class="hs-identifier hs-type">describeStackDriftDetectionStatusResponse_stackId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -904,16 +904,16 @@ $sel:httpStatus:DescribeStackDriftDetectionStatusResponse' :: DescribeStackDrift
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439431"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439870"><span class="annot"><span class="annottext">Text
 stackId :: Text
 $sel:stackId:DescribeStackDriftDetectionStatusResponse' :: DescribeStackDriftDetectionStatusResponse -&gt; Text
-</span><a href="#local-6989586621679439431"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679439431"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439430"><span class="annot"><span class="annottext">s :: DescribeStackDriftDetectionStatusResponse
-</span><a href="#local-6989586621679439430"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439429"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679439429"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStackDriftDetectionStatusResponse
-</span><a href="#local-6989586621679439430"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackId:DescribeStackDriftDetectionStatusResponse' :: Text
+</span><a href="#local-6989586621679439870"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679439870"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439869"><span class="annot"><span class="annottext">s :: DescribeStackDriftDetectionStatusResponse
+</span><a href="#local-6989586621679439869"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439868"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679439868"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStackDriftDetectionStatusResponse
+</span><a href="#local-6989586621679439869"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackId:DescribeStackDriftDetectionStatusResponse' :: Text
 </span><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#%24sel%3AstackId%3ADescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-var">stackId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679439429"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679439868"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-356"></span><span>
 </span><span id="line-357"></span><span class="hs-comment">-- | The ID of the drift detection results of this operation.</span><span>
 </span><span id="line-358"></span><span class="hs-comment">--</span><span>
@@ -933,16 +933,16 @@ $sel:stackId:DescribeStackDriftDetectionStatusResponse' :: DescribeStackDriftDet
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439428"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439867"><span class="annot"><span class="annottext">Text
 stackDriftDetectionId :: Text
 $sel:stackDriftDetectionId:DescribeStackDriftDetectionStatusResponse' :: DescribeStackDriftDetectionStatusResponse -&gt; Text
-</span><a href="#local-6989586621679439428"><span class="hs-identifier hs-var hs-var">stackDriftDetectionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679439428"><span class="hs-identifier hs-var">stackDriftDetectionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439427"><span class="annot"><span class="annottext">s :: DescribeStackDriftDetectionStatusResponse
-</span><a href="#local-6989586621679439427"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439426"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679439426"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStackDriftDetectionStatusResponse
-</span><a href="#local-6989586621679439427"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackDriftDetectionId:DescribeStackDriftDetectionStatusResponse' :: Text
+</span><a href="#local-6989586621679439867"><span class="hs-identifier hs-var hs-var">stackDriftDetectionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679439867"><span class="hs-identifier hs-var">stackDriftDetectionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439866"><span class="annot"><span class="annottext">s :: DescribeStackDriftDetectionStatusResponse
+</span><a href="#local-6989586621679439866"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439865"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679439865"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStackDriftDetectionStatusResponse
+</span><a href="#local-6989586621679439866"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackDriftDetectionId:DescribeStackDriftDetectionStatusResponse' :: Text
 </span><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#%24sel%3AstackDriftDetectionId%3ADescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-var">stackDriftDetectionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679439426"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679439865"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-364"></span><span>
 </span><span id="line-365"></span><span class="hs-comment">-- | The status of the stack drift detection operation.</span><span>
 </span><span id="line-366"></span><span class="hs-comment">--</span><span>
@@ -977,17 +977,17 @@ $sel:stackDriftDetectionId:DescribeStackDriftDetectionStatusResponse' :: Describ
      StackDriftDetectionStatus
      StackDriftDetectionStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439425"><span class="annot"><span class="annottext">StackDriftDetectionStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439864"><span class="annot"><span class="annottext">StackDriftDetectionStatus
 detectionStatus :: StackDriftDetectionStatus
 $sel:detectionStatus:DescribeStackDriftDetectionStatusResponse' :: DescribeStackDriftDetectionStatusResponse
 -&gt; StackDriftDetectionStatus
-</span><a href="#local-6989586621679439425"><span class="hs-identifier hs-var hs-var">detectionStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackDriftDetectionStatus
-</span><a href="#local-6989586621679439425"><span class="hs-identifier hs-var">detectionStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439424"><span class="annot"><span class="annottext">s :: DescribeStackDriftDetectionStatusResponse
-</span><a href="#local-6989586621679439424"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439423"><span class="annot"><span class="annottext">StackDriftDetectionStatus
-</span><a href="#local-6989586621679439423"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStackDriftDetectionStatusResponse
-</span><a href="#local-6989586621679439424"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectionStatus:DescribeStackDriftDetectionStatusResponse' :: StackDriftDetectionStatus
+</span><a href="#local-6989586621679439864"><span class="hs-identifier hs-var hs-var">detectionStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackDriftDetectionStatus
+</span><a href="#local-6989586621679439864"><span class="hs-identifier hs-var">detectionStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439863"><span class="annot"><span class="annottext">s :: DescribeStackDriftDetectionStatusResponse
+</span><a href="#local-6989586621679439863"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439862"><span class="annot"><span class="annottext">StackDriftDetectionStatus
+</span><a href="#local-6989586621679439862"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStackDriftDetectionStatusResponse
+</span><a href="#local-6989586621679439863"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectionStatus:DescribeStackDriftDetectionStatusResponse' :: StackDriftDetectionStatus
 </span><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#%24sel%3AdetectionStatus%3ADescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-var">detectionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StackDriftDetectionStatus
-</span><a href="#local-6989586621679439423"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679439862"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-385"></span><span>
 </span><span id="line-386"></span><span class="hs-comment">-- | Time at which the stack drift detection operation was initiated.</span><span>
 </span><span id="line-387"></span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#describeStackDriftDetectionStatusResponse_timestamp"><span class="hs-identifier hs-type">describeStackDriftDetectionStatusResponse_timestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
@@ -1003,16 +1003,16 @@ $sel:detectionStatus:DescribeStackDriftDetectionStatusResponse' :: DescribeStack
      ISO8601
      ISO8601
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439422"><span class="annot"><span class="annottext">ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439861"><span class="annot"><span class="annottext">ISO8601
 timestamp :: ISO8601
 $sel:timestamp:DescribeStackDriftDetectionStatusResponse' :: DescribeStackDriftDetectionStatusResponse -&gt; ISO8601
-</span><a href="#local-6989586621679439422"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ISO8601
-</span><a href="#local-6989586621679439422"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439421"><span class="annot"><span class="annottext">s :: DescribeStackDriftDetectionStatusResponse
-</span><a href="#local-6989586621679439421"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439420"><span class="annot"><span class="annottext">ISO8601
-</span><a href="#local-6989586621679439420"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStackDriftDetectionStatusResponse
-</span><a href="#local-6989586621679439421"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamp:DescribeStackDriftDetectionStatusResponse' :: ISO8601
+</span><a href="#local-6989586621679439861"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679439861"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439860"><span class="annot"><span class="annottext">s :: DescribeStackDriftDetectionStatusResponse
+</span><a href="#local-6989586621679439860"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439859"><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679439859"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStackDriftDetectionStatusResponse
+</span><a href="#local-6989586621679439860"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamp:DescribeStackDriftDetectionStatusResponse' :: ISO8601
 </span><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#%24sel%3Atimestamp%3ADescribeStackDriftDetectionStatusResponse%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ISO8601
-</span><a href="#local-6989586621679439420"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((ISO8601 -&gt; f ISO8601)
+</span><a href="#local-6989586621679439859"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((ISO8601 -&gt; f ISO8601)
  -&gt; DescribeStackDriftDetectionStatusResponse
  -&gt; f DescribeStackDriftDetectionStatusResponse)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; ISO8601 -&gt; f ISO8601)
@@ -1025,6 +1025,6 @@ forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-389"></span><span>
 </span><span id="line-390"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-391"></span><span>  </span><span id="local-6989586621679439417"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-391"></span><span>  </span><span id="local-6989586621679439856"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-392"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus.html#DescribeStackDriftDetectionStatusResponse"><span class="hs-identifier hs-type">DescribeStackDriftDetectionStatusResponse</span></a></span></span><span>
 </span><span id="line-393"></span></pre></body></html>

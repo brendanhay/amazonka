@@ -2,7 +2,7 @@
 -- See Hoogle, http://www.haskell.org/hoogle/
 
 @package libZSservicesZSamazonka-marketplace-entitlementZSamazonka-marketplace-entitlement
-@version 1.6.1
+@version 2.0
 
 
 module Network.AWS.MarketplaceEntitlement.Types.EntitlementValue
@@ -12,7 +12,12 @@ module Network.AWS.MarketplaceEntitlement.Types.EntitlementValue
 --   
 --   <i>See:</i> <a>newEntitlementValue</a> smart constructor.
 data EntitlementValue
-EntitlementValue' :: Maybe Double -> Maybe Text -> Maybe Bool -> Maybe Int -> EntitlementValue
+EntitlementValue' :: Maybe Int -> Maybe Double -> Maybe Text -> Maybe Bool -> EntitlementValue
+
+-- | The IntegerValue field will be populated with an integer value when
+--   the entitlement is an integer type. Otherwise, the field will not be
+--   set.
+[$sel:integerValue:EntitlementValue'] :: EntitlementValue -> Maybe Int
 
 -- | The DoubleValue field will be populated with a double value when the
 --   entitlement is a double type. Otherwise, the field will not be set.
@@ -26,11 +31,6 @@ EntitlementValue' :: Maybe Double -> Maybe Text -> Maybe Bool -> Maybe Int -> En
 --   entitlement is a boolean type. Otherwise, the field will not be set.
 [$sel:booleanValue:EntitlementValue'] :: EntitlementValue -> Maybe Bool
 
--- | The IntegerValue field will be populated with an integer value when
---   the entitlement is an integer type. Otherwise, the field will not be
---   set.
-[$sel:integerValue:EntitlementValue'] :: EntitlementValue -> Maybe Int
-
 -- | Create a value of <a>EntitlementValue</a> with all optional fields
 --   omitted.
 --   
@@ -39,6 +39,11 @@ EntitlementValue' :: Maybe Double -> Maybe Text -> Maybe Bool -> Maybe Int -> En
 --   
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:integerValue:EntitlementValue'</a>,
+--   <a>entitlementValue_integerValue</a> - The IntegerValue field will be
+--   populated with an integer value when the entitlement is an integer
+--   type. Otherwise, the field will not be set.
 --   
 --   <a>$sel:doubleValue:EntitlementValue'</a>,
 --   <a>entitlementValue_doubleValue</a> - The DoubleValue field will be
@@ -54,12 +59,12 @@ EntitlementValue' :: Maybe Double -> Maybe Text -> Maybe Bool -> Maybe Int -> En
 --   <a>entitlementValue_booleanValue</a> - The BooleanValue field will be
 --   populated with a boolean value when the entitlement is a boolean type.
 --   Otherwise, the field will not be set.
---   
---   <a>$sel:integerValue:EntitlementValue'</a>,
---   <a>entitlementValue_integerValue</a> - The IntegerValue field will be
---   populated with an integer value when the entitlement is an integer
---   type. Otherwise, the field will not be set.
 newEntitlementValue :: EntitlementValue
+
+-- | The IntegerValue field will be populated with an integer value when
+--   the entitlement is an integer type. Otherwise, the field will not be
+--   set.
+entitlementValue_integerValue :: Lens' EntitlementValue (Maybe Int)
 
 -- | The DoubleValue field will be populated with a double value when the
 --   entitlement is a double type. Otherwise, the field will not be set.
@@ -72,11 +77,6 @@ entitlementValue_stringValue :: Lens' EntitlementValue (Maybe Text)
 -- | The BooleanValue field will be populated with a boolean value when the
 --   entitlement is a boolean type. Otherwise, the field will not be set.
 entitlementValue_booleanValue :: Lens' EntitlementValue (Maybe Bool)
-
--- | The IntegerValue field will be populated with an integer value when
---   the entitlement is an integer type. Otherwise, the field will not be
---   set.
-entitlementValue_integerValue :: Lens' EntitlementValue (Maybe Int)
 instance GHC.Generics.Generic Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.EntitlementValue
 instance GHC.Show.Show Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.EntitlementValue
 instance GHC.Read.Read Network.AWS.MarketplaceEntitlement.Types.EntitlementValue.EntitlementValue
@@ -95,7 +95,16 @@ module Network.AWS.MarketplaceEntitlement.Types.Entitlement
 --   
 --   <i>See:</i> <a>newEntitlement</a> smart constructor.
 data Entitlement
-Entitlement' :: Maybe POSIX -> Maybe Text -> Maybe Text -> Maybe EntitlementValue -> Maybe Text -> Entitlement
+Entitlement' :: Maybe Text -> Maybe EntitlementValue -> Maybe POSIX -> Maybe Text -> Maybe Text -> Entitlement
+
+-- | The dimension for which the given entitlement applies. Dimensions
+--   represent categories of capacity in a product and are specified when
+--   the product is listed in AWS Marketplace.
+[$sel:dimension:Entitlement'] :: Entitlement -> Maybe Text
+
+-- | The EntitlementValue represents the amount of capacity that the
+--   customer is entitled to for the product.
+[$sel:value:Entitlement'] :: Entitlement -> Maybe EntitlementValue
 
 -- | The expiration date represents the minimum date through which this
 --   entitlement is expected to remain valid. For contractual products
@@ -115,15 +124,6 @@ Entitlement' :: Maybe POSIX -> Maybe Text -> Maybe Text -> Maybe EntitlementValu
 --   created.
 [$sel:productCode:Entitlement'] :: Entitlement -> Maybe Text
 
--- | The EntitlementValue represents the amount of capacity that the
---   customer is entitled to for the product.
-[$sel:value:Entitlement'] :: Entitlement -> Maybe EntitlementValue
-
--- | The dimension for which the given entitlement applies. Dimensions
---   represent categories of capacity in a product and are specified when
---   the product is listed in AWS Marketplace.
-[$sel:dimension:Entitlement'] :: Entitlement -> Maybe Text
-
 -- | Create a value of <a>Entitlement</a> with all optional fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -131,6 +131,15 @@ Entitlement' :: Maybe POSIX -> Maybe Text -> Maybe Text -> Maybe EntitlementValu
 --   
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:dimension:Entitlement'</a>, <a>entitlement_dimension</a> - The
+--   dimension for which the given entitlement applies. Dimensions
+--   represent categories of capacity in a product and are specified when
+--   the product is listed in AWS Marketplace.
+--   
+--   <a>$sel:value:Entitlement'</a>, <a>entitlement_value</a> - The
+--   EntitlementValue represents the amount of capacity that the customer
+--   is entitled to for the product.
 --   
 --   <a>$sel:expirationDate:Entitlement'</a>,
 --   <a>entitlement_expirationDate</a> - The expiration date represents the
@@ -150,16 +159,16 @@ Entitlement' :: Maybe POSIX -> Maybe Text -> Maybe Text -> Maybe EntitlementValu
 --   The product code for which the given entitlement applies. Product
 --   codes are provided by AWS Marketplace when the product listing is
 --   created.
---   
---   <a>$sel:value:Entitlement'</a>, <a>entitlement_value</a> - The
---   EntitlementValue represents the amount of capacity that the customer
---   is entitled to for the product.
---   
---   <a>$sel:dimension:Entitlement'</a>, <a>entitlement_dimension</a> - The
---   dimension for which the given entitlement applies. Dimensions
+newEntitlement :: Entitlement
+
+-- | The dimension for which the given entitlement applies. Dimensions
 --   represent categories of capacity in a product and are specified when
 --   the product is listed in AWS Marketplace.
-newEntitlement :: Entitlement
+entitlement_dimension :: Lens' Entitlement (Maybe Text)
+
+-- | The EntitlementValue represents the amount of capacity that the
+--   customer is entitled to for the product.
+entitlement_value :: Lens' Entitlement (Maybe EntitlementValue)
 
 -- | The expiration date represents the minimum date through which this
 --   entitlement is expected to remain valid. For contractual products
@@ -178,15 +187,6 @@ entitlement_customerIdentifier :: Lens' Entitlement (Maybe Text)
 --   codes are provided by AWS Marketplace when the product listing is
 --   created.
 entitlement_productCode :: Lens' Entitlement (Maybe Text)
-
--- | The EntitlementValue represents the amount of capacity that the
---   customer is entitled to for the product.
-entitlement_value :: Lens' Entitlement (Maybe EntitlementValue)
-
--- | The dimension for which the given entitlement applies. Dimensions
---   represent categories of capacity in a product and are specified when
---   the product is listed in AWS Marketplace.
-entitlement_dimension :: Lens' Entitlement (Maybe Text)
 instance GHC.Generics.Generic Network.AWS.MarketplaceEntitlement.Types.Entitlement.Entitlement
 instance GHC.Show.Show Network.AWS.MarketplaceEntitlement.Types.Entitlement.Entitlement
 instance GHC.Read.Read Network.AWS.MarketplaceEntitlement.Types.Entitlement.Entitlement
@@ -229,11 +229,11 @@ module Network.AWS.MarketplaceEntitlement.Types
 --   Service SDK configuration.
 defaultService :: Service
 
--- | The calls to the GetEntitlements API are throttled.
-_ThrottlingException :: AsError a => Getting (First ServiceError) a ServiceError
-
 -- | One or more parameters in your request was invalid.
 _InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The calls to the GetEntitlements API are throttled.
+_ThrottlingException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | An internal error has occurred. Retry your request. If the problem
 --   persists, post a message with details on the AWS forums.
@@ -251,7 +251,16 @@ pattern GetEntitlementFilterName_DIMENSION :: GetEntitlementFilterName
 --   
 --   <i>See:</i> <a>newEntitlement</a> smart constructor.
 data Entitlement
-Entitlement' :: Maybe POSIX -> Maybe Text -> Maybe Text -> Maybe EntitlementValue -> Maybe Text -> Entitlement
+Entitlement' :: Maybe Text -> Maybe EntitlementValue -> Maybe POSIX -> Maybe Text -> Maybe Text -> Entitlement
+
+-- | The dimension for which the given entitlement applies. Dimensions
+--   represent categories of capacity in a product and are specified when
+--   the product is listed in AWS Marketplace.
+[$sel:dimension:Entitlement'] :: Entitlement -> Maybe Text
+
+-- | The EntitlementValue represents the amount of capacity that the
+--   customer is entitled to for the product.
+[$sel:value:Entitlement'] :: Entitlement -> Maybe EntitlementValue
 
 -- | The expiration date represents the minimum date through which this
 --   entitlement is expected to remain valid. For contractual products
@@ -271,15 +280,6 @@ Entitlement' :: Maybe POSIX -> Maybe Text -> Maybe Text -> Maybe EntitlementValu
 --   created.
 [$sel:productCode:Entitlement'] :: Entitlement -> Maybe Text
 
--- | The EntitlementValue represents the amount of capacity that the
---   customer is entitled to for the product.
-[$sel:value:Entitlement'] :: Entitlement -> Maybe EntitlementValue
-
--- | The dimension for which the given entitlement applies. Dimensions
---   represent categories of capacity in a product and are specified when
---   the product is listed in AWS Marketplace.
-[$sel:dimension:Entitlement'] :: Entitlement -> Maybe Text
-
 -- | Create a value of <a>Entitlement</a> with all optional fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -287,6 +287,15 @@ Entitlement' :: Maybe POSIX -> Maybe Text -> Maybe Text -> Maybe EntitlementValu
 --   
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:dimension:Entitlement'</a>, <a>entitlement_dimension</a> - The
+--   dimension for which the given entitlement applies. Dimensions
+--   represent categories of capacity in a product and are specified when
+--   the product is listed in AWS Marketplace.
+--   
+--   <a>$sel:value:Entitlement'</a>, <a>entitlement_value</a> - The
+--   EntitlementValue represents the amount of capacity that the customer
+--   is entitled to for the product.
 --   
 --   <a>$sel:expirationDate:Entitlement'</a>,
 --   <a>entitlement_expirationDate</a> - The expiration date represents the
@@ -306,16 +315,16 @@ Entitlement' :: Maybe POSIX -> Maybe Text -> Maybe Text -> Maybe EntitlementValu
 --   The product code for which the given entitlement applies. Product
 --   codes are provided by AWS Marketplace when the product listing is
 --   created.
---   
---   <a>$sel:value:Entitlement'</a>, <a>entitlement_value</a> - The
---   EntitlementValue represents the amount of capacity that the customer
---   is entitled to for the product.
---   
---   <a>$sel:dimension:Entitlement'</a>, <a>entitlement_dimension</a> - The
---   dimension for which the given entitlement applies. Dimensions
+newEntitlement :: Entitlement
+
+-- | The dimension for which the given entitlement applies. Dimensions
 --   represent categories of capacity in a product and are specified when
 --   the product is listed in AWS Marketplace.
-newEntitlement :: Entitlement
+entitlement_dimension :: Lens' Entitlement (Maybe Text)
+
+-- | The EntitlementValue represents the amount of capacity that the
+--   customer is entitled to for the product.
+entitlement_value :: Lens' Entitlement (Maybe EntitlementValue)
 
 -- | The expiration date represents the minimum date through which this
 --   entitlement is expected to remain valid. For contractual products
@@ -337,19 +346,15 @@ entitlement_productCode :: Lens' Entitlement (Maybe Text)
 
 -- | The EntitlementValue represents the amount of capacity that the
 --   customer is entitled to for the product.
-entitlement_value :: Lens' Entitlement (Maybe EntitlementValue)
-
--- | The dimension for which the given entitlement applies. Dimensions
---   represent categories of capacity in a product and are specified when
---   the product is listed in AWS Marketplace.
-entitlement_dimension :: Lens' Entitlement (Maybe Text)
-
--- | The EntitlementValue represents the amount of capacity that the
---   customer is entitled to for the product.
 --   
 --   <i>See:</i> <a>newEntitlementValue</a> smart constructor.
 data EntitlementValue
-EntitlementValue' :: Maybe Double -> Maybe Text -> Maybe Bool -> Maybe Int -> EntitlementValue
+EntitlementValue' :: Maybe Int -> Maybe Double -> Maybe Text -> Maybe Bool -> EntitlementValue
+
+-- | The IntegerValue field will be populated with an integer value when
+--   the entitlement is an integer type. Otherwise, the field will not be
+--   set.
+[$sel:integerValue:EntitlementValue'] :: EntitlementValue -> Maybe Int
 
 -- | The DoubleValue field will be populated with a double value when the
 --   entitlement is a double type. Otherwise, the field will not be set.
@@ -363,11 +368,6 @@ EntitlementValue' :: Maybe Double -> Maybe Text -> Maybe Bool -> Maybe Int -> En
 --   entitlement is a boolean type. Otherwise, the field will not be set.
 [$sel:booleanValue:EntitlementValue'] :: EntitlementValue -> Maybe Bool
 
--- | The IntegerValue field will be populated with an integer value when
---   the entitlement is an integer type. Otherwise, the field will not be
---   set.
-[$sel:integerValue:EntitlementValue'] :: EntitlementValue -> Maybe Int
-
 -- | Create a value of <a>EntitlementValue</a> with all optional fields
 --   omitted.
 --   
@@ -376,6 +376,11 @@ EntitlementValue' :: Maybe Double -> Maybe Text -> Maybe Bool -> Maybe Int -> En
 --   
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:integerValue:EntitlementValue'</a>,
+--   <a>entitlementValue_integerValue</a> - The IntegerValue field will be
+--   populated with an integer value when the entitlement is an integer
+--   type. Otherwise, the field will not be set.
 --   
 --   <a>$sel:doubleValue:EntitlementValue'</a>,
 --   <a>entitlementValue_doubleValue</a> - The DoubleValue field will be
@@ -391,12 +396,12 @@ EntitlementValue' :: Maybe Double -> Maybe Text -> Maybe Bool -> Maybe Int -> En
 --   <a>entitlementValue_booleanValue</a> - The BooleanValue field will be
 --   populated with a boolean value when the entitlement is a boolean type.
 --   Otherwise, the field will not be set.
---   
---   <a>$sel:integerValue:EntitlementValue'</a>,
---   <a>entitlementValue_integerValue</a> - The IntegerValue field will be
---   populated with an integer value when the entitlement is an integer
---   type. Otherwise, the field will not be set.
 newEntitlementValue :: EntitlementValue
+
+-- | The IntegerValue field will be populated with an integer value when
+--   the entitlement is an integer type. Otherwise, the field will not be
+--   set.
+entitlementValue_integerValue :: Lens' EntitlementValue (Maybe Int)
 
 -- | The DoubleValue field will be populated with a double value when the
 --   entitlement is a double type. Otherwise, the field will not be set.
@@ -409,11 +414,6 @@ entitlementValue_stringValue :: Lens' EntitlementValue (Maybe Text)
 -- | The BooleanValue field will be populated with a boolean value when the
 --   entitlement is a boolean type. Otherwise, the field will not be set.
 entitlementValue_booleanValue :: Lens' EntitlementValue (Maybe Bool)
-
--- | The IntegerValue field will be populated with an integer value when
---   the entitlement is an integer type. Otherwise, the field will not be
---   set.
-entitlementValue_integerValue :: Lens' EntitlementValue (Maybe Int)
 
 
 -- | GetEntitlements retrieves entitlement values for a given product. The
@@ -428,22 +428,22 @@ module Network.AWS.MarketplaceEntitlement.GetEntitlements
 --   
 --   <i>See:</i> <a>newGetEntitlements</a> smart constructor.
 data GetEntitlements
-GetEntitlements' :: Maybe Text -> Maybe Int -> Maybe (HashMap GetEntitlementFilterName (NonEmpty Text)) -> Text -> GetEntitlements
+GetEntitlements' :: Maybe Text -> Maybe (HashMap GetEntitlementFilterName (NonEmpty Text)) -> Maybe Int -> Text -> GetEntitlements
 
 -- | For paginated calls to GetEntitlements, pass the NextToken from the
 --   previous GetEntitlementsResult.
 [$sel:nextToken:GetEntitlements'] :: GetEntitlements -> Maybe Text
-
--- | The maximum number of items to retrieve from the GetEntitlements
---   operation. For pagination, use the NextToken field in subsequent calls
---   to GetEntitlements.
-[$sel:maxResults:GetEntitlements'] :: GetEntitlements -> Maybe Int
 
 -- | Filter is used to return entitlements for a specific customer or for a
 --   specific dimension. Filters are described as keys mapped to a lists of
 --   values. Filtered requests are <i>unioned</i> for each value in the
 --   value list, and then <i>intersected</i> for each filter key.
 [$sel:filter':GetEntitlements'] :: GetEntitlements -> Maybe (HashMap GetEntitlementFilterName (NonEmpty Text))
+
+-- | The maximum number of items to retrieve from the GetEntitlements
+--   operation. For pagination, use the NextToken field in subsequent calls
+--   to GetEntitlements.
+[$sel:maxResults:GetEntitlements'] :: GetEntitlements -> Maybe Int
 
 -- | Product code is used to uniquely identify a product in AWS
 --   Marketplace. The product code will be provided by AWS Marketplace when
@@ -464,16 +464,16 @@ GetEntitlements' :: Maybe Text -> Maybe Int -> Maybe (HashMap GetEntitlementFilt
 --   GetEntitlements, pass the NextToken from the previous
 --   GetEntitlementsResult.
 --   
---   <a>$sel:maxResults:GetEntitlements'</a>,
---   <a>getEntitlements_maxResults</a> - The maximum number of items to
---   retrieve from the GetEntitlements operation. For pagination, use the
---   NextToken field in subsequent calls to GetEntitlements.
---   
 --   <a>$sel:filter':GetEntitlements'</a>, <a>getEntitlements_filter</a> -
 --   Filter is used to return entitlements for a specific customer or for a
 --   specific dimension. Filters are described as keys mapped to a lists of
 --   values. Filtered requests are <i>unioned</i> for each value in the
 --   value list, and then <i>intersected</i> for each filter key.
+--   
+--   <a>$sel:maxResults:GetEntitlements'</a>,
+--   <a>getEntitlements_maxResults</a> - The maximum number of items to
+--   retrieve from the GetEntitlements operation. For pagination, use the
+--   NextToken field in subsequent calls to GetEntitlements.
 --   
 --   <a>$sel:productCode:GetEntitlements'</a>,
 --   <a>getEntitlements_productCode</a> - Product code is used to uniquely
@@ -485,16 +485,16 @@ newGetEntitlements :: Text -> GetEntitlements
 --   previous GetEntitlementsResult.
 getEntitlements_nextToken :: Lens' GetEntitlements (Maybe Text)
 
--- | The maximum number of items to retrieve from the GetEntitlements
---   operation. For pagination, use the NextToken field in subsequent calls
---   to GetEntitlements.
-getEntitlements_maxResults :: Lens' GetEntitlements (Maybe Int)
-
 -- | Filter is used to return entitlements for a specific customer or for a
 --   specific dimension. Filters are described as keys mapped to a lists of
 --   values. Filtered requests are <i>unioned</i> for each value in the
 --   value list, and then <i>intersected</i> for each filter key.
 getEntitlements_filter :: Lens' GetEntitlements (Maybe (HashMap GetEntitlementFilterName (NonEmpty Text)))
+
+-- | The maximum number of items to retrieve from the GetEntitlements
+--   operation. For pagination, use the NextToken field in subsequent calls
+--   to GetEntitlements.
+getEntitlements_maxResults :: Lens' GetEntitlements (Maybe Int)
 
 -- | Product code is used to uniquely identify a product in AWS
 --   Marketplace. The product code will be provided by AWS Marketplace when
@@ -584,16 +584,16 @@ module Network.AWS.MarketplaceEntitlement.Lens
 --   previous GetEntitlementsResult.
 getEntitlements_nextToken :: Lens' GetEntitlements (Maybe Text)
 
--- | The maximum number of items to retrieve from the GetEntitlements
---   operation. For pagination, use the NextToken field in subsequent calls
---   to GetEntitlements.
-getEntitlements_maxResults :: Lens' GetEntitlements (Maybe Int)
-
 -- | Filter is used to return entitlements for a specific customer or for a
 --   specific dimension. Filters are described as keys mapped to a lists of
 --   values. Filtered requests are <i>unioned</i> for each value in the
 --   value list, and then <i>intersected</i> for each filter key.
 getEntitlements_filter :: Lens' GetEntitlements (Maybe (HashMap GetEntitlementFilterName (NonEmpty Text)))
+
+-- | The maximum number of items to retrieve from the GetEntitlements
+--   operation. For pagination, use the NextToken field in subsequent calls
+--   to GetEntitlements.
+getEntitlements_maxResults :: Lens' GetEntitlements (Maybe Int)
 
 -- | Product code is used to uniquely identify a product in AWS
 --   Marketplace. The product code will be provided by AWS Marketplace when
@@ -613,6 +613,15 @@ getEntitlementsResponse_entitlements :: Lens' GetEntitlementsResponse (Maybe [En
 -- | The response's http status code.
 getEntitlementsResponse_httpStatus :: Lens' GetEntitlementsResponse Int
 
+-- | The dimension for which the given entitlement applies. Dimensions
+--   represent categories of capacity in a product and are specified when
+--   the product is listed in AWS Marketplace.
+entitlement_dimension :: Lens' Entitlement (Maybe Text)
+
+-- | The EntitlementValue represents the amount of capacity that the
+--   customer is entitled to for the product.
+entitlement_value :: Lens' Entitlement (Maybe EntitlementValue)
+
 -- | The expiration date represents the minimum date through which this
 --   entitlement is expected to remain valid. For contractual products
 --   listed on AWS Marketplace, the expiration date is the date at which
@@ -631,14 +640,10 @@ entitlement_customerIdentifier :: Lens' Entitlement (Maybe Text)
 --   created.
 entitlement_productCode :: Lens' Entitlement (Maybe Text)
 
--- | The EntitlementValue represents the amount of capacity that the
---   customer is entitled to for the product.
-entitlement_value :: Lens' Entitlement (Maybe EntitlementValue)
-
--- | The dimension for which the given entitlement applies. Dimensions
---   represent categories of capacity in a product and are specified when
---   the product is listed in AWS Marketplace.
-entitlement_dimension :: Lens' Entitlement (Maybe Text)
+-- | The IntegerValue field will be populated with an integer value when
+--   the entitlement is an integer type. Otherwise, the field will not be
+--   set.
+entitlementValue_integerValue :: Lens' EntitlementValue (Maybe Int)
 
 -- | The DoubleValue field will be populated with a double value when the
 --   entitlement is a double type. Otherwise, the field will not be set.
@@ -651,11 +656,6 @@ entitlementValue_stringValue :: Lens' EntitlementValue (Maybe Text)
 -- | The BooleanValue field will be populated with a boolean value when the
 --   entitlement is a boolean type. Otherwise, the field will not be set.
 entitlementValue_booleanValue :: Lens' EntitlementValue (Maybe Bool)
-
--- | The IntegerValue field will be populated with an integer value when
---   the entitlement is an integer type. Otherwise, the field will not be
---   set.
-entitlementValue_integerValue :: Lens' EntitlementValue (Maybe Int)
 
 
 module Network.AWS.MarketplaceEntitlement.Waiters
@@ -688,11 +688,11 @@ module Network.AWS.MarketplaceEntitlement
 --   Service SDK configuration.
 defaultService :: Service
 
--- | The calls to the GetEntitlements API are throttled.
-_ThrottlingException :: AsError a => Getting (First ServiceError) a ServiceError
-
 -- | One or more parameters in your request was invalid.
 _InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The calls to the GetEntitlements API are throttled.
+_ThrottlingException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | An internal error has occurred. Retry your request. If the problem
 --   persists, post a message with details on the AWS forums.
@@ -703,7 +703,7 @@ _InternalServiceErrorException :: AsError a => Getting (First ServiceError) a Se
 --   
 --   <i>See:</i> <a>newGetEntitlements</a> smart constructor.
 data GetEntitlements
-GetEntitlements' :: Maybe Text -> Maybe Int -> Maybe (HashMap GetEntitlementFilterName (NonEmpty Text)) -> Text -> GetEntitlements
+GetEntitlements' :: Maybe Text -> Maybe (HashMap GetEntitlementFilterName (NonEmpty Text)) -> Maybe Int -> Text -> GetEntitlements
 
 -- | Create a value of <a>GetEntitlements</a> with all optional fields
 --   omitted.
@@ -719,16 +719,16 @@ GetEntitlements' :: Maybe Text -> Maybe Int -> Maybe (HashMap GetEntitlementFilt
 --   GetEntitlements, pass the NextToken from the previous
 --   GetEntitlementsResult.
 --   
---   <a>$sel:maxResults:GetEntitlements'</a>,
---   <a>getEntitlements_maxResults</a> - The maximum number of items to
---   retrieve from the GetEntitlements operation. For pagination, use the
---   NextToken field in subsequent calls to GetEntitlements.
---   
 --   <a>$sel:filter':GetEntitlements'</a>, <a>getEntitlements_filter</a> -
 --   Filter is used to return entitlements for a specific customer or for a
 --   specific dimension. Filters are described as keys mapped to a lists of
 --   values. Filtered requests are <i>unioned</i> for each value in the
 --   value list, and then <i>intersected</i> for each filter key.
+--   
+--   <a>$sel:maxResults:GetEntitlements'</a>,
+--   <a>getEntitlements_maxResults</a> - The maximum number of items to
+--   retrieve from the GetEntitlements operation. For pagination, use the
+--   NextToken field in subsequent calls to GetEntitlements.
 --   
 --   <a>$sel:productCode:GetEntitlements'</a>,
 --   <a>getEntitlements_productCode</a> - Product code is used to uniquely
@@ -781,7 +781,7 @@ pattern GetEntitlementFilterName_DIMENSION :: GetEntitlementFilterName
 --   
 --   <i>See:</i> <a>newEntitlement</a> smart constructor.
 data Entitlement
-Entitlement' :: Maybe POSIX -> Maybe Text -> Maybe Text -> Maybe EntitlementValue -> Maybe Text -> Entitlement
+Entitlement' :: Maybe Text -> Maybe EntitlementValue -> Maybe POSIX -> Maybe Text -> Maybe Text -> Entitlement
 
 -- | Create a value of <a>Entitlement</a> with all optional fields omitted.
 --   
@@ -790,6 +790,15 @@ Entitlement' :: Maybe POSIX -> Maybe Text -> Maybe Text -> Maybe EntitlementValu
 --   
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:dimension:Entitlement'</a>, <a>entitlement_dimension</a> - The
+--   dimension for which the given entitlement applies. Dimensions
+--   represent categories of capacity in a product and are specified when
+--   the product is listed in AWS Marketplace.
+--   
+--   <a>$sel:value:Entitlement'</a>, <a>entitlement_value</a> - The
+--   EntitlementValue represents the amount of capacity that the customer
+--   is entitled to for the product.
 --   
 --   <a>$sel:expirationDate:Entitlement'</a>,
 --   <a>entitlement_expirationDate</a> - The expiration date represents the
@@ -809,15 +818,6 @@ Entitlement' :: Maybe POSIX -> Maybe Text -> Maybe Text -> Maybe EntitlementValu
 --   The product code for which the given entitlement applies. Product
 --   codes are provided by AWS Marketplace when the product listing is
 --   created.
---   
---   <a>$sel:value:Entitlement'</a>, <a>entitlement_value</a> - The
---   EntitlementValue represents the amount of capacity that the customer
---   is entitled to for the product.
---   
---   <a>$sel:dimension:Entitlement'</a>, <a>entitlement_dimension</a> - The
---   dimension for which the given entitlement applies. Dimensions
---   represent categories of capacity in a product and are specified when
---   the product is listed in AWS Marketplace.
 newEntitlement :: Entitlement
 
 -- | The EntitlementValue represents the amount of capacity that the
@@ -825,7 +825,7 @@ newEntitlement :: Entitlement
 --   
 --   <i>See:</i> <a>newEntitlementValue</a> smart constructor.
 data EntitlementValue
-EntitlementValue' :: Maybe Double -> Maybe Text -> Maybe Bool -> Maybe Int -> EntitlementValue
+EntitlementValue' :: Maybe Int -> Maybe Double -> Maybe Text -> Maybe Bool -> EntitlementValue
 
 -- | Create a value of <a>EntitlementValue</a> with all optional fields
 --   omitted.
@@ -835,6 +835,11 @@ EntitlementValue' :: Maybe Double -> Maybe Text -> Maybe Bool -> Maybe Int -> En
 --   
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:integerValue:EntitlementValue'</a>,
+--   <a>entitlementValue_integerValue</a> - The IntegerValue field will be
+--   populated with an integer value when the entitlement is an integer
+--   type. Otherwise, the field will not be set.
 --   
 --   <a>$sel:doubleValue:EntitlementValue'</a>,
 --   <a>entitlementValue_doubleValue</a> - The DoubleValue field will be
@@ -850,9 +855,4 @@ EntitlementValue' :: Maybe Double -> Maybe Text -> Maybe Bool -> Maybe Int -> En
 --   <a>entitlementValue_booleanValue</a> - The BooleanValue field will be
 --   populated with a boolean value when the entitlement is a boolean type.
 --   Otherwise, the field will not be set.
---   
---   <a>$sel:integerValue:EntitlementValue'</a>,
---   <a>entitlementValue_integerValue</a> - The IntegerValue field will be
---   populated with an integer value when the entitlement is an integer
---   type. Otherwise, the field will not be set.
 newEntitlementValue :: EntitlementValue

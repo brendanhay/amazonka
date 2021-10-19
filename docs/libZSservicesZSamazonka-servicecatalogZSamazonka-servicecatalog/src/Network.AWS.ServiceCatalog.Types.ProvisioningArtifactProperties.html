@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- a product.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newProvisioningArtifactProperties' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679403448"><span id="local-6989586621679403449"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProvisioningArtifactProperties"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#ProvisioningArtifactProperties"><span class="hs-identifier hs-var">ProvisioningArtifactProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProvisioningArtifactProperties%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#ProvisioningArtifactProperties%27"><span class="hs-identifier hs-var">ProvisioningArtifactProperties'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679403897"><span id="local-6989586621679403898"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProvisioningArtifactProperties"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#ProvisioningArtifactProperties"><span class="hs-identifier hs-var">ProvisioningArtifactProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProvisioningArtifactProperties%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#ProvisioningArtifactProperties%27"><span class="hs-identifier hs-var">ProvisioningArtifactProperties'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If set to true, AWS Service Catalog stops validating the specified</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- provisioning artifact even if it is invalid.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AdisableTemplateValidation%3AProvisioningArtifactProperties%27"><span class="annot"><span class="annottext">ProvisioningArtifactProperties -&gt; Maybe Bool
@@ -37,19 +37,19 @@
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- spaces are allowed.</span><span>
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3Aname%3AProvisioningArtifactProperties%27"><span class="annot"><span class="annottext">ProvisioningArtifactProperties -&gt; Maybe Text
 </span><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#%24sel%3Aname%3AProvisioningArtifactProperties%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The description of the provisioning artifact, including how it differs</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- from the previous provisioning artifact.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3Adescription%3AProvisioningArtifactProperties%27"><span class="annot"><span class="annottext">ProvisioningArtifactProperties -&gt; Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#%24sel%3Adescription%3AProvisioningArtifactProperties%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The type of provisioning artifact.</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- -   @CLOUD_FORMATION_TEMPLATE@ - AWS CloudFormation template</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- -   @MARKETPLACE_AMI@ - AWS Marketplace AMI</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- -   @MARKETPLACE_CAR@ - AWS Marketplace Clusters and AWS Resources</span><span>
-</span><span id="line-48"></span><span>    </span><span id="%24sel%3Atype%27%3AProvisioningArtifactProperties%27"><span class="annot"><span class="annottext">ProvisioningArtifactProperties -&gt; Maybe ProvisioningArtifactType
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The type of provisioning artifact.</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- -   @CLOUD_FORMATION_TEMPLATE@ - AWS CloudFormation template</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- -   @MARKETPLACE_AMI@ - AWS Marketplace AMI</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- -   @MARKETPLACE_CAR@ - AWS Marketplace Clusters and AWS Resources</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Atype%27%3AProvisioningArtifactProperties%27"><span class="annot"><span class="annottext">ProvisioningArtifactProperties -&gt; Maybe ProvisioningArtifactType
 </span><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#%24sel%3Atype%27%3AProvisioningArtifactProperties%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactType.html#ProvisioningArtifactType"><span class="hs-identifier hs-type">ProvisioningArtifactType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The description of the provisioning artifact, including how it differs</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- from the previous provisioning artifact.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Adescription%3AProvisioningArtifactProperties%27"><span class="annot"><span class="annottext">ProvisioningArtifactProperties -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#%24sel%3Adescription%3AProvisioningArtifactProperties%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | Specify the template source with one of the following options, but not</span><span>
 </span><span id="line-50"></span><span>    </span><span class="hs-comment">-- both. Keys accepted: [ @LoadTemplateFromURL@, @ImportFromPhysicalId@ ]</span><span>
 </span><span id="line-51"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -65,7 +65,7 @@
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3Ainfo%3AProvisioningArtifactProperties%27"><span class="annot"><span class="annottext">ProvisioningArtifactProperties -&gt; HashMap Text Text
 </span><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#%24sel%3Ainfo%3AProvisioningArtifactProperties%27"><span class="hs-identifier hs-var hs-var">info</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679403438"><span id="local-6989586621679403440"><span class="annot"><span class="annottext">ProvisioningArtifactProperties
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679403887"><span id="local-6989586621679403889"><span class="annot"><span class="annottext">ProvisioningArtifactProperties
 -&gt; ProvisioningArtifactProperties -&gt; Bool
 (ProvisioningArtifactProperties
  -&gt; ProvisioningArtifactProperties -&gt; Bool)
@@ -81,7 +81,7 @@ $c/= :: ProvisioningArtifactProperties
 -&gt; ProvisioningArtifactProperties -&gt; Bool
 $c== :: ProvisioningArtifactProperties
 -&gt; ProvisioningArtifactProperties -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679403429"><span id="local-6989586621679403431"><span id="local-6989586621679403433"><span id="local-6989586621679403435"><span class="annot"><span class="annottext">ReadPrec [ProvisioningArtifactProperties]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679403878"><span id="local-6989586621679403880"><span id="local-6989586621679403882"><span id="local-6989586621679403884"><span class="annot"><span class="annottext">ReadPrec [ProvisioningArtifactProperties]
 ReadPrec ProvisioningArtifactProperties
 Int -&gt; ReadS ProvisioningArtifactProperties
 ReadS [ProvisioningArtifactProperties]
@@ -101,7 +101,7 @@ readList :: ReadS [ProvisioningArtifactProperties]
 $creadList :: ReadS [ProvisioningArtifactProperties]
 readsPrec :: Int -&gt; ReadS ProvisioningArtifactProperties
 $creadsPrec :: Int -&gt; ReadS ProvisioningArtifactProperties
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679403422"><span id="local-6989586621679403424"><span id="local-6989586621679403426"><span class="annot"><span class="annottext">Int -&gt; ProvisioningArtifactProperties -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679403871"><span id="local-6989586621679403873"><span id="local-6989586621679403875"><span class="annot"><span class="annottext">Int -&gt; ProvisioningArtifactProperties -&gt; ShowS
 [ProvisioningArtifactProperties] -&gt; ShowS
 ProvisioningArtifactProperties -&gt; String
 (Int -&gt; ProvisioningArtifactProperties -&gt; ShowS)
@@ -153,16 +153,16 @@ ProvisioningArtifactProperties
 </span><span id="line-76"></span><span class="hs-comment">-- 'name', 'provisioningArtifactProperties_name' - The name of the provisioning artifact (for example, v1 v2beta). No</span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- spaces are allowed.</span><span>
 </span><span id="line-78"></span><span class="hs-comment">--</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- 'description', 'provisioningArtifactProperties_description' - The description of the provisioning artifact, including how it differs</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- from the previous provisioning artifact.</span><span>
-</span><span id="line-81"></span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- 'type'', 'provisioningArtifactProperties_type' - The type of provisioning artifact.</span><span>
-</span><span id="line-83"></span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- -   @CLOUD_FORMATION_TEMPLATE@ - AWS CloudFormation template</span><span>
-</span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- -   @MARKETPLACE_AMI@ - AWS Marketplace AMI</span><span>
-</span><span id="line-87"></span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- -   @MARKETPLACE_CAR@ - AWS Marketplace Clusters and AWS Resources</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'type'', 'provisioningArtifactProperties_type' - The type of provisioning artifact.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- -   @CLOUD_FORMATION_TEMPLATE@ - AWS CloudFormation template</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- -   @MARKETPLACE_AMI@ - AWS Marketplace AMI</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- -   @MARKETPLACE_CAR@ - AWS Marketplace Clusters and AWS Resources</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'description', 'provisioningArtifactProperties_description' - The description of the provisioning artifact, including how it differs</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- from the previous provisioning artifact.</span><span>
 </span><span id="line-89"></span><span class="hs-comment">--</span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- 'info', 'provisioningArtifactProperties_info' - Specify the template source with one of the following options, but not</span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- both. Keys accepted: [ @LoadTemplateFromURL@, @ImportFromPhysicalId@ ]</span><span>
@@ -182,8 +182,8 @@ ProvisioningArtifactProperties
 </span><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#newProvisioningArtifactProperties"><span class="hs-identifier hs-var hs-var">newProvisioningArtifactProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>  </span><span class="annot"><span class="annottext">ProvisioningArtifactProperties' :: Maybe Bool
 -&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe ProvisioningArtifactType
+-&gt; Maybe Text
 -&gt; HashMap Text Text
 -&gt; ProvisioningArtifactProperties
 </span><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#ProvisioningArtifactProperties%27"><span class="hs-identifier hs-type">ProvisioningArtifactProperties'</span></a></span><span>
@@ -196,12 +196,12 @@ forall a. Maybe a
 </span><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#%24sel%3Aname%3AProvisioningArtifactProperties%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:ProvisioningArtifactProperties' :: Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#%24sel%3Adescription%3AProvisioningArtifactProperties%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':ProvisioningArtifactProperties' :: Maybe ProvisioningArtifactType
+</span><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#%24sel%3Atype%27%3AProvisioningArtifactProperties%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProvisioningArtifactType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':ProvisioningArtifactProperties' :: Maybe ProvisioningArtifactType
-</span><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#%24sel%3Atype%27%3AProvisioningArtifactProperties%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProvisioningArtifactType
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:ProvisioningArtifactProperties' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#%24sel%3Adescription%3AProvisioningArtifactProperties%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:info:ProvisioningArtifactProperties' :: HashMap Text Text
@@ -225,16 +225,16 @@ forall a. Monoid a =&gt; a
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#ProvisioningArtifactProperties%27"><span class="hs-identifier hs-type">ProvisioningArtifactProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403413"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#ProvisioningArtifactProperties%27"><span class="hs-identifier hs-type">ProvisioningArtifactProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403862"><span class="annot"><span class="annottext">Maybe Bool
 disableTemplateValidation :: Maybe Bool
 $sel:disableTemplateValidation:ProvisioningArtifactProperties' :: ProvisioningArtifactProperties -&gt; Maybe Bool
-</span><a href="#local-6989586621679403413"><span class="hs-identifier hs-var hs-var">disableTemplateValidation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679403413"><span class="hs-identifier hs-var">disableTemplateValidation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403412"><span class="annot"><span class="annottext">s :: ProvisioningArtifactProperties
-</span><a href="#local-6989586621679403412"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#ProvisioningArtifactProperties%27"><span class="hs-identifier hs-type">ProvisioningArtifactProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403411"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679403411"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisioningArtifactProperties
-</span><a href="#local-6989586621679403412"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:disableTemplateValidation:ProvisioningArtifactProperties' :: Maybe Bool
+</span><a href="#local-6989586621679403862"><span class="hs-identifier hs-var hs-var">disableTemplateValidation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679403862"><span class="hs-identifier hs-var">disableTemplateValidation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403861"><span class="annot"><span class="annottext">s :: ProvisioningArtifactProperties
+</span><a href="#local-6989586621679403861"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#ProvisioningArtifactProperties%27"><span class="hs-identifier hs-type">ProvisioningArtifactProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403860"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679403860"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisioningArtifactProperties
+</span><a href="#local-6989586621679403861"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:disableTemplateValidation:ProvisioningArtifactProperties' :: Maybe Bool
 </span><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#%24sel%3AdisableTemplateValidation%3AProvisioningArtifactProperties%27"><span class="hs-identifier hs-var">disableTemplateValidation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679403411"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#ProvisioningArtifactProperties"><span class="hs-identifier hs-type">ProvisioningArtifactProperties</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679403860"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#ProvisioningArtifactProperties"><span class="hs-identifier hs-type">ProvisioningArtifactProperties</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | The name of the provisioning artifact (for example, v1 v2beta). No</span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- spaces are allowed.</span><span>
@@ -251,52 +251,26 @@ $sel:disableTemplateValidation:ProvisioningArtifactProperties' :: ProvisioningAr
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#ProvisioningArtifactProperties%27"><span class="hs-identifier hs-type">ProvisioningArtifactProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403409"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#ProvisioningArtifactProperties%27"><span class="hs-identifier hs-type">ProvisioningArtifactProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403858"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:ProvisioningArtifactProperties' :: ProvisioningArtifactProperties -&gt; Maybe Text
-</span><a href="#local-6989586621679403409"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679403409"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403408"><span class="annot"><span class="annottext">s :: ProvisioningArtifactProperties
-</span><a href="#local-6989586621679403408"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#ProvisioningArtifactProperties%27"><span class="hs-identifier hs-type">ProvisioningArtifactProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403407"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679403407"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisioningArtifactProperties
-</span><a href="#local-6989586621679403408"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ProvisioningArtifactProperties' :: Maybe Text
+</span><a href="#local-6989586621679403858"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679403858"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403857"><span class="annot"><span class="annottext">s :: ProvisioningArtifactProperties
+</span><a href="#local-6989586621679403857"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#ProvisioningArtifactProperties%27"><span class="hs-identifier hs-type">ProvisioningArtifactProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403856"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679403856"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisioningArtifactProperties
+</span><a href="#local-6989586621679403857"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ProvisioningArtifactProperties' :: Maybe Text
 </span><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#%24sel%3Aname%3AProvisioningArtifactProperties%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679403407"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#ProvisioningArtifactProperties"><span class="hs-identifier hs-type">ProvisioningArtifactProperties</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679403856"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#ProvisioningArtifactProperties"><span class="hs-identifier hs-type">ProvisioningArtifactProperties</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- | The description of the provisioning artifact, including how it differs</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- from the previous provisioning artifact.</span><span>
-</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#provisioningArtifactProperties_description"><span class="hs-identifier hs-type">provisioningArtifactProperties_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#ProvisioningArtifactProperties"><span class="hs-identifier hs-type">ProvisioningArtifactProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span id="provisioningArtifactProperties_description"><span class="annot"><span class="annottext">provisioningArtifactProperties_description :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ProvisioningArtifactProperties
--&gt; f ProvisioningArtifactProperties
-</span><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#provisioningArtifactProperties_description"><span class="hs-identifier hs-var hs-var">provisioningArtifactProperties_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProvisioningArtifactProperties -&gt; Maybe Text)
--&gt; (ProvisioningArtifactProperties
-    -&gt; Maybe Text -&gt; ProvisioningArtifactProperties)
--&gt; Lens
-     ProvisioningArtifactProperties
-     ProvisioningArtifactProperties
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#ProvisioningArtifactProperties%27"><span class="hs-identifier hs-type">ProvisioningArtifactProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403405"><span class="annot"><span class="annottext">Maybe Text
-description :: Maybe Text
-$sel:description:ProvisioningArtifactProperties' :: ProvisioningArtifactProperties -&gt; Maybe Text
-</span><a href="#local-6989586621679403405"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679403405"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403404"><span class="annot"><span class="annottext">s :: ProvisioningArtifactProperties
-</span><a href="#local-6989586621679403404"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#ProvisioningArtifactProperties%27"><span class="hs-identifier hs-type">ProvisioningArtifactProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403403"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679403403"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisioningArtifactProperties
-</span><a href="#local-6989586621679403404"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ProvisioningArtifactProperties' :: Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#%24sel%3Adescription%3AProvisioningArtifactProperties%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679403403"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#ProvisioningArtifactProperties"><span class="hs-identifier hs-type">ProvisioningArtifactProperties</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- | The type of provisioning artifact.</span><span>
-</span><span id="line-130"></span><span class="hs-comment">--</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- -   @CLOUD_FORMATION_TEMPLATE@ - AWS CloudFormation template</span><span>
-</span><span id="line-132"></span><span class="hs-comment">--</span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- -   @MARKETPLACE_AMI@ - AWS Marketplace AMI</span><span>
-</span><span id="line-134"></span><span class="hs-comment">--</span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- -   @MARKETPLACE_CAR@ - AWS Marketplace Clusters and AWS Resources</span><span>
-</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#provisioningArtifactProperties_type"><span class="hs-identifier hs-type">provisioningArtifactProperties_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#ProvisioningArtifactProperties"><span class="hs-identifier hs-type">ProvisioningArtifactProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactType.html#ProvisioningArtifactType"><span class="hs-identifier hs-type">ProvisioningArtifactType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span id="provisioningArtifactProperties_type"><span class="annot"><span class="annottext">provisioningArtifactProperties_type :: (Maybe ProvisioningArtifactType
+</span><span id="line-124"></span><span class="hs-comment">-- | The type of provisioning artifact.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- -   @CLOUD_FORMATION_TEMPLATE@ - AWS CloudFormation template</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- -   @MARKETPLACE_AMI@ - AWS Marketplace AMI</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- -   @MARKETPLACE_CAR@ - AWS Marketplace Clusters and AWS Resources</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#provisioningArtifactProperties_type"><span class="hs-identifier hs-type">provisioningArtifactProperties_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#ProvisioningArtifactProperties"><span class="hs-identifier hs-type">ProvisioningArtifactProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactType.html#ProvisioningArtifactType"><span class="hs-identifier hs-type">ProvisioningArtifactType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="provisioningArtifactProperties_type"><span class="annot"><span class="annottext">provisioningArtifactProperties_type :: (Maybe ProvisioningArtifactType
  -&gt; f (Maybe ProvisioningArtifactType))
 -&gt; ProvisioningArtifactProperties
 -&gt; f ProvisioningArtifactProperties
@@ -310,16 +284,42 @@ $sel:description:ProvisioningArtifactProperties' :: ProvisioningArtifactProperti
      (Maybe ProvisioningArtifactType)
      (Maybe ProvisioningArtifactType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#ProvisioningArtifactProperties%27"><span class="hs-identifier hs-type">ProvisioningArtifactProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403401"><span class="annot"><span class="annottext">Maybe ProvisioningArtifactType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#ProvisioningArtifactProperties%27"><span class="hs-identifier hs-type">ProvisioningArtifactProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403854"><span class="annot"><span class="annottext">Maybe ProvisioningArtifactType
 type' :: Maybe ProvisioningArtifactType
 $sel:type':ProvisioningArtifactProperties' :: ProvisioningArtifactProperties -&gt; Maybe ProvisioningArtifactType
-</span><a href="#local-6989586621679403401"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProvisioningArtifactType
-</span><a href="#local-6989586621679403401"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403400"><span class="annot"><span class="annottext">s :: ProvisioningArtifactProperties
-</span><a href="#local-6989586621679403400"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#ProvisioningArtifactProperties%27"><span class="hs-identifier hs-type">ProvisioningArtifactProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403399"><span class="annot"><span class="annottext">Maybe ProvisioningArtifactType
-</span><a href="#local-6989586621679403399"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisioningArtifactProperties
-</span><a href="#local-6989586621679403400"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ProvisioningArtifactProperties' :: Maybe ProvisioningArtifactType
+</span><a href="#local-6989586621679403854"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProvisioningArtifactType
+</span><a href="#local-6989586621679403854"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403853"><span class="annot"><span class="annottext">s :: ProvisioningArtifactProperties
+</span><a href="#local-6989586621679403853"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#ProvisioningArtifactProperties%27"><span class="hs-identifier hs-type">ProvisioningArtifactProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403852"><span class="annot"><span class="annottext">Maybe ProvisioningArtifactType
+</span><a href="#local-6989586621679403852"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisioningArtifactProperties
+</span><a href="#local-6989586621679403853"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ProvisioningArtifactProperties' :: Maybe ProvisioningArtifactType
 </span><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#%24sel%3Atype%27%3AProvisioningArtifactProperties%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProvisioningArtifactType
-</span><a href="#local-6989586621679403399"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#ProvisioningArtifactProperties"><span class="hs-identifier hs-type">ProvisioningArtifactProperties</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679403852"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#ProvisioningArtifactProperties"><span class="hs-identifier hs-type">ProvisioningArtifactProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The description of the provisioning artifact, including how it differs</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- from the previous provisioning artifact.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#provisioningArtifactProperties_description"><span class="hs-identifier hs-type">provisioningArtifactProperties_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#ProvisioningArtifactProperties"><span class="hs-identifier hs-type">ProvisioningArtifactProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="provisioningArtifactProperties_description"><span class="annot"><span class="annottext">provisioningArtifactProperties_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ProvisioningArtifactProperties
+-&gt; f ProvisioningArtifactProperties
+</span><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#provisioningArtifactProperties_description"><span class="hs-identifier hs-var hs-var">provisioningArtifactProperties_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProvisioningArtifactProperties -&gt; Maybe Text)
+-&gt; (ProvisioningArtifactProperties
+    -&gt; Maybe Text -&gt; ProvisioningArtifactProperties)
+-&gt; Lens
+     ProvisioningArtifactProperties
+     ProvisioningArtifactProperties
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#ProvisioningArtifactProperties%27"><span class="hs-identifier hs-type">ProvisioningArtifactProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403850"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:ProvisioningArtifactProperties' :: ProvisioningArtifactProperties -&gt; Maybe Text
+</span><a href="#local-6989586621679403850"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679403850"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403849"><span class="annot"><span class="annottext">s :: ProvisioningArtifactProperties
+</span><a href="#local-6989586621679403849"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#ProvisioningArtifactProperties%27"><span class="hs-identifier hs-type">ProvisioningArtifactProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403848"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679403848"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisioningArtifactProperties
+</span><a href="#local-6989586621679403849"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ProvisioningArtifactProperties' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#%24sel%3Adescription%3AProvisioningArtifactProperties%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679403848"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#ProvisioningArtifactProperties"><span class="hs-identifier hs-type">ProvisioningArtifactProperties</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | Specify the template source with one of the following options, but not</span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- both. Keys accepted: [ @LoadTemplateFromURL@, @ImportFromPhysicalId@ ]</span><span>
@@ -346,16 +346,16 @@ $sel:type':ProvisioningArtifactProperties' :: ProvisioningArtifactProperties -&g
      (HashMap Text Text)
      (HashMap Text Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#ProvisioningArtifactProperties%27"><span class="hs-identifier hs-type">ProvisioningArtifactProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403397"><span class="annot"><span class="annottext">HashMap Text Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#ProvisioningArtifactProperties%27"><span class="hs-identifier hs-type">ProvisioningArtifactProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403846"><span class="annot"><span class="annottext">HashMap Text Text
 info :: HashMap Text Text
 $sel:info:ProvisioningArtifactProperties' :: ProvisioningArtifactProperties -&gt; HashMap Text Text
-</span><a href="#local-6989586621679403397"><span class="hs-identifier hs-var hs-var">info</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
-</span><a href="#local-6989586621679403397"><span class="hs-identifier hs-var">info</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403396"><span class="annot"><span class="annottext">s :: ProvisioningArtifactProperties
-</span><a href="#local-6989586621679403396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#ProvisioningArtifactProperties%27"><span class="hs-identifier hs-type">ProvisioningArtifactProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403395"><span class="annot"><span class="annottext">HashMap Text Text
-</span><a href="#local-6989586621679403395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisioningArtifactProperties
-</span><a href="#local-6989586621679403396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:info:ProvisioningArtifactProperties' :: HashMap Text Text
+</span><a href="#local-6989586621679403846"><span class="hs-identifier hs-var hs-var">info</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679403846"><span class="hs-identifier hs-var">info</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403845"><span class="annot"><span class="annottext">s :: ProvisioningArtifactProperties
+</span><a href="#local-6989586621679403845"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#ProvisioningArtifactProperties%27"><span class="hs-identifier hs-type">ProvisioningArtifactProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403844"><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679403844"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisioningArtifactProperties
+</span><a href="#local-6989586621679403845"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:info:ProvisioningArtifactProperties' :: HashMap Text Text
 </span><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#%24sel%3Ainfo%3AProvisioningArtifactProperties%27"><span class="hs-identifier hs-var">info</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
-</span><a href="#local-6989586621679403395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#ProvisioningArtifactProperties"><span class="hs-identifier hs-type">ProvisioningArtifactProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text Text -&gt; f (HashMap Text Text))
+</span><a href="#local-6989586621679403844"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#ProvisioningArtifactProperties"><span class="hs-identifier hs-type">ProvisioningArtifactProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text Text -&gt; f (HashMap Text Text))
  -&gt; ProvisioningArtifactProperties
  -&gt; f ProvisioningArtifactProperties)
 -&gt; ((HashMap Text Text -&gt; f (HashMap Text Text))
@@ -366,34 +366,34 @@ $sel:info:ProvisioningArtifactProperties' :: ProvisioningArtifactProperties -&gt
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; f (HashMap Text Text))
 -&gt; HashMap Text Text -&gt; f (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679403389"><span id="local-6989586621679403391"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679403838"><span id="local-6989586621679403840"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-156"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#ProvisioningArtifactProperties"><span class="hs-identifier hs-type">ProvisioningArtifactProperties</span></a></span></span></span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679403386"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679403835"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-160"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#ProvisioningArtifactProperties"><span class="hs-identifier hs-type">ProvisioningArtifactProperties</span></a></span></span><span>
 </span><span id="line-161"></span><span>
-</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679403378"><span id="local-6989586621679403380"><span id="local-6989586621679403382"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#ProvisioningArtifactProperties"><span class="hs-identifier hs-type">ProvisioningArtifactProperties</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679403376"><span class="annot"><span class="annottext">toJSON :: ProvisioningArtifactProperties -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#ProvisioningArtifactProperties%27"><span class="hs-identifier hs-type">ProvisioningArtifactProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403370"><span id="local-6989586621679403371"><span id="local-6989586621679403372"><span id="local-6989586621679403373"><span id="local-6989586621679403374"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679403827"><span id="local-6989586621679403829"><span id="local-6989586621679403831"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#ProvisioningArtifactProperties"><span class="hs-identifier hs-type">ProvisioningArtifactProperties</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679403825"><span class="annot"><span class="annottext">toJSON :: ProvisioningArtifactProperties -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties.html#ProvisioningArtifactProperties%27"><span class="hs-identifier hs-type">ProvisioningArtifactProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403819"><span id="local-6989586621679403820"><span id="local-6989586621679403821"><span id="local-6989586621679403822"><span id="local-6989586621679403823"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 Maybe ProvisioningArtifactType
 HashMap Text Text
 info :: HashMap Text Text
-type' :: Maybe ProvisioningArtifactType
 description :: Maybe Text
+type' :: Maybe ProvisioningArtifactType
 name :: Maybe Text
 disableTemplateValidation :: Maybe Bool
 $sel:info:ProvisioningArtifactProperties' :: ProvisioningArtifactProperties -&gt; HashMap Text Text
-$sel:type':ProvisioningArtifactProperties' :: ProvisioningArtifactProperties -&gt; Maybe ProvisioningArtifactType
 $sel:description:ProvisioningArtifactProperties' :: ProvisioningArtifactProperties -&gt; Maybe Text
+$sel:type':ProvisioningArtifactProperties' :: ProvisioningArtifactProperties -&gt; Maybe ProvisioningArtifactType
 $sel:name:ProvisioningArtifactProperties' :: ProvisioningArtifactProperties -&gt; Maybe Text
 $sel:disableTemplateValidation:ProvisioningArtifactProperties' :: ProvisioningArtifactProperties -&gt; Maybe Bool
-</span><a href="#local-6989586621679403370"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679403819"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-165"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -406,36 +406,36 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-167"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679403374"><span class="hs-identifier hs-var">disableTemplateValidation</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679403823"><span class="hs-identifier hs-var">disableTemplateValidation</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-168"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679403373"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679403822"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-169"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679403372"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-170"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ProvisioningArtifactType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ProvisioningArtifactType -&gt; Pair)
 -&gt; Maybe ProvisioningArtifactType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ProvisioningArtifactType
-</span><a href="#local-6989586621679403371"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679403821"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679403820"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Info&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
-</span><a href="#local-6989586621679403370"><span class="hs-identifier hs-var">info</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679403819"><span class="hs-identifier hs-var">info</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-173"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span></pre></body></html>

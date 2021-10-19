@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | When the certificate is valid.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newCertificateValidity' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679779767"><span id="local-6989586621679779768"></span></span><span class="hs-keyword">data</span><span> </span><span id="CertificateValidity"><span class="annot"><a href="Network.AWS.IoT.Types.CertificateValidity.html#CertificateValidity"><span class="hs-identifier hs-var">CertificateValidity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CertificateValidity%27"><span class="annot"><a href="Network.AWS.IoT.Types.CertificateValidity.html#CertificateValidity%27"><span class="hs-identifier hs-var">CertificateValidity'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679780617"><span id="local-6989586621679780618"></span></span><span class="hs-keyword">data</span><span> </span><span id="CertificateValidity"><span class="annot"><a href="Network.AWS.IoT.Types.CertificateValidity.html#CertificateValidity"><span class="hs-identifier hs-var">CertificateValidity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CertificateValidity%27"><span class="annot"><a href="Network.AWS.IoT.Types.CertificateValidity.html#CertificateValidity%27"><span class="hs-identifier hs-var">CertificateValidity'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The certificate is not valid before this date.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AnotBefore%3ACertificateValidity%27"><span class="annot"><span class="annottext">CertificateValidity -&gt; Maybe POSIX
 </span><a href="Network.AWS.IoT.Types.CertificateValidity.html#%24sel%3AnotBefore%3ACertificateValidity%27"><span class="hs-identifier hs-var hs-var">notBefore</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
@@ -34,7 +34,7 @@
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AnotAfter%3ACertificateValidity%27"><span class="annot"><span class="annottext">CertificateValidity -&gt; Maybe POSIX
 </span><a href="Network.AWS.IoT.Types.CertificateValidity.html#%24sel%3AnotAfter%3ACertificateValidity%27"><span class="hs-identifier hs-var hs-var">notAfter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679779760"><span id="local-6989586621679779762"><span class="annot"><span class="annottext">CertificateValidity -&gt; CertificateValidity -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679780610"><span id="local-6989586621679780612"><span class="annot"><span class="annottext">CertificateValidity -&gt; CertificateValidity -&gt; Bool
 (CertificateValidity -&gt; CertificateValidity -&gt; Bool)
 -&gt; (CertificateValidity -&gt; CertificateValidity -&gt; Bool)
 -&gt; Eq CertificateValidity
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CertificateValidity -&gt; CertificateValidity -&gt; Bool
 == :: CertificateValidity -&gt; CertificateValidity -&gt; Bool
 $c== :: CertificateValidity -&gt; CertificateValidity -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679779751"><span id="local-6989586621679779753"><span id="local-6989586621679779755"><span id="local-6989586621679779757"><span class="annot"><span class="annottext">ReadPrec [CertificateValidity]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679780601"><span id="local-6989586621679780603"><span id="local-6989586621679780605"><span id="local-6989586621679780607"><span class="annot"><span class="annottext">ReadPrec [CertificateValidity]
 ReadPrec CertificateValidity
 Int -&gt; ReadS CertificateValidity
 ReadS [CertificateValidity]
@@ -63,7 +63,7 @@ readList :: ReadS [CertificateValidity]
 $creadList :: ReadS [CertificateValidity]
 readsPrec :: Int -&gt; ReadS CertificateValidity
 $creadsPrec :: Int -&gt; ReadS CertificateValidity
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679779744"><span id="local-6989586621679779746"><span id="local-6989586621679779748"><span class="annot"><span class="annottext">Int -&gt; CertificateValidity -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679780594"><span id="local-6989586621679780596"><span id="local-6989586621679780598"><span class="annot"><span class="annottext">Int -&gt; CertificateValidity -&gt; ShowS
 [CertificateValidity] -&gt; ShowS
 CertificateValidity -&gt; String
 (Int -&gt; CertificateValidity -&gt; ShowS)
@@ -125,16 +125,16 @@ forall a. Maybe a
 -&gt; Lens
      CertificateValidity CertificateValidity (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.CertificateValidity.html#CertificateValidity%27"><span class="hs-identifier hs-type">CertificateValidity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679779735"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.CertificateValidity.html#CertificateValidity%27"><span class="hs-identifier hs-type">CertificateValidity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780585"><span class="annot"><span class="annottext">Maybe POSIX
 notBefore :: Maybe POSIX
 $sel:notBefore:CertificateValidity' :: CertificateValidity -&gt; Maybe POSIX
-</span><a href="#local-6989586621679779735"><span class="hs-identifier hs-var hs-var">notBefore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679779735"><span class="hs-identifier hs-var">notBefore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679779734"><span class="annot"><span class="annottext">s :: CertificateValidity
-</span><a href="#local-6989586621679779734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.CertificateValidity.html#CertificateValidity%27"><span class="hs-identifier hs-type">CertificateValidity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679779733"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679779733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CertificateValidity
-</span><a href="#local-6989586621679779734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notBefore:CertificateValidity' :: Maybe POSIX
+</span><a href="#local-6989586621679780585"><span class="hs-identifier hs-var hs-var">notBefore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679780585"><span class="hs-identifier hs-var">notBefore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679780584"><span class="annot"><span class="annottext">s :: CertificateValidity
+</span><a href="#local-6989586621679780584"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.CertificateValidity.html#CertificateValidity%27"><span class="hs-identifier hs-type">CertificateValidity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679780583"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679780583"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CertificateValidity
+</span><a href="#local-6989586621679780584"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notBefore:CertificateValidity' :: Maybe POSIX
 </span><a href="Network.AWS.IoT.Types.CertificateValidity.html#%24sel%3AnotBefore%3ACertificateValidity%27"><span class="hs-identifier hs-var">notBefore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679779733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CertificateValidity.html#CertificateValidity"><span class="hs-identifier hs-type">CertificateValidity</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679780583"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CertificateValidity.html#CertificateValidity"><span class="hs-identifier hs-type">CertificateValidity</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; CertificateValidity -&gt; f CertificateValidity)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -160,16 +160,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; Lens
      CertificateValidity CertificateValidity (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.CertificateValidity.html#CertificateValidity%27"><span class="hs-identifier hs-type">CertificateValidity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679779728"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.CertificateValidity.html#CertificateValidity%27"><span class="hs-identifier hs-type">CertificateValidity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780578"><span class="annot"><span class="annottext">Maybe POSIX
 notAfter :: Maybe POSIX
 $sel:notAfter:CertificateValidity' :: CertificateValidity -&gt; Maybe POSIX
-</span><a href="#local-6989586621679779728"><span class="hs-identifier hs-var hs-var">notAfter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679779728"><span class="hs-identifier hs-var">notAfter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679779727"><span class="annot"><span class="annottext">s :: CertificateValidity
-</span><a href="#local-6989586621679779727"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.CertificateValidity.html#CertificateValidity%27"><span class="hs-identifier hs-type">CertificateValidity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679779726"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679779726"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CertificateValidity
-</span><a href="#local-6989586621679779727"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notAfter:CertificateValidity' :: Maybe POSIX
+</span><a href="#local-6989586621679780578"><span class="hs-identifier hs-var hs-var">notAfter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679780578"><span class="hs-identifier hs-var">notAfter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679780577"><span class="annot"><span class="annottext">s :: CertificateValidity
+</span><a href="#local-6989586621679780577"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.CertificateValidity.html#CertificateValidity%27"><span class="hs-identifier hs-type">CertificateValidity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679780576"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679780576"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CertificateValidity
+</span><a href="#local-6989586621679780577"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notAfter:CertificateValidity' :: Maybe POSIX
 </span><a href="Network.AWS.IoT.Types.CertificateValidity.html#%24sel%3AnotAfter%3ACertificateValidity%27"><span class="hs-identifier hs-var">notAfter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679779726"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CertificateValidity.html#CertificateValidity"><span class="hs-identifier hs-type">CertificateValidity</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679780576"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CertificateValidity.html#CertificateValidity"><span class="hs-identifier hs-type">CertificateValidity</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; CertificateValidity -&gt; f CertificateValidity)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -186,8 +186,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679779723"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CertificateValidity.html#CertificateValidity"><span class="hs-identifier hs-type">CertificateValidity</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679779721"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CertificateValidity
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679780573"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CertificateValidity.html#CertificateValidity"><span class="hs-identifier hs-type">CertificateValidity</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679780571"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CertificateValidity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CertificateValidity)
@@ -197,8 +197,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CertificateValidity&quot;</span></span><span>
-</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679779718"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679779718"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679780568"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679780568"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX -&gt; Maybe POSIX -&gt; CertificateValidity
 </span><a href="Network.AWS.IoT.Types.CertificateValidity.html#CertificateValidity%27"><span class="hs-identifier hs-var">CertificateValidity'</span></a></span><span>
 </span><span id="line-70"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX -&gt; Maybe POSIX -&gt; CertificateValidity)
@@ -206,7 +206,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe POSIX -&gt; CertificateValidity)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679779718"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679780568"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;notBefore&quot;</span></span><span class="hs-special">)</span><span>
@@ -214,13 +214,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe POSIX) -&gt; Parser CertificateValidity
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679779718"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679780568"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;notAfter&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679779712"><span id="local-6989586621679779714"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CertificateValidity.html#CertificateValidity"><span class="hs-identifier hs-type">CertificateValidity</span></a></span></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679780562"><span id="local-6989586621679780564"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CertificateValidity.html#CertificateValidity"><span class="hs-identifier hs-type">CertificateValidity</span></a></span></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679779709"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CertificateValidity.html#CertificateValidity"><span class="hs-identifier hs-type">CertificateValidity</span></a></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679780559"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CertificateValidity.html#CertificateValidity"><span class="hs-identifier hs-type">CertificateValidity</span></a></span></span><span>
 </span><span id="line-77"></span></pre></body></html>

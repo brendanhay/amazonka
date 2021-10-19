@@ -28,8 +28,8 @@
 </span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#newRemoveResourcePermission"><span class="hs-identifier">newRemoveResourcePermission</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-29"></span><span>
 </span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#removeResourcePermission_authenticationToken"><span class="hs-identifier">removeResourcePermission_authenticationToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#removeResourcePermission_principalType"><span class="hs-identifier">removeResourcePermission_principalType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#removeResourcePermission_principalType"><span class="hs-identifier">removeResourcePermission_principalType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#removeResourcePermission_authenticationToken"><span class="hs-identifier">removeResourcePermission_authenticationToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#removeResourcePermission_resourceId"><span class="hs-identifier">removeResourcePermission_resourceId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#removeResourcePermission_principalId"><span class="hs-identifier">removeResourcePermission_principalId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>
@@ -47,14 +47,14 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.html"><span class="hs-identifier">Network.AWS.WorkDocs.Types</span></a></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newRemoveResourcePermission' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679267110"><span id="local-6989586621679267111"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveResourcePermission"><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermission"><span class="hs-identifier hs-var">RemoveResourcePermission</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveResourcePermission%27"><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermission%27"><span class="hs-identifier hs-var">RemoveResourcePermission'</span></a></span></span><span>
-</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Amazon WorkDocs authentication token. Not required when using AWS</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- administrator credentials to access the API.</span><span>
-</span><span id="line-53"></span><span>    </span><span id="%24sel%3AauthenticationToken%3ARemoveResourcePermission%27"><span class="annot"><span class="annottext">RemoveResourcePermission -&gt; Maybe (Sensitive Text)
-</span><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#%24sel%3AauthenticationToken%3ARemoveResourcePermission%27"><span class="hs-identifier hs-var hs-var">authenticationToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The principal type of the resource.</span><span>
-</span><span id="line-55"></span><span>    </span><span id="%24sel%3AprincipalType%3ARemoveResourcePermission%27"><span class="annot"><span class="annottext">RemoveResourcePermission -&gt; Maybe PrincipalType
+</span><span id="line-50"></span><span id="local-6989586621679267239"><span id="local-6989586621679267240"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveResourcePermission"><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermission"><span class="hs-identifier hs-var">RemoveResourcePermission</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveResourcePermission%27"><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermission%27"><span class="hs-identifier hs-var">RemoveResourcePermission'</span></a></span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The principal type of the resource.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AprincipalType%3ARemoveResourcePermission%27"><span class="annot"><span class="annottext">RemoveResourcePermission -&gt; Maybe PrincipalType
 </span><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#%24sel%3AprincipalType%3ARemoveResourcePermission%27"><span class="hs-identifier hs-var hs-var">principalType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.PrincipalType.html#PrincipalType"><span class="hs-identifier hs-type">PrincipalType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | Amazon WorkDocs authentication token. Not required when using AWS</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- administrator credentials to access the API.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AauthenticationToken%3ARemoveResourcePermission%27"><span class="annot"><span class="annottext">RemoveResourcePermission -&gt; Maybe (Sensitive Text)
+</span><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#%24sel%3AauthenticationToken%3ARemoveResourcePermission%27"><span class="hs-identifier hs-var hs-var">authenticationToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The ID of the resource.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AresourceId%3ARemoveResourcePermission%27"><span class="annot"><span class="annottext">RemoveResourcePermission -&gt; Text
 </span><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#%24sel%3AresourceId%3ARemoveResourcePermission%27"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -62,7 +62,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AprincipalId%3ARemoveResourcePermission%27"><span class="annot"><span class="annottext">RemoveResourcePermission -&gt; Text
 </span><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#%24sel%3AprincipalId%3ARemoveResourcePermission%27"><span class="hs-identifier hs-var hs-var">principalId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679267101"><span id="local-6989586621679267103"><span class="annot"><span class="annottext">RemoveResourcePermission -&gt; RemoveResourcePermission -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679267230"><span id="local-6989586621679267232"><span class="annot"><span class="annottext">RemoveResourcePermission -&gt; RemoveResourcePermission -&gt; Bool
 (RemoveResourcePermission -&gt; RemoveResourcePermission -&gt; Bool)
 -&gt; (RemoveResourcePermission -&gt; RemoveResourcePermission -&gt; Bool)
 -&gt; Eq RemoveResourcePermission
@@ -71,7 +71,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RemoveResourcePermission -&gt; RemoveResourcePermission -&gt; Bool
 == :: RemoveResourcePermission -&gt; RemoveResourcePermission -&gt; Bool
 $c== :: RemoveResourcePermission -&gt; RemoveResourcePermission -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267094"><span id="local-6989586621679267096"><span id="local-6989586621679267098"><span class="annot"><span class="annottext">Int -&gt; RemoveResourcePermission -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267223"><span id="local-6989586621679267225"><span id="local-6989586621679267227"><span class="annot"><span class="annottext">Int -&gt; RemoveResourcePermission -&gt; ShowS
 [RemoveResourcePermission] -&gt; ShowS
 RemoveResourcePermission -&gt; String
 (Int -&gt; RemoveResourcePermission -&gt; ShowS)
@@ -111,10 +111,10 @@ RemoveResourcePermission -&gt; Rep RemoveResourcePermission x
 </span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-70"></span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- 'authenticationToken', 'removeResourcePermission_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- administrator credentials to access the API.</span><span>
-</span><span id="line-73"></span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- 'principalType', 'removeResourcePermission_principalType' - The principal type of the resource.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'principalType', 'removeResourcePermission_principalType' - The principal type of the resource.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'authenticationToken', 'removeResourcePermission_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- administrator credentials to access the API.</span><span>
 </span><span id="line-75"></span><span class="hs-comment">--</span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- 'resourceId', 'removeResourcePermission_resourceId' - The ID of the resource.</span><span>
 </span><span id="line-77"></span><span class="hs-comment">--</span><span>
@@ -127,34 +127,61 @@ RemoveResourcePermission -&gt; Rep RemoveResourcePermission x
 </span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermission"><span class="hs-identifier hs-type">RemoveResourcePermission</span></a></span><span>
 </span><span id="line-85"></span><span id="newRemoveResourcePermission"><span class="annot"><span class="annottext">newRemoveResourcePermission :: Text -&gt; Text -&gt; RemoveResourcePermission
 </span><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#newRemoveResourcePermission"><span class="hs-identifier hs-var hs-var">newRemoveResourcePermission</span></a></span></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679267089"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679267089"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679267088"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679267088"><span class="hs-identifier hs-var">pPrincipalId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">RemoveResourcePermission' :: Maybe (Sensitive Text)
--&gt; Maybe PrincipalType -&gt; Text -&gt; Text -&gt; RemoveResourcePermission
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679267218"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267218"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679267217"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267217"><span class="hs-identifier hs-var">pPrincipalId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">RemoveResourcePermission' :: Maybe PrincipalType
+-&gt; Maybe (Sensitive Text)
+-&gt; Text
+-&gt; Text
+-&gt; RemoveResourcePermission
 </span><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermission%27"><span class="hs-identifier hs-type">RemoveResourcePermission'</span></a></span><span>
-</span><span id="line-89"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:authenticationToken:RemoveResourcePermission' :: Maybe (Sensitive Text)
-</span><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#%24sel%3AauthenticationToken%3ARemoveResourcePermission%27"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span id="line-89"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:principalType:RemoveResourcePermission' :: Maybe PrincipalType
+</span><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#%24sel%3AprincipalType%3ARemoveResourcePermission%27"><span class="hs-identifier hs-var">principalType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe PrincipalType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">$sel:principalType:RemoveResourcePermission' :: Maybe PrincipalType
-</span><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#%24sel%3AprincipalType%3ARemoveResourcePermission%27"><span class="hs-identifier hs-var">principalType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PrincipalType
+</span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">$sel:authenticationToken:RemoveResourcePermission' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#%24sel%3AauthenticationToken%3ARemoveResourcePermission%27"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceId:RemoveResourcePermission' :: Text
 </span><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#%24sel%3AresourceId%3ARemoveResourcePermission%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679267089"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679267218"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">$sel:principalId:RemoveResourcePermission' :: Text
 </span><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#%24sel%3AprincipalId%3ARemoveResourcePermission%27"><span class="hs-identifier hs-var">principalId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679267088"><span class="hs-identifier hs-var">pPrincipalId_</span></a></span><span>
+</span><a href="#local-6989586621679267217"><span class="hs-identifier hs-var">pPrincipalId_</span></a></span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- | Amazon WorkDocs authentication token. Not required when using AWS</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- administrator credentials to access the API.</span><span>
-</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#removeResourcePermission_authenticationToken"><span class="hs-identifier hs-type">removeResourcePermission_authenticationToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermission"><span class="hs-identifier hs-type">RemoveResourcePermission</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span id="removeResourcePermission_authenticationToken"><span class="annot"><span class="annottext">removeResourcePermission_authenticationToken :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-96"></span><span class="hs-comment">-- | The principal type of the resource.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#removeResourcePermission_principalType"><span class="hs-identifier hs-type">removeResourcePermission_principalType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermission"><span class="hs-identifier hs-type">RemoveResourcePermission</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.PrincipalType.html#PrincipalType"><span class="hs-identifier hs-type">PrincipalType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="removeResourcePermission_principalType"><span class="annot"><span class="annottext">removeResourcePermission_principalType :: (Maybe PrincipalType -&gt; f (Maybe PrincipalType))
+-&gt; RemoveResourcePermission -&gt; f RemoveResourcePermission
+</span><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#removeResourcePermission_principalType"><span class="hs-identifier hs-var hs-var">removeResourcePermission_principalType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemoveResourcePermission -&gt; Maybe PrincipalType)
+-&gt; (RemoveResourcePermission
+    -&gt; Maybe PrincipalType -&gt; RemoveResourcePermission)
+-&gt; Lens
+     RemoveResourcePermission
+     RemoveResourcePermission
+     (Maybe PrincipalType)
+     (Maybe PrincipalType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermission%27"><span class="hs-identifier hs-type">RemoveResourcePermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267214"><span class="annot"><span class="annottext">Maybe PrincipalType
+principalType :: Maybe PrincipalType
+$sel:principalType:RemoveResourcePermission' :: RemoveResourcePermission -&gt; Maybe PrincipalType
+</span><a href="#local-6989586621679267214"><span class="hs-identifier hs-var hs-var">principalType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PrincipalType
+</span><a href="#local-6989586621679267214"><span class="hs-identifier hs-var">principalType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267213"><span class="annot"><span class="annottext">s :: RemoveResourcePermission
+</span><a href="#local-6989586621679267213"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermission%27"><span class="hs-identifier hs-type">RemoveResourcePermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267212"><span class="annot"><span class="annottext">Maybe PrincipalType
+</span><a href="#local-6989586621679267212"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveResourcePermission
+</span><a href="#local-6989586621679267213"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:principalType:RemoveResourcePermission' :: Maybe PrincipalType
+</span><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#%24sel%3AprincipalType%3ARemoveResourcePermission%27"><span class="hs-identifier hs-var">principalType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PrincipalType
+</span><a href="#local-6989586621679267212"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermission"><span class="hs-identifier hs-type">RemoveResourcePermission</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | Amazon WorkDocs authentication token. Not required when using AWS</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- administrator credentials to access the API.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#removeResourcePermission_authenticationToken"><span class="hs-identifier hs-type">removeResourcePermission_authenticationToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermission"><span class="hs-identifier hs-type">RemoveResourcePermission</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="removeResourcePermission_authenticationToken"><span class="annot"><span class="annottext">removeResourcePermission_authenticationToken :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; RemoveResourcePermission -&gt; f RemoveResourcePermission
 </span><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#removeResourcePermission_authenticationToken"><span class="hs-identifier hs-var hs-var">removeResourcePermission_authenticationToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemoveResourcePermission -&gt; Maybe (Sensitive Text))
 -&gt; (RemoveResourcePermission
@@ -165,16 +192,16 @@ forall a. Maybe a
      (Maybe (Sensitive Text))
      (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermission%27"><span class="hs-identifier hs-type">RemoveResourcePermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267085"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermission%27"><span class="hs-identifier hs-type">RemoveResourcePermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267211"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 authenticationToken :: Maybe (Sensitive Text)
 $sel:authenticationToken:RemoveResourcePermission' :: RemoveResourcePermission -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679267085"><span class="hs-identifier hs-var hs-var">authenticationToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679267085"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267084"><span class="annot"><span class="annottext">s :: RemoveResourcePermission
-</span><a href="#local-6989586621679267084"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermission%27"><span class="hs-identifier hs-type">RemoveResourcePermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267083"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679267083"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveResourcePermission
-</span><a href="#local-6989586621679267084"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authenticationToken:RemoveResourcePermission' :: Maybe (Sensitive Text)
+</span><a href="#local-6989586621679267211"><span class="hs-identifier hs-var hs-var">authenticationToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679267211"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267210"><span class="annot"><span class="annottext">s :: RemoveResourcePermission
+</span><a href="#local-6989586621679267210"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermission%27"><span class="hs-identifier hs-type">RemoveResourcePermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267209"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679267209"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveResourcePermission
+</span><a href="#local-6989586621679267210"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authenticationToken:RemoveResourcePermission' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#%24sel%3AauthenticationToken%3ARemoveResourcePermission%27"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679267083"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermission"><span class="hs-identifier hs-type">RemoveResourcePermission</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><a href="#local-6989586621679267209"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermission"><span class="hs-identifier hs-type">RemoveResourcePermission</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; RemoveResourcePermission -&gt; f RemoveResourcePermission)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -194,30 +221,6 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
 forall a. Iso' (Sensitive a) a
 </span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
-</span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- | The principal type of the resource.</span><span>
-</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#removeResourcePermission_principalType"><span class="hs-identifier hs-type">removeResourcePermission_principalType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermission"><span class="hs-identifier hs-type">RemoveResourcePermission</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.PrincipalType.html#PrincipalType"><span class="hs-identifier hs-type">PrincipalType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span id="removeResourcePermission_principalType"><span class="annot"><span class="annottext">removeResourcePermission_principalType :: (Maybe PrincipalType -&gt; f (Maybe PrincipalType))
--&gt; RemoveResourcePermission -&gt; f RemoveResourcePermission
-</span><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#removeResourcePermission_principalType"><span class="hs-identifier hs-var hs-var">removeResourcePermission_principalType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemoveResourcePermission -&gt; Maybe PrincipalType)
--&gt; (RemoveResourcePermission
-    -&gt; Maybe PrincipalType -&gt; RemoveResourcePermission)
--&gt; Lens
-     RemoveResourcePermission
-     RemoveResourcePermission
-     (Maybe PrincipalType)
-     (Maybe PrincipalType)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermission%27"><span class="hs-identifier hs-type">RemoveResourcePermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267079"><span class="annot"><span class="annottext">Maybe PrincipalType
-principalType :: Maybe PrincipalType
-$sel:principalType:RemoveResourcePermission' :: RemoveResourcePermission -&gt; Maybe PrincipalType
-</span><a href="#local-6989586621679267079"><span class="hs-identifier hs-var hs-var">principalType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PrincipalType
-</span><a href="#local-6989586621679267079"><span class="hs-identifier hs-var">principalType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267078"><span class="annot"><span class="annottext">s :: RemoveResourcePermission
-</span><a href="#local-6989586621679267078"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermission%27"><span class="hs-identifier hs-type">RemoveResourcePermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267077"><span class="annot"><span class="annottext">Maybe PrincipalType
-</span><a href="#local-6989586621679267077"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveResourcePermission
-</span><a href="#local-6989586621679267078"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:principalType:RemoveResourcePermission' :: Maybe PrincipalType
-</span><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#%24sel%3AprincipalType%3ARemoveResourcePermission%27"><span class="hs-identifier hs-var">principalType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PrincipalType
-</span><a href="#local-6989586621679267077"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermission"><span class="hs-identifier hs-type">RemoveResourcePermission</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | The ID of the resource.</span><span>
 </span><span id="line-106"></span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#removeResourcePermission_resourceId"><span class="hs-identifier hs-type">removeResourcePermission_resourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermission"><span class="hs-identifier hs-type">RemoveResourcePermission</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -227,16 +230,16 @@ $sel:principalType:RemoveResourcePermission' :: RemoveResourcePermission -&gt; M
 -&gt; (RemoveResourcePermission -&gt; Text -&gt; RemoveResourcePermission)
 -&gt; Lens RemoveResourcePermission RemoveResourcePermission Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermission%27"><span class="hs-identifier hs-type">RemoveResourcePermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267076"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermission%27"><span class="hs-identifier hs-type">RemoveResourcePermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267205"><span class="annot"><span class="annottext">Text
 resourceId :: Text
 $sel:resourceId:RemoveResourcePermission' :: RemoveResourcePermission -&gt; Text
-</span><a href="#local-6989586621679267076"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679267076"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267075"><span class="annot"><span class="annottext">s :: RemoveResourcePermission
-</span><a href="#local-6989586621679267075"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermission%27"><span class="hs-identifier hs-type">RemoveResourcePermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267074"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679267074"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveResourcePermission
-</span><a href="#local-6989586621679267075"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:RemoveResourcePermission' :: Text
+</span><a href="#local-6989586621679267205"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267205"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267204"><span class="annot"><span class="annottext">s :: RemoveResourcePermission
+</span><a href="#local-6989586621679267204"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermission%27"><span class="hs-identifier hs-type">RemoveResourcePermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267203"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267203"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveResourcePermission
+</span><a href="#local-6989586621679267204"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:RemoveResourcePermission' :: Text
 </span><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#%24sel%3AresourceId%3ARemoveResourcePermission%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679267074"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermission"><span class="hs-identifier hs-type">RemoveResourcePermission</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679267203"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermission"><span class="hs-identifier hs-type">RemoveResourcePermission</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | The principal ID of the resource.</span><span>
 </span><span id="line-110"></span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#removeResourcePermission_principalId"><span class="hs-identifier hs-type">removeResourcePermission_principalId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermission"><span class="hs-identifier hs-type">RemoveResourcePermission</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -246,28 +249,28 @@ $sel:resourceId:RemoveResourcePermission' :: RemoveResourcePermission -&gt; Text
 -&gt; (RemoveResourcePermission -&gt; Text -&gt; RemoveResourcePermission)
 -&gt; Lens RemoveResourcePermission RemoveResourcePermission Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermission%27"><span class="hs-identifier hs-type">RemoveResourcePermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267073"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermission%27"><span class="hs-identifier hs-type">RemoveResourcePermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267202"><span class="annot"><span class="annottext">Text
 principalId :: Text
 $sel:principalId:RemoveResourcePermission' :: RemoveResourcePermission -&gt; Text
-</span><a href="#local-6989586621679267073"><span class="hs-identifier hs-var hs-var">principalId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679267073"><span class="hs-identifier hs-var">principalId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267072"><span class="annot"><span class="annottext">s :: RemoveResourcePermission
-</span><a href="#local-6989586621679267072"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermission%27"><span class="hs-identifier hs-type">RemoveResourcePermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267071"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679267071"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveResourcePermission
-</span><a href="#local-6989586621679267072"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:principalId:RemoveResourcePermission' :: Text
+</span><a href="#local-6989586621679267202"><span class="hs-identifier hs-var hs-var">principalId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267202"><span class="hs-identifier hs-var">principalId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267201"><span class="annot"><span class="annottext">s :: RemoveResourcePermission
+</span><a href="#local-6989586621679267201"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermission%27"><span class="hs-identifier hs-type">RemoveResourcePermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267200"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267200"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveResourcePermission
+</span><a href="#local-6989586621679267201"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:principalId:RemoveResourcePermission' :: Text
 </span><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#%24sel%3AprincipalId%3ARemoveResourcePermission%27"><span class="hs-identifier hs-var">principalId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679267071"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermission"><span class="hs-identifier hs-type">RemoveResourcePermission</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679267200"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermission"><span class="hs-identifier hs-type">RemoveResourcePermission</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermission"><span class="hs-identifier hs-type">RemoveResourcePermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-114"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-115"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermission"><span class="hs-identifier hs-type">RemoveResourcePermission</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>      </span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermissionResponse"><span class="hs-identifier hs-type">RemoveResourcePermissionResponse</span></a></span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679267067"><span class="annot"><span class="annottext">request :: RemoveResourcePermission -&gt; Request RemoveResourcePermission
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679267196"><span class="annot"><span class="annottext">request :: RemoveResourcePermission -&gt; Request RemoveResourcePermission
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; RemoveResourcePermission -&gt; Request RemoveResourcePermission
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.WorkDocs.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679267063"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679267192"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy RemoveResourcePermission
 -&gt; ClientResponse ClientBody
@@ -294,24 +297,24 @@ AWSResponse a
 RemoveResourcePermissionResponse
 </span><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermissionResponse%27"><span class="hs-identifier hs-var">RemoveResourcePermissionResponse'</span></a></span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267056"><span id="local-6989586621679267058"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermission"><span class="hs-identifier hs-type">RemoveResourcePermission</span></a></span></span></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267185"><span id="local-6989586621679267187"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermission"><span class="hs-identifier hs-type">RemoveResourcePermission</span></a></span></span></span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267053"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermission"><span class="hs-identifier hs-type">RemoveResourcePermission</span></a></span></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267182"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermission"><span class="hs-identifier hs-type">RemoveResourcePermission</span></a></span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermission"><span class="hs-identifier hs-type">RemoveResourcePermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679267049"><span class="annot"><span class="annottext">toHeaders :: RemoveResourcePermission -&gt; [Header]
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermission%27"><span class="hs-identifier hs-type">RemoveResourcePermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267044"><span id="local-6989586621679267045"><span id="local-6989586621679267046"><span id="local-6989586621679267047"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679267178"><span class="annot"><span class="annottext">toHeaders :: RemoveResourcePermission -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermission%27"><span class="hs-identifier hs-type">RemoveResourcePermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267173"><span id="local-6989586621679267174"><span id="local-6989586621679267175"><span id="local-6989586621679267176"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 Maybe PrincipalType
 Text
 principalId :: Text
 resourceId :: Text
-principalType :: Maybe PrincipalType
 authenticationToken :: Maybe (Sensitive Text)
+principalType :: Maybe PrincipalType
 $sel:principalId:RemoveResourcePermission' :: RemoveResourcePermission -&gt; Text
 $sel:resourceId:RemoveResourcePermission' :: RemoveResourcePermission -&gt; Text
-$sel:principalType:RemoveResourcePermission' :: RemoveResourcePermission -&gt; Maybe PrincipalType
 $sel:authenticationToken:RemoveResourcePermission' :: RemoveResourcePermission -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679267044"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:principalType:RemoveResourcePermission' :: RemoveResourcePermission -&gt; Maybe PrincipalType
+</span><a href="#local-6989586621679267173"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -319,7 +322,7 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Authentication&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe (Sensitive Text) -&gt; [Header]
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679267047"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679267175"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
 </span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
@@ -329,19 +332,19 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-132"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermission"><span class="hs-identifier hs-type">RemoveResourcePermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679267040"><span class="annot"><span class="annottext">toPath :: RemoveResourcePermission -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermission%27"><span class="hs-identifier hs-type">RemoveResourcePermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267035"><span id="local-6989586621679267036"><span id="local-6989586621679267037"><span id="local-6989586621679267038"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679267169"><span class="annot"><span class="annottext">toPath :: RemoveResourcePermission -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermission%27"><span class="hs-identifier hs-type">RemoveResourcePermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267164"><span id="local-6989586621679267165"><span id="local-6989586621679267166"><span id="local-6989586621679267167"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 Maybe PrincipalType
 Text
 principalId :: Text
 resourceId :: Text
-principalType :: Maybe PrincipalType
 authenticationToken :: Maybe (Sensitive Text)
+principalType :: Maybe PrincipalType
 $sel:principalId:RemoveResourcePermission' :: RemoveResourcePermission -&gt; Text
 $sel:resourceId:RemoveResourcePermission' :: RemoveResourcePermission -&gt; Text
-$sel:principalType:RemoveResourcePermission' :: RemoveResourcePermission -&gt; Maybe PrincipalType
 $sel:authenticationToken:RemoveResourcePermission' :: RemoveResourcePermission -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679267035"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:principalType:RemoveResourcePermission' :: RemoveResourcePermission -&gt; Maybe PrincipalType
+</span><a href="#local-6989586621679267164"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -350,42 +353,42 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-138"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679267036"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679267165"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-139"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/permissions/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-140"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679267035"><span class="hs-identifier hs-var">principalId</span></a></span><span>
+</span><a href="#local-6989586621679267164"><span class="hs-identifier hs-var">principalId</span></a></span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermission"><span class="hs-identifier hs-type">RemoveResourcePermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679267031"><span class="annot"><span class="annottext">toQuery :: RemoveResourcePermission -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermission%27"><span class="hs-identifier hs-type">RemoveResourcePermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267026"><span id="local-6989586621679267027"><span id="local-6989586621679267028"><span id="local-6989586621679267029"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679267160"><span class="annot"><span class="annottext">toQuery :: RemoveResourcePermission -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermission%27"><span class="hs-identifier hs-type">RemoveResourcePermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267155"><span id="local-6989586621679267156"><span id="local-6989586621679267157"><span id="local-6989586621679267158"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 Maybe PrincipalType
 Text
 principalId :: Text
 resourceId :: Text
-principalType :: Maybe PrincipalType
 authenticationToken :: Maybe (Sensitive Text)
+principalType :: Maybe PrincipalType
 $sel:principalId:RemoveResourcePermission' :: RemoveResourcePermission -&gt; Text
 $sel:resourceId:RemoveResourcePermission' :: RemoveResourcePermission -&gt; Text
-$sel:principalType:RemoveResourcePermission' :: RemoveResourcePermission -&gt; Maybe PrincipalType
 $sel:authenticationToken:RemoveResourcePermission' :: RemoveResourcePermission -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679267026"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:principalType:RemoveResourcePermission' :: RemoveResourcePermission -&gt; Maybe PrincipalType
+</span><a href="#local-6989586621679267155"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;type&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe PrincipalType -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe PrincipalType
-</span><a href="#local-6989586621679267028"><span class="hs-identifier hs-var">principalType</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679267158"><span class="hs-identifier hs-var">principalType</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- | /See:/ 'newRemoveResourcePermissionResponse' smart constructor.</span><span>
-</span><span id="line-148"></span><span id="local-6989586621679267023"><span id="local-6989586621679267024"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveResourcePermissionResponse"><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermissionResponse"><span class="hs-identifier hs-var">RemoveResourcePermissionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveResourcePermissionResponse%27"><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermissionResponse%27"><span class="hs-identifier hs-var">RemoveResourcePermissionResponse'</span></a></span></span><span>
+</span><span id="line-148"></span><span id="local-6989586621679267152"><span id="local-6989586621679267153"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveResourcePermissionResponse"><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermissionResponse"><span class="hs-identifier hs-var">RemoveResourcePermissionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveResourcePermissionResponse%27"><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermissionResponse%27"><span class="hs-identifier hs-var">RemoveResourcePermissionResponse'</span></a></span></span><span>
 </span><span id="line-149"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-150"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679267019"><span id="local-6989586621679267021"><span class="annot"><span class="annottext">RemoveResourcePermissionResponse
+</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679267148"><span id="local-6989586621679267150"><span class="annot"><span class="annottext">RemoveResourcePermissionResponse
 -&gt; RemoveResourcePermissionResponse -&gt; Bool
 (RemoveResourcePermissionResponse
  -&gt; RemoveResourcePermissionResponse -&gt; Bool)
@@ -401,7 +404,7 @@ $c/= :: RemoveResourcePermissionResponse
 -&gt; RemoveResourcePermissionResponse -&gt; Bool
 $c== :: RemoveResourcePermissionResponse
 -&gt; RemoveResourcePermissionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267011"><span id="local-6989586621679267013"><span id="local-6989586621679267015"><span id="local-6989586621679267017"><span class="annot"><span class="annottext">ReadPrec [RemoveResourcePermissionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267140"><span id="local-6989586621679267142"><span id="local-6989586621679267144"><span id="local-6989586621679267146"><span class="annot"><span class="annottext">ReadPrec [RemoveResourcePermissionResponse]
 ReadPrec RemoveResourcePermissionResponse
 Int -&gt; ReadS RemoveResourcePermissionResponse
 ReadS [RemoveResourcePermissionResponse]
@@ -421,7 +424,7 @@ readList :: ReadS [RemoveResourcePermissionResponse]
 $creadList :: ReadS [RemoveResourcePermissionResponse]
 readsPrec :: Int -&gt; ReadS RemoveResourcePermissionResponse
 $creadsPrec :: Int -&gt; ReadS RemoveResourcePermissionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267004"><span id="local-6989586621679267006"><span id="local-6989586621679267008"><span class="annot"><span class="annottext">Int -&gt; RemoveResourcePermissionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267133"><span id="local-6989586621679267135"><span id="local-6989586621679267137"><span class="annot"><span class="annottext">Int -&gt; RemoveResourcePermissionResponse -&gt; ShowS
 [RemoveResourcePermissionResponse] -&gt; ShowS
 RemoveResourcePermissionResponse -&gt; String
 (Int -&gt; RemoveResourcePermissionResponse -&gt; ShowS)
@@ -471,6 +474,6 @@ RemoveResourcePermissionResponse
 </span><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermissionResponse%27"><span class="hs-identifier hs-var">RemoveResourcePermissionResponse'</span></a></span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679267000"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679267129"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-164"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.RemoveResourcePermission.html#RemoveResourcePermissionResponse"><span class="hs-identifier hs-type">RemoveResourcePermissionResponse</span></a></span></span><span>
 </span><span id="line-165"></span></pre></body></html>

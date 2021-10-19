@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679457709"><span id="local-6989586621679457710"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PropagateTags"><span class="annot"><a href="Network.AWS.ECS.Types.PropagateTags.html#PropagateTags"><span class="hs-identifier hs-var">PropagateTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PropagateTags%27"><span class="annot"><a href="Network.AWS.ECS.Types.PropagateTags.html#PropagateTags%27"><span class="hs-identifier hs-var">PropagateTags'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679458428"><span id="local-6989586621679458429"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PropagateTags"><span class="annot"><a href="Network.AWS.ECS.Types.PropagateTags.html#PropagateTags"><span class="hs-identifier hs-var">PropagateTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PropagateTags%27"><span class="annot"><a href="Network.AWS.ECS.Types.PropagateTags.html#PropagateTags%27"><span class="hs-identifier hs-var">PropagateTags'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPropagateTags"><span class="annot"><span class="annottext">PropagateTags -&gt; Text
 </span><a href="Network.AWS.ECS.Types.PropagateTags.html#fromPropagateTags"><span class="hs-identifier hs-var hs-var">fromPropagateTags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679457701"><span id="local-6989586621679457703"><span id="local-6989586621679457705"><span class="annot"><span class="annottext">Int -&gt; PropagateTags -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679458420"><span id="local-6989586621679458422"><span id="local-6989586621679458424"><span class="annot"><span class="annottext">Int -&gt; PropagateTags -&gt; ShowS
 [PropagateTags] -&gt; ShowS
 PropagateTags -&gt; String
 (Int -&gt; PropagateTags -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: PropagateTags -&gt; String
 showsPrec :: Int -&gt; PropagateTags -&gt; ShowS
 $cshowsPrec :: Int -&gt; PropagateTags -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679457692"><span id="local-6989586621679457694"><span id="local-6989586621679457696"><span id="local-6989586621679457698"><span class="annot"><span class="annottext">ReadPrec [PropagateTags]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679458411"><span id="local-6989586621679458413"><span id="local-6989586621679458415"><span id="local-6989586621679458417"><span class="annot"><span class="annottext">ReadPrec [PropagateTags]
 ReadPrec PropagateTags
 Int -&gt; ReadS PropagateTags
 ReadS [PropagateTags]
@@ -72,7 +72,7 @@ $creadList :: ReadS [PropagateTags]
 readsPrec :: Int -&gt; ReadS PropagateTags
 $creadsPrec :: Int -&gt; ReadS PropagateTags
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679457687"><span id="local-6989586621679457689"><span class="annot"><span class="annottext">PropagateTags -&gt; PropagateTags -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679458406"><span id="local-6989586621679458408"><span class="annot"><span class="annottext">PropagateTags -&gt; PropagateTags -&gt; Bool
 (PropagateTags -&gt; PropagateTags -&gt; Bool)
 -&gt; (PropagateTags -&gt; PropagateTags -&gt; Bool) -&gt; Eq PropagateTags
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: PropagateTags -&gt; PropagateTags -&gt; Bool
 == :: PropagateTags -&gt; PropagateTags -&gt; Bool
 $c== :: PropagateTags -&gt; PropagateTags -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679457671"><span id="local-6989586621679457673"><span id="local-6989586621679457675"><span id="local-6989586621679457677"><span id="local-6989586621679457679"><span id="local-6989586621679457681"><span id="local-6989586621679457683"><span class="annot"><span class="annottext">Eq PropagateTags
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679458390"><span id="local-6989586621679458392"><span id="local-6989586621679458394"><span id="local-6989586621679458396"><span id="local-6989586621679458398"><span id="local-6989586621679458400"><span id="local-6989586621679458402"><span class="annot"><span class="annottext">Eq PropagateTags
 Eq PropagateTags
 -&gt; (PropagateTags -&gt; PropagateTags -&gt; Ordering)
 -&gt; (PropagateTags -&gt; PropagateTags -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. PropagateTags -&gt; Rep PropagateTags x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679457663"><span id="local-6989586621679457665"><span class="annot"><span class="annottext">Int -&gt; PropagateTags -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679458382"><span id="local-6989586621679458384"><span class="annot"><span class="annottext">Int -&gt; PropagateTags -&gt; Int
 PropagateTags -&gt; Int
 (Int -&gt; PropagateTags -&gt; Int)
 -&gt; (PropagateTags -&gt; Int) -&gt; Hashable PropagateTags
@@ -142,49 +142,49 @@ $chash :: PropagateTags -&gt; Int
 hashWithSalt :: Int -&gt; PropagateTags -&gt; Int
 $chashWithSalt :: Int -&gt; PropagateTags -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679457660"><span class="annot"><span class="annottext">PropagateTags -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679458379"><span class="annot"><span class="annottext">PropagateTags -&gt; ()
 (PropagateTags -&gt; ()) -&gt; NFData PropagateTags
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: PropagateTags -&gt; ()
 $crnf :: PropagateTags -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679457657"><span class="annot"><span class="annottext">Text -&gt; Either String PropagateTags
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679458376"><span class="annot"><span class="annottext">Text -&gt; Either String PropagateTags
 (Text -&gt; Either String PropagateTags) -&gt; FromText PropagateTags
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String PropagateTags
 $cfromText :: Text -&gt; Either String PropagateTags
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679457654"><span class="annot"><span class="annottext">PropagateTags -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679458373"><span class="annot"><span class="annottext">PropagateTags -&gt; Text
 (PropagateTags -&gt; Text) -&gt; ToText PropagateTags
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: PropagateTags -&gt; Text
 $ctoText :: PropagateTags -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679457651"><span class="annot"><span class="annottext">PropagateTags -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679458370"><span class="annot"><span class="annottext">PropagateTags -&gt; ByteString
 (PropagateTags -&gt; ByteString) -&gt; ToByteString PropagateTags
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: PropagateTags -&gt; ByteString
 $ctoBS :: PropagateTags -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679457648"><span class="annot"><span class="annottext">PropagateTags -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679458367"><span class="annot"><span class="annottext">PropagateTags -&gt; ByteStringBuilder
 (PropagateTags -&gt; ByteStringBuilder) -&gt; ToLog PropagateTags
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: PropagateTags -&gt; ByteStringBuilder
 $cbuild :: PropagateTags -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679457645"><span class="annot"><span class="annottext">HeaderName -&gt; PropagateTags -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679458364"><span class="annot"><span class="annottext">HeaderName -&gt; PropagateTags -&gt; [Header]
 (HeaderName -&gt; PropagateTags -&gt; [Header]) -&gt; ToHeader PropagateTags
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; PropagateTags -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; PropagateTags -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679457642"><span class="annot"><span class="annottext">PropagateTags -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679458361"><span class="annot"><span class="annottext">PropagateTags -&gt; QueryString
 (PropagateTags -&gt; QueryString) -&gt; ToQuery PropagateTags
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: PropagateTags -&gt; QueryString
 $ctoQuery :: PropagateTags -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679457637"><span id="local-6989586621679457639"><span class="annot"><span class="annottext">Value -&gt; Parser [PropagateTags]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679458356"><span id="local-6989586621679458358"><span class="annot"><span class="annottext">Value -&gt; Parser [PropagateTags]
 Value -&gt; Parser PropagateTags
 (Value -&gt; Parser PropagateTags)
 -&gt; (Value -&gt; Parser [PropagateTags]) -&gt; FromJSON PropagateTags
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [PropagateTags]
 parseJSON :: Value -&gt; Parser PropagateTags
 $cparseJSON :: Value -&gt; Parser PropagateTags
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679457632"><span id="local-6989586621679457634"><span class="annot"><span class="annottext">FromJSONKeyFunction [PropagateTags]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679458351"><span id="local-6989586621679458353"><span class="annot"><span class="annottext">FromJSONKeyFunction [PropagateTags]
 FromJSONKeyFunction PropagateTags
 FromJSONKeyFunction PropagateTags
 -&gt; FromJSONKeyFunction [PropagateTags] -&gt; FromJSONKey PropagateTags
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [PropagateTags]
 fromJSONKey :: FromJSONKeyFunction PropagateTags
 $cfromJSONKey :: FromJSONKeyFunction PropagateTags
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679457623"><span id="local-6989586621679457625"><span id="local-6989586621679457627"><span id="local-6989586621679457629"><span class="annot"><span class="annottext">[PropagateTags] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679458342"><span id="local-6989586621679458344"><span id="local-6989586621679458346"><span id="local-6989586621679458348"><span class="annot"><span class="annottext">[PropagateTags] -&gt; Encoding
 [PropagateTags] -&gt; Value
 PropagateTags -&gt; Encoding
 PropagateTags -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: PropagateTags -&gt; Encoding
 toJSON :: PropagateTags -&gt; Value
 $ctoJSON :: PropagateTags -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679457618"><span id="local-6989586621679457620"><span class="annot"><span class="annottext">ToJSONKeyFunction [PropagateTags]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679458337"><span id="local-6989586621679458339"><span class="annot"><span class="annottext">ToJSONKeyFunction [PropagateTags]
 ToJSONKeyFunction PropagateTags
 ToJSONKeyFunction PropagateTags
 -&gt; ToJSONKeyFunction [PropagateTags] -&gt; ToJSONKey PropagateTags
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [PropagateTags]
 toJSONKey :: ToJSONKeyFunction PropagateTags
 $ctoJSONKey :: ToJSONKeyFunction PropagateTags
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679457615"><span class="annot"><span class="annottext">[Node] -&gt; Either String PropagateTags
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679458334"><span class="annot"><span class="annottext">[Node] -&gt; Either String PropagateTags
 ([Node] -&gt; Either String PropagateTags) -&gt; FromXML PropagateTags
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String PropagateTags
 $cparseXML :: [Node] -&gt; Either String PropagateTags
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679457612"><span class="annot"><span class="annottext">PropagateTags -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679458331"><span class="annot"><span class="annottext">PropagateTags -&gt; XML
 (PropagateTags -&gt; XML) -&gt; ToXML PropagateTags
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: PropagateTags -&gt; XML

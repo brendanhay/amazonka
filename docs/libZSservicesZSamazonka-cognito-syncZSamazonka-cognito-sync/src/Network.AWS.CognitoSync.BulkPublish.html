@@ -57,14 +57,14 @@
 </span><span id="line-57"></span><span class="hs-comment">-- | The input for the BulkPublish operation.</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- /See:/ 'newBulkPublish' smart constructor.</span><span>
-</span><span id="line-60"></span><span id="local-6989586621679178759"><span id="local-6989586621679178760"></span></span><span class="hs-keyword">data</span><span> </span><span id="BulkPublish"><span class="annot"><a href="Network.AWS.CognitoSync.BulkPublish.html#BulkPublish"><span class="hs-identifier hs-var">BulkPublish</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BulkPublish%27"><span class="annot"><a href="Network.AWS.CognitoSync.BulkPublish.html#BulkPublish%27"><span class="hs-identifier hs-var">BulkPublish'</span></a></span></span><span>
+</span><span id="line-60"></span><span id="local-6989586621679178805"><span id="local-6989586621679178806"></span></span><span class="hs-keyword">data</span><span> </span><span id="BulkPublish"><span class="annot"><a href="Network.AWS.CognitoSync.BulkPublish.html#BulkPublish"><span class="hs-identifier hs-var">BulkPublish</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BulkPublish%27"><span class="annot"><a href="Network.AWS.CognitoSync.BulkPublish.html#BulkPublish%27"><span class="hs-identifier hs-var">BulkPublish'</span></a></span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A name-spaced GUID (for example,</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">-- Cognito. GUID generation is unique within a region.</span><span>
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AidentityPoolId%3ABulkPublish%27"><span class="annot"><span class="annottext">BulkPublish -&gt; Text
 </span><a href="Network.AWS.CognitoSync.BulkPublish.html#%24sel%3AidentityPoolId%3ABulkPublish%27"><span class="hs-identifier hs-var hs-var">identityPoolId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178753"><span id="local-6989586621679178755"><span class="annot"><span class="annottext">BulkPublish -&gt; BulkPublish -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178799"><span id="local-6989586621679178801"><span class="annot"><span class="annottext">BulkPublish -&gt; BulkPublish -&gt; Bool
 (BulkPublish -&gt; BulkPublish -&gt; Bool)
 -&gt; (BulkPublish -&gt; BulkPublish -&gt; Bool) -&gt; Eq BulkPublish
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -72,7 +72,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BulkPublish -&gt; BulkPublish -&gt; Bool
 == :: BulkPublish -&gt; BulkPublish -&gt; Bool
 $c== :: BulkPublish -&gt; BulkPublish -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178744"><span id="local-6989586621679178746"><span id="local-6989586621679178748"><span id="local-6989586621679178750"><span class="annot"><span class="annottext">ReadPrec [BulkPublish]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178790"><span id="local-6989586621679178792"><span id="local-6989586621679178794"><span id="local-6989586621679178796"><span class="annot"><span class="annottext">ReadPrec [BulkPublish]
 ReadPrec BulkPublish
 Int -&gt; ReadS BulkPublish
 ReadS [BulkPublish]
@@ -92,7 +92,7 @@ readList :: ReadS [BulkPublish]
 $creadList :: ReadS [BulkPublish]
 readsPrec :: Int -&gt; ReadS BulkPublish
 $creadsPrec :: Int -&gt; ReadS BulkPublish
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178737"><span id="local-6989586621679178739"><span id="local-6989586621679178741"><span class="annot"><span class="annottext">Int -&gt; BulkPublish -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178783"><span id="local-6989586621679178785"><span id="local-6989586621679178787"><span class="annot"><span class="annottext">Int -&gt; BulkPublish -&gt; ShowS
 [BulkPublish] -&gt; ShowS
 BulkPublish -&gt; String
 (Int -&gt; BulkPublish -&gt; ShowS)
@@ -134,12 +134,12 @@ $cfrom :: forall x. BulkPublish -&gt; Rep BulkPublish x
 </span><span id="line-81"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoSync.BulkPublish.html#BulkPublish"><span class="hs-identifier hs-type">BulkPublish</span></a></span><span>
 </span><span id="line-83"></span><span id="newBulkPublish"><span class="annot"><span class="annottext">newBulkPublish :: Text -&gt; BulkPublish
-</span><a href="Network.AWS.CognitoSync.BulkPublish.html#newBulkPublish"><span class="hs-identifier hs-var hs-var">newBulkPublish</span></a></span></span><span> </span><span id="local-6989586621679178732"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679178732"><span class="hs-identifier hs-var">pIdentityPoolId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CognitoSync.BulkPublish.html#newBulkPublish"><span class="hs-identifier hs-var hs-var">newBulkPublish</span></a></span></span><span> </span><span id="local-6989586621679178778"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178778"><span class="hs-identifier hs-var">pIdentityPoolId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">BulkPublish' :: Text -&gt; BulkPublish
 </span><a href="Network.AWS.CognitoSync.BulkPublish.html#BulkPublish%27"><span class="hs-identifier hs-type">BulkPublish'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityPoolId:BulkPublish' :: Text
 </span><a href="Network.AWS.CognitoSync.BulkPublish.html#%24sel%3AidentityPoolId%3ABulkPublish%27"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679178732"><span class="hs-identifier hs-var">pIdentityPoolId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679178778"><span class="hs-identifier hs-var">pIdentityPoolId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | A name-spaced GUID (for example,</span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon</span><span>
@@ -150,25 +150,25 @@ $cfrom :: forall x. BulkPublish -&gt; Rep BulkPublish x
 -&gt; (BulkPublish -&gt; Text -&gt; BulkPublish)
 -&gt; Lens BulkPublish BulkPublish Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.BulkPublish.html#BulkPublish%27"><span class="hs-identifier hs-type">BulkPublish'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178729"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.BulkPublish.html#BulkPublish%27"><span class="hs-identifier hs-type">BulkPublish'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178775"><span class="annot"><span class="annottext">Text
 identityPoolId :: Text
 $sel:identityPoolId:BulkPublish' :: BulkPublish -&gt; Text
-</span><a href="#local-6989586621679178729"><span class="hs-identifier hs-var hs-var">identityPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679178729"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178728"><span class="annot"><span class="annottext">s :: BulkPublish
-</span><a href="#local-6989586621679178728"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.BulkPublish.html#BulkPublish%27"><span class="hs-identifier hs-type">BulkPublish'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178727"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679178727"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BulkPublish
-</span><a href="#local-6989586621679178728"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityPoolId:BulkPublish' :: Text
+</span><a href="#local-6989586621679178775"><span class="hs-identifier hs-var hs-var">identityPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178775"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178774"><span class="annot"><span class="annottext">s :: BulkPublish
+</span><a href="#local-6989586621679178774"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.BulkPublish.html#BulkPublish%27"><span class="hs-identifier hs-type">BulkPublish'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178773"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178773"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BulkPublish
+</span><a href="#local-6989586621679178774"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityPoolId:BulkPublish' :: Text
 </span><a href="Network.AWS.CognitoSync.BulkPublish.html#%24sel%3AidentityPoolId%3ABulkPublish%27"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679178727"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.BulkPublish.html#BulkPublish"><span class="hs-identifier hs-type">BulkPublish</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679178773"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.BulkPublish.html#BulkPublish"><span class="hs-identifier hs-type">BulkPublish</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.BulkPublish.html#BulkPublish"><span class="hs-identifier hs-type">BulkPublish</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-93"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.BulkPublish.html#BulkPublish"><span class="hs-identifier hs-type">BulkPublish</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.BulkPublish.html#BulkPublishResponse"><span class="hs-identifier hs-type">BulkPublishResponse</span></a></span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679178723"><span class="annot"><span class="annottext">request :: BulkPublish -&gt; Request BulkPublish
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679178769"><span class="annot"><span class="annottext">request :: BulkPublish -&gt; Request BulkPublish
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; BulkPublish -&gt; Request BulkPublish
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CognitoSync.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679178719"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679178765"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy BulkPublish
 -&gt; ClientResponse ClientBody
@@ -192,10 +192,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679178716"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178716"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679178715"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679178715"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679178714"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679178714"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679178762"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178762"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679178761"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679178761"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679178760"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679178760"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; BulkPublishResponse
 </span><a href="Network.AWS.CognitoSync.BulkPublish.html#BulkPublishResponse%27"><span class="hs-identifier hs-var">BulkPublishResponse'</span></a></span><span>
 </span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; BulkPublishResponse)
@@ -203,7 +203,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; BulkPublishResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679178714"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679178760"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IdentityPoolId&quot;</span></span><span class="hs-special">)</span><span>
@@ -215,15 +215,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178716"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679178762"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178706"><span id="local-6989586621679178708"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.BulkPublish.html#BulkPublish"><span class="hs-identifier hs-type">BulkPublish</span></a></span></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178752"><span id="local-6989586621679178754"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.BulkPublish.html#BulkPublish"><span class="hs-identifier hs-type">BulkPublish</span></a></span></span></span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178703"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.BulkPublish.html#BulkPublish"><span class="hs-identifier hs-type">BulkPublish</span></a></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178749"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.BulkPublish.html#BulkPublish"><span class="hs-identifier hs-type">BulkPublish</span></a></span></span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.BulkPublish.html#BulkPublish"><span class="hs-identifier hs-type">BulkPublish</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679178699"><span class="annot"><span class="annottext">toHeaders :: BulkPublish -&gt; ResponseHeaders
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679178745"><span class="annot"><span class="annottext">toHeaders :: BulkPublish -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; BulkPublish -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -242,8 +242,8 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-115"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178689"><span id="local-6989586621679178691"><span id="local-6989586621679178693"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.BulkPublish.html#BulkPublish"><span class="hs-identifier hs-type">BulkPublish</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679178687"><span class="annot"><span class="annottext">toJSON :: BulkPublish -&gt; Value
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178735"><span id="local-6989586621679178737"><span id="local-6989586621679178739"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.BulkPublish.html#BulkPublish"><span class="hs-identifier hs-type">BulkPublish</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679178733"><span class="annot"><span class="annottext">toJSON :: BulkPublish -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; BulkPublish -&gt; Value
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
@@ -252,11 +252,11 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.BulkPublish.html#BulkPublish"><span class="hs-identifier hs-type">BulkPublish</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679178682"><span class="annot"><span class="annottext">toPath :: BulkPublish -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.BulkPublish.html#BulkPublish%27"><span class="hs-identifier hs-type">BulkPublish'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178680"><span class="annot"><span class="annottext">Text
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679178728"><span class="annot"><span class="annottext">toPath :: BulkPublish -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.BulkPublish.html#BulkPublish%27"><span class="hs-identifier hs-type">BulkPublish'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178726"><span class="annot"><span class="annottext">Text
 identityPoolId :: Text
 $sel:identityPoolId:BulkPublish' :: BulkPublish -&gt; Text
-</span><a href="#local-6989586621679178680"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679178726"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -265,13 +265,13 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679178680"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679178726"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/bulkpublish&quot;</span></span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.BulkPublish.html#BulkPublish"><span class="hs-identifier hs-type">BulkPublish</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679178676"><span class="annot"><span class="annottext">toQuery :: BulkPublish -&gt; QueryString
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679178722"><span class="annot"><span class="annottext">toQuery :: BulkPublish -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; BulkPublish -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -281,7 +281,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-132"></span><span class="hs-comment">-- | The output for the BulkPublish operation.</span><span>
 </span><span id="line-133"></span><span class="hs-comment">--</span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- /See:/ 'newBulkPublishResponse' smart constructor.</span><span>
-</span><span id="line-135"></span><span id="local-6989586621679178673"><span id="local-6989586621679178674"></span></span><span class="hs-keyword">data</span><span> </span><span id="BulkPublishResponse"><span class="annot"><a href="Network.AWS.CognitoSync.BulkPublish.html#BulkPublishResponse"><span class="hs-identifier hs-var">BulkPublishResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BulkPublishResponse%27"><span class="annot"><a href="Network.AWS.CognitoSync.BulkPublish.html#BulkPublishResponse%27"><span class="hs-identifier hs-var">BulkPublishResponse'</span></a></span></span><span>
+</span><span id="line-135"></span><span id="local-6989586621679178719"><span id="local-6989586621679178720"></span></span><span class="hs-keyword">data</span><span> </span><span id="BulkPublishResponse"><span class="annot"><a href="Network.AWS.CognitoSync.BulkPublish.html#BulkPublishResponse"><span class="hs-identifier hs-var">BulkPublishResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BulkPublishResponse%27"><span class="annot"><a href="Network.AWS.CognitoSync.BulkPublish.html#BulkPublishResponse%27"><span class="hs-identifier hs-var">BulkPublishResponse'</span></a></span></span><span>
 </span><span id="line-136"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A name-spaced GUID (for example,</span><span>
 </span><span id="line-137"></span><span>    </span><span class="hs-comment">-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon</span><span>
 </span><span id="line-138"></span><span>    </span><span class="hs-comment">-- Cognito. GUID generation is unique within a region.</span><span>
@@ -291,7 +291,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-141"></span><span>    </span><span id="%24sel%3AhttpStatus%3ABulkPublishResponse%27"><span class="annot"><span class="annottext">BulkPublishResponse -&gt; Int
 </span><a href="Network.AWS.CognitoSync.BulkPublish.html#%24sel%3AhttpStatus%3ABulkPublishResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-142"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-143"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178667"><span id="local-6989586621679178669"><span class="annot"><span class="annottext">BulkPublishResponse -&gt; BulkPublishResponse -&gt; Bool
+</span><span id="line-143"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178713"><span id="local-6989586621679178715"><span class="annot"><span class="annottext">BulkPublishResponse -&gt; BulkPublishResponse -&gt; Bool
 (BulkPublishResponse -&gt; BulkPublishResponse -&gt; Bool)
 -&gt; (BulkPublishResponse -&gt; BulkPublishResponse -&gt; Bool)
 -&gt; Eq BulkPublishResponse
@@ -300,7 +300,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BulkPublishResponse -&gt; BulkPublishResponse -&gt; Bool
 == :: BulkPublishResponse -&gt; BulkPublishResponse -&gt; Bool
 $c== :: BulkPublishResponse -&gt; BulkPublishResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178659"><span id="local-6989586621679178661"><span id="local-6989586621679178663"><span id="local-6989586621679178665"><span class="annot"><span class="annottext">ReadPrec [BulkPublishResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178705"><span id="local-6989586621679178707"><span id="local-6989586621679178709"><span id="local-6989586621679178711"><span class="annot"><span class="annottext">ReadPrec [BulkPublishResponse]
 ReadPrec BulkPublishResponse
 Int -&gt; ReadS BulkPublishResponse
 ReadS [BulkPublishResponse]
@@ -320,7 +320,7 @@ readList :: ReadS [BulkPublishResponse]
 $creadList :: ReadS [BulkPublishResponse]
 readsPrec :: Int -&gt; ReadS BulkPublishResponse
 $creadsPrec :: Int -&gt; ReadS BulkPublishResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178653"><span id="local-6989586621679178655"><span id="local-6989586621679178657"><span class="annot"><span class="annottext">Int -&gt; BulkPublishResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178699"><span id="local-6989586621679178701"><span id="local-6989586621679178703"><span class="annot"><span class="annottext">Int -&gt; BulkPublishResponse -&gt; ShowS
 [BulkPublishResponse] -&gt; ShowS
 BulkPublishResponse -&gt; String
 (Int -&gt; BulkPublishResponse -&gt; ShowS)
@@ -364,8 +364,8 @@ $cfrom :: forall x. BulkPublishResponse -&gt; Rep BulkPublishResponse x
 </span><span id="line-160"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-161"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoSync.BulkPublish.html#BulkPublishResponse"><span class="hs-identifier hs-type">BulkPublishResponse</span></a></span><span>
 </span><span id="line-162"></span><span id="newBulkPublishResponse"><span class="annot"><span class="annottext">newBulkPublishResponse :: Int -&gt; BulkPublishResponse
-</span><a href="Network.AWS.CognitoSync.BulkPublish.html#newBulkPublishResponse"><span class="hs-identifier hs-var hs-var">newBulkPublishResponse</span></a></span></span><span> </span><span id="local-6989586621679178650"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178650"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CognitoSync.BulkPublish.html#newBulkPublishResponse"><span class="hs-identifier hs-var hs-var">newBulkPublishResponse</span></a></span></span><span> </span><span id="local-6989586621679178696"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178696"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-163"></span><span>  </span><span class="annot"><span class="annottext">BulkPublishResponse' :: Maybe Text -&gt; Int -&gt; BulkPublishResponse
 </span><a href="Network.AWS.CognitoSync.BulkPublish.html#BulkPublishResponse%27"><span class="hs-identifier hs-type">BulkPublishResponse'</span></a></span><span>
 </span><span id="line-164"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:identityPoolId:BulkPublishResponse' :: Maybe Text
@@ -375,7 +375,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:BulkPublishResponse' :: Int
 </span><a href="Network.AWS.CognitoSync.BulkPublish.html#%24sel%3AhttpStatus%3ABulkPublishResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178650"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679178696"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-167"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-comment">-- | A name-spaced GUID (for example,</span><span>
@@ -389,16 +389,16 @@ forall a. Maybe a
 -&gt; Lens
      BulkPublishResponse BulkPublishResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.BulkPublish.html#BulkPublishResponse%27"><span class="hs-identifier hs-type">BulkPublishResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178649"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.BulkPublish.html#BulkPublishResponse%27"><span class="hs-identifier hs-type">BulkPublishResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178695"><span class="annot"><span class="annottext">Maybe Text
 identityPoolId :: Maybe Text
 $sel:identityPoolId:BulkPublishResponse' :: BulkPublishResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679178649"><span class="hs-identifier hs-var hs-var">identityPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679178649"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178648"><span class="annot"><span class="annottext">s :: BulkPublishResponse
-</span><a href="#local-6989586621679178648"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.BulkPublish.html#BulkPublishResponse%27"><span class="hs-identifier hs-type">BulkPublishResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178647"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679178647"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BulkPublishResponse
-</span><a href="#local-6989586621679178648"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityPoolId:BulkPublishResponse' :: Maybe Text
+</span><a href="#local-6989586621679178695"><span class="hs-identifier hs-var hs-var">identityPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178695"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178694"><span class="annot"><span class="annottext">s :: BulkPublishResponse
+</span><a href="#local-6989586621679178694"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.BulkPublish.html#BulkPublishResponse%27"><span class="hs-identifier hs-type">BulkPublishResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178693"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178693"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BulkPublishResponse
+</span><a href="#local-6989586621679178694"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityPoolId:BulkPublishResponse' :: Maybe Text
 </span><a href="Network.AWS.CognitoSync.BulkPublish.html#%24sel%3AidentityPoolId%3ABulkPublishResponse%27"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679178647"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.BulkPublish.html#BulkPublishResponse"><span class="hs-identifier hs-type">BulkPublishResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679178693"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.BulkPublish.html#BulkPublishResponse"><span class="hs-identifier hs-type">BulkPublishResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-176"></span><span class="annot"><a href="Network.AWS.CognitoSync.BulkPublish.html#bulkPublishResponse_httpStatus"><span class="hs-identifier hs-type">bulkPublishResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.BulkPublish.html#BulkPublishResponse"><span class="hs-identifier hs-type">BulkPublishResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -407,16 +407,16 @@ $sel:identityPoolId:BulkPublishResponse' :: BulkPublishResponse -&gt; Maybe Text
 -&gt; (BulkPublishResponse -&gt; Int -&gt; BulkPublishResponse)
 -&gt; Lens BulkPublishResponse BulkPublishResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.BulkPublish.html#BulkPublishResponse%27"><span class="hs-identifier hs-type">BulkPublishResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178646"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.BulkPublish.html#BulkPublishResponse%27"><span class="hs-identifier hs-type">BulkPublishResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178692"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:BulkPublishResponse' :: BulkPublishResponse -&gt; Int
-</span><a href="#local-6989586621679178646"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178646"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178645"><span class="annot"><span class="annottext">s :: BulkPublishResponse
-</span><a href="#local-6989586621679178645"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.BulkPublish.html#BulkPublishResponse%27"><span class="hs-identifier hs-type">BulkPublishResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178644"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178644"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BulkPublishResponse
-</span><a href="#local-6989586621679178645"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BulkPublishResponse' :: Int
+</span><a href="#local-6989586621679178692"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178692"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178691"><span class="annot"><span class="annottext">s :: BulkPublishResponse
+</span><a href="#local-6989586621679178691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.BulkPublish.html#BulkPublishResponse%27"><span class="hs-identifier hs-type">BulkPublishResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178690"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BulkPublishResponse
+</span><a href="#local-6989586621679178691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BulkPublishResponse' :: Int
 </span><a href="Network.AWS.CognitoSync.BulkPublish.html#%24sel%3AhttpStatus%3ABulkPublishResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178644"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.BulkPublish.html#BulkPublishResponse"><span class="hs-identifier hs-type">BulkPublishResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679178690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.BulkPublish.html#BulkPublishResponse"><span class="hs-identifier hs-type">BulkPublishResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
-</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178642"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.BulkPublish.html#BulkPublishResponse"><span class="hs-identifier hs-type">BulkPublishResponse</span></a></span></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178688"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.BulkPublish.html#BulkPublishResponse"><span class="hs-identifier hs-type">BulkPublishResponse</span></a></span></span><span>
 </span><span id="line-180"></span></pre></body></html>

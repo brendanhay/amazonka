@@ -36,13 +36,13 @@
 </span><span id="line-36"></span><span class="hs-comment">--</span><span>
 </span><span id="line-37"></span><span class="hs-comment">-- [PRIVATE]</span><span>
 </span><span id="line-38"></span><span class="hs-comment">--     The project builds are not visible to the public.</span><span>
-</span><span id="line-39"></span><span id="local-6989586621679372421"><span id="local-6989586621679372422"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ProjectVisibilityType"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectVisibilityType.html#ProjectVisibilityType"><span class="hs-identifier hs-var">ProjectVisibilityType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProjectVisibilityType%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectVisibilityType.html#ProjectVisibilityType%27"><span class="hs-identifier hs-var">ProjectVisibilityType'</span></a></span></span><span>
+</span><span id="line-39"></span><span id="local-6989586621679374303"><span id="local-6989586621679374304"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ProjectVisibilityType"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectVisibilityType.html#ProjectVisibilityType"><span class="hs-identifier hs-var">ProjectVisibilityType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProjectVisibilityType%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectVisibilityType.html#ProjectVisibilityType%27"><span class="hs-identifier hs-var">ProjectVisibilityType'</span></a></span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromProjectVisibilityType"><span class="annot"><span class="annottext">ProjectVisibilityType -&gt; Text
 </span><a href="Network.AWS.CodeBuild.Types.ProjectVisibilityType.html#fromProjectVisibilityType"><span class="hs-identifier hs-var hs-var">fromProjectVisibilityType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-41"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679372413"><span id="local-6989586621679372415"><span id="local-6989586621679372417"><span class="annot"><span class="annottext">Int -&gt; ProjectVisibilityType -&gt; ShowS
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679374295"><span id="local-6989586621679374297"><span id="local-6989586621679374299"><span class="annot"><span class="annottext">Int -&gt; ProjectVisibilityType -&gt; ShowS
 [ProjectVisibilityType] -&gt; ShowS
 ProjectVisibilityType -&gt; String
 (Int -&gt; ProjectVisibilityType -&gt; ShowS)
@@ -58,7 +58,7 @@ $cshow :: ProjectVisibilityType -&gt; String
 showsPrec :: Int -&gt; ProjectVisibilityType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ProjectVisibilityType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679372404"><span id="local-6989586621679372406"><span id="local-6989586621679372408"><span id="local-6989586621679372410"><span class="annot"><span class="annottext">ReadPrec [ProjectVisibilityType]
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679374286"><span id="local-6989586621679374288"><span id="local-6989586621679374290"><span id="local-6989586621679374292"><span class="annot"><span class="annottext">ReadPrec [ProjectVisibilityType]
 ReadPrec ProjectVisibilityType
 Int -&gt; ReadS ProjectVisibilityType
 ReadS [ProjectVisibilityType]
@@ -79,7 +79,7 @@ $creadList :: ReadS [ProjectVisibilityType]
 readsPrec :: Int -&gt; ReadS ProjectVisibilityType
 $creadsPrec :: Int -&gt; ReadS ProjectVisibilityType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679372399"><span id="local-6989586621679372401"><span class="annot"><span class="annottext">ProjectVisibilityType -&gt; ProjectVisibilityType -&gt; Bool
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679374281"><span id="local-6989586621679374283"><span class="annot"><span class="annottext">ProjectVisibilityType -&gt; ProjectVisibilityType -&gt; Bool
 (ProjectVisibilityType -&gt; ProjectVisibilityType -&gt; Bool)
 -&gt; (ProjectVisibilityType -&gt; ProjectVisibilityType -&gt; Bool)
 -&gt; Eq ProjectVisibilityType
@@ -89,7 +89,7 @@ $c/= :: ProjectVisibilityType -&gt; ProjectVisibilityType -&gt; Bool
 == :: ProjectVisibilityType -&gt; ProjectVisibilityType -&gt; Bool
 $c== :: ProjectVisibilityType -&gt; ProjectVisibilityType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679372383"><span id="local-6989586621679372385"><span id="local-6989586621679372387"><span id="local-6989586621679372389"><span id="local-6989586621679372391"><span id="local-6989586621679372393"><span id="local-6989586621679372395"><span class="annot"><span class="annottext">Eq ProjectVisibilityType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679374265"><span id="local-6989586621679374267"><span id="local-6989586621679374269"><span id="local-6989586621679374271"><span id="local-6989586621679374273"><span id="local-6989586621679374275"><span id="local-6989586621679374277"><span class="annot"><span class="annottext">Eq ProjectVisibilityType
 Eq ProjectVisibilityType
 -&gt; (ProjectVisibilityType -&gt; ProjectVisibilityType -&gt; Ordering)
 -&gt; (ProjectVisibilityType -&gt; ProjectVisibilityType -&gt; Bool)
@@ -147,7 +147,7 @@ $cfrom :: forall x. ProjectVisibilityType -&gt; Rep ProjectVisibilityType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-49"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679372375"><span id="local-6989586621679372377"><span class="annot"><span class="annottext">Int -&gt; ProjectVisibilityType -&gt; Int
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679374257"><span id="local-6989586621679374259"><span class="annot"><span class="annottext">Int -&gt; ProjectVisibilityType -&gt; Int
 ProjectVisibilityType -&gt; Int
 (Int -&gt; ProjectVisibilityType -&gt; Int)
 -&gt; (ProjectVisibilityType -&gt; Int) -&gt; Hashable ProjectVisibilityType
@@ -157,54 +157,54 @@ $chash :: ProjectVisibilityType -&gt; Int
 hashWithSalt :: Int -&gt; ProjectVisibilityType -&gt; Int
 $chashWithSalt :: Int -&gt; ProjectVisibilityType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679372372"><span class="annot"><span class="annottext">ProjectVisibilityType -&gt; ()
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679374254"><span class="annot"><span class="annottext">ProjectVisibilityType -&gt; ()
 (ProjectVisibilityType -&gt; ()) -&gt; NFData ProjectVisibilityType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ProjectVisibilityType -&gt; ()
 $crnf :: ProjectVisibilityType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679372369"><span class="annot"><span class="annottext">Text -&gt; Either String ProjectVisibilityType
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679374251"><span class="annot"><span class="annottext">Text -&gt; Either String ProjectVisibilityType
 (Text -&gt; Either String ProjectVisibilityType)
 -&gt; FromText ProjectVisibilityType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ProjectVisibilityType
 $cfromText :: Text -&gt; Either String ProjectVisibilityType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679372366"><span class="annot"><span class="annottext">ProjectVisibilityType -&gt; Text
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679374248"><span class="annot"><span class="annottext">ProjectVisibilityType -&gt; Text
 (ProjectVisibilityType -&gt; Text) -&gt; ToText ProjectVisibilityType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ProjectVisibilityType -&gt; Text
 $ctoText :: ProjectVisibilityType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679372363"><span class="annot"><span class="annottext">ProjectVisibilityType -&gt; ByteString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679374245"><span class="annot"><span class="annottext">ProjectVisibilityType -&gt; ByteString
 (ProjectVisibilityType -&gt; ByteString)
 -&gt; ToByteString ProjectVisibilityType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ProjectVisibilityType -&gt; ByteString
 $ctoBS :: ProjectVisibilityType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679372360"><span class="annot"><span class="annottext">ProjectVisibilityType -&gt; ByteStringBuilder
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679374242"><span class="annot"><span class="annottext">ProjectVisibilityType -&gt; ByteStringBuilder
 (ProjectVisibilityType -&gt; ByteStringBuilder)
 -&gt; ToLog ProjectVisibilityType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ProjectVisibilityType -&gt; ByteStringBuilder
 $cbuild :: ProjectVisibilityType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679372357"><span class="annot"><span class="annottext">HeaderName -&gt; ProjectVisibilityType -&gt; [Header]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679374239"><span class="annot"><span class="annottext">HeaderName -&gt; ProjectVisibilityType -&gt; [Header]
 (HeaderName -&gt; ProjectVisibilityType -&gt; [Header])
 -&gt; ToHeader ProjectVisibilityType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ProjectVisibilityType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ProjectVisibilityType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679372354"><span class="annot"><span class="annottext">ProjectVisibilityType -&gt; QueryString
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679374236"><span class="annot"><span class="annottext">ProjectVisibilityType -&gt; QueryString
 (ProjectVisibilityType -&gt; QueryString)
 -&gt; ToQuery ProjectVisibilityType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ProjectVisibilityType -&gt; QueryString
 $ctoQuery :: ProjectVisibilityType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679372349"><span id="local-6989586621679372351"><span class="annot"><span class="annottext">Value -&gt; Parser [ProjectVisibilityType]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679374231"><span id="local-6989586621679374233"><span class="annot"><span class="annottext">Value -&gt; Parser [ProjectVisibilityType]
 Value -&gt; Parser ProjectVisibilityType
 (Value -&gt; Parser ProjectVisibilityType)
 -&gt; (Value -&gt; Parser [ProjectVisibilityType])
@@ -216,7 +216,7 @@ $cparseJSONList :: Value -&gt; Parser [ProjectVisibilityType]
 parseJSON :: Value -&gt; Parser ProjectVisibilityType
 $cparseJSON :: Value -&gt; Parser ProjectVisibilityType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679372344"><span id="local-6989586621679372346"><span class="annot"><span class="annottext">FromJSONKeyFunction [ProjectVisibilityType]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679374226"><span id="local-6989586621679374228"><span class="annot"><span class="annottext">FromJSONKeyFunction [ProjectVisibilityType]
 FromJSONKeyFunction ProjectVisibilityType
 FromJSONKeyFunction ProjectVisibilityType
 -&gt; FromJSONKeyFunction [ProjectVisibilityType]
@@ -228,7 +228,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ProjectVisibilityType]
 fromJSONKey :: FromJSONKeyFunction ProjectVisibilityType
 $cfromJSONKey :: FromJSONKeyFunction ProjectVisibilityType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679372335"><span id="local-6989586621679372337"><span id="local-6989586621679372339"><span id="local-6989586621679372341"><span class="annot"><span class="annottext">[ProjectVisibilityType] -&gt; Encoding
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679374217"><span id="local-6989586621679374219"><span id="local-6989586621679374221"><span id="local-6989586621679374223"><span class="annot"><span class="annottext">[ProjectVisibilityType] -&gt; Encoding
 [ProjectVisibilityType] -&gt; Value
 ProjectVisibilityType -&gt; Encoding
 ProjectVisibilityType -&gt; Value
@@ -252,7 +252,7 @@ $ctoEncoding :: ProjectVisibilityType -&gt; Encoding
 toJSON :: ProjectVisibilityType -&gt; Value
 $ctoJSON :: ProjectVisibilityType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679372330"><span id="local-6989586621679372332"><span class="annot"><span class="annottext">ToJSONKeyFunction [ProjectVisibilityType]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679374212"><span id="local-6989586621679374214"><span class="annot"><span class="annottext">ToJSONKeyFunction [ProjectVisibilityType]
 ToJSONKeyFunction ProjectVisibilityType
 ToJSONKeyFunction ProjectVisibilityType
 -&gt; ToJSONKeyFunction [ProjectVisibilityType]
@@ -264,14 +264,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ProjectVisibilityType]
 toJSONKey :: ToJSONKeyFunction ProjectVisibilityType
 $ctoJSONKey :: ToJSONKeyFunction ProjectVisibilityType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679372327"><span class="annot"><span class="annottext">[Node] -&gt; Either String ProjectVisibilityType
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679374209"><span class="annot"><span class="annottext">[Node] -&gt; Either String ProjectVisibilityType
 ([Node] -&gt; Either String ProjectVisibilityType)
 -&gt; FromXML ProjectVisibilityType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ProjectVisibilityType
 $cparseXML :: [Node] -&gt; Either String ProjectVisibilityType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679372324"><span class="annot"><span class="annottext">ProjectVisibilityType -&gt; XML
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679374206"><span class="annot"><span class="annottext">ProjectVisibilityType -&gt; XML
 (ProjectVisibilityType -&gt; XML) -&gt; ToXML ProjectVisibilityType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ProjectVisibilityType -&gt; XML

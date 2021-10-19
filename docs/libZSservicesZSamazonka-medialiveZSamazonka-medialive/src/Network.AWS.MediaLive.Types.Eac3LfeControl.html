@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | Eac3 Lfe Control</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679867051"><span id="local-6989586621679867052"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Eac3LfeControl"><span class="annot"><a href="Network.AWS.MediaLive.Types.Eac3LfeControl.html#Eac3LfeControl"><span class="hs-identifier hs-var">Eac3LfeControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Eac3LfeControl%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.Eac3LfeControl.html#Eac3LfeControl%27"><span class="hs-identifier hs-var">Eac3LfeControl'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679873712"><span id="local-6989586621679873713"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Eac3LfeControl"><span class="annot"><a href="Network.AWS.MediaLive.Types.Eac3LfeControl.html#Eac3LfeControl"><span class="hs-identifier hs-var">Eac3LfeControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Eac3LfeControl%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.Eac3LfeControl.html#Eac3LfeControl%27"><span class="hs-identifier hs-var">Eac3LfeControl'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEac3LfeControl"><span class="annot"><span class="annottext">Eac3LfeControl -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.Eac3LfeControl.html#fromEac3LfeControl"><span class="hs-identifier hs-var hs-var">fromEac3LfeControl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679867043"><span id="local-6989586621679867045"><span id="local-6989586621679867047"><span class="annot"><span class="annottext">Int -&gt; Eac3LfeControl -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679873704"><span id="local-6989586621679873706"><span id="local-6989586621679873708"><span class="annot"><span class="annottext">Int -&gt; Eac3LfeControl -&gt; ShowS
 [Eac3LfeControl] -&gt; ShowS
 Eac3LfeControl -&gt; String
 (Int -&gt; Eac3LfeControl -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: Eac3LfeControl -&gt; String
 showsPrec :: Int -&gt; Eac3LfeControl -&gt; ShowS
 $cshowsPrec :: Int -&gt; Eac3LfeControl -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679867034"><span id="local-6989586621679867036"><span id="local-6989586621679867038"><span id="local-6989586621679867040"><span class="annot"><span class="annottext">ReadPrec [Eac3LfeControl]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679873695"><span id="local-6989586621679873697"><span id="local-6989586621679873699"><span id="local-6989586621679873701"><span class="annot"><span class="annottext">ReadPrec [Eac3LfeControl]
 ReadPrec Eac3LfeControl
 Int -&gt; ReadS Eac3LfeControl
 ReadS [Eac3LfeControl]
@@ -73,7 +73,7 @@ $creadList :: ReadS [Eac3LfeControl]
 readsPrec :: Int -&gt; ReadS Eac3LfeControl
 $creadsPrec :: Int -&gt; ReadS Eac3LfeControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679867029"><span id="local-6989586621679867031"><span class="annot"><span class="annottext">Eac3LfeControl -&gt; Eac3LfeControl -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679873690"><span id="local-6989586621679873692"><span class="annot"><span class="annottext">Eac3LfeControl -&gt; Eac3LfeControl -&gt; Bool
 (Eac3LfeControl -&gt; Eac3LfeControl -&gt; Bool)
 -&gt; (Eac3LfeControl -&gt; Eac3LfeControl -&gt; Bool) -&gt; Eq Eac3LfeControl
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: Eac3LfeControl -&gt; Eac3LfeControl -&gt; Bool
 == :: Eac3LfeControl -&gt; Eac3LfeControl -&gt; Bool
 $c== :: Eac3LfeControl -&gt; Eac3LfeControl -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679867013"><span id="local-6989586621679867015"><span id="local-6989586621679867017"><span id="local-6989586621679867019"><span id="local-6989586621679867021"><span id="local-6989586621679867023"><span id="local-6989586621679867025"><span class="annot"><span class="annottext">Eq Eac3LfeControl
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679873674"><span id="local-6989586621679873676"><span id="local-6989586621679873678"><span id="local-6989586621679873680"><span id="local-6989586621679873682"><span id="local-6989586621679873684"><span id="local-6989586621679873686"><span class="annot"><span class="annottext">Eq Eac3LfeControl
 Eq Eac3LfeControl
 -&gt; (Eac3LfeControl -&gt; Eac3LfeControl -&gt; Ordering)
 -&gt; (Eac3LfeControl -&gt; Eac3LfeControl -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. Eac3LfeControl -&gt; Rep Eac3LfeControl x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679867005"><span id="local-6989586621679867007"><span class="annot"><span class="annottext">Int -&gt; Eac3LfeControl -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679873666"><span id="local-6989586621679873668"><span class="annot"><span class="annottext">Int -&gt; Eac3LfeControl -&gt; Int
 Eac3LfeControl -&gt; Int
 (Int -&gt; Eac3LfeControl -&gt; Int)
 -&gt; (Eac3LfeControl -&gt; Int) -&gt; Hashable Eac3LfeControl
@@ -143,50 +143,50 @@ $chash :: Eac3LfeControl -&gt; Int
 hashWithSalt :: Int -&gt; Eac3LfeControl -&gt; Int
 $chashWithSalt :: Int -&gt; Eac3LfeControl -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679867002"><span class="annot"><span class="annottext">Eac3LfeControl -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679873663"><span class="annot"><span class="annottext">Eac3LfeControl -&gt; ()
 (Eac3LfeControl -&gt; ()) -&gt; NFData Eac3LfeControl
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Eac3LfeControl -&gt; ()
 $crnf :: Eac3LfeControl -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679866999"><span class="annot"><span class="annottext">Text -&gt; Either String Eac3LfeControl
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679873660"><span class="annot"><span class="annottext">Text -&gt; Either String Eac3LfeControl
 (Text -&gt; Either String Eac3LfeControl) -&gt; FromText Eac3LfeControl
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Eac3LfeControl
 $cfromText :: Text -&gt; Either String Eac3LfeControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679866996"><span class="annot"><span class="annottext">Eac3LfeControl -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679873657"><span class="annot"><span class="annottext">Eac3LfeControl -&gt; Text
 (Eac3LfeControl -&gt; Text) -&gt; ToText Eac3LfeControl
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Eac3LfeControl -&gt; Text
 $ctoText :: Eac3LfeControl -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679866993"><span class="annot"><span class="annottext">Eac3LfeControl -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679873654"><span class="annot"><span class="annottext">Eac3LfeControl -&gt; ByteString
 (Eac3LfeControl -&gt; ByteString) -&gt; ToByteString Eac3LfeControl
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Eac3LfeControl -&gt; ByteString
 $ctoBS :: Eac3LfeControl -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679866990"><span class="annot"><span class="annottext">Eac3LfeControl -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679873651"><span class="annot"><span class="annottext">Eac3LfeControl -&gt; ByteStringBuilder
 (Eac3LfeControl -&gt; ByteStringBuilder) -&gt; ToLog Eac3LfeControl
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Eac3LfeControl -&gt; ByteStringBuilder
 $cbuild :: Eac3LfeControl -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679866987"><span class="annot"><span class="annottext">HeaderName -&gt; Eac3LfeControl -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679873648"><span class="annot"><span class="annottext">HeaderName -&gt; Eac3LfeControl -&gt; [Header]
 (HeaderName -&gt; Eac3LfeControl -&gt; [Header])
 -&gt; ToHeader Eac3LfeControl
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Eac3LfeControl -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Eac3LfeControl -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679866984"><span class="annot"><span class="annottext">Eac3LfeControl -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679873645"><span class="annot"><span class="annottext">Eac3LfeControl -&gt; QueryString
 (Eac3LfeControl -&gt; QueryString) -&gt; ToQuery Eac3LfeControl
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Eac3LfeControl -&gt; QueryString
 $ctoQuery :: Eac3LfeControl -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679866979"><span id="local-6989586621679866981"><span class="annot"><span class="annottext">Value -&gt; Parser [Eac3LfeControl]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679873640"><span id="local-6989586621679873642"><span class="annot"><span class="annottext">Value -&gt; Parser [Eac3LfeControl]
 Value -&gt; Parser Eac3LfeControl
 (Value -&gt; Parser Eac3LfeControl)
 -&gt; (Value -&gt; Parser [Eac3LfeControl]) -&gt; FromJSON Eac3LfeControl
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [Eac3LfeControl]
 parseJSON :: Value -&gt; Parser Eac3LfeControl
 $cparseJSON :: Value -&gt; Parser Eac3LfeControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679866974"><span id="local-6989586621679866976"><span class="annot"><span class="annottext">FromJSONKeyFunction [Eac3LfeControl]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679873635"><span id="local-6989586621679873637"><span class="annot"><span class="annottext">FromJSONKeyFunction [Eac3LfeControl]
 FromJSONKeyFunction Eac3LfeControl
 FromJSONKeyFunction Eac3LfeControl
 -&gt; FromJSONKeyFunction [Eac3LfeControl]
@@ -209,7 +209,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Eac3LfeControl]
 fromJSONKey :: FromJSONKeyFunction Eac3LfeControl
 $cfromJSONKey :: FromJSONKeyFunction Eac3LfeControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679866965"><span id="local-6989586621679866967"><span id="local-6989586621679866969"><span id="local-6989586621679866971"><span class="annot"><span class="annottext">[Eac3LfeControl] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679873626"><span id="local-6989586621679873628"><span id="local-6989586621679873630"><span id="local-6989586621679873632"><span class="annot"><span class="annottext">[Eac3LfeControl] -&gt; Encoding
 [Eac3LfeControl] -&gt; Value
 Eac3LfeControl -&gt; Encoding
 Eac3LfeControl -&gt; Value
@@ -233,7 +233,7 @@ $ctoEncoding :: Eac3LfeControl -&gt; Encoding
 toJSON :: Eac3LfeControl -&gt; Value
 $ctoJSON :: Eac3LfeControl -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679866960"><span id="local-6989586621679866962"><span class="annot"><span class="annottext">ToJSONKeyFunction [Eac3LfeControl]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679873621"><span id="local-6989586621679873623"><span class="annot"><span class="annottext">ToJSONKeyFunction [Eac3LfeControl]
 ToJSONKeyFunction Eac3LfeControl
 ToJSONKeyFunction Eac3LfeControl
 -&gt; ToJSONKeyFunction [Eac3LfeControl] -&gt; ToJSONKey Eac3LfeControl
@@ -244,13 +244,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Eac3LfeControl]
 toJSONKey :: ToJSONKeyFunction Eac3LfeControl
 $ctoJSONKey :: ToJSONKeyFunction Eac3LfeControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679866957"><span class="annot"><span class="annottext">[Node] -&gt; Either String Eac3LfeControl
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679873618"><span class="annot"><span class="annottext">[Node] -&gt; Either String Eac3LfeControl
 ([Node] -&gt; Either String Eac3LfeControl) -&gt; FromXML Eac3LfeControl
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Eac3LfeControl
 $cparseXML :: [Node] -&gt; Either String Eac3LfeControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679866954"><span class="annot"><span class="annottext">Eac3LfeControl -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679873615"><span class="annot"><span class="annottext">Eac3LfeControl -&gt; XML
 (Eac3LfeControl -&gt; XML) -&gt; ToXML Eac3LfeControl
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Eac3LfeControl -&gt; XML

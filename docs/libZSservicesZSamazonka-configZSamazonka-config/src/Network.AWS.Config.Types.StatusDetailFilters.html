@@ -28,50 +28,50 @@
 </span><span id="line-28"></span><span class="hs-comment">-- ID or status type for an organization config rule.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newStatusDetailFilters' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679409592"><span id="local-6989586621679409593"></span></span><span class="hs-keyword">data</span><span> </span><span id="StatusDetailFilters"><span class="annot"><a href="Network.AWS.Config.Types.StatusDetailFilters.html#StatusDetailFilters"><span class="hs-identifier hs-var">StatusDetailFilters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StatusDetailFilters%27"><span class="annot"><a href="Network.AWS.Config.Types.StatusDetailFilters.html#StatusDetailFilters%27"><span class="hs-identifier hs-var">StatusDetailFilters'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The 12-digit account ID of the member account within an organization.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AaccountId%3AStatusDetailFilters%27"><span class="annot"><span class="annottext">StatusDetailFilters -&gt; Maybe Text
-</span><a href="Network.AWS.Config.Types.StatusDetailFilters.html#%24sel%3AaccountId%3AStatusDetailFilters%27"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Indicates deployment status for config rule in the member account. When</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- master account calls @PutOrganizationConfigRule@ action for the first</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- time, config rule status is created in the member account. When master</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- account calls @PutOrganizationConfigRule@ action for the second time,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- config rule status is updated in the member account. Config rule status</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- is deleted when the master account deletes @OrganizationConfigRule@ and</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- disables service access for @config-multiaccountsetup.amazonaws.com@.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679410203"><span id="local-6989586621679410204"></span></span><span class="hs-keyword">data</span><span> </span><span id="StatusDetailFilters"><span class="annot"><a href="Network.AWS.Config.Types.StatusDetailFilters.html#StatusDetailFilters"><span class="hs-identifier hs-var">StatusDetailFilters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StatusDetailFilters%27"><span class="annot"><a href="Network.AWS.Config.Types.StatusDetailFilters.html#StatusDetailFilters%27"><span class="hs-identifier hs-var">StatusDetailFilters'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Indicates deployment status for config rule in the member account. When</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- master account calls @PutOrganizationConfigRule@ action for the first</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- time, config rule status is created in the member account. When master</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- account calls @PutOrganizationConfigRule@ action for the second time,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- config rule status is updated in the member account. Config rule status</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- is deleted when the master account deletes @OrganizationConfigRule@ and</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- disables service access for @config-multiaccountsetup.amazonaws.com@.</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- Config sets the state of the rule to:</span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- Config sets the state of the rule to:</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- -   @CREATE_SUCCESSFUL@ when config rule has been created in the member</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">--     account.</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- -   @CREATE_IN_PROGRESS@ when config rule is being created in the member</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">--     account.</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- -   @CREATE_FAILED@ when config rule creation has failed in the member</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">--     account.</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- -   @DELETE_FAILED@ when config rule deletion has failed in the member</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">--     account.</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- -   @DELETE_IN_PROGRESS@ when config rule is being deleted in the member</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">--     account.</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- -   @DELETE_SUCCESSFUL@ when config rule has been deleted in the member</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">--     account.</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- -   @UPDATE_SUCCESSFUL@ when config rule has been updated in the member</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">--     account.</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- -   @UPDATE_IN_PROGRESS@ when config rule is being updated in the member</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">--     account.</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- -   @UPDATE_FAILED@ when config rule deletion has failed in the member</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">--     account.</span><span>
-</span><span id="line-70"></span><span>    </span><span id="%24sel%3AmemberAccountRuleStatus%3AStatusDetailFilters%27"><span class="annot"><span class="annottext">StatusDetailFilters -&gt; Maybe MemberAccountRuleStatus
-</span><a href="Network.AWS.Config.Types.StatusDetailFilters.html#%24sel%3AmemberAccountRuleStatus%3AStatusDetailFilters%27"><span class="hs-identifier hs-var hs-var">memberAccountRuleStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.MemberAccountRuleStatus.html#MemberAccountRuleStatus"><span class="hs-identifier hs-type">MemberAccountRuleStatus</span></a></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- -   @CREATE_SUCCESSFUL@ when config rule has been created in the member</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">--     account.</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- -   @CREATE_IN_PROGRESS@ when config rule is being created in the member</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--     account.</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- -   @CREATE_FAILED@ when config rule creation has failed in the member</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--     account.</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- -   @DELETE_FAILED@ when config rule deletion has failed in the member</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">--     account.</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- -   @DELETE_IN_PROGRESS@ when config rule is being deleted in the member</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">--     account.</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- -   @DELETE_SUCCESSFUL@ when config rule has been deleted in the member</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">--     account.</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- -   @UPDATE_SUCCESSFUL@ when config rule has been updated in the member</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--     account.</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- -   @UPDATE_IN_PROGRESS@ when config rule is being updated in the member</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--     account.</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- -   @UPDATE_FAILED@ when config rule deletion has failed in the member</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--     account.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AmemberAccountRuleStatus%3AStatusDetailFilters%27"><span class="annot"><span class="annottext">StatusDetailFilters -&gt; Maybe MemberAccountRuleStatus
+</span><a href="Network.AWS.Config.Types.StatusDetailFilters.html#%24sel%3AmemberAccountRuleStatus%3AStatusDetailFilters%27"><span class="hs-identifier hs-var hs-var">memberAccountRuleStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.MemberAccountRuleStatus.html#MemberAccountRuleStatus"><span class="hs-identifier hs-type">MemberAccountRuleStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The 12-digit account ID of the member account within an organization.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AaccountId%3AStatusDetailFilters%27"><span class="annot"><span class="annottext">StatusDetailFilters -&gt; Maybe Text
+</span><a href="Network.AWS.Config.Types.StatusDetailFilters.html#%24sel%3AaccountId%3AStatusDetailFilters%27"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679409585"><span id="local-6989586621679409587"><span class="annot"><span class="annottext">StatusDetailFilters -&gt; StatusDetailFilters -&gt; Bool
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679410196"><span id="local-6989586621679410198"><span class="annot"><span class="annottext">StatusDetailFilters -&gt; StatusDetailFilters -&gt; Bool
 (StatusDetailFilters -&gt; StatusDetailFilters -&gt; Bool)
 -&gt; (StatusDetailFilters -&gt; StatusDetailFilters -&gt; Bool)
 -&gt; Eq StatusDetailFilters
@@ -80,7 +80,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StatusDetailFilters -&gt; StatusDetailFilters -&gt; Bool
 == :: StatusDetailFilters -&gt; StatusDetailFilters -&gt; Bool
 $c== :: StatusDetailFilters -&gt; StatusDetailFilters -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679409576"><span id="local-6989586621679409578"><span id="local-6989586621679409580"><span id="local-6989586621679409582"><span class="annot"><span class="annottext">ReadPrec [StatusDetailFilters]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679410187"><span id="local-6989586621679410189"><span id="local-6989586621679410191"><span id="local-6989586621679410193"><span class="annot"><span class="annottext">ReadPrec [StatusDetailFilters]
 ReadPrec StatusDetailFilters
 Int -&gt; ReadS StatusDetailFilters
 ReadS [StatusDetailFilters]
@@ -100,7 +100,7 @@ readList :: ReadS [StatusDetailFilters]
 $creadList :: ReadS [StatusDetailFilters]
 readsPrec :: Int -&gt; ReadS StatusDetailFilters
 $creadsPrec :: Int -&gt; ReadS StatusDetailFilters
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679409569"><span id="local-6989586621679409571"><span id="local-6989586621679409573"><span class="annot"><span class="annottext">Int -&gt; StatusDetailFilters -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679410180"><span id="local-6989586621679410182"><span id="local-6989586621679410184"><span class="annot"><span class="annottext">Int -&gt; StatusDetailFilters -&gt; ShowS
 [StatusDetailFilters] -&gt; ShowS
 StatusDetailFilters -&gt; String
 (Int -&gt; StatusDetailFilters -&gt; ShowS)
@@ -134,118 +134,99 @@ $cfrom :: forall x. StatusDetailFilters -&gt; Rep StatusDetailFilters x
 </span><span id="line-79"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-81"></span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- 'accountId', 'statusDetailFilters_accountId' - The 12-digit account ID of the member account within an organization.</span><span>
-</span><span id="line-83"></span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- 'memberAccountRuleStatus', 'statusDetailFilters_memberAccountRuleStatus' - Indicates deployment status for config rule in the member account. When</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- master account calls @PutOrganizationConfigRule@ action for the first</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- time, config rule status is created in the member account. When master</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- account calls @PutOrganizationConfigRule@ action for the second time,</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- config rule status is updated in the member account. Config rule status</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- is deleted when the master account deletes @OrganizationConfigRule@ and</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- disables service access for @config-multiaccountsetup.amazonaws.com@.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'memberAccountRuleStatus', 'statusDetailFilters_memberAccountRuleStatus' - Indicates deployment status for config rule in the member account. When</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- master account calls @PutOrganizationConfigRule@ action for the first</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- time, config rule status is created in the member account. When master</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- account calls @PutOrganizationConfigRule@ action for the second time,</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- config rule status is updated in the member account. Config rule status</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- is deleted when the master account deletes @OrganizationConfigRule@ and</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- disables service access for @config-multiaccountsetup.amazonaws.com@.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- Config sets the state of the rule to:</span><span>
 </span><span id="line-91"></span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- Config sets the state of the rule to:</span><span>
-</span><span id="line-93"></span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- -   @CREATE_SUCCESSFUL@ when config rule has been created in the member</span><span>
-</span><span id="line-95"></span><span class="hs-comment">--     account.</span><span>
-</span><span id="line-96"></span><span class="hs-comment">--</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- -   @CREATE_IN_PROGRESS@ when config rule is being created in the member</span><span>
-</span><span id="line-98"></span><span class="hs-comment">--     account.</span><span>
-</span><span id="line-99"></span><span class="hs-comment">--</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- -   @CREATE_FAILED@ when config rule creation has failed in the member</span><span>
-</span><span id="line-101"></span><span class="hs-comment">--     account.</span><span>
-</span><span id="line-102"></span><span class="hs-comment">--</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- -   @DELETE_FAILED@ when config rule deletion has failed in the member</span><span>
-</span><span id="line-104"></span><span class="hs-comment">--     account.</span><span>
-</span><span id="line-105"></span><span class="hs-comment">--</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- -   @DELETE_IN_PROGRESS@ when config rule is being deleted in the member</span><span>
-</span><span id="line-107"></span><span class="hs-comment">--     account.</span><span>
-</span><span id="line-108"></span><span class="hs-comment">--</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- -   @DELETE_SUCCESSFUL@ when config rule has been deleted in the member</span><span>
-</span><span id="line-110"></span><span class="hs-comment">--     account.</span><span>
-</span><span id="line-111"></span><span class="hs-comment">--</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- -   @UPDATE_SUCCESSFUL@ when config rule has been updated in the member</span><span>
-</span><span id="line-113"></span><span class="hs-comment">--     account.</span><span>
-</span><span id="line-114"></span><span class="hs-comment">--</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- -   @UPDATE_IN_PROGRESS@ when config rule is being updated in the member</span><span>
-</span><span id="line-116"></span><span class="hs-comment">--     account.</span><span>
-</span><span id="line-117"></span><span class="hs-comment">--</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- -   @UPDATE_FAILED@ when config rule deletion has failed in the member</span><span>
-</span><span id="line-119"></span><span class="hs-comment">--     account.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- -   @CREATE_SUCCESSFUL@ when config rule has been created in the member</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--     account.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- -   @CREATE_IN_PROGRESS@ when config rule is being created in the member</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--     account.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- -   @CREATE_FAILED@ when config rule creation has failed in the member</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--     account.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- -   @DELETE_FAILED@ when config rule deletion has failed in the member</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--     account.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- -   @DELETE_IN_PROGRESS@ when config rule is being deleted in the member</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--     account.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- -   @DELETE_SUCCESSFUL@ when config rule has been deleted in the member</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--     account.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- -   @UPDATE_SUCCESSFUL@ when config rule has been updated in the member</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--     account.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- -   @UPDATE_IN_PROGRESS@ when config rule is being updated in the member</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--     account.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- -   @UPDATE_FAILED@ when config rule deletion has failed in the member</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--     account.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'accountId', 'statusDetailFilters_accountId' - The 12-digit account ID of the member account within an organization.</span><span>
 </span><span id="line-120"></span><span class="annot"><a href="Network.AWS.Config.Types.StatusDetailFilters.html#newStatusDetailFilters"><span class="hs-identifier hs-type">newStatusDetailFilters</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-121"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.Types.StatusDetailFilters.html#StatusDetailFilters"><span class="hs-identifier hs-type">StatusDetailFilters</span></a></span><span>
 </span><span id="line-122"></span><span id="newStatusDetailFilters"><span class="annot"><span class="annottext">newStatusDetailFilters :: StatusDetailFilters
 </span><a href="Network.AWS.Config.Types.StatusDetailFilters.html#newStatusDetailFilters"><span class="hs-identifier hs-var hs-var">newStatusDetailFilters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-123"></span><span>  </span><span class="annot"><span class="annottext">StatusDetailFilters' :: Maybe Text -&gt; Maybe MemberAccountRuleStatus -&gt; StatusDetailFilters
+</span><span id="line-123"></span><span>  </span><span class="annot"><span class="annottext">StatusDetailFilters' :: Maybe MemberAccountRuleStatus -&gt; Maybe Text -&gt; StatusDetailFilters
 </span><a href="Network.AWS.Config.Types.StatusDetailFilters.html#StatusDetailFilters%27"><span class="hs-identifier hs-type">StatusDetailFilters'</span></a></span><span>
-</span><span id="line-124"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accountId:StatusDetailFilters' :: Maybe Text
-</span><a href="Network.AWS.Config.Types.StatusDetailFilters.html#%24sel%3AaccountId%3AStatusDetailFilters%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-124"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:memberAccountRuleStatus:StatusDetailFilters' :: Maybe MemberAccountRuleStatus
+</span><a href="Network.AWS.Config.Types.StatusDetailFilters.html#%24sel%3AmemberAccountRuleStatus%3AStatusDetailFilters%27"><span class="hs-identifier hs-var">memberAccountRuleStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">Maybe MemberAccountRuleStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:memberAccountRuleStatus:StatusDetailFilters' :: Maybe MemberAccountRuleStatus
-</span><a href="Network.AWS.Config.Types.StatusDetailFilters.html#%24sel%3AmemberAccountRuleStatus%3AStatusDetailFilters%27"><span class="hs-identifier hs-var">memberAccountRuleStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MemberAccountRuleStatus
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:accountId:StatusDetailFilters' :: Maybe Text
+</span><a href="Network.AWS.Config.Types.StatusDetailFilters.html#%24sel%3AaccountId%3AStatusDetailFilters%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-126"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- | The 12-digit account ID of the member account within an organization.</span><span>
-</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.Config.Types.StatusDetailFilters.html#statusDetailFilters_accountId"><span class="hs-identifier hs-type">statusDetailFilters_accountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.StatusDetailFilters.html#StatusDetailFilters"><span class="hs-identifier hs-type">StatusDetailFilters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span id="statusDetailFilters_accountId"><span class="annot"><span class="annottext">statusDetailFilters_accountId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; StatusDetailFilters -&gt; f StatusDetailFilters
-</span><a href="Network.AWS.Config.Types.StatusDetailFilters.html#statusDetailFilters_accountId"><span class="hs-identifier hs-var hs-var">statusDetailFilters_accountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StatusDetailFilters -&gt; Maybe Text)
--&gt; (StatusDetailFilters -&gt; Maybe Text -&gt; StatusDetailFilters)
--&gt; Lens
-     StatusDetailFilters StatusDetailFilters (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.StatusDetailFilters.html#StatusDetailFilters%27"><span class="hs-identifier hs-type">StatusDetailFilters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409560"><span class="annot"><span class="annottext">Maybe Text
-accountId :: Maybe Text
-$sel:accountId:StatusDetailFilters' :: StatusDetailFilters -&gt; Maybe Text
-</span><a href="#local-6989586621679409560"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679409560"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679409559"><span class="annot"><span class="annottext">s :: StatusDetailFilters
-</span><a href="#local-6989586621679409559"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.StatusDetailFilters.html#StatusDetailFilters%27"><span class="hs-identifier hs-type">StatusDetailFilters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679409558"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679409558"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StatusDetailFilters
-</span><a href="#local-6989586621679409559"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:StatusDetailFilters' :: Maybe Text
-</span><a href="Network.AWS.Config.Types.StatusDetailFilters.html#%24sel%3AaccountId%3AStatusDetailFilters%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679409558"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.StatusDetailFilters.html#StatusDetailFilters"><span class="hs-identifier hs-type">StatusDetailFilters</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- | Indicates deployment status for config rule in the member account. When</span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- master account calls @PutOrganizationConfigRule@ action for the first</span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- time, config rule status is created in the member account. When master</span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- account calls @PutOrganizationConfigRule@ action for the second time,</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- config rule status is updated in the member account. Config rule status</span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- is deleted when the master account deletes @OrganizationConfigRule@ and</span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- disables service access for @config-multiaccountsetup.amazonaws.com@.</span><span>
-</span><span id="line-139"></span><span class="hs-comment">--</span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- Config sets the state of the rule to:</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | Indicates deployment status for config rule in the member account. When</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- master account calls @PutOrganizationConfigRule@ action for the first</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- time, config rule status is created in the member account. When master</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- account calls @PutOrganizationConfigRule@ action for the second time,</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- config rule status is updated in the member account. Config rule status</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- is deleted when the master account deletes @OrganizationConfigRule@ and</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- disables service access for @config-multiaccountsetup.amazonaws.com@.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- Config sets the state of the rule to:</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- -   @CREATE_SUCCESSFUL@ when config rule has been created in the member</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--     account.</span><span>
 </span><span id="line-141"></span><span class="hs-comment">--</span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- -   @CREATE_SUCCESSFUL@ when config rule has been created in the member</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- -   @CREATE_IN_PROGRESS@ when config rule is being created in the member</span><span>
 </span><span id="line-143"></span><span class="hs-comment">--     account.</span><span>
 </span><span id="line-144"></span><span class="hs-comment">--</span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- -   @CREATE_IN_PROGRESS@ when config rule is being created in the member</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- -   @CREATE_FAILED@ when config rule creation has failed in the member</span><span>
 </span><span id="line-146"></span><span class="hs-comment">--     account.</span><span>
 </span><span id="line-147"></span><span class="hs-comment">--</span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- -   @CREATE_FAILED@ when config rule creation has failed in the member</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- -   @DELETE_FAILED@ when config rule deletion has failed in the member</span><span>
 </span><span id="line-149"></span><span class="hs-comment">--     account.</span><span>
 </span><span id="line-150"></span><span class="hs-comment">--</span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- -   @DELETE_FAILED@ when config rule deletion has failed in the member</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- -   @DELETE_IN_PROGRESS@ when config rule is being deleted in the member</span><span>
 </span><span id="line-152"></span><span class="hs-comment">--     account.</span><span>
 </span><span id="line-153"></span><span class="hs-comment">--</span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- -   @DELETE_IN_PROGRESS@ when config rule is being deleted in the member</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- -   @DELETE_SUCCESSFUL@ when config rule has been deleted in the member</span><span>
 </span><span id="line-155"></span><span class="hs-comment">--     account.</span><span>
 </span><span id="line-156"></span><span class="hs-comment">--</span><span>
-</span><span id="line-157"></span><span class="hs-comment">-- -   @DELETE_SUCCESSFUL@ when config rule has been deleted in the member</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- -   @UPDATE_SUCCESSFUL@ when config rule has been updated in the member</span><span>
 </span><span id="line-158"></span><span class="hs-comment">--     account.</span><span>
 </span><span id="line-159"></span><span class="hs-comment">--</span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- -   @UPDATE_SUCCESSFUL@ when config rule has been updated in the member</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- -   @UPDATE_IN_PROGRESS@ when config rule is being updated in the member</span><span>
 </span><span id="line-161"></span><span class="hs-comment">--     account.</span><span>
 </span><span id="line-162"></span><span class="hs-comment">--</span><span>
-</span><span id="line-163"></span><span class="hs-comment">-- -   @UPDATE_IN_PROGRESS@ when config rule is being updated in the member</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- -   @UPDATE_FAILED@ when config rule deletion has failed in the member</span><span>
 </span><span id="line-164"></span><span class="hs-comment">--     account.</span><span>
-</span><span id="line-165"></span><span class="hs-comment">--</span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- -   @UPDATE_FAILED@ when config rule deletion has failed in the member</span><span>
-</span><span id="line-167"></span><span class="hs-comment">--     account.</span><span>
-</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.Config.Types.StatusDetailFilters.html#statusDetailFilters_memberAccountRuleStatus"><span class="hs-identifier hs-type">statusDetailFilters_memberAccountRuleStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.StatusDetailFilters.html#StatusDetailFilters"><span class="hs-identifier hs-type">StatusDetailFilters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.MemberAccountRuleStatus.html#MemberAccountRuleStatus"><span class="hs-identifier hs-type">MemberAccountRuleStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-169"></span><span id="statusDetailFilters_memberAccountRuleStatus"><span class="annot"><span class="annottext">statusDetailFilters_memberAccountRuleStatus :: (Maybe MemberAccountRuleStatus
+</span><span id="line-165"></span><span class="annot"><a href="Network.AWS.Config.Types.StatusDetailFilters.html#statusDetailFilters_memberAccountRuleStatus"><span class="hs-identifier hs-type">statusDetailFilters_memberAccountRuleStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.StatusDetailFilters.html#StatusDetailFilters"><span class="hs-identifier hs-type">StatusDetailFilters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.MemberAccountRuleStatus.html#MemberAccountRuleStatus"><span class="hs-identifier hs-type">MemberAccountRuleStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span id="statusDetailFilters_memberAccountRuleStatus"><span class="annot"><span class="annottext">statusDetailFilters_memberAccountRuleStatus :: (Maybe MemberAccountRuleStatus
  -&gt; f (Maybe MemberAccountRuleStatus))
 -&gt; StatusDetailFilters -&gt; f StatusDetailFilters
 </span><a href="Network.AWS.Config.Types.StatusDetailFilters.html#statusDetailFilters_memberAccountRuleStatus"><span class="hs-identifier hs-var hs-var">statusDetailFilters_memberAccountRuleStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StatusDetailFilters -&gt; Maybe MemberAccountRuleStatus)
@@ -257,43 +238,56 @@ $sel:accountId:StatusDetailFilters' :: StatusDetailFilters -&gt; Maybe Text
      (Maybe MemberAccountRuleStatus)
      (Maybe MemberAccountRuleStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.StatusDetailFilters.html#StatusDetailFilters%27"><span class="hs-identifier hs-type">StatusDetailFilters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409556"><span class="annot"><span class="annottext">Maybe MemberAccountRuleStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.StatusDetailFilters.html#StatusDetailFilters%27"><span class="hs-identifier hs-type">StatusDetailFilters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679410171"><span class="annot"><span class="annottext">Maybe MemberAccountRuleStatus
 memberAccountRuleStatus :: Maybe MemberAccountRuleStatus
 $sel:memberAccountRuleStatus:StatusDetailFilters' :: StatusDetailFilters -&gt; Maybe MemberAccountRuleStatus
-</span><a href="#local-6989586621679409556"><span class="hs-identifier hs-var hs-var">memberAccountRuleStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MemberAccountRuleStatus
-</span><a href="#local-6989586621679409556"><span class="hs-identifier hs-var">memberAccountRuleStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679409555"><span class="annot"><span class="annottext">s :: StatusDetailFilters
-</span><a href="#local-6989586621679409555"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.StatusDetailFilters.html#StatusDetailFilters%27"><span class="hs-identifier hs-type">StatusDetailFilters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679409554"><span class="annot"><span class="annottext">Maybe MemberAccountRuleStatus
-</span><a href="#local-6989586621679409554"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StatusDetailFilters
-</span><a href="#local-6989586621679409555"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:memberAccountRuleStatus:StatusDetailFilters' :: Maybe MemberAccountRuleStatus
+</span><a href="#local-6989586621679410171"><span class="hs-identifier hs-var hs-var">memberAccountRuleStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MemberAccountRuleStatus
+</span><a href="#local-6989586621679410171"><span class="hs-identifier hs-var">memberAccountRuleStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679410170"><span class="annot"><span class="annottext">s :: StatusDetailFilters
+</span><a href="#local-6989586621679410170"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.StatusDetailFilters.html#StatusDetailFilters%27"><span class="hs-identifier hs-type">StatusDetailFilters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679410169"><span class="annot"><span class="annottext">Maybe MemberAccountRuleStatus
+</span><a href="#local-6989586621679410169"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StatusDetailFilters
+</span><a href="#local-6989586621679410170"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:memberAccountRuleStatus:StatusDetailFilters' :: Maybe MemberAccountRuleStatus
 </span><a href="Network.AWS.Config.Types.StatusDetailFilters.html#%24sel%3AmemberAccountRuleStatus%3AStatusDetailFilters%27"><span class="hs-identifier hs-var">memberAccountRuleStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MemberAccountRuleStatus
-</span><a href="#local-6989586621679409554"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.StatusDetailFilters.html#StatusDetailFilters"><span class="hs-identifier hs-type">StatusDetailFilters</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679409550"><span id="local-6989586621679409552"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.StatusDetailFilters.html#StatusDetailFilters"><span class="hs-identifier hs-type">StatusDetailFilters</span></a></span></span></span><span>
-</span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679409547"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.StatusDetailFilters.html#StatusDetailFilters"><span class="hs-identifier hs-type">StatusDetailFilters</span></a></span></span><span>
-</span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679409539"><span id="local-6989586621679409541"><span id="local-6989586621679409543"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.StatusDetailFilters.html#StatusDetailFilters"><span class="hs-identifier hs-type">StatusDetailFilters</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679409537"><span class="annot"><span class="annottext">toJSON :: StatusDetailFilters -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.StatusDetailFilters.html#StatusDetailFilters%27"><span class="hs-identifier hs-type">StatusDetailFilters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409534"><span id="local-6989586621679409535"><span class="annot"><span class="annottext">Maybe Text
-Maybe MemberAccountRuleStatus
-memberAccountRuleStatus :: Maybe MemberAccountRuleStatus
+</span><a href="#local-6989586621679410169"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.StatusDetailFilters.html#StatusDetailFilters"><span class="hs-identifier hs-type">StatusDetailFilters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | The 12-digit account ID of the member account within an organization.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.Config.Types.StatusDetailFilters.html#statusDetailFilters_accountId"><span class="hs-identifier hs-type">statusDetailFilters_accountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.StatusDetailFilters.html#StatusDetailFilters"><span class="hs-identifier hs-type">StatusDetailFilters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span id="statusDetailFilters_accountId"><span class="annot"><span class="annottext">statusDetailFilters_accountId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StatusDetailFilters -&gt; f StatusDetailFilters
+</span><a href="Network.AWS.Config.Types.StatusDetailFilters.html#statusDetailFilters_accountId"><span class="hs-identifier hs-var hs-var">statusDetailFilters_accountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StatusDetailFilters -&gt; Maybe Text)
+-&gt; (StatusDetailFilters -&gt; Maybe Text -&gt; StatusDetailFilters)
+-&gt; Lens
+     StatusDetailFilters StatusDetailFilters (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.StatusDetailFilters.html#StatusDetailFilters%27"><span class="hs-identifier hs-type">StatusDetailFilters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679410167"><span class="annot"><span class="annottext">Maybe Text
 accountId :: Maybe Text
-$sel:memberAccountRuleStatus:StatusDetailFilters' :: StatusDetailFilters -&gt; Maybe MemberAccountRuleStatus
 $sel:accountId:StatusDetailFilters' :: StatusDetailFilters -&gt; Maybe Text
-</span><a href="#local-6989586621679409534"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><a href="#local-6989586621679410167"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679410167"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679410166"><span class="annot"><span class="annottext">s :: StatusDetailFilters
+</span><a href="#local-6989586621679410166"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.StatusDetailFilters.html#StatusDetailFilters%27"><span class="hs-identifier hs-type">StatusDetailFilters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679410165"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679410165"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StatusDetailFilters
+</span><a href="#local-6989586621679410166"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:StatusDetailFilters' :: Maybe Text
+</span><a href="Network.AWS.Config.Types.StatusDetailFilters.html#%24sel%3AaccountId%3AStatusDetailFilters%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679410165"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.StatusDetailFilters.html#StatusDetailFilters"><span class="hs-identifier hs-type">StatusDetailFilters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679410161"><span id="local-6989586621679410163"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.StatusDetailFilters.html#StatusDetailFilters"><span class="hs-identifier hs-type">StatusDetailFilters</span></a></span></span></span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679410158"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.StatusDetailFilters.html#StatusDetailFilters"><span class="hs-identifier hs-type">StatusDetailFilters</span></a></span></span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679410150"><span id="local-6989586621679410152"><span id="local-6989586621679410154"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.StatusDetailFilters.html#StatusDetailFilters"><span class="hs-identifier hs-type">StatusDetailFilters</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679410148"><span class="annot"><span class="annottext">toJSON :: StatusDetailFilters -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.StatusDetailFilters.html#StatusDetailFilters%27"><span class="hs-identifier hs-type">StatusDetailFilters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679410145"><span id="local-6989586621679410146"><span class="annot"><span class="annottext">Maybe Text
+Maybe MemberAccountRuleStatus
+accountId :: Maybe Text
+memberAccountRuleStatus :: Maybe MemberAccountRuleStatus
+$sel:accountId:StatusDetailFilters' :: StatusDetailFilters -&gt; Maybe Text
+$sel:memberAccountRuleStatus:StatusDetailFilters' :: StatusDetailFilters -&gt; Maybe MemberAccountRuleStatus
+</span><a href="#local-6989586621679410145"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
-</span><span id="line-178"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+</span><span id="line-179"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
-</span><span id="line-179"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AccountId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679409535"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-180"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-180"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MemberAccountRuleStatus&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MemberAccountRuleStatus -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
@@ -301,7 +295,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe MemberAccountRuleStatus -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MemberAccountRuleStatus
-</span><a href="#local-6989586621679409534"><span class="hs-identifier hs-var">memberAccountRuleStatus</span></a></span><span>
-</span><span id="line-182"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-183"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-184"></span></pre></body></html>
+</span><a href="#local-6989586621679410146"><span class="hs-identifier hs-var">memberAccountRuleStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AccountId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679410145"><span class="hs-identifier hs-var">accountId</span></a></span><span>
+</span><span id="line-183"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-184"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span></pre></body></html>

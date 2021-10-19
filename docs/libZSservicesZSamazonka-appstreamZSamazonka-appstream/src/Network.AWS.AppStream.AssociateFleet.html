@@ -47,7 +47,7 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newAssociateFleet' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679303182"><span id="local-6989586621679303183"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateFleet"><span class="annot"><a href="Network.AWS.AppStream.AssociateFleet.html#AssociateFleet"><span class="hs-identifier hs-var">AssociateFleet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateFleet%27"><span class="annot"><a href="Network.AWS.AppStream.AssociateFleet.html#AssociateFleet%27"><span class="hs-identifier hs-var">AssociateFleet'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679303468"><span id="local-6989586621679303469"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateFleet"><span class="annot"><a href="Network.AWS.AppStream.AssociateFleet.html#AssociateFleet"><span class="hs-identifier hs-var">AssociateFleet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateFleet%27"><span class="annot"><a href="Network.AWS.AppStream.AssociateFleet.html#AssociateFleet%27"><span class="hs-identifier hs-var">AssociateFleet'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the fleet.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AfleetName%3AAssociateFleet%27"><span class="annot"><span class="annottext">AssociateFleet -&gt; Text
 </span><a href="Network.AWS.AppStream.AssociateFleet.html#%24sel%3AfleetName%3AAssociateFleet%27"><span class="hs-identifier hs-var hs-var">fleetName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -55,7 +55,7 @@
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AstackName%3AAssociateFleet%27"><span class="annot"><span class="annottext">AssociateFleet -&gt; Text
 </span><a href="Network.AWS.AppStream.AssociateFleet.html#%24sel%3AstackName%3AAssociateFleet%27"><span class="hs-identifier hs-var hs-var">stackName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679303175"><span id="local-6989586621679303177"><span class="annot"><span class="annottext">AssociateFleet -&gt; AssociateFleet -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679303461"><span id="local-6989586621679303463"><span class="annot"><span class="annottext">AssociateFleet -&gt; AssociateFleet -&gt; Bool
 (AssociateFleet -&gt; AssociateFleet -&gt; Bool)
 -&gt; (AssociateFleet -&gt; AssociateFleet -&gt; Bool) -&gt; Eq AssociateFleet
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AssociateFleet -&gt; AssociateFleet -&gt; Bool
 == :: AssociateFleet -&gt; AssociateFleet -&gt; Bool
 $c== :: AssociateFleet -&gt; AssociateFleet -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303166"><span id="local-6989586621679303168"><span id="local-6989586621679303170"><span id="local-6989586621679303172"><span class="annot"><span class="annottext">ReadPrec [AssociateFleet]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303452"><span id="local-6989586621679303454"><span id="local-6989586621679303456"><span id="local-6989586621679303458"><span class="annot"><span class="annottext">ReadPrec [AssociateFleet]
 ReadPrec AssociateFleet
 Int -&gt; ReadS AssociateFleet
 ReadS [AssociateFleet]
@@ -83,7 +83,7 @@ readList :: ReadS [AssociateFleet]
 $creadList :: ReadS [AssociateFleet]
 readsPrec :: Int -&gt; ReadS AssociateFleet
 $creadsPrec :: Int -&gt; ReadS AssociateFleet
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303159"><span id="local-6989586621679303161"><span id="local-6989586621679303163"><span class="annot"><span class="annottext">Int -&gt; AssociateFleet -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303445"><span id="local-6989586621679303447"><span id="local-6989586621679303449"><span class="annot"><span class="annottext">Int -&gt; AssociateFleet -&gt; ShowS
 [AssociateFleet] -&gt; ShowS
 AssociateFleet -&gt; String
 (Int -&gt; AssociateFleet -&gt; ShowS)
@@ -127,17 +127,17 @@ $cfrom :: forall x. AssociateFleet -&gt; Rep AssociateFleet x
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.AssociateFleet.html#AssociateFleet"><span class="hs-identifier hs-type">AssociateFleet</span></a></span><span>
 </span><span id="line-75"></span><span id="newAssociateFleet"><span class="annot"><span class="annottext">newAssociateFleet :: Text -&gt; Text -&gt; AssociateFleet
-</span><a href="Network.AWS.AppStream.AssociateFleet.html#newAssociateFleet"><span class="hs-identifier hs-var hs-var">newAssociateFleet</span></a></span></span><span> </span><span id="local-6989586621679303154"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303154"><span class="hs-identifier hs-var">pFleetName_</span></a></span></span><span> </span><span id="local-6989586621679303153"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303153"><span class="hs-identifier hs-var">pStackName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AppStream.AssociateFleet.html#newAssociateFleet"><span class="hs-identifier hs-var hs-var">newAssociateFleet</span></a></span></span><span> </span><span id="local-6989586621679303440"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303440"><span class="hs-identifier hs-var">pFleetName_</span></a></span></span><span> </span><span id="local-6989586621679303439"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303439"><span class="hs-identifier hs-var">pStackName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">AssociateFleet' :: Text -&gt; Text -&gt; AssociateFleet
 </span><a href="Network.AWS.AppStream.AssociateFleet.html#AssociateFleet%27"><span class="hs-identifier hs-type">AssociateFleet'</span></a></span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:fleetName:AssociateFleet' :: Text
 </span><a href="Network.AWS.AppStream.AssociateFleet.html#%24sel%3AfleetName%3AAssociateFleet%27"><span class="hs-identifier hs-var">fleetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303154"><span class="hs-identifier hs-var">pFleetName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679303440"><span class="hs-identifier hs-var">pFleetName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:stackName:AssociateFleet' :: Text
 </span><a href="Network.AWS.AppStream.AssociateFleet.html#%24sel%3AstackName%3AAssociateFleet%27"><span class="hs-identifier hs-var">stackName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303153"><span class="hs-identifier hs-var">pStackName_</span></a></span><span>
+</span><a href="#local-6989586621679303439"><span class="hs-identifier hs-var">pStackName_</span></a></span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | The name of the fleet.</span><span>
@@ -147,16 +147,16 @@ $cfrom :: forall x. AssociateFleet -&gt; Rep AssociateFleet x
 -&gt; (AssociateFleet -&gt; Text -&gt; AssociateFleet)
 -&gt; Lens AssociateFleet AssociateFleet Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.AssociateFleet.html#AssociateFleet%27"><span class="hs-identifier hs-type">AssociateFleet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303150"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.AssociateFleet.html#AssociateFleet%27"><span class="hs-identifier hs-type">AssociateFleet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303436"><span class="annot"><span class="annottext">Text
 fleetName :: Text
 $sel:fleetName:AssociateFleet' :: AssociateFleet -&gt; Text
-</span><a href="#local-6989586621679303150"><span class="hs-identifier hs-var hs-var">fleetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303150"><span class="hs-identifier hs-var">fleetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303149"><span class="annot"><span class="annottext">s :: AssociateFleet
-</span><a href="#local-6989586621679303149"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.AssociateFleet.html#AssociateFleet%27"><span class="hs-identifier hs-type">AssociateFleet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303148"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303148"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateFleet
-</span><a href="#local-6989586621679303149"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetName:AssociateFleet' :: Text
+</span><a href="#local-6989586621679303436"><span class="hs-identifier hs-var hs-var">fleetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303436"><span class="hs-identifier hs-var">fleetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303435"><span class="annot"><span class="annottext">s :: AssociateFleet
+</span><a href="#local-6989586621679303435"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.AssociateFleet.html#AssociateFleet%27"><span class="hs-identifier hs-type">AssociateFleet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303434"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303434"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateFleet
+</span><a href="#local-6989586621679303435"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetName:AssociateFleet' :: Text
 </span><a href="Network.AWS.AppStream.AssociateFleet.html#%24sel%3AfleetName%3AAssociateFleet%27"><span class="hs-identifier hs-var">fleetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303148"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.AssociateFleet.html#AssociateFleet"><span class="hs-identifier hs-type">AssociateFleet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679303434"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.AssociateFleet.html#AssociateFleet"><span class="hs-identifier hs-type">AssociateFleet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The name of the stack.</span><span>
 </span><span id="line-86"></span><span class="annot"><a href="Network.AWS.AppStream.AssociateFleet.html#associateFleet_stackName"><span class="hs-identifier hs-type">associateFleet_stackName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.AssociateFleet.html#AssociateFleet"><span class="hs-identifier hs-type">AssociateFleet</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -165,27 +165,27 @@ $sel:fleetName:AssociateFleet' :: AssociateFleet -&gt; Text
 -&gt; (AssociateFleet -&gt; Text -&gt; AssociateFleet)
 -&gt; Lens AssociateFleet AssociateFleet Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.AssociateFleet.html#AssociateFleet%27"><span class="hs-identifier hs-type">AssociateFleet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303147"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.AssociateFleet.html#AssociateFleet%27"><span class="hs-identifier hs-type">AssociateFleet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303433"><span class="annot"><span class="annottext">Text
 stackName :: Text
 $sel:stackName:AssociateFleet' :: AssociateFleet -&gt; Text
-</span><a href="#local-6989586621679303147"><span class="hs-identifier hs-var hs-var">stackName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303147"><span class="hs-identifier hs-var">stackName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303146"><span class="annot"><span class="annottext">s :: AssociateFleet
-</span><a href="#local-6989586621679303146"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.AssociateFleet.html#AssociateFleet%27"><span class="hs-identifier hs-type">AssociateFleet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303145"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303145"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateFleet
-</span><a href="#local-6989586621679303146"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackName:AssociateFleet' :: Text
+</span><a href="#local-6989586621679303433"><span class="hs-identifier hs-var hs-var">stackName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303433"><span class="hs-identifier hs-var">stackName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303432"><span class="annot"><span class="annottext">s :: AssociateFleet
+</span><a href="#local-6989586621679303432"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.AssociateFleet.html#AssociateFleet%27"><span class="hs-identifier hs-type">AssociateFleet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303431"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303431"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateFleet
+</span><a href="#local-6989586621679303432"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackName:AssociateFleet' :: Text
 </span><a href="Network.AWS.AppStream.AssociateFleet.html#%24sel%3AstackName%3AAssociateFleet%27"><span class="hs-identifier hs-var">stackName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303145"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.AssociateFleet.html#AssociateFleet"><span class="hs-identifier hs-type">AssociateFleet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679303431"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.AssociateFleet.html#AssociateFleet"><span class="hs-identifier hs-type">AssociateFleet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.AssociateFleet.html#AssociateFleet"><span class="hs-identifier hs-type">AssociateFleet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-90"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-91"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.AssociateFleet.html#AssociateFleet"><span class="hs-identifier hs-type">AssociateFleet</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>      </span><span class="annot"><a href="Network.AWS.AppStream.AssociateFleet.html#AssociateFleetResponse"><span class="hs-identifier hs-type">AssociateFleetResponse</span></a></span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679303141"><span class="annot"><span class="annottext">request :: AssociateFleet -&gt; Request AssociateFleet
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679303427"><span class="annot"><span class="annottext">request :: AssociateFleet -&gt; Request AssociateFleet
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AssociateFleet -&gt; Request AssociateFleet
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AppStream.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679303137"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679303423"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy AssociateFleet
 -&gt; ClientResponse ClientBody
@@ -209,10 +209,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679303134"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679303134"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679303133"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679303133"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679303132"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679303132"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679303420"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679303420"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679303419"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679303419"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679303418"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679303418"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; AssociateFleetResponse
 </span><a href="Network.AWS.AppStream.AssociateFleet.html#AssociateFleetResponse%27"><span class="hs-identifier hs-var">AssociateFleetResponse'</span></a></span><span>
 </span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; AssociateFleetResponse)
@@ -223,15 +223,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679303134"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679303420"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303125"><span id="local-6989586621679303127"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.AssociateFleet.html#AssociateFleet"><span class="hs-identifier hs-type">AssociateFleet</span></a></span></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303411"><span id="local-6989586621679303413"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.AssociateFleet.html#AssociateFleet"><span class="hs-identifier hs-type">AssociateFleet</span></a></span></span></span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303122"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.AssociateFleet.html#AssociateFleet"><span class="hs-identifier hs-type">AssociateFleet</span></a></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303408"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.AssociateFleet.html#AssociateFleet"><span class="hs-identifier hs-type">AssociateFleet</span></a></span></span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.AssociateFleet.html#AssociateFleet"><span class="hs-identifier hs-type">AssociateFleet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679303118"><span class="annot"><span class="annottext">toHeaders :: AssociateFleet -&gt; ResponseHeaders
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679303404"><span class="annot"><span class="annottext">toHeaders :: AssociateFleet -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AssociateFleet -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -258,14 +258,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303108"><span id="local-6989586621679303110"><span id="local-6989586621679303112"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.AssociateFleet.html#AssociateFleet"><span class="hs-identifier hs-type">AssociateFleet</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679303106"><span class="annot"><span class="annottext">toJSON :: AssociateFleet -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.AssociateFleet.html#AssociateFleet%27"><span class="hs-identifier hs-type">AssociateFleet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303103"><span id="local-6989586621679303104"><span class="annot"><span class="annottext">Text
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303394"><span id="local-6989586621679303396"><span id="local-6989586621679303398"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.AssociateFleet.html#AssociateFleet"><span class="hs-identifier hs-type">AssociateFleet</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679303392"><span class="annot"><span class="annottext">toJSON :: AssociateFleet -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.AssociateFleet.html#AssociateFleet%27"><span class="hs-identifier hs-type">AssociateFleet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303389"><span id="local-6989586621679303390"><span class="annot"><span class="annottext">Text
 stackName :: Text
 fleetName :: Text
 $sel:stackName:AssociateFleet' :: AssociateFleet -&gt; Text
 $sel:fleetName:AssociateFleet' :: AssociateFleet -&gt; Text
-</span><a href="#local-6989586621679303103"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679303389"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -277,26 +277,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;FleetName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303104"><span class="hs-identifier hs-var">fleetName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679303390"><span class="hs-identifier hs-var">fleetName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StackName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303103"><span class="hs-identifier hs-var">stackName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679303389"><span class="hs-identifier hs-var">stackName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.AssociateFleet.html#AssociateFleet"><span class="hs-identifier hs-type">AssociateFleet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679303097"><span class="annot"><span class="annottext">toPath :: AssociateFleet -&gt; ByteString
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679303383"><span class="annot"><span class="annottext">toPath :: AssociateFleet -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AssociateFleet -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.AssociateFleet.html#AssociateFleet"><span class="hs-identifier hs-type">AssociateFleet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679303093"><span class="annot"><span class="annottext">toQuery :: AssociateFleet -&gt; QueryString
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679303379"><span class="annot"><span class="annottext">toQuery :: AssociateFleet -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AssociateFleet -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -304,12 +304,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | /See:/ 'newAssociateFleetResponse' smart constructor.</span><span>
-</span><span id="line-136"></span><span id="local-6989586621679303090"><span id="local-6989586621679303091"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateFleetResponse"><span class="annot"><a href="Network.AWS.AppStream.AssociateFleet.html#AssociateFleetResponse"><span class="hs-identifier hs-var">AssociateFleetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateFleetResponse%27"><span class="annot"><a href="Network.AWS.AppStream.AssociateFleet.html#AssociateFleetResponse%27"><span class="hs-identifier hs-var">AssociateFleetResponse'</span></a></span></span><span>
+</span><span id="line-136"></span><span id="local-6989586621679303376"><span id="local-6989586621679303377"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateFleetResponse"><span class="annot"><a href="Network.AWS.AppStream.AssociateFleet.html#AssociateFleetResponse"><span class="hs-identifier hs-var">AssociateFleetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateFleetResponse%27"><span class="annot"><a href="Network.AWS.AppStream.AssociateFleet.html#AssociateFleetResponse%27"><span class="hs-identifier hs-var">AssociateFleetResponse'</span></a></span></span><span>
 </span><span id="line-137"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-138"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAssociateFleetResponse%27"><span class="annot"><span class="annottext">AssociateFleetResponse -&gt; Int
 </span><a href="Network.AWS.AppStream.AssociateFleet.html#%24sel%3AhttpStatus%3AAssociateFleetResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-139"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679303085"><span id="local-6989586621679303087"><span class="annot"><span class="annottext">AssociateFleetResponse -&gt; AssociateFleetResponse -&gt; Bool
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679303371"><span id="local-6989586621679303373"><span class="annot"><span class="annottext">AssociateFleetResponse -&gt; AssociateFleetResponse -&gt; Bool
 (AssociateFleetResponse -&gt; AssociateFleetResponse -&gt; Bool)
 -&gt; (AssociateFleetResponse -&gt; AssociateFleetResponse -&gt; Bool)
 -&gt; Eq AssociateFleetResponse
@@ -318,7 +318,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AssociateFleetResponse -&gt; AssociateFleetResponse -&gt; Bool
 == :: AssociateFleetResponse -&gt; AssociateFleetResponse -&gt; Bool
 $c== :: AssociateFleetResponse -&gt; AssociateFleetResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303077"><span id="local-6989586621679303079"><span id="local-6989586621679303081"><span id="local-6989586621679303083"><span class="annot"><span class="annottext">ReadPrec [AssociateFleetResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303363"><span id="local-6989586621679303365"><span id="local-6989586621679303367"><span id="local-6989586621679303369"><span class="annot"><span class="annottext">ReadPrec [AssociateFleetResponse]
 ReadPrec AssociateFleetResponse
 Int -&gt; ReadS AssociateFleetResponse
 ReadS [AssociateFleetResponse]
@@ -338,7 +338,7 @@ readList :: ReadS [AssociateFleetResponse]
 $creadList :: ReadS [AssociateFleetResponse]
 readsPrec :: Int -&gt; ReadS AssociateFleetResponse
 $creadsPrec :: Int -&gt; ReadS AssociateFleetResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303071"><span id="local-6989586621679303073"><span id="local-6989586621679303075"><span class="annot"><span class="annottext">Int -&gt; AssociateFleetResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303357"><span id="local-6989586621679303359"><span id="local-6989586621679303361"><span class="annot"><span class="annottext">Int -&gt; AssociateFleetResponse -&gt; ShowS
 [AssociateFleetResponse] -&gt; ShowS
 AssociateFleetResponse -&gt; String
 (Int -&gt; AssociateFleetResponse -&gt; ShowS)
@@ -379,12 +379,12 @@ $cfrom :: forall x. AssociateFleetResponse -&gt; Rep AssociateFleetResponse x
 </span><span id="line-153"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-154"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.AssociateFleet.html#AssociateFleetResponse"><span class="hs-identifier hs-type">AssociateFleetResponse</span></a></span><span>
 </span><span id="line-155"></span><span id="newAssociateFleetResponse"><span class="annot"><span class="annottext">newAssociateFleetResponse :: Int -&gt; AssociateFleetResponse
-</span><a href="Network.AWS.AppStream.AssociateFleet.html#newAssociateFleetResponse"><span class="hs-identifier hs-var hs-var">newAssociateFleetResponse</span></a></span></span><span> </span><span id="local-6989586621679303068"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679303068"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AppStream.AssociateFleet.html#newAssociateFleetResponse"><span class="hs-identifier hs-var hs-var">newAssociateFleetResponse</span></a></span></span><span> </span><span id="local-6989586621679303354"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679303354"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-156"></span><span>  </span><span class="annot"><span class="annottext">AssociateFleetResponse' :: Int -&gt; AssociateFleetResponse
 </span><a href="Network.AWS.AppStream.AssociateFleet.html#AssociateFleetResponse%27"><span class="hs-identifier hs-type">AssociateFleetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AssociateFleetResponse' :: Int
 </span><a href="Network.AWS.AppStream.AssociateFleet.html#%24sel%3AhttpStatus%3AAssociateFleetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679303068"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679303354"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-159"></span><span class="annot"><a href="Network.AWS.AppStream.AssociateFleet.html#associateFleetResponse_httpStatus"><span class="hs-identifier hs-type">associateFleetResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.AssociateFleet.html#AssociateFleetResponse"><span class="hs-identifier hs-type">AssociateFleetResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -394,16 +394,16 @@ $cfrom :: forall x. AssociateFleetResponse -&gt; Rep AssociateFleetResponse x
 -&gt; (AssociateFleetResponse -&gt; Int -&gt; AssociateFleetResponse)
 -&gt; Lens AssociateFleetResponse AssociateFleetResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.AssociateFleet.html#AssociateFleetResponse%27"><span class="hs-identifier hs-type">AssociateFleetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303067"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.AssociateFleet.html#AssociateFleetResponse%27"><span class="hs-identifier hs-type">AssociateFleetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303353"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:AssociateFleetResponse' :: AssociateFleetResponse -&gt; Int
-</span><a href="#local-6989586621679303067"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679303067"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303066"><span class="annot"><span class="annottext">s :: AssociateFleetResponse
-</span><a href="#local-6989586621679303066"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.AssociateFleet.html#AssociateFleetResponse%27"><span class="hs-identifier hs-type">AssociateFleetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303065"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679303065"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateFleetResponse
-</span><a href="#local-6989586621679303066"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AssociateFleetResponse' :: Int
+</span><a href="#local-6989586621679303353"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679303353"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303352"><span class="annot"><span class="annottext">s :: AssociateFleetResponse
+</span><a href="#local-6989586621679303352"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.AssociateFleet.html#AssociateFleetResponse%27"><span class="hs-identifier hs-type">AssociateFleetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303351"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679303351"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateFleetResponse
+</span><a href="#local-6989586621679303352"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AssociateFleetResponse' :: Int
 </span><a href="Network.AWS.AppStream.AssociateFleet.html#%24sel%3AhttpStatus%3AAssociateFleetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679303065"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.AssociateFleet.html#AssociateFleetResponse"><span class="hs-identifier hs-type">AssociateFleetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679303351"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.AssociateFleet.html#AssociateFleetResponse"><span class="hs-identifier hs-type">AssociateFleetResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>
-</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303063"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.AssociateFleet.html#AssociateFleetResponse"><span class="hs-identifier hs-type">AssociateFleetResponse</span></a></span></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303349"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.AssociateFleet.html#AssociateFleetResponse"><span class="hs-identifier hs-type">AssociateFleetResponse</span></a></span></span><span>
 </span><span id="line-163"></span></pre></body></html>

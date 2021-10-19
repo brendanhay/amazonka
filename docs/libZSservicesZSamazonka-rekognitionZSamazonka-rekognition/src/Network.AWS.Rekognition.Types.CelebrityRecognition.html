@@ -29,16 +29,16 @@
 </span><span id="line-29"></span><span class="hs-comment">-- GetCelebrityRecognition in the Amazon Rekognition Developer Guide.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newCelebrityRecognition' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679332860"><span id="local-6989586621679332861"></span></span><span class="hs-keyword">data</span><span> </span><span id="CelebrityRecognition"><span class="annot"><a href="Network.AWS.Rekognition.Types.CelebrityRecognition.html#CelebrityRecognition"><span class="hs-identifier hs-var">CelebrityRecognition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CelebrityRecognition%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.CelebrityRecognition.html#CelebrityRecognition%27"><span class="hs-identifier hs-var">CelebrityRecognition'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time, in milliseconds from the start of the video, that the</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- celebrity was recognized.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Atimestamp%3ACelebrityRecognition%27"><span class="annot"><span class="annottext">CelebrityRecognition -&gt; Maybe Integer
-</span><a href="Network.AWS.Rekognition.Types.CelebrityRecognition.html#%24sel%3Atimestamp%3ACelebrityRecognition%27"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Information about a recognized celebrity.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3Acelebrity%3ACelebrityRecognition%27"><span class="annot"><span class="annottext">CelebrityRecognition -&gt; Maybe CelebrityDetail
-</span><a href="Network.AWS.Rekognition.Types.CelebrityRecognition.html#%24sel%3Acelebrity%3ACelebrityRecognition%27"><span class="hs-identifier hs-var hs-var">celebrity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.CelebrityDetail.html#CelebrityDetail"><span class="hs-identifier hs-type">CelebrityDetail</span></a></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679333153"><span id="local-6989586621679333154"></span></span><span class="hs-keyword">data</span><span> </span><span id="CelebrityRecognition"><span class="annot"><a href="Network.AWS.Rekognition.Types.CelebrityRecognition.html#CelebrityRecognition"><span class="hs-identifier hs-var">CelebrityRecognition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CelebrityRecognition%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.CelebrityRecognition.html#CelebrityRecognition%27"><span class="hs-identifier hs-var">CelebrityRecognition'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about a recognized celebrity.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Acelebrity%3ACelebrityRecognition%27"><span class="annot"><span class="annottext">CelebrityRecognition -&gt; Maybe CelebrityDetail
+</span><a href="Network.AWS.Rekognition.Types.CelebrityRecognition.html#%24sel%3Acelebrity%3ACelebrityRecognition%27"><span class="hs-identifier hs-var hs-var">celebrity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.CelebrityDetail.html#CelebrityDetail"><span class="hs-identifier hs-type">CelebrityDetail</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The time, in milliseconds from the start of the video, that the</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- celebrity was recognized.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Atimestamp%3ACelebrityRecognition%27"><span class="annot"><span class="annottext">CelebrityRecognition -&gt; Maybe Integer
+</span><a href="Network.AWS.Rekognition.Types.CelebrityRecognition.html#%24sel%3Atimestamp%3ACelebrityRecognition%27"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679332853"><span id="local-6989586621679332855"><span class="annot"><span class="annottext">CelebrityRecognition -&gt; CelebrityRecognition -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679333146"><span id="local-6989586621679333148"><span class="annot"><span class="annottext">CelebrityRecognition -&gt; CelebrityRecognition -&gt; Bool
 (CelebrityRecognition -&gt; CelebrityRecognition -&gt; Bool)
 -&gt; (CelebrityRecognition -&gt; CelebrityRecognition -&gt; Bool)
 -&gt; Eq CelebrityRecognition
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CelebrityRecognition -&gt; CelebrityRecognition -&gt; Bool
 == :: CelebrityRecognition -&gt; CelebrityRecognition -&gt; Bool
 $c== :: CelebrityRecognition -&gt; CelebrityRecognition -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679332844"><span id="local-6989586621679332846"><span id="local-6989586621679332848"><span id="local-6989586621679332850"><span class="annot"><span class="annottext">ReadPrec [CelebrityRecognition]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679333137"><span id="local-6989586621679333139"><span id="local-6989586621679333141"><span id="local-6989586621679333143"><span class="annot"><span class="annottext">ReadPrec [CelebrityRecognition]
 ReadPrec CelebrityRecognition
 Int -&gt; ReadS CelebrityRecognition
 ReadS [CelebrityRecognition]
@@ -67,7 +67,7 @@ readList :: ReadS [CelebrityRecognition]
 $creadList :: ReadS [CelebrityRecognition]
 readsPrec :: Int -&gt; ReadS CelebrityRecognition
 $creadsPrec :: Int -&gt; ReadS CelebrityRecognition
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679332837"><span id="local-6989586621679332839"><span id="local-6989586621679332841"><span class="annot"><span class="annottext">Int -&gt; CelebrityRecognition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679333130"><span id="local-6989586621679333132"><span id="local-6989586621679333134"><span class="annot"><span class="annottext">Int -&gt; CelebrityRecognition -&gt; ShowS
 [CelebrityRecognition] -&gt; ShowS
 CelebrityRecognition -&gt; String
 (Int -&gt; CelebrityRecognition -&gt; ShowS)
@@ -101,53 +101,29 @@ $cfrom :: forall x. CelebrityRecognition -&gt; Rep CelebrityRecognition x
 </span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'timestamp', 'celebrityRecognition_timestamp' - The time, in milliseconds from the start of the video, that the</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- celebrity was recognized.</span><span>
-</span><span id="line-51"></span><span class="hs-comment">--</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- 'celebrity', 'celebrityRecognition_celebrity' - Information about a recognized celebrity.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'celebrity', 'celebrityRecognition_celebrity' - Information about a recognized celebrity.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'timestamp', 'celebrityRecognition_timestamp' - The time, in milliseconds from the start of the video, that the</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- celebrity was recognized.</span><span>
 </span><span id="line-53"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.CelebrityRecognition.html#newCelebrityRecognition"><span class="hs-identifier hs-type">newCelebrityRecognition</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.Rekognition.Types.CelebrityRecognition.html#CelebrityRecognition"><span class="hs-identifier hs-type">CelebrityRecognition</span></a></span><span>
 </span><span id="line-55"></span><span id="newCelebrityRecognition"><span class="annot"><span class="annottext">newCelebrityRecognition :: CelebrityRecognition
 </span><a href="Network.AWS.Rekognition.Types.CelebrityRecognition.html#newCelebrityRecognition"><span class="hs-identifier hs-var hs-var">newCelebrityRecognition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">CelebrityRecognition' :: Maybe Integer -&gt; Maybe CelebrityDetail -&gt; CelebrityRecognition
+</span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">CelebrityRecognition' :: Maybe CelebrityDetail -&gt; Maybe Integer -&gt; CelebrityRecognition
 </span><a href="Network.AWS.Rekognition.Types.CelebrityRecognition.html#CelebrityRecognition%27"><span class="hs-identifier hs-type">CelebrityRecognition'</span></a></span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:timestamp:CelebrityRecognition' :: Maybe Integer
-</span><a href="Network.AWS.Rekognition.Types.CelebrityRecognition.html#%24sel%3Atimestamp%3ACelebrityRecognition%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:celebrity:CelebrityRecognition' :: Maybe CelebrityDetail
+</span><a href="Network.AWS.Rekognition.Types.CelebrityRecognition.html#%24sel%3Acelebrity%3ACelebrityRecognition%27"><span class="hs-identifier hs-var">celebrity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CelebrityDetail
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:celebrity:CelebrityRecognition' :: Maybe CelebrityDetail
-</span><a href="Network.AWS.Rekognition.Types.CelebrityRecognition.html#%24sel%3Acelebrity%3ACelebrityRecognition%27"><span class="hs-identifier hs-var">celebrity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CelebrityDetail
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:timestamp:CelebrityRecognition' :: Maybe Integer
+</span><a href="Network.AWS.Rekognition.Types.CelebrityRecognition.html#%24sel%3Atimestamp%3ACelebrityRecognition%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- | The time, in milliseconds from the start of the video, that the</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- celebrity was recognized.</span><span>
-</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.CelebrityRecognition.html#celebrityRecognition_timestamp"><span class="hs-identifier hs-type">celebrityRecognition_timestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.CelebrityRecognition.html#CelebrityRecognition"><span class="hs-identifier hs-type">CelebrityRecognition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
-</span><span id="line-64"></span><span id="celebrityRecognition_timestamp"><span class="annot"><span class="annottext">celebrityRecognition_timestamp :: (Maybe Integer -&gt; f (Maybe Integer))
--&gt; CelebrityRecognition -&gt; f CelebrityRecognition
-</span><a href="Network.AWS.Rekognition.Types.CelebrityRecognition.html#celebrityRecognition_timestamp"><span class="hs-identifier hs-var hs-var">celebrityRecognition_timestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CelebrityRecognition -&gt; Maybe Integer)
--&gt; (CelebrityRecognition -&gt; Maybe Integer -&gt; CelebrityRecognition)
--&gt; Lens
-     CelebrityRecognition
-     CelebrityRecognition
-     (Maybe Integer)
-     (Maybe Integer)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.CelebrityRecognition.html#CelebrityRecognition%27"><span class="hs-identifier hs-type">CelebrityRecognition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332828"><span class="annot"><span class="annottext">Maybe Integer
-timestamp :: Maybe Integer
-$sel:timestamp:CelebrityRecognition' :: CelebrityRecognition -&gt; Maybe Integer
-</span><a href="#local-6989586621679332828"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679332828"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332827"><span class="annot"><span class="annottext">s :: CelebrityRecognition
-</span><a href="#local-6989586621679332827"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.CelebrityRecognition.html#CelebrityRecognition%27"><span class="hs-identifier hs-type">CelebrityRecognition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332826"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679332826"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CelebrityRecognition
-</span><a href="#local-6989586621679332827"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamp:CelebrityRecognition' :: Maybe Integer
-</span><a href="Network.AWS.Rekognition.Types.CelebrityRecognition.html#%24sel%3Atimestamp%3ACelebrityRecognition%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679332826"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.CelebrityRecognition.html#CelebrityRecognition"><span class="hs-identifier hs-type">CelebrityRecognition</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- | Information about a recognized celebrity.</span><span>
-</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.CelebrityRecognition.html#celebrityRecognition_celebrity"><span class="hs-identifier hs-type">celebrityRecognition_celebrity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.CelebrityRecognition.html#CelebrityRecognition"><span class="hs-identifier hs-type">CelebrityRecognition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.CelebrityDetail.html#CelebrityDetail"><span class="hs-identifier hs-type">CelebrityDetail</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-68"></span><span id="celebrityRecognition_celebrity"><span class="annot"><span class="annottext">celebrityRecognition_celebrity :: (Maybe CelebrityDetail -&gt; f (Maybe CelebrityDetail))
+</span><span id="line-61"></span><span class="hs-comment">-- | Information about a recognized celebrity.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.CelebrityRecognition.html#celebrityRecognition_celebrity"><span class="hs-identifier hs-type">celebrityRecognition_celebrity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.CelebrityRecognition.html#CelebrityRecognition"><span class="hs-identifier hs-type">CelebrityRecognition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.CelebrityDetail.html#CelebrityDetail"><span class="hs-identifier hs-type">CelebrityDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="celebrityRecognition_celebrity"><span class="annot"><span class="annottext">celebrityRecognition_celebrity :: (Maybe CelebrityDetail -&gt; f (Maybe CelebrityDetail))
 -&gt; CelebrityRecognition -&gt; f CelebrityRecognition
 </span><a href="Network.AWS.Rekognition.Types.CelebrityRecognition.html#celebrityRecognition_celebrity"><span class="hs-identifier hs-var hs-var">celebrityRecognition_celebrity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CelebrityRecognition -&gt; Maybe CelebrityDetail)
 -&gt; (CelebrityRecognition
@@ -158,19 +134,43 @@ $sel:timestamp:CelebrityRecognition' :: CelebrityRecognition -&gt; Maybe Integer
      (Maybe CelebrityDetail)
      (Maybe CelebrityDetail)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.CelebrityRecognition.html#CelebrityRecognition%27"><span class="hs-identifier hs-type">CelebrityRecognition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332824"><span class="annot"><span class="annottext">Maybe CelebrityDetail
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.CelebrityRecognition.html#CelebrityRecognition%27"><span class="hs-identifier hs-type">CelebrityRecognition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333121"><span class="annot"><span class="annottext">Maybe CelebrityDetail
 celebrity :: Maybe CelebrityDetail
 $sel:celebrity:CelebrityRecognition' :: CelebrityRecognition -&gt; Maybe CelebrityDetail
-</span><a href="#local-6989586621679332824"><span class="hs-identifier hs-var hs-var">celebrity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CelebrityDetail
-</span><a href="#local-6989586621679332824"><span class="hs-identifier hs-var">celebrity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332823"><span class="annot"><span class="annottext">s :: CelebrityRecognition
-</span><a href="#local-6989586621679332823"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.CelebrityRecognition.html#CelebrityRecognition%27"><span class="hs-identifier hs-type">CelebrityRecognition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332822"><span class="annot"><span class="annottext">Maybe CelebrityDetail
-</span><a href="#local-6989586621679332822"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CelebrityRecognition
-</span><a href="#local-6989586621679332823"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:celebrity:CelebrityRecognition' :: Maybe CelebrityDetail
+</span><a href="#local-6989586621679333121"><span class="hs-identifier hs-var hs-var">celebrity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CelebrityDetail
+</span><a href="#local-6989586621679333121"><span class="hs-identifier hs-var">celebrity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333120"><span class="annot"><span class="annottext">s :: CelebrityRecognition
+</span><a href="#local-6989586621679333120"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.CelebrityRecognition.html#CelebrityRecognition%27"><span class="hs-identifier hs-type">CelebrityRecognition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333119"><span class="annot"><span class="annottext">Maybe CelebrityDetail
+</span><a href="#local-6989586621679333119"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CelebrityRecognition
+</span><a href="#local-6989586621679333120"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:celebrity:CelebrityRecognition' :: Maybe CelebrityDetail
 </span><a href="Network.AWS.Rekognition.Types.CelebrityRecognition.html#%24sel%3Acelebrity%3ACelebrityRecognition%27"><span class="hs-identifier hs-var">celebrity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CelebrityDetail
-</span><a href="#local-6989586621679332822"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.CelebrityRecognition.html#CelebrityRecognition"><span class="hs-identifier hs-type">CelebrityRecognition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679333119"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.CelebrityRecognition.html#CelebrityRecognition"><span class="hs-identifier hs-type">CelebrityRecognition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | The time, in milliseconds from the start of the video, that the</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- celebrity was recognized.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.CelebrityRecognition.html#celebrityRecognition_timestamp"><span class="hs-identifier hs-type">celebrityRecognition_timestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.CelebrityRecognition.html#CelebrityRecognition"><span class="hs-identifier hs-type">CelebrityRecognition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="celebrityRecognition_timestamp"><span class="annot"><span class="annottext">celebrityRecognition_timestamp :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; CelebrityRecognition -&gt; f CelebrityRecognition
+</span><a href="Network.AWS.Rekognition.Types.CelebrityRecognition.html#celebrityRecognition_timestamp"><span class="hs-identifier hs-var hs-var">celebrityRecognition_timestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CelebrityRecognition -&gt; Maybe Integer)
+-&gt; (CelebrityRecognition -&gt; Maybe Integer -&gt; CelebrityRecognition)
+-&gt; Lens
+     CelebrityRecognition
+     CelebrityRecognition
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.CelebrityRecognition.html#CelebrityRecognition%27"><span class="hs-identifier hs-type">CelebrityRecognition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333117"><span class="annot"><span class="annottext">Maybe Integer
+timestamp :: Maybe Integer
+$sel:timestamp:CelebrityRecognition' :: CelebrityRecognition -&gt; Maybe Integer
+</span><a href="#local-6989586621679333117"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679333117"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333116"><span class="annot"><span class="annottext">s :: CelebrityRecognition
+</span><a href="#local-6989586621679333116"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.CelebrityRecognition.html#CelebrityRecognition%27"><span class="hs-identifier hs-type">CelebrityRecognition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333115"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679333115"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CelebrityRecognition
+</span><a href="#local-6989586621679333116"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamp:CelebrityRecognition' :: Maybe Integer
+</span><a href="Network.AWS.Rekognition.Types.CelebrityRecognition.html#%24sel%3Atimestamp%3ACelebrityRecognition%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679333115"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.CelebrityRecognition.html#CelebrityRecognition"><span class="hs-identifier hs-type">CelebrityRecognition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332819"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.CelebrityRecognition.html#CelebrityRecognition"><span class="hs-identifier hs-type">CelebrityRecognition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679332817"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CelebrityRecognition
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333112"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.CelebrityRecognition.html#CelebrityRecognition"><span class="hs-identifier hs-type">CelebrityRecognition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679333110"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CelebrityRecognition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CelebrityRecognition)
@@ -180,30 +180,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CelebrityRecognition&quot;</span></span><span>
-</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679332814"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679332814"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-75"></span><span>          </span><span class="annot"><span class="annottext">Maybe Integer -&gt; Maybe CelebrityDetail -&gt; CelebrityRecognition
+</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679333107"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679333107"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>          </span><span class="annot"><span class="annottext">Maybe CelebrityDetail -&gt; Maybe Integer -&gt; CelebrityRecognition
 </span><a href="Network.AWS.Rekognition.Types.CelebrityRecognition.html#CelebrityRecognition%27"><span class="hs-identifier hs-var">CelebrityRecognition'</span></a></span><span>
-</span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Integer -&gt; Maybe CelebrityDetail -&gt; CelebrityRecognition)
--&gt; Parser (Maybe Integer)
--&gt; Parser (Maybe CelebrityDetail -&gt; CelebrityRecognition)
+</span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">(Maybe CelebrityDetail -&gt; Maybe Integer -&gt; CelebrityRecognition)
+-&gt; Parser (Maybe CelebrityDetail)
+-&gt; Parser (Maybe Integer -&gt; CelebrityRecognition)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679332814"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Timestamp&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe CelebrityDetail -&gt; CelebrityRecognition)
--&gt; Parser (Maybe CelebrityDetail) -&gt; Parser CelebrityRecognition
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679332814"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CelebrityDetail)
+</span><a href="#local-6989586621679333107"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CelebrityDetail)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Celebrity&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Integer -&gt; CelebrityRecognition)
+-&gt; Parser (Maybe Integer) -&gt; Parser CelebrityRecognition
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679333107"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Timestamp&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332808"><span id="local-6989586621679332810"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.CelebrityRecognition.html#CelebrityRecognition"><span class="hs-identifier hs-type">CelebrityRecognition</span></a></span></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333101"><span id="local-6989586621679333103"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.CelebrityRecognition.html#CelebrityRecognition"><span class="hs-identifier hs-type">CelebrityRecognition</span></a></span></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332805"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.CelebrityRecognition.html#CelebrityRecognition"><span class="hs-identifier hs-type">CelebrityRecognition</span></a></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333098"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.CelebrityRecognition.html#CelebrityRecognition"><span class="hs-identifier hs-type">CelebrityRecognition</span></a></span></span><span>
 </span><span id="line-83"></span></pre></body></html>

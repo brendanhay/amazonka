@@ -70,10 +70,10 @@
 </span><span id="line-70"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#newDeleteObjects"><span class="hs-identifier">newDeleteObjects</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#deleteObjects_expectedBucketOwner"><span class="hs-identifier">deleteObjects_expectedBucketOwner</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#deleteObjects_bypassGovernanceRetention"><span class="hs-identifier">deleteObjects_bypassGovernanceRetention</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#deleteObjects_requestPayer"><span class="hs-identifier">deleteObjects_requestPayer</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#deleteObjects_mfa"><span class="hs-identifier">deleteObjects_mfa</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#deleteObjects_mfa"><span class="hs-identifier">deleteObjects_mfa</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#deleteObjects_requestPayer"><span class="hs-identifier">deleteObjects_requestPayer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#deleteObjects_bypassGovernanceRetention"><span class="hs-identifier">deleteObjects_bypassGovernanceRetention</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#deleteObjects_expectedBucketOwner"><span class="hs-identifier">deleteObjects_expectedBucketOwner</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#deleteObjects_bucket"><span class="hs-identifier">deleteObjects_bucket</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#deleteObjects_delete"><span class="hs-identifier">deleteObjects_delete</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-79"></span><span>
@@ -83,8 +83,8 @@
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#deleteObjectsResponse_requestCharged"><span class="hs-identifier">deleteObjectsResponse_requestCharged</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-86"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#deleteObjectsResponse_errors"><span class="hs-identifier">deleteObjectsResponse_errors</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-87"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#deleteObjectsResponse_deleted"><span class="hs-identifier">deleteObjectsResponse_deleted</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#deleteObjectsResponse_deleted"><span class="hs-identifier">deleteObjectsResponse_deleted</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#deleteObjectsResponse_errors"><span class="hs-identifier">deleteObjectsResponse_errors</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#deleteObjectsResponse_httpStatus"><span class="hs-identifier">deleteObjectsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span class="hs-keyword">where</span><span>
@@ -97,25 +97,25 @@
 </span><span id="line-97"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.html"><span class="hs-identifier">Network.AWS.S3.Types</span></a></span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | /See:/ 'newDeleteObjects' smart constructor.</span><span>
-</span><span id="line-100"></span><span id="local-6989586621679577522"><span id="local-6989586621679577523"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteObjects"><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects"><span class="hs-identifier hs-var">DeleteObjects</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteObjects%27"><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects%27"><span class="hs-identifier hs-var">DeleteObjects'</span></a></span></span><span>
-</span><span id="line-101"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
-</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
-</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
-</span><span id="line-104"></span><span>    </span><span id="%24sel%3AexpectedBucketOwner%3ADeleteObjects%27"><span class="annot"><span class="annottext">DeleteObjects -&gt; Maybe Text
-</span><a href="Network.AWS.S3.DeleteObjects.html#%24sel%3AexpectedBucketOwner%3ADeleteObjects%27"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- | Specifies whether you want to delete this object even if it has a</span><span>
-</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- Governance-type Object Lock in place. To use this header, you must have</span><span>
-</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- the @s3:PutBucketPublicAccessBlock@ permission.</span><span>
-</span><span id="line-108"></span><span>    </span><span id="%24sel%3AbypassGovernanceRetention%3ADeleteObjects%27"><span class="annot"><span class="annottext">DeleteObjects -&gt; Maybe Bool
-</span><a href="Network.AWS.S3.DeleteObjects.html#%24sel%3AbypassGovernanceRetention%3ADeleteObjects%27"><span class="hs-identifier hs-var hs-var">bypassGovernanceRetention</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-109"></span><span>    </span><span id="%24sel%3ArequestPayer%3ADeleteObjects%27"><span class="annot"><span class="annottext">DeleteObjects -&gt; Maybe RequestPayer
-</span><a href="Network.AWS.S3.DeleteObjects.html#%24sel%3ArequestPayer%3ADeleteObjects%27"><span class="hs-identifier hs-var hs-var">requestPayer</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RequestPayer.html#RequestPayer"><span class="hs-identifier hs-type">RequestPayer</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- | The concatenation of the authentication device\'s serial number, a</span><span>
-</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- space, and the value that is displayed on your authentication device.</span><span>
-</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- Required to permanently delete a versioned object if versioning is</span><span>
-</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- configured with MFA delete enabled.</span><span>
-</span><span id="line-114"></span><span>    </span><span id="%24sel%3Amfa%3ADeleteObjects%27"><span class="annot"><span class="annottext">DeleteObjects -&gt; Maybe Text
+</span><span id="line-100"></span><span id="local-6989586621679578520"><span id="local-6989586621679578521"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteObjects"><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects"><span class="hs-identifier hs-var">DeleteObjects</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteObjects%27"><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects%27"><span class="hs-identifier hs-var">DeleteObjects'</span></a></span></span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The concatenation of the authentication device\'s serial number, a</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- space, and the value that is displayed on your authentication device.</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- Required to permanently delete a versioned object if versioning is</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- configured with MFA delete enabled.</span><span>
+</span><span id="line-105"></span><span>    </span><span id="%24sel%3Amfa%3ADeleteObjects%27"><span class="annot"><span class="annottext">DeleteObjects -&gt; Maybe Text
 </span><a href="Network.AWS.S3.DeleteObjects.html#%24sel%3Amfa%3ADeleteObjects%27"><span class="hs-identifier hs-var hs-var">mfa</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>    </span><span id="%24sel%3ArequestPayer%3ADeleteObjects%27"><span class="annot"><span class="annottext">DeleteObjects -&gt; Maybe RequestPayer
+</span><a href="Network.AWS.S3.DeleteObjects.html#%24sel%3ArequestPayer%3ADeleteObjects%27"><span class="hs-identifier hs-var hs-var">requestPayer</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RequestPayer.html#RequestPayer"><span class="hs-identifier hs-type">RequestPayer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- | Specifies whether you want to delete this object even if it has a</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- Governance-type Object Lock in place. To use this header, you must have</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- the @s3:PutBucketPublicAccessBlock@ permission.</span><span>
+</span><span id="line-110"></span><span>    </span><span id="%24sel%3AbypassGovernanceRetention%3ADeleteObjects%27"><span class="annot"><span class="annottext">DeleteObjects -&gt; Maybe Bool
+</span><a href="Network.AWS.S3.DeleteObjects.html#%24sel%3AbypassGovernanceRetention%3ADeleteObjects%27"><span class="hs-identifier hs-var hs-var">bypassGovernanceRetention</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
+</span><span id="line-114"></span><span>    </span><span id="%24sel%3AexpectedBucketOwner%3ADeleteObjects%27"><span class="annot"><span class="annottext">DeleteObjects -&gt; Maybe Text
+</span><a href="Network.AWS.S3.DeleteObjects.html#%24sel%3AexpectedBucketOwner%3ADeleteObjects%27"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-115"></span><span>    </span><span class="hs-comment">-- | The bucket name containing the objects to delete.</span><span>
 </span><span id="line-116"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-117"></span><span>    </span><span class="hs-comment">-- When using this action with an access point, you must direct requests to</span><span>
@@ -142,7 +142,7 @@
 </span><span id="line-137"></span><span>    </span><span id="%24sel%3Adelete%27%3ADeleteObjects%27"><span class="annot"><span class="annottext">DeleteObjects -&gt; Delete
 </span><a href="Network.AWS.S3.DeleteObjects.html#%24sel%3Adelete%27%3ADeleteObjects%27"><span class="hs-identifier hs-var hs-var">delete'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Delete.html#Delete"><span class="hs-identifier hs-type">Delete</span></a></span><span>
 </span><span id="line-138"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-139"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679577511"><span id="local-6989586621679577513"><span class="annot"><span class="annottext">DeleteObjects -&gt; DeleteObjects -&gt; Bool
+</span><span id="line-139"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679578509"><span id="local-6989586621679578511"><span class="annot"><span class="annottext">DeleteObjects -&gt; DeleteObjects -&gt; Bool
 (DeleteObjects -&gt; DeleteObjects -&gt; Bool)
 -&gt; (DeleteObjects -&gt; DeleteObjects -&gt; Bool) -&gt; Eq DeleteObjects
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -150,7 +150,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteObjects -&gt; DeleteObjects -&gt; Bool
 == :: DeleteObjects -&gt; DeleteObjects -&gt; Bool
 $c== :: DeleteObjects -&gt; DeleteObjects -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679577502"><span id="local-6989586621679577504"><span id="local-6989586621679577506"><span id="local-6989586621679577508"><span class="annot"><span class="annottext">ReadPrec [DeleteObjects]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679578500"><span id="local-6989586621679578502"><span id="local-6989586621679578504"><span id="local-6989586621679578506"><span class="annot"><span class="annottext">ReadPrec [DeleteObjects]
 ReadPrec DeleteObjects
 Int -&gt; ReadS DeleteObjects
 ReadS [DeleteObjects]
@@ -170,7 +170,7 @@ readList :: ReadS [DeleteObjects]
 $creadList :: ReadS [DeleteObjects]
 readsPrec :: Int -&gt; ReadS DeleteObjects
 $creadsPrec :: Int -&gt; ReadS DeleteObjects
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679577495"><span id="local-6989586621679577497"><span id="local-6989586621679577499"><span class="annot"><span class="annottext">Int -&gt; DeleteObjects -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679578493"><span id="local-6989586621679578495"><span id="local-6989586621679578497"><span class="annot"><span class="annottext">Int -&gt; DeleteObjects -&gt; ShowS
 [DeleteObjects] -&gt; ShowS
 DeleteObjects -&gt; String
 (Int -&gt; DeleteObjects -&gt; ShowS)
@@ -204,20 +204,20 @@ $cfrom :: forall x. DeleteObjects -&gt; Rep DeleteObjects x
 </span><span id="line-146"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-148"></span><span class="hs-comment">--</span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- 'expectedBucketOwner', 'deleteObjects_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
-</span><span id="line-150"></span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
-</span><span id="line-152"></span><span class="hs-comment">--</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- 'bypassGovernanceRetention', 'deleteObjects_bypassGovernanceRetention' - Specifies whether you want to delete this object even if it has a</span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- Governance-type Object Lock in place. To use this header, you must have</span><span>
-</span><span id="line-155"></span><span class="hs-comment">-- the @s3:PutBucketPublicAccessBlock@ permission.</span><span>
-</span><span id="line-156"></span><span class="hs-comment">--</span><span>
-</span><span id="line-157"></span><span class="hs-comment">-- 'requestPayer', 'deleteObjects_requestPayer' - Undocumented member.</span><span>
-</span><span id="line-158"></span><span class="hs-comment">--</span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- 'mfa', 'deleteObjects_mfa' - The concatenation of the authentication device\'s serial number, a</span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- space, and the value that is displayed on your authentication device.</span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- Required to permanently delete a versioned object if versioning is</span><span>
-</span><span id="line-162"></span><span class="hs-comment">-- configured with MFA delete enabled.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- 'mfa', 'deleteObjects_mfa' - The concatenation of the authentication device\'s serial number, a</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- space, and the value that is displayed on your authentication device.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- Required to permanently delete a versioned object if versioning is</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- configured with MFA delete enabled.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- 'requestPayer', 'deleteObjects_requestPayer' - Undocumented member.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'bypassGovernanceRetention', 'deleteObjects_bypassGovernanceRetention' - Specifies whether you want to delete this object even if it has a</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- Governance-type Object Lock in place. To use this header, you must have</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- the @s3:PutBucketPublicAccessBlock@ permission.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- 'expectedBucketOwner', 'deleteObjects_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
 </span><span id="line-163"></span><span class="hs-comment">--</span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- 'bucket', 'deleteObjects_bucket' - The bucket name containing the objects to delete.</span><span>
 </span><span id="line-165"></span><span class="hs-comment">--</span><span>
@@ -248,85 +248,65 @@ $cfrom :: forall x. DeleteObjects -&gt; Rep DeleteObjects x
 </span><span id="line-190"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.Delete.html#Delete"><span class="hs-identifier hs-type">Delete</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-191"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects"><span class="hs-identifier hs-type">DeleteObjects</span></a></span><span>
 </span><span id="line-192"></span><span id="newDeleteObjects"><span class="annot"><span class="annottext">newDeleteObjects :: BucketName -&gt; Delete -&gt; DeleteObjects
-</span><a href="Network.AWS.S3.DeleteObjects.html#newDeleteObjects"><span class="hs-identifier hs-var hs-var">newDeleteObjects</span></a></span></span><span> </span><span id="local-6989586621679577490"><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679577490"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span> </span><span id="local-6989586621679577489"><span class="annot"><span class="annottext">Delete
-</span><a href="#local-6989586621679577489"><span class="hs-identifier hs-var">pDelete_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.S3.DeleteObjects.html#newDeleteObjects"><span class="hs-identifier hs-var hs-var">newDeleteObjects</span></a></span></span><span> </span><span id="local-6989586621679578488"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679578488"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span> </span><span id="local-6989586621679578487"><span class="annot"><span class="annottext">Delete
+</span><a href="#local-6989586621679578487"><span class="hs-identifier hs-var">pDelete_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-193"></span><span>  </span><span class="annot"><span class="annottext">DeleteObjects' :: Maybe Text
--&gt; Maybe Bool
 -&gt; Maybe RequestPayer
+-&gt; Maybe Bool
 -&gt; Maybe Text
 -&gt; BucketName
 -&gt; Delete
 -&gt; DeleteObjects
 </span><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects%27"><span class="hs-identifier hs-type">DeleteObjects'</span></a></span><span>
-</span><span id="line-194"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:DeleteObjects' :: Maybe Text
-</span><a href="Network.AWS.S3.DeleteObjects.html#%24sel%3AexpectedBucketOwner%3ADeleteObjects%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-195"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-194"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:mfa:DeleteObjects' :: Maybe Text
+</span><a href="Network.AWS.S3.DeleteObjects.html#%24sel%3Amfa%3ADeleteObjects%27"><span class="hs-identifier hs-var">mfa</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">$sel:requestPayer:DeleteObjects' :: Maybe RequestPayer
+</span><a href="Network.AWS.S3.DeleteObjects.html#%24sel%3ArequestPayer%3ADeleteObjects%27"><span class="hs-identifier hs-var">requestPayer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RequestPayer
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-196"></span><span>      </span><span class="annot"><span class="annottext">$sel:bypassGovernanceRetention:DeleteObjects' :: Maybe Bool
 </span><a href="Network.AWS.S3.DeleteObjects.html#%24sel%3AbypassGovernanceRetention%3ADeleteObjects%27"><span class="hs-identifier hs-var">bypassGovernanceRetention</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-197"></span><span>      </span><span class="annot"><span class="annottext">$sel:requestPayer:DeleteObjects' :: Maybe RequestPayer
-</span><a href="Network.AWS.S3.DeleteObjects.html#%24sel%3ArequestPayer%3ADeleteObjects%27"><span class="hs-identifier hs-var">requestPayer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RequestPayer
+</span><span id="line-197"></span><span>      </span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:DeleteObjects' :: Maybe Text
+</span><a href="Network.AWS.S3.DeleteObjects.html#%24sel%3AexpectedBucketOwner%3ADeleteObjects%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-198"></span><span>      </span><span class="annot"><span class="annottext">$sel:mfa:DeleteObjects' :: Maybe Text
-</span><a href="Network.AWS.S3.DeleteObjects.html#%24sel%3Amfa%3ADeleteObjects%27"><span class="hs-identifier hs-var">mfa</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucket:DeleteObjects' :: BucketName
+</span><span id="line-198"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucket:DeleteObjects' :: BucketName
 </span><a href="Network.AWS.S3.DeleteObjects.html#%24sel%3Abucket%3ADeleteObjects%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679577490"><span class="hs-identifier hs-var">pBucket_</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-200"></span><span>      </span><span class="annot"><span class="annottext">$sel:delete':DeleteObjects' :: Delete
+</span><a href="#local-6989586621679578488"><span class="hs-identifier hs-var">pBucket_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">$sel:delete':DeleteObjects' :: Delete
 </span><a href="Network.AWS.S3.DeleteObjects.html#%24sel%3Adelete%27%3ADeleteObjects%27"><span class="hs-identifier hs-var">delete'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Delete
-</span><a href="#local-6989586621679577489"><span class="hs-identifier hs-var">pDelete_</span></a></span><span>
-</span><span id="line-201"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-202"></span><span>
-</span><span id="line-203"></span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
-</span><span id="line-204"></span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
-</span><span id="line-205"></span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
-</span><span id="line-206"></span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#deleteObjects_expectedBucketOwner"><span class="hs-identifier hs-type">deleteObjects_expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects"><span class="hs-identifier hs-type">DeleteObjects</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-207"></span><span id="deleteObjects_expectedBucketOwner"><span class="annot"><span class="annottext">deleteObjects_expectedBucketOwner :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DeleteObjects -&gt; f DeleteObjects
-</span><a href="Network.AWS.S3.DeleteObjects.html#deleteObjects_expectedBucketOwner"><span class="hs-identifier hs-var hs-var">deleteObjects_expectedBucketOwner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteObjects -&gt; Maybe Text)
+</span><a href="#local-6989586621679578487"><span class="hs-identifier hs-var">pDelete_</span></a></span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- | The concatenation of the authentication device\'s serial number, a</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- space, and the value that is displayed on your authentication device.</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- Required to permanently delete a versioned object if versioning is</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- configured with MFA delete enabled.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#deleteObjects_mfa"><span class="hs-identifier hs-type">deleteObjects_mfa</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects"><span class="hs-identifier hs-type">DeleteObjects</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span id="deleteObjects_mfa"><span class="annot"><span class="annottext">deleteObjects_mfa :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DeleteObjects -&gt; f DeleteObjects
+</span><a href="Network.AWS.S3.DeleteObjects.html#deleteObjects_mfa"><span class="hs-identifier hs-var hs-var">deleteObjects_mfa</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteObjects -&gt; Maybe Text)
 -&gt; (DeleteObjects -&gt; Maybe Text -&gt; DeleteObjects)
 -&gt; Lens DeleteObjects DeleteObjects (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects%27"><span class="hs-identifier hs-type">DeleteObjects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679577486"><span class="annot"><span class="annottext">Maybe Text
-expectedBucketOwner :: Maybe Text
-$sel:expectedBucketOwner:DeleteObjects' :: DeleteObjects -&gt; Maybe Text
-</span><a href="#local-6989586621679577486"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679577486"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679577485"><span class="annot"><span class="annottext">s :: DeleteObjects
-</span><a href="#local-6989586621679577485"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects%27"><span class="hs-identifier hs-type">DeleteObjects'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679577484"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679577484"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteObjects
-</span><a href="#local-6989586621679577485"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:DeleteObjects' :: Maybe Text
-</span><a href="Network.AWS.S3.DeleteObjects.html#%24sel%3AexpectedBucketOwner%3ADeleteObjects%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679577484"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects"><span class="hs-identifier hs-type">DeleteObjects</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects%27"><span class="hs-identifier hs-type">DeleteObjects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679578484"><span class="annot"><span class="annottext">Maybe Text
+mfa :: Maybe Text
+$sel:mfa:DeleteObjects' :: DeleteObjects -&gt; Maybe Text
+</span><a href="#local-6989586621679578484"><span class="hs-identifier hs-var hs-var">mfa</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679578484"><span class="hs-identifier hs-var">mfa</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679578483"><span class="annot"><span class="annottext">s :: DeleteObjects
+</span><a href="#local-6989586621679578483"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects%27"><span class="hs-identifier hs-type">DeleteObjects'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679578482"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679578482"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteObjects
+</span><a href="#local-6989586621679578483"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mfa:DeleteObjects' :: Maybe Text
+</span><a href="Network.AWS.S3.DeleteObjects.html#%24sel%3Amfa%3ADeleteObjects%27"><span class="hs-identifier hs-var">mfa</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679578482"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects"><span class="hs-identifier hs-type">DeleteObjects</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-208"></span><span>
-</span><span id="line-209"></span><span class="hs-comment">-- | Specifies whether you want to delete this object even if it has a</span><span>
-</span><span id="line-210"></span><span class="hs-comment">-- Governance-type Object Lock in place. To use this header, you must have</span><span>
-</span><span id="line-211"></span><span class="hs-comment">-- the @s3:PutBucketPublicAccessBlock@ permission.</span><span>
-</span><span id="line-212"></span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#deleteObjects_bypassGovernanceRetention"><span class="hs-identifier hs-type">deleteObjects_bypassGovernanceRetention</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects"><span class="hs-identifier hs-type">DeleteObjects</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-213"></span><span id="deleteObjects_bypassGovernanceRetention"><span class="annot"><span class="annottext">deleteObjects_bypassGovernanceRetention :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; DeleteObjects -&gt; f DeleteObjects
-</span><a href="Network.AWS.S3.DeleteObjects.html#deleteObjects_bypassGovernanceRetention"><span class="hs-identifier hs-var hs-var">deleteObjects_bypassGovernanceRetention</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteObjects -&gt; Maybe Bool)
--&gt; (DeleteObjects -&gt; Maybe Bool -&gt; DeleteObjects)
--&gt; Lens DeleteObjects DeleteObjects (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects%27"><span class="hs-identifier hs-type">DeleteObjects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679577483"><span class="annot"><span class="annottext">Maybe Bool
-bypassGovernanceRetention :: Maybe Bool
-$sel:bypassGovernanceRetention:DeleteObjects' :: DeleteObjects -&gt; Maybe Bool
-</span><a href="#local-6989586621679577483"><span class="hs-identifier hs-var hs-var">bypassGovernanceRetention</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679577483"><span class="hs-identifier hs-var">bypassGovernanceRetention</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679577482"><span class="annot"><span class="annottext">s :: DeleteObjects
-</span><a href="#local-6989586621679577482"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects%27"><span class="hs-identifier hs-type">DeleteObjects'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679577481"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679577481"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteObjects
-</span><a href="#local-6989586621679577482"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bypassGovernanceRetention:DeleteObjects' :: Maybe Bool
-</span><a href="Network.AWS.S3.DeleteObjects.html#%24sel%3AbypassGovernanceRetention%3ADeleteObjects%27"><span class="hs-identifier hs-var">bypassGovernanceRetention</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679577481"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects"><span class="hs-identifier hs-type">DeleteObjects</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-214"></span><span>
-</span><span id="line-215"></span><span class="hs-comment">-- | Undocumented member.</span><span>
-</span><span id="line-216"></span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#deleteObjects_requestPayer"><span class="hs-identifier hs-type">deleteObjects_requestPayer</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects"><span class="hs-identifier hs-type">DeleteObjects</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RequestPayer.html#RequestPayer"><span class="hs-identifier hs-type">RequestPayer</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-217"></span><span id="deleteObjects_requestPayer"><span class="annot"><span class="annottext">deleteObjects_requestPayer :: (Maybe RequestPayer -&gt; f (Maybe RequestPayer))
+</span><span id="line-209"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#deleteObjects_requestPayer"><span class="hs-identifier hs-type">deleteObjects_requestPayer</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects"><span class="hs-identifier hs-type">DeleteObjects</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RequestPayer.html#RequestPayer"><span class="hs-identifier hs-type">RequestPayer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span id="deleteObjects_requestPayer"><span class="annot"><span class="annottext">deleteObjects_requestPayer :: (Maybe RequestPayer -&gt; f (Maybe RequestPayer))
 -&gt; DeleteObjects -&gt; f DeleteObjects
 </span><a href="Network.AWS.S3.DeleteObjects.html#deleteObjects_requestPayer"><span class="hs-identifier hs-var hs-var">deleteObjects_requestPayer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteObjects -&gt; Maybe RequestPayer)
 -&gt; (DeleteObjects -&gt; Maybe RequestPayer -&gt; DeleteObjects)
@@ -336,102 +316,129 @@ $sel:bypassGovernanceRetention:DeleteObjects' :: DeleteObjects -&gt; Maybe Bool
      (Maybe RequestPayer)
      (Maybe RequestPayer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects%27"><span class="hs-identifier hs-type">DeleteObjects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679577480"><span class="annot"><span class="annottext">Maybe RequestPayer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects%27"><span class="hs-identifier hs-type">DeleteObjects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679578481"><span class="annot"><span class="annottext">Maybe RequestPayer
 requestPayer :: Maybe RequestPayer
 $sel:requestPayer:DeleteObjects' :: DeleteObjects -&gt; Maybe RequestPayer
-</span><a href="#local-6989586621679577480"><span class="hs-identifier hs-var hs-var">requestPayer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RequestPayer
-</span><a href="#local-6989586621679577480"><span class="hs-identifier hs-var">requestPayer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679577479"><span class="annot"><span class="annottext">s :: DeleteObjects
-</span><a href="#local-6989586621679577479"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects%27"><span class="hs-identifier hs-type">DeleteObjects'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679577478"><span class="annot"><span class="annottext">Maybe RequestPayer
-</span><a href="#local-6989586621679577478"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteObjects
-</span><a href="#local-6989586621679577479"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestPayer:DeleteObjects' :: Maybe RequestPayer
+</span><a href="#local-6989586621679578481"><span class="hs-identifier hs-var hs-var">requestPayer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RequestPayer
+</span><a href="#local-6989586621679578481"><span class="hs-identifier hs-var">requestPayer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679578480"><span class="annot"><span class="annottext">s :: DeleteObjects
+</span><a href="#local-6989586621679578480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects%27"><span class="hs-identifier hs-type">DeleteObjects'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679578479"><span class="annot"><span class="annottext">Maybe RequestPayer
+</span><a href="#local-6989586621679578479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteObjects
+</span><a href="#local-6989586621679578480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestPayer:DeleteObjects' :: Maybe RequestPayer
 </span><a href="Network.AWS.S3.DeleteObjects.html#%24sel%3ArequestPayer%3ADeleteObjects%27"><span class="hs-identifier hs-var">requestPayer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RequestPayer
-</span><a href="#local-6989586621679577478"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects"><span class="hs-identifier hs-type">DeleteObjects</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679578479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects"><span class="hs-identifier hs-type">DeleteObjects</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | Specifies whether you want to delete this object even if it has a</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- Governance-type Object Lock in place. To use this header, you must have</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- the @s3:PutBucketPublicAccessBlock@ permission.</span><span>
+</span><span id="line-216"></span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#deleteObjects_bypassGovernanceRetention"><span class="hs-identifier hs-type">deleteObjects_bypassGovernanceRetention</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects"><span class="hs-identifier hs-type">DeleteObjects</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span id="deleteObjects_bypassGovernanceRetention"><span class="annot"><span class="annottext">deleteObjects_bypassGovernanceRetention :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; DeleteObjects -&gt; f DeleteObjects
+</span><a href="Network.AWS.S3.DeleteObjects.html#deleteObjects_bypassGovernanceRetention"><span class="hs-identifier hs-var hs-var">deleteObjects_bypassGovernanceRetention</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteObjects -&gt; Maybe Bool)
+-&gt; (DeleteObjects -&gt; Maybe Bool -&gt; DeleteObjects)
+-&gt; Lens DeleteObjects DeleteObjects (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects%27"><span class="hs-identifier hs-type">DeleteObjects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679578478"><span class="annot"><span class="annottext">Maybe Bool
+bypassGovernanceRetention :: Maybe Bool
+$sel:bypassGovernanceRetention:DeleteObjects' :: DeleteObjects -&gt; Maybe Bool
+</span><a href="#local-6989586621679578478"><span class="hs-identifier hs-var hs-var">bypassGovernanceRetention</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679578478"><span class="hs-identifier hs-var">bypassGovernanceRetention</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679578477"><span class="annot"><span class="annottext">s :: DeleteObjects
+</span><a href="#local-6989586621679578477"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects%27"><span class="hs-identifier hs-type">DeleteObjects'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679578476"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679578476"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteObjects
+</span><a href="#local-6989586621679578477"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bypassGovernanceRetention:DeleteObjects' :: Maybe Bool
+</span><a href="Network.AWS.S3.DeleteObjects.html#%24sel%3AbypassGovernanceRetention%3ADeleteObjects%27"><span class="hs-identifier hs-var">bypassGovernanceRetention</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679578476"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects"><span class="hs-identifier hs-type">DeleteObjects</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-218"></span><span>
-</span><span id="line-219"></span><span class="hs-comment">-- | The concatenation of the authentication device\'s serial number, a</span><span>
-</span><span id="line-220"></span><span class="hs-comment">-- space, and the value that is displayed on your authentication device.</span><span>
-</span><span id="line-221"></span><span class="hs-comment">-- Required to permanently delete a versioned object if versioning is</span><span>
-</span><span id="line-222"></span><span class="hs-comment">-- configured with MFA delete enabled.</span><span>
-</span><span id="line-223"></span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#deleteObjects_mfa"><span class="hs-identifier hs-type">deleteObjects_mfa</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects"><span class="hs-identifier hs-type">DeleteObjects</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-224"></span><span id="deleteObjects_mfa"><span class="annot"><span class="annottext">deleteObjects_mfa :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DeleteObjects -&gt; f DeleteObjects
-</span><a href="Network.AWS.S3.DeleteObjects.html#deleteObjects_mfa"><span class="hs-identifier hs-var hs-var">deleteObjects_mfa</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteObjects -&gt; Maybe Text)
+</span><span id="line-219"></span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
+</span><span id="line-222"></span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#deleteObjects_expectedBucketOwner"><span class="hs-identifier hs-type">deleteObjects_expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects"><span class="hs-identifier hs-type">DeleteObjects</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span id="deleteObjects_expectedBucketOwner"><span class="annot"><span class="annottext">deleteObjects_expectedBucketOwner :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DeleteObjects -&gt; f DeleteObjects
+</span><a href="Network.AWS.S3.DeleteObjects.html#deleteObjects_expectedBucketOwner"><span class="hs-identifier hs-var hs-var">deleteObjects_expectedBucketOwner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteObjects -&gt; Maybe Text)
 -&gt; (DeleteObjects -&gt; Maybe Text -&gt; DeleteObjects)
 -&gt; Lens DeleteObjects DeleteObjects (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects%27"><span class="hs-identifier hs-type">DeleteObjects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679577477"><span class="annot"><span class="annottext">Maybe Text
-mfa :: Maybe Text
-$sel:mfa:DeleteObjects' :: DeleteObjects -&gt; Maybe Text
-</span><a href="#local-6989586621679577477"><span class="hs-identifier hs-var hs-var">mfa</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679577477"><span class="hs-identifier hs-var">mfa</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679577476"><span class="annot"><span class="annottext">s :: DeleteObjects
-</span><a href="#local-6989586621679577476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects%27"><span class="hs-identifier hs-type">DeleteObjects'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679577475"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679577475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteObjects
-</span><a href="#local-6989586621679577476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mfa:DeleteObjects' :: Maybe Text
-</span><a href="Network.AWS.S3.DeleteObjects.html#%24sel%3Amfa%3ADeleteObjects%27"><span class="hs-identifier hs-var">mfa</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679577475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects"><span class="hs-identifier hs-type">DeleteObjects</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-225"></span><span>
-</span><span id="line-226"></span><span class="hs-comment">-- | The bucket name containing the objects to delete.</span><span>
-</span><span id="line-227"></span><span class="hs-comment">--</span><span>
-</span><span id="line-228"></span><span class="hs-comment">-- When using this action with an access point, you must direct requests to</span><span>
-</span><span id="line-229"></span><span class="hs-comment">-- the access point hostname. The access point hostname takes the form</span><span>
-</span><span id="line-230"></span><span class="hs-comment">-- /AccessPointName/-/AccountId/.s3-accesspoint./Region/.amazonaws.com.</span><span>
-</span><span id="line-231"></span><span class="hs-comment">-- When using this action with an access point through the Amazon Web</span><span>
-</span><span id="line-232"></span><span class="hs-comment">-- Services SDKs, you provide the access point ARN in place of the bucket</span><span>
-</span><span id="line-233"></span><span class="hs-comment">-- name. For more information about access point ARNs, see</span><span>
-</span><span id="line-234"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points&gt;</span><span>
-</span><span id="line-235"></span><span class="hs-comment">-- in the /Amazon S3 User Guide/.</span><span>
-</span><span id="line-236"></span><span class="hs-comment">--</span><span>
-</span><span id="line-237"></span><span class="hs-comment">-- When using this action with Amazon S3 on Outposts, you must direct</span><span>
-</span><span id="line-238"></span><span class="hs-comment">-- requests to the S3 on Outposts hostname. The S3 on Outposts hostname</span><span>
-</span><span id="line-239"></span><span class="hs-comment">-- takes the form</span><span>
-</span><span id="line-240"></span><span class="hs-comment">-- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.</span><span>
-</span><span id="line-241"></span><span class="hs-comment">-- When using this action using S3 on Outposts through the Amazon Web</span><span>
-</span><span id="line-242"></span><span class="hs-comment">-- Services SDKs, you provide the Outposts bucket ARN in place of the</span><span>
-</span><span id="line-243"></span><span class="hs-comment">-- bucket name. For more information about S3 on Outposts ARNs, see</span><span>
-</span><span id="line-244"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts&gt;</span><span>
-</span><span id="line-245"></span><span class="hs-comment">-- in the /Amazon S3 User Guide/.</span><span>
-</span><span id="line-246"></span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#deleteObjects_bucket"><span class="hs-identifier hs-type">deleteObjects_bucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects"><span class="hs-identifier hs-type">DeleteObjects</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span>
-</span><span id="line-247"></span><span id="deleteObjects_bucket"><span class="annot"><span class="annottext">deleteObjects_bucket :: (BucketName -&gt; f BucketName) -&gt; DeleteObjects -&gt; f DeleteObjects
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects%27"><span class="hs-identifier hs-type">DeleteObjects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679578475"><span class="annot"><span class="annottext">Maybe Text
+expectedBucketOwner :: Maybe Text
+$sel:expectedBucketOwner:DeleteObjects' :: DeleteObjects -&gt; Maybe Text
+</span><a href="#local-6989586621679578475"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679578475"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679578474"><span class="annot"><span class="annottext">s :: DeleteObjects
+</span><a href="#local-6989586621679578474"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects%27"><span class="hs-identifier hs-type">DeleteObjects'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679578473"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679578473"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteObjects
+</span><a href="#local-6989586621679578474"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:DeleteObjects' :: Maybe Text
+</span><a href="Network.AWS.S3.DeleteObjects.html#%24sel%3AexpectedBucketOwner%3ADeleteObjects%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679578473"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects"><span class="hs-identifier hs-type">DeleteObjects</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- | The bucket name containing the objects to delete.</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- When using this action with an access point, you must direct requests to</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- the access point hostname. The access point hostname takes the form</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- /AccessPointName/-/AccountId/.s3-accesspoint./Region/.amazonaws.com.</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- When using this action with an access point through the Amazon Web</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- Services SDKs, you provide the access point ARN in place of the bucket</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- name. For more information about access point ARNs, see</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points&gt;</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- in the /Amazon S3 User Guide/.</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- When using this action with Amazon S3 on Outposts, you must direct</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- requests to the S3 on Outposts hostname. The S3 on Outposts hostname</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- takes the form</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- When using this action using S3 on Outposts through the Amazon Web</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- Services SDKs, you provide the Outposts bucket ARN in place of the</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- bucket name. For more information about S3 on Outposts ARNs, see</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts&gt;</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- in the /Amazon S3 User Guide/.</span><span>
+</span><span id="line-245"></span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#deleteObjects_bucket"><span class="hs-identifier hs-type">deleteObjects_bucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects"><span class="hs-identifier hs-type">DeleteObjects</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span>
+</span><span id="line-246"></span><span id="deleteObjects_bucket"><span class="annot"><span class="annottext">deleteObjects_bucket :: (BucketName -&gt; f BucketName) -&gt; DeleteObjects -&gt; f DeleteObjects
 </span><a href="Network.AWS.S3.DeleteObjects.html#deleteObjects_bucket"><span class="hs-identifier hs-var hs-var">deleteObjects_bucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteObjects -&gt; BucketName)
 -&gt; (DeleteObjects -&gt; BucketName -&gt; DeleteObjects)
 -&gt; Lens DeleteObjects DeleteObjects BucketName BucketName
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects%27"><span class="hs-identifier hs-type">DeleteObjects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679577474"><span class="annot"><span class="annottext">BucketName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects%27"><span class="hs-identifier hs-type">DeleteObjects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679578472"><span class="annot"><span class="annottext">BucketName
 bucket :: BucketName
 $sel:bucket:DeleteObjects' :: DeleteObjects -&gt; BucketName
-</span><a href="#local-6989586621679577474"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679577474"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679577473"><span class="annot"><span class="annottext">s :: DeleteObjects
-</span><a href="#local-6989586621679577473"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects%27"><span class="hs-identifier hs-type">DeleteObjects'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679577472"><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679577472"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteObjects
-</span><a href="#local-6989586621679577473"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:DeleteObjects' :: BucketName
+</span><a href="#local-6989586621679578472"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679578472"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679578471"><span class="annot"><span class="annottext">s :: DeleteObjects
+</span><a href="#local-6989586621679578471"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects%27"><span class="hs-identifier hs-type">DeleteObjects'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679578470"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679578470"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteObjects
+</span><a href="#local-6989586621679578471"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:DeleteObjects' :: BucketName
 </span><a href="Network.AWS.S3.DeleteObjects.html#%24sel%3Abucket%3ADeleteObjects%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679577472"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects"><span class="hs-identifier hs-type">DeleteObjects</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-248"></span><span>
-</span><span id="line-249"></span><span class="hs-comment">-- | Container for the request.</span><span>
-</span><span id="line-250"></span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#deleteObjects_delete"><span class="hs-identifier hs-type">deleteObjects_delete</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects"><span class="hs-identifier hs-type">DeleteObjects</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Delete.html#Delete"><span class="hs-identifier hs-type">Delete</span></a></span><span>
-</span><span id="line-251"></span><span id="deleteObjects_delete"><span class="annot"><span class="annottext">deleteObjects_delete :: (Delete -&gt; f Delete) -&gt; DeleteObjects -&gt; f DeleteObjects
+</span><a href="#local-6989586621679578470"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects"><span class="hs-identifier hs-type">DeleteObjects</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- | Container for the request.</span><span>
+</span><span id="line-249"></span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#deleteObjects_delete"><span class="hs-identifier hs-type">deleteObjects_delete</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects"><span class="hs-identifier hs-type">DeleteObjects</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Delete.html#Delete"><span class="hs-identifier hs-type">Delete</span></a></span><span>
+</span><span id="line-250"></span><span id="deleteObjects_delete"><span class="annot"><span class="annottext">deleteObjects_delete :: (Delete -&gt; f Delete) -&gt; DeleteObjects -&gt; f DeleteObjects
 </span><a href="Network.AWS.S3.DeleteObjects.html#deleteObjects_delete"><span class="hs-identifier hs-var hs-var">deleteObjects_delete</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteObjects -&gt; Delete)
 -&gt; (DeleteObjects -&gt; Delete -&gt; DeleteObjects)
 -&gt; Lens DeleteObjects DeleteObjects Delete Delete
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects%27"><span class="hs-identifier hs-type">DeleteObjects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679577471"><span class="annot"><span class="annottext">Delete
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects%27"><span class="hs-identifier hs-type">DeleteObjects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679578469"><span class="annot"><span class="annottext">Delete
 delete' :: Delete
 $sel:delete':DeleteObjects' :: DeleteObjects -&gt; Delete
-</span><a href="#local-6989586621679577471"><span class="hs-identifier hs-var hs-var">delete'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Delete
-</span><a href="#local-6989586621679577471"><span class="hs-identifier hs-var">delete'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679577470"><span class="annot"><span class="annottext">s :: DeleteObjects
-</span><a href="#local-6989586621679577470"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects%27"><span class="hs-identifier hs-type">DeleteObjects'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679577469"><span class="annot"><span class="annottext">Delete
-</span><a href="#local-6989586621679577469"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteObjects
-</span><a href="#local-6989586621679577470"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:delete':DeleteObjects' :: Delete
+</span><a href="#local-6989586621679578469"><span class="hs-identifier hs-var hs-var">delete'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Delete
+</span><a href="#local-6989586621679578469"><span class="hs-identifier hs-var">delete'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679578468"><span class="annot"><span class="annottext">s :: DeleteObjects
+</span><a href="#local-6989586621679578468"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects%27"><span class="hs-identifier hs-type">DeleteObjects'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679578467"><span class="annot"><span class="annottext">Delete
+</span><a href="#local-6989586621679578467"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteObjects
+</span><a href="#local-6989586621679578468"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:delete':DeleteObjects' :: Delete
 </span><a href="Network.AWS.S3.DeleteObjects.html#%24sel%3Adelete%27%3ADeleteObjects%27"><span class="hs-identifier hs-var">delete'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Delete
-</span><a href="#local-6989586621679577469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects"><span class="hs-identifier hs-type">DeleteObjects</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-252"></span><span>
-</span><span id="line-253"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects"><span class="hs-identifier hs-type">DeleteObjects</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-254"></span><span>  </span><span class="hs-keyword">type</span><span>
-</span><span id="line-255"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects"><span class="hs-identifier hs-type">DeleteObjects</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-256"></span><span>      </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjectsResponse"><span class="hs-identifier hs-type">DeleteObjectsResponse</span></a></span><span>
-</span><span id="line-257"></span><span>  </span><span id="local-6989586621679577465"><span class="annot"><span class="annottext">request :: DeleteObjects -&gt; Request DeleteObjects
+</span><a href="#local-6989586621679578467"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects"><span class="hs-identifier hs-type">DeleteObjects</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects"><span class="hs-identifier hs-type">DeleteObjects</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-253"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-254"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects"><span class="hs-identifier hs-type">DeleteObjects</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-255"></span><span>      </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjectsResponse"><span class="hs-identifier hs-type">DeleteObjectsResponse</span></a></span><span>
+</span><span id="line-256"></span><span>  </span><span id="local-6989586621679578463"><span class="annot"><span class="annottext">request :: DeleteObjects -&gt; Request DeleteObjects
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-258"></span><span>    </span><span class="annot"><span class="annottext">Request DeleteObjects -&gt; Request DeleteObjects
+</span><span id="line-257"></span><span>    </span><span class="annot"><span class="annottext">Request DeleteObjects -&gt; Request DeleteObjects
 forall a. Request a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.contentMD5Header</span></span><span>
+</span><span id="line-258"></span><span>      </span><span class="annot"><span class="annottext">(Request DeleteObjects -&gt; Request DeleteObjects)
+-&gt; (DeleteObjects -&gt; Request DeleteObjects)
+-&gt; DeleteObjects
+-&gt; Request DeleteObjects
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Request DeleteObjects -&gt; Request DeleteObjects
+forall a. Request a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.s3vhost</span></span><span>
 </span><span id="line-259"></span><span>      </span><span class="annot"><span class="annottext">(Request DeleteObjects -&gt; Request DeleteObjects)
 -&gt; (DeleteObjects -&gt; Request DeleteObjects)
 -&gt; DeleteObjects
@@ -441,7 +448,7 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall a. (ToRequest a, ToElement a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postXML</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.S3.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-260"></span><span>  </span><span id="local-6989586621679577459"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-260"></span><span>  </span><span id="local-6989586621679578456"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteObjects
 -&gt; ClientResponse ClientBody
@@ -465,29 +472,29 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-262"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679577456"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679577456"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679577455"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679577455"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679577454"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679577454"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-262"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679578453"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679578453"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679578452"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679578452"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679578451"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679578451"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-263"></span><span>          </span><span class="annot"><span class="annottext">Maybe RequestCharged
--&gt; Maybe [S3ServiceError]
 -&gt; Maybe [DeletedObject]
+-&gt; Maybe [S3ServiceError]
 -&gt; Int
 -&gt; DeleteObjectsResponse
 </span><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjectsResponse%27"><span class="hs-identifier hs-var">DeleteObjectsResponse'</span></a></span><span>
 </span><span id="line-264"></span><span>            </span><span class="annot"><span class="annottext">(Maybe RequestCharged
- -&gt; Maybe [S3ServiceError]
  -&gt; Maybe [DeletedObject]
+ -&gt; Maybe [S3ServiceError]
  -&gt; Int
  -&gt; DeleteObjectsResponse)
 -&gt; Either String (Maybe RequestCharged)
 -&gt; Either
      String
-     (Maybe [S3ServiceError]
-      -&gt; Maybe [DeletedObject] -&gt; Int -&gt; DeleteObjectsResponse)
+     (Maybe [DeletedObject]
+      -&gt; Maybe [S3ServiceError] -&gt; Int -&gt; DeleteObjectsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679577455"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679578452"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; HeaderName -&gt; Either String (Maybe RequestCharged)
 forall a.
 FromText a =&gt;
@@ -496,26 +503,11 @@ ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
 </span><span class="hs-string">&quot;x-amz-request-charged&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-265"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe [S3ServiceError]
-   -&gt; Maybe [DeletedObject] -&gt; Int -&gt; DeleteObjectsResponse)
--&gt; Either String (Maybe [S3ServiceError])
--&gt; Either
-     String (Maybe [DeletedObject] -&gt; Int -&gt; DeleteObjectsResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">([Node] -&gt; Either String [S3ServiceError])
--&gt; [Node] -&gt; Either String (Maybe [S3ServiceError])
-forall (f :: * -&gt; *) a b.
-Applicative f =&gt;
-([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
-</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [S3ServiceError]
-forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
-</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Error&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679577454"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-266"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String (Maybe [DeletedObject] -&gt; Int -&gt; DeleteObjectsResponse)
+  (Maybe [DeletedObject]
+   -&gt; Maybe [S3ServiceError] -&gt; Int -&gt; DeleteObjectsResponse)
 -&gt; Either String (Maybe [DeletedObject])
--&gt; Either String (Int -&gt; DeleteObjectsResponse)
+-&gt; Either
+     String (Maybe [S3ServiceError] -&gt; Int -&gt; DeleteObjectsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">([Node] -&gt; Either String [DeletedObject])
 -&gt; [Node] -&gt; Either String (Maybe [DeletedObject])
@@ -526,7 +518,22 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Deleted&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679577454"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679578451"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [S3ServiceError] -&gt; Int -&gt; DeleteObjectsResponse)
+-&gt; Either String (Maybe [S3ServiceError])
+-&gt; Either String (Int -&gt; DeleteObjectsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">([Node] -&gt; Either String [S3ServiceError])
+-&gt; [Node] -&gt; Either String (Maybe [S3ServiceError])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [S3ServiceError]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Error&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679578451"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-267"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DeleteObjectsResponse)
 -&gt; Either String Int -&gt; Either String DeleteObjectsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -535,118 +542,118 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679577456"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679578453"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-268"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-269"></span><span>
-</span><span id="line-270"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679577444"><span id="local-6989586621679577446"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects"><span class="hs-identifier hs-type">DeleteObjects</span></a></span></span></span><span>
+</span><span id="line-270"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679578441"><span id="local-6989586621679578443"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects"><span class="hs-identifier hs-type">DeleteObjects</span></a></span></span></span><span>
 </span><span id="line-271"></span><span>
-</span><span id="line-272"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679577441"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects"><span class="hs-identifier hs-type">DeleteObjects</span></a></span></span><span>
+</span><span id="line-272"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679578438"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects"><span class="hs-identifier hs-type">DeleteObjects</span></a></span></span><span>
 </span><span id="line-273"></span><span>
 </span><span id="line-274"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToElement</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects"><span class="hs-identifier hs-type">DeleteObjects</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-275"></span><span>  </span><span id="local-6989586621679577437"><span class="annot"><span class="annottext">toElement :: DeleteObjects -&gt; Element
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toElement</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects%27"><span class="hs-identifier hs-type">DeleteObjects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679577430"><span id="local-6989586621679577431"><span id="local-6989586621679577432"><span id="local-6989586621679577433"><span id="local-6989586621679577434"><span id="local-6989586621679577435"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-275"></span><span>  </span><span id="local-6989586621679578434"><span class="annot"><span class="annottext">toElement :: DeleteObjects -&gt; Element
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toElement</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects%27"><span class="hs-identifier hs-type">DeleteObjects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679578427"><span id="local-6989586621679578428"><span id="local-6989586621679578429"><span id="local-6989586621679578430"><span id="local-6989586621679578431"><span id="local-6989586621679578432"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 Maybe RequestPayer
 BucketName
 Delete
 delete' :: Delete
 bucket :: BucketName
-mfa :: Maybe Text
-requestPayer :: Maybe RequestPayer
-bypassGovernanceRetention :: Maybe Bool
 expectedBucketOwner :: Maybe Text
+bypassGovernanceRetention :: Maybe Bool
+requestPayer :: Maybe RequestPayer
+mfa :: Maybe Text
 $sel:delete':DeleteObjects' :: DeleteObjects -&gt; Delete
 $sel:bucket:DeleteObjects' :: DeleteObjects -&gt; BucketName
-$sel:mfa:DeleteObjects' :: DeleteObjects -&gt; Maybe Text
-$sel:requestPayer:DeleteObjects' :: DeleteObjects -&gt; Maybe RequestPayer
-$sel:bypassGovernanceRetention:DeleteObjects' :: DeleteObjects -&gt; Maybe Bool
 $sel:expectedBucketOwner:DeleteObjects' :: DeleteObjects -&gt; Maybe Text
-</span><a href="#local-6989586621679577430"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:bypassGovernanceRetention:DeleteObjects' :: DeleteObjects -&gt; Maybe Bool
+$sel:requestPayer:DeleteObjects' :: DeleteObjects -&gt; Maybe RequestPayer
+$sel:mfa:DeleteObjects' :: DeleteObjects -&gt; Maybe Text
+</span><a href="#local-6989586621679578427"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-276"></span><span>    </span><span class="annot"><span class="annottext">Name -&gt; Delete -&gt; Element
 forall a. ToXML a =&gt; Name -&gt; a -&gt; Element
 </span><span class="hs-identifier hs-var">Core.mkElement</span></span><span>
 </span><span id="line-277"></span><span>      </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;{http://s3.amazonaws.com/doc/2006-03-01/}Delete&quot;</span></span><span>
 </span><span id="line-278"></span><span>      </span><span class="annot"><span class="annottext">Delete
-</span><a href="#local-6989586621679577430"><span class="hs-identifier hs-var">delete'</span></a></span><span>
+</span><a href="#local-6989586621679578427"><span class="hs-identifier hs-var">delete'</span></a></span><span>
 </span><span id="line-279"></span><span>
 </span><span id="line-280"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects"><span class="hs-identifier hs-type">DeleteObjects</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-281"></span><span>  </span><span id="local-6989586621679577426"><span class="annot"><span class="annottext">toHeaders :: DeleteObjects -&gt; ResponseHeaders
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects%27"><span class="hs-identifier hs-type">DeleteObjects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679577419"><span id="local-6989586621679577420"><span id="local-6989586621679577421"><span id="local-6989586621679577422"><span id="local-6989586621679577423"><span id="local-6989586621679577424"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-281"></span><span>  </span><span id="local-6989586621679578423"><span class="annot"><span class="annottext">toHeaders :: DeleteObjects -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects%27"><span class="hs-identifier hs-type">DeleteObjects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679578416"><span id="local-6989586621679578417"><span id="local-6989586621679578418"><span id="local-6989586621679578419"><span id="local-6989586621679578420"><span id="local-6989586621679578421"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 Maybe RequestPayer
 BucketName
 Delete
 delete' :: Delete
 bucket :: BucketName
-mfa :: Maybe Text
-requestPayer :: Maybe RequestPayer
-bypassGovernanceRetention :: Maybe Bool
 expectedBucketOwner :: Maybe Text
+bypassGovernanceRetention :: Maybe Bool
+requestPayer :: Maybe RequestPayer
+mfa :: Maybe Text
 $sel:delete':DeleteObjects' :: DeleteObjects -&gt; Delete
 $sel:bucket:DeleteObjects' :: DeleteObjects -&gt; BucketName
-$sel:mfa:DeleteObjects' :: DeleteObjects -&gt; Maybe Text
-$sel:requestPayer:DeleteObjects' :: DeleteObjects -&gt; Maybe RequestPayer
-$sel:bypassGovernanceRetention:DeleteObjects' :: DeleteObjects -&gt; Maybe Bool
 $sel:expectedBucketOwner:DeleteObjects' :: DeleteObjects -&gt; Maybe Text
-</span><a href="#local-6989586621679577419"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:bypassGovernanceRetention:DeleteObjects' :: DeleteObjects -&gt; Maybe Bool
+$sel:requestPayer:DeleteObjects' :: DeleteObjects -&gt; Maybe RequestPayer
+$sel:mfa:DeleteObjects' :: DeleteObjects -&gt; Maybe Text
+</span><a href="#local-6989586621679578416"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-282"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
 </span><span id="line-283"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
-</span><span class="hs-string">&quot;x-amz-expected-bucket-owner&quot;</span></span><span>
-</span><span id="line-284"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
+</span><span class="hs-string">&quot;x-amz-mfa&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679577424"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679578421"><span class="hs-identifier hs-var">mfa</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-284"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-request-payer&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe RequestPayer -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe RequestPayer
+</span><a href="#local-6989586621679578420"><span class="hs-identifier hs-var">requestPayer</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-285"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;x-amz-bypass-governance-retention&quot;</span></span><span>
 </span><span id="line-286"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Bool -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679577423"><span class="hs-identifier hs-var">bypassGovernanceRetention</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679578419"><span class="hs-identifier hs-var">bypassGovernanceRetention</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-287"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
-</span><span class="hs-string">&quot;x-amz-request-payer&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe RequestPayer -&gt; ResponseHeaders
-forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
-</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe RequestPayer
-</span><a href="#local-6989586621679577422"><span class="hs-identifier hs-var">requestPayer</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-288"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
-</span><span class="hs-string">&quot;x-amz-mfa&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
+</span><span class="hs-string">&quot;x-amz-expected-bucket-owner&quot;</span></span><span>
+</span><span id="line-288"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679577421"><span class="hs-identifier hs-var">mfa</span></a></span><span>
+</span><a href="#local-6989586621679578418"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span>
 </span><span id="line-289"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-290"></span><span>
 </span><span id="line-291"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects"><span class="hs-identifier hs-type">DeleteObjects</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-292"></span><span>  </span><span id="local-6989586621679577415"><span class="annot"><span class="annottext">toPath :: DeleteObjects -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects%27"><span class="hs-identifier hs-type">DeleteObjects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679577408"><span id="local-6989586621679577409"><span id="local-6989586621679577410"><span id="local-6989586621679577411"><span id="local-6989586621679577412"><span id="local-6989586621679577413"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-292"></span><span>  </span><span id="local-6989586621679578412"><span class="annot"><span class="annottext">toPath :: DeleteObjects -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects%27"><span class="hs-identifier hs-type">DeleteObjects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679578405"><span id="local-6989586621679578406"><span id="local-6989586621679578407"><span id="local-6989586621679578408"><span id="local-6989586621679578409"><span id="local-6989586621679578410"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 Maybe RequestPayer
 BucketName
 Delete
 delete' :: Delete
 bucket :: BucketName
-mfa :: Maybe Text
-requestPayer :: Maybe RequestPayer
-bypassGovernanceRetention :: Maybe Bool
 expectedBucketOwner :: Maybe Text
+bypassGovernanceRetention :: Maybe Bool
+requestPayer :: Maybe RequestPayer
+mfa :: Maybe Text
 $sel:delete':DeleteObjects' :: DeleteObjects -&gt; Delete
 $sel:bucket:DeleteObjects' :: DeleteObjects -&gt; BucketName
-$sel:mfa:DeleteObjects' :: DeleteObjects -&gt; Maybe Text
-$sel:requestPayer:DeleteObjects' :: DeleteObjects -&gt; Maybe RequestPayer
-$sel:bypassGovernanceRetention:DeleteObjects' :: DeleteObjects -&gt; Maybe Bool
 $sel:expectedBucketOwner:DeleteObjects' :: DeleteObjects -&gt; Maybe Text
-</span><a href="#local-6989586621679577408"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:bypassGovernanceRetention:DeleteObjects' :: DeleteObjects -&gt; Maybe Bool
+$sel:requestPayer:DeleteObjects' :: DeleteObjects -&gt; Maybe RequestPayer
+$sel:mfa:DeleteObjects' :: DeleteObjects -&gt; Maybe Text
+</span><a href="#local-6989586621679578405"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-293"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">BucketName -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679577409"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679578406"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-294"></span><span>
 </span><span id="line-295"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjects"><span class="hs-identifier hs-type">DeleteObjects</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-296"></span><span>  </span><span id="local-6989586621679577404"><span class="annot"><span class="annottext">toQuery :: DeleteObjects -&gt; QueryString
+</span><span id="line-296"></span><span>  </span><span id="local-6989586621679578401"><span class="annot"><span class="annottext">toQuery :: DeleteObjects -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteObjects -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
@@ -655,22 +662,22 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;delete&quot;</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
 </span><span id="line-297"></span><span>
 </span><span id="line-298"></span><span class="hs-comment">-- | /See:/ 'newDeleteObjectsResponse' smart constructor.</span><span>
-</span><span id="line-299"></span><span id="local-6989586621679577400"><span id="local-6989586621679577401"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteObjectsResponse"><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjectsResponse"><span class="hs-identifier hs-var">DeleteObjectsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteObjectsResponse%27"><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjectsResponse%27"><span class="hs-identifier hs-var">DeleteObjectsResponse'</span></a></span></span><span>
+</span><span id="line-299"></span><span id="local-6989586621679578397"><span id="local-6989586621679578398"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteObjectsResponse"><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjectsResponse"><span class="hs-identifier hs-var">DeleteObjectsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteObjectsResponse%27"><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjectsResponse%27"><span class="hs-identifier hs-var">DeleteObjectsResponse'</span></a></span></span><span>
 </span><span id="line-300"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3ArequestCharged%3ADeleteObjectsResponse%27"><span class="annot"><span class="annottext">DeleteObjectsResponse -&gt; Maybe RequestCharged
 </span><a href="Network.AWS.S3.DeleteObjects.html#%24sel%3ArequestCharged%3ADeleteObjectsResponse%27"><span class="hs-identifier hs-var hs-var">requestCharged</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RequestCharged.html#RequestCharged"><span class="hs-identifier hs-type">RequestCharged</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-301"></span><span>    </span><span class="hs-comment">-- | Container for a failed delete action that describes the object that</span><span>
-</span><span id="line-302"></span><span>    </span><span class="hs-comment">-- Amazon S3 attempted to delete and the error it encountered.</span><span>
-</span><span id="line-303"></span><span>    </span><span id="%24sel%3Aerrors%3ADeleteObjectsResponse%27"><span class="annot"><span class="annottext">DeleteObjectsResponse -&gt; Maybe [S3ServiceError]
-</span><a href="Network.AWS.S3.DeleteObjects.html#%24sel%3Aerrors%3ADeleteObjectsResponse%27"><span class="hs-identifier hs-var hs-var">errors</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.S3.Types.S3ServiceError.html#S3ServiceError"><span class="hs-identifier hs-type">S3ServiceError</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-304"></span><span>    </span><span class="hs-comment">-- | Container element for a successful delete. It identifies the object that</span><span>
-</span><span id="line-305"></span><span>    </span><span class="hs-comment">-- was successfully deleted.</span><span>
-</span><span id="line-306"></span><span>    </span><span id="%24sel%3Adeleted%3ADeleteObjectsResponse%27"><span class="annot"><span class="annottext">DeleteObjectsResponse -&gt; Maybe [DeletedObject]
+</span><span id="line-301"></span><span>    </span><span class="hs-comment">-- | Container element for a successful delete. It identifies the object that</span><span>
+</span><span id="line-302"></span><span>    </span><span class="hs-comment">-- was successfully deleted.</span><span>
+</span><span id="line-303"></span><span>    </span><span id="%24sel%3Adeleted%3ADeleteObjectsResponse%27"><span class="annot"><span class="annottext">DeleteObjectsResponse -&gt; Maybe [DeletedObject]
 </span><a href="Network.AWS.S3.DeleteObjects.html#%24sel%3Adeleted%3ADeleteObjectsResponse%27"><span class="hs-identifier hs-var hs-var">deleted</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.S3.Types.DeletedObject.html#DeletedObject"><span class="hs-identifier hs-type">DeletedObject</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-304"></span><span>    </span><span class="hs-comment">-- | Container for a failed delete action that describes the object that</span><span>
+</span><span id="line-305"></span><span>    </span><span class="hs-comment">-- Amazon S3 attempted to delete and the error it encountered.</span><span>
+</span><span id="line-306"></span><span>    </span><span id="%24sel%3Aerrors%3ADeleteObjectsResponse%27"><span class="annot"><span class="annottext">DeleteObjectsResponse -&gt; Maybe [S3ServiceError]
+</span><a href="Network.AWS.S3.DeleteObjects.html#%24sel%3Aerrors%3ADeleteObjectsResponse%27"><span class="hs-identifier hs-var hs-var">errors</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.S3.Types.S3ServiceError.html#S3ServiceError"><span class="hs-identifier hs-type">S3ServiceError</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-307"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-308"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteObjectsResponse%27"><span class="annot"><span class="annottext">DeleteObjectsResponse -&gt; Int
 </span><a href="Network.AWS.S3.DeleteObjects.html#%24sel%3AhttpStatus%3ADeleteObjectsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-309"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-310"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679577392"><span id="local-6989586621679577394"><span class="annot"><span class="annottext">DeleteObjectsResponse -&gt; DeleteObjectsResponse -&gt; Bool
+</span><span id="line-310"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679578389"><span id="local-6989586621679578391"><span class="annot"><span class="annottext">DeleteObjectsResponse -&gt; DeleteObjectsResponse -&gt; Bool
 (DeleteObjectsResponse -&gt; DeleteObjectsResponse -&gt; Bool)
 -&gt; (DeleteObjectsResponse -&gt; DeleteObjectsResponse -&gt; Bool)
 -&gt; Eq DeleteObjectsResponse
@@ -679,7 +686,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteObjectsResponse -&gt; DeleteObjectsResponse -&gt; Bool
 == :: DeleteObjectsResponse -&gt; DeleteObjectsResponse -&gt; Bool
 $c== :: DeleteObjectsResponse -&gt; DeleteObjectsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679577384"><span id="local-6989586621679577386"><span id="local-6989586621679577388"><span id="local-6989586621679577390"><span class="annot"><span class="annottext">ReadPrec [DeleteObjectsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679578381"><span id="local-6989586621679578383"><span id="local-6989586621679578385"><span id="local-6989586621679578387"><span class="annot"><span class="annottext">ReadPrec [DeleteObjectsResponse]
 ReadPrec DeleteObjectsResponse
 Int -&gt; ReadS DeleteObjectsResponse
 ReadS [DeleteObjectsResponse]
@@ -699,7 +706,7 @@ readList :: ReadS [DeleteObjectsResponse]
 $creadList :: ReadS [DeleteObjectsResponse]
 readsPrec :: Int -&gt; ReadS DeleteObjectsResponse
 $creadsPrec :: Int -&gt; ReadS DeleteObjectsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679577378"><span id="local-6989586621679577380"><span id="local-6989586621679577382"><span class="annot"><span class="annottext">Int -&gt; DeleteObjectsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679578375"><span id="local-6989586621679578377"><span id="local-6989586621679578379"><span class="annot"><span class="annottext">Int -&gt; DeleteObjectsResponse -&gt; ShowS
 [DeleteObjectsResponse] -&gt; ShowS
 DeleteObjectsResponse -&gt; String
 (Int -&gt; DeleteObjectsResponse -&gt; ShowS)
@@ -735,11 +742,11 @@ $cfrom :: forall x. DeleteObjectsResponse -&gt; Rep DeleteObjectsResponse x
 </span><span id="line-319"></span><span class="hs-comment">--</span><span>
 </span><span id="line-320"></span><span class="hs-comment">-- 'requestCharged', 'deleteObjectsResponse_requestCharged' - Undocumented member.</span><span>
 </span><span id="line-321"></span><span class="hs-comment">--</span><span>
-</span><span id="line-322"></span><span class="hs-comment">-- 'errors', 'deleteObjectsResponse_errors' - Container for a failed delete action that describes the object that</span><span>
-</span><span id="line-323"></span><span class="hs-comment">-- Amazon S3 attempted to delete and the error it encountered.</span><span>
+</span><span id="line-322"></span><span class="hs-comment">-- 'deleted', 'deleteObjectsResponse_deleted' - Container element for a successful delete. It identifies the object that</span><span>
+</span><span id="line-323"></span><span class="hs-comment">-- was successfully deleted.</span><span>
 </span><span id="line-324"></span><span class="hs-comment">--</span><span>
-</span><span id="line-325"></span><span class="hs-comment">-- 'deleted', 'deleteObjectsResponse_deleted' - Container element for a successful delete. It identifies the object that</span><span>
-</span><span id="line-326"></span><span class="hs-comment">-- was successfully deleted.</span><span>
+</span><span id="line-325"></span><span class="hs-comment">-- 'errors', 'deleteObjectsResponse_errors' - Container for a failed delete action that describes the object that</span><span>
+</span><span id="line-326"></span><span class="hs-comment">-- Amazon S3 attempted to delete and the error it encountered.</span><span>
 </span><span id="line-327"></span><span class="hs-comment">--</span><span>
 </span><span id="line-328"></span><span class="hs-comment">-- 'httpStatus', 'deleteObjectsResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-329"></span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#newDeleteObjectsResponse"><span class="hs-identifier hs-type">newDeleteObjectsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -747,11 +754,11 @@ $cfrom :: forall x. DeleteObjectsResponse -&gt; Rep DeleteObjectsResponse x
 </span><span id="line-331"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-332"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjectsResponse"><span class="hs-identifier hs-type">DeleteObjectsResponse</span></a></span><span>
 </span><span id="line-333"></span><span id="newDeleteObjectsResponse"><span class="annot"><span class="annottext">newDeleteObjectsResponse :: Int -&gt; DeleteObjectsResponse
-</span><a href="Network.AWS.S3.DeleteObjects.html#newDeleteObjectsResponse"><span class="hs-identifier hs-var hs-var">newDeleteObjectsResponse</span></a></span></span><span> </span><span id="local-6989586621679577375"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679577375"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.S3.DeleteObjects.html#newDeleteObjectsResponse"><span class="hs-identifier hs-var hs-var">newDeleteObjectsResponse</span></a></span></span><span> </span><span id="local-6989586621679578372"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679578372"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-334"></span><span>  </span><span class="annot"><span class="annottext">DeleteObjectsResponse' :: Maybe RequestCharged
--&gt; Maybe [S3ServiceError]
 -&gt; Maybe [DeletedObject]
+-&gt; Maybe [S3ServiceError]
 -&gt; Int
 -&gt; DeleteObjectsResponse
 </span><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjectsResponse%27"><span class="hs-identifier hs-type">DeleteObjectsResponse'</span></a></span><span>
@@ -760,17 +767,17 @@ $cfrom :: forall x. DeleteObjectsResponse -&gt; Rep DeleteObjectsResponse x
 </span><span id="line-336"></span><span>        </span><span class="annot"><span class="annottext">Maybe RequestCharged
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-337"></span><span>      </span><span class="annot"><span class="annottext">$sel:errors:DeleteObjectsResponse' :: Maybe [S3ServiceError]
-</span><a href="Network.AWS.S3.DeleteObjects.html#%24sel%3Aerrors%3ADeleteObjectsResponse%27"><span class="hs-identifier hs-var">errors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [S3ServiceError]
+</span><span id="line-337"></span><span>      </span><span class="annot"><span class="annottext">$sel:deleted:DeleteObjectsResponse' :: Maybe [DeletedObject]
+</span><a href="Network.AWS.S3.DeleteObjects.html#%24sel%3Adeleted%3ADeleteObjectsResponse%27"><span class="hs-identifier hs-var">deleted</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DeletedObject]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-338"></span><span>      </span><span class="annot"><span class="annottext">$sel:deleted:DeleteObjectsResponse' :: Maybe [DeletedObject]
-</span><a href="Network.AWS.S3.DeleteObjects.html#%24sel%3Adeleted%3ADeleteObjectsResponse%27"><span class="hs-identifier hs-var">deleted</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DeletedObject]
+</span><span id="line-338"></span><span>      </span><span class="annot"><span class="annottext">$sel:errors:DeleteObjectsResponse' :: Maybe [S3ServiceError]
+</span><a href="Network.AWS.S3.DeleteObjects.html#%24sel%3Aerrors%3ADeleteObjectsResponse%27"><span class="hs-identifier hs-var">errors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [S3ServiceError]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-339"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteObjectsResponse' :: Int
 </span><a href="Network.AWS.S3.DeleteObjects.html#%24sel%3AhttpStatus%3ADeleteObjectsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679577375"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679578372"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-340"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-341"></span><span>
 </span><span id="line-342"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -786,67 +793,21 @@ forall a. Maybe a
      (Maybe RequestCharged)
      (Maybe RequestCharged)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjectsResponse%27"><span class="hs-identifier hs-type">DeleteObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679577374"><span class="annot"><span class="annottext">Maybe RequestCharged
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjectsResponse%27"><span class="hs-identifier hs-type">DeleteObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679578371"><span class="annot"><span class="annottext">Maybe RequestCharged
 requestCharged :: Maybe RequestCharged
 $sel:requestCharged:DeleteObjectsResponse' :: DeleteObjectsResponse -&gt; Maybe RequestCharged
-</span><a href="#local-6989586621679577374"><span class="hs-identifier hs-var hs-var">requestCharged</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RequestCharged
-</span><a href="#local-6989586621679577374"><span class="hs-identifier hs-var">requestCharged</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679577373"><span class="annot"><span class="annottext">s :: DeleteObjectsResponse
-</span><a href="#local-6989586621679577373"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjectsResponse%27"><span class="hs-identifier hs-type">DeleteObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679577372"><span class="annot"><span class="annottext">Maybe RequestCharged
-</span><a href="#local-6989586621679577372"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteObjectsResponse
-</span><a href="#local-6989586621679577373"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestCharged:DeleteObjectsResponse' :: Maybe RequestCharged
+</span><a href="#local-6989586621679578371"><span class="hs-identifier hs-var hs-var">requestCharged</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RequestCharged
+</span><a href="#local-6989586621679578371"><span class="hs-identifier hs-var">requestCharged</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679578370"><span class="annot"><span class="annottext">s :: DeleteObjectsResponse
+</span><a href="#local-6989586621679578370"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjectsResponse%27"><span class="hs-identifier hs-type">DeleteObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679578369"><span class="annot"><span class="annottext">Maybe RequestCharged
+</span><a href="#local-6989586621679578369"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteObjectsResponse
+</span><a href="#local-6989586621679578370"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestCharged:DeleteObjectsResponse' :: Maybe RequestCharged
 </span><a href="Network.AWS.S3.DeleteObjects.html#%24sel%3ArequestCharged%3ADeleteObjectsResponse%27"><span class="hs-identifier hs-var">requestCharged</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RequestCharged
-</span><a href="#local-6989586621679577372"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjectsResponse"><span class="hs-identifier hs-type">DeleteObjectsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679578369"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjectsResponse"><span class="hs-identifier hs-type">DeleteObjectsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-345"></span><span>
-</span><span id="line-346"></span><span class="hs-comment">-- | Container for a failed delete action that describes the object that</span><span>
-</span><span id="line-347"></span><span class="hs-comment">-- Amazon S3 attempted to delete and the error it encountered.</span><span>
-</span><span id="line-348"></span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#deleteObjectsResponse_errors"><span class="hs-identifier hs-type">deleteObjectsResponse_errors</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjectsResponse"><span class="hs-identifier hs-type">DeleteObjectsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.S3.Types.S3ServiceError.html#S3ServiceError"><span class="hs-identifier hs-type">S3ServiceError</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-349"></span><span id="deleteObjectsResponse_errors"><span class="annot"><span class="annottext">deleteObjectsResponse_errors :: (Maybe [S3ServiceError] -&gt; f (Maybe [S3ServiceError]))
--&gt; DeleteObjectsResponse -&gt; f DeleteObjectsResponse
-</span><a href="Network.AWS.S3.DeleteObjects.html#deleteObjectsResponse_errors"><span class="hs-identifier hs-var hs-var">deleteObjectsResponse_errors</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteObjectsResponse -&gt; Maybe [S3ServiceError])
--&gt; (DeleteObjectsResponse
-    -&gt; Maybe [S3ServiceError] -&gt; DeleteObjectsResponse)
--&gt; Lens
-     DeleteObjectsResponse
-     DeleteObjectsResponse
-     (Maybe [S3ServiceError])
-     (Maybe [S3ServiceError])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjectsResponse%27"><span class="hs-identifier hs-type">DeleteObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679577371"><span class="annot"><span class="annottext">Maybe [S3ServiceError]
-errors :: Maybe [S3ServiceError]
-$sel:errors:DeleteObjectsResponse' :: DeleteObjectsResponse -&gt; Maybe [S3ServiceError]
-</span><a href="#local-6989586621679577371"><span class="hs-identifier hs-var hs-var">errors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [S3ServiceError]
-</span><a href="#local-6989586621679577371"><span class="hs-identifier hs-var">errors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679577370"><span class="annot"><span class="annottext">s :: DeleteObjectsResponse
-</span><a href="#local-6989586621679577370"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjectsResponse%27"><span class="hs-identifier hs-type">DeleteObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679577369"><span class="annot"><span class="annottext">Maybe [S3ServiceError]
-</span><a href="#local-6989586621679577369"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteObjectsResponse
-</span><a href="#local-6989586621679577370"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errors:DeleteObjectsResponse' :: Maybe [S3ServiceError]
-</span><a href="Network.AWS.S3.DeleteObjects.html#%24sel%3Aerrors%3ADeleteObjectsResponse%27"><span class="hs-identifier hs-var">errors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [S3ServiceError]
-</span><a href="#local-6989586621679577369"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjectsResponse"><span class="hs-identifier hs-type">DeleteObjectsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [S3ServiceError] -&gt; f (Maybe [S3ServiceError]))
- -&gt; DeleteObjectsResponse -&gt; f DeleteObjectsResponse)
--&gt; ((Maybe [S3ServiceError] -&gt; f (Maybe [S3ServiceError]))
-    -&gt; Maybe [S3ServiceError] -&gt; f (Maybe [S3ServiceError]))
--&gt; (Maybe [S3ServiceError] -&gt; f (Maybe [S3ServiceError]))
--&gt; DeleteObjectsResponse
--&gt; f DeleteObjectsResponse
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
-  [S3ServiceError] [S3ServiceError] [S3ServiceError] [S3ServiceError]
--&gt; Iso
-     (Maybe [S3ServiceError])
-     (Maybe [S3ServiceError])
-     (Maybe [S3ServiceError])
-     (Maybe [S3ServiceError])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
-  [S3ServiceError] [S3ServiceError] [S3ServiceError] [S3ServiceError]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-350"></span><span>
-</span><span id="line-351"></span><span class="hs-comment">-- | Container element for a successful delete. It identifies the object that</span><span>
-</span><span id="line-352"></span><span class="hs-comment">-- was successfully deleted.</span><span>
-</span><span id="line-353"></span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#deleteObjectsResponse_deleted"><span class="hs-identifier hs-type">deleteObjectsResponse_deleted</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjectsResponse"><span class="hs-identifier hs-type">DeleteObjectsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.S3.Types.DeletedObject.html#DeletedObject"><span class="hs-identifier hs-type">DeletedObject</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-354"></span><span id="deleteObjectsResponse_deleted"><span class="annot"><span class="annottext">deleteObjectsResponse_deleted :: (Maybe [DeletedObject] -&gt; f (Maybe [DeletedObject]))
+</span><span id="line-346"></span><span class="hs-comment">-- | Container element for a successful delete. It identifies the object that</span><span>
+</span><span id="line-347"></span><span class="hs-comment">-- was successfully deleted.</span><span>
+</span><span id="line-348"></span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#deleteObjectsResponse_deleted"><span class="hs-identifier hs-type">deleteObjectsResponse_deleted</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjectsResponse"><span class="hs-identifier hs-type">DeleteObjectsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.S3.Types.DeletedObject.html#DeletedObject"><span class="hs-identifier hs-type">DeletedObject</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-349"></span><span id="deleteObjectsResponse_deleted"><span class="annot"><span class="annottext">deleteObjectsResponse_deleted :: (Maybe [DeletedObject] -&gt; f (Maybe [DeletedObject]))
 -&gt; DeleteObjectsResponse -&gt; f DeleteObjectsResponse
 </span><a href="Network.AWS.S3.DeleteObjects.html#deleteObjectsResponse_deleted"><span class="hs-identifier hs-var hs-var">deleteObjectsResponse_deleted</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteObjectsResponse -&gt; Maybe [DeletedObject])
 -&gt; (DeleteObjectsResponse
@@ -857,16 +818,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe [DeletedObject])
      (Maybe [DeletedObject])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjectsResponse%27"><span class="hs-identifier hs-type">DeleteObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679577366"><span class="annot"><span class="annottext">Maybe [DeletedObject]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjectsResponse%27"><span class="hs-identifier hs-type">DeleteObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679578368"><span class="annot"><span class="annottext">Maybe [DeletedObject]
 deleted :: Maybe [DeletedObject]
 $sel:deleted:DeleteObjectsResponse' :: DeleteObjectsResponse -&gt; Maybe [DeletedObject]
-</span><a href="#local-6989586621679577366"><span class="hs-identifier hs-var hs-var">deleted</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DeletedObject]
-</span><a href="#local-6989586621679577366"><span class="hs-identifier hs-var">deleted</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679577365"><span class="annot"><span class="annottext">s :: DeleteObjectsResponse
-</span><a href="#local-6989586621679577365"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjectsResponse%27"><span class="hs-identifier hs-type">DeleteObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679577364"><span class="annot"><span class="annottext">Maybe [DeletedObject]
-</span><a href="#local-6989586621679577364"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteObjectsResponse
-</span><a href="#local-6989586621679577365"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deleted:DeleteObjectsResponse' :: Maybe [DeletedObject]
+</span><a href="#local-6989586621679578368"><span class="hs-identifier hs-var hs-var">deleted</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DeletedObject]
+</span><a href="#local-6989586621679578368"><span class="hs-identifier hs-var">deleted</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679578367"><span class="annot"><span class="annottext">s :: DeleteObjectsResponse
+</span><a href="#local-6989586621679578367"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjectsResponse%27"><span class="hs-identifier hs-type">DeleteObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679578366"><span class="annot"><span class="annottext">Maybe [DeletedObject]
+</span><a href="#local-6989586621679578366"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteObjectsResponse
+</span><a href="#local-6989586621679578367"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deleted:DeleteObjectsResponse' :: Maybe [DeletedObject]
 </span><a href="Network.AWS.S3.DeleteObjects.html#%24sel%3Adeleted%3ADeleteObjectsResponse%27"><span class="hs-identifier hs-var">deleted</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DeletedObject]
-</span><a href="#local-6989586621679577364"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjectsResponse"><span class="hs-identifier hs-type">DeleteObjectsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DeletedObject] -&gt; f (Maybe [DeletedObject]))
+</span><a href="#local-6989586621679578366"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjectsResponse"><span class="hs-identifier hs-type">DeleteObjectsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DeletedObject] -&gt; f (Maybe [DeletedObject]))
  -&gt; DeleteObjectsResponse -&gt; f DeleteObjectsResponse)
 -&gt; ((Maybe [DeletedObject] -&gt; f (Maybe [DeletedObject]))
     -&gt; Maybe [DeletedObject] -&gt; f (Maybe [DeletedObject]))
@@ -886,8 +847,54 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   [DeletedObject] [DeletedObject] [DeletedObject] [DeletedObject]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-350"></span><span>
+</span><span id="line-351"></span><span class="hs-comment">-- | Container for a failed delete action that describes the object that</span><span>
+</span><span id="line-352"></span><span class="hs-comment">-- Amazon S3 attempted to delete and the error it encountered.</span><span>
+</span><span id="line-353"></span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#deleteObjectsResponse_errors"><span class="hs-identifier hs-type">deleteObjectsResponse_errors</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjectsResponse"><span class="hs-identifier hs-type">DeleteObjectsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.S3.Types.S3ServiceError.html#S3ServiceError"><span class="hs-identifier hs-type">S3ServiceError</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-354"></span><span id="deleteObjectsResponse_errors"><span class="annot"><span class="annottext">deleteObjectsResponse_errors :: (Maybe [S3ServiceError] -&gt; f (Maybe [S3ServiceError]))
+-&gt; DeleteObjectsResponse -&gt; f DeleteObjectsResponse
+</span><a href="Network.AWS.S3.DeleteObjects.html#deleteObjectsResponse_errors"><span class="hs-identifier hs-var hs-var">deleteObjectsResponse_errors</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteObjectsResponse -&gt; Maybe [S3ServiceError])
+-&gt; (DeleteObjectsResponse
+    -&gt; Maybe [S3ServiceError] -&gt; DeleteObjectsResponse)
+-&gt; Lens
+     DeleteObjectsResponse
+     DeleteObjectsResponse
+     (Maybe [S3ServiceError])
+     (Maybe [S3ServiceError])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjectsResponse%27"><span class="hs-identifier hs-type">DeleteObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679578363"><span class="annot"><span class="annottext">Maybe [S3ServiceError]
+errors :: Maybe [S3ServiceError]
+$sel:errors:DeleteObjectsResponse' :: DeleteObjectsResponse -&gt; Maybe [S3ServiceError]
+</span><a href="#local-6989586621679578363"><span class="hs-identifier hs-var hs-var">errors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [S3ServiceError]
+</span><a href="#local-6989586621679578363"><span class="hs-identifier hs-var">errors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679578362"><span class="annot"><span class="annottext">s :: DeleteObjectsResponse
+</span><a href="#local-6989586621679578362"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjectsResponse%27"><span class="hs-identifier hs-type">DeleteObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679578361"><span class="annot"><span class="annottext">Maybe [S3ServiceError]
+</span><a href="#local-6989586621679578361"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteObjectsResponse
+</span><a href="#local-6989586621679578362"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errors:DeleteObjectsResponse' :: Maybe [S3ServiceError]
+</span><a href="Network.AWS.S3.DeleteObjects.html#%24sel%3Aerrors%3ADeleteObjectsResponse%27"><span class="hs-identifier hs-var">errors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [S3ServiceError]
+</span><a href="#local-6989586621679578361"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjectsResponse"><span class="hs-identifier hs-type">DeleteObjectsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [S3ServiceError] -&gt; f (Maybe [S3ServiceError]))
+ -&gt; DeleteObjectsResponse -&gt; f DeleteObjectsResponse)
+-&gt; ((Maybe [S3ServiceError] -&gt; f (Maybe [S3ServiceError]))
+    -&gt; Maybe [S3ServiceError] -&gt; f (Maybe [S3ServiceError]))
+-&gt; (Maybe [S3ServiceError] -&gt; f (Maybe [S3ServiceError]))
+-&gt; DeleteObjectsResponse
+-&gt; f DeleteObjectsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [S3ServiceError] [S3ServiceError] [S3ServiceError] [S3ServiceError]
+-&gt; Iso
+     (Maybe [S3ServiceError])
+     (Maybe [S3ServiceError])
+     (Maybe [S3ServiceError])
+     (Maybe [S3ServiceError])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [S3ServiceError] [S3ServiceError] [S3ServiceError] [S3ServiceError]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-355"></span><span>
 </span><span id="line-356"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-357"></span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#deleteObjectsResponse_httpStatus"><span class="hs-identifier hs-type">deleteObjectsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjectsResponse"><span class="hs-identifier hs-type">DeleteObjectsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -896,16 +903,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (DeleteObjectsResponse -&gt; Int -&gt; DeleteObjectsResponse)
 -&gt; Lens DeleteObjectsResponse DeleteObjectsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjectsResponse%27"><span class="hs-identifier hs-type">DeleteObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679577363"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjectsResponse%27"><span class="hs-identifier hs-type">DeleteObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679578360"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteObjectsResponse' :: DeleteObjectsResponse -&gt; Int
-</span><a href="#local-6989586621679577363"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679577363"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679577362"><span class="annot"><span class="annottext">s :: DeleteObjectsResponse
-</span><a href="#local-6989586621679577362"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjectsResponse%27"><span class="hs-identifier hs-type">DeleteObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679577361"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679577361"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteObjectsResponse
-</span><a href="#local-6989586621679577362"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteObjectsResponse' :: Int
+</span><a href="#local-6989586621679578360"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679578360"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679578359"><span class="annot"><span class="annottext">s :: DeleteObjectsResponse
+</span><a href="#local-6989586621679578359"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjectsResponse%27"><span class="hs-identifier hs-type">DeleteObjectsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679578358"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679578358"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteObjectsResponse
+</span><a href="#local-6989586621679578359"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteObjectsResponse' :: Int
 </span><a href="Network.AWS.S3.DeleteObjects.html#%24sel%3AhttpStatus%3ADeleteObjectsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679577361"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjectsResponse"><span class="hs-identifier hs-type">DeleteObjectsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679578358"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjectsResponse"><span class="hs-identifier hs-type">DeleteObjectsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-359"></span><span>
-</span><span id="line-360"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679577359"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjectsResponse"><span class="hs-identifier hs-type">DeleteObjectsResponse</span></a></span></span><span>
+</span><span id="line-360"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679578356"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteObjects.html#DeleteObjectsResponse"><span class="hs-identifier hs-type">DeleteObjectsResponse</span></a></span></span><span>
 </span><span id="line-361"></span></pre></body></html>

@@ -29,19 +29,19 @@
 </span><span id="line-29"></span><span class="hs-comment">-- (StopWorkspaces).</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newFailedWorkspaceChangeRequest' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679268844"><span id="local-6989586621679268845"></span></span><span class="hs-keyword">data</span><span> </span><span id="FailedWorkspaceChangeRequest"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#FailedWorkspaceChangeRequest"><span class="hs-identifier hs-var">FailedWorkspaceChangeRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FailedWorkspaceChangeRequest%27"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#FailedWorkspaceChangeRequest%27"><span class="hs-identifier hs-var">FailedWorkspaceChangeRequest'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the WorkSpace.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AworkspaceId%3AFailedWorkspaceChangeRequest%27"><span class="annot"><span class="annottext">FailedWorkspaceChangeRequest -&gt; Maybe Text
+</span><span id="line-32"></span><span id="local-6989586621679271575"><span id="local-6989586621679271576"></span></span><span class="hs-keyword">data</span><span> </span><span id="FailedWorkspaceChangeRequest"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#FailedWorkspaceChangeRequest"><span class="hs-identifier hs-var">FailedWorkspaceChangeRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FailedWorkspaceChangeRequest%27"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#FailedWorkspaceChangeRequest%27"><span class="hs-identifier hs-var">FailedWorkspaceChangeRequest'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The error code that is returned if the WorkSpace cannot be rebooted.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AerrorCode%3AFailedWorkspaceChangeRequest%27"><span class="annot"><span class="annottext">FailedWorkspaceChangeRequest -&gt; Maybe Text
+</span><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#%24sel%3AerrorCode%3AFailedWorkspaceChangeRequest%27"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The identifier of the WorkSpace.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AworkspaceId%3AFailedWorkspaceChangeRequest%27"><span class="annot"><span class="annottext">FailedWorkspaceChangeRequest -&gt; Maybe Text
 </span><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#%24sel%3AworkspaceId%3AFailedWorkspaceChangeRequest%27"><span class="hs-identifier hs-var hs-var">workspaceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The text of the error message that is returned if the WorkSpace cannot</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- be rebooted.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AerrorMessage%3AFailedWorkspaceChangeRequest%27"><span class="annot"><span class="annottext">FailedWorkspaceChangeRequest -&gt; Maybe Text
-</span><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#%24sel%3AerrorMessage%3AFailedWorkspaceChangeRequest%27"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The error code that is returned if the WorkSpace cannot be rebooted.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AerrorCode%3AFailedWorkspaceChangeRequest%27"><span class="annot"><span class="annottext">FailedWorkspaceChangeRequest -&gt; Maybe Text
-</span><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#%24sel%3AerrorCode%3AFailedWorkspaceChangeRequest%27"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The text of the error message that is returned if the WorkSpace cannot</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- be rebooted.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AerrorMessage%3AFailedWorkspaceChangeRequest%27"><span class="annot"><span class="annottext">FailedWorkspaceChangeRequest -&gt; Maybe Text
+</span><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#%24sel%3AerrorMessage%3AFailedWorkspaceChangeRequest%27"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679268836"><span id="local-6989586621679268838"><span class="annot"><span class="annottext">FailedWorkspaceChangeRequest
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679271567"><span id="local-6989586621679271569"><span class="annot"><span class="annottext">FailedWorkspaceChangeRequest
 -&gt; FailedWorkspaceChangeRequest -&gt; Bool
 (FailedWorkspaceChangeRequest
  -&gt; FailedWorkspaceChangeRequest -&gt; Bool)
@@ -57,7 +57,7 @@ $c/= :: FailedWorkspaceChangeRequest
 -&gt; FailedWorkspaceChangeRequest -&gt; Bool
 $c== :: FailedWorkspaceChangeRequest
 -&gt; FailedWorkspaceChangeRequest -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268827"><span id="local-6989586621679268829"><span id="local-6989586621679268831"><span id="local-6989586621679268833"><span class="annot"><span class="annottext">ReadPrec [FailedWorkspaceChangeRequest]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271558"><span id="local-6989586621679271560"><span id="local-6989586621679271562"><span id="local-6989586621679271564"><span class="annot"><span class="annottext">ReadPrec [FailedWorkspaceChangeRequest]
 ReadPrec FailedWorkspaceChangeRequest
 Int -&gt; ReadS FailedWorkspaceChangeRequest
 ReadS [FailedWorkspaceChangeRequest]
@@ -77,7 +77,7 @@ readList :: ReadS [FailedWorkspaceChangeRequest]
 $creadList :: ReadS [FailedWorkspaceChangeRequest]
 readsPrec :: Int -&gt; ReadS FailedWorkspaceChangeRequest
 $creadsPrec :: Int -&gt; ReadS FailedWorkspaceChangeRequest
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268820"><span id="local-6989586621679268822"><span id="local-6989586621679268824"><span class="annot"><span class="annottext">Int -&gt; FailedWorkspaceChangeRequest -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271551"><span id="local-6989586621679271553"><span id="local-6989586621679271555"><span class="annot"><span class="annottext">Int -&gt; FailedWorkspaceChangeRequest -&gt; ShowS
 [FailedWorkspaceChangeRequest] -&gt; ShowS
 FailedWorkspaceChangeRequest -&gt; String
 (Int -&gt; FailedWorkspaceChangeRequest -&gt; ShowS)
@@ -117,12 +117,12 @@ FailedWorkspaceChangeRequest -&gt; Rep FailedWorkspaceChangeRequest x
 </span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'workspaceId', 'failedWorkspaceChangeRequest_workspaceId' - The identifier of the WorkSpace.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'errorCode', 'failedWorkspaceChangeRequest_errorCode' - The error code that is returned if the WorkSpace cannot be rebooted.</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'errorMessage', 'failedWorkspaceChangeRequest_errorMessage' - The text of the error message that is returned if the WorkSpace cannot</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- be rebooted.</span><span>
-</span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'errorCode', 'failedWorkspaceChangeRequest_errorCode' - The error code that is returned if the WorkSpace cannot be rebooted.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'workspaceId', 'failedWorkspaceChangeRequest_workspaceId' - The identifier of the WorkSpace.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'errorMessage', 'failedWorkspaceChangeRequest_errorMessage' - The text of the error message that is returned if the WorkSpace cannot</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- be rebooted.</span><span>
 </span><span id="line-57"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#newFailedWorkspaceChangeRequest"><span class="hs-identifier hs-type">newFailedWorkspaceChangeRequest</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-58"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#FailedWorkspaceChangeRequest"><span class="hs-identifier hs-type">FailedWorkspaceChangeRequest</span></a></span><span>
 </span><span id="line-59"></span><span id="newFailedWorkspaceChangeRequest"><span class="annot"><span class="annottext">newFailedWorkspaceChangeRequest :: FailedWorkspaceChangeRequest
@@ -130,73 +130,24 @@ FailedWorkspaceChangeRequest -&gt; Rep FailedWorkspaceChangeRequest x
 </span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">FailedWorkspaceChangeRequest' :: Maybe Text
 -&gt; Maybe Text -&gt; Maybe Text -&gt; FailedWorkspaceChangeRequest
 </span><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#FailedWorkspaceChangeRequest%27"><span class="hs-identifier hs-type">FailedWorkspaceChangeRequest'</span></a></span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:workspaceId:FailedWorkspaceChangeRequest' :: Maybe Text
-</span><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#%24sel%3AworkspaceId%3AFailedWorkspaceChangeRequest%27"><span class="hs-identifier hs-var">workspaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:errorCode:FailedWorkspaceChangeRequest' :: Maybe Text
+</span><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#%24sel%3AerrorCode%3AFailedWorkspaceChangeRequest%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-62"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorMessage:FailedWorkspaceChangeRequest' :: Maybe Text
-</span><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#%24sel%3AerrorMessage%3AFailedWorkspaceChangeRequest%27"><span class="hs-identifier hs-var">errorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:workspaceId:FailedWorkspaceChangeRequest' :: Maybe Text
+</span><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#%24sel%3AworkspaceId%3AFailedWorkspaceChangeRequest%27"><span class="hs-identifier hs-var">workspaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorCode:FailedWorkspaceChangeRequest' :: Maybe Text
-</span><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#%24sel%3AerrorCode%3AFailedWorkspaceChangeRequest%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorMessage:FailedWorkspaceChangeRequest' :: Maybe Text
+</span><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#%24sel%3AerrorMessage%3AFailedWorkspaceChangeRequest%27"><span class="hs-identifier hs-var">errorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- | The identifier of the WorkSpace.</span><span>
-</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#failedWorkspaceChangeRequest_workspaceId"><span class="hs-identifier hs-type">failedWorkspaceChangeRequest_workspaceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#FailedWorkspaceChangeRequest"><span class="hs-identifier hs-type">FailedWorkspaceChangeRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-69"></span><span id="failedWorkspaceChangeRequest_workspaceId"><span class="annot"><span class="annottext">failedWorkspaceChangeRequest_workspaceId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; FailedWorkspaceChangeRequest -&gt; f FailedWorkspaceChangeRequest
-</span><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#failedWorkspaceChangeRequest_workspaceId"><span class="hs-identifier hs-var hs-var">failedWorkspaceChangeRequest_workspaceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FailedWorkspaceChangeRequest -&gt; Maybe Text)
--&gt; (FailedWorkspaceChangeRequest
-    -&gt; Maybe Text -&gt; FailedWorkspaceChangeRequest)
--&gt; Lens
-     FailedWorkspaceChangeRequest
-     FailedWorkspaceChangeRequest
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#FailedWorkspaceChangeRequest%27"><span class="hs-identifier hs-type">FailedWorkspaceChangeRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268811"><span class="annot"><span class="annottext">Maybe Text
-workspaceId :: Maybe Text
-$sel:workspaceId:FailedWorkspaceChangeRequest' :: FailedWorkspaceChangeRequest -&gt; Maybe Text
-</span><a href="#local-6989586621679268811"><span class="hs-identifier hs-var hs-var">workspaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679268811"><span class="hs-identifier hs-var">workspaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268810"><span class="annot"><span class="annottext">s :: FailedWorkspaceChangeRequest
-</span><a href="#local-6989586621679268810"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#FailedWorkspaceChangeRequest%27"><span class="hs-identifier hs-type">FailedWorkspaceChangeRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268809"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679268809"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailedWorkspaceChangeRequest
-</span><a href="#local-6989586621679268810"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workspaceId:FailedWorkspaceChangeRequest' :: Maybe Text
-</span><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#%24sel%3AworkspaceId%3AFailedWorkspaceChangeRequest%27"><span class="hs-identifier hs-var">workspaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679268809"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#FailedWorkspaceChangeRequest"><span class="hs-identifier hs-type">FailedWorkspaceChangeRequest</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- | The text of the error message that is returned if the WorkSpace cannot</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- be rebooted.</span><span>
-</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#failedWorkspaceChangeRequest_errorMessage"><span class="hs-identifier hs-type">failedWorkspaceChangeRequest_errorMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#FailedWorkspaceChangeRequest"><span class="hs-identifier hs-type">FailedWorkspaceChangeRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span id="failedWorkspaceChangeRequest_errorMessage"><span class="annot"><span class="annottext">failedWorkspaceChangeRequest_errorMessage :: (Maybe Text -&gt; f (Maybe Text))
--&gt; FailedWorkspaceChangeRequest -&gt; f FailedWorkspaceChangeRequest
-</span><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#failedWorkspaceChangeRequest_errorMessage"><span class="hs-identifier hs-var hs-var">failedWorkspaceChangeRequest_errorMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FailedWorkspaceChangeRequest -&gt; Maybe Text)
--&gt; (FailedWorkspaceChangeRequest
-    -&gt; Maybe Text -&gt; FailedWorkspaceChangeRequest)
--&gt; Lens
-     FailedWorkspaceChangeRequest
-     FailedWorkspaceChangeRequest
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#FailedWorkspaceChangeRequest%27"><span class="hs-identifier hs-type">FailedWorkspaceChangeRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268807"><span class="annot"><span class="annottext">Maybe Text
-errorMessage :: Maybe Text
-$sel:errorMessage:FailedWorkspaceChangeRequest' :: FailedWorkspaceChangeRequest -&gt; Maybe Text
-</span><a href="#local-6989586621679268807"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679268807"><span class="hs-identifier hs-var">errorMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268806"><span class="annot"><span class="annottext">s :: FailedWorkspaceChangeRequest
-</span><a href="#local-6989586621679268806"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#FailedWorkspaceChangeRequest%27"><span class="hs-identifier hs-type">FailedWorkspaceChangeRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268805"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679268805"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailedWorkspaceChangeRequest
-</span><a href="#local-6989586621679268806"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorMessage:FailedWorkspaceChangeRequest' :: Maybe Text
-</span><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#%24sel%3AerrorMessage%3AFailedWorkspaceChangeRequest%27"><span class="hs-identifier hs-var">errorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679268805"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#FailedWorkspaceChangeRequest"><span class="hs-identifier hs-type">FailedWorkspaceChangeRequest</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- | The error code that is returned if the WorkSpace cannot be rebooted.</span><span>
-</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#failedWorkspaceChangeRequest_errorCode"><span class="hs-identifier hs-type">failedWorkspaceChangeRequest_errorCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#FailedWorkspaceChangeRequest"><span class="hs-identifier hs-type">FailedWorkspaceChangeRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-78"></span><span id="failedWorkspaceChangeRequest_errorCode"><span class="annot"><span class="annottext">failedWorkspaceChangeRequest_errorCode :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-67"></span><span class="hs-comment">-- | The error code that is returned if the WorkSpace cannot be rebooted.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#failedWorkspaceChangeRequest_errorCode"><span class="hs-identifier hs-type">failedWorkspaceChangeRequest_errorCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#FailedWorkspaceChangeRequest"><span class="hs-identifier hs-type">FailedWorkspaceChangeRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="failedWorkspaceChangeRequest_errorCode"><span class="annot"><span class="annottext">failedWorkspaceChangeRequest_errorCode :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; FailedWorkspaceChangeRequest -&gt; f FailedWorkspaceChangeRequest
 </span><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#failedWorkspaceChangeRequest_errorCode"><span class="hs-identifier hs-var hs-var">failedWorkspaceChangeRequest_errorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FailedWorkspaceChangeRequest -&gt; Maybe Text)
 -&gt; (FailedWorkspaceChangeRequest
@@ -207,19 +158,68 @@ $sel:errorMessage:FailedWorkspaceChangeRequest' :: FailedWorkspaceChangeRequest 
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#FailedWorkspaceChangeRequest%27"><span class="hs-identifier hs-type">FailedWorkspaceChangeRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268803"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#FailedWorkspaceChangeRequest%27"><span class="hs-identifier hs-type">FailedWorkspaceChangeRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271542"><span class="annot"><span class="annottext">Maybe Text
 errorCode :: Maybe Text
 $sel:errorCode:FailedWorkspaceChangeRequest' :: FailedWorkspaceChangeRequest -&gt; Maybe Text
-</span><a href="#local-6989586621679268803"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679268803"><span class="hs-identifier hs-var">errorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268802"><span class="annot"><span class="annottext">s :: FailedWorkspaceChangeRequest
-</span><a href="#local-6989586621679268802"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#FailedWorkspaceChangeRequest%27"><span class="hs-identifier hs-type">FailedWorkspaceChangeRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268801"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679268801"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailedWorkspaceChangeRequest
-</span><a href="#local-6989586621679268802"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorCode:FailedWorkspaceChangeRequest' :: Maybe Text
+</span><a href="#local-6989586621679271542"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271542"><span class="hs-identifier hs-var">errorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271541"><span class="annot"><span class="annottext">s :: FailedWorkspaceChangeRequest
+</span><a href="#local-6989586621679271541"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#FailedWorkspaceChangeRequest%27"><span class="hs-identifier hs-type">FailedWorkspaceChangeRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271540"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271540"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailedWorkspaceChangeRequest
+</span><a href="#local-6989586621679271541"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorCode:FailedWorkspaceChangeRequest' :: Maybe Text
 </span><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#%24sel%3AerrorCode%3AFailedWorkspaceChangeRequest%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679268801"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#FailedWorkspaceChangeRequest"><span class="hs-identifier hs-type">FailedWorkspaceChangeRequest</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679271540"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#FailedWorkspaceChangeRequest"><span class="hs-identifier hs-type">FailedWorkspaceChangeRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The identifier of the WorkSpace.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#failedWorkspaceChangeRequest_workspaceId"><span class="hs-identifier hs-type">failedWorkspaceChangeRequest_workspaceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#FailedWorkspaceChangeRequest"><span class="hs-identifier hs-type">FailedWorkspaceChangeRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span id="failedWorkspaceChangeRequest_workspaceId"><span class="annot"><span class="annottext">failedWorkspaceChangeRequest_workspaceId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; FailedWorkspaceChangeRequest -&gt; f FailedWorkspaceChangeRequest
+</span><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#failedWorkspaceChangeRequest_workspaceId"><span class="hs-identifier hs-var hs-var">failedWorkspaceChangeRequest_workspaceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FailedWorkspaceChangeRequest -&gt; Maybe Text)
+-&gt; (FailedWorkspaceChangeRequest
+    -&gt; Maybe Text -&gt; FailedWorkspaceChangeRequest)
+-&gt; Lens
+     FailedWorkspaceChangeRequest
+     FailedWorkspaceChangeRequest
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#FailedWorkspaceChangeRequest%27"><span class="hs-identifier hs-type">FailedWorkspaceChangeRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271538"><span class="annot"><span class="annottext">Maybe Text
+workspaceId :: Maybe Text
+$sel:workspaceId:FailedWorkspaceChangeRequest' :: FailedWorkspaceChangeRequest -&gt; Maybe Text
+</span><a href="#local-6989586621679271538"><span class="hs-identifier hs-var hs-var">workspaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271538"><span class="hs-identifier hs-var">workspaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271537"><span class="annot"><span class="annottext">s :: FailedWorkspaceChangeRequest
+</span><a href="#local-6989586621679271537"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#FailedWorkspaceChangeRequest%27"><span class="hs-identifier hs-type">FailedWorkspaceChangeRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271536"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271536"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailedWorkspaceChangeRequest
+</span><a href="#local-6989586621679271537"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workspaceId:FailedWorkspaceChangeRequest' :: Maybe Text
+</span><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#%24sel%3AworkspaceId%3AFailedWorkspaceChangeRequest%27"><span class="hs-identifier hs-var">workspaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271536"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#FailedWorkspaceChangeRequest"><span class="hs-identifier hs-type">FailedWorkspaceChangeRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | The text of the error message that is returned if the WorkSpace cannot</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- be rebooted.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#failedWorkspaceChangeRequest_errorMessage"><span class="hs-identifier hs-type">failedWorkspaceChangeRequest_errorMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#FailedWorkspaceChangeRequest"><span class="hs-identifier hs-type">FailedWorkspaceChangeRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="failedWorkspaceChangeRequest_errorMessage"><span class="annot"><span class="annottext">failedWorkspaceChangeRequest_errorMessage :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; FailedWorkspaceChangeRequest -&gt; f FailedWorkspaceChangeRequest
+</span><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#failedWorkspaceChangeRequest_errorMessage"><span class="hs-identifier hs-var hs-var">failedWorkspaceChangeRequest_errorMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FailedWorkspaceChangeRequest -&gt; Maybe Text)
+-&gt; (FailedWorkspaceChangeRequest
+    -&gt; Maybe Text -&gt; FailedWorkspaceChangeRequest)
+-&gt; Lens
+     FailedWorkspaceChangeRequest
+     FailedWorkspaceChangeRequest
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#FailedWorkspaceChangeRequest%27"><span class="hs-identifier hs-type">FailedWorkspaceChangeRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271534"><span class="annot"><span class="annottext">Maybe Text
+errorMessage :: Maybe Text
+$sel:errorMessage:FailedWorkspaceChangeRequest' :: FailedWorkspaceChangeRequest -&gt; Maybe Text
+</span><a href="#local-6989586621679271534"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271534"><span class="hs-identifier hs-var">errorMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271533"><span class="annot"><span class="annottext">s :: FailedWorkspaceChangeRequest
+</span><a href="#local-6989586621679271533"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#FailedWorkspaceChangeRequest%27"><span class="hs-identifier hs-type">FailedWorkspaceChangeRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271532"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271532"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailedWorkspaceChangeRequest
+</span><a href="#local-6989586621679271533"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorMessage:FailedWorkspaceChangeRequest' :: Maybe Text
+</span><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#%24sel%3AerrorMessage%3AFailedWorkspaceChangeRequest%27"><span class="hs-identifier hs-var">errorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271532"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#FailedWorkspaceChangeRequest"><span class="hs-identifier hs-type">FailedWorkspaceChangeRequest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268798"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#FailedWorkspaceChangeRequest"><span class="hs-identifier hs-type">FailedWorkspaceChangeRequest</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679268796"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FailedWorkspaceChangeRequest
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271529"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#FailedWorkspaceChangeRequest"><span class="hs-identifier hs-type">FailedWorkspaceChangeRequest</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679271527"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FailedWorkspaceChangeRequest
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser FailedWorkspaceChangeRequest)
@@ -229,8 +229,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;FailedWorkspaceChangeRequest&quot;</span></span><span>
-</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679268793"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679268793"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679271524"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679271524"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text -&gt; Maybe Text -&gt; FailedWorkspaceChangeRequest
 </span><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#FailedWorkspaceChangeRequest%27"><span class="hs-identifier hs-var">FailedWorkspaceChangeRequest'</span></a></span><span>
@@ -241,32 +241,32 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe Text -&gt; Maybe Text -&gt; FailedWorkspaceChangeRequest)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679268793"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679271524"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;WorkspaceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;ErrorCode&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; FailedWorkspaceChangeRequest)
 -&gt; Parser (Maybe Text)
 -&gt; Parser (Maybe Text -&gt; FailedWorkspaceChangeRequest)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679268793"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679271524"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ErrorMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;WorkspaceId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; FailedWorkspaceChangeRequest)
 -&gt; Parser (Maybe Text) -&gt; Parser FailedWorkspaceChangeRequest
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679268793"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679271524"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ErrorCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;ErrorMessage&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679268787"><span id="local-6989586621679268789"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679271518"><span id="local-6989586621679271520"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#FailedWorkspaceChangeRequest"><span class="hs-identifier hs-type">FailedWorkspaceChangeRequest</span></a></span></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268784"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#FailedWorkspaceChangeRequest"><span class="hs-identifier hs-type">FailedWorkspaceChangeRequest</span></a></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271515"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#FailedWorkspaceChangeRequest"><span class="hs-identifier hs-type">FailedWorkspaceChangeRequest</span></a></span></span><span>
 </span><span id="line-96"></span></pre></body></html>

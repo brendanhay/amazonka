@@ -27,15 +27,15 @@
 </span><span id="line-27"></span><span class="hs-comment">-- @DescribeEventCategories@ operation.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newEventCategoriesMap' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679759938"><span id="local-6989586621679759939"></span></span><span class="hs-keyword">data</span><span> </span><span id="EventCategoriesMap"><span class="annot"><a href="Network.AWS.RDS.Types.EventCategoriesMap.html#EventCategoriesMap"><span class="hs-identifier hs-var">EventCategoriesMap</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EventCategoriesMap%27"><span class="annot"><a href="Network.AWS.RDS.Types.EventCategoriesMap.html#EventCategoriesMap%27"><span class="hs-identifier hs-var">EventCategoriesMap'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The event categories for the specified source type</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3AeventCategories%3AEventCategoriesMap%27"><span class="annot"><span class="annottext">EventCategoriesMap -&gt; Maybe [Text]
-</span><a href="Network.AWS.RDS.Types.EventCategoriesMap.html#%24sel%3AeventCategories%3AEventCategoriesMap%27"><span class="hs-identifier hs-var hs-var">eventCategories</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The source type that the returned categories belong to</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AsourceType%3AEventCategoriesMap%27"><span class="annot"><span class="annottext">EventCategoriesMap -&gt; Maybe Text
-</span><a href="Network.AWS.RDS.Types.EventCategoriesMap.html#%24sel%3AsourceType%3AEventCategoriesMap%27"><span class="hs-identifier hs-var hs-var">sourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679760981"><span id="local-6989586621679760982"></span></span><span class="hs-keyword">data</span><span> </span><span id="EventCategoriesMap"><span class="annot"><a href="Network.AWS.RDS.Types.EventCategoriesMap.html#EventCategoriesMap"><span class="hs-identifier hs-var">EventCategoriesMap</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EventCategoriesMap%27"><span class="annot"><a href="Network.AWS.RDS.Types.EventCategoriesMap.html#EventCategoriesMap%27"><span class="hs-identifier hs-var">EventCategoriesMap'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The source type that the returned categories belong to</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AsourceType%3AEventCategoriesMap%27"><span class="annot"><span class="annottext">EventCategoriesMap -&gt; Maybe Text
+</span><a href="Network.AWS.RDS.Types.EventCategoriesMap.html#%24sel%3AsourceType%3AEventCategoriesMap%27"><span class="hs-identifier hs-var hs-var">sourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The event categories for the specified source type</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AeventCategories%3AEventCategoriesMap%27"><span class="annot"><span class="annottext">EventCategoriesMap -&gt; Maybe [Text]
+</span><a href="Network.AWS.RDS.Types.EventCategoriesMap.html#%24sel%3AeventCategories%3AEventCategoriesMap%27"><span class="hs-identifier hs-var hs-var">eventCategories</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679759931"><span id="local-6989586621679759933"><span class="annot"><span class="annottext">EventCategoriesMap -&gt; EventCategoriesMap -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679760974"><span id="local-6989586621679760976"><span class="annot"><span class="annottext">EventCategoriesMap -&gt; EventCategoriesMap -&gt; Bool
 (EventCategoriesMap -&gt; EventCategoriesMap -&gt; Bool)
 -&gt; (EventCategoriesMap -&gt; EventCategoriesMap -&gt; Bool)
 -&gt; Eq EventCategoriesMap
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EventCategoriesMap -&gt; EventCategoriesMap -&gt; Bool
 == :: EventCategoriesMap -&gt; EventCategoriesMap -&gt; Bool
 $c== :: EventCategoriesMap -&gt; EventCategoriesMap -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679759922"><span id="local-6989586621679759924"><span id="local-6989586621679759926"><span id="local-6989586621679759928"><span class="annot"><span class="annottext">ReadPrec [EventCategoriesMap]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679760965"><span id="local-6989586621679760967"><span id="local-6989586621679760969"><span id="local-6989586621679760971"><span class="annot"><span class="annottext">ReadPrec [EventCategoriesMap]
 ReadPrec EventCategoriesMap
 Int -&gt; ReadS EventCategoriesMap
 ReadS [EventCategoriesMap]
@@ -64,7 +64,7 @@ readList :: ReadS [EventCategoriesMap]
 $creadList :: ReadS [EventCategoriesMap]
 readsPrec :: Int -&gt; ReadS EventCategoriesMap
 $creadsPrec :: Int -&gt; ReadS EventCategoriesMap
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679759915"><span id="local-6989586621679759917"><span id="local-6989586621679759919"><span class="annot"><span class="annottext">Int -&gt; EventCategoriesMap -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679760958"><span id="local-6989586621679760960"><span id="local-6989586621679760962"><span class="annot"><span class="annottext">Int -&gt; EventCategoriesMap -&gt; ShowS
 [EventCategoriesMap] -&gt; ShowS
 EventCategoriesMap -&gt; String
 (Int -&gt; EventCategoriesMap -&gt; ShowS)
@@ -98,45 +98,64 @@ $cfrom :: forall x. EventCategoriesMap -&gt; Rep EventCategoriesMap x
 </span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-45"></span><span class="hs-comment">--</span><span>
-</span><span id="line-46"></span><span class="hs-comment">-- 'eventCategories', 'eventCategoriesMap_eventCategories' - The event categories for the specified source type</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'sourceType', 'eventCategoriesMap_sourceType' - The source type that the returned categories belong to</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- 'sourceType', 'eventCategoriesMap_sourceType' - The source type that the returned categories belong to</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'eventCategories', 'eventCategoriesMap_eventCategories' - The event categories for the specified source type</span><span>
 </span><span id="line-49"></span><span class="annot"><a href="Network.AWS.RDS.Types.EventCategoriesMap.html#newEventCategoriesMap"><span class="hs-identifier hs-type">newEventCategoriesMap</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-50"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.Types.EventCategoriesMap.html#EventCategoriesMap"><span class="hs-identifier hs-type">EventCategoriesMap</span></a></span><span>
 </span><span id="line-51"></span><span id="newEventCategoriesMap"><span class="annot"><span class="annottext">newEventCategoriesMap :: EventCategoriesMap
 </span><a href="Network.AWS.RDS.Types.EventCategoriesMap.html#newEventCategoriesMap"><span class="hs-identifier hs-var hs-var">newEventCategoriesMap</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">EventCategoriesMap' :: Maybe [Text] -&gt; Maybe Text -&gt; EventCategoriesMap
+</span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">EventCategoriesMap' :: Maybe Text -&gt; Maybe [Text] -&gt; EventCategoriesMap
 </span><a href="Network.AWS.RDS.Types.EventCategoriesMap.html#EventCategoriesMap%27"><span class="hs-identifier hs-type">EventCategoriesMap'</span></a></span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:eventCategories:EventCategoriesMap' :: Maybe [Text]
-</span><a href="Network.AWS.RDS.Types.EventCategoriesMap.html#%24sel%3AeventCategories%3AEventCategoriesMap%27"><span class="hs-identifier hs-var">eventCategories</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-54"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceType:EventCategoriesMap' :: Maybe Text
+</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sourceType:EventCategoriesMap' :: Maybe Text
 </span><a href="Network.AWS.RDS.Types.EventCategoriesMap.html#%24sel%3AsourceType%3AEventCategoriesMap%27"><span class="hs-identifier hs-var">sourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:eventCategories:EventCategoriesMap' :: Maybe [Text]
+</span><a href="Network.AWS.RDS.Types.EventCategoriesMap.html#%24sel%3AeventCategories%3AEventCategoriesMap%27"><span class="hs-identifier hs-var">eventCategories</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- | The event categories for the specified source type</span><span>
-</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.RDS.Types.EventCategoriesMap.html#eventCategoriesMap_eventCategories"><span class="hs-identifier hs-type">eventCategoriesMap_eventCategories</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.EventCategoriesMap.html#EventCategoriesMap"><span class="hs-identifier hs-type">EventCategoriesMap</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-60"></span><span id="eventCategoriesMap_eventCategories"><span class="annot"><span class="annottext">eventCategoriesMap_eventCategories :: (Maybe [Text] -&gt; f (Maybe [Text]))
+</span><span id="line-55"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | The source type that the returned categories belong to</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.RDS.Types.EventCategoriesMap.html#eventCategoriesMap_sourceType"><span class="hs-identifier hs-type">eventCategoriesMap_sourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.EventCategoriesMap.html#EventCategoriesMap"><span class="hs-identifier hs-type">EventCategoriesMap</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span id="eventCategoriesMap_sourceType"><span class="annot"><span class="annottext">eventCategoriesMap_sourceType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EventCategoriesMap -&gt; f EventCategoriesMap
+</span><a href="Network.AWS.RDS.Types.EventCategoriesMap.html#eventCategoriesMap_sourceType"><span class="hs-identifier hs-var hs-var">eventCategoriesMap_sourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventCategoriesMap -&gt; Maybe Text)
+-&gt; (EventCategoriesMap -&gt; Maybe Text -&gt; EventCategoriesMap)
+-&gt; Lens
+     EventCategoriesMap EventCategoriesMap (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.EventCategoriesMap.html#EventCategoriesMap%27"><span class="hs-identifier hs-type">EventCategoriesMap'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679760949"><span class="annot"><span class="annottext">Maybe Text
+sourceType :: Maybe Text
+$sel:sourceType:EventCategoriesMap' :: EventCategoriesMap -&gt; Maybe Text
+</span><a href="#local-6989586621679760949"><span class="hs-identifier hs-var hs-var">sourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679760949"><span class="hs-identifier hs-var">sourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679760948"><span class="annot"><span class="annottext">s :: EventCategoriesMap
+</span><a href="#local-6989586621679760948"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.EventCategoriesMap.html#EventCategoriesMap%27"><span class="hs-identifier hs-type">EventCategoriesMap'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679760947"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679760947"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventCategoriesMap
+</span><a href="#local-6989586621679760948"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceType:EventCategoriesMap' :: Maybe Text
+</span><a href="Network.AWS.RDS.Types.EventCategoriesMap.html#%24sel%3AsourceType%3AEventCategoriesMap%27"><span class="hs-identifier hs-var">sourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679760947"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.EventCategoriesMap.html#EventCategoriesMap"><span class="hs-identifier hs-type">EventCategoriesMap</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | The event categories for the specified source type</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.RDS.Types.EventCategoriesMap.html#eventCategoriesMap_eventCategories"><span class="hs-identifier hs-type">eventCategoriesMap_eventCategories</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.EventCategoriesMap.html#EventCategoriesMap"><span class="hs-identifier hs-type">EventCategoriesMap</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="eventCategoriesMap_eventCategories"><span class="annot"><span class="annottext">eventCategoriesMap_eventCategories :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; EventCategoriesMap -&gt; f EventCategoriesMap
 </span><a href="Network.AWS.RDS.Types.EventCategoriesMap.html#eventCategoriesMap_eventCategories"><span class="hs-identifier hs-var hs-var">eventCategoriesMap_eventCategories</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventCategoriesMap -&gt; Maybe [Text])
 -&gt; (EventCategoriesMap -&gt; Maybe [Text] -&gt; EventCategoriesMap)
 -&gt; Lens
      EventCategoriesMap EventCategoriesMap (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.EventCategoriesMap.html#EventCategoriesMap%27"><span class="hs-identifier hs-type">EventCategoriesMap'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679759906"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.EventCategoriesMap.html#EventCategoriesMap%27"><span class="hs-identifier hs-type">EventCategoriesMap'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679760945"><span class="annot"><span class="annottext">Maybe [Text]
 eventCategories :: Maybe [Text]
 $sel:eventCategories:EventCategoriesMap' :: EventCategoriesMap -&gt; Maybe [Text]
-</span><a href="#local-6989586621679759906"><span class="hs-identifier hs-var hs-var">eventCategories</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679759906"><span class="hs-identifier hs-var">eventCategories</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679759905"><span class="annot"><span class="annottext">s :: EventCategoriesMap
-</span><a href="#local-6989586621679759905"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.EventCategoriesMap.html#EventCategoriesMap%27"><span class="hs-identifier hs-type">EventCategoriesMap'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679759904"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679759904"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventCategoriesMap
-</span><a href="#local-6989586621679759905"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventCategories:EventCategoriesMap' :: Maybe [Text]
+</span><a href="#local-6989586621679760945"><span class="hs-identifier hs-var hs-var">eventCategories</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679760945"><span class="hs-identifier hs-var">eventCategories</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679760944"><span class="annot"><span class="annottext">s :: EventCategoriesMap
+</span><a href="#local-6989586621679760944"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.EventCategoriesMap.html#EventCategoriesMap%27"><span class="hs-identifier hs-type">EventCategoriesMap'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679760943"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679760943"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventCategoriesMap
+</span><a href="#local-6989586621679760944"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventCategories:EventCategoriesMap' :: Maybe [Text]
 </span><a href="Network.AWS.RDS.Types.EventCategoriesMap.html#%24sel%3AeventCategories%3AEventCategoriesMap%27"><span class="hs-identifier hs-var">eventCategories</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679759904"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.EventCategoriesMap.html#EventCategoriesMap"><span class="hs-identifier hs-type">EventCategoriesMap</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679760943"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.EventCategoriesMap.html#EventCategoriesMap"><span class="hs-identifier hs-type">EventCategoriesMap</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; EventCategoriesMap -&gt; f EventCategoriesMap)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -150,41 +169,29 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- | The source type that the returned categories belong to</span><span>
-</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.RDS.Types.EventCategoriesMap.html#eventCategoriesMap_sourceType"><span class="hs-identifier hs-type">eventCategoriesMap_sourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.EventCategoriesMap.html#EventCategoriesMap"><span class="hs-identifier hs-type">EventCategoriesMap</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-64"></span><span id="eventCategoriesMap_sourceType"><span class="annot"><span class="annottext">eventCategoriesMap_sourceType :: (Maybe Text -&gt; f (Maybe Text))
--&gt; EventCategoriesMap -&gt; f EventCategoriesMap
-</span><a href="Network.AWS.RDS.Types.EventCategoriesMap.html#eventCategoriesMap_sourceType"><span class="hs-identifier hs-var hs-var">eventCategoriesMap_sourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventCategoriesMap -&gt; Maybe Text)
--&gt; (EventCategoriesMap -&gt; Maybe Text -&gt; EventCategoriesMap)
--&gt; Lens
-     EventCategoriesMap EventCategoriesMap (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.EventCategoriesMap.html#EventCategoriesMap%27"><span class="hs-identifier hs-type">EventCategoriesMap'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679759899"><span class="annot"><span class="annottext">Maybe Text
-sourceType :: Maybe Text
-$sel:sourceType:EventCategoriesMap' :: EventCategoriesMap -&gt; Maybe Text
-</span><a href="#local-6989586621679759899"><span class="hs-identifier hs-var hs-var">sourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679759899"><span class="hs-identifier hs-var">sourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679759898"><span class="annot"><span class="annottext">s :: EventCategoriesMap
-</span><a href="#local-6989586621679759898"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.EventCategoriesMap.html#EventCategoriesMap%27"><span class="hs-identifier hs-type">EventCategoriesMap'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679759897"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679759897"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventCategoriesMap
-</span><a href="#local-6989586621679759898"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceType:EventCategoriesMap' :: Maybe Text
-</span><a href="Network.AWS.RDS.Types.EventCategoriesMap.html#%24sel%3AsourceType%3AEventCategoriesMap%27"><span class="hs-identifier hs-var">sourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679759897"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.EventCategoriesMap.html#EventCategoriesMap"><span class="hs-identifier hs-type">EventCategoriesMap</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.EventCategoriesMap.html#EventCategoriesMap"><span class="hs-identifier hs-type">EventCategoriesMap</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679759894"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String EventCategoriesMap
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679759892"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679759892"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe Text -&gt; EventCategoriesMap
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.EventCategoriesMap.html#EventCategoriesMap"><span class="hs-identifier hs-type">EventCategoriesMap</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679760937"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String EventCategoriesMap
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679760935"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679760935"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Text] -&gt; EventCategoriesMap
 </span><a href="Network.AWS.RDS.Types.EventCategoriesMap.html#EventCategoriesMap%27"><span class="hs-identifier hs-var">EventCategoriesMap'</span></a></span><span>
-</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe Text -&gt; EventCategoriesMap)
--&gt; Either String (Maybe [Text])
--&gt; Either String (Maybe Text -&gt; EventCategoriesMap)
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Text] -&gt; EventCategoriesMap)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe [Text] -&gt; EventCategoriesMap)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679759892"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679760935"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SourceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [Text] -&gt; EventCategoriesMap)
+-&gt; Either String (Maybe [Text]) -&gt; Either String EventCategoriesMap
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679760935"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EventCategories&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -206,16 +213,8 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EventCategory&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; EventCategoriesMap)
--&gt; Either String (Maybe Text) -&gt; Either String EventCategoriesMap
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679759892"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SourceType&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679759883"><span id="local-6989586621679759885"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.EventCategoriesMap.html#EventCategoriesMap"><span class="hs-identifier hs-type">EventCategoriesMap</span></a></span></span></span><span>
-</span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679759880"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.EventCategoriesMap.html#EventCategoriesMap"><span class="hs-identifier hs-type">EventCategoriesMap</span></a></span></span><span>
-</span><span id="line-77"></span></pre></body></html>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679760926"><span id="local-6989586621679760928"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.EventCategoriesMap.html#EventCategoriesMap"><span class="hs-identifier hs-type">EventCategoriesMap</span></a></span></span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679760923"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.EventCategoriesMap.html#EventCategoriesMap"><span class="hs-identifier hs-type">EventCategoriesMap</span></a></span></span><span>
+</span><span id="line-76"></span></pre></body></html>

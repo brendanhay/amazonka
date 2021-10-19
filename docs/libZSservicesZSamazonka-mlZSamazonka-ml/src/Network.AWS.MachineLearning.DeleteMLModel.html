@@ -53,12 +53,12 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newDeleteMLModel' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679257962"><span id="local-6989586621679257963"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteMLModel"><span class="annot"><a href="Network.AWS.MachineLearning.DeleteMLModel.html#DeleteMLModel"><span class="hs-identifier hs-var">DeleteMLModel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteMLModel%27"><span class="annot"><a href="Network.AWS.MachineLearning.DeleteMLModel.html#DeleteMLModel%27"><span class="hs-identifier hs-var">DeleteMLModel'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679258057"><span id="local-6989586621679258058"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteMLModel"><span class="annot"><a href="Network.AWS.MachineLearning.DeleteMLModel.html#DeleteMLModel"><span class="hs-identifier hs-var">DeleteMLModel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteMLModel%27"><span class="annot"><a href="Network.AWS.MachineLearning.DeleteMLModel.html#DeleteMLModel%27"><span class="hs-identifier hs-var">DeleteMLModel'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A user-supplied ID that uniquely identifies the @MLModel@.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AmLModelId%3ADeleteMLModel%27"><span class="annot"><span class="annottext">DeleteMLModel -&gt; Text
 </span><a href="Network.AWS.MachineLearning.DeleteMLModel.html#%24sel%3AmLModelId%3ADeleteMLModel%27"><span class="hs-identifier hs-var hs-var">mLModelId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679257956"><span id="local-6989586621679257958"><span class="annot"><span class="annottext">DeleteMLModel -&gt; DeleteMLModel -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679258051"><span id="local-6989586621679258053"><span class="annot"><span class="annottext">DeleteMLModel -&gt; DeleteMLModel -&gt; Bool
 (DeleteMLModel -&gt; DeleteMLModel -&gt; Bool)
 -&gt; (DeleteMLModel -&gt; DeleteMLModel -&gt; Bool) -&gt; Eq DeleteMLModel
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteMLModel -&gt; DeleteMLModel -&gt; Bool
 == :: DeleteMLModel -&gt; DeleteMLModel -&gt; Bool
 $c== :: DeleteMLModel -&gt; DeleteMLModel -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257947"><span id="local-6989586621679257949"><span id="local-6989586621679257951"><span id="local-6989586621679257953"><span class="annot"><span class="annottext">ReadPrec [DeleteMLModel]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258042"><span id="local-6989586621679258044"><span id="local-6989586621679258046"><span id="local-6989586621679258048"><span class="annot"><span class="annottext">ReadPrec [DeleteMLModel]
 ReadPrec DeleteMLModel
 Int -&gt; ReadS DeleteMLModel
 ReadS [DeleteMLModel]
@@ -86,7 +86,7 @@ readList :: ReadS [DeleteMLModel]
 $creadList :: ReadS [DeleteMLModel]
 readsPrec :: Int -&gt; ReadS DeleteMLModel
 $creadsPrec :: Int -&gt; ReadS DeleteMLModel
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257940"><span id="local-6989586621679257942"><span id="local-6989586621679257944"><span class="annot"><span class="annottext">Int -&gt; DeleteMLModel -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258035"><span id="local-6989586621679258037"><span id="local-6989586621679258039"><span class="annot"><span class="annottext">Int -&gt; DeleteMLModel -&gt; ShowS
 [DeleteMLModel] -&gt; ShowS
 DeleteMLModel -&gt; String
 (Int -&gt; DeleteMLModel -&gt; ShowS)
@@ -126,12 +126,12 @@ $cfrom :: forall x. DeleteMLModel -&gt; Rep DeleteMLModel x
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteMLModel.html#DeleteMLModel"><span class="hs-identifier hs-type">DeleteMLModel</span></a></span><span>
 </span><span id="line-75"></span><span id="newDeleteMLModel"><span class="annot"><span class="annottext">newDeleteMLModel :: Text -&gt; DeleteMLModel
-</span><a href="Network.AWS.MachineLearning.DeleteMLModel.html#newDeleteMLModel"><span class="hs-identifier hs-var hs-var">newDeleteMLModel</span></a></span></span><span> </span><span id="local-6989586621679257935"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679257935"><span class="hs-identifier hs-var">pMLModelId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MachineLearning.DeleteMLModel.html#newDeleteMLModel"><span class="hs-identifier hs-var hs-var">newDeleteMLModel</span></a></span></span><span> </span><span id="local-6989586621679258030"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258030"><span class="hs-identifier hs-var">pMLModelId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">DeleteMLModel' :: Text -&gt; DeleteMLModel
 </span><a href="Network.AWS.MachineLearning.DeleteMLModel.html#DeleteMLModel%27"><span class="hs-identifier hs-type">DeleteMLModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mLModelId:DeleteMLModel' :: Text
 </span><a href="Network.AWS.MachineLearning.DeleteMLModel.html#%24sel%3AmLModelId%3ADeleteMLModel%27"><span class="hs-identifier hs-var">mLModelId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679257935"><span class="hs-identifier hs-var">pMLModelId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679258030"><span class="hs-identifier hs-var">pMLModelId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | A user-supplied ID that uniquely identifies the @MLModel@.</span><span>
 </span><span id="line-79"></span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteMLModel.html#deleteMLModel_mLModelId"><span class="hs-identifier hs-type">deleteMLModel_mLModelId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteMLModel.html#DeleteMLModel"><span class="hs-identifier hs-type">DeleteMLModel</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -140,27 +140,27 @@ $cfrom :: forall x. DeleteMLModel -&gt; Rep DeleteMLModel x
 -&gt; (DeleteMLModel -&gt; Text -&gt; DeleteMLModel)
 -&gt; Lens DeleteMLModel DeleteMLModel Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteMLModel.html#DeleteMLModel%27"><span class="hs-identifier hs-type">DeleteMLModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257932"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteMLModel.html#DeleteMLModel%27"><span class="hs-identifier hs-type">DeleteMLModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258027"><span class="annot"><span class="annottext">Text
 mLModelId :: Text
 $sel:mLModelId:DeleteMLModel' :: DeleteMLModel -&gt; Text
-</span><a href="#local-6989586621679257932"><span class="hs-identifier hs-var hs-var">mLModelId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679257932"><span class="hs-identifier hs-var">mLModelId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257931"><span class="annot"><span class="annottext">s :: DeleteMLModel
-</span><a href="#local-6989586621679257931"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteMLModel.html#DeleteMLModel%27"><span class="hs-identifier hs-type">DeleteMLModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257930"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679257930"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteMLModel
-</span><a href="#local-6989586621679257931"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mLModelId:DeleteMLModel' :: Text
+</span><a href="#local-6989586621679258027"><span class="hs-identifier hs-var hs-var">mLModelId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258027"><span class="hs-identifier hs-var">mLModelId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258026"><span class="annot"><span class="annottext">s :: DeleteMLModel
+</span><a href="#local-6989586621679258026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteMLModel.html#DeleteMLModel%27"><span class="hs-identifier hs-type">DeleteMLModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258025"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteMLModel
+</span><a href="#local-6989586621679258026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mLModelId:DeleteMLModel' :: Text
 </span><a href="Network.AWS.MachineLearning.DeleteMLModel.html#%24sel%3AmLModelId%3ADeleteMLModel%27"><span class="hs-identifier hs-var">mLModelId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679257930"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteMLModel.html#DeleteMLModel"><span class="hs-identifier hs-type">DeleteMLModel</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679258025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteMLModel.html#DeleteMLModel"><span class="hs-identifier hs-type">DeleteMLModel</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteMLModel.html#DeleteMLModel"><span class="hs-identifier hs-type">DeleteMLModel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-83"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-84"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteMLModel.html#DeleteMLModel"><span class="hs-identifier hs-type">DeleteMLModel</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteMLModel.html#DeleteMLModelResponse"><span class="hs-identifier hs-type">DeleteMLModelResponse</span></a></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679257926"><span class="annot"><span class="annottext">request :: DeleteMLModel -&gt; Request DeleteMLModel
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679258021"><span class="annot"><span class="annottext">request :: DeleteMLModel -&gt; Request DeleteMLModel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteMLModel -&gt; Request DeleteMLModel
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MachineLearning.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679257922"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679258017"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteMLModel
 -&gt; ClientResponse ClientBody
@@ -184,10 +184,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679257919"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679257919"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679257918"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679257918"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679257917"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679257917"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679258014"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679258014"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679258013"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679258013"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679258012"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679258012"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; DeleteMLModelResponse
 </span><a href="Network.AWS.MachineLearning.DeleteMLModel.html#DeleteMLModelResponse%27"><span class="hs-identifier hs-var">DeleteMLModelResponse'</span></a></span><span>
 </span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; DeleteMLModelResponse)
@@ -195,7 +195,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DeleteMLModelResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679257917"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679258012"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MLModelId&quot;</span></span><span class="hs-special">)</span><span>
@@ -207,15 +207,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679257919"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679258014"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257909"><span id="local-6989586621679257911"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteMLModel.html#DeleteMLModel"><span class="hs-identifier hs-type">DeleteMLModel</span></a></span></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258004"><span id="local-6989586621679258006"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteMLModel.html#DeleteMLModel"><span class="hs-identifier hs-type">DeleteMLModel</span></a></span></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257906"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteMLModel.html#DeleteMLModel"><span class="hs-identifier hs-type">DeleteMLModel</span></a></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258001"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteMLModel.html#DeleteMLModel"><span class="hs-identifier hs-type">DeleteMLModel</span></a></span></span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteMLModel.html#DeleteMLModel"><span class="hs-identifier hs-type">DeleteMLModel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679257902"><span class="annot"><span class="annottext">toHeaders :: DeleteMLModel -&gt; ResponseHeaders
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679257997"><span class="annot"><span class="annottext">toHeaders :: DeleteMLModel -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteMLModel -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -242,12 +242,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-111"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257892"><span id="local-6989586621679257894"><span id="local-6989586621679257896"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteMLModel.html#DeleteMLModel"><span class="hs-identifier hs-type">DeleteMLModel</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679257890"><span class="annot"><span class="annottext">toJSON :: DeleteMLModel -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteMLModel.html#DeleteMLModel%27"><span class="hs-identifier hs-type">DeleteMLModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257888"><span class="annot"><span class="annottext">Text
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257987"><span id="local-6989586621679257989"><span id="local-6989586621679257991"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteMLModel.html#DeleteMLModel"><span class="hs-identifier hs-type">DeleteMLModel</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679257985"><span class="annot"><span class="annottext">toJSON :: DeleteMLModel -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteMLModel.html#DeleteMLModel%27"><span class="hs-identifier hs-type">DeleteMLModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257983"><span class="annot"><span class="annottext">Text
 mLModelId :: Text
 $sel:mLModelId:DeleteMLModel' :: DeleteMLModel -&gt; Text
-</span><a href="#local-6989586621679257888"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679257983"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -259,18 +259,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;MLModelId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679257888"><span class="hs-identifier hs-var">mLModelId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679257983"><span class="hs-identifier hs-var">mLModelId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteMLModel.html#DeleteMLModel"><span class="hs-identifier hs-type">DeleteMLModel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679257882"><span class="annot"><span class="annottext">toPath :: DeleteMLModel -&gt; ByteString
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679257977"><span class="annot"><span class="annottext">toPath :: DeleteMLModel -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteMLModel -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteMLModel.html#DeleteMLModel"><span class="hs-identifier hs-type">DeleteMLModel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679257878"><span class="annot"><span class="annottext">toQuery :: DeleteMLModel -&gt; QueryString
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679257973"><span class="annot"><span class="annottext">toQuery :: DeleteMLModel -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteMLModel -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -283,7 +283,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-130"></span><span class="hs-comment">-- @Status@ parameter to see whether an @MLModel@ is marked as @DELETED@.</span><span>
 </span><span id="line-131"></span><span class="hs-comment">--</span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- /See:/ 'newDeleteMLModelResponse' smart constructor.</span><span>
-</span><span id="line-133"></span><span id="local-6989586621679257875"><span id="local-6989586621679257876"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteMLModelResponse"><span class="annot"><a href="Network.AWS.MachineLearning.DeleteMLModel.html#DeleteMLModelResponse"><span class="hs-identifier hs-var">DeleteMLModelResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteMLModelResponse%27"><span class="annot"><a href="Network.AWS.MachineLearning.DeleteMLModel.html#DeleteMLModelResponse%27"><span class="hs-identifier hs-var">DeleteMLModelResponse'</span></a></span></span><span>
+</span><span id="line-133"></span><span id="local-6989586621679257970"><span id="local-6989586621679257971"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteMLModelResponse"><span class="annot"><a href="Network.AWS.MachineLearning.DeleteMLModel.html#DeleteMLModelResponse"><span class="hs-identifier hs-var">DeleteMLModelResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteMLModelResponse%27"><span class="annot"><a href="Network.AWS.MachineLearning.DeleteMLModel.html#DeleteMLModelResponse%27"><span class="hs-identifier hs-var">DeleteMLModelResponse'</span></a></span></span><span>
 </span><span id="line-134"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A user-supplied ID that uniquely identifies the @MLModel@. This value</span><span>
 </span><span id="line-135"></span><span>    </span><span class="hs-comment">-- should be identical to the value of the @MLModelID@ in the request.</span><span>
 </span><span id="line-136"></span><span>    </span><span id="%24sel%3AmLModelId%3ADeleteMLModelResponse%27"><span class="annot"><span class="annottext">DeleteMLModelResponse -&gt; Maybe Text
@@ -292,7 +292,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-138"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteMLModelResponse%27"><span class="annot"><span class="annottext">DeleteMLModelResponse -&gt; Int
 </span><a href="Network.AWS.MachineLearning.DeleteMLModel.html#%24sel%3AhttpStatus%3ADeleteMLModelResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-139"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679257869"><span id="local-6989586621679257871"><span class="annot"><span class="annottext">DeleteMLModelResponse -&gt; DeleteMLModelResponse -&gt; Bool
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679257964"><span id="local-6989586621679257966"><span class="annot"><span class="annottext">DeleteMLModelResponse -&gt; DeleteMLModelResponse -&gt; Bool
 (DeleteMLModelResponse -&gt; DeleteMLModelResponse -&gt; Bool)
 -&gt; (DeleteMLModelResponse -&gt; DeleteMLModelResponse -&gt; Bool)
 -&gt; Eq DeleteMLModelResponse
@@ -301,7 +301,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteMLModelResponse -&gt; DeleteMLModelResponse -&gt; Bool
 == :: DeleteMLModelResponse -&gt; DeleteMLModelResponse -&gt; Bool
 $c== :: DeleteMLModelResponse -&gt; DeleteMLModelResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257861"><span id="local-6989586621679257863"><span id="local-6989586621679257865"><span id="local-6989586621679257867"><span class="annot"><span class="annottext">ReadPrec [DeleteMLModelResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257956"><span id="local-6989586621679257958"><span id="local-6989586621679257960"><span id="local-6989586621679257962"><span class="annot"><span class="annottext">ReadPrec [DeleteMLModelResponse]
 ReadPrec DeleteMLModelResponse
 Int -&gt; ReadS DeleteMLModelResponse
 ReadS [DeleteMLModelResponse]
@@ -321,7 +321,7 @@ readList :: ReadS [DeleteMLModelResponse]
 $creadList :: ReadS [DeleteMLModelResponse]
 readsPrec :: Int -&gt; ReadS DeleteMLModelResponse
 $creadsPrec :: Int -&gt; ReadS DeleteMLModelResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257855"><span id="local-6989586621679257857"><span id="local-6989586621679257859"><span class="annot"><span class="annottext">Int -&gt; DeleteMLModelResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257950"><span id="local-6989586621679257952"><span id="local-6989586621679257954"><span class="annot"><span class="annottext">Int -&gt; DeleteMLModelResponse -&gt; ShowS
 [DeleteMLModelResponse] -&gt; ShowS
 DeleteMLModelResponse -&gt; String
 (Int -&gt; DeleteMLModelResponse -&gt; ShowS)
@@ -364,8 +364,8 @@ $cfrom :: forall x. DeleteMLModelResponse -&gt; Rep DeleteMLModelResponse x
 </span><span id="line-156"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-157"></span><span>  </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteMLModel.html#DeleteMLModelResponse"><span class="hs-identifier hs-type">DeleteMLModelResponse</span></a></span><span>
 </span><span id="line-158"></span><span id="newDeleteMLModelResponse"><span class="annot"><span class="annottext">newDeleteMLModelResponse :: Int -&gt; DeleteMLModelResponse
-</span><a href="Network.AWS.MachineLearning.DeleteMLModel.html#newDeleteMLModelResponse"><span class="hs-identifier hs-var hs-var">newDeleteMLModelResponse</span></a></span></span><span> </span><span id="local-6989586621679257852"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679257852"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MachineLearning.DeleteMLModel.html#newDeleteMLModelResponse"><span class="hs-identifier hs-var hs-var">newDeleteMLModelResponse</span></a></span></span><span> </span><span id="local-6989586621679257947"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679257947"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-159"></span><span>  </span><span class="annot"><span class="annottext">DeleteMLModelResponse' :: Maybe Text -&gt; Int -&gt; DeleteMLModelResponse
 </span><a href="Network.AWS.MachineLearning.DeleteMLModel.html#DeleteMLModelResponse%27"><span class="hs-identifier hs-type">DeleteMLModelResponse'</span></a></span><span>
 </span><span id="line-160"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:mLModelId:DeleteMLModelResponse' :: Maybe Text
@@ -374,7 +374,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteMLModelResponse' :: Int
 </span><a href="Network.AWS.MachineLearning.DeleteMLModel.html#%24sel%3AhttpStatus%3ADeleteMLModelResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679257852"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679257947"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-162"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- | A user-supplied ID that uniquely identifies the @MLModel@. This value</span><span>
@@ -390,16 +390,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteMLModel.html#DeleteMLModelResponse%27"><span class="hs-identifier hs-type">DeleteMLModelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257851"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteMLModel.html#DeleteMLModelResponse%27"><span class="hs-identifier hs-type">DeleteMLModelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257946"><span class="annot"><span class="annottext">Maybe Text
 mLModelId :: Maybe Text
 $sel:mLModelId:DeleteMLModelResponse' :: DeleteMLModelResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679257851"><span class="hs-identifier hs-var hs-var">mLModelId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679257851"><span class="hs-identifier hs-var">mLModelId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257850"><span class="annot"><span class="annottext">s :: DeleteMLModelResponse
-</span><a href="#local-6989586621679257850"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteMLModel.html#DeleteMLModelResponse%27"><span class="hs-identifier hs-type">DeleteMLModelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257849"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679257849"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteMLModelResponse
-</span><a href="#local-6989586621679257850"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mLModelId:DeleteMLModelResponse' :: Maybe Text
+</span><a href="#local-6989586621679257946"><span class="hs-identifier hs-var hs-var">mLModelId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679257946"><span class="hs-identifier hs-var">mLModelId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257945"><span class="annot"><span class="annottext">s :: DeleteMLModelResponse
+</span><a href="#local-6989586621679257945"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteMLModel.html#DeleteMLModelResponse%27"><span class="hs-identifier hs-type">DeleteMLModelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257944"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679257944"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteMLModelResponse
+</span><a href="#local-6989586621679257945"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mLModelId:DeleteMLModelResponse' :: Maybe Text
 </span><a href="Network.AWS.MachineLearning.DeleteMLModel.html#%24sel%3AmLModelId%3ADeleteMLModelResponse%27"><span class="hs-identifier hs-var">mLModelId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679257849"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteMLModel.html#DeleteMLModelResponse"><span class="hs-identifier hs-type">DeleteMLModelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679257944"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteMLModel.html#DeleteMLModelResponse"><span class="hs-identifier hs-type">DeleteMLModelResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-170"></span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteMLModel.html#deleteMLModelResponse_httpStatus"><span class="hs-identifier hs-type">deleteMLModelResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteMLModel.html#DeleteMLModelResponse"><span class="hs-identifier hs-type">DeleteMLModelResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -408,16 +408,16 @@ $sel:mLModelId:DeleteMLModelResponse' :: DeleteMLModelResponse -&gt; Maybe Text
 -&gt; (DeleteMLModelResponse -&gt; Int -&gt; DeleteMLModelResponse)
 -&gt; Lens DeleteMLModelResponse DeleteMLModelResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteMLModel.html#DeleteMLModelResponse%27"><span class="hs-identifier hs-type">DeleteMLModelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257848"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteMLModel.html#DeleteMLModelResponse%27"><span class="hs-identifier hs-type">DeleteMLModelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257943"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteMLModelResponse' :: DeleteMLModelResponse -&gt; Int
-</span><a href="#local-6989586621679257848"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679257848"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257847"><span class="annot"><span class="annottext">s :: DeleteMLModelResponse
-</span><a href="#local-6989586621679257847"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteMLModel.html#DeleteMLModelResponse%27"><span class="hs-identifier hs-type">DeleteMLModelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257846"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679257846"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteMLModelResponse
-</span><a href="#local-6989586621679257847"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteMLModelResponse' :: Int
+</span><a href="#local-6989586621679257943"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679257943"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257942"><span class="annot"><span class="annottext">s :: DeleteMLModelResponse
+</span><a href="#local-6989586621679257942"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteMLModel.html#DeleteMLModelResponse%27"><span class="hs-identifier hs-type">DeleteMLModelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257941"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679257941"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteMLModelResponse
+</span><a href="#local-6989586621679257942"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteMLModelResponse' :: Int
 </span><a href="Network.AWS.MachineLearning.DeleteMLModel.html#%24sel%3AhttpStatus%3ADeleteMLModelResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679257846"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteMLModel.html#DeleteMLModelResponse"><span class="hs-identifier hs-type">DeleteMLModelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679257941"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteMLModel.html#DeleteMLModelResponse"><span class="hs-identifier hs-type">DeleteMLModelResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257844"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteMLModel.html#DeleteMLModelResponse"><span class="hs-identifier hs-type">DeleteMLModelResponse</span></a></span></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257939"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.DeleteMLModel.html#DeleteMLModelResponse"><span class="hs-identifier hs-type">DeleteMLModelResponse</span></a></span></span><span>
 </span><span id="line-174"></span></pre></body></html>

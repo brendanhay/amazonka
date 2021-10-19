@@ -57,7 +57,7 @@
 </span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newCreateDirectory' smart constructor.</span><span>
-</span><span id="line-60"></span><span id="local-6989586621679347508"><span id="local-6989586621679347509"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDirectory"><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectory"><span class="hs-identifier hs-var">CreateDirectory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDirectory%27"><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectory%27"><span class="hs-identifier hs-var">CreateDirectory'</span></a></span></span><span>
+</span><span id="line-60"></span><span id="local-6989586621679347927"><span id="local-6989586621679347928"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDirectory"><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectory"><span class="hs-identifier hs-var">CreateDirectory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDirectory%27"><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectory%27"><span class="hs-identifier hs-var">CreateDirectory'</span></a></span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the Directory. Should be unique per account, per region.</span><span>
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3Aname%3ACreateDirectory%27"><span class="annot"><span class="annottext">CreateDirectory -&gt; Text
 </span><a href="Network.AWS.CloudDirectory.CreateDirectory.html#%24sel%3Aname%3ACreateDirectory%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -66,7 +66,7 @@
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3AschemaArn%3ACreateDirectory%27"><span class="annot"><span class="annottext">CreateDirectory -&gt; Text
 </span><a href="Network.AWS.CloudDirectory.CreateDirectory.html#%24sel%3AschemaArn%3ACreateDirectory%27"><span class="hs-identifier hs-var hs-var">schemaArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679347501"><span id="local-6989586621679347503"><span class="annot"><span class="annottext">CreateDirectory -&gt; CreateDirectory -&gt; Bool
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679347920"><span id="local-6989586621679347922"><span class="annot"><span class="annottext">CreateDirectory -&gt; CreateDirectory -&gt; Bool
 (CreateDirectory -&gt; CreateDirectory -&gt; Bool)
 -&gt; (CreateDirectory -&gt; CreateDirectory -&gt; Bool)
 -&gt; Eq CreateDirectory
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateDirectory -&gt; CreateDirectory -&gt; Bool
 == :: CreateDirectory -&gt; CreateDirectory -&gt; Bool
 $c== :: CreateDirectory -&gt; CreateDirectory -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347492"><span id="local-6989586621679347494"><span id="local-6989586621679347496"><span id="local-6989586621679347498"><span class="annot"><span class="annottext">ReadPrec [CreateDirectory]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347911"><span id="local-6989586621679347913"><span id="local-6989586621679347915"><span id="local-6989586621679347917"><span class="annot"><span class="annottext">ReadPrec [CreateDirectory]
 ReadPrec CreateDirectory
 Int -&gt; ReadS CreateDirectory
 ReadS [CreateDirectory]
@@ -95,7 +95,7 @@ readList :: ReadS [CreateDirectory]
 $creadList :: ReadS [CreateDirectory]
 readsPrec :: Int -&gt; ReadS CreateDirectory
 $creadsPrec :: Int -&gt; ReadS CreateDirectory
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347485"><span id="local-6989586621679347487"><span id="local-6989586621679347489"><span class="annot"><span class="annottext">Int -&gt; CreateDirectory -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347904"><span id="local-6989586621679347906"><span id="local-6989586621679347908"><span class="annot"><span class="annottext">Int -&gt; CreateDirectory -&gt; ShowS
 [CreateDirectory] -&gt; ShowS
 CreateDirectory -&gt; String
 (Int -&gt; CreateDirectory -&gt; ShowS)
@@ -140,17 +140,17 @@ $cfrom :: forall x. CreateDirectory -&gt; Rep CreateDirectory x
 </span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectory"><span class="hs-identifier hs-type">CreateDirectory</span></a></span><span>
 </span><span id="line-87"></span><span id="newCreateDirectory"><span class="annot"><span class="annottext">newCreateDirectory :: Text -&gt; Text -&gt; CreateDirectory
-</span><a href="Network.AWS.CloudDirectory.CreateDirectory.html#newCreateDirectory"><span class="hs-identifier hs-var hs-var">newCreateDirectory</span></a></span></span><span> </span><span id="local-6989586621679347480"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347480"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679347479"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347479"><span class="hs-identifier hs-var">pSchemaArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudDirectory.CreateDirectory.html#newCreateDirectory"><span class="hs-identifier hs-var hs-var">newCreateDirectory</span></a></span></span><span> </span><span id="local-6989586621679347899"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347899"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679347898"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347898"><span class="hs-identifier hs-var">pSchemaArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">CreateDirectory' :: Text -&gt; Text -&gt; CreateDirectory
 </span><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectory%27"><span class="hs-identifier hs-type">CreateDirectory'</span></a></span><span>
 </span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:CreateDirectory' :: Text
 </span><a href="Network.AWS.CloudDirectory.CreateDirectory.html#%24sel%3Aname%3ACreateDirectory%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347480"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679347899"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:schemaArn:CreateDirectory' :: Text
 </span><a href="Network.AWS.CloudDirectory.CreateDirectory.html#%24sel%3AschemaArn%3ACreateDirectory%27"><span class="hs-identifier hs-var">schemaArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347479"><span class="hs-identifier hs-var">pSchemaArn_</span></a></span><span>
+</span><a href="#local-6989586621679347898"><span class="hs-identifier hs-var">pSchemaArn_</span></a></span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | The name of the Directory. Should be unique per account, per region.</span><span>
@@ -160,16 +160,16 @@ $cfrom :: forall x. CreateDirectory -&gt; Rep CreateDirectory x
 -&gt; (CreateDirectory -&gt; Text -&gt; CreateDirectory)
 -&gt; Lens CreateDirectory CreateDirectory Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectory%27"><span class="hs-identifier hs-type">CreateDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347476"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectory%27"><span class="hs-identifier hs-type">CreateDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347895"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:CreateDirectory' :: CreateDirectory -&gt; Text
-</span><a href="#local-6989586621679347476"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347476"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347475"><span class="annot"><span class="annottext">s :: CreateDirectory
-</span><a href="#local-6989586621679347475"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectory%27"><span class="hs-identifier hs-type">CreateDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347474"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347474"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDirectory
-</span><a href="#local-6989586621679347475"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateDirectory' :: Text
+</span><a href="#local-6989586621679347895"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347895"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347894"><span class="annot"><span class="annottext">s :: CreateDirectory
+</span><a href="#local-6989586621679347894"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectory%27"><span class="hs-identifier hs-type">CreateDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347893"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347893"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDirectory
+</span><a href="#local-6989586621679347894"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateDirectory' :: Text
 </span><a href="Network.AWS.CloudDirectory.CreateDirectory.html#%24sel%3Aname%3ACreateDirectory%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347474"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectory"><span class="hs-identifier hs-type">CreateDirectory</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679347893"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectory"><span class="hs-identifier hs-type">CreateDirectory</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the published schema that will be</span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- copied into the data Directory. For more information, see arns.</span><span>
@@ -179,27 +179,27 @@ $sel:name:CreateDirectory' :: CreateDirectory -&gt; Text
 -&gt; (CreateDirectory -&gt; Text -&gt; CreateDirectory)
 -&gt; Lens CreateDirectory CreateDirectory Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectory%27"><span class="hs-identifier hs-type">CreateDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347473"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectory%27"><span class="hs-identifier hs-type">CreateDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347892"><span class="annot"><span class="annottext">Text
 schemaArn :: Text
 $sel:schemaArn:CreateDirectory' :: CreateDirectory -&gt; Text
-</span><a href="#local-6989586621679347473"><span class="hs-identifier hs-var hs-var">schemaArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347473"><span class="hs-identifier hs-var">schemaArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347472"><span class="annot"><span class="annottext">s :: CreateDirectory
-</span><a href="#local-6989586621679347472"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectory%27"><span class="hs-identifier hs-type">CreateDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347471"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347471"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDirectory
-</span><a href="#local-6989586621679347472"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaArn:CreateDirectory' :: Text
+</span><a href="#local-6989586621679347892"><span class="hs-identifier hs-var hs-var">schemaArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347892"><span class="hs-identifier hs-var">schemaArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347891"><span class="annot"><span class="annottext">s :: CreateDirectory
+</span><a href="#local-6989586621679347891"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectory%27"><span class="hs-identifier hs-type">CreateDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347890"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347890"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDirectory
+</span><a href="#local-6989586621679347891"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaArn:CreateDirectory' :: Text
 </span><a href="Network.AWS.CloudDirectory.CreateDirectory.html#%24sel%3AschemaArn%3ACreateDirectory%27"><span class="hs-identifier hs-var">schemaArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347471"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectory"><span class="hs-identifier hs-type">CreateDirectory</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679347890"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectory"><span class="hs-identifier hs-type">CreateDirectory</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectory"><span class="hs-identifier hs-type">CreateDirectory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-103"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-104"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectory"><span class="hs-identifier hs-type">CreateDirectory</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectoryResponse"><span class="hs-identifier hs-type">CreateDirectoryResponse</span></a></span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679347467"><span class="annot"><span class="annottext">request :: CreateDirectory -&gt; Request CreateDirectory
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679347886"><span class="annot"><span class="annottext">request :: CreateDirectory -&gt; Request CreateDirectory
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateDirectory -&gt; Request CreateDirectory
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudDirectory.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679347463"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679347882"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateDirectory
 -&gt; ClientResponse ClientBody
@@ -223,10 +223,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679347460"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679347460"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679347459"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679347459"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679347458"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679347458"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679347879"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679347879"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679347878"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679347878"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679347877"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679347877"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-110"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; CreateDirectoryResponse
 </span><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectoryResponse%27"><span class="hs-identifier hs-var">CreateDirectoryResponse'</span></a></span><span>
 </span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; CreateDirectoryResponse)
@@ -239,14 +239,14 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679347460"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679347879"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Either
   String (Text -&gt; Text -&gt; Text -&gt; Text -&gt; CreateDirectoryResponse)
 -&gt; Either String Text
 -&gt; Either String (Text -&gt; Text -&gt; Text -&gt; CreateDirectoryResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679347458"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679347877"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DirectoryArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -255,7 +255,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 -&gt; Either String (Text -&gt; Text -&gt; CreateDirectoryResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679347458"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679347877"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
@@ -264,7 +264,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 -&gt; Either String (Text -&gt; CreateDirectoryResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679347458"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679347877"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ObjectIdentifier&quot;</span></span><span class="hs-special">)</span><span>
@@ -272,24 +272,24 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 -&gt; Either String Text -&gt; Either String CreateDirectoryResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679347458"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679347877"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AppliedSchemaArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347450"><span id="local-6989586621679347452"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectory"><span class="hs-identifier hs-type">CreateDirectory</span></a></span></span></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347869"><span id="local-6989586621679347871"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectory"><span class="hs-identifier hs-type">CreateDirectory</span></a></span></span></span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347447"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectory"><span class="hs-identifier hs-type">CreateDirectory</span></a></span></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347866"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectory"><span class="hs-identifier hs-type">CreateDirectory</span></a></span></span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectory"><span class="hs-identifier hs-type">CreateDirectory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679347443"><span class="annot"><span class="annottext">toHeaders :: CreateDirectory -&gt; ResponseHeaders
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectory%27"><span class="hs-identifier hs-type">CreateDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347440"><span id="local-6989586621679347441"><span class="annot"><span class="annottext">Text
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679347862"><span class="annot"><span class="annottext">toHeaders :: CreateDirectory -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectory%27"><span class="hs-identifier hs-type">CreateDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347859"><span id="local-6989586621679347860"><span class="annot"><span class="annottext">Text
 schemaArn :: Text
 name :: Text
 $sel:schemaArn:CreateDirectory' :: CreateDirectory -&gt; Text
 $sel:name:CreateDirectory' :: CreateDirectory -&gt; Text
-</span><a href="#local-6989586621679347440"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679347859"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -297,16 +297,16 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;x-amz-data-partition&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Text -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347440"><span class="hs-identifier hs-var">schemaArn</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679347859"><span class="hs-identifier hs-var">schemaArn</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347432"><span id="local-6989586621679347434"><span id="local-6989586621679347436"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectory"><span class="hs-identifier hs-type">CreateDirectory</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679347430"><span class="annot"><span class="annottext">toJSON :: CreateDirectory -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectory%27"><span class="hs-identifier hs-type">CreateDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347427"><span id="local-6989586621679347428"><span class="annot"><span class="annottext">Text
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347851"><span id="local-6989586621679347853"><span id="local-6989586621679347855"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectory"><span class="hs-identifier hs-type">CreateDirectory</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679347849"><span class="annot"><span class="annottext">toJSON :: CreateDirectory -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectory%27"><span class="hs-identifier hs-type">CreateDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347846"><span id="local-6989586621679347847"><span class="annot"><span class="annottext">Text
 schemaArn :: Text
 name :: Text
 $sel:schemaArn:CreateDirectory' :: CreateDirectory -&gt; Text
 $sel:name:CreateDirectory' :: CreateDirectory -&gt; Text
-</span><a href="#local-6989586621679347427"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679347846"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -318,11 +318,11 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347428"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679347847"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectory"><span class="hs-identifier hs-type">CreateDirectory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679347421"><span class="annot"><span class="annottext">toPath :: CreateDirectory -&gt; ByteString
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679347840"><span class="annot"><span class="annottext">toPath :: CreateDirectory -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; CreateDirectory -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
@@ -331,7 +331,7 @@ forall a b. a -&gt; b -&gt; a
 </span><span class="hs-string">&quot;/amazonclouddirectory/2017-01-11/directory/create&quot;</span></span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectory"><span class="hs-identifier hs-type">CreateDirectory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679347416"><span class="annot"><span class="annottext">toQuery :: CreateDirectory -&gt; QueryString
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679347835"><span class="annot"><span class="annottext">toQuery :: CreateDirectory -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateDirectory -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -339,7 +339,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | /See:/ 'newCreateDirectoryResponse' smart constructor.</span><span>
-</span><span id="line-143"></span><span id="local-6989586621679347413"><span id="local-6989586621679347414"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDirectoryResponse"><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectoryResponse"><span class="hs-identifier hs-var">CreateDirectoryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDirectoryResponse%27"><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectoryResponse%27"><span class="hs-identifier hs-var">CreateDirectoryResponse'</span></a></span></span><span>
+</span><span id="line-143"></span><span id="local-6989586621679347832"><span id="local-6989586621679347833"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDirectoryResponse"><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectoryResponse"><span class="hs-identifier hs-var">CreateDirectoryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDirectoryResponse%27"><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectoryResponse%27"><span class="hs-identifier hs-var">CreateDirectoryResponse'</span></a></span></span><span>
 </span><span id="line-144"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-145"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateDirectoryResponse%27"><span class="annot"><span class="annottext">CreateDirectoryResponse -&gt; Int
 </span><a href="Network.AWS.CloudDirectory.CreateDirectory.html#%24sel%3AhttpStatus%3ACreateDirectoryResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -359,7 +359,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-156"></span><span>    </span><span id="%24sel%3AappliedSchemaArn%3ACreateDirectoryResponse%27"><span class="annot"><span class="annottext">CreateDirectoryResponse -&gt; Text
 </span><a href="Network.AWS.CloudDirectory.CreateDirectory.html#%24sel%3AappliedSchemaArn%3ACreateDirectoryResponse%27"><span class="hs-identifier hs-var hs-var">appliedSchemaArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-157"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-158"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679347404"><span id="local-6989586621679347406"><span class="annot"><span class="annottext">CreateDirectoryResponse -&gt; CreateDirectoryResponse -&gt; Bool
+</span><span id="line-158"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679347823"><span id="local-6989586621679347825"><span class="annot"><span class="annottext">CreateDirectoryResponse -&gt; CreateDirectoryResponse -&gt; Bool
 (CreateDirectoryResponse -&gt; CreateDirectoryResponse -&gt; Bool)
 -&gt; (CreateDirectoryResponse -&gt; CreateDirectoryResponse -&gt; Bool)
 -&gt; Eq CreateDirectoryResponse
@@ -368,7 +368,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateDirectoryResponse -&gt; CreateDirectoryResponse -&gt; Bool
 == :: CreateDirectoryResponse -&gt; CreateDirectoryResponse -&gt; Bool
 $c== :: CreateDirectoryResponse -&gt; CreateDirectoryResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347396"><span id="local-6989586621679347398"><span id="local-6989586621679347400"><span id="local-6989586621679347402"><span class="annot"><span class="annottext">ReadPrec [CreateDirectoryResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347815"><span id="local-6989586621679347817"><span id="local-6989586621679347819"><span id="local-6989586621679347821"><span class="annot"><span class="annottext">ReadPrec [CreateDirectoryResponse]
 ReadPrec CreateDirectoryResponse
 Int -&gt; ReadS CreateDirectoryResponse
 ReadS [CreateDirectoryResponse]
@@ -388,7 +388,7 @@ readList :: ReadS [CreateDirectoryResponse]
 $creadList :: ReadS [CreateDirectoryResponse]
 readsPrec :: Int -&gt; ReadS CreateDirectoryResponse
 $creadsPrec :: Int -&gt; ReadS CreateDirectoryResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347390"><span id="local-6989586621679347392"><span id="local-6989586621679347394"><span class="annot"><span class="annottext">Int -&gt; CreateDirectoryResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347809"><span id="local-6989586621679347811"><span id="local-6989586621679347813"><span class="annot"><span class="annottext">Int -&gt; CreateDirectoryResponse -&gt; ShowS
 [CreateDirectoryResponse] -&gt; ShowS
 CreateDirectoryResponse -&gt; String
 (Int -&gt; CreateDirectoryResponse -&gt; ShowS)
@@ -450,33 +450,33 @@ $cfrom :: forall x. CreateDirectoryResponse -&gt; Rep CreateDirectoryResponse x
 </span><span id="line-191"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectoryResponse"><span class="hs-identifier hs-type">CreateDirectoryResponse</span></a></span><span>
 </span><span id="line-192"></span><span id="newCreateDirectoryResponse"><span class="annot"><span class="annottext">newCreateDirectoryResponse :: Int -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; CreateDirectoryResponse
 </span><a href="Network.AWS.CloudDirectory.CreateDirectory.html#newCreateDirectoryResponse"><span class="hs-identifier hs-var hs-var">newCreateDirectoryResponse</span></a></span></span><span>
-</span><span id="line-193"></span><span>  </span><span id="local-6989586621679347387"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679347387"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-194"></span><span>  </span><span id="local-6989586621679347386"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347386"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span></span><span>
-</span><span id="line-195"></span><span>  </span><span id="local-6989586621679347385"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347385"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
-</span><span id="line-196"></span><span>  </span><span id="local-6989586621679347384"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347384"><span class="hs-identifier hs-var">pObjectIdentifier_</span></a></span></span><span>
-</span><span id="line-197"></span><span>  </span><span id="local-6989586621679347383"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347383"><span class="hs-identifier hs-var">pAppliedSchemaArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621679347806"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679347806"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679347805"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347805"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span></span><span>
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679347804"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347804"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679347803"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347803"><span class="hs-identifier hs-var">pObjectIdentifier_</span></a></span></span><span>
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679347802"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347802"><span class="hs-identifier hs-var">pAppliedSchemaArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-198"></span><span>    </span><span class="annot"><span class="annottext">CreateDirectoryResponse' :: Int -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; CreateDirectoryResponse
 </span><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectoryResponse%27"><span class="hs-identifier hs-type">CreateDirectoryResponse'</span></a></span><span>
 </span><span id="line-199"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDirectoryResponse' :: Int
 </span><a href="Network.AWS.CloudDirectory.CreateDirectory.html#%24sel%3AhttpStatus%3ACreateDirectoryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679347387"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679347806"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-200"></span><span>        </span><span class="annot"><span class="annottext">$sel:directoryArn:CreateDirectoryResponse' :: Text
 </span><a href="Network.AWS.CloudDirectory.CreateDirectory.html#%24sel%3AdirectoryArn%3ACreateDirectoryResponse%27"><span class="hs-identifier hs-var">directoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347386"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679347805"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-201"></span><span>        </span><span class="annot"><span class="annottext">$sel:name:CreateDirectoryResponse' :: Text
 </span><a href="Network.AWS.CloudDirectory.CreateDirectory.html#%24sel%3Aname%3ACreateDirectoryResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347385"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679347804"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-202"></span><span>        </span><span class="annot"><span class="annottext">$sel:objectIdentifier:CreateDirectoryResponse' :: Text
 </span><a href="Network.AWS.CloudDirectory.CreateDirectory.html#%24sel%3AobjectIdentifier%3ACreateDirectoryResponse%27"><span class="hs-identifier hs-var">objectIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347384"><span class="hs-identifier hs-var">pObjectIdentifier_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679347803"><span class="hs-identifier hs-var">pObjectIdentifier_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-203"></span><span>        </span><span class="annot"><span class="annottext">$sel:appliedSchemaArn:CreateDirectoryResponse' :: Text
 </span><a href="Network.AWS.CloudDirectory.CreateDirectory.html#%24sel%3AappliedSchemaArn%3ACreateDirectoryResponse%27"><span class="hs-identifier hs-var">appliedSchemaArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347383"><span class="hs-identifier hs-var">pAppliedSchemaArn_</span></a></span><span>
+</span><a href="#local-6989586621679347802"><span class="hs-identifier hs-var">pAppliedSchemaArn_</span></a></span><span>
 </span><span id="line-204"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-205"></span><span>
 </span><span id="line-206"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -487,16 +487,16 @@ $cfrom :: forall x. CreateDirectoryResponse -&gt; Rep CreateDirectoryResponse x
 -&gt; (CreateDirectoryResponse -&gt; Int -&gt; CreateDirectoryResponse)
 -&gt; Lens CreateDirectoryResponse CreateDirectoryResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectoryResponse%27"><span class="hs-identifier hs-type">CreateDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347382"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectoryResponse%27"><span class="hs-identifier hs-type">CreateDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347801"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateDirectoryResponse' :: CreateDirectoryResponse -&gt; Int
-</span><a href="#local-6989586621679347382"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679347382"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347381"><span class="annot"><span class="annottext">s :: CreateDirectoryResponse
-</span><a href="#local-6989586621679347381"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectoryResponse%27"><span class="hs-identifier hs-type">CreateDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347380"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679347380"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDirectoryResponse
-</span><a href="#local-6989586621679347381"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDirectoryResponse' :: Int
+</span><a href="#local-6989586621679347801"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679347801"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347800"><span class="annot"><span class="annottext">s :: CreateDirectoryResponse
+</span><a href="#local-6989586621679347800"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectoryResponse%27"><span class="hs-identifier hs-type">CreateDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347799"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679347799"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDirectoryResponse
+</span><a href="#local-6989586621679347800"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDirectoryResponse' :: Int
 </span><a href="Network.AWS.CloudDirectory.CreateDirectory.html#%24sel%3AhttpStatus%3ACreateDirectoryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679347380"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectoryResponse"><span class="hs-identifier hs-type">CreateDirectoryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679347799"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectoryResponse"><span class="hs-identifier hs-type">CreateDirectoryResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-209"></span><span>
 </span><span id="line-210"></span><span class="hs-comment">-- | The ARN that is associated with the Directory. For more information, see</span><span>
 </span><span id="line-211"></span><span class="hs-comment">-- arns.</span><span>
@@ -507,16 +507,16 @@ $sel:httpStatus:CreateDirectoryResponse' :: CreateDirectoryResponse -&gt; Int
 -&gt; (CreateDirectoryResponse -&gt; Text -&gt; CreateDirectoryResponse)
 -&gt; Lens CreateDirectoryResponse CreateDirectoryResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectoryResponse%27"><span class="hs-identifier hs-type">CreateDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347379"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectoryResponse%27"><span class="hs-identifier hs-type">CreateDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347798"><span class="annot"><span class="annottext">Text
 directoryArn :: Text
 $sel:directoryArn:CreateDirectoryResponse' :: CreateDirectoryResponse -&gt; Text
-</span><a href="#local-6989586621679347379"><span class="hs-identifier hs-var hs-var">directoryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347379"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347378"><span class="annot"><span class="annottext">s :: CreateDirectoryResponse
-</span><a href="#local-6989586621679347378"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectoryResponse%27"><span class="hs-identifier hs-type">CreateDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347377"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347377"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDirectoryResponse
-</span><a href="#local-6989586621679347378"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryArn:CreateDirectoryResponse' :: Text
+</span><a href="#local-6989586621679347798"><span class="hs-identifier hs-var hs-var">directoryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347798"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347797"><span class="annot"><span class="annottext">s :: CreateDirectoryResponse
+</span><a href="#local-6989586621679347797"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectoryResponse%27"><span class="hs-identifier hs-type">CreateDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347796"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347796"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDirectoryResponse
+</span><a href="#local-6989586621679347797"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryArn:CreateDirectoryResponse' :: Text
 </span><a href="Network.AWS.CloudDirectory.CreateDirectory.html#%24sel%3AdirectoryArn%3ACreateDirectoryResponse%27"><span class="hs-identifier hs-var">directoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347377"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectoryResponse"><span class="hs-identifier hs-type">CreateDirectoryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679347796"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectoryResponse"><span class="hs-identifier hs-type">CreateDirectoryResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-214"></span><span>
 </span><span id="line-215"></span><span class="hs-comment">-- | The name of the Directory.</span><span>
 </span><span id="line-216"></span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#createDirectoryResponse_name"><span class="hs-identifier hs-type">createDirectoryResponse_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectoryResponse"><span class="hs-identifier hs-type">CreateDirectoryResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -526,16 +526,16 @@ $sel:directoryArn:CreateDirectoryResponse' :: CreateDirectoryResponse -&gt; Text
 -&gt; (CreateDirectoryResponse -&gt; Text -&gt; CreateDirectoryResponse)
 -&gt; Lens CreateDirectoryResponse CreateDirectoryResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectoryResponse%27"><span class="hs-identifier hs-type">CreateDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347376"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectoryResponse%27"><span class="hs-identifier hs-type">CreateDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347795"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:CreateDirectoryResponse' :: CreateDirectoryResponse -&gt; Text
-</span><a href="#local-6989586621679347376"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347376"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347375"><span class="annot"><span class="annottext">s :: CreateDirectoryResponse
-</span><a href="#local-6989586621679347375"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectoryResponse%27"><span class="hs-identifier hs-type">CreateDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347374"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347374"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDirectoryResponse
-</span><a href="#local-6989586621679347375"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateDirectoryResponse' :: Text
+</span><a href="#local-6989586621679347795"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347795"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347794"><span class="annot"><span class="annottext">s :: CreateDirectoryResponse
+</span><a href="#local-6989586621679347794"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectoryResponse%27"><span class="hs-identifier hs-type">CreateDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347793"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347793"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDirectoryResponse
+</span><a href="#local-6989586621679347794"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateDirectoryResponse' :: Text
 </span><a href="Network.AWS.CloudDirectory.CreateDirectory.html#%24sel%3Aname%3ACreateDirectoryResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347374"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectoryResponse"><span class="hs-identifier hs-type">CreateDirectoryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679347793"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectoryResponse"><span class="hs-identifier hs-type">CreateDirectoryResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-218"></span><span>
 </span><span id="line-219"></span><span class="hs-comment">-- | The root object node of the created directory.</span><span>
 </span><span id="line-220"></span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#createDirectoryResponse_objectIdentifier"><span class="hs-identifier hs-type">createDirectoryResponse_objectIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectoryResponse"><span class="hs-identifier hs-type">CreateDirectoryResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -545,16 +545,16 @@ $sel:name:CreateDirectoryResponse' :: CreateDirectoryResponse -&gt; Text
 -&gt; (CreateDirectoryResponse -&gt; Text -&gt; CreateDirectoryResponse)
 -&gt; Lens CreateDirectoryResponse CreateDirectoryResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectoryResponse%27"><span class="hs-identifier hs-type">CreateDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347373"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectoryResponse%27"><span class="hs-identifier hs-type">CreateDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347792"><span class="annot"><span class="annottext">Text
 objectIdentifier :: Text
 $sel:objectIdentifier:CreateDirectoryResponse' :: CreateDirectoryResponse -&gt; Text
-</span><a href="#local-6989586621679347373"><span class="hs-identifier hs-var hs-var">objectIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347373"><span class="hs-identifier hs-var">objectIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347372"><span class="annot"><span class="annottext">s :: CreateDirectoryResponse
-</span><a href="#local-6989586621679347372"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectoryResponse%27"><span class="hs-identifier hs-type">CreateDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347371"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347371"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDirectoryResponse
-</span><a href="#local-6989586621679347372"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:objectIdentifier:CreateDirectoryResponse' :: Text
+</span><a href="#local-6989586621679347792"><span class="hs-identifier hs-var hs-var">objectIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347792"><span class="hs-identifier hs-var">objectIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347791"><span class="annot"><span class="annottext">s :: CreateDirectoryResponse
+</span><a href="#local-6989586621679347791"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectoryResponse%27"><span class="hs-identifier hs-type">CreateDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347790"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347790"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDirectoryResponse
+</span><a href="#local-6989586621679347791"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:objectIdentifier:CreateDirectoryResponse' :: Text
 </span><a href="Network.AWS.CloudDirectory.CreateDirectory.html#%24sel%3AobjectIdentifier%3ACreateDirectoryResponse%27"><span class="hs-identifier hs-var">objectIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347371"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectoryResponse"><span class="hs-identifier hs-type">CreateDirectoryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679347790"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectoryResponse"><span class="hs-identifier hs-type">CreateDirectoryResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-222"></span><span>
 </span><span id="line-223"></span><span class="hs-comment">-- | The ARN of the published schema in the Directory. Once a published</span><span>
 </span><span id="line-224"></span><span class="hs-comment">-- schema is copied into the directory, it has its own ARN, which is</span><span>
@@ -566,16 +566,16 @@ $sel:objectIdentifier:CreateDirectoryResponse' :: CreateDirectoryResponse -&gt; 
 -&gt; (CreateDirectoryResponse -&gt; Text -&gt; CreateDirectoryResponse)
 -&gt; Lens CreateDirectoryResponse CreateDirectoryResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectoryResponse%27"><span class="hs-identifier hs-type">CreateDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347370"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectoryResponse%27"><span class="hs-identifier hs-type">CreateDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347789"><span class="annot"><span class="annottext">Text
 appliedSchemaArn :: Text
 $sel:appliedSchemaArn:CreateDirectoryResponse' :: CreateDirectoryResponse -&gt; Text
-</span><a href="#local-6989586621679347370"><span class="hs-identifier hs-var hs-var">appliedSchemaArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347370"><span class="hs-identifier hs-var">appliedSchemaArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347369"><span class="annot"><span class="annottext">s :: CreateDirectoryResponse
-</span><a href="#local-6989586621679347369"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectoryResponse%27"><span class="hs-identifier hs-type">CreateDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347368"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347368"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDirectoryResponse
-</span><a href="#local-6989586621679347369"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appliedSchemaArn:CreateDirectoryResponse' :: Text
+</span><a href="#local-6989586621679347789"><span class="hs-identifier hs-var hs-var">appliedSchemaArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347789"><span class="hs-identifier hs-var">appliedSchemaArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347788"><span class="annot"><span class="annottext">s :: CreateDirectoryResponse
+</span><a href="#local-6989586621679347788"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectoryResponse%27"><span class="hs-identifier hs-type">CreateDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347787"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347787"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDirectoryResponse
+</span><a href="#local-6989586621679347788"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appliedSchemaArn:CreateDirectoryResponse' :: Text
 </span><a href="Network.AWS.CloudDirectory.CreateDirectory.html#%24sel%3AappliedSchemaArn%3ACreateDirectoryResponse%27"><span class="hs-identifier hs-var">appliedSchemaArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347368"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectoryResponse"><span class="hs-identifier hs-type">CreateDirectoryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679347787"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectoryResponse"><span class="hs-identifier hs-type">CreateDirectoryResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-228"></span><span>
-</span><span id="line-229"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347366"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectoryResponse"><span class="hs-identifier hs-type">CreateDirectoryResponse</span></a></span></span><span>
+</span><span id="line-229"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347785"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateDirectory.html#CreateDirectoryResponse"><span class="hs-identifier hs-type">CreateDirectoryResponse</span></a></span></span><span>
 </span><span id="line-230"></span></pre></body></html>

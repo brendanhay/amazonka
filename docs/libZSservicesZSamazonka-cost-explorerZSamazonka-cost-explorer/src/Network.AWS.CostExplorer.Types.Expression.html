@@ -68,27 +68,27 @@
 </span><span id="line-68"></span><span class="hs-comment">-- @LINKED_ACCOUNT@.</span><span>
 </span><span id="line-69"></span><span class="hs-comment">--</span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- /See:/ 'newExpression' smart constructor.</span><span>
-</span><span id="line-71"></span><span id="local-6989586621679338401"><span id="local-6989586621679338402"></span></span><span class="hs-keyword">data</span><span> </span><span id="Expression"><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-var">Expression</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Expression%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression%27"><span class="hs-identifier hs-var">Expression'</span></a></span></span><span>
-</span><span id="line-72"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The filter that\'s based on @CostCategory@ values.</span><span>
-</span><span id="line-73"></span><span>    </span><span id="%24sel%3AcostCategories%3AExpression%27"><span class="annot"><span class="annottext">Expression -&gt; Maybe CostCategoryValues
-</span><a href="Network.AWS.CostExplorer.Types.Expression.html#%24sel%3AcostCategories%3AExpression%27"><span class="hs-identifier hs-var hs-var">costCategories</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategoryValues.html#CostCategoryValues"><span class="hs-identifier hs-type">CostCategoryValues</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | Return results that don\'t match a @Dimension@ object.</span><span>
-</span><span id="line-75"></span><span>    </span><span id="%24sel%3Anot%3AExpression%27"><span class="annot"><span class="annottext">Expression -&gt; Maybe Expression
+</span><span id="line-71"></span><span id="local-6989586621679338744"><span id="local-6989586621679338745"></span></span><span class="hs-keyword">data</span><span> </span><span id="Expression"><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-var">Expression</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Expression%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression%27"><span class="hs-identifier hs-var">Expression'</span></a></span></span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Return results that don\'t match a @Dimension@ object.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3Anot%3AExpression%27"><span class="annot"><span class="annottext">Expression -&gt; Maybe Expression
 </span><a href="Network.AWS.CostExplorer.Types.Expression.html#%24sel%3Anot%3AExpression%27"><span class="hs-identifier hs-var hs-var">not</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | Return results that match both @Dimension@ objects.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3Aand%3AExpression%27"><span class="annot"><span class="annottext">Expression -&gt; Maybe [Expression]
+</span><a href="Network.AWS.CostExplorer.Types.Expression.html#%24sel%3Aand%3AExpression%27"><span class="hs-identifier hs-var hs-var">and</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | Return results that match either @Dimension@ object.</span><span>
 </span><span id="line-77"></span><span>    </span><span id="%24sel%3Aor%3AExpression%27"><span class="annot"><span class="annottext">Expression -&gt; Maybe [Expression]
 </span><a href="Network.AWS.CostExplorer.Types.Expression.html#%24sel%3Aor%3AExpression%27"><span class="hs-identifier hs-var hs-var">or</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | The specific @Tag@ to use for @Expression@.</span><span>
-</span><span id="line-79"></span><span>    </span><span id="%24sel%3Atags%3AExpression%27"><span class="annot"><span class="annottext">Expression -&gt; Maybe TagValues
-</span><a href="Network.AWS.CostExplorer.Types.Expression.html#%24sel%3Atags%3AExpression%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.TagValues.html#TagValues"><span class="hs-identifier hs-type">TagValues</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | Return results that match both @Dimension@ objects.</span><span>
-</span><span id="line-81"></span><span>    </span><span id="%24sel%3Aand%3AExpression%27"><span class="annot"><span class="annottext">Expression -&gt; Maybe [Expression]
-</span><a href="Network.AWS.CostExplorer.Types.Expression.html#%24sel%3Aand%3AExpression%27"><span class="hs-identifier hs-var hs-var">and</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | The specific @Dimension@ to use for @Expression@.</span><span>
-</span><span id="line-83"></span><span>    </span><span id="%24sel%3Adimensions%3AExpression%27"><span class="annot"><span class="annottext">Expression -&gt; Maybe DimensionValues
-</span><a href="Network.AWS.CostExplorer.Types.Expression.html#%24sel%3Adimensions%3AExpression%27"><span class="hs-identifier hs-var hs-var">dimensions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.DimensionValues.html#DimensionValues"><span class="hs-identifier hs-type">DimensionValues</span></a></span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | The filter that\'s based on @CostCategory@ values.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AcostCategories%3AExpression%27"><span class="annot"><span class="annottext">Expression -&gt; Maybe CostCategoryValues
+</span><a href="Network.AWS.CostExplorer.Types.Expression.html#%24sel%3AcostCategories%3AExpression%27"><span class="hs-identifier hs-var hs-var">costCategories</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategoryValues.html#CostCategoryValues"><span class="hs-identifier hs-type">CostCategoryValues</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | The specific @Dimension@ to use for @Expression@.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3Adimensions%3AExpression%27"><span class="annot"><span class="annottext">Expression -&gt; Maybe DimensionValues
+</span><a href="Network.AWS.CostExplorer.Types.Expression.html#%24sel%3Adimensions%3AExpression%27"><span class="hs-identifier hs-var hs-var">dimensions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.DimensionValues.html#DimensionValues"><span class="hs-identifier hs-type">DimensionValues</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | The specific @Tag@ to use for @Expression@.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3Atags%3AExpression%27"><span class="annot"><span class="annottext">Expression -&gt; Maybe TagValues
+</span><a href="Network.AWS.CostExplorer.Types.Expression.html#%24sel%3Atags%3AExpression%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.TagValues.html#TagValues"><span class="hs-identifier hs-type">TagValues</span></a></span><span>
 </span><span id="line-84"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-85"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679338390"><span id="local-6989586621679338392"><span class="annot"><span class="annottext">Expression -&gt; Expression -&gt; Bool
+</span><span id="line-85"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679338733"><span id="local-6989586621679338735"><span class="annot"><span class="annottext">Expression -&gt; Expression -&gt; Bool
 (Expression -&gt; Expression -&gt; Bool)
 -&gt; (Expression -&gt; Expression -&gt; Bool) -&gt; Eq Expression
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -96,7 +96,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Expression -&gt; Expression -&gt; Bool
 == :: Expression -&gt; Expression -&gt; Bool
 $c== :: Expression -&gt; Expression -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679338381"><span id="local-6989586621679338383"><span id="local-6989586621679338385"><span id="local-6989586621679338387"><span class="annot"><span class="annottext">ReadPrec [Expression]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679338724"><span id="local-6989586621679338726"><span id="local-6989586621679338728"><span id="local-6989586621679338730"><span class="annot"><span class="annottext">ReadPrec [Expression]
 ReadPrec Expression
 Int -&gt; ReadS Expression
 ReadS [Expression]
@@ -116,7 +116,7 @@ readList :: ReadS [Expression]
 $creadList :: ReadS [Expression]
 readsPrec :: Int -&gt; ReadS Expression
 $creadsPrec :: Int -&gt; ReadS Expression
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679338374"><span id="local-6989586621679338376"><span id="local-6989586621679338378"><span class="annot"><span class="annottext">Int -&gt; Expression -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679338717"><span id="local-6989586621679338719"><span id="local-6989586621679338721"><span class="annot"><span class="annottext">Int -&gt; Expression -&gt; ShowS
 [Expression] -&gt; ShowS
 Expression -&gt; String
 (Int -&gt; Expression -&gt; ShowS)
@@ -149,96 +149,112 @@ $cfrom :: forall x. Expression -&gt; Rep Expression x
 </span><span id="line-92"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-94"></span><span class="hs-comment">--</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- 'costCategories', 'expression_costCategories' - The filter that\'s based on @CostCategory@ values.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'not', 'expression_not' - Return results that don\'t match a @Dimension@ object.</span><span>
 </span><span id="line-96"></span><span class="hs-comment">--</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- 'not', 'expression_not' - Return results that don\'t match a @Dimension@ object.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'and', 'expression_and' - Return results that match both @Dimension@ objects.</span><span>
 </span><span id="line-98"></span><span class="hs-comment">--</span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- 'or', 'expression_or' - Return results that match either @Dimension@ object.</span><span>
 </span><span id="line-100"></span><span class="hs-comment">--</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- 'tags', 'expression_tags' - The specific @Tag@ to use for @Expression@.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'costCategories', 'expression_costCategories' - The filter that\'s based on @CostCategory@ values.</span><span>
 </span><span id="line-102"></span><span class="hs-comment">--</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- 'and', 'expression_and' - Return results that match both @Dimension@ objects.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'dimensions', 'expression_dimensions' - The specific @Dimension@ to use for @Expression@.</span><span>
 </span><span id="line-104"></span><span class="hs-comment">--</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- 'dimensions', 'expression_dimensions' - The specific @Dimension@ to use for @Expression@.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'tags', 'expression_tags' - The specific @Tag@ to use for @Expression@.</span><span>
 </span><span id="line-106"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#newExpression"><span class="hs-identifier hs-type">newExpression</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-107"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span>
 </span><span id="line-108"></span><span id="newExpression"><span class="annot"><span class="annottext">newExpression :: Expression
 </span><a href="Network.AWS.CostExplorer.Types.Expression.html#newExpression"><span class="hs-identifier hs-var hs-var">newExpression</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-109"></span><span>  </span><span class="annot"><span class="annottext">Expression' :: Maybe CostCategoryValues
--&gt; Maybe Expression
+</span><span id="line-109"></span><span>  </span><span class="annot"><span class="annottext">Expression' :: Maybe Expression
 -&gt; Maybe [Expression]
--&gt; Maybe TagValues
 -&gt; Maybe [Expression]
+-&gt; Maybe CostCategoryValues
 -&gt; Maybe DimensionValues
+-&gt; Maybe TagValues
 -&gt; Expression
 </span><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression%27"><span class="hs-identifier hs-type">Expression'</span></a></span><span>
-</span><span id="line-110"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:costCategories:Expression' :: Maybe CostCategoryValues
-</span><a href="Network.AWS.CostExplorer.Types.Expression.html#%24sel%3AcostCategories%3AExpression%27"><span class="hs-identifier hs-var">costCategories</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CostCategoryValues
+</span><span id="line-110"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:not:Expression' :: Maybe Expression
+</span><a href="Network.AWS.CostExplorer.Types.Expression.html#%24sel%3Anot%3AExpression%27"><span class="hs-identifier hs-var">not</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Expression
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:not:Expression' :: Maybe Expression
-</span><a href="Network.AWS.CostExplorer.Types.Expression.html#%24sel%3Anot%3AExpression%27"><span class="hs-identifier hs-var">not</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Expression
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:and:Expression' :: Maybe [Expression]
+</span><a href="Network.AWS.CostExplorer.Types.Expression.html#%24sel%3Aand%3AExpression%27"><span class="hs-identifier hs-var">and</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Expression]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:or:Expression' :: Maybe [Expression]
 </span><a href="Network.AWS.CostExplorer.Types.Expression.html#%24sel%3Aor%3AExpression%27"><span class="hs-identifier hs-var">or</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Expression]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:Expression' :: Maybe TagValues
-</span><a href="Network.AWS.CostExplorer.Types.Expression.html#%24sel%3Atags%3AExpression%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TagValues
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:costCategories:Expression' :: Maybe CostCategoryValues
+</span><a href="Network.AWS.CostExplorer.Types.Expression.html#%24sel%3AcostCategories%3AExpression%27"><span class="hs-identifier hs-var">costCategories</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CostCategoryValues
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:and:Expression' :: Maybe [Expression]
-</span><a href="Network.AWS.CostExplorer.Types.Expression.html#%24sel%3Aand%3AExpression%27"><span class="hs-identifier hs-var">and</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Expression]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:dimensions:Expression' :: Maybe DimensionValues
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:dimensions:Expression' :: Maybe DimensionValues
 </span><a href="Network.AWS.CostExplorer.Types.Expression.html#%24sel%3Adimensions%3AExpression%27"><span class="hs-identifier hs-var">dimensions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DimensionValues
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:Expression' :: Maybe TagValues
+</span><a href="Network.AWS.CostExplorer.Types.Expression.html#%24sel%3Atags%3AExpression%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TagValues
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-116"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- | The filter that\'s based on @CostCategory@ values.</span><span>
-</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#expression_costCategories"><span class="hs-identifier hs-type">expression_costCategories</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategoryValues.html#CostCategoryValues"><span class="hs-identifier hs-type">CostCategoryValues</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span id="expression_costCategories"><span class="annot"><span class="annottext">expression_costCategories :: (Maybe CostCategoryValues -&gt; f (Maybe CostCategoryValues))
--&gt; Expression -&gt; f Expression
-</span><a href="Network.AWS.CostExplorer.Types.Expression.html#expression_costCategories"><span class="hs-identifier hs-var hs-var">expression_costCategories</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Expression -&gt; Maybe CostCategoryValues)
--&gt; (Expression -&gt; Maybe CostCategoryValues -&gt; Expression)
--&gt; Lens
-     Expression
-     Expression
-     (Maybe CostCategoryValues)
-     (Maybe CostCategoryValues)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression%27"><span class="hs-identifier hs-type">Expression'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338365"><span class="annot"><span class="annottext">Maybe CostCategoryValues
-costCategories :: Maybe CostCategoryValues
-$sel:costCategories:Expression' :: Expression -&gt; Maybe CostCategoryValues
-</span><a href="#local-6989586621679338365"><span class="hs-identifier hs-var hs-var">costCategories</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CostCategoryValues
-</span><a href="#local-6989586621679338365"><span class="hs-identifier hs-var">costCategories</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338364"><span class="annot"><span class="annottext">s :: Expression
-</span><a href="#local-6989586621679338364"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression%27"><span class="hs-identifier hs-type">Expression'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338363"><span class="annot"><span class="annottext">Maybe CostCategoryValues
-</span><a href="#local-6989586621679338363"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Expression
-</span><a href="#local-6989586621679338364"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:costCategories:Expression' :: Maybe CostCategoryValues
-</span><a href="Network.AWS.CostExplorer.Types.Expression.html#%24sel%3AcostCategories%3AExpression%27"><span class="hs-identifier hs-var">costCategories</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CostCategoryValues
-</span><a href="#local-6989586621679338363"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- | Return results that don\'t match a @Dimension@ object.</span><span>
-</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#expression_not"><span class="hs-identifier hs-type">expression_not</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span id="expression_not"><span class="annot"><span class="annottext">expression_not :: (Maybe Expression -&gt; f (Maybe Expression))
+</span><span id="line-118"></span><span class="hs-comment">-- | Return results that don\'t match a @Dimension@ object.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#expression_not"><span class="hs-identifier hs-type">expression_not</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="expression_not"><span class="annot"><span class="annottext">expression_not :: (Maybe Expression -&gt; f (Maybe Expression))
 -&gt; Expression -&gt; f Expression
 </span><a href="Network.AWS.CostExplorer.Types.Expression.html#expression_not"><span class="hs-identifier hs-var hs-var">expression_not</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Expression -&gt; Maybe Expression)
 -&gt; (Expression -&gt; Maybe Expression -&gt; Expression)
 -&gt; Lens Expression Expression (Maybe Expression) (Maybe Expression)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression%27"><span class="hs-identifier hs-type">Expression'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338361"><span class="annot"><span class="annottext">Maybe Expression
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression%27"><span class="hs-identifier hs-type">Expression'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338708"><span class="annot"><span class="annottext">Maybe Expression
 not :: Maybe Expression
 $sel:not:Expression' :: Expression -&gt; Maybe Expression
-</span><a href="#local-6989586621679338361"><span class="hs-identifier hs-var hs-var">not</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Expression
-</span><a href="#local-6989586621679338361"><span class="hs-identifier hs-var">not</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338360"><span class="annot"><span class="annottext">s :: Expression
-</span><a href="#local-6989586621679338360"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression%27"><span class="hs-identifier hs-type">Expression'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338359"><span class="annot"><span class="annottext">Maybe Expression
-</span><a href="#local-6989586621679338359"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Expression
-</span><a href="#local-6989586621679338360"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:not:Expression' :: Maybe Expression
+</span><a href="#local-6989586621679338708"><span class="hs-identifier hs-var hs-var">not</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Expression
+</span><a href="#local-6989586621679338708"><span class="hs-identifier hs-var">not</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338707"><span class="annot"><span class="annottext">s :: Expression
+</span><a href="#local-6989586621679338707"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression%27"><span class="hs-identifier hs-type">Expression'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338706"><span class="annot"><span class="annottext">Maybe Expression
+</span><a href="#local-6989586621679338706"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Expression
+</span><a href="#local-6989586621679338707"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:not:Expression' :: Maybe Expression
 </span><a href="Network.AWS.CostExplorer.Types.Expression.html#%24sel%3Anot%3AExpression%27"><span class="hs-identifier hs-var">not</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Expression
-</span><a href="#local-6989586621679338359"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679338706"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | Return results that match both @Dimension@ objects.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#expression_and"><span class="hs-identifier hs-type">expression_and</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="expression_and"><span class="annot"><span class="annottext">expression_and :: (Maybe [Expression] -&gt; f (Maybe [Expression]))
+-&gt; Expression -&gt; f Expression
+</span><a href="Network.AWS.CostExplorer.Types.Expression.html#expression_and"><span class="hs-identifier hs-var hs-var">expression_and</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Expression -&gt; Maybe [Expression])
+-&gt; (Expression -&gt; Maybe [Expression] -&gt; Expression)
+-&gt; Lens
+     Expression Expression (Maybe [Expression]) (Maybe [Expression])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression%27"><span class="hs-identifier hs-type">Expression'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338704"><span class="annot"><span class="annottext">Maybe [Expression]
+and :: Maybe [Expression]
+$sel:and:Expression' :: Expression -&gt; Maybe [Expression]
+</span><a href="#local-6989586621679338704"><span class="hs-identifier hs-var hs-var">and</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Expression]
+</span><a href="#local-6989586621679338704"><span class="hs-identifier hs-var">and</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338703"><span class="annot"><span class="annottext">s :: Expression
+</span><a href="#local-6989586621679338703"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression%27"><span class="hs-identifier hs-type">Expression'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338702"><span class="annot"><span class="annottext">Maybe [Expression]
+</span><a href="#local-6989586621679338702"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Expression
+</span><a href="#local-6989586621679338703"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:and:Expression' :: Maybe [Expression]
+</span><a href="Network.AWS.CostExplorer.Types.Expression.html#%24sel%3Aand%3AExpression%27"><span class="hs-identifier hs-var">and</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Expression]
+</span><a href="#local-6989586621679338702"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Expression] -&gt; f (Maybe [Expression]))
+ -&gt; Expression -&gt; f Expression)
+-&gt; ((Maybe [Expression] -&gt; f (Maybe [Expression]))
+    -&gt; Maybe [Expression] -&gt; f (Maybe [Expression]))
+-&gt; (Maybe [Expression] -&gt; f (Maybe [Expression]))
+-&gt; Expression
+-&gt; f Expression
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Expression] [Expression] [Expression] [Expression]
+-&gt; Iso
+     (Maybe [Expression])
+     (Maybe [Expression])
+     (Maybe [Expression])
+     (Maybe [Expression])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Expression] [Expression] [Expression] [Expression]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | Return results that match either @Dimension@ object.</span><span>
 </span><span id="line-127"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#expression_or"><span class="hs-identifier hs-type">expression_or</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -249,16 +265,16 @@ $sel:not:Expression' :: Expression -&gt; Maybe Expression
 -&gt; Lens
      Expression Expression (Maybe [Expression]) (Maybe [Expression])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression%27"><span class="hs-identifier hs-type">Expression'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338357"><span class="annot"><span class="annottext">Maybe [Expression]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression%27"><span class="hs-identifier hs-type">Expression'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338697"><span class="annot"><span class="annottext">Maybe [Expression]
 or :: Maybe [Expression]
 $sel:or:Expression' :: Expression -&gt; Maybe [Expression]
-</span><a href="#local-6989586621679338357"><span class="hs-identifier hs-var hs-var">or</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Expression]
-</span><a href="#local-6989586621679338357"><span class="hs-identifier hs-var">or</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338356"><span class="annot"><span class="annottext">s :: Expression
-</span><a href="#local-6989586621679338356"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression%27"><span class="hs-identifier hs-type">Expression'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338355"><span class="annot"><span class="annottext">Maybe [Expression]
-</span><a href="#local-6989586621679338355"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Expression
-</span><a href="#local-6989586621679338356"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:or:Expression' :: Maybe [Expression]
+</span><a href="#local-6989586621679338697"><span class="hs-identifier hs-var hs-var">or</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Expression]
+</span><a href="#local-6989586621679338697"><span class="hs-identifier hs-var">or</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338696"><span class="annot"><span class="annottext">s :: Expression
+</span><a href="#local-6989586621679338696"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression%27"><span class="hs-identifier hs-type">Expression'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338695"><span class="annot"><span class="annottext">Maybe [Expression]
+</span><a href="#local-6989586621679338695"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Expression
+</span><a href="#local-6989586621679338696"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:or:Expression' :: Maybe [Expression]
 </span><a href="Network.AWS.CostExplorer.Types.Expression.html#%24sel%3Aor%3AExpression%27"><span class="hs-identifier hs-var">or</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Expression]
-</span><a href="#local-6989586621679338355"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Expression] -&gt; f (Maybe [Expression]))
+</span><a href="#local-6989586621679338695"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Expression] -&gt; f (Maybe [Expression]))
  -&gt; Expression -&gt; f Expression)
 -&gt; ((Maybe [Expression] -&gt; f (Maybe [Expression]))
     -&gt; Maybe [Expression] -&gt; f (Maybe [Expression]))
@@ -276,70 +292,35 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Expression] [Expression] [Expression] [Expression]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- | The specific @Tag@ to use for @Expression@.</span><span>
-</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#expression_tags"><span class="hs-identifier hs-type">expression_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.TagValues.html#TagValues"><span class="hs-identifier hs-type">TagValues</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span id="expression_tags"><span class="annot"><span class="annottext">expression_tags :: (Maybe TagValues -&gt; f (Maybe TagValues))
+</span><span id="line-130"></span><span class="hs-comment">-- | The filter that\'s based on @CostCategory@ values.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#expression_costCategories"><span class="hs-identifier hs-type">expression_costCategories</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategoryValues.html#CostCategoryValues"><span class="hs-identifier hs-type">CostCategoryValues</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="expression_costCategories"><span class="annot"><span class="annottext">expression_costCategories :: (Maybe CostCategoryValues -&gt; f (Maybe CostCategoryValues))
 -&gt; Expression -&gt; f Expression
-</span><a href="Network.AWS.CostExplorer.Types.Expression.html#expression_tags"><span class="hs-identifier hs-var hs-var">expression_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Expression -&gt; Maybe TagValues)
--&gt; (Expression -&gt; Maybe TagValues -&gt; Expression)
--&gt; Lens Expression Expression (Maybe TagValues) (Maybe TagValues)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression%27"><span class="hs-identifier hs-type">Expression'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338350"><span class="annot"><span class="annottext">Maybe TagValues
-tags :: Maybe TagValues
-$sel:tags:Expression' :: Expression -&gt; Maybe TagValues
-</span><a href="#local-6989586621679338350"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TagValues
-</span><a href="#local-6989586621679338350"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338349"><span class="annot"><span class="annottext">s :: Expression
-</span><a href="#local-6989586621679338349"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression%27"><span class="hs-identifier hs-type">Expression'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338348"><span class="annot"><span class="annottext">Maybe TagValues
-</span><a href="#local-6989586621679338348"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Expression
-</span><a href="#local-6989586621679338349"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:Expression' :: Maybe TagValues
-</span><a href="Network.AWS.CostExplorer.Types.Expression.html#%24sel%3Atags%3AExpression%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TagValues
-</span><a href="#local-6989586621679338348"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- | Return results that match both @Dimension@ objects.</span><span>
-</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#expression_and"><span class="hs-identifier hs-type">expression_and</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span id="expression_and"><span class="annot"><span class="annottext">expression_and :: (Maybe [Expression] -&gt; f (Maybe [Expression]))
--&gt; Expression -&gt; f Expression
-</span><a href="Network.AWS.CostExplorer.Types.Expression.html#expression_and"><span class="hs-identifier hs-var hs-var">expression_and</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Expression -&gt; Maybe [Expression])
--&gt; (Expression -&gt; Maybe [Expression] -&gt; Expression)
+</span><a href="Network.AWS.CostExplorer.Types.Expression.html#expression_costCategories"><span class="hs-identifier hs-var hs-var">expression_costCategories</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Expression -&gt; Maybe CostCategoryValues)
+-&gt; (Expression -&gt; Maybe CostCategoryValues -&gt; Expression)
 -&gt; Lens
-     Expression Expression (Maybe [Expression]) (Maybe [Expression])
+     Expression
+     Expression
+     (Maybe CostCategoryValues)
+     (Maybe CostCategoryValues)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression%27"><span class="hs-identifier hs-type">Expression'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338346"><span class="annot"><span class="annottext">Maybe [Expression]
-and :: Maybe [Expression]
-$sel:and:Expression' :: Expression -&gt; Maybe [Expression]
-</span><a href="#local-6989586621679338346"><span class="hs-identifier hs-var hs-var">and</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Expression]
-</span><a href="#local-6989586621679338346"><span class="hs-identifier hs-var">and</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338345"><span class="annot"><span class="annottext">s :: Expression
-</span><a href="#local-6989586621679338345"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression%27"><span class="hs-identifier hs-type">Expression'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338344"><span class="annot"><span class="annottext">Maybe [Expression]
-</span><a href="#local-6989586621679338344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Expression
-</span><a href="#local-6989586621679338345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:and:Expression' :: Maybe [Expression]
-</span><a href="Network.AWS.CostExplorer.Types.Expression.html#%24sel%3Aand%3AExpression%27"><span class="hs-identifier hs-var">and</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Expression]
-</span><a href="#local-6989586621679338344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Expression] -&gt; f (Maybe [Expression]))
- -&gt; Expression -&gt; f Expression)
--&gt; ((Maybe [Expression] -&gt; f (Maybe [Expression]))
-    -&gt; Maybe [Expression] -&gt; f (Maybe [Expression]))
--&gt; (Maybe [Expression] -&gt; f (Maybe [Expression]))
--&gt; Expression
--&gt; f Expression
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Expression] [Expression] [Expression] [Expression]
--&gt; Iso
-     (Maybe [Expression])
-     (Maybe [Expression])
-     (Maybe [Expression])
-     (Maybe [Expression])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Expression] [Expression] [Expression] [Expression]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- | The specific @Dimension@ to use for @Expression@.</span><span>
-</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#expression_dimensions"><span class="hs-identifier hs-type">expression_dimensions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.DimensionValues.html#DimensionValues"><span class="hs-identifier hs-type">DimensionValues</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span id="expression_dimensions"><span class="annot"><span class="annottext">expression_dimensions :: (Maybe DimensionValues -&gt; f (Maybe DimensionValues))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression%27"><span class="hs-identifier hs-type">Expression'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338693"><span class="annot"><span class="annottext">Maybe CostCategoryValues
+costCategories :: Maybe CostCategoryValues
+$sel:costCategories:Expression' :: Expression -&gt; Maybe CostCategoryValues
+</span><a href="#local-6989586621679338693"><span class="hs-identifier hs-var hs-var">costCategories</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CostCategoryValues
+</span><a href="#local-6989586621679338693"><span class="hs-identifier hs-var">costCategories</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338692"><span class="annot"><span class="annottext">s :: Expression
+</span><a href="#local-6989586621679338692"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression%27"><span class="hs-identifier hs-type">Expression'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338691"><span class="annot"><span class="annottext">Maybe CostCategoryValues
+</span><a href="#local-6989586621679338691"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Expression
+</span><a href="#local-6989586621679338692"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:costCategories:Expression' :: Maybe CostCategoryValues
+</span><a href="Network.AWS.CostExplorer.Types.Expression.html#%24sel%3AcostCategories%3AExpression%27"><span class="hs-identifier hs-var">costCategories</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CostCategoryValues
+</span><a href="#local-6989586621679338691"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The specific @Dimension@ to use for @Expression@.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#expression_dimensions"><span class="hs-identifier hs-type">expression_dimensions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.DimensionValues.html#DimensionValues"><span class="hs-identifier hs-type">DimensionValues</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="expression_dimensions"><span class="annot"><span class="annottext">expression_dimensions :: (Maybe DimensionValues -&gt; f (Maybe DimensionValues))
 -&gt; Expression -&gt; f Expression
 </span><a href="Network.AWS.CostExplorer.Types.Expression.html#expression_dimensions"><span class="hs-identifier hs-var hs-var">expression_dimensions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Expression -&gt; Maybe DimensionValues)
 -&gt; (Expression -&gt; Maybe DimensionValues -&gt; Expression)
@@ -349,19 +330,38 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe DimensionValues)
      (Maybe DimensionValues)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression%27"><span class="hs-identifier hs-type">Expression'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338342"><span class="annot"><span class="annottext">Maybe DimensionValues
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression%27"><span class="hs-identifier hs-type">Expression'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338689"><span class="annot"><span class="annottext">Maybe DimensionValues
 dimensions :: Maybe DimensionValues
 $sel:dimensions:Expression' :: Expression -&gt; Maybe DimensionValues
-</span><a href="#local-6989586621679338342"><span class="hs-identifier hs-var hs-var">dimensions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DimensionValues
-</span><a href="#local-6989586621679338342"><span class="hs-identifier hs-var">dimensions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338341"><span class="annot"><span class="annottext">s :: Expression
-</span><a href="#local-6989586621679338341"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression%27"><span class="hs-identifier hs-type">Expression'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338340"><span class="annot"><span class="annottext">Maybe DimensionValues
-</span><a href="#local-6989586621679338340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Expression
-</span><a href="#local-6989586621679338341"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dimensions:Expression' :: Maybe DimensionValues
+</span><a href="#local-6989586621679338689"><span class="hs-identifier hs-var hs-var">dimensions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DimensionValues
+</span><a href="#local-6989586621679338689"><span class="hs-identifier hs-var">dimensions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338688"><span class="annot"><span class="annottext">s :: Expression
+</span><a href="#local-6989586621679338688"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression%27"><span class="hs-identifier hs-type">Expression'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338687"><span class="annot"><span class="annottext">Maybe DimensionValues
+</span><a href="#local-6989586621679338687"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Expression
+</span><a href="#local-6989586621679338688"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dimensions:Expression' :: Maybe DimensionValues
 </span><a href="Network.AWS.CostExplorer.Types.Expression.html#%24sel%3Adimensions%3AExpression%27"><span class="hs-identifier hs-var">dimensions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DimensionValues
-</span><a href="#local-6989586621679338340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679338687"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The specific @Tag@ to use for @Expression@.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#expression_tags"><span class="hs-identifier hs-type">expression_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.TagValues.html#TagValues"><span class="hs-identifier hs-type">TagValues</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="expression_tags"><span class="annot"><span class="annottext">expression_tags :: (Maybe TagValues -&gt; f (Maybe TagValues))
+-&gt; Expression -&gt; f Expression
+</span><a href="Network.AWS.CostExplorer.Types.Expression.html#expression_tags"><span class="hs-identifier hs-var hs-var">expression_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Expression -&gt; Maybe TagValues)
+-&gt; (Expression -&gt; Maybe TagValues -&gt; Expression)
+-&gt; Lens Expression Expression (Maybe TagValues) (Maybe TagValues)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression%27"><span class="hs-identifier hs-type">Expression'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338685"><span class="annot"><span class="annottext">Maybe TagValues
+tags :: Maybe TagValues
+$sel:tags:Expression' :: Expression -&gt; Maybe TagValues
+</span><a href="#local-6989586621679338685"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TagValues
+</span><a href="#local-6989586621679338685"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338684"><span class="annot"><span class="annottext">s :: Expression
+</span><a href="#local-6989586621679338684"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression%27"><span class="hs-identifier hs-type">Expression'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338683"><span class="annot"><span class="annottext">Maybe TagValues
+</span><a href="#local-6989586621679338683"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Expression
+</span><a href="#local-6989586621679338684"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:Expression' :: Maybe TagValues
+</span><a href="Network.AWS.CostExplorer.Types.Expression.html#%24sel%3Atags%3AExpression%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TagValues
+</span><a href="#local-6989586621679338683"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338337"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679338335"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Expression
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338680"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679338678"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Expression
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser Expression) -&gt; Value -&gt; Parser Expression
@@ -369,70 +369,75 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Expression&quot;</span></span><span>
-</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679338332"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679338332"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">Maybe CostCategoryValues
--&gt; Maybe Expression
+</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679338675"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679338675"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">Maybe Expression
 -&gt; Maybe [Expression]
--&gt; Maybe TagValues
 -&gt; Maybe [Expression]
+-&gt; Maybe CostCategoryValues
 -&gt; Maybe DimensionValues
+-&gt; Maybe TagValues
 -&gt; Expression
 </span><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression%27"><span class="hs-identifier hs-var">Expression'</span></a></span><span>
-</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">(Maybe CostCategoryValues
- -&gt; Maybe Expression
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Expression
  -&gt; Maybe [Expression]
- -&gt; Maybe TagValues
  -&gt; Maybe [Expression]
+ -&gt; Maybe CostCategoryValues
  -&gt; Maybe DimensionValues
+ -&gt; Maybe TagValues
  -&gt; Expression)
--&gt; Parser (Maybe CostCategoryValues)
--&gt; Parser
-     (Maybe Expression
-      -&gt; Maybe [Expression]
-      -&gt; Maybe TagValues
-      -&gt; Maybe [Expression]
-      -&gt; Maybe DimensionValues
-      -&gt; Expression)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679338332"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CostCategoryValues)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CostCategories&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Expression
-   -&gt; Maybe [Expression]
-   -&gt; Maybe TagValues
-   -&gt; Maybe [Expression]
-   -&gt; Maybe DimensionValues
-   -&gt; Expression)
 -&gt; Parser (Maybe Expression)
 -&gt; Parser
      (Maybe [Expression]
-      -&gt; Maybe TagValues
       -&gt; Maybe [Expression]
+      -&gt; Maybe CostCategoryValues
       -&gt; Maybe DimensionValues
+      -&gt; Maybe TagValues
       -&gt; Expression)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679338332"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Expression)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679338675"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Expression)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Not&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe [Expression]
-   -&gt; Maybe TagValues
    -&gt; Maybe [Expression]
+   -&gt; Maybe CostCategoryValues
    -&gt; Maybe DimensionValues
+   -&gt; Maybe TagValues
    -&gt; Expression)
 -&gt; Parser (Maybe [Expression])
 -&gt; Parser
-     (Maybe TagValues
-      -&gt; Maybe [Expression] -&gt; Maybe DimensionValues -&gt; Expression)
+     (Maybe [Expression]
+      -&gt; Maybe CostCategoryValues
+      -&gt; Maybe DimensionValues
+      -&gt; Maybe TagValues
+      -&gt; Expression)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679338332"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Expression]))
+</span><a href="#local-6989586621679338675"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Expression]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;And&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Expression]))
+-&gt; Maybe [Expression] -&gt; Parser (Maybe [Expression])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Expression]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Expression]
+   -&gt; Maybe CostCategoryValues
+   -&gt; Maybe DimensionValues
+   -&gt; Maybe TagValues
+   -&gt; Expression)
+-&gt; Parser (Maybe [Expression])
+-&gt; Parser
+     (Maybe CostCategoryValues
+      -&gt; Maybe DimensionValues -&gt; Maybe TagValues -&gt; Expression)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679338675"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Expression]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Or&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Expression]))
@@ -442,114 +447,108 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe TagValues
-   -&gt; Maybe [Expression] -&gt; Maybe DimensionValues -&gt; Expression)
--&gt; Parser (Maybe TagValues)
--&gt; Parser
-     (Maybe [Expression] -&gt; Maybe DimensionValues -&gt; Expression)
+  (Maybe CostCategoryValues
+   -&gt; Maybe DimensionValues -&gt; Maybe TagValues -&gt; Expression)
+-&gt; Parser (Maybe CostCategoryValues)
+-&gt; Parser (Maybe DimensionValues -&gt; Maybe TagValues -&gt; Expression)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679338332"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TagValues)
+</span><a href="#local-6989586621679338675"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CostCategoryValues)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Tags&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Expression] -&gt; Maybe DimensionValues -&gt; Expression)
--&gt; Parser (Maybe [Expression])
--&gt; Parser (Maybe DimensionValues -&gt; Expression)
+</span><span class="hs-string">&quot;CostCategories&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe DimensionValues -&gt; Maybe TagValues -&gt; Expression)
+-&gt; Parser (Maybe DimensionValues)
+-&gt; Parser (Maybe TagValues -&gt; Expression)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679338332"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Expression]))
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;And&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Expression]))
--&gt; Maybe [Expression] -&gt; Parser (Maybe [Expression])
-forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
-</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Expression]
-forall a. Monoid a =&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe DimensionValues -&gt; Expression)
--&gt; Parser (Maybe DimensionValues) -&gt; Parser Expression
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679338332"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DimensionValues)
+</span><a href="#local-6989586621679338675"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DimensionValues)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Dimensions&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe TagValues -&gt; Expression)
+-&gt; Parser (Maybe TagValues) -&gt; Parser Expression
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679338675"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TagValues)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338325"><span id="local-6989586621679338327"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span></span></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338668"><span id="local-6989586621679338670"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span></span></span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338322"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338665"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span></span><span>
 </span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338314"><span id="local-6989586621679338316"><span id="local-6989586621679338318"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621679338312"><span class="annot"><span class="annottext">toJSON :: Expression -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression%27"><span class="hs-identifier hs-type">Expression'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338305"><span id="local-6989586621679338306"><span id="local-6989586621679338307"><span id="local-6989586621679338308"><span id="local-6989586621679338309"><span id="local-6989586621679338310"><span class="annot"><span class="annottext">Maybe [Expression]
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338657"><span id="local-6989586621679338659"><span id="local-6989586621679338661"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression"><span class="hs-identifier hs-type">Expression</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679338655"><span class="annot"><span class="annottext">toJSON :: Expression -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Expression.html#Expression%27"><span class="hs-identifier hs-type">Expression'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338648"><span id="local-6989586621679338649"><span id="local-6989586621679338650"><span id="local-6989586621679338651"><span id="local-6989586621679338652"><span id="local-6989586621679338653"><span class="annot"><span class="annottext">Maybe [Expression]
 Maybe DimensionValues
 Maybe CostCategoryValues
 Maybe TagValues
 Maybe Expression
-dimensions :: Maybe DimensionValues
-and :: Maybe [Expression]
 tags :: Maybe TagValues
-or :: Maybe [Expression]
-not :: Maybe Expression
+dimensions :: Maybe DimensionValues
 costCategories :: Maybe CostCategoryValues
-$sel:dimensions:Expression' :: Expression -&gt; Maybe DimensionValues
-$sel:and:Expression' :: Expression -&gt; Maybe [Expression]
+or :: Maybe [Expression]
+and :: Maybe [Expression]
+not :: Maybe Expression
 $sel:tags:Expression' :: Expression -&gt; Maybe TagValues
-$sel:or:Expression' :: Expression -&gt; Maybe [Expression]
-$sel:not:Expression' :: Expression -&gt; Maybe Expression
+$sel:dimensions:Expression' :: Expression -&gt; Maybe DimensionValues
 $sel:costCategories:Expression' :: Expression -&gt; Maybe CostCategoryValues
-</span><a href="#local-6989586621679338305"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:or:Expression' :: Expression -&gt; Maybe [Expression]
+$sel:and:Expression' :: Expression -&gt; Maybe [Expression]
+$sel:not:Expression' :: Expression -&gt; Maybe Expression
+</span><a href="#local-6989586621679338648"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-163"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-164"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CostCategories&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CostCategoryValues -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-165"></span><span>              </span><span class="annot"><span class="annottext">(CostCategoryValues -&gt; Pair)
--&gt; Maybe CostCategoryValues -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CostCategoryValues
-</span><a href="#local-6989586621679338310"><span class="hs-identifier hs-var">costCategories</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-166"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Not&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Expression -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Expression -&gt; Pair) -&gt; Maybe Expression -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Expression
-</span><a href="#local-6989586621679338309"><span class="hs-identifier hs-var">not</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-167"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Or&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Expression] -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Expression] -&gt; Pair) -&gt; Maybe [Expression] -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Expression]
-</span><a href="#local-6989586621679338308"><span class="hs-identifier hs-var">or</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-168"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TagValues -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(TagValues -&gt; Pair) -&gt; Maybe TagValues -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TagValues
-</span><a href="#local-6989586621679338307"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-169"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679338653"><span class="hs-identifier hs-var">not</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;And&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Expression] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Expression] -&gt; Pair) -&gt; Maybe [Expression] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Expression]
-</span><a href="#local-6989586621679338306"><span class="hs-identifier hs-var">and</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-170"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679338652"><span class="hs-identifier hs-var">and</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Or&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Expression] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Expression] -&gt; Pair) -&gt; Maybe [Expression] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Expression]
+</span><a href="#local-6989586621679338651"><span class="hs-identifier hs-var">or</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CostCategories&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CostCategoryValues -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>              </span><span class="annot"><span class="annottext">(CostCategoryValues -&gt; Pair)
+-&gt; Maybe CostCategoryValues -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CostCategoryValues
+</span><a href="#local-6989586621679338650"><span class="hs-identifier hs-var">costCategories</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Dimensions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DimensionValues -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(DimensionValues -&gt; Pair) -&gt; Maybe DimensionValues -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DimensionValues
-</span><a href="#local-6989586621679338305"><span class="hs-identifier hs-var">dimensions</span></a></span><span>
+</span><a href="#local-6989586621679338649"><span class="hs-identifier hs-var">dimensions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TagValues -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(TagValues -&gt; Pair) -&gt; Maybe TagValues -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TagValues
+</span><a href="#local-6989586621679338648"><span class="hs-identifier hs-var">tags</span></a></span><span>
 </span><span id="line-171"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-172"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span></pre></body></html>

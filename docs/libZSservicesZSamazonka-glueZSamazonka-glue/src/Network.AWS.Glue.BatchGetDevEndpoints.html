@@ -38,8 +38,8 @@
 </span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#newBatchGetDevEndpointsResponse"><span class="hs-identifier">newBatchGetDevEndpointsResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>
 </span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#batchGetDevEndpointsResponse_devEndpoints"><span class="hs-identifier">batchGetDevEndpointsResponse_devEndpoints</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#batchGetDevEndpointsResponse_devEndpointsNotFound"><span class="hs-identifier">batchGetDevEndpointsResponse_devEndpointsNotFound</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#batchGetDevEndpointsResponse_devEndpointsNotFound"><span class="hs-identifier">batchGetDevEndpointsResponse_devEndpointsNotFound</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#batchGetDevEndpointsResponse_devEndpoints"><span class="hs-identifier">batchGetDevEndpointsResponse_devEndpoints</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#batchGetDevEndpointsResponse_httpStatus"><span class="hs-identifier">batchGetDevEndpointsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span class="hs-keyword">where</span><span>
@@ -52,13 +52,13 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newBatchGetDevEndpoints' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679742587"><span id="local-6989586621679742588"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetDevEndpoints"><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpoints"><span class="hs-identifier hs-var">BatchGetDevEndpoints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetDevEndpoints%27"><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpoints%27"><span class="hs-identifier hs-var">BatchGetDevEndpoints'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679744423"><span id="local-6989586621679744424"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetDevEndpoints"><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpoints"><span class="hs-identifier hs-var">BatchGetDevEndpoints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetDevEndpoints%27"><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpoints%27"><span class="hs-identifier hs-var">BatchGetDevEndpoints'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of @DevEndpoint@ names, which might be the names returned from</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- the @ListDevEndpoint@ operation.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AdevEndpointNames%3ABatchGetDevEndpoints%27"><span class="annot"><span class="annottext">BatchGetDevEndpoints -&gt; NonEmpty Text
 </span><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#%24sel%3AdevEndpointNames%3ABatchGetDevEndpoints%27"><span class="hs-identifier hs-var hs-var">devEndpointNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679742581"><span id="local-6989586621679742583"><span class="annot"><span class="annottext">BatchGetDevEndpoints -&gt; BatchGetDevEndpoints -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679744417"><span id="local-6989586621679744419"><span class="annot"><span class="annottext">BatchGetDevEndpoints -&gt; BatchGetDevEndpoints -&gt; Bool
 (BatchGetDevEndpoints -&gt; BatchGetDevEndpoints -&gt; Bool)
 -&gt; (BatchGetDevEndpoints -&gt; BatchGetDevEndpoints -&gt; Bool)
 -&gt; Eq BatchGetDevEndpoints
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BatchGetDevEndpoints -&gt; BatchGetDevEndpoints -&gt; Bool
 == :: BatchGetDevEndpoints -&gt; BatchGetDevEndpoints -&gt; Bool
 $c== :: BatchGetDevEndpoints -&gt; BatchGetDevEndpoints -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679742572"><span id="local-6989586621679742574"><span id="local-6989586621679742576"><span id="local-6989586621679742578"><span class="annot"><span class="annottext">ReadPrec [BatchGetDevEndpoints]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679744408"><span id="local-6989586621679744410"><span id="local-6989586621679744412"><span id="local-6989586621679744414"><span class="annot"><span class="annottext">ReadPrec [BatchGetDevEndpoints]
 ReadPrec BatchGetDevEndpoints
 Int -&gt; ReadS BatchGetDevEndpoints
 ReadS [BatchGetDevEndpoints]
@@ -87,7 +87,7 @@ readList :: ReadS [BatchGetDevEndpoints]
 $creadList :: ReadS [BatchGetDevEndpoints]
 readsPrec :: Int -&gt; ReadS BatchGetDevEndpoints
 $creadsPrec :: Int -&gt; ReadS BatchGetDevEndpoints
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679742565"><span id="local-6989586621679742567"><span id="local-6989586621679742569"><span class="annot"><span class="annottext">Int -&gt; BatchGetDevEndpoints -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679744401"><span id="local-6989586621679744403"><span id="local-6989586621679744405"><span class="annot"><span class="annottext">Int -&gt; BatchGetDevEndpoints -&gt; ShowS
 [BatchGetDevEndpoints] -&gt; ShowS
 BatchGetDevEndpoints -&gt; String
 (Int -&gt; BatchGetDevEndpoints -&gt; ShowS)
@@ -128,21 +128,21 @@ $cfrom :: forall x. BatchGetDevEndpoints -&gt; Rep BatchGetDevEndpoints x
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpoints"><span class="hs-identifier hs-type">BatchGetDevEndpoints</span></a></span><span>
 </span><span id="line-76"></span><span id="newBatchGetDevEndpoints"><span class="annot"><span class="annottext">newBatchGetDevEndpoints :: NonEmpty Text -&gt; BatchGetDevEndpoints
-</span><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#newBatchGetDevEndpoints"><span class="hs-identifier hs-var hs-var">newBatchGetDevEndpoints</span></a></span></span><span> </span><span id="local-6989586621679742560"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679742560"><span class="hs-identifier hs-var">pDevEndpointNames_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#newBatchGetDevEndpoints"><span class="hs-identifier hs-var hs-var">newBatchGetDevEndpoints</span></a></span></span><span> </span><span id="local-6989586621679744396"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679744396"><span class="hs-identifier hs-var">pDevEndpointNames_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">BatchGetDevEndpoints' :: NonEmpty Text -&gt; BatchGetDevEndpoints
 </span><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpoints%27"><span class="hs-identifier hs-type">BatchGetDevEndpoints'</span></a></span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:devEndpointNames:BatchGetDevEndpoints' :: NonEmpty Text
 </span><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#%24sel%3AdevEndpointNames%3ABatchGetDevEndpoints%27"><span class="hs-identifier hs-var">devEndpointNames</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>        </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
 -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
  -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text)))
 -&gt; NonEmpty Text -&gt; NonEmpty Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679742560"><span class="hs-identifier hs-var">pDevEndpointNames_</span></a></span><span>
+</span><a href="#local-6989586621679744396"><span class="hs-identifier hs-var">pDevEndpointNames_</span></a></span><span>
 </span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | The list of @DevEndpoint@ names, which might be the names returned from</span><span>
@@ -158,16 +158,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (NonEmpty Text)
      (NonEmpty Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpoints%27"><span class="hs-identifier hs-type">BatchGetDevEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679742555"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpoints%27"><span class="hs-identifier hs-type">BatchGetDevEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679744391"><span class="annot"><span class="annottext">NonEmpty Text
 devEndpointNames :: NonEmpty Text
 $sel:devEndpointNames:BatchGetDevEndpoints' :: BatchGetDevEndpoints -&gt; NonEmpty Text
-</span><a href="#local-6989586621679742555"><span class="hs-identifier hs-var hs-var">devEndpointNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679742555"><span class="hs-identifier hs-var">devEndpointNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679742554"><span class="annot"><span class="annottext">s :: BatchGetDevEndpoints
-</span><a href="#local-6989586621679742554"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpoints%27"><span class="hs-identifier hs-type">BatchGetDevEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679742553"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679742553"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetDevEndpoints
-</span><a href="#local-6989586621679742554"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:devEndpointNames:BatchGetDevEndpoints' :: NonEmpty Text
+</span><a href="#local-6989586621679744391"><span class="hs-identifier hs-var hs-var">devEndpointNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679744391"><span class="hs-identifier hs-var">devEndpointNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679744390"><span class="annot"><span class="annottext">s :: BatchGetDevEndpoints
+</span><a href="#local-6989586621679744390"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpoints%27"><span class="hs-identifier hs-type">BatchGetDevEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679744389"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679744389"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetDevEndpoints
+</span><a href="#local-6989586621679744390"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:devEndpointNames:BatchGetDevEndpoints' :: NonEmpty Text
 </span><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#%24sel%3AdevEndpointNames%3ABatchGetDevEndpoints%27"><span class="hs-identifier hs-var">devEndpointNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679742553"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpoints"><span class="hs-identifier hs-type">BatchGetDevEndpoints</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+</span><a href="#local-6989586621679744389"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpoints"><span class="hs-identifier hs-type">BatchGetDevEndpoints</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
  -&gt; BatchGetDevEndpoints -&gt; f BatchGetDevEndpoints)
 -&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
     -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
@@ -177,19 +177,19 @@ $sel:devEndpointNames:BatchGetDevEndpoints' :: BatchGetDevEndpoints -&gt; NonEmp
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; f (NonEmpty Text))
 -&gt; NonEmpty Text -&gt; f (NonEmpty Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpoints"><span class="hs-identifier hs-type">BatchGetDevEndpoints</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-88"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-89"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpoints"><span class="hs-identifier hs-type">BatchGetDevEndpoints</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>      </span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpointsResponse"><span class="hs-identifier hs-type">BatchGetDevEndpointsResponse</span></a></span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679742548"><span class="annot"><span class="annottext">request :: BatchGetDevEndpoints -&gt; Request BatchGetDevEndpoints
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679744384"><span class="annot"><span class="annottext">request :: BatchGetDevEndpoints -&gt; Request BatchGetDevEndpoints
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; BatchGetDevEndpoints -&gt; Request BatchGetDevEndpoints
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679742544"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679744380"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy BatchGetDevEndpoints
 -&gt; ClientResponse ClientBody
@@ -215,22 +215,31 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679742541"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679742541"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679742540"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679742540"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679742539"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679742539"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Maybe [DevEndpoint]
--&gt; Maybe (NonEmpty Text) -&gt; Int -&gt; BatchGetDevEndpointsResponse
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679744377"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679744377"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679744376"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679744376"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679744375"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679744375"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+-&gt; Maybe [DevEndpoint] -&gt; Int -&gt; BatchGetDevEndpointsResponse
 </span><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpointsResponse%27"><span class="hs-identifier hs-var">BatchGetDevEndpointsResponse'</span></a></span><span>
-</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [DevEndpoint]
- -&gt; Maybe (NonEmpty Text) -&gt; Int -&gt; BatchGetDevEndpointsResponse)
--&gt; Either String (Maybe [DevEndpoint])
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (NonEmpty Text)
+ -&gt; Maybe [DevEndpoint] -&gt; Int -&gt; BatchGetDevEndpointsResponse)
+-&gt; Either String (Maybe (NonEmpty Text))
 -&gt; Either
-     String
-     (Maybe (NonEmpty Text) -&gt; Int -&gt; BatchGetDevEndpointsResponse)
+     String (Maybe [DevEndpoint] -&gt; Int -&gt; BatchGetDevEndpointsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679742539"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [DevEndpoint]))
+</span><a href="#local-6989586621679744375"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (NonEmpty Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DevEndpointsNotFound&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [DevEndpoint] -&gt; Int -&gt; BatchGetDevEndpointsResponse)
+-&gt; Either String (Maybe [DevEndpoint])
+-&gt; Either String (Int -&gt; BatchGetDevEndpointsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679744375"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [DevEndpoint]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DevEndpoints&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [DevEndpoint]))
@@ -239,17 +248,6 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [DevEndpoint]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe (NonEmpty Text) -&gt; Int -&gt; BatchGetDevEndpointsResponse)
--&gt; Either String (Maybe (NonEmpty Text))
--&gt; Either String (Int -&gt; BatchGetDevEndpointsResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679742539"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (NonEmpty Text))
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DevEndpointsNotFound&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; BatchGetDevEndpointsResponse)
 -&gt; Either String Int -&gt; Either String BatchGetDevEndpointsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -258,15 +256,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679742541"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679744377"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679742530"><span id="local-6989586621679742532"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpoints"><span class="hs-identifier hs-type">BatchGetDevEndpoints</span></a></span></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679744366"><span id="local-6989586621679744368"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpoints"><span class="hs-identifier hs-type">BatchGetDevEndpoints</span></a></span></span></span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679742527"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpoints"><span class="hs-identifier hs-type">BatchGetDevEndpoints</span></a></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679744363"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpoints"><span class="hs-identifier hs-type">BatchGetDevEndpoints</span></a></span></span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpoints"><span class="hs-identifier hs-type">BatchGetDevEndpoints</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679742523"><span class="annot"><span class="annottext">toHeaders :: BatchGetDevEndpoints -&gt; ResponseHeaders
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679744359"><span class="annot"><span class="annottext">toHeaders :: BatchGetDevEndpoints -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; BatchGetDevEndpoints -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -293,12 +291,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679742513"><span id="local-6989586621679742515"><span id="local-6989586621679742517"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpoints"><span class="hs-identifier hs-type">BatchGetDevEndpoints</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679742511"><span class="annot"><span class="annottext">toJSON :: BatchGetDevEndpoints -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpoints%27"><span class="hs-identifier hs-type">BatchGetDevEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679742509"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679744349"><span id="local-6989586621679744351"><span id="local-6989586621679744353"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpoints"><span class="hs-identifier hs-type">BatchGetDevEndpoints</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679744347"><span class="annot"><span class="annottext">toJSON :: BatchGetDevEndpoints -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpoints%27"><span class="hs-identifier hs-type">BatchGetDevEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679744345"><span class="annot"><span class="annottext">NonEmpty Text
 devEndpointNames :: NonEmpty Text
 $sel:devEndpointNames:BatchGetDevEndpoints' :: BatchGetDevEndpoints -&gt; NonEmpty Text
-</span><a href="#local-6989586621679742509"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679744345"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -311,19 +309,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;DevEndpointNames&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679742509"><span class="hs-identifier hs-var">devEndpointNames</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679744345"><span class="hs-identifier hs-var">devEndpointNames</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpoints"><span class="hs-identifier hs-type">BatchGetDevEndpoints</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679742503"><span class="annot"><span class="annottext">toPath :: BatchGetDevEndpoints -&gt; ByteString
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679744339"><span class="annot"><span class="annottext">toPath :: BatchGetDevEndpoints -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; BatchGetDevEndpoints -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpoints"><span class="hs-identifier hs-type">BatchGetDevEndpoints</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679742499"><span class="annot"><span class="annottext">toQuery :: BatchGetDevEndpoints -&gt; QueryString
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679744335"><span class="annot"><span class="annottext">toQuery :: BatchGetDevEndpoints -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; BatchGetDevEndpoints -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -331,18 +329,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | /See:/ 'newBatchGetDevEndpointsResponse' smart constructor.</span><span>
-</span><span id="line-136"></span><span id="local-6989586621679742496"><span id="local-6989586621679742497"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetDevEndpointsResponse"><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpointsResponse"><span class="hs-identifier hs-var">BatchGetDevEndpointsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetDevEndpointsResponse%27"><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpointsResponse%27"><span class="hs-identifier hs-var">BatchGetDevEndpointsResponse'</span></a></span></span><span>
-</span><span id="line-137"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of @DevEndpoint@ definitions.</span><span>
-</span><span id="line-138"></span><span>    </span><span id="%24sel%3AdevEndpoints%3ABatchGetDevEndpointsResponse%27"><span class="annot"><span class="annottext">BatchGetDevEndpointsResponse -&gt; Maybe [DevEndpoint]
-</span><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#%24sel%3AdevEndpoints%3ABatchGetDevEndpointsResponse%27"><span class="hs-identifier hs-var hs-var">devEndpoints</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.DevEndpoint.html#DevEndpoint"><span class="hs-identifier hs-type">DevEndpoint</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- | A list of @DevEndpoints@ not found.</span><span>
-</span><span id="line-140"></span><span>    </span><span id="%24sel%3AdevEndpointsNotFound%3ABatchGetDevEndpointsResponse%27"><span class="annot"><span class="annottext">BatchGetDevEndpointsResponse -&gt; Maybe (NonEmpty Text)
+</span><span id="line-136"></span><span id="local-6989586621679744332"><span id="local-6989586621679744333"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetDevEndpointsResponse"><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpointsResponse"><span class="hs-identifier hs-var">BatchGetDevEndpointsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetDevEndpointsResponse%27"><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpointsResponse%27"><span class="hs-identifier hs-var">BatchGetDevEndpointsResponse'</span></a></span></span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of @DevEndpoints@ not found.</span><span>
+</span><span id="line-138"></span><span>    </span><span id="%24sel%3AdevEndpointsNotFound%3ABatchGetDevEndpointsResponse%27"><span class="annot"><span class="annottext">BatchGetDevEndpointsResponse -&gt; Maybe (NonEmpty Text)
 </span><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#%24sel%3AdevEndpointsNotFound%3ABatchGetDevEndpointsResponse%27"><span class="hs-identifier hs-var hs-var">devEndpointsNotFound</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- | A list of @DevEndpoint@ definitions.</span><span>
+</span><span id="line-140"></span><span>    </span><span id="%24sel%3AdevEndpoints%3ABatchGetDevEndpointsResponse%27"><span class="annot"><span class="annottext">BatchGetDevEndpointsResponse -&gt; Maybe [DevEndpoint]
+</span><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#%24sel%3AdevEndpoints%3ABatchGetDevEndpointsResponse%27"><span class="hs-identifier hs-var hs-var">devEndpoints</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.DevEndpoint.html#DevEndpoint"><span class="hs-identifier hs-type">DevEndpoint</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-141"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-142"></span><span>    </span><span id="%24sel%3AhttpStatus%3ABatchGetDevEndpointsResponse%27"><span class="annot"><span class="annottext">BatchGetDevEndpointsResponse -&gt; Int
 </span><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#%24sel%3AhttpStatus%3ABatchGetDevEndpointsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-143"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679742489"><span id="local-6989586621679742491"><span class="annot"><span class="annottext">BatchGetDevEndpointsResponse
+</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679744325"><span id="local-6989586621679744327"><span class="annot"><span class="annottext">BatchGetDevEndpointsResponse
 -&gt; BatchGetDevEndpointsResponse -&gt; Bool
 (BatchGetDevEndpointsResponse
  -&gt; BatchGetDevEndpointsResponse -&gt; Bool)
@@ -358,7 +356,7 @@ $c/= :: BatchGetDevEndpointsResponse
 -&gt; BatchGetDevEndpointsResponse -&gt; Bool
 $c== :: BatchGetDevEndpointsResponse
 -&gt; BatchGetDevEndpointsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679742481"><span id="local-6989586621679742483"><span id="local-6989586621679742485"><span id="local-6989586621679742487"><span class="annot"><span class="annottext">ReadPrec [BatchGetDevEndpointsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679744317"><span id="local-6989586621679744319"><span id="local-6989586621679744321"><span id="local-6989586621679744323"><span class="annot"><span class="annottext">ReadPrec [BatchGetDevEndpointsResponse]
 ReadPrec BatchGetDevEndpointsResponse
 Int -&gt; ReadS BatchGetDevEndpointsResponse
 ReadS [BatchGetDevEndpointsResponse]
@@ -378,7 +376,7 @@ readList :: ReadS [BatchGetDevEndpointsResponse]
 $creadList :: ReadS [BatchGetDevEndpointsResponse]
 readsPrec :: Int -&gt; ReadS BatchGetDevEndpointsResponse
 $creadsPrec :: Int -&gt; ReadS BatchGetDevEndpointsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679742475"><span id="local-6989586621679742477"><span id="local-6989586621679742479"><span class="annot"><span class="annottext">Int -&gt; BatchGetDevEndpointsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679744311"><span id="local-6989586621679744313"><span id="local-6989586621679744315"><span class="annot"><span class="annottext">Int -&gt; BatchGetDevEndpointsResponse -&gt; ShowS
 [BatchGetDevEndpointsResponse] -&gt; ShowS
 BatchGetDevEndpointsResponse -&gt; String
 (Int -&gt; BatchGetDevEndpointsResponse -&gt; ShowS)
@@ -418,9 +416,9 @@ BatchGetDevEndpointsResponse -&gt; Rep BatchGetDevEndpointsResponse x
 </span><span id="line-151"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-153"></span><span class="hs-comment">--</span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- 'devEndpoints', 'batchGetDevEndpointsResponse_devEndpoints' - A list of @DevEndpoint@ definitions.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- 'devEndpointsNotFound', 'batchGetDevEndpointsResponse_devEndpointsNotFound' - A list of @DevEndpoints@ not found.</span><span>
 </span><span id="line-155"></span><span class="hs-comment">--</span><span>
-</span><span id="line-156"></span><span class="hs-comment">-- 'devEndpointsNotFound', 'batchGetDevEndpointsResponse_devEndpointsNotFound' - A list of @DevEndpoints@ not found.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'devEndpoints', 'batchGetDevEndpointsResponse_devEndpoints' - A list of @DevEndpoint@ definitions.</span><span>
 </span><span id="line-157"></span><span class="hs-comment">--</span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- 'httpStatus', 'batchGetDevEndpointsResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-159"></span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#newBatchGetDevEndpointsResponse"><span class="hs-identifier hs-type">newBatchGetDevEndpointsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -428,71 +426,28 @@ BatchGetDevEndpointsResponse -&gt; Rep BatchGetDevEndpointsResponse x
 </span><span id="line-161"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-162"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpointsResponse"><span class="hs-identifier hs-type">BatchGetDevEndpointsResponse</span></a></span><span>
 </span><span id="line-163"></span><span id="newBatchGetDevEndpointsResponse"><span class="annot"><span class="annottext">newBatchGetDevEndpointsResponse :: Int -&gt; BatchGetDevEndpointsResponse
-</span><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#newBatchGetDevEndpointsResponse"><span class="hs-identifier hs-var hs-var">newBatchGetDevEndpointsResponse</span></a></span></span><span> </span><span id="local-6989586621679742472"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679742472"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-164"></span><span>  </span><span class="annot"><span class="annottext">BatchGetDevEndpointsResponse' :: Maybe [DevEndpoint]
--&gt; Maybe (NonEmpty Text) -&gt; Int -&gt; BatchGetDevEndpointsResponse
+</span><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#newBatchGetDevEndpointsResponse"><span class="hs-identifier hs-var hs-var">newBatchGetDevEndpointsResponse</span></a></span></span><span> </span><span id="local-6989586621679744308"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679744308"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>  </span><span class="annot"><span class="annottext">BatchGetDevEndpointsResponse' :: Maybe (NonEmpty Text)
+-&gt; Maybe [DevEndpoint] -&gt; Int -&gt; BatchGetDevEndpointsResponse
 </span><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpointsResponse%27"><span class="hs-identifier hs-type">BatchGetDevEndpointsResponse'</span></a></span><span>
-</span><span id="line-165"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:devEndpoints:BatchGetDevEndpointsResponse' :: Maybe [DevEndpoint]
-</span><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#%24sel%3AdevEndpoints%3ABatchGetDevEndpointsResponse%27"><span class="hs-identifier hs-var">devEndpoints</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">Maybe [DevEndpoint]
+</span><span id="line-165"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:devEndpointsNotFound:BatchGetDevEndpointsResponse' :: Maybe (NonEmpty Text)
+</span><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#%24sel%3AdevEndpointsNotFound%3ABatchGetDevEndpointsResponse%27"><span class="hs-identifier hs-var">devEndpointsNotFound</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:devEndpointsNotFound:BatchGetDevEndpointsResponse' :: Maybe (NonEmpty Text)
-</span><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#%24sel%3AdevEndpointsNotFound%3ABatchGetDevEndpointsResponse%27"><span class="hs-identifier hs-var">devEndpointsNotFound</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:devEndpoints:BatchGetDevEndpointsResponse' :: Maybe [DevEndpoint]
+</span><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#%24sel%3AdevEndpoints%3ABatchGetDevEndpointsResponse%27"><span class="hs-identifier hs-var">devEndpoints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DevEndpoint]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:BatchGetDevEndpointsResponse' :: Int
 </span><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#%24sel%3AhttpStatus%3ABatchGetDevEndpointsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679742472"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679744308"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-169"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-comment">-- | A list of @DevEndpoint@ definitions.</span><span>
-</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#batchGetDevEndpointsResponse_devEndpoints"><span class="hs-identifier hs-type">batchGetDevEndpointsResponse_devEndpoints</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpointsResponse"><span class="hs-identifier hs-type">BatchGetDevEndpointsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.DevEndpoint.html#DevEndpoint"><span class="hs-identifier hs-type">DevEndpoint</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-173"></span><span id="batchGetDevEndpointsResponse_devEndpoints"><span class="annot"><span class="annottext">batchGetDevEndpointsResponse_devEndpoints :: (Maybe [DevEndpoint] -&gt; f (Maybe [DevEndpoint]))
--&gt; BatchGetDevEndpointsResponse -&gt; f BatchGetDevEndpointsResponse
-</span><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#batchGetDevEndpointsResponse_devEndpoints"><span class="hs-identifier hs-var hs-var">batchGetDevEndpointsResponse_devEndpoints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetDevEndpointsResponse -&gt; Maybe [DevEndpoint])
--&gt; (BatchGetDevEndpointsResponse
-    -&gt; Maybe [DevEndpoint] -&gt; BatchGetDevEndpointsResponse)
--&gt; Lens
-     BatchGetDevEndpointsResponse
-     BatchGetDevEndpointsResponse
-     (Maybe [DevEndpoint])
-     (Maybe [DevEndpoint])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpointsResponse%27"><span class="hs-identifier hs-type">BatchGetDevEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679742471"><span class="annot"><span class="annottext">Maybe [DevEndpoint]
-devEndpoints :: Maybe [DevEndpoint]
-$sel:devEndpoints:BatchGetDevEndpointsResponse' :: BatchGetDevEndpointsResponse -&gt; Maybe [DevEndpoint]
-</span><a href="#local-6989586621679742471"><span class="hs-identifier hs-var hs-var">devEndpoints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DevEndpoint]
-</span><a href="#local-6989586621679742471"><span class="hs-identifier hs-var">devEndpoints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679742470"><span class="annot"><span class="annottext">s :: BatchGetDevEndpointsResponse
-</span><a href="#local-6989586621679742470"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpointsResponse%27"><span class="hs-identifier hs-type">BatchGetDevEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679742469"><span class="annot"><span class="annottext">Maybe [DevEndpoint]
-</span><a href="#local-6989586621679742469"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetDevEndpointsResponse
-</span><a href="#local-6989586621679742470"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:devEndpoints:BatchGetDevEndpointsResponse' :: Maybe [DevEndpoint]
-</span><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#%24sel%3AdevEndpoints%3ABatchGetDevEndpointsResponse%27"><span class="hs-identifier hs-var">devEndpoints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DevEndpoint]
-</span><a href="#local-6989586621679742469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpointsResponse"><span class="hs-identifier hs-type">BatchGetDevEndpointsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DevEndpoint] -&gt; f (Maybe [DevEndpoint]))
- -&gt; BatchGetDevEndpointsResponse -&gt; f BatchGetDevEndpointsResponse)
--&gt; ((Maybe [DevEndpoint] -&gt; f (Maybe [DevEndpoint]))
-    -&gt; Maybe [DevEndpoint] -&gt; f (Maybe [DevEndpoint]))
--&gt; (Maybe [DevEndpoint] -&gt; f (Maybe [DevEndpoint]))
--&gt; BatchGetDevEndpointsResponse
--&gt; f BatchGetDevEndpointsResponse
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [DevEndpoint] [DevEndpoint] [DevEndpoint] [DevEndpoint]
--&gt; Iso
-     (Maybe [DevEndpoint])
-     (Maybe [DevEndpoint])
-     (Maybe [DevEndpoint])
-     (Maybe [DevEndpoint])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [DevEndpoint] [DevEndpoint] [DevEndpoint] [DevEndpoint]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-comment">-- | A list of @DevEndpoints@ not found.</span><span>
-</span><span id="line-176"></span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#batchGetDevEndpointsResponse_devEndpointsNotFound"><span class="hs-identifier hs-type">batchGetDevEndpointsResponse_devEndpointsNotFound</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpointsResponse"><span class="hs-identifier hs-type">BatchGetDevEndpointsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-177"></span><span id="batchGetDevEndpointsResponse_devEndpointsNotFound"><span class="annot"><span class="annottext">batchGetDevEndpointsResponse_devEndpointsNotFound :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><span id="line-171"></span><span class="hs-comment">-- | A list of @DevEndpoints@ not found.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#batchGetDevEndpointsResponse_devEndpointsNotFound"><span class="hs-identifier hs-type">batchGetDevEndpointsResponse_devEndpointsNotFound</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpointsResponse"><span class="hs-identifier hs-type">BatchGetDevEndpointsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="batchGetDevEndpointsResponse_devEndpointsNotFound"><span class="annot"><span class="annottext">batchGetDevEndpointsResponse_devEndpointsNotFound :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
 -&gt; BatchGetDevEndpointsResponse -&gt; f BatchGetDevEndpointsResponse
 </span><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#batchGetDevEndpointsResponse_devEndpointsNotFound"><span class="hs-identifier hs-var hs-var">batchGetDevEndpointsResponse_devEndpointsNotFound</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetDevEndpointsResponse -&gt; Maybe (NonEmpty Text))
 -&gt; (BatchGetDevEndpointsResponse
@@ -503,16 +458,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe (NonEmpty Text))
      (Maybe (NonEmpty Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpointsResponse%27"><span class="hs-identifier hs-type">BatchGetDevEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679742467"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpointsResponse%27"><span class="hs-identifier hs-type">BatchGetDevEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679744307"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 devEndpointsNotFound :: Maybe (NonEmpty Text)
 $sel:devEndpointsNotFound:BatchGetDevEndpointsResponse' :: BatchGetDevEndpointsResponse -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679742467"><span class="hs-identifier hs-var hs-var">devEndpointsNotFound</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679742467"><span class="hs-identifier hs-var">devEndpointsNotFound</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679742466"><span class="annot"><span class="annottext">s :: BatchGetDevEndpointsResponse
-</span><a href="#local-6989586621679742466"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpointsResponse%27"><span class="hs-identifier hs-type">BatchGetDevEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679742465"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679742465"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetDevEndpointsResponse
-</span><a href="#local-6989586621679742466"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:devEndpointsNotFound:BatchGetDevEndpointsResponse' :: Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679744307"><span class="hs-identifier hs-var hs-var">devEndpointsNotFound</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679744307"><span class="hs-identifier hs-var">devEndpointsNotFound</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679744306"><span class="annot"><span class="annottext">s :: BatchGetDevEndpointsResponse
+</span><a href="#local-6989586621679744306"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpointsResponse%27"><span class="hs-identifier hs-type">BatchGetDevEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679744305"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679744305"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetDevEndpointsResponse
+</span><a href="#local-6989586621679744306"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:devEndpointsNotFound:BatchGetDevEndpointsResponse' :: Maybe (NonEmpty Text)
 </span><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#%24sel%3AdevEndpointsNotFound%3ABatchGetDevEndpointsResponse%27"><span class="hs-identifier hs-var">devEndpointsNotFound</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679742465"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpointsResponse"><span class="hs-identifier hs-type">BatchGetDevEndpointsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><a href="#local-6989586621679744305"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpointsResponse"><span class="hs-identifier hs-type">BatchGetDevEndpointsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
  -&gt; BatchGetDevEndpointsResponse -&gt; f BatchGetDevEndpointsResponse)
 -&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
     -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
@@ -532,8 +487,51 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | A list of @DevEndpoint@ definitions.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#batchGetDevEndpointsResponse_devEndpoints"><span class="hs-identifier hs-type">batchGetDevEndpointsResponse_devEndpoints</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpointsResponse"><span class="hs-identifier hs-type">BatchGetDevEndpointsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.DevEndpoint.html#DevEndpoint"><span class="hs-identifier hs-type">DevEndpoint</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span id="batchGetDevEndpointsResponse_devEndpoints"><span class="annot"><span class="annottext">batchGetDevEndpointsResponse_devEndpoints :: (Maybe [DevEndpoint] -&gt; f (Maybe [DevEndpoint]))
+-&gt; BatchGetDevEndpointsResponse -&gt; f BatchGetDevEndpointsResponse
+</span><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#batchGetDevEndpointsResponse_devEndpoints"><span class="hs-identifier hs-var hs-var">batchGetDevEndpointsResponse_devEndpoints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetDevEndpointsResponse -&gt; Maybe [DevEndpoint])
+-&gt; (BatchGetDevEndpointsResponse
+    -&gt; Maybe [DevEndpoint] -&gt; BatchGetDevEndpointsResponse)
+-&gt; Lens
+     BatchGetDevEndpointsResponse
+     BatchGetDevEndpointsResponse
+     (Maybe [DevEndpoint])
+     (Maybe [DevEndpoint])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpointsResponse%27"><span class="hs-identifier hs-type">BatchGetDevEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679744303"><span class="annot"><span class="annottext">Maybe [DevEndpoint]
+devEndpoints :: Maybe [DevEndpoint]
+$sel:devEndpoints:BatchGetDevEndpointsResponse' :: BatchGetDevEndpointsResponse -&gt; Maybe [DevEndpoint]
+</span><a href="#local-6989586621679744303"><span class="hs-identifier hs-var hs-var">devEndpoints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DevEndpoint]
+</span><a href="#local-6989586621679744303"><span class="hs-identifier hs-var">devEndpoints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679744302"><span class="annot"><span class="annottext">s :: BatchGetDevEndpointsResponse
+</span><a href="#local-6989586621679744302"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpointsResponse%27"><span class="hs-identifier hs-type">BatchGetDevEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679744301"><span class="annot"><span class="annottext">Maybe [DevEndpoint]
+</span><a href="#local-6989586621679744301"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetDevEndpointsResponse
+</span><a href="#local-6989586621679744302"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:devEndpoints:BatchGetDevEndpointsResponse' :: Maybe [DevEndpoint]
+</span><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#%24sel%3AdevEndpoints%3ABatchGetDevEndpointsResponse%27"><span class="hs-identifier hs-var">devEndpoints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DevEndpoint]
+</span><a href="#local-6989586621679744301"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpointsResponse"><span class="hs-identifier hs-type">BatchGetDevEndpointsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DevEndpoint] -&gt; f (Maybe [DevEndpoint]))
+ -&gt; BatchGetDevEndpointsResponse -&gt; f BatchGetDevEndpointsResponse)
+-&gt; ((Maybe [DevEndpoint] -&gt; f (Maybe [DevEndpoint]))
+    -&gt; Maybe [DevEndpoint] -&gt; f (Maybe [DevEndpoint]))
+-&gt; (Maybe [DevEndpoint] -&gt; f (Maybe [DevEndpoint]))
+-&gt; BatchGetDevEndpointsResponse
+-&gt; f BatchGetDevEndpointsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [DevEndpoint] [DevEndpoint] [DevEndpoint] [DevEndpoint]
+-&gt; Iso
+     (Maybe [DevEndpoint])
+     (Maybe [DevEndpoint])
+     (Maybe [DevEndpoint])
+     (Maybe [DevEndpoint])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [DevEndpoint] [DevEndpoint] [DevEndpoint] [DevEndpoint]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-180"></span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#batchGetDevEndpointsResponse_httpStatus"><span class="hs-identifier hs-type">batchGetDevEndpointsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpointsResponse"><span class="hs-identifier hs-type">BatchGetDevEndpointsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -545,16 +543,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      BatchGetDevEndpointsResponse BatchGetDevEndpointsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpointsResponse%27"><span class="hs-identifier hs-type">BatchGetDevEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679742464"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpointsResponse%27"><span class="hs-identifier hs-type">BatchGetDevEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679744300"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:BatchGetDevEndpointsResponse' :: BatchGetDevEndpointsResponse -&gt; Int
-</span><a href="#local-6989586621679742464"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679742464"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679742463"><span class="annot"><span class="annottext">s :: BatchGetDevEndpointsResponse
-</span><a href="#local-6989586621679742463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpointsResponse%27"><span class="hs-identifier hs-type">BatchGetDevEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679742462"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679742462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetDevEndpointsResponse
-</span><a href="#local-6989586621679742463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchGetDevEndpointsResponse' :: Int
+</span><a href="#local-6989586621679744300"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679744300"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679744299"><span class="annot"><span class="annottext">s :: BatchGetDevEndpointsResponse
+</span><a href="#local-6989586621679744299"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpointsResponse%27"><span class="hs-identifier hs-type">BatchGetDevEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679744298"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679744298"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetDevEndpointsResponse
+</span><a href="#local-6989586621679744299"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchGetDevEndpointsResponse' :: Int
 </span><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#%24sel%3AhttpStatus%3ABatchGetDevEndpointsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679742462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpointsResponse"><span class="hs-identifier hs-type">BatchGetDevEndpointsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679744298"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpointsResponse"><span class="hs-identifier hs-type">BatchGetDevEndpointsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>
-</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679742460"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpointsResponse"><span class="hs-identifier hs-type">BatchGetDevEndpointsResponse</span></a></span></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679744296"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchGetDevEndpoints.html#BatchGetDevEndpointsResponse"><span class="hs-identifier hs-type">BatchGetDevEndpointsResponse</span></a></span></span><span>
 </span><span id="line-184"></span></pre></body></html>

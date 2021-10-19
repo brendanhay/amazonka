@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- protocols, AWS, and other cloud services.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newConnector' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679341180"><span id="local-6989586621679341181"></span></span><span class="hs-keyword">data</span><span> </span><span id="Connector"><span class="annot"><a href="Network.AWS.Greengrass.Types.Connector.html#Connector"><span class="hs-identifier hs-var">Connector</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Connector%27"><span class="annot"><a href="Network.AWS.Greengrass.Types.Connector.html#Connector%27"><span class="hs-identifier hs-var">Connector'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679341429"><span id="local-6989586621679341430"></span></span><span class="hs-keyword">data</span><span> </span><span id="Connector"><span class="annot"><a href="Network.AWS.Greengrass.Types.Connector.html#Connector"><span class="hs-identifier hs-var">Connector</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Connector%27"><span class="annot"><a href="Network.AWS.Greengrass.Types.Connector.html#Connector%27"><span class="hs-identifier hs-var">Connector'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The parameters or configuration that the connector uses.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Aparameters%3AConnector%27"><span class="annot"><span class="annottext">Connector -&gt; Maybe (HashMap Text Text)
 </span><a href="Network.AWS.Greengrass.Types.Connector.html#%24sel%3Aparameters%3AConnector%27"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -41,7 +41,7 @@
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3Aid%3AConnector%27"><span class="annot"><span class="annottext">Connector -&gt; Text
 </span><a href="Network.AWS.Greengrass.Types.Connector.html#%24sel%3Aid%3AConnector%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679341172"><span id="local-6989586621679341174"><span class="annot"><span class="annottext">Connector -&gt; Connector -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679341421"><span id="local-6989586621679341423"><span class="annot"><span class="annottext">Connector -&gt; Connector -&gt; Bool
 (Connector -&gt; Connector -&gt; Bool)
 -&gt; (Connector -&gt; Connector -&gt; Bool) -&gt; Eq Connector
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Connector -&gt; Connector -&gt; Bool
 == :: Connector -&gt; Connector -&gt; Bool
 $c== :: Connector -&gt; Connector -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341163"><span id="local-6989586621679341165"><span id="local-6989586621679341167"><span id="local-6989586621679341169"><span class="annot"><span class="annottext">ReadPrec [Connector]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341412"><span id="local-6989586621679341414"><span id="local-6989586621679341416"><span id="local-6989586621679341418"><span class="annot"><span class="annottext">ReadPrec [Connector]
 ReadPrec Connector
 Int -&gt; ReadS Connector
 ReadS [Connector]
@@ -69,7 +69,7 @@ readList :: ReadS [Connector]
 $creadList :: ReadS [Connector]
 readsPrec :: Int -&gt; ReadS Connector
 $creadsPrec :: Int -&gt; ReadS Connector
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341156"><span id="local-6989586621679341158"><span id="local-6989586621679341160"><span class="annot"><span class="annottext">Int -&gt; Connector -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341405"><span id="local-6989586621679341407"><span id="local-6989586621679341409"><span class="annot"><span class="annottext">Int -&gt; Connector -&gt; ShowS
 [Connector] -&gt; ShowS
 Connector -&gt; String
 (Int -&gt; Connector -&gt; ShowS)
@@ -116,9 +116,9 @@ $cfrom :: forall x. Connector -&gt; Rep Connector x
 </span><span id="line-62"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span><span>
 </span><span id="line-64"></span><span id="newConnector"><span class="annot"><span class="annottext">newConnector :: Text -&gt; Text -&gt; Connector
-</span><a href="Network.AWS.Greengrass.Types.Connector.html#newConnector"><span class="hs-identifier hs-var hs-var">newConnector</span></a></span></span><span> </span><span id="local-6989586621679341150"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679341150"><span class="hs-identifier hs-var">pConnectorArn_</span></a></span></span><span> </span><span id="local-6989586621679341149"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679341149"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Greengrass.Types.Connector.html#newConnector"><span class="hs-identifier hs-var hs-var">newConnector</span></a></span></span><span> </span><span id="local-6989586621679341399"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679341399"><span class="hs-identifier hs-var">pConnectorArn_</span></a></span></span><span> </span><span id="local-6989586621679341398"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679341398"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-65"></span><span>  </span><span class="annot"><span class="annottext">Connector' :: Maybe (HashMap Text Text) -&gt; Text -&gt; Text -&gt; Connector
 </span><a href="Network.AWS.Greengrass.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:parameters:Connector' :: Maybe (HashMap Text Text)
@@ -127,10 +127,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectorArn:Connector' :: Text
 </span><a href="Network.AWS.Greengrass.Types.Connector.html#%24sel%3AconnectorArn%3AConnector%27"><span class="hs-identifier hs-var">connectorArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679341150"><span class="hs-identifier hs-var">pConnectorArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679341399"><span class="hs-identifier hs-var">pConnectorArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:Connector' :: Text
 </span><a href="Network.AWS.Greengrass.Types.Connector.html#%24sel%3Aid%3AConnector%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679341149"><span class="hs-identifier hs-var">pId_</span></a></span><span>
+</span><a href="#local-6989586621679341398"><span class="hs-identifier hs-var">pId_</span></a></span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | The parameters or configuration that the connector uses.</span><span>
@@ -145,16 +145,16 @@ forall a. Maybe a
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341145"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341394"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 parameters :: Maybe (HashMap Text Text)
 $sel:parameters:Connector' :: Connector -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679341145"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679341145"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341144"><span class="annot"><span class="annottext">s :: Connector
-</span><a href="#local-6989586621679341144"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341143"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679341143"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Connector
-</span><a href="#local-6989586621679341144"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameters:Connector' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679341394"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679341394"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341393"><span class="annot"><span class="annottext">s :: Connector
+</span><a href="#local-6989586621679341393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341392"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679341392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Connector
+</span><a href="#local-6989586621679341393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameters:Connector' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.Greengrass.Types.Connector.html#%24sel%3Aparameters%3AConnector%27"><span class="hs-identifier hs-var">parameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679341143"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679341392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; Connector -&gt; f Connector)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -180,8 +180,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Text)
   (HashMap Text Text)
   (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | The ARN of the connector.</span><span>
 </span><span id="line-76"></span><span class="annot"><a href="Network.AWS.Greengrass.Types.Connector.html#connector_connectorArn"><span class="hs-identifier hs-type">connector_connectorArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -190,16 +190,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (Connector -&gt; Text -&gt; Connector)
 -&gt; Lens Connector Connector Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341138"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341387"><span class="annot"><span class="annottext">Text
 connectorArn :: Text
 $sel:connectorArn:Connector' :: Connector -&gt; Text
-</span><a href="#local-6989586621679341138"><span class="hs-identifier hs-var hs-var">connectorArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679341138"><span class="hs-identifier hs-var">connectorArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341137"><span class="annot"><span class="annottext">s :: Connector
-</span><a href="#local-6989586621679341137"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341136"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679341136"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Connector
-</span><a href="#local-6989586621679341137"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectorArn:Connector' :: Text
+</span><a href="#local-6989586621679341387"><span class="hs-identifier hs-var hs-var">connectorArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679341387"><span class="hs-identifier hs-var">connectorArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341386"><span class="annot"><span class="annottext">s :: Connector
+</span><a href="#local-6989586621679341386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341385"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679341385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Connector
+</span><a href="#local-6989586621679341386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectorArn:Connector' :: Text
 </span><a href="Network.AWS.Greengrass.Types.Connector.html#%24sel%3AconnectorArn%3AConnector%27"><span class="hs-identifier hs-var">connectorArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679341136"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679341385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- | A descriptive or arbitrary ID for the connector. This value must be</span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- unique within the connector definition version. Max length is 128</span><span>
@@ -210,27 +210,27 @@ $sel:connectorArn:Connector' :: Connector -&gt; Text
 -&gt; (Connector -&gt; Text -&gt; Connector)
 -&gt; Lens Connector Connector Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341134"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341383"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:Connector' :: Connector -&gt; Text
-</span><a href="#local-6989586621679341134"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679341134"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341133"><span class="annot"><span class="annottext">s :: Connector
-</span><a href="#local-6989586621679341133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341132"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679341132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Connector
-</span><a href="#local-6989586621679341133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Connector' :: Text
+</span><a href="#local-6989586621679341383"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679341383"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341382"><span class="annot"><span class="annottext">s :: Connector
+</span><a href="#local-6989586621679341382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341381"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679341381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Connector
+</span><a href="#local-6989586621679341382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Connector' :: Text
 </span><a href="Network.AWS.Greengrass.Types.Connector.html#%24sel%3Aid%3AConnector%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679341132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679341381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341129"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679341127"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Connector
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341378"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679341376"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Connector
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Connector) -&gt; Value -&gt; Parser Connector
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Connector&quot;</span></span><span>
-</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679341124"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679341124"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679341373"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679341373"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text) -&gt; Text -&gt; Text -&gt; Connector
 </span><a href="Network.AWS.Greengrass.Types.Connector.html#Connector%27"><span class="hs-identifier hs-var">Connector'</span></a></span><span>
 </span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (HashMap Text Text) -&gt; Text -&gt; Text -&gt; Connector)
@@ -238,7 +238,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Text -&gt; Text -&gt; Connector)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679341124"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679341373"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Parameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
@@ -251,26 +251,26 @@ forall a. Monoid a =&gt; a
 -&gt; Parser Text -&gt; Parser (Text -&gt; Connector)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679341124"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679341373"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConnectorArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Connector) -&gt; Parser Text -&gt; Parser Connector
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679341124"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679341373"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341116"><span id="local-6989586621679341118"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341365"><span id="local-6989586621679341367"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span></span></span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341113"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341362"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span></span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341105"><span id="local-6989586621679341107"><span id="local-6989586621679341109"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679341103"><span class="annot"><span class="annottext">toJSON :: Connector -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341099"><span id="local-6989586621679341100"><span id="local-6989586621679341101"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341354"><span id="local-6989586621679341356"><span id="local-6989586621679341358"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679341352"><span class="annot"><span class="annottext">toJSON :: Connector -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341348"><span id="local-6989586621679341349"><span id="local-6989586621679341350"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 Text
 id :: Text
 connectorArn :: Text
@@ -278,7 +278,7 @@ parameters :: Maybe (HashMap Text Text)
 $sel:id:Connector' :: Connector -&gt; Text
 $sel:connectorArn:Connector' :: Connector -&gt; Text
 $sel:parameters:Connector' :: Connector -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679341099"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679341348"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -291,21 +291,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679341101"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679341350"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConnectorArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679341100"><span class="hs-identifier hs-var">connectorArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679341349"><span class="hs-identifier hs-var">connectorArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Id&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679341099"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679341348"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span></pre></body></html>

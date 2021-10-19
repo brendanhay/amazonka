@@ -30,31 +30,31 @@
 </span><span id="line-30"></span><span class="hs-comment">-- service.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newConnectionNotification' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621681062780"><span id="local-6989586621681062781"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConnectionNotification"><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification"><span class="hs-identifier hs-var">ConnectionNotification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConnectionNotification%27"><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification%27"><span class="hs-identifier hs-var">ConnectionNotification'</span></a></span></span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The events for the notification. Valid values are @Accept@, @Connect@,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- @Delete@, and @Reject@.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AconnectionEvents%3AConnectionNotification%27"><span class="annot"><span class="annottext">ConnectionNotification -&gt; Maybe [Text]
-</span><a href="Network.AWS.EC2.Types.ConnectionNotification.html#%24sel%3AconnectionEvents%3AConnectionNotification%27"><span class="hs-identifier hs-var hs-var">connectionEvents</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The ID of the notification.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AconnectionNotificationId%3AConnectionNotification%27"><span class="annot"><span class="annottext">ConnectionNotification -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.ConnectionNotification.html#%24sel%3AconnectionNotificationId%3AConnectionNotification%27"><span class="hs-identifier hs-var hs-var">connectionNotificationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The type of notification.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AconnectionNotificationType%3AConnectionNotification%27"><span class="annot"><span class="annottext">ConnectionNotification -&gt; Maybe ConnectionNotificationType
-</span><a href="Network.AWS.EC2.Types.ConnectionNotification.html#%24sel%3AconnectionNotificationType%3AConnectionNotification%27"><span class="hs-identifier hs-var hs-var">connectionNotificationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotificationType.html#ConnectionNotificationType"><span class="hs-identifier hs-type">ConnectionNotificationType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The ID of the VPC endpoint.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AvpcEndpointId%3AConnectionNotification%27"><span class="annot"><span class="annottext">ConnectionNotification -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.ConnectionNotification.html#%24sel%3AvpcEndpointId%3AConnectionNotification%27"><span class="hs-identifier hs-var hs-var">vpcEndpointId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The ID of the endpoint service.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AserviceId%3AConnectionNotification%27"><span class="annot"><span class="annottext">ConnectionNotification -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.ConnectionNotification.html#%24sel%3AserviceId%3AConnectionNotification%27"><span class="hs-identifier hs-var hs-var">serviceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The state of the notification.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3AconnectionNotificationState%3AConnectionNotification%27"><span class="annot"><span class="annottext">ConnectionNotification -&gt; Maybe ConnectionNotificationState
+</span><span id="line-33"></span><span id="local-6989586621681096354"><span id="local-6989586621681096355"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConnectionNotification"><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification"><span class="hs-identifier hs-var">ConnectionNotification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConnectionNotification%27"><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification%27"><span class="hs-identifier hs-var">ConnectionNotification'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The state of the notification.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AconnectionNotificationState%3AConnectionNotification%27"><span class="annot"><span class="annottext">ConnectionNotification -&gt; Maybe ConnectionNotificationState
 </span><a href="Network.AWS.EC2.Types.ConnectionNotification.html#%24sel%3AconnectionNotificationState%3AConnectionNotification%27"><span class="hs-identifier hs-var hs-var">connectionNotificationState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotificationState.html#ConnectionNotificationState"><span class="hs-identifier hs-type">ConnectionNotificationState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The type of notification.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AconnectionNotificationType%3AConnectionNotification%27"><span class="annot"><span class="annottext">ConnectionNotification -&gt; Maybe ConnectionNotificationType
+</span><a href="Network.AWS.EC2.Types.ConnectionNotification.html#%24sel%3AconnectionNotificationType%3AConnectionNotification%27"><span class="hs-identifier hs-var hs-var">connectionNotificationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotificationType.html#ConnectionNotificationType"><span class="hs-identifier hs-type">ConnectionNotificationType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The events for the notification. Valid values are @Accept@, @Connect@,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- @Delete@, and @Reject@.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AconnectionEvents%3AConnectionNotification%27"><span class="annot"><span class="annottext">ConnectionNotification -&gt; Maybe [Text]
+</span><a href="Network.AWS.EC2.Types.ConnectionNotification.html#%24sel%3AconnectionEvents%3AConnectionNotification%27"><span class="hs-identifier hs-var hs-var">connectionEvents</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The ID of the endpoint service.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AserviceId%3AConnectionNotification%27"><span class="annot"><span class="annottext">ConnectionNotification -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.ConnectionNotification.html#%24sel%3AserviceId%3AConnectionNotification%27"><span class="hs-identifier hs-var hs-var">serviceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The ID of the VPC endpoint.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AvpcEndpointId%3AConnectionNotification%27"><span class="annot"><span class="annottext">ConnectionNotification -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.ConnectionNotification.html#%24sel%3AvpcEndpointId%3AConnectionNotification%27"><span class="hs-identifier hs-var hs-var">vpcEndpointId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The ID of the notification.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AconnectionNotificationId%3AConnectionNotification%27"><span class="annot"><span class="annottext">ConnectionNotification -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.ConnectionNotification.html#%24sel%3AconnectionNotificationId%3AConnectionNotification%27"><span class="hs-identifier hs-var hs-var">connectionNotificationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The ARN of the SNS topic for the notification.</span><span>
 </span><span id="line-48"></span><span>    </span><span id="%24sel%3AconnectionNotificationArn%3AConnectionNotification%27"><span class="annot"><span class="annottext">ConnectionNotification -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.ConnectionNotification.html#%24sel%3AconnectionNotificationArn%3AConnectionNotification%27"><span class="hs-identifier hs-var hs-var">connectionNotificationArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681062768"><span id="local-6989586621681062770"><span class="annot"><span class="annottext">ConnectionNotification -&gt; ConnectionNotification -&gt; Bool
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681096342"><span id="local-6989586621681096344"><span class="annot"><span class="annottext">ConnectionNotification -&gt; ConnectionNotification -&gt; Bool
 (ConnectionNotification -&gt; ConnectionNotification -&gt; Bool)
 -&gt; (ConnectionNotification -&gt; ConnectionNotification -&gt; Bool)
 -&gt; Eq ConnectionNotification
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ConnectionNotification -&gt; ConnectionNotification -&gt; Bool
 == :: ConnectionNotification -&gt; ConnectionNotification -&gt; Bool
 $c== :: ConnectionNotification -&gt; ConnectionNotification -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681062759"><span id="local-6989586621681062761"><span id="local-6989586621681062763"><span id="local-6989586621681062765"><span class="annot"><span class="annottext">ReadPrec [ConnectionNotification]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681096333"><span id="local-6989586621681096335"><span id="local-6989586621681096337"><span id="local-6989586621681096339"><span class="annot"><span class="annottext">ReadPrec [ConnectionNotification]
 ReadPrec ConnectionNotification
 Int -&gt; ReadS ConnectionNotification
 ReadS [ConnectionNotification]
@@ -83,7 +83,7 @@ readList :: ReadS [ConnectionNotification]
 $creadList :: ReadS [ConnectionNotification]
 readsPrec :: Int -&gt; ReadS ConnectionNotification
 $creadsPrec :: Int -&gt; ReadS ConnectionNotification
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681062752"><span id="local-6989586621681062754"><span id="local-6989586621681062756"><span class="annot"><span class="annottext">Int -&gt; ConnectionNotification -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681096326"><span id="local-6989586621681096328"><span id="local-6989586621681096330"><span class="annot"><span class="annottext">Int -&gt; ConnectionNotification -&gt; ShowS
 [ConnectionNotification] -&gt; ShowS
 ConnectionNotification -&gt; String
 (Int -&gt; ConnectionNotification -&gt; ShowS)
@@ -118,56 +118,56 @@ $cfrom :: forall x. ConnectionNotification -&gt; Rep ConnectionNotification x
 </span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'connectionEvents', 'connectionNotification_connectionEvents' - The events for the notification. Valid values are @Accept@, @Connect@,</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- @Delete@, and @Reject@.</span><span>
-</span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'connectionNotificationId', 'connectionNotification_connectionNotificationId' - The ID of the notification.</span><span>
-</span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'connectionNotificationType', 'connectionNotification_connectionNotificationType' - The type of notification.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'connectionNotificationState', 'connectionNotification_connectionNotificationState' - The state of the notification.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'connectionNotificationType', 'connectionNotification_connectionNotificationType' - The type of notification.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'connectionEvents', 'connectionNotification_connectionEvents' - The events for the notification. Valid values are @Accept@, @Connect@,</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- @Delete@, and @Reject@.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'vpcEndpointId', 'connectionNotification_vpcEndpointId' - The ID of the VPC endpoint.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'serviceId', 'connectionNotification_serviceId' - The ID of the endpoint service.</span><span>
 </span><span id="line-68"></span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- 'serviceId', 'connectionNotification_serviceId' - The ID of the endpoint service.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'vpcEndpointId', 'connectionNotification_vpcEndpointId' - The ID of the VPC endpoint.</span><span>
 </span><span id="line-70"></span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- 'connectionNotificationState', 'connectionNotification_connectionNotificationState' - The state of the notification.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'connectionNotificationId', 'connectionNotification_connectionNotificationId' - The ID of the notification.</span><span>
 </span><span id="line-72"></span><span class="hs-comment">--</span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- 'connectionNotificationArn', 'connectionNotification_connectionNotificationArn' - The ARN of the SNS topic for the notification.</span><span>
 </span><span id="line-74"></span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#newConnectionNotification"><span class="hs-identifier hs-type">newConnectionNotification</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification"><span class="hs-identifier hs-type">ConnectionNotification</span></a></span><span>
 </span><span id="line-76"></span><span id="newConnectionNotification"><span class="annot"><span class="annottext">newConnectionNotification :: ConnectionNotification
 </span><a href="Network.AWS.EC2.Types.ConnectionNotification.html#newConnectionNotification"><span class="hs-identifier hs-var hs-var">newConnectionNotification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">ConnectionNotification' :: Maybe [Text]
--&gt; Maybe Text
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">ConnectionNotification' :: Maybe ConnectionNotificationState
 -&gt; Maybe ConnectionNotificationType
+-&gt; Maybe [Text]
 -&gt; Maybe Text
 -&gt; Maybe Text
--&gt; Maybe ConnectionNotificationState
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; ConnectionNotification
 </span><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification%27"><span class="hs-identifier hs-type">ConnectionNotification'</span></a></span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:connectionEvents:ConnectionNotification' :: Maybe [Text]
-</span><a href="Network.AWS.EC2.Types.ConnectionNotification.html#%24sel%3AconnectionEvents%3AConnectionNotification%27"><span class="hs-identifier hs-var">connectionEvents</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-79"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:connectionNotificationState:ConnectionNotification' :: Maybe ConnectionNotificationState
+</span><a href="Network.AWS.EC2.Types.ConnectionNotification.html#%24sel%3AconnectionNotificationState%3AConnectionNotification%27"><span class="hs-identifier hs-var">connectionNotificationState</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>        </span><span class="annot"><span class="annottext">Maybe ConnectionNotificationState
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectionNotificationId:ConnectionNotification' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.ConnectionNotification.html#%24sel%3AconnectionNotificationId%3AConnectionNotification%27"><span class="hs-identifier hs-var">connectionNotificationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectionNotificationType:ConnectionNotification' :: Maybe ConnectionNotificationType
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectionNotificationType:ConnectionNotification' :: Maybe ConnectionNotificationType
 </span><a href="Network.AWS.EC2.Types.ConnectionNotification.html#%24sel%3AconnectionNotificationType%3AConnectionNotification%27"><span class="hs-identifier hs-var">connectionNotificationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionNotificationType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcEndpointId:ConnectionNotification' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.ConnectionNotification.html#%24sel%3AvpcEndpointId%3AConnectionNotification%27"><span class="hs-identifier hs-var">vpcEndpointId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectionEvents:ConnectionNotification' :: Maybe [Text]
+</span><a href="Network.AWS.EC2.Types.ConnectionNotification.html#%24sel%3AconnectionEvents%3AConnectionNotification%27"><span class="hs-identifier hs-var">connectionEvents</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceId:ConnectionNotification' :: Maybe Text
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceId:ConnectionNotification' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.ConnectionNotification.html#%24sel%3AserviceId%3AConnectionNotification%27"><span class="hs-identifier hs-var">serviceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectionNotificationState:ConnectionNotification' :: Maybe ConnectionNotificationState
-</span><a href="Network.AWS.EC2.Types.ConnectionNotification.html#%24sel%3AconnectionNotificationState%3AConnectionNotification%27"><span class="hs-identifier hs-var">connectionNotificationState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionNotificationState
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcEndpointId:ConnectionNotification' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.ConnectionNotification.html#%24sel%3AvpcEndpointId%3AConnectionNotification%27"><span class="hs-identifier hs-var">vpcEndpointId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectionNotificationId:ConnectionNotification' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.ConnectionNotification.html#%24sel%3AconnectionNotificationId%3AConnectionNotification%27"><span class="hs-identifier hs-var">connectionNotificationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectionNotificationArn:ConnectionNotification' :: Maybe Text
@@ -176,10 +176,60 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-86"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- | The events for the notification. Valid values are @Accept@, @Connect@,</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- @Delete@, and @Reject@.</span><span>
-</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#connectionNotification_connectionEvents"><span class="hs-identifier hs-type">connectionNotification_connectionEvents</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification"><span class="hs-identifier hs-type">ConnectionNotification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span id="connectionNotification_connectionEvents"><span class="annot"><span class="annottext">connectionNotification_connectionEvents :: (Maybe [Text] -&gt; f (Maybe [Text]))
+</span><span id="line-88"></span><span class="hs-comment">-- | The state of the notification.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#connectionNotification_connectionNotificationState"><span class="hs-identifier hs-type">connectionNotification_connectionNotificationState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification"><span class="hs-identifier hs-type">ConnectionNotification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotificationState.html#ConnectionNotificationState"><span class="hs-identifier hs-type">ConnectionNotificationState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="connectionNotification_connectionNotificationState"><span class="annot"><span class="annottext">connectionNotification_connectionNotificationState :: (Maybe ConnectionNotificationState
+ -&gt; f (Maybe ConnectionNotificationState))
+-&gt; ConnectionNotification -&gt; f ConnectionNotification
+</span><a href="Network.AWS.EC2.Types.ConnectionNotification.html#connectionNotification_connectionNotificationState"><span class="hs-identifier hs-var hs-var">connectionNotification_connectionNotificationState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectionNotification -&gt; Maybe ConnectionNotificationState)
+-&gt; (ConnectionNotification
+    -&gt; Maybe ConnectionNotificationState -&gt; ConnectionNotification)
+-&gt; Lens
+     ConnectionNotification
+     ConnectionNotification
+     (Maybe ConnectionNotificationState)
+     (Maybe ConnectionNotificationState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification%27"><span class="hs-identifier hs-type">ConnectionNotification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681096317"><span class="annot"><span class="annottext">Maybe ConnectionNotificationState
+connectionNotificationState :: Maybe ConnectionNotificationState
+$sel:connectionNotificationState:ConnectionNotification' :: ConnectionNotification -&gt; Maybe ConnectionNotificationState
+</span><a href="#local-6989586621681096317"><span class="hs-identifier hs-var hs-var">connectionNotificationState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionNotificationState
+</span><a href="#local-6989586621681096317"><span class="hs-identifier hs-var">connectionNotificationState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681096316"><span class="annot"><span class="annottext">s :: ConnectionNotification
+</span><a href="#local-6989586621681096316"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification%27"><span class="hs-identifier hs-type">ConnectionNotification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681096315"><span class="annot"><span class="annottext">Maybe ConnectionNotificationState
+</span><a href="#local-6989586621681096315"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionNotification
+</span><a href="#local-6989586621681096316"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionNotificationState:ConnectionNotification' :: Maybe ConnectionNotificationState
+</span><a href="Network.AWS.EC2.Types.ConnectionNotification.html#%24sel%3AconnectionNotificationState%3AConnectionNotification%27"><span class="hs-identifier hs-var">connectionNotificationState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionNotificationState
+</span><a href="#local-6989586621681096315"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification"><span class="hs-identifier hs-type">ConnectionNotification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The type of notification.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#connectionNotification_connectionNotificationType"><span class="hs-identifier hs-type">connectionNotification_connectionNotificationType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification"><span class="hs-identifier hs-type">ConnectionNotification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotificationType.html#ConnectionNotificationType"><span class="hs-identifier hs-type">ConnectionNotificationType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="connectionNotification_connectionNotificationType"><span class="annot"><span class="annottext">connectionNotification_connectionNotificationType :: (Maybe ConnectionNotificationType
+ -&gt; f (Maybe ConnectionNotificationType))
+-&gt; ConnectionNotification -&gt; f ConnectionNotification
+</span><a href="Network.AWS.EC2.Types.ConnectionNotification.html#connectionNotification_connectionNotificationType"><span class="hs-identifier hs-var hs-var">connectionNotification_connectionNotificationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectionNotification -&gt; Maybe ConnectionNotificationType)
+-&gt; (ConnectionNotification
+    -&gt; Maybe ConnectionNotificationType -&gt; ConnectionNotification)
+-&gt; Lens
+     ConnectionNotification
+     ConnectionNotification
+     (Maybe ConnectionNotificationType)
+     (Maybe ConnectionNotificationType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification%27"><span class="hs-identifier hs-type">ConnectionNotification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681096313"><span class="annot"><span class="annottext">Maybe ConnectionNotificationType
+connectionNotificationType :: Maybe ConnectionNotificationType
+$sel:connectionNotificationType:ConnectionNotification' :: ConnectionNotification -&gt; Maybe ConnectionNotificationType
+</span><a href="#local-6989586621681096313"><span class="hs-identifier hs-var hs-var">connectionNotificationType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionNotificationType
+</span><a href="#local-6989586621681096313"><span class="hs-identifier hs-var">connectionNotificationType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681096312"><span class="annot"><span class="annottext">s :: ConnectionNotification
+</span><a href="#local-6989586621681096312"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification%27"><span class="hs-identifier hs-type">ConnectionNotification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681096311"><span class="annot"><span class="annottext">Maybe ConnectionNotificationType
+</span><a href="#local-6989586621681096311"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionNotification
+</span><a href="#local-6989586621681096312"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionNotificationType:ConnectionNotification' :: Maybe ConnectionNotificationType
+</span><a href="Network.AWS.EC2.Types.ConnectionNotification.html#%24sel%3AconnectionNotificationType%3AConnectionNotification%27"><span class="hs-identifier hs-var">connectionNotificationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionNotificationType
+</span><a href="#local-6989586621681096311"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification"><span class="hs-identifier hs-type">ConnectionNotification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The events for the notification. Valid values are @Accept@, @Connect@,</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- @Delete@, and @Reject@.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#connectionNotification_connectionEvents"><span class="hs-identifier hs-type">connectionNotification_connectionEvents</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification"><span class="hs-identifier hs-type">ConnectionNotification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="connectionNotification_connectionEvents"><span class="annot"><span class="annottext">connectionNotification_connectionEvents :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; ConnectionNotification -&gt; f ConnectionNotification
 </span><a href="Network.AWS.EC2.Types.ConnectionNotification.html#connectionNotification_connectionEvents"><span class="hs-identifier hs-var hs-var">connectionNotification_connectionEvents</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectionNotification -&gt; Maybe [Text])
 -&gt; (ConnectionNotification
@@ -190,16 +240,16 @@ forall a. Maybe a
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification%27"><span class="hs-identifier hs-type">ConnectionNotification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681062743"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification%27"><span class="hs-identifier hs-type">ConnectionNotification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681096309"><span class="annot"><span class="annottext">Maybe [Text]
 connectionEvents :: Maybe [Text]
 $sel:connectionEvents:ConnectionNotification' :: ConnectionNotification -&gt; Maybe [Text]
-</span><a href="#local-6989586621681062743"><span class="hs-identifier hs-var hs-var">connectionEvents</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681062743"><span class="hs-identifier hs-var">connectionEvents</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681062742"><span class="annot"><span class="annottext">s :: ConnectionNotification
-</span><a href="#local-6989586621681062742"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification%27"><span class="hs-identifier hs-type">ConnectionNotification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681062741"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681062741"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionNotification
-</span><a href="#local-6989586621681062742"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionEvents:ConnectionNotification' :: Maybe [Text]
+</span><a href="#local-6989586621681096309"><span class="hs-identifier hs-var hs-var">connectionEvents</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681096309"><span class="hs-identifier hs-var">connectionEvents</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681096308"><span class="annot"><span class="annottext">s :: ConnectionNotification
+</span><a href="#local-6989586621681096308"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification%27"><span class="hs-identifier hs-type">ConnectionNotification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681096307"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681096307"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionNotification
+</span><a href="#local-6989586621681096308"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionEvents:ConnectionNotification' :: Maybe [Text]
 </span><a href="Network.AWS.EC2.Types.ConnectionNotification.html#%24sel%3AconnectionEvents%3AConnectionNotification%27"><span class="hs-identifier hs-var">connectionEvents</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681062741"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification"><span class="hs-identifier hs-type">ConnectionNotification</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621681096307"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification"><span class="hs-identifier hs-type">ConnectionNotification</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ConnectionNotification -&gt; f ConnectionNotification)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -213,83 +263,12 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- | The ID of the notification.</span><span>
-</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#connectionNotification_connectionNotificationId"><span class="hs-identifier hs-type">connectionNotification_connectionNotificationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification"><span class="hs-identifier hs-type">ConnectionNotification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span id="connectionNotification_connectionNotificationId"><span class="annot"><span class="annottext">connectionNotification_connectionNotificationId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ConnectionNotification -&gt; f ConnectionNotification
-</span><a href="Network.AWS.EC2.Types.ConnectionNotification.html#connectionNotification_connectionNotificationId"><span class="hs-identifier hs-var hs-var">connectionNotification_connectionNotificationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectionNotification -&gt; Maybe Text)
--&gt; (ConnectionNotification -&gt; Maybe Text -&gt; ConnectionNotification)
--&gt; Lens
-     ConnectionNotification
-     ConnectionNotification
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification%27"><span class="hs-identifier hs-type">ConnectionNotification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681062736"><span class="annot"><span class="annottext">Maybe Text
-connectionNotificationId :: Maybe Text
-$sel:connectionNotificationId:ConnectionNotification' :: ConnectionNotification -&gt; Maybe Text
-</span><a href="#local-6989586621681062736"><span class="hs-identifier hs-var hs-var">connectionNotificationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681062736"><span class="hs-identifier hs-var">connectionNotificationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681062735"><span class="annot"><span class="annottext">s :: ConnectionNotification
-</span><a href="#local-6989586621681062735"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification%27"><span class="hs-identifier hs-type">ConnectionNotification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681062734"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681062734"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionNotification
-</span><a href="#local-6989586621681062735"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionNotificationId:ConnectionNotification' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.ConnectionNotification.html#%24sel%3AconnectionNotificationId%3AConnectionNotification%27"><span class="hs-identifier hs-var">connectionNotificationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681062734"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification"><span class="hs-identifier hs-type">ConnectionNotification</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- | The type of notification.</span><span>
-</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#connectionNotification_connectionNotificationType"><span class="hs-identifier hs-type">connectionNotification_connectionNotificationType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification"><span class="hs-identifier hs-type">ConnectionNotification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotificationType.html#ConnectionNotificationType"><span class="hs-identifier hs-type">ConnectionNotificationType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span id="connectionNotification_connectionNotificationType"><span class="annot"><span class="annottext">connectionNotification_connectionNotificationType :: (Maybe ConnectionNotificationType
- -&gt; f (Maybe ConnectionNotificationType))
--&gt; ConnectionNotification -&gt; f ConnectionNotification
-</span><a href="Network.AWS.EC2.Types.ConnectionNotification.html#connectionNotification_connectionNotificationType"><span class="hs-identifier hs-var hs-var">connectionNotification_connectionNotificationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectionNotification -&gt; Maybe ConnectionNotificationType)
--&gt; (ConnectionNotification
-    -&gt; Maybe ConnectionNotificationType -&gt; ConnectionNotification)
--&gt; Lens
-     ConnectionNotification
-     ConnectionNotification
-     (Maybe ConnectionNotificationType)
-     (Maybe ConnectionNotificationType)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification%27"><span class="hs-identifier hs-type">ConnectionNotification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681062732"><span class="annot"><span class="annottext">Maybe ConnectionNotificationType
-connectionNotificationType :: Maybe ConnectionNotificationType
-$sel:connectionNotificationType:ConnectionNotification' :: ConnectionNotification -&gt; Maybe ConnectionNotificationType
-</span><a href="#local-6989586621681062732"><span class="hs-identifier hs-var hs-var">connectionNotificationType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionNotificationType
-</span><a href="#local-6989586621681062732"><span class="hs-identifier hs-var">connectionNotificationType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681062731"><span class="annot"><span class="annottext">s :: ConnectionNotification
-</span><a href="#local-6989586621681062731"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification%27"><span class="hs-identifier hs-type">ConnectionNotification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681062730"><span class="annot"><span class="annottext">Maybe ConnectionNotificationType
-</span><a href="#local-6989586621681062730"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionNotification
-</span><a href="#local-6989586621681062731"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionNotificationType:ConnectionNotification' :: Maybe ConnectionNotificationType
-</span><a href="Network.AWS.EC2.Types.ConnectionNotification.html#%24sel%3AconnectionNotificationType%3AConnectionNotification%27"><span class="hs-identifier hs-var">connectionNotificationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionNotificationType
-</span><a href="#local-6989586621681062730"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification"><span class="hs-identifier hs-type">ConnectionNotification</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- | The ID of the VPC endpoint.</span><span>
-</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#connectionNotification_vpcEndpointId"><span class="hs-identifier hs-type">connectionNotification_vpcEndpointId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification"><span class="hs-identifier hs-type">ConnectionNotification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span id="connectionNotification_vpcEndpointId"><span class="annot"><span class="annottext">connectionNotification_vpcEndpointId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ConnectionNotification -&gt; f ConnectionNotification
-</span><a href="Network.AWS.EC2.Types.ConnectionNotification.html#connectionNotification_vpcEndpointId"><span class="hs-identifier hs-var hs-var">connectionNotification_vpcEndpointId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectionNotification -&gt; Maybe Text)
--&gt; (ConnectionNotification -&gt; Maybe Text -&gt; ConnectionNotification)
--&gt; Lens
-     ConnectionNotification
-     ConnectionNotification
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification%27"><span class="hs-identifier hs-type">ConnectionNotification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681062728"><span class="annot"><span class="annottext">Maybe Text
-vpcEndpointId :: Maybe Text
-$sel:vpcEndpointId:ConnectionNotification' :: ConnectionNotification -&gt; Maybe Text
-</span><a href="#local-6989586621681062728"><span class="hs-identifier hs-var hs-var">vpcEndpointId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681062728"><span class="hs-identifier hs-var">vpcEndpointId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681062727"><span class="annot"><span class="annottext">s :: ConnectionNotification
-</span><a href="#local-6989586621681062727"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification%27"><span class="hs-identifier hs-type">ConnectionNotification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681062726"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681062726"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionNotification
-</span><a href="#local-6989586621681062727"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcEndpointId:ConnectionNotification' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.ConnectionNotification.html#%24sel%3AvpcEndpointId%3AConnectionNotification%27"><span class="hs-identifier hs-var">vpcEndpointId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681062726"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification"><span class="hs-identifier hs-type">ConnectionNotification</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- | The ID of the endpoint service.</span><span>
-</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#connectionNotification_serviceId"><span class="hs-identifier hs-type">connectionNotification_serviceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification"><span class="hs-identifier hs-type">ConnectionNotification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span id="connectionNotification_serviceId"><span class="annot"><span class="annottext">connectionNotification_serviceId :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-101"></span><span class="hs-comment">-- | The ID of the endpoint service.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#connectionNotification_serviceId"><span class="hs-identifier hs-type">connectionNotification_serviceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification"><span class="hs-identifier hs-type">ConnectionNotification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="connectionNotification_serviceId"><span class="annot"><span class="annottext">connectionNotification_serviceId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ConnectionNotification -&gt; f ConnectionNotification
 </span><a href="Network.AWS.EC2.Types.ConnectionNotification.html#connectionNotification_serviceId"><span class="hs-identifier hs-var hs-var">connectionNotification_serviceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectionNotification -&gt; Maybe Text)
 -&gt; (ConnectionNotification -&gt; Maybe Text -&gt; ConnectionNotification)
@@ -299,41 +278,62 @@ $sel:vpcEndpointId:ConnectionNotification' :: ConnectionNotification -&gt; Maybe
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification%27"><span class="hs-identifier hs-type">ConnectionNotification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681062724"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification%27"><span class="hs-identifier hs-type">ConnectionNotification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681096302"><span class="annot"><span class="annottext">Maybe Text
 serviceId :: Maybe Text
 $sel:serviceId:ConnectionNotification' :: ConnectionNotification -&gt; Maybe Text
-</span><a href="#local-6989586621681062724"><span class="hs-identifier hs-var hs-var">serviceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681062724"><span class="hs-identifier hs-var">serviceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681062723"><span class="annot"><span class="annottext">s :: ConnectionNotification
-</span><a href="#local-6989586621681062723"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification%27"><span class="hs-identifier hs-type">ConnectionNotification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681062722"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681062722"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionNotification
-</span><a href="#local-6989586621681062723"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceId:ConnectionNotification' :: Maybe Text
+</span><a href="#local-6989586621681096302"><span class="hs-identifier hs-var hs-var">serviceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681096302"><span class="hs-identifier hs-var">serviceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681096301"><span class="annot"><span class="annottext">s :: ConnectionNotification
+</span><a href="#local-6989586621681096301"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification%27"><span class="hs-identifier hs-type">ConnectionNotification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681096300"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681096300"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionNotification
+</span><a href="#local-6989586621681096301"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceId:ConnectionNotification' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.ConnectionNotification.html#%24sel%3AserviceId%3AConnectionNotification%27"><span class="hs-identifier hs-var">serviceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681062722"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification"><span class="hs-identifier hs-type">ConnectionNotification</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- | The state of the notification.</span><span>
-</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#connectionNotification_connectionNotificationState"><span class="hs-identifier hs-type">connectionNotification_connectionNotificationState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification"><span class="hs-identifier hs-type">ConnectionNotification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotificationState.html#ConnectionNotificationState"><span class="hs-identifier hs-type">ConnectionNotificationState</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span id="connectionNotification_connectionNotificationState"><span class="annot"><span class="annottext">connectionNotification_connectionNotificationState :: (Maybe ConnectionNotificationState
- -&gt; f (Maybe ConnectionNotificationState))
+</span><a href="#local-6989586621681096300"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification"><span class="hs-identifier hs-type">ConnectionNotification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The ID of the VPC endpoint.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#connectionNotification_vpcEndpointId"><span class="hs-identifier hs-type">connectionNotification_vpcEndpointId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification"><span class="hs-identifier hs-type">ConnectionNotification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="connectionNotification_vpcEndpointId"><span class="annot"><span class="annottext">connectionNotification_vpcEndpointId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ConnectionNotification -&gt; f ConnectionNotification
-</span><a href="Network.AWS.EC2.Types.ConnectionNotification.html#connectionNotification_connectionNotificationState"><span class="hs-identifier hs-var hs-var">connectionNotification_connectionNotificationState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectionNotification -&gt; Maybe ConnectionNotificationState)
--&gt; (ConnectionNotification
-    -&gt; Maybe ConnectionNotificationState -&gt; ConnectionNotification)
+</span><a href="Network.AWS.EC2.Types.ConnectionNotification.html#connectionNotification_vpcEndpointId"><span class="hs-identifier hs-var hs-var">connectionNotification_vpcEndpointId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectionNotification -&gt; Maybe Text)
+-&gt; (ConnectionNotification -&gt; Maybe Text -&gt; ConnectionNotification)
 -&gt; Lens
      ConnectionNotification
      ConnectionNotification
-     (Maybe ConnectionNotificationState)
-     (Maybe ConnectionNotificationState)
+     (Maybe Text)
+     (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification%27"><span class="hs-identifier hs-type">ConnectionNotification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681062720"><span class="annot"><span class="annottext">Maybe ConnectionNotificationState
-connectionNotificationState :: Maybe ConnectionNotificationState
-$sel:connectionNotificationState:ConnectionNotification' :: ConnectionNotification -&gt; Maybe ConnectionNotificationState
-</span><a href="#local-6989586621681062720"><span class="hs-identifier hs-var hs-var">connectionNotificationState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionNotificationState
-</span><a href="#local-6989586621681062720"><span class="hs-identifier hs-var">connectionNotificationState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681062719"><span class="annot"><span class="annottext">s :: ConnectionNotification
-</span><a href="#local-6989586621681062719"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification%27"><span class="hs-identifier hs-type">ConnectionNotification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681062718"><span class="annot"><span class="annottext">Maybe ConnectionNotificationState
-</span><a href="#local-6989586621681062718"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionNotification
-</span><a href="#local-6989586621681062719"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionNotificationState:ConnectionNotification' :: Maybe ConnectionNotificationState
-</span><a href="Network.AWS.EC2.Types.ConnectionNotification.html#%24sel%3AconnectionNotificationState%3AConnectionNotification%27"><span class="hs-identifier hs-var">connectionNotificationState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectionNotificationState
-</span><a href="#local-6989586621681062718"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification"><span class="hs-identifier hs-type">ConnectionNotification</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification%27"><span class="hs-identifier hs-type">ConnectionNotification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681096298"><span class="annot"><span class="annottext">Maybe Text
+vpcEndpointId :: Maybe Text
+$sel:vpcEndpointId:ConnectionNotification' :: ConnectionNotification -&gt; Maybe Text
+</span><a href="#local-6989586621681096298"><span class="hs-identifier hs-var hs-var">vpcEndpointId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681096298"><span class="hs-identifier hs-var">vpcEndpointId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681096297"><span class="annot"><span class="annottext">s :: ConnectionNotification
+</span><a href="#local-6989586621681096297"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification%27"><span class="hs-identifier hs-type">ConnectionNotification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681096296"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681096296"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionNotification
+</span><a href="#local-6989586621681096297"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcEndpointId:ConnectionNotification' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.ConnectionNotification.html#%24sel%3AvpcEndpointId%3AConnectionNotification%27"><span class="hs-identifier hs-var">vpcEndpointId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681096296"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification"><span class="hs-identifier hs-type">ConnectionNotification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The ID of the notification.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#connectionNotification_connectionNotificationId"><span class="hs-identifier hs-type">connectionNotification_connectionNotificationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification"><span class="hs-identifier hs-type">ConnectionNotification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="connectionNotification_connectionNotificationId"><span class="annot"><span class="annottext">connectionNotification_connectionNotificationId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ConnectionNotification -&gt; f ConnectionNotification
+</span><a href="Network.AWS.EC2.Types.ConnectionNotification.html#connectionNotification_connectionNotificationId"><span class="hs-identifier hs-var hs-var">connectionNotification_connectionNotificationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConnectionNotification -&gt; Maybe Text)
+-&gt; (ConnectionNotification -&gt; Maybe Text -&gt; ConnectionNotification)
+-&gt; Lens
+     ConnectionNotification
+     ConnectionNotification
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification%27"><span class="hs-identifier hs-type">ConnectionNotification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681096294"><span class="annot"><span class="annottext">Maybe Text
+connectionNotificationId :: Maybe Text
+$sel:connectionNotificationId:ConnectionNotification' :: ConnectionNotification -&gt; Maybe Text
+</span><a href="#local-6989586621681096294"><span class="hs-identifier hs-var hs-var">connectionNotificationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681096294"><span class="hs-identifier hs-var">connectionNotificationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681096293"><span class="annot"><span class="annottext">s :: ConnectionNotification
+</span><a href="#local-6989586621681096293"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification%27"><span class="hs-identifier hs-type">ConnectionNotification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681096292"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681096292"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionNotification
+</span><a href="#local-6989586621681096293"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionNotificationId:ConnectionNotification' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.ConnectionNotification.html#%24sel%3AconnectionNotificationId%3AConnectionNotification%27"><span class="hs-identifier hs-var">connectionNotificationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681096292"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification"><span class="hs-identifier hs-type">ConnectionNotification</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | The ARN of the SNS topic for the notification.</span><span>
 </span><span id="line-114"></span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#connectionNotification_connectionNotificationArn"><span class="hs-identifier hs-type">connectionNotification_connectionNotificationArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification"><span class="hs-identifier hs-type">ConnectionNotification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -347,60 +347,106 @@ $sel:connectionNotificationState:ConnectionNotification' :: ConnectionNotificati
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification%27"><span class="hs-identifier hs-type">ConnectionNotification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681062716"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification%27"><span class="hs-identifier hs-type">ConnectionNotification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681096290"><span class="annot"><span class="annottext">Maybe Text
 connectionNotificationArn :: Maybe Text
 $sel:connectionNotificationArn:ConnectionNotification' :: ConnectionNotification -&gt; Maybe Text
-</span><a href="#local-6989586621681062716"><span class="hs-identifier hs-var hs-var">connectionNotificationArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681062716"><span class="hs-identifier hs-var">connectionNotificationArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681062715"><span class="annot"><span class="annottext">s :: ConnectionNotification
-</span><a href="#local-6989586621681062715"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification%27"><span class="hs-identifier hs-type">ConnectionNotification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681062714"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681062714"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionNotification
-</span><a href="#local-6989586621681062715"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionNotificationArn:ConnectionNotification' :: Maybe Text
+</span><a href="#local-6989586621681096290"><span class="hs-identifier hs-var hs-var">connectionNotificationArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681096290"><span class="hs-identifier hs-var">connectionNotificationArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681096289"><span class="annot"><span class="annottext">s :: ConnectionNotification
+</span><a href="#local-6989586621681096289"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification%27"><span class="hs-identifier hs-type">ConnectionNotification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681096288"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681096288"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionNotification
+</span><a href="#local-6989586621681096289"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionNotificationArn:ConnectionNotification' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.ConnectionNotification.html#%24sel%3AconnectionNotificationArn%3AConnectionNotification%27"><span class="hs-identifier hs-var">connectionNotificationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681062714"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification"><span class="hs-identifier hs-type">ConnectionNotification</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681096288"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification"><span class="hs-identifier hs-type">ConnectionNotification</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification"><span class="hs-identifier hs-type">ConnectionNotification</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621681062711"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ConnectionNotification
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681062709"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681062709"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">Maybe [Text]
--&gt; Maybe Text
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621681096285"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ConnectionNotification
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681096283"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681096283"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">Maybe ConnectionNotificationState
 -&gt; Maybe ConnectionNotificationType
+-&gt; Maybe [Text]
 -&gt; Maybe Text
 -&gt; Maybe Text
--&gt; Maybe ConnectionNotificationState
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; ConnectionNotification
 </span><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification%27"><span class="hs-identifier hs-var">ConnectionNotification'</span></a></span><span>
-</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">(Maybe [Text]
- -&gt; Maybe Text
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">(Maybe ConnectionNotificationState
  -&gt; Maybe ConnectionNotificationType
+ -&gt; Maybe [Text]
  -&gt; Maybe Text
  -&gt; Maybe Text
- -&gt; Maybe ConnectionNotificationState
+ -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; ConnectionNotification)
+-&gt; Either String (Maybe ConnectionNotificationState)
+-&gt; Either
+     String
+     (Maybe ConnectionNotificationType
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ConnectionNotification)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681096283"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ConnectionNotificationState)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;connectionNotificationState&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ConnectionNotificationType
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ConnectionNotification)
+-&gt; Either String (Maybe ConnectionNotificationType)
+-&gt; Either
+     String
+     (Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ConnectionNotification)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681096283"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ConnectionNotificationType)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;connectionNotificationType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ConnectionNotification)
 -&gt; Either String (Maybe [Text])
 -&gt; Either
      String
      (Maybe Text
-      -&gt; Maybe ConnectionNotificationType
       -&gt; Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe ConnectionNotificationState
       -&gt; Maybe Text
       -&gt; ConnectionNotification)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681062709"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681096283"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;connectionEvents&quot;</span></span><span>
-</span><span id="line-121"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+</span><span id="line-123"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-122"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-124"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [Text]))
 -&gt; Either String (Maybe [Text])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -413,113 +459,56 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-123"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text
-   -&gt; Maybe ConnectionNotificationType
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe ConnectionNotificationState
-   -&gt; Maybe Text
-   -&gt; ConnectionNotification)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe ConnectionNotificationType
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe ConnectionNotificationState
-      -&gt; Maybe Text
-      -&gt; ConnectionNotification)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681062709"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;connectionNotificationId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe ConnectionNotificationType
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe ConnectionNotificationState
-   -&gt; Maybe Text
-   -&gt; ConnectionNotification)
--&gt; Either String (Maybe ConnectionNotificationType)
--&gt; Either
-     String
-     (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe ConnectionNotificationState
-      -&gt; Maybe Text
-      -&gt; ConnectionNotification)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681062709"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ConnectionNotificationType)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;connectionNotificationType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe ConnectionNotificationState
+   -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; ConnectionNotification)
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
-     (Maybe Text
-      -&gt; Maybe ConnectionNotificationState
-      -&gt; Maybe Text
-      -&gt; ConnectionNotification)
+     (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ConnectionNotification)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681062709"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;vpcEndpointId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text
-   -&gt; Maybe ConnectionNotificationState
-   -&gt; Maybe Text
-   -&gt; ConnectionNotification)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe ConnectionNotificationState
-      -&gt; Maybe Text -&gt; ConnectionNotification)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681062709"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681096283"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;serviceId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe ConnectionNotificationState
-   -&gt; Maybe Text -&gt; ConnectionNotification)
--&gt; Either String (Maybe ConnectionNotificationState)
+  (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ConnectionNotification)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Text -&gt; Maybe Text -&gt; ConnectionNotification)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681096283"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;vpcEndpointId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe Text -&gt; ConnectionNotification)
+-&gt; Either String (Maybe Text)
 -&gt; Either String (Maybe Text -&gt; ConnectionNotification)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681062709"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ConnectionNotificationState)
+</span><a href="#local-6989586621681096283"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;connectionNotificationState&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;connectionNotificationId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; ConnectionNotification)
 -&gt; Either String (Maybe Text)
 -&gt; Either String ConnectionNotification
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681062709"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681096283"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;connectionNotificationArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681062700"><span id="local-6989586621681062702"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification"><span class="hs-identifier hs-type">ConnectionNotification</span></a></span></span></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681096274"><span id="local-6989586621681096276"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification"><span class="hs-identifier hs-type">ConnectionNotification</span></a></span></span></span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681062697"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification"><span class="hs-identifier hs-type">ConnectionNotification</span></a></span></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681096271"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConnectionNotification.html#ConnectionNotification"><span class="hs-identifier hs-type">ConnectionNotification</span></a></span></span><span>
 </span><span id="line-134"></span></pre></body></html>

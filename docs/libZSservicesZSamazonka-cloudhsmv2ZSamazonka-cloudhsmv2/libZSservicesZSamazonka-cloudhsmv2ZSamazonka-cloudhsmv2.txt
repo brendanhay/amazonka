@@ -2,7 +2,7 @@
 -- See Hoogle, http://www.haskell.org/hoogle/
 
 @package libZSservicesZSamazonka-cloudhsmv2ZSamazonka-cloudhsmv2
-@version 1.6.1
+@version 2.0
 
 
 module Network.AWS.CloudHSMv2.Types.BackupPolicy
@@ -144,23 +144,23 @@ module Network.AWS.CloudHSMv2.Types.Certificates
 data Certificates
 Certificates' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Certificates
 
--- | The HSM hardware certificate issued (signed) by AWS CloudHSM.
-[$sel:awsHardwareCertificate:Certificates'] :: Certificates -> Maybe Text
-
--- | The HSM certificate issued (signed) by the HSM hardware.
-[$sel:hsmCertificate:Certificates'] :: Certificates -> Maybe Text
+-- | The HSM hardware certificate issued (signed) by the hardware
+--   manufacturer.
+[$sel:manufacturerHardwareCertificate:Certificates'] :: Certificates -> Maybe Text
 
 -- | The cluster's certificate signing request (CSR). The CSR exists only
 --   when the cluster's state is <tt>UNINITIALIZED</tt>.
 [$sel:clusterCsr:Certificates'] :: Certificates -> Maybe Text
 
+-- | The HSM certificate issued (signed) by the HSM hardware.
+[$sel:hsmCertificate:Certificates'] :: Certificates -> Maybe Text
+
 -- | The cluster certificate issued (signed) by the issuing certificate
 --   authority (CA) of the cluster's owner.
 [$sel:clusterCertificate:Certificates'] :: Certificates -> Maybe Text
 
--- | The HSM hardware certificate issued (signed) by the hardware
---   manufacturer.
-[$sel:manufacturerHardwareCertificate:Certificates'] :: Certificates -> Maybe Text
+-- | The HSM hardware certificate issued (signed) by AWS CloudHSM.
+[$sel:awsHardwareCertificate:Certificates'] :: Certificates -> Maybe Text
 
 -- | Create a value of <a>Certificates</a> with all optional fields
 --   omitted.
@@ -171,45 +171,45 @@ Certificates' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe T
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:awsHardwareCertificate:Certificates'</a>,
---   <a>certificates_awsHardwareCertificate</a> - The HSM hardware
---   certificate issued (signed) by AWS CloudHSM.
---   
---   <a>$sel:hsmCertificate:Certificates'</a>,
---   <a>certificates_hsmCertificate</a> - The HSM certificate issued
---   (signed) by the HSM hardware.
+--   <a>$sel:manufacturerHardwareCertificate:Certificates'</a>,
+--   <a>certificates_manufacturerHardwareCertificate</a> - The HSM hardware
+--   certificate issued (signed) by the hardware manufacturer.
 --   
 --   <a>$sel:clusterCsr:Certificates'</a>, <a>certificates_clusterCsr</a> -
 --   The cluster's certificate signing request (CSR). The CSR exists only
 --   when the cluster's state is <tt>UNINITIALIZED</tt>.
+--   
+--   <a>$sel:hsmCertificate:Certificates'</a>,
+--   <a>certificates_hsmCertificate</a> - The HSM certificate issued
+--   (signed) by the HSM hardware.
 --   
 --   <a>$sel:clusterCertificate:Certificates'</a>,
 --   <a>certificates_clusterCertificate</a> - The cluster certificate
 --   issued (signed) by the issuing certificate authority (CA) of the
 --   cluster's owner.
 --   
---   <a>$sel:manufacturerHardwareCertificate:Certificates'</a>,
---   <a>certificates_manufacturerHardwareCertificate</a> - The HSM hardware
---   certificate issued (signed) by the hardware manufacturer.
+--   <a>$sel:awsHardwareCertificate:Certificates'</a>,
+--   <a>certificates_awsHardwareCertificate</a> - The HSM hardware
+--   certificate issued (signed) by AWS CloudHSM.
 newCertificates :: Certificates
 
--- | The HSM hardware certificate issued (signed) by AWS CloudHSM.
-certificates_awsHardwareCertificate :: Lens' Certificates (Maybe Text)
-
--- | The HSM certificate issued (signed) by the HSM hardware.
-certificates_hsmCertificate :: Lens' Certificates (Maybe Text)
+-- | The HSM hardware certificate issued (signed) by the hardware
+--   manufacturer.
+certificates_manufacturerHardwareCertificate :: Lens' Certificates (Maybe Text)
 
 -- | The cluster's certificate signing request (CSR). The CSR exists only
 --   when the cluster's state is <tt>UNINITIALIZED</tt>.
 certificates_clusterCsr :: Lens' Certificates (Maybe Text)
 
+-- | The HSM certificate issued (signed) by the HSM hardware.
+certificates_hsmCertificate :: Lens' Certificates (Maybe Text)
+
 -- | The cluster certificate issued (signed) by the issuing certificate
 --   authority (CA) of the cluster's owner.
 certificates_clusterCertificate :: Lens' Certificates (Maybe Text)
 
--- | The HSM hardware certificate issued (signed) by the hardware
---   manufacturer.
-certificates_manufacturerHardwareCertificate :: Lens' Certificates (Maybe Text)
+-- | The HSM hardware certificate issued (signed) by AWS CloudHSM.
+certificates_awsHardwareCertificate :: Lens' Certificates (Maybe Text)
 instance GHC.Generics.Generic Network.AWS.CloudHSMv2.Types.Certificates.Certificates
 instance GHC.Show.Show Network.AWS.CloudHSMv2.Types.Certificates.Certificates
 instance GHC.Read.Read Network.AWS.CloudHSMv2.Types.Certificates.Certificates
@@ -260,14 +260,7 @@ module Network.AWS.CloudHSMv2.Types.DestinationBackup
 --   
 --   <i>See:</i> <a>newDestinationBackup</a> smart constructor.
 data DestinationBackup
-DestinationBackup' :: Maybe Text -> Maybe POSIX -> Maybe Text -> Maybe Text -> DestinationBackup
-
--- | The identifier (ID) of the source backup from which the new backup was
---   copied.
-[$sel:sourceBackup:DestinationBackup'] :: DestinationBackup -> Maybe Text
-
--- | The date and time when both the source backup was created.
-[$sel:createTimestamp:DestinationBackup'] :: DestinationBackup -> Maybe POSIX
+DestinationBackup' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe POSIX -> DestinationBackup
 
 -- | The identifier (ID) of the cluster containing the source backup from
 --   which the new backup was copied.
@@ -276,6 +269,13 @@ DestinationBackup' :: Maybe Text -> Maybe POSIX -> Maybe Text -> Maybe Text -> D
 -- | The AWS region that contains the source backup from which the new
 --   backup was copied.
 [$sel:sourceRegion:DestinationBackup'] :: DestinationBackup -> Maybe Text
+
+-- | The identifier (ID) of the source backup from which the new backup was
+--   copied.
+[$sel:sourceBackup:DestinationBackup'] :: DestinationBackup -> Maybe Text
+
+-- | The date and time when both the source backup was created.
+[$sel:createTimestamp:DestinationBackup'] :: DestinationBackup -> Maybe POSIX
 
 -- | Create a value of <a>DestinationBackup</a> with all optional fields
 --   omitted.
@@ -286,14 +286,6 @@ DestinationBackup' :: Maybe Text -> Maybe POSIX -> Maybe Text -> Maybe Text -> D
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:sourceBackup:DestinationBackup'</a>,
---   <a>destinationBackup_sourceBackup</a> - The identifier (ID) of the
---   source backup from which the new backup was copied.
---   
---   <a>$sel:createTimestamp:DestinationBackup'</a>,
---   <a>destinationBackup_createTimestamp</a> - The date and time when both
---   the source backup was created.
---   
 --   <a>$sel:sourceCluster:DestinationBackup'</a>,
 --   <a>destinationBackup_sourceCluster</a> - The identifier (ID) of the
 --   cluster containing the source backup from which the new backup was
@@ -302,14 +294,15 @@ DestinationBackup' :: Maybe Text -> Maybe POSIX -> Maybe Text -> Maybe Text -> D
 --   <a>$sel:sourceRegion:DestinationBackup'</a>,
 --   <a>destinationBackup_sourceRegion</a> - The AWS region that contains
 --   the source backup from which the new backup was copied.
+--   
+--   <a>$sel:sourceBackup:DestinationBackup'</a>,
+--   <a>destinationBackup_sourceBackup</a> - The identifier (ID) of the
+--   source backup from which the new backup was copied.
+--   
+--   <a>$sel:createTimestamp:DestinationBackup'</a>,
+--   <a>destinationBackup_createTimestamp</a> - The date and time when both
+--   the source backup was created.
 newDestinationBackup :: DestinationBackup
-
--- | The identifier (ID) of the source backup from which the new backup was
---   copied.
-destinationBackup_sourceBackup :: Lens' DestinationBackup (Maybe Text)
-
--- | The date and time when both the source backup was created.
-destinationBackup_createTimestamp :: Lens' DestinationBackup (Maybe UTCTime)
 
 -- | The identifier (ID) of the cluster containing the source backup from
 --   which the new backup was copied.
@@ -318,6 +311,13 @@ destinationBackup_sourceCluster :: Lens' DestinationBackup (Maybe Text)
 -- | The AWS region that contains the source backup from which the new
 --   backup was copied.
 destinationBackup_sourceRegion :: Lens' DestinationBackup (Maybe Text)
+
+-- | The identifier (ID) of the source backup from which the new backup was
+--   copied.
+destinationBackup_sourceBackup :: Lens' DestinationBackup (Maybe Text)
+
+-- | The date and time when both the source backup was created.
+destinationBackup_createTimestamp :: Lens' DestinationBackup (Maybe UTCTime)
 instance GHC.Generics.Generic Network.AWS.CloudHSMv2.Types.DestinationBackup.DestinationBackup
 instance GHC.Show.Show Network.AWS.CloudHSMv2.Types.DestinationBackup.DestinationBackup
 instance GHC.Read.Read Network.AWS.CloudHSMv2.Types.DestinationBackup.DestinationBackup
@@ -364,28 +364,28 @@ module Network.AWS.CloudHSMv2.Types.Hsm
 --   
 --   <i>See:</i> <a>newHsm</a> smart constructor.
 data Hsm
-Hsm' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe HsmState -> Maybe Text -> Text -> Hsm
-
--- | The identifier (ID) of the cluster that contains the HSM.
-[$sel:clusterId:Hsm'] :: Hsm -> Maybe Text
+Hsm' :: Maybe Text -> Maybe HsmState -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Text -> Hsm
 
 -- | A description of the HSM's state.
 [$sel:stateMessage:Hsm'] :: Hsm -> Maybe Text
 
--- | The IP address of the HSM's elastic network interface (ENI).
-[$sel:eniIp:Hsm'] :: Hsm -> Maybe Text
+-- | The HSM's state.
+[$sel:state:Hsm'] :: Hsm -> Maybe HsmState
 
 -- | The identifier (ID) of the HSM's elastic network interface (ENI).
 [$sel:eniId:Hsm'] :: Hsm -> Maybe Text
 
+-- | The subnet that contains the HSM's elastic network interface (ENI).
+[$sel:subnetId:Hsm'] :: Hsm -> Maybe Text
+
 -- | The Availability Zone that contains the HSM.
 [$sel:availabilityZone:Hsm'] :: Hsm -> Maybe Text
 
--- | The HSM's state.
-[$sel:state:Hsm'] :: Hsm -> Maybe HsmState
+-- | The identifier (ID) of the cluster that contains the HSM.
+[$sel:clusterId:Hsm'] :: Hsm -> Maybe Text
 
--- | The subnet that contains the HSM's elastic network interface (ENI).
-[$sel:subnetId:Hsm'] :: Hsm -> Maybe Text
+-- | The IP address of the HSM's elastic network interface (ENI).
+[$sel:eniIp:Hsm'] :: Hsm -> Maybe Text
 
 -- | The HSM's identifier (ID).
 [$sel:hsmId:Hsm'] :: Hsm -> Text
@@ -398,49 +398,49 @@ Hsm' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Ma
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:clusterId:Hsm'</a>, <a>hsm_clusterId</a> - The identifier (ID)
---   of the cluster that contains the HSM.
---   
 --   <a>$sel:stateMessage:Hsm'</a>, <a>hsm_stateMessage</a> - A description
 --   of the HSM's state.
 --   
---   <a>$sel:eniIp:Hsm'</a>, <a>hsm_eniIp</a> - The IP address of the HSM's
---   elastic network interface (ENI).
+--   <a>$sel:state:Hsm'</a>, <a>hsm_state</a> - The HSM's state.
 --   
 --   <a>$sel:eniId:Hsm'</a>, <a>hsm_eniId</a> - The identifier (ID) of the
 --   HSM's elastic network interface (ENI).
 --   
+--   <a>$sel:subnetId:Hsm'</a>, <a>hsm_subnetId</a> - The subnet that
+--   contains the HSM's elastic network interface (ENI).
+--   
 --   <a>$sel:availabilityZone:Hsm'</a>, <a>hsm_availabilityZone</a> - The
 --   Availability Zone that contains the HSM.
 --   
---   <a>$sel:state:Hsm'</a>, <a>hsm_state</a> - The HSM's state.
+--   <a>$sel:clusterId:Hsm'</a>, <a>hsm_clusterId</a> - The identifier (ID)
+--   of the cluster that contains the HSM.
 --   
---   <a>$sel:subnetId:Hsm'</a>, <a>hsm_subnetId</a> - The subnet that
---   contains the HSM's elastic network interface (ENI).
+--   <a>$sel:eniIp:Hsm'</a>, <a>hsm_eniIp</a> - The IP address of the HSM's
+--   elastic network interface (ENI).
 --   
 --   <a>$sel:hsmId:Hsm'</a>, <a>hsm_hsmId</a> - The HSM's identifier (ID).
 newHsm :: Text -> Hsm
 
--- | The identifier (ID) of the cluster that contains the HSM.
-hsm_clusterId :: Lens' Hsm (Maybe Text)
-
 -- | A description of the HSM's state.
 hsm_stateMessage :: Lens' Hsm (Maybe Text)
-
--- | The IP address of the HSM's elastic network interface (ENI).
-hsm_eniIp :: Lens' Hsm (Maybe Text)
-
--- | The identifier (ID) of the HSM's elastic network interface (ENI).
-hsm_eniId :: Lens' Hsm (Maybe Text)
-
--- | The Availability Zone that contains the HSM.
-hsm_availabilityZone :: Lens' Hsm (Maybe Text)
 
 -- | The HSM's state.
 hsm_state :: Lens' Hsm (Maybe HsmState)
 
+-- | The identifier (ID) of the HSM's elastic network interface (ENI).
+hsm_eniId :: Lens' Hsm (Maybe Text)
+
 -- | The subnet that contains the HSM's elastic network interface (ENI).
 hsm_subnetId :: Lens' Hsm (Maybe Text)
+
+-- | The Availability Zone that contains the HSM.
+hsm_availabilityZone :: Lens' Hsm (Maybe Text)
+
+-- | The identifier (ID) of the cluster that contains the HSM.
+hsm_clusterId :: Lens' Hsm (Maybe Text)
+
+-- | The IP address of the HSM's elastic network interface (ENI).
+hsm_eniIp :: Lens' Hsm (Maybe Text)
 
 -- | The HSM's identifier (ID).
 hsm_hsmId :: Lens' Hsm Text
@@ -501,57 +501,57 @@ module Network.AWS.CloudHSMv2.Types.Cluster
 --   
 --   <i>See:</i> <a>newCluster</a> smart constructor.
 data Cluster
-Cluster' :: Maybe Text -> Maybe Text -> Maybe BackupPolicy -> Maybe POSIX -> Maybe (HashMap Text Text) -> Maybe ClusterState -> Maybe Text -> Maybe Text -> Maybe Certificates -> Maybe Text -> Maybe Text -> Maybe [Tag] -> Maybe Text -> Maybe [Hsm] -> Maybe BackupRetentionPolicy -> Cluster
-
--- | The cluster's identifier (ID).
-[$sel:clusterId:Cluster'] :: Cluster -> Maybe Text
-
--- | A description of the cluster's state.
-[$sel:stateMessage:Cluster'] :: Cluster -> Maybe Text
-
--- | The cluster's backup policy.
-[$sel:backupPolicy:Cluster'] :: Cluster -> Maybe BackupPolicy
-
--- | The date and time when the cluster was created.
-[$sel:createTimestamp:Cluster'] :: Cluster -> Maybe POSIX
-
--- | A map from availability zone to the cluster’s subnet in that
---   availability zone.
-[$sel:subnetMapping:Cluster'] :: Cluster -> Maybe (HashMap Text Text)
-
--- | The cluster's state.
-[$sel:state:Cluster'] :: Cluster -> Maybe ClusterState
+Cluster' :: Maybe Text -> Maybe Text -> Maybe ClusterState -> Maybe (HashMap Text Text) -> Maybe BackupRetentionPolicy -> Maybe [Hsm] -> Maybe Text -> Maybe [Tag] -> Maybe Text -> Maybe Certificates -> Maybe Text -> Maybe Text -> Maybe POSIX -> Maybe BackupPolicy -> Maybe Text -> Cluster
 
 -- | The default password for the cluster's Pre-Crypto Officer (PRECO)
 --   user.
 [$sel:preCoPassword:Cluster'] :: Cluster -> Maybe Text
 
--- | The identifier (ID) of the cluster's security group.
-[$sel:securityGroup:Cluster'] :: Cluster -> Maybe Text
+-- | A description of the cluster's state.
+[$sel:stateMessage:Cluster'] :: Cluster -> Maybe Text
 
--- | Contains one or more certificates or a certificate signing request
---   (CSR).
-[$sel:certificates:Cluster'] :: Cluster -> Maybe Certificates
+-- | The cluster's state.
+[$sel:state:Cluster'] :: Cluster -> Maybe ClusterState
 
--- | The identifier (ID) of the backup used to create the cluster. This
---   value exists only when the cluster was created from a backup.
-[$sel:sourceBackupId:Cluster'] :: Cluster -> Maybe Text
+-- | A map from availability zone to the cluster’s subnet in that
+--   availability zone.
+[$sel:subnetMapping:Cluster'] :: Cluster -> Maybe (HashMap Text Text)
 
--- | The type of HSM that the cluster contains.
-[$sel:hsmType:Cluster'] :: Cluster -> Maybe Text
+-- | A policy that defines how the service retains backups.
+[$sel:backupRetentionPolicy:Cluster'] :: Cluster -> Maybe BackupRetentionPolicy
 
--- | The list of tags for the cluster.
-[$sel:tagList:Cluster'] :: Cluster -> Maybe [Tag]
+-- | Contains information about the HSMs in the cluster.
+[$sel:hsms:Cluster'] :: Cluster -> Maybe [Hsm]
 
 -- | The identifier (ID) of the virtual private cloud (VPC) that contains
 --   the cluster.
 [$sel:vpcId:Cluster'] :: Cluster -> Maybe Text
 
--- | Contains information about the HSMs in the cluster.
-[$sel:hsms:Cluster'] :: Cluster -> Maybe [Hsm]
+-- | The list of tags for the cluster.
+[$sel:tagList:Cluster'] :: Cluster -> Maybe [Tag]
 
--- | A policy that defines how the service retains backups.
-[$sel:backupRetentionPolicy:Cluster'] :: Cluster -> Maybe BackupRetentionPolicy
+-- | The identifier (ID) of the backup used to create the cluster. This
+--   value exists only when the cluster was created from a backup.
+[$sel:sourceBackupId:Cluster'] :: Cluster -> Maybe Text
+
+-- | Contains one or more certificates or a certificate signing request
+--   (CSR).
+[$sel:certificates:Cluster'] :: Cluster -> Maybe Certificates
+
+-- | The identifier (ID) of the cluster's security group.
+[$sel:securityGroup:Cluster'] :: Cluster -> Maybe Text
+
+-- | The cluster's identifier (ID).
+[$sel:clusterId:Cluster'] :: Cluster -> Maybe Text
+
+-- | The date and time when the cluster was created.
+[$sel:createTimestamp:Cluster'] :: Cluster -> Maybe POSIX
+
+-- | The cluster's backup policy.
+[$sel:backupPolicy:Cluster'] :: Cluster -> Maybe BackupPolicy
+
+-- | The type of HSM that the cluster contains.
+[$sel:hsmType:Cluster'] :: Cluster -> Maybe Text
 
 -- | Create a value of <a>Cluster</a> with all optional fields omitted.
 --   
@@ -561,105 +561,105 @@ Cluster' :: Maybe Text -> Maybe Text -> Maybe BackupPolicy -> Maybe POSIX -> May
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:clusterId:Cluster'</a>, <a>cluster_clusterId</a> - The
---   cluster's identifier (ID).
+--   <a>$sel:preCoPassword:Cluster'</a>, <a>cluster_preCoPassword</a> - The
+--   default password for the cluster's Pre-Crypto Officer (PRECO) user.
 --   
 --   <a>$sel:stateMessage:Cluster'</a>, <a>cluster_stateMessage</a> - A
 --   description of the cluster's state.
 --   
---   <a>$sel:backupPolicy:Cluster'</a>, <a>cluster_backupPolicy</a> - The
---   cluster's backup policy.
---   
---   <a>$sel:createTimestamp:Cluster'</a>, <a>cluster_createTimestamp</a> -
---   The date and time when the cluster was created.
+--   <a>$sel:state:Cluster'</a>, <a>cluster_state</a> - The cluster's
+--   state.
 --   
 --   <a>$sel:subnetMapping:Cluster'</a>, <a>cluster_subnetMapping</a> - A
 --   map from availability zone to the cluster’s subnet in that
 --   availability zone.
 --   
---   <a>$sel:state:Cluster'</a>, <a>cluster_state</a> - The cluster's
---   state.
+--   <a>$sel:backupRetentionPolicy:Cluster'</a>,
+--   <a>cluster_backupRetentionPolicy</a> - A policy that defines how the
+--   service retains backups.
 --   
---   <a>$sel:preCoPassword:Cluster'</a>, <a>cluster_preCoPassword</a> - The
---   default password for the cluster's Pre-Crypto Officer (PRECO) user.
+--   <a>$sel:hsms:Cluster'</a>, <a>cluster_hsms</a> - Contains information
+--   about the HSMs in the cluster.
 --   
---   <a>$sel:securityGroup:Cluster'</a>, <a>cluster_securityGroup</a> - The
---   identifier (ID) of the cluster's security group.
+--   <a>$sel:vpcId:Cluster'</a>, <a>cluster_vpcId</a> - The identifier (ID)
+--   of the virtual private cloud (VPC) that contains the cluster.
 --   
---   <a>$sel:certificates:Cluster'</a>, <a>cluster_certificates</a> -
---   Contains one or more certificates or a certificate signing request
---   (CSR).
+--   <a>$sel:tagList:Cluster'</a>, <a>cluster_tagList</a> - The list of
+--   tags for the cluster.
 --   
 --   <a>$sel:sourceBackupId:Cluster'</a>, <a>cluster_sourceBackupId</a> -
 --   The identifier (ID) of the backup used to create the cluster. This
 --   value exists only when the cluster was created from a backup.
 --   
+--   <a>$sel:certificates:Cluster'</a>, <a>cluster_certificates</a> -
+--   Contains one or more certificates or a certificate signing request
+--   (CSR).
+--   
+--   <a>$sel:securityGroup:Cluster'</a>, <a>cluster_securityGroup</a> - The
+--   identifier (ID) of the cluster's security group.
+--   
+--   <a>$sel:clusterId:Cluster'</a>, <a>cluster_clusterId</a> - The
+--   cluster's identifier (ID).
+--   
+--   <a>$sel:createTimestamp:Cluster'</a>, <a>cluster_createTimestamp</a> -
+--   The date and time when the cluster was created.
+--   
+--   <a>$sel:backupPolicy:Cluster'</a>, <a>cluster_backupPolicy</a> - The
+--   cluster's backup policy.
+--   
 --   <a>$sel:hsmType:Cluster'</a>, <a>cluster_hsmType</a> - The type of HSM
 --   that the cluster contains.
---   
---   <a>$sel:tagList:Cluster'</a>, <a>cluster_tagList</a> - The list of
---   tags for the cluster.
---   
---   <a>$sel:vpcId:Cluster'</a>, <a>cluster_vpcId</a> - The identifier (ID)
---   of the virtual private cloud (VPC) that contains the cluster.
---   
---   <a>$sel:hsms:Cluster'</a>, <a>cluster_hsms</a> - Contains information
---   about the HSMs in the cluster.
---   
---   <a>$sel:backupRetentionPolicy:Cluster'</a>,
---   <a>cluster_backupRetentionPolicy</a> - A policy that defines how the
---   service retains backups.
 newCluster :: Cluster
-
--- | The cluster's identifier (ID).
-cluster_clusterId :: Lens' Cluster (Maybe Text)
-
--- | A description of the cluster's state.
-cluster_stateMessage :: Lens' Cluster (Maybe Text)
-
--- | The cluster's backup policy.
-cluster_backupPolicy :: Lens' Cluster (Maybe BackupPolicy)
-
--- | The date and time when the cluster was created.
-cluster_createTimestamp :: Lens' Cluster (Maybe UTCTime)
-
--- | A map from availability zone to the cluster’s subnet in that
---   availability zone.
-cluster_subnetMapping :: Lens' Cluster (Maybe (HashMap Text Text))
-
--- | The cluster's state.
-cluster_state :: Lens' Cluster (Maybe ClusterState)
 
 -- | The default password for the cluster's Pre-Crypto Officer (PRECO)
 --   user.
 cluster_preCoPassword :: Lens' Cluster (Maybe Text)
 
--- | The identifier (ID) of the cluster's security group.
-cluster_securityGroup :: Lens' Cluster (Maybe Text)
+-- | A description of the cluster's state.
+cluster_stateMessage :: Lens' Cluster (Maybe Text)
 
--- | Contains one or more certificates or a certificate signing request
---   (CSR).
-cluster_certificates :: Lens' Cluster (Maybe Certificates)
+-- | The cluster's state.
+cluster_state :: Lens' Cluster (Maybe ClusterState)
 
--- | The identifier (ID) of the backup used to create the cluster. This
---   value exists only when the cluster was created from a backup.
-cluster_sourceBackupId :: Lens' Cluster (Maybe Text)
+-- | A map from availability zone to the cluster’s subnet in that
+--   availability zone.
+cluster_subnetMapping :: Lens' Cluster (Maybe (HashMap Text Text))
 
--- | The type of HSM that the cluster contains.
-cluster_hsmType :: Lens' Cluster (Maybe Text)
+-- | A policy that defines how the service retains backups.
+cluster_backupRetentionPolicy :: Lens' Cluster (Maybe BackupRetentionPolicy)
 
--- | The list of tags for the cluster.
-cluster_tagList :: Lens' Cluster (Maybe [Tag])
+-- | Contains information about the HSMs in the cluster.
+cluster_hsms :: Lens' Cluster (Maybe [Hsm])
 
 -- | The identifier (ID) of the virtual private cloud (VPC) that contains
 --   the cluster.
 cluster_vpcId :: Lens' Cluster (Maybe Text)
 
--- | Contains information about the HSMs in the cluster.
-cluster_hsms :: Lens' Cluster (Maybe [Hsm])
+-- | The list of tags for the cluster.
+cluster_tagList :: Lens' Cluster (Maybe [Tag])
 
--- | A policy that defines how the service retains backups.
-cluster_backupRetentionPolicy :: Lens' Cluster (Maybe BackupRetentionPolicy)
+-- | The identifier (ID) of the backup used to create the cluster. This
+--   value exists only when the cluster was created from a backup.
+cluster_sourceBackupId :: Lens' Cluster (Maybe Text)
+
+-- | Contains one or more certificates or a certificate signing request
+--   (CSR).
+cluster_certificates :: Lens' Cluster (Maybe Certificates)
+
+-- | The identifier (ID) of the cluster's security group.
+cluster_securityGroup :: Lens' Cluster (Maybe Text)
+
+-- | The cluster's identifier (ID).
+cluster_clusterId :: Lens' Cluster (Maybe Text)
+
+-- | The date and time when the cluster was created.
+cluster_createTimestamp :: Lens' Cluster (Maybe UTCTime)
+
+-- | The cluster's backup policy.
+cluster_backupPolicy :: Lens' Cluster (Maybe BackupPolicy)
+
+-- | The type of HSM that the cluster contains.
+cluster_hsmType :: Lens' Cluster (Maybe Text)
 instance GHC.Generics.Generic Network.AWS.CloudHSMv2.Types.Cluster.Cluster
 instance GHC.Show.Show Network.AWS.CloudHSMv2.Types.Cluster.Cluster
 instance GHC.Read.Read Network.AWS.CloudHSMv2.Types.Cluster.Cluster
@@ -681,29 +681,7 @@ module Network.AWS.CloudHSMv2.Types.Backup
 --   
 --   <i>See:</i> <a>newBackup</a> smart constructor.
 data Backup
-Backup' :: Maybe Text -> Maybe BackupState -> Maybe Text -> Maybe POSIX -> Maybe Bool -> Maybe POSIX -> Maybe POSIX -> Maybe Text -> Maybe [Tag] -> Maybe Text -> Text -> Backup
-
--- | The identifier (ID) of the cluster that was backed up.
-[$sel:clusterId:Backup'] :: Backup -> Maybe Text
-
--- | The state of the backup.
-[$sel:backupState:Backup'] :: Backup -> Maybe BackupState
-
--- | The identifier (ID) of the source backup from which the new backup was
---   copied.
-[$sel:sourceBackup:Backup'] :: Backup -> Maybe Text
-
--- | The date and time when the backup was copied from a source backup.
-[$sel:copyTimestamp:Backup'] :: Backup -> Maybe POSIX
-
--- | Specifies whether the service should exempt a backup from the
---   retention policy for the cluster. <tt>True</tt> exempts a backup from
---   the retention policy. <tt>False</tt> means the service applies the
---   backup retention policy defined at the cluster.
-[$sel:neverExpires:Backup'] :: Backup -> Maybe Bool
-
--- | The date and time when the backup was created.
-[$sel:createTimestamp:Backup'] :: Backup -> Maybe POSIX
+Backup' :: Maybe POSIX -> Maybe Text -> Maybe Bool -> Maybe Text -> Maybe [Tag] -> Maybe Text -> Maybe Text -> Maybe POSIX -> Maybe POSIX -> Maybe BackupState -> Text -> Backup
 
 -- | The date and time when the backup will be permanently deleted.
 [$sel:deleteTimestamp:Backup'] :: Backup -> Maybe POSIX
@@ -712,12 +690,34 @@ Backup' :: Maybe Text -> Maybe BackupState -> Maybe Text -> Maybe POSIX -> Maybe
 --   which the new backup was copied.
 [$sel:sourceCluster:Backup'] :: Backup -> Maybe Text
 
--- | The list of tags for the backup.
-[$sel:tagList:Backup'] :: Backup -> Maybe [Tag]
+-- | Specifies whether the service should exempt a backup from the
+--   retention policy for the cluster. <tt>True</tt> exempts a backup from
+--   the retention policy. <tt>False</tt> means the service applies the
+--   backup retention policy defined at the cluster.
+[$sel:neverExpires:Backup'] :: Backup -> Maybe Bool
 
 -- | The AWS Region that contains the source backup from which the new
 --   backup was copied.
 [$sel:sourceRegion:Backup'] :: Backup -> Maybe Text
+
+-- | The list of tags for the backup.
+[$sel:tagList:Backup'] :: Backup -> Maybe [Tag]
+
+-- | The identifier (ID) of the source backup from which the new backup was
+--   copied.
+[$sel:sourceBackup:Backup'] :: Backup -> Maybe Text
+
+-- | The identifier (ID) of the cluster that was backed up.
+[$sel:clusterId:Backup'] :: Backup -> Maybe Text
+
+-- | The date and time when the backup was created.
+[$sel:createTimestamp:Backup'] :: Backup -> Maybe POSIX
+
+-- | The date and time when the backup was copied from a source backup.
+[$sel:copyTimestamp:Backup'] :: Backup -> Maybe POSIX
+
+-- | The state of the backup.
+[$sel:backupState:Backup'] :: Backup -> Maybe BackupState
 
 -- | The identifier (ID) of the backup.
 [$sel:backupId:Backup'] :: Backup -> Text
@@ -730,28 +730,6 @@ Backup' :: Maybe Text -> Maybe BackupState -> Maybe Text -> Maybe POSIX -> Maybe
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:clusterId:Backup'</a>, <a>backup_clusterId</a> - The
---   identifier (ID) of the cluster that was backed up.
---   
---   <a>$sel:backupState:Backup'</a>, <a>backup_backupState</a> - The state
---   of the backup.
---   
---   <a>$sel:sourceBackup:Backup'</a>, <a>backup_sourceBackup</a> - The
---   identifier (ID) of the source backup from which the new backup was
---   copied.
---   
---   <a>$sel:copyTimestamp:Backup'</a>, <a>backup_copyTimestamp</a> - The
---   date and time when the backup was copied from a source backup.
---   
---   <a>$sel:neverExpires:Backup'</a>, <a>backup_neverExpires</a> -
---   Specifies whether the service should exempt a backup from the
---   retention policy for the cluster. <tt>True</tt> exempts a backup from
---   the retention policy. <tt>False</tt> means the service applies the
---   backup retention policy defined at the cluster.
---   
---   <a>$sel:createTimestamp:Backup'</a>, <a>backup_createTimestamp</a> -
---   The date and time when the backup was created.
---   
 --   <a>$sel:deleteTimestamp:Backup'</a>, <a>backup_deleteTimestamp</a> -
 --   The date and time when the backup will be permanently deleted.
 --   
@@ -759,38 +737,38 @@ Backup' :: Maybe Text -> Maybe BackupState -> Maybe Text -> Maybe POSIX -> Maybe
 --   identifier (ID) of the cluster containing the source backup from which
 --   the new backup was copied.
 --   
---   <a>$sel:tagList:Backup'</a>, <a>backup_tagList</a> - The list of tags
---   for the backup.
+--   <a>$sel:neverExpires:Backup'</a>, <a>backup_neverExpires</a> -
+--   Specifies whether the service should exempt a backup from the
+--   retention policy for the cluster. <tt>True</tt> exempts a backup from
+--   the retention policy. <tt>False</tt> means the service applies the
+--   backup retention policy defined at the cluster.
 --   
 --   <a>$sel:sourceRegion:Backup'</a>, <a>backup_sourceRegion</a> - The AWS
 --   Region that contains the source backup from which the new backup was
 --   copied.
 --   
+--   <a>$sel:tagList:Backup'</a>, <a>backup_tagList</a> - The list of tags
+--   for the backup.
+--   
+--   <a>$sel:sourceBackup:Backup'</a>, <a>backup_sourceBackup</a> - The
+--   identifier (ID) of the source backup from which the new backup was
+--   copied.
+--   
+--   <a>$sel:clusterId:Backup'</a>, <a>backup_clusterId</a> - The
+--   identifier (ID) of the cluster that was backed up.
+--   
+--   <a>$sel:createTimestamp:Backup'</a>, <a>backup_createTimestamp</a> -
+--   The date and time when the backup was created.
+--   
+--   <a>$sel:copyTimestamp:Backup'</a>, <a>backup_copyTimestamp</a> - The
+--   date and time when the backup was copied from a source backup.
+--   
+--   <a>$sel:backupState:Backup'</a>, <a>backup_backupState</a> - The state
+--   of the backup.
+--   
 --   <a>$sel:backupId:Backup'</a>, <a>backup_backupId</a> - The identifier
 --   (ID) of the backup.
 newBackup :: Text -> Backup
-
--- | The identifier (ID) of the cluster that was backed up.
-backup_clusterId :: Lens' Backup (Maybe Text)
-
--- | The state of the backup.
-backup_backupState :: Lens' Backup (Maybe BackupState)
-
--- | The identifier (ID) of the source backup from which the new backup was
---   copied.
-backup_sourceBackup :: Lens' Backup (Maybe Text)
-
--- | The date and time when the backup was copied from a source backup.
-backup_copyTimestamp :: Lens' Backup (Maybe UTCTime)
-
--- | Specifies whether the service should exempt a backup from the
---   retention policy for the cluster. <tt>True</tt> exempts a backup from
---   the retention policy. <tt>False</tt> means the service applies the
---   backup retention policy defined at the cluster.
-backup_neverExpires :: Lens' Backup (Maybe Bool)
-
--- | The date and time when the backup was created.
-backup_createTimestamp :: Lens' Backup (Maybe UTCTime)
 
 -- | The date and time when the backup will be permanently deleted.
 backup_deleteTimestamp :: Lens' Backup (Maybe UTCTime)
@@ -799,12 +777,34 @@ backup_deleteTimestamp :: Lens' Backup (Maybe UTCTime)
 --   which the new backup was copied.
 backup_sourceCluster :: Lens' Backup (Maybe Text)
 
--- | The list of tags for the backup.
-backup_tagList :: Lens' Backup (Maybe [Tag])
+-- | Specifies whether the service should exempt a backup from the
+--   retention policy for the cluster. <tt>True</tt> exempts a backup from
+--   the retention policy. <tt>False</tt> means the service applies the
+--   backup retention policy defined at the cluster.
+backup_neverExpires :: Lens' Backup (Maybe Bool)
 
 -- | The AWS Region that contains the source backup from which the new
 --   backup was copied.
 backup_sourceRegion :: Lens' Backup (Maybe Text)
+
+-- | The list of tags for the backup.
+backup_tagList :: Lens' Backup (Maybe [Tag])
+
+-- | The identifier (ID) of the source backup from which the new backup was
+--   copied.
+backup_sourceBackup :: Lens' Backup (Maybe Text)
+
+-- | The identifier (ID) of the cluster that was backed up.
+backup_clusterId :: Lens' Backup (Maybe Text)
+
+-- | The date and time when the backup was created.
+backup_createTimestamp :: Lens' Backup (Maybe UTCTime)
+
+-- | The date and time when the backup was copied from a source backup.
+backup_copyTimestamp :: Lens' Backup (Maybe UTCTime)
+
+-- | The state of the backup.
+backup_backupState :: Lens' Backup (Maybe BackupState)
 
 -- | The identifier (ID) of the backup.
 backup_backupId :: Lens' Backup Text
@@ -827,19 +827,19 @@ defaultService :: Service
 --   The request can be retried.
 _CloudHsmInternalFailureException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The request was rejected because it refers to a resource that cannot
---   be found.
-_CloudHsmResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The request was rejected because an error occurred.
+_CloudHsmServiceException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The request was rejected because it is not a valid request.
+_CloudHsmInvalidRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | The request was rejected because the requester does not have
 --   permission to perform the requested operation.
 _CloudHsmAccessDeniedException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The request was rejected because it is not a valid request.
-_CloudHsmInvalidRequestException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The request was rejected because an error occurred.
-_CloudHsmServiceException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The request was rejected because it refers to a resource that cannot
+--   be found.
+_CloudHsmResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | The request was rejected because of a tagging failure. Verify the tag
 --   conditions in all applicable policies, and then retry the request.
@@ -890,29 +890,7 @@ pattern HsmState_DELETE_IN_PROGRESS :: HsmState
 --   
 --   <i>See:</i> <a>newBackup</a> smart constructor.
 data Backup
-Backup' :: Maybe Text -> Maybe BackupState -> Maybe Text -> Maybe POSIX -> Maybe Bool -> Maybe POSIX -> Maybe POSIX -> Maybe Text -> Maybe [Tag] -> Maybe Text -> Text -> Backup
-
--- | The identifier (ID) of the cluster that was backed up.
-[$sel:clusterId:Backup'] :: Backup -> Maybe Text
-
--- | The state of the backup.
-[$sel:backupState:Backup'] :: Backup -> Maybe BackupState
-
--- | The identifier (ID) of the source backup from which the new backup was
---   copied.
-[$sel:sourceBackup:Backup'] :: Backup -> Maybe Text
-
--- | The date and time when the backup was copied from a source backup.
-[$sel:copyTimestamp:Backup'] :: Backup -> Maybe POSIX
-
--- | Specifies whether the service should exempt a backup from the
---   retention policy for the cluster. <tt>True</tt> exempts a backup from
---   the retention policy. <tt>False</tt> means the service applies the
---   backup retention policy defined at the cluster.
-[$sel:neverExpires:Backup'] :: Backup -> Maybe Bool
-
--- | The date and time when the backup was created.
-[$sel:createTimestamp:Backup'] :: Backup -> Maybe POSIX
+Backup' :: Maybe POSIX -> Maybe Text -> Maybe Bool -> Maybe Text -> Maybe [Tag] -> Maybe Text -> Maybe Text -> Maybe POSIX -> Maybe POSIX -> Maybe BackupState -> Text -> Backup
 
 -- | The date and time when the backup will be permanently deleted.
 [$sel:deleteTimestamp:Backup'] :: Backup -> Maybe POSIX
@@ -921,12 +899,34 @@ Backup' :: Maybe Text -> Maybe BackupState -> Maybe Text -> Maybe POSIX -> Maybe
 --   which the new backup was copied.
 [$sel:sourceCluster:Backup'] :: Backup -> Maybe Text
 
--- | The list of tags for the backup.
-[$sel:tagList:Backup'] :: Backup -> Maybe [Tag]
+-- | Specifies whether the service should exempt a backup from the
+--   retention policy for the cluster. <tt>True</tt> exempts a backup from
+--   the retention policy. <tt>False</tt> means the service applies the
+--   backup retention policy defined at the cluster.
+[$sel:neverExpires:Backup'] :: Backup -> Maybe Bool
 
 -- | The AWS Region that contains the source backup from which the new
 --   backup was copied.
 [$sel:sourceRegion:Backup'] :: Backup -> Maybe Text
+
+-- | The list of tags for the backup.
+[$sel:tagList:Backup'] :: Backup -> Maybe [Tag]
+
+-- | The identifier (ID) of the source backup from which the new backup was
+--   copied.
+[$sel:sourceBackup:Backup'] :: Backup -> Maybe Text
+
+-- | The identifier (ID) of the cluster that was backed up.
+[$sel:clusterId:Backup'] :: Backup -> Maybe Text
+
+-- | The date and time when the backup was created.
+[$sel:createTimestamp:Backup'] :: Backup -> Maybe POSIX
+
+-- | The date and time when the backup was copied from a source backup.
+[$sel:copyTimestamp:Backup'] :: Backup -> Maybe POSIX
+
+-- | The state of the backup.
+[$sel:backupState:Backup'] :: Backup -> Maybe BackupState
 
 -- | The identifier (ID) of the backup.
 [$sel:backupId:Backup'] :: Backup -> Text
@@ -939,28 +939,6 @@ Backup' :: Maybe Text -> Maybe BackupState -> Maybe Text -> Maybe POSIX -> Maybe
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:clusterId:Backup'</a>, <a>backup_clusterId</a> - The
---   identifier (ID) of the cluster that was backed up.
---   
---   <a>$sel:backupState:Backup'</a>, <a>backup_backupState</a> - The state
---   of the backup.
---   
---   <a>$sel:sourceBackup:Backup'</a>, <a>backup_sourceBackup</a> - The
---   identifier (ID) of the source backup from which the new backup was
---   copied.
---   
---   <a>$sel:copyTimestamp:Backup'</a>, <a>backup_copyTimestamp</a> - The
---   date and time when the backup was copied from a source backup.
---   
---   <a>$sel:neverExpires:Backup'</a>, <a>backup_neverExpires</a> -
---   Specifies whether the service should exempt a backup from the
---   retention policy for the cluster. <tt>True</tt> exempts a backup from
---   the retention policy. <tt>False</tt> means the service applies the
---   backup retention policy defined at the cluster.
---   
---   <a>$sel:createTimestamp:Backup'</a>, <a>backup_createTimestamp</a> -
---   The date and time when the backup was created.
---   
 --   <a>$sel:deleteTimestamp:Backup'</a>, <a>backup_deleteTimestamp</a> -
 --   The date and time when the backup will be permanently deleted.
 --   
@@ -968,38 +946,38 @@ Backup' :: Maybe Text -> Maybe BackupState -> Maybe Text -> Maybe POSIX -> Maybe
 --   identifier (ID) of the cluster containing the source backup from which
 --   the new backup was copied.
 --   
---   <a>$sel:tagList:Backup'</a>, <a>backup_tagList</a> - The list of tags
---   for the backup.
+--   <a>$sel:neverExpires:Backup'</a>, <a>backup_neverExpires</a> -
+--   Specifies whether the service should exempt a backup from the
+--   retention policy for the cluster. <tt>True</tt> exempts a backup from
+--   the retention policy. <tt>False</tt> means the service applies the
+--   backup retention policy defined at the cluster.
 --   
 --   <a>$sel:sourceRegion:Backup'</a>, <a>backup_sourceRegion</a> - The AWS
 --   Region that contains the source backup from which the new backup was
 --   copied.
 --   
+--   <a>$sel:tagList:Backup'</a>, <a>backup_tagList</a> - The list of tags
+--   for the backup.
+--   
+--   <a>$sel:sourceBackup:Backup'</a>, <a>backup_sourceBackup</a> - The
+--   identifier (ID) of the source backup from which the new backup was
+--   copied.
+--   
+--   <a>$sel:clusterId:Backup'</a>, <a>backup_clusterId</a> - The
+--   identifier (ID) of the cluster that was backed up.
+--   
+--   <a>$sel:createTimestamp:Backup'</a>, <a>backup_createTimestamp</a> -
+--   The date and time when the backup was created.
+--   
+--   <a>$sel:copyTimestamp:Backup'</a>, <a>backup_copyTimestamp</a> - The
+--   date and time when the backup was copied from a source backup.
+--   
+--   <a>$sel:backupState:Backup'</a>, <a>backup_backupState</a> - The state
+--   of the backup.
+--   
 --   <a>$sel:backupId:Backup'</a>, <a>backup_backupId</a> - The identifier
 --   (ID) of the backup.
 newBackup :: Text -> Backup
-
--- | The identifier (ID) of the cluster that was backed up.
-backup_clusterId :: Lens' Backup (Maybe Text)
-
--- | The state of the backup.
-backup_backupState :: Lens' Backup (Maybe BackupState)
-
--- | The identifier (ID) of the source backup from which the new backup was
---   copied.
-backup_sourceBackup :: Lens' Backup (Maybe Text)
-
--- | The date and time when the backup was copied from a source backup.
-backup_copyTimestamp :: Lens' Backup (Maybe UTCTime)
-
--- | Specifies whether the service should exempt a backup from the
---   retention policy for the cluster. <tt>True</tt> exempts a backup from
---   the retention policy. <tt>False</tt> means the service applies the
---   backup retention policy defined at the cluster.
-backup_neverExpires :: Lens' Backup (Maybe Bool)
-
--- | The date and time when the backup was created.
-backup_createTimestamp :: Lens' Backup (Maybe UTCTime)
 
 -- | The date and time when the backup will be permanently deleted.
 backup_deleteTimestamp :: Lens' Backup (Maybe UTCTime)
@@ -1008,12 +986,34 @@ backup_deleteTimestamp :: Lens' Backup (Maybe UTCTime)
 --   which the new backup was copied.
 backup_sourceCluster :: Lens' Backup (Maybe Text)
 
--- | The list of tags for the backup.
-backup_tagList :: Lens' Backup (Maybe [Tag])
+-- | Specifies whether the service should exempt a backup from the
+--   retention policy for the cluster. <tt>True</tt> exempts a backup from
+--   the retention policy. <tt>False</tt> means the service applies the
+--   backup retention policy defined at the cluster.
+backup_neverExpires :: Lens' Backup (Maybe Bool)
 
 -- | The AWS Region that contains the source backup from which the new
 --   backup was copied.
 backup_sourceRegion :: Lens' Backup (Maybe Text)
+
+-- | The list of tags for the backup.
+backup_tagList :: Lens' Backup (Maybe [Tag])
+
+-- | The identifier (ID) of the source backup from which the new backup was
+--   copied.
+backup_sourceBackup :: Lens' Backup (Maybe Text)
+
+-- | The identifier (ID) of the cluster that was backed up.
+backup_clusterId :: Lens' Backup (Maybe Text)
+
+-- | The date and time when the backup was created.
+backup_createTimestamp :: Lens' Backup (Maybe UTCTime)
+
+-- | The date and time when the backup was copied from a source backup.
+backup_copyTimestamp :: Lens' Backup (Maybe UTCTime)
+
+-- | The state of the backup.
+backup_backupState :: Lens' Backup (Maybe BackupState)
 
 -- | The identifier (ID) of the backup.
 backup_backupId :: Lens' Backup Text
@@ -1063,23 +1063,23 @@ backupRetentionPolicy_type :: Lens' BackupRetentionPolicy (Maybe BackupRetention
 data Certificates
 Certificates' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Certificates
 
--- | The HSM hardware certificate issued (signed) by AWS CloudHSM.
-[$sel:awsHardwareCertificate:Certificates'] :: Certificates -> Maybe Text
-
--- | The HSM certificate issued (signed) by the HSM hardware.
-[$sel:hsmCertificate:Certificates'] :: Certificates -> Maybe Text
+-- | The HSM hardware certificate issued (signed) by the hardware
+--   manufacturer.
+[$sel:manufacturerHardwareCertificate:Certificates'] :: Certificates -> Maybe Text
 
 -- | The cluster's certificate signing request (CSR). The CSR exists only
 --   when the cluster's state is <tt>UNINITIALIZED</tt>.
 [$sel:clusterCsr:Certificates'] :: Certificates -> Maybe Text
 
+-- | The HSM certificate issued (signed) by the HSM hardware.
+[$sel:hsmCertificate:Certificates'] :: Certificates -> Maybe Text
+
 -- | The cluster certificate issued (signed) by the issuing certificate
 --   authority (CA) of the cluster's owner.
 [$sel:clusterCertificate:Certificates'] :: Certificates -> Maybe Text
 
--- | The HSM hardware certificate issued (signed) by the hardware
---   manufacturer.
-[$sel:manufacturerHardwareCertificate:Certificates'] :: Certificates -> Maybe Text
+-- | The HSM hardware certificate issued (signed) by AWS CloudHSM.
+[$sel:awsHardwareCertificate:Certificates'] :: Certificates -> Maybe Text
 
 -- | Create a value of <a>Certificates</a> with all optional fields
 --   omitted.
@@ -1090,101 +1090,101 @@ Certificates' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe T
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:awsHardwareCertificate:Certificates'</a>,
---   <a>certificates_awsHardwareCertificate</a> - The HSM hardware
---   certificate issued (signed) by AWS CloudHSM.
---   
---   <a>$sel:hsmCertificate:Certificates'</a>,
---   <a>certificates_hsmCertificate</a> - The HSM certificate issued
---   (signed) by the HSM hardware.
+--   <a>$sel:manufacturerHardwareCertificate:Certificates'</a>,
+--   <a>certificates_manufacturerHardwareCertificate</a> - The HSM hardware
+--   certificate issued (signed) by the hardware manufacturer.
 --   
 --   <a>$sel:clusterCsr:Certificates'</a>, <a>certificates_clusterCsr</a> -
 --   The cluster's certificate signing request (CSR). The CSR exists only
 --   when the cluster's state is <tt>UNINITIALIZED</tt>.
+--   
+--   <a>$sel:hsmCertificate:Certificates'</a>,
+--   <a>certificates_hsmCertificate</a> - The HSM certificate issued
+--   (signed) by the HSM hardware.
 --   
 --   <a>$sel:clusterCertificate:Certificates'</a>,
 --   <a>certificates_clusterCertificate</a> - The cluster certificate
 --   issued (signed) by the issuing certificate authority (CA) of the
 --   cluster's owner.
 --   
---   <a>$sel:manufacturerHardwareCertificate:Certificates'</a>,
---   <a>certificates_manufacturerHardwareCertificate</a> - The HSM hardware
---   certificate issued (signed) by the hardware manufacturer.
+--   <a>$sel:awsHardwareCertificate:Certificates'</a>,
+--   <a>certificates_awsHardwareCertificate</a> - The HSM hardware
+--   certificate issued (signed) by AWS CloudHSM.
 newCertificates :: Certificates
-
--- | The HSM hardware certificate issued (signed) by AWS CloudHSM.
-certificates_awsHardwareCertificate :: Lens' Certificates (Maybe Text)
-
--- | The HSM certificate issued (signed) by the HSM hardware.
-certificates_hsmCertificate :: Lens' Certificates (Maybe Text)
-
--- | The cluster's certificate signing request (CSR). The CSR exists only
---   when the cluster's state is <tt>UNINITIALIZED</tt>.
-certificates_clusterCsr :: Lens' Certificates (Maybe Text)
-
--- | The cluster certificate issued (signed) by the issuing certificate
---   authority (CA) of the cluster's owner.
-certificates_clusterCertificate :: Lens' Certificates (Maybe Text)
 
 -- | The HSM hardware certificate issued (signed) by the hardware
 --   manufacturer.
 certificates_manufacturerHardwareCertificate :: Lens' Certificates (Maybe Text)
 
+-- | The cluster's certificate signing request (CSR). The CSR exists only
+--   when the cluster's state is <tt>UNINITIALIZED</tt>.
+certificates_clusterCsr :: Lens' Certificates (Maybe Text)
+
+-- | The HSM certificate issued (signed) by the HSM hardware.
+certificates_hsmCertificate :: Lens' Certificates (Maybe Text)
+
+-- | The cluster certificate issued (signed) by the issuing certificate
+--   authority (CA) of the cluster's owner.
+certificates_clusterCertificate :: Lens' Certificates (Maybe Text)
+
+-- | The HSM hardware certificate issued (signed) by AWS CloudHSM.
+certificates_awsHardwareCertificate :: Lens' Certificates (Maybe Text)
+
 -- | Contains information about an AWS CloudHSM cluster.
 --   
 --   <i>See:</i> <a>newCluster</a> smart constructor.
 data Cluster
-Cluster' :: Maybe Text -> Maybe Text -> Maybe BackupPolicy -> Maybe POSIX -> Maybe (HashMap Text Text) -> Maybe ClusterState -> Maybe Text -> Maybe Text -> Maybe Certificates -> Maybe Text -> Maybe Text -> Maybe [Tag] -> Maybe Text -> Maybe [Hsm] -> Maybe BackupRetentionPolicy -> Cluster
-
--- | The cluster's identifier (ID).
-[$sel:clusterId:Cluster'] :: Cluster -> Maybe Text
-
--- | A description of the cluster's state.
-[$sel:stateMessage:Cluster'] :: Cluster -> Maybe Text
-
--- | The cluster's backup policy.
-[$sel:backupPolicy:Cluster'] :: Cluster -> Maybe BackupPolicy
-
--- | The date and time when the cluster was created.
-[$sel:createTimestamp:Cluster'] :: Cluster -> Maybe POSIX
-
--- | A map from availability zone to the cluster’s subnet in that
---   availability zone.
-[$sel:subnetMapping:Cluster'] :: Cluster -> Maybe (HashMap Text Text)
-
--- | The cluster's state.
-[$sel:state:Cluster'] :: Cluster -> Maybe ClusterState
+Cluster' :: Maybe Text -> Maybe Text -> Maybe ClusterState -> Maybe (HashMap Text Text) -> Maybe BackupRetentionPolicy -> Maybe [Hsm] -> Maybe Text -> Maybe [Tag] -> Maybe Text -> Maybe Certificates -> Maybe Text -> Maybe Text -> Maybe POSIX -> Maybe BackupPolicy -> Maybe Text -> Cluster
 
 -- | The default password for the cluster's Pre-Crypto Officer (PRECO)
 --   user.
 [$sel:preCoPassword:Cluster'] :: Cluster -> Maybe Text
 
--- | The identifier (ID) of the cluster's security group.
-[$sel:securityGroup:Cluster'] :: Cluster -> Maybe Text
+-- | A description of the cluster's state.
+[$sel:stateMessage:Cluster'] :: Cluster -> Maybe Text
 
--- | Contains one or more certificates or a certificate signing request
---   (CSR).
-[$sel:certificates:Cluster'] :: Cluster -> Maybe Certificates
+-- | The cluster's state.
+[$sel:state:Cluster'] :: Cluster -> Maybe ClusterState
 
--- | The identifier (ID) of the backup used to create the cluster. This
---   value exists only when the cluster was created from a backup.
-[$sel:sourceBackupId:Cluster'] :: Cluster -> Maybe Text
+-- | A map from availability zone to the cluster’s subnet in that
+--   availability zone.
+[$sel:subnetMapping:Cluster'] :: Cluster -> Maybe (HashMap Text Text)
 
--- | The type of HSM that the cluster contains.
-[$sel:hsmType:Cluster'] :: Cluster -> Maybe Text
+-- | A policy that defines how the service retains backups.
+[$sel:backupRetentionPolicy:Cluster'] :: Cluster -> Maybe BackupRetentionPolicy
 
--- | The list of tags for the cluster.
-[$sel:tagList:Cluster'] :: Cluster -> Maybe [Tag]
+-- | Contains information about the HSMs in the cluster.
+[$sel:hsms:Cluster'] :: Cluster -> Maybe [Hsm]
 
 -- | The identifier (ID) of the virtual private cloud (VPC) that contains
 --   the cluster.
 [$sel:vpcId:Cluster'] :: Cluster -> Maybe Text
 
--- | Contains information about the HSMs in the cluster.
-[$sel:hsms:Cluster'] :: Cluster -> Maybe [Hsm]
+-- | The list of tags for the cluster.
+[$sel:tagList:Cluster'] :: Cluster -> Maybe [Tag]
 
--- | A policy that defines how the service retains backups.
-[$sel:backupRetentionPolicy:Cluster'] :: Cluster -> Maybe BackupRetentionPolicy
+-- | The identifier (ID) of the backup used to create the cluster. This
+--   value exists only when the cluster was created from a backup.
+[$sel:sourceBackupId:Cluster'] :: Cluster -> Maybe Text
+
+-- | Contains one or more certificates or a certificate signing request
+--   (CSR).
+[$sel:certificates:Cluster'] :: Cluster -> Maybe Certificates
+
+-- | The identifier (ID) of the cluster's security group.
+[$sel:securityGroup:Cluster'] :: Cluster -> Maybe Text
+
+-- | The cluster's identifier (ID).
+[$sel:clusterId:Cluster'] :: Cluster -> Maybe Text
+
+-- | The date and time when the cluster was created.
+[$sel:createTimestamp:Cluster'] :: Cluster -> Maybe POSIX
+
+-- | The cluster's backup policy.
+[$sel:backupPolicy:Cluster'] :: Cluster -> Maybe BackupPolicy
+
+-- | The type of HSM that the cluster contains.
+[$sel:hsmType:Cluster'] :: Cluster -> Maybe Text
 
 -- | Create a value of <a>Cluster</a> with all optional fields omitted.
 --   
@@ -1194,119 +1194,112 @@ Cluster' :: Maybe Text -> Maybe Text -> Maybe BackupPolicy -> Maybe POSIX -> May
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:clusterId:Cluster'</a>, <a>cluster_clusterId</a> - The
---   cluster's identifier (ID).
+--   <a>$sel:preCoPassword:Cluster'</a>, <a>cluster_preCoPassword</a> - The
+--   default password for the cluster's Pre-Crypto Officer (PRECO) user.
 --   
 --   <a>$sel:stateMessage:Cluster'</a>, <a>cluster_stateMessage</a> - A
 --   description of the cluster's state.
 --   
---   <a>$sel:backupPolicy:Cluster'</a>, <a>cluster_backupPolicy</a> - The
---   cluster's backup policy.
---   
---   <a>$sel:createTimestamp:Cluster'</a>, <a>cluster_createTimestamp</a> -
---   The date and time when the cluster was created.
+--   <a>$sel:state:Cluster'</a>, <a>cluster_state</a> - The cluster's
+--   state.
 --   
 --   <a>$sel:subnetMapping:Cluster'</a>, <a>cluster_subnetMapping</a> - A
 --   map from availability zone to the cluster’s subnet in that
 --   availability zone.
 --   
---   <a>$sel:state:Cluster'</a>, <a>cluster_state</a> - The cluster's
---   state.
+--   <a>$sel:backupRetentionPolicy:Cluster'</a>,
+--   <a>cluster_backupRetentionPolicy</a> - A policy that defines how the
+--   service retains backups.
 --   
---   <a>$sel:preCoPassword:Cluster'</a>, <a>cluster_preCoPassword</a> - The
---   default password for the cluster's Pre-Crypto Officer (PRECO) user.
+--   <a>$sel:hsms:Cluster'</a>, <a>cluster_hsms</a> - Contains information
+--   about the HSMs in the cluster.
 --   
---   <a>$sel:securityGroup:Cluster'</a>, <a>cluster_securityGroup</a> - The
---   identifier (ID) of the cluster's security group.
+--   <a>$sel:vpcId:Cluster'</a>, <a>cluster_vpcId</a> - The identifier (ID)
+--   of the virtual private cloud (VPC) that contains the cluster.
 --   
---   <a>$sel:certificates:Cluster'</a>, <a>cluster_certificates</a> -
---   Contains one or more certificates or a certificate signing request
---   (CSR).
+--   <a>$sel:tagList:Cluster'</a>, <a>cluster_tagList</a> - The list of
+--   tags for the cluster.
 --   
 --   <a>$sel:sourceBackupId:Cluster'</a>, <a>cluster_sourceBackupId</a> -
 --   The identifier (ID) of the backup used to create the cluster. This
 --   value exists only when the cluster was created from a backup.
 --   
+--   <a>$sel:certificates:Cluster'</a>, <a>cluster_certificates</a> -
+--   Contains one or more certificates or a certificate signing request
+--   (CSR).
+--   
+--   <a>$sel:securityGroup:Cluster'</a>, <a>cluster_securityGroup</a> - The
+--   identifier (ID) of the cluster's security group.
+--   
+--   <a>$sel:clusterId:Cluster'</a>, <a>cluster_clusterId</a> - The
+--   cluster's identifier (ID).
+--   
+--   <a>$sel:createTimestamp:Cluster'</a>, <a>cluster_createTimestamp</a> -
+--   The date and time when the cluster was created.
+--   
+--   <a>$sel:backupPolicy:Cluster'</a>, <a>cluster_backupPolicy</a> - The
+--   cluster's backup policy.
+--   
 --   <a>$sel:hsmType:Cluster'</a>, <a>cluster_hsmType</a> - The type of HSM
 --   that the cluster contains.
---   
---   <a>$sel:tagList:Cluster'</a>, <a>cluster_tagList</a> - The list of
---   tags for the cluster.
---   
---   <a>$sel:vpcId:Cluster'</a>, <a>cluster_vpcId</a> - The identifier (ID)
---   of the virtual private cloud (VPC) that contains the cluster.
---   
---   <a>$sel:hsms:Cluster'</a>, <a>cluster_hsms</a> - Contains information
---   about the HSMs in the cluster.
---   
---   <a>$sel:backupRetentionPolicy:Cluster'</a>,
---   <a>cluster_backupRetentionPolicy</a> - A policy that defines how the
---   service retains backups.
 newCluster :: Cluster
-
--- | The cluster's identifier (ID).
-cluster_clusterId :: Lens' Cluster (Maybe Text)
-
--- | A description of the cluster's state.
-cluster_stateMessage :: Lens' Cluster (Maybe Text)
-
--- | The cluster's backup policy.
-cluster_backupPolicy :: Lens' Cluster (Maybe BackupPolicy)
-
--- | The date and time when the cluster was created.
-cluster_createTimestamp :: Lens' Cluster (Maybe UTCTime)
-
--- | A map from availability zone to the cluster’s subnet in that
---   availability zone.
-cluster_subnetMapping :: Lens' Cluster (Maybe (HashMap Text Text))
-
--- | The cluster's state.
-cluster_state :: Lens' Cluster (Maybe ClusterState)
 
 -- | The default password for the cluster's Pre-Crypto Officer (PRECO)
 --   user.
 cluster_preCoPassword :: Lens' Cluster (Maybe Text)
 
--- | The identifier (ID) of the cluster's security group.
-cluster_securityGroup :: Lens' Cluster (Maybe Text)
+-- | A description of the cluster's state.
+cluster_stateMessage :: Lens' Cluster (Maybe Text)
 
--- | Contains one or more certificates or a certificate signing request
---   (CSR).
-cluster_certificates :: Lens' Cluster (Maybe Certificates)
+-- | The cluster's state.
+cluster_state :: Lens' Cluster (Maybe ClusterState)
 
--- | The identifier (ID) of the backup used to create the cluster. This
---   value exists only when the cluster was created from a backup.
-cluster_sourceBackupId :: Lens' Cluster (Maybe Text)
+-- | A map from availability zone to the cluster’s subnet in that
+--   availability zone.
+cluster_subnetMapping :: Lens' Cluster (Maybe (HashMap Text Text))
 
--- | The type of HSM that the cluster contains.
-cluster_hsmType :: Lens' Cluster (Maybe Text)
+-- | A policy that defines how the service retains backups.
+cluster_backupRetentionPolicy :: Lens' Cluster (Maybe BackupRetentionPolicy)
 
--- | The list of tags for the cluster.
-cluster_tagList :: Lens' Cluster (Maybe [Tag])
+-- | Contains information about the HSMs in the cluster.
+cluster_hsms :: Lens' Cluster (Maybe [Hsm])
 
 -- | The identifier (ID) of the virtual private cloud (VPC) that contains
 --   the cluster.
 cluster_vpcId :: Lens' Cluster (Maybe Text)
 
--- | Contains information about the HSMs in the cluster.
-cluster_hsms :: Lens' Cluster (Maybe [Hsm])
+-- | The list of tags for the cluster.
+cluster_tagList :: Lens' Cluster (Maybe [Tag])
 
--- | A policy that defines how the service retains backups.
-cluster_backupRetentionPolicy :: Lens' Cluster (Maybe BackupRetentionPolicy)
+-- | The identifier (ID) of the backup used to create the cluster. This
+--   value exists only when the cluster was created from a backup.
+cluster_sourceBackupId :: Lens' Cluster (Maybe Text)
+
+-- | Contains one or more certificates or a certificate signing request
+--   (CSR).
+cluster_certificates :: Lens' Cluster (Maybe Certificates)
+
+-- | The identifier (ID) of the cluster's security group.
+cluster_securityGroup :: Lens' Cluster (Maybe Text)
+
+-- | The cluster's identifier (ID).
+cluster_clusterId :: Lens' Cluster (Maybe Text)
+
+-- | The date and time when the cluster was created.
+cluster_createTimestamp :: Lens' Cluster (Maybe UTCTime)
+
+-- | The cluster's backup policy.
+cluster_backupPolicy :: Lens' Cluster (Maybe BackupPolicy)
+
+-- | The type of HSM that the cluster contains.
+cluster_hsmType :: Lens' Cluster (Maybe Text)
 
 -- | Contains information about the backup that will be copied and created
 --   by the CopyBackupToRegion operation.
 --   
 --   <i>See:</i> <a>newDestinationBackup</a> smart constructor.
 data DestinationBackup
-DestinationBackup' :: Maybe Text -> Maybe POSIX -> Maybe Text -> Maybe Text -> DestinationBackup
-
--- | The identifier (ID) of the source backup from which the new backup was
---   copied.
-[$sel:sourceBackup:DestinationBackup'] :: DestinationBackup -> Maybe Text
-
--- | The date and time when both the source backup was created.
-[$sel:createTimestamp:DestinationBackup'] :: DestinationBackup -> Maybe POSIX
+DestinationBackup' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe POSIX -> DestinationBackup
 
 -- | The identifier (ID) of the cluster containing the source backup from
 --   which the new backup was copied.
@@ -1315,6 +1308,13 @@ DestinationBackup' :: Maybe Text -> Maybe POSIX -> Maybe Text -> Maybe Text -> D
 -- | The AWS region that contains the source backup from which the new
 --   backup was copied.
 [$sel:sourceRegion:DestinationBackup'] :: DestinationBackup -> Maybe Text
+
+-- | The identifier (ID) of the source backup from which the new backup was
+--   copied.
+[$sel:sourceBackup:DestinationBackup'] :: DestinationBackup -> Maybe Text
+
+-- | The date and time when both the source backup was created.
+[$sel:createTimestamp:DestinationBackup'] :: DestinationBackup -> Maybe POSIX
 
 -- | Create a value of <a>DestinationBackup</a> with all optional fields
 --   omitted.
@@ -1325,14 +1325,6 @@ DestinationBackup' :: Maybe Text -> Maybe POSIX -> Maybe Text -> Maybe Text -> D
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:sourceBackup:DestinationBackup'</a>,
---   <a>destinationBackup_sourceBackup</a> - The identifier (ID) of the
---   source backup from which the new backup was copied.
---   
---   <a>$sel:createTimestamp:DestinationBackup'</a>,
---   <a>destinationBackup_createTimestamp</a> - The date and time when both
---   the source backup was created.
---   
 --   <a>$sel:sourceCluster:DestinationBackup'</a>,
 --   <a>destinationBackup_sourceCluster</a> - The identifier (ID) of the
 --   cluster containing the source backup from which the new backup was
@@ -1341,14 +1333,15 @@ DestinationBackup' :: Maybe Text -> Maybe POSIX -> Maybe Text -> Maybe Text -> D
 --   <a>$sel:sourceRegion:DestinationBackup'</a>,
 --   <a>destinationBackup_sourceRegion</a> - The AWS region that contains
 --   the source backup from which the new backup was copied.
+--   
+--   <a>$sel:sourceBackup:DestinationBackup'</a>,
+--   <a>destinationBackup_sourceBackup</a> - The identifier (ID) of the
+--   source backup from which the new backup was copied.
+--   
+--   <a>$sel:createTimestamp:DestinationBackup'</a>,
+--   <a>destinationBackup_createTimestamp</a> - The date and time when both
+--   the source backup was created.
 newDestinationBackup :: DestinationBackup
-
--- | The identifier (ID) of the source backup from which the new backup was
---   copied.
-destinationBackup_sourceBackup :: Lens' DestinationBackup (Maybe Text)
-
--- | The date and time when both the source backup was created.
-destinationBackup_createTimestamp :: Lens' DestinationBackup (Maybe UTCTime)
 
 -- | The identifier (ID) of the cluster containing the source backup from
 --   which the new backup was copied.
@@ -1358,33 +1351,40 @@ destinationBackup_sourceCluster :: Lens' DestinationBackup (Maybe Text)
 --   backup was copied.
 destinationBackup_sourceRegion :: Lens' DestinationBackup (Maybe Text)
 
+-- | The identifier (ID) of the source backup from which the new backup was
+--   copied.
+destinationBackup_sourceBackup :: Lens' DestinationBackup (Maybe Text)
+
+-- | The date and time when both the source backup was created.
+destinationBackup_createTimestamp :: Lens' DestinationBackup (Maybe UTCTime)
+
 -- | Contains information about a hardware security module (HSM) in an AWS
 --   CloudHSM cluster.
 --   
 --   <i>See:</i> <a>newHsm</a> smart constructor.
 data Hsm
-Hsm' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe HsmState -> Maybe Text -> Text -> Hsm
-
--- | The identifier (ID) of the cluster that contains the HSM.
-[$sel:clusterId:Hsm'] :: Hsm -> Maybe Text
+Hsm' :: Maybe Text -> Maybe HsmState -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Text -> Hsm
 
 -- | A description of the HSM's state.
 [$sel:stateMessage:Hsm'] :: Hsm -> Maybe Text
 
--- | The IP address of the HSM's elastic network interface (ENI).
-[$sel:eniIp:Hsm'] :: Hsm -> Maybe Text
+-- | The HSM's state.
+[$sel:state:Hsm'] :: Hsm -> Maybe HsmState
 
 -- | The identifier (ID) of the HSM's elastic network interface (ENI).
 [$sel:eniId:Hsm'] :: Hsm -> Maybe Text
 
+-- | The subnet that contains the HSM's elastic network interface (ENI).
+[$sel:subnetId:Hsm'] :: Hsm -> Maybe Text
+
 -- | The Availability Zone that contains the HSM.
 [$sel:availabilityZone:Hsm'] :: Hsm -> Maybe Text
 
--- | The HSM's state.
-[$sel:state:Hsm'] :: Hsm -> Maybe HsmState
+-- | The identifier (ID) of the cluster that contains the HSM.
+[$sel:clusterId:Hsm'] :: Hsm -> Maybe Text
 
--- | The subnet that contains the HSM's elastic network interface (ENI).
-[$sel:subnetId:Hsm'] :: Hsm -> Maybe Text
+-- | The IP address of the HSM's elastic network interface (ENI).
+[$sel:eniIp:Hsm'] :: Hsm -> Maybe Text
 
 -- | The HSM's identifier (ID).
 [$sel:hsmId:Hsm'] :: Hsm -> Text
@@ -1397,49 +1397,49 @@ Hsm' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Ma
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:clusterId:Hsm'</a>, <a>hsm_clusterId</a> - The identifier (ID)
---   of the cluster that contains the HSM.
---   
 --   <a>$sel:stateMessage:Hsm'</a>, <a>hsm_stateMessage</a> - A description
 --   of the HSM's state.
 --   
---   <a>$sel:eniIp:Hsm'</a>, <a>hsm_eniIp</a> - The IP address of the HSM's
---   elastic network interface (ENI).
+--   <a>$sel:state:Hsm'</a>, <a>hsm_state</a> - The HSM's state.
 --   
 --   <a>$sel:eniId:Hsm'</a>, <a>hsm_eniId</a> - The identifier (ID) of the
 --   HSM's elastic network interface (ENI).
 --   
+--   <a>$sel:subnetId:Hsm'</a>, <a>hsm_subnetId</a> - The subnet that
+--   contains the HSM's elastic network interface (ENI).
+--   
 --   <a>$sel:availabilityZone:Hsm'</a>, <a>hsm_availabilityZone</a> - The
 --   Availability Zone that contains the HSM.
 --   
---   <a>$sel:state:Hsm'</a>, <a>hsm_state</a> - The HSM's state.
+--   <a>$sel:clusterId:Hsm'</a>, <a>hsm_clusterId</a> - The identifier (ID)
+--   of the cluster that contains the HSM.
 --   
---   <a>$sel:subnetId:Hsm'</a>, <a>hsm_subnetId</a> - The subnet that
---   contains the HSM's elastic network interface (ENI).
+--   <a>$sel:eniIp:Hsm'</a>, <a>hsm_eniIp</a> - The IP address of the HSM's
+--   elastic network interface (ENI).
 --   
 --   <a>$sel:hsmId:Hsm'</a>, <a>hsm_hsmId</a> - The HSM's identifier (ID).
 newHsm :: Text -> Hsm
 
--- | The identifier (ID) of the cluster that contains the HSM.
-hsm_clusterId :: Lens' Hsm (Maybe Text)
-
 -- | A description of the HSM's state.
 hsm_stateMessage :: Lens' Hsm (Maybe Text)
-
--- | The IP address of the HSM's elastic network interface (ENI).
-hsm_eniIp :: Lens' Hsm (Maybe Text)
-
--- | The identifier (ID) of the HSM's elastic network interface (ENI).
-hsm_eniId :: Lens' Hsm (Maybe Text)
-
--- | The Availability Zone that contains the HSM.
-hsm_availabilityZone :: Lens' Hsm (Maybe Text)
 
 -- | The HSM's state.
 hsm_state :: Lens' Hsm (Maybe HsmState)
 
+-- | The identifier (ID) of the HSM's elastic network interface (ENI).
+hsm_eniId :: Lens' Hsm (Maybe Text)
+
 -- | The subnet that contains the HSM's elastic network interface (ENI).
 hsm_subnetId :: Lens' Hsm (Maybe Text)
+
+-- | The Availability Zone that contains the HSM.
+hsm_availabilityZone :: Lens' Hsm (Maybe Text)
+
+-- | The identifier (ID) of the cluster that contains the HSM.
+hsm_clusterId :: Lens' Hsm (Maybe Text)
+
+-- | The IP address of the HSM's elastic network interface (ENI).
+hsm_eniIp :: Lens' Hsm (Maybe Text)
 
 -- | The HSM's identifier (ID).
 hsm_hsmId :: Lens' Hsm Text
@@ -2097,16 +2097,7 @@ module Network.AWS.CloudHSMv2.DescribeClusters
 
 -- | <i>See:</i> <a>newDescribeClusters</a> smart constructor.
 data DescribeClusters
-DescribeClusters' :: Maybe Text -> Maybe Natural -> Maybe (HashMap Text [Text]) -> DescribeClusters
-
--- | The <tt>NextToken</tt> value that you received in the previous
---   response. Use this value to get more clusters.
-[$sel:nextToken:DescribeClusters'] :: DescribeClusters -> Maybe Text
-
--- | The maximum number of clusters to return in the response. When there
---   are more clusters than the number you specify, the response contains a
---   <tt>NextToken</tt> value.
-[$sel:maxResults:DescribeClusters'] :: DescribeClusters -> Maybe Natural
+DescribeClusters' :: Maybe (HashMap Text [Text]) -> Maybe Text -> Maybe Natural -> DescribeClusters
 
 -- | One or more filters to limit the items returned in the response.
 --   
@@ -2121,6 +2112,15 @@ DescribeClusters' :: Maybe Text -> Maybe Natural -> Maybe (HashMap Text [Text]) 
 --   specified state.
 [$sel:filters:DescribeClusters'] :: DescribeClusters -> Maybe (HashMap Text [Text])
 
+-- | The <tt>NextToken</tt> value that you received in the previous
+--   response. Use this value to get more clusters.
+[$sel:nextToken:DescribeClusters'] :: DescribeClusters -> Maybe Text
+
+-- | The maximum number of clusters to return in the response. When there
+--   are more clusters than the number you specify, the response contains a
+--   <tt>NextToken</tt> value.
+[$sel:maxResults:DescribeClusters'] :: DescribeClusters -> Maybe Natural
+
 -- | Create a value of <a>DescribeClusters</a> with all optional fields
 --   omitted.
 --   
@@ -2129,16 +2129,6 @@ DescribeClusters' :: Maybe Text -> Maybe Natural -> Maybe (HashMap Text [Text]) 
 --   
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
---   
---   <a>$sel:nextToken:DescribeClusters'</a>,
---   <a>describeClusters_nextToken</a> - The <tt>NextToken</tt> value that
---   you received in the previous response. Use this value to get more
---   clusters.
---   
---   <a>$sel:maxResults:DescribeClusters'</a>,
---   <a>describeClusters_maxResults</a> - The maximum number of clusters to
---   return in the response. When there are more clusters than the number
---   you specify, the response contains a <tt>NextToken</tt> value.
 --   
 --   <a>$sel:filters:DescribeClusters'</a>, <a>describeClusters_filters</a>
 --   - One or more filters to limit the items returned in the response.
@@ -2152,16 +2142,17 @@ DescribeClusters' :: Maybe Text -> Maybe Natural -> Maybe (HashMap Text [Text]) 
 --   
 --   Use the <tt>states</tt> filter to return only clusters that match the
 --   specified state.
+--   
+--   <a>$sel:nextToken:DescribeClusters'</a>,
+--   <a>describeClusters_nextToken</a> - The <tt>NextToken</tt> value that
+--   you received in the previous response. Use this value to get more
+--   clusters.
+--   
+--   <a>$sel:maxResults:DescribeClusters'</a>,
+--   <a>describeClusters_maxResults</a> - The maximum number of clusters to
+--   return in the response. When there are more clusters than the number
+--   you specify, the response contains a <tt>NextToken</tt> value.
 newDescribeClusters :: DescribeClusters
-
--- | The <tt>NextToken</tt> value that you received in the previous
---   response. Use this value to get more clusters.
-describeClusters_nextToken :: Lens' DescribeClusters (Maybe Text)
-
--- | The maximum number of clusters to return in the response. When there
---   are more clusters than the number you specify, the response contains a
---   <tt>NextToken</tt> value.
-describeClusters_maxResults :: Lens' DescribeClusters (Maybe Natural)
 
 -- | One or more filters to limit the items returned in the response.
 --   
@@ -2175,6 +2166,15 @@ describeClusters_maxResults :: Lens' DescribeClusters (Maybe Natural)
 --   Use the <tt>states</tt> filter to return only clusters that match the
 --   specified state.
 describeClusters_filters :: Lens' DescribeClusters (Maybe (HashMap Text [Text]))
+
+-- | The <tt>NextToken</tt> value that you received in the previous
+--   response. Use this value to get more clusters.
+describeClusters_nextToken :: Lens' DescribeClusters (Maybe Text)
+
+-- | The maximum number of clusters to return in the response. When there
+--   are more clusters than the number you specify, the response contains a
+--   <tt>NextToken</tt> value.
+describeClusters_maxResults :: Lens' DescribeClusters (Maybe Natural)
 
 -- | <i>See:</i> <a>newDescribeClustersResponse</a> smart constructor.
 data DescribeClustersResponse
@@ -2258,16 +2258,7 @@ module Network.AWS.CloudHSMv2.DescribeBackups
 
 -- | <i>See:</i> <a>newDescribeBackups</a> smart constructor.
 data DescribeBackups
-DescribeBackups' :: Maybe Text -> Maybe Natural -> Maybe Bool -> Maybe (HashMap Text [Text]) -> DescribeBackups
-
--- | The <tt>NextToken</tt> value that you received in the previous
---   response. Use this value to get more backups.
-[$sel:nextToken:DescribeBackups'] :: DescribeBackups -> Maybe Text
-
--- | The maximum number of backups to return in the response. When there
---   are more backups than the number you specify, the response contains a
---   <tt>NextToken</tt> value.
-[$sel:maxResults:DescribeBackups'] :: DescribeBackups -> Maybe Natural
+DescribeBackups' :: Maybe Bool -> Maybe (HashMap Text [Text]) -> Maybe Text -> Maybe Natural -> DescribeBackups
 
 -- | Designates whether or not to sort the return backups by ascending
 --   chronological order of generation.
@@ -2295,6 +2286,15 @@ DescribeBackups' :: Maybe Text -> Maybe Natural -> Maybe Bool -> Maybe (HashMap 
 --   cluster.
 [$sel:filters:DescribeBackups'] :: DescribeBackups -> Maybe (HashMap Text [Text])
 
+-- | The <tt>NextToken</tt> value that you received in the previous
+--   response. Use this value to get more backups.
+[$sel:nextToken:DescribeBackups'] :: DescribeBackups -> Maybe Text
+
+-- | The maximum number of backups to return in the response. When there
+--   are more backups than the number you specify, the response contains a
+--   <tt>NextToken</tt> value.
+[$sel:maxResults:DescribeBackups'] :: DescribeBackups -> Maybe Natural
+
 -- | Create a value of <a>DescribeBackups</a> with all optional fields
 --   omitted.
 --   
@@ -2303,16 +2303,6 @@ DescribeBackups' :: Maybe Text -> Maybe Natural -> Maybe Bool -> Maybe (HashMap 
 --   
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
---   
---   <a>$sel:nextToken:DescribeBackups'</a>,
---   <a>describeBackups_nextToken</a> - The <tt>NextToken</tt> value that
---   you received in the previous response. Use this value to get more
---   backups.
---   
---   <a>$sel:maxResults:DescribeBackups'</a>,
---   <a>describeBackups_maxResults</a> - The maximum number of backups to
---   return in the response. When there are more backups than the number
---   you specify, the response contains a <tt>NextToken</tt> value.
 --   
 --   <a>$sel:sortAscending:DescribeBackups'</a>,
 --   <a>describeBackups_sortAscending</a> - Designates whether or not to
@@ -2340,16 +2330,17 @@ DescribeBackups' :: Maybe Text -> Maybe Natural -> Maybe Bool -> Maybe (HashMap 
 --   all backups exempt from the backup retention policy. <tt>False</tt>
 --   returns all backups with a backup retention policy defined at the
 --   cluster.
+--   
+--   <a>$sel:nextToken:DescribeBackups'</a>,
+--   <a>describeBackups_nextToken</a> - The <tt>NextToken</tt> value that
+--   you received in the previous response. Use this value to get more
+--   backups.
+--   
+--   <a>$sel:maxResults:DescribeBackups'</a>,
+--   <a>describeBackups_maxResults</a> - The maximum number of backups to
+--   return in the response. When there are more backups than the number
+--   you specify, the response contains a <tt>NextToken</tt> value.
 newDescribeBackups :: DescribeBackups
-
--- | The <tt>NextToken</tt> value that you received in the previous
---   response. Use this value to get more backups.
-describeBackups_nextToken :: Lens' DescribeBackups (Maybe Text)
-
--- | The maximum number of backups to return in the response. When there
---   are more backups than the number you specify, the response contains a
---   <tt>NextToken</tt> value.
-describeBackups_maxResults :: Lens' DescribeBackups (Maybe Natural)
 
 -- | Designates whether or not to sort the return backups by ascending
 --   chronological order of generation.
@@ -2377,17 +2368,26 @@ describeBackups_sortAscending :: Lens' DescribeBackups (Maybe Bool)
 --   cluster.
 describeBackups_filters :: Lens' DescribeBackups (Maybe (HashMap Text [Text]))
 
+-- | The <tt>NextToken</tt> value that you received in the previous
+--   response. Use this value to get more backups.
+describeBackups_nextToken :: Lens' DescribeBackups (Maybe Text)
+
+-- | The maximum number of backups to return in the response. When there
+--   are more backups than the number you specify, the response contains a
+--   <tt>NextToken</tt> value.
+describeBackups_maxResults :: Lens' DescribeBackups (Maybe Natural)
+
 -- | <i>See:</i> <a>newDescribeBackupsResponse</a> smart constructor.
 data DescribeBackupsResponse
-DescribeBackupsResponse' :: Maybe Text -> Maybe [Backup] -> Int -> DescribeBackupsResponse
+DescribeBackupsResponse' :: Maybe [Backup] -> Maybe Text -> Int -> DescribeBackupsResponse
+
+-- | A list of backups.
+[$sel:backups:DescribeBackupsResponse'] :: DescribeBackupsResponse -> Maybe [Backup]
 
 -- | An opaque string that indicates that the response contains only a
 --   subset of backups. Use this value in a subsequent
 --   <tt>DescribeBackups</tt> request to get more backups.
 [$sel:nextToken:DescribeBackupsResponse'] :: DescribeBackupsResponse -> Maybe Text
-
--- | A list of backups.
-[$sel:backups:DescribeBackupsResponse'] :: DescribeBackupsResponse -> Maybe [Backup]
 
 -- | The response's http status code.
 [$sel:httpStatus:DescribeBackupsResponse'] :: DescribeBackupsResponse -> Int
@@ -2401,27 +2401,27 @@ DescribeBackupsResponse' :: Maybe Text -> Maybe [Backup] -> Int -> DescribeBacku
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:backups:DescribeBackupsResponse'</a>,
+--   <a>describeBackupsResponse_backups</a> - A list of backups.
+--   
 --   <a>$sel:nextToken:DescribeBackups'</a>,
 --   <a>describeBackupsResponse_nextToken</a> - An opaque string that
 --   indicates that the response contains only a subset of backups. Use
 --   this value in a subsequent <tt>DescribeBackups</tt> request to get
 --   more backups.
 --   
---   <a>$sel:backups:DescribeBackupsResponse'</a>,
---   <a>describeBackupsResponse_backups</a> - A list of backups.
---   
 --   <a>$sel:httpStatus:DescribeBackupsResponse'</a>,
 --   <a>describeBackupsResponse_httpStatus</a> - The response's http status
 --   code.
 newDescribeBackupsResponse :: Int -> DescribeBackupsResponse
 
+-- | A list of backups.
+describeBackupsResponse_backups :: Lens' DescribeBackupsResponse (Maybe [Backup])
+
 -- | An opaque string that indicates that the response contains only a
 --   subset of backups. Use this value in a subsequent
 --   <tt>DescribeBackups</tt> request to get more backups.
 describeBackupsResponse_nextToken :: Lens' DescribeBackupsResponse (Maybe Text)
-
--- | A list of backups.
-describeBackupsResponse_backups :: Lens' DescribeBackupsResponse (Maybe [Backup])
 
 -- | The response's http status code.
 describeBackupsResponse_httpStatus :: Lens' DescribeBackupsResponse Int
@@ -2454,16 +2454,16 @@ module Network.AWS.CloudHSMv2.DeleteHsm
 data DeleteHsm
 DeleteHsm' :: Maybe Text -> Maybe Text -> Maybe Text -> Text -> DeleteHsm
 
--- | The IP address of the elastic network interface (ENI) of the HSM that
---   you are deleting.
-[$sel:eniIp:DeleteHsm'] :: DeleteHsm -> Maybe Text
-
 -- | The identifier (ID) of the elastic network interface (ENI) of the HSM
 --   that you are deleting.
 [$sel:eniId:DeleteHsm'] :: DeleteHsm -> Maybe Text
 
 -- | The identifier (ID) of the HSM that you are deleting.
 [$sel:hsmId:DeleteHsm'] :: DeleteHsm -> Maybe Text
+
+-- | The IP address of the elastic network interface (ENI) of the HSM that
+--   you are deleting.
+[$sel:eniIp:DeleteHsm'] :: DeleteHsm -> Maybe Text
 
 -- | The identifier (ID) of the cluster that contains the HSM that you are
 --   deleting.
@@ -2477,10 +2477,6 @@ DeleteHsm' :: Maybe Text -> Maybe Text -> Maybe Text -> Text -> DeleteHsm
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:eniIp:DeleteHsm'</a>, <a>deleteHsm_eniIp</a> - The IP address
---   of the elastic network interface (ENI) of the HSM that you are
---   deleting.
---   
 --   <a>$sel:eniId:DeleteHsm'</a>, <a>deleteHsm_eniId</a> - The identifier
 --   (ID) of the elastic network interface (ENI) of the HSM that you are
 --   deleting.
@@ -2488,14 +2484,14 @@ DeleteHsm' :: Maybe Text -> Maybe Text -> Maybe Text -> Text -> DeleteHsm
 --   <a>$sel:hsmId:DeleteHsm'</a>, <a>deleteHsm_hsmId</a> - The identifier
 --   (ID) of the HSM that you are deleting.
 --   
+--   <a>$sel:eniIp:DeleteHsm'</a>, <a>deleteHsm_eniIp</a> - The IP address
+--   of the elastic network interface (ENI) of the HSM that you are
+--   deleting.
+--   
 --   <a>$sel:clusterId:DeleteHsm'</a>, <a>deleteHsm_clusterId</a> - The
 --   identifier (ID) of the cluster that contains the HSM that you are
 --   deleting.
 newDeleteHsm :: Text -> DeleteHsm
-
--- | The IP address of the elastic network interface (ENI) of the HSM that
---   you are deleting.
-deleteHsm_eniIp :: Lens' DeleteHsm (Maybe Text)
 
 -- | The identifier (ID) of the elastic network interface (ENI) of the HSM
 --   that you are deleting.
@@ -2503,6 +2499,10 @@ deleteHsm_eniId :: Lens' DeleteHsm (Maybe Text)
 
 -- | The identifier (ID) of the HSM that you are deleting.
 deleteHsm_hsmId :: Lens' DeleteHsm (Maybe Text)
+
+-- | The IP address of the elastic network interface (ENI) of the HSM that
+--   you are deleting.
+deleteHsm_eniIp :: Lens' DeleteHsm (Maybe Text)
 
 -- | The identifier (ID) of the cluster that contains the HSM that you are
 --   deleting.
@@ -2836,18 +2836,18 @@ module Network.AWS.CloudHSMv2.CreateCluster
 
 -- | <i>See:</i> <a>newCreateCluster</a> smart constructor.
 data CreateCluster
-CreateCluster' :: Maybe Text -> Maybe [Tag] -> Maybe BackupRetentionPolicy -> Text -> NonEmpty Text -> CreateCluster
+CreateCluster' :: Maybe BackupRetentionPolicy -> Maybe [Tag] -> Maybe Text -> Text -> NonEmpty Text -> CreateCluster
+
+-- | A policy that defines how the service retains backups.
+[$sel:backupRetentionPolicy:CreateCluster'] :: CreateCluster -> Maybe BackupRetentionPolicy
+
+-- | Tags to apply to the CloudHSM cluster during creation.
+[$sel:tagList:CreateCluster'] :: CreateCluster -> Maybe [Tag]
 
 -- | The identifier (ID) of the cluster backup to restore. Use this value
 --   to restore the cluster from a backup instead of creating a new
 --   cluster. To find the backup ID, use DescribeBackups.
 [$sel:sourceBackupId:CreateCluster'] :: CreateCluster -> Maybe Text
-
--- | Tags to apply to the CloudHSM cluster during creation.
-[$sel:tagList:CreateCluster'] :: CreateCluster -> Maybe [Tag]
-
--- | A policy that defines how the service retains backups.
-[$sel:backupRetentionPolicy:CreateCluster'] :: CreateCluster -> Maybe BackupRetentionPolicy
 
 -- | The type of HSM to use in the cluster. Currently the only allowed
 --   value is <tt>hsm1.medium</tt>.
@@ -2872,18 +2872,18 @@ CreateCluster' :: Maybe Text -> Maybe [Tag] -> Maybe BackupRetentionPolicy -> Te
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:backupRetentionPolicy:CreateCluster'</a>,
+--   <a>createCluster_backupRetentionPolicy</a> - A policy that defines how
+--   the service retains backups.
+--   
+--   <a>$sel:tagList:CreateCluster'</a>, <a>createCluster_tagList</a> -
+--   Tags to apply to the CloudHSM cluster during creation.
+--   
 --   <a>$sel:sourceBackupId:CreateCluster'</a>,
 --   <a>createCluster_sourceBackupId</a> - The identifier (ID) of the
 --   cluster backup to restore. Use this value to restore the cluster from
 --   a backup instead of creating a new cluster. To find the backup ID, use
 --   DescribeBackups.
---   
---   <a>$sel:tagList:CreateCluster'</a>, <a>createCluster_tagList</a> -
---   Tags to apply to the CloudHSM cluster during creation.
---   
---   <a>$sel:backupRetentionPolicy:CreateCluster'</a>,
---   <a>createCluster_backupRetentionPolicy</a> - A policy that defines how
---   the service retains backups.
 --   
 --   <a>$sel:hsmType:CreateCluster'</a>, <a>createCluster_hsmType</a> - The
 --   type of HSM to use in the cluster. Currently the only allowed value is
@@ -2900,16 +2900,16 @@ CreateCluster' :: Maybe Text -> Maybe [Tag] -> Maybe BackupRetentionPolicy -> Te
 --   </ul>
 newCreateCluster :: Text -> NonEmpty Text -> CreateCluster
 
--- | The identifier (ID) of the cluster backup to restore. Use this value
---   to restore the cluster from a backup instead of creating a new
---   cluster. To find the backup ID, use DescribeBackups.
-createCluster_sourceBackupId :: Lens' CreateCluster (Maybe Text)
+-- | A policy that defines how the service retains backups.
+createCluster_backupRetentionPolicy :: Lens' CreateCluster (Maybe BackupRetentionPolicy)
 
 -- | Tags to apply to the CloudHSM cluster during creation.
 createCluster_tagList :: Lens' CreateCluster (Maybe [Tag])
 
--- | A policy that defines how the service retains backups.
-createCluster_backupRetentionPolicy :: Lens' CreateCluster (Maybe BackupRetentionPolicy)
+-- | The identifier (ID) of the cluster backup to restore. Use this value
+--   to restore the cluster from a backup instead of creating a new
+--   cluster. To find the backup ID, use DescribeBackups.
+createCluster_sourceBackupId :: Lens' CreateCluster (Maybe Text)
 
 -- | The type of HSM to use in the cluster. Currently the only allowed
 --   value is <tt>hsm1.medium</tt>.
@@ -3188,46 +3188,6 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudHSMv2.UntagResource.Unt
 
 module Network.AWS.CloudHSMv2.Lens
 
--- | The IP address of the elastic network interface (ENI) of the HSM that
---   you are deleting.
-deleteHsm_eniIp :: Lens' DeleteHsm (Maybe Text)
-
--- | The identifier (ID) of the elastic network interface (ENI) of the HSM
---   that you are deleting.
-deleteHsm_eniId :: Lens' DeleteHsm (Maybe Text)
-
--- | The identifier (ID) of the HSM that you are deleting.
-deleteHsm_hsmId :: Lens' DeleteHsm (Maybe Text)
-
--- | The identifier (ID) of the cluster that contains the HSM that you are
---   deleting.
-deleteHsm_clusterId :: Lens' DeleteHsm Text
-
--- | The identifier (ID) of the HSM that was deleted.
-deleteHsmResponse_hsmId :: Lens' DeleteHsmResponse (Maybe Text)
-
--- | The response's http status code.
-deleteHsmResponse_httpStatus :: Lens' DeleteHsmResponse Int
-
--- | The ID of the backup to be deleted. To find the ID of a backup, use
---   the DescribeBackups operation.
-deleteBackup_backupId :: Lens' DeleteBackup Text
-
--- | Information on the <tt>Backup</tt> object deleted.
-deleteBackupResponse_backup :: Lens' DeleteBackupResponse (Maybe Backup)
-
--- | The response's http status code.
-deleteBackupResponse_httpStatus :: Lens' DeleteBackupResponse Int
-
--- | The <tt>NextToken</tt> value that you received in the previous
---   response. Use this value to get more clusters.
-describeClusters_nextToken :: Lens' DescribeClusters (Maybe Text)
-
--- | The maximum number of clusters to return in the response. When there
---   are more clusters than the number you specify, the response contains a
---   <tt>NextToken</tt> value.
-describeClusters_maxResults :: Lens' DescribeClusters (Maybe Natural)
-
 -- | One or more filters to limit the items returned in the response.
 --   
 --   Use the <tt>clusterIds</tt> filter to return only the specified
@@ -3241,6 +3201,15 @@ describeClusters_maxResults :: Lens' DescribeClusters (Maybe Natural)
 --   specified state.
 describeClusters_filters :: Lens' DescribeClusters (Maybe (HashMap Text [Text]))
 
+-- | The <tt>NextToken</tt> value that you received in the previous
+--   response. Use this value to get more clusters.
+describeClusters_nextToken :: Lens' DescribeClusters (Maybe Text)
+
+-- | The maximum number of clusters to return in the response. When there
+--   are more clusters than the number you specify, the response contains a
+--   <tt>NextToken</tt> value.
+describeClusters_maxResults :: Lens' DescribeClusters (Maybe Natural)
+
 -- | An opaque string that indicates that the response contains only a
 --   subset of clusters. Use this value in a subsequent
 --   <tt>DescribeClusters</tt> request to get more clusters.
@@ -3252,201 +3221,15 @@ describeClustersResponse_clusters :: Lens' DescribeClustersResponse (Maybe [Clus
 -- | The response's http status code.
 describeClustersResponse_httpStatus :: Lens' DescribeClustersResponse Int
 
--- | The ID of the backup to be restored. To find the ID of a backup, use
+-- | The ID of the backup to be deleted. To find the ID of a backup, use
 --   the DescribeBackups operation.
-restoreBackup_backupId :: Lens' RestoreBackup Text
+deleteBackup_backupId :: Lens' DeleteBackup Text
 
--- | Information on the <tt>Backup</tt> object created.
-restoreBackupResponse_backup :: Lens' RestoreBackupResponse (Maybe Backup)
-
--- | The response's http status code.
-restoreBackupResponse_httpStatus :: Lens' RestoreBackupResponse Int
-
--- | The identifier (ID) of the cluster backup to restore. Use this value
---   to restore the cluster from a backup instead of creating a new
---   cluster. To find the backup ID, use DescribeBackups.
-createCluster_sourceBackupId :: Lens' CreateCluster (Maybe Text)
-
--- | Tags to apply to the CloudHSM cluster during creation.
-createCluster_tagList :: Lens' CreateCluster (Maybe [Tag])
-
--- | A policy that defines how the service retains backups.
-createCluster_backupRetentionPolicy :: Lens' CreateCluster (Maybe BackupRetentionPolicy)
-
--- | The type of HSM to use in the cluster. Currently the only allowed
---   value is <tt>hsm1.medium</tt>.
-createCluster_hsmType :: Lens' CreateCluster Text
-
--- | The identifiers (IDs) of the subnets where you are creating the
---   cluster. You must specify at least one subnet. If you specify multiple
---   subnets, they must meet the following criteria:
---   
---   <ul>
---   <li>All subnets must be in the same virtual private cloud (VPC).</li>
---   <li>You can specify only one subnet per Availability Zone.</li>
---   </ul>
-createCluster_subnetIds :: Lens' CreateCluster (NonEmpty Text)
-
--- | Information about the cluster that was created.
-createClusterResponse_cluster :: Lens' CreateClusterResponse (Maybe Cluster)
+-- | Information on the <tt>Backup</tt> object deleted.
+deleteBackupResponse_backup :: Lens' DeleteBackupResponse (Maybe Backup)
 
 -- | The response's http status code.
-createClusterResponse_httpStatus :: Lens' CreateClusterResponse Int
-
--- | The cluster identifier (ID) for the cluster whose tags you are
---   removing. To find the cluster ID, use DescribeClusters.
-untagResource_resourceId :: Lens' UntagResource Text
-
--- | A list of one or more tag keys for the tags that you are removing.
---   Specify only the tag keys, not the tag values.
-untagResource_tagKeyList :: Lens' UntagResource (NonEmpty Text)
-
--- | The response's http status code.
-untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-
--- | The cluster identifier (ID) for the cluster that you are tagging. To
---   find the cluster ID, use DescribeClusters.
-tagResource_resourceId :: Lens' TagResource Text
-
--- | A list of one or more tags.
-tagResource_tagList :: Lens' TagResource [Tag]
-
--- | The response's http status code.
-tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-
--- | Tags to apply to the destination backup during creation. If you
---   specify tags, only these tags will be applied to the destination
---   backup. If you do not specify tags, the service copies tags from the
---   source backup to the destination backup.
-copyBackupToRegion_tagList :: Lens' CopyBackupToRegion (Maybe [Tag])
-
--- | The AWS region that will contain your copied CloudHSM cluster backup.
-copyBackupToRegion_destinationRegion :: Lens' CopyBackupToRegion Text
-
--- | The ID of the backup that will be copied to the destination region.
-copyBackupToRegion_backupId :: Lens' CopyBackupToRegion Text
-
--- | Information on the backup that will be copied to the destination
---   region, including CreateTimestamp, SourceBackup, SourceCluster, and
---   Source Region. CreateTimestamp of the destination backup will be the
---   same as that of the source backup.
---   
---   You will need to use the <tt>sourceBackupID</tt> returned in this
---   operation to use the DescribeBackups operation on the backup that will
---   be copied to the destination region.
-copyBackupToRegionResponse_destinationBackup :: Lens' CopyBackupToRegionResponse (Maybe DestinationBackup)
-
--- | The response's http status code.
-copyBackupToRegionResponse_httpStatus :: Lens' CopyBackupToRegionResponse Int
-
--- | A policy that defines how the service retains backups.
-modifyCluster_backupRetentionPolicy :: Lens' ModifyCluster BackupRetentionPolicy
-
--- | The identifier (ID) of the cluster that you want to modify. To find
---   the cluster ID, use DescribeClusters.
-modifyCluster_clusterId :: Lens' ModifyCluster Text
-
--- | Undocumented member.
-modifyClusterResponse_cluster :: Lens' ModifyClusterResponse (Maybe Cluster)
-
--- | The response's http status code.
-modifyClusterResponse_httpStatus :: Lens' ModifyClusterResponse Int
-
--- | The identifier (ID) of the backup to modify. To find the ID of a
---   backup, use the DescribeBackups operation.
-modifyBackupAttributes_backupId :: Lens' ModifyBackupAttributes Text
-
--- | Specifies whether the service should exempt a backup from the
---   retention policy for the cluster. <tt>True</tt> exempts a backup from
---   the retention policy. <tt>False</tt> means the service applies the
---   backup retention policy defined at the cluster.
-modifyBackupAttributes_neverExpires :: Lens' ModifyBackupAttributes Bool
-
--- | Undocumented member.
-modifyBackupAttributesResponse_backup :: Lens' ModifyBackupAttributesResponse (Maybe Backup)
-
--- | The response's http status code.
-modifyBackupAttributesResponse_httpStatus :: Lens' ModifyBackupAttributesResponse Int
-
--- | The <tt>NextToken</tt> value that you received in the previous
---   response. Use this value to get more tags.
-listTags_nextToken :: Lens' ListTags (Maybe Text)
-
--- | The maximum number of tags to return in the response. When there are
---   more tags than the number you specify, the response contains a
---   <tt>NextToken</tt> value.
-listTags_maxResults :: Lens' ListTags (Maybe Natural)
-
--- | The cluster identifier (ID) for the cluster whose tags you are
---   getting. To find the cluster ID, use DescribeClusters.
-listTags_resourceId :: Lens' ListTags Text
-
--- | An opaque string that indicates that the response contains only a
---   subset of tags. Use this value in a subsequent <tt>ListTags</tt>
---   request to get more tags.
-listTagsResponse_nextToken :: Lens' ListTagsResponse (Maybe Text)
-
--- | The response's http status code.
-listTagsResponse_httpStatus :: Lens' ListTagsResponse Int
-
--- | A list of tags.
-listTagsResponse_tagList :: Lens' ListTagsResponse [Tag]
-
--- | The identifier (ID) of the cluster that you are deleting. To find the
---   cluster ID, use DescribeClusters.
-deleteCluster_clusterId :: Lens' DeleteCluster Text
-
--- | Information about the cluster that was deleted.
-deleteClusterResponse_cluster :: Lens' DeleteClusterResponse (Maybe Cluster)
-
--- | The response's http status code.
-deleteClusterResponse_httpStatus :: Lens' DeleteClusterResponse Int
-
--- | The <tt>NextToken</tt> value that you received in the previous
---   response. Use this value to get more backups.
-describeBackups_nextToken :: Lens' DescribeBackups (Maybe Text)
-
--- | The maximum number of backups to return in the response. When there
---   are more backups than the number you specify, the response contains a
---   <tt>NextToken</tt> value.
-describeBackups_maxResults :: Lens' DescribeBackups (Maybe Natural)
-
--- | Designates whether or not to sort the return backups by ascending
---   chronological order of generation.
-describeBackups_sortAscending :: Lens' DescribeBackups (Maybe Bool)
-
--- | One or more filters to limit the items returned in the response.
---   
---   Use the <tt>backupIds</tt> filter to return only the specified
---   backups. Specify backups by their backup identifier (ID).
---   
---   Use the <tt>sourceBackupIds</tt> filter to return only the backups
---   created from a source backup. The <tt>sourceBackupID</tt> of a source
---   backup is returned by the CopyBackupToRegion operation.
---   
---   Use the <tt>clusterIds</tt> filter to return only the backups for the
---   specified clusters. Specify clusters by their cluster identifier (ID).
---   
---   Use the <tt>states</tt> filter to return only backups that match the
---   specified state.
---   
---   Use the <tt>neverExpires</tt> filter to return backups filtered by the
---   value in the <tt>neverExpires</tt> parameter. <tt>True</tt> returns
---   all backups exempt from the backup retention policy. <tt>False</tt>
---   returns all backups with a backup retention policy defined at the
---   cluster.
-describeBackups_filters :: Lens' DescribeBackups (Maybe (HashMap Text [Text]))
-
--- | An opaque string that indicates that the response contains only a
---   subset of backups. Use this value in a subsequent
---   <tt>DescribeBackups</tt> request to get more backups.
-describeBackupsResponse_nextToken :: Lens' DescribeBackupsResponse (Maybe Text)
-
--- | A list of backups.
-describeBackupsResponse_backups :: Lens' DescribeBackupsResponse (Maybe [Backup])
-
--- | The response's http status code.
-describeBackupsResponse_httpStatus :: Lens' DescribeBackupsResponse Int
+deleteBackupResponse_httpStatus :: Lens' DeleteBackupResponse Int
 
 -- | The identifier (ID) of the cluster that you are claiming. To find the
 --   cluster ID, use DescribeClusters.
@@ -3493,27 +3276,222 @@ createHsmResponse_hsm :: Lens' CreateHsmResponse (Maybe Hsm)
 -- | The response's http status code.
 createHsmResponse_httpStatus :: Lens' CreateHsmResponse Int
 
--- | The identifier (ID) of the cluster that was backed up.
-backup_clusterId :: Lens' Backup (Maybe Text)
+-- | Designates whether or not to sort the return backups by ascending
+--   chronological order of generation.
+describeBackups_sortAscending :: Lens' DescribeBackups (Maybe Bool)
 
--- | The state of the backup.
-backup_backupState :: Lens' Backup (Maybe BackupState)
+-- | One or more filters to limit the items returned in the response.
+--   
+--   Use the <tt>backupIds</tt> filter to return only the specified
+--   backups. Specify backups by their backup identifier (ID).
+--   
+--   Use the <tt>sourceBackupIds</tt> filter to return only the backups
+--   created from a source backup. The <tt>sourceBackupID</tt> of a source
+--   backup is returned by the CopyBackupToRegion operation.
+--   
+--   Use the <tt>clusterIds</tt> filter to return only the backups for the
+--   specified clusters. Specify clusters by their cluster identifier (ID).
+--   
+--   Use the <tt>states</tt> filter to return only backups that match the
+--   specified state.
+--   
+--   Use the <tt>neverExpires</tt> filter to return backups filtered by the
+--   value in the <tt>neverExpires</tt> parameter. <tt>True</tt> returns
+--   all backups exempt from the backup retention policy. <tt>False</tt>
+--   returns all backups with a backup retention policy defined at the
+--   cluster.
+describeBackups_filters :: Lens' DescribeBackups (Maybe (HashMap Text [Text]))
 
--- | The identifier (ID) of the source backup from which the new backup was
---   copied.
-backup_sourceBackup :: Lens' Backup (Maybe Text)
+-- | The <tt>NextToken</tt> value that you received in the previous
+--   response. Use this value to get more backups.
+describeBackups_nextToken :: Lens' DescribeBackups (Maybe Text)
 
--- | The date and time when the backup was copied from a source backup.
-backup_copyTimestamp :: Lens' Backup (Maybe UTCTime)
+-- | The maximum number of backups to return in the response. When there
+--   are more backups than the number you specify, the response contains a
+--   <tt>NextToken</tt> value.
+describeBackups_maxResults :: Lens' DescribeBackups (Maybe Natural)
+
+-- | A list of backups.
+describeBackupsResponse_backups :: Lens' DescribeBackupsResponse (Maybe [Backup])
+
+-- | An opaque string that indicates that the response contains only a
+--   subset of backups. Use this value in a subsequent
+--   <tt>DescribeBackups</tt> request to get more backups.
+describeBackupsResponse_nextToken :: Lens' DescribeBackupsResponse (Maybe Text)
+
+-- | The response's http status code.
+describeBackupsResponse_httpStatus :: Lens' DescribeBackupsResponse Int
+
+-- | Tags to apply to the destination backup during creation. If you
+--   specify tags, only these tags will be applied to the destination
+--   backup. If you do not specify tags, the service copies tags from the
+--   source backup to the destination backup.
+copyBackupToRegion_tagList :: Lens' CopyBackupToRegion (Maybe [Tag])
+
+-- | The AWS region that will contain your copied CloudHSM cluster backup.
+copyBackupToRegion_destinationRegion :: Lens' CopyBackupToRegion Text
+
+-- | The ID of the backup that will be copied to the destination region.
+copyBackupToRegion_backupId :: Lens' CopyBackupToRegion Text
+
+-- | Information on the backup that will be copied to the destination
+--   region, including CreateTimestamp, SourceBackup, SourceCluster, and
+--   Source Region. CreateTimestamp of the destination backup will be the
+--   same as that of the source backup.
+--   
+--   You will need to use the <tt>sourceBackupID</tt> returned in this
+--   operation to use the DescribeBackups operation on the backup that will
+--   be copied to the destination region.
+copyBackupToRegionResponse_destinationBackup :: Lens' CopyBackupToRegionResponse (Maybe DestinationBackup)
+
+-- | The response's http status code.
+copyBackupToRegionResponse_httpStatus :: Lens' CopyBackupToRegionResponse Int
+
+-- | The identifier (ID) of the cluster that you are deleting. To find the
+--   cluster ID, use DescribeClusters.
+deleteCluster_clusterId :: Lens' DeleteCluster Text
+
+-- | Information about the cluster that was deleted.
+deleteClusterResponse_cluster :: Lens' DeleteClusterResponse (Maybe Cluster)
+
+-- | The response's http status code.
+deleteClusterResponse_httpStatus :: Lens' DeleteClusterResponse Int
+
+-- | A policy that defines how the service retains backups.
+createCluster_backupRetentionPolicy :: Lens' CreateCluster (Maybe BackupRetentionPolicy)
+
+-- | Tags to apply to the CloudHSM cluster during creation.
+createCluster_tagList :: Lens' CreateCluster (Maybe [Tag])
+
+-- | The identifier (ID) of the cluster backup to restore. Use this value
+--   to restore the cluster from a backup instead of creating a new
+--   cluster. To find the backup ID, use DescribeBackups.
+createCluster_sourceBackupId :: Lens' CreateCluster (Maybe Text)
+
+-- | The type of HSM to use in the cluster. Currently the only allowed
+--   value is <tt>hsm1.medium</tt>.
+createCluster_hsmType :: Lens' CreateCluster Text
+
+-- | The identifiers (IDs) of the subnets where you are creating the
+--   cluster. You must specify at least one subnet. If you specify multiple
+--   subnets, they must meet the following criteria:
+--   
+--   <ul>
+--   <li>All subnets must be in the same virtual private cloud (VPC).</li>
+--   <li>You can specify only one subnet per Availability Zone.</li>
+--   </ul>
+createCluster_subnetIds :: Lens' CreateCluster (NonEmpty Text)
+
+-- | Information about the cluster that was created.
+createClusterResponse_cluster :: Lens' CreateClusterResponse (Maybe Cluster)
+
+-- | The response's http status code.
+createClusterResponse_httpStatus :: Lens' CreateClusterResponse Int
+
+-- | The ID of the backup to be restored. To find the ID of a backup, use
+--   the DescribeBackups operation.
+restoreBackup_backupId :: Lens' RestoreBackup Text
+
+-- | Information on the <tt>Backup</tt> object created.
+restoreBackupResponse_backup :: Lens' RestoreBackupResponse (Maybe Backup)
+
+-- | The response's http status code.
+restoreBackupResponse_httpStatus :: Lens' RestoreBackupResponse Int
+
+-- | The identifier (ID) of the elastic network interface (ENI) of the HSM
+--   that you are deleting.
+deleteHsm_eniId :: Lens' DeleteHsm (Maybe Text)
+
+-- | The identifier (ID) of the HSM that you are deleting.
+deleteHsm_hsmId :: Lens' DeleteHsm (Maybe Text)
+
+-- | The IP address of the elastic network interface (ENI) of the HSM that
+--   you are deleting.
+deleteHsm_eniIp :: Lens' DeleteHsm (Maybe Text)
+
+-- | The identifier (ID) of the cluster that contains the HSM that you are
+--   deleting.
+deleteHsm_clusterId :: Lens' DeleteHsm Text
+
+-- | The identifier (ID) of the HSM that was deleted.
+deleteHsmResponse_hsmId :: Lens' DeleteHsmResponse (Maybe Text)
+
+-- | The response's http status code.
+deleteHsmResponse_httpStatus :: Lens' DeleteHsmResponse Int
+
+-- | A policy that defines how the service retains backups.
+modifyCluster_backupRetentionPolicy :: Lens' ModifyCluster BackupRetentionPolicy
+
+-- | The identifier (ID) of the cluster that you want to modify. To find
+--   the cluster ID, use DescribeClusters.
+modifyCluster_clusterId :: Lens' ModifyCluster Text
+
+-- | Undocumented member.
+modifyClusterResponse_cluster :: Lens' ModifyClusterResponse (Maybe Cluster)
+
+-- | The response's http status code.
+modifyClusterResponse_httpStatus :: Lens' ModifyClusterResponse Int
+
+-- | The cluster identifier (ID) for the cluster that you are tagging. To
+--   find the cluster ID, use DescribeClusters.
+tagResource_resourceId :: Lens' TagResource Text
+
+-- | A list of one or more tags.
+tagResource_tagList :: Lens' TagResource [Tag]
+
+-- | The response's http status code.
+tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
+
+-- | The <tt>NextToken</tt> value that you received in the previous
+--   response. Use this value to get more tags.
+listTags_nextToken :: Lens' ListTags (Maybe Text)
+
+-- | The maximum number of tags to return in the response. When there are
+--   more tags than the number you specify, the response contains a
+--   <tt>NextToken</tt> value.
+listTags_maxResults :: Lens' ListTags (Maybe Natural)
+
+-- | The cluster identifier (ID) for the cluster whose tags you are
+--   getting. To find the cluster ID, use DescribeClusters.
+listTags_resourceId :: Lens' ListTags Text
+
+-- | An opaque string that indicates that the response contains only a
+--   subset of tags. Use this value in a subsequent <tt>ListTags</tt>
+--   request to get more tags.
+listTagsResponse_nextToken :: Lens' ListTagsResponse (Maybe Text)
+
+-- | The response's http status code.
+listTagsResponse_httpStatus :: Lens' ListTagsResponse Int
+
+-- | A list of tags.
+listTagsResponse_tagList :: Lens' ListTagsResponse [Tag]
+
+-- | The cluster identifier (ID) for the cluster whose tags you are
+--   removing. To find the cluster ID, use DescribeClusters.
+untagResource_resourceId :: Lens' UntagResource Text
+
+-- | A list of one or more tag keys for the tags that you are removing.
+--   Specify only the tag keys, not the tag values.
+untagResource_tagKeyList :: Lens' UntagResource (NonEmpty Text)
+
+-- | The response's http status code.
+untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
+
+-- | The identifier (ID) of the backup to modify. To find the ID of a
+--   backup, use the DescribeBackups operation.
+modifyBackupAttributes_backupId :: Lens' ModifyBackupAttributes Text
 
 -- | Specifies whether the service should exempt a backup from the
 --   retention policy for the cluster. <tt>True</tt> exempts a backup from
 --   the retention policy. <tt>False</tt> means the service applies the
 --   backup retention policy defined at the cluster.
-backup_neverExpires :: Lens' Backup (Maybe Bool)
+modifyBackupAttributes_neverExpires :: Lens' ModifyBackupAttributes Bool
 
--- | The date and time when the backup was created.
-backup_createTimestamp :: Lens' Backup (Maybe UTCTime)
+-- | Undocumented member.
+modifyBackupAttributesResponse_backup :: Lens' ModifyBackupAttributesResponse (Maybe Backup)
+
+-- | The response's http status code.
+modifyBackupAttributesResponse_httpStatus :: Lens' ModifyBackupAttributesResponse Int
 
 -- | The date and time when the backup will be permanently deleted.
 backup_deleteTimestamp :: Lens' Backup (Maybe UTCTime)
@@ -3522,12 +3500,34 @@ backup_deleteTimestamp :: Lens' Backup (Maybe UTCTime)
 --   which the new backup was copied.
 backup_sourceCluster :: Lens' Backup (Maybe Text)
 
--- | The list of tags for the backup.
-backup_tagList :: Lens' Backup (Maybe [Tag])
+-- | Specifies whether the service should exempt a backup from the
+--   retention policy for the cluster. <tt>True</tt> exempts a backup from
+--   the retention policy. <tt>False</tt> means the service applies the
+--   backup retention policy defined at the cluster.
+backup_neverExpires :: Lens' Backup (Maybe Bool)
 
 -- | The AWS Region that contains the source backup from which the new
 --   backup was copied.
 backup_sourceRegion :: Lens' Backup (Maybe Text)
+
+-- | The list of tags for the backup.
+backup_tagList :: Lens' Backup (Maybe [Tag])
+
+-- | The identifier (ID) of the source backup from which the new backup was
+--   copied.
+backup_sourceBackup :: Lens' Backup (Maybe Text)
+
+-- | The identifier (ID) of the cluster that was backed up.
+backup_clusterId :: Lens' Backup (Maybe Text)
+
+-- | The date and time when the backup was created.
+backup_createTimestamp :: Lens' Backup (Maybe UTCTime)
+
+-- | The date and time when the backup was copied from a source backup.
+backup_copyTimestamp :: Lens' Backup (Maybe UTCTime)
+
+-- | The state of the backup.
+backup_backupState :: Lens' Backup (Maybe BackupState)
 
 -- | The identifier (ID) of the backup.
 backup_backupId :: Lens' Backup Text
@@ -3539,80 +3539,73 @@ backupRetentionPolicy_value :: Lens' BackupRetentionPolicy (Maybe Text)
 --   value is the number of days to retain backups.
 backupRetentionPolicy_type :: Lens' BackupRetentionPolicy (Maybe BackupRetentionType)
 
--- | The HSM hardware certificate issued (signed) by AWS CloudHSM.
-certificates_awsHardwareCertificate :: Lens' Certificates (Maybe Text)
-
--- | The HSM certificate issued (signed) by the HSM hardware.
-certificates_hsmCertificate :: Lens' Certificates (Maybe Text)
+-- | The HSM hardware certificate issued (signed) by the hardware
+--   manufacturer.
+certificates_manufacturerHardwareCertificate :: Lens' Certificates (Maybe Text)
 
 -- | The cluster's certificate signing request (CSR). The CSR exists only
 --   when the cluster's state is <tt>UNINITIALIZED</tt>.
 certificates_clusterCsr :: Lens' Certificates (Maybe Text)
 
+-- | The HSM certificate issued (signed) by the HSM hardware.
+certificates_hsmCertificate :: Lens' Certificates (Maybe Text)
+
 -- | The cluster certificate issued (signed) by the issuing certificate
 --   authority (CA) of the cluster's owner.
 certificates_clusterCertificate :: Lens' Certificates (Maybe Text)
 
--- | The HSM hardware certificate issued (signed) by the hardware
---   manufacturer.
-certificates_manufacturerHardwareCertificate :: Lens' Certificates (Maybe Text)
-
--- | The cluster's identifier (ID).
-cluster_clusterId :: Lens' Cluster (Maybe Text)
-
--- | A description of the cluster's state.
-cluster_stateMessage :: Lens' Cluster (Maybe Text)
-
--- | The cluster's backup policy.
-cluster_backupPolicy :: Lens' Cluster (Maybe BackupPolicy)
-
--- | The date and time when the cluster was created.
-cluster_createTimestamp :: Lens' Cluster (Maybe UTCTime)
-
--- | A map from availability zone to the cluster’s subnet in that
---   availability zone.
-cluster_subnetMapping :: Lens' Cluster (Maybe (HashMap Text Text))
-
--- | The cluster's state.
-cluster_state :: Lens' Cluster (Maybe ClusterState)
+-- | The HSM hardware certificate issued (signed) by AWS CloudHSM.
+certificates_awsHardwareCertificate :: Lens' Certificates (Maybe Text)
 
 -- | The default password for the cluster's Pre-Crypto Officer (PRECO)
 --   user.
 cluster_preCoPassword :: Lens' Cluster (Maybe Text)
 
--- | The identifier (ID) of the cluster's security group.
-cluster_securityGroup :: Lens' Cluster (Maybe Text)
+-- | A description of the cluster's state.
+cluster_stateMessage :: Lens' Cluster (Maybe Text)
 
--- | Contains one or more certificates or a certificate signing request
---   (CSR).
-cluster_certificates :: Lens' Cluster (Maybe Certificates)
+-- | The cluster's state.
+cluster_state :: Lens' Cluster (Maybe ClusterState)
 
--- | The identifier (ID) of the backup used to create the cluster. This
---   value exists only when the cluster was created from a backup.
-cluster_sourceBackupId :: Lens' Cluster (Maybe Text)
+-- | A map from availability zone to the cluster’s subnet in that
+--   availability zone.
+cluster_subnetMapping :: Lens' Cluster (Maybe (HashMap Text Text))
 
--- | The type of HSM that the cluster contains.
-cluster_hsmType :: Lens' Cluster (Maybe Text)
+-- | A policy that defines how the service retains backups.
+cluster_backupRetentionPolicy :: Lens' Cluster (Maybe BackupRetentionPolicy)
 
--- | The list of tags for the cluster.
-cluster_tagList :: Lens' Cluster (Maybe [Tag])
+-- | Contains information about the HSMs in the cluster.
+cluster_hsms :: Lens' Cluster (Maybe [Hsm])
 
 -- | The identifier (ID) of the virtual private cloud (VPC) that contains
 --   the cluster.
 cluster_vpcId :: Lens' Cluster (Maybe Text)
 
--- | Contains information about the HSMs in the cluster.
-cluster_hsms :: Lens' Cluster (Maybe [Hsm])
+-- | The list of tags for the cluster.
+cluster_tagList :: Lens' Cluster (Maybe [Tag])
 
--- | A policy that defines how the service retains backups.
-cluster_backupRetentionPolicy :: Lens' Cluster (Maybe BackupRetentionPolicy)
+-- | The identifier (ID) of the backup used to create the cluster. This
+--   value exists only when the cluster was created from a backup.
+cluster_sourceBackupId :: Lens' Cluster (Maybe Text)
 
--- | The identifier (ID) of the source backup from which the new backup was
---   copied.
-destinationBackup_sourceBackup :: Lens' DestinationBackup (Maybe Text)
+-- | Contains one or more certificates or a certificate signing request
+--   (CSR).
+cluster_certificates :: Lens' Cluster (Maybe Certificates)
 
--- | The date and time when both the source backup was created.
-destinationBackup_createTimestamp :: Lens' DestinationBackup (Maybe UTCTime)
+-- | The identifier (ID) of the cluster's security group.
+cluster_securityGroup :: Lens' Cluster (Maybe Text)
+
+-- | The cluster's identifier (ID).
+cluster_clusterId :: Lens' Cluster (Maybe Text)
+
+-- | The date and time when the cluster was created.
+cluster_createTimestamp :: Lens' Cluster (Maybe UTCTime)
+
+-- | The cluster's backup policy.
+cluster_backupPolicy :: Lens' Cluster (Maybe BackupPolicy)
+
+-- | The type of HSM that the cluster contains.
+cluster_hsmType :: Lens' Cluster (Maybe Text)
 
 -- | The identifier (ID) of the cluster containing the source backup from
 --   which the new backup was copied.
@@ -3622,26 +3615,33 @@ destinationBackup_sourceCluster :: Lens' DestinationBackup (Maybe Text)
 --   backup was copied.
 destinationBackup_sourceRegion :: Lens' DestinationBackup (Maybe Text)
 
--- | The identifier (ID) of the cluster that contains the HSM.
-hsm_clusterId :: Lens' Hsm (Maybe Text)
+-- | The identifier (ID) of the source backup from which the new backup was
+--   copied.
+destinationBackup_sourceBackup :: Lens' DestinationBackup (Maybe Text)
+
+-- | The date and time when both the source backup was created.
+destinationBackup_createTimestamp :: Lens' DestinationBackup (Maybe UTCTime)
 
 -- | A description of the HSM's state.
 hsm_stateMessage :: Lens' Hsm (Maybe Text)
 
--- | The IP address of the HSM's elastic network interface (ENI).
-hsm_eniIp :: Lens' Hsm (Maybe Text)
+-- | The HSM's state.
+hsm_state :: Lens' Hsm (Maybe HsmState)
 
 -- | The identifier (ID) of the HSM's elastic network interface (ENI).
 hsm_eniId :: Lens' Hsm (Maybe Text)
 
+-- | The subnet that contains the HSM's elastic network interface (ENI).
+hsm_subnetId :: Lens' Hsm (Maybe Text)
+
 -- | The Availability Zone that contains the HSM.
 hsm_availabilityZone :: Lens' Hsm (Maybe Text)
 
--- | The HSM's state.
-hsm_state :: Lens' Hsm (Maybe HsmState)
+-- | The identifier (ID) of the cluster that contains the HSM.
+hsm_clusterId :: Lens' Hsm (Maybe Text)
 
--- | The subnet that contains the HSM's elastic network interface (ENI).
-hsm_subnetId :: Lens' Hsm (Maybe Text)
+-- | The IP address of the HSM's elastic network interface (ENI).
+hsm_eniIp :: Lens' Hsm (Maybe Text)
 
 -- | The HSM's identifier (ID).
 hsm_hsmId :: Lens' Hsm Text
@@ -3671,57 +3671,29 @@ defaultService :: Service
 --   The request can be retried.
 _CloudHsmInternalFailureException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The request was rejected because it refers to a resource that cannot
---   be found.
-_CloudHsmResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The request was rejected because an error occurred.
+_CloudHsmServiceException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The request was rejected because it is not a valid request.
+_CloudHsmInvalidRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | The request was rejected because the requester does not have
 --   permission to perform the requested operation.
 _CloudHsmAccessDeniedException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The request was rejected because it is not a valid request.
-_CloudHsmInvalidRequestException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The request was rejected because an error occurred.
-_CloudHsmServiceException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The request was rejected because it refers to a resource that cannot
+--   be found.
+_CloudHsmResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | The request was rejected because of a tagging failure. Verify the tag
 --   conditions in all applicable policies, and then retry the request.
 _CloudHsmTagException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | <i>See:</i> <a>newDeleteHsm</a> smart constructor.
-data DeleteHsm
-DeleteHsm' :: Maybe Text -> Maybe Text -> Maybe Text -> Text -> DeleteHsm
+-- | <i>See:</i> <a>newDescribeClusters</a> smart constructor.
+data DescribeClusters
+DescribeClusters' :: Maybe (HashMap Text [Text]) -> Maybe Text -> Maybe Natural -> DescribeClusters
 
--- | Create a value of <a>DeleteHsm</a> with all optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:eniIp:DeleteHsm'</a>, <a>deleteHsm_eniIp</a> - The IP address
---   of the elastic network interface (ENI) of the HSM that you are
---   deleting.
---   
---   <a>$sel:eniId:DeleteHsm'</a>, <a>deleteHsm_eniId</a> - The identifier
---   (ID) of the elastic network interface (ENI) of the HSM that you are
---   deleting.
---   
---   <a>$sel:hsmId:DeleteHsm'</a>, <a>deleteHsm_hsmId</a> - The identifier
---   (ID) of the HSM that you are deleting.
---   
---   <a>$sel:clusterId:DeleteHsm'</a>, <a>deleteHsm_clusterId</a> - The
---   identifier (ID) of the cluster that contains the HSM that you are
---   deleting.
-newDeleteHsm :: Text -> DeleteHsm
-
--- | <i>See:</i> <a>newDeleteHsmResponse</a> smart constructor.
-data DeleteHsmResponse
-DeleteHsmResponse' :: Maybe Text -> Int -> DeleteHsmResponse
-
--- | Create a value of <a>DeleteHsmResponse</a> with all optional fields
+-- | Create a value of <a>DescribeClusters</a> with all optional fields
 --   omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -3730,12 +3702,56 @@ DeleteHsmResponse' :: Maybe Text -> Int -> DeleteHsmResponse
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:hsmId:DeleteHsm'</a>, <a>deleteHsmResponse_hsmId</a> - The
---   identifier (ID) of the HSM that was deleted.
+--   <a>$sel:filters:DescribeClusters'</a>, <a>describeClusters_filters</a>
+--   - One or more filters to limit the items returned in the response.
 --   
---   <a>$sel:httpStatus:DeleteHsmResponse'</a>,
---   <a>deleteHsmResponse_httpStatus</a> - The response's http status code.
-newDeleteHsmResponse :: Int -> DeleteHsmResponse
+--   Use the <tt>clusterIds</tt> filter to return only the specified
+--   clusters. Specify clusters by their cluster identifier (ID).
+--   
+--   Use the <tt>vpcIds</tt> filter to return only the clusters in the
+--   specified virtual private clouds (VPCs). Specify VPCs by their VPC
+--   identifier (ID).
+--   
+--   Use the <tt>states</tt> filter to return only clusters that match the
+--   specified state.
+--   
+--   <a>$sel:nextToken:DescribeClusters'</a>,
+--   <a>describeClusters_nextToken</a> - The <tt>NextToken</tt> value that
+--   you received in the previous response. Use this value to get more
+--   clusters.
+--   
+--   <a>$sel:maxResults:DescribeClusters'</a>,
+--   <a>describeClusters_maxResults</a> - The maximum number of clusters to
+--   return in the response. When there are more clusters than the number
+--   you specify, the response contains a <tt>NextToken</tt> value.
+newDescribeClusters :: DescribeClusters
+
+-- | <i>See:</i> <a>newDescribeClustersResponse</a> smart constructor.
+data DescribeClustersResponse
+DescribeClustersResponse' :: Maybe Text -> Maybe [Cluster] -> Int -> DescribeClustersResponse
+
+-- | Create a value of <a>DescribeClustersResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:nextToken:DescribeClusters'</a>,
+--   <a>describeClustersResponse_nextToken</a> - An opaque string that
+--   indicates that the response contains only a subset of clusters. Use
+--   this value in a subsequent <tt>DescribeClusters</tt> request to get
+--   more clusters.
+--   
+--   <a>$sel:clusters:DescribeClustersResponse'</a>,
+--   <a>describeClustersResponse_clusters</a> - A list of clusters.
+--   
+--   <a>$sel:httpStatus:DescribeClustersResponse'</a>,
+--   <a>describeClustersResponse_httpStatus</a> - The response's http
+--   status code.
+newDescribeClustersResponse :: Int -> DescribeClustersResponse
 
 -- | <i>See:</i> <a>newDeleteBackup</a> smart constructor.
 data DeleteBackup
@@ -3776,568 +3792,6 @@ DeleteBackupResponse' :: Maybe Backup -> Int -> DeleteBackupResponse
 --   <a>deleteBackupResponse_httpStatus</a> - The response's http status
 --   code.
 newDeleteBackupResponse :: Int -> DeleteBackupResponse
-
--- | <i>See:</i> <a>newDescribeClusters</a> smart constructor.
-data DescribeClusters
-DescribeClusters' :: Maybe Text -> Maybe Natural -> Maybe (HashMap Text [Text]) -> DescribeClusters
-
--- | Create a value of <a>DescribeClusters</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:nextToken:DescribeClusters'</a>,
---   <a>describeClusters_nextToken</a> - The <tt>NextToken</tt> value that
---   you received in the previous response. Use this value to get more
---   clusters.
---   
---   <a>$sel:maxResults:DescribeClusters'</a>,
---   <a>describeClusters_maxResults</a> - The maximum number of clusters to
---   return in the response. When there are more clusters than the number
---   you specify, the response contains a <tt>NextToken</tt> value.
---   
---   <a>$sel:filters:DescribeClusters'</a>, <a>describeClusters_filters</a>
---   - One or more filters to limit the items returned in the response.
---   
---   Use the <tt>clusterIds</tt> filter to return only the specified
---   clusters. Specify clusters by their cluster identifier (ID).
---   
---   Use the <tt>vpcIds</tt> filter to return only the clusters in the
---   specified virtual private clouds (VPCs). Specify VPCs by their VPC
---   identifier (ID).
---   
---   Use the <tt>states</tt> filter to return only clusters that match the
---   specified state.
-newDescribeClusters :: DescribeClusters
-
--- | <i>See:</i> <a>newDescribeClustersResponse</a> smart constructor.
-data DescribeClustersResponse
-DescribeClustersResponse' :: Maybe Text -> Maybe [Cluster] -> Int -> DescribeClustersResponse
-
--- | Create a value of <a>DescribeClustersResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:nextToken:DescribeClusters'</a>,
---   <a>describeClustersResponse_nextToken</a> - An opaque string that
---   indicates that the response contains only a subset of clusters. Use
---   this value in a subsequent <tt>DescribeClusters</tt> request to get
---   more clusters.
---   
---   <a>$sel:clusters:DescribeClustersResponse'</a>,
---   <a>describeClustersResponse_clusters</a> - A list of clusters.
---   
---   <a>$sel:httpStatus:DescribeClustersResponse'</a>,
---   <a>describeClustersResponse_httpStatus</a> - The response's http
---   status code.
-newDescribeClustersResponse :: Int -> DescribeClustersResponse
-
--- | <i>See:</i> <a>newRestoreBackup</a> smart constructor.
-data RestoreBackup
-RestoreBackup' :: Text -> RestoreBackup
-
--- | Create a value of <a>RestoreBackup</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:backupId:RestoreBackup'</a>, <a>restoreBackup_backupId</a> -
---   The ID of the backup to be restored. To find the ID of a backup, use
---   the DescribeBackups operation.
-newRestoreBackup :: Text -> RestoreBackup
-
--- | <i>See:</i> <a>newRestoreBackupResponse</a> smart constructor.
-data RestoreBackupResponse
-RestoreBackupResponse' :: Maybe Backup -> Int -> RestoreBackupResponse
-
--- | Create a value of <a>RestoreBackupResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:backup:RestoreBackupResponse'</a>,
---   <a>restoreBackupResponse_backup</a> - Information on the
---   <tt>Backup</tt> object created.
---   
---   <a>$sel:httpStatus:RestoreBackupResponse'</a>,
---   <a>restoreBackupResponse_httpStatus</a> - The response's http status
---   code.
-newRestoreBackupResponse :: Int -> RestoreBackupResponse
-
--- | <i>See:</i> <a>newCreateCluster</a> smart constructor.
-data CreateCluster
-CreateCluster' :: Maybe Text -> Maybe [Tag] -> Maybe BackupRetentionPolicy -> Text -> NonEmpty Text -> CreateCluster
-
--- | Create a value of <a>CreateCluster</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:sourceBackupId:CreateCluster'</a>,
---   <a>createCluster_sourceBackupId</a> - The identifier (ID) of the
---   cluster backup to restore. Use this value to restore the cluster from
---   a backup instead of creating a new cluster. To find the backup ID, use
---   DescribeBackups.
---   
---   <a>$sel:tagList:CreateCluster'</a>, <a>createCluster_tagList</a> -
---   Tags to apply to the CloudHSM cluster during creation.
---   
---   <a>$sel:backupRetentionPolicy:CreateCluster'</a>,
---   <a>createCluster_backupRetentionPolicy</a> - A policy that defines how
---   the service retains backups.
---   
---   <a>$sel:hsmType:CreateCluster'</a>, <a>createCluster_hsmType</a> - The
---   type of HSM to use in the cluster. Currently the only allowed value is
---   <tt>hsm1.medium</tt>.
---   
---   <a>$sel:subnetIds:CreateCluster'</a>, <a>createCluster_subnetIds</a> -
---   The identifiers (IDs) of the subnets where you are creating the
---   cluster. You must specify at least one subnet. If you specify multiple
---   subnets, they must meet the following criteria:
---   
---   <ul>
---   <li>All subnets must be in the same virtual private cloud (VPC).</li>
---   <li>You can specify only one subnet per Availability Zone.</li>
---   </ul>
-newCreateCluster :: Text -> NonEmpty Text -> CreateCluster
-
--- | <i>See:</i> <a>newCreateClusterResponse</a> smart constructor.
-data CreateClusterResponse
-CreateClusterResponse' :: Maybe Cluster -> Int -> CreateClusterResponse
-
--- | Create a value of <a>CreateClusterResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:cluster:CreateClusterResponse'</a>,
---   <a>createClusterResponse_cluster</a> - Information about the cluster
---   that was created.
---   
---   <a>$sel:httpStatus:CreateClusterResponse'</a>,
---   <a>createClusterResponse_httpStatus</a> - The response's http status
---   code.
-newCreateClusterResponse :: Int -> CreateClusterResponse
-
--- | <i>See:</i> <a>newUntagResource</a> smart constructor.
-data UntagResource
-UntagResource' :: Text -> NonEmpty Text -> UntagResource
-
--- | Create a value of <a>UntagResource</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:resourceId:UntagResource'</a>, <a>untagResource_resourceId</a>
---   - The cluster identifier (ID) for the cluster whose tags you are
---   removing. To find the cluster ID, use DescribeClusters.
---   
---   <a>$sel:tagKeyList:UntagResource'</a>, <a>untagResource_tagKeyList</a>
---   - A list of one or more tag keys for the tags that you are removing.
---   Specify only the tag keys, not the tag values.
-newUntagResource :: Text -> NonEmpty Text -> UntagResource
-
--- | <i>See:</i> <a>newUntagResourceResponse</a> smart constructor.
-data UntagResourceResponse
-UntagResourceResponse' :: Int -> UntagResourceResponse
-
--- | Create a value of <a>UntagResourceResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:httpStatus:UntagResourceResponse'</a>,
---   <a>untagResourceResponse_httpStatus</a> - The response's http status
---   code.
-newUntagResourceResponse :: Int -> UntagResourceResponse
-
--- | <i>See:</i> <a>newTagResource</a> smart constructor.
-data TagResource
-TagResource' :: Text -> [Tag] -> TagResource
-
--- | Create a value of <a>TagResource</a> with all optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:resourceId:TagResource'</a>, <a>tagResource_resourceId</a> -
---   The cluster identifier (ID) for the cluster that you are tagging. To
---   find the cluster ID, use DescribeClusters.
---   
---   <a>$sel:tagList:TagResource'</a>, <a>tagResource_tagList</a> - A list
---   of one or more tags.
-newTagResource :: Text -> TagResource
-
--- | <i>See:</i> <a>newTagResourceResponse</a> smart constructor.
-data TagResourceResponse
-TagResourceResponse' :: Int -> TagResourceResponse
-
--- | Create a value of <a>TagResourceResponse</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:httpStatus:TagResourceResponse'</a>,
---   <a>tagResourceResponse_httpStatus</a> - The response's http status
---   code.
-newTagResourceResponse :: Int -> TagResourceResponse
-
--- | <i>See:</i> <a>newCopyBackupToRegion</a> smart constructor.
-data CopyBackupToRegion
-CopyBackupToRegion' :: Maybe [Tag] -> Text -> Text -> CopyBackupToRegion
-
--- | Create a value of <a>CopyBackupToRegion</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:tagList:CopyBackupToRegion'</a>,
---   <a>copyBackupToRegion_tagList</a> - Tags to apply to the destination
---   backup during creation. If you specify tags, only these tags will be
---   applied to the destination backup. If you do not specify tags, the
---   service copies tags from the source backup to the destination backup.
---   
---   <a>$sel:destinationRegion:CopyBackupToRegion'</a>,
---   <a>copyBackupToRegion_destinationRegion</a> - The AWS region that will
---   contain your copied CloudHSM cluster backup.
---   
---   <a>$sel:backupId:CopyBackupToRegion'</a>,
---   <a>copyBackupToRegion_backupId</a> - The ID of the backup that will be
---   copied to the destination region.
-newCopyBackupToRegion :: Text -> Text -> CopyBackupToRegion
-
--- | <i>See:</i> <a>newCopyBackupToRegionResponse</a> smart constructor.
-data CopyBackupToRegionResponse
-CopyBackupToRegionResponse' :: Maybe DestinationBackup -> Int -> CopyBackupToRegionResponse
-
--- | Create a value of <a>CopyBackupToRegionResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:destinationBackup:CopyBackupToRegionResponse'</a>,
---   <a>copyBackupToRegionResponse_destinationBackup</a> - Information on
---   the backup that will be copied to the destination region, including
---   CreateTimestamp, SourceBackup, SourceCluster, and Source Region.
---   CreateTimestamp of the destination backup will be the same as that of
---   the source backup.
---   
---   You will need to use the <tt>sourceBackupID</tt> returned in this
---   operation to use the DescribeBackups operation on the backup that will
---   be copied to the destination region.
---   
---   <a>$sel:httpStatus:CopyBackupToRegionResponse'</a>,
---   <a>copyBackupToRegionResponse_httpStatus</a> - The response's http
---   status code.
-newCopyBackupToRegionResponse :: Int -> CopyBackupToRegionResponse
-
--- | <i>See:</i> <a>newModifyCluster</a> smart constructor.
-data ModifyCluster
-ModifyCluster' :: BackupRetentionPolicy -> Text -> ModifyCluster
-
--- | Create a value of <a>ModifyCluster</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:backupRetentionPolicy:ModifyCluster'</a>,
---   <a>modifyCluster_backupRetentionPolicy</a> - A policy that defines how
---   the service retains backups.
---   
---   <a>$sel:clusterId:ModifyCluster'</a>, <a>modifyCluster_clusterId</a> -
---   The identifier (ID) of the cluster that you want to modify. To find
---   the cluster ID, use DescribeClusters.
-newModifyCluster :: BackupRetentionPolicy -> Text -> ModifyCluster
-
--- | <i>See:</i> <a>newModifyClusterResponse</a> smart constructor.
-data ModifyClusterResponse
-ModifyClusterResponse' :: Maybe Cluster -> Int -> ModifyClusterResponse
-
--- | Create a value of <a>ModifyClusterResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:cluster:ModifyClusterResponse'</a>,
---   <a>modifyClusterResponse_cluster</a> - Undocumented member.
---   
---   <a>$sel:httpStatus:ModifyClusterResponse'</a>,
---   <a>modifyClusterResponse_httpStatus</a> - The response's http status
---   code.
-newModifyClusterResponse :: Int -> ModifyClusterResponse
-
--- | <i>See:</i> <a>newModifyBackupAttributes</a> smart constructor.
-data ModifyBackupAttributes
-ModifyBackupAttributes' :: Text -> Bool -> ModifyBackupAttributes
-
--- | Create a value of <a>ModifyBackupAttributes</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:backupId:ModifyBackupAttributes'</a>,
---   <a>modifyBackupAttributes_backupId</a> - The identifier (ID) of the
---   backup to modify. To find the ID of a backup, use the DescribeBackups
---   operation.
---   
---   <a>$sel:neverExpires:ModifyBackupAttributes'</a>,
---   <a>modifyBackupAttributes_neverExpires</a> - Specifies whether the
---   service should exempt a backup from the retention policy for the
---   cluster. <tt>True</tt> exempts a backup from the retention policy.
---   <tt>False</tt> means the service applies the backup retention policy
---   defined at the cluster.
-newModifyBackupAttributes :: Text -> Bool -> ModifyBackupAttributes
-
--- | <i>See:</i> <a>newModifyBackupAttributesResponse</a> smart
---   constructor.
-data ModifyBackupAttributesResponse
-ModifyBackupAttributesResponse' :: Maybe Backup -> Int -> ModifyBackupAttributesResponse
-
--- | Create a value of <a>ModifyBackupAttributesResponse</a> with all
---   optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:backup:ModifyBackupAttributesResponse'</a>,
---   <a>modifyBackupAttributesResponse_backup</a> - Undocumented member.
---   
---   <a>$sel:httpStatus:ModifyBackupAttributesResponse'</a>,
---   <a>modifyBackupAttributesResponse_httpStatus</a> - The response's http
---   status code.
-newModifyBackupAttributesResponse :: Int -> ModifyBackupAttributesResponse
-
--- | <i>See:</i> <a>newListTags</a> smart constructor.
-data ListTags
-ListTags' :: Maybe Text -> Maybe Natural -> Text -> ListTags
-
--- | Create a value of <a>ListTags</a> with all optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:nextToken:ListTags'</a>, <a>listTags_nextToken</a> - The
---   <tt>NextToken</tt> value that you received in the previous response.
---   Use this value to get more tags.
---   
---   <a>$sel:maxResults:ListTags'</a>, <a>listTags_maxResults</a> - The
---   maximum number of tags to return in the response. When there are more
---   tags than the number you specify, the response contains a
---   <tt>NextToken</tt> value.
---   
---   <a>$sel:resourceId:ListTags'</a>, <a>listTags_resourceId</a> - The
---   cluster identifier (ID) for the cluster whose tags you are getting. To
---   find the cluster ID, use DescribeClusters.
-newListTags :: Text -> ListTags
-
--- | <i>See:</i> <a>newListTagsResponse</a> smart constructor.
-data ListTagsResponse
-ListTagsResponse' :: Maybe Text -> Int -> [Tag] -> ListTagsResponse
-
--- | Create a value of <a>ListTagsResponse</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:nextToken:ListTags'</a>, <a>listTagsResponse_nextToken</a> -
---   An opaque string that indicates that the response contains only a
---   subset of tags. Use this value in a subsequent <tt>ListTags</tt>
---   request to get more tags.
---   
---   <a>$sel:httpStatus:ListTagsResponse'</a>,
---   <a>listTagsResponse_httpStatus</a> - The response's http status code.
---   
---   <a>$sel:tagList:ListTagsResponse'</a>, <a>listTagsResponse_tagList</a>
---   - A list of tags.
-newListTagsResponse :: Int -> ListTagsResponse
-
--- | <i>See:</i> <a>newDeleteCluster</a> smart constructor.
-data DeleteCluster
-DeleteCluster' :: Text -> DeleteCluster
-
--- | Create a value of <a>DeleteCluster</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:clusterId:DeleteCluster'</a>, <a>deleteCluster_clusterId</a> -
---   The identifier (ID) of the cluster that you are deleting. To find the
---   cluster ID, use DescribeClusters.
-newDeleteCluster :: Text -> DeleteCluster
-
--- | <i>See:</i> <a>newDeleteClusterResponse</a> smart constructor.
-data DeleteClusterResponse
-DeleteClusterResponse' :: Maybe Cluster -> Int -> DeleteClusterResponse
-
--- | Create a value of <a>DeleteClusterResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:cluster:DeleteClusterResponse'</a>,
---   <a>deleteClusterResponse_cluster</a> - Information about the cluster
---   that was deleted.
---   
---   <a>$sel:httpStatus:DeleteClusterResponse'</a>,
---   <a>deleteClusterResponse_httpStatus</a> - The response's http status
---   code.
-newDeleteClusterResponse :: Int -> DeleteClusterResponse
-
--- | <i>See:</i> <a>newDescribeBackups</a> smart constructor.
-data DescribeBackups
-DescribeBackups' :: Maybe Text -> Maybe Natural -> Maybe Bool -> Maybe (HashMap Text [Text]) -> DescribeBackups
-
--- | Create a value of <a>DescribeBackups</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:nextToken:DescribeBackups'</a>,
---   <a>describeBackups_nextToken</a> - The <tt>NextToken</tt> value that
---   you received in the previous response. Use this value to get more
---   backups.
---   
---   <a>$sel:maxResults:DescribeBackups'</a>,
---   <a>describeBackups_maxResults</a> - The maximum number of backups to
---   return in the response. When there are more backups than the number
---   you specify, the response contains a <tt>NextToken</tt> value.
---   
---   <a>$sel:sortAscending:DescribeBackups'</a>,
---   <a>describeBackups_sortAscending</a> - Designates whether or not to
---   sort the return backups by ascending chronological order of
---   generation.
---   
---   <a>$sel:filters:DescribeBackups'</a>, <a>describeBackups_filters</a> -
---   One or more filters to limit the items returned in the response.
---   
---   Use the <tt>backupIds</tt> filter to return only the specified
---   backups. Specify backups by their backup identifier (ID).
---   
---   Use the <tt>sourceBackupIds</tt> filter to return only the backups
---   created from a source backup. The <tt>sourceBackupID</tt> of a source
---   backup is returned by the CopyBackupToRegion operation.
---   
---   Use the <tt>clusterIds</tt> filter to return only the backups for the
---   specified clusters. Specify clusters by their cluster identifier (ID).
---   
---   Use the <tt>states</tt> filter to return only backups that match the
---   specified state.
---   
---   Use the <tt>neverExpires</tt> filter to return backups filtered by the
---   value in the <tt>neverExpires</tt> parameter. <tt>True</tt> returns
---   all backups exempt from the backup retention policy. <tt>False</tt>
---   returns all backups with a backup retention policy defined at the
---   cluster.
-newDescribeBackups :: DescribeBackups
-
--- | <i>See:</i> <a>newDescribeBackupsResponse</a> smart constructor.
-data DescribeBackupsResponse
-DescribeBackupsResponse' :: Maybe Text -> Maybe [Backup] -> Int -> DescribeBackupsResponse
-
--- | Create a value of <a>DescribeBackupsResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:nextToken:DescribeBackups'</a>,
---   <a>describeBackupsResponse_nextToken</a> - An opaque string that
---   indicates that the response contains only a subset of backups. Use
---   this value in a subsequent <tt>DescribeBackups</tt> request to get
---   more backups.
---   
---   <a>$sel:backups:DescribeBackupsResponse'</a>,
---   <a>describeBackupsResponse_backups</a> - A list of backups.
---   
---   <a>$sel:httpStatus:DescribeBackupsResponse'</a>,
---   <a>describeBackupsResponse_httpStatus</a> - The response's http status
---   code.
-newDescribeBackupsResponse :: Int -> DescribeBackupsResponse
 
 -- | <i>See:</i> <a>newInitializeCluster</a> smart constructor.
 data InitializeCluster
@@ -4443,6 +3897,552 @@ CreateHsmResponse' :: Maybe Hsm -> Int -> CreateHsmResponse
 --   <a>$sel:httpStatus:CreateHsmResponse'</a>,
 --   <a>createHsmResponse_httpStatus</a> - The response's http status code.
 newCreateHsmResponse :: Int -> CreateHsmResponse
+
+-- | <i>See:</i> <a>newDescribeBackups</a> smart constructor.
+data DescribeBackups
+DescribeBackups' :: Maybe Bool -> Maybe (HashMap Text [Text]) -> Maybe Text -> Maybe Natural -> DescribeBackups
+
+-- | Create a value of <a>DescribeBackups</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:sortAscending:DescribeBackups'</a>,
+--   <a>describeBackups_sortAscending</a> - Designates whether or not to
+--   sort the return backups by ascending chronological order of
+--   generation.
+--   
+--   <a>$sel:filters:DescribeBackups'</a>, <a>describeBackups_filters</a> -
+--   One or more filters to limit the items returned in the response.
+--   
+--   Use the <tt>backupIds</tt> filter to return only the specified
+--   backups. Specify backups by their backup identifier (ID).
+--   
+--   Use the <tt>sourceBackupIds</tt> filter to return only the backups
+--   created from a source backup. The <tt>sourceBackupID</tt> of a source
+--   backup is returned by the CopyBackupToRegion operation.
+--   
+--   Use the <tt>clusterIds</tt> filter to return only the backups for the
+--   specified clusters. Specify clusters by their cluster identifier (ID).
+--   
+--   Use the <tt>states</tt> filter to return only backups that match the
+--   specified state.
+--   
+--   Use the <tt>neverExpires</tt> filter to return backups filtered by the
+--   value in the <tt>neverExpires</tt> parameter. <tt>True</tt> returns
+--   all backups exempt from the backup retention policy. <tt>False</tt>
+--   returns all backups with a backup retention policy defined at the
+--   cluster.
+--   
+--   <a>$sel:nextToken:DescribeBackups'</a>,
+--   <a>describeBackups_nextToken</a> - The <tt>NextToken</tt> value that
+--   you received in the previous response. Use this value to get more
+--   backups.
+--   
+--   <a>$sel:maxResults:DescribeBackups'</a>,
+--   <a>describeBackups_maxResults</a> - The maximum number of backups to
+--   return in the response. When there are more backups than the number
+--   you specify, the response contains a <tt>NextToken</tt> value.
+newDescribeBackups :: DescribeBackups
+
+-- | <i>See:</i> <a>newDescribeBackupsResponse</a> smart constructor.
+data DescribeBackupsResponse
+DescribeBackupsResponse' :: Maybe [Backup] -> Maybe Text -> Int -> DescribeBackupsResponse
+
+-- | Create a value of <a>DescribeBackupsResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:backups:DescribeBackupsResponse'</a>,
+--   <a>describeBackupsResponse_backups</a> - A list of backups.
+--   
+--   <a>$sel:nextToken:DescribeBackups'</a>,
+--   <a>describeBackupsResponse_nextToken</a> - An opaque string that
+--   indicates that the response contains only a subset of backups. Use
+--   this value in a subsequent <tt>DescribeBackups</tt> request to get
+--   more backups.
+--   
+--   <a>$sel:httpStatus:DescribeBackupsResponse'</a>,
+--   <a>describeBackupsResponse_httpStatus</a> - The response's http status
+--   code.
+newDescribeBackupsResponse :: Int -> DescribeBackupsResponse
+
+-- | <i>See:</i> <a>newCopyBackupToRegion</a> smart constructor.
+data CopyBackupToRegion
+CopyBackupToRegion' :: Maybe [Tag] -> Text -> Text -> CopyBackupToRegion
+
+-- | Create a value of <a>CopyBackupToRegion</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:tagList:CopyBackupToRegion'</a>,
+--   <a>copyBackupToRegion_tagList</a> - Tags to apply to the destination
+--   backup during creation. If you specify tags, only these tags will be
+--   applied to the destination backup. If you do not specify tags, the
+--   service copies tags from the source backup to the destination backup.
+--   
+--   <a>$sel:destinationRegion:CopyBackupToRegion'</a>,
+--   <a>copyBackupToRegion_destinationRegion</a> - The AWS region that will
+--   contain your copied CloudHSM cluster backup.
+--   
+--   <a>$sel:backupId:CopyBackupToRegion'</a>,
+--   <a>copyBackupToRegion_backupId</a> - The ID of the backup that will be
+--   copied to the destination region.
+newCopyBackupToRegion :: Text -> Text -> CopyBackupToRegion
+
+-- | <i>See:</i> <a>newCopyBackupToRegionResponse</a> smart constructor.
+data CopyBackupToRegionResponse
+CopyBackupToRegionResponse' :: Maybe DestinationBackup -> Int -> CopyBackupToRegionResponse
+
+-- | Create a value of <a>CopyBackupToRegionResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:destinationBackup:CopyBackupToRegionResponse'</a>,
+--   <a>copyBackupToRegionResponse_destinationBackup</a> - Information on
+--   the backup that will be copied to the destination region, including
+--   CreateTimestamp, SourceBackup, SourceCluster, and Source Region.
+--   CreateTimestamp of the destination backup will be the same as that of
+--   the source backup.
+--   
+--   You will need to use the <tt>sourceBackupID</tt> returned in this
+--   operation to use the DescribeBackups operation on the backup that will
+--   be copied to the destination region.
+--   
+--   <a>$sel:httpStatus:CopyBackupToRegionResponse'</a>,
+--   <a>copyBackupToRegionResponse_httpStatus</a> - The response's http
+--   status code.
+newCopyBackupToRegionResponse :: Int -> CopyBackupToRegionResponse
+
+-- | <i>See:</i> <a>newDeleteCluster</a> smart constructor.
+data DeleteCluster
+DeleteCluster' :: Text -> DeleteCluster
+
+-- | Create a value of <a>DeleteCluster</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:clusterId:DeleteCluster'</a>, <a>deleteCluster_clusterId</a> -
+--   The identifier (ID) of the cluster that you are deleting. To find the
+--   cluster ID, use DescribeClusters.
+newDeleteCluster :: Text -> DeleteCluster
+
+-- | <i>See:</i> <a>newDeleteClusterResponse</a> smart constructor.
+data DeleteClusterResponse
+DeleteClusterResponse' :: Maybe Cluster -> Int -> DeleteClusterResponse
+
+-- | Create a value of <a>DeleteClusterResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:cluster:DeleteClusterResponse'</a>,
+--   <a>deleteClusterResponse_cluster</a> - Information about the cluster
+--   that was deleted.
+--   
+--   <a>$sel:httpStatus:DeleteClusterResponse'</a>,
+--   <a>deleteClusterResponse_httpStatus</a> - The response's http status
+--   code.
+newDeleteClusterResponse :: Int -> DeleteClusterResponse
+
+-- | <i>See:</i> <a>newCreateCluster</a> smart constructor.
+data CreateCluster
+CreateCluster' :: Maybe BackupRetentionPolicy -> Maybe [Tag] -> Maybe Text -> Text -> NonEmpty Text -> CreateCluster
+
+-- | Create a value of <a>CreateCluster</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:backupRetentionPolicy:CreateCluster'</a>,
+--   <a>createCluster_backupRetentionPolicy</a> - A policy that defines how
+--   the service retains backups.
+--   
+--   <a>$sel:tagList:CreateCluster'</a>, <a>createCluster_tagList</a> -
+--   Tags to apply to the CloudHSM cluster during creation.
+--   
+--   <a>$sel:sourceBackupId:CreateCluster'</a>,
+--   <a>createCluster_sourceBackupId</a> - The identifier (ID) of the
+--   cluster backup to restore. Use this value to restore the cluster from
+--   a backup instead of creating a new cluster. To find the backup ID, use
+--   DescribeBackups.
+--   
+--   <a>$sel:hsmType:CreateCluster'</a>, <a>createCluster_hsmType</a> - The
+--   type of HSM to use in the cluster. Currently the only allowed value is
+--   <tt>hsm1.medium</tt>.
+--   
+--   <a>$sel:subnetIds:CreateCluster'</a>, <a>createCluster_subnetIds</a> -
+--   The identifiers (IDs) of the subnets where you are creating the
+--   cluster. You must specify at least one subnet. If you specify multiple
+--   subnets, they must meet the following criteria:
+--   
+--   <ul>
+--   <li>All subnets must be in the same virtual private cloud (VPC).</li>
+--   <li>You can specify only one subnet per Availability Zone.</li>
+--   </ul>
+newCreateCluster :: Text -> NonEmpty Text -> CreateCluster
+
+-- | <i>See:</i> <a>newCreateClusterResponse</a> smart constructor.
+data CreateClusterResponse
+CreateClusterResponse' :: Maybe Cluster -> Int -> CreateClusterResponse
+
+-- | Create a value of <a>CreateClusterResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:cluster:CreateClusterResponse'</a>,
+--   <a>createClusterResponse_cluster</a> - Information about the cluster
+--   that was created.
+--   
+--   <a>$sel:httpStatus:CreateClusterResponse'</a>,
+--   <a>createClusterResponse_httpStatus</a> - The response's http status
+--   code.
+newCreateClusterResponse :: Int -> CreateClusterResponse
+
+-- | <i>See:</i> <a>newRestoreBackup</a> smart constructor.
+data RestoreBackup
+RestoreBackup' :: Text -> RestoreBackup
+
+-- | Create a value of <a>RestoreBackup</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:backupId:RestoreBackup'</a>, <a>restoreBackup_backupId</a> -
+--   The ID of the backup to be restored. To find the ID of a backup, use
+--   the DescribeBackups operation.
+newRestoreBackup :: Text -> RestoreBackup
+
+-- | <i>See:</i> <a>newRestoreBackupResponse</a> smart constructor.
+data RestoreBackupResponse
+RestoreBackupResponse' :: Maybe Backup -> Int -> RestoreBackupResponse
+
+-- | Create a value of <a>RestoreBackupResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:backup:RestoreBackupResponse'</a>,
+--   <a>restoreBackupResponse_backup</a> - Information on the
+--   <tt>Backup</tt> object created.
+--   
+--   <a>$sel:httpStatus:RestoreBackupResponse'</a>,
+--   <a>restoreBackupResponse_httpStatus</a> - The response's http status
+--   code.
+newRestoreBackupResponse :: Int -> RestoreBackupResponse
+
+-- | <i>See:</i> <a>newDeleteHsm</a> smart constructor.
+data DeleteHsm
+DeleteHsm' :: Maybe Text -> Maybe Text -> Maybe Text -> Text -> DeleteHsm
+
+-- | Create a value of <a>DeleteHsm</a> with all optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:eniId:DeleteHsm'</a>, <a>deleteHsm_eniId</a> - The identifier
+--   (ID) of the elastic network interface (ENI) of the HSM that you are
+--   deleting.
+--   
+--   <a>$sel:hsmId:DeleteHsm'</a>, <a>deleteHsm_hsmId</a> - The identifier
+--   (ID) of the HSM that you are deleting.
+--   
+--   <a>$sel:eniIp:DeleteHsm'</a>, <a>deleteHsm_eniIp</a> - The IP address
+--   of the elastic network interface (ENI) of the HSM that you are
+--   deleting.
+--   
+--   <a>$sel:clusterId:DeleteHsm'</a>, <a>deleteHsm_clusterId</a> - The
+--   identifier (ID) of the cluster that contains the HSM that you are
+--   deleting.
+newDeleteHsm :: Text -> DeleteHsm
+
+-- | <i>See:</i> <a>newDeleteHsmResponse</a> smart constructor.
+data DeleteHsmResponse
+DeleteHsmResponse' :: Maybe Text -> Int -> DeleteHsmResponse
+
+-- | Create a value of <a>DeleteHsmResponse</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:hsmId:DeleteHsm'</a>, <a>deleteHsmResponse_hsmId</a> - The
+--   identifier (ID) of the HSM that was deleted.
+--   
+--   <a>$sel:httpStatus:DeleteHsmResponse'</a>,
+--   <a>deleteHsmResponse_httpStatus</a> - The response's http status code.
+newDeleteHsmResponse :: Int -> DeleteHsmResponse
+
+-- | <i>See:</i> <a>newModifyCluster</a> smart constructor.
+data ModifyCluster
+ModifyCluster' :: BackupRetentionPolicy -> Text -> ModifyCluster
+
+-- | Create a value of <a>ModifyCluster</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:backupRetentionPolicy:ModifyCluster'</a>,
+--   <a>modifyCluster_backupRetentionPolicy</a> - A policy that defines how
+--   the service retains backups.
+--   
+--   <a>$sel:clusterId:ModifyCluster'</a>, <a>modifyCluster_clusterId</a> -
+--   The identifier (ID) of the cluster that you want to modify. To find
+--   the cluster ID, use DescribeClusters.
+newModifyCluster :: BackupRetentionPolicy -> Text -> ModifyCluster
+
+-- | <i>See:</i> <a>newModifyClusterResponse</a> smart constructor.
+data ModifyClusterResponse
+ModifyClusterResponse' :: Maybe Cluster -> Int -> ModifyClusterResponse
+
+-- | Create a value of <a>ModifyClusterResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:cluster:ModifyClusterResponse'</a>,
+--   <a>modifyClusterResponse_cluster</a> - Undocumented member.
+--   
+--   <a>$sel:httpStatus:ModifyClusterResponse'</a>,
+--   <a>modifyClusterResponse_httpStatus</a> - The response's http status
+--   code.
+newModifyClusterResponse :: Int -> ModifyClusterResponse
+
+-- | <i>See:</i> <a>newTagResource</a> smart constructor.
+data TagResource
+TagResource' :: Text -> [Tag] -> TagResource
+
+-- | Create a value of <a>TagResource</a> with all optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:resourceId:TagResource'</a>, <a>tagResource_resourceId</a> -
+--   The cluster identifier (ID) for the cluster that you are tagging. To
+--   find the cluster ID, use DescribeClusters.
+--   
+--   <a>$sel:tagList:TagResource'</a>, <a>tagResource_tagList</a> - A list
+--   of one or more tags.
+newTagResource :: Text -> TagResource
+
+-- | <i>See:</i> <a>newTagResourceResponse</a> smart constructor.
+data TagResourceResponse
+TagResourceResponse' :: Int -> TagResourceResponse
+
+-- | Create a value of <a>TagResourceResponse</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:httpStatus:TagResourceResponse'</a>,
+--   <a>tagResourceResponse_httpStatus</a> - The response's http status
+--   code.
+newTagResourceResponse :: Int -> TagResourceResponse
+
+-- | <i>See:</i> <a>newListTags</a> smart constructor.
+data ListTags
+ListTags' :: Maybe Text -> Maybe Natural -> Text -> ListTags
+
+-- | Create a value of <a>ListTags</a> with all optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:nextToken:ListTags'</a>, <a>listTags_nextToken</a> - The
+--   <tt>NextToken</tt> value that you received in the previous response.
+--   Use this value to get more tags.
+--   
+--   <a>$sel:maxResults:ListTags'</a>, <a>listTags_maxResults</a> - The
+--   maximum number of tags to return in the response. When there are more
+--   tags than the number you specify, the response contains a
+--   <tt>NextToken</tt> value.
+--   
+--   <a>$sel:resourceId:ListTags'</a>, <a>listTags_resourceId</a> - The
+--   cluster identifier (ID) for the cluster whose tags you are getting. To
+--   find the cluster ID, use DescribeClusters.
+newListTags :: Text -> ListTags
+
+-- | <i>See:</i> <a>newListTagsResponse</a> smart constructor.
+data ListTagsResponse
+ListTagsResponse' :: Maybe Text -> Int -> [Tag] -> ListTagsResponse
+
+-- | Create a value of <a>ListTagsResponse</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:nextToken:ListTags'</a>, <a>listTagsResponse_nextToken</a> -
+--   An opaque string that indicates that the response contains only a
+--   subset of tags. Use this value in a subsequent <tt>ListTags</tt>
+--   request to get more tags.
+--   
+--   <a>$sel:httpStatus:ListTagsResponse'</a>,
+--   <a>listTagsResponse_httpStatus</a> - The response's http status code.
+--   
+--   <a>$sel:tagList:ListTagsResponse'</a>, <a>listTagsResponse_tagList</a>
+--   - A list of tags.
+newListTagsResponse :: Int -> ListTagsResponse
+
+-- | <i>See:</i> <a>newUntagResource</a> smart constructor.
+data UntagResource
+UntagResource' :: Text -> NonEmpty Text -> UntagResource
+
+-- | Create a value of <a>UntagResource</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:resourceId:UntagResource'</a>, <a>untagResource_resourceId</a>
+--   - The cluster identifier (ID) for the cluster whose tags you are
+--   removing. To find the cluster ID, use DescribeClusters.
+--   
+--   <a>$sel:tagKeyList:UntagResource'</a>, <a>untagResource_tagKeyList</a>
+--   - A list of one or more tag keys for the tags that you are removing.
+--   Specify only the tag keys, not the tag values.
+newUntagResource :: Text -> NonEmpty Text -> UntagResource
+
+-- | <i>See:</i> <a>newUntagResourceResponse</a> smart constructor.
+data UntagResourceResponse
+UntagResourceResponse' :: Int -> UntagResourceResponse
+
+-- | Create a value of <a>UntagResourceResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:httpStatus:UntagResourceResponse'</a>,
+--   <a>untagResourceResponse_httpStatus</a> - The response's http status
+--   code.
+newUntagResourceResponse :: Int -> UntagResourceResponse
+
+-- | <i>See:</i> <a>newModifyBackupAttributes</a> smart constructor.
+data ModifyBackupAttributes
+ModifyBackupAttributes' :: Text -> Bool -> ModifyBackupAttributes
+
+-- | Create a value of <a>ModifyBackupAttributes</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:backupId:ModifyBackupAttributes'</a>,
+--   <a>modifyBackupAttributes_backupId</a> - The identifier (ID) of the
+--   backup to modify. To find the ID of a backup, use the DescribeBackups
+--   operation.
+--   
+--   <a>$sel:neverExpires:ModifyBackupAttributes'</a>,
+--   <a>modifyBackupAttributes_neverExpires</a> - Specifies whether the
+--   service should exempt a backup from the retention policy for the
+--   cluster. <tt>True</tt> exempts a backup from the retention policy.
+--   <tt>False</tt> means the service applies the backup retention policy
+--   defined at the cluster.
+newModifyBackupAttributes :: Text -> Bool -> ModifyBackupAttributes
+
+-- | <i>See:</i> <a>newModifyBackupAttributesResponse</a> smart
+--   constructor.
+data ModifyBackupAttributesResponse
+ModifyBackupAttributesResponse' :: Maybe Backup -> Int -> ModifyBackupAttributesResponse
+
+-- | Create a value of <a>ModifyBackupAttributesResponse</a> with all
+--   optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:backup:ModifyBackupAttributesResponse'</a>,
+--   <a>modifyBackupAttributesResponse_backup</a> - Undocumented member.
+--   
+--   <a>$sel:httpStatus:ModifyBackupAttributesResponse'</a>,
+--   <a>modifyBackupAttributesResponse_httpStatus</a> - The response's http
+--   status code.
+newModifyBackupAttributesResponse :: Int -> ModifyBackupAttributesResponse
 newtype BackupPolicy
 BackupPolicy' :: Text -> BackupPolicy
 [fromBackupPolicy] :: BackupPolicy -> Text
@@ -4489,7 +4489,7 @@ pattern HsmState_DELETE_IN_PROGRESS :: HsmState
 --   
 --   <i>See:</i> <a>newBackup</a> smart constructor.
 data Backup
-Backup' :: Maybe Text -> Maybe BackupState -> Maybe Text -> Maybe POSIX -> Maybe Bool -> Maybe POSIX -> Maybe POSIX -> Maybe Text -> Maybe [Tag] -> Maybe Text -> Text -> Backup
+Backup' :: Maybe POSIX -> Maybe Text -> Maybe Bool -> Maybe Text -> Maybe [Tag] -> Maybe Text -> Maybe Text -> Maybe POSIX -> Maybe POSIX -> Maybe BackupState -> Text -> Backup
 
 -- | Create a value of <a>Backup</a> with all optional fields omitted.
 --   
@@ -4499,28 +4499,6 @@ Backup' :: Maybe Text -> Maybe BackupState -> Maybe Text -> Maybe POSIX -> Maybe
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:clusterId:Backup'</a>, <a>backup_clusterId</a> - The
---   identifier (ID) of the cluster that was backed up.
---   
---   <a>$sel:backupState:Backup'</a>, <a>backup_backupState</a> - The state
---   of the backup.
---   
---   <a>$sel:sourceBackup:Backup'</a>, <a>backup_sourceBackup</a> - The
---   identifier (ID) of the source backup from which the new backup was
---   copied.
---   
---   <a>$sel:copyTimestamp:Backup'</a>, <a>backup_copyTimestamp</a> - The
---   date and time when the backup was copied from a source backup.
---   
---   <a>$sel:neverExpires:Backup'</a>, <a>backup_neverExpires</a> -
---   Specifies whether the service should exempt a backup from the
---   retention policy for the cluster. <tt>True</tt> exempts a backup from
---   the retention policy. <tt>False</tt> means the service applies the
---   backup retention policy defined at the cluster.
---   
---   <a>$sel:createTimestamp:Backup'</a>, <a>backup_createTimestamp</a> -
---   The date and time when the backup was created.
---   
 --   <a>$sel:deleteTimestamp:Backup'</a>, <a>backup_deleteTimestamp</a> -
 --   The date and time when the backup will be permanently deleted.
 --   
@@ -4528,12 +4506,34 @@ Backup' :: Maybe Text -> Maybe BackupState -> Maybe Text -> Maybe POSIX -> Maybe
 --   identifier (ID) of the cluster containing the source backup from which
 --   the new backup was copied.
 --   
---   <a>$sel:tagList:Backup'</a>, <a>backup_tagList</a> - The list of tags
---   for the backup.
+--   <a>$sel:neverExpires:Backup'</a>, <a>backup_neverExpires</a> -
+--   Specifies whether the service should exempt a backup from the
+--   retention policy for the cluster. <tt>True</tt> exempts a backup from
+--   the retention policy. <tt>False</tt> means the service applies the
+--   backup retention policy defined at the cluster.
 --   
 --   <a>$sel:sourceRegion:Backup'</a>, <a>backup_sourceRegion</a> - The AWS
 --   Region that contains the source backup from which the new backup was
 --   copied.
+--   
+--   <a>$sel:tagList:Backup'</a>, <a>backup_tagList</a> - The list of tags
+--   for the backup.
+--   
+--   <a>$sel:sourceBackup:Backup'</a>, <a>backup_sourceBackup</a> - The
+--   identifier (ID) of the source backup from which the new backup was
+--   copied.
+--   
+--   <a>$sel:clusterId:Backup'</a>, <a>backup_clusterId</a> - The
+--   identifier (ID) of the cluster that was backed up.
+--   
+--   <a>$sel:createTimestamp:Backup'</a>, <a>backup_createTimestamp</a> -
+--   The date and time when the backup was created.
+--   
+--   <a>$sel:copyTimestamp:Backup'</a>, <a>backup_copyTimestamp</a> - The
+--   date and time when the backup was copied from a source backup.
+--   
+--   <a>$sel:backupState:Backup'</a>, <a>backup_backupState</a> - The state
+--   of the backup.
 --   
 --   <a>$sel:backupId:Backup'</a>, <a>backup_backupId</a> - The identifier
 --   (ID) of the backup.
@@ -4579,33 +4579,33 @@ Certificates' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe T
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:awsHardwareCertificate:Certificates'</a>,
---   <a>certificates_awsHardwareCertificate</a> - The HSM hardware
---   certificate issued (signed) by AWS CloudHSM.
---   
---   <a>$sel:hsmCertificate:Certificates'</a>,
---   <a>certificates_hsmCertificate</a> - The HSM certificate issued
---   (signed) by the HSM hardware.
+--   <a>$sel:manufacturerHardwareCertificate:Certificates'</a>,
+--   <a>certificates_manufacturerHardwareCertificate</a> - The HSM hardware
+--   certificate issued (signed) by the hardware manufacturer.
 --   
 --   <a>$sel:clusterCsr:Certificates'</a>, <a>certificates_clusterCsr</a> -
 --   The cluster's certificate signing request (CSR). The CSR exists only
 --   when the cluster's state is <tt>UNINITIALIZED</tt>.
+--   
+--   <a>$sel:hsmCertificate:Certificates'</a>,
+--   <a>certificates_hsmCertificate</a> - The HSM certificate issued
+--   (signed) by the HSM hardware.
 --   
 --   <a>$sel:clusterCertificate:Certificates'</a>,
 --   <a>certificates_clusterCertificate</a> - The cluster certificate
 --   issued (signed) by the issuing certificate authority (CA) of the
 --   cluster's owner.
 --   
---   <a>$sel:manufacturerHardwareCertificate:Certificates'</a>,
---   <a>certificates_manufacturerHardwareCertificate</a> - The HSM hardware
---   certificate issued (signed) by the hardware manufacturer.
+--   <a>$sel:awsHardwareCertificate:Certificates'</a>,
+--   <a>certificates_awsHardwareCertificate</a> - The HSM hardware
+--   certificate issued (signed) by AWS CloudHSM.
 newCertificates :: Certificates
 
 -- | Contains information about an AWS CloudHSM cluster.
 --   
 --   <i>See:</i> <a>newCluster</a> smart constructor.
 data Cluster
-Cluster' :: Maybe Text -> Maybe Text -> Maybe BackupPolicy -> Maybe POSIX -> Maybe (HashMap Text Text) -> Maybe ClusterState -> Maybe Text -> Maybe Text -> Maybe Certificates -> Maybe Text -> Maybe Text -> Maybe [Tag] -> Maybe Text -> Maybe [Hsm] -> Maybe BackupRetentionPolicy -> Cluster
+Cluster' :: Maybe Text -> Maybe Text -> Maybe ClusterState -> Maybe (HashMap Text Text) -> Maybe BackupRetentionPolicy -> Maybe [Hsm] -> Maybe Text -> Maybe [Tag] -> Maybe Text -> Maybe Certificates -> Maybe Text -> Maybe Text -> Maybe POSIX -> Maybe BackupPolicy -> Maybe Text -> Cluster
 
 -- | Create a value of <a>Cluster</a> with all optional fields omitted.
 --   
@@ -4615,54 +4615,54 @@ Cluster' :: Maybe Text -> Maybe Text -> Maybe BackupPolicy -> Maybe POSIX -> May
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:clusterId:Cluster'</a>, <a>cluster_clusterId</a> - The
---   cluster's identifier (ID).
+--   <a>$sel:preCoPassword:Cluster'</a>, <a>cluster_preCoPassword</a> - The
+--   default password for the cluster's Pre-Crypto Officer (PRECO) user.
 --   
 --   <a>$sel:stateMessage:Cluster'</a>, <a>cluster_stateMessage</a> - A
 --   description of the cluster's state.
 --   
---   <a>$sel:backupPolicy:Cluster'</a>, <a>cluster_backupPolicy</a> - The
---   cluster's backup policy.
---   
---   <a>$sel:createTimestamp:Cluster'</a>, <a>cluster_createTimestamp</a> -
---   The date and time when the cluster was created.
+--   <a>$sel:state:Cluster'</a>, <a>cluster_state</a> - The cluster's
+--   state.
 --   
 --   <a>$sel:subnetMapping:Cluster'</a>, <a>cluster_subnetMapping</a> - A
 --   map from availability zone to the cluster’s subnet in that
 --   availability zone.
 --   
---   <a>$sel:state:Cluster'</a>, <a>cluster_state</a> - The cluster's
---   state.
+--   <a>$sel:backupRetentionPolicy:Cluster'</a>,
+--   <a>cluster_backupRetentionPolicy</a> - A policy that defines how the
+--   service retains backups.
 --   
---   <a>$sel:preCoPassword:Cluster'</a>, <a>cluster_preCoPassword</a> - The
---   default password for the cluster's Pre-Crypto Officer (PRECO) user.
+--   <a>$sel:hsms:Cluster'</a>, <a>cluster_hsms</a> - Contains information
+--   about the HSMs in the cluster.
 --   
---   <a>$sel:securityGroup:Cluster'</a>, <a>cluster_securityGroup</a> - The
---   identifier (ID) of the cluster's security group.
+--   <a>$sel:vpcId:Cluster'</a>, <a>cluster_vpcId</a> - The identifier (ID)
+--   of the virtual private cloud (VPC) that contains the cluster.
 --   
---   <a>$sel:certificates:Cluster'</a>, <a>cluster_certificates</a> -
---   Contains one or more certificates or a certificate signing request
---   (CSR).
+--   <a>$sel:tagList:Cluster'</a>, <a>cluster_tagList</a> - The list of
+--   tags for the cluster.
 --   
 --   <a>$sel:sourceBackupId:Cluster'</a>, <a>cluster_sourceBackupId</a> -
 --   The identifier (ID) of the backup used to create the cluster. This
 --   value exists only when the cluster was created from a backup.
 --   
+--   <a>$sel:certificates:Cluster'</a>, <a>cluster_certificates</a> -
+--   Contains one or more certificates or a certificate signing request
+--   (CSR).
+--   
+--   <a>$sel:securityGroup:Cluster'</a>, <a>cluster_securityGroup</a> - The
+--   identifier (ID) of the cluster's security group.
+--   
+--   <a>$sel:clusterId:Cluster'</a>, <a>cluster_clusterId</a> - The
+--   cluster's identifier (ID).
+--   
+--   <a>$sel:createTimestamp:Cluster'</a>, <a>cluster_createTimestamp</a> -
+--   The date and time when the cluster was created.
+--   
+--   <a>$sel:backupPolicy:Cluster'</a>, <a>cluster_backupPolicy</a> - The
+--   cluster's backup policy.
+--   
 --   <a>$sel:hsmType:Cluster'</a>, <a>cluster_hsmType</a> - The type of HSM
 --   that the cluster contains.
---   
---   <a>$sel:tagList:Cluster'</a>, <a>cluster_tagList</a> - The list of
---   tags for the cluster.
---   
---   <a>$sel:vpcId:Cluster'</a>, <a>cluster_vpcId</a> - The identifier (ID)
---   of the virtual private cloud (VPC) that contains the cluster.
---   
---   <a>$sel:hsms:Cluster'</a>, <a>cluster_hsms</a> - Contains information
---   about the HSMs in the cluster.
---   
---   <a>$sel:backupRetentionPolicy:Cluster'</a>,
---   <a>cluster_backupRetentionPolicy</a> - A policy that defines how the
---   service retains backups.
 newCluster :: Cluster
 
 -- | Contains information about the backup that will be copied and created
@@ -4670,7 +4670,7 @@ newCluster :: Cluster
 --   
 --   <i>See:</i> <a>newDestinationBackup</a> smart constructor.
 data DestinationBackup
-DestinationBackup' :: Maybe Text -> Maybe POSIX -> Maybe Text -> Maybe Text -> DestinationBackup
+DestinationBackup' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe POSIX -> DestinationBackup
 
 -- | Create a value of <a>DestinationBackup</a> with all optional fields
 --   omitted.
@@ -4681,14 +4681,6 @@ DestinationBackup' :: Maybe Text -> Maybe POSIX -> Maybe Text -> Maybe Text -> D
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:sourceBackup:DestinationBackup'</a>,
---   <a>destinationBackup_sourceBackup</a> - The identifier (ID) of the
---   source backup from which the new backup was copied.
---   
---   <a>$sel:createTimestamp:DestinationBackup'</a>,
---   <a>destinationBackup_createTimestamp</a> - The date and time when both
---   the source backup was created.
---   
 --   <a>$sel:sourceCluster:DestinationBackup'</a>,
 --   <a>destinationBackup_sourceCluster</a> - The identifier (ID) of the
 --   cluster containing the source backup from which the new backup was
@@ -4697,6 +4689,14 @@ DestinationBackup' :: Maybe Text -> Maybe POSIX -> Maybe Text -> Maybe Text -> D
 --   <a>$sel:sourceRegion:DestinationBackup'</a>,
 --   <a>destinationBackup_sourceRegion</a> - The AWS region that contains
 --   the source backup from which the new backup was copied.
+--   
+--   <a>$sel:sourceBackup:DestinationBackup'</a>,
+--   <a>destinationBackup_sourceBackup</a> - The identifier (ID) of the
+--   source backup from which the new backup was copied.
+--   
+--   <a>$sel:createTimestamp:DestinationBackup'</a>,
+--   <a>destinationBackup_createTimestamp</a> - The date and time when both
+--   the source backup was created.
 newDestinationBackup :: DestinationBackup
 
 -- | Contains information about a hardware security module (HSM) in an AWS
@@ -4704,7 +4704,7 @@ newDestinationBackup :: DestinationBackup
 --   
 --   <i>See:</i> <a>newHsm</a> smart constructor.
 data Hsm
-Hsm' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe HsmState -> Maybe Text -> Text -> Hsm
+Hsm' :: Maybe Text -> Maybe HsmState -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Text -> Hsm
 
 -- | Create a value of <a>Hsm</a> with all optional fields omitted.
 --   
@@ -4714,25 +4714,25 @@ Hsm' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Ma
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:clusterId:Hsm'</a>, <a>hsm_clusterId</a> - The identifier (ID)
---   of the cluster that contains the HSM.
---   
 --   <a>$sel:stateMessage:Hsm'</a>, <a>hsm_stateMessage</a> - A description
 --   of the HSM's state.
 --   
---   <a>$sel:eniIp:Hsm'</a>, <a>hsm_eniIp</a> - The IP address of the HSM's
---   elastic network interface (ENI).
+--   <a>$sel:state:Hsm'</a>, <a>hsm_state</a> - The HSM's state.
 --   
 --   <a>$sel:eniId:Hsm'</a>, <a>hsm_eniId</a> - The identifier (ID) of the
 --   HSM's elastic network interface (ENI).
 --   
+--   <a>$sel:subnetId:Hsm'</a>, <a>hsm_subnetId</a> - The subnet that
+--   contains the HSM's elastic network interface (ENI).
+--   
 --   <a>$sel:availabilityZone:Hsm'</a>, <a>hsm_availabilityZone</a> - The
 --   Availability Zone that contains the HSM.
 --   
---   <a>$sel:state:Hsm'</a>, <a>hsm_state</a> - The HSM's state.
+--   <a>$sel:clusterId:Hsm'</a>, <a>hsm_clusterId</a> - The identifier (ID)
+--   of the cluster that contains the HSM.
 --   
---   <a>$sel:subnetId:Hsm'</a>, <a>hsm_subnetId</a> - The subnet that
---   contains the HSM's elastic network interface (ENI).
+--   <a>$sel:eniIp:Hsm'</a>, <a>hsm_eniIp</a> - The IP address of the HSM's
+--   elastic network interface (ENI).
 --   
 --   <a>$sel:hsmId:Hsm'</a>, <a>hsm_hsmId</a> - The HSM's identifier (ID).
 newHsm :: Text -> Hsm

@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- used as a request parameter in the ListAssessmentRunAgents action.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newAgentFilter' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679243761"><span id="local-6989586621679243762"></span></span><span class="hs-keyword">data</span><span> </span><span id="AgentFilter"><span class="annot"><a href="Network.AWS.Inspector.Types.AgentFilter.html#AgentFilter"><span class="hs-identifier hs-var">AgentFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AgentFilter%27"><span class="annot"><a href="Network.AWS.Inspector.Types.AgentFilter.html#AgentFilter%27"><span class="hs-identifier hs-var">AgentFilter'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679244110"><span id="local-6989586621679244111"></span></span><span class="hs-keyword">data</span><span> </span><span id="AgentFilter"><span class="annot"><a href="Network.AWS.Inspector.Types.AgentFilter.html#AgentFilter"><span class="hs-identifier hs-var">AgentFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AgentFilter%27"><span class="annot"><a href="Network.AWS.Inspector.Types.AgentFilter.html#AgentFilter%27"><span class="hs-identifier hs-var">AgentFilter'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current health state of the agent. Values can be set to __HEALTHY__</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- or __UNHEALTHY__.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AagentHealths%3AAgentFilter%27"><span class="annot"><span class="annottext">AgentFilter -&gt; [AgentHealth]
@@ -40,7 +40,7 @@
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3AagentHealthCodes%3AAgentFilter%27"><span class="annot"><span class="annottext">AgentFilter -&gt; [AgentHealthCode]
 </span><a href="Network.AWS.Inspector.Types.AgentFilter.html#%24sel%3AagentHealthCodes%3AAgentFilter%27"><span class="hs-identifier hs-var hs-var">agentHealthCodes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Inspector.Types.AgentHealthCode.html#AgentHealthCode"><span class="hs-identifier hs-type">AgentHealthCode</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679243754"><span id="local-6989586621679243756"><span class="annot"><span class="annottext">AgentFilter -&gt; AgentFilter -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679244103"><span id="local-6989586621679244105"><span class="annot"><span class="annottext">AgentFilter -&gt; AgentFilter -&gt; Bool
 (AgentFilter -&gt; AgentFilter -&gt; Bool)
 -&gt; (AgentFilter -&gt; AgentFilter -&gt; Bool) -&gt; Eq AgentFilter
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AgentFilter -&gt; AgentFilter -&gt; Bool
 == :: AgentFilter -&gt; AgentFilter -&gt; Bool
 $c== :: AgentFilter -&gt; AgentFilter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243745"><span id="local-6989586621679243747"><span id="local-6989586621679243749"><span id="local-6989586621679243751"><span class="annot"><span class="annottext">ReadPrec [AgentFilter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244094"><span id="local-6989586621679244096"><span id="local-6989586621679244098"><span id="local-6989586621679244100"><span class="annot"><span class="annottext">ReadPrec [AgentFilter]
 ReadPrec AgentFilter
 Int -&gt; ReadS AgentFilter
 ReadS [AgentFilter]
@@ -68,7 +68,7 @@ readList :: ReadS [AgentFilter]
 $creadList :: ReadS [AgentFilter]
 readsPrec :: Int -&gt; ReadS AgentFilter
 $creadsPrec :: Int -&gt; ReadS AgentFilter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243738"><span id="local-6989586621679243740"><span id="local-6989586621679243742"><span class="annot"><span class="annottext">Int -&gt; AgentFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244087"><span id="local-6989586621679244089"><span id="local-6989586621679244091"><span class="annot"><span class="annottext">Int -&gt; AgentFilter -&gt; ShowS
 [AgentFilter] -&gt; ShowS
 AgentFilter -&gt; String
 (Int -&gt; AgentFilter -&gt; ShowS)
@@ -132,16 +132,16 @@ forall a. Monoid a =&gt; a
 -&gt; (AgentFilter -&gt; [AgentHealth] -&gt; AgentFilter)
 -&gt; Lens AgentFilter AgentFilter [AgentHealth] [AgentHealth]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AgentFilter.html#AgentFilter%27"><span class="hs-identifier hs-type">AgentFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243729"><span class="annot"><span class="annottext">[AgentHealth]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AgentFilter.html#AgentFilter%27"><span class="hs-identifier hs-type">AgentFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244078"><span class="annot"><span class="annottext">[AgentHealth]
 agentHealths :: [AgentHealth]
 $sel:agentHealths:AgentFilter' :: AgentFilter -&gt; [AgentHealth]
-</span><a href="#local-6989586621679243729"><span class="hs-identifier hs-var hs-var">agentHealths</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[AgentHealth]
-</span><a href="#local-6989586621679243729"><span class="hs-identifier hs-var">agentHealths</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243728"><span class="annot"><span class="annottext">s :: AgentFilter
-</span><a href="#local-6989586621679243728"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AgentFilter.html#AgentFilter%27"><span class="hs-identifier hs-type">AgentFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243727"><span class="annot"><span class="annottext">[AgentHealth]
-</span><a href="#local-6989586621679243727"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AgentFilter
-</span><a href="#local-6989586621679243728"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:agentHealths:AgentFilter' :: [AgentHealth]
+</span><a href="#local-6989586621679244078"><span class="hs-identifier hs-var hs-var">agentHealths</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[AgentHealth]
+</span><a href="#local-6989586621679244078"><span class="hs-identifier hs-var">agentHealths</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244077"><span class="annot"><span class="annottext">s :: AgentFilter
+</span><a href="#local-6989586621679244077"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AgentFilter.html#AgentFilter%27"><span class="hs-identifier hs-type">AgentFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244076"><span class="annot"><span class="annottext">[AgentHealth]
+</span><a href="#local-6989586621679244076"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AgentFilter
+</span><a href="#local-6989586621679244077"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:agentHealths:AgentFilter' :: [AgentHealth]
 </span><a href="Network.AWS.Inspector.Types.AgentFilter.html#%24sel%3AagentHealths%3AAgentFilter%27"><span class="hs-identifier hs-var">agentHealths</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[AgentHealth]
-</span><a href="#local-6989586621679243727"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AgentFilter.html#AgentFilter"><span class="hs-identifier hs-type">AgentFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([AgentHealth] -&gt; f [AgentHealth])
+</span><a href="#local-6989586621679244076"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AgentFilter.html#AgentFilter"><span class="hs-identifier hs-type">AgentFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([AgentHealth] -&gt; f [AgentHealth])
  -&gt; AgentFilter -&gt; f AgentFilter)
 -&gt; (([AgentHealth] -&gt; f [AgentHealth])
     -&gt; [AgentHealth] -&gt; f [AgentHealth])
@@ -151,8 +151,8 @@ $sel:agentHealths:AgentFilter' :: AgentFilter -&gt; [AgentHealth]
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([AgentHealth] -&gt; f [AgentHealth])
 -&gt; [AgentHealth] -&gt; f [AgentHealth]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- | The detailed health state of the agent. Values can be set to __IDLE__,</span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- __RUNNING__, __SHUTDOWN__, __UNHEALTHY__, __THROTTLED__, and</span><span>
@@ -164,16 +164,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (AgentFilter -&gt; [AgentHealthCode] -&gt; AgentFilter)
 -&gt; Lens AgentFilter AgentFilter [AgentHealthCode] [AgentHealthCode]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AgentFilter.html#AgentFilter%27"><span class="hs-identifier hs-type">AgentFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243723"><span class="annot"><span class="annottext">[AgentHealthCode]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AgentFilter.html#AgentFilter%27"><span class="hs-identifier hs-type">AgentFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244072"><span class="annot"><span class="annottext">[AgentHealthCode]
 agentHealthCodes :: [AgentHealthCode]
 $sel:agentHealthCodes:AgentFilter' :: AgentFilter -&gt; [AgentHealthCode]
-</span><a href="#local-6989586621679243723"><span class="hs-identifier hs-var hs-var">agentHealthCodes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[AgentHealthCode]
-</span><a href="#local-6989586621679243723"><span class="hs-identifier hs-var">agentHealthCodes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243722"><span class="annot"><span class="annottext">s :: AgentFilter
-</span><a href="#local-6989586621679243722"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AgentFilter.html#AgentFilter%27"><span class="hs-identifier hs-type">AgentFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243721"><span class="annot"><span class="annottext">[AgentHealthCode]
-</span><a href="#local-6989586621679243721"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AgentFilter
-</span><a href="#local-6989586621679243722"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:agentHealthCodes:AgentFilter' :: [AgentHealthCode]
+</span><a href="#local-6989586621679244072"><span class="hs-identifier hs-var hs-var">agentHealthCodes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[AgentHealthCode]
+</span><a href="#local-6989586621679244072"><span class="hs-identifier hs-var">agentHealthCodes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244071"><span class="annot"><span class="annottext">s :: AgentFilter
+</span><a href="#local-6989586621679244071"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AgentFilter.html#AgentFilter%27"><span class="hs-identifier hs-type">AgentFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244070"><span class="annot"><span class="annottext">[AgentHealthCode]
+</span><a href="#local-6989586621679244070"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AgentFilter
+</span><a href="#local-6989586621679244071"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:agentHealthCodes:AgentFilter' :: [AgentHealthCode]
 </span><a href="Network.AWS.Inspector.Types.AgentFilter.html#%24sel%3AagentHealthCodes%3AAgentFilter%27"><span class="hs-identifier hs-var">agentHealthCodes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[AgentHealthCode]
-</span><a href="#local-6989586621679243721"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AgentFilter.html#AgentFilter"><span class="hs-identifier hs-type">AgentFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([AgentHealthCode] -&gt; f [AgentHealthCode])
+</span><a href="#local-6989586621679244070"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AgentFilter.html#AgentFilter"><span class="hs-identifier hs-type">AgentFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([AgentHealthCode] -&gt; f [AgentHealthCode])
  -&gt; AgentFilter -&gt; f AgentFilter)
 -&gt; (([AgentHealthCode] -&gt; f [AgentHealthCode])
     -&gt; [AgentHealthCode] -&gt; f [AgentHealthCode])
@@ -183,22 +183,22 @@ $sel:agentHealthCodes:AgentFilter' :: AgentFilter -&gt; [AgentHealthCode]
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([AgentHealthCode] -&gt; f [AgentHealthCode])
 -&gt; [AgentHealthCode] -&gt; f [AgentHealthCode]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243717"><span id="local-6989586621679243719"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AgentFilter.html#AgentFilter"><span class="hs-identifier hs-type">AgentFilter</span></a></span></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244066"><span id="local-6989586621679244068"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AgentFilter.html#AgentFilter"><span class="hs-identifier hs-type">AgentFilter</span></a></span></span></span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243714"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AgentFilter.html#AgentFilter"><span class="hs-identifier hs-type">AgentFilter</span></a></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244063"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AgentFilter.html#AgentFilter"><span class="hs-identifier hs-type">AgentFilter</span></a></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243706"><span id="local-6989586621679243708"><span id="local-6989586621679243710"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AgentFilter.html#AgentFilter"><span class="hs-identifier hs-type">AgentFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679243704"><span class="annot"><span class="annottext">toJSON :: AgentFilter -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AgentFilter.html#AgentFilter%27"><span class="hs-identifier hs-type">AgentFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243701"><span id="local-6989586621679243702"><span class="annot"><span class="annottext">[AgentHealth]
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244055"><span id="local-6989586621679244057"><span id="local-6989586621679244059"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AgentFilter.html#AgentFilter"><span class="hs-identifier hs-type">AgentFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679244053"><span class="annot"><span class="annottext">toJSON :: AgentFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AgentFilter.html#AgentFilter%27"><span class="hs-identifier hs-type">AgentFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244050"><span id="local-6989586621679244051"><span class="annot"><span class="annottext">[AgentHealth]
 [AgentHealthCode]
 agentHealthCodes :: [AgentHealthCode]
 agentHealths :: [AgentHealth]
 $sel:agentHealthCodes:AgentFilter' :: AgentFilter -&gt; [AgentHealthCode]
 $sel:agentHealths:AgentFilter' :: AgentFilter -&gt; [AgentHealth]
-</span><a href="#local-6989586621679243701"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679244050"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -210,7 +210,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;agentHealths&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [AgentHealth] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[AgentHealth]
-</span><a href="#local-6989586621679243702"><span class="hs-identifier hs-var">agentHealths</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679244051"><span class="hs-identifier hs-var">agentHealths</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -218,7 +218,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;agentHealthCodes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [AgentHealthCode] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[AgentHealthCode]
-</span><a href="#local-6989586621679243701"><span class="hs-identifier hs-var">agentHealthCodes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679244050"><span class="hs-identifier hs-var">agentHealthCodes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span></pre></body></html>

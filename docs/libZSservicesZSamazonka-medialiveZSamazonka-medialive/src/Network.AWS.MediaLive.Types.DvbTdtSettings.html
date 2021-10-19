@@ -26,13 +26,13 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | DVB Time and Date Table (SDT)</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newDvbTdtSettings' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679865890"><span id="local-6989586621679865891"></span></span><span class="hs-keyword">data</span><span> </span><span id="DvbTdtSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.DvbTdtSettings.html#DvbTdtSettings"><span class="hs-identifier hs-var">DvbTdtSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DvbTdtSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.DvbTdtSettings.html#DvbTdtSettings%27"><span class="hs-identifier hs-var">DvbTdtSettings'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679872551"><span id="local-6989586621679872552"></span></span><span class="hs-keyword">data</span><span> </span><span id="DvbTdtSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.DvbTdtSettings.html#DvbTdtSettings"><span class="hs-identifier hs-var">DvbTdtSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DvbTdtSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.DvbTdtSettings.html#DvbTdtSettings%27"><span class="hs-identifier hs-var">DvbTdtSettings'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of milliseconds between instances of this table in the output</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- transport stream.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3ArepInterval%3ADvbTdtSettings%27"><span class="annot"><span class="annottext">DvbTdtSettings -&gt; Maybe Natural
 </span><a href="Network.AWS.MediaLive.Types.DvbTdtSettings.html#%24sel%3ArepInterval%3ADvbTdtSettings%27"><span class="hs-identifier hs-var hs-var">repInterval</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679865884"><span id="local-6989586621679865886"><span class="annot"><span class="annottext">DvbTdtSettings -&gt; DvbTdtSettings -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679872545"><span id="local-6989586621679872547"><span class="annot"><span class="annottext">DvbTdtSettings -&gt; DvbTdtSettings -&gt; Bool
 (DvbTdtSettings -&gt; DvbTdtSettings -&gt; Bool)
 -&gt; (DvbTdtSettings -&gt; DvbTdtSettings -&gt; Bool) -&gt; Eq DvbTdtSettings
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DvbTdtSettings -&gt; DvbTdtSettings -&gt; Bool
 == :: DvbTdtSettings -&gt; DvbTdtSettings -&gt; Bool
 $c== :: DvbTdtSettings -&gt; DvbTdtSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679865875"><span id="local-6989586621679865877"><span id="local-6989586621679865879"><span id="local-6989586621679865881"><span class="annot"><span class="annottext">ReadPrec [DvbTdtSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679872536"><span id="local-6989586621679872538"><span id="local-6989586621679872540"><span id="local-6989586621679872542"><span class="annot"><span class="annottext">ReadPrec [DvbTdtSettings]
 ReadPrec DvbTdtSettings
 Int -&gt; ReadS DvbTdtSettings
 ReadS [DvbTdtSettings]
@@ -60,7 +60,7 @@ readList :: ReadS [DvbTdtSettings]
 $creadList :: ReadS [DvbTdtSettings]
 readsPrec :: Int -&gt; ReadS DvbTdtSettings
 $creadsPrec :: Int -&gt; ReadS DvbTdtSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679865868"><span id="local-6989586621679865870"><span id="local-6989586621679865872"><span class="annot"><span class="annottext">Int -&gt; DvbTdtSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679872529"><span id="local-6989586621679872531"><span id="local-6989586621679872533"><span class="annot"><span class="annottext">Int -&gt; DvbTdtSettings -&gt; ShowS
 [DvbTdtSettings] -&gt; ShowS
 DvbTdtSettings -&gt; String
 (Int -&gt; DvbTdtSettings -&gt; ShowS)
@@ -116,19 +116,19 @@ forall a. Maybe a
 -&gt; Lens
      DvbTdtSettings DvbTdtSettings (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.DvbTdtSettings.html#DvbTdtSettings%27"><span class="hs-identifier hs-type">DvbTdtSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679865859"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.DvbTdtSettings.html#DvbTdtSettings%27"><span class="hs-identifier hs-type">DvbTdtSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679872520"><span class="annot"><span class="annottext">Maybe Natural
 repInterval :: Maybe Natural
 $sel:repInterval:DvbTdtSettings' :: DvbTdtSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679865859"><span class="hs-identifier hs-var hs-var">repInterval</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679865859"><span class="hs-identifier hs-var">repInterval</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679865858"><span class="annot"><span class="annottext">s :: DvbTdtSettings
-</span><a href="#local-6989586621679865858"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.DvbTdtSettings.html#DvbTdtSettings%27"><span class="hs-identifier hs-type">DvbTdtSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679865857"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679865857"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DvbTdtSettings
-</span><a href="#local-6989586621679865858"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repInterval:DvbTdtSettings' :: Maybe Natural
+</span><a href="#local-6989586621679872520"><span class="hs-identifier hs-var hs-var">repInterval</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679872520"><span class="hs-identifier hs-var">repInterval</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679872519"><span class="annot"><span class="annottext">s :: DvbTdtSettings
+</span><a href="#local-6989586621679872519"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.DvbTdtSettings.html#DvbTdtSettings%27"><span class="hs-identifier hs-type">DvbTdtSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679872518"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679872518"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DvbTdtSettings
+</span><a href="#local-6989586621679872519"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repInterval:DvbTdtSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaLive.Types.DvbTdtSettings.html#%24sel%3ArepInterval%3ADvbTdtSettings%27"><span class="hs-identifier hs-var">repInterval</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679865857"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.DvbTdtSettings.html#DvbTdtSettings"><span class="hs-identifier hs-type">DvbTdtSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679872518"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.DvbTdtSettings.html#DvbTdtSettings"><span class="hs-identifier hs-type">DvbTdtSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-55"></span><span>
-</span><span id="line-56"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679865854"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.DvbTdtSettings.html#DvbTdtSettings"><span class="hs-identifier hs-type">DvbTdtSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-57"></span><span>  </span><span id="local-6989586621679865852"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DvbTdtSettings
+</span><span id="line-56"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679872515"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.DvbTdtSettings.html#DvbTdtSettings"><span class="hs-identifier hs-type">DvbTdtSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-57"></span><span>  </span><span id="local-6989586621679872513"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DvbTdtSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-58"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DvbTdtSettings)
@@ -138,30 +138,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DvbTdtSettings&quot;</span></span><span>
-</span><span id="line-60"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679865849"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679865849"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-60"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679872510"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679872510"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-61"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural -&gt; DvbTdtSettings
 </span><a href="Network.AWS.MediaLive.Types.DvbTdtSettings.html#DvbTdtSettings%27"><span class="hs-identifier hs-var">DvbTdtSettings'</span></a></span><span>
 </span><span id="line-62"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural -&gt; DvbTdtSettings)
 -&gt; Parser (Maybe Natural) -&gt; Parser DvbTdtSettings
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679865849"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679872510"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;repInterval&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679865843"><span id="local-6989586621679865845"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.DvbTdtSettings.html#DvbTdtSettings"><span class="hs-identifier hs-type">DvbTdtSettings</span></a></span></span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679872504"><span id="local-6989586621679872506"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.DvbTdtSettings.html#DvbTdtSettings"><span class="hs-identifier hs-type">DvbTdtSettings</span></a></span></span></span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679865840"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.DvbTdtSettings.html#DvbTdtSettings"><span class="hs-identifier hs-type">DvbTdtSettings</span></a></span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679872501"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.DvbTdtSettings.html#DvbTdtSettings"><span class="hs-identifier hs-type">DvbTdtSettings</span></a></span></span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679865832"><span id="local-6989586621679865834"><span id="local-6989586621679865836"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.DvbTdtSettings.html#DvbTdtSettings"><span class="hs-identifier hs-type">DvbTdtSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679865830"><span class="annot"><span class="annottext">toJSON :: DvbTdtSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.DvbTdtSettings.html#DvbTdtSettings%27"><span class="hs-identifier hs-type">DvbTdtSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679865828"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679872493"><span id="local-6989586621679872495"><span id="local-6989586621679872497"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.DvbTdtSettings.html#DvbTdtSettings"><span class="hs-identifier hs-type">DvbTdtSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679872491"><span class="annot"><span class="annottext">toJSON :: DvbTdtSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.DvbTdtSettings.html#DvbTdtSettings%27"><span class="hs-identifier hs-type">DvbTdtSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679872489"><span class="annot"><span class="annottext">Maybe Natural
 repInterval :: Maybe Natural
 $sel:repInterval:DvbTdtSettings' :: DvbTdtSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679865828"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679872489"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -173,6 +173,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679865828"><span class="hs-identifier hs-var">repInterval</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679872489"><span class="hs-identifier hs-var">repInterval</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span></pre></body></html>

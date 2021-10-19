@@ -29,10 +29,10 @@
 </span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#newListConstraintsForPortfolio"><span class="hs-identifier">newListConstraintsForPortfolio</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-30"></span><span>
 </span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#listConstraintsForPortfolio_pageSize"><span class="hs-identifier">listConstraintsForPortfolio_pageSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#listConstraintsForPortfolio_acceptLanguage"><span class="hs-identifier">listConstraintsForPortfolio_acceptLanguage</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#listConstraintsForPortfolio_pageToken"><span class="hs-identifier">listConstraintsForPortfolio_pageToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#listConstraintsForPortfolio_productId"><span class="hs-identifier">listConstraintsForPortfolio_productId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#listConstraintsForPortfolio_acceptLanguage"><span class="hs-identifier">listConstraintsForPortfolio_acceptLanguage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#listConstraintsForPortfolio_pageSize"><span class="hs-identifier">listConstraintsForPortfolio_pageSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#listConstraintsForPortfolio_productId"><span class="hs-identifier">listConstraintsForPortfolio_productId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#listConstraintsForPortfolio_portfolioId"><span class="hs-identifier">listConstraintsForPortfolio_portfolioId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -40,8 +40,8 @@
 </span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#newListConstraintsForPortfolioResponse"><span class="hs-identifier">newListConstraintsForPortfolioResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>
 </span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#listConstraintsForPortfolioResponse_constraintDetails"><span class="hs-identifier">listConstraintsForPortfolioResponse_constraintDetails</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#listConstraintsForPortfolioResponse_nextPageToken"><span class="hs-identifier">listConstraintsForPortfolioResponse_nextPageToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#listConstraintsForPortfolioResponse_nextPageToken"><span class="hs-identifier">listConstraintsForPortfolioResponse_nextPageToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#listConstraintsForPortfolioResponse_constraintDetails"><span class="hs-identifier">listConstraintsForPortfolioResponse_constraintDetails</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#listConstraintsForPortfolioResponse_httpStatus"><span class="hs-identifier">listConstraintsForPortfolioResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span class="hs-keyword">where</span><span>
@@ -54,31 +54,31 @@
 </span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.html"><span class="hs-identifier">Network.AWS.ServiceCatalog.Types</span></a></span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newListConstraintsForPortfolio' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679416503"><span id="local-6989586621679416504"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListConstraintsForPortfolio"><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio"><span class="hs-identifier hs-var">ListConstraintsForPortfolio</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListConstraintsForPortfolio%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio%27"><span class="hs-identifier hs-var">ListConstraintsForPortfolio'</span></a></span></span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The maximum number of items to return with this call.</span><span>
-</span><span id="line-59"></span><span>    </span><span id="%24sel%3ApageSize%3AListConstraintsForPortfolio%27"><span class="annot"><span class="annottext">ListConstraintsForPortfolio -&gt; Maybe Natural
-</span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#%24sel%3ApageSize%3AListConstraintsForPortfolio%27"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The page token for the next set of results. To retrieve the first set of</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- results, use null.</span><span>
-</span><span id="line-62"></span><span>    </span><span id="%24sel%3ApageToken%3AListConstraintsForPortfolio%27"><span class="annot"><span class="annottext">ListConstraintsForPortfolio -&gt; Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#%24sel%3ApageToken%3AListConstraintsForPortfolio%27"><span class="hs-identifier hs-var hs-var">pageToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The product identifier.</span><span>
-</span><span id="line-64"></span><span>    </span><span id="%24sel%3AproductId%3AListConstraintsForPortfolio%27"><span class="annot"><span class="annottext">ListConstraintsForPortfolio -&gt; Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#%24sel%3AproductId%3AListConstraintsForPortfolio%27"><span class="hs-identifier hs-var hs-var">productId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The language code.</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- -   @en@ - English (default)</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- -   @jp@ - Japanese</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- -   @zh@ - Chinese</span><span>
-</span><span id="line-72"></span><span>    </span><span id="%24sel%3AacceptLanguage%3AListConstraintsForPortfolio%27"><span class="annot"><span class="annottext">ListConstraintsForPortfolio -&gt; Maybe Text
+</span><span id="line-57"></span><span id="local-6989586621679416988"><span id="local-6989586621679416989"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListConstraintsForPortfolio"><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio"><span class="hs-identifier hs-var">ListConstraintsForPortfolio</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListConstraintsForPortfolio%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio%27"><span class="hs-identifier hs-var">ListConstraintsForPortfolio'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The language code.</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- -   @en@ - English (default)</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- -   @jp@ - Japanese</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- -   @zh@ - Chinese</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AacceptLanguage%3AListConstraintsForPortfolio%27"><span class="annot"><span class="annottext">ListConstraintsForPortfolio -&gt; Maybe Text
 </span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#%24sel%3AacceptLanguage%3AListConstraintsForPortfolio%27"><span class="hs-identifier hs-var hs-var">acceptLanguage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The page token for the next set of results. To retrieve the first set of</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- results, use null.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3ApageToken%3AListConstraintsForPortfolio%27"><span class="annot"><span class="annottext">ListConstraintsForPortfolio -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#%24sel%3ApageToken%3AListConstraintsForPortfolio%27"><span class="hs-identifier hs-var hs-var">pageToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The maximum number of items to return with this call.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3ApageSize%3AListConstraintsForPortfolio%27"><span class="annot"><span class="annottext">ListConstraintsForPortfolio -&gt; Maybe Natural
+</span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#%24sel%3ApageSize%3AListConstraintsForPortfolio%27"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The product identifier.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AproductId%3AListConstraintsForPortfolio%27"><span class="annot"><span class="annottext">ListConstraintsForPortfolio -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#%24sel%3AproductId%3AListConstraintsForPortfolio%27"><span class="hs-identifier hs-var hs-var">productId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The portfolio identifier.</span><span>
 </span><span id="line-74"></span><span>    </span><span id="%24sel%3AportfolioId%3AListConstraintsForPortfolio%27"><span class="annot"><span class="annottext">ListConstraintsForPortfolio -&gt; Text
 </span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#%24sel%3AportfolioId%3AListConstraintsForPortfolio%27"><span class="hs-identifier hs-var hs-var">portfolioId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-75"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679416493"><span id="local-6989586621679416495"><span class="annot"><span class="annottext">ListConstraintsForPortfolio -&gt; ListConstraintsForPortfolio -&gt; Bool
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679416978"><span id="local-6989586621679416980"><span class="annot"><span class="annottext">ListConstraintsForPortfolio -&gt; ListConstraintsForPortfolio -&gt; Bool
 (ListConstraintsForPortfolio
  -&gt; ListConstraintsForPortfolio -&gt; Bool)
 -&gt; (ListConstraintsForPortfolio
@@ -89,7 +89,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListConstraintsForPortfolio -&gt; ListConstraintsForPortfolio -&gt; Bool
 == :: ListConstraintsForPortfolio -&gt; ListConstraintsForPortfolio -&gt; Bool
 $c== :: ListConstraintsForPortfolio -&gt; ListConstraintsForPortfolio -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416484"><span id="local-6989586621679416486"><span id="local-6989586621679416488"><span id="local-6989586621679416490"><span class="annot"><span class="annottext">ReadPrec [ListConstraintsForPortfolio]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416969"><span id="local-6989586621679416971"><span id="local-6989586621679416973"><span id="local-6989586621679416975"><span class="annot"><span class="annottext">ReadPrec [ListConstraintsForPortfolio]
 ReadPrec ListConstraintsForPortfolio
 Int -&gt; ReadS ListConstraintsForPortfolio
 ReadS [ListConstraintsForPortfolio]
@@ -109,7 +109,7 @@ readList :: ReadS [ListConstraintsForPortfolio]
 $creadList :: ReadS [ListConstraintsForPortfolio]
 readsPrec :: Int -&gt; ReadS ListConstraintsForPortfolio
 $creadsPrec :: Int -&gt; ReadS ListConstraintsForPortfolio
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416477"><span id="local-6989586621679416479"><span id="local-6989586621679416481"><span class="annot"><span class="annottext">Int -&gt; ListConstraintsForPortfolio -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416962"><span id="local-6989586621679416964"><span id="local-6989586621679416966"><span class="annot"><span class="annottext">Int -&gt; ListConstraintsForPortfolio -&gt; ShowS
 [ListConstraintsForPortfolio] -&gt; ShowS
 ListConstraintsForPortfolio -&gt; String
 (Int -&gt; ListConstraintsForPortfolio -&gt; ShowS)
@@ -149,20 +149,20 @@ ListConstraintsForPortfolio -&gt; Rep ListConstraintsForPortfolio x
 </span><span id="line-83"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- 'pageSize', 'listConstraintsForPortfolio_pageSize' - The maximum number of items to return with this call.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'acceptLanguage', 'listConstraintsForPortfolio_acceptLanguage' - The language code.</span><span>
 </span><span id="line-87"></span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- 'pageToken', 'listConstraintsForPortfolio_pageToken' - The page token for the next set of results. To retrieve the first set of</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- results, use null.</span><span>
-</span><span id="line-90"></span><span class="hs-comment">--</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- 'productId', 'listConstraintsForPortfolio_productId' - The product identifier.</span><span>
-</span><span id="line-92"></span><span class="hs-comment">--</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- 'acceptLanguage', 'listConstraintsForPortfolio_acceptLanguage' - The language code.</span><span>
-</span><span id="line-94"></span><span class="hs-comment">--</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- -   @en@ - English (default)</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- -   @en@ - English (default)</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- -   @jp@ - Japanese</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- -   @zh@ - Chinese</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'pageToken', 'listConstraintsForPortfolio_pageToken' - The page token for the next set of results. To retrieve the first set of</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- results, use null.</span><span>
 </span><span id="line-96"></span><span class="hs-comment">--</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- -   @jp@ - Japanese</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'pageSize', 'listConstraintsForPortfolio_pageSize' - The maximum number of items to return with this call.</span><span>
 </span><span id="line-98"></span><span class="hs-comment">--</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- -   @zh@ - Chinese</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'productId', 'listConstraintsForPortfolio_productId' - The product identifier.</span><span>
 </span><span id="line-100"></span><span class="hs-comment">--</span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- 'portfolioId', 'listConstraintsForPortfolio_portfolioId' - The portfolio identifier.</span><span>
 </span><span id="line-102"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#newListConstraintsForPortfolio"><span class="hs-identifier hs-type">newListConstraintsForPortfolio</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -170,119 +170,46 @@ ListConstraintsForPortfolio -&gt; Rep ListConstraintsForPortfolio x
 </span><span id="line-104"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-105"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio"><span class="hs-identifier hs-type">ListConstraintsForPortfolio</span></a></span><span>
 </span><span id="line-106"></span><span id="newListConstraintsForPortfolio"><span class="annot"><span class="annottext">newListConstraintsForPortfolio :: Text -&gt; ListConstraintsForPortfolio
-</span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#newListConstraintsForPortfolio"><span class="hs-identifier hs-var hs-var">newListConstraintsForPortfolio</span></a></span></span><span> </span><span id="local-6989586621679416472"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679416472"><span class="hs-identifier hs-var">pPortfolioId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-107"></span><span>  </span><span class="annot"><span class="annottext">ListConstraintsForPortfolio' :: Maybe Natural
+</span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#newListConstraintsForPortfolio"><span class="hs-identifier hs-var hs-var">newListConstraintsForPortfolio</span></a></span></span><span> </span><span id="local-6989586621679416957"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679416957"><span class="hs-identifier hs-var">pPortfolioId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><span class="annottext">ListConstraintsForPortfolio' :: Maybe Text
 -&gt; Maybe Text
--&gt; Maybe Text
+-&gt; Maybe Natural
 -&gt; Maybe Text
 -&gt; Text
 -&gt; ListConstraintsForPortfolio
 </span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio%27"><span class="hs-identifier hs-type">ListConstraintsForPortfolio'</span></a></span><span>
-</span><span id="line-108"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pageSize:ListConstraintsForPortfolio' :: Maybe Natural
-</span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#%24sel%3ApageSize%3AListConstraintsForPortfolio%27"><span class="hs-identifier hs-var">pageSize</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-108"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:acceptLanguage:ListConstraintsForPortfolio' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#%24sel%3AacceptLanguage%3AListConstraintsForPortfolio%27"><span class="hs-identifier hs-var">acceptLanguage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:pageToken:ListConstraintsForPortfolio' :: Maybe Text
 </span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#%24sel%3ApageToken%3AListConstraintsForPortfolio%27"><span class="hs-identifier hs-var">pageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:productId:ListConstraintsForPortfolio' :: Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#%24sel%3AproductId%3AListConstraintsForPortfolio%27"><span class="hs-identifier hs-var">productId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:pageSize:ListConstraintsForPortfolio' :: Maybe Natural
+</span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#%24sel%3ApageSize%3AListConstraintsForPortfolio%27"><span class="hs-identifier hs-var">pageSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:acceptLanguage:ListConstraintsForPortfolio' :: Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#%24sel%3AacceptLanguage%3AListConstraintsForPortfolio%27"><span class="hs-identifier hs-var">acceptLanguage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:productId:ListConstraintsForPortfolio' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#%24sel%3AproductId%3AListConstraintsForPortfolio%27"><span class="hs-identifier hs-var">productId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:portfolioId:ListConstraintsForPortfolio' :: Text
 </span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#%24sel%3AportfolioId%3AListConstraintsForPortfolio%27"><span class="hs-identifier hs-var">portfolioId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679416472"><span class="hs-identifier hs-var">pPortfolioId_</span></a></span><span>
+</span><a href="#local-6989586621679416957"><span class="hs-identifier hs-var">pPortfolioId_</span></a></span><span>
 </span><span id="line-114"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- | The maximum number of items to return with this call.</span><span>
-</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#listConstraintsForPortfolio_pageSize"><span class="hs-identifier hs-type">listConstraintsForPortfolio_pageSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio"><span class="hs-identifier hs-type">ListConstraintsForPortfolio</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span id="listConstraintsForPortfolio_pageSize"><span class="annot"><span class="annottext">listConstraintsForPortfolio_pageSize :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; ListConstraintsForPortfolio -&gt; f ListConstraintsForPortfolio
-</span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#listConstraintsForPortfolio_pageSize"><span class="hs-identifier hs-var hs-var">listConstraintsForPortfolio_pageSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListConstraintsForPortfolio -&gt; Maybe Natural)
--&gt; (ListConstraintsForPortfolio
-    -&gt; Maybe Natural -&gt; ListConstraintsForPortfolio)
--&gt; Lens
-     ListConstraintsForPortfolio
-     ListConstraintsForPortfolio
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio%27"><span class="hs-identifier hs-type">ListConstraintsForPortfolio'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416470"><span class="annot"><span class="annottext">Maybe Natural
-pageSize :: Maybe Natural
-$sel:pageSize:ListConstraintsForPortfolio' :: ListConstraintsForPortfolio -&gt; Maybe Natural
-</span><a href="#local-6989586621679416470"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679416470"><span class="hs-identifier hs-var">pageSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416469"><span class="annot"><span class="annottext">s :: ListConstraintsForPortfolio
-</span><a href="#local-6989586621679416469"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio%27"><span class="hs-identifier hs-type">ListConstraintsForPortfolio'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416468"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679416468"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConstraintsForPortfolio
-</span><a href="#local-6989586621679416469"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageSize:ListConstraintsForPortfolio' :: Maybe Natural
-</span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#%24sel%3ApageSize%3AListConstraintsForPortfolio%27"><span class="hs-identifier hs-var">pageSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679416468"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio"><span class="hs-identifier hs-type">ListConstraintsForPortfolio</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- | The page token for the next set of results. To retrieve the first set of</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- results, use null.</span><span>
-</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#listConstraintsForPortfolio_pageToken"><span class="hs-identifier hs-type">listConstraintsForPortfolio_pageToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio"><span class="hs-identifier hs-type">ListConstraintsForPortfolio</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-123"></span><span id="listConstraintsForPortfolio_pageToken"><span class="annot"><span class="annottext">listConstraintsForPortfolio_pageToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListConstraintsForPortfolio -&gt; f ListConstraintsForPortfolio
-</span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#listConstraintsForPortfolio_pageToken"><span class="hs-identifier hs-var hs-var">listConstraintsForPortfolio_pageToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListConstraintsForPortfolio -&gt; Maybe Text)
--&gt; (ListConstraintsForPortfolio
-    -&gt; Maybe Text -&gt; ListConstraintsForPortfolio)
--&gt; Lens
-     ListConstraintsForPortfolio
-     ListConstraintsForPortfolio
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio%27"><span class="hs-identifier hs-type">ListConstraintsForPortfolio'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416467"><span class="annot"><span class="annottext">Maybe Text
-pageToken :: Maybe Text
-$sel:pageToken:ListConstraintsForPortfolio' :: ListConstraintsForPortfolio -&gt; Maybe Text
-</span><a href="#local-6989586621679416467"><span class="hs-identifier hs-var hs-var">pageToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416467"><span class="hs-identifier hs-var">pageToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416466"><span class="annot"><span class="annottext">s :: ListConstraintsForPortfolio
-</span><a href="#local-6989586621679416466"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio%27"><span class="hs-identifier hs-type">ListConstraintsForPortfolio'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416465"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416465"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConstraintsForPortfolio
-</span><a href="#local-6989586621679416466"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageToken:ListConstraintsForPortfolio' :: Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#%24sel%3ApageToken%3AListConstraintsForPortfolio%27"><span class="hs-identifier hs-var">pageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416465"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio"><span class="hs-identifier hs-type">ListConstraintsForPortfolio</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- | The product identifier.</span><span>
-</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#listConstraintsForPortfolio_productId"><span class="hs-identifier hs-type">listConstraintsForPortfolio_productId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio"><span class="hs-identifier hs-type">ListConstraintsForPortfolio</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span id="listConstraintsForPortfolio_productId"><span class="annot"><span class="annottext">listConstraintsForPortfolio_productId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListConstraintsForPortfolio -&gt; f ListConstraintsForPortfolio
-</span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#listConstraintsForPortfolio_productId"><span class="hs-identifier hs-var hs-var">listConstraintsForPortfolio_productId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListConstraintsForPortfolio -&gt; Maybe Text)
--&gt; (ListConstraintsForPortfolio
-    -&gt; Maybe Text -&gt; ListConstraintsForPortfolio)
--&gt; Lens
-     ListConstraintsForPortfolio
-     ListConstraintsForPortfolio
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio%27"><span class="hs-identifier hs-type">ListConstraintsForPortfolio'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416464"><span class="annot"><span class="annottext">Maybe Text
-productId :: Maybe Text
-$sel:productId:ListConstraintsForPortfolio' :: ListConstraintsForPortfolio -&gt; Maybe Text
-</span><a href="#local-6989586621679416464"><span class="hs-identifier hs-var hs-var">productId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416464"><span class="hs-identifier hs-var">productId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416463"><span class="annot"><span class="annottext">s :: ListConstraintsForPortfolio
-</span><a href="#local-6989586621679416463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio%27"><span class="hs-identifier hs-type">ListConstraintsForPortfolio'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416462"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConstraintsForPortfolio
-</span><a href="#local-6989586621679416463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:productId:ListConstraintsForPortfolio' :: Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#%24sel%3AproductId%3AListConstraintsForPortfolio%27"><span class="hs-identifier hs-var">productId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio"><span class="hs-identifier hs-type">ListConstraintsForPortfolio</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- | The language code.</span><span>
-</span><span id="line-130"></span><span class="hs-comment">--</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- -   @en@ - English (default)</span><span>
-</span><span id="line-132"></span><span class="hs-comment">--</span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- -   @jp@ - Japanese</span><span>
-</span><span id="line-134"></span><span class="hs-comment">--</span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- -   @zh@ - Chinese</span><span>
-</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#listConstraintsForPortfolio_acceptLanguage"><span class="hs-identifier hs-type">listConstraintsForPortfolio_acceptLanguage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio"><span class="hs-identifier hs-type">ListConstraintsForPortfolio</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span id="listConstraintsForPortfolio_acceptLanguage"><span class="annot"><span class="annottext">listConstraintsForPortfolio_acceptLanguage :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-116"></span><span class="hs-comment">-- | The language code.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- -   @en@ - English (default)</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- -   @jp@ - Japanese</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- -   @zh@ - Chinese</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#listConstraintsForPortfolio_acceptLanguage"><span class="hs-identifier hs-type">listConstraintsForPortfolio_acceptLanguage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio"><span class="hs-identifier hs-type">ListConstraintsForPortfolio</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="listConstraintsForPortfolio_acceptLanguage"><span class="annot"><span class="annottext">listConstraintsForPortfolio_acceptLanguage :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ListConstraintsForPortfolio -&gt; f ListConstraintsForPortfolio
 </span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#listConstraintsForPortfolio_acceptLanguage"><span class="hs-identifier hs-var hs-var">listConstraintsForPortfolio_acceptLanguage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListConstraintsForPortfolio -&gt; Maybe Text)
 -&gt; (ListConstraintsForPortfolio
@@ -293,16 +220,89 @@ $sel:productId:ListConstraintsForPortfolio' :: ListConstraintsForPortfolio -&gt;
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio%27"><span class="hs-identifier hs-type">ListConstraintsForPortfolio'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416461"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio%27"><span class="hs-identifier hs-type">ListConstraintsForPortfolio'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416955"><span class="annot"><span class="annottext">Maybe Text
 acceptLanguage :: Maybe Text
 $sel:acceptLanguage:ListConstraintsForPortfolio' :: ListConstraintsForPortfolio -&gt; Maybe Text
-</span><a href="#local-6989586621679416461"><span class="hs-identifier hs-var hs-var">acceptLanguage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416461"><span class="hs-identifier hs-var">acceptLanguage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416460"><span class="annot"><span class="annottext">s :: ListConstraintsForPortfolio
-</span><a href="#local-6989586621679416460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio%27"><span class="hs-identifier hs-type">ListConstraintsForPortfolio'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416459"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConstraintsForPortfolio
-</span><a href="#local-6989586621679416460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:acceptLanguage:ListConstraintsForPortfolio' :: Maybe Text
+</span><a href="#local-6989586621679416955"><span class="hs-identifier hs-var hs-var">acceptLanguage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416955"><span class="hs-identifier hs-var">acceptLanguage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416954"><span class="annot"><span class="annottext">s :: ListConstraintsForPortfolio
+</span><a href="#local-6989586621679416954"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio%27"><span class="hs-identifier hs-type">ListConstraintsForPortfolio'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416953"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416953"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConstraintsForPortfolio
+</span><a href="#local-6989586621679416954"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:acceptLanguage:ListConstraintsForPortfolio' :: Maybe Text
 </span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#%24sel%3AacceptLanguage%3AListConstraintsForPortfolio%27"><span class="hs-identifier hs-var">acceptLanguage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio"><span class="hs-identifier hs-type">ListConstraintsForPortfolio</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679416953"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio"><span class="hs-identifier hs-type">ListConstraintsForPortfolio</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | The page token for the next set of results. To retrieve the first set of</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- results, use null.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#listConstraintsForPortfolio_pageToken"><span class="hs-identifier hs-type">listConstraintsForPortfolio_pageToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio"><span class="hs-identifier hs-type">ListConstraintsForPortfolio</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="listConstraintsForPortfolio_pageToken"><span class="annot"><span class="annottext">listConstraintsForPortfolio_pageToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListConstraintsForPortfolio -&gt; f ListConstraintsForPortfolio
+</span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#listConstraintsForPortfolio_pageToken"><span class="hs-identifier hs-var hs-var">listConstraintsForPortfolio_pageToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListConstraintsForPortfolio -&gt; Maybe Text)
+-&gt; (ListConstraintsForPortfolio
+    -&gt; Maybe Text -&gt; ListConstraintsForPortfolio)
+-&gt; Lens
+     ListConstraintsForPortfolio
+     ListConstraintsForPortfolio
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio%27"><span class="hs-identifier hs-type">ListConstraintsForPortfolio'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416952"><span class="annot"><span class="annottext">Maybe Text
+pageToken :: Maybe Text
+$sel:pageToken:ListConstraintsForPortfolio' :: ListConstraintsForPortfolio -&gt; Maybe Text
+</span><a href="#local-6989586621679416952"><span class="hs-identifier hs-var hs-var">pageToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416952"><span class="hs-identifier hs-var">pageToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416951"><span class="annot"><span class="annottext">s :: ListConstraintsForPortfolio
+</span><a href="#local-6989586621679416951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio%27"><span class="hs-identifier hs-type">ListConstraintsForPortfolio'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416950"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConstraintsForPortfolio
+</span><a href="#local-6989586621679416951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageToken:ListConstraintsForPortfolio' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#%24sel%3ApageToken%3AListConstraintsForPortfolio%27"><span class="hs-identifier hs-var">pageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio"><span class="hs-identifier hs-type">ListConstraintsForPortfolio</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | The maximum number of items to return with this call.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#listConstraintsForPortfolio_pageSize"><span class="hs-identifier hs-type">listConstraintsForPortfolio_pageSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio"><span class="hs-identifier hs-type">ListConstraintsForPortfolio</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="listConstraintsForPortfolio_pageSize"><span class="annot"><span class="annottext">listConstraintsForPortfolio_pageSize :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListConstraintsForPortfolio -&gt; f ListConstraintsForPortfolio
+</span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#listConstraintsForPortfolio_pageSize"><span class="hs-identifier hs-var hs-var">listConstraintsForPortfolio_pageSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListConstraintsForPortfolio -&gt; Maybe Natural)
+-&gt; (ListConstraintsForPortfolio
+    -&gt; Maybe Natural -&gt; ListConstraintsForPortfolio)
+-&gt; Lens
+     ListConstraintsForPortfolio
+     ListConstraintsForPortfolio
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio%27"><span class="hs-identifier hs-type">ListConstraintsForPortfolio'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416949"><span class="annot"><span class="annottext">Maybe Natural
+pageSize :: Maybe Natural
+$sel:pageSize:ListConstraintsForPortfolio' :: ListConstraintsForPortfolio -&gt; Maybe Natural
+</span><a href="#local-6989586621679416949"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679416949"><span class="hs-identifier hs-var">pageSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416948"><span class="annot"><span class="annottext">s :: ListConstraintsForPortfolio
+</span><a href="#local-6989586621679416948"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio%27"><span class="hs-identifier hs-type">ListConstraintsForPortfolio'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416947"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679416947"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConstraintsForPortfolio
+</span><a href="#local-6989586621679416948"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageSize:ListConstraintsForPortfolio' :: Maybe Natural
+</span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#%24sel%3ApageSize%3AListConstraintsForPortfolio%27"><span class="hs-identifier hs-var">pageSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679416947"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio"><span class="hs-identifier hs-type">ListConstraintsForPortfolio</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | The product identifier.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#listConstraintsForPortfolio_productId"><span class="hs-identifier hs-type">listConstraintsForPortfolio_productId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio"><span class="hs-identifier hs-type">ListConstraintsForPortfolio</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="listConstraintsForPortfolio_productId"><span class="annot"><span class="annottext">listConstraintsForPortfolio_productId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListConstraintsForPortfolio -&gt; f ListConstraintsForPortfolio
+</span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#listConstraintsForPortfolio_productId"><span class="hs-identifier hs-var hs-var">listConstraintsForPortfolio_productId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListConstraintsForPortfolio -&gt; Maybe Text)
+-&gt; (ListConstraintsForPortfolio
+    -&gt; Maybe Text -&gt; ListConstraintsForPortfolio)
+-&gt; Lens
+     ListConstraintsForPortfolio
+     ListConstraintsForPortfolio
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio%27"><span class="hs-identifier hs-type">ListConstraintsForPortfolio'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416946"><span class="annot"><span class="annottext">Maybe Text
+productId :: Maybe Text
+$sel:productId:ListConstraintsForPortfolio' :: ListConstraintsForPortfolio -&gt; Maybe Text
+</span><a href="#local-6989586621679416946"><span class="hs-identifier hs-var hs-var">productId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416946"><span class="hs-identifier hs-var">productId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416945"><span class="annot"><span class="annottext">s :: ListConstraintsForPortfolio
+</span><a href="#local-6989586621679416945"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio%27"><span class="hs-identifier hs-type">ListConstraintsForPortfolio'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416944"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416944"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConstraintsForPortfolio
+</span><a href="#local-6989586621679416945"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:productId:ListConstraintsForPortfolio' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#%24sel%3AproductId%3AListConstraintsForPortfolio%27"><span class="hs-identifier hs-var">productId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416944"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio"><span class="hs-identifier hs-type">ListConstraintsForPortfolio</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | The portfolio identifier.</span><span>
 </span><span id="line-140"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#listConstraintsForPortfolio_portfolioId"><span class="hs-identifier hs-type">listConstraintsForPortfolio_portfolioId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio"><span class="hs-identifier hs-type">ListConstraintsForPortfolio</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -314,30 +314,30 @@ $sel:acceptLanguage:ListConstraintsForPortfolio' :: ListConstraintsForPortfolio 
 -&gt; Lens
      ListConstraintsForPortfolio ListConstraintsForPortfolio Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio%27"><span class="hs-identifier hs-type">ListConstraintsForPortfolio'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416458"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio%27"><span class="hs-identifier hs-type">ListConstraintsForPortfolio'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416943"><span class="annot"><span class="annottext">Text
 portfolioId :: Text
 $sel:portfolioId:ListConstraintsForPortfolio' :: ListConstraintsForPortfolio -&gt; Text
-</span><a href="#local-6989586621679416458"><span class="hs-identifier hs-var hs-var">portfolioId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679416458"><span class="hs-identifier hs-var">portfolioId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416457"><span class="annot"><span class="annottext">s :: ListConstraintsForPortfolio
-</span><a href="#local-6989586621679416457"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio%27"><span class="hs-identifier hs-type">ListConstraintsForPortfolio'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416456"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679416456"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConstraintsForPortfolio
-</span><a href="#local-6989586621679416457"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:portfolioId:ListConstraintsForPortfolio' :: Text
+</span><a href="#local-6989586621679416943"><span class="hs-identifier hs-var hs-var">portfolioId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679416943"><span class="hs-identifier hs-var">portfolioId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416942"><span class="annot"><span class="annottext">s :: ListConstraintsForPortfolio
+</span><a href="#local-6989586621679416942"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio%27"><span class="hs-identifier hs-type">ListConstraintsForPortfolio'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416941"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679416941"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConstraintsForPortfolio
+</span><a href="#local-6989586621679416942"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:portfolioId:ListConstraintsForPortfolio' :: Text
 </span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#%24sel%3AportfolioId%3AListConstraintsForPortfolio%27"><span class="hs-identifier hs-var">portfolioId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679416456"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio"><span class="hs-identifier hs-type">ListConstraintsForPortfolio</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679416941"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio"><span class="hs-identifier hs-type">ListConstraintsForPortfolio</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio"><span class="hs-identifier hs-type">ListConstraintsForPortfolio</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679416452"><span class="annot"><span class="annottext">page :: ListConstraintsForPortfolio
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679416937"><span class="annot"><span class="annottext">page :: ListConstraintsForPortfolio
 -&gt; AWSResponse ListConstraintsForPortfolio
 -&gt; Maybe ListConstraintsForPortfolio
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679416450"><span class="annot"><span class="annottext">ListConstraintsForPortfolio
-</span><a href="#local-6989586621679416450"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679416449"><span class="annot"><span class="annottext">AWSResponse ListConstraintsForPortfolio
-</span><a href="#local-6989586621679416449"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679416935"><span class="annot"><span class="annottext">ListConstraintsForPortfolio
+</span><a href="#local-6989586621679416935"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679416934"><span class="annot"><span class="annottext">AWSResponse ListConstraintsForPortfolio
+</span><a href="#local-6989586621679416934"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-145"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-146"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListConstraintsForPortfolio
 ListConstraintsForPortfolioResponse
-</span><a href="#local-6989586621679416449"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679416934"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">ListConstraintsForPortfolioResponse
 -&gt; Getting (First Text) ListConstraintsForPortfolioResponse Text
 -&gt; Maybe Text
@@ -367,7 +367,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-152"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListConstraintsForPortfolio
 ListConstraintsForPortfolioResponse
-</span><a href="#local-6989586621679416449"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679416934"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">ListConstraintsForPortfolioResponse
 -&gt; Getting
      (First [ConstraintDetail])
@@ -416,7 +416,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">ListConstraintsForPortfolio
-</span><a href="#local-6989586621679416450"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679416935"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-160"></span><span>          </span><span class="annot"><span class="annottext">ListConstraintsForPortfolio
 -&gt; (ListConstraintsForPortfolio -&gt; ListConstraintsForPortfolio)
 -&gt; ListConstraintsForPortfolio
@@ -439,7 +439,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListConstraintsForPortfolio
 ListConstraintsForPortfolioResponse
-</span><a href="#local-6989586621679416449"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679416934"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-162"></span><span>          </span><span class="annot"><span class="annottext">ListConstraintsForPortfolioResponse
 -&gt; Getting (First Text) ListConstraintsForPortfolioResponse Text
 -&gt; Maybe Text
@@ -465,14 +465,14 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-166"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-167"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio"><span class="hs-identifier hs-type">ListConstraintsForPortfolio</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-168"></span><span>      </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolioResponse"><span class="hs-identifier hs-type">ListConstraintsForPortfolioResponse</span></a></span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621679416439"><span class="annot"><span class="annottext">request :: ListConstraintsForPortfolio -&gt; Request ListConstraintsForPortfolio
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679416924"><span class="annot"><span class="annottext">request :: ListConstraintsForPortfolio -&gt; Request ListConstraintsForPortfolio
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; ListConstraintsForPortfolio
 -&gt; Request ListConstraintsForPortfolio
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ServiceCatalog.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621679416435"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679416920"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListConstraintsForPortfolio
 -&gt; ClientResponse ClientBody
@@ -498,42 +498,50 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-172"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679416432"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679416432"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679416431"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679416431"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679416430"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679416430"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-173"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ConstraintDetail]
--&gt; Maybe Text -&gt; Int -&gt; ListConstraintsForPortfolioResponse
+</span><span id="line-172"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679416917"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679416917"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679416916"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679416916"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679416915"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679416915"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-173"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [ConstraintDetail]
+-&gt; Int
+-&gt; ListConstraintsForPortfolioResponse
 </span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolioResponse%27"><span class="hs-identifier hs-var">ListConstraintsForPortfolioResponse'</span></a></span><span>
-</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ConstraintDetail]
- -&gt; Maybe Text -&gt; Int -&gt; ListConstraintsForPortfolioResponse)
--&gt; Either String (Maybe [ConstraintDetail])
+</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [ConstraintDetail]
+ -&gt; Int
+ -&gt; ListConstraintsForPortfolioResponse)
+-&gt; Either String (Maybe Text)
 -&gt; Either
-     String (Maybe Text -&gt; Int -&gt; ListConstraintsForPortfolioResponse)
+     String
+     (Maybe [ConstraintDetail]
+      -&gt; Int -&gt; ListConstraintsForPortfolioResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679416430"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ConstraintDetail]))
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679416915"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextPageToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [ConstraintDetail]
+   -&gt; Int -&gt; ListConstraintsForPortfolioResponse)
+-&gt; Either String (Maybe [ConstraintDetail])
+-&gt; Either String (Int -&gt; ListConstraintsForPortfolioResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679416915"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ConstraintDetail]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConstraintDetails&quot;</span></span><span>
-</span><span id="line-175"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ConstraintDetail]))
+</span><span id="line-176"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ConstraintDetail]))
 -&gt; Maybe [ConstraintDetail]
 -&gt; Either String (Maybe [ConstraintDetail])
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ConstraintDetail]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-176"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String (Maybe Text -&gt; Int -&gt; ListConstraintsForPortfolioResponse)
--&gt; Either String (Maybe Text)
--&gt; Either String (Int -&gt; ListConstraintsForPortfolioResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679416430"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextPageToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListConstraintsForPortfolioResponse)
 -&gt; Either String Int
 -&gt; Either String ListConstraintsForPortfolioResponse
@@ -543,15 +551,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679416432"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679416917"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span><span>
-</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679416421"><span id="local-6989586621679416423"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio"><span class="hs-identifier hs-type">ListConstraintsForPortfolio</span></a></span></span></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679416906"><span id="local-6989586621679416908"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio"><span class="hs-identifier hs-type">ListConstraintsForPortfolio</span></a></span></span></span><span>
 </span><span id="line-182"></span><span>
-</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679416418"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio"><span class="hs-identifier hs-type">ListConstraintsForPortfolio</span></a></span></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679416903"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio"><span class="hs-identifier hs-type">ListConstraintsForPortfolio</span></a></span></span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio"><span class="hs-identifier hs-type">ListConstraintsForPortfolio</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-186"></span><span>  </span><span id="local-6989586621679416414"><span class="annot"><span class="annottext">toHeaders :: ListConstraintsForPortfolio -&gt; ResponseHeaders
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679416899"><span class="annot"><span class="annottext">toHeaders :: ListConstraintsForPortfolio -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-187"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListConstraintsForPortfolio -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -578,75 +586,75 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-197"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-198"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-199"></span><span>
-</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679416404"><span id="local-6989586621679416406"><span id="local-6989586621679416408"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio"><span class="hs-identifier hs-type">ListConstraintsForPortfolio</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-201"></span><span>  </span><span id="local-6989586621679416402"><span class="annot"><span class="annottext">toJSON :: ListConstraintsForPortfolio -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio%27"><span class="hs-identifier hs-type">ListConstraintsForPortfolio'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416396"><span id="local-6989586621679416397"><span id="local-6989586621679416398"><span id="local-6989586621679416399"><span id="local-6989586621679416400"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679416889"><span id="local-6989586621679416891"><span id="local-6989586621679416893"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio"><span class="hs-identifier hs-type">ListConstraintsForPortfolio</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-201"></span><span>  </span><span id="local-6989586621679416887"><span class="annot"><span class="annottext">toJSON :: ListConstraintsForPortfolio -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio%27"><span class="hs-identifier hs-type">ListConstraintsForPortfolio'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416881"><span id="local-6989586621679416882"><span id="local-6989586621679416883"><span id="local-6989586621679416884"><span id="local-6989586621679416885"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 portfolioId :: Text
-acceptLanguage :: Maybe Text
 productId :: Maybe Text
-pageToken :: Maybe Text
 pageSize :: Maybe Natural
+pageToken :: Maybe Text
+acceptLanguage :: Maybe Text
 $sel:portfolioId:ListConstraintsForPortfolio' :: ListConstraintsForPortfolio -&gt; Text
-$sel:acceptLanguage:ListConstraintsForPortfolio' :: ListConstraintsForPortfolio -&gt; Maybe Text
 $sel:productId:ListConstraintsForPortfolio' :: ListConstraintsForPortfolio -&gt; Maybe Text
-$sel:pageToken:ListConstraintsForPortfolio' :: ListConstraintsForPortfolio -&gt; Maybe Text
 $sel:pageSize:ListConstraintsForPortfolio' :: ListConstraintsForPortfolio -&gt; Maybe Natural
-</span><a href="#local-6989586621679416396"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:pageToken:ListConstraintsForPortfolio' :: ListConstraintsForPortfolio -&gt; Maybe Text
+$sel:acceptLanguage:ListConstraintsForPortfolio' :: ListConstraintsForPortfolio -&gt; Maybe Text
+</span><a href="#local-6989586621679416881"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-202"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-203"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-204"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;PageSize&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+</span><span class="hs-string">&quot;AcceptLanguage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679416400"><span class="hs-identifier hs-var">pageSize</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-205"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416885"><span class="hs-identifier hs-var">acceptLanguage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PageToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416399"><span class="hs-identifier hs-var">pageToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-206"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679416884"><span class="hs-identifier hs-var">pageToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PageSize&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679416883"><span class="hs-identifier hs-var">pageSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ProductId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416398"><span class="hs-identifier hs-var">productId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-207"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AcceptLanguage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-208"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416397"><span class="hs-identifier hs-var">acceptLanguage</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679416882"><span class="hs-identifier hs-var">productId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-209"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PortfolioId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679416396"><span class="hs-identifier hs-var">portfolioId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679416881"><span class="hs-identifier hs-var">portfolioId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-210"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-211"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-212"></span><span>
 </span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio"><span class="hs-identifier hs-type">ListConstraintsForPortfolio</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-214"></span><span>  </span><span id="local-6989586621679416390"><span class="annot"><span class="annottext">toPath :: ListConstraintsForPortfolio -&gt; ByteString
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621679416875"><span class="annot"><span class="annottext">toPath :: ListConstraintsForPortfolio -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListConstraintsForPortfolio -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-215"></span><span>
 </span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolio"><span class="hs-identifier hs-type">ListConstraintsForPortfolio</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-217"></span><span>  </span><span id="local-6989586621679416386"><span class="annot"><span class="annottext">toQuery :: ListConstraintsForPortfolio -&gt; QueryString
+</span><span id="line-217"></span><span>  </span><span id="local-6989586621679416871"><span class="annot"><span class="annottext">toQuery :: ListConstraintsForPortfolio -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListConstraintsForPortfolio -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -654,19 +662,19 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-218"></span><span>
 </span><span id="line-219"></span><span class="hs-comment">-- | /See:/ 'newListConstraintsForPortfolioResponse' smart constructor.</span><span>
-</span><span id="line-220"></span><span id="local-6989586621679416383"><span id="local-6989586621679416384"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListConstraintsForPortfolioResponse"><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolioResponse"><span class="hs-identifier hs-var">ListConstraintsForPortfolioResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListConstraintsForPortfolioResponse%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolioResponse%27"><span class="hs-identifier hs-var">ListConstraintsForPortfolioResponse'</span></a></span></span><span>
-</span><span id="line-221"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the constraints.</span><span>
-</span><span id="line-222"></span><span>    </span><span id="%24sel%3AconstraintDetails%3AListConstraintsForPortfolioResponse%27"><span class="annot"><span class="annottext">ListConstraintsForPortfolioResponse -&gt; Maybe [ConstraintDetail]
-</span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#%24sel%3AconstraintDetails%3AListConstraintsForPortfolioResponse%27"><span class="hs-identifier hs-var hs-var">constraintDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ConstraintDetail.html#ConstraintDetail"><span class="hs-identifier hs-type">ConstraintDetail</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-223"></span><span>    </span><span class="hs-comment">-- | The page token to use to retrieve the next set of results. If there are</span><span>
-</span><span id="line-224"></span><span>    </span><span class="hs-comment">-- no additional results, this value is null.</span><span>
-</span><span id="line-225"></span><span>    </span><span id="%24sel%3AnextPageToken%3AListConstraintsForPortfolioResponse%27"><span class="annot"><span class="annottext">ListConstraintsForPortfolioResponse -&gt; Maybe Text
+</span><span id="line-220"></span><span id="local-6989586621679416868"><span id="local-6989586621679416869"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListConstraintsForPortfolioResponse"><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolioResponse"><span class="hs-identifier hs-var">ListConstraintsForPortfolioResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListConstraintsForPortfolioResponse%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolioResponse%27"><span class="hs-identifier hs-var">ListConstraintsForPortfolioResponse'</span></a></span></span><span>
+</span><span id="line-221"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The page token to use to retrieve the next set of results. If there are</span><span>
+</span><span id="line-222"></span><span>    </span><span class="hs-comment">-- no additional results, this value is null.</span><span>
+</span><span id="line-223"></span><span>    </span><span id="%24sel%3AnextPageToken%3AListConstraintsForPortfolioResponse%27"><span class="annot"><span class="annottext">ListConstraintsForPortfolioResponse -&gt; Maybe Text
 </span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#%24sel%3AnextPageToken%3AListConstraintsForPortfolioResponse%27"><span class="hs-identifier hs-var hs-var">nextPageToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>    </span><span class="hs-comment">-- | Information about the constraints.</span><span>
+</span><span id="line-225"></span><span>    </span><span id="%24sel%3AconstraintDetails%3AListConstraintsForPortfolioResponse%27"><span class="annot"><span class="annottext">ListConstraintsForPortfolioResponse -&gt; Maybe [ConstraintDetail]
+</span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#%24sel%3AconstraintDetails%3AListConstraintsForPortfolioResponse%27"><span class="hs-identifier hs-var hs-var">constraintDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ConstraintDetail.html#ConstraintDetail"><span class="hs-identifier hs-type">ConstraintDetail</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-226"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-227"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListConstraintsForPortfolioResponse%27"><span class="annot"><span class="annottext">ListConstraintsForPortfolioResponse -&gt; Int
 </span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#%24sel%3AhttpStatus%3AListConstraintsForPortfolioResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-228"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-229"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679416376"><span id="local-6989586621679416378"><span class="annot"><span class="annottext">ListConstraintsForPortfolioResponse
+</span><span id="line-229"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679416861"><span id="local-6989586621679416863"><span class="annot"><span class="annottext">ListConstraintsForPortfolioResponse
 -&gt; ListConstraintsForPortfolioResponse -&gt; Bool
 (ListConstraintsForPortfolioResponse
  -&gt; ListConstraintsForPortfolioResponse -&gt; Bool)
@@ -682,7 +690,7 @@ $c/= :: ListConstraintsForPortfolioResponse
 -&gt; ListConstraintsForPortfolioResponse -&gt; Bool
 $c== :: ListConstraintsForPortfolioResponse
 -&gt; ListConstraintsForPortfolioResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416368"><span id="local-6989586621679416370"><span id="local-6989586621679416372"><span id="local-6989586621679416374"><span class="annot"><span class="annottext">ReadPrec [ListConstraintsForPortfolioResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416853"><span id="local-6989586621679416855"><span id="local-6989586621679416857"><span id="local-6989586621679416859"><span class="annot"><span class="annottext">ReadPrec [ListConstraintsForPortfolioResponse]
 ReadPrec ListConstraintsForPortfolioResponse
 Int -&gt; ReadS ListConstraintsForPortfolioResponse
 ReadS [ListConstraintsForPortfolioResponse]
@@ -702,7 +710,7 @@ readList :: ReadS [ListConstraintsForPortfolioResponse]
 $creadList :: ReadS [ListConstraintsForPortfolioResponse]
 readsPrec :: Int -&gt; ReadS ListConstraintsForPortfolioResponse
 $creadsPrec :: Int -&gt; ReadS ListConstraintsForPortfolioResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416362"><span id="local-6989586621679416364"><span id="local-6989586621679416366"><span class="annot"><span class="annottext">Int -&gt; ListConstraintsForPortfolioResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416847"><span id="local-6989586621679416849"><span id="local-6989586621679416851"><span class="annot"><span class="annottext">Int -&gt; ListConstraintsForPortfolioResponse -&gt; ShowS
 [ListConstraintsForPortfolioResponse] -&gt; ShowS
 ListConstraintsForPortfolioResponse -&gt; String
 (Int -&gt; ListConstraintsForPortfolioResponse -&gt; ShowS)
@@ -748,10 +756,10 @@ ListConstraintsForPortfolioResponse
 </span><span id="line-236"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-237"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-238"></span><span class="hs-comment">--</span><span>
-</span><span id="line-239"></span><span class="hs-comment">-- 'constraintDetails', 'listConstraintsForPortfolioResponse_constraintDetails' - Information about the constraints.</span><span>
-</span><span id="line-240"></span><span class="hs-comment">--</span><span>
-</span><span id="line-241"></span><span class="hs-comment">-- 'nextPageToken', 'listConstraintsForPortfolioResponse_nextPageToken' - The page token to use to retrieve the next set of results. If there are</span><span>
-</span><span id="line-242"></span><span class="hs-comment">-- no additional results, this value is null.</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- 'nextPageToken', 'listConstraintsForPortfolioResponse_nextPageToken' - The page token to use to retrieve the next set of results. If there are</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- no additional results, this value is null.</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- 'constraintDetails', 'listConstraintsForPortfolioResponse_constraintDetails' - Information about the constraints.</span><span>
 </span><span id="line-243"></span><span class="hs-comment">--</span><span>
 </span><span id="line-244"></span><span class="hs-comment">-- 'httpStatus', 'listConstraintsForPortfolioResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-245"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#newListConstraintsForPortfolioResponse"><span class="hs-identifier hs-type">newListConstraintsForPortfolioResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -759,28 +767,52 @@ ListConstraintsForPortfolioResponse
 </span><span id="line-247"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-248"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolioResponse"><span class="hs-identifier hs-type">ListConstraintsForPortfolioResponse</span></a></span><span>
 </span><span id="line-249"></span><span id="newListConstraintsForPortfolioResponse"><span class="annot"><span class="annottext">newListConstraintsForPortfolioResponse :: Int -&gt; ListConstraintsForPortfolioResponse
-</span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#newListConstraintsForPortfolioResponse"><span class="hs-identifier hs-var hs-var">newListConstraintsForPortfolioResponse</span></a></span></span><span> </span><span id="local-6989586621679416359"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679416359"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-250"></span><span>  </span><span class="annot"><span class="annottext">ListConstraintsForPortfolioResponse' :: Maybe [ConstraintDetail]
--&gt; Maybe Text -&gt; Int -&gt; ListConstraintsForPortfolioResponse
+</span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#newListConstraintsForPortfolioResponse"><span class="hs-identifier hs-var hs-var">newListConstraintsForPortfolioResponse</span></a></span></span><span> </span><span id="local-6989586621679416844"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679416844"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-250"></span><span>  </span><span class="annot"><span class="annottext">ListConstraintsForPortfolioResponse' :: Maybe Text
+-&gt; Maybe [ConstraintDetail]
+-&gt; Int
+-&gt; ListConstraintsForPortfolioResponse
 </span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolioResponse%27"><span class="hs-identifier hs-type">ListConstraintsForPortfolioResponse'</span></a></span><span>
-</span><span id="line-251"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:constraintDetails:ListConstraintsForPortfolioResponse' :: Maybe [ConstraintDetail]
-</span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#%24sel%3AconstraintDetails%3AListConstraintsForPortfolioResponse%27"><span class="hs-identifier hs-var">constraintDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-252"></span><span>        </span><span class="annot"><span class="annottext">Maybe [ConstraintDetail]
+</span><span id="line-251"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextPageToken:ListConstraintsForPortfolioResponse' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#%24sel%3AnextPageToken%3AListConstraintsForPortfolioResponse%27"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-252"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-253"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextPageToken:ListConstraintsForPortfolioResponse' :: Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#%24sel%3AnextPageToken%3AListConstraintsForPortfolioResponse%27"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-253"></span><span>      </span><span class="annot"><span class="annottext">$sel:constraintDetails:ListConstraintsForPortfolioResponse' :: Maybe [ConstraintDetail]
+</span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#%24sel%3AconstraintDetails%3AListConstraintsForPortfolioResponse%27"><span class="hs-identifier hs-var">constraintDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ConstraintDetail]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-254"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListConstraintsForPortfolioResponse' :: Int
 </span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#%24sel%3AhttpStatus%3AListConstraintsForPortfolioResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679416359"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679416844"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-255"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-256"></span><span>
-</span><span id="line-257"></span><span class="hs-comment">-- | Information about the constraints.</span><span>
-</span><span id="line-258"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#listConstraintsForPortfolioResponse_constraintDetails"><span class="hs-identifier hs-type">listConstraintsForPortfolioResponse_constraintDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolioResponse"><span class="hs-identifier hs-type">ListConstraintsForPortfolioResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ConstraintDetail.html#ConstraintDetail"><span class="hs-identifier hs-type">ConstraintDetail</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-259"></span><span id="listConstraintsForPortfolioResponse_constraintDetails"><span class="annot"><span class="annottext">listConstraintsForPortfolioResponse_constraintDetails :: (Maybe [ConstraintDetail] -&gt; f (Maybe [ConstraintDetail]))
+</span><span id="line-257"></span><span class="hs-comment">-- | The page token to use to retrieve the next set of results. If there are</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- no additional results, this value is null.</span><span>
+</span><span id="line-259"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#listConstraintsForPortfolioResponse_nextPageToken"><span class="hs-identifier hs-type">listConstraintsForPortfolioResponse_nextPageToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolioResponse"><span class="hs-identifier hs-type">ListConstraintsForPortfolioResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span id="listConstraintsForPortfolioResponse_nextPageToken"><span class="annot"><span class="annottext">listConstraintsForPortfolioResponse_nextPageToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListConstraintsForPortfolioResponse
+-&gt; f ListConstraintsForPortfolioResponse
+</span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#listConstraintsForPortfolioResponse_nextPageToken"><span class="hs-identifier hs-var hs-var">listConstraintsForPortfolioResponse_nextPageToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListConstraintsForPortfolioResponse -&gt; Maybe Text)
+-&gt; (ListConstraintsForPortfolioResponse
+    -&gt; Maybe Text -&gt; ListConstraintsForPortfolioResponse)
+-&gt; Lens' ListConstraintsForPortfolioResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolioResponse%27"><span class="hs-identifier hs-type">ListConstraintsForPortfolioResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416843"><span class="annot"><span class="annottext">Maybe Text
+nextPageToken :: Maybe Text
+$sel:nextPageToken:ListConstraintsForPortfolioResponse' :: ListConstraintsForPortfolioResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679416843"><span class="hs-identifier hs-var hs-var">nextPageToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416843"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416842"><span class="annot"><span class="annottext">s :: ListConstraintsForPortfolioResponse
+</span><a href="#local-6989586621679416842"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolioResponse%27"><span class="hs-identifier hs-type">ListConstraintsForPortfolioResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416841"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416841"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConstraintsForPortfolioResponse
+</span><a href="#local-6989586621679416842"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextPageToken:ListConstraintsForPortfolioResponse' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#%24sel%3AnextPageToken%3AListConstraintsForPortfolioResponse%27"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416841"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolioResponse"><span class="hs-identifier hs-type">ListConstraintsForPortfolioResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- | Information about the constraints.</span><span>
+</span><span id="line-263"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#listConstraintsForPortfolioResponse_constraintDetails"><span class="hs-identifier hs-type">listConstraintsForPortfolioResponse_constraintDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolioResponse"><span class="hs-identifier hs-type">ListConstraintsForPortfolioResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ConstraintDetail.html#ConstraintDetail"><span class="hs-identifier hs-type">ConstraintDetail</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span id="listConstraintsForPortfolioResponse_constraintDetails"><span class="annot"><span class="annottext">listConstraintsForPortfolioResponse_constraintDetails :: (Maybe [ConstraintDetail] -&gt; f (Maybe [ConstraintDetail]))
 -&gt; ListConstraintsForPortfolioResponse
 -&gt; f ListConstraintsForPortfolioResponse
 </span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#listConstraintsForPortfolioResponse_constraintDetails"><span class="hs-identifier hs-var hs-var">listConstraintsForPortfolioResponse_constraintDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListConstraintsForPortfolioResponse -&gt; Maybe [ConstraintDetail])
@@ -789,16 +821,16 @@ forall a. Maybe a
 -&gt; Lens'
      ListConstraintsForPortfolioResponse (Maybe [ConstraintDetail])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolioResponse%27"><span class="hs-identifier hs-type">ListConstraintsForPortfolioResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416358"><span class="annot"><span class="annottext">Maybe [ConstraintDetail]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolioResponse%27"><span class="hs-identifier hs-type">ListConstraintsForPortfolioResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416840"><span class="annot"><span class="annottext">Maybe [ConstraintDetail]
 constraintDetails :: Maybe [ConstraintDetail]
 $sel:constraintDetails:ListConstraintsForPortfolioResponse' :: ListConstraintsForPortfolioResponse -&gt; Maybe [ConstraintDetail]
-</span><a href="#local-6989586621679416358"><span class="hs-identifier hs-var hs-var">constraintDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ConstraintDetail]
-</span><a href="#local-6989586621679416358"><span class="hs-identifier hs-var">constraintDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416357"><span class="annot"><span class="annottext">s :: ListConstraintsForPortfolioResponse
-</span><a href="#local-6989586621679416357"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolioResponse%27"><span class="hs-identifier hs-type">ListConstraintsForPortfolioResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416356"><span class="annot"><span class="annottext">Maybe [ConstraintDetail]
-</span><a href="#local-6989586621679416356"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConstraintsForPortfolioResponse
-</span><a href="#local-6989586621679416357"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:constraintDetails:ListConstraintsForPortfolioResponse' :: Maybe [ConstraintDetail]
+</span><a href="#local-6989586621679416840"><span class="hs-identifier hs-var hs-var">constraintDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ConstraintDetail]
+</span><a href="#local-6989586621679416840"><span class="hs-identifier hs-var">constraintDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416839"><span class="annot"><span class="annottext">s :: ListConstraintsForPortfolioResponse
+</span><a href="#local-6989586621679416839"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolioResponse%27"><span class="hs-identifier hs-type">ListConstraintsForPortfolioResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416838"><span class="annot"><span class="annottext">Maybe [ConstraintDetail]
+</span><a href="#local-6989586621679416838"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConstraintsForPortfolioResponse
+</span><a href="#local-6989586621679416839"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:constraintDetails:ListConstraintsForPortfolioResponse' :: Maybe [ConstraintDetail]
 </span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#%24sel%3AconstraintDetails%3AListConstraintsForPortfolioResponse%27"><span class="hs-identifier hs-var">constraintDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ConstraintDetail]
-</span><a href="#local-6989586621679416356"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolioResponse"><span class="hs-identifier hs-type">ListConstraintsForPortfolioResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ConstraintDetail] -&gt; f (Maybe [ConstraintDetail]))
+</span><a href="#local-6989586621679416838"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolioResponse"><span class="hs-identifier hs-type">ListConstraintsForPortfolioResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ConstraintDetail] -&gt; f (Maybe [ConstraintDetail]))
  -&gt; ListConstraintsForPortfolioResponse
  -&gt; f ListConstraintsForPortfolioResponse)
 -&gt; ((Maybe [ConstraintDetail] -&gt; f (Maybe [ConstraintDetail]))
@@ -825,30 +857,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [ConstraintDetail]
   [ConstraintDetail]
   [ConstraintDetail]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-260"></span><span>
-</span><span id="line-261"></span><span class="hs-comment">-- | The page token to use to retrieve the next set of results. If there are</span><span>
-</span><span id="line-262"></span><span class="hs-comment">-- no additional results, this value is null.</span><span>
-</span><span id="line-263"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#listConstraintsForPortfolioResponse_nextPageToken"><span class="hs-identifier hs-type">listConstraintsForPortfolioResponse_nextPageToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolioResponse"><span class="hs-identifier hs-type">ListConstraintsForPortfolioResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-264"></span><span id="listConstraintsForPortfolioResponse_nextPageToken"><span class="annot"><span class="annottext">listConstraintsForPortfolioResponse_nextPageToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListConstraintsForPortfolioResponse
--&gt; f ListConstraintsForPortfolioResponse
-</span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#listConstraintsForPortfolioResponse_nextPageToken"><span class="hs-identifier hs-var hs-var">listConstraintsForPortfolioResponse_nextPageToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListConstraintsForPortfolioResponse -&gt; Maybe Text)
--&gt; (ListConstraintsForPortfolioResponse
-    -&gt; Maybe Text -&gt; ListConstraintsForPortfolioResponse)
--&gt; Lens' ListConstraintsForPortfolioResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolioResponse%27"><span class="hs-identifier hs-type">ListConstraintsForPortfolioResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416353"><span class="annot"><span class="annottext">Maybe Text
-nextPageToken :: Maybe Text
-$sel:nextPageToken:ListConstraintsForPortfolioResponse' :: ListConstraintsForPortfolioResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679416353"><span class="hs-identifier hs-var hs-var">nextPageToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416353"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416352"><span class="annot"><span class="annottext">s :: ListConstraintsForPortfolioResponse
-</span><a href="#local-6989586621679416352"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolioResponse%27"><span class="hs-identifier hs-type">ListConstraintsForPortfolioResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416351"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416351"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConstraintsForPortfolioResponse
-</span><a href="#local-6989586621679416352"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextPageToken:ListConstraintsForPortfolioResponse' :: Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#%24sel%3AnextPageToken%3AListConstraintsForPortfolioResponse%27"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416351"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolioResponse"><span class="hs-identifier hs-type">ListConstraintsForPortfolioResponse</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-265"></span><span>
 </span><span id="line-266"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-267"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#listConstraintsForPortfolioResponse_httpStatus"><span class="hs-identifier hs-type">listConstraintsForPortfolioResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolioResponse"><span class="hs-identifier hs-type">ListConstraintsForPortfolioResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -864,18 +874,18 @@ $sel:nextPageToken:ListConstraintsForPortfolioResponse' :: ListConstraintsForPor
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolioResponse%27"><span class="hs-identifier hs-type">ListConstraintsForPortfolioResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416350"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolioResponse%27"><span class="hs-identifier hs-type">ListConstraintsForPortfolioResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416835"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListConstraintsForPortfolioResponse' :: ListConstraintsForPortfolioResponse -&gt; Int
-</span><a href="#local-6989586621679416350"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679416350"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416349"><span class="annot"><span class="annottext">s :: ListConstraintsForPortfolioResponse
-</span><a href="#local-6989586621679416349"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolioResponse%27"><span class="hs-identifier hs-type">ListConstraintsForPortfolioResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416348"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679416348"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConstraintsForPortfolioResponse
-</span><a href="#local-6989586621679416349"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListConstraintsForPortfolioResponse' :: Int
+</span><a href="#local-6989586621679416835"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679416835"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416834"><span class="annot"><span class="annottext">s :: ListConstraintsForPortfolioResponse
+</span><a href="#local-6989586621679416834"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolioResponse%27"><span class="hs-identifier hs-type">ListConstraintsForPortfolioResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416833"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679416833"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConstraintsForPortfolioResponse
+</span><a href="#local-6989586621679416834"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListConstraintsForPortfolioResponse' :: Int
 </span><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#%24sel%3AhttpStatus%3AListConstraintsForPortfolioResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679416348"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolioResponse"><span class="hs-identifier hs-type">ListConstraintsForPortfolioResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679416833"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolioResponse"><span class="hs-identifier hs-type">ListConstraintsForPortfolioResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-269"></span><span>
 </span><span id="line-270"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-271"></span><span>  </span><span id="local-6989586621679416346"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-271"></span><span>  </span><span id="local-6989586621679416831"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-272"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListConstraintsForPortfolio.html#ListConstraintsForPortfolioResponse"><span class="hs-identifier hs-type">ListConstraintsForPortfolioResponse</span></a></span></span><span>
 </span><span id="line-273"></span></pre></body></html>

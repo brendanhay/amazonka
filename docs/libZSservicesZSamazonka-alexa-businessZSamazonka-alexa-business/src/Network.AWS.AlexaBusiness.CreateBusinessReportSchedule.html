@@ -30,10 +30,10 @@
 </span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#createBusinessReportSchedule_s3KeyPrefix"><span class="hs-identifier">createBusinessReportSchedule_s3KeyPrefix</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#createBusinessReportSchedule_recurrence"><span class="hs-identifier">createBusinessReportSchedule_recurrence</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#createBusinessReportSchedule_tags"><span class="hs-identifier">createBusinessReportSchedule_tags</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#createBusinessReportSchedule_s3BucketName"><span class="hs-identifier">createBusinessReportSchedule_s3BucketName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#createBusinessReportSchedule_clientRequestToken"><span class="hs-identifier">createBusinessReportSchedule_clientRequestToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#createBusinessReportSchedule_scheduleName"><span class="hs-identifier">createBusinessReportSchedule_scheduleName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#createBusinessReportSchedule_scheduleName"><span class="hs-identifier">createBusinessReportSchedule_scheduleName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#createBusinessReportSchedule_clientRequestToken"><span class="hs-identifier">createBusinessReportSchedule_clientRequestToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#createBusinessReportSchedule_s3BucketName"><span class="hs-identifier">createBusinessReportSchedule_s3BucketName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#createBusinessReportSchedule_tags"><span class="hs-identifier">createBusinessReportSchedule_tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#createBusinessReportSchedule_format"><span class="hs-identifier">createBusinessReportSchedule_format</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#createBusinessReportSchedule_contentRange"><span class="hs-identifier">createBusinessReportSchedule_contentRange</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>
@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newCreateBusinessReportSchedule' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679392440"><span id="local-6989586621679392441"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateBusinessReportSchedule"><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule"><span class="hs-identifier hs-var">CreateBusinessReportSchedule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateBusinessReportSchedule%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule%27"><span class="hs-identifier hs-var">CreateBusinessReportSchedule'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679392809"><span id="local-6989586621679392810"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateBusinessReportSchedule"><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule"><span class="hs-identifier hs-var">CreateBusinessReportSchedule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateBusinessReportSchedule%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule%27"><span class="hs-identifier hs-var">CreateBusinessReportSchedule'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The S3 key where the report is delivered.</span><span>
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3As3KeyPrefix%3ACreateBusinessReportSchedule%27"><span class="annot"><span class="annottext">CreateBusinessReportSchedule -&gt; Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#%24sel%3As3KeyPrefix%3ACreateBusinessReportSchedule%27"><span class="hs-identifier hs-var hs-var">s3KeyPrefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -63,20 +63,20 @@
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">-- only be delivered one time when the API is called.</span><span>
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3Arecurrence%3ACreateBusinessReportSchedule%27"><span class="annot"><span class="annottext">CreateBusinessReportSchedule -&gt; Maybe BusinessReportRecurrence
 </span><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#%24sel%3Arecurrence%3ACreateBusinessReportSchedule%27"><span class="hs-identifier hs-var hs-var">recurrence</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportRecurrence.html#BusinessReportRecurrence"><span class="hs-identifier hs-type">BusinessReportRecurrence</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The tags for the business report schedule.</span><span>
-</span><span id="line-65"></span><span>    </span><span id="%24sel%3Atags%3ACreateBusinessReportSchedule%27"><span class="annot"><span class="annottext">CreateBusinessReportSchedule -&gt; Maybe [Tag]
-</span><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#%24sel%3Atags%3ACreateBusinessReportSchedule%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The S3 bucket name of the output reports. If this isn\'t specified, the</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- report can be retrieved from a download link by calling</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- ListBusinessReportSchedule.</span><span>
-</span><span id="line-69"></span><span>    </span><span id="%24sel%3As3BucketName%3ACreateBusinessReportSchedule%27"><span class="annot"><span class="annottext">CreateBusinessReportSchedule -&gt; Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#%24sel%3As3BucketName%3ACreateBusinessReportSchedule%27"><span class="hs-identifier hs-var hs-var">s3BucketName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The client request token.</span><span>
-</span><span id="line-71"></span><span>    </span><span id="%24sel%3AclientRequestToken%3ACreateBusinessReportSchedule%27"><span class="annot"><span class="annottext">CreateBusinessReportSchedule -&gt; Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#%24sel%3AclientRequestToken%3ACreateBusinessReportSchedule%27"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The name identifier of the schedule.</span><span>
-</span><span id="line-73"></span><span>    </span><span id="%24sel%3AscheduleName%3ACreateBusinessReportSchedule%27"><span class="annot"><span class="annottext">CreateBusinessReportSchedule -&gt; Maybe Text
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The name identifier of the schedule.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AscheduleName%3ACreateBusinessReportSchedule%27"><span class="annot"><span class="annottext">CreateBusinessReportSchedule -&gt; Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#%24sel%3AscheduleName%3ACreateBusinessReportSchedule%27"><span class="hs-identifier hs-var hs-var">scheduleName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The client request token.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AclientRequestToken%3ACreateBusinessReportSchedule%27"><span class="annot"><span class="annottext">CreateBusinessReportSchedule -&gt; Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#%24sel%3AclientRequestToken%3ACreateBusinessReportSchedule%27"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The S3 bucket name of the output reports. If this isn\'t specified, the</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- report can be retrieved from a download link by calling</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- ListBusinessReportSchedule.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3As3BucketName%3ACreateBusinessReportSchedule%27"><span class="annot"><span class="annottext">CreateBusinessReportSchedule -&gt; Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#%24sel%3As3BucketName%3ACreateBusinessReportSchedule%27"><span class="hs-identifier hs-var hs-var">s3BucketName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The tags for the business report schedule.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3Atags%3ACreateBusinessReportSchedule%27"><span class="annot"><span class="annottext">CreateBusinessReportSchedule -&gt; Maybe [Tag]
+</span><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#%24sel%3Atags%3ACreateBusinessReportSchedule%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The format of the generated report (individual CSV files or zipped files</span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-comment">-- of individual files).</span><span>
 </span><span id="line-76"></span><span>    </span><span id="%24sel%3Aformat%3ACreateBusinessReportSchedule%27"><span class="annot"><span class="annottext">CreateBusinessReportSchedule -&gt; BusinessReportFormat
@@ -85,7 +85,7 @@
 </span><span id="line-78"></span><span>    </span><span id="%24sel%3AcontentRange%3ACreateBusinessReportSchedule%27"><span class="annot"><span class="annottext">CreateBusinessReportSchedule -&gt; BusinessReportContentRange
 </span><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#%24sel%3AcontentRange%3ACreateBusinessReportSchedule%27"><span class="hs-identifier hs-var hs-var">contentRange</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportContentRange.html#BusinessReportContentRange"><span class="hs-identifier hs-type">BusinessReportContentRange</span></a></span><span>
 </span><span id="line-79"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-80"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679392427"><span id="local-6989586621679392429"><span class="annot"><span class="annottext">CreateBusinessReportSchedule
+</span><span id="line-80"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679392796"><span id="local-6989586621679392798"><span class="annot"><span class="annottext">CreateBusinessReportSchedule
 -&gt; CreateBusinessReportSchedule -&gt; Bool
 (CreateBusinessReportSchedule
  -&gt; CreateBusinessReportSchedule -&gt; Bool)
@@ -101,7 +101,7 @@ $c/= :: CreateBusinessReportSchedule
 -&gt; CreateBusinessReportSchedule -&gt; Bool
 $c== :: CreateBusinessReportSchedule
 -&gt; CreateBusinessReportSchedule -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392418"><span id="local-6989586621679392420"><span id="local-6989586621679392422"><span id="local-6989586621679392424"><span class="annot"><span class="annottext">ReadPrec [CreateBusinessReportSchedule]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392787"><span id="local-6989586621679392789"><span id="local-6989586621679392791"><span id="local-6989586621679392793"><span class="annot"><span class="annottext">ReadPrec [CreateBusinessReportSchedule]
 ReadPrec CreateBusinessReportSchedule
 Int -&gt; ReadS CreateBusinessReportSchedule
 ReadS [CreateBusinessReportSchedule]
@@ -121,7 +121,7 @@ readList :: ReadS [CreateBusinessReportSchedule]
 $creadList :: ReadS [CreateBusinessReportSchedule]
 readsPrec :: Int -&gt; ReadS CreateBusinessReportSchedule
 $creadsPrec :: Int -&gt; ReadS CreateBusinessReportSchedule
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392411"><span id="local-6989586621679392413"><span id="local-6989586621679392415"><span class="annot"><span class="annottext">Int -&gt; CreateBusinessReportSchedule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392780"><span id="local-6989586621679392782"><span id="local-6989586621679392784"><span class="annot"><span class="annottext">Int -&gt; CreateBusinessReportSchedule -&gt; ShowS
 [CreateBusinessReportSchedule] -&gt; ShowS
 CreateBusinessReportSchedule -&gt; String
 (Int -&gt; CreateBusinessReportSchedule -&gt; ShowS)
@@ -166,15 +166,15 @@ CreateBusinessReportSchedule -&gt; Rep CreateBusinessReportSchedule x
 </span><span id="line-92"></span><span class="hs-comment">-- 'recurrence', 'createBusinessReportSchedule_recurrence' - The recurrence of the reports. If this isn\'t specified, the report will</span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- only be delivered one time when the API is called.</span><span>
 </span><span id="line-94"></span><span class="hs-comment">--</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- 'tags', 'createBusinessReportSchedule_tags' - The tags for the business report schedule.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'scheduleName', 'createBusinessReportSchedule_scheduleName' - The name identifier of the schedule.</span><span>
 </span><span id="line-96"></span><span class="hs-comment">--</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- 's3BucketName', 'createBusinessReportSchedule_s3BucketName' - The S3 bucket name of the output reports. If this isn\'t specified, the</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- report can be retrieved from a download link by calling</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- ListBusinessReportSchedule.</span><span>
-</span><span id="line-100"></span><span class="hs-comment">--</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- 'clientRequestToken', 'createBusinessReportSchedule_clientRequestToken' - The client request token.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'clientRequestToken', 'createBusinessReportSchedule_clientRequestToken' - The client request token.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 's3BucketName', 'createBusinessReportSchedule_s3BucketName' - The S3 bucket name of the output reports. If this isn\'t specified, the</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- report can be retrieved from a download link by calling</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- ListBusinessReportSchedule.</span><span>
 </span><span id="line-102"></span><span class="hs-comment">--</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- 'scheduleName', 'createBusinessReportSchedule_scheduleName' - The name identifier of the schedule.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'tags', 'createBusinessReportSchedule_tags' - The tags for the business report schedule.</span><span>
 </span><span id="line-104"></span><span class="hs-comment">--</span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- 'format', 'createBusinessReportSchedule_format' - The format of the generated report (individual CSV files or zipped files</span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- of individual files).</span><span>
@@ -189,16 +189,16 @@ CreateBusinessReportSchedule -&gt; Rep CreateBusinessReportSchedule x
 </span><span id="line-115"></span><span id="newCreateBusinessReportSchedule"><span class="annot"><span class="annottext">newCreateBusinessReportSchedule :: BusinessReportFormat
 -&gt; BusinessReportContentRange -&gt; CreateBusinessReportSchedule
 </span><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#newCreateBusinessReportSchedule"><span class="hs-identifier hs-var hs-var">newCreateBusinessReportSchedule</span></a></span></span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679392406"><span class="annot"><span class="annottext">BusinessReportFormat
-</span><a href="#local-6989586621679392406"><span class="hs-identifier hs-var">pFormat_</span></a></span></span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679392405"><span class="annot"><span class="annottext">BusinessReportContentRange
-</span><a href="#local-6989586621679392405"><span class="hs-identifier hs-var">pContentRange_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679392775"><span class="annot"><span class="annottext">BusinessReportFormat
+</span><a href="#local-6989586621679392775"><span class="hs-identifier hs-var">pFormat_</span></a></span></span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679392774"><span class="annot"><span class="annottext">BusinessReportContentRange
+</span><a href="#local-6989586621679392774"><span class="hs-identifier hs-var">pContentRange_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">CreateBusinessReportSchedule' :: Maybe Text
 -&gt; Maybe BusinessReportRecurrence
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe [Tag]
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; BusinessReportFormat
 -&gt; BusinessReportContentRange
 -&gt; CreateBusinessReportSchedule
@@ -212,28 +212,28 @@ forall a. Maybe a
 </span><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#%24sel%3Arecurrence%3ACreateBusinessReportSchedule%27"><span class="hs-identifier hs-var">recurrence</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BusinessReportRecurrence
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreateBusinessReportSchedule' :: Maybe [Tag]
-</span><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#%24sel%3Atags%3ACreateBusinessReportSchedule%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">$sel:scheduleName:CreateBusinessReportSchedule' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#%24sel%3AscheduleName%3ACreateBusinessReportSchedule%27"><span class="hs-identifier hs-var">scheduleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">$sel:s3BucketName:CreateBusinessReportSchedule' :: Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#%24sel%3As3BucketName%3ACreateBusinessReportSchedule%27"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">$sel:clientRequestToken:CreateBusinessReportSchedule' :: Maybe Text
+</span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">$sel:clientRequestToken:CreateBusinessReportSchedule' :: Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#%24sel%3AclientRequestToken%3ACreateBusinessReportSchedule%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">$sel:scheduleName:CreateBusinessReportSchedule' :: Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#%24sel%3AscheduleName%3ACreateBusinessReportSchedule%27"><span class="hs-identifier hs-var">scheduleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">$sel:s3BucketName:CreateBusinessReportSchedule' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#%24sel%3As3BucketName%3ACreateBusinessReportSchedule%27"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreateBusinessReportSchedule' :: Maybe [Tag]
+</span><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#%24sel%3Atags%3ACreateBusinessReportSchedule%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">$sel:format:CreateBusinessReportSchedule' :: BusinessReportFormat
 </span><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#%24sel%3Aformat%3ACreateBusinessReportSchedule%27"><span class="hs-identifier hs-var">format</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BusinessReportFormat
-</span><a href="#local-6989586621679392406"><span class="hs-identifier hs-var">pFormat_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679392775"><span class="hs-identifier hs-var">pFormat_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">$sel:contentRange:CreateBusinessReportSchedule' :: BusinessReportContentRange
 </span><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#%24sel%3AcontentRange%3ACreateBusinessReportSchedule%27"><span class="hs-identifier hs-var">contentRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BusinessReportContentRange
-</span><a href="#local-6989586621679392405"><span class="hs-identifier hs-var">pContentRange_</span></a></span><span>
+</span><a href="#local-6989586621679392774"><span class="hs-identifier hs-var">pContentRange_</span></a></span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- | The S3 key where the report is delivered.</span><span>
@@ -249,16 +249,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule%27"><span class="hs-identifier hs-type">CreateBusinessReportSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392402"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule%27"><span class="hs-identifier hs-type">CreateBusinessReportSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392771"><span class="annot"><span class="annottext">Maybe Text
 s3KeyPrefix :: Maybe Text
 $sel:s3KeyPrefix:CreateBusinessReportSchedule' :: CreateBusinessReportSchedule -&gt; Maybe Text
-</span><a href="#local-6989586621679392402"><span class="hs-identifier hs-var hs-var">s3KeyPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679392402"><span class="hs-identifier hs-var">s3KeyPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392401"><span class="annot"><span class="annottext">s :: CreateBusinessReportSchedule
-</span><a href="#local-6989586621679392401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule%27"><span class="hs-identifier hs-type">CreateBusinessReportSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392400"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679392400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBusinessReportSchedule
-</span><a href="#local-6989586621679392401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3KeyPrefix:CreateBusinessReportSchedule' :: Maybe Text
+</span><a href="#local-6989586621679392771"><span class="hs-identifier hs-var hs-var">s3KeyPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679392771"><span class="hs-identifier hs-var">s3KeyPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392770"><span class="annot"><span class="annottext">s :: CreateBusinessReportSchedule
+</span><a href="#local-6989586621679392770"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule%27"><span class="hs-identifier hs-type">CreateBusinessReportSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392769"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679392769"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBusinessReportSchedule
+</span><a href="#local-6989586621679392770"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3KeyPrefix:CreateBusinessReportSchedule' :: Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#%24sel%3As3KeyPrefix%3ACreateBusinessReportSchedule%27"><span class="hs-identifier hs-var">s3KeyPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679392400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule"><span class="hs-identifier hs-type">CreateBusinessReportSchedule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679392769"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule"><span class="hs-identifier hs-type">CreateBusinessReportSchedule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- | The recurrence of the reports. If this isn\'t specified, the report will</span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- only be delivered one time when the API is called.</span><span>
@@ -275,20 +275,94 @@ $sel:s3KeyPrefix:CreateBusinessReportSchedule' :: CreateBusinessReportSchedule -
      (Maybe BusinessReportRecurrence)
      (Maybe BusinessReportRecurrence)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule%27"><span class="hs-identifier hs-type">CreateBusinessReportSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392399"><span class="annot"><span class="annottext">Maybe BusinessReportRecurrence
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule%27"><span class="hs-identifier hs-type">CreateBusinessReportSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392768"><span class="annot"><span class="annottext">Maybe BusinessReportRecurrence
 recurrence :: Maybe BusinessReportRecurrence
 $sel:recurrence:CreateBusinessReportSchedule' :: CreateBusinessReportSchedule -&gt; Maybe BusinessReportRecurrence
-</span><a href="#local-6989586621679392399"><span class="hs-identifier hs-var hs-var">recurrence</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BusinessReportRecurrence
-</span><a href="#local-6989586621679392399"><span class="hs-identifier hs-var">recurrence</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392398"><span class="annot"><span class="annottext">s :: CreateBusinessReportSchedule
-</span><a href="#local-6989586621679392398"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule%27"><span class="hs-identifier hs-type">CreateBusinessReportSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392397"><span class="annot"><span class="annottext">Maybe BusinessReportRecurrence
-</span><a href="#local-6989586621679392397"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBusinessReportSchedule
-</span><a href="#local-6989586621679392398"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recurrence:CreateBusinessReportSchedule' :: Maybe BusinessReportRecurrence
+</span><a href="#local-6989586621679392768"><span class="hs-identifier hs-var hs-var">recurrence</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BusinessReportRecurrence
+</span><a href="#local-6989586621679392768"><span class="hs-identifier hs-var">recurrence</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392767"><span class="annot"><span class="annottext">s :: CreateBusinessReportSchedule
+</span><a href="#local-6989586621679392767"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule%27"><span class="hs-identifier hs-type">CreateBusinessReportSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392766"><span class="annot"><span class="annottext">Maybe BusinessReportRecurrence
+</span><a href="#local-6989586621679392766"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBusinessReportSchedule
+</span><a href="#local-6989586621679392767"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recurrence:CreateBusinessReportSchedule' :: Maybe BusinessReportRecurrence
 </span><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#%24sel%3Arecurrence%3ACreateBusinessReportSchedule%27"><span class="hs-identifier hs-var">recurrence</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BusinessReportRecurrence
-</span><a href="#local-6989586621679392397"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule"><span class="hs-identifier hs-type">CreateBusinessReportSchedule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679392766"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule"><span class="hs-identifier hs-type">CreateBusinessReportSchedule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- | The tags for the business report schedule.</span><span>
-</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#createBusinessReportSchedule_tags"><span class="hs-identifier hs-type">createBusinessReportSchedule_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule"><span class="hs-identifier hs-type">CreateBusinessReportSchedule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-141"></span><span id="createBusinessReportSchedule_tags"><span class="annot"><span class="annottext">createBusinessReportSchedule_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><span id="line-139"></span><span class="hs-comment">-- | The name identifier of the schedule.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#createBusinessReportSchedule_scheduleName"><span class="hs-identifier hs-type">createBusinessReportSchedule_scheduleName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule"><span class="hs-identifier hs-type">CreateBusinessReportSchedule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="createBusinessReportSchedule_scheduleName"><span class="annot"><span class="annottext">createBusinessReportSchedule_scheduleName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateBusinessReportSchedule -&gt; f CreateBusinessReportSchedule
+</span><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#createBusinessReportSchedule_scheduleName"><span class="hs-identifier hs-var hs-var">createBusinessReportSchedule_scheduleName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateBusinessReportSchedule -&gt; Maybe Text)
+-&gt; (CreateBusinessReportSchedule
+    -&gt; Maybe Text -&gt; CreateBusinessReportSchedule)
+-&gt; Lens
+     CreateBusinessReportSchedule
+     CreateBusinessReportSchedule
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule%27"><span class="hs-identifier hs-type">CreateBusinessReportSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392765"><span class="annot"><span class="annottext">Maybe Text
+scheduleName :: Maybe Text
+$sel:scheduleName:CreateBusinessReportSchedule' :: CreateBusinessReportSchedule -&gt; Maybe Text
+</span><a href="#local-6989586621679392765"><span class="hs-identifier hs-var hs-var">scheduleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679392765"><span class="hs-identifier hs-var">scheduleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392764"><span class="annot"><span class="annottext">s :: CreateBusinessReportSchedule
+</span><a href="#local-6989586621679392764"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule%27"><span class="hs-identifier hs-type">CreateBusinessReportSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392763"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679392763"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBusinessReportSchedule
+</span><a href="#local-6989586621679392764"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduleName:CreateBusinessReportSchedule' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#%24sel%3AscheduleName%3ACreateBusinessReportSchedule%27"><span class="hs-identifier hs-var">scheduleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679392763"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule"><span class="hs-identifier hs-type">CreateBusinessReportSchedule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | The client request token.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#createBusinessReportSchedule_clientRequestToken"><span class="hs-identifier hs-type">createBusinessReportSchedule_clientRequestToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule"><span class="hs-identifier hs-type">CreateBusinessReportSchedule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="createBusinessReportSchedule_clientRequestToken"><span class="annot"><span class="annottext">createBusinessReportSchedule_clientRequestToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateBusinessReportSchedule -&gt; f CreateBusinessReportSchedule
+</span><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#createBusinessReportSchedule_clientRequestToken"><span class="hs-identifier hs-var hs-var">createBusinessReportSchedule_clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateBusinessReportSchedule -&gt; Maybe Text)
+-&gt; (CreateBusinessReportSchedule
+    -&gt; Maybe Text -&gt; CreateBusinessReportSchedule)
+-&gt; Lens
+     CreateBusinessReportSchedule
+     CreateBusinessReportSchedule
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule%27"><span class="hs-identifier hs-type">CreateBusinessReportSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392762"><span class="annot"><span class="annottext">Maybe Text
+clientRequestToken :: Maybe Text
+$sel:clientRequestToken:CreateBusinessReportSchedule' :: CreateBusinessReportSchedule -&gt; Maybe Text
+</span><a href="#local-6989586621679392762"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679392762"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392761"><span class="annot"><span class="annottext">s :: CreateBusinessReportSchedule
+</span><a href="#local-6989586621679392761"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule%27"><span class="hs-identifier hs-type">CreateBusinessReportSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392760"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679392760"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBusinessReportSchedule
+</span><a href="#local-6989586621679392761"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientRequestToken:CreateBusinessReportSchedule' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#%24sel%3AclientRequestToken%3ACreateBusinessReportSchedule%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679392760"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule"><span class="hs-identifier hs-type">CreateBusinessReportSchedule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | The S3 bucket name of the output reports. If this isn\'t specified, the</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- report can be retrieved from a download link by calling</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- ListBusinessReportSchedule.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#createBusinessReportSchedule_s3BucketName"><span class="hs-identifier hs-type">createBusinessReportSchedule_s3BucketName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule"><span class="hs-identifier hs-type">CreateBusinessReportSchedule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span id="createBusinessReportSchedule_s3BucketName"><span class="annot"><span class="annottext">createBusinessReportSchedule_s3BucketName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateBusinessReportSchedule -&gt; f CreateBusinessReportSchedule
+</span><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#createBusinessReportSchedule_s3BucketName"><span class="hs-identifier hs-var hs-var">createBusinessReportSchedule_s3BucketName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateBusinessReportSchedule -&gt; Maybe Text)
+-&gt; (CreateBusinessReportSchedule
+    -&gt; Maybe Text -&gt; CreateBusinessReportSchedule)
+-&gt; Lens
+     CreateBusinessReportSchedule
+     CreateBusinessReportSchedule
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule%27"><span class="hs-identifier hs-type">CreateBusinessReportSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392759"><span class="annot"><span class="annottext">Maybe Text
+s3BucketName :: Maybe Text
+$sel:s3BucketName:CreateBusinessReportSchedule' :: CreateBusinessReportSchedule -&gt; Maybe Text
+</span><a href="#local-6989586621679392759"><span class="hs-identifier hs-var hs-var">s3BucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679392759"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392758"><span class="annot"><span class="annottext">s :: CreateBusinessReportSchedule
+</span><a href="#local-6989586621679392758"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule%27"><span class="hs-identifier hs-type">CreateBusinessReportSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392757"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679392757"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBusinessReportSchedule
+</span><a href="#local-6989586621679392758"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3BucketName:CreateBusinessReportSchedule' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#%24sel%3As3BucketName%3ACreateBusinessReportSchedule%27"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679392757"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule"><span class="hs-identifier hs-type">CreateBusinessReportSchedule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | The tags for the business report schedule.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#createBusinessReportSchedule_tags"><span class="hs-identifier hs-type">createBusinessReportSchedule_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule"><span class="hs-identifier hs-type">CreateBusinessReportSchedule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="createBusinessReportSchedule_tags"><span class="annot"><span class="annottext">createBusinessReportSchedule_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
 -&gt; CreateBusinessReportSchedule -&gt; f CreateBusinessReportSchedule
 </span><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#createBusinessReportSchedule_tags"><span class="hs-identifier hs-var hs-var">createBusinessReportSchedule_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateBusinessReportSchedule -&gt; Maybe [Tag])
 -&gt; (CreateBusinessReportSchedule
@@ -299,16 +373,16 @@ $sel:recurrence:CreateBusinessReportSchedule' :: CreateBusinessReportSchedule -&
      (Maybe [Tag])
      (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule%27"><span class="hs-identifier hs-type">CreateBusinessReportSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392396"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule%27"><span class="hs-identifier hs-type">CreateBusinessReportSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392756"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:CreateBusinessReportSchedule' :: CreateBusinessReportSchedule -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679392396"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679392396"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392395"><span class="annot"><span class="annottext">s :: CreateBusinessReportSchedule
-</span><a href="#local-6989586621679392395"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule%27"><span class="hs-identifier hs-type">CreateBusinessReportSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392394"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679392394"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBusinessReportSchedule
-</span><a href="#local-6989586621679392395"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateBusinessReportSchedule' :: Maybe [Tag]
+</span><a href="#local-6989586621679392756"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679392756"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392755"><span class="annot"><span class="annottext">s :: CreateBusinessReportSchedule
+</span><a href="#local-6989586621679392755"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule%27"><span class="hs-identifier hs-type">CreateBusinessReportSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392754"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679392754"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBusinessReportSchedule
+</span><a href="#local-6989586621679392755"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateBusinessReportSchedule' :: Maybe [Tag]
 </span><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#%24sel%3Atags%3ACreateBusinessReportSchedule%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679392394"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule"><span class="hs-identifier hs-type">CreateBusinessReportSchedule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621679392754"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule"><span class="hs-identifier hs-type">CreateBusinessReportSchedule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; CreateBusinessReportSchedule -&gt; f CreateBusinessReportSchedule)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -322,82 +396,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- | The S3 bucket name of the output reports. If this isn\'t specified, the</span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- report can be retrieved from a download link by calling</span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- ListBusinessReportSchedule.</span><span>
-</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#createBusinessReportSchedule_s3BucketName"><span class="hs-identifier hs-type">createBusinessReportSchedule_s3BucketName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule"><span class="hs-identifier hs-type">CreateBusinessReportSchedule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span id="createBusinessReportSchedule_s3BucketName"><span class="annot"><span class="annottext">createBusinessReportSchedule_s3BucketName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; CreateBusinessReportSchedule -&gt; f CreateBusinessReportSchedule
-</span><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#createBusinessReportSchedule_s3BucketName"><span class="hs-identifier hs-var hs-var">createBusinessReportSchedule_s3BucketName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateBusinessReportSchedule -&gt; Maybe Text)
--&gt; (CreateBusinessReportSchedule
-    -&gt; Maybe Text -&gt; CreateBusinessReportSchedule)
--&gt; Lens
-     CreateBusinessReportSchedule
-     CreateBusinessReportSchedule
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule%27"><span class="hs-identifier hs-type">CreateBusinessReportSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392390"><span class="annot"><span class="annottext">Maybe Text
-s3BucketName :: Maybe Text
-$sel:s3BucketName:CreateBusinessReportSchedule' :: CreateBusinessReportSchedule -&gt; Maybe Text
-</span><a href="#local-6989586621679392390"><span class="hs-identifier hs-var hs-var">s3BucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679392390"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392389"><span class="annot"><span class="annottext">s :: CreateBusinessReportSchedule
-</span><a href="#local-6989586621679392389"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule%27"><span class="hs-identifier hs-type">CreateBusinessReportSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392388"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679392388"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBusinessReportSchedule
-</span><a href="#local-6989586621679392389"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3BucketName:CreateBusinessReportSchedule' :: Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#%24sel%3As3BucketName%3ACreateBusinessReportSchedule%27"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679392388"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule"><span class="hs-identifier hs-type">CreateBusinessReportSchedule</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- | The client request token.</span><span>
-</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#createBusinessReportSchedule_clientRequestToken"><span class="hs-identifier hs-type">createBusinessReportSchedule_clientRequestToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule"><span class="hs-identifier hs-type">CreateBusinessReportSchedule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-151"></span><span id="createBusinessReportSchedule_clientRequestToken"><span class="annot"><span class="annottext">createBusinessReportSchedule_clientRequestToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; CreateBusinessReportSchedule -&gt; f CreateBusinessReportSchedule
-</span><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#createBusinessReportSchedule_clientRequestToken"><span class="hs-identifier hs-var hs-var">createBusinessReportSchedule_clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateBusinessReportSchedule -&gt; Maybe Text)
--&gt; (CreateBusinessReportSchedule
-    -&gt; Maybe Text -&gt; CreateBusinessReportSchedule)
--&gt; Lens
-     CreateBusinessReportSchedule
-     CreateBusinessReportSchedule
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule%27"><span class="hs-identifier hs-type">CreateBusinessReportSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392387"><span class="annot"><span class="annottext">Maybe Text
-clientRequestToken :: Maybe Text
-$sel:clientRequestToken:CreateBusinessReportSchedule' :: CreateBusinessReportSchedule -&gt; Maybe Text
-</span><a href="#local-6989586621679392387"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679392387"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392386"><span class="annot"><span class="annottext">s :: CreateBusinessReportSchedule
-</span><a href="#local-6989586621679392386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule%27"><span class="hs-identifier hs-type">CreateBusinessReportSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392385"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679392385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBusinessReportSchedule
-</span><a href="#local-6989586621679392386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientRequestToken:CreateBusinessReportSchedule' :: Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#%24sel%3AclientRequestToken%3ACreateBusinessReportSchedule%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679392385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule"><span class="hs-identifier hs-type">CreateBusinessReportSchedule</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- | The name identifier of the schedule.</span><span>
-</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#createBusinessReportSchedule_scheduleName"><span class="hs-identifier hs-type">createBusinessReportSchedule_scheduleName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule"><span class="hs-identifier hs-type">CreateBusinessReportSchedule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-155"></span><span id="createBusinessReportSchedule_scheduleName"><span class="annot"><span class="annottext">createBusinessReportSchedule_scheduleName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; CreateBusinessReportSchedule -&gt; f CreateBusinessReportSchedule
-</span><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#createBusinessReportSchedule_scheduleName"><span class="hs-identifier hs-var hs-var">createBusinessReportSchedule_scheduleName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateBusinessReportSchedule -&gt; Maybe Text)
--&gt; (CreateBusinessReportSchedule
-    -&gt; Maybe Text -&gt; CreateBusinessReportSchedule)
--&gt; Lens
-     CreateBusinessReportSchedule
-     CreateBusinessReportSchedule
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule%27"><span class="hs-identifier hs-type">CreateBusinessReportSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392384"><span class="annot"><span class="annottext">Maybe Text
-scheduleName :: Maybe Text
-$sel:scheduleName:CreateBusinessReportSchedule' :: CreateBusinessReportSchedule -&gt; Maybe Text
-</span><a href="#local-6989586621679392384"><span class="hs-identifier hs-var hs-var">scheduleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679392384"><span class="hs-identifier hs-var">scheduleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392383"><span class="annot"><span class="annottext">s :: CreateBusinessReportSchedule
-</span><a href="#local-6989586621679392383"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule%27"><span class="hs-identifier hs-type">CreateBusinessReportSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392382"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679392382"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBusinessReportSchedule
-</span><a href="#local-6989586621679392383"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduleName:CreateBusinessReportSchedule' :: Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#%24sel%3AscheduleName%3ACreateBusinessReportSchedule%27"><span class="hs-identifier hs-var">scheduleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679392382"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule"><span class="hs-identifier hs-type">CreateBusinessReportSchedule</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- | The format of the generated report (individual CSV files or zipped files</span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- of individual files).</span><span>
@@ -413,16 +413,16 @@ $sel:scheduleName:CreateBusinessReportSchedule' :: CreateBusinessReportSchedule 
      BusinessReportFormat
      BusinessReportFormat
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule%27"><span class="hs-identifier hs-type">CreateBusinessReportSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392381"><span class="annot"><span class="annottext">BusinessReportFormat
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule%27"><span class="hs-identifier hs-type">CreateBusinessReportSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392750"><span class="annot"><span class="annottext">BusinessReportFormat
 format :: BusinessReportFormat
 $sel:format:CreateBusinessReportSchedule' :: CreateBusinessReportSchedule -&gt; BusinessReportFormat
-</span><a href="#local-6989586621679392381"><span class="hs-identifier hs-var hs-var">format</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BusinessReportFormat
-</span><a href="#local-6989586621679392381"><span class="hs-identifier hs-var">format</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392380"><span class="annot"><span class="annottext">s :: CreateBusinessReportSchedule
-</span><a href="#local-6989586621679392380"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule%27"><span class="hs-identifier hs-type">CreateBusinessReportSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392379"><span class="annot"><span class="annottext">BusinessReportFormat
-</span><a href="#local-6989586621679392379"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBusinessReportSchedule
-</span><a href="#local-6989586621679392380"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:format:CreateBusinessReportSchedule' :: BusinessReportFormat
+</span><a href="#local-6989586621679392750"><span class="hs-identifier hs-var hs-var">format</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BusinessReportFormat
+</span><a href="#local-6989586621679392750"><span class="hs-identifier hs-var">format</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392749"><span class="annot"><span class="annottext">s :: CreateBusinessReportSchedule
+</span><a href="#local-6989586621679392749"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule%27"><span class="hs-identifier hs-type">CreateBusinessReportSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392748"><span class="annot"><span class="annottext">BusinessReportFormat
+</span><a href="#local-6989586621679392748"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBusinessReportSchedule
+</span><a href="#local-6989586621679392749"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:format:CreateBusinessReportSchedule' :: BusinessReportFormat
 </span><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#%24sel%3Aformat%3ACreateBusinessReportSchedule%27"><span class="hs-identifier hs-var">format</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BusinessReportFormat
-</span><a href="#local-6989586621679392379"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule"><span class="hs-identifier hs-type">CreateBusinessReportSchedule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679392748"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule"><span class="hs-identifier hs-type">CreateBusinessReportSchedule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-comment">-- | The content range of the reports.</span><span>
 </span><span id="line-163"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#createBusinessReportSchedule_contentRange"><span class="hs-identifier hs-type">createBusinessReportSchedule_contentRange</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule"><span class="hs-identifier hs-type">CreateBusinessReportSchedule</span></a></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportContentRange.html#BusinessReportContentRange"><span class="hs-identifier hs-type">BusinessReportContentRange</span></a></span><span>
@@ -437,22 +437,22 @@ $sel:format:CreateBusinessReportSchedule' :: CreateBusinessReportSchedule -&gt; 
      BusinessReportContentRange
      BusinessReportContentRange
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule%27"><span class="hs-identifier hs-type">CreateBusinessReportSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392378"><span class="annot"><span class="annottext">BusinessReportContentRange
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule%27"><span class="hs-identifier hs-type">CreateBusinessReportSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392747"><span class="annot"><span class="annottext">BusinessReportContentRange
 contentRange :: BusinessReportContentRange
 $sel:contentRange:CreateBusinessReportSchedule' :: CreateBusinessReportSchedule -&gt; BusinessReportContentRange
-</span><a href="#local-6989586621679392378"><span class="hs-identifier hs-var hs-var">contentRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BusinessReportContentRange
-</span><a href="#local-6989586621679392378"><span class="hs-identifier hs-var">contentRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392377"><span class="annot"><span class="annottext">s :: CreateBusinessReportSchedule
-</span><a href="#local-6989586621679392377"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule%27"><span class="hs-identifier hs-type">CreateBusinessReportSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392376"><span class="annot"><span class="annottext">BusinessReportContentRange
-</span><a href="#local-6989586621679392376"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBusinessReportSchedule
-</span><a href="#local-6989586621679392377"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentRange:CreateBusinessReportSchedule' :: BusinessReportContentRange
+</span><a href="#local-6989586621679392747"><span class="hs-identifier hs-var hs-var">contentRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BusinessReportContentRange
+</span><a href="#local-6989586621679392747"><span class="hs-identifier hs-var">contentRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392746"><span class="annot"><span class="annottext">s :: CreateBusinessReportSchedule
+</span><a href="#local-6989586621679392746"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule%27"><span class="hs-identifier hs-type">CreateBusinessReportSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392745"><span class="annot"><span class="annottext">BusinessReportContentRange
+</span><a href="#local-6989586621679392745"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBusinessReportSchedule
+</span><a href="#local-6989586621679392746"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentRange:CreateBusinessReportSchedule' :: BusinessReportContentRange
 </span><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#%24sel%3AcontentRange%3ACreateBusinessReportSchedule%27"><span class="hs-identifier hs-var">contentRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BusinessReportContentRange
-</span><a href="#local-6989586621679392376"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule"><span class="hs-identifier hs-type">CreateBusinessReportSchedule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679392745"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule"><span class="hs-identifier hs-type">CreateBusinessReportSchedule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule"><span class="hs-identifier hs-type">CreateBusinessReportSchedule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-167"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-168"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule"><span class="hs-identifier hs-type">CreateBusinessReportSchedule</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-169"></span><span>      </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportScheduleResponse"><span class="hs-identifier hs-type">CreateBusinessReportScheduleResponse</span></a></span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621679392372"><span class="annot"><span class="annottext">request :: CreateBusinessReportSchedule
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679392741"><span class="annot"><span class="annottext">request :: CreateBusinessReportSchedule
 -&gt; Request CreateBusinessReportSchedule
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; CreateBusinessReportSchedule
@@ -460,7 +460,7 @@ $sel:contentRange:CreateBusinessReportSchedule' :: CreateBusinessReportSchedule 
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AlexaBusiness.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-171"></span><span>  </span><span id="local-6989586621679392368"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679392737"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateBusinessReportSchedule
 -&gt; ClientResponse ClientBody
@@ -486,10 +486,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-173"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679392365"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679392365"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679392364"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679392364"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679392363"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679392363"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679392734"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679392734"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679392733"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679392733"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679392732"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679392732"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-174"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; CreateBusinessReportScheduleResponse
 </span><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportScheduleResponse%27"><span class="hs-identifier hs-var">CreateBusinessReportScheduleResponse'</span></a></span><span>
 </span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; CreateBusinessReportScheduleResponse)
@@ -497,7 +497,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; CreateBusinessReportScheduleResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679392363"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679392732"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ScheduleArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -510,17 +510,17 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679392365"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679392734"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621679392355"><span id="local-6989586621679392357"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679392724"><span id="local-6989586621679392726"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-181"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule"><span class="hs-identifier hs-type">CreateBusinessReportSchedule</span></a></span></span></span><span>
 </span><span id="line-182"></span><span>
-</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392352"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule"><span class="hs-identifier hs-type">CreateBusinessReportSchedule</span></a></span></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392721"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule"><span class="hs-identifier hs-type">CreateBusinessReportSchedule</span></a></span></span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule"><span class="hs-identifier hs-type">CreateBusinessReportSchedule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-186"></span><span>  </span><span id="local-6989586621679392348"><span class="annot"><span class="annottext">toHeaders :: CreateBusinessReportSchedule -&gt; ResponseHeaders
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679392717"><span class="annot"><span class="annottext">toHeaders :: CreateBusinessReportSchedule -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-187"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateBusinessReportSchedule -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -547,30 +547,30 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-197"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-198"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-199"></span><span>
-</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392338"><span id="local-6989586621679392340"><span id="local-6989586621679392342"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule"><span class="hs-identifier hs-type">CreateBusinessReportSchedule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-201"></span><span>  </span><span id="local-6989586621679392336"><span class="annot"><span class="annottext">toJSON :: CreateBusinessReportSchedule -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule%27"><span class="hs-identifier hs-type">CreateBusinessReportSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392327"><span id="local-6989586621679392328"><span id="local-6989586621679392329"><span id="local-6989586621679392330"><span id="local-6989586621679392331"><span id="local-6989586621679392332"><span id="local-6989586621679392333"><span id="local-6989586621679392334"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392707"><span id="local-6989586621679392709"><span id="local-6989586621679392711"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule"><span class="hs-identifier hs-type">CreateBusinessReportSchedule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-201"></span><span>  </span><span id="local-6989586621679392705"><span class="annot"><span class="annottext">toJSON :: CreateBusinessReportSchedule -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule%27"><span class="hs-identifier hs-type">CreateBusinessReportSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392696"><span id="local-6989586621679392697"><span id="local-6989586621679392698"><span id="local-6989586621679392699"><span id="local-6989586621679392700"><span id="local-6989586621679392701"><span id="local-6989586621679392702"><span id="local-6989586621679392703"><span class="annot"><span class="annottext">Maybe [Tag]
 Maybe Text
 Maybe BusinessReportRecurrence
 BusinessReportFormat
 BusinessReportContentRange
 contentRange :: BusinessReportContentRange
 format :: BusinessReportFormat
-scheduleName :: Maybe Text
-clientRequestToken :: Maybe Text
-s3BucketName :: Maybe Text
 tags :: Maybe [Tag]
+s3BucketName :: Maybe Text
+clientRequestToken :: Maybe Text
+scheduleName :: Maybe Text
 recurrence :: Maybe BusinessReportRecurrence
 s3KeyPrefix :: Maybe Text
 $sel:contentRange:CreateBusinessReportSchedule' :: CreateBusinessReportSchedule -&gt; BusinessReportContentRange
 $sel:format:CreateBusinessReportSchedule' :: CreateBusinessReportSchedule -&gt; BusinessReportFormat
-$sel:scheduleName:CreateBusinessReportSchedule' :: CreateBusinessReportSchedule -&gt; Maybe Text
-$sel:clientRequestToken:CreateBusinessReportSchedule' :: CreateBusinessReportSchedule -&gt; Maybe Text
-$sel:s3BucketName:CreateBusinessReportSchedule' :: CreateBusinessReportSchedule -&gt; Maybe Text
 $sel:tags:CreateBusinessReportSchedule' :: CreateBusinessReportSchedule -&gt; Maybe [Tag]
+$sel:s3BucketName:CreateBusinessReportSchedule' :: CreateBusinessReportSchedule -&gt; Maybe Text
+$sel:clientRequestToken:CreateBusinessReportSchedule' :: CreateBusinessReportSchedule -&gt; Maybe Text
+$sel:scheduleName:CreateBusinessReportSchedule' :: CreateBusinessReportSchedule -&gt; Maybe Text
 $sel:recurrence:CreateBusinessReportSchedule' :: CreateBusinessReportSchedule -&gt; Maybe BusinessReportRecurrence
 $sel:s3KeyPrefix:CreateBusinessReportSchedule' :: CreateBusinessReportSchedule -&gt; Maybe Text
-</span><a href="#local-6989586621679392327"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679392696"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-202"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-203"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -582,7 +582,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679392334"><span class="hs-identifier hs-var">s3KeyPrefix</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679392703"><span class="hs-identifier hs-var">s3KeyPrefix</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-205"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Recurrence&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; BusinessReportRecurrence -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -590,62 +590,62 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe BusinessReportRecurrence -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe BusinessReportRecurrence
-</span><a href="#local-6989586621679392333"><span class="hs-identifier hs-var">recurrence</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679392702"><span class="hs-identifier hs-var">recurrence</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-206"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679392332"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-207"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;S3BucketName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679392331"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-208"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ClientRequestToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-209"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679392330"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-210"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ScheduleName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679392329"><span class="hs-identifier hs-var">scheduleName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679392701"><span class="hs-identifier hs-var">scheduleName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClientRequestToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679392700"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3BucketName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679392699"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679392698"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-211"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Format&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; BusinessReportFormat -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">BusinessReportFormat
-</span><a href="#local-6989586621679392328"><span class="hs-identifier hs-var">format</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679392697"><span class="hs-identifier hs-var">format</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-212"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ContentRange&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; BusinessReportContentRange -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">BusinessReportContentRange
-</span><a href="#local-6989586621679392327"><span class="hs-identifier hs-var">contentRange</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679392696"><span class="hs-identifier hs-var">contentRange</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-213"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-214"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-215"></span><span>
 </span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule"><span class="hs-identifier hs-type">CreateBusinessReportSchedule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-217"></span><span>  </span><span id="local-6989586621679392321"><span class="annot"><span class="annottext">toPath :: CreateBusinessReportSchedule -&gt; ByteString
+</span><span id="line-217"></span><span>  </span><span id="local-6989586621679392690"><span class="annot"><span class="annottext">toPath :: CreateBusinessReportSchedule -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateBusinessReportSchedule -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-218"></span><span>
 </span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportSchedule"><span class="hs-identifier hs-type">CreateBusinessReportSchedule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-220"></span><span>  </span><span id="local-6989586621679392317"><span class="annot"><span class="annottext">toQuery :: CreateBusinessReportSchedule -&gt; QueryString
+</span><span id="line-220"></span><span>  </span><span id="local-6989586621679392686"><span class="annot"><span class="annottext">toQuery :: CreateBusinessReportSchedule -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateBusinessReportSchedule -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -653,7 +653,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-221"></span><span>
 </span><span id="line-222"></span><span class="hs-comment">-- | /See:/ 'newCreateBusinessReportScheduleResponse' smart constructor.</span><span>
-</span><span id="line-223"></span><span id="local-6989586621679392314"><span id="local-6989586621679392315"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateBusinessReportScheduleResponse"><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportScheduleResponse"><span class="hs-identifier hs-var">CreateBusinessReportScheduleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateBusinessReportScheduleResponse%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportScheduleResponse%27"><span class="hs-identifier hs-var">CreateBusinessReportScheduleResponse'</span></a></span></span><span>
+</span><span id="line-223"></span><span id="local-6989586621679392683"><span id="local-6989586621679392684"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateBusinessReportScheduleResponse"><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportScheduleResponse"><span class="hs-identifier hs-var">CreateBusinessReportScheduleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateBusinessReportScheduleResponse%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportScheduleResponse%27"><span class="hs-identifier hs-var">CreateBusinessReportScheduleResponse'</span></a></span></span><span>
 </span><span id="line-224"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the business report schedule.</span><span>
 </span><span id="line-225"></span><span>    </span><span id="%24sel%3AscheduleArn%3ACreateBusinessReportScheduleResponse%27"><span class="annot"><span class="annottext">CreateBusinessReportScheduleResponse -&gt; Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#%24sel%3AscheduleArn%3ACreateBusinessReportScheduleResponse%27"><span class="hs-identifier hs-var hs-var">scheduleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -661,7 +661,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-227"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateBusinessReportScheduleResponse%27"><span class="annot"><span class="annottext">CreateBusinessReportScheduleResponse -&gt; Int
 </span><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#%24sel%3AhttpStatus%3ACreateBusinessReportScheduleResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-228"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-229"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679392308"><span id="local-6989586621679392310"><span class="annot"><span class="annottext">CreateBusinessReportScheduleResponse
+</span><span id="line-229"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679392677"><span id="local-6989586621679392679"><span class="annot"><span class="annottext">CreateBusinessReportScheduleResponse
 -&gt; CreateBusinessReportScheduleResponse -&gt; Bool
 (CreateBusinessReportScheduleResponse
  -&gt; CreateBusinessReportScheduleResponse -&gt; Bool)
@@ -677,7 +677,7 @@ $c/= :: CreateBusinessReportScheduleResponse
 -&gt; CreateBusinessReportScheduleResponse -&gt; Bool
 $c== :: CreateBusinessReportScheduleResponse
 -&gt; CreateBusinessReportScheduleResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392300"><span id="local-6989586621679392302"><span id="local-6989586621679392304"><span id="local-6989586621679392306"><span class="annot"><span class="annottext">ReadPrec [CreateBusinessReportScheduleResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392669"><span id="local-6989586621679392671"><span id="local-6989586621679392673"><span id="local-6989586621679392675"><span class="annot"><span class="annottext">ReadPrec [CreateBusinessReportScheduleResponse]
 ReadPrec CreateBusinessReportScheduleResponse
 Int -&gt; ReadS CreateBusinessReportScheduleResponse
 ReadS [CreateBusinessReportScheduleResponse]
@@ -697,7 +697,7 @@ readList :: ReadS [CreateBusinessReportScheduleResponse]
 $creadList :: ReadS [CreateBusinessReportScheduleResponse]
 readsPrec :: Int -&gt; ReadS CreateBusinessReportScheduleResponse
 $creadsPrec :: Int -&gt; ReadS CreateBusinessReportScheduleResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392294"><span id="local-6989586621679392296"><span id="local-6989586621679392298"><span class="annot"><span class="annottext">Int -&gt; CreateBusinessReportScheduleResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392663"><span id="local-6989586621679392665"><span id="local-6989586621679392667"><span class="annot"><span class="annottext">Int -&gt; CreateBusinessReportScheduleResponse -&gt; ShowS
 [CreateBusinessReportScheduleResponse] -&gt; ShowS
 CreateBusinessReportScheduleResponse -&gt; String
 (Int -&gt; CreateBusinessReportScheduleResponse -&gt; ShowS)
@@ -751,8 +751,8 @@ CreateBusinessReportScheduleResponse
 </span><span id="line-244"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-245"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportScheduleResponse"><span class="hs-identifier hs-type">CreateBusinessReportScheduleResponse</span></a></span><span>
 </span><span id="line-246"></span><span id="newCreateBusinessReportScheduleResponse"><span class="annot"><span class="annottext">newCreateBusinessReportScheduleResponse :: Int -&gt; CreateBusinessReportScheduleResponse
-</span><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#newCreateBusinessReportScheduleResponse"><span class="hs-identifier hs-var hs-var">newCreateBusinessReportScheduleResponse</span></a></span></span><span> </span><span id="local-6989586621679392291"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679392291"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#newCreateBusinessReportScheduleResponse"><span class="hs-identifier hs-var hs-var">newCreateBusinessReportScheduleResponse</span></a></span></span><span> </span><span id="local-6989586621679392660"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679392660"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-247"></span><span>  </span><span class="annot"><span class="annottext">CreateBusinessReportScheduleResponse' :: Maybe Text -&gt; Int -&gt; CreateBusinessReportScheduleResponse
 </span><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportScheduleResponse%27"><span class="hs-identifier hs-type">CreateBusinessReportScheduleResponse'</span></a></span><span>
 </span><span id="line-248"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:scheduleArn:CreateBusinessReportScheduleResponse' :: Maybe Text
@@ -762,7 +762,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-250"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateBusinessReportScheduleResponse' :: Int
 </span><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#%24sel%3AhttpStatus%3ACreateBusinessReportScheduleResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679392291"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679392660"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-251"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-252"></span><span>
 </span><span id="line-253"></span><span class="hs-comment">-- | The ARN of the business report schedule.</span><span>
@@ -779,16 +779,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportScheduleResponse%27"><span class="hs-identifier hs-type">CreateBusinessReportScheduleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392290"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportScheduleResponse%27"><span class="hs-identifier hs-type">CreateBusinessReportScheduleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392659"><span class="annot"><span class="annottext">Maybe Text
 scheduleArn :: Maybe Text
 $sel:scheduleArn:CreateBusinessReportScheduleResponse' :: CreateBusinessReportScheduleResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679392290"><span class="hs-identifier hs-var hs-var">scheduleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679392290"><span class="hs-identifier hs-var">scheduleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392289"><span class="annot"><span class="annottext">s :: CreateBusinessReportScheduleResponse
-</span><a href="#local-6989586621679392289"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportScheduleResponse%27"><span class="hs-identifier hs-type">CreateBusinessReportScheduleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392288"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679392288"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBusinessReportScheduleResponse
-</span><a href="#local-6989586621679392289"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduleArn:CreateBusinessReportScheduleResponse' :: Maybe Text
+</span><a href="#local-6989586621679392659"><span class="hs-identifier hs-var hs-var">scheduleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679392659"><span class="hs-identifier hs-var">scheduleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392658"><span class="annot"><span class="annottext">s :: CreateBusinessReportScheduleResponse
+</span><a href="#local-6989586621679392658"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportScheduleResponse%27"><span class="hs-identifier hs-type">CreateBusinessReportScheduleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392657"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679392657"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBusinessReportScheduleResponse
+</span><a href="#local-6989586621679392658"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduleArn:CreateBusinessReportScheduleResponse' :: Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#%24sel%3AscheduleArn%3ACreateBusinessReportScheduleResponse%27"><span class="hs-identifier hs-var">scheduleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679392288"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportScheduleResponse"><span class="hs-identifier hs-type">CreateBusinessReportScheduleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679392657"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportScheduleResponse"><span class="hs-identifier hs-type">CreateBusinessReportScheduleResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-256"></span><span>
 </span><span id="line-257"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-258"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#createBusinessReportScheduleResponse_httpStatus"><span class="hs-identifier hs-type">createBusinessReportScheduleResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportScheduleResponse"><span class="hs-identifier hs-type">CreateBusinessReportScheduleResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -804,18 +804,18 @@ $sel:scheduleArn:CreateBusinessReportScheduleResponse' :: CreateBusinessReportSc
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportScheduleResponse%27"><span class="hs-identifier hs-type">CreateBusinessReportScheduleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392287"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportScheduleResponse%27"><span class="hs-identifier hs-type">CreateBusinessReportScheduleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392656"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateBusinessReportScheduleResponse' :: CreateBusinessReportScheduleResponse -&gt; Int
-</span><a href="#local-6989586621679392287"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679392287"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392286"><span class="annot"><span class="annottext">s :: CreateBusinessReportScheduleResponse
-</span><a href="#local-6989586621679392286"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportScheduleResponse%27"><span class="hs-identifier hs-type">CreateBusinessReportScheduleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392285"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679392285"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBusinessReportScheduleResponse
-</span><a href="#local-6989586621679392286"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateBusinessReportScheduleResponse' :: Int
+</span><a href="#local-6989586621679392656"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679392656"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392655"><span class="annot"><span class="annottext">s :: CreateBusinessReportScheduleResponse
+</span><a href="#local-6989586621679392655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportScheduleResponse%27"><span class="hs-identifier hs-type">CreateBusinessReportScheduleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392654"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679392654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBusinessReportScheduleResponse
+</span><a href="#local-6989586621679392655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateBusinessReportScheduleResponse' :: Int
 </span><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#%24sel%3AhttpStatus%3ACreateBusinessReportScheduleResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679392285"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportScheduleResponse"><span class="hs-identifier hs-type">CreateBusinessReportScheduleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679392654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportScheduleResponse"><span class="hs-identifier hs-type">CreateBusinessReportScheduleResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-260"></span><span>
 </span><span id="line-261"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-262"></span><span>  </span><span id="local-6989586621679392283"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-262"></span><span>  </span><span id="local-6989586621679392652"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-263"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateBusinessReportSchedule.html#CreateBusinessReportScheduleResponse"><span class="hs-identifier hs-type">CreateBusinessReportScheduleResponse</span></a></span></span><span>
 </span><span id="line-264"></span></pre></body></html>

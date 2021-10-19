@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679782938"><span id="local-6989586621679782939"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DomainConfigurationStatus"><span class="annot"><a href="Network.AWS.IoT.Types.DomainConfigurationStatus.html#DomainConfigurationStatus"><span class="hs-identifier hs-var">DomainConfigurationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DomainConfigurationStatus%27"><span class="annot"><a href="Network.AWS.IoT.Types.DomainConfigurationStatus.html#DomainConfigurationStatus%27"><span class="hs-identifier hs-var">DomainConfigurationStatus'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679783789"><span id="local-6989586621679783790"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DomainConfigurationStatus"><span class="annot"><a href="Network.AWS.IoT.Types.DomainConfigurationStatus.html#DomainConfigurationStatus"><span class="hs-identifier hs-var">DomainConfigurationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DomainConfigurationStatus%27"><span class="annot"><a href="Network.AWS.IoT.Types.DomainConfigurationStatus.html#DomainConfigurationStatus%27"><span class="hs-identifier hs-var">DomainConfigurationStatus'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDomainConfigurationStatus"><span class="annot"><span class="annottext">DomainConfigurationStatus -&gt; Text
 </span><a href="Network.AWS.IoT.Types.DomainConfigurationStatus.html#fromDomainConfigurationStatus"><span class="hs-identifier hs-var hs-var">fromDomainConfigurationStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679782930"><span id="local-6989586621679782932"><span id="local-6989586621679782934"><span class="annot"><span class="annottext">Int -&gt; DomainConfigurationStatus -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679783781"><span id="local-6989586621679783783"><span id="local-6989586621679783785"><span class="annot"><span class="annottext">Int -&gt; DomainConfigurationStatus -&gt; ShowS
 [DomainConfigurationStatus] -&gt; ShowS
 DomainConfigurationStatus -&gt; String
 (Int -&gt; DomainConfigurationStatus -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: DomainConfigurationStatus -&gt; String
 showsPrec :: Int -&gt; DomainConfigurationStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; DomainConfigurationStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679782921"><span id="local-6989586621679782923"><span id="local-6989586621679782925"><span id="local-6989586621679782927"><span class="annot"><span class="annottext">ReadPrec [DomainConfigurationStatus]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679783772"><span id="local-6989586621679783774"><span id="local-6989586621679783776"><span id="local-6989586621679783778"><span class="annot"><span class="annottext">ReadPrec [DomainConfigurationStatus]
 ReadPrec DomainConfigurationStatus
 Int -&gt; ReadS DomainConfigurationStatus
 ReadS [DomainConfigurationStatus]
@@ -72,7 +72,7 @@ $creadList :: ReadS [DomainConfigurationStatus]
 readsPrec :: Int -&gt; ReadS DomainConfigurationStatus
 $creadsPrec :: Int -&gt; ReadS DomainConfigurationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679782916"><span id="local-6989586621679782918"><span class="annot"><span class="annottext">DomainConfigurationStatus -&gt; DomainConfigurationStatus -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679783767"><span id="local-6989586621679783769"><span class="annot"><span class="annottext">DomainConfigurationStatus -&gt; DomainConfigurationStatus -&gt; Bool
 (DomainConfigurationStatus -&gt; DomainConfigurationStatus -&gt; Bool)
 -&gt; (DomainConfigurationStatus -&gt; DomainConfigurationStatus -&gt; Bool)
 -&gt; Eq DomainConfigurationStatus
@@ -82,7 +82,7 @@ $c/= :: DomainConfigurationStatus -&gt; DomainConfigurationStatus -&gt; Bool
 == :: DomainConfigurationStatus -&gt; DomainConfigurationStatus -&gt; Bool
 $c== :: DomainConfigurationStatus -&gt; DomainConfigurationStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679782900"><span id="local-6989586621679782902"><span id="local-6989586621679782904"><span id="local-6989586621679782906"><span id="local-6989586621679782908"><span id="local-6989586621679782910"><span id="local-6989586621679782912"><span class="annot"><span class="annottext">Eq DomainConfigurationStatus
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679783751"><span id="local-6989586621679783753"><span id="local-6989586621679783755"><span id="local-6989586621679783757"><span id="local-6989586621679783759"><span id="local-6989586621679783761"><span id="local-6989586621679783763"><span class="annot"><span class="annottext">Eq DomainConfigurationStatus
 Eq DomainConfigurationStatus
 -&gt; (DomainConfigurationStatus
     -&gt; DomainConfigurationStatus -&gt; Ordering)
@@ -147,7 +147,7 @@ DomainConfigurationStatus -&gt; Rep DomainConfigurationStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679782892"><span id="local-6989586621679782894"><span class="annot"><span class="annottext">Int -&gt; DomainConfigurationStatus -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679783743"><span id="local-6989586621679783745"><span class="annot"><span class="annottext">Int -&gt; DomainConfigurationStatus -&gt; Int
 DomainConfigurationStatus -&gt; Int
 (Int -&gt; DomainConfigurationStatus -&gt; Int)
 -&gt; (DomainConfigurationStatus -&gt; Int)
@@ -158,56 +158,56 @@ $chash :: DomainConfigurationStatus -&gt; Int
 hashWithSalt :: Int -&gt; DomainConfigurationStatus -&gt; Int
 $chashWithSalt :: Int -&gt; DomainConfigurationStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679782889"><span class="annot"><span class="annottext">DomainConfigurationStatus -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679783740"><span class="annot"><span class="annottext">DomainConfigurationStatus -&gt; ()
 (DomainConfigurationStatus -&gt; ())
 -&gt; NFData DomainConfigurationStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DomainConfigurationStatus -&gt; ()
 $crnf :: DomainConfigurationStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679782886"><span class="annot"><span class="annottext">Text -&gt; Either String DomainConfigurationStatus
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679783737"><span class="annot"><span class="annottext">Text -&gt; Either String DomainConfigurationStatus
 (Text -&gt; Either String DomainConfigurationStatus)
 -&gt; FromText DomainConfigurationStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DomainConfigurationStatus
 $cfromText :: Text -&gt; Either String DomainConfigurationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679782883"><span class="annot"><span class="annottext">DomainConfigurationStatus -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679783734"><span class="annot"><span class="annottext">DomainConfigurationStatus -&gt; Text
 (DomainConfigurationStatus -&gt; Text)
 -&gt; ToText DomainConfigurationStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DomainConfigurationStatus -&gt; Text
 $ctoText :: DomainConfigurationStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679782880"><span class="annot"><span class="annottext">DomainConfigurationStatus -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679783731"><span class="annot"><span class="annottext">DomainConfigurationStatus -&gt; ByteString
 (DomainConfigurationStatus -&gt; ByteString)
 -&gt; ToByteString DomainConfigurationStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DomainConfigurationStatus -&gt; ByteString
 $ctoBS :: DomainConfigurationStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679782877"><span class="annot"><span class="annottext">DomainConfigurationStatus -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679783728"><span class="annot"><span class="annottext">DomainConfigurationStatus -&gt; ByteStringBuilder
 (DomainConfigurationStatus -&gt; ByteStringBuilder)
 -&gt; ToLog DomainConfigurationStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DomainConfigurationStatus -&gt; ByteStringBuilder
 $cbuild :: DomainConfigurationStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679782874"><span class="annot"><span class="annottext">HeaderName -&gt; DomainConfigurationStatus -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679783725"><span class="annot"><span class="annottext">HeaderName -&gt; DomainConfigurationStatus -&gt; [Header]
 (HeaderName -&gt; DomainConfigurationStatus -&gt; [Header])
 -&gt; ToHeader DomainConfigurationStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DomainConfigurationStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DomainConfigurationStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679782871"><span class="annot"><span class="annottext">DomainConfigurationStatus -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679783722"><span class="annot"><span class="annottext">DomainConfigurationStatus -&gt; QueryString
 (DomainConfigurationStatus -&gt; QueryString)
 -&gt; ToQuery DomainConfigurationStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DomainConfigurationStatus -&gt; QueryString
 $ctoQuery :: DomainConfigurationStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679782866"><span id="local-6989586621679782868"><span class="annot"><span class="annottext">Value -&gt; Parser [DomainConfigurationStatus]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679783717"><span id="local-6989586621679783719"><span class="annot"><span class="annottext">Value -&gt; Parser [DomainConfigurationStatus]
 Value -&gt; Parser DomainConfigurationStatus
 (Value -&gt; Parser DomainConfigurationStatus)
 -&gt; (Value -&gt; Parser [DomainConfigurationStatus])
@@ -219,7 +219,7 @@ $cparseJSONList :: Value -&gt; Parser [DomainConfigurationStatus]
 parseJSON :: Value -&gt; Parser DomainConfigurationStatus
 $cparseJSON :: Value -&gt; Parser DomainConfigurationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679782861"><span id="local-6989586621679782863"><span class="annot"><span class="annottext">FromJSONKeyFunction [DomainConfigurationStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679783712"><span id="local-6989586621679783714"><span class="annot"><span class="annottext">FromJSONKeyFunction [DomainConfigurationStatus]
 FromJSONKeyFunction DomainConfigurationStatus
 FromJSONKeyFunction DomainConfigurationStatus
 -&gt; FromJSONKeyFunction [DomainConfigurationStatus]
@@ -231,7 +231,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DomainConfigurationStatus]
 fromJSONKey :: FromJSONKeyFunction DomainConfigurationStatus
 $cfromJSONKey :: FromJSONKeyFunction DomainConfigurationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679782852"><span id="local-6989586621679782854"><span id="local-6989586621679782856"><span id="local-6989586621679782858"><span class="annot"><span class="annottext">[DomainConfigurationStatus] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679783703"><span id="local-6989586621679783705"><span id="local-6989586621679783707"><span id="local-6989586621679783709"><span class="annot"><span class="annottext">[DomainConfigurationStatus] -&gt; Encoding
 [DomainConfigurationStatus] -&gt; Value
 DomainConfigurationStatus -&gt; Encoding
 DomainConfigurationStatus -&gt; Value
@@ -255,7 +255,7 @@ $ctoEncoding :: DomainConfigurationStatus -&gt; Encoding
 toJSON :: DomainConfigurationStatus -&gt; Value
 $ctoJSON :: DomainConfigurationStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679782847"><span id="local-6989586621679782849"><span class="annot"><span class="annottext">ToJSONKeyFunction [DomainConfigurationStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679783698"><span id="local-6989586621679783700"><span class="annot"><span class="annottext">ToJSONKeyFunction [DomainConfigurationStatus]
 ToJSONKeyFunction DomainConfigurationStatus
 ToJSONKeyFunction DomainConfigurationStatus
 -&gt; ToJSONKeyFunction [DomainConfigurationStatus]
@@ -267,14 +267,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DomainConfigurationStatus]
 toJSONKey :: ToJSONKeyFunction DomainConfigurationStatus
 $ctoJSONKey :: ToJSONKeyFunction DomainConfigurationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679782844"><span class="annot"><span class="annottext">[Node] -&gt; Either String DomainConfigurationStatus
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679783695"><span class="annot"><span class="annottext">[Node] -&gt; Either String DomainConfigurationStatus
 ([Node] -&gt; Either String DomainConfigurationStatus)
 -&gt; FromXML DomainConfigurationStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DomainConfigurationStatus
 $cparseXML :: [Node] -&gt; Either String DomainConfigurationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679782841"><span class="annot"><span class="annottext">DomainConfigurationStatus -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679783692"><span class="annot"><span class="annottext">DomainConfigurationStatus -&gt; XML
 (DomainConfigurationStatus -&gt; XML)
 -&gt; ToXML DomainConfigurationStatus
 forall a. (a -&gt; XML) -&gt; ToXML a

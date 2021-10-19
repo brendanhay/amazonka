@@ -35,13 +35,13 @@
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-37"></span><span>
-</span><span id="line-38"></span><span id="local-6989586621681055752"><span id="local-6989586621681055753"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BatchState"><span class="annot"><a href="Network.AWS.EC2.Types.BatchState.html#BatchState"><span class="hs-identifier hs-var">BatchState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchState%27"><span class="annot"><a href="Network.AWS.EC2.Types.BatchState.html#BatchState%27"><span class="hs-identifier hs-var">BatchState'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621681088951"><span id="local-6989586621681088952"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BatchState"><span class="annot"><a href="Network.AWS.EC2.Types.BatchState.html#BatchState"><span class="hs-identifier hs-var">BatchState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchState%27"><span class="annot"><a href="Network.AWS.EC2.Types.BatchState.html#BatchState%27"><span class="hs-identifier hs-var">BatchState'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBatchState"><span class="annot"><span class="annottext">BatchState -&gt; Text
 </span><a href="Network.AWS.EC2.Types.BatchState.html#fromBatchState"><span class="hs-identifier hs-var hs-var">fromBatchState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681055744"><span id="local-6989586621681055746"><span id="local-6989586621681055748"><span class="annot"><span class="annottext">Int -&gt; BatchState -&gt; ShowS
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681088943"><span id="local-6989586621681088945"><span id="local-6989586621681088947"><span class="annot"><span class="annottext">Int -&gt; BatchState -&gt; ShowS
 [BatchState] -&gt; ShowS
 BatchState -&gt; String
 (Int -&gt; BatchState -&gt; ShowS)
@@ -57,7 +57,7 @@ $cshow :: BatchState -&gt; String
 showsPrec :: Int -&gt; BatchState -&gt; ShowS
 $cshowsPrec :: Int -&gt; BatchState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621681055735"><span id="local-6989586621681055737"><span id="local-6989586621681055739"><span id="local-6989586621681055741"><span class="annot"><span class="annottext">ReadPrec [BatchState]
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621681088934"><span id="local-6989586621681088936"><span id="local-6989586621681088938"><span id="local-6989586621681088940"><span class="annot"><span class="annottext">ReadPrec [BatchState]
 ReadPrec BatchState
 Int -&gt; ReadS BatchState
 ReadS [BatchState]
@@ -78,7 +78,7 @@ $creadList :: ReadS [BatchState]
 readsPrec :: Int -&gt; ReadS BatchState
 $creadsPrec :: Int -&gt; ReadS BatchState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621681055730"><span id="local-6989586621681055732"><span class="annot"><span class="annottext">BatchState -&gt; BatchState -&gt; Bool
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621681088929"><span id="local-6989586621681088931"><span class="annot"><span class="annottext">BatchState -&gt; BatchState -&gt; Bool
 (BatchState -&gt; BatchState -&gt; Bool)
 -&gt; (BatchState -&gt; BatchState -&gt; Bool) -&gt; Eq BatchState
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -87,7 +87,7 @@ $c/= :: BatchState -&gt; BatchState -&gt; Bool
 == :: BatchState -&gt; BatchState -&gt; Bool
 $c== :: BatchState -&gt; BatchState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681055714"><span id="local-6989586621681055716"><span id="local-6989586621681055718"><span id="local-6989586621681055720"><span id="local-6989586621681055722"><span id="local-6989586621681055724"><span id="local-6989586621681055726"><span class="annot"><span class="annottext">Eq BatchState
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681088913"><span id="local-6989586621681088915"><span id="local-6989586621681088917"><span id="local-6989586621681088919"><span id="local-6989586621681088921"><span id="local-6989586621681088923"><span id="local-6989586621681088925"><span class="annot"><span class="annottext">Eq BatchState
 Eq BatchState
 -&gt; (BatchState -&gt; BatchState -&gt; Ordering)
 -&gt; (BatchState -&gt; BatchState -&gt; Bool)
@@ -137,7 +137,7 @@ $cfrom :: forall x. BatchState -&gt; Rep BatchState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681055706"><span id="local-6989586621681055708"><span class="annot"><span class="annottext">Int -&gt; BatchState -&gt; Int
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681088905"><span id="local-6989586621681088907"><span class="annot"><span class="annottext">Int -&gt; BatchState -&gt; Int
 BatchState -&gt; Int
 (Int -&gt; BatchState -&gt; Int)
 -&gt; (BatchState -&gt; Int) -&gt; Hashable BatchState
@@ -147,49 +147,49 @@ $chash :: BatchState -&gt; Int
 hashWithSalt :: Int -&gt; BatchState -&gt; Int
 $chashWithSalt :: Int -&gt; BatchState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681055703"><span class="annot"><span class="annottext">BatchState -&gt; ()
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681088902"><span class="annot"><span class="annottext">BatchState -&gt; ()
 (BatchState -&gt; ()) -&gt; NFData BatchState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: BatchState -&gt; ()
 $crnf :: BatchState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681055700"><span class="annot"><span class="annottext">Text -&gt; Either String BatchState
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681088899"><span class="annot"><span class="annottext">Text -&gt; Either String BatchState
 (Text -&gt; Either String BatchState) -&gt; FromText BatchState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String BatchState
 $cfromText :: Text -&gt; Either String BatchState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681055697"><span class="annot"><span class="annottext">BatchState -&gt; Text
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681088896"><span class="annot"><span class="annottext">BatchState -&gt; Text
 (BatchState -&gt; Text) -&gt; ToText BatchState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: BatchState -&gt; Text
 $ctoText :: BatchState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681055694"><span class="annot"><span class="annottext">BatchState -&gt; ByteString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681088893"><span class="annot"><span class="annottext">BatchState -&gt; ByteString
 (BatchState -&gt; ByteString) -&gt; ToByteString BatchState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: BatchState -&gt; ByteString
 $ctoBS :: BatchState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681055691"><span class="annot"><span class="annottext">BatchState -&gt; ByteStringBuilder
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681088890"><span class="annot"><span class="annottext">BatchState -&gt; ByteStringBuilder
 (BatchState -&gt; ByteStringBuilder) -&gt; ToLog BatchState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: BatchState -&gt; ByteStringBuilder
 $cbuild :: BatchState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681055688"><span class="annot"><span class="annottext">HeaderName -&gt; BatchState -&gt; [Header]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681088887"><span class="annot"><span class="annottext">HeaderName -&gt; BatchState -&gt; [Header]
 (HeaderName -&gt; BatchState -&gt; [Header]) -&gt; ToHeader BatchState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; BatchState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; BatchState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681055685"><span class="annot"><span class="annottext">BatchState -&gt; QueryString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681088884"><span class="annot"><span class="annottext">BatchState -&gt; QueryString
 (BatchState -&gt; QueryString) -&gt; ToQuery BatchState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: BatchState -&gt; QueryString
 $ctoQuery :: BatchState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681055680"><span id="local-6989586621681055682"><span class="annot"><span class="annottext">Value -&gt; Parser [BatchState]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681088879"><span id="local-6989586621681088881"><span class="annot"><span class="annottext">Value -&gt; Parser [BatchState]
 Value -&gt; Parser BatchState
 (Value -&gt; Parser BatchState)
 -&gt; (Value -&gt; Parser [BatchState]) -&gt; FromJSON BatchState
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [BatchState]
 parseJSON :: Value -&gt; Parser BatchState
 $cparseJSON :: Value -&gt; Parser BatchState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621681055675"><span id="local-6989586621681055677"><span class="annot"><span class="annottext">FromJSONKeyFunction [BatchState]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681088874"><span id="local-6989586621681088876"><span class="annot"><span class="annottext">FromJSONKeyFunction [BatchState]
 FromJSONKeyFunction BatchState
 FromJSONKeyFunction BatchState
 -&gt; FromJSONKeyFunction [BatchState] -&gt; FromJSONKey BatchState
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [BatchState]
 fromJSONKey :: FromJSONKeyFunction BatchState
 $cfromJSONKey :: FromJSONKeyFunction BatchState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621681055666"><span id="local-6989586621681055668"><span id="local-6989586621681055670"><span id="local-6989586621681055672"><span class="annot"><span class="annottext">[BatchState] -&gt; Encoding
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621681088865"><span id="local-6989586621681088867"><span id="local-6989586621681088869"><span id="local-6989586621681088871"><span class="annot"><span class="annottext">[BatchState] -&gt; Encoding
 [BatchState] -&gt; Value
 BatchState -&gt; Encoding
 BatchState -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: BatchState -&gt; Encoding
 toJSON :: BatchState -&gt; Value
 $ctoJSON :: BatchState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621681055661"><span id="local-6989586621681055663"><span class="annot"><span class="annottext">ToJSONKeyFunction [BatchState]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621681088860"><span id="local-6989586621681088862"><span class="annot"><span class="annottext">ToJSONKeyFunction [BatchState]
 ToJSONKeyFunction BatchState
 ToJSONKeyFunction BatchState
 -&gt; ToJSONKeyFunction [BatchState] -&gt; ToJSONKey BatchState
@@ -246,13 +246,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [BatchState]
 toJSONKey :: ToJSONKeyFunction BatchState
 $ctoJSONKey :: ToJSONKeyFunction BatchState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621681055658"><span class="annot"><span class="annottext">[Node] -&gt; Either String BatchState
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621681088857"><span class="annot"><span class="annottext">[Node] -&gt; Either String BatchState
 ([Node] -&gt; Either String BatchState) -&gt; FromXML BatchState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String BatchState
 $cparseXML :: [Node] -&gt; Either String BatchState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621681055655"><span class="annot"><span class="annottext">BatchState -&gt; XML
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621681088854"><span class="annot"><span class="annottext">BatchState -&gt; XML
 (BatchState -&gt; XML) -&gt; ToXML BatchState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: BatchState -&gt; XML

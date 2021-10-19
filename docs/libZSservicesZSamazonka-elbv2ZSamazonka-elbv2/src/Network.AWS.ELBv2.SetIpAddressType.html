@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newSetIpAddressType' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679254004"><span id="local-6989586621679254005"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetIpAddressType"><span class="annot"><a href="Network.AWS.ELBv2.SetIpAddressType.html#SetIpAddressType"><span class="hs-identifier hs-var">SetIpAddressType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetIpAddressType%27"><span class="annot"><a href="Network.AWS.ELBv2.SetIpAddressType.html#SetIpAddressType%27"><span class="hs-identifier hs-var">SetIpAddressType'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679256905"><span id="local-6989586621679256906"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetIpAddressType"><span class="annot"><a href="Network.AWS.ELBv2.SetIpAddressType.html#SetIpAddressType"><span class="hs-identifier hs-var">SetIpAddressType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetIpAddressType%27"><span class="annot"><a href="Network.AWS.ELBv2.SetIpAddressType.html#SetIpAddressType%27"><span class="hs-identifier hs-var">SetIpAddressType'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the load balancer.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AloadBalancerArn%3ASetIpAddressType%27"><span class="annot"><span class="annottext">SetIpAddressType -&gt; Text
 </span><a href="Network.AWS.ELBv2.SetIpAddressType.html#%24sel%3AloadBalancerArn%3ASetIpAddressType%27"><span class="hs-identifier hs-var hs-var">loadBalancerArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -60,7 +60,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AipAddressType%3ASetIpAddressType%27"><span class="annot"><span class="annottext">SetIpAddressType -&gt; IpAddressType
 </span><a href="Network.AWS.ELBv2.SetIpAddressType.html#%24sel%3AipAddressType%3ASetIpAddressType%27"><span class="hs-identifier hs-var hs-var">ipAddressType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.IpAddressType.html#IpAddressType"><span class="hs-identifier hs-type">IpAddressType</span></a></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679253997"><span id="local-6989586621679253999"><span class="annot"><span class="annottext">SetIpAddressType -&gt; SetIpAddressType -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256898"><span id="local-6989586621679256900"><span class="annot"><span class="annottext">SetIpAddressType -&gt; SetIpAddressType -&gt; Bool
 (SetIpAddressType -&gt; SetIpAddressType -&gt; Bool)
 -&gt; (SetIpAddressType -&gt; SetIpAddressType -&gt; Bool)
 -&gt; Eq SetIpAddressType
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SetIpAddressType -&gt; SetIpAddressType -&gt; Bool
 == :: SetIpAddressType -&gt; SetIpAddressType -&gt; Bool
 $c== :: SetIpAddressType -&gt; SetIpAddressType -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253988"><span id="local-6989586621679253990"><span id="local-6989586621679253992"><span id="local-6989586621679253994"><span class="annot"><span class="annottext">ReadPrec [SetIpAddressType]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256889"><span id="local-6989586621679256891"><span id="local-6989586621679256893"><span id="local-6989586621679256895"><span class="annot"><span class="annottext">ReadPrec [SetIpAddressType]
 ReadPrec SetIpAddressType
 Int -&gt; ReadS SetIpAddressType
 ReadS [SetIpAddressType]
@@ -89,7 +89,7 @@ readList :: ReadS [SetIpAddressType]
 $creadList :: ReadS [SetIpAddressType]
 readsPrec :: Int -&gt; ReadS SetIpAddressType
 $creadsPrec :: Int -&gt; ReadS SetIpAddressType
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253981"><span id="local-6989586621679253983"><span id="local-6989586621679253985"><span class="annot"><span class="annottext">Int -&gt; SetIpAddressType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256882"><span id="local-6989586621679256884"><span id="local-6989586621679256886"><span class="annot"><span class="annottext">Int -&gt; SetIpAddressType -&gt; ShowS
 [SetIpAddressType] -&gt; ShowS
 SetIpAddressType -&gt; String
 (Int -&gt; SetIpAddressType -&gt; ShowS)
@@ -136,18 +136,18 @@ $cfrom :: forall x. SetIpAddressType -&gt; Rep SetIpAddressType x
 </span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.ELBv2.Types.IpAddressType.html#IpAddressType"><span class="hs-identifier hs-type">IpAddressType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.ELBv2.SetIpAddressType.html#SetIpAddressType"><span class="hs-identifier hs-type">SetIpAddressType</span></a></span><span>
 </span><span id="line-83"></span><span id="newSetIpAddressType"><span class="annot"><span class="annottext">newSetIpAddressType :: Text -&gt; IpAddressType -&gt; SetIpAddressType
-</span><a href="Network.AWS.ELBv2.SetIpAddressType.html#newSetIpAddressType"><span class="hs-identifier hs-var hs-var">newSetIpAddressType</span></a></span></span><span> </span><span id="local-6989586621679253976"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253976"><span class="hs-identifier hs-var">pLoadBalancerArn_</span></a></span></span><span> </span><span id="local-6989586621679253975"><span class="annot"><span class="annottext">IpAddressType
-</span><a href="#local-6989586621679253975"><span class="hs-identifier hs-var">pIpAddressType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ELBv2.SetIpAddressType.html#newSetIpAddressType"><span class="hs-identifier hs-var hs-var">newSetIpAddressType</span></a></span></span><span> </span><span id="local-6989586621679256877"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256877"><span class="hs-identifier hs-var">pLoadBalancerArn_</span></a></span></span><span> </span><span id="local-6989586621679256876"><span class="annot"><span class="annottext">IpAddressType
+</span><a href="#local-6989586621679256876"><span class="hs-identifier hs-var">pIpAddressType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">SetIpAddressType' :: Text -&gt; IpAddressType -&gt; SetIpAddressType
 </span><a href="Network.AWS.ELBv2.SetIpAddressType.html#SetIpAddressType%27"><span class="hs-identifier hs-type">SetIpAddressType'</span></a></span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:loadBalancerArn:SetIpAddressType' :: Text
 </span><a href="Network.AWS.ELBv2.SetIpAddressType.html#%24sel%3AloadBalancerArn%3ASetIpAddressType%27"><span class="hs-identifier hs-var">loadBalancerArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253976"><span class="hs-identifier hs-var">pLoadBalancerArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679256877"><span class="hs-identifier hs-var">pLoadBalancerArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:ipAddressType:SetIpAddressType' :: IpAddressType
 </span><a href="Network.AWS.ELBv2.SetIpAddressType.html#%24sel%3AipAddressType%3ASetIpAddressType%27"><span class="hs-identifier hs-var">ipAddressType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">IpAddressType
-</span><a href="#local-6989586621679253975"><span class="hs-identifier hs-var">pIpAddressType_</span></a></span><span>
+</span><a href="#local-6989586621679256876"><span class="hs-identifier hs-var">pIpAddressType_</span></a></span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the load balancer.</span><span>
@@ -157,16 +157,16 @@ $cfrom :: forall x. SetIpAddressType -&gt; Rep SetIpAddressType x
 -&gt; (SetIpAddressType -&gt; Text -&gt; SetIpAddressType)
 -&gt; Lens SetIpAddressType SetIpAddressType Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.SetIpAddressType.html#SetIpAddressType%27"><span class="hs-identifier hs-type">SetIpAddressType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253972"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.SetIpAddressType.html#SetIpAddressType%27"><span class="hs-identifier hs-type">SetIpAddressType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256873"><span class="annot"><span class="annottext">Text
 loadBalancerArn :: Text
 $sel:loadBalancerArn:SetIpAddressType' :: SetIpAddressType -&gt; Text
-</span><a href="#local-6989586621679253972"><span class="hs-identifier hs-var hs-var">loadBalancerArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253972"><span class="hs-identifier hs-var">loadBalancerArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253971"><span class="annot"><span class="annottext">s :: SetIpAddressType
-</span><a href="#local-6989586621679253971"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.SetIpAddressType.html#SetIpAddressType%27"><span class="hs-identifier hs-type">SetIpAddressType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253970"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253970"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetIpAddressType
-</span><a href="#local-6989586621679253971"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loadBalancerArn:SetIpAddressType' :: Text
+</span><a href="#local-6989586621679256873"><span class="hs-identifier hs-var hs-var">loadBalancerArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256873"><span class="hs-identifier hs-var">loadBalancerArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256872"><span class="annot"><span class="annottext">s :: SetIpAddressType
+</span><a href="#local-6989586621679256872"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.SetIpAddressType.html#SetIpAddressType%27"><span class="hs-identifier hs-type">SetIpAddressType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256871"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256871"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetIpAddressType
+</span><a href="#local-6989586621679256872"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loadBalancerArn:SetIpAddressType' :: Text
 </span><a href="Network.AWS.ELBv2.SetIpAddressType.html#%24sel%3AloadBalancerArn%3ASetIpAddressType%27"><span class="hs-identifier hs-var">loadBalancerArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253970"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.SetIpAddressType.html#SetIpAddressType"><span class="hs-identifier hs-type">SetIpAddressType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679256871"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.SetIpAddressType.html#SetIpAddressType"><span class="hs-identifier hs-type">SetIpAddressType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | The IP address type. The possible values are @ipv4@ (for IPv4 addresses)</span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- and @dualstack@ (for IPv4 and IPv6 addresses). Internal load balancers</span><span>
@@ -180,27 +180,27 @@ $sel:loadBalancerArn:SetIpAddressType' :: SetIpAddressType -&gt; Text
 -&gt; Lens
      SetIpAddressType SetIpAddressType IpAddressType IpAddressType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.SetIpAddressType.html#SetIpAddressType%27"><span class="hs-identifier hs-type">SetIpAddressType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253969"><span class="annot"><span class="annottext">IpAddressType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.SetIpAddressType.html#SetIpAddressType%27"><span class="hs-identifier hs-type">SetIpAddressType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256870"><span class="annot"><span class="annottext">IpAddressType
 ipAddressType :: IpAddressType
 $sel:ipAddressType:SetIpAddressType' :: SetIpAddressType -&gt; IpAddressType
-</span><a href="#local-6989586621679253969"><span class="hs-identifier hs-var hs-var">ipAddressType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IpAddressType
-</span><a href="#local-6989586621679253969"><span class="hs-identifier hs-var">ipAddressType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253968"><span class="annot"><span class="annottext">s :: SetIpAddressType
-</span><a href="#local-6989586621679253968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.SetIpAddressType.html#SetIpAddressType%27"><span class="hs-identifier hs-type">SetIpAddressType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253967"><span class="annot"><span class="annottext">IpAddressType
-</span><a href="#local-6989586621679253967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetIpAddressType
-</span><a href="#local-6989586621679253968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipAddressType:SetIpAddressType' :: IpAddressType
+</span><a href="#local-6989586621679256870"><span class="hs-identifier hs-var hs-var">ipAddressType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IpAddressType
+</span><a href="#local-6989586621679256870"><span class="hs-identifier hs-var">ipAddressType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256869"><span class="annot"><span class="annottext">s :: SetIpAddressType
+</span><a href="#local-6989586621679256869"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.SetIpAddressType.html#SetIpAddressType%27"><span class="hs-identifier hs-type">SetIpAddressType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256868"><span class="annot"><span class="annottext">IpAddressType
+</span><a href="#local-6989586621679256868"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetIpAddressType
+</span><a href="#local-6989586621679256869"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipAddressType:SetIpAddressType' :: IpAddressType
 </span><a href="Network.AWS.ELBv2.SetIpAddressType.html#%24sel%3AipAddressType%3ASetIpAddressType%27"><span class="hs-identifier hs-var">ipAddressType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">IpAddressType
-</span><a href="#local-6989586621679253967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.SetIpAddressType.html#SetIpAddressType"><span class="hs-identifier hs-type">SetIpAddressType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679256868"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.SetIpAddressType.html#SetIpAddressType"><span class="hs-identifier hs-type">SetIpAddressType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.SetIpAddressType.html#SetIpAddressType"><span class="hs-identifier hs-type">SetIpAddressType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-102"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-103"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.SetIpAddressType.html#SetIpAddressType"><span class="hs-identifier hs-type">SetIpAddressType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>      </span><span class="annot"><a href="Network.AWS.ELBv2.SetIpAddressType.html#SetIpAddressTypeResponse"><span class="hs-identifier hs-type">SetIpAddressTypeResponse</span></a></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679253963"><span class="annot"><span class="annottext">request :: SetIpAddressType -&gt; Request SetIpAddressType
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679256864"><span class="annot"><span class="annottext">request :: SetIpAddressType -&gt; Request SetIpAddressType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; SetIpAddressType -&gt; Request SetIpAddressType
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ELBv2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679253959"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679256860"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy SetIpAddressType
 -&gt; ClientResponse ClientBody
@@ -229,10 +229,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SetIpAddressTypeResult&quot;</span></span><span>
-</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679253956"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679253956"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679253955"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679253955"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679253954"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679253954"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679256857"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256857"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679256856"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679256856"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679256855"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679256855"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-110"></span><span>          </span><span class="annot"><span class="annottext">Maybe IpAddressType -&gt; Int -&gt; SetIpAddressTypeResponse
 </span><a href="Network.AWS.ELBv2.SetIpAddressType.html#SetIpAddressTypeResponse%27"><span class="hs-identifier hs-var">SetIpAddressTypeResponse'</span></a></span><span>
 </span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">(Maybe IpAddressType -&gt; Int -&gt; SetIpAddressTypeResponse)
@@ -240,7 +240,7 @@ Text
 -&gt; Either String (Int -&gt; SetIpAddressTypeResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679253954"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe IpAddressType)
+</span><a href="#local-6989586621679256855"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe IpAddressType)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IpAddressType&quot;</span></span><span class="hs-special">)</span><span>
@@ -252,15 +252,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679253956"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679256857"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253946"><span id="local-6989586621679253948"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.SetIpAddressType.html#SetIpAddressType"><span class="hs-identifier hs-type">SetIpAddressType</span></a></span></span></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256847"><span id="local-6989586621679256849"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.SetIpAddressType.html#SetIpAddressType"><span class="hs-identifier hs-type">SetIpAddressType</span></a></span></span></span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253943"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.SetIpAddressType.html#SetIpAddressType"><span class="hs-identifier hs-type">SetIpAddressType</span></a></span></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256844"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.SetIpAddressType.html#SetIpAddressType"><span class="hs-identifier hs-type">SetIpAddressType</span></a></span></span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.SetIpAddressType.html#SetIpAddressType"><span class="hs-identifier hs-type">SetIpAddressType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679253939"><span class="annot"><span class="annottext">toHeaders :: SetIpAddressType -&gt; ResponseHeaders
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679256840"><span class="annot"><span class="annottext">toHeaders :: SetIpAddressType -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; SetIpAddressType -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -268,21 +268,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.SetIpAddressType.html#SetIpAddressType"><span class="hs-identifier hs-type">SetIpAddressType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679253934"><span class="annot"><span class="annottext">toPath :: SetIpAddressType -&gt; ByteString
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679256835"><span class="annot"><span class="annottext">toPath :: SetIpAddressType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SetIpAddressType -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.SetIpAddressType.html#SetIpAddressType"><span class="hs-identifier hs-type">SetIpAddressType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679253930"><span class="annot"><span class="annottext">toQuery :: SetIpAddressType -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.SetIpAddressType.html#SetIpAddressType%27"><span class="hs-identifier hs-type">SetIpAddressType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253927"><span id="local-6989586621679253928"><span class="annot"><span class="annottext">Text
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679256831"><span class="annot"><span class="annottext">toQuery :: SetIpAddressType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.SetIpAddressType.html#SetIpAddressType%27"><span class="hs-identifier hs-type">SetIpAddressType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256828"><span id="local-6989586621679256829"><span class="annot"><span class="annottext">Text
 IpAddressType
 ipAddressType :: IpAddressType
 loadBalancerArn :: Text
 $sel:ipAddressType:SetIpAddressType' :: SetIpAddressType -&gt; IpAddressType
 $sel:loadBalancerArn:SetIpAddressType' :: SetIpAddressType -&gt; Text
-</span><a href="#local-6989586621679253927"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679256828"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -302,16 +302,16 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;LoadBalancerArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253928"><span class="hs-identifier hs-var">loadBalancerArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679256829"><span class="hs-identifier hs-var">loadBalancerArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-133"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;IpAddressType&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; IpAddressType -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">IpAddressType
-</span><a href="#local-6989586621679253927"><span class="hs-identifier hs-var">ipAddressType</span></a></span><span>
+</span><a href="#local-6989586621679256828"><span class="hs-identifier hs-var">ipAddressType</span></a></span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- | /See:/ 'newSetIpAddressTypeResponse' smart constructor.</span><span>
-</span><span id="line-137"></span><span id="local-6989586621679253924"><span id="local-6989586621679253925"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetIpAddressTypeResponse"><span class="annot"><a href="Network.AWS.ELBv2.SetIpAddressType.html#SetIpAddressTypeResponse"><span class="hs-identifier hs-var">SetIpAddressTypeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetIpAddressTypeResponse%27"><span class="annot"><a href="Network.AWS.ELBv2.SetIpAddressType.html#SetIpAddressTypeResponse%27"><span class="hs-identifier hs-var">SetIpAddressTypeResponse'</span></a></span></span><span>
+</span><span id="line-137"></span><span id="local-6989586621679256825"><span id="local-6989586621679256826"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetIpAddressTypeResponse"><span class="annot"><a href="Network.AWS.ELBv2.SetIpAddressType.html#SetIpAddressTypeResponse"><span class="hs-identifier hs-var">SetIpAddressTypeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetIpAddressTypeResponse%27"><span class="annot"><a href="Network.AWS.ELBv2.SetIpAddressType.html#SetIpAddressTypeResponse%27"><span class="hs-identifier hs-var">SetIpAddressTypeResponse'</span></a></span></span><span>
 </span><span id="line-138"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IP address type.</span><span>
 </span><span id="line-139"></span><span>    </span><span id="%24sel%3AipAddressType%3ASetIpAddressTypeResponse%27"><span class="annot"><span class="annottext">SetIpAddressTypeResponse -&gt; Maybe IpAddressType
 </span><a href="Network.AWS.ELBv2.SetIpAddressType.html#%24sel%3AipAddressType%3ASetIpAddressTypeResponse%27"><span class="hs-identifier hs-var hs-var">ipAddressType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.IpAddressType.html#IpAddressType"><span class="hs-identifier hs-type">IpAddressType</span></a></span><span class="hs-special">,</span><span>
@@ -319,7 +319,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-141"></span><span>    </span><span id="%24sel%3AhttpStatus%3ASetIpAddressTypeResponse%27"><span class="annot"><span class="annottext">SetIpAddressTypeResponse -&gt; Int
 </span><a href="Network.AWS.ELBv2.SetIpAddressType.html#%24sel%3AhttpStatus%3ASetIpAddressTypeResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-142"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-143"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679253918"><span id="local-6989586621679253920"><span class="annot"><span class="annottext">SetIpAddressTypeResponse -&gt; SetIpAddressTypeResponse -&gt; Bool
+</span><span id="line-143"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256819"><span id="local-6989586621679256821"><span class="annot"><span class="annottext">SetIpAddressTypeResponse -&gt; SetIpAddressTypeResponse -&gt; Bool
 (SetIpAddressTypeResponse -&gt; SetIpAddressTypeResponse -&gt; Bool)
 -&gt; (SetIpAddressTypeResponse -&gt; SetIpAddressTypeResponse -&gt; Bool)
 -&gt; Eq SetIpAddressTypeResponse
@@ -328,7 +328,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SetIpAddressTypeResponse -&gt; SetIpAddressTypeResponse -&gt; Bool
 == :: SetIpAddressTypeResponse -&gt; SetIpAddressTypeResponse -&gt; Bool
 $c== :: SetIpAddressTypeResponse -&gt; SetIpAddressTypeResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253910"><span id="local-6989586621679253912"><span id="local-6989586621679253914"><span id="local-6989586621679253916"><span class="annot"><span class="annottext">ReadPrec [SetIpAddressTypeResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256811"><span id="local-6989586621679256813"><span id="local-6989586621679256815"><span id="local-6989586621679256817"><span class="annot"><span class="annottext">ReadPrec [SetIpAddressTypeResponse]
 ReadPrec SetIpAddressTypeResponse
 Int -&gt; ReadS SetIpAddressTypeResponse
 ReadS [SetIpAddressTypeResponse]
@@ -348,7 +348,7 @@ readList :: ReadS [SetIpAddressTypeResponse]
 $creadList :: ReadS [SetIpAddressTypeResponse]
 readsPrec :: Int -&gt; ReadS SetIpAddressTypeResponse
 $creadsPrec :: Int -&gt; ReadS SetIpAddressTypeResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253904"><span id="local-6989586621679253906"><span id="local-6989586621679253908"><span class="annot"><span class="annottext">Int -&gt; SetIpAddressTypeResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256805"><span id="local-6989586621679256807"><span id="local-6989586621679256809"><span class="annot"><span class="annottext">Int -&gt; SetIpAddressTypeResponse -&gt; ShowS
 [SetIpAddressTypeResponse] -&gt; ShowS
 SetIpAddressTypeResponse -&gt; String
 (Int -&gt; SetIpAddressTypeResponse -&gt; ShowS)
@@ -396,8 +396,8 @@ SetIpAddressTypeResponse -&gt; Rep SetIpAddressTypeResponse x
 </span><span id="line-158"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-159"></span><span>  </span><span class="annot"><a href="Network.AWS.ELBv2.SetIpAddressType.html#SetIpAddressTypeResponse"><span class="hs-identifier hs-type">SetIpAddressTypeResponse</span></a></span><span>
 </span><span id="line-160"></span><span id="newSetIpAddressTypeResponse"><span class="annot"><span class="annottext">newSetIpAddressTypeResponse :: Int -&gt; SetIpAddressTypeResponse
-</span><a href="Network.AWS.ELBv2.SetIpAddressType.html#newSetIpAddressTypeResponse"><span class="hs-identifier hs-var hs-var">newSetIpAddressTypeResponse</span></a></span></span><span> </span><span id="local-6989586621679253901"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679253901"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ELBv2.SetIpAddressType.html#newSetIpAddressTypeResponse"><span class="hs-identifier hs-var hs-var">newSetIpAddressTypeResponse</span></a></span></span><span> </span><span id="local-6989586621679256802"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256802"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-161"></span><span>  </span><span class="annot"><span class="annottext">SetIpAddressTypeResponse' :: Maybe IpAddressType -&gt; Int -&gt; SetIpAddressTypeResponse
 </span><a href="Network.AWS.ELBv2.SetIpAddressType.html#SetIpAddressTypeResponse%27"><span class="hs-identifier hs-type">SetIpAddressTypeResponse'</span></a></span><span>
 </span><span id="line-162"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ipAddressType:SetIpAddressTypeResponse' :: Maybe IpAddressType
@@ -407,7 +407,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:SetIpAddressTypeResponse' :: Int
 </span><a href="Network.AWS.ELBv2.SetIpAddressType.html#%24sel%3AhttpStatus%3ASetIpAddressTypeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679253901"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679256802"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-165"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- | The IP address type.</span><span>
@@ -423,16 +423,16 @@ forall a. Maybe a
      (Maybe IpAddressType)
      (Maybe IpAddressType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.SetIpAddressType.html#SetIpAddressTypeResponse%27"><span class="hs-identifier hs-type">SetIpAddressTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253900"><span class="annot"><span class="annottext">Maybe IpAddressType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.SetIpAddressType.html#SetIpAddressTypeResponse%27"><span class="hs-identifier hs-type">SetIpAddressTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256801"><span class="annot"><span class="annottext">Maybe IpAddressType
 ipAddressType :: Maybe IpAddressType
 $sel:ipAddressType:SetIpAddressTypeResponse' :: SetIpAddressTypeResponse -&gt; Maybe IpAddressType
-</span><a href="#local-6989586621679253900"><span class="hs-identifier hs-var hs-var">ipAddressType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IpAddressType
-</span><a href="#local-6989586621679253900"><span class="hs-identifier hs-var">ipAddressType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253899"><span class="annot"><span class="annottext">s :: SetIpAddressTypeResponse
-</span><a href="#local-6989586621679253899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.SetIpAddressType.html#SetIpAddressTypeResponse%27"><span class="hs-identifier hs-type">SetIpAddressTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253898"><span class="annot"><span class="annottext">Maybe IpAddressType
-</span><a href="#local-6989586621679253898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetIpAddressTypeResponse
-</span><a href="#local-6989586621679253899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipAddressType:SetIpAddressTypeResponse' :: Maybe IpAddressType
+</span><a href="#local-6989586621679256801"><span class="hs-identifier hs-var hs-var">ipAddressType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IpAddressType
+</span><a href="#local-6989586621679256801"><span class="hs-identifier hs-var">ipAddressType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256800"><span class="annot"><span class="annottext">s :: SetIpAddressTypeResponse
+</span><a href="#local-6989586621679256800"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.SetIpAddressType.html#SetIpAddressTypeResponse%27"><span class="hs-identifier hs-type">SetIpAddressTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256799"><span class="annot"><span class="annottext">Maybe IpAddressType
+</span><a href="#local-6989586621679256799"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetIpAddressTypeResponse
+</span><a href="#local-6989586621679256800"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipAddressType:SetIpAddressTypeResponse' :: Maybe IpAddressType
 </span><a href="Network.AWS.ELBv2.SetIpAddressType.html#%24sel%3AipAddressType%3ASetIpAddressTypeResponse%27"><span class="hs-identifier hs-var">ipAddressType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IpAddressType
-</span><a href="#local-6989586621679253898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.SetIpAddressType.html#SetIpAddressTypeResponse"><span class="hs-identifier hs-type">SetIpAddressTypeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679256799"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.SetIpAddressType.html#SetIpAddressTypeResponse"><span class="hs-identifier hs-type">SetIpAddressTypeResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-172"></span><span class="annot"><a href="Network.AWS.ELBv2.SetIpAddressType.html#setIpAddressTypeResponse_httpStatus"><span class="hs-identifier hs-type">setIpAddressTypeResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.SetIpAddressType.html#SetIpAddressTypeResponse"><span class="hs-identifier hs-type">SetIpAddressTypeResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -442,16 +442,16 @@ $sel:ipAddressType:SetIpAddressTypeResponse' :: SetIpAddressTypeResponse -&gt; M
 -&gt; (SetIpAddressTypeResponse -&gt; Int -&gt; SetIpAddressTypeResponse)
 -&gt; Lens SetIpAddressTypeResponse SetIpAddressTypeResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.SetIpAddressType.html#SetIpAddressTypeResponse%27"><span class="hs-identifier hs-type">SetIpAddressTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253897"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.SetIpAddressType.html#SetIpAddressTypeResponse%27"><span class="hs-identifier hs-type">SetIpAddressTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256798"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:SetIpAddressTypeResponse' :: SetIpAddressTypeResponse -&gt; Int
-</span><a href="#local-6989586621679253897"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679253897"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253896"><span class="annot"><span class="annottext">s :: SetIpAddressTypeResponse
-</span><a href="#local-6989586621679253896"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.SetIpAddressType.html#SetIpAddressTypeResponse%27"><span class="hs-identifier hs-type">SetIpAddressTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253895"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679253895"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetIpAddressTypeResponse
-</span><a href="#local-6989586621679253896"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SetIpAddressTypeResponse' :: Int
+</span><a href="#local-6989586621679256798"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256798"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256797"><span class="annot"><span class="annottext">s :: SetIpAddressTypeResponse
+</span><a href="#local-6989586621679256797"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.SetIpAddressType.html#SetIpAddressTypeResponse%27"><span class="hs-identifier hs-type">SetIpAddressTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256796"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256796"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetIpAddressTypeResponse
+</span><a href="#local-6989586621679256797"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SetIpAddressTypeResponse' :: Int
 </span><a href="Network.AWS.ELBv2.SetIpAddressType.html#%24sel%3AhttpStatus%3ASetIpAddressTypeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679253895"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.SetIpAddressType.html#SetIpAddressTypeResponse"><span class="hs-identifier hs-type">SetIpAddressTypeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679256796"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.SetIpAddressType.html#SetIpAddressTypeResponse"><span class="hs-identifier hs-type">SetIpAddressTypeResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253893"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.SetIpAddressType.html#SetIpAddressTypeResponse"><span class="hs-identifier hs-type">SetIpAddressTypeResponse</span></a></span></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256794"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.SetIpAddressType.html#SetIpAddressTypeResponse"><span class="hs-identifier hs-type">SetIpAddressTypeResponse</span></a></span></span><span>
 </span><span id="line-176"></span></pre></body></html>

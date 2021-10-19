@@ -28,8 +28,8 @@
 </span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#newUpdateWorkteam"><span class="hs-identifier">newUpdateWorkteam</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-29"></span><span>
 </span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#updateWorkteam_memberDefinitions"><span class="hs-identifier">updateWorkteam_memberDefinitions</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#updateWorkteam_notificationConfiguration"><span class="hs-identifier">updateWorkteam_notificationConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#updateWorkteam_notificationConfiguration"><span class="hs-identifier">updateWorkteam_notificationConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#updateWorkteam_memberDefinitions"><span class="hs-identifier">updateWorkteam_memberDefinitions</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#updateWorkteam_description"><span class="hs-identifier">updateWorkteam_description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#updateWorkteam_workteamName"><span class="hs-identifier">updateWorkteam_workteamName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>
@@ -51,37 +51,37 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.html"><span class="hs-identifier">Network.AWS.SageMaker.Types</span></a></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newUpdateWorkteam' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621680428818"><span id="local-6989586621680428819"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateWorkteam"><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteam"><span class="hs-identifier hs-var">UpdateWorkteam</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateWorkteam%27"><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteam%27"><span class="hs-identifier hs-var">UpdateWorkteam'</span></a></span></span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of @MemberDefinition@ objects that contains objects that identify</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- the workers that make up the work team.</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- Workforces can be created using Amazon Cognito or your own OIDC Identity</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- Provider (IdP). For private workforces created using Amazon Cognito use</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- @CognitoMemberDefinition@. For workforces created using your own OIDC</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- identity provider (IdP) use @OidcMemberDefinition@. You should not</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- provide input for both of these parameters in a single request.</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- For workforces created using Amazon Cognito, private work teams</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- correspond to Amazon Cognito /user groups/ within the user pool used to</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- create a workforce. All of the @CognitoMemberDefinition@ objects that</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- make up the member definition must have the same @ClientId@ and</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- @UserPool@ values. To add a Amazon Cognito user group to an existing</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- worker pool, see &lt; Adding groups to a User Pool&gt;. For more information</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- about user pools, see</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html Amazon Cognito User Pools&gt;.</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- For workforces created using your own OIDC IdP, specify the user groups</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- that you want to include in your private work team in</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- @OidcMemberDefinition@ by listing those groups in @Groups@. Be aware</span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- that user groups that are already in the work team must also be listed</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- in @Groups@ when you make this request to remain on the work team. If</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- you do not include these user groups, they will no longer be associated</span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- with the work team you update.</span><span>
-</span><span id="line-80"></span><span>    </span><span id="%24sel%3AmemberDefinitions%3AUpdateWorkteam%27"><span class="annot"><span class="annottext">UpdateWorkteam -&gt; Maybe (NonEmpty MemberDefinition)
-</span><a href="Network.AWS.SageMaker.UpdateWorkteam.html#%24sel%3AmemberDefinitions%3AUpdateWorkteam%27"><span class="hs-identifier hs-var hs-var">memberDefinitions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MemberDefinition.html#MemberDefinition"><span class="hs-identifier hs-type">MemberDefinition</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | Configures SNS topic notifications for available or expiring work items</span><span>
-</span><span id="line-82"></span><span>    </span><span id="%24sel%3AnotificationConfiguration%3AUpdateWorkteam%27"><span class="annot"><span class="annottext">UpdateWorkteam -&gt; Maybe NotificationConfiguration
+</span><span id="line-54"></span><span id="local-6989586621680430501"><span id="local-6989586621680430502"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateWorkteam"><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteam"><span class="hs-identifier hs-var">UpdateWorkteam</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateWorkteam%27"><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteam%27"><span class="hs-identifier hs-var">UpdateWorkteam'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Configures SNS topic notifications for available or expiring work items</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AnotificationConfiguration%3AUpdateWorkteam%27"><span class="annot"><span class="annottext">UpdateWorkteam -&gt; Maybe NotificationConfiguration
 </span><a href="Network.AWS.SageMaker.UpdateWorkteam.html#%24sel%3AnotificationConfiguration%3AUpdateWorkteam%27"><span class="hs-identifier hs-var hs-var">notificationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.NotificationConfiguration.html#NotificationConfiguration"><span class="hs-identifier hs-type">NotificationConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | A list of @MemberDefinition@ objects that contains objects that identify</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- the workers that make up the work team.</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- Workforces can be created using Amazon Cognito or your own OIDC Identity</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- Provider (IdP). For private workforces created using Amazon Cognito use</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- @CognitoMemberDefinition@. For workforces created using your own OIDC</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- identity provider (IdP) use @OidcMemberDefinition@. You should not</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- provide input for both of these parameters in a single request.</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- For workforces created using Amazon Cognito, private work teams</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- correspond to Amazon Cognito /user groups/ within the user pool used to</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- create a workforce. All of the @CognitoMemberDefinition@ objects that</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- make up the member definition must have the same @ClientId@ and</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- @UserPool@ values. To add a Amazon Cognito user group to an existing</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- worker pool, see &lt; Adding groups to a User Pool&gt;. For more information</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- about user pools, see</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html Amazon Cognito User Pools&gt;.</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- For workforces created using your own OIDC IdP, specify the user groups</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- that you want to include in your private work team in</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- @OidcMemberDefinition@ by listing those groups in @Groups@. Be aware</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- that user groups that are already in the work team must also be listed</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- in @Groups@ when you make this request to remain on the work team. If</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- you do not include these user groups, they will no longer be associated</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- with the work team you update.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3AmemberDefinitions%3AUpdateWorkteam%27"><span class="annot"><span class="annottext">UpdateWorkteam -&gt; Maybe (NonEmpty MemberDefinition)
+</span><a href="Network.AWS.SageMaker.UpdateWorkteam.html#%24sel%3AmemberDefinitions%3AUpdateWorkteam%27"><span class="hs-identifier hs-var hs-var">memberDefinitions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MemberDefinition.html#MemberDefinition"><span class="hs-identifier hs-type">MemberDefinition</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | An updated description for the work team.</span><span>
 </span><span id="line-84"></span><span>    </span><span id="%24sel%3Adescription%3AUpdateWorkteam%27"><span class="annot"><span class="annottext">UpdateWorkteam -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.UpdateWorkteam.html#%24sel%3Adescription%3AUpdateWorkteam%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -89,7 +89,7 @@
 </span><span id="line-86"></span><span>    </span><span id="%24sel%3AworkteamName%3AUpdateWorkteam%27"><span class="annot"><span class="annottext">UpdateWorkteam -&gt; Text
 </span><a href="Network.AWS.SageMaker.UpdateWorkteam.html#%24sel%3AworkteamName%3AUpdateWorkteam%27"><span class="hs-identifier hs-var hs-var">workteamName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-87"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-88"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680428809"><span id="local-6989586621680428811"><span class="annot"><span class="annottext">UpdateWorkteam -&gt; UpdateWorkteam -&gt; Bool
+</span><span id="line-88"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680430492"><span id="local-6989586621680430494"><span class="annot"><span class="annottext">UpdateWorkteam -&gt; UpdateWorkteam -&gt; Bool
 (UpdateWorkteam -&gt; UpdateWorkteam -&gt; Bool)
 -&gt; (UpdateWorkteam -&gt; UpdateWorkteam -&gt; Bool) -&gt; Eq UpdateWorkteam
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -97,7 +97,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateWorkteam -&gt; UpdateWorkteam -&gt; Bool
 == :: UpdateWorkteam -&gt; UpdateWorkteam -&gt; Bool
 $c== :: UpdateWorkteam -&gt; UpdateWorkteam -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680428800"><span id="local-6989586621680428802"><span id="local-6989586621680428804"><span id="local-6989586621680428806"><span class="annot"><span class="annottext">ReadPrec [UpdateWorkteam]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680430483"><span id="local-6989586621680430485"><span id="local-6989586621680430487"><span id="local-6989586621680430489"><span class="annot"><span class="annottext">ReadPrec [UpdateWorkteam]
 ReadPrec UpdateWorkteam
 Int -&gt; ReadS UpdateWorkteam
 ReadS [UpdateWorkteam]
@@ -117,7 +117,7 @@ readList :: ReadS [UpdateWorkteam]
 $creadList :: ReadS [UpdateWorkteam]
 readsPrec :: Int -&gt; ReadS UpdateWorkteam
 $creadsPrec :: Int -&gt; ReadS UpdateWorkteam
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680428793"><span id="local-6989586621680428795"><span id="local-6989586621680428797"><span class="annot"><span class="annottext">Int -&gt; UpdateWorkteam -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680430476"><span id="local-6989586621680430478"><span id="local-6989586621680430480"><span class="annot"><span class="annottext">Int -&gt; UpdateWorkteam -&gt; ShowS
 [UpdateWorkteam] -&gt; ShowS
 UpdateWorkteam -&gt; String
 (Int -&gt; UpdateWorkteam -&gt; ShowS)
@@ -151,33 +151,33 @@ $cfrom :: forall x. UpdateWorkteam -&gt; Rep UpdateWorkteam x
 </span><span id="line-95"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-97"></span><span class="hs-comment">--</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- 'memberDefinitions', 'updateWorkteam_memberDefinitions' - A list of @MemberDefinition@ objects that contains objects that identify</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- the workers that make up the work team.</span><span>
-</span><span id="line-100"></span><span class="hs-comment">--</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- Workforces can be created using Amazon Cognito or your own OIDC Identity</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- Provider (IdP). For private workforces created using Amazon Cognito use</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- @CognitoMemberDefinition@. For workforces created using your own OIDC</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- identity provider (IdP) use @OidcMemberDefinition@. You should not</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- provide input for both of these parameters in a single request.</span><span>
-</span><span id="line-106"></span><span class="hs-comment">--</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- For workforces created using Amazon Cognito, private work teams</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- correspond to Amazon Cognito /user groups/ within the user pool used to</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- create a workforce. All of the @CognitoMemberDefinition@ objects that</span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- make up the member definition must have the same @ClientId@ and</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- @UserPool@ values. To add a Amazon Cognito user group to an existing</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- worker pool, see &lt; Adding groups to a User Pool&gt;. For more information</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- about user pools, see</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html Amazon Cognito User Pools&gt;.</span><span>
-</span><span id="line-115"></span><span class="hs-comment">--</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- For workforces created using your own OIDC IdP, specify the user groups</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- that you want to include in your private work team in</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- @OidcMemberDefinition@ by listing those groups in @Groups@. Be aware</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- that user groups that are already in the work team must also be listed</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- in @Groups@ when you make this request to remain on the work team. If</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- you do not include these user groups, they will no longer be associated</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- with the work team you update.</span><span>
-</span><span id="line-123"></span><span class="hs-comment">--</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- 'notificationConfiguration', 'updateWorkteam_notificationConfiguration' - Configures SNS topic notifications for available or expiring work items</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'notificationConfiguration', 'updateWorkteam_notificationConfiguration' - Configures SNS topic notifications for available or expiring work items</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'memberDefinitions', 'updateWorkteam_memberDefinitions' - A list of @MemberDefinition@ objects that contains objects that identify</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- the workers that make up the work team.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- Workforces can be created using Amazon Cognito or your own OIDC Identity</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- Provider (IdP). For private workforces created using Amazon Cognito use</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- @CognitoMemberDefinition@. For workforces created using your own OIDC</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- identity provider (IdP) use @OidcMemberDefinition@. You should not</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- provide input for both of these parameters in a single request.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- For workforces created using Amazon Cognito, private work teams</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- correspond to Amazon Cognito /user groups/ within the user pool used to</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- create a workforce. All of the @CognitoMemberDefinition@ objects that</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- make up the member definition must have the same @ClientId@ and</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- @UserPool@ values. To add a Amazon Cognito user group to an existing</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- worker pool, see &lt; Adding groups to a User Pool&gt;. For more information</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- about user pools, see</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html Amazon Cognito User Pools&gt;.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- For workforces created using your own OIDC IdP, specify the user groups</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- that you want to include in your private work team in</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- @OidcMemberDefinition@ by listing those groups in @Groups@. Be aware</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- that user groups that are already in the work team must also be listed</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- in @Groups@ when you make this request to remain on the work team. If</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- you do not include these user groups, they will no longer be associated</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- with the work team you update.</span><span>
 </span><span id="line-125"></span><span class="hs-comment">--</span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- 'description', 'updateWorkteam_description' - An updated description for the work team.</span><span>
 </span><span id="line-127"></span><span class="hs-comment">--</span><span>
@@ -187,21 +187,21 @@ $cfrom :: forall x. UpdateWorkteam -&gt; Rep UpdateWorkteam x
 </span><span id="line-131"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-132"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteam"><span class="hs-identifier hs-type">UpdateWorkteam</span></a></span><span>
 </span><span id="line-133"></span><span id="newUpdateWorkteam"><span class="annot"><span class="annottext">newUpdateWorkteam :: Text -&gt; UpdateWorkteam
-</span><a href="Network.AWS.SageMaker.UpdateWorkteam.html#newUpdateWorkteam"><span class="hs-identifier hs-var hs-var">newUpdateWorkteam</span></a></span></span><span> </span><span id="local-6989586621680428788"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680428788"><span class="hs-identifier hs-var">pWorkteamName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-134"></span><span>  </span><span class="annot"><span class="annottext">UpdateWorkteam' :: Maybe (NonEmpty MemberDefinition)
--&gt; Maybe NotificationConfiguration
+</span><a href="Network.AWS.SageMaker.UpdateWorkteam.html#newUpdateWorkteam"><span class="hs-identifier hs-var hs-var">newUpdateWorkteam</span></a></span></span><span> </span><span id="local-6989586621680430471"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680430471"><span class="hs-identifier hs-var">pWorkteamName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><span class="annottext">UpdateWorkteam' :: Maybe NotificationConfiguration
+-&gt; Maybe (NonEmpty MemberDefinition)
 -&gt; Maybe Text
 -&gt; Text
 -&gt; UpdateWorkteam
 </span><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteam%27"><span class="hs-identifier hs-type">UpdateWorkteam'</span></a></span><span>
-</span><span id="line-135"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:memberDefinitions:UpdateWorkteam' :: Maybe (NonEmpty MemberDefinition)
-</span><a href="Network.AWS.SageMaker.UpdateWorkteam.html#%24sel%3AmemberDefinitions%3AUpdateWorkteam%27"><span class="hs-identifier hs-var">memberDefinitions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">Maybe (NonEmpty MemberDefinition)
+</span><span id="line-135"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:notificationConfiguration:UpdateWorkteam' :: Maybe NotificationConfiguration
+</span><a href="Network.AWS.SageMaker.UpdateWorkteam.html#%24sel%3AnotificationConfiguration%3AUpdateWorkteam%27"><span class="hs-identifier hs-var">notificationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">Maybe NotificationConfiguration
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">$sel:notificationConfiguration:UpdateWorkteam' :: Maybe NotificationConfiguration
-</span><a href="Network.AWS.SageMaker.UpdateWorkteam.html#%24sel%3AnotificationConfiguration%3AUpdateWorkteam%27"><span class="hs-identifier hs-var">notificationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NotificationConfiguration
+</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">$sel:memberDefinitions:UpdateWorkteam' :: Maybe (NonEmpty MemberDefinition)
+</span><a href="Network.AWS.SageMaker.UpdateWorkteam.html#%24sel%3AmemberDefinitions%3AUpdateWorkteam%27"><span class="hs-identifier hs-var">memberDefinitions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty MemberDefinition)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:UpdateWorkteam' :: Maybe Text
@@ -210,36 +210,61 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:workteamName:UpdateWorkteam' :: Text
 </span><a href="Network.AWS.SageMaker.UpdateWorkteam.html#%24sel%3AworkteamName%3AUpdateWorkteam%27"><span class="hs-identifier hs-var">workteamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680428788"><span class="hs-identifier hs-var">pWorkteamName_</span></a></span><span>
+</span><a href="#local-6989586621680430471"><span class="hs-identifier hs-var">pWorkteamName_</span></a></span><span>
 </span><span id="line-140"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- | A list of @MemberDefinition@ objects that contains objects that identify</span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- the workers that make up the work team.</span><span>
-</span><span id="line-144"></span><span class="hs-comment">--</span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- Workforces can be created using Amazon Cognito or your own OIDC Identity</span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- Provider (IdP). For private workforces created using Amazon Cognito use</span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- @CognitoMemberDefinition@. For workforces created using your own OIDC</span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- identity provider (IdP) use @OidcMemberDefinition@. You should not</span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- provide input for both of these parameters in a single request.</span><span>
-</span><span id="line-150"></span><span class="hs-comment">--</span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- For workforces created using Amazon Cognito, private work teams</span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- correspond to Amazon Cognito /user groups/ within the user pool used to</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- create a workforce. All of the @CognitoMemberDefinition@ objects that</span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- make up the member definition must have the same @ClientId@ and</span><span>
-</span><span id="line-155"></span><span class="hs-comment">-- @UserPool@ values. To add a Amazon Cognito user group to an existing</span><span>
-</span><span id="line-156"></span><span class="hs-comment">-- worker pool, see &lt; Adding groups to a User Pool&gt;. For more information</span><span>
-</span><span id="line-157"></span><span class="hs-comment">-- about user pools, see</span><span>
-</span><span id="line-158"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html Amazon Cognito User Pools&gt;.</span><span>
-</span><span id="line-159"></span><span class="hs-comment">--</span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- For workforces created using your own OIDC IdP, specify the user groups</span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- that you want to include in your private work team in</span><span>
-</span><span id="line-162"></span><span class="hs-comment">-- @OidcMemberDefinition@ by listing those groups in @Groups@. Be aware</span><span>
-</span><span id="line-163"></span><span class="hs-comment">-- that user groups that are already in the work team must also be listed</span><span>
-</span><span id="line-164"></span><span class="hs-comment">-- in @Groups@ when you make this request to remain on the work team. If</span><span>
-</span><span id="line-165"></span><span class="hs-comment">-- you do not include these user groups, they will no longer be associated</span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- with the work team you update.</span><span>
-</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#updateWorkteam_memberDefinitions"><span class="hs-identifier hs-type">updateWorkteam_memberDefinitions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteam"><span class="hs-identifier hs-type">UpdateWorkteam</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MemberDefinition.html#MemberDefinition"><span class="hs-identifier hs-type">MemberDefinition</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-168"></span><span id="updateWorkteam_memberDefinitions"><span class="annot"><span class="annottext">updateWorkteam_memberDefinitions :: (Maybe (NonEmpty MemberDefinition)
+</span><span id="line-142"></span><span class="hs-comment">-- | Configures SNS topic notifications for available or expiring work items</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#updateWorkteam_notificationConfiguration"><span class="hs-identifier hs-type">updateWorkteam_notificationConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteam"><span class="hs-identifier hs-type">UpdateWorkteam</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.NotificationConfiguration.html#NotificationConfiguration"><span class="hs-identifier hs-type">NotificationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="updateWorkteam_notificationConfiguration"><span class="annot"><span class="annottext">updateWorkteam_notificationConfiguration :: (Maybe NotificationConfiguration
+ -&gt; f (Maybe NotificationConfiguration))
+-&gt; UpdateWorkteam -&gt; f UpdateWorkteam
+</span><a href="Network.AWS.SageMaker.UpdateWorkteam.html#updateWorkteam_notificationConfiguration"><span class="hs-identifier hs-var hs-var">updateWorkteam_notificationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateWorkteam -&gt; Maybe NotificationConfiguration)
+-&gt; (UpdateWorkteam
+    -&gt; Maybe NotificationConfiguration -&gt; UpdateWorkteam)
+-&gt; Lens
+     UpdateWorkteam
+     UpdateWorkteam
+     (Maybe NotificationConfiguration)
+     (Maybe NotificationConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteam%27"><span class="hs-identifier hs-type">UpdateWorkteam'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680430468"><span class="annot"><span class="annottext">Maybe NotificationConfiguration
+notificationConfiguration :: Maybe NotificationConfiguration
+$sel:notificationConfiguration:UpdateWorkteam' :: UpdateWorkteam -&gt; Maybe NotificationConfiguration
+</span><a href="#local-6989586621680430468"><span class="hs-identifier hs-var hs-var">notificationConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NotificationConfiguration
+</span><a href="#local-6989586621680430468"><span class="hs-identifier hs-var">notificationConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680430467"><span class="annot"><span class="annottext">s :: UpdateWorkteam
+</span><a href="#local-6989586621680430467"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteam%27"><span class="hs-identifier hs-type">UpdateWorkteam'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680430466"><span class="annot"><span class="annottext">Maybe NotificationConfiguration
+</span><a href="#local-6989586621680430466"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWorkteam
+</span><a href="#local-6989586621680430467"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notificationConfiguration:UpdateWorkteam' :: Maybe NotificationConfiguration
+</span><a href="Network.AWS.SageMaker.UpdateWorkteam.html#%24sel%3AnotificationConfiguration%3AUpdateWorkteam%27"><span class="hs-identifier hs-var">notificationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NotificationConfiguration
+</span><a href="#local-6989586621680430466"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteam"><span class="hs-identifier hs-type">UpdateWorkteam</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | A list of @MemberDefinition@ objects that contains objects that identify</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- the workers that make up the work team.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- Workforces can be created using Amazon Cognito or your own OIDC Identity</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- Provider (IdP). For private workforces created using Amazon Cognito use</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- @CognitoMemberDefinition@. For workforces created using your own OIDC</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- identity provider (IdP) use @OidcMemberDefinition@. You should not</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- provide input for both of these parameters in a single request.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- For workforces created using Amazon Cognito, private work teams</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- correspond to Amazon Cognito /user groups/ within the user pool used to</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- create a workforce. All of the @CognitoMemberDefinition@ objects that</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- make up the member definition must have the same @ClientId@ and</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- @UserPool@ values. To add a Amazon Cognito user group to an existing</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- worker pool, see &lt; Adding groups to a User Pool&gt;. For more information</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- about user pools, see</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html Amazon Cognito User Pools&gt;.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- For workforces created using your own OIDC IdP, specify the user groups</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- that you want to include in your private work team in</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- @OidcMemberDefinition@ by listing those groups in @Groups@. Be aware</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- that user groups that are already in the work team must also be listed</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- in @Groups@ when you make this request to remain on the work team. If</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- you do not include these user groups, they will no longer be associated</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- with the work team you update.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#updateWorkteam_memberDefinitions"><span class="hs-identifier hs-type">updateWorkteam_memberDefinitions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteam"><span class="hs-identifier hs-type">UpdateWorkteam</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MemberDefinition.html#MemberDefinition"><span class="hs-identifier hs-type">MemberDefinition</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span id="updateWorkteam_memberDefinitions"><span class="annot"><span class="annottext">updateWorkteam_memberDefinitions :: (Maybe (NonEmpty MemberDefinition)
  -&gt; f (Maybe (NonEmpty MemberDefinition)))
 -&gt; UpdateWorkteam -&gt; f UpdateWorkteam
 </span><a href="Network.AWS.SageMaker.UpdateWorkteam.html#updateWorkteam_memberDefinitions"><span class="hs-identifier hs-var hs-var">updateWorkteam_memberDefinitions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateWorkteam -&gt; Maybe (NonEmpty MemberDefinition))
@@ -251,16 +276,16 @@ forall a. Maybe a
      (Maybe (NonEmpty MemberDefinition))
      (Maybe (NonEmpty MemberDefinition))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteam%27"><span class="hs-identifier hs-type">UpdateWorkteam'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680428785"><span class="annot"><span class="annottext">Maybe (NonEmpty MemberDefinition)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteam%27"><span class="hs-identifier hs-type">UpdateWorkteam'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680430465"><span class="annot"><span class="annottext">Maybe (NonEmpty MemberDefinition)
 memberDefinitions :: Maybe (NonEmpty MemberDefinition)
 $sel:memberDefinitions:UpdateWorkteam' :: UpdateWorkteam -&gt; Maybe (NonEmpty MemberDefinition)
-</span><a href="#local-6989586621680428785"><span class="hs-identifier hs-var hs-var">memberDefinitions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty MemberDefinition)
-</span><a href="#local-6989586621680428785"><span class="hs-identifier hs-var">memberDefinitions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680428784"><span class="annot"><span class="annottext">s :: UpdateWorkteam
-</span><a href="#local-6989586621680428784"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteam%27"><span class="hs-identifier hs-type">UpdateWorkteam'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680428783"><span class="annot"><span class="annottext">Maybe (NonEmpty MemberDefinition)
-</span><a href="#local-6989586621680428783"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWorkteam
-</span><a href="#local-6989586621680428784"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:memberDefinitions:UpdateWorkteam' :: Maybe (NonEmpty MemberDefinition)
+</span><a href="#local-6989586621680430465"><span class="hs-identifier hs-var hs-var">memberDefinitions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty MemberDefinition)
+</span><a href="#local-6989586621680430465"><span class="hs-identifier hs-var">memberDefinitions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680430464"><span class="annot"><span class="annottext">s :: UpdateWorkteam
+</span><a href="#local-6989586621680430464"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteam%27"><span class="hs-identifier hs-type">UpdateWorkteam'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680430463"><span class="annot"><span class="annottext">Maybe (NonEmpty MemberDefinition)
+</span><a href="#local-6989586621680430463"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWorkteam
+</span><a href="#local-6989586621680430464"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:memberDefinitions:UpdateWorkteam' :: Maybe (NonEmpty MemberDefinition)
 </span><a href="Network.AWS.SageMaker.UpdateWorkteam.html#%24sel%3AmemberDefinitions%3AUpdateWorkteam%27"><span class="hs-identifier hs-var">memberDefinitions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty MemberDefinition)
-</span><a href="#local-6989586621680428783"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteam"><span class="hs-identifier hs-type">UpdateWorkteam</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty MemberDefinition)
+</span><a href="#local-6989586621680430463"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteam"><span class="hs-identifier hs-type">UpdateWorkteam</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty MemberDefinition)
   -&gt; f (Maybe (NonEmpty MemberDefinition)))
  -&gt; UpdateWorkteam -&gt; f UpdateWorkteam)
 -&gt; ((Maybe (NonEmpty MemberDefinition)
@@ -290,33 +315,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (NonEmpty MemberDefinition)
   (NonEmpty MemberDefinition)
   (NonEmpty MemberDefinition)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-169"></span><span>
-</span><span id="line-170"></span><span class="hs-comment">-- | Configures SNS topic notifications for available or expiring work items</span><span>
-</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#updateWorkteam_notificationConfiguration"><span class="hs-identifier hs-type">updateWorkteam_notificationConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteam"><span class="hs-identifier hs-type">UpdateWorkteam</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.NotificationConfiguration.html#NotificationConfiguration"><span class="hs-identifier hs-type">NotificationConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-172"></span><span id="updateWorkteam_notificationConfiguration"><span class="annot"><span class="annottext">updateWorkteam_notificationConfiguration :: (Maybe NotificationConfiguration
- -&gt; f (Maybe NotificationConfiguration))
--&gt; UpdateWorkteam -&gt; f UpdateWorkteam
-</span><a href="Network.AWS.SageMaker.UpdateWorkteam.html#updateWorkteam_notificationConfiguration"><span class="hs-identifier hs-var hs-var">updateWorkteam_notificationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateWorkteam -&gt; Maybe NotificationConfiguration)
--&gt; (UpdateWorkteam
-    -&gt; Maybe NotificationConfiguration -&gt; UpdateWorkteam)
--&gt; Lens
-     UpdateWorkteam
-     UpdateWorkteam
-     (Maybe NotificationConfiguration)
-     (Maybe NotificationConfiguration)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteam%27"><span class="hs-identifier hs-type">UpdateWorkteam'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680428779"><span class="annot"><span class="annottext">Maybe NotificationConfiguration
-notificationConfiguration :: Maybe NotificationConfiguration
-$sel:notificationConfiguration:UpdateWorkteam' :: UpdateWorkteam -&gt; Maybe NotificationConfiguration
-</span><a href="#local-6989586621680428779"><span class="hs-identifier hs-var hs-var">notificationConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NotificationConfiguration
-</span><a href="#local-6989586621680428779"><span class="hs-identifier hs-var">notificationConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680428778"><span class="annot"><span class="annottext">s :: UpdateWorkteam
-</span><a href="#local-6989586621680428778"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteam%27"><span class="hs-identifier hs-type">UpdateWorkteam'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680428777"><span class="annot"><span class="annottext">Maybe NotificationConfiguration
-</span><a href="#local-6989586621680428777"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWorkteam
-</span><a href="#local-6989586621680428778"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notificationConfiguration:UpdateWorkteam' :: Maybe NotificationConfiguration
-</span><a href="Network.AWS.SageMaker.UpdateWorkteam.html#%24sel%3AnotificationConfiguration%3AUpdateWorkteam%27"><span class="hs-identifier hs-var">notificationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NotificationConfiguration
-</span><a href="#local-6989586621680428777"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteam"><span class="hs-identifier hs-type">UpdateWorkteam</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-comment">-- | An updated description for the work team.</span><span>
 </span><span id="line-175"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#updateWorkteam_description"><span class="hs-identifier hs-type">updateWorkteam_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteam"><span class="hs-identifier hs-type">UpdateWorkteam</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -326,16 +326,16 @@ $sel:notificationConfiguration:UpdateWorkteam' :: UpdateWorkteam -&gt; Maybe Not
 -&gt; (UpdateWorkteam -&gt; Maybe Text -&gt; UpdateWorkteam)
 -&gt; Lens UpdateWorkteam UpdateWorkteam (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteam%27"><span class="hs-identifier hs-type">UpdateWorkteam'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680428776"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteam%27"><span class="hs-identifier hs-type">UpdateWorkteam'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680430459"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:UpdateWorkteam' :: UpdateWorkteam -&gt; Maybe Text
-</span><a href="#local-6989586621680428776"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680428776"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680428775"><span class="annot"><span class="annottext">s :: UpdateWorkteam
-</span><a href="#local-6989586621680428775"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteam%27"><span class="hs-identifier hs-type">UpdateWorkteam'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680428774"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680428774"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWorkteam
-</span><a href="#local-6989586621680428775"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateWorkteam' :: Maybe Text
+</span><a href="#local-6989586621680430459"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680430459"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680430458"><span class="annot"><span class="annottext">s :: UpdateWorkteam
+</span><a href="#local-6989586621680430458"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteam%27"><span class="hs-identifier hs-type">UpdateWorkteam'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680430457"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680430457"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWorkteam
+</span><a href="#local-6989586621680430458"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateWorkteam' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.UpdateWorkteam.html#%24sel%3Adescription%3AUpdateWorkteam%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680428774"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteam"><span class="hs-identifier hs-type">UpdateWorkteam</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680430457"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteam"><span class="hs-identifier hs-type">UpdateWorkteam</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-comment">-- | The name of the work team to update.</span><span>
 </span><span id="line-179"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#updateWorkteam_workteamName"><span class="hs-identifier hs-type">updateWorkteam_workteamName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteam"><span class="hs-identifier hs-type">UpdateWorkteam</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -344,27 +344,27 @@ $sel:description:UpdateWorkteam' :: UpdateWorkteam -&gt; Maybe Text
 -&gt; (UpdateWorkteam -&gt; Text -&gt; UpdateWorkteam)
 -&gt; Lens UpdateWorkteam UpdateWorkteam Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteam%27"><span class="hs-identifier hs-type">UpdateWorkteam'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680428773"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteam%27"><span class="hs-identifier hs-type">UpdateWorkteam'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680430456"><span class="annot"><span class="annottext">Text
 workteamName :: Text
 $sel:workteamName:UpdateWorkteam' :: UpdateWorkteam -&gt; Text
-</span><a href="#local-6989586621680428773"><span class="hs-identifier hs-var hs-var">workteamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680428773"><span class="hs-identifier hs-var">workteamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680428772"><span class="annot"><span class="annottext">s :: UpdateWorkteam
-</span><a href="#local-6989586621680428772"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteam%27"><span class="hs-identifier hs-type">UpdateWorkteam'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680428771"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680428771"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWorkteam
-</span><a href="#local-6989586621680428772"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workteamName:UpdateWorkteam' :: Text
+</span><a href="#local-6989586621680430456"><span class="hs-identifier hs-var hs-var">workteamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680430456"><span class="hs-identifier hs-var">workteamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680430455"><span class="annot"><span class="annottext">s :: UpdateWorkteam
+</span><a href="#local-6989586621680430455"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteam%27"><span class="hs-identifier hs-type">UpdateWorkteam'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680430454"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680430454"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWorkteam
+</span><a href="#local-6989586621680430455"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workteamName:UpdateWorkteam' :: Text
 </span><a href="Network.AWS.SageMaker.UpdateWorkteam.html#%24sel%3AworkteamName%3AUpdateWorkteam%27"><span class="hs-identifier hs-var">workteamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680428771"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteam"><span class="hs-identifier hs-type">UpdateWorkteam</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680430454"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteam"><span class="hs-identifier hs-type">UpdateWorkteam</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteam"><span class="hs-identifier hs-type">UpdateWorkteam</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-183"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-184"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteam"><span class="hs-identifier hs-type">UpdateWorkteam</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-185"></span><span>      </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteamResponse"><span class="hs-identifier hs-type">UpdateWorkteamResponse</span></a></span><span>
-</span><span id="line-186"></span><span>  </span><span id="local-6989586621680428767"><span class="annot"><span class="annottext">request :: UpdateWorkteam -&gt; Request UpdateWorkteam
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621680430450"><span class="annot"><span class="annottext">request :: UpdateWorkteam -&gt; Request UpdateWorkteam
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateWorkteam -&gt; Request UpdateWorkteam
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-187"></span><span>  </span><span id="local-6989586621680428763"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621680430446"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateWorkteam
 -&gt; ClientResponse ClientBody
@@ -388,10 +388,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-189"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680428760"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680428760"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680428759"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621680428759"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680428758"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680428758"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-189"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680430443"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680430443"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680430442"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680430442"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680430441"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680430441"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-190"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Workteam -&gt; UpdateWorkteamResponse
 </span><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteamResponse%27"><span class="hs-identifier hs-var">UpdateWorkteamResponse'</span></a></span><span>
 </span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Workteam -&gt; UpdateWorkteamResponse)
@@ -403,23 +403,23 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680428760"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680430443"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">Either String (Workteam -&gt; UpdateWorkteamResponse)
 -&gt; Either String Workteam -&gt; Either String UpdateWorkteamResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680428758"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Workteam
+</span><a href="#local-6989586621680430441"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Workteam
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Workteam&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-194"></span><span>
-</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680428750"><span id="local-6989586621680428752"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteam"><span class="hs-identifier hs-type">UpdateWorkteam</span></a></span></span></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680430433"><span id="local-6989586621680430435"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteam"><span class="hs-identifier hs-type">UpdateWorkteam</span></a></span></span></span><span>
 </span><span id="line-196"></span><span>
-</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680428747"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteam"><span class="hs-identifier hs-type">UpdateWorkteam</span></a></span></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680430430"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteam"><span class="hs-identifier hs-type">UpdateWorkteam</span></a></span></span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteam"><span class="hs-identifier hs-type">UpdateWorkteam</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-200"></span><span>  </span><span id="local-6989586621680428743"><span class="annot"><span class="annottext">toHeaders :: UpdateWorkteam -&gt; ResponseHeaders
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621680430426"><span class="annot"><span class="annottext">toHeaders :: UpdateWorkteam -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-201"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateWorkteam -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -444,70 +444,70 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-209"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-210"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-211"></span><span>
-</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680428733"><span id="local-6989586621680428735"><span id="local-6989586621680428737"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteam"><span class="hs-identifier hs-type">UpdateWorkteam</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-213"></span><span>  </span><span id="local-6989586621680428731"><span class="annot"><span class="annottext">toJSON :: UpdateWorkteam -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteam%27"><span class="hs-identifier hs-type">UpdateWorkteam'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680428726"><span id="local-6989586621680428727"><span id="local-6989586621680428728"><span id="local-6989586621680428729"><span class="annot"><span class="annottext">Maybe (NonEmpty MemberDefinition)
+</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680430416"><span id="local-6989586621680430418"><span id="local-6989586621680430420"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteam"><span class="hs-identifier hs-type">UpdateWorkteam</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621680430414"><span class="annot"><span class="annottext">toJSON :: UpdateWorkteam -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteam%27"><span class="hs-identifier hs-type">UpdateWorkteam'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680430409"><span id="local-6989586621680430410"><span id="local-6989586621680430411"><span id="local-6989586621680430412"><span class="annot"><span class="annottext">Maybe (NonEmpty MemberDefinition)
 Maybe Text
 Maybe NotificationConfiguration
 Text
 workteamName :: Text
 description :: Maybe Text
-notificationConfiguration :: Maybe NotificationConfiguration
 memberDefinitions :: Maybe (NonEmpty MemberDefinition)
+notificationConfiguration :: Maybe NotificationConfiguration
 $sel:workteamName:UpdateWorkteam' :: UpdateWorkteam -&gt; Text
 $sel:description:UpdateWorkteam' :: UpdateWorkteam -&gt; Maybe Text
-$sel:notificationConfiguration:UpdateWorkteam' :: UpdateWorkteam -&gt; Maybe NotificationConfiguration
 $sel:memberDefinitions:UpdateWorkteam' :: UpdateWorkteam -&gt; Maybe (NonEmpty MemberDefinition)
-</span><a href="#local-6989586621680428726"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:notificationConfiguration:UpdateWorkteam' :: UpdateWorkteam -&gt; Maybe NotificationConfiguration
+</span><a href="#local-6989586621680430409"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-214"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-215"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-216"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;MemberDefinitions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty MemberDefinition -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-217"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty MemberDefinition -&gt; Pair)
--&gt; Maybe (NonEmpty MemberDefinition) -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty MemberDefinition)
-</span><a href="#local-6989586621680428729"><span class="hs-identifier hs-var">memberDefinitions</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-218"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NotificationConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NotificationConfiguration -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-219"></span><span>              </span><span class="annot"><span class="annottext">(NotificationConfiguration -&gt; Pair)
+</span><span id="line-217"></span><span>              </span><span class="annot"><span class="annottext">(NotificationConfiguration -&gt; Pair)
 -&gt; Maybe NotificationConfiguration -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe NotificationConfiguration
-</span><a href="#local-6989586621680428728"><span class="hs-identifier hs-var">notificationConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680430412"><span class="hs-identifier hs-var">notificationConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MemberDefinitions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty MemberDefinition -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty MemberDefinition -&gt; Pair)
+-&gt; Maybe (NonEmpty MemberDefinition) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty MemberDefinition)
+</span><a href="#local-6989586621680430411"><span class="hs-identifier hs-var">memberDefinitions</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-220"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680428727"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680430410"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-221"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;WorkteamName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680428726"><span class="hs-identifier hs-var">workteamName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680430409"><span class="hs-identifier hs-var">workteamName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-222"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-223"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-224"></span><span>
 </span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteam"><span class="hs-identifier hs-type">UpdateWorkteam</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-226"></span><span>  </span><span id="local-6989586621680428720"><span class="annot"><span class="annottext">toPath :: UpdateWorkteam -&gt; ByteString
+</span><span id="line-226"></span><span>  </span><span id="local-6989586621680430403"><span class="annot"><span class="annottext">toPath :: UpdateWorkteam -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateWorkteam -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-227"></span><span>
 </span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteam"><span class="hs-identifier hs-type">UpdateWorkteam</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-229"></span><span>  </span><span id="local-6989586621680428716"><span class="annot"><span class="annottext">toQuery :: UpdateWorkteam -&gt; QueryString
+</span><span id="line-229"></span><span>  </span><span id="local-6989586621680430399"><span class="annot"><span class="annottext">toQuery :: UpdateWorkteam -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateWorkteam -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -515,7 +515,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-230"></span><span>
 </span><span id="line-231"></span><span class="hs-comment">-- | /See:/ 'newUpdateWorkteamResponse' smart constructor.</span><span>
-</span><span id="line-232"></span><span id="local-6989586621680428713"><span id="local-6989586621680428714"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateWorkteamResponse"><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteamResponse"><span class="hs-identifier hs-var">UpdateWorkteamResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateWorkteamResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteamResponse%27"><span class="hs-identifier hs-var">UpdateWorkteamResponse'</span></a></span></span><span>
+</span><span id="line-232"></span><span id="local-6989586621680430396"><span id="local-6989586621680430397"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateWorkteamResponse"><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteamResponse"><span class="hs-identifier hs-var">UpdateWorkteamResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateWorkteamResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteamResponse%27"><span class="hs-identifier hs-var">UpdateWorkteamResponse'</span></a></span></span><span>
 </span><span id="line-233"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-234"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateWorkteamResponse%27"><span class="annot"><span class="annottext">UpdateWorkteamResponse -&gt; Int
 </span><a href="Network.AWS.SageMaker.UpdateWorkteam.html#%24sel%3AhttpStatus%3AUpdateWorkteamResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -523,7 +523,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-236"></span><span>    </span><span id="%24sel%3Aworkteam%3AUpdateWorkteamResponse%27"><span class="annot"><span class="annottext">UpdateWorkteamResponse -&gt; Workteam
 </span><a href="Network.AWS.SageMaker.UpdateWorkteam.html#%24sel%3Aworkteam%3AUpdateWorkteamResponse%27"><span class="hs-identifier hs-var hs-var">workteam</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam"><span class="hs-identifier hs-type">Workteam</span></a></span><span>
 </span><span id="line-237"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-238"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680428707"><span id="local-6989586621680428709"><span class="annot"><span class="annottext">UpdateWorkteamResponse -&gt; UpdateWorkteamResponse -&gt; Bool
+</span><span id="line-238"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680430390"><span id="local-6989586621680430392"><span class="annot"><span class="annottext">UpdateWorkteamResponse -&gt; UpdateWorkteamResponse -&gt; Bool
 (UpdateWorkteamResponse -&gt; UpdateWorkteamResponse -&gt; Bool)
 -&gt; (UpdateWorkteamResponse -&gt; UpdateWorkteamResponse -&gt; Bool)
 -&gt; Eq UpdateWorkteamResponse
@@ -532,7 +532,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateWorkteamResponse -&gt; UpdateWorkteamResponse -&gt; Bool
 == :: UpdateWorkteamResponse -&gt; UpdateWorkteamResponse -&gt; Bool
 $c== :: UpdateWorkteamResponse -&gt; UpdateWorkteamResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680428699"><span id="local-6989586621680428701"><span id="local-6989586621680428703"><span id="local-6989586621680428705"><span class="annot"><span class="annottext">ReadPrec [UpdateWorkteamResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680430382"><span id="local-6989586621680430384"><span id="local-6989586621680430386"><span id="local-6989586621680430388"><span class="annot"><span class="annottext">ReadPrec [UpdateWorkteamResponse]
 ReadPrec UpdateWorkteamResponse
 Int -&gt; ReadS UpdateWorkteamResponse
 ReadS [UpdateWorkteamResponse]
@@ -552,7 +552,7 @@ readList :: ReadS [UpdateWorkteamResponse]
 $creadList :: ReadS [UpdateWorkteamResponse]
 readsPrec :: Int -&gt; ReadS UpdateWorkteamResponse
 $creadsPrec :: Int -&gt; ReadS UpdateWorkteamResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680428693"><span id="local-6989586621680428695"><span id="local-6989586621680428697"><span class="annot"><span class="annottext">Int -&gt; UpdateWorkteamResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680430376"><span id="local-6989586621680430378"><span id="local-6989586621680430380"><span class="annot"><span class="annottext">Int -&gt; UpdateWorkteamResponse -&gt; ShowS
 [UpdateWorkteamResponse] -&gt; ShowS
 UpdateWorkteamResponse -&gt; String
 (Int -&gt; UpdateWorkteamResponse -&gt; ShowS)
@@ -597,17 +597,17 @@ $cfrom :: forall x. UpdateWorkteamResponse -&gt; Rep UpdateWorkteamResponse x
 </span><span id="line-255"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam"><span class="hs-identifier hs-type">Workteam</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-256"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteamResponse"><span class="hs-identifier hs-type">UpdateWorkteamResponse</span></a></span><span>
 </span><span id="line-257"></span><span id="newUpdateWorkteamResponse"><span class="annot"><span class="annottext">newUpdateWorkteamResponse :: Int -&gt; Workteam -&gt; UpdateWorkteamResponse
-</span><a href="Network.AWS.SageMaker.UpdateWorkteam.html#newUpdateWorkteamResponse"><span class="hs-identifier hs-var hs-var">newUpdateWorkteamResponse</span></a></span></span><span> </span><span id="local-6989586621680428690"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680428690"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621680428689"><span class="annot"><span class="annottext">Workteam
-</span><a href="#local-6989586621680428689"><span class="hs-identifier hs-var">pWorkteam_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.UpdateWorkteam.html#newUpdateWorkteamResponse"><span class="hs-identifier hs-var hs-var">newUpdateWorkteamResponse</span></a></span></span><span> </span><span id="local-6989586621680430373"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680430373"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621680430372"><span class="annot"><span class="annottext">Workteam
+</span><a href="#local-6989586621680430372"><span class="hs-identifier hs-var">pWorkteam_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-258"></span><span>  </span><span class="annot"><span class="annottext">UpdateWorkteamResponse' :: Int -&gt; Workteam -&gt; UpdateWorkteamResponse
 </span><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteamResponse%27"><span class="hs-identifier hs-type">UpdateWorkteamResponse'</span></a></span><span>
 </span><span id="line-259"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateWorkteamResponse' :: Int
 </span><a href="Network.AWS.SageMaker.UpdateWorkteam.html#%24sel%3AhttpStatus%3AUpdateWorkteamResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680428690"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680430373"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-260"></span><span>      </span><span class="annot"><span class="annottext">$sel:workteam:UpdateWorkteamResponse' :: Workteam
 </span><a href="Network.AWS.SageMaker.UpdateWorkteam.html#%24sel%3Aworkteam%3AUpdateWorkteamResponse%27"><span class="hs-identifier hs-var">workteam</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Workteam
-</span><a href="#local-6989586621680428689"><span class="hs-identifier hs-var">pWorkteam_</span></a></span><span>
+</span><a href="#local-6989586621680430372"><span class="hs-identifier hs-var">pWorkteam_</span></a></span><span>
 </span><span id="line-261"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-262"></span><span>
 </span><span id="line-263"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -618,16 +618,16 @@ $cfrom :: forall x. UpdateWorkteamResponse -&gt; Rep UpdateWorkteamResponse x
 -&gt; (UpdateWorkteamResponse -&gt; Int -&gt; UpdateWorkteamResponse)
 -&gt; Lens UpdateWorkteamResponse UpdateWorkteamResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteamResponse%27"><span class="hs-identifier hs-type">UpdateWorkteamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680428688"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteamResponse%27"><span class="hs-identifier hs-type">UpdateWorkteamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680430371"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateWorkteamResponse' :: UpdateWorkteamResponse -&gt; Int
-</span><a href="#local-6989586621680428688"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680428688"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680428687"><span class="annot"><span class="annottext">s :: UpdateWorkteamResponse
-</span><a href="#local-6989586621680428687"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteamResponse%27"><span class="hs-identifier hs-type">UpdateWorkteamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680428686"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680428686"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWorkteamResponse
-</span><a href="#local-6989586621680428687"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateWorkteamResponse' :: Int
+</span><a href="#local-6989586621680430371"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680430371"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680430370"><span class="annot"><span class="annottext">s :: UpdateWorkteamResponse
+</span><a href="#local-6989586621680430370"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteamResponse%27"><span class="hs-identifier hs-type">UpdateWorkteamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680430369"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680430369"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWorkteamResponse
+</span><a href="#local-6989586621680430370"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateWorkteamResponse' :: Int
 </span><a href="Network.AWS.SageMaker.UpdateWorkteam.html#%24sel%3AhttpStatus%3AUpdateWorkteamResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680428686"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteamResponse"><span class="hs-identifier hs-type">UpdateWorkteamResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680430369"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteamResponse"><span class="hs-identifier hs-type">UpdateWorkteamResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-266"></span><span>
 </span><span id="line-267"></span><span class="hs-comment">-- | A @Workteam@ object that describes the updated work team.</span><span>
 </span><span id="line-268"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#updateWorkteamResponse_workteam"><span class="hs-identifier hs-type">updateWorkteamResponse_workteam</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteamResponse"><span class="hs-identifier hs-type">UpdateWorkteamResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam"><span class="hs-identifier hs-type">Workteam</span></a></span><span>
@@ -638,16 +638,16 @@ $sel:httpStatus:UpdateWorkteamResponse' :: UpdateWorkteamResponse -&gt; Int
 -&gt; Lens
      UpdateWorkteamResponse UpdateWorkteamResponse Workteam Workteam
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteamResponse%27"><span class="hs-identifier hs-type">UpdateWorkteamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680428685"><span class="annot"><span class="annottext">Workteam
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteamResponse%27"><span class="hs-identifier hs-type">UpdateWorkteamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680430368"><span class="annot"><span class="annottext">Workteam
 workteam :: Workteam
 $sel:workteam:UpdateWorkteamResponse' :: UpdateWorkteamResponse -&gt; Workteam
-</span><a href="#local-6989586621680428685"><span class="hs-identifier hs-var hs-var">workteam</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workteam
-</span><a href="#local-6989586621680428685"><span class="hs-identifier hs-var">workteam</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680428684"><span class="annot"><span class="annottext">s :: UpdateWorkteamResponse
-</span><a href="#local-6989586621680428684"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteamResponse%27"><span class="hs-identifier hs-type">UpdateWorkteamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680428683"><span class="annot"><span class="annottext">Workteam
-</span><a href="#local-6989586621680428683"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWorkteamResponse
-</span><a href="#local-6989586621680428684"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workteam:UpdateWorkteamResponse' :: Workteam
+</span><a href="#local-6989586621680430368"><span class="hs-identifier hs-var hs-var">workteam</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workteam
+</span><a href="#local-6989586621680430368"><span class="hs-identifier hs-var">workteam</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680430367"><span class="annot"><span class="annottext">s :: UpdateWorkteamResponse
+</span><a href="#local-6989586621680430367"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteamResponse%27"><span class="hs-identifier hs-type">UpdateWorkteamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680430366"><span class="annot"><span class="annottext">Workteam
+</span><a href="#local-6989586621680430366"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWorkteamResponse
+</span><a href="#local-6989586621680430367"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workteam:UpdateWorkteamResponse' :: Workteam
 </span><a href="Network.AWS.SageMaker.UpdateWorkteam.html#%24sel%3Aworkteam%3AUpdateWorkteamResponse%27"><span class="hs-identifier hs-var">workteam</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Workteam
-</span><a href="#local-6989586621680428683"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteamResponse"><span class="hs-identifier hs-type">UpdateWorkteamResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680430366"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteamResponse"><span class="hs-identifier hs-type">UpdateWorkteamResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-270"></span><span>
-</span><span id="line-271"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680428681"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteamResponse"><span class="hs-identifier hs-type">UpdateWorkteamResponse</span></a></span></span><span>
+</span><span id="line-271"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680430364"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkteam.html#UpdateWorkteamResponse"><span class="hs-identifier hs-type">UpdateWorkteamResponse</span></a></span></span><span>
 </span><span id="line-272"></span></pre></body></html>

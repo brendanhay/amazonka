@@ -50,13 +50,13 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-52"></span><span>
-</span><span id="line-53"></span><span id="local-6989586621679346981"><span id="local-6989586621679346982"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PiiEntityType"><span class="annot"><a href="Network.AWS.Comprehend.Types.PiiEntityType.html#PiiEntityType"><span class="hs-identifier hs-var">PiiEntityType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PiiEntityType%27"><span class="annot"><a href="Network.AWS.Comprehend.Types.PiiEntityType.html#PiiEntityType%27"><span class="hs-identifier hs-var">PiiEntityType'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679347250"><span id="local-6989586621679347251"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PiiEntityType"><span class="annot"><a href="Network.AWS.Comprehend.Types.PiiEntityType.html#PiiEntityType"><span class="hs-identifier hs-var">PiiEntityType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PiiEntityType%27"><span class="annot"><a href="Network.AWS.Comprehend.Types.PiiEntityType.html#PiiEntityType%27"><span class="hs-identifier hs-var">PiiEntityType'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPiiEntityType"><span class="annot"><span class="annottext">PiiEntityType -&gt; Text
 </span><a href="Network.AWS.Comprehend.Types.PiiEntityType.html#fromPiiEntityType"><span class="hs-identifier hs-var hs-var">fromPiiEntityType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-55"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679346973"><span id="local-6989586621679346975"><span id="local-6989586621679346977"><span class="annot"><span class="annottext">Int -&gt; PiiEntityType -&gt; ShowS
+</span><span id="line-58"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679347242"><span id="local-6989586621679347244"><span id="local-6989586621679347246"><span class="annot"><span class="annottext">Int -&gt; PiiEntityType -&gt; ShowS
 [PiiEntityType] -&gt; ShowS
 PiiEntityType -&gt; String
 (Int -&gt; PiiEntityType -&gt; ShowS)
@@ -72,7 +72,7 @@ $cshow :: PiiEntityType -&gt; String
 showsPrec :: Int -&gt; PiiEntityType -&gt; ShowS
 $cshowsPrec :: Int -&gt; PiiEntityType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679346964"><span id="local-6989586621679346966"><span id="local-6989586621679346968"><span id="local-6989586621679346970"><span class="annot"><span class="annottext">ReadPrec [PiiEntityType]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679347233"><span id="local-6989586621679347235"><span id="local-6989586621679347237"><span id="local-6989586621679347239"><span class="annot"><span class="annottext">ReadPrec [PiiEntityType]
 ReadPrec PiiEntityType
 Int -&gt; ReadS PiiEntityType
 ReadS [PiiEntityType]
@@ -93,7 +93,7 @@ $creadList :: ReadS [PiiEntityType]
 readsPrec :: Int -&gt; ReadS PiiEntityType
 $creadsPrec :: Int -&gt; ReadS PiiEntityType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679346959"><span id="local-6989586621679346961"><span class="annot"><span class="annottext">PiiEntityType -&gt; PiiEntityType -&gt; Bool
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679347228"><span id="local-6989586621679347230"><span class="annot"><span class="annottext">PiiEntityType -&gt; PiiEntityType -&gt; Bool
 (PiiEntityType -&gt; PiiEntityType -&gt; Bool)
 -&gt; (PiiEntityType -&gt; PiiEntityType -&gt; Bool) -&gt; Eq PiiEntityType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -102,7 +102,7 @@ $c/= :: PiiEntityType -&gt; PiiEntityType -&gt; Bool
 == :: PiiEntityType -&gt; PiiEntityType -&gt; Bool
 $c== :: PiiEntityType -&gt; PiiEntityType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679346943"><span id="local-6989586621679346945"><span id="local-6989586621679346947"><span id="local-6989586621679346949"><span id="local-6989586621679346951"><span id="local-6989586621679346953"><span id="local-6989586621679346955"><span class="annot"><span class="annottext">Eq PiiEntityType
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679347212"><span id="local-6989586621679347214"><span id="local-6989586621679347216"><span id="local-6989586621679347218"><span id="local-6989586621679347220"><span id="local-6989586621679347222"><span id="local-6989586621679347224"><span class="annot"><span class="annottext">Eq PiiEntityType
 Eq PiiEntityType
 -&gt; (PiiEntityType -&gt; PiiEntityType -&gt; Ordering)
 -&gt; (PiiEntityType -&gt; PiiEntityType -&gt; Bool)
@@ -153,7 +153,7 @@ $cfrom :: forall x. PiiEntityType -&gt; Rep PiiEntityType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679346935"><span id="local-6989586621679346937"><span class="annot"><span class="annottext">Int -&gt; PiiEntityType -&gt; Int
+</span><span id="line-65"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679347204"><span id="local-6989586621679347206"><span class="annot"><span class="annottext">Int -&gt; PiiEntityType -&gt; Int
 PiiEntityType -&gt; Int
 (Int -&gt; PiiEntityType -&gt; Int)
 -&gt; (PiiEntityType -&gt; Int) -&gt; Hashable PiiEntityType
@@ -163,49 +163,49 @@ $chash :: PiiEntityType -&gt; Int
 hashWithSalt :: Int -&gt; PiiEntityType -&gt; Int
 $chashWithSalt :: Int -&gt; PiiEntityType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679346932"><span class="annot"><span class="annottext">PiiEntityType -&gt; ()
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679347201"><span class="annot"><span class="annottext">PiiEntityType -&gt; ()
 (PiiEntityType -&gt; ()) -&gt; NFData PiiEntityType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: PiiEntityType -&gt; ()
 $crnf :: PiiEntityType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679346929"><span class="annot"><span class="annottext">Text -&gt; Either String PiiEntityType
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679347198"><span class="annot"><span class="annottext">Text -&gt; Either String PiiEntityType
 (Text -&gt; Either String PiiEntityType) -&gt; FromText PiiEntityType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String PiiEntityType
 $cfromText :: Text -&gt; Either String PiiEntityType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679346926"><span class="annot"><span class="annottext">PiiEntityType -&gt; Text
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679347195"><span class="annot"><span class="annottext">PiiEntityType -&gt; Text
 (PiiEntityType -&gt; Text) -&gt; ToText PiiEntityType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: PiiEntityType -&gt; Text
 $ctoText :: PiiEntityType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679346923"><span class="annot"><span class="annottext">PiiEntityType -&gt; ByteString
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679347192"><span class="annot"><span class="annottext">PiiEntityType -&gt; ByteString
 (PiiEntityType -&gt; ByteString) -&gt; ToByteString PiiEntityType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: PiiEntityType -&gt; ByteString
 $ctoBS :: PiiEntityType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621679346920"><span class="annot"><span class="annottext">PiiEntityType -&gt; ByteStringBuilder
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679347189"><span class="annot"><span class="annottext">PiiEntityType -&gt; ByteStringBuilder
 (PiiEntityType -&gt; ByteStringBuilder) -&gt; ToLog PiiEntityType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: PiiEntityType -&gt; ByteStringBuilder
 $cbuild :: PiiEntityType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span id="local-6989586621679346917"><span class="annot"><span class="annottext">HeaderName -&gt; PiiEntityType -&gt; [Header]
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679347186"><span class="annot"><span class="annottext">HeaderName -&gt; PiiEntityType -&gt; [Header]
 (HeaderName -&gt; PiiEntityType -&gt; [Header]) -&gt; ToHeader PiiEntityType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; PiiEntityType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; PiiEntityType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span id="local-6989586621679346914"><span class="annot"><span class="annottext">PiiEntityType -&gt; QueryString
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679347183"><span class="annot"><span class="annottext">PiiEntityType -&gt; QueryString
 (PiiEntityType -&gt; QueryString) -&gt; ToQuery PiiEntityType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: PiiEntityType -&gt; QueryString
 $ctoQuery :: PiiEntityType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span id="local-6989586621679346909"><span id="local-6989586621679346911"><span class="annot"><span class="annottext">Value -&gt; Parser [PiiEntityType]
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679347178"><span id="local-6989586621679347180"><span class="annot"><span class="annottext">Value -&gt; Parser [PiiEntityType]
 Value -&gt; Parser PiiEntityType
 (Value -&gt; Parser PiiEntityType)
 -&gt; (Value -&gt; Parser [PiiEntityType]) -&gt; FromJSON PiiEntityType
@@ -216,7 +216,7 @@ $cparseJSONList :: Value -&gt; Parser [PiiEntityType]
 parseJSON :: Value -&gt; Parser PiiEntityType
 $cparseJSON :: Value -&gt; Parser PiiEntityType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span id="local-6989586621679346904"><span id="local-6989586621679346906"><span class="annot"><span class="annottext">FromJSONKeyFunction [PiiEntityType]
+</span><span id="line-74"></span><span>      </span><span id="local-6989586621679347173"><span id="local-6989586621679347175"><span class="annot"><span class="annottext">FromJSONKeyFunction [PiiEntityType]
 FromJSONKeyFunction PiiEntityType
 FromJSONKeyFunction PiiEntityType
 -&gt; FromJSONKeyFunction [PiiEntityType] -&gt; FromJSONKey PiiEntityType
@@ -227,7 +227,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [PiiEntityType]
 fromJSONKey :: FromJSONKeyFunction PiiEntityType
 $cfromJSONKey :: FromJSONKeyFunction PiiEntityType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span id="local-6989586621679346895"><span id="local-6989586621679346897"><span id="local-6989586621679346899"><span id="local-6989586621679346901"><span class="annot"><span class="annottext">[PiiEntityType] -&gt; Encoding
+</span><span id="line-75"></span><span>      </span><span id="local-6989586621679347164"><span id="local-6989586621679347166"><span id="local-6989586621679347168"><span id="local-6989586621679347170"><span class="annot"><span class="annottext">[PiiEntityType] -&gt; Encoding
 [PiiEntityType] -&gt; Value
 PiiEntityType -&gt; Encoding
 PiiEntityType -&gt; Value
@@ -251,7 +251,7 @@ $ctoEncoding :: PiiEntityType -&gt; Encoding
 toJSON :: PiiEntityType -&gt; Value
 $ctoJSON :: PiiEntityType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span id="local-6989586621679346890"><span id="local-6989586621679346892"><span class="annot"><span class="annottext">ToJSONKeyFunction [PiiEntityType]
+</span><span id="line-76"></span><span>      </span><span id="local-6989586621679347159"><span id="local-6989586621679347161"><span class="annot"><span class="annottext">ToJSONKeyFunction [PiiEntityType]
 ToJSONKeyFunction PiiEntityType
 ToJSONKeyFunction PiiEntityType
 -&gt; ToJSONKeyFunction [PiiEntityType] -&gt; ToJSONKey PiiEntityType
@@ -262,13 +262,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [PiiEntityType]
 toJSONKey :: ToJSONKeyFunction PiiEntityType
 $ctoJSONKey :: ToJSONKeyFunction PiiEntityType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span id="local-6989586621679346887"><span class="annot"><span class="annottext">[Node] -&gt; Either String PiiEntityType
+</span><span id="line-77"></span><span>      </span><span id="local-6989586621679347156"><span class="annot"><span class="annottext">[Node] -&gt; Either String PiiEntityType
 ([Node] -&gt; Either String PiiEntityType) -&gt; FromXML PiiEntityType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String PiiEntityType
 $cparseXML :: [Node] -&gt; Either String PiiEntityType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>      </span><span id="local-6989586621679346884"><span class="annot"><span class="annottext">PiiEntityType -&gt; XML
+</span><span id="line-78"></span><span>      </span><span id="local-6989586621679347153"><span class="annot"><span class="annottext">PiiEntityType -&gt; XML
 (PiiEntityType -&gt; XML) -&gt; ToXML PiiEntityType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: PiiEntityType -&gt; XML

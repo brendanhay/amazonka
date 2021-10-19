@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621680342345"><span id="local-6989586621680342346"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SortPipelinesBy"><span class="annot"><a href="Network.AWS.SageMaker.Types.SortPipelinesBy.html#SortPipelinesBy"><span class="hs-identifier hs-var">SortPipelinesBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SortPipelinesBy%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.SortPipelinesBy.html#SortPipelinesBy%27"><span class="hs-identifier hs-var">SortPipelinesBy'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680343759"><span id="local-6989586621680343760"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SortPipelinesBy"><span class="annot"><a href="Network.AWS.SageMaker.Types.SortPipelinesBy.html#SortPipelinesBy"><span class="hs-identifier hs-var">SortPipelinesBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SortPipelinesBy%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.SortPipelinesBy.html#SortPipelinesBy%27"><span class="hs-identifier hs-var">SortPipelinesBy'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSortPipelinesBy"><span class="annot"><span class="annottext">SortPipelinesBy -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.SortPipelinesBy.html#fromSortPipelinesBy"><span class="hs-identifier hs-var hs-var">fromSortPipelinesBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680342337"><span id="local-6989586621680342339"><span id="local-6989586621680342341"><span class="annot"><span class="annottext">Int -&gt; SortPipelinesBy -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680343751"><span id="local-6989586621680343753"><span id="local-6989586621680343755"><span class="annot"><span class="annottext">Int -&gt; SortPipelinesBy -&gt; ShowS
 [SortPipelinesBy] -&gt; ShowS
 SortPipelinesBy -&gt; String
 (Int -&gt; SortPipelinesBy -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: SortPipelinesBy -&gt; String
 showsPrec :: Int -&gt; SortPipelinesBy -&gt; ShowS
 $cshowsPrec :: Int -&gt; SortPipelinesBy -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621680342328"><span id="local-6989586621680342330"><span id="local-6989586621680342332"><span id="local-6989586621680342334"><span class="annot"><span class="annottext">ReadPrec [SortPipelinesBy]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621680343742"><span id="local-6989586621680343744"><span id="local-6989586621680343746"><span id="local-6989586621680343748"><span class="annot"><span class="annottext">ReadPrec [SortPipelinesBy]
 ReadPrec SortPipelinesBy
 Int -&gt; ReadS SortPipelinesBy
 ReadS [SortPipelinesBy]
@@ -72,7 +72,7 @@ $creadList :: ReadS [SortPipelinesBy]
 readsPrec :: Int -&gt; ReadS SortPipelinesBy
 $creadsPrec :: Int -&gt; ReadS SortPipelinesBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621680342323"><span id="local-6989586621680342325"><span class="annot"><span class="annottext">SortPipelinesBy -&gt; SortPipelinesBy -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680343737"><span id="local-6989586621680343739"><span class="annot"><span class="annottext">SortPipelinesBy -&gt; SortPipelinesBy -&gt; Bool
 (SortPipelinesBy -&gt; SortPipelinesBy -&gt; Bool)
 -&gt; (SortPipelinesBy -&gt; SortPipelinesBy -&gt; Bool)
 -&gt; Eq SortPipelinesBy
@@ -82,7 +82,7 @@ $c/= :: SortPipelinesBy -&gt; SortPipelinesBy -&gt; Bool
 == :: SortPipelinesBy -&gt; SortPipelinesBy -&gt; Bool
 $c== :: SortPipelinesBy -&gt; SortPipelinesBy -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621680342307"><span id="local-6989586621680342309"><span id="local-6989586621680342311"><span id="local-6989586621680342313"><span id="local-6989586621680342315"><span id="local-6989586621680342317"><span id="local-6989586621680342319"><span class="annot"><span class="annottext">Eq SortPipelinesBy
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680343721"><span id="local-6989586621680343723"><span id="local-6989586621680343725"><span id="local-6989586621680343727"><span id="local-6989586621680343729"><span id="local-6989586621680343731"><span id="local-6989586621680343733"><span class="annot"><span class="annottext">Eq SortPipelinesBy
 Eq SortPipelinesBy
 -&gt; (SortPipelinesBy -&gt; SortPipelinesBy -&gt; Ordering)
 -&gt; (SortPipelinesBy -&gt; SortPipelinesBy -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. SortPipelinesBy -&gt; Rep SortPipelinesBy x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680342299"><span id="local-6989586621680342301"><span class="annot"><span class="annottext">Int -&gt; SortPipelinesBy -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680343713"><span id="local-6989586621680343715"><span class="annot"><span class="annottext">Int -&gt; SortPipelinesBy -&gt; Int
 SortPipelinesBy -&gt; Int
 (Int -&gt; SortPipelinesBy -&gt; Int)
 -&gt; (SortPipelinesBy -&gt; Int) -&gt; Hashable SortPipelinesBy
@@ -143,50 +143,50 @@ $chash :: SortPipelinesBy -&gt; Int
 hashWithSalt :: Int -&gt; SortPipelinesBy -&gt; Int
 $chashWithSalt :: Int -&gt; SortPipelinesBy -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621680342296"><span class="annot"><span class="annottext">SortPipelinesBy -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680343710"><span class="annot"><span class="annottext">SortPipelinesBy -&gt; ()
 (SortPipelinesBy -&gt; ()) -&gt; NFData SortPipelinesBy
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: SortPipelinesBy -&gt; ()
 $crnf :: SortPipelinesBy -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621680342293"><span class="annot"><span class="annottext">Text -&gt; Either String SortPipelinesBy
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680343707"><span class="annot"><span class="annottext">Text -&gt; Either String SortPipelinesBy
 (Text -&gt; Either String SortPipelinesBy) -&gt; FromText SortPipelinesBy
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String SortPipelinesBy
 $cfromText :: Text -&gt; Either String SortPipelinesBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680342290"><span class="annot"><span class="annottext">SortPipelinesBy -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680343704"><span class="annot"><span class="annottext">SortPipelinesBy -&gt; Text
 (SortPipelinesBy -&gt; Text) -&gt; ToText SortPipelinesBy
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: SortPipelinesBy -&gt; Text
 $ctoText :: SortPipelinesBy -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680342287"><span class="annot"><span class="annottext">SortPipelinesBy -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680343701"><span class="annot"><span class="annottext">SortPipelinesBy -&gt; ByteString
 (SortPipelinesBy -&gt; ByteString) -&gt; ToByteString SortPipelinesBy
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: SortPipelinesBy -&gt; ByteString
 $ctoBS :: SortPipelinesBy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680342284"><span class="annot"><span class="annottext">SortPipelinesBy -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680343698"><span class="annot"><span class="annottext">SortPipelinesBy -&gt; ByteStringBuilder
 (SortPipelinesBy -&gt; ByteStringBuilder) -&gt; ToLog SortPipelinesBy
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: SortPipelinesBy -&gt; ByteStringBuilder
 $cbuild :: SortPipelinesBy -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680342281"><span class="annot"><span class="annottext">HeaderName -&gt; SortPipelinesBy -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680343695"><span class="annot"><span class="annottext">HeaderName -&gt; SortPipelinesBy -&gt; [Header]
 (HeaderName -&gt; SortPipelinesBy -&gt; [Header])
 -&gt; ToHeader SortPipelinesBy
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; SortPipelinesBy -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; SortPipelinesBy -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680342278"><span class="annot"><span class="annottext">SortPipelinesBy -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680343692"><span class="annot"><span class="annottext">SortPipelinesBy -&gt; QueryString
 (SortPipelinesBy -&gt; QueryString) -&gt; ToQuery SortPipelinesBy
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: SortPipelinesBy -&gt; QueryString
 $ctoQuery :: SortPipelinesBy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680342273"><span id="local-6989586621680342275"><span class="annot"><span class="annottext">Value -&gt; Parser [SortPipelinesBy]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680343687"><span id="local-6989586621680343689"><span class="annot"><span class="annottext">Value -&gt; Parser [SortPipelinesBy]
 Value -&gt; Parser SortPipelinesBy
 (Value -&gt; Parser SortPipelinesBy)
 -&gt; (Value -&gt; Parser [SortPipelinesBy]) -&gt; FromJSON SortPipelinesBy
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [SortPipelinesBy]
 parseJSON :: Value -&gt; Parser SortPipelinesBy
 $cparseJSON :: Value -&gt; Parser SortPipelinesBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680342268"><span id="local-6989586621680342270"><span class="annot"><span class="annottext">FromJSONKeyFunction [SortPipelinesBy]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680343682"><span id="local-6989586621680343684"><span class="annot"><span class="annottext">FromJSONKeyFunction [SortPipelinesBy]
 FromJSONKeyFunction SortPipelinesBy
 FromJSONKeyFunction SortPipelinesBy
 -&gt; FromJSONKeyFunction [SortPipelinesBy]
@@ -209,7 +209,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [SortPipelinesBy]
 fromJSONKey :: FromJSONKeyFunction SortPipelinesBy
 $cfromJSONKey :: FromJSONKeyFunction SortPipelinesBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680342259"><span id="local-6989586621680342261"><span id="local-6989586621680342263"><span id="local-6989586621680342265"><span class="annot"><span class="annottext">[SortPipelinesBy] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680343673"><span id="local-6989586621680343675"><span id="local-6989586621680343677"><span id="local-6989586621680343679"><span class="annot"><span class="annottext">[SortPipelinesBy] -&gt; Encoding
 [SortPipelinesBy] -&gt; Value
 SortPipelinesBy -&gt; Encoding
 SortPipelinesBy -&gt; Value
@@ -233,7 +233,7 @@ $ctoEncoding :: SortPipelinesBy -&gt; Encoding
 toJSON :: SortPipelinesBy -&gt; Value
 $ctoJSON :: SortPipelinesBy -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680342254"><span id="local-6989586621680342256"><span class="annot"><span class="annottext">ToJSONKeyFunction [SortPipelinesBy]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680343668"><span id="local-6989586621680343670"><span class="annot"><span class="annottext">ToJSONKeyFunction [SortPipelinesBy]
 ToJSONKeyFunction SortPipelinesBy
 ToJSONKeyFunction SortPipelinesBy
 -&gt; ToJSONKeyFunction [SortPipelinesBy] -&gt; ToJSONKey SortPipelinesBy
@@ -244,14 +244,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [SortPipelinesBy]
 toJSONKey :: ToJSONKeyFunction SortPipelinesBy
 $ctoJSONKey :: ToJSONKeyFunction SortPipelinesBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680342251"><span class="annot"><span class="annottext">[Node] -&gt; Either String SortPipelinesBy
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680343665"><span class="annot"><span class="annottext">[Node] -&gt; Either String SortPipelinesBy
 ([Node] -&gt; Either String SortPipelinesBy)
 -&gt; FromXML SortPipelinesBy
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String SortPipelinesBy
 $cparseXML :: [Node] -&gt; Either String SortPipelinesBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680342248"><span class="annot"><span class="annottext">SortPipelinesBy -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680343662"><span class="annot"><span class="annottext">SortPipelinesBy -&gt; XML
 (SortPipelinesBy -&gt; XML) -&gt; ToXML SortPipelinesBy
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: SortPipelinesBy -&gt; XML

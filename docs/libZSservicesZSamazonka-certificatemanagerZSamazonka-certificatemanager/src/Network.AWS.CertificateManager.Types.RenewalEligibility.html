@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679189149"><span id="local-6989586621679189150"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RenewalEligibility"><span class="annot"><a href="Network.AWS.CertificateManager.Types.RenewalEligibility.html#RenewalEligibility"><span class="hs-identifier hs-var">RenewalEligibility</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RenewalEligibility%27"><span class="annot"><a href="Network.AWS.CertificateManager.Types.RenewalEligibility.html#RenewalEligibility%27"><span class="hs-identifier hs-var">RenewalEligibility'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679189233"><span id="local-6989586621679189234"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RenewalEligibility"><span class="annot"><a href="Network.AWS.CertificateManager.Types.RenewalEligibility.html#RenewalEligibility"><span class="hs-identifier hs-var">RenewalEligibility</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RenewalEligibility%27"><span class="annot"><a href="Network.AWS.CertificateManager.Types.RenewalEligibility.html#RenewalEligibility%27"><span class="hs-identifier hs-var">RenewalEligibility'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRenewalEligibility"><span class="annot"><span class="annottext">RenewalEligibility -&gt; Text
 </span><a href="Network.AWS.CertificateManager.Types.RenewalEligibility.html#fromRenewalEligibility"><span class="hs-identifier hs-var hs-var">fromRenewalEligibility</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679189141"><span id="local-6989586621679189143"><span id="local-6989586621679189145"><span class="annot"><span class="annottext">Int -&gt; RenewalEligibility -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679189225"><span id="local-6989586621679189227"><span id="local-6989586621679189229"><span class="annot"><span class="annottext">Int -&gt; RenewalEligibility -&gt; ShowS
 [RenewalEligibility] -&gt; ShowS
 RenewalEligibility -&gt; String
 (Int -&gt; RenewalEligibility -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: RenewalEligibility -&gt; String
 showsPrec :: Int -&gt; RenewalEligibility -&gt; ShowS
 $cshowsPrec :: Int -&gt; RenewalEligibility -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679189132"><span id="local-6989586621679189134"><span id="local-6989586621679189136"><span id="local-6989586621679189138"><span class="annot"><span class="annottext">ReadPrec [RenewalEligibility]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679189216"><span id="local-6989586621679189218"><span id="local-6989586621679189220"><span id="local-6989586621679189222"><span class="annot"><span class="annottext">ReadPrec [RenewalEligibility]
 ReadPrec RenewalEligibility
 Int -&gt; ReadS RenewalEligibility
 ReadS [RenewalEligibility]
@@ -72,7 +72,7 @@ $creadList :: ReadS [RenewalEligibility]
 readsPrec :: Int -&gt; ReadS RenewalEligibility
 $creadsPrec :: Int -&gt; ReadS RenewalEligibility
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679189127"><span id="local-6989586621679189129"><span class="annot"><span class="annottext">RenewalEligibility -&gt; RenewalEligibility -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679189211"><span id="local-6989586621679189213"><span class="annot"><span class="annottext">RenewalEligibility -&gt; RenewalEligibility -&gt; Bool
 (RenewalEligibility -&gt; RenewalEligibility -&gt; Bool)
 -&gt; (RenewalEligibility -&gt; RenewalEligibility -&gt; Bool)
 -&gt; Eq RenewalEligibility
@@ -82,7 +82,7 @@ $c/= :: RenewalEligibility -&gt; RenewalEligibility -&gt; Bool
 == :: RenewalEligibility -&gt; RenewalEligibility -&gt; Bool
 $c== :: RenewalEligibility -&gt; RenewalEligibility -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679189111"><span id="local-6989586621679189113"><span id="local-6989586621679189115"><span id="local-6989586621679189117"><span id="local-6989586621679189119"><span id="local-6989586621679189121"><span id="local-6989586621679189123"><span class="annot"><span class="annottext">Eq RenewalEligibility
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679189195"><span id="local-6989586621679189197"><span id="local-6989586621679189199"><span id="local-6989586621679189201"><span id="local-6989586621679189203"><span id="local-6989586621679189205"><span id="local-6989586621679189207"><span class="annot"><span class="annottext">Eq RenewalEligibility
 Eq RenewalEligibility
 -&gt; (RenewalEligibility -&gt; RenewalEligibility -&gt; Ordering)
 -&gt; (RenewalEligibility -&gt; RenewalEligibility -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. RenewalEligibility -&gt; Rep RenewalEligibility x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679189103"><span id="local-6989586621679189105"><span class="annot"><span class="annottext">Int -&gt; RenewalEligibility -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679189187"><span id="local-6989586621679189189"><span class="annot"><span class="annottext">Int -&gt; RenewalEligibility -&gt; Int
 RenewalEligibility -&gt; Int
 (Int -&gt; RenewalEligibility -&gt; Int)
 -&gt; (RenewalEligibility -&gt; Int) -&gt; Hashable RenewalEligibility
@@ -143,53 +143,53 @@ $chash :: RenewalEligibility -&gt; Int
 hashWithSalt :: Int -&gt; RenewalEligibility -&gt; Int
 $chashWithSalt :: Int -&gt; RenewalEligibility -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679189100"><span class="annot"><span class="annottext">RenewalEligibility -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679189184"><span class="annot"><span class="annottext">RenewalEligibility -&gt; ()
 (RenewalEligibility -&gt; ()) -&gt; NFData RenewalEligibility
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: RenewalEligibility -&gt; ()
 $crnf :: RenewalEligibility -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679189097"><span class="annot"><span class="annottext">Text -&gt; Either String RenewalEligibility
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679189181"><span class="annot"><span class="annottext">Text -&gt; Either String RenewalEligibility
 (Text -&gt; Either String RenewalEligibility)
 -&gt; FromText RenewalEligibility
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String RenewalEligibility
 $cfromText :: Text -&gt; Either String RenewalEligibility
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679189094"><span class="annot"><span class="annottext">RenewalEligibility -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679189178"><span class="annot"><span class="annottext">RenewalEligibility -&gt; Text
 (RenewalEligibility -&gt; Text) -&gt; ToText RenewalEligibility
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: RenewalEligibility -&gt; Text
 $ctoText :: RenewalEligibility -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679189091"><span class="annot"><span class="annottext">RenewalEligibility -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679189175"><span class="annot"><span class="annottext">RenewalEligibility -&gt; ByteString
 (RenewalEligibility -&gt; ByteString)
 -&gt; ToByteString RenewalEligibility
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: RenewalEligibility -&gt; ByteString
 $ctoBS :: RenewalEligibility -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679189088"><span class="annot"><span class="annottext">RenewalEligibility -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679189172"><span class="annot"><span class="annottext">RenewalEligibility -&gt; ByteStringBuilder
 (RenewalEligibility -&gt; ByteStringBuilder)
 -&gt; ToLog RenewalEligibility
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: RenewalEligibility -&gt; ByteStringBuilder
 $cbuild :: RenewalEligibility -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679189085"><span class="annot"><span class="annottext">HeaderName -&gt; RenewalEligibility -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679189169"><span class="annot"><span class="annottext">HeaderName -&gt; RenewalEligibility -&gt; [Header]
 (HeaderName -&gt; RenewalEligibility -&gt; [Header])
 -&gt; ToHeader RenewalEligibility
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; RenewalEligibility -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; RenewalEligibility -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679189082"><span class="annot"><span class="annottext">RenewalEligibility -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679189166"><span class="annot"><span class="annottext">RenewalEligibility -&gt; QueryString
 (RenewalEligibility -&gt; QueryString) -&gt; ToQuery RenewalEligibility
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: RenewalEligibility -&gt; QueryString
 $ctoQuery :: RenewalEligibility -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679189077"><span id="local-6989586621679189079"><span class="annot"><span class="annottext">Value -&gt; Parser [RenewalEligibility]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679189161"><span id="local-6989586621679189163"><span class="annot"><span class="annottext">Value -&gt; Parser [RenewalEligibility]
 Value -&gt; Parser RenewalEligibility
 (Value -&gt; Parser RenewalEligibility)
 -&gt; (Value -&gt; Parser [RenewalEligibility])
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [RenewalEligibility]
 parseJSON :: Value -&gt; Parser RenewalEligibility
 $cparseJSON :: Value -&gt; Parser RenewalEligibility
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679189072"><span id="local-6989586621679189074"><span class="annot"><span class="annottext">FromJSONKeyFunction [RenewalEligibility]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679189156"><span id="local-6989586621679189158"><span class="annot"><span class="annottext">FromJSONKeyFunction [RenewalEligibility]
 FromJSONKeyFunction RenewalEligibility
 FromJSONKeyFunction RenewalEligibility
 -&gt; FromJSONKeyFunction [RenewalEligibility]
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [RenewalEligibility]
 fromJSONKey :: FromJSONKeyFunction RenewalEligibility
 $cfromJSONKey :: FromJSONKeyFunction RenewalEligibility
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679189063"><span id="local-6989586621679189065"><span id="local-6989586621679189067"><span id="local-6989586621679189069"><span class="annot"><span class="annottext">[RenewalEligibility] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679189147"><span id="local-6989586621679189149"><span id="local-6989586621679189151"><span id="local-6989586621679189153"><span class="annot"><span class="annottext">[RenewalEligibility] -&gt; Encoding
 [RenewalEligibility] -&gt; Value
 RenewalEligibility -&gt; Encoding
 RenewalEligibility -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: RenewalEligibility -&gt; Encoding
 toJSON :: RenewalEligibility -&gt; Value
 $ctoJSON :: RenewalEligibility -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679189058"><span id="local-6989586621679189060"><span class="annot"><span class="annottext">ToJSONKeyFunction [RenewalEligibility]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679189142"><span id="local-6989586621679189144"><span class="annot"><span class="annottext">ToJSONKeyFunction [RenewalEligibility]
 ToJSONKeyFunction RenewalEligibility
 ToJSONKeyFunction RenewalEligibility
 -&gt; ToJSONKeyFunction [RenewalEligibility]
@@ -249,14 +249,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [RenewalEligibility]
 toJSONKey :: ToJSONKeyFunction RenewalEligibility
 $ctoJSONKey :: ToJSONKeyFunction RenewalEligibility
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679189055"><span class="annot"><span class="annottext">[Node] -&gt; Either String RenewalEligibility
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679189139"><span class="annot"><span class="annottext">[Node] -&gt; Either String RenewalEligibility
 ([Node] -&gt; Either String RenewalEligibility)
 -&gt; FromXML RenewalEligibility
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String RenewalEligibility
 $cparseXML :: [Node] -&gt; Either String RenewalEligibility
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679189052"><span class="annot"><span class="annottext">RenewalEligibility -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679189136"><span class="annot"><span class="annottext">RenewalEligibility -&gt; XML
 (RenewalEligibility -&gt; XML) -&gt; ToXML RenewalEligibility
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: RenewalEligibility -&gt; XML

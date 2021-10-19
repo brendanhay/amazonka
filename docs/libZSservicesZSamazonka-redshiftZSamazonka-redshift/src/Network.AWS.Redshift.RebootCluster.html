@@ -56,12 +56,12 @@
 </span><span id="line-56"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- /See:/ 'newRebootCluster' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679506647"><span id="local-6989586621679506648"></span></span><span class="hs-keyword">data</span><span> </span><span id="RebootCluster"><span class="annot"><a href="Network.AWS.Redshift.RebootCluster.html#RebootCluster"><span class="hs-identifier hs-var">RebootCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RebootCluster%27"><span class="annot"><a href="Network.AWS.Redshift.RebootCluster.html#RebootCluster%27"><span class="hs-identifier hs-var">RebootCluster'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621679507332"><span id="local-6989586621679507333"></span></span><span class="hs-keyword">data</span><span> </span><span id="RebootCluster"><span class="annot"><a href="Network.AWS.Redshift.RebootCluster.html#RebootCluster"><span class="hs-identifier hs-var">RebootCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RebootCluster%27"><span class="annot"><a href="Network.AWS.Redshift.RebootCluster.html#RebootCluster%27"><span class="hs-identifier hs-var">RebootCluster'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The cluster identifier.</span><span>
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AclusterIdentifier%3ARebootCluster%27"><span class="annot"><span class="annottext">RebootCluster -&gt; Text
 </span><a href="Network.AWS.Redshift.RebootCluster.html#%24sel%3AclusterIdentifier%3ARebootCluster%27"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679506641"><span id="local-6989586621679506643"><span class="annot"><span class="annottext">RebootCluster -&gt; RebootCluster -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679507326"><span id="local-6989586621679507328"><span class="annot"><span class="annottext">RebootCluster -&gt; RebootCluster -&gt; Bool
 (RebootCluster -&gt; RebootCluster -&gt; Bool)
 -&gt; (RebootCluster -&gt; RebootCluster -&gt; Bool) -&gt; Eq RebootCluster
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RebootCluster -&gt; RebootCluster -&gt; Bool
 == :: RebootCluster -&gt; RebootCluster -&gt; Bool
 $c== :: RebootCluster -&gt; RebootCluster -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679506632"><span id="local-6989586621679506634"><span id="local-6989586621679506636"><span id="local-6989586621679506638"><span class="annot"><span class="annottext">ReadPrec [RebootCluster]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679507317"><span id="local-6989586621679507319"><span id="local-6989586621679507321"><span id="local-6989586621679507323"><span class="annot"><span class="annottext">ReadPrec [RebootCluster]
 ReadPrec RebootCluster
 Int -&gt; ReadS RebootCluster
 ReadS [RebootCluster]
@@ -89,7 +89,7 @@ readList :: ReadS [RebootCluster]
 $creadList :: ReadS [RebootCluster]
 readsPrec :: Int -&gt; ReadS RebootCluster
 $creadsPrec :: Int -&gt; ReadS RebootCluster
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679506625"><span id="local-6989586621679506627"><span id="local-6989586621679506629"><span class="annot"><span class="annottext">Int -&gt; RebootCluster -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679507310"><span id="local-6989586621679507312"><span id="local-6989586621679507314"><span class="annot"><span class="annottext">Int -&gt; RebootCluster -&gt; ShowS
 [RebootCluster] -&gt; ShowS
 RebootCluster -&gt; String
 (Int -&gt; RebootCluster -&gt; ShowS)
@@ -129,14 +129,14 @@ $cfrom :: forall x. RebootCluster -&gt; Rep RebootCluster x
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.RebootCluster.html#RebootCluster"><span class="hs-identifier hs-type">RebootCluster</span></a></span><span>
 </span><span id="line-78"></span><span id="newRebootCluster"><span class="annot"><span class="annottext">newRebootCluster :: Text -&gt; RebootCluster
-</span><a href="Network.AWS.Redshift.RebootCluster.html#newRebootCluster"><span class="hs-identifier hs-var hs-var">newRebootCluster</span></a></span></span><span> </span><span id="local-6989586621679506620"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679506620"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Redshift.RebootCluster.html#newRebootCluster"><span class="hs-identifier hs-var hs-var">newRebootCluster</span></a></span></span><span> </span><span id="local-6989586621679507305"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679507305"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">RebootCluster' :: Text -&gt; RebootCluster
 </span><a href="Network.AWS.Redshift.RebootCluster.html#RebootCluster%27"><span class="hs-identifier hs-type">RebootCluster'</span></a></span><span>
 </span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clusterIdentifier:RebootCluster' :: Text
 </span><a href="Network.AWS.Redshift.RebootCluster.html#%24sel%3AclusterIdentifier%3ARebootCluster%27"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679506620"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span><span>
+</span><a href="#local-6989586621679507305"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | The cluster identifier.</span><span>
@@ -146,27 +146,27 @@ $cfrom :: forall x. RebootCluster -&gt; Rep RebootCluster x
 -&gt; (RebootCluster -&gt; Text -&gt; RebootCluster)
 -&gt; Lens RebootCluster RebootCluster Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.RebootCluster.html#RebootCluster%27"><span class="hs-identifier hs-type">RebootCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679506617"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.RebootCluster.html#RebootCluster%27"><span class="hs-identifier hs-type">RebootCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679507302"><span class="annot"><span class="annottext">Text
 clusterIdentifier :: Text
 $sel:clusterIdentifier:RebootCluster' :: RebootCluster -&gt; Text
-</span><a href="#local-6989586621679506617"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679506617"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679506616"><span class="annot"><span class="annottext">s :: RebootCluster
-</span><a href="#local-6989586621679506616"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.RebootCluster.html#RebootCluster%27"><span class="hs-identifier hs-type">RebootCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679506615"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679506615"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RebootCluster
-</span><a href="#local-6989586621679506616"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterIdentifier:RebootCluster' :: Text
+</span><a href="#local-6989586621679507302"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679507302"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679507301"><span class="annot"><span class="annottext">s :: RebootCluster
+</span><a href="#local-6989586621679507301"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.RebootCluster.html#RebootCluster%27"><span class="hs-identifier hs-type">RebootCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679507300"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679507300"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RebootCluster
+</span><a href="#local-6989586621679507301"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterIdentifier:RebootCluster' :: Text
 </span><a href="Network.AWS.Redshift.RebootCluster.html#%24sel%3AclusterIdentifier%3ARebootCluster%27"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679506615"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RebootCluster.html#RebootCluster"><span class="hs-identifier hs-type">RebootCluster</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679507300"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RebootCluster.html#RebootCluster"><span class="hs-identifier hs-type">RebootCluster</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RebootCluster.html#RebootCluster"><span class="hs-identifier hs-type">RebootCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-89"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-90"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RebootCluster.html#RebootCluster"><span class="hs-identifier hs-type">RebootCluster</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>      </span><span class="annot"><a href="Network.AWS.Redshift.RebootCluster.html#RebootClusterResponse"><span class="hs-identifier hs-type">RebootClusterResponse</span></a></span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679506611"><span class="annot"><span class="annottext">request :: RebootCluster -&gt; Request RebootCluster
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679507296"><span class="annot"><span class="annottext">request :: RebootCluster -&gt; Request RebootCluster
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; RebootCluster -&gt; Request RebootCluster
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Redshift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679506607"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679507292"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy RebootCluster
 -&gt; ClientResponse ClientBody
@@ -195,10 +195,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RebootClusterResult&quot;</span></span><span>
-</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679506604"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679506604"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679506603"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679506603"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679506602"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679506602"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679507289"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679507289"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679507288"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679507288"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679507287"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679507287"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe Cluster -&gt; Int -&gt; RebootClusterResponse
 </span><a href="Network.AWS.Redshift.RebootCluster.html#RebootClusterResponse%27"><span class="hs-identifier hs-var">RebootClusterResponse'</span></a></span><span>
 </span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Cluster -&gt; Int -&gt; RebootClusterResponse)
@@ -206,7 +206,7 @@ Text
 -&gt; Either String (Int -&gt; RebootClusterResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679506602"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Cluster)
+</span><a href="#local-6989586621679507287"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Cluster)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Cluster&quot;</span></span><span class="hs-special">)</span><span>
@@ -218,15 +218,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679506604"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679507289"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679506594"><span id="local-6989586621679506596"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RebootCluster.html#RebootCluster"><span class="hs-identifier hs-type">RebootCluster</span></a></span></span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679507279"><span id="local-6989586621679507281"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RebootCluster.html#RebootCluster"><span class="hs-identifier hs-type">RebootCluster</span></a></span></span></span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679506591"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RebootCluster.html#RebootCluster"><span class="hs-identifier hs-type">RebootCluster</span></a></span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679507276"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RebootCluster.html#RebootCluster"><span class="hs-identifier hs-type">RebootCluster</span></a></span></span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RebootCluster.html#RebootCluster"><span class="hs-identifier hs-type">RebootCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679506587"><span class="annot"><span class="annottext">toHeaders :: RebootCluster -&gt; ResponseHeaders
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679507272"><span class="annot"><span class="annottext">toHeaders :: RebootCluster -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RebootCluster -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -234,18 +234,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RebootCluster.html#RebootCluster"><span class="hs-identifier hs-type">RebootCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679506582"><span class="annot"><span class="annottext">toPath :: RebootCluster -&gt; ByteString
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679507267"><span class="annot"><span class="annottext">toPath :: RebootCluster -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RebootCluster -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RebootCluster.html#RebootCluster"><span class="hs-identifier hs-type">RebootCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679506578"><span class="annot"><span class="annottext">toQuery :: RebootCluster -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RebootCluster.html#RebootCluster%27"><span class="hs-identifier hs-type">RebootCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679506576"><span class="annot"><span class="annottext">Text
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679507263"><span class="annot"><span class="annottext">toQuery :: RebootCluster -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RebootCluster.html#RebootCluster%27"><span class="hs-identifier hs-type">RebootCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679507261"><span class="annot"><span class="annottext">Text
 clusterIdentifier :: Text
 $sel:clusterIdentifier:RebootCluster' :: RebootCluster -&gt; Text
-</span><a href="#local-6989586621679506576"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679507261"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -265,18 +265,18 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;ClusterIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679506576"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span>
+</span><a href="#local-6989586621679507261"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- | /See:/ 'newRebootClusterResponse' smart constructor.</span><span>
-</span><span id="line-123"></span><span id="local-6989586621679506573"><span id="local-6989586621679506574"></span></span><span class="hs-keyword">data</span><span> </span><span id="RebootClusterResponse"><span class="annot"><a href="Network.AWS.Redshift.RebootCluster.html#RebootClusterResponse"><span class="hs-identifier hs-var">RebootClusterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RebootClusterResponse%27"><span class="annot"><a href="Network.AWS.Redshift.RebootCluster.html#RebootClusterResponse%27"><span class="hs-identifier hs-var">RebootClusterResponse'</span></a></span></span><span>
+</span><span id="line-123"></span><span id="local-6989586621679507258"><span id="local-6989586621679507259"></span></span><span class="hs-keyword">data</span><span> </span><span id="RebootClusterResponse"><span class="annot"><a href="Network.AWS.Redshift.RebootCluster.html#RebootClusterResponse"><span class="hs-identifier hs-var">RebootClusterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RebootClusterResponse%27"><span class="annot"><a href="Network.AWS.Redshift.RebootCluster.html#RebootClusterResponse%27"><span class="hs-identifier hs-var">RebootClusterResponse'</span></a></span></span><span>
 </span><span id="line-124"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3Acluster%3ARebootClusterResponse%27"><span class="annot"><span class="annottext">RebootClusterResponse -&gt; Maybe Cluster
 </span><a href="Network.AWS.Redshift.RebootCluster.html#%24sel%3Acluster%3ARebootClusterResponse%27"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-125"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-126"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARebootClusterResponse%27"><span class="annot"><span class="annottext">RebootClusterResponse -&gt; Int
 </span><a href="Network.AWS.Redshift.RebootCluster.html#%24sel%3AhttpStatus%3ARebootClusterResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-127"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-128"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679506567"><span id="local-6989586621679506569"><span class="annot"><span class="annottext">RebootClusterResponse -&gt; RebootClusterResponse -&gt; Bool
+</span><span id="line-128"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679507252"><span id="local-6989586621679507254"><span class="annot"><span class="annottext">RebootClusterResponse -&gt; RebootClusterResponse -&gt; Bool
 (RebootClusterResponse -&gt; RebootClusterResponse -&gt; Bool)
 -&gt; (RebootClusterResponse -&gt; RebootClusterResponse -&gt; Bool)
 -&gt; Eq RebootClusterResponse
@@ -285,7 +285,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RebootClusterResponse -&gt; RebootClusterResponse -&gt; Bool
 == :: RebootClusterResponse -&gt; RebootClusterResponse -&gt; Bool
 $c== :: RebootClusterResponse -&gt; RebootClusterResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679506559"><span id="local-6989586621679506561"><span id="local-6989586621679506563"><span id="local-6989586621679506565"><span class="annot"><span class="annottext">ReadPrec [RebootClusterResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679507244"><span id="local-6989586621679507246"><span id="local-6989586621679507248"><span id="local-6989586621679507250"><span class="annot"><span class="annottext">ReadPrec [RebootClusterResponse]
 ReadPrec RebootClusterResponse
 Int -&gt; ReadS RebootClusterResponse
 ReadS [RebootClusterResponse]
@@ -305,7 +305,7 @@ readList :: ReadS [RebootClusterResponse]
 $creadList :: ReadS [RebootClusterResponse]
 readsPrec :: Int -&gt; ReadS RebootClusterResponse
 $creadsPrec :: Int -&gt; ReadS RebootClusterResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679506553"><span id="local-6989586621679506555"><span id="local-6989586621679506557"><span class="annot"><span class="annottext">Int -&gt; RebootClusterResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679507238"><span id="local-6989586621679507240"><span id="local-6989586621679507242"><span class="annot"><span class="annottext">Int -&gt; RebootClusterResponse -&gt; ShowS
 [RebootClusterResponse] -&gt; ShowS
 RebootClusterResponse -&gt; String
 (Int -&gt; RebootClusterResponse -&gt; ShowS)
@@ -347,8 +347,8 @@ $cfrom :: forall x. RebootClusterResponse -&gt; Rep RebootClusterResponse x
 </span><span id="line-143"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-144"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.RebootCluster.html#RebootClusterResponse"><span class="hs-identifier hs-type">RebootClusterResponse</span></a></span><span>
 </span><span id="line-145"></span><span id="newRebootClusterResponse"><span class="annot"><span class="annottext">newRebootClusterResponse :: Int -&gt; RebootClusterResponse
-</span><a href="Network.AWS.Redshift.RebootCluster.html#newRebootClusterResponse"><span class="hs-identifier hs-var hs-var">newRebootClusterResponse</span></a></span></span><span> </span><span id="local-6989586621679506550"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679506550"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Redshift.RebootCluster.html#newRebootClusterResponse"><span class="hs-identifier hs-var hs-var">newRebootClusterResponse</span></a></span></span><span> </span><span id="local-6989586621679507235"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679507235"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-146"></span><span>  </span><span class="annot"><span class="annottext">RebootClusterResponse' :: Maybe Cluster -&gt; Int -&gt; RebootClusterResponse
 </span><a href="Network.AWS.Redshift.RebootCluster.html#RebootClusterResponse%27"><span class="hs-identifier hs-type">RebootClusterResponse'</span></a></span><span>
 </span><span id="line-147"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cluster:RebootClusterResponse' :: Maybe Cluster
@@ -357,7 +357,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:RebootClusterResponse' :: Int
 </span><a href="Network.AWS.Redshift.RebootCluster.html#%24sel%3AhttpStatus%3ARebootClusterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679506550"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679507235"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-149"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -373,16 +373,16 @@ forall a. Maybe a
      (Maybe Cluster)
      (Maybe Cluster)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.RebootCluster.html#RebootClusterResponse%27"><span class="hs-identifier hs-type">RebootClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679506549"><span class="annot"><span class="annottext">Maybe Cluster
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.RebootCluster.html#RebootClusterResponse%27"><span class="hs-identifier hs-type">RebootClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679507234"><span class="annot"><span class="annottext">Maybe Cluster
 cluster :: Maybe Cluster
 $sel:cluster:RebootClusterResponse' :: RebootClusterResponse -&gt; Maybe Cluster
-</span><a href="#local-6989586621679506549"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Cluster
-</span><a href="#local-6989586621679506549"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679506548"><span class="annot"><span class="annottext">s :: RebootClusterResponse
-</span><a href="#local-6989586621679506548"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.RebootCluster.html#RebootClusterResponse%27"><span class="hs-identifier hs-type">RebootClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679506547"><span class="annot"><span class="annottext">Maybe Cluster
-</span><a href="#local-6989586621679506547"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RebootClusterResponse
-</span><a href="#local-6989586621679506548"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:RebootClusterResponse' :: Maybe Cluster
+</span><a href="#local-6989586621679507234"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Cluster
+</span><a href="#local-6989586621679507234"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679507233"><span class="annot"><span class="annottext">s :: RebootClusterResponse
+</span><a href="#local-6989586621679507233"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.RebootCluster.html#RebootClusterResponse%27"><span class="hs-identifier hs-type">RebootClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679507232"><span class="annot"><span class="annottext">Maybe Cluster
+</span><a href="#local-6989586621679507232"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RebootClusterResponse
+</span><a href="#local-6989586621679507233"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:RebootClusterResponse' :: Maybe Cluster
 </span><a href="Network.AWS.Redshift.RebootCluster.html#%24sel%3Acluster%3ARebootClusterResponse%27"><span class="hs-identifier hs-var">cluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Cluster
-</span><a href="#local-6989586621679506547"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RebootCluster.html#RebootClusterResponse"><span class="hs-identifier hs-type">RebootClusterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679507232"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RebootCluster.html#RebootClusterResponse"><span class="hs-identifier hs-type">RebootClusterResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-156"></span><span class="annot"><a href="Network.AWS.Redshift.RebootCluster.html#rebootClusterResponse_httpStatus"><span class="hs-identifier hs-type">rebootClusterResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RebootCluster.html#RebootClusterResponse"><span class="hs-identifier hs-type">RebootClusterResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -391,16 +391,16 @@ $sel:cluster:RebootClusterResponse' :: RebootClusterResponse -&gt; Maybe Cluster
 -&gt; (RebootClusterResponse -&gt; Int -&gt; RebootClusterResponse)
 -&gt; Lens RebootClusterResponse RebootClusterResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.RebootCluster.html#RebootClusterResponse%27"><span class="hs-identifier hs-type">RebootClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679506546"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.RebootCluster.html#RebootClusterResponse%27"><span class="hs-identifier hs-type">RebootClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679507231"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:RebootClusterResponse' :: RebootClusterResponse -&gt; Int
-</span><a href="#local-6989586621679506546"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679506546"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679506545"><span class="annot"><span class="annottext">s :: RebootClusterResponse
-</span><a href="#local-6989586621679506545"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.RebootCluster.html#RebootClusterResponse%27"><span class="hs-identifier hs-type">RebootClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679506544"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679506544"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RebootClusterResponse
-</span><a href="#local-6989586621679506545"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RebootClusterResponse' :: Int
+</span><a href="#local-6989586621679507231"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679507231"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679507230"><span class="annot"><span class="annottext">s :: RebootClusterResponse
+</span><a href="#local-6989586621679507230"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.RebootCluster.html#RebootClusterResponse%27"><span class="hs-identifier hs-type">RebootClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679507229"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679507229"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RebootClusterResponse
+</span><a href="#local-6989586621679507230"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RebootClusterResponse' :: Int
 </span><a href="Network.AWS.Redshift.RebootCluster.html#%24sel%3AhttpStatus%3ARebootClusterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679506544"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RebootCluster.html#RebootClusterResponse"><span class="hs-identifier hs-type">RebootClusterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679507229"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RebootCluster.html#RebootClusterResponse"><span class="hs-identifier hs-type">RebootClusterResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679506542"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RebootCluster.html#RebootClusterResponse"><span class="hs-identifier hs-type">RebootClusterResponse</span></a></span></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679507227"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RebootCluster.html#RebootClusterResponse"><span class="hs-identifier hs-type">RebootClusterResponse</span></a></span></span><span>
 </span><span id="line-160"></span></pre></body></html>

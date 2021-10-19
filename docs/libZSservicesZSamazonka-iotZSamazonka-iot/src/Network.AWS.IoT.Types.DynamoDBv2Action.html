@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- it\'s own column in the DynamoDB table.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newDynamoDBv2Action' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679793419"><span id="local-6989586621679793420"></span></span><span class="hs-keyword">data</span><span> </span><span id="DynamoDBv2Action"><span class="annot"><a href="Network.AWS.IoT.Types.DynamoDBv2Action.html#DynamoDBv2Action"><span class="hs-identifier hs-var">DynamoDBv2Action</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DynamoDBv2Action%27"><span class="annot"><a href="Network.AWS.IoT.Types.DynamoDBv2Action.html#DynamoDBv2Action%27"><span class="hs-identifier hs-var">DynamoDBv2Action'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679794286"><span id="local-6989586621679794287"></span></span><span class="hs-keyword">data</span><span> </span><span id="DynamoDBv2Action"><span class="annot"><a href="Network.AWS.IoT.Types.DynamoDBv2Action.html#DynamoDBv2Action"><span class="hs-identifier hs-var">DynamoDBv2Action</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DynamoDBv2Action%27"><span class="annot"><a href="Network.AWS.IoT.Types.DynamoDBv2Action.html#DynamoDBv2Action%27"><span class="hs-identifier hs-var">DynamoDBv2Action'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the IAM role that grants access to the DynamoDB table.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AroleArn%3ADynamoDBv2Action%27"><span class="annot"><span class="annottext">DynamoDBv2Action -&gt; Text
 </span><a href="Network.AWS.IoT.Types.DynamoDBv2Action.html#%24sel%3AroleArn%3ADynamoDBv2Action%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -44,7 +44,7 @@
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3AputItem%3ADynamoDBv2Action%27"><span class="annot"><span class="annottext">DynamoDBv2Action -&gt; PutItemInput
 </span><a href="Network.AWS.IoT.Types.DynamoDBv2Action.html#%24sel%3AputItem%3ADynamoDBv2Action%27"><span class="hs-identifier hs-var hs-var">putItem</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PutItemInput.html#PutItemInput"><span class="hs-identifier hs-type">PutItemInput</span></a></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679793412"><span id="local-6989586621679793414"><span class="annot"><span class="annottext">DynamoDBv2Action -&gt; DynamoDBv2Action -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679794279"><span id="local-6989586621679794281"><span class="annot"><span class="annottext">DynamoDBv2Action -&gt; DynamoDBv2Action -&gt; Bool
 (DynamoDBv2Action -&gt; DynamoDBv2Action -&gt; Bool)
 -&gt; (DynamoDBv2Action -&gt; DynamoDBv2Action -&gt; Bool)
 -&gt; Eq DynamoDBv2Action
@@ -53,7 +53,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DynamoDBv2Action -&gt; DynamoDBv2Action -&gt; Bool
 == :: DynamoDBv2Action -&gt; DynamoDBv2Action -&gt; Bool
 $c== :: DynamoDBv2Action -&gt; DynamoDBv2Action -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679793403"><span id="local-6989586621679793405"><span id="local-6989586621679793407"><span id="local-6989586621679793409"><span class="annot"><span class="annottext">ReadPrec [DynamoDBv2Action]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679794270"><span id="local-6989586621679794272"><span id="local-6989586621679794274"><span id="local-6989586621679794276"><span class="annot"><span class="annottext">ReadPrec [DynamoDBv2Action]
 ReadPrec DynamoDBv2Action
 Int -&gt; ReadS DynamoDBv2Action
 ReadS [DynamoDBv2Action]
@@ -73,7 +73,7 @@ readList :: ReadS [DynamoDBv2Action]
 $creadList :: ReadS [DynamoDBv2Action]
 readsPrec :: Int -&gt; ReadS DynamoDBv2Action
 $creadsPrec :: Int -&gt; ReadS DynamoDBv2Action
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679793396"><span id="local-6989586621679793398"><span id="local-6989586621679793400"><span class="annot"><span class="annottext">Int -&gt; DynamoDBv2Action -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679794263"><span id="local-6989586621679794265"><span id="local-6989586621679794267"><span class="annot"><span class="annottext">Int -&gt; DynamoDBv2Action -&gt; ShowS
 [DynamoDBv2Action] -&gt; ShowS
 DynamoDBv2Action -&gt; String
 (Int -&gt; DynamoDBv2Action -&gt; ShowS)
@@ -123,17 +123,17 @@ $cfrom :: forall x. DynamoDBv2Action -&gt; Rep DynamoDBv2Action x
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.PutItemInput.html#PutItemInput"><span class="hs-identifier hs-type">PutItemInput</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.DynamoDBv2Action.html#DynamoDBv2Action"><span class="hs-identifier hs-type">DynamoDBv2Action</span></a></span><span>
 </span><span id="line-70"></span><span id="newDynamoDBv2Action"><span class="annot"><span class="annottext">newDynamoDBv2Action :: Text -&gt; PutItemInput -&gt; DynamoDBv2Action
-</span><a href="Network.AWS.IoT.Types.DynamoDBv2Action.html#newDynamoDBv2Action"><span class="hs-identifier hs-var hs-var">newDynamoDBv2Action</span></a></span></span><span> </span><span id="local-6989586621679793390"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679793390"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span id="local-6989586621679793389"><span class="annot"><span class="annottext">PutItemInput
-</span><a href="#local-6989586621679793389"><span class="hs-identifier hs-var">pPutItem_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.Types.DynamoDBv2Action.html#newDynamoDBv2Action"><span class="hs-identifier hs-var hs-var">newDynamoDBv2Action</span></a></span></span><span> </span><span id="local-6989586621679794257"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679794257"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span id="local-6989586621679794256"><span class="annot"><span class="annottext">PutItemInput
+</span><a href="#local-6989586621679794256"><span class="hs-identifier hs-var">pPutItem_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">DynamoDBv2Action' :: Text -&gt; PutItemInput -&gt; DynamoDBv2Action
 </span><a href="Network.AWS.IoT.Types.DynamoDBv2Action.html#DynamoDBv2Action%27"><span class="hs-identifier hs-type">DynamoDBv2Action'</span></a></span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:roleArn:DynamoDBv2Action' :: Text
 </span><a href="Network.AWS.IoT.Types.DynamoDBv2Action.html#%24sel%3AroleArn%3ADynamoDBv2Action%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679793390"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679794257"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:putItem:DynamoDBv2Action' :: PutItemInput
 </span><a href="Network.AWS.IoT.Types.DynamoDBv2Action.html#%24sel%3AputItem%3ADynamoDBv2Action%27"><span class="hs-identifier hs-var">putItem</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PutItemInput
-</span><a href="#local-6989586621679793389"><span class="hs-identifier hs-var">pPutItem_</span></a></span><span>
+</span><a href="#local-6989586621679794256"><span class="hs-identifier hs-var">pPutItem_</span></a></span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | The ARN of the IAM role that grants access to the DynamoDB table.</span><span>
@@ -143,16 +143,16 @@ $cfrom :: forall x. DynamoDBv2Action -&gt; Rep DynamoDBv2Action x
 -&gt; (DynamoDBv2Action -&gt; Text -&gt; DynamoDBv2Action)
 -&gt; Lens DynamoDBv2Action DynamoDBv2Action Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.DynamoDBv2Action.html#DynamoDBv2Action%27"><span class="hs-identifier hs-type">DynamoDBv2Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679793385"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.DynamoDBv2Action.html#DynamoDBv2Action%27"><span class="hs-identifier hs-type">DynamoDBv2Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679794252"><span class="annot"><span class="annottext">Text
 roleArn :: Text
 $sel:roleArn:DynamoDBv2Action' :: DynamoDBv2Action -&gt; Text
-</span><a href="#local-6989586621679793385"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679793385"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679793384"><span class="annot"><span class="annottext">s :: DynamoDBv2Action
-</span><a href="#local-6989586621679793384"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.DynamoDBv2Action.html#DynamoDBv2Action%27"><span class="hs-identifier hs-type">DynamoDBv2Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679793383"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679793383"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DynamoDBv2Action
-</span><a href="#local-6989586621679793384"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:DynamoDBv2Action' :: Text
+</span><a href="#local-6989586621679794252"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679794252"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679794251"><span class="annot"><span class="annottext">s :: DynamoDBv2Action
+</span><a href="#local-6989586621679794251"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.DynamoDBv2Action.html#DynamoDBv2Action%27"><span class="hs-identifier hs-type">DynamoDBv2Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679794250"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679794250"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DynamoDBv2Action
+</span><a href="#local-6989586621679794251"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:DynamoDBv2Action' :: Text
 </span><a href="Network.AWS.IoT.Types.DynamoDBv2Action.html#%24sel%3AroleArn%3ADynamoDBv2Action%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679793383"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DynamoDBv2Action.html#DynamoDBv2Action"><span class="hs-identifier hs-type">DynamoDBv2Action</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679794250"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DynamoDBv2Action.html#DynamoDBv2Action"><span class="hs-identifier hs-type">DynamoDBv2Action</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | Specifies the DynamoDB table to which the message data will be written.</span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- For example:</span><span>
@@ -168,19 +168,19 @@ $sel:roleArn:DynamoDBv2Action' :: DynamoDBv2Action -&gt; Text
 -&gt; (DynamoDBv2Action -&gt; PutItemInput -&gt; DynamoDBv2Action)
 -&gt; Lens DynamoDBv2Action DynamoDBv2Action PutItemInput PutItemInput
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.DynamoDBv2Action.html#DynamoDBv2Action%27"><span class="hs-identifier hs-type">DynamoDBv2Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679793381"><span class="annot"><span class="annottext">PutItemInput
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.DynamoDBv2Action.html#DynamoDBv2Action%27"><span class="hs-identifier hs-type">DynamoDBv2Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679794248"><span class="annot"><span class="annottext">PutItemInput
 putItem :: PutItemInput
 $sel:putItem:DynamoDBv2Action' :: DynamoDBv2Action -&gt; PutItemInput
-</span><a href="#local-6989586621679793381"><span class="hs-identifier hs-var hs-var">putItem</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutItemInput
-</span><a href="#local-6989586621679793381"><span class="hs-identifier hs-var">putItem</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679793380"><span class="annot"><span class="annottext">s :: DynamoDBv2Action
-</span><a href="#local-6989586621679793380"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.DynamoDBv2Action.html#DynamoDBv2Action%27"><span class="hs-identifier hs-type">DynamoDBv2Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679793379"><span class="annot"><span class="annottext">PutItemInput
-</span><a href="#local-6989586621679793379"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DynamoDBv2Action
-</span><a href="#local-6989586621679793380"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:putItem:DynamoDBv2Action' :: PutItemInput
+</span><a href="#local-6989586621679794248"><span class="hs-identifier hs-var hs-var">putItem</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutItemInput
+</span><a href="#local-6989586621679794248"><span class="hs-identifier hs-var">putItem</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679794247"><span class="annot"><span class="annottext">s :: DynamoDBv2Action
+</span><a href="#local-6989586621679794247"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.DynamoDBv2Action.html#DynamoDBv2Action%27"><span class="hs-identifier hs-type">DynamoDBv2Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679794246"><span class="annot"><span class="annottext">PutItemInput
+</span><a href="#local-6989586621679794246"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DynamoDBv2Action
+</span><a href="#local-6989586621679794247"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:putItem:DynamoDBv2Action' :: PutItemInput
 </span><a href="Network.AWS.IoT.Types.DynamoDBv2Action.html#%24sel%3AputItem%3ADynamoDBv2Action%27"><span class="hs-identifier hs-var">putItem</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PutItemInput
-</span><a href="#local-6989586621679793379"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DynamoDBv2Action.html#DynamoDBv2Action"><span class="hs-identifier hs-type">DynamoDBv2Action</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679794246"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DynamoDBv2Action.html#DynamoDBv2Action"><span class="hs-identifier hs-type">DynamoDBv2Action</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679793376"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DynamoDBv2Action.html#DynamoDBv2Action"><span class="hs-identifier hs-type">DynamoDBv2Action</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679793374"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DynamoDBv2Action
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679794243"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DynamoDBv2Action.html#DynamoDBv2Action"><span class="hs-identifier hs-type">DynamoDBv2Action</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679794241"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DynamoDBv2Action
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DynamoDBv2Action)
@@ -190,15 +190,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DynamoDBv2Action&quot;</span></span><span>
-</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679793371"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679793371"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679794238"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679794238"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; PutItemInput -&gt; DynamoDBv2Action
 </span><a href="Network.AWS.IoT.Types.DynamoDBv2Action.html#DynamoDBv2Action%27"><span class="hs-identifier hs-var">DynamoDBv2Action'</span></a></span><span>
 </span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; PutItemInput -&gt; DynamoDBv2Action)
 -&gt; Parser Text -&gt; Parser (PutItemInput -&gt; DynamoDBv2Action)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679793371"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679794238"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;roleArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -206,25 +206,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser PutItemInput -&gt; Parser DynamoDBv2Action
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679793371"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser PutItemInput
+</span><a href="#local-6989586621679794238"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser PutItemInput
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;putItem&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679793365"><span id="local-6989586621679793367"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DynamoDBv2Action.html#DynamoDBv2Action"><span class="hs-identifier hs-type">DynamoDBv2Action</span></a></span></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679794232"><span id="local-6989586621679794234"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DynamoDBv2Action.html#DynamoDBv2Action"><span class="hs-identifier hs-type">DynamoDBv2Action</span></a></span></span></span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679793362"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DynamoDBv2Action.html#DynamoDBv2Action"><span class="hs-identifier hs-type">DynamoDBv2Action</span></a></span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679794229"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DynamoDBv2Action.html#DynamoDBv2Action"><span class="hs-identifier hs-type">DynamoDBv2Action</span></a></span></span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679793354"><span id="local-6989586621679793356"><span id="local-6989586621679793358"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DynamoDBv2Action.html#DynamoDBv2Action"><span class="hs-identifier hs-type">DynamoDBv2Action</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679793352"><span class="annot"><span class="annottext">toJSON :: DynamoDBv2Action -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DynamoDBv2Action.html#DynamoDBv2Action%27"><span class="hs-identifier hs-type">DynamoDBv2Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679793349"><span id="local-6989586621679793350"><span class="annot"><span class="annottext">Text
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679794221"><span id="local-6989586621679794223"><span id="local-6989586621679794225"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DynamoDBv2Action.html#DynamoDBv2Action"><span class="hs-identifier hs-type">DynamoDBv2Action</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679794219"><span class="annot"><span class="annottext">toJSON :: DynamoDBv2Action -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DynamoDBv2Action.html#DynamoDBv2Action%27"><span class="hs-identifier hs-type">DynamoDBv2Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679794216"><span id="local-6989586621679794217"><span class="annot"><span class="annottext">Text
 PutItemInput
 putItem :: PutItemInput
 roleArn :: Text
 $sel:putItem:DynamoDBv2Action' :: DynamoDBv2Action -&gt; PutItemInput
 $sel:roleArn:DynamoDBv2Action' :: DynamoDBv2Action -&gt; Text
-</span><a href="#local-6989586621679793349"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679794216"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -236,14 +236,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;roleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679793350"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679794217"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;putItem&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PutItemInput -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">PutItemInput
-</span><a href="#local-6989586621679793349"><span class="hs-identifier hs-var">putItem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679794216"><span class="hs-identifier hs-var">putItem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span></pre></body></html>

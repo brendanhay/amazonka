@@ -20,22 +20,23 @@
 </span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Glue.Types.RecrawlBehavior</span><span>
 </span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.RecrawlBehavior.html#RecrawlBehavior"><span class="hs-identifier">RecrawlBehavior</span></a></span><span>
 </span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
-</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Glue.Types.RecrawlBehavior.html#RecrawlBehavior_CRAWL_EVERYTHING"><span class="hs-identifier">RecrawlBehavior_CRAWL_EVERYTHING</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Glue.Types.RecrawlBehavior.html#RecrawlBehavior_CRAWL_NEW_FOLDERS_ONLY"><span class="hs-identifier">RecrawlBehavior_CRAWL_NEW_FOLDERS_ONLY</span></a></span><span>
-</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
-</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
-</span><span id="line-28"></span><span>
-</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
-</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
-</span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679693132"><span id="local-6989586621679693133"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RecrawlBehavior"><span class="annot"><a href="Network.AWS.Glue.Types.RecrawlBehavior.html#RecrawlBehavior"><span class="hs-identifier hs-var">RecrawlBehavior</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RecrawlBehavior%27"><span class="annot"><a href="Network.AWS.Glue.Types.RecrawlBehavior.html#RecrawlBehavior%27"><span class="hs-identifier hs-var">RecrawlBehavior'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRecrawlBehavior"><span class="annot"><span class="annottext">RecrawlBehavior -&gt; Text
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Glue.Types.RecrawlBehavior.html#RecrawlBehavior_CRAWL_EVENT_MODE"><span class="hs-identifier">RecrawlBehavior_CRAWL_EVENT_MODE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Glue.Types.RecrawlBehavior.html#RecrawlBehavior_CRAWL_EVERYTHING"><span class="hs-identifier">RecrawlBehavior_CRAWL_EVERYTHING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.Glue.Types.RecrawlBehavior.html#RecrawlBehavior_CRAWL_NEW_FOLDERS_ONLY"><span class="hs-identifier">RecrawlBehavior_CRAWL_NEW_FOLDERS_ONLY</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679694807"><span id="local-6989586621679694808"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RecrawlBehavior"><span class="annot"><a href="Network.AWS.Glue.Types.RecrawlBehavior.html#RecrawlBehavior"><span class="hs-identifier hs-var">RecrawlBehavior</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RecrawlBehavior%27"><span class="annot"><a href="Network.AWS.Glue.Types.RecrawlBehavior.html#RecrawlBehavior%27"><span class="hs-identifier hs-var">RecrawlBehavior'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRecrawlBehavior"><span class="annot"><span class="annottext">RecrawlBehavior -&gt; Text
 </span><a href="Network.AWS.Glue.Types.RecrawlBehavior.html#fromRecrawlBehavior"><span class="hs-identifier hs-var hs-var">fromRecrawlBehavior</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679693124"><span id="local-6989586621679693126"><span id="local-6989586621679693128"><span class="annot"><span class="annottext">Int -&gt; RecrawlBehavior -&gt; ShowS
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679694799"><span id="local-6989586621679694801"><span id="local-6989586621679694803"><span class="annot"><span class="annottext">Int -&gt; RecrawlBehavior -&gt; ShowS
 [RecrawlBehavior] -&gt; ShowS
 RecrawlBehavior -&gt; String
 (Int -&gt; RecrawlBehavior -&gt; ShowS)
@@ -51,7 +52,7 @@ $cshow :: RecrawlBehavior -&gt; String
 showsPrec :: Int -&gt; RecrawlBehavior -&gt; ShowS
 $cshowsPrec :: Int -&gt; RecrawlBehavior -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679693115"><span id="local-6989586621679693117"><span id="local-6989586621679693119"><span id="local-6989586621679693121"><span class="annot"><span class="annottext">ReadPrec [RecrawlBehavior]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679694790"><span id="local-6989586621679694792"><span id="local-6989586621679694794"><span id="local-6989586621679694796"><span class="annot"><span class="annottext">ReadPrec [RecrawlBehavior]
 ReadPrec RecrawlBehavior
 Int -&gt; ReadS RecrawlBehavior
 ReadS [RecrawlBehavior]
@@ -72,7 +73,7 @@ $creadList :: ReadS [RecrawlBehavior]
 readsPrec :: Int -&gt; ReadS RecrawlBehavior
 $creadsPrec :: Int -&gt; ReadS RecrawlBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679693110"><span id="local-6989586621679693112"><span class="annot"><span class="annottext">RecrawlBehavior -&gt; RecrawlBehavior -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679694785"><span id="local-6989586621679694787"><span class="annot"><span class="annottext">RecrawlBehavior -&gt; RecrawlBehavior -&gt; Bool
 (RecrawlBehavior -&gt; RecrawlBehavior -&gt; Bool)
 -&gt; (RecrawlBehavior -&gt; RecrawlBehavior -&gt; Bool)
 -&gt; Eq RecrawlBehavior
@@ -82,7 +83,7 @@ $c/= :: RecrawlBehavior -&gt; RecrawlBehavior -&gt; Bool
 == :: RecrawlBehavior -&gt; RecrawlBehavior -&gt; Bool
 $c== :: RecrawlBehavior -&gt; RecrawlBehavior -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679693094"><span id="local-6989586621679693096"><span id="local-6989586621679693098"><span id="local-6989586621679693100"><span id="local-6989586621679693102"><span id="local-6989586621679693104"><span id="local-6989586621679693106"><span class="annot"><span class="annottext">Eq RecrawlBehavior
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679694769"><span id="local-6989586621679694771"><span id="local-6989586621679694773"><span id="local-6989586621679694775"><span id="local-6989586621679694777"><span id="local-6989586621679694779"><span id="local-6989586621679694781"><span class="annot"><span class="annottext">Eq RecrawlBehavior
 Eq RecrawlBehavior
 -&gt; (RecrawlBehavior -&gt; RecrawlBehavior -&gt; Ordering)
 -&gt; (RecrawlBehavior -&gt; RecrawlBehavior -&gt; Bool)
@@ -121,7 +122,7 @@ compare :: RecrawlBehavior -&gt; RecrawlBehavior -&gt; Ordering
 $ccompare :: RecrawlBehavior -&gt; RecrawlBehavior -&gt; Ordering
 $cp1Ord :: Eq RecrawlBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. RecrawlBehavior -&gt; Rep RecrawlBehavior x)
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. RecrawlBehavior -&gt; Rep RecrawlBehavior x)
 -&gt; (forall x. Rep RecrawlBehavior x -&gt; RecrawlBehavior)
 -&gt; Generic RecrawlBehavior
 forall x. Rep RecrawlBehavior x -&gt; RecrawlBehavior
@@ -131,9 +132,9 @@ forall a.
 $cto :: forall x. Rep RecrawlBehavior x -&gt; RecrawlBehavior
 $cfrom :: forall x. RecrawlBehavior -&gt; Rep RecrawlBehavior x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679693086"><span id="local-6989586621679693088"><span class="annot"><span class="annottext">Int -&gt; RecrawlBehavior -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679694761"><span id="local-6989586621679694763"><span class="annot"><span class="annottext">Int -&gt; RecrawlBehavior -&gt; Int
 RecrawlBehavior -&gt; Int
 (Int -&gt; RecrawlBehavior -&gt; Int)
 -&gt; (RecrawlBehavior -&gt; Int) -&gt; Hashable RecrawlBehavior
@@ -143,50 +144,50 @@ $chash :: RecrawlBehavior -&gt; Int
 hashWithSalt :: Int -&gt; RecrawlBehavior -&gt; Int
 $chashWithSalt :: Int -&gt; RecrawlBehavior -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679693083"><span class="annot"><span class="annottext">RecrawlBehavior -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679694758"><span class="annot"><span class="annottext">RecrawlBehavior -&gt; ()
 (RecrawlBehavior -&gt; ()) -&gt; NFData RecrawlBehavior
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: RecrawlBehavior -&gt; ()
 $crnf :: RecrawlBehavior -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679693080"><span class="annot"><span class="annottext">Text -&gt; Either String RecrawlBehavior
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679694755"><span class="annot"><span class="annottext">Text -&gt; Either String RecrawlBehavior
 (Text -&gt; Either String RecrawlBehavior) -&gt; FromText RecrawlBehavior
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String RecrawlBehavior
 $cfromText :: Text -&gt; Either String RecrawlBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679693077"><span class="annot"><span class="annottext">RecrawlBehavior -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679694752"><span class="annot"><span class="annottext">RecrawlBehavior -&gt; Text
 (RecrawlBehavior -&gt; Text) -&gt; ToText RecrawlBehavior
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: RecrawlBehavior -&gt; Text
 $ctoText :: RecrawlBehavior -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679693074"><span class="annot"><span class="annottext">RecrawlBehavior -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679694749"><span class="annot"><span class="annottext">RecrawlBehavior -&gt; ByteString
 (RecrawlBehavior -&gt; ByteString) -&gt; ToByteString RecrawlBehavior
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: RecrawlBehavior -&gt; ByteString
 $ctoBS :: RecrawlBehavior -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679693071"><span class="annot"><span class="annottext">RecrawlBehavior -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679694746"><span class="annot"><span class="annottext">RecrawlBehavior -&gt; ByteStringBuilder
 (RecrawlBehavior -&gt; ByteStringBuilder) -&gt; ToLog RecrawlBehavior
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: RecrawlBehavior -&gt; ByteStringBuilder
 $cbuild :: RecrawlBehavior -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679693068"><span class="annot"><span class="annottext">HeaderName -&gt; RecrawlBehavior -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679694743"><span class="annot"><span class="annottext">HeaderName -&gt; RecrawlBehavior -&gt; [Header]
 (HeaderName -&gt; RecrawlBehavior -&gt; [Header])
 -&gt; ToHeader RecrawlBehavior
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; RecrawlBehavior -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; RecrawlBehavior -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679693065"><span class="annot"><span class="annottext">RecrawlBehavior -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679694740"><span class="annot"><span class="annottext">RecrawlBehavior -&gt; QueryString
 (RecrawlBehavior -&gt; QueryString) -&gt; ToQuery RecrawlBehavior
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: RecrawlBehavior -&gt; QueryString
 $ctoQuery :: RecrawlBehavior -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679693060"><span id="local-6989586621679693062"><span class="annot"><span class="annottext">Value -&gt; Parser [RecrawlBehavior]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679694735"><span id="local-6989586621679694737"><span class="annot"><span class="annottext">Value -&gt; Parser [RecrawlBehavior]
 Value -&gt; Parser RecrawlBehavior
 (Value -&gt; Parser RecrawlBehavior)
 -&gt; (Value -&gt; Parser [RecrawlBehavior]) -&gt; FromJSON RecrawlBehavior
@@ -197,7 +198,7 @@ $cparseJSONList :: Value -&gt; Parser [RecrawlBehavior]
 parseJSON :: Value -&gt; Parser RecrawlBehavior
 $cparseJSON :: Value -&gt; Parser RecrawlBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679693055"><span id="local-6989586621679693057"><span class="annot"><span class="annottext">FromJSONKeyFunction [RecrawlBehavior]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679694730"><span id="local-6989586621679694732"><span class="annot"><span class="annottext">FromJSONKeyFunction [RecrawlBehavior]
 FromJSONKeyFunction RecrawlBehavior
 FromJSONKeyFunction RecrawlBehavior
 -&gt; FromJSONKeyFunction [RecrawlBehavior]
@@ -209,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [RecrawlBehavior]
 fromJSONKey :: FromJSONKeyFunction RecrawlBehavior
 $cfromJSONKey :: FromJSONKeyFunction RecrawlBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679693046"><span id="local-6989586621679693048"><span id="local-6989586621679693050"><span id="local-6989586621679693052"><span class="annot"><span class="annottext">[RecrawlBehavior] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679694721"><span id="local-6989586621679694723"><span id="local-6989586621679694725"><span id="local-6989586621679694727"><span class="annot"><span class="annottext">[RecrawlBehavior] -&gt; Encoding
 [RecrawlBehavior] -&gt; Value
 RecrawlBehavior -&gt; Encoding
 RecrawlBehavior -&gt; Value
@@ -233,7 +234,7 @@ $ctoEncoding :: RecrawlBehavior -&gt; Encoding
 toJSON :: RecrawlBehavior -&gt; Value
 $ctoJSON :: RecrawlBehavior -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679693041"><span id="local-6989586621679693043"><span class="annot"><span class="annottext">ToJSONKeyFunction [RecrawlBehavior]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679694716"><span id="local-6989586621679694718"><span class="annot"><span class="annottext">ToJSONKeyFunction [RecrawlBehavior]
 ToJSONKeyFunction RecrawlBehavior
 ToJSONKeyFunction RecrawlBehavior
 -&gt; ToJSONKeyFunction [RecrawlBehavior] -&gt; ToJSONKey RecrawlBehavior
@@ -244,34 +245,40 @@ $ctoJSONKeyList :: ToJSONKeyFunction [RecrawlBehavior]
 toJSONKey :: ToJSONKeyFunction RecrawlBehavior
 $ctoJSONKey :: ToJSONKeyFunction RecrawlBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679693038"><span class="annot"><span class="annottext">[Node] -&gt; Either String RecrawlBehavior
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679694713"><span class="annot"><span class="annottext">[Node] -&gt; Either String RecrawlBehavior
 ([Node] -&gt; Either String RecrawlBehavior)
 -&gt; FromXML RecrawlBehavior
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String RecrawlBehavior
 $cparseXML :: [Node] -&gt; Either String RecrawlBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679693035"><span class="annot"><span class="annottext">RecrawlBehavior -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679694710"><span class="annot"><span class="annottext">RecrawlBehavior -&gt; XML
 (RecrawlBehavior -&gt; XML) -&gt; ToXML RecrawlBehavior
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: RecrawlBehavior -&gt; XML
 $ctoXML :: RecrawlBehavior -&gt; XML
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
-</span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.RecrawlBehavior.html#RecrawlBehavior_CRAWL_EVERYTHING"><span class="hs-identifier hs-type">RecrawlBehavior_CRAWL_EVERYTHING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.RecrawlBehavior.html#RecrawlBehavior"><span class="hs-identifier hs-type">RecrawlBehavior</span></a></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRecrawlBehavior_CRAWL_EVERYTHING"><span id="%24mRecrawlBehavior_CRAWL_EVERYTHING"><span id="RecrawlBehavior_CRAWL_EVERYTHING"><span class="annot"><span class="annottext">$bRecrawlBehavior_CRAWL_EVERYTHING :: RecrawlBehavior
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.RecrawlBehavior.html#RecrawlBehavior_CRAWL_EVENT_MODE"><span class="hs-identifier hs-type">RecrawlBehavior_CRAWL_EVENT_MODE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.RecrawlBehavior.html#RecrawlBehavior"><span class="hs-identifier hs-type">RecrawlBehavior</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRecrawlBehavior_CRAWL_EVENT_MODE"><span id="%24mRecrawlBehavior_CRAWL_EVENT_MODE"><span id="RecrawlBehavior_CRAWL_EVENT_MODE"><span class="annot"><span class="annottext">$bRecrawlBehavior_CRAWL_EVENT_MODE :: RecrawlBehavior
+$mRecrawlBehavior_CRAWL_EVENT_MODE :: forall r. RecrawlBehavior -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Glue.Types.RecrawlBehavior.html#%24bRecrawlBehavior_CRAWL_EVENT_MODE"><span class="hs-identifier hs-var hs-var hs-var">RecrawlBehavior_CRAWL_EVENT_MODE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.RecrawlBehavior.html#RecrawlBehavior%27"><span class="hs-identifier hs-type">RecrawlBehavior'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CRAWL_EVENT_MODE&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.RecrawlBehavior.html#RecrawlBehavior_CRAWL_EVERYTHING"><span class="hs-identifier hs-type">RecrawlBehavior_CRAWL_EVERYTHING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.RecrawlBehavior.html#RecrawlBehavior"><span class="hs-identifier hs-type">RecrawlBehavior</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRecrawlBehavior_CRAWL_EVERYTHING"><span id="%24mRecrawlBehavior_CRAWL_EVERYTHING"><span id="RecrawlBehavior_CRAWL_EVERYTHING"><span class="annot"><span class="annottext">$bRecrawlBehavior_CRAWL_EVERYTHING :: RecrawlBehavior
 $mRecrawlBehavior_CRAWL_EVERYTHING :: forall r. RecrawlBehavior -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
 </span><a href="Network.AWS.Glue.Types.RecrawlBehavior.html#%24bRecrawlBehavior_CRAWL_EVERYTHING"><span class="hs-identifier hs-var hs-var hs-var">RecrawlBehavior_CRAWL_EVERYTHING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.RecrawlBehavior.html#RecrawlBehavior%27"><span class="hs-identifier hs-type">RecrawlBehavior'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CRAWL_EVERYTHING&quot;</span></span><span>
-</span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.RecrawlBehavior.html#RecrawlBehavior_CRAWL_NEW_FOLDERS_ONLY"><span class="hs-identifier hs-type">RecrawlBehavior_CRAWL_NEW_FOLDERS_ONLY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.RecrawlBehavior.html#RecrawlBehavior"><span class="hs-identifier hs-type">RecrawlBehavior</span></a></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRecrawlBehavior_CRAWL_NEW_FOLDERS_ONLY"><span id="%24mRecrawlBehavior_CRAWL_NEW_FOLDERS_ONLY"><span id="RecrawlBehavior_CRAWL_NEW_FOLDERS_ONLY"><span class="annot"><span class="annottext">$bRecrawlBehavior_CRAWL_NEW_FOLDERS_ONLY :: RecrawlBehavior
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.RecrawlBehavior.html#RecrawlBehavior_CRAWL_NEW_FOLDERS_ONLY"><span class="hs-identifier hs-type">RecrawlBehavior_CRAWL_NEW_FOLDERS_ONLY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.RecrawlBehavior.html#RecrawlBehavior"><span class="hs-identifier hs-type">RecrawlBehavior</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRecrawlBehavior_CRAWL_NEW_FOLDERS_ONLY"><span id="%24mRecrawlBehavior_CRAWL_NEW_FOLDERS_ONLY"><span id="RecrawlBehavior_CRAWL_NEW_FOLDERS_ONLY"><span class="annot"><span class="annottext">$bRecrawlBehavior_CRAWL_NEW_FOLDERS_ONLY :: RecrawlBehavior
 $mRecrawlBehavior_CRAWL_NEW_FOLDERS_ONLY :: forall r. RecrawlBehavior -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
 </span><a href="Network.AWS.Glue.Types.RecrawlBehavior.html#%24bRecrawlBehavior_CRAWL_NEW_FOLDERS_ONLY"><span class="hs-identifier hs-var hs-var hs-var">RecrawlBehavior_CRAWL_NEW_FOLDERS_ONLY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.RecrawlBehavior.html#RecrawlBehavior%27"><span class="hs-identifier hs-type">RecrawlBehavior'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CRAWL_NEW_FOLDERS_ONLY&quot;</span></span><span>
-</span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
-</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.RecrawlBehavior.html#RecrawlBehavior_CRAWL_EVERYTHING"><span class="hs-pragma hs-type">RecrawlBehavior_CRAWL_EVERYTHING</span></a></span><span class="hs-pragma">,</span><span>
-</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.RecrawlBehavior.html#RecrawlBehavior_CRAWL_NEW_FOLDERS_ONLY"><span class="hs-pragma hs-type">RecrawlBehavior_CRAWL_NEW_FOLDERS_ONLY</span></a></span><span class="hs-pragma">,</span><span>
-</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.RecrawlBehavior.html#RecrawlBehavior%27"><span class="hs-pragma hs-type">RecrawlBehavior'</span></a></span><span>
-</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
-</span><span id="line-71"></span></pre></body></html>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.RecrawlBehavior.html#RecrawlBehavior_CRAWL_EVENT_MODE"><span class="hs-pragma hs-type">RecrawlBehavior_CRAWL_EVENT_MODE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.RecrawlBehavior.html#RecrawlBehavior_CRAWL_EVERYTHING"><span class="hs-pragma hs-type">RecrawlBehavior_CRAWL_EVERYTHING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.RecrawlBehavior.html#RecrawlBehavior_CRAWL_NEW_FOLDERS_ONLY"><span class="hs-pragma hs-type">RecrawlBehavior_CRAWL_NEW_FOLDERS_ONLY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.RecrawlBehavior.html#RecrawlBehavior%27"><span class="hs-pragma hs-type">RecrawlBehavior'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

@@ -50,12 +50,12 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.html"><span class="hs-identifier">Network.AWS.Snowball.Types</span></a></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newCreateAddress' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679232713"><span id="local-6989586621679232714"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateAddress"><span class="annot"><a href="Network.AWS.Snowball.CreateAddress.html#CreateAddress"><span class="hs-identifier hs-var">CreateAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateAddress%27"><span class="annot"><a href="Network.AWS.Snowball.CreateAddress.html#CreateAddress%27"><span class="hs-identifier hs-var">CreateAddress'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679232782"><span id="local-6989586621679232783"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateAddress"><span class="annot"><a href="Network.AWS.Snowball.CreateAddress.html#CreateAddress"><span class="hs-identifier hs-var">CreateAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateAddress%27"><span class="annot"><a href="Network.AWS.Snowball.CreateAddress.html#CreateAddress%27"><span class="hs-identifier hs-var">CreateAddress'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The address that you want the Snow device shipped to.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3Aaddress%3ACreateAddress%27"><span class="annot"><span class="annottext">CreateAddress -&gt; Address
 </span><a href="Network.AWS.Snowball.CreateAddress.html#%24sel%3Aaddress%3ACreateAddress%27"><span class="hs-identifier hs-var hs-var">address</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679232707"><span id="local-6989586621679232709"><span class="annot"><span class="annottext">CreateAddress -&gt; CreateAddress -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679232776"><span id="local-6989586621679232778"><span class="annot"><span class="annottext">CreateAddress -&gt; CreateAddress -&gt; Bool
 (CreateAddress -&gt; CreateAddress -&gt; Bool)
 -&gt; (CreateAddress -&gt; CreateAddress -&gt; Bool) -&gt; Eq CreateAddress
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateAddress -&gt; CreateAddress -&gt; Bool
 == :: CreateAddress -&gt; CreateAddress -&gt; Bool
 $c== :: CreateAddress -&gt; CreateAddress -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232698"><span id="local-6989586621679232700"><span id="local-6989586621679232702"><span id="local-6989586621679232704"><span class="annot"><span class="annottext">ReadPrec [CreateAddress]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232767"><span id="local-6989586621679232769"><span id="local-6989586621679232771"><span id="local-6989586621679232773"><span class="annot"><span class="annottext">ReadPrec [CreateAddress]
 ReadPrec CreateAddress
 Int -&gt; ReadS CreateAddress
 ReadS [CreateAddress]
@@ -83,7 +83,7 @@ readList :: ReadS [CreateAddress]
 $creadList :: ReadS [CreateAddress]
 readsPrec :: Int -&gt; ReadS CreateAddress
 $creadsPrec :: Int -&gt; ReadS CreateAddress
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232691"><span id="local-6989586621679232693"><span id="local-6989586621679232695"><span class="annot"><span class="annottext">Int -&gt; CreateAddress -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232760"><span id="local-6989586621679232762"><span id="local-6989586621679232764"><span class="annot"><span class="annottext">Int -&gt; CreateAddress -&gt; ShowS
 [CreateAddress] -&gt; ShowS
 CreateAddress -&gt; String
 (Int -&gt; CreateAddress -&gt; ShowS)
@@ -123,12 +123,12 @@ $cfrom :: forall x. CreateAddress -&gt; Rep CreateAddress x
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.Snowball.CreateAddress.html#CreateAddress"><span class="hs-identifier hs-type">CreateAddress</span></a></span><span>
 </span><span id="line-72"></span><span id="newCreateAddress"><span class="annot"><span class="annottext">newCreateAddress :: Address -&gt; CreateAddress
-</span><a href="Network.AWS.Snowball.CreateAddress.html#newCreateAddress"><span class="hs-identifier hs-var hs-var">newCreateAddress</span></a></span></span><span> </span><span id="local-6989586621679232686"><span class="annot"><span class="annottext">Address
-</span><a href="#local-6989586621679232686"><span class="hs-identifier hs-var">pAddress_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Snowball.CreateAddress.html#newCreateAddress"><span class="hs-identifier hs-var hs-var">newCreateAddress</span></a></span></span><span> </span><span id="local-6989586621679232755"><span class="annot"><span class="annottext">Address
+</span><a href="#local-6989586621679232755"><span class="hs-identifier hs-var">pAddress_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">CreateAddress' :: Address -&gt; CreateAddress
 </span><a href="Network.AWS.Snowball.CreateAddress.html#CreateAddress%27"><span class="hs-identifier hs-type">CreateAddress'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:address:CreateAddress' :: Address
 </span><a href="Network.AWS.Snowball.CreateAddress.html#%24sel%3Aaddress%3ACreateAddress%27"><span class="hs-identifier hs-var">address</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Address
-</span><a href="#local-6989586621679232686"><span class="hs-identifier hs-var">pAddress_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679232755"><span class="hs-identifier hs-var">pAddress_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | The address that you want the Snow device shipped to.</span><span>
 </span><span id="line-76"></span><span class="annot"><a href="Network.AWS.Snowball.CreateAddress.html#createAddress_address"><span class="hs-identifier hs-type">createAddress_address</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.CreateAddress.html#CreateAddress"><span class="hs-identifier hs-type">CreateAddress</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span><span>
@@ -137,27 +137,27 @@ $cfrom :: forall x. CreateAddress -&gt; Rep CreateAddress x
 -&gt; (CreateAddress -&gt; Address -&gt; CreateAddress)
 -&gt; Lens CreateAddress CreateAddress Address Address
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.CreateAddress.html#CreateAddress%27"><span class="hs-identifier hs-type">CreateAddress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232683"><span class="annot"><span class="annottext">Address
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.CreateAddress.html#CreateAddress%27"><span class="hs-identifier hs-type">CreateAddress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232752"><span class="annot"><span class="annottext">Address
 address :: Address
 $sel:address:CreateAddress' :: CreateAddress -&gt; Address
-</span><a href="#local-6989586621679232683"><span class="hs-identifier hs-var hs-var">address</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Address
-</span><a href="#local-6989586621679232683"><span class="hs-identifier hs-var">address</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232682"><span class="annot"><span class="annottext">s :: CreateAddress
-</span><a href="#local-6989586621679232682"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.CreateAddress.html#CreateAddress%27"><span class="hs-identifier hs-type">CreateAddress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232681"><span class="annot"><span class="annottext">Address
-</span><a href="#local-6989586621679232681"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAddress
-</span><a href="#local-6989586621679232682"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:address:CreateAddress' :: Address
+</span><a href="#local-6989586621679232752"><span class="hs-identifier hs-var hs-var">address</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Address
+</span><a href="#local-6989586621679232752"><span class="hs-identifier hs-var">address</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232751"><span class="annot"><span class="annottext">s :: CreateAddress
+</span><a href="#local-6989586621679232751"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.CreateAddress.html#CreateAddress%27"><span class="hs-identifier hs-type">CreateAddress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232750"><span class="annot"><span class="annottext">Address
+</span><a href="#local-6989586621679232750"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAddress
+</span><a href="#local-6989586621679232751"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:address:CreateAddress' :: Address
 </span><a href="Network.AWS.Snowball.CreateAddress.html#%24sel%3Aaddress%3ACreateAddress%27"><span class="hs-identifier hs-var">address</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Address
-</span><a href="#local-6989586621679232681"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.CreateAddress.html#CreateAddress"><span class="hs-identifier hs-type">CreateAddress</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679232750"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.CreateAddress.html#CreateAddress"><span class="hs-identifier hs-type">CreateAddress</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.CreateAddress.html#CreateAddress"><span class="hs-identifier hs-type">CreateAddress</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-80"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-81"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.CreateAddress.html#CreateAddress"><span class="hs-identifier hs-type">CreateAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><a href="Network.AWS.Snowball.CreateAddress.html#CreateAddressResponse"><span class="hs-identifier hs-type">CreateAddressResponse</span></a></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679232677"><span class="annot"><span class="annottext">request :: CreateAddress -&gt; Request CreateAddress
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679232746"><span class="annot"><span class="annottext">request :: CreateAddress -&gt; Request CreateAddress
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateAddress -&gt; Request CreateAddress
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Snowball.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679232673"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679232742"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateAddress
 -&gt; ClientResponse ClientBody
@@ -181,10 +181,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679232670"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679232670"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679232669"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679232669"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679232668"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679232668"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679232739"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679232739"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679232738"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679232738"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679232737"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679232737"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; CreateAddressResponse
 </span><a href="Network.AWS.Snowball.CreateAddress.html#CreateAddressResponse%27"><span class="hs-identifier hs-var">CreateAddressResponse'</span></a></span><span>
 </span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; CreateAddressResponse)
@@ -192,7 +192,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; CreateAddressResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679232668"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679232737"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AddressId&quot;</span></span><span class="hs-special">)</span><span>
@@ -204,15 +204,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679232670"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679232739"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232660"><span id="local-6989586621679232662"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.CreateAddress.html#CreateAddress"><span class="hs-identifier hs-type">CreateAddress</span></a></span></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232729"><span id="local-6989586621679232731"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.CreateAddress.html#CreateAddress"><span class="hs-identifier hs-type">CreateAddress</span></a></span></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232657"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.CreateAddress.html#CreateAddress"><span class="hs-identifier hs-type">CreateAddress</span></a></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232726"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.CreateAddress.html#CreateAddress"><span class="hs-identifier hs-type">CreateAddress</span></a></span></span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.CreateAddress.html#CreateAddress"><span class="hs-identifier hs-type">CreateAddress</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679232653"><span class="annot"><span class="annottext">toHeaders :: CreateAddress -&gt; ResponseHeaders
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679232722"><span class="annot"><span class="annottext">toHeaders :: CreateAddress -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateAddress -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -239,12 +239,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-108"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232643"><span id="local-6989586621679232645"><span id="local-6989586621679232647"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.CreateAddress.html#CreateAddress"><span class="hs-identifier hs-type">CreateAddress</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679232641"><span class="annot"><span class="annottext">toJSON :: CreateAddress -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.CreateAddress.html#CreateAddress%27"><span class="hs-identifier hs-type">CreateAddress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232639"><span class="annot"><span class="annottext">Address
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232712"><span id="local-6989586621679232714"><span id="local-6989586621679232716"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.CreateAddress.html#CreateAddress"><span class="hs-identifier hs-type">CreateAddress</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679232710"><span class="annot"><span class="annottext">toJSON :: CreateAddress -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.CreateAddress.html#CreateAddress%27"><span class="hs-identifier hs-type">CreateAddress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232708"><span class="annot"><span class="annottext">Address
 address :: Address
 $sel:address:CreateAddress' :: CreateAddress -&gt; Address
-</span><a href="#local-6989586621679232639"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679232708"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -256,18 +256,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Address&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Address -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Address
-</span><a href="#local-6989586621679232639"><span class="hs-identifier hs-var">address</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679232708"><span class="hs-identifier hs-var">address</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.CreateAddress.html#CreateAddress"><span class="hs-identifier hs-type">CreateAddress</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679232633"><span class="annot"><span class="annottext">toPath :: CreateAddress -&gt; ByteString
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679232702"><span class="annot"><span class="annottext">toPath :: CreateAddress -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateAddress -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.CreateAddress.html#CreateAddress"><span class="hs-identifier hs-type">CreateAddress</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679232629"><span class="annot"><span class="annottext">toQuery :: CreateAddress -&gt; QueryString
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679232698"><span class="annot"><span class="annottext">toQuery :: CreateAddress -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateAddress -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -275,7 +275,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- | /See:/ 'newCreateAddressResponse' smart constructor.</span><span>
-</span><span id="line-125"></span><span id="local-6989586621679232626"><span id="local-6989586621679232627"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateAddressResponse"><span class="annot"><a href="Network.AWS.Snowball.CreateAddress.html#CreateAddressResponse"><span class="hs-identifier hs-var">CreateAddressResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateAddressResponse%27"><span class="annot"><a href="Network.AWS.Snowball.CreateAddress.html#CreateAddressResponse%27"><span class="hs-identifier hs-var">CreateAddressResponse'</span></a></span></span><span>
+</span><span id="line-125"></span><span id="local-6989586621679232695"><span id="local-6989586621679232696"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateAddressResponse"><span class="annot"><a href="Network.AWS.Snowball.CreateAddress.html#CreateAddressResponse"><span class="hs-identifier hs-var">CreateAddressResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateAddressResponse%27"><span class="annot"><a href="Network.AWS.Snowball.CreateAddress.html#CreateAddressResponse%27"><span class="hs-identifier hs-var">CreateAddressResponse'</span></a></span></span><span>
 </span><span id="line-126"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The automatically generated ID for a specific address. You\'ll use this</span><span>
 </span><span id="line-127"></span><span>    </span><span class="hs-comment">-- ID when you create a job to specify which address you want the Snow</span><span>
 </span><span id="line-128"></span><span>    </span><span class="hs-comment">-- device for that job shipped to.</span><span>
@@ -285,7 +285,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-131"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateAddressResponse%27"><span class="annot"><span class="annottext">CreateAddressResponse -&gt; Int
 </span><a href="Network.AWS.Snowball.CreateAddress.html#%24sel%3AhttpStatus%3ACreateAddressResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-132"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-133"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679232620"><span id="local-6989586621679232622"><span class="annot"><span class="annottext">CreateAddressResponse -&gt; CreateAddressResponse -&gt; Bool
+</span><span id="line-133"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679232689"><span id="local-6989586621679232691"><span class="annot"><span class="annottext">CreateAddressResponse -&gt; CreateAddressResponse -&gt; Bool
 (CreateAddressResponse -&gt; CreateAddressResponse -&gt; Bool)
 -&gt; (CreateAddressResponse -&gt; CreateAddressResponse -&gt; Bool)
 -&gt; Eq CreateAddressResponse
@@ -294,7 +294,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateAddressResponse -&gt; CreateAddressResponse -&gt; Bool
 == :: CreateAddressResponse -&gt; CreateAddressResponse -&gt; Bool
 $c== :: CreateAddressResponse -&gt; CreateAddressResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232612"><span id="local-6989586621679232614"><span id="local-6989586621679232616"><span id="local-6989586621679232618"><span class="annot"><span class="annottext">ReadPrec [CreateAddressResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232681"><span id="local-6989586621679232683"><span id="local-6989586621679232685"><span id="local-6989586621679232687"><span class="annot"><span class="annottext">ReadPrec [CreateAddressResponse]
 ReadPrec CreateAddressResponse
 Int -&gt; ReadS CreateAddressResponse
 ReadS [CreateAddressResponse]
@@ -314,7 +314,7 @@ readList :: ReadS [CreateAddressResponse]
 $creadList :: ReadS [CreateAddressResponse]
 readsPrec :: Int -&gt; ReadS CreateAddressResponse
 $creadsPrec :: Int -&gt; ReadS CreateAddressResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232606"><span id="local-6989586621679232608"><span id="local-6989586621679232610"><span class="annot"><span class="annottext">Int -&gt; CreateAddressResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232675"><span id="local-6989586621679232677"><span id="local-6989586621679232679"><span class="annot"><span class="annottext">Int -&gt; CreateAddressResponse -&gt; ShowS
 [CreateAddressResponse] -&gt; ShowS
 CreateAddressResponse -&gt; String
 (Int -&gt; CreateAddressResponse -&gt; ShowS)
@@ -358,8 +358,8 @@ $cfrom :: forall x. CreateAddressResponse -&gt; Rep CreateAddressResponse x
 </span><span id="line-150"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-151"></span><span>  </span><span class="annot"><a href="Network.AWS.Snowball.CreateAddress.html#CreateAddressResponse"><span class="hs-identifier hs-type">CreateAddressResponse</span></a></span><span>
 </span><span id="line-152"></span><span id="newCreateAddressResponse"><span class="annot"><span class="annottext">newCreateAddressResponse :: Int -&gt; CreateAddressResponse
-</span><a href="Network.AWS.Snowball.CreateAddress.html#newCreateAddressResponse"><span class="hs-identifier hs-var hs-var">newCreateAddressResponse</span></a></span></span><span> </span><span id="local-6989586621679232603"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679232603"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Snowball.CreateAddress.html#newCreateAddressResponse"><span class="hs-identifier hs-var hs-var">newCreateAddressResponse</span></a></span></span><span> </span><span id="local-6989586621679232672"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679232672"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-153"></span><span>  </span><span class="annot"><span class="annottext">CreateAddressResponse' :: Maybe Text -&gt; Int -&gt; CreateAddressResponse
 </span><a href="Network.AWS.Snowball.CreateAddress.html#CreateAddressResponse%27"><span class="hs-identifier hs-type">CreateAddressResponse'</span></a></span><span>
 </span><span id="line-154"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:addressId:CreateAddressResponse' :: Maybe Text
@@ -368,7 +368,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateAddressResponse' :: Int
 </span><a href="Network.AWS.Snowball.CreateAddress.html#%24sel%3AhttpStatus%3ACreateAddressResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679232603"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679232672"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-156"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- | The automatically generated ID for a specific address. You\'ll use this</span><span>
@@ -385,16 +385,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.CreateAddress.html#CreateAddressResponse%27"><span class="hs-identifier hs-type">CreateAddressResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232602"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.CreateAddress.html#CreateAddressResponse%27"><span class="hs-identifier hs-type">CreateAddressResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232671"><span class="annot"><span class="annottext">Maybe Text
 addressId :: Maybe Text
 $sel:addressId:CreateAddressResponse' :: CreateAddressResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679232602"><span class="hs-identifier hs-var hs-var">addressId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679232602"><span class="hs-identifier hs-var">addressId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232601"><span class="annot"><span class="annottext">s :: CreateAddressResponse
-</span><a href="#local-6989586621679232601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.CreateAddress.html#CreateAddressResponse%27"><span class="hs-identifier hs-type">CreateAddressResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232600"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679232600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAddressResponse
-</span><a href="#local-6989586621679232601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addressId:CreateAddressResponse' :: Maybe Text
+</span><a href="#local-6989586621679232671"><span class="hs-identifier hs-var hs-var">addressId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232671"><span class="hs-identifier hs-var">addressId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232670"><span class="annot"><span class="annottext">s :: CreateAddressResponse
+</span><a href="#local-6989586621679232670"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.CreateAddress.html#CreateAddressResponse%27"><span class="hs-identifier hs-type">CreateAddressResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232669"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232669"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAddressResponse
+</span><a href="#local-6989586621679232670"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addressId:CreateAddressResponse' :: Maybe Text
 </span><a href="Network.AWS.Snowball.CreateAddress.html#%24sel%3AaddressId%3ACreateAddressResponse%27"><span class="hs-identifier hs-var">addressId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679232600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.CreateAddress.html#CreateAddressResponse"><span class="hs-identifier hs-type">CreateAddressResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679232669"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.CreateAddress.html#CreateAddressResponse"><span class="hs-identifier hs-type">CreateAddressResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-165"></span><span class="annot"><a href="Network.AWS.Snowball.CreateAddress.html#createAddressResponse_httpStatus"><span class="hs-identifier hs-type">createAddressResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.CreateAddress.html#CreateAddressResponse"><span class="hs-identifier hs-type">CreateAddressResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -403,16 +403,16 @@ $sel:addressId:CreateAddressResponse' :: CreateAddressResponse -&gt; Maybe Text
 -&gt; (CreateAddressResponse -&gt; Int -&gt; CreateAddressResponse)
 -&gt; Lens CreateAddressResponse CreateAddressResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.CreateAddress.html#CreateAddressResponse%27"><span class="hs-identifier hs-type">CreateAddressResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232599"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.CreateAddress.html#CreateAddressResponse%27"><span class="hs-identifier hs-type">CreateAddressResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232668"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateAddressResponse' :: CreateAddressResponse -&gt; Int
-</span><a href="#local-6989586621679232599"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679232599"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232598"><span class="annot"><span class="annottext">s :: CreateAddressResponse
-</span><a href="#local-6989586621679232598"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.CreateAddress.html#CreateAddressResponse%27"><span class="hs-identifier hs-type">CreateAddressResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232597"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679232597"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAddressResponse
-</span><a href="#local-6989586621679232598"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateAddressResponse' :: Int
+</span><a href="#local-6989586621679232668"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679232668"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232667"><span class="annot"><span class="annottext">s :: CreateAddressResponse
+</span><a href="#local-6989586621679232667"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.CreateAddress.html#CreateAddressResponse%27"><span class="hs-identifier hs-type">CreateAddressResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232666"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679232666"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAddressResponse
+</span><a href="#local-6989586621679232667"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateAddressResponse' :: Int
 </span><a href="Network.AWS.Snowball.CreateAddress.html#%24sel%3AhttpStatus%3ACreateAddressResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679232597"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.CreateAddress.html#CreateAddressResponse"><span class="hs-identifier hs-type">CreateAddressResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679232666"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.CreateAddress.html#CreateAddressResponse"><span class="hs-identifier hs-type">CreateAddressResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232595"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.CreateAddress.html#CreateAddressResponse"><span class="hs-identifier hs-type">CreateAddressResponse</span></a></span></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232664"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.CreateAddress.html#CreateAddressResponse"><span class="hs-identifier hs-type">CreateAddressResponse</span></a></span></span><span>
 </span><span id="line-169"></span></pre></body></html>

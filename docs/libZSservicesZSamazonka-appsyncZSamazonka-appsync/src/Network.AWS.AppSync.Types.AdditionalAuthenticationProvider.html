@@ -30,22 +30,22 @@
 </span><span id="line-30"></span><span class="hs-comment">-- | Describes an additional authentication provider.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newAdditionalAuthenticationProvider' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679250481"><span id="local-6989586621679250482"></span></span><span class="hs-keyword">data</span><span> </span><span id="AdditionalAuthenticationProvider"><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#AdditionalAuthenticationProvider"><span class="hs-identifier hs-var">AdditionalAuthenticationProvider</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AdditionalAuthenticationProvider%27"><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#AdditionalAuthenticationProvider%27"><span class="hs-identifier hs-var">AdditionalAuthenticationProvider'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679250557"><span id="local-6989586621679250558"></span></span><span class="hs-keyword">data</span><span> </span><span id="AdditionalAuthenticationProvider"><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#AdditionalAuthenticationProvider"><span class="hs-identifier hs-var">AdditionalAuthenticationProvider</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AdditionalAuthenticationProvider%27"><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#AdditionalAuthenticationProvider%27"><span class="hs-identifier hs-var">AdditionalAuthenticationProvider'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The OpenID Connect configuration.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AopenIDConnectConfig%3AAdditionalAuthenticationProvider%27"><span class="annot"><span class="annottext">AdditionalAuthenticationProvider -&gt; Maybe OpenIDConnectConfig
 </span><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#%24sel%3AopenIDConnectConfig%3AAdditionalAuthenticationProvider%27"><span class="hs-identifier hs-var hs-var">openIDConnectConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#OpenIDConnectConfig"><span class="hs-identifier hs-type">OpenIDConnectConfig</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The Amazon Cognito user pool configuration.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AuserPoolConfig%3AAdditionalAuthenticationProvider%27"><span class="annot"><span class="annottext">AdditionalAuthenticationProvider -&gt; Maybe CognitoUserPoolConfig
-</span><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#%24sel%3AuserPoolConfig%3AAdditionalAuthenticationProvider%27"><span class="hs-identifier hs-var hs-var">userPoolConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#CognitoUserPoolConfig"><span class="hs-identifier hs-type">CognitoUserPoolConfig</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Configuration for Amazon Web Services Lambda function authorization.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AlambdaAuthorizerConfig%3AAdditionalAuthenticationProvider%27"><span class="annot"><span class="annottext">AdditionalAuthenticationProvider -&gt; Maybe LambdaAuthorizerConfig
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Configuration for Amazon Web Services Lambda function authorization.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AlambdaAuthorizerConfig%3AAdditionalAuthenticationProvider%27"><span class="annot"><span class="annottext">AdditionalAuthenticationProvider -&gt; Maybe LambdaAuthorizerConfig
 </span><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#%24sel%3AlambdaAuthorizerConfig%3AAdditionalAuthenticationProvider%27"><span class="hs-identifier hs-var hs-var">lambdaAuthorizerConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.LambdaAuthorizerConfig.html#LambdaAuthorizerConfig"><span class="hs-identifier hs-type">LambdaAuthorizerConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The Amazon Cognito user pool configuration.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AuserPoolConfig%3AAdditionalAuthenticationProvider%27"><span class="annot"><span class="annottext">AdditionalAuthenticationProvider -&gt; Maybe CognitoUserPoolConfig
+</span><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#%24sel%3AuserPoolConfig%3AAdditionalAuthenticationProvider%27"><span class="hs-identifier hs-var hs-var">userPoolConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#CognitoUserPoolConfig"><span class="hs-identifier hs-type">CognitoUserPoolConfig</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The authentication type: API key, Identity and Access Management, OIDC,</span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-comment">-- Amazon Cognito user pools, or Amazon Web Services Lambda.</span><span>
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3AauthenticationType%3AAdditionalAuthenticationProvider%27"><span class="annot"><span class="annottext">AdditionalAuthenticationProvider -&gt; Maybe AuthenticationType
 </span><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#%24sel%3AauthenticationType%3AAdditionalAuthenticationProvider%27"><span class="hs-identifier hs-var hs-var">authenticationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.AuthenticationType.html#AuthenticationType"><span class="hs-identifier hs-type">AuthenticationType</span></a></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679250472"><span id="local-6989586621679250474"><span class="annot"><span class="annottext">AdditionalAuthenticationProvider
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679250548"><span id="local-6989586621679250550"><span class="annot"><span class="annottext">AdditionalAuthenticationProvider
 -&gt; AdditionalAuthenticationProvider -&gt; Bool
 (AdditionalAuthenticationProvider
  -&gt; AdditionalAuthenticationProvider -&gt; Bool)
@@ -61,7 +61,7 @@ $c/= :: AdditionalAuthenticationProvider
 -&gt; AdditionalAuthenticationProvider -&gt; Bool
 $c== :: AdditionalAuthenticationProvider
 -&gt; AdditionalAuthenticationProvider -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250463"><span id="local-6989586621679250465"><span id="local-6989586621679250467"><span id="local-6989586621679250469"><span class="annot"><span class="annottext">ReadPrec [AdditionalAuthenticationProvider]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250539"><span id="local-6989586621679250541"><span id="local-6989586621679250543"><span id="local-6989586621679250545"><span class="annot"><span class="annottext">ReadPrec [AdditionalAuthenticationProvider]
 ReadPrec AdditionalAuthenticationProvider
 Int -&gt; ReadS AdditionalAuthenticationProvider
 ReadS [AdditionalAuthenticationProvider]
@@ -81,7 +81,7 @@ readList :: ReadS [AdditionalAuthenticationProvider]
 $creadList :: ReadS [AdditionalAuthenticationProvider]
 readsPrec :: Int -&gt; ReadS AdditionalAuthenticationProvider
 $creadsPrec :: Int -&gt; ReadS AdditionalAuthenticationProvider
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250456"><span id="local-6989586621679250458"><span id="local-6989586621679250460"><span class="annot"><span class="annottext">Int -&gt; AdditionalAuthenticationProvider -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250532"><span id="local-6989586621679250534"><span id="local-6989586621679250536"><span class="annot"><span class="annottext">Int -&gt; AdditionalAuthenticationProvider -&gt; ShowS
 [AdditionalAuthenticationProvider] -&gt; ShowS
 AdditionalAuthenticationProvider -&gt; String
 (Int -&gt; AdditionalAuthenticationProvider -&gt; ShowS)
@@ -129,9 +129,9 @@ AdditionalAuthenticationProvider
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- 'openIDConnectConfig', 'additionalAuthenticationProvider_openIDConnectConfig' - The OpenID Connect configuration.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'userPoolConfig', 'additionalAuthenticationProvider_userPoolConfig' - The Amazon Cognito user pool configuration.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'lambdaAuthorizerConfig', 'additionalAuthenticationProvider_lambdaAuthorizerConfig' - Configuration for Amazon Web Services Lambda function authorization.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'lambdaAuthorizerConfig', 'additionalAuthenticationProvider_lambdaAuthorizerConfig' - Configuration for Amazon Web Services Lambda function authorization.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'userPoolConfig', 'additionalAuthenticationProvider_userPoolConfig' - The Amazon Cognito user pool configuration.</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- 'authenticationType', 'additionalAuthenticationProvider_authenticationType' - The authentication type: API key, Identity and Access Management, OIDC,</span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- Amazon Cognito user pools, or Amazon Web Services Lambda.</span><span>
@@ -140,8 +140,8 @@ AdditionalAuthenticationProvider
 </span><span id="line-64"></span><span id="newAdditionalAuthenticationProvider"><span class="annot"><span class="annottext">newAdditionalAuthenticationProvider :: AdditionalAuthenticationProvider
 </span><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#newAdditionalAuthenticationProvider"><span class="hs-identifier hs-var hs-var">newAdditionalAuthenticationProvider</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-65"></span><span>  </span><span class="annot"><span class="annottext">AdditionalAuthenticationProvider' :: Maybe OpenIDConnectConfig
--&gt; Maybe CognitoUserPoolConfig
 -&gt; Maybe LambdaAuthorizerConfig
+-&gt; Maybe CognitoUserPoolConfig
 -&gt; Maybe AuthenticationType
 -&gt; AdditionalAuthenticationProvider
 </span><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#AdditionalAuthenticationProvider%27"><span class="hs-identifier hs-type">AdditionalAuthenticationProvider'</span></a></span><span>
@@ -150,12 +150,12 @@ AdditionalAuthenticationProvider
 </span><span id="line-67"></span><span>        </span><span class="annot"><span class="annottext">Maybe OpenIDConnectConfig
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:userPoolConfig:AdditionalAuthenticationProvider' :: Maybe CognitoUserPoolConfig
-</span><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#%24sel%3AuserPoolConfig%3AAdditionalAuthenticationProvider%27"><span class="hs-identifier hs-var">userPoolConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CognitoUserPoolConfig
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:lambdaAuthorizerConfig:AdditionalAuthenticationProvider' :: Maybe LambdaAuthorizerConfig
+</span><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#%24sel%3AlambdaAuthorizerConfig%3AAdditionalAuthenticationProvider%27"><span class="hs-identifier hs-var">lambdaAuthorizerConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaAuthorizerConfig
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:lambdaAuthorizerConfig:AdditionalAuthenticationProvider' :: Maybe LambdaAuthorizerConfig
-</span><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#%24sel%3AlambdaAuthorizerConfig%3AAdditionalAuthenticationProvider%27"><span class="hs-identifier hs-var">lambdaAuthorizerConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaAuthorizerConfig
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:userPoolConfig:AdditionalAuthenticationProvider' :: Maybe CognitoUserPoolConfig
+</span><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#%24sel%3AuserPoolConfig%3AAdditionalAuthenticationProvider%27"><span class="hs-identifier hs-var">userPoolConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CognitoUserPoolConfig
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:authenticationType:AdditionalAuthenticationProvider' :: Maybe AuthenticationType
@@ -178,45 +178,20 @@ forall a. Maybe a
      (Maybe OpenIDConnectConfig)
      (Maybe OpenIDConnectConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#AdditionalAuthenticationProvider%27"><span class="hs-identifier hs-type">AdditionalAuthenticationProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250447"><span class="annot"><span class="annottext">Maybe OpenIDConnectConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#AdditionalAuthenticationProvider%27"><span class="hs-identifier hs-type">AdditionalAuthenticationProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250523"><span class="annot"><span class="annottext">Maybe OpenIDConnectConfig
 openIDConnectConfig :: Maybe OpenIDConnectConfig
 $sel:openIDConnectConfig:AdditionalAuthenticationProvider' :: AdditionalAuthenticationProvider -&gt; Maybe OpenIDConnectConfig
-</span><a href="#local-6989586621679250447"><span class="hs-identifier hs-var hs-var">openIDConnectConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OpenIDConnectConfig
-</span><a href="#local-6989586621679250447"><span class="hs-identifier hs-var">openIDConnectConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250446"><span class="annot"><span class="annottext">s :: AdditionalAuthenticationProvider
-</span><a href="#local-6989586621679250446"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#AdditionalAuthenticationProvider%27"><span class="hs-identifier hs-type">AdditionalAuthenticationProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250445"><span class="annot"><span class="annottext">Maybe OpenIDConnectConfig
-</span><a href="#local-6989586621679250445"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdditionalAuthenticationProvider
-</span><a href="#local-6989586621679250446"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:openIDConnectConfig:AdditionalAuthenticationProvider' :: Maybe OpenIDConnectConfig
+</span><a href="#local-6989586621679250523"><span class="hs-identifier hs-var hs-var">openIDConnectConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OpenIDConnectConfig
+</span><a href="#local-6989586621679250523"><span class="hs-identifier hs-var">openIDConnectConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250522"><span class="annot"><span class="annottext">s :: AdditionalAuthenticationProvider
+</span><a href="#local-6989586621679250522"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#AdditionalAuthenticationProvider%27"><span class="hs-identifier hs-type">AdditionalAuthenticationProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250521"><span class="annot"><span class="annottext">Maybe OpenIDConnectConfig
+</span><a href="#local-6989586621679250521"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdditionalAuthenticationProvider
+</span><a href="#local-6989586621679250522"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:openIDConnectConfig:AdditionalAuthenticationProvider' :: Maybe OpenIDConnectConfig
 </span><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#%24sel%3AopenIDConnectConfig%3AAdditionalAuthenticationProvider%27"><span class="hs-identifier hs-var">openIDConnectConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OpenIDConnectConfig
-</span><a href="#local-6989586621679250445"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#AdditionalAuthenticationProvider"><span class="hs-identifier hs-type">AdditionalAuthenticationProvider</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679250521"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#AdditionalAuthenticationProvider"><span class="hs-identifier hs-type">AdditionalAuthenticationProvider</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- | The Amazon Cognito user pool configuration.</span><span>
-</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#additionalAuthenticationProvider_userPoolConfig"><span class="hs-identifier hs-type">additionalAuthenticationProvider_userPoolConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#AdditionalAuthenticationProvider"><span class="hs-identifier hs-type">AdditionalAuthenticationProvider</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#CognitoUserPoolConfig"><span class="hs-identifier hs-type">CognitoUserPoolConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-79"></span><span id="additionalAuthenticationProvider_userPoolConfig"><span class="annot"><span class="annottext">additionalAuthenticationProvider_userPoolConfig :: (Maybe CognitoUserPoolConfig -&gt; f (Maybe CognitoUserPoolConfig))
--&gt; AdditionalAuthenticationProvider
--&gt; f AdditionalAuthenticationProvider
-</span><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#additionalAuthenticationProvider_userPoolConfig"><span class="hs-identifier hs-var hs-var">additionalAuthenticationProvider_userPoolConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AdditionalAuthenticationProvider -&gt; Maybe CognitoUserPoolConfig)
--&gt; (AdditionalAuthenticationProvider
-    -&gt; Maybe CognitoUserPoolConfig -&gt; AdditionalAuthenticationProvider)
--&gt; Lens
-     AdditionalAuthenticationProvider
-     AdditionalAuthenticationProvider
-     (Maybe CognitoUserPoolConfig)
-     (Maybe CognitoUserPoolConfig)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#AdditionalAuthenticationProvider%27"><span class="hs-identifier hs-type">AdditionalAuthenticationProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250443"><span class="annot"><span class="annottext">Maybe CognitoUserPoolConfig
-userPoolConfig :: Maybe CognitoUserPoolConfig
-$sel:userPoolConfig:AdditionalAuthenticationProvider' :: AdditionalAuthenticationProvider -&gt; Maybe CognitoUserPoolConfig
-</span><a href="#local-6989586621679250443"><span class="hs-identifier hs-var hs-var">userPoolConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CognitoUserPoolConfig
-</span><a href="#local-6989586621679250443"><span class="hs-identifier hs-var">userPoolConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250442"><span class="annot"><span class="annottext">s :: AdditionalAuthenticationProvider
-</span><a href="#local-6989586621679250442"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#AdditionalAuthenticationProvider%27"><span class="hs-identifier hs-type">AdditionalAuthenticationProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250441"><span class="annot"><span class="annottext">Maybe CognitoUserPoolConfig
-</span><a href="#local-6989586621679250441"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdditionalAuthenticationProvider
-</span><a href="#local-6989586621679250442"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userPoolConfig:AdditionalAuthenticationProvider' :: Maybe CognitoUserPoolConfig
-</span><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#%24sel%3AuserPoolConfig%3AAdditionalAuthenticationProvider%27"><span class="hs-identifier hs-var">userPoolConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CognitoUserPoolConfig
-</span><a href="#local-6989586621679250441"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#AdditionalAuthenticationProvider"><span class="hs-identifier hs-type">AdditionalAuthenticationProvider</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- | Configuration for Amazon Web Services Lambda function authorization.</span><span>
-</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#additionalAuthenticationProvider_lambdaAuthorizerConfig"><span class="hs-identifier hs-type">additionalAuthenticationProvider_lambdaAuthorizerConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#AdditionalAuthenticationProvider"><span class="hs-identifier hs-type">AdditionalAuthenticationProvider</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.LambdaAuthorizerConfig.html#LambdaAuthorizerConfig"><span class="hs-identifier hs-type">LambdaAuthorizerConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span id="additionalAuthenticationProvider_lambdaAuthorizerConfig"><span class="annot"><span class="annottext">additionalAuthenticationProvider_lambdaAuthorizerConfig :: (Maybe LambdaAuthorizerConfig -&gt; f (Maybe LambdaAuthorizerConfig))
+</span><span id="line-77"></span><span class="hs-comment">-- | Configuration for Amazon Web Services Lambda function authorization.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#additionalAuthenticationProvider_lambdaAuthorizerConfig"><span class="hs-identifier hs-type">additionalAuthenticationProvider_lambdaAuthorizerConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#AdditionalAuthenticationProvider"><span class="hs-identifier hs-type">AdditionalAuthenticationProvider</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.LambdaAuthorizerConfig.html#LambdaAuthorizerConfig"><span class="hs-identifier hs-type">LambdaAuthorizerConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="additionalAuthenticationProvider_lambdaAuthorizerConfig"><span class="annot"><span class="annottext">additionalAuthenticationProvider_lambdaAuthorizerConfig :: (Maybe LambdaAuthorizerConfig -&gt; f (Maybe LambdaAuthorizerConfig))
 -&gt; AdditionalAuthenticationProvider
 -&gt; f AdditionalAuthenticationProvider
 </span><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#additionalAuthenticationProvider_lambdaAuthorizerConfig"><span class="hs-identifier hs-var hs-var">additionalAuthenticationProvider_lambdaAuthorizerConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AdditionalAuthenticationProvider -&gt; Maybe LambdaAuthorizerConfig)
@@ -229,16 +204,41 @@ $sel:userPoolConfig:AdditionalAuthenticationProvider' :: AdditionalAuthenticatio
      (Maybe LambdaAuthorizerConfig)
      (Maybe LambdaAuthorizerConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#AdditionalAuthenticationProvider%27"><span class="hs-identifier hs-type">AdditionalAuthenticationProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250439"><span class="annot"><span class="annottext">Maybe LambdaAuthorizerConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#AdditionalAuthenticationProvider%27"><span class="hs-identifier hs-type">AdditionalAuthenticationProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250519"><span class="annot"><span class="annottext">Maybe LambdaAuthorizerConfig
 lambdaAuthorizerConfig :: Maybe LambdaAuthorizerConfig
 $sel:lambdaAuthorizerConfig:AdditionalAuthenticationProvider' :: AdditionalAuthenticationProvider -&gt; Maybe LambdaAuthorizerConfig
-</span><a href="#local-6989586621679250439"><span class="hs-identifier hs-var hs-var">lambdaAuthorizerConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaAuthorizerConfig
-</span><a href="#local-6989586621679250439"><span class="hs-identifier hs-var">lambdaAuthorizerConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250438"><span class="annot"><span class="annottext">s :: AdditionalAuthenticationProvider
-</span><a href="#local-6989586621679250438"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#AdditionalAuthenticationProvider%27"><span class="hs-identifier hs-type">AdditionalAuthenticationProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250437"><span class="annot"><span class="annottext">Maybe LambdaAuthorizerConfig
-</span><a href="#local-6989586621679250437"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdditionalAuthenticationProvider
-</span><a href="#local-6989586621679250438"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lambdaAuthorizerConfig:AdditionalAuthenticationProvider' :: Maybe LambdaAuthorizerConfig
+</span><a href="#local-6989586621679250519"><span class="hs-identifier hs-var hs-var">lambdaAuthorizerConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaAuthorizerConfig
+</span><a href="#local-6989586621679250519"><span class="hs-identifier hs-var">lambdaAuthorizerConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250518"><span class="annot"><span class="annottext">s :: AdditionalAuthenticationProvider
+</span><a href="#local-6989586621679250518"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#AdditionalAuthenticationProvider%27"><span class="hs-identifier hs-type">AdditionalAuthenticationProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250517"><span class="annot"><span class="annottext">Maybe LambdaAuthorizerConfig
+</span><a href="#local-6989586621679250517"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdditionalAuthenticationProvider
+</span><a href="#local-6989586621679250518"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lambdaAuthorizerConfig:AdditionalAuthenticationProvider' :: Maybe LambdaAuthorizerConfig
 </span><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#%24sel%3AlambdaAuthorizerConfig%3AAdditionalAuthenticationProvider%27"><span class="hs-identifier hs-var">lambdaAuthorizerConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaAuthorizerConfig
-</span><a href="#local-6989586621679250437"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#AdditionalAuthenticationProvider"><span class="hs-identifier hs-type">AdditionalAuthenticationProvider</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679250517"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#AdditionalAuthenticationProvider"><span class="hs-identifier hs-type">AdditionalAuthenticationProvider</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The Amazon Cognito user pool configuration.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#additionalAuthenticationProvider_userPoolConfig"><span class="hs-identifier hs-type">additionalAuthenticationProvider_userPoolConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#AdditionalAuthenticationProvider"><span class="hs-identifier hs-type">AdditionalAuthenticationProvider</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#CognitoUserPoolConfig"><span class="hs-identifier hs-type">CognitoUserPoolConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="additionalAuthenticationProvider_userPoolConfig"><span class="annot"><span class="annottext">additionalAuthenticationProvider_userPoolConfig :: (Maybe CognitoUserPoolConfig -&gt; f (Maybe CognitoUserPoolConfig))
+-&gt; AdditionalAuthenticationProvider
+-&gt; f AdditionalAuthenticationProvider
+</span><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#additionalAuthenticationProvider_userPoolConfig"><span class="hs-identifier hs-var hs-var">additionalAuthenticationProvider_userPoolConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AdditionalAuthenticationProvider -&gt; Maybe CognitoUserPoolConfig)
+-&gt; (AdditionalAuthenticationProvider
+    -&gt; Maybe CognitoUserPoolConfig -&gt; AdditionalAuthenticationProvider)
+-&gt; Lens
+     AdditionalAuthenticationProvider
+     AdditionalAuthenticationProvider
+     (Maybe CognitoUserPoolConfig)
+     (Maybe CognitoUserPoolConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#AdditionalAuthenticationProvider%27"><span class="hs-identifier hs-type">AdditionalAuthenticationProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250515"><span class="annot"><span class="annottext">Maybe CognitoUserPoolConfig
+userPoolConfig :: Maybe CognitoUserPoolConfig
+$sel:userPoolConfig:AdditionalAuthenticationProvider' :: AdditionalAuthenticationProvider -&gt; Maybe CognitoUserPoolConfig
+</span><a href="#local-6989586621679250515"><span class="hs-identifier hs-var hs-var">userPoolConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CognitoUserPoolConfig
+</span><a href="#local-6989586621679250515"><span class="hs-identifier hs-var">userPoolConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250514"><span class="annot"><span class="annottext">s :: AdditionalAuthenticationProvider
+</span><a href="#local-6989586621679250514"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#AdditionalAuthenticationProvider%27"><span class="hs-identifier hs-type">AdditionalAuthenticationProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250513"><span class="annot"><span class="annottext">Maybe CognitoUserPoolConfig
+</span><a href="#local-6989586621679250513"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdditionalAuthenticationProvider
+</span><a href="#local-6989586621679250514"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userPoolConfig:AdditionalAuthenticationProvider' :: Maybe CognitoUserPoolConfig
+</span><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#%24sel%3AuserPoolConfig%3AAdditionalAuthenticationProvider%27"><span class="hs-identifier hs-var">userPoolConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CognitoUserPoolConfig
+</span><a href="#local-6989586621679250513"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#AdditionalAuthenticationProvider"><span class="hs-identifier hs-type">AdditionalAuthenticationProvider</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The authentication type: API key, Identity and Access Management, OIDC,</span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- Amazon Cognito user pools, or Amazon Web Services Lambda.</span><span>
@@ -255,22 +255,22 @@ $sel:lambdaAuthorizerConfig:AdditionalAuthenticationProvider' :: AdditionalAuthe
      (Maybe AuthenticationType)
      (Maybe AuthenticationType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#AdditionalAuthenticationProvider%27"><span class="hs-identifier hs-type">AdditionalAuthenticationProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250435"><span class="annot"><span class="annottext">Maybe AuthenticationType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#AdditionalAuthenticationProvider%27"><span class="hs-identifier hs-type">AdditionalAuthenticationProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250511"><span class="annot"><span class="annottext">Maybe AuthenticationType
 authenticationType :: Maybe AuthenticationType
 $sel:authenticationType:AdditionalAuthenticationProvider' :: AdditionalAuthenticationProvider -&gt; Maybe AuthenticationType
-</span><a href="#local-6989586621679250435"><span class="hs-identifier hs-var hs-var">authenticationType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AuthenticationType
-</span><a href="#local-6989586621679250435"><span class="hs-identifier hs-var">authenticationType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250434"><span class="annot"><span class="annottext">s :: AdditionalAuthenticationProvider
-</span><a href="#local-6989586621679250434"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#AdditionalAuthenticationProvider%27"><span class="hs-identifier hs-type">AdditionalAuthenticationProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250433"><span class="annot"><span class="annottext">Maybe AuthenticationType
-</span><a href="#local-6989586621679250433"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdditionalAuthenticationProvider
-</span><a href="#local-6989586621679250434"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authenticationType:AdditionalAuthenticationProvider' :: Maybe AuthenticationType
+</span><a href="#local-6989586621679250511"><span class="hs-identifier hs-var hs-var">authenticationType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AuthenticationType
+</span><a href="#local-6989586621679250511"><span class="hs-identifier hs-var">authenticationType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250510"><span class="annot"><span class="annottext">s :: AdditionalAuthenticationProvider
+</span><a href="#local-6989586621679250510"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#AdditionalAuthenticationProvider%27"><span class="hs-identifier hs-type">AdditionalAuthenticationProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250509"><span class="annot"><span class="annottext">Maybe AuthenticationType
+</span><a href="#local-6989586621679250509"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdditionalAuthenticationProvider
+</span><a href="#local-6989586621679250510"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authenticationType:AdditionalAuthenticationProvider' :: Maybe AuthenticationType
 </span><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#%24sel%3AauthenticationType%3AAdditionalAuthenticationProvider%27"><span class="hs-identifier hs-var">authenticationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuthenticationType
-</span><a href="#local-6989586621679250433"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#AdditionalAuthenticationProvider"><span class="hs-identifier hs-type">AdditionalAuthenticationProvider</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679250509"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#AdditionalAuthenticationProvider"><span class="hs-identifier hs-type">AdditionalAuthenticationProvider</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679250430"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679250506"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-92"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#AdditionalAuthenticationProvider"><span class="hs-identifier hs-type">AdditionalAuthenticationProvider</span></a></span></span><span>
 </span><span id="line-93"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679250428"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AdditionalAuthenticationProvider
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679250504"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AdditionalAuthenticationProvider
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AdditionalAuthenticationProvider)
@@ -280,93 +280,93 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AdditionalAuthenticationProvider&quot;</span></span><span>
-</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679250425"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679250425"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679250501"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679250501"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Maybe OpenIDConnectConfig
--&gt; Maybe CognitoUserPoolConfig
 -&gt; Maybe LambdaAuthorizerConfig
+-&gt; Maybe CognitoUserPoolConfig
 -&gt; Maybe AuthenticationType
 -&gt; AdditionalAuthenticationProvider
 </span><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#AdditionalAuthenticationProvider%27"><span class="hs-identifier hs-var">AdditionalAuthenticationProvider'</span></a></span><span>
 </span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(Maybe OpenIDConnectConfig
- -&gt; Maybe CognitoUserPoolConfig
  -&gt; Maybe LambdaAuthorizerConfig
+ -&gt; Maybe CognitoUserPoolConfig
  -&gt; Maybe AuthenticationType
  -&gt; AdditionalAuthenticationProvider)
 -&gt; Parser (Maybe OpenIDConnectConfig)
 -&gt; Parser
-     (Maybe CognitoUserPoolConfig
-      -&gt; Maybe LambdaAuthorizerConfig
+     (Maybe LambdaAuthorizerConfig
+      -&gt; Maybe CognitoUserPoolConfig
       -&gt; Maybe AuthenticationType
       -&gt; AdditionalAuthenticationProvider)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679250425"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OpenIDConnectConfig)
+</span><a href="#local-6989586621679250501"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OpenIDConnectConfig)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;openIDConnectConfig&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe CognitoUserPoolConfig
-   -&gt; Maybe LambdaAuthorizerConfig
+  (Maybe LambdaAuthorizerConfig
+   -&gt; Maybe CognitoUserPoolConfig
    -&gt; Maybe AuthenticationType
    -&gt; AdditionalAuthenticationProvider)
--&gt; Parser (Maybe CognitoUserPoolConfig)
+-&gt; Parser (Maybe LambdaAuthorizerConfig)
 -&gt; Parser
-     (Maybe LambdaAuthorizerConfig
+     (Maybe CognitoUserPoolConfig
       -&gt; Maybe AuthenticationType -&gt; AdditionalAuthenticationProvider)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679250425"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CognitoUserPoolConfig)
+</span><a href="#local-6989586621679250501"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LambdaAuthorizerConfig)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;userPoolConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;lambdaAuthorizerConfig&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe LambdaAuthorizerConfig
+  (Maybe CognitoUserPoolConfig
    -&gt; Maybe AuthenticationType -&gt; AdditionalAuthenticationProvider)
--&gt; Parser (Maybe LambdaAuthorizerConfig)
+-&gt; Parser (Maybe CognitoUserPoolConfig)
 -&gt; Parser
      (Maybe AuthenticationType -&gt; AdditionalAuthenticationProvider)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679250425"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LambdaAuthorizerConfig)
+</span><a href="#local-6989586621679250501"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CognitoUserPoolConfig)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;lambdaAuthorizerConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;userPoolConfig&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe AuthenticationType -&gt; AdditionalAuthenticationProvider)
 -&gt; Parser (Maybe AuthenticationType)
 -&gt; Parser AdditionalAuthenticationProvider
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679250425"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AuthenticationType)
+</span><a href="#local-6989586621679250501"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AuthenticationType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;authenticationType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679250419"><span id="local-6989586621679250421"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679250495"><span id="local-6989586621679250497"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#AdditionalAuthenticationProvider"><span class="hs-identifier hs-type">AdditionalAuthenticationProvider</span></a></span></span></span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679250416"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679250492"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#AdditionalAuthenticationProvider"><span class="hs-identifier hs-type">AdditionalAuthenticationProvider</span></a></span></span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250408"><span id="local-6989586621679250410"><span id="local-6989586621679250412"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#AdditionalAuthenticationProvider"><span class="hs-identifier hs-type">AdditionalAuthenticationProvider</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679250406"><span class="annot"><span class="annottext">toJSON :: AdditionalAuthenticationProvider -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#AdditionalAuthenticationProvider%27"><span class="hs-identifier hs-type">AdditionalAuthenticationProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250401"><span id="local-6989586621679250402"><span id="local-6989586621679250403"><span id="local-6989586621679250404"><span class="annot"><span class="annottext">Maybe AuthenticationType
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250484"><span id="local-6989586621679250486"><span id="local-6989586621679250488"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#AdditionalAuthenticationProvider"><span class="hs-identifier hs-type">AdditionalAuthenticationProvider</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679250482"><span class="annot"><span class="annottext">toJSON :: AdditionalAuthenticationProvider -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#AdditionalAuthenticationProvider%27"><span class="hs-identifier hs-type">AdditionalAuthenticationProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250477"><span id="local-6989586621679250478"><span id="local-6989586621679250479"><span id="local-6989586621679250480"><span class="annot"><span class="annottext">Maybe AuthenticationType
 Maybe CognitoUserPoolConfig
 Maybe LambdaAuthorizerConfig
 Maybe OpenIDConnectConfig
 authenticationType :: Maybe AuthenticationType
-lambdaAuthorizerConfig :: Maybe LambdaAuthorizerConfig
 userPoolConfig :: Maybe CognitoUserPoolConfig
+lambdaAuthorizerConfig :: Maybe LambdaAuthorizerConfig
 openIDConnectConfig :: Maybe OpenIDConnectConfig
 $sel:authenticationType:AdditionalAuthenticationProvider' :: AdditionalAuthenticationProvider -&gt; Maybe AuthenticationType
-$sel:lambdaAuthorizerConfig:AdditionalAuthenticationProvider' :: AdditionalAuthenticationProvider -&gt; Maybe LambdaAuthorizerConfig
 $sel:userPoolConfig:AdditionalAuthenticationProvider' :: AdditionalAuthenticationProvider -&gt; Maybe CognitoUserPoolConfig
+$sel:lambdaAuthorizerConfig:AdditionalAuthenticationProvider' :: AdditionalAuthenticationProvider -&gt; Maybe LambdaAuthorizerConfig
 $sel:openIDConnectConfig:AdditionalAuthenticationProvider' :: AdditionalAuthenticationProvider -&gt; Maybe OpenIDConnectConfig
-</span><a href="#local-6989586621679250401"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679250477"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -380,25 +380,25 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe OpenIDConnectConfig -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe OpenIDConnectConfig
-</span><a href="#local-6989586621679250404"><span class="hs-identifier hs-var">openIDConnectConfig</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679250480"><span class="hs-identifier hs-var">openIDConnectConfig</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-119"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;userPoolConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CognitoUserPoolConfig -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span>              </span><span class="annot"><span class="annottext">(CognitoUserPoolConfig -&gt; Pair)
--&gt; Maybe CognitoUserPoolConfig -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CognitoUserPoolConfig
-</span><a href="#local-6989586621679250403"><span class="hs-identifier hs-var">userPoolConfig</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-121"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;lambdaAuthorizerConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LambdaAuthorizerConfig -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span>              </span><span class="annot"><span class="annottext">(LambdaAuthorizerConfig -&gt; Pair)
+</span><span id="line-120"></span><span>              </span><span class="annot"><span class="annottext">(LambdaAuthorizerConfig -&gt; Pair)
 -&gt; Maybe LambdaAuthorizerConfig -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LambdaAuthorizerConfig
-</span><a href="#local-6989586621679250402"><span class="hs-identifier hs-var">lambdaAuthorizerConfig</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679250479"><span class="hs-identifier hs-var">lambdaAuthorizerConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;userPoolConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CognitoUserPoolConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>              </span><span class="annot"><span class="annottext">(CognitoUserPoolConfig -&gt; Pair)
+-&gt; Maybe CognitoUserPoolConfig -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CognitoUserPoolConfig
+</span><a href="#local-6989586621679250478"><span class="hs-identifier hs-var">userPoolConfig</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-123"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;authenticationType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AuthenticationType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -407,7 +407,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe AuthenticationType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AuthenticationType
-</span><a href="#local-6989586621679250401"><span class="hs-identifier hs-var">authenticationType</span></a></span><span>
+</span><a href="#local-6989586621679250477"><span class="hs-identifier hs-var">authenticationType</span></a></span><span>
 </span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span></pre></body></html>

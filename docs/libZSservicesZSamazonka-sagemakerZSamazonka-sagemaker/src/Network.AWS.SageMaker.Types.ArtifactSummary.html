@@ -29,27 +29,27 @@
 </span><span id="line-29"></span><span class="hs-comment">-- model.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newArtifactSummary' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621680289662"><span id="local-6989586621680289663"></span></span><span class="hs-keyword">data</span><span> </span><span id="ArtifactSummary"><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary"><span class="hs-identifier hs-var">ArtifactSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ArtifactSummary%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary%27"><span class="hs-identifier hs-var">ArtifactSummary'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680291020"><span id="local-6989586621680291021"></span></span><span class="hs-keyword">data</span><span> </span><span id="ArtifactSummary"><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary"><span class="hs-identifier hs-var">ArtifactSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ArtifactSummary%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary%27"><span class="hs-identifier hs-var">ArtifactSummary'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When the artifact was created.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AcreationTime%3AArtifactSummary%27"><span class="annot"><span class="annottext">ArtifactSummary -&gt; Maybe POSIX
 </span><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#%24sel%3AcreationTime%3AArtifactSummary%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The name of the artifact.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AartifactName%3AArtifactSummary%27"><span class="annot"><span class="annottext">ArtifactSummary -&gt; Maybe Text
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | When the artifact was last modified.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AlastModifiedTime%3AArtifactSummary%27"><span class="annot"><span class="annottext">ArtifactSummary -&gt; Maybe POSIX
+</span><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#%24sel%3AlastModifiedTime%3AArtifactSummary%27"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The name of the artifact.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AartifactName%3AArtifactSummary%27"><span class="annot"><span class="annottext">ArtifactSummary -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#%24sel%3AartifactName%3AArtifactSummary%27"><span class="hs-identifier hs-var hs-var">artifactName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The type of the artifact.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AartifactType%3AArtifactSummary%27"><span class="annot"><span class="annottext">ArtifactSummary -&gt; Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#%24sel%3AartifactType%3AArtifactSummary%27"><span class="hs-identifier hs-var hs-var">artifactType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the artifact.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AartifactArn%3AArtifactSummary%27"><span class="annot"><span class="annottext">ArtifactSummary -&gt; Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#%24sel%3AartifactArn%3AArtifactSummary%27"><span class="hs-identifier hs-var hs-var">artifactArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The source of the artifact.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3Asource%3AArtifactSummary%27"><span class="annot"><span class="annottext">ArtifactSummary -&gt; Maybe ArtifactSource
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The source of the artifact.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Asource%3AArtifactSummary%27"><span class="annot"><span class="annottext">ArtifactSummary -&gt; Maybe ArtifactSource
 </span><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#%24sel%3Asource%3AArtifactSummary%27"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSource.html#ArtifactSource"><span class="hs-identifier hs-type">ArtifactSource</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | When the artifact was last modified.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AlastModifiedTime%3AArtifactSummary%27"><span class="annot"><span class="annottext">ArtifactSummary -&gt; Maybe POSIX
-</span><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#%24sel%3AlastModifiedTime%3AArtifactSummary%27"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the artifact.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AartifactArn%3AArtifactSummary%27"><span class="annot"><span class="annottext">ArtifactSummary -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#%24sel%3AartifactArn%3AArtifactSummary%27"><span class="hs-identifier hs-var hs-var">artifactArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The type of the artifact.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AartifactType%3AArtifactSummary%27"><span class="annot"><span class="annottext">ArtifactSummary -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#%24sel%3AartifactType%3AArtifactSummary%27"><span class="hs-identifier hs-var hs-var">artifactType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680289651"><span id="local-6989586621680289653"><span class="annot"><span class="annottext">ArtifactSummary -&gt; ArtifactSummary -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680291009"><span id="local-6989586621680291011"><span class="annot"><span class="annottext">ArtifactSummary -&gt; ArtifactSummary -&gt; Bool
 (ArtifactSummary -&gt; ArtifactSummary -&gt; Bool)
 -&gt; (ArtifactSummary -&gt; ArtifactSummary -&gt; Bool)
 -&gt; Eq ArtifactSummary
@@ -58,7 +58,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ArtifactSummary -&gt; ArtifactSummary -&gt; Bool
 == :: ArtifactSummary -&gt; ArtifactSummary -&gt; Bool
 $c== :: ArtifactSummary -&gt; ArtifactSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680289642"><span id="local-6989586621680289644"><span id="local-6989586621680289646"><span id="local-6989586621680289648"><span class="annot"><span class="annottext">ReadPrec [ArtifactSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680291000"><span id="local-6989586621680291002"><span id="local-6989586621680291004"><span id="local-6989586621680291006"><span class="annot"><span class="annottext">ReadPrec [ArtifactSummary]
 ReadPrec ArtifactSummary
 Int -&gt; ReadS ArtifactSummary
 ReadS [ArtifactSummary]
@@ -78,7 +78,7 @@ readList :: ReadS [ArtifactSummary]
 $creadList :: ReadS [ArtifactSummary]
 readsPrec :: Int -&gt; ReadS ArtifactSummary
 $creadsPrec :: Int -&gt; ReadS ArtifactSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680289635"><span id="local-6989586621680289637"><span id="local-6989586621680289639"><span class="annot"><span class="annottext">Int -&gt; ArtifactSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680290993"><span id="local-6989586621680290995"><span id="local-6989586621680290997"><span class="annot"><span class="annottext">Int -&gt; ArtifactSummary -&gt; ShowS
 [ArtifactSummary] -&gt; ShowS
 ArtifactSummary -&gt; String
 (Int -&gt; ArtifactSummary -&gt; ShowS)
@@ -114,49 +114,49 @@ $cfrom :: forall x. ArtifactSummary -&gt; Rep ArtifactSummary x
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- 'creationTime', 'artifactSummary_creationTime' - When the artifact was created.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'artifactName', 'artifactSummary_artifactName' - The name of the artifact.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'lastModifiedTime', 'artifactSummary_lastModifiedTime' - When the artifact was last modified.</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'artifactType', 'artifactSummary_artifactType' - The type of the artifact.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'artifactName', 'artifactSummary_artifactName' - The name of the artifact.</span><span>
 </span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'artifactArn', 'artifactSummary_artifactArn' - The Amazon Resource Name (ARN) of the artifact.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'source', 'artifactSummary_source' - The source of the artifact.</span><span>
 </span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- 'source', 'artifactSummary_source' - The source of the artifact.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'artifactArn', 'artifactSummary_artifactArn' - The Amazon Resource Name (ARN) of the artifact.</span><span>
 </span><span id="line-65"></span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- 'lastModifiedTime', 'artifactSummary_lastModifiedTime' - When the artifact was last modified.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'artifactType', 'artifactSummary_artifactType' - The type of the artifact.</span><span>
 </span><span id="line-67"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#newArtifactSummary"><span class="hs-identifier hs-type">newArtifactSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary"><span class="hs-identifier hs-type">ArtifactSummary</span></a></span><span>
 </span><span id="line-69"></span><span id="newArtifactSummary"><span class="annot"><span class="annottext">newArtifactSummary :: ArtifactSummary
 </span><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#newArtifactSummary"><span class="hs-identifier hs-var hs-var">newArtifactSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">ArtifactSummary' :: Maybe POSIX
--&gt; Maybe Text
--&gt; Maybe Text
+-&gt; Maybe POSIX
 -&gt; Maybe Text
 -&gt; Maybe ArtifactSource
--&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; ArtifactSummary
 </span><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary%27"><span class="hs-identifier hs-type">ArtifactSummary'</span></a></span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:ArtifactSummary' :: Maybe POSIX
 </span><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#%24sel%3AcreationTime%3AArtifactSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:artifactName:ArtifactSummary' :: Maybe Text
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModifiedTime:ArtifactSummary' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#%24sel%3AlastModifiedTime%3AArtifactSummary%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:artifactName:ArtifactSummary' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#%24sel%3AartifactName%3AArtifactSummary%27"><span class="hs-identifier hs-var">artifactName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:artifactType:ArtifactSummary' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#%24sel%3AartifactType%3AArtifactSummary%27"><span class="hs-identifier hs-var">artifactType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:artifactArn:ArtifactSummary' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#%24sel%3AartifactArn%3AArtifactSummary%27"><span class="hs-identifier hs-var">artifactArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:source:ArtifactSummary' :: Maybe ArtifactSource
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:source:ArtifactSummary' :: Maybe ArtifactSource
 </span><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#%24sel%3Asource%3AArtifactSummary%27"><span class="hs-identifier hs-var">source</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ArtifactSource
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModifiedTime:ArtifactSummary' :: Maybe POSIX
-</span><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#%24sel%3AlastModifiedTime%3AArtifactSummary%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:artifactArn:ArtifactSummary' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#%24sel%3AartifactArn%3AArtifactSummary%27"><span class="hs-identifier hs-var">artifactArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:artifactType:ArtifactSummary' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#%24sel%3AartifactType%3AArtifactSummary%27"><span class="hs-identifier hs-var">artifactType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-special">}</span><span>
@@ -169,16 +169,16 @@ forall a. Maybe a
 -&gt; (ArtifactSummary -&gt; Maybe POSIX -&gt; ArtifactSummary)
 -&gt; Lens ArtifactSummary ArtifactSummary (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary%27"><span class="hs-identifier hs-type">ArtifactSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680289626"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary%27"><span class="hs-identifier hs-type">ArtifactSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680290984"><span class="annot"><span class="annottext">Maybe POSIX
 creationTime :: Maybe POSIX
 $sel:creationTime:ArtifactSummary' :: ArtifactSummary -&gt; Maybe POSIX
-</span><a href="#local-6989586621680289626"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680289626"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680289625"><span class="annot"><span class="annottext">s :: ArtifactSummary
-</span><a href="#local-6989586621680289625"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary%27"><span class="hs-identifier hs-type">ArtifactSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680289624"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680289624"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArtifactSummary
-</span><a href="#local-6989586621680289625"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:ArtifactSummary' :: Maybe POSIX
+</span><a href="#local-6989586621680290984"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680290984"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680290983"><span class="annot"><span class="annottext">s :: ArtifactSummary
+</span><a href="#local-6989586621680290983"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary%27"><span class="hs-identifier hs-type">ArtifactSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680290982"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680290982"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArtifactSummary
+</span><a href="#local-6989586621680290983"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:ArtifactSummary' :: Maybe POSIX
 </span><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#%24sel%3AcreationTime%3AArtifactSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680289624"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary"><span class="hs-identifier hs-type">ArtifactSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621680290982"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary"><span class="hs-identifier hs-type">ArtifactSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; ArtifactSummary -&gt; f ArtifactSummary)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -195,104 +195,24 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- | The name of the artifact.</span><span>
-</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#artifactSummary_artifactName"><span class="hs-identifier hs-type">artifactSummary_artifactName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary"><span class="hs-identifier hs-type">ArtifactSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span id="artifactSummary_artifactName"><span class="annot"><span class="annottext">artifactSummary_artifactName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ArtifactSummary -&gt; f ArtifactSummary
-</span><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#artifactSummary_artifactName"><span class="hs-identifier hs-var hs-var">artifactSummary_artifactName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ArtifactSummary -&gt; Maybe Text)
--&gt; (ArtifactSummary -&gt; Maybe Text -&gt; ArtifactSummary)
--&gt; Lens ArtifactSummary ArtifactSummary (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary%27"><span class="hs-identifier hs-type">ArtifactSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680289619"><span class="annot"><span class="annottext">Maybe Text
-artifactName :: Maybe Text
-$sel:artifactName:ArtifactSummary' :: ArtifactSummary -&gt; Maybe Text
-</span><a href="#local-6989586621680289619"><span class="hs-identifier hs-var hs-var">artifactName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680289619"><span class="hs-identifier hs-var">artifactName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680289618"><span class="annot"><span class="annottext">s :: ArtifactSummary
-</span><a href="#local-6989586621680289618"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary%27"><span class="hs-identifier hs-type">ArtifactSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680289617"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680289617"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArtifactSummary
-</span><a href="#local-6989586621680289618"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:artifactName:ArtifactSummary' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#%24sel%3AartifactName%3AArtifactSummary%27"><span class="hs-identifier hs-var">artifactName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680289617"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary"><span class="hs-identifier hs-type">ArtifactSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- | The type of the artifact.</span><span>
-</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#artifactSummary_artifactType"><span class="hs-identifier hs-type">artifactSummary_artifactType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary"><span class="hs-identifier hs-type">ArtifactSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span id="artifactSummary_artifactType"><span class="annot"><span class="annottext">artifactSummary_artifactType :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ArtifactSummary -&gt; f ArtifactSummary
-</span><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#artifactSummary_artifactType"><span class="hs-identifier hs-var hs-var">artifactSummary_artifactType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ArtifactSummary -&gt; Maybe Text)
--&gt; (ArtifactSummary -&gt; Maybe Text -&gt; ArtifactSummary)
--&gt; Lens ArtifactSummary ArtifactSummary (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary%27"><span class="hs-identifier hs-type">ArtifactSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680289615"><span class="annot"><span class="annottext">Maybe Text
-artifactType :: Maybe Text
-$sel:artifactType:ArtifactSummary' :: ArtifactSummary -&gt; Maybe Text
-</span><a href="#local-6989586621680289615"><span class="hs-identifier hs-var hs-var">artifactType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680289615"><span class="hs-identifier hs-var">artifactType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680289614"><span class="annot"><span class="annottext">s :: ArtifactSummary
-</span><a href="#local-6989586621680289614"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary%27"><span class="hs-identifier hs-type">ArtifactSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680289613"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680289613"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArtifactSummary
-</span><a href="#local-6989586621680289614"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:artifactType:ArtifactSummary' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#%24sel%3AartifactType%3AArtifactSummary%27"><span class="hs-identifier hs-var">artifactType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680289613"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary"><span class="hs-identifier hs-type">ArtifactSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the artifact.</span><span>
-</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#artifactSummary_artifactArn"><span class="hs-identifier hs-type">artifactSummary_artifactArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary"><span class="hs-identifier hs-type">ArtifactSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span id="artifactSummary_artifactArn"><span class="annot"><span class="annottext">artifactSummary_artifactArn :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ArtifactSummary -&gt; f ArtifactSummary
-</span><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#artifactSummary_artifactArn"><span class="hs-identifier hs-var hs-var">artifactSummary_artifactArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ArtifactSummary -&gt; Maybe Text)
--&gt; (ArtifactSummary -&gt; Maybe Text -&gt; ArtifactSummary)
--&gt; Lens ArtifactSummary ArtifactSummary (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary%27"><span class="hs-identifier hs-type">ArtifactSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680289611"><span class="annot"><span class="annottext">Maybe Text
-artifactArn :: Maybe Text
-$sel:artifactArn:ArtifactSummary' :: ArtifactSummary -&gt; Maybe Text
-</span><a href="#local-6989586621680289611"><span class="hs-identifier hs-var hs-var">artifactArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680289611"><span class="hs-identifier hs-var">artifactArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680289610"><span class="annot"><span class="annottext">s :: ArtifactSummary
-</span><a href="#local-6989586621680289610"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary%27"><span class="hs-identifier hs-type">ArtifactSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680289609"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680289609"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArtifactSummary
-</span><a href="#local-6989586621680289610"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:artifactArn:ArtifactSummary' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#%24sel%3AartifactArn%3AArtifactSummary%27"><span class="hs-identifier hs-var">artifactArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680289609"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary"><span class="hs-identifier hs-type">ArtifactSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- | The source of the artifact.</span><span>
-</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#artifactSummary_source"><span class="hs-identifier hs-type">artifactSummary_source</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary"><span class="hs-identifier hs-type">ArtifactSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSource.html#ArtifactSource"><span class="hs-identifier hs-type">ArtifactSource</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-97"></span><span id="artifactSummary_source"><span class="annot"><span class="annottext">artifactSummary_source :: (Maybe ArtifactSource -&gt; f (Maybe ArtifactSource))
--&gt; ArtifactSummary -&gt; f ArtifactSummary
-</span><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#artifactSummary_source"><span class="hs-identifier hs-var hs-var">artifactSummary_source</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ArtifactSummary -&gt; Maybe ArtifactSource)
--&gt; (ArtifactSummary -&gt; Maybe ArtifactSource -&gt; ArtifactSummary)
--&gt; Lens
-     ArtifactSummary
-     ArtifactSummary
-     (Maybe ArtifactSource)
-     (Maybe ArtifactSource)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary%27"><span class="hs-identifier hs-type">ArtifactSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680289607"><span class="annot"><span class="annottext">Maybe ArtifactSource
-source :: Maybe ArtifactSource
-$sel:source:ArtifactSummary' :: ArtifactSummary -&gt; Maybe ArtifactSource
-</span><a href="#local-6989586621680289607"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ArtifactSource
-</span><a href="#local-6989586621680289607"><span class="hs-identifier hs-var">source</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680289606"><span class="annot"><span class="annottext">s :: ArtifactSummary
-</span><a href="#local-6989586621680289606"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary%27"><span class="hs-identifier hs-type">ArtifactSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680289605"><span class="annot"><span class="annottext">Maybe ArtifactSource
-</span><a href="#local-6989586621680289605"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArtifactSummary
-</span><a href="#local-6989586621680289606"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:source:ArtifactSummary' :: Maybe ArtifactSource
-</span><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#%24sel%3Asource%3AArtifactSummary%27"><span class="hs-identifier hs-var">source</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ArtifactSource
-</span><a href="#local-6989586621680289605"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary"><span class="hs-identifier hs-type">ArtifactSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- | When the artifact was last modified.</span><span>
-</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#artifactSummary_lastModifiedTime"><span class="hs-identifier hs-type">artifactSummary_lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary"><span class="hs-identifier hs-type">ArtifactSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span id="artifactSummary_lastModifiedTime"><span class="annot"><span class="annottext">artifactSummary_lastModifiedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-83"></span><span class="hs-comment">-- | When the artifact was last modified.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#artifactSummary_lastModifiedTime"><span class="hs-identifier hs-type">artifactSummary_lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary"><span class="hs-identifier hs-type">ArtifactSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="artifactSummary_lastModifiedTime"><span class="annot"><span class="annottext">artifactSummary_lastModifiedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; ArtifactSummary -&gt; f ArtifactSummary
 </span><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#artifactSummary_lastModifiedTime"><span class="hs-identifier hs-var hs-var">artifactSummary_lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ArtifactSummary -&gt; Maybe POSIX)
 -&gt; (ArtifactSummary -&gt; Maybe POSIX -&gt; ArtifactSummary)
 -&gt; Lens ArtifactSummary ArtifactSummary (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary%27"><span class="hs-identifier hs-type">ArtifactSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680289603"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary%27"><span class="hs-identifier hs-type">ArtifactSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680290977"><span class="annot"><span class="annottext">Maybe POSIX
 lastModifiedTime :: Maybe POSIX
 $sel:lastModifiedTime:ArtifactSummary' :: ArtifactSummary -&gt; Maybe POSIX
-</span><a href="#local-6989586621680289603"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680289603"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680289602"><span class="annot"><span class="annottext">s :: ArtifactSummary
-</span><a href="#local-6989586621680289602"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary%27"><span class="hs-identifier hs-type">ArtifactSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680289601"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680289601"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArtifactSummary
-</span><a href="#local-6989586621680289602"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:ArtifactSummary' :: Maybe POSIX
+</span><a href="#local-6989586621680290977"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680290977"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680290976"><span class="annot"><span class="annottext">s :: ArtifactSummary
+</span><a href="#local-6989586621680290976"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary%27"><span class="hs-identifier hs-type">ArtifactSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680290975"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680290975"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArtifactSummary
+</span><a href="#local-6989586621680290976"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:ArtifactSummary' :: Maybe POSIX
 </span><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#%24sel%3AlastModifiedTime%3AArtifactSummary%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680289601"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary"><span class="hs-identifier hs-type">ArtifactSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621680290975"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary"><span class="hs-identifier hs-type">ArtifactSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; ArtifactSummary -&gt; f ArtifactSummary)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -308,9 +228,89 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The name of the artifact.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#artifactSummary_artifactName"><span class="hs-identifier hs-type">artifactSummary_artifactName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary"><span class="hs-identifier hs-type">ArtifactSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="artifactSummary_artifactName"><span class="annot"><span class="annottext">artifactSummary_artifactName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ArtifactSummary -&gt; f ArtifactSummary
+</span><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#artifactSummary_artifactName"><span class="hs-identifier hs-var hs-var">artifactSummary_artifactName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ArtifactSummary -&gt; Maybe Text)
+-&gt; (ArtifactSummary -&gt; Maybe Text -&gt; ArtifactSummary)
+-&gt; Lens ArtifactSummary ArtifactSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary%27"><span class="hs-identifier hs-type">ArtifactSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680290973"><span class="annot"><span class="annottext">Maybe Text
+artifactName :: Maybe Text
+$sel:artifactName:ArtifactSummary' :: ArtifactSummary -&gt; Maybe Text
+</span><a href="#local-6989586621680290973"><span class="hs-identifier hs-var hs-var">artifactName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680290973"><span class="hs-identifier hs-var">artifactName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680290972"><span class="annot"><span class="annottext">s :: ArtifactSummary
+</span><a href="#local-6989586621680290972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary%27"><span class="hs-identifier hs-type">ArtifactSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680290971"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680290971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArtifactSummary
+</span><a href="#local-6989586621680290972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:artifactName:ArtifactSummary' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#%24sel%3AartifactName%3AArtifactSummary%27"><span class="hs-identifier hs-var">artifactName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680290971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary"><span class="hs-identifier hs-type">ArtifactSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The source of the artifact.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#artifactSummary_source"><span class="hs-identifier hs-type">artifactSummary_source</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary"><span class="hs-identifier hs-type">ArtifactSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSource.html#ArtifactSource"><span class="hs-identifier hs-type">ArtifactSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="artifactSummary_source"><span class="annot"><span class="annottext">artifactSummary_source :: (Maybe ArtifactSource -&gt; f (Maybe ArtifactSource))
+-&gt; ArtifactSummary -&gt; f ArtifactSummary
+</span><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#artifactSummary_source"><span class="hs-identifier hs-var hs-var">artifactSummary_source</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ArtifactSummary -&gt; Maybe ArtifactSource)
+-&gt; (ArtifactSummary -&gt; Maybe ArtifactSource -&gt; ArtifactSummary)
+-&gt; Lens
+     ArtifactSummary
+     ArtifactSummary
+     (Maybe ArtifactSource)
+     (Maybe ArtifactSource)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary%27"><span class="hs-identifier hs-type">ArtifactSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680290969"><span class="annot"><span class="annottext">Maybe ArtifactSource
+source :: Maybe ArtifactSource
+$sel:source:ArtifactSummary' :: ArtifactSummary -&gt; Maybe ArtifactSource
+</span><a href="#local-6989586621680290969"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ArtifactSource
+</span><a href="#local-6989586621680290969"><span class="hs-identifier hs-var">source</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680290968"><span class="annot"><span class="annottext">s :: ArtifactSummary
+</span><a href="#local-6989586621680290968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary%27"><span class="hs-identifier hs-type">ArtifactSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680290967"><span class="annot"><span class="annottext">Maybe ArtifactSource
+</span><a href="#local-6989586621680290967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArtifactSummary
+</span><a href="#local-6989586621680290968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:source:ArtifactSummary' :: Maybe ArtifactSource
+</span><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#%24sel%3Asource%3AArtifactSummary%27"><span class="hs-identifier hs-var">source</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ArtifactSource
+</span><a href="#local-6989586621680290967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary"><span class="hs-identifier hs-type">ArtifactSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the artifact.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#artifactSummary_artifactArn"><span class="hs-identifier hs-type">artifactSummary_artifactArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary"><span class="hs-identifier hs-type">ArtifactSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="artifactSummary_artifactArn"><span class="annot"><span class="annottext">artifactSummary_artifactArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ArtifactSummary -&gt; f ArtifactSummary
+</span><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#artifactSummary_artifactArn"><span class="hs-identifier hs-var hs-var">artifactSummary_artifactArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ArtifactSummary -&gt; Maybe Text)
+-&gt; (ArtifactSummary -&gt; Maybe Text -&gt; ArtifactSummary)
+-&gt; Lens ArtifactSummary ArtifactSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary%27"><span class="hs-identifier hs-type">ArtifactSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680290965"><span class="annot"><span class="annottext">Maybe Text
+artifactArn :: Maybe Text
+$sel:artifactArn:ArtifactSummary' :: ArtifactSummary -&gt; Maybe Text
+</span><a href="#local-6989586621680290965"><span class="hs-identifier hs-var hs-var">artifactArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680290965"><span class="hs-identifier hs-var">artifactArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680290964"><span class="annot"><span class="annottext">s :: ArtifactSummary
+</span><a href="#local-6989586621680290964"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary%27"><span class="hs-identifier hs-type">ArtifactSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680290963"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680290963"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArtifactSummary
+</span><a href="#local-6989586621680290964"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:artifactArn:ArtifactSummary' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#%24sel%3AartifactArn%3AArtifactSummary%27"><span class="hs-identifier hs-var">artifactArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680290963"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary"><span class="hs-identifier hs-type">ArtifactSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The type of the artifact.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#artifactSummary_artifactType"><span class="hs-identifier hs-type">artifactSummary_artifactType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary"><span class="hs-identifier hs-type">ArtifactSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="artifactSummary_artifactType"><span class="annot"><span class="annottext">artifactSummary_artifactType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ArtifactSummary -&gt; f ArtifactSummary
+</span><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#artifactSummary_artifactType"><span class="hs-identifier hs-var hs-var">artifactSummary_artifactType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ArtifactSummary -&gt; Maybe Text)
+-&gt; (ArtifactSummary -&gt; Maybe Text -&gt; ArtifactSummary)
+-&gt; Lens ArtifactSummary ArtifactSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary%27"><span class="hs-identifier hs-type">ArtifactSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680290961"><span class="annot"><span class="annottext">Maybe Text
+artifactType :: Maybe Text
+$sel:artifactType:ArtifactSummary' :: ArtifactSummary -&gt; Maybe Text
+</span><a href="#local-6989586621680290961"><span class="hs-identifier hs-var hs-var">artifactType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680290961"><span class="hs-identifier hs-var">artifactType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680290960"><span class="annot"><span class="annottext">s :: ArtifactSummary
+</span><a href="#local-6989586621680290960"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary%27"><span class="hs-identifier hs-type">ArtifactSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680290959"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680290959"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArtifactSummary
+</span><a href="#local-6989586621680290960"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:artifactType:ArtifactSummary' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#%24sel%3AartifactType%3AArtifactSummary%27"><span class="hs-identifier hs-var">artifactType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680290959"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary"><span class="hs-identifier hs-type">ArtifactSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680289598"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary"><span class="hs-identifier hs-type">ArtifactSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621680289596"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ArtifactSummary
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680290956"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary"><span class="hs-identifier hs-type">ArtifactSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621680290954"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ArtifactSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ArtifactSummary)
@@ -320,104 +320,103 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ArtifactSummary&quot;</span></span><span>
-</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680289593"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680289593"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680290951"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680290951"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
--&gt; Maybe Text
--&gt; Maybe Text
+-&gt; Maybe POSIX
 -&gt; Maybe Text
 -&gt; Maybe ArtifactSource
--&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; ArtifactSummary
 </span><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary%27"><span class="hs-identifier hs-var">ArtifactSummary'</span></a></span><span>
 </span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
- -&gt; Maybe Text
- -&gt; Maybe Text
+ -&gt; Maybe POSIX
  -&gt; Maybe Text
  -&gt; Maybe ArtifactSource
- -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; ArtifactSummary)
 -&gt; Parser (Maybe POSIX)
 -&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Text
+     (Maybe POSIX
       -&gt; Maybe Text
       -&gt; Maybe ArtifactSource
-      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; ArtifactSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680289593"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621680290951"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text
+  (Maybe POSIX
    -&gt; Maybe Text
    -&gt; Maybe ArtifactSource
-   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; ArtifactSummary)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe POSIX)
 -&gt; Parser
      (Maybe Text
-      -&gt; Maybe Text
       -&gt; Maybe ArtifactSource
-      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; ArtifactSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680289593"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ArtifactName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe ArtifactSource
-   -&gt; Maybe POSIX
-   -&gt; ArtifactSummary)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe ArtifactSource -&gt; Maybe POSIX -&gt; ArtifactSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680289593"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ArtifactType&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe ArtifactSource -&gt; Maybe POSIX -&gt; ArtifactSummary)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe ArtifactSource -&gt; Maybe POSIX -&gt; ArtifactSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680289593"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ArtifactArn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ArtifactSource -&gt; Maybe POSIX -&gt; ArtifactSummary)
--&gt; Parser (Maybe ArtifactSource)
--&gt; Parser (Maybe POSIX -&gt; ArtifactSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680289593"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ArtifactSource)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Source&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; ArtifactSummary)
--&gt; Parser (Maybe POSIX) -&gt; Parser ArtifactSummary
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680289593"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621680290951"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LastModifiedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe ArtifactSource
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ArtifactSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe ArtifactSource
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; ArtifactSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680290951"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ArtifactName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ArtifactSource
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; ArtifactSummary)
+-&gt; Parser (Maybe ArtifactSource)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; ArtifactSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680290951"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ArtifactSource)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Source&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; ArtifactSummary)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; ArtifactSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680290951"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ArtifactArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ArtifactSummary)
+-&gt; Parser (Maybe Text) -&gt; Parser ArtifactSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680290951"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ArtifactType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680289587"><span id="local-6989586621680289589"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary"><span class="hs-identifier hs-type">ArtifactSummary</span></a></span></span></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680290945"><span id="local-6989586621680290947"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary"><span class="hs-identifier hs-type">ArtifactSummary</span></a></span></span></span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680289584"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary"><span class="hs-identifier hs-type">ArtifactSummary</span></a></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680290942"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ArtifactSummary.html#ArtifactSummary"><span class="hs-identifier hs-type">ArtifactSummary</span></a></span></span><span>
 </span><span id="line-120"></span></pre></body></html>

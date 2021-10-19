@@ -30,42 +30,42 @@
 </span><span id="line-30"></span><span class="hs-comment">-- unprocessed messages before publishing the data to a pipeline.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newChannel' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679260036"><span id="local-6989586621679260037"></span></span><span class="hs-keyword">data</span><span> </span><span id="Channel"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel"><span class="hs-identifier hs-var">Channel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Channel%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel%27"><span class="hs-identifier hs-var">Channel'</span></a></span></span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The last time when a new message arrived in the channel.</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- IoT Analytics updates this value at most once per minute for one</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- channel. Hence, the @lastMessageArrivalTime@ value is an approximation.</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- This feature only applies to messages that arrived in the data store</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- after October 23, 2020.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AlastMessageArrivalTime%3AChannel%27"><span class="annot"><span class="annottext">Channel -&gt; Maybe POSIX
-</span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#%24sel%3AlastMessageArrivalTime%3AChannel%27"><span class="hs-identifier hs-var hs-var">lastMessageArrivalTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The status of the channel.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3Astatus%3AChannel%27"><span class="annot"><span class="annottext">Channel -&gt; Maybe ChannelStatus
-</span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#%24sel%3Astatus%3AChannel%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelStatus.html#ChannelStatus"><span class="hs-identifier hs-type">ChannelStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | When the channel was created.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AcreationTime%3AChannel%27"><span class="annot"><span class="annottext">Channel -&gt; Maybe POSIX
+</span><span id="line-33"></span><span id="local-6989586621679260247"><span id="local-6989586621679260248"></span></span><span class="hs-keyword">data</span><span> </span><span id="Channel"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel"><span class="hs-identifier hs-var">Channel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Channel%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel%27"><span class="hs-identifier hs-var">Channel'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When the channel was created.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AcreationTime%3AChannel%27"><span class="annot"><span class="annottext">Channel -&gt; Maybe POSIX
 </span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#%24sel%3AcreationTime%3AChannel%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | When the channel was last updated.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3AlastUpdateTime%3AChannel%27"><span class="annot"><span class="annottext">Channel -&gt; Maybe POSIX
-</span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#%24sel%3AlastUpdateTime%3AChannel%27"><span class="hs-identifier hs-var hs-var">lastUpdateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The ARN of the channel.</span><span>
-</span><span id="line-49"></span><span>    </span><span id="%24sel%3Aarn%3AChannel%27"><span class="annot"><span class="annottext">Channel -&gt; Maybe Text
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The status of the channel.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Astatus%3AChannel%27"><span class="annot"><span class="annottext">Channel -&gt; Maybe ChannelStatus
+</span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#%24sel%3Astatus%3AChannel%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelStatus.html#ChannelStatus"><span class="hs-identifier hs-type">ChannelStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The last time when a new message arrived in the channel.</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- IoT Analytics updates this value at most once per minute for one</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- channel. Hence, the @lastMessageArrivalTime@ value is an approximation.</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- This feature only applies to messages that arrived in the data store</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- after October 23, 2020.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AlastMessageArrivalTime%3AChannel%27"><span class="annot"><span class="annottext">Channel -&gt; Maybe POSIX
+</span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#%24sel%3AlastMessageArrivalTime%3AChannel%27"><span class="hs-identifier hs-var hs-var">lastMessageArrivalTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The ARN of the channel.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Aarn%3AChannel%27"><span class="annot"><span class="annottext">Channel -&gt; Maybe Text
 </span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#%24sel%3Aarn%3AChannel%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The name of the channel.</span><span>
-</span><span id="line-51"></span><span>    </span><span id="%24sel%3Aname%3AChannel%27"><span class="annot"><span class="annottext">Channel -&gt; Maybe Text
-</span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#%24sel%3Aname%3AChannel%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | How long, in days, message data is kept for the channel.</span><span>
-</span><span id="line-53"></span><span>    </span><span id="%24sel%3AretentionPeriod%3AChannel%27"><span class="annot"><span class="annottext">Channel -&gt; Maybe RetentionPeriod
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | Where channel data is stored. You can choose one of @serviceManagedS3@</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- or @customerManagedS3@ storage. If not specified, the default is</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- @serviceManagedS3@. You can\'t change this storage option after the</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- channel is created.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3Astorage%3AChannel%27"><span class="annot"><span class="annottext">Channel -&gt; Maybe ChannelStorage
+</span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#%24sel%3Astorage%3AChannel%27"><span class="hs-identifier hs-var hs-var">storage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelStorage.html#ChannelStorage"><span class="hs-identifier hs-type">ChannelStorage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | How long, in days, message data is kept for the channel.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AretentionPeriod%3AChannel%27"><span class="annot"><span class="annottext">Channel -&gt; Maybe RetentionPeriod
 </span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#%24sel%3AretentionPeriod%3AChannel%27"><span class="hs-identifier hs-var hs-var">retentionPeriod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.RetentionPeriod.html#RetentionPeriod"><span class="hs-identifier hs-type">RetentionPeriod</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | Where channel data is stored. You can choose one of @serviceManagedS3@</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- or @customerManagedS3@ storage. If not specified, the default is</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- @serviceManagedS3@. You can\'t change this storage option after the</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- channel is created.</span><span>
-</span><span id="line-58"></span><span>    </span><span id="%24sel%3Astorage%3AChannel%27"><span class="annot"><span class="annottext">Channel -&gt; Maybe ChannelStorage
-</span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#%24sel%3Astorage%3AChannel%27"><span class="hs-identifier hs-var hs-var">storage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelStorage.html#ChannelStorage"><span class="hs-identifier hs-type">ChannelStorage</span></a></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The name of the channel.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3Aname%3AChannel%27"><span class="annot"><span class="annottext">Channel -&gt; Maybe Text
+</span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#%24sel%3Aname%3AChannel%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | When the channel was last updated.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AlastUpdateTime%3AChannel%27"><span class="annot"><span class="annottext">Channel -&gt; Maybe POSIX
+</span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#%24sel%3AlastUpdateTime%3AChannel%27"><span class="hs-identifier hs-var hs-var">lastUpdateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679260023"><span id="local-6989586621679260025"><span class="annot"><span class="annottext">Channel -&gt; Channel -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679260234"><span id="local-6989586621679260236"><span class="annot"><span class="annottext">Channel -&gt; Channel -&gt; Bool
 (Channel -&gt; Channel -&gt; Bool)
 -&gt; (Channel -&gt; Channel -&gt; Bool) -&gt; Eq Channel
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -73,7 +73,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Channel -&gt; Channel -&gt; Bool
 == :: Channel -&gt; Channel -&gt; Bool
 $c== :: Channel -&gt; Channel -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260014"><span id="local-6989586621679260016"><span id="local-6989586621679260018"><span id="local-6989586621679260020"><span class="annot"><span class="annottext">ReadPrec [Channel]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260225"><span id="local-6989586621679260227"><span id="local-6989586621679260229"><span id="local-6989586621679260231"><span class="annot"><span class="annottext">ReadPrec [Channel]
 ReadPrec Channel
 Int -&gt; ReadS Channel
 ReadS [Channel]
@@ -93,7 +93,7 @@ readList :: ReadS [Channel]
 $creadList :: ReadS [Channel]
 readsPrec :: Int -&gt; ReadS Channel
 $creadsPrec :: Int -&gt; ReadS Channel
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260007"><span id="local-6989586621679260009"><span id="local-6989586621679260011"><span class="annot"><span class="annottext">Int -&gt; Channel -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260218"><span id="local-6989586621679260220"><span id="local-6989586621679260222"><span class="annot"><span class="annottext">Int -&gt; Channel -&gt; ShowS
 [Channel] -&gt; ShowS
 Channel -&gt; String
 (Int -&gt; Channel -&gt; ShowS)
@@ -124,30 +124,30 @@ $cfrom :: forall x. Channel -&gt; Rep Channel x
 </span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'lastMessageArrivalTime', 'channel_lastMessageArrivalTime' - The last time when a new message arrived in the channel.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'creationTime', 'channel_creationTime' - When the channel was created.</span><span>
 </span><span id="line-71"></span><span class="hs-comment">--</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- IoT Analytics updates this value at most once per minute for one</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- channel. Hence, the @lastMessageArrivalTime@ value is an approximation.</span><span>
-</span><span id="line-74"></span><span class="hs-comment">--</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- This feature only applies to messages that arrived in the data store</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- after October 23, 2020.</span><span>
-</span><span id="line-77"></span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- 'status', 'channel_status' - The status of the channel.</span><span>
-</span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'creationTime', 'channel_creationTime' - When the channel was created.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'status', 'channel_status' - The status of the channel.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'lastMessageArrivalTime', 'channel_lastMessageArrivalTime' - The last time when a new message arrived in the channel.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- IoT Analytics updates this value at most once per minute for one</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- channel. Hence, the @lastMessageArrivalTime@ value is an approximation.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- This feature only applies to messages that arrived in the data store</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- after October 23, 2020.</span><span>
 </span><span id="line-81"></span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- 'lastUpdateTime', 'channel_lastUpdateTime' - When the channel was last updated.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'arn', 'channel_arn' - The ARN of the channel.</span><span>
 </span><span id="line-83"></span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- 'arn', 'channel_arn' - The ARN of the channel.</span><span>
-</span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- 'name', 'channel_name' - The name of the channel.</span><span>
-</span><span id="line-87"></span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- 'retentionPeriod', 'channel_retentionPeriod' - How long, in days, message data is kept for the channel.</span><span>
-</span><span id="line-89"></span><span class="hs-comment">--</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- 'storage', 'channel_storage' - Where channel data is stored. You can choose one of @serviceManagedS3@</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- or @customerManagedS3@ storage. If not specified, the default is</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- @serviceManagedS3@. You can\'t change this storage option after the</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- channel is created.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'storage', 'channel_storage' - Where channel data is stored. You can choose one of @serviceManagedS3@</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- or @customerManagedS3@ storage. If not specified, the default is</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- @serviceManagedS3@. You can\'t change this storage option after the</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- channel is created.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'retentionPeriod', 'channel_retentionPeriod' - How long, in days, message data is kept for the channel.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'name', 'channel_name' - The name of the channel.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'lastUpdateTime', 'channel_lastUpdateTime' - When the channel was last updated.</span><span>
 </span><span id="line-94"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#newChannel"><span class="hs-identifier hs-type">newChannel</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span>
 </span><span id="line-96"></span><span id="newChannel"><span class="annot"><span class="annottext">newChannel :: Channel
@@ -155,70 +155,64 @@ $cfrom :: forall x. Channel -&gt; Rep Channel x
 </span><span id="line-97"></span><span>  </span><span class="annot"><span class="annottext">Channel' :: Maybe POSIX
 -&gt; Maybe ChannelStatus
 -&gt; Maybe POSIX
--&gt; Maybe POSIX
 -&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe RetentionPeriod
 -&gt; Maybe ChannelStorage
+-&gt; Maybe RetentionPeriod
+-&gt; Maybe Text
+-&gt; Maybe POSIX
 -&gt; Channel
 </span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span>
-</span><span id="line-98"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastMessageArrivalTime:Channel' :: Maybe POSIX
-</span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#%24sel%3AlastMessageArrivalTime%3AChannel%27"><span class="hs-identifier hs-var">lastMessageArrivalTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-98"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:Channel' :: Maybe POSIX
+</span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#%24sel%3AcreationTime%3AChannel%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:Channel' :: Maybe ChannelStatus
 </span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#%24sel%3Astatus%3AChannel%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationTime:Channel' :: Maybe POSIX
-</span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#%24sel%3AcreationTime%3AChannel%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastMessageArrivalTime:Channel' :: Maybe POSIX
+</span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#%24sel%3AlastMessageArrivalTime%3AChannel%27"><span class="hs-identifier hs-var">lastMessageArrivalTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdateTime:Channel' :: Maybe POSIX
-</span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#%24sel%3AlastUpdateTime%3AChannel%27"><span class="hs-identifier hs-var">lastUpdateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:Channel' :: Maybe Text
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:Channel' :: Maybe Text
 </span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#%24sel%3Aarn%3AChannel%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Channel' :: Maybe Text
-</span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#%24sel%3Aname%3AChannel%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:storage:Channel' :: Maybe ChannelStorage
+</span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#%24sel%3Astorage%3AChannel%27"><span class="hs-identifier hs-var">storage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelStorage
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:retentionPeriod:Channel' :: Maybe RetentionPeriod
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:retentionPeriod:Channel' :: Maybe RetentionPeriod
 </span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#%24sel%3AretentionPeriod%3AChannel%27"><span class="hs-identifier hs-var">retentionPeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RetentionPeriod
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:storage:Channel' :: Maybe ChannelStorage
-</span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#%24sel%3Astorage%3AChannel%27"><span class="hs-identifier hs-var">storage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelStorage
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Channel' :: Maybe Text
+</span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#%24sel%3Aname%3AChannel%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdateTime:Channel' :: Maybe POSIX
+</span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#%24sel%3AlastUpdateTime%3AChannel%27"><span class="hs-identifier hs-var">lastUpdateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-106"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- | The last time when a new message arrived in the channel.</span><span>
-</span><span id="line-109"></span><span class="hs-comment">--</span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- IoT Analytics updates this value at most once per minute for one</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- channel. Hence, the @lastMessageArrivalTime@ value is an approximation.</span><span>
-</span><span id="line-112"></span><span class="hs-comment">--</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- This feature only applies to messages that arrived in the data store</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- after October 23, 2020.</span><span>
-</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#channel_lastMessageArrivalTime"><span class="hs-identifier hs-type">channel_lastMessageArrivalTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span id="channel_lastMessageArrivalTime"><span class="annot"><span class="annottext">channel_lastMessageArrivalTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Channel -&gt; f Channel
-</span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#channel_lastMessageArrivalTime"><span class="hs-identifier hs-var hs-var">channel_lastMessageArrivalTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Channel -&gt; Maybe POSIX)
+</span><span id="line-108"></span><span class="hs-comment">-- | When the channel was created.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#channel_creationTime"><span class="hs-identifier hs-type">channel_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="channel_creationTime"><span class="annot"><span class="annottext">channel_creationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Channel -&gt; f Channel
+</span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#channel_creationTime"><span class="hs-identifier hs-var hs-var">channel_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Channel -&gt; Maybe POSIX)
 -&gt; (Channel -&gt; Maybe POSIX -&gt; Channel)
 -&gt; Lens Channel Channel (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259998"><span class="annot"><span class="annottext">Maybe POSIX
-lastMessageArrivalTime :: Maybe POSIX
-$sel:lastMessageArrivalTime:Channel' :: Channel -&gt; Maybe POSIX
-</span><a href="#local-6989586621679259998"><span class="hs-identifier hs-var hs-var">lastMessageArrivalTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679259998"><span class="hs-identifier hs-var">lastMessageArrivalTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259997"><span class="annot"><span class="annottext">s :: Channel
-</span><a href="#local-6989586621679259997"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259996"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679259996"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Channel
-</span><a href="#local-6989586621679259997"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastMessageArrivalTime:Channel' :: Maybe POSIX
-</span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#%24sel%3AlastMessageArrivalTime%3AChannel%27"><span class="hs-identifier hs-var">lastMessageArrivalTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679259996"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Channel -&gt; f Channel)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260209"><span class="annot"><span class="annottext">Maybe POSIX
+creationTime :: Maybe POSIX
+$sel:creationTime:Channel' :: Channel -&gt; Maybe POSIX
+</span><a href="#local-6989586621679260209"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679260209"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260208"><span class="annot"><span class="annottext">s :: Channel
+</span><a href="#local-6989586621679260208"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260207"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679260207"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Channel
+</span><a href="#local-6989586621679260208"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:Channel' :: Maybe POSIX
+</span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#%24sel%3AcreationTime%3AChannel%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679260207"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Channel -&gt; f Channel)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -233,43 +227,49 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- | The status of the channel.</span><span>
-</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#channel_status"><span class="hs-identifier hs-type">channel_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelStatus.html#ChannelStatus"><span class="hs-identifier hs-type">ChannelStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span id="channel_status"><span class="annot"><span class="annottext">channel_status :: (Maybe ChannelStatus -&gt; f (Maybe ChannelStatus))
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The status of the channel.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#channel_status"><span class="hs-identifier hs-type">channel_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelStatus.html#ChannelStatus"><span class="hs-identifier hs-type">ChannelStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="channel_status"><span class="annot"><span class="annottext">channel_status :: (Maybe ChannelStatus -&gt; f (Maybe ChannelStatus))
 -&gt; Channel -&gt; f Channel
 </span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#channel_status"><span class="hs-identifier hs-var hs-var">channel_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Channel -&gt; Maybe ChannelStatus)
 -&gt; (Channel -&gt; Maybe ChannelStatus -&gt; Channel)
 -&gt; Lens Channel Channel (Maybe ChannelStatus) (Maybe ChannelStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259991"><span class="annot"><span class="annottext">Maybe ChannelStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260202"><span class="annot"><span class="annottext">Maybe ChannelStatus
 status :: Maybe ChannelStatus
 $sel:status:Channel' :: Channel -&gt; Maybe ChannelStatus
-</span><a href="#local-6989586621679259991"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelStatus
-</span><a href="#local-6989586621679259991"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259990"><span class="annot"><span class="annottext">s :: Channel
-</span><a href="#local-6989586621679259990"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259989"><span class="annot"><span class="annottext">Maybe ChannelStatus
-</span><a href="#local-6989586621679259989"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Channel
-</span><a href="#local-6989586621679259990"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:Channel' :: Maybe ChannelStatus
+</span><a href="#local-6989586621679260202"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelStatus
+</span><a href="#local-6989586621679260202"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260201"><span class="annot"><span class="annottext">s :: Channel
+</span><a href="#local-6989586621679260201"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260200"><span class="annot"><span class="annottext">Maybe ChannelStatus
+</span><a href="#local-6989586621679260200"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Channel
+</span><a href="#local-6989586621679260201"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:Channel' :: Maybe ChannelStatus
 </span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#%24sel%3Astatus%3AChannel%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelStatus
-</span><a href="#local-6989586621679259989"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- | When the channel was created.</span><span>
-</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#channel_creationTime"><span class="hs-identifier hs-type">channel_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span id="channel_creationTime"><span class="annot"><span class="annottext">channel_creationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Channel -&gt; f Channel
-</span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#channel_creationTime"><span class="hs-identifier hs-var hs-var">channel_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Channel -&gt; Maybe POSIX)
+</span><a href="#local-6989586621679260200"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The last time when a new message arrived in the channel.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- IoT Analytics updates this value at most once per minute for one</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- channel. Hence, the @lastMessageArrivalTime@ value is an approximation.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- This feature only applies to messages that arrived in the data store</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- after October 23, 2020.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#channel_lastMessageArrivalTime"><span class="hs-identifier hs-type">channel_lastMessageArrivalTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="channel_lastMessageArrivalTime"><span class="annot"><span class="annottext">channel_lastMessageArrivalTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Channel -&gt; f Channel
+</span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#channel_lastMessageArrivalTime"><span class="hs-identifier hs-var hs-var">channel_lastMessageArrivalTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Channel -&gt; Maybe POSIX)
 -&gt; (Channel -&gt; Maybe POSIX -&gt; Channel)
 -&gt; Lens Channel Channel (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259987"><span class="annot"><span class="annottext">Maybe POSIX
-creationTime :: Maybe POSIX
-$sel:creationTime:Channel' :: Channel -&gt; Maybe POSIX
-</span><a href="#local-6989586621679259987"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679259987"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259986"><span class="annot"><span class="annottext">s :: Channel
-</span><a href="#local-6989586621679259986"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259985"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679259985"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Channel
-</span><a href="#local-6989586621679259986"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:Channel' :: Maybe POSIX
-</span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#%24sel%3AcreationTime%3AChannel%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679259985"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Channel -&gt; f Channel)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260198"><span class="annot"><span class="annottext">Maybe POSIX
+lastMessageArrivalTime :: Maybe POSIX
+$sel:lastMessageArrivalTime:Channel' :: Channel -&gt; Maybe POSIX
+</span><a href="#local-6989586621679260198"><span class="hs-identifier hs-var hs-var">lastMessageArrivalTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679260198"><span class="hs-identifier hs-var">lastMessageArrivalTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260197"><span class="annot"><span class="annottext">s :: Channel
+</span><a href="#local-6989586621679260197"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260196"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679260196"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Channel
+</span><a href="#local-6989586621679260197"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastMessageArrivalTime:Channel' :: Maybe POSIX
+</span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#%24sel%3AlastMessageArrivalTime%3AChannel%27"><span class="hs-identifier hs-var">lastMessageArrivalTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679260196"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Channel -&gt; f Channel)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -285,23 +285,102 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- | When the channel was last updated.</span><span>
-</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#channel_lastUpdateTime"><span class="hs-identifier hs-type">channel_lastUpdateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span id="channel_lastUpdateTime"><span class="annot"><span class="annottext">channel_lastUpdateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Channel -&gt; f Channel
+</span><span id="line-126"></span><span class="hs-comment">-- | The ARN of the channel.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#channel_arn"><span class="hs-identifier hs-type">channel_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="channel_arn"><span class="annot"><span class="annottext">channel_arn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Channel -&gt; f Channel
+</span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#channel_arn"><span class="hs-identifier hs-var hs-var">channel_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Channel -&gt; Maybe Text)
+-&gt; (Channel -&gt; Maybe Text -&gt; Channel)
+-&gt; Lens Channel Channel (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260194"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:Channel' :: Channel -&gt; Maybe Text
+</span><a href="#local-6989586621679260194"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260194"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260193"><span class="annot"><span class="annottext">s :: Channel
+</span><a href="#local-6989586621679260193"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260192"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260192"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Channel
+</span><a href="#local-6989586621679260193"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:Channel' :: Maybe Text
+</span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#%24sel%3Aarn%3AChannel%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260192"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | Where channel data is stored. You can choose one of @serviceManagedS3@</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- or @customerManagedS3@ storage. If not specified, the default is</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- @serviceManagedS3@. You can\'t change this storage option after the</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- channel is created.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#channel_storage"><span class="hs-identifier hs-type">channel_storage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelStorage.html#ChannelStorage"><span class="hs-identifier hs-type">ChannelStorage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="channel_storage"><span class="annot"><span class="annottext">channel_storage :: (Maybe ChannelStorage -&gt; f (Maybe ChannelStorage))
+-&gt; Channel -&gt; f Channel
+</span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#channel_storage"><span class="hs-identifier hs-var hs-var">channel_storage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Channel -&gt; Maybe ChannelStorage)
+-&gt; (Channel -&gt; Maybe ChannelStorage -&gt; Channel)
+-&gt; Lens
+     Channel Channel (Maybe ChannelStorage) (Maybe ChannelStorage)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260190"><span class="annot"><span class="annottext">Maybe ChannelStorage
+storage :: Maybe ChannelStorage
+$sel:storage:Channel' :: Channel -&gt; Maybe ChannelStorage
+</span><a href="#local-6989586621679260190"><span class="hs-identifier hs-var hs-var">storage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelStorage
+</span><a href="#local-6989586621679260190"><span class="hs-identifier hs-var">storage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260189"><span class="annot"><span class="annottext">s :: Channel
+</span><a href="#local-6989586621679260189"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260188"><span class="annot"><span class="annottext">Maybe ChannelStorage
+</span><a href="#local-6989586621679260188"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Channel
+</span><a href="#local-6989586621679260189"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:storage:Channel' :: Maybe ChannelStorage
+</span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#%24sel%3Astorage%3AChannel%27"><span class="hs-identifier hs-var">storage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelStorage
+</span><a href="#local-6989586621679260188"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | How long, in days, message data is kept for the channel.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#channel_retentionPeriod"><span class="hs-identifier hs-type">channel_retentionPeriod</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.RetentionPeriod.html#RetentionPeriod"><span class="hs-identifier hs-type">RetentionPeriod</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="channel_retentionPeriod"><span class="annot"><span class="annottext">channel_retentionPeriod :: (Maybe RetentionPeriod -&gt; f (Maybe RetentionPeriod))
+-&gt; Channel -&gt; f Channel
+</span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#channel_retentionPeriod"><span class="hs-identifier hs-var hs-var">channel_retentionPeriod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Channel -&gt; Maybe RetentionPeriod)
+-&gt; (Channel -&gt; Maybe RetentionPeriod -&gt; Channel)
+-&gt; Lens
+     Channel Channel (Maybe RetentionPeriod) (Maybe RetentionPeriod)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260186"><span class="annot"><span class="annottext">Maybe RetentionPeriod
+retentionPeriod :: Maybe RetentionPeriod
+$sel:retentionPeriod:Channel' :: Channel -&gt; Maybe RetentionPeriod
+</span><a href="#local-6989586621679260186"><span class="hs-identifier hs-var hs-var">retentionPeriod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RetentionPeriod
+</span><a href="#local-6989586621679260186"><span class="hs-identifier hs-var">retentionPeriod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260185"><span class="annot"><span class="annottext">s :: Channel
+</span><a href="#local-6989586621679260185"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260184"><span class="annot"><span class="annottext">Maybe RetentionPeriod
+</span><a href="#local-6989586621679260184"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Channel
+</span><a href="#local-6989586621679260185"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retentionPeriod:Channel' :: Maybe RetentionPeriod
+</span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#%24sel%3AretentionPeriod%3AChannel%27"><span class="hs-identifier hs-var">retentionPeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RetentionPeriod
+</span><a href="#local-6989586621679260184"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | The name of the channel.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#channel_name"><span class="hs-identifier hs-type">channel_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="channel_name"><span class="annot"><span class="annottext">channel_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Channel -&gt; f Channel
+</span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#channel_name"><span class="hs-identifier hs-var hs-var">channel_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Channel -&gt; Maybe Text)
+-&gt; (Channel -&gt; Maybe Text -&gt; Channel)
+-&gt; Lens Channel Channel (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260182"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:Channel' :: Channel -&gt; Maybe Text
+</span><a href="#local-6989586621679260182"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260182"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260181"><span class="annot"><span class="annottext">s :: Channel
+</span><a href="#local-6989586621679260181"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260180"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260180"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Channel
+</span><a href="#local-6989586621679260181"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Channel' :: Maybe Text
+</span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#%24sel%3Aname%3AChannel%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260180"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | When the channel was last updated.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#channel_lastUpdateTime"><span class="hs-identifier hs-type">channel_lastUpdateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span id="channel_lastUpdateTime"><span class="annot"><span class="annottext">channel_lastUpdateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Channel -&gt; f Channel
 </span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#channel_lastUpdateTime"><span class="hs-identifier hs-var hs-var">channel_lastUpdateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Channel -&gt; Maybe POSIX)
 -&gt; (Channel -&gt; Maybe POSIX -&gt; Channel)
 -&gt; Lens Channel Channel (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259983"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260178"><span class="annot"><span class="annottext">Maybe POSIX
 lastUpdateTime :: Maybe POSIX
 $sel:lastUpdateTime:Channel' :: Channel -&gt; Maybe POSIX
-</span><a href="#local-6989586621679259983"><span class="hs-identifier hs-var hs-var">lastUpdateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679259983"><span class="hs-identifier hs-var">lastUpdateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259982"><span class="annot"><span class="annottext">s :: Channel
-</span><a href="#local-6989586621679259982"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259981"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679259981"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Channel
-</span><a href="#local-6989586621679259982"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdateTime:Channel' :: Maybe POSIX
+</span><a href="#local-6989586621679260178"><span class="hs-identifier hs-var hs-var">lastUpdateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679260178"><span class="hs-identifier hs-var">lastUpdateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260177"><span class="annot"><span class="annottext">s :: Channel
+</span><a href="#local-6989586621679260177"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260176"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679260176"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Channel
+</span><a href="#local-6989586621679260177"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdateTime:Channel' :: Maybe POSIX
 </span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#%24sel%3AlastUpdateTime%3AChannel%27"><span class="hs-identifier hs-var">lastUpdateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679259981"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Channel -&gt; f Channel)
+</span><a href="#local-6989586621679260176"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Channel -&gt; f Channel)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -316,245 +395,156 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- | The ARN of the channel.</span><span>
-</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#channel_arn"><span class="hs-identifier hs-type">channel_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span id="channel_arn"><span class="annot"><span class="annottext">channel_arn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Channel -&gt; f Channel
-</span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#channel_arn"><span class="hs-identifier hs-var hs-var">channel_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Channel -&gt; Maybe Text)
--&gt; (Channel -&gt; Maybe Text -&gt; Channel)
--&gt; Lens Channel Channel (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259979"><span class="annot"><span class="annottext">Maybe Text
-arn :: Maybe Text
-$sel:arn:Channel' :: Channel -&gt; Maybe Text
-</span><a href="#local-6989586621679259979"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259979"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259978"><span class="annot"><span class="annottext">s :: Channel
-</span><a href="#local-6989586621679259978"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259977"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259977"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Channel
-</span><a href="#local-6989586621679259978"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:Channel' :: Maybe Text
-</span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#%24sel%3Aarn%3AChannel%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259977"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- | The name of the channel.</span><span>
-</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#channel_name"><span class="hs-identifier hs-type">channel_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span id="channel_name"><span class="annot"><span class="annottext">channel_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Channel -&gt; f Channel
-</span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#channel_name"><span class="hs-identifier hs-var hs-var">channel_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Channel -&gt; Maybe Text)
--&gt; (Channel -&gt; Maybe Text -&gt; Channel)
--&gt; Lens Channel Channel (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259975"><span class="annot"><span class="annottext">Maybe Text
-name :: Maybe Text
-$sel:name:Channel' :: Channel -&gt; Maybe Text
-</span><a href="#local-6989586621679259975"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259975"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259974"><span class="annot"><span class="annottext">s :: Channel
-</span><a href="#local-6989586621679259974"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259973"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259973"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Channel
-</span><a href="#local-6989586621679259974"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Channel' :: Maybe Text
-</span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#%24sel%3Aname%3AChannel%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259973"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- | How long, in days, message data is kept for the channel.</span><span>
-</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#channel_retentionPeriod"><span class="hs-identifier hs-type">channel_retentionPeriod</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.RetentionPeriod.html#RetentionPeriod"><span class="hs-identifier hs-type">RetentionPeriod</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span id="channel_retentionPeriod"><span class="annot"><span class="annottext">channel_retentionPeriod :: (Maybe RetentionPeriod -&gt; f (Maybe RetentionPeriod))
--&gt; Channel -&gt; f Channel
-</span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#channel_retentionPeriod"><span class="hs-identifier hs-var hs-var">channel_retentionPeriod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Channel -&gt; Maybe RetentionPeriod)
--&gt; (Channel -&gt; Maybe RetentionPeriod -&gt; Channel)
--&gt; Lens
-     Channel Channel (Maybe RetentionPeriod) (Maybe RetentionPeriod)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259971"><span class="annot"><span class="annottext">Maybe RetentionPeriod
-retentionPeriod :: Maybe RetentionPeriod
-$sel:retentionPeriod:Channel' :: Channel -&gt; Maybe RetentionPeriod
-</span><a href="#local-6989586621679259971"><span class="hs-identifier hs-var hs-var">retentionPeriod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RetentionPeriod
-</span><a href="#local-6989586621679259971"><span class="hs-identifier hs-var">retentionPeriod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259970"><span class="annot"><span class="annottext">s :: Channel
-</span><a href="#local-6989586621679259970"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259969"><span class="annot"><span class="annottext">Maybe RetentionPeriod
-</span><a href="#local-6989586621679259969"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Channel
-</span><a href="#local-6989586621679259970"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retentionPeriod:Channel' :: Maybe RetentionPeriod
-</span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#%24sel%3AretentionPeriod%3AChannel%27"><span class="hs-identifier hs-var">retentionPeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RetentionPeriod
-</span><a href="#local-6989586621679259969"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- | Where channel data is stored. You can choose one of @serviceManagedS3@</span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- or @customerManagedS3@ storage. If not specified, the default is</span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- @serviceManagedS3@. You can\'t change this storage option after the</span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- channel is created.</span><span>
-</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#channel_storage"><span class="hs-identifier hs-type">channel_storage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelStorage.html#ChannelStorage"><span class="hs-identifier hs-type">ChannelStorage</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span id="channel_storage"><span class="annot"><span class="annottext">channel_storage :: (Maybe ChannelStorage -&gt; f (Maybe ChannelStorage))
--&gt; Channel -&gt; f Channel
-</span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#channel_storage"><span class="hs-identifier hs-var hs-var">channel_storage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Channel -&gt; Maybe ChannelStorage)
--&gt; (Channel -&gt; Maybe ChannelStorage -&gt; Channel)
--&gt; Lens
-     Channel Channel (Maybe ChannelStorage) (Maybe ChannelStorage)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259967"><span class="annot"><span class="annottext">Maybe ChannelStorage
-storage :: Maybe ChannelStorage
-$sel:storage:Channel' :: Channel -&gt; Maybe ChannelStorage
-</span><a href="#local-6989586621679259967"><span class="hs-identifier hs-var hs-var">storage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelStorage
-</span><a href="#local-6989586621679259967"><span class="hs-identifier hs-var">storage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259966"><span class="annot"><span class="annottext">s :: Channel
-</span><a href="#local-6989586621679259966"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel%27"><span class="hs-identifier hs-type">Channel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259965"><span class="annot"><span class="annottext">Maybe ChannelStorage
-</span><a href="#local-6989586621679259965"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Channel
-</span><a href="#local-6989586621679259966"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:storage:Channel' :: Maybe ChannelStorage
-</span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#%24sel%3Astorage%3AChannel%27"><span class="hs-identifier hs-var">storage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelStorage
-</span><a href="#local-6989586621679259965"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259962"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679259960"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Channel
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260173"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679260171"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Channel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Channel) -&gt; Value -&gt; Parser Channel
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Channel&quot;</span></span><span>
-</span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679259957"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679259957"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679260168"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679260168"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-154"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
 -&gt; Maybe ChannelStatus
 -&gt; Maybe POSIX
--&gt; Maybe POSIX
 -&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe RetentionPeriod
 -&gt; Maybe ChannelStorage
+-&gt; Maybe RetentionPeriod
+-&gt; Maybe Text
+-&gt; Maybe POSIX
 -&gt; Channel
 </span><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel%27"><span class="hs-identifier hs-var">Channel'</span></a></span><span>
 </span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
  -&gt; Maybe ChannelStatus
  -&gt; Maybe POSIX
- -&gt; Maybe POSIX
  -&gt; Maybe Text
- -&gt; Maybe Text
- -&gt; Maybe RetentionPeriod
  -&gt; Maybe ChannelStorage
+ -&gt; Maybe RetentionPeriod
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
  -&gt; Channel)
 -&gt; Parser (Maybe POSIX)
 -&gt; Parser
      (Maybe ChannelStatus
       -&gt; Maybe POSIX
-      -&gt; Maybe POSIX
       -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe RetentionPeriod
       -&gt; Maybe ChannelStorage
+      -&gt; Maybe RetentionPeriod
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
       -&gt; Channel)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679259957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679260168"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;lastMessageArrivalTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;creationTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe ChannelStatus
    -&gt; Maybe POSIX
-   -&gt; Maybe POSIX
    -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe RetentionPeriod
    -&gt; Maybe ChannelStorage
+   -&gt; Maybe RetentionPeriod
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
    -&gt; Channel)
 -&gt; Parser (Maybe ChannelStatus)
 -&gt; Parser
      (Maybe POSIX
-      -&gt; Maybe POSIX
       -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe RetentionPeriod
       -&gt; Maybe ChannelStorage
+      -&gt; Maybe RetentionPeriod
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
       -&gt; Channel)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679259957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ChannelStatus)
+</span><a href="#local-6989586621679260168"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ChannelStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe ChannelStorage
+   -&gt; Maybe RetentionPeriod
+   -&gt; Maybe Text
    -&gt; Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe RetentionPeriod
-   -&gt; Maybe ChannelStorage
-   -&gt; Channel)
--&gt; Parser (Maybe POSIX)
--&gt; Parser
-     (Maybe POSIX
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe RetentionPeriod
-      -&gt; Maybe ChannelStorage
-      -&gt; Channel)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679259957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;creationTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe RetentionPeriod
-   -&gt; Maybe ChannelStorage
    -&gt; Channel)
 -&gt; Parser (Maybe POSIX)
 -&gt; Parser
      (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe RetentionPeriod
       -&gt; Maybe ChannelStorage
+      -&gt; Maybe RetentionPeriod
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
       -&gt; Channel)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679259957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679260168"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;lastUpdateTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span class="hs-string">&quot;lastMessageArrivalTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe RetentionPeriod
    -&gt; Maybe ChannelStorage
+   -&gt; Maybe RetentionPeriod
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
    -&gt; Channel)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe Text
-      -&gt; Maybe RetentionPeriod -&gt; Maybe ChannelStorage -&gt; Channel)
+     (Maybe ChannelStorage
+      -&gt; Maybe RetentionPeriod -&gt; Maybe Text -&gt; Maybe POSIX -&gt; Channel)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679259957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679260168"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe RetentionPeriod -&gt; Maybe ChannelStorage -&gt; Channel)
--&gt; Parser (Maybe Text)
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ChannelStorage
+   -&gt; Maybe RetentionPeriod -&gt; Maybe Text -&gt; Maybe POSIX -&gt; Channel)
+-&gt; Parser (Maybe ChannelStorage)
 -&gt; Parser
-     (Maybe RetentionPeriod -&gt; Maybe ChannelStorage -&gt; Channel)
+     (Maybe RetentionPeriod -&gt; Maybe Text -&gt; Maybe POSIX -&gt; Channel)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679259957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe RetentionPeriod -&gt; Maybe ChannelStorage -&gt; Channel)
--&gt; Parser (Maybe RetentionPeriod)
--&gt; Parser (Maybe ChannelStorage -&gt; Channel)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679259957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RetentionPeriod)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;retentionPeriod&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ChannelStorage -&gt; Channel)
--&gt; Parser (Maybe ChannelStorage) -&gt; Parser Channel
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679259957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ChannelStorage)
+</span><a href="#local-6989586621679260168"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ChannelStorage)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;storage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe RetentionPeriod -&gt; Maybe Text -&gt; Maybe POSIX -&gt; Channel)
+-&gt; Parser (Maybe RetentionPeriod)
+-&gt; Parser (Maybe Text -&gt; Maybe POSIX -&gt; Channel)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679260168"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RetentionPeriod)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;retentionPeriod&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe POSIX -&gt; Channel)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe POSIX -&gt; Channel)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679260168"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Channel)
+-&gt; Parser (Maybe POSIX) -&gt; Parser Channel
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679260168"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastUpdateTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259951"><span id="local-6989586621679259953"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span></span></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260162"><span id="local-6989586621679260164"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span></span></span><span>
 </span><span id="line-166"></span><span>
-</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259948"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260159"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span></span><span>
 </span><span id="line-168"></span></pre></body></html>

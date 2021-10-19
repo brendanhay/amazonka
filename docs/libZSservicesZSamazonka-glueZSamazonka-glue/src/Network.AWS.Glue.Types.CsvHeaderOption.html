@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679682085"><span id="local-6989586621679682086"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CsvHeaderOption"><span class="annot"><a href="Network.AWS.Glue.Types.CsvHeaderOption.html#CsvHeaderOption"><span class="hs-identifier hs-var">CsvHeaderOption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CsvHeaderOption%27"><span class="annot"><a href="Network.AWS.Glue.Types.CsvHeaderOption.html#CsvHeaderOption%27"><span class="hs-identifier hs-var">CsvHeaderOption'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679683732"><span id="local-6989586621679683733"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CsvHeaderOption"><span class="annot"><a href="Network.AWS.Glue.Types.CsvHeaderOption.html#CsvHeaderOption"><span class="hs-identifier hs-var">CsvHeaderOption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CsvHeaderOption%27"><span class="annot"><a href="Network.AWS.Glue.Types.CsvHeaderOption.html#CsvHeaderOption%27"><span class="hs-identifier hs-var">CsvHeaderOption'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCsvHeaderOption"><span class="annot"><span class="annottext">CsvHeaderOption -&gt; Text
 </span><a href="Network.AWS.Glue.Types.CsvHeaderOption.html#fromCsvHeaderOption"><span class="hs-identifier hs-var hs-var">fromCsvHeaderOption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679682077"><span id="local-6989586621679682079"><span id="local-6989586621679682081"><span class="annot"><span class="annottext">Int -&gt; CsvHeaderOption -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679683724"><span id="local-6989586621679683726"><span id="local-6989586621679683728"><span class="annot"><span class="annottext">Int -&gt; CsvHeaderOption -&gt; ShowS
 [CsvHeaderOption] -&gt; ShowS
 CsvHeaderOption -&gt; String
 (Int -&gt; CsvHeaderOption -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: CsvHeaderOption -&gt; String
 showsPrec :: Int -&gt; CsvHeaderOption -&gt; ShowS
 $cshowsPrec :: Int -&gt; CsvHeaderOption -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679682068"><span id="local-6989586621679682070"><span id="local-6989586621679682072"><span id="local-6989586621679682074"><span class="annot"><span class="annottext">ReadPrec [CsvHeaderOption]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679683715"><span id="local-6989586621679683717"><span id="local-6989586621679683719"><span id="local-6989586621679683721"><span class="annot"><span class="annottext">ReadPrec [CsvHeaderOption]
 ReadPrec CsvHeaderOption
 Int -&gt; ReadS CsvHeaderOption
 ReadS [CsvHeaderOption]
@@ -73,7 +73,7 @@ $creadList :: ReadS [CsvHeaderOption]
 readsPrec :: Int -&gt; ReadS CsvHeaderOption
 $creadsPrec :: Int -&gt; ReadS CsvHeaderOption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679682063"><span id="local-6989586621679682065"><span class="annot"><span class="annottext">CsvHeaderOption -&gt; CsvHeaderOption -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679683710"><span id="local-6989586621679683712"><span class="annot"><span class="annottext">CsvHeaderOption -&gt; CsvHeaderOption -&gt; Bool
 (CsvHeaderOption -&gt; CsvHeaderOption -&gt; Bool)
 -&gt; (CsvHeaderOption -&gt; CsvHeaderOption -&gt; Bool)
 -&gt; Eq CsvHeaderOption
@@ -83,7 +83,7 @@ $c/= :: CsvHeaderOption -&gt; CsvHeaderOption -&gt; Bool
 == :: CsvHeaderOption -&gt; CsvHeaderOption -&gt; Bool
 $c== :: CsvHeaderOption -&gt; CsvHeaderOption -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679682047"><span id="local-6989586621679682049"><span id="local-6989586621679682051"><span id="local-6989586621679682053"><span id="local-6989586621679682055"><span id="local-6989586621679682057"><span id="local-6989586621679682059"><span class="annot"><span class="annottext">Eq CsvHeaderOption
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679683694"><span id="local-6989586621679683696"><span id="local-6989586621679683698"><span id="local-6989586621679683700"><span id="local-6989586621679683702"><span id="local-6989586621679683704"><span id="local-6989586621679683706"><span class="annot"><span class="annottext">Eq CsvHeaderOption
 Eq CsvHeaderOption
 -&gt; (CsvHeaderOption -&gt; CsvHeaderOption -&gt; Ordering)
 -&gt; (CsvHeaderOption -&gt; CsvHeaderOption -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. CsvHeaderOption -&gt; Rep CsvHeaderOption x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679682039"><span id="local-6989586621679682041"><span class="annot"><span class="annottext">Int -&gt; CsvHeaderOption -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679683686"><span id="local-6989586621679683688"><span class="annot"><span class="annottext">Int -&gt; CsvHeaderOption -&gt; Int
 CsvHeaderOption -&gt; Int
 (Int -&gt; CsvHeaderOption -&gt; Int)
 -&gt; (CsvHeaderOption -&gt; Int) -&gt; Hashable CsvHeaderOption
@@ -144,50 +144,50 @@ $chash :: CsvHeaderOption -&gt; Int
 hashWithSalt :: Int -&gt; CsvHeaderOption -&gt; Int
 $chashWithSalt :: Int -&gt; CsvHeaderOption -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679682036"><span class="annot"><span class="annottext">CsvHeaderOption -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679683683"><span class="annot"><span class="annottext">CsvHeaderOption -&gt; ()
 (CsvHeaderOption -&gt; ()) -&gt; NFData CsvHeaderOption
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CsvHeaderOption -&gt; ()
 $crnf :: CsvHeaderOption -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679682033"><span class="annot"><span class="annottext">Text -&gt; Either String CsvHeaderOption
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679683680"><span class="annot"><span class="annottext">Text -&gt; Either String CsvHeaderOption
 (Text -&gt; Either String CsvHeaderOption) -&gt; FromText CsvHeaderOption
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CsvHeaderOption
 $cfromText :: Text -&gt; Either String CsvHeaderOption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679682030"><span class="annot"><span class="annottext">CsvHeaderOption -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679683677"><span class="annot"><span class="annottext">CsvHeaderOption -&gt; Text
 (CsvHeaderOption -&gt; Text) -&gt; ToText CsvHeaderOption
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CsvHeaderOption -&gt; Text
 $ctoText :: CsvHeaderOption -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679682027"><span class="annot"><span class="annottext">CsvHeaderOption -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679683674"><span class="annot"><span class="annottext">CsvHeaderOption -&gt; ByteString
 (CsvHeaderOption -&gt; ByteString) -&gt; ToByteString CsvHeaderOption
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CsvHeaderOption -&gt; ByteString
 $ctoBS :: CsvHeaderOption -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679682024"><span class="annot"><span class="annottext">CsvHeaderOption -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679683671"><span class="annot"><span class="annottext">CsvHeaderOption -&gt; ByteStringBuilder
 (CsvHeaderOption -&gt; ByteStringBuilder) -&gt; ToLog CsvHeaderOption
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CsvHeaderOption -&gt; ByteStringBuilder
 $cbuild :: CsvHeaderOption -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679682021"><span class="annot"><span class="annottext">HeaderName -&gt; CsvHeaderOption -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679683668"><span class="annot"><span class="annottext">HeaderName -&gt; CsvHeaderOption -&gt; [Header]
 (HeaderName -&gt; CsvHeaderOption -&gt; [Header])
 -&gt; ToHeader CsvHeaderOption
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CsvHeaderOption -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CsvHeaderOption -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679682018"><span class="annot"><span class="annottext">CsvHeaderOption -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679683665"><span class="annot"><span class="annottext">CsvHeaderOption -&gt; QueryString
 (CsvHeaderOption -&gt; QueryString) -&gt; ToQuery CsvHeaderOption
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CsvHeaderOption -&gt; QueryString
 $ctoQuery :: CsvHeaderOption -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679682013"><span id="local-6989586621679682015"><span class="annot"><span class="annottext">Value -&gt; Parser [CsvHeaderOption]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679683660"><span id="local-6989586621679683662"><span class="annot"><span class="annottext">Value -&gt; Parser [CsvHeaderOption]
 Value -&gt; Parser CsvHeaderOption
 (Value -&gt; Parser CsvHeaderOption)
 -&gt; (Value -&gt; Parser [CsvHeaderOption]) -&gt; FromJSON CsvHeaderOption
@@ -198,7 +198,7 @@ $cparseJSONList :: Value -&gt; Parser [CsvHeaderOption]
 parseJSON :: Value -&gt; Parser CsvHeaderOption
 $cparseJSON :: Value -&gt; Parser CsvHeaderOption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679682008"><span id="local-6989586621679682010"><span class="annot"><span class="annottext">FromJSONKeyFunction [CsvHeaderOption]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679683655"><span id="local-6989586621679683657"><span class="annot"><span class="annottext">FromJSONKeyFunction [CsvHeaderOption]
 FromJSONKeyFunction CsvHeaderOption
 FromJSONKeyFunction CsvHeaderOption
 -&gt; FromJSONKeyFunction [CsvHeaderOption]
@@ -210,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CsvHeaderOption]
 fromJSONKey :: FromJSONKeyFunction CsvHeaderOption
 $cfromJSONKey :: FromJSONKeyFunction CsvHeaderOption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679681999"><span id="local-6989586621679682001"><span id="local-6989586621679682003"><span id="local-6989586621679682005"><span class="annot"><span class="annottext">[CsvHeaderOption] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679683646"><span id="local-6989586621679683648"><span id="local-6989586621679683650"><span id="local-6989586621679683652"><span class="annot"><span class="annottext">[CsvHeaderOption] -&gt; Encoding
 [CsvHeaderOption] -&gt; Value
 CsvHeaderOption -&gt; Encoding
 CsvHeaderOption -&gt; Value
@@ -234,7 +234,7 @@ $ctoEncoding :: CsvHeaderOption -&gt; Encoding
 toJSON :: CsvHeaderOption -&gt; Value
 $ctoJSON :: CsvHeaderOption -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679681994"><span id="local-6989586621679681996"><span class="annot"><span class="annottext">ToJSONKeyFunction [CsvHeaderOption]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679683641"><span id="local-6989586621679683643"><span class="annot"><span class="annottext">ToJSONKeyFunction [CsvHeaderOption]
 ToJSONKeyFunction CsvHeaderOption
 ToJSONKeyFunction CsvHeaderOption
 -&gt; ToJSONKeyFunction [CsvHeaderOption] -&gt; ToJSONKey CsvHeaderOption
@@ -245,14 +245,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CsvHeaderOption]
 toJSONKey :: ToJSONKeyFunction CsvHeaderOption
 $ctoJSONKey :: ToJSONKeyFunction CsvHeaderOption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679681991"><span class="annot"><span class="annottext">[Node] -&gt; Either String CsvHeaderOption
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679683638"><span class="annot"><span class="annottext">[Node] -&gt; Either String CsvHeaderOption
 ([Node] -&gt; Either String CsvHeaderOption)
 -&gt; FromXML CsvHeaderOption
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CsvHeaderOption
 $cparseXML :: [Node] -&gt; Either String CsvHeaderOption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679681988"><span class="annot"><span class="annottext">CsvHeaderOption -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679683635"><span class="annot"><span class="annottext">CsvHeaderOption -&gt; XML
 (CsvHeaderOption -&gt; XML) -&gt; ToXML CsvHeaderOption
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CsvHeaderOption -&gt; XML

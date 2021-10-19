@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html"><span class="hs-identifier">Network.AWS.S3.Internal</span></a></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679537573"><span id="local-6989586621679537574"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BucketAccelerateStatus"><span class="annot"><a href="Network.AWS.S3.Types.BucketAccelerateStatus.html#BucketAccelerateStatus"><span class="hs-identifier hs-var">BucketAccelerateStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BucketAccelerateStatus%27"><span class="annot"><a href="Network.AWS.S3.Types.BucketAccelerateStatus.html#BucketAccelerateStatus%27"><span class="hs-identifier hs-var">BucketAccelerateStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679538198"><span id="local-6989586621679538199"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BucketAccelerateStatus"><span class="annot"><a href="Network.AWS.S3.Types.BucketAccelerateStatus.html#BucketAccelerateStatus"><span class="hs-identifier hs-var">BucketAccelerateStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BucketAccelerateStatus%27"><span class="annot"><a href="Network.AWS.S3.Types.BucketAccelerateStatus.html#BucketAccelerateStatus%27"><span class="hs-identifier hs-var">BucketAccelerateStatus'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBucketAccelerateStatus"><span class="annot"><span class="annottext">BucketAccelerateStatus -&gt; Text
 </span><a href="Network.AWS.S3.Types.BucketAccelerateStatus.html#fromBucketAccelerateStatus"><span class="hs-identifier hs-var hs-var">fromBucketAccelerateStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679537565"><span id="local-6989586621679537567"><span id="local-6989586621679537569"><span class="annot"><span class="annottext">Int -&gt; BucketAccelerateStatus -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679538190"><span id="local-6989586621679538192"><span id="local-6989586621679538194"><span class="annot"><span class="annottext">Int -&gt; BucketAccelerateStatus -&gt; ShowS
 [BucketAccelerateStatus] -&gt; ShowS
 BucketAccelerateStatus -&gt; String
 (Int -&gt; BucketAccelerateStatus -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: BucketAccelerateStatus -&gt; String
 showsPrec :: Int -&gt; BucketAccelerateStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; BucketAccelerateStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679537556"><span id="local-6989586621679537558"><span id="local-6989586621679537560"><span id="local-6989586621679537562"><span class="annot"><span class="annottext">ReadPrec [BucketAccelerateStatus]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679538181"><span id="local-6989586621679538183"><span id="local-6989586621679538185"><span id="local-6989586621679538187"><span class="annot"><span class="annottext">ReadPrec [BucketAccelerateStatus]
 ReadPrec BucketAccelerateStatus
 Int -&gt; ReadS BucketAccelerateStatus
 ReadS [BucketAccelerateStatus]
@@ -73,7 +73,7 @@ $creadList :: ReadS [BucketAccelerateStatus]
 readsPrec :: Int -&gt; ReadS BucketAccelerateStatus
 $creadsPrec :: Int -&gt; ReadS BucketAccelerateStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679537551"><span id="local-6989586621679537553"><span class="annot"><span class="annottext">BucketAccelerateStatus -&gt; BucketAccelerateStatus -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679538176"><span id="local-6989586621679538178"><span class="annot"><span class="annottext">BucketAccelerateStatus -&gt; BucketAccelerateStatus -&gt; Bool
 (BucketAccelerateStatus -&gt; BucketAccelerateStatus -&gt; Bool)
 -&gt; (BucketAccelerateStatus -&gt; BucketAccelerateStatus -&gt; Bool)
 -&gt; Eq BucketAccelerateStatus
@@ -83,7 +83,7 @@ $c/= :: BucketAccelerateStatus -&gt; BucketAccelerateStatus -&gt; Bool
 == :: BucketAccelerateStatus -&gt; BucketAccelerateStatus -&gt; Bool
 $c== :: BucketAccelerateStatus -&gt; BucketAccelerateStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679537535"><span id="local-6989586621679537537"><span id="local-6989586621679537539"><span id="local-6989586621679537541"><span id="local-6989586621679537543"><span id="local-6989586621679537545"><span id="local-6989586621679537547"><span class="annot"><span class="annottext">Eq BucketAccelerateStatus
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679538160"><span id="local-6989586621679538162"><span id="local-6989586621679538164"><span id="local-6989586621679538166"><span id="local-6989586621679538168"><span id="local-6989586621679538170"><span id="local-6989586621679538172"><span class="annot"><span class="annottext">Eq BucketAccelerateStatus
 Eq BucketAccelerateStatus
 -&gt; (BucketAccelerateStatus -&gt; BucketAccelerateStatus -&gt; Ordering)
 -&gt; (BucketAccelerateStatus -&gt; BucketAccelerateStatus -&gt; Bool)
@@ -142,7 +142,7 @@ $cfrom :: forall x. BucketAccelerateStatus -&gt; Rep BucketAccelerateStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679537527"><span id="local-6989586621679537529"><span class="annot"><span class="annottext">Int -&gt; BucketAccelerateStatus -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679538152"><span id="local-6989586621679538154"><span class="annot"><span class="annottext">Int -&gt; BucketAccelerateStatus -&gt; Int
 BucketAccelerateStatus -&gt; Int
 (Int -&gt; BucketAccelerateStatus -&gt; Int)
 -&gt; (BucketAccelerateStatus -&gt; Int)
@@ -153,54 +153,54 @@ $chash :: BucketAccelerateStatus -&gt; Int
 hashWithSalt :: Int -&gt; BucketAccelerateStatus -&gt; Int
 $chashWithSalt :: Int -&gt; BucketAccelerateStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679537524"><span class="annot"><span class="annottext">BucketAccelerateStatus -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679538149"><span class="annot"><span class="annottext">BucketAccelerateStatus -&gt; ()
 (BucketAccelerateStatus -&gt; ()) -&gt; NFData BucketAccelerateStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: BucketAccelerateStatus -&gt; ()
 $crnf :: BucketAccelerateStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679537521"><span class="annot"><span class="annottext">Text -&gt; Either String BucketAccelerateStatus
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679538146"><span class="annot"><span class="annottext">Text -&gt; Either String BucketAccelerateStatus
 (Text -&gt; Either String BucketAccelerateStatus)
 -&gt; FromText BucketAccelerateStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String BucketAccelerateStatus
 $cfromText :: Text -&gt; Either String BucketAccelerateStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679537518"><span class="annot"><span class="annottext">BucketAccelerateStatus -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679538143"><span class="annot"><span class="annottext">BucketAccelerateStatus -&gt; Text
 (BucketAccelerateStatus -&gt; Text) -&gt; ToText BucketAccelerateStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: BucketAccelerateStatus -&gt; Text
 $ctoText :: BucketAccelerateStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679537515"><span class="annot"><span class="annottext">BucketAccelerateStatus -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679538140"><span class="annot"><span class="annottext">BucketAccelerateStatus -&gt; ByteString
 (BucketAccelerateStatus -&gt; ByteString)
 -&gt; ToByteString BucketAccelerateStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: BucketAccelerateStatus -&gt; ByteString
 $ctoBS :: BucketAccelerateStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679537512"><span class="annot"><span class="annottext">BucketAccelerateStatus -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679538137"><span class="annot"><span class="annottext">BucketAccelerateStatus -&gt; ByteStringBuilder
 (BucketAccelerateStatus -&gt; ByteStringBuilder)
 -&gt; ToLog BucketAccelerateStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: BucketAccelerateStatus -&gt; ByteStringBuilder
 $cbuild :: BucketAccelerateStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679537509"><span class="annot"><span class="annottext">HeaderName -&gt; BucketAccelerateStatus -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679538134"><span class="annot"><span class="annottext">HeaderName -&gt; BucketAccelerateStatus -&gt; [Header]
 (HeaderName -&gt; BucketAccelerateStatus -&gt; [Header])
 -&gt; ToHeader BucketAccelerateStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; BucketAccelerateStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; BucketAccelerateStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679537506"><span class="annot"><span class="annottext">BucketAccelerateStatus -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679538131"><span class="annot"><span class="annottext">BucketAccelerateStatus -&gt; QueryString
 (BucketAccelerateStatus -&gt; QueryString)
 -&gt; ToQuery BucketAccelerateStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: BucketAccelerateStatus -&gt; QueryString
 $ctoQuery :: BucketAccelerateStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679537501"><span id="local-6989586621679537503"><span class="annot"><span class="annottext">Value -&gt; Parser [BucketAccelerateStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679538126"><span id="local-6989586621679538128"><span class="annot"><span class="annottext">Value -&gt; Parser [BucketAccelerateStatus]
 Value -&gt; Parser BucketAccelerateStatus
 (Value -&gt; Parser BucketAccelerateStatus)
 -&gt; (Value -&gt; Parser [BucketAccelerateStatus])
@@ -212,7 +212,7 @@ $cparseJSONList :: Value -&gt; Parser [BucketAccelerateStatus]
 parseJSON :: Value -&gt; Parser BucketAccelerateStatus
 $cparseJSON :: Value -&gt; Parser BucketAccelerateStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679537496"><span id="local-6989586621679537498"><span class="annot"><span class="annottext">FromJSONKeyFunction [BucketAccelerateStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679538121"><span id="local-6989586621679538123"><span class="annot"><span class="annottext">FromJSONKeyFunction [BucketAccelerateStatus]
 FromJSONKeyFunction BucketAccelerateStatus
 FromJSONKeyFunction BucketAccelerateStatus
 -&gt; FromJSONKeyFunction [BucketAccelerateStatus]
@@ -224,7 +224,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [BucketAccelerateStatus]
 fromJSONKey :: FromJSONKeyFunction BucketAccelerateStatus
 $cfromJSONKey :: FromJSONKeyFunction BucketAccelerateStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679537487"><span id="local-6989586621679537489"><span id="local-6989586621679537491"><span id="local-6989586621679537493"><span class="annot"><span class="annottext">[BucketAccelerateStatus] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679538112"><span id="local-6989586621679538114"><span id="local-6989586621679538116"><span id="local-6989586621679538118"><span class="annot"><span class="annottext">[BucketAccelerateStatus] -&gt; Encoding
 [BucketAccelerateStatus] -&gt; Value
 BucketAccelerateStatus -&gt; Encoding
 BucketAccelerateStatus -&gt; Value
@@ -248,7 +248,7 @@ $ctoEncoding :: BucketAccelerateStatus -&gt; Encoding
 toJSON :: BucketAccelerateStatus -&gt; Value
 $ctoJSON :: BucketAccelerateStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679537482"><span id="local-6989586621679537484"><span class="annot"><span class="annottext">ToJSONKeyFunction [BucketAccelerateStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679538107"><span id="local-6989586621679538109"><span class="annot"><span class="annottext">ToJSONKeyFunction [BucketAccelerateStatus]
 ToJSONKeyFunction BucketAccelerateStatus
 ToJSONKeyFunction BucketAccelerateStatus
 -&gt; ToJSONKeyFunction [BucketAccelerateStatus]
@@ -260,14 +260,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [BucketAccelerateStatus]
 toJSONKey :: ToJSONKeyFunction BucketAccelerateStatus
 $ctoJSONKey :: ToJSONKeyFunction BucketAccelerateStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679537479"><span class="annot"><span class="annottext">[Node] -&gt; Either String BucketAccelerateStatus
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679538104"><span class="annot"><span class="annottext">[Node] -&gt; Either String BucketAccelerateStatus
 ([Node] -&gt; Either String BucketAccelerateStatus)
 -&gt; FromXML BucketAccelerateStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String BucketAccelerateStatus
 $cparseXML :: [Node] -&gt; Either String BucketAccelerateStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679537476"><span class="annot"><span class="annottext">BucketAccelerateStatus -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679538101"><span class="annot"><span class="annottext">BucketAccelerateStatus -&gt; XML
 (BucketAccelerateStatus -&gt; XML) -&gt; ToXML BucketAccelerateStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: BucketAccelerateStatus -&gt; XML

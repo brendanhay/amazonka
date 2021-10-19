@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- multiple topics.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newTopic' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679331977"><span id="local-6989586621679331978"></span></span><span class="hs-keyword">data</span><span> </span><span id="Topic"><span class="annot"><a href="Network.AWS.SESv2.Types.Topic.html#Topic"><span class="hs-identifier hs-var">Topic</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Topic%27"><span class="annot"><a href="Network.AWS.SESv2.Types.Topic.html#Topic%27"><span class="hs-identifier hs-var">Topic'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679334493"><span id="local-6989586621679334494"></span></span><span class="hs-keyword">data</span><span> </span><span id="Topic"><span class="annot"><a href="Network.AWS.SESv2.Types.Topic.html#Topic"><span class="hs-identifier hs-var">Topic</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Topic%27"><span class="annot"><a href="Network.AWS.SESv2.Types.Topic.html#Topic%27"><span class="hs-identifier hs-var">Topic'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A description of what the topic is about, which the contact will see.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Adescription%3ATopic%27"><span class="annot"><span class="annottext">Topic -&gt; Maybe Text
 </span><a href="Network.AWS.SESv2.Types.Topic.html#%24sel%3Adescription%3ATopic%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -43,14 +43,14 @@
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3AdefaultSubscriptionStatus%3ATopic%27"><span class="annot"><span class="annottext">Topic -&gt; SubscriptionStatus
 </span><a href="Network.AWS.SESv2.Types.Topic.html#%24sel%3AdefaultSubscriptionStatus%3ATopic%27"><span class="hs-identifier hs-var hs-var">defaultSubscriptionStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.SubscriptionStatus.html#SubscriptionStatus"><span class="hs-identifier hs-type">SubscriptionStatus</span></a></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679331968"><span id="local-6989586621679331970"><span class="annot"><span class="annottext">Topic -&gt; Topic -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679334484"><span id="local-6989586621679334486"><span class="annot"><span class="annottext">Topic -&gt; Topic -&gt; Bool
 (Topic -&gt; Topic -&gt; Bool) -&gt; (Topic -&gt; Topic -&gt; Bool) -&gt; Eq Topic
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Topic -&gt; Topic -&gt; Bool
 $c/= :: Topic -&gt; Topic -&gt; Bool
 == :: Topic -&gt; Topic -&gt; Bool
 $c== :: Topic -&gt; Topic -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331959"><span id="local-6989586621679331961"><span id="local-6989586621679331963"><span id="local-6989586621679331965"><span class="annot"><span class="annottext">ReadPrec [Topic]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679334475"><span id="local-6989586621679334477"><span id="local-6989586621679334479"><span id="local-6989586621679334481"><span class="annot"><span class="annottext">ReadPrec [Topic]
 ReadPrec Topic
 Int -&gt; ReadS Topic
 ReadS [Topic]
@@ -70,7 +70,7 @@ readList :: ReadS [Topic]
 $creadList :: ReadS [Topic]
 readsPrec :: Int -&gt; ReadS Topic
 $creadsPrec :: Int -&gt; ReadS Topic
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331952"><span id="local-6989586621679331954"><span id="local-6989586621679331956"><span class="annot"><span class="annottext">Int -&gt; Topic -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679334468"><span id="local-6989586621679334470"><span id="local-6989586621679334472"><span class="annot"><span class="annottext">Int -&gt; Topic -&gt; ShowS
 [Topic] -&gt; ShowS
 Topic -&gt; String
 (Int -&gt; Topic -&gt; ShowS)
@@ -119,12 +119,12 @@ $cfrom :: forall x. Topic -&gt; Rep Topic x
 </span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.Types.Topic.html#Topic"><span class="hs-identifier hs-type">Topic</span></a></span><span>
 </span><span id="line-68"></span><span id="newTopic"><span class="annot"><span class="annottext">newTopic :: Text -&gt; Text -&gt; SubscriptionStatus -&gt; Topic
 </span><a href="Network.AWS.SESv2.Types.Topic.html#newTopic"><span class="hs-identifier hs-var hs-var">newTopic</span></a></span></span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679331946"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679331946"><span class="hs-identifier hs-var">pTopicName_</span></a></span></span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679331945"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679331945"><span class="hs-identifier hs-var">pDisplayName_</span></a></span></span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679331944"><span class="annot"><span class="annottext">SubscriptionStatus
-</span><a href="#local-6989586621679331944"><span class="hs-identifier hs-var">pDefaultSubscriptionStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679334462"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679334462"><span class="hs-identifier hs-var">pTopicName_</span></a></span></span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679334461"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679334461"><span class="hs-identifier hs-var">pDisplayName_</span></a></span></span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679334460"><span class="annot"><span class="annottext">SubscriptionStatus
+</span><a href="#local-6989586621679334460"><span class="hs-identifier hs-var">pDefaultSubscriptionStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">Topic' :: Maybe Text -&gt; Text -&gt; Text -&gt; SubscriptionStatus -&gt; Topic
 </span><a href="Network.AWS.SESv2.Types.Topic.html#Topic%27"><span class="hs-identifier hs-type">Topic'</span></a></span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:description:Topic' :: Maybe Text
@@ -133,14 +133,14 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-74"></span><span>        </span><span class="annot"><span class="annottext">$sel:topicName:Topic' :: Text
 </span><a href="Network.AWS.SESv2.Types.Topic.html#%24sel%3AtopicName%3ATopic%27"><span class="hs-identifier hs-var">topicName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679331946"><span class="hs-identifier hs-var">pTopicName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679334462"><span class="hs-identifier hs-var">pTopicName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">$sel:displayName:Topic' :: Text
 </span><a href="Network.AWS.SESv2.Types.Topic.html#%24sel%3AdisplayName%3ATopic%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679331945"><span class="hs-identifier hs-var">pDisplayName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679334461"><span class="hs-identifier hs-var">pDisplayName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-76"></span><span>        </span><span class="annot"><span class="annottext">$sel:defaultSubscriptionStatus:Topic' :: SubscriptionStatus
 </span><a href="Network.AWS.SESv2.Types.Topic.html#%24sel%3AdefaultSubscriptionStatus%3ATopic%27"><span class="hs-identifier hs-var">defaultSubscriptionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>          </span><span class="annot"><span class="annottext">SubscriptionStatus
-</span><a href="#local-6989586621679331944"><span class="hs-identifier hs-var">pDefaultSubscriptionStatus_</span></a></span><span>
+</span><a href="#local-6989586621679334460"><span class="hs-identifier hs-var">pDefaultSubscriptionStatus_</span></a></span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | A description of what the topic is about, which the contact will see.</span><span>
@@ -150,16 +150,16 @@ forall a. Maybe a
 -&gt; (Topic -&gt; Maybe Text -&gt; Topic)
 -&gt; Lens Topic Topic (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.Topic.html#Topic%27"><span class="hs-identifier hs-type">Topic'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331940"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.Topic.html#Topic%27"><span class="hs-identifier hs-type">Topic'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334456"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:Topic' :: Topic -&gt; Maybe Text
-</span><a href="#local-6989586621679331940"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679331940"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331939"><span class="annot"><span class="annottext">s :: Topic
-</span><a href="#local-6989586621679331939"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.Topic.html#Topic%27"><span class="hs-identifier hs-type">Topic'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331938"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679331938"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Topic
-</span><a href="#local-6989586621679331939"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:Topic' :: Maybe Text
+</span><a href="#local-6989586621679334456"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679334456"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334455"><span class="annot"><span class="annottext">s :: Topic
+</span><a href="#local-6989586621679334455"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.Topic.html#Topic%27"><span class="hs-identifier hs-type">Topic'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334454"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679334454"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Topic
+</span><a href="#local-6989586621679334455"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:Topic' :: Maybe Text
 </span><a href="Network.AWS.SESv2.Types.Topic.html#%24sel%3Adescription%3ATopic%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679331938"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Topic.html#Topic"><span class="hs-identifier hs-type">Topic</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679334454"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Topic.html#Topic"><span class="hs-identifier hs-type">Topic</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | The name of the topic.</span><span>
 </span><span id="line-85"></span><span class="annot"><a href="Network.AWS.SESv2.Types.Topic.html#topic_topicName"><span class="hs-identifier hs-type">topic_topicName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Topic.html#Topic"><span class="hs-identifier hs-type">Topic</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -167,16 +167,16 @@ $sel:description:Topic' :: Topic -&gt; Maybe Text
 </span><a href="Network.AWS.SESv2.Types.Topic.html#topic_topicName"><span class="hs-identifier hs-var hs-var">topic_topicName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Topic -&gt; Text)
 -&gt; (Topic -&gt; Text -&gt; Topic) -&gt; Lens Topic Topic Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.Topic.html#Topic%27"><span class="hs-identifier hs-type">Topic'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331936"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.Topic.html#Topic%27"><span class="hs-identifier hs-type">Topic'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334452"><span class="annot"><span class="annottext">Text
 topicName :: Text
 $sel:topicName:Topic' :: Topic -&gt; Text
-</span><a href="#local-6989586621679331936"><span class="hs-identifier hs-var hs-var">topicName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679331936"><span class="hs-identifier hs-var">topicName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331935"><span class="annot"><span class="annottext">s :: Topic
-</span><a href="#local-6989586621679331935"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.Topic.html#Topic%27"><span class="hs-identifier hs-type">Topic'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331934"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679331934"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Topic
-</span><a href="#local-6989586621679331935"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topicName:Topic' :: Text
+</span><a href="#local-6989586621679334452"><span class="hs-identifier hs-var hs-var">topicName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679334452"><span class="hs-identifier hs-var">topicName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334451"><span class="annot"><span class="annottext">s :: Topic
+</span><a href="#local-6989586621679334451"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.Topic.html#Topic%27"><span class="hs-identifier hs-type">Topic'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334450"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679334450"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Topic
+</span><a href="#local-6989586621679334451"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topicName:Topic' :: Text
 </span><a href="Network.AWS.SESv2.Types.Topic.html#%24sel%3AtopicName%3ATopic%27"><span class="hs-identifier hs-var">topicName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679331934"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Topic.html#Topic"><span class="hs-identifier hs-type">Topic</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679334450"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Topic.html#Topic"><span class="hs-identifier hs-type">Topic</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | The name of the topic the contact will see.</span><span>
 </span><span id="line-89"></span><span class="annot"><a href="Network.AWS.SESv2.Types.Topic.html#topic_displayName"><span class="hs-identifier hs-type">topic_displayName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Topic.html#Topic"><span class="hs-identifier hs-type">Topic</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -184,16 +184,16 @@ $sel:topicName:Topic' :: Topic -&gt; Text
 </span><a href="Network.AWS.SESv2.Types.Topic.html#topic_displayName"><span class="hs-identifier hs-var hs-var">topic_displayName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Topic -&gt; Text)
 -&gt; (Topic -&gt; Text -&gt; Topic) -&gt; Lens Topic Topic Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.Topic.html#Topic%27"><span class="hs-identifier hs-type">Topic'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331932"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.Topic.html#Topic%27"><span class="hs-identifier hs-type">Topic'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334448"><span class="annot"><span class="annottext">Text
 displayName :: Text
 $sel:displayName:Topic' :: Topic -&gt; Text
-</span><a href="#local-6989586621679331932"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679331932"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331931"><span class="annot"><span class="annottext">s :: Topic
-</span><a href="#local-6989586621679331931"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.Topic.html#Topic%27"><span class="hs-identifier hs-type">Topic'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331930"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679331930"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Topic
-</span><a href="#local-6989586621679331931"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayName:Topic' :: Text
+</span><a href="#local-6989586621679334448"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679334448"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334447"><span class="annot"><span class="annottext">s :: Topic
+</span><a href="#local-6989586621679334447"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.Topic.html#Topic%27"><span class="hs-identifier hs-type">Topic'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334446"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679334446"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Topic
+</span><a href="#local-6989586621679334447"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayName:Topic' :: Text
 </span><a href="Network.AWS.SESv2.Types.Topic.html#%24sel%3AdisplayName%3ATopic%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679331930"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Topic.html#Topic"><span class="hs-identifier hs-type">Topic</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679334446"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Topic.html#Topic"><span class="hs-identifier hs-type">Topic</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | The default subscription status to be applied to a contact if the</span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- contact has not noted their preference for subscribing to a topic.</span><span>
@@ -203,27 +203,27 @@ $sel:displayName:Topic' :: Topic -&gt; Text
 -&gt; (Topic -&gt; SubscriptionStatus -&gt; Topic)
 -&gt; Lens Topic Topic SubscriptionStatus SubscriptionStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.Topic.html#Topic%27"><span class="hs-identifier hs-type">Topic'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331928"><span class="annot"><span class="annottext">SubscriptionStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.Topic.html#Topic%27"><span class="hs-identifier hs-type">Topic'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334444"><span class="annot"><span class="annottext">SubscriptionStatus
 defaultSubscriptionStatus :: SubscriptionStatus
 $sel:defaultSubscriptionStatus:Topic' :: Topic -&gt; SubscriptionStatus
-</span><a href="#local-6989586621679331928"><span class="hs-identifier hs-var hs-var">defaultSubscriptionStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubscriptionStatus
-</span><a href="#local-6989586621679331928"><span class="hs-identifier hs-var">defaultSubscriptionStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331927"><span class="annot"><span class="annottext">s :: Topic
-</span><a href="#local-6989586621679331927"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.Topic.html#Topic%27"><span class="hs-identifier hs-type">Topic'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331926"><span class="annot"><span class="annottext">SubscriptionStatus
-</span><a href="#local-6989586621679331926"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Topic
-</span><a href="#local-6989586621679331927"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultSubscriptionStatus:Topic' :: SubscriptionStatus
+</span><a href="#local-6989586621679334444"><span class="hs-identifier hs-var hs-var">defaultSubscriptionStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubscriptionStatus
+</span><a href="#local-6989586621679334444"><span class="hs-identifier hs-var">defaultSubscriptionStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334443"><span class="annot"><span class="annottext">s :: Topic
+</span><a href="#local-6989586621679334443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.Topic.html#Topic%27"><span class="hs-identifier hs-type">Topic'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334442"><span class="annot"><span class="annottext">SubscriptionStatus
+</span><a href="#local-6989586621679334442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Topic
+</span><a href="#local-6989586621679334443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultSubscriptionStatus:Topic' :: SubscriptionStatus
 </span><a href="Network.AWS.SESv2.Types.Topic.html#%24sel%3AdefaultSubscriptionStatus%3ATopic%27"><span class="hs-identifier hs-var">defaultSubscriptionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SubscriptionStatus
-</span><a href="#local-6989586621679331926"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Topic.html#Topic"><span class="hs-identifier hs-type">Topic</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679334442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Topic.html#Topic"><span class="hs-identifier hs-type">Topic</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331923"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Topic.html#Topic"><span class="hs-identifier hs-type">Topic</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679331921"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Topic
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334439"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Topic.html#Topic"><span class="hs-identifier hs-type">Topic</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679334437"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Topic
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Topic) -&gt; Value -&gt; Parser Topic
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Topic&quot;</span></span><span>
-</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679331918"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679331918"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679334434"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679334434"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Text -&gt; Text -&gt; SubscriptionStatus -&gt; Topic
 </span><a href="Network.AWS.SESv2.Types.Topic.html#Topic%27"><span class="hs-identifier hs-var">Topic'</span></a></span><span>
 </span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Text -&gt; Text -&gt; SubscriptionStatus -&gt; Topic)
@@ -231,7 +231,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Text -&gt; Text -&gt; SubscriptionStatus -&gt; Topic)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679331918"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679334434"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
@@ -239,7 +239,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser (Text -&gt; SubscriptionStatus -&gt; Topic)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679331918"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679334434"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TopicName&quot;</span></span><span class="hs-special">)</span><span>
@@ -247,7 +247,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser (SubscriptionStatus -&gt; Topic)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679331918"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679334434"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DisplayName&quot;</span></span><span class="hs-special">)</span><span>
@@ -255,19 +255,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser SubscriptionStatus -&gt; Parser Topic
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679331918"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser SubscriptionStatus
+</span><a href="#local-6989586621679334434"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser SubscriptionStatus
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DefaultSubscriptionStatus&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331911"><span id="local-6989586621679331913"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Topic.html#Topic"><span class="hs-identifier hs-type">Topic</span></a></span></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334427"><span id="local-6989586621679334429"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Topic.html#Topic"><span class="hs-identifier hs-type">Topic</span></a></span></span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331908"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Topic.html#Topic"><span class="hs-identifier hs-type">Topic</span></a></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334424"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Topic.html#Topic"><span class="hs-identifier hs-type">Topic</span></a></span></span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331900"><span id="local-6989586621679331902"><span id="local-6989586621679331904"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Topic.html#Topic"><span class="hs-identifier hs-type">Topic</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679331898"><span class="annot"><span class="annottext">toJSON :: Topic -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Topic.html#Topic%27"><span class="hs-identifier hs-type">Topic'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331893"><span id="local-6989586621679331894"><span id="local-6989586621679331895"><span id="local-6989586621679331896"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334416"><span id="local-6989586621679334418"><span id="local-6989586621679334420"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Topic.html#Topic"><span class="hs-identifier hs-type">Topic</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679334414"><span class="annot"><span class="annottext">toJSON :: Topic -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Topic.html#Topic%27"><span class="hs-identifier hs-type">Topic'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334409"><span id="local-6989586621679334410"><span id="local-6989586621679334411"><span id="local-6989586621679334412"><span class="annot"><span class="annottext">Maybe Text
 Text
 SubscriptionStatus
 defaultSubscriptionStatus :: SubscriptionStatus
@@ -278,7 +278,7 @@ $sel:defaultSubscriptionStatus:Topic' :: Topic -&gt; SubscriptionStatus
 $sel:displayName:Topic' :: Topic -&gt; Text
 $sel:topicName:Topic' :: Topic -&gt; Text
 $sel:description:Topic' :: Topic -&gt; Maybe Text
-</span><a href="#local-6989586621679331893"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679334409"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -290,21 +290,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679331896"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679334412"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TopicName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679331895"><span class="hs-identifier hs-var">topicName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679334411"><span class="hs-identifier hs-var">topicName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DisplayName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679331894"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679334410"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -313,7 +313,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-122"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; SubscriptionStatus -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">SubscriptionStatus
-</span><a href="#local-6989586621679331893"><span class="hs-identifier hs-var">defaultSubscriptionStatus</span></a></span><span>
+</span><a href="#local-6989586621679334409"><span class="hs-identifier hs-var">defaultSubscriptionStatus</span></a></span><span>
 </span><span id="line-123"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>

@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- DescribeAssessmentTemplates action.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newAssessmentTemplate' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679245044"><span id="local-6989586621679245045"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssessmentTemplate"><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate"><span class="hs-identifier hs-var">AssessmentTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssessmentTemplate%27"><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate%27"><span class="hs-identifier hs-var">AssessmentTemplate'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679245395"><span id="local-6989586621679245396"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssessmentTemplate"><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate"><span class="hs-identifier hs-var">AssessmentTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssessmentTemplate%27"><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate%27"><span class="hs-identifier hs-var">AssessmentTemplate'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the most recent assessment run</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- associated with this assessment template. This value exists only when</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- the value of assessmentRunCount is greaterpa than zero.</span><span>
@@ -65,7 +65,7 @@
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AcreatedAt%3AAssessmentTemplate%27"><span class="annot"><span class="annottext">AssessmentTemplate -&gt; POSIX
 </span><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#%24sel%3AcreatedAt%3AAssessmentTemplate%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679245030"><span id="local-6989586621679245032"><span class="annot"><span class="annottext">AssessmentTemplate -&gt; AssessmentTemplate -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679245381"><span id="local-6989586621679245383"><span class="annot"><span class="annottext">AssessmentTemplate -&gt; AssessmentTemplate -&gt; Bool
 (AssessmentTemplate -&gt; AssessmentTemplate -&gt; Bool)
 -&gt; (AssessmentTemplate -&gt; AssessmentTemplate -&gt; Bool)
 -&gt; Eq AssessmentTemplate
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AssessmentTemplate -&gt; AssessmentTemplate -&gt; Bool
 == :: AssessmentTemplate -&gt; AssessmentTemplate -&gt; Bool
 $c== :: AssessmentTemplate -&gt; AssessmentTemplate -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245021"><span id="local-6989586621679245023"><span id="local-6989586621679245025"><span id="local-6989586621679245027"><span class="annot"><span class="annottext">ReadPrec [AssessmentTemplate]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245372"><span id="local-6989586621679245374"><span id="local-6989586621679245376"><span id="local-6989586621679245378"><span class="annot"><span class="annottext">ReadPrec [AssessmentTemplate]
 ReadPrec AssessmentTemplate
 Int -&gt; ReadS AssessmentTemplate
 ReadS [AssessmentTemplate]
@@ -94,7 +94,7 @@ readList :: ReadS [AssessmentTemplate]
 $creadList :: ReadS [AssessmentTemplate]
 readsPrec :: Int -&gt; ReadS AssessmentTemplate
 $creadsPrec :: Int -&gt; ReadS AssessmentTemplate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245014"><span id="local-6989586621679245016"><span id="local-6989586621679245018"><span class="annot"><span class="annottext">Int -&gt; AssessmentTemplate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245365"><span id="local-6989586621679245367"><span id="local-6989586621679245369"><span class="annot"><span class="annottext">Int -&gt; AssessmentTemplate -&gt; ShowS
 [AssessmentTemplate] -&gt; ShowS
 AssessmentTemplate -&gt; String
 (Int -&gt; AssessmentTemplate -&gt; ShowS)
@@ -169,18 +169,18 @@ $cfrom :: forall x. AssessmentTemplate -&gt; Rep AssessmentTemplate x
 </span><span id="line-107"></span><span id="newAssessmentTemplate"><span class="annot"><span class="annottext">newAssessmentTemplate :: Text
 -&gt; Text -&gt; Text -&gt; Natural -&gt; Int -&gt; UTCTime -&gt; AssessmentTemplate
 </span><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#newAssessmentTemplate"><span class="hs-identifier hs-var hs-var">newAssessmentTemplate</span></a></span></span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679245008"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679245008"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679245007"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679245007"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679245006"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679245006"><span class="hs-identifier hs-var">pAssessmentTargetArn_</span></a></span></span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679245005"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679245005"><span class="hs-identifier hs-var">pDurationInSeconds_</span></a></span></span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679245004"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679245004"><span class="hs-identifier hs-var">pAssessmentRunCount_</span></a></span></span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679245003"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679245003"><span class="hs-identifier hs-var">pCreatedAt_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679245359"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679245359"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679245358"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679245358"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679245357"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679245357"><span class="hs-identifier hs-var">pAssessmentTargetArn_</span></a></span></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679245356"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679245356"><span class="hs-identifier hs-var">pDurationInSeconds_</span></a></span></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679245355"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679245355"><span class="hs-identifier hs-var">pAssessmentRunCount_</span></a></span></span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679245354"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679245354"><span class="hs-identifier hs-var">pCreatedAt_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">AssessmentTemplate' :: Maybe Text
 -&gt; Text
 -&gt; Text
@@ -199,16 +199,16 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">$sel:arn:AssessmentTemplate' :: Text
 </span><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#%24sel%3Aarn%3AAssessmentTemplate%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679245008"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679245359"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">$sel:name:AssessmentTemplate' :: Text
 </span><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#%24sel%3Aname%3AAssessmentTemplate%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679245007"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679245358"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">$sel:assessmentTargetArn:AssessmentTemplate' :: Text
 </span><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#%24sel%3AassessmentTargetArn%3AAssessmentTemplate%27"><span class="hs-identifier hs-var">assessmentTargetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679245006"><span class="hs-identifier hs-var">pAssessmentTargetArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679245357"><span class="hs-identifier hs-var">pAssessmentTargetArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">$sel:durationInSeconds:AssessmentTemplate' :: Natural
 </span><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#%24sel%3AdurationInSeconds%3AAssessmentTemplate%27"><span class="hs-identifier hs-var">durationInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679245005"><span class="hs-identifier hs-var">pDurationInSeconds_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679245356"><span class="hs-identifier hs-var">pDurationInSeconds_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">$sel:rulesPackageArns:AssessmentTemplate' :: [Text]
 </span><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#%24sel%3ArulesPackageArns%3AAssessmentTemplate%27"><span class="hs-identifier hs-var">rulesPackageArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
 forall a. Monoid a =&gt; a
@@ -219,7 +219,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
 </span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">$sel:assessmentRunCount:AssessmentTemplate' :: Int
 </span><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#%24sel%3AassessmentRunCount%3AAssessmentTemplate%27"><span class="hs-identifier hs-var">assessmentRunCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679245004"><span class="hs-identifier hs-var">pAssessmentRunCount_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679245355"><span class="hs-identifier hs-var">pAssessmentRunCount_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">$sel:createdAt:AssessmentTemplate' :: POSIX
 </span><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#%24sel%3AcreatedAt%3AAssessmentTemplate%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
 forall (a :: Format). Iso' (Time a) UTCTime
@@ -228,7 +228,7 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679245003"><span class="hs-identifier hs-var">pCreatedAt_</span></a></span><span>
+</span><a href="#local-6989586621679245354"><span class="hs-identifier hs-var">pCreatedAt_</span></a></span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the most recent assessment run</span><span>
@@ -242,16 +242,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; Lens
      AssessmentTemplate AssessmentTemplate (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate%27"><span class="hs-identifier hs-type">AssessmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244997"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate%27"><span class="hs-identifier hs-type">AssessmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245348"><span class="annot"><span class="annottext">Maybe Text
 lastAssessmentRunArn :: Maybe Text
 $sel:lastAssessmentRunArn:AssessmentTemplate' :: AssessmentTemplate -&gt; Maybe Text
-</span><a href="#local-6989586621679244997"><span class="hs-identifier hs-var hs-var">lastAssessmentRunArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679244997"><span class="hs-identifier hs-var">lastAssessmentRunArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244996"><span class="annot"><span class="annottext">s :: AssessmentTemplate
-</span><a href="#local-6989586621679244996"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate%27"><span class="hs-identifier hs-type">AssessmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244995"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679244995"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentTemplate
-</span><a href="#local-6989586621679244996"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastAssessmentRunArn:AssessmentTemplate' :: Maybe Text
+</span><a href="#local-6989586621679245348"><span class="hs-identifier hs-var hs-var">lastAssessmentRunArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245348"><span class="hs-identifier hs-var">lastAssessmentRunArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245347"><span class="annot"><span class="annottext">s :: AssessmentTemplate
+</span><a href="#local-6989586621679245347"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate%27"><span class="hs-identifier hs-type">AssessmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245346"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245346"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentTemplate
+</span><a href="#local-6989586621679245347"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastAssessmentRunArn:AssessmentTemplate' :: Maybe Text
 </span><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#%24sel%3AlastAssessmentRunArn%3AAssessmentTemplate%27"><span class="hs-identifier hs-var">lastAssessmentRunArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679244995"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate"><span class="hs-identifier hs-type">AssessmentTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679245346"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate"><span class="hs-identifier hs-type">AssessmentTemplate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | The ARN of the assessment template.</span><span>
 </span><span id="line-134"></span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#assessmentTemplate_arn"><span class="hs-identifier hs-type">assessmentTemplate_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate"><span class="hs-identifier hs-type">AssessmentTemplate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -260,16 +260,16 @@ $sel:lastAssessmentRunArn:AssessmentTemplate' :: AssessmentTemplate -&gt; Maybe 
 -&gt; (AssessmentTemplate -&gt; Text -&gt; AssessmentTemplate)
 -&gt; Lens AssessmentTemplate AssessmentTemplate Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate%27"><span class="hs-identifier hs-type">AssessmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244993"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate%27"><span class="hs-identifier hs-type">AssessmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245344"><span class="annot"><span class="annottext">Text
 arn :: Text
 $sel:arn:AssessmentTemplate' :: AssessmentTemplate -&gt; Text
-</span><a href="#local-6989586621679244993"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679244993"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244992"><span class="annot"><span class="annottext">s :: AssessmentTemplate
-</span><a href="#local-6989586621679244992"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate%27"><span class="hs-identifier hs-type">AssessmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244991"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679244991"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentTemplate
-</span><a href="#local-6989586621679244992"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:AssessmentTemplate' :: Text
+</span><a href="#local-6989586621679245344"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679245344"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245343"><span class="annot"><span class="annottext">s :: AssessmentTemplate
+</span><a href="#local-6989586621679245343"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate%27"><span class="hs-identifier hs-type">AssessmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245342"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679245342"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentTemplate
+</span><a href="#local-6989586621679245343"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:AssessmentTemplate' :: Text
 </span><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#%24sel%3Aarn%3AAssessmentTemplate%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679244991"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate"><span class="hs-identifier hs-type">AssessmentTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679245342"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate"><span class="hs-identifier hs-type">AssessmentTemplate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- | The name of the assessment template.</span><span>
 </span><span id="line-138"></span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#assessmentTemplate_name"><span class="hs-identifier hs-type">assessmentTemplate_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate"><span class="hs-identifier hs-type">AssessmentTemplate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -278,16 +278,16 @@ $sel:arn:AssessmentTemplate' :: AssessmentTemplate -&gt; Text
 -&gt; (AssessmentTemplate -&gt; Text -&gt; AssessmentTemplate)
 -&gt; Lens AssessmentTemplate AssessmentTemplate Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate%27"><span class="hs-identifier hs-type">AssessmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244989"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate%27"><span class="hs-identifier hs-type">AssessmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245340"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:AssessmentTemplate' :: AssessmentTemplate -&gt; Text
-</span><a href="#local-6989586621679244989"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679244989"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244988"><span class="annot"><span class="annottext">s :: AssessmentTemplate
-</span><a href="#local-6989586621679244988"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate%27"><span class="hs-identifier hs-type">AssessmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244987"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679244987"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentTemplate
-</span><a href="#local-6989586621679244988"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:AssessmentTemplate' :: Text
+</span><a href="#local-6989586621679245340"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679245340"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245339"><span class="annot"><span class="annottext">s :: AssessmentTemplate
+</span><a href="#local-6989586621679245339"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate%27"><span class="hs-identifier hs-type">AssessmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245338"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679245338"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentTemplate
+</span><a href="#local-6989586621679245339"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:AssessmentTemplate' :: Text
 </span><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#%24sel%3Aname%3AAssessmentTemplate%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679244987"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate"><span class="hs-identifier hs-type">AssessmentTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679245338"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate"><span class="hs-identifier hs-type">AssessmentTemplate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- | The ARN of the assessment target that corresponds to this assessment</span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- template.</span><span>
@@ -297,16 +297,16 @@ $sel:name:AssessmentTemplate' :: AssessmentTemplate -&gt; Text
 -&gt; (AssessmentTemplate -&gt; Text -&gt; AssessmentTemplate)
 -&gt; Lens AssessmentTemplate AssessmentTemplate Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate%27"><span class="hs-identifier hs-type">AssessmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244985"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate%27"><span class="hs-identifier hs-type">AssessmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245336"><span class="annot"><span class="annottext">Text
 assessmentTargetArn :: Text
 $sel:assessmentTargetArn:AssessmentTemplate' :: AssessmentTemplate -&gt; Text
-</span><a href="#local-6989586621679244985"><span class="hs-identifier hs-var hs-var">assessmentTargetArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679244985"><span class="hs-identifier hs-var">assessmentTargetArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244984"><span class="annot"><span class="annottext">s :: AssessmentTemplate
-</span><a href="#local-6989586621679244984"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate%27"><span class="hs-identifier hs-type">AssessmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244983"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679244983"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentTemplate
-</span><a href="#local-6989586621679244984"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assessmentTargetArn:AssessmentTemplate' :: Text
+</span><a href="#local-6989586621679245336"><span class="hs-identifier hs-var hs-var">assessmentTargetArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679245336"><span class="hs-identifier hs-var">assessmentTargetArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245335"><span class="annot"><span class="annottext">s :: AssessmentTemplate
+</span><a href="#local-6989586621679245335"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate%27"><span class="hs-identifier hs-type">AssessmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245334"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679245334"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentTemplate
+</span><a href="#local-6989586621679245335"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assessmentTargetArn:AssessmentTemplate' :: Text
 </span><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#%24sel%3AassessmentTargetArn%3AAssessmentTemplate%27"><span class="hs-identifier hs-var">assessmentTargetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679244983"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate"><span class="hs-identifier hs-type">AssessmentTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679245334"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate"><span class="hs-identifier hs-type">AssessmentTemplate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- | The duration in seconds specified for this assessment template. The</span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- default value is 3600 seconds (one hour). The maximum value is 86400</span><span>
@@ -318,16 +318,16 @@ $sel:assessmentTargetArn:AssessmentTemplate' :: AssessmentTemplate -&gt; Text
 -&gt; (AssessmentTemplate -&gt; Natural -&gt; AssessmentTemplate)
 -&gt; Lens AssessmentTemplate AssessmentTemplate Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate%27"><span class="hs-identifier hs-type">AssessmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244981"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate%27"><span class="hs-identifier hs-type">AssessmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245332"><span class="annot"><span class="annottext">Natural
 durationInSeconds :: Natural
 $sel:durationInSeconds:AssessmentTemplate' :: AssessmentTemplate -&gt; Natural
-</span><a href="#local-6989586621679244981"><span class="hs-identifier hs-var hs-var">durationInSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679244981"><span class="hs-identifier hs-var">durationInSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244980"><span class="annot"><span class="annottext">s :: AssessmentTemplate
-</span><a href="#local-6989586621679244980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate%27"><span class="hs-identifier hs-type">AssessmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244979"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679244979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentTemplate
-</span><a href="#local-6989586621679244980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:durationInSeconds:AssessmentTemplate' :: Natural
+</span><a href="#local-6989586621679245332"><span class="hs-identifier hs-var hs-var">durationInSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679245332"><span class="hs-identifier hs-var">durationInSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245331"><span class="annot"><span class="annottext">s :: AssessmentTemplate
+</span><a href="#local-6989586621679245331"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate%27"><span class="hs-identifier hs-type">AssessmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245330"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679245330"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentTemplate
+</span><a href="#local-6989586621679245331"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:durationInSeconds:AssessmentTemplate' :: Natural
 </span><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#%24sel%3AdurationInSeconds%3AAssessmentTemplate%27"><span class="hs-identifier hs-var">durationInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679244979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate"><span class="hs-identifier hs-type">AssessmentTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679245330"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate"><span class="hs-identifier hs-type">AssessmentTemplate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- | The rules packages that are specified for this assessment template.</span><span>
 </span><span id="line-153"></span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#assessmentTemplate_rulesPackageArns"><span class="hs-identifier hs-type">assessmentTemplate_rulesPackageArns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate"><span class="hs-identifier hs-type">AssessmentTemplate</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
@@ -336,16 +336,16 @@ $sel:durationInSeconds:AssessmentTemplate' :: AssessmentTemplate -&gt; Natural
 -&gt; (AssessmentTemplate -&gt; [Text] -&gt; AssessmentTemplate)
 -&gt; Lens AssessmentTemplate AssessmentTemplate [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate%27"><span class="hs-identifier hs-type">AssessmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244977"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate%27"><span class="hs-identifier hs-type">AssessmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245328"><span class="annot"><span class="annottext">[Text]
 rulesPackageArns :: [Text]
 $sel:rulesPackageArns:AssessmentTemplate' :: AssessmentTemplate -&gt; [Text]
-</span><a href="#local-6989586621679244977"><span class="hs-identifier hs-var hs-var">rulesPackageArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679244977"><span class="hs-identifier hs-var">rulesPackageArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244976"><span class="annot"><span class="annottext">s :: AssessmentTemplate
-</span><a href="#local-6989586621679244976"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate%27"><span class="hs-identifier hs-type">AssessmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244975"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679244975"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentTemplate
-</span><a href="#local-6989586621679244976"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rulesPackageArns:AssessmentTemplate' :: [Text]
+</span><a href="#local-6989586621679245328"><span class="hs-identifier hs-var hs-var">rulesPackageArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679245328"><span class="hs-identifier hs-var">rulesPackageArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245327"><span class="annot"><span class="annottext">s :: AssessmentTemplate
+</span><a href="#local-6989586621679245327"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate%27"><span class="hs-identifier hs-type">AssessmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245326"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679245326"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentTemplate
+</span><a href="#local-6989586621679245327"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rulesPackageArns:AssessmentTemplate' :: [Text]
 </span><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#%24sel%3ArulesPackageArns%3AAssessmentTemplate%27"><span class="hs-identifier hs-var">rulesPackageArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679244975"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate"><span class="hs-identifier hs-type">AssessmentTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621679245326"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate"><span class="hs-identifier hs-type">AssessmentTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; AssessmentTemplate -&gt; f AssessmentTemplate)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
@@ -353,8 +353,8 @@ $sel:rulesPackageArns:AssessmentTemplate' :: AssessmentTemplate -&gt; [Text]
 -&gt; f AssessmentTemplate
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- | The user-defined attributes that are assigned to every generated finding</span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- from the assessment run that uses this assessment template.</span><span>
@@ -366,16 +366,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      AssessmentTemplate AssessmentTemplate [Attribute] [Attribute]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate%27"><span class="hs-identifier hs-type">AssessmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244971"><span class="annot"><span class="annottext">[Attribute]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate%27"><span class="hs-identifier hs-type">AssessmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245322"><span class="annot"><span class="annottext">[Attribute]
 userAttributesForFindings :: [Attribute]
 $sel:userAttributesForFindings:AssessmentTemplate' :: AssessmentTemplate -&gt; [Attribute]
-</span><a href="#local-6989586621679244971"><span class="hs-identifier hs-var hs-var">userAttributesForFindings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Attribute]
-</span><a href="#local-6989586621679244971"><span class="hs-identifier hs-var">userAttributesForFindings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244970"><span class="annot"><span class="annottext">s :: AssessmentTemplate
-</span><a href="#local-6989586621679244970"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate%27"><span class="hs-identifier hs-type">AssessmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244969"><span class="annot"><span class="annottext">[Attribute]
-</span><a href="#local-6989586621679244969"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentTemplate
-</span><a href="#local-6989586621679244970"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userAttributesForFindings:AssessmentTemplate' :: [Attribute]
+</span><a href="#local-6989586621679245322"><span class="hs-identifier hs-var hs-var">userAttributesForFindings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Attribute]
+</span><a href="#local-6989586621679245322"><span class="hs-identifier hs-var">userAttributesForFindings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245321"><span class="annot"><span class="annottext">s :: AssessmentTemplate
+</span><a href="#local-6989586621679245321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate%27"><span class="hs-identifier hs-type">AssessmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245320"><span class="annot"><span class="annottext">[Attribute]
+</span><a href="#local-6989586621679245320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentTemplate
+</span><a href="#local-6989586621679245321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userAttributesForFindings:AssessmentTemplate' :: [Attribute]
 </span><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#%24sel%3AuserAttributesForFindings%3AAssessmentTemplate%27"><span class="hs-identifier hs-var">userAttributesForFindings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Attribute]
-</span><a href="#local-6989586621679244969"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate"><span class="hs-identifier hs-type">AssessmentTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Attribute] -&gt; f [Attribute])
+</span><a href="#local-6989586621679245320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate"><span class="hs-identifier hs-type">AssessmentTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Attribute] -&gt; f [Attribute])
  -&gt; AssessmentTemplate -&gt; f AssessmentTemplate)
 -&gt; (([Attribute] -&gt; f [Attribute]) -&gt; [Attribute] -&gt; f [Attribute])
 -&gt; ([Attribute] -&gt; f [Attribute])
@@ -383,8 +383,8 @@ $sel:userAttributesForFindings:AssessmentTemplate' :: AssessmentTemplate -&gt; [
 -&gt; f AssessmentTemplate
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Attribute] -&gt; f [Attribute]) -&gt; [Attribute] -&gt; f [Attribute]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- | The number of existing assessment runs associated with this assessment</span><span>
 </span><span id="line-162"></span><span class="hs-comment">-- template. This value can be zero or a positive integer.</span><span>
@@ -394,16 +394,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (AssessmentTemplate -&gt; Int -&gt; AssessmentTemplate)
 -&gt; Lens AssessmentTemplate AssessmentTemplate Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate%27"><span class="hs-identifier hs-type">AssessmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244967"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate%27"><span class="hs-identifier hs-type">AssessmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245318"><span class="annot"><span class="annottext">Int
 assessmentRunCount :: Int
 $sel:assessmentRunCount:AssessmentTemplate' :: AssessmentTemplate -&gt; Int
-</span><a href="#local-6989586621679244967"><span class="hs-identifier hs-var hs-var">assessmentRunCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679244967"><span class="hs-identifier hs-var">assessmentRunCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244966"><span class="annot"><span class="annottext">s :: AssessmentTemplate
-</span><a href="#local-6989586621679244966"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate%27"><span class="hs-identifier hs-type">AssessmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244965"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679244965"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentTemplate
-</span><a href="#local-6989586621679244966"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assessmentRunCount:AssessmentTemplate' :: Int
+</span><a href="#local-6989586621679245318"><span class="hs-identifier hs-var hs-var">assessmentRunCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679245318"><span class="hs-identifier hs-var">assessmentRunCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245317"><span class="annot"><span class="annottext">s :: AssessmentTemplate
+</span><a href="#local-6989586621679245317"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate%27"><span class="hs-identifier hs-type">AssessmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245316"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679245316"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentTemplate
+</span><a href="#local-6989586621679245317"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assessmentRunCount:AssessmentTemplate' :: Int
 </span><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#%24sel%3AassessmentRunCount%3AAssessmentTemplate%27"><span class="hs-identifier hs-var">assessmentRunCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679244965"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate"><span class="hs-identifier hs-type">AssessmentTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679245316"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate"><span class="hs-identifier hs-type">AssessmentTemplate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- | The time at which the assessment template is created.</span><span>
 </span><span id="line-167"></span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#assessmentTemplate_createdAt"><span class="hs-identifier hs-type">assessmentTemplate_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate"><span class="hs-identifier hs-type">AssessmentTemplate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
@@ -413,16 +413,16 @@ $sel:assessmentRunCount:AssessmentTemplate' :: AssessmentTemplate -&gt; Int
 -&gt; (AssessmentTemplate -&gt; POSIX -&gt; AssessmentTemplate)
 -&gt; Lens AssessmentTemplate AssessmentTemplate POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate%27"><span class="hs-identifier hs-type">AssessmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244963"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate%27"><span class="hs-identifier hs-type">AssessmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245314"><span class="annot"><span class="annottext">POSIX
 createdAt :: POSIX
 $sel:createdAt:AssessmentTemplate' :: AssessmentTemplate -&gt; POSIX
-</span><a href="#local-6989586621679244963"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679244963"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244962"><span class="annot"><span class="annottext">s :: AssessmentTemplate
-</span><a href="#local-6989586621679244962"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate%27"><span class="hs-identifier hs-type">AssessmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244961"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679244961"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentTemplate
-</span><a href="#local-6989586621679244962"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:AssessmentTemplate' :: POSIX
+</span><a href="#local-6989586621679245314"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679245314"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245313"><span class="annot"><span class="annottext">s :: AssessmentTemplate
+</span><a href="#local-6989586621679245313"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate%27"><span class="hs-identifier hs-type">AssessmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245312"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679245312"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentTemplate
+</span><a href="#local-6989586621679245313"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:AssessmentTemplate' :: POSIX
 </span><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#%24sel%3AcreatedAt%3AAssessmentTemplate%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679244961"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate"><span class="hs-identifier hs-type">AssessmentTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; AssessmentTemplate -&gt; f AssessmentTemplate)
+</span><a href="#local-6989586621679245312"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate"><span class="hs-identifier hs-type">AssessmentTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; AssessmentTemplate -&gt; f AssessmentTemplate)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
 -&gt; AssessmentTemplate
@@ -432,8 +432,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-169"></span><span>
-</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244958"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate"><span class="hs-identifier hs-type">AssessmentTemplate</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-171"></span><span>  </span><span id="local-6989586621679244956"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AssessmentTemplate
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245309"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate"><span class="hs-identifier hs-type">AssessmentTemplate</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679245307"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AssessmentTemplate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-172"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AssessmentTemplate)
@@ -443,8 +443,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-173"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AssessmentTemplate&quot;</span></span><span>
-</span><span id="line-174"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679244953"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679244953"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-174"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679245304"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245304"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-175"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Text
 -&gt; Text
@@ -479,7 +479,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; AssessmentTemplate)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679244953"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679245304"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;lastAssessmentRunArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -505,7 +505,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; AssessmentTemplate)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679244953"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679245304"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
@@ -529,7 +529,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
       -&gt; AssessmentTemplate)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679244953"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679245304"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
@@ -547,7 +547,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
       -&gt; [Text] -&gt; [Attribute] -&gt; Int -&gt; POSIX -&gt; AssessmentTemplate)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679244953"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679245304"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;assessmentTargetArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -559,7 +559,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
      ([Text] -&gt; [Attribute] -&gt; Int -&gt; POSIX -&gt; AssessmentTemplate)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679244953"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621679245304"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;durationInSeconds&quot;</span></span><span class="hs-special">)</span><span>
@@ -569,7 +569,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser ([Attribute] -&gt; Int -&gt; POSIX -&gt; AssessmentTemplate)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679244953"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Text])
+</span><a href="#local-6989586621679245304"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Text])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;rulesPackageArns&quot;</span></span><span>
@@ -584,7 +584,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Int -&gt; POSIX -&gt; AssessmentTemplate)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679244953"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Attribute])
+</span><a href="#local-6989586621679245304"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Attribute])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;userAttributesForFindings&quot;</span></span><span>
@@ -598,7 +598,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser Int -&gt; Parser (POSIX -&gt; AssessmentTemplate)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679244953"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Int
+</span><a href="#local-6989586621679245304"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Int
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;assessmentRunCount&quot;</span></span><span class="hs-special">)</span><span>
@@ -606,13 +606,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser POSIX -&gt; Parser AssessmentTemplate
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679244953"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+</span><a href="#local-6989586621679245304"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;createdAt&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>
-</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244945"><span id="local-6989586621679244947"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate"><span class="hs-identifier hs-type">AssessmentTemplate</span></a></span></span></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245296"><span id="local-6989586621679245298"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate"><span class="hs-identifier hs-type">AssessmentTemplate</span></a></span></span></span><span>
 </span><span id="line-192"></span><span>
-</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244942"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate"><span class="hs-identifier hs-type">AssessmentTemplate</span></a></span></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245293"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTemplate.html#AssessmentTemplate"><span class="hs-identifier hs-type">AssessmentTemplate</span></a></span></span><span>
 </span><span id="line-194"></span></pre></body></html>

@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span>
 </span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#updateJobTemplate_accelerationSettings"><span class="hs-identifier">updateJobTemplate_accelerationSettings</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#updateJobTemplate_category"><span class="hs-identifier">updateJobTemplate_category</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#updateJobTemplate_priority"><span class="hs-identifier">updateJobTemplate_priority</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#updateJobTemplate_statusUpdateInterval"><span class="hs-identifier">updateJobTemplate_statusUpdateInterval</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#updateJobTemplate_priority"><span class="hs-identifier">updateJobTemplate_priority</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#updateJobTemplate_queue"><span class="hs-identifier">updateJobTemplate_queue</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#updateJobTemplate_description"><span class="hs-identifier">updateJobTemplate_description</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#updateJobTemplate_hopDestinations"><span class="hs-identifier">updateJobTemplate_hopDestinations</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#updateJobTemplate_settings"><span class="hs-identifier">updateJobTemplate_settings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#updateJobTemplate_settings"><span class="hs-identifier">updateJobTemplate_settings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#updateJobTemplate_category"><span class="hs-identifier">updateJobTemplate_category</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#updateJobTemplate_hopDestinations"><span class="hs-identifier">updateJobTemplate_hopDestinations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#updateJobTemplate_queue"><span class="hs-identifier">updateJobTemplate_queue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#updateJobTemplate_description"><span class="hs-identifier">updateJobTemplate_description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#updateJobTemplate_name"><span class="hs-identifier">updateJobTemplate_name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>
 </span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -55,48 +55,48 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newUpdateJobTemplate' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621680029090"><span id="local-6989586621680029091"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateJobTemplate"><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate"><span class="hs-identifier hs-var">UpdateJobTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateJobTemplate%27"><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate%27"><span class="hs-identifier hs-var">UpdateJobTemplate'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621680034610"><span id="local-6989586621680034611"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateJobTemplate"><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate"><span class="hs-identifier hs-var">UpdateJobTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateJobTemplate%27"><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate%27"><span class="hs-identifier hs-var">UpdateJobTemplate'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Accelerated transcoding can significantly speed up jobs with long,</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- visually complex content. Outputs that use this feature incur pro-tier</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- pricing. For information about feature limitations, see the AWS</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">-- Elemental MediaConvert User Guide.</span><span>
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AaccelerationSettings%3AUpdateJobTemplate%27"><span class="annot"><span class="annottext">UpdateJobTemplate -&gt; Maybe AccelerationSettings
 </span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#%24sel%3AaccelerationSettings%3AUpdateJobTemplate%27"><span class="hs-identifier hs-var hs-var">accelerationSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AccelerationSettings.html#AccelerationSettings"><span class="hs-identifier hs-type">AccelerationSettings</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The new category for the job template, if you are changing it.</span><span>
-</span><span id="line-65"></span><span>    </span><span id="%24sel%3Acategory%3AUpdateJobTemplate%27"><span class="annot"><span class="annottext">UpdateJobTemplate -&gt; Maybe Text
-</span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#%24sel%3Acategory%3AUpdateJobTemplate%27"><span class="hs-identifier hs-var hs-var">category</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | Specify how often MediaConvert sends STATUS_UPDATE events to Amazon</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- CloudWatch Events. Set the interval, in seconds, between status updates.</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- MediaConvert sends an update at this interval from the time the service</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- begins processing your job to the time it completes the transcode or</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- encounters an error.</span><span>
-</span><span id="line-71"></span><span>    </span><span id="%24sel%3AstatusUpdateInterval%3AUpdateJobTemplate%27"><span class="annot"><span class="annottext">UpdateJobTemplate -&gt; Maybe StatusUpdateInterval
-</span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#%24sel%3AstatusUpdateInterval%3AUpdateJobTemplate%27"><span class="hs-identifier hs-var hs-var">statusUpdateInterval</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StatusUpdateInterval.html#StatusUpdateInterval"><span class="hs-identifier hs-type">StatusUpdateInterval</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | Specify the relative priority for this job. In any given queue, the</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- service begins processing the job with the highest value first. When</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- more than one job has the same priority, the service begins processing</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- the job that you submitted first. If you don\'t specify a priority, the</span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- service uses the default value 0.</span><span>
-</span><span id="line-77"></span><span>    </span><span id="%24sel%3Apriority%3AUpdateJobTemplate%27"><span class="annot"><span class="annottext">UpdateJobTemplate -&gt; Maybe Int
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | Specify the relative priority for this job. In any given queue, the</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- service begins processing the job with the highest value first. When</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- more than one job has the same priority, the service begins processing</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- the job that you submitted first. If you don\'t specify a priority, the</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- service uses the default value 0.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3Apriority%3AUpdateJobTemplate%27"><span class="annot"><span class="annottext">UpdateJobTemplate -&gt; Maybe Int
 </span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#%24sel%3Apriority%3AUpdateJobTemplate%27"><span class="hs-identifier hs-var hs-var">priority</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | The new queue for the job template, if you are changing it.</span><span>
-</span><span id="line-79"></span><span>    </span><span id="%24sel%3Aqueue%3AUpdateJobTemplate%27"><span class="annot"><span class="annottext">UpdateJobTemplate -&gt; Maybe Text
-</span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#%24sel%3Aqueue%3AUpdateJobTemplate%27"><span class="hs-identifier hs-var hs-var">queue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | The new description for the job template, if you are changing it.</span><span>
-</span><span id="line-81"></span><span>    </span><span id="%24sel%3Adescription%3AUpdateJobTemplate%27"><span class="annot"><span class="annottext">UpdateJobTemplate -&gt; Maybe Text
-</span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#%24sel%3Adescription%3AUpdateJobTemplate%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | Optional list of hop destinations.</span><span>
-</span><span id="line-83"></span><span>    </span><span id="%24sel%3AhopDestinations%3AUpdateJobTemplate%27"><span class="annot"><span class="annottext">UpdateJobTemplate -&gt; Maybe [HopDestination]
-</span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#%24sel%3AhopDestinations%3AUpdateJobTemplate%27"><span class="hs-identifier hs-var hs-var">hopDestinations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HopDestination.html#HopDestination"><span class="hs-identifier hs-type">HopDestination</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | JobTemplateSettings contains all the transcode settings saved in the</span><span>
-</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- template that will be applied to jobs created from it.</span><span>
-</span><span id="line-86"></span><span>    </span><span id="%24sel%3Asettings%3AUpdateJobTemplate%27"><span class="annot"><span class="annottext">UpdateJobTemplate -&gt; Maybe JobTemplateSettings
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | Specify how often MediaConvert sends STATUS_UPDATE events to Amazon</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- CloudWatch Events. Set the interval, in seconds, between status updates.</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- MediaConvert sends an update at this interval from the time the service</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- begins processing your job to the time it completes the transcode or</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- encounters an error.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AstatusUpdateInterval%3AUpdateJobTemplate%27"><span class="annot"><span class="annottext">UpdateJobTemplate -&gt; Maybe StatusUpdateInterval
+</span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#%24sel%3AstatusUpdateInterval%3AUpdateJobTemplate%27"><span class="hs-identifier hs-var hs-var">statusUpdateInterval</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StatusUpdateInterval.html#StatusUpdateInterval"><span class="hs-identifier hs-type">StatusUpdateInterval</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | JobTemplateSettings contains all the transcode settings saved in the</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- template that will be applied to jobs created from it.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3Asettings%3AUpdateJobTemplate%27"><span class="annot"><span class="annottext">UpdateJobTemplate -&gt; Maybe JobTemplateSettings
 </span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#%24sel%3Asettings%3AUpdateJobTemplate%27"><span class="hs-identifier hs-var hs-var">settings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings"><span class="hs-identifier hs-type">JobTemplateSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | The new category for the job template, if you are changing it.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3Acategory%3AUpdateJobTemplate%27"><span class="annot"><span class="annottext">UpdateJobTemplate -&gt; Maybe Text
+</span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#%24sel%3Acategory%3AUpdateJobTemplate%27"><span class="hs-identifier hs-var hs-var">category</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | Optional list of hop destinations.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3AhopDestinations%3AUpdateJobTemplate%27"><span class="annot"><span class="annottext">UpdateJobTemplate -&gt; Maybe [HopDestination]
+</span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#%24sel%3AhopDestinations%3AUpdateJobTemplate%27"><span class="hs-identifier hs-var hs-var">hopDestinations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HopDestination.html#HopDestination"><span class="hs-identifier hs-type">HopDestination</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | The new queue for the job template, if you are changing it.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3Aqueue%3AUpdateJobTemplate%27"><span class="annot"><span class="annottext">UpdateJobTemplate -&gt; Maybe Text
+</span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#%24sel%3Aqueue%3AUpdateJobTemplate%27"><span class="hs-identifier hs-var hs-var">queue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | The new description for the job template, if you are changing it.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3Adescription%3AUpdateJobTemplate%27"><span class="annot"><span class="annottext">UpdateJobTemplate -&gt; Maybe Text
+</span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#%24sel%3Adescription%3AUpdateJobTemplate%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | The name of the job template you are modifying</span><span>
 </span><span id="line-88"></span><span>    </span><span id="%24sel%3Aname%3AUpdateJobTemplate%27"><span class="annot"><span class="annottext">UpdateJobTemplate -&gt; Text
 </span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#%24sel%3Aname%3AUpdateJobTemplate%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-89"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-90"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680029076"><span id="local-6989586621680029078"><span class="annot"><span class="annottext">UpdateJobTemplate -&gt; UpdateJobTemplate -&gt; Bool
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680034596"><span id="local-6989586621680034598"><span class="annot"><span class="annottext">UpdateJobTemplate -&gt; UpdateJobTemplate -&gt; Bool
 (UpdateJobTemplate -&gt; UpdateJobTemplate -&gt; Bool)
 -&gt; (UpdateJobTemplate -&gt; UpdateJobTemplate -&gt; Bool)
 -&gt; Eq UpdateJobTemplate
@@ -105,7 +105,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateJobTemplate -&gt; UpdateJobTemplate -&gt; Bool
 == :: UpdateJobTemplate -&gt; UpdateJobTemplate -&gt; Bool
 $c== :: UpdateJobTemplate -&gt; UpdateJobTemplate -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680029067"><span id="local-6989586621680029069"><span id="local-6989586621680029071"><span id="local-6989586621680029073"><span class="annot"><span class="annottext">ReadPrec [UpdateJobTemplate]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680034587"><span id="local-6989586621680034589"><span id="local-6989586621680034591"><span id="local-6989586621680034593"><span class="annot"><span class="annottext">ReadPrec [UpdateJobTemplate]
 ReadPrec UpdateJobTemplate
 Int -&gt; ReadS UpdateJobTemplate
 ReadS [UpdateJobTemplate]
@@ -125,7 +125,7 @@ readList :: ReadS [UpdateJobTemplate]
 $creadList :: ReadS [UpdateJobTemplate]
 readsPrec :: Int -&gt; ReadS UpdateJobTemplate
 $creadsPrec :: Int -&gt; ReadS UpdateJobTemplate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680029060"><span id="local-6989586621680029062"><span id="local-6989586621680029064"><span class="annot"><span class="annottext">Int -&gt; UpdateJobTemplate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680034580"><span id="local-6989586621680034582"><span id="local-6989586621680034584"><span class="annot"><span class="annottext">Int -&gt; UpdateJobTemplate -&gt; ShowS
 [UpdateJobTemplate] -&gt; ShowS
 UpdateJobTemplate -&gt; String
 (Int -&gt; UpdateJobTemplate -&gt; ShowS)
@@ -164,28 +164,28 @@ $cfrom :: forall x. UpdateJobTemplate -&gt; Rep UpdateJobTemplate x
 </span><span id="line-102"></span><span class="hs-comment">-- pricing. For information about feature limitations, see the AWS</span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- Elemental MediaConvert User Guide.</span><span>
 </span><span id="line-104"></span><span class="hs-comment">--</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- 'category', 'updateJobTemplate_category' - The new category for the job template, if you are changing it.</span><span>
-</span><span id="line-106"></span><span class="hs-comment">--</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- 'statusUpdateInterval', 'updateJobTemplate_statusUpdateInterval' - Specify how often MediaConvert sends STATUS_UPDATE events to Amazon</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- CloudWatch Events. Set the interval, in seconds, between status updates.</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- MediaConvert sends an update at this interval from the time the service</span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- begins processing your job to the time it completes the transcode or</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- encounters an error.</span><span>
-</span><span id="line-112"></span><span class="hs-comment">--</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- 'priority', 'updateJobTemplate_priority' - Specify the relative priority for this job. In any given queue, the</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- service begins processing the job with the highest value first. When</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- more than one job has the same priority, the service begins processing</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- the job that you submitted first. If you don\'t specify a priority, the</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- service uses the default value 0.</span><span>
-</span><span id="line-118"></span><span class="hs-comment">--</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- 'queue', 'updateJobTemplate_queue' - The new queue for the job template, if you are changing it.</span><span>
-</span><span id="line-120"></span><span class="hs-comment">--</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- 'description', 'updateJobTemplate_description' - The new description for the job template, if you are changing it.</span><span>
-</span><span id="line-122"></span><span class="hs-comment">--</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- 'hopDestinations', 'updateJobTemplate_hopDestinations' - Optional list of hop destinations.</span><span>
-</span><span id="line-124"></span><span class="hs-comment">--</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- 'settings', 'updateJobTemplate_settings' - JobTemplateSettings contains all the transcode settings saved in the</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- template that will be applied to jobs created from it.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'priority', 'updateJobTemplate_priority' - Specify the relative priority for this job. In any given queue, the</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- service begins processing the job with the highest value first. When</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- more than one job has the same priority, the service begins processing</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- the job that you submitted first. If you don\'t specify a priority, the</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- service uses the default value 0.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'statusUpdateInterval', 'updateJobTemplate_statusUpdateInterval' - Specify how often MediaConvert sends STATUS_UPDATE events to Amazon</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- CloudWatch Events. Set the interval, in seconds, between status updates.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- MediaConvert sends an update at this interval from the time the service</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- begins processing your job to the time it completes the transcode or</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- encounters an error.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'settings', 'updateJobTemplate_settings' - JobTemplateSettings contains all the transcode settings saved in the</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- template that will be applied to jobs created from it.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'category', 'updateJobTemplate_category' - The new category for the job template, if you are changing it.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 'hopDestinations', 'updateJobTemplate_hopDestinations' - Optional list of hop destinations.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'queue', 'updateJobTemplate_queue' - The new queue for the job template, if you are changing it.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- 'description', 'updateJobTemplate_description' - The new description for the job template, if you are changing it.</span><span>
 </span><span id="line-127"></span><span class="hs-comment">--</span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- 'name', 'updateJobTemplate_name' - The name of the job template you are modifying</span><span>
 </span><span id="line-129"></span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#newUpdateJobTemplate"><span class="hs-identifier hs-type">newUpdateJobTemplate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -193,16 +193,16 @@ $cfrom :: forall x. UpdateJobTemplate -&gt; Rep UpdateJobTemplate x
 </span><span id="line-131"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-132"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate"><span class="hs-identifier hs-type">UpdateJobTemplate</span></a></span><span>
 </span><span id="line-133"></span><span id="newUpdateJobTemplate"><span class="annot"><span class="annottext">newUpdateJobTemplate :: Text -&gt; UpdateJobTemplate
-</span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#newUpdateJobTemplate"><span class="hs-identifier hs-var hs-var">newUpdateJobTemplate</span></a></span></span><span> </span><span id="local-6989586621680029055"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680029055"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#newUpdateJobTemplate"><span class="hs-identifier hs-var hs-var">newUpdateJobTemplate</span></a></span></span><span> </span><span id="local-6989586621680034575"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680034575"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>  </span><span class="annot"><span class="annottext">UpdateJobTemplate' :: Maybe AccelerationSettings
--&gt; Maybe Text
--&gt; Maybe StatusUpdateInterval
 -&gt; Maybe Int
--&gt; Maybe Text
+-&gt; Maybe StatusUpdateInterval
+-&gt; Maybe JobTemplateSettings
 -&gt; Maybe Text
 -&gt; Maybe [HopDestination]
--&gt; Maybe JobTemplateSettings
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Text
 -&gt; UpdateJobTemplate
 </span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate%27"><span class="hs-identifier hs-type">UpdateJobTemplate'</span></a></span><span>
@@ -211,37 +211,37 @@ $cfrom :: forall x. UpdateJobTemplate -&gt; Rep UpdateJobTemplate x
 </span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">Maybe AccelerationSettings
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">$sel:category:UpdateJobTemplate' :: Maybe Text
-</span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#%24sel%3Acategory%3AUpdateJobTemplate%27"><span class="hs-identifier hs-var">category</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">$sel:priority:UpdateJobTemplate' :: Maybe Int
+</span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#%24sel%3Apriority%3AUpdateJobTemplate%27"><span class="hs-identifier hs-var">priority</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">$sel:statusUpdateInterval:UpdateJobTemplate' :: Maybe StatusUpdateInterval
 </span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#%24sel%3AstatusUpdateInterval%3AUpdateJobTemplate%27"><span class="hs-identifier hs-var">statusUpdateInterval</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StatusUpdateInterval
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:priority:UpdateJobTemplate' :: Maybe Int
-</span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#%24sel%3Apriority%3AUpdateJobTemplate%27"><span class="hs-identifier hs-var">priority</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:settings:UpdateJobTemplate' :: Maybe JobTemplateSettings
+</span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#%24sel%3Asettings%3AUpdateJobTemplate%27"><span class="hs-identifier hs-var">settings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobTemplateSettings
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:queue:UpdateJobTemplate' :: Maybe Text
-</span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#%24sel%3Aqueue%3AUpdateJobTemplate%27"><span class="hs-identifier hs-var">queue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:category:UpdateJobTemplate' :: Maybe Text
+</span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#%24sel%3Acategory%3AUpdateJobTemplate%27"><span class="hs-identifier hs-var">category</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:UpdateJobTemplate' :: Maybe Text
-</span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#%24sel%3Adescription%3AUpdateJobTemplate%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:hopDestinations:UpdateJobTemplate' :: Maybe [HopDestination]
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:hopDestinations:UpdateJobTemplate' :: Maybe [HopDestination]
 </span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#%24sel%3AhopDestinations%3AUpdateJobTemplate%27"><span class="hs-identifier hs-var">hopDestinations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [HopDestination]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:settings:UpdateJobTemplate' :: Maybe JobTemplateSettings
-</span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#%24sel%3Asettings%3AUpdateJobTemplate%27"><span class="hs-identifier hs-var">settings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobTemplateSettings
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:queue:UpdateJobTemplate' :: Maybe Text
+</span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#%24sel%3Aqueue%3AUpdateJobTemplate%27"><span class="hs-identifier hs-var">queue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:UpdateJobTemplate' :: Maybe Text
+</span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#%24sel%3Adescription%3AUpdateJobTemplate%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:UpdateJobTemplate' :: Text
 </span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#%24sel%3Aname%3AUpdateJobTemplate%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680029055"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><a href="#local-6989586621680034575"><span class="hs-identifier hs-var">pName_</span></a></span><span>
 </span><span id="line-145"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- | Accelerated transcoding can significantly speed up jobs with long,</span><span>
@@ -260,44 +260,47 @@ forall a. Maybe a
      (Maybe AccelerationSettings)
      (Maybe AccelerationSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate%27"><span class="hs-identifier hs-type">UpdateJobTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680029052"><span class="annot"><span class="annottext">Maybe AccelerationSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate%27"><span class="hs-identifier hs-type">UpdateJobTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680034572"><span class="annot"><span class="annottext">Maybe AccelerationSettings
 accelerationSettings :: Maybe AccelerationSettings
 $sel:accelerationSettings:UpdateJobTemplate' :: UpdateJobTemplate -&gt; Maybe AccelerationSettings
-</span><a href="#local-6989586621680029052"><span class="hs-identifier hs-var hs-var">accelerationSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AccelerationSettings
-</span><a href="#local-6989586621680029052"><span class="hs-identifier hs-var">accelerationSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680029051"><span class="annot"><span class="annottext">s :: UpdateJobTemplate
-</span><a href="#local-6989586621680029051"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate%27"><span class="hs-identifier hs-type">UpdateJobTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680029050"><span class="annot"><span class="annottext">Maybe AccelerationSettings
-</span><a href="#local-6989586621680029050"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateJobTemplate
-</span><a href="#local-6989586621680029051"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accelerationSettings:UpdateJobTemplate' :: Maybe AccelerationSettings
+</span><a href="#local-6989586621680034572"><span class="hs-identifier hs-var hs-var">accelerationSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AccelerationSettings
+</span><a href="#local-6989586621680034572"><span class="hs-identifier hs-var">accelerationSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680034571"><span class="annot"><span class="annottext">s :: UpdateJobTemplate
+</span><a href="#local-6989586621680034571"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate%27"><span class="hs-identifier hs-type">UpdateJobTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680034570"><span class="annot"><span class="annottext">Maybe AccelerationSettings
+</span><a href="#local-6989586621680034570"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateJobTemplate
+</span><a href="#local-6989586621680034571"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accelerationSettings:UpdateJobTemplate' :: Maybe AccelerationSettings
 </span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#%24sel%3AaccelerationSettings%3AUpdateJobTemplate%27"><span class="hs-identifier hs-var">accelerationSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccelerationSettings
-</span><a href="#local-6989586621680029050"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate"><span class="hs-identifier hs-type">UpdateJobTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680034570"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate"><span class="hs-identifier hs-type">UpdateJobTemplate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- | The new category for the job template, if you are changing it.</span><span>
-</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#updateJobTemplate_category"><span class="hs-identifier hs-type">updateJobTemplate_category</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate"><span class="hs-identifier hs-type">UpdateJobTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-156"></span><span id="updateJobTemplate_category"><span class="annot"><span class="annottext">updateJobTemplate_category :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-154"></span><span class="hs-comment">-- | Specify the relative priority for this job. In any given queue, the</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- service begins processing the job with the highest value first. When</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- more than one job has the same priority, the service begins processing</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- the job that you submitted first. If you don\'t specify a priority, the</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- service uses the default value 0.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#updateJobTemplate_priority"><span class="hs-identifier hs-type">updateJobTemplate_priority</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate"><span class="hs-identifier hs-type">UpdateJobTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span id="updateJobTemplate_priority"><span class="annot"><span class="annottext">updateJobTemplate_priority :: (Maybe Int -&gt; f (Maybe Int))
 -&gt; UpdateJobTemplate -&gt; f UpdateJobTemplate
-</span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#updateJobTemplate_category"><span class="hs-identifier hs-var hs-var">updateJobTemplate_category</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateJobTemplate -&gt; Maybe Text)
--&gt; (UpdateJobTemplate -&gt; Maybe Text -&gt; UpdateJobTemplate)
--&gt; Lens
-     UpdateJobTemplate UpdateJobTemplate (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#updateJobTemplate_priority"><span class="hs-identifier hs-var hs-var">updateJobTemplate_priority</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateJobTemplate -&gt; Maybe Int)
+-&gt; (UpdateJobTemplate -&gt; Maybe Int -&gt; UpdateJobTemplate)
+-&gt; Lens UpdateJobTemplate UpdateJobTemplate (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate%27"><span class="hs-identifier hs-type">UpdateJobTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680029049"><span class="annot"><span class="annottext">Maybe Text
-category :: Maybe Text
-$sel:category:UpdateJobTemplate' :: UpdateJobTemplate -&gt; Maybe Text
-</span><a href="#local-6989586621680029049"><span class="hs-identifier hs-var hs-var">category</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680029049"><span class="hs-identifier hs-var">category</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680029048"><span class="annot"><span class="annottext">s :: UpdateJobTemplate
-</span><a href="#local-6989586621680029048"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate%27"><span class="hs-identifier hs-type">UpdateJobTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680029047"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680029047"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateJobTemplate
-</span><a href="#local-6989586621680029048"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:category:UpdateJobTemplate' :: Maybe Text
-</span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#%24sel%3Acategory%3AUpdateJobTemplate%27"><span class="hs-identifier hs-var">category</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680029047"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate"><span class="hs-identifier hs-type">UpdateJobTemplate</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-comment">-- | Specify how often MediaConvert sends STATUS_UPDATE events to Amazon</span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- CloudWatch Events. Set the interval, in seconds, between status updates.</span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- MediaConvert sends an update at this interval from the time the service</span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- begins processing your job to the time it completes the transcode or</span><span>
-</span><span id="line-162"></span><span class="hs-comment">-- encounters an error.</span><span>
-</span><span id="line-163"></span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#updateJobTemplate_statusUpdateInterval"><span class="hs-identifier hs-type">updateJobTemplate_statusUpdateInterval</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate"><span class="hs-identifier hs-type">UpdateJobTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StatusUpdateInterval.html#StatusUpdateInterval"><span class="hs-identifier hs-type">StatusUpdateInterval</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-164"></span><span id="updateJobTemplate_statusUpdateInterval"><span class="annot"><span class="annottext">updateJobTemplate_statusUpdateInterval :: (Maybe StatusUpdateInterval -&gt; f (Maybe StatusUpdateInterval))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate%27"><span class="hs-identifier hs-type">UpdateJobTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680034569"><span class="annot"><span class="annottext">Maybe Int
+priority :: Maybe Int
+$sel:priority:UpdateJobTemplate' :: UpdateJobTemplate -&gt; Maybe Int
+</span><a href="#local-6989586621680034569"><span class="hs-identifier hs-var hs-var">priority</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621680034569"><span class="hs-identifier hs-var">priority</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680034568"><span class="annot"><span class="annottext">s :: UpdateJobTemplate
+</span><a href="#local-6989586621680034568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate%27"><span class="hs-identifier hs-type">UpdateJobTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680034567"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621680034567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateJobTemplate
+</span><a href="#local-6989586621680034568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:priority:UpdateJobTemplate' :: Maybe Int
+</span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#%24sel%3Apriority%3AUpdateJobTemplate%27"><span class="hs-identifier hs-var">priority</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621680034567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate"><span class="hs-identifier hs-type">UpdateJobTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | Specify how often MediaConvert sends STATUS_UPDATE events to Amazon</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- CloudWatch Events. Set the interval, in seconds, between status updates.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- MediaConvert sends an update at this interval from the time the service</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- begins processing your job to the time it completes the transcode or</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- encounters an error.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#updateJobTemplate_statusUpdateInterval"><span class="hs-identifier hs-type">updateJobTemplate_statusUpdateInterval</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate"><span class="hs-identifier hs-type">UpdateJobTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StatusUpdateInterval.html#StatusUpdateInterval"><span class="hs-identifier hs-type">StatusUpdateInterval</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span id="updateJobTemplate_statusUpdateInterval"><span class="annot"><span class="annottext">updateJobTemplate_statusUpdateInterval :: (Maybe StatusUpdateInterval -&gt; f (Maybe StatusUpdateInterval))
 -&gt; UpdateJobTemplate -&gt; f UpdateJobTemplate
 </span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#updateJobTemplate_statusUpdateInterval"><span class="hs-identifier hs-var hs-var">updateJobTemplate_statusUpdateInterval</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateJobTemplate -&gt; Maybe StatusUpdateInterval)
 -&gt; (UpdateJobTemplate
@@ -308,83 +311,65 @@ $sel:category:UpdateJobTemplate' :: UpdateJobTemplate -&gt; Maybe Text
      (Maybe StatusUpdateInterval)
      (Maybe StatusUpdateInterval)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate%27"><span class="hs-identifier hs-type">UpdateJobTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680029046"><span class="annot"><span class="annottext">Maybe StatusUpdateInterval
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate%27"><span class="hs-identifier hs-type">UpdateJobTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680034566"><span class="annot"><span class="annottext">Maybe StatusUpdateInterval
 statusUpdateInterval :: Maybe StatusUpdateInterval
 $sel:statusUpdateInterval:UpdateJobTemplate' :: UpdateJobTemplate -&gt; Maybe StatusUpdateInterval
-</span><a href="#local-6989586621680029046"><span class="hs-identifier hs-var hs-var">statusUpdateInterval</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StatusUpdateInterval
-</span><a href="#local-6989586621680029046"><span class="hs-identifier hs-var">statusUpdateInterval</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680029045"><span class="annot"><span class="annottext">s :: UpdateJobTemplate
-</span><a href="#local-6989586621680029045"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate%27"><span class="hs-identifier hs-type">UpdateJobTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680029044"><span class="annot"><span class="annottext">Maybe StatusUpdateInterval
-</span><a href="#local-6989586621680029044"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateJobTemplate
-</span><a href="#local-6989586621680029045"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusUpdateInterval:UpdateJobTemplate' :: Maybe StatusUpdateInterval
+</span><a href="#local-6989586621680034566"><span class="hs-identifier hs-var hs-var">statusUpdateInterval</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StatusUpdateInterval
+</span><a href="#local-6989586621680034566"><span class="hs-identifier hs-var">statusUpdateInterval</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680034565"><span class="annot"><span class="annottext">s :: UpdateJobTemplate
+</span><a href="#local-6989586621680034565"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate%27"><span class="hs-identifier hs-type">UpdateJobTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680034564"><span class="annot"><span class="annottext">Maybe StatusUpdateInterval
+</span><a href="#local-6989586621680034564"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateJobTemplate
+</span><a href="#local-6989586621680034565"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusUpdateInterval:UpdateJobTemplate' :: Maybe StatusUpdateInterval
 </span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#%24sel%3AstatusUpdateInterval%3AUpdateJobTemplate%27"><span class="hs-identifier hs-var">statusUpdateInterval</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StatusUpdateInterval
-</span><a href="#local-6989586621680029044"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate"><span class="hs-identifier hs-type">UpdateJobTemplate</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-165"></span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- | Specify the relative priority for this job. In any given queue, the</span><span>
-</span><span id="line-167"></span><span class="hs-comment">-- service begins processing the job with the highest value first. When</span><span>
-</span><span id="line-168"></span><span class="hs-comment">-- more than one job has the same priority, the service begins processing</span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- the job that you submitted first. If you don\'t specify a priority, the</span><span>
-</span><span id="line-170"></span><span class="hs-comment">-- service uses the default value 0.</span><span>
-</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#updateJobTemplate_priority"><span class="hs-identifier hs-type">updateJobTemplate_priority</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate"><span class="hs-identifier hs-type">UpdateJobTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-172"></span><span id="updateJobTemplate_priority"><span class="annot"><span class="annottext">updateJobTemplate_priority :: (Maybe Int -&gt; f (Maybe Int))
+</span><a href="#local-6989586621680034564"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate"><span class="hs-identifier hs-type">UpdateJobTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | JobTemplateSettings contains all the transcode settings saved in the</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- template that will be applied to jobs created from it.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#updateJobTemplate_settings"><span class="hs-identifier hs-type">updateJobTemplate_settings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate"><span class="hs-identifier hs-type">UpdateJobTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings"><span class="hs-identifier hs-type">JobTemplateSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="updateJobTemplate_settings"><span class="annot"><span class="annottext">updateJobTemplate_settings :: (Maybe JobTemplateSettings -&gt; f (Maybe JobTemplateSettings))
 -&gt; UpdateJobTemplate -&gt; f UpdateJobTemplate
-</span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#updateJobTemplate_priority"><span class="hs-identifier hs-var hs-var">updateJobTemplate_priority</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateJobTemplate -&gt; Maybe Int)
--&gt; (UpdateJobTemplate -&gt; Maybe Int -&gt; UpdateJobTemplate)
--&gt; Lens UpdateJobTemplate UpdateJobTemplate (Maybe Int) (Maybe Int)
+</span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#updateJobTemplate_settings"><span class="hs-identifier hs-var hs-var">updateJobTemplate_settings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateJobTemplate -&gt; Maybe JobTemplateSettings)
+-&gt; (UpdateJobTemplate
+    -&gt; Maybe JobTemplateSettings -&gt; UpdateJobTemplate)
+-&gt; Lens
+     UpdateJobTemplate
+     UpdateJobTemplate
+     (Maybe JobTemplateSettings)
+     (Maybe JobTemplateSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate%27"><span class="hs-identifier hs-type">UpdateJobTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680029043"><span class="annot"><span class="annottext">Maybe Int
-priority :: Maybe Int
-$sel:priority:UpdateJobTemplate' :: UpdateJobTemplate -&gt; Maybe Int
-</span><a href="#local-6989586621680029043"><span class="hs-identifier hs-var hs-var">priority</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621680029043"><span class="hs-identifier hs-var">priority</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680029042"><span class="annot"><span class="annottext">s :: UpdateJobTemplate
-</span><a href="#local-6989586621680029042"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate%27"><span class="hs-identifier hs-type">UpdateJobTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680029041"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621680029041"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateJobTemplate
-</span><a href="#local-6989586621680029042"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:priority:UpdateJobTemplate' :: Maybe Int
-</span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#%24sel%3Apriority%3AUpdateJobTemplate%27"><span class="hs-identifier hs-var">priority</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621680029041"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate"><span class="hs-identifier hs-type">UpdateJobTemplate</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-173"></span><span>
-</span><span id="line-174"></span><span class="hs-comment">-- | The new queue for the job template, if you are changing it.</span><span>
-</span><span id="line-175"></span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#updateJobTemplate_queue"><span class="hs-identifier hs-type">updateJobTemplate_queue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate"><span class="hs-identifier hs-type">UpdateJobTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-176"></span><span id="updateJobTemplate_queue"><span class="annot"><span class="annottext">updateJobTemplate_queue :: (Maybe Text -&gt; f (Maybe Text))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate%27"><span class="hs-identifier hs-type">UpdateJobTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680034563"><span class="annot"><span class="annottext">Maybe JobTemplateSettings
+settings :: Maybe JobTemplateSettings
+$sel:settings:UpdateJobTemplate' :: UpdateJobTemplate -&gt; Maybe JobTemplateSettings
+</span><a href="#local-6989586621680034563"><span class="hs-identifier hs-var hs-var">settings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobTemplateSettings
+</span><a href="#local-6989586621680034563"><span class="hs-identifier hs-var">settings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680034562"><span class="annot"><span class="annottext">s :: UpdateJobTemplate
+</span><a href="#local-6989586621680034562"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate%27"><span class="hs-identifier hs-type">UpdateJobTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680034561"><span class="annot"><span class="annottext">Maybe JobTemplateSettings
+</span><a href="#local-6989586621680034561"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateJobTemplate
+</span><a href="#local-6989586621680034562"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:settings:UpdateJobTemplate' :: Maybe JobTemplateSettings
+</span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#%24sel%3Asettings%3AUpdateJobTemplate%27"><span class="hs-identifier hs-var">settings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobTemplateSettings
+</span><a href="#local-6989586621680034561"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate"><span class="hs-identifier hs-type">UpdateJobTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | The new category for the job template, if you are changing it.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#updateJobTemplate_category"><span class="hs-identifier hs-type">updateJobTemplate_category</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate"><span class="hs-identifier hs-type">UpdateJobTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span id="updateJobTemplate_category"><span class="annot"><span class="annottext">updateJobTemplate_category :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; UpdateJobTemplate -&gt; f UpdateJobTemplate
-</span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#updateJobTemplate_queue"><span class="hs-identifier hs-var hs-var">updateJobTemplate_queue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateJobTemplate -&gt; Maybe Text)
+</span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#updateJobTemplate_category"><span class="hs-identifier hs-var hs-var">updateJobTemplate_category</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateJobTemplate -&gt; Maybe Text)
 -&gt; (UpdateJobTemplate -&gt; Maybe Text -&gt; UpdateJobTemplate)
 -&gt; Lens
      UpdateJobTemplate UpdateJobTemplate (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate%27"><span class="hs-identifier hs-type">UpdateJobTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680029040"><span class="annot"><span class="annottext">Maybe Text
-queue :: Maybe Text
-$sel:queue:UpdateJobTemplate' :: UpdateJobTemplate -&gt; Maybe Text
-</span><a href="#local-6989586621680029040"><span class="hs-identifier hs-var hs-var">queue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680029040"><span class="hs-identifier hs-var">queue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680029039"><span class="annot"><span class="annottext">s :: UpdateJobTemplate
-</span><a href="#local-6989586621680029039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate%27"><span class="hs-identifier hs-type">UpdateJobTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680029038"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680029038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateJobTemplate
-</span><a href="#local-6989586621680029039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queue:UpdateJobTemplate' :: Maybe Text
-</span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#%24sel%3Aqueue%3AUpdateJobTemplate%27"><span class="hs-identifier hs-var">queue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680029038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate"><span class="hs-identifier hs-type">UpdateJobTemplate</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-177"></span><span>
-</span><span id="line-178"></span><span class="hs-comment">-- | The new description for the job template, if you are changing it.</span><span>
-</span><span id="line-179"></span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#updateJobTemplate_description"><span class="hs-identifier hs-type">updateJobTemplate_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate"><span class="hs-identifier hs-type">UpdateJobTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-180"></span><span id="updateJobTemplate_description"><span class="annot"><span class="annottext">updateJobTemplate_description :: (Maybe Text -&gt; f (Maybe Text))
--&gt; UpdateJobTemplate -&gt; f UpdateJobTemplate
-</span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#updateJobTemplate_description"><span class="hs-identifier hs-var hs-var">updateJobTemplate_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateJobTemplate -&gt; Maybe Text)
--&gt; (UpdateJobTemplate -&gt; Maybe Text -&gt; UpdateJobTemplate)
--&gt; Lens
-     UpdateJobTemplate UpdateJobTemplate (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate%27"><span class="hs-identifier hs-type">UpdateJobTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680029037"><span class="annot"><span class="annottext">Maybe Text
-description :: Maybe Text
-$sel:description:UpdateJobTemplate' :: UpdateJobTemplate -&gt; Maybe Text
-</span><a href="#local-6989586621680029037"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680029037"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680029036"><span class="annot"><span class="annottext">s :: UpdateJobTemplate
-</span><a href="#local-6989586621680029036"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate%27"><span class="hs-identifier hs-type">UpdateJobTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680029035"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680029035"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateJobTemplate
-</span><a href="#local-6989586621680029036"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateJobTemplate' :: Maybe Text
-</span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#%24sel%3Adescription%3AUpdateJobTemplate%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680029035"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate"><span class="hs-identifier hs-type">UpdateJobTemplate</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-181"></span><span>
-</span><span id="line-182"></span><span class="hs-comment">-- | Optional list of hop destinations.</span><span>
-</span><span id="line-183"></span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#updateJobTemplate_hopDestinations"><span class="hs-identifier hs-type">updateJobTemplate_hopDestinations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate"><span class="hs-identifier hs-type">UpdateJobTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HopDestination.html#HopDestination"><span class="hs-identifier hs-type">HopDestination</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-184"></span><span id="updateJobTemplate_hopDestinations"><span class="annot"><span class="annottext">updateJobTemplate_hopDestinations :: (Maybe [HopDestination] -&gt; f (Maybe [HopDestination]))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate%27"><span class="hs-identifier hs-type">UpdateJobTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680034560"><span class="annot"><span class="annottext">Maybe Text
+category :: Maybe Text
+$sel:category:UpdateJobTemplate' :: UpdateJobTemplate -&gt; Maybe Text
+</span><a href="#local-6989586621680034560"><span class="hs-identifier hs-var hs-var">category</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680034560"><span class="hs-identifier hs-var">category</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680034559"><span class="annot"><span class="annottext">s :: UpdateJobTemplate
+</span><a href="#local-6989586621680034559"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate%27"><span class="hs-identifier hs-type">UpdateJobTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680034558"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680034558"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateJobTemplate
+</span><a href="#local-6989586621680034559"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:category:UpdateJobTemplate' :: Maybe Text
+</span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#%24sel%3Acategory%3AUpdateJobTemplate%27"><span class="hs-identifier hs-var">category</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680034558"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate"><span class="hs-identifier hs-type">UpdateJobTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | Optional list of hop destinations.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#updateJobTemplate_hopDestinations"><span class="hs-identifier hs-type">updateJobTemplate_hopDestinations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate"><span class="hs-identifier hs-type">UpdateJobTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HopDestination.html#HopDestination"><span class="hs-identifier hs-type">HopDestination</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span id="updateJobTemplate_hopDestinations"><span class="annot"><span class="annottext">updateJobTemplate_hopDestinations :: (Maybe [HopDestination] -&gt; f (Maybe [HopDestination]))
 -&gt; UpdateJobTemplate -&gt; f UpdateJobTemplate
 </span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#updateJobTemplate_hopDestinations"><span class="hs-identifier hs-var hs-var">updateJobTemplate_hopDestinations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateJobTemplate -&gt; Maybe [HopDestination])
 -&gt; (UpdateJobTemplate
@@ -395,16 +380,16 @@ $sel:description:UpdateJobTemplate' :: UpdateJobTemplate -&gt; Maybe Text
      (Maybe [HopDestination])
      (Maybe [HopDestination])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate%27"><span class="hs-identifier hs-type">UpdateJobTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680029034"><span class="annot"><span class="annottext">Maybe [HopDestination]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate%27"><span class="hs-identifier hs-type">UpdateJobTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680034557"><span class="annot"><span class="annottext">Maybe [HopDestination]
 hopDestinations :: Maybe [HopDestination]
 $sel:hopDestinations:UpdateJobTemplate' :: UpdateJobTemplate -&gt; Maybe [HopDestination]
-</span><a href="#local-6989586621680029034"><span class="hs-identifier hs-var hs-var">hopDestinations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [HopDestination]
-</span><a href="#local-6989586621680029034"><span class="hs-identifier hs-var">hopDestinations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680029033"><span class="annot"><span class="annottext">s :: UpdateJobTemplate
-</span><a href="#local-6989586621680029033"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate%27"><span class="hs-identifier hs-type">UpdateJobTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680029032"><span class="annot"><span class="annottext">Maybe [HopDestination]
-</span><a href="#local-6989586621680029032"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateJobTemplate
-</span><a href="#local-6989586621680029033"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hopDestinations:UpdateJobTemplate' :: Maybe [HopDestination]
+</span><a href="#local-6989586621680034557"><span class="hs-identifier hs-var hs-var">hopDestinations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [HopDestination]
+</span><a href="#local-6989586621680034557"><span class="hs-identifier hs-var">hopDestinations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680034556"><span class="annot"><span class="annottext">s :: UpdateJobTemplate
+</span><a href="#local-6989586621680034556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate%27"><span class="hs-identifier hs-type">UpdateJobTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680034555"><span class="annot"><span class="annottext">Maybe [HopDestination]
+</span><a href="#local-6989586621680034555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateJobTemplate
+</span><a href="#local-6989586621680034556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hopDestinations:UpdateJobTemplate' :: Maybe [HopDestination]
 </span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#%24sel%3AhopDestinations%3AUpdateJobTemplate%27"><span class="hs-identifier hs-var">hopDestinations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [HopDestination]
-</span><a href="#local-6989586621680029032"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate"><span class="hs-identifier hs-type">UpdateJobTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [HopDestination] -&gt; f (Maybe [HopDestination]))
+</span><a href="#local-6989586621680034555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate"><span class="hs-identifier hs-type">UpdateJobTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [HopDestination] -&gt; f (Maybe [HopDestination]))
  -&gt; UpdateJobTemplate -&gt; f UpdateJobTemplate)
 -&gt; ((Maybe [HopDestination] -&gt; f (Maybe [HopDestination]))
     -&gt; Maybe [HopDestination] -&gt; f (Maybe [HopDestination]))
@@ -424,33 +409,48 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   [HopDestination] [HopDestination] [HopDestination] [HopDestination]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-185"></span><span>
-</span><span id="line-186"></span><span class="hs-comment">-- | JobTemplateSettings contains all the transcode settings saved in the</span><span>
-</span><span id="line-187"></span><span class="hs-comment">-- template that will be applied to jobs created from it.</span><span>
-</span><span id="line-188"></span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#updateJobTemplate_settings"><span class="hs-identifier hs-type">updateJobTemplate_settings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate"><span class="hs-identifier hs-type">UpdateJobTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.JobTemplateSettings.html#JobTemplateSettings"><span class="hs-identifier hs-type">JobTemplateSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-189"></span><span id="updateJobTemplate_settings"><span class="annot"><span class="annottext">updateJobTemplate_settings :: (Maybe JobTemplateSettings -&gt; f (Maybe JobTemplateSettings))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | The new queue for the job template, if you are changing it.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#updateJobTemplate_queue"><span class="hs-identifier hs-type">updateJobTemplate_queue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate"><span class="hs-identifier hs-type">UpdateJobTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span id="updateJobTemplate_queue"><span class="annot"><span class="annottext">updateJobTemplate_queue :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; UpdateJobTemplate -&gt; f UpdateJobTemplate
-</span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#updateJobTemplate_settings"><span class="hs-identifier hs-var hs-var">updateJobTemplate_settings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateJobTemplate -&gt; Maybe JobTemplateSettings)
--&gt; (UpdateJobTemplate
-    -&gt; Maybe JobTemplateSettings -&gt; UpdateJobTemplate)
+</span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#updateJobTemplate_queue"><span class="hs-identifier hs-var hs-var">updateJobTemplate_queue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateJobTemplate -&gt; Maybe Text)
+-&gt; (UpdateJobTemplate -&gt; Maybe Text -&gt; UpdateJobTemplate)
 -&gt; Lens
-     UpdateJobTemplate
-     UpdateJobTemplate
-     (Maybe JobTemplateSettings)
-     (Maybe JobTemplateSettings)
+     UpdateJobTemplate UpdateJobTemplate (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate%27"><span class="hs-identifier hs-type">UpdateJobTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680029028"><span class="annot"><span class="annottext">Maybe JobTemplateSettings
-settings :: Maybe JobTemplateSettings
-$sel:settings:UpdateJobTemplate' :: UpdateJobTemplate -&gt; Maybe JobTemplateSettings
-</span><a href="#local-6989586621680029028"><span class="hs-identifier hs-var hs-var">settings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobTemplateSettings
-</span><a href="#local-6989586621680029028"><span class="hs-identifier hs-var">settings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680029027"><span class="annot"><span class="annottext">s :: UpdateJobTemplate
-</span><a href="#local-6989586621680029027"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate%27"><span class="hs-identifier hs-type">UpdateJobTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680029026"><span class="annot"><span class="annottext">Maybe JobTemplateSettings
-</span><a href="#local-6989586621680029026"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateJobTemplate
-</span><a href="#local-6989586621680029027"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:settings:UpdateJobTemplate' :: Maybe JobTemplateSettings
-</span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#%24sel%3Asettings%3AUpdateJobTemplate%27"><span class="hs-identifier hs-var">settings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobTemplateSettings
-</span><a href="#local-6989586621680029026"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate"><span class="hs-identifier hs-type">UpdateJobTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate%27"><span class="hs-identifier hs-type">UpdateJobTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680034551"><span class="annot"><span class="annottext">Maybe Text
+queue :: Maybe Text
+$sel:queue:UpdateJobTemplate' :: UpdateJobTemplate -&gt; Maybe Text
+</span><a href="#local-6989586621680034551"><span class="hs-identifier hs-var hs-var">queue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680034551"><span class="hs-identifier hs-var">queue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680034550"><span class="annot"><span class="annottext">s :: UpdateJobTemplate
+</span><a href="#local-6989586621680034550"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate%27"><span class="hs-identifier hs-type">UpdateJobTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680034549"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680034549"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateJobTemplate
+</span><a href="#local-6989586621680034550"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queue:UpdateJobTemplate' :: Maybe Text
+</span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#%24sel%3Aqueue%3AUpdateJobTemplate%27"><span class="hs-identifier hs-var">queue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680034549"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate"><span class="hs-identifier hs-type">UpdateJobTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | The new description for the job template, if you are changing it.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#updateJobTemplate_description"><span class="hs-identifier hs-type">updateJobTemplate_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate"><span class="hs-identifier hs-type">UpdateJobTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span id="updateJobTemplate_description"><span class="annot"><span class="annottext">updateJobTemplate_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateJobTemplate -&gt; f UpdateJobTemplate
+</span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#updateJobTemplate_description"><span class="hs-identifier hs-var hs-var">updateJobTemplate_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateJobTemplate -&gt; Maybe Text)
+-&gt; (UpdateJobTemplate -&gt; Maybe Text -&gt; UpdateJobTemplate)
+-&gt; Lens
+     UpdateJobTemplate UpdateJobTemplate (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate%27"><span class="hs-identifier hs-type">UpdateJobTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680034548"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:UpdateJobTemplate' :: UpdateJobTemplate -&gt; Maybe Text
+</span><a href="#local-6989586621680034548"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680034548"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680034547"><span class="annot"><span class="annottext">s :: UpdateJobTemplate
+</span><a href="#local-6989586621680034547"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate%27"><span class="hs-identifier hs-type">UpdateJobTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680034546"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680034546"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateJobTemplate
+</span><a href="#local-6989586621680034547"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateJobTemplate' :: Maybe Text
+</span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#%24sel%3Adescription%3AUpdateJobTemplate%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680034546"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate"><span class="hs-identifier hs-type">UpdateJobTemplate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- | The name of the job template you are modifying</span><span>
 </span><span id="line-192"></span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#updateJobTemplate_name"><span class="hs-identifier hs-type">updateJobTemplate_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate"><span class="hs-identifier hs-type">UpdateJobTemplate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -459,27 +459,27 @@ $sel:settings:UpdateJobTemplate' :: UpdateJobTemplate -&gt; Maybe JobTemplateSet
 -&gt; (UpdateJobTemplate -&gt; Text -&gt; UpdateJobTemplate)
 -&gt; Lens UpdateJobTemplate UpdateJobTemplate Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate%27"><span class="hs-identifier hs-type">UpdateJobTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680029025"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate%27"><span class="hs-identifier hs-type">UpdateJobTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680034545"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:UpdateJobTemplate' :: UpdateJobTemplate -&gt; Text
-</span><a href="#local-6989586621680029025"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680029025"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680029024"><span class="annot"><span class="annottext">s :: UpdateJobTemplate
-</span><a href="#local-6989586621680029024"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate%27"><span class="hs-identifier hs-type">UpdateJobTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680029023"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680029023"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateJobTemplate
-</span><a href="#local-6989586621680029024"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateJobTemplate' :: Text
+</span><a href="#local-6989586621680034545"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680034545"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680034544"><span class="annot"><span class="annottext">s :: UpdateJobTemplate
+</span><a href="#local-6989586621680034544"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate%27"><span class="hs-identifier hs-type">UpdateJobTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680034543"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680034543"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateJobTemplate
+</span><a href="#local-6989586621680034544"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateJobTemplate' :: Text
 </span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#%24sel%3Aname%3AUpdateJobTemplate%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680029023"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate"><span class="hs-identifier hs-type">UpdateJobTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680034543"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate"><span class="hs-identifier hs-type">UpdateJobTemplate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-194"></span><span>
 </span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate"><span class="hs-identifier hs-type">UpdateJobTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-196"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-197"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate"><span class="hs-identifier hs-type">UpdateJobTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-198"></span><span>      </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplateResponse"><span class="hs-identifier hs-type">UpdateJobTemplateResponse</span></a></span><span>
-</span><span id="line-199"></span><span>  </span><span id="local-6989586621680029019"><span class="annot"><span class="annottext">request :: UpdateJobTemplate -&gt; Request UpdateJobTemplate
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621680034539"><span class="annot"><span class="annottext">request :: UpdateJobTemplate -&gt; Request UpdateJobTemplate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateJobTemplate -&gt; Request UpdateJobTemplate
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MediaConvert.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-200"></span><span>  </span><span id="local-6989586621680029015"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621680034535"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateJobTemplate
 -&gt; ClientResponse ClientBody
@@ -505,10 +505,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-202"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680029012"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680029012"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680029011"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621680029011"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680029010"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680029010"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-202"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680034532"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680034532"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680034531"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680034531"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680034530"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680034530"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-203"></span><span>          </span><span class="annot"><span class="annottext">Maybe JobTemplate -&gt; Int -&gt; UpdateJobTemplateResponse
 </span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplateResponse%27"><span class="hs-identifier hs-var">UpdateJobTemplateResponse'</span></a></span><span>
 </span><span id="line-204"></span><span>            </span><span class="annot"><span class="annottext">(Maybe JobTemplate -&gt; Int -&gt; UpdateJobTemplateResponse)
@@ -516,7 +516,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; UpdateJobTemplateResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680029010"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe JobTemplate)
+</span><a href="#local-6989586621680034530"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe JobTemplate)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;jobTemplate&quot;</span></span><span class="hs-special">)</span><span>
@@ -528,15 +528,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680029012"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680034532"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-206"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-207"></span><span>
-</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680029002"><span id="local-6989586621680029004"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate"><span class="hs-identifier hs-type">UpdateJobTemplate</span></a></span></span></span><span>
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680034522"><span id="local-6989586621680034524"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate"><span class="hs-identifier hs-type">UpdateJobTemplate</span></a></span></span></span><span>
 </span><span id="line-209"></span><span>
-</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680028999"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate"><span class="hs-identifier hs-type">UpdateJobTemplate</span></a></span></span><span>
+</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680034519"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate"><span class="hs-identifier hs-type">UpdateJobTemplate</span></a></span></span><span>
 </span><span id="line-211"></span><span>
 </span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate"><span class="hs-identifier hs-type">UpdateJobTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-213"></span><span>  </span><span id="local-6989586621680028995"><span class="annot"><span class="annottext">toHeaders :: UpdateJobTemplate -&gt; ResponseHeaders
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621680034515"><span class="annot"><span class="annottext">toHeaders :: UpdateJobTemplate -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-214"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateJobTemplate -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -555,9 +555,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-220"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-221"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-222"></span><span>
-</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680028985"><span id="local-6989586621680028987"><span id="local-6989586621680028989"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate"><span class="hs-identifier hs-type">UpdateJobTemplate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-224"></span><span>  </span><span id="local-6989586621680028983"><span class="annot"><span class="annottext">toJSON :: UpdateJobTemplate -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate%27"><span class="hs-identifier hs-type">UpdateJobTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680028973"><span id="local-6989586621680028974"><span id="local-6989586621680028975"><span id="local-6989586621680028976"><span id="local-6989586621680028977"><span id="local-6989586621680028978"><span id="local-6989586621680028979"><span id="local-6989586621680028980"><span id="local-6989586621680028981"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680034505"><span id="local-6989586621680034507"><span id="local-6989586621680034509"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate"><span class="hs-identifier hs-type">UpdateJobTemplate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-224"></span><span>  </span><span id="local-6989586621680034503"><span class="annot"><span class="annottext">toJSON :: UpdateJobTemplate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate%27"><span class="hs-identifier hs-type">UpdateJobTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680034493"><span id="local-6989586621680034494"><span id="local-6989586621680034495"><span id="local-6989586621680034496"><span id="local-6989586621680034497"><span id="local-6989586621680034498"><span id="local-6989586621680034499"><span id="local-6989586621680034500"><span id="local-6989586621680034501"><span class="annot"><span class="annottext">Maybe Int
 Maybe [HopDestination]
 Maybe Text
 Maybe AccelerationSettings
@@ -565,24 +565,24 @@ Maybe StatusUpdateInterval
 Maybe JobTemplateSettings
 Text
 name :: Text
-settings :: Maybe JobTemplateSettings
-hopDestinations :: Maybe [HopDestination]
 description :: Maybe Text
 queue :: Maybe Text
-priority :: Maybe Int
-statusUpdateInterval :: Maybe StatusUpdateInterval
+hopDestinations :: Maybe [HopDestination]
 category :: Maybe Text
+settings :: Maybe JobTemplateSettings
+statusUpdateInterval :: Maybe StatusUpdateInterval
+priority :: Maybe Int
 accelerationSettings :: Maybe AccelerationSettings
 $sel:name:UpdateJobTemplate' :: UpdateJobTemplate -&gt; Text
-$sel:settings:UpdateJobTemplate' :: UpdateJobTemplate -&gt; Maybe JobTemplateSettings
-$sel:hopDestinations:UpdateJobTemplate' :: UpdateJobTemplate -&gt; Maybe [HopDestination]
 $sel:description:UpdateJobTemplate' :: UpdateJobTemplate -&gt; Maybe Text
 $sel:queue:UpdateJobTemplate' :: UpdateJobTemplate -&gt; Maybe Text
-$sel:priority:UpdateJobTemplate' :: UpdateJobTemplate -&gt; Maybe Int
-$sel:statusUpdateInterval:UpdateJobTemplate' :: UpdateJobTemplate -&gt; Maybe StatusUpdateInterval
+$sel:hopDestinations:UpdateJobTemplate' :: UpdateJobTemplate -&gt; Maybe [HopDestination]
 $sel:category:UpdateJobTemplate' :: UpdateJobTemplate -&gt; Maybe Text
+$sel:settings:UpdateJobTemplate' :: UpdateJobTemplate -&gt; Maybe JobTemplateSettings
+$sel:statusUpdateInterval:UpdateJobTemplate' :: UpdateJobTemplate -&gt; Maybe StatusUpdateInterval
+$sel:priority:UpdateJobTemplate' :: UpdateJobTemplate -&gt; Maybe Int
 $sel:accelerationSettings:UpdateJobTemplate' :: UpdateJobTemplate -&gt; Maybe AccelerationSettings
-</span><a href="#local-6989586621680028973"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680034493"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-225"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-226"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -596,14 +596,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe AccelerationSettings -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AccelerationSettings
-</span><a href="#local-6989586621680028981"><span class="hs-identifier hs-var">accelerationSettings</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680034501"><span class="hs-identifier hs-var">accelerationSettings</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-229"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;category&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><span class="hs-string">&quot;priority&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680028980"><span class="hs-identifier hs-var">category</span></a></span><span class="hs-special">,</span><span>
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621680034500"><span class="hs-identifier hs-var">priority</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-230"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;statusUpdateInterval&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; StatusUpdateInterval -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -612,50 +612,50 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe StatusUpdateInterval -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe StatusUpdateInterval
-</span><a href="#local-6989586621680028979"><span class="hs-identifier hs-var">statusUpdateInterval</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680034499"><span class="hs-identifier hs-var">statusUpdateInterval</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-232"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;priority&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621680028978"><span class="hs-identifier hs-var">priority</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-233"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;queue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680028977"><span class="hs-identifier hs-var">queue</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-234"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680028976"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-235"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;hopDestinations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [HopDestination] -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-236"></span><span>              </span><span class="annot"><span class="annottext">([HopDestination] -&gt; Pair) -&gt; Maybe [HopDestination] -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [HopDestination]
-</span><a href="#local-6989586621680028975"><span class="hs-identifier hs-var">hopDestinations</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-237"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;settings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; JobTemplateSettings -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(JobTemplateSettings -&gt; Pair)
 -&gt; Maybe JobTemplateSettings -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe JobTemplateSettings
-</span><a href="#local-6989586621680028974"><span class="hs-identifier hs-var">settings</span></a></span><span>
+</span><a href="#local-6989586621680034498"><span class="hs-identifier hs-var">settings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;category&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680034497"><span class="hs-identifier hs-var">category</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;hopDestinations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [HopDestination] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>              </span><span class="annot"><span class="annottext">([HopDestination] -&gt; Pair) -&gt; Maybe [HopDestination] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [HopDestination]
+</span><a href="#local-6989586621680034496"><span class="hs-identifier hs-var">hopDestinations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;queue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680034495"><span class="hs-identifier hs-var">queue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680034494"><span class="hs-identifier hs-var">description</span></a></span><span>
 </span><span id="line-238"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-239"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-240"></span><span>
 </span><span id="line-241"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate"><span class="hs-identifier hs-type">UpdateJobTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-242"></span><span>  </span><span id="local-6989586621680028967"><span class="annot"><span class="annottext">toPath :: UpdateJobTemplate -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate%27"><span class="hs-identifier hs-type">UpdateJobTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680028957"><span id="local-6989586621680028958"><span id="local-6989586621680028959"><span id="local-6989586621680028960"><span id="local-6989586621680028961"><span id="local-6989586621680028962"><span id="local-6989586621680028963"><span id="local-6989586621680028964"><span id="local-6989586621680028965"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-242"></span><span>  </span><span id="local-6989586621680034487"><span class="annot"><span class="annottext">toPath :: UpdateJobTemplate -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate%27"><span class="hs-identifier hs-type">UpdateJobTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680034477"><span id="local-6989586621680034478"><span id="local-6989586621680034479"><span id="local-6989586621680034480"><span id="local-6989586621680034481"><span id="local-6989586621680034482"><span id="local-6989586621680034483"><span id="local-6989586621680034484"><span id="local-6989586621680034485"><span class="annot"><span class="annottext">Maybe Int
 Maybe [HopDestination]
 Maybe Text
 Maybe AccelerationSettings
@@ -663,24 +663,24 @@ Maybe StatusUpdateInterval
 Maybe JobTemplateSettings
 Text
 name :: Text
-settings :: Maybe JobTemplateSettings
-hopDestinations :: Maybe [HopDestination]
 description :: Maybe Text
 queue :: Maybe Text
-priority :: Maybe Int
-statusUpdateInterval :: Maybe StatusUpdateInterval
+hopDestinations :: Maybe [HopDestination]
 category :: Maybe Text
+settings :: Maybe JobTemplateSettings
+statusUpdateInterval :: Maybe StatusUpdateInterval
+priority :: Maybe Int
 accelerationSettings :: Maybe AccelerationSettings
 $sel:name:UpdateJobTemplate' :: UpdateJobTemplate -&gt; Text
-$sel:settings:UpdateJobTemplate' :: UpdateJobTemplate -&gt; Maybe JobTemplateSettings
-$sel:hopDestinations:UpdateJobTemplate' :: UpdateJobTemplate -&gt; Maybe [HopDestination]
 $sel:description:UpdateJobTemplate' :: UpdateJobTemplate -&gt; Maybe Text
 $sel:queue:UpdateJobTemplate' :: UpdateJobTemplate -&gt; Maybe Text
-$sel:priority:UpdateJobTemplate' :: UpdateJobTemplate -&gt; Maybe Int
-$sel:statusUpdateInterval:UpdateJobTemplate' :: UpdateJobTemplate -&gt; Maybe StatusUpdateInterval
+$sel:hopDestinations:UpdateJobTemplate' :: UpdateJobTemplate -&gt; Maybe [HopDestination]
 $sel:category:UpdateJobTemplate' :: UpdateJobTemplate -&gt; Maybe Text
+$sel:settings:UpdateJobTemplate' :: UpdateJobTemplate -&gt; Maybe JobTemplateSettings
+$sel:statusUpdateInterval:UpdateJobTemplate' :: UpdateJobTemplate -&gt; Maybe StatusUpdateInterval
+$sel:priority:UpdateJobTemplate' :: UpdateJobTemplate -&gt; Maybe Int
 $sel:accelerationSettings:UpdateJobTemplate' :: UpdateJobTemplate -&gt; Maybe AccelerationSettings
-</span><a href="#local-6989586621680028957"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680034477"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-243"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -688,10 +688,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/2017-08-29/jobTemplates/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680028957"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621680034477"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-245"></span><span>
 </span><span id="line-246"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplate"><span class="hs-identifier hs-type">UpdateJobTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-247"></span><span>  </span><span id="local-6989586621680028953"><span class="annot"><span class="annottext">toQuery :: UpdateJobTemplate -&gt; QueryString
+</span><span id="line-247"></span><span>  </span><span id="local-6989586621680034473"><span class="annot"><span class="annottext">toQuery :: UpdateJobTemplate -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateJobTemplate -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -699,7 +699,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-248"></span><span>
 </span><span id="line-249"></span><span class="hs-comment">-- | /See:/ 'newUpdateJobTemplateResponse' smart constructor.</span><span>
-</span><span id="line-250"></span><span id="local-6989586621680028950"><span id="local-6989586621680028951"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateJobTemplateResponse"><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplateResponse"><span class="hs-identifier hs-var">UpdateJobTemplateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateJobTemplateResponse%27"><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplateResponse%27"><span class="hs-identifier hs-var">UpdateJobTemplateResponse'</span></a></span></span><span>
+</span><span id="line-250"></span><span id="local-6989586621680034470"><span id="local-6989586621680034471"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateJobTemplateResponse"><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplateResponse"><span class="hs-identifier hs-var">UpdateJobTemplateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateJobTemplateResponse%27"><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplateResponse%27"><span class="hs-identifier hs-var">UpdateJobTemplateResponse'</span></a></span></span><span>
 </span><span id="line-251"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A job template is a pre-made set of encoding instructions that you can</span><span>
 </span><span id="line-252"></span><span>    </span><span class="hs-comment">-- use to quickly create a job.</span><span>
 </span><span id="line-253"></span><span>    </span><span id="%24sel%3AjobTemplate%3AUpdateJobTemplateResponse%27"><span class="annot"><span class="annottext">UpdateJobTemplateResponse -&gt; Maybe JobTemplate
@@ -708,7 +708,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-255"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateJobTemplateResponse%27"><span class="annot"><span class="annottext">UpdateJobTemplateResponse -&gt; Int
 </span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#%24sel%3AhttpStatus%3AUpdateJobTemplateResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-256"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-257"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680028944"><span id="local-6989586621680028946"><span class="annot"><span class="annottext">UpdateJobTemplateResponse -&gt; UpdateJobTemplateResponse -&gt; Bool
+</span><span id="line-257"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680034464"><span id="local-6989586621680034466"><span class="annot"><span class="annottext">UpdateJobTemplateResponse -&gt; UpdateJobTemplateResponse -&gt; Bool
 (UpdateJobTemplateResponse -&gt; UpdateJobTemplateResponse -&gt; Bool)
 -&gt; (UpdateJobTemplateResponse -&gt; UpdateJobTemplateResponse -&gt; Bool)
 -&gt; Eq UpdateJobTemplateResponse
@@ -717,7 +717,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateJobTemplateResponse -&gt; UpdateJobTemplateResponse -&gt; Bool
 == :: UpdateJobTemplateResponse -&gt; UpdateJobTemplateResponse -&gt; Bool
 $c== :: UpdateJobTemplateResponse -&gt; UpdateJobTemplateResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680028936"><span id="local-6989586621680028938"><span id="local-6989586621680028940"><span id="local-6989586621680028942"><span class="annot"><span class="annottext">ReadPrec [UpdateJobTemplateResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680034456"><span id="local-6989586621680034458"><span id="local-6989586621680034460"><span id="local-6989586621680034462"><span class="annot"><span class="annottext">ReadPrec [UpdateJobTemplateResponse]
 ReadPrec UpdateJobTemplateResponse
 Int -&gt; ReadS UpdateJobTemplateResponse
 ReadS [UpdateJobTemplateResponse]
@@ -737,7 +737,7 @@ readList :: ReadS [UpdateJobTemplateResponse]
 $creadList :: ReadS [UpdateJobTemplateResponse]
 readsPrec :: Int -&gt; ReadS UpdateJobTemplateResponse
 $creadsPrec :: Int -&gt; ReadS UpdateJobTemplateResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680028930"><span id="local-6989586621680028932"><span id="local-6989586621680028934"><span class="annot"><span class="annottext">Int -&gt; UpdateJobTemplateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680034450"><span id="local-6989586621680034452"><span id="local-6989586621680034454"><span class="annot"><span class="annottext">Int -&gt; UpdateJobTemplateResponse -&gt; ShowS
 [UpdateJobTemplateResponse] -&gt; ShowS
 UpdateJobTemplateResponse -&gt; String
 (Int -&gt; UpdateJobTemplateResponse -&gt; ShowS)
@@ -786,8 +786,8 @@ UpdateJobTemplateResponse -&gt; Rep UpdateJobTemplateResponse x
 </span><span id="line-273"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-274"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplateResponse"><span class="hs-identifier hs-type">UpdateJobTemplateResponse</span></a></span><span>
 </span><span id="line-275"></span><span id="newUpdateJobTemplateResponse"><span class="annot"><span class="annottext">newUpdateJobTemplateResponse :: Int -&gt; UpdateJobTemplateResponse
-</span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#newUpdateJobTemplateResponse"><span class="hs-identifier hs-var hs-var">newUpdateJobTemplateResponse</span></a></span></span><span> </span><span id="local-6989586621680028927"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680028927"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#newUpdateJobTemplateResponse"><span class="hs-identifier hs-var hs-var">newUpdateJobTemplateResponse</span></a></span></span><span> </span><span id="local-6989586621680034447"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680034447"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-276"></span><span>  </span><span class="annot"><span class="annottext">UpdateJobTemplateResponse' :: Maybe JobTemplate -&gt; Int -&gt; UpdateJobTemplateResponse
 </span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplateResponse%27"><span class="hs-identifier hs-type">UpdateJobTemplateResponse'</span></a></span><span>
 </span><span id="line-277"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:jobTemplate:UpdateJobTemplateResponse' :: Maybe JobTemplate
@@ -797,7 +797,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-279"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateJobTemplateResponse' :: Int
 </span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#%24sel%3AhttpStatus%3AUpdateJobTemplateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680028927"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621680034447"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-280"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-281"></span><span>
 </span><span id="line-282"></span><span class="hs-comment">-- | A job template is a pre-made set of encoding instructions that you can</span><span>
@@ -814,16 +814,16 @@ forall a. Maybe a
      (Maybe JobTemplate)
      (Maybe JobTemplate)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplateResponse%27"><span class="hs-identifier hs-type">UpdateJobTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680028926"><span class="annot"><span class="annottext">Maybe JobTemplate
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplateResponse%27"><span class="hs-identifier hs-type">UpdateJobTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680034446"><span class="annot"><span class="annottext">Maybe JobTemplate
 jobTemplate :: Maybe JobTemplate
 $sel:jobTemplate:UpdateJobTemplateResponse' :: UpdateJobTemplateResponse -&gt; Maybe JobTemplate
-</span><a href="#local-6989586621680028926"><span class="hs-identifier hs-var hs-var">jobTemplate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobTemplate
-</span><a href="#local-6989586621680028926"><span class="hs-identifier hs-var">jobTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680028925"><span class="annot"><span class="annottext">s :: UpdateJobTemplateResponse
-</span><a href="#local-6989586621680028925"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplateResponse%27"><span class="hs-identifier hs-type">UpdateJobTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680028924"><span class="annot"><span class="annottext">Maybe JobTemplate
-</span><a href="#local-6989586621680028924"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateJobTemplateResponse
-</span><a href="#local-6989586621680028925"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobTemplate:UpdateJobTemplateResponse' :: Maybe JobTemplate
+</span><a href="#local-6989586621680034446"><span class="hs-identifier hs-var hs-var">jobTemplate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobTemplate
+</span><a href="#local-6989586621680034446"><span class="hs-identifier hs-var">jobTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680034445"><span class="annot"><span class="annottext">s :: UpdateJobTemplateResponse
+</span><a href="#local-6989586621680034445"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplateResponse%27"><span class="hs-identifier hs-type">UpdateJobTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680034444"><span class="annot"><span class="annottext">Maybe JobTemplate
+</span><a href="#local-6989586621680034444"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateJobTemplateResponse
+</span><a href="#local-6989586621680034445"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobTemplate:UpdateJobTemplateResponse' :: Maybe JobTemplate
 </span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#%24sel%3AjobTemplate%3AUpdateJobTemplateResponse%27"><span class="hs-identifier hs-var">jobTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobTemplate
-</span><a href="#local-6989586621680028924"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplateResponse"><span class="hs-identifier hs-type">UpdateJobTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680034444"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplateResponse"><span class="hs-identifier hs-type">UpdateJobTemplateResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-286"></span><span>
 </span><span id="line-287"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-288"></span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#updateJobTemplateResponse_httpStatus"><span class="hs-identifier hs-type">updateJobTemplateResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplateResponse"><span class="hs-identifier hs-type">UpdateJobTemplateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -833,16 +833,16 @@ $sel:jobTemplate:UpdateJobTemplateResponse' :: UpdateJobTemplateResponse -&gt; M
 -&gt; (UpdateJobTemplateResponse -&gt; Int -&gt; UpdateJobTemplateResponse)
 -&gt; Lens UpdateJobTemplateResponse UpdateJobTemplateResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplateResponse%27"><span class="hs-identifier hs-type">UpdateJobTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680028923"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplateResponse%27"><span class="hs-identifier hs-type">UpdateJobTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680034443"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateJobTemplateResponse' :: UpdateJobTemplateResponse -&gt; Int
-</span><a href="#local-6989586621680028923"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680028923"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680028922"><span class="annot"><span class="annottext">s :: UpdateJobTemplateResponse
-</span><a href="#local-6989586621680028922"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplateResponse%27"><span class="hs-identifier hs-type">UpdateJobTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680028921"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680028921"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateJobTemplateResponse
-</span><a href="#local-6989586621680028922"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateJobTemplateResponse' :: Int
+</span><a href="#local-6989586621680034443"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680034443"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680034442"><span class="annot"><span class="annottext">s :: UpdateJobTemplateResponse
+</span><a href="#local-6989586621680034442"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplateResponse%27"><span class="hs-identifier hs-type">UpdateJobTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680034441"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680034441"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateJobTemplateResponse
+</span><a href="#local-6989586621680034442"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateJobTemplateResponse' :: Int
 </span><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#%24sel%3AhttpStatus%3AUpdateJobTemplateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680028921"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplateResponse"><span class="hs-identifier hs-type">UpdateJobTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680034441"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplateResponse"><span class="hs-identifier hs-type">UpdateJobTemplateResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-290"></span><span>
-</span><span id="line-291"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680028919"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplateResponse"><span class="hs-identifier hs-type">UpdateJobTemplateResponse</span></a></span></span><span>
+</span><span id="line-291"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680034439"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateJobTemplate.html#UpdateJobTemplateResponse"><span class="hs-identifier hs-type">UpdateJobTemplateResponse</span></a></span></span><span>
 </span><span id="line-292"></span></pre></body></html>

@@ -54,12 +54,12 @@
 </span><span id="line-54"></span><span class="hs-comment">-- Managed Microsoft AD directory and an external domain.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- /See:/ 'newVerifyTrust' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679317192"><span id="local-6989586621679317193"></span></span><span class="hs-keyword">data</span><span> </span><span id="VerifyTrust"><span class="annot"><a href="Network.AWS.DirectoryService.VerifyTrust.html#VerifyTrust"><span class="hs-identifier hs-var">VerifyTrust</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VerifyTrust%27"><span class="annot"><a href="Network.AWS.DirectoryService.VerifyTrust.html#VerifyTrust%27"><span class="hs-identifier hs-var">VerifyTrust'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679317429"><span id="local-6989586621679317430"></span></span><span class="hs-keyword">data</span><span> </span><span id="VerifyTrust"><span class="annot"><a href="Network.AWS.DirectoryService.VerifyTrust.html#VerifyTrust"><span class="hs-identifier hs-var">VerifyTrust</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VerifyTrust%27"><span class="annot"><a href="Network.AWS.DirectoryService.VerifyTrust.html#VerifyTrust%27"><span class="hs-identifier hs-var">VerifyTrust'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique Trust ID of the trust relationship to verify.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AtrustId%3AVerifyTrust%27"><span class="annot"><span class="annottext">VerifyTrust -&gt; Text
 </span><a href="Network.AWS.DirectoryService.VerifyTrust.html#%24sel%3AtrustId%3AVerifyTrust%27"><span class="hs-identifier hs-var hs-var">trustId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679317186"><span id="local-6989586621679317188"><span class="annot"><span class="annottext">VerifyTrust -&gt; VerifyTrust -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679317423"><span id="local-6989586621679317425"><span class="annot"><span class="annottext">VerifyTrust -&gt; VerifyTrust -&gt; Bool
 (VerifyTrust -&gt; VerifyTrust -&gt; Bool)
 -&gt; (VerifyTrust -&gt; VerifyTrust -&gt; Bool) -&gt; Eq VerifyTrust
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: VerifyTrust -&gt; VerifyTrust -&gt; Bool
 == :: VerifyTrust -&gt; VerifyTrust -&gt; Bool
 $c== :: VerifyTrust -&gt; VerifyTrust -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317177"><span id="local-6989586621679317179"><span id="local-6989586621679317181"><span id="local-6989586621679317183"><span class="annot"><span class="annottext">ReadPrec [VerifyTrust]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317414"><span id="local-6989586621679317416"><span id="local-6989586621679317418"><span id="local-6989586621679317420"><span class="annot"><span class="annottext">ReadPrec [VerifyTrust]
 ReadPrec VerifyTrust
 Int -&gt; ReadS VerifyTrust
 ReadS [VerifyTrust]
@@ -87,7 +87,7 @@ readList :: ReadS [VerifyTrust]
 $creadList :: ReadS [VerifyTrust]
 readsPrec :: Int -&gt; ReadS VerifyTrust
 $creadsPrec :: Int -&gt; ReadS VerifyTrust
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317170"><span id="local-6989586621679317172"><span id="local-6989586621679317174"><span class="annot"><span class="annottext">Int -&gt; VerifyTrust -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317407"><span id="local-6989586621679317409"><span id="local-6989586621679317411"><span class="annot"><span class="annottext">Int -&gt; VerifyTrust -&gt; ShowS
 [VerifyTrust] -&gt; ShowS
 VerifyTrust -&gt; String
 (Int -&gt; VerifyTrust -&gt; ShowS)
@@ -127,12 +127,12 @@ $cfrom :: forall x. VerifyTrust -&gt; Rep VerifyTrust x
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.VerifyTrust.html#VerifyTrust"><span class="hs-identifier hs-type">VerifyTrust</span></a></span><span>
 </span><span id="line-76"></span><span id="newVerifyTrust"><span class="annot"><span class="annottext">newVerifyTrust :: Text -&gt; VerifyTrust
-</span><a href="Network.AWS.DirectoryService.VerifyTrust.html#newVerifyTrust"><span class="hs-identifier hs-var hs-var">newVerifyTrust</span></a></span></span><span> </span><span id="local-6989586621679317165"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317165"><span class="hs-identifier hs-var">pTrustId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DirectoryService.VerifyTrust.html#newVerifyTrust"><span class="hs-identifier hs-var hs-var">newVerifyTrust</span></a></span></span><span> </span><span id="local-6989586621679317402"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317402"><span class="hs-identifier hs-var">pTrustId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">VerifyTrust' :: Text -&gt; VerifyTrust
 </span><a href="Network.AWS.DirectoryService.VerifyTrust.html#VerifyTrust%27"><span class="hs-identifier hs-type">VerifyTrust'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trustId:VerifyTrust' :: Text
 </span><a href="Network.AWS.DirectoryService.VerifyTrust.html#%24sel%3AtrustId%3AVerifyTrust%27"><span class="hs-identifier hs-var">trustId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317165"><span class="hs-identifier hs-var">pTrustId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679317402"><span class="hs-identifier hs-var">pTrustId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- | The unique Trust ID of the trust relationship to verify.</span><span>
 </span><span id="line-80"></span><span class="annot"><a href="Network.AWS.DirectoryService.VerifyTrust.html#verifyTrust_trustId"><span class="hs-identifier hs-type">verifyTrust_trustId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.VerifyTrust.html#VerifyTrust"><span class="hs-identifier hs-type">VerifyTrust</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -141,25 +141,25 @@ $cfrom :: forall x. VerifyTrust -&gt; Rep VerifyTrust x
 -&gt; (VerifyTrust -&gt; Text -&gt; VerifyTrust)
 -&gt; Lens VerifyTrust VerifyTrust Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.VerifyTrust.html#VerifyTrust%27"><span class="hs-identifier hs-type">VerifyTrust'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317162"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.VerifyTrust.html#VerifyTrust%27"><span class="hs-identifier hs-type">VerifyTrust'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317399"><span class="annot"><span class="annottext">Text
 trustId :: Text
 $sel:trustId:VerifyTrust' :: VerifyTrust -&gt; Text
-</span><a href="#local-6989586621679317162"><span class="hs-identifier hs-var hs-var">trustId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317162"><span class="hs-identifier hs-var">trustId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317161"><span class="annot"><span class="annottext">s :: VerifyTrust
-</span><a href="#local-6989586621679317161"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.VerifyTrust.html#VerifyTrust%27"><span class="hs-identifier hs-type">VerifyTrust'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317160"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317160"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerifyTrust
-</span><a href="#local-6989586621679317161"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trustId:VerifyTrust' :: Text
+</span><a href="#local-6989586621679317399"><span class="hs-identifier hs-var hs-var">trustId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317399"><span class="hs-identifier hs-var">trustId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317398"><span class="annot"><span class="annottext">s :: VerifyTrust
+</span><a href="#local-6989586621679317398"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.VerifyTrust.html#VerifyTrust%27"><span class="hs-identifier hs-type">VerifyTrust'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317397"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317397"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerifyTrust
+</span><a href="#local-6989586621679317398"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trustId:VerifyTrust' :: Text
 </span><a href="Network.AWS.DirectoryService.VerifyTrust.html#%24sel%3AtrustId%3AVerifyTrust%27"><span class="hs-identifier hs-var">trustId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317160"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.VerifyTrust.html#VerifyTrust"><span class="hs-identifier hs-type">VerifyTrust</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679317397"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.VerifyTrust.html#VerifyTrust"><span class="hs-identifier hs-type">VerifyTrust</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.VerifyTrust.html#VerifyTrust"><span class="hs-identifier hs-type">VerifyTrust</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-84"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.VerifyTrust.html#VerifyTrust"><span class="hs-identifier hs-type">VerifyTrust</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.VerifyTrust.html#VerifyTrustResponse"><span class="hs-identifier hs-type">VerifyTrustResponse</span></a></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679317156"><span class="annot"><span class="annottext">request :: VerifyTrust -&gt; Request VerifyTrust
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679317393"><span class="annot"><span class="annottext">request :: VerifyTrust -&gt; Request VerifyTrust
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; VerifyTrust -&gt; Request VerifyTrust
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DirectoryService.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679317152"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679317389"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy VerifyTrust
 -&gt; ClientResponse ClientBody
@@ -183,10 +183,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679317149"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317149"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679317148"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679317148"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679317147"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679317147"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679317386"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317386"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679317385"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679317385"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679317384"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679317384"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; VerifyTrustResponse
 </span><a href="Network.AWS.DirectoryService.VerifyTrust.html#VerifyTrustResponse%27"><span class="hs-identifier hs-var">VerifyTrustResponse'</span></a></span><span>
 </span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; VerifyTrustResponse)
@@ -194,7 +194,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; VerifyTrustResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679317147"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679317384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TrustId&quot;</span></span><span class="hs-special">)</span><span>
@@ -206,15 +206,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317149"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679317386"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317139"><span id="local-6989586621679317141"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.VerifyTrust.html#VerifyTrust"><span class="hs-identifier hs-type">VerifyTrust</span></a></span></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317376"><span id="local-6989586621679317378"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.VerifyTrust.html#VerifyTrust"><span class="hs-identifier hs-type">VerifyTrust</span></a></span></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317136"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.VerifyTrust.html#VerifyTrust"><span class="hs-identifier hs-type">VerifyTrust</span></a></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317373"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.VerifyTrust.html#VerifyTrust"><span class="hs-identifier hs-type">VerifyTrust</span></a></span></span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.VerifyTrust.html#VerifyTrust"><span class="hs-identifier hs-type">VerifyTrust</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679317132"><span class="annot"><span class="annottext">toHeaders :: VerifyTrust -&gt; ResponseHeaders
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679317369"><span class="annot"><span class="annottext">toHeaders :: VerifyTrust -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; VerifyTrust -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -241,12 +241,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-110"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317122"><span id="local-6989586621679317124"><span id="local-6989586621679317126"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.VerifyTrust.html#VerifyTrust"><span class="hs-identifier hs-type">VerifyTrust</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679317120"><span class="annot"><span class="annottext">toJSON :: VerifyTrust -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.VerifyTrust.html#VerifyTrust%27"><span class="hs-identifier hs-type">VerifyTrust'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317118"><span class="annot"><span class="annottext">Text
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317359"><span id="local-6989586621679317361"><span id="local-6989586621679317363"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.VerifyTrust.html#VerifyTrust"><span class="hs-identifier hs-type">VerifyTrust</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679317357"><span class="annot"><span class="annottext">toJSON :: VerifyTrust -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.VerifyTrust.html#VerifyTrust%27"><span class="hs-identifier hs-type">VerifyTrust'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317355"><span class="annot"><span class="annottext">Text
 trustId :: Text
 $sel:trustId:VerifyTrust' :: VerifyTrust -&gt; Text
-</span><a href="#local-6989586621679317118"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679317355"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -258,18 +258,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;TrustId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317118"><span class="hs-identifier hs-var">trustId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679317355"><span class="hs-identifier hs-var">trustId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.VerifyTrust.html#VerifyTrust"><span class="hs-identifier hs-type">VerifyTrust</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679317112"><span class="annot"><span class="annottext">toPath :: VerifyTrust -&gt; ByteString
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679317349"><span class="annot"><span class="annottext">toPath :: VerifyTrust -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; VerifyTrust -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.VerifyTrust.html#VerifyTrust"><span class="hs-identifier hs-type">VerifyTrust</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679317108"><span class="annot"><span class="annottext">toQuery :: VerifyTrust -&gt; QueryString
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679317345"><span class="annot"><span class="annottext">toQuery :: VerifyTrust -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; VerifyTrust -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -279,7 +279,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-126"></span><span class="hs-comment">-- | Result of a VerifyTrust request.</span><span>
 </span><span id="line-127"></span><span class="hs-comment">--</span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- /See:/ 'newVerifyTrustResponse' smart constructor.</span><span>
-</span><span id="line-129"></span><span id="local-6989586621679317105"><span id="local-6989586621679317106"></span></span><span class="hs-keyword">data</span><span> </span><span id="VerifyTrustResponse"><span class="annot"><a href="Network.AWS.DirectoryService.VerifyTrust.html#VerifyTrustResponse"><span class="hs-identifier hs-var">VerifyTrustResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VerifyTrustResponse%27"><span class="annot"><a href="Network.AWS.DirectoryService.VerifyTrust.html#VerifyTrustResponse%27"><span class="hs-identifier hs-var">VerifyTrustResponse'</span></a></span></span><span>
+</span><span id="line-129"></span><span id="local-6989586621679317342"><span id="local-6989586621679317343"></span></span><span class="hs-keyword">data</span><span> </span><span id="VerifyTrustResponse"><span class="annot"><a href="Network.AWS.DirectoryService.VerifyTrust.html#VerifyTrustResponse"><span class="hs-identifier hs-var">VerifyTrustResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VerifyTrustResponse%27"><span class="annot"><a href="Network.AWS.DirectoryService.VerifyTrust.html#VerifyTrustResponse%27"><span class="hs-identifier hs-var">VerifyTrustResponse'</span></a></span></span><span>
 </span><span id="line-130"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique Trust ID of the trust relationship that was verified.</span><span>
 </span><span id="line-131"></span><span>    </span><span id="%24sel%3AtrustId%3AVerifyTrustResponse%27"><span class="annot"><span class="annottext">VerifyTrustResponse -&gt; Maybe Text
 </span><a href="Network.AWS.DirectoryService.VerifyTrust.html#%24sel%3AtrustId%3AVerifyTrustResponse%27"><span class="hs-identifier hs-var hs-var">trustId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -287,7 +287,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-133"></span><span>    </span><span id="%24sel%3AhttpStatus%3AVerifyTrustResponse%27"><span class="annot"><span class="annottext">VerifyTrustResponse -&gt; Int
 </span><a href="Network.AWS.DirectoryService.VerifyTrust.html#%24sel%3AhttpStatus%3AVerifyTrustResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-134"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-135"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679317099"><span id="local-6989586621679317101"><span class="annot"><span class="annottext">VerifyTrustResponse -&gt; VerifyTrustResponse -&gt; Bool
+</span><span id="line-135"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679317336"><span id="local-6989586621679317338"><span class="annot"><span class="annottext">VerifyTrustResponse -&gt; VerifyTrustResponse -&gt; Bool
 (VerifyTrustResponse -&gt; VerifyTrustResponse -&gt; Bool)
 -&gt; (VerifyTrustResponse -&gt; VerifyTrustResponse -&gt; Bool)
 -&gt; Eq VerifyTrustResponse
@@ -296,7 +296,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: VerifyTrustResponse -&gt; VerifyTrustResponse -&gt; Bool
 == :: VerifyTrustResponse -&gt; VerifyTrustResponse -&gt; Bool
 $c== :: VerifyTrustResponse -&gt; VerifyTrustResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317091"><span id="local-6989586621679317093"><span id="local-6989586621679317095"><span id="local-6989586621679317097"><span class="annot"><span class="annottext">ReadPrec [VerifyTrustResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317328"><span id="local-6989586621679317330"><span id="local-6989586621679317332"><span id="local-6989586621679317334"><span class="annot"><span class="annottext">ReadPrec [VerifyTrustResponse]
 ReadPrec VerifyTrustResponse
 Int -&gt; ReadS VerifyTrustResponse
 ReadS [VerifyTrustResponse]
@@ -316,7 +316,7 @@ readList :: ReadS [VerifyTrustResponse]
 $creadList :: ReadS [VerifyTrustResponse]
 readsPrec :: Int -&gt; ReadS VerifyTrustResponse
 $creadsPrec :: Int -&gt; ReadS VerifyTrustResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317085"><span id="local-6989586621679317087"><span id="local-6989586621679317089"><span class="annot"><span class="annottext">Int -&gt; VerifyTrustResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317322"><span id="local-6989586621679317324"><span id="local-6989586621679317326"><span class="annot"><span class="annottext">Int -&gt; VerifyTrustResponse -&gt; ShowS
 [VerifyTrustResponse] -&gt; ShowS
 VerifyTrustResponse -&gt; String
 (Int -&gt; VerifyTrustResponse -&gt; ShowS)
@@ -358,8 +358,8 @@ $cfrom :: forall x. VerifyTrustResponse -&gt; Rep VerifyTrustResponse x
 </span><span id="line-150"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-151"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.VerifyTrust.html#VerifyTrustResponse"><span class="hs-identifier hs-type">VerifyTrustResponse</span></a></span><span>
 </span><span id="line-152"></span><span id="newVerifyTrustResponse"><span class="annot"><span class="annottext">newVerifyTrustResponse :: Int -&gt; VerifyTrustResponse
-</span><a href="Network.AWS.DirectoryService.VerifyTrust.html#newVerifyTrustResponse"><span class="hs-identifier hs-var hs-var">newVerifyTrustResponse</span></a></span></span><span> </span><span id="local-6989586621679317082"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317082"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DirectoryService.VerifyTrust.html#newVerifyTrustResponse"><span class="hs-identifier hs-var hs-var">newVerifyTrustResponse</span></a></span></span><span> </span><span id="local-6989586621679317319"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317319"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-153"></span><span>  </span><span class="annot"><span class="annottext">VerifyTrustResponse' :: Maybe Text -&gt; Int -&gt; VerifyTrustResponse
 </span><a href="Network.AWS.DirectoryService.VerifyTrust.html#VerifyTrustResponse%27"><span class="hs-identifier hs-type">VerifyTrustResponse'</span></a></span><span>
 </span><span id="line-154"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:trustId:VerifyTrustResponse' :: Maybe Text
@@ -368,7 +368,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:VerifyTrustResponse' :: Int
 </span><a href="Network.AWS.DirectoryService.VerifyTrust.html#%24sel%3AhttpStatus%3AVerifyTrustResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317082"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679317319"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-156"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- | The unique Trust ID of the trust relationship that was verified.</span><span>
@@ -380,16 +380,16 @@ forall a. Maybe a
 -&gt; Lens
      VerifyTrustResponse VerifyTrustResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.VerifyTrust.html#VerifyTrustResponse%27"><span class="hs-identifier hs-type">VerifyTrustResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317081"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.VerifyTrust.html#VerifyTrustResponse%27"><span class="hs-identifier hs-type">VerifyTrustResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317318"><span class="annot"><span class="annottext">Maybe Text
 trustId :: Maybe Text
 $sel:trustId:VerifyTrustResponse' :: VerifyTrustResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679317081"><span class="hs-identifier hs-var hs-var">trustId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679317081"><span class="hs-identifier hs-var">trustId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317080"><span class="annot"><span class="annottext">s :: VerifyTrustResponse
-</span><a href="#local-6989586621679317080"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.VerifyTrust.html#VerifyTrustResponse%27"><span class="hs-identifier hs-type">VerifyTrustResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317079"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679317079"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerifyTrustResponse
-</span><a href="#local-6989586621679317080"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trustId:VerifyTrustResponse' :: Maybe Text
+</span><a href="#local-6989586621679317318"><span class="hs-identifier hs-var hs-var">trustId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317318"><span class="hs-identifier hs-var">trustId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317317"><span class="annot"><span class="annottext">s :: VerifyTrustResponse
+</span><a href="#local-6989586621679317317"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.VerifyTrust.html#VerifyTrustResponse%27"><span class="hs-identifier hs-type">VerifyTrustResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317316"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317316"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerifyTrustResponse
+</span><a href="#local-6989586621679317317"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trustId:VerifyTrustResponse' :: Maybe Text
 </span><a href="Network.AWS.DirectoryService.VerifyTrust.html#%24sel%3AtrustId%3AVerifyTrustResponse%27"><span class="hs-identifier hs-var">trustId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679317079"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.VerifyTrust.html#VerifyTrustResponse"><span class="hs-identifier hs-type">VerifyTrustResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679317316"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.VerifyTrust.html#VerifyTrustResponse"><span class="hs-identifier hs-type">VerifyTrustResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-163"></span><span class="annot"><a href="Network.AWS.DirectoryService.VerifyTrust.html#verifyTrustResponse_httpStatus"><span class="hs-identifier hs-type">verifyTrustResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.VerifyTrust.html#VerifyTrustResponse"><span class="hs-identifier hs-type">VerifyTrustResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -398,16 +398,16 @@ $sel:trustId:VerifyTrustResponse' :: VerifyTrustResponse -&gt; Maybe Text
 -&gt; (VerifyTrustResponse -&gt; Int -&gt; VerifyTrustResponse)
 -&gt; Lens VerifyTrustResponse VerifyTrustResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.VerifyTrust.html#VerifyTrustResponse%27"><span class="hs-identifier hs-type">VerifyTrustResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317078"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.VerifyTrust.html#VerifyTrustResponse%27"><span class="hs-identifier hs-type">VerifyTrustResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317315"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:VerifyTrustResponse' :: VerifyTrustResponse -&gt; Int
-</span><a href="#local-6989586621679317078"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317078"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317077"><span class="annot"><span class="annottext">s :: VerifyTrustResponse
-</span><a href="#local-6989586621679317077"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.VerifyTrust.html#VerifyTrustResponse%27"><span class="hs-identifier hs-type">VerifyTrustResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317076"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317076"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerifyTrustResponse
-</span><a href="#local-6989586621679317077"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:VerifyTrustResponse' :: Int
+</span><a href="#local-6989586621679317315"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317315"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317314"><span class="annot"><span class="annottext">s :: VerifyTrustResponse
+</span><a href="#local-6989586621679317314"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.VerifyTrust.html#VerifyTrustResponse%27"><span class="hs-identifier hs-type">VerifyTrustResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317313"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317313"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerifyTrustResponse
+</span><a href="#local-6989586621679317314"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:VerifyTrustResponse' :: Int
 </span><a href="Network.AWS.DirectoryService.VerifyTrust.html#%24sel%3AhttpStatus%3AVerifyTrustResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317076"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.VerifyTrust.html#VerifyTrustResponse"><span class="hs-identifier hs-type">VerifyTrustResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679317313"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.VerifyTrust.html#VerifyTrustResponse"><span class="hs-identifier hs-type">VerifyTrustResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>
-</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317074"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.VerifyTrust.html#VerifyTrustResponse"><span class="hs-identifier hs-type">VerifyTrustResponse</span></a></span></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317311"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.VerifyTrust.html#VerifyTrustResponse"><span class="hs-identifier hs-type">VerifyTrustResponse</span></a></span></span><span>
 </span><span id="line-167"></span></pre></body></html>

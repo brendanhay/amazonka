@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679235762"><span id="local-6989586621679235763"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TagStatus"><span class="annot"><a href="Network.AWS.ECR.Types.TagStatus.html#TagStatus"><span class="hs-identifier hs-var">TagStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagStatus%27"><span class="annot"><a href="Network.AWS.ECR.Types.TagStatus.html#TagStatus%27"><span class="hs-identifier hs-var">TagStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679235915"><span id="local-6989586621679235916"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TagStatus"><span class="annot"><a href="Network.AWS.ECR.Types.TagStatus.html#TagStatus"><span class="hs-identifier hs-var">TagStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagStatus%27"><span class="annot"><a href="Network.AWS.ECR.Types.TagStatus.html#TagStatus%27"><span class="hs-identifier hs-var">TagStatus'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTagStatus"><span class="annot"><span class="annottext">TagStatus -&gt; Text
 </span><a href="Network.AWS.ECR.Types.TagStatus.html#fromTagStatus"><span class="hs-identifier hs-var hs-var">fromTagStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679235754"><span id="local-6989586621679235756"><span id="local-6989586621679235758"><span class="annot"><span class="annottext">Int -&gt; TagStatus -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679235907"><span id="local-6989586621679235909"><span id="local-6989586621679235911"><span class="annot"><span class="annottext">Int -&gt; TagStatus -&gt; ShowS
 [TagStatus] -&gt; ShowS
 TagStatus -&gt; String
 (Int -&gt; TagStatus -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: TagStatus -&gt; String
 showsPrec :: Int -&gt; TagStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; TagStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679235745"><span id="local-6989586621679235747"><span id="local-6989586621679235749"><span id="local-6989586621679235751"><span class="annot"><span class="annottext">ReadPrec [TagStatus]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679235898"><span id="local-6989586621679235900"><span id="local-6989586621679235902"><span id="local-6989586621679235904"><span class="annot"><span class="annottext">ReadPrec [TagStatus]
 ReadPrec TagStatus
 Int -&gt; ReadS TagStatus
 ReadS [TagStatus]
@@ -73,7 +73,7 @@ $creadList :: ReadS [TagStatus]
 readsPrec :: Int -&gt; ReadS TagStatus
 $creadsPrec :: Int -&gt; ReadS TagStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679235740"><span id="local-6989586621679235742"><span class="annot"><span class="annottext">TagStatus -&gt; TagStatus -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679235893"><span id="local-6989586621679235895"><span class="annot"><span class="annottext">TagStatus -&gt; TagStatus -&gt; Bool
 (TagStatus -&gt; TagStatus -&gt; Bool)
 -&gt; (TagStatus -&gt; TagStatus -&gt; Bool) -&gt; Eq TagStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: TagStatus -&gt; TagStatus -&gt; Bool
 == :: TagStatus -&gt; TagStatus -&gt; Bool
 $c== :: TagStatus -&gt; TagStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679235724"><span id="local-6989586621679235726"><span id="local-6989586621679235728"><span id="local-6989586621679235730"><span id="local-6989586621679235732"><span id="local-6989586621679235734"><span id="local-6989586621679235736"><span class="annot"><span class="annottext">Eq TagStatus
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679235877"><span id="local-6989586621679235879"><span id="local-6989586621679235881"><span id="local-6989586621679235883"><span id="local-6989586621679235885"><span id="local-6989586621679235887"><span id="local-6989586621679235889"><span class="annot"><span class="annottext">Eq TagStatus
 Eq TagStatus
 -&gt; (TagStatus -&gt; TagStatus -&gt; Ordering)
 -&gt; (TagStatus -&gt; TagStatus -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. TagStatus -&gt; Rep TagStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679235716"><span id="local-6989586621679235718"><span class="annot"><span class="annottext">Int -&gt; TagStatus -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679235869"><span id="local-6989586621679235871"><span class="annot"><span class="annottext">Int -&gt; TagStatus -&gt; Int
 TagStatus -&gt; Int
 (Int -&gt; TagStatus -&gt; Int)
 -&gt; (TagStatus -&gt; Int) -&gt; Hashable TagStatus
@@ -142,49 +142,49 @@ $chash :: TagStatus -&gt; Int
 hashWithSalt :: Int -&gt; TagStatus -&gt; Int
 $chashWithSalt :: Int -&gt; TagStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679235713"><span class="annot"><span class="annottext">TagStatus -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679235866"><span class="annot"><span class="annottext">TagStatus -&gt; ()
 (TagStatus -&gt; ()) -&gt; NFData TagStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: TagStatus -&gt; ()
 $crnf :: TagStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679235710"><span class="annot"><span class="annottext">Text -&gt; Either String TagStatus
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679235863"><span class="annot"><span class="annottext">Text -&gt; Either String TagStatus
 (Text -&gt; Either String TagStatus) -&gt; FromText TagStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String TagStatus
 $cfromText :: Text -&gt; Either String TagStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679235707"><span class="annot"><span class="annottext">TagStatus -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679235860"><span class="annot"><span class="annottext">TagStatus -&gt; Text
 (TagStatus -&gt; Text) -&gt; ToText TagStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: TagStatus -&gt; Text
 $ctoText :: TagStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679235704"><span class="annot"><span class="annottext">TagStatus -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679235857"><span class="annot"><span class="annottext">TagStatus -&gt; ByteString
 (TagStatus -&gt; ByteString) -&gt; ToByteString TagStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: TagStatus -&gt; ByteString
 $ctoBS :: TagStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679235701"><span class="annot"><span class="annottext">TagStatus -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679235854"><span class="annot"><span class="annottext">TagStatus -&gt; ByteStringBuilder
 (TagStatus -&gt; ByteStringBuilder) -&gt; ToLog TagStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: TagStatus -&gt; ByteStringBuilder
 $cbuild :: TagStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679235698"><span class="annot"><span class="annottext">HeaderName -&gt; TagStatus -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679235851"><span class="annot"><span class="annottext">HeaderName -&gt; TagStatus -&gt; [Header]
 (HeaderName -&gt; TagStatus -&gt; [Header]) -&gt; ToHeader TagStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; TagStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; TagStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679235695"><span class="annot"><span class="annottext">TagStatus -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679235848"><span class="annot"><span class="annottext">TagStatus -&gt; QueryString
 (TagStatus -&gt; QueryString) -&gt; ToQuery TagStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: TagStatus -&gt; QueryString
 $ctoQuery :: TagStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679235690"><span id="local-6989586621679235692"><span class="annot"><span class="annottext">Value -&gt; Parser [TagStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679235843"><span id="local-6989586621679235845"><span class="annot"><span class="annottext">Value -&gt; Parser [TagStatus]
 Value -&gt; Parser TagStatus
 (Value -&gt; Parser TagStatus)
 -&gt; (Value -&gt; Parser [TagStatus]) -&gt; FromJSON TagStatus
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [TagStatus]
 parseJSON :: Value -&gt; Parser TagStatus
 $cparseJSON :: Value -&gt; Parser TagStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679235685"><span id="local-6989586621679235687"><span class="annot"><span class="annottext">FromJSONKeyFunction [TagStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679235838"><span id="local-6989586621679235840"><span class="annot"><span class="annottext">FromJSONKeyFunction [TagStatus]
 FromJSONKeyFunction TagStatus
 FromJSONKeyFunction TagStatus
 -&gt; FromJSONKeyFunction [TagStatus] -&gt; FromJSONKey TagStatus
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [TagStatus]
 fromJSONKey :: FromJSONKeyFunction TagStatus
 $cfromJSONKey :: FromJSONKeyFunction TagStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679235676"><span id="local-6989586621679235678"><span id="local-6989586621679235680"><span id="local-6989586621679235682"><span class="annot"><span class="annottext">[TagStatus] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679235829"><span id="local-6989586621679235831"><span id="local-6989586621679235833"><span id="local-6989586621679235835"><span class="annot"><span class="annottext">[TagStatus] -&gt; Encoding
 [TagStatus] -&gt; Value
 TagStatus -&gt; Encoding
 TagStatus -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: TagStatus -&gt; Encoding
 toJSON :: TagStatus -&gt; Value
 $ctoJSON :: TagStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679235671"><span id="local-6989586621679235673"><span class="annot"><span class="annottext">ToJSONKeyFunction [TagStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679235824"><span id="local-6989586621679235826"><span class="annot"><span class="annottext">ToJSONKeyFunction [TagStatus]
 ToJSONKeyFunction TagStatus
 ToJSONKeyFunction TagStatus
 -&gt; ToJSONKeyFunction [TagStatus] -&gt; ToJSONKey TagStatus
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [TagStatus]
 toJSONKey :: ToJSONKeyFunction TagStatus
 $ctoJSONKey :: ToJSONKeyFunction TagStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679235668"><span class="annot"><span class="annottext">[Node] -&gt; Either String TagStatus
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679235821"><span class="annot"><span class="annottext">[Node] -&gt; Either String TagStatus
 ([Node] -&gt; Either String TagStatus) -&gt; FromXML TagStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String TagStatus
 $cparseXML :: [Node] -&gt; Either String TagStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679235665"><span class="annot"><span class="annottext">TagStatus -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679235818"><span class="annot"><span class="annottext">TagStatus -&gt; XML
 (TagStatus -&gt; XML) -&gt; ToXML TagStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: TagStatus -&gt; XML

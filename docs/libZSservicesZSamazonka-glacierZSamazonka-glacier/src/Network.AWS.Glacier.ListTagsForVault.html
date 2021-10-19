@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-comment">-- | The input value for @ListTagsForVaultInput@.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- /See:/ 'newListTagsForVault' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679221250"><span id="local-6989586621679221251"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTagsForVault"><span class="annot"><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVault"><span class="hs-identifier hs-var">ListTagsForVault</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTagsForVault%27"><span class="annot"><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVault%27"><span class="hs-identifier hs-var">ListTagsForVault'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679221304"><span id="local-6989586621679221305"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTagsForVault"><span class="annot"><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVault"><span class="hs-identifier hs-var">ListTagsForVault</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTagsForVault%27"><span class="annot"><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVault%27"><span class="hs-identifier hs-var">ListTagsForVault'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @AccountId@ value is the AWS account ID of the account that owns the</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- vault. You can either specify an AWS account ID or optionally a single</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account</span><span>
@@ -65,7 +65,7 @@
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AvaultName%3AListTagsForVault%27"><span class="annot"><span class="annottext">ListTagsForVault -&gt; Text
 </span><a href="Network.AWS.Glacier.ListTagsForVault.html#%24sel%3AvaultName%3AListTagsForVault%27"><span class="hs-identifier hs-var hs-var">vaultName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679221243"><span id="local-6989586621679221245"><span class="annot"><span class="annottext">ListTagsForVault -&gt; ListTagsForVault -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679221297"><span id="local-6989586621679221299"><span class="annot"><span class="annottext">ListTagsForVault -&gt; ListTagsForVault -&gt; Bool
 (ListTagsForVault -&gt; ListTagsForVault -&gt; Bool)
 -&gt; (ListTagsForVault -&gt; ListTagsForVault -&gt; Bool)
 -&gt; Eq ListTagsForVault
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListTagsForVault -&gt; ListTagsForVault -&gt; Bool
 == :: ListTagsForVault -&gt; ListTagsForVault -&gt; Bool
 $c== :: ListTagsForVault -&gt; ListTagsForVault -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221234"><span id="local-6989586621679221236"><span id="local-6989586621679221238"><span id="local-6989586621679221240"><span class="annot"><span class="annottext">ReadPrec [ListTagsForVault]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221288"><span id="local-6989586621679221290"><span id="local-6989586621679221292"><span id="local-6989586621679221294"><span class="annot"><span class="annottext">ReadPrec [ListTagsForVault]
 ReadPrec ListTagsForVault
 Int -&gt; ReadS ListTagsForVault
 ReadS [ListTagsForVault]
@@ -94,7 +94,7 @@ readList :: ReadS [ListTagsForVault]
 $creadList :: ReadS [ListTagsForVault]
 readsPrec :: Int -&gt; ReadS ListTagsForVault
 $creadsPrec :: Int -&gt; ReadS ListTagsForVault
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221227"><span id="local-6989586621679221229"><span id="local-6989586621679221231"><span class="annot"><span class="annottext">Int -&gt; ListTagsForVault -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221281"><span id="local-6989586621679221283"><span id="local-6989586621679221285"><span class="annot"><span class="annottext">Int -&gt; ListTagsForVault -&gt; ShowS
 [ListTagsForVault] -&gt; ShowS
 ListTagsForVault -&gt; String
 (Int -&gt; ListTagsForVault -&gt; ShowS)
@@ -142,17 +142,17 @@ $cfrom :: forall x. ListTagsForVault -&gt; Rep ListTagsForVault x
 </span><span id="line-87"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVault"><span class="hs-identifier hs-type">ListTagsForVault</span></a></span><span>
 </span><span id="line-89"></span><span id="newListTagsForVault"><span class="annot"><span class="annottext">newListTagsForVault :: Text -&gt; Text -&gt; ListTagsForVault
-</span><a href="Network.AWS.Glacier.ListTagsForVault.html#newListTagsForVault"><span class="hs-identifier hs-var hs-var">newListTagsForVault</span></a></span></span><span> </span><span id="local-6989586621679221222"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679221222"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span> </span><span id="local-6989586621679221221"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679221221"><span class="hs-identifier hs-var">pVaultName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glacier.ListTagsForVault.html#newListTagsForVault"><span class="hs-identifier hs-var hs-var">newListTagsForVault</span></a></span></span><span> </span><span id="local-6989586621679221276"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221276"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span> </span><span id="local-6989586621679221275"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221275"><span class="hs-identifier hs-var">pVaultName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>  </span><span class="annot"><span class="annottext">ListTagsForVault' :: Text -&gt; Text -&gt; ListTagsForVault
 </span><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVault%27"><span class="hs-identifier hs-type">ListTagsForVault'</span></a></span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accountId:ListTagsForVault' :: Text
 </span><a href="Network.AWS.Glacier.ListTagsForVault.html#%24sel%3AaccountId%3AListTagsForVault%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679221222"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679221276"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:vaultName:ListTagsForVault' :: Text
 </span><a href="Network.AWS.Glacier.ListTagsForVault.html#%24sel%3AvaultName%3AListTagsForVault%27"><span class="hs-identifier hs-var">vaultName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679221221"><span class="hs-identifier hs-var">pVaultName_</span></a></span><span>
+</span><a href="#local-6989586621679221275"><span class="hs-identifier hs-var">pVaultName_</span></a></span><span>
 </span><span id="line-93"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | The @AccountId@ value is the AWS account ID of the account that owns the</span><span>
@@ -166,16 +166,16 @@ $cfrom :: forall x. ListTagsForVault -&gt; Rep ListTagsForVault x
 -&gt; (ListTagsForVault -&gt; Text -&gt; ListTagsForVault)
 -&gt; Lens ListTagsForVault ListTagsForVault Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVault%27"><span class="hs-identifier hs-type">ListTagsForVault'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221218"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVault%27"><span class="hs-identifier hs-type">ListTagsForVault'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221272"><span class="annot"><span class="annottext">Text
 accountId :: Text
 $sel:accountId:ListTagsForVault' :: ListTagsForVault -&gt; Text
-</span><a href="#local-6989586621679221218"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679221218"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221217"><span class="annot"><span class="annottext">s :: ListTagsForVault
-</span><a href="#local-6989586621679221217"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVault%27"><span class="hs-identifier hs-type">ListTagsForVault'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221216"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679221216"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsForVault
-</span><a href="#local-6989586621679221217"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:ListTagsForVault' :: Text
+</span><a href="#local-6989586621679221272"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221272"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221271"><span class="annot"><span class="annottext">s :: ListTagsForVault
+</span><a href="#local-6989586621679221271"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVault%27"><span class="hs-identifier hs-type">ListTagsForVault'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221270"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221270"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsForVault
+</span><a href="#local-6989586621679221271"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:ListTagsForVault' :: Text
 </span><a href="Network.AWS.Glacier.ListTagsForVault.html#%24sel%3AaccountId%3AListTagsForVault%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679221216"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVault"><span class="hs-identifier hs-type">ListTagsForVault</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679221270"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVault"><span class="hs-identifier hs-type">ListTagsForVault</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | The name of the vault.</span><span>
 </span><span id="line-104"></span><span class="annot"><a href="Network.AWS.Glacier.ListTagsForVault.html#listTagsForVault_vaultName"><span class="hs-identifier hs-type">listTagsForVault_vaultName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVault"><span class="hs-identifier hs-type">ListTagsForVault</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -184,22 +184,22 @@ $sel:accountId:ListTagsForVault' :: ListTagsForVault -&gt; Text
 -&gt; (ListTagsForVault -&gt; Text -&gt; ListTagsForVault)
 -&gt; Lens ListTagsForVault ListTagsForVault Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVault%27"><span class="hs-identifier hs-type">ListTagsForVault'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221215"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVault%27"><span class="hs-identifier hs-type">ListTagsForVault'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221269"><span class="annot"><span class="annottext">Text
 vaultName :: Text
 $sel:vaultName:ListTagsForVault' :: ListTagsForVault -&gt; Text
-</span><a href="#local-6989586621679221215"><span class="hs-identifier hs-var hs-var">vaultName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679221215"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221214"><span class="annot"><span class="annottext">s :: ListTagsForVault
-</span><a href="#local-6989586621679221214"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVault%27"><span class="hs-identifier hs-type">ListTagsForVault'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221213"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679221213"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsForVault
-</span><a href="#local-6989586621679221214"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vaultName:ListTagsForVault' :: Text
+</span><a href="#local-6989586621679221269"><span class="hs-identifier hs-var hs-var">vaultName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221269"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221268"><span class="annot"><span class="annottext">s :: ListTagsForVault
+</span><a href="#local-6989586621679221268"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVault%27"><span class="hs-identifier hs-type">ListTagsForVault'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221267"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221267"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsForVault
+</span><a href="#local-6989586621679221268"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vaultName:ListTagsForVault' :: Text
 </span><a href="Network.AWS.Glacier.ListTagsForVault.html#%24sel%3AvaultName%3AListTagsForVault%27"><span class="hs-identifier hs-var">vaultName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679221213"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVault"><span class="hs-identifier hs-type">ListTagsForVault</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679221267"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVault"><span class="hs-identifier hs-type">ListTagsForVault</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVault"><span class="hs-identifier hs-type">ListTagsForVault</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-108"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-109"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVault"><span class="hs-identifier hs-type">ListTagsForVault</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>      </span><span class="annot"><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVaultResponse"><span class="hs-identifier hs-type">ListTagsForVaultResponse</span></a></span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679221209"><span class="annot"><span class="annottext">request :: ListTagsForVault -&gt; Request ListTagsForVault
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679221263"><span class="annot"><span class="annottext">request :: ListTagsForVault -&gt; Request ListTagsForVault
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; Request ListTagsForVault -&gt; Request ListTagsForVault
 forall a. ByteString -&gt; Request a -&gt; Request a
@@ -215,7 +215,7 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glacier.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679221202"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679221256"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListTagsForVault
 -&gt; ClientResponse ClientBody
@@ -239,10 +239,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679221199"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679221199"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679221198"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679221198"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679221197"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679221197"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679221253"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679221253"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679221252"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679221252"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679221251"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221251"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-117"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text) -&gt; Int -&gt; ListTagsForVaultResponse
 </span><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVaultResponse%27"><span class="hs-identifier hs-var">ListTagsForVaultResponse'</span></a></span><span>
 </span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (HashMap Text Text) -&gt; Int -&gt; ListTagsForVaultResponse)
@@ -250,7 +250,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; ListTagsForVaultResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679221197"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679221251"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text Text)))
@@ -268,15 +268,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679221199"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679221253"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221188"><span id="local-6989586621679221190"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVault"><span class="hs-identifier hs-type">ListTagsForVault</span></a></span></span></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221242"><span id="local-6989586621679221244"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVault"><span class="hs-identifier hs-type">ListTagsForVault</span></a></span></span></span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221185"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVault"><span class="hs-identifier hs-type">ListTagsForVault</span></a></span></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221239"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVault"><span class="hs-identifier hs-type">ListTagsForVault</span></a></span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVault"><span class="hs-identifier hs-type">ListTagsForVault</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679221181"><span class="annot"><span class="annottext">toHeaders :: ListTagsForVault -&gt; ResponseHeaders
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679221235"><span class="annot"><span class="annottext">toHeaders :: ListTagsForVault -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListTagsForVault -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -284,13 +284,13 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVault"><span class="hs-identifier hs-type">ListTagsForVault</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679221176"><span class="annot"><span class="annottext">toPath :: ListTagsForVault -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVault%27"><span class="hs-identifier hs-type">ListTagsForVault'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221173"><span id="local-6989586621679221174"><span class="annot"><span class="annottext">Text
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679221230"><span class="annot"><span class="annottext">toPath :: ListTagsForVault -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVault%27"><span class="hs-identifier hs-type">ListTagsForVault'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221227"><span id="local-6989586621679221228"><span class="annot"><span class="annottext">Text
 vaultName :: Text
 accountId :: Text
 $sel:vaultName:ListTagsForVault' :: ListTagsForVault -&gt; Text
 $sel:accountId:ListTagsForVault' :: ListTagsForVault -&gt; Text
-</span><a href="#local-6989586621679221173"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679221227"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -299,19 +299,19 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-133"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679221174"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679221228"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-134"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/vaults/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-135"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679221173"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679221227"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/tags&quot;</span></span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVault"><span class="hs-identifier hs-type">ListTagsForVault</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679221169"><span class="annot"><span class="annottext">toQuery :: ListTagsForVault -&gt; QueryString
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679221223"><span class="annot"><span class="annottext">toQuery :: ListTagsForVault -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListTagsForVault -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -321,7 +321,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-142"></span><span class="hs-comment">-- | Contains the Amazon S3 Glacier response to your request.</span><span>
 </span><span id="line-143"></span><span class="hs-comment">--</span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- /See:/ 'newListTagsForVaultResponse' smart constructor.</span><span>
-</span><span id="line-145"></span><span id="local-6989586621679221166"><span id="local-6989586621679221167"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTagsForVaultResponse"><span class="annot"><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVaultResponse"><span class="hs-identifier hs-var">ListTagsForVaultResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTagsForVaultResponse%27"><span class="annot"><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVaultResponse%27"><span class="hs-identifier hs-var">ListTagsForVaultResponse'</span></a></span></span><span>
+</span><span id="line-145"></span><span id="local-6989586621679221220"><span id="local-6989586621679221221"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTagsForVaultResponse"><span class="annot"><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVaultResponse"><span class="hs-identifier hs-var">ListTagsForVaultResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTagsForVaultResponse%27"><span class="annot"><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVaultResponse%27"><span class="hs-identifier hs-var">ListTagsForVaultResponse'</span></a></span></span><span>
 </span><span id="line-146"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The tags attached to the vault. Each tag is composed of a key and a</span><span>
 </span><span id="line-147"></span><span>    </span><span class="hs-comment">-- value.</span><span>
 </span><span id="line-148"></span><span>    </span><span id="%24sel%3Atags%3AListTagsForVaultResponse%27"><span class="annot"><span class="annottext">ListTagsForVaultResponse -&gt; Maybe (HashMap Text Text)
@@ -330,7 +330,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-150"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListTagsForVaultResponse%27"><span class="annot"><span class="annottext">ListTagsForVaultResponse -&gt; Int
 </span><a href="Network.AWS.Glacier.ListTagsForVault.html#%24sel%3AhttpStatus%3AListTagsForVaultResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-151"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-152"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679221160"><span id="local-6989586621679221162"><span class="annot"><span class="annottext">ListTagsForVaultResponse -&gt; ListTagsForVaultResponse -&gt; Bool
+</span><span id="line-152"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679221214"><span id="local-6989586621679221216"><span class="annot"><span class="annottext">ListTagsForVaultResponse -&gt; ListTagsForVaultResponse -&gt; Bool
 (ListTagsForVaultResponse -&gt; ListTagsForVaultResponse -&gt; Bool)
 -&gt; (ListTagsForVaultResponse -&gt; ListTagsForVaultResponse -&gt; Bool)
 -&gt; Eq ListTagsForVaultResponse
@@ -339,7 +339,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListTagsForVaultResponse -&gt; ListTagsForVaultResponse -&gt; Bool
 == :: ListTagsForVaultResponse -&gt; ListTagsForVaultResponse -&gt; Bool
 $c== :: ListTagsForVaultResponse -&gt; ListTagsForVaultResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221152"><span id="local-6989586621679221154"><span id="local-6989586621679221156"><span id="local-6989586621679221158"><span class="annot"><span class="annottext">ReadPrec [ListTagsForVaultResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221206"><span id="local-6989586621679221208"><span id="local-6989586621679221210"><span id="local-6989586621679221212"><span class="annot"><span class="annottext">ReadPrec [ListTagsForVaultResponse]
 ReadPrec ListTagsForVaultResponse
 Int -&gt; ReadS ListTagsForVaultResponse
 ReadS [ListTagsForVaultResponse]
@@ -359,7 +359,7 @@ readList :: ReadS [ListTagsForVaultResponse]
 $creadList :: ReadS [ListTagsForVaultResponse]
 readsPrec :: Int -&gt; ReadS ListTagsForVaultResponse
 $creadsPrec :: Int -&gt; ReadS ListTagsForVaultResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221146"><span id="local-6989586621679221148"><span id="local-6989586621679221150"><span class="annot"><span class="annottext">Int -&gt; ListTagsForVaultResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221200"><span id="local-6989586621679221202"><span id="local-6989586621679221204"><span class="annot"><span class="annottext">Int -&gt; ListTagsForVaultResponse -&gt; ShowS
 [ListTagsForVaultResponse] -&gt; ShowS
 ListTagsForVaultResponse -&gt; String
 (Int -&gt; ListTagsForVaultResponse -&gt; ShowS)
@@ -408,8 +408,8 @@ ListTagsForVaultResponse -&gt; Rep ListTagsForVaultResponse x
 </span><span id="line-168"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-169"></span><span>  </span><span class="annot"><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVaultResponse"><span class="hs-identifier hs-type">ListTagsForVaultResponse</span></a></span><span>
 </span><span id="line-170"></span><span id="newListTagsForVaultResponse"><span class="annot"><span class="annottext">newListTagsForVaultResponse :: Int -&gt; ListTagsForVaultResponse
-</span><a href="Network.AWS.Glacier.ListTagsForVault.html#newListTagsForVaultResponse"><span class="hs-identifier hs-var hs-var">newListTagsForVaultResponse</span></a></span></span><span> </span><span id="local-6989586621679221143"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679221143"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glacier.ListTagsForVault.html#newListTagsForVaultResponse"><span class="hs-identifier hs-var hs-var">newListTagsForVaultResponse</span></a></span></span><span> </span><span id="local-6989586621679221197"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679221197"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-171"></span><span>  </span><span class="annot"><span class="annottext">ListTagsForVaultResponse' :: Maybe (HashMap Text Text) -&gt; Int -&gt; ListTagsForVaultResponse
 </span><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVaultResponse%27"><span class="hs-identifier hs-type">ListTagsForVaultResponse'</span></a></span><span>
 </span><span id="line-172"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tags:ListTagsForVaultResponse' :: Maybe (HashMap Text Text)
@@ -418,7 +418,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-173"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListTagsForVaultResponse' :: Int
 </span><a href="Network.AWS.Glacier.ListTagsForVault.html#%24sel%3AhttpStatus%3AListTagsForVaultResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679221143"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679221197"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-174"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-comment">-- | The tags attached to the vault. Each tag is composed of a key and a</span><span>
@@ -435,16 +435,16 @@ forall a. Maybe a
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVaultResponse%27"><span class="hs-identifier hs-type">ListTagsForVaultResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221142"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVaultResponse%27"><span class="hs-identifier hs-type">ListTagsForVaultResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221196"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 tags :: Maybe (HashMap Text Text)
 $sel:tags:ListTagsForVaultResponse' :: ListTagsForVaultResponse -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679221142"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679221142"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221141"><span class="annot"><span class="annottext">s :: ListTagsForVaultResponse
-</span><a href="#local-6989586621679221141"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVaultResponse%27"><span class="hs-identifier hs-type">ListTagsForVaultResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221140"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679221140"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsForVaultResponse
-</span><a href="#local-6989586621679221141"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ListTagsForVaultResponse' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679221196"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679221196"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221195"><span class="annot"><span class="annottext">s :: ListTagsForVaultResponse
+</span><a href="#local-6989586621679221195"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVaultResponse%27"><span class="hs-identifier hs-type">ListTagsForVaultResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221194"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679221194"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsForVaultResponse
+</span><a href="#local-6989586621679221195"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ListTagsForVaultResponse' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.Glacier.ListTagsForVault.html#%24sel%3Atags%3AListTagsForVaultResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679221140"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVaultResponse"><span class="hs-identifier hs-type">ListTagsForVaultResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679221194"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVaultResponse"><span class="hs-identifier hs-type">ListTagsForVaultResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; ListTagsForVaultResponse -&gt; f ListTagsForVaultResponse)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -470,8 +470,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Text)
   (HashMap Text Text)
   (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-182"></span><span class="annot"><a href="Network.AWS.Glacier.ListTagsForVault.html#listTagsForVaultResponse_httpStatus"><span class="hs-identifier hs-type">listTagsForVaultResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVaultResponse"><span class="hs-identifier hs-type">ListTagsForVaultResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -481,16 +481,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (ListTagsForVaultResponse -&gt; Int -&gt; ListTagsForVaultResponse)
 -&gt; Lens ListTagsForVaultResponse ListTagsForVaultResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVaultResponse%27"><span class="hs-identifier hs-type">ListTagsForVaultResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221137"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVaultResponse%27"><span class="hs-identifier hs-type">ListTagsForVaultResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221191"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListTagsForVaultResponse' :: ListTagsForVaultResponse -&gt; Int
-</span><a href="#local-6989586621679221137"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679221137"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221136"><span class="annot"><span class="annottext">s :: ListTagsForVaultResponse
-</span><a href="#local-6989586621679221136"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVaultResponse%27"><span class="hs-identifier hs-type">ListTagsForVaultResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221135"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679221135"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsForVaultResponse
-</span><a href="#local-6989586621679221136"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListTagsForVaultResponse' :: Int
+</span><a href="#local-6989586621679221191"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679221191"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221190"><span class="annot"><span class="annottext">s :: ListTagsForVaultResponse
+</span><a href="#local-6989586621679221190"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVaultResponse%27"><span class="hs-identifier hs-type">ListTagsForVaultResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221189"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679221189"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsForVaultResponse
+</span><a href="#local-6989586621679221190"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListTagsForVaultResponse' :: Int
 </span><a href="Network.AWS.Glacier.ListTagsForVault.html#%24sel%3AhttpStatus%3AListTagsForVaultResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679221135"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVaultResponse"><span class="hs-identifier hs-type">ListTagsForVaultResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679221189"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVaultResponse"><span class="hs-identifier hs-type">ListTagsForVaultResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>
-</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221133"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVaultResponse"><span class="hs-identifier hs-type">ListTagsForVaultResponse</span></a></span></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221187"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListTagsForVault.html#ListTagsForVaultResponse"><span class="hs-identifier hs-type">ListTagsForVaultResponse</span></a></span></span><span>
 </span><span id="line-186"></span></pre></body></html>

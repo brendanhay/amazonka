@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-comment">-- team.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newOidcMemberDefinition' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621680324546"><span id="local-6989586621680324547"></span></span><span class="hs-keyword">data</span><span> </span><span id="OidcMemberDefinition"><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcMemberDefinition.html#OidcMemberDefinition"><span class="hs-identifier hs-var">OidcMemberDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OidcMemberDefinition%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcMemberDefinition.html#OidcMemberDefinition%27"><span class="hs-identifier hs-var">OidcMemberDefinition'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621680325937"><span id="local-6989586621680325938"></span></span><span class="hs-keyword">data</span><span> </span><span id="OidcMemberDefinition"><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcMemberDefinition.html#OidcMemberDefinition"><span class="hs-identifier hs-var">OidcMemberDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OidcMemberDefinition%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcMemberDefinition.html#OidcMemberDefinition%27"><span class="hs-identifier hs-var">OidcMemberDefinition'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of comma seperated strings that identifies user groups in your</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- OIDC IdP. Each user group is made up of a group of private workers.</span><span>
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3Agroups%3AOidcMemberDefinition%27"><span class="annot"><span class="annottext">OidcMemberDefinition -&gt; NonEmpty Text
 </span><a href="Network.AWS.SageMaker.Types.OidcMemberDefinition.html#%24sel%3Agroups%3AOidcMemberDefinition%27"><span class="hs-identifier hs-var hs-var">groups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680324540"><span id="local-6989586621680324542"><span class="annot"><span class="annottext">OidcMemberDefinition -&gt; OidcMemberDefinition -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680325931"><span id="local-6989586621680325933"><span class="annot"><span class="annottext">OidcMemberDefinition -&gt; OidcMemberDefinition -&gt; Bool
 (OidcMemberDefinition -&gt; OidcMemberDefinition -&gt; Bool)
 -&gt; (OidcMemberDefinition -&gt; OidcMemberDefinition -&gt; Bool)
 -&gt; Eq OidcMemberDefinition
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: OidcMemberDefinition -&gt; OidcMemberDefinition -&gt; Bool
 == :: OidcMemberDefinition -&gt; OidcMemberDefinition -&gt; Bool
 $c== :: OidcMemberDefinition -&gt; OidcMemberDefinition -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680324531"><span id="local-6989586621680324533"><span id="local-6989586621680324535"><span id="local-6989586621680324537"><span class="annot"><span class="annottext">ReadPrec [OidcMemberDefinition]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680325922"><span id="local-6989586621680325924"><span id="local-6989586621680325926"><span id="local-6989586621680325928"><span class="annot"><span class="annottext">ReadPrec [OidcMemberDefinition]
 ReadPrec OidcMemberDefinition
 Int -&gt; ReadS OidcMemberDefinition
 ReadS [OidcMemberDefinition]
@@ -66,7 +66,7 @@ readList :: ReadS [OidcMemberDefinition]
 $creadList :: ReadS [OidcMemberDefinition]
 readsPrec :: Int -&gt; ReadS OidcMemberDefinition
 $creadsPrec :: Int -&gt; ReadS OidcMemberDefinition
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680324524"><span id="local-6989586621680324526"><span id="local-6989586621680324528"><span class="annot"><span class="annottext">Int -&gt; OidcMemberDefinition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680325915"><span id="local-6989586621680325917"><span id="local-6989586621680325919"><span class="annot"><span class="annottext">Int -&gt; OidcMemberDefinition -&gt; ShowS
 [OidcMemberDefinition] -&gt; ShowS
 OidcMemberDefinition -&gt; String
 (Int -&gt; OidcMemberDefinition -&gt; ShowS)
@@ -107,21 +107,21 @@ $cfrom :: forall x. OidcMemberDefinition -&gt; Rep OidcMemberDefinition x
 </span><span id="line-53"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcMemberDefinition.html#OidcMemberDefinition"><span class="hs-identifier hs-type">OidcMemberDefinition</span></a></span><span>
 </span><span id="line-55"></span><span id="newOidcMemberDefinition"><span class="annot"><span class="annottext">newOidcMemberDefinition :: NonEmpty Text -&gt; OidcMemberDefinition
-</span><a href="Network.AWS.SageMaker.Types.OidcMemberDefinition.html#newOidcMemberDefinition"><span class="hs-identifier hs-var hs-var">newOidcMemberDefinition</span></a></span></span><span> </span><span id="local-6989586621680324518"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621680324518"><span class="hs-identifier hs-var">pGroups_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.Types.OidcMemberDefinition.html#newOidcMemberDefinition"><span class="hs-identifier hs-var hs-var">newOidcMemberDefinition</span></a></span></span><span> </span><span id="local-6989586621680325909"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621680325909"><span class="hs-identifier hs-var">pGroups_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">OidcMemberDefinition' :: NonEmpty Text -&gt; OidcMemberDefinition
 </span><a href="Network.AWS.SageMaker.Types.OidcMemberDefinition.html#OidcMemberDefinition%27"><span class="hs-identifier hs-type">OidcMemberDefinition'</span></a></span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:groups:OidcMemberDefinition' :: NonEmpty Text
 </span><a href="Network.AWS.SageMaker.Types.OidcMemberDefinition.html#%24sel%3Agroups%3AOidcMemberDefinition%27"><span class="hs-identifier hs-var">groups</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-58"></span><span>        </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
 -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
  -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text)))
 -&gt; NonEmpty Text -&gt; NonEmpty Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621680324518"><span class="hs-identifier hs-var">pGroups_</span></a></span><span>
+</span><a href="#local-6989586621680325909"><span class="hs-identifier hs-var">pGroups_</span></a></span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | A list of comma seperated strings that identifies user groups in your</span><span>
@@ -137,16 +137,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (NonEmpty Text)
      (NonEmpty Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcMemberDefinition.html#OidcMemberDefinition%27"><span class="hs-identifier hs-type">OidcMemberDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680324512"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcMemberDefinition.html#OidcMemberDefinition%27"><span class="hs-identifier hs-type">OidcMemberDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680325903"><span class="annot"><span class="annottext">NonEmpty Text
 groups :: NonEmpty Text
 $sel:groups:OidcMemberDefinition' :: OidcMemberDefinition -&gt; NonEmpty Text
-</span><a href="#local-6989586621680324512"><span class="hs-identifier hs-var hs-var">groups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621680324512"><span class="hs-identifier hs-var">groups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680324511"><span class="annot"><span class="annottext">s :: OidcMemberDefinition
-</span><a href="#local-6989586621680324511"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcMemberDefinition.html#OidcMemberDefinition%27"><span class="hs-identifier hs-type">OidcMemberDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680324510"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621680324510"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OidcMemberDefinition
-</span><a href="#local-6989586621680324511"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groups:OidcMemberDefinition' :: NonEmpty Text
+</span><a href="#local-6989586621680325903"><span class="hs-identifier hs-var hs-var">groups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621680325903"><span class="hs-identifier hs-var">groups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680325902"><span class="annot"><span class="annottext">s :: OidcMemberDefinition
+</span><a href="#local-6989586621680325902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcMemberDefinition.html#OidcMemberDefinition%27"><span class="hs-identifier hs-type">OidcMemberDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680325901"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621680325901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OidcMemberDefinition
+</span><a href="#local-6989586621680325902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groups:OidcMemberDefinition' :: NonEmpty Text
 </span><a href="Network.AWS.SageMaker.Types.OidcMemberDefinition.html#%24sel%3Agroups%3AOidcMemberDefinition%27"><span class="hs-identifier hs-var">groups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621680324510"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcMemberDefinition.html#OidcMemberDefinition"><span class="hs-identifier hs-type">OidcMemberDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+</span><a href="#local-6989586621680325901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcMemberDefinition.html#OidcMemberDefinition"><span class="hs-identifier hs-type">OidcMemberDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
  -&gt; OidcMemberDefinition -&gt; f OidcMemberDefinition)
 -&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
     -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
@@ -156,11 +156,11 @@ $sel:groups:OidcMemberDefinition' :: OidcMemberDefinition -&gt; NonEmpty Text
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; f (NonEmpty Text))
 -&gt; NonEmpty Text -&gt; f (NonEmpty Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680324506"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcMemberDefinition.html#OidcMemberDefinition"><span class="hs-identifier hs-type">OidcMemberDefinition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621680324504"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OidcMemberDefinition
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680325897"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcMemberDefinition.html#OidcMemberDefinition"><span class="hs-identifier hs-type">OidcMemberDefinition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621680325895"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OidcMemberDefinition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser OidcMemberDefinition)
@@ -170,30 +170,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;OidcMemberDefinition&quot;</span></span><span>
-</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680324501"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680324501"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680325892"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680325892"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">NonEmpty Text -&gt; OidcMemberDefinition
 </span><a href="Network.AWS.SageMaker.Types.OidcMemberDefinition.html#OidcMemberDefinition%27"><span class="hs-identifier hs-var">OidcMemberDefinition'</span></a></span><span>
 </span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; OidcMemberDefinition)
 -&gt; Parser (NonEmpty Text) -&gt; Parser OidcMemberDefinition
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680324501"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty Text)
+</span><a href="#local-6989586621680325892"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Groups&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680324495"><span id="local-6989586621680324497"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcMemberDefinition.html#OidcMemberDefinition"><span class="hs-identifier hs-type">OidcMemberDefinition</span></a></span></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680325886"><span id="local-6989586621680325888"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcMemberDefinition.html#OidcMemberDefinition"><span class="hs-identifier hs-type">OidcMemberDefinition</span></a></span></span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680324492"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcMemberDefinition.html#OidcMemberDefinition"><span class="hs-identifier hs-type">OidcMemberDefinition</span></a></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680325883"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcMemberDefinition.html#OidcMemberDefinition"><span class="hs-identifier hs-type">OidcMemberDefinition</span></a></span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680324484"><span id="local-6989586621680324486"><span id="local-6989586621680324488"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcMemberDefinition.html#OidcMemberDefinition"><span class="hs-identifier hs-type">OidcMemberDefinition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621680324482"><span class="annot"><span class="annottext">toJSON :: OidcMemberDefinition -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcMemberDefinition.html#OidcMemberDefinition%27"><span class="hs-identifier hs-type">OidcMemberDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680324480"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680325875"><span id="local-6989586621680325877"><span id="local-6989586621680325879"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcMemberDefinition.html#OidcMemberDefinition"><span class="hs-identifier hs-type">OidcMemberDefinition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621680325873"><span class="annot"><span class="annottext">toJSON :: OidcMemberDefinition -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OidcMemberDefinition.html#OidcMemberDefinition%27"><span class="hs-identifier hs-type">OidcMemberDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680325871"><span class="annot"><span class="annottext">NonEmpty Text
 groups :: NonEmpty Text
 $sel:groups:OidcMemberDefinition' :: OidcMemberDefinition -&gt; NonEmpty Text
-</span><a href="#local-6989586621680324480"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680325871"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -205,6 +205,6 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Groups&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621680324480"><span class="hs-identifier hs-var">groups</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621680325871"><span class="hs-identifier hs-var">groups</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span></pre></body></html>

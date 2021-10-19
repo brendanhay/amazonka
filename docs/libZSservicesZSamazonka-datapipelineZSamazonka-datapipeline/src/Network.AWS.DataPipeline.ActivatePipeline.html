@@ -34,8 +34,8 @@
 </span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#newActivatePipeline"><span class="hs-identifier">newActivatePipeline</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#activatePipeline_parameterValues"><span class="hs-identifier">activatePipeline_parameterValues</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#activatePipeline_startTimestamp"><span class="hs-identifier">activatePipeline_startTimestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#activatePipeline_startTimestamp"><span class="hs-identifier">activatePipeline_startTimestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#activatePipeline_parameterValues"><span class="hs-identifier">activatePipeline_parameterValues</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#activatePipeline_pipelineId"><span class="hs-identifier">activatePipeline_pipelineId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>
 </span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -57,19 +57,19 @@
 </span><span id="line-57"></span><span class="hs-comment">-- | Contains the parameters for ActivatePipeline.</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- /See:/ 'newActivatePipeline' smart constructor.</span><span>
-</span><span id="line-60"></span><span id="local-6989586621679181169"><span id="local-6989586621679181170"></span></span><span class="hs-keyword">data</span><span> </span><span id="ActivatePipeline"><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipeline"><span class="hs-identifier hs-var">ActivatePipeline</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActivatePipeline%27"><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipeline%27"><span class="hs-identifier hs-var">ActivatePipeline'</span></a></span></span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of parameter values to pass to the pipeline at activation.</span><span>
-</span><span id="line-62"></span><span>    </span><span id="%24sel%3AparameterValues%3AActivatePipeline%27"><span class="annot"><span class="annottext">ActivatePipeline -&gt; Maybe [ParameterValue]
-</span><a href="Network.AWS.DataPipeline.ActivatePipeline.html#%24sel%3AparameterValues%3AActivatePipeline%27"><span class="hs-identifier hs-var hs-var">parameterValues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.ParameterValue.html#ParameterValue"><span class="hs-identifier hs-type">ParameterValue</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The date and time to resume the pipeline. By default, the pipeline</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- resumes from the last completed execution.</span><span>
-</span><span id="line-65"></span><span>    </span><span id="%24sel%3AstartTimestamp%3AActivatePipeline%27"><span class="annot"><span class="annottext">ActivatePipeline -&gt; Maybe POSIX
+</span><span id="line-60"></span><span id="local-6989586621679181333"><span id="local-6989586621679181334"></span></span><span class="hs-keyword">data</span><span> </span><span id="ActivatePipeline"><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipeline"><span class="hs-identifier hs-var">ActivatePipeline</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActivatePipeline%27"><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipeline%27"><span class="hs-identifier hs-var">ActivatePipeline'</span></a></span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The date and time to resume the pipeline. By default, the pipeline</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- resumes from the last completed execution.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AstartTimestamp%3AActivatePipeline%27"><span class="annot"><span class="annottext">ActivatePipeline -&gt; Maybe POSIX
 </span><a href="Network.AWS.DataPipeline.ActivatePipeline.html#%24sel%3AstartTimestamp%3AActivatePipeline%27"><span class="hs-identifier hs-var hs-var">startTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | A list of parameter values to pass to the pipeline at activation.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AparameterValues%3AActivatePipeline%27"><span class="annot"><span class="annottext">ActivatePipeline -&gt; Maybe [ParameterValue]
+</span><a href="Network.AWS.DataPipeline.ActivatePipeline.html#%24sel%3AparameterValues%3AActivatePipeline%27"><span class="hs-identifier hs-var hs-var">parameterValues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.ParameterValue.html#ParameterValue"><span class="hs-identifier hs-type">ParameterValue</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The ID of the pipeline.</span><span>
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3ApipelineId%3AActivatePipeline%27"><span class="annot"><span class="annottext">ActivatePipeline -&gt; Text
 </span><a href="Network.AWS.DataPipeline.ActivatePipeline.html#%24sel%3ApipelineId%3AActivatePipeline%27"><span class="hs-identifier hs-var hs-var">pipelineId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679181161"><span id="local-6989586621679181163"><span class="annot"><span class="annottext">ActivatePipeline -&gt; ActivatePipeline -&gt; Bool
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679181325"><span id="local-6989586621679181327"><span class="annot"><span class="annottext">ActivatePipeline -&gt; ActivatePipeline -&gt; Bool
 (ActivatePipeline -&gt; ActivatePipeline -&gt; Bool)
 -&gt; (ActivatePipeline -&gt; ActivatePipeline -&gt; Bool)
 -&gt; Eq ActivatePipeline
@@ -78,7 +78,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ActivatePipeline -&gt; ActivatePipeline -&gt; Bool
 == :: ActivatePipeline -&gt; ActivatePipeline -&gt; Bool
 $c== :: ActivatePipeline -&gt; ActivatePipeline -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181152"><span id="local-6989586621679181154"><span id="local-6989586621679181156"><span id="local-6989586621679181158"><span class="annot"><span class="annottext">ReadPrec [ActivatePipeline]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181316"><span id="local-6989586621679181318"><span id="local-6989586621679181320"><span id="local-6989586621679181322"><span class="annot"><span class="annottext">ReadPrec [ActivatePipeline]
 ReadPrec ActivatePipeline
 Int -&gt; ReadS ActivatePipeline
 ReadS [ActivatePipeline]
@@ -98,7 +98,7 @@ readList :: ReadS [ActivatePipeline]
 $creadList :: ReadS [ActivatePipeline]
 readsPrec :: Int -&gt; ReadS ActivatePipeline
 $creadsPrec :: Int -&gt; ReadS ActivatePipeline
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181145"><span id="local-6989586621679181147"><span id="local-6989586621679181149"><span class="annot"><span class="annottext">Int -&gt; ActivatePipeline -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181309"><span id="local-6989586621679181311"><span id="local-6989586621679181313"><span class="annot"><span class="annottext">Int -&gt; ActivatePipeline -&gt; ShowS
 [ActivatePipeline] -&gt; ShowS
 ActivatePipeline -&gt; String
 (Int -&gt; ActivatePipeline -&gt; ShowS)
@@ -132,10 +132,10 @@ $cfrom :: forall x. ActivatePipeline -&gt; Rep ActivatePipeline x
 </span><span id="line-76"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-78"></span><span class="hs-comment">--</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- 'parameterValues', 'activatePipeline_parameterValues' - A list of parameter values to pass to the pipeline at activation.</span><span>
-</span><span id="line-80"></span><span class="hs-comment">--</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- 'startTimestamp', 'activatePipeline_startTimestamp' - The date and time to resume the pipeline. By default, the pipeline</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- resumes from the last completed execution.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'startTimestamp', 'activatePipeline_startTimestamp' - The date and time to resume the pipeline. By default, the pipeline</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- resumes from the last completed execution.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'parameterValues', 'activatePipeline_parameterValues' - A list of parameter values to pass to the pipeline at activation.</span><span>
 </span><span id="line-83"></span><span class="hs-comment">--</span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- 'pipelineId', 'activatePipeline_pipelineId' - The ID of the pipeline.</span><span>
 </span><span id="line-85"></span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#newActivatePipeline"><span class="hs-identifier hs-type">newActivatePipeline</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -143,27 +143,62 @@ $cfrom :: forall x. ActivatePipeline -&gt; Rep ActivatePipeline x
 </span><span id="line-87"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipeline"><span class="hs-identifier hs-type">ActivatePipeline</span></a></span><span>
 </span><span id="line-89"></span><span id="newActivatePipeline"><span class="annot"><span class="annottext">newActivatePipeline :: Text -&gt; ActivatePipeline
-</span><a href="Network.AWS.DataPipeline.ActivatePipeline.html#newActivatePipeline"><span class="hs-identifier hs-var hs-var">newActivatePipeline</span></a></span></span><span> </span><span id="local-6989586621679181140"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679181140"><span class="hs-identifier hs-var">pPipelineId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-90"></span><span>  </span><span class="annot"><span class="annottext">ActivatePipeline' :: Maybe [ParameterValue] -&gt; Maybe POSIX -&gt; Text -&gt; ActivatePipeline
+</span><a href="Network.AWS.DataPipeline.ActivatePipeline.html#newActivatePipeline"><span class="hs-identifier hs-var hs-var">newActivatePipeline</span></a></span></span><span> </span><span id="local-6989586621679181304"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181304"><span class="hs-identifier hs-var">pPipelineId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="annottext">ActivatePipeline' :: Maybe POSIX -&gt; Maybe [ParameterValue] -&gt; Text -&gt; ActivatePipeline
 </span><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipeline%27"><span class="hs-identifier hs-type">ActivatePipeline'</span></a></span><span>
-</span><span id="line-91"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:parameterValues:ActivatePipeline' :: Maybe [ParameterValue]
-</span><a href="Network.AWS.DataPipeline.ActivatePipeline.html#%24sel%3AparameterValues%3AActivatePipeline%27"><span class="hs-identifier hs-var">parameterValues</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">Maybe [ParameterValue]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:startTimestamp:ActivatePipeline' :: Maybe POSIX
+</span><span id="line-91"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:startTimestamp:ActivatePipeline' :: Maybe POSIX
 </span><a href="Network.AWS.DataPipeline.ActivatePipeline.html#%24sel%3AstartTimestamp%3AActivatePipeline%27"><span class="hs-identifier hs-var">startTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:pipelineId:ActivatePipeline' :: Text
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:parameterValues:ActivatePipeline' :: Maybe [ParameterValue]
+</span><a href="Network.AWS.DataPipeline.ActivatePipeline.html#%24sel%3AparameterValues%3AActivatePipeline%27"><span class="hs-identifier hs-var">parameterValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ParameterValue]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:pipelineId:ActivatePipeline' :: Text
 </span><a href="Network.AWS.DataPipeline.ActivatePipeline.html#%24sel%3ApipelineId%3AActivatePipeline%27"><span class="hs-identifier hs-var">pipelineId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679181140"><span class="hs-identifier hs-var">pPipelineId_</span></a></span><span>
-</span><span id="line-95"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- | A list of parameter values to pass to the pipeline at activation.</span><span>
-</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#activatePipeline_parameterValues"><span class="hs-identifier hs-type">activatePipeline_parameterValues</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipeline"><span class="hs-identifier hs-type">ActivatePipeline</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.ParameterValue.html#ParameterValue"><span class="hs-identifier hs-type">ParameterValue</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span id="activatePipeline_parameterValues"><span class="annot"><span class="annottext">activatePipeline_parameterValues :: (Maybe [ParameterValue] -&gt; f (Maybe [ParameterValue]))
+</span><a href="#local-6989586621679181304"><span class="hs-identifier hs-var">pPipelineId_</span></a></span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The date and time to resume the pipeline. By default, the pipeline</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- resumes from the last completed execution.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#activatePipeline_startTimestamp"><span class="hs-identifier hs-type">activatePipeline_startTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipeline"><span class="hs-identifier hs-type">ActivatePipeline</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="activatePipeline_startTimestamp"><span class="annot"><span class="annottext">activatePipeline_startTimestamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ActivatePipeline -&gt; f ActivatePipeline
+</span><a href="Network.AWS.DataPipeline.ActivatePipeline.html#activatePipeline_startTimestamp"><span class="hs-identifier hs-var hs-var">activatePipeline_startTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActivatePipeline -&gt; Maybe POSIX)
+-&gt; (ActivatePipeline -&gt; Maybe POSIX -&gt; ActivatePipeline)
+-&gt; Lens
+     ActivatePipeline ActivatePipeline (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipeline%27"><span class="hs-identifier hs-type">ActivatePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181301"><span class="annot"><span class="annottext">Maybe POSIX
+startTimestamp :: Maybe POSIX
+$sel:startTimestamp:ActivatePipeline' :: ActivatePipeline -&gt; Maybe POSIX
+</span><a href="#local-6989586621679181301"><span class="hs-identifier hs-var hs-var">startTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679181301"><span class="hs-identifier hs-var">startTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181300"><span class="annot"><span class="annottext">s :: ActivatePipeline
+</span><a href="#local-6989586621679181300"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipeline%27"><span class="hs-identifier hs-type">ActivatePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181299"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679181299"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivatePipeline
+</span><a href="#local-6989586621679181300"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTimestamp:ActivatePipeline' :: Maybe POSIX
+</span><a href="Network.AWS.DataPipeline.ActivatePipeline.html#%24sel%3AstartTimestamp%3AActivatePipeline%27"><span class="hs-identifier hs-var">startTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679181299"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipeline"><span class="hs-identifier hs-type">ActivatePipeline</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ActivatePipeline -&gt; f ActivatePipeline)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ActivatePipeline
+-&gt; f ActivatePipeline
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | A list of parameter values to pass to the pipeline at activation.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#activatePipeline_parameterValues"><span class="hs-identifier hs-type">activatePipeline_parameterValues</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipeline"><span class="hs-identifier hs-type">ActivatePipeline</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.ParameterValue.html#ParameterValue"><span class="hs-identifier hs-type">ParameterValue</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="activatePipeline_parameterValues"><span class="annot"><span class="annottext">activatePipeline_parameterValues :: (Maybe [ParameterValue] -&gt; f (Maybe [ParameterValue]))
 -&gt; ActivatePipeline -&gt; f ActivatePipeline
 </span><a href="Network.AWS.DataPipeline.ActivatePipeline.html#activatePipeline_parameterValues"><span class="hs-identifier hs-var hs-var">activatePipeline_parameterValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActivatePipeline -&gt; Maybe [ParameterValue])
 -&gt; (ActivatePipeline -&gt; Maybe [ParameterValue] -&gt; ActivatePipeline)
@@ -173,16 +208,16 @@ forall a. Maybe a
      (Maybe [ParameterValue])
      (Maybe [ParameterValue])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipeline%27"><span class="hs-identifier hs-type">ActivatePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181137"><span class="annot"><span class="annottext">Maybe [ParameterValue]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipeline%27"><span class="hs-identifier hs-type">ActivatePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181295"><span class="annot"><span class="annottext">Maybe [ParameterValue]
 parameterValues :: Maybe [ParameterValue]
 $sel:parameterValues:ActivatePipeline' :: ActivatePipeline -&gt; Maybe [ParameterValue]
-</span><a href="#local-6989586621679181137"><span class="hs-identifier hs-var hs-var">parameterValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ParameterValue]
-</span><a href="#local-6989586621679181137"><span class="hs-identifier hs-var">parameterValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181136"><span class="annot"><span class="annottext">s :: ActivatePipeline
-</span><a href="#local-6989586621679181136"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipeline%27"><span class="hs-identifier hs-type">ActivatePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181135"><span class="annot"><span class="annottext">Maybe [ParameterValue]
-</span><a href="#local-6989586621679181135"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivatePipeline
-</span><a href="#local-6989586621679181136"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameterValues:ActivatePipeline' :: Maybe [ParameterValue]
+</span><a href="#local-6989586621679181295"><span class="hs-identifier hs-var hs-var">parameterValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ParameterValue]
+</span><a href="#local-6989586621679181295"><span class="hs-identifier hs-var">parameterValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181294"><span class="annot"><span class="annottext">s :: ActivatePipeline
+</span><a href="#local-6989586621679181294"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipeline%27"><span class="hs-identifier hs-type">ActivatePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181293"><span class="annot"><span class="annottext">Maybe [ParameterValue]
+</span><a href="#local-6989586621679181293"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivatePipeline
+</span><a href="#local-6989586621679181294"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameterValues:ActivatePipeline' :: Maybe [ParameterValue]
 </span><a href="Network.AWS.DataPipeline.ActivatePipeline.html#%24sel%3AparameterValues%3AActivatePipeline%27"><span class="hs-identifier hs-var">parameterValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ParameterValue]
-</span><a href="#local-6989586621679181135"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipeline"><span class="hs-identifier hs-type">ActivatePipeline</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ParameterValue] -&gt; f (Maybe [ParameterValue]))
+</span><a href="#local-6989586621679181293"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipeline"><span class="hs-identifier hs-type">ActivatePipeline</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ParameterValue] -&gt; f (Maybe [ParameterValue]))
  -&gt; ActivatePipeline -&gt; f ActivatePipeline)
 -&gt; ((Maybe [ParameterValue] -&gt; f (Maybe [ParameterValue]))
     -&gt; Maybe [ParameterValue] -&gt; f (Maybe [ParameterValue]))
@@ -202,79 +237,43 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   [ParameterValue] [ParameterValue] [ParameterValue] [ParameterValue]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- | The date and time to resume the pipeline. By default, the pipeline</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- resumes from the last completed execution.</span><span>
-</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#activatePipeline_startTimestamp"><span class="hs-identifier hs-type">activatePipeline_startTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipeline"><span class="hs-identifier hs-type">ActivatePipeline</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span id="activatePipeline_startTimestamp"><span class="annot"><span class="annottext">activatePipeline_startTimestamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; ActivatePipeline -&gt; f ActivatePipeline
-</span><a href="Network.AWS.DataPipeline.ActivatePipeline.html#activatePipeline_startTimestamp"><span class="hs-identifier hs-var hs-var">activatePipeline_startTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActivatePipeline -&gt; Maybe POSIX)
--&gt; (ActivatePipeline -&gt; Maybe POSIX -&gt; ActivatePipeline)
--&gt; Lens
-     ActivatePipeline ActivatePipeline (Maybe POSIX) (Maybe POSIX)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipeline%27"><span class="hs-identifier hs-type">ActivatePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181131"><span class="annot"><span class="annottext">Maybe POSIX
-startTimestamp :: Maybe POSIX
-$sel:startTimestamp:ActivatePipeline' :: ActivatePipeline -&gt; Maybe POSIX
-</span><a href="#local-6989586621679181131"><span class="hs-identifier hs-var hs-var">startTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679181131"><span class="hs-identifier hs-var">startTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181130"><span class="annot"><span class="annottext">s :: ActivatePipeline
-</span><a href="#local-6989586621679181130"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipeline%27"><span class="hs-identifier hs-type">ActivatePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181129"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679181129"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivatePipeline
-</span><a href="#local-6989586621679181130"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTimestamp:ActivatePipeline' :: Maybe POSIX
-</span><a href="Network.AWS.DataPipeline.ActivatePipeline.html#%24sel%3AstartTimestamp%3AActivatePipeline%27"><span class="hs-identifier hs-var">startTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679181129"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipeline"><span class="hs-identifier hs-type">ActivatePipeline</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
- -&gt; ActivatePipeline -&gt; f ActivatePipeline)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; ActivatePipeline
--&gt; f ActivatePipeline
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- | The ID of the pipeline.</span><span>
-</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#activatePipeline_pipelineId"><span class="hs-identifier hs-type">activatePipeline_pipelineId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipeline"><span class="hs-identifier hs-type">ActivatePipeline</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-108"></span><span id="activatePipeline_pipelineId"><span class="annot"><span class="annottext">activatePipeline_pipelineId :: (Text -&gt; f Text) -&gt; ActivatePipeline -&gt; f ActivatePipeline
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The ID of the pipeline.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#activatePipeline_pipelineId"><span class="hs-identifier hs-type">activatePipeline_pipelineId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipeline"><span class="hs-identifier hs-type">ActivatePipeline</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-107"></span><span id="activatePipeline_pipelineId"><span class="annot"><span class="annottext">activatePipeline_pipelineId :: (Text -&gt; f Text) -&gt; ActivatePipeline -&gt; f ActivatePipeline
 </span><a href="Network.AWS.DataPipeline.ActivatePipeline.html#activatePipeline_pipelineId"><span class="hs-identifier hs-var hs-var">activatePipeline_pipelineId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActivatePipeline -&gt; Text)
 -&gt; (ActivatePipeline -&gt; Text -&gt; ActivatePipeline)
 -&gt; Lens ActivatePipeline ActivatePipeline Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipeline%27"><span class="hs-identifier hs-type">ActivatePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181127"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipeline%27"><span class="hs-identifier hs-type">ActivatePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181291"><span class="annot"><span class="annottext">Text
 pipelineId :: Text
 $sel:pipelineId:ActivatePipeline' :: ActivatePipeline -&gt; Text
-</span><a href="#local-6989586621679181127"><span class="hs-identifier hs-var hs-var">pipelineId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679181127"><span class="hs-identifier hs-var">pipelineId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181126"><span class="annot"><span class="annottext">s :: ActivatePipeline
-</span><a href="#local-6989586621679181126"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipeline%27"><span class="hs-identifier hs-type">ActivatePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181125"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679181125"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivatePipeline
-</span><a href="#local-6989586621679181126"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineId:ActivatePipeline' :: Text
+</span><a href="#local-6989586621679181291"><span class="hs-identifier hs-var hs-var">pipelineId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181291"><span class="hs-identifier hs-var">pipelineId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181290"><span class="annot"><span class="annottext">s :: ActivatePipeline
+</span><a href="#local-6989586621679181290"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipeline%27"><span class="hs-identifier hs-type">ActivatePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181289"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181289"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivatePipeline
+</span><a href="#local-6989586621679181290"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineId:ActivatePipeline' :: Text
 </span><a href="Network.AWS.DataPipeline.ActivatePipeline.html#%24sel%3ApipelineId%3AActivatePipeline%27"><span class="hs-identifier hs-var">pipelineId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679181125"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipeline"><span class="hs-identifier hs-type">ActivatePipeline</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipeline"><span class="hs-identifier hs-type">ActivatePipeline</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span class="hs-keyword">type</span><span>
-</span><span id="line-112"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipeline"><span class="hs-identifier hs-type">ActivatePipeline</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-113"></span><span>      </span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipelineResponse"><span class="hs-identifier hs-type">ActivatePipelineResponse</span></a></span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679181121"><span class="annot"><span class="annottext">request :: ActivatePipeline -&gt; Request ActivatePipeline
+</span><a href="#local-6989586621679181289"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipeline"><span class="hs-identifier hs-type">ActivatePipeline</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipeline"><span class="hs-identifier hs-type">ActivatePipeline</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-111"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipeline"><span class="hs-identifier hs-type">ActivatePipeline</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipelineResponse"><span class="hs-identifier hs-type">ActivatePipelineResponse</span></a></span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679181285"><span class="annot"><span class="annottext">request :: ActivatePipeline -&gt; Request ActivatePipeline
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ActivatePipeline -&gt; Request ActivatePipeline
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DataPipeline.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679181117"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679181281"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ActivatePipeline
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse ActivatePipeline)))
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">(Int
+</span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">(Int
  -&gt; ResponseHeaders
  -&gt; ()
  -&gt; Either String (AWSResponse ActivatePipeline))
@@ -292,13 +291,13 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679181114"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679181114"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679181113"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679181113"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679181112"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679181112"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; ActivatePipelineResponse
+</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679181278"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181278"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679181277"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679181277"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679181276"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679181276"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-117"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; ActivatePipelineResponse
 </span><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipelineResponse%27"><span class="hs-identifier hs-var">ActivatePipelineResponse'</span></a></span><span>
-</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; ActivatePipelineResponse)
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; ActivatePipelineResponse)
 -&gt; Either String Int -&gt; Either String ActivatePipelineResponse
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
@@ -306,108 +305,108 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679181114"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181105"><span id="local-6989586621679181107"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipeline"><span class="hs-identifier hs-type">ActivatePipeline</span></a></span></span></span><span>
-</span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181102"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipeline"><span class="hs-identifier hs-type">ActivatePipeline</span></a></span></span><span>
-</span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipeline"><span class="hs-identifier hs-type">ActivatePipeline</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679181098"><span class="annot"><span class="annottext">toHeaders :: ActivatePipeline -&gt; ResponseHeaders
+</span><a href="#local-6989586621679181278"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181269"><span id="local-6989586621679181271"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipeline"><span class="hs-identifier hs-type">ActivatePipeline</span></a></span></span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181266"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipeline"><span class="hs-identifier hs-type">ActivatePipeline</span></a></span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipeline"><span class="hs-identifier hs-type">ActivatePipeline</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679181262"><span class="annot"><span class="annottext">toHeaders :: ActivatePipeline -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ActivatePipeline -&gt; ResponseHeaders
+</span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ActivatePipeline -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
-</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
-</span><span id="line-130"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span id="line-129"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
-</span><span id="line-131"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+</span><span id="line-130"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DataPipeline.ActivatePipeline&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-132"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
-</span><span id="line-133"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span id="line-131"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-132"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
-</span><span id="line-135"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+</span><span id="line-134"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-136"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
-</span><span id="line-137"></span><span>                      </span><span class="hs-special">)</span><span>
-</span><span id="line-138"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181088"><span id="local-6989586621679181090"><span id="local-6989586621679181092"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipeline"><span class="hs-identifier hs-type">ActivatePipeline</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679181086"><span class="annot"><span class="annottext">toJSON :: ActivatePipeline -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipeline%27"><span class="hs-identifier hs-type">ActivatePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181082"><span id="local-6989586621679181083"><span id="local-6989586621679181084"><span class="annot"><span class="annottext">Maybe [ParameterValue]
+</span><span id="line-135"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-136"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181252"><span id="local-6989586621679181254"><span id="local-6989586621679181256"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipeline"><span class="hs-identifier hs-type">ActivatePipeline</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679181250"><span class="annot"><span class="annottext">toJSON :: ActivatePipeline -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipeline%27"><span class="hs-identifier hs-type">ActivatePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181246"><span id="local-6989586621679181247"><span id="local-6989586621679181248"><span class="annot"><span class="annottext">Maybe [ParameterValue]
 Maybe POSIX
 Text
 pipelineId :: Text
-startTimestamp :: Maybe POSIX
 parameterValues :: Maybe [ParameterValue]
+startTimestamp :: Maybe POSIX
 $sel:pipelineId:ActivatePipeline' :: ActivatePipeline -&gt; Text
-$sel:startTimestamp:ActivatePipeline' :: ActivatePipeline -&gt; Maybe POSIX
 $sel:parameterValues:ActivatePipeline' :: ActivatePipeline -&gt; Maybe [ParameterValue]
-</span><a href="#local-6989586621679181082"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+$sel:startTimestamp:ActivatePipeline' :: ActivatePipeline -&gt; Maybe POSIX
+</span><a href="#local-6989586621679181246"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
-</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+</span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
-</span><span id="line-145"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;parameterValues&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [ParameterValue] -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-146"></span><span>              </span><span class="annot"><span class="annottext">([ParameterValue] -&gt; Pair) -&gt; Maybe [ParameterValue] -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ParameterValue]
-</span><a href="#local-6989586621679181084"><span class="hs-identifier hs-var">parameterValues</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-147"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-144"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;startTimestamp&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-148"></span><span>              </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
+</span><span id="line-145"></span><span>              </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679181083"><span class="hs-identifier hs-var">startTimestamp</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+</span><a href="#local-6989586621679181248"><span class="hs-identifier hs-var">startTimestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;parameterValues&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [ParameterValue] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>              </span><span class="annot"><span class="annottext">([ParameterValue] -&gt; Pair) -&gt; Maybe [ParameterValue] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ParameterValue]
+</span><a href="#local-6989586621679181247"><span class="hs-identifier hs-var">parameterValues</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;pipelineId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679181082"><span class="hs-identifier hs-var">pipelineId</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-150"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipeline"><span class="hs-identifier hs-type">ActivatePipeline</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679181076"><span class="annot"><span class="annottext">toPath :: ActivatePipeline -&gt; ByteString
+</span><a href="#local-6989586621679181246"><span class="hs-identifier hs-var">pipelineId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipeline"><span class="hs-identifier hs-type">ActivatePipeline</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679181240"><span class="annot"><span class="annottext">toPath :: ActivatePipeline -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ActivatePipeline -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
-</span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipeline"><span class="hs-identifier hs-type">ActivatePipeline</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679181072"><span class="annot"><span class="annottext">toQuery :: ActivatePipeline -&gt; QueryString
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipeline"><span class="hs-identifier hs-type">ActivatePipeline</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679181236"><span class="annot"><span class="annottext">toQuery :: ActivatePipeline -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ActivatePipeline -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- | Contains the output of ActivatePipeline.</span><span>
-</span><span id="line-160"></span><span class="hs-comment">--</span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- /See:/ 'newActivatePipelineResponse' smart constructor.</span><span>
-</span><span id="line-162"></span><span id="local-6989586621679181069"><span id="local-6989586621679181070"></span></span><span class="hs-keyword">data</span><span> </span><span id="ActivatePipelineResponse"><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipelineResponse"><span class="hs-identifier hs-var">ActivatePipelineResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActivatePipelineResponse%27"><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipelineResponse%27"><span class="hs-identifier hs-var">ActivatePipelineResponse'</span></a></span></span><span>
-</span><span id="line-163"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-164"></span><span>    </span><span id="%24sel%3AhttpStatus%3AActivatePipelineResponse%27"><span class="annot"><span class="annottext">ActivatePipelineResponse -&gt; Int
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | Contains the output of ActivatePipeline.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- /See:/ 'newActivatePipelineResponse' smart constructor.</span><span>
+</span><span id="line-161"></span><span id="local-6989586621679181233"><span id="local-6989586621679181234"></span></span><span class="hs-keyword">data</span><span> </span><span id="ActivatePipelineResponse"><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipelineResponse"><span class="hs-identifier hs-var">ActivatePipelineResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActivatePipelineResponse%27"><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipelineResponse%27"><span class="hs-identifier hs-var">ActivatePipelineResponse'</span></a></span></span><span>
+</span><span id="line-162"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-163"></span><span>    </span><span id="%24sel%3AhttpStatus%3AActivatePipelineResponse%27"><span class="annot"><span class="annottext">ActivatePipelineResponse -&gt; Int
 </span><a href="Network.AWS.DataPipeline.ActivatePipeline.html#%24sel%3AhttpStatus%3AActivatePipelineResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-165"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-166"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679181064"><span id="local-6989586621679181066"><span class="annot"><span class="annottext">ActivatePipelineResponse -&gt; ActivatePipelineResponse -&gt; Bool
+</span><span id="line-164"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-165"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679181228"><span id="local-6989586621679181230"><span class="annot"><span class="annottext">ActivatePipelineResponse -&gt; ActivatePipelineResponse -&gt; Bool
 (ActivatePipelineResponse -&gt; ActivatePipelineResponse -&gt; Bool)
 -&gt; (ActivatePipelineResponse -&gt; ActivatePipelineResponse -&gt; Bool)
 -&gt; Eq ActivatePipelineResponse
@@ -416,7 +415,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ActivatePipelineResponse -&gt; ActivatePipelineResponse -&gt; Bool
 == :: ActivatePipelineResponse -&gt; ActivatePipelineResponse -&gt; Bool
 $c== :: ActivatePipelineResponse -&gt; ActivatePipelineResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181056"><span id="local-6989586621679181058"><span id="local-6989586621679181060"><span id="local-6989586621679181062"><span class="annot"><span class="annottext">ReadPrec [ActivatePipelineResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181220"><span id="local-6989586621679181222"><span id="local-6989586621679181224"><span id="local-6989586621679181226"><span class="annot"><span class="annottext">ReadPrec [ActivatePipelineResponse]
 ReadPrec ActivatePipelineResponse
 Int -&gt; ReadS ActivatePipelineResponse
 ReadS [ActivatePipelineResponse]
@@ -436,7 +435,7 @@ readList :: ReadS [ActivatePipelineResponse]
 $creadList :: ReadS [ActivatePipelineResponse]
 readsPrec :: Int -&gt; ReadS ActivatePipelineResponse
 $creadsPrec :: Int -&gt; ReadS ActivatePipelineResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181050"><span id="local-6989586621679181052"><span id="local-6989586621679181054"><span class="annot"><span class="annottext">Int -&gt; ActivatePipelineResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181214"><span id="local-6989586621679181216"><span id="local-6989586621679181218"><span class="annot"><span class="annottext">Int -&gt; ActivatePipelineResponse -&gt; ShowS
 [ActivatePipelineResponse] -&gt; ShowS
 ActivatePipelineResponse -&gt; String
 (Int -&gt; ActivatePipelineResponse -&gt; ShowS)
@@ -467,49 +466,49 @@ Rep ActivatePipelineResponse x -&gt; ActivatePipelineResponse
 $cfrom :: forall x.
 ActivatePipelineResponse -&gt; Rep ActivatePipelineResponse x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
-</span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-comment">-- |</span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- Create a value of 'ActivatePipelineResponse' with all optional fields omitted.</span><span>
-</span><span id="line-170"></span><span class="hs-comment">--</span><span>
-</span><span id="line-171"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
-</span><span id="line-172"></span><span class="hs-comment">--</span><span>
-</span><span id="line-173"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
-</span><span id="line-174"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
-</span><span id="line-175"></span><span class="hs-comment">--</span><span>
-</span><span id="line-176"></span><span class="hs-comment">-- 'httpStatus', 'activatePipelineResponse_httpStatus' - The response's http status code.</span><span>
-</span><span id="line-177"></span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#newActivatePipelineResponse"><span class="hs-identifier hs-type">newActivatePipelineResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-178"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
-</span><span id="line-179"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-180"></span><span>  </span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipelineResponse"><span class="hs-identifier hs-type">ActivatePipelineResponse</span></a></span><span>
-</span><span id="line-181"></span><span id="newActivatePipelineResponse"><span class="annot"><span class="annottext">newActivatePipelineResponse :: Int -&gt; ActivatePipelineResponse
-</span><a href="Network.AWS.DataPipeline.ActivatePipeline.html#newActivatePipelineResponse"><span class="hs-identifier hs-var hs-var">newActivatePipelineResponse</span></a></span></span><span> </span><span id="local-6989586621679181047"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679181047"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-182"></span><span>  </span><span class="annot"><span class="annottext">ActivatePipelineResponse' :: Int -&gt; ActivatePipelineResponse
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- Create a value of 'ActivatePipelineResponse' with all optional fields omitted.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- 'httpStatus', 'activatePipelineResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#newActivatePipelineResponse"><span class="hs-identifier hs-type">newActivatePipelineResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-178"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-179"></span><span>  </span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipelineResponse"><span class="hs-identifier hs-type">ActivatePipelineResponse</span></a></span><span>
+</span><span id="line-180"></span><span id="newActivatePipelineResponse"><span class="annot"><span class="annottext">newActivatePipelineResponse :: Int -&gt; ActivatePipelineResponse
+</span><a href="Network.AWS.DataPipeline.ActivatePipeline.html#newActivatePipelineResponse"><span class="hs-identifier hs-var hs-var">newActivatePipelineResponse</span></a></span></span><span> </span><span id="local-6989586621679181211"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181211"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-181"></span><span>  </span><span class="annot"><span class="annottext">ActivatePipelineResponse' :: Int -&gt; ActivatePipelineResponse
 </span><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipelineResponse%27"><span class="hs-identifier hs-type">ActivatePipelineResponse'</span></a></span><span>
-</span><span id="line-183"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:ActivatePipelineResponse' :: Int
+</span><span id="line-182"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:ActivatePipelineResponse' :: Int
 </span><a href="Network.AWS.DataPipeline.ActivatePipeline.html#%24sel%3AhttpStatus%3AActivatePipelineResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-184"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679181047"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
-</span><span id="line-185"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-186"></span><span>
-</span><span id="line-187"></span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-188"></span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#activatePipelineResponse_httpStatus"><span class="hs-identifier hs-type">activatePipelineResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipelineResponse"><span class="hs-identifier hs-type">ActivatePipelineResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-189"></span><span id="activatePipelineResponse_httpStatus"><span class="annot"><span class="annottext">activatePipelineResponse_httpStatus :: (Int -&gt; f Int)
+</span><span id="line-183"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181211"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-184"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#activatePipelineResponse_httpStatus"><span class="hs-identifier hs-type">activatePipelineResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipelineResponse"><span class="hs-identifier hs-type">ActivatePipelineResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-188"></span><span id="activatePipelineResponse_httpStatus"><span class="annot"><span class="annottext">activatePipelineResponse_httpStatus :: (Int -&gt; f Int)
 -&gt; ActivatePipelineResponse -&gt; f ActivatePipelineResponse
 </span><a href="Network.AWS.DataPipeline.ActivatePipeline.html#activatePipelineResponse_httpStatus"><span class="hs-identifier hs-var hs-var">activatePipelineResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActivatePipelineResponse -&gt; Int)
 -&gt; (ActivatePipelineResponse -&gt; Int -&gt; ActivatePipelineResponse)
 -&gt; Lens ActivatePipelineResponse ActivatePipelineResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipelineResponse%27"><span class="hs-identifier hs-type">ActivatePipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181046"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipelineResponse%27"><span class="hs-identifier hs-type">ActivatePipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181210"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ActivatePipelineResponse' :: ActivatePipelineResponse -&gt; Int
-</span><a href="#local-6989586621679181046"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679181046"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181045"><span class="annot"><span class="annottext">s :: ActivatePipelineResponse
-</span><a href="#local-6989586621679181045"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipelineResponse%27"><span class="hs-identifier hs-type">ActivatePipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181044"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679181044"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivatePipelineResponse
-</span><a href="#local-6989586621679181045"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ActivatePipelineResponse' :: Int
+</span><a href="#local-6989586621679181210"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181210"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181209"><span class="annot"><span class="annottext">s :: ActivatePipelineResponse
+</span><a href="#local-6989586621679181209"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipelineResponse%27"><span class="hs-identifier hs-type">ActivatePipelineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181208"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181208"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivatePipelineResponse
+</span><a href="#local-6989586621679181209"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ActivatePipelineResponse' :: Int
 </span><a href="Network.AWS.DataPipeline.ActivatePipeline.html#%24sel%3AhttpStatus%3AActivatePipelineResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679181044"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipelineResponse"><span class="hs-identifier hs-type">ActivatePipelineResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-190"></span><span>
-</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181042"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipelineResponse"><span class="hs-identifier hs-type">ActivatePipelineResponse</span></a></span></span><span>
-</span><span id="line-192"></span></pre></body></html>
+</span><a href="#local-6989586621679181208"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipelineResponse"><span class="hs-identifier hs-type">ActivatePipelineResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181206"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.ActivatePipeline.html#ActivatePipelineResponse"><span class="hs-identifier hs-type">ActivatePipelineResponse</span></a></span></span><span>
+</span><span id="line-191"></span></pre></body></html>

@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679309177"><span id="local-6989586621679309178"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ChannelType"><span class="annot"><a href="Network.AWS.LexModels.Types.ChannelType.html#ChannelType"><span class="hs-identifier hs-var">ChannelType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChannelType%27"><span class="annot"><a href="Network.AWS.LexModels.Types.ChannelType.html#ChannelType%27"><span class="hs-identifier hs-var">ChannelType'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679309456"><span id="local-6989586621679309457"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ChannelType"><span class="annot"><a href="Network.AWS.LexModels.Types.ChannelType.html#ChannelType"><span class="hs-identifier hs-var">ChannelType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChannelType%27"><span class="annot"><a href="Network.AWS.LexModels.Types.ChannelType.html#ChannelType%27"><span class="hs-identifier hs-var">ChannelType'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromChannelType"><span class="annot"><span class="annottext">ChannelType -&gt; Text
 </span><a href="Network.AWS.LexModels.Types.ChannelType.html#fromChannelType"><span class="hs-identifier hs-var hs-var">fromChannelType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679309169"><span id="local-6989586621679309171"><span id="local-6989586621679309173"><span class="annot"><span class="annottext">Int -&gt; ChannelType -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679309448"><span id="local-6989586621679309450"><span id="local-6989586621679309452"><span class="annot"><span class="annottext">Int -&gt; ChannelType -&gt; ShowS
 [ChannelType] -&gt; ShowS
 ChannelType -&gt; String
 (Int -&gt; ChannelType -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: ChannelType -&gt; String
 showsPrec :: Int -&gt; ChannelType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ChannelType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679309160"><span id="local-6989586621679309162"><span id="local-6989586621679309164"><span id="local-6989586621679309166"><span class="annot"><span class="annottext">ReadPrec [ChannelType]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679309439"><span id="local-6989586621679309441"><span id="local-6989586621679309443"><span id="local-6989586621679309445"><span class="annot"><span class="annottext">ReadPrec [ChannelType]
 ReadPrec ChannelType
 Int -&gt; ReadS ChannelType
 ReadS [ChannelType]
@@ -74,7 +74,7 @@ $creadList :: ReadS [ChannelType]
 readsPrec :: Int -&gt; ReadS ChannelType
 $creadsPrec :: Int -&gt; ReadS ChannelType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679309155"><span id="local-6989586621679309157"><span class="annot"><span class="annottext">ChannelType -&gt; ChannelType -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679309434"><span id="local-6989586621679309436"><span class="annot"><span class="annottext">ChannelType -&gt; ChannelType -&gt; Bool
 (ChannelType -&gt; ChannelType -&gt; Bool)
 -&gt; (ChannelType -&gt; ChannelType -&gt; Bool) -&gt; Eq ChannelType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -83,7 +83,7 @@ $c/= :: ChannelType -&gt; ChannelType -&gt; Bool
 == :: ChannelType -&gt; ChannelType -&gt; Bool
 $c== :: ChannelType -&gt; ChannelType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679309139"><span id="local-6989586621679309141"><span id="local-6989586621679309143"><span id="local-6989586621679309145"><span id="local-6989586621679309147"><span id="local-6989586621679309149"><span id="local-6989586621679309151"><span class="annot"><span class="annottext">Eq ChannelType
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679309418"><span id="local-6989586621679309420"><span id="local-6989586621679309422"><span id="local-6989586621679309424"><span id="local-6989586621679309426"><span id="local-6989586621679309428"><span id="local-6989586621679309430"><span class="annot"><span class="annottext">Eq ChannelType
 Eq ChannelType
 -&gt; (ChannelType -&gt; ChannelType -&gt; Ordering)
 -&gt; (ChannelType -&gt; ChannelType -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. ChannelType -&gt; Rep ChannelType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679309131"><span id="local-6989586621679309133"><span class="annot"><span class="annottext">Int -&gt; ChannelType -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679309410"><span id="local-6989586621679309412"><span class="annot"><span class="annottext">Int -&gt; ChannelType -&gt; Int
 ChannelType -&gt; Int
 (Int -&gt; ChannelType -&gt; Int)
 -&gt; (ChannelType -&gt; Int) -&gt; Hashable ChannelType
@@ -144,49 +144,49 @@ $chash :: ChannelType -&gt; Int
 hashWithSalt :: Int -&gt; ChannelType -&gt; Int
 $chashWithSalt :: Int -&gt; ChannelType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679309128"><span class="annot"><span class="annottext">ChannelType -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679309407"><span class="annot"><span class="annottext">ChannelType -&gt; ()
 (ChannelType -&gt; ()) -&gt; NFData ChannelType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ChannelType -&gt; ()
 $crnf :: ChannelType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679309125"><span class="annot"><span class="annottext">Text -&gt; Either String ChannelType
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679309404"><span class="annot"><span class="annottext">Text -&gt; Either String ChannelType
 (Text -&gt; Either String ChannelType) -&gt; FromText ChannelType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ChannelType
 $cfromText :: Text -&gt; Either String ChannelType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679309122"><span class="annot"><span class="annottext">ChannelType -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679309401"><span class="annot"><span class="annottext">ChannelType -&gt; Text
 (ChannelType -&gt; Text) -&gt; ToText ChannelType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ChannelType -&gt; Text
 $ctoText :: ChannelType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679309119"><span class="annot"><span class="annottext">ChannelType -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679309398"><span class="annot"><span class="annottext">ChannelType -&gt; ByteString
 (ChannelType -&gt; ByteString) -&gt; ToByteString ChannelType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ChannelType -&gt; ByteString
 $ctoBS :: ChannelType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679309116"><span class="annot"><span class="annottext">ChannelType -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679309395"><span class="annot"><span class="annottext">ChannelType -&gt; ByteStringBuilder
 (ChannelType -&gt; ByteStringBuilder) -&gt; ToLog ChannelType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ChannelType -&gt; ByteStringBuilder
 $cbuild :: ChannelType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679309113"><span class="annot"><span class="annottext">HeaderName -&gt; ChannelType -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679309392"><span class="annot"><span class="annottext">HeaderName -&gt; ChannelType -&gt; [Header]
 (HeaderName -&gt; ChannelType -&gt; [Header]) -&gt; ToHeader ChannelType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ChannelType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ChannelType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679309110"><span class="annot"><span class="annottext">ChannelType -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679309389"><span class="annot"><span class="annottext">ChannelType -&gt; QueryString
 (ChannelType -&gt; QueryString) -&gt; ToQuery ChannelType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ChannelType -&gt; QueryString
 $ctoQuery :: ChannelType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679309105"><span id="local-6989586621679309107"><span class="annot"><span class="annottext">Value -&gt; Parser [ChannelType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679309384"><span id="local-6989586621679309386"><span class="annot"><span class="annottext">Value -&gt; Parser [ChannelType]
 Value -&gt; Parser ChannelType
 (Value -&gt; Parser ChannelType)
 -&gt; (Value -&gt; Parser [ChannelType]) -&gt; FromJSON ChannelType
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [ChannelType]
 parseJSON :: Value -&gt; Parser ChannelType
 $cparseJSON :: Value -&gt; Parser ChannelType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679309100"><span id="local-6989586621679309102"><span class="annot"><span class="annottext">FromJSONKeyFunction [ChannelType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679309379"><span id="local-6989586621679309381"><span class="annot"><span class="annottext">FromJSONKeyFunction [ChannelType]
 FromJSONKeyFunction ChannelType
 FromJSONKeyFunction ChannelType
 -&gt; FromJSONKeyFunction [ChannelType] -&gt; FromJSONKey ChannelType
@@ -208,7 +208,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ChannelType]
 fromJSONKey :: FromJSONKeyFunction ChannelType
 $cfromJSONKey :: FromJSONKeyFunction ChannelType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679309091"><span id="local-6989586621679309093"><span id="local-6989586621679309095"><span id="local-6989586621679309097"><span class="annot"><span class="annottext">[ChannelType] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679309370"><span id="local-6989586621679309372"><span id="local-6989586621679309374"><span id="local-6989586621679309376"><span class="annot"><span class="annottext">[ChannelType] -&gt; Encoding
 [ChannelType] -&gt; Value
 ChannelType -&gt; Encoding
 ChannelType -&gt; Value
@@ -232,7 +232,7 @@ $ctoEncoding :: ChannelType -&gt; Encoding
 toJSON :: ChannelType -&gt; Value
 $ctoJSON :: ChannelType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679309086"><span id="local-6989586621679309088"><span class="annot"><span class="annottext">ToJSONKeyFunction [ChannelType]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679309365"><span id="local-6989586621679309367"><span class="annot"><span class="annottext">ToJSONKeyFunction [ChannelType]
 ToJSONKeyFunction ChannelType
 ToJSONKeyFunction ChannelType
 -&gt; ToJSONKeyFunction [ChannelType] -&gt; ToJSONKey ChannelType
@@ -243,13 +243,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ChannelType]
 toJSONKey :: ToJSONKeyFunction ChannelType
 $ctoJSONKey :: ToJSONKeyFunction ChannelType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679309083"><span class="annot"><span class="annottext">[Node] -&gt; Either String ChannelType
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679309362"><span class="annot"><span class="annottext">[Node] -&gt; Either String ChannelType
 ([Node] -&gt; Either String ChannelType) -&gt; FromXML ChannelType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ChannelType
 $cparseXML :: [Node] -&gt; Either String ChannelType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679309080"><span class="annot"><span class="annottext">ChannelType -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679309359"><span class="annot"><span class="annottext">ChannelType -&gt; XML
 (ChannelType -&gt; XML) -&gt; ToXML ChannelType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ChannelType -&gt; XML

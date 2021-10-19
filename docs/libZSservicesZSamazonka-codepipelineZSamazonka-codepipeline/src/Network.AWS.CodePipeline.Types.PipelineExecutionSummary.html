@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- | Summary information about a pipeline execution.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newPipelineExecutionSummary' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679283671"><span id="local-6989586621679283672"></span></span><span class="hs-keyword">data</span><span> </span><span id="PipelineExecutionSummary"><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-var">PipelineExecutionSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PipelineExecutionSummary%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary%27"><span class="hs-identifier hs-var">PipelineExecutionSummary'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679283884"><span id="local-6989586621679283885"></span></span><span class="hs-keyword">data</span><span> </span><span id="PipelineExecutionSummary"><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-var">PipelineExecutionSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PipelineExecutionSummary%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary%27"><span class="hs-identifier hs-var">PipelineExecutionSummary'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the pipeline execution.</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- -   InProgress: The pipeline execution is currently running.</span><span>
@@ -55,30 +55,30 @@
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">-- -   Failed: The pipeline execution was not completed successfully.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3Astatus%3APipelineExecutionSummary%27"><span class="annot"><span class="annottext">PipelineExecutionSummary -&gt; Maybe PipelineExecutionStatus
 </span><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#%24sel%3Astatus%3APipelineExecutionSummary%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionStatus.html#PipelineExecutionStatus"><span class="hs-identifier hs-type">PipelineExecutionStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The date and time of the last change to the pipeline execution, in</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- timestamp format.</span><span>
-</span><span id="line-59"></span><span>    </span><span id="%24sel%3AlastUpdateTime%3APipelineExecutionSummary%27"><span class="annot"><span class="annottext">PipelineExecutionSummary -&gt; Maybe POSIX
-</span><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#%24sel%3AlastUpdateTime%3APipelineExecutionSummary%27"><span class="hs-identifier hs-var hs-var">lastUpdateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The interaction or event that started a pipeline execution, such as</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- automated change detection or a @StartPipelineExecution@ API call.</span><span>
-</span><span id="line-62"></span><span>    </span><span id="%24sel%3Atrigger%3APipelineExecutionSummary%27"><span class="annot"><span class="annottext">PipelineExecutionSummary -&gt; Maybe ExecutionTrigger
-</span><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#%24sel%3Atrigger%3APipelineExecutionSummary%27"><span class="hs-identifier hs-var hs-var">trigger</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#ExecutionTrigger"><span class="hs-identifier hs-type">ExecutionTrigger</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The date and time when the pipeline execution began, in timestamp</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- format.</span><span>
-</span><span id="line-65"></span><span>    </span><span id="%24sel%3AstartTime%3APipelineExecutionSummary%27"><span class="annot"><span class="annottext">PipelineExecutionSummary -&gt; Maybe POSIX
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The date and time when the pipeline execution began, in timestamp</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- format.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AstartTime%3APipelineExecutionSummary%27"><span class="annot"><span class="annottext">PipelineExecutionSummary -&gt; Maybe POSIX
 </span><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#%24sel%3AstartTime%3APipelineExecutionSummary%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The interaction that stopped a pipeline execution.</span><span>
-</span><span id="line-67"></span><span>    </span><span id="%24sel%3AstopTrigger%3APipelineExecutionSummary%27"><span class="annot"><span class="annottext">PipelineExecutionSummary -&gt; Maybe StopExecutionTrigger
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The interaction that stopped a pipeline execution.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AstopTrigger%3APipelineExecutionSummary%27"><span class="annot"><span class="annottext">PipelineExecutionSummary -&gt; Maybe StopExecutionTrigger
 </span><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#%24sel%3AstopTrigger%3APipelineExecutionSummary%27"><span class="hs-identifier hs-var hs-var">stopTrigger</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StopExecutionTrigger.html#StopExecutionTrigger"><span class="hs-identifier hs-type">StopExecutionTrigger</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | A list of the source artifact revisions that initiated a pipeline</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- execution.</span><span>
-</span><span id="line-70"></span><span>    </span><span id="%24sel%3AsourceRevisions%3APipelineExecutionSummary%27"><span class="annot"><span class="annottext">PipelineExecutionSummary -&gt; Maybe [SourceRevision]
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The ID of the pipeline execution.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3ApipelineExecutionId%3APipelineExecutionSummary%27"><span class="annot"><span class="annottext">PipelineExecutionSummary -&gt; Maybe Text
+</span><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#%24sel%3ApipelineExecutionId%3APipelineExecutionSummary%27"><span class="hs-identifier hs-var hs-var">pipelineExecutionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | A list of the source artifact revisions that initiated a pipeline</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- execution.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AsourceRevisions%3APipelineExecutionSummary%27"><span class="annot"><span class="annottext">PipelineExecutionSummary -&gt; Maybe [SourceRevision]
 </span><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#%24sel%3AsourceRevisions%3APipelineExecutionSummary%27"><span class="hs-identifier hs-var hs-var">sourceRevisions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.SourceRevision.html#SourceRevision"><span class="hs-identifier hs-type">SourceRevision</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The ID of the pipeline execution.</span><span>
-</span><span id="line-72"></span><span>    </span><span id="%24sel%3ApipelineExecutionId%3APipelineExecutionSummary%27"><span class="annot"><span class="annottext">PipelineExecutionSummary -&gt; Maybe Text
-</span><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#%24sel%3ApipelineExecutionId%3APipelineExecutionSummary%27"><span class="hs-identifier hs-var hs-var">pipelineExecutionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The interaction or event that started a pipeline execution, such as</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- automated change detection or a @StartPipelineExecution@ API call.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3Atrigger%3APipelineExecutionSummary%27"><span class="annot"><span class="annottext">PipelineExecutionSummary -&gt; Maybe ExecutionTrigger
+</span><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#%24sel%3Atrigger%3APipelineExecutionSummary%27"><span class="hs-identifier hs-var hs-var">trigger</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#ExecutionTrigger"><span class="hs-identifier hs-type">ExecutionTrigger</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The date and time of the last change to the pipeline execution, in</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- timestamp format.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AlastUpdateTime%3APipelineExecutionSummary%27"><span class="annot"><span class="annottext">PipelineExecutionSummary -&gt; Maybe POSIX
+</span><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#%24sel%3AlastUpdateTime%3APipelineExecutionSummary%27"><span class="hs-identifier hs-var hs-var">lastUpdateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679283659"><span id="local-6989586621679283661"><span class="annot"><span class="annottext">PipelineExecutionSummary -&gt; PipelineExecutionSummary -&gt; Bool
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679283872"><span id="local-6989586621679283874"><span class="annot"><span class="annottext">PipelineExecutionSummary -&gt; PipelineExecutionSummary -&gt; Bool
 (PipelineExecutionSummary -&gt; PipelineExecutionSummary -&gt; Bool)
 -&gt; (PipelineExecutionSummary -&gt; PipelineExecutionSummary -&gt; Bool)
 -&gt; Eq PipelineExecutionSummary
@@ -87,7 +87,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PipelineExecutionSummary -&gt; PipelineExecutionSummary -&gt; Bool
 == :: PipelineExecutionSummary -&gt; PipelineExecutionSummary -&gt; Bool
 $c== :: PipelineExecutionSummary -&gt; PipelineExecutionSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283650"><span id="local-6989586621679283652"><span id="local-6989586621679283654"><span id="local-6989586621679283656"><span class="annot"><span class="annottext">ReadPrec [PipelineExecutionSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283863"><span id="local-6989586621679283865"><span id="local-6989586621679283867"><span id="local-6989586621679283869"><span class="annot"><span class="annottext">ReadPrec [PipelineExecutionSummary]
 ReadPrec PipelineExecutionSummary
 Int -&gt; ReadS PipelineExecutionSummary
 ReadS [PipelineExecutionSummary]
@@ -107,7 +107,7 @@ readList :: ReadS [PipelineExecutionSummary]
 $creadList :: ReadS [PipelineExecutionSummary]
 readsPrec :: Int -&gt; ReadS PipelineExecutionSummary
 $creadsPrec :: Int -&gt; ReadS PipelineExecutionSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283643"><span id="local-6989586621679283645"><span id="local-6989586621679283647"><span class="annot"><span class="annottext">Int -&gt; PipelineExecutionSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283856"><span id="local-6989586621679283858"><span id="local-6989586621679283860"><span class="annot"><span class="annottext">Int -&gt; PipelineExecutionSummary -&gt; ShowS
 [PipelineExecutionSummary] -&gt; ShowS
 PipelineExecutionSummary -&gt; String
 (Int -&gt; PipelineExecutionSummary -&gt; ShowS)
@@ -170,60 +170,60 @@ PipelineExecutionSummary -&gt; Rep PipelineExecutionSummary x
 </span><span id="line-104"></span><span class="hs-comment">--</span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- -   Failed: The pipeline execution was not completed successfully.</span><span>
 </span><span id="line-106"></span><span class="hs-comment">--</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- 'lastUpdateTime', 'pipelineExecutionSummary_lastUpdateTime' - The date and time of the last change to the pipeline execution, in</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- timestamp format.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'startTime', 'pipelineExecutionSummary_startTime' - The date and time when the pipeline execution began, in timestamp</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- format.</span><span>
 </span><span id="line-109"></span><span class="hs-comment">--</span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- 'trigger', 'pipelineExecutionSummary_trigger' - The interaction or event that started a pipeline execution, such as</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- automated change detection or a @StartPipelineExecution@ API call.</span><span>
-</span><span id="line-112"></span><span class="hs-comment">--</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- 'startTime', 'pipelineExecutionSummary_startTime' - The date and time when the pipeline execution began, in timestamp</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- format.</span><span>
-</span><span id="line-115"></span><span class="hs-comment">--</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- 'stopTrigger', 'pipelineExecutionSummary_stopTrigger' - The interaction that stopped a pipeline execution.</span><span>
-</span><span id="line-117"></span><span class="hs-comment">--</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- 'sourceRevisions', 'pipelineExecutionSummary_sourceRevisions' - A list of the source artifact revisions that initiated a pipeline</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- execution.</span><span>
-</span><span id="line-120"></span><span class="hs-comment">--</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- 'pipelineExecutionId', 'pipelineExecutionSummary_pipelineExecutionId' - The ID of the pipeline execution.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'stopTrigger', 'pipelineExecutionSummary_stopTrigger' - The interaction that stopped a pipeline execution.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'pipelineExecutionId', 'pipelineExecutionSummary_pipelineExecutionId' - The ID of the pipeline execution.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'sourceRevisions', 'pipelineExecutionSummary_sourceRevisions' - A list of the source artifact revisions that initiated a pipeline</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- execution.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'trigger', 'pipelineExecutionSummary_trigger' - The interaction or event that started a pipeline execution, such as</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- automated change detection or a @StartPipelineExecution@ API call.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'lastUpdateTime', 'pipelineExecutionSummary_lastUpdateTime' - The date and time of the last change to the pipeline execution, in</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- timestamp format.</span><span>
 </span><span id="line-122"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#newPipelineExecutionSummary"><span class="hs-identifier hs-type">newPipelineExecutionSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-123"></span><span>  </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-type">PipelineExecutionSummary</span></a></span><span>
 </span><span id="line-124"></span><span id="newPipelineExecutionSummary"><span class="annot"><span class="annottext">newPipelineExecutionSummary :: PipelineExecutionSummary
 </span><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#newPipelineExecutionSummary"><span class="hs-identifier hs-var hs-var">newPipelineExecutionSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>  </span><span class="annot"><span class="annottext">PipelineExecutionSummary' :: Maybe PipelineExecutionStatus
 -&gt; Maybe POSIX
+-&gt; Maybe StopExecutionTrigger
+-&gt; Maybe Text
+-&gt; Maybe [SourceRevision]
 -&gt; Maybe ExecutionTrigger
 -&gt; Maybe POSIX
--&gt; Maybe StopExecutionTrigger
--&gt; Maybe [SourceRevision]
--&gt; Maybe Text
 -&gt; PipelineExecutionSummary
 </span><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary%27"><span class="hs-identifier hs-type">PipelineExecutionSummary'</span></a></span><span>
 </span><span id="line-126"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:PipelineExecutionSummary' :: Maybe PipelineExecutionStatus
 </span><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#%24sel%3Astatus%3APipelineExecutionSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PipelineExecutionStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdateTime:PipelineExecutionSummary' :: Maybe POSIX
-</span><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#%24sel%3AlastUpdateTime%3APipelineExecutionSummary%27"><span class="hs-identifier hs-var">lastUpdateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">$sel:trigger:PipelineExecutionSummary' :: Maybe ExecutionTrigger
-</span><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#%24sel%3Atrigger%3APipelineExecutionSummary%27"><span class="hs-identifier hs-var">trigger</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExecutionTrigger
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">$sel:startTime:PipelineExecutionSummary' :: Maybe POSIX
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">$sel:startTime:PipelineExecutionSummary' :: Maybe POSIX
 </span><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#%24sel%3AstartTime%3APipelineExecutionSummary%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:stopTrigger:PipelineExecutionSummary' :: Maybe StopExecutionTrigger
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">$sel:stopTrigger:PipelineExecutionSummary' :: Maybe StopExecutionTrigger
 </span><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#%24sel%3AstopTrigger%3APipelineExecutionSummary%27"><span class="hs-identifier hs-var">stopTrigger</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StopExecutionTrigger
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceRevisions:PipelineExecutionSummary' :: Maybe [SourceRevision]
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">$sel:pipelineExecutionId:PipelineExecutionSummary' :: Maybe Text
+</span><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#%24sel%3ApipelineExecutionId%3APipelineExecutionSummary%27"><span class="hs-identifier hs-var">pipelineExecutionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceRevisions:PipelineExecutionSummary' :: Maybe [SourceRevision]
 </span><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#%24sel%3AsourceRevisions%3APipelineExecutionSummary%27"><span class="hs-identifier hs-var">sourceRevisions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SourceRevision]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:pipelineExecutionId:PipelineExecutionSummary' :: Maybe Text
-</span><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#%24sel%3ApipelineExecutionId%3APipelineExecutionSummary%27"><span class="hs-identifier hs-var">pipelineExecutionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:trigger:PipelineExecutionSummary' :: Maybe ExecutionTrigger
+</span><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#%24sel%3Atrigger%3APipelineExecutionSummary%27"><span class="hs-identifier hs-var">trigger</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExecutionTrigger
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdateTime:PipelineExecutionSummary' :: Maybe POSIX
+</span><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#%24sel%3AlastUpdateTime%3APipelineExecutionSummary%27"><span class="hs-identifier hs-var">lastUpdateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-133"></span><span>    </span><span class="hs-special">}</span><span>
@@ -263,23 +263,23 @@ forall a. Maybe a
      (Maybe PipelineExecutionStatus)
      (Maybe PipelineExecutionStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary%27"><span class="hs-identifier hs-type">PipelineExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283634"><span class="annot"><span class="annottext">Maybe PipelineExecutionStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary%27"><span class="hs-identifier hs-type">PipelineExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283847"><span class="annot"><span class="annottext">Maybe PipelineExecutionStatus
 status :: Maybe PipelineExecutionStatus
 $sel:status:PipelineExecutionSummary' :: PipelineExecutionSummary -&gt; Maybe PipelineExecutionStatus
-</span><a href="#local-6989586621679283634"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PipelineExecutionStatus
-</span><a href="#local-6989586621679283634"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283633"><span class="annot"><span class="annottext">s :: PipelineExecutionSummary
-</span><a href="#local-6989586621679283633"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary%27"><span class="hs-identifier hs-type">PipelineExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283632"><span class="annot"><span class="annottext">Maybe PipelineExecutionStatus
-</span><a href="#local-6989586621679283632"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineExecutionSummary
-</span><a href="#local-6989586621679283633"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:PipelineExecutionSummary' :: Maybe PipelineExecutionStatus
+</span><a href="#local-6989586621679283847"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PipelineExecutionStatus
+</span><a href="#local-6989586621679283847"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283846"><span class="annot"><span class="annottext">s :: PipelineExecutionSummary
+</span><a href="#local-6989586621679283846"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary%27"><span class="hs-identifier hs-type">PipelineExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283845"><span class="annot"><span class="annottext">Maybe PipelineExecutionStatus
+</span><a href="#local-6989586621679283845"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineExecutionSummary
+</span><a href="#local-6989586621679283846"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:PipelineExecutionSummary' :: Maybe PipelineExecutionStatus
 </span><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#%24sel%3Astatus%3APipelineExecutionSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PipelineExecutionStatus
-</span><a href="#local-6989586621679283632"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-type">PipelineExecutionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679283845"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-type">PipelineExecutionSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- | The date and time of the last change to the pipeline execution, in</span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- timestamp format.</span><span>
-</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#pipelineExecutionSummary_lastUpdateTime"><span class="hs-identifier hs-type">pipelineExecutionSummary_lastUpdateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-type">PipelineExecutionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-163"></span><span id="pipelineExecutionSummary_lastUpdateTime"><span class="annot"><span class="annottext">pipelineExecutionSummary_lastUpdateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-160"></span><span class="hs-comment">-- | The date and time when the pipeline execution began, in timestamp</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- format.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#pipelineExecutionSummary_startTime"><span class="hs-identifier hs-type">pipelineExecutionSummary_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-type">PipelineExecutionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="pipelineExecutionSummary_startTime"><span class="annot"><span class="annottext">pipelineExecutionSummary_startTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; PipelineExecutionSummary -&gt; f PipelineExecutionSummary
-</span><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#pipelineExecutionSummary_lastUpdateTime"><span class="hs-identifier hs-var hs-var">pipelineExecutionSummary_lastUpdateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineExecutionSummary -&gt; Maybe POSIX)
+</span><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#pipelineExecutionSummary_startTime"><span class="hs-identifier hs-var hs-var">pipelineExecutionSummary_startTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineExecutionSummary -&gt; Maybe POSIX)
 -&gt; (PipelineExecutionSummary
     -&gt; Maybe POSIX -&gt; PipelineExecutionSummary)
 -&gt; Lens
@@ -288,16 +288,16 @@ $sel:status:PipelineExecutionSummary' :: PipelineExecutionSummary -&gt; Maybe Pi
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary%27"><span class="hs-identifier hs-type">PipelineExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283630"><span class="annot"><span class="annottext">Maybe POSIX
-lastUpdateTime :: Maybe POSIX
-$sel:lastUpdateTime:PipelineExecutionSummary' :: PipelineExecutionSummary -&gt; Maybe POSIX
-</span><a href="#local-6989586621679283630"><span class="hs-identifier hs-var hs-var">lastUpdateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679283630"><span class="hs-identifier hs-var">lastUpdateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283629"><span class="annot"><span class="annottext">s :: PipelineExecutionSummary
-</span><a href="#local-6989586621679283629"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary%27"><span class="hs-identifier hs-type">PipelineExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283628"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679283628"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineExecutionSummary
-</span><a href="#local-6989586621679283629"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdateTime:PipelineExecutionSummary' :: Maybe POSIX
-</span><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#%24sel%3AlastUpdateTime%3APipelineExecutionSummary%27"><span class="hs-identifier hs-var">lastUpdateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679283628"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-type">PipelineExecutionSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary%27"><span class="hs-identifier hs-type">PipelineExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283843"><span class="annot"><span class="annottext">Maybe POSIX
+startTime :: Maybe POSIX
+$sel:startTime:PipelineExecutionSummary' :: PipelineExecutionSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621679283843"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679283843"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283842"><span class="annot"><span class="annottext">s :: PipelineExecutionSummary
+</span><a href="#local-6989586621679283842"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary%27"><span class="hs-identifier hs-type">PipelineExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283841"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679283841"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineExecutionSummary
+</span><a href="#local-6989586621679283842"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:PipelineExecutionSummary' :: Maybe POSIX
+</span><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#%24sel%3AstartTime%3APipelineExecutionSummary%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679283841"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-type">PipelineExecutionSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; PipelineExecutionSummary -&gt; f PipelineExecutionSummary)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -314,74 +314,9 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-comment">-- | The interaction or event that started a pipeline execution, such as</span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- automated change detection or a @StartPipelineExecution@ API call.</span><span>
-</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#pipelineExecutionSummary_trigger"><span class="hs-identifier hs-type">pipelineExecutionSummary_trigger</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-type">PipelineExecutionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#ExecutionTrigger"><span class="hs-identifier hs-type">ExecutionTrigger</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-168"></span><span id="pipelineExecutionSummary_trigger"><span class="annot"><span class="annottext">pipelineExecutionSummary_trigger :: (Maybe ExecutionTrigger -&gt; f (Maybe ExecutionTrigger))
--&gt; PipelineExecutionSummary -&gt; f PipelineExecutionSummary
-</span><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#pipelineExecutionSummary_trigger"><span class="hs-identifier hs-var hs-var">pipelineExecutionSummary_trigger</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineExecutionSummary -&gt; Maybe ExecutionTrigger)
--&gt; (PipelineExecutionSummary
-    -&gt; Maybe ExecutionTrigger -&gt; PipelineExecutionSummary)
--&gt; Lens
-     PipelineExecutionSummary
-     PipelineExecutionSummary
-     (Maybe ExecutionTrigger)
-     (Maybe ExecutionTrigger)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary%27"><span class="hs-identifier hs-type">PipelineExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283623"><span class="annot"><span class="annottext">Maybe ExecutionTrigger
-trigger :: Maybe ExecutionTrigger
-$sel:trigger:PipelineExecutionSummary' :: PipelineExecutionSummary -&gt; Maybe ExecutionTrigger
-</span><a href="#local-6989586621679283623"><span class="hs-identifier hs-var hs-var">trigger</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ExecutionTrigger
-</span><a href="#local-6989586621679283623"><span class="hs-identifier hs-var">trigger</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283622"><span class="annot"><span class="annottext">s :: PipelineExecutionSummary
-</span><a href="#local-6989586621679283622"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary%27"><span class="hs-identifier hs-type">PipelineExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283621"><span class="annot"><span class="annottext">Maybe ExecutionTrigger
-</span><a href="#local-6989586621679283621"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineExecutionSummary
-</span><a href="#local-6989586621679283622"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trigger:PipelineExecutionSummary' :: Maybe ExecutionTrigger
-</span><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#%24sel%3Atrigger%3APipelineExecutionSummary%27"><span class="hs-identifier hs-var">trigger</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExecutionTrigger
-</span><a href="#local-6989586621679283621"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-type">PipelineExecutionSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-169"></span><span>
-</span><span id="line-170"></span><span class="hs-comment">-- | The date and time when the pipeline execution began, in timestamp</span><span>
-</span><span id="line-171"></span><span class="hs-comment">-- format.</span><span>
-</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#pipelineExecutionSummary_startTime"><span class="hs-identifier hs-type">pipelineExecutionSummary_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-type">PipelineExecutionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-173"></span><span id="pipelineExecutionSummary_startTime"><span class="annot"><span class="annottext">pipelineExecutionSummary_startTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; PipelineExecutionSummary -&gt; f PipelineExecutionSummary
-</span><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#pipelineExecutionSummary_startTime"><span class="hs-identifier hs-var hs-var">pipelineExecutionSummary_startTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineExecutionSummary -&gt; Maybe POSIX)
--&gt; (PipelineExecutionSummary
-    -&gt; Maybe POSIX -&gt; PipelineExecutionSummary)
--&gt; Lens
-     PipelineExecutionSummary
-     PipelineExecutionSummary
-     (Maybe POSIX)
-     (Maybe POSIX)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary%27"><span class="hs-identifier hs-type">PipelineExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283619"><span class="annot"><span class="annottext">Maybe POSIX
-startTime :: Maybe POSIX
-$sel:startTime:PipelineExecutionSummary' :: PipelineExecutionSummary -&gt; Maybe POSIX
-</span><a href="#local-6989586621679283619"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679283619"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283618"><span class="annot"><span class="annottext">s :: PipelineExecutionSummary
-</span><a href="#local-6989586621679283618"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary%27"><span class="hs-identifier hs-type">PipelineExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283617"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679283617"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineExecutionSummary
-</span><a href="#local-6989586621679283618"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:PipelineExecutionSummary' :: Maybe POSIX
-</span><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#%24sel%3AstartTime%3APipelineExecutionSummary%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679283617"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-type">PipelineExecutionSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
- -&gt; PipelineExecutionSummary -&gt; f PipelineExecutionSummary)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; PipelineExecutionSummary
--&gt; f PipelineExecutionSummary
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-comment">-- | The interaction that stopped a pipeline execution.</span><span>
-</span><span id="line-176"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#pipelineExecutionSummary_stopTrigger"><span class="hs-identifier hs-type">pipelineExecutionSummary_stopTrigger</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-type">PipelineExecutionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StopExecutionTrigger.html#StopExecutionTrigger"><span class="hs-identifier hs-type">StopExecutionTrigger</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-177"></span><span id="pipelineExecutionSummary_stopTrigger"><span class="annot"><span class="annottext">pipelineExecutionSummary_stopTrigger :: (Maybe StopExecutionTrigger -&gt; f (Maybe StopExecutionTrigger))
+</span><span id="line-165"></span><span class="hs-comment">-- | The interaction that stopped a pipeline execution.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#pipelineExecutionSummary_stopTrigger"><span class="hs-identifier hs-type">pipelineExecutionSummary_stopTrigger</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-type">PipelineExecutionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.StopExecutionTrigger.html#StopExecutionTrigger"><span class="hs-identifier hs-type">StopExecutionTrigger</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span id="pipelineExecutionSummary_stopTrigger"><span class="annot"><span class="annottext">pipelineExecutionSummary_stopTrigger :: (Maybe StopExecutionTrigger -&gt; f (Maybe StopExecutionTrigger))
 -&gt; PipelineExecutionSummary -&gt; f PipelineExecutionSummary
 </span><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#pipelineExecutionSummary_stopTrigger"><span class="hs-identifier hs-var hs-var">pipelineExecutionSummary_stopTrigger</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineExecutionSummary -&gt; Maybe StopExecutionTrigger)
 -&gt; (PipelineExecutionSummary
@@ -392,21 +327,45 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe StopExecutionTrigger)
      (Maybe StopExecutionTrigger)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary%27"><span class="hs-identifier hs-type">PipelineExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283615"><span class="annot"><span class="annottext">Maybe StopExecutionTrigger
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary%27"><span class="hs-identifier hs-type">PipelineExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283836"><span class="annot"><span class="annottext">Maybe StopExecutionTrigger
 stopTrigger :: Maybe StopExecutionTrigger
 $sel:stopTrigger:PipelineExecutionSummary' :: PipelineExecutionSummary -&gt; Maybe StopExecutionTrigger
-</span><a href="#local-6989586621679283615"><span class="hs-identifier hs-var hs-var">stopTrigger</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StopExecutionTrigger
-</span><a href="#local-6989586621679283615"><span class="hs-identifier hs-var">stopTrigger</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283614"><span class="annot"><span class="annottext">s :: PipelineExecutionSummary
-</span><a href="#local-6989586621679283614"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary%27"><span class="hs-identifier hs-type">PipelineExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283613"><span class="annot"><span class="annottext">Maybe StopExecutionTrigger
-</span><a href="#local-6989586621679283613"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineExecutionSummary
-</span><a href="#local-6989586621679283614"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stopTrigger:PipelineExecutionSummary' :: Maybe StopExecutionTrigger
+</span><a href="#local-6989586621679283836"><span class="hs-identifier hs-var hs-var">stopTrigger</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StopExecutionTrigger
+</span><a href="#local-6989586621679283836"><span class="hs-identifier hs-var">stopTrigger</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283835"><span class="annot"><span class="annottext">s :: PipelineExecutionSummary
+</span><a href="#local-6989586621679283835"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary%27"><span class="hs-identifier hs-type">PipelineExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283834"><span class="annot"><span class="annottext">Maybe StopExecutionTrigger
+</span><a href="#local-6989586621679283834"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineExecutionSummary
+</span><a href="#local-6989586621679283835"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stopTrigger:PipelineExecutionSummary' :: Maybe StopExecutionTrigger
 </span><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#%24sel%3AstopTrigger%3APipelineExecutionSummary%27"><span class="hs-identifier hs-var">stopTrigger</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StopExecutionTrigger
-</span><a href="#local-6989586621679283613"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-type">PipelineExecutionSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-178"></span><span>
-</span><span id="line-179"></span><span class="hs-comment">-- | A list of the source artifact revisions that initiated a pipeline</span><span>
-</span><span id="line-180"></span><span class="hs-comment">-- execution.</span><span>
-</span><span id="line-181"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#pipelineExecutionSummary_sourceRevisions"><span class="hs-identifier hs-type">pipelineExecutionSummary_sourceRevisions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-type">PipelineExecutionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.SourceRevision.html#SourceRevision"><span class="hs-identifier hs-type">SourceRevision</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-182"></span><span id="pipelineExecutionSummary_sourceRevisions"><span class="annot"><span class="annottext">pipelineExecutionSummary_sourceRevisions :: (Maybe [SourceRevision] -&gt; f (Maybe [SourceRevision]))
+</span><a href="#local-6989586621679283834"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-type">PipelineExecutionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | The ID of the pipeline execution.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#pipelineExecutionSummary_pipelineExecutionId"><span class="hs-identifier hs-type">pipelineExecutionSummary_pipelineExecutionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-type">PipelineExecutionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span id="pipelineExecutionSummary_pipelineExecutionId"><span class="annot"><span class="annottext">pipelineExecutionSummary_pipelineExecutionId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PipelineExecutionSummary -&gt; f PipelineExecutionSummary
+</span><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#pipelineExecutionSummary_pipelineExecutionId"><span class="hs-identifier hs-var hs-var">pipelineExecutionSummary_pipelineExecutionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineExecutionSummary -&gt; Maybe Text)
+-&gt; (PipelineExecutionSummary
+    -&gt; Maybe Text -&gt; PipelineExecutionSummary)
+-&gt; Lens
+     PipelineExecutionSummary
+     PipelineExecutionSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary%27"><span class="hs-identifier hs-type">PipelineExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283832"><span class="annot"><span class="annottext">Maybe Text
+pipelineExecutionId :: Maybe Text
+$sel:pipelineExecutionId:PipelineExecutionSummary' :: PipelineExecutionSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679283832"><span class="hs-identifier hs-var hs-var">pipelineExecutionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679283832"><span class="hs-identifier hs-var">pipelineExecutionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283831"><span class="annot"><span class="annottext">s :: PipelineExecutionSummary
+</span><a href="#local-6989586621679283831"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary%27"><span class="hs-identifier hs-type">PipelineExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283830"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679283830"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineExecutionSummary
+</span><a href="#local-6989586621679283831"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineExecutionId:PipelineExecutionSummary' :: Maybe Text
+</span><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#%24sel%3ApipelineExecutionId%3APipelineExecutionSummary%27"><span class="hs-identifier hs-var">pipelineExecutionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679283830"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-type">PipelineExecutionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | A list of the source artifact revisions that initiated a pipeline</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- execution.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#pipelineExecutionSummary_sourceRevisions"><span class="hs-identifier hs-type">pipelineExecutionSummary_sourceRevisions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-type">PipelineExecutionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.SourceRevision.html#SourceRevision"><span class="hs-identifier hs-type">SourceRevision</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span id="pipelineExecutionSummary_sourceRevisions"><span class="annot"><span class="annottext">pipelineExecutionSummary_sourceRevisions :: (Maybe [SourceRevision] -&gt; f (Maybe [SourceRevision]))
 -&gt; PipelineExecutionSummary -&gt; f PipelineExecutionSummary
 </span><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#pipelineExecutionSummary_sourceRevisions"><span class="hs-identifier hs-var hs-var">pipelineExecutionSummary_sourceRevisions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineExecutionSummary -&gt; Maybe [SourceRevision])
 -&gt; (PipelineExecutionSummary
@@ -417,16 +376,16 @@ $sel:stopTrigger:PipelineExecutionSummary' :: PipelineExecutionSummary -&gt; May
      (Maybe [SourceRevision])
      (Maybe [SourceRevision])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary%27"><span class="hs-identifier hs-type">PipelineExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283611"><span class="annot"><span class="annottext">Maybe [SourceRevision]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary%27"><span class="hs-identifier hs-type">PipelineExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283828"><span class="annot"><span class="annottext">Maybe [SourceRevision]
 sourceRevisions :: Maybe [SourceRevision]
 $sel:sourceRevisions:PipelineExecutionSummary' :: PipelineExecutionSummary -&gt; Maybe [SourceRevision]
-</span><a href="#local-6989586621679283611"><span class="hs-identifier hs-var hs-var">sourceRevisions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SourceRevision]
-</span><a href="#local-6989586621679283611"><span class="hs-identifier hs-var">sourceRevisions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283610"><span class="annot"><span class="annottext">s :: PipelineExecutionSummary
-</span><a href="#local-6989586621679283610"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary%27"><span class="hs-identifier hs-type">PipelineExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283609"><span class="annot"><span class="annottext">Maybe [SourceRevision]
-</span><a href="#local-6989586621679283609"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineExecutionSummary
-</span><a href="#local-6989586621679283610"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceRevisions:PipelineExecutionSummary' :: Maybe [SourceRevision]
+</span><a href="#local-6989586621679283828"><span class="hs-identifier hs-var hs-var">sourceRevisions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SourceRevision]
+</span><a href="#local-6989586621679283828"><span class="hs-identifier hs-var">sourceRevisions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283827"><span class="annot"><span class="annottext">s :: PipelineExecutionSummary
+</span><a href="#local-6989586621679283827"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary%27"><span class="hs-identifier hs-type">PipelineExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283826"><span class="annot"><span class="annottext">Maybe [SourceRevision]
+</span><a href="#local-6989586621679283826"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineExecutionSummary
+</span><a href="#local-6989586621679283827"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceRevisions:PipelineExecutionSummary' :: Maybe [SourceRevision]
 </span><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#%24sel%3AsourceRevisions%3APipelineExecutionSummary%27"><span class="hs-identifier hs-var">sourceRevisions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SourceRevision]
-</span><a href="#local-6989586621679283609"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-type">PipelineExecutionSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SourceRevision] -&gt; f (Maybe [SourceRevision]))
+</span><a href="#local-6989586621679283826"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-type">PipelineExecutionSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SourceRevision] -&gt; f (Maybe [SourceRevision]))
  -&gt; PipelineExecutionSummary -&gt; f PipelineExecutionSummary)
 -&gt; ((Maybe [SourceRevision] -&gt; f (Maybe [SourceRevision]))
     -&gt; Maybe [SourceRevision] -&gt; f (Maybe [SourceRevision]))
@@ -446,35 +405,76 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   [SourceRevision] [SourceRevision] [SourceRevision] [SourceRevision]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-183"></span><span>
-</span><span id="line-184"></span><span class="hs-comment">-- | The ID of the pipeline execution.</span><span>
-</span><span id="line-185"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#pipelineExecutionSummary_pipelineExecutionId"><span class="hs-identifier hs-type">pipelineExecutionSummary_pipelineExecutionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-type">PipelineExecutionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-186"></span><span id="pipelineExecutionSummary_pipelineExecutionId"><span class="annot"><span class="annottext">pipelineExecutionSummary_pipelineExecutionId :: (Maybe Text -&gt; f (Maybe Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | The interaction or event that started a pipeline execution, such as</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- automated change detection or a @StartPipelineExecution@ API call.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#pipelineExecutionSummary_trigger"><span class="hs-identifier hs-type">pipelineExecutionSummary_trigger</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-type">PipelineExecutionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ExecutionTrigger.html#ExecutionTrigger"><span class="hs-identifier hs-type">ExecutionTrigger</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span id="pipelineExecutionSummary_trigger"><span class="annot"><span class="annottext">pipelineExecutionSummary_trigger :: (Maybe ExecutionTrigger -&gt; f (Maybe ExecutionTrigger))
 -&gt; PipelineExecutionSummary -&gt; f PipelineExecutionSummary
-</span><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#pipelineExecutionSummary_pipelineExecutionId"><span class="hs-identifier hs-var hs-var">pipelineExecutionSummary_pipelineExecutionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineExecutionSummary -&gt; Maybe Text)
+</span><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#pipelineExecutionSummary_trigger"><span class="hs-identifier hs-var hs-var">pipelineExecutionSummary_trigger</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineExecutionSummary -&gt; Maybe ExecutionTrigger)
 -&gt; (PipelineExecutionSummary
-    -&gt; Maybe Text -&gt; PipelineExecutionSummary)
+    -&gt; Maybe ExecutionTrigger -&gt; PipelineExecutionSummary)
 -&gt; Lens
      PipelineExecutionSummary
      PipelineExecutionSummary
-     (Maybe Text)
-     (Maybe Text)
+     (Maybe ExecutionTrigger)
+     (Maybe ExecutionTrigger)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary%27"><span class="hs-identifier hs-type">PipelineExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283606"><span class="annot"><span class="annottext">Maybe Text
-pipelineExecutionId :: Maybe Text
-$sel:pipelineExecutionId:PipelineExecutionSummary' :: PipelineExecutionSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679283606"><span class="hs-identifier hs-var hs-var">pipelineExecutionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679283606"><span class="hs-identifier hs-var">pipelineExecutionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283605"><span class="annot"><span class="annottext">s :: PipelineExecutionSummary
-</span><a href="#local-6989586621679283605"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary%27"><span class="hs-identifier hs-type">PipelineExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283604"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679283604"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineExecutionSummary
-</span><a href="#local-6989586621679283605"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineExecutionId:PipelineExecutionSummary' :: Maybe Text
-</span><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#%24sel%3ApipelineExecutionId%3APipelineExecutionSummary%27"><span class="hs-identifier hs-var">pipelineExecutionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679283604"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-type">PipelineExecutionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary%27"><span class="hs-identifier hs-type">PipelineExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283823"><span class="annot"><span class="annottext">Maybe ExecutionTrigger
+trigger :: Maybe ExecutionTrigger
+$sel:trigger:PipelineExecutionSummary' :: PipelineExecutionSummary -&gt; Maybe ExecutionTrigger
+</span><a href="#local-6989586621679283823"><span class="hs-identifier hs-var hs-var">trigger</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ExecutionTrigger
+</span><a href="#local-6989586621679283823"><span class="hs-identifier hs-var">trigger</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283822"><span class="annot"><span class="annottext">s :: PipelineExecutionSummary
+</span><a href="#local-6989586621679283822"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary%27"><span class="hs-identifier hs-type">PipelineExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283821"><span class="annot"><span class="annottext">Maybe ExecutionTrigger
+</span><a href="#local-6989586621679283821"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineExecutionSummary
+</span><a href="#local-6989586621679283822"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trigger:PipelineExecutionSummary' :: Maybe ExecutionTrigger
+</span><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#%24sel%3Atrigger%3APipelineExecutionSummary%27"><span class="hs-identifier hs-var">trigger</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExecutionTrigger
+</span><a href="#local-6989586621679283821"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-type">PipelineExecutionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | The date and time of the last change to the pipeline execution, in</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- timestamp format.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#pipelineExecutionSummary_lastUpdateTime"><span class="hs-identifier hs-type">pipelineExecutionSummary_lastUpdateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-type">PipelineExecutionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span id="pipelineExecutionSummary_lastUpdateTime"><span class="annot"><span class="annottext">pipelineExecutionSummary_lastUpdateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; PipelineExecutionSummary -&gt; f PipelineExecutionSummary
+</span><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#pipelineExecutionSummary_lastUpdateTime"><span class="hs-identifier hs-var hs-var">pipelineExecutionSummary_lastUpdateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineExecutionSummary -&gt; Maybe POSIX)
+-&gt; (PipelineExecutionSummary
+    -&gt; Maybe POSIX -&gt; PipelineExecutionSummary)
+-&gt; Lens
+     PipelineExecutionSummary
+     PipelineExecutionSummary
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary%27"><span class="hs-identifier hs-type">PipelineExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283819"><span class="annot"><span class="annottext">Maybe POSIX
+lastUpdateTime :: Maybe POSIX
+$sel:lastUpdateTime:PipelineExecutionSummary' :: PipelineExecutionSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621679283819"><span class="hs-identifier hs-var hs-var">lastUpdateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679283819"><span class="hs-identifier hs-var">lastUpdateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283818"><span class="annot"><span class="annottext">s :: PipelineExecutionSummary
+</span><a href="#local-6989586621679283818"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary%27"><span class="hs-identifier hs-type">PipelineExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283817"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679283817"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineExecutionSummary
+</span><a href="#local-6989586621679283818"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdateTime:PipelineExecutionSummary' :: Maybe POSIX
+</span><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#%24sel%3AlastUpdateTime%3APipelineExecutionSummary%27"><span class="hs-identifier hs-var">lastUpdateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679283817"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-type">PipelineExecutionSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; PipelineExecutionSummary -&gt; f PipelineExecutionSummary)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; PipelineExecutionSummary
+-&gt; f PipelineExecutionSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-187"></span><span>
-</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283601"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-type">PipelineExecutionSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-189"></span><span>  </span><span id="local-6989586621679283599"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PipelineExecutionSummary
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283814"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-type">PipelineExecutionSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621679283812"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PipelineExecutionSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-190"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser PipelineExecutionSummary)
@@ -484,142 +484,142 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PipelineExecutionSummary&quot;</span></span><span>
-</span><span id="line-192"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679283596"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679283596"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-192"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679283809"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679283809"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-193"></span><span>          </span><span class="annot"><span class="annottext">Maybe PipelineExecutionStatus
 -&gt; Maybe POSIX
+-&gt; Maybe StopExecutionTrigger
+-&gt; Maybe Text
+-&gt; Maybe [SourceRevision]
 -&gt; Maybe ExecutionTrigger
 -&gt; Maybe POSIX
--&gt; Maybe StopExecutionTrigger
--&gt; Maybe [SourceRevision]
--&gt; Maybe Text
 -&gt; PipelineExecutionSummary
 </span><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary%27"><span class="hs-identifier hs-var">PipelineExecutionSummary'</span></a></span><span>
 </span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">(Maybe PipelineExecutionStatus
  -&gt; Maybe POSIX
+ -&gt; Maybe StopExecutionTrigger
+ -&gt; Maybe Text
+ -&gt; Maybe [SourceRevision]
  -&gt; Maybe ExecutionTrigger
  -&gt; Maybe POSIX
- -&gt; Maybe StopExecutionTrigger
- -&gt; Maybe [SourceRevision]
- -&gt; Maybe Text
  -&gt; PipelineExecutionSummary)
 -&gt; Parser (Maybe PipelineExecutionStatus)
 -&gt; Parser
      (Maybe POSIX
+      -&gt; Maybe StopExecutionTrigger
+      -&gt; Maybe Text
+      -&gt; Maybe [SourceRevision]
       -&gt; Maybe ExecutionTrigger
       -&gt; Maybe POSIX
-      -&gt; Maybe StopExecutionTrigger
-      -&gt; Maybe [SourceRevision]
-      -&gt; Maybe Text
       -&gt; PipelineExecutionSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679283596"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PipelineExecutionStatus)
+</span><a href="#local-6989586621679283809"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PipelineExecutionStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-195"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe POSIX
+   -&gt; Maybe StopExecutionTrigger
+   -&gt; Maybe Text
+   -&gt; Maybe [SourceRevision]
    -&gt; Maybe ExecutionTrigger
    -&gt; Maybe POSIX
-   -&gt; Maybe StopExecutionTrigger
-   -&gt; Maybe [SourceRevision]
-   -&gt; Maybe Text
-   -&gt; PipelineExecutionSummary)
--&gt; Parser (Maybe POSIX)
--&gt; Parser
-     (Maybe ExecutionTrigger
-      -&gt; Maybe POSIX
-      -&gt; Maybe StopExecutionTrigger
-      -&gt; Maybe [SourceRevision]
-      -&gt; Maybe Text
-      -&gt; PipelineExecutionSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679283596"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;lastUpdateTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-196"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe ExecutionTrigger
-   -&gt; Maybe POSIX
-   -&gt; Maybe StopExecutionTrigger
-   -&gt; Maybe [SourceRevision]
-   -&gt; Maybe Text
-   -&gt; PipelineExecutionSummary)
--&gt; Parser (Maybe ExecutionTrigger)
--&gt; Parser
-     (Maybe POSIX
-      -&gt; Maybe StopExecutionTrigger
-      -&gt; Maybe [SourceRevision]
-      -&gt; Maybe Text
-      -&gt; PipelineExecutionSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679283596"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ExecutionTrigger)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;trigger&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-197"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX
-   -&gt; Maybe StopExecutionTrigger
-   -&gt; Maybe [SourceRevision]
-   -&gt; Maybe Text
    -&gt; PipelineExecutionSummary)
 -&gt; Parser (Maybe POSIX)
 -&gt; Parser
      (Maybe StopExecutionTrigger
-      -&gt; Maybe [SourceRevision]
       -&gt; Maybe Text
+      -&gt; Maybe [SourceRevision]
+      -&gt; Maybe ExecutionTrigger
+      -&gt; Maybe POSIX
       -&gt; PipelineExecutionSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679283596"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679283809"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;startTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-198"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-196"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe StopExecutionTrigger
-   -&gt; Maybe [SourceRevision]
    -&gt; Maybe Text
+   -&gt; Maybe [SourceRevision]
+   -&gt; Maybe ExecutionTrigger
+   -&gt; Maybe POSIX
    -&gt; PipelineExecutionSummary)
 -&gt; Parser (Maybe StopExecutionTrigger)
 -&gt; Parser
-     (Maybe [SourceRevision] -&gt; Maybe Text -&gt; PipelineExecutionSummary)
+     (Maybe Text
+      -&gt; Maybe [SourceRevision]
+      -&gt; Maybe ExecutionTrigger
+      -&gt; Maybe POSIX
+      -&gt; PipelineExecutionSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679283596"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe StopExecutionTrigger)
+</span><a href="#local-6989586621679283809"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe StopExecutionTrigger)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;stopTrigger&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-199"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe [SourceRevision] -&gt; Maybe Text -&gt; PipelineExecutionSummary)
+</span><span id="line-197"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [SourceRevision]
+   -&gt; Maybe ExecutionTrigger
+   -&gt; Maybe POSIX
+   -&gt; PipelineExecutionSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [SourceRevision]
+      -&gt; Maybe ExecutionTrigger
+      -&gt; Maybe POSIX
+      -&gt; PipelineExecutionSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679283809"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;pipelineExecutionId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [SourceRevision]
+   -&gt; Maybe ExecutionTrigger
+   -&gt; Maybe POSIX
+   -&gt; PipelineExecutionSummary)
 -&gt; Parser (Maybe [SourceRevision])
--&gt; Parser (Maybe Text -&gt; PipelineExecutionSummary)
+-&gt; Parser
+     (Maybe ExecutionTrigger -&gt; Maybe POSIX -&gt; PipelineExecutionSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679283596"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [SourceRevision]))
+</span><a href="#local-6989586621679283809"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [SourceRevision]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sourceRevisions&quot;</span></span><span>
-</span><span id="line-200"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [SourceRevision]))
+</span><span id="line-199"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [SourceRevision]))
 -&gt; Maybe [SourceRevision] -&gt; Parser (Maybe [SourceRevision])
 forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [SourceRevision]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-201"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-202"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; PipelineExecutionSummary)
--&gt; Parser (Maybe Text) -&gt; Parser PipelineExecutionSummary
+</span><span id="line-200"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ExecutionTrigger -&gt; Maybe POSIX -&gt; PipelineExecutionSummary)
+-&gt; Parser (Maybe ExecutionTrigger)
+-&gt; Parser (Maybe POSIX -&gt; PipelineExecutionSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679283596"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679283809"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ExecutionTrigger)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;pipelineExecutionId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;trigger&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; PipelineExecutionSummary)
+-&gt; Parser (Maybe POSIX) -&gt; Parser PipelineExecutionSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679283809"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastUpdateTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-203"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-204"></span><span>
-</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283589"><span id="local-6989586621679283591"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-type">PipelineExecutionSummary</span></a></span></span></span><span>
+</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283802"><span id="local-6989586621679283804"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-type">PipelineExecutionSummary</span></a></span></span></span><span>
 </span><span id="line-206"></span><span>
-</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283586"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-type">PipelineExecutionSummary</span></a></span></span><span>
+</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283799"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.PipelineExecutionSummary.html#PipelineExecutionSummary"><span class="hs-identifier hs-type">PipelineExecutionSummary</span></a></span></span><span>
 </span><span id="line-208"></span></pre></body></html>

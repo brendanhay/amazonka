@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Specifies the schedule settings for a journey.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newJourneySchedule' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679602443"><span id="local-6989586621679602444"></span></span><span class="hs-keyword">data</span><span> </span><span id="JourneySchedule"><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneySchedule.html#JourneySchedule"><span class="hs-identifier hs-var">JourneySchedule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JourneySchedule%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneySchedule.html#JourneySchedule%27"><span class="hs-identifier hs-var">JourneySchedule'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679602909"><span id="local-6989586621679602910"></span></span><span class="hs-keyword">data</span><span> </span><span id="JourneySchedule"><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneySchedule.html#JourneySchedule"><span class="hs-identifier hs-var">JourneySchedule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JourneySchedule%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneySchedule.html#JourneySchedule%27"><span class="hs-identifier hs-var">JourneySchedule'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The scheduled time, in ISO 8601 format, when the journey began or will</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- begin.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AstartTime%3AJourneySchedule%27"><span class="annot"><span class="annottext">JourneySchedule -&gt; Maybe POSIX
@@ -45,7 +45,7 @@
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3Atimezone%3AJourneySchedule%27"><span class="annot"><span class="annottext">JourneySchedule -&gt; Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.JourneySchedule.html#%24sel%3Atimezone%3AJourneySchedule%27"><span class="hs-identifier hs-var hs-var">timezone</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679602435"><span id="local-6989586621679602437"><span class="annot"><span class="annottext">JourneySchedule -&gt; JourneySchedule -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679602901"><span id="local-6989586621679602903"><span class="annot"><span class="annottext">JourneySchedule -&gt; JourneySchedule -&gt; Bool
 (JourneySchedule -&gt; JourneySchedule -&gt; Bool)
 -&gt; (JourneySchedule -&gt; JourneySchedule -&gt; Bool)
 -&gt; Eq JourneySchedule
@@ -54,7 +54,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: JourneySchedule -&gt; JourneySchedule -&gt; Bool
 == :: JourneySchedule -&gt; JourneySchedule -&gt; Bool
 $c== :: JourneySchedule -&gt; JourneySchedule -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679602426"><span id="local-6989586621679602428"><span id="local-6989586621679602430"><span id="local-6989586621679602432"><span class="annot"><span class="annottext">ReadPrec [JourneySchedule]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679602892"><span id="local-6989586621679602894"><span id="local-6989586621679602896"><span id="local-6989586621679602898"><span class="annot"><span class="annottext">ReadPrec [JourneySchedule]
 ReadPrec JourneySchedule
 Int -&gt; ReadS JourneySchedule
 ReadS [JourneySchedule]
@@ -74,7 +74,7 @@ readList :: ReadS [JourneySchedule]
 $creadList :: ReadS [JourneySchedule]
 readsPrec :: Int -&gt; ReadS JourneySchedule
 $creadsPrec :: Int -&gt; ReadS JourneySchedule
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679602419"><span id="local-6989586621679602421"><span id="local-6989586621679602423"><span class="annot"><span class="annottext">Int -&gt; JourneySchedule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679602885"><span id="local-6989586621679602887"><span id="local-6989586621679602889"><span class="annot"><span class="annottext">Int -&gt; JourneySchedule -&gt; ShowS
 [JourneySchedule] -&gt; ShowS
 JourneySchedule -&gt; String
 (Int -&gt; JourneySchedule -&gt; ShowS)
@@ -150,16 +150,16 @@ forall a. Maybe a
 -&gt; (JourneySchedule -&gt; Maybe POSIX -&gt; JourneySchedule)
 -&gt; Lens JourneySchedule JourneySchedule (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneySchedule.html#JourneySchedule%27"><span class="hs-identifier hs-type">JourneySchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679602410"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneySchedule.html#JourneySchedule%27"><span class="hs-identifier hs-type">JourneySchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679602876"><span class="annot"><span class="annottext">Maybe POSIX
 startTime :: Maybe POSIX
 $sel:startTime:JourneySchedule' :: JourneySchedule -&gt; Maybe POSIX
-</span><a href="#local-6989586621679602410"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679602410"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679602409"><span class="annot"><span class="annottext">s :: JourneySchedule
-</span><a href="#local-6989586621679602409"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneySchedule.html#JourneySchedule%27"><span class="hs-identifier hs-type">JourneySchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679602408"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679602408"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JourneySchedule
-</span><a href="#local-6989586621679602409"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:JourneySchedule' :: Maybe POSIX
+</span><a href="#local-6989586621679602876"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679602876"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679602875"><span class="annot"><span class="annottext">s :: JourneySchedule
+</span><a href="#local-6989586621679602875"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneySchedule.html#JourneySchedule%27"><span class="hs-identifier hs-type">JourneySchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679602874"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679602874"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JourneySchedule
+</span><a href="#local-6989586621679602875"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:JourneySchedule' :: Maybe POSIX
 </span><a href="Network.AWS.Pinpoint.Types.JourneySchedule.html#%24sel%3AstartTime%3AJourneySchedule%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679602408"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneySchedule.html#JourneySchedule"><span class="hs-identifier hs-type">JourneySchedule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679602874"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneySchedule.html#JourneySchedule"><span class="hs-identifier hs-type">JourneySchedule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; JourneySchedule -&gt; f JourneySchedule)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -185,16 +185,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (JourneySchedule -&gt; Maybe POSIX -&gt; JourneySchedule)
 -&gt; Lens JourneySchedule JourneySchedule (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneySchedule.html#JourneySchedule%27"><span class="hs-identifier hs-type">JourneySchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679602403"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneySchedule.html#JourneySchedule%27"><span class="hs-identifier hs-type">JourneySchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679602869"><span class="annot"><span class="annottext">Maybe POSIX
 endTime :: Maybe POSIX
 $sel:endTime:JourneySchedule' :: JourneySchedule -&gt; Maybe POSIX
-</span><a href="#local-6989586621679602403"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679602403"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679602402"><span class="annot"><span class="annottext">s :: JourneySchedule
-</span><a href="#local-6989586621679602402"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneySchedule.html#JourneySchedule%27"><span class="hs-identifier hs-type">JourneySchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679602401"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679602401"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JourneySchedule
-</span><a href="#local-6989586621679602402"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:JourneySchedule' :: Maybe POSIX
+</span><a href="#local-6989586621679602869"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679602869"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679602868"><span class="annot"><span class="annottext">s :: JourneySchedule
+</span><a href="#local-6989586621679602868"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneySchedule.html#JourneySchedule%27"><span class="hs-identifier hs-type">JourneySchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679602867"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679602867"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JourneySchedule
+</span><a href="#local-6989586621679602868"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:JourneySchedule' :: Maybe POSIX
 </span><a href="Network.AWS.Pinpoint.Types.JourneySchedule.html#%24sel%3AendTime%3AJourneySchedule%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679602401"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneySchedule.html#JourneySchedule"><span class="hs-identifier hs-type">JourneySchedule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679602867"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneySchedule.html#JourneySchedule"><span class="hs-identifier hs-type">JourneySchedule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; JourneySchedule -&gt; f JourneySchedule)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -225,19 +225,19 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (JourneySchedule -&gt; Maybe Text -&gt; JourneySchedule)
 -&gt; Lens JourneySchedule JourneySchedule (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneySchedule.html#JourneySchedule%27"><span class="hs-identifier hs-type">JourneySchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679602399"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneySchedule.html#JourneySchedule%27"><span class="hs-identifier hs-type">JourneySchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679602865"><span class="annot"><span class="annottext">Maybe Text
 timezone :: Maybe Text
 $sel:timezone:JourneySchedule' :: JourneySchedule -&gt; Maybe Text
-</span><a href="#local-6989586621679602399"><span class="hs-identifier hs-var hs-var">timezone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679602399"><span class="hs-identifier hs-var">timezone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679602398"><span class="annot"><span class="annottext">s :: JourneySchedule
-</span><a href="#local-6989586621679602398"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneySchedule.html#JourneySchedule%27"><span class="hs-identifier hs-type">JourneySchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679602397"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679602397"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JourneySchedule
-</span><a href="#local-6989586621679602398"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timezone:JourneySchedule' :: Maybe Text
+</span><a href="#local-6989586621679602865"><span class="hs-identifier hs-var hs-var">timezone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679602865"><span class="hs-identifier hs-var">timezone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679602864"><span class="annot"><span class="annottext">s :: JourneySchedule
+</span><a href="#local-6989586621679602864"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneySchedule.html#JourneySchedule%27"><span class="hs-identifier hs-type">JourneySchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679602863"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679602863"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JourneySchedule
+</span><a href="#local-6989586621679602864"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timezone:JourneySchedule' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.JourneySchedule.html#%24sel%3Atimezone%3AJourneySchedule%27"><span class="hs-identifier hs-var">timezone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679602397"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneySchedule.html#JourneySchedule"><span class="hs-identifier hs-type">JourneySchedule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679602863"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneySchedule.html#JourneySchedule"><span class="hs-identifier hs-type">JourneySchedule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679602394"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneySchedule.html#JourneySchedule"><span class="hs-identifier hs-type">JourneySchedule</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679602392"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JourneySchedule
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679602860"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneySchedule.html#JourneySchedule"><span class="hs-identifier hs-type">JourneySchedule</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679602858"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JourneySchedule
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser JourneySchedule)
@@ -247,8 +247,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;JourneySchedule&quot;</span></span><span>
-</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679602389"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679602389"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679602855"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679602855"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX -&gt; Maybe POSIX -&gt; Maybe Text -&gt; JourneySchedule
 </span><a href="Network.AWS.Pinpoint.Types.JourneySchedule.html#JourneySchedule%27"><span class="hs-identifier hs-var">JourneySchedule'</span></a></span><span>
 </span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX -&gt; Maybe POSIX -&gt; Maybe Text -&gt; JourneySchedule)
@@ -256,7 +256,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe POSIX -&gt; Maybe Text -&gt; JourneySchedule)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679602389"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679602855"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StartTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -264,7 +264,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe POSIX) -&gt; Parser (Maybe Text -&gt; JourneySchedule)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679602389"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679602855"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EndTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -272,19 +272,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser JourneySchedule
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679602389"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679602855"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Timezone&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679602383"><span id="local-6989586621679602385"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneySchedule.html#JourneySchedule"><span class="hs-identifier hs-type">JourneySchedule</span></a></span></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679602849"><span id="local-6989586621679602851"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneySchedule.html#JourneySchedule"><span class="hs-identifier hs-type">JourneySchedule</span></a></span></span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679602380"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneySchedule.html#JourneySchedule"><span class="hs-identifier hs-type">JourneySchedule</span></a></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679602846"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneySchedule.html#JourneySchedule"><span class="hs-identifier hs-type">JourneySchedule</span></a></span></span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679602372"><span id="local-6989586621679602374"><span id="local-6989586621679602376"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneySchedule.html#JourneySchedule"><span class="hs-identifier hs-type">JourneySchedule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679602370"><span class="annot"><span class="annottext">toJSON :: JourneySchedule -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneySchedule.html#JourneySchedule%27"><span class="hs-identifier hs-type">JourneySchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679602366"><span id="local-6989586621679602367"><span id="local-6989586621679602368"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679602838"><span id="local-6989586621679602840"><span id="local-6989586621679602842"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneySchedule.html#JourneySchedule"><span class="hs-identifier hs-type">JourneySchedule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679602836"><span class="annot"><span class="annottext">toJSON :: JourneySchedule -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneySchedule.html#JourneySchedule%27"><span class="hs-identifier hs-type">JourneySchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679602832"><span id="local-6989586621679602833"><span id="local-6989586621679602834"><span class="annot"><span class="annottext">Maybe Text
 Maybe POSIX
 timezone :: Maybe Text
 endTime :: Maybe POSIX
@@ -292,7 +292,7 @@ startTime :: Maybe POSIX
 $sel:timezone:JourneySchedule' :: JourneySchedule -&gt; Maybe Text
 $sel:endTime:JourneySchedule' :: JourneySchedule -&gt; Maybe POSIX
 $sel:startTime:JourneySchedule' :: JourneySchedule -&gt; Maybe POSIX
-</span><a href="#local-6989586621679602366"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679602832"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -304,21 +304,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679602368"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679602834"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-117"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EndTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679602367"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679602833"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-118"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Timezone&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679602366"><span class="hs-identifier hs-var">timezone</span></a></span><span>
+</span><a href="#local-6989586621679602832"><span class="hs-identifier hs-var">timezone</span></a></span><span>
 </span><span id="line-119"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span></pre></body></html>

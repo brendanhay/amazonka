@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newArchiveFindings' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679314699"><span id="local-6989586621679314700"></span></span><span class="hs-keyword">data</span><span> </span><span id="ArchiveFindings"><span class="annot"><a href="Network.AWS.GuardDuty.ArchiveFindings.html#ArchiveFindings"><span class="hs-identifier hs-var">ArchiveFindings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ArchiveFindings%27"><span class="annot"><a href="Network.AWS.GuardDuty.ArchiveFindings.html#ArchiveFindings%27"><span class="hs-identifier hs-var">ArchiveFindings'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679315045"><span id="local-6989586621679315046"></span></span><span class="hs-keyword">data</span><span> </span><span id="ArchiveFindings"><span class="annot"><a href="Network.AWS.GuardDuty.ArchiveFindings.html#ArchiveFindings"><span class="hs-identifier hs-var">ArchiveFindings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ArchiveFindings%27"><span class="annot"><a href="Network.AWS.GuardDuty.ArchiveFindings.html#ArchiveFindings%27"><span class="hs-identifier hs-var">ArchiveFindings'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the detector that specifies the GuardDuty service whose</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- findings you want to archive.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AdetectorId%3AArchiveFindings%27"><span class="annot"><span class="annottext">ArchiveFindings -&gt; Text
@@ -60,7 +60,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AfindingIds%3AArchiveFindings%27"><span class="annot"><span class="annottext">ArchiveFindings -&gt; [Text]
 </span><a href="Network.AWS.GuardDuty.ArchiveFindings.html#%24sel%3AfindingIds%3AArchiveFindings%27"><span class="hs-identifier hs-var hs-var">findingIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679314692"><span id="local-6989586621679314694"><span class="annot"><span class="annottext">ArchiveFindings -&gt; ArchiveFindings -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679315038"><span id="local-6989586621679315040"><span class="annot"><span class="annottext">ArchiveFindings -&gt; ArchiveFindings -&gt; Bool
 (ArchiveFindings -&gt; ArchiveFindings -&gt; Bool)
 -&gt; (ArchiveFindings -&gt; ArchiveFindings -&gt; Bool)
 -&gt; Eq ArchiveFindings
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ArchiveFindings -&gt; ArchiveFindings -&gt; Bool
 == :: ArchiveFindings -&gt; ArchiveFindings -&gt; Bool
 $c== :: ArchiveFindings -&gt; ArchiveFindings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314683"><span id="local-6989586621679314685"><span id="local-6989586621679314687"><span id="local-6989586621679314689"><span class="annot"><span class="annottext">ReadPrec [ArchiveFindings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315029"><span id="local-6989586621679315031"><span id="local-6989586621679315033"><span id="local-6989586621679315035"><span class="annot"><span class="annottext">ReadPrec [ArchiveFindings]
 ReadPrec ArchiveFindings
 Int -&gt; ReadS ArchiveFindings
 ReadS [ArchiveFindings]
@@ -89,7 +89,7 @@ readList :: ReadS [ArchiveFindings]
 $creadList :: ReadS [ArchiveFindings]
 readsPrec :: Int -&gt; ReadS ArchiveFindings
 $creadsPrec :: Int -&gt; ReadS ArchiveFindings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314676"><span id="local-6989586621679314678"><span id="local-6989586621679314680"><span class="annot"><span class="annottext">Int -&gt; ArchiveFindings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315022"><span id="local-6989586621679315024"><span id="local-6989586621679315026"><span class="annot"><span class="annottext">Int -&gt; ArchiveFindings -&gt; ShowS
 [ArchiveFindings] -&gt; ShowS
 ArchiveFindings -&gt; String
 (Int -&gt; ArchiveFindings -&gt; ShowS)
@@ -132,13 +132,13 @@ $cfrom :: forall x. ArchiveFindings -&gt; Rep ArchiveFindings x
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.ArchiveFindings.html#ArchiveFindings"><span class="hs-identifier hs-type">ArchiveFindings</span></a></span><span>
 </span><span id="line-79"></span><span id="newArchiveFindings"><span class="annot"><span class="annottext">newArchiveFindings :: Text -&gt; ArchiveFindings
-</span><a href="Network.AWS.GuardDuty.ArchiveFindings.html#newArchiveFindings"><span class="hs-identifier hs-var hs-var">newArchiveFindings</span></a></span></span><span> </span><span id="local-6989586621679314671"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679314671"><span class="hs-identifier hs-var">pDetectorId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GuardDuty.ArchiveFindings.html#newArchiveFindings"><span class="hs-identifier hs-var hs-var">newArchiveFindings</span></a></span></span><span> </span><span id="local-6989586621679315017"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679315017"><span class="hs-identifier hs-var">pDetectorId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">ArchiveFindings' :: Text -&gt; [Text] -&gt; ArchiveFindings
 </span><a href="Network.AWS.GuardDuty.ArchiveFindings.html#ArchiveFindings%27"><span class="hs-identifier hs-type">ArchiveFindings'</span></a></span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:detectorId:ArchiveFindings' :: Text
 </span><a href="Network.AWS.GuardDuty.ArchiveFindings.html#%24sel%3AdetectorId%3AArchiveFindings%27"><span class="hs-identifier hs-var">detectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679314671"><span class="hs-identifier hs-var">pDetectorId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679315017"><span class="hs-identifier hs-var">pDetectorId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:findingIds:ArchiveFindings' :: [Text]
 </span><a href="Network.AWS.GuardDuty.ArchiveFindings.html#%24sel%3AfindingIds%3AArchiveFindings%27"><span class="hs-identifier hs-var">findingIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
 forall a. Monoid a =&gt; a
@@ -153,16 +153,16 @@ forall a. Monoid a =&gt; a
 -&gt; (ArchiveFindings -&gt; Text -&gt; ArchiveFindings)
 -&gt; Lens ArchiveFindings ArchiveFindings Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.ArchiveFindings.html#ArchiveFindings%27"><span class="hs-identifier hs-type">ArchiveFindings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314668"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.ArchiveFindings.html#ArchiveFindings%27"><span class="hs-identifier hs-type">ArchiveFindings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315014"><span class="annot"><span class="annottext">Text
 detectorId :: Text
 $sel:detectorId:ArchiveFindings' :: ArchiveFindings -&gt; Text
-</span><a href="#local-6989586621679314668"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679314668"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314667"><span class="annot"><span class="annottext">s :: ArchiveFindings
-</span><a href="#local-6989586621679314667"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.ArchiveFindings.html#ArchiveFindings%27"><span class="hs-identifier hs-type">ArchiveFindings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314666"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679314666"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArchiveFindings
-</span><a href="#local-6989586621679314667"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectorId:ArchiveFindings' :: Text
+</span><a href="#local-6989586621679315014"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679315014"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315013"><span class="annot"><span class="annottext">s :: ArchiveFindings
+</span><a href="#local-6989586621679315013"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.ArchiveFindings.html#ArchiveFindings%27"><span class="hs-identifier hs-type">ArchiveFindings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315012"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679315012"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArchiveFindings
+</span><a href="#local-6989586621679315013"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectorId:ArchiveFindings' :: Text
 </span><a href="Network.AWS.GuardDuty.ArchiveFindings.html#%24sel%3AdetectorId%3AArchiveFindings%27"><span class="hs-identifier hs-var">detectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679314666"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ArchiveFindings.html#ArchiveFindings"><span class="hs-identifier hs-type">ArchiveFindings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679315012"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ArchiveFindings.html#ArchiveFindings"><span class="hs-identifier hs-type">ArchiveFindings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | The IDs of the findings that you want to archive.</span><span>
 </span><span id="line-91"></span><span class="annot"><a href="Network.AWS.GuardDuty.ArchiveFindings.html#archiveFindings_findingIds"><span class="hs-identifier hs-type">archiveFindings_findingIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ArchiveFindings.html#ArchiveFindings"><span class="hs-identifier hs-type">ArchiveFindings</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
@@ -171,35 +171,35 @@ $sel:detectorId:ArchiveFindings' :: ArchiveFindings -&gt; Text
 -&gt; (ArchiveFindings -&gt; [Text] -&gt; ArchiveFindings)
 -&gt; Lens ArchiveFindings ArchiveFindings [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.ArchiveFindings.html#ArchiveFindings%27"><span class="hs-identifier hs-type">ArchiveFindings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314665"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.ArchiveFindings.html#ArchiveFindings%27"><span class="hs-identifier hs-type">ArchiveFindings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315011"><span class="annot"><span class="annottext">[Text]
 findingIds :: [Text]
 $sel:findingIds:ArchiveFindings' :: ArchiveFindings -&gt; [Text]
-</span><a href="#local-6989586621679314665"><span class="hs-identifier hs-var hs-var">findingIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679314665"><span class="hs-identifier hs-var">findingIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314664"><span class="annot"><span class="annottext">s :: ArchiveFindings
-</span><a href="#local-6989586621679314664"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.ArchiveFindings.html#ArchiveFindings%27"><span class="hs-identifier hs-type">ArchiveFindings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314663"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679314663"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArchiveFindings
-</span><a href="#local-6989586621679314664"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:findingIds:ArchiveFindings' :: [Text]
+</span><a href="#local-6989586621679315011"><span class="hs-identifier hs-var hs-var">findingIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679315011"><span class="hs-identifier hs-var">findingIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315010"><span class="annot"><span class="annottext">s :: ArchiveFindings
+</span><a href="#local-6989586621679315010"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.ArchiveFindings.html#ArchiveFindings%27"><span class="hs-identifier hs-type">ArchiveFindings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315009"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679315009"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArchiveFindings
+</span><a href="#local-6989586621679315010"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:findingIds:ArchiveFindings' :: [Text]
 </span><a href="Network.AWS.GuardDuty.ArchiveFindings.html#%24sel%3AfindingIds%3AArchiveFindings%27"><span class="hs-identifier hs-var">findingIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679314663"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ArchiveFindings.html#ArchiveFindings"><span class="hs-identifier hs-type">ArchiveFindings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; ArchiveFindings -&gt; f ArchiveFindings)
+</span><a href="#local-6989586621679315009"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ArchiveFindings.html#ArchiveFindings"><span class="hs-identifier hs-type">ArchiveFindings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; ArchiveFindings -&gt; f ArchiveFindings)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
 -&gt; ArchiveFindings
 -&gt; f ArchiveFindings
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ArchiveFindings.html#ArchiveFindings"><span class="hs-identifier hs-type">ArchiveFindings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-95"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-96"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ArchiveFindings.html#ArchiveFindings"><span class="hs-identifier hs-type">ArchiveFindings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><a href="Network.AWS.GuardDuty.ArchiveFindings.html#ArchiveFindingsResponse"><span class="hs-identifier hs-type">ArchiveFindingsResponse</span></a></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679314657"><span class="annot"><span class="annottext">request :: ArchiveFindings -&gt; Request ArchiveFindings
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679315003"><span class="annot"><span class="annottext">request :: ArchiveFindings -&gt; Request ArchiveFindings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ArchiveFindings -&gt; Request ArchiveFindings
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.GuardDuty.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679314653"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679314999"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ArchiveFindings
 -&gt; ClientResponse ClientBody
@@ -223,10 +223,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679314650"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679314650"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679314649"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679314649"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679314648"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679314648"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679314996"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679314996"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679314995"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679314995"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679314994"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679314994"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; ArchiveFindingsResponse
 </span><a href="Network.AWS.GuardDuty.ArchiveFindings.html#ArchiveFindingsResponse%27"><span class="hs-identifier hs-var">ArchiveFindingsResponse'</span></a></span><span>
 </span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; ArchiveFindingsResponse)
@@ -237,15 +237,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679314650"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679314996"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314641"><span id="local-6989586621679314643"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ArchiveFindings.html#ArchiveFindings"><span class="hs-identifier hs-type">ArchiveFindings</span></a></span></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314987"><span id="local-6989586621679314989"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ArchiveFindings.html#ArchiveFindings"><span class="hs-identifier hs-type">ArchiveFindings</span></a></span></span></span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314638"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ArchiveFindings.html#ArchiveFindings"><span class="hs-identifier hs-type">ArchiveFindings</span></a></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314984"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ArchiveFindings.html#ArchiveFindings"><span class="hs-identifier hs-type">ArchiveFindings</span></a></span></span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ArchiveFindings.html#ArchiveFindings"><span class="hs-identifier hs-type">ArchiveFindings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679314634"><span class="annot"><span class="annottext">toHeaders :: ArchiveFindings -&gt; ResponseHeaders
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679314980"><span class="annot"><span class="annottext">toHeaders :: ArchiveFindings -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ArchiveFindings -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -264,15 +264,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-118"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314624"><span id="local-6989586621679314626"><span id="local-6989586621679314628"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ArchiveFindings.html#ArchiveFindings"><span class="hs-identifier hs-type">ArchiveFindings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679314622"><span class="annot"><span class="annottext">toJSON :: ArchiveFindings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ArchiveFindings.html#ArchiveFindings%27"><span class="hs-identifier hs-type">ArchiveFindings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314619"><span id="local-6989586621679314620"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314970"><span id="local-6989586621679314972"><span id="local-6989586621679314974"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ArchiveFindings.html#ArchiveFindings"><span class="hs-identifier hs-type">ArchiveFindings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679314968"><span class="annot"><span class="annottext">toJSON :: ArchiveFindings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ArchiveFindings.html#ArchiveFindings%27"><span class="hs-identifier hs-type">ArchiveFindings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314965"><span id="local-6989586621679314966"><span class="annot"><span class="annottext">[Text]
 Text
 findingIds :: [Text]
 detectorId :: Text
 $sel:findingIds:ArchiveFindings' :: ArchiveFindings -&gt; [Text]
 $sel:detectorId:ArchiveFindings' :: ArchiveFindings -&gt; Text
-</span><a href="#local-6989586621679314619"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679314965"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -284,18 +284,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;findingIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679314619"><span class="hs-identifier hs-var">findingIds</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679314965"><span class="hs-identifier hs-var">findingIds</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ArchiveFindings.html#ArchiveFindings"><span class="hs-identifier hs-type">ArchiveFindings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679314613"><span class="annot"><span class="annottext">toPath :: ArchiveFindings -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ArchiveFindings.html#ArchiveFindings%27"><span class="hs-identifier hs-type">ArchiveFindings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314610"><span id="local-6989586621679314611"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679314959"><span class="annot"><span class="annottext">toPath :: ArchiveFindings -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ArchiveFindings.html#ArchiveFindings%27"><span class="hs-identifier hs-type">ArchiveFindings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314956"><span id="local-6989586621679314957"><span class="annot"><span class="annottext">[Text]
 Text
 findingIds :: [Text]
 detectorId :: Text
 $sel:findingIds:ArchiveFindings' :: ArchiveFindings -&gt; [Text]
 $sel:detectorId:ArchiveFindings' :: ArchiveFindings -&gt; Text
-</span><a href="#local-6989586621679314610"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679314956"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -304,13 +304,13 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-132"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679314611"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679314957"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-133"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/findings/archive&quot;</span></span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ArchiveFindings.html#ArchiveFindings"><span class="hs-identifier hs-type">ArchiveFindings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679314606"><span class="annot"><span class="annottext">toQuery :: ArchiveFindings -&gt; QueryString
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679314952"><span class="annot"><span class="annottext">toQuery :: ArchiveFindings -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ArchiveFindings -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -318,12 +318,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | /See:/ 'newArchiveFindingsResponse' smart constructor.</span><span>
-</span><span id="line-140"></span><span id="local-6989586621679314603"><span id="local-6989586621679314604"></span></span><span class="hs-keyword">data</span><span> </span><span id="ArchiveFindingsResponse"><span class="annot"><a href="Network.AWS.GuardDuty.ArchiveFindings.html#ArchiveFindingsResponse"><span class="hs-identifier hs-var">ArchiveFindingsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ArchiveFindingsResponse%27"><span class="annot"><a href="Network.AWS.GuardDuty.ArchiveFindings.html#ArchiveFindingsResponse%27"><span class="hs-identifier hs-var">ArchiveFindingsResponse'</span></a></span></span><span>
+</span><span id="line-140"></span><span id="local-6989586621679314949"><span id="local-6989586621679314950"></span></span><span class="hs-keyword">data</span><span> </span><span id="ArchiveFindingsResponse"><span class="annot"><a href="Network.AWS.GuardDuty.ArchiveFindings.html#ArchiveFindingsResponse"><span class="hs-identifier hs-var">ArchiveFindingsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ArchiveFindingsResponse%27"><span class="annot"><a href="Network.AWS.GuardDuty.ArchiveFindings.html#ArchiveFindingsResponse%27"><span class="hs-identifier hs-var">ArchiveFindingsResponse'</span></a></span></span><span>
 </span><span id="line-141"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-142"></span><span>    </span><span id="%24sel%3AhttpStatus%3AArchiveFindingsResponse%27"><span class="annot"><span class="annottext">ArchiveFindingsResponse -&gt; Int
 </span><a href="Network.AWS.GuardDuty.ArchiveFindings.html#%24sel%3AhttpStatus%3AArchiveFindingsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-143"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679314598"><span id="local-6989586621679314600"><span class="annot"><span class="annottext">ArchiveFindingsResponse -&gt; ArchiveFindingsResponse -&gt; Bool
+</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679314944"><span id="local-6989586621679314946"><span class="annot"><span class="annottext">ArchiveFindingsResponse -&gt; ArchiveFindingsResponse -&gt; Bool
 (ArchiveFindingsResponse -&gt; ArchiveFindingsResponse -&gt; Bool)
 -&gt; (ArchiveFindingsResponse -&gt; ArchiveFindingsResponse -&gt; Bool)
 -&gt; Eq ArchiveFindingsResponse
@@ -332,7 +332,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ArchiveFindingsResponse -&gt; ArchiveFindingsResponse -&gt; Bool
 == :: ArchiveFindingsResponse -&gt; ArchiveFindingsResponse -&gt; Bool
 $c== :: ArchiveFindingsResponse -&gt; ArchiveFindingsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314590"><span id="local-6989586621679314592"><span id="local-6989586621679314594"><span id="local-6989586621679314596"><span class="annot"><span class="annottext">ReadPrec [ArchiveFindingsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314936"><span id="local-6989586621679314938"><span id="local-6989586621679314940"><span id="local-6989586621679314942"><span class="annot"><span class="annottext">ReadPrec [ArchiveFindingsResponse]
 ReadPrec ArchiveFindingsResponse
 Int -&gt; ReadS ArchiveFindingsResponse
 ReadS [ArchiveFindingsResponse]
@@ -352,7 +352,7 @@ readList :: ReadS [ArchiveFindingsResponse]
 $creadList :: ReadS [ArchiveFindingsResponse]
 readsPrec :: Int -&gt; ReadS ArchiveFindingsResponse
 $creadsPrec :: Int -&gt; ReadS ArchiveFindingsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314584"><span id="local-6989586621679314586"><span id="local-6989586621679314588"><span class="annot"><span class="annottext">Int -&gt; ArchiveFindingsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314930"><span id="local-6989586621679314932"><span id="local-6989586621679314934"><span class="annot"><span class="annottext">Int -&gt; ArchiveFindingsResponse -&gt; ShowS
 [ArchiveFindingsResponse] -&gt; ShowS
 ArchiveFindingsResponse -&gt; String
 (Int -&gt; ArchiveFindingsResponse -&gt; ShowS)
@@ -394,12 +394,12 @@ $cfrom :: forall x. ArchiveFindingsResponse -&gt; Rep ArchiveFindingsResponse x
 </span><span id="line-157"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-158"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.ArchiveFindings.html#ArchiveFindingsResponse"><span class="hs-identifier hs-type">ArchiveFindingsResponse</span></a></span><span>
 </span><span id="line-159"></span><span id="newArchiveFindingsResponse"><span class="annot"><span class="annottext">newArchiveFindingsResponse :: Int -&gt; ArchiveFindingsResponse
-</span><a href="Network.AWS.GuardDuty.ArchiveFindings.html#newArchiveFindingsResponse"><span class="hs-identifier hs-var hs-var">newArchiveFindingsResponse</span></a></span></span><span> </span><span id="local-6989586621679314581"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679314581"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GuardDuty.ArchiveFindings.html#newArchiveFindingsResponse"><span class="hs-identifier hs-var hs-var">newArchiveFindingsResponse</span></a></span></span><span> </span><span id="local-6989586621679314927"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679314927"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-160"></span><span>  </span><span class="annot"><span class="annottext">ArchiveFindingsResponse' :: Int -&gt; ArchiveFindingsResponse
 </span><a href="Network.AWS.GuardDuty.ArchiveFindings.html#ArchiveFindingsResponse%27"><span class="hs-identifier hs-type">ArchiveFindingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ArchiveFindingsResponse' :: Int
 </span><a href="Network.AWS.GuardDuty.ArchiveFindings.html#%24sel%3AhttpStatus%3AArchiveFindingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679314581"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679314927"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-163"></span><span class="annot"><a href="Network.AWS.GuardDuty.ArchiveFindings.html#archiveFindingsResponse_httpStatus"><span class="hs-identifier hs-type">archiveFindingsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ArchiveFindings.html#ArchiveFindingsResponse"><span class="hs-identifier hs-type">ArchiveFindingsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -409,16 +409,16 @@ $cfrom :: forall x. ArchiveFindingsResponse -&gt; Rep ArchiveFindingsResponse x
 -&gt; (ArchiveFindingsResponse -&gt; Int -&gt; ArchiveFindingsResponse)
 -&gt; Lens ArchiveFindingsResponse ArchiveFindingsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.ArchiveFindings.html#ArchiveFindingsResponse%27"><span class="hs-identifier hs-type">ArchiveFindingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314580"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.ArchiveFindings.html#ArchiveFindingsResponse%27"><span class="hs-identifier hs-type">ArchiveFindingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314926"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ArchiveFindingsResponse' :: ArchiveFindingsResponse -&gt; Int
-</span><a href="#local-6989586621679314580"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679314580"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314579"><span class="annot"><span class="annottext">s :: ArchiveFindingsResponse
-</span><a href="#local-6989586621679314579"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.ArchiveFindings.html#ArchiveFindingsResponse%27"><span class="hs-identifier hs-type">ArchiveFindingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314578"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679314578"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArchiveFindingsResponse
-</span><a href="#local-6989586621679314579"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ArchiveFindingsResponse' :: Int
+</span><a href="#local-6989586621679314926"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679314926"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314925"><span class="annot"><span class="annottext">s :: ArchiveFindingsResponse
+</span><a href="#local-6989586621679314925"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.ArchiveFindings.html#ArchiveFindingsResponse%27"><span class="hs-identifier hs-type">ArchiveFindingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314924"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679314924"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArchiveFindingsResponse
+</span><a href="#local-6989586621679314925"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ArchiveFindingsResponse' :: Int
 </span><a href="Network.AWS.GuardDuty.ArchiveFindings.html#%24sel%3AhttpStatus%3AArchiveFindingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679314578"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ArchiveFindings.html#ArchiveFindingsResponse"><span class="hs-identifier hs-type">ArchiveFindingsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679314924"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ArchiveFindings.html#ArchiveFindingsResponse"><span class="hs-identifier hs-type">ArchiveFindingsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>
-</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314576"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ArchiveFindings.html#ArchiveFindingsResponse"><span class="hs-identifier hs-type">ArchiveFindingsResponse</span></a></span></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314922"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ArchiveFindings.html#ArchiveFindingsResponse"><span class="hs-identifier hs-type">ArchiveFindingsResponse</span></a></span></span><span>
 </span><span id="line-167"></span></pre></body></html>

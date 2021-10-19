@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The inputs for a monitoring job.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newMonitoringInput' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621680330549"><span id="local-6989586621680330550"></span></span><span class="hs-keyword">data</span><span> </span><span id="MonitoringInput"><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringInput.html#MonitoringInput"><span class="hs-identifier hs-var">MonitoringInput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MonitoringInput%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringInput.html#MonitoringInput%27"><span class="hs-identifier hs-var">MonitoringInput'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621680331950"><span id="local-6989586621680331951"></span></span><span class="hs-keyword">data</span><span> </span><span id="MonitoringInput"><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringInput.html#MonitoringInput"><span class="hs-identifier hs-var">MonitoringInput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MonitoringInput%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringInput.html#MonitoringInput%27"><span class="hs-identifier hs-var">MonitoringInput'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The endpoint for a monitoring job.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AendpointInput%3AMonitoringInput%27"><span class="annot"><span class="annottext">MonitoringInput -&gt; EndpointInput
 </span><a href="Network.AWS.SageMaker.Types.MonitoringInput.html#%24sel%3AendpointInput%3AMonitoringInput%27"><span class="hs-identifier hs-var hs-var">endpointInput</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput"><span class="hs-identifier hs-type">EndpointInput</span></a></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680330543"><span id="local-6989586621680330545"><span class="annot"><span class="annottext">MonitoringInput -&gt; MonitoringInput -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680331944"><span id="local-6989586621680331946"><span class="annot"><span class="annottext">MonitoringInput -&gt; MonitoringInput -&gt; Bool
 (MonitoringInput -&gt; MonitoringInput -&gt; Bool)
 -&gt; (MonitoringInput -&gt; MonitoringInput -&gt; Bool)
 -&gt; Eq MonitoringInput
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MonitoringInput -&gt; MonitoringInput -&gt; Bool
 == :: MonitoringInput -&gt; MonitoringInput -&gt; Bool
 $c== :: MonitoringInput -&gt; MonitoringInput -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680330534"><span id="local-6989586621680330536"><span id="local-6989586621680330538"><span id="local-6989586621680330540"><span class="annot"><span class="annottext">ReadPrec [MonitoringInput]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680331935"><span id="local-6989586621680331937"><span id="local-6989586621680331939"><span id="local-6989586621680331941"><span class="annot"><span class="annottext">ReadPrec [MonitoringInput]
 ReadPrec MonitoringInput
 Int -&gt; ReadS MonitoringInput
 ReadS [MonitoringInput]
@@ -61,7 +61,7 @@ readList :: ReadS [MonitoringInput]
 $creadList :: ReadS [MonitoringInput]
 readsPrec :: Int -&gt; ReadS MonitoringInput
 $creadsPrec :: Int -&gt; ReadS MonitoringInput
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680330527"><span id="local-6989586621680330529"><span id="local-6989586621680330531"><span class="annot"><span class="annottext">Int -&gt; MonitoringInput -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680331928"><span id="local-6989586621680331930"><span id="local-6989586621680331932"><span class="annot"><span class="annottext">Int -&gt; MonitoringInput -&gt; ShowS
 [MonitoringInput] -&gt; ShowS
 MonitoringInput -&gt; String
 (Int -&gt; MonitoringInput -&gt; ShowS)
@@ -101,12 +101,12 @@ $cfrom :: forall x. MonitoringInput -&gt; Rep MonitoringInput x
 </span><span id="line-47"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput"><span class="hs-identifier hs-type">EndpointInput</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-48"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringInput.html#MonitoringInput"><span class="hs-identifier hs-type">MonitoringInput</span></a></span><span>
 </span><span id="line-49"></span><span id="newMonitoringInput"><span class="annot"><span class="annottext">newMonitoringInput :: EndpointInput -&gt; MonitoringInput
-</span><a href="Network.AWS.SageMaker.Types.MonitoringInput.html#newMonitoringInput"><span class="hs-identifier hs-var hs-var">newMonitoringInput</span></a></span></span><span> </span><span id="local-6989586621680330521"><span class="annot"><span class="annottext">EndpointInput
-</span><a href="#local-6989586621680330521"><span class="hs-identifier hs-var">pEndpointInput_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.Types.MonitoringInput.html#newMonitoringInput"><span class="hs-identifier hs-var hs-var">newMonitoringInput</span></a></span></span><span> </span><span id="local-6989586621680331922"><span class="annot"><span class="annottext">EndpointInput
+</span><a href="#local-6989586621680331922"><span class="hs-identifier hs-var">pEndpointInput_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-50"></span><span>  </span><span class="annot"><span class="annottext">MonitoringInput' :: EndpointInput -&gt; MonitoringInput
 </span><a href="Network.AWS.SageMaker.Types.MonitoringInput.html#MonitoringInput%27"><span class="hs-identifier hs-type">MonitoringInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointInput:MonitoringInput' :: EndpointInput
 </span><a href="Network.AWS.SageMaker.Types.MonitoringInput.html#%24sel%3AendpointInput%3AMonitoringInput%27"><span class="hs-identifier hs-var">endpointInput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EndpointInput
-</span><a href="#local-6989586621680330521"><span class="hs-identifier hs-var">pEndpointInput_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621680331922"><span class="hs-identifier hs-var">pEndpointInput_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | The endpoint for a monitoring job.</span><span>
 </span><span id="line-53"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringInput.html#monitoringInput_endpointInput"><span class="hs-identifier hs-type">monitoringInput_endpointInput</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringInput.html#MonitoringInput"><span class="hs-identifier hs-type">MonitoringInput</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointInput.html#EndpointInput"><span class="hs-identifier hs-type">EndpointInput</span></a></span><span>
@@ -116,19 +116,19 @@ $cfrom :: forall x. MonitoringInput -&gt; Rep MonitoringInput x
 -&gt; (MonitoringInput -&gt; EndpointInput -&gt; MonitoringInput)
 -&gt; Lens MonitoringInput MonitoringInput EndpointInput EndpointInput
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringInput.html#MonitoringInput%27"><span class="hs-identifier hs-type">MonitoringInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680330517"><span class="annot"><span class="annottext">EndpointInput
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringInput.html#MonitoringInput%27"><span class="hs-identifier hs-type">MonitoringInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680331918"><span class="annot"><span class="annottext">EndpointInput
 endpointInput :: EndpointInput
 $sel:endpointInput:MonitoringInput' :: MonitoringInput -&gt; EndpointInput
-</span><a href="#local-6989586621680330517"><span class="hs-identifier hs-var hs-var">endpointInput</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointInput
-</span><a href="#local-6989586621680330517"><span class="hs-identifier hs-var">endpointInput</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680330516"><span class="annot"><span class="annottext">s :: MonitoringInput
-</span><a href="#local-6989586621680330516"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringInput.html#MonitoringInput%27"><span class="hs-identifier hs-type">MonitoringInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680330515"><span class="annot"><span class="annottext">EndpointInput
-</span><a href="#local-6989586621680330515"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringInput
-</span><a href="#local-6989586621680330516"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointInput:MonitoringInput' :: EndpointInput
+</span><a href="#local-6989586621680331918"><span class="hs-identifier hs-var hs-var">endpointInput</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointInput
+</span><a href="#local-6989586621680331918"><span class="hs-identifier hs-var">endpointInput</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680331917"><span class="annot"><span class="annottext">s :: MonitoringInput
+</span><a href="#local-6989586621680331917"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringInput.html#MonitoringInput%27"><span class="hs-identifier hs-type">MonitoringInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680331916"><span class="annot"><span class="annottext">EndpointInput
+</span><a href="#local-6989586621680331916"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringInput
+</span><a href="#local-6989586621680331917"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointInput:MonitoringInput' :: EndpointInput
 </span><a href="Network.AWS.SageMaker.Types.MonitoringInput.html#%24sel%3AendpointInput%3AMonitoringInput%27"><span class="hs-identifier hs-var">endpointInput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EndpointInput
-</span><a href="#local-6989586621680330515"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringInput.html#MonitoringInput"><span class="hs-identifier hs-type">MonitoringInput</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680331916"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringInput.html#MonitoringInput"><span class="hs-identifier hs-type">MonitoringInput</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-55"></span><span>
-</span><span id="line-56"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680330512"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringInput.html#MonitoringInput"><span class="hs-identifier hs-type">MonitoringInput</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-57"></span><span>  </span><span id="local-6989586621680330510"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MonitoringInput
+</span><span id="line-56"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680331913"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringInput.html#MonitoringInput"><span class="hs-identifier hs-type">MonitoringInput</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-57"></span><span>  </span><span id="local-6989586621680331911"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MonitoringInput
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-58"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MonitoringInput)
@@ -138,30 +138,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MonitoringInput&quot;</span></span><span>
-</span><span id="line-60"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680330507"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680330507"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-60"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680331908"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680331908"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-61"></span><span>          </span><span class="annot"><span class="annottext">EndpointInput -&gt; MonitoringInput
 </span><a href="Network.AWS.SageMaker.Types.MonitoringInput.html#MonitoringInput%27"><span class="hs-identifier hs-var">MonitoringInput'</span></a></span><span>
 </span><span id="line-62"></span><span>            </span><span class="annot"><span class="annottext">(EndpointInput -&gt; MonitoringInput)
 -&gt; Parser EndpointInput -&gt; Parser MonitoringInput
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680330507"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser EndpointInput
+</span><a href="#local-6989586621680331908"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser EndpointInput
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EndpointInput&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680330501"><span id="local-6989586621680330503"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringInput.html#MonitoringInput"><span class="hs-identifier hs-type">MonitoringInput</span></a></span></span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680331902"><span id="local-6989586621680331904"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringInput.html#MonitoringInput"><span class="hs-identifier hs-type">MonitoringInput</span></a></span></span></span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680330498"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringInput.html#MonitoringInput"><span class="hs-identifier hs-type">MonitoringInput</span></a></span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680331899"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringInput.html#MonitoringInput"><span class="hs-identifier hs-type">MonitoringInput</span></a></span></span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680330490"><span id="local-6989586621680330492"><span id="local-6989586621680330494"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringInput.html#MonitoringInput"><span class="hs-identifier hs-type">MonitoringInput</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621680330488"><span class="annot"><span class="annottext">toJSON :: MonitoringInput -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringInput.html#MonitoringInput%27"><span class="hs-identifier hs-type">MonitoringInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680330486"><span class="annot"><span class="annottext">EndpointInput
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680331891"><span id="local-6989586621680331893"><span id="local-6989586621680331895"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringInput.html#MonitoringInput"><span class="hs-identifier hs-type">MonitoringInput</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621680331889"><span class="annot"><span class="annottext">toJSON :: MonitoringInput -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringInput.html#MonitoringInput%27"><span class="hs-identifier hs-type">MonitoringInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680331887"><span class="annot"><span class="annottext">EndpointInput
 endpointInput :: EndpointInput
 $sel:endpointInput:MonitoringInput' :: MonitoringInput -&gt; EndpointInput
-</span><a href="#local-6989586621680330486"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680331887"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -174,7 +174,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;EndpointInput&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EndpointInput -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">EndpointInput
-</span><a href="#local-6989586621680330486"><span class="hs-identifier hs-var">endpointInput</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680331887"><span class="hs-identifier hs-var">endpointInput</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span></pre></body></html>

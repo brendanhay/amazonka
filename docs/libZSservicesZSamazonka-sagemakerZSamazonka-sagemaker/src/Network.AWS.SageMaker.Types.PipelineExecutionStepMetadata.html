@@ -35,45 +35,45 @@
 </span><span id="line-35"></span><span class="hs-comment">-- | Metadata for a step execution.</span><span>
 </span><span id="line-36"></span><span class="hs-comment">--</span><span>
 </span><span id="line-37"></span><span class="hs-comment">-- /See:/ 'newPipelineExecutionStepMetadata' smart constructor.</span><span>
-</span><span id="line-38"></span><span id="local-6989586621680353394"><span id="local-6989586621680353395"></span></span><span class="hs-keyword">data</span><span> </span><span id="PipelineExecutionStepMetadata"><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata"><span class="hs-identifier hs-var">PipelineExecutionStepMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PipelineExecutionStepMetadata%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata%27"><span class="hs-identifier hs-var">PipelineExecutionStepMetadata'</span></a></span></span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the model that was created by this</span><span>
+</span><span id="line-38"></span><span id="local-6989586621680354832"><span id="local-6989586621680354833"></span></span><span class="hs-keyword">data</span><span> </span><span id="PipelineExecutionStepMetadata"><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata"><span class="hs-identifier hs-var">PipelineExecutionStepMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PipelineExecutionStepMetadata%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata%27"><span class="hs-identifier hs-var">PipelineExecutionStepMetadata'</span></a></span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the training job that was run by this</span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">-- step execution.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3Amodel%3APipelineExecutionStepMetadata%27"><span class="annot"><span class="annottext">PipelineExecutionStepMetadata -&gt; Maybe ModelStepMetadata
-</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#%24sel%3Amodel%3APipelineExecutionStepMetadata%27"><span class="hs-identifier hs-var hs-var">model</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelStepMetadata.html#ModelStepMetadata"><span class="hs-identifier hs-type">ModelStepMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AtrainingJob%3APipelineExecutionStepMetadata%27"><span class="annot"><span class="annottext">PipelineExecutionStepMetadata -&gt; Maybe TrainingJobStepMetadata
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#%24sel%3AtrainingJob%3APipelineExecutionStepMetadata%27"><span class="hs-identifier hs-var hs-var">trainingJob</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobStepMetadata.html#TrainingJobStepMetadata"><span class="hs-identifier hs-type">TrainingJobStepMetadata</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the processing job that was run by</span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-comment">-- this step execution.</span><span>
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3AprocessingJob%3APipelineExecutionStepMetadata%27"><span class="annot"><span class="annottext">PipelineExecutionStepMetadata -&gt; Maybe ProcessingJobStepMetadata
 </span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#%24sel%3AprocessingJob%3APipelineExecutionStepMetadata%27"><span class="hs-identifier hs-var hs-var">processingJob</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingJobStepMetadata.html#ProcessingJobStepMetadata"><span class="hs-identifier hs-type">ProcessingJobStepMetadata</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The outcome of the condition evaluation that was run by this step</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- execution.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3Acondition%3APipelineExecutionStepMetadata%27"><span class="annot"><span class="annottext">PipelineExecutionStepMetadata -&gt; Maybe ConditionStepMetadata
-</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#%24sel%3Acondition%3APipelineExecutionStepMetadata%27"><span class="hs-identifier hs-var hs-var">condition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ConditionStepMetadata.html#ConditionStepMetadata"><span class="hs-identifier hs-type">ConditionStepMetadata</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the tuning job that was run by this</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- step execution.</span><span>
-</span><span id="line-50"></span><span>    </span><span id="%24sel%3AtuningJob%3APipelineExecutionStepMetadata%27"><span class="annot"><span class="annottext">PipelineExecutionStepMetadata -&gt; Maybe TuningJobStepMetaData
-</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#%24sel%3AtuningJob%3APipelineExecutionStepMetadata%27"><span class="hs-identifier hs-var hs-var">tuningJob</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TuningJobStepMetaData.html#TuningJobStepMetaData"><span class="hs-identifier hs-type">TuningJobStepMetaData</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Lambda function that was run by</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- this step execution and a list of output parameters.</span><span>
-</span><span id="line-53"></span><span>    </span><span id="%24sel%3Alambda%3APipelineExecutionStepMetadata%27"><span class="annot"><span class="annottext">PipelineExecutionStepMetadata -&gt; Maybe LambdaStepMetadata
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the model that was created by this</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- step execution.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Amodel%3APipelineExecutionStepMetadata%27"><span class="annot"><span class="annottext">PipelineExecutionStepMetadata -&gt; Maybe ModelStepMetadata
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#%24sel%3Amodel%3APipelineExecutionStepMetadata%27"><span class="hs-identifier hs-var hs-var">model</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelStepMetadata.html#ModelStepMetadata"><span class="hs-identifier hs-type">ModelStepMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Lambda function that was run by</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- this step execution and a list of output parameters.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3Alambda%3APipelineExecutionStepMetadata%27"><span class="annot"><span class="annottext">PipelineExecutionStepMetadata -&gt; Maybe LambdaStepMetadata
 </span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#%24sel%3Alambda%3APipelineExecutionStepMetadata%27"><span class="hs-identifier hs-var hs-var">lambda</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LambdaStepMetadata.html#LambdaStepMetadata"><span class="hs-identifier hs-type">LambdaStepMetadata</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the training job that was run by this</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- step execution.</span><span>
-</span><span id="line-56"></span><span>    </span><span id="%24sel%3AtrainingJob%3APipelineExecutionStepMetadata%27"><span class="annot"><span class="annottext">PipelineExecutionStepMetadata -&gt; Maybe TrainingJobStepMetadata
-</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#%24sel%3AtrainingJob%3APipelineExecutionStepMetadata%27"><span class="hs-identifier hs-var hs-var">trainingJob</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobStepMetadata.html#TrainingJobStepMetadata"><span class="hs-identifier hs-type">TrainingJobStepMetadata</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The URL of the Amazon SQS queue used by this step execution, the</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- pipeline generated token, and a list of output parameters.</span><span>
-</span><span id="line-59"></span><span>    </span><span id="%24sel%3Acallback%3APipelineExecutionStepMetadata%27"><span class="annot"><span class="annottext">PipelineExecutionStepMetadata -&gt; Maybe CallbackStepMetadata
-</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#%24sel%3Acallback%3APipelineExecutionStepMetadata%27"><span class="hs-identifier hs-var hs-var">callback</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CallbackStepMetadata.html#CallbackStepMetadata"><span class="hs-identifier hs-type">CallbackStepMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the tuning job that was run by this</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- step execution.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AtuningJob%3APipelineExecutionStepMetadata%27"><span class="annot"><span class="annottext">PipelineExecutionStepMetadata -&gt; Maybe TuningJobStepMetaData
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#%24sel%3AtuningJob%3APipelineExecutionStepMetadata%27"><span class="hs-identifier hs-var hs-var">tuningJob</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TuningJobStepMetaData.html#TuningJobStepMetaData"><span class="hs-identifier hs-type">TuningJobStepMetaData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The outcome of the condition evaluation that was run by this step</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- execution.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3Acondition%3APipelineExecutionStepMetadata%27"><span class="annot"><span class="annottext">PipelineExecutionStepMetadata -&gt; Maybe ConditionStepMetadata
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#%24sel%3Acondition%3APipelineExecutionStepMetadata%27"><span class="hs-identifier hs-var hs-var">condition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ConditionStepMetadata.html#ConditionStepMetadata"><span class="hs-identifier hs-type">ConditionStepMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the transform job that was run by this</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- step execution.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AtransformJob%3APipelineExecutionStepMetadata%27"><span class="annot"><span class="annottext">PipelineExecutionStepMetadata -&gt; Maybe TransformJobStepMetadata
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#%24sel%3AtransformJob%3APipelineExecutionStepMetadata%27"><span class="hs-identifier hs-var hs-var">transformJob</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformJobStepMetadata.html#TransformJobStepMetadata"><span class="hs-identifier hs-type">TransformJobStepMetadata</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the model package the model was</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- registered to by this step execution.</span><span>
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AregisterModel%3APipelineExecutionStepMetadata%27"><span class="annot"><span class="annottext">PipelineExecutionStepMetadata -&gt; Maybe RegisterModelStepMetadata
 </span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#%24sel%3AregisterModel%3APipelineExecutionStepMetadata%27"><span class="hs-identifier hs-var hs-var">registerModel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.RegisterModelStepMetadata.html#RegisterModelStepMetadata"><span class="hs-identifier hs-type">RegisterModelStepMetadata</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the transform job that was run by this</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- step execution.</span><span>
-</span><span id="line-65"></span><span>    </span><span id="%24sel%3AtransformJob%3APipelineExecutionStepMetadata%27"><span class="annot"><span class="annottext">PipelineExecutionStepMetadata -&gt; Maybe TransformJobStepMetadata
-</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#%24sel%3AtransformJob%3APipelineExecutionStepMetadata%27"><span class="hs-identifier hs-var hs-var">transformJob</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformJobStepMetadata.html#TransformJobStepMetadata"><span class="hs-identifier hs-type">TransformJobStepMetadata</span></a></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The URL of the Amazon SQS queue used by this step execution, the</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- pipeline generated token, and a list of output parameters.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3Acallback%3APipelineExecutionStepMetadata%27"><span class="annot"><span class="annottext">PipelineExecutionStepMetadata -&gt; Maybe CallbackStepMetadata
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#%24sel%3Acallback%3APipelineExecutionStepMetadata%27"><span class="hs-identifier hs-var hs-var">callback</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CallbackStepMetadata.html#CallbackStepMetadata"><span class="hs-identifier hs-type">CallbackStepMetadata</span></a></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680353380"><span id="local-6989586621680353382"><span class="annot"><span class="annottext">PipelineExecutionStepMetadata
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680354818"><span id="local-6989586621680354820"><span class="annot"><span class="annottext">PipelineExecutionStepMetadata
 -&gt; PipelineExecutionStepMetadata -&gt; Bool
 (PipelineExecutionStepMetadata
  -&gt; PipelineExecutionStepMetadata -&gt; Bool)
@@ -89,7 +89,7 @@ $c/= :: PipelineExecutionStepMetadata
 -&gt; PipelineExecutionStepMetadata -&gt; Bool
 $c== :: PipelineExecutionStepMetadata
 -&gt; PipelineExecutionStepMetadata -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680353371"><span id="local-6989586621680353373"><span id="local-6989586621680353375"><span id="local-6989586621680353377"><span class="annot"><span class="annottext">ReadPrec [PipelineExecutionStepMetadata]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680354809"><span id="local-6989586621680354811"><span id="local-6989586621680354813"><span id="local-6989586621680354815"><span class="annot"><span class="annottext">ReadPrec [PipelineExecutionStepMetadata]
 ReadPrec PipelineExecutionStepMetadata
 Int -&gt; ReadS PipelineExecutionStepMetadata
 ReadS [PipelineExecutionStepMetadata]
@@ -109,7 +109,7 @@ readList :: ReadS [PipelineExecutionStepMetadata]
 $creadList :: ReadS [PipelineExecutionStepMetadata]
 readsPrec :: Int -&gt; ReadS PipelineExecutionStepMetadata
 $creadsPrec :: Int -&gt; ReadS PipelineExecutionStepMetadata
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680353364"><span id="local-6989586621680353366"><span id="local-6989586621680353368"><span class="annot"><span class="annottext">Int -&gt; PipelineExecutionStepMetadata -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680354802"><span id="local-6989586621680354804"><span id="local-6989586621680354806"><span class="annot"><span class="annottext">Int -&gt; PipelineExecutionStepMetadata -&gt; ShowS
 [PipelineExecutionStepMetadata] -&gt; ShowS
 PipelineExecutionStepMetadata -&gt; String
 (Int -&gt; PipelineExecutionStepMetadata -&gt; ShowS)
@@ -155,110 +155,111 @@ PipelineExecutionStepMetadata
 </span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-76"></span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- 'model', 'pipelineExecutionStepMetadata_model' - The Amazon Resource Name (ARN) of the model that was created by this</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'trainingJob', 'pipelineExecutionStepMetadata_trainingJob' - The Amazon Resource Name (ARN) of the training job that was run by this</span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- step execution.</span><span>
 </span><span id="line-79"></span><span class="hs-comment">--</span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- 'processingJob', 'pipelineExecutionStepMetadata_processingJob' - The Amazon Resource Name (ARN) of the processing job that was run by</span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- this step execution.</span><span>
 </span><span id="line-82"></span><span class="hs-comment">--</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- 'condition', 'pipelineExecutionStepMetadata_condition' - The outcome of the condition evaluation that was run by this step</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- execution.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'model', 'pipelineExecutionStepMetadata_model' - The Amazon Resource Name (ARN) of the model that was created by this</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- step execution.</span><span>
 </span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- 'tuningJob', 'pipelineExecutionStepMetadata_tuningJob' - The Amazon Resource Name (ARN) of the tuning job that was run by this</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- step execution.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'lambda', 'pipelineExecutionStepMetadata_lambda' - The Amazon Resource Name (ARN) of the Lambda function that was run by</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- this step execution and a list of output parameters.</span><span>
 </span><span id="line-88"></span><span class="hs-comment">--</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- 'lambda', 'pipelineExecutionStepMetadata_lambda' - The Amazon Resource Name (ARN) of the Lambda function that was run by</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- this step execution and a list of output parameters.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'tuningJob', 'pipelineExecutionStepMetadata_tuningJob' - The Amazon Resource Name (ARN) of the tuning job that was run by this</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- step execution.</span><span>
 </span><span id="line-91"></span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- 'trainingJob', 'pipelineExecutionStepMetadata_trainingJob' - The Amazon Resource Name (ARN) of the training job that was run by this</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- step execution.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'condition', 'pipelineExecutionStepMetadata_condition' - The outcome of the condition evaluation that was run by this step</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- execution.</span><span>
 </span><span id="line-94"></span><span class="hs-comment">--</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- 'callback', 'pipelineExecutionStepMetadata_callback' - The URL of the Amazon SQS queue used by this step execution, the</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- pipeline generated token, and a list of output parameters.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'transformJob', 'pipelineExecutionStepMetadata_transformJob' - The Amazon Resource Name (ARN) of the transform job that was run by this</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- step execution.</span><span>
 </span><span id="line-97"></span><span class="hs-comment">--</span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- 'registerModel', 'pipelineExecutionStepMetadata_registerModel' - The Amazon Resource Name (ARN) of the model package the model was</span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- registered to by this step execution.</span><span>
 </span><span id="line-100"></span><span class="hs-comment">--</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- 'transformJob', 'pipelineExecutionStepMetadata_transformJob' - The Amazon Resource Name (ARN) of the transform job that was run by this</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- step execution.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'callback', 'pipelineExecutionStepMetadata_callback' - The URL of the Amazon SQS queue used by this step execution, the</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- pipeline generated token, and a list of output parameters.</span><span>
 </span><span id="line-103"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#newPipelineExecutionStepMetadata"><span class="hs-identifier hs-type">newPipelineExecutionStepMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-104"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata</span></a></span><span>
 </span><span id="line-105"></span><span id="newPipelineExecutionStepMetadata"><span class="annot"><span class="annottext">newPipelineExecutionStepMetadata :: PipelineExecutionStepMetadata
 </span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#newPipelineExecutionStepMetadata"><span class="hs-identifier hs-var hs-var">newPipelineExecutionStepMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-106"></span><span>  </span><span class="annot"><span class="annottext">PipelineExecutionStepMetadata' :: Maybe ModelStepMetadata
+</span><span id="line-106"></span><span>  </span><span class="annot"><span class="annottext">PipelineExecutionStepMetadata' :: Maybe TrainingJobStepMetadata
 -&gt; Maybe ProcessingJobStepMetadata
--&gt; Maybe ConditionStepMetadata
--&gt; Maybe TuningJobStepMetaData
+-&gt; Maybe ModelStepMetadata
 -&gt; Maybe LambdaStepMetadata
--&gt; Maybe TrainingJobStepMetadata
--&gt; Maybe CallbackStepMetadata
--&gt; Maybe RegisterModelStepMetadata
+-&gt; Maybe TuningJobStepMetaData
+-&gt; Maybe ConditionStepMetadata
 -&gt; Maybe TransformJobStepMetadata
+-&gt; Maybe RegisterModelStepMetadata
+-&gt; Maybe CallbackStepMetadata
 -&gt; PipelineExecutionStepMetadata
 </span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata%27"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata'</span></a></span><span>
-</span><span id="line-107"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:model:PipelineExecutionStepMetadata' :: Maybe ModelStepMetadata
-</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#%24sel%3Amodel%3APipelineExecutionStepMetadata%27"><span class="hs-identifier hs-var">model</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">Maybe ModelStepMetadata
+</span><span id="line-107"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:trainingJob:PipelineExecutionStepMetadata' :: Maybe TrainingJobStepMetadata
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#%24sel%3AtrainingJob%3APipelineExecutionStepMetadata%27"><span class="hs-identifier hs-var">trainingJob</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">Maybe TrainingJobStepMetadata
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:processingJob:PipelineExecutionStepMetadata' :: Maybe ProcessingJobStepMetadata
 </span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#%24sel%3AprocessingJob%3APipelineExecutionStepMetadata%27"><span class="hs-identifier hs-var">processingJob</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingJobStepMetadata
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:condition:PipelineExecutionStepMetadata' :: Maybe ConditionStepMetadata
-</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#%24sel%3Acondition%3APipelineExecutionStepMetadata%27"><span class="hs-identifier hs-var">condition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConditionStepMetadata
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:model:PipelineExecutionStepMetadata' :: Maybe ModelStepMetadata
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#%24sel%3Amodel%3APipelineExecutionStepMetadata%27"><span class="hs-identifier hs-var">model</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ModelStepMetadata
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:tuningJob:PipelineExecutionStepMetadata' :: Maybe TuningJobStepMetaData
-</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#%24sel%3AtuningJob%3APipelineExecutionStepMetadata%27"><span class="hs-identifier hs-var">tuningJob</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TuningJobStepMetaData
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:lambda:PipelineExecutionStepMetadata' :: Maybe LambdaStepMetadata
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:lambda:PipelineExecutionStepMetadata' :: Maybe LambdaStepMetadata
 </span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#%24sel%3Alambda%3APipelineExecutionStepMetadata%27"><span class="hs-identifier hs-var">lambda</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaStepMetadata
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:trainingJob:PipelineExecutionStepMetadata' :: Maybe TrainingJobStepMetadata
-</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#%24sel%3AtrainingJob%3APipelineExecutionStepMetadata%27"><span class="hs-identifier hs-var">trainingJob</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrainingJobStepMetadata
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:tuningJob:PipelineExecutionStepMetadata' :: Maybe TuningJobStepMetaData
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#%24sel%3AtuningJob%3APipelineExecutionStepMetadata%27"><span class="hs-identifier hs-var">tuningJob</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TuningJobStepMetaData
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:callback:PipelineExecutionStepMetadata' :: Maybe CallbackStepMetadata
-</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#%24sel%3Acallback%3APipelineExecutionStepMetadata%27"><span class="hs-identifier hs-var">callback</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CallbackStepMetadata
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:condition:PipelineExecutionStepMetadata' :: Maybe ConditionStepMetadata
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#%24sel%3Acondition%3APipelineExecutionStepMetadata%27"><span class="hs-identifier hs-var">condition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConditionStepMetadata
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:transformJob:PipelineExecutionStepMetadata' :: Maybe TransformJobStepMetadata
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#%24sel%3AtransformJob%3APipelineExecutionStepMetadata%27"><span class="hs-identifier hs-var">transformJob</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TransformJobStepMetadata
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:registerModel:PipelineExecutionStepMetadata' :: Maybe RegisterModelStepMetadata
 </span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#%24sel%3AregisterModel%3APipelineExecutionStepMetadata%27"><span class="hs-identifier hs-var">registerModel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RegisterModelStepMetadata
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:transformJob:PipelineExecutionStepMetadata' :: Maybe TransformJobStepMetadata
-</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#%24sel%3AtransformJob%3APipelineExecutionStepMetadata%27"><span class="hs-identifier hs-var">transformJob</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TransformJobStepMetadata
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:callback:PipelineExecutionStepMetadata' :: Maybe CallbackStepMetadata
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#%24sel%3Acallback%3APipelineExecutionStepMetadata%27"><span class="hs-identifier hs-var">callback</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CallbackStepMetadata
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-117"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the model that was created by this</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the training job that was run by this</span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- step execution.</span><span>
-</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#pipelineExecutionStepMetadata_model"><span class="hs-identifier hs-type">pipelineExecutionStepMetadata_model</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelStepMetadata.html#ModelStepMetadata"><span class="hs-identifier hs-type">ModelStepMetadata</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span id="pipelineExecutionStepMetadata_model"><span class="annot"><span class="annottext">pipelineExecutionStepMetadata_model :: (Maybe ModelStepMetadata -&gt; f (Maybe ModelStepMetadata))
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#pipelineExecutionStepMetadata_trainingJob"><span class="hs-identifier hs-type">pipelineExecutionStepMetadata_trainingJob</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobStepMetadata.html#TrainingJobStepMetadata"><span class="hs-identifier hs-type">TrainingJobStepMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="pipelineExecutionStepMetadata_trainingJob"><span class="annot"><span class="annottext">pipelineExecutionStepMetadata_trainingJob :: (Maybe TrainingJobStepMetadata
+ -&gt; f (Maybe TrainingJobStepMetadata))
 -&gt; PipelineExecutionStepMetadata -&gt; f PipelineExecutionStepMetadata
-</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#pipelineExecutionStepMetadata_model"><span class="hs-identifier hs-var hs-var">pipelineExecutionStepMetadata_model</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineExecutionStepMetadata -&gt; Maybe ModelStepMetadata)
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#pipelineExecutionStepMetadata_trainingJob"><span class="hs-identifier hs-var hs-var">pipelineExecutionStepMetadata_trainingJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineExecutionStepMetadata -&gt; Maybe TrainingJobStepMetadata)
 -&gt; (PipelineExecutionStepMetadata
-    -&gt; Maybe ModelStepMetadata -&gt; PipelineExecutionStepMetadata)
+    -&gt; Maybe TrainingJobStepMetadata -&gt; PipelineExecutionStepMetadata)
 -&gt; Lens
      PipelineExecutionStepMetadata
      PipelineExecutionStepMetadata
-     (Maybe ModelStepMetadata)
-     (Maybe ModelStepMetadata)
+     (Maybe TrainingJobStepMetadata)
+     (Maybe TrainingJobStepMetadata)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata%27"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680353355"><span class="annot"><span class="annottext">Maybe ModelStepMetadata
-model :: Maybe ModelStepMetadata
-$sel:model:PipelineExecutionStepMetadata' :: PipelineExecutionStepMetadata -&gt; Maybe ModelStepMetadata
-</span><a href="#local-6989586621680353355"><span class="hs-identifier hs-var hs-var">model</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ModelStepMetadata
-</span><a href="#local-6989586621680353355"><span class="hs-identifier hs-var">model</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680353354"><span class="annot"><span class="annottext">s :: PipelineExecutionStepMetadata
-</span><a href="#local-6989586621680353354"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata%27"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680353353"><span class="annot"><span class="annottext">Maybe ModelStepMetadata
-</span><a href="#local-6989586621680353353"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineExecutionStepMetadata
-</span><a href="#local-6989586621680353354"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:model:PipelineExecutionStepMetadata' :: Maybe ModelStepMetadata
-</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#%24sel%3Amodel%3APipelineExecutionStepMetadata%27"><span class="hs-identifier hs-var">model</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ModelStepMetadata
-</span><a href="#local-6989586621680353353"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata%27"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680354793"><span class="annot"><span class="annottext">Maybe TrainingJobStepMetadata
+trainingJob :: Maybe TrainingJobStepMetadata
+$sel:trainingJob:PipelineExecutionStepMetadata' :: PipelineExecutionStepMetadata -&gt; Maybe TrainingJobStepMetadata
+</span><a href="#local-6989586621680354793"><span class="hs-identifier hs-var hs-var">trainingJob</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TrainingJobStepMetadata
+</span><a href="#local-6989586621680354793"><span class="hs-identifier hs-var">trainingJob</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680354792"><span class="annot"><span class="annottext">s :: PipelineExecutionStepMetadata
+</span><a href="#local-6989586621680354792"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata%27"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680354791"><span class="annot"><span class="annottext">Maybe TrainingJobStepMetadata
+</span><a href="#local-6989586621680354791"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineExecutionStepMetadata
+</span><a href="#local-6989586621680354792"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trainingJob:PipelineExecutionStepMetadata' :: Maybe TrainingJobStepMetadata
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#%24sel%3AtrainingJob%3APipelineExecutionStepMetadata%27"><span class="hs-identifier hs-var">trainingJob</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrainingJobStepMetadata
+</span><a href="#local-6989586621680354791"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the processing job that was run by</span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- this step execution.</span><span>
@@ -276,71 +277,46 @@ $sel:model:PipelineExecutionStepMetadata' :: PipelineExecutionStepMetadata -&gt;
      (Maybe ProcessingJobStepMetadata)
      (Maybe ProcessingJobStepMetadata)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata%27"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680353351"><span class="annot"><span class="annottext">Maybe ProcessingJobStepMetadata
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata%27"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680354789"><span class="annot"><span class="annottext">Maybe ProcessingJobStepMetadata
 processingJob :: Maybe ProcessingJobStepMetadata
 $sel:processingJob:PipelineExecutionStepMetadata' :: PipelineExecutionStepMetadata -&gt; Maybe ProcessingJobStepMetadata
-</span><a href="#local-6989586621680353351"><span class="hs-identifier hs-var hs-var">processingJob</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingJobStepMetadata
-</span><a href="#local-6989586621680353351"><span class="hs-identifier hs-var">processingJob</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680353350"><span class="annot"><span class="annottext">s :: PipelineExecutionStepMetadata
-</span><a href="#local-6989586621680353350"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata%27"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680353349"><span class="annot"><span class="annottext">Maybe ProcessingJobStepMetadata
-</span><a href="#local-6989586621680353349"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineExecutionStepMetadata
-</span><a href="#local-6989586621680353350"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:processingJob:PipelineExecutionStepMetadata' :: Maybe ProcessingJobStepMetadata
+</span><a href="#local-6989586621680354789"><span class="hs-identifier hs-var hs-var">processingJob</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingJobStepMetadata
+</span><a href="#local-6989586621680354789"><span class="hs-identifier hs-var">processingJob</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680354788"><span class="annot"><span class="annottext">s :: PipelineExecutionStepMetadata
+</span><a href="#local-6989586621680354788"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata%27"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680354787"><span class="annot"><span class="annottext">Maybe ProcessingJobStepMetadata
+</span><a href="#local-6989586621680354787"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineExecutionStepMetadata
+</span><a href="#local-6989586621680354788"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:processingJob:PipelineExecutionStepMetadata' :: Maybe ProcessingJobStepMetadata
 </span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#%24sel%3AprocessingJob%3APipelineExecutionStepMetadata%27"><span class="hs-identifier hs-var">processingJob</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingJobStepMetadata
-</span><a href="#local-6989586621680353349"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680354787"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- | The outcome of the condition evaluation that was run by this step</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- execution.</span><span>
-</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#pipelineExecutionStepMetadata_condition"><span class="hs-identifier hs-type">pipelineExecutionStepMetadata_condition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ConditionStepMetadata.html#ConditionStepMetadata"><span class="hs-identifier hs-type">ConditionStepMetadata</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span id="pipelineExecutionStepMetadata_condition"><span class="annot"><span class="annottext">pipelineExecutionStepMetadata_condition :: (Maybe ConditionStepMetadata -&gt; f (Maybe ConditionStepMetadata))
+</span><span id="line-129"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the model that was created by this</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- step execution.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#pipelineExecutionStepMetadata_model"><span class="hs-identifier hs-type">pipelineExecutionStepMetadata_model</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelStepMetadata.html#ModelStepMetadata"><span class="hs-identifier hs-type">ModelStepMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="pipelineExecutionStepMetadata_model"><span class="annot"><span class="annottext">pipelineExecutionStepMetadata_model :: (Maybe ModelStepMetadata -&gt; f (Maybe ModelStepMetadata))
 -&gt; PipelineExecutionStepMetadata -&gt; f PipelineExecutionStepMetadata
-</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#pipelineExecutionStepMetadata_condition"><span class="hs-identifier hs-var hs-var">pipelineExecutionStepMetadata_condition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineExecutionStepMetadata -&gt; Maybe ConditionStepMetadata)
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#pipelineExecutionStepMetadata_model"><span class="hs-identifier hs-var hs-var">pipelineExecutionStepMetadata_model</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineExecutionStepMetadata -&gt; Maybe ModelStepMetadata)
 -&gt; (PipelineExecutionStepMetadata
-    -&gt; Maybe ConditionStepMetadata -&gt; PipelineExecutionStepMetadata)
+    -&gt; Maybe ModelStepMetadata -&gt; PipelineExecutionStepMetadata)
 -&gt; Lens
      PipelineExecutionStepMetadata
      PipelineExecutionStepMetadata
-     (Maybe ConditionStepMetadata)
-     (Maybe ConditionStepMetadata)
+     (Maybe ModelStepMetadata)
+     (Maybe ModelStepMetadata)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata%27"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680353347"><span class="annot"><span class="annottext">Maybe ConditionStepMetadata
-condition :: Maybe ConditionStepMetadata
-$sel:condition:PipelineExecutionStepMetadata' :: PipelineExecutionStepMetadata -&gt; Maybe ConditionStepMetadata
-</span><a href="#local-6989586621680353347"><span class="hs-identifier hs-var hs-var">condition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConditionStepMetadata
-</span><a href="#local-6989586621680353347"><span class="hs-identifier hs-var">condition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680353346"><span class="annot"><span class="annottext">s :: PipelineExecutionStepMetadata
-</span><a href="#local-6989586621680353346"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata%27"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680353345"><span class="annot"><span class="annottext">Maybe ConditionStepMetadata
-</span><a href="#local-6989586621680353345"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineExecutionStepMetadata
-</span><a href="#local-6989586621680353346"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:condition:PipelineExecutionStepMetadata' :: Maybe ConditionStepMetadata
-</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#%24sel%3Acondition%3APipelineExecutionStepMetadata%27"><span class="hs-identifier hs-var">condition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConditionStepMetadata
-</span><a href="#local-6989586621680353345"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata%27"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680354785"><span class="annot"><span class="annottext">Maybe ModelStepMetadata
+model :: Maybe ModelStepMetadata
+$sel:model:PipelineExecutionStepMetadata' :: PipelineExecutionStepMetadata -&gt; Maybe ModelStepMetadata
+</span><a href="#local-6989586621680354785"><span class="hs-identifier hs-var hs-var">model</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ModelStepMetadata
+</span><a href="#local-6989586621680354785"><span class="hs-identifier hs-var">model</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680354784"><span class="annot"><span class="annottext">s :: PipelineExecutionStepMetadata
+</span><a href="#local-6989586621680354784"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata%27"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680354783"><span class="annot"><span class="annottext">Maybe ModelStepMetadata
+</span><a href="#local-6989586621680354783"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineExecutionStepMetadata
+</span><a href="#local-6989586621680354784"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:model:PipelineExecutionStepMetadata' :: Maybe ModelStepMetadata
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#%24sel%3Amodel%3APipelineExecutionStepMetadata%27"><span class="hs-identifier hs-var">model</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ModelStepMetadata
+</span><a href="#local-6989586621680354783"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the tuning job that was run by this</span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- step execution.</span><span>
-</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#pipelineExecutionStepMetadata_tuningJob"><span class="hs-identifier hs-type">pipelineExecutionStepMetadata_tuningJob</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TuningJobStepMetaData.html#TuningJobStepMetaData"><span class="hs-identifier hs-type">TuningJobStepMetaData</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span id="pipelineExecutionStepMetadata_tuningJob"><span class="annot"><span class="annottext">pipelineExecutionStepMetadata_tuningJob :: (Maybe TuningJobStepMetaData -&gt; f (Maybe TuningJobStepMetaData))
--&gt; PipelineExecutionStepMetadata -&gt; f PipelineExecutionStepMetadata
-</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#pipelineExecutionStepMetadata_tuningJob"><span class="hs-identifier hs-var hs-var">pipelineExecutionStepMetadata_tuningJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineExecutionStepMetadata -&gt; Maybe TuningJobStepMetaData)
--&gt; (PipelineExecutionStepMetadata
-    -&gt; Maybe TuningJobStepMetaData -&gt; PipelineExecutionStepMetadata)
--&gt; Lens
-     PipelineExecutionStepMetadata
-     PipelineExecutionStepMetadata
-     (Maybe TuningJobStepMetaData)
-     (Maybe TuningJobStepMetaData)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata%27"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680353343"><span class="annot"><span class="annottext">Maybe TuningJobStepMetaData
-tuningJob :: Maybe TuningJobStepMetaData
-$sel:tuningJob:PipelineExecutionStepMetadata' :: PipelineExecutionStepMetadata -&gt; Maybe TuningJobStepMetaData
-</span><a href="#local-6989586621680353343"><span class="hs-identifier hs-var hs-var">tuningJob</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TuningJobStepMetaData
-</span><a href="#local-6989586621680353343"><span class="hs-identifier hs-var">tuningJob</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680353342"><span class="annot"><span class="annottext">s :: PipelineExecutionStepMetadata
-</span><a href="#local-6989586621680353342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata%27"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680353341"><span class="annot"><span class="annottext">Maybe TuningJobStepMetaData
-</span><a href="#local-6989586621680353341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineExecutionStepMetadata
-</span><a href="#local-6989586621680353342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tuningJob:PipelineExecutionStepMetadata' :: Maybe TuningJobStepMetaData
-</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#%24sel%3AtuningJob%3APipelineExecutionStepMetadata%27"><span class="hs-identifier hs-var">tuningJob</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TuningJobStepMetaData
-</span><a href="#local-6989586621680353341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Lambda function that was run by</span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- this step execution and a list of output parameters.</span><span>
-</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#pipelineExecutionStepMetadata_lambda"><span class="hs-identifier hs-type">pipelineExecutionStepMetadata_lambda</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LambdaStepMetadata.html#LambdaStepMetadata"><span class="hs-identifier hs-type">LambdaStepMetadata</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span id="pipelineExecutionStepMetadata_lambda"><span class="annot"><span class="annottext">pipelineExecutionStepMetadata_lambda :: (Maybe LambdaStepMetadata -&gt; f (Maybe LambdaStepMetadata))
+</span><span id="line-134"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Lambda function that was run by</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- this step execution and a list of output parameters.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#pipelineExecutionStepMetadata_lambda"><span class="hs-identifier hs-type">pipelineExecutionStepMetadata_lambda</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LambdaStepMetadata.html#LambdaStepMetadata"><span class="hs-identifier hs-type">LambdaStepMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="pipelineExecutionStepMetadata_lambda"><span class="annot"><span class="annottext">pipelineExecutionStepMetadata_lambda :: (Maybe LambdaStepMetadata -&gt; f (Maybe LambdaStepMetadata))
 -&gt; PipelineExecutionStepMetadata -&gt; f PipelineExecutionStepMetadata
 </span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#pipelineExecutionStepMetadata_lambda"><span class="hs-identifier hs-var hs-var">pipelineExecutionStepMetadata_lambda</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineExecutionStepMetadata -&gt; Maybe LambdaStepMetadata)
 -&gt; (PipelineExecutionStepMetadata
@@ -351,67 +327,92 @@ $sel:tuningJob:PipelineExecutionStepMetadata' :: PipelineExecutionStepMetadata -
      (Maybe LambdaStepMetadata)
      (Maybe LambdaStepMetadata)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata%27"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680353339"><span class="annot"><span class="annottext">Maybe LambdaStepMetadata
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata%27"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680354781"><span class="annot"><span class="annottext">Maybe LambdaStepMetadata
 lambda :: Maybe LambdaStepMetadata
 $sel:lambda:PipelineExecutionStepMetadata' :: PipelineExecutionStepMetadata -&gt; Maybe LambdaStepMetadata
-</span><a href="#local-6989586621680353339"><span class="hs-identifier hs-var hs-var">lambda</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaStepMetadata
-</span><a href="#local-6989586621680353339"><span class="hs-identifier hs-var">lambda</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680353338"><span class="annot"><span class="annottext">s :: PipelineExecutionStepMetadata
-</span><a href="#local-6989586621680353338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata%27"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680353337"><span class="annot"><span class="annottext">Maybe LambdaStepMetadata
-</span><a href="#local-6989586621680353337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineExecutionStepMetadata
-</span><a href="#local-6989586621680353338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lambda:PipelineExecutionStepMetadata' :: Maybe LambdaStepMetadata
+</span><a href="#local-6989586621680354781"><span class="hs-identifier hs-var hs-var">lambda</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaStepMetadata
+</span><a href="#local-6989586621680354781"><span class="hs-identifier hs-var">lambda</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680354780"><span class="annot"><span class="annottext">s :: PipelineExecutionStepMetadata
+</span><a href="#local-6989586621680354780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata%27"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680354779"><span class="annot"><span class="annottext">Maybe LambdaStepMetadata
+</span><a href="#local-6989586621680354779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineExecutionStepMetadata
+</span><a href="#local-6989586621680354780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lambda:PipelineExecutionStepMetadata' :: Maybe LambdaStepMetadata
 </span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#%24sel%3Alambda%3APipelineExecutionStepMetadata%27"><span class="hs-identifier hs-var">lambda</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaStepMetadata
-</span><a href="#local-6989586621680353337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680354779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the tuning job that was run by this</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- step execution.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#pipelineExecutionStepMetadata_tuningJob"><span class="hs-identifier hs-type">pipelineExecutionStepMetadata_tuningJob</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TuningJobStepMetaData.html#TuningJobStepMetaData"><span class="hs-identifier hs-type">TuningJobStepMetaData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="pipelineExecutionStepMetadata_tuningJob"><span class="annot"><span class="annottext">pipelineExecutionStepMetadata_tuningJob :: (Maybe TuningJobStepMetaData -&gt; f (Maybe TuningJobStepMetaData))
+-&gt; PipelineExecutionStepMetadata -&gt; f PipelineExecutionStepMetadata
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#pipelineExecutionStepMetadata_tuningJob"><span class="hs-identifier hs-var hs-var">pipelineExecutionStepMetadata_tuningJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineExecutionStepMetadata -&gt; Maybe TuningJobStepMetaData)
+-&gt; (PipelineExecutionStepMetadata
+    -&gt; Maybe TuningJobStepMetaData -&gt; PipelineExecutionStepMetadata)
+-&gt; Lens
+     PipelineExecutionStepMetadata
+     PipelineExecutionStepMetadata
+     (Maybe TuningJobStepMetaData)
+     (Maybe TuningJobStepMetaData)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata%27"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680354777"><span class="annot"><span class="annottext">Maybe TuningJobStepMetaData
+tuningJob :: Maybe TuningJobStepMetaData
+$sel:tuningJob:PipelineExecutionStepMetadata' :: PipelineExecutionStepMetadata -&gt; Maybe TuningJobStepMetaData
+</span><a href="#local-6989586621680354777"><span class="hs-identifier hs-var hs-var">tuningJob</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TuningJobStepMetaData
+</span><a href="#local-6989586621680354777"><span class="hs-identifier hs-var">tuningJob</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680354776"><span class="annot"><span class="annottext">s :: PipelineExecutionStepMetadata
+</span><a href="#local-6989586621680354776"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata%27"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680354775"><span class="annot"><span class="annottext">Maybe TuningJobStepMetaData
+</span><a href="#local-6989586621680354775"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineExecutionStepMetadata
+</span><a href="#local-6989586621680354776"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tuningJob:PipelineExecutionStepMetadata' :: Maybe TuningJobStepMetaData
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#%24sel%3AtuningJob%3APipelineExecutionStepMetadata%27"><span class="hs-identifier hs-var">tuningJob</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TuningJobStepMetaData
+</span><a href="#local-6989586621680354775"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the training job that was run by this</span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- step execution.</span><span>
-</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#pipelineExecutionStepMetadata_trainingJob"><span class="hs-identifier hs-type">pipelineExecutionStepMetadata_trainingJob</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobStepMetadata.html#TrainingJobStepMetadata"><span class="hs-identifier hs-type">TrainingJobStepMetadata</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span id="pipelineExecutionStepMetadata_trainingJob"><span class="annot"><span class="annottext">pipelineExecutionStepMetadata_trainingJob :: (Maybe TrainingJobStepMetadata
- -&gt; f (Maybe TrainingJobStepMetadata))
+</span><span id="line-144"></span><span class="hs-comment">-- | The outcome of the condition evaluation that was run by this step</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- execution.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#pipelineExecutionStepMetadata_condition"><span class="hs-identifier hs-type">pipelineExecutionStepMetadata_condition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ConditionStepMetadata.html#ConditionStepMetadata"><span class="hs-identifier hs-type">ConditionStepMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span id="pipelineExecutionStepMetadata_condition"><span class="annot"><span class="annottext">pipelineExecutionStepMetadata_condition :: (Maybe ConditionStepMetadata -&gt; f (Maybe ConditionStepMetadata))
 -&gt; PipelineExecutionStepMetadata -&gt; f PipelineExecutionStepMetadata
-</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#pipelineExecutionStepMetadata_trainingJob"><span class="hs-identifier hs-var hs-var">pipelineExecutionStepMetadata_trainingJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineExecutionStepMetadata -&gt; Maybe TrainingJobStepMetadata)
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#pipelineExecutionStepMetadata_condition"><span class="hs-identifier hs-var hs-var">pipelineExecutionStepMetadata_condition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineExecutionStepMetadata -&gt; Maybe ConditionStepMetadata)
 -&gt; (PipelineExecutionStepMetadata
-    -&gt; Maybe TrainingJobStepMetadata -&gt; PipelineExecutionStepMetadata)
+    -&gt; Maybe ConditionStepMetadata -&gt; PipelineExecutionStepMetadata)
 -&gt; Lens
      PipelineExecutionStepMetadata
      PipelineExecutionStepMetadata
-     (Maybe TrainingJobStepMetadata)
-     (Maybe TrainingJobStepMetadata)
+     (Maybe ConditionStepMetadata)
+     (Maybe ConditionStepMetadata)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata%27"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680353335"><span class="annot"><span class="annottext">Maybe TrainingJobStepMetadata
-trainingJob :: Maybe TrainingJobStepMetadata
-$sel:trainingJob:PipelineExecutionStepMetadata' :: PipelineExecutionStepMetadata -&gt; Maybe TrainingJobStepMetadata
-</span><a href="#local-6989586621680353335"><span class="hs-identifier hs-var hs-var">trainingJob</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TrainingJobStepMetadata
-</span><a href="#local-6989586621680353335"><span class="hs-identifier hs-var">trainingJob</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680353334"><span class="annot"><span class="annottext">s :: PipelineExecutionStepMetadata
-</span><a href="#local-6989586621680353334"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata%27"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680353333"><span class="annot"><span class="annottext">Maybe TrainingJobStepMetadata
-</span><a href="#local-6989586621680353333"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineExecutionStepMetadata
-</span><a href="#local-6989586621680353334"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trainingJob:PipelineExecutionStepMetadata' :: Maybe TrainingJobStepMetadata
-</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#%24sel%3AtrainingJob%3APipelineExecutionStepMetadata%27"><span class="hs-identifier hs-var">trainingJob</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrainingJobStepMetadata
-</span><a href="#local-6989586621680353333"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata%27"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680354773"><span class="annot"><span class="annottext">Maybe ConditionStepMetadata
+condition :: Maybe ConditionStepMetadata
+$sel:condition:PipelineExecutionStepMetadata' :: PipelineExecutionStepMetadata -&gt; Maybe ConditionStepMetadata
+</span><a href="#local-6989586621680354773"><span class="hs-identifier hs-var hs-var">condition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConditionStepMetadata
+</span><a href="#local-6989586621680354773"><span class="hs-identifier hs-var">condition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680354772"><span class="annot"><span class="annottext">s :: PipelineExecutionStepMetadata
+</span><a href="#local-6989586621680354772"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata%27"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680354771"><span class="annot"><span class="annottext">Maybe ConditionStepMetadata
+</span><a href="#local-6989586621680354771"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineExecutionStepMetadata
+</span><a href="#local-6989586621680354772"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:condition:PipelineExecutionStepMetadata' :: Maybe ConditionStepMetadata
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#%24sel%3Acondition%3APipelineExecutionStepMetadata%27"><span class="hs-identifier hs-var">condition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConditionStepMetadata
+</span><a href="#local-6989586621680354771"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- | The URL of the Amazon SQS queue used by this step execution, the</span><span>
-</span><span id="line-150"></span><span class="hs-comment">-- pipeline generated token, and a list of output parameters.</span><span>
-</span><span id="line-151"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#pipelineExecutionStepMetadata_callback"><span class="hs-identifier hs-type">pipelineExecutionStepMetadata_callback</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CallbackStepMetadata.html#CallbackStepMetadata"><span class="hs-identifier hs-type">CallbackStepMetadata</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-152"></span><span id="pipelineExecutionStepMetadata_callback"><span class="annot"><span class="annottext">pipelineExecutionStepMetadata_callback :: (Maybe CallbackStepMetadata -&gt; f (Maybe CallbackStepMetadata))
+</span><span id="line-149"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the transform job that was run by this</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- step execution.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#pipelineExecutionStepMetadata_transformJob"><span class="hs-identifier hs-type">pipelineExecutionStepMetadata_transformJob</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformJobStepMetadata.html#TransformJobStepMetadata"><span class="hs-identifier hs-type">TransformJobStepMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span id="pipelineExecutionStepMetadata_transformJob"><span class="annot"><span class="annottext">pipelineExecutionStepMetadata_transformJob :: (Maybe TransformJobStepMetadata
+ -&gt; f (Maybe TransformJobStepMetadata))
 -&gt; PipelineExecutionStepMetadata -&gt; f PipelineExecutionStepMetadata
-</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#pipelineExecutionStepMetadata_callback"><span class="hs-identifier hs-var hs-var">pipelineExecutionStepMetadata_callback</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineExecutionStepMetadata -&gt; Maybe CallbackStepMetadata)
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#pipelineExecutionStepMetadata_transformJob"><span class="hs-identifier hs-var hs-var">pipelineExecutionStepMetadata_transformJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineExecutionStepMetadata -&gt; Maybe TransformJobStepMetadata)
 -&gt; (PipelineExecutionStepMetadata
-    -&gt; Maybe CallbackStepMetadata -&gt; PipelineExecutionStepMetadata)
+    -&gt; Maybe TransformJobStepMetadata -&gt; PipelineExecutionStepMetadata)
 -&gt; Lens
      PipelineExecutionStepMetadata
      PipelineExecutionStepMetadata
-     (Maybe CallbackStepMetadata)
-     (Maybe CallbackStepMetadata)
+     (Maybe TransformJobStepMetadata)
+     (Maybe TransformJobStepMetadata)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata%27"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680353331"><span class="annot"><span class="annottext">Maybe CallbackStepMetadata
-callback :: Maybe CallbackStepMetadata
-$sel:callback:PipelineExecutionStepMetadata' :: PipelineExecutionStepMetadata -&gt; Maybe CallbackStepMetadata
-</span><a href="#local-6989586621680353331"><span class="hs-identifier hs-var hs-var">callback</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CallbackStepMetadata
-</span><a href="#local-6989586621680353331"><span class="hs-identifier hs-var">callback</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680353330"><span class="annot"><span class="annottext">s :: PipelineExecutionStepMetadata
-</span><a href="#local-6989586621680353330"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata%27"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680353329"><span class="annot"><span class="annottext">Maybe CallbackStepMetadata
-</span><a href="#local-6989586621680353329"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineExecutionStepMetadata
-</span><a href="#local-6989586621680353330"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:callback:PipelineExecutionStepMetadata' :: Maybe CallbackStepMetadata
-</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#%24sel%3Acallback%3APipelineExecutionStepMetadata%27"><span class="hs-identifier hs-var">callback</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CallbackStepMetadata
-</span><a href="#local-6989586621680353329"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata%27"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680354769"><span class="annot"><span class="annottext">Maybe TransformJobStepMetadata
+transformJob :: Maybe TransformJobStepMetadata
+$sel:transformJob:PipelineExecutionStepMetadata' :: PipelineExecutionStepMetadata -&gt; Maybe TransformJobStepMetadata
+</span><a href="#local-6989586621680354769"><span class="hs-identifier hs-var hs-var">transformJob</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TransformJobStepMetadata
+</span><a href="#local-6989586621680354769"><span class="hs-identifier hs-var">transformJob</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680354768"><span class="annot"><span class="annottext">s :: PipelineExecutionStepMetadata
+</span><a href="#local-6989586621680354768"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata%27"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680354767"><span class="annot"><span class="annottext">Maybe TransformJobStepMetadata
+</span><a href="#local-6989586621680354767"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineExecutionStepMetadata
+</span><a href="#local-6989586621680354768"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transformJob:PipelineExecutionStepMetadata' :: Maybe TransformJobStepMetadata
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#%24sel%3AtransformJob%3APipelineExecutionStepMetadata%27"><span class="hs-identifier hs-var">transformJob</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TransformJobStepMetadata
+</span><a href="#local-6989586621680354767"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the model package the model was</span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- registered to by this step execution.</span><span>
@@ -429,45 +430,44 @@ $sel:callback:PipelineExecutionStepMetadata' :: PipelineExecutionStepMetadata -&
      (Maybe RegisterModelStepMetadata)
      (Maybe RegisterModelStepMetadata)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata%27"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680353327"><span class="annot"><span class="annottext">Maybe RegisterModelStepMetadata
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata%27"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680354765"><span class="annot"><span class="annottext">Maybe RegisterModelStepMetadata
 registerModel :: Maybe RegisterModelStepMetadata
 $sel:registerModel:PipelineExecutionStepMetadata' :: PipelineExecutionStepMetadata -&gt; Maybe RegisterModelStepMetadata
-</span><a href="#local-6989586621680353327"><span class="hs-identifier hs-var hs-var">registerModel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RegisterModelStepMetadata
-</span><a href="#local-6989586621680353327"><span class="hs-identifier hs-var">registerModel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680353326"><span class="annot"><span class="annottext">s :: PipelineExecutionStepMetadata
-</span><a href="#local-6989586621680353326"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata%27"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680353325"><span class="annot"><span class="annottext">Maybe RegisterModelStepMetadata
-</span><a href="#local-6989586621680353325"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineExecutionStepMetadata
-</span><a href="#local-6989586621680353326"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registerModel:PipelineExecutionStepMetadata' :: Maybe RegisterModelStepMetadata
+</span><a href="#local-6989586621680354765"><span class="hs-identifier hs-var hs-var">registerModel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RegisterModelStepMetadata
+</span><a href="#local-6989586621680354765"><span class="hs-identifier hs-var">registerModel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680354764"><span class="annot"><span class="annottext">s :: PipelineExecutionStepMetadata
+</span><a href="#local-6989586621680354764"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata%27"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680354763"><span class="annot"><span class="annottext">Maybe RegisterModelStepMetadata
+</span><a href="#local-6989586621680354763"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineExecutionStepMetadata
+</span><a href="#local-6989586621680354764"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registerModel:PipelineExecutionStepMetadata' :: Maybe RegisterModelStepMetadata
 </span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#%24sel%3AregisterModel%3APipelineExecutionStepMetadata%27"><span class="hs-identifier hs-var">registerModel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RegisterModelStepMetadata
-</span><a href="#local-6989586621680353325"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680354763"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the transform job that was run by this</span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- step execution.</span><span>
-</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#pipelineExecutionStepMetadata_transformJob"><span class="hs-identifier hs-type">pipelineExecutionStepMetadata_transformJob</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformJobStepMetadata.html#TransformJobStepMetadata"><span class="hs-identifier hs-type">TransformJobStepMetadata</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-162"></span><span id="pipelineExecutionStepMetadata_transformJob"><span class="annot"><span class="annottext">pipelineExecutionStepMetadata_transformJob :: (Maybe TransformJobStepMetadata
- -&gt; f (Maybe TransformJobStepMetadata))
+</span><span id="line-159"></span><span class="hs-comment">-- | The URL of the Amazon SQS queue used by this step execution, the</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- pipeline generated token, and a list of output parameters.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#pipelineExecutionStepMetadata_callback"><span class="hs-identifier hs-type">pipelineExecutionStepMetadata_callback</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CallbackStepMetadata.html#CallbackStepMetadata"><span class="hs-identifier hs-type">CallbackStepMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="pipelineExecutionStepMetadata_callback"><span class="annot"><span class="annottext">pipelineExecutionStepMetadata_callback :: (Maybe CallbackStepMetadata -&gt; f (Maybe CallbackStepMetadata))
 -&gt; PipelineExecutionStepMetadata -&gt; f PipelineExecutionStepMetadata
-</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#pipelineExecutionStepMetadata_transformJob"><span class="hs-identifier hs-var hs-var">pipelineExecutionStepMetadata_transformJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineExecutionStepMetadata -&gt; Maybe TransformJobStepMetadata)
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#pipelineExecutionStepMetadata_callback"><span class="hs-identifier hs-var hs-var">pipelineExecutionStepMetadata_callback</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineExecutionStepMetadata -&gt; Maybe CallbackStepMetadata)
 -&gt; (PipelineExecutionStepMetadata
-    -&gt; Maybe TransformJobStepMetadata -&gt; PipelineExecutionStepMetadata)
+    -&gt; Maybe CallbackStepMetadata -&gt; PipelineExecutionStepMetadata)
 -&gt; Lens
      PipelineExecutionStepMetadata
      PipelineExecutionStepMetadata
-     (Maybe TransformJobStepMetadata)
-     (Maybe TransformJobStepMetadata)
+     (Maybe CallbackStepMetadata)
+     (Maybe CallbackStepMetadata)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata%27"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680353323"><span class="annot"><span class="annottext">Maybe TransformJobStepMetadata
-transformJob :: Maybe TransformJobStepMetadata
-$sel:transformJob:PipelineExecutionStepMetadata' :: PipelineExecutionStepMetadata -&gt; Maybe TransformJobStepMetadata
-</span><a href="#local-6989586621680353323"><span class="hs-identifier hs-var hs-var">transformJob</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TransformJobStepMetadata
-</span><a href="#local-6989586621680353323"><span class="hs-identifier hs-var">transformJob</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680353322"><span class="annot"><span class="annottext">s :: PipelineExecutionStepMetadata
-</span><a href="#local-6989586621680353322"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata%27"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680353321"><span class="annot"><span class="annottext">Maybe TransformJobStepMetadata
-</span><a href="#local-6989586621680353321"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineExecutionStepMetadata
-</span><a href="#local-6989586621680353322"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transformJob:PipelineExecutionStepMetadata' :: Maybe TransformJobStepMetadata
-</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#%24sel%3AtransformJob%3APipelineExecutionStepMetadata%27"><span class="hs-identifier hs-var">transformJob</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TransformJobStepMetadata
-</span><a href="#local-6989586621680353321"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata%27"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680354761"><span class="annot"><span class="annottext">Maybe CallbackStepMetadata
+callback :: Maybe CallbackStepMetadata
+$sel:callback:PipelineExecutionStepMetadata' :: PipelineExecutionStepMetadata -&gt; Maybe CallbackStepMetadata
+</span><a href="#local-6989586621680354761"><span class="hs-identifier hs-var hs-var">callback</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CallbackStepMetadata
+</span><a href="#local-6989586621680354761"><span class="hs-identifier hs-var">callback</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680354760"><span class="annot"><span class="annottext">s :: PipelineExecutionStepMetadata
+</span><a href="#local-6989586621680354760"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata%27"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680354759"><span class="annot"><span class="annottext">Maybe CallbackStepMetadata
+</span><a href="#local-6989586621680354759"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineExecutionStepMetadata
+</span><a href="#local-6989586621680354760"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:callback:PipelineExecutionStepMetadata' :: Maybe CallbackStepMetadata
+</span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#%24sel%3Acallback%3APipelineExecutionStepMetadata%27"><span class="hs-identifier hs-var">callback</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CallbackStepMetadata
+</span><a href="#local-6989586621680354759"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680353318"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621680353316"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PipelineExecutionStepMetadata
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680354756"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621680354754"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PipelineExecutionStepMetadata
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-166"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser PipelineExecutionStepMetadata)
@@ -477,198 +477,198 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PipelineExecutionStepMetadata&quot;</span></span><span>
-</span><span id="line-168"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680353313"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680353313"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-169"></span><span>          </span><span class="annot"><span class="annottext">Maybe ModelStepMetadata
+</span><span id="line-168"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680354751"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680354751"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-169"></span><span>          </span><span class="annot"><span class="annottext">Maybe TrainingJobStepMetadata
 -&gt; Maybe ProcessingJobStepMetadata
--&gt; Maybe ConditionStepMetadata
--&gt; Maybe TuningJobStepMetaData
+-&gt; Maybe ModelStepMetadata
 -&gt; Maybe LambdaStepMetadata
--&gt; Maybe TrainingJobStepMetadata
--&gt; Maybe CallbackStepMetadata
--&gt; Maybe RegisterModelStepMetadata
+-&gt; Maybe TuningJobStepMetaData
+-&gt; Maybe ConditionStepMetadata
 -&gt; Maybe TransformJobStepMetadata
+-&gt; Maybe RegisterModelStepMetadata
+-&gt; Maybe CallbackStepMetadata
 -&gt; PipelineExecutionStepMetadata
 </span><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata%27"><span class="hs-identifier hs-var">PipelineExecutionStepMetadata'</span></a></span><span>
-</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ModelStepMetadata
+</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">(Maybe TrainingJobStepMetadata
  -&gt; Maybe ProcessingJobStepMetadata
- -&gt; Maybe ConditionStepMetadata
- -&gt; Maybe TuningJobStepMetaData
+ -&gt; Maybe ModelStepMetadata
  -&gt; Maybe LambdaStepMetadata
- -&gt; Maybe TrainingJobStepMetadata
- -&gt; Maybe CallbackStepMetadata
- -&gt; Maybe RegisterModelStepMetadata
+ -&gt; Maybe TuningJobStepMetaData
+ -&gt; Maybe ConditionStepMetadata
  -&gt; Maybe TransformJobStepMetadata
+ -&gt; Maybe RegisterModelStepMetadata
+ -&gt; Maybe CallbackStepMetadata
  -&gt; PipelineExecutionStepMetadata)
--&gt; Parser (Maybe ModelStepMetadata)
+-&gt; Parser (Maybe TrainingJobStepMetadata)
 -&gt; Parser
      (Maybe ProcessingJobStepMetadata
-      -&gt; Maybe ConditionStepMetadata
-      -&gt; Maybe TuningJobStepMetaData
+      -&gt; Maybe ModelStepMetadata
       -&gt; Maybe LambdaStepMetadata
-      -&gt; Maybe TrainingJobStepMetadata
-      -&gt; Maybe CallbackStepMetadata
-      -&gt; Maybe RegisterModelStepMetadata
+      -&gt; Maybe TuningJobStepMetaData
+      -&gt; Maybe ConditionStepMetadata
       -&gt; Maybe TransformJobStepMetadata
+      -&gt; Maybe RegisterModelStepMetadata
+      -&gt; Maybe CallbackStepMetadata
       -&gt; PipelineExecutionStepMetadata)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680353313"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ModelStepMetadata)
+</span><a href="#local-6989586621680354751"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TrainingJobStepMetadata)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Model&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;TrainingJob&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe ProcessingJobStepMetadata
-   -&gt; Maybe ConditionStepMetadata
-   -&gt; Maybe TuningJobStepMetaData
+   -&gt; Maybe ModelStepMetadata
    -&gt; Maybe LambdaStepMetadata
-   -&gt; Maybe TrainingJobStepMetadata
-   -&gt; Maybe CallbackStepMetadata
-   -&gt; Maybe RegisterModelStepMetadata
+   -&gt; Maybe TuningJobStepMetaData
+   -&gt; Maybe ConditionStepMetadata
    -&gt; Maybe TransformJobStepMetadata
+   -&gt; Maybe RegisterModelStepMetadata
+   -&gt; Maybe CallbackStepMetadata
    -&gt; PipelineExecutionStepMetadata)
 -&gt; Parser (Maybe ProcessingJobStepMetadata)
 -&gt; Parser
-     (Maybe ConditionStepMetadata
-      -&gt; Maybe TuningJobStepMetaData
+     (Maybe ModelStepMetadata
       -&gt; Maybe LambdaStepMetadata
-      -&gt; Maybe TrainingJobStepMetadata
-      -&gt; Maybe CallbackStepMetadata
-      -&gt; Maybe RegisterModelStepMetadata
+      -&gt; Maybe TuningJobStepMetaData
+      -&gt; Maybe ConditionStepMetadata
       -&gt; Maybe TransformJobStepMetadata
+      -&gt; Maybe RegisterModelStepMetadata
+      -&gt; Maybe CallbackStepMetadata
       -&gt; PipelineExecutionStepMetadata)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680353313"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ProcessingJobStepMetadata)
+</span><a href="#local-6989586621680354751"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ProcessingJobStepMetadata)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ProcessingJob&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe ConditionStepMetadata
+  (Maybe ModelStepMetadata
+   -&gt; Maybe LambdaStepMetadata
    -&gt; Maybe TuningJobStepMetaData
-   -&gt; Maybe LambdaStepMetadata
-   -&gt; Maybe TrainingJobStepMetadata
-   -&gt; Maybe CallbackStepMetadata
-   -&gt; Maybe RegisterModelStepMetadata
+   -&gt; Maybe ConditionStepMetadata
    -&gt; Maybe TransformJobStepMetadata
-   -&gt; PipelineExecutionStepMetadata)
--&gt; Parser (Maybe ConditionStepMetadata)
--&gt; Parser
-     (Maybe TuningJobStepMetaData
-      -&gt; Maybe LambdaStepMetadata
-      -&gt; Maybe TrainingJobStepMetadata
-      -&gt; Maybe CallbackStepMetadata
-      -&gt; Maybe RegisterModelStepMetadata
-      -&gt; Maybe TransformJobStepMetadata
-      -&gt; PipelineExecutionStepMetadata)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680353313"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ConditionStepMetadata)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Condition&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe TuningJobStepMetaData
-   -&gt; Maybe LambdaStepMetadata
-   -&gt; Maybe TrainingJobStepMetadata
-   -&gt; Maybe CallbackStepMetadata
    -&gt; Maybe RegisterModelStepMetadata
-   -&gt; Maybe TransformJobStepMetadata
+   -&gt; Maybe CallbackStepMetadata
    -&gt; PipelineExecutionStepMetadata)
--&gt; Parser (Maybe TuningJobStepMetaData)
+-&gt; Parser (Maybe ModelStepMetadata)
 -&gt; Parser
      (Maybe LambdaStepMetadata
-      -&gt; Maybe TrainingJobStepMetadata
-      -&gt; Maybe CallbackStepMetadata
-      -&gt; Maybe RegisterModelStepMetadata
+      -&gt; Maybe TuningJobStepMetaData
+      -&gt; Maybe ConditionStepMetadata
       -&gt; Maybe TransformJobStepMetadata
+      -&gt; Maybe RegisterModelStepMetadata
+      -&gt; Maybe CallbackStepMetadata
       -&gt; PipelineExecutionStepMetadata)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680353313"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TuningJobStepMetaData)
+</span><a href="#local-6989586621680354751"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ModelStepMetadata)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;TuningJob&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span class="hs-string">&quot;Model&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe LambdaStepMetadata
-   -&gt; Maybe TrainingJobStepMetadata
-   -&gt; Maybe CallbackStepMetadata
-   -&gt; Maybe RegisterModelStepMetadata
+   -&gt; Maybe TuningJobStepMetaData
+   -&gt; Maybe ConditionStepMetadata
    -&gt; Maybe TransformJobStepMetadata
+   -&gt; Maybe RegisterModelStepMetadata
+   -&gt; Maybe CallbackStepMetadata
    -&gt; PipelineExecutionStepMetadata)
 -&gt; Parser (Maybe LambdaStepMetadata)
 -&gt; Parser
-     (Maybe TrainingJobStepMetadata
-      -&gt; Maybe CallbackStepMetadata
-      -&gt; Maybe RegisterModelStepMetadata
+     (Maybe TuningJobStepMetaData
+      -&gt; Maybe ConditionStepMetadata
       -&gt; Maybe TransformJobStepMetadata
+      -&gt; Maybe RegisterModelStepMetadata
+      -&gt; Maybe CallbackStepMetadata
       -&gt; PipelineExecutionStepMetadata)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680353313"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LambdaStepMetadata)
+</span><a href="#local-6989586621680354751"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LambdaStepMetadata)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Lambda&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe TrainingJobStepMetadata
-   -&gt; Maybe CallbackStepMetadata
-   -&gt; Maybe RegisterModelStepMetadata
+</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe TuningJobStepMetaData
+   -&gt; Maybe ConditionStepMetadata
    -&gt; Maybe TransformJobStepMetadata
+   -&gt; Maybe RegisterModelStepMetadata
+   -&gt; Maybe CallbackStepMetadata
    -&gt; PipelineExecutionStepMetadata)
--&gt; Parser (Maybe TrainingJobStepMetadata)
+-&gt; Parser (Maybe TuningJobStepMetaData)
 -&gt; Parser
-     (Maybe CallbackStepMetadata
-      -&gt; Maybe RegisterModelStepMetadata
+     (Maybe ConditionStepMetadata
       -&gt; Maybe TransformJobStepMetadata
+      -&gt; Maybe RegisterModelStepMetadata
+      -&gt; Maybe CallbackStepMetadata
       -&gt; PipelineExecutionStepMetadata)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680353313"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TrainingJobStepMetadata)
+</span><a href="#local-6989586621680354751"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TuningJobStepMetaData)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;TrainingJob&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe CallbackStepMetadata
-   -&gt; Maybe RegisterModelStepMetadata
+</span><span class="hs-string">&quot;TuningJob&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ConditionStepMetadata
    -&gt; Maybe TransformJobStepMetadata
+   -&gt; Maybe RegisterModelStepMetadata
+   -&gt; Maybe CallbackStepMetadata
    -&gt; PipelineExecutionStepMetadata)
--&gt; Parser (Maybe CallbackStepMetadata)
+-&gt; Parser (Maybe ConditionStepMetadata)
+-&gt; Parser
+     (Maybe TransformJobStepMetadata
+      -&gt; Maybe RegisterModelStepMetadata
+      -&gt; Maybe CallbackStepMetadata
+      -&gt; PipelineExecutionStepMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680354751"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ConditionStepMetadata)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Condition&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe TransformJobStepMetadata
+   -&gt; Maybe RegisterModelStepMetadata
+   -&gt; Maybe CallbackStepMetadata
+   -&gt; PipelineExecutionStepMetadata)
+-&gt; Parser (Maybe TransformJobStepMetadata)
 -&gt; Parser
      (Maybe RegisterModelStepMetadata
-      -&gt; Maybe TransformJobStepMetadata -&gt; PipelineExecutionStepMetadata)
+      -&gt; Maybe CallbackStepMetadata -&gt; PipelineExecutionStepMetadata)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680353313"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CallbackStepMetadata)
+</span><a href="#local-6989586621680354751"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TransformJobStepMetadata)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Callback&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;TransformJob&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe RegisterModelStepMetadata
-   -&gt; Maybe TransformJobStepMetadata -&gt; PipelineExecutionStepMetadata)
+   -&gt; Maybe CallbackStepMetadata -&gt; PipelineExecutionStepMetadata)
 -&gt; Parser (Maybe RegisterModelStepMetadata)
 -&gt; Parser
-     (Maybe TransformJobStepMetadata -&gt; PipelineExecutionStepMetadata)
+     (Maybe CallbackStepMetadata -&gt; PipelineExecutionStepMetadata)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680353313"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RegisterModelStepMetadata)
+</span><a href="#local-6989586621680354751"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RegisterModelStepMetadata)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RegisterModel&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe TransformJobStepMetadata -&gt; PipelineExecutionStepMetadata)
--&gt; Parser (Maybe TransformJobStepMetadata)
+  (Maybe CallbackStepMetadata -&gt; PipelineExecutionStepMetadata)
+-&gt; Parser (Maybe CallbackStepMetadata)
 -&gt; Parser PipelineExecutionStepMetadata
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680353313"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TransformJobStepMetadata)
+</span><a href="#local-6989586621680354751"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CallbackStepMetadata)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;TransformJob&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Callback&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-182"></span><span>  </span><span id="local-6989586621680353307"><span id="local-6989586621680353309"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621680354745"><span id="local-6989586621680354747"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-183"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata</span></a></span></span></span><span>
 </span><span id="line-184"></span><span>
-</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680353304"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata</span></a></span></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680354742"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata.html#PipelineExecutionStepMetadata"><span class="hs-identifier hs-type">PipelineExecutionStepMetadata</span></a></span></span><span>
 </span><span id="line-186"></span></pre></body></html>

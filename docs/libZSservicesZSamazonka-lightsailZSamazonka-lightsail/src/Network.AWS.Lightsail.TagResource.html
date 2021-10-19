@@ -58,7 +58,7 @@
 </span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newTagResource' smart constructor.</span><span>
-</span><span id="line-61"></span><span id="local-6989586621679629187"><span id="local-6989586621679629188"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagResource"><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResource"><span class="hs-identifier hs-var">TagResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagResource%27"><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResource%27"><span class="hs-identifier hs-var">TagResource'</span></a></span></span><span>
+</span><span id="line-61"></span><span id="local-6989586621679630131"><span id="local-6989586621679630132"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagResource"><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResource"><span class="hs-identifier hs-var">TagResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagResource%27"><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResource%27"><span class="hs-identifier hs-var">TagResource'</span></a></span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the resource to which you want to add</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">-- a tag.</span><span>
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AresourceArn%3ATagResource%27"><span class="annot"><span class="annottext">TagResource -&gt; Maybe Text
@@ -70,7 +70,7 @@
 </span><span id="line-68"></span><span>    </span><span id="%24sel%3Atags%3ATagResource%27"><span class="annot"><span class="annottext">TagResource -&gt; [Tag]
 </span><a href="Network.AWS.Lightsail.TagResource.html#%24sel%3Atags%3ATagResource%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679629179"><span id="local-6989586621679629181"><span class="annot"><span class="annottext">TagResource -&gt; TagResource -&gt; Bool
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679630123"><span id="local-6989586621679630125"><span class="annot"><span class="annottext">TagResource -&gt; TagResource -&gt; Bool
 (TagResource -&gt; TagResource -&gt; Bool)
 -&gt; (TagResource -&gt; TagResource -&gt; Bool) -&gt; Eq TagResource
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -78,7 +78,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TagResource -&gt; TagResource -&gt; Bool
 == :: TagResource -&gt; TagResource -&gt; Bool
 $c== :: TagResource -&gt; TagResource -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679629170"><span id="local-6989586621679629172"><span id="local-6989586621679629174"><span id="local-6989586621679629176"><span class="annot"><span class="annottext">ReadPrec [TagResource]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679630114"><span id="local-6989586621679630116"><span id="local-6989586621679630118"><span id="local-6989586621679630120"><span class="annot"><span class="annottext">ReadPrec [TagResource]
 ReadPrec TagResource
 Int -&gt; ReadS TagResource
 ReadS [TagResource]
@@ -98,7 +98,7 @@ readList :: ReadS [TagResource]
 $creadList :: ReadS [TagResource]
 readsPrec :: Int -&gt; ReadS TagResource
 $creadsPrec :: Int -&gt; ReadS TagResource
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679629163"><span id="local-6989586621679629165"><span id="local-6989586621679629167"><span class="annot"><span class="annottext">Int -&gt; TagResource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679630107"><span id="local-6989586621679630109"><span id="local-6989586621679630111"><span class="annot"><span class="annottext">Int -&gt; TagResource -&gt; ShowS
 [TagResource] -&gt; ShowS
 TagResource -&gt; String
 (Int -&gt; TagResource -&gt; ShowS)
@@ -143,8 +143,8 @@ $cfrom :: forall x. TagResource -&gt; Rep TagResource x
 </span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span><span>
 </span><span id="line-90"></span><span id="newTagResource"><span class="annot"><span class="annottext">newTagResource :: Text -&gt; TagResource
-</span><a href="Network.AWS.Lightsail.TagResource.html#newTagResource"><span class="hs-identifier hs-var hs-var">newTagResource</span></a></span></span><span> </span><span id="local-6989586621679629158"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679629158"><span class="hs-identifier hs-var">pResourceName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.TagResource.html#newTagResource"><span class="hs-identifier hs-var hs-var">newTagResource</span></a></span></span><span> </span><span id="local-6989586621679630102"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679630102"><span class="hs-identifier hs-var">pResourceName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>  </span><span class="annot"><span class="annottext">TagResource' :: Maybe Text -&gt; Text -&gt; [Tag] -&gt; TagResource
 </span><a href="Network.AWS.Lightsail.TagResource.html#TagResource%27"><span class="hs-identifier hs-type">TagResource'</span></a></span><span>
 </span><span id="line-92"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceArn:TagResource' :: Maybe Text
@@ -153,7 +153,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceName:TagResource' :: Text
 </span><a href="Network.AWS.Lightsail.TagResource.html#%24sel%3AresourceName%3ATagResource%27"><span class="hs-identifier hs-var">resourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679629158"><span class="hs-identifier hs-var">pResourceName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679630102"><span class="hs-identifier hs-var">pResourceName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:TagResource' :: [Tag]
 </span><a href="Network.AWS.Lightsail.TagResource.html#%24sel%3Atags%3ATagResource%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Tag]
 forall a. Monoid a =&gt; a
@@ -168,16 +168,16 @@ forall a. Monoid a =&gt; a
 -&gt; (TagResource -&gt; Maybe Text -&gt; TagResource)
 -&gt; Lens TagResource TagResource (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResource%27"><span class="hs-identifier hs-type">TagResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679629155"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResource%27"><span class="hs-identifier hs-type">TagResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679630099"><span class="annot"><span class="annottext">Maybe Text
 resourceArn :: Maybe Text
 $sel:resourceArn:TagResource' :: TagResource -&gt; Maybe Text
-</span><a href="#local-6989586621679629155"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679629155"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679629154"><span class="annot"><span class="annottext">s :: TagResource
-</span><a href="#local-6989586621679629154"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResource%27"><span class="hs-identifier hs-type">TagResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679629153"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679629153"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagResource
-</span><a href="#local-6989586621679629154"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:TagResource' :: Maybe Text
+</span><a href="#local-6989586621679630099"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679630099"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679630098"><span class="annot"><span class="annottext">s :: TagResource
+</span><a href="#local-6989586621679630098"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResource%27"><span class="hs-identifier hs-type">TagResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679630097"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679630097"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagResource
+</span><a href="#local-6989586621679630098"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:TagResource' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.TagResource.html#%24sel%3AresourceArn%3ATagResource%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679629153"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679630097"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- | The name of the resource to which you are adding tags.</span><span>
 </span><span id="line-103"></span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#tagResource_resourceName"><span class="hs-identifier hs-type">tagResource_resourceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -186,16 +186,16 @@ $sel:resourceArn:TagResource' :: TagResource -&gt; Maybe Text
 -&gt; (TagResource -&gt; Text -&gt; TagResource)
 -&gt; Lens TagResource TagResource Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResource%27"><span class="hs-identifier hs-type">TagResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679629152"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResource%27"><span class="hs-identifier hs-type">TagResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679630096"><span class="annot"><span class="annottext">Text
 resourceName :: Text
 $sel:resourceName:TagResource' :: TagResource -&gt; Text
-</span><a href="#local-6989586621679629152"><span class="hs-identifier hs-var hs-var">resourceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679629152"><span class="hs-identifier hs-var">resourceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679629151"><span class="annot"><span class="annottext">s :: TagResource
-</span><a href="#local-6989586621679629151"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResource%27"><span class="hs-identifier hs-type">TagResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679629150"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679629150"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagResource
-</span><a href="#local-6989586621679629151"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceName:TagResource' :: Text
+</span><a href="#local-6989586621679630096"><span class="hs-identifier hs-var hs-var">resourceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679630096"><span class="hs-identifier hs-var">resourceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679630095"><span class="annot"><span class="annottext">s :: TagResource
+</span><a href="#local-6989586621679630095"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResource%27"><span class="hs-identifier hs-type">TagResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679630094"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679630094"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagResource
+</span><a href="#local-6989586621679630095"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceName:TagResource' :: Text
 </span><a href="Network.AWS.Lightsail.TagResource.html#%24sel%3AresourceName%3ATagResource%27"><span class="hs-identifier hs-var">resourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679629150"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679630094"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | The tag key and optional value.</span><span>
 </span><span id="line-107"></span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#tagResource_tags"><span class="hs-identifier hs-type">tagResource_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
@@ -204,33 +204,33 @@ $sel:resourceName:TagResource' :: TagResource -&gt; Text
 -&gt; (TagResource -&gt; [Tag] -&gt; TagResource)
 -&gt; Lens TagResource TagResource [Tag] [Tag]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResource%27"><span class="hs-identifier hs-type">TagResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679629149"><span class="annot"><span class="annottext">[Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResource%27"><span class="hs-identifier hs-type">TagResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679630093"><span class="annot"><span class="annottext">[Tag]
 tags :: [Tag]
 $sel:tags:TagResource' :: TagResource -&gt; [Tag]
-</span><a href="#local-6989586621679629149"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679629149"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679629148"><span class="annot"><span class="annottext">s :: TagResource
-</span><a href="#local-6989586621679629148"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResource%27"><span class="hs-identifier hs-type">TagResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679629147"><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679629147"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagResource
-</span><a href="#local-6989586621679629148"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:TagResource' :: [Tag]
+</span><a href="#local-6989586621679630093"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Tag]
+</span><a href="#local-6989586621679630093"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679630092"><span class="annot"><span class="annottext">s :: TagResource
+</span><a href="#local-6989586621679630092"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResource%27"><span class="hs-identifier hs-type">TagResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679630091"><span class="annot"><span class="annottext">[Tag]
+</span><a href="#local-6989586621679630091"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagResource
+</span><a href="#local-6989586621679630092"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:TagResource' :: [Tag]
 </span><a href="Network.AWS.Lightsail.TagResource.html#%24sel%3Atags%3ATagResource%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679629147"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Tag] -&gt; f [Tag]) -&gt; TagResource -&gt; f TagResource)
+</span><a href="#local-6989586621679630091"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Tag] -&gt; f [Tag]) -&gt; TagResource -&gt; f TagResource)
 -&gt; (([Tag] -&gt; f [Tag]) -&gt; [Tag] -&gt; f [Tag])
 -&gt; ([Tag] -&gt; f [Tag])
 -&gt; TagResource
 -&gt; f TagResource
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; f [Tag]) -&gt; [Tag] -&gt; f [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-111"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResourceResponse"><span class="hs-identifier hs-type">TagResourceResponse</span></a></span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679629141"><span class="annot"><span class="annottext">request :: TagResource -&gt; Request TagResource
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679630085"><span class="annot"><span class="annottext">request :: TagResource -&gt; Request TagResource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; TagResource -&gt; Request TagResource
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679629137"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679630081"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy TagResource
 -&gt; ClientResponse ClientBody
@@ -254,10 +254,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679629134"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679629134"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679629133"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679629133"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679629132"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679629132"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679630078"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679630078"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679630077"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679630077"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679630076"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679630076"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-116"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Operation] -&gt; Int -&gt; TagResourceResponse
 </span><a href="Network.AWS.Lightsail.TagResource.html#TagResourceResponse%27"><span class="hs-identifier hs-var">TagResourceResponse'</span></a></span><span>
 </span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Operation] -&gt; Int -&gt; TagResourceResponse)
@@ -265,7 +265,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; TagResourceResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679629132"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Operation]))
+</span><a href="#local-6989586621679630076"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Operation]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;operations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Operation]))
@@ -282,15 +282,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679629134"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679630078"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679629123"><span id="local-6989586621679629125"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span></span></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679630067"><span id="local-6989586621679630069"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span></span></span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679629120"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679630064"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span></span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679629116"><span class="annot"><span class="annottext">toHeaders :: TagResource -&gt; ResponseHeaders
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679630060"><span class="annot"><span class="annottext">toHeaders :: TagResource -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; TagResource -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -317,9 +317,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-137"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679629106"><span id="local-6989586621679629108"><span id="local-6989586621679629110"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679629104"><span class="annot"><span class="annottext">toJSON :: TagResource -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResource%27"><span class="hs-identifier hs-type">TagResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679629100"><span id="local-6989586621679629101"><span id="local-6989586621679629102"><span class="annot"><span class="annottext">[Tag]
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679630050"><span id="local-6989586621679630052"><span id="local-6989586621679630054"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679630048"><span class="annot"><span class="annottext">toJSON :: TagResource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResource%27"><span class="hs-identifier hs-type">TagResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679630044"><span id="local-6989586621679630045"><span id="local-6989586621679630046"><span class="annot"><span class="annottext">[Tag]
 Maybe Text
 Text
 tags :: [Tag]
@@ -328,7 +328,7 @@ resourceArn :: Maybe Text
 $sel:tags:TagResource' :: TagResource -&gt; [Tag]
 $sel:resourceName:TagResource' :: TagResource -&gt; Text
 $sel:resourceArn:TagResource' :: TagResource -&gt; Maybe Text
-</span><a href="#local-6989586621679629100"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679630044"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -340,33 +340,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679629102"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679630046"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;resourceName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679629101"><span class="hs-identifier hs-var">resourceName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679630045"><span class="hs-identifier hs-var">resourceName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679629100"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679630044"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679629094"><span class="annot"><span class="annottext">toPath :: TagResource -&gt; ByteString
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679630038"><span class="annot"><span class="annottext">toPath :: TagResource -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; TagResource -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679629090"><span class="annot"><span class="annottext">toQuery :: TagResource -&gt; QueryString
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679630034"><span class="annot"><span class="annottext">toQuery :: TagResource -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; TagResource -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -374,7 +374,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- | /See:/ 'newTagResourceResponse' smart constructor.</span><span>
-</span><span id="line-157"></span><span id="local-6989586621679629087"><span id="local-6989586621679629088"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagResourceResponse"><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResourceResponse"><span class="hs-identifier hs-var">TagResourceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagResourceResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResourceResponse%27"><span class="hs-identifier hs-var">TagResourceResponse'</span></a></span></span><span>
+</span><span id="line-157"></span><span id="local-6989586621679630031"><span id="local-6989586621679630032"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagResourceResponse"><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResourceResponse"><span class="hs-identifier hs-var">TagResourceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagResourceResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResourceResponse%27"><span class="hs-identifier hs-var">TagResourceResponse'</span></a></span></span><span>
 </span><span id="line-158"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
 </span><span id="line-159"></span><span>    </span><span class="hs-comment">-- status of the request, the timestamp of the request, and the resources</span><span>
 </span><span id="line-160"></span><span>    </span><span class="hs-comment">-- affected by the request.</span><span>
@@ -384,7 +384,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-163"></span><span>    </span><span id="%24sel%3AhttpStatus%3ATagResourceResponse%27"><span class="annot"><span class="annottext">TagResourceResponse -&gt; Int
 </span><a href="Network.AWS.Lightsail.TagResource.html#%24sel%3AhttpStatus%3ATagResourceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-164"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-165"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679629081"><span id="local-6989586621679629083"><span class="annot"><span class="annottext">TagResourceResponse -&gt; TagResourceResponse -&gt; Bool
+</span><span id="line-165"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679630025"><span id="local-6989586621679630027"><span class="annot"><span class="annottext">TagResourceResponse -&gt; TagResourceResponse -&gt; Bool
 (TagResourceResponse -&gt; TagResourceResponse -&gt; Bool)
 -&gt; (TagResourceResponse -&gt; TagResourceResponse -&gt; Bool)
 -&gt; Eq TagResourceResponse
@@ -393,7 +393,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TagResourceResponse -&gt; TagResourceResponse -&gt; Bool
 == :: TagResourceResponse -&gt; TagResourceResponse -&gt; Bool
 $c== :: TagResourceResponse -&gt; TagResourceResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679629073"><span id="local-6989586621679629075"><span id="local-6989586621679629077"><span id="local-6989586621679629079"><span class="annot"><span class="annottext">ReadPrec [TagResourceResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679630017"><span id="local-6989586621679630019"><span id="local-6989586621679630021"><span id="local-6989586621679630023"><span class="annot"><span class="annottext">ReadPrec [TagResourceResponse]
 ReadPrec TagResourceResponse
 Int -&gt; ReadS TagResourceResponse
 ReadS [TagResourceResponse]
@@ -413,7 +413,7 @@ readList :: ReadS [TagResourceResponse]
 $creadList :: ReadS [TagResourceResponse]
 readsPrec :: Int -&gt; ReadS TagResourceResponse
 $creadsPrec :: Int -&gt; ReadS TagResourceResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679629067"><span id="local-6989586621679629069"><span id="local-6989586621679629071"><span class="annot"><span class="annottext">Int -&gt; TagResourceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679630011"><span id="local-6989586621679630013"><span id="local-6989586621679630015"><span class="annot"><span class="annottext">Int -&gt; TagResourceResponse -&gt; ShowS
 [TagResourceResponse] -&gt; ShowS
 TagResourceResponse -&gt; String
 (Int -&gt; TagResourceResponse -&gt; ShowS)
@@ -457,8 +457,8 @@ $cfrom :: forall x. TagResourceResponse -&gt; Rep TagResourceResponse x
 </span><span id="line-182"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-183"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResourceResponse"><span class="hs-identifier hs-type">TagResourceResponse</span></a></span><span>
 </span><span id="line-184"></span><span id="newTagResourceResponse"><span class="annot"><span class="annottext">newTagResourceResponse :: Int -&gt; TagResourceResponse
-</span><a href="Network.AWS.Lightsail.TagResource.html#newTagResourceResponse"><span class="hs-identifier hs-var hs-var">newTagResourceResponse</span></a></span></span><span> </span><span id="local-6989586621679629064"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679629064"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.TagResource.html#newTagResourceResponse"><span class="hs-identifier hs-var hs-var">newTagResourceResponse</span></a></span></span><span> </span><span id="local-6989586621679630008"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679630008"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-185"></span><span>  </span><span class="annot"><span class="annottext">TagResourceResponse' :: Maybe [Operation] -&gt; Int -&gt; TagResourceResponse
 </span><a href="Network.AWS.Lightsail.TagResource.html#TagResourceResponse%27"><span class="hs-identifier hs-type">TagResourceResponse'</span></a></span><span>
 </span><span id="line-186"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:operations:TagResourceResponse' :: Maybe [Operation]
@@ -467,7 +467,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-187"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:TagResourceResponse' :: Int
 </span><a href="Network.AWS.Lightsail.TagResource.html#%24sel%3AhttpStatus%3ATagResourceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679629064"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679630008"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-188"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-189"></span><span>
 </span><span id="line-190"></span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
@@ -485,16 +485,16 @@ forall a. Maybe a
      (Maybe [Operation])
      (Maybe [Operation])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResourceResponse%27"><span class="hs-identifier hs-type">TagResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679629063"><span class="annot"><span class="annottext">Maybe [Operation]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResourceResponse%27"><span class="hs-identifier hs-type">TagResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679630007"><span class="annot"><span class="annottext">Maybe [Operation]
 operations :: Maybe [Operation]
 $sel:operations:TagResourceResponse' :: TagResourceResponse -&gt; Maybe [Operation]
-</span><a href="#local-6989586621679629063"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679629063"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679629062"><span class="annot"><span class="annottext">s :: TagResourceResponse
-</span><a href="#local-6989586621679629062"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResourceResponse%27"><span class="hs-identifier hs-type">TagResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679629061"><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679629061"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagResourceResponse
-</span><a href="#local-6989586621679629062"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:TagResourceResponse' :: Maybe [Operation]
+</span><a href="#local-6989586621679630007"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679630007"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679630006"><span class="annot"><span class="annottext">s :: TagResourceResponse
+</span><a href="#local-6989586621679630006"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResourceResponse%27"><span class="hs-identifier hs-type">TagResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679630005"><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679630005"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagResourceResponse
+</span><a href="#local-6989586621679630006"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:TagResourceResponse' :: Maybe [Operation]
 </span><a href="Network.AWS.Lightsail.TagResource.html#%24sel%3Aoperations%3ATagResourceResponse%27"><span class="hs-identifier hs-var">operations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679629061"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResourceResponse"><span class="hs-identifier hs-type">TagResourceResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Operation] -&gt; f (Maybe [Operation]))
+</span><a href="#local-6989586621679630005"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResourceResponse"><span class="hs-identifier hs-type">TagResourceResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Operation] -&gt; f (Maybe [Operation]))
  -&gt; TagResourceResponse -&gt; f TagResourceResponse)
 -&gt; ((Maybe [Operation] -&gt; f (Maybe [Operation]))
     -&gt; Maybe [Operation] -&gt; f (Maybe [Operation]))
@@ -512,8 +512,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Operation] [Operation] [Operation] [Operation]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-195"></span><span>
 </span><span id="line-196"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-197"></span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#tagResourceResponse_httpStatus"><span class="hs-identifier hs-type">tagResourceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResourceResponse"><span class="hs-identifier hs-type">TagResourceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -522,16 +522,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (TagResourceResponse -&gt; Int -&gt; TagResourceResponse)
 -&gt; Lens TagResourceResponse TagResourceResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResourceResponse%27"><span class="hs-identifier hs-type">TagResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679629059"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResourceResponse%27"><span class="hs-identifier hs-type">TagResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679630003"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:TagResourceResponse' :: TagResourceResponse -&gt; Int
-</span><a href="#local-6989586621679629059"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679629059"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679629058"><span class="annot"><span class="annottext">s :: TagResourceResponse
-</span><a href="#local-6989586621679629058"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResourceResponse%27"><span class="hs-identifier hs-type">TagResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679629057"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679629057"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagResourceResponse
-</span><a href="#local-6989586621679629058"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:TagResourceResponse' :: Int
+</span><a href="#local-6989586621679630003"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679630003"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679630002"><span class="annot"><span class="annottext">s :: TagResourceResponse
+</span><a href="#local-6989586621679630002"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResourceResponse%27"><span class="hs-identifier hs-type">TagResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679630001"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679630001"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagResourceResponse
+</span><a href="#local-6989586621679630002"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:TagResourceResponse' :: Int
 </span><a href="Network.AWS.Lightsail.TagResource.html#%24sel%3AhttpStatus%3ATagResourceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679629057"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResourceResponse"><span class="hs-identifier hs-type">TagResourceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679630001"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResourceResponse"><span class="hs-identifier hs-type">TagResourceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-199"></span><span>
-</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679629055"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResourceResponse"><span class="hs-identifier hs-type">TagResourceResponse</span></a></span></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679629999"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.TagResource.html#TagResourceResponse"><span class="hs-identifier hs-type">TagResourceResponse</span></a></span></span><span>
 </span><span id="line-201"></span></pre></body></html>

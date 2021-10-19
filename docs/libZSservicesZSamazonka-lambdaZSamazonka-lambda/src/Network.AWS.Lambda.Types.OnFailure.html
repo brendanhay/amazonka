@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | A destination for events that failed processing.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newOnFailure' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679292460"><span id="local-6989586621679292461"></span></span><span class="hs-keyword">data</span><span> </span><span id="OnFailure"><span class="annot"><a href="Network.AWS.Lambda.Types.OnFailure.html#OnFailure"><span class="hs-identifier hs-var">OnFailure</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OnFailure%27"><span class="annot"><a href="Network.AWS.Lambda.Types.OnFailure.html#OnFailure%27"><span class="hs-identifier hs-var">OnFailure'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679297303"><span id="local-6989586621679297304"></span></span><span class="hs-keyword">data</span><span> </span><span id="OnFailure"><span class="annot"><a href="Network.AWS.Lambda.Types.OnFailure.html#OnFailure"><span class="hs-identifier hs-var">OnFailure</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OnFailure%27"><span class="annot"><a href="Network.AWS.Lambda.Types.OnFailure.html#OnFailure%27"><span class="hs-identifier hs-var">OnFailure'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the destination resource.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Adestination%3AOnFailure%27"><span class="annot"><span class="annottext">OnFailure -&gt; Maybe Text
 </span><a href="Network.AWS.Lambda.Types.OnFailure.html#%24sel%3Adestination%3AOnFailure%27"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679292454"><span id="local-6989586621679292456"><span class="annot"><span class="annottext">OnFailure -&gt; OnFailure -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679297297"><span id="local-6989586621679297299"><span class="annot"><span class="annottext">OnFailure -&gt; OnFailure -&gt; Bool
 (OnFailure -&gt; OnFailure -&gt; Bool)
 -&gt; (OnFailure -&gt; OnFailure -&gt; Bool) -&gt; Eq OnFailure
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -39,7 +39,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: OnFailure -&gt; OnFailure -&gt; Bool
 == :: OnFailure -&gt; OnFailure -&gt; Bool
 $c== :: OnFailure -&gt; OnFailure -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292445"><span id="local-6989586621679292447"><span id="local-6989586621679292449"><span id="local-6989586621679292451"><span class="annot"><span class="annottext">ReadPrec [OnFailure]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297288"><span id="local-6989586621679297290"><span id="local-6989586621679297292"><span id="local-6989586621679297294"><span class="annot"><span class="annottext">ReadPrec [OnFailure]
 ReadPrec OnFailure
 Int -&gt; ReadS OnFailure
 ReadS [OnFailure]
@@ -59,7 +59,7 @@ readList :: ReadS [OnFailure]
 $creadList :: ReadS [OnFailure]
 readsPrec :: Int -&gt; ReadS OnFailure
 $creadsPrec :: Int -&gt; ReadS OnFailure
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292438"><span id="local-6989586621679292440"><span id="local-6989586621679292442"><span class="annot"><span class="annottext">Int -&gt; OnFailure -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297281"><span id="local-6989586621679297283"><span id="local-6989586621679297285"><span class="annot"><span class="annottext">Int -&gt; OnFailure -&gt; ShowS
 [OnFailure] -&gt; ShowS
 OnFailure -&gt; String
 (Int -&gt; OnFailure -&gt; ShowS)
@@ -110,48 +110,48 @@ forall a. Maybe a
 -&gt; (OnFailure -&gt; Maybe Text -&gt; OnFailure)
 -&gt; Lens OnFailure OnFailure (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.OnFailure.html#OnFailure%27"><span class="hs-identifier hs-type">OnFailure'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292429"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.OnFailure.html#OnFailure%27"><span class="hs-identifier hs-type">OnFailure'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297272"><span class="annot"><span class="annottext">Maybe Text
 destination :: Maybe Text
 $sel:destination:OnFailure' :: OnFailure -&gt; Maybe Text
-</span><a href="#local-6989586621679292429"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679292429"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292428"><span class="annot"><span class="annottext">s :: OnFailure
-</span><a href="#local-6989586621679292428"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.OnFailure.html#OnFailure%27"><span class="hs-identifier hs-type">OnFailure'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292427"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679292427"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OnFailure
-</span><a href="#local-6989586621679292428"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destination:OnFailure' :: Maybe Text
+</span><a href="#local-6989586621679297272"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297272"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297271"><span class="annot"><span class="annottext">s :: OnFailure
+</span><a href="#local-6989586621679297271"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.OnFailure.html#OnFailure%27"><span class="hs-identifier hs-type">OnFailure'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297270"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297270"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OnFailure
+</span><a href="#local-6989586621679297271"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destination:OnFailure' :: Maybe Text
 </span><a href="Network.AWS.Lambda.Types.OnFailure.html#%24sel%3Adestination%3AOnFailure%27"><span class="hs-identifier hs-var">destination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679292427"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.OnFailure.html#OnFailure"><span class="hs-identifier hs-type">OnFailure</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679297270"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.OnFailure.html#OnFailure"><span class="hs-identifier hs-type">OnFailure</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>
-</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679292424"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.OnFailure.html#OnFailure"><span class="hs-identifier hs-type">OnFailure</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-54"></span><span>  </span><span id="local-6989586621679292422"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OnFailure
+</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297267"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.OnFailure.html#OnFailure"><span class="hs-identifier hs-type">OnFailure</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621679297265"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OnFailure
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser OnFailure) -&gt; Value -&gt; Parser OnFailure
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;OnFailure&quot;</span></span><span>
-</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679292419"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679292419"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679297262"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679297262"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-58"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; OnFailure
 </span><a href="Network.AWS.Lambda.Types.OnFailure.html#OnFailure%27"><span class="hs-identifier hs-var">OnFailure'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; OnFailure)
 -&gt; Parser (Maybe Text) -&gt; Parser OnFailure
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679292419"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679297262"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Destination&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679292413"><span id="local-6989586621679292415"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.OnFailure.html#OnFailure"><span class="hs-identifier hs-type">OnFailure</span></a></span></span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297256"><span id="local-6989586621679297258"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.OnFailure.html#OnFailure"><span class="hs-identifier hs-type">OnFailure</span></a></span></span></span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679292410"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.OnFailure.html#OnFailure"><span class="hs-identifier hs-type">OnFailure</span></a></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297253"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.OnFailure.html#OnFailure"><span class="hs-identifier hs-type">OnFailure</span></a></span></span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679292402"><span id="local-6989586621679292404"><span id="local-6989586621679292406"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.OnFailure.html#OnFailure"><span class="hs-identifier hs-type">OnFailure</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679292400"><span class="annot"><span class="annottext">toJSON :: OnFailure -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.OnFailure.html#OnFailure%27"><span class="hs-identifier hs-type">OnFailure'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292398"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297245"><span id="local-6989586621679297247"><span id="local-6989586621679297249"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.OnFailure.html#OnFailure"><span class="hs-identifier hs-type">OnFailure</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679297243"><span class="annot"><span class="annottext">toJSON :: OnFailure -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.OnFailure.html#OnFailure%27"><span class="hs-identifier hs-type">OnFailure'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297241"><span class="annot"><span class="annottext">Maybe Text
 destination :: Maybe Text
 $sel:destination:OnFailure' :: OnFailure -&gt; Maybe Text
-</span><a href="#local-6989586621679292398"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679297241"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -163,6 +163,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679292398"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679297241"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-70"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span></pre></body></html>

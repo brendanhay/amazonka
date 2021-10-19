@@ -26,25 +26,25 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Provides information about a single utterance that was made to your bot.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newUtteranceData' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679316728"><span id="local-6989586621679316729"></span></span><span class="hs-keyword">data</span><span> </span><span id="UtteranceData"><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData"><span class="hs-identifier hs-var">UtteranceData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UtteranceData%27"><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData%27"><span class="hs-identifier hs-var">UtteranceData'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The text that was entered by the user or the text representation of an</span><span>
-</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- audio clip.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3AutteranceString%3AUtteranceData%27"><span class="annot"><span class="annottext">UtteranceData -&gt; Maybe Text
-</span><a href="Network.AWS.LexModels.Types.UtteranceData.html#%24sel%3AutteranceString%3AUtteranceData%27"><span class="hs-identifier hs-var hs-var">utteranceString</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The total number of individuals that used the utterance.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AdistinctUsers%3AUtteranceData%27"><span class="annot"><span class="annottext">UtteranceData -&gt; Maybe Int
-</span><a href="Network.AWS.LexModels.Types.UtteranceData.html#%24sel%3AdistinctUsers%3AUtteranceData%27"><span class="hs-identifier hs-var hs-var">distinctUsers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The number of times that the utterance was processed.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3Acount%3AUtteranceData%27"><span class="annot"><span class="annottext">UtteranceData -&gt; Maybe Int
+</span><span id="line-29"></span><span id="local-6989586621679317023"><span id="local-6989586621679317024"></span></span><span class="hs-keyword">data</span><span> </span><span id="UtteranceData"><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData"><span class="hs-identifier hs-var">UtteranceData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UtteranceData%27"><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData%27"><span class="hs-identifier hs-var">UtteranceData'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The date that the utterance was first recorded.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AfirstUtteredDate%3AUtteranceData%27"><span class="annot"><span class="annottext">UtteranceData -&gt; Maybe POSIX
+</span><a href="Network.AWS.LexModels.Types.UtteranceData.html#%24sel%3AfirstUtteredDate%3AUtteranceData%27"><span class="hs-identifier hs-var hs-var">firstUtteredDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The number of times that the utterance was processed.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Acount%3AUtteranceData%27"><span class="annot"><span class="annottext">UtteranceData -&gt; Maybe Int
 </span><a href="Network.AWS.LexModels.Types.UtteranceData.html#%24sel%3Acount%3AUtteranceData%27"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The text that was entered by the user or the text representation of an</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- audio clip.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AutteranceString%3AUtteranceData%27"><span class="annot"><span class="annottext">UtteranceData -&gt; Maybe Text
+</span><a href="Network.AWS.LexModels.Types.UtteranceData.html#%24sel%3AutteranceString%3AUtteranceData%27"><span class="hs-identifier hs-var hs-var">utteranceString</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The date that the utterance was last recorded.</span><span>
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AlastUtteredDate%3AUtteranceData%27"><span class="annot"><span class="annottext">UtteranceData -&gt; Maybe POSIX
 </span><a href="Network.AWS.LexModels.Types.UtteranceData.html#%24sel%3AlastUtteredDate%3AUtteranceData%27"><span class="hs-identifier hs-var hs-var">lastUtteredDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The date that the utterance was first recorded.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AfirstUtteredDate%3AUtteranceData%27"><span class="annot"><span class="annottext">UtteranceData -&gt; Maybe POSIX
-</span><a href="Network.AWS.LexModels.Types.UtteranceData.html#%24sel%3AfirstUtteredDate%3AUtteranceData%27"><span class="hs-identifier hs-var hs-var">firstUtteredDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The total number of individuals that used the utterance.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AdistinctUsers%3AUtteranceData%27"><span class="annot"><span class="annottext">UtteranceData -&gt; Maybe Int
+</span><a href="Network.AWS.LexModels.Types.UtteranceData.html#%24sel%3AdistinctUsers%3AUtteranceData%27"><span class="hs-identifier hs-var hs-var">distinctUsers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679316718"><span id="local-6989586621679316720"><span class="annot"><span class="annottext">UtteranceData -&gt; UtteranceData -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679317013"><span id="local-6989586621679317015"><span class="annot"><span class="annottext">UtteranceData -&gt; UtteranceData -&gt; Bool
 (UtteranceData -&gt; UtteranceData -&gt; Bool)
 -&gt; (UtteranceData -&gt; UtteranceData -&gt; Bool) -&gt; Eq UtteranceData
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UtteranceData -&gt; UtteranceData -&gt; Bool
 == :: UtteranceData -&gt; UtteranceData -&gt; Bool
 $c== :: UtteranceData -&gt; UtteranceData -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316709"><span id="local-6989586621679316711"><span id="local-6989586621679316713"><span id="local-6989586621679316715"><span class="annot"><span class="annottext">ReadPrec [UtteranceData]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317004"><span id="local-6989586621679317006"><span id="local-6989586621679317008"><span id="local-6989586621679317010"><span class="annot"><span class="annottext">ReadPrec [UtteranceData]
 ReadPrec UtteranceData
 Int -&gt; ReadS UtteranceData
 ReadS [UtteranceData]
@@ -72,7 +72,7 @@ readList :: ReadS [UtteranceData]
 $creadList :: ReadS [UtteranceData]
 readsPrec :: Int -&gt; ReadS UtteranceData
 $creadsPrec :: Int -&gt; ReadS UtteranceData
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316702"><span id="local-6989586621679316704"><span id="local-6989586621679316706"><span class="annot"><span class="annottext">Int -&gt; UtteranceData -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316997"><span id="local-6989586621679316999"><span id="local-6989586621679317001"><span class="annot"><span class="annottext">Int -&gt; UtteranceData -&gt; ShowS
 [UtteranceData] -&gt; ShowS
 UtteranceData -&gt; String
 (Int -&gt; UtteranceData -&gt; ShowS)
@@ -106,103 +106,119 @@ $cfrom :: forall x. UtteranceData -&gt; Rep UtteranceData x
 </span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- 'utteranceString', 'utteranceData_utteranceString' - The text that was entered by the user or the text representation of an</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- audio clip.</span><span>
-</span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'distinctUsers', 'utteranceData_distinctUsers' - The total number of individuals that used the utterance.</span><span>
-</span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'count', 'utteranceData_count' - The number of times that the utterance was processed.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'firstUtteredDate', 'utteranceData_firstUtteredDate' - The date that the utterance was first recorded.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'count', 'utteranceData_count' - The number of times that the utterance was processed.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'utteranceString', 'utteranceData_utteranceString' - The text that was entered by the user or the text representation of an</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- audio clip.</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- 'lastUtteredDate', 'utteranceData_lastUtteredDate' - The date that the utterance was last recorded.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'firstUtteredDate', 'utteranceData_firstUtteredDate' - The date that the utterance was first recorded.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'distinctUsers', 'utteranceData_distinctUsers' - The total number of individuals that used the utterance.</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#newUtteranceData"><span class="hs-identifier hs-type">newUtteranceData</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData"><span class="hs-identifier hs-type">UtteranceData</span></a></span><span>
 </span><span id="line-64"></span><span id="newUtteranceData"><span class="annot"><span class="annottext">newUtteranceData :: UtteranceData
 </span><a href="Network.AWS.LexModels.Types.UtteranceData.html#newUtteranceData"><span class="hs-identifier hs-var hs-var">newUtteranceData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-65"></span><span>  </span><span class="annot"><span class="annottext">UtteranceData' :: Maybe Text
+</span><span id="line-65"></span><span>  </span><span class="annot"><span class="annottext">UtteranceData' :: Maybe POSIX
 -&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe POSIX
 -&gt; Maybe Int
--&gt; Maybe POSIX
--&gt; Maybe POSIX
 -&gt; UtteranceData
 </span><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData%27"><span class="hs-identifier hs-type">UtteranceData'</span></a></span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:utteranceString:UtteranceData' :: Maybe Text
-</span><a href="Network.AWS.LexModels.Types.UtteranceData.html#%24sel%3AutteranceString%3AUtteranceData%27"><span class="hs-identifier hs-var">utteranceString</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-66"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:firstUtteredDate:UtteranceData' :: Maybe POSIX
+</span><a href="Network.AWS.LexModels.Types.UtteranceData.html#%24sel%3AfirstUtteredDate%3AUtteranceData%27"><span class="hs-identifier hs-var">firstUtteredDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:distinctUsers:UtteranceData' :: Maybe Int
-</span><a href="Network.AWS.LexModels.Types.UtteranceData.html#%24sel%3AdistinctUsers%3AUtteranceData%27"><span class="hs-identifier hs-var">distinctUsers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:count:UtteranceData' :: Maybe Int
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:count:UtteranceData' :: Maybe Int
 </span><a href="Network.AWS.LexModels.Types.UtteranceData.html#%24sel%3Acount%3AUtteranceData%27"><span class="hs-identifier hs-var">count</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:utteranceString:UtteranceData' :: Maybe Text
+</span><a href="Network.AWS.LexModels.Types.UtteranceData.html#%24sel%3AutteranceString%3AUtteranceData%27"><span class="hs-identifier hs-var">utteranceString</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUtteredDate:UtteranceData' :: Maybe POSIX
 </span><a href="Network.AWS.LexModels.Types.UtteranceData.html#%24sel%3AlastUtteredDate%3AUtteranceData%27"><span class="hs-identifier hs-var">lastUtteredDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:firstUtteredDate:UtteranceData' :: Maybe POSIX
-</span><a href="Network.AWS.LexModels.Types.UtteranceData.html#%24sel%3AfirstUtteredDate%3AUtteranceData%27"><span class="hs-identifier hs-var">firstUtteredDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:distinctUsers:UtteranceData' :: Maybe Int
+</span><a href="Network.AWS.LexModels.Types.UtteranceData.html#%24sel%3AdistinctUsers%3AUtteranceData%27"><span class="hs-identifier hs-var">distinctUsers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- | The text that was entered by the user or the text representation of an</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- audio clip.</span><span>
-</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#utteranceData_utteranceString"><span class="hs-identifier hs-type">utteranceData_utteranceString</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData"><span class="hs-identifier hs-type">UtteranceData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-76"></span><span id="utteranceData_utteranceString"><span class="annot"><span class="annottext">utteranceData_utteranceString :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UtteranceData -&gt; f UtteranceData
-</span><a href="Network.AWS.LexModels.Types.UtteranceData.html#utteranceData_utteranceString"><span class="hs-identifier hs-var hs-var">utteranceData_utteranceString</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UtteranceData -&gt; Maybe Text)
--&gt; (UtteranceData -&gt; Maybe Text -&gt; UtteranceData)
--&gt; Lens UtteranceData UtteranceData (Maybe Text) (Maybe Text)
+</span><span id="line-73"></span><span class="hs-comment">-- | The date that the utterance was first recorded.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#utteranceData_firstUtteredDate"><span class="hs-identifier hs-type">utteranceData_firstUtteredDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData"><span class="hs-identifier hs-type">UtteranceData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="utteranceData_firstUtteredDate"><span class="annot"><span class="annottext">utteranceData_firstUtteredDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; UtteranceData -&gt; f UtteranceData
+</span><a href="Network.AWS.LexModels.Types.UtteranceData.html#utteranceData_firstUtteredDate"><span class="hs-identifier hs-var hs-var">utteranceData_firstUtteredDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UtteranceData -&gt; Maybe POSIX)
+-&gt; (UtteranceData -&gt; Maybe POSIX -&gt; UtteranceData)
+-&gt; Lens UtteranceData UtteranceData (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData%27"><span class="hs-identifier hs-type">UtteranceData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316693"><span class="annot"><span class="annottext">Maybe Text
-utteranceString :: Maybe Text
-$sel:utteranceString:UtteranceData' :: UtteranceData -&gt; Maybe Text
-</span><a href="#local-6989586621679316693"><span class="hs-identifier hs-var hs-var">utteranceString</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679316693"><span class="hs-identifier hs-var">utteranceString</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316692"><span class="annot"><span class="annottext">s :: UtteranceData
-</span><a href="#local-6989586621679316692"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData%27"><span class="hs-identifier hs-type">UtteranceData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316691"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679316691"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UtteranceData
-</span><a href="#local-6989586621679316692"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:utteranceString:UtteranceData' :: Maybe Text
-</span><a href="Network.AWS.LexModels.Types.UtteranceData.html#%24sel%3AutteranceString%3AUtteranceData%27"><span class="hs-identifier hs-var">utteranceString</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679316691"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData"><span class="hs-identifier hs-type">UtteranceData</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- | The total number of individuals that used the utterance.</span><span>
-</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#utteranceData_distinctUsers"><span class="hs-identifier hs-type">utteranceData_distinctUsers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData"><span class="hs-identifier hs-type">UtteranceData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span id="utteranceData_distinctUsers"><span class="annot"><span class="annottext">utteranceData_distinctUsers :: (Maybe Int -&gt; f (Maybe Int)) -&gt; UtteranceData -&gt; f UtteranceData
-</span><a href="Network.AWS.LexModels.Types.UtteranceData.html#utteranceData_distinctUsers"><span class="hs-identifier hs-var hs-var">utteranceData_distinctUsers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UtteranceData -&gt; Maybe Int)
--&gt; (UtteranceData -&gt; Maybe Int -&gt; UtteranceData)
--&gt; Lens UtteranceData UtteranceData (Maybe Int) (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData%27"><span class="hs-identifier hs-type">UtteranceData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316689"><span class="annot"><span class="annottext">Maybe Int
-distinctUsers :: Maybe Int
-$sel:distinctUsers:UtteranceData' :: UtteranceData -&gt; Maybe Int
-</span><a href="#local-6989586621679316689"><span class="hs-identifier hs-var hs-var">distinctUsers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679316689"><span class="hs-identifier hs-var">distinctUsers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316688"><span class="annot"><span class="annottext">s :: UtteranceData
-</span><a href="#local-6989586621679316688"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData%27"><span class="hs-identifier hs-type">UtteranceData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316687"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679316687"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UtteranceData
-</span><a href="#local-6989586621679316688"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:distinctUsers:UtteranceData' :: Maybe Int
-</span><a href="Network.AWS.LexModels.Types.UtteranceData.html#%24sel%3AdistinctUsers%3AUtteranceData%27"><span class="hs-identifier hs-var">distinctUsers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679316687"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData"><span class="hs-identifier hs-type">UtteranceData</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- | The number of times that the utterance was processed.</span><span>
-</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#utteranceData_count"><span class="hs-identifier hs-type">utteranceData_count</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData"><span class="hs-identifier hs-type">UtteranceData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span id="utteranceData_count"><span class="annot"><span class="annottext">utteranceData_count :: (Maybe Int -&gt; f (Maybe Int)) -&gt; UtteranceData -&gt; f UtteranceData
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData%27"><span class="hs-identifier hs-type">UtteranceData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316988"><span class="annot"><span class="annottext">Maybe POSIX
+firstUtteredDate :: Maybe POSIX
+$sel:firstUtteredDate:UtteranceData' :: UtteranceData -&gt; Maybe POSIX
+</span><a href="#local-6989586621679316988"><span class="hs-identifier hs-var hs-var">firstUtteredDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679316988"><span class="hs-identifier hs-var">firstUtteredDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316987"><span class="annot"><span class="annottext">s :: UtteranceData
+</span><a href="#local-6989586621679316987"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData%27"><span class="hs-identifier hs-type">UtteranceData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316986"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679316986"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UtteranceData
+</span><a href="#local-6989586621679316987"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:firstUtteredDate:UtteranceData' :: Maybe POSIX
+</span><a href="Network.AWS.LexModels.Types.UtteranceData.html#%24sel%3AfirstUtteredDate%3AUtteranceData%27"><span class="hs-identifier hs-var">firstUtteredDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679316986"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData"><span class="hs-identifier hs-type">UtteranceData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; UtteranceData -&gt; f UtteranceData)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; UtteranceData
+-&gt; f UtteranceData
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The number of times that the utterance was processed.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#utteranceData_count"><span class="hs-identifier hs-type">utteranceData_count</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData"><span class="hs-identifier hs-type">UtteranceData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="utteranceData_count"><span class="annot"><span class="annottext">utteranceData_count :: (Maybe Int -&gt; f (Maybe Int)) -&gt; UtteranceData -&gt; f UtteranceData
 </span><a href="Network.AWS.LexModels.Types.UtteranceData.html#utteranceData_count"><span class="hs-identifier hs-var hs-var">utteranceData_count</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UtteranceData -&gt; Maybe Int)
 -&gt; (UtteranceData -&gt; Maybe Int -&gt; UtteranceData)
 -&gt; Lens UtteranceData UtteranceData (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData%27"><span class="hs-identifier hs-type">UtteranceData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316685"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData%27"><span class="hs-identifier hs-type">UtteranceData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316981"><span class="annot"><span class="annottext">Maybe Int
 count :: Maybe Int
 $sel:count:UtteranceData' :: UtteranceData -&gt; Maybe Int
-</span><a href="#local-6989586621679316685"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679316685"><span class="hs-identifier hs-var">count</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316684"><span class="annot"><span class="annottext">s :: UtteranceData
-</span><a href="#local-6989586621679316684"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData%27"><span class="hs-identifier hs-type">UtteranceData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316683"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679316683"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UtteranceData
-</span><a href="#local-6989586621679316684"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:count:UtteranceData' :: Maybe Int
+</span><a href="#local-6989586621679316981"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679316981"><span class="hs-identifier hs-var">count</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316980"><span class="annot"><span class="annottext">s :: UtteranceData
+</span><a href="#local-6989586621679316980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData%27"><span class="hs-identifier hs-type">UtteranceData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316979"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679316979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UtteranceData
+</span><a href="#local-6989586621679316980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:count:UtteranceData' :: Maybe Int
 </span><a href="Network.AWS.LexModels.Types.UtteranceData.html#%24sel%3Acount%3AUtteranceData%27"><span class="hs-identifier hs-var">count</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679316683"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData"><span class="hs-identifier hs-type">UtteranceData</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679316979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData"><span class="hs-identifier hs-type">UtteranceData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The text that was entered by the user or the text representation of an</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- audio clip.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#utteranceData_utteranceString"><span class="hs-identifier hs-type">utteranceData_utteranceString</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData"><span class="hs-identifier hs-type">UtteranceData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="utteranceData_utteranceString"><span class="annot"><span class="annottext">utteranceData_utteranceString :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UtteranceData -&gt; f UtteranceData
+</span><a href="Network.AWS.LexModels.Types.UtteranceData.html#utteranceData_utteranceString"><span class="hs-identifier hs-var hs-var">utteranceData_utteranceString</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UtteranceData -&gt; Maybe Text)
+-&gt; (UtteranceData -&gt; Maybe Text -&gt; UtteranceData)
+-&gt; Lens UtteranceData UtteranceData (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData%27"><span class="hs-identifier hs-type">UtteranceData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316977"><span class="annot"><span class="annottext">Maybe Text
+utteranceString :: Maybe Text
+$sel:utteranceString:UtteranceData' :: UtteranceData -&gt; Maybe Text
+</span><a href="#local-6989586621679316977"><span class="hs-identifier hs-var hs-var">utteranceString</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316977"><span class="hs-identifier hs-var">utteranceString</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316976"><span class="annot"><span class="annottext">s :: UtteranceData
+</span><a href="#local-6989586621679316976"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData%27"><span class="hs-identifier hs-type">UtteranceData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316975"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316975"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UtteranceData
+</span><a href="#local-6989586621679316976"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:utteranceString:UtteranceData' :: Maybe Text
+</span><a href="Network.AWS.LexModels.Types.UtteranceData.html#%24sel%3AutteranceString%3AUtteranceData%27"><span class="hs-identifier hs-var">utteranceString</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316975"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData"><span class="hs-identifier hs-type">UtteranceData</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | The date that the utterance was last recorded.</span><span>
 </span><span id="line-87"></span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#utteranceData_lastUtteredDate"><span class="hs-identifier hs-type">utteranceData_lastUtteredDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData"><span class="hs-identifier hs-type">UtteranceData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
@@ -212,16 +228,16 @@ $sel:count:UtteranceData' :: UtteranceData -&gt; Maybe Int
 -&gt; (UtteranceData -&gt; Maybe POSIX -&gt; UtteranceData)
 -&gt; Lens UtteranceData UtteranceData (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData%27"><span class="hs-identifier hs-type">UtteranceData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316681"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData%27"><span class="hs-identifier hs-type">UtteranceData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316973"><span class="annot"><span class="annottext">Maybe POSIX
 lastUtteredDate :: Maybe POSIX
 $sel:lastUtteredDate:UtteranceData' :: UtteranceData -&gt; Maybe POSIX
-</span><a href="#local-6989586621679316681"><span class="hs-identifier hs-var hs-var">lastUtteredDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679316681"><span class="hs-identifier hs-var">lastUtteredDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316680"><span class="annot"><span class="annottext">s :: UtteranceData
-</span><a href="#local-6989586621679316680"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData%27"><span class="hs-identifier hs-type">UtteranceData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316679"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679316679"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UtteranceData
-</span><a href="#local-6989586621679316680"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUtteredDate:UtteranceData' :: Maybe POSIX
+</span><a href="#local-6989586621679316973"><span class="hs-identifier hs-var hs-var">lastUtteredDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679316973"><span class="hs-identifier hs-var">lastUtteredDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316972"><span class="annot"><span class="annottext">s :: UtteranceData
+</span><a href="#local-6989586621679316972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData%27"><span class="hs-identifier hs-type">UtteranceData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316971"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679316971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UtteranceData
+</span><a href="#local-6989586621679316972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUtteredDate:UtteranceData' :: Maybe POSIX
 </span><a href="Network.AWS.LexModels.Types.UtteranceData.html#%24sel%3AlastUtteredDate%3AUtteranceData%27"><span class="hs-identifier hs-var">lastUtteredDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679316679"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData"><span class="hs-identifier hs-type">UtteranceData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679316971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData"><span class="hs-identifier hs-type">UtteranceData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; UtteranceData -&gt; f UtteranceData)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -238,42 +254,26 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- | The date that the utterance was first recorded.</span><span>
-</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#utteranceData_firstUtteredDate"><span class="hs-identifier hs-type">utteranceData_firstUtteredDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData"><span class="hs-identifier hs-type">UtteranceData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span id="utteranceData_firstUtteredDate"><span class="annot"><span class="annottext">utteranceData_firstUtteredDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; UtteranceData -&gt; f UtteranceData
-</span><a href="Network.AWS.LexModels.Types.UtteranceData.html#utteranceData_firstUtteredDate"><span class="hs-identifier hs-var hs-var">utteranceData_firstUtteredDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UtteranceData -&gt; Maybe POSIX)
--&gt; (UtteranceData -&gt; Maybe POSIX -&gt; UtteranceData)
--&gt; Lens UtteranceData UtteranceData (Maybe POSIX) (Maybe POSIX)
+</span><span id="line-90"></span><span class="hs-comment">-- | The total number of individuals that used the utterance.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#utteranceData_distinctUsers"><span class="hs-identifier hs-type">utteranceData_distinctUsers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData"><span class="hs-identifier hs-type">UtteranceData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="utteranceData_distinctUsers"><span class="annot"><span class="annottext">utteranceData_distinctUsers :: (Maybe Int -&gt; f (Maybe Int)) -&gt; UtteranceData -&gt; f UtteranceData
+</span><a href="Network.AWS.LexModels.Types.UtteranceData.html#utteranceData_distinctUsers"><span class="hs-identifier hs-var hs-var">utteranceData_distinctUsers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UtteranceData -&gt; Maybe Int)
+-&gt; (UtteranceData -&gt; Maybe Int -&gt; UtteranceData)
+-&gt; Lens UtteranceData UtteranceData (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData%27"><span class="hs-identifier hs-type">UtteranceData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316674"><span class="annot"><span class="annottext">Maybe POSIX
-firstUtteredDate :: Maybe POSIX
-$sel:firstUtteredDate:UtteranceData' :: UtteranceData -&gt; Maybe POSIX
-</span><a href="#local-6989586621679316674"><span class="hs-identifier hs-var hs-var">firstUtteredDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679316674"><span class="hs-identifier hs-var">firstUtteredDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316673"><span class="annot"><span class="annottext">s :: UtteranceData
-</span><a href="#local-6989586621679316673"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData%27"><span class="hs-identifier hs-type">UtteranceData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316672"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679316672"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UtteranceData
-</span><a href="#local-6989586621679316673"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:firstUtteredDate:UtteranceData' :: Maybe POSIX
-</span><a href="Network.AWS.LexModels.Types.UtteranceData.html#%24sel%3AfirstUtteredDate%3AUtteranceData%27"><span class="hs-identifier hs-var">firstUtteredDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679316672"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData"><span class="hs-identifier hs-type">UtteranceData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
- -&gt; UtteranceData -&gt; f UtteranceData)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; UtteranceData
--&gt; f UtteranceData
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData%27"><span class="hs-identifier hs-type">UtteranceData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316969"><span class="annot"><span class="annottext">Maybe Int
+distinctUsers :: Maybe Int
+$sel:distinctUsers:UtteranceData' :: UtteranceData -&gt; Maybe Int
+</span><a href="#local-6989586621679316969"><span class="hs-identifier hs-var hs-var">distinctUsers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679316969"><span class="hs-identifier hs-var">distinctUsers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316968"><span class="annot"><span class="annottext">s :: UtteranceData
+</span><a href="#local-6989586621679316968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData%27"><span class="hs-identifier hs-type">UtteranceData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316967"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679316967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UtteranceData
+</span><a href="#local-6989586621679316968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:distinctUsers:UtteranceData' :: Maybe Int
+</span><a href="Network.AWS.LexModels.Types.UtteranceData.html#%24sel%3AdistinctUsers%3AUtteranceData%27"><span class="hs-identifier hs-var">distinctUsers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679316967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData"><span class="hs-identifier hs-type">UtteranceData</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316669"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData"><span class="hs-identifier hs-type">UtteranceData</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679316667"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UtteranceData
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316964"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData"><span class="hs-identifier hs-type">UtteranceData</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679316962"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UtteranceData
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser UtteranceData)
@@ -283,71 +283,70 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;UtteranceData&quot;</span></span><span>
-</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679316664"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679316664"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679316959"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679316959"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
 -&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe POSIX
 -&gt; Maybe Int
--&gt; Maybe POSIX
--&gt; Maybe POSIX
 -&gt; UtteranceData
 </span><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData%27"><span class="hs-identifier hs-var">UtteranceData'</span></a></span><span>
-</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
  -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
  -&gt; Maybe Int
- -&gt; Maybe POSIX
- -&gt; Maybe POSIX
  -&gt; UtteranceData)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe POSIX)
 -&gt; Parser
      (Maybe Int
-      -&gt; Maybe Int -&gt; Maybe POSIX -&gt; Maybe POSIX -&gt; UtteranceData)
+      -&gt; Maybe Text -&gt; Maybe POSIX -&gt; Maybe Int -&gt; UtteranceData)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679316664"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;utteranceString&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Int
-   -&gt; Maybe Int -&gt; Maybe POSIX -&gt; Maybe POSIX -&gt; UtteranceData)
--&gt; Parser (Maybe Int)
--&gt; Parser
-     (Maybe Int -&gt; Maybe POSIX -&gt; Maybe POSIX -&gt; UtteranceData)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679316664"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;distinctUsers&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; Maybe POSIX -&gt; Maybe POSIX -&gt; UtteranceData)
--&gt; Parser (Maybe Int)
--&gt; Parser (Maybe POSIX -&gt; Maybe POSIX -&gt; UtteranceData)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679316664"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;count&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe POSIX -&gt; UtteranceData)
--&gt; Parser (Maybe POSIX) -&gt; Parser (Maybe POSIX -&gt; UtteranceData)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679316664"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;lastUtteredDate&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; UtteranceData)
--&gt; Parser (Maybe POSIX) -&gt; Parser UtteranceData
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679316664"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679316959"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;firstUtteredDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Text -&gt; Maybe POSIX -&gt; Maybe Int -&gt; UtteranceData)
+-&gt; Parser (Maybe Int)
+-&gt; Parser (Maybe Text -&gt; Maybe POSIX -&gt; Maybe Int -&gt; UtteranceData)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679316959"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;count&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe POSIX -&gt; Maybe Int -&gt; UtteranceData)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe POSIX -&gt; Maybe Int -&gt; UtteranceData)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679316959"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;utteranceString&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe Int -&gt; UtteranceData)
+-&gt; Parser (Maybe POSIX) -&gt; Parser (Maybe Int -&gt; UtteranceData)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679316959"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastUtteredDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; UtteranceData)
+-&gt; Parser (Maybe Int) -&gt; Parser UtteranceData
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679316959"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;distinctUsers&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316658"><span id="local-6989586621679316660"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData"><span class="hs-identifier hs-type">UtteranceData</span></a></span></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316953"><span id="local-6989586621679316955"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData"><span class="hs-identifier hs-type">UtteranceData</span></a></span></span></span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316655"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData"><span class="hs-identifier hs-type">UtteranceData</span></a></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316950"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData"><span class="hs-identifier hs-type">UtteranceData</span></a></span></span><span>
 </span><span id="line-110"></span></pre></body></html>

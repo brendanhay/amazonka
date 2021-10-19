@@ -38,8 +38,8 @@
 </span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#newListApplicationVersionsResponse"><span class="hs-identifier">newListApplicationVersionsResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>
 </span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#listApplicationVersionsResponse_nextToken"><span class="hs-identifier">listApplicationVersionsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#listApplicationVersionsResponse_versions"><span class="hs-identifier">listApplicationVersionsResponse_versions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#listApplicationVersionsResponse_versions"><span class="hs-identifier">listApplicationVersionsResponse_versions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#listApplicationVersionsResponse_nextToken"><span class="hs-identifier">listApplicationVersionsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#listApplicationVersionsResponse_httpStatus"><span class="hs-identifier">listApplicationVersionsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span class="hs-keyword">where</span><span>
@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.html"><span class="hs-identifier">Network.AWS.ServerlessApplicationRepository.Types</span></a></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newListApplicationVersions' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679190963"><span id="local-6989586621679190964"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListApplicationVersions"><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersions"><span class="hs-identifier hs-var">ListApplicationVersions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListApplicationVersions%27"><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersions%27"><span class="hs-identifier hs-var">ListApplicationVersions'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679191075"><span id="local-6989586621679191076"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListApplicationVersions"><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersions"><span class="hs-identifier hs-var">ListApplicationVersions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListApplicationVersions%27"><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersions%27"><span class="hs-identifier hs-var">ListApplicationVersions'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token to specify where to start paginating.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AnextToken%3AListApplicationVersions%27"><span class="annot"><span class="annottext">ListApplicationVersions -&gt; Maybe Text
 </span><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#%24sel%3AnextToken%3AListApplicationVersions%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -63,7 +63,7 @@
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AapplicationId%3AListApplicationVersions%27"><span class="annot"><span class="annottext">ListApplicationVersions -&gt; Text
 </span><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#%24sel%3AapplicationId%3AListApplicationVersions%27"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679190955"><span id="local-6989586621679190957"><span class="annot"><span class="annottext">ListApplicationVersions -&gt; ListApplicationVersions -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679191067"><span id="local-6989586621679191069"><span class="annot"><span class="annottext">ListApplicationVersions -&gt; ListApplicationVersions -&gt; Bool
 (ListApplicationVersions -&gt; ListApplicationVersions -&gt; Bool)
 -&gt; (ListApplicationVersions -&gt; ListApplicationVersions -&gt; Bool)
 -&gt; Eq ListApplicationVersions
@@ -72,7 +72,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListApplicationVersions -&gt; ListApplicationVersions -&gt; Bool
 == :: ListApplicationVersions -&gt; ListApplicationVersions -&gt; Bool
 $c== :: ListApplicationVersions -&gt; ListApplicationVersions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679190946"><span id="local-6989586621679190948"><span id="local-6989586621679190950"><span id="local-6989586621679190952"><span class="annot"><span class="annottext">ReadPrec [ListApplicationVersions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679191058"><span id="local-6989586621679191060"><span id="local-6989586621679191062"><span id="local-6989586621679191064"><span class="annot"><span class="annottext">ReadPrec [ListApplicationVersions]
 ReadPrec ListApplicationVersions
 Int -&gt; ReadS ListApplicationVersions
 ReadS [ListApplicationVersions]
@@ -92,7 +92,7 @@ readList :: ReadS [ListApplicationVersions]
 $creadList :: ReadS [ListApplicationVersions]
 readsPrec :: Int -&gt; ReadS ListApplicationVersions
 $creadsPrec :: Int -&gt; ReadS ListApplicationVersions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679190939"><span id="local-6989586621679190941"><span id="local-6989586621679190943"><span class="annot"><span class="annottext">Int -&gt; ListApplicationVersions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679191051"><span id="local-6989586621679191053"><span id="local-6989586621679191055"><span class="annot"><span class="annottext">Int -&gt; ListApplicationVersions -&gt; ShowS
 [ListApplicationVersions] -&gt; ShowS
 ListApplicationVersions -&gt; String
 (Int -&gt; ListApplicationVersions -&gt; ShowS)
@@ -138,8 +138,8 @@ $cfrom :: forall x. ListApplicationVersions -&gt; Rep ListApplicationVersions x
 </span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersions"><span class="hs-identifier hs-type">ListApplicationVersions</span></a></span><span>
 </span><span id="line-82"></span><span id="newListApplicationVersions"><span class="annot"><span class="annottext">newListApplicationVersions :: Text -&gt; ListApplicationVersions
-</span><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#newListApplicationVersions"><span class="hs-identifier hs-var hs-var">newListApplicationVersions</span></a></span></span><span> </span><span id="local-6989586621679190934"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679190934"><span class="hs-identifier hs-var">pApplicationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#newListApplicationVersions"><span class="hs-identifier hs-var hs-var">newListApplicationVersions</span></a></span></span><span> </span><span id="local-6989586621679191046"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679191046"><span class="hs-identifier hs-var">pApplicationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>  </span><span class="annot"><span class="annottext">ListApplicationVersions' :: Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; ListApplicationVersions
 </span><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersions%27"><span class="hs-identifier hs-type">ListApplicationVersions'</span></a></span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListApplicationVersions' :: Maybe Text
@@ -153,7 +153,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:applicationId:ListApplicationVersions' :: Text
 </span><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#%24sel%3AapplicationId%3AListApplicationVersions%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679190934"><span class="hs-identifier hs-var">pApplicationId_</span></a></span><span>
+</span><a href="#local-6989586621679191046"><span class="hs-identifier hs-var">pApplicationId_</span></a></span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | A token to specify where to start paginating.</span><span>
@@ -169,16 +169,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersions%27"><span class="hs-identifier hs-type">ListApplicationVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190932"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersions%27"><span class="hs-identifier hs-type">ListApplicationVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191044"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListApplicationVersions' :: ListApplicationVersions -&gt; Maybe Text
-</span><a href="#local-6989586621679190932"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679190932"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679190931"><span class="annot"><span class="annottext">s :: ListApplicationVersions
-</span><a href="#local-6989586621679190931"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersions%27"><span class="hs-identifier hs-type">ListApplicationVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679190930"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679190930"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationVersions
-</span><a href="#local-6989586621679190931"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListApplicationVersions' :: Maybe Text
+</span><a href="#local-6989586621679191044"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679191044"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679191043"><span class="annot"><span class="annottext">s :: ListApplicationVersions
+</span><a href="#local-6989586621679191043"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersions%27"><span class="hs-identifier hs-type">ListApplicationVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679191042"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679191042"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationVersions
+</span><a href="#local-6989586621679191043"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListApplicationVersions' :: Maybe Text
 </span><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#%24sel%3AnextToken%3AListApplicationVersions%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679190930"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersions"><span class="hs-identifier hs-type">ListApplicationVersions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679191042"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersions"><span class="hs-identifier hs-type">ListApplicationVersions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | The total number of items to return.</span><span>
 </span><span id="line-95"></span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#listApplicationVersions_maxItems"><span class="hs-identifier hs-type">listApplicationVersions_maxItems</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersions"><span class="hs-identifier hs-type">ListApplicationVersions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -193,16 +193,16 @@ $sel:nextToken:ListApplicationVersions' :: ListApplicationVersions -&gt; Maybe T
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersions%27"><span class="hs-identifier hs-type">ListApplicationVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190929"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersions%27"><span class="hs-identifier hs-type">ListApplicationVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191041"><span class="annot"><span class="annottext">Maybe Natural
 maxItems :: Maybe Natural
 $sel:maxItems:ListApplicationVersions' :: ListApplicationVersions -&gt; Maybe Natural
-</span><a href="#local-6989586621679190929"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679190929"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679190928"><span class="annot"><span class="annottext">s :: ListApplicationVersions
-</span><a href="#local-6989586621679190928"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersions%27"><span class="hs-identifier hs-type">ListApplicationVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679190927"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679190927"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationVersions
-</span><a href="#local-6989586621679190928"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ListApplicationVersions' :: Maybe Natural
+</span><a href="#local-6989586621679191041"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679191041"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679191040"><span class="annot"><span class="annottext">s :: ListApplicationVersions
+</span><a href="#local-6989586621679191040"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersions%27"><span class="hs-identifier hs-type">ListApplicationVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679191039"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679191039"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationVersions
+</span><a href="#local-6989586621679191040"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ListApplicationVersions' :: Maybe Natural
 </span><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#%24sel%3AmaxItems%3AListApplicationVersions%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679190927"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersions"><span class="hs-identifier hs-type">ListApplicationVersions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679191039"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersions"><span class="hs-identifier hs-type">ListApplicationVersions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the application.</span><span>
 </span><span id="line-99"></span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#listApplicationVersions_applicationId"><span class="hs-identifier hs-type">listApplicationVersions_applicationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersions"><span class="hs-identifier hs-type">ListApplicationVersions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -212,30 +212,30 @@ $sel:maxItems:ListApplicationVersions' :: ListApplicationVersions -&gt; Maybe Na
 -&gt; (ListApplicationVersions -&gt; Text -&gt; ListApplicationVersions)
 -&gt; Lens ListApplicationVersions ListApplicationVersions Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersions%27"><span class="hs-identifier hs-type">ListApplicationVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190926"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersions%27"><span class="hs-identifier hs-type">ListApplicationVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191038"><span class="annot"><span class="annottext">Text
 applicationId :: Text
 $sel:applicationId:ListApplicationVersions' :: ListApplicationVersions -&gt; Text
-</span><a href="#local-6989586621679190926"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679190926"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679190925"><span class="annot"><span class="annottext">s :: ListApplicationVersions
-</span><a href="#local-6989586621679190925"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersions%27"><span class="hs-identifier hs-type">ListApplicationVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679190924"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679190924"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationVersions
-</span><a href="#local-6989586621679190925"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationId:ListApplicationVersions' :: Text
+</span><a href="#local-6989586621679191038"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679191038"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679191037"><span class="annot"><span class="annottext">s :: ListApplicationVersions
+</span><a href="#local-6989586621679191037"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersions%27"><span class="hs-identifier hs-type">ListApplicationVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679191036"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679191036"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationVersions
+</span><a href="#local-6989586621679191037"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationId:ListApplicationVersions' :: Text
 </span><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#%24sel%3AapplicationId%3AListApplicationVersions%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679190924"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersions"><span class="hs-identifier hs-type">ListApplicationVersions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679191036"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersions"><span class="hs-identifier hs-type">ListApplicationVersions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersions"><span class="hs-identifier hs-type">ListApplicationVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679190920"><span class="annot"><span class="annottext">page :: ListApplicationVersions
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679191032"><span class="annot"><span class="annottext">page :: ListApplicationVersions
 -&gt; AWSResponse ListApplicationVersions
 -&gt; Maybe ListApplicationVersions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679190918"><span class="annot"><span class="annottext">ListApplicationVersions
-</span><a href="#local-6989586621679190918"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679190917"><span class="annot"><span class="annottext">AWSResponse ListApplicationVersions
-</span><a href="#local-6989586621679190917"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679191030"><span class="annot"><span class="annottext">ListApplicationVersions
+</span><a href="#local-6989586621679191030"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679191029"><span class="annot"><span class="annottext">AWSResponse ListApplicationVersions
+</span><a href="#local-6989586621679191029"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-104"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-105"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListApplicationVersions
 ListApplicationVersionsResponse
-</span><a href="#local-6989586621679190917"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679191029"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">ListApplicationVersionsResponse
 -&gt; Getting (First Text) ListApplicationVersionsResponse Text
 -&gt; Maybe Text
@@ -265,7 +265,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-111"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListApplicationVersions
 ListApplicationVersionsResponse
-</span><a href="#local-6989586621679190917"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679191029"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">ListApplicationVersionsResponse
 -&gt; Getting
      (First [VersionSummary])
@@ -311,7 +311,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">ListApplicationVersions
-</span><a href="#local-6989586621679190918"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679191030"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">ListApplicationVersions
 -&gt; (ListApplicationVersions -&gt; ListApplicationVersions)
 -&gt; ListApplicationVersions
@@ -330,7 +330,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListApplicationVersions
 ListApplicationVersionsResponse
-</span><a href="#local-6989586621679190917"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679191029"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">ListApplicationVersionsResponse
 -&gt; Getting (First Text) ListApplicationVersionsResponse Text
 -&gt; Maybe Text
@@ -356,13 +356,13 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-125"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-126"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersions"><span class="hs-identifier hs-type">ListApplicationVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-127"></span><span>      </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersionsResponse"><span class="hs-identifier hs-type">ListApplicationVersionsResponse</span></a></span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679190907"><span class="annot"><span class="annottext">request :: ListApplicationVersions -&gt; Request ListApplicationVersions
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679191019"><span class="annot"><span class="annottext">request :: ListApplicationVersions -&gt; Request ListApplicationVersions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; ListApplicationVersions -&gt; Request ListApplicationVersions
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ServerlessApplicationRepository.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679190903"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679191015"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListApplicationVersions
 -&gt; ClientResponse ClientBody
@@ -388,35 +388,21 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679190900"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679190900"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679190899"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679190899"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679190898"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679190898"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe [VersionSummary] -&gt; Int -&gt; ListApplicationVersionsResponse
+</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679191012"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679191012"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679191011"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679191011"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679191010"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679191010"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">Maybe [VersionSummary]
+-&gt; Maybe Text -&gt; Int -&gt; ListApplicationVersionsResponse
 </span><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersionsResponse%27"><span class="hs-identifier hs-var">ListApplicationVersionsResponse'</span></a></span><span>
-</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe [VersionSummary]
- -&gt; Int
- -&gt; ListApplicationVersionsResponse)
--&gt; Either String (Maybe Text)
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [VersionSummary]
+ -&gt; Maybe Text -&gt; Int -&gt; ListApplicationVersionsResponse)
+-&gt; Either String (Maybe [VersionSummary])
 -&gt; Either
-     String
-     (Maybe [VersionSummary] -&gt; Int -&gt; ListApplicationVersionsResponse)
+     String (Maybe Text -&gt; Int -&gt; ListApplicationVersionsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679190898"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe [VersionSummary] -&gt; Int -&gt; ListApplicationVersionsResponse)
--&gt; Either String (Maybe [VersionSummary])
--&gt; Either String (Int -&gt; ListApplicationVersionsResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679190898"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [VersionSummary]))
+</span><a href="#local-6989586621679191010"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [VersionSummary]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;versions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [VersionSummary]))
@@ -425,6 +411,16 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [VersionSummary]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Int -&gt; ListApplicationVersionsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListApplicationVersionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679191010"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListApplicationVersionsResponse)
 -&gt; Either String Int
 -&gt; Either String ListApplicationVersionsResponse
@@ -434,15 +430,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679190900"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679191012"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679190889"><span id="local-6989586621679190891"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersions"><span class="hs-identifier hs-type">ListApplicationVersions</span></a></span></span></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679191001"><span id="local-6989586621679191003"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersions"><span class="hs-identifier hs-type">ListApplicationVersions</span></a></span></span></span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679190886"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersions"><span class="hs-identifier hs-type">ListApplicationVersions</span></a></span></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679190998"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersions"><span class="hs-identifier hs-type">ListApplicationVersions</span></a></span></span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersions"><span class="hs-identifier hs-type">ListApplicationVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679190882"><span class="annot"><span class="annottext">toHeaders :: ListApplicationVersions -&gt; ResponseHeaders
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679190994"><span class="annot"><span class="annottext">toHeaders :: ListApplicationVersions -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListApplicationVersions -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -462,8 +458,8 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersions"><span class="hs-identifier hs-type">ListApplicationVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679190876"><span class="annot"><span class="annottext">toPath :: ListApplicationVersions -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersions%27"><span class="hs-identifier hs-type">ListApplicationVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190872"><span id="local-6989586621679190873"><span id="local-6989586621679190874"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679190988"><span class="annot"><span class="annottext">toPath :: ListApplicationVersions -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersions%27"><span class="hs-identifier hs-type">ListApplicationVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190984"><span id="local-6989586621679190985"><span id="local-6989586621679190986"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 applicationId :: Text
@@ -472,7 +468,7 @@ nextToken :: Maybe Text
 $sel:applicationId:ListApplicationVersions' :: ListApplicationVersions -&gt; Text
 $sel:maxItems:ListApplicationVersions' :: ListApplicationVersions -&gt; Maybe Natural
 $sel:nextToken:ListApplicationVersions' :: ListApplicationVersions -&gt; Maybe Text
-</span><a href="#local-6989586621679190872"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679190984"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -481,14 +477,14 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679190872"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679190984"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/versions&quot;</span></span><span>
 </span><span id="line-159"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersions"><span class="hs-identifier hs-type">ListApplicationVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679190868"><span class="annot"><span class="annottext">toQuery :: ListApplicationVersions -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersions%27"><span class="hs-identifier hs-type">ListApplicationVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190864"><span id="local-6989586621679190865"><span id="local-6989586621679190866"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679190980"><span class="annot"><span class="annottext">toQuery :: ListApplicationVersions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersions%27"><span class="hs-identifier hs-type">ListApplicationVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190976"><span id="local-6989586621679190977"><span id="local-6989586621679190978"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 applicationId :: Text
@@ -497,7 +493,7 @@ nextToken :: Maybe Text
 $sel:applicationId:ListApplicationVersions' :: ListApplicationVersions -&gt; Text
 $sel:maxItems:ListApplicationVersions' :: ListApplicationVersions -&gt; Maybe Natural
 $sel:nextToken:ListApplicationVersions' :: ListApplicationVersions -&gt; Maybe Text
-</span><a href="#local-6989586621679190864"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679190976"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -505,27 +501,27 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679190866"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679190978"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;maxItems&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679190865"><span class="hs-identifier hs-var">maxItems</span></a></span><span>
+</span><a href="#local-6989586621679190977"><span class="hs-identifier hs-var">maxItems</span></a></span><span>
 </span><span id="line-166"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- | /See:/ 'newListApplicationVersionsResponse' smart constructor.</span><span>
-</span><span id="line-169"></span><span id="local-6989586621679190861"><span id="local-6989586621679190862"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListApplicationVersionsResponse"><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersionsResponse"><span class="hs-identifier hs-var">ListApplicationVersionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListApplicationVersionsResponse%27"><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersionsResponse%27"><span class="hs-identifier hs-var">ListApplicationVersionsResponse'</span></a></span></span><span>
-</span><span id="line-170"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to request the next page of results.</span><span>
-</span><span id="line-171"></span><span>    </span><span id="%24sel%3AnextToken%3AListApplicationVersionsResponse%27"><span class="annot"><span class="annottext">ListApplicationVersionsResponse -&gt; Maybe Text
-</span><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#%24sel%3AnextToken%3AListApplicationVersionsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-172"></span><span>    </span><span class="hs-comment">-- | An array of version summaries for the application.</span><span>
-</span><span id="line-173"></span><span>    </span><span id="%24sel%3Aversions%3AListApplicationVersionsResponse%27"><span class="annot"><span class="annottext">ListApplicationVersionsResponse -&gt; Maybe [VersionSummary]
+</span><span id="line-169"></span><span id="local-6989586621679190973"><span id="local-6989586621679190974"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListApplicationVersionsResponse"><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersionsResponse"><span class="hs-identifier hs-var">ListApplicationVersionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListApplicationVersionsResponse%27"><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersionsResponse%27"><span class="hs-identifier hs-var">ListApplicationVersionsResponse'</span></a></span></span><span>
+</span><span id="line-170"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of version summaries for the application.</span><span>
+</span><span id="line-171"></span><span>    </span><span id="%24sel%3Aversions%3AListApplicationVersionsResponse%27"><span class="annot"><span class="annottext">ListApplicationVersionsResponse -&gt; Maybe [VersionSummary]
 </span><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#%24sel%3Aversions%3AListApplicationVersionsResponse%27"><span class="hs-identifier hs-var hs-var">versions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.VersionSummary.html#VersionSummary"><span class="hs-identifier hs-type">VersionSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-comment">-- | The token to request the next page of results.</span><span>
+</span><span id="line-173"></span><span>    </span><span id="%24sel%3AnextToken%3AListApplicationVersionsResponse%27"><span class="annot"><span class="annottext">ListApplicationVersionsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#%24sel%3AnextToken%3AListApplicationVersionsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-174"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-175"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListApplicationVersionsResponse%27"><span class="annot"><span class="annottext">ListApplicationVersionsResponse -&gt; Int
 </span><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#%24sel%3AhttpStatus%3AListApplicationVersionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-176"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-177"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679190854"><span id="local-6989586621679190856"><span class="annot"><span class="annottext">ListApplicationVersionsResponse
+</span><span id="line-177"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679190966"><span id="local-6989586621679190968"><span class="annot"><span class="annottext">ListApplicationVersionsResponse
 -&gt; ListApplicationVersionsResponse -&gt; Bool
 (ListApplicationVersionsResponse
  -&gt; ListApplicationVersionsResponse -&gt; Bool)
@@ -541,7 +537,7 @@ $c/= :: ListApplicationVersionsResponse
 -&gt; ListApplicationVersionsResponse -&gt; Bool
 $c== :: ListApplicationVersionsResponse
 -&gt; ListApplicationVersionsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679190846"><span id="local-6989586621679190848"><span id="local-6989586621679190850"><span id="local-6989586621679190852"><span class="annot"><span class="annottext">ReadPrec [ListApplicationVersionsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679190958"><span id="local-6989586621679190960"><span id="local-6989586621679190962"><span id="local-6989586621679190964"><span class="annot"><span class="annottext">ReadPrec [ListApplicationVersionsResponse]
 ReadPrec ListApplicationVersionsResponse
 Int -&gt; ReadS ListApplicationVersionsResponse
 ReadS [ListApplicationVersionsResponse]
@@ -561,7 +557,7 @@ readList :: ReadS [ListApplicationVersionsResponse]
 $creadList :: ReadS [ListApplicationVersionsResponse]
 readsPrec :: Int -&gt; ReadS ListApplicationVersionsResponse
 $creadsPrec :: Int -&gt; ReadS ListApplicationVersionsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679190840"><span id="local-6989586621679190842"><span id="local-6989586621679190844"><span class="annot"><span class="annottext">Int -&gt; ListApplicationVersionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679190952"><span id="local-6989586621679190954"><span id="local-6989586621679190956"><span class="annot"><span class="annottext">Int -&gt; ListApplicationVersionsResponse -&gt; ShowS
 [ListApplicationVersionsResponse] -&gt; ShowS
 ListApplicationVersionsResponse -&gt; String
 (Int -&gt; ListApplicationVersionsResponse -&gt; ShowS)
@@ -607,9 +603,9 @@ ListApplicationVersionsResponse
 </span><span id="line-184"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-186"></span><span class="hs-comment">--</span><span>
-</span><span id="line-187"></span><span class="hs-comment">-- 'nextToken', 'listApplicationVersionsResponse_nextToken' - The token to request the next page of results.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- 'versions', 'listApplicationVersionsResponse_versions' - An array of version summaries for the application.</span><span>
 </span><span id="line-188"></span><span class="hs-comment">--</span><span>
-</span><span id="line-189"></span><span class="hs-comment">-- 'versions', 'listApplicationVersionsResponse_versions' - An array of version summaries for the application.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- 'nextToken', 'listApplicationVersionsResponse_nextToken' - The token to request the next page of results.</span><span>
 </span><span id="line-190"></span><span class="hs-comment">--</span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- 'httpStatus', 'listApplicationVersionsResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-192"></span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#newListApplicationVersionsResponse"><span class="hs-identifier hs-type">newListApplicationVersionsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -617,49 +613,28 @@ ListApplicationVersionsResponse
 </span><span id="line-194"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-195"></span><span>  </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersionsResponse"><span class="hs-identifier hs-type">ListApplicationVersionsResponse</span></a></span><span>
 </span><span id="line-196"></span><span id="newListApplicationVersionsResponse"><span class="annot"><span class="annottext">newListApplicationVersionsResponse :: Int -&gt; ListApplicationVersionsResponse
-</span><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#newListApplicationVersionsResponse"><span class="hs-identifier hs-var hs-var">newListApplicationVersionsResponse</span></a></span></span><span> </span><span id="local-6989586621679190837"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679190837"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-197"></span><span>  </span><span class="annot"><span class="annottext">ListApplicationVersionsResponse' :: Maybe Text
--&gt; Maybe [VersionSummary] -&gt; Int -&gt; ListApplicationVersionsResponse
+</span><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#newListApplicationVersionsResponse"><span class="hs-identifier hs-var hs-var">newListApplicationVersionsResponse</span></a></span></span><span> </span><span id="local-6989586621679190949"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679190949"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-197"></span><span>  </span><span class="annot"><span class="annottext">ListApplicationVersionsResponse' :: Maybe [VersionSummary]
+-&gt; Maybe Text -&gt; Int -&gt; ListApplicationVersionsResponse
 </span><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersionsResponse%27"><span class="hs-identifier hs-type">ListApplicationVersionsResponse'</span></a></span><span>
-</span><span id="line-198"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListApplicationVersionsResponse' :: Maybe Text
-</span><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#%24sel%3AnextToken%3AListApplicationVersionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-199"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-198"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:versions:ListApplicationVersionsResponse' :: Maybe [VersionSummary]
+</span><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#%24sel%3Aversions%3AListApplicationVersionsResponse%27"><span class="hs-identifier hs-var">versions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-199"></span><span>        </span><span class="annot"><span class="annottext">Maybe [VersionSummary]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-200"></span><span>      </span><span class="annot"><span class="annottext">$sel:versions:ListApplicationVersionsResponse' :: Maybe [VersionSummary]
-</span><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#%24sel%3Aversions%3AListApplicationVersionsResponse%27"><span class="hs-identifier hs-var">versions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [VersionSummary]
+</span><span id="line-200"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListApplicationVersionsResponse' :: Maybe Text
+</span><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#%24sel%3AnextToken%3AListApplicationVersionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-201"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListApplicationVersionsResponse' :: Int
 </span><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#%24sel%3AhttpStatus%3AListApplicationVersionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679190837"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679190949"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-202"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-203"></span><span>
-</span><span id="line-204"></span><span class="hs-comment">-- | The token to request the next page of results.</span><span>
-</span><span id="line-205"></span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#listApplicationVersionsResponse_nextToken"><span class="hs-identifier hs-type">listApplicationVersionsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersionsResponse"><span class="hs-identifier hs-type">ListApplicationVersionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-206"></span><span id="listApplicationVersionsResponse_nextToken"><span class="annot"><span class="annottext">listApplicationVersionsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListApplicationVersionsResponse
--&gt; f ListApplicationVersionsResponse
-</span><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#listApplicationVersionsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listApplicationVersionsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListApplicationVersionsResponse -&gt; Maybe Text)
--&gt; (ListApplicationVersionsResponse
-    -&gt; Maybe Text -&gt; ListApplicationVersionsResponse)
--&gt; Lens' ListApplicationVersionsResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersionsResponse%27"><span class="hs-identifier hs-type">ListApplicationVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190836"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:ListApplicationVersionsResponse' :: ListApplicationVersionsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679190836"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679190836"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679190835"><span class="annot"><span class="annottext">s :: ListApplicationVersionsResponse
-</span><a href="#local-6989586621679190835"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersionsResponse%27"><span class="hs-identifier hs-type">ListApplicationVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679190834"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679190834"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationVersionsResponse
-</span><a href="#local-6989586621679190835"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListApplicationVersionsResponse' :: Maybe Text
-</span><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#%24sel%3AnextToken%3AListApplicationVersionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679190834"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersionsResponse"><span class="hs-identifier hs-type">ListApplicationVersionsResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-207"></span><span>
-</span><span id="line-208"></span><span class="hs-comment">-- | An array of version summaries for the application.</span><span>
-</span><span id="line-209"></span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#listApplicationVersionsResponse_versions"><span class="hs-identifier hs-type">listApplicationVersionsResponse_versions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersionsResponse"><span class="hs-identifier hs-type">ListApplicationVersionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.VersionSummary.html#VersionSummary"><span class="hs-identifier hs-type">VersionSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-210"></span><span id="listApplicationVersionsResponse_versions"><span class="annot"><span class="annottext">listApplicationVersionsResponse_versions :: (Maybe [VersionSummary] -&gt; f (Maybe [VersionSummary]))
+</span><span id="line-204"></span><span class="hs-comment">-- | An array of version summaries for the application.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#listApplicationVersionsResponse_versions"><span class="hs-identifier hs-type">listApplicationVersionsResponse_versions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersionsResponse"><span class="hs-identifier hs-type">ListApplicationVersionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.VersionSummary.html#VersionSummary"><span class="hs-identifier hs-type">VersionSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span id="listApplicationVersionsResponse_versions"><span class="annot"><span class="annottext">listApplicationVersionsResponse_versions :: (Maybe [VersionSummary] -&gt; f (Maybe [VersionSummary]))
 -&gt; ListApplicationVersionsResponse
 -&gt; f ListApplicationVersionsResponse
 </span><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#listApplicationVersionsResponse_versions"><span class="hs-identifier hs-var hs-var">listApplicationVersionsResponse_versions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListApplicationVersionsResponse -&gt; Maybe [VersionSummary])
@@ -667,16 +642,16 @@ $sel:nextToken:ListApplicationVersionsResponse' :: ListApplicationVersionsRespon
     -&gt; Maybe [VersionSummary] -&gt; ListApplicationVersionsResponse)
 -&gt; Lens' ListApplicationVersionsResponse (Maybe [VersionSummary])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersionsResponse%27"><span class="hs-identifier hs-type">ListApplicationVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190833"><span class="annot"><span class="annottext">Maybe [VersionSummary]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersionsResponse%27"><span class="hs-identifier hs-type">ListApplicationVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190948"><span class="annot"><span class="annottext">Maybe [VersionSummary]
 versions :: Maybe [VersionSummary]
 $sel:versions:ListApplicationVersionsResponse' :: ListApplicationVersionsResponse -&gt; Maybe [VersionSummary]
-</span><a href="#local-6989586621679190833"><span class="hs-identifier hs-var hs-var">versions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [VersionSummary]
-</span><a href="#local-6989586621679190833"><span class="hs-identifier hs-var">versions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679190832"><span class="annot"><span class="annottext">s :: ListApplicationVersionsResponse
-</span><a href="#local-6989586621679190832"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersionsResponse%27"><span class="hs-identifier hs-type">ListApplicationVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679190831"><span class="annot"><span class="annottext">Maybe [VersionSummary]
-</span><a href="#local-6989586621679190831"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationVersionsResponse
-</span><a href="#local-6989586621679190832"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versions:ListApplicationVersionsResponse' :: Maybe [VersionSummary]
+</span><a href="#local-6989586621679190948"><span class="hs-identifier hs-var hs-var">versions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [VersionSummary]
+</span><a href="#local-6989586621679190948"><span class="hs-identifier hs-var">versions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679190947"><span class="annot"><span class="annottext">s :: ListApplicationVersionsResponse
+</span><a href="#local-6989586621679190947"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersionsResponse%27"><span class="hs-identifier hs-type">ListApplicationVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679190946"><span class="annot"><span class="annottext">Maybe [VersionSummary]
+</span><a href="#local-6989586621679190946"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationVersionsResponse
+</span><a href="#local-6989586621679190947"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versions:ListApplicationVersionsResponse' :: Maybe [VersionSummary]
 </span><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#%24sel%3Aversions%3AListApplicationVersionsResponse%27"><span class="hs-identifier hs-var">versions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [VersionSummary]
-</span><a href="#local-6989586621679190831"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersionsResponse"><span class="hs-identifier hs-type">ListApplicationVersionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [VersionSummary] -&gt; f (Maybe [VersionSummary]))
+</span><a href="#local-6989586621679190946"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersionsResponse"><span class="hs-identifier hs-type">ListApplicationVersionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [VersionSummary] -&gt; f (Maybe [VersionSummary]))
  -&gt; ListApplicationVersionsResponse
  -&gt; f ListApplicationVersionsResponse)
 -&gt; ((Maybe [VersionSummary] -&gt; f (Maybe [VersionSummary]))
@@ -697,8 +672,29 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   [VersionSummary] [VersionSummary] [VersionSummary] [VersionSummary]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | The token to request the next page of results.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#listApplicationVersionsResponse_nextToken"><span class="hs-identifier hs-type">listApplicationVersionsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersionsResponse"><span class="hs-identifier hs-type">ListApplicationVersionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span id="listApplicationVersionsResponse_nextToken"><span class="annot"><span class="annottext">listApplicationVersionsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListApplicationVersionsResponse
+-&gt; f ListApplicationVersionsResponse
+</span><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#listApplicationVersionsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listApplicationVersionsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListApplicationVersionsResponse -&gt; Maybe Text)
+-&gt; (ListApplicationVersionsResponse
+    -&gt; Maybe Text -&gt; ListApplicationVersionsResponse)
+-&gt; Lens' ListApplicationVersionsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersionsResponse%27"><span class="hs-identifier hs-type">ListApplicationVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190943"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListApplicationVersionsResponse' :: ListApplicationVersionsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679190943"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679190943"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679190942"><span class="annot"><span class="annottext">s :: ListApplicationVersionsResponse
+</span><a href="#local-6989586621679190942"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersionsResponse%27"><span class="hs-identifier hs-type">ListApplicationVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679190941"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679190941"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationVersionsResponse
+</span><a href="#local-6989586621679190942"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListApplicationVersionsResponse' :: Maybe Text
+</span><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#%24sel%3AnextToken%3AListApplicationVersionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679190941"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersionsResponse"><span class="hs-identifier hs-type">ListApplicationVersionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-211"></span><span>
 </span><span id="line-212"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-213"></span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#listApplicationVersionsResponse_httpStatus"><span class="hs-identifier hs-type">listApplicationVersionsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersionsResponse"><span class="hs-identifier hs-type">ListApplicationVersionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -714,18 +710,18 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersionsResponse%27"><span class="hs-identifier hs-type">ListApplicationVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190828"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersionsResponse%27"><span class="hs-identifier hs-type">ListApplicationVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190940"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListApplicationVersionsResponse' :: ListApplicationVersionsResponse -&gt; Int
-</span><a href="#local-6989586621679190828"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679190828"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679190827"><span class="annot"><span class="annottext">s :: ListApplicationVersionsResponse
-</span><a href="#local-6989586621679190827"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersionsResponse%27"><span class="hs-identifier hs-type">ListApplicationVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679190826"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679190826"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationVersionsResponse
-</span><a href="#local-6989586621679190827"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListApplicationVersionsResponse' :: Int
+</span><a href="#local-6989586621679190940"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679190940"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679190939"><span class="annot"><span class="annottext">s :: ListApplicationVersionsResponse
+</span><a href="#local-6989586621679190939"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersionsResponse%27"><span class="hs-identifier hs-type">ListApplicationVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679190938"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679190938"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationVersionsResponse
+</span><a href="#local-6989586621679190939"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListApplicationVersionsResponse' :: Int
 </span><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#%24sel%3AhttpStatus%3AListApplicationVersionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679190826"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersionsResponse"><span class="hs-identifier hs-type">ListApplicationVersionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679190938"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersionsResponse"><span class="hs-identifier hs-type">ListApplicationVersionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-215"></span><span>
 </span><span id="line-216"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-217"></span><span>  </span><span id="local-6989586621679190824"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-217"></span><span>  </span><span id="local-6989586621679190936"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-218"></span><span>    </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.ListApplicationVersions.html#ListApplicationVersionsResponse"><span class="hs-identifier hs-type">ListApplicationVersionsResponse</span></a></span></span><span>
 </span><span id="line-219"></span></pre></body></html>

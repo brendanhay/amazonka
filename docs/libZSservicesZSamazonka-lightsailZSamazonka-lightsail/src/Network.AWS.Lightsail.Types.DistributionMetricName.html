@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span id="local-6989586621679609123"><span id="local-6989586621679609124"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DistributionMetricName"><span class="annot"><a href="Network.AWS.Lightsail.Types.DistributionMetricName.html#DistributionMetricName"><span class="hs-identifier hs-var">DistributionMetricName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DistributionMetricName%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.DistributionMetricName.html#DistributionMetricName%27"><span class="hs-identifier hs-var">DistributionMetricName'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679610013"><span id="local-6989586621679610014"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DistributionMetricName"><span class="annot"><a href="Network.AWS.Lightsail.Types.DistributionMetricName.html#DistributionMetricName"><span class="hs-identifier hs-var">DistributionMetricName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DistributionMetricName%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.DistributionMetricName.html#DistributionMetricName%27"><span class="hs-identifier hs-var">DistributionMetricName'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDistributionMetricName"><span class="annot"><span class="annottext">DistributionMetricName -&gt; Text
 </span><a href="Network.AWS.Lightsail.Types.DistributionMetricName.html#fromDistributionMetricName"><span class="hs-identifier hs-var hs-var">fromDistributionMetricName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679609115"><span id="local-6989586621679609117"><span id="local-6989586621679609119"><span class="annot"><span class="annottext">Int -&gt; DistributionMetricName -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679610005"><span id="local-6989586621679610007"><span id="local-6989586621679610009"><span class="annot"><span class="annottext">Int -&gt; DistributionMetricName -&gt; ShowS
 [DistributionMetricName] -&gt; ShowS
 DistributionMetricName -&gt; String
 (Int -&gt; DistributionMetricName -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: DistributionMetricName -&gt; String
 showsPrec :: Int -&gt; DistributionMetricName -&gt; ShowS
 $cshowsPrec :: Int -&gt; DistributionMetricName -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679609106"><span id="local-6989586621679609108"><span id="local-6989586621679609110"><span id="local-6989586621679609112"><span class="annot"><span class="annottext">ReadPrec [DistributionMetricName]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679609996"><span id="local-6989586621679609998"><span id="local-6989586621679610000"><span id="local-6989586621679610002"><span class="annot"><span class="annottext">ReadPrec [DistributionMetricName]
 ReadPrec DistributionMetricName
 Int -&gt; ReadS DistributionMetricName
 ReadS [DistributionMetricName]
@@ -76,7 +76,7 @@ $creadList :: ReadS [DistributionMetricName]
 readsPrec :: Int -&gt; ReadS DistributionMetricName
 $creadsPrec :: Int -&gt; ReadS DistributionMetricName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679609101"><span id="local-6989586621679609103"><span class="annot"><span class="annottext">DistributionMetricName -&gt; DistributionMetricName -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679609991"><span id="local-6989586621679609993"><span class="annot"><span class="annottext">DistributionMetricName -&gt; DistributionMetricName -&gt; Bool
 (DistributionMetricName -&gt; DistributionMetricName -&gt; Bool)
 -&gt; (DistributionMetricName -&gt; DistributionMetricName -&gt; Bool)
 -&gt; Eq DistributionMetricName
@@ -86,7 +86,7 @@ $c/= :: DistributionMetricName -&gt; DistributionMetricName -&gt; Bool
 == :: DistributionMetricName -&gt; DistributionMetricName -&gt; Bool
 $c== :: DistributionMetricName -&gt; DistributionMetricName -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679609085"><span id="local-6989586621679609087"><span id="local-6989586621679609089"><span id="local-6989586621679609091"><span id="local-6989586621679609093"><span id="local-6989586621679609095"><span id="local-6989586621679609097"><span class="annot"><span class="annottext">Eq DistributionMetricName
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679609975"><span id="local-6989586621679609977"><span id="local-6989586621679609979"><span id="local-6989586621679609981"><span id="local-6989586621679609983"><span id="local-6989586621679609985"><span id="local-6989586621679609987"><span class="annot"><span class="annottext">Eq DistributionMetricName
 Eq DistributionMetricName
 -&gt; (DistributionMetricName -&gt; DistributionMetricName -&gt; Ordering)
 -&gt; (DistributionMetricName -&gt; DistributionMetricName -&gt; Bool)
@@ -145,7 +145,7 @@ $cfrom :: forall x. DistributionMetricName -&gt; Rep DistributionMetricName x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679609077"><span id="local-6989586621679609079"><span class="annot"><span class="annottext">Int -&gt; DistributionMetricName -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679609967"><span id="local-6989586621679609969"><span class="annot"><span class="annottext">Int -&gt; DistributionMetricName -&gt; Int
 DistributionMetricName -&gt; Int
 (Int -&gt; DistributionMetricName -&gt; Int)
 -&gt; (DistributionMetricName -&gt; Int)
@@ -156,54 +156,54 @@ $chash :: DistributionMetricName -&gt; Int
 hashWithSalt :: Int -&gt; DistributionMetricName -&gt; Int
 $chashWithSalt :: Int -&gt; DistributionMetricName -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679609074"><span class="annot"><span class="annottext">DistributionMetricName -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679609964"><span class="annot"><span class="annottext">DistributionMetricName -&gt; ()
 (DistributionMetricName -&gt; ()) -&gt; NFData DistributionMetricName
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DistributionMetricName -&gt; ()
 $crnf :: DistributionMetricName -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679609071"><span class="annot"><span class="annottext">Text -&gt; Either String DistributionMetricName
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679609961"><span class="annot"><span class="annottext">Text -&gt; Either String DistributionMetricName
 (Text -&gt; Either String DistributionMetricName)
 -&gt; FromText DistributionMetricName
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DistributionMetricName
 $cfromText :: Text -&gt; Either String DistributionMetricName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679609068"><span class="annot"><span class="annottext">DistributionMetricName -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679609958"><span class="annot"><span class="annottext">DistributionMetricName -&gt; Text
 (DistributionMetricName -&gt; Text) -&gt; ToText DistributionMetricName
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DistributionMetricName -&gt; Text
 $ctoText :: DistributionMetricName -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679609065"><span class="annot"><span class="annottext">DistributionMetricName -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679609955"><span class="annot"><span class="annottext">DistributionMetricName -&gt; ByteString
 (DistributionMetricName -&gt; ByteString)
 -&gt; ToByteString DistributionMetricName
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DistributionMetricName -&gt; ByteString
 $ctoBS :: DistributionMetricName -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679609062"><span class="annot"><span class="annottext">DistributionMetricName -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679609952"><span class="annot"><span class="annottext">DistributionMetricName -&gt; ByteStringBuilder
 (DistributionMetricName -&gt; ByteStringBuilder)
 -&gt; ToLog DistributionMetricName
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DistributionMetricName -&gt; ByteStringBuilder
 $cbuild :: DistributionMetricName -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679609059"><span class="annot"><span class="annottext">HeaderName -&gt; DistributionMetricName -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679609949"><span class="annot"><span class="annottext">HeaderName -&gt; DistributionMetricName -&gt; [Header]
 (HeaderName -&gt; DistributionMetricName -&gt; [Header])
 -&gt; ToHeader DistributionMetricName
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DistributionMetricName -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DistributionMetricName -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679609056"><span class="annot"><span class="annottext">DistributionMetricName -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679609946"><span class="annot"><span class="annottext">DistributionMetricName -&gt; QueryString
 (DistributionMetricName -&gt; QueryString)
 -&gt; ToQuery DistributionMetricName
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DistributionMetricName -&gt; QueryString
 $ctoQuery :: DistributionMetricName -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679609051"><span id="local-6989586621679609053"><span class="annot"><span class="annottext">Value -&gt; Parser [DistributionMetricName]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679609941"><span id="local-6989586621679609943"><span class="annot"><span class="annottext">Value -&gt; Parser [DistributionMetricName]
 Value -&gt; Parser DistributionMetricName
 (Value -&gt; Parser DistributionMetricName)
 -&gt; (Value -&gt; Parser [DistributionMetricName])
@@ -215,7 +215,7 @@ $cparseJSONList :: Value -&gt; Parser [DistributionMetricName]
 parseJSON :: Value -&gt; Parser DistributionMetricName
 $cparseJSON :: Value -&gt; Parser DistributionMetricName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679609046"><span id="local-6989586621679609048"><span class="annot"><span class="annottext">FromJSONKeyFunction [DistributionMetricName]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679609936"><span id="local-6989586621679609938"><span class="annot"><span class="annottext">FromJSONKeyFunction [DistributionMetricName]
 FromJSONKeyFunction DistributionMetricName
 FromJSONKeyFunction DistributionMetricName
 -&gt; FromJSONKeyFunction [DistributionMetricName]
@@ -227,7 +227,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DistributionMetricName]
 fromJSONKey :: FromJSONKeyFunction DistributionMetricName
 $cfromJSONKey :: FromJSONKeyFunction DistributionMetricName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679609037"><span id="local-6989586621679609039"><span id="local-6989586621679609041"><span id="local-6989586621679609043"><span class="annot"><span class="annottext">[DistributionMetricName] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679609927"><span id="local-6989586621679609929"><span id="local-6989586621679609931"><span id="local-6989586621679609933"><span class="annot"><span class="annottext">[DistributionMetricName] -&gt; Encoding
 [DistributionMetricName] -&gt; Value
 DistributionMetricName -&gt; Encoding
 DistributionMetricName -&gt; Value
@@ -251,7 +251,7 @@ $ctoEncoding :: DistributionMetricName -&gt; Encoding
 toJSON :: DistributionMetricName -&gt; Value
 $ctoJSON :: DistributionMetricName -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679609032"><span id="local-6989586621679609034"><span class="annot"><span class="annottext">ToJSONKeyFunction [DistributionMetricName]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679609922"><span id="local-6989586621679609924"><span class="annot"><span class="annottext">ToJSONKeyFunction [DistributionMetricName]
 ToJSONKeyFunction DistributionMetricName
 ToJSONKeyFunction DistributionMetricName
 -&gt; ToJSONKeyFunction [DistributionMetricName]
@@ -263,14 +263,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DistributionMetricName]
 toJSONKey :: ToJSONKeyFunction DistributionMetricName
 $ctoJSONKey :: ToJSONKeyFunction DistributionMetricName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679609029"><span class="annot"><span class="annottext">[Node] -&gt; Either String DistributionMetricName
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679609919"><span class="annot"><span class="annottext">[Node] -&gt; Either String DistributionMetricName
 ([Node] -&gt; Either String DistributionMetricName)
 -&gt; FromXML DistributionMetricName
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DistributionMetricName
 $cparseXML :: [Node] -&gt; Either String DistributionMetricName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679609026"><span class="annot"><span class="annottext">DistributionMetricName -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679609916"><span class="annot"><span class="annottext">DistributionMetricName -&gt; XML
 (DistributionMetricName -&gt; XML) -&gt; ToXML DistributionMetricName
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DistributionMetricName -&gt; XML

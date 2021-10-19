@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- how-it-works.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newPrompt' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679314586"><span id="local-6989586621679314587"></span></span><span class="hs-keyword">data</span><span> </span><span id="Prompt"><span class="annot"><a href="Network.AWS.LexModels.Types.Prompt.html#Prompt"><span class="hs-identifier hs-var">Prompt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Prompt%27"><span class="annot"><a href="Network.AWS.LexModels.Types.Prompt.html#Prompt%27"><span class="hs-identifier hs-var">Prompt'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679314874"><span id="local-6989586621679314875"></span></span><span class="hs-keyword">data</span><span> </span><span id="Prompt"><span class="annot"><a href="Network.AWS.LexModels.Types.Prompt.html#Prompt"><span class="hs-identifier hs-var">Prompt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Prompt%27"><span class="annot"><a href="Network.AWS.LexModels.Types.Prompt.html#Prompt%27"><span class="hs-identifier hs-var">Prompt'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A response card. Amazon Lex uses this prompt at runtime, in the</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- @PostText@ API response. It substitutes session attributes and slot</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- values for placeholders in the response card. For more information, see</span><span>
@@ -47,7 +47,7 @@
 </span><span id="line-45"></span><span>    </span><span id="%24sel%3AmaxAttempts%3APrompt%27"><span class="annot"><span class="annottext">Prompt -&gt; Natural
 </span><a href="Network.AWS.LexModels.Types.Prompt.html#%24sel%3AmaxAttempts%3APrompt%27"><span class="hs-identifier hs-var hs-var">maxAttempts</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679314578"><span id="local-6989586621679314580"><span class="annot"><span class="annottext">Prompt -&gt; Prompt -&gt; Bool
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679314866"><span id="local-6989586621679314868"><span class="annot"><span class="annottext">Prompt -&gt; Prompt -&gt; Bool
 (Prompt -&gt; Prompt -&gt; Bool)
 -&gt; (Prompt -&gt; Prompt -&gt; Bool) -&gt; Eq Prompt
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -55,7 +55,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Prompt -&gt; Prompt -&gt; Bool
 == :: Prompt -&gt; Prompt -&gt; Bool
 $c== :: Prompt -&gt; Prompt -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314569"><span id="local-6989586621679314571"><span id="local-6989586621679314573"><span id="local-6989586621679314575"><span class="annot"><span class="annottext">ReadPrec [Prompt]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314857"><span id="local-6989586621679314859"><span id="local-6989586621679314861"><span id="local-6989586621679314863"><span class="annot"><span class="annottext">ReadPrec [Prompt]
 ReadPrec Prompt
 Int -&gt; ReadS Prompt
 ReadS [Prompt]
@@ -75,7 +75,7 @@ readList :: ReadS [Prompt]
 $creadList :: ReadS [Prompt]
 readsPrec :: Int -&gt; ReadS Prompt
 $creadsPrec :: Int -&gt; ReadS Prompt
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314562"><span id="local-6989586621679314564"><span id="local-6989586621679314566"><span class="annot"><span class="annottext">Int -&gt; Prompt -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314850"><span id="local-6989586621679314852"><span id="local-6989586621679314854"><span class="annot"><span class="annottext">Int -&gt; Prompt -&gt; ShowS
 [Prompt] -&gt; ShowS
 Prompt -&gt; String
 (Int -&gt; Prompt -&gt; ShowS)
@@ -123,9 +123,9 @@ $cfrom :: forall x. Prompt -&gt; Rep Prompt x
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.LexModels.Types.Prompt.html#Prompt"><span class="hs-identifier hs-type">Prompt</span></a></span><span>
 </span><span id="line-73"></span><span id="newPrompt"><span class="annot"><span class="annottext">newPrompt :: NonEmpty Message -&gt; Natural -&gt; Prompt
-</span><a href="Network.AWS.LexModels.Types.Prompt.html#newPrompt"><span class="hs-identifier hs-var hs-var">newPrompt</span></a></span></span><span> </span><span id="local-6989586621679314556"><span class="annot"><span class="annottext">NonEmpty Message
-</span><a href="#local-6989586621679314556"><span class="hs-identifier hs-var">pMessages_</span></a></span></span><span> </span><span id="local-6989586621679314555"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679314555"><span class="hs-identifier hs-var">pMaxAttempts_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.LexModels.Types.Prompt.html#newPrompt"><span class="hs-identifier hs-var hs-var">newPrompt</span></a></span></span><span> </span><span id="local-6989586621679314844"><span class="annot"><span class="annottext">NonEmpty Message
+</span><a href="#local-6989586621679314844"><span class="hs-identifier hs-var">pMessages_</span></a></span></span><span> </span><span id="local-6989586621679314843"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679314843"><span class="hs-identifier hs-var">pMaxAttempts_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">Prompt' :: Maybe Text -&gt; NonEmpty Message -&gt; Natural -&gt; Prompt
 </span><a href="Network.AWS.LexModels.Types.Prompt.html#Prompt%27"><span class="hs-identifier hs-type">Prompt'</span></a></span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:responseCard:Prompt' :: Maybe Text
@@ -135,16 +135,16 @@ forall a. Maybe a
 </span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:messages:Prompt' :: NonEmpty Message
 </span><a href="Network.AWS.LexModels.Types.Prompt.html#%24sel%3Amessages%3APrompt%27"><span class="hs-identifier hs-var">messages</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Message) (Identity (NonEmpty Message))
 -&gt; Tagged (NonEmpty Message) (Identity (NonEmpty Message))
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Message) (Identity (NonEmpty Message))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Message) (Identity (NonEmpty Message))
  -&gt; Tagged (NonEmpty Message) (Identity (NonEmpty Message)))
 -&gt; NonEmpty Message -&gt; NonEmpty Message
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Message
-</span><a href="#local-6989586621679314556"><span class="hs-identifier hs-var">pMessages_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679314844"><span class="hs-identifier hs-var">pMessages_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxAttempts:Prompt' :: Natural
 </span><a href="Network.AWS.LexModels.Types.Prompt.html#%24sel%3AmaxAttempts%3APrompt%27"><span class="hs-identifier hs-var">maxAttempts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679314555"><span class="hs-identifier hs-var">pMaxAttempts_</span></a></span><span>
+</span><a href="#local-6989586621679314843"><span class="hs-identifier hs-var">pMaxAttempts_</span></a></span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | A response card. Amazon Lex uses this prompt at runtime, in the</span><span>
@@ -157,16 +157,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (Prompt -&gt; Maybe Text -&gt; Prompt)
 -&gt; Lens Prompt Prompt (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.Prompt.html#Prompt%27"><span class="hs-identifier hs-type">Prompt'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314549"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.Prompt.html#Prompt%27"><span class="hs-identifier hs-type">Prompt'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314837"><span class="annot"><span class="annottext">Maybe Text
 responseCard :: Maybe Text
 $sel:responseCard:Prompt' :: Prompt -&gt; Maybe Text
-</span><a href="#local-6989586621679314549"><span class="hs-identifier hs-var hs-var">responseCard</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679314549"><span class="hs-identifier hs-var">responseCard</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314548"><span class="annot"><span class="annottext">s :: Prompt
-</span><a href="#local-6989586621679314548"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.Prompt.html#Prompt%27"><span class="hs-identifier hs-type">Prompt'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314547"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679314547"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Prompt
-</span><a href="#local-6989586621679314548"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:responseCard:Prompt' :: Maybe Text
+</span><a href="#local-6989586621679314837"><span class="hs-identifier hs-var hs-var">responseCard</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679314837"><span class="hs-identifier hs-var">responseCard</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314836"><span class="annot"><span class="annottext">s :: Prompt
+</span><a href="#local-6989586621679314836"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.Prompt.html#Prompt%27"><span class="hs-identifier hs-type">Prompt'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314835"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679314835"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Prompt
+</span><a href="#local-6989586621679314836"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:responseCard:Prompt' :: Maybe Text
 </span><a href="Network.AWS.LexModels.Types.Prompt.html#%24sel%3AresponseCard%3APrompt%27"><span class="hs-identifier hs-var">responseCard</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679314547"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Prompt.html#Prompt"><span class="hs-identifier hs-type">Prompt</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679314835"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Prompt.html#Prompt"><span class="hs-identifier hs-type">Prompt</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | An array of objects, each of which provides a message string and its</span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- type. You can specify the message string in plain text or in Speech</span><span>
@@ -177,16 +177,16 @@ $sel:responseCard:Prompt' :: Prompt -&gt; Maybe Text
 -&gt; (Prompt -&gt; NonEmpty Message -&gt; Prompt)
 -&gt; Lens Prompt Prompt (NonEmpty Message) (NonEmpty Message)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.Prompt.html#Prompt%27"><span class="hs-identifier hs-type">Prompt'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314545"><span class="annot"><span class="annottext">NonEmpty Message
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.Prompt.html#Prompt%27"><span class="hs-identifier hs-type">Prompt'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314833"><span class="annot"><span class="annottext">NonEmpty Message
 messages :: NonEmpty Message
 $sel:messages:Prompt' :: Prompt -&gt; NonEmpty Message
-</span><a href="#local-6989586621679314545"><span class="hs-identifier hs-var hs-var">messages</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Message
-</span><a href="#local-6989586621679314545"><span class="hs-identifier hs-var">messages</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314544"><span class="annot"><span class="annottext">s :: Prompt
-</span><a href="#local-6989586621679314544"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.Prompt.html#Prompt%27"><span class="hs-identifier hs-type">Prompt'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314543"><span class="annot"><span class="annottext">NonEmpty Message
-</span><a href="#local-6989586621679314543"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Prompt
-</span><a href="#local-6989586621679314544"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messages:Prompt' :: NonEmpty Message
+</span><a href="#local-6989586621679314833"><span class="hs-identifier hs-var hs-var">messages</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Message
+</span><a href="#local-6989586621679314833"><span class="hs-identifier hs-var">messages</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314832"><span class="annot"><span class="annottext">s :: Prompt
+</span><a href="#local-6989586621679314832"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.Prompt.html#Prompt%27"><span class="hs-identifier hs-type">Prompt'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314831"><span class="annot"><span class="annottext">NonEmpty Message
+</span><a href="#local-6989586621679314831"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Prompt
+</span><a href="#local-6989586621679314832"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messages:Prompt' :: NonEmpty Message
 </span><a href="Network.AWS.LexModels.Types.Prompt.html#%24sel%3Amessages%3APrompt%27"><span class="hs-identifier hs-var">messages</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Message
-</span><a href="#local-6989586621679314543"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Prompt.html#Prompt"><span class="hs-identifier hs-type">Prompt</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Message -&gt; f (NonEmpty Message)) -&gt; Prompt -&gt; f Prompt)
+</span><a href="#local-6989586621679314831"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Prompt.html#Prompt"><span class="hs-identifier hs-type">Prompt</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Message -&gt; f (NonEmpty Message)) -&gt; Prompt -&gt; f Prompt)
 -&gt; ((NonEmpty Message -&gt; f (NonEmpty Message))
     -&gt; NonEmpty Message -&gt; f (NonEmpty Message))
 -&gt; (NonEmpty Message -&gt; f (NonEmpty Message))
@@ -195,8 +195,8 @@ $sel:messages:Prompt' :: Prompt -&gt; NonEmpty Message
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Message -&gt; f (NonEmpty Message))
 -&gt; NonEmpty Message -&gt; f (NonEmpty Message)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | The number of times to prompt the user for information.</span><span>
 </span><span id="line-94"></span><span class="annot"><a href="Network.AWS.LexModels.Types.Prompt.html#prompt_maxAttempts"><span class="hs-identifier hs-type">prompt_maxAttempts</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Prompt.html#Prompt"><span class="hs-identifier hs-type">Prompt</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
@@ -205,27 +205,27 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (Prompt -&gt; Natural -&gt; Prompt)
 -&gt; Lens Prompt Prompt Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.Prompt.html#Prompt%27"><span class="hs-identifier hs-type">Prompt'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314540"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.Prompt.html#Prompt%27"><span class="hs-identifier hs-type">Prompt'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314828"><span class="annot"><span class="annottext">Natural
 maxAttempts :: Natural
 $sel:maxAttempts:Prompt' :: Prompt -&gt; Natural
-</span><a href="#local-6989586621679314540"><span class="hs-identifier hs-var hs-var">maxAttempts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679314540"><span class="hs-identifier hs-var">maxAttempts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314539"><span class="annot"><span class="annottext">s :: Prompt
-</span><a href="#local-6989586621679314539"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.Prompt.html#Prompt%27"><span class="hs-identifier hs-type">Prompt'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314538"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679314538"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Prompt
-</span><a href="#local-6989586621679314539"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxAttempts:Prompt' :: Natural
+</span><a href="#local-6989586621679314828"><span class="hs-identifier hs-var hs-var">maxAttempts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679314828"><span class="hs-identifier hs-var">maxAttempts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314827"><span class="annot"><span class="annottext">s :: Prompt
+</span><a href="#local-6989586621679314827"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.Prompt.html#Prompt%27"><span class="hs-identifier hs-type">Prompt'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314826"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679314826"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Prompt
+</span><a href="#local-6989586621679314827"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxAttempts:Prompt' :: Natural
 </span><a href="Network.AWS.LexModels.Types.Prompt.html#%24sel%3AmaxAttempts%3APrompt%27"><span class="hs-identifier hs-var">maxAttempts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679314538"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Prompt.html#Prompt"><span class="hs-identifier hs-type">Prompt</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679314826"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Prompt.html#Prompt"><span class="hs-identifier hs-type">Prompt</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314535"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Prompt.html#Prompt"><span class="hs-identifier hs-type">Prompt</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679314533"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Prompt
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314823"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Prompt.html#Prompt"><span class="hs-identifier hs-type">Prompt</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679314821"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Prompt
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Prompt) -&gt; Value -&gt; Parser Prompt
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Prompt&quot;</span></span><span>
-</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679314530"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679314530"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679314818"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679314818"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; NonEmpty Message -&gt; Natural -&gt; Prompt
 </span><a href="Network.AWS.LexModels.Types.Prompt.html#Prompt%27"><span class="hs-identifier hs-var">Prompt'</span></a></span><span>
 </span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; NonEmpty Message -&gt; Natural -&gt; Prompt)
@@ -233,7 +233,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (NonEmpty Message -&gt; Natural -&gt; Prompt)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679314530"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679314818"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;responseCard&quot;</span></span><span class="hs-special">)</span><span>
@@ -241,26 +241,26 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (NonEmpty Message) -&gt; Parser (Natural -&gt; Prompt)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679314530"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty Message)
+</span><a href="#local-6989586621679314818"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty Message)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;messages&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Parser (Natural -&gt; Prompt) -&gt; Parser Natural -&gt; Parser Prompt
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679314530"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621679314818"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;maxAttempts&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314523"><span id="local-6989586621679314525"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Prompt.html#Prompt"><span class="hs-identifier hs-type">Prompt</span></a></span></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314811"><span id="local-6989586621679314813"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Prompt.html#Prompt"><span class="hs-identifier hs-type">Prompt</span></a></span></span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314520"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Prompt.html#Prompt"><span class="hs-identifier hs-type">Prompt</span></a></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314808"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Prompt.html#Prompt"><span class="hs-identifier hs-type">Prompt</span></a></span></span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314512"><span id="local-6989586621679314514"><span id="local-6989586621679314516"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Prompt.html#Prompt"><span class="hs-identifier hs-type">Prompt</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679314510"><span class="annot"><span class="annottext">toJSON :: Prompt -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Prompt.html#Prompt%27"><span class="hs-identifier hs-type">Prompt'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314506"><span id="local-6989586621679314507"><span id="local-6989586621679314508"><span class="annot"><span class="annottext">Natural
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314800"><span id="local-6989586621679314802"><span id="local-6989586621679314804"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Prompt.html#Prompt"><span class="hs-identifier hs-type">Prompt</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679314798"><span class="annot"><span class="annottext">toJSON :: Prompt -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Prompt.html#Prompt%27"><span class="hs-identifier hs-type">Prompt'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314794"><span id="local-6989586621679314795"><span id="local-6989586621679314796"><span class="annot"><span class="annottext">Natural
 Maybe Text
 NonEmpty Message
 maxAttempts :: Natural
@@ -269,7 +269,7 @@ responseCard :: Maybe Text
 $sel:maxAttempts:Prompt' :: Prompt -&gt; Natural
 $sel:messages:Prompt' :: Prompt -&gt; NonEmpty Message
 $sel:responseCard:Prompt' :: Prompt -&gt; Maybe Text
-</span><a href="#local-6989586621679314506"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679314794"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -281,21 +281,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679314508"><span class="hs-identifier hs-var">responseCard</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679314796"><span class="hs-identifier hs-var">responseCard</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;messages&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Message -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Message
-</span><a href="#local-6989586621679314507"><span class="hs-identifier hs-var">messages</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679314795"><span class="hs-identifier hs-var">messages</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;maxAttempts&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679314506"><span class="hs-identifier hs-var">maxAttempts</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679314794"><span class="hs-identifier hs-var">maxAttempts</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span></pre></body></html>

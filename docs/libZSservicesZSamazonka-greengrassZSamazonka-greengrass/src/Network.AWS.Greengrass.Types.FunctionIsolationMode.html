@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span class="hs-comment">-- that you run without containerization, we recommend that you run in a</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- Greengrass container. Omit this value to run the Lambda function with</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- the default containerization for the group.</span><span>
-</span><span id="line-37"></span><span id="local-6989586621679342875"><span id="local-6989586621679342876"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FunctionIsolationMode"><span class="annot"><a href="Network.AWS.Greengrass.Types.FunctionIsolationMode.html#FunctionIsolationMode"><span class="hs-identifier hs-var">FunctionIsolationMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FunctionIsolationMode%27"><span class="annot"><a href="Network.AWS.Greengrass.Types.FunctionIsolationMode.html#FunctionIsolationMode%27"><span class="hs-identifier hs-var">FunctionIsolationMode'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679343130"><span id="local-6989586621679343131"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FunctionIsolationMode"><span class="annot"><a href="Network.AWS.Greengrass.Types.FunctionIsolationMode.html#FunctionIsolationMode"><span class="hs-identifier hs-var">FunctionIsolationMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FunctionIsolationMode%27"><span class="annot"><a href="Network.AWS.Greengrass.Types.FunctionIsolationMode.html#FunctionIsolationMode%27"><span class="hs-identifier hs-var">FunctionIsolationMode'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFunctionIsolationMode"><span class="annot"><span class="annottext">FunctionIsolationMode -&gt; Text
 </span><a href="Network.AWS.Greengrass.Types.FunctionIsolationMode.html#fromFunctionIsolationMode"><span class="hs-identifier hs-var hs-var">fromFunctionIsolationMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679342867"><span id="local-6989586621679342869"><span id="local-6989586621679342871"><span class="annot"><span class="annottext">Int -&gt; FunctionIsolationMode -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679343122"><span id="local-6989586621679343124"><span id="local-6989586621679343126"><span class="annot"><span class="annottext">Int -&gt; FunctionIsolationMode -&gt; ShowS
 [FunctionIsolationMode] -&gt; ShowS
 FunctionIsolationMode -&gt; String
 (Int -&gt; FunctionIsolationMode -&gt; ShowS)
@@ -56,7 +56,7 @@ $cshow :: FunctionIsolationMode -&gt; String
 showsPrec :: Int -&gt; FunctionIsolationMode -&gt; ShowS
 $cshowsPrec :: Int -&gt; FunctionIsolationMode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679342858"><span id="local-6989586621679342860"><span id="local-6989586621679342862"><span id="local-6989586621679342864"><span class="annot"><span class="annottext">ReadPrec [FunctionIsolationMode]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679343113"><span id="local-6989586621679343115"><span id="local-6989586621679343117"><span id="local-6989586621679343119"><span class="annot"><span class="annottext">ReadPrec [FunctionIsolationMode]
 ReadPrec FunctionIsolationMode
 Int -&gt; ReadS FunctionIsolationMode
 ReadS [FunctionIsolationMode]
@@ -77,7 +77,7 @@ $creadList :: ReadS [FunctionIsolationMode]
 readsPrec :: Int -&gt; ReadS FunctionIsolationMode
 $creadsPrec :: Int -&gt; ReadS FunctionIsolationMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679342853"><span id="local-6989586621679342855"><span class="annot"><span class="annottext">FunctionIsolationMode -&gt; FunctionIsolationMode -&gt; Bool
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679343108"><span id="local-6989586621679343110"><span class="annot"><span class="annottext">FunctionIsolationMode -&gt; FunctionIsolationMode -&gt; Bool
 (FunctionIsolationMode -&gt; FunctionIsolationMode -&gt; Bool)
 -&gt; (FunctionIsolationMode -&gt; FunctionIsolationMode -&gt; Bool)
 -&gt; Eq FunctionIsolationMode
@@ -87,7 +87,7 @@ $c/= :: FunctionIsolationMode -&gt; FunctionIsolationMode -&gt; Bool
 == :: FunctionIsolationMode -&gt; FunctionIsolationMode -&gt; Bool
 $c== :: FunctionIsolationMode -&gt; FunctionIsolationMode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679342837"><span id="local-6989586621679342839"><span id="local-6989586621679342841"><span id="local-6989586621679342843"><span id="local-6989586621679342845"><span id="local-6989586621679342847"><span id="local-6989586621679342849"><span class="annot"><span class="annottext">Eq FunctionIsolationMode
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679343092"><span id="local-6989586621679343094"><span id="local-6989586621679343096"><span id="local-6989586621679343098"><span id="local-6989586621679343100"><span id="local-6989586621679343102"><span id="local-6989586621679343104"><span class="annot"><span class="annottext">Eq FunctionIsolationMode
 Eq FunctionIsolationMode
 -&gt; (FunctionIsolationMode -&gt; FunctionIsolationMode -&gt; Ordering)
 -&gt; (FunctionIsolationMode -&gt; FunctionIsolationMode -&gt; Bool)
@@ -145,7 +145,7 @@ $cfrom :: forall x. FunctionIsolationMode -&gt; Rep FunctionIsolationMode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679342829"><span id="local-6989586621679342831"><span class="annot"><span class="annottext">Int -&gt; FunctionIsolationMode -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679343084"><span id="local-6989586621679343086"><span class="annot"><span class="annottext">Int -&gt; FunctionIsolationMode -&gt; Int
 FunctionIsolationMode -&gt; Int
 (Int -&gt; FunctionIsolationMode -&gt; Int)
 -&gt; (FunctionIsolationMode -&gt; Int) -&gt; Hashable FunctionIsolationMode
@@ -155,54 +155,54 @@ $chash :: FunctionIsolationMode -&gt; Int
 hashWithSalt :: Int -&gt; FunctionIsolationMode -&gt; Int
 $chashWithSalt :: Int -&gt; FunctionIsolationMode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679342826"><span class="annot"><span class="annottext">FunctionIsolationMode -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679343081"><span class="annot"><span class="annottext">FunctionIsolationMode -&gt; ()
 (FunctionIsolationMode -&gt; ()) -&gt; NFData FunctionIsolationMode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: FunctionIsolationMode -&gt; ()
 $crnf :: FunctionIsolationMode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679342823"><span class="annot"><span class="annottext">Text -&gt; Either String FunctionIsolationMode
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679343078"><span class="annot"><span class="annottext">Text -&gt; Either String FunctionIsolationMode
 (Text -&gt; Either String FunctionIsolationMode)
 -&gt; FromText FunctionIsolationMode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String FunctionIsolationMode
 $cfromText :: Text -&gt; Either String FunctionIsolationMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679342820"><span class="annot"><span class="annottext">FunctionIsolationMode -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679343075"><span class="annot"><span class="annottext">FunctionIsolationMode -&gt; Text
 (FunctionIsolationMode -&gt; Text) -&gt; ToText FunctionIsolationMode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: FunctionIsolationMode -&gt; Text
 $ctoText :: FunctionIsolationMode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679342817"><span class="annot"><span class="annottext">FunctionIsolationMode -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679343072"><span class="annot"><span class="annottext">FunctionIsolationMode -&gt; ByteString
 (FunctionIsolationMode -&gt; ByteString)
 -&gt; ToByteString FunctionIsolationMode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: FunctionIsolationMode -&gt; ByteString
 $ctoBS :: FunctionIsolationMode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679342814"><span class="annot"><span class="annottext">FunctionIsolationMode -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679343069"><span class="annot"><span class="annottext">FunctionIsolationMode -&gt; ByteStringBuilder
 (FunctionIsolationMode -&gt; ByteStringBuilder)
 -&gt; ToLog FunctionIsolationMode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: FunctionIsolationMode -&gt; ByteStringBuilder
 $cbuild :: FunctionIsolationMode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679342811"><span class="annot"><span class="annottext">HeaderName -&gt; FunctionIsolationMode -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679343066"><span class="annot"><span class="annottext">HeaderName -&gt; FunctionIsolationMode -&gt; [Header]
 (HeaderName -&gt; FunctionIsolationMode -&gt; [Header])
 -&gt; ToHeader FunctionIsolationMode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; FunctionIsolationMode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; FunctionIsolationMode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679342808"><span class="annot"><span class="annottext">FunctionIsolationMode -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679343063"><span class="annot"><span class="annottext">FunctionIsolationMode -&gt; QueryString
 (FunctionIsolationMode -&gt; QueryString)
 -&gt; ToQuery FunctionIsolationMode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: FunctionIsolationMode -&gt; QueryString
 $ctoQuery :: FunctionIsolationMode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679342803"><span id="local-6989586621679342805"><span class="annot"><span class="annottext">Value -&gt; Parser [FunctionIsolationMode]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679343058"><span id="local-6989586621679343060"><span class="annot"><span class="annottext">Value -&gt; Parser [FunctionIsolationMode]
 Value -&gt; Parser FunctionIsolationMode
 (Value -&gt; Parser FunctionIsolationMode)
 -&gt; (Value -&gt; Parser [FunctionIsolationMode])
@@ -214,7 +214,7 @@ $cparseJSONList :: Value -&gt; Parser [FunctionIsolationMode]
 parseJSON :: Value -&gt; Parser FunctionIsolationMode
 $cparseJSON :: Value -&gt; Parser FunctionIsolationMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679342798"><span id="local-6989586621679342800"><span class="annot"><span class="annottext">FromJSONKeyFunction [FunctionIsolationMode]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679343053"><span id="local-6989586621679343055"><span class="annot"><span class="annottext">FromJSONKeyFunction [FunctionIsolationMode]
 FromJSONKeyFunction FunctionIsolationMode
 FromJSONKeyFunction FunctionIsolationMode
 -&gt; FromJSONKeyFunction [FunctionIsolationMode]
@@ -226,7 +226,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [FunctionIsolationMode]
 fromJSONKey :: FromJSONKeyFunction FunctionIsolationMode
 $cfromJSONKey :: FromJSONKeyFunction FunctionIsolationMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679342789"><span id="local-6989586621679342791"><span id="local-6989586621679342793"><span id="local-6989586621679342795"><span class="annot"><span class="annottext">[FunctionIsolationMode] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679343044"><span id="local-6989586621679343046"><span id="local-6989586621679343048"><span id="local-6989586621679343050"><span class="annot"><span class="annottext">[FunctionIsolationMode] -&gt; Encoding
 [FunctionIsolationMode] -&gt; Value
 FunctionIsolationMode -&gt; Encoding
 FunctionIsolationMode -&gt; Value
@@ -250,7 +250,7 @@ $ctoEncoding :: FunctionIsolationMode -&gt; Encoding
 toJSON :: FunctionIsolationMode -&gt; Value
 $ctoJSON :: FunctionIsolationMode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679342784"><span id="local-6989586621679342786"><span class="annot"><span class="annottext">ToJSONKeyFunction [FunctionIsolationMode]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679343039"><span id="local-6989586621679343041"><span class="annot"><span class="annottext">ToJSONKeyFunction [FunctionIsolationMode]
 ToJSONKeyFunction FunctionIsolationMode
 ToJSONKeyFunction FunctionIsolationMode
 -&gt; ToJSONKeyFunction [FunctionIsolationMode]
@@ -262,14 +262,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [FunctionIsolationMode]
 toJSONKey :: ToJSONKeyFunction FunctionIsolationMode
 $ctoJSONKey :: ToJSONKeyFunction FunctionIsolationMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679342781"><span class="annot"><span class="annottext">[Node] -&gt; Either String FunctionIsolationMode
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679343036"><span class="annot"><span class="annottext">[Node] -&gt; Either String FunctionIsolationMode
 ([Node] -&gt; Either String FunctionIsolationMode)
 -&gt; FromXML FunctionIsolationMode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String FunctionIsolationMode
 $cparseXML :: [Node] -&gt; Either String FunctionIsolationMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679342778"><span class="annot"><span class="annottext">FunctionIsolationMode -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679343033"><span class="annot"><span class="annottext">FunctionIsolationMode -&gt; XML
 (FunctionIsolationMode -&gt; XML) -&gt; ToXML FunctionIsolationMode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: FunctionIsolationMode -&gt; XML

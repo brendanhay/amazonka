@@ -67,12 +67,12 @@
 </span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | /See:/ 'newDescribeConfigurations' smart constructor.</span><span>
-</span><span id="line-70"></span><span id="local-6989586621679208938"><span id="local-6989586621679208939"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeConfigurations"><span class="annot"><a href="Network.AWS.Discovery.DescribeConfigurations.html#DescribeConfigurations"><span class="hs-identifier hs-var">DescribeConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeConfigurations%27"><span class="annot"><a href="Network.AWS.Discovery.DescribeConfigurations.html#DescribeConfigurations%27"><span class="hs-identifier hs-var">DescribeConfigurations'</span></a></span></span><span>
+</span><span id="line-70"></span><span id="local-6989586621679209155"><span id="local-6989586621679209156"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeConfigurations"><span class="annot"><a href="Network.AWS.Discovery.DescribeConfigurations.html#DescribeConfigurations"><span class="hs-identifier hs-var">DescribeConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeConfigurations%27"><span class="annot"><a href="Network.AWS.Discovery.DescribeConfigurations.html#DescribeConfigurations%27"><span class="hs-identifier hs-var">DescribeConfigurations'</span></a></span></span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One or more configuration IDs.</span><span>
 </span><span id="line-72"></span><span>    </span><span id="%24sel%3AconfigurationIds%3ADescribeConfigurations%27"><span class="annot"><span class="annottext">DescribeConfigurations -&gt; [Text]
 </span><a href="Network.AWS.Discovery.DescribeConfigurations.html#%24sel%3AconfigurationIds%3ADescribeConfigurations%27"><span class="hs-identifier hs-var hs-var">configurationIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679208932"><span id="local-6989586621679208934"><span class="annot"><span class="annottext">DescribeConfigurations -&gt; DescribeConfigurations -&gt; Bool
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679209149"><span id="local-6989586621679209151"><span class="annot"><span class="annottext">DescribeConfigurations -&gt; DescribeConfigurations -&gt; Bool
 (DescribeConfigurations -&gt; DescribeConfigurations -&gt; Bool)
 -&gt; (DescribeConfigurations -&gt; DescribeConfigurations -&gt; Bool)
 -&gt; Eq DescribeConfigurations
@@ -81,7 +81,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeConfigurations -&gt; DescribeConfigurations -&gt; Bool
 == :: DescribeConfigurations -&gt; DescribeConfigurations -&gt; Bool
 $c== :: DescribeConfigurations -&gt; DescribeConfigurations -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208923"><span id="local-6989586621679208925"><span id="local-6989586621679208927"><span id="local-6989586621679208929"><span class="annot"><span class="annottext">ReadPrec [DescribeConfigurations]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209140"><span id="local-6989586621679209142"><span id="local-6989586621679209144"><span id="local-6989586621679209146"><span class="annot"><span class="annottext">ReadPrec [DescribeConfigurations]
 ReadPrec DescribeConfigurations
 Int -&gt; ReadS DescribeConfigurations
 ReadS [DescribeConfigurations]
@@ -101,7 +101,7 @@ readList :: ReadS [DescribeConfigurations]
 $creadList :: ReadS [DescribeConfigurations]
 readsPrec :: Int -&gt; ReadS DescribeConfigurations
 $creadsPrec :: Int -&gt; ReadS DescribeConfigurations
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208916"><span id="local-6989586621679208918"><span id="local-6989586621679208920"><span class="annot"><span class="annottext">Int -&gt; DescribeConfigurations -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209133"><span id="local-6989586621679209135"><span id="local-6989586621679209137"><span class="annot"><span class="annottext">Int -&gt; DescribeConfigurations -&gt; ShowS
 [DescribeConfigurations] -&gt; ShowS
 DescribeConfigurations -&gt; String
 (Int -&gt; DescribeConfigurations -&gt; ShowS)
@@ -158,16 +158,16 @@ forall a. Monoid a =&gt; a
 -&gt; (DescribeConfigurations -&gt; [Text] -&gt; DescribeConfigurations)
 -&gt; Lens DescribeConfigurations DescribeConfigurations [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.DescribeConfigurations.html#DescribeConfigurations%27"><span class="hs-identifier hs-type">DescribeConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208909"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.DescribeConfigurations.html#DescribeConfigurations%27"><span class="hs-identifier hs-type">DescribeConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209126"><span class="annot"><span class="annottext">[Text]
 configurationIds :: [Text]
 $sel:configurationIds:DescribeConfigurations' :: DescribeConfigurations -&gt; [Text]
-</span><a href="#local-6989586621679208909"><span class="hs-identifier hs-var hs-var">configurationIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679208909"><span class="hs-identifier hs-var">configurationIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208908"><span class="annot"><span class="annottext">s :: DescribeConfigurations
-</span><a href="#local-6989586621679208908"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.DescribeConfigurations.html#DescribeConfigurations%27"><span class="hs-identifier hs-type">DescribeConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208907"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679208907"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConfigurations
-</span><a href="#local-6989586621679208908"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationIds:DescribeConfigurations' :: [Text]
+</span><a href="#local-6989586621679209126"><span class="hs-identifier hs-var hs-var">configurationIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679209126"><span class="hs-identifier hs-var">configurationIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209125"><span class="annot"><span class="annottext">s :: DescribeConfigurations
+</span><a href="#local-6989586621679209125"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.DescribeConfigurations.html#DescribeConfigurations%27"><span class="hs-identifier hs-type">DescribeConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209124"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679209124"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConfigurations
+</span><a href="#local-6989586621679209125"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationIds:DescribeConfigurations' :: [Text]
 </span><a href="Network.AWS.Discovery.DescribeConfigurations.html#%24sel%3AconfigurationIds%3ADescribeConfigurations%27"><span class="hs-identifier hs-var">configurationIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679208907"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DescribeConfigurations.html#DescribeConfigurations"><span class="hs-identifier hs-type">DescribeConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621679209124"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DescribeConfigurations.html#DescribeConfigurations"><span class="hs-identifier hs-type">DescribeConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; DescribeConfigurations -&gt; f DescribeConfigurations)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
@@ -175,19 +175,19 @@ $sel:configurationIds:DescribeConfigurations' :: DescribeConfigurations -&gt; [T
 -&gt; f DescribeConfigurations
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DescribeConfigurations.html#DescribeConfigurations"><span class="hs-identifier hs-type">DescribeConfigurations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-98"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-99"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DescribeConfigurations.html#DescribeConfigurations"><span class="hs-identifier hs-type">DescribeConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><a href="Network.AWS.Discovery.DescribeConfigurations.html#DescribeConfigurationsResponse"><span class="hs-identifier hs-type">DescribeConfigurationsResponse</span></a></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679208901"><span class="annot"><span class="annottext">request :: DescribeConfigurations -&gt; Request DescribeConfigurations
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679209118"><span class="annot"><span class="annottext">request :: DescribeConfigurations -&gt; Request DescribeConfigurations
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeConfigurations -&gt; Request DescribeConfigurations
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Discovery.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679208897"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679209114"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeConfigurations
 -&gt; ClientResponse ClientBody
@@ -213,10 +213,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679208894"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679208894"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679208893"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679208893"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679208892"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679208892"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679209111"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679209111"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679209110"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679209110"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679209109"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679209109"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Maybe [HashMap Text Text] -&gt; Int -&gt; DescribeConfigurationsResponse
 </span><a href="Network.AWS.Discovery.DescribeConfigurations.html#DescribeConfigurationsResponse%27"><span class="hs-identifier hs-var">DescribeConfigurationsResponse'</span></a></span><span>
 </span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [HashMap Text Text]
@@ -225,7 +225,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DescribeConfigurationsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679208892"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [HashMap Text Text]))
+</span><a href="#local-6989586621679209109"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [HashMap Text Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;configurations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [HashMap Text Text]))
@@ -244,15 +244,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679208894"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679209111"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208883"><span id="local-6989586621679208885"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DescribeConfigurations.html#DescribeConfigurations"><span class="hs-identifier hs-type">DescribeConfigurations</span></a></span></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209100"><span id="local-6989586621679209102"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DescribeConfigurations.html#DescribeConfigurations"><span class="hs-identifier hs-type">DescribeConfigurations</span></a></span></span></span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208880"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DescribeConfigurations.html#DescribeConfigurations"><span class="hs-identifier hs-type">DescribeConfigurations</span></a></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209097"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DescribeConfigurations.html#DescribeConfigurations"><span class="hs-identifier hs-type">DescribeConfigurations</span></a></span></span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DescribeConfigurations.html#DescribeConfigurations"><span class="hs-identifier hs-type">DescribeConfigurations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679208876"><span class="annot"><span class="annottext">toHeaders :: DescribeConfigurations -&gt; ResponseHeaders
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679209093"><span class="annot"><span class="annottext">toHeaders :: DescribeConfigurations -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeConfigurations -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -279,12 +279,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208866"><span id="local-6989586621679208868"><span id="local-6989586621679208870"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DescribeConfigurations.html#DescribeConfigurations"><span class="hs-identifier hs-type">DescribeConfigurations</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679208864"><span class="annot"><span class="annottext">toJSON :: DescribeConfigurations -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DescribeConfigurations.html#DescribeConfigurations%27"><span class="hs-identifier hs-type">DescribeConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208862"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209083"><span id="local-6989586621679209085"><span id="local-6989586621679209087"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DescribeConfigurations.html#DescribeConfigurations"><span class="hs-identifier hs-type">DescribeConfigurations</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679209081"><span class="annot"><span class="annottext">toJSON :: DescribeConfigurations -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DescribeConfigurations.html#DescribeConfigurations%27"><span class="hs-identifier hs-type">DescribeConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209079"><span class="annot"><span class="annottext">[Text]
 configurationIds :: [Text]
 $sel:configurationIds:DescribeConfigurations' :: DescribeConfigurations -&gt; [Text]
-</span><a href="#local-6989586621679208862"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679209079"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -297,19 +297,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;configurationIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679208862"><span class="hs-identifier hs-var">configurationIds</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679209079"><span class="hs-identifier hs-var">configurationIds</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DescribeConfigurations.html#DescribeConfigurations"><span class="hs-identifier hs-type">DescribeConfigurations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679208856"><span class="annot"><span class="annottext">toPath :: DescribeConfigurations -&gt; ByteString
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679209073"><span class="annot"><span class="annottext">toPath :: DescribeConfigurations -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeConfigurations -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DescribeConfigurations.html#DescribeConfigurations"><span class="hs-identifier hs-type">DescribeConfigurations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679208852"><span class="annot"><span class="annottext">toQuery :: DescribeConfigurations -&gt; QueryString
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679209069"><span class="annot"><span class="annottext">toQuery :: DescribeConfigurations -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeConfigurations -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -317,7 +317,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- | /See:/ 'newDescribeConfigurationsResponse' smart constructor.</span><span>
-</span><span id="line-145"></span><span id="local-6989586621679208849"><span id="local-6989586621679208850"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeConfigurationsResponse"><span class="annot"><a href="Network.AWS.Discovery.DescribeConfigurations.html#DescribeConfigurationsResponse"><span class="hs-identifier hs-var">DescribeConfigurationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeConfigurationsResponse%27"><span class="annot"><a href="Network.AWS.Discovery.DescribeConfigurations.html#DescribeConfigurationsResponse%27"><span class="hs-identifier hs-var">DescribeConfigurationsResponse'</span></a></span></span><span>
+</span><span id="line-145"></span><span id="local-6989586621679209066"><span id="local-6989586621679209067"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeConfigurationsResponse"><span class="annot"><a href="Network.AWS.Discovery.DescribeConfigurations.html#DescribeConfigurationsResponse"><span class="hs-identifier hs-var">DescribeConfigurationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeConfigurationsResponse%27"><span class="annot"><a href="Network.AWS.Discovery.DescribeConfigurations.html#DescribeConfigurationsResponse%27"><span class="hs-identifier hs-var">DescribeConfigurationsResponse'</span></a></span></span><span>
 </span><span id="line-146"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A key in the response map. The value is an array of data.</span><span>
 </span><span id="line-147"></span><span>    </span><span id="%24sel%3Aconfigurations%3ADescribeConfigurationsResponse%27"><span class="annot"><span class="annottext">DescribeConfigurationsResponse -&gt; Maybe [HashMap Text Text]
 </span><a href="Network.AWS.Discovery.DescribeConfigurations.html#%24sel%3Aconfigurations%3ADescribeConfigurationsResponse%27"><span class="hs-identifier hs-var hs-var">configurations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -325,7 +325,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-149"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeConfigurationsResponse%27"><span class="annot"><span class="annottext">DescribeConfigurationsResponse -&gt; Int
 </span><a href="Network.AWS.Discovery.DescribeConfigurations.html#%24sel%3AhttpStatus%3ADescribeConfigurationsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-150"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679208843"><span id="local-6989586621679208845"><span class="annot"><span class="annottext">DescribeConfigurationsResponse
+</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679209060"><span id="local-6989586621679209062"><span class="annot"><span class="annottext">DescribeConfigurationsResponse
 -&gt; DescribeConfigurationsResponse -&gt; Bool
 (DescribeConfigurationsResponse
  -&gt; DescribeConfigurationsResponse -&gt; Bool)
@@ -341,7 +341,7 @@ $c/= :: DescribeConfigurationsResponse
 -&gt; DescribeConfigurationsResponse -&gt; Bool
 $c== :: DescribeConfigurationsResponse
 -&gt; DescribeConfigurationsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208835"><span id="local-6989586621679208837"><span id="local-6989586621679208839"><span id="local-6989586621679208841"><span class="annot"><span class="annottext">ReadPrec [DescribeConfigurationsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209052"><span id="local-6989586621679209054"><span id="local-6989586621679209056"><span id="local-6989586621679209058"><span class="annot"><span class="annottext">ReadPrec [DescribeConfigurationsResponse]
 ReadPrec DescribeConfigurationsResponse
 Int -&gt; ReadS DescribeConfigurationsResponse
 ReadS [DescribeConfigurationsResponse]
@@ -361,7 +361,7 @@ readList :: ReadS [DescribeConfigurationsResponse]
 $creadList :: ReadS [DescribeConfigurationsResponse]
 readsPrec :: Int -&gt; ReadS DescribeConfigurationsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeConfigurationsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208829"><span id="local-6989586621679208831"><span id="local-6989586621679208833"><span class="annot"><span class="annottext">Int -&gt; DescribeConfigurationsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209046"><span id="local-6989586621679209048"><span id="local-6989586621679209050"><span class="annot"><span class="annottext">Int -&gt; DescribeConfigurationsResponse -&gt; ShowS
 [DescribeConfigurationsResponse] -&gt; ShowS
 DescribeConfigurationsResponse -&gt; String
 (Int -&gt; DescribeConfigurationsResponse -&gt; ShowS)
@@ -415,8 +415,8 @@ DescribeConfigurationsResponse
 </span><span id="line-166"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-167"></span><span>  </span><span class="annot"><a href="Network.AWS.Discovery.DescribeConfigurations.html#DescribeConfigurationsResponse"><span class="hs-identifier hs-type">DescribeConfigurationsResponse</span></a></span><span>
 </span><span id="line-168"></span><span id="newDescribeConfigurationsResponse"><span class="annot"><span class="annottext">newDescribeConfigurationsResponse :: Int -&gt; DescribeConfigurationsResponse
-</span><a href="Network.AWS.Discovery.DescribeConfigurations.html#newDescribeConfigurationsResponse"><span class="hs-identifier hs-var hs-var">newDescribeConfigurationsResponse</span></a></span></span><span> </span><span id="local-6989586621679208826"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679208826"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Discovery.DescribeConfigurations.html#newDescribeConfigurationsResponse"><span class="hs-identifier hs-var hs-var">newDescribeConfigurationsResponse</span></a></span></span><span> </span><span id="local-6989586621679209043"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679209043"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-169"></span><span>  </span><span class="annot"><span class="annottext">DescribeConfigurationsResponse' :: Maybe [HashMap Text Text] -&gt; Int -&gt; DescribeConfigurationsResponse
 </span><a href="Network.AWS.Discovery.DescribeConfigurations.html#DescribeConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeConfigurationsResponse'</span></a></span><span>
 </span><span id="line-170"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:configurations:DescribeConfigurationsResponse' :: Maybe [HashMap Text Text]
@@ -426,7 +426,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-172"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeConfigurationsResponse' :: Int
 </span><a href="Network.AWS.Discovery.DescribeConfigurations.html#%24sel%3AhttpStatus%3ADescribeConfigurationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679208826"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679209043"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-173"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-comment">-- | A key in the response map. The value is an array of data.</span><span>
@@ -443,16 +443,16 @@ forall a. Maybe a
      (Maybe [HashMap Text Text])
      (Maybe [HashMap Text Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.DescribeConfigurations.html#DescribeConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208825"><span class="annot"><span class="annottext">Maybe [HashMap Text Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.DescribeConfigurations.html#DescribeConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209042"><span class="annot"><span class="annottext">Maybe [HashMap Text Text]
 configurations :: Maybe [HashMap Text Text]
 $sel:configurations:DescribeConfigurationsResponse' :: DescribeConfigurationsResponse -&gt; Maybe [HashMap Text Text]
-</span><a href="#local-6989586621679208825"><span class="hs-identifier hs-var hs-var">configurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [HashMap Text Text]
-</span><a href="#local-6989586621679208825"><span class="hs-identifier hs-var">configurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208824"><span class="annot"><span class="annottext">s :: DescribeConfigurationsResponse
-</span><a href="#local-6989586621679208824"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.DescribeConfigurations.html#DescribeConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208823"><span class="annot"><span class="annottext">Maybe [HashMap Text Text]
-</span><a href="#local-6989586621679208823"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConfigurationsResponse
-</span><a href="#local-6989586621679208824"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurations:DescribeConfigurationsResponse' :: Maybe [HashMap Text Text]
+</span><a href="#local-6989586621679209042"><span class="hs-identifier hs-var hs-var">configurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [HashMap Text Text]
+</span><a href="#local-6989586621679209042"><span class="hs-identifier hs-var">configurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209041"><span class="annot"><span class="annottext">s :: DescribeConfigurationsResponse
+</span><a href="#local-6989586621679209041"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.DescribeConfigurations.html#DescribeConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209040"><span class="annot"><span class="annottext">Maybe [HashMap Text Text]
+</span><a href="#local-6989586621679209040"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConfigurationsResponse
+</span><a href="#local-6989586621679209041"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurations:DescribeConfigurationsResponse' :: Maybe [HashMap Text Text]
 </span><a href="Network.AWS.Discovery.DescribeConfigurations.html#%24sel%3Aconfigurations%3ADescribeConfigurationsResponse%27"><span class="hs-identifier hs-var">configurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [HashMap Text Text]
-</span><a href="#local-6989586621679208823"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DescribeConfigurations.html#DescribeConfigurationsResponse"><span class="hs-identifier hs-type">DescribeConfigurationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [HashMap Text Text] -&gt; f (Maybe [HashMap Text Text]))
+</span><a href="#local-6989586621679209040"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DescribeConfigurations.html#DescribeConfigurationsResponse"><span class="hs-identifier hs-type">DescribeConfigurationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [HashMap Text Text] -&gt; f (Maybe [HashMap Text Text]))
  -&gt; DescribeConfigurationsResponse
  -&gt; f DescribeConfigurationsResponse)
 -&gt; ((Maybe [HashMap Text Text] -&gt; f (Maybe [HashMap Text Text]))
@@ -479,8 +479,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [HashMap Text Text]
   [HashMap Text Text]
   [HashMap Text Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-180"></span><span class="annot"><a href="Network.AWS.Discovery.DescribeConfigurations.html#describeConfigurationsResponse_httpStatus"><span class="hs-identifier hs-type">describeConfigurationsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DescribeConfigurations.html#DescribeConfigurationsResponse"><span class="hs-identifier hs-type">DescribeConfigurationsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -496,18 +496,18 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.DescribeConfigurations.html#DescribeConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208821"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.DescribeConfigurations.html#DescribeConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209038"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeConfigurationsResponse' :: DescribeConfigurationsResponse -&gt; Int
-</span><a href="#local-6989586621679208821"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679208821"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208820"><span class="annot"><span class="annottext">s :: DescribeConfigurationsResponse
-</span><a href="#local-6989586621679208820"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.DescribeConfigurations.html#DescribeConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208819"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679208819"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConfigurationsResponse
-</span><a href="#local-6989586621679208820"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeConfigurationsResponse' :: Int
+</span><a href="#local-6989586621679209038"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679209038"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209037"><span class="annot"><span class="annottext">s :: DescribeConfigurationsResponse
+</span><a href="#local-6989586621679209037"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.DescribeConfigurations.html#DescribeConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209036"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679209036"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConfigurationsResponse
+</span><a href="#local-6989586621679209037"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeConfigurationsResponse' :: Int
 </span><a href="Network.AWS.Discovery.DescribeConfigurations.html#%24sel%3AhttpStatus%3ADescribeConfigurationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679208819"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DescribeConfigurations.html#DescribeConfigurationsResponse"><span class="hs-identifier hs-type">DescribeConfigurationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679209036"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DescribeConfigurations.html#DescribeConfigurationsResponse"><span class="hs-identifier hs-type">DescribeConfigurationsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-184"></span><span>  </span><span id="local-6989586621679208817"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679209034"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-185"></span><span>    </span><span class="annot"><a href="Network.AWS.Discovery.DescribeConfigurations.html#DescribeConfigurationsResponse"><span class="hs-identifier hs-type">DescribeConfigurationsResponse</span></a></span></span><span>
 </span><span id="line-186"></span></pre></body></html>

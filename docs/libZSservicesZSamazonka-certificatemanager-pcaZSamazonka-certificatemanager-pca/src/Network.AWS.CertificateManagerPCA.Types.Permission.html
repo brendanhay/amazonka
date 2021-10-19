@@ -37,30 +37,30 @@
 </span><span id="line-37"></span><span class="hs-comment">-- action.</span><span>
 </span><span id="line-38"></span><span class="hs-comment">--</span><span>
 </span><span id="line-39"></span><span class="hs-comment">-- /See:/ 'newPermission' smart constructor.</span><span>
-</span><span id="line-40"></span><span id="local-6989586621679210656"><span id="local-6989586621679210657"></span></span><span class="hs-keyword">data</span><span> </span><span id="Permission"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission"><span class="hs-identifier hs-var">Permission</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Permission%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission%27"><span class="hs-identifier hs-var">Permission'</span></a></span></span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Number (ARN) of the private CA from which the</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- permission was issued.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AcertificateAuthorityArn%3APermission%27"><span class="annot"><span class="annottext">Permission -&gt; Maybe Text
-</span><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#%24sel%3AcertificateAuthorityArn%3APermission%27"><span class="hs-identifier hs-var hs-var">certificateAuthorityArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The time at which the permission was created.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AcreatedAt%3APermission%27"><span class="annot"><span class="annottext">Permission -&gt; Maybe POSIX
-</span><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#%24sel%3AcreatedAt%3APermission%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The private CA actions that can be performed by the designated AWS</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- service.</span><span>
-</span><span id="line-48"></span><span>    </span><span id="%24sel%3Aactions%3APermission%27"><span class="annot"><span class="annottext">Permission -&gt; Maybe (NonEmpty ActionType)
-</span><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#%24sel%3Aactions%3APermission%27"><span class="hs-identifier hs-var hs-var">actions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ActionType.html#ActionType"><span class="hs-identifier hs-type">ActionType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The AWS service or entity that holds the permission. At this time, the</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- only valid principal is @acm.amazonaws.com@.</span><span>
-</span><span id="line-51"></span><span>    </span><span id="%24sel%3Aprincipal%3APermission%27"><span class="annot"><span class="annottext">Permission -&gt; Maybe Text
-</span><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#%24sel%3Aprincipal%3APermission%27"><span class="hs-identifier hs-var hs-var">principal</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The ID of the account that assigned the permission.</span><span>
-</span><span id="line-53"></span><span>    </span><span id="%24sel%3AsourceAccount%3APermission%27"><span class="annot"><span class="annottext">Permission -&gt; Maybe Text
+</span><span id="line-40"></span><span id="local-6989586621679210716"><span id="local-6989586621679210717"></span></span><span class="hs-keyword">data</span><span> </span><span id="Permission"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission"><span class="hs-identifier hs-var">Permission</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Permission%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission%27"><span class="hs-identifier hs-var">Permission'</span></a></span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the account that assigned the permission.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AsourceAccount%3APermission%27"><span class="annot"><span class="annottext">Permission -&gt; Maybe Text
 </span><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#%24sel%3AsourceAccount%3APermission%27"><span class="hs-identifier hs-var hs-var">sourceAccount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The name of the policy that is associated with the permission.</span><span>
-</span><span id="line-55"></span><span>    </span><span id="%24sel%3Apolicy%3APermission%27"><span class="annot"><span class="annottext">Permission -&gt; Maybe Text
-</span><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#%24sel%3Apolicy%3APermission%27"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The private CA actions that can be performed by the designated AWS</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- service.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Aactions%3APermission%27"><span class="annot"><span class="annottext">Permission -&gt; Maybe (NonEmpty ActionType)
+</span><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#%24sel%3Aactions%3APermission%27"><span class="hs-identifier hs-var hs-var">actions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ActionType.html#ActionType"><span class="hs-identifier hs-type">ActionType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The time at which the permission was created.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AcreatedAt%3APermission%27"><span class="annot"><span class="annottext">Permission -&gt; Maybe POSIX
+</span><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#%24sel%3AcreatedAt%3APermission%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The AWS service or entity that holds the permission. At this time, the</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- only valid principal is @acm.amazonaws.com@.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3Aprincipal%3APermission%27"><span class="annot"><span class="annottext">Permission -&gt; Maybe Text
+</span><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#%24sel%3Aprincipal%3APermission%27"><span class="hs-identifier hs-var hs-var">principal</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The name of the policy that is associated with the permission.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3Apolicy%3APermission%27"><span class="annot"><span class="annottext">Permission -&gt; Maybe Text
+</span><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#%24sel%3Apolicy%3APermission%27"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Number (ARN) of the private CA from which the</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- permission was issued.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AcertificateAuthorityArn%3APermission%27"><span class="annot"><span class="annottext">Permission -&gt; Maybe Text
+</span><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#%24sel%3AcertificateAuthorityArn%3APermission%27"><span class="hs-identifier hs-var hs-var">certificateAuthorityArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679210645"><span id="local-6989586621679210647"><span class="annot"><span class="annottext">Permission -&gt; Permission -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679210705"><span id="local-6989586621679210707"><span class="annot"><span class="annottext">Permission -&gt; Permission -&gt; Bool
 (Permission -&gt; Permission -&gt; Bool)
 -&gt; (Permission -&gt; Permission -&gt; Bool) -&gt; Eq Permission
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Permission -&gt; Permission -&gt; Bool
 == :: Permission -&gt; Permission -&gt; Bool
 $c== :: Permission -&gt; Permission -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210636"><span id="local-6989586621679210638"><span id="local-6989586621679210640"><span id="local-6989586621679210642"><span class="annot"><span class="annottext">ReadPrec [Permission]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210696"><span id="local-6989586621679210698"><span id="local-6989586621679210700"><span id="local-6989586621679210702"><span class="annot"><span class="annottext">ReadPrec [Permission]
 ReadPrec Permission
 Int -&gt; ReadS Permission
 ReadS [Permission]
@@ -88,7 +88,7 @@ readList :: ReadS [Permission]
 $creadList :: ReadS [Permission]
 readsPrec :: Int -&gt; ReadS Permission
 $creadsPrec :: Int -&gt; ReadS Permission
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210629"><span id="local-6989586621679210631"><span id="local-6989586621679210633"><span class="annot"><span class="annottext">Int -&gt; Permission -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210689"><span id="local-6989586621679210691"><span id="local-6989586621679210693"><span class="annot"><span class="annottext">Int -&gt; Permission -&gt; ShowS
 [Permission] -&gt; ShowS
 Permission -&gt; String
 (Int -&gt; Permission -&gt; ShowS)
@@ -121,114 +121,80 @@ $cfrom :: forall x. Permission -&gt; Rep Permission x
 </span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'certificateAuthorityArn', 'permission_certificateAuthorityArn' - The Amazon Resource Number (ARN) of the private CA from which the</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- permission was issued.</span><span>
-</span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'createdAt', 'permission_createdAt' - The time at which the permission was created.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'sourceAccount', 'permission_sourceAccount' - The ID of the account that assigned the permission.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'actions', 'permission_actions' - The private CA actions that can be performed by the designated AWS</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- service.</span><span>
 </span><span id="line-71"></span><span class="hs-comment">--</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- 'actions', 'permission_actions' - The private CA actions that can be performed by the designated AWS</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- service.</span><span>
-</span><span id="line-74"></span><span class="hs-comment">--</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- 'principal', 'permission_principal' - The AWS service or entity that holds the permission. At this time, the</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- only valid principal is @acm.amazonaws.com@.</span><span>
-</span><span id="line-77"></span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- 'sourceAccount', 'permission_sourceAccount' - The ID of the account that assigned the permission.</span><span>
-</span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'policy', 'permission_policy' - The name of the policy that is associated with the permission.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'createdAt', 'permission_createdAt' - The time at which the permission was created.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'principal', 'permission_principal' - The AWS service or entity that holds the permission. At this time, the</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- only valid principal is @acm.amazonaws.com@.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'policy', 'permission_policy' - The name of the policy that is associated with the permission.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'certificateAuthorityArn', 'permission_certificateAuthorityArn' - The Amazon Resource Number (ARN) of the private CA from which the</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- permission was issued.</span><span>
 </span><span id="line-81"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#newPermission"><span class="hs-identifier hs-type">newPermission</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span><span>
 </span><span id="line-83"></span><span id="newPermission"><span class="annot"><span class="annottext">newPermission :: Permission
 </span><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#newPermission"><span class="hs-identifier hs-var hs-var">newPermission</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">Permission' :: Maybe Text
--&gt; Maybe POSIX
 -&gt; Maybe (NonEmpty ActionType)
+-&gt; Maybe POSIX
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Permission
 </span><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission%27"><span class="hs-identifier hs-type">Permission'</span></a></span><span>
-</span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:certificateAuthorityArn:Permission' :: Maybe Text
-</span><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#%24sel%3AcertificateAuthorityArn%3APermission%27"><span class="hs-identifier hs-var">certificateAuthorityArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-86"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sourceAccount:Permission' :: Maybe Text
+</span><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#%24sel%3AsourceAccount%3APermission%27"><span class="hs-identifier hs-var">sourceAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:actions:Permission' :: Maybe (NonEmpty ActionType)
+</span><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#%24sel%3Aactions%3APermission%27"><span class="hs-identifier hs-var">actions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ActionType)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdAt:Permission' :: Maybe POSIX
 </span><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#%24sel%3AcreatedAt%3APermission%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:actions:Permission' :: Maybe (NonEmpty ActionType)
-</span><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#%24sel%3Aactions%3APermission%27"><span class="hs-identifier hs-var">actions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ActionType)
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:principal:Permission' :: Maybe Text
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:principal:Permission' :: Maybe Text
 </span><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#%24sel%3Aprincipal%3APermission%27"><span class="hs-identifier hs-var">principal</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceAccount:Permission' :: Maybe Text
-</span><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#%24sel%3AsourceAccount%3APermission%27"><span class="hs-identifier hs-var">sourceAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:policy:Permission' :: Maybe Text
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:policy:Permission' :: Maybe Text
 </span><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#%24sel%3Apolicy%3APermission%27"><span class="hs-identifier hs-var">policy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:certificateAuthorityArn:Permission' :: Maybe Text
+</span><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#%24sel%3AcertificateAuthorityArn%3APermission%27"><span class="hs-identifier hs-var">certificateAuthorityArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-92"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- | The Amazon Resource Number (ARN) of the private CA from which the</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- permission was issued.</span><span>
-</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#permission_certificateAuthorityArn"><span class="hs-identifier hs-type">permission_certificateAuthorityArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-97"></span><span id="permission_certificateAuthorityArn"><span class="annot"><span class="annottext">permission_certificateAuthorityArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Permission -&gt; f Permission
-</span><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#permission_certificateAuthorityArn"><span class="hs-identifier hs-var hs-var">permission_certificateAuthorityArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Permission -&gt; Maybe Text)
+</span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The ID of the account that assigned the permission.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#permission_sourceAccount"><span class="hs-identifier hs-type">permission_sourceAccount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="permission_sourceAccount"><span class="annot"><span class="annottext">permission_sourceAccount :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Permission -&gt; f Permission
+</span><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#permission_sourceAccount"><span class="hs-identifier hs-var hs-var">permission_sourceAccount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Permission -&gt; Maybe Text)
 -&gt; (Permission -&gt; Maybe Text -&gt; Permission)
 -&gt; Lens Permission Permission (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission%27"><span class="hs-identifier hs-type">Permission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210620"><span class="annot"><span class="annottext">Maybe Text
-certificateAuthorityArn :: Maybe Text
-$sel:certificateAuthorityArn:Permission' :: Permission -&gt; Maybe Text
-</span><a href="#local-6989586621679210620"><span class="hs-identifier hs-var hs-var">certificateAuthorityArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210620"><span class="hs-identifier hs-var">certificateAuthorityArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210619"><span class="annot"><span class="annottext">s :: Permission
-</span><a href="#local-6989586621679210619"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission%27"><span class="hs-identifier hs-type">Permission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210618"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210618"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Permission
-</span><a href="#local-6989586621679210619"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateAuthorityArn:Permission' :: Maybe Text
-</span><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#%24sel%3AcertificateAuthorityArn%3APermission%27"><span class="hs-identifier hs-var">certificateAuthorityArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210618"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- | The time at which the permission was created.</span><span>
-</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#permission_createdAt"><span class="hs-identifier hs-type">permission_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span id="permission_createdAt"><span class="annot"><span class="annottext">permission_createdAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Permission -&gt; f Permission
-</span><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#permission_createdAt"><span class="hs-identifier hs-var hs-var">permission_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Permission -&gt; Maybe POSIX)
--&gt; (Permission -&gt; Maybe POSIX -&gt; Permission)
--&gt; Lens Permission Permission (Maybe POSIX) (Maybe POSIX)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission%27"><span class="hs-identifier hs-type">Permission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210616"><span class="annot"><span class="annottext">Maybe POSIX
-createdAt :: Maybe POSIX
-$sel:createdAt:Permission' :: Permission -&gt; Maybe POSIX
-</span><a href="#local-6989586621679210616"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679210616"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210615"><span class="annot"><span class="annottext">s :: Permission
-</span><a href="#local-6989586621679210615"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission%27"><span class="hs-identifier hs-type">Permission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210614"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679210614"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Permission
-</span><a href="#local-6989586621679210615"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:Permission' :: Maybe POSIX
-</span><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#%24sel%3AcreatedAt%3APermission%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679210614"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Permission -&gt; f Permission)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; Permission
--&gt; f Permission
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- | The private CA actions that can be performed by the designated AWS</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- service.</span><span>
-</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#permission_actions"><span class="hs-identifier hs-type">permission_actions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ActionType.html#ActionType"><span class="hs-identifier hs-type">ActionType</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span id="permission_actions"><span class="annot"><span class="annottext">permission_actions :: (Maybe (NonEmpty ActionType) -&gt; f (Maybe (NonEmpty ActionType)))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission%27"><span class="hs-identifier hs-type">Permission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210680"><span class="annot"><span class="annottext">Maybe Text
+sourceAccount :: Maybe Text
+$sel:sourceAccount:Permission' :: Permission -&gt; Maybe Text
+</span><a href="#local-6989586621679210680"><span class="hs-identifier hs-var hs-var">sourceAccount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210680"><span class="hs-identifier hs-var">sourceAccount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210679"><span class="annot"><span class="annottext">s :: Permission
+</span><a href="#local-6989586621679210679"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission%27"><span class="hs-identifier hs-type">Permission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210678"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210678"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Permission
+</span><a href="#local-6989586621679210679"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceAccount:Permission' :: Maybe Text
+</span><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#%24sel%3AsourceAccount%3APermission%27"><span class="hs-identifier hs-var">sourceAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210678"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The private CA actions that can be performed by the designated AWS</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- service.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#permission_actions"><span class="hs-identifier hs-type">permission_actions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ActionType.html#ActionType"><span class="hs-identifier hs-type">ActionType</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="permission_actions"><span class="annot"><span class="annottext">permission_actions :: (Maybe (NonEmpty ActionType) -&gt; f (Maybe (NonEmpty ActionType)))
 -&gt; Permission -&gt; f Permission
 </span><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#permission_actions"><span class="hs-identifier hs-var hs-var">permission_actions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Permission -&gt; Maybe (NonEmpty ActionType))
 -&gt; (Permission -&gt; Maybe (NonEmpty ActionType) -&gt; Permission)
@@ -238,16 +204,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe (NonEmpty ActionType))
      (Maybe (NonEmpty ActionType))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission%27"><span class="hs-identifier hs-type">Permission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210609"><span class="annot"><span class="annottext">Maybe (NonEmpty ActionType)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission%27"><span class="hs-identifier hs-type">Permission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210676"><span class="annot"><span class="annottext">Maybe (NonEmpty ActionType)
 actions :: Maybe (NonEmpty ActionType)
 $sel:actions:Permission' :: Permission -&gt; Maybe (NonEmpty ActionType)
-</span><a href="#local-6989586621679210609"><span class="hs-identifier hs-var hs-var">actions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ActionType)
-</span><a href="#local-6989586621679210609"><span class="hs-identifier hs-var">actions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210608"><span class="annot"><span class="annottext">s :: Permission
-</span><a href="#local-6989586621679210608"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission%27"><span class="hs-identifier hs-type">Permission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210607"><span class="annot"><span class="annottext">Maybe (NonEmpty ActionType)
-</span><a href="#local-6989586621679210607"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Permission
-</span><a href="#local-6989586621679210608"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actions:Permission' :: Maybe (NonEmpty ActionType)
+</span><a href="#local-6989586621679210676"><span class="hs-identifier hs-var hs-var">actions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ActionType)
+</span><a href="#local-6989586621679210676"><span class="hs-identifier hs-var">actions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210675"><span class="annot"><span class="annottext">s :: Permission
+</span><a href="#local-6989586621679210675"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission%27"><span class="hs-identifier hs-type">Permission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210674"><span class="annot"><span class="annottext">Maybe (NonEmpty ActionType)
+</span><a href="#local-6989586621679210674"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Permission
+</span><a href="#local-6989586621679210675"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actions:Permission' :: Maybe (NonEmpty ActionType)
 </span><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#%24sel%3Aactions%3APermission%27"><span class="hs-identifier hs-var">actions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ActionType)
-</span><a href="#local-6989586621679210607"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty ActionType) -&gt; f (Maybe (NonEmpty ActionType)))
+</span><a href="#local-6989586621679210674"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty ActionType) -&gt; f (Maybe (NonEmpty ActionType)))
  -&gt; Permission -&gt; f Permission)
 -&gt; ((Maybe (NonEmpty ActionType)
      -&gt; f (Maybe (NonEmpty ActionType)))
@@ -274,160 +240,193 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (NonEmpty ActionType)
   (NonEmpty ActionType)
   (NonEmpty ActionType)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- | The AWS service or entity that holds the permission. At this time, the</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- only valid principal is @acm.amazonaws.com@.</span><span>
-</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#permission_principal"><span class="hs-identifier hs-type">permission_principal</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span id="permission_principal"><span class="annot"><span class="annottext">permission_principal :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Permission -&gt; f Permission
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The time at which the permission was created.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#permission_createdAt"><span class="hs-identifier hs-type">permission_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="permission_createdAt"><span class="annot"><span class="annottext">permission_createdAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Permission -&gt; f Permission
+</span><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#permission_createdAt"><span class="hs-identifier hs-var hs-var">permission_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Permission -&gt; Maybe POSIX)
+-&gt; (Permission -&gt; Maybe POSIX -&gt; Permission)
+-&gt; Lens Permission Permission (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission%27"><span class="hs-identifier hs-type">Permission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210669"><span class="annot"><span class="annottext">Maybe POSIX
+createdAt :: Maybe POSIX
+$sel:createdAt:Permission' :: Permission -&gt; Maybe POSIX
+</span><a href="#local-6989586621679210669"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679210669"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210668"><span class="annot"><span class="annottext">s :: Permission
+</span><a href="#local-6989586621679210668"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission%27"><span class="hs-identifier hs-type">Permission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210667"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679210667"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Permission
+</span><a href="#local-6989586621679210668"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:Permission' :: Maybe POSIX
+</span><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#%24sel%3AcreatedAt%3APermission%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679210667"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Permission -&gt; f Permission)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Permission
+-&gt; f Permission
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The AWS service or entity that holds the permission. At this time, the</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- only valid principal is @acm.amazonaws.com@.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#permission_principal"><span class="hs-identifier hs-type">permission_principal</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="permission_principal"><span class="annot"><span class="annottext">permission_principal :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Permission -&gt; f Permission
 </span><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#permission_principal"><span class="hs-identifier hs-var hs-var">permission_principal</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Permission -&gt; Maybe Text)
 -&gt; (Permission -&gt; Maybe Text -&gt; Permission)
 -&gt; Lens Permission Permission (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission%27"><span class="hs-identifier hs-type">Permission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210604"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission%27"><span class="hs-identifier hs-type">Permission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210664"><span class="annot"><span class="annottext">Maybe Text
 principal :: Maybe Text
 $sel:principal:Permission' :: Permission -&gt; Maybe Text
-</span><a href="#local-6989586621679210604"><span class="hs-identifier hs-var hs-var">principal</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210604"><span class="hs-identifier hs-var">principal</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210603"><span class="annot"><span class="annottext">s :: Permission
-</span><a href="#local-6989586621679210603"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission%27"><span class="hs-identifier hs-type">Permission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210602"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210602"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Permission
-</span><a href="#local-6989586621679210603"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:principal:Permission' :: Maybe Text
+</span><a href="#local-6989586621679210664"><span class="hs-identifier hs-var hs-var">principal</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210664"><span class="hs-identifier hs-var">principal</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210663"><span class="annot"><span class="annottext">s :: Permission
+</span><a href="#local-6989586621679210663"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission%27"><span class="hs-identifier hs-type">Permission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210662"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210662"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Permission
+</span><a href="#local-6989586621679210663"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:principal:Permission' :: Maybe Text
 </span><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#%24sel%3Aprincipal%3APermission%27"><span class="hs-identifier hs-var">principal</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210602"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- | The ID of the account that assigned the permission.</span><span>
-</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#permission_sourceAccount"><span class="hs-identifier hs-type">permission_sourceAccount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span id="permission_sourceAccount"><span class="annot"><span class="annottext">permission_sourceAccount :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Permission -&gt; f Permission
-</span><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#permission_sourceAccount"><span class="hs-identifier hs-var hs-var">permission_sourceAccount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Permission -&gt; Maybe Text)
--&gt; (Permission -&gt; Maybe Text -&gt; Permission)
--&gt; Lens Permission Permission (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission%27"><span class="hs-identifier hs-type">Permission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210600"><span class="annot"><span class="annottext">Maybe Text
-sourceAccount :: Maybe Text
-$sel:sourceAccount:Permission' :: Permission -&gt; Maybe Text
-</span><a href="#local-6989586621679210600"><span class="hs-identifier hs-var hs-var">sourceAccount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210600"><span class="hs-identifier hs-var">sourceAccount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210599"><span class="annot"><span class="annottext">s :: Permission
-</span><a href="#local-6989586621679210599"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission%27"><span class="hs-identifier hs-type">Permission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210598"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210598"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Permission
-</span><a href="#local-6989586621679210599"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceAccount:Permission' :: Maybe Text
-</span><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#%24sel%3AsourceAccount%3APermission%27"><span class="hs-identifier hs-var">sourceAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210598"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- | The name of the policy that is associated with the permission.</span><span>
-</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#permission_policy"><span class="hs-identifier hs-type">permission_policy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-119"></span><span id="permission_policy"><span class="annot"><span class="annottext">permission_policy :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Permission -&gt; f Permission
+</span><a href="#local-6989586621679210662"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The name of the policy that is associated with the permission.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#permission_policy"><span class="hs-identifier hs-type">permission_policy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="permission_policy"><span class="annot"><span class="annottext">permission_policy :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Permission -&gt; f Permission
 </span><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#permission_policy"><span class="hs-identifier hs-var hs-var">permission_policy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Permission -&gt; Maybe Text)
 -&gt; (Permission -&gt; Maybe Text -&gt; Permission)
 -&gt; Lens Permission Permission (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission%27"><span class="hs-identifier hs-type">Permission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210596"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission%27"><span class="hs-identifier hs-type">Permission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210660"><span class="annot"><span class="annottext">Maybe Text
 policy :: Maybe Text
 $sel:policy:Permission' :: Permission -&gt; Maybe Text
-</span><a href="#local-6989586621679210596"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210596"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210595"><span class="annot"><span class="annottext">s :: Permission
-</span><a href="#local-6989586621679210595"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission%27"><span class="hs-identifier hs-type">Permission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210594"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210594"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Permission
-</span><a href="#local-6989586621679210595"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policy:Permission' :: Maybe Text
+</span><a href="#local-6989586621679210660"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210660"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210659"><span class="annot"><span class="annottext">s :: Permission
+</span><a href="#local-6989586621679210659"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission%27"><span class="hs-identifier hs-type">Permission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210658"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210658"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Permission
+</span><a href="#local-6989586621679210659"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policy:Permission' :: Maybe Text
 </span><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#%24sel%3Apolicy%3APermission%27"><span class="hs-identifier hs-var">policy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210594"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210591"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679210589"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Permission
+</span><a href="#local-6989586621679210658"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The Amazon Resource Number (ARN) of the private CA from which the</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- permission was issued.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#permission_certificateAuthorityArn"><span class="hs-identifier hs-type">permission_certificateAuthorityArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="permission_certificateAuthorityArn"><span class="annot"><span class="annottext">permission_certificateAuthorityArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Permission -&gt; f Permission
+</span><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#permission_certificateAuthorityArn"><span class="hs-identifier hs-var hs-var">permission_certificateAuthorityArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Permission -&gt; Maybe Text)
+-&gt; (Permission -&gt; Maybe Text -&gt; Permission)
+-&gt; Lens Permission Permission (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission%27"><span class="hs-identifier hs-type">Permission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210656"><span class="annot"><span class="annottext">Maybe Text
+certificateAuthorityArn :: Maybe Text
+$sel:certificateAuthorityArn:Permission' :: Permission -&gt; Maybe Text
+</span><a href="#local-6989586621679210656"><span class="hs-identifier hs-var hs-var">certificateAuthorityArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210656"><span class="hs-identifier hs-var">certificateAuthorityArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210655"><span class="annot"><span class="annottext">s :: Permission
+</span><a href="#local-6989586621679210655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission%27"><span class="hs-identifier hs-type">Permission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210654"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Permission
+</span><a href="#local-6989586621679210655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateAuthorityArn:Permission' :: Maybe Text
+</span><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#%24sel%3AcertificateAuthorityArn%3APermission%27"><span class="hs-identifier hs-var">certificateAuthorityArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210651"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679210649"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Permission
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser Permission) -&gt; Value -&gt; Parser Permission
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Permission&quot;</span></span><span>
-</span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679210586"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210586"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-126"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe POSIX
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679210646"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210646"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe (NonEmpty ActionType)
+-&gt; Maybe POSIX
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Permission
 </span><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission%27"><span class="hs-identifier hs-var">Permission'</span></a></span><span>
-</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe POSIX
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
  -&gt; Maybe (NonEmpty ActionType)
+ -&gt; Maybe POSIX
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Permission)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe POSIX
-      -&gt; Maybe (NonEmpty ActionType)
+     (Maybe (NonEmpty ActionType)
+      -&gt; Maybe POSIX
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Permission)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210586"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679210646"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CertificateAuthorityArn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX
-   -&gt; Maybe (NonEmpty ActionType)
+</span><span class="hs-string">&quot;SourceAccount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (NonEmpty ActionType)
+   -&gt; Maybe POSIX
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Permission)
--&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe (NonEmpty ActionType))
 -&gt; Parser
-     (Maybe (NonEmpty ActionType)
+     (Maybe POSIX
       -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Permission)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210586"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CreatedAt&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe (NonEmpty ActionType)
-   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Permission)
--&gt; Parser (Maybe (NonEmpty ActionType))
--&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Permission)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210586"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty ActionType))
+</span><a href="#local-6989586621679210646"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty ActionType))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Actions&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Permission)
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Permission)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Permission)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210646"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Permission)
 -&gt; Parser (Maybe Text)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Permission)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210586"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679210646"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Principal&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Permission)
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Permission)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Permission)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210586"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SourceAccount&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Permission)
--&gt; Parser (Maybe Text) -&gt; Parser Permission
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210586"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679210646"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Policy&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210580"><span id="local-6989586621679210582"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span></span></span><span>
-</span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210577"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span></span><span>
-</span><span id="line-138"></span></pre></body></html>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Permission)
+-&gt; Parser (Maybe Text) -&gt; Parser Permission
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210646"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CertificateAuthorityArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210640"><span id="local-6989586621679210642"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span></span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210637"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span></span><span>
+</span><span id="line-137"></span></pre></body></html>

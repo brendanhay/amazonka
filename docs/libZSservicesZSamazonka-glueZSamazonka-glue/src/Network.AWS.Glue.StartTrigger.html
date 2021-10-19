@@ -49,12 +49,12 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newStartTrigger' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679710197"><span id="local-6989586621679710198"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartTrigger"><span class="annot"><a href="Network.AWS.Glue.StartTrigger.html#StartTrigger"><span class="hs-identifier hs-var">StartTrigger</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartTrigger%27"><span class="annot"><a href="Network.AWS.Glue.StartTrigger.html#StartTrigger%27"><span class="hs-identifier hs-var">StartTrigger'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679711935"><span id="local-6989586621679711936"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartTrigger"><span class="annot"><a href="Network.AWS.Glue.StartTrigger.html#StartTrigger"><span class="hs-identifier hs-var">StartTrigger</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartTrigger%27"><span class="annot"><a href="Network.AWS.Glue.StartTrigger.html#StartTrigger%27"><span class="hs-identifier hs-var">StartTrigger'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the trigger to start.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3Aname%3AStartTrigger%27"><span class="annot"><span class="annottext">StartTrigger -&gt; Text
 </span><a href="Network.AWS.Glue.StartTrigger.html#%24sel%3Aname%3AStartTrigger%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679710191"><span id="local-6989586621679710193"><span class="annot"><span class="annottext">StartTrigger -&gt; StartTrigger -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679711929"><span id="local-6989586621679711931"><span class="annot"><span class="annottext">StartTrigger -&gt; StartTrigger -&gt; Bool
 (StartTrigger -&gt; StartTrigger -&gt; Bool)
 -&gt; (StartTrigger -&gt; StartTrigger -&gt; Bool) -&gt; Eq StartTrigger
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StartTrigger -&gt; StartTrigger -&gt; Bool
 == :: StartTrigger -&gt; StartTrigger -&gt; Bool
 $c== :: StartTrigger -&gt; StartTrigger -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679710182"><span id="local-6989586621679710184"><span id="local-6989586621679710186"><span id="local-6989586621679710188"><span class="annot"><span class="annottext">ReadPrec [StartTrigger]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679711920"><span id="local-6989586621679711922"><span id="local-6989586621679711924"><span id="local-6989586621679711926"><span class="annot"><span class="annottext">ReadPrec [StartTrigger]
 ReadPrec StartTrigger
 Int -&gt; ReadS StartTrigger
 ReadS [StartTrigger]
@@ -82,7 +82,7 @@ readList :: ReadS [StartTrigger]
 $creadList :: ReadS [StartTrigger]
 readsPrec :: Int -&gt; ReadS StartTrigger
 $creadsPrec :: Int -&gt; ReadS StartTrigger
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679710175"><span id="local-6989586621679710177"><span id="local-6989586621679710179"><span class="annot"><span class="annottext">Int -&gt; StartTrigger -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679711913"><span id="local-6989586621679711915"><span id="local-6989586621679711917"><span class="annot"><span class="annottext">Int -&gt; StartTrigger -&gt; ShowS
 [StartTrigger] -&gt; ShowS
 StartTrigger -&gt; String
 (Int -&gt; StartTrigger -&gt; ShowS)
@@ -122,11 +122,11 @@ $cfrom :: forall x. StartTrigger -&gt; Rep StartTrigger x
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.StartTrigger.html#StartTrigger"><span class="hs-identifier hs-type">StartTrigger</span></a></span><span>
 </span><span id="line-71"></span><span id="newStartTrigger"><span class="annot"><span class="annottext">newStartTrigger :: Text -&gt; StartTrigger
-</span><a href="Network.AWS.Glue.StartTrigger.html#newStartTrigger"><span class="hs-identifier hs-var hs-var">newStartTrigger</span></a></span></span><span> </span><span id="local-6989586621679710170"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679710170"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StartTrigger' :: Text -&gt; StartTrigger
+</span><a href="Network.AWS.Glue.StartTrigger.html#newStartTrigger"><span class="hs-identifier hs-var hs-var">newStartTrigger</span></a></span></span><span> </span><span id="local-6989586621679711908"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679711908"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StartTrigger' :: Text -&gt; StartTrigger
 </span><a href="Network.AWS.Glue.StartTrigger.html#StartTrigger%27"><span class="hs-identifier hs-type">StartTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:StartTrigger' :: Text
 </span><a href="Network.AWS.Glue.StartTrigger.html#%24sel%3Aname%3AStartTrigger%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679710170"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679711908"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | The name of the trigger to start.</span><span>
 </span><span id="line-74"></span><span class="annot"><a href="Network.AWS.Glue.StartTrigger.html#startTrigger_name"><span class="hs-identifier hs-type">startTrigger_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartTrigger.html#StartTrigger"><span class="hs-identifier hs-type">StartTrigger</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -135,25 +135,25 @@ $cfrom :: forall x. StartTrigger -&gt; Rep StartTrigger x
 -&gt; (StartTrigger -&gt; Text -&gt; StartTrigger)
 -&gt; Lens StartTrigger StartTrigger Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.StartTrigger.html#StartTrigger%27"><span class="hs-identifier hs-type">StartTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679710167"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.StartTrigger.html#StartTrigger%27"><span class="hs-identifier hs-type">StartTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679711905"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:StartTrigger' :: StartTrigger -&gt; Text
-</span><a href="#local-6989586621679710167"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679710167"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679710166"><span class="annot"><span class="annottext">s :: StartTrigger
-</span><a href="#local-6989586621679710166"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.StartTrigger.html#StartTrigger%27"><span class="hs-identifier hs-type">StartTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679710165"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679710165"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTrigger
-</span><a href="#local-6989586621679710166"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:StartTrigger' :: Text
+</span><a href="#local-6989586621679711905"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679711905"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679711904"><span class="annot"><span class="annottext">s :: StartTrigger
+</span><a href="#local-6989586621679711904"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.StartTrigger.html#StartTrigger%27"><span class="hs-identifier hs-type">StartTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679711903"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679711903"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTrigger
+</span><a href="#local-6989586621679711904"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:StartTrigger' :: Text
 </span><a href="Network.AWS.Glue.StartTrigger.html#%24sel%3Aname%3AStartTrigger%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679710165"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartTrigger.html#StartTrigger"><span class="hs-identifier hs-type">StartTrigger</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679711903"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartTrigger.html#StartTrigger"><span class="hs-identifier hs-type">StartTrigger</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartTrigger.html#StartTrigger"><span class="hs-identifier hs-type">StartTrigger</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartTrigger.html#StartTrigger"><span class="hs-identifier hs-type">StartTrigger</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartTrigger.html#StartTriggerResponse"><span class="hs-identifier hs-type">StartTriggerResponse</span></a></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679710161"><span class="annot"><span class="annottext">request :: StartTrigger -&gt; Request StartTrigger
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679711899"><span class="annot"><span class="annottext">request :: StartTrigger -&gt; Request StartTrigger
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StartTrigger -&gt; Request StartTrigger
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679710157"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679711895"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy StartTrigger
 -&gt; ClientResponse ClientBody
@@ -177,10 +177,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679710154"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679710154"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679710153"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679710153"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679710152"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679710152"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679711892"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679711892"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679711891"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679711891"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679711890"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679711890"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; StartTriggerResponse
 </span><a href="Network.AWS.Glue.StartTrigger.html#StartTriggerResponse%27"><span class="hs-identifier hs-var">StartTriggerResponse'</span></a></span><span>
 </span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; StartTriggerResponse)
@@ -188,7 +188,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; StartTriggerResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679710152"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679711890"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
@@ -200,15 +200,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679710154"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679711892"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679710144"><span id="local-6989586621679710146"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartTrigger.html#StartTrigger"><span class="hs-identifier hs-type">StartTrigger</span></a></span></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679711882"><span id="local-6989586621679711884"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartTrigger.html#StartTrigger"><span class="hs-identifier hs-type">StartTrigger</span></a></span></span></span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679710141"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartTrigger.html#StartTrigger"><span class="hs-identifier hs-type">StartTrigger</span></a></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679711879"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartTrigger.html#StartTrigger"><span class="hs-identifier hs-type">StartTrigger</span></a></span></span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartTrigger.html#StartTrigger"><span class="hs-identifier hs-type">StartTrigger</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679710137"><span class="annot"><span class="annottext">toHeaders :: StartTrigger -&gt; ResponseHeaders
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679711875"><span class="annot"><span class="annottext">toHeaders :: StartTrigger -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StartTrigger -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -233,12 +233,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-102"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679710127"><span id="local-6989586621679710129"><span id="local-6989586621679710131"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartTrigger.html#StartTrigger"><span class="hs-identifier hs-type">StartTrigger</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679710125"><span class="annot"><span class="annottext">toJSON :: StartTrigger -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartTrigger.html#StartTrigger%27"><span class="hs-identifier hs-type">StartTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679710123"><span class="annot"><span class="annottext">Text
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679711865"><span id="local-6989586621679711867"><span id="local-6989586621679711869"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartTrigger.html#StartTrigger"><span class="hs-identifier hs-type">StartTrigger</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679711863"><span class="annot"><span class="annottext">toJSON :: StartTrigger -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartTrigger.html#StartTrigger%27"><span class="hs-identifier hs-type">StartTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679711861"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:StartTrigger' :: StartTrigger -&gt; Text
-</span><a href="#local-6989586621679710123"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679711861"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -250,18 +250,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679710123"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679711861"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartTrigger.html#StartTrigger"><span class="hs-identifier hs-type">StartTrigger</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679710117"><span class="annot"><span class="annottext">toPath :: StartTrigger -&gt; ByteString
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679711855"><span class="annot"><span class="annottext">toPath :: StartTrigger -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StartTrigger -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartTrigger.html#StartTrigger"><span class="hs-identifier hs-type">StartTrigger</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679710113"><span class="annot"><span class="annottext">toQuery :: StartTrigger -&gt; QueryString
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679711851"><span class="annot"><span class="annottext">toQuery :: StartTrigger -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StartTrigger -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -269,7 +269,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | /See:/ 'newStartTriggerResponse' smart constructor.</span><span>
-</span><span id="line-119"></span><span id="local-6989586621679710110"><span id="local-6989586621679710111"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartTriggerResponse"><span class="annot"><a href="Network.AWS.Glue.StartTrigger.html#StartTriggerResponse"><span class="hs-identifier hs-var">StartTriggerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartTriggerResponse%27"><span class="annot"><a href="Network.AWS.Glue.StartTrigger.html#StartTriggerResponse%27"><span class="hs-identifier hs-var">StartTriggerResponse'</span></a></span></span><span>
+</span><span id="line-119"></span><span id="local-6989586621679711848"><span id="local-6989586621679711849"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartTriggerResponse"><span class="annot"><a href="Network.AWS.Glue.StartTrigger.html#StartTriggerResponse"><span class="hs-identifier hs-var">StartTriggerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartTriggerResponse%27"><span class="annot"><a href="Network.AWS.Glue.StartTrigger.html#StartTriggerResponse%27"><span class="hs-identifier hs-var">StartTriggerResponse'</span></a></span></span><span>
 </span><span id="line-120"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the trigger that was started.</span><span>
 </span><span id="line-121"></span><span>    </span><span id="%24sel%3Aname%3AStartTriggerResponse%27"><span class="annot"><span class="annottext">StartTriggerResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.StartTrigger.html#%24sel%3Aname%3AStartTriggerResponse%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -277,7 +277,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-123"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStartTriggerResponse%27"><span class="annot"><span class="annottext">StartTriggerResponse -&gt; Int
 </span><a href="Network.AWS.Glue.StartTrigger.html#%24sel%3AhttpStatus%3AStartTriggerResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-124"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-125"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679710104"><span id="local-6989586621679710106"><span class="annot"><span class="annottext">StartTriggerResponse -&gt; StartTriggerResponse -&gt; Bool
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679711842"><span id="local-6989586621679711844"><span class="annot"><span class="annottext">StartTriggerResponse -&gt; StartTriggerResponse -&gt; Bool
 (StartTriggerResponse -&gt; StartTriggerResponse -&gt; Bool)
 -&gt; (StartTriggerResponse -&gt; StartTriggerResponse -&gt; Bool)
 -&gt; Eq StartTriggerResponse
@@ -286,7 +286,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StartTriggerResponse -&gt; StartTriggerResponse -&gt; Bool
 == :: StartTriggerResponse -&gt; StartTriggerResponse -&gt; Bool
 $c== :: StartTriggerResponse -&gt; StartTriggerResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679710096"><span id="local-6989586621679710098"><span id="local-6989586621679710100"><span id="local-6989586621679710102"><span class="annot"><span class="annottext">ReadPrec [StartTriggerResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679711834"><span id="local-6989586621679711836"><span id="local-6989586621679711838"><span id="local-6989586621679711840"><span class="annot"><span class="annottext">ReadPrec [StartTriggerResponse]
 ReadPrec StartTriggerResponse
 Int -&gt; ReadS StartTriggerResponse
 ReadS [StartTriggerResponse]
@@ -306,7 +306,7 @@ readList :: ReadS [StartTriggerResponse]
 $creadList :: ReadS [StartTriggerResponse]
 readsPrec :: Int -&gt; ReadS StartTriggerResponse
 $creadsPrec :: Int -&gt; ReadS StartTriggerResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679710090"><span id="local-6989586621679710092"><span id="local-6989586621679710094"><span class="annot"><span class="annottext">Int -&gt; StartTriggerResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679711828"><span id="local-6989586621679711830"><span id="local-6989586621679711832"><span class="annot"><span class="annottext">Int -&gt; StartTriggerResponse -&gt; ShowS
 [StartTriggerResponse] -&gt; ShowS
 StartTriggerResponse -&gt; String
 (Int -&gt; StartTriggerResponse -&gt; ShowS)
@@ -348,8 +348,8 @@ $cfrom :: forall x. StartTriggerResponse -&gt; Rep StartTriggerResponse x
 </span><span id="line-140"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-141"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.StartTrigger.html#StartTriggerResponse"><span class="hs-identifier hs-type">StartTriggerResponse</span></a></span><span>
 </span><span id="line-142"></span><span id="newStartTriggerResponse"><span class="annot"><span class="annottext">newStartTriggerResponse :: Int -&gt; StartTriggerResponse
-</span><a href="Network.AWS.Glue.StartTrigger.html#newStartTriggerResponse"><span class="hs-identifier hs-var hs-var">newStartTriggerResponse</span></a></span></span><span> </span><span id="local-6989586621679710087"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679710087"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.StartTrigger.html#newStartTriggerResponse"><span class="hs-identifier hs-var hs-var">newStartTriggerResponse</span></a></span></span><span> </span><span id="local-6989586621679711825"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679711825"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-143"></span><span>  </span><span class="annot"><span class="annottext">StartTriggerResponse' :: Maybe Text -&gt; Int -&gt; StartTriggerResponse
 </span><a href="Network.AWS.Glue.StartTrigger.html#StartTriggerResponse%27"><span class="hs-identifier hs-type">StartTriggerResponse'</span></a></span><span>
 </span><span id="line-144"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:StartTriggerResponse' :: Maybe Text
@@ -358,7 +358,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StartTriggerResponse' :: Int
 </span><a href="Network.AWS.Glue.StartTrigger.html#%24sel%3AhttpStatus%3AStartTriggerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679710087"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679711825"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-146"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- | The name of the trigger that was started.</span><span>
@@ -370,16 +370,16 @@ forall a. Maybe a
 -&gt; Lens
      StartTriggerResponse StartTriggerResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.StartTrigger.html#StartTriggerResponse%27"><span class="hs-identifier hs-type">StartTriggerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679710086"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.StartTrigger.html#StartTriggerResponse%27"><span class="hs-identifier hs-type">StartTriggerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679711824"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:StartTriggerResponse' :: StartTriggerResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679710086"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679710086"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679710085"><span class="annot"><span class="annottext">s :: StartTriggerResponse
-</span><a href="#local-6989586621679710085"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.StartTrigger.html#StartTriggerResponse%27"><span class="hs-identifier hs-type">StartTriggerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679710084"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679710084"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTriggerResponse
-</span><a href="#local-6989586621679710085"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:StartTriggerResponse' :: Maybe Text
+</span><a href="#local-6989586621679711824"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679711824"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679711823"><span class="annot"><span class="annottext">s :: StartTriggerResponse
+</span><a href="#local-6989586621679711823"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.StartTrigger.html#StartTriggerResponse%27"><span class="hs-identifier hs-type">StartTriggerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679711822"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679711822"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTriggerResponse
+</span><a href="#local-6989586621679711823"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:StartTriggerResponse' :: Maybe Text
 </span><a href="Network.AWS.Glue.StartTrigger.html#%24sel%3Aname%3AStartTriggerResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679710084"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartTrigger.html#StartTriggerResponse"><span class="hs-identifier hs-type">StartTriggerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679711822"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartTrigger.html#StartTriggerResponse"><span class="hs-identifier hs-type">StartTriggerResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-153"></span><span class="annot"><a href="Network.AWS.Glue.StartTrigger.html#startTriggerResponse_httpStatus"><span class="hs-identifier hs-type">startTriggerResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartTrigger.html#StartTriggerResponse"><span class="hs-identifier hs-type">StartTriggerResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -388,16 +388,16 @@ $sel:name:StartTriggerResponse' :: StartTriggerResponse -&gt; Maybe Text
 -&gt; (StartTriggerResponse -&gt; Int -&gt; StartTriggerResponse)
 -&gt; Lens StartTriggerResponse StartTriggerResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.StartTrigger.html#StartTriggerResponse%27"><span class="hs-identifier hs-type">StartTriggerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679710083"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.StartTrigger.html#StartTriggerResponse%27"><span class="hs-identifier hs-type">StartTriggerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679711821"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:StartTriggerResponse' :: StartTriggerResponse -&gt; Int
-</span><a href="#local-6989586621679710083"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679710083"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679710082"><span class="annot"><span class="annottext">s :: StartTriggerResponse
-</span><a href="#local-6989586621679710082"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.StartTrigger.html#StartTriggerResponse%27"><span class="hs-identifier hs-type">StartTriggerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679710081"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679710081"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTriggerResponse
-</span><a href="#local-6989586621679710082"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartTriggerResponse' :: Int
+</span><a href="#local-6989586621679711821"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679711821"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679711820"><span class="annot"><span class="annottext">s :: StartTriggerResponse
+</span><a href="#local-6989586621679711820"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.StartTrigger.html#StartTriggerResponse%27"><span class="hs-identifier hs-type">StartTriggerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679711819"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679711819"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTriggerResponse
+</span><a href="#local-6989586621679711820"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartTriggerResponse' :: Int
 </span><a href="Network.AWS.Glue.StartTrigger.html#%24sel%3AhttpStatus%3AStartTriggerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679710081"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartTrigger.html#StartTriggerResponse"><span class="hs-identifier hs-type">StartTriggerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679711819"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartTrigger.html#StartTriggerResponse"><span class="hs-identifier hs-type">StartTriggerResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679710079"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartTrigger.html#StartTriggerResponse"><span class="hs-identifier hs-type">StartTriggerResponse</span></a></span></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679711817"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StartTrigger.html#StartTriggerResponse"><span class="hs-identifier hs-type">StartTriggerResponse</span></a></span></span><span>
 </span><span id="line-157"></span></pre></body></html>

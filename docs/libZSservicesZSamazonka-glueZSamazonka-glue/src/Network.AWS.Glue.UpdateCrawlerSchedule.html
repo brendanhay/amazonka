@@ -47,7 +47,7 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newUpdateCrawlerSchedule' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679746213"><span id="local-6989586621679746214"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateCrawlerSchedule"><span class="annot"><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#UpdateCrawlerSchedule"><span class="hs-identifier hs-var">UpdateCrawlerSchedule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateCrawlerSchedule%27"><span class="annot"><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#UpdateCrawlerSchedule%27"><span class="hs-identifier hs-var">UpdateCrawlerSchedule'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679748062"><span id="local-6989586621679748063"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateCrawlerSchedule"><span class="annot"><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#UpdateCrawlerSchedule"><span class="hs-identifier hs-var">UpdateCrawlerSchedule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateCrawlerSchedule%27"><span class="annot"><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#UpdateCrawlerSchedule%27"><span class="hs-identifier hs-var">UpdateCrawlerSchedule'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The updated @cron@ expression used to specify the schedule (see</span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers&gt;.</span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-comment">-- For example, to run something every day at 12:15 UTC, you would specify:</span><span>
@@ -58,7 +58,7 @@
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AcrawlerName%3AUpdateCrawlerSchedule%27"><span class="annot"><span class="annottext">UpdateCrawlerSchedule -&gt; Text
 </span><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#%24sel%3AcrawlerName%3AUpdateCrawlerSchedule%27"><span class="hs-identifier hs-var hs-var">crawlerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679746206"><span id="local-6989586621679746208"><span class="annot"><span class="annottext">UpdateCrawlerSchedule -&gt; UpdateCrawlerSchedule -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679748055"><span id="local-6989586621679748057"><span class="annot"><span class="annottext">UpdateCrawlerSchedule -&gt; UpdateCrawlerSchedule -&gt; Bool
 (UpdateCrawlerSchedule -&gt; UpdateCrawlerSchedule -&gt; Bool)
 -&gt; (UpdateCrawlerSchedule -&gt; UpdateCrawlerSchedule -&gt; Bool)
 -&gt; Eq UpdateCrawlerSchedule
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateCrawlerSchedule -&gt; UpdateCrawlerSchedule -&gt; Bool
 == :: UpdateCrawlerSchedule -&gt; UpdateCrawlerSchedule -&gt; Bool
 $c== :: UpdateCrawlerSchedule -&gt; UpdateCrawlerSchedule -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679746197"><span id="local-6989586621679746199"><span id="local-6989586621679746201"><span id="local-6989586621679746203"><span class="annot"><span class="annottext">ReadPrec [UpdateCrawlerSchedule]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679748046"><span id="local-6989586621679748048"><span id="local-6989586621679748050"><span id="local-6989586621679748052"><span class="annot"><span class="annottext">ReadPrec [UpdateCrawlerSchedule]
 ReadPrec UpdateCrawlerSchedule
 Int -&gt; ReadS UpdateCrawlerSchedule
 ReadS [UpdateCrawlerSchedule]
@@ -87,7 +87,7 @@ readList :: ReadS [UpdateCrawlerSchedule]
 $creadList :: ReadS [UpdateCrawlerSchedule]
 readsPrec :: Int -&gt; ReadS UpdateCrawlerSchedule
 $creadsPrec :: Int -&gt; ReadS UpdateCrawlerSchedule
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679746190"><span id="local-6989586621679746192"><span id="local-6989586621679746194"><span class="annot"><span class="annottext">Int -&gt; UpdateCrawlerSchedule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679748039"><span id="local-6989586621679748041"><span id="local-6989586621679748043"><span class="annot"><span class="annottext">Int -&gt; UpdateCrawlerSchedule -&gt; ShowS
 [UpdateCrawlerSchedule] -&gt; ShowS
 UpdateCrawlerSchedule -&gt; String
 (Int -&gt; UpdateCrawlerSchedule -&gt; ShowS)
@@ -132,8 +132,8 @@ $cfrom :: forall x. UpdateCrawlerSchedule -&gt; Rep UpdateCrawlerSchedule x
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#UpdateCrawlerSchedule"><span class="hs-identifier hs-type">UpdateCrawlerSchedule</span></a></span><span>
 </span><span id="line-79"></span><span id="newUpdateCrawlerSchedule"><span class="annot"><span class="annottext">newUpdateCrawlerSchedule :: Text -&gt; UpdateCrawlerSchedule
-</span><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#newUpdateCrawlerSchedule"><span class="hs-identifier hs-var hs-var">newUpdateCrawlerSchedule</span></a></span></span><span> </span><span id="local-6989586621679746185"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679746185"><span class="hs-identifier hs-var">pCrawlerName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#newUpdateCrawlerSchedule"><span class="hs-identifier hs-var hs-var">newUpdateCrawlerSchedule</span></a></span></span><span> </span><span id="local-6989586621679748034"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679748034"><span class="hs-identifier hs-var">pCrawlerName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">UpdateCrawlerSchedule' :: Maybe Text -&gt; Text -&gt; UpdateCrawlerSchedule
 </span><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#UpdateCrawlerSchedule%27"><span class="hs-identifier hs-type">UpdateCrawlerSchedule'</span></a></span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:schedule:UpdateCrawlerSchedule' :: Maybe Text
@@ -142,7 +142,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:crawlerName:UpdateCrawlerSchedule' :: Text
 </span><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#%24sel%3AcrawlerName%3AUpdateCrawlerSchedule%27"><span class="hs-identifier hs-var">crawlerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679746185"><span class="hs-identifier hs-var">pCrawlerName_</span></a></span><span>
+</span><a href="#local-6989586621679748034"><span class="hs-identifier hs-var">pCrawlerName_</span></a></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The updated @cron@ expression used to specify the schedule (see</span><span>
@@ -160,16 +160,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#UpdateCrawlerSchedule%27"><span class="hs-identifier hs-type">UpdateCrawlerSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679746182"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#UpdateCrawlerSchedule%27"><span class="hs-identifier hs-type">UpdateCrawlerSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679748031"><span class="annot"><span class="annottext">Maybe Text
 schedule :: Maybe Text
 $sel:schedule:UpdateCrawlerSchedule' :: UpdateCrawlerSchedule -&gt; Maybe Text
-</span><a href="#local-6989586621679746182"><span class="hs-identifier hs-var hs-var">schedule</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679746182"><span class="hs-identifier hs-var">schedule</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679746181"><span class="annot"><span class="annottext">s :: UpdateCrawlerSchedule
-</span><a href="#local-6989586621679746181"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#UpdateCrawlerSchedule%27"><span class="hs-identifier hs-type">UpdateCrawlerSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679746180"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679746180"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCrawlerSchedule
-</span><a href="#local-6989586621679746181"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schedule:UpdateCrawlerSchedule' :: Maybe Text
+</span><a href="#local-6989586621679748031"><span class="hs-identifier hs-var hs-var">schedule</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679748031"><span class="hs-identifier hs-var">schedule</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679748030"><span class="annot"><span class="annottext">s :: UpdateCrawlerSchedule
+</span><a href="#local-6989586621679748030"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#UpdateCrawlerSchedule%27"><span class="hs-identifier hs-type">UpdateCrawlerSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679748029"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679748029"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCrawlerSchedule
+</span><a href="#local-6989586621679748030"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schedule:UpdateCrawlerSchedule' :: Maybe Text
 </span><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#%24sel%3Aschedule%3AUpdateCrawlerSchedule%27"><span class="hs-identifier hs-var">schedule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679746180"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#UpdateCrawlerSchedule"><span class="hs-identifier hs-type">UpdateCrawlerSchedule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679748029"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#UpdateCrawlerSchedule"><span class="hs-identifier hs-type">UpdateCrawlerSchedule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | The name of the crawler whose schedule to update.</span><span>
 </span><span id="line-93"></span><span class="annot"><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#updateCrawlerSchedule_crawlerName"><span class="hs-identifier hs-type">updateCrawlerSchedule_crawlerName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#UpdateCrawlerSchedule"><span class="hs-identifier hs-type">UpdateCrawlerSchedule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -179,27 +179,27 @@ $sel:schedule:UpdateCrawlerSchedule' :: UpdateCrawlerSchedule -&gt; Maybe Text
 -&gt; (UpdateCrawlerSchedule -&gt; Text -&gt; UpdateCrawlerSchedule)
 -&gt; Lens UpdateCrawlerSchedule UpdateCrawlerSchedule Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#UpdateCrawlerSchedule%27"><span class="hs-identifier hs-type">UpdateCrawlerSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679746179"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#UpdateCrawlerSchedule%27"><span class="hs-identifier hs-type">UpdateCrawlerSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679748028"><span class="annot"><span class="annottext">Text
 crawlerName :: Text
 $sel:crawlerName:UpdateCrawlerSchedule' :: UpdateCrawlerSchedule -&gt; Text
-</span><a href="#local-6989586621679746179"><span class="hs-identifier hs-var hs-var">crawlerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679746179"><span class="hs-identifier hs-var">crawlerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679746178"><span class="annot"><span class="annottext">s :: UpdateCrawlerSchedule
-</span><a href="#local-6989586621679746178"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#UpdateCrawlerSchedule%27"><span class="hs-identifier hs-type">UpdateCrawlerSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679746177"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679746177"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCrawlerSchedule
-</span><a href="#local-6989586621679746178"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:crawlerName:UpdateCrawlerSchedule' :: Text
+</span><a href="#local-6989586621679748028"><span class="hs-identifier hs-var hs-var">crawlerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679748028"><span class="hs-identifier hs-var">crawlerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679748027"><span class="annot"><span class="annottext">s :: UpdateCrawlerSchedule
+</span><a href="#local-6989586621679748027"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#UpdateCrawlerSchedule%27"><span class="hs-identifier hs-type">UpdateCrawlerSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679748026"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679748026"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCrawlerSchedule
+</span><a href="#local-6989586621679748027"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:crawlerName:UpdateCrawlerSchedule' :: Text
 </span><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#%24sel%3AcrawlerName%3AUpdateCrawlerSchedule%27"><span class="hs-identifier hs-var">crawlerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679746177"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#UpdateCrawlerSchedule"><span class="hs-identifier hs-type">UpdateCrawlerSchedule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679748026"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#UpdateCrawlerSchedule"><span class="hs-identifier hs-type">UpdateCrawlerSchedule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#UpdateCrawlerSchedule"><span class="hs-identifier hs-type">UpdateCrawlerSchedule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-97"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-98"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#UpdateCrawlerSchedule"><span class="hs-identifier hs-type">UpdateCrawlerSchedule</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#UpdateCrawlerScheduleResponse"><span class="hs-identifier hs-type">UpdateCrawlerScheduleResponse</span></a></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679746173"><span class="annot"><span class="annottext">request :: UpdateCrawlerSchedule -&gt; Request UpdateCrawlerSchedule
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679748022"><span class="annot"><span class="annottext">request :: UpdateCrawlerSchedule -&gt; Request UpdateCrawlerSchedule
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateCrawlerSchedule -&gt; Request UpdateCrawlerSchedule
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679746169"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679748018"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateCrawlerSchedule
 -&gt; ClientResponse ClientBody
@@ -225,10 +225,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679746166"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679746166"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679746165"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679746165"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679746164"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679746164"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679748015"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679748015"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679748014"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679748014"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679748013"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679748013"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; UpdateCrawlerScheduleResponse
 </span><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#UpdateCrawlerScheduleResponse%27"><span class="hs-identifier hs-var">UpdateCrawlerScheduleResponse'</span></a></span><span>
 </span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; UpdateCrawlerScheduleResponse)
@@ -239,15 +239,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679746166"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679748015"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679746157"><span id="local-6989586621679746159"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#UpdateCrawlerSchedule"><span class="hs-identifier hs-type">UpdateCrawlerSchedule</span></a></span></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679748006"><span id="local-6989586621679748008"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#UpdateCrawlerSchedule"><span class="hs-identifier hs-type">UpdateCrawlerSchedule</span></a></span></span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679746154"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#UpdateCrawlerSchedule"><span class="hs-identifier hs-type">UpdateCrawlerSchedule</span></a></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679748003"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#UpdateCrawlerSchedule"><span class="hs-identifier hs-type">UpdateCrawlerSchedule</span></a></span></span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#UpdateCrawlerSchedule"><span class="hs-identifier hs-type">UpdateCrawlerSchedule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679746150"><span class="annot"><span class="annottext">toHeaders :: UpdateCrawlerSchedule -&gt; ResponseHeaders
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679747999"><span class="annot"><span class="annottext">toHeaders :: UpdateCrawlerSchedule -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateCrawlerSchedule -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -274,15 +274,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-124"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679746140"><span id="local-6989586621679746142"><span id="local-6989586621679746144"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#UpdateCrawlerSchedule"><span class="hs-identifier hs-type">UpdateCrawlerSchedule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679746138"><span class="annot"><span class="annottext">toJSON :: UpdateCrawlerSchedule -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#UpdateCrawlerSchedule%27"><span class="hs-identifier hs-type">UpdateCrawlerSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679746135"><span id="local-6989586621679746136"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679747989"><span id="local-6989586621679747991"><span id="local-6989586621679747993"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#UpdateCrawlerSchedule"><span class="hs-identifier hs-type">UpdateCrawlerSchedule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679747987"><span class="annot"><span class="annottext">toJSON :: UpdateCrawlerSchedule -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#UpdateCrawlerSchedule%27"><span class="hs-identifier hs-type">UpdateCrawlerSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679747984"><span id="local-6989586621679747985"><span class="annot"><span class="annottext">Maybe Text
 Text
 crawlerName :: Text
 schedule :: Maybe Text
 $sel:crawlerName:UpdateCrawlerSchedule' :: UpdateCrawlerSchedule -&gt; Text
 $sel:schedule:UpdateCrawlerSchedule' :: UpdateCrawlerSchedule -&gt; Maybe Text
-</span><a href="#local-6989586621679746135"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679747984"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -294,26 +294,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679746136"><span class="hs-identifier hs-var">schedule</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679747985"><span class="hs-identifier hs-var">schedule</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CrawlerName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679746135"><span class="hs-identifier hs-var">crawlerName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679747984"><span class="hs-identifier hs-var">crawlerName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#UpdateCrawlerSchedule"><span class="hs-identifier hs-type">UpdateCrawlerSchedule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679746129"><span class="annot"><span class="annottext">toPath :: UpdateCrawlerSchedule -&gt; ByteString
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679747978"><span class="annot"><span class="annottext">toPath :: UpdateCrawlerSchedule -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateCrawlerSchedule -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#UpdateCrawlerSchedule"><span class="hs-identifier hs-type">UpdateCrawlerSchedule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679746125"><span class="annot"><span class="annottext">toQuery :: UpdateCrawlerSchedule -&gt; QueryString
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679747974"><span class="annot"><span class="annottext">toQuery :: UpdateCrawlerSchedule -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateCrawlerSchedule -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -321,12 +321,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | /See:/ 'newUpdateCrawlerScheduleResponse' smart constructor.</span><span>
-</span><span id="line-143"></span><span id="local-6989586621679746122"><span id="local-6989586621679746123"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateCrawlerScheduleResponse"><span class="annot"><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#UpdateCrawlerScheduleResponse"><span class="hs-identifier hs-var">UpdateCrawlerScheduleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateCrawlerScheduleResponse%27"><span class="annot"><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#UpdateCrawlerScheduleResponse%27"><span class="hs-identifier hs-var">UpdateCrawlerScheduleResponse'</span></a></span></span><span>
+</span><span id="line-143"></span><span id="local-6989586621679747971"><span id="local-6989586621679747972"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateCrawlerScheduleResponse"><span class="annot"><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#UpdateCrawlerScheduleResponse"><span class="hs-identifier hs-var">UpdateCrawlerScheduleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateCrawlerScheduleResponse%27"><span class="annot"><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#UpdateCrawlerScheduleResponse%27"><span class="hs-identifier hs-var">UpdateCrawlerScheduleResponse'</span></a></span></span><span>
 </span><span id="line-144"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-145"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateCrawlerScheduleResponse%27"><span class="annot"><span class="annottext">UpdateCrawlerScheduleResponse -&gt; Int
 </span><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#%24sel%3AhttpStatus%3AUpdateCrawlerScheduleResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-146"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-147"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679746117"><span id="local-6989586621679746119"><span class="annot"><span class="annottext">UpdateCrawlerScheduleResponse
+</span><span id="line-147"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679747966"><span id="local-6989586621679747968"><span class="annot"><span class="annottext">UpdateCrawlerScheduleResponse
 -&gt; UpdateCrawlerScheduleResponse -&gt; Bool
 (UpdateCrawlerScheduleResponse
  -&gt; UpdateCrawlerScheduleResponse -&gt; Bool)
@@ -342,7 +342,7 @@ $c/= :: UpdateCrawlerScheduleResponse
 -&gt; UpdateCrawlerScheduleResponse -&gt; Bool
 $c== :: UpdateCrawlerScheduleResponse
 -&gt; UpdateCrawlerScheduleResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679746109"><span id="local-6989586621679746111"><span id="local-6989586621679746113"><span id="local-6989586621679746115"><span class="annot"><span class="annottext">ReadPrec [UpdateCrawlerScheduleResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679747958"><span id="local-6989586621679747960"><span id="local-6989586621679747962"><span id="local-6989586621679747964"><span class="annot"><span class="annottext">ReadPrec [UpdateCrawlerScheduleResponse]
 ReadPrec UpdateCrawlerScheduleResponse
 Int -&gt; ReadS UpdateCrawlerScheduleResponse
 ReadS [UpdateCrawlerScheduleResponse]
@@ -362,7 +362,7 @@ readList :: ReadS [UpdateCrawlerScheduleResponse]
 $creadList :: ReadS [UpdateCrawlerScheduleResponse]
 readsPrec :: Int -&gt; ReadS UpdateCrawlerScheduleResponse
 $creadsPrec :: Int -&gt; ReadS UpdateCrawlerScheduleResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679746103"><span id="local-6989586621679746105"><span id="local-6989586621679746107"><span class="annot"><span class="annottext">Int -&gt; UpdateCrawlerScheduleResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679747952"><span id="local-6989586621679747954"><span id="local-6989586621679747956"><span class="annot"><span class="annottext">Int -&gt; UpdateCrawlerScheduleResponse -&gt; ShowS
 [UpdateCrawlerScheduleResponse] -&gt; ShowS
 UpdateCrawlerScheduleResponse -&gt; String
 (Int -&gt; UpdateCrawlerScheduleResponse -&gt; ShowS)
@@ -414,14 +414,14 @@ UpdateCrawlerScheduleResponse
 </span><span id="line-160"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-161"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#UpdateCrawlerScheduleResponse"><span class="hs-identifier hs-type">UpdateCrawlerScheduleResponse</span></a></span><span>
 </span><span id="line-162"></span><span id="newUpdateCrawlerScheduleResponse"><span class="annot"><span class="annottext">newUpdateCrawlerScheduleResponse :: Int -&gt; UpdateCrawlerScheduleResponse
-</span><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#newUpdateCrawlerScheduleResponse"><span class="hs-identifier hs-var hs-var">newUpdateCrawlerScheduleResponse</span></a></span></span><span> </span><span id="local-6989586621679746100"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679746100"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#newUpdateCrawlerScheduleResponse"><span class="hs-identifier hs-var hs-var">newUpdateCrawlerScheduleResponse</span></a></span></span><span> </span><span id="local-6989586621679747949"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679747949"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-163"></span><span>  </span><span class="annot"><span class="annottext">UpdateCrawlerScheduleResponse' :: Int -&gt; UpdateCrawlerScheduleResponse
 </span><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#UpdateCrawlerScheduleResponse%27"><span class="hs-identifier hs-type">UpdateCrawlerScheduleResponse'</span></a></span><span>
 </span><span id="line-164"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateCrawlerScheduleResponse' :: Int
 </span><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#%24sel%3AhttpStatus%3AUpdateCrawlerScheduleResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679746100"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679747949"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-166"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -434,16 +434,16 @@ UpdateCrawlerScheduleResponse
 -&gt; Lens
      UpdateCrawlerScheduleResponse UpdateCrawlerScheduleResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#UpdateCrawlerScheduleResponse%27"><span class="hs-identifier hs-type">UpdateCrawlerScheduleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679746099"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#UpdateCrawlerScheduleResponse%27"><span class="hs-identifier hs-type">UpdateCrawlerScheduleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679747948"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateCrawlerScheduleResponse' :: UpdateCrawlerScheduleResponse -&gt; Int
-</span><a href="#local-6989586621679746099"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679746099"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679746098"><span class="annot"><span class="annottext">s :: UpdateCrawlerScheduleResponse
-</span><a href="#local-6989586621679746098"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#UpdateCrawlerScheduleResponse%27"><span class="hs-identifier hs-type">UpdateCrawlerScheduleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679746097"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679746097"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCrawlerScheduleResponse
-</span><a href="#local-6989586621679746098"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateCrawlerScheduleResponse' :: Int
+</span><a href="#local-6989586621679747948"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679747948"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679747947"><span class="annot"><span class="annottext">s :: UpdateCrawlerScheduleResponse
+</span><a href="#local-6989586621679747947"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#UpdateCrawlerScheduleResponse%27"><span class="hs-identifier hs-type">UpdateCrawlerScheduleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679747946"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679747946"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCrawlerScheduleResponse
+</span><a href="#local-6989586621679747947"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateCrawlerScheduleResponse' :: Int
 </span><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#%24sel%3AhttpStatus%3AUpdateCrawlerScheduleResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679746097"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#UpdateCrawlerScheduleResponse"><span class="hs-identifier hs-type">UpdateCrawlerScheduleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679747946"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#UpdateCrawlerScheduleResponse"><span class="hs-identifier hs-type">UpdateCrawlerScheduleResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
-</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679746095"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#UpdateCrawlerScheduleResponse"><span class="hs-identifier hs-type">UpdateCrawlerScheduleResponse</span></a></span></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679747944"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateCrawlerSchedule.html#UpdateCrawlerScheduleResponse"><span class="hs-identifier hs-type">UpdateCrawlerScheduleResponse</span></a></span></span><span>
 </span><span id="line-173"></span></pre></body></html>

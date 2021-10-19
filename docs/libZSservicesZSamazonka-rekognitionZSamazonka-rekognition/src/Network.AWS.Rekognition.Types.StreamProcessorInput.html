@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Information about the source streaming video.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newStreamProcessorInput' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679331105"><span id="local-6989586621679331106"></span></span><span class="hs-keyword">data</span><span> </span><span id="StreamProcessorInput"><span class="annot"><a href="Network.AWS.Rekognition.Types.StreamProcessorInput.html#StreamProcessorInput"><span class="hs-identifier hs-var">StreamProcessorInput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StreamProcessorInput%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.StreamProcessorInput.html#StreamProcessorInput%27"><span class="hs-identifier hs-var">StreamProcessorInput'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679331395"><span id="local-6989586621679331396"></span></span><span class="hs-keyword">data</span><span> </span><span id="StreamProcessorInput"><span class="annot"><a href="Network.AWS.Rekognition.Types.StreamProcessorInput.html#StreamProcessorInput"><span class="hs-identifier hs-var">StreamProcessorInput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StreamProcessorInput%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.StreamProcessorInput.html#StreamProcessorInput%27"><span class="hs-identifier hs-var">StreamProcessorInput'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Kinesis video stream input stream for the source streaming video.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AkinesisVideoStream%3AStreamProcessorInput%27"><span class="annot"><span class="annottext">StreamProcessorInput -&gt; Maybe KinesisVideoStream
 </span><a href="Network.AWS.Rekognition.Types.StreamProcessorInput.html#%24sel%3AkinesisVideoStream%3AStreamProcessorInput%27"><span class="hs-identifier hs-var hs-var">kinesisVideoStream</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.KinesisVideoStream.html#KinesisVideoStream"><span class="hs-identifier hs-type">KinesisVideoStream</span></a></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679331099"><span id="local-6989586621679331101"><span class="annot"><span class="annottext">StreamProcessorInput -&gt; StreamProcessorInput -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679331389"><span id="local-6989586621679331391"><span class="annot"><span class="annottext">StreamProcessorInput -&gt; StreamProcessorInput -&gt; Bool
 (StreamProcessorInput -&gt; StreamProcessorInput -&gt; Bool)
 -&gt; (StreamProcessorInput -&gt; StreamProcessorInput -&gt; Bool)
 -&gt; Eq StreamProcessorInput
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StreamProcessorInput -&gt; StreamProcessorInput -&gt; Bool
 == :: StreamProcessorInput -&gt; StreamProcessorInput -&gt; Bool
 $c== :: StreamProcessorInput -&gt; StreamProcessorInput -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331090"><span id="local-6989586621679331092"><span id="local-6989586621679331094"><span id="local-6989586621679331096"><span class="annot"><span class="annottext">ReadPrec [StreamProcessorInput]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331380"><span id="local-6989586621679331382"><span id="local-6989586621679331384"><span id="local-6989586621679331386"><span class="annot"><span class="annottext">ReadPrec [StreamProcessorInput]
 ReadPrec StreamProcessorInput
 Int -&gt; ReadS StreamProcessorInput
 ReadS [StreamProcessorInput]
@@ -61,7 +61,7 @@ readList :: ReadS [StreamProcessorInput]
 $creadList :: ReadS [StreamProcessorInput]
 readsPrec :: Int -&gt; ReadS StreamProcessorInput
 $creadsPrec :: Int -&gt; ReadS StreamProcessorInput
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331083"><span id="local-6989586621679331085"><span id="local-6989586621679331087"><span class="annot"><span class="annottext">Int -&gt; StreamProcessorInput -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331373"><span id="local-6989586621679331375"><span id="local-6989586621679331377"><span class="annot"><span class="annottext">Int -&gt; StreamProcessorInput -&gt; ShowS
 [StreamProcessorInput] -&gt; ShowS
 StreamProcessorInput -&gt; String
 (Int -&gt; StreamProcessorInput -&gt; ShowS)
@@ -122,19 +122,19 @@ forall a. Maybe a
      (Maybe KinesisVideoStream)
      (Maybe KinesisVideoStream)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.StreamProcessorInput.html#StreamProcessorInput%27"><span class="hs-identifier hs-type">StreamProcessorInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331074"><span class="annot"><span class="annottext">Maybe KinesisVideoStream
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.StreamProcessorInput.html#StreamProcessorInput%27"><span class="hs-identifier hs-type">StreamProcessorInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331364"><span class="annot"><span class="annottext">Maybe KinesisVideoStream
 kinesisVideoStream :: Maybe KinesisVideoStream
 $sel:kinesisVideoStream:StreamProcessorInput' :: StreamProcessorInput -&gt; Maybe KinesisVideoStream
-</span><a href="#local-6989586621679331074"><span class="hs-identifier hs-var hs-var">kinesisVideoStream</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KinesisVideoStream
-</span><a href="#local-6989586621679331074"><span class="hs-identifier hs-var">kinesisVideoStream</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331073"><span class="annot"><span class="annottext">s :: StreamProcessorInput
-</span><a href="#local-6989586621679331073"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.StreamProcessorInput.html#StreamProcessorInput%27"><span class="hs-identifier hs-type">StreamProcessorInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331072"><span class="annot"><span class="annottext">Maybe KinesisVideoStream
-</span><a href="#local-6989586621679331072"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamProcessorInput
-</span><a href="#local-6989586621679331073"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kinesisVideoStream:StreamProcessorInput' :: Maybe KinesisVideoStream
+</span><a href="#local-6989586621679331364"><span class="hs-identifier hs-var hs-var">kinesisVideoStream</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KinesisVideoStream
+</span><a href="#local-6989586621679331364"><span class="hs-identifier hs-var">kinesisVideoStream</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331363"><span class="annot"><span class="annottext">s :: StreamProcessorInput
+</span><a href="#local-6989586621679331363"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.StreamProcessorInput.html#StreamProcessorInput%27"><span class="hs-identifier hs-type">StreamProcessorInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331362"><span class="annot"><span class="annottext">Maybe KinesisVideoStream
+</span><a href="#local-6989586621679331362"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamProcessorInput
+</span><a href="#local-6989586621679331363"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kinesisVideoStream:StreamProcessorInput' :: Maybe KinesisVideoStream
 </span><a href="Network.AWS.Rekognition.Types.StreamProcessorInput.html#%24sel%3AkinesisVideoStream%3AStreamProcessorInput%27"><span class="hs-identifier hs-var">kinesisVideoStream</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KinesisVideoStream
-</span><a href="#local-6989586621679331072"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.StreamProcessorInput.html#StreamProcessorInput"><span class="hs-identifier hs-type">StreamProcessorInput</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679331362"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.StreamProcessorInput.html#StreamProcessorInput"><span class="hs-identifier hs-type">StreamProcessorInput</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331069"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.StreamProcessorInput.html#StreamProcessorInput"><span class="hs-identifier hs-type">StreamProcessorInput</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-58"></span><span>  </span><span id="local-6989586621679331067"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StreamProcessorInput
+</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331359"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.StreamProcessorInput.html#StreamProcessorInput"><span class="hs-identifier hs-type">StreamProcessorInput</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-58"></span><span>  </span><span id="local-6989586621679331357"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StreamProcessorInput
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser StreamProcessorInput)
@@ -144,30 +144,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;StreamProcessorInput&quot;</span></span><span>
-</span><span id="line-61"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679331064"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679331064"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-61"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679331354"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679331354"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-62"></span><span>          </span><span class="annot"><span class="annottext">Maybe KinesisVideoStream -&gt; StreamProcessorInput
 </span><a href="Network.AWS.Rekognition.Types.StreamProcessorInput.html#StreamProcessorInput%27"><span class="hs-identifier hs-var">StreamProcessorInput'</span></a></span><span>
 </span><span id="line-63"></span><span>            </span><span class="annot"><span class="annottext">(Maybe KinesisVideoStream -&gt; StreamProcessorInput)
 -&gt; Parser (Maybe KinesisVideoStream) -&gt; Parser StreamProcessorInput
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679331064"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe KinesisVideoStream)
+</span><a href="#local-6989586621679331354"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe KinesisVideoStream)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KinesisVideoStream&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331058"><span id="local-6989586621679331060"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.StreamProcessorInput.html#StreamProcessorInput"><span class="hs-identifier hs-type">StreamProcessorInput</span></a></span></span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331348"><span id="local-6989586621679331350"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.StreamProcessorInput.html#StreamProcessorInput"><span class="hs-identifier hs-type">StreamProcessorInput</span></a></span></span></span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331055"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.StreamProcessorInput.html#StreamProcessorInput"><span class="hs-identifier hs-type">StreamProcessorInput</span></a></span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331345"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.StreamProcessorInput.html#StreamProcessorInput"><span class="hs-identifier hs-type">StreamProcessorInput</span></a></span></span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331047"><span id="local-6989586621679331049"><span id="local-6989586621679331051"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.StreamProcessorInput.html#StreamProcessorInput"><span class="hs-identifier hs-type">StreamProcessorInput</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679331045"><span class="annot"><span class="annottext">toJSON :: StreamProcessorInput -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.StreamProcessorInput.html#StreamProcessorInput%27"><span class="hs-identifier hs-type">StreamProcessorInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331043"><span class="annot"><span class="annottext">Maybe KinesisVideoStream
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331337"><span id="local-6989586621679331339"><span id="local-6989586621679331341"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.StreamProcessorInput.html#StreamProcessorInput"><span class="hs-identifier hs-type">StreamProcessorInput</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679331335"><span class="annot"><span class="annottext">toJSON :: StreamProcessorInput -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.StreamProcessorInput.html#StreamProcessorInput%27"><span class="hs-identifier hs-type">StreamProcessorInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331333"><span class="annot"><span class="annottext">Maybe KinesisVideoStream
 kinesisVideoStream :: Maybe KinesisVideoStream
 $sel:kinesisVideoStream:StreamProcessorInput' :: StreamProcessorInput -&gt; Maybe KinesisVideoStream
-</span><a href="#local-6989586621679331043"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679331333"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -181,7 +181,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe KinesisVideoStream -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe KinesisVideoStream
-</span><a href="#local-6989586621679331043"><span class="hs-identifier hs-var">kinesisVideoStream</span></a></span><span>
+</span><a href="#local-6989586621679331333"><span class="hs-identifier hs-var">kinesisVideoStream</span></a></span><span>
 </span><span id="line-76"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span></pre></body></html>

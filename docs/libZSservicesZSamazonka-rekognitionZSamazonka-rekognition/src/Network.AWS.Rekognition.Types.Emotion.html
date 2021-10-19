@@ -32,7 +32,7 @@
 </span><span id="line-32"></span><span class="hs-comment">-- sad emotionally.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newEmotion' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679323121"><span id="local-6989586621679323122"></span></span><span class="hs-keyword">data</span><span> </span><span id="Emotion"><span class="annot"><a href="Network.AWS.Rekognition.Types.Emotion.html#Emotion"><span class="hs-identifier hs-var">Emotion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Emotion%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.Emotion.html#Emotion%27"><span class="hs-identifier hs-var">Emotion'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679323398"><span id="local-6989586621679323399"></span></span><span class="hs-keyword">data</span><span> </span><span id="Emotion"><span class="annot"><a href="Network.AWS.Rekognition.Types.Emotion.html#Emotion"><span class="hs-identifier hs-var">Emotion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Emotion%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.Emotion.html#Emotion%27"><span class="hs-identifier hs-var">Emotion'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Level of confidence in the determination.</span><span>
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3Aconfidence%3AEmotion%27"><span class="annot"><span class="annottext">Emotion -&gt; Maybe Double
 </span><a href="Network.AWS.Rekognition.Types.Emotion.html#%24sel%3Aconfidence%3AEmotion%27"><span class="hs-identifier hs-var hs-var">confidence</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
@@ -40,7 +40,7 @@
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3Atype%27%3AEmotion%27"><span class="annot"><span class="annottext">Emotion -&gt; Maybe EmotionName
 </span><a href="Network.AWS.Rekognition.Types.Emotion.html#%24sel%3Atype%27%3AEmotion%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.EmotionName.html#EmotionName"><span class="hs-identifier hs-type">EmotionName</span></a></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679323114"><span id="local-6989586621679323116"><span class="annot"><span class="annottext">Emotion -&gt; Emotion -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679323391"><span id="local-6989586621679323393"><span class="annot"><span class="annottext">Emotion -&gt; Emotion -&gt; Bool
 (Emotion -&gt; Emotion -&gt; Bool)
 -&gt; (Emotion -&gt; Emotion -&gt; Bool) -&gt; Eq Emotion
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Emotion -&gt; Emotion -&gt; Bool
 == :: Emotion -&gt; Emotion -&gt; Bool
 $c== :: Emotion -&gt; Emotion -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679323105"><span id="local-6989586621679323107"><span id="local-6989586621679323109"><span id="local-6989586621679323111"><span class="annot"><span class="annottext">ReadPrec [Emotion]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679323382"><span id="local-6989586621679323384"><span id="local-6989586621679323386"><span id="local-6989586621679323388"><span class="annot"><span class="annottext">ReadPrec [Emotion]
 ReadPrec Emotion
 Int -&gt; ReadS Emotion
 ReadS [Emotion]
@@ -68,7 +68,7 @@ readList :: ReadS [Emotion]
 $creadList :: ReadS [Emotion]
 readsPrec :: Int -&gt; ReadS Emotion
 $creadsPrec :: Int -&gt; ReadS Emotion
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679323098"><span id="local-6989586621679323100"><span id="local-6989586621679323102"><span class="annot"><span class="annottext">Int -&gt; Emotion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679323375"><span id="local-6989586621679323377"><span id="local-6989586621679323379"><span class="annot"><span class="annottext">Int -&gt; Emotion -&gt; ShowS
 [Emotion] -&gt; ShowS
 Emotion -&gt; String
 (Int -&gt; Emotion -&gt; ShowS)
@@ -125,16 +125,16 @@ forall a. Maybe a
 -&gt; (Emotion -&gt; Maybe Double -&gt; Emotion)
 -&gt; Lens Emotion Emotion (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Emotion.html#Emotion%27"><span class="hs-identifier hs-type">Emotion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323089"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Emotion.html#Emotion%27"><span class="hs-identifier hs-type">Emotion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323366"><span class="annot"><span class="annottext">Maybe Double
 confidence :: Maybe Double
 $sel:confidence:Emotion' :: Emotion -&gt; Maybe Double
-</span><a href="#local-6989586621679323089"><span class="hs-identifier hs-var hs-var">confidence</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679323089"><span class="hs-identifier hs-var">confidence</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679323088"><span class="annot"><span class="annottext">s :: Emotion
-</span><a href="#local-6989586621679323088"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Emotion.html#Emotion%27"><span class="hs-identifier hs-type">Emotion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679323087"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679323087"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Emotion
-</span><a href="#local-6989586621679323088"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:confidence:Emotion' :: Maybe Double
+</span><a href="#local-6989586621679323366"><span class="hs-identifier hs-var hs-var">confidence</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679323366"><span class="hs-identifier hs-var">confidence</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679323365"><span class="annot"><span class="annottext">s :: Emotion
+</span><a href="#local-6989586621679323365"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Emotion.html#Emotion%27"><span class="hs-identifier hs-type">Emotion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679323364"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679323364"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Emotion
+</span><a href="#local-6989586621679323365"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:confidence:Emotion' :: Maybe Double
 </span><a href="Network.AWS.Rekognition.Types.Emotion.html#%24sel%3Aconfidence%3AEmotion%27"><span class="hs-identifier hs-var">confidence</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679323087"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Emotion.html#Emotion"><span class="hs-identifier hs-type">Emotion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679323364"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Emotion.html#Emotion"><span class="hs-identifier hs-type">Emotion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | Type of emotion detected.</span><span>
 </span><span id="line-67"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.Emotion.html#emotion_type"><span class="hs-identifier hs-type">emotion_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Emotion.html#Emotion"><span class="hs-identifier hs-type">Emotion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.EmotionName.html#EmotionName"><span class="hs-identifier hs-type">EmotionName</span></a></span><span class="hs-special">)</span><span>
@@ -144,34 +144,34 @@ $sel:confidence:Emotion' :: Emotion -&gt; Maybe Double
 -&gt; (Emotion -&gt; Maybe EmotionName -&gt; Emotion)
 -&gt; Lens Emotion Emotion (Maybe EmotionName) (Maybe EmotionName)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Emotion.html#Emotion%27"><span class="hs-identifier hs-type">Emotion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323085"><span class="annot"><span class="annottext">Maybe EmotionName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Emotion.html#Emotion%27"><span class="hs-identifier hs-type">Emotion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323362"><span class="annot"><span class="annottext">Maybe EmotionName
 type' :: Maybe EmotionName
 $sel:type':Emotion' :: Emotion -&gt; Maybe EmotionName
-</span><a href="#local-6989586621679323085"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EmotionName
-</span><a href="#local-6989586621679323085"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679323084"><span class="annot"><span class="annottext">s :: Emotion
-</span><a href="#local-6989586621679323084"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Emotion.html#Emotion%27"><span class="hs-identifier hs-type">Emotion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679323083"><span class="annot"><span class="annottext">Maybe EmotionName
-</span><a href="#local-6989586621679323083"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Emotion
-</span><a href="#local-6989586621679323084"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Emotion' :: Maybe EmotionName
+</span><a href="#local-6989586621679323362"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EmotionName
+</span><a href="#local-6989586621679323362"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679323361"><span class="annot"><span class="annottext">s :: Emotion
+</span><a href="#local-6989586621679323361"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Emotion.html#Emotion%27"><span class="hs-identifier hs-type">Emotion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679323360"><span class="annot"><span class="annottext">Maybe EmotionName
+</span><a href="#local-6989586621679323360"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Emotion
+</span><a href="#local-6989586621679323361"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Emotion' :: Maybe EmotionName
 </span><a href="Network.AWS.Rekognition.Types.Emotion.html#%24sel%3Atype%27%3AEmotion%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EmotionName
-</span><a href="#local-6989586621679323083"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Emotion.html#Emotion"><span class="hs-identifier hs-type">Emotion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679323360"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Emotion.html#Emotion"><span class="hs-identifier hs-type">Emotion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323080"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Emotion.html#Emotion"><span class="hs-identifier hs-type">Emotion</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679323078"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Emotion
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323357"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Emotion.html#Emotion"><span class="hs-identifier hs-type">Emotion</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679323355"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Emotion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Emotion) -&gt; Value -&gt; Parser Emotion
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Emotion&quot;</span></span><span>
-</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679323075"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679323075"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679323352"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679323352"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-75"></span><span>          </span><span class="annot"><span class="annottext">Maybe Double -&gt; Maybe EmotionName -&gt; Emotion
 </span><a href="Network.AWS.Rekognition.Types.Emotion.html#Emotion%27"><span class="hs-identifier hs-var">Emotion'</span></a></span><span>
 </span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Double -&gt; Maybe EmotionName -&gt; Emotion)
 -&gt; Parser (Maybe Double) -&gt; Parser (Maybe EmotionName -&gt; Emotion)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679323075"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679323352"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Confidence&quot;</span></span><span class="hs-special">)</span><span>
@@ -179,13 +179,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe EmotionName) -&gt; Parser Emotion
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679323075"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EmotionName)
+</span><a href="#local-6989586621679323352"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EmotionName)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323069"><span id="local-6989586621679323071"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Emotion.html#Emotion"><span class="hs-identifier hs-type">Emotion</span></a></span></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323346"><span id="local-6989586621679323348"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Emotion.html#Emotion"><span class="hs-identifier hs-type">Emotion</span></a></span></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323066"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Emotion.html#Emotion"><span class="hs-identifier hs-type">Emotion</span></a></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323343"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Emotion.html#Emotion"><span class="hs-identifier hs-type">Emotion</span></a></span></span><span>
 </span><span id="line-83"></span></pre></body></html>

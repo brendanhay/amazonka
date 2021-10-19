@@ -52,12 +52,12 @@
 </span><span id="line-52"></span><span class="hs-comment">-- | The input for the SetLoggingOptions operation.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- /See:/ 'newSetLoggingOptions' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679812453"><span id="local-6989586621679812454"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetLoggingOptions"><span class="annot"><a href="Network.AWS.IoT.SetLoggingOptions.html#SetLoggingOptions"><span class="hs-identifier hs-var">SetLoggingOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetLoggingOptions%27"><span class="annot"><a href="Network.AWS.IoT.SetLoggingOptions.html#SetLoggingOptions%27"><span class="hs-identifier hs-var">SetLoggingOptions'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679813361"><span id="local-6989586621679813362"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetLoggingOptions"><span class="annot"><a href="Network.AWS.IoT.SetLoggingOptions.html#SetLoggingOptions"><span class="hs-identifier hs-var">SetLoggingOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetLoggingOptions%27"><span class="annot"><a href="Network.AWS.IoT.SetLoggingOptions.html#SetLoggingOptions%27"><span class="hs-identifier hs-var">SetLoggingOptions'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The logging options payload.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AloggingOptionsPayload%3ASetLoggingOptions%27"><span class="annot"><span class="annottext">SetLoggingOptions -&gt; LoggingOptionsPayload
 </span><a href="Network.AWS.IoT.SetLoggingOptions.html#%24sel%3AloggingOptionsPayload%3ASetLoggingOptions%27"><span class="hs-identifier hs-var hs-var">loggingOptionsPayload</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.LoggingOptionsPayload.html#LoggingOptionsPayload"><span class="hs-identifier hs-type">LoggingOptionsPayload</span></a></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679812447"><span id="local-6989586621679812449"><span class="annot"><span class="annottext">SetLoggingOptions -&gt; SetLoggingOptions -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679813355"><span id="local-6989586621679813357"><span class="annot"><span class="annottext">SetLoggingOptions -&gt; SetLoggingOptions -&gt; Bool
 (SetLoggingOptions -&gt; SetLoggingOptions -&gt; Bool)
 -&gt; (SetLoggingOptions -&gt; SetLoggingOptions -&gt; Bool)
 -&gt; Eq SetLoggingOptions
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SetLoggingOptions -&gt; SetLoggingOptions -&gt; Bool
 == :: SetLoggingOptions -&gt; SetLoggingOptions -&gt; Bool
 $c== :: SetLoggingOptions -&gt; SetLoggingOptions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679812438"><span id="local-6989586621679812440"><span id="local-6989586621679812442"><span id="local-6989586621679812444"><span class="annot"><span class="annottext">ReadPrec [SetLoggingOptions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679813346"><span id="local-6989586621679813348"><span id="local-6989586621679813350"><span id="local-6989586621679813352"><span class="annot"><span class="annottext">ReadPrec [SetLoggingOptions]
 ReadPrec SetLoggingOptions
 Int -&gt; ReadS SetLoggingOptions
 ReadS [SetLoggingOptions]
@@ -86,7 +86,7 @@ readList :: ReadS [SetLoggingOptions]
 $creadList :: ReadS [SetLoggingOptions]
 readsPrec :: Int -&gt; ReadS SetLoggingOptions
 $creadsPrec :: Int -&gt; ReadS SetLoggingOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679812431"><span id="local-6989586621679812433"><span id="local-6989586621679812435"><span class="annot"><span class="annottext">Int -&gt; SetLoggingOptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679813339"><span id="local-6989586621679813341"><span id="local-6989586621679813343"><span class="annot"><span class="annottext">Int -&gt; SetLoggingOptions -&gt; ShowS
 [SetLoggingOptions] -&gt; ShowS
 SetLoggingOptions -&gt; String
 (Int -&gt; SetLoggingOptions -&gt; ShowS)
@@ -126,14 +126,14 @@ $cfrom :: forall x. SetLoggingOptions -&gt; Rep SetLoggingOptions x
 </span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.LoggingOptionsPayload.html#LoggingOptionsPayload"><span class="hs-identifier hs-type">LoggingOptionsPayload</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.SetLoggingOptions.html#SetLoggingOptions"><span class="hs-identifier hs-type">SetLoggingOptions</span></a></span><span>
 </span><span id="line-74"></span><span id="newSetLoggingOptions"><span class="annot"><span class="annottext">newSetLoggingOptions :: LoggingOptionsPayload -&gt; SetLoggingOptions
-</span><a href="Network.AWS.IoT.SetLoggingOptions.html#newSetLoggingOptions"><span class="hs-identifier hs-var hs-var">newSetLoggingOptions</span></a></span></span><span> </span><span id="local-6989586621679812426"><span class="annot"><span class="annottext">LoggingOptionsPayload
-</span><a href="#local-6989586621679812426"><span class="hs-identifier hs-var">pLoggingOptionsPayload_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.SetLoggingOptions.html#newSetLoggingOptions"><span class="hs-identifier hs-var hs-var">newSetLoggingOptions</span></a></span></span><span> </span><span id="local-6989586621679813334"><span class="annot"><span class="annottext">LoggingOptionsPayload
+</span><a href="#local-6989586621679813334"><span class="hs-identifier hs-var">pLoggingOptionsPayload_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">SetLoggingOptions' :: LoggingOptionsPayload -&gt; SetLoggingOptions
 </span><a href="Network.AWS.IoT.SetLoggingOptions.html#SetLoggingOptions%27"><span class="hs-identifier hs-type">SetLoggingOptions'</span></a></span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:loggingOptionsPayload:SetLoggingOptions' :: LoggingOptionsPayload
 </span><a href="Network.AWS.IoT.SetLoggingOptions.html#%24sel%3AloggingOptionsPayload%3ASetLoggingOptions%27"><span class="hs-identifier hs-var">loggingOptionsPayload</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>        </span><span class="annot"><span class="annottext">LoggingOptionsPayload
-</span><a href="#local-6989586621679812426"><span class="hs-identifier hs-var">pLoggingOptionsPayload_</span></a></span><span>
+</span><a href="#local-6989586621679813334"><span class="hs-identifier hs-var">pLoggingOptionsPayload_</span></a></span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | The logging options payload.</span><span>
@@ -149,27 +149,27 @@ $cfrom :: forall x. SetLoggingOptions -&gt; Rep SetLoggingOptions x
      LoggingOptionsPayload
      LoggingOptionsPayload
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.SetLoggingOptions.html#SetLoggingOptions%27"><span class="hs-identifier hs-type">SetLoggingOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679812423"><span class="annot"><span class="annottext">LoggingOptionsPayload
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.SetLoggingOptions.html#SetLoggingOptions%27"><span class="hs-identifier hs-type">SetLoggingOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679813331"><span class="annot"><span class="annottext">LoggingOptionsPayload
 loggingOptionsPayload :: LoggingOptionsPayload
 $sel:loggingOptionsPayload:SetLoggingOptions' :: SetLoggingOptions -&gt; LoggingOptionsPayload
-</span><a href="#local-6989586621679812423"><span class="hs-identifier hs-var hs-var">loggingOptionsPayload</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoggingOptionsPayload
-</span><a href="#local-6989586621679812423"><span class="hs-identifier hs-var">loggingOptionsPayload</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679812422"><span class="annot"><span class="annottext">s :: SetLoggingOptions
-</span><a href="#local-6989586621679812422"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.SetLoggingOptions.html#SetLoggingOptions%27"><span class="hs-identifier hs-type">SetLoggingOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679812421"><span class="annot"><span class="annottext">LoggingOptionsPayload
-</span><a href="#local-6989586621679812421"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetLoggingOptions
-</span><a href="#local-6989586621679812422"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loggingOptionsPayload:SetLoggingOptions' :: LoggingOptionsPayload
+</span><a href="#local-6989586621679813331"><span class="hs-identifier hs-var hs-var">loggingOptionsPayload</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoggingOptionsPayload
+</span><a href="#local-6989586621679813331"><span class="hs-identifier hs-var">loggingOptionsPayload</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679813330"><span class="annot"><span class="annottext">s :: SetLoggingOptions
+</span><a href="#local-6989586621679813330"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.SetLoggingOptions.html#SetLoggingOptions%27"><span class="hs-identifier hs-type">SetLoggingOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679813329"><span class="annot"><span class="annottext">LoggingOptionsPayload
+</span><a href="#local-6989586621679813329"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetLoggingOptions
+</span><a href="#local-6989586621679813330"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loggingOptionsPayload:SetLoggingOptions' :: LoggingOptionsPayload
 </span><a href="Network.AWS.IoT.SetLoggingOptions.html#%24sel%3AloggingOptionsPayload%3ASetLoggingOptions%27"><span class="hs-identifier hs-var">loggingOptionsPayload</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LoggingOptionsPayload
-</span><a href="#local-6989586621679812421"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.SetLoggingOptions.html#SetLoggingOptions"><span class="hs-identifier hs-type">SetLoggingOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679813329"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.SetLoggingOptions.html#SetLoggingOptions"><span class="hs-identifier hs-type">SetLoggingOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.SetLoggingOptions.html#SetLoggingOptions"><span class="hs-identifier hs-type">SetLoggingOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-85"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-86"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.SetLoggingOptions.html#SetLoggingOptions"><span class="hs-identifier hs-type">SetLoggingOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.SetLoggingOptions.html#SetLoggingOptionsResponse"><span class="hs-identifier hs-type">SetLoggingOptionsResponse</span></a></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679812417"><span class="annot"><span class="annottext">request :: SetLoggingOptions -&gt; Request SetLoggingOptions
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679813325"><span class="annot"><span class="annottext">request :: SetLoggingOptions -&gt; Request SetLoggingOptions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; SetLoggingOptions -&gt; Request SetLoggingOptions
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679812413"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679813321"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy SetLoggingOptions
 -&gt; ClientResponse ClientBody
@@ -195,24 +195,24 @@ AWSResponse a
 SetLoggingOptionsResponse
 </span><a href="Network.AWS.IoT.SetLoggingOptions.html#SetLoggingOptionsResponse%27"><span class="hs-identifier hs-var">SetLoggingOptionsResponse'</span></a></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679812406"><span id="local-6989586621679812408"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.SetLoggingOptions.html#SetLoggingOptions"><span class="hs-identifier hs-type">SetLoggingOptions</span></a></span></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679813314"><span id="local-6989586621679813316"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.SetLoggingOptions.html#SetLoggingOptions"><span class="hs-identifier hs-type">SetLoggingOptions</span></a></span></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679812403"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.SetLoggingOptions.html#SetLoggingOptions"><span class="hs-identifier hs-type">SetLoggingOptions</span></a></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679813311"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.SetLoggingOptions.html#SetLoggingOptions"><span class="hs-identifier hs-type">SetLoggingOptions</span></a></span></span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.SetLoggingOptions.html#SetLoggingOptions"><span class="hs-identifier hs-type">SetLoggingOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679812399"><span class="annot"><span class="annottext">toHeaders :: SetLoggingOptions -&gt; [Header]
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679813307"><span class="annot"><span class="annottext">toHeaders :: SetLoggingOptions -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; SetLoggingOptions -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679812390"><span id="local-6989586621679812392"><span id="local-6989586621679812394"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.SetLoggingOptions.html#SetLoggingOptions"><span class="hs-identifier hs-type">SetLoggingOptions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679812388"><span class="annot"><span class="annottext">toJSON :: SetLoggingOptions -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.SetLoggingOptions.html#SetLoggingOptions%27"><span class="hs-identifier hs-type">SetLoggingOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679812386"><span class="annot"><span class="annottext">LoggingOptionsPayload
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679813298"><span id="local-6989586621679813300"><span id="local-6989586621679813302"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.SetLoggingOptions.html#SetLoggingOptions"><span class="hs-identifier hs-type">SetLoggingOptions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679813296"><span class="annot"><span class="annottext">toJSON :: SetLoggingOptions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.SetLoggingOptions.html#SetLoggingOptions%27"><span class="hs-identifier hs-type">SetLoggingOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679813294"><span class="annot"><span class="annottext">LoggingOptionsPayload
 loggingOptionsPayload :: LoggingOptionsPayload
 $sel:loggingOptionsPayload:SetLoggingOptions' :: SetLoggingOptions -&gt; LoggingOptionsPayload
-</span><a href="#local-6989586621679812386"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679813294"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -226,20 +226,20 @@ forall a. a -&gt; Maybe a
 </span><span id="line-105"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; LoggingOptionsPayload -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">LoggingOptionsPayload
-</span><a href="#local-6989586621679812386"><span class="hs-identifier hs-var">loggingOptionsPayload</span></a></span><span>
+</span><a href="#local-6989586621679813294"><span class="hs-identifier hs-var">loggingOptionsPayload</span></a></span><span>
 </span><span id="line-106"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.SetLoggingOptions.html#SetLoggingOptions"><span class="hs-identifier hs-type">SetLoggingOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679812380"><span class="annot"><span class="annottext">toPath :: SetLoggingOptions -&gt; ByteString
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679813288"><span class="annot"><span class="annottext">toPath :: SetLoggingOptions -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SetLoggingOptions -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/loggingOptions&quot;</span></span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.SetLoggingOptions.html#SetLoggingOptions"><span class="hs-identifier hs-type">SetLoggingOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679812376"><span class="annot"><span class="annottext">toQuery :: SetLoggingOptions -&gt; QueryString
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679813284"><span class="annot"><span class="annottext">toQuery :: SetLoggingOptions -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; SetLoggingOptions -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -247,10 +247,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | /See:/ 'newSetLoggingOptionsResponse' smart constructor.</span><span>
-</span><span id="line-117"></span><span id="local-6989586621679812373"><span id="local-6989586621679812374"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetLoggingOptionsResponse"><span class="annot"><a href="Network.AWS.IoT.SetLoggingOptions.html#SetLoggingOptionsResponse"><span class="hs-identifier hs-var">SetLoggingOptionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetLoggingOptionsResponse%27"><span class="annot"><a href="Network.AWS.IoT.SetLoggingOptions.html#SetLoggingOptionsResponse%27"><span class="hs-identifier hs-var">SetLoggingOptionsResponse'</span></a></span></span><span>
+</span><span id="line-117"></span><span id="local-6989586621679813281"><span id="local-6989586621679813282"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetLoggingOptionsResponse"><span class="annot"><a href="Network.AWS.IoT.SetLoggingOptions.html#SetLoggingOptionsResponse"><span class="hs-identifier hs-var">SetLoggingOptionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetLoggingOptionsResponse%27"><span class="annot"><a href="Network.AWS.IoT.SetLoggingOptions.html#SetLoggingOptionsResponse%27"><span class="hs-identifier hs-var">SetLoggingOptionsResponse'</span></a></span></span><span>
 </span><span id="line-118"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-119"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-120"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679812369"><span id="local-6989586621679812371"><span class="annot"><span class="annottext">SetLoggingOptionsResponse -&gt; SetLoggingOptionsResponse -&gt; Bool
+</span><span id="line-120"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679813277"><span id="local-6989586621679813279"><span class="annot"><span class="annottext">SetLoggingOptionsResponse -&gt; SetLoggingOptionsResponse -&gt; Bool
 (SetLoggingOptionsResponse -&gt; SetLoggingOptionsResponse -&gt; Bool)
 -&gt; (SetLoggingOptionsResponse -&gt; SetLoggingOptionsResponse -&gt; Bool)
 -&gt; Eq SetLoggingOptionsResponse
@@ -259,7 +259,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SetLoggingOptionsResponse -&gt; SetLoggingOptionsResponse -&gt; Bool
 == :: SetLoggingOptionsResponse -&gt; SetLoggingOptionsResponse -&gt; Bool
 $c== :: SetLoggingOptionsResponse -&gt; SetLoggingOptionsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679812361"><span id="local-6989586621679812363"><span id="local-6989586621679812365"><span id="local-6989586621679812367"><span class="annot"><span class="annottext">ReadPrec [SetLoggingOptionsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679813269"><span id="local-6989586621679813271"><span id="local-6989586621679813273"><span id="local-6989586621679813275"><span class="annot"><span class="annottext">ReadPrec [SetLoggingOptionsResponse]
 ReadPrec SetLoggingOptionsResponse
 Int -&gt; ReadS SetLoggingOptionsResponse
 ReadS [SetLoggingOptionsResponse]
@@ -279,7 +279,7 @@ readList :: ReadS [SetLoggingOptionsResponse]
 $creadList :: ReadS [SetLoggingOptionsResponse]
 readsPrec :: Int -&gt; ReadS SetLoggingOptionsResponse
 $creadsPrec :: Int -&gt; ReadS SetLoggingOptionsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679812355"><span id="local-6989586621679812357"><span id="local-6989586621679812359"><span class="annot"><span class="annottext">Int -&gt; SetLoggingOptionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679813263"><span id="local-6989586621679813265"><span id="local-6989586621679813267"><span class="annot"><span class="annottext">Int -&gt; SetLoggingOptionsResponse -&gt; ShowS
 [SetLoggingOptionsResponse] -&gt; ShowS
 SetLoggingOptionsResponse -&gt; String
 (Int -&gt; SetLoggingOptionsResponse -&gt; ShowS)
@@ -322,5 +322,5 @@ SetLoggingOptionsResponse -&gt; Rep SetLoggingOptionsResponse x
 </span><span id="line-129"></span><span>  </span><span class="annot"><span class="annottext">SetLoggingOptionsResponse
 </span><a href="Network.AWS.IoT.SetLoggingOptions.html#SetLoggingOptionsResponse%27"><span class="hs-identifier hs-var">SetLoggingOptionsResponse'</span></a></span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679812351"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.SetLoggingOptions.html#SetLoggingOptionsResponse"><span class="hs-identifier hs-type">SetLoggingOptionsResponse</span></a></span></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679813259"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.SetLoggingOptions.html#SetLoggingOptionsResponse"><span class="hs-identifier hs-type">SetLoggingOptionsResponse</span></a></span></span><span>
 </span><span id="line-132"></span></pre></body></html>

@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679182864"><span id="local-6989586621679182865"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MergeStrategy"><span class="annot"><a href="Network.AWS.Translate.Types.MergeStrategy.html#MergeStrategy"><span class="hs-identifier hs-var">MergeStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MergeStrategy%27"><span class="annot"><a href="Network.AWS.Translate.Types.MergeStrategy.html#MergeStrategy%27"><span class="hs-identifier hs-var">MergeStrategy'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679182921"><span id="local-6989586621679182922"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MergeStrategy"><span class="annot"><a href="Network.AWS.Translate.Types.MergeStrategy.html#MergeStrategy"><span class="hs-identifier hs-var">MergeStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MergeStrategy%27"><span class="annot"><a href="Network.AWS.Translate.Types.MergeStrategy.html#MergeStrategy%27"><span class="hs-identifier hs-var">MergeStrategy'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMergeStrategy"><span class="annot"><span class="annottext">MergeStrategy -&gt; Text
 </span><a href="Network.AWS.Translate.Types.MergeStrategy.html#fromMergeStrategy"><span class="hs-identifier hs-var hs-var">fromMergeStrategy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679182856"><span id="local-6989586621679182858"><span id="local-6989586621679182860"><span class="annot"><span class="annottext">Int -&gt; MergeStrategy -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679182913"><span id="local-6989586621679182915"><span id="local-6989586621679182917"><span class="annot"><span class="annottext">Int -&gt; MergeStrategy -&gt; ShowS
 [MergeStrategy] -&gt; ShowS
 MergeStrategy -&gt; String
 (Int -&gt; MergeStrategy -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: MergeStrategy -&gt; String
 showsPrec :: Int -&gt; MergeStrategy -&gt; ShowS
 $cshowsPrec :: Int -&gt; MergeStrategy -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679182847"><span id="local-6989586621679182849"><span id="local-6989586621679182851"><span id="local-6989586621679182853"><span class="annot"><span class="annottext">ReadPrec [MergeStrategy]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679182904"><span id="local-6989586621679182906"><span id="local-6989586621679182908"><span id="local-6989586621679182910"><span class="annot"><span class="annottext">ReadPrec [MergeStrategy]
 ReadPrec MergeStrategy
 Int -&gt; ReadS MergeStrategy
 ReadS [MergeStrategy]
@@ -71,7 +71,7 @@ $creadList :: ReadS [MergeStrategy]
 readsPrec :: Int -&gt; ReadS MergeStrategy
 $creadsPrec :: Int -&gt; ReadS MergeStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679182842"><span id="local-6989586621679182844"><span class="annot"><span class="annottext">MergeStrategy -&gt; MergeStrategy -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679182899"><span id="local-6989586621679182901"><span class="annot"><span class="annottext">MergeStrategy -&gt; MergeStrategy -&gt; Bool
 (MergeStrategy -&gt; MergeStrategy -&gt; Bool)
 -&gt; (MergeStrategy -&gt; MergeStrategy -&gt; Bool) -&gt; Eq MergeStrategy
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -80,7 +80,7 @@ $c/= :: MergeStrategy -&gt; MergeStrategy -&gt; Bool
 == :: MergeStrategy -&gt; MergeStrategy -&gt; Bool
 $c== :: MergeStrategy -&gt; MergeStrategy -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679182826"><span id="local-6989586621679182828"><span id="local-6989586621679182830"><span id="local-6989586621679182832"><span id="local-6989586621679182834"><span id="local-6989586621679182836"><span id="local-6989586621679182838"><span class="annot"><span class="annottext">Eq MergeStrategy
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679182883"><span id="local-6989586621679182885"><span id="local-6989586621679182887"><span id="local-6989586621679182889"><span id="local-6989586621679182891"><span id="local-6989586621679182893"><span id="local-6989586621679182895"><span class="annot"><span class="annottext">Eq MergeStrategy
 Eq MergeStrategy
 -&gt; (MergeStrategy -&gt; MergeStrategy -&gt; Ordering)
 -&gt; (MergeStrategy -&gt; MergeStrategy -&gt; Bool)
@@ -131,7 +131,7 @@ $cfrom :: forall x. MergeStrategy -&gt; Rep MergeStrategy x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679182818"><span id="local-6989586621679182820"><span class="annot"><span class="annottext">Int -&gt; MergeStrategy -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679182875"><span id="local-6989586621679182877"><span class="annot"><span class="annottext">Int -&gt; MergeStrategy -&gt; Int
 MergeStrategy -&gt; Int
 (Int -&gt; MergeStrategy -&gt; Int)
 -&gt; (MergeStrategy -&gt; Int) -&gt; Hashable MergeStrategy
@@ -141,49 +141,49 @@ $chash :: MergeStrategy -&gt; Int
 hashWithSalt :: Int -&gt; MergeStrategy -&gt; Int
 $chashWithSalt :: Int -&gt; MergeStrategy -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679182815"><span class="annot"><span class="annottext">MergeStrategy -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679182872"><span class="annot"><span class="annottext">MergeStrategy -&gt; ()
 (MergeStrategy -&gt; ()) -&gt; NFData MergeStrategy
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: MergeStrategy -&gt; ()
 $crnf :: MergeStrategy -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679182812"><span class="annot"><span class="annottext">Text -&gt; Either String MergeStrategy
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679182869"><span class="annot"><span class="annottext">Text -&gt; Either String MergeStrategy
 (Text -&gt; Either String MergeStrategy) -&gt; FromText MergeStrategy
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String MergeStrategy
 $cfromText :: Text -&gt; Either String MergeStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679182809"><span class="annot"><span class="annottext">MergeStrategy -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679182866"><span class="annot"><span class="annottext">MergeStrategy -&gt; Text
 (MergeStrategy -&gt; Text) -&gt; ToText MergeStrategy
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: MergeStrategy -&gt; Text
 $ctoText :: MergeStrategy -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679182806"><span class="annot"><span class="annottext">MergeStrategy -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679182863"><span class="annot"><span class="annottext">MergeStrategy -&gt; ByteString
 (MergeStrategy -&gt; ByteString) -&gt; ToByteString MergeStrategy
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: MergeStrategy -&gt; ByteString
 $ctoBS :: MergeStrategy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679182803"><span class="annot"><span class="annottext">MergeStrategy -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679182860"><span class="annot"><span class="annottext">MergeStrategy -&gt; ByteStringBuilder
 (MergeStrategy -&gt; ByteStringBuilder) -&gt; ToLog MergeStrategy
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: MergeStrategy -&gt; ByteStringBuilder
 $cbuild :: MergeStrategy -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679182800"><span class="annot"><span class="annottext">HeaderName -&gt; MergeStrategy -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679182857"><span class="annot"><span class="annottext">HeaderName -&gt; MergeStrategy -&gt; [Header]
 (HeaderName -&gt; MergeStrategy -&gt; [Header]) -&gt; ToHeader MergeStrategy
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; MergeStrategy -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; MergeStrategy -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679182797"><span class="annot"><span class="annottext">MergeStrategy -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679182854"><span class="annot"><span class="annottext">MergeStrategy -&gt; QueryString
 (MergeStrategy -&gt; QueryString) -&gt; ToQuery MergeStrategy
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: MergeStrategy -&gt; QueryString
 $ctoQuery :: MergeStrategy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679182792"><span id="local-6989586621679182794"><span class="annot"><span class="annottext">Value -&gt; Parser [MergeStrategy]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679182849"><span id="local-6989586621679182851"><span class="annot"><span class="annottext">Value -&gt; Parser [MergeStrategy]
 Value -&gt; Parser MergeStrategy
 (Value -&gt; Parser MergeStrategy)
 -&gt; (Value -&gt; Parser [MergeStrategy]) -&gt; FromJSON MergeStrategy
@@ -194,7 +194,7 @@ $cparseJSONList :: Value -&gt; Parser [MergeStrategy]
 parseJSON :: Value -&gt; Parser MergeStrategy
 $cparseJSON :: Value -&gt; Parser MergeStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679182787"><span id="local-6989586621679182789"><span class="annot"><span class="annottext">FromJSONKeyFunction [MergeStrategy]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679182844"><span id="local-6989586621679182846"><span class="annot"><span class="annottext">FromJSONKeyFunction [MergeStrategy]
 FromJSONKeyFunction MergeStrategy
 FromJSONKeyFunction MergeStrategy
 -&gt; FromJSONKeyFunction [MergeStrategy] -&gt; FromJSONKey MergeStrategy
@@ -205,7 +205,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [MergeStrategy]
 fromJSONKey :: FromJSONKeyFunction MergeStrategy
 $cfromJSONKey :: FromJSONKeyFunction MergeStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679182778"><span id="local-6989586621679182780"><span id="local-6989586621679182782"><span id="local-6989586621679182784"><span class="annot"><span class="annottext">[MergeStrategy] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679182835"><span id="local-6989586621679182837"><span id="local-6989586621679182839"><span id="local-6989586621679182841"><span class="annot"><span class="annottext">[MergeStrategy] -&gt; Encoding
 [MergeStrategy] -&gt; Value
 MergeStrategy -&gt; Encoding
 MergeStrategy -&gt; Value
@@ -229,7 +229,7 @@ $ctoEncoding :: MergeStrategy -&gt; Encoding
 toJSON :: MergeStrategy -&gt; Value
 $ctoJSON :: MergeStrategy -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679182773"><span id="local-6989586621679182775"><span class="annot"><span class="annottext">ToJSONKeyFunction [MergeStrategy]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679182830"><span id="local-6989586621679182832"><span class="annot"><span class="annottext">ToJSONKeyFunction [MergeStrategy]
 ToJSONKeyFunction MergeStrategy
 ToJSONKeyFunction MergeStrategy
 -&gt; ToJSONKeyFunction [MergeStrategy] -&gt; ToJSONKey MergeStrategy
@@ -240,13 +240,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [MergeStrategy]
 toJSONKey :: ToJSONKeyFunction MergeStrategy
 $ctoJSONKey :: ToJSONKeyFunction MergeStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679182770"><span class="annot"><span class="annottext">[Node] -&gt; Either String MergeStrategy
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679182827"><span class="annot"><span class="annottext">[Node] -&gt; Either String MergeStrategy
 ([Node] -&gt; Either String MergeStrategy) -&gt; FromXML MergeStrategy
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String MergeStrategy
 $cparseXML :: [Node] -&gt; Either String MergeStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679182767"><span class="annot"><span class="annottext">MergeStrategy -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679182824"><span class="annot"><span class="annottext">MergeStrategy -&gt; XML
 (MergeStrategy -&gt; XML) -&gt; ToXML MergeStrategy
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: MergeStrategy -&gt; XML

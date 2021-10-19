@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html"><span class="hs-identifier">Network.AWS.S3.Internal</span></a></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679542202"><span id="local-6989586621679542203"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InventoryFormat"><span class="annot"><a href="Network.AWS.S3.Types.InventoryFormat.html#InventoryFormat"><span class="hs-identifier hs-var">InventoryFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InventoryFormat%27"><span class="annot"><a href="Network.AWS.S3.Types.InventoryFormat.html#InventoryFormat%27"><span class="hs-identifier hs-var">InventoryFormat'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679542831"><span id="local-6989586621679542832"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InventoryFormat"><span class="annot"><a href="Network.AWS.S3.Types.InventoryFormat.html#InventoryFormat"><span class="hs-identifier hs-var">InventoryFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InventoryFormat%27"><span class="annot"><a href="Network.AWS.S3.Types.InventoryFormat.html#InventoryFormat%27"><span class="hs-identifier hs-var">InventoryFormat'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInventoryFormat"><span class="annot"><span class="annottext">InventoryFormat -&gt; Text
 </span><a href="Network.AWS.S3.Types.InventoryFormat.html#fromInventoryFormat"><span class="hs-identifier hs-var hs-var">fromInventoryFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679542194"><span id="local-6989586621679542196"><span id="local-6989586621679542198"><span class="annot"><span class="annottext">Int -&gt; InventoryFormat -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679542823"><span id="local-6989586621679542825"><span id="local-6989586621679542827"><span class="annot"><span class="annottext">Int -&gt; InventoryFormat -&gt; ShowS
 [InventoryFormat] -&gt; ShowS
 InventoryFormat -&gt; String
 (Int -&gt; InventoryFormat -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: InventoryFormat -&gt; String
 showsPrec :: Int -&gt; InventoryFormat -&gt; ShowS
 $cshowsPrec :: Int -&gt; InventoryFormat -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679542185"><span id="local-6989586621679542187"><span id="local-6989586621679542189"><span id="local-6989586621679542191"><span class="annot"><span class="annottext">ReadPrec [InventoryFormat]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679542814"><span id="local-6989586621679542816"><span id="local-6989586621679542818"><span id="local-6989586621679542820"><span class="annot"><span class="annottext">ReadPrec [InventoryFormat]
 ReadPrec InventoryFormat
 Int -&gt; ReadS InventoryFormat
 ReadS [InventoryFormat]
@@ -74,7 +74,7 @@ $creadList :: ReadS [InventoryFormat]
 readsPrec :: Int -&gt; ReadS InventoryFormat
 $creadsPrec :: Int -&gt; ReadS InventoryFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679542180"><span id="local-6989586621679542182"><span class="annot"><span class="annottext">InventoryFormat -&gt; InventoryFormat -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679542809"><span id="local-6989586621679542811"><span class="annot"><span class="annottext">InventoryFormat -&gt; InventoryFormat -&gt; Bool
 (InventoryFormat -&gt; InventoryFormat -&gt; Bool)
 -&gt; (InventoryFormat -&gt; InventoryFormat -&gt; Bool)
 -&gt; Eq InventoryFormat
@@ -84,7 +84,7 @@ $c/= :: InventoryFormat -&gt; InventoryFormat -&gt; Bool
 == :: InventoryFormat -&gt; InventoryFormat -&gt; Bool
 $c== :: InventoryFormat -&gt; InventoryFormat -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679542164"><span id="local-6989586621679542166"><span id="local-6989586621679542168"><span id="local-6989586621679542170"><span id="local-6989586621679542172"><span id="local-6989586621679542174"><span id="local-6989586621679542176"><span class="annot"><span class="annottext">Eq InventoryFormat
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679542793"><span id="local-6989586621679542795"><span id="local-6989586621679542797"><span id="local-6989586621679542799"><span id="local-6989586621679542801"><span id="local-6989586621679542803"><span id="local-6989586621679542805"><span class="annot"><span class="annottext">Eq InventoryFormat
 Eq InventoryFormat
 -&gt; (InventoryFormat -&gt; InventoryFormat -&gt; Ordering)
 -&gt; (InventoryFormat -&gt; InventoryFormat -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. InventoryFormat -&gt; Rep InventoryFormat x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679542156"><span id="local-6989586621679542158"><span class="annot"><span class="annottext">Int -&gt; InventoryFormat -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679542785"><span id="local-6989586621679542787"><span class="annot"><span class="annottext">Int -&gt; InventoryFormat -&gt; Int
 InventoryFormat -&gt; Int
 (Int -&gt; InventoryFormat -&gt; Int)
 -&gt; (InventoryFormat -&gt; Int) -&gt; Hashable InventoryFormat
@@ -145,50 +145,50 @@ $chash :: InventoryFormat -&gt; Int
 hashWithSalt :: Int -&gt; InventoryFormat -&gt; Int
 $chashWithSalt :: Int -&gt; InventoryFormat -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679542153"><span class="annot"><span class="annottext">InventoryFormat -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679542782"><span class="annot"><span class="annottext">InventoryFormat -&gt; ()
 (InventoryFormat -&gt; ()) -&gt; NFData InventoryFormat
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: InventoryFormat -&gt; ()
 $crnf :: InventoryFormat -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679542150"><span class="annot"><span class="annottext">Text -&gt; Either String InventoryFormat
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679542779"><span class="annot"><span class="annottext">Text -&gt; Either String InventoryFormat
 (Text -&gt; Either String InventoryFormat) -&gt; FromText InventoryFormat
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String InventoryFormat
 $cfromText :: Text -&gt; Either String InventoryFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679542147"><span class="annot"><span class="annottext">InventoryFormat -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679542776"><span class="annot"><span class="annottext">InventoryFormat -&gt; Text
 (InventoryFormat -&gt; Text) -&gt; ToText InventoryFormat
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: InventoryFormat -&gt; Text
 $ctoText :: InventoryFormat -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679542144"><span class="annot"><span class="annottext">InventoryFormat -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679542773"><span class="annot"><span class="annottext">InventoryFormat -&gt; ByteString
 (InventoryFormat -&gt; ByteString) -&gt; ToByteString InventoryFormat
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: InventoryFormat -&gt; ByteString
 $ctoBS :: InventoryFormat -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679542141"><span class="annot"><span class="annottext">InventoryFormat -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679542770"><span class="annot"><span class="annottext">InventoryFormat -&gt; ByteStringBuilder
 (InventoryFormat -&gt; ByteStringBuilder) -&gt; ToLog InventoryFormat
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: InventoryFormat -&gt; ByteStringBuilder
 $cbuild :: InventoryFormat -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679542138"><span class="annot"><span class="annottext">HeaderName -&gt; InventoryFormat -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679542767"><span class="annot"><span class="annottext">HeaderName -&gt; InventoryFormat -&gt; [Header]
 (HeaderName -&gt; InventoryFormat -&gt; [Header])
 -&gt; ToHeader InventoryFormat
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; InventoryFormat -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; InventoryFormat -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679542135"><span class="annot"><span class="annottext">InventoryFormat -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679542764"><span class="annot"><span class="annottext">InventoryFormat -&gt; QueryString
 (InventoryFormat -&gt; QueryString) -&gt; ToQuery InventoryFormat
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: InventoryFormat -&gt; QueryString
 $ctoQuery :: InventoryFormat -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679542130"><span id="local-6989586621679542132"><span class="annot"><span class="annottext">Value -&gt; Parser [InventoryFormat]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679542759"><span id="local-6989586621679542761"><span class="annot"><span class="annottext">Value -&gt; Parser [InventoryFormat]
 Value -&gt; Parser InventoryFormat
 (Value -&gt; Parser InventoryFormat)
 -&gt; (Value -&gt; Parser [InventoryFormat]) -&gt; FromJSON InventoryFormat
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [InventoryFormat]
 parseJSON :: Value -&gt; Parser InventoryFormat
 $cparseJSON :: Value -&gt; Parser InventoryFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679542125"><span id="local-6989586621679542127"><span class="annot"><span class="annottext">FromJSONKeyFunction [InventoryFormat]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679542754"><span id="local-6989586621679542756"><span class="annot"><span class="annottext">FromJSONKeyFunction [InventoryFormat]
 FromJSONKeyFunction InventoryFormat
 FromJSONKeyFunction InventoryFormat
 -&gt; FromJSONKeyFunction [InventoryFormat]
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [InventoryFormat]
 fromJSONKey :: FromJSONKeyFunction InventoryFormat
 $cfromJSONKey :: FromJSONKeyFunction InventoryFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679542116"><span id="local-6989586621679542118"><span id="local-6989586621679542120"><span id="local-6989586621679542122"><span class="annot"><span class="annottext">[InventoryFormat] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679542745"><span id="local-6989586621679542747"><span id="local-6989586621679542749"><span id="local-6989586621679542751"><span class="annot"><span class="annottext">[InventoryFormat] -&gt; Encoding
 [InventoryFormat] -&gt; Value
 InventoryFormat -&gt; Encoding
 InventoryFormat -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: InventoryFormat -&gt; Encoding
 toJSON :: InventoryFormat -&gt; Value
 $ctoJSON :: InventoryFormat -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679542111"><span id="local-6989586621679542113"><span class="annot"><span class="annottext">ToJSONKeyFunction [InventoryFormat]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679542740"><span id="local-6989586621679542742"><span class="annot"><span class="annottext">ToJSONKeyFunction [InventoryFormat]
 ToJSONKeyFunction InventoryFormat
 ToJSONKeyFunction InventoryFormat
 -&gt; ToJSONKeyFunction [InventoryFormat] -&gt; ToJSONKey InventoryFormat
@@ -246,14 +246,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [InventoryFormat]
 toJSONKey :: ToJSONKeyFunction InventoryFormat
 $ctoJSONKey :: ToJSONKeyFunction InventoryFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679542108"><span class="annot"><span class="annottext">[Node] -&gt; Either String InventoryFormat
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679542737"><span class="annot"><span class="annottext">[Node] -&gt; Either String InventoryFormat
 ([Node] -&gt; Either String InventoryFormat)
 -&gt; FromXML InventoryFormat
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String InventoryFormat
 $cparseXML :: [Node] -&gt; Either String InventoryFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679542105"><span class="annot"><span class="annottext">InventoryFormat -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679542734"><span class="annot"><span class="annottext">InventoryFormat -&gt; XML
 (InventoryFormat -&gt; XML) -&gt; ToXML InventoryFormat
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: InventoryFormat -&gt; XML

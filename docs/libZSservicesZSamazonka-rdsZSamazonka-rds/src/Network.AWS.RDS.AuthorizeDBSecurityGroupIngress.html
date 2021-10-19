@@ -42,10 +42,10 @@
 </span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#newAuthorizeDBSecurityGroupIngress"><span class="hs-identifier">newAuthorizeDBSecurityGroupIngress</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>
 </span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#authorizeDBSecurityGroupIngress_cidrip"><span class="hs-identifier">authorizeDBSecurityGroupIngress_cidrip</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#authorizeDBSecurityGroupIngress_eC2SecurityGroupOwnerId"><span class="hs-identifier">authorizeDBSecurityGroupIngress_eC2SecurityGroupOwnerId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#authorizeDBSecurityGroupIngress_eC2SecurityGroupId"><span class="hs-identifier">authorizeDBSecurityGroupIngress_eC2SecurityGroupId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#authorizeDBSecurityGroupIngress_eC2SecurityGroupName"><span class="hs-identifier">authorizeDBSecurityGroupIngress_eC2SecurityGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#authorizeDBSecurityGroupIngress_eC2SecurityGroupOwnerId"><span class="hs-identifier">authorizeDBSecurityGroupIngress_eC2SecurityGroupOwnerId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#authorizeDBSecurityGroupIngress_eC2SecurityGroupName"><span class="hs-identifier">authorizeDBSecurityGroupIngress_eC2SecurityGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#authorizeDBSecurityGroupIngress_cidrip"><span class="hs-identifier">authorizeDBSecurityGroupIngress_cidrip</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#authorizeDBSecurityGroupIngress_eC2SecurityGroupId"><span class="hs-identifier">authorizeDBSecurityGroupIngress_eC2SecurityGroupId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#authorizeDBSecurityGroupIngress_dbSecurityGroupName"><span class="hs-identifier">authorizeDBSecurityGroupIngress_dbSecurityGroupName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -68,35 +68,35 @@
 </span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-69"></span><span class="hs-comment">--</span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- /See:/ 'newAuthorizeDBSecurityGroupIngress' smart constructor.</span><span>
-</span><span id="line-71"></span><span id="local-6989586621679804910"><span id="local-6989586621679804911"></span></span><span class="hs-keyword">data</span><span> </span><span id="AuthorizeDBSecurityGroupIngress"><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress"><span class="hs-identifier hs-var">AuthorizeDBSecurityGroupIngress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuthorizeDBSecurityGroupIngress%27"><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress%27"><span class="hs-identifier hs-var">AuthorizeDBSecurityGroupIngress'</span></a></span></span><span>
-</span><span id="line-72"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IP range to authorize.</span><span>
-</span><span id="line-73"></span><span>    </span><span id="%24sel%3Acidrip%3AAuthorizeDBSecurityGroupIngress%27"><span class="annot"><span class="annottext">AuthorizeDBSecurityGroupIngress -&gt; Maybe Text
-</span><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#%24sel%3Acidrip%3AAuthorizeDBSecurityGroupIngress%27"><span class="hs-identifier hs-var hs-var">cidrip</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | Amazon Web Services account number of the owner of the EC2 security</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- group specified in the @EC2SecurityGroupName@ parameter. The Amazon Web</span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- Services access key ID isn\'t an acceptable value. For VPC DB security</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- groups, @EC2SecurityGroupId@ must be provided. Otherwise,</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- @EC2SecurityGroupOwnerId@ and either @EC2SecurityGroupName@ or</span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- @EC2SecurityGroupId@ must be provided.</span><span>
-</span><span id="line-80"></span><span>    </span><span id="%24sel%3AeC2SecurityGroupOwnerId%3AAuthorizeDBSecurityGroupIngress%27"><span class="annot"><span class="annottext">AuthorizeDBSecurityGroupIngress -&gt; Maybe Text
+</span><span id="line-71"></span><span id="local-6989586621679806084"><span id="local-6989586621679806085"></span></span><span class="hs-keyword">data</span><span> </span><span id="AuthorizeDBSecurityGroupIngress"><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress"><span class="hs-identifier hs-var">AuthorizeDBSecurityGroupIngress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuthorizeDBSecurityGroupIngress%27"><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress%27"><span class="hs-identifier hs-var">AuthorizeDBSecurityGroupIngress'</span></a></span></span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Amazon Web Services account number of the owner of the EC2 security</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- group specified in the @EC2SecurityGroupName@ parameter. The Amazon Web</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- Services access key ID isn\'t an acceptable value. For VPC DB security</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- groups, @EC2SecurityGroupId@ must be provided. Otherwise,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- @EC2SecurityGroupOwnerId@ and either @EC2SecurityGroupName@ or</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- @EC2SecurityGroupId@ must be provided.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AeC2SecurityGroupOwnerId%3AAuthorizeDBSecurityGroupIngress%27"><span class="annot"><span class="annottext">AuthorizeDBSecurityGroupIngress -&gt; Maybe Text
 </span><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#%24sel%3AeC2SecurityGroupOwnerId%3AAuthorizeDBSecurityGroupIngress%27"><span class="hs-identifier hs-var hs-var">eC2SecurityGroupOwnerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | Id of the EC2 security group to authorize. For VPC DB security groups,</span><span>
-</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- @EC2SecurityGroupId@ must be provided. Otherwise,</span><span>
-</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- @EC2SecurityGroupOwnerId@ and either @EC2SecurityGroupName@ or</span><span>
-</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- @EC2SecurityGroupId@ must be provided.</span><span>
-</span><span id="line-85"></span><span>    </span><span id="%24sel%3AeC2SecurityGroupId%3AAuthorizeDBSecurityGroupIngress%27"><span class="annot"><span class="annottext">AuthorizeDBSecurityGroupIngress -&gt; Maybe Text
-</span><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#%24sel%3AeC2SecurityGroupId%3AAuthorizeDBSecurityGroupIngress%27"><span class="hs-identifier hs-var hs-var">eC2SecurityGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- | Name of the EC2 security group to authorize. For VPC DB security groups,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | Name of the EC2 security group to authorize. For VPC DB security groups,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- @EC2SecurityGroupId@ must be provided. Otherwise,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- @EC2SecurityGroupOwnerId@ and either @EC2SecurityGroupName@ or</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- @EC2SecurityGroupId@ must be provided.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3AeC2SecurityGroupName%3AAuthorizeDBSecurityGroupIngress%27"><span class="annot"><span class="annottext">AuthorizeDBSecurityGroupIngress -&gt; Maybe Text
+</span><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#%24sel%3AeC2SecurityGroupName%3AAuthorizeDBSecurityGroupIngress%27"><span class="hs-identifier hs-var hs-var">eC2SecurityGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | The IP range to authorize.</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3Acidrip%3AAuthorizeDBSecurityGroupIngress%27"><span class="annot"><span class="annottext">AuthorizeDBSecurityGroupIngress -&gt; Maybe Text
+</span><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#%24sel%3Acidrip%3AAuthorizeDBSecurityGroupIngress%27"><span class="hs-identifier hs-var hs-var">cidrip</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- | Id of the EC2 security group to authorize. For VPC DB security groups,</span><span>
 </span><span id="line-87"></span><span>    </span><span class="hs-comment">-- @EC2SecurityGroupId@ must be provided. Otherwise,</span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-comment">-- @EC2SecurityGroupOwnerId@ and either @EC2SecurityGroupName@ or</span><span>
 </span><span id="line-89"></span><span>    </span><span class="hs-comment">-- @EC2SecurityGroupId@ must be provided.</span><span>
-</span><span id="line-90"></span><span>    </span><span id="%24sel%3AeC2SecurityGroupName%3AAuthorizeDBSecurityGroupIngress%27"><span class="annot"><span class="annottext">AuthorizeDBSecurityGroupIngress -&gt; Maybe Text
-</span><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#%24sel%3AeC2SecurityGroupName%3AAuthorizeDBSecurityGroupIngress%27"><span class="hs-identifier hs-var hs-var">eC2SecurityGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3AeC2SecurityGroupId%3AAuthorizeDBSecurityGroupIngress%27"><span class="annot"><span class="annottext">AuthorizeDBSecurityGroupIngress -&gt; Maybe Text
+</span><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#%24sel%3AeC2SecurityGroupId%3AAuthorizeDBSecurityGroupIngress%27"><span class="hs-identifier hs-var hs-var">eC2SecurityGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-comment">-- | The name of the DB security group to add authorization to.</span><span>
 </span><span id="line-92"></span><span>    </span><span id="%24sel%3AdbSecurityGroupName%3AAuthorizeDBSecurityGroupIngress%27"><span class="annot"><span class="annottext">AuthorizeDBSecurityGroupIngress -&gt; Text
 </span><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#%24sel%3AdbSecurityGroupName%3AAuthorizeDBSecurityGroupIngress%27"><span class="hs-identifier hs-var hs-var">dbSecurityGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-93"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-94"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679804900"><span id="local-6989586621679804902"><span class="annot"><span class="annottext">AuthorizeDBSecurityGroupIngress
+</span><span id="line-94"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679806074"><span id="local-6989586621679806076"><span class="annot"><span class="annottext">AuthorizeDBSecurityGroupIngress
 -&gt; AuthorizeDBSecurityGroupIngress -&gt; Bool
 (AuthorizeDBSecurityGroupIngress
  -&gt; AuthorizeDBSecurityGroupIngress -&gt; Bool)
@@ -112,7 +112,7 @@ $c/= :: AuthorizeDBSecurityGroupIngress
 -&gt; AuthorizeDBSecurityGroupIngress -&gt; Bool
 $c== :: AuthorizeDBSecurityGroupIngress
 -&gt; AuthorizeDBSecurityGroupIngress -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679804891"><span id="local-6989586621679804893"><span id="local-6989586621679804895"><span id="local-6989586621679804897"><span class="annot"><span class="annottext">ReadPrec [AuthorizeDBSecurityGroupIngress]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679806065"><span id="local-6989586621679806067"><span id="local-6989586621679806069"><span id="local-6989586621679806071"><span class="annot"><span class="annottext">ReadPrec [AuthorizeDBSecurityGroupIngress]
 ReadPrec AuthorizeDBSecurityGroupIngress
 Int -&gt; ReadS AuthorizeDBSecurityGroupIngress
 ReadS [AuthorizeDBSecurityGroupIngress]
@@ -132,7 +132,7 @@ readList :: ReadS [AuthorizeDBSecurityGroupIngress]
 $creadList :: ReadS [AuthorizeDBSecurityGroupIngress]
 readsPrec :: Int -&gt; ReadS AuthorizeDBSecurityGroupIngress
 $creadsPrec :: Int -&gt; ReadS AuthorizeDBSecurityGroupIngress
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679804884"><span id="local-6989586621679804886"><span id="local-6989586621679804888"><span class="annot"><span class="annottext">Int -&gt; AuthorizeDBSecurityGroupIngress -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679806058"><span id="local-6989586621679806060"><span id="local-6989586621679806062"><span class="annot"><span class="annottext">Int -&gt; AuthorizeDBSecurityGroupIngress -&gt; ShowS
 [AuthorizeDBSecurityGroupIngress] -&gt; ShowS
 AuthorizeDBSecurityGroupIngress -&gt; String
 (Int -&gt; AuthorizeDBSecurityGroupIngress -&gt; ShowS)
@@ -178,21 +178,21 @@ AuthorizeDBSecurityGroupIngress
 </span><span id="line-101"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-103"></span><span class="hs-comment">--</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- 'cidrip', 'authorizeDBSecurityGroupIngress_cidrip' - The IP range to authorize.</span><span>
-</span><span id="line-105"></span><span class="hs-comment">--</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- 'eC2SecurityGroupOwnerId', 'authorizeDBSecurityGroupIngress_eC2SecurityGroupOwnerId' - Amazon Web Services account number of the owner of the EC2 security</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- group specified in the @EC2SecurityGroupName@ parameter. The Amazon Web</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- Services access key ID isn\'t an acceptable value. For VPC DB security</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- groups, @EC2SecurityGroupId@ must be provided. Otherwise,</span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- @EC2SecurityGroupOwnerId@ and either @EC2SecurityGroupName@ or</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- @EC2SecurityGroupId@ must be provided.</span><span>
-</span><span id="line-112"></span><span class="hs-comment">--</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- 'eC2SecurityGroupId', 'authorizeDBSecurityGroupIngress_eC2SecurityGroupId' - Id of the EC2 security group to authorize. For VPC DB security groups,</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- @EC2SecurityGroupId@ must be provided. Otherwise,</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- @EC2SecurityGroupOwnerId@ and either @EC2SecurityGroupName@ or</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- @EC2SecurityGroupId@ must be provided.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'eC2SecurityGroupOwnerId', 'authorizeDBSecurityGroupIngress_eC2SecurityGroupOwnerId' - Amazon Web Services account number of the owner of the EC2 security</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- group specified in the @EC2SecurityGroupName@ parameter. The Amazon Web</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- Services access key ID isn\'t an acceptable value. For VPC DB security</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- groups, @EC2SecurityGroupId@ must be provided. Otherwise,</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- @EC2SecurityGroupOwnerId@ and either @EC2SecurityGroupName@ or</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- @EC2SecurityGroupId@ must be provided.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'eC2SecurityGroupName', 'authorizeDBSecurityGroupIngress_eC2SecurityGroupName' - Name of the EC2 security group to authorize. For VPC DB security groups,</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- @EC2SecurityGroupId@ must be provided. Otherwise,</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- @EC2SecurityGroupOwnerId@ and either @EC2SecurityGroupName@ or</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- @EC2SecurityGroupId@ must be provided.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'cidrip', 'authorizeDBSecurityGroupIngress_cidrip' - The IP range to authorize.</span><span>
 </span><span id="line-117"></span><span class="hs-comment">--</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- 'eC2SecurityGroupName', 'authorizeDBSecurityGroupIngress_eC2SecurityGroupName' - Name of the EC2 security group to authorize. For VPC DB security groups,</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'eC2SecurityGroupId', 'authorizeDBSecurityGroupIngress_eC2SecurityGroupId' - Id of the EC2 security group to authorize. For VPC DB security groups,</span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- @EC2SecurityGroupId@ must be provided. Otherwise,</span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- @EC2SecurityGroupOwnerId@ and either @EC2SecurityGroupName@ or</span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- @EC2SecurityGroupId@ must be provided.</span><span>
@@ -204,8 +204,8 @@ AuthorizeDBSecurityGroupIngress
 </span><span id="line-127"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngress</span></a></span><span>
 </span><span id="line-128"></span><span id="newAuthorizeDBSecurityGroupIngress"><span class="annot"><span class="annottext">newAuthorizeDBSecurityGroupIngress :: Text -&gt; AuthorizeDBSecurityGroupIngress
 </span><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#newAuthorizeDBSecurityGroupIngress"><span class="hs-identifier hs-var hs-var">newAuthorizeDBSecurityGroupIngress</span></a></span></span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679804879"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679804879"><span class="hs-identifier hs-var">pDBSecurityGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679806053"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679806053"><span class="hs-identifier hs-var">pDBSecurityGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">AuthorizeDBSecurityGroupIngress' :: Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -213,62 +213,37 @@ AuthorizeDBSecurityGroupIngress
 -&gt; Text
 -&gt; AuthorizeDBSecurityGroupIngress
 </span><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress%27"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngress'</span></a></span><span>
-</span><span id="line-131"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cidrip:AuthorizeDBSecurityGroupIngress' :: Maybe Text
-</span><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#%24sel%3Acidrip%3AAuthorizeDBSecurityGroupIngress%27"><span class="hs-identifier hs-var">cidrip</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:eC2SecurityGroupOwnerId:AuthorizeDBSecurityGroupIngress' :: Maybe Text
+</span><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#%24sel%3AeC2SecurityGroupOwnerId%3AAuthorizeDBSecurityGroupIngress%27"><span class="hs-identifier hs-var">eC2SecurityGroupOwnerId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-133"></span><span>        </span><span class="annot"><span class="annottext">$sel:eC2SecurityGroupOwnerId:AuthorizeDBSecurityGroupIngress' :: Maybe Text
-</span><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#%24sel%3AeC2SecurityGroupOwnerId%3AAuthorizeDBSecurityGroupIngress%27"><span class="hs-identifier hs-var">eC2SecurityGroupOwnerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-134"></span><span>        </span><span class="annot"><span class="annottext">$sel:eC2SecurityGroupId:AuthorizeDBSecurityGroupIngress' :: Maybe Text
-</span><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#%24sel%3AeC2SecurityGroupId%3AAuthorizeDBSecurityGroupIngress%27"><span class="hs-identifier hs-var">eC2SecurityGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-135"></span><span>        </span><span class="annot"><span class="annottext">$sel:eC2SecurityGroupName:AuthorizeDBSecurityGroupIngress' :: Maybe Text
+</span><span id="line-133"></span><span>        </span><span class="annot"><span class="annottext">$sel:eC2SecurityGroupName:AuthorizeDBSecurityGroupIngress' :: Maybe Text
 </span><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#%24sel%3AeC2SecurityGroupName%3AAuthorizeDBSecurityGroupIngress%27"><span class="hs-identifier hs-var">eC2SecurityGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>        </span><span class="annot"><span class="annottext">$sel:cidrip:AuthorizeDBSecurityGroupIngress' :: Maybe Text
+</span><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#%24sel%3Acidrip%3AAuthorizeDBSecurityGroupIngress%27"><span class="hs-identifier hs-var">cidrip</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>        </span><span class="annot"><span class="annottext">$sel:eC2SecurityGroupId:AuthorizeDBSecurityGroupIngress' :: Maybe Text
+</span><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#%24sel%3AeC2SecurityGroupId%3AAuthorizeDBSecurityGroupIngress%27"><span class="hs-identifier hs-var">eC2SecurityGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">$sel:dbSecurityGroupName:AuthorizeDBSecurityGroupIngress' :: Text
 </span><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#%24sel%3AdbSecurityGroupName%3AAuthorizeDBSecurityGroupIngress%27"><span class="hs-identifier hs-var">dbSecurityGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-137"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679804879"><span class="hs-identifier hs-var">pDBSecurityGroupName_</span></a></span><span>
+</span><a href="#local-6989586621679806053"><span class="hs-identifier hs-var">pDBSecurityGroupName_</span></a></span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- | The IP range to authorize.</span><span>
-</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#authorizeDBSecurityGroupIngress_cidrip"><span class="hs-identifier hs-type">authorizeDBSecurityGroupIngress_cidrip</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngress</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span id="authorizeDBSecurityGroupIngress_cidrip"><span class="annot"><span class="annottext">authorizeDBSecurityGroupIngress_cidrip :: (Maybe Text -&gt; f (Maybe Text))
--&gt; AuthorizeDBSecurityGroupIngress
--&gt; f AuthorizeDBSecurityGroupIngress
-</span><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#authorizeDBSecurityGroupIngress_cidrip"><span class="hs-identifier hs-var hs-var">authorizeDBSecurityGroupIngress_cidrip</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuthorizeDBSecurityGroupIngress -&gt; Maybe Text)
--&gt; (AuthorizeDBSecurityGroupIngress
-    -&gt; Maybe Text -&gt; AuthorizeDBSecurityGroupIngress)
--&gt; Lens
-     AuthorizeDBSecurityGroupIngress
-     AuthorizeDBSecurityGroupIngress
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress%27"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804876"><span class="annot"><span class="annottext">Maybe Text
-cidrip :: Maybe Text
-$sel:cidrip:AuthorizeDBSecurityGroupIngress' :: AuthorizeDBSecurityGroupIngress -&gt; Maybe Text
-</span><a href="#local-6989586621679804876"><span class="hs-identifier hs-var hs-var">cidrip</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679804876"><span class="hs-identifier hs-var">cidrip</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804875"><span class="annot"><span class="annottext">s :: AuthorizeDBSecurityGroupIngress
-</span><a href="#local-6989586621679804875"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress%27"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804874"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679804874"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizeDBSecurityGroupIngress
-</span><a href="#local-6989586621679804875"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cidrip:AuthorizeDBSecurityGroupIngress' :: Maybe Text
-</span><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#%24sel%3Acidrip%3AAuthorizeDBSecurityGroupIngress%27"><span class="hs-identifier hs-var">cidrip</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679804874"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngress</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- | Amazon Web Services account number of the owner of the EC2 security</span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- group specified in the @EC2SecurityGroupName@ parameter. The Amazon Web</span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- Services access key ID isn\'t an acceptable value. For VPC DB security</span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- groups, @EC2SecurityGroupId@ must be provided. Otherwise,</span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- @EC2SecurityGroupOwnerId@ and either @EC2SecurityGroupName@ or</span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- @EC2SecurityGroupId@ must be provided.</span><span>
-</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#authorizeDBSecurityGroupIngress_eC2SecurityGroupOwnerId"><span class="hs-identifier hs-type">authorizeDBSecurityGroupIngress_eC2SecurityGroupOwnerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngress</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-151"></span><span id="authorizeDBSecurityGroupIngress_eC2SecurityGroupOwnerId"><span class="annot"><span class="annottext">authorizeDBSecurityGroupIngress_eC2SecurityGroupOwnerId :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-140"></span><span class="hs-comment">-- | Amazon Web Services account number of the owner of the EC2 security</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- group specified in the @EC2SecurityGroupName@ parameter. The Amazon Web</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- Services access key ID isn\'t an acceptable value. For VPC DB security</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- groups, @EC2SecurityGroupId@ must be provided. Otherwise,</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- @EC2SecurityGroupOwnerId@ and either @EC2SecurityGroupName@ or</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- @EC2SecurityGroupId@ must be provided.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#authorizeDBSecurityGroupIngress_eC2SecurityGroupOwnerId"><span class="hs-identifier hs-type">authorizeDBSecurityGroupIngress_eC2SecurityGroupOwnerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngress</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span id="authorizeDBSecurityGroupIngress_eC2SecurityGroupOwnerId"><span class="annot"><span class="annottext">authorizeDBSecurityGroupIngress_eC2SecurityGroupOwnerId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; AuthorizeDBSecurityGroupIngress
 -&gt; f AuthorizeDBSecurityGroupIngress
 </span><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#authorizeDBSecurityGroupIngress_eC2SecurityGroupOwnerId"><span class="hs-identifier hs-var hs-var">authorizeDBSecurityGroupIngress_eC2SecurityGroupOwnerId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuthorizeDBSecurityGroupIngress -&gt; Maybe Text)
@@ -280,51 +255,23 @@ $sel:cidrip:AuthorizeDBSecurityGroupIngress' :: AuthorizeDBSecurityGroupIngress 
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress%27"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804873"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress%27"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679806050"><span class="annot"><span class="annottext">Maybe Text
 eC2SecurityGroupOwnerId :: Maybe Text
 $sel:eC2SecurityGroupOwnerId:AuthorizeDBSecurityGroupIngress' :: AuthorizeDBSecurityGroupIngress -&gt; Maybe Text
-</span><a href="#local-6989586621679804873"><span class="hs-identifier hs-var hs-var">eC2SecurityGroupOwnerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679804873"><span class="hs-identifier hs-var">eC2SecurityGroupOwnerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804872"><span class="annot"><span class="annottext">s :: AuthorizeDBSecurityGroupIngress
-</span><a href="#local-6989586621679804872"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress%27"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804871"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679804871"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizeDBSecurityGroupIngress
-</span><a href="#local-6989586621679804872"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eC2SecurityGroupOwnerId:AuthorizeDBSecurityGroupIngress' :: Maybe Text
+</span><a href="#local-6989586621679806050"><span class="hs-identifier hs-var hs-var">eC2SecurityGroupOwnerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679806050"><span class="hs-identifier hs-var">eC2SecurityGroupOwnerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679806049"><span class="annot"><span class="annottext">s :: AuthorizeDBSecurityGroupIngress
+</span><a href="#local-6989586621679806049"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress%27"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679806048"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679806048"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizeDBSecurityGroupIngress
+</span><a href="#local-6989586621679806049"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eC2SecurityGroupOwnerId:AuthorizeDBSecurityGroupIngress' :: Maybe Text
 </span><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#%24sel%3AeC2SecurityGroupOwnerId%3AAuthorizeDBSecurityGroupIngress%27"><span class="hs-identifier hs-var">eC2SecurityGroupOwnerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679804871"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngress</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- | Id of the EC2 security group to authorize. For VPC DB security groups,</span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- @EC2SecurityGroupId@ must be provided. Otherwise,</span><span>
-</span><span id="line-155"></span><span class="hs-comment">-- @EC2SecurityGroupOwnerId@ and either @EC2SecurityGroupName@ or</span><span>
-</span><span id="line-156"></span><span class="hs-comment">-- @EC2SecurityGroupId@ must be provided.</span><span>
-</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#authorizeDBSecurityGroupIngress_eC2SecurityGroupId"><span class="hs-identifier hs-type">authorizeDBSecurityGroupIngress_eC2SecurityGroupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngress</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-158"></span><span id="authorizeDBSecurityGroupIngress_eC2SecurityGroupId"><span class="annot"><span class="annottext">authorizeDBSecurityGroupIngress_eC2SecurityGroupId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; AuthorizeDBSecurityGroupIngress
--&gt; f AuthorizeDBSecurityGroupIngress
-</span><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#authorizeDBSecurityGroupIngress_eC2SecurityGroupId"><span class="hs-identifier hs-var hs-var">authorizeDBSecurityGroupIngress_eC2SecurityGroupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuthorizeDBSecurityGroupIngress -&gt; Maybe Text)
--&gt; (AuthorizeDBSecurityGroupIngress
-    -&gt; Maybe Text -&gt; AuthorizeDBSecurityGroupIngress)
--&gt; Lens
-     AuthorizeDBSecurityGroupIngress
-     AuthorizeDBSecurityGroupIngress
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress%27"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804870"><span class="annot"><span class="annottext">Maybe Text
-eC2SecurityGroupId :: Maybe Text
-$sel:eC2SecurityGroupId:AuthorizeDBSecurityGroupIngress' :: AuthorizeDBSecurityGroupIngress -&gt; Maybe Text
-</span><a href="#local-6989586621679804870"><span class="hs-identifier hs-var hs-var">eC2SecurityGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679804870"><span class="hs-identifier hs-var">eC2SecurityGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804869"><span class="annot"><span class="annottext">s :: AuthorizeDBSecurityGroupIngress
-</span><a href="#local-6989586621679804869"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress%27"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804868"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679804868"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizeDBSecurityGroupIngress
-</span><a href="#local-6989586621679804869"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eC2SecurityGroupId:AuthorizeDBSecurityGroupIngress' :: Maybe Text
-</span><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#%24sel%3AeC2SecurityGroupId%3AAuthorizeDBSecurityGroupIngress%27"><span class="hs-identifier hs-var">eC2SecurityGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679804868"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngress</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- | Name of the EC2 security group to authorize. For VPC DB security groups,</span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- @EC2SecurityGroupId@ must be provided. Otherwise,</span><span>
-</span><span id="line-162"></span><span class="hs-comment">-- @EC2SecurityGroupOwnerId@ and either @EC2SecurityGroupName@ or</span><span>
-</span><span id="line-163"></span><span class="hs-comment">-- @EC2SecurityGroupId@ must be provided.</span><span>
-</span><span id="line-164"></span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#authorizeDBSecurityGroupIngress_eC2SecurityGroupName"><span class="hs-identifier hs-type">authorizeDBSecurityGroupIngress_eC2SecurityGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngress</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-165"></span><span id="authorizeDBSecurityGroupIngress_eC2SecurityGroupName"><span class="annot"><span class="annottext">authorizeDBSecurityGroupIngress_eC2SecurityGroupName :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679806048"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngress</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | Name of the EC2 security group to authorize. For VPC DB security groups,</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- @EC2SecurityGroupId@ must be provided. Otherwise,</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- @EC2SecurityGroupOwnerId@ and either @EC2SecurityGroupName@ or</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- @EC2SecurityGroupId@ must be provided.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#authorizeDBSecurityGroupIngress_eC2SecurityGroupName"><span class="hs-identifier hs-type">authorizeDBSecurityGroupIngress_eC2SecurityGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngress</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="authorizeDBSecurityGroupIngress_eC2SecurityGroupName"><span class="annot"><span class="annottext">authorizeDBSecurityGroupIngress_eC2SecurityGroupName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; AuthorizeDBSecurityGroupIngress
 -&gt; f AuthorizeDBSecurityGroupIngress
 </span><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#authorizeDBSecurityGroupIngress_eC2SecurityGroupName"><span class="hs-identifier hs-var hs-var">authorizeDBSecurityGroupIngress_eC2SecurityGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuthorizeDBSecurityGroupIngress -&gt; Maybe Text)
@@ -336,16 +283,69 @@ $sel:eC2SecurityGroupId:AuthorizeDBSecurityGroupIngress' :: AuthorizeDBSecurityG
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress%27"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804867"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress%27"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679806047"><span class="annot"><span class="annottext">Maybe Text
 eC2SecurityGroupName :: Maybe Text
 $sel:eC2SecurityGroupName:AuthorizeDBSecurityGroupIngress' :: AuthorizeDBSecurityGroupIngress -&gt; Maybe Text
-</span><a href="#local-6989586621679804867"><span class="hs-identifier hs-var hs-var">eC2SecurityGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679804867"><span class="hs-identifier hs-var">eC2SecurityGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804866"><span class="annot"><span class="annottext">s :: AuthorizeDBSecurityGroupIngress
-</span><a href="#local-6989586621679804866"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress%27"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804865"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679804865"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizeDBSecurityGroupIngress
-</span><a href="#local-6989586621679804866"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eC2SecurityGroupName:AuthorizeDBSecurityGroupIngress' :: Maybe Text
+</span><a href="#local-6989586621679806047"><span class="hs-identifier hs-var hs-var">eC2SecurityGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679806047"><span class="hs-identifier hs-var">eC2SecurityGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679806046"><span class="annot"><span class="annottext">s :: AuthorizeDBSecurityGroupIngress
+</span><a href="#local-6989586621679806046"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress%27"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679806045"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679806045"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizeDBSecurityGroupIngress
+</span><a href="#local-6989586621679806046"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eC2SecurityGroupName:AuthorizeDBSecurityGroupIngress' :: Maybe Text
 </span><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#%24sel%3AeC2SecurityGroupName%3AAuthorizeDBSecurityGroupIngress%27"><span class="hs-identifier hs-var">eC2SecurityGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679804865"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngress</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679806045"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngress</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | The IP range to authorize.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#authorizeDBSecurityGroupIngress_cidrip"><span class="hs-identifier hs-type">authorizeDBSecurityGroupIngress_cidrip</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngress</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="authorizeDBSecurityGroupIngress_cidrip"><span class="annot"><span class="annottext">authorizeDBSecurityGroupIngress_cidrip :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AuthorizeDBSecurityGroupIngress
+-&gt; f AuthorizeDBSecurityGroupIngress
+</span><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#authorizeDBSecurityGroupIngress_cidrip"><span class="hs-identifier hs-var hs-var">authorizeDBSecurityGroupIngress_cidrip</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuthorizeDBSecurityGroupIngress -&gt; Maybe Text)
+-&gt; (AuthorizeDBSecurityGroupIngress
+    -&gt; Maybe Text -&gt; AuthorizeDBSecurityGroupIngress)
+-&gt; Lens
+     AuthorizeDBSecurityGroupIngress
+     AuthorizeDBSecurityGroupIngress
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress%27"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679806044"><span class="annot"><span class="annottext">Maybe Text
+cidrip :: Maybe Text
+$sel:cidrip:AuthorizeDBSecurityGroupIngress' :: AuthorizeDBSecurityGroupIngress -&gt; Maybe Text
+</span><a href="#local-6989586621679806044"><span class="hs-identifier hs-var hs-var">cidrip</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679806044"><span class="hs-identifier hs-var">cidrip</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679806043"><span class="annot"><span class="annottext">s :: AuthorizeDBSecurityGroupIngress
+</span><a href="#local-6989586621679806043"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress%27"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679806042"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679806042"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizeDBSecurityGroupIngress
+</span><a href="#local-6989586621679806043"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cidrip:AuthorizeDBSecurityGroupIngress' :: Maybe Text
+</span><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#%24sel%3Acidrip%3AAuthorizeDBSecurityGroupIngress%27"><span class="hs-identifier hs-var">cidrip</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679806042"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngress</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | Id of the EC2 security group to authorize. For VPC DB security groups,</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- @EC2SecurityGroupId@ must be provided. Otherwise,</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- @EC2SecurityGroupOwnerId@ and either @EC2SecurityGroupName@ or</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- @EC2SecurityGroupId@ must be provided.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#authorizeDBSecurityGroupIngress_eC2SecurityGroupId"><span class="hs-identifier hs-type">authorizeDBSecurityGroupIngress_eC2SecurityGroupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngress</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span id="authorizeDBSecurityGroupIngress_eC2SecurityGroupId"><span class="annot"><span class="annottext">authorizeDBSecurityGroupIngress_eC2SecurityGroupId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AuthorizeDBSecurityGroupIngress
+-&gt; f AuthorizeDBSecurityGroupIngress
+</span><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#authorizeDBSecurityGroupIngress_eC2SecurityGroupId"><span class="hs-identifier hs-var hs-var">authorizeDBSecurityGroupIngress_eC2SecurityGroupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuthorizeDBSecurityGroupIngress -&gt; Maybe Text)
+-&gt; (AuthorizeDBSecurityGroupIngress
+    -&gt; Maybe Text -&gt; AuthorizeDBSecurityGroupIngress)
+-&gt; Lens
+     AuthorizeDBSecurityGroupIngress
+     AuthorizeDBSecurityGroupIngress
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress%27"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679806041"><span class="annot"><span class="annottext">Maybe Text
+eC2SecurityGroupId :: Maybe Text
+$sel:eC2SecurityGroupId:AuthorizeDBSecurityGroupIngress' :: AuthorizeDBSecurityGroupIngress -&gt; Maybe Text
+</span><a href="#local-6989586621679806041"><span class="hs-identifier hs-var hs-var">eC2SecurityGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679806041"><span class="hs-identifier hs-var">eC2SecurityGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679806040"><span class="annot"><span class="annottext">s :: AuthorizeDBSecurityGroupIngress
+</span><a href="#local-6989586621679806040"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress%27"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679806039"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679806039"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizeDBSecurityGroupIngress
+</span><a href="#local-6989586621679806040"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eC2SecurityGroupId:AuthorizeDBSecurityGroupIngress' :: Maybe Text
+</span><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#%24sel%3AeC2SecurityGroupId%3AAuthorizeDBSecurityGroupIngress%27"><span class="hs-identifier hs-var">eC2SecurityGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679806039"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngress</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- | The name of the DB security group to add authorization to.</span><span>
 </span><span id="line-168"></span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#authorizeDBSecurityGroupIngress_dbSecurityGroupName"><span class="hs-identifier hs-type">authorizeDBSecurityGroupIngress_dbSecurityGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngress</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -361,16 +361,16 @@ $sel:eC2SecurityGroupName:AuthorizeDBSecurityGroupIngress' :: AuthorizeDBSecurit
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress%27"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804864"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress%27"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679806038"><span class="annot"><span class="annottext">Text
 dbSecurityGroupName :: Text
 $sel:dbSecurityGroupName:AuthorizeDBSecurityGroupIngress' :: AuthorizeDBSecurityGroupIngress -&gt; Text
-</span><a href="#local-6989586621679804864"><span class="hs-identifier hs-var hs-var">dbSecurityGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679804864"><span class="hs-identifier hs-var">dbSecurityGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804863"><span class="annot"><span class="annottext">s :: AuthorizeDBSecurityGroupIngress
-</span><a href="#local-6989586621679804863"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress%27"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804862"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679804862"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizeDBSecurityGroupIngress
-</span><a href="#local-6989586621679804863"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbSecurityGroupName:AuthorizeDBSecurityGroupIngress' :: Text
+</span><a href="#local-6989586621679806038"><span class="hs-identifier hs-var hs-var">dbSecurityGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679806038"><span class="hs-identifier hs-var">dbSecurityGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679806037"><span class="annot"><span class="annottext">s :: AuthorizeDBSecurityGroupIngress
+</span><a href="#local-6989586621679806037"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress%27"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679806036"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679806036"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizeDBSecurityGroupIngress
+</span><a href="#local-6989586621679806037"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbSecurityGroupName:AuthorizeDBSecurityGroupIngress' :: Text
 </span><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#%24sel%3AdbSecurityGroupName%3AAuthorizeDBSecurityGroupIngress%27"><span class="hs-identifier hs-var">dbSecurityGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679804862"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngress</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679806036"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngress</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-172"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
@@ -379,7 +379,7 @@ $sel:dbSecurityGroupName:AuthorizeDBSecurityGroupIngress' :: AuthorizeDBSecurity
 </span><span id="line-175"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-176"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngress</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-177"></span><span>      </span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngressResponse"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngressResponse</span></a></span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679804858"><span class="annot"><span class="annottext">request :: AuthorizeDBSecurityGroupIngress
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679806032"><span class="annot"><span class="annottext">request :: AuthorizeDBSecurityGroupIngress
 -&gt; Request AuthorizeDBSecurityGroupIngress
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; AuthorizeDBSecurityGroupIngress
@@ -387,7 +387,7 @@ $sel:dbSecurityGroupName:AuthorizeDBSecurityGroupIngress' :: AuthorizeDBSecurity
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.RDS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621679804854"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679806028"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy AuthorizeDBSecurityGroupIngress
 -&gt; ClientResponse ClientBody
@@ -420,10 +420,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AuthorizeDBSecurityGroupIngressResult&quot;</span></span><span>
-</span><span id="line-182"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679804851"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679804851"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679804850"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679804850"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679804849"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679804849"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-182"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679806025"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679806025"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679806024"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679806024"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679806023"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679806023"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-183"></span><span>          </span><span class="annot"><span class="annottext">Maybe DBSecurityGroup
 -&gt; Int -&gt; AuthorizeDBSecurityGroupIngressResponse
 </span><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngressResponse%27"><span class="hs-identifier hs-var">AuthorizeDBSecurityGroupIngressResponse'</span></a></span><span>
@@ -433,7 +433,7 @@ Text
 -&gt; Either String (Int -&gt; AuthorizeDBSecurityGroupIngressResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679804849"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DBSecurityGroup)
+</span><a href="#local-6989586621679806023"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DBSecurityGroup)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DBSecurityGroup&quot;</span></span><span class="hs-special">)</span><span>
@@ -446,22 +446,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679804851"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679806025"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-189"></span><span>  </span><span id="local-6989586621679804841"><span id="local-6989586621679804843"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621679806015"><span id="local-6989586621679806017"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-190"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngress</span></a></span></span></span><span>
 </span><span id="line-191"></span><span>
 </span><span id="line-192"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-193"></span><span>  </span><span id="local-6989586621679804838"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621679806012"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-194"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngress</span></a></span></span><span>
 </span><span id="line-195"></span><span>
 </span><span id="line-196"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-197"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-198"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngress</span></a></span><span>
 </span><span id="line-199"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-200"></span><span>  </span><span id="local-6989586621679804834"><span class="annot"><span class="annottext">toHeaders :: AuthorizeDBSecurityGroupIngress -&gt; ResponseHeaders
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679806008"><span class="annot"><span class="annottext">toHeaders :: AuthorizeDBSecurityGroupIngress -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; AuthorizeDBSecurityGroupIngress -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -470,27 +470,27 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-201"></span><span>
 </span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngress</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-203"></span><span>  </span><span id="local-6989586621679804829"><span class="annot"><span class="annottext">toPath :: AuthorizeDBSecurityGroupIngress -&gt; ByteString
+</span><span id="line-203"></span><span>  </span><span id="local-6989586621679806003"><span class="annot"><span class="annottext">toPath :: AuthorizeDBSecurityGroupIngress -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AuthorizeDBSecurityGroupIngress -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-204"></span><span>
 </span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngress</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-206"></span><span>  </span><span id="local-6989586621679804825"><span class="annot"><span class="annottext">toQuery :: AuthorizeDBSecurityGroupIngress -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress%27"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804819"><span id="local-6989586621679804820"><span id="local-6989586621679804821"><span id="local-6989586621679804822"><span id="local-6989586621679804823"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-206"></span><span>  </span><span id="local-6989586621679805999"><span class="annot"><span class="annottext">toQuery :: AuthorizeDBSecurityGroupIngress -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngress%27"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805993"><span id="local-6989586621679805994"><span id="local-6989586621679805995"><span id="local-6989586621679805996"><span id="local-6989586621679805997"><span class="annot"><span class="annottext">Maybe Text
 Text
 dbSecurityGroupName :: Text
-eC2SecurityGroupName :: Maybe Text
 eC2SecurityGroupId :: Maybe Text
-eC2SecurityGroupOwnerId :: Maybe Text
 cidrip :: Maybe Text
+eC2SecurityGroupName :: Maybe Text
+eC2SecurityGroupOwnerId :: Maybe Text
 $sel:dbSecurityGroupName:AuthorizeDBSecurityGroupIngress' :: AuthorizeDBSecurityGroupIngress -&gt; Text
-$sel:eC2SecurityGroupName:AuthorizeDBSecurityGroupIngress' :: AuthorizeDBSecurityGroupIngress -&gt; Maybe Text
 $sel:eC2SecurityGroupId:AuthorizeDBSecurityGroupIngress' :: AuthorizeDBSecurityGroupIngress -&gt; Maybe Text
-$sel:eC2SecurityGroupOwnerId:AuthorizeDBSecurityGroupIngress' :: AuthorizeDBSecurityGroupIngress -&gt; Maybe Text
 $sel:cidrip:AuthorizeDBSecurityGroupIngress' :: AuthorizeDBSecurityGroupIngress -&gt; Maybe Text
-</span><a href="#local-6989586621679804819"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:eC2SecurityGroupName:AuthorizeDBSecurityGroupIngress' :: AuthorizeDBSecurityGroupIngress -&gt; Maybe Text
+$sel:eC2SecurityGroupOwnerId:AuthorizeDBSecurityGroupIngress' :: AuthorizeDBSecurityGroupIngress -&gt; Maybe Text
+</span><a href="#local-6989586621679805993"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-207"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -509,42 +509,42 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;2014-10-31&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-214"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;CIDRIP&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679804823"><span class="hs-identifier hs-var">cidrip</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-215"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;EC2SecurityGroupOwnerId&quot;</span></span><span>
-</span><span id="line-216"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+</span><span id="line-215"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679804822"><span class="hs-identifier hs-var">eC2SecurityGroupOwnerId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-217"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;EC2SecurityGroupId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679804821"><span class="hs-identifier hs-var">eC2SecurityGroupId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-218"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679805997"><span class="hs-identifier hs-var">eC2SecurityGroupOwnerId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;EC2SecurityGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679804820"><span class="hs-identifier hs-var">eC2SecurityGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679805996"><span class="hs-identifier hs-var">eC2SecurityGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CIDRIP&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679805995"><span class="hs-identifier hs-var">cidrip</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;EC2SecurityGroupId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679805994"><span class="hs-identifier hs-var">eC2SecurityGroupId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-219"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DBSecurityGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679804819"><span class="hs-identifier hs-var">dbSecurityGroupName</span></a></span><span>
+</span><a href="#local-6989586621679805993"><span class="hs-identifier hs-var">dbSecurityGroupName</span></a></span><span>
 </span><span id="line-220"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-221"></span><span>
 </span><span id="line-222"></span><span class="hs-comment">-- | /See:/ 'newAuthorizeDBSecurityGroupIngressResponse' smart constructor.</span><span>
-</span><span id="line-223"></span><span id="local-6989586621679804816"><span id="local-6989586621679804817"></span></span><span class="hs-keyword">data</span><span> </span><span id="AuthorizeDBSecurityGroupIngressResponse"><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngressResponse"><span class="hs-identifier hs-var">AuthorizeDBSecurityGroupIngressResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuthorizeDBSecurityGroupIngressResponse%27"><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngressResponse%27"><span class="hs-identifier hs-var">AuthorizeDBSecurityGroupIngressResponse'</span></a></span></span><span>
+</span><span id="line-223"></span><span id="local-6989586621679805990"><span id="local-6989586621679805991"></span></span><span class="hs-keyword">data</span><span> </span><span id="AuthorizeDBSecurityGroupIngressResponse"><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngressResponse"><span class="hs-identifier hs-var">AuthorizeDBSecurityGroupIngressResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuthorizeDBSecurityGroupIngressResponse%27"><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngressResponse%27"><span class="hs-identifier hs-var">AuthorizeDBSecurityGroupIngressResponse'</span></a></span></span><span>
 </span><span id="line-224"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AdbSecurityGroup%3AAuthorizeDBSecurityGroupIngressResponse%27"><span class="annot"><span class="annottext">AuthorizeDBSecurityGroupIngressResponse -&gt; Maybe DBSecurityGroup
 </span><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#%24sel%3AdbSecurityGroup%3AAuthorizeDBSecurityGroupIngressResponse%27"><span class="hs-identifier hs-var hs-var">dbSecurityGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup"><span class="hs-identifier hs-type">DBSecurityGroup</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-225"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-226"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAuthorizeDBSecurityGroupIngressResponse%27"><span class="annot"><span class="annottext">AuthorizeDBSecurityGroupIngressResponse -&gt; Int
 </span><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#%24sel%3AhttpStatus%3AAuthorizeDBSecurityGroupIngressResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-227"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-228"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679804810"><span id="local-6989586621679804812"><span class="annot"><span class="annottext">AuthorizeDBSecurityGroupIngressResponse
+</span><span id="line-228"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679805984"><span id="local-6989586621679805986"><span class="annot"><span class="annottext">AuthorizeDBSecurityGroupIngressResponse
 -&gt; AuthorizeDBSecurityGroupIngressResponse -&gt; Bool
 (AuthorizeDBSecurityGroupIngressResponse
  -&gt; AuthorizeDBSecurityGroupIngressResponse -&gt; Bool)
@@ -560,7 +560,7 @@ $c/= :: AuthorizeDBSecurityGroupIngressResponse
 -&gt; AuthorizeDBSecurityGroupIngressResponse -&gt; Bool
 $c== :: AuthorizeDBSecurityGroupIngressResponse
 -&gt; AuthorizeDBSecurityGroupIngressResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679804802"><span id="local-6989586621679804804"><span id="local-6989586621679804806"><span id="local-6989586621679804808"><span class="annot"><span class="annottext">ReadPrec [AuthorizeDBSecurityGroupIngressResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679805976"><span id="local-6989586621679805978"><span id="local-6989586621679805980"><span id="local-6989586621679805982"><span class="annot"><span class="annottext">ReadPrec [AuthorizeDBSecurityGroupIngressResponse]
 ReadPrec AuthorizeDBSecurityGroupIngressResponse
 Int -&gt; ReadS AuthorizeDBSecurityGroupIngressResponse
 ReadS [AuthorizeDBSecurityGroupIngressResponse]
@@ -580,7 +580,7 @@ readList :: ReadS [AuthorizeDBSecurityGroupIngressResponse]
 $creadList :: ReadS [AuthorizeDBSecurityGroupIngressResponse]
 readsPrec :: Int -&gt; ReadS AuthorizeDBSecurityGroupIngressResponse
 $creadsPrec :: Int -&gt; ReadS AuthorizeDBSecurityGroupIngressResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679804796"><span id="local-6989586621679804798"><span id="local-6989586621679804800"><span class="annot"><span class="annottext">Int -&gt; AuthorizeDBSecurityGroupIngressResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679805970"><span id="local-6989586621679805972"><span id="local-6989586621679805974"><span class="annot"><span class="annottext">Int -&gt; AuthorizeDBSecurityGroupIngressResponse -&gt; ShowS
 [AuthorizeDBSecurityGroupIngressResponse] -&gt; ShowS
 AuthorizeDBSecurityGroupIngressResponse -&gt; String
 (Int -&gt; AuthorizeDBSecurityGroupIngressResponse -&gt; ShowS)
@@ -635,8 +635,8 @@ AuthorizeDBSecurityGroupIngressResponse
 </span><span id="line-244"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngressResponse"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngressResponse</span></a></span><span>
 </span><span id="line-245"></span><span id="newAuthorizeDBSecurityGroupIngressResponse"><span class="annot"><span class="annottext">newAuthorizeDBSecurityGroupIngressResponse :: Int -&gt; AuthorizeDBSecurityGroupIngressResponse
 </span><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#newAuthorizeDBSecurityGroupIngressResponse"><span class="hs-identifier hs-var hs-var">newAuthorizeDBSecurityGroupIngressResponse</span></a></span></span><span>
-</span><span id="line-246"></span><span>  </span><span id="local-6989586621679804793"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679804793"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-246"></span><span>  </span><span id="local-6989586621679805967"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679805967"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-247"></span><span>    </span><span class="annot"><span class="annottext">AuthorizeDBSecurityGroupIngressResponse' :: Maybe DBSecurityGroup
 -&gt; Int -&gt; AuthorizeDBSecurityGroupIngressResponse
 </span><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngressResponse%27"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngressResponse'</span></a></span><span>
@@ -647,7 +647,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-250"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:AuthorizeDBSecurityGroupIngressResponse' :: Int
 </span><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#%24sel%3AhttpStatus%3AAuthorizeDBSecurityGroupIngressResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679804793"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679805967"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-251"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-252"></span><span>
 </span><span id="line-253"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -665,16 +665,16 @@ forall a. Maybe a
      (Maybe DBSecurityGroup)
      (Maybe DBSecurityGroup)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngressResponse%27"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngressResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804792"><span class="annot"><span class="annottext">Maybe DBSecurityGroup
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngressResponse%27"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngressResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805966"><span class="annot"><span class="annottext">Maybe DBSecurityGroup
 dbSecurityGroup :: Maybe DBSecurityGroup
 $sel:dbSecurityGroup:AuthorizeDBSecurityGroupIngressResponse' :: AuthorizeDBSecurityGroupIngressResponse -&gt; Maybe DBSecurityGroup
-</span><a href="#local-6989586621679804792"><span class="hs-identifier hs-var hs-var">dbSecurityGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DBSecurityGroup
-</span><a href="#local-6989586621679804792"><span class="hs-identifier hs-var">dbSecurityGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804791"><span class="annot"><span class="annottext">s :: AuthorizeDBSecurityGroupIngressResponse
-</span><a href="#local-6989586621679804791"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngressResponse%27"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngressResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804790"><span class="annot"><span class="annottext">Maybe DBSecurityGroup
-</span><a href="#local-6989586621679804790"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizeDBSecurityGroupIngressResponse
-</span><a href="#local-6989586621679804791"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbSecurityGroup:AuthorizeDBSecurityGroupIngressResponse' :: Maybe DBSecurityGroup
+</span><a href="#local-6989586621679805966"><span class="hs-identifier hs-var hs-var">dbSecurityGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DBSecurityGroup
+</span><a href="#local-6989586621679805966"><span class="hs-identifier hs-var">dbSecurityGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679805965"><span class="annot"><span class="annottext">s :: AuthorizeDBSecurityGroupIngressResponse
+</span><a href="#local-6989586621679805965"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngressResponse%27"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngressResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679805964"><span class="annot"><span class="annottext">Maybe DBSecurityGroup
+</span><a href="#local-6989586621679805964"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizeDBSecurityGroupIngressResponse
+</span><a href="#local-6989586621679805965"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbSecurityGroup:AuthorizeDBSecurityGroupIngressResponse' :: Maybe DBSecurityGroup
 </span><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#%24sel%3AdbSecurityGroup%3AAuthorizeDBSecurityGroupIngressResponse%27"><span class="hs-identifier hs-var">dbSecurityGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DBSecurityGroup
-</span><a href="#local-6989586621679804790"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngressResponse"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngressResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679805964"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngressResponse"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngressResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-256"></span><span>
 </span><span id="line-257"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-258"></span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#authorizeDBSecurityGroupIngressResponse_httpStatus"><span class="hs-identifier hs-type">authorizeDBSecurityGroupIngressResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngressResponse"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngressResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -690,18 +690,18 @@ $sel:dbSecurityGroup:AuthorizeDBSecurityGroupIngressResponse' :: AuthorizeDBSecu
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngressResponse%27"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngressResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804789"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngressResponse%27"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngressResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805963"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:AuthorizeDBSecurityGroupIngressResponse' :: AuthorizeDBSecurityGroupIngressResponse -&gt; Int
-</span><a href="#local-6989586621679804789"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679804789"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804788"><span class="annot"><span class="annottext">s :: AuthorizeDBSecurityGroupIngressResponse
-</span><a href="#local-6989586621679804788"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngressResponse%27"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngressResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804787"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679804787"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizeDBSecurityGroupIngressResponse
-</span><a href="#local-6989586621679804788"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AuthorizeDBSecurityGroupIngressResponse' :: Int
+</span><a href="#local-6989586621679805963"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679805963"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679805962"><span class="annot"><span class="annottext">s :: AuthorizeDBSecurityGroupIngressResponse
+</span><a href="#local-6989586621679805962"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngressResponse%27"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngressResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679805961"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679805961"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizeDBSecurityGroupIngressResponse
+</span><a href="#local-6989586621679805962"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AuthorizeDBSecurityGroupIngressResponse' :: Int
 </span><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#%24sel%3AhttpStatus%3AAuthorizeDBSecurityGroupIngressResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679804787"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngressResponse"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngressResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679805961"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngressResponse"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngressResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-260"></span><span>
 </span><span id="line-261"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-262"></span><span>  </span><span id="local-6989586621679804785"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-262"></span><span>  </span><span id="local-6989586621679805959"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-263"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.AuthorizeDBSecurityGroupIngress.html#AuthorizeDBSecurityGroupIngressResponse"><span class="hs-identifier hs-type">AuthorizeDBSecurityGroupIngressResponse</span></a></span></span><span>
 </span><span id="line-264"></span></pre></body></html>

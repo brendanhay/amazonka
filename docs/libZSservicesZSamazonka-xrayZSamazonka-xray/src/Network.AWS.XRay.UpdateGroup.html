@@ -27,10 +27,10 @@
 </span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#newUpdateGroup"><span class="hs-identifier">newUpdateGroup</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-28"></span><span>
 </span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#updateGroup_groupName"><span class="hs-identifier">updateGroup_groupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#updateGroup_filterExpression"><span class="hs-identifier">updateGroup_filterExpression</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#updateGroup_insightsConfiguration"><span class="hs-identifier">updateGroup_insightsConfiguration</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#updateGroup_filterExpression"><span class="hs-identifier">updateGroup_filterExpression</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#updateGroup_groupARN"><span class="hs-identifier">updateGroup_groupARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#updateGroup_groupARN"><span class="hs-identifier">updateGroup_groupARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#updateGroup_groupName"><span class="hs-identifier">updateGroup_groupName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>
 </span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroupResponse"><span class="hs-identifier">UpdateGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -50,29 +50,29 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.html"><span class="hs-identifier">Network.AWS.XRay.Types</span></a></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newUpdateGroup' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679264840"><span id="local-6989586621679264841"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateGroup"><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-var">UpdateGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateGroup%27"><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-var">UpdateGroup'</span></a></span></span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The case-sensitive name of the group.</span><span>
-</span><span id="line-55"></span><span>    </span><span id="%24sel%3AgroupName%3AUpdateGroup%27"><span class="annot"><span class="annottext">UpdateGroup -&gt; Maybe Text
-</span><a href="Network.AWS.XRay.UpdateGroup.html#%24sel%3AgroupName%3AUpdateGroup%27"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The structure containing configurations related to insights.</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- -   The InsightsEnabled boolean can be set to true to enable insights</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">--     for the group or false to disable insights for the group.</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- -   The NotifcationsEnabled boolean can be set to true to enable</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">--     insights notifications for the group. Notifications can only be</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">--     enabled on a group with InsightsEnabled set to true.</span><span>
-</span><span id="line-64"></span><span>    </span><span id="%24sel%3AinsightsConfiguration%3AUpdateGroup%27"><span class="annot"><span class="annottext">UpdateGroup -&gt; Maybe InsightsConfiguration
-</span><a href="Network.AWS.XRay.UpdateGroup.html#%24sel%3AinsightsConfiguration%3AUpdateGroup%27"><span class="hs-identifier hs-var hs-var">insightsConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightsConfiguration.html#InsightsConfiguration"><span class="hs-identifier hs-type">InsightsConfiguration</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The updated filter expression defining criteria by which to group</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- traces.</span><span>
-</span><span id="line-67"></span><span>    </span><span id="%24sel%3AfilterExpression%3AUpdateGroup%27"><span class="annot"><span class="annottext">UpdateGroup -&gt; Maybe Text
+</span><span id="line-53"></span><span id="local-6989586621679265166"><span id="local-6989586621679265167"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateGroup"><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-var">UpdateGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateGroup%27"><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-var">UpdateGroup'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The updated filter expression defining criteria by which to group</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- traces.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AfilterExpression%3AUpdateGroup%27"><span class="annot"><span class="annottext">UpdateGroup -&gt; Maybe Text
 </span><a href="Network.AWS.XRay.UpdateGroup.html#%24sel%3AfilterExpression%3AUpdateGroup%27"><span class="hs-identifier hs-var hs-var">filterExpression</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The ARN that was generated upon creation.</span><span>
-</span><span id="line-69"></span><span>    </span><span id="%24sel%3AgroupARN%3AUpdateGroup%27"><span class="annot"><span class="annottext">UpdateGroup -&gt; Maybe Text
-</span><a href="Network.AWS.XRay.UpdateGroup.html#%24sel%3AgroupARN%3AUpdateGroup%27"><span class="hs-identifier hs-var hs-var">groupARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The structure containing configurations related to insights.</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- -   The InsightsEnabled boolean can be set to true to enable insights</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">--     for the group or false to disable insights for the group.</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- -   The NotifcationsEnabled boolean can be set to true to enable</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--     insights notifications for the group. Notifications can only be</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--     enabled on a group with InsightsEnabled set to true.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AinsightsConfiguration%3AUpdateGroup%27"><span class="annot"><span class="annottext">UpdateGroup -&gt; Maybe InsightsConfiguration
+</span><a href="Network.AWS.XRay.UpdateGroup.html#%24sel%3AinsightsConfiguration%3AUpdateGroup%27"><span class="hs-identifier hs-var hs-var">insightsConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightsConfiguration.html#InsightsConfiguration"><span class="hs-identifier hs-type">InsightsConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The ARN that was generated upon creation.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AgroupARN%3AUpdateGroup%27"><span class="annot"><span class="annottext">UpdateGroup -&gt; Maybe Text
+</span><a href="Network.AWS.XRay.UpdateGroup.html#%24sel%3AgroupARN%3AUpdateGroup%27"><span class="hs-identifier hs-var hs-var">groupARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The case-sensitive name of the group.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AgroupName%3AUpdateGroup%27"><span class="annot"><span class="annottext">UpdateGroup -&gt; Maybe Text
+</span><a href="Network.AWS.XRay.UpdateGroup.html#%24sel%3AgroupName%3AUpdateGroup%27"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679264831"><span id="local-6989586621679264833"><span class="annot"><span class="annottext">UpdateGroup -&gt; UpdateGroup -&gt; Bool
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679265157"><span id="local-6989586621679265159"><span class="annot"><span class="annottext">UpdateGroup -&gt; UpdateGroup -&gt; Bool
 (UpdateGroup -&gt; UpdateGroup -&gt; Bool)
 -&gt; (UpdateGroup -&gt; UpdateGroup -&gt; Bool) -&gt; Eq UpdateGroup
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -80,7 +80,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateGroup -&gt; UpdateGroup -&gt; Bool
 == :: UpdateGroup -&gt; UpdateGroup -&gt; Bool
 $c== :: UpdateGroup -&gt; UpdateGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264822"><span id="local-6989586621679264824"><span id="local-6989586621679264826"><span id="local-6989586621679264828"><span class="annot"><span class="annottext">ReadPrec [UpdateGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265148"><span id="local-6989586621679265150"><span id="local-6989586621679265152"><span id="local-6989586621679265154"><span class="annot"><span class="annottext">ReadPrec [UpdateGroup]
 ReadPrec UpdateGroup
 Int -&gt; ReadS UpdateGroup
 ReadS [UpdateGroup]
@@ -100,7 +100,7 @@ readList :: ReadS [UpdateGroup]
 $creadList :: ReadS [UpdateGroup]
 readsPrec :: Int -&gt; ReadS UpdateGroup
 $creadsPrec :: Int -&gt; ReadS UpdateGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264815"><span id="local-6989586621679264817"><span id="local-6989586621679264819"><span class="annot"><span class="annottext">Int -&gt; UpdateGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265141"><span id="local-6989586621679265143"><span id="local-6989586621679265145"><span class="annot"><span class="annottext">Int -&gt; UpdateGroup -&gt; ShowS
 [UpdateGroup] -&gt; ShowS
 UpdateGroup -&gt; String
 (Int -&gt; UpdateGroup -&gt; ShowS)
@@ -134,21 +134,21 @@ $cfrom :: forall x. UpdateGroup -&gt; Rep UpdateGroup x
 </span><span id="line-78"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-80"></span><span class="hs-comment">--</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- 'groupName', 'updateGroup_groupName' - The case-sensitive name of the group.</span><span>
-</span><span id="line-82"></span><span class="hs-comment">--</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- 'insightsConfiguration', 'updateGroup_insightsConfiguration' - The structure containing configurations related to insights.</span><span>
-</span><span id="line-84"></span><span class="hs-comment">--</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- -   The InsightsEnabled boolean can be set to true to enable insights</span><span>
-</span><span id="line-86"></span><span class="hs-comment">--     for the group or false to disable insights for the group.</span><span>
-</span><span id="line-87"></span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- -   The NotifcationsEnabled boolean can be set to true to enable</span><span>
-</span><span id="line-89"></span><span class="hs-comment">--     insights notifications for the group. Notifications can only be</span><span>
-</span><span id="line-90"></span><span class="hs-comment">--     enabled on a group with InsightsEnabled set to true.</span><span>
-</span><span id="line-91"></span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- 'filterExpression', 'updateGroup_filterExpression' - The updated filter expression defining criteria by which to group</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- traces.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'filterExpression', 'updateGroup_filterExpression' - The updated filter expression defining criteria by which to group</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- traces.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'insightsConfiguration', 'updateGroup_insightsConfiguration' - The structure containing configurations related to insights.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- -   The InsightsEnabled boolean can be set to true to enable insights</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--     for the group or false to disable insights for the group.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- -   The NotifcationsEnabled boolean can be set to true to enable</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--     insights notifications for the group. Notifications can only be</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--     enabled on a group with InsightsEnabled set to true.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'groupARN', 'updateGroup_groupARN' - The ARN that was generated upon creation.</span><span>
 </span><span id="line-94"></span><span class="hs-comment">--</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- 'groupARN', 'updateGroup_groupARN' - The ARN that was generated upon creation.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'groupName', 'updateGroup_groupName' - The case-sensitive name of the group.</span><span>
 </span><span id="line-96"></span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#newUpdateGroup"><span class="hs-identifier hs-type">newUpdateGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-97"></span><span>  </span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span>
 </span><span id="line-98"></span><span id="newUpdateGroup"><span class="annot"><span class="annottext">newUpdateGroup :: UpdateGroup
@@ -159,52 +159,53 @@ $cfrom :: forall x. UpdateGroup -&gt; Rep UpdateGroup x
 -&gt; Maybe Text
 -&gt; UpdateGroup
 </span><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span>
-</span><span id="line-100"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:groupName:UpdateGroup' :: Maybe Text
-</span><a href="Network.AWS.XRay.UpdateGroup.html#%24sel%3AgroupName%3AUpdateGroup%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-100"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:filterExpression:UpdateGroup' :: Maybe Text
+</span><a href="Network.AWS.XRay.UpdateGroup.html#%24sel%3AfilterExpression%3AUpdateGroup%27"><span class="hs-identifier hs-var">filterExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:insightsConfiguration:UpdateGroup' :: Maybe InsightsConfiguration
 </span><a href="Network.AWS.XRay.UpdateGroup.html#%24sel%3AinsightsConfiguration%3AUpdateGroup%27"><span class="hs-identifier hs-var">insightsConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InsightsConfiguration
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:filterExpression:UpdateGroup' :: Maybe Text
-</span><a href="Network.AWS.XRay.UpdateGroup.html#%24sel%3AfilterExpression%3AUpdateGroup%27"><span class="hs-identifier hs-var">filterExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupARN:UpdateGroup' :: Maybe Text
+</span><a href="Network.AWS.XRay.UpdateGroup.html#%24sel%3AgroupARN%3AUpdateGroup%27"><span class="hs-identifier hs-var">groupARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupARN:UpdateGroup' :: Maybe Text
-</span><a href="Network.AWS.XRay.UpdateGroup.html#%24sel%3AgroupARN%3AUpdateGroup%27"><span class="hs-identifier hs-var">groupARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupName:UpdateGroup' :: Maybe Text
+</span><a href="Network.AWS.XRay.UpdateGroup.html#%24sel%3AgroupName%3AUpdateGroup%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-104"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- | The case-sensitive name of the group.</span><span>
-</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#updateGroup_groupName"><span class="hs-identifier hs-type">updateGroup_groupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span id="updateGroup_groupName"><span class="annot"><span class="annottext">updateGroup_groupName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateGroup -&gt; f UpdateGroup
-</span><a href="Network.AWS.XRay.UpdateGroup.html#updateGroup_groupName"><span class="hs-identifier hs-var hs-var">updateGroup_groupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGroup -&gt; Maybe Text)
+</span><span id="line-106"></span><span class="hs-comment">-- | The updated filter expression defining criteria by which to group</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- traces.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#updateGroup_filterExpression"><span class="hs-identifier hs-type">updateGroup_filterExpression</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="updateGroup_filterExpression"><span class="annot"><span class="annottext">updateGroup_filterExpression :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateGroup -&gt; f UpdateGroup
+</span><a href="Network.AWS.XRay.UpdateGroup.html#updateGroup_filterExpression"><span class="hs-identifier hs-var hs-var">updateGroup_filterExpression</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGroup -&gt; Maybe Text)
 -&gt; (UpdateGroup -&gt; Maybe Text -&gt; UpdateGroup)
 -&gt; Lens UpdateGroup UpdateGroup (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264808"><span class="annot"><span class="annottext">Maybe Text
-groupName :: Maybe Text
-$sel:groupName:UpdateGroup' :: UpdateGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679264808"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679264808"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264807"><span class="annot"><span class="annottext">s :: UpdateGroup
-</span><a href="#local-6989586621679264807"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264806"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679264806"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGroup
-</span><a href="#local-6989586621679264807"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:UpdateGroup' :: Maybe Text
-</span><a href="Network.AWS.XRay.UpdateGroup.html#%24sel%3AgroupName%3AUpdateGroup%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679264806"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- | The structure containing configurations related to insights.</span><span>
-</span><span id="line-111"></span><span class="hs-comment">--</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- -   The InsightsEnabled boolean can be set to true to enable insights</span><span>
-</span><span id="line-113"></span><span class="hs-comment">--     for the group or false to disable insights for the group.</span><span>
-</span><span id="line-114"></span><span class="hs-comment">--</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- -   The NotifcationsEnabled boolean can be set to true to enable</span><span>
-</span><span id="line-116"></span><span class="hs-comment">--     insights notifications for the group. Notifications can only be</span><span>
-</span><span id="line-117"></span><span class="hs-comment">--     enabled on a group with InsightsEnabled set to true.</span><span>
-</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#updateGroup_insightsConfiguration"><span class="hs-identifier hs-type">updateGroup_insightsConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightsConfiguration.html#InsightsConfiguration"><span class="hs-identifier hs-type">InsightsConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-119"></span><span id="updateGroup_insightsConfiguration"><span class="annot"><span class="annottext">updateGroup_insightsConfiguration :: (Maybe InsightsConfiguration -&gt; f (Maybe InsightsConfiguration))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265134"><span class="annot"><span class="annottext">Maybe Text
+filterExpression :: Maybe Text
+$sel:filterExpression:UpdateGroup' :: UpdateGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679265134"><span class="hs-identifier hs-var hs-var">filterExpression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265134"><span class="hs-identifier hs-var">filterExpression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265133"><span class="annot"><span class="annottext">s :: UpdateGroup
+</span><a href="#local-6989586621679265133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265132"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGroup
+</span><a href="#local-6989586621679265133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterExpression:UpdateGroup' :: Maybe Text
+</span><a href="Network.AWS.XRay.UpdateGroup.html#%24sel%3AfilterExpression%3AUpdateGroup%27"><span class="hs-identifier hs-var">filterExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The structure containing configurations related to insights.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- -   The InsightsEnabled boolean can be set to true to enable insights</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--     for the group or false to disable insights for the group.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- -   The NotifcationsEnabled boolean can be set to true to enable</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--     insights notifications for the group. Notifications can only be</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--     enabled on a group with InsightsEnabled set to true.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#updateGroup_insightsConfiguration"><span class="hs-identifier hs-type">updateGroup_insightsConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightsConfiguration.html#InsightsConfiguration"><span class="hs-identifier hs-type">InsightsConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="updateGroup_insightsConfiguration"><span class="annot"><span class="annottext">updateGroup_insightsConfiguration :: (Maybe InsightsConfiguration -&gt; f (Maybe InsightsConfiguration))
 -&gt; UpdateGroup -&gt; f UpdateGroup
 </span><a href="Network.AWS.XRay.UpdateGroup.html#updateGroup_insightsConfiguration"><span class="hs-identifier hs-var hs-var">updateGroup_insightsConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGroup -&gt; Maybe InsightsConfiguration)
 -&gt; (UpdateGroup -&gt; Maybe InsightsConfiguration -&gt; UpdateGroup)
@@ -214,62 +215,61 @@ $sel:groupName:UpdateGroup' :: UpdateGroup -&gt; Maybe Text
      (Maybe InsightsConfiguration)
      (Maybe InsightsConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264805"><span class="annot"><span class="annottext">Maybe InsightsConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265131"><span class="annot"><span class="annottext">Maybe InsightsConfiguration
 insightsConfiguration :: Maybe InsightsConfiguration
 $sel:insightsConfiguration:UpdateGroup' :: UpdateGroup -&gt; Maybe InsightsConfiguration
-</span><a href="#local-6989586621679264805"><span class="hs-identifier hs-var hs-var">insightsConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InsightsConfiguration
-</span><a href="#local-6989586621679264805"><span class="hs-identifier hs-var">insightsConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264804"><span class="annot"><span class="annottext">s :: UpdateGroup
-</span><a href="#local-6989586621679264804"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264803"><span class="annot"><span class="annottext">Maybe InsightsConfiguration
-</span><a href="#local-6989586621679264803"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGroup
-</span><a href="#local-6989586621679264804"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:insightsConfiguration:UpdateGroup' :: Maybe InsightsConfiguration
+</span><a href="#local-6989586621679265131"><span class="hs-identifier hs-var hs-var">insightsConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InsightsConfiguration
+</span><a href="#local-6989586621679265131"><span class="hs-identifier hs-var">insightsConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265130"><span class="annot"><span class="annottext">s :: UpdateGroup
+</span><a href="#local-6989586621679265130"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265129"><span class="annot"><span class="annottext">Maybe InsightsConfiguration
+</span><a href="#local-6989586621679265129"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGroup
+</span><a href="#local-6989586621679265130"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:insightsConfiguration:UpdateGroup' :: Maybe InsightsConfiguration
 </span><a href="Network.AWS.XRay.UpdateGroup.html#%24sel%3AinsightsConfiguration%3AUpdateGroup%27"><span class="hs-identifier hs-var">insightsConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InsightsConfiguration
-</span><a href="#local-6989586621679264803"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- | The updated filter expression defining criteria by which to group</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- traces.</span><span>
-</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#updateGroup_filterExpression"><span class="hs-identifier hs-type">updateGroup_filterExpression</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span id="updateGroup_filterExpression"><span class="annot"><span class="annottext">updateGroup_filterExpression :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateGroup -&gt; f UpdateGroup
-</span><a href="Network.AWS.XRay.UpdateGroup.html#updateGroup_filterExpression"><span class="hs-identifier hs-var hs-var">updateGroup_filterExpression</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGroup -&gt; Maybe Text)
--&gt; (UpdateGroup -&gt; Maybe Text -&gt; UpdateGroup)
--&gt; Lens UpdateGroup UpdateGroup (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264802"><span class="annot"><span class="annottext">Maybe Text
-filterExpression :: Maybe Text
-$sel:filterExpression:UpdateGroup' :: UpdateGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679264802"><span class="hs-identifier hs-var hs-var">filterExpression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679264802"><span class="hs-identifier hs-var">filterExpression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264801"><span class="annot"><span class="annottext">s :: UpdateGroup
-</span><a href="#local-6989586621679264801"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264800"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679264800"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGroup
-</span><a href="#local-6989586621679264801"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterExpression:UpdateGroup' :: Maybe Text
-</span><a href="Network.AWS.XRay.UpdateGroup.html#%24sel%3AfilterExpression%3AUpdateGroup%27"><span class="hs-identifier hs-var">filterExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679264800"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- | The ARN that was generated upon creation.</span><span>
-</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#updateGroup_groupARN"><span class="hs-identifier hs-type">updateGroup_groupARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span id="updateGroup_groupARN"><span class="annot"><span class="annottext">updateGroup_groupARN :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateGroup -&gt; f UpdateGroup
+</span><a href="#local-6989586621679265129"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | The ARN that was generated upon creation.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#updateGroup_groupARN"><span class="hs-identifier hs-type">updateGroup_groupARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="updateGroup_groupARN"><span class="annot"><span class="annottext">updateGroup_groupARN :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateGroup -&gt; f UpdateGroup
 </span><a href="Network.AWS.XRay.UpdateGroup.html#updateGroup_groupARN"><span class="hs-identifier hs-var hs-var">updateGroup_groupARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGroup -&gt; Maybe Text)
 -&gt; (UpdateGroup -&gt; Maybe Text -&gt; UpdateGroup)
 -&gt; Lens UpdateGroup UpdateGroup (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264799"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265128"><span class="annot"><span class="annottext">Maybe Text
 groupARN :: Maybe Text
 $sel:groupARN:UpdateGroup' :: UpdateGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679264799"><span class="hs-identifier hs-var hs-var">groupARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679264799"><span class="hs-identifier hs-var">groupARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264798"><span class="annot"><span class="annottext">s :: UpdateGroup
-</span><a href="#local-6989586621679264798"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264797"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679264797"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGroup
-</span><a href="#local-6989586621679264798"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupARN:UpdateGroup' :: Maybe Text
+</span><a href="#local-6989586621679265128"><span class="hs-identifier hs-var hs-var">groupARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265128"><span class="hs-identifier hs-var">groupARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265127"><span class="annot"><span class="annottext">s :: UpdateGroup
+</span><a href="#local-6989586621679265127"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265126"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265126"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGroup
+</span><a href="#local-6989586621679265127"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupARN:UpdateGroup' :: Maybe Text
 </span><a href="Network.AWS.XRay.UpdateGroup.html#%24sel%3AgroupARN%3AUpdateGroup%27"><span class="hs-identifier hs-var">groupARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679264797"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679265126"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | The case-sensitive name of the group.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#updateGroup_groupName"><span class="hs-identifier hs-type">updateGroup_groupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="updateGroup_groupName"><span class="annot"><span class="annottext">updateGroup_groupName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateGroup -&gt; f UpdateGroup
+</span><a href="Network.AWS.XRay.UpdateGroup.html#updateGroup_groupName"><span class="hs-identifier hs-var hs-var">updateGroup_groupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGroup -&gt; Maybe Text)
+-&gt; (UpdateGroup -&gt; Maybe Text -&gt; UpdateGroup)
+-&gt; Lens UpdateGroup UpdateGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265125"><span class="annot"><span class="annottext">Maybe Text
+groupName :: Maybe Text
+$sel:groupName:UpdateGroup' :: UpdateGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679265125"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265125"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265124"><span class="annot"><span class="annottext">s :: UpdateGroup
+</span><a href="#local-6989586621679265124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265123"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGroup
+</span><a href="#local-6989586621679265124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:UpdateGroup' :: Maybe Text
+</span><a href="Network.AWS.XRay.UpdateGroup.html#%24sel%3AgroupName%3AUpdateGroup%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-131"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroupResponse"><span class="hs-identifier hs-type">UpdateGroupResponse</span></a></span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679264793"><span class="annot"><span class="annottext">request :: UpdateGroup -&gt; Request UpdateGroup
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679265119"><span class="annot"><span class="annottext">request :: UpdateGroup -&gt; Request UpdateGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateGroup -&gt; Request UpdateGroup
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.XRay.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679264789"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679265115"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateGroup
 -&gt; ClientResponse ClientBody
@@ -293,10 +293,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679264786"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679264786"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679264785"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679264785"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679264784"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679264784"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679265112"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679265112"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679265111"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679265111"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679265110"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265110"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-136"></span><span>          </span><span class="annot"><span class="annottext">Maybe Group -&gt; Int -&gt; UpdateGroupResponse
 </span><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroupResponse%27"><span class="hs-identifier hs-var">UpdateGroupResponse'</span></a></span><span>
 </span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Group -&gt; Int -&gt; UpdateGroupResponse)
@@ -304,7 +304,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; UpdateGroupResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679264784"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Group)
+</span><a href="#local-6989586621679265110"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Group)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Group&quot;</span></span><span class="hs-special">)</span><span>
@@ -316,82 +316,82 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679264786"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679265112"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264776"><span id="local-6989586621679264778"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span></span></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265102"><span id="local-6989586621679265104"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span></span></span><span>
 </span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264773"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265099"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span></span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679264769"><span class="annot"><span class="annottext">toHeaders :: UpdateGroup -&gt; ResponseHeaders
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679265095"><span class="annot"><span class="annottext">toHeaders :: UpdateGroup -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateGroup -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264760"><span id="local-6989586621679264762"><span id="local-6989586621679264764"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679264758"><span class="annot"><span class="annottext">toJSON :: UpdateGroup -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264753"><span id="local-6989586621679264754"><span id="local-6989586621679264755"><span id="local-6989586621679264756"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265086"><span id="local-6989586621679265088"><span id="local-6989586621679265090"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679265084"><span class="annot"><span class="annottext">toJSON :: UpdateGroup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265079"><span id="local-6989586621679265080"><span id="local-6989586621679265081"><span id="local-6989586621679265082"><span class="annot"><span class="annottext">Maybe Text
 Maybe InsightsConfiguration
-groupARN :: Maybe Text
-filterExpression :: Maybe Text
-insightsConfiguration :: Maybe InsightsConfiguration
 groupName :: Maybe Text
-$sel:groupARN:UpdateGroup' :: UpdateGroup -&gt; Maybe Text
-$sel:filterExpression:UpdateGroup' :: UpdateGroup -&gt; Maybe Text
-$sel:insightsConfiguration:UpdateGroup' :: UpdateGroup -&gt; Maybe InsightsConfiguration
+groupARN :: Maybe Text
+insightsConfiguration :: Maybe InsightsConfiguration
+filterExpression :: Maybe Text
 $sel:groupName:UpdateGroup' :: UpdateGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679264753"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:groupARN:UpdateGroup' :: UpdateGroup -&gt; Maybe Text
+$sel:insightsConfiguration:UpdateGroup' :: UpdateGroup -&gt; Maybe InsightsConfiguration
+$sel:filterExpression:UpdateGroup' :: UpdateGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679265079"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-152"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;GroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679264756"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-153"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;InsightsConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InsightsConfiguration -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-154"></span><span>              </span><span class="annot"><span class="annottext">(InsightsConfiguration -&gt; Pair)
--&gt; Maybe InsightsConfiguration -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InsightsConfiguration
-</span><a href="#local-6989586621679264755"><span class="hs-identifier hs-var">insightsConfiguration</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-155"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FilterExpression&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-156"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+</span><span id="line-153"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679264754"><span class="hs-identifier hs-var">filterExpression</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-157"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679265082"><span class="hs-identifier hs-var">filterExpression</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InsightsConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InsightsConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>              </span><span class="annot"><span class="annottext">(InsightsConfiguration -&gt; Pair)
+-&gt; Maybe InsightsConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InsightsConfiguration
+</span><a href="#local-6989586621679265081"><span class="hs-identifier hs-var">insightsConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GroupARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679264753"><span class="hs-identifier hs-var">groupARN</span></a></span><span>
+</span><a href="#local-6989586621679265080"><span class="hs-identifier hs-var">groupARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265079"><span class="hs-identifier hs-var">groupName</span></a></span><span>
 </span><span id="line-158"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-159"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679264747"><span class="annot"><span class="annottext">toPath :: UpdateGroup -&gt; ByteString
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679265073"><span class="annot"><span class="annottext">toPath :: UpdateGroup -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateGroup -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/UpdateGroup&quot;</span></span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621679264743"><span class="annot"><span class="annottext">toQuery :: UpdateGroup -&gt; QueryString
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679265069"><span class="annot"><span class="annottext">toQuery :: UpdateGroup -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateGroup -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -399,7 +399,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- | /See:/ 'newUpdateGroupResponse' smart constructor.</span><span>
-</span><span id="line-168"></span><span id="local-6989586621679264740"><span id="local-6989586621679264741"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateGroupResponse"><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroupResponse"><span class="hs-identifier hs-var">UpdateGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateGroupResponse%27"><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroupResponse%27"><span class="hs-identifier hs-var">UpdateGroupResponse'</span></a></span></span><span>
+</span><span id="line-168"></span><span id="local-6989586621679265066"><span id="local-6989586621679265067"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateGroupResponse"><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroupResponse"><span class="hs-identifier hs-var">UpdateGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateGroupResponse%27"><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroupResponse%27"><span class="hs-identifier hs-var">UpdateGroupResponse'</span></a></span></span><span>
 </span><span id="line-169"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The group that was updated. Contains the name of the group that was</span><span>
 </span><span id="line-170"></span><span>    </span><span class="hs-comment">-- updated, the ARN of the group that was updated, the updated filter</span><span>
 </span><span id="line-171"></span><span>    </span><span class="hs-comment">-- expression, and the updated insight configuration assigned to the group.</span><span>
@@ -409,7 +409,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-174"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateGroupResponse%27"><span class="annot"><span class="annottext">UpdateGroupResponse -&gt; Int
 </span><a href="Network.AWS.XRay.UpdateGroup.html#%24sel%3AhttpStatus%3AUpdateGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-175"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-176"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679264734"><span id="local-6989586621679264736"><span class="annot"><span class="annottext">UpdateGroupResponse -&gt; UpdateGroupResponse -&gt; Bool
+</span><span id="line-176"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679265060"><span id="local-6989586621679265062"><span class="annot"><span class="annottext">UpdateGroupResponse -&gt; UpdateGroupResponse -&gt; Bool
 (UpdateGroupResponse -&gt; UpdateGroupResponse -&gt; Bool)
 -&gt; (UpdateGroupResponse -&gt; UpdateGroupResponse -&gt; Bool)
 -&gt; Eq UpdateGroupResponse
@@ -418,7 +418,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateGroupResponse -&gt; UpdateGroupResponse -&gt; Bool
 == :: UpdateGroupResponse -&gt; UpdateGroupResponse -&gt; Bool
 $c== :: UpdateGroupResponse -&gt; UpdateGroupResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264726"><span id="local-6989586621679264728"><span id="local-6989586621679264730"><span id="local-6989586621679264732"><span class="annot"><span class="annottext">ReadPrec [UpdateGroupResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265052"><span id="local-6989586621679265054"><span id="local-6989586621679265056"><span id="local-6989586621679265058"><span class="annot"><span class="annottext">ReadPrec [UpdateGroupResponse]
 ReadPrec UpdateGroupResponse
 Int -&gt; ReadS UpdateGroupResponse
 ReadS [UpdateGroupResponse]
@@ -438,7 +438,7 @@ readList :: ReadS [UpdateGroupResponse]
 $creadList :: ReadS [UpdateGroupResponse]
 readsPrec :: Int -&gt; ReadS UpdateGroupResponse
 $creadsPrec :: Int -&gt; ReadS UpdateGroupResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264720"><span id="local-6989586621679264722"><span id="local-6989586621679264724"><span class="annot"><span class="annottext">Int -&gt; UpdateGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265046"><span id="local-6989586621679265048"><span id="local-6989586621679265050"><span class="annot"><span class="annottext">Int -&gt; UpdateGroupResponse -&gt; ShowS
 [UpdateGroupResponse] -&gt; ShowS
 UpdateGroupResponse -&gt; String
 (Int -&gt; UpdateGroupResponse -&gt; ShowS)
@@ -482,8 +482,8 @@ $cfrom :: forall x. UpdateGroupResponse -&gt; Rep UpdateGroupResponse x
 </span><span id="line-193"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-194"></span><span>  </span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroupResponse"><span class="hs-identifier hs-type">UpdateGroupResponse</span></a></span><span>
 </span><span id="line-195"></span><span id="newUpdateGroupResponse"><span class="annot"><span class="annottext">newUpdateGroupResponse :: Int -&gt; UpdateGroupResponse
-</span><a href="Network.AWS.XRay.UpdateGroup.html#newUpdateGroupResponse"><span class="hs-identifier hs-var hs-var">newUpdateGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679264717"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679264717"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.XRay.UpdateGroup.html#newUpdateGroupResponse"><span class="hs-identifier hs-var hs-var">newUpdateGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679265043"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679265043"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-196"></span><span>  </span><span class="annot"><span class="annottext">UpdateGroupResponse' :: Maybe Group -&gt; Int -&gt; UpdateGroupResponse
 </span><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroupResponse%27"><span class="hs-identifier hs-type">UpdateGroupResponse'</span></a></span><span>
 </span><span id="line-197"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:group':UpdateGroupResponse' :: Maybe Group
@@ -492,7 +492,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-198"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateGroupResponse' :: Int
 </span><a href="Network.AWS.XRay.UpdateGroup.html#%24sel%3AhttpStatus%3AUpdateGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679264717"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679265043"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-199"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-200"></span><span>
 </span><span id="line-201"></span><span class="hs-comment">-- | The group that was updated. Contains the name of the group that was</span><span>
@@ -506,16 +506,16 @@ forall a. Maybe a
 -&gt; Lens
      UpdateGroupResponse UpdateGroupResponse (Maybe Group) (Maybe Group)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroupResponse%27"><span class="hs-identifier hs-type">UpdateGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264716"><span class="annot"><span class="annottext">Maybe Group
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroupResponse%27"><span class="hs-identifier hs-type">UpdateGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265042"><span class="annot"><span class="annottext">Maybe Group
 group' :: Maybe Group
 $sel:group':UpdateGroupResponse' :: UpdateGroupResponse -&gt; Maybe Group
-</span><a href="#local-6989586621679264716"><span class="hs-identifier hs-var hs-var">group'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Group
-</span><a href="#local-6989586621679264716"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264715"><span class="annot"><span class="annottext">s :: UpdateGroupResponse
-</span><a href="#local-6989586621679264715"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroupResponse%27"><span class="hs-identifier hs-type">UpdateGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264714"><span class="annot"><span class="annottext">Maybe Group
-</span><a href="#local-6989586621679264714"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGroupResponse
-</span><a href="#local-6989586621679264715"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:group':UpdateGroupResponse' :: Maybe Group
+</span><a href="#local-6989586621679265042"><span class="hs-identifier hs-var hs-var">group'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Group
+</span><a href="#local-6989586621679265042"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265041"><span class="annot"><span class="annottext">s :: UpdateGroupResponse
+</span><a href="#local-6989586621679265041"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroupResponse%27"><span class="hs-identifier hs-type">UpdateGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265040"><span class="annot"><span class="annottext">Maybe Group
+</span><a href="#local-6989586621679265040"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGroupResponse
+</span><a href="#local-6989586621679265041"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:group':UpdateGroupResponse' :: Maybe Group
 </span><a href="Network.AWS.XRay.UpdateGroup.html#%24sel%3Agroup%27%3AUpdateGroupResponse%27"><span class="hs-identifier hs-var">group'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Group
-</span><a href="#local-6989586621679264714"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroupResponse"><span class="hs-identifier hs-type">UpdateGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679265040"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroupResponse"><span class="hs-identifier hs-type">UpdateGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-206"></span><span>
 </span><span id="line-207"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-208"></span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#updateGroupResponse_httpStatus"><span class="hs-identifier hs-type">updateGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroupResponse"><span class="hs-identifier hs-type">UpdateGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -524,16 +524,16 @@ $sel:group':UpdateGroupResponse' :: UpdateGroupResponse -&gt; Maybe Group
 -&gt; (UpdateGroupResponse -&gt; Int -&gt; UpdateGroupResponse)
 -&gt; Lens UpdateGroupResponse UpdateGroupResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroupResponse%27"><span class="hs-identifier hs-type">UpdateGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264713"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroupResponse%27"><span class="hs-identifier hs-type">UpdateGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265039"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateGroupResponse' :: UpdateGroupResponse -&gt; Int
-</span><a href="#local-6989586621679264713"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679264713"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264712"><span class="annot"><span class="annottext">s :: UpdateGroupResponse
-</span><a href="#local-6989586621679264712"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroupResponse%27"><span class="hs-identifier hs-type">UpdateGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264711"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679264711"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGroupResponse
-</span><a href="#local-6989586621679264712"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateGroupResponse' :: Int
+</span><a href="#local-6989586621679265039"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679265039"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265038"><span class="annot"><span class="annottext">s :: UpdateGroupResponse
+</span><a href="#local-6989586621679265038"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroupResponse%27"><span class="hs-identifier hs-type">UpdateGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265037"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679265037"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGroupResponse
+</span><a href="#local-6989586621679265038"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateGroupResponse' :: Int
 </span><a href="Network.AWS.XRay.UpdateGroup.html#%24sel%3AhttpStatus%3AUpdateGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679264711"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroupResponse"><span class="hs-identifier hs-type">UpdateGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679265037"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroupResponse"><span class="hs-identifier hs-type">UpdateGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-210"></span><span>
-</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264709"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroupResponse"><span class="hs-identifier hs-type">UpdateGroupResponse</span></a></span></span><span>
+</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265035"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.UpdateGroup.html#UpdateGroupResponse"><span class="hs-identifier hs-type">UpdateGroupResponse</span></a></span></span><span>
 </span><span id="line-212"></span></pre></body></html>

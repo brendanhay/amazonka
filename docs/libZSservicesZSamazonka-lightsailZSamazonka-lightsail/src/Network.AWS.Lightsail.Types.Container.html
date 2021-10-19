@@ -28,27 +28,27 @@
 </span><span id="line-28"></span><span class="hs-comment">-- launched, to an Amazon Lightsail container service.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newContainer' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679607358"><span id="local-6989586621679607359"></span></span><span class="hs-keyword">data</span><span> </span><span id="Container"><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#Container"><span class="hs-identifier hs-var">Container</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Container%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#Container%27"><span class="hs-identifier hs-var">Container'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The environment variables of the container.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aenvironment%3AContainer%27"><span class="annot"><span class="annottext">Container -&gt; Maybe (HashMap Text Text)
-</span><a href="Network.AWS.Lightsail.Types.Container.html#%24sel%3Aenvironment%3AContainer%27"><span class="hs-identifier hs-var hs-var">environment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The open firewall ports of the container.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aports%3AContainer%27"><span class="annot"><span class="annottext">Container -&gt; Maybe (HashMap Text ContainerServiceProtocol)
-</span><a href="Network.AWS.Lightsail.Types.Container.html#%24sel%3Aports%3AContainer%27"><span class="hs-identifier hs-var hs-var">ports</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceProtocol.html#ContainerServiceProtocol"><span class="hs-identifier hs-type">ContainerServiceProtocol</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The launch command for the container.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3Acommand%3AContainer%27"><span class="annot"><span class="annottext">Container -&gt; Maybe [Text]
+</span><span id="line-31"></span><span id="local-6989586621679608245"><span id="local-6989586621679608246"></span></span><span class="hs-keyword">data</span><span> </span><span id="Container"><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#Container"><span class="hs-identifier hs-var">Container</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Container%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#Container%27"><span class="hs-identifier hs-var">Container'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the image used for the container.</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- Container images sourced from your Lightsail container service, that are</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- registered and stored on your service, start with a colon (@:@). For</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- example, @:container-service-1.mystaticwebsite.1@. Container images</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- sourced from a public registry like Docker Hub don\'t start with a</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- colon. For example, @nginx:latest@ or @nginx@.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aimage%3AContainer%27"><span class="annot"><span class="annottext">Container -&gt; Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Container.html#%24sel%3Aimage%3AContainer%27"><span class="hs-identifier hs-var hs-var">image</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The launch command for the container.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Acommand%3AContainer%27"><span class="annot"><span class="annottext">Container -&gt; Maybe [Text]
 </span><a href="Network.AWS.Lightsail.Types.Container.html#%24sel%3Acommand%3AContainer%27"><span class="hs-identifier hs-var hs-var">command</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The name of the image used for the container.</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- Container images sourced from your Lightsail container service, that are</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- registered and stored on your service, start with a colon (@:@). For</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- example, @:container-service-1.mystaticwebsite.1@. Container images</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- sourced from a public registry like Docker Hub don\'t start with a</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- colon. For example, @nginx:latest@ or @nginx@.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3Aimage%3AContainer%27"><span class="annot"><span class="annottext">Container -&gt; Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.Container.html#%24sel%3Aimage%3AContainer%27"><span class="hs-identifier hs-var hs-var">image</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The environment variables of the container.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Aenvironment%3AContainer%27"><span class="annot"><span class="annottext">Container -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Lightsail.Types.Container.html#%24sel%3Aenvironment%3AContainer%27"><span class="hs-identifier hs-var hs-var">environment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The open firewall ports of the container.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Aports%3AContainer%27"><span class="annot"><span class="annottext">Container -&gt; Maybe (HashMap Text ContainerServiceProtocol)
+</span><a href="Network.AWS.Lightsail.Types.Container.html#%24sel%3Aports%3AContainer%27"><span class="hs-identifier hs-var hs-var">ports</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceProtocol.html#ContainerServiceProtocol"><span class="hs-identifier hs-type">ContainerServiceProtocol</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679607349"><span id="local-6989586621679607351"><span class="annot"><span class="annottext">Container -&gt; Container -&gt; Bool
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679608236"><span id="local-6989586621679608238"><span class="annot"><span class="annottext">Container -&gt; Container -&gt; Bool
 (Container -&gt; Container -&gt; Bool)
 -&gt; (Container -&gt; Container -&gt; Bool) -&gt; Eq Container
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -56,7 +56,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Container -&gt; Container -&gt; Bool
 == :: Container -&gt; Container -&gt; Bool
 $c== :: Container -&gt; Container -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679607340"><span id="local-6989586621679607342"><span id="local-6989586621679607344"><span id="local-6989586621679607346"><span class="annot"><span class="annottext">ReadPrec [Container]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679608227"><span id="local-6989586621679608229"><span id="local-6989586621679608231"><span id="local-6989586621679608233"><span class="annot"><span class="annottext">ReadPrec [Container]
 ReadPrec Container
 Int -&gt; ReadS Container
 ReadS [Container]
@@ -76,7 +76,7 @@ readList :: ReadS [Container]
 $creadList :: ReadS [Container]
 readsPrec :: Int -&gt; ReadS Container
 $creadsPrec :: Int -&gt; ReadS Container
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679607333"><span id="local-6989586621679607335"><span id="local-6989586621679607337"><span class="annot"><span class="annottext">Int -&gt; Container -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679608220"><span id="local-6989586621679608222"><span id="local-6989586621679608224"><span class="annot"><span class="annottext">Int -&gt; Container -&gt; ShowS
 [Container] -&gt; ShowS
 Container -&gt; String
 (Int -&gt; Container -&gt; ShowS)
@@ -109,50 +109,106 @@ $cfrom :: forall x. Container -&gt; Rep Container x
 </span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'environment', 'container_environment' - The environment variables of the container.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'image', 'container_image' - The name of the image used for the container.</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'ports', 'container_ports' - The open firewall ports of the container.</span><span>
-</span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'command', 'container_command' - The launch command for the container.</span><span>
-</span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'image', 'container_image' - The name of the image used for the container.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Container images sourced from your Lightsail container service, that are</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- registered and stored on your service, start with a colon (@:@). For</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- example, @:container-service-1.mystaticwebsite.1@. Container images</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- sourced from a public registry like Docker Hub don\'t start with a</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- colon. For example, @nginx:latest@ or @nginx@.</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- Container images sourced from your Lightsail container service, that are</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- registered and stored on your service, start with a colon (@:@). For</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- example, @:container-service-1.mystaticwebsite.1@. Container images</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- sourced from a public registry like Docker Hub don\'t start with a</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- colon. For example, @nginx:latest@ or @nginx@.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'command', 'container_command' - The launch command for the container.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'environment', 'container_environment' - The environment variables of the container.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'ports', 'container_ports' - The open firewall ports of the container.</span><span>
 </span><span id="line-70"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#newContainer"><span class="hs-identifier hs-type">newContainer</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span><span>
 </span><span id="line-72"></span><span id="newContainer"><span class="annot"><span class="annottext">newContainer :: Container
 </span><a href="Network.AWS.Lightsail.Types.Container.html#newContainer"><span class="hs-identifier hs-var hs-var">newContainer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">Container' :: Maybe (HashMap Text Text)
--&gt; Maybe (HashMap Text ContainerServiceProtocol)
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">Container' :: Maybe Text
 -&gt; Maybe [Text]
--&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe (HashMap Text ContainerServiceProtocol)
 -&gt; Container
 </span><a href="Network.AWS.Lightsail.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:environment:Container' :: Maybe (HashMap Text Text)
-</span><a href="Network.AWS.Lightsail.Types.Container.html#%24sel%3Aenvironment%3AContainer%27"><span class="hs-identifier hs-var">environment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:image:Container' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Container.html#%24sel%3Aimage%3AContainer%27"><span class="hs-identifier hs-var">image</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:ports:Container' :: Maybe (HashMap Text ContainerServiceProtocol)
-</span><a href="Network.AWS.Lightsail.Types.Container.html#%24sel%3Aports%3AContainer%27"><span class="hs-identifier hs-var">ports</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text ContainerServiceProtocol)
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:command:Container' :: Maybe [Text]
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:command:Container' :: Maybe [Text]
 </span><a href="Network.AWS.Lightsail.Types.Container.html#%24sel%3Acommand%3AContainer%27"><span class="hs-identifier hs-var">command</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:image:Container' :: Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.Container.html#%24sel%3Aimage%3AContainer%27"><span class="hs-identifier hs-var">image</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:environment:Container' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Lightsail.Types.Container.html#%24sel%3Aenvironment%3AContainer%27"><span class="hs-identifier hs-var">environment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:ports:Container' :: Maybe (HashMap Text ContainerServiceProtocol)
+</span><a href="Network.AWS.Lightsail.Types.Container.html#%24sel%3Aports%3AContainer%27"><span class="hs-identifier hs-var">ports</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text ContainerServiceProtocol)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- | The environment variables of the container.</span><span>
-</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#container_environment"><span class="hs-identifier hs-type">container_environment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span id="container_environment"><span class="annot"><span class="annottext">container_environment :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><span id="line-80"></span><span class="hs-comment">-- | The name of the image used for the container.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- Container images sourced from your Lightsail container service, that are</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- registered and stored on your service, start with a colon (@:@). For</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- example, @:container-service-1.mystaticwebsite.1@. Container images</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- sourced from a public registry like Docker Hub don\'t start with a</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- colon. For example, @nginx:latest@ or @nginx@.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#container_image"><span class="hs-identifier hs-type">container_image</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="container_image"><span class="annot"><span class="annottext">container_image :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Container -&gt; f Container
+</span><a href="Network.AWS.Lightsail.Types.Container.html#container_image"><span class="hs-identifier hs-var hs-var">container_image</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Container -&gt; Maybe Text)
+-&gt; (Container -&gt; Maybe Text -&gt; Container)
+-&gt; Lens Container Container (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679608211"><span class="annot"><span class="annottext">Maybe Text
+image :: Maybe Text
+$sel:image:Container' :: Container -&gt; Maybe Text
+</span><a href="#local-6989586621679608211"><span class="hs-identifier hs-var hs-var">image</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679608211"><span class="hs-identifier hs-var">image</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679608210"><span class="annot"><span class="annottext">s :: Container
+</span><a href="#local-6989586621679608210"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679608209"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679608209"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Container
+</span><a href="#local-6989586621679608210"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:image:Container' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.Container.html#%24sel%3Aimage%3AContainer%27"><span class="hs-identifier hs-var">image</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679608209"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The launch command for the container.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#container_command"><span class="hs-identifier hs-type">container_command</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="container_command"><span class="annot"><span class="annottext">container_command :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Container -&gt; f Container
+</span><a href="Network.AWS.Lightsail.Types.Container.html#container_command"><span class="hs-identifier hs-var hs-var">container_command</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Container -&gt; Maybe [Text])
+-&gt; (Container -&gt; Maybe [Text] -&gt; Container)
+-&gt; Lens Container Container (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679608207"><span class="annot"><span class="annottext">Maybe [Text]
+command :: Maybe [Text]
+$sel:command:Container' :: Container -&gt; Maybe [Text]
+</span><a href="#local-6989586621679608207"><span class="hs-identifier hs-var hs-var">command</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679608207"><span class="hs-identifier hs-var">command</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679608206"><span class="annot"><span class="annottext">s :: Container
+</span><a href="#local-6989586621679608206"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679608205"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679608205"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Container
+</span><a href="#local-6989586621679608206"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:command:Container' :: Maybe [Text]
+</span><a href="Network.AWS.Lightsail.Types.Container.html#%24sel%3Acommand%3AContainer%27"><span class="hs-identifier hs-var">command</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679608205"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Container -&gt; f Container)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; Container
+-&gt; f Container
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The environment variables of the container.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#container_environment"><span class="hs-identifier hs-type">container_environment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="container_environment"><span class="annot"><span class="annottext">container_environment :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
 -&gt; Container -&gt; f Container
 </span><a href="Network.AWS.Lightsail.Types.Container.html#container_environment"><span class="hs-identifier hs-var hs-var">container_environment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Container -&gt; Maybe (HashMap Text Text))
 -&gt; (Container -&gt; Maybe (HashMap Text Text) -&gt; Container)
@@ -162,16 +218,16 @@ forall a. Maybe a
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679607324"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679608200"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 environment :: Maybe (HashMap Text Text)
 $sel:environment:Container' :: Container -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679607324"><span class="hs-identifier hs-var hs-var">environment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679607324"><span class="hs-identifier hs-var">environment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679607323"><span class="annot"><span class="annottext">s :: Container
-</span><a href="#local-6989586621679607323"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679607322"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679607322"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Container
-</span><a href="#local-6989586621679607323"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environment:Container' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679608200"><span class="hs-identifier hs-var hs-var">environment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679608200"><span class="hs-identifier hs-var">environment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679608199"><span class="annot"><span class="annottext">s :: Container
+</span><a href="#local-6989586621679608199"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679608198"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679608198"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Container
+</span><a href="#local-6989586621679608199"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environment:Container' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.Lightsail.Types.Container.html#%24sel%3Aenvironment%3AContainer%27"><span class="hs-identifier hs-var">environment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679607322"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679608198"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; Container -&gt; f Container)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -197,12 +253,12 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Text)
   (HashMap Text Text)
   (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- | The open firewall ports of the container.</span><span>
-</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#container_ports"><span class="hs-identifier hs-type">container_ports</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceProtocol.html#ContainerServiceProtocol"><span class="hs-identifier hs-type">ContainerServiceProtocol</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span id="container_ports"><span class="annot"><span class="annottext">container_ports :: (Maybe (HashMap Text ContainerServiceProtocol)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The open firewall ports of the container.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#container_ports"><span class="hs-identifier hs-type">container_ports</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceProtocol.html#ContainerServiceProtocol"><span class="hs-identifier hs-type">ContainerServiceProtocol</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="container_ports"><span class="annot"><span class="annottext">container_ports :: (Maybe (HashMap Text ContainerServiceProtocol)
  -&gt; f (Maybe (HashMap Text ContainerServiceProtocol)))
 -&gt; Container -&gt; f Container
 </span><a href="Network.AWS.Lightsail.Types.Container.html#container_ports"><span class="hs-identifier hs-var hs-var">container_ports</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Container -&gt; Maybe (HashMap Text ContainerServiceProtocol))
@@ -214,16 +270,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe (HashMap Text ContainerServiceProtocol))
      (Maybe (HashMap Text ContainerServiceProtocol))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679607317"><span class="annot"><span class="annottext">Maybe (HashMap Text ContainerServiceProtocol)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679608196"><span class="annot"><span class="annottext">Maybe (HashMap Text ContainerServiceProtocol)
 ports :: Maybe (HashMap Text ContainerServiceProtocol)
 $sel:ports:Container' :: Container -&gt; Maybe (HashMap Text ContainerServiceProtocol)
-</span><a href="#local-6989586621679607317"><span class="hs-identifier hs-var hs-var">ports</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text ContainerServiceProtocol)
-</span><a href="#local-6989586621679607317"><span class="hs-identifier hs-var">ports</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679607316"><span class="annot"><span class="annottext">s :: Container
-</span><a href="#local-6989586621679607316"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679607315"><span class="annot"><span class="annottext">Maybe (HashMap Text ContainerServiceProtocol)
-</span><a href="#local-6989586621679607315"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Container
-</span><a href="#local-6989586621679607316"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ports:Container' :: Maybe (HashMap Text ContainerServiceProtocol)
+</span><a href="#local-6989586621679608196"><span class="hs-identifier hs-var hs-var">ports</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text ContainerServiceProtocol)
+</span><a href="#local-6989586621679608196"><span class="hs-identifier hs-var">ports</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679608195"><span class="annot"><span class="annottext">s :: Container
+</span><a href="#local-6989586621679608195"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679608194"><span class="annot"><span class="annottext">Maybe (HashMap Text ContainerServiceProtocol)
+</span><a href="#local-6989586621679608194"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Container
+</span><a href="#local-6989586621679608195"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ports:Container' :: Maybe (HashMap Text ContainerServiceProtocol)
 </span><a href="Network.AWS.Lightsail.Types.Container.html#%24sel%3Aports%3AContainer%27"><span class="hs-identifier hs-var">ports</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text ContainerServiceProtocol)
-</span><a href="#local-6989586621679607315"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text ContainerServiceProtocol)
+</span><a href="#local-6989586621679608194"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text ContainerServiceProtocol)
   -&gt; f (Maybe (HashMap Text ContainerServiceProtocol)))
  -&gt; Container -&gt; f Container)
 -&gt; ((Maybe (HashMap Text ContainerServiceProtocol)
@@ -253,93 +309,71 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text ContainerServiceProtocol)
   (HashMap Text ContainerServiceProtocol)
   (HashMap Text ContainerServiceProtocol)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- | The launch command for the container.</span><span>
-</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#container_command"><span class="hs-identifier hs-type">container_command</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span id="container_command"><span class="annot"><span class="annottext">container_command :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Container -&gt; f Container
-</span><a href="Network.AWS.Lightsail.Types.Container.html#container_command"><span class="hs-identifier hs-var hs-var">container_command</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Container -&gt; Maybe [Text])
--&gt; (Container -&gt; Maybe [Text] -&gt; Container)
--&gt; Lens Container Container (Maybe [Text]) (Maybe [Text])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679607313"><span class="annot"><span class="annottext">Maybe [Text]
-command :: Maybe [Text]
-$sel:command:Container' :: Container -&gt; Maybe [Text]
-</span><a href="#local-6989586621679607313"><span class="hs-identifier hs-var hs-var">command</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679607313"><span class="hs-identifier hs-var">command</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679607312"><span class="annot"><span class="annottext">s :: Container
-</span><a href="#local-6989586621679607312"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679607311"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679607311"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Container
-</span><a href="#local-6989586621679607312"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:command:Container' :: Maybe [Text]
-</span><a href="Network.AWS.Lightsail.Types.Container.html#%24sel%3Acommand%3AContainer%27"><span class="hs-identifier hs-var">command</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679607311"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Container -&gt; f Container)
--&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
-    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; Container
--&gt; f Container
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
--&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- | The name of the image used for the container.</span><span>
-</span><span id="line-93"></span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- Container images sourced from your Lightsail container service, that are</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- registered and stored on your service, start with a colon (@:@). For</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- example, @:container-service-1.mystaticwebsite.1@. Container images</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- sourced from a public registry like Docker Hub don\'t start with a</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- colon. For example, @nginx:latest@ or @nginx@.</span><span>
-</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#container_image"><span class="hs-identifier hs-type">container_image</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span id="container_image"><span class="annot"><span class="annottext">container_image :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Container -&gt; f Container
-</span><a href="Network.AWS.Lightsail.Types.Container.html#container_image"><span class="hs-identifier hs-var hs-var">container_image</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Container -&gt; Maybe Text)
--&gt; (Container -&gt; Maybe Text -&gt; Container)
--&gt; Lens Container Container (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679607309"><span class="annot"><span class="annottext">Maybe Text
-image :: Maybe Text
-$sel:image:Container' :: Container -&gt; Maybe Text
-</span><a href="#local-6989586621679607309"><span class="hs-identifier hs-var hs-var">image</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679607309"><span class="hs-identifier hs-var">image</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679607308"><span class="annot"><span class="annottext">s :: Container
-</span><a href="#local-6989586621679607308"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679607307"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679607307"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Container
-</span><a href="#local-6989586621679607308"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:image:Container' :: Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.Container.html#%24sel%3Aimage%3AContainer%27"><span class="hs-identifier hs-var">image</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679607307"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679607304"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679607302"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Container
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679608191"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679608189"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Container
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Container) -&gt; Value -&gt; Parser Container
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Container&quot;</span></span><span>
-</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679607299"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679607299"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
--&gt; Maybe (HashMap Text ContainerServiceProtocol)
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679608186"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679608186"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [Text]
--&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe (HashMap Text ContainerServiceProtocol)
 -&gt; Container
 </span><a href="Network.AWS.Lightsail.Types.Container.html#Container%27"><span class="hs-identifier hs-var">Container'</span></a></span><span>
-</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (HashMap Text Text)
- -&gt; Maybe (HashMap Text ContainerServiceProtocol)
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
  -&gt; Maybe [Text]
- -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Maybe (HashMap Text ContainerServiceProtocol)
  -&gt; Container)
--&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe (HashMap Text ContainerServiceProtocol)
-      -&gt; Maybe [Text] -&gt; Maybe Text -&gt; Container)
+     (Maybe [Text]
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe (HashMap Text ContainerServiceProtocol)
+      -&gt; Container)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679607299"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679608186"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;image&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Text]
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe (HashMap Text ContainerServiceProtocol)
+   -&gt; Container)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser
+     (Maybe (HashMap Text Text)
+      -&gt; Maybe (HashMap Text ContainerServiceProtocol) -&gt; Container)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679608186"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;command&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Text Text)
+   -&gt; Maybe (HashMap Text ContainerServiceProtocol) -&gt; Container)
+-&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser
+     (Maybe (HashMap Text ContainerServiceProtocol) -&gt; Container)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679608186"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;environment&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
@@ -348,14 +382,12 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe (HashMap Text ContainerServiceProtocol)
-   -&gt; Maybe [Text] -&gt; Maybe Text -&gt; Container)
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe (HashMap Text ContainerServiceProtocol) -&gt; Container)
 -&gt; Parser (Maybe (HashMap Text ContainerServiceProtocol))
--&gt; Parser (Maybe [Text] -&gt; Maybe Text -&gt; Container)
+-&gt; Parser Container
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679607299"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679608186"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Parser (Maybe (Maybe (HashMap Text ContainerServiceProtocol)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
@@ -367,83 +399,62 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text ContainerServiceProtocol)
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Text] -&gt; Maybe Text -&gt; Container)
--&gt; Parser (Maybe [Text]) -&gt; Parser (Maybe Text -&gt; Container)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679607299"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;command&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
--&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
-forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
-</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-forall a. Monoid a =&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Container)
--&gt; Parser (Maybe Text) -&gt; Parser Container
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679607299"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;image&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679607292"><span id="local-6989586621679607294"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679608179"><span id="local-6989586621679608181"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span></span></span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679607289"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679608176"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span></span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679607281"><span id="local-6989586621679607283"><span id="local-6989586621679607285"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679607279"><span class="annot"><span class="annottext">toJSON :: Container -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679607274"><span id="local-6989586621679607275"><span id="local-6989586621679607276"><span id="local-6989586621679607277"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679608168"><span id="local-6989586621679608170"><span id="local-6989586621679608172"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679608166"><span class="annot"><span class="annottext">toJSON :: Container -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679608161"><span id="local-6989586621679608162"><span id="local-6989586621679608163"><span id="local-6989586621679608164"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe Text
 Maybe (HashMap Text Text)
 Maybe (HashMap Text ContainerServiceProtocol)
-image :: Maybe Text
-command :: Maybe [Text]
 ports :: Maybe (HashMap Text ContainerServiceProtocol)
 environment :: Maybe (HashMap Text Text)
-$sel:image:Container' :: Container -&gt; Maybe Text
-$sel:command:Container' :: Container -&gt; Maybe [Text]
+command :: Maybe [Text]
+image :: Maybe Text
 $sel:ports:Container' :: Container -&gt; Maybe (HashMap Text ContainerServiceProtocol)
 $sel:environment:Container' :: Container -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679607274"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:command:Container' :: Container -&gt; Maybe [Text]
+$sel:image:Container' :: Container -&gt; Maybe Text
+</span><a href="#local-6989586621679608161"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-122"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;image&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679608164"><span class="hs-identifier hs-var">image</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;command&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679608163"><span class="hs-identifier hs-var">command</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;environment&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679607277"><span class="hs-identifier hs-var">environment</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-123"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679608162"><span class="hs-identifier hs-var">environment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ports&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text ContainerServiceProtocol -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text ContainerServiceProtocol -&gt; Pair)
 -&gt; Maybe (HashMap Text ContainerServiceProtocol) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text ContainerServiceProtocol)
-</span><a href="#local-6989586621679607276"><span class="hs-identifier hs-var">ports</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-124"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;command&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679607275"><span class="hs-identifier hs-var">command</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-125"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;image&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679607274"><span class="hs-identifier hs-var">image</span></a></span><span>
+</span><a href="#local-6989586621679608161"><span class="hs-identifier hs-var">ports</span></a></span><span>
 </span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span></pre></body></html>

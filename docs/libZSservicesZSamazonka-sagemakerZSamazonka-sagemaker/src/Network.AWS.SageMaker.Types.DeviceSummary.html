@@ -27,26 +27,26 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Summary of the device.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newDeviceSummary' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621680301447"><span id="local-6989586621680301448"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeviceSummary"><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary"><span class="hs-identifier hs-var">DeviceSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeviceSummary%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary%27"><span class="hs-identifier hs-var">DeviceSummary'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the fleet the device belongs to.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3AdeviceFleetName%3ADeviceSummary%27"><span class="annot"><span class="annottext">DeviceSummary -&gt; Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#%24sel%3AdeviceFleetName%3ADeviceSummary%27"><span class="hs-identifier hs-var hs-var">deviceFleetName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The last heartbeat received from the device.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AlatestHeartbeat%3ADeviceSummary%27"><span class="annot"><span class="annottext">DeviceSummary -&gt; Maybe POSIX
-</span><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#%24sel%3AlatestHeartbeat%3ADeviceSummary%27"><span class="hs-identifier hs-var hs-var">latestHeartbeat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The timestamp of the last registration or de-reregistration.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AregistrationTime%3ADeviceSummary%27"><span class="annot"><span class="annottext">DeviceSummary -&gt; Maybe POSIX
+</span><span id="line-30"></span><span id="local-6989586621680302820"><span id="local-6989586621680302821"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeviceSummary"><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary"><span class="hs-identifier hs-var">DeviceSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeviceSummary%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary%27"><span class="hs-identifier hs-var">DeviceSummary'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The timestamp of the last registration or de-reregistration.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AregistrationTime%3ADeviceSummary%27"><span class="annot"><span class="annottext">DeviceSummary -&gt; Maybe POSIX
 </span><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#%24sel%3AregistrationTime%3ADeviceSummary%27"><span class="hs-identifier hs-var hs-var">registrationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Models on the device.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3Amodels%3ADeviceSummary%27"><span class="annot"><span class="annottext">DeviceSummary -&gt; Maybe [EdgeModelSummary]
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Models on the device.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Amodels%3ADeviceSummary%27"><span class="annot"><span class="annottext">DeviceSummary -&gt; Maybe [EdgeModelSummary]
 </span><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#%24sel%3Amodels%3ADeviceSummary%27"><span class="hs-identifier hs-var hs-var">models</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EdgeModelSummary.html#EdgeModelSummary"><span class="hs-identifier hs-type">EdgeModelSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The Amazon Web Services Internet of Things (IoT) object thing name</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- associated with the device..</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AiotThingName%3ADeviceSummary%27"><span class="annot"><span class="annottext">DeviceSummary -&gt; Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#%24sel%3AiotThingName%3ADeviceSummary%27"><span class="hs-identifier hs-var hs-var">iotThingName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | A description of the device.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3Adescription%3ADeviceSummary%27"><span class="annot"><span class="annottext">DeviceSummary -&gt; Maybe Text
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The last heartbeat received from the device.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AlatestHeartbeat%3ADeviceSummary%27"><span class="annot"><span class="annottext">DeviceSummary -&gt; Maybe POSIX
+</span><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#%24sel%3AlatestHeartbeat%3ADeviceSummary%27"><span class="hs-identifier hs-var hs-var">latestHeartbeat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | A description of the device.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Adescription%3ADeviceSummary%27"><span class="annot"><span class="annottext">DeviceSummary -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#%24sel%3Adescription%3ADeviceSummary%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The name of the fleet the device belongs to.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AdeviceFleetName%3ADeviceSummary%27"><span class="annot"><span class="annottext">DeviceSummary -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#%24sel%3AdeviceFleetName%3ADeviceSummary%27"><span class="hs-identifier hs-var hs-var">deviceFleetName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The Amazon Web Services Internet of Things (IoT) object thing name</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- associated with the device..</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AiotThingName%3ADeviceSummary%27"><span class="annot"><span class="annottext">DeviceSummary -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#%24sel%3AiotThingName%3ADeviceSummary%27"><span class="hs-identifier hs-var hs-var">iotThingName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The unique identifier of the device.</span><span>
 </span><span id="line-45"></span><span>    </span><span id="%24sel%3AdeviceName%3ADeviceSummary%27"><span class="annot"><span class="annottext">DeviceSummary -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#%24sel%3AdeviceName%3ADeviceSummary%27"><span class="hs-identifier hs-var hs-var">deviceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -54,7 +54,7 @@
 </span><span id="line-47"></span><span>    </span><span id="%24sel%3AdeviceArn%3ADeviceSummary%27"><span class="annot"><span class="annottext">DeviceSummary -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#%24sel%3AdeviceArn%3ADeviceSummary%27"><span class="hs-identifier hs-var hs-var">deviceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680301434"><span id="local-6989586621680301436"><span class="annot"><span class="annottext">DeviceSummary -&gt; DeviceSummary -&gt; Bool
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680302807"><span id="local-6989586621680302809"><span class="annot"><span class="annottext">DeviceSummary -&gt; DeviceSummary -&gt; Bool
 (DeviceSummary -&gt; DeviceSummary -&gt; Bool)
 -&gt; (DeviceSummary -&gt; DeviceSummary -&gt; Bool) -&gt; Eq DeviceSummary
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeviceSummary -&gt; DeviceSummary -&gt; Bool
 == :: DeviceSummary -&gt; DeviceSummary -&gt; Bool
 $c== :: DeviceSummary -&gt; DeviceSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680301425"><span id="local-6989586621680301427"><span id="local-6989586621680301429"><span id="local-6989586621680301431"><span class="annot"><span class="annottext">ReadPrec [DeviceSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680302798"><span id="local-6989586621680302800"><span id="local-6989586621680302802"><span id="local-6989586621680302804"><span class="annot"><span class="annottext">ReadPrec [DeviceSummary]
 ReadPrec DeviceSummary
 Int -&gt; ReadS DeviceSummary
 ReadS [DeviceSummary]
@@ -82,7 +82,7 @@ readList :: ReadS [DeviceSummary]
 $creadList :: ReadS [DeviceSummary]
 readsPrec :: Int -&gt; ReadS DeviceSummary
 $creadsPrec :: Int -&gt; ReadS DeviceSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680301418"><span id="local-6989586621680301420"><span id="local-6989586621680301422"><span class="annot"><span class="annottext">Int -&gt; DeviceSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680302791"><span id="local-6989586621680302793"><span id="local-6989586621680302795"><span class="annot"><span class="annottext">Int -&gt; DeviceSummary -&gt; ShowS
 [DeviceSummary] -&gt; ShowS
 DeviceSummary -&gt; String
 (Int -&gt; DeviceSummary -&gt; ShowS)
@@ -116,18 +116,18 @@ $cfrom :: forall x. DeviceSummary -&gt; Rep DeviceSummary x
 </span><span id="line-56"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'deviceFleetName', 'deviceSummary_deviceFleetName' - The name of the fleet the device belongs to.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'registrationTime', 'deviceSummary_registrationTime' - The timestamp of the last registration or de-reregistration.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'latestHeartbeat', 'deviceSummary_latestHeartbeat' - The last heartbeat received from the device.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'models', 'deviceSummary_models' - Models on the device.</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'registrationTime', 'deviceSummary_registrationTime' - The timestamp of the last registration or de-reregistration.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'latestHeartbeat', 'deviceSummary_latestHeartbeat' - The last heartbeat received from the device.</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'models', 'deviceSummary_models' - Models on the device.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'description', 'deviceSummary_description' - A description of the device.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'iotThingName', 'deviceSummary_iotThingName' - The Amazon Web Services Internet of Things (IoT) object thing name</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- associated with the device..</span><span>
-</span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'description', 'deviceSummary_description' - A description of the device.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'deviceFleetName', 'deviceSummary_deviceFleetName' - The name of the fleet the device belongs to.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'iotThingName', 'deviceSummary_iotThingName' - The Amazon Web Services Internet of Things (IoT) object thing name</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- associated with the device..</span><span>
 </span><span id="line-71"></span><span class="hs-comment">--</span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- 'deviceName', 'deviceSummary_deviceName' - The unique identifier of the device.</span><span>
 </span><span id="line-73"></span><span class="hs-comment">--</span><span>
@@ -139,121 +139,69 @@ $cfrom :: forall x. DeviceSummary -&gt; Rep DeviceSummary x
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary"><span class="hs-identifier hs-type">DeviceSummary</span></a></span><span>
 </span><span id="line-81"></span><span id="newDeviceSummary"><span class="annot"><span class="annottext">newDeviceSummary :: Text -&gt; Text -&gt; DeviceSummary
-</span><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#newDeviceSummary"><span class="hs-identifier hs-var hs-var">newDeviceSummary</span></a></span></span><span> </span><span id="local-6989586621680301412"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680301412"><span class="hs-identifier hs-var">pDeviceName_</span></a></span></span><span> </span><span id="local-6989586621680301411"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680301411"><span class="hs-identifier hs-var">pDeviceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">DeviceSummary' :: Maybe Text
--&gt; Maybe POSIX
--&gt; Maybe POSIX
+</span><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#newDeviceSummary"><span class="hs-identifier hs-var hs-var">newDeviceSummary</span></a></span></span><span> </span><span id="local-6989586621680302785"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680302785"><span class="hs-identifier hs-var">pDeviceName_</span></a></span></span><span> </span><span id="local-6989586621680302784"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680302784"><span class="hs-identifier hs-var">pDeviceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">DeviceSummary' :: Maybe POSIX
 -&gt; Maybe [EdgeModelSummary]
+-&gt; Maybe POSIX
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Text
 -&gt; Text
 -&gt; DeviceSummary
 </span><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary%27"><span class="hs-identifier hs-type">DeviceSummary'</span></a></span><span>
-</span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deviceFleetName:DeviceSummary' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#%24sel%3AdeviceFleetName%3ADeviceSummary%27"><span class="hs-identifier hs-var">deviceFleetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:latestHeartbeat:DeviceSummary' :: Maybe POSIX
-</span><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#%24sel%3AlatestHeartbeat%3ADeviceSummary%27"><span class="hs-identifier hs-var">latestHeartbeat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:registrationTime:DeviceSummary' :: Maybe POSIX
+</span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:registrationTime:DeviceSummary' :: Maybe POSIX
 </span><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#%24sel%3AregistrationTime%3ADeviceSummary%27"><span class="hs-identifier hs-var">registrationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:models:DeviceSummary' :: Maybe [EdgeModelSummary]
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:models:DeviceSummary' :: Maybe [EdgeModelSummary]
 </span><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#%24sel%3Amodels%3ADeviceSummary%27"><span class="hs-identifier hs-var">models</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EdgeModelSummary]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:iotThingName:DeviceSummary' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#%24sel%3AiotThingName%3ADeviceSummary%27"><span class="hs-identifier hs-var">iotThingName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:latestHeartbeat:DeviceSummary' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#%24sel%3AlatestHeartbeat%3ADeviceSummary%27"><span class="hs-identifier hs-var">latestHeartbeat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:DeviceSummary' :: Maybe Text
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:DeviceSummary' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#%24sel%3Adescription%3ADeviceSummary%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceFleetName:DeviceSummary' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#%24sel%3AdeviceFleetName%3ADeviceSummary%27"><span class="hs-identifier hs-var">deviceFleetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:iotThingName:DeviceSummary' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#%24sel%3AiotThingName%3ADeviceSummary%27"><span class="hs-identifier hs-var">iotThingName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceName:DeviceSummary' :: Text
 </span><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#%24sel%3AdeviceName%3ADeviceSummary%27"><span class="hs-identifier hs-var">deviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680301412"><span class="hs-identifier hs-var">pDeviceName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680302785"><span class="hs-identifier hs-var">pDeviceName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceArn:DeviceSummary' :: Text
 </span><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#%24sel%3AdeviceArn%3ADeviceSummary%27"><span class="hs-identifier hs-var">deviceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680301411"><span class="hs-identifier hs-var">pDeviceArn_</span></a></span><span>
+</span><a href="#local-6989586621680302784"><span class="hs-identifier hs-var">pDeviceArn_</span></a></span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- | The name of the fleet the device belongs to.</span><span>
-</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#deviceSummary_deviceFleetName"><span class="hs-identifier hs-type">deviceSummary_deviceFleetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary"><span class="hs-identifier hs-type">DeviceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span id="deviceSummary_deviceFleetName"><span class="annot"><span class="annottext">deviceSummary_deviceFleetName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DeviceSummary -&gt; f DeviceSummary
-</span><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#deviceSummary_deviceFleetName"><span class="hs-identifier hs-var hs-var">deviceSummary_deviceFleetName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeviceSummary -&gt; Maybe Text)
--&gt; (DeviceSummary -&gt; Maybe Text -&gt; DeviceSummary)
--&gt; Lens DeviceSummary DeviceSummary (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary%27"><span class="hs-identifier hs-type">DeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680301407"><span class="annot"><span class="annottext">Maybe Text
-deviceFleetName :: Maybe Text
-$sel:deviceFleetName:DeviceSummary' :: DeviceSummary -&gt; Maybe Text
-</span><a href="#local-6989586621680301407"><span class="hs-identifier hs-var hs-var">deviceFleetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680301407"><span class="hs-identifier hs-var">deviceFleetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680301406"><span class="annot"><span class="annottext">s :: DeviceSummary
-</span><a href="#local-6989586621680301406"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary%27"><span class="hs-identifier hs-type">DeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680301405"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680301405"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceSummary
-</span><a href="#local-6989586621680301406"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceFleetName:DeviceSummary' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#%24sel%3AdeviceFleetName%3ADeviceSummary%27"><span class="hs-identifier hs-var">deviceFleetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680301405"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary"><span class="hs-identifier hs-type">DeviceSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- | The last heartbeat received from the device.</span><span>
-</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#deviceSummary_latestHeartbeat"><span class="hs-identifier hs-type">deviceSummary_latestHeartbeat</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary"><span class="hs-identifier hs-type">DeviceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span id="deviceSummary_latestHeartbeat"><span class="annot"><span class="annottext">deviceSummary_latestHeartbeat :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; DeviceSummary -&gt; f DeviceSummary
-</span><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#deviceSummary_latestHeartbeat"><span class="hs-identifier hs-var hs-var">deviceSummary_latestHeartbeat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeviceSummary -&gt; Maybe POSIX)
--&gt; (DeviceSummary -&gt; Maybe POSIX -&gt; DeviceSummary)
--&gt; Lens DeviceSummary DeviceSummary (Maybe POSIX) (Maybe POSIX)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary%27"><span class="hs-identifier hs-type">DeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680301403"><span class="annot"><span class="annottext">Maybe POSIX
-latestHeartbeat :: Maybe POSIX
-$sel:latestHeartbeat:DeviceSummary' :: DeviceSummary -&gt; Maybe POSIX
-</span><a href="#local-6989586621680301403"><span class="hs-identifier hs-var hs-var">latestHeartbeat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680301403"><span class="hs-identifier hs-var">latestHeartbeat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680301402"><span class="annot"><span class="annottext">s :: DeviceSummary
-</span><a href="#local-6989586621680301402"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary%27"><span class="hs-identifier hs-type">DeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680301401"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680301401"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceSummary
-</span><a href="#local-6989586621680301402"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:latestHeartbeat:DeviceSummary' :: Maybe POSIX
-</span><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#%24sel%3AlatestHeartbeat%3ADeviceSummary%27"><span class="hs-identifier hs-var">latestHeartbeat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680301401"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary"><span class="hs-identifier hs-type">DeviceSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
- -&gt; DeviceSummary -&gt; f DeviceSummary)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; DeviceSummary
--&gt; f DeviceSummary
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- | The timestamp of the last registration or de-reregistration.</span><span>
-</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#deviceSummary_registrationTime"><span class="hs-identifier hs-type">deviceSummary_registrationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary"><span class="hs-identifier hs-type">DeviceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span id="deviceSummary_registrationTime"><span class="annot"><span class="annottext">deviceSummary_registrationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-93"></span><span class="hs-comment">-- | The timestamp of the last registration or de-reregistration.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#deviceSummary_registrationTime"><span class="hs-identifier hs-type">deviceSummary_registrationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary"><span class="hs-identifier hs-type">DeviceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="deviceSummary_registrationTime"><span class="annot"><span class="annottext">deviceSummary_registrationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; DeviceSummary -&gt; f DeviceSummary
 </span><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#deviceSummary_registrationTime"><span class="hs-identifier hs-var hs-var">deviceSummary_registrationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeviceSummary -&gt; Maybe POSIX)
 -&gt; (DeviceSummary -&gt; Maybe POSIX -&gt; DeviceSummary)
 -&gt; Lens DeviceSummary DeviceSummary (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary%27"><span class="hs-identifier hs-type">DeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680301396"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary%27"><span class="hs-identifier hs-type">DeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680302780"><span class="annot"><span class="annottext">Maybe POSIX
 registrationTime :: Maybe POSIX
 $sel:registrationTime:DeviceSummary' :: DeviceSummary -&gt; Maybe POSIX
-</span><a href="#local-6989586621680301396"><span class="hs-identifier hs-var hs-var">registrationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680301396"><span class="hs-identifier hs-var">registrationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680301395"><span class="annot"><span class="annottext">s :: DeviceSummary
-</span><a href="#local-6989586621680301395"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary%27"><span class="hs-identifier hs-type">DeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680301394"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680301394"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceSummary
-</span><a href="#local-6989586621680301395"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registrationTime:DeviceSummary' :: Maybe POSIX
+</span><a href="#local-6989586621680302780"><span class="hs-identifier hs-var hs-var">registrationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680302780"><span class="hs-identifier hs-var">registrationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680302779"><span class="annot"><span class="annottext">s :: DeviceSummary
+</span><a href="#local-6989586621680302779"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary%27"><span class="hs-identifier hs-type">DeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680302778"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680302778"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceSummary
+</span><a href="#local-6989586621680302779"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registrationTime:DeviceSummary' :: Maybe POSIX
 </span><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#%24sel%3AregistrationTime%3ADeviceSummary%27"><span class="hs-identifier hs-var">registrationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680301394"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary"><span class="hs-identifier hs-type">DeviceSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621680302778"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary"><span class="hs-identifier hs-type">DeviceSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; DeviceSummary -&gt; f DeviceSummary)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -269,10 +217,10 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- | Models on the device.</span><span>
-</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#deviceSummary_models"><span class="hs-identifier hs-type">deviceSummary_models</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary"><span class="hs-identifier hs-type">DeviceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EdgeModelSummary.html#EdgeModelSummary"><span class="hs-identifier hs-type">EdgeModelSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span id="deviceSummary_models"><span class="annot"><span class="annottext">deviceSummary_models :: (Maybe [EdgeModelSummary] -&gt; f (Maybe [EdgeModelSummary]))
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | Models on the device.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#deviceSummary_models"><span class="hs-identifier hs-type">deviceSummary_models</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary"><span class="hs-identifier hs-type">DeviceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EdgeModelSummary.html#EdgeModelSummary"><span class="hs-identifier hs-type">EdgeModelSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="deviceSummary_models"><span class="annot"><span class="annottext">deviceSummary_models :: (Maybe [EdgeModelSummary] -&gt; f (Maybe [EdgeModelSummary]))
 -&gt; DeviceSummary -&gt; f DeviceSummary
 </span><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#deviceSummary_models"><span class="hs-identifier hs-var hs-var">deviceSummary_models</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeviceSummary -&gt; Maybe [EdgeModelSummary])
 -&gt; (DeviceSummary -&gt; Maybe [EdgeModelSummary] -&gt; DeviceSummary)
@@ -282,16 +230,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe [EdgeModelSummary])
      (Maybe [EdgeModelSummary])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary%27"><span class="hs-identifier hs-type">DeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680301392"><span class="annot"><span class="annottext">Maybe [EdgeModelSummary]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary%27"><span class="hs-identifier hs-type">DeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680302773"><span class="annot"><span class="annottext">Maybe [EdgeModelSummary]
 models :: Maybe [EdgeModelSummary]
 $sel:models:DeviceSummary' :: DeviceSummary -&gt; Maybe [EdgeModelSummary]
-</span><a href="#local-6989586621680301392"><span class="hs-identifier hs-var hs-var">models</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EdgeModelSummary]
-</span><a href="#local-6989586621680301392"><span class="hs-identifier hs-var">models</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680301391"><span class="annot"><span class="annottext">s :: DeviceSummary
-</span><a href="#local-6989586621680301391"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary%27"><span class="hs-identifier hs-type">DeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680301390"><span class="annot"><span class="annottext">Maybe [EdgeModelSummary]
-</span><a href="#local-6989586621680301390"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceSummary
-</span><a href="#local-6989586621680301391"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:models:DeviceSummary' :: Maybe [EdgeModelSummary]
+</span><a href="#local-6989586621680302773"><span class="hs-identifier hs-var hs-var">models</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EdgeModelSummary]
+</span><a href="#local-6989586621680302773"><span class="hs-identifier hs-var">models</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680302772"><span class="annot"><span class="annottext">s :: DeviceSummary
+</span><a href="#local-6989586621680302772"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary%27"><span class="hs-identifier hs-type">DeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680302771"><span class="annot"><span class="annottext">Maybe [EdgeModelSummary]
+</span><a href="#local-6989586621680302771"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceSummary
+</span><a href="#local-6989586621680302772"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:models:DeviceSummary' :: Maybe [EdgeModelSummary]
 </span><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#%24sel%3Amodels%3ADeviceSummary%27"><span class="hs-identifier hs-var">models</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EdgeModelSummary]
-</span><a href="#local-6989586621680301390"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary"><span class="hs-identifier hs-type">DeviceSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EdgeModelSummary] -&gt; f (Maybe [EdgeModelSummary]))
+</span><a href="#local-6989586621680302771"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary"><span class="hs-identifier hs-type">DeviceSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EdgeModelSummary] -&gt; f (Maybe [EdgeModelSummary]))
  -&gt; DeviceSummary -&gt; f DeviceSummary)
 -&gt; ((Maybe [EdgeModelSummary] -&gt; f (Maybe [EdgeModelSummary]))
     -&gt; Maybe [EdgeModelSummary] -&gt; f (Maybe [EdgeModelSummary]))
@@ -317,45 +265,97 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [EdgeModelSummary]
   [EdgeModelSummary]
   [EdgeModelSummary]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- | The Amazon Web Services Internet of Things (IoT) object thing name</span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- associated with the device..</span><span>
-</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#deviceSummary_iotThingName"><span class="hs-identifier hs-type">deviceSummary_iotThingName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary"><span class="hs-identifier hs-type">DeviceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span id="deviceSummary_iotThingName"><span class="annot"><span class="annottext">deviceSummary_iotThingName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DeviceSummary -&gt; f DeviceSummary
-</span><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#deviceSummary_iotThingName"><span class="hs-identifier hs-var hs-var">deviceSummary_iotThingName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeviceSummary -&gt; Maybe Text)
--&gt; (DeviceSummary -&gt; Maybe Text -&gt; DeviceSummary)
--&gt; Lens DeviceSummary DeviceSummary (Maybe Text) (Maybe Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The last heartbeat received from the device.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#deviceSummary_latestHeartbeat"><span class="hs-identifier hs-type">deviceSummary_latestHeartbeat</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary"><span class="hs-identifier hs-type">DeviceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="deviceSummary_latestHeartbeat"><span class="annot"><span class="annottext">deviceSummary_latestHeartbeat :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DeviceSummary -&gt; f DeviceSummary
+</span><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#deviceSummary_latestHeartbeat"><span class="hs-identifier hs-var hs-var">deviceSummary_latestHeartbeat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeviceSummary -&gt; Maybe POSIX)
+-&gt; (DeviceSummary -&gt; Maybe POSIX -&gt; DeviceSummary)
+-&gt; Lens DeviceSummary DeviceSummary (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary%27"><span class="hs-identifier hs-type">DeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680301387"><span class="annot"><span class="annottext">Maybe Text
-iotThingName :: Maybe Text
-$sel:iotThingName:DeviceSummary' :: DeviceSummary -&gt; Maybe Text
-</span><a href="#local-6989586621680301387"><span class="hs-identifier hs-var hs-var">iotThingName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680301387"><span class="hs-identifier hs-var">iotThingName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680301386"><span class="annot"><span class="annottext">s :: DeviceSummary
-</span><a href="#local-6989586621680301386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary%27"><span class="hs-identifier hs-type">DeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680301385"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680301385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceSummary
-</span><a href="#local-6989586621680301386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iotThingName:DeviceSummary' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#%24sel%3AiotThingName%3ADeviceSummary%27"><span class="hs-identifier hs-var">iotThingName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680301385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary"><span class="hs-identifier hs-type">DeviceSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- | A description of the device.</span><span>
-</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#deviceSummary_description"><span class="hs-identifier hs-type">deviceSummary_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary"><span class="hs-identifier hs-type">DeviceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span id="deviceSummary_description"><span class="annot"><span class="annottext">deviceSummary_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DeviceSummary -&gt; f DeviceSummary
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary%27"><span class="hs-identifier hs-type">DeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680302768"><span class="annot"><span class="annottext">Maybe POSIX
+latestHeartbeat :: Maybe POSIX
+$sel:latestHeartbeat:DeviceSummary' :: DeviceSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621680302768"><span class="hs-identifier hs-var hs-var">latestHeartbeat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680302768"><span class="hs-identifier hs-var">latestHeartbeat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680302767"><span class="annot"><span class="annottext">s :: DeviceSummary
+</span><a href="#local-6989586621680302767"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary%27"><span class="hs-identifier hs-type">DeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680302766"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680302766"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceSummary
+</span><a href="#local-6989586621680302767"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:latestHeartbeat:DeviceSummary' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#%24sel%3AlatestHeartbeat%3ADeviceSummary%27"><span class="hs-identifier hs-var">latestHeartbeat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680302766"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary"><span class="hs-identifier hs-type">DeviceSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DeviceSummary -&gt; f DeviceSummary)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DeviceSummary
+-&gt; f DeviceSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | A description of the device.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#deviceSummary_description"><span class="hs-identifier hs-type">deviceSummary_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary"><span class="hs-identifier hs-type">DeviceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="deviceSummary_description"><span class="annot"><span class="annottext">deviceSummary_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DeviceSummary -&gt; f DeviceSummary
 </span><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#deviceSummary_description"><span class="hs-identifier hs-var hs-var">deviceSummary_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeviceSummary -&gt; Maybe Text)
 -&gt; (DeviceSummary -&gt; Maybe Text -&gt; DeviceSummary)
 -&gt; Lens DeviceSummary DeviceSummary (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary%27"><span class="hs-identifier hs-type">DeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680301383"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary%27"><span class="hs-identifier hs-type">DeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680302764"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:DeviceSummary' :: DeviceSummary -&gt; Maybe Text
-</span><a href="#local-6989586621680301383"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680301383"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680301382"><span class="annot"><span class="annottext">s :: DeviceSummary
-</span><a href="#local-6989586621680301382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary%27"><span class="hs-identifier hs-type">DeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680301381"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680301381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceSummary
-</span><a href="#local-6989586621680301382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:DeviceSummary' :: Maybe Text
+</span><a href="#local-6989586621680302764"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680302764"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680302763"><span class="annot"><span class="annottext">s :: DeviceSummary
+</span><a href="#local-6989586621680302763"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary%27"><span class="hs-identifier hs-type">DeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680302762"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680302762"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceSummary
+</span><a href="#local-6989586621680302763"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:DeviceSummary' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#%24sel%3Adescription%3ADeviceSummary%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680301381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary"><span class="hs-identifier hs-type">DeviceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680302762"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary"><span class="hs-identifier hs-type">DeviceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The name of the fleet the device belongs to.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#deviceSummary_deviceFleetName"><span class="hs-identifier hs-type">deviceSummary_deviceFleetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary"><span class="hs-identifier hs-type">DeviceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="deviceSummary_deviceFleetName"><span class="annot"><span class="annottext">deviceSummary_deviceFleetName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DeviceSummary -&gt; f DeviceSummary
+</span><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#deviceSummary_deviceFleetName"><span class="hs-identifier hs-var hs-var">deviceSummary_deviceFleetName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeviceSummary -&gt; Maybe Text)
+-&gt; (DeviceSummary -&gt; Maybe Text -&gt; DeviceSummary)
+-&gt; Lens DeviceSummary DeviceSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary%27"><span class="hs-identifier hs-type">DeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680302760"><span class="annot"><span class="annottext">Maybe Text
+deviceFleetName :: Maybe Text
+$sel:deviceFleetName:DeviceSummary' :: DeviceSummary -&gt; Maybe Text
+</span><a href="#local-6989586621680302760"><span class="hs-identifier hs-var hs-var">deviceFleetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680302760"><span class="hs-identifier hs-var">deviceFleetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680302759"><span class="annot"><span class="annottext">s :: DeviceSummary
+</span><a href="#local-6989586621680302759"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary%27"><span class="hs-identifier hs-type">DeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680302758"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680302758"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceSummary
+</span><a href="#local-6989586621680302759"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceFleetName:DeviceSummary' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#%24sel%3AdeviceFleetName%3ADeviceSummary%27"><span class="hs-identifier hs-var">deviceFleetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680302758"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary"><span class="hs-identifier hs-type">DeviceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The Amazon Web Services Internet of Things (IoT) object thing name</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- associated with the device..</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#deviceSummary_iotThingName"><span class="hs-identifier hs-type">deviceSummary_iotThingName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary"><span class="hs-identifier hs-type">DeviceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="deviceSummary_iotThingName"><span class="annot"><span class="annottext">deviceSummary_iotThingName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DeviceSummary -&gt; f DeviceSummary
+</span><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#deviceSummary_iotThingName"><span class="hs-identifier hs-var hs-var">deviceSummary_iotThingName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeviceSummary -&gt; Maybe Text)
+-&gt; (DeviceSummary -&gt; Maybe Text -&gt; DeviceSummary)
+-&gt; Lens DeviceSummary DeviceSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary%27"><span class="hs-identifier hs-type">DeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680302756"><span class="annot"><span class="annottext">Maybe Text
+iotThingName :: Maybe Text
+$sel:iotThingName:DeviceSummary' :: DeviceSummary -&gt; Maybe Text
+</span><a href="#local-6989586621680302756"><span class="hs-identifier hs-var hs-var">iotThingName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680302756"><span class="hs-identifier hs-var">iotThingName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680302755"><span class="annot"><span class="annottext">s :: DeviceSummary
+</span><a href="#local-6989586621680302755"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary%27"><span class="hs-identifier hs-type">DeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680302754"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680302754"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceSummary
+</span><a href="#local-6989586621680302755"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iotThingName:DeviceSummary' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#%24sel%3AiotThingName%3ADeviceSummary%27"><span class="hs-identifier hs-var">iotThingName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680302754"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary"><span class="hs-identifier hs-type">DeviceSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | The unique identifier of the device.</span><span>
 </span><span id="line-119"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#deviceSummary_deviceName"><span class="hs-identifier hs-type">deviceSummary_deviceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary"><span class="hs-identifier hs-type">DeviceSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -364,16 +364,16 @@ $sel:description:DeviceSummary' :: DeviceSummary -&gt; Maybe Text
 -&gt; (DeviceSummary -&gt; Text -&gt; DeviceSummary)
 -&gt; Lens DeviceSummary DeviceSummary Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary%27"><span class="hs-identifier hs-type">DeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680301379"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary%27"><span class="hs-identifier hs-type">DeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680302752"><span class="annot"><span class="annottext">Text
 deviceName :: Text
 $sel:deviceName:DeviceSummary' :: DeviceSummary -&gt; Text
-</span><a href="#local-6989586621680301379"><span class="hs-identifier hs-var hs-var">deviceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680301379"><span class="hs-identifier hs-var">deviceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680301378"><span class="annot"><span class="annottext">s :: DeviceSummary
-</span><a href="#local-6989586621680301378"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary%27"><span class="hs-identifier hs-type">DeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680301377"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680301377"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceSummary
-</span><a href="#local-6989586621680301378"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceName:DeviceSummary' :: Text
+</span><a href="#local-6989586621680302752"><span class="hs-identifier hs-var hs-var">deviceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680302752"><span class="hs-identifier hs-var">deviceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680302751"><span class="annot"><span class="annottext">s :: DeviceSummary
+</span><a href="#local-6989586621680302751"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary%27"><span class="hs-identifier hs-type">DeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680302750"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680302750"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceSummary
+</span><a href="#local-6989586621680302751"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceName:DeviceSummary' :: Text
 </span><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#%24sel%3AdeviceName%3ADeviceSummary%27"><span class="hs-identifier hs-var">deviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680301377"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary"><span class="hs-identifier hs-type">DeviceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680302750"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary"><span class="hs-identifier hs-type">DeviceSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- | Amazon Resource Name (ARN) of the device.</span><span>
 </span><span id="line-123"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#deviceSummary_deviceArn"><span class="hs-identifier hs-type">deviceSummary_deviceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary"><span class="hs-identifier hs-type">DeviceSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -382,19 +382,19 @@ $sel:deviceName:DeviceSummary' :: DeviceSummary -&gt; Text
 -&gt; (DeviceSummary -&gt; Text -&gt; DeviceSummary)
 -&gt; Lens DeviceSummary DeviceSummary Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary%27"><span class="hs-identifier hs-type">DeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680301375"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary%27"><span class="hs-identifier hs-type">DeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680302748"><span class="annot"><span class="annottext">Text
 deviceArn :: Text
 $sel:deviceArn:DeviceSummary' :: DeviceSummary -&gt; Text
-</span><a href="#local-6989586621680301375"><span class="hs-identifier hs-var hs-var">deviceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680301375"><span class="hs-identifier hs-var">deviceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680301374"><span class="annot"><span class="annottext">s :: DeviceSummary
-</span><a href="#local-6989586621680301374"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary%27"><span class="hs-identifier hs-type">DeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680301373"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680301373"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceSummary
-</span><a href="#local-6989586621680301374"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceArn:DeviceSummary' :: Text
+</span><a href="#local-6989586621680302748"><span class="hs-identifier hs-var hs-var">deviceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680302748"><span class="hs-identifier hs-var">deviceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680302747"><span class="annot"><span class="annottext">s :: DeviceSummary
+</span><a href="#local-6989586621680302747"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary%27"><span class="hs-identifier hs-type">DeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680302746"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680302746"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceSummary
+</span><a href="#local-6989586621680302747"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceArn:DeviceSummary' :: Text
 </span><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#%24sel%3AdeviceArn%3ADeviceSummary%27"><span class="hs-identifier hs-var">deviceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680301373"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary"><span class="hs-identifier hs-type">DeviceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680302746"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary"><span class="hs-identifier hs-type">DeviceSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680301370"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary"><span class="hs-identifier hs-type">DeviceSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621680301368"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DeviceSummary
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680302743"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary"><span class="hs-identifier hs-type">DeviceSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621680302741"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DeviceSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DeviceSummary)
@@ -404,32 +404,32 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DeviceSummary&quot;</span></span><span>
-</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680301365"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680301365"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe POSIX
--&gt; Maybe POSIX
+</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680302738"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680302738"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
 -&gt; Maybe [EdgeModelSummary]
+-&gt; Maybe POSIX
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Text
 -&gt; Text
 -&gt; DeviceSummary
 </span><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary%27"><span class="hs-identifier hs-var">DeviceSummary'</span></a></span><span>
-</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe POSIX
- -&gt; Maybe POSIX
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
  -&gt; Maybe [EdgeModelSummary]
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Text
  -&gt; Text
  -&gt; DeviceSummary)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe POSIX)
 -&gt; Parser
-     (Maybe POSIX
+     (Maybe [EdgeModelSummary]
       -&gt; Maybe POSIX
-      -&gt; Maybe [EdgeModelSummary]
+      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Text
@@ -437,23 +437,23 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; DeviceSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680301365"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680302738"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DeviceFleetName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;RegistrationTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX
+  (Maybe [EdgeModelSummary]
    -&gt; Maybe POSIX
-   -&gt; Maybe [EdgeModelSummary]
+   -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Text
    -&gt; Text
    -&gt; DeviceSummary)
--&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe [EdgeModelSummary])
 -&gt; Parser
      (Maybe POSIX
-      -&gt; Maybe [EdgeModelSummary]
+      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Text
@@ -461,37 +461,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; DeviceSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680301365"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LatestHeartbeat&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX
-   -&gt; Maybe [EdgeModelSummary]
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Text
-   -&gt; Text
-   -&gt; DeviceSummary)
--&gt; Parser (Maybe POSIX)
--&gt; Parser
-     (Maybe [EdgeModelSummary]
-      -&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; DeviceSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680301365"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;RegistrationTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe [EdgeModelSummary]
-   -&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; DeviceSummary)
--&gt; Parser (Maybe [EdgeModelSummary])
--&gt; Parser
-     (Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; DeviceSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680301365"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [EdgeModelSummary]))
+</span><a href="#local-6989586621680302738"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [EdgeModelSummary]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Models&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [EdgeModelSummary]))
@@ -500,28 +470,58 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [EdgeModelSummary]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; DeviceSummary)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; DeviceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680302738"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LatestHeartbeat&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; DeviceSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; DeviceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680302738"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; DeviceSummary)
 -&gt; Parser (Maybe Text)
 -&gt; Parser (Maybe Text -&gt; Text -&gt; Text -&gt; DeviceSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680301365"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680302738"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;IotThingName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;DeviceFleetName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Text -&gt; Text -&gt; DeviceSummary)
 -&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; Text -&gt; DeviceSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680301365"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680302738"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;IotThingName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; DeviceSummary)
 -&gt; Parser Text -&gt; Parser (Text -&gt; DeviceSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680301365"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680302738"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeviceName&quot;</span></span><span class="hs-special">)</span><span>
@@ -529,13 +529,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser DeviceSummary
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680301365"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680302738"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeviceArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680301357"><span id="local-6989586621680301359"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary"><span class="hs-identifier hs-type">DeviceSummary</span></a></span></span></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680302730"><span id="local-6989586621680302732"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary"><span class="hs-identifier hs-type">DeviceSummary</span></a></span></span></span><span>
 </span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680301354"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary"><span class="hs-identifier hs-type">DeviceSummary</span></a></span></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680302727"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceSummary.html#DeviceSummary"><span class="hs-identifier hs-type">DeviceSummary</span></a></span></span><span>
 </span><span id="line-145"></span></pre></body></html>

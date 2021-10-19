@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679271097"><span id="local-6989586621679271098"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CustomMailFromStatus"><span class="annot"><a href="Network.AWS.SES.Types.CustomMailFromStatus.html#CustomMailFromStatus"><span class="hs-identifier hs-var">CustomMailFromStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CustomMailFromStatus%27"><span class="annot"><a href="Network.AWS.SES.Types.CustomMailFromStatus.html#CustomMailFromStatus%27"><span class="hs-identifier hs-var">CustomMailFromStatus'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679271286"><span id="local-6989586621679271287"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CustomMailFromStatus"><span class="annot"><a href="Network.AWS.SES.Types.CustomMailFromStatus.html#CustomMailFromStatus"><span class="hs-identifier hs-var">CustomMailFromStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CustomMailFromStatus%27"><span class="annot"><a href="Network.AWS.SES.Types.CustomMailFromStatus.html#CustomMailFromStatus%27"><span class="hs-identifier hs-var">CustomMailFromStatus'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCustomMailFromStatus"><span class="annot"><span class="annottext">CustomMailFromStatus -&gt; Text
 </span><a href="Network.AWS.SES.Types.CustomMailFromStatus.html#fromCustomMailFromStatus"><span class="hs-identifier hs-var hs-var">fromCustomMailFromStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679271089"><span id="local-6989586621679271091"><span id="local-6989586621679271093"><span class="annot"><span class="annottext">Int -&gt; CustomMailFromStatus -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679271278"><span id="local-6989586621679271280"><span id="local-6989586621679271282"><span class="annot"><span class="annottext">Int -&gt; CustomMailFromStatus -&gt; ShowS
 [CustomMailFromStatus] -&gt; ShowS
 CustomMailFromStatus -&gt; String
 (Int -&gt; CustomMailFromStatus -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: CustomMailFromStatus -&gt; String
 showsPrec :: Int -&gt; CustomMailFromStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; CustomMailFromStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679271080"><span id="local-6989586621679271082"><span id="local-6989586621679271084"><span id="local-6989586621679271086"><span class="annot"><span class="annottext">ReadPrec [CustomMailFromStatus]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679271269"><span id="local-6989586621679271271"><span id="local-6989586621679271273"><span id="local-6989586621679271275"><span class="annot"><span class="annottext">ReadPrec [CustomMailFromStatus]
 ReadPrec CustomMailFromStatus
 Int -&gt; ReadS CustomMailFromStatus
 ReadS [CustomMailFromStatus]
@@ -74,7 +74,7 @@ $creadList :: ReadS [CustomMailFromStatus]
 readsPrec :: Int -&gt; ReadS CustomMailFromStatus
 $creadsPrec :: Int -&gt; ReadS CustomMailFromStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679271075"><span id="local-6989586621679271077"><span class="annot"><span class="annottext">CustomMailFromStatus -&gt; CustomMailFromStatus -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679271264"><span id="local-6989586621679271266"><span class="annot"><span class="annottext">CustomMailFromStatus -&gt; CustomMailFromStatus -&gt; Bool
 (CustomMailFromStatus -&gt; CustomMailFromStatus -&gt; Bool)
 -&gt; (CustomMailFromStatus -&gt; CustomMailFromStatus -&gt; Bool)
 -&gt; Eq CustomMailFromStatus
@@ -84,7 +84,7 @@ $c/= :: CustomMailFromStatus -&gt; CustomMailFromStatus -&gt; Bool
 == :: CustomMailFromStatus -&gt; CustomMailFromStatus -&gt; Bool
 $c== :: CustomMailFromStatus -&gt; CustomMailFromStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679271059"><span id="local-6989586621679271061"><span id="local-6989586621679271063"><span id="local-6989586621679271065"><span id="local-6989586621679271067"><span id="local-6989586621679271069"><span id="local-6989586621679271071"><span class="annot"><span class="annottext">Eq CustomMailFromStatus
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679271248"><span id="local-6989586621679271250"><span id="local-6989586621679271252"><span id="local-6989586621679271254"><span id="local-6989586621679271256"><span id="local-6989586621679271258"><span id="local-6989586621679271260"><span class="annot"><span class="annottext">Eq CustomMailFromStatus
 Eq CustomMailFromStatus
 -&gt; (CustomMailFromStatus -&gt; CustomMailFromStatus -&gt; Ordering)
 -&gt; (CustomMailFromStatus -&gt; CustomMailFromStatus -&gt; Bool)
@@ -142,7 +142,7 @@ $cfrom :: forall x. CustomMailFromStatus -&gt; Rep CustomMailFromStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679271051"><span id="local-6989586621679271053"><span class="annot"><span class="annottext">Int -&gt; CustomMailFromStatus -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679271240"><span id="local-6989586621679271242"><span class="annot"><span class="annottext">Int -&gt; CustomMailFromStatus -&gt; Int
 CustomMailFromStatus -&gt; Int
 (Int -&gt; CustomMailFromStatus -&gt; Int)
 -&gt; (CustomMailFromStatus -&gt; Int) -&gt; Hashable CustomMailFromStatus
@@ -152,54 +152,54 @@ $chash :: CustomMailFromStatus -&gt; Int
 hashWithSalt :: Int -&gt; CustomMailFromStatus -&gt; Int
 $chashWithSalt :: Int -&gt; CustomMailFromStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679271048"><span class="annot"><span class="annottext">CustomMailFromStatus -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679271237"><span class="annot"><span class="annottext">CustomMailFromStatus -&gt; ()
 (CustomMailFromStatus -&gt; ()) -&gt; NFData CustomMailFromStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CustomMailFromStatus -&gt; ()
 $crnf :: CustomMailFromStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679271045"><span class="annot"><span class="annottext">Text -&gt; Either String CustomMailFromStatus
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679271234"><span class="annot"><span class="annottext">Text -&gt; Either String CustomMailFromStatus
 (Text -&gt; Either String CustomMailFromStatus)
 -&gt; FromText CustomMailFromStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CustomMailFromStatus
 $cfromText :: Text -&gt; Either String CustomMailFromStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679271042"><span class="annot"><span class="annottext">CustomMailFromStatus -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679271231"><span class="annot"><span class="annottext">CustomMailFromStatus -&gt; Text
 (CustomMailFromStatus -&gt; Text) -&gt; ToText CustomMailFromStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CustomMailFromStatus -&gt; Text
 $ctoText :: CustomMailFromStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679271039"><span class="annot"><span class="annottext">CustomMailFromStatus -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679271228"><span class="annot"><span class="annottext">CustomMailFromStatus -&gt; ByteString
 (CustomMailFromStatus -&gt; ByteString)
 -&gt; ToByteString CustomMailFromStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CustomMailFromStatus -&gt; ByteString
 $ctoBS :: CustomMailFromStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679271036"><span class="annot"><span class="annottext">CustomMailFromStatus -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679271225"><span class="annot"><span class="annottext">CustomMailFromStatus -&gt; ByteStringBuilder
 (CustomMailFromStatus -&gt; ByteStringBuilder)
 -&gt; ToLog CustomMailFromStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CustomMailFromStatus -&gt; ByteStringBuilder
 $cbuild :: CustomMailFromStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679271033"><span class="annot"><span class="annottext">HeaderName -&gt; CustomMailFromStatus -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679271222"><span class="annot"><span class="annottext">HeaderName -&gt; CustomMailFromStatus -&gt; [Header]
 (HeaderName -&gt; CustomMailFromStatus -&gt; [Header])
 -&gt; ToHeader CustomMailFromStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CustomMailFromStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CustomMailFromStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679271030"><span class="annot"><span class="annottext">CustomMailFromStatus -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679271219"><span class="annot"><span class="annottext">CustomMailFromStatus -&gt; QueryString
 (CustomMailFromStatus -&gt; QueryString)
 -&gt; ToQuery CustomMailFromStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CustomMailFromStatus -&gt; QueryString
 $ctoQuery :: CustomMailFromStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679271025"><span id="local-6989586621679271027"><span class="annot"><span class="annottext">Value -&gt; Parser [CustomMailFromStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679271214"><span id="local-6989586621679271216"><span class="annot"><span class="annottext">Value -&gt; Parser [CustomMailFromStatus]
 Value -&gt; Parser CustomMailFromStatus
 (Value -&gt; Parser CustomMailFromStatus)
 -&gt; (Value -&gt; Parser [CustomMailFromStatus])
@@ -211,7 +211,7 @@ $cparseJSONList :: Value -&gt; Parser [CustomMailFromStatus]
 parseJSON :: Value -&gt; Parser CustomMailFromStatus
 $cparseJSON :: Value -&gt; Parser CustomMailFromStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679271020"><span id="local-6989586621679271022"><span class="annot"><span class="annottext">FromJSONKeyFunction [CustomMailFromStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679271209"><span id="local-6989586621679271211"><span class="annot"><span class="annottext">FromJSONKeyFunction [CustomMailFromStatus]
 FromJSONKeyFunction CustomMailFromStatus
 FromJSONKeyFunction CustomMailFromStatus
 -&gt; FromJSONKeyFunction [CustomMailFromStatus]
@@ -223,7 +223,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CustomMailFromStatus]
 fromJSONKey :: FromJSONKeyFunction CustomMailFromStatus
 $cfromJSONKey :: FromJSONKeyFunction CustomMailFromStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679271011"><span id="local-6989586621679271013"><span id="local-6989586621679271015"><span id="local-6989586621679271017"><span class="annot"><span class="annottext">[CustomMailFromStatus] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679271200"><span id="local-6989586621679271202"><span id="local-6989586621679271204"><span id="local-6989586621679271206"><span class="annot"><span class="annottext">[CustomMailFromStatus] -&gt; Encoding
 [CustomMailFromStatus] -&gt; Value
 CustomMailFromStatus -&gt; Encoding
 CustomMailFromStatus -&gt; Value
@@ -247,7 +247,7 @@ $ctoEncoding :: CustomMailFromStatus -&gt; Encoding
 toJSON :: CustomMailFromStatus -&gt; Value
 $ctoJSON :: CustomMailFromStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679271006"><span id="local-6989586621679271008"><span class="annot"><span class="annottext">ToJSONKeyFunction [CustomMailFromStatus]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679271195"><span id="local-6989586621679271197"><span class="annot"><span class="annottext">ToJSONKeyFunction [CustomMailFromStatus]
 ToJSONKeyFunction CustomMailFromStatus
 ToJSONKeyFunction CustomMailFromStatus
 -&gt; ToJSONKeyFunction [CustomMailFromStatus]
@@ -259,14 +259,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CustomMailFromStatus]
 toJSONKey :: ToJSONKeyFunction CustomMailFromStatus
 $ctoJSONKey :: ToJSONKeyFunction CustomMailFromStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679271003"><span class="annot"><span class="annottext">[Node] -&gt; Either String CustomMailFromStatus
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679271192"><span class="annot"><span class="annottext">[Node] -&gt; Either String CustomMailFromStatus
 ([Node] -&gt; Either String CustomMailFromStatus)
 -&gt; FromXML CustomMailFromStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CustomMailFromStatus
 $cparseXML :: [Node] -&gt; Either String CustomMailFromStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679271000"><span class="annot"><span class="annottext">CustomMailFromStatus -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679271189"><span class="annot"><span class="annottext">CustomMailFromStatus -&gt; XML
 (CustomMailFromStatus -&gt; XML) -&gt; ToXML CustomMailFromStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CustomMailFromStatus -&gt; XML

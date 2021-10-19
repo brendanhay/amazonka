@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-comment">-- file. Choose Passthrough (PASSTHROUGH) if you want SCTE-35 markers that</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- appear in your input to also appear in this output. Choose None (NONE)</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- if you don\'t want those SCTE-35 markers in this output.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679946447"><span id="local-6989586621679946448"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CmfcScte35Source"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcScte35Source.html#CmfcScte35Source"><span class="hs-identifier hs-var">CmfcScte35Source</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CmfcScte35Source%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcScte35Source.html#CmfcScte35Source%27"><span class="hs-identifier hs-var">CmfcScte35Source'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679951070"><span id="local-6989586621679951071"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CmfcScte35Source"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcScte35Source.html#CmfcScte35Source"><span class="hs-identifier hs-var">CmfcScte35Source</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CmfcScte35Source%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmfcScte35Source.html#CmfcScte35Source%27"><span class="hs-identifier hs-var">CmfcScte35Source'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCmfcScte35Source"><span class="annot"><span class="annottext">CmfcScte35Source -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.CmfcScte35Source.html#fromCmfcScte35Source"><span class="hs-identifier hs-var hs-var">fromCmfcScte35Source</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679946439"><span id="local-6989586621679946441"><span id="local-6989586621679946443"><span class="annot"><span class="annottext">Int -&gt; CmfcScte35Source -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679951062"><span id="local-6989586621679951064"><span id="local-6989586621679951066"><span class="annot"><span class="annottext">Int -&gt; CmfcScte35Source -&gt; ShowS
 [CmfcScte35Source] -&gt; ShowS
 CmfcScte35Source -&gt; String
 (Int -&gt; CmfcScte35Source -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: CmfcScte35Source -&gt; String
 showsPrec :: Int -&gt; CmfcScte35Source -&gt; ShowS
 $cshowsPrec :: Int -&gt; CmfcScte35Source -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679946430"><span id="local-6989586621679946432"><span id="local-6989586621679946434"><span id="local-6989586621679946436"><span class="annot"><span class="annottext">ReadPrec [CmfcScte35Source]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679951053"><span id="local-6989586621679951055"><span id="local-6989586621679951057"><span id="local-6989586621679951059"><span class="annot"><span class="annottext">ReadPrec [CmfcScte35Source]
 ReadPrec CmfcScte35Source
 Int -&gt; ReadS CmfcScte35Source
 ReadS [CmfcScte35Source]
@@ -76,7 +76,7 @@ $creadList :: ReadS [CmfcScte35Source]
 readsPrec :: Int -&gt; ReadS CmfcScte35Source
 $creadsPrec :: Int -&gt; ReadS CmfcScte35Source
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679946425"><span id="local-6989586621679946427"><span class="annot"><span class="annottext">CmfcScte35Source -&gt; CmfcScte35Source -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679951048"><span id="local-6989586621679951050"><span class="annot"><span class="annottext">CmfcScte35Source -&gt; CmfcScte35Source -&gt; Bool
 (CmfcScte35Source -&gt; CmfcScte35Source -&gt; Bool)
 -&gt; (CmfcScte35Source -&gt; CmfcScte35Source -&gt; Bool)
 -&gt; Eq CmfcScte35Source
@@ -86,7 +86,7 @@ $c/= :: CmfcScte35Source -&gt; CmfcScte35Source -&gt; Bool
 == :: CmfcScte35Source -&gt; CmfcScte35Source -&gt; Bool
 $c== :: CmfcScte35Source -&gt; CmfcScte35Source -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679946409"><span id="local-6989586621679946411"><span id="local-6989586621679946413"><span id="local-6989586621679946415"><span id="local-6989586621679946417"><span id="local-6989586621679946419"><span id="local-6989586621679946421"><span class="annot"><span class="annottext">Eq CmfcScte35Source
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679951032"><span id="local-6989586621679951034"><span id="local-6989586621679951036"><span id="local-6989586621679951038"><span id="local-6989586621679951040"><span id="local-6989586621679951042"><span id="local-6989586621679951044"><span class="annot"><span class="annottext">Eq CmfcScte35Source
 Eq CmfcScte35Source
 -&gt; (CmfcScte35Source -&gt; CmfcScte35Source -&gt; Ordering)
 -&gt; (CmfcScte35Source -&gt; CmfcScte35Source -&gt; Bool)
@@ -137,7 +137,7 @@ $cfrom :: forall x. CmfcScte35Source -&gt; Rep CmfcScte35Source x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679946401"><span id="local-6989586621679946403"><span class="annot"><span class="annottext">Int -&gt; CmfcScte35Source -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679951024"><span id="local-6989586621679951026"><span class="annot"><span class="annottext">Int -&gt; CmfcScte35Source -&gt; Int
 CmfcScte35Source -&gt; Int
 (Int -&gt; CmfcScte35Source -&gt; Int)
 -&gt; (CmfcScte35Source -&gt; Int) -&gt; Hashable CmfcScte35Source
@@ -147,51 +147,51 @@ $chash :: CmfcScte35Source -&gt; Int
 hashWithSalt :: Int -&gt; CmfcScte35Source -&gt; Int
 $chashWithSalt :: Int -&gt; CmfcScte35Source -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679946398"><span class="annot"><span class="annottext">CmfcScte35Source -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679951021"><span class="annot"><span class="annottext">CmfcScte35Source -&gt; ()
 (CmfcScte35Source -&gt; ()) -&gt; NFData CmfcScte35Source
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CmfcScte35Source -&gt; ()
 $crnf :: CmfcScte35Source -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679946395"><span class="annot"><span class="annottext">Text -&gt; Either String CmfcScte35Source
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679951018"><span class="annot"><span class="annottext">Text -&gt; Either String CmfcScte35Source
 (Text -&gt; Either String CmfcScte35Source)
 -&gt; FromText CmfcScte35Source
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CmfcScte35Source
 $cfromText :: Text -&gt; Either String CmfcScte35Source
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679946392"><span class="annot"><span class="annottext">CmfcScte35Source -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679951015"><span class="annot"><span class="annottext">CmfcScte35Source -&gt; Text
 (CmfcScte35Source -&gt; Text) -&gt; ToText CmfcScte35Source
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CmfcScte35Source -&gt; Text
 $ctoText :: CmfcScte35Source -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679946389"><span class="annot"><span class="annottext">CmfcScte35Source -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679951012"><span class="annot"><span class="annottext">CmfcScte35Source -&gt; ByteString
 (CmfcScte35Source -&gt; ByteString) -&gt; ToByteString CmfcScte35Source
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CmfcScte35Source -&gt; ByteString
 $ctoBS :: CmfcScte35Source -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679946386"><span class="annot"><span class="annottext">CmfcScte35Source -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679951009"><span class="annot"><span class="annottext">CmfcScte35Source -&gt; ByteStringBuilder
 (CmfcScte35Source -&gt; ByteStringBuilder) -&gt; ToLog CmfcScte35Source
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CmfcScte35Source -&gt; ByteStringBuilder
 $cbuild :: CmfcScte35Source -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679946383"><span class="annot"><span class="annottext">HeaderName -&gt; CmfcScte35Source -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679951006"><span class="annot"><span class="annottext">HeaderName -&gt; CmfcScte35Source -&gt; [Header]
 (HeaderName -&gt; CmfcScte35Source -&gt; [Header])
 -&gt; ToHeader CmfcScte35Source
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CmfcScte35Source -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CmfcScte35Source -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679946380"><span class="annot"><span class="annottext">CmfcScte35Source -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679951003"><span class="annot"><span class="annottext">CmfcScte35Source -&gt; QueryString
 (CmfcScte35Source -&gt; QueryString) -&gt; ToQuery CmfcScte35Source
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CmfcScte35Source -&gt; QueryString
 $ctoQuery :: CmfcScte35Source -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679946375"><span id="local-6989586621679946377"><span class="annot"><span class="annottext">Value -&gt; Parser [CmfcScte35Source]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679950998"><span id="local-6989586621679951000"><span class="annot"><span class="annottext">Value -&gt; Parser [CmfcScte35Source]
 Value -&gt; Parser CmfcScte35Source
 (Value -&gt; Parser CmfcScte35Source)
 -&gt; (Value -&gt; Parser [CmfcScte35Source])
@@ -203,7 +203,7 @@ $cparseJSONList :: Value -&gt; Parser [CmfcScte35Source]
 parseJSON :: Value -&gt; Parser CmfcScte35Source
 $cparseJSON :: Value -&gt; Parser CmfcScte35Source
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679946370"><span id="local-6989586621679946372"><span class="annot"><span class="annottext">FromJSONKeyFunction [CmfcScte35Source]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679950993"><span id="local-6989586621679950995"><span class="annot"><span class="annottext">FromJSONKeyFunction [CmfcScte35Source]
 FromJSONKeyFunction CmfcScte35Source
 FromJSONKeyFunction CmfcScte35Source
 -&gt; FromJSONKeyFunction [CmfcScte35Source]
@@ -215,7 +215,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CmfcScte35Source]
 fromJSONKey :: FromJSONKeyFunction CmfcScte35Source
 $cfromJSONKey :: FromJSONKeyFunction CmfcScte35Source
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679946361"><span id="local-6989586621679946363"><span id="local-6989586621679946365"><span id="local-6989586621679946367"><span class="annot"><span class="annottext">[CmfcScte35Source] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679950984"><span id="local-6989586621679950986"><span id="local-6989586621679950988"><span id="local-6989586621679950990"><span class="annot"><span class="annottext">[CmfcScte35Source] -&gt; Encoding
 [CmfcScte35Source] -&gt; Value
 CmfcScte35Source -&gt; Encoding
 CmfcScte35Source -&gt; Value
@@ -239,7 +239,7 @@ $ctoEncoding :: CmfcScte35Source -&gt; Encoding
 toJSON :: CmfcScte35Source -&gt; Value
 $ctoJSON :: CmfcScte35Source -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679946356"><span id="local-6989586621679946358"><span class="annot"><span class="annottext">ToJSONKeyFunction [CmfcScte35Source]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679950979"><span id="local-6989586621679950981"><span class="annot"><span class="annottext">ToJSONKeyFunction [CmfcScte35Source]
 ToJSONKeyFunction CmfcScte35Source
 ToJSONKeyFunction CmfcScte35Source
 -&gt; ToJSONKeyFunction [CmfcScte35Source]
@@ -251,14 +251,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CmfcScte35Source]
 toJSONKey :: ToJSONKeyFunction CmfcScte35Source
 $ctoJSONKey :: ToJSONKeyFunction CmfcScte35Source
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679946353"><span class="annot"><span class="annottext">[Node] -&gt; Either String CmfcScte35Source
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679950976"><span class="annot"><span class="annottext">[Node] -&gt; Either String CmfcScte35Source
 ([Node] -&gt; Either String CmfcScte35Source)
 -&gt; FromXML CmfcScte35Source
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CmfcScte35Source
 $cparseXML :: [Node] -&gt; Either String CmfcScte35Source
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679946350"><span class="annot"><span class="annottext">CmfcScte35Source -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679950973"><span class="annot"><span class="annottext">CmfcScte35Source -&gt; XML
 (CmfcScte35Source -&gt; XML) -&gt; ToXML CmfcScte35Source
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CmfcScte35Source -&gt; XML

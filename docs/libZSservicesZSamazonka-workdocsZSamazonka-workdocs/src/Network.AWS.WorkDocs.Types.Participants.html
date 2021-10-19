@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Describes the users or user groups.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newParticipants' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679265062"><span id="local-6989586621679265063"></span></span><span class="hs-keyword">data</span><span> </span><span id="Participants"><span class="annot"><a href="Network.AWS.WorkDocs.Types.Participants.html#Participants"><span class="hs-identifier hs-var">Participants</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Participants%27"><span class="annot"><a href="Network.AWS.WorkDocs.Types.Participants.html#Participants%27"><span class="hs-identifier hs-var">Participants'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679265190"><span id="local-6989586621679265191"></span></span><span class="hs-keyword">data</span><span> </span><span id="Participants"><span class="annot"><a href="Network.AWS.WorkDocs.Types.Participants.html#Participants"><span class="hs-identifier hs-var">Participants</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Participants%27"><span class="annot"><a href="Network.AWS.WorkDocs.Types.Participants.html#Participants%27"><span class="hs-identifier hs-var">Participants'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of user groups.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Agroups%3AParticipants%27"><span class="annot"><span class="annottext">Participants -&gt; Maybe [GroupMetadata]
 </span><a href="Network.AWS.WorkDocs.Types.Participants.html#%24sel%3Agroups%3AParticipants%27"><span class="hs-identifier hs-var hs-var">groups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.GroupMetadata.html#GroupMetadata"><span class="hs-identifier hs-type">GroupMetadata</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Ausers%3AParticipants%27"><span class="annot"><span class="annottext">Participants -&gt; Maybe [UserMetadata]
 </span><a href="Network.AWS.WorkDocs.Types.Participants.html#%24sel%3Ausers%3AParticipants%27"><span class="hs-identifier hs-var hs-var">users</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.UserMetadata.html#UserMetadata"><span class="hs-identifier hs-type">UserMetadata</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679265055"><span id="local-6989586621679265057"><span class="annot"><span class="annottext">Participants -&gt; Participants -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679265183"><span id="local-6989586621679265185"><span class="annot"><span class="annottext">Participants -&gt; Participants -&gt; Bool
 (Participants -&gt; Participants -&gt; Bool)
 -&gt; (Participants -&gt; Participants -&gt; Bool) -&gt; Eq Participants
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Participants -&gt; Participants -&gt; Bool
 == :: Participants -&gt; Participants -&gt; Bool
 $c== :: Participants -&gt; Participants -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265046"><span id="local-6989586621679265048"><span id="local-6989586621679265050"><span id="local-6989586621679265052"><span class="annot"><span class="annottext">ReadPrec [Participants]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265174"><span id="local-6989586621679265176"><span id="local-6989586621679265178"><span id="local-6989586621679265180"><span class="annot"><span class="annottext">ReadPrec [Participants]
 ReadPrec Participants
 Int -&gt; ReadS Participants
 ReadS [Participants]
@@ -64,7 +64,7 @@ readList :: ReadS [Participants]
 $creadList :: ReadS [Participants]
 readsPrec :: Int -&gt; ReadS Participants
 $creadsPrec :: Int -&gt; ReadS Participants
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265039"><span id="local-6989586621679265041"><span id="local-6989586621679265043"><span class="annot"><span class="annottext">Int -&gt; Participants -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265167"><span id="local-6989586621679265169"><span id="local-6989586621679265171"><span class="annot"><span class="annottext">Int -&gt; Participants -&gt; ShowS
 [Participants] -&gt; ShowS
 Participants -&gt; String
 (Int -&gt; Participants -&gt; ShowS)
@@ -129,16 +129,16 @@ forall a. Maybe a
      (Maybe [GroupMetadata])
      (Maybe [GroupMetadata])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Participants.html#Participants%27"><span class="hs-identifier hs-type">Participants'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265030"><span class="annot"><span class="annottext">Maybe [GroupMetadata]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Participants.html#Participants%27"><span class="hs-identifier hs-type">Participants'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265158"><span class="annot"><span class="annottext">Maybe [GroupMetadata]
 groups :: Maybe [GroupMetadata]
 $sel:groups:Participants' :: Participants -&gt; Maybe [GroupMetadata]
-</span><a href="#local-6989586621679265030"><span class="hs-identifier hs-var hs-var">groups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [GroupMetadata]
-</span><a href="#local-6989586621679265030"><span class="hs-identifier hs-var">groups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265029"><span class="annot"><span class="annottext">s :: Participants
-</span><a href="#local-6989586621679265029"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Participants.html#Participants%27"><span class="hs-identifier hs-type">Participants'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265028"><span class="annot"><span class="annottext">Maybe [GroupMetadata]
-</span><a href="#local-6989586621679265028"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Participants
-</span><a href="#local-6989586621679265029"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groups:Participants' :: Maybe [GroupMetadata]
+</span><a href="#local-6989586621679265158"><span class="hs-identifier hs-var hs-var">groups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [GroupMetadata]
+</span><a href="#local-6989586621679265158"><span class="hs-identifier hs-var">groups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265157"><span class="annot"><span class="annottext">s :: Participants
+</span><a href="#local-6989586621679265157"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Participants.html#Participants%27"><span class="hs-identifier hs-type">Participants'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265156"><span class="annot"><span class="annottext">Maybe [GroupMetadata]
+</span><a href="#local-6989586621679265156"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Participants
+</span><a href="#local-6989586621679265157"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groups:Participants' :: Maybe [GroupMetadata]
 </span><a href="Network.AWS.WorkDocs.Types.Participants.html#%24sel%3Agroups%3AParticipants%27"><span class="hs-identifier hs-var">groups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [GroupMetadata]
-</span><a href="#local-6989586621679265028"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Participants.html#Participants"><span class="hs-identifier hs-type">Participants</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [GroupMetadata] -&gt; f (Maybe [GroupMetadata]))
+</span><a href="#local-6989586621679265156"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Participants.html#Participants"><span class="hs-identifier hs-type">Participants</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [GroupMetadata] -&gt; f (Maybe [GroupMetadata]))
  -&gt; Participants -&gt; f Participants)
 -&gt; ((Maybe [GroupMetadata] -&gt; f (Maybe [GroupMetadata]))
     -&gt; Maybe [GroupMetadata] -&gt; f (Maybe [GroupMetadata]))
@@ -158,8 +158,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   [GroupMetadata] [GroupMetadata] [GroupMetadata] [GroupMetadata]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | The list of users.</span><span>
 </span><span id="line-63"></span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Participants.html#participants_users"><span class="hs-identifier hs-type">participants_users</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Participants.html#Participants"><span class="hs-identifier hs-type">Participants</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.UserMetadata.html#UserMetadata"><span class="hs-identifier hs-type">UserMetadata</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -173,16 +173,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe [UserMetadata])
      (Maybe [UserMetadata])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Participants.html#Participants%27"><span class="hs-identifier hs-type">Participants'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265023"><span class="annot"><span class="annottext">Maybe [UserMetadata]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Participants.html#Participants%27"><span class="hs-identifier hs-type">Participants'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265151"><span class="annot"><span class="annottext">Maybe [UserMetadata]
 users :: Maybe [UserMetadata]
 $sel:users:Participants' :: Participants -&gt; Maybe [UserMetadata]
-</span><a href="#local-6989586621679265023"><span class="hs-identifier hs-var hs-var">users</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [UserMetadata]
-</span><a href="#local-6989586621679265023"><span class="hs-identifier hs-var">users</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265022"><span class="annot"><span class="annottext">s :: Participants
-</span><a href="#local-6989586621679265022"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Participants.html#Participants%27"><span class="hs-identifier hs-type">Participants'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265021"><span class="annot"><span class="annottext">Maybe [UserMetadata]
-</span><a href="#local-6989586621679265021"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Participants
-</span><a href="#local-6989586621679265022"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:users:Participants' :: Maybe [UserMetadata]
+</span><a href="#local-6989586621679265151"><span class="hs-identifier hs-var hs-var">users</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [UserMetadata]
+</span><a href="#local-6989586621679265151"><span class="hs-identifier hs-var">users</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265150"><span class="annot"><span class="annottext">s :: Participants
+</span><a href="#local-6989586621679265150"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Participants.html#Participants%27"><span class="hs-identifier hs-type">Participants'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265149"><span class="annot"><span class="annottext">Maybe [UserMetadata]
+</span><a href="#local-6989586621679265149"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Participants
+</span><a href="#local-6989586621679265150"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:users:Participants' :: Maybe [UserMetadata]
 </span><a href="Network.AWS.WorkDocs.Types.Participants.html#%24sel%3Ausers%3AParticipants%27"><span class="hs-identifier hs-var">users</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UserMetadata]
-</span><a href="#local-6989586621679265021"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Participants.html#Participants"><span class="hs-identifier hs-type">Participants</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [UserMetadata] -&gt; f (Maybe [UserMetadata]))
+</span><a href="#local-6989586621679265149"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Participants.html#Participants"><span class="hs-identifier hs-type">Participants</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [UserMetadata] -&gt; f (Maybe [UserMetadata]))
  -&gt; Participants -&gt; f Participants)
 -&gt; ((Maybe [UserMetadata] -&gt; f (Maybe [UserMetadata]))
     -&gt; Maybe [UserMetadata] -&gt; f (Maybe [UserMetadata]))
@@ -200,11 +200,11 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [UserMetadata] [UserMetadata] [UserMetadata] [UserMetadata]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265018"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Participants.html#Participants"><span class="hs-identifier hs-type">Participants</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679265016"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Participants
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265146"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Participants.html#Participants"><span class="hs-identifier hs-type">Participants</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679265144"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Participants
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser Participants) -&gt; Value -&gt; Parser Participants
@@ -212,8 +212,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Participants&quot;</span></span><span>
-</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679265013"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265013"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679265141"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265141"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">Maybe [GroupMetadata] -&gt; Maybe [UserMetadata] -&gt; Participants
 </span><a href="Network.AWS.WorkDocs.Types.Participants.html#Participants%27"><span class="hs-identifier hs-var">Participants'</span></a></span><span>
 </span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [GroupMetadata] -&gt; Maybe [UserMetadata] -&gt; Participants)
@@ -221,7 +221,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe [UserMetadata] -&gt; Participants)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265013"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [GroupMetadata]))
+</span><a href="#local-6989586621679265141"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [GroupMetadata]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Groups&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [GroupMetadata]))
@@ -234,7 +234,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe [UserMetadata]) -&gt; Parser Participants
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265013"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [UserMetadata]))
+</span><a href="#local-6989586621679265141"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [UserMetadata]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Users&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [UserMetadata]))
@@ -245,7 +245,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265006"><span id="local-6989586621679265008"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Participants.html#Participants"><span class="hs-identifier hs-type">Participants</span></a></span></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265134"><span id="local-6989586621679265136"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Participants.html#Participants"><span class="hs-identifier hs-type">Participants</span></a></span></span></span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265003"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Participants.html#Participants"><span class="hs-identifier hs-type">Participants</span></a></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265131"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.Participants.html#Participants"><span class="hs-identifier hs-type">Participants</span></a></span></span><span>
 </span><span id="line-79"></span></pre></body></html>

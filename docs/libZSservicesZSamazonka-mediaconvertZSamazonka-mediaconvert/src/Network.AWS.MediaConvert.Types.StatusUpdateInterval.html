@@ -47,13 +47,13 @@
 </span><span id="line-47"></span><span class="hs-comment">-- MediaConvert sends an update at this interval from the time the service</span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- begins processing your job to the time it completes the transcode or</span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- encounters an error.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621680002324"><span id="local-6989586621680002325"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StatusUpdateInterval"><span class="annot"><a href="Network.AWS.MediaConvert.Types.StatusUpdateInterval.html#StatusUpdateInterval"><span class="hs-identifier hs-var">StatusUpdateInterval</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StatusUpdateInterval%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.StatusUpdateInterval.html#StatusUpdateInterval%27"><span class="hs-identifier hs-var">StatusUpdateInterval'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621680007254"><span id="local-6989586621680007255"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StatusUpdateInterval"><span class="annot"><a href="Network.AWS.MediaConvert.Types.StatusUpdateInterval.html#StatusUpdateInterval"><span class="hs-identifier hs-var">StatusUpdateInterval</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StatusUpdateInterval%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.StatusUpdateInterval.html#StatusUpdateInterval%27"><span class="hs-identifier hs-var">StatusUpdateInterval'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromStatusUpdateInterval"><span class="annot"><span class="annottext">StatusUpdateInterval -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.StatusUpdateInterval.html#fromStatusUpdateInterval"><span class="hs-identifier hs-var hs-var">fromStatusUpdateInterval</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-52"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680002316"><span id="local-6989586621680002318"><span id="local-6989586621680002320"><span class="annot"><span class="annottext">Int -&gt; StatusUpdateInterval -&gt; ShowS
+</span><span id="line-55"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680007246"><span id="local-6989586621680007248"><span id="local-6989586621680007250"><span class="annot"><span class="annottext">Int -&gt; StatusUpdateInterval -&gt; ShowS
 [StatusUpdateInterval] -&gt; ShowS
 StatusUpdateInterval -&gt; String
 (Int -&gt; StatusUpdateInterval -&gt; ShowS)
@@ -69,7 +69,7 @@ $cshow :: StatusUpdateInterval -&gt; String
 showsPrec :: Int -&gt; StatusUpdateInterval -&gt; ShowS
 $cshowsPrec :: Int -&gt; StatusUpdateInterval -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680002307"><span id="local-6989586621680002309"><span id="local-6989586621680002311"><span id="local-6989586621680002313"><span class="annot"><span class="annottext">ReadPrec [StatusUpdateInterval]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680007237"><span id="local-6989586621680007239"><span id="local-6989586621680007241"><span id="local-6989586621680007243"><span class="annot"><span class="annottext">ReadPrec [StatusUpdateInterval]
 ReadPrec StatusUpdateInterval
 Int -&gt; ReadS StatusUpdateInterval
 ReadS [StatusUpdateInterval]
@@ -90,7 +90,7 @@ $creadList :: ReadS [StatusUpdateInterval]
 readsPrec :: Int -&gt; ReadS StatusUpdateInterval
 $creadsPrec :: Int -&gt; ReadS StatusUpdateInterval
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680002302"><span id="local-6989586621680002304"><span class="annot"><span class="annottext">StatusUpdateInterval -&gt; StatusUpdateInterval -&gt; Bool
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680007232"><span id="local-6989586621680007234"><span class="annot"><span class="annottext">StatusUpdateInterval -&gt; StatusUpdateInterval -&gt; Bool
 (StatusUpdateInterval -&gt; StatusUpdateInterval -&gt; Bool)
 -&gt; (StatusUpdateInterval -&gt; StatusUpdateInterval -&gt; Bool)
 -&gt; Eq StatusUpdateInterval
@@ -100,7 +100,7 @@ $c/= :: StatusUpdateInterval -&gt; StatusUpdateInterval -&gt; Bool
 == :: StatusUpdateInterval -&gt; StatusUpdateInterval -&gt; Bool
 $c== :: StatusUpdateInterval -&gt; StatusUpdateInterval -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680002286"><span id="local-6989586621680002288"><span id="local-6989586621680002290"><span id="local-6989586621680002292"><span id="local-6989586621680002294"><span id="local-6989586621680002296"><span id="local-6989586621680002298"><span class="annot"><span class="annottext">Eq StatusUpdateInterval
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680007216"><span id="local-6989586621680007218"><span id="local-6989586621680007220"><span id="local-6989586621680007222"><span id="local-6989586621680007224"><span id="local-6989586621680007226"><span id="local-6989586621680007228"><span class="annot"><span class="annottext">Eq StatusUpdateInterval
 Eq StatusUpdateInterval
 -&gt; (StatusUpdateInterval -&gt; StatusUpdateInterval -&gt; Ordering)
 -&gt; (StatusUpdateInterval -&gt; StatusUpdateInterval -&gt; Bool)
@@ -158,7 +158,7 @@ $cfrom :: forall x. StatusUpdateInterval -&gt; Rep StatusUpdateInterval x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680002278"><span id="local-6989586621680002280"><span class="annot"><span class="annottext">Int -&gt; StatusUpdateInterval -&gt; Int
+</span><span id="line-62"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680007208"><span id="local-6989586621680007210"><span class="annot"><span class="annottext">Int -&gt; StatusUpdateInterval -&gt; Int
 StatusUpdateInterval -&gt; Int
 (Int -&gt; StatusUpdateInterval -&gt; Int)
 -&gt; (StatusUpdateInterval -&gt; Int) -&gt; Hashable StatusUpdateInterval
@@ -168,54 +168,54 @@ $chash :: StatusUpdateInterval -&gt; Int
 hashWithSalt :: Int -&gt; StatusUpdateInterval -&gt; Int
 $chashWithSalt :: Int -&gt; StatusUpdateInterval -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621680002275"><span class="annot"><span class="annottext">StatusUpdateInterval -&gt; ()
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621680007205"><span class="annot"><span class="annottext">StatusUpdateInterval -&gt; ()
 (StatusUpdateInterval -&gt; ()) -&gt; NFData StatusUpdateInterval
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: StatusUpdateInterval -&gt; ()
 $crnf :: StatusUpdateInterval -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621680002272"><span class="annot"><span class="annottext">Text -&gt; Either String StatusUpdateInterval
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621680007202"><span class="annot"><span class="annottext">Text -&gt; Either String StatusUpdateInterval
 (Text -&gt; Either String StatusUpdateInterval)
 -&gt; FromText StatusUpdateInterval
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String StatusUpdateInterval
 $cfromText :: Text -&gt; Either String StatusUpdateInterval
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621680002269"><span class="annot"><span class="annottext">StatusUpdateInterval -&gt; Text
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621680007199"><span class="annot"><span class="annottext">StatusUpdateInterval -&gt; Text
 (StatusUpdateInterval -&gt; Text) -&gt; ToText StatusUpdateInterval
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: StatusUpdateInterval -&gt; Text
 $ctoText :: StatusUpdateInterval -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621680002266"><span class="annot"><span class="annottext">StatusUpdateInterval -&gt; ByteString
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621680007196"><span class="annot"><span class="annottext">StatusUpdateInterval -&gt; ByteString
 (StatusUpdateInterval -&gt; ByteString)
 -&gt; ToByteString StatusUpdateInterval
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: StatusUpdateInterval -&gt; ByteString
 $ctoBS :: StatusUpdateInterval -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621680002263"><span class="annot"><span class="annottext">StatusUpdateInterval -&gt; ByteStringBuilder
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621680007193"><span class="annot"><span class="annottext">StatusUpdateInterval -&gt; ByteStringBuilder
 (StatusUpdateInterval -&gt; ByteStringBuilder)
 -&gt; ToLog StatusUpdateInterval
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: StatusUpdateInterval -&gt; ByteStringBuilder
 $cbuild :: StatusUpdateInterval -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621680002260"><span class="annot"><span class="annottext">HeaderName -&gt; StatusUpdateInterval -&gt; [Header]
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621680007190"><span class="annot"><span class="annottext">HeaderName -&gt; StatusUpdateInterval -&gt; [Header]
 (HeaderName -&gt; StatusUpdateInterval -&gt; [Header])
 -&gt; ToHeader StatusUpdateInterval
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; StatusUpdateInterval -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; StatusUpdateInterval -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621680002257"><span class="annot"><span class="annottext">StatusUpdateInterval -&gt; QueryString
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621680007187"><span class="annot"><span class="annottext">StatusUpdateInterval -&gt; QueryString
 (StatusUpdateInterval -&gt; QueryString)
 -&gt; ToQuery StatusUpdateInterval
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: StatusUpdateInterval -&gt; QueryString
 $ctoQuery :: StatusUpdateInterval -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621680002252"><span id="local-6989586621680002254"><span class="annot"><span class="annottext">Value -&gt; Parser [StatusUpdateInterval]
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621680007182"><span id="local-6989586621680007184"><span class="annot"><span class="annottext">Value -&gt; Parser [StatusUpdateInterval]
 Value -&gt; Parser StatusUpdateInterval
 (Value -&gt; Parser StatusUpdateInterval)
 -&gt; (Value -&gt; Parser [StatusUpdateInterval])
@@ -227,7 +227,7 @@ $cparseJSONList :: Value -&gt; Parser [StatusUpdateInterval]
 parseJSON :: Value -&gt; Parser StatusUpdateInterval
 $cparseJSON :: Value -&gt; Parser StatusUpdateInterval
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span id="local-6989586621680002247"><span id="local-6989586621680002249"><span class="annot"><span class="annottext">FromJSONKeyFunction [StatusUpdateInterval]
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621680007177"><span id="local-6989586621680007179"><span class="annot"><span class="annottext">FromJSONKeyFunction [StatusUpdateInterval]
 FromJSONKeyFunction StatusUpdateInterval
 FromJSONKeyFunction StatusUpdateInterval
 -&gt; FromJSONKeyFunction [StatusUpdateInterval]
@@ -239,7 +239,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [StatusUpdateInterval]
 fromJSONKey :: FromJSONKeyFunction StatusUpdateInterval
 $cfromJSONKey :: FromJSONKeyFunction StatusUpdateInterval
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span id="local-6989586621680002238"><span id="local-6989586621680002240"><span id="local-6989586621680002242"><span id="local-6989586621680002244"><span class="annot"><span class="annottext">[StatusUpdateInterval] -&gt; Encoding
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621680007168"><span id="local-6989586621680007170"><span id="local-6989586621680007172"><span id="local-6989586621680007174"><span class="annot"><span class="annottext">[StatusUpdateInterval] -&gt; Encoding
 [StatusUpdateInterval] -&gt; Value
 StatusUpdateInterval -&gt; Encoding
 StatusUpdateInterval -&gt; Value
@@ -263,7 +263,7 @@ $ctoEncoding :: StatusUpdateInterval -&gt; Encoding
 toJSON :: StatusUpdateInterval -&gt; Value
 $ctoJSON :: StatusUpdateInterval -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span id="local-6989586621680002233"><span id="local-6989586621680002235"><span class="annot"><span class="annottext">ToJSONKeyFunction [StatusUpdateInterval]
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621680007163"><span id="local-6989586621680007165"><span class="annot"><span class="annottext">ToJSONKeyFunction [StatusUpdateInterval]
 ToJSONKeyFunction StatusUpdateInterval
 ToJSONKeyFunction StatusUpdateInterval
 -&gt; ToJSONKeyFunction [StatusUpdateInterval]
@@ -275,14 +275,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [StatusUpdateInterval]
 toJSONKey :: ToJSONKeyFunction StatusUpdateInterval
 $ctoJSONKey :: ToJSONKeyFunction StatusUpdateInterval
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span id="local-6989586621680002230"><span class="annot"><span class="annottext">[Node] -&gt; Either String StatusUpdateInterval
+</span><span id="line-74"></span><span>      </span><span id="local-6989586621680007160"><span class="annot"><span class="annottext">[Node] -&gt; Either String StatusUpdateInterval
 ([Node] -&gt; Either String StatusUpdateInterval)
 -&gt; FromXML StatusUpdateInterval
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String StatusUpdateInterval
 $cparseXML :: [Node] -&gt; Either String StatusUpdateInterval
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span id="local-6989586621680002227"><span class="annot"><span class="annottext">StatusUpdateInterval -&gt; XML
+</span><span id="line-75"></span><span>      </span><span id="local-6989586621680007157"><span class="annot"><span class="annottext">StatusUpdateInterval -&gt; XML
 (StatusUpdateInterval -&gt; XML) -&gt; ToXML StatusUpdateInterval
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: StatusUpdateInterval -&gt; XML

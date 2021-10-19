@@ -33,17 +33,17 @@
 </span><span id="line-33"></span><span class="hs-comment">-- action.</span><span>
 </span><span id="line-34"></span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newDBClusterSnapshotAttributesResult' smart constructor.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679757417"><span id="local-6989586621679757418"></span></span><span class="hs-keyword">data</span><span> </span><span id="DBClusterSnapshotAttributesResult"><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterSnapshotAttributesResult.html#DBClusterSnapshotAttributesResult"><span class="hs-identifier hs-var">DBClusterSnapshotAttributesResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DBClusterSnapshotAttributesResult%27"><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterSnapshotAttributesResult.html#DBClusterSnapshotAttributesResult%27"><span class="hs-identifier hs-var">DBClusterSnapshotAttributesResult'</span></a></span></span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of attributes and values for the manual DB cluster snapshot.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AdbClusterSnapshotAttributes%3ADBClusterSnapshotAttributesResult%27"><span class="annot"><span class="annottext">DBClusterSnapshotAttributesResult
+</span><span id="line-36"></span><span id="local-6989586621679758455"><span id="local-6989586621679758456"></span></span><span class="hs-keyword">data</span><span> </span><span id="DBClusterSnapshotAttributesResult"><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterSnapshotAttributesResult.html#DBClusterSnapshotAttributesResult"><span class="hs-identifier hs-var">DBClusterSnapshotAttributesResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DBClusterSnapshotAttributesResult%27"><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterSnapshotAttributesResult.html#DBClusterSnapshotAttributesResult%27"><span class="hs-identifier hs-var">DBClusterSnapshotAttributesResult'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the manual DB cluster snapshot that the attributes</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- apply to.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AdbClusterSnapshotIdentifier%3ADBClusterSnapshotAttributesResult%27"><span class="annot"><span class="annottext">DBClusterSnapshotAttributesResult -&gt; Maybe Text
+</span><a href="Network.AWS.RDS.Types.DBClusterSnapshotAttributesResult.html#%24sel%3AdbClusterSnapshotIdentifier%3ADBClusterSnapshotAttributesResult%27"><span class="hs-identifier hs-var hs-var">dbClusterSnapshotIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The list of attributes and values for the manual DB cluster snapshot.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AdbClusterSnapshotAttributes%3ADBClusterSnapshotAttributesResult%27"><span class="annot"><span class="annottext">DBClusterSnapshotAttributesResult
 -&gt; Maybe [DBClusterSnapshotAttribute]
-</span><a href="Network.AWS.RDS.Types.DBClusterSnapshotAttributesResult.html#%24sel%3AdbClusterSnapshotAttributes%3ADBClusterSnapshotAttributesResult%27"><span class="hs-identifier hs-var hs-var">dbClusterSnapshotAttributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterSnapshotAttribute.html#DBClusterSnapshotAttribute"><span class="hs-identifier hs-type">DBClusterSnapshotAttribute</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The identifier of the manual DB cluster snapshot that the attributes</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- apply to.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AdbClusterSnapshotIdentifier%3ADBClusterSnapshotAttributesResult%27"><span class="annot"><span class="annottext">DBClusterSnapshotAttributesResult -&gt; Maybe Text
-</span><a href="Network.AWS.RDS.Types.DBClusterSnapshotAttributesResult.html#%24sel%3AdbClusterSnapshotIdentifier%3ADBClusterSnapshotAttributesResult%27"><span class="hs-identifier hs-var hs-var">dbClusterSnapshotIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><a href="Network.AWS.RDS.Types.DBClusterSnapshotAttributesResult.html#%24sel%3AdbClusterSnapshotAttributes%3ADBClusterSnapshotAttributesResult%27"><span class="hs-identifier hs-var hs-var">dbClusterSnapshotAttributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterSnapshotAttribute.html#DBClusterSnapshotAttribute"><span class="hs-identifier hs-type">DBClusterSnapshotAttribute</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679757410"><span id="local-6989586621679757412"><span class="annot"><span class="annottext">DBClusterSnapshotAttributesResult
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679758448"><span id="local-6989586621679758450"><span class="annot"><span class="annottext">DBClusterSnapshotAttributesResult
 -&gt; DBClusterSnapshotAttributesResult -&gt; Bool
 (DBClusterSnapshotAttributesResult
  -&gt; DBClusterSnapshotAttributesResult -&gt; Bool)
@@ -59,7 +59,7 @@ $c/= :: DBClusterSnapshotAttributesResult
 -&gt; DBClusterSnapshotAttributesResult -&gt; Bool
 $c== :: DBClusterSnapshotAttributesResult
 -&gt; DBClusterSnapshotAttributesResult -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679757401"><span id="local-6989586621679757403"><span id="local-6989586621679757405"><span id="local-6989586621679757407"><span class="annot"><span class="annottext">ReadPrec [DBClusterSnapshotAttributesResult]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679758439"><span id="local-6989586621679758441"><span id="local-6989586621679758443"><span id="local-6989586621679758445"><span class="annot"><span class="annottext">ReadPrec [DBClusterSnapshotAttributesResult]
 ReadPrec DBClusterSnapshotAttributesResult
 Int -&gt; ReadS DBClusterSnapshotAttributesResult
 ReadS [DBClusterSnapshotAttributesResult]
@@ -79,7 +79,7 @@ readList :: ReadS [DBClusterSnapshotAttributesResult]
 $creadList :: ReadS [DBClusterSnapshotAttributesResult]
 readsPrec :: Int -&gt; ReadS DBClusterSnapshotAttributesResult
 $creadsPrec :: Int -&gt; ReadS DBClusterSnapshotAttributesResult
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679757394"><span id="local-6989586621679757396"><span id="local-6989586621679757398"><span class="annot"><span class="annottext">Int -&gt; DBClusterSnapshotAttributesResult -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679758432"><span id="local-6989586621679758434"><span id="local-6989586621679758436"><span class="annot"><span class="annottext">Int -&gt; DBClusterSnapshotAttributesResult -&gt; ShowS
 [DBClusterSnapshotAttributesResult] -&gt; ShowS
 DBClusterSnapshotAttributesResult -&gt; String
 (Int -&gt; DBClusterSnapshotAttributesResult -&gt; ShowS)
@@ -125,32 +125,59 @@ DBClusterSnapshotAttributesResult
 </span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'dbClusterSnapshotAttributes', 'dbClusterSnapshotAttributesResult_dbClusterSnapshotAttributes' - The list of attributes and values for the manual DB cluster snapshot.</span><span>
-</span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'dbClusterSnapshotIdentifier', 'dbClusterSnapshotAttributesResult_dbClusterSnapshotIdentifier' - The identifier of the manual DB cluster snapshot that the attributes</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- apply to.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'dbClusterSnapshotIdentifier', 'dbClusterSnapshotAttributesResult_dbClusterSnapshotIdentifier' - The identifier of the manual DB cluster snapshot that the attributes</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- apply to.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'dbClusterSnapshotAttributes', 'dbClusterSnapshotAttributesResult_dbClusterSnapshotAttributes' - The list of attributes and values for the manual DB cluster snapshot.</span><span>
 </span><span id="line-57"></span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterSnapshotAttributesResult.html#newDBClusterSnapshotAttributesResult"><span class="hs-identifier hs-type">newDBClusterSnapshotAttributesResult</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-58"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterSnapshotAttributesResult.html#DBClusterSnapshotAttributesResult"><span class="hs-identifier hs-type">DBClusterSnapshotAttributesResult</span></a></span><span>
 </span><span id="line-59"></span><span id="newDBClusterSnapshotAttributesResult"><span class="annot"><span class="annottext">newDBClusterSnapshotAttributesResult :: DBClusterSnapshotAttributesResult
 </span><a href="Network.AWS.RDS.Types.DBClusterSnapshotAttributesResult.html#newDBClusterSnapshotAttributesResult"><span class="hs-identifier hs-var hs-var">newDBClusterSnapshotAttributesResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">DBClusterSnapshotAttributesResult' :: Maybe [DBClusterSnapshotAttribute]
--&gt; Maybe Text -&gt; DBClusterSnapshotAttributesResult
+</span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">DBClusterSnapshotAttributesResult' :: Maybe Text
+-&gt; Maybe [DBClusterSnapshotAttribute]
+-&gt; DBClusterSnapshotAttributesResult
 </span><a href="Network.AWS.RDS.Types.DBClusterSnapshotAttributesResult.html#DBClusterSnapshotAttributesResult%27"><span class="hs-identifier hs-type">DBClusterSnapshotAttributesResult'</span></a></span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dbClusterSnapshotAttributes:DBClusterSnapshotAttributesResult' :: Maybe [DBClusterSnapshotAttribute]
-</span><a href="Network.AWS.RDS.Types.DBClusterSnapshotAttributesResult.html#%24sel%3AdbClusterSnapshotAttributes%3ADBClusterSnapshotAttributesResult%27"><span class="hs-identifier hs-var">dbClusterSnapshotAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-62"></span><span>        </span><span class="annot"><span class="annottext">Maybe [DBClusterSnapshotAttribute]
+</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dbClusterSnapshotIdentifier:DBClusterSnapshotAttributesResult' :: Maybe Text
+</span><a href="Network.AWS.RDS.Types.DBClusterSnapshotAttributesResult.html#%24sel%3AdbClusterSnapshotIdentifier%3ADBClusterSnapshotAttributesResult%27"><span class="hs-identifier hs-var">dbClusterSnapshotIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:dbClusterSnapshotIdentifier:DBClusterSnapshotAttributesResult' :: Maybe Text
-</span><a href="Network.AWS.RDS.Types.DBClusterSnapshotAttributesResult.html#%24sel%3AdbClusterSnapshotIdentifier%3ADBClusterSnapshotAttributesResult%27"><span class="hs-identifier hs-var">dbClusterSnapshotIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-64"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:dbClusterSnapshotAttributes:DBClusterSnapshotAttributesResult' :: Maybe [DBClusterSnapshotAttribute]
+</span><a href="Network.AWS.RDS.Types.DBClusterSnapshotAttributesResult.html#%24sel%3AdbClusterSnapshotAttributes%3ADBClusterSnapshotAttributesResult%27"><span class="hs-identifier hs-var">dbClusterSnapshotAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-64"></span><span>        </span><span class="annot"><span class="annottext">Maybe [DBClusterSnapshotAttribute]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- | The list of attributes and values for the manual DB cluster snapshot.</span><span>
-</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterSnapshotAttributesResult.html#dbClusterSnapshotAttributesResult_dbClusterSnapshotAttributes"><span class="hs-identifier hs-type">dbClusterSnapshotAttributesResult_dbClusterSnapshotAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterSnapshotAttributesResult.html#DBClusterSnapshotAttributesResult"><span class="hs-identifier hs-type">DBClusterSnapshotAttributesResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterSnapshotAttribute.html#DBClusterSnapshotAttribute"><span class="hs-identifier hs-type">DBClusterSnapshotAttribute</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-69"></span><span id="dbClusterSnapshotAttributesResult_dbClusterSnapshotAttributes"><span class="annot"><span class="annottext">dbClusterSnapshotAttributesResult_dbClusterSnapshotAttributes :: (Maybe [DBClusterSnapshotAttribute]
+</span><span id="line-67"></span><span class="hs-comment">-- | The identifier of the manual DB cluster snapshot that the attributes</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- apply to.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterSnapshotAttributesResult.html#dbClusterSnapshotAttributesResult_dbClusterSnapshotIdentifier"><span class="hs-identifier hs-type">dbClusterSnapshotAttributesResult_dbClusterSnapshotIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterSnapshotAttributesResult.html#DBClusterSnapshotAttributesResult"><span class="hs-identifier hs-type">DBClusterSnapshotAttributesResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span id="dbClusterSnapshotAttributesResult_dbClusterSnapshotIdentifier"><span class="annot"><span class="annottext">dbClusterSnapshotAttributesResult_dbClusterSnapshotIdentifier :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DBClusterSnapshotAttributesResult
+-&gt; f DBClusterSnapshotAttributesResult
+</span><a href="Network.AWS.RDS.Types.DBClusterSnapshotAttributesResult.html#dbClusterSnapshotAttributesResult_dbClusterSnapshotIdentifier"><span class="hs-identifier hs-var hs-var">dbClusterSnapshotAttributesResult_dbClusterSnapshotIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBClusterSnapshotAttributesResult -&gt; Maybe Text)
+-&gt; (DBClusterSnapshotAttributesResult
+    -&gt; Maybe Text -&gt; DBClusterSnapshotAttributesResult)
+-&gt; Lens
+     DBClusterSnapshotAttributesResult
+     DBClusterSnapshotAttributesResult
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterSnapshotAttributesResult.html#DBClusterSnapshotAttributesResult%27"><span class="hs-identifier hs-type">DBClusterSnapshotAttributesResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679758423"><span class="annot"><span class="annottext">Maybe Text
+dbClusterSnapshotIdentifier :: Maybe Text
+$sel:dbClusterSnapshotIdentifier:DBClusterSnapshotAttributesResult' :: DBClusterSnapshotAttributesResult -&gt; Maybe Text
+</span><a href="#local-6989586621679758423"><span class="hs-identifier hs-var hs-var">dbClusterSnapshotIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679758423"><span class="hs-identifier hs-var">dbClusterSnapshotIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679758422"><span class="annot"><span class="annottext">s :: DBClusterSnapshotAttributesResult
+</span><a href="#local-6989586621679758422"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterSnapshotAttributesResult.html#DBClusterSnapshotAttributesResult%27"><span class="hs-identifier hs-type">DBClusterSnapshotAttributesResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679758421"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679758421"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBClusterSnapshotAttributesResult
+</span><a href="#local-6989586621679758422"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbClusterSnapshotIdentifier:DBClusterSnapshotAttributesResult' :: Maybe Text
+</span><a href="Network.AWS.RDS.Types.DBClusterSnapshotAttributesResult.html#%24sel%3AdbClusterSnapshotIdentifier%3ADBClusterSnapshotAttributesResult%27"><span class="hs-identifier hs-var">dbClusterSnapshotIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679758421"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterSnapshotAttributesResult.html#DBClusterSnapshotAttributesResult"><span class="hs-identifier hs-type">DBClusterSnapshotAttributesResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | The list of attributes and values for the manual DB cluster snapshot.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterSnapshotAttributesResult.html#dbClusterSnapshotAttributesResult_dbClusterSnapshotAttributes"><span class="hs-identifier hs-type">dbClusterSnapshotAttributesResult_dbClusterSnapshotAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterSnapshotAttributesResult.html#DBClusterSnapshotAttributesResult"><span class="hs-identifier hs-type">DBClusterSnapshotAttributesResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterSnapshotAttribute.html#DBClusterSnapshotAttribute"><span class="hs-identifier hs-type">DBClusterSnapshotAttribute</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="dbClusterSnapshotAttributesResult_dbClusterSnapshotAttributes"><span class="annot"><span class="annottext">dbClusterSnapshotAttributesResult_dbClusterSnapshotAttributes :: (Maybe [DBClusterSnapshotAttribute]
  -&gt; f (Maybe [DBClusterSnapshotAttribute]))
 -&gt; DBClusterSnapshotAttributesResult
 -&gt; f DBClusterSnapshotAttributesResult
@@ -165,17 +192,17 @@ forall a. Maybe a
      (Maybe [DBClusterSnapshotAttribute])
      (Maybe [DBClusterSnapshotAttribute])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterSnapshotAttributesResult.html#DBClusterSnapshotAttributesResult%27"><span class="hs-identifier hs-type">DBClusterSnapshotAttributesResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679757385"><span class="annot"><span class="annottext">Maybe [DBClusterSnapshotAttribute]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterSnapshotAttributesResult.html#DBClusterSnapshotAttributesResult%27"><span class="hs-identifier hs-type">DBClusterSnapshotAttributesResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679758419"><span class="annot"><span class="annottext">Maybe [DBClusterSnapshotAttribute]
 dbClusterSnapshotAttributes :: Maybe [DBClusterSnapshotAttribute]
 $sel:dbClusterSnapshotAttributes:DBClusterSnapshotAttributesResult' :: DBClusterSnapshotAttributesResult
 -&gt; Maybe [DBClusterSnapshotAttribute]
-</span><a href="#local-6989586621679757385"><span class="hs-identifier hs-var hs-var">dbClusterSnapshotAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DBClusterSnapshotAttribute]
-</span><a href="#local-6989586621679757385"><span class="hs-identifier hs-var">dbClusterSnapshotAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679757384"><span class="annot"><span class="annottext">s :: DBClusterSnapshotAttributesResult
-</span><a href="#local-6989586621679757384"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterSnapshotAttributesResult.html#DBClusterSnapshotAttributesResult%27"><span class="hs-identifier hs-type">DBClusterSnapshotAttributesResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679757383"><span class="annot"><span class="annottext">Maybe [DBClusterSnapshotAttribute]
-</span><a href="#local-6989586621679757383"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBClusterSnapshotAttributesResult
-</span><a href="#local-6989586621679757384"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbClusterSnapshotAttributes:DBClusterSnapshotAttributesResult' :: Maybe [DBClusterSnapshotAttribute]
+</span><a href="#local-6989586621679758419"><span class="hs-identifier hs-var hs-var">dbClusterSnapshotAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DBClusterSnapshotAttribute]
+</span><a href="#local-6989586621679758419"><span class="hs-identifier hs-var">dbClusterSnapshotAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679758418"><span class="annot"><span class="annottext">s :: DBClusterSnapshotAttributesResult
+</span><a href="#local-6989586621679758418"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterSnapshotAttributesResult.html#DBClusterSnapshotAttributesResult%27"><span class="hs-identifier hs-type">DBClusterSnapshotAttributesResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679758417"><span class="annot"><span class="annottext">Maybe [DBClusterSnapshotAttribute]
+</span><a href="#local-6989586621679758417"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBClusterSnapshotAttributesResult
+</span><a href="#local-6989586621679758418"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbClusterSnapshotAttributes:DBClusterSnapshotAttributesResult' :: Maybe [DBClusterSnapshotAttribute]
 </span><a href="Network.AWS.RDS.Types.DBClusterSnapshotAttributesResult.html#%24sel%3AdbClusterSnapshotAttributes%3ADBClusterSnapshotAttributesResult%27"><span class="hs-identifier hs-var">dbClusterSnapshotAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DBClusterSnapshotAttribute]
-</span><a href="#local-6989586621679757383"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterSnapshotAttributesResult.html#DBClusterSnapshotAttributesResult"><span class="hs-identifier hs-type">DBClusterSnapshotAttributesResult</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DBClusterSnapshotAttribute]
+</span><a href="#local-6989586621679758417"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterSnapshotAttributesResult.html#DBClusterSnapshotAttributesResult"><span class="hs-identifier hs-type">DBClusterSnapshotAttributesResult</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DBClusterSnapshotAttribute]
   -&gt; f (Maybe [DBClusterSnapshotAttribute]))
  -&gt; DBClusterSnapshotAttributesResult
  -&gt; f DBClusterSnapshotAttributesResult)
@@ -206,61 +233,52 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [DBClusterSnapshotAttribute]
   [DBClusterSnapshotAttribute]
   [DBClusterSnapshotAttribute]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- | The identifier of the manual DB cluster snapshot that the attributes</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- apply to.</span><span>
-</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterSnapshotAttributesResult.html#dbClusterSnapshotAttributesResult_dbClusterSnapshotIdentifier"><span class="hs-identifier hs-type">dbClusterSnapshotAttributesResult_dbClusterSnapshotIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterSnapshotAttributesResult.html#DBClusterSnapshotAttributesResult"><span class="hs-identifier hs-type">DBClusterSnapshotAttributesResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span id="dbClusterSnapshotAttributesResult_dbClusterSnapshotIdentifier"><span class="annot"><span class="annottext">dbClusterSnapshotAttributesResult_dbClusterSnapshotIdentifier :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DBClusterSnapshotAttributesResult
--&gt; f DBClusterSnapshotAttributesResult
-</span><a href="Network.AWS.RDS.Types.DBClusterSnapshotAttributesResult.html#dbClusterSnapshotAttributesResult_dbClusterSnapshotIdentifier"><span class="hs-identifier hs-var hs-var">dbClusterSnapshotAttributesResult_dbClusterSnapshotIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBClusterSnapshotAttributesResult -&gt; Maybe Text)
--&gt; (DBClusterSnapshotAttributesResult
-    -&gt; Maybe Text -&gt; DBClusterSnapshotAttributesResult)
--&gt; Lens
-     DBClusterSnapshotAttributesResult
-     DBClusterSnapshotAttributesResult
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterSnapshotAttributesResult.html#DBClusterSnapshotAttributesResult%27"><span class="hs-identifier hs-type">DBClusterSnapshotAttributesResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679757378"><span class="annot"><span class="annottext">Maybe Text
-dbClusterSnapshotIdentifier :: Maybe Text
-$sel:dbClusterSnapshotIdentifier:DBClusterSnapshotAttributesResult' :: DBClusterSnapshotAttributesResult -&gt; Maybe Text
-</span><a href="#local-6989586621679757378"><span class="hs-identifier hs-var hs-var">dbClusterSnapshotIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679757378"><span class="hs-identifier hs-var">dbClusterSnapshotIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679757377"><span class="annot"><span class="annottext">s :: DBClusterSnapshotAttributesResult
-</span><a href="#local-6989586621679757377"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterSnapshotAttributesResult.html#DBClusterSnapshotAttributesResult%27"><span class="hs-identifier hs-type">DBClusterSnapshotAttributesResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679757376"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679757376"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBClusterSnapshotAttributesResult
-</span><a href="#local-6989586621679757377"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbClusterSnapshotIdentifier:DBClusterSnapshotAttributesResult' :: Maybe Text
-</span><a href="Network.AWS.RDS.Types.DBClusterSnapshotAttributesResult.html#%24sel%3AdbClusterSnapshotIdentifier%3ADBClusterSnapshotAttributesResult%27"><span class="hs-identifier hs-var">dbClusterSnapshotIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679757376"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterSnapshotAttributesResult.html#DBClusterSnapshotAttributesResult"><span class="hs-identifier hs-type">DBClusterSnapshotAttributesResult</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterSnapshotAttributesResult.html#DBClusterSnapshotAttributesResult"><span class="hs-identifier hs-type">DBClusterSnapshotAttributesResult</span></a></span><span>
 </span><span id="line-79"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679757373"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DBClusterSnapshotAttributesResult
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679757371"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679757371"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">Maybe [DBClusterSnapshotAttribute]
--&gt; Maybe Text -&gt; DBClusterSnapshotAttributesResult
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679758411"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DBClusterSnapshotAttributesResult
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679758409"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679758409"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [DBClusterSnapshotAttribute]
+-&gt; DBClusterSnapshotAttributesResult
 </span><a href="Network.AWS.RDS.Types.DBClusterSnapshotAttributesResult.html#DBClusterSnapshotAttributesResult%27"><span class="hs-identifier hs-var">DBClusterSnapshotAttributesResult'</span></a></span><span>
-</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">(Maybe [DBClusterSnapshotAttribute]
- -&gt; Maybe Text -&gt; DBClusterSnapshotAttributesResult)
--&gt; Either String (Maybe [DBClusterSnapshotAttribute])
--&gt; Either String (Maybe Text -&gt; DBClusterSnapshotAttributesResult)
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [DBClusterSnapshotAttribute]
+ -&gt; DBClusterSnapshotAttributesResult)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [DBClusterSnapshotAttribute]
+      -&gt; DBClusterSnapshotAttributesResult)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679757371"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679758409"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DBClusterSnapshotIdentifier&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [DBClusterSnapshotAttribute]
+   -&gt; DBClusterSnapshotAttributesResult)
+-&gt; Either String (Maybe [DBClusterSnapshotAttribute])
+-&gt; Either String DBClusterSnapshotAttributesResult
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679758409"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DBClusterSnapshotAttributes&quot;</span></span><span>
-</span><span id="line-83"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+</span><span id="line-84"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-84"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-85"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [DBClusterSnapshotAttribute]))
 -&gt; Either String (Maybe [DBClusterSnapshotAttribute])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -270,26 +288,17 @@ forall (f :: * -&gt; *) a b.
 Applicative f =&gt;
 ([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
 </span><span class="hs-identifier hs-var">Core.may</span></span><span>
-</span><span id="line-85"></span><span>                        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [DBClusterSnapshotAttribute]
+</span><span id="line-86"></span><span>                        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [DBClusterSnapshotAttribute]
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DBClusterSnapshotAttribute&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; DBClusterSnapshotAttributesResult)
--&gt; Either String (Maybe Text)
--&gt; Either String DBClusterSnapshotAttributesResult
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679757371"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DBClusterSnapshotIdentifier&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679757362"><span id="local-6989586621679757364"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679758400"><span id="local-6989586621679758402"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-91"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterSnapshotAttributesResult.html#DBClusterSnapshotAttributesResult"><span class="hs-identifier hs-type">DBClusterSnapshotAttributesResult</span></a></span></span></span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679757359"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679758397"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.Types.DBClusterSnapshotAttributesResult.html#DBClusterSnapshotAttributesResult"><span class="hs-identifier hs-type">DBClusterSnapshotAttributesResult</span></a></span></span><span>
 </span><span id="line-96"></span></pre></body></html>

@@ -28,15 +28,15 @@
 </span><span id="line-28"></span><span class="hs-comment">-- published findings.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newDestinationProperties' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679294907"><span id="local-6989586621679294908"></span></span><span class="hs-keyword">data</span><span> </span><span id="DestinationProperties"><span class="annot"><a href="Network.AWS.GuardDuty.Types.DestinationProperties.html#DestinationProperties"><span class="hs-identifier hs-var">DestinationProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DestinationProperties%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.DestinationProperties.html#DestinationProperties%27"><span class="hs-identifier hs-var">DestinationProperties'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the resource to publish to.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AdestinationArn%3ADestinationProperties%27"><span class="annot"><span class="annottext">DestinationProperties -&gt; Maybe Text
-</span><a href="Network.AWS.GuardDuty.Types.DestinationProperties.html#%24sel%3AdestinationArn%3ADestinationProperties%27"><span class="hs-identifier hs-var hs-var">destinationArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The ARN of the KMS key to use for encryption.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AkmsKeyArn%3ADestinationProperties%27"><span class="annot"><span class="annottext">DestinationProperties -&gt; Maybe Text
-</span><a href="Network.AWS.GuardDuty.Types.DestinationProperties.html#%24sel%3AkmsKeyArn%3ADestinationProperties%27"><span class="hs-identifier hs-var hs-var">kmsKeyArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679295190"><span id="local-6989586621679295191"></span></span><span class="hs-keyword">data</span><span> </span><span id="DestinationProperties"><span class="annot"><a href="Network.AWS.GuardDuty.Types.DestinationProperties.html#DestinationProperties"><span class="hs-identifier hs-var">DestinationProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DestinationProperties%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.DestinationProperties.html#DestinationProperties%27"><span class="hs-identifier hs-var">DestinationProperties'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the KMS key to use for encryption.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AkmsKeyArn%3ADestinationProperties%27"><span class="annot"><span class="annottext">DestinationProperties -&gt; Maybe Text
+</span><a href="Network.AWS.GuardDuty.Types.DestinationProperties.html#%24sel%3AkmsKeyArn%3ADestinationProperties%27"><span class="hs-identifier hs-var hs-var">kmsKeyArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The ARN of the resource to publish to.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AdestinationArn%3ADestinationProperties%27"><span class="annot"><span class="annottext">DestinationProperties -&gt; Maybe Text
+</span><a href="Network.AWS.GuardDuty.Types.DestinationProperties.html#%24sel%3AdestinationArn%3ADestinationProperties%27"><span class="hs-identifier hs-var hs-var">destinationArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679294900"><span id="local-6989586621679294902"><span class="annot"><span class="annottext">DestinationProperties -&gt; DestinationProperties -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679295183"><span id="local-6989586621679295185"><span class="annot"><span class="annottext">DestinationProperties -&gt; DestinationProperties -&gt; Bool
 (DestinationProperties -&gt; DestinationProperties -&gt; Bool)
 -&gt; (DestinationProperties -&gt; DestinationProperties -&gt; Bool)
 -&gt; Eq DestinationProperties
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DestinationProperties -&gt; DestinationProperties -&gt; Bool
 == :: DestinationProperties -&gt; DestinationProperties -&gt; Bool
 $c== :: DestinationProperties -&gt; DestinationProperties -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294891"><span id="local-6989586621679294893"><span id="local-6989586621679294895"><span id="local-6989586621679294897"><span class="annot"><span class="annottext">ReadPrec [DestinationProperties]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295174"><span id="local-6989586621679295176"><span id="local-6989586621679295178"><span id="local-6989586621679295180"><span class="annot"><span class="annottext">ReadPrec [DestinationProperties]
 ReadPrec DestinationProperties
 Int -&gt; ReadS DestinationProperties
 ReadS [DestinationProperties]
@@ -65,7 +65,7 @@ readList :: ReadS [DestinationProperties]
 $creadList :: ReadS [DestinationProperties]
 readsPrec :: Int -&gt; ReadS DestinationProperties
 $creadsPrec :: Int -&gt; ReadS DestinationProperties
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294884"><span id="local-6989586621679294886"><span id="local-6989586621679294888"><span class="annot"><span class="annottext">Int -&gt; DestinationProperties -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295167"><span id="local-6989586621679295169"><span id="local-6989586621679295171"><span class="annot"><span class="annottext">Int -&gt; DestinationProperties -&gt; ShowS
 [DestinationProperties] -&gt; ShowS
 DestinationProperties -&gt; String
 (Int -&gt; DestinationProperties -&gt; ShowS)
@@ -99,52 +99,28 @@ $cfrom :: forall x. DestinationProperties -&gt; Rep DestinationProperties x
 </span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'destinationArn', 'destinationProperties_destinationArn' - The ARN of the resource to publish to.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'kmsKeyArn', 'destinationProperties_kmsKeyArn' - The ARN of the KMS key to use for encryption.</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'kmsKeyArn', 'destinationProperties_kmsKeyArn' - The ARN of the KMS key to use for encryption.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'destinationArn', 'destinationProperties_destinationArn' - The ARN of the resource to publish to.</span><span>
 </span><span id="line-50"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DestinationProperties.html#newDestinationProperties"><span class="hs-identifier hs-type">newDestinationProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DestinationProperties.html#DestinationProperties"><span class="hs-identifier hs-type">DestinationProperties</span></a></span><span>
 </span><span id="line-52"></span><span id="newDestinationProperties"><span class="annot"><span class="annottext">newDestinationProperties :: DestinationProperties
 </span><a href="Network.AWS.GuardDuty.Types.DestinationProperties.html#newDestinationProperties"><span class="hs-identifier hs-var hs-var">newDestinationProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">DestinationProperties' :: Maybe Text -&gt; Maybe Text -&gt; DestinationProperties
 </span><a href="Network.AWS.GuardDuty.Types.DestinationProperties.html#DestinationProperties%27"><span class="hs-identifier hs-type">DestinationProperties'</span></a></span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:destinationArn:DestinationProperties' :: Maybe Text
-</span><a href="Network.AWS.GuardDuty.Types.DestinationProperties.html#%24sel%3AdestinationArn%3ADestinationProperties%27"><span class="hs-identifier hs-var">destinationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-55"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:kmsKeyArn:DestinationProperties' :: Maybe Text
+</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:kmsKeyArn:DestinationProperties' :: Maybe Text
 </span><a href="Network.AWS.GuardDuty.Types.DestinationProperties.html#%24sel%3AkmsKeyArn%3ADestinationProperties%27"><span class="hs-identifier hs-var">kmsKeyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- | The ARN of the resource to publish to.</span><span>
-</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DestinationProperties.html#destinationProperties_destinationArn"><span class="hs-identifier hs-type">destinationProperties_destinationArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DestinationProperties.html#DestinationProperties"><span class="hs-identifier hs-type">DestinationProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-61"></span><span id="destinationProperties_destinationArn"><span class="annot"><span class="annottext">destinationProperties_destinationArn :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DestinationProperties -&gt; f DestinationProperties
-</span><a href="Network.AWS.GuardDuty.Types.DestinationProperties.html#destinationProperties_destinationArn"><span class="hs-identifier hs-var hs-var">destinationProperties_destinationArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DestinationProperties -&gt; Maybe Text)
--&gt; (DestinationProperties -&gt; Maybe Text -&gt; DestinationProperties)
--&gt; Lens
-     DestinationProperties
-     DestinationProperties
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DestinationProperties.html#DestinationProperties%27"><span class="hs-identifier hs-type">DestinationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294875"><span class="annot"><span class="annottext">Maybe Text
-destinationArn :: Maybe Text
-$sel:destinationArn:DestinationProperties' :: DestinationProperties -&gt; Maybe Text
-</span><a href="#local-6989586621679294875"><span class="hs-identifier hs-var hs-var">destinationArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679294875"><span class="hs-identifier hs-var">destinationArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294874"><span class="annot"><span class="annottext">s :: DestinationProperties
-</span><a href="#local-6989586621679294874"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DestinationProperties.html#DestinationProperties%27"><span class="hs-identifier hs-type">DestinationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294873"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679294873"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DestinationProperties
-</span><a href="#local-6989586621679294874"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationArn:DestinationProperties' :: Maybe Text
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:destinationArn:DestinationProperties' :: Maybe Text
 </span><a href="Network.AWS.GuardDuty.Types.DestinationProperties.html#%24sel%3AdestinationArn%3ADestinationProperties%27"><span class="hs-identifier hs-var">destinationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679294873"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DestinationProperties.html#DestinationProperties"><span class="hs-identifier hs-type">DestinationProperties</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- | The ARN of the KMS key to use for encryption.</span><span>
-</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DestinationProperties.html#destinationProperties_kmsKeyArn"><span class="hs-identifier hs-type">destinationProperties_kmsKeyArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DestinationProperties.html#DestinationProperties"><span class="hs-identifier hs-type">DestinationProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-65"></span><span id="destinationProperties_kmsKeyArn"><span class="annot"><span class="annottext">destinationProperties_kmsKeyArn :: (Maybe Text -&gt; f (Maybe Text))
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | The ARN of the KMS key to use for encryption.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DestinationProperties.html#destinationProperties_kmsKeyArn"><span class="hs-identifier hs-type">destinationProperties_kmsKeyArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DestinationProperties.html#DestinationProperties"><span class="hs-identifier hs-type">DestinationProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span id="destinationProperties_kmsKeyArn"><span class="annot"><span class="annottext">destinationProperties_kmsKeyArn :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DestinationProperties -&gt; f DestinationProperties
 </span><a href="Network.AWS.GuardDuty.Types.DestinationProperties.html#destinationProperties_kmsKeyArn"><span class="hs-identifier hs-var hs-var">destinationProperties_kmsKeyArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DestinationProperties -&gt; Maybe Text)
 -&gt; (DestinationProperties -&gt; Maybe Text -&gt; DestinationProperties)
@@ -154,83 +130,106 @@ $sel:destinationArn:DestinationProperties' :: DestinationProperties -&gt; Maybe 
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DestinationProperties.html#DestinationProperties%27"><span class="hs-identifier hs-type">DestinationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294871"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DestinationProperties.html#DestinationProperties%27"><span class="hs-identifier hs-type">DestinationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295158"><span class="annot"><span class="annottext">Maybe Text
 kmsKeyArn :: Maybe Text
 $sel:kmsKeyArn:DestinationProperties' :: DestinationProperties -&gt; Maybe Text
-</span><a href="#local-6989586621679294871"><span class="hs-identifier hs-var hs-var">kmsKeyArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679294871"><span class="hs-identifier hs-var">kmsKeyArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294870"><span class="annot"><span class="annottext">s :: DestinationProperties
-</span><a href="#local-6989586621679294870"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DestinationProperties.html#DestinationProperties%27"><span class="hs-identifier hs-type">DestinationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294869"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679294869"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DestinationProperties
-</span><a href="#local-6989586621679294870"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyArn:DestinationProperties' :: Maybe Text
+</span><a href="#local-6989586621679295158"><span class="hs-identifier hs-var hs-var">kmsKeyArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679295158"><span class="hs-identifier hs-var">kmsKeyArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295157"><span class="annot"><span class="annottext">s :: DestinationProperties
+</span><a href="#local-6989586621679295157"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DestinationProperties.html#DestinationProperties%27"><span class="hs-identifier hs-type">DestinationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295156"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679295156"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DestinationProperties
+</span><a href="#local-6989586621679295157"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyArn:DestinationProperties' :: Maybe Text
 </span><a href="Network.AWS.GuardDuty.Types.DestinationProperties.html#%24sel%3AkmsKeyArn%3ADestinationProperties%27"><span class="hs-identifier hs-var">kmsKeyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679294869"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DestinationProperties.html#DestinationProperties"><span class="hs-identifier hs-type">DestinationProperties</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294866"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DestinationProperties.html#DestinationProperties"><span class="hs-identifier hs-type">DestinationProperties</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679294864"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DestinationProperties
+</span><a href="#local-6989586621679295156"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DestinationProperties.html#DestinationProperties"><span class="hs-identifier hs-type">DestinationProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | The ARN of the resource to publish to.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DestinationProperties.html#destinationProperties_destinationArn"><span class="hs-identifier hs-type">destinationProperties_destinationArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DestinationProperties.html#DestinationProperties"><span class="hs-identifier hs-type">DestinationProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="destinationProperties_destinationArn"><span class="annot"><span class="annottext">destinationProperties_destinationArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DestinationProperties -&gt; f DestinationProperties
+</span><a href="Network.AWS.GuardDuty.Types.DestinationProperties.html#destinationProperties_destinationArn"><span class="hs-identifier hs-var hs-var">destinationProperties_destinationArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DestinationProperties -&gt; Maybe Text)
+-&gt; (DestinationProperties -&gt; Maybe Text -&gt; DestinationProperties)
+-&gt; Lens
+     DestinationProperties
+     DestinationProperties
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DestinationProperties.html#DestinationProperties%27"><span class="hs-identifier hs-type">DestinationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295154"><span class="annot"><span class="annottext">Maybe Text
+destinationArn :: Maybe Text
+$sel:destinationArn:DestinationProperties' :: DestinationProperties -&gt; Maybe Text
+</span><a href="#local-6989586621679295154"><span class="hs-identifier hs-var hs-var">destinationArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679295154"><span class="hs-identifier hs-var">destinationArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295153"><span class="annot"><span class="annottext">s :: DestinationProperties
+</span><a href="#local-6989586621679295153"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DestinationProperties.html#DestinationProperties%27"><span class="hs-identifier hs-type">DestinationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295152"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679295152"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DestinationProperties
+</span><a href="#local-6989586621679295153"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationArn:DestinationProperties' :: Maybe Text
+</span><a href="Network.AWS.GuardDuty.Types.DestinationProperties.html#%24sel%3AdestinationArn%3ADestinationProperties%27"><span class="hs-identifier hs-var">destinationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679295152"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DestinationProperties.html#DestinationProperties"><span class="hs-identifier hs-type">DestinationProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295149"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DestinationProperties.html#DestinationProperties"><span class="hs-identifier hs-type">DestinationProperties</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679295147"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DestinationProperties
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DestinationProperties)
 -&gt; Value
 -&gt; Parser DestinationProperties
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DestinationProperties&quot;</span></span><span>
-</span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679294861"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679294861"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-72"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; DestinationProperties
+</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679295144"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679295144"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; DestinationProperties
 </span><a href="Network.AWS.GuardDuty.Types.DestinationProperties.html#DestinationProperties%27"><span class="hs-identifier hs-var">DestinationProperties'</span></a></span><span>
-</span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; DestinationProperties)
+</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; DestinationProperties)
 -&gt; Parser (Maybe Text)
 -&gt; Parser (Maybe Text -&gt; DestinationProperties)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679294861"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;destinationArn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; DestinationProperties)
--&gt; Parser (Maybe Text) -&gt; Parser DestinationProperties
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679294861"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679295144"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;kmsKeyArn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294855"><span id="local-6989586621679294857"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DestinationProperties.html#DestinationProperties"><span class="hs-identifier hs-type">DestinationProperties</span></a></span></span></span><span>
-</span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294852"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DestinationProperties.html#DestinationProperties"><span class="hs-identifier hs-type">DestinationProperties</span></a></span></span><span>
-</span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294844"><span id="local-6989586621679294846"><span id="local-6989586621679294848"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DestinationProperties.html#DestinationProperties"><span class="hs-identifier hs-type">DestinationProperties</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679294842"><span class="annot"><span class="annottext">toJSON :: DestinationProperties -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DestinationProperties.html#DestinationProperties%27"><span class="hs-identifier hs-type">DestinationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294839"><span id="local-6989586621679294840"><span class="annot"><span class="annottext">Maybe Text
-kmsKeyArn :: Maybe Text
+</span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; DestinationProperties)
+-&gt; Parser (Maybe Text) -&gt; Parser DestinationProperties
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679295144"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;destinationArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295138"><span id="local-6989586621679295140"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DestinationProperties.html#DestinationProperties"><span class="hs-identifier hs-type">DestinationProperties</span></a></span></span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295135"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DestinationProperties.html#DestinationProperties"><span class="hs-identifier hs-type">DestinationProperties</span></a></span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295127"><span id="local-6989586621679295129"><span id="local-6989586621679295131"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DestinationProperties.html#DestinationProperties"><span class="hs-identifier hs-type">DestinationProperties</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679295125"><span class="annot"><span class="annottext">toJSON :: DestinationProperties -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DestinationProperties.html#DestinationProperties%27"><span class="hs-identifier hs-type">DestinationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295122"><span id="local-6989586621679295123"><span class="annot"><span class="annottext">Maybe Text
 destinationArn :: Maybe Text
-$sel:kmsKeyArn:DestinationProperties' :: DestinationProperties -&gt; Maybe Text
+kmsKeyArn :: Maybe Text
 $sel:destinationArn:DestinationProperties' :: DestinationProperties -&gt; Maybe Text
-</span><a href="#local-6989586621679294839"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+$sel:kmsKeyArn:DestinationProperties' :: DestinationProperties -&gt; Maybe Text
+</span><a href="#local-6989586621679295122"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
-</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
-</span><span id="line-85"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-84"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;kmsKeyArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679295123"><span class="hs-identifier hs-var">kmsKeyArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;destinationArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679294840"><span class="hs-identifier hs-var">destinationArn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-87"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;kmsKeyArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679294839"><span class="hs-identifier hs-var">kmsKeyArn</span></a></span><span>
-</span><span id="line-88"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span></pre></body></html>
+</span><a href="#local-6989586621679295122"><span class="hs-identifier hs-var">destinationArn</span></a></span><span>
+</span><span id="line-87"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span></pre></body></html>

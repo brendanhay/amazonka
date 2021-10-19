@@ -45,10 +45,10 @@
 </span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-46"></span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- | /See:/ 'newDescribeOperatingSystems' smart constructor.</span><span>
-</span><span id="line-48"></span><span id="local-6989586621679387767"><span id="local-6989586621679387768"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeOperatingSystems"><span class="annot"><a href="Network.AWS.OpsWorks.DescribeOperatingSystems.html#DescribeOperatingSystems"><span class="hs-identifier hs-var">DescribeOperatingSystems</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeOperatingSystems%27"><span class="annot"><a href="Network.AWS.OpsWorks.DescribeOperatingSystems.html#DescribeOperatingSystems%27"><span class="hs-identifier hs-var">DescribeOperatingSystems'</span></a></span></span><span>
+</span><span id="line-48"></span><span id="local-6989586621679388182"><span id="local-6989586621679388183"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeOperatingSystems"><span class="annot"><a href="Network.AWS.OpsWorks.DescribeOperatingSystems.html#DescribeOperatingSystems"><span class="hs-identifier hs-var">DescribeOperatingSystems</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeOperatingSystems%27"><span class="annot"><a href="Network.AWS.OpsWorks.DescribeOperatingSystems.html#DescribeOperatingSystems%27"><span class="hs-identifier hs-var">DescribeOperatingSystems'</span></a></span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679387762"><span id="local-6989586621679387764"><span class="annot"><span class="annottext">DescribeOperatingSystems -&gt; DescribeOperatingSystems -&gt; Bool
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388177"><span id="local-6989586621679388179"><span class="annot"><span class="annottext">DescribeOperatingSystems -&gt; DescribeOperatingSystems -&gt; Bool
 (DescribeOperatingSystems -&gt; DescribeOperatingSystems -&gt; Bool)
 -&gt; (DescribeOperatingSystems -&gt; DescribeOperatingSystems -&gt; Bool)
 -&gt; Eq DescribeOperatingSystems
@@ -57,7 +57,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeOperatingSystems -&gt; DescribeOperatingSystems -&gt; Bool
 == :: DescribeOperatingSystems -&gt; DescribeOperatingSystems -&gt; Bool
 $c== :: DescribeOperatingSystems -&gt; DescribeOperatingSystems -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387753"><span id="local-6989586621679387755"><span id="local-6989586621679387757"><span id="local-6989586621679387759"><span class="annot"><span class="annottext">ReadPrec [DescribeOperatingSystems]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388168"><span id="local-6989586621679388170"><span id="local-6989586621679388172"><span id="local-6989586621679388174"><span class="annot"><span class="annottext">ReadPrec [DescribeOperatingSystems]
 ReadPrec DescribeOperatingSystems
 Int -&gt; ReadS DescribeOperatingSystems
 ReadS [DescribeOperatingSystems]
@@ -77,7 +77,7 @@ readList :: ReadS [DescribeOperatingSystems]
 $creadList :: ReadS [DescribeOperatingSystems]
 readsPrec :: Int -&gt; ReadS DescribeOperatingSystems
 $creadsPrec :: Int -&gt; ReadS DescribeOperatingSystems
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387746"><span id="local-6989586621679387748"><span id="local-6989586621679387750"><span class="annot"><span class="annottext">Int -&gt; DescribeOperatingSystems -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388161"><span id="local-6989586621679388163"><span id="local-6989586621679388165"><span class="annot"><span class="annottext">Int -&gt; DescribeOperatingSystems -&gt; ShowS
 [DescribeOperatingSystems] -&gt; ShowS
 DescribeOperatingSystems -&gt; String
 (Int -&gt; DescribeOperatingSystems -&gt; ShowS)
@@ -124,13 +124,13 @@ DescribeOperatingSystems -&gt; Rep DescribeOperatingSystems x
 </span><span id="line-63"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-64"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeOperatingSystems.html#DescribeOperatingSystems"><span class="hs-identifier hs-type">DescribeOperatingSystems</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-65"></span><span>      </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeOperatingSystems.html#DescribeOperatingSystemsResponse"><span class="hs-identifier hs-type">DescribeOperatingSystemsResponse</span></a></span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679387738"><span class="annot"><span class="annottext">request :: DescribeOperatingSystems -&gt; Request DescribeOperatingSystems
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679388153"><span class="annot"><span class="annottext">request :: DescribeOperatingSystems -&gt; Request DescribeOperatingSystems
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeOperatingSystems -&gt; Request DescribeOperatingSystems
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.OpsWorks.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679387734"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679388149"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeOperatingSystems
 -&gt; ClientResponse ClientBody
@@ -156,10 +156,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679387731"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387731"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679387730"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679387730"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679387729"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679387729"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679388146"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388146"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679388145"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679388145"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679388144"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679388144"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe [OperatingSystem] -&gt; Int -&gt; DescribeOperatingSystemsResponse
 </span><a href="Network.AWS.OpsWorks.DescribeOperatingSystems.html#DescribeOperatingSystemsResponse%27"><span class="hs-identifier hs-var">DescribeOperatingSystemsResponse'</span></a></span><span>
 </span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [OperatingSystem]
@@ -168,7 +168,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DescribeOperatingSystemsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679387729"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [OperatingSystem]))
+</span><a href="#local-6989586621679388144"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [OperatingSystem]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OperatingSystems&quot;</span></span><span>
@@ -189,15 +189,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387731"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679388146"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387720"><span id="local-6989586621679387722"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeOperatingSystems.html#DescribeOperatingSystems"><span class="hs-identifier hs-type">DescribeOperatingSystems</span></a></span></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388135"><span id="local-6989586621679388137"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeOperatingSystems.html#DescribeOperatingSystems"><span class="hs-identifier hs-type">DescribeOperatingSystems</span></a></span></span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387717"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeOperatingSystems.html#DescribeOperatingSystems"><span class="hs-identifier hs-type">DescribeOperatingSystems</span></a></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388132"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeOperatingSystems.html#DescribeOperatingSystems"><span class="hs-identifier hs-type">DescribeOperatingSystems</span></a></span></span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeOperatingSystems.html#DescribeOperatingSystems"><span class="hs-identifier hs-type">DescribeOperatingSystems</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679387713"><span class="annot"><span class="annottext">toHeaders :: DescribeOperatingSystems -&gt; ResponseHeaders
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679388128"><span class="annot"><span class="annottext">toHeaders :: DescribeOperatingSystems -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeOperatingSystems -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -224,8 +224,8 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-93"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387703"><span id="local-6989586621679387705"><span id="local-6989586621679387707"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeOperatingSystems.html#DescribeOperatingSystems"><span class="hs-identifier hs-type">DescribeOperatingSystems</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679387701"><span class="annot"><span class="annottext">toJSON :: DescribeOperatingSystems -&gt; Value
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388118"><span id="local-6989586621679388120"><span id="local-6989586621679388122"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeOperatingSystems.html#DescribeOperatingSystems"><span class="hs-identifier hs-type">DescribeOperatingSystems</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679388116"><span class="annot"><span class="annottext">toJSON :: DescribeOperatingSystems -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; DescribeOperatingSystems -&gt; Value
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
@@ -234,14 +234,14 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeOperatingSystems.html#DescribeOperatingSystems"><span class="hs-identifier hs-type">DescribeOperatingSystems</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679387696"><span class="annot"><span class="annottext">toPath :: DescribeOperatingSystems -&gt; ByteString
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679388111"><span class="annot"><span class="annottext">toPath :: DescribeOperatingSystems -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeOperatingSystems -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeOperatingSystems.html#DescribeOperatingSystems"><span class="hs-identifier hs-type">DescribeOperatingSystems</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679387692"><span class="annot"><span class="annottext">toQuery :: DescribeOperatingSystems -&gt; QueryString
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679388107"><span class="annot"><span class="annottext">toQuery :: DescribeOperatingSystems -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeOperatingSystems -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -251,7 +251,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-105"></span><span class="hs-comment">-- | The response to a @DescribeOperatingSystems@ request.</span><span>
 </span><span id="line-106"></span><span class="hs-comment">--</span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- /See:/ 'newDescribeOperatingSystemsResponse' smart constructor.</span><span>
-</span><span id="line-108"></span><span id="local-6989586621679387689"><span id="local-6989586621679387690"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeOperatingSystemsResponse"><span class="annot"><a href="Network.AWS.OpsWorks.DescribeOperatingSystems.html#DescribeOperatingSystemsResponse"><span class="hs-identifier hs-var">DescribeOperatingSystemsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeOperatingSystemsResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.DescribeOperatingSystems.html#DescribeOperatingSystemsResponse%27"><span class="hs-identifier hs-var">DescribeOperatingSystemsResponse'</span></a></span></span><span>
+</span><span id="line-108"></span><span id="local-6989586621679388104"><span id="local-6989586621679388105"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeOperatingSystemsResponse"><span class="annot"><a href="Network.AWS.OpsWorks.DescribeOperatingSystems.html#DescribeOperatingSystemsResponse"><span class="hs-identifier hs-var">DescribeOperatingSystemsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeOperatingSystemsResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.DescribeOperatingSystems.html#DescribeOperatingSystemsResponse%27"><span class="hs-identifier hs-var">DescribeOperatingSystemsResponse'</span></a></span></span><span>
 </span><span id="line-109"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Contains information in response to a @DescribeOperatingSystems@</span><span>
 </span><span id="line-110"></span><span>    </span><span class="hs-comment">-- request.</span><span>
 </span><span id="line-111"></span><span>    </span><span id="%24sel%3AoperatingSystems%3ADescribeOperatingSystemsResponse%27"><span class="annot"><span class="annottext">DescribeOperatingSystemsResponse -&gt; Maybe [OperatingSystem]
@@ -260,7 +260,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-113"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeOperatingSystemsResponse%27"><span class="annot"><span class="annottext">DescribeOperatingSystemsResponse -&gt; Int
 </span><a href="Network.AWS.OpsWorks.DescribeOperatingSystems.html#%24sel%3AhttpStatus%3ADescribeOperatingSystemsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-114"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-115"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679387683"><span id="local-6989586621679387685"><span class="annot"><span class="annottext">DescribeOperatingSystemsResponse
+</span><span id="line-115"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388098"><span id="local-6989586621679388100"><span class="annot"><span class="annottext">DescribeOperatingSystemsResponse
 -&gt; DescribeOperatingSystemsResponse -&gt; Bool
 (DescribeOperatingSystemsResponse
  -&gt; DescribeOperatingSystemsResponse -&gt; Bool)
@@ -276,7 +276,7 @@ $c/= :: DescribeOperatingSystemsResponse
 -&gt; DescribeOperatingSystemsResponse -&gt; Bool
 $c== :: DescribeOperatingSystemsResponse
 -&gt; DescribeOperatingSystemsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387675"><span id="local-6989586621679387677"><span id="local-6989586621679387679"><span id="local-6989586621679387681"><span class="annot"><span class="annottext">ReadPrec [DescribeOperatingSystemsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388090"><span id="local-6989586621679388092"><span id="local-6989586621679388094"><span id="local-6989586621679388096"><span class="annot"><span class="annottext">ReadPrec [DescribeOperatingSystemsResponse]
 ReadPrec DescribeOperatingSystemsResponse
 Int -&gt; ReadS DescribeOperatingSystemsResponse
 ReadS [DescribeOperatingSystemsResponse]
@@ -296,7 +296,7 @@ readList :: ReadS [DescribeOperatingSystemsResponse]
 $creadList :: ReadS [DescribeOperatingSystemsResponse]
 readsPrec :: Int -&gt; ReadS DescribeOperatingSystemsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeOperatingSystemsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387669"><span id="local-6989586621679387671"><span id="local-6989586621679387673"><span class="annot"><span class="annottext">Int -&gt; DescribeOperatingSystemsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388084"><span id="local-6989586621679388086"><span id="local-6989586621679388088"><span class="annot"><span class="annottext">Int -&gt; DescribeOperatingSystemsResponse -&gt; ShowS
 [DescribeOperatingSystemsResponse] -&gt; ShowS
 DescribeOperatingSystemsResponse -&gt; String
 (Int -&gt; DescribeOperatingSystemsResponse -&gt; ShowS)
@@ -351,8 +351,8 @@ DescribeOperatingSystemsResponse
 </span><span id="line-131"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-132"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeOperatingSystems.html#DescribeOperatingSystemsResponse"><span class="hs-identifier hs-type">DescribeOperatingSystemsResponse</span></a></span><span>
 </span><span id="line-133"></span><span id="newDescribeOperatingSystemsResponse"><span class="annot"><span class="annottext">newDescribeOperatingSystemsResponse :: Int -&gt; DescribeOperatingSystemsResponse
-</span><a href="Network.AWS.OpsWorks.DescribeOperatingSystems.html#newDescribeOperatingSystemsResponse"><span class="hs-identifier hs-var hs-var">newDescribeOperatingSystemsResponse</span></a></span></span><span> </span><span id="local-6989586621679387666"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387666"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.OpsWorks.DescribeOperatingSystems.html#newDescribeOperatingSystemsResponse"><span class="hs-identifier hs-var hs-var">newDescribeOperatingSystemsResponse</span></a></span></span><span> </span><span id="local-6989586621679388081"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388081"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>  </span><span class="annot"><span class="annottext">DescribeOperatingSystemsResponse' :: Maybe [OperatingSystem] -&gt; Int -&gt; DescribeOperatingSystemsResponse
 </span><a href="Network.AWS.OpsWorks.DescribeOperatingSystems.html#DescribeOperatingSystemsResponse%27"><span class="hs-identifier hs-type">DescribeOperatingSystemsResponse'</span></a></span><span>
 </span><span id="line-135"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:operatingSystems:DescribeOperatingSystemsResponse' :: Maybe [OperatingSystem]
@@ -362,7 +362,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeOperatingSystemsResponse' :: Int
 </span><a href="Network.AWS.OpsWorks.DescribeOperatingSystems.html#%24sel%3AhttpStatus%3ADescribeOperatingSystemsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387666"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679388081"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-138"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- | Contains information in response to a @DescribeOperatingSystems@</span><span>
@@ -380,16 +380,16 @@ forall a. Maybe a
      (Maybe [OperatingSystem])
      (Maybe [OperatingSystem])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeOperatingSystems.html#DescribeOperatingSystemsResponse%27"><span class="hs-identifier hs-type">DescribeOperatingSystemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387663"><span class="annot"><span class="annottext">Maybe [OperatingSystem]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeOperatingSystems.html#DescribeOperatingSystemsResponse%27"><span class="hs-identifier hs-type">DescribeOperatingSystemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388078"><span class="annot"><span class="annottext">Maybe [OperatingSystem]
 operatingSystems :: Maybe [OperatingSystem]
 $sel:operatingSystems:DescribeOperatingSystemsResponse' :: DescribeOperatingSystemsResponse -&gt; Maybe [OperatingSystem]
-</span><a href="#local-6989586621679387663"><span class="hs-identifier hs-var hs-var">operatingSystems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [OperatingSystem]
-</span><a href="#local-6989586621679387663"><span class="hs-identifier hs-var">operatingSystems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387662"><span class="annot"><span class="annottext">s :: DescribeOperatingSystemsResponse
-</span><a href="#local-6989586621679387662"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeOperatingSystems.html#DescribeOperatingSystemsResponse%27"><span class="hs-identifier hs-type">DescribeOperatingSystemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387661"><span class="annot"><span class="annottext">Maybe [OperatingSystem]
-</span><a href="#local-6989586621679387661"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOperatingSystemsResponse
-</span><a href="#local-6989586621679387662"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operatingSystems:DescribeOperatingSystemsResponse' :: Maybe [OperatingSystem]
+</span><a href="#local-6989586621679388078"><span class="hs-identifier hs-var hs-var">operatingSystems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [OperatingSystem]
+</span><a href="#local-6989586621679388078"><span class="hs-identifier hs-var">operatingSystems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388077"><span class="annot"><span class="annottext">s :: DescribeOperatingSystemsResponse
+</span><a href="#local-6989586621679388077"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeOperatingSystems.html#DescribeOperatingSystemsResponse%27"><span class="hs-identifier hs-type">DescribeOperatingSystemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388076"><span class="annot"><span class="annottext">Maybe [OperatingSystem]
+</span><a href="#local-6989586621679388076"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOperatingSystemsResponse
+</span><a href="#local-6989586621679388077"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operatingSystems:DescribeOperatingSystemsResponse' :: Maybe [OperatingSystem]
 </span><a href="Network.AWS.OpsWorks.DescribeOperatingSystems.html#%24sel%3AoperatingSystems%3ADescribeOperatingSystemsResponse%27"><span class="hs-identifier hs-var">operatingSystems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [OperatingSystem]
-</span><a href="#local-6989586621679387661"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeOperatingSystems.html#DescribeOperatingSystemsResponse"><span class="hs-identifier hs-type">DescribeOperatingSystemsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [OperatingSystem] -&gt; f (Maybe [OperatingSystem]))
+</span><a href="#local-6989586621679388076"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeOperatingSystems.html#DescribeOperatingSystemsResponse"><span class="hs-identifier hs-type">DescribeOperatingSystemsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [OperatingSystem] -&gt; f (Maybe [OperatingSystem]))
  -&gt; DescribeOperatingSystemsResponse
  -&gt; f DescribeOperatingSystemsResponse)
 -&gt; ((Maybe [OperatingSystem] -&gt; f (Maybe [OperatingSystem]))
@@ -416,8 +416,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [OperatingSystem]
   [OperatingSystem]
   [OperatingSystem]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-146"></span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeOperatingSystems.html#describeOperatingSystemsResponse_httpStatus"><span class="hs-identifier hs-type">describeOperatingSystemsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeOperatingSystems.html#DescribeOperatingSystemsResponse"><span class="hs-identifier hs-type">DescribeOperatingSystemsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -433,18 +433,18 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeOperatingSystems.html#DescribeOperatingSystemsResponse%27"><span class="hs-identifier hs-type">DescribeOperatingSystemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387657"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeOperatingSystems.html#DescribeOperatingSystemsResponse%27"><span class="hs-identifier hs-type">DescribeOperatingSystemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388072"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeOperatingSystemsResponse' :: DescribeOperatingSystemsResponse -&gt; Int
-</span><a href="#local-6989586621679387657"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387657"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387656"><span class="annot"><span class="annottext">s :: DescribeOperatingSystemsResponse
-</span><a href="#local-6989586621679387656"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeOperatingSystems.html#DescribeOperatingSystemsResponse%27"><span class="hs-identifier hs-type">DescribeOperatingSystemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387655"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387655"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOperatingSystemsResponse
-</span><a href="#local-6989586621679387656"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeOperatingSystemsResponse' :: Int
+</span><a href="#local-6989586621679388072"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388072"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388071"><span class="annot"><span class="annottext">s :: DescribeOperatingSystemsResponse
+</span><a href="#local-6989586621679388071"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeOperatingSystems.html#DescribeOperatingSystemsResponse%27"><span class="hs-identifier hs-type">DescribeOperatingSystemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388070"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388070"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOperatingSystemsResponse
+</span><a href="#local-6989586621679388071"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeOperatingSystemsResponse' :: Int
 </span><a href="Network.AWS.OpsWorks.DescribeOperatingSystems.html#%24sel%3AhttpStatus%3ADescribeOperatingSystemsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387655"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeOperatingSystems.html#DescribeOperatingSystemsResponse"><span class="hs-identifier hs-type">DescribeOperatingSystemsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679388070"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeOperatingSystems.html#DescribeOperatingSystemsResponse"><span class="hs-identifier hs-type">DescribeOperatingSystemsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679387653"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679388068"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-151"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeOperatingSystems.html#DescribeOperatingSystemsResponse"><span class="hs-identifier hs-type">DescribeOperatingSystemsResponse</span></a></span></span><span>
 </span><span id="line-152"></span></pre></body></html>

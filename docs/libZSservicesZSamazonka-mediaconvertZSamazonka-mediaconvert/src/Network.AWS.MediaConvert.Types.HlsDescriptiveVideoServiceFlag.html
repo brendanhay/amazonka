@@ -37,13 +37,13 @@
 </span><span id="line-37"></span><span class="hs-comment">-- Don\'t flag (DONT_FLAG), MediaConvert leaves this parameter out. The DVS</span><span>
 </span><span id="line-38"></span><span class="hs-comment">-- flag can help with accessibility on Apple devices. For more information,</span><span>
 </span><span id="line-39"></span><span class="hs-comment">-- see the Apple documentation.</span><span>
-</span><span id="line-40"></span><span id="local-6989586621679971610"><span id="local-6989586621679971611"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HlsDescriptiveVideoServiceFlag"><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsDescriptiveVideoServiceFlag.html#HlsDescriptiveVideoServiceFlag"><span class="hs-identifier hs-var">HlsDescriptiveVideoServiceFlag</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsDescriptiveVideoServiceFlag%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsDescriptiveVideoServiceFlag.html#HlsDescriptiveVideoServiceFlag%27"><span class="hs-identifier hs-var">HlsDescriptiveVideoServiceFlag'</span></a></span></span><span>
+</span><span id="line-40"></span><span id="local-6989586621679976235"><span id="local-6989586621679976236"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HlsDescriptiveVideoServiceFlag"><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsDescriptiveVideoServiceFlag.html#HlsDescriptiveVideoServiceFlag"><span class="hs-identifier hs-var">HlsDescriptiveVideoServiceFlag</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsDescriptiveVideoServiceFlag%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsDescriptiveVideoServiceFlag.html#HlsDescriptiveVideoServiceFlag%27"><span class="hs-identifier hs-var">HlsDescriptiveVideoServiceFlag'</span></a></span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHlsDescriptiveVideoServiceFlag"><span class="annot"><span class="annottext">HlsDescriptiveVideoServiceFlag -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.HlsDescriptiveVideoServiceFlag.html#fromHlsDescriptiveVideoServiceFlag"><span class="hs-identifier hs-var hs-var">fromHlsDescriptiveVideoServiceFlag</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-42"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679971602"><span id="local-6989586621679971604"><span id="local-6989586621679971606"><span class="annot"><span class="annottext">Int -&gt; HlsDescriptiveVideoServiceFlag -&gt; ShowS
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679976227"><span id="local-6989586621679976229"><span id="local-6989586621679976231"><span class="annot"><span class="annottext">Int -&gt; HlsDescriptiveVideoServiceFlag -&gt; ShowS
 [HlsDescriptiveVideoServiceFlag] -&gt; ShowS
 HlsDescriptiveVideoServiceFlag -&gt; String
 (Int -&gt; HlsDescriptiveVideoServiceFlag -&gt; ShowS)
@@ -59,7 +59,7 @@ $cshow :: HlsDescriptiveVideoServiceFlag -&gt; String
 showsPrec :: Int -&gt; HlsDescriptiveVideoServiceFlag -&gt; ShowS
 $cshowsPrec :: Int -&gt; HlsDescriptiveVideoServiceFlag -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679971593"><span id="local-6989586621679971595"><span id="local-6989586621679971597"><span id="local-6989586621679971599"><span class="annot"><span class="annottext">ReadPrec [HlsDescriptiveVideoServiceFlag]
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679976218"><span id="local-6989586621679976220"><span id="local-6989586621679976222"><span id="local-6989586621679976224"><span class="annot"><span class="annottext">ReadPrec [HlsDescriptiveVideoServiceFlag]
 ReadPrec HlsDescriptiveVideoServiceFlag
 Int -&gt; ReadS HlsDescriptiveVideoServiceFlag
 ReadS [HlsDescriptiveVideoServiceFlag]
@@ -80,7 +80,7 @@ $creadList :: ReadS [HlsDescriptiveVideoServiceFlag]
 readsPrec :: Int -&gt; ReadS HlsDescriptiveVideoServiceFlag
 $creadsPrec :: Int -&gt; ReadS HlsDescriptiveVideoServiceFlag
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679971588"><span id="local-6989586621679971590"><span class="annot"><span class="annottext">HlsDescriptiveVideoServiceFlag
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679976213"><span id="local-6989586621679976215"><span class="annot"><span class="annottext">HlsDescriptiveVideoServiceFlag
 -&gt; HlsDescriptiveVideoServiceFlag -&gt; Bool
 (HlsDescriptiveVideoServiceFlag
  -&gt; HlsDescriptiveVideoServiceFlag -&gt; Bool)
@@ -97,7 +97,7 @@ $c/= :: HlsDescriptiveVideoServiceFlag
 $c== :: HlsDescriptiveVideoServiceFlag
 -&gt; HlsDescriptiveVideoServiceFlag -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679971572"><span id="local-6989586621679971574"><span id="local-6989586621679971576"><span id="local-6989586621679971578"><span id="local-6989586621679971580"><span id="local-6989586621679971582"><span id="local-6989586621679971584"><span class="annot"><span class="annottext">Eq HlsDescriptiveVideoServiceFlag
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679976197"><span id="local-6989586621679976199"><span id="local-6989586621679976201"><span id="local-6989586621679976203"><span id="local-6989586621679976205"><span id="local-6989586621679976207"><span id="local-6989586621679976209"><span class="annot"><span class="annottext">Eq HlsDescriptiveVideoServiceFlag
 Eq HlsDescriptiveVideoServiceFlag
 -&gt; (HlsDescriptiveVideoServiceFlag
     -&gt; HlsDescriptiveVideoServiceFlag -&gt; Ordering)
@@ -186,7 +186,7 @@ HlsDescriptiveVideoServiceFlag
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-50"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679971564"><span id="local-6989586621679971566"><span class="annot"><span class="annottext">Int -&gt; HlsDescriptiveVideoServiceFlag -&gt; Int
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679976189"><span id="local-6989586621679976191"><span class="annot"><span class="annottext">Int -&gt; HlsDescriptiveVideoServiceFlag -&gt; Int
 HlsDescriptiveVideoServiceFlag -&gt; Int
 (Int -&gt; HlsDescriptiveVideoServiceFlag -&gt; Int)
 -&gt; (HlsDescriptiveVideoServiceFlag -&gt; Int)
@@ -197,56 +197,56 @@ $chash :: HlsDescriptiveVideoServiceFlag -&gt; Int
 hashWithSalt :: Int -&gt; HlsDescriptiveVideoServiceFlag -&gt; Int
 $chashWithSalt :: Int -&gt; HlsDescriptiveVideoServiceFlag -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679971561"><span class="annot"><span class="annottext">HlsDescriptiveVideoServiceFlag -&gt; ()
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679976186"><span class="annot"><span class="annottext">HlsDescriptiveVideoServiceFlag -&gt; ()
 (HlsDescriptiveVideoServiceFlag -&gt; ())
 -&gt; NFData HlsDescriptiveVideoServiceFlag
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: HlsDescriptiveVideoServiceFlag -&gt; ()
 $crnf :: HlsDescriptiveVideoServiceFlag -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679971558"><span class="annot"><span class="annottext">Text -&gt; Either String HlsDescriptiveVideoServiceFlag
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679976183"><span class="annot"><span class="annottext">Text -&gt; Either String HlsDescriptiveVideoServiceFlag
 (Text -&gt; Either String HlsDescriptiveVideoServiceFlag)
 -&gt; FromText HlsDescriptiveVideoServiceFlag
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String HlsDescriptiveVideoServiceFlag
 $cfromText :: Text -&gt; Either String HlsDescriptiveVideoServiceFlag
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679971555"><span class="annot"><span class="annottext">HlsDescriptiveVideoServiceFlag -&gt; Text
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679976180"><span class="annot"><span class="annottext">HlsDescriptiveVideoServiceFlag -&gt; Text
 (HlsDescriptiveVideoServiceFlag -&gt; Text)
 -&gt; ToText HlsDescriptiveVideoServiceFlag
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: HlsDescriptiveVideoServiceFlag -&gt; Text
 $ctoText :: HlsDescriptiveVideoServiceFlag -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679971552"><span class="annot"><span class="annottext">HlsDescriptiveVideoServiceFlag -&gt; ByteString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679976177"><span class="annot"><span class="annottext">HlsDescriptiveVideoServiceFlag -&gt; ByteString
 (HlsDescriptiveVideoServiceFlag -&gt; ByteString)
 -&gt; ToByteString HlsDescriptiveVideoServiceFlag
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: HlsDescriptiveVideoServiceFlag -&gt; ByteString
 $ctoBS :: HlsDescriptiveVideoServiceFlag -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679971549"><span class="annot"><span class="annottext">HlsDescriptiveVideoServiceFlag -&gt; ByteStringBuilder
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679976174"><span class="annot"><span class="annottext">HlsDescriptiveVideoServiceFlag -&gt; ByteStringBuilder
 (HlsDescriptiveVideoServiceFlag -&gt; ByteStringBuilder)
 -&gt; ToLog HlsDescriptiveVideoServiceFlag
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: HlsDescriptiveVideoServiceFlag -&gt; ByteStringBuilder
 $cbuild :: HlsDescriptiveVideoServiceFlag -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679971546"><span class="annot"><span class="annottext">HeaderName -&gt; HlsDescriptiveVideoServiceFlag -&gt; [Header]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679976171"><span class="annot"><span class="annottext">HeaderName -&gt; HlsDescriptiveVideoServiceFlag -&gt; [Header]
 (HeaderName -&gt; HlsDescriptiveVideoServiceFlag -&gt; [Header])
 -&gt; ToHeader HlsDescriptiveVideoServiceFlag
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; HlsDescriptiveVideoServiceFlag -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; HlsDescriptiveVideoServiceFlag -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679971543"><span class="annot"><span class="annottext">HlsDescriptiveVideoServiceFlag -&gt; QueryString
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679976168"><span class="annot"><span class="annottext">HlsDescriptiveVideoServiceFlag -&gt; QueryString
 (HlsDescriptiveVideoServiceFlag -&gt; QueryString)
 -&gt; ToQuery HlsDescriptiveVideoServiceFlag
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: HlsDescriptiveVideoServiceFlag -&gt; QueryString
 $ctoQuery :: HlsDescriptiveVideoServiceFlag -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679971538"><span id="local-6989586621679971540"><span class="annot"><span class="annottext">Value -&gt; Parser [HlsDescriptiveVideoServiceFlag]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679976163"><span id="local-6989586621679976165"><span class="annot"><span class="annottext">Value -&gt; Parser [HlsDescriptiveVideoServiceFlag]
 Value -&gt; Parser HlsDescriptiveVideoServiceFlag
 (Value -&gt; Parser HlsDescriptiveVideoServiceFlag)
 -&gt; (Value -&gt; Parser [HlsDescriptiveVideoServiceFlag])
@@ -258,7 +258,7 @@ $cparseJSONList :: Value -&gt; Parser [HlsDescriptiveVideoServiceFlag]
 parseJSON :: Value -&gt; Parser HlsDescriptiveVideoServiceFlag
 $cparseJSON :: Value -&gt; Parser HlsDescriptiveVideoServiceFlag
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679971533"><span id="local-6989586621679971535"><span class="annot"><span class="annottext">FromJSONKeyFunction [HlsDescriptiveVideoServiceFlag]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679976158"><span id="local-6989586621679976160"><span class="annot"><span class="annottext">FromJSONKeyFunction [HlsDescriptiveVideoServiceFlag]
 FromJSONKeyFunction HlsDescriptiveVideoServiceFlag
 FromJSONKeyFunction HlsDescriptiveVideoServiceFlag
 -&gt; FromJSONKeyFunction [HlsDescriptiveVideoServiceFlag]
@@ -270,7 +270,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [HlsDescriptiveVideoServiceFlag]
 fromJSONKey :: FromJSONKeyFunction HlsDescriptiveVideoServiceFlag
 $cfromJSONKey :: FromJSONKeyFunction HlsDescriptiveVideoServiceFlag
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679971524"><span id="local-6989586621679971526"><span id="local-6989586621679971528"><span id="local-6989586621679971530"><span class="annot"><span class="annottext">[HlsDescriptiveVideoServiceFlag] -&gt; Encoding
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679976149"><span id="local-6989586621679976151"><span id="local-6989586621679976153"><span id="local-6989586621679976155"><span class="annot"><span class="annottext">[HlsDescriptiveVideoServiceFlag] -&gt; Encoding
 [HlsDescriptiveVideoServiceFlag] -&gt; Value
 HlsDescriptiveVideoServiceFlag -&gt; Encoding
 HlsDescriptiveVideoServiceFlag -&gt; Value
@@ -294,7 +294,7 @@ $ctoEncoding :: HlsDescriptiveVideoServiceFlag -&gt; Encoding
 toJSON :: HlsDescriptiveVideoServiceFlag -&gt; Value
 $ctoJSON :: HlsDescriptiveVideoServiceFlag -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679971519"><span id="local-6989586621679971521"><span class="annot"><span class="annottext">ToJSONKeyFunction [HlsDescriptiveVideoServiceFlag]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679976144"><span id="local-6989586621679976146"><span class="annot"><span class="annottext">ToJSONKeyFunction [HlsDescriptiveVideoServiceFlag]
 ToJSONKeyFunction HlsDescriptiveVideoServiceFlag
 ToJSONKeyFunction HlsDescriptiveVideoServiceFlag
 -&gt; ToJSONKeyFunction [HlsDescriptiveVideoServiceFlag]
@@ -306,14 +306,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [HlsDescriptiveVideoServiceFlag]
 toJSONKey :: ToJSONKeyFunction HlsDescriptiveVideoServiceFlag
 $ctoJSONKey :: ToJSONKeyFunction HlsDescriptiveVideoServiceFlag
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679971516"><span class="annot"><span class="annottext">[Node] -&gt; Either String HlsDescriptiveVideoServiceFlag
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679976141"><span class="annot"><span class="annottext">[Node] -&gt; Either String HlsDescriptiveVideoServiceFlag
 ([Node] -&gt; Either String HlsDescriptiveVideoServiceFlag)
 -&gt; FromXML HlsDescriptiveVideoServiceFlag
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String HlsDescriptiveVideoServiceFlag
 $cparseXML :: [Node] -&gt; Either String HlsDescriptiveVideoServiceFlag
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679971513"><span class="annot"><span class="annottext">HlsDescriptiveVideoServiceFlag -&gt; XML
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679976138"><span class="annot"><span class="annottext">HlsDescriptiveVideoServiceFlag -&gt; XML
 (HlsDescriptiveVideoServiceFlag -&gt; XML)
 -&gt; ToXML HlsDescriptiveVideoServiceFlag
 forall a. (a -&gt; XML) -&gt; ToXML a

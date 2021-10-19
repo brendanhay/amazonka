@@ -40,10 +40,10 @@
 </span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#newDescribeEventTypes"><span class="hs-identifier">newDescribeEventTypes</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>
 </span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#describeEventTypes_nextToken"><span class="hs-identifier">describeEventTypes_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#describeEventTypes_maxResults"><span class="hs-identifier">describeEventTypes_maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#describeEventTypes_locale"><span class="hs-identifier">describeEventTypes_locale</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#describeEventTypes_filter"><span class="hs-identifier">describeEventTypes_filter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#describeEventTypes_locale"><span class="hs-identifier">describeEventTypes_locale</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#describeEventTypes_nextToken"><span class="hs-identifier">describeEventTypes_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#describeEventTypes_filter"><span class="hs-identifier">describeEventTypes_filter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#describeEventTypes_maxResults"><span class="hs-identifier">describeEventTypes_maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>
 </span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypesResponse"><span class="hs-identifier">DescribeEventTypesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -64,27 +64,27 @@
 </span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | /See:/ 'newDescribeEventTypes' smart constructor.</span><span>
-</span><span id="line-67"></span><span id="local-6989586621679190154"><span id="local-6989586621679190155"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeEventTypes"><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypes"><span class="hs-identifier hs-var">DescribeEventTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeEventTypes%27"><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypes%27"><span class="hs-identifier hs-var">DescribeEventTypes'</span></a></span></span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the results of a search are large, only a portion of the results are</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- returned, and a @nextToken@ pagination token is returned in the</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- response. To retrieve the next batch of results, reissue the search</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- request and include the returned token. When all results have been</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- returned, the response does not contain a pagination token value.</span><span>
-</span><span id="line-73"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeEventTypes%27"><span class="annot"><span class="annottext">DescribeEventTypes -&gt; Maybe Text
-</span><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#%24sel%3AnextToken%3ADescribeEventTypes%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The maximum number of items to return in one batch, between 10 and 100,</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- inclusive.</span><span>
-</span><span id="line-76"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeEventTypes%27"><span class="annot"><span class="annottext">DescribeEventTypes -&gt; Maybe Natural
-</span><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#%24sel%3AmaxResults%3ADescribeEventTypes%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The locale (language) to return information in. English (en) is the</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- default and the only supported value at this time.</span><span>
-</span><span id="line-79"></span><span>    </span><span id="%24sel%3Alocale%3ADescribeEventTypes%27"><span class="annot"><span class="annottext">DescribeEventTypes -&gt; Maybe Text
+</span><span id="line-67"></span><span id="local-6989586621679190374"><span id="local-6989586621679190375"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeEventTypes"><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypes"><span class="hs-identifier hs-var">DescribeEventTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeEventTypes%27"><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypes%27"><span class="hs-identifier hs-var">DescribeEventTypes'</span></a></span></span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The locale (language) to return information in. English (en) is the</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- default and the only supported value at this time.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3Alocale%3ADescribeEventTypes%27"><span class="annot"><span class="annottext">DescribeEventTypes -&gt; Maybe Text
 </span><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#%24sel%3Alocale%3ADescribeEventTypes%27"><span class="hs-identifier hs-var hs-var">locale</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | Values to narrow the results returned.</span><span>
-</span><span id="line-81"></span><span>    </span><span id="%24sel%3Afilter%27%3ADescribeEventTypes%27"><span class="annot"><span class="annottext">DescribeEventTypes -&gt; Maybe EventTypeFilter
-</span><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#%24sel%3Afilter%27%3ADescribeEventTypes%27"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventTypeFilter.html#EventTypeFilter"><span class="hs-identifier hs-type">EventTypeFilter</span></a></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | If the results of a search are large, only a portion of the results are</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- returned, and a @nextToken@ pagination token is returned in the</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- response. To retrieve the next batch of results, reissue the search</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- request and include the returned token. When all results have been</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- returned, the response does not contain a pagination token value.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeEventTypes%27"><span class="annot"><span class="annottext">DescribeEventTypes -&gt; Maybe Text
+</span><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#%24sel%3AnextToken%3ADescribeEventTypes%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | Values to narrow the results returned.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3Afilter%27%3ADescribeEventTypes%27"><span class="annot"><span class="annottext">DescribeEventTypes -&gt; Maybe EventTypeFilter
+</span><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#%24sel%3Afilter%27%3ADescribeEventTypes%27"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventTypeFilter.html#EventTypeFilter"><span class="hs-identifier hs-type">EventTypeFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | The maximum number of items to return in one batch, between 10 and 100,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- inclusive.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeEventTypes%27"><span class="annot"><span class="annottext">DescribeEventTypes -&gt; Maybe Natural
+</span><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#%24sel%3AmaxResults%3ADescribeEventTypes%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-82"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-83"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679190145"><span id="local-6989586621679190147"><span class="annot"><span class="annottext">DescribeEventTypes -&gt; DescribeEventTypes -&gt; Bool
+</span><span id="line-83"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679190365"><span id="local-6989586621679190367"><span class="annot"><span class="annottext">DescribeEventTypes -&gt; DescribeEventTypes -&gt; Bool
 (DescribeEventTypes -&gt; DescribeEventTypes -&gt; Bool)
 -&gt; (DescribeEventTypes -&gt; DescribeEventTypes -&gt; Bool)
 -&gt; Eq DescribeEventTypes
@@ -93,7 +93,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeEventTypes -&gt; DescribeEventTypes -&gt; Bool
 == :: DescribeEventTypes -&gt; DescribeEventTypes -&gt; Bool
 $c== :: DescribeEventTypes -&gt; DescribeEventTypes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679190136"><span id="local-6989586621679190138"><span id="local-6989586621679190140"><span id="local-6989586621679190142"><span class="annot"><span class="annottext">ReadPrec [DescribeEventTypes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679190356"><span id="local-6989586621679190358"><span id="local-6989586621679190360"><span id="local-6989586621679190362"><span class="annot"><span class="annottext">ReadPrec [DescribeEventTypes]
 ReadPrec DescribeEventTypes
 Int -&gt; ReadS DescribeEventTypes
 ReadS [DescribeEventTypes]
@@ -113,7 +113,7 @@ readList :: ReadS [DescribeEventTypes]
 $creadList :: ReadS [DescribeEventTypes]
 readsPrec :: Int -&gt; ReadS DescribeEventTypes
 $creadsPrec :: Int -&gt; ReadS DescribeEventTypes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679190129"><span id="local-6989586621679190131"><span id="local-6989586621679190133"><span class="annot"><span class="annottext">Int -&gt; DescribeEventTypes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679190349"><span id="local-6989586621679190351"><span id="local-6989586621679190353"><span class="annot"><span class="annottext">Int -&gt; DescribeEventTypes -&gt; ShowS
 [DescribeEventTypes] -&gt; ShowS
 DescribeEventTypes -&gt; String
 (Int -&gt; DescribeEventTypes -&gt; ShowS)
@@ -147,119 +147,95 @@ $cfrom :: forall x. DescribeEventTypes -&gt; Rep DescribeEventTypes x
 </span><span id="line-90"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-92"></span><span class="hs-comment">--</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- 'nextToken', 'describeEventTypes_nextToken' - If the results of a search are large, only a portion of the results are</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- returned, and a @nextToken@ pagination token is returned in the</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- response. To retrieve the next batch of results, reissue the search</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- request and include the returned token. When all results have been</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- returned, the response does not contain a pagination token value.</span><span>
-</span><span id="line-98"></span><span class="hs-comment">--</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- 'maxResults', 'describeEventTypes_maxResults' - The maximum number of items to return in one batch, between 10 and 100,</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- inclusive.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'locale', 'describeEventTypes_locale' - The locale (language) to return information in. English (en) is the</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- default and the only supported value at this time.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'nextToken', 'describeEventTypes_nextToken' - If the results of a search are large, only a portion of the results are</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- returned, and a @nextToken@ pagination token is returned in the</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- response. To retrieve the next batch of results, reissue the search</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- request and include the returned token. When all results have been</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- returned, the response does not contain a pagination token value.</span><span>
 </span><span id="line-101"></span><span class="hs-comment">--</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- 'locale', 'describeEventTypes_locale' - The locale (language) to return information in. English (en) is the</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- default and the only supported value at this time.</span><span>
-</span><span id="line-104"></span><span class="hs-comment">--</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- 'filter'', 'describeEventTypes_filter' - Values to narrow the results returned.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'filter'', 'describeEventTypes_filter' - Values to narrow the results returned.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'maxResults', 'describeEventTypes_maxResults' - The maximum number of items to return in one batch, between 10 and 100,</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- inclusive.</span><span>
 </span><span id="line-106"></span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#newDescribeEventTypes"><span class="hs-identifier hs-type">newDescribeEventTypes</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-107"></span><span>  </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypes"><span class="hs-identifier hs-type">DescribeEventTypes</span></a></span><span>
 </span><span id="line-108"></span><span id="newDescribeEventTypes"><span class="annot"><span class="annottext">newDescribeEventTypes :: DescribeEventTypes
 </span><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#newDescribeEventTypes"><span class="hs-identifier hs-var hs-var">newDescribeEventTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>  </span><span class="annot"><span class="annottext">DescribeEventTypes' :: Maybe Text
--&gt; Maybe Natural
 -&gt; Maybe Text
 -&gt; Maybe EventTypeFilter
+-&gt; Maybe Natural
 -&gt; DescribeEventTypes
 </span><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypes%27"><span class="hs-identifier hs-type">DescribeEventTypes'</span></a></span><span>
-</span><span id="line-110"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeEventTypes' :: Maybe Text
-</span><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#%24sel%3AnextToken%3ADescribeEventTypes%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:DescribeEventTypes' :: Maybe Natural
-</span><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#%24sel%3AmaxResults%3ADescribeEventTypes%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:locale:DescribeEventTypes' :: Maybe Text
+</span><span id="line-110"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:locale:DescribeEventTypes' :: Maybe Text
 </span><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#%24sel%3Alocale%3ADescribeEventTypes%27"><span class="hs-identifier hs-var">locale</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:filter':DescribeEventTypes' :: Maybe EventTypeFilter
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeEventTypes' :: Maybe Text
+</span><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#%24sel%3AnextToken%3ADescribeEventTypes%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:filter':DescribeEventTypes' :: Maybe EventTypeFilter
 </span><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#%24sel%3Afilter%27%3ADescribeEventTypes%27"><span class="hs-identifier hs-var">filter'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EventTypeFilter
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:DescribeEventTypes' :: Maybe Natural
+</span><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#%24sel%3AmaxResults%3ADescribeEventTypes%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-114"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- | If the results of a search are large, only a portion of the results are</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- returned, and a @nextToken@ pagination token is returned in the</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- response. To retrieve the next batch of results, reissue the search</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- request and include the returned token. When all results have been</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- returned, the response does not contain a pagination token value.</span><span>
-</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#describeEventTypes_nextToken"><span class="hs-identifier hs-type">describeEventTypes_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypes"><span class="hs-identifier hs-type">DescribeEventTypes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span id="describeEventTypes_nextToken"><span class="annot"><span class="annottext">describeEventTypes_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribeEventTypes -&gt; f DescribeEventTypes
-</span><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#describeEventTypes_nextToken"><span class="hs-identifier hs-var hs-var">describeEventTypes_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEventTypes -&gt; Maybe Text)
--&gt; (DescribeEventTypes -&gt; Maybe Text -&gt; DescribeEventTypes)
--&gt; Lens
-     DescribeEventTypes DescribeEventTypes (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypes%27"><span class="hs-identifier hs-type">DescribeEventTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190123"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:DescribeEventTypes' :: DescribeEventTypes -&gt; Maybe Text
-</span><a href="#local-6989586621679190123"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679190123"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679190122"><span class="annot"><span class="annottext">s :: DescribeEventTypes
-</span><a href="#local-6989586621679190122"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypes%27"><span class="hs-identifier hs-type">DescribeEventTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679190121"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679190121"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventTypes
-</span><a href="#local-6989586621679190122"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeEventTypes' :: Maybe Text
-</span><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#%24sel%3AnextToken%3ADescribeEventTypes%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679190121"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypes"><span class="hs-identifier hs-type">DescribeEventTypes</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- | The maximum number of items to return in one batch, between 10 and 100,</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- inclusive.</span><span>
-</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#describeEventTypes_maxResults"><span class="hs-identifier hs-type">describeEventTypes_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypes"><span class="hs-identifier hs-type">DescribeEventTypes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span id="describeEventTypes_maxResults"><span class="annot"><span class="annottext">describeEventTypes_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; DescribeEventTypes -&gt; f DescribeEventTypes
-</span><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#describeEventTypes_maxResults"><span class="hs-identifier hs-var hs-var">describeEventTypes_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEventTypes -&gt; Maybe Natural)
--&gt; (DescribeEventTypes -&gt; Maybe Natural -&gt; DescribeEventTypes)
--&gt; Lens
-     DescribeEventTypes
-     DescribeEventTypes
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypes%27"><span class="hs-identifier hs-type">DescribeEventTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190120"><span class="annot"><span class="annottext">Maybe Natural
-maxResults :: Maybe Natural
-$sel:maxResults:DescribeEventTypes' :: DescribeEventTypes -&gt; Maybe Natural
-</span><a href="#local-6989586621679190120"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679190120"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679190119"><span class="annot"><span class="annottext">s :: DescribeEventTypes
-</span><a href="#local-6989586621679190119"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypes%27"><span class="hs-identifier hs-type">DescribeEventTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679190118"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679190118"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventTypes
-</span><a href="#local-6989586621679190119"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeEventTypes' :: Maybe Natural
-</span><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#%24sel%3AmaxResults%3ADescribeEventTypes%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679190118"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypes"><span class="hs-identifier hs-type">DescribeEventTypes</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- | The locale (language) to return information in. English (en) is the</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- default and the only supported value at this time.</span><span>
-</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#describeEventTypes_locale"><span class="hs-identifier hs-type">describeEventTypes_locale</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypes"><span class="hs-identifier hs-type">DescribeEventTypes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span id="describeEventTypes_locale"><span class="annot"><span class="annottext">describeEventTypes_locale :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-116"></span><span class="hs-comment">-- | The locale (language) to return information in. English (en) is the</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- default and the only supported value at this time.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#describeEventTypes_locale"><span class="hs-identifier hs-type">describeEventTypes_locale</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypes"><span class="hs-identifier hs-type">DescribeEventTypes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="describeEventTypes_locale"><span class="annot"><span class="annottext">describeEventTypes_locale :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DescribeEventTypes -&gt; f DescribeEventTypes
 </span><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#describeEventTypes_locale"><span class="hs-identifier hs-var hs-var">describeEventTypes_locale</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEventTypes -&gt; Maybe Text)
 -&gt; (DescribeEventTypes -&gt; Maybe Text -&gt; DescribeEventTypes)
 -&gt; Lens
      DescribeEventTypes DescribeEventTypes (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypes%27"><span class="hs-identifier hs-type">DescribeEventTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190117"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypes%27"><span class="hs-identifier hs-type">DescribeEventTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190343"><span class="annot"><span class="annottext">Maybe Text
 locale :: Maybe Text
 $sel:locale:DescribeEventTypes' :: DescribeEventTypes -&gt; Maybe Text
-</span><a href="#local-6989586621679190117"><span class="hs-identifier hs-var hs-var">locale</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679190117"><span class="hs-identifier hs-var">locale</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679190116"><span class="annot"><span class="annottext">s :: DescribeEventTypes
-</span><a href="#local-6989586621679190116"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypes%27"><span class="hs-identifier hs-type">DescribeEventTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679190115"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679190115"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventTypes
-</span><a href="#local-6989586621679190116"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:locale:DescribeEventTypes' :: Maybe Text
+</span><a href="#local-6989586621679190343"><span class="hs-identifier hs-var hs-var">locale</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679190343"><span class="hs-identifier hs-var">locale</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679190342"><span class="annot"><span class="annottext">s :: DescribeEventTypes
+</span><a href="#local-6989586621679190342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypes%27"><span class="hs-identifier hs-type">DescribeEventTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679190341"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679190341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventTypes
+</span><a href="#local-6989586621679190342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:locale:DescribeEventTypes' :: Maybe Text
 </span><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#%24sel%3Alocale%3ADescribeEventTypes%27"><span class="hs-identifier hs-var">locale</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679190115"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypes"><span class="hs-identifier hs-type">DescribeEventTypes</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- | Values to narrow the results returned.</span><span>
-</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#describeEventTypes_filter"><span class="hs-identifier hs-type">describeEventTypes_filter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypes"><span class="hs-identifier hs-type">DescribeEventTypes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventTypeFilter.html#EventTypeFilter"><span class="hs-identifier hs-type">EventTypeFilter</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span id="describeEventTypes_filter"><span class="annot"><span class="annottext">describeEventTypes_filter :: (Maybe EventTypeFilter -&gt; f (Maybe EventTypeFilter))
+</span><a href="#local-6989586621679190341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypes"><span class="hs-identifier hs-type">DescribeEventTypes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | If the results of a search are large, only a portion of the results are</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- returned, and a @nextToken@ pagination token is returned in the</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- response. To retrieve the next batch of results, reissue the search</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- request and include the returned token. When all results have been</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- returned, the response does not contain a pagination token value.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#describeEventTypes_nextToken"><span class="hs-identifier hs-type">describeEventTypes_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypes"><span class="hs-identifier hs-type">DescribeEventTypes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="describeEventTypes_nextToken"><span class="annot"><span class="annottext">describeEventTypes_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeEventTypes -&gt; f DescribeEventTypes
+</span><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#describeEventTypes_nextToken"><span class="hs-identifier hs-var hs-var">describeEventTypes_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEventTypes -&gt; Maybe Text)
+-&gt; (DescribeEventTypes -&gt; Maybe Text -&gt; DescribeEventTypes)
+-&gt; Lens
+     DescribeEventTypes DescribeEventTypes (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypes%27"><span class="hs-identifier hs-type">DescribeEventTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190340"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeEventTypes' :: DescribeEventTypes -&gt; Maybe Text
+</span><a href="#local-6989586621679190340"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679190340"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679190339"><span class="annot"><span class="annottext">s :: DescribeEventTypes
+</span><a href="#local-6989586621679190339"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypes%27"><span class="hs-identifier hs-type">DescribeEventTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679190338"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679190338"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventTypes
+</span><a href="#local-6989586621679190339"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeEventTypes' :: Maybe Text
+</span><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#%24sel%3AnextToken%3ADescribeEventTypes%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679190338"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypes"><span class="hs-identifier hs-type">DescribeEventTypes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | Values to narrow the results returned.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#describeEventTypes_filter"><span class="hs-identifier hs-type">describeEventTypes_filter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypes"><span class="hs-identifier hs-type">DescribeEventTypes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.EventTypeFilter.html#EventTypeFilter"><span class="hs-identifier hs-type">EventTypeFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="describeEventTypes_filter"><span class="annot"><span class="annottext">describeEventTypes_filter :: (Maybe EventTypeFilter -&gt; f (Maybe EventTypeFilter))
 -&gt; DescribeEventTypes -&gt; f DescribeEventTypes
 </span><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#describeEventTypes_filter"><span class="hs-identifier hs-var hs-var">describeEventTypes_filter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEventTypes -&gt; Maybe EventTypeFilter)
 -&gt; (DescribeEventTypes
@@ -270,29 +246,53 @@ $sel:locale:DescribeEventTypes' :: DescribeEventTypes -&gt; Maybe Text
      (Maybe EventTypeFilter)
      (Maybe EventTypeFilter)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypes%27"><span class="hs-identifier hs-type">DescribeEventTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190114"><span class="annot"><span class="annottext">Maybe EventTypeFilter
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypes%27"><span class="hs-identifier hs-type">DescribeEventTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190337"><span class="annot"><span class="annottext">Maybe EventTypeFilter
 filter' :: Maybe EventTypeFilter
 $sel:filter':DescribeEventTypes' :: DescribeEventTypes -&gt; Maybe EventTypeFilter
-</span><a href="#local-6989586621679190114"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EventTypeFilter
-</span><a href="#local-6989586621679190114"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679190113"><span class="annot"><span class="annottext">s :: DescribeEventTypes
-</span><a href="#local-6989586621679190113"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypes%27"><span class="hs-identifier hs-type">DescribeEventTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679190112"><span class="annot"><span class="annottext">Maybe EventTypeFilter
-</span><a href="#local-6989586621679190112"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventTypes
-</span><a href="#local-6989586621679190113"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filter':DescribeEventTypes' :: Maybe EventTypeFilter
+</span><a href="#local-6989586621679190337"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EventTypeFilter
+</span><a href="#local-6989586621679190337"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679190336"><span class="annot"><span class="annottext">s :: DescribeEventTypes
+</span><a href="#local-6989586621679190336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypes%27"><span class="hs-identifier hs-type">DescribeEventTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679190335"><span class="annot"><span class="annottext">Maybe EventTypeFilter
+</span><a href="#local-6989586621679190335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventTypes
+</span><a href="#local-6989586621679190336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filter':DescribeEventTypes' :: Maybe EventTypeFilter
 </span><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#%24sel%3Afilter%27%3ADescribeEventTypes%27"><span class="hs-identifier hs-var">filter'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EventTypeFilter
-</span><a href="#local-6989586621679190112"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypes"><span class="hs-identifier hs-type">DescribeEventTypes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679190335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypes"><span class="hs-identifier hs-type">DescribeEventTypes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The maximum number of items to return in one batch, between 10 and 100,</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- inclusive.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#describeEventTypes_maxResults"><span class="hs-identifier hs-type">describeEventTypes_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypes"><span class="hs-identifier hs-type">DescribeEventTypes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="describeEventTypes_maxResults"><span class="annot"><span class="annottext">describeEventTypes_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DescribeEventTypes -&gt; f DescribeEventTypes
+</span><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#describeEventTypes_maxResults"><span class="hs-identifier hs-var hs-var">describeEventTypes_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEventTypes -&gt; Maybe Natural)
+-&gt; (DescribeEventTypes -&gt; Maybe Natural -&gt; DescribeEventTypes)
+-&gt; Lens
+     DescribeEventTypes
+     DescribeEventTypes
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypes%27"><span class="hs-identifier hs-type">DescribeEventTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190334"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:DescribeEventTypes' :: DescribeEventTypes -&gt; Maybe Natural
+</span><a href="#local-6989586621679190334"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679190334"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679190333"><span class="annot"><span class="annottext">s :: DescribeEventTypes
+</span><a href="#local-6989586621679190333"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypes%27"><span class="hs-identifier hs-type">DescribeEventTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679190332"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679190332"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventTypes
+</span><a href="#local-6989586621679190333"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeEventTypes' :: Maybe Natural
+</span><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#%24sel%3AmaxResults%3ADescribeEventTypes%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679190332"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypes"><span class="hs-identifier hs-type">DescribeEventTypes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypes"><span class="hs-identifier hs-type">DescribeEventTypes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679190108"><span class="annot"><span class="annottext">page :: DescribeEventTypes
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679190328"><span class="annot"><span class="annottext">page :: DescribeEventTypes
 -&gt; AWSResponse DescribeEventTypes -&gt; Maybe DescribeEventTypes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679190106"><span class="annot"><span class="annottext">DescribeEventTypes
-</span><a href="#local-6989586621679190106"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679190105"><span class="annot"><span class="annottext">AWSResponse DescribeEventTypes
-</span><a href="#local-6989586621679190105"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679190326"><span class="annot"><span class="annottext">DescribeEventTypes
+</span><a href="#local-6989586621679190326"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679190325"><span class="annot"><span class="annottext">AWSResponse DescribeEventTypes
+</span><a href="#local-6989586621679190325"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-140"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-141"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeEventTypes
 DescribeEventTypesResponse
-</span><a href="#local-6989586621679190105"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679190325"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">DescribeEventTypesResponse
 -&gt; Getting (First Text) DescribeEventTypesResponse Text
 -&gt; Maybe Text
@@ -322,7 +322,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-147"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeEventTypes
 DescribeEventTypesResponse
-</span><a href="#local-6989586621679190105"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679190325"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">DescribeEventTypesResponse
 -&gt; Getting
      (First [EventType]) DescribeEventTypesResponse [EventType]
@@ -362,7 +362,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-154"></span><span>        </span><span class="annot"><span class="annottext">DescribeEventTypes
-</span><a href="#local-6989586621679190106"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679190326"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-155"></span><span>          </span><span class="annot"><span class="annottext">DescribeEventTypes
 -&gt; (DescribeEventTypes -&gt; DescribeEventTypes) -&gt; DescribeEventTypes
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -377,7 +377,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeEventTypes
 DescribeEventTypesResponse
-</span><a href="#local-6989586621679190105"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679190325"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-157"></span><span>          </span><span class="annot"><span class="annottext">DescribeEventTypesResponse
 -&gt; Getting (First Text) DescribeEventTypesResponse Text
 -&gt; Maybe Text
@@ -403,12 +403,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-161"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-162"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypes"><span class="hs-identifier hs-type">DescribeEventTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-163"></span><span>      </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypesResponse"><span class="hs-identifier hs-type">DescribeEventTypesResponse</span></a></span><span>
-</span><span id="line-164"></span><span>  </span><span id="local-6989586621679190095"><span class="annot"><span class="annottext">request :: DescribeEventTypes -&gt; Request DescribeEventTypes
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679190315"><span class="annot"><span class="annottext">request :: DescribeEventTypes -&gt; Request DescribeEventTypes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeEventTypes -&gt; Request DescribeEventTypes
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AWSHealth.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621679190091"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679190311"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeEventTypes
 -&gt; ClientResponse ClientBody
@@ -434,10 +434,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-167"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679190088"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679190088"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679190087"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679190087"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679190086"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679190086"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679190308"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679190308"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679190307"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679190307"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679190306"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679190306"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-168"></span><span>          </span><span class="annot"><span class="annottext">Maybe [EventType]
 -&gt; Maybe Text -&gt; Int -&gt; DescribeEventTypesResponse
 </span><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypesResponse%27"><span class="hs-identifier hs-var">DescribeEventTypesResponse'</span></a></span><span>
@@ -447,7 +447,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; DescribeEventTypesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679190086"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [EventType]))
+</span><a href="#local-6989586621679190306"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [EventType]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;eventTypes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [EventType]))
@@ -461,7 +461,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; DescribeEventTypesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679190086"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679190306"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -473,15 +473,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679190088"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679190308"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>
-</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679190077"><span id="local-6989586621679190079"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypes"><span class="hs-identifier hs-type">DescribeEventTypes</span></a></span></span></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679190297"><span id="local-6989586621679190299"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypes"><span class="hs-identifier hs-type">DescribeEventTypes</span></a></span></span></span><span>
 </span><span id="line-175"></span><span>
-</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679190074"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypes"><span class="hs-identifier hs-type">DescribeEventTypes</span></a></span></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679190294"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypes"><span class="hs-identifier hs-type">DescribeEventTypes</span></a></span></span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypes"><span class="hs-identifier hs-type">DescribeEventTypes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621679190070"><span class="annot"><span class="annottext">toHeaders :: DescribeEventTypes -&gt; ResponseHeaders
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679190290"><span class="annot"><span class="annottext">toHeaders :: DescribeEventTypes -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-180"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeEventTypes -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -508,65 +508,65 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-190"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-191"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-192"></span><span>
-</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679190060"><span id="local-6989586621679190062"><span id="local-6989586621679190064"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypes"><span class="hs-identifier hs-type">DescribeEventTypes</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-194"></span><span>  </span><span id="local-6989586621679190058"><span class="annot"><span class="annottext">toJSON :: DescribeEventTypes -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypes%27"><span class="hs-identifier hs-type">DescribeEventTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190053"><span id="local-6989586621679190054"><span id="local-6989586621679190055"><span id="local-6989586621679190056"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679190280"><span id="local-6989586621679190282"><span id="local-6989586621679190284"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypes"><span class="hs-identifier hs-type">DescribeEventTypes</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679190278"><span class="annot"><span class="annottext">toJSON :: DescribeEventTypes -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypes%27"><span class="hs-identifier hs-type">DescribeEventTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190273"><span id="local-6989586621679190274"><span id="local-6989586621679190275"><span id="local-6989586621679190276"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe EventTypeFilter
-filter' :: Maybe EventTypeFilter
-locale :: Maybe Text
 maxResults :: Maybe Natural
+filter' :: Maybe EventTypeFilter
 nextToken :: Maybe Text
-$sel:filter':DescribeEventTypes' :: DescribeEventTypes -&gt; Maybe EventTypeFilter
-$sel:locale:DescribeEventTypes' :: DescribeEventTypes -&gt; Maybe Text
+locale :: Maybe Text
 $sel:maxResults:DescribeEventTypes' :: DescribeEventTypes -&gt; Maybe Natural
+$sel:filter':DescribeEventTypes' :: DescribeEventTypes -&gt; Maybe EventTypeFilter
 $sel:nextToken:DescribeEventTypes' :: DescribeEventTypes -&gt; Maybe Text
-</span><a href="#local-6989586621679190053"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:locale:DescribeEventTypes' :: DescribeEventTypes -&gt; Maybe Text
+</span><a href="#local-6989586621679190273"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-195"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-196"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-197"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679190056"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-198"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679190055"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-199"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;locale&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679190054"><span class="hs-identifier hs-var">locale</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-200"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679190276"><span class="hs-identifier hs-var">locale</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679190275"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EventTypeFilter -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(EventTypeFilter -&gt; Pair) -&gt; Maybe EventTypeFilter -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EventTypeFilter
-</span><a href="#local-6989586621679190053"><span class="hs-identifier hs-var">filter'</span></a></span><span>
+</span><a href="#local-6989586621679190274"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679190273"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-201"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-202"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-203"></span><span>
 </span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypes"><span class="hs-identifier hs-type">DescribeEventTypes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-205"></span><span>  </span><span id="local-6989586621679190047"><span class="annot"><span class="annottext">toPath :: DescribeEventTypes -&gt; ByteString
+</span><span id="line-205"></span><span>  </span><span id="local-6989586621679190267"><span class="annot"><span class="annottext">toPath :: DescribeEventTypes -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeEventTypes -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-206"></span><span>
 </span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypes"><span class="hs-identifier hs-type">DescribeEventTypes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-208"></span><span>  </span><span id="local-6989586621679190043"><span class="annot"><span class="annottext">toQuery :: DescribeEventTypes -&gt; QueryString
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621679190263"><span class="annot"><span class="annottext">toQuery :: DescribeEventTypes -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeEventTypes -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -574,7 +574,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-209"></span><span>
 </span><span id="line-210"></span><span class="hs-comment">-- | /See:/ 'newDescribeEventTypesResponse' smart constructor.</span><span>
-</span><span id="line-211"></span><span id="local-6989586621679190040"><span id="local-6989586621679190041"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeEventTypesResponse"><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypesResponse"><span class="hs-identifier hs-var">DescribeEventTypesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeEventTypesResponse%27"><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypesResponse%27"><span class="hs-identifier hs-var">DescribeEventTypesResponse'</span></a></span></span><span>
+</span><span id="line-211"></span><span id="local-6989586621679190260"><span id="local-6989586621679190261"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeEventTypesResponse"><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypesResponse"><span class="hs-identifier hs-var">DescribeEventTypesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeEventTypesResponse%27"><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypesResponse%27"><span class="hs-identifier hs-var">DescribeEventTypesResponse'</span></a></span></span><span>
 </span><span id="line-212"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of event types that match the filter criteria. Event types have a</span><span>
 </span><span id="line-213"></span><span>    </span><span class="hs-comment">-- category (@issue@, @accountNotification@, or @scheduledChange@), a</span><span>
 </span><span id="line-214"></span><span>    </span><span class="hs-comment">-- service (for example, @EC2@, @RDS@, @DATAPIPELINE@, @BILLING@), and a</span><span>
@@ -593,7 +593,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-225"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeEventTypesResponse%27"><span class="annot"><span class="annottext">DescribeEventTypesResponse -&gt; Int
 </span><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#%24sel%3AhttpStatus%3ADescribeEventTypesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-226"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-227"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679190033"><span id="local-6989586621679190035"><span class="annot"><span class="annottext">DescribeEventTypesResponse -&gt; DescribeEventTypesResponse -&gt; Bool
+</span><span id="line-227"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679190253"><span id="local-6989586621679190255"><span class="annot"><span class="annottext">DescribeEventTypesResponse -&gt; DescribeEventTypesResponse -&gt; Bool
 (DescribeEventTypesResponse -&gt; DescribeEventTypesResponse -&gt; Bool)
 -&gt; (DescribeEventTypesResponse
     -&gt; DescribeEventTypesResponse -&gt; Bool)
@@ -603,7 +603,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeEventTypesResponse -&gt; DescribeEventTypesResponse -&gt; Bool
 == :: DescribeEventTypesResponse -&gt; DescribeEventTypesResponse -&gt; Bool
 $c== :: DescribeEventTypesResponse -&gt; DescribeEventTypesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679190025"><span id="local-6989586621679190027"><span id="local-6989586621679190029"><span id="local-6989586621679190031"><span class="annot"><span class="annottext">ReadPrec [DescribeEventTypesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679190245"><span id="local-6989586621679190247"><span id="local-6989586621679190249"><span id="local-6989586621679190251"><span class="annot"><span class="annottext">ReadPrec [DescribeEventTypesResponse]
 ReadPrec DescribeEventTypesResponse
 Int -&gt; ReadS DescribeEventTypesResponse
 ReadS [DescribeEventTypesResponse]
@@ -623,7 +623,7 @@ readList :: ReadS [DescribeEventTypesResponse]
 $creadList :: ReadS [DescribeEventTypesResponse]
 readsPrec :: Int -&gt; ReadS DescribeEventTypesResponse
 $creadsPrec :: Int -&gt; ReadS DescribeEventTypesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679190019"><span id="local-6989586621679190021"><span id="local-6989586621679190023"><span class="annot"><span class="annottext">Int -&gt; DescribeEventTypesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679190239"><span id="local-6989586621679190241"><span id="local-6989586621679190243"><span class="annot"><span class="annottext">Int -&gt; DescribeEventTypesResponse -&gt; ShowS
 [DescribeEventTypesResponse] -&gt; ShowS
 DescribeEventTypesResponse -&gt; String
 (Int -&gt; DescribeEventTypesResponse -&gt; ShowS)
@@ -681,8 +681,8 @@ DescribeEventTypesResponse -&gt; Rep DescribeEventTypesResponse x
 </span><span id="line-252"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-253"></span><span>  </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypesResponse"><span class="hs-identifier hs-type">DescribeEventTypesResponse</span></a></span><span>
 </span><span id="line-254"></span><span id="newDescribeEventTypesResponse"><span class="annot"><span class="annottext">newDescribeEventTypesResponse :: Int -&gt; DescribeEventTypesResponse
-</span><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#newDescribeEventTypesResponse"><span class="hs-identifier hs-var hs-var">newDescribeEventTypesResponse</span></a></span></span><span> </span><span id="local-6989586621679190016"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679190016"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#newDescribeEventTypesResponse"><span class="hs-identifier hs-var hs-var">newDescribeEventTypesResponse</span></a></span></span><span> </span><span id="local-6989586621679190236"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679190236"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-255"></span><span>  </span><span class="annot"><span class="annottext">DescribeEventTypesResponse' :: Maybe [EventType]
 -&gt; Maybe Text -&gt; Int -&gt; DescribeEventTypesResponse
 </span><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypesResponse%27"><span class="hs-identifier hs-type">DescribeEventTypesResponse'</span></a></span><span>
@@ -697,7 +697,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-259"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeEventTypesResponse' :: Int
 </span><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#%24sel%3AhttpStatus%3ADescribeEventTypesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679190016"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679190236"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-260"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-261"></span><span>
 </span><span id="line-262"></span><span class="hs-comment">-- | A list of event types that match the filter criteria. Event types have a</span><span>
@@ -713,16 +713,16 @@ forall a. Maybe a
     -&gt; Maybe [EventType] -&gt; DescribeEventTypesResponse)
 -&gt; Lens' DescribeEventTypesResponse (Maybe [EventType])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypesResponse%27"><span class="hs-identifier hs-type">DescribeEventTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190015"><span class="annot"><span class="annottext">Maybe [EventType]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypesResponse%27"><span class="hs-identifier hs-type">DescribeEventTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190235"><span class="annot"><span class="annottext">Maybe [EventType]
 eventTypes :: Maybe [EventType]
 $sel:eventTypes:DescribeEventTypesResponse' :: DescribeEventTypesResponse -&gt; Maybe [EventType]
-</span><a href="#local-6989586621679190015"><span class="hs-identifier hs-var hs-var">eventTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EventType]
-</span><a href="#local-6989586621679190015"><span class="hs-identifier hs-var">eventTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679190014"><span class="annot"><span class="annottext">s :: DescribeEventTypesResponse
-</span><a href="#local-6989586621679190014"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypesResponse%27"><span class="hs-identifier hs-type">DescribeEventTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679190013"><span class="annot"><span class="annottext">Maybe [EventType]
-</span><a href="#local-6989586621679190013"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventTypesResponse
-</span><a href="#local-6989586621679190014"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventTypes:DescribeEventTypesResponse' :: Maybe [EventType]
+</span><a href="#local-6989586621679190235"><span class="hs-identifier hs-var hs-var">eventTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EventType]
+</span><a href="#local-6989586621679190235"><span class="hs-identifier hs-var">eventTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679190234"><span class="annot"><span class="annottext">s :: DescribeEventTypesResponse
+</span><a href="#local-6989586621679190234"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypesResponse%27"><span class="hs-identifier hs-type">DescribeEventTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679190233"><span class="annot"><span class="annottext">Maybe [EventType]
+</span><a href="#local-6989586621679190233"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventTypesResponse
+</span><a href="#local-6989586621679190234"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventTypes:DescribeEventTypesResponse' :: Maybe [EventType]
 </span><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#%24sel%3AeventTypes%3ADescribeEventTypesResponse%27"><span class="hs-identifier hs-var">eventTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EventType]
-</span><a href="#local-6989586621679190013"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypesResponse"><span class="hs-identifier hs-type">DescribeEventTypesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EventType] -&gt; f (Maybe [EventType]))
+</span><a href="#local-6989586621679190233"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypesResponse"><span class="hs-identifier hs-type">DescribeEventTypesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EventType] -&gt; f (Maybe [EventType]))
  -&gt; DescribeEventTypesResponse -&gt; f DescribeEventTypesResponse)
 -&gt; ((Maybe [EventType] -&gt; f (Maybe [EventType]))
     -&gt; Maybe [EventType] -&gt; f (Maybe [EventType]))
@@ -740,8 +740,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [EventType] [EventType] [EventType] [EventType]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-269"></span><span>
 </span><span id="line-270"></span><span class="hs-comment">-- | If the results of a search are large, only a portion of the results are</span><span>
 </span><span id="line-271"></span><span class="hs-comment">-- returned, and a @nextToken@ pagination token is returned in the</span><span>
@@ -756,16 +756,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
     -&gt; Maybe Text -&gt; DescribeEventTypesResponse)
 -&gt; Lens' DescribeEventTypesResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypesResponse%27"><span class="hs-identifier hs-type">DescribeEventTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190010"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypesResponse%27"><span class="hs-identifier hs-type">DescribeEventTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190230"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeEventTypesResponse' :: DescribeEventTypesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679190010"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679190010"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679190009"><span class="annot"><span class="annottext">s :: DescribeEventTypesResponse
-</span><a href="#local-6989586621679190009"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypesResponse%27"><span class="hs-identifier hs-type">DescribeEventTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679190008"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679190008"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventTypesResponse
-</span><a href="#local-6989586621679190009"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeEventTypesResponse' :: Maybe Text
+</span><a href="#local-6989586621679190230"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679190230"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679190229"><span class="annot"><span class="annottext">s :: DescribeEventTypesResponse
+</span><a href="#local-6989586621679190229"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypesResponse%27"><span class="hs-identifier hs-type">DescribeEventTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679190228"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679190228"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventTypesResponse
+</span><a href="#local-6989586621679190229"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeEventTypesResponse' :: Maybe Text
 </span><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#%24sel%3AnextToken%3ADescribeEventTypesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679190008"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypesResponse"><span class="hs-identifier hs-type">DescribeEventTypesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679190228"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypesResponse"><span class="hs-identifier hs-type">DescribeEventTypesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-277"></span><span>
 </span><span id="line-278"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-279"></span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#describeEventTypesResponse_httpStatus"><span class="hs-identifier hs-type">describeEventTypesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypesResponse"><span class="hs-identifier hs-type">DescribeEventTypesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -777,16 +777,16 @@ $sel:nextToken:DescribeEventTypesResponse' :: DescribeEventTypesResponse -&gt; M
 -&gt; Lens
      DescribeEventTypesResponse DescribeEventTypesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypesResponse%27"><span class="hs-identifier hs-type">DescribeEventTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190007"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypesResponse%27"><span class="hs-identifier hs-type">DescribeEventTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190227"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeEventTypesResponse' :: DescribeEventTypesResponse -&gt; Int
-</span><a href="#local-6989586621679190007"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679190007"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679190006"><span class="annot"><span class="annottext">s :: DescribeEventTypesResponse
-</span><a href="#local-6989586621679190006"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypesResponse%27"><span class="hs-identifier hs-type">DescribeEventTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679190005"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679190005"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventTypesResponse
-</span><a href="#local-6989586621679190006"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeEventTypesResponse' :: Int
+</span><a href="#local-6989586621679190227"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679190227"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679190226"><span class="annot"><span class="annottext">s :: DescribeEventTypesResponse
+</span><a href="#local-6989586621679190226"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypesResponse%27"><span class="hs-identifier hs-type">DescribeEventTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679190225"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679190225"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventTypesResponse
+</span><a href="#local-6989586621679190226"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeEventTypesResponse' :: Int
 </span><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#%24sel%3AhttpStatus%3ADescribeEventTypesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679190005"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypesResponse"><span class="hs-identifier hs-type">DescribeEventTypesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679190225"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypesResponse"><span class="hs-identifier hs-type">DescribeEventTypesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-281"></span><span>
-</span><span id="line-282"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679190003"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypesResponse"><span class="hs-identifier hs-type">DescribeEventTypesResponse</span></a></span></span><span>
+</span><span id="line-282"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679190223"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.DescribeEventTypes.html#DescribeEventTypesResponse"><span class="hs-identifier hs-type">DescribeEventTypesResponse</span></a></span></span><span>
 </span><span id="line-283"></span></pre></body></html>

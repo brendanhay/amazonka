@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span id="local-6989586621679173085"><span id="local-6989586621679173086"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DialogState"><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogState.html#DialogState"><span class="hs-identifier hs-var">DialogState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DialogState%27"><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogState.html#DialogState%27"><span class="hs-identifier hs-var">DialogState'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679173154"><span id="local-6989586621679173155"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DialogState"><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogState.html#DialogState"><span class="hs-identifier hs-var">DialogState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DialogState%27"><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogState.html#DialogState%27"><span class="hs-identifier hs-var">DialogState'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDialogState"><span class="annot"><span class="annottext">DialogState -&gt; Text
 </span><a href="Network.AWS.LexRuntime.Types.DialogState.html#fromDialogState"><span class="hs-identifier hs-var hs-var">fromDialogState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679173077"><span id="local-6989586621679173079"><span id="local-6989586621679173081"><span class="annot"><span class="annottext">Int -&gt; DialogState -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679173146"><span id="local-6989586621679173148"><span id="local-6989586621679173150"><span class="annot"><span class="annottext">Int -&gt; DialogState -&gt; ShowS
 [DialogState] -&gt; ShowS
 DialogState -&gt; String
 (Int -&gt; DialogState -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: DialogState -&gt; String
 showsPrec :: Int -&gt; DialogState -&gt; ShowS
 $cshowsPrec :: Int -&gt; DialogState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679173068"><span id="local-6989586621679173070"><span id="local-6989586621679173072"><span id="local-6989586621679173074"><span class="annot"><span class="annottext">ReadPrec [DialogState]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679173137"><span id="local-6989586621679173139"><span id="local-6989586621679173141"><span id="local-6989586621679173143"><span class="annot"><span class="annottext">ReadPrec [DialogState]
 ReadPrec DialogState
 Int -&gt; ReadS DialogState
 ReadS [DialogState]
@@ -76,7 +76,7 @@ $creadList :: ReadS [DialogState]
 readsPrec :: Int -&gt; ReadS DialogState
 $creadsPrec :: Int -&gt; ReadS DialogState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679173063"><span id="local-6989586621679173065"><span class="annot"><span class="annottext">DialogState -&gt; DialogState -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679173132"><span id="local-6989586621679173134"><span class="annot"><span class="annottext">DialogState -&gt; DialogState -&gt; Bool
 (DialogState -&gt; DialogState -&gt; Bool)
 -&gt; (DialogState -&gt; DialogState -&gt; Bool) -&gt; Eq DialogState
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -85,7 +85,7 @@ $c/= :: DialogState -&gt; DialogState -&gt; Bool
 == :: DialogState -&gt; DialogState -&gt; Bool
 $c== :: DialogState -&gt; DialogState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679173047"><span id="local-6989586621679173049"><span id="local-6989586621679173051"><span id="local-6989586621679173053"><span id="local-6989586621679173055"><span id="local-6989586621679173057"><span id="local-6989586621679173059"><span class="annot"><span class="annottext">Eq DialogState
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679173116"><span id="local-6989586621679173118"><span id="local-6989586621679173120"><span id="local-6989586621679173122"><span id="local-6989586621679173124"><span id="local-6989586621679173126"><span id="local-6989586621679173128"><span class="annot"><span class="annottext">Eq DialogState
 Eq DialogState
 -&gt; (DialogState -&gt; DialogState -&gt; Ordering)
 -&gt; (DialogState -&gt; DialogState -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. DialogState -&gt; Rep DialogState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679173039"><span id="local-6989586621679173041"><span class="annot"><span class="annottext">Int -&gt; DialogState -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679173108"><span id="local-6989586621679173110"><span class="annot"><span class="annottext">Int -&gt; DialogState -&gt; Int
 DialogState -&gt; Int
 (Int -&gt; DialogState -&gt; Int)
 -&gt; (DialogState -&gt; Int) -&gt; Hashable DialogState
@@ -146,49 +146,49 @@ $chash :: DialogState -&gt; Int
 hashWithSalt :: Int -&gt; DialogState -&gt; Int
 $chashWithSalt :: Int -&gt; DialogState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679173036"><span class="annot"><span class="annottext">DialogState -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679173105"><span class="annot"><span class="annottext">DialogState -&gt; ()
 (DialogState -&gt; ()) -&gt; NFData DialogState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DialogState -&gt; ()
 $crnf :: DialogState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679173033"><span class="annot"><span class="annottext">Text -&gt; Either String DialogState
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679173102"><span class="annot"><span class="annottext">Text -&gt; Either String DialogState
 (Text -&gt; Either String DialogState) -&gt; FromText DialogState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DialogState
 $cfromText :: Text -&gt; Either String DialogState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679173030"><span class="annot"><span class="annottext">DialogState -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679173099"><span class="annot"><span class="annottext">DialogState -&gt; Text
 (DialogState -&gt; Text) -&gt; ToText DialogState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DialogState -&gt; Text
 $ctoText :: DialogState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679173027"><span class="annot"><span class="annottext">DialogState -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679173096"><span class="annot"><span class="annottext">DialogState -&gt; ByteString
 (DialogState -&gt; ByteString) -&gt; ToByteString DialogState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DialogState -&gt; ByteString
 $ctoBS :: DialogState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679173024"><span class="annot"><span class="annottext">DialogState -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679173093"><span class="annot"><span class="annottext">DialogState -&gt; ByteStringBuilder
 (DialogState -&gt; ByteStringBuilder) -&gt; ToLog DialogState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DialogState -&gt; ByteStringBuilder
 $cbuild :: DialogState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679173021"><span class="annot"><span class="annottext">HeaderName -&gt; DialogState -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679173090"><span class="annot"><span class="annottext">HeaderName -&gt; DialogState -&gt; [Header]
 (HeaderName -&gt; DialogState -&gt; [Header]) -&gt; ToHeader DialogState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DialogState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DialogState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679173018"><span class="annot"><span class="annottext">DialogState -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679173087"><span class="annot"><span class="annottext">DialogState -&gt; QueryString
 (DialogState -&gt; QueryString) -&gt; ToQuery DialogState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DialogState -&gt; QueryString
 $ctoQuery :: DialogState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679173013"><span id="local-6989586621679173015"><span class="annot"><span class="annottext">Value -&gt; Parser [DialogState]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679173082"><span id="local-6989586621679173084"><span class="annot"><span class="annottext">Value -&gt; Parser [DialogState]
 Value -&gt; Parser DialogState
 (Value -&gt; Parser DialogState)
 -&gt; (Value -&gt; Parser [DialogState]) -&gt; FromJSON DialogState
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [DialogState]
 parseJSON :: Value -&gt; Parser DialogState
 $cparseJSON :: Value -&gt; Parser DialogState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679173008"><span id="local-6989586621679173010"><span class="annot"><span class="annottext">FromJSONKeyFunction [DialogState]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679173077"><span id="local-6989586621679173079"><span class="annot"><span class="annottext">FromJSONKeyFunction [DialogState]
 FromJSONKeyFunction DialogState
 FromJSONKeyFunction DialogState
 -&gt; FromJSONKeyFunction [DialogState] -&gt; FromJSONKey DialogState
@@ -210,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DialogState]
 fromJSONKey :: FromJSONKeyFunction DialogState
 $cfromJSONKey :: FromJSONKeyFunction DialogState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679172999"><span id="local-6989586621679173001"><span id="local-6989586621679173003"><span id="local-6989586621679173005"><span class="annot"><span class="annottext">[DialogState] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679173068"><span id="local-6989586621679173070"><span id="local-6989586621679173072"><span id="local-6989586621679173074"><span class="annot"><span class="annottext">[DialogState] -&gt; Encoding
 [DialogState] -&gt; Value
 DialogState -&gt; Encoding
 DialogState -&gt; Value
@@ -234,7 +234,7 @@ $ctoEncoding :: DialogState -&gt; Encoding
 toJSON :: DialogState -&gt; Value
 $ctoJSON :: DialogState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679172994"><span id="local-6989586621679172996"><span class="annot"><span class="annottext">ToJSONKeyFunction [DialogState]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679173063"><span id="local-6989586621679173065"><span class="annot"><span class="annottext">ToJSONKeyFunction [DialogState]
 ToJSONKeyFunction DialogState
 ToJSONKeyFunction DialogState
 -&gt; ToJSONKeyFunction [DialogState] -&gt; ToJSONKey DialogState
@@ -245,13 +245,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DialogState]
 toJSONKey :: ToJSONKeyFunction DialogState
 $ctoJSONKey :: ToJSONKeyFunction DialogState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679172991"><span class="annot"><span class="annottext">[Node] -&gt; Either String DialogState
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679173060"><span class="annot"><span class="annottext">[Node] -&gt; Either String DialogState
 ([Node] -&gt; Either String DialogState) -&gt; FromXML DialogState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DialogState
 $cparseXML :: [Node] -&gt; Either String DialogState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679172988"><span class="annot"><span class="annottext">DialogState -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679173057"><span class="annot"><span class="annottext">DialogState -&gt; XML
 (DialogState -&gt; XML) -&gt; ToXML DialogState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DialogState -&gt; XML

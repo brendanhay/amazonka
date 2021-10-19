@@ -49,10 +49,10 @@
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#signUp_clientMetadata"><span class="hs-identifier">signUp_clientMetadata</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#signUp_userContextData"><span class="hs-identifier">signUp_userContextData</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#signUp_secretHash"><span class="hs-identifier">signUp_secretHash</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#signUp_analyticsMetadata"><span class="hs-identifier">signUp_analyticsMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#signUp_userContextData"><span class="hs-identifier">signUp_userContextData</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#signUp_userAttributes"><span class="hs-identifier">signUp_userAttributes</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#signUp_analyticsMetadata"><span class="hs-identifier">signUp_analyticsMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#signUp_secretHash"><span class="hs-identifier">signUp_secretHash</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#signUp_validationData"><span class="hs-identifier">signUp_validationData</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#signUp_clientId"><span class="hs-identifier">signUp_clientId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#signUp_username"><span class="hs-identifier">signUp_username</span></a></span><span class="hs-special">,</span><span>
@@ -80,7 +80,7 @@
 </span><span id="line-80"></span><span class="hs-comment">-- | Represents the request to register a user.</span><span>
 </span><span id="line-81"></span><span class="hs-comment">--</span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- /See:/ 'newSignUp' smart constructor.</span><span>
-</span><span id="line-83"></span><span id="local-6989586621679439702"><span id="local-6989586621679439703"></span></span><span class="hs-keyword">data</span><span> </span><span id="SignUp"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-var">SignUp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SignUp%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-var">SignUp'</span></a></span></span><span>
+</span><span id="line-83"></span><span id="local-6989586621679440173"><span id="local-6989586621679440174"></span></span><span class="hs-keyword">data</span><span> </span><span id="SignUp"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-var">SignUp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SignUp%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-var">SignUp'</span></a></span></span><span>
 </span><span id="line-84"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A map of custom key-value pairs that you can provide as input for any</span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-comment">-- custom workflows that this action triggers.</span><span>
 </span><span id="line-86"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -114,26 +114,26 @@
 </span><span id="line-114"></span><span>    </span><span class="hs-comment">--     don\'t use it to provide sensitive information.</span><span>
 </span><span id="line-115"></span><span>    </span><span id="%24sel%3AclientMetadata%3ASignUp%27"><span class="annot"><span class="annottext">SignUp -&gt; Maybe (HashMap Text Text)
 </span><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#%24sel%3AclientMetadata%3ASignUp%27"><span class="hs-identifier hs-var hs-var">clientMetadata</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- | Contextual data such as the user\'s device fingerprint, IP address, or</span><span>
-</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- location used for evaluating the risk of an unexpected event by Amazon</span><span>
-</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- Cognito advanced security.</span><span>
-</span><span id="line-119"></span><span>    </span><span id="%24sel%3AuserContextData%3ASignUp%27"><span class="annot"><span class="annottext">SignUp -&gt; Maybe UserContextDataType
-</span><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#%24sel%3AuserContextData%3ASignUp%27"><span class="hs-identifier hs-var hs-var">userContextData</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserContextDataType.html#UserContextDataType"><span class="hs-identifier hs-type">UserContextDataType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- | A keyed-hash message authentication code (HMAC) calculated using the</span><span>
-</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- secret key of a user pool client and username plus the client ID in the</span><span>
-</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- message.</span><span>
-</span><span id="line-123"></span><span>    </span><span id="%24sel%3AsecretHash%3ASignUp%27"><span class="annot"><span class="annottext">SignUp -&gt; Maybe (Sensitive Text)
-</span><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#%24sel%3AsecretHash%3ASignUp%27"><span class="hs-identifier hs-var hs-var">secretHash</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- | An array of name-value pairs representing user attributes.</span><span>
-</span><span id="line-125"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- For custom attributes, you must prepend the @custom:@ prefix to the</span><span>
-</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- attribute name.</span><span>
-</span><span id="line-128"></span><span>    </span><span id="%24sel%3AuserAttributes%3ASignUp%27"><span class="annot"><span class="annottext">SignUp -&gt; Maybe [AttributeType]
-</span><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#%24sel%3AuserAttributes%3ASignUp%27"><span class="hs-identifier hs-var hs-var">userAttributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AttributeType.html#AttributeType"><span class="hs-identifier hs-type">AttributeType</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- | The Amazon Pinpoint analytics metadata for collecting metrics for</span><span>
-</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- @SignUp@ calls.</span><span>
-</span><span id="line-131"></span><span>    </span><span id="%24sel%3AanalyticsMetadata%3ASignUp%27"><span class="annot"><span class="annottext">SignUp -&gt; Maybe AnalyticsMetadataType
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- | The Amazon Pinpoint analytics metadata for collecting metrics for</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- @SignUp@ calls.</span><span>
+</span><span id="line-118"></span><span>    </span><span id="%24sel%3AanalyticsMetadata%3ASignUp%27"><span class="annot"><span class="annottext">SignUp -&gt; Maybe AnalyticsMetadataType
 </span><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#%24sel%3AanalyticsMetadata%3ASignUp%27"><span class="hs-identifier hs-var hs-var">analyticsMetadata</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AnalyticsMetadataType.html#AnalyticsMetadataType"><span class="hs-identifier hs-type">AnalyticsMetadataType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- | Contextual data such as the user\'s device fingerprint, IP address, or</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- location used for evaluating the risk of an unexpected event by Amazon</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- Cognito advanced security.</span><span>
+</span><span id="line-122"></span><span>    </span><span id="%24sel%3AuserContextData%3ASignUp%27"><span class="annot"><span class="annottext">SignUp -&gt; Maybe UserContextDataType
+</span><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#%24sel%3AuserContextData%3ASignUp%27"><span class="hs-identifier hs-var hs-var">userContextData</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserContextDataType.html#UserContextDataType"><span class="hs-identifier hs-type">UserContextDataType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- | An array of name-value pairs representing user attributes.</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- For custom attributes, you must prepend the @custom:@ prefix to the</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- attribute name.</span><span>
+</span><span id="line-127"></span><span>    </span><span id="%24sel%3AuserAttributes%3ASignUp%27"><span class="annot"><span class="annottext">SignUp -&gt; Maybe [AttributeType]
+</span><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#%24sel%3AuserAttributes%3ASignUp%27"><span class="hs-identifier hs-var hs-var">userAttributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AttributeType.html#AttributeType"><span class="hs-identifier hs-type">AttributeType</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- | A keyed-hash message authentication code (HMAC) calculated using the</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- secret key of a user pool client and username plus the client ID in the</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- message.</span><span>
+</span><span id="line-131"></span><span>    </span><span id="%24sel%3AsecretHash%3ASignUp%27"><span class="annot"><span class="annottext">SignUp -&gt; Maybe (Sensitive Text)
+</span><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#%24sel%3AsecretHash%3ASignUp%27"><span class="hs-identifier hs-var hs-var">secretHash</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-132"></span><span>    </span><span class="hs-comment">-- | The validation data in the request to register a user.</span><span>
 </span><span id="line-133"></span><span>    </span><span id="%24sel%3AvalidationData%3ASignUp%27"><span class="annot"><span class="annottext">SignUp -&gt; Maybe [AttributeType]
 </span><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#%24sel%3AvalidationData%3ASignUp%27"><span class="hs-identifier hs-var hs-var">validationData</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AttributeType.html#AttributeType"><span class="hs-identifier hs-type">AttributeType</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -147,7 +147,7 @@
 </span><span id="line-139"></span><span>    </span><span id="%24sel%3Apassword%3ASignUp%27"><span class="annot"><span class="annottext">SignUp -&gt; Sensitive Text
 </span><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#%24sel%3Apassword%3ASignUp%27"><span class="hs-identifier hs-var hs-var">password</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-140"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-141"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679439688"><span id="local-6989586621679439690"><span class="annot"><span class="annottext">SignUp -&gt; SignUp -&gt; Bool
+</span><span id="line-141"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679440159"><span id="local-6989586621679440161"><span class="annot"><span class="annottext">SignUp -&gt; SignUp -&gt; Bool
 (SignUp -&gt; SignUp -&gt; Bool)
 -&gt; (SignUp -&gt; SignUp -&gt; Bool) -&gt; Eq SignUp
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -155,7 +155,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SignUp -&gt; SignUp -&gt; Bool
 == :: SignUp -&gt; SignUp -&gt; Bool
 $c== :: SignUp -&gt; SignUp -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679439681"><span id="local-6989586621679439683"><span id="local-6989586621679439685"><span class="annot"><span class="annottext">Int -&gt; SignUp -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440152"><span id="local-6989586621679440154"><span id="local-6989586621679440156"><span class="annot"><span class="annottext">Int -&gt; SignUp -&gt; ShowS
 [SignUp] -&gt; ShowS
 SignUp -&gt; String
 (Int -&gt; SignUp -&gt; ShowS)
@@ -218,21 +218,21 @@ $cfrom :: forall x. SignUp -&gt; Rep SignUp x
 </span><span id="line-180"></span><span class="hs-comment">-- -   Amazon Cognito does not encrypt the the ClientMetadata value, so</span><span>
 </span><span id="line-181"></span><span class="hs-comment">--     don\'t use it to provide sensitive information.</span><span>
 </span><span id="line-182"></span><span class="hs-comment">--</span><span>
-</span><span id="line-183"></span><span class="hs-comment">-- 'userContextData', 'signUp_userContextData' - Contextual data such as the user\'s device fingerprint, IP address, or</span><span>
-</span><span id="line-184"></span><span class="hs-comment">-- location used for evaluating the risk of an unexpected event by Amazon</span><span>
-</span><span id="line-185"></span><span class="hs-comment">-- Cognito advanced security.</span><span>
-</span><span id="line-186"></span><span class="hs-comment">--</span><span>
-</span><span id="line-187"></span><span class="hs-comment">-- 'secretHash', 'signUp_secretHash' - A keyed-hash message authentication code (HMAC) calculated using the</span><span>
-</span><span id="line-188"></span><span class="hs-comment">-- secret key of a user pool client and username plus the client ID in the</span><span>
-</span><span id="line-189"></span><span class="hs-comment">-- message.</span><span>
-</span><span id="line-190"></span><span class="hs-comment">--</span><span>
-</span><span id="line-191"></span><span class="hs-comment">-- 'userAttributes', 'signUp_userAttributes' - An array of name-value pairs representing user attributes.</span><span>
-</span><span id="line-192"></span><span class="hs-comment">--</span><span>
-</span><span id="line-193"></span><span class="hs-comment">-- For custom attributes, you must prepend the @custom:@ prefix to the</span><span>
-</span><span id="line-194"></span><span class="hs-comment">-- attribute name.</span><span>
-</span><span id="line-195"></span><span class="hs-comment">--</span><span>
-</span><span id="line-196"></span><span class="hs-comment">-- 'analyticsMetadata', 'signUp_analyticsMetadata' - The Amazon Pinpoint analytics metadata for collecting metrics for</span><span>
-</span><span id="line-197"></span><span class="hs-comment">-- @SignUp@ calls.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- 'analyticsMetadata', 'signUp_analyticsMetadata' - The Amazon Pinpoint analytics metadata for collecting metrics for</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- @SignUp@ calls.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- 'userContextData', 'signUp_userContextData' - Contextual data such as the user\'s device fingerprint, IP address, or</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- location used for evaluating the risk of an unexpected event by Amazon</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- Cognito advanced security.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'userAttributes', 'signUp_userAttributes' - An array of name-value pairs representing user attributes.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- For custom attributes, you must prepend the @custom:@ prefix to the</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- attribute name.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- 'secretHash', 'signUp_secretHash' - A keyed-hash message authentication code (HMAC) calculated using the</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- secret key of a user pool client and username plus the client ID in the</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- message.</span><span>
 </span><span id="line-198"></span><span class="hs-comment">--</span><span>
 </span><span id="line-199"></span><span class="hs-comment">-- 'validationData', 'signUp_validationData' - The validation data in the request to register a user.</span><span>
 </span><span id="line-200"></span><span class="hs-comment">--</span><span>
@@ -250,15 +250,15 @@ $cfrom :: forall x. SignUp -&gt; Rep SignUp x
 </span><span id="line-212"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-213"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span>
 </span><span id="line-214"></span><span id="newSignUp"><span class="annot"><span class="annottext">newSignUp :: Text -&gt; Text -&gt; Text -&gt; SignUp
-</span><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#newSignUp"><span class="hs-identifier hs-var hs-var">newSignUp</span></a></span></span><span> </span><span id="local-6989586621679439676"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679439676"><span class="hs-identifier hs-var">pClientId_</span></a></span></span><span> </span><span id="local-6989586621679439675"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679439675"><span class="hs-identifier hs-var">pUsername_</span></a></span></span><span> </span><span id="local-6989586621679439674"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679439674"><span class="hs-identifier hs-var">pPassword_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#newSignUp"><span class="hs-identifier hs-var hs-var">newSignUp</span></a></span></span><span> </span><span id="local-6989586621679440147"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679440147"><span class="hs-identifier hs-var">pClientId_</span></a></span></span><span> </span><span id="local-6989586621679440146"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679440146"><span class="hs-identifier hs-var">pUsername_</span></a></span></span><span> </span><span id="local-6989586621679440145"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679440145"><span class="hs-identifier hs-var">pPassword_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-215"></span><span>  </span><span class="annot"><span class="annottext">SignUp' :: Maybe (HashMap Text Text)
--&gt; Maybe UserContextDataType
--&gt; Maybe (Sensitive Text)
--&gt; Maybe [AttributeType]
 -&gt; Maybe AnalyticsMetadataType
+-&gt; Maybe UserContextDataType
+-&gt; Maybe [AttributeType]
+-&gt; Maybe (Sensitive Text)
 -&gt; Maybe [AttributeType]
 -&gt; Sensitive Text
 -&gt; Sensitive Text
@@ -269,20 +269,20 @@ $cfrom :: forall x. SignUp -&gt; Rep SignUp x
 </span><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#%24sel%3AclientMetadata%3ASignUp%27"><span class="hs-identifier hs-var">clientMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-217"></span><span>      </span><span class="annot"><span class="annottext">$sel:userContextData:SignUp' :: Maybe UserContextDataType
-</span><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#%24sel%3AuserContextData%3ASignUp%27"><span class="hs-identifier hs-var">userContextData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UserContextDataType
+</span><span id="line-217"></span><span>      </span><span class="annot"><span class="annottext">$sel:analyticsMetadata:SignUp' :: Maybe AnalyticsMetadataType
+</span><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#%24sel%3AanalyticsMetadata%3ASignUp%27"><span class="hs-identifier hs-var">analyticsMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AnalyticsMetadataType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">$sel:secretHash:SignUp' :: Maybe (Sensitive Text)
-</span><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#%24sel%3AsecretHash%3ASignUp%27"><span class="hs-identifier hs-var">secretHash</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">$sel:userContextData:SignUp' :: Maybe UserContextDataType
+</span><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#%24sel%3AuserContextData%3ASignUp%27"><span class="hs-identifier hs-var">userContextData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UserContextDataType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-219"></span><span>      </span><span class="annot"><span class="annottext">$sel:userAttributes:SignUp' :: Maybe [AttributeType]
 </span><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#%24sel%3AuserAttributes%3ASignUp%27"><span class="hs-identifier hs-var">userAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeType]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-220"></span><span>      </span><span class="annot"><span class="annottext">$sel:analyticsMetadata:SignUp' :: Maybe AnalyticsMetadataType
-</span><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#%24sel%3AanalyticsMetadata%3ASignUp%27"><span class="hs-identifier hs-var">analyticsMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AnalyticsMetadataType
+</span><span id="line-220"></span><span>      </span><span class="annot"><span class="annottext">$sel:secretHash:SignUp' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#%24sel%3AsecretHash%3ASignUp%27"><span class="hs-identifier hs-var">secretHash</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-221"></span><span>      </span><span class="annot"><span class="annottext">$sel:validationData:SignUp' :: Maybe [AttributeType]
@@ -298,7 +298,7 @@ forall a. Iso' (Sensitive a) a
 -&gt; Text -&gt; Sensitive Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679439676"><span class="hs-identifier hs-var">pClientId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679440147"><span class="hs-identifier hs-var">pClientId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-223"></span><span>      </span><span class="annot"><span class="annottext">$sel:username:SignUp' :: Sensitive Text
 </span><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#%24sel%3Ausername%3ASignUp%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
 -&gt; Tagged (Sensitive Text) (Identity (Sensitive Text))
@@ -308,7 +308,7 @@ forall a. Iso' (Sensitive a) a
 -&gt; Text -&gt; Sensitive Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679439675"><span class="hs-identifier hs-var">pUsername_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679440146"><span class="hs-identifier hs-var">pUsername_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-224"></span><span>      </span><span class="annot"><span class="annottext">$sel:password:SignUp' :: Sensitive Text
 </span><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#%24sel%3Apassword%3ASignUp%27"><span class="hs-identifier hs-var">password</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
 -&gt; Tagged (Sensitive Text) (Identity (Sensitive Text))
@@ -318,7 +318,7 @@ forall a. Iso' (Sensitive a) a
 -&gt; Text -&gt; Sensitive Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679439674"><span class="hs-identifier hs-var">pPassword_</span></a></span><span>
+</span><a href="#local-6989586621679440145"><span class="hs-identifier hs-var">pPassword_</span></a></span><span>
 </span><span id="line-225"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-226"></span><span>
 </span><span id="line-227"></span><span class="hs-comment">-- | A map of custom key-value pairs that you can provide as input for any</span><span>
@@ -363,16 +363,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439669"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440140"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 clientMetadata :: Maybe (HashMap Text Text)
 $sel:clientMetadata:SignUp' :: SignUp -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679439669"><span class="hs-identifier hs-var hs-var">clientMetadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679439669"><span class="hs-identifier hs-var">clientMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439668"><span class="annot"><span class="annottext">s :: SignUp
-</span><a href="#local-6989586621679439668"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439667"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679439667"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignUp
-</span><a href="#local-6989586621679439668"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientMetadata:SignUp' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679440140"><span class="hs-identifier hs-var hs-var">clientMetadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679440140"><span class="hs-identifier hs-var">clientMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440139"><span class="annot"><span class="annottext">s :: SignUp
+</span><a href="#local-6989586621679440139"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440138"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679440138"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignUp
+</span><a href="#local-6989586621679440139"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientMetadata:SignUp' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#%24sel%3AclientMetadata%3ASignUp%27"><span class="hs-identifier hs-var">clientMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679439667"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679440138"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; SignUp -&gt; f SignUp)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -398,14 +398,38 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Text)
   (HashMap Text Text)
   (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-260"></span><span>
-</span><span id="line-261"></span><span class="hs-comment">-- | Contextual data such as the user\'s device fingerprint, IP address, or</span><span>
-</span><span id="line-262"></span><span class="hs-comment">-- location used for evaluating the risk of an unexpected event by Amazon</span><span>
-</span><span id="line-263"></span><span class="hs-comment">-- Cognito advanced security.</span><span>
-</span><span id="line-264"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#signUp_userContextData"><span class="hs-identifier hs-type">signUp_userContextData</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserContextDataType.html#UserContextDataType"><span class="hs-identifier hs-type">UserContextDataType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-265"></span><span id="signUp_userContextData"><span class="annot"><span class="annottext">signUp_userContextData :: (Maybe UserContextDataType -&gt; f (Maybe UserContextDataType))
+</span><span id="line-261"></span><span class="hs-comment">-- | The Amazon Pinpoint analytics metadata for collecting metrics for</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- @SignUp@ calls.</span><span>
+</span><span id="line-263"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#signUp_analyticsMetadata"><span class="hs-identifier hs-type">signUp_analyticsMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AnalyticsMetadataType.html#AnalyticsMetadataType"><span class="hs-identifier hs-type">AnalyticsMetadataType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span id="signUp_analyticsMetadata"><span class="annot"><span class="annottext">signUp_analyticsMetadata :: (Maybe AnalyticsMetadataType -&gt; f (Maybe AnalyticsMetadataType))
+-&gt; SignUp -&gt; f SignUp
+</span><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#signUp_analyticsMetadata"><span class="hs-identifier hs-var hs-var">signUp_analyticsMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SignUp -&gt; Maybe AnalyticsMetadataType)
+-&gt; (SignUp -&gt; Maybe AnalyticsMetadataType -&gt; SignUp)
+-&gt; Lens
+     SignUp
+     SignUp
+     (Maybe AnalyticsMetadataType)
+     (Maybe AnalyticsMetadataType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440134"><span class="annot"><span class="annottext">Maybe AnalyticsMetadataType
+analyticsMetadata :: Maybe AnalyticsMetadataType
+$sel:analyticsMetadata:SignUp' :: SignUp -&gt; Maybe AnalyticsMetadataType
+</span><a href="#local-6989586621679440134"><span class="hs-identifier hs-var hs-var">analyticsMetadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AnalyticsMetadataType
+</span><a href="#local-6989586621679440134"><span class="hs-identifier hs-var">analyticsMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440133"><span class="annot"><span class="annottext">s :: SignUp
+</span><a href="#local-6989586621679440133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440132"><span class="annot"><span class="annottext">Maybe AnalyticsMetadataType
+</span><a href="#local-6989586621679440132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignUp
+</span><a href="#local-6989586621679440133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:analyticsMetadata:SignUp' :: Maybe AnalyticsMetadataType
+</span><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#%24sel%3AanalyticsMetadata%3ASignUp%27"><span class="hs-identifier hs-var">analyticsMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AnalyticsMetadataType
+</span><a href="#local-6989586621679440132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- | Contextual data such as the user\'s device fingerprint, IP address, or</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- location used for evaluating the risk of an unexpected event by Amazon</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- Cognito advanced security.</span><span>
+</span><span id="line-269"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#signUp_userContextData"><span class="hs-identifier hs-type">signUp_userContextData</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserContextDataType.html#UserContextDataType"><span class="hs-identifier hs-type">UserContextDataType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span id="signUp_userContextData"><span class="annot"><span class="annottext">signUp_userContextData :: (Maybe UserContextDataType -&gt; f (Maybe UserContextDataType))
 -&gt; SignUp -&gt; f SignUp
 </span><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#signUp_userContextData"><span class="hs-identifier hs-var hs-var">signUp_userContextData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SignUp -&gt; Maybe UserContextDataType)
 -&gt; (SignUp -&gt; Maybe UserContextDataType -&gt; SignUp)
@@ -415,37 +439,81 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe UserContextDataType)
      (Maybe UserContextDataType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439663"><span class="annot"><span class="annottext">Maybe UserContextDataType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440131"><span class="annot"><span class="annottext">Maybe UserContextDataType
 userContextData :: Maybe UserContextDataType
 $sel:userContextData:SignUp' :: SignUp -&gt; Maybe UserContextDataType
-</span><a href="#local-6989586621679439663"><span class="hs-identifier hs-var hs-var">userContextData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UserContextDataType
-</span><a href="#local-6989586621679439663"><span class="hs-identifier hs-var">userContextData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439662"><span class="annot"><span class="annottext">s :: SignUp
-</span><a href="#local-6989586621679439662"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439661"><span class="annot"><span class="annottext">Maybe UserContextDataType
-</span><a href="#local-6989586621679439661"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignUp
-</span><a href="#local-6989586621679439662"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userContextData:SignUp' :: Maybe UserContextDataType
+</span><a href="#local-6989586621679440131"><span class="hs-identifier hs-var hs-var">userContextData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UserContextDataType
+</span><a href="#local-6989586621679440131"><span class="hs-identifier hs-var">userContextData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440130"><span class="annot"><span class="annottext">s :: SignUp
+</span><a href="#local-6989586621679440130"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440129"><span class="annot"><span class="annottext">Maybe UserContextDataType
+</span><a href="#local-6989586621679440129"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignUp
+</span><a href="#local-6989586621679440130"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userContextData:SignUp' :: Maybe UserContextDataType
 </span><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#%24sel%3AuserContextData%3ASignUp%27"><span class="hs-identifier hs-var">userContextData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UserContextDataType
-</span><a href="#local-6989586621679439661"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-266"></span><span>
-</span><span id="line-267"></span><span class="hs-comment">-- | A keyed-hash message authentication code (HMAC) calculated using the</span><span>
-</span><span id="line-268"></span><span class="hs-comment">-- secret key of a user pool client and username plus the client ID in the</span><span>
-</span><span id="line-269"></span><span class="hs-comment">-- message.</span><span>
-</span><span id="line-270"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#signUp_secretHash"><span class="hs-identifier hs-type">signUp_secretHash</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-271"></span><span id="signUp_secretHash"><span class="annot"><span class="annottext">signUp_secretHash :: (Maybe Text -&gt; f (Maybe Text)) -&gt; SignUp -&gt; f SignUp
+</span><a href="#local-6989586621679440129"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- | An array of name-value pairs representing user attributes.</span><span>
+</span><span id="line-273"></span><span class="hs-comment">--</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- For custom attributes, you must prepend the @custom:@ prefix to the</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- attribute name.</span><span>
+</span><span id="line-276"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#signUp_userAttributes"><span class="hs-identifier hs-type">signUp_userAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AttributeType.html#AttributeType"><span class="hs-identifier hs-type">AttributeType</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-277"></span><span id="signUp_userAttributes"><span class="annot"><span class="annottext">signUp_userAttributes :: (Maybe [AttributeType] -&gt; f (Maybe [AttributeType]))
+-&gt; SignUp -&gt; f SignUp
+</span><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#signUp_userAttributes"><span class="hs-identifier hs-var hs-var">signUp_userAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SignUp -&gt; Maybe [AttributeType])
+-&gt; (SignUp -&gt; Maybe [AttributeType] -&gt; SignUp)
+-&gt; Lens
+     SignUp SignUp (Maybe [AttributeType]) (Maybe [AttributeType])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440128"><span class="annot"><span class="annottext">Maybe [AttributeType]
+userAttributes :: Maybe [AttributeType]
+$sel:userAttributes:SignUp' :: SignUp -&gt; Maybe [AttributeType]
+</span><a href="#local-6989586621679440128"><span class="hs-identifier hs-var hs-var">userAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeType]
+</span><a href="#local-6989586621679440128"><span class="hs-identifier hs-var">userAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440127"><span class="annot"><span class="annottext">s :: SignUp
+</span><a href="#local-6989586621679440127"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440126"><span class="annot"><span class="annottext">Maybe [AttributeType]
+</span><a href="#local-6989586621679440126"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignUp
+</span><a href="#local-6989586621679440127"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userAttributes:SignUp' :: Maybe [AttributeType]
+</span><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#%24sel%3AuserAttributes%3ASignUp%27"><span class="hs-identifier hs-var">userAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeType]
+</span><a href="#local-6989586621679440126"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AttributeType] -&gt; f (Maybe [AttributeType]))
+ -&gt; SignUp -&gt; f SignUp)
+-&gt; ((Maybe [AttributeType] -&gt; f (Maybe [AttributeType]))
+    -&gt; Maybe [AttributeType] -&gt; f (Maybe [AttributeType]))
+-&gt; (Maybe [AttributeType] -&gt; f (Maybe [AttributeType]))
+-&gt; SignUp
+-&gt; f SignUp
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AttributeType] [AttributeType] [AttributeType] [AttributeType]
+-&gt; Iso
+     (Maybe [AttributeType])
+     (Maybe [AttributeType])
+     (Maybe [AttributeType])
+     (Maybe [AttributeType])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AttributeType] [AttributeType] [AttributeType] [AttributeType]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-278"></span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- | A keyed-hash message authentication code (HMAC) calculated using the</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- secret key of a user pool client and username plus the client ID in the</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- message.</span><span>
+</span><span id="line-282"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#signUp_secretHash"><span class="hs-identifier hs-type">signUp_secretHash</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-283"></span><span id="signUp_secretHash"><span class="annot"><span class="annottext">signUp_secretHash :: (Maybe Text -&gt; f (Maybe Text)) -&gt; SignUp -&gt; f SignUp
 </span><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#signUp_secretHash"><span class="hs-identifier hs-var hs-var">signUp_secretHash</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SignUp -&gt; Maybe (Sensitive Text))
 -&gt; (SignUp -&gt; Maybe (Sensitive Text) -&gt; SignUp)
 -&gt; Lens
      SignUp SignUp (Maybe (Sensitive Text)) (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439660"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440125"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 secretHash :: Maybe (Sensitive Text)
 $sel:secretHash:SignUp' :: SignUp -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679439660"><span class="hs-identifier hs-var hs-var">secretHash</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679439660"><span class="hs-identifier hs-var">secretHash</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439659"><span class="annot"><span class="annottext">s :: SignUp
-</span><a href="#local-6989586621679439659"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439658"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679439658"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignUp
-</span><a href="#local-6989586621679439659"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:secretHash:SignUp' :: Maybe (Sensitive Text)
+</span><a href="#local-6989586621679440125"><span class="hs-identifier hs-var hs-var">secretHash</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679440125"><span class="hs-identifier hs-var">secretHash</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440124"><span class="annot"><span class="annottext">s :: SignUp
+</span><a href="#local-6989586621679440124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440123"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679440123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignUp
+</span><a href="#local-6989586621679440124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:secretHash:SignUp' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#%24sel%3AsecretHash%3ASignUp%27"><span class="hs-identifier hs-var">secretHash</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679439658"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><a href="#local-6989586621679440123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; SignUp -&gt; f SignUp)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -465,74 +533,6 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
 forall a. Iso' (Sensitive a) a
 </span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
-</span><span id="line-272"></span><span>
-</span><span id="line-273"></span><span class="hs-comment">-- | An array of name-value pairs representing user attributes.</span><span>
-</span><span id="line-274"></span><span class="hs-comment">--</span><span>
-</span><span id="line-275"></span><span class="hs-comment">-- For custom attributes, you must prepend the @custom:@ prefix to the</span><span>
-</span><span id="line-276"></span><span class="hs-comment">-- attribute name.</span><span>
-</span><span id="line-277"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#signUp_userAttributes"><span class="hs-identifier hs-type">signUp_userAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AttributeType.html#AttributeType"><span class="hs-identifier hs-type">AttributeType</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-278"></span><span id="signUp_userAttributes"><span class="annot"><span class="annottext">signUp_userAttributes :: (Maybe [AttributeType] -&gt; f (Maybe [AttributeType]))
--&gt; SignUp -&gt; f SignUp
-</span><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#signUp_userAttributes"><span class="hs-identifier hs-var hs-var">signUp_userAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SignUp -&gt; Maybe [AttributeType])
--&gt; (SignUp -&gt; Maybe [AttributeType] -&gt; SignUp)
--&gt; Lens
-     SignUp SignUp (Maybe [AttributeType]) (Maybe [AttributeType])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439657"><span class="annot"><span class="annottext">Maybe [AttributeType]
-userAttributes :: Maybe [AttributeType]
-$sel:userAttributes:SignUp' :: SignUp -&gt; Maybe [AttributeType]
-</span><a href="#local-6989586621679439657"><span class="hs-identifier hs-var hs-var">userAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeType]
-</span><a href="#local-6989586621679439657"><span class="hs-identifier hs-var">userAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439656"><span class="annot"><span class="annottext">s :: SignUp
-</span><a href="#local-6989586621679439656"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439655"><span class="annot"><span class="annottext">Maybe [AttributeType]
-</span><a href="#local-6989586621679439655"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignUp
-</span><a href="#local-6989586621679439656"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userAttributes:SignUp' :: Maybe [AttributeType]
-</span><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#%24sel%3AuserAttributes%3ASignUp%27"><span class="hs-identifier hs-var">userAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeType]
-</span><a href="#local-6989586621679439655"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AttributeType] -&gt; f (Maybe [AttributeType]))
- -&gt; SignUp -&gt; f SignUp)
--&gt; ((Maybe [AttributeType] -&gt; f (Maybe [AttributeType]))
-    -&gt; Maybe [AttributeType] -&gt; f (Maybe [AttributeType]))
--&gt; (Maybe [AttributeType] -&gt; f (Maybe [AttributeType]))
--&gt; SignUp
--&gt; f SignUp
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
-  [AttributeType] [AttributeType] [AttributeType] [AttributeType]
--&gt; Iso
-     (Maybe [AttributeType])
-     (Maybe [AttributeType])
-     (Maybe [AttributeType])
-     (Maybe [AttributeType])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
-  [AttributeType] [AttributeType] [AttributeType] [AttributeType]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-279"></span><span>
-</span><span id="line-280"></span><span class="hs-comment">-- | The Amazon Pinpoint analytics metadata for collecting metrics for</span><span>
-</span><span id="line-281"></span><span class="hs-comment">-- @SignUp@ calls.</span><span>
-</span><span id="line-282"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#signUp_analyticsMetadata"><span class="hs-identifier hs-type">signUp_analyticsMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AnalyticsMetadataType.html#AnalyticsMetadataType"><span class="hs-identifier hs-type">AnalyticsMetadataType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-283"></span><span id="signUp_analyticsMetadata"><span class="annot"><span class="annottext">signUp_analyticsMetadata :: (Maybe AnalyticsMetadataType -&gt; f (Maybe AnalyticsMetadataType))
--&gt; SignUp -&gt; f SignUp
-</span><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#signUp_analyticsMetadata"><span class="hs-identifier hs-var hs-var">signUp_analyticsMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SignUp -&gt; Maybe AnalyticsMetadataType)
--&gt; (SignUp -&gt; Maybe AnalyticsMetadataType -&gt; SignUp)
--&gt; Lens
-     SignUp
-     SignUp
-     (Maybe AnalyticsMetadataType)
-     (Maybe AnalyticsMetadataType)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439654"><span class="annot"><span class="annottext">Maybe AnalyticsMetadataType
-analyticsMetadata :: Maybe AnalyticsMetadataType
-$sel:analyticsMetadata:SignUp' :: SignUp -&gt; Maybe AnalyticsMetadataType
-</span><a href="#local-6989586621679439654"><span class="hs-identifier hs-var hs-var">analyticsMetadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AnalyticsMetadataType
-</span><a href="#local-6989586621679439654"><span class="hs-identifier hs-var">analyticsMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439653"><span class="annot"><span class="annottext">s :: SignUp
-</span><a href="#local-6989586621679439653"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439652"><span class="annot"><span class="annottext">Maybe AnalyticsMetadataType
-</span><a href="#local-6989586621679439652"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignUp
-</span><a href="#local-6989586621679439653"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:analyticsMetadata:SignUp' :: Maybe AnalyticsMetadataType
-</span><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#%24sel%3AanalyticsMetadata%3ASignUp%27"><span class="hs-identifier hs-var">analyticsMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AnalyticsMetadataType
-</span><a href="#local-6989586621679439652"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-284"></span><span>
 </span><span id="line-285"></span><span class="hs-comment">-- | The validation data in the request to register a user.</span><span>
 </span><span id="line-286"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#signUp_validationData"><span class="hs-identifier hs-type">signUp_validationData</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AttributeType.html#AttributeType"><span class="hs-identifier hs-type">AttributeType</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -543,16 +543,16 @@ $sel:analyticsMetadata:SignUp' :: SignUp -&gt; Maybe AnalyticsMetadataType
 -&gt; Lens
      SignUp SignUp (Maybe [AttributeType]) (Maybe [AttributeType])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439651"><span class="annot"><span class="annottext">Maybe [AttributeType]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440122"><span class="annot"><span class="annottext">Maybe [AttributeType]
 validationData :: Maybe [AttributeType]
 $sel:validationData:SignUp' :: SignUp -&gt; Maybe [AttributeType]
-</span><a href="#local-6989586621679439651"><span class="hs-identifier hs-var hs-var">validationData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeType]
-</span><a href="#local-6989586621679439651"><span class="hs-identifier hs-var">validationData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439650"><span class="annot"><span class="annottext">s :: SignUp
-</span><a href="#local-6989586621679439650"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439649"><span class="annot"><span class="annottext">Maybe [AttributeType]
-</span><a href="#local-6989586621679439649"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignUp
-</span><a href="#local-6989586621679439650"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:validationData:SignUp' :: Maybe [AttributeType]
+</span><a href="#local-6989586621679440122"><span class="hs-identifier hs-var hs-var">validationData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeType]
+</span><a href="#local-6989586621679440122"><span class="hs-identifier hs-var">validationData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440121"><span class="annot"><span class="annottext">s :: SignUp
+</span><a href="#local-6989586621679440121"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440120"><span class="annot"><span class="annottext">Maybe [AttributeType]
+</span><a href="#local-6989586621679440120"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignUp
+</span><a href="#local-6989586621679440121"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:validationData:SignUp' :: Maybe [AttributeType]
 </span><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#%24sel%3AvalidationData%3ASignUp%27"><span class="hs-identifier hs-var">validationData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeType]
-</span><a href="#local-6989586621679439649"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AttributeType] -&gt; f (Maybe [AttributeType]))
+</span><a href="#local-6989586621679440120"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AttributeType] -&gt; f (Maybe [AttributeType]))
  -&gt; SignUp -&gt; f SignUp)
 -&gt; ((Maybe [AttributeType] -&gt; f (Maybe [AttributeType]))
     -&gt; Maybe [AttributeType] -&gt; f (Maybe [AttributeType]))
@@ -572,8 +572,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   [AttributeType] [AttributeType] [AttributeType] [AttributeType]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-288"></span><span>
 </span><span id="line-289"></span><span class="hs-comment">-- | The ID of the client associated with the user pool.</span><span>
 </span><span id="line-290"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#signUp_clientId"><span class="hs-identifier hs-type">signUp_clientId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -582,16 +582,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (SignUp -&gt; Sensitive Text -&gt; SignUp)
 -&gt; Lens SignUp SignUp (Sensitive Text) (Sensitive Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439648"><span class="annot"><span class="annottext">Sensitive Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440119"><span class="annot"><span class="annottext">Sensitive Text
 clientId :: Sensitive Text
 $sel:clientId:SignUp' :: SignUp -&gt; Sensitive Text
-</span><a href="#local-6989586621679439648"><span class="hs-identifier hs-var hs-var">clientId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679439648"><span class="hs-identifier hs-var">clientId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439647"><span class="annot"><span class="annottext">s :: SignUp
-</span><a href="#local-6989586621679439647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439646"><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679439646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignUp
-</span><a href="#local-6989586621679439647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientId:SignUp' :: Sensitive Text
+</span><a href="#local-6989586621679440119"><span class="hs-identifier hs-var hs-var">clientId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679440119"><span class="hs-identifier hs-var">clientId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440118"><span class="annot"><span class="annottext">s :: SignUp
+</span><a href="#local-6989586621679440118"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440117"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679440117"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignUp
+</span><a href="#local-6989586621679440118"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientId:SignUp' :: Sensitive Text
 </span><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#%24sel%3AclientId%3ASignUp%27"><span class="hs-identifier hs-var">clientId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679439646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text)) -&gt; SignUp -&gt; f SignUp)
+</span><a href="#local-6989586621679440117"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text)) -&gt; SignUp -&gt; f SignUp)
 -&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
 -&gt; (Text -&gt; f Text)
 -&gt; SignUp
@@ -608,16 +608,16 @@ forall a. Iso' (Sensitive a) a
 -&gt; (SignUp -&gt; Sensitive Text -&gt; SignUp)
 -&gt; Lens SignUp SignUp (Sensitive Text) (Sensitive Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439645"><span class="annot"><span class="annottext">Sensitive Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440116"><span class="annot"><span class="annottext">Sensitive Text
 username :: Sensitive Text
 $sel:username:SignUp' :: SignUp -&gt; Sensitive Text
-</span><a href="#local-6989586621679439645"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679439645"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439644"><span class="annot"><span class="annottext">s :: SignUp
-</span><a href="#local-6989586621679439644"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439643"><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679439643"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignUp
-</span><a href="#local-6989586621679439644"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:username:SignUp' :: Sensitive Text
+</span><a href="#local-6989586621679440116"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679440116"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440115"><span class="annot"><span class="annottext">s :: SignUp
+</span><a href="#local-6989586621679440115"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440114"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679440114"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignUp
+</span><a href="#local-6989586621679440115"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:username:SignUp' :: Sensitive Text
 </span><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#%24sel%3Ausername%3ASignUp%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679439643"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text)) -&gt; SignUp -&gt; f SignUp)
+</span><a href="#local-6989586621679440114"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text)) -&gt; SignUp -&gt; f SignUp)
 -&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
 -&gt; (Text -&gt; f Text)
 -&gt; SignUp
@@ -634,16 +634,16 @@ forall a. Iso' (Sensitive a) a
 -&gt; (SignUp -&gt; Sensitive Text -&gt; SignUp)
 -&gt; Lens SignUp SignUp (Sensitive Text) (Sensitive Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439642"><span class="annot"><span class="annottext">Sensitive Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440113"><span class="annot"><span class="annottext">Sensitive Text
 password :: Sensitive Text
 $sel:password:SignUp' :: SignUp -&gt; Sensitive Text
-</span><a href="#local-6989586621679439642"><span class="hs-identifier hs-var hs-var">password</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679439642"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439641"><span class="annot"><span class="annottext">s :: SignUp
-</span><a href="#local-6989586621679439641"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439640"><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679439640"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignUp
-</span><a href="#local-6989586621679439641"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:password:SignUp' :: Sensitive Text
+</span><a href="#local-6989586621679440113"><span class="hs-identifier hs-var hs-var">password</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679440113"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440112"><span class="annot"><span class="annottext">s :: SignUp
+</span><a href="#local-6989586621679440112"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440111"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679440111"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignUp
+</span><a href="#local-6989586621679440112"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:password:SignUp' :: Sensitive Text
 </span><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#%24sel%3Apassword%3ASignUp%27"><span class="hs-identifier hs-var">password</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679439640"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text)) -&gt; SignUp -&gt; f SignUp)
+</span><a href="#local-6989586621679440111"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text)) -&gt; SignUp -&gt; f SignUp)
 -&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
 -&gt; (Text -&gt; f Text)
 -&gt; SignUp
@@ -655,12 +655,12 @@ forall a. Iso' (Sensitive a) a
 </span><span id="line-300"></span><span>
 </span><span id="line-301"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-302"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUpResponse"><span class="hs-identifier hs-type">SignUpResponse</span></a></span><span>
-</span><span id="line-303"></span><span>  </span><span id="local-6989586621679439636"><span class="annot"><span class="annottext">request :: SignUp -&gt; Request SignUp
+</span><span id="line-303"></span><span>  </span><span id="local-6989586621679440107"><span class="annot"><span class="annottext">request :: SignUp -&gt; Request SignUp
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; SignUp -&gt; Request SignUp
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-304"></span><span>  </span><span id="local-6989586621679439632"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-304"></span><span>  </span><span id="local-6989586621679440103"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy SignUp
 -&gt; ClientResponse ClientBody
@@ -682,10 +682,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-306"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679439629"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679439629"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679439628"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679439628"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679439627"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679439627"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-306"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679440100"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679440100"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679440099"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679440099"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679440098"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679440098"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-307"></span><span>          </span><span class="annot"><span class="annottext">Maybe CodeDeliveryDetailsType
 -&gt; Int -&gt; Bool -&gt; Text -&gt; SignUpResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUpResponse%27"><span class="hs-identifier hs-var">SignUpResponse'</span></a></span><span>
@@ -695,7 +695,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; Bool -&gt; Text -&gt; SignUpResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679439627"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe CodeDeliveryDetailsType)
+</span><a href="#local-6989586621679440098"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe CodeDeliveryDetailsType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CodeDeliveryDetails&quot;</span></span><span class="hs-special">)</span><span>
@@ -708,12 +708,12 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679439629"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679440100"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-310"></span><span>            </span><span class="annot"><span class="annottext">Either String (Bool -&gt; Text -&gt; SignUpResponse)
 -&gt; Either String Bool -&gt; Either String (Text -&gt; SignUpResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679439627"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Bool
+</span><a href="#local-6989586621679440098"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Bool
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UserConfirmed&quot;</span></span><span class="hs-special">)</span><span>
@@ -721,18 +721,18 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 -&gt; Either String Text -&gt; Either String SignUpResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679439627"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679440098"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UserSub&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-312"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-313"></span><span>
-</span><span id="line-314"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679439618"><span id="local-6989586621679439620"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span></span></span><span>
+</span><span id="line-314"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440089"><span id="local-6989586621679440091"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span></span></span><span>
 </span><span id="line-315"></span><span>
-</span><span id="line-316"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679439615"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span></span><span>
+</span><span id="line-316"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440086"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span></span><span>
 </span><span id="line-317"></span><span>
 </span><span id="line-318"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-319"></span><span>  </span><span id="local-6989586621679439611"><span class="annot"><span class="annottext">toHeaders :: SignUp -&gt; ResponseHeaders
+</span><span id="line-319"></span><span>  </span><span id="local-6989586621679440082"><span class="annot"><span class="annottext">toHeaders :: SignUp -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-320"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; SignUp -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -759,9 +759,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-330"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-331"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-332"></span><span>
-</span><span id="line-333"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679439601"><span id="local-6989586621679439603"><span id="local-6989586621679439605"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-334"></span><span>  </span><span id="local-6989586621679439599"><span class="annot"><span class="annottext">toJSON :: SignUp -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439589"><span id="local-6989586621679439590"><span id="local-6989586621679439591"><span id="local-6989586621679439592"><span id="local-6989586621679439593"><span id="local-6989586621679439594"><span id="local-6989586621679439595"><span id="local-6989586621679439596"><span id="local-6989586621679439597"><span class="annot"><span class="annottext">Maybe [AttributeType]
+</span><span id="line-333"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440072"><span id="local-6989586621679440074"><span id="local-6989586621679440076"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-334"></span><span>  </span><span id="local-6989586621679440070"><span class="annot"><span class="annottext">toJSON :: SignUp -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp%27"><span class="hs-identifier hs-type">SignUp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440060"><span id="local-6989586621679440061"><span id="local-6989586621679440062"><span id="local-6989586621679440063"><span id="local-6989586621679440064"><span id="local-6989586621679440065"><span id="local-6989586621679440066"><span id="local-6989586621679440067"><span id="local-6989586621679440068"><span class="annot"><span class="annottext">Maybe [AttributeType]
 Maybe (HashMap Text Text)
 Maybe (Sensitive Text)
 Maybe AnalyticsMetadataType
@@ -771,21 +771,21 @@ password :: Sensitive Text
 username :: Sensitive Text
 clientId :: Sensitive Text
 validationData :: Maybe [AttributeType]
-analyticsMetadata :: Maybe AnalyticsMetadataType
-userAttributes :: Maybe [AttributeType]
 secretHash :: Maybe (Sensitive Text)
+userAttributes :: Maybe [AttributeType]
 userContextData :: Maybe UserContextDataType
+analyticsMetadata :: Maybe AnalyticsMetadataType
 clientMetadata :: Maybe (HashMap Text Text)
 $sel:password:SignUp' :: SignUp -&gt; Sensitive Text
 $sel:username:SignUp' :: SignUp -&gt; Sensitive Text
 $sel:clientId:SignUp' :: SignUp -&gt; Sensitive Text
 $sel:validationData:SignUp' :: SignUp -&gt; Maybe [AttributeType]
-$sel:analyticsMetadata:SignUp' :: SignUp -&gt; Maybe AnalyticsMetadataType
-$sel:userAttributes:SignUp' :: SignUp -&gt; Maybe [AttributeType]
 $sel:secretHash:SignUp' :: SignUp -&gt; Maybe (Sensitive Text)
+$sel:userAttributes:SignUp' :: SignUp -&gt; Maybe [AttributeType]
 $sel:userContextData:SignUp' :: SignUp -&gt; Maybe UserContextDataType
+$sel:analyticsMetadata:SignUp' :: SignUp -&gt; Maybe AnalyticsMetadataType
 $sel:clientMetadata:SignUp' :: SignUp -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679439589"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679440060"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-335"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-336"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -799,40 +799,40 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679439597"><span class="hs-identifier hs-var">clientMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679440068"><span class="hs-identifier hs-var">clientMetadata</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-339"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AnalyticsMetadata&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AnalyticsMetadataType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-340"></span><span>              </span><span class="annot"><span class="annottext">(AnalyticsMetadataType -&gt; Pair)
+-&gt; Maybe AnalyticsMetadataType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AnalyticsMetadataType
+</span><a href="#local-6989586621679440067"><span class="hs-identifier hs-var">analyticsMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-341"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UserContextData&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; UserContextDataType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-340"></span><span>              </span><span class="annot"><span class="annottext">(UserContextDataType -&gt; Pair)
+</span><span id="line-342"></span><span>              </span><span class="annot"><span class="annottext">(UserContextDataType -&gt; Pair)
 -&gt; Maybe UserContextDataType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe UserContextDataType
-</span><a href="#local-6989586621679439596"><span class="hs-identifier hs-var">userContextData</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-341"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679440066"><span class="hs-identifier hs-var">userContextData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-343"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserAttributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [AttributeType] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-344"></span><span>              </span><span class="annot"><span class="annottext">([AttributeType] -&gt; Pair) -&gt; Maybe [AttributeType] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeType]
+</span><a href="#local-6989586621679440065"><span class="hs-identifier hs-var">userAttributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-345"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SecretHash&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679439595"><span class="hs-identifier hs-var">secretHash</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-342"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;UserAttributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [AttributeType] -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-343"></span><span>              </span><span class="annot"><span class="annottext">([AttributeType] -&gt; Pair) -&gt; Maybe [AttributeType] -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeType]
-</span><a href="#local-6989586621679439594"><span class="hs-identifier hs-var">userAttributes</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-344"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AnalyticsMetadata&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AnalyticsMetadataType -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-345"></span><span>              </span><span class="annot"><span class="annottext">(AnalyticsMetadataType -&gt; Pair)
--&gt; Maybe AnalyticsMetadataType -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AnalyticsMetadataType
-</span><a href="#local-6989586621679439593"><span class="hs-identifier hs-var">analyticsMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679440064"><span class="hs-identifier hs-var">secretHash</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-346"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ValidationData&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [AttributeType] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -840,40 +840,40 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-347"></span><span>              </span><span class="annot"><span class="annottext">([AttributeType] -&gt; Pair) -&gt; Maybe [AttributeType] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeType]
-</span><a href="#local-6989586621679439592"><span class="hs-identifier hs-var">validationData</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679440063"><span class="hs-identifier hs-var">validationData</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-348"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ClientId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679439591"><span class="hs-identifier hs-var">clientId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679440062"><span class="hs-identifier hs-var">clientId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-349"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Username&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679439590"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679440061"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-350"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Password&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679439589"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679440060"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-351"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-352"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-353"></span><span>
 </span><span id="line-354"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-355"></span><span>  </span><span id="local-6989586621679439583"><span class="annot"><span class="annottext">toPath :: SignUp -&gt; ByteString
+</span><span id="line-355"></span><span>  </span><span id="local-6989586621679440054"><span class="annot"><span class="annottext">toPath :: SignUp -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SignUp -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-356"></span><span>
 </span><span id="line-357"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUp"><span class="hs-identifier hs-type">SignUp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-358"></span><span>  </span><span id="local-6989586621679439579"><span class="annot"><span class="annottext">toQuery :: SignUp -&gt; QueryString
+</span><span id="line-358"></span><span>  </span><span id="local-6989586621679440050"><span class="annot"><span class="annottext">toQuery :: SignUp -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; SignUp -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -883,7 +883,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-360"></span><span class="hs-comment">-- | The response from the server for a registration request.</span><span>
 </span><span id="line-361"></span><span class="hs-comment">--</span><span>
 </span><span id="line-362"></span><span class="hs-comment">-- /See:/ 'newSignUpResponse' smart constructor.</span><span>
-</span><span id="line-363"></span><span id="local-6989586621679439576"><span id="local-6989586621679439577"></span></span><span class="hs-keyword">data</span><span> </span><span id="SignUpResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUpResponse"><span class="hs-identifier hs-var">SignUpResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SignUpResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUpResponse%27"><span class="hs-identifier hs-var">SignUpResponse'</span></a></span></span><span>
+</span><span id="line-363"></span><span id="local-6989586621679440047"><span id="local-6989586621679440048"></span></span><span class="hs-keyword">data</span><span> </span><span id="SignUpResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUpResponse"><span class="hs-identifier hs-var">SignUpResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SignUpResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUpResponse%27"><span class="hs-identifier hs-var">SignUpResponse'</span></a></span></span><span>
 </span><span id="line-364"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The code delivery details returned by the server response to the user</span><span>
 </span><span id="line-365"></span><span>    </span><span class="hs-comment">-- registration request.</span><span>
 </span><span id="line-366"></span><span>    </span><span id="%24sel%3AcodeDeliveryDetails%3ASignUpResponse%27"><span class="annot"><span class="annottext">SignUpResponse -&gt; Maybe CodeDeliveryDetailsType
@@ -899,7 +899,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-373"></span><span>    </span><span id="%24sel%3AuserSub%3ASignUpResponse%27"><span class="annot"><span class="annottext">SignUpResponse -&gt; Text
 </span><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#%24sel%3AuserSub%3ASignUpResponse%27"><span class="hs-identifier hs-var hs-var">userSub</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-374"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-375"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679439568"><span id="local-6989586621679439570"><span class="annot"><span class="annottext">SignUpResponse -&gt; SignUpResponse -&gt; Bool
+</span><span id="line-375"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679440039"><span id="local-6989586621679440041"><span class="annot"><span class="annottext">SignUpResponse -&gt; SignUpResponse -&gt; Bool
 (SignUpResponse -&gt; SignUpResponse -&gt; Bool)
 -&gt; (SignUpResponse -&gt; SignUpResponse -&gt; Bool) -&gt; Eq SignUpResponse
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -907,7 +907,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SignUpResponse -&gt; SignUpResponse -&gt; Bool
 == :: SignUpResponse -&gt; SignUpResponse -&gt; Bool
 $c== :: SignUpResponse -&gt; SignUpResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679439560"><span id="local-6989586621679439562"><span id="local-6989586621679439564"><span id="local-6989586621679439566"><span class="annot"><span class="annottext">ReadPrec [SignUpResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440031"><span id="local-6989586621679440033"><span id="local-6989586621679440035"><span id="local-6989586621679440037"><span class="annot"><span class="annottext">ReadPrec [SignUpResponse]
 ReadPrec SignUpResponse
 Int -&gt; ReadS SignUpResponse
 ReadS [SignUpResponse]
@@ -927,7 +927,7 @@ readList :: ReadS [SignUpResponse]
 $creadList :: ReadS [SignUpResponse]
 readsPrec :: Int -&gt; ReadS SignUpResponse
 $creadsPrec :: Int -&gt; ReadS SignUpResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679439553"><span id="local-6989586621679439555"><span id="local-6989586621679439557"><span class="annot"><span class="annottext">Int -&gt; SignUpResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440024"><span id="local-6989586621679440026"><span id="local-6989586621679440028"><span class="annot"><span class="annottext">Int -&gt; SignUpResponse -&gt; ShowS
 [SignUpResponse] -&gt; ShowS
 SignUpResponse -&gt; String
 (Int -&gt; SignUpResponse -&gt; ShowS)
@@ -980,12 +980,12 @@ $cfrom :: forall x. SignUpResponse -&gt; Rep SignUpResponse x
 </span><span id="line-401"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUpResponse"><span class="hs-identifier hs-type">SignUpResponse</span></a></span><span>
 </span><span id="line-402"></span><span id="newSignUpResponse"><span class="annot"><span class="annottext">newSignUpResponse :: Int -&gt; Bool -&gt; Text -&gt; SignUpResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#newSignUpResponse"><span class="hs-identifier hs-var hs-var">newSignUpResponse</span></a></span></span><span>
-</span><span id="line-403"></span><span>  </span><span id="local-6989586621679439550"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679439550"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-404"></span><span>  </span><span id="local-6989586621679439549"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679439549"><span class="hs-identifier hs-var">pUserConfirmed_</span></a></span></span><span>
-</span><span id="line-405"></span><span>  </span><span id="local-6989586621679439548"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679439548"><span class="hs-identifier hs-var">pUserSub_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-403"></span><span>  </span><span id="local-6989586621679440021"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679440021"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-404"></span><span>  </span><span id="local-6989586621679440020"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679440020"><span class="hs-identifier hs-var">pUserConfirmed_</span></a></span></span><span>
+</span><span id="line-405"></span><span>  </span><span id="local-6989586621679440019"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679440019"><span class="hs-identifier hs-var">pUserSub_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-406"></span><span>    </span><span class="annot"><span class="annottext">SignUpResponse' :: Maybe CodeDeliveryDetailsType
 -&gt; Int -&gt; Bool -&gt; Text -&gt; SignUpResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUpResponse%27"><span class="hs-identifier hs-type">SignUpResponse'</span></a></span><span>
@@ -996,13 +996,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-409"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:SignUpResponse' :: Int
 </span><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#%24sel%3AhttpStatus%3ASignUpResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679439550"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679440021"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-410"></span><span>        </span><span class="annot"><span class="annottext">$sel:userConfirmed:SignUpResponse' :: Bool
 </span><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#%24sel%3AuserConfirmed%3ASignUpResponse%27"><span class="hs-identifier hs-var">userConfirmed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679439549"><span class="hs-identifier hs-var">pUserConfirmed_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679440020"><span class="hs-identifier hs-var">pUserConfirmed_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-411"></span><span>        </span><span class="annot"><span class="annottext">$sel:userSub:SignUpResponse' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#%24sel%3AuserSub%3ASignUpResponse%27"><span class="hs-identifier hs-var">userSub</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679439548"><span class="hs-identifier hs-var">pUserSub_</span></a></span><span>
+</span><a href="#local-6989586621679440019"><span class="hs-identifier hs-var">pUserSub_</span></a></span><span>
 </span><span id="line-412"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-413"></span><span>
 </span><span id="line-414"></span><span class="hs-comment">-- | The code delivery details returned by the server response to the user</span><span>
@@ -1020,16 +1020,16 @@ forall a. Maybe a
      (Maybe CodeDeliveryDetailsType)
      (Maybe CodeDeliveryDetailsType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUpResponse%27"><span class="hs-identifier hs-type">SignUpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439547"><span class="annot"><span class="annottext">Maybe CodeDeliveryDetailsType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUpResponse%27"><span class="hs-identifier hs-type">SignUpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440018"><span class="annot"><span class="annottext">Maybe CodeDeliveryDetailsType
 codeDeliveryDetails :: Maybe CodeDeliveryDetailsType
 $sel:codeDeliveryDetails:SignUpResponse' :: SignUpResponse -&gt; Maybe CodeDeliveryDetailsType
-</span><a href="#local-6989586621679439547"><span class="hs-identifier hs-var hs-var">codeDeliveryDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CodeDeliveryDetailsType
-</span><a href="#local-6989586621679439547"><span class="hs-identifier hs-var">codeDeliveryDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439546"><span class="annot"><span class="annottext">s :: SignUpResponse
-</span><a href="#local-6989586621679439546"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUpResponse%27"><span class="hs-identifier hs-type">SignUpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439545"><span class="annot"><span class="annottext">Maybe CodeDeliveryDetailsType
-</span><a href="#local-6989586621679439545"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignUpResponse
-</span><a href="#local-6989586621679439546"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codeDeliveryDetails:SignUpResponse' :: Maybe CodeDeliveryDetailsType
+</span><a href="#local-6989586621679440018"><span class="hs-identifier hs-var hs-var">codeDeliveryDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CodeDeliveryDetailsType
+</span><a href="#local-6989586621679440018"><span class="hs-identifier hs-var">codeDeliveryDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440017"><span class="annot"><span class="annottext">s :: SignUpResponse
+</span><a href="#local-6989586621679440017"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUpResponse%27"><span class="hs-identifier hs-type">SignUpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440016"><span class="annot"><span class="annottext">Maybe CodeDeliveryDetailsType
+</span><a href="#local-6989586621679440016"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignUpResponse
+</span><a href="#local-6989586621679440017"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codeDeliveryDetails:SignUpResponse' :: Maybe CodeDeliveryDetailsType
 </span><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#%24sel%3AcodeDeliveryDetails%3ASignUpResponse%27"><span class="hs-identifier hs-var">codeDeliveryDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CodeDeliveryDetailsType
-</span><a href="#local-6989586621679439545"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUpResponse"><span class="hs-identifier hs-type">SignUpResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679440016"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUpResponse"><span class="hs-identifier hs-type">SignUpResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-418"></span><span>
 </span><span id="line-419"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-420"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#signUpResponse_httpStatus"><span class="hs-identifier hs-type">signUpResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUpResponse"><span class="hs-identifier hs-type">SignUpResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -1038,16 +1038,16 @@ $sel:codeDeliveryDetails:SignUpResponse' :: SignUpResponse -&gt; Maybe CodeDeliv
 -&gt; (SignUpResponse -&gt; Int -&gt; SignUpResponse)
 -&gt; Lens SignUpResponse SignUpResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUpResponse%27"><span class="hs-identifier hs-type">SignUpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439544"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUpResponse%27"><span class="hs-identifier hs-type">SignUpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440015"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:SignUpResponse' :: SignUpResponse -&gt; Int
-</span><a href="#local-6989586621679439544"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679439544"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439543"><span class="annot"><span class="annottext">s :: SignUpResponse
-</span><a href="#local-6989586621679439543"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUpResponse%27"><span class="hs-identifier hs-type">SignUpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439542"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679439542"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignUpResponse
-</span><a href="#local-6989586621679439543"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SignUpResponse' :: Int
+</span><a href="#local-6989586621679440015"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679440015"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440014"><span class="annot"><span class="annottext">s :: SignUpResponse
+</span><a href="#local-6989586621679440014"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUpResponse%27"><span class="hs-identifier hs-type">SignUpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440013"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679440013"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignUpResponse
+</span><a href="#local-6989586621679440014"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SignUpResponse' :: Int
 </span><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#%24sel%3AhttpStatus%3ASignUpResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679439542"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUpResponse"><span class="hs-identifier hs-type">SignUpResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679440013"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUpResponse"><span class="hs-identifier hs-type">SignUpResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-422"></span><span>
 </span><span id="line-423"></span><span class="hs-comment">-- | A response from the server indicating that a user registration has been</span><span>
 </span><span id="line-424"></span><span class="hs-comment">-- confirmed.</span><span>
@@ -1057,16 +1057,16 @@ $sel:httpStatus:SignUpResponse' :: SignUpResponse -&gt; Int
 -&gt; (SignUpResponse -&gt; Bool -&gt; SignUpResponse)
 -&gt; Lens SignUpResponse SignUpResponse Bool Bool
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUpResponse%27"><span class="hs-identifier hs-type">SignUpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439541"><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUpResponse%27"><span class="hs-identifier hs-type">SignUpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440012"><span class="annot"><span class="annottext">Bool
 userConfirmed :: Bool
 $sel:userConfirmed:SignUpResponse' :: SignUpResponse -&gt; Bool
-</span><a href="#local-6989586621679439541"><span class="hs-identifier hs-var hs-var">userConfirmed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679439541"><span class="hs-identifier hs-var">userConfirmed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439540"><span class="annot"><span class="annottext">s :: SignUpResponse
-</span><a href="#local-6989586621679439540"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUpResponse%27"><span class="hs-identifier hs-type">SignUpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439539"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679439539"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignUpResponse
-</span><a href="#local-6989586621679439540"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userConfirmed:SignUpResponse' :: Bool
+</span><a href="#local-6989586621679440012"><span class="hs-identifier hs-var hs-var">userConfirmed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679440012"><span class="hs-identifier hs-var">userConfirmed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440011"><span class="annot"><span class="annottext">s :: SignUpResponse
+</span><a href="#local-6989586621679440011"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUpResponse%27"><span class="hs-identifier hs-type">SignUpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440010"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679440010"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignUpResponse
+</span><a href="#local-6989586621679440011"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userConfirmed:SignUpResponse' :: Bool
 </span><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#%24sel%3AuserConfirmed%3ASignUpResponse%27"><span class="hs-identifier hs-var">userConfirmed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679439539"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUpResponse"><span class="hs-identifier hs-type">SignUpResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679440010"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUpResponse"><span class="hs-identifier hs-type">SignUpResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-427"></span><span>
 </span><span id="line-428"></span><span class="hs-comment">-- | The UUID of the authenticated user. This is not the same as @username@.</span><span>
 </span><span id="line-429"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#signUpResponse_userSub"><span class="hs-identifier hs-type">signUpResponse_userSub</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUpResponse"><span class="hs-identifier hs-type">SignUpResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -1075,16 +1075,16 @@ $sel:userConfirmed:SignUpResponse' :: SignUpResponse -&gt; Bool
 -&gt; (SignUpResponse -&gt; Text -&gt; SignUpResponse)
 -&gt; Lens SignUpResponse SignUpResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUpResponse%27"><span class="hs-identifier hs-type">SignUpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439538"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUpResponse%27"><span class="hs-identifier hs-type">SignUpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440009"><span class="annot"><span class="annottext">Text
 userSub :: Text
 $sel:userSub:SignUpResponse' :: SignUpResponse -&gt; Text
-</span><a href="#local-6989586621679439538"><span class="hs-identifier hs-var hs-var">userSub</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679439538"><span class="hs-identifier hs-var">userSub</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439537"><span class="annot"><span class="annottext">s :: SignUpResponse
-</span><a href="#local-6989586621679439537"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUpResponse%27"><span class="hs-identifier hs-type">SignUpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439536"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679439536"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignUpResponse
-</span><a href="#local-6989586621679439537"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userSub:SignUpResponse' :: Text
+</span><a href="#local-6989586621679440009"><span class="hs-identifier hs-var hs-var">userSub</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679440009"><span class="hs-identifier hs-var">userSub</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440008"><span class="annot"><span class="annottext">s :: SignUpResponse
+</span><a href="#local-6989586621679440008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUpResponse%27"><span class="hs-identifier hs-type">SignUpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440007"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679440007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignUpResponse
+</span><a href="#local-6989586621679440008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userSub:SignUpResponse' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#%24sel%3AuserSub%3ASignUpResponse%27"><span class="hs-identifier hs-var">userSub</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679439536"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUpResponse"><span class="hs-identifier hs-type">SignUpResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679440007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUpResponse"><span class="hs-identifier hs-type">SignUpResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-431"></span><span>
-</span><span id="line-432"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679439534"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUpResponse"><span class="hs-identifier hs-type">SignUpResponse</span></a></span></span><span>
+</span><span id="line-432"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440005"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SignUp.html#SignUpResponse"><span class="hs-identifier hs-type">SignUpResponse</span></a></span></span><span>
 </span><span id="line-433"></span></pre></body></html>

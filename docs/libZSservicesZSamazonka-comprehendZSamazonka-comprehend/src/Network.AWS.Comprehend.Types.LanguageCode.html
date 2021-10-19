@@ -39,13 +39,13 @@
 </span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-41"></span><span>
-</span><span id="line-42"></span><span id="local-6989586621679344962"><span id="local-6989586621679344963"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LanguageCode"><span class="annot"><a href="Network.AWS.Comprehend.Types.LanguageCode.html#LanguageCode"><span class="hs-identifier hs-var">LanguageCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LanguageCode%27"><span class="annot"><a href="Network.AWS.Comprehend.Types.LanguageCode.html#LanguageCode%27"><span class="hs-identifier hs-var">LanguageCode'</span></a></span></span><span>
+</span><span id="line-42"></span><span id="local-6989586621679345229"><span id="local-6989586621679345230"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LanguageCode"><span class="annot"><a href="Network.AWS.Comprehend.Types.LanguageCode.html#LanguageCode"><span class="hs-identifier hs-var">LanguageCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LanguageCode%27"><span class="annot"><a href="Network.AWS.Comprehend.Types.LanguageCode.html#LanguageCode%27"><span class="hs-identifier hs-var">LanguageCode'</span></a></span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromLanguageCode"><span class="annot"><span class="annottext">LanguageCode -&gt; Text
 </span><a href="Network.AWS.Comprehend.Types.LanguageCode.html#fromLanguageCode"><span class="hs-identifier hs-var hs-var">fromLanguageCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-44"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679344954"><span id="local-6989586621679344956"><span id="local-6989586621679344958"><span class="annot"><span class="annottext">Int -&gt; LanguageCode -&gt; ShowS
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679345221"><span id="local-6989586621679345223"><span id="local-6989586621679345225"><span class="annot"><span class="annottext">Int -&gt; LanguageCode -&gt; ShowS
 [LanguageCode] -&gt; ShowS
 LanguageCode -&gt; String
 (Int -&gt; LanguageCode -&gt; ShowS)
@@ -61,7 +61,7 @@ $cshow :: LanguageCode -&gt; String
 showsPrec :: Int -&gt; LanguageCode -&gt; ShowS
 $cshowsPrec :: Int -&gt; LanguageCode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679344945"><span id="local-6989586621679344947"><span id="local-6989586621679344949"><span id="local-6989586621679344951"><span class="annot"><span class="annottext">ReadPrec [LanguageCode]
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679345212"><span id="local-6989586621679345214"><span id="local-6989586621679345216"><span id="local-6989586621679345218"><span class="annot"><span class="annottext">ReadPrec [LanguageCode]
 ReadPrec LanguageCode
 Int -&gt; ReadS LanguageCode
 ReadS [LanguageCode]
@@ -82,7 +82,7 @@ $creadList :: ReadS [LanguageCode]
 readsPrec :: Int -&gt; ReadS LanguageCode
 $creadsPrec :: Int -&gt; ReadS LanguageCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679344940"><span id="local-6989586621679344942"><span class="annot"><span class="annottext">LanguageCode -&gt; LanguageCode -&gt; Bool
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679345207"><span id="local-6989586621679345209"><span class="annot"><span class="annottext">LanguageCode -&gt; LanguageCode -&gt; Bool
 (LanguageCode -&gt; LanguageCode -&gt; Bool)
 -&gt; (LanguageCode -&gt; LanguageCode -&gt; Bool) -&gt; Eq LanguageCode
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -91,7 +91,7 @@ $c/= :: LanguageCode -&gt; LanguageCode -&gt; Bool
 == :: LanguageCode -&gt; LanguageCode -&gt; Bool
 $c== :: LanguageCode -&gt; LanguageCode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679344924"><span id="local-6989586621679344926"><span id="local-6989586621679344928"><span id="local-6989586621679344930"><span id="local-6989586621679344932"><span id="local-6989586621679344934"><span id="local-6989586621679344936"><span class="annot"><span class="annottext">Eq LanguageCode
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679345191"><span id="local-6989586621679345193"><span id="local-6989586621679345195"><span id="local-6989586621679345197"><span id="local-6989586621679345199"><span id="local-6989586621679345201"><span id="local-6989586621679345203"><span class="annot"><span class="annottext">Eq LanguageCode
 Eq LanguageCode
 -&gt; (LanguageCode -&gt; LanguageCode -&gt; Ordering)
 -&gt; (LanguageCode -&gt; LanguageCode -&gt; Bool)
@@ -142,7 +142,7 @@ $cfrom :: forall x. LanguageCode -&gt; Rep LanguageCode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679344916"><span id="local-6989586621679344918"><span class="annot"><span class="annottext">Int -&gt; LanguageCode -&gt; Int
+</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679345183"><span id="local-6989586621679345185"><span class="annot"><span class="annottext">Int -&gt; LanguageCode -&gt; Int
 LanguageCode -&gt; Int
 (Int -&gt; LanguageCode -&gt; Int)
 -&gt; (LanguageCode -&gt; Int) -&gt; Hashable LanguageCode
@@ -152,49 +152,49 @@ $chash :: LanguageCode -&gt; Int
 hashWithSalt :: Int -&gt; LanguageCode -&gt; Int
 $chashWithSalt :: Int -&gt; LanguageCode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679344913"><span class="annot"><span class="annottext">LanguageCode -&gt; ()
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679345180"><span class="annot"><span class="annottext">LanguageCode -&gt; ()
 (LanguageCode -&gt; ()) -&gt; NFData LanguageCode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: LanguageCode -&gt; ()
 $crnf :: LanguageCode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679344910"><span class="annot"><span class="annottext">Text -&gt; Either String LanguageCode
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679345177"><span class="annot"><span class="annottext">Text -&gt; Either String LanguageCode
 (Text -&gt; Either String LanguageCode) -&gt; FromText LanguageCode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String LanguageCode
 $cfromText :: Text -&gt; Either String LanguageCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679344907"><span class="annot"><span class="annottext">LanguageCode -&gt; Text
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679345174"><span class="annot"><span class="annottext">LanguageCode -&gt; Text
 (LanguageCode -&gt; Text) -&gt; ToText LanguageCode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: LanguageCode -&gt; Text
 $ctoText :: LanguageCode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679344904"><span class="annot"><span class="annottext">LanguageCode -&gt; ByteString
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679345171"><span class="annot"><span class="annottext">LanguageCode -&gt; ByteString
 (LanguageCode -&gt; ByteString) -&gt; ToByteString LanguageCode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: LanguageCode -&gt; ByteString
 $ctoBS :: LanguageCode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679344901"><span class="annot"><span class="annottext">LanguageCode -&gt; ByteStringBuilder
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679345168"><span class="annot"><span class="annottext">LanguageCode -&gt; ByteStringBuilder
 (LanguageCode -&gt; ByteStringBuilder) -&gt; ToLog LanguageCode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: LanguageCode -&gt; ByteStringBuilder
 $cbuild :: LanguageCode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679344898"><span class="annot"><span class="annottext">HeaderName -&gt; LanguageCode -&gt; [Header]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679345165"><span class="annot"><span class="annottext">HeaderName -&gt; LanguageCode -&gt; [Header]
 (HeaderName -&gt; LanguageCode -&gt; [Header]) -&gt; ToHeader LanguageCode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; LanguageCode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; LanguageCode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679344895"><span class="annot"><span class="annottext">LanguageCode -&gt; QueryString
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679345162"><span class="annot"><span class="annottext">LanguageCode -&gt; QueryString
 (LanguageCode -&gt; QueryString) -&gt; ToQuery LanguageCode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: LanguageCode -&gt; QueryString
 $ctoQuery :: LanguageCode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679344890"><span id="local-6989586621679344892"><span class="annot"><span class="annottext">Value -&gt; Parser [LanguageCode]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679345157"><span id="local-6989586621679345159"><span class="annot"><span class="annottext">Value -&gt; Parser [LanguageCode]
 Value -&gt; Parser LanguageCode
 (Value -&gt; Parser LanguageCode)
 -&gt; (Value -&gt; Parser [LanguageCode]) -&gt; FromJSON LanguageCode
@@ -205,7 +205,7 @@ $cparseJSONList :: Value -&gt; Parser [LanguageCode]
 parseJSON :: Value -&gt; Parser LanguageCode
 $cparseJSON :: Value -&gt; Parser LanguageCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679344885"><span id="local-6989586621679344887"><span class="annot"><span class="annottext">FromJSONKeyFunction [LanguageCode]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679345152"><span id="local-6989586621679345154"><span class="annot"><span class="annottext">FromJSONKeyFunction [LanguageCode]
 FromJSONKeyFunction LanguageCode
 FromJSONKeyFunction LanguageCode
 -&gt; FromJSONKeyFunction [LanguageCode] -&gt; FromJSONKey LanguageCode
@@ -216,7 +216,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [LanguageCode]
 fromJSONKey :: FromJSONKeyFunction LanguageCode
 $cfromJSONKey :: FromJSONKeyFunction LanguageCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679344876"><span id="local-6989586621679344878"><span id="local-6989586621679344880"><span id="local-6989586621679344882"><span class="annot"><span class="annottext">[LanguageCode] -&gt; Encoding
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679345143"><span id="local-6989586621679345145"><span id="local-6989586621679345147"><span id="local-6989586621679345149"><span class="annot"><span class="annottext">[LanguageCode] -&gt; Encoding
 [LanguageCode] -&gt; Value
 LanguageCode -&gt; Encoding
 LanguageCode -&gt; Value
@@ -240,7 +240,7 @@ $ctoEncoding :: LanguageCode -&gt; Encoding
 toJSON :: LanguageCode -&gt; Value
 $ctoJSON :: LanguageCode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679344871"><span id="local-6989586621679344873"><span class="annot"><span class="annottext">ToJSONKeyFunction [LanguageCode]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679345138"><span id="local-6989586621679345140"><span class="annot"><span class="annottext">ToJSONKeyFunction [LanguageCode]
 ToJSONKeyFunction LanguageCode
 ToJSONKeyFunction LanguageCode
 -&gt; ToJSONKeyFunction [LanguageCode] -&gt; ToJSONKey LanguageCode
@@ -251,13 +251,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [LanguageCode]
 toJSONKey :: ToJSONKeyFunction LanguageCode
 $ctoJSONKey :: ToJSONKeyFunction LanguageCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679344868"><span class="annot"><span class="annottext">[Node] -&gt; Either String LanguageCode
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679345135"><span class="annot"><span class="annottext">[Node] -&gt; Either String LanguageCode
 ([Node] -&gt; Either String LanguageCode) -&gt; FromXML LanguageCode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String LanguageCode
 $cparseXML :: [Node] -&gt; Either String LanguageCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679344865"><span class="annot"><span class="annottext">LanguageCode -&gt; XML
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679345132"><span class="annot"><span class="annottext">LanguageCode -&gt; XML
 (LanguageCode -&gt; XML) -&gt; ToXML LanguageCode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: LanguageCode -&gt; XML

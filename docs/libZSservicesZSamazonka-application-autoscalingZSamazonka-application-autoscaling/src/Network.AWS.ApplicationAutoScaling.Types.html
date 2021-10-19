@@ -17,13 +17,13 @@
 </span><span id="line-17"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.html#defaultService"><span class="hs-identifier">defaultService</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-18"></span><span>
 </span><span id="line-19"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Errors</span></span><span>
-</span><span id="line-20"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.html#_ObjectNotFoundException"><span class="hs-identifier">_ObjectNotFoundException</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-21"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.html#_InternalServiceException"><span class="hs-identifier">_InternalServiceException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-20"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.html#_ValidationException"><span class="hs-identifier">_ValidationException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-21"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.html#_FailedResourceAccessException"><span class="hs-identifier">_FailedResourceAccessException</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-22"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.html#_InvalidNextTokenException"><span class="hs-identifier">_InvalidNextTokenException</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-23"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.html#_FailedResourceAccessException"><span class="hs-identifier">_FailedResourceAccessException</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-24"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.html#_ValidationException"><span class="hs-identifier">_ValidationException</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-25"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.html#_LimitExceededException"><span class="hs-identifier">_LimitExceededException</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.html#_ConcurrentUpdateException"><span class="hs-identifier">_ConcurrentUpdateException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.html#_ConcurrentUpdateException"><span class="hs-identifier">_ConcurrentUpdateException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.html#_InternalServiceException"><span class="hs-identifier">_InternalServiceException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.html#_ObjectNotFoundException"><span class="hs-identifier">_ObjectNotFoundException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.html#_LimitExceededException"><span class="hs-identifier">_LimitExceededException</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-27"></span><span>
 </span><span id="line-28"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AdjustmentType</span></span><span>
 </span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.AdjustmentType.html#AdjustmentType"><span class="hs-identifier">AdjustmentType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -58,8 +58,8 @@
 </span><span id="line-58"></span><span>    </span><span class="annot"><span class="hs-comment">-- * CustomizedMetricSpecification</span></span><span>
 </span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.CustomizedMetricSpecification.html#CustomizedMetricSpecification"><span class="hs-identifier">CustomizedMetricSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.CustomizedMetricSpecification.html#newCustomizedMetricSpecification"><span class="hs-identifier">newCustomizedMetricSpecification</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.CustomizedMetricSpecification.html#customizedMetricSpecification_unit"><span class="hs-identifier">customizedMetricSpecification_unit</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.CustomizedMetricSpecification.html#customizedMetricSpecification_dimensions"><span class="hs-identifier">customizedMetricSpecification_dimensions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.CustomizedMetricSpecification.html#customizedMetricSpecification_dimensions"><span class="hs-identifier">customizedMetricSpecification_dimensions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.CustomizedMetricSpecification.html#customizedMetricSpecification_unit"><span class="hs-identifier">customizedMetricSpecification_unit</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-63"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.CustomizedMetricSpecification.html#customizedMetricSpecification_metricName"><span class="hs-identifier">customizedMetricSpecification_metricName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-64"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.CustomizedMetricSpecification.html#customizedMetricSpecification_namespace"><span class="hs-identifier">customizedMetricSpecification_namespace</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.CustomizedMetricSpecification.html#customizedMetricSpecification_statistic"><span class="hs-identifier">customizedMetricSpecification_statistic</span></a></span><span class="hs-special">,</span><span>
@@ -126,11 +126,11 @@
 </span><span id="line-126"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ScheduledAction</span></span><span>
 </span><span id="line-127"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScheduledAction.html#ScheduledAction"><span class="hs-identifier">ScheduledAction</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScheduledAction.html#newScheduledAction"><span class="hs-identifier">newScheduledAction</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-129"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScheduledAction.html#scheduledAction_startTime"><span class="hs-identifier">scheduledAction_startTime</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-130"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScheduledAction.html#scheduledAction_endTime"><span class="hs-identifier">scheduledAction_endTime</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-131"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScheduledAction.html#scheduledAction_scalableDimension"><span class="hs-identifier">scheduledAction_scalableDimension</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-132"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScheduledAction.html#scheduledAction_timezone"><span class="hs-identifier">scheduledAction_timezone</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-133"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScheduledAction.html#scheduledAction_scalableTargetAction"><span class="hs-identifier">scheduledAction_scalableTargetAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScheduledAction.html#scheduledAction_scalableDimension"><span class="hs-identifier">scheduledAction_scalableDimension</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScheduledAction.html#scheduledAction_startTime"><span class="hs-identifier">scheduledAction_startTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScheduledAction.html#scheduledAction_endTime"><span class="hs-identifier">scheduledAction_endTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScheduledAction.html#scheduledAction_scalableTargetAction"><span class="hs-identifier">scheduledAction_scalableTargetAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScheduledAction.html#scheduledAction_timezone"><span class="hs-identifier">scheduledAction_timezone</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-134"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScheduledAction.html#scheduledAction_scheduledActionName"><span class="hs-identifier">scheduledAction_scheduledActionName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-135"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScheduledAction.html#scheduledAction_scheduledActionARN"><span class="hs-identifier">scheduledAction_scheduledActionARN</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-136"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScheduledAction.html#scheduledAction_serviceNamespace"><span class="hs-identifier">scheduledAction_serviceNamespace</span></a></span><span class="hs-special">,</span><span>
@@ -141,34 +141,34 @@
 </span><span id="line-141"></span><span>    </span><span class="annot"><span class="hs-comment">-- * StepAdjustment</span></span><span>
 </span><span id="line-142"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.StepAdjustment.html#StepAdjustment"><span class="hs-identifier">StepAdjustment</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-143"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.StepAdjustment.html#newStepAdjustment"><span class="hs-identifier">newStepAdjustment</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-144"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.StepAdjustment.html#stepAdjustment_metricIntervalUpperBound"><span class="hs-identifier">stepAdjustment_metricIntervalUpperBound</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-145"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.StepAdjustment.html#stepAdjustment_metricIntervalLowerBound"><span class="hs-identifier">stepAdjustment_metricIntervalLowerBound</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.StepAdjustment.html#stepAdjustment_metricIntervalLowerBound"><span class="hs-identifier">stepAdjustment_metricIntervalLowerBound</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.StepAdjustment.html#stepAdjustment_metricIntervalUpperBound"><span class="hs-identifier">stepAdjustment_metricIntervalUpperBound</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-146"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.StepAdjustment.html#stepAdjustment_scalingAdjustment"><span class="hs-identifier">stepAdjustment_scalingAdjustment</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span>    </span><span class="annot"><span class="hs-comment">-- * StepScalingPolicyConfiguration</span></span><span>
 </span><span id="line-149"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#StepScalingPolicyConfiguration"><span class="hs-identifier">StepScalingPolicyConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-150"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#newStepScalingPolicyConfiguration"><span class="hs-identifier">newStepScalingPolicyConfiguration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-151"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#stepScalingPolicyConfiguration_stepAdjustments"><span class="hs-identifier">stepScalingPolicyConfiguration_stepAdjustments</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-152"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#stepScalingPolicyConfiguration_metricAggregationType"><span class="hs-identifier">stepScalingPolicyConfiguration_metricAggregationType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#stepScalingPolicyConfiguration_adjustmentType"><span class="hs-identifier">stepScalingPolicyConfiguration_adjustmentType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-153"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#stepScalingPolicyConfiguration_cooldown"><span class="hs-identifier">stepScalingPolicyConfiguration_cooldown</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-154"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#stepScalingPolicyConfiguration_adjustmentType"><span class="hs-identifier">stepScalingPolicyConfiguration_adjustmentType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#stepScalingPolicyConfiguration_metricAggregationType"><span class="hs-identifier">stepScalingPolicyConfiguration_metricAggregationType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-155"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#stepScalingPolicyConfiguration_minAdjustmentMagnitude"><span class="hs-identifier">stepScalingPolicyConfiguration_minAdjustmentMagnitude</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SuspendedState</span></span><span>
 </span><span id="line-158"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.SuspendedState.html#SuspendedState"><span class="hs-identifier">SuspendedState</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-159"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.SuspendedState.html#newSuspendedState"><span class="hs-identifier">newSuspendedState</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-160"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.SuspendedState.html#suspendedState_scheduledScalingSuspended"><span class="hs-identifier">suspendedState_scheduledScalingSuspended</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-161"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.SuspendedState.html#suspendedState_dynamicScalingInSuspended"><span class="hs-identifier">suspendedState_dynamicScalingInSuspended</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.SuspendedState.html#suspendedState_dynamicScalingInSuspended"><span class="hs-identifier">suspendedState_dynamicScalingInSuspended</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.SuspendedState.html#suspendedState_scheduledScalingSuspended"><span class="hs-identifier">suspendedState_scheduledScalingSuspended</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-162"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.SuspendedState.html#suspendedState_dynamicScalingOutSuspended"><span class="hs-identifier">suspendedState_dynamicScalingOutSuspended</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span>    </span><span class="annot"><span class="hs-comment">-- * TargetTrackingScalingPolicyConfiguration</span></span><span>
 </span><span id="line-165"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.TargetTrackingScalingPolicyConfiguration.html#TargetTrackingScalingPolicyConfiguration"><span class="hs-identifier">TargetTrackingScalingPolicyConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-166"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.TargetTrackingScalingPolicyConfiguration.html#newTargetTrackingScalingPolicyConfiguration"><span class="hs-identifier">newTargetTrackingScalingPolicyConfiguration</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-167"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.TargetTrackingScalingPolicyConfiguration.html#targetTrackingScalingPolicyConfiguration_disableScaleIn"><span class="hs-identifier">targetTrackingScalingPolicyConfiguration_disableScaleIn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-168"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.TargetTrackingScalingPolicyConfiguration.html#targetTrackingScalingPolicyConfiguration_predefinedMetricSpecification"><span class="hs-identifier">targetTrackingScalingPolicyConfiguration_predefinedMetricSpecification</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-169"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.TargetTrackingScalingPolicyConfiguration.html#targetTrackingScalingPolicyConfiguration_scaleOutCooldown"><span class="hs-identifier">targetTrackingScalingPolicyConfiguration_scaleOutCooldown</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-170"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.TargetTrackingScalingPolicyConfiguration.html#targetTrackingScalingPolicyConfiguration_customizedMetricSpecification"><span class="hs-identifier">targetTrackingScalingPolicyConfiguration_customizedMetricSpecification</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-171"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.TargetTrackingScalingPolicyConfiguration.html#targetTrackingScalingPolicyConfiguration_scaleInCooldown"><span class="hs-identifier">targetTrackingScalingPolicyConfiguration_scaleInCooldown</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.TargetTrackingScalingPolicyConfiguration.html#targetTrackingScalingPolicyConfiguration_predefinedMetricSpecification"><span class="hs-identifier">targetTrackingScalingPolicyConfiguration_predefinedMetricSpecification</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.TargetTrackingScalingPolicyConfiguration.html#targetTrackingScalingPolicyConfiguration_scaleInCooldown"><span class="hs-identifier">targetTrackingScalingPolicyConfiguration_scaleInCooldown</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.TargetTrackingScalingPolicyConfiguration.html#targetTrackingScalingPolicyConfiguration_customizedMetricSpecification"><span class="hs-identifier">targetTrackingScalingPolicyConfiguration_customizedMetricSpecification</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.TargetTrackingScalingPolicyConfiguration.html#targetTrackingScalingPolicyConfiguration_disableScaleIn"><span class="hs-identifier">targetTrackingScalingPolicyConfiguration_disableScaleIn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.TargetTrackingScalingPolicyConfiguration.html#targetTrackingScalingPolicyConfiguration_scaleOutCooldown"><span class="hs-identifier">targetTrackingScalingPolicyConfiguration_scaleOutCooldown</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-172"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.TargetTrackingScalingPolicyConfiguration.html#targetTrackingScalingPolicyConfiguration_targetValue"><span class="hs-identifier">targetTrackingScalingPolicyConfiguration_targetValue</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-173"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span class="hs-keyword">where</span><span>
@@ -252,11 +252,11 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ApplicationAutoScaling&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-219"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceRetry:Service :: Retry
 </span><span class="hs-identifier hs-var">Core._serviceRetry</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Retry
-</span><a href="#local-6989586621679186633"><span class="hs-identifier hs-var">retry</span></a></span><span>
+</span><a href="#local-6989586621679186795"><span class="hs-identifier hs-var">retry</span></a></span><span>
 </span><span id="line-220"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-221"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-222"></span><span>    </span><span id="local-6989586621679186633"><span class="annot"><span class="annottext">retry :: Retry
-</span><a href="#local-6989586621679186633"><span class="hs-identifier hs-var hs-var">retry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-222"></span><span>    </span><span id="local-6989586621679186795"><span class="annot"><span class="annottext">retry :: Retry
+</span><a href="#local-6989586621679186795"><span class="hs-identifier hs-var hs-var">retry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-223"></span><span>      </span><span class="annot"><span class="annottext">Exponential :: Double -&gt; Int -&gt; Int -&gt; (ServiceError -&gt; Maybe Text) -&gt; Retry
 </span><span class="hs-identifier hs-type">Core.Exponential</span></span><span>
 </span><span id="line-224"></span><span>        </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_retryBase:Exponential :: Double
@@ -271,35 +271,21 @@ forall a. a -&gt; Maybe a
 </span><span id="line-227"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryCheck:Exponential :: ServiceError -&gt; Maybe Text
 </span><span class="hs-identifier hs-var">Core._retryCheck</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceError -&gt; Maybe Text
 forall a. IsString a =&gt; ServiceError -&gt; Maybe a
-</span><a href="#local-6989586621679186627"><span class="hs-identifier hs-var">check</span></a></span><span>
+</span><a href="#local-6989586621679186789"><span class="hs-identifier hs-var">check</span></a></span><span>
 </span><span id="line-228"></span><span>        </span><span class="hs-special">}</span><span>
-</span><span id="line-229"></span><span>    </span><span id="local-6989586621679186627"><span class="annot"><span class="annottext">check :: ServiceError -&gt; Maybe a
-</span><a href="#local-6989586621679186627"><span class="hs-identifier hs-var hs-var">check</span></a></span></span><span> </span><span id="local-6989586621679186626"><span class="annot"><span class="annottext">ServiceError
-</span><a href="#local-6989586621679186626"><span class="hs-identifier hs-var">e</span></a></span></span><span>
+</span><span id="line-229"></span><span>    </span><span id="local-6989586621679186789"><span class="annot"><span class="annottext">check :: ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679186789"><span class="hs-identifier hs-var hs-var">check</span></a></span></span><span> </span><span id="local-6989586621679186788"><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679186788"><span class="hs-identifier hs-var">e</span></a></span></span><span>
 </span><span id="line-230"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
 forall s a. Getting Any s a -&gt; s -&gt; Bool
-</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
-forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
-(Applicative f, Choice p) =&gt;
-Int -&gt; Optic' p f ServiceError ServiceError
-</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><span class="hs-number">504</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
-</span><a href="#local-6989586621679186626"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-231"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
-forall a. a -&gt; Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><span class="hs-string">&quot;gateway_timeout&quot;</span></span><span>
-</span><span id="line-232"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
-forall s a. Getting Any s a -&gt; s -&gt; Bool
 </span><span class="hs-identifier hs-var">Lens.has</span></span><span>
-</span><span id="line-233"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+</span><span id="line-231"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
 forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
 (Applicative f, Choice p) =&gt;
 ErrorCode -&gt; Optic' p f ServiceError ServiceError
-</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span>
-</span><span id="line-234"></span><span>              </span><span class="annot"><span class="annottext">ErrorCode
-</span><span class="hs-string">&quot;ProvisionedThroughputExceededException&quot;</span></span><span>
-</span><span id="line-235"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottledException&quot;</span></span><span>
+</span><span id="line-232"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
 -&gt; Getting Any ServiceError ServiceError
 -&gt; Getting Any ServiceError ServiceError
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
@@ -309,40 +295,14 @@ forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
 Int -&gt; Optic' p f ServiceError ServiceError
 </span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">400</span></span><span>
-</span><span id="line-236"></span><span>          </span><span class="hs-special">)</span><span>
-</span><span id="line-237"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
-</span><a href="#local-6989586621679186626"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-238"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+</span><span id="line-233"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679186788"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-235"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><span class="hs-string">&quot;throughput_exceeded&quot;</span></span><span>
-</span><span id="line-239"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
-forall s a. Getting Any s a -&gt; s -&gt; Bool
-</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
-forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
-(Applicative f, Choice p) =&gt;
-Int -&gt; Optic' p f ServiceError ServiceError
-</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><span class="hs-number">503</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
-</span><a href="#local-6989586621679186626"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-240"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
-forall a. a -&gt; Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><span class="hs-string">&quot;service_unavailable&quot;</span></span><span>
-</span><span id="line-241"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
-forall s a. Getting Any s a -&gt; s -&gt; Bool
-</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
-forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
-(Applicative f, Choice p) =&gt;
-Int -&gt; Optic' p f ServiceError ServiceError
-</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><span class="hs-number">502</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
-</span><a href="#local-6989586621679186626"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-242"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
-forall a. a -&gt; Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><span class="hs-string">&quot;bad_gateway&quot;</span></span><span>
-</span><span id="line-243"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+</span><span class="hs-string">&quot;throttled_exception&quot;</span></span><span>
+</span><span id="line-236"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
 forall s a. Getting Any s a -&gt; s -&gt; Bool
 </span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
 forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
@@ -350,21 +310,21 @@ forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
 Int -&gt; Optic' p f ServiceError ServiceError
 </span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">429</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
-</span><a href="#local-6989586621679186626"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-244"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+</span><a href="#local-6989586621679186788"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-237"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
 </span><span class="hs-string">&quot;too_many_requests&quot;</span></span><span>
-</span><span id="line-245"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+</span><span id="line-238"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
 forall s a. Getting Any s a -&gt; s -&gt; Bool
 </span><span class="hs-identifier hs-var">Lens.has</span></span><span>
-</span><span id="line-246"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+</span><span id="line-239"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
 forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
 (Applicative f, Choice p) =&gt;
 ErrorCode -&gt; Optic' p f ServiceError ServiceError
 </span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
-</span><span class="hs-string">&quot;RequestThrottledException&quot;</span></span><span>
-</span><span id="line-247"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+</span><span class="hs-string">&quot;ThrottlingException&quot;</span></span><span>
+</span><span id="line-240"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
 -&gt; Getting Any ServiceError ServiceError
 -&gt; Getting Any ServiceError ServiceError
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
@@ -374,22 +334,49 @@ forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
 Int -&gt; Optic' p f ServiceError ServiceError
 </span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">400</span></span><span>
-</span><span id="line-248"></span><span>          </span><span class="hs-special">)</span><span>
-</span><span id="line-249"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
-</span><a href="#local-6989586621679186626"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-250"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+</span><span id="line-241"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679186788"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-243"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><span class="hs-string">&quot;request_throttled_exception&quot;</span></span><span>
-</span><span id="line-251"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+</span><span class="hs-string">&quot;throttling_exception&quot;</span></span><span>
+</span><span id="line-244"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
 forall s a. Getting Any s a -&gt; s -&gt; Bool
 </span><span class="hs-identifier hs-var">Lens.has</span></span><span>
-</span><span id="line-252"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+</span><span id="line-245"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
 forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
 (Applicative f, Choice p) =&gt;
 ErrorCode -&gt; Optic' p f ServiceError ServiceError
 </span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
-</span><span class="hs-string">&quot;ThrottledException&quot;</span></span><span>
+</span><span class="hs-string">&quot;Throttling&quot;</span></span><span>
+</span><span id="line-246"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-247"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679186788"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-249"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling&quot;</span></span><span>
+</span><span id="line-250"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-251"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span>
+</span><span id="line-252"></span><span>              </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ProvisionedThroughputExceededException&quot;</span></span><span>
 </span><span id="line-253"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
 -&gt; Getting Any ServiceError ServiceError
 -&gt; Getting Any ServiceError ServiceError
@@ -402,11 +389,11 @@ Int -&gt; Optic' p f ServiceError ServiceError
 </span><span class="hs-number">400</span></span><span>
 </span><span id="line-254"></span><span>          </span><span class="hs-special">)</span><span>
 </span><span id="line-255"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
-</span><a href="#local-6989586621679186626"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679186788"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-256"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><span class="hs-string">&quot;throttled_exception&quot;</span></span><span>
+</span><span class="hs-string">&quot;throughput_exceeded&quot;</span></span><span>
 </span><span id="line-257"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
 forall s a. Getting Any s a -&gt; s -&gt; Bool
 </span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
@@ -414,13 +401,65 @@ forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
 (Applicative f, Choice p) =&gt;
 Int -&gt; Optic' p f ServiceError ServiceError
 </span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><span class="hs-number">509</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
-</span><a href="#local-6989586621679186626"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span class="hs-number">504</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679186788"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-258"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><span class="hs-string">&quot;limit_exceeded&quot;</span></span><span>
+</span><span class="hs-string">&quot;gateway_timeout&quot;</span></span><span>
 </span><span id="line-259"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-260"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;RequestThrottledException&quot;</span></span><span>
+</span><span id="line-261"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-262"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679186788"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-264"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;request_throttled_exception&quot;</span></span><span>
+</span><span id="line-265"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">502</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679186788"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-266"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;bad_gateway&quot;</span></span><span>
+</span><span id="line-267"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">503</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679186788"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-268"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;service_unavailable&quot;</span></span><span>
+</span><span id="line-269"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
 forall s a. Getting Any s a -&gt; s -&gt; Bool
 </span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
 forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
@@ -428,171 +467,132 @@ forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
 Int -&gt; Optic' p f ServiceError ServiceError
 </span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">500</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
-</span><a href="#local-6989586621679186626"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-260"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+</span><a href="#local-6989586621679186788"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-270"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
 </span><span class="hs-string">&quot;general_server_error&quot;</span></span><span>
-</span><span id="line-261"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+</span><span id="line-271"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
 forall s a. Getting Any s a -&gt; s -&gt; Bool
-</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
-</span><span id="line-262"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
-forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
-(Applicative f, Choice p) =&gt;
-ErrorCode -&gt; Optic' p f ServiceError ServiceError
-</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
-</span><span class="hs-string">&quot;ThrottlingException&quot;</span></span><span>
-</span><span id="line-263"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
--&gt; Getting Any ServiceError ServiceError
--&gt; Getting Any ServiceError ServiceError
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
 forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
 (Applicative f, Choice p) =&gt;
 Int -&gt; Optic' p f ServiceError ServiceError
 </span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><span class="hs-number">400</span></span><span>
-</span><span id="line-264"></span><span>          </span><span class="hs-special">)</span><span>
-</span><span id="line-265"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
-</span><a href="#local-6989586621679186626"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-266"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
-forall a. a -&gt; Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><span class="hs-string">&quot;throttling_exception&quot;</span></span><span>
-</span><span id="line-267"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
-forall s a. Getting Any s a -&gt; s -&gt; Bool
-</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
-</span><span id="line-268"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
-forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
-(Applicative f, Choice p) =&gt;
-ErrorCode -&gt; Optic' p f ServiceError ServiceError
-</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
-</span><span class="hs-string">&quot;Throttling&quot;</span></span><span>
-</span><span id="line-269"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
--&gt; Getting Any ServiceError ServiceError
--&gt; Getting Any ServiceError ServiceError
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
-forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
-(Applicative f, Choice p) =&gt;
-Int -&gt; Optic' p f ServiceError ServiceError
-</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><span class="hs-number">400</span></span><span>
-</span><span id="line-270"></span><span>          </span><span class="hs-special">)</span><span>
-</span><span id="line-271"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
-</span><a href="#local-6989586621679186626"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span class="hs-number">509</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679186788"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-272"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><span class="hs-string">&quot;throttling&quot;</span></span><span>
+</span><span class="hs-string">&quot;limit_exceeded&quot;</span></span><span>
 </span><span id="line-273"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
 </span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe a
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-274"></span><span>
-</span><span id="line-275"></span><span class="hs-comment">-- | The specified object could not be found. For any operation that depends</span><span>
-</span><span id="line-276"></span><span class="hs-comment">-- on the existence of a scalable target, this exception is thrown if the</span><span>
-</span><span id="line-277"></span><span class="hs-comment">-- scalable target with the specified service namespace, resource ID, and</span><span>
-</span><span id="line-278"></span><span class="hs-comment">-- scalable dimension does not exist. For any operation that deletes or</span><span>
-</span><span id="line-279"></span><span class="hs-comment">-- deregisters a resource, this exception is thrown if the resource cannot</span><span>
-</span><span id="line-280"></span><span class="hs-comment">-- be found.</span><span>
-</span><span id="line-281"></span><span id="local-6989586621679186621"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.html#_ObjectNotFoundException"><span class="hs-identifier hs-type">_ObjectNotFoundException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679186621"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679186621"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
-</span><span id="line-282"></span><span id="_ObjectNotFoundException"><span class="annot"><span class="annottext">_ObjectNotFoundException :: Getting (First ServiceError) a ServiceError
-</span><a href="Network.AWS.ApplicationAutoScaling.Types.html#_ObjectNotFoundException"><span class="hs-identifier hs-var hs-var">_ObjectNotFoundException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-283"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
-forall a.
-AsError a =&gt;
-Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
-</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
-</span><span id="line-284"></span><span>    </span><span class="annot"><span class="annottext">Service
-</span><a href="Network.AWS.ApplicationAutoScaling.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-285"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
-</span><span class="hs-string">&quot;ObjectNotFoundException&quot;</span></span><span>
-</span><span id="line-286"></span><span>
-</span><span id="line-287"></span><span class="hs-comment">-- | The service encountered an internal error.</span><span>
-</span><span id="line-288"></span><span id="local-6989586621679186619"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.html#_InternalServiceException"><span class="hs-identifier hs-type">_InternalServiceException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679186619"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679186619"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
-</span><span id="line-289"></span><span id="_InternalServiceException"><span class="annot"><span class="annottext">_InternalServiceException :: Getting (First ServiceError) a ServiceError
-</span><a href="Network.AWS.ApplicationAutoScaling.Types.html#_InternalServiceException"><span class="hs-identifier hs-var hs-var">_InternalServiceException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-290"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
-forall a.
-AsError a =&gt;
-Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
-</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
-</span><span id="line-291"></span><span>    </span><span class="annot"><span class="annottext">Service
-</span><a href="Network.AWS.ApplicationAutoScaling.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-292"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
-</span><span class="hs-string">&quot;InternalServiceException&quot;</span></span><span>
-</span><span id="line-293"></span><span>
-</span><span id="line-294"></span><span class="hs-comment">-- | The next token supplied was invalid.</span><span>
-</span><span id="line-295"></span><span id="local-6989586621679186618"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.html#_InvalidNextTokenException"><span class="hs-identifier hs-type">_InvalidNextTokenException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679186618"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679186618"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
-</span><span id="line-296"></span><span id="_InvalidNextTokenException"><span class="annot"><span class="annottext">_InvalidNextTokenException :: Getting (First ServiceError) a ServiceError
-</span><a href="Network.AWS.ApplicationAutoScaling.Types.html#_InvalidNextTokenException"><span class="hs-identifier hs-var hs-var">_InvalidNextTokenException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-297"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
-forall a.
-AsError a =&gt;
-Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
-</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
-</span><span id="line-298"></span><span>    </span><span class="annot"><span class="annottext">Service
-</span><a href="Network.AWS.ApplicationAutoScaling.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-299"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
-</span><span class="hs-string">&quot;InvalidNextTokenException&quot;</span></span><span>
-</span><span id="line-300"></span><span>
-</span><span id="line-301"></span><span class="hs-comment">-- | Failed access to resources caused an exception. This exception is thrown</span><span>
-</span><span id="line-302"></span><span class="hs-comment">-- when Application Auto Scaling is unable to retrieve the alarms</span><span>
-</span><span id="line-303"></span><span class="hs-comment">-- associated with a scaling policy due to a client error, for example, if</span><span>
-</span><span id="line-304"></span><span class="hs-comment">-- the role ARN specified for a scalable target does not have permission to</span><span>
-</span><span id="line-305"></span><span class="hs-comment">-- call the CloudWatch</span><span>
-</span><span id="line-306"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html DescribeAlarms&gt;</span><span>
-</span><span id="line-307"></span><span class="hs-comment">-- on your behalf.</span><span>
-</span><span id="line-308"></span><span id="local-6989586621679186617"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.html#_FailedResourceAccessException"><span class="hs-identifier hs-type">_FailedResourceAccessException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679186617"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679186617"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
-</span><span id="line-309"></span><span id="_FailedResourceAccessException"><span class="annot"><span class="annottext">_FailedResourceAccessException :: Getting (First ServiceError) a ServiceError
-</span><a href="Network.AWS.ApplicationAutoScaling.Types.html#_FailedResourceAccessException"><span class="hs-identifier hs-var hs-var">_FailedResourceAccessException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-310"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
-forall a.
-AsError a =&gt;
-Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
-</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
-</span><span id="line-311"></span><span>    </span><span class="annot"><span class="annottext">Service
-</span><a href="Network.AWS.ApplicationAutoScaling.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-312"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
-</span><span class="hs-string">&quot;FailedResourceAccessException&quot;</span></span><span>
-</span><span id="line-313"></span><span>
-</span><span id="line-314"></span><span class="hs-comment">-- | An exception was thrown for a validation issue. Review the available</span><span>
-</span><span id="line-315"></span><span class="hs-comment">-- parameters for the API request.</span><span>
-</span><span id="line-316"></span><span id="local-6989586621679186616"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.html#_ValidationException"><span class="hs-identifier hs-type">_ValidationException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679186616"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679186616"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
-</span><span id="line-317"></span><span id="_ValidationException"><span class="annot"><span class="annottext">_ValidationException :: Getting (First ServiceError) a ServiceError
+</span><span id="line-275"></span><span class="hs-comment">-- | An exception was thrown for a validation issue. Review the available</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- parameters for the API request.</span><span>
+</span><span id="line-277"></span><span id="local-6989586621679186783"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.html#_ValidationException"><span class="hs-identifier hs-type">_ValidationException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679186783"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679186783"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-278"></span><span id="_ValidationException"><span class="annot"><span class="annottext">_ValidationException :: Getting (First ServiceError) a ServiceError
 </span><a href="Network.AWS.ApplicationAutoScaling.Types.html#_ValidationException"><span class="hs-identifier hs-var hs-var">_ValidationException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-318"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span id="line-279"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
 forall a.
 AsError a =&gt;
 Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
 </span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
-</span><span id="line-319"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><span id="line-280"></span><span>    </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ApplicationAutoScaling.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-320"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span id="line-281"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
 </span><span class="hs-string">&quot;ValidationException&quot;</span></span><span>
-</span><span id="line-321"></span><span>
-</span><span id="line-322"></span><span class="hs-comment">-- | A per-account resource limit is exceeded. For more information, see</span><span>
-</span><span id="line-323"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-limits.html Application Auto Scaling service quotas&gt;.</span><span>
-</span><span id="line-324"></span><span id="local-6989586621679186615"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.html#_LimitExceededException"><span class="hs-identifier hs-type">_LimitExceededException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679186615"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679186615"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
-</span><span id="line-325"></span><span id="_LimitExceededException"><span class="annot"><span class="annottext">_LimitExceededException :: Getting (First ServiceError) a ServiceError
-</span><a href="Network.AWS.ApplicationAutoScaling.Types.html#_LimitExceededException"><span class="hs-identifier hs-var hs-var">_LimitExceededException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-326"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span id="line-282"></span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- | Failed access to resources caused an exception. This exception is thrown</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- when Application Auto Scaling is unable to retrieve the alarms</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- associated with a scaling policy due to a client error, for example, if</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- the role ARN specified for a scalable target does not have permission to</span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- call the CloudWatch</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html DescribeAlarms&gt;</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- on your behalf.</span><span>
+</span><span id="line-290"></span><span id="local-6989586621679186781"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.html#_FailedResourceAccessException"><span class="hs-identifier hs-type">_FailedResourceAccessException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679186781"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679186781"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-291"></span><span id="_FailedResourceAccessException"><span class="annot"><span class="annottext">_FailedResourceAccessException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.html#_FailedResourceAccessException"><span class="hs-identifier hs-var hs-var">_FailedResourceAccessException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-292"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
 forall a.
 AsError a =&gt;
 Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
 </span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
-</span><span id="line-327"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><span id="line-293"></span><span>    </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ApplicationAutoScaling.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-328"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
-</span><span class="hs-string">&quot;LimitExceededException&quot;</span></span><span>
-</span><span id="line-329"></span><span>
-</span><span id="line-330"></span><span class="hs-comment">-- | Concurrent updates caused an exception, for example, if you request an</span><span>
-</span><span id="line-331"></span><span class="hs-comment">-- update to an Application Auto Scaling resource that already has a</span><span>
-</span><span id="line-332"></span><span class="hs-comment">-- pending update.</span><span>
-</span><span id="line-333"></span><span id="local-6989586621679186614"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.html#_ConcurrentUpdateException"><span class="hs-identifier hs-type">_ConcurrentUpdateException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679186614"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679186614"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
-</span><span id="line-334"></span><span id="_ConcurrentUpdateException"><span class="annot"><span class="annottext">_ConcurrentUpdateException :: Getting (First ServiceError) a ServiceError
+</span><span id="line-294"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;FailedResourceAccessException&quot;</span></span><span>
+</span><span id="line-295"></span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- | The next token supplied was invalid.</span><span>
+</span><span id="line-297"></span><span id="local-6989586621679186780"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.html#_InvalidNextTokenException"><span class="hs-identifier hs-type">_InvalidNextTokenException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679186780"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679186780"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-298"></span><span id="_InvalidNextTokenException"><span class="annot"><span class="annottext">_InvalidNextTokenException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.html#_InvalidNextTokenException"><span class="hs-identifier hs-var hs-var">_InvalidNextTokenException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-299"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-300"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-301"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InvalidNextTokenException&quot;</span></span><span>
+</span><span id="line-302"></span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- | Concurrent updates caused an exception, for example, if you request an</span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- update to an Application Auto Scaling resource that already has a</span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- pending update.</span><span>
+</span><span id="line-306"></span><span id="local-6989586621679186779"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.html#_ConcurrentUpdateException"><span class="hs-identifier hs-type">_ConcurrentUpdateException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679186779"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679186779"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-307"></span><span id="_ConcurrentUpdateException"><span class="annot"><span class="annottext">_ConcurrentUpdateException :: Getting (First ServiceError) a ServiceError
 </span><a href="Network.AWS.ApplicationAutoScaling.Types.html#_ConcurrentUpdateException"><span class="hs-identifier hs-var hs-var">_ConcurrentUpdateException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-308"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-309"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-310"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ConcurrentUpdateException&quot;</span></span><span>
+</span><span id="line-311"></span><span>
+</span><span id="line-312"></span><span class="hs-comment">-- | The service encountered an internal error.</span><span>
+</span><span id="line-313"></span><span id="local-6989586621679186778"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.html#_InternalServiceException"><span class="hs-identifier hs-type">_InternalServiceException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679186778"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679186778"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-314"></span><span id="_InternalServiceException"><span class="annot"><span class="annottext">_InternalServiceException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.html#_InternalServiceException"><span class="hs-identifier hs-var hs-var">_InternalServiceException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-315"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-316"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-317"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InternalServiceException&quot;</span></span><span>
+</span><span id="line-318"></span><span>
+</span><span id="line-319"></span><span class="hs-comment">-- | The specified object could not be found. For any operation that depends</span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- on the existence of a scalable target, this exception is thrown if the</span><span>
+</span><span id="line-321"></span><span class="hs-comment">-- scalable target with the specified service namespace, resource ID, and</span><span>
+</span><span id="line-322"></span><span class="hs-comment">-- scalable dimension does not exist. For any operation that deletes or</span><span>
+</span><span id="line-323"></span><span class="hs-comment">-- deregisters a resource, this exception is thrown if the resource cannot</span><span>
+</span><span id="line-324"></span><span class="hs-comment">-- be found.</span><span>
+</span><span id="line-325"></span><span id="local-6989586621679186777"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.html#_ObjectNotFoundException"><span class="hs-identifier hs-type">_ObjectNotFoundException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679186777"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679186777"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-326"></span><span id="_ObjectNotFoundException"><span class="annot"><span class="annottext">_ObjectNotFoundException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.html#_ObjectNotFoundException"><span class="hs-identifier hs-var hs-var">_ObjectNotFoundException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-327"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-328"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-329"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ObjectNotFoundException&quot;</span></span><span>
+</span><span id="line-330"></span><span>
+</span><span id="line-331"></span><span class="hs-comment">-- | A per-account resource limit is exceeded. For more information, see</span><span>
+</span><span id="line-332"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-limits.html Application Auto Scaling service quotas&gt;.</span><span>
+</span><span id="line-333"></span><span id="local-6989586621679186776"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.html#_LimitExceededException"><span class="hs-identifier hs-type">_LimitExceededException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679186776"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679186776"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-334"></span><span id="_LimitExceededException"><span class="annot"><span class="annottext">_LimitExceededException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.ApplicationAutoScaling.Types.html#_LimitExceededException"><span class="hs-identifier hs-var hs-var">_LimitExceededException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-335"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
 forall a.
 AsError a =&gt;
@@ -601,5 +601,5 @@ Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
 </span><span id="line-336"></span><span>    </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ApplicationAutoScaling.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
 </span><span id="line-337"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
-</span><span class="hs-string">&quot;ConcurrentUpdateException&quot;</span></span><span>
+</span><span class="hs-string">&quot;LimitExceededException&quot;</span></span><span>
 </span><span id="line-338"></span></pre></body></html>

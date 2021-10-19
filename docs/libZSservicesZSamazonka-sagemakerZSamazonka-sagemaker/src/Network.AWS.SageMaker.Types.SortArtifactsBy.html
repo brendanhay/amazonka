@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621680341193"><span id="local-6989586621680341194"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SortArtifactsBy"><span class="annot"><a href="Network.AWS.SageMaker.Types.SortArtifactsBy.html#SortArtifactsBy"><span class="hs-identifier hs-var">SortArtifactsBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SortArtifactsBy%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.SortArtifactsBy.html#SortArtifactsBy%27"><span class="hs-identifier hs-var">SortArtifactsBy'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621680342607"><span id="local-6989586621680342608"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SortArtifactsBy"><span class="annot"><a href="Network.AWS.SageMaker.Types.SortArtifactsBy.html#SortArtifactsBy"><span class="hs-identifier hs-var">SortArtifactsBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SortArtifactsBy%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.SortArtifactsBy.html#SortArtifactsBy%27"><span class="hs-identifier hs-var">SortArtifactsBy'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSortArtifactsBy"><span class="annot"><span class="annottext">SortArtifactsBy -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.SortArtifactsBy.html#fromSortArtifactsBy"><span class="hs-identifier hs-var hs-var">fromSortArtifactsBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680341185"><span id="local-6989586621680341187"><span id="local-6989586621680341189"><span class="annot"><span class="annottext">Int -&gt; SortArtifactsBy -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680342599"><span id="local-6989586621680342601"><span id="local-6989586621680342603"><span class="annot"><span class="annottext">Int -&gt; SortArtifactsBy -&gt; ShowS
 [SortArtifactsBy] -&gt; ShowS
 SortArtifactsBy -&gt; String
 (Int -&gt; SortArtifactsBy -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: SortArtifactsBy -&gt; String
 showsPrec :: Int -&gt; SortArtifactsBy -&gt; ShowS
 $cshowsPrec :: Int -&gt; SortArtifactsBy -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621680341176"><span id="local-6989586621680341178"><span id="local-6989586621680341180"><span id="local-6989586621680341182"><span class="annot"><span class="annottext">ReadPrec [SortArtifactsBy]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621680342590"><span id="local-6989586621680342592"><span id="local-6989586621680342594"><span id="local-6989586621680342596"><span class="annot"><span class="annottext">ReadPrec [SortArtifactsBy]
 ReadPrec SortArtifactsBy
 Int -&gt; ReadS SortArtifactsBy
 ReadS [SortArtifactsBy]
@@ -71,7 +71,7 @@ $creadList :: ReadS [SortArtifactsBy]
 readsPrec :: Int -&gt; ReadS SortArtifactsBy
 $creadsPrec :: Int -&gt; ReadS SortArtifactsBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621680341171"><span id="local-6989586621680341173"><span class="annot"><span class="annottext">SortArtifactsBy -&gt; SortArtifactsBy -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621680342585"><span id="local-6989586621680342587"><span class="annot"><span class="annottext">SortArtifactsBy -&gt; SortArtifactsBy -&gt; Bool
 (SortArtifactsBy -&gt; SortArtifactsBy -&gt; Bool)
 -&gt; (SortArtifactsBy -&gt; SortArtifactsBy -&gt; Bool)
 -&gt; Eq SortArtifactsBy
@@ -81,7 +81,7 @@ $c/= :: SortArtifactsBy -&gt; SortArtifactsBy -&gt; Bool
 == :: SortArtifactsBy -&gt; SortArtifactsBy -&gt; Bool
 $c== :: SortArtifactsBy -&gt; SortArtifactsBy -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621680341155"><span id="local-6989586621680341157"><span id="local-6989586621680341159"><span id="local-6989586621680341161"><span id="local-6989586621680341163"><span id="local-6989586621680341165"><span id="local-6989586621680341167"><span class="annot"><span class="annottext">Eq SortArtifactsBy
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680342569"><span id="local-6989586621680342571"><span id="local-6989586621680342573"><span id="local-6989586621680342575"><span id="local-6989586621680342577"><span id="local-6989586621680342579"><span id="local-6989586621680342581"><span class="annot"><span class="annottext">Eq SortArtifactsBy
 Eq SortArtifactsBy
 -&gt; (SortArtifactsBy -&gt; SortArtifactsBy -&gt; Ordering)
 -&gt; (SortArtifactsBy -&gt; SortArtifactsBy -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. SortArtifactsBy -&gt; Rep SortArtifactsBy x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680341147"><span id="local-6989586621680341149"><span class="annot"><span class="annottext">Int -&gt; SortArtifactsBy -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680342561"><span id="local-6989586621680342563"><span class="annot"><span class="annottext">Int -&gt; SortArtifactsBy -&gt; Int
 SortArtifactsBy -&gt; Int
 (Int -&gt; SortArtifactsBy -&gt; Int)
 -&gt; (SortArtifactsBy -&gt; Int) -&gt; Hashable SortArtifactsBy
@@ -142,50 +142,50 @@ $chash :: SortArtifactsBy -&gt; Int
 hashWithSalt :: Int -&gt; SortArtifactsBy -&gt; Int
 $chashWithSalt :: Int -&gt; SortArtifactsBy -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621680341144"><span class="annot"><span class="annottext">SortArtifactsBy -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621680342558"><span class="annot"><span class="annottext">SortArtifactsBy -&gt; ()
 (SortArtifactsBy -&gt; ()) -&gt; NFData SortArtifactsBy
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: SortArtifactsBy -&gt; ()
 $crnf :: SortArtifactsBy -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621680341141"><span class="annot"><span class="annottext">Text -&gt; Either String SortArtifactsBy
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680342555"><span class="annot"><span class="annottext">Text -&gt; Either String SortArtifactsBy
 (Text -&gt; Either String SortArtifactsBy) -&gt; FromText SortArtifactsBy
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String SortArtifactsBy
 $cfromText :: Text -&gt; Either String SortArtifactsBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621680341138"><span class="annot"><span class="annottext">SortArtifactsBy -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680342552"><span class="annot"><span class="annottext">SortArtifactsBy -&gt; Text
 (SortArtifactsBy -&gt; Text) -&gt; ToText SortArtifactsBy
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: SortArtifactsBy -&gt; Text
 $ctoText :: SortArtifactsBy -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680341135"><span class="annot"><span class="annottext">SortArtifactsBy -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680342549"><span class="annot"><span class="annottext">SortArtifactsBy -&gt; ByteString
 (SortArtifactsBy -&gt; ByteString) -&gt; ToByteString SortArtifactsBy
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: SortArtifactsBy -&gt; ByteString
 $ctoBS :: SortArtifactsBy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680341132"><span class="annot"><span class="annottext">SortArtifactsBy -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680342546"><span class="annot"><span class="annottext">SortArtifactsBy -&gt; ByteStringBuilder
 (SortArtifactsBy -&gt; ByteStringBuilder) -&gt; ToLog SortArtifactsBy
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: SortArtifactsBy -&gt; ByteStringBuilder
 $cbuild :: SortArtifactsBy -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680341129"><span class="annot"><span class="annottext">HeaderName -&gt; SortArtifactsBy -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680342543"><span class="annot"><span class="annottext">HeaderName -&gt; SortArtifactsBy -&gt; [Header]
 (HeaderName -&gt; SortArtifactsBy -&gt; [Header])
 -&gt; ToHeader SortArtifactsBy
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; SortArtifactsBy -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; SortArtifactsBy -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680341126"><span class="annot"><span class="annottext">SortArtifactsBy -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680342540"><span class="annot"><span class="annottext">SortArtifactsBy -&gt; QueryString
 (SortArtifactsBy -&gt; QueryString) -&gt; ToQuery SortArtifactsBy
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: SortArtifactsBy -&gt; QueryString
 $ctoQuery :: SortArtifactsBy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680341121"><span id="local-6989586621680341123"><span class="annot"><span class="annottext">Value -&gt; Parser [SortArtifactsBy]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680342535"><span id="local-6989586621680342537"><span class="annot"><span class="annottext">Value -&gt; Parser [SortArtifactsBy]
 Value -&gt; Parser SortArtifactsBy
 (Value -&gt; Parser SortArtifactsBy)
 -&gt; (Value -&gt; Parser [SortArtifactsBy]) -&gt; FromJSON SortArtifactsBy
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [SortArtifactsBy]
 parseJSON :: Value -&gt; Parser SortArtifactsBy
 $cparseJSON :: Value -&gt; Parser SortArtifactsBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680341116"><span id="local-6989586621680341118"><span class="annot"><span class="annottext">FromJSONKeyFunction [SortArtifactsBy]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680342530"><span id="local-6989586621680342532"><span class="annot"><span class="annottext">FromJSONKeyFunction [SortArtifactsBy]
 FromJSONKeyFunction SortArtifactsBy
 FromJSONKeyFunction SortArtifactsBy
 -&gt; FromJSONKeyFunction [SortArtifactsBy]
@@ -208,7 +208,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [SortArtifactsBy]
 fromJSONKey :: FromJSONKeyFunction SortArtifactsBy
 $cfromJSONKey :: FromJSONKeyFunction SortArtifactsBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680341107"><span id="local-6989586621680341109"><span id="local-6989586621680341111"><span id="local-6989586621680341113"><span class="annot"><span class="annottext">[SortArtifactsBy] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680342521"><span id="local-6989586621680342523"><span id="local-6989586621680342525"><span id="local-6989586621680342527"><span class="annot"><span class="annottext">[SortArtifactsBy] -&gt; Encoding
 [SortArtifactsBy] -&gt; Value
 SortArtifactsBy -&gt; Encoding
 SortArtifactsBy -&gt; Value
@@ -232,7 +232,7 @@ $ctoEncoding :: SortArtifactsBy -&gt; Encoding
 toJSON :: SortArtifactsBy -&gt; Value
 $ctoJSON :: SortArtifactsBy -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680341102"><span id="local-6989586621680341104"><span class="annot"><span class="annottext">ToJSONKeyFunction [SortArtifactsBy]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680342516"><span id="local-6989586621680342518"><span class="annot"><span class="annottext">ToJSONKeyFunction [SortArtifactsBy]
 ToJSONKeyFunction SortArtifactsBy
 ToJSONKeyFunction SortArtifactsBy
 -&gt; ToJSONKeyFunction [SortArtifactsBy] -&gt; ToJSONKey SortArtifactsBy
@@ -243,14 +243,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [SortArtifactsBy]
 toJSONKey :: ToJSONKeyFunction SortArtifactsBy
 $ctoJSONKey :: ToJSONKeyFunction SortArtifactsBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680341099"><span class="annot"><span class="annottext">[Node] -&gt; Either String SortArtifactsBy
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680342513"><span class="annot"><span class="annottext">[Node] -&gt; Either String SortArtifactsBy
 ([Node] -&gt; Either String SortArtifactsBy)
 -&gt; FromXML SortArtifactsBy
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String SortArtifactsBy
 $cparseXML :: [Node] -&gt; Either String SortArtifactsBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680341096"><span class="annot"><span class="annottext">SortArtifactsBy -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680342510"><span class="annot"><span class="annottext">SortArtifactsBy -&gt; XML
 (SortArtifactsBy -&gt; XML) -&gt; ToXML SortArtifactsBy
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: SortArtifactsBy -&gt; XML

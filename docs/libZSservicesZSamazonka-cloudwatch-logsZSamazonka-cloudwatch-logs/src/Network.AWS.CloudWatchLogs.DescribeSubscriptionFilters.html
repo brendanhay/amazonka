@@ -41,8 +41,8 @@
 </span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#newDescribeSubscriptionFiltersResponse"><span class="hs-identifier">newDescribeSubscriptionFiltersResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#describeSubscriptionFiltersResponse_nextToken"><span class="hs-identifier">describeSubscriptionFiltersResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#describeSubscriptionFiltersResponse_subscriptionFilters"><span class="hs-identifier">describeSubscriptionFiltersResponse_subscriptionFilters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#describeSubscriptionFiltersResponse_subscriptionFilters"><span class="hs-identifier">describeSubscriptionFiltersResponse_subscriptionFilters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#describeSubscriptionFiltersResponse_nextToken"><span class="hs-identifier">describeSubscriptionFiltersResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#describeSubscriptionFiltersResponse_httpStatus"><span class="hs-identifier">describeSubscriptionFiltersResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span class="hs-keyword">where</span><span>
@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newDescribeSubscriptionFilters' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679228349"><span id="local-6989586621679228350"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeSubscriptionFilters"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFilters"><span class="hs-identifier hs-var">DescribeSubscriptionFilters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeSubscriptionFilters%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFilters%27"><span class="hs-identifier hs-var">DescribeSubscriptionFilters'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679228505"><span id="local-6989586621679228506"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeSubscriptionFilters"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFilters"><span class="hs-identifier hs-var">DescribeSubscriptionFilters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeSubscriptionFilters%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFilters%27"><span class="hs-identifier hs-var">DescribeSubscriptionFilters'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The prefix to match. If you don\'t specify a value, no prefix filter is</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- applied.</span><span>
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AfilterNamePrefix%3ADescribeSubscriptionFilters%27"><span class="annot"><span class="annottext">DescribeSubscriptionFilters -&gt; Maybe Text
@@ -72,7 +72,7 @@
 </span><span id="line-69"></span><span>    </span><span id="%24sel%3AlogGroupName%3ADescribeSubscriptionFilters%27"><span class="annot"><span class="annottext">DescribeSubscriptionFilters -&gt; Text
 </span><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#%24sel%3AlogGroupName%3ADescribeSubscriptionFilters%27"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679228340"><span id="local-6989586621679228342"><span class="annot"><span class="annottext">DescribeSubscriptionFilters -&gt; DescribeSubscriptionFilters -&gt; Bool
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679228496"><span id="local-6989586621679228498"><span class="annot"><span class="annottext">DescribeSubscriptionFilters -&gt; DescribeSubscriptionFilters -&gt; Bool
 (DescribeSubscriptionFilters
  -&gt; DescribeSubscriptionFilters -&gt; Bool)
 -&gt; (DescribeSubscriptionFilters
@@ -83,7 +83,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeSubscriptionFilters -&gt; DescribeSubscriptionFilters -&gt; Bool
 == :: DescribeSubscriptionFilters -&gt; DescribeSubscriptionFilters -&gt; Bool
 $c== :: DescribeSubscriptionFilters -&gt; DescribeSubscriptionFilters -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228331"><span id="local-6989586621679228333"><span id="local-6989586621679228335"><span id="local-6989586621679228337"><span class="annot"><span class="annottext">ReadPrec [DescribeSubscriptionFilters]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228487"><span id="local-6989586621679228489"><span id="local-6989586621679228491"><span id="local-6989586621679228493"><span class="annot"><span class="annottext">ReadPrec [DescribeSubscriptionFilters]
 ReadPrec DescribeSubscriptionFilters
 Int -&gt; ReadS DescribeSubscriptionFilters
 ReadS [DescribeSubscriptionFilters]
@@ -103,7 +103,7 @@ readList :: ReadS [DescribeSubscriptionFilters]
 $creadList :: ReadS [DescribeSubscriptionFilters]
 readsPrec :: Int -&gt; ReadS DescribeSubscriptionFilters
 $creadsPrec :: Int -&gt; ReadS DescribeSubscriptionFilters
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228324"><span id="local-6989586621679228326"><span id="local-6989586621679228328"><span class="annot"><span class="annottext">Int -&gt; DescribeSubscriptionFilters -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228480"><span id="local-6989586621679228482"><span id="local-6989586621679228484"><span class="annot"><span class="annottext">Int -&gt; DescribeSubscriptionFilters -&gt; ShowS
 [DescribeSubscriptionFilters] -&gt; ShowS
 DescribeSubscriptionFilters -&gt; String
 (Int -&gt; DescribeSubscriptionFilters -&gt; ShowS)
@@ -158,8 +158,8 @@ DescribeSubscriptionFilters -&gt; Rep DescribeSubscriptionFilters x
 </span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-94"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFilters"><span class="hs-identifier hs-type">DescribeSubscriptionFilters</span></a></span><span>
 </span><span id="line-95"></span><span id="newDescribeSubscriptionFilters"><span class="annot"><span class="annottext">newDescribeSubscriptionFilters :: Text -&gt; DescribeSubscriptionFilters
-</span><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#newDescribeSubscriptionFilters"><span class="hs-identifier hs-var hs-var">newDescribeSubscriptionFilters</span></a></span></span><span> </span><span id="local-6989586621679228319"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679228319"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#newDescribeSubscriptionFilters"><span class="hs-identifier hs-var hs-var">newDescribeSubscriptionFilters</span></a></span></span><span> </span><span id="local-6989586621679228475"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679228475"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>  </span><span class="annot"><span class="annottext">DescribeSubscriptionFilters' :: Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Natural
@@ -181,7 +181,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:logGroupName:DescribeSubscriptionFilters' :: Text
 </span><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#%24sel%3AlogGroupName%3ADescribeSubscriptionFilters%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679228319"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span><span>
+</span><a href="#local-6989586621679228475"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span><span>
 </span><span id="line-102"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | The prefix to match. If you don\'t specify a value, no prefix filter is</span><span>
@@ -198,16 +198,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFilters%27"><span class="hs-identifier hs-type">DescribeSubscriptionFilters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228317"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFilters%27"><span class="hs-identifier hs-type">DescribeSubscriptionFilters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228473"><span class="annot"><span class="annottext">Maybe Text
 filterNamePrefix :: Maybe Text
 $sel:filterNamePrefix:DescribeSubscriptionFilters' :: DescribeSubscriptionFilters -&gt; Maybe Text
-</span><a href="#local-6989586621679228317"><span class="hs-identifier hs-var hs-var">filterNamePrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679228317"><span class="hs-identifier hs-var">filterNamePrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228316"><span class="annot"><span class="annottext">s :: DescribeSubscriptionFilters
-</span><a href="#local-6989586621679228316"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFilters%27"><span class="hs-identifier hs-type">DescribeSubscriptionFilters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228315"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679228315"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSubscriptionFilters
-</span><a href="#local-6989586621679228316"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterNamePrefix:DescribeSubscriptionFilters' :: Maybe Text
+</span><a href="#local-6989586621679228473"><span class="hs-identifier hs-var hs-var">filterNamePrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679228473"><span class="hs-identifier hs-var">filterNamePrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228472"><span class="annot"><span class="annottext">s :: DescribeSubscriptionFilters
+</span><a href="#local-6989586621679228472"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFilters%27"><span class="hs-identifier hs-type">DescribeSubscriptionFilters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228471"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679228471"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSubscriptionFilters
+</span><a href="#local-6989586621679228472"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterNamePrefix:DescribeSubscriptionFilters' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#%24sel%3AfilterNamePrefix%3ADescribeSubscriptionFilters%27"><span class="hs-identifier hs-var">filterNamePrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679228315"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFilters"><span class="hs-identifier hs-type">DescribeSubscriptionFilters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679228471"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFilters"><span class="hs-identifier hs-type">DescribeSubscriptionFilters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | The token for the next set of items to return. (You received this token</span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- from a previous call.)</span><span>
@@ -223,16 +223,16 @@ $sel:filterNamePrefix:DescribeSubscriptionFilters' :: DescribeSubscriptionFilter
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFilters%27"><span class="hs-identifier hs-type">DescribeSubscriptionFilters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228314"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFilters%27"><span class="hs-identifier hs-type">DescribeSubscriptionFilters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228470"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeSubscriptionFilters' :: DescribeSubscriptionFilters -&gt; Maybe Text
-</span><a href="#local-6989586621679228314"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679228314"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228313"><span class="annot"><span class="annottext">s :: DescribeSubscriptionFilters
-</span><a href="#local-6989586621679228313"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFilters%27"><span class="hs-identifier hs-type">DescribeSubscriptionFilters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228312"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679228312"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSubscriptionFilters
-</span><a href="#local-6989586621679228313"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeSubscriptionFilters' :: Maybe Text
+</span><a href="#local-6989586621679228470"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679228470"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228469"><span class="annot"><span class="annottext">s :: DescribeSubscriptionFilters
+</span><a href="#local-6989586621679228469"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFilters%27"><span class="hs-identifier hs-type">DescribeSubscriptionFilters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228468"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679228468"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSubscriptionFilters
+</span><a href="#local-6989586621679228469"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeSubscriptionFilters' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#%24sel%3AnextToken%3ADescribeSubscriptionFilters%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679228312"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFilters"><span class="hs-identifier hs-type">DescribeSubscriptionFilters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679228468"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFilters"><span class="hs-identifier hs-type">DescribeSubscriptionFilters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- | The maximum number of items returned. If you don\'t specify a value, the</span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- default is up to 50 items.</span><span>
@@ -248,16 +248,16 @@ $sel:nextToken:DescribeSubscriptionFilters' :: DescribeSubscriptionFilters -&gt;
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFilters%27"><span class="hs-identifier hs-type">DescribeSubscriptionFilters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228311"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFilters%27"><span class="hs-identifier hs-type">DescribeSubscriptionFilters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228467"><span class="annot"><span class="annottext">Maybe Natural
 limit :: Maybe Natural
 $sel:limit:DescribeSubscriptionFilters' :: DescribeSubscriptionFilters -&gt; Maybe Natural
-</span><a href="#local-6989586621679228311"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679228311"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228310"><span class="annot"><span class="annottext">s :: DescribeSubscriptionFilters
-</span><a href="#local-6989586621679228310"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFilters%27"><span class="hs-identifier hs-type">DescribeSubscriptionFilters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228309"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679228309"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSubscriptionFilters
-</span><a href="#local-6989586621679228310"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:DescribeSubscriptionFilters' :: Maybe Natural
+</span><a href="#local-6989586621679228467"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679228467"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228466"><span class="annot"><span class="annottext">s :: DescribeSubscriptionFilters
+</span><a href="#local-6989586621679228466"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFilters%27"><span class="hs-identifier hs-type">DescribeSubscriptionFilters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228465"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679228465"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSubscriptionFilters
+</span><a href="#local-6989586621679228466"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:DescribeSubscriptionFilters' :: Maybe Natural
 </span><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#%24sel%3Alimit%3ADescribeSubscriptionFilters%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679228309"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFilters"><span class="hs-identifier hs-type">DescribeSubscriptionFilters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679228465"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFilters"><span class="hs-identifier hs-type">DescribeSubscriptionFilters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | The name of the log group.</span><span>
 </span><span id="line-120"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#describeSubscriptionFilters_logGroupName"><span class="hs-identifier hs-type">describeSubscriptionFilters_logGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFilters"><span class="hs-identifier hs-type">DescribeSubscriptionFilters</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -269,30 +269,30 @@ $sel:limit:DescribeSubscriptionFilters' :: DescribeSubscriptionFilters -&gt; May
 -&gt; Lens
      DescribeSubscriptionFilters DescribeSubscriptionFilters Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFilters%27"><span class="hs-identifier hs-type">DescribeSubscriptionFilters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228308"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFilters%27"><span class="hs-identifier hs-type">DescribeSubscriptionFilters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228464"><span class="annot"><span class="annottext">Text
 logGroupName :: Text
 $sel:logGroupName:DescribeSubscriptionFilters' :: DescribeSubscriptionFilters -&gt; Text
-</span><a href="#local-6989586621679228308"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679228308"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228307"><span class="annot"><span class="annottext">s :: DescribeSubscriptionFilters
-</span><a href="#local-6989586621679228307"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFilters%27"><span class="hs-identifier hs-type">DescribeSubscriptionFilters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228306"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679228306"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSubscriptionFilters
-</span><a href="#local-6989586621679228307"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:DescribeSubscriptionFilters' :: Text
+</span><a href="#local-6989586621679228464"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679228464"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228463"><span class="annot"><span class="annottext">s :: DescribeSubscriptionFilters
+</span><a href="#local-6989586621679228463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFilters%27"><span class="hs-identifier hs-type">DescribeSubscriptionFilters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228462"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679228462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSubscriptionFilters
+</span><a href="#local-6989586621679228463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:DescribeSubscriptionFilters' :: Text
 </span><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#%24sel%3AlogGroupName%3ADescribeSubscriptionFilters%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679228306"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFilters"><span class="hs-identifier hs-type">DescribeSubscriptionFilters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679228462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFilters"><span class="hs-identifier hs-type">DescribeSubscriptionFilters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFilters"><span class="hs-identifier hs-type">DescribeSubscriptionFilters</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679228302"><span class="annot"><span class="annottext">page :: DescribeSubscriptionFilters
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679228458"><span class="annot"><span class="annottext">page :: DescribeSubscriptionFilters
 -&gt; AWSResponse DescribeSubscriptionFilters
 -&gt; Maybe DescribeSubscriptionFilters
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679228300"><span class="annot"><span class="annottext">DescribeSubscriptionFilters
-</span><a href="#local-6989586621679228300"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679228299"><span class="annot"><span class="annottext">AWSResponse DescribeSubscriptionFilters
-</span><a href="#local-6989586621679228299"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679228456"><span class="annot"><span class="annottext">DescribeSubscriptionFilters
+</span><a href="#local-6989586621679228456"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679228455"><span class="annot"><span class="annottext">AWSResponse DescribeSubscriptionFilters
+</span><a href="#local-6989586621679228455"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-125"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-126"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeSubscriptionFilters
 DescribeSubscriptionFiltersResponse
-</span><a href="#local-6989586621679228299"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679228455"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">DescribeSubscriptionFiltersResponse
 -&gt; Getting (First Text) DescribeSubscriptionFiltersResponse Text
 -&gt; Maybe Text
@@ -322,7 +322,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-132"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeSubscriptionFilters
 DescribeSubscriptionFiltersResponse
-</span><a href="#local-6989586621679228299"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679228455"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">DescribeSubscriptionFiltersResponse
 -&gt; Getting
      (First [SubscriptionFilter])
@@ -371,7 +371,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-139"></span><span>        </span><span class="annot"><span class="annottext">DescribeSubscriptionFilters
-</span><a href="#local-6989586621679228300"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679228456"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-140"></span><span>          </span><span class="annot"><span class="annottext">DescribeSubscriptionFilters
 -&gt; (DescribeSubscriptionFilters -&gt; DescribeSubscriptionFilters)
 -&gt; DescribeSubscriptionFilters
@@ -394,7 +394,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeSubscriptionFilters
 DescribeSubscriptionFiltersResponse
-</span><a href="#local-6989586621679228299"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679228455"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-142"></span><span>          </span><span class="annot"><span class="annottext">DescribeSubscriptionFiltersResponse
 -&gt; Getting (First Text) DescribeSubscriptionFiltersResponse Text
 -&gt; Maybe Text
@@ -420,14 +420,14 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-146"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-147"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFilters"><span class="hs-identifier hs-type">DescribeSubscriptionFilters</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFiltersResponse"><span class="hs-identifier hs-type">DescribeSubscriptionFiltersResponse</span></a></span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679228289"><span class="annot"><span class="annottext">request :: DescribeSubscriptionFilters -&gt; Request DescribeSubscriptionFilters
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679228445"><span class="annot"><span class="annottext">request :: DescribeSubscriptionFilters -&gt; Request DescribeSubscriptionFilters
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeSubscriptionFilters
 -&gt; Request DescribeSubscriptionFilters
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudWatchLogs.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679228285"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679228441"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeSubscriptionFilters
 -&gt; ClientResponse ClientBody
@@ -453,51 +453,43 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679228282"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679228282"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679228281"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679228281"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679228280"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679228280"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-153"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe [SubscriptionFilter]
--&gt; Int
--&gt; DescribeSubscriptionFiltersResponse
+</span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679228438"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679228438"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679228437"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679228437"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679228436"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679228436"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>          </span><span class="annot"><span class="annottext">Maybe [SubscriptionFilter]
+-&gt; Maybe Text -&gt; Int -&gt; DescribeSubscriptionFiltersResponse
 </span><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFiltersResponse%27"><span class="hs-identifier hs-var">DescribeSubscriptionFiltersResponse'</span></a></span><span>
-</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe [SubscriptionFilter]
- -&gt; Int
- -&gt; DescribeSubscriptionFiltersResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe [SubscriptionFilter]
-      -&gt; Int -&gt; DescribeSubscriptionFiltersResponse)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679228280"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe [SubscriptionFilter]
-   -&gt; Int -&gt; DescribeSubscriptionFiltersResponse)
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [SubscriptionFilter]
+ -&gt; Maybe Text -&gt; Int -&gt; DescribeSubscriptionFiltersResponse)
 -&gt; Either String (Maybe [SubscriptionFilter])
--&gt; Either String (Int -&gt; DescribeSubscriptionFiltersResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679228280"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; DescribeSubscriptionFiltersResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679228436"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [SubscriptionFilter]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;subscriptionFilters&quot;</span></span><span>
-</span><span id="line-156"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [SubscriptionFilter]))
+</span><span id="line-155"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [SubscriptionFilter]))
 -&gt; Maybe [SubscriptionFilter]
 -&gt; Either String (Maybe [SubscriptionFilter])
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [SubscriptionFilter]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-157"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Int -&gt; DescribeSubscriptionFiltersResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; DescribeSubscriptionFiltersResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679228436"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeSubscriptionFiltersResponse)
 -&gt; Either String Int
 -&gt; Either String DescribeSubscriptionFiltersResponse
@@ -507,15 +499,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679228282"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679228438"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
-</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679228271"><span id="local-6989586621679228273"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFilters"><span class="hs-identifier hs-type">DescribeSubscriptionFilters</span></a></span></span></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679228427"><span id="local-6989586621679228429"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFilters"><span class="hs-identifier hs-type">DescribeSubscriptionFilters</span></a></span></span></span><span>
 </span><span id="line-162"></span><span>
-</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679228268"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFilters"><span class="hs-identifier hs-type">DescribeSubscriptionFilters</span></a></span></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679228424"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFilters"><span class="hs-identifier hs-type">DescribeSubscriptionFilters</span></a></span></span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFilters"><span class="hs-identifier hs-type">DescribeSubscriptionFilters</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679228264"><span class="annot"><span class="annottext">toHeaders :: DescribeSubscriptionFilters -&gt; ResponseHeaders
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679228420"><span class="annot"><span class="annottext">toHeaders :: DescribeSubscriptionFilters -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-167"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeSubscriptionFilters -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -542,9 +534,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-177"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-178"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>
-</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679228254"><span id="local-6989586621679228256"><span id="local-6989586621679228258"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFilters"><span class="hs-identifier hs-type">DescribeSubscriptionFilters</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679228252"><span class="annot"><span class="annottext">toJSON :: DescribeSubscriptionFilters -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFilters%27"><span class="hs-identifier hs-type">DescribeSubscriptionFilters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228247"><span id="local-6989586621679228248"><span id="local-6989586621679228249"><span id="local-6989586621679228250"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679228410"><span id="local-6989586621679228412"><span id="local-6989586621679228414"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFilters"><span class="hs-identifier hs-type">DescribeSubscriptionFilters</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679228408"><span class="annot"><span class="annottext">toJSON :: DescribeSubscriptionFilters -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFilters%27"><span class="hs-identifier hs-type">DescribeSubscriptionFilters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228403"><span id="local-6989586621679228404"><span id="local-6989586621679228405"><span id="local-6989586621679228406"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 logGroupName :: Text
@@ -555,7 +547,7 @@ $sel:logGroupName:DescribeSubscriptionFilters' :: DescribeSubscriptionFilters -&
 $sel:limit:DescribeSubscriptionFilters' :: DescribeSubscriptionFilters -&gt; Maybe Natural
 $sel:nextToken:DescribeSubscriptionFilters' :: DescribeSubscriptionFilters -&gt; Maybe Text
 $sel:filterNamePrefix:DescribeSubscriptionFilters' :: DescribeSubscriptionFilters -&gt; Maybe Text
-</span><a href="#local-6989586621679228247"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679228403"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-182"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-183"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -568,40 +560,40 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-185"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679228250"><span class="hs-identifier hs-var">filterNamePrefix</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679228406"><span class="hs-identifier hs-var">filterNamePrefix</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-186"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679228249"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679228405"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-187"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679228248"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679228404"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;logGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679228247"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679228403"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-190"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-191"></span><span>
 </span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFilters"><span class="hs-identifier hs-type">DescribeSubscriptionFilters</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-193"></span><span>  </span><span id="local-6989586621679228241"><span class="annot"><span class="annottext">toPath :: DescribeSubscriptionFilters -&gt; ByteString
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621679228397"><span class="annot"><span class="annottext">toPath :: DescribeSubscriptionFilters -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeSubscriptionFilters -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-194"></span><span>
 </span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFilters"><span class="hs-identifier hs-type">DescribeSubscriptionFilters</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-196"></span><span>  </span><span id="local-6989586621679228237"><span class="annot"><span class="annottext">toQuery :: DescribeSubscriptionFilters -&gt; QueryString
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679228393"><span class="annot"><span class="annottext">toQuery :: DescribeSubscriptionFilters -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeSubscriptionFilters -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -609,17 +601,17 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-comment">-- | /See:/ 'newDescribeSubscriptionFiltersResponse' smart constructor.</span><span>
-</span><span id="line-199"></span><span id="local-6989586621679228234"><span id="local-6989586621679228235"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeSubscriptionFiltersResponse"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFiltersResponse"><span class="hs-identifier hs-var">DescribeSubscriptionFiltersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeSubscriptionFiltersResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFiltersResponse%27"><span class="hs-identifier hs-var">DescribeSubscriptionFiltersResponse'</span></a></span></span><span>
-</span><span id="line-200"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AnextToken%3ADescribeSubscriptionFiltersResponse%27"><span class="annot"><span class="annottext">DescribeSubscriptionFiltersResponse -&gt; Maybe Text
-</span><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#%24sel%3AnextToken%3ADescribeSubscriptionFiltersResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-201"></span><span>    </span><span class="hs-comment">-- | The subscription filters.</span><span>
-</span><span id="line-202"></span><span>    </span><span id="%24sel%3AsubscriptionFilters%3ADescribeSubscriptionFiltersResponse%27"><span class="annot"><span class="annottext">DescribeSubscriptionFiltersResponse -&gt; Maybe [SubscriptionFilter]
+</span><span id="line-199"></span><span id="local-6989586621679228390"><span id="local-6989586621679228391"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeSubscriptionFiltersResponse"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFiltersResponse"><span class="hs-identifier hs-var">DescribeSubscriptionFiltersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeSubscriptionFiltersResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFiltersResponse%27"><span class="hs-identifier hs-var">DescribeSubscriptionFiltersResponse'</span></a></span></span><span>
+</span><span id="line-200"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The subscription filters.</span><span>
+</span><span id="line-201"></span><span>    </span><span id="%24sel%3AsubscriptionFilters%3ADescribeSubscriptionFiltersResponse%27"><span class="annot"><span class="annottext">DescribeSubscriptionFiltersResponse -&gt; Maybe [SubscriptionFilter]
 </span><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#%24sel%3AsubscriptionFilters%3ADescribeSubscriptionFiltersResponse%27"><span class="hs-identifier hs-var hs-var">subscriptionFilters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.SubscriptionFilter.html#SubscriptionFilter"><span class="hs-identifier hs-type">SubscriptionFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeSubscriptionFiltersResponse%27"><span class="annot"><span class="annottext">DescribeSubscriptionFiltersResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#%24sel%3AnextToken%3ADescribeSubscriptionFiltersResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-203"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-204"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeSubscriptionFiltersResponse%27"><span class="annot"><span class="annottext">DescribeSubscriptionFiltersResponse -&gt; Int
 </span><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#%24sel%3AhttpStatus%3ADescribeSubscriptionFiltersResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-205"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-206"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679228227"><span id="local-6989586621679228229"><span class="annot"><span class="annottext">DescribeSubscriptionFiltersResponse
+</span><span id="line-206"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679228383"><span id="local-6989586621679228385"><span class="annot"><span class="annottext">DescribeSubscriptionFiltersResponse
 -&gt; DescribeSubscriptionFiltersResponse -&gt; Bool
 (DescribeSubscriptionFiltersResponse
  -&gt; DescribeSubscriptionFiltersResponse -&gt; Bool)
@@ -635,7 +627,7 @@ $c/= :: DescribeSubscriptionFiltersResponse
 -&gt; DescribeSubscriptionFiltersResponse -&gt; Bool
 $c== :: DescribeSubscriptionFiltersResponse
 -&gt; DescribeSubscriptionFiltersResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228219"><span id="local-6989586621679228221"><span id="local-6989586621679228223"><span id="local-6989586621679228225"><span class="annot"><span class="annottext">ReadPrec [DescribeSubscriptionFiltersResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228375"><span id="local-6989586621679228377"><span id="local-6989586621679228379"><span id="local-6989586621679228381"><span class="annot"><span class="annottext">ReadPrec [DescribeSubscriptionFiltersResponse]
 ReadPrec DescribeSubscriptionFiltersResponse
 Int -&gt; ReadS DescribeSubscriptionFiltersResponse
 ReadS [DescribeSubscriptionFiltersResponse]
@@ -655,7 +647,7 @@ readList :: ReadS [DescribeSubscriptionFiltersResponse]
 $creadList :: ReadS [DescribeSubscriptionFiltersResponse]
 readsPrec :: Int -&gt; ReadS DescribeSubscriptionFiltersResponse
 $creadsPrec :: Int -&gt; ReadS DescribeSubscriptionFiltersResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228213"><span id="local-6989586621679228215"><span id="local-6989586621679228217"><span class="annot"><span class="annottext">Int -&gt; DescribeSubscriptionFiltersResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228369"><span id="local-6989586621679228371"><span id="local-6989586621679228373"><span class="annot"><span class="annottext">Int -&gt; DescribeSubscriptionFiltersResponse -&gt; ShowS
 [DescribeSubscriptionFiltersResponse] -&gt; ShowS
 DescribeSubscriptionFiltersResponse -&gt; String
 (Int -&gt; DescribeSubscriptionFiltersResponse -&gt; ShowS)
@@ -701,9 +693,9 @@ DescribeSubscriptionFiltersResponse
 </span><span id="line-213"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-214"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-215"></span><span class="hs-comment">--</span><span>
-</span><span id="line-216"></span><span class="hs-comment">-- 'nextToken', 'describeSubscriptionFiltersResponse_nextToken' - Undocumented member.</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- 'subscriptionFilters', 'describeSubscriptionFiltersResponse_subscriptionFilters' - The subscription filters.</span><span>
 </span><span id="line-217"></span><span class="hs-comment">--</span><span>
-</span><span id="line-218"></span><span class="hs-comment">-- 'subscriptionFilters', 'describeSubscriptionFiltersResponse_subscriptionFilters' - The subscription filters.</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- 'nextToken', 'describeSubscriptionFiltersResponse_nextToken' - Undocumented member.</span><span>
 </span><span id="line-219"></span><span class="hs-comment">--</span><span>
 </span><span id="line-220"></span><span class="hs-comment">-- 'httpStatus', 'describeSubscriptionFiltersResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-221"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#newDescribeSubscriptionFiltersResponse"><span class="hs-identifier hs-type">newDescribeSubscriptionFiltersResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -711,51 +703,28 @@ DescribeSubscriptionFiltersResponse
 </span><span id="line-223"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-224"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFiltersResponse"><span class="hs-identifier hs-type">DescribeSubscriptionFiltersResponse</span></a></span><span>
 </span><span id="line-225"></span><span id="newDescribeSubscriptionFiltersResponse"><span class="annot"><span class="annottext">newDescribeSubscriptionFiltersResponse :: Int -&gt; DescribeSubscriptionFiltersResponse
-</span><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#newDescribeSubscriptionFiltersResponse"><span class="hs-identifier hs-var hs-var">newDescribeSubscriptionFiltersResponse</span></a></span></span><span> </span><span id="local-6989586621679228210"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679228210"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-226"></span><span>  </span><span class="annot"><span class="annottext">DescribeSubscriptionFiltersResponse' :: Maybe Text
--&gt; Maybe [SubscriptionFilter]
--&gt; Int
--&gt; DescribeSubscriptionFiltersResponse
+</span><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#newDescribeSubscriptionFiltersResponse"><span class="hs-identifier hs-var hs-var">newDescribeSubscriptionFiltersResponse</span></a></span></span><span> </span><span id="local-6989586621679228366"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679228366"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-226"></span><span>  </span><span class="annot"><span class="annottext">DescribeSubscriptionFiltersResponse' :: Maybe [SubscriptionFilter]
+-&gt; Maybe Text -&gt; Int -&gt; DescribeSubscriptionFiltersResponse
 </span><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFiltersResponse%27"><span class="hs-identifier hs-type">DescribeSubscriptionFiltersResponse'</span></a></span><span>
-</span><span id="line-227"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeSubscriptionFiltersResponse' :: Maybe Text
-</span><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#%24sel%3AnextToken%3ADescribeSubscriptionFiltersResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-228"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-227"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:subscriptionFilters:DescribeSubscriptionFiltersResponse' :: Maybe [SubscriptionFilter]
+</span><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#%24sel%3AsubscriptionFilters%3ADescribeSubscriptionFiltersResponse%27"><span class="hs-identifier hs-var">subscriptionFilters</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-228"></span><span>        </span><span class="annot"><span class="annottext">Maybe [SubscriptionFilter]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-229"></span><span>      </span><span class="annot"><span class="annottext">$sel:subscriptionFilters:DescribeSubscriptionFiltersResponse' :: Maybe [SubscriptionFilter]
-</span><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#%24sel%3AsubscriptionFilters%3ADescribeSubscriptionFiltersResponse%27"><span class="hs-identifier hs-var">subscriptionFilters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SubscriptionFilter]
+</span><span id="line-229"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeSubscriptionFiltersResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#%24sel%3AnextToken%3ADescribeSubscriptionFiltersResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-230"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeSubscriptionFiltersResponse' :: Int
 </span><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#%24sel%3AhttpStatus%3ADescribeSubscriptionFiltersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679228210"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679228366"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-231"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-232"></span><span>
-</span><span id="line-233"></span><span class="hs-comment">-- | Undocumented member.</span><span>
-</span><span id="line-234"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#describeSubscriptionFiltersResponse_nextToken"><span class="hs-identifier hs-type">describeSubscriptionFiltersResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFiltersResponse"><span class="hs-identifier hs-type">DescribeSubscriptionFiltersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-235"></span><span id="describeSubscriptionFiltersResponse_nextToken"><span class="annot"><span class="annottext">describeSubscriptionFiltersResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribeSubscriptionFiltersResponse
--&gt; f DescribeSubscriptionFiltersResponse
-</span><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#describeSubscriptionFiltersResponse_nextToken"><span class="hs-identifier hs-var hs-var">describeSubscriptionFiltersResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeSubscriptionFiltersResponse -&gt; Maybe Text)
--&gt; (DescribeSubscriptionFiltersResponse
-    -&gt; Maybe Text -&gt; DescribeSubscriptionFiltersResponse)
--&gt; Lens' DescribeSubscriptionFiltersResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFiltersResponse%27"><span class="hs-identifier hs-type">DescribeSubscriptionFiltersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228209"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:DescribeSubscriptionFiltersResponse' :: DescribeSubscriptionFiltersResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679228209"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679228209"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228208"><span class="annot"><span class="annottext">s :: DescribeSubscriptionFiltersResponse
-</span><a href="#local-6989586621679228208"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFiltersResponse%27"><span class="hs-identifier hs-type">DescribeSubscriptionFiltersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228207"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679228207"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSubscriptionFiltersResponse
-</span><a href="#local-6989586621679228208"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeSubscriptionFiltersResponse' :: Maybe Text
-</span><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#%24sel%3AnextToken%3ADescribeSubscriptionFiltersResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679228207"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFiltersResponse"><span class="hs-identifier hs-type">DescribeSubscriptionFiltersResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-236"></span><span>
-</span><span id="line-237"></span><span class="hs-comment">-- | The subscription filters.</span><span>
-</span><span id="line-238"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#describeSubscriptionFiltersResponse_subscriptionFilters"><span class="hs-identifier hs-type">describeSubscriptionFiltersResponse_subscriptionFilters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFiltersResponse"><span class="hs-identifier hs-type">DescribeSubscriptionFiltersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.SubscriptionFilter.html#SubscriptionFilter"><span class="hs-identifier hs-type">SubscriptionFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-239"></span><span id="describeSubscriptionFiltersResponse_subscriptionFilters"><span class="annot"><span class="annottext">describeSubscriptionFiltersResponse_subscriptionFilters :: (Maybe [SubscriptionFilter] -&gt; f (Maybe [SubscriptionFilter]))
+</span><span id="line-233"></span><span class="hs-comment">-- | The subscription filters.</span><span>
+</span><span id="line-234"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#describeSubscriptionFiltersResponse_subscriptionFilters"><span class="hs-identifier hs-type">describeSubscriptionFiltersResponse_subscriptionFilters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFiltersResponse"><span class="hs-identifier hs-type">DescribeSubscriptionFiltersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.SubscriptionFilter.html#SubscriptionFilter"><span class="hs-identifier hs-type">SubscriptionFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span id="describeSubscriptionFiltersResponse_subscriptionFilters"><span class="annot"><span class="annottext">describeSubscriptionFiltersResponse_subscriptionFilters :: (Maybe [SubscriptionFilter] -&gt; f (Maybe [SubscriptionFilter]))
 -&gt; DescribeSubscriptionFiltersResponse
 -&gt; f DescribeSubscriptionFiltersResponse
 </span><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#describeSubscriptionFiltersResponse_subscriptionFilters"><span class="hs-identifier hs-var hs-var">describeSubscriptionFiltersResponse_subscriptionFilters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeSubscriptionFiltersResponse -&gt; Maybe [SubscriptionFilter])
@@ -765,16 +734,16 @@ $sel:nextToken:DescribeSubscriptionFiltersResponse' :: DescribeSubscriptionFilte
 -&gt; Lens'
      DescribeSubscriptionFiltersResponse (Maybe [SubscriptionFilter])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFiltersResponse%27"><span class="hs-identifier hs-type">DescribeSubscriptionFiltersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228206"><span class="annot"><span class="annottext">Maybe [SubscriptionFilter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFiltersResponse%27"><span class="hs-identifier hs-type">DescribeSubscriptionFiltersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228365"><span class="annot"><span class="annottext">Maybe [SubscriptionFilter]
 subscriptionFilters :: Maybe [SubscriptionFilter]
 $sel:subscriptionFilters:DescribeSubscriptionFiltersResponse' :: DescribeSubscriptionFiltersResponse -&gt; Maybe [SubscriptionFilter]
-</span><a href="#local-6989586621679228206"><span class="hs-identifier hs-var hs-var">subscriptionFilters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SubscriptionFilter]
-</span><a href="#local-6989586621679228206"><span class="hs-identifier hs-var">subscriptionFilters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228205"><span class="annot"><span class="annottext">s :: DescribeSubscriptionFiltersResponse
-</span><a href="#local-6989586621679228205"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFiltersResponse%27"><span class="hs-identifier hs-type">DescribeSubscriptionFiltersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228204"><span class="annot"><span class="annottext">Maybe [SubscriptionFilter]
-</span><a href="#local-6989586621679228204"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSubscriptionFiltersResponse
-</span><a href="#local-6989586621679228205"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subscriptionFilters:DescribeSubscriptionFiltersResponse' :: Maybe [SubscriptionFilter]
+</span><a href="#local-6989586621679228365"><span class="hs-identifier hs-var hs-var">subscriptionFilters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SubscriptionFilter]
+</span><a href="#local-6989586621679228365"><span class="hs-identifier hs-var">subscriptionFilters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228364"><span class="annot"><span class="annottext">s :: DescribeSubscriptionFiltersResponse
+</span><a href="#local-6989586621679228364"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFiltersResponse%27"><span class="hs-identifier hs-type">DescribeSubscriptionFiltersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228363"><span class="annot"><span class="annottext">Maybe [SubscriptionFilter]
+</span><a href="#local-6989586621679228363"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSubscriptionFiltersResponse
+</span><a href="#local-6989586621679228364"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subscriptionFilters:DescribeSubscriptionFiltersResponse' :: Maybe [SubscriptionFilter]
 </span><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#%24sel%3AsubscriptionFilters%3ADescribeSubscriptionFiltersResponse%27"><span class="hs-identifier hs-var">subscriptionFilters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SubscriptionFilter]
-</span><a href="#local-6989586621679228204"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFiltersResponse"><span class="hs-identifier hs-type">DescribeSubscriptionFiltersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SubscriptionFilter] -&gt; f (Maybe [SubscriptionFilter]))
+</span><a href="#local-6989586621679228363"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFiltersResponse"><span class="hs-identifier hs-type">DescribeSubscriptionFiltersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SubscriptionFilter] -&gt; f (Maybe [SubscriptionFilter]))
  -&gt; DescribeSubscriptionFiltersResponse
  -&gt; f DescribeSubscriptionFiltersResponse)
 -&gt; ((Maybe [SubscriptionFilter] -&gt; f (Maybe [SubscriptionFilter]))
@@ -801,8 +770,29 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [SubscriptionFilter]
   [SubscriptionFilter]
   [SubscriptionFilter]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-238"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#describeSubscriptionFiltersResponse_nextToken"><span class="hs-identifier hs-type">describeSubscriptionFiltersResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFiltersResponse"><span class="hs-identifier hs-type">DescribeSubscriptionFiltersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span id="describeSubscriptionFiltersResponse_nextToken"><span class="annot"><span class="annottext">describeSubscriptionFiltersResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeSubscriptionFiltersResponse
+-&gt; f DescribeSubscriptionFiltersResponse
+</span><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#describeSubscriptionFiltersResponse_nextToken"><span class="hs-identifier hs-var hs-var">describeSubscriptionFiltersResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeSubscriptionFiltersResponse -&gt; Maybe Text)
+-&gt; (DescribeSubscriptionFiltersResponse
+    -&gt; Maybe Text -&gt; DescribeSubscriptionFiltersResponse)
+-&gt; Lens' DescribeSubscriptionFiltersResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFiltersResponse%27"><span class="hs-identifier hs-type">DescribeSubscriptionFiltersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228360"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeSubscriptionFiltersResponse' :: DescribeSubscriptionFiltersResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679228360"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679228360"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228359"><span class="annot"><span class="annottext">s :: DescribeSubscriptionFiltersResponse
+</span><a href="#local-6989586621679228359"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFiltersResponse%27"><span class="hs-identifier hs-type">DescribeSubscriptionFiltersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228358"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679228358"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSubscriptionFiltersResponse
+</span><a href="#local-6989586621679228359"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeSubscriptionFiltersResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#%24sel%3AnextToken%3ADescribeSubscriptionFiltersResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679228358"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFiltersResponse"><span class="hs-identifier hs-type">DescribeSubscriptionFiltersResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-240"></span><span>
 </span><span id="line-241"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-242"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#describeSubscriptionFiltersResponse_httpStatus"><span class="hs-identifier hs-type">describeSubscriptionFiltersResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFiltersResponse"><span class="hs-identifier hs-type">DescribeSubscriptionFiltersResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -818,18 +808,18 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFiltersResponse%27"><span class="hs-identifier hs-type">DescribeSubscriptionFiltersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228201"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFiltersResponse%27"><span class="hs-identifier hs-type">DescribeSubscriptionFiltersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228357"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeSubscriptionFiltersResponse' :: DescribeSubscriptionFiltersResponse -&gt; Int
-</span><a href="#local-6989586621679228201"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679228201"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228200"><span class="annot"><span class="annottext">s :: DescribeSubscriptionFiltersResponse
-</span><a href="#local-6989586621679228200"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFiltersResponse%27"><span class="hs-identifier hs-type">DescribeSubscriptionFiltersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228199"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679228199"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSubscriptionFiltersResponse
-</span><a href="#local-6989586621679228200"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeSubscriptionFiltersResponse' :: Int
+</span><a href="#local-6989586621679228357"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679228357"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228356"><span class="annot"><span class="annottext">s :: DescribeSubscriptionFiltersResponse
+</span><a href="#local-6989586621679228356"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFiltersResponse%27"><span class="hs-identifier hs-type">DescribeSubscriptionFiltersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228355"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679228355"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSubscriptionFiltersResponse
+</span><a href="#local-6989586621679228356"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeSubscriptionFiltersResponse' :: Int
 </span><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#%24sel%3AhttpStatus%3ADescribeSubscriptionFiltersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679228199"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFiltersResponse"><span class="hs-identifier hs-type">DescribeSubscriptionFiltersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679228355"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFiltersResponse"><span class="hs-identifier hs-type">DescribeSubscriptionFiltersResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-244"></span><span>
 </span><span id="line-245"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-246"></span><span>  </span><span id="local-6989586621679228197"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-246"></span><span>  </span><span id="local-6989586621679228353"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-247"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters.html#DescribeSubscriptionFiltersResponse"><span class="hs-identifier hs-type">DescribeSubscriptionFiltersResponse</span></a></span></span><span>
 </span><span id="line-248"></span></pre></body></html>

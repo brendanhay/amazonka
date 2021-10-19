@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-comment">-- for failed asynchronous invocations.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newDeadLetterConfig' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679289652"><span id="local-6989586621679289653"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeadLetterConfig"><span class="annot"><a href="Network.AWS.Lambda.Types.DeadLetterConfig.html#DeadLetterConfig"><span class="hs-identifier hs-var">DeadLetterConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeadLetterConfig%27"><span class="annot"><a href="Network.AWS.Lambda.Types.DeadLetterConfig.html#DeadLetterConfig%27"><span class="hs-identifier hs-var">DeadLetterConfig'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679294490"><span id="local-6989586621679294491"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeadLetterConfig"><span class="annot"><a href="Network.AWS.Lambda.Types.DeadLetterConfig.html#DeadLetterConfig"><span class="hs-identifier hs-var">DeadLetterConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeadLetterConfig%27"><span class="annot"><a href="Network.AWS.Lambda.Types.DeadLetterConfig.html#DeadLetterConfig%27"><span class="hs-identifier hs-var">DeadLetterConfig'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- topic.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AtargetArn%3ADeadLetterConfig%27"><span class="annot"><span class="annottext">DeadLetterConfig -&gt; Maybe Text
 </span><a href="Network.AWS.Lambda.Types.DeadLetterConfig.html#%24sel%3AtargetArn%3ADeadLetterConfig%27"><span class="hs-identifier hs-var hs-var">targetArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679289646"><span id="local-6989586621679289648"><span class="annot"><span class="annottext">DeadLetterConfig -&gt; DeadLetterConfig -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679294484"><span id="local-6989586621679294486"><span class="annot"><span class="annottext">DeadLetterConfig -&gt; DeadLetterConfig -&gt; Bool
 (DeadLetterConfig -&gt; DeadLetterConfig -&gt; Bool)
 -&gt; (DeadLetterConfig -&gt; DeadLetterConfig -&gt; Bool)
 -&gt; Eq DeadLetterConfig
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeadLetterConfig -&gt; DeadLetterConfig -&gt; Bool
 == :: DeadLetterConfig -&gt; DeadLetterConfig -&gt; Bool
 $c== :: DeadLetterConfig -&gt; DeadLetterConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289637"><span id="local-6989586621679289639"><span id="local-6989586621679289641"><span id="local-6989586621679289643"><span class="annot"><span class="annottext">ReadPrec [DeadLetterConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294475"><span id="local-6989586621679294477"><span id="local-6989586621679294479"><span id="local-6989586621679294481"><span class="annot"><span class="annottext">ReadPrec [DeadLetterConfig]
 ReadPrec DeadLetterConfig
 Int -&gt; ReadS DeadLetterConfig
 ReadS [DeadLetterConfig]
@@ -63,7 +63,7 @@ readList :: ReadS [DeadLetterConfig]
 $creadList :: ReadS [DeadLetterConfig]
 readsPrec :: Int -&gt; ReadS DeadLetterConfig
 $creadsPrec :: Int -&gt; ReadS DeadLetterConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289630"><span id="local-6989586621679289632"><span id="local-6989586621679289634"><span class="annot"><span class="annottext">Int -&gt; DeadLetterConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294468"><span id="local-6989586621679294470"><span id="local-6989586621679294472"><span class="annot"><span class="annottext">Int -&gt; DeadLetterConfig -&gt; ShowS
 [DeadLetterConfig] -&gt; ShowS
 DeadLetterConfig -&gt; String
 (Int -&gt; DeadLetterConfig -&gt; ShowS)
@@ -118,19 +118,19 @@ forall a. Maybe a
 -&gt; (DeadLetterConfig -&gt; Maybe Text -&gt; DeadLetterConfig)
 -&gt; Lens DeadLetterConfig DeadLetterConfig (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.DeadLetterConfig.html#DeadLetterConfig%27"><span class="hs-identifier hs-type">DeadLetterConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289621"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.DeadLetterConfig.html#DeadLetterConfig%27"><span class="hs-identifier hs-type">DeadLetterConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294459"><span class="annot"><span class="annottext">Maybe Text
 targetArn :: Maybe Text
 $sel:targetArn:DeadLetterConfig' :: DeadLetterConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679289621"><span class="hs-identifier hs-var hs-var">targetArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679289621"><span class="hs-identifier hs-var">targetArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289620"><span class="annot"><span class="annottext">s :: DeadLetterConfig
-</span><a href="#local-6989586621679289620"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.DeadLetterConfig.html#DeadLetterConfig%27"><span class="hs-identifier hs-type">DeadLetterConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289619"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679289619"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeadLetterConfig
-</span><a href="#local-6989586621679289620"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetArn:DeadLetterConfig' :: Maybe Text
+</span><a href="#local-6989586621679294459"><span class="hs-identifier hs-var hs-var">targetArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679294459"><span class="hs-identifier hs-var">targetArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294458"><span class="annot"><span class="annottext">s :: DeadLetterConfig
+</span><a href="#local-6989586621679294458"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.DeadLetterConfig.html#DeadLetterConfig%27"><span class="hs-identifier hs-type">DeadLetterConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294457"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679294457"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeadLetterConfig
+</span><a href="#local-6989586621679294458"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetArn:DeadLetterConfig' :: Maybe Text
 </span><a href="Network.AWS.Lambda.Types.DeadLetterConfig.html#%24sel%3AtargetArn%3ADeadLetterConfig%27"><span class="hs-identifier hs-var">targetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679289619"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.DeadLetterConfig.html#DeadLetterConfig"><span class="hs-identifier hs-type">DeadLetterConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679294457"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.DeadLetterConfig.html#DeadLetterConfig"><span class="hs-identifier hs-type">DeadLetterConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-57"></span><span>
-</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289616"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.DeadLetterConfig.html#DeadLetterConfig"><span class="hs-identifier hs-type">DeadLetterConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-59"></span><span>  </span><span id="local-6989586621679289614"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DeadLetterConfig
+</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294454"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.DeadLetterConfig.html#DeadLetterConfig"><span class="hs-identifier hs-type">DeadLetterConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-59"></span><span>  </span><span id="local-6989586621679294452"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DeadLetterConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-60"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DeadLetterConfig)
@@ -140,30 +140,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DeadLetterConfig&quot;</span></span><span>
-</span><span id="line-62"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679289611"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679289611"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-62"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679294449"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679294449"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-63"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; DeadLetterConfig
 </span><a href="Network.AWS.Lambda.Types.DeadLetterConfig.html#DeadLetterConfig%27"><span class="hs-identifier hs-var">DeadLetterConfig'</span></a></span><span>
 </span><span id="line-64"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; DeadLetterConfig)
 -&gt; Parser (Maybe Text) -&gt; Parser DeadLetterConfig
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679289611"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679294449"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TargetArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289605"><span id="local-6989586621679289607"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.DeadLetterConfig.html#DeadLetterConfig"><span class="hs-identifier hs-type">DeadLetterConfig</span></a></span></span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294443"><span id="local-6989586621679294445"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.DeadLetterConfig.html#DeadLetterConfig"><span class="hs-identifier hs-type">DeadLetterConfig</span></a></span></span></span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289602"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.DeadLetterConfig.html#DeadLetterConfig"><span class="hs-identifier hs-type">DeadLetterConfig</span></a></span></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294440"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.DeadLetterConfig.html#DeadLetterConfig"><span class="hs-identifier hs-type">DeadLetterConfig</span></a></span></span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289594"><span id="local-6989586621679289596"><span id="local-6989586621679289598"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.DeadLetterConfig.html#DeadLetterConfig"><span class="hs-identifier hs-type">DeadLetterConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679289592"><span class="annot"><span class="annottext">toJSON :: DeadLetterConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.DeadLetterConfig.html#DeadLetterConfig%27"><span class="hs-identifier hs-type">DeadLetterConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289590"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294432"><span id="local-6989586621679294434"><span id="local-6989586621679294436"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.DeadLetterConfig.html#DeadLetterConfig"><span class="hs-identifier hs-type">DeadLetterConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679294430"><span class="annot"><span class="annottext">toJSON :: DeadLetterConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.DeadLetterConfig.html#DeadLetterConfig%27"><span class="hs-identifier hs-type">DeadLetterConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294428"><span class="annot"><span class="annottext">Maybe Text
 targetArn :: Maybe Text
 $sel:targetArn:DeadLetterConfig' :: DeadLetterConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679289590"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679294428"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -175,6 +175,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679289590"><span class="hs-identifier hs-var">targetArn</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679294428"><span class="hs-identifier hs-var">targetArn</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span></pre></body></html>

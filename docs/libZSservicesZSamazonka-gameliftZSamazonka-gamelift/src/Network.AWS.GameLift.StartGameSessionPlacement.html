@@ -80,10 +80,10 @@
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-82"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#startGameSessionPlacement_gameProperties"><span class="hs-identifier">startGameSessionPlacement_gameProperties</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-83"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#startGameSessionPlacement_gameSessionData"><span class="hs-identifier">startGameSessionPlacement_gameSessionData</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-84"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#startGameSessionPlacement_gameSessionName"><span class="hs-identifier">startGameSessionPlacement_gameSessionName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-85"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#startGameSessionPlacement_desiredPlayerSessions"><span class="hs-identifier">startGameSessionPlacement_desiredPlayerSessions</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-86"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#startGameSessionPlacement_playerLatencies"><span class="hs-identifier">startGameSessionPlacement_playerLatencies</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#startGameSessionPlacement_gameSessionName"><span class="hs-identifier">startGameSessionPlacement_gameSessionName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#startGameSessionPlacement_playerLatencies"><span class="hs-identifier">startGameSessionPlacement_playerLatencies</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#startGameSessionPlacement_gameSessionData"><span class="hs-identifier">startGameSessionPlacement_gameSessionData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#startGameSessionPlacement_desiredPlayerSessions"><span class="hs-identifier">startGameSessionPlacement_desiredPlayerSessions</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#startGameSessionPlacement_placementId"><span class="hs-identifier">startGameSessionPlacement_placementId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#startGameSessionPlacement_gameSessionQueueName"><span class="hs-identifier">startGameSessionPlacement_gameSessionQueueName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#startGameSessionPlacement_maximumPlayerSessionCount"><span class="hs-identifier">startGameSessionPlacement_maximumPlayerSessionCount</span></a></span><span class="hs-special">,</span><span>
@@ -108,32 +108,32 @@
 </span><span id="line-108"></span><span class="hs-comment">-- | Represents the input for a request operation.</span><span>
 </span><span id="line-109"></span><span class="hs-comment">--</span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- /See:/ 'newStartGameSessionPlacement' smart constructor.</span><span>
-</span><span id="line-111"></span><span id="local-6989586621679444967"><span id="local-6989586621679444968"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartGameSessionPlacement"><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement"><span class="hs-identifier hs-var">StartGameSessionPlacement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartGameSessionPlacement%27"><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement%27"><span class="hs-identifier hs-var">StartGameSessionPlacement'</span></a></span></span><span>
+</span><span id="line-111"></span><span id="local-6989586621679445440"><span id="local-6989586621679445441"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartGameSessionPlacement"><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement"><span class="hs-identifier hs-var">StartGameSessionPlacement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartGameSessionPlacement%27"><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement%27"><span class="hs-identifier hs-var">StartGameSessionPlacement'</span></a></span></span><span>
 </span><span id="line-112"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A set of custom properties for a game session, formatted as key:value</span><span>
 </span><span id="line-113"></span><span>    </span><span class="hs-comment">-- pairs. These properties are passed to a game server process in the</span><span>
 </span><span id="line-114"></span><span>    </span><span class="hs-comment">-- GameSession object with a request to start a new game session (see</span><span>
 </span><span id="line-115"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session&gt;).</span><span>
 </span><span id="line-116"></span><span>    </span><span id="%24sel%3AgameProperties%3AStartGameSessionPlacement%27"><span class="annot"><span class="annottext">StartGameSessionPlacement -&gt; Maybe [GameProperty]
 </span><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#%24sel%3AgameProperties%3AStartGameSessionPlacement%27"><span class="hs-identifier hs-var hs-var">gameProperties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GameLift.Types.GameProperty.html#GameProperty"><span class="hs-identifier hs-type">GameProperty</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- | A set of custom game session properties, formatted as a single string</span><span>
-</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- value. This data is passed to a game server process in the GameSession</span><span>
-</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- object with a request to start a new game session (see</span><span>
-</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session&gt;).</span><span>
-</span><span id="line-121"></span><span>    </span><span id="%24sel%3AgameSessionData%3AStartGameSessionPlacement%27"><span class="annot"><span class="annottext">StartGameSessionPlacement -&gt; Maybe Text
-</span><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#%24sel%3AgameSessionData%3AStartGameSessionPlacement%27"><span class="hs-identifier hs-var hs-var">gameSessionData</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- | A descriptive label that is associated with a game session. Session</span><span>
-</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- names do not need to be unique.</span><span>
-</span><span id="line-124"></span><span>    </span><span id="%24sel%3AgameSessionName%3AStartGameSessionPlacement%27"><span class="annot"><span class="annottext">StartGameSessionPlacement -&gt; Maybe Text
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- | A descriptive label that is associated with a game session. Session</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- names do not need to be unique.</span><span>
+</span><span id="line-119"></span><span>    </span><span id="%24sel%3AgameSessionName%3AStartGameSessionPlacement%27"><span class="annot"><span class="annottext">StartGameSessionPlacement -&gt; Maybe Text
 </span><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#%24sel%3AgameSessionName%3AStartGameSessionPlacement%27"><span class="hs-identifier hs-var hs-var">gameSessionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- | Set of information on each player to create a player session for.</span><span>
-</span><span id="line-126"></span><span>    </span><span id="%24sel%3AdesiredPlayerSessions%3AStartGameSessionPlacement%27"><span class="annot"><span class="annottext">StartGameSessionPlacement -&gt; Maybe [DesiredPlayerSession]
-</span><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#%24sel%3AdesiredPlayerSessions%3AStartGameSessionPlacement%27"><span class="hs-identifier hs-var hs-var">desiredPlayerSessions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GameLift.Types.DesiredPlayerSession.html#DesiredPlayerSession"><span class="hs-identifier hs-type">DesiredPlayerSession</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- | A set of values, expressed in milliseconds, that indicates the amount of</span><span>
-</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- latency that a player experiences when connected to AWS Regions. This</span><span>
-</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- information is used to try to place the new game session where it can</span><span>
-</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- offer the best possible gameplay experience for the players.</span><span>
-</span><span id="line-131"></span><span>    </span><span id="%24sel%3AplayerLatencies%3AStartGameSessionPlacement%27"><span class="annot"><span class="annottext">StartGameSessionPlacement -&gt; Maybe [PlayerLatency]
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- | A set of values, expressed in milliseconds, that indicates the amount of</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- latency that a player experiences when connected to AWS Regions. This</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- information is used to try to place the new game session where it can</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- offer the best possible gameplay experience for the players.</span><span>
+</span><span id="line-124"></span><span>    </span><span id="%24sel%3AplayerLatencies%3AStartGameSessionPlacement%27"><span class="annot"><span class="annottext">StartGameSessionPlacement -&gt; Maybe [PlayerLatency]
 </span><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#%24sel%3AplayerLatencies%3AStartGameSessionPlacement%27"><span class="hs-identifier hs-var hs-var">playerLatencies</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatency.html#PlayerLatency"><span class="hs-identifier hs-type">PlayerLatency</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- | A set of custom game session properties, formatted as a single string</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- value. This data is passed to a game server process in the GameSession</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- object with a request to start a new game session (see</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session&gt;).</span><span>
+</span><span id="line-129"></span><span>    </span><span id="%24sel%3AgameSessionData%3AStartGameSessionPlacement%27"><span class="annot"><span class="annottext">StartGameSessionPlacement -&gt; Maybe Text
+</span><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#%24sel%3AgameSessionData%3AStartGameSessionPlacement%27"><span class="hs-identifier hs-var hs-var">gameSessionData</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- | Set of information on each player to create a player session for.</span><span>
+</span><span id="line-131"></span><span>    </span><span id="%24sel%3AdesiredPlayerSessions%3AStartGameSessionPlacement%27"><span class="annot"><span class="annottext">StartGameSessionPlacement -&gt; Maybe [DesiredPlayerSession]
+</span><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#%24sel%3AdesiredPlayerSessions%3AStartGameSessionPlacement%27"><span class="hs-identifier hs-var hs-var">desiredPlayerSessions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GameLift.Types.DesiredPlayerSession.html#DesiredPlayerSession"><span class="hs-identifier hs-type">DesiredPlayerSession</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-132"></span><span>    </span><span class="hs-comment">-- | A unique identifier to assign to the new game session placement. This</span><span>
 </span><span id="line-133"></span><span>    </span><span class="hs-comment">-- value is developer-defined. The value must be unique across all Regions</span><span>
 </span><span id="line-134"></span><span>    </span><span class="hs-comment">-- and cannot be reused unless you are resubmitting a canceled or timed-out</span><span>
@@ -149,7 +149,7 @@
 </span><span id="line-142"></span><span>    </span><span id="%24sel%3AmaximumPlayerSessionCount%3AStartGameSessionPlacement%27"><span class="annot"><span class="annottext">StartGameSessionPlacement -&gt; Natural
 </span><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#%24sel%3AmaximumPlayerSessionCount%3AStartGameSessionPlacement%27"><span class="hs-identifier hs-var hs-var">maximumPlayerSessionCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-143"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679444954"><span id="local-6989586621679444956"><span class="annot"><span class="annottext">StartGameSessionPlacement -&gt; StartGameSessionPlacement -&gt; Bool
+</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679445427"><span id="local-6989586621679445429"><span class="annot"><span class="annottext">StartGameSessionPlacement -&gt; StartGameSessionPlacement -&gt; Bool
 (StartGameSessionPlacement -&gt; StartGameSessionPlacement -&gt; Bool)
 -&gt; (StartGameSessionPlacement -&gt; StartGameSessionPlacement -&gt; Bool)
 -&gt; Eq StartGameSessionPlacement
@@ -158,7 +158,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StartGameSessionPlacement -&gt; StartGameSessionPlacement -&gt; Bool
 == :: StartGameSessionPlacement -&gt; StartGameSessionPlacement -&gt; Bool
 $c== :: StartGameSessionPlacement -&gt; StartGameSessionPlacement -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679444945"><span id="local-6989586621679444947"><span id="local-6989586621679444949"><span id="local-6989586621679444951"><span class="annot"><span class="annottext">ReadPrec [StartGameSessionPlacement]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679445418"><span id="local-6989586621679445420"><span id="local-6989586621679445422"><span id="local-6989586621679445424"><span class="annot"><span class="annottext">ReadPrec [StartGameSessionPlacement]
 ReadPrec StartGameSessionPlacement
 Int -&gt; ReadS StartGameSessionPlacement
 ReadS [StartGameSessionPlacement]
@@ -178,7 +178,7 @@ readList :: ReadS [StartGameSessionPlacement]
 $creadList :: ReadS [StartGameSessionPlacement]
 readsPrec :: Int -&gt; ReadS StartGameSessionPlacement
 $creadsPrec :: Int -&gt; ReadS StartGameSessionPlacement
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679444938"><span id="local-6989586621679444940"><span id="local-6989586621679444942"><span class="annot"><span class="annottext">Int -&gt; StartGameSessionPlacement -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679445411"><span id="local-6989586621679445413"><span id="local-6989586621679445415"><span class="annot"><span class="annottext">Int -&gt; StartGameSessionPlacement -&gt; ShowS
 [StartGameSessionPlacement] -&gt; ShowS
 StartGameSessionPlacement -&gt; String
 (Int -&gt; StartGameSessionPlacement -&gt; ShowS)
@@ -223,20 +223,20 @@ StartGameSessionPlacement -&gt; Rep StartGameSessionPlacement x
 </span><span id="line-156"></span><span class="hs-comment">-- GameSession object with a request to start a new game session (see</span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session&gt;).</span><span>
 </span><span id="line-158"></span><span class="hs-comment">--</span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- 'gameSessionData', 'startGameSessionPlacement_gameSessionData' - A set of custom game session properties, formatted as a single string</span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- value. This data is passed to a game server process in the GameSession</span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- object with a request to start a new game session (see</span><span>
-</span><span id="line-162"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session&gt;).</span><span>
-</span><span id="line-163"></span><span class="hs-comment">--</span><span>
-</span><span id="line-164"></span><span class="hs-comment">-- 'gameSessionName', 'startGameSessionPlacement_gameSessionName' - A descriptive label that is associated with a game session. Session</span><span>
-</span><span id="line-165"></span><span class="hs-comment">-- names do not need to be unique.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- 'gameSessionName', 'startGameSessionPlacement_gameSessionName' - A descriptive label that is associated with a game session. Session</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- names do not need to be unique.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- 'playerLatencies', 'startGameSessionPlacement_playerLatencies' - A set of values, expressed in milliseconds, that indicates the amount of</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- latency that a player experiences when connected to AWS Regions. This</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- information is used to try to place the new game session where it can</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- offer the best possible gameplay experience for the players.</span><span>
 </span><span id="line-166"></span><span class="hs-comment">--</span><span>
-</span><span id="line-167"></span><span class="hs-comment">-- 'desiredPlayerSessions', 'startGameSessionPlacement_desiredPlayerSessions' - Set of information on each player to create a player session for.</span><span>
-</span><span id="line-168"></span><span class="hs-comment">--</span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- 'playerLatencies', 'startGameSessionPlacement_playerLatencies' - A set of values, expressed in milliseconds, that indicates the amount of</span><span>
-</span><span id="line-170"></span><span class="hs-comment">-- latency that a player experiences when connected to AWS Regions. This</span><span>
-</span><span id="line-171"></span><span class="hs-comment">-- information is used to try to place the new game session where it can</span><span>
-</span><span id="line-172"></span><span class="hs-comment">-- offer the best possible gameplay experience for the players.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- 'gameSessionData', 'startGameSessionPlacement_gameSessionData' - A set of custom game session properties, formatted as a single string</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- value. This data is passed to a game server process in the GameSession</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- object with a request to start a new game session (see</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session&gt;).</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- 'desiredPlayerSessions', 'startGameSessionPlacement_desiredPlayerSessions' - Set of information on each player to create a player session for.</span><span>
 </span><span id="line-173"></span><span class="hs-comment">--</span><span>
 </span><span id="line-174"></span><span class="hs-comment">-- 'placementId', 'startGameSessionPlacement_placementId' - A unique identifier to assign to the new game session placement. This</span><span>
 </span><span id="line-175"></span><span class="hs-comment">-- value is developer-defined. The value must be unique across all Regions</span><span>
@@ -258,17 +258,17 @@ StartGameSessionPlacement -&gt; Rep StartGameSessionPlacement x
 </span><span id="line-191"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement"><span class="hs-identifier hs-type">StartGameSessionPlacement</span></a></span><span>
 </span><span id="line-192"></span><span id="newStartGameSessionPlacement"><span class="annot"><span class="annottext">newStartGameSessionPlacement :: Text -&gt; Text -&gt; Natural -&gt; StartGameSessionPlacement
 </span><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#newStartGameSessionPlacement"><span class="hs-identifier hs-var hs-var">newStartGameSessionPlacement</span></a></span></span><span>
-</span><span id="line-193"></span><span>  </span><span id="local-6989586621679444933"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679444933"><span class="hs-identifier hs-var">pPlacementId_</span></a></span></span><span>
-</span><span id="line-194"></span><span>  </span><span id="local-6989586621679444932"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679444932"><span class="hs-identifier hs-var">pGameSessionQueueName_</span></a></span></span><span>
-</span><span id="line-195"></span><span>  </span><span id="local-6989586621679444931"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679444931"><span class="hs-identifier hs-var">pMaximumPlayerSessionCount_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621679445406"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679445406"><span class="hs-identifier hs-var">pPlacementId_</span></a></span></span><span>
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679445405"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679445405"><span class="hs-identifier hs-var">pGameSessionQueueName_</span></a></span></span><span>
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679445404"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679445404"><span class="hs-identifier hs-var">pMaximumPlayerSessionCount_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-196"></span><span>    </span><span class="annot"><span class="annottext">StartGameSessionPlacement' :: Maybe [GameProperty]
 -&gt; Maybe Text
+-&gt; Maybe [PlayerLatency]
 -&gt; Maybe Text
 -&gt; Maybe [DesiredPlayerSession]
--&gt; Maybe [PlayerLatency]
 -&gt; Text
 -&gt; Text
 -&gt; Natural
@@ -279,32 +279,32 @@ StartGameSessionPlacement -&gt; Rep StartGameSessionPlacement x
 </span><span id="line-198"></span><span>          </span><span class="annot"><span class="annottext">Maybe [GameProperty]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-199"></span><span>        </span><span class="annot"><span class="annottext">$sel:gameSessionData:StartGameSessionPlacement' :: Maybe Text
-</span><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#%24sel%3AgameSessionData%3AStartGameSessionPlacement%27"><span class="hs-identifier hs-var">gameSessionData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-200"></span><span>        </span><span class="annot"><span class="annottext">$sel:gameSessionName:StartGameSessionPlacement' :: Maybe Text
+</span><span id="line-199"></span><span>        </span><span class="annot"><span class="annottext">$sel:gameSessionName:StartGameSessionPlacement' :: Maybe Text
 </span><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#%24sel%3AgameSessionName%3AStartGameSessionPlacement%27"><span class="hs-identifier hs-var">gameSessionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-201"></span><span>        </span><span class="annot"><span class="annottext">$sel:desiredPlayerSessions:StartGameSessionPlacement' :: Maybe [DesiredPlayerSession]
-</span><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#%24sel%3AdesiredPlayerSessions%3AStartGameSessionPlacement%27"><span class="hs-identifier hs-var">desiredPlayerSessions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DesiredPlayerSession]
+</span><span id="line-200"></span><span>        </span><span class="annot"><span class="annottext">$sel:playerLatencies:StartGameSessionPlacement' :: Maybe [PlayerLatency]
+</span><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#%24sel%3AplayerLatencies%3AStartGameSessionPlacement%27"><span class="hs-identifier hs-var">playerLatencies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PlayerLatency]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-202"></span><span>        </span><span class="annot"><span class="annottext">$sel:playerLatencies:StartGameSessionPlacement' :: Maybe [PlayerLatency]
-</span><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#%24sel%3AplayerLatencies%3AStartGameSessionPlacement%27"><span class="hs-identifier hs-var">playerLatencies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PlayerLatency]
+</span><span id="line-201"></span><span>        </span><span class="annot"><span class="annottext">$sel:gameSessionData:StartGameSessionPlacement' :: Maybe Text
+</span><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#%24sel%3AgameSessionData%3AStartGameSessionPlacement%27"><span class="hs-identifier hs-var">gameSessionData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>        </span><span class="annot"><span class="annottext">$sel:desiredPlayerSessions:StartGameSessionPlacement' :: Maybe [DesiredPlayerSession]
+</span><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#%24sel%3AdesiredPlayerSessions%3AStartGameSessionPlacement%27"><span class="hs-identifier hs-var">desiredPlayerSessions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DesiredPlayerSession]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-203"></span><span>        </span><span class="annot"><span class="annottext">$sel:placementId:StartGameSessionPlacement' :: Text
 </span><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#%24sel%3AplacementId%3AStartGameSessionPlacement%27"><span class="hs-identifier hs-var">placementId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679444933"><span class="hs-identifier hs-var">pPlacementId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679445406"><span class="hs-identifier hs-var">pPlacementId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-204"></span><span>        </span><span class="annot"><span class="annottext">$sel:gameSessionQueueName:StartGameSessionPlacement' :: Text
 </span><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#%24sel%3AgameSessionQueueName%3AStartGameSessionPlacement%27"><span class="hs-identifier hs-var">gameSessionQueueName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679444932"><span class="hs-identifier hs-var">pGameSessionQueueName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679445405"><span class="hs-identifier hs-var">pGameSessionQueueName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-205"></span><span>        </span><span class="annot"><span class="annottext">$sel:maximumPlayerSessionCount:StartGameSessionPlacement' :: Natural
 </span><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#%24sel%3AmaximumPlayerSessionCount%3AStartGameSessionPlacement%27"><span class="hs-identifier hs-var">maximumPlayerSessionCount</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-206"></span><span>          </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679444931"><span class="hs-identifier hs-var">pMaximumPlayerSessionCount_</span></a></span><span>
+</span><a href="#local-6989586621679445404"><span class="hs-identifier hs-var">pMaximumPlayerSessionCount_</span></a></span><span>
 </span><span id="line-207"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-208"></span><span>
 </span><span id="line-209"></span><span class="hs-comment">-- | A set of custom properties for a game session, formatted as key:value</span><span>
@@ -323,16 +323,16 @@ forall a. Maybe a
      (Maybe [GameProperty])
      (Maybe [GameProperty])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement%27"><span class="hs-identifier hs-type">StartGameSessionPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444928"><span class="annot"><span class="annottext">Maybe [GameProperty]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement%27"><span class="hs-identifier hs-type">StartGameSessionPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679445401"><span class="annot"><span class="annottext">Maybe [GameProperty]
 gameProperties :: Maybe [GameProperty]
 $sel:gameProperties:StartGameSessionPlacement' :: StartGameSessionPlacement -&gt; Maybe [GameProperty]
-</span><a href="#local-6989586621679444928"><span class="hs-identifier hs-var hs-var">gameProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [GameProperty]
-</span><a href="#local-6989586621679444928"><span class="hs-identifier hs-var">gameProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444927"><span class="annot"><span class="annottext">s :: StartGameSessionPlacement
-</span><a href="#local-6989586621679444927"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement%27"><span class="hs-identifier hs-type">StartGameSessionPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444926"><span class="annot"><span class="annottext">Maybe [GameProperty]
-</span><a href="#local-6989586621679444926"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartGameSessionPlacement
-</span><a href="#local-6989586621679444927"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameProperties:StartGameSessionPlacement' :: Maybe [GameProperty]
+</span><a href="#local-6989586621679445401"><span class="hs-identifier hs-var hs-var">gameProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [GameProperty]
+</span><a href="#local-6989586621679445401"><span class="hs-identifier hs-var">gameProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679445400"><span class="annot"><span class="annottext">s :: StartGameSessionPlacement
+</span><a href="#local-6989586621679445400"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement%27"><span class="hs-identifier hs-type">StartGameSessionPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679445399"><span class="annot"><span class="annottext">Maybe [GameProperty]
+</span><a href="#local-6989586621679445399"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartGameSessionPlacement
+</span><a href="#local-6989586621679445400"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameProperties:StartGameSessionPlacement' :: Maybe [GameProperty]
 </span><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#%24sel%3AgameProperties%3AStartGameSessionPlacement%27"><span class="hs-identifier hs-var">gameProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [GameProperty]
-</span><a href="#local-6989586621679444926"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement"><span class="hs-identifier hs-type">StartGameSessionPlacement</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [GameProperty] -&gt; f (Maybe [GameProperty]))
+</span><a href="#local-6989586621679445399"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement"><span class="hs-identifier hs-type">StartGameSessionPlacement</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [GameProperty] -&gt; f (Maybe [GameProperty]))
  -&gt; StartGameSessionPlacement -&gt; f StartGameSessionPlacement)
 -&gt; ((Maybe [GameProperty] -&gt; f (Maybe [GameProperty]))
     -&gt; Maybe [GameProperty] -&gt; f (Maybe [GameProperty]))
@@ -350,40 +350,13 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [GameProperty] [GameProperty] [GameProperty] [GameProperty]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-215"></span><span>
-</span><span id="line-216"></span><span class="hs-comment">-- | A set of custom game session properties, formatted as a single string</span><span>
-</span><span id="line-217"></span><span class="hs-comment">-- value. This data is passed to a game server process in the GameSession</span><span>
-</span><span id="line-218"></span><span class="hs-comment">-- object with a request to start a new game session (see</span><span>
-</span><span id="line-219"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session&gt;).</span><span>
-</span><span id="line-220"></span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#startGameSessionPlacement_gameSessionData"><span class="hs-identifier hs-type">startGameSessionPlacement_gameSessionData</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement"><span class="hs-identifier hs-type">StartGameSessionPlacement</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-221"></span><span id="startGameSessionPlacement_gameSessionData"><span class="annot"><span class="annottext">startGameSessionPlacement_gameSessionData :: (Maybe Text -&gt; f (Maybe Text))
--&gt; StartGameSessionPlacement -&gt; f StartGameSessionPlacement
-</span><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#startGameSessionPlacement_gameSessionData"><span class="hs-identifier hs-var hs-var">startGameSessionPlacement_gameSessionData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartGameSessionPlacement -&gt; Maybe Text)
--&gt; (StartGameSessionPlacement
-    -&gt; Maybe Text -&gt; StartGameSessionPlacement)
--&gt; Lens
-     StartGameSessionPlacement
-     StartGameSessionPlacement
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement%27"><span class="hs-identifier hs-type">StartGameSessionPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444922"><span class="annot"><span class="annottext">Maybe Text
-gameSessionData :: Maybe Text
-$sel:gameSessionData:StartGameSessionPlacement' :: StartGameSessionPlacement -&gt; Maybe Text
-</span><a href="#local-6989586621679444922"><span class="hs-identifier hs-var hs-var">gameSessionData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679444922"><span class="hs-identifier hs-var">gameSessionData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444921"><span class="annot"><span class="annottext">s :: StartGameSessionPlacement
-</span><a href="#local-6989586621679444921"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement%27"><span class="hs-identifier hs-type">StartGameSessionPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444920"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679444920"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartGameSessionPlacement
-</span><a href="#local-6989586621679444921"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameSessionData:StartGameSessionPlacement' :: Maybe Text
-</span><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#%24sel%3AgameSessionData%3AStartGameSessionPlacement%27"><span class="hs-identifier hs-var">gameSessionData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679444920"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement"><span class="hs-identifier hs-type">StartGameSessionPlacement</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-222"></span><span>
-</span><span id="line-223"></span><span class="hs-comment">-- | A descriptive label that is associated with a game session. Session</span><span>
-</span><span id="line-224"></span><span class="hs-comment">-- names do not need to be unique.</span><span>
-</span><span id="line-225"></span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#startGameSessionPlacement_gameSessionName"><span class="hs-identifier hs-type">startGameSessionPlacement_gameSessionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement"><span class="hs-identifier hs-type">StartGameSessionPlacement</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-226"></span><span id="startGameSessionPlacement_gameSessionName"><span class="annot"><span class="annottext">startGameSessionPlacement_gameSessionName :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-216"></span><span class="hs-comment">-- | A descriptive label that is associated with a game session. Session</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- names do not need to be unique.</span><span>
+</span><span id="line-218"></span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#startGameSessionPlacement_gameSessionName"><span class="hs-identifier hs-type">startGameSessionPlacement_gameSessionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement"><span class="hs-identifier hs-type">StartGameSessionPlacement</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span id="startGameSessionPlacement_gameSessionName"><span class="annot"><span class="annottext">startGameSessionPlacement_gameSessionName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; StartGameSessionPlacement -&gt; f StartGameSessionPlacement
 </span><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#startGameSessionPlacement_gameSessionName"><span class="hs-identifier hs-var hs-var">startGameSessionPlacement_gameSessionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartGameSessionPlacement -&gt; Maybe Text)
 -&gt; (StartGameSessionPlacement
@@ -394,20 +367,95 @@ $sel:gameSessionData:StartGameSessionPlacement' :: StartGameSessionPlacement -&g
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement%27"><span class="hs-identifier hs-type">StartGameSessionPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444919"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement%27"><span class="hs-identifier hs-type">StartGameSessionPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679445395"><span class="annot"><span class="annottext">Maybe Text
 gameSessionName :: Maybe Text
 $sel:gameSessionName:StartGameSessionPlacement' :: StartGameSessionPlacement -&gt; Maybe Text
-</span><a href="#local-6989586621679444919"><span class="hs-identifier hs-var hs-var">gameSessionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679444919"><span class="hs-identifier hs-var">gameSessionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444918"><span class="annot"><span class="annottext">s :: StartGameSessionPlacement
-</span><a href="#local-6989586621679444918"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement%27"><span class="hs-identifier hs-type">StartGameSessionPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444917"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679444917"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartGameSessionPlacement
-</span><a href="#local-6989586621679444918"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameSessionName:StartGameSessionPlacement' :: Maybe Text
+</span><a href="#local-6989586621679445395"><span class="hs-identifier hs-var hs-var">gameSessionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679445395"><span class="hs-identifier hs-var">gameSessionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679445394"><span class="annot"><span class="annottext">s :: StartGameSessionPlacement
+</span><a href="#local-6989586621679445394"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement%27"><span class="hs-identifier hs-type">StartGameSessionPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679445393"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679445393"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartGameSessionPlacement
+</span><a href="#local-6989586621679445394"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameSessionName:StartGameSessionPlacement' :: Maybe Text
 </span><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#%24sel%3AgameSessionName%3AStartGameSessionPlacement%27"><span class="hs-identifier hs-var">gameSessionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679444917"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement"><span class="hs-identifier hs-type">StartGameSessionPlacement</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679445393"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement"><span class="hs-identifier hs-type">StartGameSessionPlacement</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- | A set of values, expressed in milliseconds, that indicates the amount of</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- latency that a player experiences when connected to AWS Regions. This</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- information is used to try to place the new game session where it can</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- offer the best possible gameplay experience for the players.</span><span>
+</span><span id="line-225"></span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#startGameSessionPlacement_playerLatencies"><span class="hs-identifier hs-type">startGameSessionPlacement_playerLatencies</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement"><span class="hs-identifier hs-type">StartGameSessionPlacement</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatency.html#PlayerLatency"><span class="hs-identifier hs-type">PlayerLatency</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span id="startGameSessionPlacement_playerLatencies"><span class="annot"><span class="annottext">startGameSessionPlacement_playerLatencies :: (Maybe [PlayerLatency] -&gt; f (Maybe [PlayerLatency]))
+-&gt; StartGameSessionPlacement -&gt; f StartGameSessionPlacement
+</span><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#startGameSessionPlacement_playerLatencies"><span class="hs-identifier hs-var hs-var">startGameSessionPlacement_playerLatencies</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartGameSessionPlacement -&gt; Maybe [PlayerLatency])
+-&gt; (StartGameSessionPlacement
+    -&gt; Maybe [PlayerLatency] -&gt; StartGameSessionPlacement)
+-&gt; Lens
+     StartGameSessionPlacement
+     StartGameSessionPlacement
+     (Maybe [PlayerLatency])
+     (Maybe [PlayerLatency])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement%27"><span class="hs-identifier hs-type">StartGameSessionPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679445392"><span class="annot"><span class="annottext">Maybe [PlayerLatency]
+playerLatencies :: Maybe [PlayerLatency]
+$sel:playerLatencies:StartGameSessionPlacement' :: StartGameSessionPlacement -&gt; Maybe [PlayerLatency]
+</span><a href="#local-6989586621679445392"><span class="hs-identifier hs-var hs-var">playerLatencies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PlayerLatency]
+</span><a href="#local-6989586621679445392"><span class="hs-identifier hs-var">playerLatencies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679445391"><span class="annot"><span class="annottext">s :: StartGameSessionPlacement
+</span><a href="#local-6989586621679445391"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement%27"><span class="hs-identifier hs-type">StartGameSessionPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679445390"><span class="annot"><span class="annottext">Maybe [PlayerLatency]
+</span><a href="#local-6989586621679445390"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartGameSessionPlacement
+</span><a href="#local-6989586621679445391"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:playerLatencies:StartGameSessionPlacement' :: Maybe [PlayerLatency]
+</span><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#%24sel%3AplayerLatencies%3AStartGameSessionPlacement%27"><span class="hs-identifier hs-var">playerLatencies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PlayerLatency]
+</span><a href="#local-6989586621679445390"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement"><span class="hs-identifier hs-type">StartGameSessionPlacement</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PlayerLatency] -&gt; f (Maybe [PlayerLatency]))
+ -&gt; StartGameSessionPlacement -&gt; f StartGameSessionPlacement)
+-&gt; ((Maybe [PlayerLatency] -&gt; f (Maybe [PlayerLatency]))
+    -&gt; Maybe [PlayerLatency] -&gt; f (Maybe [PlayerLatency]))
+-&gt; (Maybe [PlayerLatency] -&gt; f (Maybe [PlayerLatency]))
+-&gt; StartGameSessionPlacement
+-&gt; f StartGameSessionPlacement
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PlayerLatency] [PlayerLatency] [PlayerLatency] [PlayerLatency]
+-&gt; Iso
+     (Maybe [PlayerLatency])
+     (Maybe [PlayerLatency])
+     (Maybe [PlayerLatency])
+     (Maybe [PlayerLatency])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PlayerLatency] [PlayerLatency] [PlayerLatency] [PlayerLatency]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-227"></span><span>
-</span><span id="line-228"></span><span class="hs-comment">-- | Set of information on each player to create a player session for.</span><span>
-</span><span id="line-229"></span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#startGameSessionPlacement_desiredPlayerSessions"><span class="hs-identifier hs-type">startGameSessionPlacement_desiredPlayerSessions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement"><span class="hs-identifier hs-type">StartGameSessionPlacement</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GameLift.Types.DesiredPlayerSession.html#DesiredPlayerSession"><span class="hs-identifier hs-type">DesiredPlayerSession</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-230"></span><span id="startGameSessionPlacement_desiredPlayerSessions"><span class="annot"><span class="annottext">startGameSessionPlacement_desiredPlayerSessions :: (Maybe [DesiredPlayerSession] -&gt; f (Maybe [DesiredPlayerSession]))
+</span><span id="line-228"></span><span class="hs-comment">-- | A set of custom game session properties, formatted as a single string</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- value. This data is passed to a game server process in the GameSession</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- object with a request to start a new game session (see</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session&gt;).</span><span>
+</span><span id="line-232"></span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#startGameSessionPlacement_gameSessionData"><span class="hs-identifier hs-type">startGameSessionPlacement_gameSessionData</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement"><span class="hs-identifier hs-type">StartGameSessionPlacement</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span id="startGameSessionPlacement_gameSessionData"><span class="annot"><span class="annottext">startGameSessionPlacement_gameSessionData :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartGameSessionPlacement -&gt; f StartGameSessionPlacement
+</span><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#startGameSessionPlacement_gameSessionData"><span class="hs-identifier hs-var hs-var">startGameSessionPlacement_gameSessionData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartGameSessionPlacement -&gt; Maybe Text)
+-&gt; (StartGameSessionPlacement
+    -&gt; Maybe Text -&gt; StartGameSessionPlacement)
+-&gt; Lens
+     StartGameSessionPlacement
+     StartGameSessionPlacement
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement%27"><span class="hs-identifier hs-type">StartGameSessionPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679445389"><span class="annot"><span class="annottext">Maybe Text
+gameSessionData :: Maybe Text
+$sel:gameSessionData:StartGameSessionPlacement' :: StartGameSessionPlacement -&gt; Maybe Text
+</span><a href="#local-6989586621679445389"><span class="hs-identifier hs-var hs-var">gameSessionData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679445389"><span class="hs-identifier hs-var">gameSessionData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679445388"><span class="annot"><span class="annottext">s :: StartGameSessionPlacement
+</span><a href="#local-6989586621679445388"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement%27"><span class="hs-identifier hs-type">StartGameSessionPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679445387"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679445387"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartGameSessionPlacement
+</span><a href="#local-6989586621679445388"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameSessionData:StartGameSessionPlacement' :: Maybe Text
+</span><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#%24sel%3AgameSessionData%3AStartGameSessionPlacement%27"><span class="hs-identifier hs-var">gameSessionData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679445387"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement"><span class="hs-identifier hs-type">StartGameSessionPlacement</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- | Set of information on each player to create a player session for.</span><span>
+</span><span id="line-236"></span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#startGameSessionPlacement_desiredPlayerSessions"><span class="hs-identifier hs-type">startGameSessionPlacement_desiredPlayerSessions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement"><span class="hs-identifier hs-type">StartGameSessionPlacement</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GameLift.Types.DesiredPlayerSession.html#DesiredPlayerSession"><span class="hs-identifier hs-type">DesiredPlayerSession</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span id="startGameSessionPlacement_desiredPlayerSessions"><span class="annot"><span class="annottext">startGameSessionPlacement_desiredPlayerSessions :: (Maybe [DesiredPlayerSession] -&gt; f (Maybe [DesiredPlayerSession]))
 -&gt; StartGameSessionPlacement -&gt; f StartGameSessionPlacement
 </span><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#startGameSessionPlacement_desiredPlayerSessions"><span class="hs-identifier hs-var hs-var">startGameSessionPlacement_desiredPlayerSessions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartGameSessionPlacement -&gt; Maybe [DesiredPlayerSession])
 -&gt; (StartGameSessionPlacement
@@ -418,16 +466,16 @@ $sel:gameSessionName:StartGameSessionPlacement' :: StartGameSessionPlacement -&g
      (Maybe [DesiredPlayerSession])
      (Maybe [DesiredPlayerSession])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement%27"><span class="hs-identifier hs-type">StartGameSessionPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444916"><span class="annot"><span class="annottext">Maybe [DesiredPlayerSession]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement%27"><span class="hs-identifier hs-type">StartGameSessionPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679445386"><span class="annot"><span class="annottext">Maybe [DesiredPlayerSession]
 desiredPlayerSessions :: Maybe [DesiredPlayerSession]
 $sel:desiredPlayerSessions:StartGameSessionPlacement' :: StartGameSessionPlacement -&gt; Maybe [DesiredPlayerSession]
-</span><a href="#local-6989586621679444916"><span class="hs-identifier hs-var hs-var">desiredPlayerSessions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DesiredPlayerSession]
-</span><a href="#local-6989586621679444916"><span class="hs-identifier hs-var">desiredPlayerSessions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444915"><span class="annot"><span class="annottext">s :: StartGameSessionPlacement
-</span><a href="#local-6989586621679444915"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement%27"><span class="hs-identifier hs-type">StartGameSessionPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444914"><span class="annot"><span class="annottext">Maybe [DesiredPlayerSession]
-</span><a href="#local-6989586621679444914"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartGameSessionPlacement
-</span><a href="#local-6989586621679444915"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:desiredPlayerSessions:StartGameSessionPlacement' :: Maybe [DesiredPlayerSession]
+</span><a href="#local-6989586621679445386"><span class="hs-identifier hs-var hs-var">desiredPlayerSessions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DesiredPlayerSession]
+</span><a href="#local-6989586621679445386"><span class="hs-identifier hs-var">desiredPlayerSessions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679445385"><span class="annot"><span class="annottext">s :: StartGameSessionPlacement
+</span><a href="#local-6989586621679445385"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement%27"><span class="hs-identifier hs-type">StartGameSessionPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679445384"><span class="annot"><span class="annottext">Maybe [DesiredPlayerSession]
+</span><a href="#local-6989586621679445384"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartGameSessionPlacement
+</span><a href="#local-6989586621679445385"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:desiredPlayerSessions:StartGameSessionPlacement' :: Maybe [DesiredPlayerSession]
 </span><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#%24sel%3AdesiredPlayerSessions%3AStartGameSessionPlacement%27"><span class="hs-identifier hs-var">desiredPlayerSessions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DesiredPlayerSession]
-</span><a href="#local-6989586621679444914"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement"><span class="hs-identifier hs-type">StartGameSessionPlacement</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DesiredPlayerSession] -&gt; f (Maybe [DesiredPlayerSession]))
+</span><a href="#local-6989586621679445384"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement"><span class="hs-identifier hs-type">StartGameSessionPlacement</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DesiredPlayerSession] -&gt; f (Maybe [DesiredPlayerSession]))
  -&gt; StartGameSessionPlacement -&gt; f StartGameSessionPlacement)
 -&gt; ((Maybe [DesiredPlayerSession]
      -&gt; f (Maybe [DesiredPlayerSession]))
@@ -456,56 +504,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [DesiredPlayerSession]
   [DesiredPlayerSession]
   [DesiredPlayerSession]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-231"></span><span>
-</span><span id="line-232"></span><span class="hs-comment">-- | A set of values, expressed in milliseconds, that indicates the amount of</span><span>
-</span><span id="line-233"></span><span class="hs-comment">-- latency that a player experiences when connected to AWS Regions. This</span><span>
-</span><span id="line-234"></span><span class="hs-comment">-- information is used to try to place the new game session where it can</span><span>
-</span><span id="line-235"></span><span class="hs-comment">-- offer the best possible gameplay experience for the players.</span><span>
-</span><span id="line-236"></span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#startGameSessionPlacement_playerLatencies"><span class="hs-identifier hs-type">startGameSessionPlacement_playerLatencies</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement"><span class="hs-identifier hs-type">StartGameSessionPlacement</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatency.html#PlayerLatency"><span class="hs-identifier hs-type">PlayerLatency</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-237"></span><span id="startGameSessionPlacement_playerLatencies"><span class="annot"><span class="annottext">startGameSessionPlacement_playerLatencies :: (Maybe [PlayerLatency] -&gt; f (Maybe [PlayerLatency]))
--&gt; StartGameSessionPlacement -&gt; f StartGameSessionPlacement
-</span><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#startGameSessionPlacement_playerLatencies"><span class="hs-identifier hs-var hs-var">startGameSessionPlacement_playerLatencies</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartGameSessionPlacement -&gt; Maybe [PlayerLatency])
--&gt; (StartGameSessionPlacement
-    -&gt; Maybe [PlayerLatency] -&gt; StartGameSessionPlacement)
--&gt; Lens
-     StartGameSessionPlacement
-     StartGameSessionPlacement
-     (Maybe [PlayerLatency])
-     (Maybe [PlayerLatency])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement%27"><span class="hs-identifier hs-type">StartGameSessionPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444913"><span class="annot"><span class="annottext">Maybe [PlayerLatency]
-playerLatencies :: Maybe [PlayerLatency]
-$sel:playerLatencies:StartGameSessionPlacement' :: StartGameSessionPlacement -&gt; Maybe [PlayerLatency]
-</span><a href="#local-6989586621679444913"><span class="hs-identifier hs-var hs-var">playerLatencies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PlayerLatency]
-</span><a href="#local-6989586621679444913"><span class="hs-identifier hs-var">playerLatencies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444912"><span class="annot"><span class="annottext">s :: StartGameSessionPlacement
-</span><a href="#local-6989586621679444912"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement%27"><span class="hs-identifier hs-type">StartGameSessionPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444911"><span class="annot"><span class="annottext">Maybe [PlayerLatency]
-</span><a href="#local-6989586621679444911"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartGameSessionPlacement
-</span><a href="#local-6989586621679444912"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:playerLatencies:StartGameSessionPlacement' :: Maybe [PlayerLatency]
-</span><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#%24sel%3AplayerLatencies%3AStartGameSessionPlacement%27"><span class="hs-identifier hs-var">playerLatencies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PlayerLatency]
-</span><a href="#local-6989586621679444911"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement"><span class="hs-identifier hs-type">StartGameSessionPlacement</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PlayerLatency] -&gt; f (Maybe [PlayerLatency]))
- -&gt; StartGameSessionPlacement -&gt; f StartGameSessionPlacement)
--&gt; ((Maybe [PlayerLatency] -&gt; f (Maybe [PlayerLatency]))
-    -&gt; Maybe [PlayerLatency] -&gt; f (Maybe [PlayerLatency]))
--&gt; (Maybe [PlayerLatency] -&gt; f (Maybe [PlayerLatency]))
--&gt; StartGameSessionPlacement
--&gt; f StartGameSessionPlacement
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
-  [PlayerLatency] [PlayerLatency] [PlayerLatency] [PlayerLatency]
--&gt; Iso
-     (Maybe [PlayerLatency])
-     (Maybe [PlayerLatency])
-     (Maybe [PlayerLatency])
-     (Maybe [PlayerLatency])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
-  [PlayerLatency] [PlayerLatency] [PlayerLatency] [PlayerLatency]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-238"></span><span>
 </span><span id="line-239"></span><span class="hs-comment">-- | A unique identifier to assign to the new game session placement. This</span><span>
 </span><span id="line-240"></span><span class="hs-comment">-- value is developer-defined. The value must be unique across all Regions</span><span>
@@ -519,16 +519,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      StartGameSessionPlacement StartGameSessionPlacement Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement%27"><span class="hs-identifier hs-type">StartGameSessionPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444910"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement%27"><span class="hs-identifier hs-type">StartGameSessionPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679445383"><span class="annot"><span class="annottext">Text
 placementId :: Text
 $sel:placementId:StartGameSessionPlacement' :: StartGameSessionPlacement -&gt; Text
-</span><a href="#local-6989586621679444910"><span class="hs-identifier hs-var hs-var">placementId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679444910"><span class="hs-identifier hs-var">placementId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444909"><span class="annot"><span class="annottext">s :: StartGameSessionPlacement
-</span><a href="#local-6989586621679444909"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement%27"><span class="hs-identifier hs-type">StartGameSessionPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444908"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679444908"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartGameSessionPlacement
-</span><a href="#local-6989586621679444909"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:placementId:StartGameSessionPlacement' :: Text
+</span><a href="#local-6989586621679445383"><span class="hs-identifier hs-var hs-var">placementId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679445383"><span class="hs-identifier hs-var">placementId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679445382"><span class="annot"><span class="annottext">s :: StartGameSessionPlacement
+</span><a href="#local-6989586621679445382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement%27"><span class="hs-identifier hs-type">StartGameSessionPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679445381"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679445381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartGameSessionPlacement
+</span><a href="#local-6989586621679445382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:placementId:StartGameSessionPlacement' :: Text
 </span><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#%24sel%3AplacementId%3AStartGameSessionPlacement%27"><span class="hs-identifier hs-var">placementId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679444908"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement"><span class="hs-identifier hs-type">StartGameSessionPlacement</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679445381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement"><span class="hs-identifier hs-type">StartGameSessionPlacement</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-245"></span><span>
 </span><span id="line-246"></span><span class="hs-comment">-- | Name of the queue to use to place the new game session. You can use</span><span>
 </span><span id="line-247"></span><span class="hs-comment">-- either the queue name or ARN value.</span><span>
@@ -540,16 +540,16 @@ $sel:placementId:StartGameSessionPlacement' :: StartGameSessionPlacement -&gt; T
 -&gt; Lens
      StartGameSessionPlacement StartGameSessionPlacement Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement%27"><span class="hs-identifier hs-type">StartGameSessionPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444907"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement%27"><span class="hs-identifier hs-type">StartGameSessionPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679445380"><span class="annot"><span class="annottext">Text
 gameSessionQueueName :: Text
 $sel:gameSessionQueueName:StartGameSessionPlacement' :: StartGameSessionPlacement -&gt; Text
-</span><a href="#local-6989586621679444907"><span class="hs-identifier hs-var hs-var">gameSessionQueueName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679444907"><span class="hs-identifier hs-var">gameSessionQueueName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444906"><span class="annot"><span class="annottext">s :: StartGameSessionPlacement
-</span><a href="#local-6989586621679444906"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement%27"><span class="hs-identifier hs-type">StartGameSessionPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444905"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679444905"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartGameSessionPlacement
-</span><a href="#local-6989586621679444906"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameSessionQueueName:StartGameSessionPlacement' :: Text
+</span><a href="#local-6989586621679445380"><span class="hs-identifier hs-var hs-var">gameSessionQueueName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679445380"><span class="hs-identifier hs-var">gameSessionQueueName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679445379"><span class="annot"><span class="annottext">s :: StartGameSessionPlacement
+</span><a href="#local-6989586621679445379"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement%27"><span class="hs-identifier hs-type">StartGameSessionPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679445378"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679445378"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartGameSessionPlacement
+</span><a href="#local-6989586621679445379"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameSessionQueueName:StartGameSessionPlacement' :: Text
 </span><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#%24sel%3AgameSessionQueueName%3AStartGameSessionPlacement%27"><span class="hs-identifier hs-var">gameSessionQueueName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679444905"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement"><span class="hs-identifier hs-type">StartGameSessionPlacement</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679445378"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement"><span class="hs-identifier hs-type">StartGameSessionPlacement</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-250"></span><span>
 </span><span id="line-251"></span><span class="hs-comment">-- | The maximum number of players that can be connected simultaneously to</span><span>
 </span><span id="line-252"></span><span class="hs-comment">-- the game session.</span><span>
@@ -562,28 +562,28 @@ $sel:gameSessionQueueName:StartGameSessionPlacement' :: StartGameSessionPlacemen
 -&gt; Lens
      StartGameSessionPlacement StartGameSessionPlacement Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement%27"><span class="hs-identifier hs-type">StartGameSessionPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444904"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement%27"><span class="hs-identifier hs-type">StartGameSessionPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679445377"><span class="annot"><span class="annottext">Natural
 maximumPlayerSessionCount :: Natural
 $sel:maximumPlayerSessionCount:StartGameSessionPlacement' :: StartGameSessionPlacement -&gt; Natural
-</span><a href="#local-6989586621679444904"><span class="hs-identifier hs-var hs-var">maximumPlayerSessionCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679444904"><span class="hs-identifier hs-var">maximumPlayerSessionCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444903"><span class="annot"><span class="annottext">s :: StartGameSessionPlacement
-</span><a href="#local-6989586621679444903"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement%27"><span class="hs-identifier hs-type">StartGameSessionPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444902"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679444902"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartGameSessionPlacement
-</span><a href="#local-6989586621679444903"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumPlayerSessionCount:StartGameSessionPlacement' :: Natural
+</span><a href="#local-6989586621679445377"><span class="hs-identifier hs-var hs-var">maximumPlayerSessionCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679445377"><span class="hs-identifier hs-var">maximumPlayerSessionCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679445376"><span class="annot"><span class="annottext">s :: StartGameSessionPlacement
+</span><a href="#local-6989586621679445376"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement%27"><span class="hs-identifier hs-type">StartGameSessionPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679445375"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679445375"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartGameSessionPlacement
+</span><a href="#local-6989586621679445376"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumPlayerSessionCount:StartGameSessionPlacement' :: Natural
 </span><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#%24sel%3AmaximumPlayerSessionCount%3AStartGameSessionPlacement%27"><span class="hs-identifier hs-var">maximumPlayerSessionCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679444902"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement"><span class="hs-identifier hs-type">StartGameSessionPlacement</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679445375"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement"><span class="hs-identifier hs-type">StartGameSessionPlacement</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-255"></span><span>
 </span><span id="line-256"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement"><span class="hs-identifier hs-type">StartGameSessionPlacement</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-257"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-258"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement"><span class="hs-identifier hs-type">StartGameSessionPlacement</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-259"></span><span>      </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacementResponse"><span class="hs-identifier hs-type">StartGameSessionPlacementResponse</span></a></span><span>
-</span><span id="line-260"></span><span>  </span><span id="local-6989586621679444898"><span class="annot"><span class="annottext">request :: StartGameSessionPlacement -&gt; Request StartGameSessionPlacement
+</span><span id="line-260"></span><span>  </span><span id="local-6989586621679445371"><span class="annot"><span class="annottext">request :: StartGameSessionPlacement -&gt; Request StartGameSessionPlacement
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; StartGameSessionPlacement -&gt; Request StartGameSessionPlacement
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.GameLift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-261"></span><span>  </span><span id="local-6989586621679444894"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-261"></span><span>  </span><span id="local-6989586621679445367"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy StartGameSessionPlacement
 -&gt; ClientResponse ClientBody
@@ -609,10 +609,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-263"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679444891"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679444891"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679444890"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679444890"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679444889"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679444889"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-263"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679445364"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679445364"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679445363"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679445363"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679445362"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679445362"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-264"></span><span>          </span><span class="annot"><span class="annottext">Maybe GameSessionPlacement
 -&gt; Int -&gt; StartGameSessionPlacementResponse
 </span><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacementResponse%27"><span class="hs-identifier hs-var">StartGameSessionPlacementResponse'</span></a></span><span>
@@ -622,7 +622,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; StartGameSessionPlacementResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679444889"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe GameSessionPlacement)
+</span><a href="#local-6989586621679445362"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe GameSessionPlacement)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GameSessionPlacement&quot;</span></span><span class="hs-special">)</span><span>
@@ -635,15 +635,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679444891"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679445364"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-267"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-268"></span><span>
-</span><span id="line-269"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679444881"><span id="local-6989586621679444883"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement"><span class="hs-identifier hs-type">StartGameSessionPlacement</span></a></span></span></span><span>
+</span><span id="line-269"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679445354"><span id="local-6989586621679445356"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement"><span class="hs-identifier hs-type">StartGameSessionPlacement</span></a></span></span></span><span>
 </span><span id="line-270"></span><span>
-</span><span id="line-271"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679444878"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement"><span class="hs-identifier hs-type">StartGameSessionPlacement</span></a></span></span><span>
+</span><span id="line-271"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679445351"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement"><span class="hs-identifier hs-type">StartGameSessionPlacement</span></a></span></span><span>
 </span><span id="line-272"></span><span>
 </span><span id="line-273"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement"><span class="hs-identifier hs-type">StartGameSessionPlacement</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-274"></span><span>  </span><span id="local-6989586621679444874"><span class="annot"><span class="annottext">toHeaders :: StartGameSessionPlacement -&gt; ResponseHeaders
+</span><span id="line-274"></span><span>  </span><span id="local-6989586621679445347"><span class="annot"><span class="annottext">toHeaders :: StartGameSessionPlacement -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-275"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StartGameSessionPlacement -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -670,9 +670,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-285"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-286"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-287"></span><span>
-</span><span id="line-288"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679444864"><span id="local-6989586621679444866"><span id="local-6989586621679444868"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement"><span class="hs-identifier hs-type">StartGameSessionPlacement</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-289"></span><span>  </span><span id="local-6989586621679444862"><span class="annot"><span class="annottext">toJSON :: StartGameSessionPlacement -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement%27"><span class="hs-identifier hs-type">StartGameSessionPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444853"><span id="local-6989586621679444854"><span id="local-6989586621679444855"><span id="local-6989586621679444856"><span id="local-6989586621679444857"><span id="local-6989586621679444858"><span id="local-6989586621679444859"><span id="local-6989586621679444860"><span class="annot"><span class="annottext">Natural
+</span><span id="line-288"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679445337"><span id="local-6989586621679445339"><span id="local-6989586621679445341"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement"><span class="hs-identifier hs-type">StartGameSessionPlacement</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-289"></span><span>  </span><span id="local-6989586621679445335"><span class="annot"><span class="annottext">toJSON :: StartGameSessionPlacement -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement%27"><span class="hs-identifier hs-type">StartGameSessionPlacement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679445326"><span id="local-6989586621679445327"><span id="local-6989586621679445328"><span id="local-6989586621679445329"><span id="local-6989586621679445330"><span id="local-6989586621679445331"><span id="local-6989586621679445332"><span id="local-6989586621679445333"><span class="annot"><span class="annottext">Natural
 Maybe [DesiredPlayerSession]
 Maybe [GameProperty]
 Maybe [PlayerLatency]
@@ -681,20 +681,20 @@ Text
 maximumPlayerSessionCount :: Natural
 gameSessionQueueName :: Text
 placementId :: Text
-playerLatencies :: Maybe [PlayerLatency]
 desiredPlayerSessions :: Maybe [DesiredPlayerSession]
-gameSessionName :: Maybe Text
 gameSessionData :: Maybe Text
+playerLatencies :: Maybe [PlayerLatency]
+gameSessionName :: Maybe Text
 gameProperties :: Maybe [GameProperty]
 $sel:maximumPlayerSessionCount:StartGameSessionPlacement' :: StartGameSessionPlacement -&gt; Natural
 $sel:gameSessionQueueName:StartGameSessionPlacement' :: StartGameSessionPlacement -&gt; Text
 $sel:placementId:StartGameSessionPlacement' :: StartGameSessionPlacement -&gt; Text
-$sel:playerLatencies:StartGameSessionPlacement' :: StartGameSessionPlacement -&gt; Maybe [PlayerLatency]
 $sel:desiredPlayerSessions:StartGameSessionPlacement' :: StartGameSessionPlacement -&gt; Maybe [DesiredPlayerSession]
-$sel:gameSessionName:StartGameSessionPlacement' :: StartGameSessionPlacement -&gt; Maybe Text
 $sel:gameSessionData:StartGameSessionPlacement' :: StartGameSessionPlacement -&gt; Maybe Text
+$sel:playerLatencies:StartGameSessionPlacement' :: StartGameSessionPlacement -&gt; Maybe [PlayerLatency]
+$sel:gameSessionName:StartGameSessionPlacement' :: StartGameSessionPlacement -&gt; Maybe Text
 $sel:gameProperties:StartGameSessionPlacement' :: StartGameSessionPlacement -&gt; Maybe [GameProperty]
-</span><a href="#local-6989586621679444853"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679445326"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-290"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-291"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -707,47 +707,47 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-293"></span><span>              </span><span class="annot"><span class="annottext">([GameProperty] -&gt; Pair) -&gt; Maybe [GameProperty] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [GameProperty]
-</span><a href="#local-6989586621679444860"><span class="hs-identifier hs-var">gameProperties</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679445333"><span class="hs-identifier hs-var">gameProperties</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-294"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;GameSessionData&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><span class="hs-string">&quot;GameSessionName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
 </span><span id="line-295"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679444859"><span class="hs-identifier hs-var">gameSessionData</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679445332"><span class="hs-identifier hs-var">gameSessionName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-296"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;GameSessionName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-297"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679444858"><span class="hs-identifier hs-var">gameSessionName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-298"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DesiredPlayerSessions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [DesiredPlayerSession] -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-299"></span><span>              </span><span class="annot"><span class="annottext">([DesiredPlayerSession] -&gt; Pair)
--&gt; Maybe [DesiredPlayerSession] -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [DesiredPlayerSession]
-</span><a href="#local-6989586621679444857"><span class="hs-identifier hs-var">desiredPlayerSessions</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-300"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PlayerLatencies&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [PlayerLatency] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-301"></span><span>              </span><span class="annot"><span class="annottext">([PlayerLatency] -&gt; Pair) -&gt; Maybe [PlayerLatency] -&gt; Maybe Pair
+</span><span id="line-297"></span><span>              </span><span class="annot"><span class="annottext">([PlayerLatency] -&gt; Pair) -&gt; Maybe [PlayerLatency] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PlayerLatency]
-</span><a href="#local-6989586621679444856"><span class="hs-identifier hs-var">playerLatencies</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679445331"><span class="hs-identifier hs-var">playerLatencies</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-298"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GameSessionData&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-299"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679445330"><span class="hs-identifier hs-var">gameSessionData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-300"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DesiredPlayerSessions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [DesiredPlayerSession] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-301"></span><span>              </span><span class="annot"><span class="annottext">([DesiredPlayerSession] -&gt; Pair)
+-&gt; Maybe [DesiredPlayerSession] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [DesiredPlayerSession]
+</span><a href="#local-6989586621679445329"><span class="hs-identifier hs-var">desiredPlayerSessions</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-302"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PlacementId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679444855"><span class="hs-identifier hs-var">placementId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679445328"><span class="hs-identifier hs-var">placementId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-303"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -756,7 +756,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-305"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679444854"><span class="hs-identifier hs-var">gameSessionQueueName</span></a></span><span>
+</span><a href="#local-6989586621679445327"><span class="hs-identifier hs-var">gameSessionQueueName</span></a></span><span>
 </span><span id="line-306"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-307"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -766,20 +766,20 @@ forall a. a -&gt; Maybe a
 </span><span id="line-309"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679444853"><span class="hs-identifier hs-var">maximumPlayerSessionCount</span></a></span><span>
+</span><a href="#local-6989586621679445326"><span class="hs-identifier hs-var">maximumPlayerSessionCount</span></a></span><span>
 </span><span id="line-310"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-311"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-312"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-313"></span><span>
 </span><span id="line-314"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement"><span class="hs-identifier hs-type">StartGameSessionPlacement</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-315"></span><span>  </span><span id="local-6989586621679444847"><span class="annot"><span class="annottext">toPath :: StartGameSessionPlacement -&gt; ByteString
+</span><span id="line-315"></span><span>  </span><span id="local-6989586621679445320"><span class="annot"><span class="annottext">toPath :: StartGameSessionPlacement -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StartGameSessionPlacement -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-316"></span><span>
 </span><span id="line-317"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacement"><span class="hs-identifier hs-type">StartGameSessionPlacement</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-318"></span><span>  </span><span id="local-6989586621679444843"><span class="annot"><span class="annottext">toQuery :: StartGameSessionPlacement -&gt; QueryString
+</span><span id="line-318"></span><span>  </span><span id="local-6989586621679445316"><span class="annot"><span class="annottext">toQuery :: StartGameSessionPlacement -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StartGameSessionPlacement -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -789,7 +789,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-320"></span><span class="hs-comment">-- | Represents the returned data in response to a request operation.</span><span>
 </span><span id="line-321"></span><span class="hs-comment">--</span><span>
 </span><span id="line-322"></span><span class="hs-comment">-- /See:/ 'newStartGameSessionPlacementResponse' smart constructor.</span><span>
-</span><span id="line-323"></span><span id="local-6989586621679444840"><span id="local-6989586621679444841"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartGameSessionPlacementResponse"><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacementResponse"><span class="hs-identifier hs-var">StartGameSessionPlacementResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartGameSessionPlacementResponse%27"><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacementResponse%27"><span class="hs-identifier hs-var">StartGameSessionPlacementResponse'</span></a></span></span><span>
+</span><span id="line-323"></span><span id="local-6989586621679445313"><span id="local-6989586621679445314"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartGameSessionPlacementResponse"><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacementResponse"><span class="hs-identifier hs-var">StartGameSessionPlacementResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartGameSessionPlacementResponse%27"><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacementResponse%27"><span class="hs-identifier hs-var">StartGameSessionPlacementResponse'</span></a></span></span><span>
 </span><span id="line-324"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Object that describes the newly created game session placement. This</span><span>
 </span><span id="line-325"></span><span>    </span><span class="hs-comment">-- object includes all the information provided in the request, as well as</span><span>
 </span><span id="line-326"></span><span>    </span><span class="hs-comment">-- start\/end time stamps and placement status.</span><span>
@@ -799,7 +799,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-329"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStartGameSessionPlacementResponse%27"><span class="annot"><span class="annottext">StartGameSessionPlacementResponse -&gt; Int
 </span><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#%24sel%3AhttpStatus%3AStartGameSessionPlacementResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-330"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-331"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679444834"><span id="local-6989586621679444836"><span class="annot"><span class="annottext">StartGameSessionPlacementResponse
+</span><span id="line-331"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679445307"><span id="local-6989586621679445309"><span class="annot"><span class="annottext">StartGameSessionPlacementResponse
 -&gt; StartGameSessionPlacementResponse -&gt; Bool
 (StartGameSessionPlacementResponse
  -&gt; StartGameSessionPlacementResponse -&gt; Bool)
@@ -815,7 +815,7 @@ $c/= :: StartGameSessionPlacementResponse
 -&gt; StartGameSessionPlacementResponse -&gt; Bool
 $c== :: StartGameSessionPlacementResponse
 -&gt; StartGameSessionPlacementResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679444826"><span id="local-6989586621679444828"><span id="local-6989586621679444830"><span id="local-6989586621679444832"><span class="annot"><span class="annottext">ReadPrec [StartGameSessionPlacementResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679445299"><span id="local-6989586621679445301"><span id="local-6989586621679445303"><span id="local-6989586621679445305"><span class="annot"><span class="annottext">ReadPrec [StartGameSessionPlacementResponse]
 ReadPrec StartGameSessionPlacementResponse
 Int -&gt; ReadS StartGameSessionPlacementResponse
 ReadS [StartGameSessionPlacementResponse]
@@ -835,7 +835,7 @@ readList :: ReadS [StartGameSessionPlacementResponse]
 $creadList :: ReadS [StartGameSessionPlacementResponse]
 readsPrec :: Int -&gt; ReadS StartGameSessionPlacementResponse
 $creadsPrec :: Int -&gt; ReadS StartGameSessionPlacementResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679444820"><span id="local-6989586621679444822"><span id="local-6989586621679444824"><span class="annot"><span class="annottext">Int -&gt; StartGameSessionPlacementResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679445293"><span id="local-6989586621679445295"><span id="local-6989586621679445297"><span class="annot"><span class="annottext">Int -&gt; StartGameSessionPlacementResponse -&gt; ShowS
 [StartGameSessionPlacementResponse] -&gt; ShowS
 StartGameSessionPlacementResponse -&gt; String
 (Int -&gt; StartGameSessionPlacementResponse -&gt; ShowS)
@@ -891,8 +891,8 @@ StartGameSessionPlacementResponse
 </span><span id="line-348"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-349"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacementResponse"><span class="hs-identifier hs-type">StartGameSessionPlacementResponse</span></a></span><span>
 </span><span id="line-350"></span><span id="newStartGameSessionPlacementResponse"><span class="annot"><span class="annottext">newStartGameSessionPlacementResponse :: Int -&gt; StartGameSessionPlacementResponse
-</span><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#newStartGameSessionPlacementResponse"><span class="hs-identifier hs-var hs-var">newStartGameSessionPlacementResponse</span></a></span></span><span> </span><span id="local-6989586621679444817"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679444817"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#newStartGameSessionPlacementResponse"><span class="hs-identifier hs-var hs-var">newStartGameSessionPlacementResponse</span></a></span></span><span> </span><span id="local-6989586621679445290"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679445290"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-351"></span><span>  </span><span class="annot"><span class="annottext">StartGameSessionPlacementResponse' :: Maybe GameSessionPlacement
 -&gt; Int -&gt; StartGameSessionPlacementResponse
 </span><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacementResponse%27"><span class="hs-identifier hs-type">StartGameSessionPlacementResponse'</span></a></span><span>
@@ -903,7 +903,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-354"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StartGameSessionPlacementResponse' :: Int
 </span><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#%24sel%3AhttpStatus%3AStartGameSessionPlacementResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679444817"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679445290"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-355"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-356"></span><span>
 </span><span id="line-357"></span><span class="hs-comment">-- | Object that describes the newly created game session placement. This</span><span>
@@ -922,16 +922,16 @@ forall a. Maybe a
      (Maybe GameSessionPlacement)
      (Maybe GameSessionPlacement)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacementResponse%27"><span class="hs-identifier hs-type">StartGameSessionPlacementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444816"><span class="annot"><span class="annottext">Maybe GameSessionPlacement
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacementResponse%27"><span class="hs-identifier hs-type">StartGameSessionPlacementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679445289"><span class="annot"><span class="annottext">Maybe GameSessionPlacement
 gameSessionPlacement :: Maybe GameSessionPlacement
 $sel:gameSessionPlacement:StartGameSessionPlacementResponse' :: StartGameSessionPlacementResponse -&gt; Maybe GameSessionPlacement
-</span><a href="#local-6989586621679444816"><span class="hs-identifier hs-var hs-var">gameSessionPlacement</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GameSessionPlacement
-</span><a href="#local-6989586621679444816"><span class="hs-identifier hs-var">gameSessionPlacement</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444815"><span class="annot"><span class="annottext">s :: StartGameSessionPlacementResponse
-</span><a href="#local-6989586621679444815"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacementResponse%27"><span class="hs-identifier hs-type">StartGameSessionPlacementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444814"><span class="annot"><span class="annottext">Maybe GameSessionPlacement
-</span><a href="#local-6989586621679444814"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartGameSessionPlacementResponse
-</span><a href="#local-6989586621679444815"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameSessionPlacement:StartGameSessionPlacementResponse' :: Maybe GameSessionPlacement
+</span><a href="#local-6989586621679445289"><span class="hs-identifier hs-var hs-var">gameSessionPlacement</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GameSessionPlacement
+</span><a href="#local-6989586621679445289"><span class="hs-identifier hs-var">gameSessionPlacement</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679445288"><span class="annot"><span class="annottext">s :: StartGameSessionPlacementResponse
+</span><a href="#local-6989586621679445288"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacementResponse%27"><span class="hs-identifier hs-type">StartGameSessionPlacementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679445287"><span class="annot"><span class="annottext">Maybe GameSessionPlacement
+</span><a href="#local-6989586621679445287"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartGameSessionPlacementResponse
+</span><a href="#local-6989586621679445288"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameSessionPlacement:StartGameSessionPlacementResponse' :: Maybe GameSessionPlacement
 </span><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#%24sel%3AgameSessionPlacement%3AStartGameSessionPlacementResponse%27"><span class="hs-identifier hs-var">gameSessionPlacement</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GameSessionPlacement
-</span><a href="#local-6989586621679444814"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacementResponse"><span class="hs-identifier hs-type">StartGameSessionPlacementResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679445287"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacementResponse"><span class="hs-identifier hs-type">StartGameSessionPlacementResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-362"></span><span>
 </span><span id="line-363"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-364"></span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#startGameSessionPlacementResponse_httpStatus"><span class="hs-identifier hs-type">startGameSessionPlacementResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacementResponse"><span class="hs-identifier hs-type">StartGameSessionPlacementResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -947,18 +947,18 @@ $sel:gameSessionPlacement:StartGameSessionPlacementResponse' :: StartGameSession
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacementResponse%27"><span class="hs-identifier hs-type">StartGameSessionPlacementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444813"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacementResponse%27"><span class="hs-identifier hs-type">StartGameSessionPlacementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679445286"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:StartGameSessionPlacementResponse' :: StartGameSessionPlacementResponse -&gt; Int
-</span><a href="#local-6989586621679444813"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679444813"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444812"><span class="annot"><span class="annottext">s :: StartGameSessionPlacementResponse
-</span><a href="#local-6989586621679444812"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacementResponse%27"><span class="hs-identifier hs-type">StartGameSessionPlacementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444811"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679444811"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartGameSessionPlacementResponse
-</span><a href="#local-6989586621679444812"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartGameSessionPlacementResponse' :: Int
+</span><a href="#local-6989586621679445286"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679445286"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679445285"><span class="annot"><span class="annottext">s :: StartGameSessionPlacementResponse
+</span><a href="#local-6989586621679445285"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacementResponse%27"><span class="hs-identifier hs-type">StartGameSessionPlacementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679445284"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679445284"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartGameSessionPlacementResponse
+</span><a href="#local-6989586621679445285"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartGameSessionPlacementResponse' :: Int
 </span><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#%24sel%3AhttpStatus%3AStartGameSessionPlacementResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679444811"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacementResponse"><span class="hs-identifier hs-type">StartGameSessionPlacementResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679445284"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacementResponse"><span class="hs-identifier hs-type">StartGameSessionPlacementResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-366"></span><span>
 </span><span id="line-367"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-368"></span><span>  </span><span id="local-6989586621679444809"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-368"></span><span>  </span><span id="local-6989586621679445282"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-369"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.StartGameSessionPlacement.html#StartGameSessionPlacementResponse"><span class="hs-identifier hs-type">StartGameSessionPlacementResponse</span></a></span></span><span>
 </span><span id="line-370"></span></pre></body></html>

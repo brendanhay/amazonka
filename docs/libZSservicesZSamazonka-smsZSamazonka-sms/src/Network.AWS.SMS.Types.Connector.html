@@ -29,39 +29,39 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Represents a connector.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newConnector' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679249021"><span id="local-6989586621679249022"></span></span><span class="hs-keyword">data</span><span> </span><span id="Connector"><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector"><span class="hs-identifier hs-var">Connector</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Connector%27"><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector%27"><span class="hs-identifier hs-var">Connector'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679249150"><span id="local-6989586621679249151"></span></span><span class="hs-keyword">data</span><span> </span><span id="Connector"><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector"><span class="hs-identifier hs-var">Connector</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Connector%27"><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector%27"><span class="hs-identifier hs-var">Connector'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the connector.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Astatus%3AConnector%27"><span class="annot"><span class="annottext">Connector -&gt; Maybe ConnectorStatus
 </span><a href="Network.AWS.SMS.Types.Connector.html#%24sel%3Astatus%3AConnector%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ConnectorStatus.html#ConnectorStatus"><span class="hs-identifier hs-type">ConnectorStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The time the connector was associated.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AassociatedOn%3AConnector%27"><span class="annot"><span class="annottext">Connector -&gt; Maybe POSIX
-</span><a href="Network.AWS.SMS.Types.Connector.html#%24sel%3AassociatedOn%3AConnector%27"><span class="hs-identifier hs-var hs-var">associatedOn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The MAC address of the connector.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AmacAddress%3AConnector%27"><span class="annot"><span class="annottext">Connector -&gt; Maybe Text
-</span><a href="Network.AWS.SMS.Types.Connector.html#%24sel%3AmacAddress%3AConnector%27"><span class="hs-identifier hs-var hs-var">macAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The ID of the connector.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AconnectorId%3AConnector%27"><span class="annot"><span class="annottext">Connector -&gt; Maybe Text
-</span><a href="Network.AWS.SMS.Types.Connector.html#%24sel%3AconnectorId%3AConnector%27"><span class="hs-identifier hs-var hs-var">connectorId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The ID of the VM manager.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AvmManagerId%3AConnector%27"><span class="annot"><span class="annottext">Connector -&gt; Maybe Text
-</span><a href="Network.AWS.SMS.Types.Connector.html#%24sel%3AvmManagerId%3AConnector%27"><span class="hs-identifier hs-var hs-var">vmManagerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The connector version.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3Aversion%3AConnector%27"><span class="annot"><span class="annottext">Connector -&gt; Maybe Text
-</span><a href="Network.AWS.SMS.Types.Connector.html#%24sel%3Aversion%3AConnector%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The name of the VM manager.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3AvmManagerName%3AConnector%27"><span class="annot"><span class="annottext">Connector -&gt; Maybe Text
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The name of the VM manager.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AvmManagerName%3AConnector%27"><span class="annot"><span class="annottext">Connector -&gt; Maybe Text
 </span><a href="Network.AWS.SMS.Types.Connector.html#%24sel%3AvmManagerName%3AConnector%27"><span class="hs-identifier hs-var hs-var">vmManagerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The IP address of the connector.</span><span>
-</span><span id="line-48"></span><span>    </span><span id="%24sel%3AipAddress%3AConnector%27"><span class="annot"><span class="annottext">Connector -&gt; Maybe Text
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The IP address of the connector.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AipAddress%3AConnector%27"><span class="annot"><span class="annottext">Connector -&gt; Maybe Text
 </span><a href="Network.AWS.SMS.Types.Connector.html#%24sel%3AipAddress%3AConnector%27"><span class="hs-identifier hs-var hs-var">ipAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The VM management product.</span><span>
-</span><span id="line-50"></span><span>    </span><span id="%24sel%3AvmManagerType%3AConnector%27"><span class="annot"><span class="annottext">Connector -&gt; Maybe VmManagerType
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The ID of the VM manager.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AvmManagerId%3AConnector%27"><span class="annot"><span class="annottext">Connector -&gt; Maybe Text
+</span><a href="Network.AWS.SMS.Types.Connector.html#%24sel%3AvmManagerId%3AConnector%27"><span class="hs-identifier hs-var hs-var">vmManagerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The VM management product.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AvmManagerType%3AConnector%27"><span class="annot"><span class="annottext">Connector -&gt; Maybe VmManagerType
 </span><a href="Network.AWS.SMS.Types.Connector.html#%24sel%3AvmManagerType%3AConnector%27"><span class="hs-identifier hs-var hs-var">vmManagerType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.VmManagerType.html#VmManagerType"><span class="hs-identifier hs-type">VmManagerType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The ID of the connector.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AconnectorId%3AConnector%27"><span class="annot"><span class="annottext">Connector -&gt; Maybe Text
+</span><a href="Network.AWS.SMS.Types.Connector.html#%24sel%3AconnectorId%3AConnector%27"><span class="hs-identifier hs-var hs-var">connectorId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The time the connector was associated.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AassociatedOn%3AConnector%27"><span class="annot"><span class="annottext">Connector -&gt; Maybe POSIX
+</span><a href="Network.AWS.SMS.Types.Connector.html#%24sel%3AassociatedOn%3AConnector%27"><span class="hs-identifier hs-var hs-var">associatedOn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The MAC address of the connector.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AmacAddress%3AConnector%27"><span class="annot"><span class="annottext">Connector -&gt; Maybe Text
+</span><a href="Network.AWS.SMS.Types.Connector.html#%24sel%3AmacAddress%3AConnector%27"><span class="hs-identifier hs-var hs-var">macAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The connector version.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3Aversion%3AConnector%27"><span class="annot"><span class="annottext">Connector -&gt; Maybe Text
+</span><a href="Network.AWS.SMS.Types.Connector.html#%24sel%3Aversion%3AConnector%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The capabilities of the connector.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AcapabilityList%3AConnector%27"><span class="annot"><span class="annottext">Connector -&gt; Maybe [ConnectorCapability]
 </span><a href="Network.AWS.SMS.Types.Connector.html#%24sel%3AcapabilityList%3AConnector%27"><span class="hs-identifier hs-var hs-var">capabilityList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SMS.Types.ConnectorCapability.html#ConnectorCapability"><span class="hs-identifier hs-type">ConnectorCapability</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679249006"><span id="local-6989586621679249008"><span class="annot"><span class="annottext">Connector -&gt; Connector -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679249135"><span id="local-6989586621679249137"><span class="annot"><span class="annottext">Connector -&gt; Connector -&gt; Bool
 (Connector -&gt; Connector -&gt; Bool)
 -&gt; (Connector -&gt; Connector -&gt; Bool) -&gt; Eq Connector
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Connector -&gt; Connector -&gt; Bool
 == :: Connector -&gt; Connector -&gt; Bool
 $c== :: Connector -&gt; Connector -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248997"><span id="local-6989586621679248999"><span id="local-6989586621679249001"><span id="local-6989586621679249003"><span class="annot"><span class="annottext">ReadPrec [Connector]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249126"><span id="local-6989586621679249128"><span id="local-6989586621679249130"><span id="local-6989586621679249132"><span class="annot"><span class="annottext">ReadPrec [Connector]
 ReadPrec Connector
 Int -&gt; ReadS Connector
 ReadS [Connector]
@@ -89,7 +89,7 @@ readList :: ReadS [Connector]
 $creadList :: ReadS [Connector]
 readsPrec :: Int -&gt; ReadS Connector
 $creadsPrec :: Int -&gt; ReadS Connector
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248990"><span id="local-6989586621679248992"><span id="local-6989586621679248994"><span class="annot"><span class="annottext">Int -&gt; Connector -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249119"><span id="local-6989586621679249121"><span id="local-6989586621679249123"><span class="annot"><span class="annottext">Int -&gt; Connector -&gt; ShowS
 [Connector] -&gt; ShowS
 Connector -&gt; String
 (Int -&gt; Connector -&gt; ShowS)
@@ -124,21 +124,21 @@ $cfrom :: forall x. Connector -&gt; Rep Connector x
 </span><span id="line-63"></span><span class="hs-comment">--</span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- 'status', 'connector_status' - The status of the connector.</span><span>
 </span><span id="line-65"></span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- 'associatedOn', 'connector_associatedOn' - The time the connector was associated.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'vmManagerName', 'connector_vmManagerName' - The name of the VM manager.</span><span>
 </span><span id="line-67"></span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- 'macAddress', 'connector_macAddress' - The MAC address of the connector.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'ipAddress', 'connector_ipAddress' - The IP address of the connector.</span><span>
 </span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'connectorId', 'connector_connectorId' - The ID of the connector.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'vmManagerId', 'connector_vmManagerId' - The ID of the VM manager.</span><span>
 </span><span id="line-71"></span><span class="hs-comment">--</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- 'vmManagerId', 'connector_vmManagerId' - The ID of the VM manager.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'vmManagerType', 'connector_vmManagerType' - The VM management product.</span><span>
 </span><span id="line-73"></span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- 'version', 'connector_version' - The connector version.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'connectorId', 'connector_connectorId' - The ID of the connector.</span><span>
 </span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 'vmManagerName', 'connector_vmManagerName' - The name of the VM manager.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'associatedOn', 'connector_associatedOn' - The time the connector was associated.</span><span>
 </span><span id="line-77"></span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- 'ipAddress', 'connector_ipAddress' - The IP address of the connector.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'macAddress', 'connector_macAddress' - The MAC address of the connector.</span><span>
 </span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'vmManagerType', 'connector_vmManagerType' - The VM management product.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'version', 'connector_version' - The connector version.</span><span>
 </span><span id="line-81"></span><span class="hs-comment">--</span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- 'capabilityList', 'connector_capabilityList' - The capabilities of the connector.</span><span>
 </span><span id="line-83"></span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#newConnector"><span class="hs-identifier hs-type">newConnector</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -146,14 +146,14 @@ $cfrom :: forall x. Connector -&gt; Rep Connector x
 </span><span id="line-85"></span><span id="newConnector"><span class="annot"><span class="annottext">newConnector :: Connector
 </span><a href="Network.AWS.SMS.Types.Connector.html#newConnector"><span class="hs-identifier hs-var hs-var">newConnector</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>  </span><span class="annot"><span class="annottext">Connector' :: Maybe ConnectorStatus
--&gt; Maybe POSIX
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe VmManagerType
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe [ConnectorCapability]
 -&gt; Connector
 </span><a href="Network.AWS.SMS.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span>
@@ -161,36 +161,36 @@ $cfrom :: forall x. Connector -&gt; Rep Connector x
 </span><a href="Network.AWS.SMS.Types.Connector.html#%24sel%3Astatus%3AConnector%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectorStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:associatedOn:Connector' :: Maybe POSIX
-</span><a href="Network.AWS.SMS.Types.Connector.html#%24sel%3AassociatedOn%3AConnector%27"><span class="hs-identifier hs-var">associatedOn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:macAddress:Connector' :: Maybe Text
-</span><a href="Network.AWS.SMS.Types.Connector.html#%24sel%3AmacAddress%3AConnector%27"><span class="hs-identifier hs-var">macAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectorId:Connector' :: Maybe Text
-</span><a href="Network.AWS.SMS.Types.Connector.html#%24sel%3AconnectorId%3AConnector%27"><span class="hs-identifier hs-var">connectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:vmManagerId:Connector' :: Maybe Text
-</span><a href="Network.AWS.SMS.Types.Connector.html#%24sel%3AvmManagerId%3AConnector%27"><span class="hs-identifier hs-var">vmManagerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:version:Connector' :: Maybe Text
-</span><a href="Network.AWS.SMS.Types.Connector.html#%24sel%3Aversion%3AConnector%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:vmManagerName:Connector' :: Maybe Text
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:vmManagerName:Connector' :: Maybe Text
 </span><a href="Network.AWS.SMS.Types.Connector.html#%24sel%3AvmManagerName%3AConnector%27"><span class="hs-identifier hs-var">vmManagerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:ipAddress:Connector' :: Maybe Text
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:ipAddress:Connector' :: Maybe Text
 </span><a href="Network.AWS.SMS.Types.Connector.html#%24sel%3AipAddress%3AConnector%27"><span class="hs-identifier hs-var">ipAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:vmManagerType:Connector' :: Maybe VmManagerType
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:vmManagerId:Connector' :: Maybe Text
+</span><a href="Network.AWS.SMS.Types.Connector.html#%24sel%3AvmManagerId%3AConnector%27"><span class="hs-identifier hs-var">vmManagerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:vmManagerType:Connector' :: Maybe VmManagerType
 </span><a href="Network.AWS.SMS.Types.Connector.html#%24sel%3AvmManagerType%3AConnector%27"><span class="hs-identifier hs-var">vmManagerType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VmManagerType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectorId:Connector' :: Maybe Text
+</span><a href="Network.AWS.SMS.Types.Connector.html#%24sel%3AconnectorId%3AConnector%27"><span class="hs-identifier hs-var">connectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:associatedOn:Connector' :: Maybe POSIX
+</span><a href="Network.AWS.SMS.Types.Connector.html#%24sel%3AassociatedOn%3AConnector%27"><span class="hs-identifier hs-var">associatedOn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:macAddress:Connector' :: Maybe Text
+</span><a href="Network.AWS.SMS.Types.Connector.html#%24sel%3AmacAddress%3AConnector%27"><span class="hs-identifier hs-var">macAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:version:Connector' :: Maybe Text
+</span><a href="Network.AWS.SMS.Types.Connector.html#%24sel%3Aversion%3AConnector%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:capabilityList:Connector' :: Maybe [ConnectorCapability]
@@ -208,34 +208,126 @@ forall a. Maybe a
 -&gt; Lens
      Connector Connector (Maybe ConnectorStatus) (Maybe ConnectorStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248981"><span class="annot"><span class="annottext">Maybe ConnectorStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249110"><span class="annot"><span class="annottext">Maybe ConnectorStatus
 status :: Maybe ConnectorStatus
 $sel:status:Connector' :: Connector -&gt; Maybe ConnectorStatus
-</span><a href="#local-6989586621679248981"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectorStatus
-</span><a href="#local-6989586621679248981"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248980"><span class="annot"><span class="annottext">s :: Connector
-</span><a href="#local-6989586621679248980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248979"><span class="annot"><span class="annottext">Maybe ConnectorStatus
-</span><a href="#local-6989586621679248979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Connector
-</span><a href="#local-6989586621679248980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:Connector' :: Maybe ConnectorStatus
+</span><a href="#local-6989586621679249110"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectorStatus
+</span><a href="#local-6989586621679249110"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249109"><span class="annot"><span class="annottext">s :: Connector
+</span><a href="#local-6989586621679249109"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249108"><span class="annot"><span class="annottext">Maybe ConnectorStatus
+</span><a href="#local-6989586621679249108"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Connector
+</span><a href="#local-6989586621679249109"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:Connector' :: Maybe ConnectorStatus
 </span><a href="Network.AWS.SMS.Types.Connector.html#%24sel%3Astatus%3AConnector%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConnectorStatus
-</span><a href="#local-6989586621679248979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249108"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- | The time the connector was associated.</span><span>
-</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#connector_associatedOn"><span class="hs-identifier hs-type">connector_associatedOn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span id="connector_associatedOn"><span class="annot"><span class="annottext">connector_associatedOn :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Connector -&gt; f Connector
+</span><span id="line-103"></span><span class="hs-comment">-- | The name of the VM manager.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#connector_vmManagerName"><span class="hs-identifier hs-type">connector_vmManagerName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="connector_vmManagerName"><span class="annot"><span class="annottext">connector_vmManagerName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Connector -&gt; f Connector
+</span><a href="Network.AWS.SMS.Types.Connector.html#connector_vmManagerName"><span class="hs-identifier hs-var hs-var">connector_vmManagerName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Connector -&gt; Maybe Text)
+-&gt; (Connector -&gt; Maybe Text -&gt; Connector)
+-&gt; Lens Connector Connector (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249106"><span class="annot"><span class="annottext">Maybe Text
+vmManagerName :: Maybe Text
+$sel:vmManagerName:Connector' :: Connector -&gt; Maybe Text
+</span><a href="#local-6989586621679249106"><span class="hs-identifier hs-var hs-var">vmManagerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249106"><span class="hs-identifier hs-var">vmManagerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249105"><span class="annot"><span class="annottext">s :: Connector
+</span><a href="#local-6989586621679249105"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249104"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249104"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Connector
+</span><a href="#local-6989586621679249105"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vmManagerName:Connector' :: Maybe Text
+</span><a href="Network.AWS.SMS.Types.Connector.html#%24sel%3AvmManagerName%3AConnector%27"><span class="hs-identifier hs-var">vmManagerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249104"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The IP address of the connector.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#connector_ipAddress"><span class="hs-identifier hs-type">connector_ipAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="connector_ipAddress"><span class="annot"><span class="annottext">connector_ipAddress :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Connector -&gt; f Connector
+</span><a href="Network.AWS.SMS.Types.Connector.html#connector_ipAddress"><span class="hs-identifier hs-var hs-var">connector_ipAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Connector -&gt; Maybe Text)
+-&gt; (Connector -&gt; Maybe Text -&gt; Connector)
+-&gt; Lens Connector Connector (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249102"><span class="annot"><span class="annottext">Maybe Text
+ipAddress :: Maybe Text
+$sel:ipAddress:Connector' :: Connector -&gt; Maybe Text
+</span><a href="#local-6989586621679249102"><span class="hs-identifier hs-var hs-var">ipAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249102"><span class="hs-identifier hs-var">ipAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249101"><span class="annot"><span class="annottext">s :: Connector
+</span><a href="#local-6989586621679249101"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249100"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249100"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Connector
+</span><a href="#local-6989586621679249101"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipAddress:Connector' :: Maybe Text
+</span><a href="Network.AWS.SMS.Types.Connector.html#%24sel%3AipAddress%3AConnector%27"><span class="hs-identifier hs-var">ipAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249100"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The ID of the VM manager.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#connector_vmManagerId"><span class="hs-identifier hs-type">connector_vmManagerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="connector_vmManagerId"><span class="annot"><span class="annottext">connector_vmManagerId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Connector -&gt; f Connector
+</span><a href="Network.AWS.SMS.Types.Connector.html#connector_vmManagerId"><span class="hs-identifier hs-var hs-var">connector_vmManagerId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Connector -&gt; Maybe Text)
+-&gt; (Connector -&gt; Maybe Text -&gt; Connector)
+-&gt; Lens Connector Connector (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249098"><span class="annot"><span class="annottext">Maybe Text
+vmManagerId :: Maybe Text
+$sel:vmManagerId:Connector' :: Connector -&gt; Maybe Text
+</span><a href="#local-6989586621679249098"><span class="hs-identifier hs-var hs-var">vmManagerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249098"><span class="hs-identifier hs-var">vmManagerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249097"><span class="annot"><span class="annottext">s :: Connector
+</span><a href="#local-6989586621679249097"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249096"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249096"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Connector
+</span><a href="#local-6989586621679249097"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vmManagerId:Connector' :: Maybe Text
+</span><a href="Network.AWS.SMS.Types.Connector.html#%24sel%3AvmManagerId%3AConnector%27"><span class="hs-identifier hs-var">vmManagerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249096"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The VM management product.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#connector_vmManagerType"><span class="hs-identifier hs-type">connector_vmManagerType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.VmManagerType.html#VmManagerType"><span class="hs-identifier hs-type">VmManagerType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="connector_vmManagerType"><span class="annot"><span class="annottext">connector_vmManagerType :: (Maybe VmManagerType -&gt; f (Maybe VmManagerType))
+-&gt; Connector -&gt; f Connector
+</span><a href="Network.AWS.SMS.Types.Connector.html#connector_vmManagerType"><span class="hs-identifier hs-var hs-var">connector_vmManagerType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Connector -&gt; Maybe VmManagerType)
+-&gt; (Connector -&gt; Maybe VmManagerType -&gt; Connector)
+-&gt; Lens
+     Connector Connector (Maybe VmManagerType) (Maybe VmManagerType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249094"><span class="annot"><span class="annottext">Maybe VmManagerType
+vmManagerType :: Maybe VmManagerType
+$sel:vmManagerType:Connector' :: Connector -&gt; Maybe VmManagerType
+</span><a href="#local-6989586621679249094"><span class="hs-identifier hs-var hs-var">vmManagerType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VmManagerType
+</span><a href="#local-6989586621679249094"><span class="hs-identifier hs-var">vmManagerType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249093"><span class="annot"><span class="annottext">s :: Connector
+</span><a href="#local-6989586621679249093"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249092"><span class="annot"><span class="annottext">Maybe VmManagerType
+</span><a href="#local-6989586621679249092"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Connector
+</span><a href="#local-6989586621679249093"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vmManagerType:Connector' :: Maybe VmManagerType
+</span><a href="Network.AWS.SMS.Types.Connector.html#%24sel%3AvmManagerType%3AConnector%27"><span class="hs-identifier hs-var">vmManagerType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VmManagerType
+</span><a href="#local-6989586621679249092"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The ID of the connector.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#connector_connectorId"><span class="hs-identifier hs-type">connector_connectorId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="connector_connectorId"><span class="annot"><span class="annottext">connector_connectorId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Connector -&gt; f Connector
+</span><a href="Network.AWS.SMS.Types.Connector.html#connector_connectorId"><span class="hs-identifier hs-var hs-var">connector_connectorId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Connector -&gt; Maybe Text)
+-&gt; (Connector -&gt; Maybe Text -&gt; Connector)
+-&gt; Lens Connector Connector (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249090"><span class="annot"><span class="annottext">Maybe Text
+connectorId :: Maybe Text
+$sel:connectorId:Connector' :: Connector -&gt; Maybe Text
+</span><a href="#local-6989586621679249090"><span class="hs-identifier hs-var hs-var">connectorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249090"><span class="hs-identifier hs-var">connectorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249089"><span class="annot"><span class="annottext">s :: Connector
+</span><a href="#local-6989586621679249089"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249088"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249088"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Connector
+</span><a href="#local-6989586621679249089"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectorId:Connector' :: Maybe Text
+</span><a href="Network.AWS.SMS.Types.Connector.html#%24sel%3AconnectorId%3AConnector%27"><span class="hs-identifier hs-var">connectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249088"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The time the connector was associated.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#connector_associatedOn"><span class="hs-identifier hs-type">connector_associatedOn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="connector_associatedOn"><span class="annot"><span class="annottext">connector_associatedOn :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Connector -&gt; f Connector
 </span><a href="Network.AWS.SMS.Types.Connector.html#connector_associatedOn"><span class="hs-identifier hs-var hs-var">connector_associatedOn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Connector -&gt; Maybe POSIX)
 -&gt; (Connector -&gt; Maybe POSIX -&gt; Connector)
 -&gt; Lens Connector Connector (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248977"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249086"><span class="annot"><span class="annottext">Maybe POSIX
 associatedOn :: Maybe POSIX
 $sel:associatedOn:Connector' :: Connector -&gt; Maybe POSIX
-</span><a href="#local-6989586621679248977"><span class="hs-identifier hs-var hs-var">associatedOn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679248977"><span class="hs-identifier hs-var">associatedOn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248976"><span class="annot"><span class="annottext">s :: Connector
-</span><a href="#local-6989586621679248976"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248975"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679248975"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Connector
-</span><a href="#local-6989586621679248976"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associatedOn:Connector' :: Maybe POSIX
+</span><a href="#local-6989586621679249086"><span class="hs-identifier hs-var hs-var">associatedOn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679249086"><span class="hs-identifier hs-var">associatedOn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249085"><span class="annot"><span class="annottext">s :: Connector
+</span><a href="#local-6989586621679249085"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249084"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679249084"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Connector
+</span><a href="#local-6989586621679249085"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associatedOn:Connector' :: Maybe POSIX
 </span><a href="Network.AWS.SMS.Types.Connector.html#%24sel%3AassociatedOn%3AConnector%27"><span class="hs-identifier hs-var">associatedOn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679248975"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Connector -&gt; f Connector)
+</span><a href="#local-6989586621679249084"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Connector -&gt; f Connector)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -250,134 +342,42 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- | The MAC address of the connector.</span><span>
-</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#connector_macAddress"><span class="hs-identifier hs-type">connector_macAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span id="connector_macAddress"><span class="annot"><span class="annottext">connector_macAddress :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Connector -&gt; f Connector
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The MAC address of the connector.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#connector_macAddress"><span class="hs-identifier hs-type">connector_macAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="connector_macAddress"><span class="annot"><span class="annottext">connector_macAddress :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Connector -&gt; f Connector
 </span><a href="Network.AWS.SMS.Types.Connector.html#connector_macAddress"><span class="hs-identifier hs-var hs-var">connector_macAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Connector -&gt; Maybe Text)
 -&gt; (Connector -&gt; Maybe Text -&gt; Connector)
 -&gt; Lens Connector Connector (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248970"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249079"><span class="annot"><span class="annottext">Maybe Text
 macAddress :: Maybe Text
 $sel:macAddress:Connector' :: Connector -&gt; Maybe Text
-</span><a href="#local-6989586621679248970"><span class="hs-identifier hs-var hs-var">macAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248970"><span class="hs-identifier hs-var">macAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248969"><span class="annot"><span class="annottext">s :: Connector
-</span><a href="#local-6989586621679248969"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248968"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248968"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Connector
-</span><a href="#local-6989586621679248969"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:macAddress:Connector' :: Maybe Text
+</span><a href="#local-6989586621679249079"><span class="hs-identifier hs-var hs-var">macAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249079"><span class="hs-identifier hs-var">macAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249078"><span class="annot"><span class="annottext">s :: Connector
+</span><a href="#local-6989586621679249078"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249077"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249077"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Connector
+</span><a href="#local-6989586621679249078"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:macAddress:Connector' :: Maybe Text
 </span><a href="Network.AWS.SMS.Types.Connector.html#%24sel%3AmacAddress%3AConnector%27"><span class="hs-identifier hs-var">macAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248968"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- | The ID of the connector.</span><span>
-</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#connector_connectorId"><span class="hs-identifier hs-type">connector_connectorId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span id="connector_connectorId"><span class="annot"><span class="annottext">connector_connectorId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Connector -&gt; f Connector
-</span><a href="Network.AWS.SMS.Types.Connector.html#connector_connectorId"><span class="hs-identifier hs-var hs-var">connector_connectorId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Connector -&gt; Maybe Text)
--&gt; (Connector -&gt; Maybe Text -&gt; Connector)
--&gt; Lens Connector Connector (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248966"><span class="annot"><span class="annottext">Maybe Text
-connectorId :: Maybe Text
-$sel:connectorId:Connector' :: Connector -&gt; Maybe Text
-</span><a href="#local-6989586621679248966"><span class="hs-identifier hs-var hs-var">connectorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248966"><span class="hs-identifier hs-var">connectorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248965"><span class="annot"><span class="annottext">s :: Connector
-</span><a href="#local-6989586621679248965"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248964"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248964"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Connector
-</span><a href="#local-6989586621679248965"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectorId:Connector' :: Maybe Text
-</span><a href="Network.AWS.SMS.Types.Connector.html#%24sel%3AconnectorId%3AConnector%27"><span class="hs-identifier hs-var">connectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248964"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- | The ID of the VM manager.</span><span>
-</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#connector_vmManagerId"><span class="hs-identifier hs-type">connector_vmManagerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span id="connector_vmManagerId"><span class="annot"><span class="annottext">connector_vmManagerId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Connector -&gt; f Connector
-</span><a href="Network.AWS.SMS.Types.Connector.html#connector_vmManagerId"><span class="hs-identifier hs-var hs-var">connector_vmManagerId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Connector -&gt; Maybe Text)
--&gt; (Connector -&gt; Maybe Text -&gt; Connector)
--&gt; Lens Connector Connector (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248962"><span class="annot"><span class="annottext">Maybe Text
-vmManagerId :: Maybe Text
-$sel:vmManagerId:Connector' :: Connector -&gt; Maybe Text
-</span><a href="#local-6989586621679248962"><span class="hs-identifier hs-var hs-var">vmManagerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248962"><span class="hs-identifier hs-var">vmManagerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248961"><span class="annot"><span class="annottext">s :: Connector
-</span><a href="#local-6989586621679248961"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248960"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248960"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Connector
-</span><a href="#local-6989586621679248961"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vmManagerId:Connector' :: Maybe Text
-</span><a href="Network.AWS.SMS.Types.Connector.html#%24sel%3AvmManagerId%3AConnector%27"><span class="hs-identifier hs-var">vmManagerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248960"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- | The connector version.</span><span>
-</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#connector_version"><span class="hs-identifier hs-type">connector_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span id="connector_version"><span class="annot"><span class="annottext">connector_version :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Connector -&gt; f Connector
+</span><a href="#local-6989586621679249077"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | The connector version.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#connector_version"><span class="hs-identifier hs-type">connector_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="connector_version"><span class="annot"><span class="annottext">connector_version :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Connector -&gt; f Connector
 </span><a href="Network.AWS.SMS.Types.Connector.html#connector_version"><span class="hs-identifier hs-var hs-var">connector_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Connector -&gt; Maybe Text)
 -&gt; (Connector -&gt; Maybe Text -&gt; Connector)
 -&gt; Lens Connector Connector (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248958"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249075"><span class="annot"><span class="annottext">Maybe Text
 version :: Maybe Text
 $sel:version:Connector' :: Connector -&gt; Maybe Text
-</span><a href="#local-6989586621679248958"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248958"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248957"><span class="annot"><span class="annottext">s :: Connector
-</span><a href="#local-6989586621679248957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248956"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Connector
-</span><a href="#local-6989586621679248957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:Connector' :: Maybe Text
+</span><a href="#local-6989586621679249075"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249075"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249074"><span class="annot"><span class="annottext">s :: Connector
+</span><a href="#local-6989586621679249074"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249073"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249073"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Connector
+</span><a href="#local-6989586621679249074"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:Connector' :: Maybe Text
 </span><a href="Network.AWS.SMS.Types.Connector.html#%24sel%3Aversion%3AConnector%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- | The name of the VM manager.</span><span>
-</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#connector_vmManagerName"><span class="hs-identifier hs-type">connector_vmManagerName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span id="connector_vmManagerName"><span class="annot"><span class="annottext">connector_vmManagerName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Connector -&gt; f Connector
-</span><a href="Network.AWS.SMS.Types.Connector.html#connector_vmManagerName"><span class="hs-identifier hs-var hs-var">connector_vmManagerName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Connector -&gt; Maybe Text)
--&gt; (Connector -&gt; Maybe Text -&gt; Connector)
--&gt; Lens Connector Connector (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248954"><span class="annot"><span class="annottext">Maybe Text
-vmManagerName :: Maybe Text
-$sel:vmManagerName:Connector' :: Connector -&gt; Maybe Text
-</span><a href="#local-6989586621679248954"><span class="hs-identifier hs-var hs-var">vmManagerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248954"><span class="hs-identifier hs-var">vmManagerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248953"><span class="annot"><span class="annottext">s :: Connector
-</span><a href="#local-6989586621679248953"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248952"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248952"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Connector
-</span><a href="#local-6989586621679248953"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vmManagerName:Connector' :: Maybe Text
-</span><a href="Network.AWS.SMS.Types.Connector.html#%24sel%3AvmManagerName%3AConnector%27"><span class="hs-identifier hs-var">vmManagerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248952"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- | The IP address of the connector.</span><span>
-</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#connector_ipAddress"><span class="hs-identifier hs-type">connector_ipAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-129"></span><span id="connector_ipAddress"><span class="annot"><span class="annottext">connector_ipAddress :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Connector -&gt; f Connector
-</span><a href="Network.AWS.SMS.Types.Connector.html#connector_ipAddress"><span class="hs-identifier hs-var hs-var">connector_ipAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Connector -&gt; Maybe Text)
--&gt; (Connector -&gt; Maybe Text -&gt; Connector)
--&gt; Lens Connector Connector (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248950"><span class="annot"><span class="annottext">Maybe Text
-ipAddress :: Maybe Text
-$sel:ipAddress:Connector' :: Connector -&gt; Maybe Text
-</span><a href="#local-6989586621679248950"><span class="hs-identifier hs-var hs-var">ipAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248950"><span class="hs-identifier hs-var">ipAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248949"><span class="annot"><span class="annottext">s :: Connector
-</span><a href="#local-6989586621679248949"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248948"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248948"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Connector
-</span><a href="#local-6989586621679248949"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipAddress:Connector' :: Maybe Text
-</span><a href="Network.AWS.SMS.Types.Connector.html#%24sel%3AipAddress%3AConnector%27"><span class="hs-identifier hs-var">ipAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248948"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- | The VM management product.</span><span>
-</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#connector_vmManagerType"><span class="hs-identifier hs-type">connector_vmManagerType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.VmManagerType.html#VmManagerType"><span class="hs-identifier hs-type">VmManagerType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span id="connector_vmManagerType"><span class="annot"><span class="annottext">connector_vmManagerType :: (Maybe VmManagerType -&gt; f (Maybe VmManagerType))
--&gt; Connector -&gt; f Connector
-</span><a href="Network.AWS.SMS.Types.Connector.html#connector_vmManagerType"><span class="hs-identifier hs-var hs-var">connector_vmManagerType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Connector -&gt; Maybe VmManagerType)
--&gt; (Connector -&gt; Maybe VmManagerType -&gt; Connector)
--&gt; Lens
-     Connector Connector (Maybe VmManagerType) (Maybe VmManagerType)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248946"><span class="annot"><span class="annottext">Maybe VmManagerType
-vmManagerType :: Maybe VmManagerType
-$sel:vmManagerType:Connector' :: Connector -&gt; Maybe VmManagerType
-</span><a href="#local-6989586621679248946"><span class="hs-identifier hs-var hs-var">vmManagerType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VmManagerType
-</span><a href="#local-6989586621679248946"><span class="hs-identifier hs-var">vmManagerType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248945"><span class="annot"><span class="annottext">s :: Connector
-</span><a href="#local-6989586621679248945"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248944"><span class="annot"><span class="annottext">Maybe VmManagerType
-</span><a href="#local-6989586621679248944"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Connector
-</span><a href="#local-6989586621679248945"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vmManagerType:Connector' :: Maybe VmManagerType
-</span><a href="Network.AWS.SMS.Types.Connector.html#%24sel%3AvmManagerType%3AConnector%27"><span class="hs-identifier hs-var">vmManagerType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VmManagerType
-</span><a href="#local-6989586621679248944"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249073"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | The capabilities of the connector.</span><span>
 </span><span id="line-136"></span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#connector_capabilityList"><span class="hs-identifier hs-type">connector_capabilityList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SMS.Types.ConnectorCapability.html#ConnectorCapability"><span class="hs-identifier hs-type">ConnectorCapability</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -391,16 +391,16 @@ $sel:vmManagerType:Connector' :: Connector -&gt; Maybe VmManagerType
      (Maybe [ConnectorCapability])
      (Maybe [ConnectorCapability])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248942"><span class="annot"><span class="annottext">Maybe [ConnectorCapability]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249071"><span class="annot"><span class="annottext">Maybe [ConnectorCapability]
 capabilityList :: Maybe [ConnectorCapability]
 $sel:capabilityList:Connector' :: Connector -&gt; Maybe [ConnectorCapability]
-</span><a href="#local-6989586621679248942"><span class="hs-identifier hs-var hs-var">capabilityList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ConnectorCapability]
-</span><a href="#local-6989586621679248942"><span class="hs-identifier hs-var">capabilityList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248941"><span class="annot"><span class="annottext">s :: Connector
-</span><a href="#local-6989586621679248941"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248940"><span class="annot"><span class="annottext">Maybe [ConnectorCapability]
-</span><a href="#local-6989586621679248940"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Connector
-</span><a href="#local-6989586621679248941"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:capabilityList:Connector' :: Maybe [ConnectorCapability]
+</span><a href="#local-6989586621679249071"><span class="hs-identifier hs-var hs-var">capabilityList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ConnectorCapability]
+</span><a href="#local-6989586621679249071"><span class="hs-identifier hs-var">capabilityList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249070"><span class="annot"><span class="annottext">s :: Connector
+</span><a href="#local-6989586621679249070"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector%27"><span class="hs-identifier hs-type">Connector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249069"><span class="annot"><span class="annottext">Maybe [ConnectorCapability]
+</span><a href="#local-6989586621679249069"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Connector
+</span><a href="#local-6989586621679249070"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:capabilityList:Connector' :: Maybe [ConnectorCapability]
 </span><a href="Network.AWS.SMS.Types.Connector.html#%24sel%3AcapabilityList%3AConnector%27"><span class="hs-identifier hs-var">capabilityList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ConnectorCapability]
-</span><a href="#local-6989586621679248940"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ConnectorCapability] -&gt; f (Maybe [ConnectorCapability]))
+</span><a href="#local-6989586621679249069"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ConnectorCapability] -&gt; f (Maybe [ConnectorCapability]))
  -&gt; Connector -&gt; f Connector)
 -&gt; ((Maybe [ConnectorCapability]
      -&gt; f (Maybe [ConnectorCapability]))
@@ -427,223 +427,221 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [ConnectorCapability]
   [ConnectorCapability]
   [ConnectorCapability]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248936"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679248934"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Connector
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249065"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679249063"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Connector
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Connector) -&gt; Value -&gt; Parser Connector
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Connector&quot;</span></span><span>
-</span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679248931"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248931"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679249060"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679249060"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-144"></span><span>          </span><span class="annot"><span class="annottext">Maybe ConnectorStatus
--&gt; Maybe POSIX
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe VmManagerType
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe [ConnectorCapability]
 -&gt; Connector
 </span><a href="Network.AWS.SMS.Types.Connector.html#Connector%27"><span class="hs-identifier hs-var">Connector'</span></a></span><span>
 </span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ConnectorStatus
- -&gt; Maybe POSIX
- -&gt; Maybe Text
- -&gt; Maybe Text
- -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe VmManagerType
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; Maybe [ConnectorCapability]
  -&gt; Connector)
 -&gt; Parser (Maybe ConnectorStatus)
 -&gt; Parser
-     (Maybe POSIX
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
+     (Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe VmManagerType
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe [ConnectorCapability]
       -&gt; Connector)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ConnectorStatus)
+</span><a href="#local-6989586621679249060"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ConnectorStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
+  (Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe VmManagerType
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [ConnectorCapability]
+   -&gt; Connector)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe VmManagerType
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [ConnectorCapability]
+      -&gt; Connector)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679249060"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;vmManagerName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe VmManagerType
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [ConnectorCapability]
+   -&gt; Connector)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe VmManagerType
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [ConnectorCapability]
+      -&gt; Connector)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679249060"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ipAddress&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe VmManagerType
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [ConnectorCapability]
+   -&gt; Connector)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe VmManagerType
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [ConnectorCapability]
+      -&gt; Connector)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679249060"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;vmManagerId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe VmManagerType
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [ConnectorCapability]
+   -&gt; Connector)
+-&gt; Parser (Maybe VmManagerType)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [ConnectorCapability]
+      -&gt; Connector)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679249060"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VmManagerType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;vmManagerType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [ConnectorCapability]
+   -&gt; Connector)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [ConnectorCapability]
+      -&gt; Connector)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679249060"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;connectorId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; Maybe [ConnectorCapability]
    -&gt; Connector)
 -&gt; Parser (Maybe POSIX)
 -&gt; Parser
      (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe VmManagerType
-      -&gt; Maybe [ConnectorCapability]
-      -&gt; Connector)
+      -&gt; Maybe Text -&gt; Maybe [ConnectorCapability] -&gt; Connector)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679249060"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;associatedOn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe VmManagerType
-   -&gt; Maybe [ConnectorCapability]
-   -&gt; Connector)
+   -&gt; Maybe Text -&gt; Maybe [ConnectorCapability] -&gt; Connector)
 -&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe VmManagerType
-      -&gt; Maybe [ConnectorCapability]
-      -&gt; Connector)
+-&gt; Parser (Maybe Text -&gt; Maybe [ConnectorCapability] -&gt; Connector)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679249060"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;macAddress&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe VmManagerType
-   -&gt; Maybe [ConnectorCapability]
-   -&gt; Connector)
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe [ConnectorCapability] -&gt; Connector)
 -&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe VmManagerType
-      -&gt; Maybe [ConnectorCapability]
-      -&gt; Connector)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;connectorId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe VmManagerType
-   -&gt; Maybe [ConnectorCapability]
-   -&gt; Connector)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe VmManagerType
-      -&gt; Maybe [ConnectorCapability]
-      -&gt; Connector)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;vmManagerId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe VmManagerType
-   -&gt; Maybe [ConnectorCapability]
-   -&gt; Connector)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe VmManagerType
-      -&gt; Maybe [ConnectorCapability]
-      -&gt; Connector)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;version&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe VmManagerType
-   -&gt; Maybe [ConnectorCapability]
-   -&gt; Connector)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe VmManagerType -&gt; Maybe [ConnectorCapability] -&gt; Connector)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;vmManagerName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe VmManagerType -&gt; Maybe [ConnectorCapability] -&gt; Connector)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe VmManagerType -&gt; Maybe [ConnectorCapability] -&gt; Connector)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ipAddress&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe VmManagerType -&gt; Maybe [ConnectorCapability] -&gt; Connector)
--&gt; Parser (Maybe VmManagerType)
 -&gt; Parser (Maybe [ConnectorCapability] -&gt; Connector)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VmManagerType)
+</span><a href="#local-6989586621679249060"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;vmManagerType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;version&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [ConnectorCapability] -&gt; Connector)
 -&gt; Parser (Maybe [ConnectorCapability]) -&gt; Parser Connector
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ConnectorCapability]))
+</span><a href="#local-6989586621679249060"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ConnectorCapability]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;capabilityList&quot;</span></span><span>
@@ -657,7 +655,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-156"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248924"><span id="local-6989586621679248926"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span></span></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249053"><span id="local-6989586621679249055"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span></span></span><span>
 </span><span id="line-160"></span><span>
-</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248921"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249050"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Connector.html#Connector"><span class="hs-identifier hs-type">Connector</span></a></span></span><span>
 </span><span id="line-162"></span></pre></body></html>

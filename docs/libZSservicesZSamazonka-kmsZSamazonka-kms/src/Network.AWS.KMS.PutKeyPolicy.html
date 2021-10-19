@@ -65,7 +65,7 @@
 </span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | /See:/ 'newPutKeyPolicy' smart constructor.</span><span>
-</span><span id="line-68"></span><span id="local-6989586621679252756"><span id="local-6989586621679252757"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutKeyPolicy"><span class="annot"><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicy"><span class="hs-identifier hs-var">PutKeyPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutKeyPolicy%27"><span class="annot"><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicy%27"><span class="hs-identifier hs-var">PutKeyPolicy'</span></a></span></span><span>
+</span><span id="line-68"></span><span id="local-6989586621679252967"><span id="local-6989586621679252968"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutKeyPolicy"><span class="annot"><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicy"><span class="hs-identifier hs-var">PutKeyPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutKeyPolicy%27"><span class="annot"><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicy%27"><span class="hs-identifier hs-var">PutKeyPolicy'</span></a></span></span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A flag to indicate whether to bypass the key policy lockout safety</span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-comment">-- check.</span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -131,7 +131,7 @@
 </span><span id="line-128"></span><span>    </span><span id="%24sel%3Apolicy%3APutKeyPolicy%27"><span class="annot"><span class="annottext">PutKeyPolicy -&gt; Text
 </span><a href="Network.AWS.KMS.PutKeyPolicy.html#%24sel%3Apolicy%3APutKeyPolicy%27"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-129"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-130"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679252747"><span id="local-6989586621679252749"><span class="annot"><span class="annottext">PutKeyPolicy -&gt; PutKeyPolicy -&gt; Bool
+</span><span id="line-130"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679252958"><span id="local-6989586621679252960"><span class="annot"><span class="annottext">PutKeyPolicy -&gt; PutKeyPolicy -&gt; Bool
 (PutKeyPolicy -&gt; PutKeyPolicy -&gt; Bool)
 -&gt; (PutKeyPolicy -&gt; PutKeyPolicy -&gt; Bool) -&gt; Eq PutKeyPolicy
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -139,7 +139,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutKeyPolicy -&gt; PutKeyPolicy -&gt; Bool
 == :: PutKeyPolicy -&gt; PutKeyPolicy -&gt; Bool
 $c== :: PutKeyPolicy -&gt; PutKeyPolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252738"><span id="local-6989586621679252740"><span id="local-6989586621679252742"><span id="local-6989586621679252744"><span class="annot"><span class="annottext">ReadPrec [PutKeyPolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252949"><span id="local-6989586621679252951"><span id="local-6989586621679252953"><span id="local-6989586621679252955"><span class="annot"><span class="annottext">ReadPrec [PutKeyPolicy]
 ReadPrec PutKeyPolicy
 Int -&gt; ReadS PutKeyPolicy
 ReadS [PutKeyPolicy]
@@ -159,7 +159,7 @@ readList :: ReadS [PutKeyPolicy]
 $creadList :: ReadS [PutKeyPolicy]
 readsPrec :: Int -&gt; ReadS PutKeyPolicy
 $creadsPrec :: Int -&gt; ReadS PutKeyPolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252731"><span id="local-6989586621679252733"><span id="local-6989586621679252735"><span class="annot"><span class="annottext">Int -&gt; PutKeyPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252942"><span id="local-6989586621679252944"><span id="local-6989586621679252946"><span class="annot"><span class="annottext">Int -&gt; PutKeyPolicy -&gt; ShowS
 [PutKeyPolicy] -&gt; ShowS
 PutKeyPolicy -&gt; String
 (Int -&gt; PutKeyPolicy -&gt; ShowS)
@@ -261,10 +261,10 @@ $cfrom :: forall x. PutKeyPolicy -&gt; Rep PutKeyPolicy x
 </span><span id="line-205"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-206"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicy"><span class="hs-identifier hs-type">PutKeyPolicy</span></a></span><span>
 </span><span id="line-207"></span><span id="newPutKeyPolicy"><span class="annot"><span class="annottext">newPutKeyPolicy :: Text -&gt; Text -&gt; Text -&gt; PutKeyPolicy
-</span><a href="Network.AWS.KMS.PutKeyPolicy.html#newPutKeyPolicy"><span class="hs-identifier hs-var hs-var">newPutKeyPolicy</span></a></span></span><span> </span><span id="local-6989586621679252726"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679252726"><span class="hs-identifier hs-var">pKeyId_</span></a></span></span><span> </span><span id="local-6989586621679252725"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679252725"><span class="hs-identifier hs-var">pPolicyName_</span></a></span></span><span> </span><span id="local-6989586621679252724"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679252724"><span class="hs-identifier hs-var">pPolicy_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.KMS.PutKeyPolicy.html#newPutKeyPolicy"><span class="hs-identifier hs-var hs-var">newPutKeyPolicy</span></a></span></span><span> </span><span id="local-6989586621679252937"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252937"><span class="hs-identifier hs-var">pKeyId_</span></a></span></span><span> </span><span id="local-6989586621679252936"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252936"><span class="hs-identifier hs-var">pPolicyName_</span></a></span></span><span> </span><span id="local-6989586621679252935"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252935"><span class="hs-identifier hs-var">pPolicy_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-208"></span><span>  </span><span class="annot"><span class="annottext">PutKeyPolicy' :: Maybe Bool -&gt; Text -&gt; Text -&gt; Text -&gt; PutKeyPolicy
 </span><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicy%27"><span class="hs-identifier hs-type">PutKeyPolicy'</span></a></span><span>
 </span><span id="line-209"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:bypassPolicyLockoutSafetyCheck:PutKeyPolicy' :: Maybe Bool
@@ -274,13 +274,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-211"></span><span>      </span><span class="annot"><span class="annottext">$sel:keyId:PutKeyPolicy' :: Text
 </span><a href="Network.AWS.KMS.PutKeyPolicy.html#%24sel%3AkeyId%3APutKeyPolicy%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679252726"><span class="hs-identifier hs-var">pKeyId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679252937"><span class="hs-identifier hs-var">pKeyId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-212"></span><span>      </span><span class="annot"><span class="annottext">$sel:policyName:PutKeyPolicy' :: Text
 </span><a href="Network.AWS.KMS.PutKeyPolicy.html#%24sel%3ApolicyName%3APutKeyPolicy%27"><span class="hs-identifier hs-var">policyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679252725"><span class="hs-identifier hs-var">pPolicyName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679252936"><span class="hs-identifier hs-var">pPolicyName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-213"></span><span>      </span><span class="annot"><span class="annottext">$sel:policy:PutKeyPolicy' :: Text
 </span><a href="Network.AWS.KMS.PutKeyPolicy.html#%24sel%3Apolicy%3APutKeyPolicy%27"><span class="hs-identifier hs-var">policy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679252724"><span class="hs-identifier hs-var">pPolicy_</span></a></span><span>
+</span><a href="#local-6989586621679252935"><span class="hs-identifier hs-var">pPolicy_</span></a></span><span>
 </span><span id="line-214"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-215"></span><span>
 </span><span id="line-216"></span><span class="hs-comment">-- | A flag to indicate whether to bypass the key policy lockout safety</span><span>
@@ -304,16 +304,16 @@ forall a. Maybe a
 -&gt; (PutKeyPolicy -&gt; Maybe Bool -&gt; PutKeyPolicy)
 -&gt; Lens PutKeyPolicy PutKeyPolicy (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicy%27"><span class="hs-identifier hs-type">PutKeyPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252721"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicy%27"><span class="hs-identifier hs-type">PutKeyPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252932"><span class="annot"><span class="annottext">Maybe Bool
 bypassPolicyLockoutSafetyCheck :: Maybe Bool
 $sel:bypassPolicyLockoutSafetyCheck:PutKeyPolicy' :: PutKeyPolicy -&gt; Maybe Bool
-</span><a href="#local-6989586621679252721"><span class="hs-identifier hs-var hs-var">bypassPolicyLockoutSafetyCheck</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679252721"><span class="hs-identifier hs-var">bypassPolicyLockoutSafetyCheck</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252720"><span class="annot"><span class="annottext">s :: PutKeyPolicy
-</span><a href="#local-6989586621679252720"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicy%27"><span class="hs-identifier hs-type">PutKeyPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252719"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679252719"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutKeyPolicy
-</span><a href="#local-6989586621679252720"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bypassPolicyLockoutSafetyCheck:PutKeyPolicy' :: Maybe Bool
+</span><a href="#local-6989586621679252932"><span class="hs-identifier hs-var hs-var">bypassPolicyLockoutSafetyCheck</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679252932"><span class="hs-identifier hs-var">bypassPolicyLockoutSafetyCheck</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252931"><span class="annot"><span class="annottext">s :: PutKeyPolicy
+</span><a href="#local-6989586621679252931"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicy%27"><span class="hs-identifier hs-type">PutKeyPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252930"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679252930"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutKeyPolicy
+</span><a href="#local-6989586621679252931"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bypassPolicyLockoutSafetyCheck:PutKeyPolicy' :: Maybe Bool
 </span><a href="Network.AWS.KMS.PutKeyPolicy.html#%24sel%3AbypassPolicyLockoutSafetyCheck%3APutKeyPolicy%27"><span class="hs-identifier hs-var">bypassPolicyLockoutSafetyCheck</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679252719"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicy"><span class="hs-identifier hs-type">PutKeyPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679252930"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicy"><span class="hs-identifier hs-type">PutKeyPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-233"></span><span>
 </span><span id="line-234"></span><span class="hs-comment">-- | Sets the key policy on the specified KMS key.</span><span>
 </span><span id="line-235"></span><span class="hs-comment">--</span><span>
@@ -334,16 +334,16 @@ $sel:bypassPolicyLockoutSafetyCheck:PutKeyPolicy' :: PutKeyPolicy -&gt; Maybe Bo
 -&gt; (PutKeyPolicy -&gt; Text -&gt; PutKeyPolicy)
 -&gt; Lens PutKeyPolicy PutKeyPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicy%27"><span class="hs-identifier hs-type">PutKeyPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252718"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicy%27"><span class="hs-identifier hs-type">PutKeyPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252929"><span class="annot"><span class="annottext">Text
 keyId :: Text
 $sel:keyId:PutKeyPolicy' :: PutKeyPolicy -&gt; Text
-</span><a href="#local-6989586621679252718"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679252718"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252717"><span class="annot"><span class="annottext">s :: PutKeyPolicy
-</span><a href="#local-6989586621679252717"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicy%27"><span class="hs-identifier hs-type">PutKeyPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252716"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679252716"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutKeyPolicy
-</span><a href="#local-6989586621679252717"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:PutKeyPolicy' :: Text
+</span><a href="#local-6989586621679252929"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252929"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252928"><span class="annot"><span class="annottext">s :: PutKeyPolicy
+</span><a href="#local-6989586621679252928"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicy%27"><span class="hs-identifier hs-type">PutKeyPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252927"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252927"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutKeyPolicy
+</span><a href="#local-6989586621679252928"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:PutKeyPolicy' :: Text
 </span><a href="Network.AWS.KMS.PutKeyPolicy.html#%24sel%3AkeyId%3APutKeyPolicy%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679252716"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicy"><span class="hs-identifier hs-type">PutKeyPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679252927"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicy"><span class="hs-identifier hs-type">PutKeyPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-249"></span><span>
 </span><span id="line-250"></span><span class="hs-comment">-- | The name of the key policy. The only valid value is @default@.</span><span>
 </span><span id="line-251"></span><span class="annot"><a href="Network.AWS.KMS.PutKeyPolicy.html#putKeyPolicy_policyName"><span class="hs-identifier hs-type">putKeyPolicy_policyName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicy"><span class="hs-identifier hs-type">PutKeyPolicy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -352,16 +352,16 @@ $sel:keyId:PutKeyPolicy' :: PutKeyPolicy -&gt; Text
 -&gt; (PutKeyPolicy -&gt; Text -&gt; PutKeyPolicy)
 -&gt; Lens PutKeyPolicy PutKeyPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicy%27"><span class="hs-identifier hs-type">PutKeyPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252715"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicy%27"><span class="hs-identifier hs-type">PutKeyPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252926"><span class="annot"><span class="annottext">Text
 policyName :: Text
 $sel:policyName:PutKeyPolicy' :: PutKeyPolicy -&gt; Text
-</span><a href="#local-6989586621679252715"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679252715"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252714"><span class="annot"><span class="annottext">s :: PutKeyPolicy
-</span><a href="#local-6989586621679252714"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicy%27"><span class="hs-identifier hs-type">PutKeyPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252713"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679252713"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutKeyPolicy
-</span><a href="#local-6989586621679252714"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyName:PutKeyPolicy' :: Text
+</span><a href="#local-6989586621679252926"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252926"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252925"><span class="annot"><span class="annottext">s :: PutKeyPolicy
+</span><a href="#local-6989586621679252925"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicy%27"><span class="hs-identifier hs-type">PutKeyPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252924"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252924"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutKeyPolicy
+</span><a href="#local-6989586621679252925"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyName:PutKeyPolicy' :: Text
 </span><a href="Network.AWS.KMS.PutKeyPolicy.html#%24sel%3ApolicyName%3APutKeyPolicy%27"><span class="hs-identifier hs-var">policyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679252713"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicy"><span class="hs-identifier hs-type">PutKeyPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679252924"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicy"><span class="hs-identifier hs-type">PutKeyPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-253"></span><span>
 </span><span id="line-254"></span><span class="hs-comment">-- | The key policy to attach to the KMS key.</span><span>
 </span><span id="line-255"></span><span class="hs-comment">--</span><span>
@@ -396,25 +396,25 @@ $sel:policyName:PutKeyPolicy' :: PutKeyPolicy -&gt; Text
 -&gt; (PutKeyPolicy -&gt; Text -&gt; PutKeyPolicy)
 -&gt; Lens PutKeyPolicy PutKeyPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicy%27"><span class="hs-identifier hs-type">PutKeyPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252712"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicy%27"><span class="hs-identifier hs-type">PutKeyPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252923"><span class="annot"><span class="annottext">Text
 policy :: Text
 $sel:policy:PutKeyPolicy' :: PutKeyPolicy -&gt; Text
-</span><a href="#local-6989586621679252712"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679252712"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252711"><span class="annot"><span class="annottext">s :: PutKeyPolicy
-</span><a href="#local-6989586621679252711"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicy%27"><span class="hs-identifier hs-type">PutKeyPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252710"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679252710"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutKeyPolicy
-</span><a href="#local-6989586621679252711"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policy:PutKeyPolicy' :: Text
+</span><a href="#local-6989586621679252923"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252923"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252922"><span class="annot"><span class="annottext">s :: PutKeyPolicy
+</span><a href="#local-6989586621679252922"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicy%27"><span class="hs-identifier hs-type">PutKeyPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252921"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252921"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutKeyPolicy
+</span><a href="#local-6989586621679252922"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policy:PutKeyPolicy' :: Text
 </span><a href="Network.AWS.KMS.PutKeyPolicy.html#%24sel%3Apolicy%3APutKeyPolicy%27"><span class="hs-identifier hs-var">policy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679252710"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicy"><span class="hs-identifier hs-type">PutKeyPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679252921"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicy"><span class="hs-identifier hs-type">PutKeyPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-283"></span><span>
 </span><span id="line-284"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicy"><span class="hs-identifier hs-type">PutKeyPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-285"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicy"><span class="hs-identifier hs-type">PutKeyPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicyResponse"><span class="hs-identifier hs-type">PutKeyPolicyResponse</span></a></span><span>
-</span><span id="line-286"></span><span>  </span><span id="local-6989586621679252706"><span class="annot"><span class="annottext">request :: PutKeyPolicy -&gt; Request PutKeyPolicy
+</span><span id="line-286"></span><span>  </span><span id="local-6989586621679252917"><span class="annot"><span class="annottext">request :: PutKeyPolicy -&gt; Request PutKeyPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutKeyPolicy -&gt; Request PutKeyPolicy
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.KMS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-287"></span><span>  </span><span id="local-6989586621679252702"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-287"></span><span>  </span><span id="local-6989586621679252913"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutKeyPolicy
 -&gt; ClientResponse ClientBody
@@ -437,12 +437,12 @@ AWSResponse a
 PutKeyPolicyResponse
 </span><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicyResponse%27"><span class="hs-identifier hs-var">PutKeyPolicyResponse'</span></a></span><span>
 </span><span id="line-288"></span><span>
-</span><span id="line-289"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252695"><span id="local-6989586621679252697"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicy"><span class="hs-identifier hs-type">PutKeyPolicy</span></a></span></span></span><span>
+</span><span id="line-289"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252906"><span id="local-6989586621679252908"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicy"><span class="hs-identifier hs-type">PutKeyPolicy</span></a></span></span></span><span>
 </span><span id="line-290"></span><span>
-</span><span id="line-291"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252692"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicy"><span class="hs-identifier hs-type">PutKeyPolicy</span></a></span></span><span>
+</span><span id="line-291"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252903"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicy"><span class="hs-identifier hs-type">PutKeyPolicy</span></a></span></span><span>
 </span><span id="line-292"></span><span>
 </span><span id="line-293"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicy"><span class="hs-identifier hs-type">PutKeyPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-294"></span><span>  </span><span id="local-6989586621679252688"><span class="annot"><span class="annottext">toHeaders :: PutKeyPolicy -&gt; [Header]
+</span><span id="line-294"></span><span>  </span><span id="local-6989586621679252899"><span class="annot"><span class="annottext">toHeaders :: PutKeyPolicy -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-295"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; PutKeyPolicy -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -467,9 +467,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-303"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-304"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-305"></span><span>
-</span><span id="line-306"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252678"><span id="local-6989586621679252680"><span id="local-6989586621679252682"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicy"><span class="hs-identifier hs-type">PutKeyPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-307"></span><span>  </span><span id="local-6989586621679252676"><span class="annot"><span class="annottext">toJSON :: PutKeyPolicy -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicy%27"><span class="hs-identifier hs-type">PutKeyPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252671"><span id="local-6989586621679252672"><span id="local-6989586621679252673"><span id="local-6989586621679252674"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-306"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252889"><span id="local-6989586621679252891"><span id="local-6989586621679252893"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicy"><span class="hs-identifier hs-type">PutKeyPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-307"></span><span>  </span><span id="local-6989586621679252887"><span class="annot"><span class="annottext">toJSON :: PutKeyPolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicy%27"><span class="hs-identifier hs-type">PutKeyPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252882"><span id="local-6989586621679252883"><span id="local-6989586621679252884"><span id="local-6989586621679252885"><span class="annot"><span class="annottext">Maybe Bool
 Text
 policy :: Text
 policyName :: Text
@@ -479,7 +479,7 @@ $sel:policy:PutKeyPolicy' :: PutKeyPolicy -&gt; Text
 $sel:policyName:PutKeyPolicy' :: PutKeyPolicy -&gt; Text
 $sel:keyId:PutKeyPolicy' :: PutKeyPolicy -&gt; Text
 $sel:bypassPolicyLockoutSafetyCheck:PutKeyPolicy' :: PutKeyPolicy -&gt; Maybe Bool
-</span><a href="#local-6989586621679252671"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679252882"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-308"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-309"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -492,40 +492,40 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-311"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679252674"><span class="hs-identifier hs-var">bypassPolicyLockoutSafetyCheck</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679252885"><span class="hs-identifier hs-var">bypassPolicyLockoutSafetyCheck</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-312"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KeyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679252673"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679252884"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-313"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PolicyName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679252672"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679252883"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-314"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Policy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679252671"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679252882"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-315"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-316"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-317"></span><span>
 </span><span id="line-318"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicy"><span class="hs-identifier hs-type">PutKeyPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-319"></span><span>  </span><span id="local-6989586621679252664"><span class="annot"><span class="annottext">toPath :: PutKeyPolicy -&gt; ByteString
+</span><span id="line-319"></span><span>  </span><span id="local-6989586621679252875"><span class="annot"><span class="annottext">toPath :: PutKeyPolicy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutKeyPolicy -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-320"></span><span>
 </span><span id="line-321"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicy"><span class="hs-identifier hs-type">PutKeyPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-322"></span><span>  </span><span id="local-6989586621679252660"><span class="annot"><span class="annottext">toQuery :: PutKeyPolicy -&gt; QueryString
+</span><span id="line-322"></span><span>  </span><span id="local-6989586621679252871"><span class="annot"><span class="annottext">toQuery :: PutKeyPolicy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutKeyPolicy -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -533,10 +533,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-323"></span><span>
 </span><span id="line-324"></span><span class="hs-comment">-- | /See:/ 'newPutKeyPolicyResponse' smart constructor.</span><span>
-</span><span id="line-325"></span><span id="local-6989586621679252657"><span id="local-6989586621679252658"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutKeyPolicyResponse"><span class="annot"><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicyResponse"><span class="hs-identifier hs-var">PutKeyPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutKeyPolicyResponse%27"><span class="annot"><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicyResponse%27"><span class="hs-identifier hs-var">PutKeyPolicyResponse'</span></a></span></span><span>
+</span><span id="line-325"></span><span id="local-6989586621679252868"><span id="local-6989586621679252869"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutKeyPolicyResponse"><span class="annot"><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicyResponse"><span class="hs-identifier hs-var">PutKeyPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutKeyPolicyResponse%27"><span class="annot"><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicyResponse%27"><span class="hs-identifier hs-var">PutKeyPolicyResponse'</span></a></span></span><span>
 </span><span id="line-326"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-327"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-328"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679252653"><span id="local-6989586621679252655"><span class="annot"><span class="annottext">PutKeyPolicyResponse -&gt; PutKeyPolicyResponse -&gt; Bool
+</span><span id="line-328"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679252864"><span id="local-6989586621679252866"><span class="annot"><span class="annottext">PutKeyPolicyResponse -&gt; PutKeyPolicyResponse -&gt; Bool
 (PutKeyPolicyResponse -&gt; PutKeyPolicyResponse -&gt; Bool)
 -&gt; (PutKeyPolicyResponse -&gt; PutKeyPolicyResponse -&gt; Bool)
 -&gt; Eq PutKeyPolicyResponse
@@ -545,7 +545,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutKeyPolicyResponse -&gt; PutKeyPolicyResponse -&gt; Bool
 == :: PutKeyPolicyResponse -&gt; PutKeyPolicyResponse -&gt; Bool
 $c== :: PutKeyPolicyResponse -&gt; PutKeyPolicyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252645"><span id="local-6989586621679252647"><span id="local-6989586621679252649"><span id="local-6989586621679252651"><span class="annot"><span class="annottext">ReadPrec [PutKeyPolicyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252856"><span id="local-6989586621679252858"><span id="local-6989586621679252860"><span id="local-6989586621679252862"><span class="annot"><span class="annottext">ReadPrec [PutKeyPolicyResponse]
 ReadPrec PutKeyPolicyResponse
 Int -&gt; ReadS PutKeyPolicyResponse
 ReadS [PutKeyPolicyResponse]
@@ -565,7 +565,7 @@ readList :: ReadS [PutKeyPolicyResponse]
 $creadList :: ReadS [PutKeyPolicyResponse]
 readsPrec :: Int -&gt; ReadS PutKeyPolicyResponse
 $creadsPrec :: Int -&gt; ReadS PutKeyPolicyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252639"><span id="local-6989586621679252641"><span id="local-6989586621679252643"><span class="annot"><span class="annottext">Int -&gt; PutKeyPolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252850"><span id="local-6989586621679252852"><span id="local-6989586621679252854"><span class="annot"><span class="annottext">Int -&gt; PutKeyPolicyResponse -&gt; ShowS
 [PutKeyPolicyResponse] -&gt; ShowS
 PutKeyPolicyResponse -&gt; String
 (Int -&gt; PutKeyPolicyResponse -&gt; ShowS)
@@ -601,5 +601,5 @@ $cfrom :: forall x. PutKeyPolicyResponse -&gt; Rep PutKeyPolicyResponse x
 </span><a href="Network.AWS.KMS.PutKeyPolicy.html#newPutKeyPolicyResponse"><span class="hs-identifier hs-var hs-var">newPutKeyPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PutKeyPolicyResponse
 </span><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicyResponse%27"><span class="hs-identifier hs-var">PutKeyPolicyResponse'</span></a></span><span>
 </span><span id="line-337"></span><span>
-</span><span id="line-338"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252635"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicyResponse"><span class="hs-identifier hs-type">PutKeyPolicyResponse</span></a></span></span><span>
+</span><span id="line-338"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252846"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.PutKeyPolicy.html#PutKeyPolicyResponse"><span class="hs-identifier hs-type">PutKeyPolicyResponse</span></a></span></span><span>
 </span><span id="line-339"></span></pre></body></html>

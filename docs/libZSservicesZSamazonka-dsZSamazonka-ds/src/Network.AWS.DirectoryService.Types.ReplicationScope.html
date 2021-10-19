@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679298623"><span id="local-6989586621679298624"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReplicationScope"><span class="annot"><a href="Network.AWS.DirectoryService.Types.ReplicationScope.html#ReplicationScope"><span class="hs-identifier hs-var">ReplicationScope</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplicationScope%27"><span class="annot"><a href="Network.AWS.DirectoryService.Types.ReplicationScope.html#ReplicationScope%27"><span class="hs-identifier hs-var">ReplicationScope'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679298820"><span id="local-6989586621679298821"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReplicationScope"><span class="annot"><a href="Network.AWS.DirectoryService.Types.ReplicationScope.html#ReplicationScope"><span class="hs-identifier hs-var">ReplicationScope</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplicationScope%27"><span class="annot"><a href="Network.AWS.DirectoryService.Types.ReplicationScope.html#ReplicationScope%27"><span class="hs-identifier hs-var">ReplicationScope'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromReplicationScope"><span class="annot"><span class="annottext">ReplicationScope -&gt; Text
 </span><a href="Network.AWS.DirectoryService.Types.ReplicationScope.html#fromReplicationScope"><span class="hs-identifier hs-var hs-var">fromReplicationScope</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679298615"><span id="local-6989586621679298617"><span id="local-6989586621679298619"><span class="annot"><span class="annottext">Int -&gt; ReplicationScope -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679298812"><span id="local-6989586621679298814"><span id="local-6989586621679298816"><span class="annot"><span class="annottext">Int -&gt; ReplicationScope -&gt; ShowS
 [ReplicationScope] -&gt; ShowS
 ReplicationScope -&gt; String
 (Int -&gt; ReplicationScope -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: ReplicationScope -&gt; String
 showsPrec :: Int -&gt; ReplicationScope -&gt; ShowS
 $cshowsPrec :: Int -&gt; ReplicationScope -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679298606"><span id="local-6989586621679298608"><span id="local-6989586621679298610"><span id="local-6989586621679298612"><span class="annot"><span class="annottext">ReadPrec [ReplicationScope]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679298803"><span id="local-6989586621679298805"><span id="local-6989586621679298807"><span id="local-6989586621679298809"><span class="annot"><span class="annottext">ReadPrec [ReplicationScope]
 ReadPrec ReplicationScope
 Int -&gt; ReadS ReplicationScope
 ReadS [ReplicationScope]
@@ -71,7 +71,7 @@ $creadList :: ReadS [ReplicationScope]
 readsPrec :: Int -&gt; ReadS ReplicationScope
 $creadsPrec :: Int -&gt; ReadS ReplicationScope
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679298601"><span id="local-6989586621679298603"><span class="annot"><span class="annottext">ReplicationScope -&gt; ReplicationScope -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679298798"><span id="local-6989586621679298800"><span class="annot"><span class="annottext">ReplicationScope -&gt; ReplicationScope -&gt; Bool
 (ReplicationScope -&gt; ReplicationScope -&gt; Bool)
 -&gt; (ReplicationScope -&gt; ReplicationScope -&gt; Bool)
 -&gt; Eq ReplicationScope
@@ -81,7 +81,7 @@ $c/= :: ReplicationScope -&gt; ReplicationScope -&gt; Bool
 == :: ReplicationScope -&gt; ReplicationScope -&gt; Bool
 $c== :: ReplicationScope -&gt; ReplicationScope -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679298585"><span id="local-6989586621679298587"><span id="local-6989586621679298589"><span id="local-6989586621679298591"><span id="local-6989586621679298593"><span id="local-6989586621679298595"><span id="local-6989586621679298597"><span class="annot"><span class="annottext">Eq ReplicationScope
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679298782"><span id="local-6989586621679298784"><span id="local-6989586621679298786"><span id="local-6989586621679298788"><span id="local-6989586621679298790"><span id="local-6989586621679298792"><span id="local-6989586621679298794"><span class="annot"><span class="annottext">Eq ReplicationScope
 Eq ReplicationScope
 -&gt; (ReplicationScope -&gt; ReplicationScope -&gt; Ordering)
 -&gt; (ReplicationScope -&gt; ReplicationScope -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. ReplicationScope -&gt; Rep ReplicationScope x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679298577"><span id="local-6989586621679298579"><span class="annot"><span class="annottext">Int -&gt; ReplicationScope -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679298774"><span id="local-6989586621679298776"><span class="annot"><span class="annottext">Int -&gt; ReplicationScope -&gt; Int
 ReplicationScope -&gt; Int
 (Int -&gt; ReplicationScope -&gt; Int)
 -&gt; (ReplicationScope -&gt; Int) -&gt; Hashable ReplicationScope
@@ -142,51 +142,51 @@ $chash :: ReplicationScope -&gt; Int
 hashWithSalt :: Int -&gt; ReplicationScope -&gt; Int
 $chashWithSalt :: Int -&gt; ReplicationScope -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679298574"><span class="annot"><span class="annottext">ReplicationScope -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679298771"><span class="annot"><span class="annottext">ReplicationScope -&gt; ()
 (ReplicationScope -&gt; ()) -&gt; NFData ReplicationScope
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ReplicationScope -&gt; ()
 $crnf :: ReplicationScope -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679298571"><span class="annot"><span class="annottext">Text -&gt; Either String ReplicationScope
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679298768"><span class="annot"><span class="annottext">Text -&gt; Either String ReplicationScope
 (Text -&gt; Either String ReplicationScope)
 -&gt; FromText ReplicationScope
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ReplicationScope
 $cfromText :: Text -&gt; Either String ReplicationScope
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679298568"><span class="annot"><span class="annottext">ReplicationScope -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679298765"><span class="annot"><span class="annottext">ReplicationScope -&gt; Text
 (ReplicationScope -&gt; Text) -&gt; ToText ReplicationScope
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ReplicationScope -&gt; Text
 $ctoText :: ReplicationScope -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679298565"><span class="annot"><span class="annottext">ReplicationScope -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679298762"><span class="annot"><span class="annottext">ReplicationScope -&gt; ByteString
 (ReplicationScope -&gt; ByteString) -&gt; ToByteString ReplicationScope
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ReplicationScope -&gt; ByteString
 $ctoBS :: ReplicationScope -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679298562"><span class="annot"><span class="annottext">ReplicationScope -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679298759"><span class="annot"><span class="annottext">ReplicationScope -&gt; ByteStringBuilder
 (ReplicationScope -&gt; ByteStringBuilder) -&gt; ToLog ReplicationScope
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ReplicationScope -&gt; ByteStringBuilder
 $cbuild :: ReplicationScope -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679298559"><span class="annot"><span class="annottext">HeaderName -&gt; ReplicationScope -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679298756"><span class="annot"><span class="annottext">HeaderName -&gt; ReplicationScope -&gt; [Header]
 (HeaderName -&gt; ReplicationScope -&gt; [Header])
 -&gt; ToHeader ReplicationScope
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ReplicationScope -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ReplicationScope -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679298556"><span class="annot"><span class="annottext">ReplicationScope -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679298753"><span class="annot"><span class="annottext">ReplicationScope -&gt; QueryString
 (ReplicationScope -&gt; QueryString) -&gt; ToQuery ReplicationScope
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ReplicationScope -&gt; QueryString
 $ctoQuery :: ReplicationScope -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679298551"><span id="local-6989586621679298553"><span class="annot"><span class="annottext">Value -&gt; Parser [ReplicationScope]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679298748"><span id="local-6989586621679298750"><span class="annot"><span class="annottext">Value -&gt; Parser [ReplicationScope]
 Value -&gt; Parser ReplicationScope
 (Value -&gt; Parser ReplicationScope)
 -&gt; (Value -&gt; Parser [ReplicationScope])
@@ -198,7 +198,7 @@ $cparseJSONList :: Value -&gt; Parser [ReplicationScope]
 parseJSON :: Value -&gt; Parser ReplicationScope
 $cparseJSON :: Value -&gt; Parser ReplicationScope
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679298546"><span id="local-6989586621679298548"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReplicationScope]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679298743"><span id="local-6989586621679298745"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReplicationScope]
 FromJSONKeyFunction ReplicationScope
 FromJSONKeyFunction ReplicationScope
 -&gt; FromJSONKeyFunction [ReplicationScope]
@@ -210,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ReplicationScope]
 fromJSONKey :: FromJSONKeyFunction ReplicationScope
 $cfromJSONKey :: FromJSONKeyFunction ReplicationScope
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679298537"><span id="local-6989586621679298539"><span id="local-6989586621679298541"><span id="local-6989586621679298543"><span class="annot"><span class="annottext">[ReplicationScope] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679298734"><span id="local-6989586621679298736"><span id="local-6989586621679298738"><span id="local-6989586621679298740"><span class="annot"><span class="annottext">[ReplicationScope] -&gt; Encoding
 [ReplicationScope] -&gt; Value
 ReplicationScope -&gt; Encoding
 ReplicationScope -&gt; Value
@@ -234,7 +234,7 @@ $ctoEncoding :: ReplicationScope -&gt; Encoding
 toJSON :: ReplicationScope -&gt; Value
 $ctoJSON :: ReplicationScope -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679298532"><span id="local-6989586621679298534"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReplicationScope]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679298729"><span id="local-6989586621679298731"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReplicationScope]
 ToJSONKeyFunction ReplicationScope
 ToJSONKeyFunction ReplicationScope
 -&gt; ToJSONKeyFunction [ReplicationScope]
@@ -246,14 +246,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ReplicationScope]
 toJSONKey :: ToJSONKeyFunction ReplicationScope
 $ctoJSONKey :: ToJSONKeyFunction ReplicationScope
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679298529"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReplicationScope
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679298726"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReplicationScope
 ([Node] -&gt; Either String ReplicationScope)
 -&gt; FromXML ReplicationScope
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ReplicationScope
 $cparseXML :: [Node] -&gt; Either String ReplicationScope
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679298526"><span class="annot"><span class="annottext">ReplicationScope -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679298723"><span class="annot"><span class="annottext">ReplicationScope -&gt; XML
 (ReplicationScope -&gt; XML) -&gt; ToXML ReplicationScope
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ReplicationScope -&gt; XML

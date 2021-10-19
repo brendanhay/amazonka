@@ -93,7 +93,7 @@
 </span><span id="line-93"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | /See:/ 'newGetMedia' smart constructor.</span><span>
-</span><span id="line-96"></span><span id="local-6989586621679138125"><span id="local-6989586621679138126"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetMedia"><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMedia"><span class="hs-identifier hs-var">GetMedia</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetMedia%27"><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMedia%27"><span class="hs-identifier hs-var">GetMedia'</span></a></span></span><span>
+</span><span id="line-96"></span><span id="local-6989586621679138124"><span id="local-6989586621679138125"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetMedia"><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMedia"><span class="hs-identifier hs-var">GetMedia</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetMedia%27"><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMedia%27"><span class="hs-identifier hs-var">GetMedia'</span></a></span></span><span>
 </span><span id="line-97"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the stream from where you want to get the media content. If</span><span>
 </span><span id="line-98"></span><span>    </span><span class="hs-comment">-- you don\'t specify the @streamARN@, you must specify the @streamName@.</span><span>
 </span><span id="line-99"></span><span>    </span><span id="%24sel%3AstreamARN%3AGetMedia%27"><span class="annot"><span class="annottext">GetMedia -&gt; Maybe Text
@@ -107,7 +107,7 @@
 </span><span id="line-105"></span><span>    </span><span id="%24sel%3AstartSelector%3AGetMedia%27"><span class="annot"><span class="annottext">GetMedia -&gt; StartSelector
 </span><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#%24sel%3AstartSelector%3AGetMedia%27"><span class="hs-identifier hs-var hs-var">startSelector</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#StartSelector"><span class="hs-identifier hs-type">StartSelector</span></a></span><span>
 </span><span id="line-106"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-107"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679138117"><span id="local-6989586621679138119"><span class="annot"><span class="annottext">GetMedia -&gt; GetMedia -&gt; Bool
+</span><span id="line-107"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679138116"><span id="local-6989586621679138118"><span class="annot"><span class="annottext">GetMedia -&gt; GetMedia -&gt; Bool
 (GetMedia -&gt; GetMedia -&gt; Bool)
 -&gt; (GetMedia -&gt; GetMedia -&gt; Bool) -&gt; Eq GetMedia
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -115,7 +115,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetMedia -&gt; GetMedia -&gt; Bool
 == :: GetMedia -&gt; GetMedia -&gt; Bool
 $c== :: GetMedia -&gt; GetMedia -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679138108"><span id="local-6989586621679138110"><span id="local-6989586621679138112"><span id="local-6989586621679138114"><span class="annot"><span class="annottext">ReadPrec [GetMedia]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679138107"><span id="local-6989586621679138109"><span id="local-6989586621679138111"><span id="local-6989586621679138113"><span class="annot"><span class="annottext">ReadPrec [GetMedia]
 ReadPrec GetMedia
 Int -&gt; ReadS GetMedia
 ReadS [GetMedia]
@@ -135,7 +135,7 @@ readList :: ReadS [GetMedia]
 $creadList :: ReadS [GetMedia]
 readsPrec :: Int -&gt; ReadS GetMedia
 $creadsPrec :: Int -&gt; ReadS GetMedia
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679138101"><span id="local-6989586621679138103"><span id="local-6989586621679138105"><span class="annot"><span class="annottext">Int -&gt; GetMedia -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679138100"><span id="local-6989586621679138102"><span id="local-6989586621679138104"><span class="annot"><span class="annottext">Int -&gt; GetMedia -&gt; ShowS
 [GetMedia] -&gt; ShowS
 GetMedia -&gt; String
 (Int -&gt; GetMedia -&gt; ShowS)
@@ -179,8 +179,8 @@ $cfrom :: forall x. GetMedia -&gt; Rep GetMedia x
 </span><span id="line-127"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#StartSelector"><span class="hs-identifier hs-type">StartSelector</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-128"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMedia"><span class="hs-identifier hs-type">GetMedia</span></a></span><span>
 </span><span id="line-129"></span><span id="newGetMedia"><span class="annot"><span class="annottext">newGetMedia :: StartSelector -&gt; GetMedia
-</span><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#newGetMedia"><span class="hs-identifier hs-var hs-var">newGetMedia</span></a></span></span><span> </span><span id="local-6989586621679138096"><span class="annot"><span class="annottext">StartSelector
-</span><a href="#local-6989586621679138096"><span class="hs-identifier hs-var">pStartSelector_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#newGetMedia"><span class="hs-identifier hs-var hs-var">newGetMedia</span></a></span></span><span> </span><span id="local-6989586621679138095"><span class="annot"><span class="annottext">StartSelector
+</span><a href="#local-6989586621679138095"><span class="hs-identifier hs-var">pStartSelector_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>  </span><span class="annot"><span class="annottext">GetMedia' :: Maybe Text -&gt; Maybe Text -&gt; StartSelector -&gt; GetMedia
 </span><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMedia%27"><span class="hs-identifier hs-type">GetMedia'</span></a></span><span>
 </span><span id="line-131"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:streamARN:GetMedia' :: Maybe Text
@@ -193,7 +193,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">$sel:startSelector:GetMedia' :: StartSelector
 </span><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#%24sel%3AstartSelector%3AGetMedia%27"><span class="hs-identifier hs-var">startSelector</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StartSelector
-</span><a href="#local-6989586621679138096"><span class="hs-identifier hs-var">pStartSelector_</span></a></span><span>
+</span><a href="#local-6989586621679138095"><span class="hs-identifier hs-var">pStartSelector_</span></a></span><span>
 </span><span id="line-134"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- | The ARN of the stream from where you want to get the media content. If</span><span>
@@ -204,16 +204,16 @@ forall a. Maybe a
 -&gt; (GetMedia -&gt; Maybe Text -&gt; GetMedia)
 -&gt; Lens GetMedia GetMedia (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMedia%27"><span class="hs-identifier hs-type">GetMedia'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679138093"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMedia%27"><span class="hs-identifier hs-type">GetMedia'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679138092"><span class="annot"><span class="annottext">Maybe Text
 streamARN :: Maybe Text
 $sel:streamARN:GetMedia' :: GetMedia -&gt; Maybe Text
-</span><a href="#local-6989586621679138093"><span class="hs-identifier hs-var hs-var">streamARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679138093"><span class="hs-identifier hs-var">streamARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679138092"><span class="annot"><span class="annottext">s :: GetMedia
-</span><a href="#local-6989586621679138092"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMedia%27"><span class="hs-identifier hs-type">GetMedia'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679138091"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679138091"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMedia
-</span><a href="#local-6989586621679138092"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamARN:GetMedia' :: Maybe Text
+</span><a href="#local-6989586621679138092"><span class="hs-identifier hs-var hs-var">streamARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679138092"><span class="hs-identifier hs-var">streamARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679138091"><span class="annot"><span class="annottext">s :: GetMedia
+</span><a href="#local-6989586621679138091"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMedia%27"><span class="hs-identifier hs-type">GetMedia'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679138090"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679138090"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMedia
+</span><a href="#local-6989586621679138091"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamARN:GetMedia' :: Maybe Text
 </span><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#%24sel%3AstreamARN%3AGetMedia%27"><span class="hs-identifier hs-var">streamARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679138091"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMedia"><span class="hs-identifier hs-type">GetMedia</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679138090"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMedia"><span class="hs-identifier hs-type">GetMedia</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- | The Kinesis video stream name from where you want to get the media</span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- content. If you don\'t specify the @streamName@, you must specify the</span><span>
@@ -224,16 +224,16 @@ $sel:streamARN:GetMedia' :: GetMedia -&gt; Maybe Text
 -&gt; (GetMedia -&gt; Maybe Text -&gt; GetMedia)
 -&gt; Lens GetMedia GetMedia (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMedia%27"><span class="hs-identifier hs-type">GetMedia'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679138090"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMedia%27"><span class="hs-identifier hs-type">GetMedia'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679138089"><span class="annot"><span class="annottext">Maybe Text
 streamName :: Maybe Text
 $sel:streamName:GetMedia' :: GetMedia -&gt; Maybe Text
-</span><a href="#local-6989586621679138090"><span class="hs-identifier hs-var hs-var">streamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679138090"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679138089"><span class="annot"><span class="annottext">s :: GetMedia
-</span><a href="#local-6989586621679138089"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMedia%27"><span class="hs-identifier hs-type">GetMedia'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679138088"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679138088"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMedia
-</span><a href="#local-6989586621679138089"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamName:GetMedia' :: Maybe Text
+</span><a href="#local-6989586621679138089"><span class="hs-identifier hs-var hs-var">streamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679138089"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679138088"><span class="annot"><span class="annottext">s :: GetMedia
+</span><a href="#local-6989586621679138088"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMedia%27"><span class="hs-identifier hs-type">GetMedia'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679138087"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679138087"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMedia
+</span><a href="#local-6989586621679138088"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamName:GetMedia' :: Maybe Text
 </span><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#%24sel%3AstreamName%3AGetMedia%27"><span class="hs-identifier hs-var">streamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679138088"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMedia"><span class="hs-identifier hs-type">GetMedia</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679138087"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMedia"><span class="hs-identifier hs-type">GetMedia</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- | Identifies the starting chunk to get from the specified stream.</span><span>
 </span><span id="line-148"></span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#getMedia_startSelector"><span class="hs-identifier hs-type">getMedia_startSelector</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMedia"><span class="hs-identifier hs-type">GetMedia</span></a></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.Types.StartSelector.html#StartSelector"><span class="hs-identifier hs-type">StartSelector</span></a></span><span>
@@ -242,25 +242,25 @@ $sel:streamName:GetMedia' :: GetMedia -&gt; Maybe Text
 -&gt; (GetMedia -&gt; StartSelector -&gt; GetMedia)
 -&gt; Lens GetMedia GetMedia StartSelector StartSelector
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMedia%27"><span class="hs-identifier hs-type">GetMedia'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679138087"><span class="annot"><span class="annottext">StartSelector
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMedia%27"><span class="hs-identifier hs-type">GetMedia'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679138086"><span class="annot"><span class="annottext">StartSelector
 startSelector :: StartSelector
 $sel:startSelector:GetMedia' :: GetMedia -&gt; StartSelector
-</span><a href="#local-6989586621679138087"><span class="hs-identifier hs-var hs-var">startSelector</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartSelector
-</span><a href="#local-6989586621679138087"><span class="hs-identifier hs-var">startSelector</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679138086"><span class="annot"><span class="annottext">s :: GetMedia
-</span><a href="#local-6989586621679138086"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMedia%27"><span class="hs-identifier hs-type">GetMedia'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679138085"><span class="annot"><span class="annottext">StartSelector
-</span><a href="#local-6989586621679138085"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMedia
-</span><a href="#local-6989586621679138086"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startSelector:GetMedia' :: StartSelector
+</span><a href="#local-6989586621679138086"><span class="hs-identifier hs-var hs-var">startSelector</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartSelector
+</span><a href="#local-6989586621679138086"><span class="hs-identifier hs-var">startSelector</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679138085"><span class="annot"><span class="annottext">s :: GetMedia
+</span><a href="#local-6989586621679138085"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMedia%27"><span class="hs-identifier hs-type">GetMedia'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679138084"><span class="annot"><span class="annottext">StartSelector
+</span><a href="#local-6989586621679138084"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMedia
+</span><a href="#local-6989586621679138085"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startSelector:GetMedia' :: StartSelector
 </span><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#%24sel%3AstartSelector%3AGetMedia%27"><span class="hs-identifier hs-var">startSelector</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StartSelector
-</span><a href="#local-6989586621679138085"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMedia"><span class="hs-identifier hs-type">GetMedia</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679138084"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMedia"><span class="hs-identifier hs-type">GetMedia</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMedia"><span class="hs-identifier hs-type">GetMedia</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-152"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMedia"><span class="hs-identifier hs-type">GetMedia</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMediaResponse"><span class="hs-identifier hs-type">GetMediaResponse</span></a></span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679138081"><span class="annot"><span class="annottext">request :: GetMedia -&gt; Request GetMedia
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679138080"><span class="annot"><span class="annottext">request :: GetMedia -&gt; Request GetMedia
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetMedia -&gt; Request GetMedia
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.KinesisVideoMedia.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679138077"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679138076"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetMedia
 -&gt; ClientResponse ClientBody
@@ -287,10 +287,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveBody</span></span><span>
-</span><span id="line-156"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679138074"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679138074"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679138073"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679138073"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679138072"><span class="annot"><span class="annottext">ResponseBody
-</span><a href="#local-6989586621679138072"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-156"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679138073"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679138073"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679138072"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679138072"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679138071"><span class="annot"><span class="annottext">ResponseBody
+</span><a href="#local-6989586621679138071"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-157"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; ResponseBody -&gt; GetMediaResponse
 </span><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMediaResponse%27"><span class="hs-identifier hs-var">GetMediaResponse'</span></a></span><span>
 </span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; ResponseBody -&gt; GetMediaResponse)
@@ -298,7 +298,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; ResponseBody -&gt; GetMediaResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679138073"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679138072"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
 forall a.
 FromText a =&gt;
 ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
@@ -313,31 +313,31 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679138074"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679138073"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Either String (ResponseBody -&gt; GetMediaResponse)
 -&gt; Either String ResponseBody -&gt; Either String GetMediaResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseBody -&gt; Either String ResponseBody
 forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="annot"><span class="annottext">ResponseBody
-</span><a href="#local-6989586621679138072"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679138071"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>
-</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679138064"><span id="local-6989586621679138066"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMedia"><span class="hs-identifier hs-type">GetMedia</span></a></span></span></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679138063"><span id="local-6989586621679138065"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMedia"><span class="hs-identifier hs-type">GetMedia</span></a></span></span></span><span>
 </span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679138061"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMedia"><span class="hs-identifier hs-type">GetMedia</span></a></span></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679138060"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMedia"><span class="hs-identifier hs-type">GetMedia</span></a></span></span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMedia"><span class="hs-identifier hs-type">GetMedia</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-168"></span><span>  </span><span id="local-6989586621679138057"><span class="annot"><span class="annottext">toHeaders :: GetMedia -&gt; ResponseHeaders
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679138056"><span class="annot"><span class="annottext">toHeaders :: GetMedia -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetMedia -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-169"></span><span>
-</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679138048"><span id="local-6989586621679138050"><span id="local-6989586621679138052"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMedia"><span class="hs-identifier hs-type">GetMedia</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-171"></span><span>  </span><span id="local-6989586621679138046"><span class="annot"><span class="annottext">toJSON :: GetMedia -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMedia%27"><span class="hs-identifier hs-type">GetMedia'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679138042"><span id="local-6989586621679138043"><span id="local-6989586621679138044"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679138047"><span id="local-6989586621679138049"><span id="local-6989586621679138051"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMedia"><span class="hs-identifier hs-type">GetMedia</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679138045"><span class="annot"><span class="annottext">toJSON :: GetMedia -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMedia%27"><span class="hs-identifier hs-type">GetMedia'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679138041"><span id="local-6989586621679138042"><span id="local-6989586621679138043"><span class="annot"><span class="annottext">Maybe Text
 StartSelector
 startSelector :: StartSelector
 streamName :: Maybe Text
@@ -345,7 +345,7 @@ streamARN :: Maybe Text
 $sel:startSelector:GetMedia' :: GetMedia -&gt; StartSelector
 $sel:streamName:GetMedia' :: GetMedia -&gt; Maybe Text
 $sel:streamARN:GetMedia' :: GetMedia -&gt; Maybe Text
-</span><a href="#local-6989586621679138042"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679138041"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-172"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-173"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -357,14 +357,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679138044"><span class="hs-identifier hs-var">streamARN</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679138043"><span class="hs-identifier hs-var">streamARN</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-175"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StreamName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679138043"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679138042"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -372,19 +372,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;StartSelector&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; StartSelector -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">StartSelector
-</span><a href="#local-6989586621679138042"><span class="hs-identifier hs-var">startSelector</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679138041"><span class="hs-identifier hs-var">startSelector</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-179"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMedia"><span class="hs-identifier hs-type">GetMedia</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-182"></span><span>  </span><span id="local-6989586621679138036"><span class="annot"><span class="annottext">toPath :: GetMedia -&gt; ByteString
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679138035"><span class="annot"><span class="annottext">toPath :: GetMedia -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetMedia -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/getMedia&quot;</span></span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMedia"><span class="hs-identifier hs-type">GetMedia</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-185"></span><span>  </span><span id="local-6989586621679138032"><span class="annot"><span class="annottext">toQuery :: GetMedia -&gt; QueryString
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679138031"><span class="annot"><span class="annottext">toQuery :: GetMedia -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetMedia -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -392,7 +392,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-comment">-- | /See:/ 'newGetMediaResponse' smart constructor.</span><span>
-</span><span id="line-188"></span><span id="local-6989586621679138029"><span id="local-6989586621679138030"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetMediaResponse"><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMediaResponse"><span class="hs-identifier hs-var">GetMediaResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetMediaResponse%27"><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMediaResponse%27"><span class="hs-identifier hs-var">GetMediaResponse'</span></a></span></span><span>
+</span><span id="line-188"></span><span id="local-6989586621679138028"><span id="local-6989586621679138029"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetMediaResponse"><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMediaResponse"><span class="hs-identifier hs-var">GetMediaResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetMediaResponse%27"><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMediaResponse%27"><span class="hs-identifier hs-var">GetMediaResponse'</span></a></span></span><span>
 </span><span id="line-189"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The content type of the requested media.</span><span>
 </span><span id="line-190"></span><span>    </span><span id="%24sel%3AcontentType%3AGetMediaResponse%27"><span class="annot"><span class="annottext">GetMediaResponse -&gt; Maybe Text
 </span><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#%24sel%3AcontentType%3AGetMediaResponse%27"><span class="hs-identifier hs-var hs-var">contentType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -454,7 +454,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-245"></span><span>    </span><span id="%24sel%3Apayload%3AGetMediaResponse%27"><span class="annot"><span class="annottext">GetMediaResponse -&gt; ResponseBody
 </span><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#%24sel%3Apayload%3AGetMediaResponse%27"><span class="hs-identifier hs-var hs-var">payload</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ResponseBody</span></span><span>
 </span><span id="line-246"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-247"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679138020"><span id="local-6989586621679138022"><span id="local-6989586621679138024"><span class="annot"><span class="annottext">Int -&gt; GetMediaResponse -&gt; ShowS
+</span><span id="line-247"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679138019"><span id="local-6989586621679138021"><span id="local-6989586621679138023"><span class="annot"><span class="annottext">Int -&gt; GetMediaResponse -&gt; ShowS
 [GetMediaResponse] -&gt; ShowS
 GetMediaResponse -&gt; String
 (Int -&gt; GetMediaResponse -&gt; ShowS)
@@ -551,9 +551,9 @@ $cfrom :: forall x. GetMediaResponse -&gt; Rep GetMediaResponse x
 </span><span id="line-317"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ResponseBody</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-318"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMediaResponse"><span class="hs-identifier hs-type">GetMediaResponse</span></a></span><span>
 </span><span id="line-319"></span><span id="newGetMediaResponse"><span class="annot"><span class="annottext">newGetMediaResponse :: Int -&gt; ResponseBody -&gt; GetMediaResponse
-</span><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#newGetMediaResponse"><span class="hs-identifier hs-var hs-var">newGetMediaResponse</span></a></span></span><span> </span><span id="local-6989586621679138017"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679138017"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679138016"><span class="annot"><span class="annottext">ResponseBody
-</span><a href="#local-6989586621679138016"><span class="hs-identifier hs-var">pPayload_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#newGetMediaResponse"><span class="hs-identifier hs-var hs-var">newGetMediaResponse</span></a></span></span><span> </span><span id="local-6989586621679138016"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679138016"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679138015"><span class="annot"><span class="annottext">ResponseBody
+</span><a href="#local-6989586621679138015"><span class="hs-identifier hs-var">pPayload_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-320"></span><span>  </span><span class="annot"><span class="annottext">GetMediaResponse' :: Maybe Text -&gt; Int -&gt; ResponseBody -&gt; GetMediaResponse
 </span><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMediaResponse%27"><span class="hs-identifier hs-type">GetMediaResponse'</span></a></span><span>
 </span><span id="line-321"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:contentType:GetMediaResponse' :: Maybe Text
@@ -562,10 +562,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-322"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetMediaResponse' :: Int
 </span><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#%24sel%3AhttpStatus%3AGetMediaResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679138017"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679138016"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-323"></span><span>      </span><span class="annot"><span class="annottext">$sel:payload:GetMediaResponse' :: ResponseBody
 </span><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#%24sel%3Apayload%3AGetMediaResponse%27"><span class="hs-identifier hs-var">payload</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseBody
-</span><a href="#local-6989586621679138016"><span class="hs-identifier hs-var">pPayload_</span></a></span><span>
+</span><a href="#local-6989586621679138015"><span class="hs-identifier hs-var">pPayload_</span></a></span><span>
 </span><span id="line-324"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-325"></span><span>
 </span><span id="line-326"></span><span class="hs-comment">-- | The content type of the requested media.</span><span>
@@ -576,16 +576,16 @@ forall a. Maybe a
 -&gt; (GetMediaResponse -&gt; Maybe Text -&gt; GetMediaResponse)
 -&gt; Lens GetMediaResponse GetMediaResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMediaResponse%27"><span class="hs-identifier hs-type">GetMediaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679138015"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMediaResponse%27"><span class="hs-identifier hs-type">GetMediaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679138014"><span class="annot"><span class="annottext">Maybe Text
 contentType :: Maybe Text
 $sel:contentType:GetMediaResponse' :: GetMediaResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679138015"><span class="hs-identifier hs-var hs-var">contentType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679138015"><span class="hs-identifier hs-var">contentType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679138014"><span class="annot"><span class="annottext">s :: GetMediaResponse
-</span><a href="#local-6989586621679138014"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMediaResponse%27"><span class="hs-identifier hs-type">GetMediaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679138013"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679138013"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMediaResponse
-</span><a href="#local-6989586621679138014"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentType:GetMediaResponse' :: Maybe Text
+</span><a href="#local-6989586621679138014"><span class="hs-identifier hs-var hs-var">contentType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679138014"><span class="hs-identifier hs-var">contentType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679138013"><span class="annot"><span class="annottext">s :: GetMediaResponse
+</span><a href="#local-6989586621679138013"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMediaResponse%27"><span class="hs-identifier hs-type">GetMediaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679138012"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679138012"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMediaResponse
+</span><a href="#local-6989586621679138013"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentType:GetMediaResponse' :: Maybe Text
 </span><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#%24sel%3AcontentType%3AGetMediaResponse%27"><span class="hs-identifier hs-var">contentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679138013"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMediaResponse"><span class="hs-identifier hs-type">GetMediaResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679138012"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMediaResponse"><span class="hs-identifier hs-type">GetMediaResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-329"></span><span>
 </span><span id="line-330"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-331"></span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#getMediaResponse_httpStatus"><span class="hs-identifier hs-type">getMediaResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMediaResponse"><span class="hs-identifier hs-type">GetMediaResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -594,16 +594,16 @@ $sel:contentType:GetMediaResponse' :: GetMediaResponse -&gt; Maybe Text
 -&gt; (GetMediaResponse -&gt; Int -&gt; GetMediaResponse)
 -&gt; Lens GetMediaResponse GetMediaResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMediaResponse%27"><span class="hs-identifier hs-type">GetMediaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679138012"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMediaResponse%27"><span class="hs-identifier hs-type">GetMediaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679138011"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetMediaResponse' :: GetMediaResponse -&gt; Int
-</span><a href="#local-6989586621679138012"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679138012"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679138011"><span class="annot"><span class="annottext">s :: GetMediaResponse
-</span><a href="#local-6989586621679138011"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMediaResponse%27"><span class="hs-identifier hs-type">GetMediaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679138010"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679138010"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMediaResponse
-</span><a href="#local-6989586621679138011"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetMediaResponse' :: Int
+</span><a href="#local-6989586621679138011"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679138011"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679138010"><span class="annot"><span class="annottext">s :: GetMediaResponse
+</span><a href="#local-6989586621679138010"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMediaResponse%27"><span class="hs-identifier hs-type">GetMediaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679138009"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679138009"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMediaResponse
+</span><a href="#local-6989586621679138010"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetMediaResponse' :: Int
 </span><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#%24sel%3AhttpStatus%3AGetMediaResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679138010"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMediaResponse"><span class="hs-identifier hs-type">GetMediaResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679138009"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMediaResponse"><span class="hs-identifier hs-type">GetMediaResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-333"></span><span>
 </span><span id="line-334"></span><span class="hs-comment">-- | The payload Kinesis Video Streams returns is a sequence of chunks from</span><span>
 </span><span id="line-335"></span><span class="hs-comment">-- the specified stream. For information about the chunks, see . The chunks</span><span>
@@ -664,14 +664,14 @@ $sel:httpStatus:GetMediaResponse' :: GetMediaResponse -&gt; Int
 -&gt; (GetMediaResponse -&gt; ResponseBody -&gt; GetMediaResponse)
 -&gt; Lens GetMediaResponse GetMediaResponse ResponseBody ResponseBody
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMediaResponse%27"><span class="hs-identifier hs-type">GetMediaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679138009"><span class="annot"><span class="annottext">ResponseBody
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMediaResponse%27"><span class="hs-identifier hs-type">GetMediaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679138008"><span class="annot"><span class="annottext">ResponseBody
 payload :: ResponseBody
 $sel:payload:GetMediaResponse' :: GetMediaResponse -&gt; ResponseBody
-</span><a href="#local-6989586621679138009"><span class="hs-identifier hs-var hs-var">payload</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResponseBody
-</span><a href="#local-6989586621679138009"><span class="hs-identifier hs-var">payload</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679138008"><span class="annot"><span class="annottext">s :: GetMediaResponse
-</span><a href="#local-6989586621679138008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMediaResponse%27"><span class="hs-identifier hs-type">GetMediaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679138007"><span class="annot"><span class="annottext">ResponseBody
-</span><a href="#local-6989586621679138007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMediaResponse
-</span><a href="#local-6989586621679138008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:payload:GetMediaResponse' :: ResponseBody
+</span><a href="#local-6989586621679138008"><span class="hs-identifier hs-var hs-var">payload</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResponseBody
+</span><a href="#local-6989586621679138008"><span class="hs-identifier hs-var">payload</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679138007"><span class="annot"><span class="annottext">s :: GetMediaResponse
+</span><a href="#local-6989586621679138007"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMediaResponse%27"><span class="hs-identifier hs-type">GetMediaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679138006"><span class="annot"><span class="annottext">ResponseBody
+</span><a href="#local-6989586621679138006"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMediaResponse
+</span><a href="#local-6989586621679138007"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:payload:GetMediaResponse' :: ResponseBody
 </span><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#%24sel%3Apayload%3AGetMediaResponse%27"><span class="hs-identifier hs-var">payload</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseBody
-</span><a href="#local-6989586621679138007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMediaResponse"><span class="hs-identifier hs-type">GetMediaResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679138006"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoMedia.GetMedia.html#GetMediaResponse"><span class="hs-identifier hs-type">GetMediaResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-388"></span></pre></body></html>

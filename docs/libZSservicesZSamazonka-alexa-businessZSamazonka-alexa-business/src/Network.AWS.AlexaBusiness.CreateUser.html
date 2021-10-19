@@ -28,10 +28,10 @@
 </span><span id="line-28"></span><span>
 </span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#createUser_email"><span class="hs-identifier">createUser_email</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#createUser_tags"><span class="hs-identifier">createUser_tags</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#createUser_clientRequestToken"><span class="hs-identifier">createUser_clientRequestToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#createUser_lastName"><span class="hs-identifier">createUser_lastName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#createUser_firstName"><span class="hs-identifier">createUser_firstName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#createUser_lastName"><span class="hs-identifier">createUser_lastName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#createUser_firstName"><span class="hs-identifier">createUser_firstName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#createUser_clientRequestToken"><span class="hs-identifier">createUser_clientRequestToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#createUser_tags"><span class="hs-identifier">createUser_tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#createUser_userId"><span class="hs-identifier">createUser_userId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -52,28 +52,28 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newCreateUser' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679390251"><span id="local-6989586621679390252"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateUser"><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser"><span class="hs-identifier hs-var">CreateUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateUser%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-var">CreateUser'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679390610"><span id="local-6989586621679390611"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateUser"><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser"><span class="hs-identifier hs-var">CreateUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateUser%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-var">CreateUser'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The email address for the user.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3Aemail%3ACreateUser%27"><span class="annot"><span class="annottext">CreateUser -&gt; Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.CreateUser.html#%24sel%3Aemail%3ACreateUser%27"><span class="hs-identifier hs-var hs-var">email</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The tags for the user.</span><span>
-</span><span id="line-59"></span><span>    </span><span id="%24sel%3Atags%3ACreateUser%27"><span class="annot"><span class="annottext">CreateUser -&gt; Maybe [Tag]
-</span><a href="Network.AWS.AlexaBusiness.CreateUser.html#%24sel%3Atags%3ACreateUser%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | A unique, user-specified identifier for this request that ensures</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- idempotency.</span><span>
-</span><span id="line-62"></span><span>    </span><span id="%24sel%3AclientRequestToken%3ACreateUser%27"><span class="annot"><span class="annottext">CreateUser -&gt; Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.CreateUser.html#%24sel%3AclientRequestToken%3ACreateUser%27"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The last name for the user.</span><span>
-</span><span id="line-64"></span><span>    </span><span id="%24sel%3AlastName%3ACreateUser%27"><span class="annot"><span class="annottext">CreateUser -&gt; Maybe Text
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The last name for the user.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AlastName%3ACreateUser%27"><span class="annot"><span class="annottext">CreateUser -&gt; Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.CreateUser.html#%24sel%3AlastName%3ACreateUser%27"><span class="hs-identifier hs-var hs-var">lastName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The first name for the user.</span><span>
-</span><span id="line-66"></span><span>    </span><span id="%24sel%3AfirstName%3ACreateUser%27"><span class="annot"><span class="annottext">CreateUser -&gt; Maybe Text
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The first name for the user.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AfirstName%3ACreateUser%27"><span class="annot"><span class="annottext">CreateUser -&gt; Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.CreateUser.html#%24sel%3AfirstName%3ACreateUser%27"><span class="hs-identifier hs-var hs-var">firstName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | A unique, user-specified identifier for this request that ensures</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- idempotency.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AclientRequestToken%3ACreateUser%27"><span class="annot"><span class="annottext">CreateUser -&gt; Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.CreateUser.html#%24sel%3AclientRequestToken%3ACreateUser%27"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The tags for the user.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3Atags%3ACreateUser%27"><span class="annot"><span class="annottext">CreateUser -&gt; Maybe [Tag]
+</span><a href="Network.AWS.AlexaBusiness.CreateUser.html#%24sel%3Atags%3ACreateUser%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The ARN for the user.</span><span>
 </span><span id="line-68"></span><span>    </span><span id="%24sel%3AuserId%3ACreateUser%27"><span class="annot"><span class="annottext">CreateUser -&gt; Text
 </span><a href="Network.AWS.AlexaBusiness.CreateUser.html#%24sel%3AuserId%3ACreateUser%27"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679390240"><span id="local-6989586621679390242"><span class="annot"><span class="annottext">CreateUser -&gt; CreateUser -&gt; Bool
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679390599"><span id="local-6989586621679390601"><span class="annot"><span class="annottext">CreateUser -&gt; CreateUser -&gt; Bool
 (CreateUser -&gt; CreateUser -&gt; Bool)
 -&gt; (CreateUser -&gt; CreateUser -&gt; Bool) -&gt; Eq CreateUser
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateUser -&gt; CreateUser -&gt; Bool
 == :: CreateUser -&gt; CreateUser -&gt; Bool
 $c== :: CreateUser -&gt; CreateUser -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390231"><span id="local-6989586621679390233"><span id="local-6989586621679390235"><span id="local-6989586621679390237"><span class="annot"><span class="annottext">ReadPrec [CreateUser]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390590"><span id="local-6989586621679390592"><span id="local-6989586621679390594"><span id="local-6989586621679390596"><span class="annot"><span class="annottext">ReadPrec [CreateUser]
 ReadPrec CreateUser
 Int -&gt; ReadS CreateUser
 ReadS [CreateUser]
@@ -101,7 +101,7 @@ readList :: ReadS [CreateUser]
 $creadList :: ReadS [CreateUser]
 readsPrec :: Int -&gt; ReadS CreateUser
 $creadsPrec :: Int -&gt; ReadS CreateUser
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390224"><span id="local-6989586621679390226"><span id="local-6989586621679390228"><span class="annot"><span class="annottext">Int -&gt; CreateUser -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390583"><span id="local-6989586621679390585"><span id="local-6989586621679390587"><span class="annot"><span class="annottext">Int -&gt; CreateUser -&gt; ShowS
 [CreateUser] -&gt; ShowS
 CreateUser -&gt; String
 (Int -&gt; CreateUser -&gt; ShowS)
@@ -136,14 +136,14 @@ $cfrom :: forall x. CreateUser -&gt; Rep CreateUser x
 </span><span id="line-79"></span><span class="hs-comment">--</span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- 'email', 'createUser_email' - The email address for the user.</span><span>
 </span><span id="line-81"></span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- 'tags', 'createUser_tags' - The tags for the user.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'lastName', 'createUser_lastName' - The last name for the user.</span><span>
 </span><span id="line-83"></span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- 'clientRequestToken', 'createUser_clientRequestToken' - A unique, user-specified identifier for this request that ensures</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- idempotency.</span><span>
-</span><span id="line-86"></span><span class="hs-comment">--</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- 'lastName', 'createUser_lastName' - The last name for the user.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'firstName', 'createUser_firstName' - The first name for the user.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'clientRequestToken', 'createUser_clientRequestToken' - A unique, user-specified identifier for this request that ensures</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- idempotency.</span><span>
 </span><span id="line-88"></span><span class="hs-comment">--</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- 'firstName', 'createUser_firstName' - The first name for the user.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'tags', 'createUser_tags' - The tags for the user.</span><span>
 </span><span id="line-90"></span><span class="hs-comment">--</span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- 'userId', 'createUser_userId' - The ARN for the user.</span><span>
 </span><span id="line-92"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#newCreateUser"><span class="hs-identifier hs-type">newCreateUser</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -151,13 +151,13 @@ $cfrom :: forall x. CreateUser -&gt; Rep CreateUser x
 </span><span id="line-94"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span>
 </span><span id="line-96"></span><span id="newCreateUser"><span class="annot"><span class="annottext">newCreateUser :: Text -&gt; CreateUser
-</span><a href="Network.AWS.AlexaBusiness.CreateUser.html#newCreateUser"><span class="hs-identifier hs-var hs-var">newCreateUser</span></a></span></span><span> </span><span id="local-6989586621679390219"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390219"><span class="hs-identifier hs-var">pUserId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AlexaBusiness.CreateUser.html#newCreateUser"><span class="hs-identifier hs-var hs-var">newCreateUser</span></a></span></span><span> </span><span id="local-6989586621679390578"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679390578"><span class="hs-identifier hs-var">pUserId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>  </span><span class="annot"><span class="annottext">CreateUser' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe [Tag]
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Text
 -&gt; CreateUser
 </span><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span>
@@ -165,25 +165,25 @@ $cfrom :: forall x. CreateUser -&gt; Rep CreateUser x
 </span><a href="Network.AWS.AlexaBusiness.CreateUser.html#%24sel%3Aemail%3ACreateUser%27"><span class="hs-identifier hs-var">email</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:CreateUser' :: Maybe [Tag]
-</span><a href="Network.AWS.AlexaBusiness.CreateUser.html#%24sel%3Atags%3ACreateUser%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:clientRequestToken:CreateUser' :: Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.CreateUser.html#%24sel%3AclientRequestToken%3ACreateUser%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastName:CreateUser' :: Maybe Text
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastName:CreateUser' :: Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.CreateUser.html#%24sel%3AlastName%3ACreateUser%27"><span class="hs-identifier hs-var">lastName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:firstName:CreateUser' :: Maybe Text
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:firstName:CreateUser' :: Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.CreateUser.html#%24sel%3AfirstName%3ACreateUser%27"><span class="hs-identifier hs-var">firstName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:clientRequestToken:CreateUser' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.CreateUser.html#%24sel%3AclientRequestToken%3ACreateUser%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:CreateUser' :: Maybe [Tag]
+</span><a href="Network.AWS.AlexaBusiness.CreateUser.html#%24sel%3Atags%3ACreateUser%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:userId:CreateUser' :: Text
 </span><a href="Network.AWS.AlexaBusiness.CreateUser.html#%24sel%3AuserId%3ACreateUser%27"><span class="hs-identifier hs-var">userId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390219"><span class="hs-identifier hs-var">pUserId_</span></a></span><span>
+</span><a href="#local-6989586621679390578"><span class="hs-identifier hs-var">pUserId_</span></a></span><span>
 </span><span id="line-104"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | The email address for the user.</span><span>
@@ -193,34 +193,89 @@ forall a. Maybe a
 -&gt; (CreateUser -&gt; Maybe Text -&gt; CreateUser)
 -&gt; Lens CreateUser CreateUser (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390216"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390575"><span class="annot"><span class="annottext">Maybe Text
 email :: Maybe Text
 $sel:email:CreateUser' :: CreateUser -&gt; Maybe Text
-</span><a href="#local-6989586621679390216"><span class="hs-identifier hs-var hs-var">email</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390216"><span class="hs-identifier hs-var">email</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390215"><span class="annot"><span class="annottext">s :: CreateUser
-</span><a href="#local-6989586621679390215"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390214"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390214"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUser
-</span><a href="#local-6989586621679390215"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:email:CreateUser' :: Maybe Text
+</span><a href="#local-6989586621679390575"><span class="hs-identifier hs-var hs-var">email</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679390575"><span class="hs-identifier hs-var">email</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390574"><span class="annot"><span class="annottext">s :: CreateUser
+</span><a href="#local-6989586621679390574"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390573"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679390573"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUser
+</span><a href="#local-6989586621679390574"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:email:CreateUser' :: Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.CreateUser.html#%24sel%3Aemail%3ACreateUser%27"><span class="hs-identifier hs-var">email</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390214"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679390573"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- | The tags for the user.</span><span>
-</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#createUser_tags"><span class="hs-identifier hs-type">createUser_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span id="createUser_tags"><span class="annot"><span class="annottext">createUser_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; CreateUser -&gt; f CreateUser
+</span><span id="line-110"></span><span class="hs-comment">-- | The last name for the user.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#createUser_lastName"><span class="hs-identifier hs-type">createUser_lastName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="createUser_lastName"><span class="annot"><span class="annottext">createUser_lastName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateUser -&gt; f CreateUser
+</span><a href="Network.AWS.AlexaBusiness.CreateUser.html#createUser_lastName"><span class="hs-identifier hs-var hs-var">createUser_lastName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateUser -&gt; Maybe Text)
+-&gt; (CreateUser -&gt; Maybe Text -&gt; CreateUser)
+-&gt; Lens CreateUser CreateUser (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390572"><span class="annot"><span class="annottext">Maybe Text
+lastName :: Maybe Text
+$sel:lastName:CreateUser' :: CreateUser -&gt; Maybe Text
+</span><a href="#local-6989586621679390572"><span class="hs-identifier hs-var hs-var">lastName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679390572"><span class="hs-identifier hs-var">lastName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390571"><span class="annot"><span class="annottext">s :: CreateUser
+</span><a href="#local-6989586621679390571"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390570"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679390570"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUser
+</span><a href="#local-6989586621679390571"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastName:CreateUser' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.CreateUser.html#%24sel%3AlastName%3ACreateUser%27"><span class="hs-identifier hs-var">lastName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679390570"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The first name for the user.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#createUser_firstName"><span class="hs-identifier hs-type">createUser_firstName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="createUser_firstName"><span class="annot"><span class="annottext">createUser_firstName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateUser -&gt; f CreateUser
+</span><a href="Network.AWS.AlexaBusiness.CreateUser.html#createUser_firstName"><span class="hs-identifier hs-var hs-var">createUser_firstName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateUser -&gt; Maybe Text)
+-&gt; (CreateUser -&gt; Maybe Text -&gt; CreateUser)
+-&gt; Lens CreateUser CreateUser (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390569"><span class="annot"><span class="annottext">Maybe Text
+firstName :: Maybe Text
+$sel:firstName:CreateUser' :: CreateUser -&gt; Maybe Text
+</span><a href="#local-6989586621679390569"><span class="hs-identifier hs-var hs-var">firstName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679390569"><span class="hs-identifier hs-var">firstName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390568"><span class="annot"><span class="annottext">s :: CreateUser
+</span><a href="#local-6989586621679390568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390567"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679390567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUser
+</span><a href="#local-6989586621679390568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:firstName:CreateUser' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.CreateUser.html#%24sel%3AfirstName%3ACreateUser%27"><span class="hs-identifier hs-var">firstName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679390567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | A unique, user-specified identifier for this request that ensures</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- idempotency.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#createUser_clientRequestToken"><span class="hs-identifier hs-type">createUser_clientRequestToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="createUser_clientRequestToken"><span class="annot"><span class="annottext">createUser_clientRequestToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateUser -&gt; f CreateUser
+</span><a href="Network.AWS.AlexaBusiness.CreateUser.html#createUser_clientRequestToken"><span class="hs-identifier hs-var hs-var">createUser_clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateUser -&gt; Maybe Text)
+-&gt; (CreateUser -&gt; Maybe Text -&gt; CreateUser)
+-&gt; Lens CreateUser CreateUser (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390566"><span class="annot"><span class="annottext">Maybe Text
+clientRequestToken :: Maybe Text
+$sel:clientRequestToken:CreateUser' :: CreateUser -&gt; Maybe Text
+</span><a href="#local-6989586621679390566"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679390566"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390565"><span class="annot"><span class="annottext">s :: CreateUser
+</span><a href="#local-6989586621679390565"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390564"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679390564"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUser
+</span><a href="#local-6989586621679390565"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientRequestToken:CreateUser' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.CreateUser.html#%24sel%3AclientRequestToken%3ACreateUser%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679390564"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The tags for the user.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#createUser_tags"><span class="hs-identifier hs-type">createUser_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="createUser_tags"><span class="annot"><span class="annottext">createUser_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; CreateUser -&gt; f CreateUser
 </span><a href="Network.AWS.AlexaBusiness.CreateUser.html#createUser_tags"><span class="hs-identifier hs-var hs-var">createUser_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateUser -&gt; Maybe [Tag])
 -&gt; (CreateUser -&gt; Maybe [Tag] -&gt; CreateUser)
 -&gt; Lens CreateUser CreateUser (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390213"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390563"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:CreateUser' :: CreateUser -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679390213"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679390213"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390212"><span class="annot"><span class="annottext">s :: CreateUser
-</span><a href="#local-6989586621679390212"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390211"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679390211"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUser
-</span><a href="#local-6989586621679390212"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateUser' :: Maybe [Tag]
+</span><a href="#local-6989586621679390563"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679390563"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390562"><span class="annot"><span class="annottext">s :: CreateUser
+</span><a href="#local-6989586621679390562"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390561"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679390561"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUser
+</span><a href="#local-6989586621679390562"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateUser' :: Maybe [Tag]
 </span><a href="Network.AWS.AlexaBusiness.CreateUser.html#%24sel%3Atags%3ACreateUser%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679390211"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; CreateUser -&gt; f CreateUser)
+</span><a href="#local-6989586621679390561"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; CreateUser -&gt; f CreateUser)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
 -&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -233,63 +288,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- | A unique, user-specified identifier for this request that ensures</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- idempotency.</span><span>
-</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#createUser_clientRequestToken"><span class="hs-identifier hs-type">createUser_clientRequestToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span id="createUser_clientRequestToken"><span class="annot"><span class="annottext">createUser_clientRequestToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateUser -&gt; f CreateUser
-</span><a href="Network.AWS.AlexaBusiness.CreateUser.html#createUser_clientRequestToken"><span class="hs-identifier hs-var hs-var">createUser_clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateUser -&gt; Maybe Text)
--&gt; (CreateUser -&gt; Maybe Text -&gt; CreateUser)
--&gt; Lens CreateUser CreateUser (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390207"><span class="annot"><span class="annottext">Maybe Text
-clientRequestToken :: Maybe Text
-$sel:clientRequestToken:CreateUser' :: CreateUser -&gt; Maybe Text
-</span><a href="#local-6989586621679390207"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390207"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390206"><span class="annot"><span class="annottext">s :: CreateUser
-</span><a href="#local-6989586621679390206"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390205"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390205"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUser
-</span><a href="#local-6989586621679390206"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientRequestToken:CreateUser' :: Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.CreateUser.html#%24sel%3AclientRequestToken%3ACreateUser%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390205"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- | The last name for the user.</span><span>
-</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#createUser_lastName"><span class="hs-identifier hs-type">createUser_lastName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span id="createUser_lastName"><span class="annot"><span class="annottext">createUser_lastName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateUser -&gt; f CreateUser
-</span><a href="Network.AWS.AlexaBusiness.CreateUser.html#createUser_lastName"><span class="hs-identifier hs-var hs-var">createUser_lastName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateUser -&gt; Maybe Text)
--&gt; (CreateUser -&gt; Maybe Text -&gt; CreateUser)
--&gt; Lens CreateUser CreateUser (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390204"><span class="annot"><span class="annottext">Maybe Text
-lastName :: Maybe Text
-$sel:lastName:CreateUser' :: CreateUser -&gt; Maybe Text
-</span><a href="#local-6989586621679390204"><span class="hs-identifier hs-var hs-var">lastName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390204"><span class="hs-identifier hs-var">lastName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390203"><span class="annot"><span class="annottext">s :: CreateUser
-</span><a href="#local-6989586621679390203"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390202"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390202"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUser
-</span><a href="#local-6989586621679390203"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastName:CreateUser' :: Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.CreateUser.html#%24sel%3AlastName%3ACreateUser%27"><span class="hs-identifier hs-var">lastName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390202"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- | The first name for the user.</span><span>
-</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#createUser_firstName"><span class="hs-identifier hs-type">createUser_firstName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span id="createUser_firstName"><span class="annot"><span class="annottext">createUser_firstName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateUser -&gt; f CreateUser
-</span><a href="Network.AWS.AlexaBusiness.CreateUser.html#createUser_firstName"><span class="hs-identifier hs-var hs-var">createUser_firstName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateUser -&gt; Maybe Text)
--&gt; (CreateUser -&gt; Maybe Text -&gt; CreateUser)
--&gt; Lens CreateUser CreateUser (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390201"><span class="annot"><span class="annottext">Maybe Text
-firstName :: Maybe Text
-$sel:firstName:CreateUser' :: CreateUser -&gt; Maybe Text
-</span><a href="#local-6989586621679390201"><span class="hs-identifier hs-var hs-var">firstName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390201"><span class="hs-identifier hs-var">firstName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390200"><span class="annot"><span class="annottext">s :: CreateUser
-</span><a href="#local-6989586621679390200"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390199"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390199"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUser
-</span><a href="#local-6989586621679390200"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:firstName:CreateUser' :: Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.CreateUser.html#%24sel%3AfirstName%3ACreateUser%27"><span class="hs-identifier hs-var">firstName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390199"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- | The ARN for the user.</span><span>
 </span><span id="line-128"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#createUser_userId"><span class="hs-identifier hs-type">createUser_userId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -298,25 +298,25 @@ $sel:firstName:CreateUser' :: CreateUser -&gt; Maybe Text
 -&gt; (CreateUser -&gt; Text -&gt; CreateUser)
 -&gt; Lens CreateUser CreateUser Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390198"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390557"><span class="annot"><span class="annottext">Text
 userId :: Text
 $sel:userId:CreateUser' :: CreateUser -&gt; Text
-</span><a href="#local-6989586621679390198"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390198"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390197"><span class="annot"><span class="annottext">s :: CreateUser
-</span><a href="#local-6989586621679390197"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390196"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390196"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUser
-</span><a href="#local-6989586621679390197"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userId:CreateUser' :: Text
+</span><a href="#local-6989586621679390557"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679390557"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390556"><span class="annot"><span class="annottext">s :: CreateUser
+</span><a href="#local-6989586621679390556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390555"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679390555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUser
+</span><a href="#local-6989586621679390556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userId:CreateUser' :: Text
 </span><a href="Network.AWS.AlexaBusiness.CreateUser.html#%24sel%3AuserId%3ACreateUser%27"><span class="hs-identifier hs-var">userId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390196"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679390555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-132"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUserResponse"><span class="hs-identifier hs-type">CreateUserResponse</span></a></span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679390192"><span class="annot"><span class="annottext">request :: CreateUser -&gt; Request CreateUser
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679390551"><span class="annot"><span class="annottext">request :: CreateUser -&gt; Request CreateUser
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateUser -&gt; Request CreateUser
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AlexaBusiness.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679390188"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679390547"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateUser
 -&gt; ClientResponse ClientBody
@@ -340,10 +340,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679390185"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390185"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679390184"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679390184"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679390183"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679390183"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679390544"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679390544"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679390543"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679390543"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679390542"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679390542"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-137"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; CreateUserResponse
 </span><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUserResponse%27"><span class="hs-identifier hs-var">CreateUserResponse'</span></a></span><span>
 </span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; CreateUserResponse)
@@ -351,7 +351,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; CreateUserResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679390183"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679390542"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UserArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -363,15 +363,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390185"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679390544"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390175"><span id="local-6989586621679390177"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span></span></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390534"><span id="local-6989586621679390536"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span></span></span><span>
 </span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390172"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390531"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span></span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679390168"><span class="annot"><span class="annottext">toHeaders :: CreateUser -&gt; ResponseHeaders
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679390527"><span class="annot"><span class="annottext">toHeaders :: CreateUser -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateUser -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -398,24 +398,24 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-158"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-159"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
-</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390158"><span id="local-6989586621679390160"><span id="local-6989586621679390162"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679390156"><span class="annot"><span class="annottext">toJSON :: CreateUser -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390149"><span id="local-6989586621679390150"><span id="local-6989586621679390151"><span id="local-6989586621679390152"><span id="local-6989586621679390153"><span id="local-6989586621679390154"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390517"><span id="local-6989586621679390519"><span id="local-6989586621679390521"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679390515"><span class="annot"><span class="annottext">toJSON :: CreateUser -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390508"><span id="local-6989586621679390509"><span id="local-6989586621679390510"><span id="local-6989586621679390511"><span id="local-6989586621679390512"><span id="local-6989586621679390513"><span class="annot"><span class="annottext">Maybe [Tag]
 Maybe Text
 Text
 userId :: Text
+tags :: Maybe [Tag]
+clientRequestToken :: Maybe Text
 firstName :: Maybe Text
 lastName :: Maybe Text
-clientRequestToken :: Maybe Text
-tags :: Maybe [Tag]
 email :: Maybe Text
 $sel:userId:CreateUser' :: CreateUser -&gt; Text
+$sel:tags:CreateUser' :: CreateUser -&gt; Maybe [Tag]
+$sel:clientRequestToken:CreateUser' :: CreateUser -&gt; Maybe Text
 $sel:firstName:CreateUser' :: CreateUser -&gt; Maybe Text
 $sel:lastName:CreateUser' :: CreateUser -&gt; Maybe Text
-$sel:clientRequestToken:CreateUser' :: CreateUser -&gt; Maybe Text
-$sel:tags:CreateUser' :: CreateUser -&gt; Maybe [Tag]
 $sel:email:CreateUser' :: CreateUser -&gt; Maybe Text
-</span><a href="#local-6989586621679390149"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679390508"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-164"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -427,55 +427,55 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390154"><span class="hs-identifier hs-var">email</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679390513"><span class="hs-identifier hs-var">email</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-166"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679390153"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-167"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ClientRequestToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-168"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390152"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-169"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LastName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390151"><span class="hs-identifier hs-var">lastName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-170"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679390512"><span class="hs-identifier hs-var">lastName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FirstName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390150"><span class="hs-identifier hs-var">firstName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679390511"><span class="hs-identifier hs-var">firstName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClientRequestToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679390510"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679390509"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UserId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390149"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679390508"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-173"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679390143"><span class="annot"><span class="annottext">toPath :: CreateUser -&gt; ByteString
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679390502"><span class="annot"><span class="annottext">toPath :: CreateUser -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateUser -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621679390139"><span class="annot"><span class="annottext">toQuery :: CreateUser -&gt; QueryString
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679390498"><span class="annot"><span class="annottext">toQuery :: CreateUser -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateUser -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -483,7 +483,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- | /See:/ 'newCreateUserResponse' smart constructor.</span><span>
-</span><span id="line-182"></span><span id="local-6989586621679390136"><span id="local-6989586621679390137"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateUserResponse"><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUserResponse"><span class="hs-identifier hs-var">CreateUserResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateUserResponse%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUserResponse%27"><span class="hs-identifier hs-var">CreateUserResponse'</span></a></span></span><span>
+</span><span id="line-182"></span><span id="local-6989586621679390495"><span id="local-6989586621679390496"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateUserResponse"><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUserResponse"><span class="hs-identifier hs-var">CreateUserResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateUserResponse%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUserResponse%27"><span class="hs-identifier hs-var">CreateUserResponse'</span></a></span></span><span>
 </span><span id="line-183"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the newly created user in the response.</span><span>
 </span><span id="line-184"></span><span>    </span><span id="%24sel%3AuserArn%3ACreateUserResponse%27"><span class="annot"><span class="annottext">CreateUserResponse -&gt; Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.CreateUser.html#%24sel%3AuserArn%3ACreateUserResponse%27"><span class="hs-identifier hs-var hs-var">userArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -491,7 +491,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-186"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateUserResponse%27"><span class="annot"><span class="annottext">CreateUserResponse -&gt; Int
 </span><a href="Network.AWS.AlexaBusiness.CreateUser.html#%24sel%3AhttpStatus%3ACreateUserResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-187"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-188"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679390130"><span id="local-6989586621679390132"><span class="annot"><span class="annottext">CreateUserResponse -&gt; CreateUserResponse -&gt; Bool
+</span><span id="line-188"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679390489"><span id="local-6989586621679390491"><span class="annot"><span class="annottext">CreateUserResponse -&gt; CreateUserResponse -&gt; Bool
 (CreateUserResponse -&gt; CreateUserResponse -&gt; Bool)
 -&gt; (CreateUserResponse -&gt; CreateUserResponse -&gt; Bool)
 -&gt; Eq CreateUserResponse
@@ -500,7 +500,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateUserResponse -&gt; CreateUserResponse -&gt; Bool
 == :: CreateUserResponse -&gt; CreateUserResponse -&gt; Bool
 $c== :: CreateUserResponse -&gt; CreateUserResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390122"><span id="local-6989586621679390124"><span id="local-6989586621679390126"><span id="local-6989586621679390128"><span class="annot"><span class="annottext">ReadPrec [CreateUserResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390481"><span id="local-6989586621679390483"><span id="local-6989586621679390485"><span id="local-6989586621679390487"><span class="annot"><span class="annottext">ReadPrec [CreateUserResponse]
 ReadPrec CreateUserResponse
 Int -&gt; ReadS CreateUserResponse
 ReadS [CreateUserResponse]
@@ -520,7 +520,7 @@ readList :: ReadS [CreateUserResponse]
 $creadList :: ReadS [CreateUserResponse]
 readsPrec :: Int -&gt; ReadS CreateUserResponse
 $creadsPrec :: Int -&gt; ReadS CreateUserResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390116"><span id="local-6989586621679390118"><span id="local-6989586621679390120"><span class="annot"><span class="annottext">Int -&gt; CreateUserResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390475"><span id="local-6989586621679390477"><span id="local-6989586621679390479"><span class="annot"><span class="annottext">Int -&gt; CreateUserResponse -&gt; ShowS
 [CreateUserResponse] -&gt; ShowS
 CreateUserResponse -&gt; String
 (Int -&gt; CreateUserResponse -&gt; ShowS)
@@ -562,8 +562,8 @@ $cfrom :: forall x. CreateUserResponse -&gt; Rep CreateUserResponse x
 </span><span id="line-203"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-204"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUserResponse"><span class="hs-identifier hs-type">CreateUserResponse</span></a></span><span>
 </span><span id="line-205"></span><span id="newCreateUserResponse"><span class="annot"><span class="annottext">newCreateUserResponse :: Int -&gt; CreateUserResponse
-</span><a href="Network.AWS.AlexaBusiness.CreateUser.html#newCreateUserResponse"><span class="hs-identifier hs-var hs-var">newCreateUserResponse</span></a></span></span><span> </span><span id="local-6989586621679390113"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390113"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AlexaBusiness.CreateUser.html#newCreateUserResponse"><span class="hs-identifier hs-var hs-var">newCreateUserResponse</span></a></span></span><span> </span><span id="local-6989586621679390472"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679390472"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-206"></span><span>  </span><span class="annot"><span class="annottext">CreateUserResponse' :: Maybe Text -&gt; Int -&gt; CreateUserResponse
 </span><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUserResponse%27"><span class="hs-identifier hs-type">CreateUserResponse'</span></a></span><span>
 </span><span id="line-207"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:userArn:CreateUserResponse' :: Maybe Text
@@ -572,7 +572,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-208"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateUserResponse' :: Int
 </span><a href="Network.AWS.AlexaBusiness.CreateUser.html#%24sel%3AhttpStatus%3ACreateUserResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390113"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679390472"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-209"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-210"></span><span>
 </span><span id="line-211"></span><span class="hs-comment">-- | The ARN of the newly created user in the response.</span><span>
@@ -584,16 +584,16 @@ forall a. Maybe a
 -&gt; Lens
      CreateUserResponse CreateUserResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUserResponse%27"><span class="hs-identifier hs-type">CreateUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390112"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUserResponse%27"><span class="hs-identifier hs-type">CreateUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390471"><span class="annot"><span class="annottext">Maybe Text
 userArn :: Maybe Text
 $sel:userArn:CreateUserResponse' :: CreateUserResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679390112"><span class="hs-identifier hs-var hs-var">userArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390112"><span class="hs-identifier hs-var">userArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390111"><span class="annot"><span class="annottext">s :: CreateUserResponse
-</span><a href="#local-6989586621679390111"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUserResponse%27"><span class="hs-identifier hs-type">CreateUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390110"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390110"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUserResponse
-</span><a href="#local-6989586621679390111"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userArn:CreateUserResponse' :: Maybe Text
+</span><a href="#local-6989586621679390471"><span class="hs-identifier hs-var hs-var">userArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679390471"><span class="hs-identifier hs-var">userArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390470"><span class="annot"><span class="annottext">s :: CreateUserResponse
+</span><a href="#local-6989586621679390470"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUserResponse%27"><span class="hs-identifier hs-type">CreateUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390469"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679390469"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUserResponse
+</span><a href="#local-6989586621679390470"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userArn:CreateUserResponse' :: Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.CreateUser.html#%24sel%3AuserArn%3ACreateUserResponse%27"><span class="hs-identifier hs-var">userArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390110"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUserResponse"><span class="hs-identifier hs-type">CreateUserResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679390469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUserResponse"><span class="hs-identifier hs-type">CreateUserResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-214"></span><span>
 </span><span id="line-215"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-216"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#createUserResponse_httpStatus"><span class="hs-identifier hs-type">createUserResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUserResponse"><span class="hs-identifier hs-type">CreateUserResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -602,16 +602,16 @@ $sel:userArn:CreateUserResponse' :: CreateUserResponse -&gt; Maybe Text
 -&gt; (CreateUserResponse -&gt; Int -&gt; CreateUserResponse)
 -&gt; Lens CreateUserResponse CreateUserResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUserResponse%27"><span class="hs-identifier hs-type">CreateUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390109"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUserResponse%27"><span class="hs-identifier hs-type">CreateUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390468"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateUserResponse' :: CreateUserResponse -&gt; Int
-</span><a href="#local-6989586621679390109"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390109"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390108"><span class="annot"><span class="annottext">s :: CreateUserResponse
-</span><a href="#local-6989586621679390108"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUserResponse%27"><span class="hs-identifier hs-type">CreateUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390107"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390107"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUserResponse
-</span><a href="#local-6989586621679390108"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateUserResponse' :: Int
+</span><a href="#local-6989586621679390468"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679390468"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390467"><span class="annot"><span class="annottext">s :: CreateUserResponse
+</span><a href="#local-6989586621679390467"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUserResponse%27"><span class="hs-identifier hs-type">CreateUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390466"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679390466"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUserResponse
+</span><a href="#local-6989586621679390467"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateUserResponse' :: Int
 </span><a href="Network.AWS.AlexaBusiness.CreateUser.html#%24sel%3AhttpStatus%3ACreateUserResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390107"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUserResponse"><span class="hs-identifier hs-type">CreateUserResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679390466"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUserResponse"><span class="hs-identifier hs-type">CreateUserResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-218"></span><span>
-</span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390105"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUserResponse"><span class="hs-identifier hs-type">CreateUserResponse</span></a></span></span><span>
+</span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390464"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.CreateUser.html#CreateUserResponse"><span class="hs-identifier hs-type">CreateUserResponse</span></a></span></span><span>
 </span><span id="line-220"></span></pre></body></html>

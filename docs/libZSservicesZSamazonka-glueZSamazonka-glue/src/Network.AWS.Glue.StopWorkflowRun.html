@@ -47,7 +47,7 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newStopWorkflowRun' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679709191"><span id="local-6989586621679709192"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopWorkflowRun"><span class="annot"><a href="Network.AWS.Glue.StopWorkflowRun.html#StopWorkflowRun"><span class="hs-identifier hs-var">StopWorkflowRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopWorkflowRun%27"><span class="annot"><a href="Network.AWS.Glue.StopWorkflowRun.html#StopWorkflowRun%27"><span class="hs-identifier hs-var">StopWorkflowRun'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679710929"><span id="local-6989586621679710930"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopWorkflowRun"><span class="annot"><a href="Network.AWS.Glue.StopWorkflowRun.html#StopWorkflowRun"><span class="hs-identifier hs-var">StopWorkflowRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopWorkflowRun%27"><span class="annot"><a href="Network.AWS.Glue.StopWorkflowRun.html#StopWorkflowRun%27"><span class="hs-identifier hs-var">StopWorkflowRun'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the workflow to stop.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3Aname%3AStopWorkflowRun%27"><span class="annot"><span class="annottext">StopWorkflowRun -&gt; Text
 </span><a href="Network.AWS.Glue.StopWorkflowRun.html#%24sel%3Aname%3AStopWorkflowRun%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -55,7 +55,7 @@
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3ArunId%3AStopWorkflowRun%27"><span class="annot"><span class="annottext">StopWorkflowRun -&gt; Text
 </span><a href="Network.AWS.Glue.StopWorkflowRun.html#%24sel%3ArunId%3AStopWorkflowRun%27"><span class="hs-identifier hs-var hs-var">runId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679709184"><span id="local-6989586621679709186"><span class="annot"><span class="annottext">StopWorkflowRun -&gt; StopWorkflowRun -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679710922"><span id="local-6989586621679710924"><span class="annot"><span class="annottext">StopWorkflowRun -&gt; StopWorkflowRun -&gt; Bool
 (StopWorkflowRun -&gt; StopWorkflowRun -&gt; Bool)
 -&gt; (StopWorkflowRun -&gt; StopWorkflowRun -&gt; Bool)
 -&gt; Eq StopWorkflowRun
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StopWorkflowRun -&gt; StopWorkflowRun -&gt; Bool
 == :: StopWorkflowRun -&gt; StopWorkflowRun -&gt; Bool
 $c== :: StopWorkflowRun -&gt; StopWorkflowRun -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679709175"><span id="local-6989586621679709177"><span id="local-6989586621679709179"><span id="local-6989586621679709181"><span class="annot"><span class="annottext">ReadPrec [StopWorkflowRun]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679710913"><span id="local-6989586621679710915"><span id="local-6989586621679710917"><span id="local-6989586621679710919"><span class="annot"><span class="annottext">ReadPrec [StopWorkflowRun]
 ReadPrec StopWorkflowRun
 Int -&gt; ReadS StopWorkflowRun
 ReadS [StopWorkflowRun]
@@ -84,7 +84,7 @@ readList :: ReadS [StopWorkflowRun]
 $creadList :: ReadS [StopWorkflowRun]
 readsPrec :: Int -&gt; ReadS StopWorkflowRun
 $creadsPrec :: Int -&gt; ReadS StopWorkflowRun
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679709168"><span id="local-6989586621679709170"><span id="local-6989586621679709172"><span class="annot"><span class="annottext">Int -&gt; StopWorkflowRun -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679710906"><span id="local-6989586621679710908"><span id="local-6989586621679710910"><span class="annot"><span class="annottext">Int -&gt; StopWorkflowRun -&gt; ShowS
 [StopWorkflowRun] -&gt; ShowS
 StopWorkflowRun -&gt; String
 (Int -&gt; StopWorkflowRun -&gt; ShowS)
@@ -128,15 +128,15 @@ $cfrom :: forall x. StopWorkflowRun -&gt; Rep StopWorkflowRun x
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.StopWorkflowRun.html#StopWorkflowRun"><span class="hs-identifier hs-type">StopWorkflowRun</span></a></span><span>
 </span><span id="line-75"></span><span id="newStopWorkflowRun"><span class="annot"><span class="annottext">newStopWorkflowRun :: Text -&gt; Text -&gt; StopWorkflowRun
-</span><a href="Network.AWS.Glue.StopWorkflowRun.html#newStopWorkflowRun"><span class="hs-identifier hs-var hs-var">newStopWorkflowRun</span></a></span></span><span> </span><span id="local-6989586621679709163"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679709163"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679709162"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679709162"><span class="hs-identifier hs-var">pRunId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.StopWorkflowRun.html#newStopWorkflowRun"><span class="hs-identifier hs-var hs-var">newStopWorkflowRun</span></a></span></span><span> </span><span id="local-6989586621679710901"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679710901"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679710900"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679710900"><span class="hs-identifier hs-var">pRunId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">StopWorkflowRun' :: Text -&gt; Text -&gt; StopWorkflowRun
 </span><a href="Network.AWS.Glue.StopWorkflowRun.html#StopWorkflowRun%27"><span class="hs-identifier hs-type">StopWorkflowRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:StopWorkflowRun' :: Text
 </span><a href="Network.AWS.Glue.StopWorkflowRun.html#%24sel%3Aname%3AStopWorkflowRun%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679709163"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:runId:StopWorkflowRun' :: Text
+</span><a href="#local-6989586621679710901"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:runId:StopWorkflowRun' :: Text
 </span><a href="Network.AWS.Glue.StopWorkflowRun.html#%24sel%3ArunId%3AStopWorkflowRun%27"><span class="hs-identifier hs-var">runId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679709162"><span class="hs-identifier hs-var">pRunId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679710900"><span class="hs-identifier hs-var">pRunId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | The name of the workflow to stop.</span><span>
 </span><span id="line-79"></span><span class="annot"><a href="Network.AWS.Glue.StopWorkflowRun.html#stopWorkflowRun_name"><span class="hs-identifier hs-type">stopWorkflowRun_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StopWorkflowRun.html#StopWorkflowRun"><span class="hs-identifier hs-type">StopWorkflowRun</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -145,16 +145,16 @@ $cfrom :: forall x. StopWorkflowRun -&gt; Rep StopWorkflowRun x
 -&gt; (StopWorkflowRun -&gt; Text -&gt; StopWorkflowRun)
 -&gt; Lens StopWorkflowRun StopWorkflowRun Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.StopWorkflowRun.html#StopWorkflowRun%27"><span class="hs-identifier hs-type">StopWorkflowRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679709159"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.StopWorkflowRun.html#StopWorkflowRun%27"><span class="hs-identifier hs-type">StopWorkflowRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679710897"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:StopWorkflowRun' :: StopWorkflowRun -&gt; Text
-</span><a href="#local-6989586621679709159"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679709159"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679709158"><span class="annot"><span class="annottext">s :: StopWorkflowRun
-</span><a href="#local-6989586621679709158"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.StopWorkflowRun.html#StopWorkflowRun%27"><span class="hs-identifier hs-type">StopWorkflowRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679709157"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679709157"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopWorkflowRun
-</span><a href="#local-6989586621679709158"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:StopWorkflowRun' :: Text
+</span><a href="#local-6989586621679710897"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679710897"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679710896"><span class="annot"><span class="annottext">s :: StopWorkflowRun
+</span><a href="#local-6989586621679710896"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.StopWorkflowRun.html#StopWorkflowRun%27"><span class="hs-identifier hs-type">StopWorkflowRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679710895"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679710895"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopWorkflowRun
+</span><a href="#local-6989586621679710896"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:StopWorkflowRun' :: Text
 </span><a href="Network.AWS.Glue.StopWorkflowRun.html#%24sel%3Aname%3AStopWorkflowRun%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679709157"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.StopWorkflowRun.html#StopWorkflowRun"><span class="hs-identifier hs-type">StopWorkflowRun</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679710895"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.StopWorkflowRun.html#StopWorkflowRun"><span class="hs-identifier hs-type">StopWorkflowRun</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | The ID of the workflow run to stop.</span><span>
 </span><span id="line-83"></span><span class="annot"><a href="Network.AWS.Glue.StopWorkflowRun.html#stopWorkflowRun_runId"><span class="hs-identifier hs-type">stopWorkflowRun_runId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StopWorkflowRun.html#StopWorkflowRun"><span class="hs-identifier hs-type">StopWorkflowRun</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -163,27 +163,27 @@ $sel:name:StopWorkflowRun' :: StopWorkflowRun -&gt; Text
 -&gt; (StopWorkflowRun -&gt; Text -&gt; StopWorkflowRun)
 -&gt; Lens StopWorkflowRun StopWorkflowRun Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.StopWorkflowRun.html#StopWorkflowRun%27"><span class="hs-identifier hs-type">StopWorkflowRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679709156"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.StopWorkflowRun.html#StopWorkflowRun%27"><span class="hs-identifier hs-type">StopWorkflowRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679710894"><span class="annot"><span class="annottext">Text
 runId :: Text
 $sel:runId:StopWorkflowRun' :: StopWorkflowRun -&gt; Text
-</span><a href="#local-6989586621679709156"><span class="hs-identifier hs-var hs-var">runId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679709156"><span class="hs-identifier hs-var">runId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679709155"><span class="annot"><span class="annottext">s :: StopWorkflowRun
-</span><a href="#local-6989586621679709155"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.StopWorkflowRun.html#StopWorkflowRun%27"><span class="hs-identifier hs-type">StopWorkflowRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679709154"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679709154"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopWorkflowRun
-</span><a href="#local-6989586621679709155"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:runId:StopWorkflowRun' :: Text
+</span><a href="#local-6989586621679710894"><span class="hs-identifier hs-var hs-var">runId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679710894"><span class="hs-identifier hs-var">runId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679710893"><span class="annot"><span class="annottext">s :: StopWorkflowRun
+</span><a href="#local-6989586621679710893"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.StopWorkflowRun.html#StopWorkflowRun%27"><span class="hs-identifier hs-type">StopWorkflowRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679710892"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679710892"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopWorkflowRun
+</span><a href="#local-6989586621679710893"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:runId:StopWorkflowRun' :: Text
 </span><a href="Network.AWS.Glue.StopWorkflowRun.html#%24sel%3ArunId%3AStopWorkflowRun%27"><span class="hs-identifier hs-var">runId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679709154"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.StopWorkflowRun.html#StopWorkflowRun"><span class="hs-identifier hs-type">StopWorkflowRun</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679710892"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.StopWorkflowRun.html#StopWorkflowRun"><span class="hs-identifier hs-type">StopWorkflowRun</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StopWorkflowRun.html#StopWorkflowRun"><span class="hs-identifier hs-type">StopWorkflowRun</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-87"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-88"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StopWorkflowRun.html#StopWorkflowRun"><span class="hs-identifier hs-type">StopWorkflowRun</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><a href="Network.AWS.Glue.StopWorkflowRun.html#StopWorkflowRunResponse"><span class="hs-identifier hs-type">StopWorkflowRunResponse</span></a></span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679709150"><span class="annot"><span class="annottext">request :: StopWorkflowRun -&gt; Request StopWorkflowRun
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679710888"><span class="annot"><span class="annottext">request :: StopWorkflowRun -&gt; Request StopWorkflowRun
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StopWorkflowRun -&gt; Request StopWorkflowRun
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679709146"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679710884"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy StopWorkflowRun
 -&gt; ClientResponse ClientBody
@@ -207,10 +207,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679709143"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679709143"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679709142"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679709142"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679709141"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679709141"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679710881"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679710881"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679710880"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679710880"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679710879"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679710879"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; StopWorkflowRunResponse
 </span><a href="Network.AWS.Glue.StopWorkflowRun.html#StopWorkflowRunResponse%27"><span class="hs-identifier hs-var">StopWorkflowRunResponse'</span></a></span><span>
 </span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; StopWorkflowRunResponse)
@@ -221,15 +221,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679709143"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679710881"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679709134"><span id="local-6989586621679709136"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StopWorkflowRun.html#StopWorkflowRun"><span class="hs-identifier hs-type">StopWorkflowRun</span></a></span></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679710872"><span id="local-6989586621679710874"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StopWorkflowRun.html#StopWorkflowRun"><span class="hs-identifier hs-type">StopWorkflowRun</span></a></span></span></span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679709131"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StopWorkflowRun.html#StopWorkflowRun"><span class="hs-identifier hs-type">StopWorkflowRun</span></a></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679710869"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StopWorkflowRun.html#StopWorkflowRun"><span class="hs-identifier hs-type">StopWorkflowRun</span></a></span></span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StopWorkflowRun.html#StopWorkflowRun"><span class="hs-identifier hs-type">StopWorkflowRun</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679709127"><span class="annot"><span class="annottext">toHeaders :: StopWorkflowRun -&gt; ResponseHeaders
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679710865"><span class="annot"><span class="annottext">toHeaders :: StopWorkflowRun -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StopWorkflowRun -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -254,14 +254,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-112"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679709117"><span id="local-6989586621679709119"><span id="local-6989586621679709121"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StopWorkflowRun.html#StopWorkflowRun"><span class="hs-identifier hs-type">StopWorkflowRun</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679709115"><span class="annot"><span class="annottext">toJSON :: StopWorkflowRun -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StopWorkflowRun.html#StopWorkflowRun%27"><span class="hs-identifier hs-type">StopWorkflowRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679709112"><span id="local-6989586621679709113"><span class="annot"><span class="annottext">Text
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679710855"><span id="local-6989586621679710857"><span id="local-6989586621679710859"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StopWorkflowRun.html#StopWorkflowRun"><span class="hs-identifier hs-type">StopWorkflowRun</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679710853"><span class="annot"><span class="annottext">toJSON :: StopWorkflowRun -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StopWorkflowRun.html#StopWorkflowRun%27"><span class="hs-identifier hs-type">StopWorkflowRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679710850"><span id="local-6989586621679710851"><span class="annot"><span class="annottext">Text
 runId :: Text
 name :: Text
 $sel:runId:StopWorkflowRun' :: StopWorkflowRun -&gt; Text
 $sel:name:StopWorkflowRun' :: StopWorkflowRun -&gt; Text
-</span><a href="#local-6989586621679709112"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679710850"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -273,26 +273,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679709113"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679710851"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RunId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679709112"><span class="hs-identifier hs-var">runId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679710850"><span class="hs-identifier hs-var">runId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StopWorkflowRun.html#StopWorkflowRun"><span class="hs-identifier hs-type">StopWorkflowRun</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679709106"><span class="annot"><span class="annottext">toPath :: StopWorkflowRun -&gt; ByteString
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679710844"><span class="annot"><span class="annottext">toPath :: StopWorkflowRun -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StopWorkflowRun -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StopWorkflowRun.html#StopWorkflowRun"><span class="hs-identifier hs-type">StopWorkflowRun</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679709102"><span class="annot"><span class="annottext">toQuery :: StopWorkflowRun -&gt; QueryString
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679710840"><span class="annot"><span class="annottext">toQuery :: StopWorkflowRun -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StopWorkflowRun -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -300,12 +300,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- | /See:/ 'newStopWorkflowRunResponse' smart constructor.</span><span>
-</span><span id="line-131"></span><span id="local-6989586621679709099"><span id="local-6989586621679709100"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopWorkflowRunResponse"><span class="annot"><a href="Network.AWS.Glue.StopWorkflowRun.html#StopWorkflowRunResponse"><span class="hs-identifier hs-var">StopWorkflowRunResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopWorkflowRunResponse%27"><span class="annot"><a href="Network.AWS.Glue.StopWorkflowRun.html#StopWorkflowRunResponse%27"><span class="hs-identifier hs-var">StopWorkflowRunResponse'</span></a></span></span><span>
+</span><span id="line-131"></span><span id="local-6989586621679710837"><span id="local-6989586621679710838"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopWorkflowRunResponse"><span class="annot"><a href="Network.AWS.Glue.StopWorkflowRun.html#StopWorkflowRunResponse"><span class="hs-identifier hs-var">StopWorkflowRunResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopWorkflowRunResponse%27"><span class="annot"><a href="Network.AWS.Glue.StopWorkflowRun.html#StopWorkflowRunResponse%27"><span class="hs-identifier hs-var">StopWorkflowRunResponse'</span></a></span></span><span>
 </span><span id="line-132"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-133"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStopWorkflowRunResponse%27"><span class="annot"><span class="annottext">StopWorkflowRunResponse -&gt; Int
 </span><a href="Network.AWS.Glue.StopWorkflowRun.html#%24sel%3AhttpStatus%3AStopWorkflowRunResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-134"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-135"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679709094"><span id="local-6989586621679709096"><span class="annot"><span class="annottext">StopWorkflowRunResponse -&gt; StopWorkflowRunResponse -&gt; Bool
+</span><span id="line-135"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679710832"><span id="local-6989586621679710834"><span class="annot"><span class="annottext">StopWorkflowRunResponse -&gt; StopWorkflowRunResponse -&gt; Bool
 (StopWorkflowRunResponse -&gt; StopWorkflowRunResponse -&gt; Bool)
 -&gt; (StopWorkflowRunResponse -&gt; StopWorkflowRunResponse -&gt; Bool)
 -&gt; Eq StopWorkflowRunResponse
@@ -314,7 +314,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StopWorkflowRunResponse -&gt; StopWorkflowRunResponse -&gt; Bool
 == :: StopWorkflowRunResponse -&gt; StopWorkflowRunResponse -&gt; Bool
 $c== :: StopWorkflowRunResponse -&gt; StopWorkflowRunResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679709086"><span id="local-6989586621679709088"><span id="local-6989586621679709090"><span id="local-6989586621679709092"><span class="annot"><span class="annottext">ReadPrec [StopWorkflowRunResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679710824"><span id="local-6989586621679710826"><span id="local-6989586621679710828"><span id="local-6989586621679710830"><span class="annot"><span class="annottext">ReadPrec [StopWorkflowRunResponse]
 ReadPrec StopWorkflowRunResponse
 Int -&gt; ReadS StopWorkflowRunResponse
 ReadS [StopWorkflowRunResponse]
@@ -334,7 +334,7 @@ readList :: ReadS [StopWorkflowRunResponse]
 $creadList :: ReadS [StopWorkflowRunResponse]
 readsPrec :: Int -&gt; ReadS StopWorkflowRunResponse
 $creadsPrec :: Int -&gt; ReadS StopWorkflowRunResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679709080"><span id="local-6989586621679709082"><span id="local-6989586621679709084"><span class="annot"><span class="annottext">Int -&gt; StopWorkflowRunResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679710818"><span id="local-6989586621679710820"><span id="local-6989586621679710822"><span class="annot"><span class="annottext">Int -&gt; StopWorkflowRunResponse -&gt; ShowS
 [StopWorkflowRunResponse] -&gt; ShowS
 StopWorkflowRunResponse -&gt; String
 (Int -&gt; StopWorkflowRunResponse -&gt; ShowS)
@@ -376,12 +376,12 @@ $cfrom :: forall x. StopWorkflowRunResponse -&gt; Rep StopWorkflowRunResponse x
 </span><span id="line-148"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-149"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.StopWorkflowRun.html#StopWorkflowRunResponse"><span class="hs-identifier hs-type">StopWorkflowRunResponse</span></a></span><span>
 </span><span id="line-150"></span><span id="newStopWorkflowRunResponse"><span class="annot"><span class="annottext">newStopWorkflowRunResponse :: Int -&gt; StopWorkflowRunResponse
-</span><a href="Network.AWS.Glue.StopWorkflowRun.html#newStopWorkflowRunResponse"><span class="hs-identifier hs-var hs-var">newStopWorkflowRunResponse</span></a></span></span><span> </span><span id="local-6989586621679709077"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679709077"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.StopWorkflowRun.html#newStopWorkflowRunResponse"><span class="hs-identifier hs-var hs-var">newStopWorkflowRunResponse</span></a></span></span><span> </span><span id="local-6989586621679710815"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679710815"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>  </span><span class="annot"><span class="annottext">StopWorkflowRunResponse' :: Int -&gt; StopWorkflowRunResponse
 </span><a href="Network.AWS.Glue.StopWorkflowRun.html#StopWorkflowRunResponse%27"><span class="hs-identifier hs-type">StopWorkflowRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopWorkflowRunResponse' :: Int
 </span><a href="Network.AWS.Glue.StopWorkflowRun.html#%24sel%3AhttpStatus%3AStopWorkflowRunResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679709077"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679710815"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-154"></span><span class="annot"><a href="Network.AWS.Glue.StopWorkflowRun.html#stopWorkflowRunResponse_httpStatus"><span class="hs-identifier hs-type">stopWorkflowRunResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StopWorkflowRun.html#StopWorkflowRunResponse"><span class="hs-identifier hs-type">StopWorkflowRunResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -391,16 +391,16 @@ $cfrom :: forall x. StopWorkflowRunResponse -&gt; Rep StopWorkflowRunResponse x
 -&gt; (StopWorkflowRunResponse -&gt; Int -&gt; StopWorkflowRunResponse)
 -&gt; Lens StopWorkflowRunResponse StopWorkflowRunResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.StopWorkflowRun.html#StopWorkflowRunResponse%27"><span class="hs-identifier hs-type">StopWorkflowRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679709076"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.StopWorkflowRun.html#StopWorkflowRunResponse%27"><span class="hs-identifier hs-type">StopWorkflowRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679710814"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:StopWorkflowRunResponse' :: StopWorkflowRunResponse -&gt; Int
-</span><a href="#local-6989586621679709076"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679709076"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679709075"><span class="annot"><span class="annottext">s :: StopWorkflowRunResponse
-</span><a href="#local-6989586621679709075"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.StopWorkflowRun.html#StopWorkflowRunResponse%27"><span class="hs-identifier hs-type">StopWorkflowRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679709074"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679709074"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopWorkflowRunResponse
-</span><a href="#local-6989586621679709075"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopWorkflowRunResponse' :: Int
+</span><a href="#local-6989586621679710814"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679710814"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679710813"><span class="annot"><span class="annottext">s :: StopWorkflowRunResponse
+</span><a href="#local-6989586621679710813"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.StopWorkflowRun.html#StopWorkflowRunResponse%27"><span class="hs-identifier hs-type">StopWorkflowRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679710812"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679710812"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopWorkflowRunResponse
+</span><a href="#local-6989586621679710813"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopWorkflowRunResponse' :: Int
 </span><a href="Network.AWS.Glue.StopWorkflowRun.html#%24sel%3AhttpStatus%3AStopWorkflowRunResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679709074"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.StopWorkflowRun.html#StopWorkflowRunResponse"><span class="hs-identifier hs-type">StopWorkflowRunResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679710812"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.StopWorkflowRun.html#StopWorkflowRunResponse"><span class="hs-identifier hs-type">StopWorkflowRunResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679709072"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StopWorkflowRun.html#StopWorkflowRunResponse"><span class="hs-identifier hs-type">StopWorkflowRunResponse</span></a></span></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679710810"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.StopWorkflowRun.html#StopWorkflowRunResponse"><span class="hs-identifier hs-type">StopWorkflowRunResponse</span></a></span></span><span>
 </span><span id="line-158"></span></pre></body></html>

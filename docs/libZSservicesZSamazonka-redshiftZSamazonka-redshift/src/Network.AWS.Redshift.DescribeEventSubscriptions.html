@@ -43,10 +43,10 @@
 </span><span id="line-43"></span><span>
 </span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#describeEventSubscriptions_subscriptionName"><span class="hs-identifier">describeEventSubscriptions_subscriptionName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#describeEventSubscriptions_tagKeys"><span class="hs-identifier">describeEventSubscriptions_tagKeys</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#describeEventSubscriptions_tagValues"><span class="hs-identifier">describeEventSubscriptions_tagValues</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#describeEventSubscriptions_maxRecords"><span class="hs-identifier">describeEventSubscriptions_maxRecords</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#describeEventSubscriptions_marker"><span class="hs-identifier">describeEventSubscriptions_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#describeEventSubscriptions_tagValues"><span class="hs-identifier">describeEventSubscriptions_tagValues</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#describeEventSubscriptions_tagKeys"><span class="hs-identifier">describeEventSubscriptions_tagKeys</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#describeEventSubscriptions_marker"><span class="hs-identifier">describeEventSubscriptions_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#describeEventSubscriptions_maxRecords"><span class="hs-identifier">describeEventSubscriptions_maxRecords</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptionsResponse"><span class="hs-identifier">DescribeEventSubscriptionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -69,50 +69,50 @@
 </span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-70"></span><span class="hs-comment">--</span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- /See:/ 'newDescribeEventSubscriptions' smart constructor.</span><span>
-</span><span id="line-72"></span><span id="local-6989586621679516405"><span id="local-6989586621679516406"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeEventSubscriptions"><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions"><span class="hs-identifier hs-var">DescribeEventSubscriptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeEventSubscriptions%27"><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions%27"><span class="hs-identifier hs-var">DescribeEventSubscriptions'</span></a></span></span><span>
+</span><span id="line-72"></span><span id="local-6989586621679517119"><span id="local-6989586621679517120"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeEventSubscriptions"><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions"><span class="hs-identifier hs-var">DescribeEventSubscriptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeEventSubscriptions%27"><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions%27"><span class="hs-identifier hs-var">DescribeEventSubscriptions'</span></a></span></span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the Amazon Redshift event notification subscription to be</span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-comment">-- described.</span><span>
 </span><span id="line-75"></span><span>    </span><span id="%24sel%3AsubscriptionName%3ADescribeEventSubscriptions%27"><span class="annot"><span class="annottext">DescribeEventSubscriptions -&gt; Maybe Text
 </span><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#%24sel%3AsubscriptionName%3ADescribeEventSubscriptions%27"><span class="hs-identifier hs-var hs-var">subscriptionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | A tag key or keys for which you want to return all matching event</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- notification subscriptions that are associated with the specified key or</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- keys. For example, suppose that you have subscriptions that are tagged</span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- with keys called @owner@ and @environment@. If you specify both of these</span><span>
-</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- tag keys in the request, Amazon Redshift returns a response with the</span><span>
-</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- subscriptions that have either or both of these tag keys associated with</span><span>
-</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- them.</span><span>
-</span><span id="line-83"></span><span>    </span><span id="%24sel%3AtagKeys%3ADescribeEventSubscriptions%27"><span class="annot"><span class="annottext">DescribeEventSubscriptions -&gt; Maybe [Text]
-</span><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#%24sel%3AtagKeys%3ADescribeEventSubscriptions%27"><span class="hs-identifier hs-var hs-var">tagKeys</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | A tag value or values for which you want to return all matching event</span><span>
-</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- notification subscriptions that are associated with the specified tag</span><span>
-</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- value or values. For example, suppose that you have subscriptions that</span><span>
-</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- are tagged with values called @admin@ and @test@. If you specify both of</span><span>
-</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- these tag values in the request, Amazon Redshift returns a response with</span><span>
-</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- the subscriptions that have either or both of these tag values</span><span>
-</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- associated with them.</span><span>
-</span><span id="line-91"></span><span>    </span><span id="%24sel%3AtagValues%3ADescribeEventSubscriptions%27"><span class="annot"><span class="annottext">DescribeEventSubscriptions -&gt; Maybe [Text]
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | A tag value or values for which you want to return all matching event</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- notification subscriptions that are associated with the specified tag</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- value or values. For example, suppose that you have subscriptions that</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- are tagged with values called @admin@ and @test@. If you specify both of</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- these tag values in the request, Amazon Redshift returns a response with</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- the subscriptions that have either or both of these tag values</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- associated with them.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3AtagValues%3ADescribeEventSubscriptions%27"><span class="annot"><span class="annottext">DescribeEventSubscriptions -&gt; Maybe [Text]
 </span><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#%24sel%3AtagValues%3ADescribeEventSubscriptions%27"><span class="hs-identifier hs-var hs-var">tagValues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- | The maximum number of response records to return in each call. If the</span><span>
-</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- number of remaining response records exceeds the specified @MaxRecords@</span><span>
-</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- value, a value is returned in a @marker@ field of the response. You can</span><span>
-</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- retrieve the next set of records by retrying the command with the</span><span>
-</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- returned marker value.</span><span>
-</span><span id="line-97"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- Default: @100@</span><span>
-</span><span id="line-99"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- Constraints: minimum 20, maximum 100.</span><span>
-</span><span id="line-101"></span><span>    </span><span id="%24sel%3AmaxRecords%3ADescribeEventSubscriptions%27"><span class="annot"><span class="annottext">DescribeEventSubscriptions -&gt; Maybe Int
-</span><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#%24sel%3AmaxRecords%3ADescribeEventSubscriptions%27"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- | An optional parameter that specifies the starting point to return a set</span><span>
-</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- of response records. When the results of a DescribeEventSubscriptions</span><span>
-</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- request exceed the value specified in @MaxRecords@, Amazon Web Services</span><span>
-</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- returns a value in the @Marker@ field of the response. You can retrieve</span><span>
-</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- the next set of response records by providing the returned marker value</span><span>
-</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- in the @Marker@ parameter and retrying the request.</span><span>
-</span><span id="line-108"></span><span>    </span><span id="%24sel%3Amarker%3ADescribeEventSubscriptions%27"><span class="annot"><span class="annottext">DescribeEventSubscriptions -&gt; Maybe Text
-</span><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#%24sel%3Amarker%3ADescribeEventSubscriptions%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | A tag key or keys for which you want to return all matching event</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- notification subscriptions that are associated with the specified key or</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- keys. For example, suppose that you have subscriptions that are tagged</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- with keys called @owner@ and @environment@. If you specify both of these</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- tag keys in the request, Amazon Redshift returns a response with the</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- subscriptions that have either or both of these tag keys associated with</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- them.</span><span>
+</span><span id="line-91"></span><span>    </span><span id="%24sel%3AtagKeys%3ADescribeEventSubscriptions%27"><span class="annot"><span class="annottext">DescribeEventSubscriptions -&gt; Maybe [Text]
+</span><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#%24sel%3AtagKeys%3ADescribeEventSubscriptions%27"><span class="hs-identifier hs-var hs-var">tagKeys</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- | An optional parameter that specifies the starting point to return a set</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- of response records. When the results of a DescribeEventSubscriptions</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- request exceed the value specified in @MaxRecords@, Amazon Web Services</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- returns a value in the @Marker@ field of the response. You can retrieve</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- the next set of response records by providing the returned marker value</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- in the @Marker@ parameter and retrying the request.</span><span>
+</span><span id="line-98"></span><span>    </span><span id="%24sel%3Amarker%3ADescribeEventSubscriptions%27"><span class="annot"><span class="annottext">DescribeEventSubscriptions -&gt; Maybe Text
+</span><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#%24sel%3Amarker%3ADescribeEventSubscriptions%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- | The maximum number of response records to return in each call. If the</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- number of remaining response records exceeds the specified @MaxRecords@</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- value, a value is returned in a @marker@ field of the response. You can</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- retrieve the next set of records by retrying the command with the</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- returned marker value.</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- Default: @100@</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- Constraints: minimum 20, maximum 100.</span><span>
+</span><span id="line-108"></span><span>    </span><span id="%24sel%3AmaxRecords%3ADescribeEventSubscriptions%27"><span class="annot"><span class="annottext">DescribeEventSubscriptions -&gt; Maybe Int
+</span><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#%24sel%3AmaxRecords%3ADescribeEventSubscriptions%27"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-109"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-110"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679516395"><span id="local-6989586621679516397"><span class="annot"><span class="annottext">DescribeEventSubscriptions -&gt; DescribeEventSubscriptions -&gt; Bool
+</span><span id="line-110"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679517109"><span id="local-6989586621679517111"><span class="annot"><span class="annottext">DescribeEventSubscriptions -&gt; DescribeEventSubscriptions -&gt; Bool
 (DescribeEventSubscriptions -&gt; DescribeEventSubscriptions -&gt; Bool)
 -&gt; (DescribeEventSubscriptions
     -&gt; DescribeEventSubscriptions -&gt; Bool)
@@ -122,7 +122,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeEventSubscriptions -&gt; DescribeEventSubscriptions -&gt; Bool
 == :: DescribeEventSubscriptions -&gt; DescribeEventSubscriptions -&gt; Bool
 $c== :: DescribeEventSubscriptions -&gt; DescribeEventSubscriptions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679516386"><span id="local-6989586621679516388"><span id="local-6989586621679516390"><span id="local-6989586621679516392"><span class="annot"><span class="annottext">ReadPrec [DescribeEventSubscriptions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679517100"><span id="local-6989586621679517102"><span id="local-6989586621679517104"><span id="local-6989586621679517106"><span class="annot"><span class="annottext">ReadPrec [DescribeEventSubscriptions]
 ReadPrec DescribeEventSubscriptions
 Int -&gt; ReadS DescribeEventSubscriptions
 ReadS [DescribeEventSubscriptions]
@@ -142,7 +142,7 @@ readList :: ReadS [DescribeEventSubscriptions]
 $creadList :: ReadS [DescribeEventSubscriptions]
 readsPrec :: Int -&gt; ReadS DescribeEventSubscriptions
 $creadsPrec :: Int -&gt; ReadS DescribeEventSubscriptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679516379"><span id="local-6989586621679516381"><span id="local-6989586621679516383"><span class="annot"><span class="annottext">Int -&gt; DescribeEventSubscriptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679517093"><span id="local-6989586621679517095"><span id="local-6989586621679517097"><span class="annot"><span class="annottext">Int -&gt; DescribeEventSubscriptions -&gt; ShowS
 [DescribeEventSubscriptions] -&gt; ShowS
 DescribeEventSubscriptions -&gt; String
 (Int -&gt; DescribeEventSubscriptions -&gt; ShowS)
@@ -185,38 +185,38 @@ DescribeEventSubscriptions -&gt; Rep DescribeEventSubscriptions x
 </span><span id="line-120"></span><span class="hs-comment">-- 'subscriptionName', 'describeEventSubscriptions_subscriptionName' - The name of the Amazon Redshift event notification subscription to be</span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- described.</span><span>
 </span><span id="line-122"></span><span class="hs-comment">--</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- 'tagKeys', 'describeEventSubscriptions_tagKeys' - A tag key or keys for which you want to return all matching event</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- notification subscriptions that are associated with the specified key or</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- keys. For example, suppose that you have subscriptions that are tagged</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- with keys called @owner@ and @environment@. If you specify both of these</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- tag keys in the request, Amazon Redshift returns a response with the</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- subscriptions that have either or both of these tag keys associated with</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- them.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'tagValues', 'describeEventSubscriptions_tagValues' - A tag value or values for which you want to return all matching event</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- notification subscriptions that are associated with the specified tag</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- value or values. For example, suppose that you have subscriptions that</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- are tagged with values called @admin@ and @test@. If you specify both of</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- these tag values in the request, Amazon Redshift returns a response with</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- the subscriptions that have either or both of these tag values</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- associated with them.</span><span>
 </span><span id="line-130"></span><span class="hs-comment">--</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- 'tagValues', 'describeEventSubscriptions_tagValues' - A tag value or values for which you want to return all matching event</span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- notification subscriptions that are associated with the specified tag</span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- value or values. For example, suppose that you have subscriptions that</span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- are tagged with values called @admin@ and @test@. If you specify both of</span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- these tag values in the request, Amazon Redshift returns a response with</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- the subscriptions that have either or both of these tag values</span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- associated with them.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- 'tagKeys', 'describeEventSubscriptions_tagKeys' - A tag key or keys for which you want to return all matching event</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- notification subscriptions that are associated with the specified key or</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- keys. For example, suppose that you have subscriptions that are tagged</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- with keys called @owner@ and @environment@. If you specify both of these</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- tag keys in the request, Amazon Redshift returns a response with the</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- subscriptions that have either or both of these tag keys associated with</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- them.</span><span>
 </span><span id="line-138"></span><span class="hs-comment">--</span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- 'maxRecords', 'describeEventSubscriptions_maxRecords' - The maximum number of response records to return in each call. If the</span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- number of remaining response records exceeds the specified @MaxRecords@</span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- value, a value is returned in a @marker@ field of the response. You can</span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- retrieve the next set of records by retrying the command with the</span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- returned marker value.</span><span>
-</span><span id="line-144"></span><span class="hs-comment">--</span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- Default: @100@</span><span>
-</span><span id="line-146"></span><span class="hs-comment">--</span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- Constraints: minimum 20, maximum 100.</span><span>
-</span><span id="line-148"></span><span class="hs-comment">--</span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- 'marker', 'describeEventSubscriptions_marker' - An optional parameter that specifies the starting point to return a set</span><span>
-</span><span id="line-150"></span><span class="hs-comment">-- of response records. When the results of a DescribeEventSubscriptions</span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- request exceed the value specified in @MaxRecords@, Amazon Web Services</span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- returns a value in the @Marker@ field of the response. You can retrieve</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- the next set of response records by providing the returned marker value</span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- in the @Marker@ parameter and retrying the request.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'marker', 'describeEventSubscriptions_marker' - An optional parameter that specifies the starting point to return a set</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- of response records. When the results of a DescribeEventSubscriptions</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- request exceed the value specified in @MaxRecords@, Amazon Web Services</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- returns a value in the @Marker@ field of the response. You can retrieve</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- the next set of response records by providing the returned marker value</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- in the @Marker@ parameter and retrying the request.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 'maxRecords', 'describeEventSubscriptions_maxRecords' - The maximum number of response records to return in each call. If the</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- number of remaining response records exceeds the specified @MaxRecords@</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- value, a value is returned in a @marker@ field of the response. You can</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- retrieve the next set of records by retrying the command with the</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- returned marker value.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- Default: @100@</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- Constraints: minimum 20, maximum 100.</span><span>
 </span><span id="line-155"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#newDescribeEventSubscriptions"><span class="hs-identifier hs-type">newDescribeEventSubscriptions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-156"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions"><span class="hs-identifier hs-type">DescribeEventSubscriptions</span></a></span><span>
 </span><span id="line-157"></span><span id="newDescribeEventSubscriptions"><span class="annot"><span class="annottext">newDescribeEventSubscriptions :: DescribeEventSubscriptions
@@ -224,8 +224,8 @@ DescribeEventSubscriptions -&gt; Rep DescribeEventSubscriptions x
 </span><span id="line-158"></span><span>  </span><span class="annot"><span class="annottext">DescribeEventSubscriptions' :: Maybe Text
 -&gt; Maybe [Text]
 -&gt; Maybe [Text]
--&gt; Maybe Int
 -&gt; Maybe Text
+-&gt; Maybe Int
 -&gt; DescribeEventSubscriptions
 </span><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions%27"><span class="hs-identifier hs-type">DescribeEventSubscriptions'</span></a></span><span>
 </span><span id="line-159"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:subscriptionName:DescribeEventSubscriptions' :: Maybe Text
@@ -233,20 +233,20 @@ DescribeEventSubscriptions -&gt; Rep DescribeEventSubscriptions x
 </span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:tagKeys:DescribeEventSubscriptions' :: Maybe [Text]
-</span><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#%24sel%3AtagKeys%3ADescribeEventSubscriptions%27"><span class="hs-identifier hs-var">tagKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">$sel:tagValues:DescribeEventSubscriptions' :: Maybe [Text]
+</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:tagValues:DescribeEventSubscriptions' :: Maybe [Text]
 </span><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#%24sel%3AtagValues%3ADescribeEventSubscriptions%27"><span class="hs-identifier hs-var">tagValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeEventSubscriptions' :: Maybe Int
-</span><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#%24sel%3AmaxRecords%3ADescribeEventSubscriptions%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">$sel:tagKeys:DescribeEventSubscriptions' :: Maybe [Text]
+</span><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#%24sel%3AtagKeys%3ADescribeEventSubscriptions%27"><span class="hs-identifier hs-var">tagKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:DescribeEventSubscriptions' :: Maybe Text
+</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:DescribeEventSubscriptions' :: Maybe Text
 </span><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#%24sel%3Amarker%3ADescribeEventSubscriptions%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeEventSubscriptions' :: Maybe Int
+</span><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#%24sel%3AmaxRecords%3ADescribeEventSubscriptions%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-165"></span><span>    </span><span class="hs-special">}</span><span>
@@ -265,71 +265,26 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions%27"><span class="hs-identifier hs-type">DescribeEventSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679516373"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions%27"><span class="hs-identifier hs-type">DescribeEventSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679517087"><span class="annot"><span class="annottext">Maybe Text
 subscriptionName :: Maybe Text
 $sel:subscriptionName:DescribeEventSubscriptions' :: DescribeEventSubscriptions -&gt; Maybe Text
-</span><a href="#local-6989586621679516373"><span class="hs-identifier hs-var hs-var">subscriptionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679516373"><span class="hs-identifier hs-var">subscriptionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679516372"><span class="annot"><span class="annottext">s :: DescribeEventSubscriptions
-</span><a href="#local-6989586621679516372"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions%27"><span class="hs-identifier hs-type">DescribeEventSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679516371"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679516371"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventSubscriptions
-</span><a href="#local-6989586621679516372"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subscriptionName:DescribeEventSubscriptions' :: Maybe Text
+</span><a href="#local-6989586621679517087"><span class="hs-identifier hs-var hs-var">subscriptionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679517087"><span class="hs-identifier hs-var">subscriptionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679517086"><span class="annot"><span class="annottext">s :: DescribeEventSubscriptions
+</span><a href="#local-6989586621679517086"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions%27"><span class="hs-identifier hs-type">DescribeEventSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679517085"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679517085"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventSubscriptions
+</span><a href="#local-6989586621679517086"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subscriptionName:DescribeEventSubscriptions' :: Maybe Text
 </span><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#%24sel%3AsubscriptionName%3ADescribeEventSubscriptions%27"><span class="hs-identifier hs-var">subscriptionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679516371"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions"><span class="hs-identifier hs-type">DescribeEventSubscriptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679517085"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions"><span class="hs-identifier hs-type">DescribeEventSubscriptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
-</span><span id="line-172"></span><span class="hs-comment">-- | A tag key or keys for which you want to return all matching event</span><span>
-</span><span id="line-173"></span><span class="hs-comment">-- notification subscriptions that are associated with the specified key or</span><span>
-</span><span id="line-174"></span><span class="hs-comment">-- keys. For example, suppose that you have subscriptions that are tagged</span><span>
-</span><span id="line-175"></span><span class="hs-comment">-- with keys called @owner@ and @environment@. If you specify both of these</span><span>
-</span><span id="line-176"></span><span class="hs-comment">-- tag keys in the request, Amazon Redshift returns a response with the</span><span>
-</span><span id="line-177"></span><span class="hs-comment">-- subscriptions that have either or both of these tag keys associated with</span><span>
-</span><span id="line-178"></span><span class="hs-comment">-- them.</span><span>
-</span><span id="line-179"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#describeEventSubscriptions_tagKeys"><span class="hs-identifier hs-type">describeEventSubscriptions_tagKeys</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions"><span class="hs-identifier hs-type">DescribeEventSubscriptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-180"></span><span id="describeEventSubscriptions_tagKeys"><span class="annot"><span class="annottext">describeEventSubscriptions_tagKeys :: (Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; DescribeEventSubscriptions -&gt; f DescribeEventSubscriptions
-</span><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#describeEventSubscriptions_tagKeys"><span class="hs-identifier hs-var hs-var">describeEventSubscriptions_tagKeys</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEventSubscriptions -&gt; Maybe [Text])
--&gt; (DescribeEventSubscriptions
-    -&gt; Maybe [Text] -&gt; DescribeEventSubscriptions)
--&gt; Lens
-     DescribeEventSubscriptions
-     DescribeEventSubscriptions
-     (Maybe [Text])
-     (Maybe [Text])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions%27"><span class="hs-identifier hs-type">DescribeEventSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679516370"><span class="annot"><span class="annottext">Maybe [Text]
-tagKeys :: Maybe [Text]
-$sel:tagKeys:DescribeEventSubscriptions' :: DescribeEventSubscriptions -&gt; Maybe [Text]
-</span><a href="#local-6989586621679516370"><span class="hs-identifier hs-var hs-var">tagKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679516370"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679516369"><span class="annot"><span class="annottext">s :: DescribeEventSubscriptions
-</span><a href="#local-6989586621679516369"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions%27"><span class="hs-identifier hs-type">DescribeEventSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679516368"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679516368"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventSubscriptions
-</span><a href="#local-6989586621679516369"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagKeys:DescribeEventSubscriptions' :: Maybe [Text]
-</span><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#%24sel%3AtagKeys%3ADescribeEventSubscriptions%27"><span class="hs-identifier hs-var">tagKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679516368"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions"><span class="hs-identifier hs-type">DescribeEventSubscriptions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
- -&gt; DescribeEventSubscriptions -&gt; f DescribeEventSubscriptions)
--&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
-    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; DescribeEventSubscriptions
--&gt; f DescribeEventSubscriptions
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
--&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-181"></span><span>
-</span><span id="line-182"></span><span class="hs-comment">-- | A tag value or values for which you want to return all matching event</span><span>
-</span><span id="line-183"></span><span class="hs-comment">-- notification subscriptions that are associated with the specified tag</span><span>
-</span><span id="line-184"></span><span class="hs-comment">-- value or values. For example, suppose that you have subscriptions that</span><span>
-</span><span id="line-185"></span><span class="hs-comment">-- are tagged with values called @admin@ and @test@. If you specify both of</span><span>
-</span><span id="line-186"></span><span class="hs-comment">-- these tag values in the request, Amazon Redshift returns a response with</span><span>
-</span><span id="line-187"></span><span class="hs-comment">-- the subscriptions that have either or both of these tag values</span><span>
-</span><span id="line-188"></span><span class="hs-comment">-- associated with them.</span><span>
-</span><span id="line-189"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#describeEventSubscriptions_tagValues"><span class="hs-identifier hs-type">describeEventSubscriptions_tagValues</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions"><span class="hs-identifier hs-type">DescribeEventSubscriptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-190"></span><span id="describeEventSubscriptions_tagValues"><span class="annot"><span class="annottext">describeEventSubscriptions_tagValues :: (Maybe [Text] -&gt; f (Maybe [Text]))
+</span><span id="line-172"></span><span class="hs-comment">-- | A tag value or values for which you want to return all matching event</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- notification subscriptions that are associated with the specified tag</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- value or values. For example, suppose that you have subscriptions that</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- are tagged with values called @admin@ and @test@. If you specify both of</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- these tag values in the request, Amazon Redshift returns a response with</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- the subscriptions that have either or both of these tag values</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- associated with them.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#describeEventSubscriptions_tagValues"><span class="hs-identifier hs-type">describeEventSubscriptions_tagValues</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions"><span class="hs-identifier hs-type">DescribeEventSubscriptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span id="describeEventSubscriptions_tagValues"><span class="annot"><span class="annottext">describeEventSubscriptions_tagValues :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; DescribeEventSubscriptions -&gt; f DescribeEventSubscriptions
 </span><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#describeEventSubscriptions_tagValues"><span class="hs-identifier hs-var hs-var">describeEventSubscriptions_tagValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEventSubscriptions -&gt; Maybe [Text])
 -&gt; (DescribeEventSubscriptions
@@ -340,16 +295,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions%27"><span class="hs-identifier hs-type">DescribeEventSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679516364"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions%27"><span class="hs-identifier hs-type">DescribeEventSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679517084"><span class="annot"><span class="annottext">Maybe [Text]
 tagValues :: Maybe [Text]
 $sel:tagValues:DescribeEventSubscriptions' :: DescribeEventSubscriptions -&gt; Maybe [Text]
-</span><a href="#local-6989586621679516364"><span class="hs-identifier hs-var hs-var">tagValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679516364"><span class="hs-identifier hs-var">tagValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679516363"><span class="annot"><span class="annottext">s :: DescribeEventSubscriptions
-</span><a href="#local-6989586621679516363"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions%27"><span class="hs-identifier hs-type">DescribeEventSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679516362"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679516362"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventSubscriptions
-</span><a href="#local-6989586621679516363"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagValues:DescribeEventSubscriptions' :: Maybe [Text]
+</span><a href="#local-6989586621679517084"><span class="hs-identifier hs-var hs-var">tagValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679517084"><span class="hs-identifier hs-var">tagValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679517083"><span class="annot"><span class="annottext">s :: DescribeEventSubscriptions
+</span><a href="#local-6989586621679517083"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions%27"><span class="hs-identifier hs-type">DescribeEventSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679517082"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679517082"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventSubscriptions
+</span><a href="#local-6989586621679517083"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagValues:DescribeEventSubscriptions' :: Maybe [Text]
 </span><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#%24sel%3AtagValues%3ADescribeEventSubscriptions%27"><span class="hs-identifier hs-var">tagValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679516362"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions"><span class="hs-identifier hs-type">DescribeEventSubscriptions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679517082"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions"><span class="hs-identifier hs-type">DescribeEventSubscriptions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; DescribeEventSubscriptions -&gt; f DescribeEventSubscriptions)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -363,49 +318,62 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-191"></span><span>
-</span><span id="line-192"></span><span class="hs-comment">-- | The maximum number of response records to return in each call. If the</span><span>
-</span><span id="line-193"></span><span class="hs-comment">-- number of remaining response records exceeds the specified @MaxRecords@</span><span>
-</span><span id="line-194"></span><span class="hs-comment">-- value, a value is returned in a @marker@ field of the response. You can</span><span>
-</span><span id="line-195"></span><span class="hs-comment">-- retrieve the next set of records by retrying the command with the</span><span>
-</span><span id="line-196"></span><span class="hs-comment">-- returned marker value.</span><span>
-</span><span id="line-197"></span><span class="hs-comment">--</span><span>
-</span><span id="line-198"></span><span class="hs-comment">-- Default: @100@</span><span>
-</span><span id="line-199"></span><span class="hs-comment">--</span><span>
-</span><span id="line-200"></span><span class="hs-comment">-- Constraints: minimum 20, maximum 100.</span><span>
-</span><span id="line-201"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#describeEventSubscriptions_maxRecords"><span class="hs-identifier hs-type">describeEventSubscriptions_maxRecords</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions"><span class="hs-identifier hs-type">DescribeEventSubscriptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-202"></span><span id="describeEventSubscriptions_maxRecords"><span class="annot"><span class="annottext">describeEventSubscriptions_maxRecords :: (Maybe Int -&gt; f (Maybe Int))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | A tag key or keys for which you want to return all matching event</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- notification subscriptions that are associated with the specified key or</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- keys. For example, suppose that you have subscriptions that are tagged</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- with keys called @owner@ and @environment@. If you specify both of these</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- tag keys in the request, Amazon Redshift returns a response with the</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- subscriptions that have either or both of these tag keys associated with</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- them.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#describeEventSubscriptions_tagKeys"><span class="hs-identifier hs-type">describeEventSubscriptions_tagKeys</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions"><span class="hs-identifier hs-type">DescribeEventSubscriptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="describeEventSubscriptions_tagKeys"><span class="annot"><span class="annottext">describeEventSubscriptions_tagKeys :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; DescribeEventSubscriptions -&gt; f DescribeEventSubscriptions
-</span><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#describeEventSubscriptions_maxRecords"><span class="hs-identifier hs-var hs-var">describeEventSubscriptions_maxRecords</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEventSubscriptions -&gt; Maybe Int)
+</span><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#describeEventSubscriptions_tagKeys"><span class="hs-identifier hs-var hs-var">describeEventSubscriptions_tagKeys</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEventSubscriptions -&gt; Maybe [Text])
 -&gt; (DescribeEventSubscriptions
-    -&gt; Maybe Int -&gt; DescribeEventSubscriptions)
+    -&gt; Maybe [Text] -&gt; DescribeEventSubscriptions)
 -&gt; Lens
      DescribeEventSubscriptions
      DescribeEventSubscriptions
-     (Maybe Int)
-     (Maybe Int)
+     (Maybe [Text])
+     (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions%27"><span class="hs-identifier hs-type">DescribeEventSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679516361"><span class="annot"><span class="annottext">Maybe Int
-maxRecords :: Maybe Int
-$sel:maxRecords:DescribeEventSubscriptions' :: DescribeEventSubscriptions -&gt; Maybe Int
-</span><a href="#local-6989586621679516361"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679516361"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679516360"><span class="annot"><span class="annottext">s :: DescribeEventSubscriptions
-</span><a href="#local-6989586621679516360"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions%27"><span class="hs-identifier hs-type">DescribeEventSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679516359"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679516359"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventSubscriptions
-</span><a href="#local-6989586621679516360"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeEventSubscriptions' :: Maybe Int
-</span><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#%24sel%3AmaxRecords%3ADescribeEventSubscriptions%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679516359"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions"><span class="hs-identifier hs-type">DescribeEventSubscriptions</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-203"></span><span>
-</span><span id="line-204"></span><span class="hs-comment">-- | An optional parameter that specifies the starting point to return a set</span><span>
-</span><span id="line-205"></span><span class="hs-comment">-- of response records. When the results of a DescribeEventSubscriptions</span><span>
-</span><span id="line-206"></span><span class="hs-comment">-- request exceed the value specified in @MaxRecords@, Amazon Web Services</span><span>
-</span><span id="line-207"></span><span class="hs-comment">-- returns a value in the @Marker@ field of the response. You can retrieve</span><span>
-</span><span id="line-208"></span><span class="hs-comment">-- the next set of response records by providing the returned marker value</span><span>
-</span><span id="line-209"></span><span class="hs-comment">-- in the @Marker@ parameter and retrying the request.</span><span>
-</span><span id="line-210"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#describeEventSubscriptions_marker"><span class="hs-identifier hs-type">describeEventSubscriptions_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions"><span class="hs-identifier hs-type">DescribeEventSubscriptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-211"></span><span id="describeEventSubscriptions_marker"><span class="annot"><span class="annottext">describeEventSubscriptions_marker :: (Maybe Text -&gt; f (Maybe Text))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions%27"><span class="hs-identifier hs-type">DescribeEventSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679517078"><span class="annot"><span class="annottext">Maybe [Text]
+tagKeys :: Maybe [Text]
+$sel:tagKeys:DescribeEventSubscriptions' :: DescribeEventSubscriptions -&gt; Maybe [Text]
+</span><a href="#local-6989586621679517078"><span class="hs-identifier hs-var hs-var">tagKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679517078"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679517077"><span class="annot"><span class="annottext">s :: DescribeEventSubscriptions
+</span><a href="#local-6989586621679517077"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions%27"><span class="hs-identifier hs-type">DescribeEventSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679517076"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679517076"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventSubscriptions
+</span><a href="#local-6989586621679517077"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagKeys:DescribeEventSubscriptions' :: Maybe [Text]
+</span><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#%24sel%3AtagKeys%3ADescribeEventSubscriptions%27"><span class="hs-identifier hs-var">tagKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679517076"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions"><span class="hs-identifier hs-type">DescribeEventSubscriptions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; DescribeEventSubscriptions -&gt; f DescribeEventSubscriptions)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeEventSubscriptions
+-&gt; f DescribeEventSubscriptions
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | An optional parameter that specifies the starting point to return a set</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- of response records. When the results of a DescribeEventSubscriptions</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- request exceed the value specified in @MaxRecords@, Amazon Web Services</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- returns a value in the @Marker@ field of the response. You can retrieve</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- the next set of response records by providing the returned marker value</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- in the @Marker@ parameter and retrying the request.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#describeEventSubscriptions_marker"><span class="hs-identifier hs-type">describeEventSubscriptions_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions"><span class="hs-identifier hs-type">DescribeEventSubscriptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span id="describeEventSubscriptions_marker"><span class="annot"><span class="annottext">describeEventSubscriptions_marker :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DescribeEventSubscriptions -&gt; f DescribeEventSubscriptions
 </span><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#describeEventSubscriptions_marker"><span class="hs-identifier hs-var hs-var">describeEventSubscriptions_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEventSubscriptions -&gt; Maybe Text)
 -&gt; (DescribeEventSubscriptions
@@ -416,30 +384,62 @@ $sel:maxRecords:DescribeEventSubscriptions' :: DescribeEventSubscriptions -&gt; 
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions%27"><span class="hs-identifier hs-type">DescribeEventSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679516358"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions%27"><span class="hs-identifier hs-type">DescribeEventSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679517075"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:DescribeEventSubscriptions' :: DescribeEventSubscriptions -&gt; Maybe Text
-</span><a href="#local-6989586621679516358"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679516358"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679516357"><span class="annot"><span class="annottext">s :: DescribeEventSubscriptions
-</span><a href="#local-6989586621679516357"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions%27"><span class="hs-identifier hs-type">DescribeEventSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679516356"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679516356"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventSubscriptions
-</span><a href="#local-6989586621679516357"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeEventSubscriptions' :: Maybe Text
+</span><a href="#local-6989586621679517075"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679517075"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679517074"><span class="annot"><span class="annottext">s :: DescribeEventSubscriptions
+</span><a href="#local-6989586621679517074"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions%27"><span class="hs-identifier hs-type">DescribeEventSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679517073"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679517073"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventSubscriptions
+</span><a href="#local-6989586621679517074"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeEventSubscriptions' :: Maybe Text
 </span><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#%24sel%3Amarker%3ADescribeEventSubscriptions%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679516356"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions"><span class="hs-identifier hs-type">DescribeEventSubscriptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679517073"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions"><span class="hs-identifier hs-type">DescribeEventSubscriptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | The maximum number of response records to return in each call. If the</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- number of remaining response records exceeds the specified @MaxRecords@</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- value, a value is returned in a @marker@ field of the response. You can</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- retrieve the next set of records by retrying the command with the</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- returned marker value.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- Default: @100@</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- Constraints: minimum 20, maximum 100.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#describeEventSubscriptions_maxRecords"><span class="hs-identifier hs-type">describeEventSubscriptions_maxRecords</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions"><span class="hs-identifier hs-type">DescribeEventSubscriptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span id="describeEventSubscriptions_maxRecords"><span class="annot"><span class="annottext">describeEventSubscriptions_maxRecords :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; DescribeEventSubscriptions -&gt; f DescribeEventSubscriptions
+</span><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#describeEventSubscriptions_maxRecords"><span class="hs-identifier hs-var hs-var">describeEventSubscriptions_maxRecords</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEventSubscriptions -&gt; Maybe Int)
+-&gt; (DescribeEventSubscriptions
+    -&gt; Maybe Int -&gt; DescribeEventSubscriptions)
+-&gt; Lens
+     DescribeEventSubscriptions
+     DescribeEventSubscriptions
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions%27"><span class="hs-identifier hs-type">DescribeEventSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679517072"><span class="annot"><span class="annottext">Maybe Int
+maxRecords :: Maybe Int
+$sel:maxRecords:DescribeEventSubscriptions' :: DescribeEventSubscriptions -&gt; Maybe Int
+</span><a href="#local-6989586621679517072"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679517072"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679517071"><span class="annot"><span class="annottext">s :: DescribeEventSubscriptions
+</span><a href="#local-6989586621679517071"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions%27"><span class="hs-identifier hs-type">DescribeEventSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679517070"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679517070"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventSubscriptions
+</span><a href="#local-6989586621679517071"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeEventSubscriptions' :: Maybe Int
+</span><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#%24sel%3AmaxRecords%3ADescribeEventSubscriptions%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679517070"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions"><span class="hs-identifier hs-type">DescribeEventSubscriptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-212"></span><span>
 </span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions"><span class="hs-identifier hs-type">DescribeEventSubscriptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-214"></span><span>  </span><span id="local-6989586621679516352"><span class="annot"><span class="annottext">page :: DescribeEventSubscriptions
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621679517066"><span class="annot"><span class="annottext">page :: DescribeEventSubscriptions
 -&gt; AWSResponse DescribeEventSubscriptions
 -&gt; Maybe DescribeEventSubscriptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679516350"><span class="annot"><span class="annottext">DescribeEventSubscriptions
-</span><a href="#local-6989586621679516350"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679516349"><span class="annot"><span class="annottext">AWSResponse DescribeEventSubscriptions
-</span><a href="#local-6989586621679516349"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679517064"><span class="annot"><span class="annottext">DescribeEventSubscriptions
+</span><a href="#local-6989586621679517064"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679517063"><span class="annot"><span class="annottext">AWSResponse DescribeEventSubscriptions
+</span><a href="#local-6989586621679517063"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-215"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-216"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeEventSubscriptions
 DescribeEventSubscriptionsResponse
-</span><a href="#local-6989586621679516349"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679517063"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-217"></span><span>            </span><span class="annot"><span class="annottext">DescribeEventSubscriptionsResponse
 -&gt; Getting (First Text) DescribeEventSubscriptionsResponse Text
 -&gt; Maybe Text
@@ -469,7 +469,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-222"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeEventSubscriptions
 DescribeEventSubscriptionsResponse
-</span><a href="#local-6989586621679516349"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679517063"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-223"></span><span>            </span><span class="annot"><span class="annottext">DescribeEventSubscriptionsResponse
 -&gt; Getting
      (First [EventSubscription])
@@ -518,7 +518,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-229"></span><span>        </span><span class="annot"><span class="annottext">DescribeEventSubscriptions
-</span><a href="#local-6989586621679516350"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679517064"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-230"></span><span>          </span><span class="annot"><span class="annottext">DescribeEventSubscriptions
 -&gt; (DescribeEventSubscriptions -&gt; DescribeEventSubscriptions)
 -&gt; DescribeEventSubscriptions
@@ -541,7 +541,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeEventSubscriptions
 DescribeEventSubscriptionsResponse
-</span><a href="#local-6989586621679516349"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679517063"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-232"></span><span>          </span><span class="annot"><span class="annottext">DescribeEventSubscriptionsResponse
 -&gt; Getting (First Text) DescribeEventSubscriptionsResponse Text
 -&gt; Maybe Text
@@ -567,13 +567,13 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-236"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-237"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions"><span class="hs-identifier hs-type">DescribeEventSubscriptions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-238"></span><span>      </span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptionsResponse"><span class="hs-identifier hs-type">DescribeEventSubscriptionsResponse</span></a></span><span>
-</span><span id="line-239"></span><span>  </span><span id="local-6989586621679516340"><span class="annot"><span class="annottext">request :: DescribeEventSubscriptions -&gt; Request DescribeEventSubscriptions
+</span><span id="line-239"></span><span>  </span><span id="local-6989586621679517054"><span class="annot"><span class="annottext">request :: DescribeEventSubscriptions -&gt; Request DescribeEventSubscriptions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeEventSubscriptions -&gt; Request DescribeEventSubscriptions
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Redshift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-240"></span><span>  </span><span id="local-6989586621679516336"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-240"></span><span>  </span><span id="local-6989586621679517050"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeEventSubscriptions
 -&gt; ClientResponse ClientBody
@@ -604,10 +604,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-242"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DescribeEventSubscriptionsResult&quot;</span></span><span>
-</span><span id="line-243"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679516333"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679516333"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679516332"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679516332"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679516331"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679516331"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-243"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679517047"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679517047"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679517046"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679517046"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679517045"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679517045"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-244"></span><span>          </span><span class="annot"><span class="annottext">Maybe [EventSubscription]
 -&gt; Maybe Text -&gt; Int -&gt; DescribeEventSubscriptionsResponse
 </span><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptionsResponse%27"><span class="hs-identifier hs-var">DescribeEventSubscriptionsResponse'</span></a></span><span>
@@ -618,7 +618,7 @@ Text
      String (Maybe Text -&gt; Int -&gt; DescribeEventSubscriptionsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679516331"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679517045"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EventSubscriptionsList&quot;</span></span><span>
@@ -647,7 +647,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String (Int -&gt; DescribeEventSubscriptionsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679516331"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679517045"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
@@ -660,15 +660,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679516333"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679517047"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-251"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-252"></span><span>
-</span><span id="line-253"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679516320"><span id="local-6989586621679516322"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions"><span class="hs-identifier hs-type">DescribeEventSubscriptions</span></a></span></span></span><span>
+</span><span id="line-253"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679517034"><span id="local-6989586621679517036"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions"><span class="hs-identifier hs-type">DescribeEventSubscriptions</span></a></span></span></span><span>
 </span><span id="line-254"></span><span>
-</span><span id="line-255"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679516317"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions"><span class="hs-identifier hs-type">DescribeEventSubscriptions</span></a></span></span><span>
+</span><span id="line-255"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679517031"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions"><span class="hs-identifier hs-type">DescribeEventSubscriptions</span></a></span></span><span>
 </span><span id="line-256"></span><span>
 </span><span id="line-257"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions"><span class="hs-identifier hs-type">DescribeEventSubscriptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-258"></span><span>  </span><span id="local-6989586621679516313"><span class="annot"><span class="annottext">toHeaders :: DescribeEventSubscriptions -&gt; ResponseHeaders
+</span><span id="line-258"></span><span>  </span><span id="local-6989586621679517027"><span class="annot"><span class="annottext">toHeaders :: DescribeEventSubscriptions -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeEventSubscriptions -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -676,28 +676,28 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-259"></span><span>
 </span><span id="line-260"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions"><span class="hs-identifier hs-type">DescribeEventSubscriptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-261"></span><span>  </span><span id="local-6989586621679516308"><span class="annot"><span class="annottext">toPath :: DescribeEventSubscriptions -&gt; ByteString
+</span><span id="line-261"></span><span>  </span><span id="local-6989586621679517022"><span class="annot"><span class="annottext">toPath :: DescribeEventSubscriptions -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeEventSubscriptions -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-262"></span><span>
 </span><span id="line-263"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions"><span class="hs-identifier hs-type">DescribeEventSubscriptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-264"></span><span>  </span><span id="local-6989586621679516304"><span class="annot"><span class="annottext">toQuery :: DescribeEventSubscriptions -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions%27"><span class="hs-identifier hs-type">DescribeEventSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679516298"><span id="local-6989586621679516299"><span id="local-6989586621679516300"><span id="local-6989586621679516301"><span id="local-6989586621679516302"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-264"></span><span>  </span><span id="local-6989586621679517018"><span class="annot"><span class="annottext">toQuery :: DescribeEventSubscriptions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptions%27"><span class="hs-identifier hs-type">DescribeEventSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679517012"><span id="local-6989586621679517013"><span id="local-6989586621679517014"><span id="local-6989586621679517015"><span id="local-6989586621679517016"><span class="annot"><span class="annottext">Maybe Int
 Maybe [Text]
 Maybe Text
-marker :: Maybe Text
 maxRecords :: Maybe Int
-tagValues :: Maybe [Text]
+marker :: Maybe Text
 tagKeys :: Maybe [Text]
+tagValues :: Maybe [Text]
 subscriptionName :: Maybe Text
-$sel:marker:DescribeEventSubscriptions' :: DescribeEventSubscriptions -&gt; Maybe Text
 $sel:maxRecords:DescribeEventSubscriptions' :: DescribeEventSubscriptions -&gt; Maybe Int
-$sel:tagValues:DescribeEventSubscriptions' :: DescribeEventSubscriptions -&gt; Maybe [Text]
+$sel:marker:DescribeEventSubscriptions' :: DescribeEventSubscriptions -&gt; Maybe Text
 $sel:tagKeys:DescribeEventSubscriptions' :: DescribeEventSubscriptions -&gt; Maybe [Text]
+$sel:tagValues:DescribeEventSubscriptions' :: DescribeEventSubscriptions -&gt; Maybe [Text]
 $sel:subscriptionName:DescribeEventSubscriptions' :: DescribeEventSubscriptions -&gt; Maybe Text
-</span><a href="#local-6989586621679516298"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679517012"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-265"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -717,9 +717,9 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;SubscriptionName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679516302"><span class="hs-identifier hs-var">subscriptionName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679517016"><span class="hs-identifier hs-var">subscriptionName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-271"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;TagKeys&quot;</span></span><span>
+</span><span class="hs-string">&quot;TagValues&quot;</span></span><span>
 </span><span id="line-272"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
@@ -730,12 +730,12 @@ forall a.
 (IsList a, ToQuery (Item a)) =&gt;
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;TagKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
+</span><span class="hs-string">&quot;TagValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679516301"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679517015"><span class="hs-identifier hs-var">tagValues</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-274"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;TagValues&quot;</span></span><span>
+</span><span class="hs-string">&quot;TagKeys&quot;</span></span><span>
 </span><span id="line-275"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
@@ -746,26 +746,26 @@ forall a.
 (IsList a, ToQuery (Item a)) =&gt;
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;TagValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
+</span><span class="hs-string">&quot;TagKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679516300"><span class="hs-identifier hs-var">tagValues</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679517014"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-277"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;MaxRecords&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679516299"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-278"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679516298"><span class="hs-identifier hs-var">marker</span></a></span><span>
+</span><a href="#local-6989586621679517013"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-278"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxRecords&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679517012"><span class="hs-identifier hs-var">maxRecords</span></a></span><span>
 </span><span id="line-279"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-280"></span><span>
 </span><span id="line-281"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-282"></span><span class="hs-comment">--</span><span>
 </span><span id="line-283"></span><span class="hs-comment">-- /See:/ 'newDescribeEventSubscriptionsResponse' smart constructor.</span><span>
-</span><span id="line-284"></span><span id="local-6989586621679516294"><span id="local-6989586621679516295"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeEventSubscriptionsResponse"><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptionsResponse"><span class="hs-identifier hs-var">DescribeEventSubscriptionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeEventSubscriptionsResponse%27"><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptionsResponse%27"><span class="hs-identifier hs-var">DescribeEventSubscriptionsResponse'</span></a></span></span><span>
+</span><span id="line-284"></span><span id="local-6989586621679517008"><span id="local-6989586621679517009"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeEventSubscriptionsResponse"><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptionsResponse"><span class="hs-identifier hs-var">DescribeEventSubscriptionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeEventSubscriptionsResponse%27"><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptionsResponse%27"><span class="hs-identifier hs-var">DescribeEventSubscriptionsResponse'</span></a></span></span><span>
 </span><span id="line-285"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of event subscriptions.</span><span>
 </span><span id="line-286"></span><span>    </span><span id="%24sel%3AeventSubscriptionsList%3ADescribeEventSubscriptionsResponse%27"><span class="annot"><span class="annottext">DescribeEventSubscriptionsResponse -&gt; Maybe [EventSubscription]
 </span><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#%24sel%3AeventSubscriptionsList%3ADescribeEventSubscriptionsResponse%27"><span class="hs-identifier hs-var hs-var">eventSubscriptionsList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Redshift.Types.EventSubscription.html#EventSubscription"><span class="hs-identifier hs-type">EventSubscription</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -781,7 +781,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-295"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeEventSubscriptionsResponse%27"><span class="annot"><span class="annottext">DescribeEventSubscriptionsResponse -&gt; Int
 </span><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#%24sel%3AhttpStatus%3ADescribeEventSubscriptionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-296"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-297"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679516287"><span id="local-6989586621679516289"><span class="annot"><span class="annottext">DescribeEventSubscriptionsResponse
+</span><span id="line-297"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679517001"><span id="local-6989586621679517003"><span class="annot"><span class="annottext">DescribeEventSubscriptionsResponse
 -&gt; DescribeEventSubscriptionsResponse -&gt; Bool
 (DescribeEventSubscriptionsResponse
  -&gt; DescribeEventSubscriptionsResponse -&gt; Bool)
@@ -797,7 +797,7 @@ $c/= :: DescribeEventSubscriptionsResponse
 -&gt; DescribeEventSubscriptionsResponse -&gt; Bool
 $c== :: DescribeEventSubscriptionsResponse
 -&gt; DescribeEventSubscriptionsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679516279"><span id="local-6989586621679516281"><span id="local-6989586621679516283"><span id="local-6989586621679516285"><span class="annot"><span class="annottext">ReadPrec [DescribeEventSubscriptionsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679516993"><span id="local-6989586621679516995"><span id="local-6989586621679516997"><span id="local-6989586621679516999"><span class="annot"><span class="annottext">ReadPrec [DescribeEventSubscriptionsResponse]
 ReadPrec DescribeEventSubscriptionsResponse
 Int -&gt; ReadS DescribeEventSubscriptionsResponse
 ReadS [DescribeEventSubscriptionsResponse]
@@ -817,7 +817,7 @@ readList :: ReadS [DescribeEventSubscriptionsResponse]
 $creadList :: ReadS [DescribeEventSubscriptionsResponse]
 readsPrec :: Int -&gt; ReadS DescribeEventSubscriptionsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeEventSubscriptionsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679516273"><span id="local-6989586621679516275"><span id="local-6989586621679516277"><span class="annot"><span class="annottext">Int -&gt; DescribeEventSubscriptionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679516987"><span id="local-6989586621679516989"><span id="local-6989586621679516991"><span class="annot"><span class="annottext">Int -&gt; DescribeEventSubscriptionsResponse -&gt; ShowS
 [DescribeEventSubscriptionsResponse] -&gt; ShowS
 DescribeEventSubscriptionsResponse -&gt; String
 (Int -&gt; DescribeEventSubscriptionsResponse -&gt; ShowS)
@@ -878,8 +878,8 @@ DescribeEventSubscriptionsResponse
 </span><span id="line-319"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-320"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptionsResponse"><span class="hs-identifier hs-type">DescribeEventSubscriptionsResponse</span></a></span><span>
 </span><span id="line-321"></span><span id="newDescribeEventSubscriptionsResponse"><span class="annot"><span class="annottext">newDescribeEventSubscriptionsResponse :: Int -&gt; DescribeEventSubscriptionsResponse
-</span><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#newDescribeEventSubscriptionsResponse"><span class="hs-identifier hs-var hs-var">newDescribeEventSubscriptionsResponse</span></a></span></span><span> </span><span id="local-6989586621679516270"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679516270"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#newDescribeEventSubscriptionsResponse"><span class="hs-identifier hs-var hs-var">newDescribeEventSubscriptionsResponse</span></a></span></span><span> </span><span id="local-6989586621679516984"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679516984"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-322"></span><span>  </span><span class="annot"><span class="annottext">DescribeEventSubscriptionsResponse' :: Maybe [EventSubscription]
 -&gt; Maybe Text -&gt; Int -&gt; DescribeEventSubscriptionsResponse
 </span><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptionsResponse%27"><span class="hs-identifier hs-type">DescribeEventSubscriptionsResponse'</span></a></span><span>
@@ -894,7 +894,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-326"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeEventSubscriptionsResponse' :: Int
 </span><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#%24sel%3AhttpStatus%3ADescribeEventSubscriptionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679516270"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679516984"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-327"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-328"></span><span>
 </span><span id="line-329"></span><span class="hs-comment">-- | A list of event subscriptions.</span><span>
@@ -908,16 +908,16 @@ forall a. Maybe a
 -&gt; Lens'
      DescribeEventSubscriptionsResponse (Maybe [EventSubscription])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptionsResponse%27"><span class="hs-identifier hs-type">DescribeEventSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679516269"><span class="annot"><span class="annottext">Maybe [EventSubscription]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptionsResponse%27"><span class="hs-identifier hs-type">DescribeEventSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679516983"><span class="annot"><span class="annottext">Maybe [EventSubscription]
 eventSubscriptionsList :: Maybe [EventSubscription]
 $sel:eventSubscriptionsList:DescribeEventSubscriptionsResponse' :: DescribeEventSubscriptionsResponse -&gt; Maybe [EventSubscription]
-</span><a href="#local-6989586621679516269"><span class="hs-identifier hs-var hs-var">eventSubscriptionsList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EventSubscription]
-</span><a href="#local-6989586621679516269"><span class="hs-identifier hs-var">eventSubscriptionsList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679516268"><span class="annot"><span class="annottext">s :: DescribeEventSubscriptionsResponse
-</span><a href="#local-6989586621679516268"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptionsResponse%27"><span class="hs-identifier hs-type">DescribeEventSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679516267"><span class="annot"><span class="annottext">Maybe [EventSubscription]
-</span><a href="#local-6989586621679516267"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventSubscriptionsResponse
-</span><a href="#local-6989586621679516268"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventSubscriptionsList:DescribeEventSubscriptionsResponse' :: Maybe [EventSubscription]
+</span><a href="#local-6989586621679516983"><span class="hs-identifier hs-var hs-var">eventSubscriptionsList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EventSubscription]
+</span><a href="#local-6989586621679516983"><span class="hs-identifier hs-var">eventSubscriptionsList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679516982"><span class="annot"><span class="annottext">s :: DescribeEventSubscriptionsResponse
+</span><a href="#local-6989586621679516982"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptionsResponse%27"><span class="hs-identifier hs-type">DescribeEventSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679516981"><span class="annot"><span class="annottext">Maybe [EventSubscription]
+</span><a href="#local-6989586621679516981"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventSubscriptionsResponse
+</span><a href="#local-6989586621679516982"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventSubscriptionsList:DescribeEventSubscriptionsResponse' :: Maybe [EventSubscription]
 </span><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#%24sel%3AeventSubscriptionsList%3ADescribeEventSubscriptionsResponse%27"><span class="hs-identifier hs-var">eventSubscriptionsList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EventSubscription]
-</span><a href="#local-6989586621679516267"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptionsResponse"><span class="hs-identifier hs-type">DescribeEventSubscriptionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EventSubscription] -&gt; f (Maybe [EventSubscription]))
+</span><a href="#local-6989586621679516981"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptionsResponse"><span class="hs-identifier hs-type">DescribeEventSubscriptionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EventSubscription] -&gt; f (Maybe [EventSubscription]))
  -&gt; DescribeEventSubscriptionsResponse
  -&gt; f DescribeEventSubscriptionsResponse)
 -&gt; ((Maybe [EventSubscription] -&gt; f (Maybe [EventSubscription]))
@@ -944,8 +944,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [EventSubscription]
   [EventSubscription]
   [EventSubscription]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-332"></span><span>
 </span><span id="line-333"></span><span class="hs-comment">-- | A value that indicates the starting point for the next set of response</span><span>
 </span><span id="line-334"></span><span class="hs-comment">-- records in a subsequent request. If a value is returned in a response,</span><span>
@@ -962,16 +962,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
     -&gt; Maybe Text -&gt; DescribeEventSubscriptionsResponse)
 -&gt; Lens' DescribeEventSubscriptionsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptionsResponse%27"><span class="hs-identifier hs-type">DescribeEventSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679516266"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptionsResponse%27"><span class="hs-identifier hs-type">DescribeEventSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679516980"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:DescribeEventSubscriptionsResponse' :: DescribeEventSubscriptionsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679516266"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679516266"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679516265"><span class="annot"><span class="annottext">s :: DescribeEventSubscriptionsResponse
-</span><a href="#local-6989586621679516265"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptionsResponse%27"><span class="hs-identifier hs-type">DescribeEventSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679516264"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679516264"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventSubscriptionsResponse
-</span><a href="#local-6989586621679516265"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeEventSubscriptionsResponse' :: Maybe Text
+</span><a href="#local-6989586621679516980"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679516980"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679516979"><span class="annot"><span class="annottext">s :: DescribeEventSubscriptionsResponse
+</span><a href="#local-6989586621679516979"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptionsResponse%27"><span class="hs-identifier hs-type">DescribeEventSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679516978"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679516978"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventSubscriptionsResponse
+</span><a href="#local-6989586621679516979"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeEventSubscriptionsResponse' :: Maybe Text
 </span><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#%24sel%3Amarker%3ADescribeEventSubscriptionsResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679516264"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptionsResponse"><span class="hs-identifier hs-type">DescribeEventSubscriptionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679516978"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptionsResponse"><span class="hs-identifier hs-type">DescribeEventSubscriptionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-341"></span><span>
 </span><span id="line-342"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-343"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#describeEventSubscriptionsResponse_httpStatus"><span class="hs-identifier hs-type">describeEventSubscriptionsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptionsResponse"><span class="hs-identifier hs-type">DescribeEventSubscriptionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -987,18 +987,18 @@ $sel:marker:DescribeEventSubscriptionsResponse' :: DescribeEventSubscriptionsRes
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptionsResponse%27"><span class="hs-identifier hs-type">DescribeEventSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679516263"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptionsResponse%27"><span class="hs-identifier hs-type">DescribeEventSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679516977"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeEventSubscriptionsResponse' :: DescribeEventSubscriptionsResponse -&gt; Int
-</span><a href="#local-6989586621679516263"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679516263"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679516262"><span class="annot"><span class="annottext">s :: DescribeEventSubscriptionsResponse
-</span><a href="#local-6989586621679516262"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptionsResponse%27"><span class="hs-identifier hs-type">DescribeEventSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679516261"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679516261"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventSubscriptionsResponse
-</span><a href="#local-6989586621679516262"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeEventSubscriptionsResponse' :: Int
+</span><a href="#local-6989586621679516977"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679516977"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679516976"><span class="annot"><span class="annottext">s :: DescribeEventSubscriptionsResponse
+</span><a href="#local-6989586621679516976"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptionsResponse%27"><span class="hs-identifier hs-type">DescribeEventSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679516975"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679516975"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventSubscriptionsResponse
+</span><a href="#local-6989586621679516976"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeEventSubscriptionsResponse' :: Int
 </span><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#%24sel%3AhttpStatus%3ADescribeEventSubscriptionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679516261"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptionsResponse"><span class="hs-identifier hs-type">DescribeEventSubscriptionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679516975"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptionsResponse"><span class="hs-identifier hs-type">DescribeEventSubscriptionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-345"></span><span>
 </span><span id="line-346"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-347"></span><span>  </span><span id="local-6989586621679516259"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-347"></span><span>  </span><span id="local-6989586621679516973"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-348"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeEventSubscriptions.html#DescribeEventSubscriptionsResponse"><span class="hs-identifier hs-type">DescribeEventSubscriptionsResponse</span></a></span></span><span>
 </span><span id="line-349"></span></pre></body></html>

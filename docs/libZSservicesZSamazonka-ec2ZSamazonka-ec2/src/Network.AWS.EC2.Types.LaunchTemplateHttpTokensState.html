@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621681089029"><span id="local-6989586621681089030"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LaunchTemplateHttpTokensState"><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateHttpTokensState.html#LaunchTemplateHttpTokensState"><span class="hs-identifier hs-var">LaunchTemplateHttpTokensState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LaunchTemplateHttpTokensState%27"><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateHttpTokensState.html#LaunchTemplateHttpTokensState%27"><span class="hs-identifier hs-var">LaunchTemplateHttpTokensState'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681123720"><span id="local-6989586621681123721"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LaunchTemplateHttpTokensState"><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateHttpTokensState.html#LaunchTemplateHttpTokensState"><span class="hs-identifier hs-var">LaunchTemplateHttpTokensState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LaunchTemplateHttpTokensState%27"><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateHttpTokensState.html#LaunchTemplateHttpTokensState%27"><span class="hs-identifier hs-var">LaunchTemplateHttpTokensState'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromLaunchTemplateHttpTokensState"><span class="annot"><span class="annottext">LaunchTemplateHttpTokensState -&gt; Text
 </span><a href="Network.AWS.EC2.Types.LaunchTemplateHttpTokensState.html#fromLaunchTemplateHttpTokensState"><span class="hs-identifier hs-var hs-var">fromLaunchTemplateHttpTokensState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681089021"><span id="local-6989586621681089023"><span id="local-6989586621681089025"><span class="annot"><span class="annottext">Int -&gt; LaunchTemplateHttpTokensState -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681123712"><span id="local-6989586621681123714"><span id="local-6989586621681123716"><span class="annot"><span class="annottext">Int -&gt; LaunchTemplateHttpTokensState -&gt; ShowS
 [LaunchTemplateHttpTokensState] -&gt; ShowS
 LaunchTemplateHttpTokensState -&gt; String
 (Int -&gt; LaunchTemplateHttpTokensState -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: LaunchTemplateHttpTokensState -&gt; String
 showsPrec :: Int -&gt; LaunchTemplateHttpTokensState -&gt; ShowS
 $cshowsPrec :: Int -&gt; LaunchTemplateHttpTokensState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621681089012"><span id="local-6989586621681089014"><span id="local-6989586621681089016"><span id="local-6989586621681089018"><span class="annot"><span class="annottext">ReadPrec [LaunchTemplateHttpTokensState]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681123703"><span id="local-6989586621681123705"><span id="local-6989586621681123707"><span id="local-6989586621681123709"><span class="annot"><span class="annottext">ReadPrec [LaunchTemplateHttpTokensState]
 ReadPrec LaunchTemplateHttpTokensState
 Int -&gt; ReadS LaunchTemplateHttpTokensState
 ReadS [LaunchTemplateHttpTokensState]
@@ -73,7 +73,7 @@ $creadList :: ReadS [LaunchTemplateHttpTokensState]
 readsPrec :: Int -&gt; ReadS LaunchTemplateHttpTokensState
 $creadsPrec :: Int -&gt; ReadS LaunchTemplateHttpTokensState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681089007"><span id="local-6989586621681089009"><span class="annot"><span class="annottext">LaunchTemplateHttpTokensState
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681123698"><span id="local-6989586621681123700"><span class="annot"><span class="annottext">LaunchTemplateHttpTokensState
 -&gt; LaunchTemplateHttpTokensState -&gt; Bool
 (LaunchTemplateHttpTokensState
  -&gt; LaunchTemplateHttpTokensState -&gt; Bool)
@@ -90,7 +90,7 @@ $c/= :: LaunchTemplateHttpTokensState
 $c== :: LaunchTemplateHttpTokensState
 -&gt; LaunchTemplateHttpTokensState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681088991"><span id="local-6989586621681088993"><span id="local-6989586621681088995"><span id="local-6989586621681088997"><span id="local-6989586621681088999"><span id="local-6989586621681089001"><span id="local-6989586621681089003"><span class="annot"><span class="annottext">Eq LaunchTemplateHttpTokensState
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681123682"><span id="local-6989586621681123684"><span id="local-6989586621681123686"><span id="local-6989586621681123688"><span id="local-6989586621681123690"><span id="local-6989586621681123692"><span id="local-6989586621681123694"><span class="annot"><span class="annottext">Eq LaunchTemplateHttpTokensState
 Eq LaunchTemplateHttpTokensState
 -&gt; (LaunchTemplateHttpTokensState
     -&gt; LaunchTemplateHttpTokensState -&gt; Ordering)
@@ -177,7 +177,7 @@ LaunchTemplateHttpTokensState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681088983"><span id="local-6989586621681088985"><span class="annot"><span class="annottext">Int -&gt; LaunchTemplateHttpTokensState -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681123674"><span id="local-6989586621681123676"><span class="annot"><span class="annottext">Int -&gt; LaunchTemplateHttpTokensState -&gt; Int
 LaunchTemplateHttpTokensState -&gt; Int
 (Int -&gt; LaunchTemplateHttpTokensState -&gt; Int)
 -&gt; (LaunchTemplateHttpTokensState -&gt; Int)
@@ -188,56 +188,56 @@ $chash :: LaunchTemplateHttpTokensState -&gt; Int
 hashWithSalt :: Int -&gt; LaunchTemplateHttpTokensState -&gt; Int
 $chashWithSalt :: Int -&gt; LaunchTemplateHttpTokensState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681088980"><span class="annot"><span class="annottext">LaunchTemplateHttpTokensState -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681123671"><span class="annot"><span class="annottext">LaunchTemplateHttpTokensState -&gt; ()
 (LaunchTemplateHttpTokensState -&gt; ())
 -&gt; NFData LaunchTemplateHttpTokensState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: LaunchTemplateHttpTokensState -&gt; ()
 $crnf :: LaunchTemplateHttpTokensState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681088977"><span class="annot"><span class="annottext">Text -&gt; Either String LaunchTemplateHttpTokensState
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681123668"><span class="annot"><span class="annottext">Text -&gt; Either String LaunchTemplateHttpTokensState
 (Text -&gt; Either String LaunchTemplateHttpTokensState)
 -&gt; FromText LaunchTemplateHttpTokensState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String LaunchTemplateHttpTokensState
 $cfromText :: Text -&gt; Either String LaunchTemplateHttpTokensState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681088974"><span class="annot"><span class="annottext">LaunchTemplateHttpTokensState -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681123665"><span class="annot"><span class="annottext">LaunchTemplateHttpTokensState -&gt; Text
 (LaunchTemplateHttpTokensState -&gt; Text)
 -&gt; ToText LaunchTemplateHttpTokensState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: LaunchTemplateHttpTokensState -&gt; Text
 $ctoText :: LaunchTemplateHttpTokensState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681088971"><span class="annot"><span class="annottext">LaunchTemplateHttpTokensState -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681123662"><span class="annot"><span class="annottext">LaunchTemplateHttpTokensState -&gt; ByteString
 (LaunchTemplateHttpTokensState -&gt; ByteString)
 -&gt; ToByteString LaunchTemplateHttpTokensState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: LaunchTemplateHttpTokensState -&gt; ByteString
 $ctoBS :: LaunchTemplateHttpTokensState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681088968"><span class="annot"><span class="annottext">LaunchTemplateHttpTokensState -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681123659"><span class="annot"><span class="annottext">LaunchTemplateHttpTokensState -&gt; ByteStringBuilder
 (LaunchTemplateHttpTokensState -&gt; ByteStringBuilder)
 -&gt; ToLog LaunchTemplateHttpTokensState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: LaunchTemplateHttpTokensState -&gt; ByteStringBuilder
 $cbuild :: LaunchTemplateHttpTokensState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681088965"><span class="annot"><span class="annottext">HeaderName -&gt; LaunchTemplateHttpTokensState -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681123656"><span class="annot"><span class="annottext">HeaderName -&gt; LaunchTemplateHttpTokensState -&gt; [Header]
 (HeaderName -&gt; LaunchTemplateHttpTokensState -&gt; [Header])
 -&gt; ToHeader LaunchTemplateHttpTokensState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; LaunchTemplateHttpTokensState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; LaunchTemplateHttpTokensState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681088962"><span class="annot"><span class="annottext">LaunchTemplateHttpTokensState -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681123653"><span class="annot"><span class="annottext">LaunchTemplateHttpTokensState -&gt; QueryString
 (LaunchTemplateHttpTokensState -&gt; QueryString)
 -&gt; ToQuery LaunchTemplateHttpTokensState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: LaunchTemplateHttpTokensState -&gt; QueryString
 $ctoQuery :: LaunchTemplateHttpTokensState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681088957"><span id="local-6989586621681088959"><span class="annot"><span class="annottext">Value -&gt; Parser [LaunchTemplateHttpTokensState]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681123648"><span id="local-6989586621681123650"><span class="annot"><span class="annottext">Value -&gt; Parser [LaunchTemplateHttpTokensState]
 Value -&gt; Parser LaunchTemplateHttpTokensState
 (Value -&gt; Parser LaunchTemplateHttpTokensState)
 -&gt; (Value -&gt; Parser [LaunchTemplateHttpTokensState])
@@ -249,7 +249,7 @@ $cparseJSONList :: Value -&gt; Parser [LaunchTemplateHttpTokensState]
 parseJSON :: Value -&gt; Parser LaunchTemplateHttpTokensState
 $cparseJSON :: Value -&gt; Parser LaunchTemplateHttpTokensState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681088952"><span id="local-6989586621681088954"><span class="annot"><span class="annottext">FromJSONKeyFunction [LaunchTemplateHttpTokensState]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681123643"><span id="local-6989586621681123645"><span class="annot"><span class="annottext">FromJSONKeyFunction [LaunchTemplateHttpTokensState]
 FromJSONKeyFunction LaunchTemplateHttpTokensState
 FromJSONKeyFunction LaunchTemplateHttpTokensState
 -&gt; FromJSONKeyFunction [LaunchTemplateHttpTokensState]
@@ -261,7 +261,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [LaunchTemplateHttpTokensState]
 fromJSONKey :: FromJSONKeyFunction LaunchTemplateHttpTokensState
 $cfromJSONKey :: FromJSONKeyFunction LaunchTemplateHttpTokensState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681088943"><span id="local-6989586621681088945"><span id="local-6989586621681088947"><span id="local-6989586621681088949"><span class="annot"><span class="annottext">[LaunchTemplateHttpTokensState] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681123634"><span id="local-6989586621681123636"><span id="local-6989586621681123638"><span id="local-6989586621681123640"><span class="annot"><span class="annottext">[LaunchTemplateHttpTokensState] -&gt; Encoding
 [LaunchTemplateHttpTokensState] -&gt; Value
 LaunchTemplateHttpTokensState -&gt; Encoding
 LaunchTemplateHttpTokensState -&gt; Value
@@ -285,7 +285,7 @@ $ctoEncoding :: LaunchTemplateHttpTokensState -&gt; Encoding
 toJSON :: LaunchTemplateHttpTokensState -&gt; Value
 $ctoJSON :: LaunchTemplateHttpTokensState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681088938"><span id="local-6989586621681088940"><span class="annot"><span class="annottext">ToJSONKeyFunction [LaunchTemplateHttpTokensState]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681123629"><span id="local-6989586621681123631"><span class="annot"><span class="annottext">ToJSONKeyFunction [LaunchTemplateHttpTokensState]
 ToJSONKeyFunction LaunchTemplateHttpTokensState
 ToJSONKeyFunction LaunchTemplateHttpTokensState
 -&gt; ToJSONKeyFunction [LaunchTemplateHttpTokensState]
@@ -297,14 +297,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [LaunchTemplateHttpTokensState]
 toJSONKey :: ToJSONKeyFunction LaunchTemplateHttpTokensState
 $ctoJSONKey :: ToJSONKeyFunction LaunchTemplateHttpTokensState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681088935"><span class="annot"><span class="annottext">[Node] -&gt; Either String LaunchTemplateHttpTokensState
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681123626"><span class="annot"><span class="annottext">[Node] -&gt; Either String LaunchTemplateHttpTokensState
 ([Node] -&gt; Either String LaunchTemplateHttpTokensState)
 -&gt; FromXML LaunchTemplateHttpTokensState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String LaunchTemplateHttpTokensState
 $cparseXML :: [Node] -&gt; Either String LaunchTemplateHttpTokensState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681088932"><span class="annot"><span class="annottext">LaunchTemplateHttpTokensState -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681123623"><span class="annot"><span class="annottext">LaunchTemplateHttpTokensState -&gt; XML
 (LaunchTemplateHttpTokensState -&gt; XML)
 -&gt; ToXML LaunchTemplateHttpTokensState
 forall a. (a -&gt; XML) -&gt; ToXML a

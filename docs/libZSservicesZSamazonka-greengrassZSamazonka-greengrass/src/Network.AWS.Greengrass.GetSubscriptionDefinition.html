@@ -34,14 +34,14 @@
 </span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#newGetSubscriptionDefinitionResponse"><span class="hs-identifier">newGetSubscriptionDefinitionResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#getSubscriptionDefinitionResponse_creationTimestamp"><span class="hs-identifier">getSubscriptionDefinitionResponse_creationTimestamp</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#getSubscriptionDefinitionResponse_latestVersionArn"><span class="hs-identifier">getSubscriptionDefinitionResponse_latestVersionArn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#getSubscriptionDefinitionResponse_latestVersion"><span class="hs-identifier">getSubscriptionDefinitionResponse_latestVersion</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#getSubscriptionDefinitionResponse_arn"><span class="hs-identifier">getSubscriptionDefinitionResponse_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#getSubscriptionDefinitionResponse_latestVersionArn"><span class="hs-identifier">getSubscriptionDefinitionResponse_latestVersionArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#getSubscriptionDefinitionResponse_arn"><span class="hs-identifier">getSubscriptionDefinitionResponse_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#getSubscriptionDefinitionResponse_name"><span class="hs-identifier">getSubscriptionDefinitionResponse_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#getSubscriptionDefinitionResponse_creationTimestamp"><span class="hs-identifier">getSubscriptionDefinitionResponse_creationTimestamp</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#getSubscriptionDefinitionResponse_id"><span class="hs-identifier">getSubscriptionDefinitionResponse_id</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#getSubscriptionDefinitionResponse_name"><span class="hs-identifier">getSubscriptionDefinitionResponse_name</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#getSubscriptionDefinitionResponse_tags"><span class="hs-identifier">getSubscriptionDefinitionResponse_tags</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#getSubscriptionDefinitionResponse_lastUpdatedTimestamp"><span class="hs-identifier">getSubscriptionDefinitionResponse_lastUpdatedTimestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#getSubscriptionDefinitionResponse_latestVersion"><span class="hs-identifier">getSubscriptionDefinitionResponse_latestVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#getSubscriptionDefinitionResponse_lastUpdatedTimestamp"><span class="hs-identifier">getSubscriptionDefinitionResponse_lastUpdatedTimestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#getSubscriptionDefinitionResponse_tags"><span class="hs-identifier">getSubscriptionDefinitionResponse_tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#getSubscriptionDefinitionResponse_httpStatus"><span class="hs-identifier">getSubscriptionDefinitionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span class="hs-keyword">where</span><span>
@@ -54,12 +54,12 @@
 </span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newGetSubscriptionDefinition' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679355663"><span id="local-6989586621679355664"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSubscriptionDefinition"><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinition"><span class="hs-identifier hs-var">GetSubscriptionDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSubscriptionDefinition%27"><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinition%27"><span class="hs-identifier hs-var">GetSubscriptionDefinition'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679355947"><span id="local-6989586621679355948"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSubscriptionDefinition"><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinition"><span class="hs-identifier hs-var">GetSubscriptionDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSubscriptionDefinition%27"><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinition%27"><span class="hs-identifier hs-var">GetSubscriptionDefinition'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the subscription definition.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AsubscriptionDefinitionId%3AGetSubscriptionDefinition%27"><span class="annot"><span class="annottext">GetSubscriptionDefinition -&gt; Text
 </span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#%24sel%3AsubscriptionDefinitionId%3AGetSubscriptionDefinition%27"><span class="hs-identifier hs-var hs-var">subscriptionDefinitionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679355657"><span id="local-6989586621679355659"><span class="annot"><span class="annottext">GetSubscriptionDefinition -&gt; GetSubscriptionDefinition -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679355941"><span id="local-6989586621679355943"><span class="annot"><span class="annottext">GetSubscriptionDefinition -&gt; GetSubscriptionDefinition -&gt; Bool
 (GetSubscriptionDefinition -&gt; GetSubscriptionDefinition -&gt; Bool)
 -&gt; (GetSubscriptionDefinition -&gt; GetSubscriptionDefinition -&gt; Bool)
 -&gt; Eq GetSubscriptionDefinition
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetSubscriptionDefinition -&gt; GetSubscriptionDefinition -&gt; Bool
 == :: GetSubscriptionDefinition -&gt; GetSubscriptionDefinition -&gt; Bool
 $c== :: GetSubscriptionDefinition -&gt; GetSubscriptionDefinition -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679355648"><span id="local-6989586621679355650"><span id="local-6989586621679355652"><span id="local-6989586621679355654"><span class="annot"><span class="annottext">ReadPrec [GetSubscriptionDefinition]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679355932"><span id="local-6989586621679355934"><span id="local-6989586621679355936"><span id="local-6989586621679355938"><span class="annot"><span class="annottext">ReadPrec [GetSubscriptionDefinition]
 ReadPrec GetSubscriptionDefinition
 Int -&gt; ReadS GetSubscriptionDefinition
 ReadS [GetSubscriptionDefinition]
@@ -88,7 +88,7 @@ readList :: ReadS [GetSubscriptionDefinition]
 $creadList :: ReadS [GetSubscriptionDefinition]
 readsPrec :: Int -&gt; ReadS GetSubscriptionDefinition
 $creadsPrec :: Int -&gt; ReadS GetSubscriptionDefinition
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679355641"><span id="local-6989586621679355643"><span id="local-6989586621679355645"><span class="annot"><span class="annottext">Int -&gt; GetSubscriptionDefinition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679355925"><span id="local-6989586621679355927"><span id="local-6989586621679355929"><span class="annot"><span class="annottext">Int -&gt; GetSubscriptionDefinition -&gt; ShowS
 [GetSubscriptionDefinition] -&gt; ShowS
 GetSubscriptionDefinition -&gt; String
 (Int -&gt; GetSubscriptionDefinition -&gt; ShowS)
@@ -135,14 +135,14 @@ GetSubscriptionDefinition -&gt; Rep GetSubscriptionDefinition x
 </span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinition"><span class="hs-identifier hs-type">GetSubscriptionDefinition</span></a></span><span>
 </span><span id="line-76"></span><span id="newGetSubscriptionDefinition"><span class="annot"><span class="annottext">newGetSubscriptionDefinition :: Text -&gt; GetSubscriptionDefinition
 </span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#newGetSubscriptionDefinition"><span class="hs-identifier hs-var hs-var">newGetSubscriptionDefinition</span></a></span></span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679355636"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679355636"><span class="hs-identifier hs-var">pSubscriptionDefinitionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679355920"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679355920"><span class="hs-identifier hs-var">pSubscriptionDefinitionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">GetSubscriptionDefinition' :: Text -&gt; GetSubscriptionDefinition
 </span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinition%27"><span class="hs-identifier hs-type">GetSubscriptionDefinition'</span></a></span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:subscriptionDefinitionId:GetSubscriptionDefinition' :: Text
 </span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#%24sel%3AsubscriptionDefinitionId%3AGetSubscriptionDefinition%27"><span class="hs-identifier hs-var">subscriptionDefinitionId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679355636"><span class="hs-identifier hs-var">pSubscriptionDefinitionId_</span></a></span><span>
+</span><a href="#local-6989586621679355920"><span class="hs-identifier hs-var">pSubscriptionDefinitionId_</span></a></span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | The ID of the subscription definition.</span><span>
@@ -154,28 +154,28 @@ GetSubscriptionDefinition -&gt; Rep GetSubscriptionDefinition x
 -&gt; Lens
      GetSubscriptionDefinition GetSubscriptionDefinition Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinition%27"><span class="hs-identifier hs-type">GetSubscriptionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679355633"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinition%27"><span class="hs-identifier hs-type">GetSubscriptionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679355917"><span class="annot"><span class="annottext">Text
 subscriptionDefinitionId :: Text
 $sel:subscriptionDefinitionId:GetSubscriptionDefinition' :: GetSubscriptionDefinition -&gt; Text
-</span><a href="#local-6989586621679355633"><span class="hs-identifier hs-var hs-var">subscriptionDefinitionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679355633"><span class="hs-identifier hs-var">subscriptionDefinitionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679355632"><span class="annot"><span class="annottext">s :: GetSubscriptionDefinition
-</span><a href="#local-6989586621679355632"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinition%27"><span class="hs-identifier hs-type">GetSubscriptionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679355631"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679355631"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSubscriptionDefinition
-</span><a href="#local-6989586621679355632"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subscriptionDefinitionId:GetSubscriptionDefinition' :: Text
+</span><a href="#local-6989586621679355917"><span class="hs-identifier hs-var hs-var">subscriptionDefinitionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679355917"><span class="hs-identifier hs-var">subscriptionDefinitionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679355916"><span class="annot"><span class="annottext">s :: GetSubscriptionDefinition
+</span><a href="#local-6989586621679355916"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinition%27"><span class="hs-identifier hs-type">GetSubscriptionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679355915"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679355915"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSubscriptionDefinition
+</span><a href="#local-6989586621679355916"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subscriptionDefinitionId:GetSubscriptionDefinition' :: Text
 </span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#%24sel%3AsubscriptionDefinitionId%3AGetSubscriptionDefinition%27"><span class="hs-identifier hs-var">subscriptionDefinitionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679355631"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinition"><span class="hs-identifier hs-type">GetSubscriptionDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679355915"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinition"><span class="hs-identifier hs-type">GetSubscriptionDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinition"><span class="hs-identifier hs-type">GetSubscriptionDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-88"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-89"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinition"><span class="hs-identifier hs-type">GetSubscriptionDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>      </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse</span></a></span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679355627"><span class="annot"><span class="annottext">request :: GetSubscriptionDefinition -&gt; Request GetSubscriptionDefinition
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679355911"><span class="annot"><span class="annottext">request :: GetSubscriptionDefinition -&gt; Request GetSubscriptionDefinition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; GetSubscriptionDefinition -&gt; Request GetSubscriptionDefinition
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Greengrass.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679355623"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679355907"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetSubscriptionDefinition
 -&gt; ClientResponse ClientBody
@@ -201,18 +201,18 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679355620"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679355620"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679355619"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679355619"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679355618"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679355618"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679355904"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679355904"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679355903"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679355903"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679355902"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679355902"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
--&gt; Maybe (HashMap Text Text)
 -&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
 -&gt; Int
 -&gt; GetSubscriptionDefinitionResponse
 </span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-var">GetSubscriptionDefinitionResponse'</span></a></span><span>
@@ -222,8 +222,8 @@ MonadResource m =&gt;
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
- -&gt; Maybe (HashMap Text Text)
  -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text Text)
  -&gt; Int
  -&gt; GetSubscriptionDefinitionResponse)
 -&gt; Either String (Maybe Text)
@@ -234,16 +234,16 @@ MonadResource m =&gt;
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe (HashMap Text Text)
       -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
       -&gt; Int
       -&gt; GetSubscriptionDefinitionResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679355618"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679355902"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CreationTimestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;LatestVersionArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
@@ -251,8 +251,8 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe (HashMap Text Text)
    -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
    -&gt; Int
    -&gt; GetSubscriptionDefinitionResponse)
 -&gt; Either String (Maybe Text)
@@ -262,24 +262,24 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe (HashMap Text Text)
       -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
       -&gt; Int
       -&gt; GetSubscriptionDefinitionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679355618"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679355902"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LatestVersionArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe (HashMap Text Text)
    -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
    -&gt; Int
    -&gt; GetSubscriptionDefinitionResponse)
 -&gt; Either String (Maybe Text)
@@ -288,23 +288,23 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
      (Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe (HashMap Text Text)
       -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
       -&gt; Int
       -&gt; GetSubscriptionDefinitionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679355618"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679355902"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LatestVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe (HashMap Text Text)
    -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
    -&gt; Int
    -&gt; GetSubscriptionDefinitionResponse)
 -&gt; Either String (Maybe Text)
@@ -312,66 +312,84 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
      String
      (Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe (HashMap Text Text)
       -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
       -&gt; Int
       -&gt; GetSubscriptionDefinitionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679355618"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679355902"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;CreationTimestamp&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe (HashMap Text Text)
    -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
    -&gt; Int
    -&gt; GetSubscriptionDefinitionResponse)
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
      (Maybe Text
-      -&gt; Maybe (HashMap Text Text)
       -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
       -&gt; Int
       -&gt; GetSubscriptionDefinitionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679355618"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679355902"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
-   -&gt; Maybe (HashMap Text Text)
    -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; GetSubscriptionDefinitionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; GetSubscriptionDefinitionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679355902"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LatestVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe (HashMap Text Text)
    -&gt; Int
    -&gt; GetSubscriptionDefinitionResponse)
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
      (Maybe (HashMap Text Text)
-      -&gt; Maybe Text -&gt; Int -&gt; GetSubscriptionDefinitionResponse)
+      -&gt; Int -&gt; GetSubscriptionDefinitionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679355618"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679355902"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Either
+</span><span class="hs-string">&quot;LastUpdatedTimestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (Maybe (HashMap Text Text)
-   -&gt; Maybe Text -&gt; Int -&gt; GetSubscriptionDefinitionResponse)
+   -&gt; Int -&gt; GetSubscriptionDefinitionResponse)
 -&gt; Either String (Maybe (HashMap Text Text))
--&gt; Either
-     String (Maybe Text -&gt; Int -&gt; GetSubscriptionDefinitionResponse)
+-&gt; Either String (Int -&gt; GetSubscriptionDefinitionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679355618"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679355902"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text Text)))
@@ -381,16 +399,6 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String (Maybe Text -&gt; Int -&gt; GetSubscriptionDefinitionResponse)
--&gt; Either String (Maybe Text)
--&gt; Either String (Int -&gt; GetSubscriptionDefinitionResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679355618"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LastUpdatedTimestamp&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetSubscriptionDefinitionResponse)
 -&gt; Either String Int
 -&gt; Either String GetSubscriptionDefinitionResponse
@@ -400,15 +408,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679355620"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679355904"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679355609"><span id="local-6989586621679355611"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinition"><span class="hs-identifier hs-type">GetSubscriptionDefinition</span></a></span></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679355893"><span id="local-6989586621679355895"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinition"><span class="hs-identifier hs-type">GetSubscriptionDefinition</span></a></span></span></span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679355606"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinition"><span class="hs-identifier hs-type">GetSubscriptionDefinition</span></a></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679355890"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinition"><span class="hs-identifier hs-type">GetSubscriptionDefinition</span></a></span></span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinition"><span class="hs-identifier hs-type">GetSubscriptionDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679355602"><span class="annot"><span class="annottext">toHeaders :: GetSubscriptionDefinition -&gt; ResponseHeaders
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679355886"><span class="annot"><span class="annottext">toHeaders :: GetSubscriptionDefinition -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetSubscriptionDefinition -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -428,11 +436,11 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinition"><span class="hs-identifier hs-type">GetSubscriptionDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679355596"><span class="annot"><span class="annottext">toPath :: GetSubscriptionDefinition -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinition%27"><span class="hs-identifier hs-type">GetSubscriptionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679355594"><span class="annot"><span class="annottext">Text
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679355880"><span class="annot"><span class="annottext">toPath :: GetSubscriptionDefinition -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinition%27"><span class="hs-identifier hs-type">GetSubscriptionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679355878"><span class="annot"><span class="annottext">Text
 subscriptionDefinitionId :: Text
 $sel:subscriptionDefinitionId:GetSubscriptionDefinition' :: GetSubscriptionDefinition -&gt; Text
-</span><a href="#local-6989586621679355594"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679355878"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -441,11 +449,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679355594"><span class="hs-identifier hs-var">subscriptionDefinitionId</span></a></span><span>
+</span><a href="#local-6989586621679355878"><span class="hs-identifier hs-var">subscriptionDefinitionId</span></a></span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinition"><span class="hs-identifier hs-type">GetSubscriptionDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679355590"><span class="annot"><span class="annottext">toQuery :: GetSubscriptionDefinition -&gt; QueryString
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679355874"><span class="annot"><span class="annottext">toQuery :: GetSubscriptionDefinition -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetSubscriptionDefinition -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -453,38 +461,38 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- | /See:/ 'newGetSubscriptionDefinitionResponse' smart constructor.</span><span>
-</span><span id="line-133"></span><span id="local-6989586621679355587"><span id="local-6989586621679355588"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSubscriptionDefinitionResponse"><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse"><span class="hs-identifier hs-var">GetSubscriptionDefinitionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSubscriptionDefinitionResponse%27"><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-var">GetSubscriptionDefinitionResponse'</span></a></span></span><span>
-</span><span id="line-134"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the definition was</span><span>
-</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- created.</span><span>
-</span><span id="line-136"></span><span>    </span><span id="%24sel%3AcreationTimestamp%3AGetSubscriptionDefinitionResponse%27"><span class="annot"><span class="annottext">GetSubscriptionDefinitionResponse -&gt; Maybe Text
-</span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#%24sel%3AcreationTimestamp%3AGetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">creationTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- | The ARN of the latest version associated with the definition.</span><span>
-</span><span id="line-138"></span><span>    </span><span id="%24sel%3AlatestVersionArn%3AGetSubscriptionDefinitionResponse%27"><span class="annot"><span class="annottext">GetSubscriptionDefinitionResponse -&gt; Maybe Text
+</span><span id="line-133"></span><span id="local-6989586621679355871"><span id="local-6989586621679355872"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSubscriptionDefinitionResponse"><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse"><span class="hs-identifier hs-var">GetSubscriptionDefinitionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSubscriptionDefinitionResponse%27"><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-var">GetSubscriptionDefinitionResponse'</span></a></span></span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the latest version associated with the definition.</span><span>
+</span><span id="line-135"></span><span>    </span><span id="%24sel%3AlatestVersionArn%3AGetSubscriptionDefinitionResponse%27"><span class="annot"><span class="annottext">GetSubscriptionDefinitionResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#%24sel%3AlatestVersionArn%3AGetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">latestVersionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- | The ID of the latest version associated with the definition.</span><span>
-</span><span id="line-140"></span><span>    </span><span id="%24sel%3AlatestVersion%3AGetSubscriptionDefinitionResponse%27"><span class="annot"><span class="annottext">GetSubscriptionDefinitionResponse -&gt; Maybe Text
-</span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#%24sel%3AlatestVersion%3AGetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">latestVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- | The ARN of the definition.</span><span>
-</span><span id="line-142"></span><span>    </span><span id="%24sel%3Aarn%3AGetSubscriptionDefinitionResponse%27"><span class="annot"><span class="annottext">GetSubscriptionDefinitionResponse -&gt; Maybe Text
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- | The ARN of the definition.</span><span>
+</span><span id="line-137"></span><span>    </span><span id="%24sel%3Aarn%3AGetSubscriptionDefinitionResponse%27"><span class="annot"><span class="annottext">GetSubscriptionDefinitionResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#%24sel%3Aarn%3AGetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- | The name of the definition.</span><span>
+</span><span id="line-139"></span><span>    </span><span id="%24sel%3Aname%3AGetSubscriptionDefinitionResponse%27"><span class="annot"><span class="annottext">GetSubscriptionDefinitionResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#%24sel%3Aname%3AGetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the definition was</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-142"></span><span>    </span><span id="%24sel%3AcreationTimestamp%3AGetSubscriptionDefinitionResponse%27"><span class="annot"><span class="annottext">GetSubscriptionDefinitionResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#%24sel%3AcreationTimestamp%3AGetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">creationTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-143"></span><span>    </span><span class="hs-comment">-- | The ID of the definition.</span><span>
 </span><span id="line-144"></span><span>    </span><span id="%24sel%3Aid%3AGetSubscriptionDefinitionResponse%27"><span class="annot"><span class="annottext">GetSubscriptionDefinitionResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#%24sel%3Aid%3AGetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-145"></span><span>    </span><span class="hs-comment">-- | The name of the definition.</span><span>
-</span><span id="line-146"></span><span>    </span><span id="%24sel%3Aname%3AGetSubscriptionDefinitionResponse%27"><span class="annot"><span class="annottext">GetSubscriptionDefinitionResponse -&gt; Maybe Text
-</span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#%24sel%3Aname%3AGetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- | Tag(s) attached to the resource arn.</span><span>
-</span><span id="line-148"></span><span>    </span><span id="%24sel%3Atags%3AGetSubscriptionDefinitionResponse%27"><span class="annot"><span class="annottext">GetSubscriptionDefinitionResponse -&gt; Maybe (HashMap Text Text)
-</span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#%24sel%3Atags%3AGetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the definition was last</span><span>
-</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- updated.</span><span>
-</span><span id="line-151"></span><span>    </span><span id="%24sel%3AlastUpdatedTimestamp%3AGetSubscriptionDefinitionResponse%27"><span class="annot"><span class="annottext">GetSubscriptionDefinitionResponse -&gt; Maybe Text
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">-- | The ID of the latest version associated with the definition.</span><span>
+</span><span id="line-146"></span><span>    </span><span id="%24sel%3AlatestVersion%3AGetSubscriptionDefinitionResponse%27"><span class="annot"><span class="annottext">GetSubscriptionDefinitionResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#%24sel%3AlatestVersion%3AGetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">latestVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the definition was last</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- updated.</span><span>
+</span><span id="line-149"></span><span>    </span><span id="%24sel%3AlastUpdatedTimestamp%3AGetSubscriptionDefinitionResponse%27"><span class="annot"><span class="annottext">GetSubscriptionDefinitionResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#%24sel%3AlastUpdatedTimestamp%3AGetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">lastUpdatedTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- | Tag(s) attached to the resource arn.</span><span>
+</span><span id="line-151"></span><span>    </span><span id="%24sel%3Atags%3AGetSubscriptionDefinitionResponse%27"><span class="annot"><span class="annottext">GetSubscriptionDefinitionResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#%24sel%3Atags%3AGetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-152"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-153"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetSubscriptionDefinitionResponse%27"><span class="annot"><span class="annottext">GetSubscriptionDefinitionResponse -&gt; Int
 </span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#%24sel%3AhttpStatus%3AGetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-154"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679355574"><span id="local-6989586621679355576"><span class="annot"><span class="annottext">GetSubscriptionDefinitionResponse
+</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679355858"><span id="local-6989586621679355860"><span class="annot"><span class="annottext">GetSubscriptionDefinitionResponse
 -&gt; GetSubscriptionDefinitionResponse -&gt; Bool
 (GetSubscriptionDefinitionResponse
  -&gt; GetSubscriptionDefinitionResponse -&gt; Bool)
@@ -500,7 +508,7 @@ $c/= :: GetSubscriptionDefinitionResponse
 -&gt; GetSubscriptionDefinitionResponse -&gt; Bool
 $c== :: GetSubscriptionDefinitionResponse
 -&gt; GetSubscriptionDefinitionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679355566"><span id="local-6989586621679355568"><span id="local-6989586621679355570"><span id="local-6989586621679355572"><span class="annot"><span class="annottext">ReadPrec [GetSubscriptionDefinitionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679355850"><span id="local-6989586621679355852"><span id="local-6989586621679355854"><span id="local-6989586621679355856"><span class="annot"><span class="annottext">ReadPrec [GetSubscriptionDefinitionResponse]
 ReadPrec GetSubscriptionDefinitionResponse
 Int -&gt; ReadS GetSubscriptionDefinitionResponse
 ReadS [GetSubscriptionDefinitionResponse]
@@ -520,7 +528,7 @@ readList :: ReadS [GetSubscriptionDefinitionResponse]
 $creadList :: ReadS [GetSubscriptionDefinitionResponse]
 readsPrec :: Int -&gt; ReadS GetSubscriptionDefinitionResponse
 $creadsPrec :: Int -&gt; ReadS GetSubscriptionDefinitionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679355560"><span id="local-6989586621679355562"><span id="local-6989586621679355564"><span class="annot"><span class="annottext">Int -&gt; GetSubscriptionDefinitionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679355844"><span id="local-6989586621679355846"><span id="local-6989586621679355848"><span class="annot"><span class="annottext">Int -&gt; GetSubscriptionDefinitionResponse -&gt; ShowS
 [GetSubscriptionDefinitionResponse] -&gt; ShowS
 GetSubscriptionDefinitionResponse -&gt; String
 (Int -&gt; GetSubscriptionDefinitionResponse -&gt; ShowS)
@@ -566,23 +574,23 @@ GetSubscriptionDefinitionResponse
 </span><span id="line-162"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-164"></span><span class="hs-comment">--</span><span>
-</span><span id="line-165"></span><span class="hs-comment">-- 'creationTimestamp', 'getSubscriptionDefinitionResponse_creationTimestamp' - The time, in milliseconds since the epoch, when the definition was</span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- created.</span><span>
-</span><span id="line-167"></span><span class="hs-comment">--</span><span>
-</span><span id="line-168"></span><span class="hs-comment">-- 'latestVersionArn', 'getSubscriptionDefinitionResponse_latestVersionArn' - The ARN of the latest version associated with the definition.</span><span>
-</span><span id="line-169"></span><span class="hs-comment">--</span><span>
-</span><span id="line-170"></span><span class="hs-comment">-- 'latestVersion', 'getSubscriptionDefinitionResponse_latestVersion' - The ID of the latest version associated with the definition.</span><span>
-</span><span id="line-171"></span><span class="hs-comment">--</span><span>
-</span><span id="line-172"></span><span class="hs-comment">-- 'arn', 'getSubscriptionDefinitionResponse_arn' - The ARN of the definition.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- 'latestVersionArn', 'getSubscriptionDefinitionResponse_latestVersionArn' - The ARN of the latest version associated with the definition.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- 'arn', 'getSubscriptionDefinitionResponse_arn' - The ARN of the definition.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- 'name', 'getSubscriptionDefinitionResponse_name' - The name of the definition.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- 'creationTimestamp', 'getSubscriptionDefinitionResponse_creationTimestamp' - The time, in milliseconds since the epoch, when the definition was</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- created.</span><span>
 </span><span id="line-173"></span><span class="hs-comment">--</span><span>
 </span><span id="line-174"></span><span class="hs-comment">-- 'id', 'getSubscriptionDefinitionResponse_id' - The ID of the definition.</span><span>
 </span><span id="line-175"></span><span class="hs-comment">--</span><span>
-</span><span id="line-176"></span><span class="hs-comment">-- 'name', 'getSubscriptionDefinitionResponse_name' - The name of the definition.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- 'latestVersion', 'getSubscriptionDefinitionResponse_latestVersion' - The ID of the latest version associated with the definition.</span><span>
 </span><span id="line-177"></span><span class="hs-comment">--</span><span>
-</span><span id="line-178"></span><span class="hs-comment">-- 'tags', 'getSubscriptionDefinitionResponse_tags' - Tag(s) attached to the resource arn.</span><span>
-</span><span id="line-179"></span><span class="hs-comment">--</span><span>
-</span><span id="line-180"></span><span class="hs-comment">-- 'lastUpdatedTimestamp', 'getSubscriptionDefinitionResponse_lastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the definition was last</span><span>
-</span><span id="line-181"></span><span class="hs-comment">-- updated.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- 'lastUpdatedTimestamp', 'getSubscriptionDefinitionResponse_lastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the definition was last</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- updated.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- 'tags', 'getSubscriptionDefinitionResponse_tags' - Tag(s) attached to the resource arn.</span><span>
 </span><span id="line-182"></span><span class="hs-comment">--</span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- 'httpStatus', 'getSubscriptionDefinitionResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-184"></span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#newGetSubscriptionDefinitionResponse"><span class="hs-identifier hs-type">newGetSubscriptionDefinitionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -590,86 +598,60 @@ GetSubscriptionDefinitionResponse
 </span><span id="line-186"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-187"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse</span></a></span><span>
 </span><span id="line-188"></span><span id="newGetSubscriptionDefinitionResponse"><span class="annot"><span class="annottext">newGetSubscriptionDefinitionResponse :: Int -&gt; GetSubscriptionDefinitionResponse
-</span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#newGetSubscriptionDefinitionResponse"><span class="hs-identifier hs-var hs-var">newGetSubscriptionDefinitionResponse</span></a></span></span><span> </span><span id="local-6989586621679355557"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679355557"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#newGetSubscriptionDefinitionResponse"><span class="hs-identifier hs-var hs-var">newGetSubscriptionDefinitionResponse</span></a></span></span><span> </span><span id="local-6989586621679355841"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679355841"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-189"></span><span>  </span><span class="annot"><span class="annottext">GetSubscriptionDefinitionResponse' :: Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
--&gt; Maybe (HashMap Text Text)
 -&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
 -&gt; Int
 -&gt; GetSubscriptionDefinitionResponse
 </span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse'</span></a></span><span>
-</span><span id="line-190"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTimestamp:GetSubscriptionDefinitionResponse' :: Maybe Text
-</span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#%24sel%3AcreationTimestamp%3AGetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-var">creationTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:latestVersionArn:GetSubscriptionDefinitionResponse' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#%24sel%3AlatestVersionArn%3AGetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-var">latestVersionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-191"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-192"></span><span>      </span><span class="annot"><span class="annottext">$sel:latestVersionArn:GetSubscriptionDefinitionResponse' :: Maybe Text
-</span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#%24sel%3AlatestVersionArn%3AGetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-var">latestVersionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">$sel:latestVersion:GetSubscriptionDefinitionResponse' :: Maybe Text
-</span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#%24sel%3AlatestVersion%3AGetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-var">latestVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-194"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:GetSubscriptionDefinitionResponse' :: Maybe Text
+</span><span id="line-192"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:GetSubscriptionDefinitionResponse' :: Maybe Text
 </span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#%24sel%3Aarn%3AGetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:GetSubscriptionDefinitionResponse' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#%24sel%3Aname%3AGetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationTimestamp:GetSubscriptionDefinitionResponse' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#%24sel%3AcreationTimestamp%3AGetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-var">creationTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:GetSubscriptionDefinitionResponse' :: Maybe Text
 </span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#%24sel%3Aid%3AGetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-196"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:GetSubscriptionDefinitionResponse' :: Maybe Text
-</span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#%24sel%3Aname%3AGetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-196"></span><span>      </span><span class="annot"><span class="annottext">$sel:latestVersion:GetSubscriptionDefinitionResponse' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#%24sel%3AlatestVersion%3AGetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-var">latestVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-197"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:GetSubscriptionDefinitionResponse' :: Maybe (HashMap Text Text)
-</span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#%24sel%3Atags%3AGetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-198"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdatedTimestamp:GetSubscriptionDefinitionResponse' :: Maybe Text
+</span><span id="line-197"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdatedTimestamp:GetSubscriptionDefinitionResponse' :: Maybe Text
 </span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#%24sel%3AlastUpdatedTimestamp%3AGetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-var">lastUpdatedTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:GetSubscriptionDefinitionResponse' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#%24sel%3Atags%3AGetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetSubscriptionDefinitionResponse' :: Int
 </span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#%24sel%3AhttpStatus%3AGetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679355557"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679355841"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-200"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-201"></span><span>
-</span><span id="line-202"></span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the definition was</span><span>
-</span><span id="line-203"></span><span class="hs-comment">-- created.</span><span>
-</span><span id="line-204"></span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#getSubscriptionDefinitionResponse_creationTimestamp"><span class="hs-identifier hs-type">getSubscriptionDefinitionResponse_creationTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-205"></span><span id="getSubscriptionDefinitionResponse_creationTimestamp"><span class="annot"><span class="annottext">getSubscriptionDefinitionResponse_creationTimestamp :: (Maybe Text -&gt; f (Maybe Text))
--&gt; GetSubscriptionDefinitionResponse
--&gt; f GetSubscriptionDefinitionResponse
-</span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#getSubscriptionDefinitionResponse_creationTimestamp"><span class="hs-identifier hs-var hs-var">getSubscriptionDefinitionResponse_creationTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSubscriptionDefinitionResponse -&gt; Maybe Text)
--&gt; (GetSubscriptionDefinitionResponse
-    -&gt; Maybe Text -&gt; GetSubscriptionDefinitionResponse)
--&gt; Lens
-     GetSubscriptionDefinitionResponse
-     GetSubscriptionDefinitionResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679355556"><span class="annot"><span class="annottext">Maybe Text
-creationTimestamp :: Maybe Text
-$sel:creationTimestamp:GetSubscriptionDefinitionResponse' :: GetSubscriptionDefinitionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679355556"><span class="hs-identifier hs-var hs-var">creationTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679355556"><span class="hs-identifier hs-var">creationTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679355555"><span class="annot"><span class="annottext">s :: GetSubscriptionDefinitionResponse
-</span><a href="#local-6989586621679355555"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679355554"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679355554"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSubscriptionDefinitionResponse
-</span><a href="#local-6989586621679355555"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTimestamp:GetSubscriptionDefinitionResponse' :: Maybe Text
-</span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#%24sel%3AcreationTimestamp%3AGetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-var">creationTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679355554"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-206"></span><span>
-</span><span id="line-207"></span><span class="hs-comment">-- | The ARN of the latest version associated with the definition.</span><span>
-</span><span id="line-208"></span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#getSubscriptionDefinitionResponse_latestVersionArn"><span class="hs-identifier hs-type">getSubscriptionDefinitionResponse_latestVersionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-209"></span><span id="getSubscriptionDefinitionResponse_latestVersionArn"><span class="annot"><span class="annottext">getSubscriptionDefinitionResponse_latestVersionArn :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-202"></span><span class="hs-comment">-- | The ARN of the latest version associated with the definition.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#getSubscriptionDefinitionResponse_latestVersionArn"><span class="hs-identifier hs-type">getSubscriptionDefinitionResponse_latestVersionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span id="getSubscriptionDefinitionResponse_latestVersionArn"><span class="annot"><span class="annottext">getSubscriptionDefinitionResponse_latestVersionArn :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; GetSubscriptionDefinitionResponse
 -&gt; f GetSubscriptionDefinitionResponse
 </span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#getSubscriptionDefinitionResponse_latestVersionArn"><span class="hs-identifier hs-var hs-var">getSubscriptionDefinitionResponse_latestVersionArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSubscriptionDefinitionResponse -&gt; Maybe Text)
@@ -681,45 +663,20 @@ $sel:creationTimestamp:GetSubscriptionDefinitionResponse' :: GetSubscriptionDefi
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679355553"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679355840"><span class="annot"><span class="annottext">Maybe Text
 latestVersionArn :: Maybe Text
 $sel:latestVersionArn:GetSubscriptionDefinitionResponse' :: GetSubscriptionDefinitionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679355553"><span class="hs-identifier hs-var hs-var">latestVersionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679355553"><span class="hs-identifier hs-var">latestVersionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679355552"><span class="annot"><span class="annottext">s :: GetSubscriptionDefinitionResponse
-</span><a href="#local-6989586621679355552"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679355551"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679355551"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSubscriptionDefinitionResponse
-</span><a href="#local-6989586621679355552"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:latestVersionArn:GetSubscriptionDefinitionResponse' :: Maybe Text
+</span><a href="#local-6989586621679355840"><span class="hs-identifier hs-var hs-var">latestVersionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679355840"><span class="hs-identifier hs-var">latestVersionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679355839"><span class="annot"><span class="annottext">s :: GetSubscriptionDefinitionResponse
+</span><a href="#local-6989586621679355839"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679355838"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679355838"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSubscriptionDefinitionResponse
+</span><a href="#local-6989586621679355839"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:latestVersionArn:GetSubscriptionDefinitionResponse' :: Maybe Text
 </span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#%24sel%3AlatestVersionArn%3AGetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-var">latestVersionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679355551"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-210"></span><span>
-</span><span id="line-211"></span><span class="hs-comment">-- | The ID of the latest version associated with the definition.</span><span>
-</span><span id="line-212"></span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#getSubscriptionDefinitionResponse_latestVersion"><span class="hs-identifier hs-type">getSubscriptionDefinitionResponse_latestVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-213"></span><span id="getSubscriptionDefinitionResponse_latestVersion"><span class="annot"><span class="annottext">getSubscriptionDefinitionResponse_latestVersion :: (Maybe Text -&gt; f (Maybe Text))
--&gt; GetSubscriptionDefinitionResponse
--&gt; f GetSubscriptionDefinitionResponse
-</span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#getSubscriptionDefinitionResponse_latestVersion"><span class="hs-identifier hs-var hs-var">getSubscriptionDefinitionResponse_latestVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSubscriptionDefinitionResponse -&gt; Maybe Text)
--&gt; (GetSubscriptionDefinitionResponse
-    -&gt; Maybe Text -&gt; GetSubscriptionDefinitionResponse)
--&gt; Lens
-     GetSubscriptionDefinitionResponse
-     GetSubscriptionDefinitionResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679355550"><span class="annot"><span class="annottext">Maybe Text
-latestVersion :: Maybe Text
-$sel:latestVersion:GetSubscriptionDefinitionResponse' :: GetSubscriptionDefinitionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679355550"><span class="hs-identifier hs-var hs-var">latestVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679355550"><span class="hs-identifier hs-var">latestVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679355549"><span class="annot"><span class="annottext">s :: GetSubscriptionDefinitionResponse
-</span><a href="#local-6989586621679355549"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679355548"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679355548"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSubscriptionDefinitionResponse
-</span><a href="#local-6989586621679355549"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:latestVersion:GetSubscriptionDefinitionResponse' :: Maybe Text
-</span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#%24sel%3AlatestVersion%3AGetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-var">latestVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679355548"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-214"></span><span>
-</span><span id="line-215"></span><span class="hs-comment">-- | The ARN of the definition.</span><span>
-</span><span id="line-216"></span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#getSubscriptionDefinitionResponse_arn"><span class="hs-identifier hs-type">getSubscriptionDefinitionResponse_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-217"></span><span id="getSubscriptionDefinitionResponse_arn"><span class="annot"><span class="annottext">getSubscriptionDefinitionResponse_arn :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679355838"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- | The ARN of the definition.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#getSubscriptionDefinitionResponse_arn"><span class="hs-identifier hs-type">getSubscriptionDefinitionResponse_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span id="getSubscriptionDefinitionResponse_arn"><span class="annot"><span class="annottext">getSubscriptionDefinitionResponse_arn :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; GetSubscriptionDefinitionResponse
 -&gt; f GetSubscriptionDefinitionResponse
 </span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#getSubscriptionDefinitionResponse_arn"><span class="hs-identifier hs-var hs-var">getSubscriptionDefinitionResponse_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSubscriptionDefinitionResponse -&gt; Maybe Text)
@@ -731,16 +688,67 @@ $sel:latestVersion:GetSubscriptionDefinitionResponse' :: GetSubscriptionDefiniti
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679355547"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679355837"><span class="annot"><span class="annottext">Maybe Text
 arn :: Maybe Text
 $sel:arn:GetSubscriptionDefinitionResponse' :: GetSubscriptionDefinitionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679355547"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679355547"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679355546"><span class="annot"><span class="annottext">s :: GetSubscriptionDefinitionResponse
-</span><a href="#local-6989586621679355546"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679355545"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679355545"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSubscriptionDefinitionResponse
-</span><a href="#local-6989586621679355546"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:GetSubscriptionDefinitionResponse' :: Maybe Text
+</span><a href="#local-6989586621679355837"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679355837"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679355836"><span class="annot"><span class="annottext">s :: GetSubscriptionDefinitionResponse
+</span><a href="#local-6989586621679355836"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679355835"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679355835"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSubscriptionDefinitionResponse
+</span><a href="#local-6989586621679355836"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:GetSubscriptionDefinitionResponse' :: Maybe Text
 </span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#%24sel%3Aarn%3AGetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679355545"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679355835"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | The name of the definition.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#getSubscriptionDefinitionResponse_name"><span class="hs-identifier hs-type">getSubscriptionDefinitionResponse_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span id="getSubscriptionDefinitionResponse_name"><span class="annot"><span class="annottext">getSubscriptionDefinitionResponse_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetSubscriptionDefinitionResponse
+-&gt; f GetSubscriptionDefinitionResponse
+</span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#getSubscriptionDefinitionResponse_name"><span class="hs-identifier hs-var hs-var">getSubscriptionDefinitionResponse_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSubscriptionDefinitionResponse -&gt; Maybe Text)
+-&gt; (GetSubscriptionDefinitionResponse
+    -&gt; Maybe Text -&gt; GetSubscriptionDefinitionResponse)
+-&gt; Lens
+     GetSubscriptionDefinitionResponse
+     GetSubscriptionDefinitionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679355834"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:GetSubscriptionDefinitionResponse' :: GetSubscriptionDefinitionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679355834"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679355834"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679355833"><span class="annot"><span class="annottext">s :: GetSubscriptionDefinitionResponse
+</span><a href="#local-6989586621679355833"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679355832"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679355832"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSubscriptionDefinitionResponse
+</span><a href="#local-6989586621679355833"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GetSubscriptionDefinitionResponse' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#%24sel%3Aname%3AGetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679355832"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the definition was</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-216"></span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#getSubscriptionDefinitionResponse_creationTimestamp"><span class="hs-identifier hs-type">getSubscriptionDefinitionResponse_creationTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span id="getSubscriptionDefinitionResponse_creationTimestamp"><span class="annot"><span class="annottext">getSubscriptionDefinitionResponse_creationTimestamp :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetSubscriptionDefinitionResponse
+-&gt; f GetSubscriptionDefinitionResponse
+</span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#getSubscriptionDefinitionResponse_creationTimestamp"><span class="hs-identifier hs-var hs-var">getSubscriptionDefinitionResponse_creationTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSubscriptionDefinitionResponse -&gt; Maybe Text)
+-&gt; (GetSubscriptionDefinitionResponse
+    -&gt; Maybe Text -&gt; GetSubscriptionDefinitionResponse)
+-&gt; Lens
+     GetSubscriptionDefinitionResponse
+     GetSubscriptionDefinitionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679355831"><span class="annot"><span class="annottext">Maybe Text
+creationTimestamp :: Maybe Text
+$sel:creationTimestamp:GetSubscriptionDefinitionResponse' :: GetSubscriptionDefinitionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679355831"><span class="hs-identifier hs-var hs-var">creationTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679355831"><span class="hs-identifier hs-var">creationTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679355830"><span class="annot"><span class="annottext">s :: GetSubscriptionDefinitionResponse
+</span><a href="#local-6989586621679355830"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679355829"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679355829"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSubscriptionDefinitionResponse
+</span><a href="#local-6989586621679355830"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTimestamp:GetSubscriptionDefinitionResponse' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#%24sel%3AcreationTimestamp%3AGetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-var">creationTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679355829"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-218"></span><span>
 </span><span id="line-219"></span><span class="hs-comment">-- | The ID of the definition.</span><span>
 </span><span id="line-220"></span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#getSubscriptionDefinitionResponse_id"><span class="hs-identifier hs-type">getSubscriptionDefinitionResponse_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -756,23 +764,23 @@ $sel:arn:GetSubscriptionDefinitionResponse' :: GetSubscriptionDefinitionResponse
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679355544"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679355828"><span class="annot"><span class="annottext">Maybe Text
 id :: Maybe Text
 $sel:id:GetSubscriptionDefinitionResponse' :: GetSubscriptionDefinitionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679355544"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679355544"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679355543"><span class="annot"><span class="annottext">s :: GetSubscriptionDefinitionResponse
-</span><a href="#local-6989586621679355543"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679355542"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679355542"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSubscriptionDefinitionResponse
-</span><a href="#local-6989586621679355543"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:GetSubscriptionDefinitionResponse' :: Maybe Text
+</span><a href="#local-6989586621679355828"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679355828"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679355827"><span class="annot"><span class="annottext">s :: GetSubscriptionDefinitionResponse
+</span><a href="#local-6989586621679355827"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679355826"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679355826"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSubscriptionDefinitionResponse
+</span><a href="#local-6989586621679355827"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:GetSubscriptionDefinitionResponse' :: Maybe Text
 </span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#%24sel%3Aid%3AGetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679355542"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679355826"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-222"></span><span>
-</span><span id="line-223"></span><span class="hs-comment">-- | The name of the definition.</span><span>
-</span><span id="line-224"></span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#getSubscriptionDefinitionResponse_name"><span class="hs-identifier hs-type">getSubscriptionDefinitionResponse_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-225"></span><span id="getSubscriptionDefinitionResponse_name"><span class="annot"><span class="annottext">getSubscriptionDefinitionResponse_name :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-223"></span><span class="hs-comment">-- | The ID of the latest version associated with the definition.</span><span>
+</span><span id="line-224"></span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#getSubscriptionDefinitionResponse_latestVersion"><span class="hs-identifier hs-type">getSubscriptionDefinitionResponse_latestVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span id="getSubscriptionDefinitionResponse_latestVersion"><span class="annot"><span class="annottext">getSubscriptionDefinitionResponse_latestVersion :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; GetSubscriptionDefinitionResponse
 -&gt; f GetSubscriptionDefinitionResponse
-</span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#getSubscriptionDefinitionResponse_name"><span class="hs-identifier hs-var hs-var">getSubscriptionDefinitionResponse_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSubscriptionDefinitionResponse -&gt; Maybe Text)
+</span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#getSubscriptionDefinitionResponse_latestVersion"><span class="hs-identifier hs-var hs-var">getSubscriptionDefinitionResponse_latestVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSubscriptionDefinitionResponse -&gt; Maybe Text)
 -&gt; (GetSubscriptionDefinitionResponse
     -&gt; Maybe Text -&gt; GetSubscriptionDefinitionResponse)
 -&gt; Lens
@@ -781,20 +789,46 @@ $sel:id:GetSubscriptionDefinitionResponse' :: GetSubscriptionDefinitionResponse 
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679355541"><span class="annot"><span class="annottext">Maybe Text
-name :: Maybe Text
-$sel:name:GetSubscriptionDefinitionResponse' :: GetSubscriptionDefinitionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679355541"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679355541"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679355540"><span class="annot"><span class="annottext">s :: GetSubscriptionDefinitionResponse
-</span><a href="#local-6989586621679355540"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679355539"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679355539"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSubscriptionDefinitionResponse
-</span><a href="#local-6989586621679355540"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GetSubscriptionDefinitionResponse' :: Maybe Text
-</span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#%24sel%3Aname%3AGetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679355539"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679355825"><span class="annot"><span class="annottext">Maybe Text
+latestVersion :: Maybe Text
+$sel:latestVersion:GetSubscriptionDefinitionResponse' :: GetSubscriptionDefinitionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679355825"><span class="hs-identifier hs-var hs-var">latestVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679355825"><span class="hs-identifier hs-var">latestVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679355824"><span class="annot"><span class="annottext">s :: GetSubscriptionDefinitionResponse
+</span><a href="#local-6989586621679355824"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679355823"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679355823"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSubscriptionDefinitionResponse
+</span><a href="#local-6989586621679355824"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:latestVersion:GetSubscriptionDefinitionResponse' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#%24sel%3AlatestVersion%3AGetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-var">latestVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679355823"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-226"></span><span>
-</span><span id="line-227"></span><span class="hs-comment">-- | Tag(s) attached to the resource arn.</span><span>
-</span><span id="line-228"></span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#getSubscriptionDefinitionResponse_tags"><span class="hs-identifier hs-type">getSubscriptionDefinitionResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-229"></span><span id="getSubscriptionDefinitionResponse_tags"><span class="annot"><span class="annottext">getSubscriptionDefinitionResponse_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><span id="line-227"></span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the definition was last</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- updated.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#getSubscriptionDefinitionResponse_lastUpdatedTimestamp"><span class="hs-identifier hs-type">getSubscriptionDefinitionResponse_lastUpdatedTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span id="getSubscriptionDefinitionResponse_lastUpdatedTimestamp"><span class="annot"><span class="annottext">getSubscriptionDefinitionResponse_lastUpdatedTimestamp :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetSubscriptionDefinitionResponse
+-&gt; f GetSubscriptionDefinitionResponse
+</span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#getSubscriptionDefinitionResponse_lastUpdatedTimestamp"><span class="hs-identifier hs-var hs-var">getSubscriptionDefinitionResponse_lastUpdatedTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSubscriptionDefinitionResponse -&gt; Maybe Text)
+-&gt; (GetSubscriptionDefinitionResponse
+    -&gt; Maybe Text -&gt; GetSubscriptionDefinitionResponse)
+-&gt; Lens
+     GetSubscriptionDefinitionResponse
+     GetSubscriptionDefinitionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679355822"><span class="annot"><span class="annottext">Maybe Text
+lastUpdatedTimestamp :: Maybe Text
+$sel:lastUpdatedTimestamp:GetSubscriptionDefinitionResponse' :: GetSubscriptionDefinitionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679355822"><span class="hs-identifier hs-var hs-var">lastUpdatedTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679355822"><span class="hs-identifier hs-var">lastUpdatedTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679355821"><span class="annot"><span class="annottext">s :: GetSubscriptionDefinitionResponse
+</span><a href="#local-6989586621679355821"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679355820"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679355820"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSubscriptionDefinitionResponse
+</span><a href="#local-6989586621679355821"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedTimestamp:GetSubscriptionDefinitionResponse' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#%24sel%3AlastUpdatedTimestamp%3AGetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-var">lastUpdatedTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679355820"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | Tag(s) attached to the resource arn.</span><span>
+</span><span id="line-233"></span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#getSubscriptionDefinitionResponse_tags"><span class="hs-identifier hs-type">getSubscriptionDefinitionResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span id="getSubscriptionDefinitionResponse_tags"><span class="annot"><span class="annottext">getSubscriptionDefinitionResponse_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
 -&gt; GetSubscriptionDefinitionResponse
 -&gt; f GetSubscriptionDefinitionResponse
 </span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#getSubscriptionDefinitionResponse_tags"><span class="hs-identifier hs-var hs-var">getSubscriptionDefinitionResponse_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSubscriptionDefinitionResponse -&gt; Maybe (HashMap Text Text))
@@ -806,16 +840,16 @@ $sel:name:GetSubscriptionDefinitionResponse' :: GetSubscriptionDefinitionRespons
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679355538"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679355819"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 tags :: Maybe (HashMap Text Text)
 $sel:tags:GetSubscriptionDefinitionResponse' :: GetSubscriptionDefinitionResponse -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679355538"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679355538"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679355537"><span class="annot"><span class="annottext">s :: GetSubscriptionDefinitionResponse
-</span><a href="#local-6989586621679355537"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679355536"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679355536"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSubscriptionDefinitionResponse
-</span><a href="#local-6989586621679355537"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:GetSubscriptionDefinitionResponse' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679355819"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679355819"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679355818"><span class="annot"><span class="annottext">s :: GetSubscriptionDefinitionResponse
+</span><a href="#local-6989586621679355818"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679355817"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679355817"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSubscriptionDefinitionResponse
+</span><a href="#local-6989586621679355818"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:GetSubscriptionDefinitionResponse' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#%24sel%3Atags%3AGetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679355536"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679355817"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; GetSubscriptionDefinitionResponse
  -&gt; f GetSubscriptionDefinitionResponse)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -842,34 +876,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Text)
   (HashMap Text Text)
   (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-230"></span><span>
-</span><span id="line-231"></span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the definition was last</span><span>
-</span><span id="line-232"></span><span class="hs-comment">-- updated.</span><span>
-</span><span id="line-233"></span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#getSubscriptionDefinitionResponse_lastUpdatedTimestamp"><span class="hs-identifier hs-type">getSubscriptionDefinitionResponse_lastUpdatedTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-234"></span><span id="getSubscriptionDefinitionResponse_lastUpdatedTimestamp"><span class="annot"><span class="annottext">getSubscriptionDefinitionResponse_lastUpdatedTimestamp :: (Maybe Text -&gt; f (Maybe Text))
--&gt; GetSubscriptionDefinitionResponse
--&gt; f GetSubscriptionDefinitionResponse
-</span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#getSubscriptionDefinitionResponse_lastUpdatedTimestamp"><span class="hs-identifier hs-var hs-var">getSubscriptionDefinitionResponse_lastUpdatedTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSubscriptionDefinitionResponse -&gt; Maybe Text)
--&gt; (GetSubscriptionDefinitionResponse
-    -&gt; Maybe Text -&gt; GetSubscriptionDefinitionResponse)
--&gt; Lens
-     GetSubscriptionDefinitionResponse
-     GetSubscriptionDefinitionResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679355532"><span class="annot"><span class="annottext">Maybe Text
-lastUpdatedTimestamp :: Maybe Text
-$sel:lastUpdatedTimestamp:GetSubscriptionDefinitionResponse' :: GetSubscriptionDefinitionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679355532"><span class="hs-identifier hs-var hs-var">lastUpdatedTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679355532"><span class="hs-identifier hs-var">lastUpdatedTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679355531"><span class="annot"><span class="annottext">s :: GetSubscriptionDefinitionResponse
-</span><a href="#local-6989586621679355531"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679355530"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679355530"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSubscriptionDefinitionResponse
-</span><a href="#local-6989586621679355531"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedTimestamp:GetSubscriptionDefinitionResponse' :: Maybe Text
-</span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#%24sel%3AlastUpdatedTimestamp%3AGetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-var">lastUpdatedTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679355530"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-235"></span><span>
 </span><span id="line-236"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-237"></span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#getSubscriptionDefinitionResponse_httpStatus"><span class="hs-identifier hs-type">getSubscriptionDefinitionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -885,18 +893,18 @@ $sel:lastUpdatedTimestamp:GetSubscriptionDefinitionResponse' :: GetSubscriptionD
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679355529"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679355813"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetSubscriptionDefinitionResponse' :: GetSubscriptionDefinitionResponse -&gt; Int
-</span><a href="#local-6989586621679355529"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679355529"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679355528"><span class="annot"><span class="annottext">s :: GetSubscriptionDefinitionResponse
-</span><a href="#local-6989586621679355528"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679355527"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679355527"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSubscriptionDefinitionResponse
-</span><a href="#local-6989586621679355528"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetSubscriptionDefinitionResponse' :: Int
+</span><a href="#local-6989586621679355813"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679355813"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679355812"><span class="annot"><span class="annottext">s :: GetSubscriptionDefinitionResponse
+</span><a href="#local-6989586621679355812"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679355811"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679355811"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSubscriptionDefinitionResponse
+</span><a href="#local-6989586621679355812"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetSubscriptionDefinitionResponse' :: Int
 </span><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#%24sel%3AhttpStatus%3AGetSubscriptionDefinitionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679355527"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679355811"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-239"></span><span>
 </span><span id="line-240"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-241"></span><span>  </span><span id="local-6989586621679355525"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-241"></span><span>  </span><span id="local-6989586621679355809"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-242"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetSubscriptionDefinition.html#GetSubscriptionDefinitionResponse"><span class="hs-identifier hs-type">GetSubscriptionDefinitionResponse</span></a></span></span><span>
 </span><span id="line-243"></span></pre></body></html>

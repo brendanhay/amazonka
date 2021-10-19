@@ -31,12 +31,12 @@
 </span><span id="line-31"></span><span class="hs-comment">-- as in notes\/summer\/july, the common prefix is notes\/summer\/.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newCommonPrefix' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679538506"><span id="local-6989586621679538507"></span></span><span class="hs-keyword">data</span><span> </span><span id="CommonPrefix"><span class="annot"><a href="Network.AWS.S3.Types.CommonPrefix.html#CommonPrefix"><span class="hs-identifier hs-var">CommonPrefix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CommonPrefix%27"><span class="annot"><a href="Network.AWS.S3.Types.CommonPrefix.html#CommonPrefix%27"><span class="hs-identifier hs-var">CommonPrefix'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679539134"><span id="local-6989586621679539135"></span></span><span class="hs-keyword">data</span><span> </span><span id="CommonPrefix"><span class="annot"><a href="Network.AWS.S3.Types.CommonPrefix.html#CommonPrefix"><span class="hs-identifier hs-var">CommonPrefix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CommonPrefix%27"><span class="annot"><a href="Network.AWS.S3.Types.CommonPrefix.html#CommonPrefix%27"><span class="hs-identifier hs-var">CommonPrefix'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Container for the specified common prefix.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Aprefix%3ACommonPrefix%27"><span class="annot"><span class="annottext">CommonPrefix -&gt; Maybe Text
 </span><a href="Network.AWS.S3.Types.CommonPrefix.html#%24sel%3Aprefix%3ACommonPrefix%27"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679538500"><span id="local-6989586621679538502"><span class="annot"><span class="annottext">CommonPrefix -&gt; CommonPrefix -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679539128"><span id="local-6989586621679539130"><span class="annot"><span class="annottext">CommonPrefix -&gt; CommonPrefix -&gt; Bool
 (CommonPrefix -&gt; CommonPrefix -&gt; Bool)
 -&gt; (CommonPrefix -&gt; CommonPrefix -&gt; Bool) -&gt; Eq CommonPrefix
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CommonPrefix -&gt; CommonPrefix -&gt; Bool
 == :: CommonPrefix -&gt; CommonPrefix -&gt; Bool
 $c== :: CommonPrefix -&gt; CommonPrefix -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679538491"><span id="local-6989586621679538493"><span id="local-6989586621679538495"><span id="local-6989586621679538497"><span class="annot"><span class="annottext">ReadPrec [CommonPrefix]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679539119"><span id="local-6989586621679539121"><span id="local-6989586621679539123"><span id="local-6989586621679539125"><span class="annot"><span class="annottext">ReadPrec [CommonPrefix]
 ReadPrec CommonPrefix
 Int -&gt; ReadS CommonPrefix
 ReadS [CommonPrefix]
@@ -64,7 +64,7 @@ readList :: ReadS [CommonPrefix]
 $creadList :: ReadS [CommonPrefix]
 readsPrec :: Int -&gt; ReadS CommonPrefix
 $creadsPrec :: Int -&gt; ReadS CommonPrefix
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679538484"><span id="local-6989586621679538486"><span id="local-6989586621679538488"><span class="annot"><span class="annottext">Int -&gt; CommonPrefix -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679539112"><span id="local-6989586621679539114"><span id="local-6989586621679539116"><span class="annot"><span class="annottext">Int -&gt; CommonPrefix -&gt; ShowS
 [CommonPrefix] -&gt; ShowS
 CommonPrefix -&gt; String
 (Int -&gt; CommonPrefix -&gt; ShowS)
@@ -116,32 +116,32 @@ forall a. Maybe a
 -&gt; (CommonPrefix -&gt; Maybe Text -&gt; CommonPrefix)
 -&gt; Lens CommonPrefix CommonPrefix (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.CommonPrefix.html#CommonPrefix%27"><span class="hs-identifier hs-type">CommonPrefix'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679538475"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.CommonPrefix.html#CommonPrefix%27"><span class="hs-identifier hs-type">CommonPrefix'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679539103"><span class="annot"><span class="annottext">Maybe Text
 prefix :: Maybe Text
 $sel:prefix:CommonPrefix' :: CommonPrefix -&gt; Maybe Text
-</span><a href="#local-6989586621679538475"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679538475"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679538474"><span class="annot"><span class="annottext">s :: CommonPrefix
-</span><a href="#local-6989586621679538474"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.CommonPrefix.html#CommonPrefix%27"><span class="hs-identifier hs-type">CommonPrefix'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679538473"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679538473"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CommonPrefix
-</span><a href="#local-6989586621679538474"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prefix:CommonPrefix' :: Maybe Text
+</span><a href="#local-6989586621679539103"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679539103"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679539102"><span class="annot"><span class="annottext">s :: CommonPrefix
+</span><a href="#local-6989586621679539102"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.CommonPrefix.html#CommonPrefix%27"><span class="hs-identifier hs-type">CommonPrefix'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679539101"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679539101"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CommonPrefix
+</span><a href="#local-6989586621679539102"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prefix:CommonPrefix' :: Maybe Text
 </span><a href="Network.AWS.S3.Types.CommonPrefix.html#%24sel%3Aprefix%3ACommonPrefix%27"><span class="hs-identifier hs-var">prefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679538473"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CommonPrefix.html#CommonPrefix"><span class="hs-identifier hs-type">CommonPrefix</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679539101"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CommonPrefix.html#CommonPrefix"><span class="hs-identifier hs-type">CommonPrefix</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CommonPrefix.html#CommonPrefix"><span class="hs-identifier hs-type">CommonPrefix</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-59"></span><span>  </span><span id="local-6989586621679538470"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String CommonPrefix
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679538468"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679538468"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>  </span><span id="local-6989586621679539098"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String CommonPrefix
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679539096"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679539096"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-60"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; CommonPrefix
 </span><a href="Network.AWS.S3.Types.CommonPrefix.html#CommonPrefix%27"><span class="hs-identifier hs-var">CommonPrefix'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; CommonPrefix)
 -&gt; Either String (Maybe Text) -&gt; Either String CommonPrefix
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679538468"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679539096"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Prefix&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679538462"><span id="local-6989586621679538464"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CommonPrefix.html#CommonPrefix"><span class="hs-identifier hs-type">CommonPrefix</span></a></span></span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679539090"><span id="local-6989586621679539092"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CommonPrefix.html#CommonPrefix"><span class="hs-identifier hs-type">CommonPrefix</span></a></span></span></span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679538459"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CommonPrefix.html#CommonPrefix"><span class="hs-identifier hs-type">CommonPrefix</span></a></span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679539087"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CommonPrefix.html#CommonPrefix"><span class="hs-identifier hs-type">CommonPrefix</span></a></span></span><span>
 </span><span id="line-65"></span></pre></body></html>

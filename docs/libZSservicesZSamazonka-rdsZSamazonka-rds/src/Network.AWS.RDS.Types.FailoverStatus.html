@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679760478"><span id="local-6989586621679760479"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FailoverStatus"><span class="annot"><a href="Network.AWS.RDS.Types.FailoverStatus.html#FailoverStatus"><span class="hs-identifier hs-var">FailoverStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FailoverStatus%27"><span class="annot"><a href="Network.AWS.RDS.Types.FailoverStatus.html#FailoverStatus%27"><span class="hs-identifier hs-var">FailoverStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679761525"><span id="local-6989586621679761526"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FailoverStatus"><span class="annot"><a href="Network.AWS.RDS.Types.FailoverStatus.html#FailoverStatus"><span class="hs-identifier hs-var">FailoverStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FailoverStatus%27"><span class="annot"><a href="Network.AWS.RDS.Types.FailoverStatus.html#FailoverStatus%27"><span class="hs-identifier hs-var">FailoverStatus'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFailoverStatus"><span class="annot"><span class="annottext">FailoverStatus -&gt; Text
 </span><a href="Network.AWS.RDS.Types.FailoverStatus.html#fromFailoverStatus"><span class="hs-identifier hs-var hs-var">fromFailoverStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679760470"><span id="local-6989586621679760472"><span id="local-6989586621679760474"><span class="annot"><span class="annottext">Int -&gt; FailoverStatus -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679761517"><span id="local-6989586621679761519"><span id="local-6989586621679761521"><span class="annot"><span class="annottext">Int -&gt; FailoverStatus -&gt; ShowS
 [FailoverStatus] -&gt; ShowS
 FailoverStatus -&gt; String
 (Int -&gt; FailoverStatus -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: FailoverStatus -&gt; String
 showsPrec :: Int -&gt; FailoverStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; FailoverStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679760461"><span id="local-6989586621679760463"><span id="local-6989586621679760465"><span id="local-6989586621679760467"><span class="annot"><span class="annottext">ReadPrec [FailoverStatus]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679761508"><span id="local-6989586621679761510"><span id="local-6989586621679761512"><span id="local-6989586621679761514"><span class="annot"><span class="annottext">ReadPrec [FailoverStatus]
 ReadPrec FailoverStatus
 Int -&gt; ReadS FailoverStatus
 ReadS [FailoverStatus]
@@ -73,7 +73,7 @@ $creadList :: ReadS [FailoverStatus]
 readsPrec :: Int -&gt; ReadS FailoverStatus
 $creadsPrec :: Int -&gt; ReadS FailoverStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679760456"><span id="local-6989586621679760458"><span class="annot"><span class="annottext">FailoverStatus -&gt; FailoverStatus -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679761503"><span id="local-6989586621679761505"><span class="annot"><span class="annottext">FailoverStatus -&gt; FailoverStatus -&gt; Bool
 (FailoverStatus -&gt; FailoverStatus -&gt; Bool)
 -&gt; (FailoverStatus -&gt; FailoverStatus -&gt; Bool) -&gt; Eq FailoverStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: FailoverStatus -&gt; FailoverStatus -&gt; Bool
 == :: FailoverStatus -&gt; FailoverStatus -&gt; Bool
 $c== :: FailoverStatus -&gt; FailoverStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679760440"><span id="local-6989586621679760442"><span id="local-6989586621679760444"><span id="local-6989586621679760446"><span id="local-6989586621679760448"><span id="local-6989586621679760450"><span id="local-6989586621679760452"><span class="annot"><span class="annottext">Eq FailoverStatus
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679761487"><span id="local-6989586621679761489"><span id="local-6989586621679761491"><span id="local-6989586621679761493"><span id="local-6989586621679761495"><span id="local-6989586621679761497"><span id="local-6989586621679761499"><span class="annot"><span class="annottext">Eq FailoverStatus
 Eq FailoverStatus
 -&gt; (FailoverStatus -&gt; FailoverStatus -&gt; Ordering)
 -&gt; (FailoverStatus -&gt; FailoverStatus -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. FailoverStatus -&gt; Rep FailoverStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679760432"><span id="local-6989586621679760434"><span class="annot"><span class="annottext">Int -&gt; FailoverStatus -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679761479"><span id="local-6989586621679761481"><span class="annot"><span class="annottext">Int -&gt; FailoverStatus -&gt; Int
 FailoverStatus -&gt; Int
 (Int -&gt; FailoverStatus -&gt; Int)
 -&gt; (FailoverStatus -&gt; Int) -&gt; Hashable FailoverStatus
@@ -143,50 +143,50 @@ $chash :: FailoverStatus -&gt; Int
 hashWithSalt :: Int -&gt; FailoverStatus -&gt; Int
 $chashWithSalt :: Int -&gt; FailoverStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679760429"><span class="annot"><span class="annottext">FailoverStatus -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679761476"><span class="annot"><span class="annottext">FailoverStatus -&gt; ()
 (FailoverStatus -&gt; ()) -&gt; NFData FailoverStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: FailoverStatus -&gt; ()
 $crnf :: FailoverStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679760426"><span class="annot"><span class="annottext">Text -&gt; Either String FailoverStatus
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679761473"><span class="annot"><span class="annottext">Text -&gt; Either String FailoverStatus
 (Text -&gt; Either String FailoverStatus) -&gt; FromText FailoverStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String FailoverStatus
 $cfromText :: Text -&gt; Either String FailoverStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679760423"><span class="annot"><span class="annottext">FailoverStatus -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679761470"><span class="annot"><span class="annottext">FailoverStatus -&gt; Text
 (FailoverStatus -&gt; Text) -&gt; ToText FailoverStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: FailoverStatus -&gt; Text
 $ctoText :: FailoverStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679760420"><span class="annot"><span class="annottext">FailoverStatus -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679761467"><span class="annot"><span class="annottext">FailoverStatus -&gt; ByteString
 (FailoverStatus -&gt; ByteString) -&gt; ToByteString FailoverStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: FailoverStatus -&gt; ByteString
 $ctoBS :: FailoverStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679760417"><span class="annot"><span class="annottext">FailoverStatus -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679761464"><span class="annot"><span class="annottext">FailoverStatus -&gt; ByteStringBuilder
 (FailoverStatus -&gt; ByteStringBuilder) -&gt; ToLog FailoverStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: FailoverStatus -&gt; ByteStringBuilder
 $cbuild :: FailoverStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679760414"><span class="annot"><span class="annottext">HeaderName -&gt; FailoverStatus -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679761461"><span class="annot"><span class="annottext">HeaderName -&gt; FailoverStatus -&gt; [Header]
 (HeaderName -&gt; FailoverStatus -&gt; [Header])
 -&gt; ToHeader FailoverStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; FailoverStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; FailoverStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679760411"><span class="annot"><span class="annottext">FailoverStatus -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679761458"><span class="annot"><span class="annottext">FailoverStatus -&gt; QueryString
 (FailoverStatus -&gt; QueryString) -&gt; ToQuery FailoverStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: FailoverStatus -&gt; QueryString
 $ctoQuery :: FailoverStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679760406"><span id="local-6989586621679760408"><span class="annot"><span class="annottext">Value -&gt; Parser [FailoverStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679761453"><span id="local-6989586621679761455"><span class="annot"><span class="annottext">Value -&gt; Parser [FailoverStatus]
 Value -&gt; Parser FailoverStatus
 (Value -&gt; Parser FailoverStatus)
 -&gt; (Value -&gt; Parser [FailoverStatus]) -&gt; FromJSON FailoverStatus
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [FailoverStatus]
 parseJSON :: Value -&gt; Parser FailoverStatus
 $cparseJSON :: Value -&gt; Parser FailoverStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679760401"><span id="local-6989586621679760403"><span class="annot"><span class="annottext">FromJSONKeyFunction [FailoverStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679761448"><span id="local-6989586621679761450"><span class="annot"><span class="annottext">FromJSONKeyFunction [FailoverStatus]
 FromJSONKeyFunction FailoverStatus
 FromJSONKeyFunction FailoverStatus
 -&gt; FromJSONKeyFunction [FailoverStatus]
@@ -209,7 +209,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [FailoverStatus]
 fromJSONKey :: FromJSONKeyFunction FailoverStatus
 $cfromJSONKey :: FromJSONKeyFunction FailoverStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679760392"><span id="local-6989586621679760394"><span id="local-6989586621679760396"><span id="local-6989586621679760398"><span class="annot"><span class="annottext">[FailoverStatus] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679761439"><span id="local-6989586621679761441"><span id="local-6989586621679761443"><span id="local-6989586621679761445"><span class="annot"><span class="annottext">[FailoverStatus] -&gt; Encoding
 [FailoverStatus] -&gt; Value
 FailoverStatus -&gt; Encoding
 FailoverStatus -&gt; Value
@@ -233,7 +233,7 @@ $ctoEncoding :: FailoverStatus -&gt; Encoding
 toJSON :: FailoverStatus -&gt; Value
 $ctoJSON :: FailoverStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679760387"><span id="local-6989586621679760389"><span class="annot"><span class="annottext">ToJSONKeyFunction [FailoverStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679761434"><span id="local-6989586621679761436"><span class="annot"><span class="annottext">ToJSONKeyFunction [FailoverStatus]
 ToJSONKeyFunction FailoverStatus
 ToJSONKeyFunction FailoverStatus
 -&gt; ToJSONKeyFunction [FailoverStatus] -&gt; ToJSONKey FailoverStatus
@@ -244,13 +244,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [FailoverStatus]
 toJSONKey :: ToJSONKeyFunction FailoverStatus
 $ctoJSONKey :: ToJSONKeyFunction FailoverStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679760384"><span class="annot"><span class="annottext">[Node] -&gt; Either String FailoverStatus
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679761431"><span class="annot"><span class="annottext">[Node] -&gt; Either String FailoverStatus
 ([Node] -&gt; Either String FailoverStatus) -&gt; FromXML FailoverStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String FailoverStatus
 $cparseXML :: [Node] -&gt; Either String FailoverStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679760381"><span class="annot"><span class="annottext">FailoverStatus -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679761428"><span class="annot"><span class="annottext">FailoverStatus -&gt; XML
 (FailoverStatus -&gt; XML) -&gt; ToXML FailoverStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: FailoverStatus -&gt; XML

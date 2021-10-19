@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | An entity describing an executable that runs on a cluster.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newCommand' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679366708"><span id="local-6989586621679366709"></span></span><span class="hs-keyword">data</span><span> </span><span id="Command"><span class="annot"><a href="Network.AWS.EMR.Types.Command.html#Command"><span class="hs-identifier hs-var">Command</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Command%27"><span class="annot"><a href="Network.AWS.EMR.Types.Command.html#Command%27"><span class="hs-identifier hs-var">Command'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679367053"><span id="local-6989586621679367054"></span></span><span class="hs-keyword">data</span><span> </span><span id="Command"><span class="annot"><a href="Network.AWS.EMR.Types.Command.html#Command"><span class="hs-identifier hs-var">Command</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Command%27"><span class="annot"><a href="Network.AWS.EMR.Types.Command.html#Command%27"><span class="hs-identifier hs-var">Command'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Arguments for Amazon EMR to pass to the command for execution.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Aargs%3ACommand%27"><span class="annot"><span class="annottext">Command -&gt; Maybe [Text]
 </span><a href="Network.AWS.EMR.Types.Command.html#%24sel%3Aargs%3ACommand%27"><span class="hs-identifier hs-var hs-var">args</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Aname%3ACommand%27"><span class="annot"><span class="annottext">Command -&gt; Maybe Text
 </span><a href="Network.AWS.EMR.Types.Command.html#%24sel%3Aname%3ACommand%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679366700"><span id="local-6989586621679366702"><span class="annot"><span class="annottext">Command -&gt; Command -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679367045"><span id="local-6989586621679367047"><span class="annot"><span class="annottext">Command -&gt; Command -&gt; Bool
 (Command -&gt; Command -&gt; Bool)
 -&gt; (Command -&gt; Command -&gt; Bool) -&gt; Eq Command
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Command -&gt; Command -&gt; Bool
 == :: Command -&gt; Command -&gt; Bool
 $c== :: Command -&gt; Command -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679366691"><span id="local-6989586621679366693"><span id="local-6989586621679366695"><span id="local-6989586621679366697"><span class="annot"><span class="annottext">ReadPrec [Command]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367036"><span id="local-6989586621679367038"><span id="local-6989586621679367040"><span id="local-6989586621679367042"><span class="annot"><span class="annottext">ReadPrec [Command]
 ReadPrec Command
 Int -&gt; ReadS Command
 ReadS [Command]
@@ -65,7 +65,7 @@ readList :: ReadS [Command]
 $creadList :: ReadS [Command]
 readsPrec :: Int -&gt; ReadS Command
 $creadsPrec :: Int -&gt; ReadS Command
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679366684"><span id="local-6989586621679366686"><span id="local-6989586621679366688"><span class="annot"><span class="annottext">Int -&gt; Command -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367029"><span id="local-6989586621679367031"><span id="local-6989586621679367033"><span class="annot"><span class="annottext">Int -&gt; Command -&gt; ShowS
 [Command] -&gt; ShowS
 Command -&gt; String
 (Int -&gt; Command -&gt; ShowS)
@@ -128,16 +128,16 @@ forall a. Maybe a
 -&gt; (Command -&gt; Maybe [Text] -&gt; Command)
 -&gt; Lens Command Command (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.Command.html#Command%27"><span class="hs-identifier hs-type">Command'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366675"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.Command.html#Command%27"><span class="hs-identifier hs-type">Command'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367020"><span class="annot"><span class="annottext">Maybe [Text]
 args :: Maybe [Text]
 $sel:args:Command' :: Command -&gt; Maybe [Text]
-</span><a href="#local-6989586621679366675"><span class="hs-identifier hs-var hs-var">args</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679366675"><span class="hs-identifier hs-var">args</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679366674"><span class="annot"><span class="annottext">s :: Command
-</span><a href="#local-6989586621679366674"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.Command.html#Command%27"><span class="hs-identifier hs-type">Command'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679366673"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679366673"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Command
-</span><a href="#local-6989586621679366674"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:args:Command' :: Maybe [Text]
+</span><a href="#local-6989586621679367020"><span class="hs-identifier hs-var hs-var">args</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679367020"><span class="hs-identifier hs-var">args</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367019"><span class="annot"><span class="annottext">s :: Command
+</span><a href="#local-6989586621679367019"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.Command.html#Command%27"><span class="hs-identifier hs-type">Command'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367018"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679367018"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Command
+</span><a href="#local-6989586621679367019"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:args:Command' :: Maybe [Text]
 </span><a href="Network.AWS.EMR.Types.Command.html#%24sel%3Aargs%3ACommand%27"><span class="hs-identifier hs-var">args</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679366673"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.Command.html#Command"><span class="hs-identifier hs-type">Command</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Command -&gt; f Command)
+</span><a href="#local-6989586621679367018"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.Command.html#Command"><span class="hs-identifier hs-type">Command</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Command -&gt; f Command)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -150,8 +150,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | The Amazon S3 location of the command script.</span><span>
 </span><span id="line-66"></span><span class="annot"><a href="Network.AWS.EMR.Types.Command.html#command_scriptPath"><span class="hs-identifier hs-type">command_scriptPath</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.Command.html#Command"><span class="hs-identifier hs-type">Command</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -160,16 +160,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (Command -&gt; Maybe Text -&gt; Command)
 -&gt; Lens Command Command (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.Command.html#Command%27"><span class="hs-identifier hs-type">Command'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366668"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.Command.html#Command%27"><span class="hs-identifier hs-type">Command'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367013"><span class="annot"><span class="annottext">Maybe Text
 scriptPath :: Maybe Text
 $sel:scriptPath:Command' :: Command -&gt; Maybe Text
-</span><a href="#local-6989586621679366668"><span class="hs-identifier hs-var hs-var">scriptPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679366668"><span class="hs-identifier hs-var">scriptPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679366667"><span class="annot"><span class="annottext">s :: Command
-</span><a href="#local-6989586621679366667"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.Command.html#Command%27"><span class="hs-identifier hs-type">Command'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679366666"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679366666"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Command
-</span><a href="#local-6989586621679366667"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scriptPath:Command' :: Maybe Text
+</span><a href="#local-6989586621679367013"><span class="hs-identifier hs-var hs-var">scriptPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367013"><span class="hs-identifier hs-var">scriptPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367012"><span class="annot"><span class="annottext">s :: Command
+</span><a href="#local-6989586621679367012"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.Command.html#Command%27"><span class="hs-identifier hs-type">Command'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367011"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367011"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Command
+</span><a href="#local-6989586621679367012"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scriptPath:Command' :: Maybe Text
 </span><a href="Network.AWS.EMR.Types.Command.html#%24sel%3AscriptPath%3ACommand%27"><span class="hs-identifier hs-var">scriptPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679366666"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.Command.html#Command"><span class="hs-identifier hs-type">Command</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679367011"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.Command.html#Command"><span class="hs-identifier hs-type">Command</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | The name of the command.</span><span>
 </span><span id="line-70"></span><span class="annot"><a href="Network.AWS.EMR.Types.Command.html#command_name"><span class="hs-identifier hs-type">command_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.Command.html#Command"><span class="hs-identifier hs-type">Command</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -178,27 +178,27 @@ $sel:scriptPath:Command' :: Command -&gt; Maybe Text
 -&gt; (Command -&gt; Maybe Text -&gt; Command)
 -&gt; Lens Command Command (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.Command.html#Command%27"><span class="hs-identifier hs-type">Command'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366664"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.Command.html#Command%27"><span class="hs-identifier hs-type">Command'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367009"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:Command' :: Command -&gt; Maybe Text
-</span><a href="#local-6989586621679366664"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679366664"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679366663"><span class="annot"><span class="annottext">s :: Command
-</span><a href="#local-6989586621679366663"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.Command.html#Command%27"><span class="hs-identifier hs-type">Command'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679366662"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679366662"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Command
-</span><a href="#local-6989586621679366663"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Command' :: Maybe Text
+</span><a href="#local-6989586621679367009"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367009"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367008"><span class="annot"><span class="annottext">s :: Command
+</span><a href="#local-6989586621679367008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.Command.html#Command%27"><span class="hs-identifier hs-type">Command'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367007"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Command
+</span><a href="#local-6989586621679367008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Command' :: Maybe Text
 </span><a href="Network.AWS.EMR.Types.Command.html#%24sel%3Aname%3ACommand%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679366662"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.Command.html#Command"><span class="hs-identifier hs-type">Command</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679367007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.Command.html#Command"><span class="hs-identifier hs-type">Command</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679366659"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.Command.html#Command"><span class="hs-identifier hs-type">Command</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679366657"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Command
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367004"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.Command.html#Command"><span class="hs-identifier hs-type">Command</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679367002"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Command
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Command) -&gt; Value -&gt; Parser Command
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Command&quot;</span></span><span>
-</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679366654"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679366654"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679366999"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679366999"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe Text -&gt; Maybe Text -&gt; Command
 </span><a href="Network.AWS.EMR.Types.Command.html#Command%27"><span class="hs-identifier hs-var">Command'</span></a></span><span>
 </span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe Text -&gt; Maybe Text -&gt; Command)
@@ -206,7 +206,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Command)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679366654"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679366999"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Args&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -219,7 +219,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Command)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679366654"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679366999"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ScriptPath&quot;</span></span><span class="hs-special">)</span><span>
@@ -227,13 +227,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser Command
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679366654"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679366999"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679366647"><span id="local-6989586621679366649"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.Command.html#Command"><span class="hs-identifier hs-type">Command</span></a></span></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679366992"><span id="local-6989586621679366994"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.Command.html#Command"><span class="hs-identifier hs-type">Command</span></a></span></span></span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679366644"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.Command.html#Command"><span class="hs-identifier hs-type">Command</span></a></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679366989"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.Command.html#Command"><span class="hs-identifier hs-type">Command</span></a></span></span><span>
 </span><span id="line-87"></span></pre></body></html>

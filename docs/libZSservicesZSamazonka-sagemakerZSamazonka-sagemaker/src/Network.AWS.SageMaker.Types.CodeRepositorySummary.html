@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Specifies summary information about a Git repository.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newCodeRepositorySummary' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621680306059"><span id="local-6989586621680306060"></span></span><span class="hs-keyword">data</span><span> </span><span id="CodeRepositorySummary"><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#CodeRepositorySummary"><span class="hs-identifier hs-var">CodeRepositorySummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CodeRepositorySummary%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#CodeRepositorySummary%27"><span class="hs-identifier hs-var">CodeRepositorySummary'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621680307434"><span id="local-6989586621680307435"></span></span><span class="hs-keyword">data</span><span> </span><span id="CodeRepositorySummary"><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#CodeRepositorySummary"><span class="hs-identifier hs-var">CodeRepositorySummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CodeRepositorySummary%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#CodeRepositorySummary%27"><span class="hs-identifier hs-var">CodeRepositorySummary'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Configuration details for the Git repository, including the URL where it</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- is located and the ARN of the Amazon Web Services Secrets Manager secret</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- that contains the credentials used to access the repository.</span><span>
@@ -46,7 +46,7 @@
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3AlastModifiedTime%3ACodeRepositorySummary%27"><span class="annot"><span class="annottext">CodeRepositorySummary -&gt; POSIX
 </span><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#%24sel%3AlastModifiedTime%3ACodeRepositorySummary%27"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680306049"><span id="local-6989586621680306051"><span class="annot"><span class="annottext">CodeRepositorySummary -&gt; CodeRepositorySummary -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680307424"><span id="local-6989586621680307426"><span class="annot"><span class="annottext">CodeRepositorySummary -&gt; CodeRepositorySummary -&gt; Bool
 (CodeRepositorySummary -&gt; CodeRepositorySummary -&gt; Bool)
 -&gt; (CodeRepositorySummary -&gt; CodeRepositorySummary -&gt; Bool)
 -&gt; Eq CodeRepositorySummary
@@ -55,7 +55,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CodeRepositorySummary -&gt; CodeRepositorySummary -&gt; Bool
 == :: CodeRepositorySummary -&gt; CodeRepositorySummary -&gt; Bool
 $c== :: CodeRepositorySummary -&gt; CodeRepositorySummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680306040"><span id="local-6989586621680306042"><span id="local-6989586621680306044"><span id="local-6989586621680306046"><span class="annot"><span class="annottext">ReadPrec [CodeRepositorySummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680307415"><span id="local-6989586621680307417"><span id="local-6989586621680307419"><span id="local-6989586621680307421"><span class="annot"><span class="annottext">ReadPrec [CodeRepositorySummary]
 ReadPrec CodeRepositorySummary
 Int -&gt; ReadS CodeRepositorySummary
 ReadS [CodeRepositorySummary]
@@ -75,7 +75,7 @@ readList :: ReadS [CodeRepositorySummary]
 $creadList :: ReadS [CodeRepositorySummary]
 readsPrec :: Int -&gt; ReadS CodeRepositorySummary
 $creadsPrec :: Int -&gt; ReadS CodeRepositorySummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680306033"><span id="local-6989586621680306035"><span id="local-6989586621680306037"><span class="annot"><span class="annottext">Int -&gt; CodeRepositorySummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680307408"><span id="local-6989586621680307410"><span id="local-6989586621680307412"><span class="annot"><span class="annottext">Int -&gt; CodeRepositorySummary -&gt; ShowS
 [CodeRepositorySummary] -&gt; ShowS
 CodeRepositorySummary -&gt; String
 (Int -&gt; CodeRepositorySummary -&gt; ShowS)
@@ -132,14 +132,14 @@ $cfrom :: forall x. CodeRepositorySummary -&gt; Rep CodeRepositorySummary x
 </span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#CodeRepositorySummary"><span class="hs-identifier hs-type">CodeRepositorySummary</span></a></span><span>
 </span><span id="line-75"></span><span id="newCodeRepositorySummary"><span class="annot"><span class="annottext">newCodeRepositorySummary :: Text -&gt; Text -&gt; UTCTime -&gt; UTCTime -&gt; CodeRepositorySummary
 </span><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#newCodeRepositorySummary"><span class="hs-identifier hs-var hs-var">newCodeRepositorySummary</span></a></span></span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621680306027"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680306027"><span class="hs-identifier hs-var">pCodeRepositoryName_</span></a></span></span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621680306026"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680306026"><span class="hs-identifier hs-var">pCodeRepositoryArn_</span></a></span></span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621680306025"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621680306025"><span class="hs-identifier hs-var">pCreationTime_</span></a></span></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621680306024"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621680306024"><span class="hs-identifier hs-var">pLastModifiedTime_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621680307402"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680307402"><span class="hs-identifier hs-var">pCodeRepositoryName_</span></a></span></span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621680307401"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680307401"><span class="hs-identifier hs-var">pCodeRepositoryArn_</span></a></span></span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621680307400"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621680307400"><span class="hs-identifier hs-var">pCreationTime_</span></a></span></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621680307399"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621680307399"><span class="hs-identifier hs-var">pLastModifiedTime_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">CodeRepositorySummary' :: Maybe GitConfig
 -&gt; Text -&gt; Text -&gt; POSIX -&gt; POSIX -&gt; CodeRepositorySummary
 </span><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#CodeRepositorySummary%27"><span class="hs-identifier hs-type">CodeRepositorySummary'</span></a></span><span>
@@ -149,10 +149,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">$sel:codeRepositoryName:CodeRepositorySummary' :: Text
 </span><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#%24sel%3AcodeRepositoryName%3ACodeRepositorySummary%27"><span class="hs-identifier hs-var">codeRepositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680306027"><span class="hs-identifier hs-var">pCodeRepositoryName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680307402"><span class="hs-identifier hs-var">pCodeRepositoryName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>        </span><span class="annot"><span class="annottext">$sel:codeRepositoryArn:CodeRepositorySummary' :: Text
 </span><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#%24sel%3AcodeRepositoryArn%3ACodeRepositorySummary%27"><span class="hs-identifier hs-var">codeRepositoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680306026"><span class="hs-identifier hs-var">pCodeRepositoryArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680307401"><span class="hs-identifier hs-var">pCodeRepositoryArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-84"></span><span>        </span><span class="annot"><span class="annottext">$sel:creationTime:CodeRepositorySummary' :: POSIX
 </span><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#%24sel%3AcreationTime%3ACodeRepositorySummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
 forall (a :: Format). Iso' (Time a) UTCTime
@@ -161,7 +161,7 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621680306025"><span class="hs-identifier hs-var">pCreationTime_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680307400"><span class="hs-identifier hs-var">pCreationTime_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-85"></span><span>        </span><span class="annot"><span class="annottext">$sel:lastModifiedTime:CodeRepositorySummary' :: POSIX
 </span><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#%24sel%3AlastModifiedTime%3ACodeRepositorySummary%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
@@ -171,7 +171,7 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621680306024"><span class="hs-identifier hs-var">pLastModifiedTime_</span></a></span><span>
+</span><a href="#local-6989586621680307399"><span class="hs-identifier hs-var">pLastModifiedTime_</span></a></span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | Configuration details for the Git repository, including the URL where it</span><span>
@@ -189,16 +189,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (Maybe GitConfig)
      (Maybe GitConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#CodeRepositorySummary%27"><span class="hs-identifier hs-type">CodeRepositorySummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680306018"><span class="annot"><span class="annottext">Maybe GitConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#CodeRepositorySummary%27"><span class="hs-identifier hs-type">CodeRepositorySummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680307393"><span class="annot"><span class="annottext">Maybe GitConfig
 gitConfig :: Maybe GitConfig
 $sel:gitConfig:CodeRepositorySummary' :: CodeRepositorySummary -&gt; Maybe GitConfig
-</span><a href="#local-6989586621680306018"><span class="hs-identifier hs-var hs-var">gitConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GitConfig
-</span><a href="#local-6989586621680306018"><span class="hs-identifier hs-var">gitConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680306017"><span class="annot"><span class="annottext">s :: CodeRepositorySummary
-</span><a href="#local-6989586621680306017"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#CodeRepositorySummary%27"><span class="hs-identifier hs-type">CodeRepositorySummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680306016"><span class="annot"><span class="annottext">Maybe GitConfig
-</span><a href="#local-6989586621680306016"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeRepositorySummary
-</span><a href="#local-6989586621680306017"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gitConfig:CodeRepositorySummary' :: Maybe GitConfig
+</span><a href="#local-6989586621680307393"><span class="hs-identifier hs-var hs-var">gitConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GitConfig
+</span><a href="#local-6989586621680307393"><span class="hs-identifier hs-var">gitConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680307392"><span class="annot"><span class="annottext">s :: CodeRepositorySummary
+</span><a href="#local-6989586621680307392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#CodeRepositorySummary%27"><span class="hs-identifier hs-type">CodeRepositorySummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680307391"><span class="annot"><span class="annottext">Maybe GitConfig
+</span><a href="#local-6989586621680307391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeRepositorySummary
+</span><a href="#local-6989586621680307392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gitConfig:CodeRepositorySummary' :: Maybe GitConfig
 </span><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#%24sel%3AgitConfig%3ACodeRepositorySummary%27"><span class="hs-identifier hs-var">gitConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GitConfig
-</span><a href="#local-6989586621680306016"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#CodeRepositorySummary"><span class="hs-identifier hs-type">CodeRepositorySummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680307391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#CodeRepositorySummary"><span class="hs-identifier hs-type">CodeRepositorySummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | The name of the Git repository.</span><span>
 </span><span id="line-96"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#codeRepositorySummary_codeRepositoryName"><span class="hs-identifier hs-type">codeRepositorySummary_codeRepositoryName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#CodeRepositorySummary"><span class="hs-identifier hs-type">CodeRepositorySummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -208,16 +208,16 @@ $sel:gitConfig:CodeRepositorySummary' :: CodeRepositorySummary -&gt; Maybe GitCo
 -&gt; (CodeRepositorySummary -&gt; Text -&gt; CodeRepositorySummary)
 -&gt; Lens CodeRepositorySummary CodeRepositorySummary Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#CodeRepositorySummary%27"><span class="hs-identifier hs-type">CodeRepositorySummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680306014"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#CodeRepositorySummary%27"><span class="hs-identifier hs-type">CodeRepositorySummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680307389"><span class="annot"><span class="annottext">Text
 codeRepositoryName :: Text
 $sel:codeRepositoryName:CodeRepositorySummary' :: CodeRepositorySummary -&gt; Text
-</span><a href="#local-6989586621680306014"><span class="hs-identifier hs-var hs-var">codeRepositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680306014"><span class="hs-identifier hs-var">codeRepositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680306013"><span class="annot"><span class="annottext">s :: CodeRepositorySummary
-</span><a href="#local-6989586621680306013"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#CodeRepositorySummary%27"><span class="hs-identifier hs-type">CodeRepositorySummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680306012"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680306012"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeRepositorySummary
-</span><a href="#local-6989586621680306013"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codeRepositoryName:CodeRepositorySummary' :: Text
+</span><a href="#local-6989586621680307389"><span class="hs-identifier hs-var hs-var">codeRepositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680307389"><span class="hs-identifier hs-var">codeRepositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680307388"><span class="annot"><span class="annottext">s :: CodeRepositorySummary
+</span><a href="#local-6989586621680307388"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#CodeRepositorySummary%27"><span class="hs-identifier hs-type">CodeRepositorySummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680307387"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680307387"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeRepositorySummary
+</span><a href="#local-6989586621680307388"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codeRepositoryName:CodeRepositorySummary' :: Text
 </span><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#%24sel%3AcodeRepositoryName%3ACodeRepositorySummary%27"><span class="hs-identifier hs-var">codeRepositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680306012"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#CodeRepositorySummary"><span class="hs-identifier hs-type">CodeRepositorySummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680307387"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#CodeRepositorySummary"><span class="hs-identifier hs-type">CodeRepositorySummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Git repository.</span><span>
 </span><span id="line-100"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#codeRepositorySummary_codeRepositoryArn"><span class="hs-identifier hs-type">codeRepositorySummary_codeRepositoryArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#CodeRepositorySummary"><span class="hs-identifier hs-type">CodeRepositorySummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -227,16 +227,16 @@ $sel:codeRepositoryName:CodeRepositorySummary' :: CodeRepositorySummary -&gt; Te
 -&gt; (CodeRepositorySummary -&gt; Text -&gt; CodeRepositorySummary)
 -&gt; Lens CodeRepositorySummary CodeRepositorySummary Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#CodeRepositorySummary%27"><span class="hs-identifier hs-type">CodeRepositorySummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680306010"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#CodeRepositorySummary%27"><span class="hs-identifier hs-type">CodeRepositorySummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680307385"><span class="annot"><span class="annottext">Text
 codeRepositoryArn :: Text
 $sel:codeRepositoryArn:CodeRepositorySummary' :: CodeRepositorySummary -&gt; Text
-</span><a href="#local-6989586621680306010"><span class="hs-identifier hs-var hs-var">codeRepositoryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680306010"><span class="hs-identifier hs-var">codeRepositoryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680306009"><span class="annot"><span class="annottext">s :: CodeRepositorySummary
-</span><a href="#local-6989586621680306009"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#CodeRepositorySummary%27"><span class="hs-identifier hs-type">CodeRepositorySummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680306008"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680306008"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeRepositorySummary
-</span><a href="#local-6989586621680306009"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codeRepositoryArn:CodeRepositorySummary' :: Text
+</span><a href="#local-6989586621680307385"><span class="hs-identifier hs-var hs-var">codeRepositoryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680307385"><span class="hs-identifier hs-var">codeRepositoryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680307384"><span class="annot"><span class="annottext">s :: CodeRepositorySummary
+</span><a href="#local-6989586621680307384"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#CodeRepositorySummary%27"><span class="hs-identifier hs-type">CodeRepositorySummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680307383"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680307383"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeRepositorySummary
+</span><a href="#local-6989586621680307384"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codeRepositoryArn:CodeRepositorySummary' :: Text
 </span><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#%24sel%3AcodeRepositoryArn%3ACodeRepositorySummary%27"><span class="hs-identifier hs-var">codeRepositoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680306008"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#CodeRepositorySummary"><span class="hs-identifier hs-type">CodeRepositorySummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680307383"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#CodeRepositorySummary"><span class="hs-identifier hs-type">CodeRepositorySummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | The date and time that the Git repository was created.</span><span>
 </span><span id="line-104"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#codeRepositorySummary_creationTime"><span class="hs-identifier hs-type">codeRepositorySummary_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#CodeRepositorySummary"><span class="hs-identifier hs-type">CodeRepositorySummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
@@ -246,16 +246,16 @@ $sel:codeRepositoryArn:CodeRepositorySummary' :: CodeRepositorySummary -&gt; Tex
 -&gt; (CodeRepositorySummary -&gt; POSIX -&gt; CodeRepositorySummary)
 -&gt; Lens CodeRepositorySummary CodeRepositorySummary POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#CodeRepositorySummary%27"><span class="hs-identifier hs-type">CodeRepositorySummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680306006"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#CodeRepositorySummary%27"><span class="hs-identifier hs-type">CodeRepositorySummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680307381"><span class="annot"><span class="annottext">POSIX
 creationTime :: POSIX
 $sel:creationTime:CodeRepositorySummary' :: CodeRepositorySummary -&gt; POSIX
-</span><a href="#local-6989586621680306006"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621680306006"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680306005"><span class="annot"><span class="annottext">s :: CodeRepositorySummary
-</span><a href="#local-6989586621680306005"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#CodeRepositorySummary%27"><span class="hs-identifier hs-type">CodeRepositorySummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680306004"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621680306004"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeRepositorySummary
-</span><a href="#local-6989586621680306005"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:CodeRepositorySummary' :: POSIX
+</span><a href="#local-6989586621680307381"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621680307381"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680307380"><span class="annot"><span class="annottext">s :: CodeRepositorySummary
+</span><a href="#local-6989586621680307380"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#CodeRepositorySummary%27"><span class="hs-identifier hs-type">CodeRepositorySummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680307379"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621680307379"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeRepositorySummary
+</span><a href="#local-6989586621680307380"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:CodeRepositorySummary' :: POSIX
 </span><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#%24sel%3AcreationTime%3ACodeRepositorySummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621680306004"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#CodeRepositorySummary"><span class="hs-identifier hs-type">CodeRepositorySummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
+</span><a href="#local-6989586621680307379"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#CodeRepositorySummary"><span class="hs-identifier hs-type">CodeRepositorySummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
  -&gt; CodeRepositorySummary -&gt; f CodeRepositorySummary)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
@@ -274,16 +274,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (CodeRepositorySummary -&gt; POSIX -&gt; CodeRepositorySummary)
 -&gt; Lens CodeRepositorySummary CodeRepositorySummary POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#CodeRepositorySummary%27"><span class="hs-identifier hs-type">CodeRepositorySummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680306001"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#CodeRepositorySummary%27"><span class="hs-identifier hs-type">CodeRepositorySummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680307376"><span class="annot"><span class="annottext">POSIX
 lastModifiedTime :: POSIX
 $sel:lastModifiedTime:CodeRepositorySummary' :: CodeRepositorySummary -&gt; POSIX
-</span><a href="#local-6989586621680306001"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621680306001"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680306000"><span class="annot"><span class="annottext">s :: CodeRepositorySummary
-</span><a href="#local-6989586621680306000"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#CodeRepositorySummary%27"><span class="hs-identifier hs-type">CodeRepositorySummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680305999"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621680305999"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeRepositorySummary
-</span><a href="#local-6989586621680306000"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:CodeRepositorySummary' :: POSIX
+</span><a href="#local-6989586621680307376"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621680307376"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680307375"><span class="annot"><span class="annottext">s :: CodeRepositorySummary
+</span><a href="#local-6989586621680307375"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#CodeRepositorySummary%27"><span class="hs-identifier hs-type">CodeRepositorySummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680307374"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621680307374"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeRepositorySummary
+</span><a href="#local-6989586621680307375"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:CodeRepositorySummary' :: POSIX
 </span><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#%24sel%3AlastModifiedTime%3ACodeRepositorySummary%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621680305999"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#CodeRepositorySummary"><span class="hs-identifier hs-type">CodeRepositorySummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
+</span><a href="#local-6989586621680307374"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#CodeRepositorySummary"><span class="hs-identifier hs-type">CodeRepositorySummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
  -&gt; CodeRepositorySummary -&gt; f CodeRepositorySummary)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
@@ -294,8 +294,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680305996"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#CodeRepositorySummary"><span class="hs-identifier hs-type">CodeRepositorySummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621680305994"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CodeRepositorySummary
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680307371"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#CodeRepositorySummary"><span class="hs-identifier hs-type">CodeRepositorySummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621680307369"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CodeRepositorySummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CodeRepositorySummary)
@@ -305,8 +305,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CodeRepositorySummary&quot;</span></span><span>
-</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680305991"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680305991"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680307366"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680307366"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-116"></span><span>          </span><span class="annot"><span class="annottext">Maybe GitConfig
 -&gt; Text -&gt; Text -&gt; POSIX -&gt; POSIX -&gt; CodeRepositorySummary
 </span><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#CodeRepositorySummary%27"><span class="hs-identifier hs-var">CodeRepositorySummary'</span></a></span><span>
@@ -316,7 +316,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Text -&gt; Text -&gt; POSIX -&gt; POSIX -&gt; CodeRepositorySummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680305991"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe GitConfig)
+</span><a href="#local-6989586621680307366"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe GitConfig)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GitConfig&quot;</span></span><span class="hs-special">)</span><span>
@@ -325,7 +325,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Text -&gt; POSIX -&gt; POSIX -&gt; CodeRepositorySummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680305991"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680307366"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CodeRepositoryName&quot;</span></span><span class="hs-special">)</span><span>
@@ -333,7 +333,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser (POSIX -&gt; POSIX -&gt; CodeRepositorySummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680305991"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680307366"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CodeRepositoryArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -341,7 +341,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser POSIX -&gt; Parser (POSIX -&gt; CodeRepositorySummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680305991"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+</span><a href="#local-6989586621680307366"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -349,13 +349,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser POSIX -&gt; Parser CodeRepositorySummary
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680305991"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+</span><a href="#local-6989586621680307366"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LastModifiedTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680305984"><span id="local-6989586621680305986"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#CodeRepositorySummary"><span class="hs-identifier hs-type">CodeRepositorySummary</span></a></span></span></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680307359"><span id="local-6989586621680307361"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#CodeRepositorySummary"><span class="hs-identifier hs-type">CodeRepositorySummary</span></a></span></span></span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680305981"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#CodeRepositorySummary"><span class="hs-identifier hs-type">CodeRepositorySummary</span></a></span></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680307356"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CodeRepositorySummary.html#CodeRepositorySummary"><span class="hs-identifier hs-type">CodeRepositorySummary</span></a></span></span><span>
 </span><span id="line-127"></span></pre></body></html>

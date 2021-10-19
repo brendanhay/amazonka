@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | Specifies Auto-Tune action type. Valid values are JVM_HEAP_SIZE_TUNING</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- and JVM_YOUNG_GEN_TUNING.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679300878"><span id="local-6989586621679300879"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ScheduledAutoTuneActionType"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ScheduledAutoTuneActionType.html#ScheduledAutoTuneActionType"><span class="hs-identifier hs-var">ScheduledAutoTuneActionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScheduledAutoTuneActionType%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ScheduledAutoTuneActionType.html#ScheduledAutoTuneActionType%27"><span class="hs-identifier hs-var">ScheduledAutoTuneActionType'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679301087"><span id="local-6989586621679301088"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ScheduledAutoTuneActionType"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ScheduledAutoTuneActionType.html#ScheduledAutoTuneActionType"><span class="hs-identifier hs-var">ScheduledAutoTuneActionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScheduledAutoTuneActionType%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ScheduledAutoTuneActionType.html#ScheduledAutoTuneActionType%27"><span class="hs-identifier hs-var">ScheduledAutoTuneActionType'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromScheduledAutoTuneActionType"><span class="annot"><span class="annottext">ScheduledAutoTuneActionType -&gt; Text
 </span><a href="Network.AWS.ElasticSearch.Types.ScheduledAutoTuneActionType.html#fromScheduledAutoTuneActionType"><span class="hs-identifier hs-var hs-var">fromScheduledAutoTuneActionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679300870"><span id="local-6989586621679300872"><span id="local-6989586621679300874"><span class="annot"><span class="annottext">Int -&gt; ScheduledAutoTuneActionType -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679301079"><span id="local-6989586621679301081"><span id="local-6989586621679301083"><span class="annot"><span class="annottext">Int -&gt; ScheduledAutoTuneActionType -&gt; ShowS
 [ScheduledAutoTuneActionType] -&gt; ShowS
 ScheduledAutoTuneActionType -&gt; String
 (Int -&gt; ScheduledAutoTuneActionType -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: ScheduledAutoTuneActionType -&gt; String
 showsPrec :: Int -&gt; ScheduledAutoTuneActionType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ScheduledAutoTuneActionType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679300861"><span id="local-6989586621679300863"><span id="local-6989586621679300865"><span id="local-6989586621679300867"><span class="annot"><span class="annottext">ReadPrec [ScheduledAutoTuneActionType]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679301070"><span id="local-6989586621679301072"><span id="local-6989586621679301074"><span id="local-6989586621679301076"><span class="annot"><span class="annottext">ReadPrec [ScheduledAutoTuneActionType]
 ReadPrec ScheduledAutoTuneActionType
 Int -&gt; ReadS ScheduledAutoTuneActionType
 ReadS [ScheduledAutoTuneActionType]
@@ -74,7 +74,7 @@ $creadList :: ReadS [ScheduledAutoTuneActionType]
 readsPrec :: Int -&gt; ReadS ScheduledAutoTuneActionType
 $creadsPrec :: Int -&gt; ReadS ScheduledAutoTuneActionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679300856"><span id="local-6989586621679300858"><span class="annot"><span class="annottext">ScheduledAutoTuneActionType -&gt; ScheduledAutoTuneActionType -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679301065"><span id="local-6989586621679301067"><span class="annot"><span class="annottext">ScheduledAutoTuneActionType -&gt; ScheduledAutoTuneActionType -&gt; Bool
 (ScheduledAutoTuneActionType
  -&gt; ScheduledAutoTuneActionType -&gt; Bool)
 -&gt; (ScheduledAutoTuneActionType
@@ -86,7 +86,7 @@ $c/= :: ScheduledAutoTuneActionType -&gt; ScheduledAutoTuneActionType -&gt; Bool
 == :: ScheduledAutoTuneActionType -&gt; ScheduledAutoTuneActionType -&gt; Bool
 $c== :: ScheduledAutoTuneActionType -&gt; ScheduledAutoTuneActionType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679300840"><span id="local-6989586621679300842"><span id="local-6989586621679300844"><span id="local-6989586621679300846"><span id="local-6989586621679300848"><span id="local-6989586621679300850"><span id="local-6989586621679300852"><span class="annot"><span class="annottext">Eq ScheduledAutoTuneActionType
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679301049"><span id="local-6989586621679301051"><span id="local-6989586621679301053"><span id="local-6989586621679301055"><span id="local-6989586621679301057"><span id="local-6989586621679301059"><span id="local-6989586621679301061"><span class="annot"><span class="annottext">Eq ScheduledAutoTuneActionType
 Eq ScheduledAutoTuneActionType
 -&gt; (ScheduledAutoTuneActionType
     -&gt; ScheduledAutoTuneActionType -&gt; Ordering)
@@ -158,7 +158,7 @@ ScheduledAutoTuneActionType -&gt; Rep ScheduledAutoTuneActionType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679300832"><span id="local-6989586621679300834"><span class="annot"><span class="annottext">Int -&gt; ScheduledAutoTuneActionType -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679301041"><span id="local-6989586621679301043"><span class="annot"><span class="annottext">Int -&gt; ScheduledAutoTuneActionType -&gt; Int
 ScheduledAutoTuneActionType -&gt; Int
 (Int -&gt; ScheduledAutoTuneActionType -&gt; Int)
 -&gt; (ScheduledAutoTuneActionType -&gt; Int)
@@ -169,56 +169,56 @@ $chash :: ScheduledAutoTuneActionType -&gt; Int
 hashWithSalt :: Int -&gt; ScheduledAutoTuneActionType -&gt; Int
 $chashWithSalt :: Int -&gt; ScheduledAutoTuneActionType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679300829"><span class="annot"><span class="annottext">ScheduledAutoTuneActionType -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679301038"><span class="annot"><span class="annottext">ScheduledAutoTuneActionType -&gt; ()
 (ScheduledAutoTuneActionType -&gt; ())
 -&gt; NFData ScheduledAutoTuneActionType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ScheduledAutoTuneActionType -&gt; ()
 $crnf :: ScheduledAutoTuneActionType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679300826"><span class="annot"><span class="annottext">Text -&gt; Either String ScheduledAutoTuneActionType
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679301035"><span class="annot"><span class="annottext">Text -&gt; Either String ScheduledAutoTuneActionType
 (Text -&gt; Either String ScheduledAutoTuneActionType)
 -&gt; FromText ScheduledAutoTuneActionType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ScheduledAutoTuneActionType
 $cfromText :: Text -&gt; Either String ScheduledAutoTuneActionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679300823"><span class="annot"><span class="annottext">ScheduledAutoTuneActionType -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679301032"><span class="annot"><span class="annottext">ScheduledAutoTuneActionType -&gt; Text
 (ScheduledAutoTuneActionType -&gt; Text)
 -&gt; ToText ScheduledAutoTuneActionType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ScheduledAutoTuneActionType -&gt; Text
 $ctoText :: ScheduledAutoTuneActionType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679300820"><span class="annot"><span class="annottext">ScheduledAutoTuneActionType -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679301029"><span class="annot"><span class="annottext">ScheduledAutoTuneActionType -&gt; ByteString
 (ScheduledAutoTuneActionType -&gt; ByteString)
 -&gt; ToByteString ScheduledAutoTuneActionType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ScheduledAutoTuneActionType -&gt; ByteString
 $ctoBS :: ScheduledAutoTuneActionType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679300817"><span class="annot"><span class="annottext">ScheduledAutoTuneActionType -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679301026"><span class="annot"><span class="annottext">ScheduledAutoTuneActionType -&gt; ByteStringBuilder
 (ScheduledAutoTuneActionType -&gt; ByteStringBuilder)
 -&gt; ToLog ScheduledAutoTuneActionType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ScheduledAutoTuneActionType -&gt; ByteStringBuilder
 $cbuild :: ScheduledAutoTuneActionType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679300814"><span class="annot"><span class="annottext">HeaderName -&gt; ScheduledAutoTuneActionType -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679301023"><span class="annot"><span class="annottext">HeaderName -&gt; ScheduledAutoTuneActionType -&gt; [Header]
 (HeaderName -&gt; ScheduledAutoTuneActionType -&gt; [Header])
 -&gt; ToHeader ScheduledAutoTuneActionType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ScheduledAutoTuneActionType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ScheduledAutoTuneActionType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679300811"><span class="annot"><span class="annottext">ScheduledAutoTuneActionType -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679301020"><span class="annot"><span class="annottext">ScheduledAutoTuneActionType -&gt; QueryString
 (ScheduledAutoTuneActionType -&gt; QueryString)
 -&gt; ToQuery ScheduledAutoTuneActionType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ScheduledAutoTuneActionType -&gt; QueryString
 $ctoQuery :: ScheduledAutoTuneActionType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679300806"><span id="local-6989586621679300808"><span class="annot"><span class="annottext">Value -&gt; Parser [ScheduledAutoTuneActionType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679301015"><span id="local-6989586621679301017"><span class="annot"><span class="annottext">Value -&gt; Parser [ScheduledAutoTuneActionType]
 Value -&gt; Parser ScheduledAutoTuneActionType
 (Value -&gt; Parser ScheduledAutoTuneActionType)
 -&gt; (Value -&gt; Parser [ScheduledAutoTuneActionType])
@@ -230,7 +230,7 @@ $cparseJSONList :: Value -&gt; Parser [ScheduledAutoTuneActionType]
 parseJSON :: Value -&gt; Parser ScheduledAutoTuneActionType
 $cparseJSON :: Value -&gt; Parser ScheduledAutoTuneActionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679300801"><span id="local-6989586621679300803"><span class="annot"><span class="annottext">FromJSONKeyFunction [ScheduledAutoTuneActionType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679301010"><span id="local-6989586621679301012"><span class="annot"><span class="annottext">FromJSONKeyFunction [ScheduledAutoTuneActionType]
 FromJSONKeyFunction ScheduledAutoTuneActionType
 FromJSONKeyFunction ScheduledAutoTuneActionType
 -&gt; FromJSONKeyFunction [ScheduledAutoTuneActionType]
@@ -242,7 +242,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ScheduledAutoTuneActionType]
 fromJSONKey :: FromJSONKeyFunction ScheduledAutoTuneActionType
 $cfromJSONKey :: FromJSONKeyFunction ScheduledAutoTuneActionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679300792"><span id="local-6989586621679300794"><span id="local-6989586621679300796"><span id="local-6989586621679300798"><span class="annot"><span class="annottext">[ScheduledAutoTuneActionType] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679301001"><span id="local-6989586621679301003"><span id="local-6989586621679301005"><span id="local-6989586621679301007"><span class="annot"><span class="annottext">[ScheduledAutoTuneActionType] -&gt; Encoding
 [ScheduledAutoTuneActionType] -&gt; Value
 ScheduledAutoTuneActionType -&gt; Encoding
 ScheduledAutoTuneActionType -&gt; Value
@@ -266,7 +266,7 @@ $ctoEncoding :: ScheduledAutoTuneActionType -&gt; Encoding
 toJSON :: ScheduledAutoTuneActionType -&gt; Value
 $ctoJSON :: ScheduledAutoTuneActionType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679300787"><span id="local-6989586621679300789"><span class="annot"><span class="annottext">ToJSONKeyFunction [ScheduledAutoTuneActionType]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679300996"><span id="local-6989586621679300998"><span class="annot"><span class="annottext">ToJSONKeyFunction [ScheduledAutoTuneActionType]
 ToJSONKeyFunction ScheduledAutoTuneActionType
 ToJSONKeyFunction ScheduledAutoTuneActionType
 -&gt; ToJSONKeyFunction [ScheduledAutoTuneActionType]
@@ -278,14 +278,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ScheduledAutoTuneActionType]
 toJSONKey :: ToJSONKeyFunction ScheduledAutoTuneActionType
 $ctoJSONKey :: ToJSONKeyFunction ScheduledAutoTuneActionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679300784"><span class="annot"><span class="annottext">[Node] -&gt; Either String ScheduledAutoTuneActionType
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679300993"><span class="annot"><span class="annottext">[Node] -&gt; Either String ScheduledAutoTuneActionType
 ([Node] -&gt; Either String ScheduledAutoTuneActionType)
 -&gt; FromXML ScheduledAutoTuneActionType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ScheduledAutoTuneActionType
 $cparseXML :: [Node] -&gt; Either String ScheduledAutoTuneActionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679300781"><span class="annot"><span class="annottext">ScheduledAutoTuneActionType -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679300990"><span class="annot"><span class="annottext">ScheduledAutoTuneActionType -&gt; XML
 (ScheduledAutoTuneActionType -&gt; XML)
 -&gt; ToXML ScheduledAutoTuneActionType
 forall a. (a -&gt; XML) -&gt; ToXML a

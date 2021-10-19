@@ -27,18 +27,18 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Returns the status for an organization config rule in an organization.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newOrganizationConfigRuleStatus' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679403529"><span id="local-6989586621679403530"></span></span><span class="hs-keyword">data</span><span> </span><span id="OrganizationConfigRuleStatus"><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#OrganizationConfigRuleStatus"><span class="hs-identifier hs-var">OrganizationConfigRuleStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OrganizationConfigRuleStatus%27"><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#OrganizationConfigRuleStatus%27"><span class="hs-identifier hs-var">OrganizationConfigRuleStatus'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The timestamp of the last update.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3AlastUpdateTime%3AOrganizationConfigRuleStatus%27"><span class="annot"><span class="annottext">OrganizationConfigRuleStatus -&gt; Maybe POSIX
-</span><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#%24sel%3AlastUpdateTime%3AOrganizationConfigRuleStatus%27"><span class="hs-identifier hs-var hs-var">lastUpdateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | An error message indicating that organization config rule creation or</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- deletion failed due to an error.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AerrorMessage%3AOrganizationConfigRuleStatus%27"><span class="annot"><span class="annottext">OrganizationConfigRuleStatus -&gt; Maybe Text
-</span><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#%24sel%3AerrorMessage%3AOrganizationConfigRuleStatus%27"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | An error code that is returned when organization config rule creation or</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- deletion has failed.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AerrorCode%3AOrganizationConfigRuleStatus%27"><span class="annot"><span class="annottext">OrganizationConfigRuleStatus -&gt; Maybe Text
+</span><span id="line-30"></span><span id="local-6989586621679404121"><span id="local-6989586621679404122"></span></span><span class="hs-keyword">data</span><span> </span><span id="OrganizationConfigRuleStatus"><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#OrganizationConfigRuleStatus"><span class="hs-identifier hs-var">OrganizationConfigRuleStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OrganizationConfigRuleStatus%27"><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#OrganizationConfigRuleStatus%27"><span class="hs-identifier hs-var">OrganizationConfigRuleStatus'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An error code that is returned when organization config rule creation or</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- deletion has failed.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AerrorCode%3AOrganizationConfigRuleStatus%27"><span class="annot"><span class="annottext">OrganizationConfigRuleStatus -&gt; Maybe Text
 </span><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#%24sel%3AerrorCode%3AOrganizationConfigRuleStatus%27"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | An error message indicating that organization config rule creation or</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- deletion failed due to an error.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AerrorMessage%3AOrganizationConfigRuleStatus%27"><span class="annot"><span class="annottext">OrganizationConfigRuleStatus -&gt; Maybe Text
+</span><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#%24sel%3AerrorMessage%3AOrganizationConfigRuleStatus%27"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The timestamp of the last update.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AlastUpdateTime%3AOrganizationConfigRuleStatus%27"><span class="annot"><span class="annottext">OrganizationConfigRuleStatus -&gt; Maybe POSIX
+</span><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#%24sel%3AlastUpdateTime%3AOrganizationConfigRuleStatus%27"><span class="hs-identifier hs-var hs-var">lastUpdateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The name that you assign to organization config rule.</span><span>
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3AorganizationConfigRuleName%3AOrganizationConfigRuleStatus%27"><span class="annot"><span class="annottext">OrganizationConfigRuleStatus -&gt; Text
 </span><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#%24sel%3AorganizationConfigRuleName%3AOrganizationConfigRuleStatus%27"><span class="hs-identifier hs-var hs-var">organizationConfigRuleName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -83,7 +83,7 @@
 </span><span id="line-79"></span><span>    </span><span id="%24sel%3AorganizationRuleStatus%3AOrganizationConfigRuleStatus%27"><span class="annot"><span class="annottext">OrganizationConfigRuleStatus -&gt; OrganizationRuleStatus
 </span><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#%24sel%3AorganizationRuleStatus%3AOrganizationConfigRuleStatus%27"><span class="hs-identifier hs-var hs-var">organizationRuleStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationRuleStatus.html#OrganizationRuleStatus"><span class="hs-identifier hs-type">OrganizationRuleStatus</span></a></span><span>
 </span><span id="line-80"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-81"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679403519"><span id="local-6989586621679403521"><span class="annot"><span class="annottext">OrganizationConfigRuleStatus
+</span><span id="line-81"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679404111"><span id="local-6989586621679404113"><span class="annot"><span class="annottext">OrganizationConfigRuleStatus
 -&gt; OrganizationConfigRuleStatus -&gt; Bool
 (OrganizationConfigRuleStatus
  -&gt; OrganizationConfigRuleStatus -&gt; Bool)
@@ -99,7 +99,7 @@ $c/= :: OrganizationConfigRuleStatus
 -&gt; OrganizationConfigRuleStatus -&gt; Bool
 $c== :: OrganizationConfigRuleStatus
 -&gt; OrganizationConfigRuleStatus -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679403510"><span id="local-6989586621679403512"><span id="local-6989586621679403514"><span id="local-6989586621679403516"><span class="annot"><span class="annottext">ReadPrec [OrganizationConfigRuleStatus]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679404102"><span id="local-6989586621679404104"><span id="local-6989586621679404106"><span id="local-6989586621679404108"><span class="annot"><span class="annottext">ReadPrec [OrganizationConfigRuleStatus]
 ReadPrec OrganizationConfigRuleStatus
 Int -&gt; ReadS OrganizationConfigRuleStatus
 ReadS [OrganizationConfigRuleStatus]
@@ -119,7 +119,7 @@ readList :: ReadS [OrganizationConfigRuleStatus]
 $creadList :: ReadS [OrganizationConfigRuleStatus]
 readsPrec :: Int -&gt; ReadS OrganizationConfigRuleStatus
 $creadsPrec :: Int -&gt; ReadS OrganizationConfigRuleStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679403503"><span id="local-6989586621679403505"><span id="local-6989586621679403507"><span class="annot"><span class="annottext">Int -&gt; OrganizationConfigRuleStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679404095"><span id="local-6989586621679404097"><span id="local-6989586621679404099"><span class="annot"><span class="annottext">Int -&gt; OrganizationConfigRuleStatus -&gt; ShowS
 [OrganizationConfigRuleStatus] -&gt; ShowS
 OrganizationConfigRuleStatus -&gt; String
 (Int -&gt; OrganizationConfigRuleStatus -&gt; ShowS)
@@ -159,13 +159,13 @@ OrganizationConfigRuleStatus -&gt; Rep OrganizationConfigRuleStatus x
 </span><span id="line-88"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-90"></span><span class="hs-comment">--</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- 'lastUpdateTime', 'organizationConfigRuleStatus_lastUpdateTime' - The timestamp of the last update.</span><span>
-</span><span id="line-92"></span><span class="hs-comment">--</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- 'errorMessage', 'organizationConfigRuleStatus_errorMessage' - An error message indicating that organization config rule creation or</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- deletion failed due to an error.</span><span>
-</span><span id="line-95"></span><span class="hs-comment">--</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- 'errorCode', 'organizationConfigRuleStatus_errorCode' - An error code that is returned when organization config rule creation or</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- deletion has failed.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'errorCode', 'organizationConfigRuleStatus_errorCode' - An error code that is returned when organization config rule creation or</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- deletion has failed.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'errorMessage', 'organizationConfigRuleStatus_errorMessage' - An error message indicating that organization config rule creation or</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- deletion failed due to an error.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'lastUpdateTime', 'organizationConfigRuleStatus_lastUpdateTime' - The timestamp of the last update.</span><span>
 </span><span id="line-98"></span><span class="hs-comment">--</span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- 'organizationConfigRuleName', 'organizationConfigRuleStatus_organizationConfigRuleName' - The name that you assign to organization config rule.</span><span>
 </span><span id="line-100"></span><span class="hs-comment">--</span><span>
@@ -215,43 +215,93 @@ OrganizationConfigRuleStatus -&gt; Rep OrganizationConfigRuleStatus x
 </span><span id="line-144"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#OrganizationConfigRuleStatus"><span class="hs-identifier hs-type">OrganizationConfigRuleStatus</span></a></span><span>
 </span><span id="line-145"></span><span id="newOrganizationConfigRuleStatus"><span class="annot"><span class="annottext">newOrganizationConfigRuleStatus :: Text -&gt; OrganizationRuleStatus -&gt; OrganizationConfigRuleStatus
 </span><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#newOrganizationConfigRuleStatus"><span class="hs-identifier hs-var hs-var">newOrganizationConfigRuleStatus</span></a></span></span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679403497"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679403497"><span class="hs-identifier hs-var">pOrganizationConfigRuleName_</span></a></span></span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679403496"><span class="annot"><span class="annottext">OrganizationRuleStatus
-</span><a href="#local-6989586621679403496"><span class="hs-identifier hs-var">pOrganizationRuleStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">OrganizationConfigRuleStatus' :: Maybe POSIX
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679404089"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679404089"><span class="hs-identifier hs-var">pOrganizationConfigRuleName_</span></a></span></span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679404088"><span class="annot"><span class="annottext">OrganizationRuleStatus
+</span><a href="#local-6989586621679404088"><span class="hs-identifier hs-var">pOrganizationRuleStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">OrganizationConfigRuleStatus' :: Maybe Text
 -&gt; Maybe Text
--&gt; Maybe Text
+-&gt; Maybe POSIX
 -&gt; Text
 -&gt; OrganizationRuleStatus
 -&gt; OrganizationConfigRuleStatus
 </span><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#OrganizationConfigRuleStatus%27"><span class="hs-identifier hs-type">OrganizationConfigRuleStatus'</span></a></span><span>
-</span><span id="line-149"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastUpdateTime:OrganizationConfigRuleStatus' :: Maybe POSIX
-</span><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#%24sel%3AlastUpdateTime%3AOrganizationConfigRuleStatus%27"><span class="hs-identifier hs-var">lastUpdateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-150"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-149"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:errorCode:OrganizationConfigRuleStatus' :: Maybe Text
+</span><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#%24sel%3AerrorCode%3AOrganizationConfigRuleStatus%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-151"></span><span>        </span><span class="annot"><span class="annottext">$sel:errorMessage:OrganizationConfigRuleStatus' :: Maybe Text
 </span><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#%24sel%3AerrorMessage%3AOrganizationConfigRuleStatus%27"><span class="hs-identifier hs-var">errorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">$sel:errorCode:OrganizationConfigRuleStatus' :: Maybe Text
-</span><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#%24sel%3AerrorCode%3AOrganizationConfigRuleStatus%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">$sel:lastUpdateTime:OrganizationConfigRuleStatus' :: Maybe POSIX
+</span><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#%24sel%3AlastUpdateTime%3AOrganizationConfigRuleStatus%27"><span class="hs-identifier hs-var">lastUpdateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-153"></span><span>        </span><span class="annot"><span class="annottext">$sel:organizationConfigRuleName:OrganizationConfigRuleStatus' :: Text
 </span><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#%24sel%3AorganizationConfigRuleName%3AOrganizationConfigRuleStatus%27"><span class="hs-identifier hs-var">organizationConfigRuleName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-154"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679403497"><span class="hs-identifier hs-var">pOrganizationConfigRuleName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679404089"><span class="hs-identifier hs-var">pOrganizationConfigRuleName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-155"></span><span>        </span><span class="annot"><span class="annottext">$sel:organizationRuleStatus:OrganizationConfigRuleStatus' :: OrganizationRuleStatus
 </span><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#%24sel%3AorganizationRuleStatus%3AOrganizationConfigRuleStatus%27"><span class="hs-identifier hs-var">organizationRuleStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-156"></span><span>          </span><span class="annot"><span class="annottext">OrganizationRuleStatus
-</span><a href="#local-6989586621679403496"><span class="hs-identifier hs-var">pOrganizationRuleStatus_</span></a></span><span>
+</span><a href="#local-6989586621679404088"><span class="hs-identifier hs-var">pOrganizationRuleStatus_</span></a></span><span>
 </span><span id="line-157"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- | The timestamp of the last update.</span><span>
-</span><span id="line-160"></span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#organizationConfigRuleStatus_lastUpdateTime"><span class="hs-identifier hs-type">organizationConfigRuleStatus_lastUpdateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#OrganizationConfigRuleStatus"><span class="hs-identifier hs-type">OrganizationConfigRuleStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-161"></span><span id="organizationConfigRuleStatus_lastUpdateTime"><span class="annot"><span class="annottext">organizationConfigRuleStatus_lastUpdateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-159"></span><span class="hs-comment">-- | An error code that is returned when organization config rule creation or</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- deletion has failed.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#organizationConfigRuleStatus_errorCode"><span class="hs-identifier hs-type">organizationConfigRuleStatus_errorCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#OrganizationConfigRuleStatus"><span class="hs-identifier hs-type">OrganizationConfigRuleStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="organizationConfigRuleStatus_errorCode"><span class="annot"><span class="annottext">organizationConfigRuleStatus_errorCode :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; OrganizationConfigRuleStatus -&gt; f OrganizationConfigRuleStatus
+</span><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#organizationConfigRuleStatus_errorCode"><span class="hs-identifier hs-var hs-var">organizationConfigRuleStatus_errorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OrganizationConfigRuleStatus -&gt; Maybe Text)
+-&gt; (OrganizationConfigRuleStatus
+    -&gt; Maybe Text -&gt; OrganizationConfigRuleStatus)
+-&gt; Lens
+     OrganizationConfigRuleStatus
+     OrganizationConfigRuleStatus
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#OrganizationConfigRuleStatus%27"><span class="hs-identifier hs-type">OrganizationConfigRuleStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404084"><span class="annot"><span class="annottext">Maybe Text
+errorCode :: Maybe Text
+$sel:errorCode:OrganizationConfigRuleStatus' :: OrganizationConfigRuleStatus -&gt; Maybe Text
+</span><a href="#local-6989586621679404084"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404084"><span class="hs-identifier hs-var">errorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404083"><span class="annot"><span class="annottext">s :: OrganizationConfigRuleStatus
+</span><a href="#local-6989586621679404083"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#OrganizationConfigRuleStatus%27"><span class="hs-identifier hs-type">OrganizationConfigRuleStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404082"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404082"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrganizationConfigRuleStatus
+</span><a href="#local-6989586621679404083"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorCode:OrganizationConfigRuleStatus' :: Maybe Text
+</span><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#%24sel%3AerrorCode%3AOrganizationConfigRuleStatus%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404082"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#OrganizationConfigRuleStatus"><span class="hs-identifier hs-type">OrganizationConfigRuleStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | An error message indicating that organization config rule creation or</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- deletion failed due to an error.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#organizationConfigRuleStatus_errorMessage"><span class="hs-identifier hs-type">organizationConfigRuleStatus_errorMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#OrganizationConfigRuleStatus"><span class="hs-identifier hs-type">OrganizationConfigRuleStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span id="organizationConfigRuleStatus_errorMessage"><span class="annot"><span class="annottext">organizationConfigRuleStatus_errorMessage :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; OrganizationConfigRuleStatus -&gt; f OrganizationConfigRuleStatus
+</span><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#organizationConfigRuleStatus_errorMessage"><span class="hs-identifier hs-var hs-var">organizationConfigRuleStatus_errorMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OrganizationConfigRuleStatus -&gt; Maybe Text)
+-&gt; (OrganizationConfigRuleStatus
+    -&gt; Maybe Text -&gt; OrganizationConfigRuleStatus)
+-&gt; Lens
+     OrganizationConfigRuleStatus
+     OrganizationConfigRuleStatus
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#OrganizationConfigRuleStatus%27"><span class="hs-identifier hs-type">OrganizationConfigRuleStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404080"><span class="annot"><span class="annottext">Maybe Text
+errorMessage :: Maybe Text
+$sel:errorMessage:OrganizationConfigRuleStatus' :: OrganizationConfigRuleStatus -&gt; Maybe Text
+</span><a href="#local-6989586621679404080"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404080"><span class="hs-identifier hs-var">errorMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404079"><span class="annot"><span class="annottext">s :: OrganizationConfigRuleStatus
+</span><a href="#local-6989586621679404079"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#OrganizationConfigRuleStatus%27"><span class="hs-identifier hs-type">OrganizationConfigRuleStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404078"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404078"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrganizationConfigRuleStatus
+</span><a href="#local-6989586621679404079"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorMessage:OrganizationConfigRuleStatus' :: Maybe Text
+</span><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#%24sel%3AerrorMessage%3AOrganizationConfigRuleStatus%27"><span class="hs-identifier hs-var">errorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404078"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#OrganizationConfigRuleStatus"><span class="hs-identifier hs-type">OrganizationConfigRuleStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | The timestamp of the last update.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#organizationConfigRuleStatus_lastUpdateTime"><span class="hs-identifier hs-type">organizationConfigRuleStatus_lastUpdateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#OrganizationConfigRuleStatus"><span class="hs-identifier hs-type">OrganizationConfigRuleStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span id="organizationConfigRuleStatus_lastUpdateTime"><span class="annot"><span class="annottext">organizationConfigRuleStatus_lastUpdateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; OrganizationConfigRuleStatus -&gt; f OrganizationConfigRuleStatus
 </span><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#organizationConfigRuleStatus_lastUpdateTime"><span class="hs-identifier hs-var hs-var">organizationConfigRuleStatus_lastUpdateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OrganizationConfigRuleStatus -&gt; Maybe POSIX)
 -&gt; (OrganizationConfigRuleStatus
@@ -262,16 +312,16 @@ forall a. Maybe a
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#OrganizationConfigRuleStatus%27"><span class="hs-identifier hs-type">OrganizationConfigRuleStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403492"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#OrganizationConfigRuleStatus%27"><span class="hs-identifier hs-type">OrganizationConfigRuleStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404076"><span class="annot"><span class="annottext">Maybe POSIX
 lastUpdateTime :: Maybe POSIX
 $sel:lastUpdateTime:OrganizationConfigRuleStatus' :: OrganizationConfigRuleStatus -&gt; Maybe POSIX
-</span><a href="#local-6989586621679403492"><span class="hs-identifier hs-var hs-var">lastUpdateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679403492"><span class="hs-identifier hs-var">lastUpdateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403491"><span class="annot"><span class="annottext">s :: OrganizationConfigRuleStatus
-</span><a href="#local-6989586621679403491"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#OrganizationConfigRuleStatus%27"><span class="hs-identifier hs-type">OrganizationConfigRuleStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403490"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679403490"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrganizationConfigRuleStatus
-</span><a href="#local-6989586621679403491"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdateTime:OrganizationConfigRuleStatus' :: Maybe POSIX
+</span><a href="#local-6989586621679404076"><span class="hs-identifier hs-var hs-var">lastUpdateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679404076"><span class="hs-identifier hs-var">lastUpdateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404075"><span class="annot"><span class="annottext">s :: OrganizationConfigRuleStatus
+</span><a href="#local-6989586621679404075"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#OrganizationConfigRuleStatus%27"><span class="hs-identifier hs-type">OrganizationConfigRuleStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404074"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679404074"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrganizationConfigRuleStatus
+</span><a href="#local-6989586621679404075"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdateTime:OrganizationConfigRuleStatus' :: Maybe POSIX
 </span><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#%24sel%3AlastUpdateTime%3AOrganizationConfigRuleStatus%27"><span class="hs-identifier hs-var">lastUpdateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679403490"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#OrganizationConfigRuleStatus"><span class="hs-identifier hs-type">OrganizationConfigRuleStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679404074"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#OrganizationConfigRuleStatus"><span class="hs-identifier hs-type">OrganizationConfigRuleStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; OrganizationConfigRuleStatus -&gt; f OrganizationConfigRuleStatus)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -287,56 +337,6 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-162"></span><span>
-</span><span id="line-163"></span><span class="hs-comment">-- | An error message indicating that organization config rule creation or</span><span>
-</span><span id="line-164"></span><span class="hs-comment">-- deletion failed due to an error.</span><span>
-</span><span id="line-165"></span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#organizationConfigRuleStatus_errorMessage"><span class="hs-identifier hs-type">organizationConfigRuleStatus_errorMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#OrganizationConfigRuleStatus"><span class="hs-identifier hs-type">OrganizationConfigRuleStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-166"></span><span id="organizationConfigRuleStatus_errorMessage"><span class="annot"><span class="annottext">organizationConfigRuleStatus_errorMessage :: (Maybe Text -&gt; f (Maybe Text))
--&gt; OrganizationConfigRuleStatus -&gt; f OrganizationConfigRuleStatus
-</span><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#organizationConfigRuleStatus_errorMessage"><span class="hs-identifier hs-var hs-var">organizationConfigRuleStatus_errorMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OrganizationConfigRuleStatus -&gt; Maybe Text)
--&gt; (OrganizationConfigRuleStatus
-    -&gt; Maybe Text -&gt; OrganizationConfigRuleStatus)
--&gt; Lens
-     OrganizationConfigRuleStatus
-     OrganizationConfigRuleStatus
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#OrganizationConfigRuleStatus%27"><span class="hs-identifier hs-type">OrganizationConfigRuleStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403485"><span class="annot"><span class="annottext">Maybe Text
-errorMessage :: Maybe Text
-$sel:errorMessage:OrganizationConfigRuleStatus' :: OrganizationConfigRuleStatus -&gt; Maybe Text
-</span><a href="#local-6989586621679403485"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679403485"><span class="hs-identifier hs-var">errorMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403484"><span class="annot"><span class="annottext">s :: OrganizationConfigRuleStatus
-</span><a href="#local-6989586621679403484"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#OrganizationConfigRuleStatus%27"><span class="hs-identifier hs-type">OrganizationConfigRuleStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403483"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679403483"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrganizationConfigRuleStatus
-</span><a href="#local-6989586621679403484"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorMessage:OrganizationConfigRuleStatus' :: Maybe Text
-</span><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#%24sel%3AerrorMessage%3AOrganizationConfigRuleStatus%27"><span class="hs-identifier hs-var">errorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679403483"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#OrganizationConfigRuleStatus"><span class="hs-identifier hs-type">OrganizationConfigRuleStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-comment">-- | An error code that is returned when organization config rule creation or</span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- deletion has failed.</span><span>
-</span><span id="line-170"></span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#organizationConfigRuleStatus_errorCode"><span class="hs-identifier hs-type">organizationConfigRuleStatus_errorCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#OrganizationConfigRuleStatus"><span class="hs-identifier hs-type">OrganizationConfigRuleStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-171"></span><span id="organizationConfigRuleStatus_errorCode"><span class="annot"><span class="annottext">organizationConfigRuleStatus_errorCode :: (Maybe Text -&gt; f (Maybe Text))
--&gt; OrganizationConfigRuleStatus -&gt; f OrganizationConfigRuleStatus
-</span><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#organizationConfigRuleStatus_errorCode"><span class="hs-identifier hs-var hs-var">organizationConfigRuleStatus_errorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OrganizationConfigRuleStatus -&gt; Maybe Text)
--&gt; (OrganizationConfigRuleStatus
-    -&gt; Maybe Text -&gt; OrganizationConfigRuleStatus)
--&gt; Lens
-     OrganizationConfigRuleStatus
-     OrganizationConfigRuleStatus
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#OrganizationConfigRuleStatus%27"><span class="hs-identifier hs-type">OrganizationConfigRuleStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403481"><span class="annot"><span class="annottext">Maybe Text
-errorCode :: Maybe Text
-$sel:errorCode:OrganizationConfigRuleStatus' :: OrganizationConfigRuleStatus -&gt; Maybe Text
-</span><a href="#local-6989586621679403481"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679403481"><span class="hs-identifier hs-var">errorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403480"><span class="annot"><span class="annottext">s :: OrganizationConfigRuleStatus
-</span><a href="#local-6989586621679403480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#OrganizationConfigRuleStatus%27"><span class="hs-identifier hs-type">OrganizationConfigRuleStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403479"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679403479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrganizationConfigRuleStatus
-</span><a href="#local-6989586621679403480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorCode:OrganizationConfigRuleStatus' :: Maybe Text
-</span><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#%24sel%3AerrorCode%3AOrganizationConfigRuleStatus%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679403479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#OrganizationConfigRuleStatus"><span class="hs-identifier hs-type">OrganizationConfigRuleStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- | The name that you assign to organization config rule.</span><span>
 </span><span id="line-174"></span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#organizationConfigRuleStatus_organizationConfigRuleName"><span class="hs-identifier hs-type">organizationConfigRuleStatus_organizationConfigRuleName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#OrganizationConfigRuleStatus"><span class="hs-identifier hs-type">OrganizationConfigRuleStatus</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -348,16 +348,16 @@ $sel:errorCode:OrganizationConfigRuleStatus' :: OrganizationConfigRuleStatus -&g
 -&gt; Lens
      OrganizationConfigRuleStatus OrganizationConfigRuleStatus Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#OrganizationConfigRuleStatus%27"><span class="hs-identifier hs-type">OrganizationConfigRuleStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403477"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#OrganizationConfigRuleStatus%27"><span class="hs-identifier hs-type">OrganizationConfigRuleStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404069"><span class="annot"><span class="annottext">Text
 organizationConfigRuleName :: Text
 $sel:organizationConfigRuleName:OrganizationConfigRuleStatus' :: OrganizationConfigRuleStatus -&gt; Text
-</span><a href="#local-6989586621679403477"><span class="hs-identifier hs-var hs-var">organizationConfigRuleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679403477"><span class="hs-identifier hs-var">organizationConfigRuleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403476"><span class="annot"><span class="annottext">s :: OrganizationConfigRuleStatus
-</span><a href="#local-6989586621679403476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#OrganizationConfigRuleStatus%27"><span class="hs-identifier hs-type">OrganizationConfigRuleStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403475"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679403475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrganizationConfigRuleStatus
-</span><a href="#local-6989586621679403476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationConfigRuleName:OrganizationConfigRuleStatus' :: Text
+</span><a href="#local-6989586621679404069"><span class="hs-identifier hs-var hs-var">organizationConfigRuleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679404069"><span class="hs-identifier hs-var">organizationConfigRuleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404068"><span class="annot"><span class="annottext">s :: OrganizationConfigRuleStatus
+</span><a href="#local-6989586621679404068"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#OrganizationConfigRuleStatus%27"><span class="hs-identifier hs-type">OrganizationConfigRuleStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404067"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679404067"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrganizationConfigRuleStatus
+</span><a href="#local-6989586621679404068"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationConfigRuleName:OrganizationConfigRuleStatus' :: Text
 </span><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#%24sel%3AorganizationConfigRuleName%3AOrganizationConfigRuleStatus%27"><span class="hs-identifier hs-var">organizationConfigRuleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679403475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#OrganizationConfigRuleStatus"><span class="hs-identifier hs-type">OrganizationConfigRuleStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679404067"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#OrganizationConfigRuleStatus"><span class="hs-identifier hs-type">OrganizationConfigRuleStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- | Indicates deployment status of an organization config rule. When master</span><span>
 </span><span id="line-178"></span><span class="hs-comment">-- account calls PutOrganizationConfigRule action for the first time,</span><span>
@@ -409,19 +409,19 @@ $sel:organizationConfigRuleName:OrganizationConfigRuleStatus' :: OrganizationCon
      OrganizationRuleStatus
      OrganizationRuleStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#OrganizationConfigRuleStatus%27"><span class="hs-identifier hs-type">OrganizationConfigRuleStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403473"><span class="annot"><span class="annottext">OrganizationRuleStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#OrganizationConfigRuleStatus%27"><span class="hs-identifier hs-type">OrganizationConfigRuleStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404065"><span class="annot"><span class="annottext">OrganizationRuleStatus
 organizationRuleStatus :: OrganizationRuleStatus
 $sel:organizationRuleStatus:OrganizationConfigRuleStatus' :: OrganizationConfigRuleStatus -&gt; OrganizationRuleStatus
-</span><a href="#local-6989586621679403473"><span class="hs-identifier hs-var hs-var">organizationRuleStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrganizationRuleStatus
-</span><a href="#local-6989586621679403473"><span class="hs-identifier hs-var">organizationRuleStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403472"><span class="annot"><span class="annottext">s :: OrganizationConfigRuleStatus
-</span><a href="#local-6989586621679403472"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#OrganizationConfigRuleStatus%27"><span class="hs-identifier hs-type">OrganizationConfigRuleStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403471"><span class="annot"><span class="annottext">OrganizationRuleStatus
-</span><a href="#local-6989586621679403471"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrganizationConfigRuleStatus
-</span><a href="#local-6989586621679403472"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationRuleStatus:OrganizationConfigRuleStatus' :: OrganizationRuleStatus
+</span><a href="#local-6989586621679404065"><span class="hs-identifier hs-var hs-var">organizationRuleStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrganizationRuleStatus
+</span><a href="#local-6989586621679404065"><span class="hs-identifier hs-var">organizationRuleStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404064"><span class="annot"><span class="annottext">s :: OrganizationConfigRuleStatus
+</span><a href="#local-6989586621679404064"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#OrganizationConfigRuleStatus%27"><span class="hs-identifier hs-type">OrganizationConfigRuleStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404063"><span class="annot"><span class="annottext">OrganizationRuleStatus
+</span><a href="#local-6989586621679404063"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrganizationConfigRuleStatus
+</span><a href="#local-6989586621679404064"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationRuleStatus:OrganizationConfigRuleStatus' :: OrganizationRuleStatus
 </span><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#%24sel%3AorganizationRuleStatus%3AOrganizationConfigRuleStatus%27"><span class="hs-identifier hs-var">organizationRuleStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OrganizationRuleStatus
-</span><a href="#local-6989586621679403471"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#OrganizationConfigRuleStatus"><span class="hs-identifier hs-type">OrganizationConfigRuleStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679404063"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#OrganizationConfigRuleStatus"><span class="hs-identifier hs-type">OrganizationConfigRuleStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-217"></span><span>
-</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679403468"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#OrganizationConfigRuleStatus"><span class="hs-identifier hs-type">OrganizationConfigRuleStatus</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-219"></span><span>  </span><span id="local-6989586621679403466"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OrganizationConfigRuleStatus
+</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679404060"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#OrganizationConfigRuleStatus"><span class="hs-identifier hs-type">OrganizationConfigRuleStatus</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-219"></span><span>  </span><span id="local-6989586621679404058"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OrganizationConfigRuleStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-220"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser OrganizationConfigRuleStatus)
@@ -431,69 +431,69 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-221"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;OrganizationConfigRuleStatus&quot;</span></span><span>
-</span><span id="line-222"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679403463"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679403463"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-223"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-222"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679404055"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679404055"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-223"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
--&gt; Maybe Text
+-&gt; Maybe POSIX
 -&gt; Text
 -&gt; OrganizationRuleStatus
 -&gt; OrganizationConfigRuleStatus
 </span><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#OrganizationConfigRuleStatus%27"><span class="hs-identifier hs-var">OrganizationConfigRuleStatus'</span></a></span><span>
-</span><span id="line-224"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+</span><span id="line-224"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
  -&gt; Maybe Text
- -&gt; Maybe Text
+ -&gt; Maybe POSIX
  -&gt; Text
  -&gt; OrganizationRuleStatus
  -&gt; OrganizationConfigRuleStatus)
--&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Text
-      -&gt; Maybe Text
+      -&gt; Maybe POSIX
       -&gt; Text
       -&gt; OrganizationRuleStatus
       -&gt; OrganizationConfigRuleStatus)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679403463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679404055"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LastUpdateTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;ErrorCode&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-225"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
-   -&gt; Maybe Text
+   -&gt; Maybe POSIX
    -&gt; Text
    -&gt; OrganizationRuleStatus
    -&gt; OrganizationConfigRuleStatus)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe Text
+     (Maybe POSIX
       -&gt; Text -&gt; OrganizationRuleStatus -&gt; OrganizationConfigRuleStatus)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679403463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679404055"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ErrorMessage&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-226"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
+  (Maybe POSIX
    -&gt; Text -&gt; OrganizationRuleStatus -&gt; OrganizationConfigRuleStatus)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe POSIX)
 -&gt; Parser
      (Text -&gt; OrganizationRuleStatus -&gt; OrganizationConfigRuleStatus)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679403463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679404055"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ErrorCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;LastUpdateTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-227"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Text -&gt; OrganizationRuleStatus -&gt; OrganizationConfigRuleStatus)
 -&gt; Parser Text
 -&gt; Parser (OrganizationRuleStatus -&gt; OrganizationConfigRuleStatus)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679403463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679404055"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OrganizationConfigRuleName&quot;</span></span><span class="hs-special">)</span><span>
@@ -502,15 +502,15 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser OrganizationConfigRuleStatus
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679403463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser OrganizationRuleStatus
+</span><a href="#local-6989586621679404055"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser OrganizationRuleStatus
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OrganizationRuleStatus&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-229"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-230"></span><span>
 </span><span id="line-231"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-232"></span><span>  </span><span id="local-6989586621679403456"><span id="local-6989586621679403458"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-232"></span><span>  </span><span id="local-6989586621679404048"><span id="local-6989586621679404050"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-233"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#OrganizationConfigRuleStatus"><span class="hs-identifier hs-type">OrganizationConfigRuleStatus</span></a></span></span></span><span>
 </span><span id="line-234"></span><span>
-</span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679403453"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#OrganizationConfigRuleStatus"><span class="hs-identifier hs-type">OrganizationConfigRuleStatus</span></a></span></span><span>
+</span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679404045"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConfigRuleStatus.html#OrganizationConfigRuleStatus"><span class="hs-identifier hs-type">OrganizationConfigRuleStatus</span></a></span></span><span>
 </span><span id="line-236"></span></pre></body></html>

@@ -34,10 +34,10 @@
 </span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#newReportInstanceStatus"><span class="hs-identifier">newReportInstanceStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#reportInstanceStatus_dryRun"><span class="hs-identifier">reportInstanceStatus_dryRun</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#reportInstanceStatus_startTime"><span class="hs-identifier">reportInstanceStatus_startTime</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#reportInstanceStatus_endTime"><span class="hs-identifier">reportInstanceStatus_endTime</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#reportInstanceStatus_description"><span class="hs-identifier">reportInstanceStatus_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#reportInstanceStatus_startTime"><span class="hs-identifier">reportInstanceStatus_startTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#reportInstanceStatus_endTime"><span class="hs-identifier">reportInstanceStatus_endTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#reportInstanceStatus_description"><span class="hs-identifier">reportInstanceStatus_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#reportInstanceStatus_dryRun"><span class="hs-identifier">reportInstanceStatus_dryRun</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#reportInstanceStatus_instances"><span class="hs-identifier">reportInstanceStatus_instances</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#reportInstanceStatus_reasonCodes"><span class="hs-identifier">reportInstanceStatus_reasonCodes</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#reportInstanceStatus_status"><span class="hs-identifier">reportInstanceStatus_status</span></a></span><span class="hs-special">,</span><span>
@@ -56,22 +56,22 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newReportInstanceStatus' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621681172170"><span id="local-6989586621681172171"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReportInstanceStatus"><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus"><span class="hs-identifier hs-var">ReportInstanceStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReportInstanceStatus%27"><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus%27"><span class="hs-identifier hs-var">ReportInstanceStatus'</span></a></span></span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-64"></span><span>    </span><span id="%24sel%3AdryRun%3AReportInstanceStatus%27"><span class="annot"><span class="annottext">ReportInstanceStatus -&gt; Maybe Bool
-</span><a href="Network.AWS.EC2.ReportInstanceStatus.html#%24sel%3AdryRun%3AReportInstanceStatus%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The time at which the reported instance health state began.</span><span>
-</span><span id="line-66"></span><span>    </span><span id="%24sel%3AstartTime%3AReportInstanceStatus%27"><span class="annot"><span class="annottext">ReportInstanceStatus -&gt; Maybe ISO8601
+</span><span id="line-59"></span><span id="local-6989586621681207534"><span id="local-6989586621681207535"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReportInstanceStatus"><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus"><span class="hs-identifier hs-var">ReportInstanceStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReportInstanceStatus%27"><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus%27"><span class="hs-identifier hs-var">ReportInstanceStatus'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time at which the reported instance health state began.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AstartTime%3AReportInstanceStatus%27"><span class="annot"><span class="annottext">ReportInstanceStatus -&gt; Maybe ISO8601
 </span><a href="Network.AWS.EC2.ReportInstanceStatus.html#%24sel%3AstartTime%3AReportInstanceStatus%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The time at which the reported instance health state ended.</span><span>
-</span><span id="line-68"></span><span>    </span><span id="%24sel%3AendTime%3AReportInstanceStatus%27"><span class="annot"><span class="annottext">ReportInstanceStatus -&gt; Maybe ISO8601
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The time at which the reported instance health state ended.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AendTime%3AReportInstanceStatus%27"><span class="annot"><span class="annottext">ReportInstanceStatus -&gt; Maybe ISO8601
 </span><a href="Network.AWS.EC2.ReportInstanceStatus.html#%24sel%3AendTime%3AReportInstanceStatus%27"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | Descriptive text about the health state of your instance.</span><span>
-</span><span id="line-70"></span><span>    </span><span id="%24sel%3Adescription%3AReportInstanceStatus%27"><span class="annot"><span class="annottext">ReportInstanceStatus -&gt; Maybe Text
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | Descriptive text about the health state of your instance.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3Adescription%3AReportInstanceStatus%27"><span class="annot"><span class="annottext">ReportInstanceStatus -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.ReportInstanceStatus.html#%24sel%3Adescription%3AReportInstanceStatus%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AdryRun%3AReportInstanceStatus%27"><span class="annot"><span class="annottext">ReportInstanceStatus -&gt; Maybe Bool
+</span><a href="Network.AWS.EC2.ReportInstanceStatus.html#%24sel%3AdryRun%3AReportInstanceStatus%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The instances.</span><span>
 </span><span id="line-72"></span><span>    </span><span id="%24sel%3Ainstances%3AReportInstanceStatus%27"><span class="annot"><span class="annottext">ReportInstanceStatus -&gt; [Text]
 </span><a href="Network.AWS.EC2.ReportInstanceStatus.html#%24sel%3Ainstances%3AReportInstanceStatus%27"><span class="hs-identifier hs-var hs-var">instances</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -107,7 +107,7 @@
 </span><span id="line-101"></span><span>    </span><span id="%24sel%3Astatus%3AReportInstanceStatus%27"><span class="annot"><span class="annottext">ReportInstanceStatus -&gt; ReportStatusType
 </span><a href="Network.AWS.EC2.ReportInstanceStatus.html#%24sel%3Astatus%3AReportInstanceStatus%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReportStatusType.html#ReportStatusType"><span class="hs-identifier hs-type">ReportStatusType</span></a></span><span>
 </span><span id="line-102"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-103"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681172158"><span id="local-6989586621681172160"><span class="annot"><span class="annottext">ReportInstanceStatus -&gt; ReportInstanceStatus -&gt; Bool
+</span><span id="line-103"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681207522"><span id="local-6989586621681207524"><span class="annot"><span class="annottext">ReportInstanceStatus -&gt; ReportInstanceStatus -&gt; Bool
 (ReportInstanceStatus -&gt; ReportInstanceStatus -&gt; Bool)
 -&gt; (ReportInstanceStatus -&gt; ReportInstanceStatus -&gt; Bool)
 -&gt; Eq ReportInstanceStatus
@@ -116,7 +116,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ReportInstanceStatus -&gt; ReportInstanceStatus -&gt; Bool
 == :: ReportInstanceStatus -&gt; ReportInstanceStatus -&gt; Bool
 $c== :: ReportInstanceStatus -&gt; ReportInstanceStatus -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681172149"><span id="local-6989586621681172151"><span id="local-6989586621681172153"><span id="local-6989586621681172155"><span class="annot"><span class="annottext">ReadPrec [ReportInstanceStatus]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681207513"><span id="local-6989586621681207515"><span id="local-6989586621681207517"><span id="local-6989586621681207519"><span class="annot"><span class="annottext">ReadPrec [ReportInstanceStatus]
 ReadPrec ReportInstanceStatus
 Int -&gt; ReadS ReportInstanceStatus
 ReadS [ReportInstanceStatus]
@@ -136,7 +136,7 @@ readList :: ReadS [ReportInstanceStatus]
 $creadList :: ReadS [ReportInstanceStatus]
 readsPrec :: Int -&gt; ReadS ReportInstanceStatus
 $creadsPrec :: Int -&gt; ReadS ReportInstanceStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681172142"><span id="local-6989586621681172144"><span id="local-6989586621681172146"><span class="annot"><span class="annottext">Int -&gt; ReportInstanceStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681207506"><span id="local-6989586621681207508"><span id="local-6989586621681207510"><span class="annot"><span class="annottext">Int -&gt; ReportInstanceStatus -&gt; ShowS
 [ReportInstanceStatus] -&gt; ShowS
 ReportInstanceStatus -&gt; String
 (Int -&gt; ReportInstanceStatus -&gt; ShowS)
@@ -170,16 +170,16 @@ $cfrom :: forall x. ReportInstanceStatus -&gt; Rep ReportInstanceStatus x
 </span><span id="line-110"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-112"></span><span class="hs-comment">--</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- 'dryRun', 'reportInstanceStatus_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-117"></span><span class="hs-comment">--</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- 'startTime', 'reportInstanceStatus_startTime' - The time at which the reported instance health state began.</span><span>
-</span><span id="line-119"></span><span class="hs-comment">--</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- 'endTime', 'reportInstanceStatus_endTime' - The time at which the reported instance health state ended.</span><span>
-</span><span id="line-121"></span><span class="hs-comment">--</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- 'description', 'reportInstanceStatus_description' - Descriptive text about the health state of your instance.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'startTime', 'reportInstanceStatus_startTime' - The time at which the reported instance health state began.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'endTime', 'reportInstanceStatus_endTime' - The time at which the reported instance health state ended.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'description', 'reportInstanceStatus_description' - Descriptive text about the health state of your instance.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'dryRun', 'reportInstanceStatus_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
 </span><span id="line-123"></span><span class="hs-comment">--</span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- 'instances', 'reportInstanceStatus_instances' - The instances.</span><span>
 </span><span id="line-125"></span><span class="hs-comment">--</span><span>
@@ -216,31 +216,31 @@ $cfrom :: forall x. ReportInstanceStatus -&gt; Rep ReportInstanceStatus x
 </span><span id="line-156"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.ReportStatusType.html#ReportStatusType"><span class="hs-identifier hs-type">ReportStatusType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-157"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus"><span class="hs-identifier hs-type">ReportInstanceStatus</span></a></span><span>
 </span><span id="line-158"></span><span id="newReportInstanceStatus"><span class="annot"><span class="annottext">newReportInstanceStatus :: ReportStatusType -&gt; ReportInstanceStatus
-</span><a href="Network.AWS.EC2.ReportInstanceStatus.html#newReportInstanceStatus"><span class="hs-identifier hs-var hs-var">newReportInstanceStatus</span></a></span></span><span> </span><span id="local-6989586621681172137"><span class="annot"><span class="annottext">ReportStatusType
-</span><a href="#local-6989586621681172137"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-159"></span><span>  </span><span class="annot"><span class="annottext">ReportInstanceStatus' :: Maybe Bool
--&gt; Maybe ISO8601
+</span><a href="Network.AWS.EC2.ReportInstanceStatus.html#newReportInstanceStatus"><span class="hs-identifier hs-var hs-var">newReportInstanceStatus</span></a></span></span><span> </span><span id="local-6989586621681207501"><span class="annot"><span class="annottext">ReportStatusType
+</span><a href="#local-6989586621681207501"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><span class="annottext">ReportInstanceStatus' :: Maybe ISO8601
 -&gt; Maybe ISO8601
 -&gt; Maybe Text
+-&gt; Maybe Bool
 -&gt; [Text]
 -&gt; [ReportInstanceReasonCodes]
 -&gt; ReportStatusType
 -&gt; ReportInstanceStatus
 </span><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus%27"><span class="hs-identifier hs-type">ReportInstanceStatus'</span></a></span><span>
-</span><span id="line-160"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dryRun:ReportInstanceStatus' :: Maybe Bool
-</span><a href="Network.AWS.EC2.ReportInstanceStatus.html#%24sel%3AdryRun%3AReportInstanceStatus%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:startTime:ReportInstanceStatus' :: Maybe ISO8601
+</span><span id="line-160"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:startTime:ReportInstanceStatus' :: Maybe ISO8601
 </span><a href="Network.AWS.EC2.ReportInstanceStatus.html#%24sel%3AstartTime%3AReportInstanceStatus%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">$sel:endTime:ReportInstanceStatus' :: Maybe ISO8601
+</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:endTime:ReportInstanceStatus' :: Maybe ISO8601
 </span><a href="Network.AWS.EC2.ReportInstanceStatus.html#%24sel%3AendTime%3AReportInstanceStatus%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:ReportInstanceStatus' :: Maybe Text
+</span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:ReportInstanceStatus' :: Maybe Text
 </span><a href="Network.AWS.EC2.ReportInstanceStatus.html#%24sel%3Adescription%3AReportInstanceStatus%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:dryRun:ReportInstanceStatus' :: Maybe Bool
+</span><a href="Network.AWS.EC2.ReportInstanceStatus.html#%24sel%3AdryRun%3AReportInstanceStatus%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:instances:ReportInstanceStatus' :: [Text]
@@ -253,35 +253,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
 </span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:ReportInstanceStatus' :: ReportStatusType
 </span><a href="Network.AWS.EC2.ReportInstanceStatus.html#%24sel%3Astatus%3AReportInstanceStatus%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ReportStatusType
-</span><a href="#local-6989586621681172137"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><a href="#local-6989586621681207501"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
 </span><span id="line-167"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-168"></span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-170"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-171"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-172"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-173"></span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#reportInstanceStatus_dryRun"><span class="hs-identifier hs-type">reportInstanceStatus_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus"><span class="hs-identifier hs-type">ReportInstanceStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-174"></span><span id="reportInstanceStatus_dryRun"><span class="annot"><span class="annottext">reportInstanceStatus_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; ReportInstanceStatus -&gt; f ReportInstanceStatus
-</span><a href="Network.AWS.EC2.ReportInstanceStatus.html#reportInstanceStatus_dryRun"><span class="hs-identifier hs-var hs-var">reportInstanceStatus_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReportInstanceStatus -&gt; Maybe Bool)
--&gt; (ReportInstanceStatus -&gt; Maybe Bool -&gt; ReportInstanceStatus)
--&gt; Lens
-     ReportInstanceStatus ReportInstanceStatus (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus%27"><span class="hs-identifier hs-type">ReportInstanceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681172134"><span class="annot"><span class="annottext">Maybe Bool
-dryRun :: Maybe Bool
-$sel:dryRun:ReportInstanceStatus' :: ReportInstanceStatus -&gt; Maybe Bool
-</span><a href="#local-6989586621681172134"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681172134"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681172133"><span class="annot"><span class="annottext">s :: ReportInstanceStatus
-</span><a href="#local-6989586621681172133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus%27"><span class="hs-identifier hs-type">ReportInstanceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681172132"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681172132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportInstanceStatus
-</span><a href="#local-6989586621681172133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:ReportInstanceStatus' :: Maybe Bool
-</span><a href="Network.AWS.EC2.ReportInstanceStatus.html#%24sel%3AdryRun%3AReportInstanceStatus%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681172132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus"><span class="hs-identifier hs-type">ReportInstanceStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-175"></span><span>
-</span><span id="line-176"></span><span class="hs-comment">-- | The time at which the reported instance health state began.</span><span>
-</span><span id="line-177"></span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#reportInstanceStatus_startTime"><span class="hs-identifier hs-type">reportInstanceStatus_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus"><span class="hs-identifier hs-type">ReportInstanceStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-178"></span><span id="reportInstanceStatus_startTime"><span class="annot"><span class="annottext">reportInstanceStatus_startTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-169"></span><span class="hs-comment">-- | The time at which the reported instance health state began.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#reportInstanceStatus_startTime"><span class="hs-identifier hs-type">reportInstanceStatus_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus"><span class="hs-identifier hs-type">ReportInstanceStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span id="reportInstanceStatus_startTime"><span class="annot"><span class="annottext">reportInstanceStatus_startTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; ReportInstanceStatus -&gt; f ReportInstanceStatus
 </span><a href="Network.AWS.EC2.ReportInstanceStatus.html#reportInstanceStatus_startTime"><span class="hs-identifier hs-var hs-var">reportInstanceStatus_startTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReportInstanceStatus -&gt; Maybe ISO8601)
 -&gt; (ReportInstanceStatus -&gt; Maybe ISO8601 -&gt; ReportInstanceStatus)
@@ -291,16 +268,16 @@ $sel:dryRun:ReportInstanceStatus' :: ReportInstanceStatus -&gt; Maybe Bool
      (Maybe ISO8601)
      (Maybe ISO8601)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus%27"><span class="hs-identifier hs-type">ReportInstanceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681172131"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus%27"><span class="hs-identifier hs-type">ReportInstanceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681207498"><span class="annot"><span class="annottext">Maybe ISO8601
 startTime :: Maybe ISO8601
 $sel:startTime:ReportInstanceStatus' :: ReportInstanceStatus -&gt; Maybe ISO8601
-</span><a href="#local-6989586621681172131"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681172131"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681172130"><span class="annot"><span class="annottext">s :: ReportInstanceStatus
-</span><a href="#local-6989586621681172130"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus%27"><span class="hs-identifier hs-type">ReportInstanceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681172129"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681172129"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportInstanceStatus
-</span><a href="#local-6989586621681172130"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:ReportInstanceStatus' :: Maybe ISO8601
+</span><a href="#local-6989586621681207498"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681207498"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681207497"><span class="annot"><span class="annottext">s :: ReportInstanceStatus
+</span><a href="#local-6989586621681207497"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus%27"><span class="hs-identifier hs-type">ReportInstanceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681207496"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681207496"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportInstanceStatus
+</span><a href="#local-6989586621681207497"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:ReportInstanceStatus' :: Maybe ISO8601
 </span><a href="Network.AWS.EC2.ReportInstanceStatus.html#%24sel%3AstartTime%3AReportInstanceStatus%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681172129"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus"><span class="hs-identifier hs-type">ReportInstanceStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+</span><a href="#local-6989586621681207496"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus"><span class="hs-identifier hs-type">ReportInstanceStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
  -&gt; ReportInstanceStatus -&gt; f ReportInstanceStatus)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
@@ -317,10 +294,10 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-179"></span><span>
-</span><span id="line-180"></span><span class="hs-comment">-- | The time at which the reported instance health state ended.</span><span>
-</span><span id="line-181"></span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#reportInstanceStatus_endTime"><span class="hs-identifier hs-type">reportInstanceStatus_endTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus"><span class="hs-identifier hs-type">ReportInstanceStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-182"></span><span id="reportInstanceStatus_endTime"><span class="annot"><span class="annottext">reportInstanceStatus_endTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | The time at which the reported instance health state ended.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#reportInstanceStatus_endTime"><span class="hs-identifier hs-type">reportInstanceStatus_endTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus"><span class="hs-identifier hs-type">ReportInstanceStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="reportInstanceStatus_endTime"><span class="annot"><span class="annottext">reportInstanceStatus_endTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; ReportInstanceStatus -&gt; f ReportInstanceStatus
 </span><a href="Network.AWS.EC2.ReportInstanceStatus.html#reportInstanceStatus_endTime"><span class="hs-identifier hs-var hs-var">reportInstanceStatus_endTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReportInstanceStatus -&gt; Maybe ISO8601)
 -&gt; (ReportInstanceStatus -&gt; Maybe ISO8601 -&gt; ReportInstanceStatus)
@@ -330,16 +307,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe ISO8601)
      (Maybe ISO8601)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus%27"><span class="hs-identifier hs-type">ReportInstanceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681172125"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus%27"><span class="hs-identifier hs-type">ReportInstanceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681207492"><span class="annot"><span class="annottext">Maybe ISO8601
 endTime :: Maybe ISO8601
 $sel:endTime:ReportInstanceStatus' :: ReportInstanceStatus -&gt; Maybe ISO8601
-</span><a href="#local-6989586621681172125"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681172125"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681172124"><span class="annot"><span class="annottext">s :: ReportInstanceStatus
-</span><a href="#local-6989586621681172124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus%27"><span class="hs-identifier hs-type">ReportInstanceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681172123"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681172123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportInstanceStatus
-</span><a href="#local-6989586621681172124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:ReportInstanceStatus' :: Maybe ISO8601
+</span><a href="#local-6989586621681207492"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681207492"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681207491"><span class="annot"><span class="annottext">s :: ReportInstanceStatus
+</span><a href="#local-6989586621681207491"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus%27"><span class="hs-identifier hs-type">ReportInstanceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681207490"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681207490"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportInstanceStatus
+</span><a href="#local-6989586621681207491"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:ReportInstanceStatus' :: Maybe ISO8601
 </span><a href="Network.AWS.EC2.ReportInstanceStatus.html#%24sel%3AendTime%3AReportInstanceStatus%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681172123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus"><span class="hs-identifier hs-type">ReportInstanceStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+</span><a href="#local-6989586621681207490"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus"><span class="hs-identifier hs-type">ReportInstanceStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
  -&gt; ReportInstanceStatus -&gt; f ReportInstanceStatus)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
@@ -356,26 +333,49 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-183"></span><span>
-</span><span id="line-184"></span><span class="hs-comment">-- | Descriptive text about the health state of your instance.</span><span>
-</span><span id="line-185"></span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#reportInstanceStatus_description"><span class="hs-identifier hs-type">reportInstanceStatus_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus"><span class="hs-identifier hs-type">ReportInstanceStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-186"></span><span id="reportInstanceStatus_description"><span class="annot"><span class="annottext">reportInstanceStatus_description :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | Descriptive text about the health state of your instance.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#reportInstanceStatus_description"><span class="hs-identifier hs-type">reportInstanceStatus_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus"><span class="hs-identifier hs-type">ReportInstanceStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span id="reportInstanceStatus_description"><span class="annot"><span class="annottext">reportInstanceStatus_description :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ReportInstanceStatus -&gt; f ReportInstanceStatus
 </span><a href="Network.AWS.EC2.ReportInstanceStatus.html#reportInstanceStatus_description"><span class="hs-identifier hs-var hs-var">reportInstanceStatus_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReportInstanceStatus -&gt; Maybe Text)
 -&gt; (ReportInstanceStatus -&gt; Maybe Text -&gt; ReportInstanceStatus)
 -&gt; Lens
      ReportInstanceStatus ReportInstanceStatus (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus%27"><span class="hs-identifier hs-type">ReportInstanceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681172122"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus%27"><span class="hs-identifier hs-type">ReportInstanceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681207489"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:ReportInstanceStatus' :: ReportInstanceStatus -&gt; Maybe Text
-</span><a href="#local-6989586621681172122"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681172122"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681172121"><span class="annot"><span class="annottext">s :: ReportInstanceStatus
-</span><a href="#local-6989586621681172121"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus%27"><span class="hs-identifier hs-type">ReportInstanceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681172120"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681172120"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportInstanceStatus
-</span><a href="#local-6989586621681172121"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ReportInstanceStatus' :: Maybe Text
+</span><a href="#local-6989586621681207489"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681207489"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681207488"><span class="annot"><span class="annottext">s :: ReportInstanceStatus
+</span><a href="#local-6989586621681207488"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus%27"><span class="hs-identifier hs-type">ReportInstanceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681207487"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681207487"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportInstanceStatus
+</span><a href="#local-6989586621681207488"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ReportInstanceStatus' :: Maybe Text
 </span><a href="Network.AWS.EC2.ReportInstanceStatus.html#%24sel%3Adescription%3AReportInstanceStatus%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681172120"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus"><span class="hs-identifier hs-type">ReportInstanceStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681207487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus"><span class="hs-identifier hs-type">ReportInstanceStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#reportInstanceStatus_dryRun"><span class="hs-identifier hs-type">reportInstanceStatus_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus"><span class="hs-identifier hs-type">ReportInstanceStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span id="reportInstanceStatus_dryRun"><span class="annot"><span class="annottext">reportInstanceStatus_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ReportInstanceStatus -&gt; f ReportInstanceStatus
+</span><a href="Network.AWS.EC2.ReportInstanceStatus.html#reportInstanceStatus_dryRun"><span class="hs-identifier hs-var hs-var">reportInstanceStatus_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReportInstanceStatus -&gt; Maybe Bool)
+-&gt; (ReportInstanceStatus -&gt; Maybe Bool -&gt; ReportInstanceStatus)
+-&gt; Lens
+     ReportInstanceStatus ReportInstanceStatus (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus%27"><span class="hs-identifier hs-type">ReportInstanceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681207486"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:ReportInstanceStatus' :: ReportInstanceStatus -&gt; Maybe Bool
+</span><a href="#local-6989586621681207486"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681207486"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681207485"><span class="annot"><span class="annottext">s :: ReportInstanceStatus
+</span><a href="#local-6989586621681207485"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus%27"><span class="hs-identifier hs-type">ReportInstanceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681207484"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681207484"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportInstanceStatus
+</span><a href="#local-6989586621681207485"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:ReportInstanceStatus' :: Maybe Bool
+</span><a href="Network.AWS.EC2.ReportInstanceStatus.html#%24sel%3AdryRun%3AReportInstanceStatus%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681207484"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus"><span class="hs-identifier hs-type">ReportInstanceStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- | The instances.</span><span>
 </span><span id="line-189"></span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#reportInstanceStatus_instances"><span class="hs-identifier hs-type">reportInstanceStatus_instances</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus"><span class="hs-identifier hs-type">ReportInstanceStatus</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
@@ -385,16 +385,16 @@ $sel:description:ReportInstanceStatus' :: ReportInstanceStatus -&gt; Maybe Text
 -&gt; (ReportInstanceStatus -&gt; [Text] -&gt; ReportInstanceStatus)
 -&gt; Lens ReportInstanceStatus ReportInstanceStatus [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus%27"><span class="hs-identifier hs-type">ReportInstanceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681172119"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus%27"><span class="hs-identifier hs-type">ReportInstanceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681207483"><span class="annot"><span class="annottext">[Text]
 instances :: [Text]
 $sel:instances:ReportInstanceStatus' :: ReportInstanceStatus -&gt; [Text]
-</span><a href="#local-6989586621681172119"><span class="hs-identifier hs-var hs-var">instances</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621681172119"><span class="hs-identifier hs-var">instances</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681172118"><span class="annot"><span class="annottext">s :: ReportInstanceStatus
-</span><a href="#local-6989586621681172118"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus%27"><span class="hs-identifier hs-type">ReportInstanceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681172117"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621681172117"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportInstanceStatus
-</span><a href="#local-6989586621681172118"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instances:ReportInstanceStatus' :: [Text]
+</span><a href="#local-6989586621681207483"><span class="hs-identifier hs-var hs-var">instances</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621681207483"><span class="hs-identifier hs-var">instances</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681207482"><span class="annot"><span class="annottext">s :: ReportInstanceStatus
+</span><a href="#local-6989586621681207482"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus%27"><span class="hs-identifier hs-type">ReportInstanceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681207481"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621681207481"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportInstanceStatus
+</span><a href="#local-6989586621681207482"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instances:ReportInstanceStatus' :: [Text]
 </span><a href="Network.AWS.EC2.ReportInstanceStatus.html#%24sel%3Ainstances%3AReportInstanceStatus%27"><span class="hs-identifier hs-var">instances</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621681172117"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus"><span class="hs-identifier hs-type">ReportInstanceStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621681207481"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus"><span class="hs-identifier hs-type">ReportInstanceStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; ReportInstanceStatus -&gt; f ReportInstanceStatus)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
@@ -402,8 +402,8 @@ $sel:instances:ReportInstanceStatus' :: ReportInstanceStatus -&gt; [Text]
 -&gt; f ReportInstanceStatus
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-191"></span><span>
 </span><span id="line-192"></span><span class="hs-comment">-- | The reason codes that describe the health state of your instance.</span><span>
 </span><span id="line-193"></span><span class="hs-comment">--</span><span>
@@ -443,16 +443,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      [ReportInstanceReasonCodes]
      [ReportInstanceReasonCodes]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus%27"><span class="hs-identifier hs-type">ReportInstanceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681172115"><span class="annot"><span class="annottext">[ReportInstanceReasonCodes]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus%27"><span class="hs-identifier hs-type">ReportInstanceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681207479"><span class="annot"><span class="annottext">[ReportInstanceReasonCodes]
 reasonCodes :: [ReportInstanceReasonCodes]
 $sel:reasonCodes:ReportInstanceStatus' :: ReportInstanceStatus -&gt; [ReportInstanceReasonCodes]
-</span><a href="#local-6989586621681172115"><span class="hs-identifier hs-var hs-var">reasonCodes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ReportInstanceReasonCodes]
-</span><a href="#local-6989586621681172115"><span class="hs-identifier hs-var">reasonCodes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681172114"><span class="annot"><span class="annottext">s :: ReportInstanceStatus
-</span><a href="#local-6989586621681172114"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus%27"><span class="hs-identifier hs-type">ReportInstanceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681172113"><span class="annot"><span class="annottext">[ReportInstanceReasonCodes]
-</span><a href="#local-6989586621681172113"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportInstanceStatus
-</span><a href="#local-6989586621681172114"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reasonCodes:ReportInstanceStatus' :: [ReportInstanceReasonCodes]
+</span><a href="#local-6989586621681207479"><span class="hs-identifier hs-var hs-var">reasonCodes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ReportInstanceReasonCodes]
+</span><a href="#local-6989586621681207479"><span class="hs-identifier hs-var">reasonCodes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681207478"><span class="annot"><span class="annottext">s :: ReportInstanceStatus
+</span><a href="#local-6989586621681207478"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus%27"><span class="hs-identifier hs-type">ReportInstanceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681207477"><span class="annot"><span class="annottext">[ReportInstanceReasonCodes]
+</span><a href="#local-6989586621681207477"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportInstanceStatus
+</span><a href="#local-6989586621681207478"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reasonCodes:ReportInstanceStatus' :: [ReportInstanceReasonCodes]
 </span><a href="Network.AWS.EC2.ReportInstanceStatus.html#%24sel%3AreasonCodes%3AReportInstanceStatus%27"><span class="hs-identifier hs-var">reasonCodes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ReportInstanceReasonCodes]
-</span><a href="#local-6989586621681172113"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus"><span class="hs-identifier hs-type">ReportInstanceStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ReportInstanceReasonCodes] -&gt; f [ReportInstanceReasonCodes])
+</span><a href="#local-6989586621681207477"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus"><span class="hs-identifier hs-type">ReportInstanceStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ReportInstanceReasonCodes] -&gt; f [ReportInstanceReasonCodes])
  -&gt; ReportInstanceStatus -&gt; f ReportInstanceStatus)
 -&gt; (([ReportInstanceReasonCodes] -&gt; f [ReportInstanceReasonCodes])
     -&gt; [ReportInstanceReasonCodes] -&gt; f [ReportInstanceReasonCodes])
@@ -462,8 +462,8 @@ $sel:reasonCodes:ReportInstanceStatus' :: ReportInstanceStatus -&gt; [ReportInst
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([ReportInstanceReasonCodes] -&gt; f [ReportInstanceReasonCodes])
 -&gt; [ReportInstanceReasonCodes] -&gt; f [ReportInstanceReasonCodes]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-220"></span><span>
 </span><span id="line-221"></span><span class="hs-comment">-- | The status of all instances listed.</span><span>
 </span><span id="line-222"></span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#reportInstanceStatus_status"><span class="hs-identifier hs-type">reportInstanceStatus_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus"><span class="hs-identifier hs-type">ReportInstanceStatus</span></a></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReportStatusType.html#ReportStatusType"><span class="hs-identifier hs-type">ReportStatusType</span></a></span><span>
@@ -478,27 +478,27 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      ReportStatusType
      ReportStatusType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus%27"><span class="hs-identifier hs-type">ReportInstanceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681172112"><span class="annot"><span class="annottext">ReportStatusType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus%27"><span class="hs-identifier hs-type">ReportInstanceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681207476"><span class="annot"><span class="annottext">ReportStatusType
 status :: ReportStatusType
 $sel:status:ReportInstanceStatus' :: ReportInstanceStatus -&gt; ReportStatusType
-</span><a href="#local-6989586621681172112"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportStatusType
-</span><a href="#local-6989586621681172112"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681172111"><span class="annot"><span class="annottext">s :: ReportInstanceStatus
-</span><a href="#local-6989586621681172111"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus%27"><span class="hs-identifier hs-type">ReportInstanceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681172110"><span class="annot"><span class="annottext">ReportStatusType
-</span><a href="#local-6989586621681172110"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportInstanceStatus
-</span><a href="#local-6989586621681172111"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ReportInstanceStatus' :: ReportStatusType
+</span><a href="#local-6989586621681207476"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportStatusType
+</span><a href="#local-6989586621681207476"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681207475"><span class="annot"><span class="annottext">s :: ReportInstanceStatus
+</span><a href="#local-6989586621681207475"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus%27"><span class="hs-identifier hs-type">ReportInstanceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681207474"><span class="annot"><span class="annottext">ReportStatusType
+</span><a href="#local-6989586621681207474"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportInstanceStatus
+</span><a href="#local-6989586621681207475"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ReportInstanceStatus' :: ReportStatusType
 </span><a href="Network.AWS.EC2.ReportInstanceStatus.html#%24sel%3Astatus%3AReportInstanceStatus%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ReportStatusType
-</span><a href="#local-6989586621681172110"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus"><span class="hs-identifier hs-type">ReportInstanceStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681207474"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus"><span class="hs-identifier hs-type">ReportInstanceStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-224"></span><span>
 </span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus"><span class="hs-identifier hs-type">ReportInstanceStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-226"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-227"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus"><span class="hs-identifier hs-type">ReportInstanceStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-228"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatusResponse"><span class="hs-identifier hs-type">ReportInstanceStatusResponse</span></a></span><span>
-</span><span id="line-229"></span><span>  </span><span id="local-6989586621681172106"><span class="annot"><span class="annottext">request :: ReportInstanceStatus -&gt; Request ReportInstanceStatus
+</span><span id="line-229"></span><span>  </span><span id="local-6989586621681207470"><span class="annot"><span class="annottext">request :: ReportInstanceStatus -&gt; Request ReportInstanceStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ReportInstanceStatus -&gt; Request ReportInstanceStatus
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-230"></span><span>  </span><span id="local-6989586621681172102"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-230"></span><span>  </span><span id="local-6989586621681207466"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ReportInstanceStatus
 -&gt; ClientResponse ClientBody
@@ -524,12 +524,12 @@ AWSResponse a
 ReportInstanceStatusResponse
 </span><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatusResponse%27"><span class="hs-identifier hs-var">ReportInstanceStatusResponse'</span></a></span><span>
 </span><span id="line-232"></span><span>
-</span><span id="line-233"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681172095"><span id="local-6989586621681172097"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus"><span class="hs-identifier hs-type">ReportInstanceStatus</span></a></span></span></span><span>
+</span><span id="line-233"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681207459"><span id="local-6989586621681207461"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus"><span class="hs-identifier hs-type">ReportInstanceStatus</span></a></span></span></span><span>
 </span><span id="line-234"></span><span>
-</span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681172092"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus"><span class="hs-identifier hs-type">ReportInstanceStatus</span></a></span></span><span>
+</span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681207456"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus"><span class="hs-identifier hs-type">ReportInstanceStatus</span></a></span></span><span>
 </span><span id="line-236"></span><span>
 </span><span id="line-237"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus"><span class="hs-identifier hs-type">ReportInstanceStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-238"></span><span>  </span><span id="local-6989586621681172088"><span class="annot"><span class="annottext">toHeaders :: ReportInstanceStatus -&gt; [Header]
+</span><span id="line-238"></span><span>  </span><span id="local-6989586621681207452"><span class="annot"><span class="annottext">toHeaders :: ReportInstanceStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; ReportInstanceStatus -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -537,15 +537,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-239"></span><span>
 </span><span id="line-240"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus"><span class="hs-identifier hs-type">ReportInstanceStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-241"></span><span>  </span><span id="local-6989586621681172083"><span class="annot"><span class="annottext">toPath :: ReportInstanceStatus -&gt; ByteString
+</span><span id="line-241"></span><span>  </span><span id="local-6989586621681207447"><span class="annot"><span class="annottext">toPath :: ReportInstanceStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ReportInstanceStatus -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-242"></span><span>
 </span><span id="line-243"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus"><span class="hs-identifier hs-type">ReportInstanceStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-244"></span><span>  </span><span id="local-6989586621681172079"><span class="annot"><span class="annottext">toQuery :: ReportInstanceStatus -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus%27"><span class="hs-identifier hs-type">ReportInstanceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681172071"><span id="local-6989586621681172072"><span id="local-6989586621681172073"><span id="local-6989586621681172074"><span id="local-6989586621681172075"><span id="local-6989586621681172076"><span id="local-6989586621681172077"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-244"></span><span>  </span><span id="local-6989586621681207443"><span class="annot"><span class="annottext">toQuery :: ReportInstanceStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatus%27"><span class="hs-identifier hs-type">ReportInstanceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681207435"><span id="local-6989586621681207436"><span id="local-6989586621681207437"><span id="local-6989586621681207438"><span id="local-6989586621681207439"><span id="local-6989586621681207440"><span id="local-6989586621681207441"><span class="annot"><span class="annottext">[Text]
 [ReportInstanceReasonCodes]
 Maybe Bool
 Maybe Text
@@ -554,18 +554,18 @@ ReportStatusType
 status :: ReportStatusType
 reasonCodes :: [ReportInstanceReasonCodes]
 instances :: [Text]
+dryRun :: Maybe Bool
 description :: Maybe Text
 endTime :: Maybe ISO8601
 startTime :: Maybe ISO8601
-dryRun :: Maybe Bool
 $sel:status:ReportInstanceStatus' :: ReportInstanceStatus -&gt; ReportStatusType
 $sel:reasonCodes:ReportInstanceStatus' :: ReportInstanceStatus -&gt; [ReportInstanceReasonCodes]
 $sel:instances:ReportInstanceStatus' :: ReportInstanceStatus -&gt; [Text]
+$sel:dryRun:ReportInstanceStatus' :: ReportInstanceStatus -&gt; Maybe Bool
 $sel:description:ReportInstanceStatus' :: ReportInstanceStatus -&gt; Maybe Text
 $sel:endTime:ReportInstanceStatus' :: ReportInstanceStatus -&gt; Maybe ISO8601
 $sel:startTime:ReportInstanceStatus' :: ReportInstanceStatus -&gt; Maybe ISO8601
-$sel:dryRun:ReportInstanceStatus' :: ReportInstanceStatus -&gt; Maybe Bool
-</span><a href="#local-6989586621681172071"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681207435"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-245"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -582,51 +582,51 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-250"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681172077"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-251"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;StartTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe ISO8601 -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681172076"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-252"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621681207441"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;EndTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe ISO8601 -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681172075"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-253"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621681207440"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681172074"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681207439"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681207438"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-254"></span><span>        </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
 forall a.
 (IsList a, ToQuery (Item a)) =&gt;
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;InstanceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621681172073"><span class="hs-identifier hs-var">instances</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681207437"><span class="hs-identifier hs-var">instances</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-255"></span><span>        </span><span class="annot"><span class="annottext">ByteString -&gt; [ReportInstanceReasonCodes] -&gt; QueryString
 forall a.
 (IsList a, ToQuery (Item a)) =&gt;
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ReasonCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">[ReportInstanceReasonCodes]
-</span><a href="#local-6989586621681172072"><span class="hs-identifier hs-var">reasonCodes</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681207436"><span class="hs-identifier hs-var">reasonCodes</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-256"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Status&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ReportStatusType -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">ReportStatusType
-</span><a href="#local-6989586621681172071"><span class="hs-identifier hs-var">status</span></a></span><span>
+</span><a href="#local-6989586621681207435"><span class="hs-identifier hs-var">status</span></a></span><span>
 </span><span id="line-257"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-258"></span><span>
 </span><span id="line-259"></span><span class="hs-comment">-- | /See:/ 'newReportInstanceStatusResponse' smart constructor.</span><span>
-</span><span id="line-260"></span><span id="local-6989586621681172067"><span id="local-6989586621681172068"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReportInstanceStatusResponse"><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatusResponse"><span class="hs-identifier hs-var">ReportInstanceStatusResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReportInstanceStatusResponse%27"><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatusResponse%27"><span class="hs-identifier hs-var">ReportInstanceStatusResponse'</span></a></span></span><span>
+</span><span id="line-260"></span><span id="local-6989586621681207431"><span id="local-6989586621681207432"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReportInstanceStatusResponse"><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatusResponse"><span class="hs-identifier hs-var">ReportInstanceStatusResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReportInstanceStatusResponse%27"><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatusResponse%27"><span class="hs-identifier hs-var">ReportInstanceStatusResponse'</span></a></span></span><span>
 </span><span id="line-261"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-262"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-263"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681172063"><span id="local-6989586621681172065"><span class="annot"><span class="annottext">ReportInstanceStatusResponse
+</span><span id="line-263"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681207427"><span id="local-6989586621681207429"><span class="annot"><span class="annottext">ReportInstanceStatusResponse
 -&gt; ReportInstanceStatusResponse -&gt; Bool
 (ReportInstanceStatusResponse
  -&gt; ReportInstanceStatusResponse -&gt; Bool)
@@ -642,7 +642,7 @@ $c/= :: ReportInstanceStatusResponse
 -&gt; ReportInstanceStatusResponse -&gt; Bool
 $c== :: ReportInstanceStatusResponse
 -&gt; ReportInstanceStatusResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681172055"><span id="local-6989586621681172057"><span id="local-6989586621681172059"><span id="local-6989586621681172061"><span class="annot"><span class="annottext">ReadPrec [ReportInstanceStatusResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681207419"><span id="local-6989586621681207421"><span id="local-6989586621681207423"><span id="local-6989586621681207425"><span class="annot"><span class="annottext">ReadPrec [ReportInstanceStatusResponse]
 ReadPrec ReportInstanceStatusResponse
 Int -&gt; ReadS ReportInstanceStatusResponse
 ReadS [ReportInstanceStatusResponse]
@@ -662,7 +662,7 @@ readList :: ReadS [ReportInstanceStatusResponse]
 $creadList :: ReadS [ReportInstanceStatusResponse]
 readsPrec :: Int -&gt; ReadS ReportInstanceStatusResponse
 $creadsPrec :: Int -&gt; ReadS ReportInstanceStatusResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681172049"><span id="local-6989586621681172051"><span id="local-6989586621681172053"><span class="annot"><span class="annottext">Int -&gt; ReportInstanceStatusResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681207413"><span id="local-6989586621681207415"><span id="local-6989586621681207417"><span class="annot"><span class="annottext">Int -&gt; ReportInstanceStatusResponse -&gt; ShowS
 [ReportInstanceStatusResponse] -&gt; ShowS
 ReportInstanceStatusResponse -&gt; String
 (Int -&gt; ReportInstanceStatusResponse -&gt; ShowS)
@@ -705,5 +705,5 @@ ReportInstanceStatusResponse -&gt; Rep ReportInstanceStatusResponse x
 </span><span id="line-272"></span><span>  </span><span class="annot"><span class="annottext">ReportInstanceStatusResponse
 </span><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatusResponse%27"><span class="hs-identifier hs-var">ReportInstanceStatusResponse'</span></a></span><span>
 </span><span id="line-273"></span><span>
-</span><span id="line-274"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681172045"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatusResponse"><span class="hs-identifier hs-type">ReportInstanceStatusResponse</span></a></span></span><span>
+</span><span id="line-274"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681207409"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReportInstanceStatus.html#ReportInstanceStatusResponse"><span class="hs-identifier hs-type">ReportInstanceStatusResponse</span></a></span></span><span>
 </span><span id="line-275"></span></pre></body></html>

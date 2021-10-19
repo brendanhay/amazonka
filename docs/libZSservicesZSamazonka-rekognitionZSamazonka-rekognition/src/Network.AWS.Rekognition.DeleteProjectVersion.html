@@ -55,13 +55,13 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newDeleteProjectVersion' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679346675"><span id="local-6989586621679346676"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteProjectVersion"><span class="annot"><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#DeleteProjectVersion"><span class="hs-identifier hs-var">DeleteProjectVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteProjectVersion%27"><span class="annot"><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#DeleteProjectVersion%27"><span class="hs-identifier hs-var">DeleteProjectVersion'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679347001"><span id="local-6989586621679347002"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteProjectVersion"><span class="annot"><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#DeleteProjectVersion"><span class="hs-identifier hs-var">DeleteProjectVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteProjectVersion%27"><span class="annot"><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#DeleteProjectVersion%27"><span class="hs-identifier hs-var">DeleteProjectVersion'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the model version that you want to</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- delete.</span><span>
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AprojectVersionArn%3ADeleteProjectVersion%27"><span class="annot"><span class="annottext">DeleteProjectVersion -&gt; Text
 </span><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#%24sel%3AprojectVersionArn%3ADeleteProjectVersion%27"><span class="hs-identifier hs-var hs-var">projectVersionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679346669"><span id="local-6989586621679346671"><span class="annot"><span class="annottext">DeleteProjectVersion -&gt; DeleteProjectVersion -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679346995"><span id="local-6989586621679346997"><span class="annot"><span class="annottext">DeleteProjectVersion -&gt; DeleteProjectVersion -&gt; Bool
 (DeleteProjectVersion -&gt; DeleteProjectVersion -&gt; Bool)
 -&gt; (DeleteProjectVersion -&gt; DeleteProjectVersion -&gt; Bool)
 -&gt; Eq DeleteProjectVersion
@@ -70,7 +70,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteProjectVersion -&gt; DeleteProjectVersion -&gt; Bool
 == :: DeleteProjectVersion -&gt; DeleteProjectVersion -&gt; Bool
 $c== :: DeleteProjectVersion -&gt; DeleteProjectVersion -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346660"><span id="local-6989586621679346662"><span id="local-6989586621679346664"><span id="local-6989586621679346666"><span class="annot"><span class="annottext">ReadPrec [DeleteProjectVersion]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346986"><span id="local-6989586621679346988"><span id="local-6989586621679346990"><span id="local-6989586621679346992"><span class="annot"><span class="annottext">ReadPrec [DeleteProjectVersion]
 ReadPrec DeleteProjectVersion
 Int -&gt; ReadS DeleteProjectVersion
 ReadS [DeleteProjectVersion]
@@ -90,7 +90,7 @@ readList :: ReadS [DeleteProjectVersion]
 $creadList :: ReadS [DeleteProjectVersion]
 readsPrec :: Int -&gt; ReadS DeleteProjectVersion
 $creadsPrec :: Int -&gt; ReadS DeleteProjectVersion
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346653"><span id="local-6989586621679346655"><span id="local-6989586621679346657"><span class="annot"><span class="annottext">Int -&gt; DeleteProjectVersion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346979"><span id="local-6989586621679346981"><span id="local-6989586621679346983"><span class="annot"><span class="annottext">Int -&gt; DeleteProjectVersion -&gt; ShowS
 [DeleteProjectVersion] -&gt; ShowS
 DeleteProjectVersion -&gt; String
 (Int -&gt; DeleteProjectVersion -&gt; ShowS)
@@ -131,14 +131,14 @@ $cfrom :: forall x. DeleteProjectVersion -&gt; Rep DeleteProjectVersion x
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#DeleteProjectVersion"><span class="hs-identifier hs-type">DeleteProjectVersion</span></a></span><span>
 </span><span id="line-79"></span><span id="newDeleteProjectVersion"><span class="annot"><span class="annottext">newDeleteProjectVersion :: Text -&gt; DeleteProjectVersion
-</span><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#newDeleteProjectVersion"><span class="hs-identifier hs-var hs-var">newDeleteProjectVersion</span></a></span></span><span> </span><span id="local-6989586621679346648"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346648"><span class="hs-identifier hs-var">pProjectVersionArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#newDeleteProjectVersion"><span class="hs-identifier hs-var hs-var">newDeleteProjectVersion</span></a></span></span><span> </span><span id="local-6989586621679346974"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679346974"><span class="hs-identifier hs-var">pProjectVersionArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">DeleteProjectVersion' :: Text -&gt; DeleteProjectVersion
 </span><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#DeleteProjectVersion%27"><span class="hs-identifier hs-type">DeleteProjectVersion'</span></a></span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:projectVersionArn:DeleteProjectVersion' :: Text
 </span><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#%24sel%3AprojectVersionArn%3ADeleteProjectVersion%27"><span class="hs-identifier hs-var">projectVersionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346648"><span class="hs-identifier hs-var">pProjectVersionArn_</span></a></span><span>
+</span><a href="#local-6989586621679346974"><span class="hs-identifier hs-var">pProjectVersionArn_</span></a></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the model version that you want to</span><span>
@@ -149,27 +149,27 @@ $cfrom :: forall x. DeleteProjectVersion -&gt; Rep DeleteProjectVersion x
 -&gt; (DeleteProjectVersion -&gt; Text -&gt; DeleteProjectVersion)
 -&gt; Lens DeleteProjectVersion DeleteProjectVersion Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#DeleteProjectVersion%27"><span class="hs-identifier hs-type">DeleteProjectVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346645"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#DeleteProjectVersion%27"><span class="hs-identifier hs-type">DeleteProjectVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346971"><span class="annot"><span class="annottext">Text
 projectVersionArn :: Text
 $sel:projectVersionArn:DeleteProjectVersion' :: DeleteProjectVersion -&gt; Text
-</span><a href="#local-6989586621679346645"><span class="hs-identifier hs-var hs-var">projectVersionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346645"><span class="hs-identifier hs-var">projectVersionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346644"><span class="annot"><span class="annottext">s :: DeleteProjectVersion
-</span><a href="#local-6989586621679346644"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#DeleteProjectVersion%27"><span class="hs-identifier hs-type">DeleteProjectVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346643"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346643"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteProjectVersion
-</span><a href="#local-6989586621679346644"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectVersionArn:DeleteProjectVersion' :: Text
+</span><a href="#local-6989586621679346971"><span class="hs-identifier hs-var hs-var">projectVersionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679346971"><span class="hs-identifier hs-var">projectVersionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346970"><span class="annot"><span class="annottext">s :: DeleteProjectVersion
+</span><a href="#local-6989586621679346970"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#DeleteProjectVersion%27"><span class="hs-identifier hs-type">DeleteProjectVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346969"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679346969"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteProjectVersion
+</span><a href="#local-6989586621679346970"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectVersionArn:DeleteProjectVersion' :: Text
 </span><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#%24sel%3AprojectVersionArn%3ADeleteProjectVersion%27"><span class="hs-identifier hs-var">projectVersionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346643"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#DeleteProjectVersion"><span class="hs-identifier hs-type">DeleteProjectVersion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679346969"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#DeleteProjectVersion"><span class="hs-identifier hs-type">DeleteProjectVersion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#DeleteProjectVersion"><span class="hs-identifier hs-type">DeleteProjectVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-91"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-92"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#DeleteProjectVersion"><span class="hs-identifier hs-type">DeleteProjectVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>      </span><span class="annot"><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#DeleteProjectVersionResponse"><span class="hs-identifier hs-type">DeleteProjectVersionResponse</span></a></span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679346639"><span class="annot"><span class="annottext">request :: DeleteProjectVersion -&gt; Request DeleteProjectVersion
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679346965"><span class="annot"><span class="annottext">request :: DeleteProjectVersion -&gt; Request DeleteProjectVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteProjectVersion -&gt; Request DeleteProjectVersion
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Rekognition.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679346635"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679346961"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteProjectVersion
 -&gt; ClientResponse ClientBody
@@ -195,10 +195,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679346632"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679346632"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679346631"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679346631"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679346630"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679346630"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679346958"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679346958"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679346957"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679346957"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679346956"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679346956"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Maybe ProjectVersionStatus -&gt; Int -&gt; DeleteProjectVersionResponse
 </span><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#DeleteProjectVersionResponse%27"><span class="hs-identifier hs-var">DeleteProjectVersionResponse'</span></a></span><span>
 </span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ProjectVersionStatus -&gt; Int -&gt; DeleteProjectVersionResponse)
@@ -206,7 +206,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DeleteProjectVersionResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679346630"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ProjectVersionStatus)
+</span><a href="#local-6989586621679346956"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ProjectVersionStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
@@ -218,15 +218,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679346632"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679346958"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346622"><span id="local-6989586621679346624"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#DeleteProjectVersion"><span class="hs-identifier hs-type">DeleteProjectVersion</span></a></span></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346948"><span id="local-6989586621679346950"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#DeleteProjectVersion"><span class="hs-identifier hs-type">DeleteProjectVersion</span></a></span></span></span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346619"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#DeleteProjectVersion"><span class="hs-identifier hs-type">DeleteProjectVersion</span></a></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346945"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#DeleteProjectVersion"><span class="hs-identifier hs-type">DeleteProjectVersion</span></a></span></span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#DeleteProjectVersion"><span class="hs-identifier hs-type">DeleteProjectVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679346615"><span class="annot"><span class="annottext">toHeaders :: DeleteProjectVersion -&gt; ResponseHeaders
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679346941"><span class="annot"><span class="annottext">toHeaders :: DeleteProjectVersion -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteProjectVersion -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -253,12 +253,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-119"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346605"><span id="local-6989586621679346607"><span id="local-6989586621679346609"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#DeleteProjectVersion"><span class="hs-identifier hs-type">DeleteProjectVersion</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679346603"><span class="annot"><span class="annottext">toJSON :: DeleteProjectVersion -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#DeleteProjectVersion%27"><span class="hs-identifier hs-type">DeleteProjectVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346601"><span class="annot"><span class="annottext">Text
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346931"><span id="local-6989586621679346933"><span id="local-6989586621679346935"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#DeleteProjectVersion"><span class="hs-identifier hs-type">DeleteProjectVersion</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679346929"><span class="annot"><span class="annottext">toJSON :: DeleteProjectVersion -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#DeleteProjectVersion%27"><span class="hs-identifier hs-type">DeleteProjectVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346927"><span class="annot"><span class="annottext">Text
 projectVersionArn :: Text
 $sel:projectVersionArn:DeleteProjectVersion' :: DeleteProjectVersion -&gt; Text
-</span><a href="#local-6989586621679346601"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679346927"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -271,19 +271,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ProjectVersionArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346601"><span class="hs-identifier hs-var">projectVersionArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679346927"><span class="hs-identifier hs-var">projectVersionArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#DeleteProjectVersion"><span class="hs-identifier hs-type">DeleteProjectVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679346595"><span class="annot"><span class="annottext">toPath :: DeleteProjectVersion -&gt; ByteString
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679346921"><span class="annot"><span class="annottext">toPath :: DeleteProjectVersion -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteProjectVersion -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#DeleteProjectVersion"><span class="hs-identifier hs-type">DeleteProjectVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679346591"><span class="annot"><span class="annottext">toQuery :: DeleteProjectVersion -&gt; QueryString
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679346917"><span class="annot"><span class="annottext">toQuery :: DeleteProjectVersion -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteProjectVersion -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -291,7 +291,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- | /See:/ 'newDeleteProjectVersionResponse' smart constructor.</span><span>
-</span><span id="line-138"></span><span id="local-6989586621679346588"><span id="local-6989586621679346589"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteProjectVersionResponse"><span class="annot"><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#DeleteProjectVersionResponse"><span class="hs-identifier hs-var">DeleteProjectVersionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteProjectVersionResponse%27"><span class="annot"><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#DeleteProjectVersionResponse%27"><span class="hs-identifier hs-var">DeleteProjectVersionResponse'</span></a></span></span><span>
+</span><span id="line-138"></span><span id="local-6989586621679346914"><span id="local-6989586621679346915"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteProjectVersionResponse"><span class="annot"><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#DeleteProjectVersionResponse"><span class="hs-identifier hs-var">DeleteProjectVersionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteProjectVersionResponse%27"><span class="annot"><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#DeleteProjectVersionResponse%27"><span class="hs-identifier hs-var">DeleteProjectVersionResponse'</span></a></span></span><span>
 </span><span id="line-139"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the deletion operation.</span><span>
 </span><span id="line-140"></span><span>    </span><span id="%24sel%3Astatus%3ADeleteProjectVersionResponse%27"><span class="annot"><span class="annottext">DeleteProjectVersionResponse -&gt; Maybe ProjectVersionStatus
 </span><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#%24sel%3Astatus%3ADeleteProjectVersionResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ProjectVersionStatus.html#ProjectVersionStatus"><span class="hs-identifier hs-type">ProjectVersionStatus</span></a></span><span class="hs-special">,</span><span>
@@ -299,7 +299,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-142"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteProjectVersionResponse%27"><span class="annot"><span class="annottext">DeleteProjectVersionResponse -&gt; Int
 </span><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#%24sel%3AhttpStatus%3ADeleteProjectVersionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-143"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679346582"><span id="local-6989586621679346584"><span class="annot"><span class="annottext">DeleteProjectVersionResponse
+</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679346908"><span id="local-6989586621679346910"><span class="annot"><span class="annottext">DeleteProjectVersionResponse
 -&gt; DeleteProjectVersionResponse -&gt; Bool
 (DeleteProjectVersionResponse
  -&gt; DeleteProjectVersionResponse -&gt; Bool)
@@ -315,7 +315,7 @@ $c/= :: DeleteProjectVersionResponse
 -&gt; DeleteProjectVersionResponse -&gt; Bool
 $c== :: DeleteProjectVersionResponse
 -&gt; DeleteProjectVersionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346574"><span id="local-6989586621679346576"><span id="local-6989586621679346578"><span id="local-6989586621679346580"><span class="annot"><span class="annottext">ReadPrec [DeleteProjectVersionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346900"><span id="local-6989586621679346902"><span id="local-6989586621679346904"><span id="local-6989586621679346906"><span class="annot"><span class="annottext">ReadPrec [DeleteProjectVersionResponse]
 ReadPrec DeleteProjectVersionResponse
 Int -&gt; ReadS DeleteProjectVersionResponse
 ReadS [DeleteProjectVersionResponse]
@@ -335,7 +335,7 @@ readList :: ReadS [DeleteProjectVersionResponse]
 $creadList :: ReadS [DeleteProjectVersionResponse]
 readsPrec :: Int -&gt; ReadS DeleteProjectVersionResponse
 $creadsPrec :: Int -&gt; ReadS DeleteProjectVersionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346568"><span id="local-6989586621679346570"><span id="local-6989586621679346572"><span class="annot"><span class="annottext">Int -&gt; DeleteProjectVersionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346894"><span id="local-6989586621679346896"><span id="local-6989586621679346898"><span class="annot"><span class="annottext">Int -&gt; DeleteProjectVersionResponse -&gt; ShowS
 [DeleteProjectVersionResponse] -&gt; ShowS
 DeleteProjectVersionResponse -&gt; String
 (Int -&gt; DeleteProjectVersionResponse -&gt; ShowS)
@@ -383,8 +383,8 @@ DeleteProjectVersionResponse -&gt; Rep DeleteProjectVersionResponse x
 </span><span id="line-159"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-160"></span><span>  </span><span class="annot"><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#DeleteProjectVersionResponse"><span class="hs-identifier hs-type">DeleteProjectVersionResponse</span></a></span><span>
 </span><span id="line-161"></span><span id="newDeleteProjectVersionResponse"><span class="annot"><span class="annottext">newDeleteProjectVersionResponse :: Int -&gt; DeleteProjectVersionResponse
-</span><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#newDeleteProjectVersionResponse"><span class="hs-identifier hs-var hs-var">newDeleteProjectVersionResponse</span></a></span></span><span> </span><span id="local-6989586621679346565"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679346565"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#newDeleteProjectVersionResponse"><span class="hs-identifier hs-var hs-var">newDeleteProjectVersionResponse</span></a></span></span><span> </span><span id="local-6989586621679346891"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679346891"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-162"></span><span>  </span><span class="annot"><span class="annottext">DeleteProjectVersionResponse' :: Maybe ProjectVersionStatus -&gt; Int -&gt; DeleteProjectVersionResponse
 </span><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#DeleteProjectVersionResponse%27"><span class="hs-identifier hs-type">DeleteProjectVersionResponse'</span></a></span><span>
 </span><span id="line-163"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:DeleteProjectVersionResponse' :: Maybe ProjectVersionStatus
@@ -394,7 +394,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteProjectVersionResponse' :: Int
 </span><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#%24sel%3AhttpStatus%3ADeleteProjectVersionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679346565"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679346891"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-166"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- | The status of the deletion operation.</span><span>
@@ -410,16 +410,16 @@ forall a. Maybe a
      (Maybe ProjectVersionStatus)
      (Maybe ProjectVersionStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#DeleteProjectVersionResponse%27"><span class="hs-identifier hs-type">DeleteProjectVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346564"><span class="annot"><span class="annottext">Maybe ProjectVersionStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#DeleteProjectVersionResponse%27"><span class="hs-identifier hs-type">DeleteProjectVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346890"><span class="annot"><span class="annottext">Maybe ProjectVersionStatus
 status :: Maybe ProjectVersionStatus
 $sel:status:DeleteProjectVersionResponse' :: DeleteProjectVersionResponse -&gt; Maybe ProjectVersionStatus
-</span><a href="#local-6989586621679346564"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProjectVersionStatus
-</span><a href="#local-6989586621679346564"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346563"><span class="annot"><span class="annottext">s :: DeleteProjectVersionResponse
-</span><a href="#local-6989586621679346563"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#DeleteProjectVersionResponse%27"><span class="hs-identifier hs-type">DeleteProjectVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346562"><span class="annot"><span class="annottext">Maybe ProjectVersionStatus
-</span><a href="#local-6989586621679346562"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteProjectVersionResponse
-</span><a href="#local-6989586621679346563"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:DeleteProjectVersionResponse' :: Maybe ProjectVersionStatus
+</span><a href="#local-6989586621679346890"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProjectVersionStatus
+</span><a href="#local-6989586621679346890"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346889"><span class="annot"><span class="annottext">s :: DeleteProjectVersionResponse
+</span><a href="#local-6989586621679346889"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#DeleteProjectVersionResponse%27"><span class="hs-identifier hs-type">DeleteProjectVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346888"><span class="annot"><span class="annottext">Maybe ProjectVersionStatus
+</span><a href="#local-6989586621679346888"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteProjectVersionResponse
+</span><a href="#local-6989586621679346889"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:DeleteProjectVersionResponse' :: Maybe ProjectVersionStatus
 </span><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#%24sel%3Astatus%3ADeleteProjectVersionResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProjectVersionStatus
-</span><a href="#local-6989586621679346562"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#DeleteProjectVersionResponse"><span class="hs-identifier hs-type">DeleteProjectVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679346888"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#DeleteProjectVersionResponse"><span class="hs-identifier hs-type">DeleteProjectVersionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-173"></span><span class="annot"><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#deleteProjectVersionResponse_httpStatus"><span class="hs-identifier hs-type">deleteProjectVersionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#DeleteProjectVersionResponse"><span class="hs-identifier hs-type">DeleteProjectVersionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -431,16 +431,16 @@ $sel:status:DeleteProjectVersionResponse' :: DeleteProjectVersionResponse -&gt; 
 -&gt; Lens
      DeleteProjectVersionResponse DeleteProjectVersionResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#DeleteProjectVersionResponse%27"><span class="hs-identifier hs-type">DeleteProjectVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346561"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#DeleteProjectVersionResponse%27"><span class="hs-identifier hs-type">DeleteProjectVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346887"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteProjectVersionResponse' :: DeleteProjectVersionResponse -&gt; Int
-</span><a href="#local-6989586621679346561"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679346561"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346560"><span class="annot"><span class="annottext">s :: DeleteProjectVersionResponse
-</span><a href="#local-6989586621679346560"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#DeleteProjectVersionResponse%27"><span class="hs-identifier hs-type">DeleteProjectVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346559"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679346559"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteProjectVersionResponse
-</span><a href="#local-6989586621679346560"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteProjectVersionResponse' :: Int
+</span><a href="#local-6989586621679346887"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679346887"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346886"><span class="annot"><span class="annottext">s :: DeleteProjectVersionResponse
+</span><a href="#local-6989586621679346886"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#DeleteProjectVersionResponse%27"><span class="hs-identifier hs-type">DeleteProjectVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346885"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679346885"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteProjectVersionResponse
+</span><a href="#local-6989586621679346886"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteProjectVersionResponse' :: Int
 </span><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#%24sel%3AhttpStatus%3ADeleteProjectVersionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679346559"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#DeleteProjectVersionResponse"><span class="hs-identifier hs-type">DeleteProjectVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679346885"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#DeleteProjectVersionResponse"><span class="hs-identifier hs-type">DeleteProjectVersionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
-</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346557"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#DeleteProjectVersionResponse"><span class="hs-identifier hs-type">DeleteProjectVersionResponse</span></a></span></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346883"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.DeleteProjectVersion.html#DeleteProjectVersionResponse"><span class="hs-identifier hs-type">DeleteProjectVersionResponse</span></a></span></span><span>
 </span><span id="line-177"></span></pre></body></html>

@@ -29,16 +29,16 @@
 </span><span id="line-29"></span><span class="hs-comment">-- This data type is used as a member of the @ Statement @ type.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newPosition' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679428509"><span id="local-6989586621679428510"></span></span><span class="hs-keyword">data</span><span> </span><span id="Position"><span class="annot"><a href="Network.AWS.IAM.Types.Position.html#Position"><span class="hs-identifier hs-var">Position</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Position%27"><span class="annot"><a href="Network.AWS.IAM.Types.Position.html#Position%27"><span class="hs-identifier hs-var">Position'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The column in the line containing the specified position in the</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- document.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Acolumn%3APosition%27"><span class="annot"><span class="annottext">Position -&gt; Maybe Int
-</span><a href="Network.AWS.IAM.Types.Position.html#%24sel%3Acolumn%3APosition%27"><span class="hs-identifier hs-var hs-var">column</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The line containing the specified position in the document.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aline%3APosition%27"><span class="annot"><span class="annottext">Position -&gt; Maybe Int
-</span><a href="Network.AWS.IAM.Types.Position.html#%24sel%3Aline%3APosition%27"><span class="hs-identifier hs-var hs-var">line</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679429019"><span id="local-6989586621679429020"></span></span><span class="hs-keyword">data</span><span> </span><span id="Position"><span class="annot"><a href="Network.AWS.IAM.Types.Position.html#Position"><span class="hs-identifier hs-var">Position</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Position%27"><span class="annot"><a href="Network.AWS.IAM.Types.Position.html#Position%27"><span class="hs-identifier hs-var">Position'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The line containing the specified position in the document.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Aline%3APosition%27"><span class="annot"><span class="annottext">Position -&gt; Maybe Int
+</span><a href="Network.AWS.IAM.Types.Position.html#%24sel%3Aline%3APosition%27"><span class="hs-identifier hs-var hs-var">line</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The column in the line containing the specified position in the</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- document.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Acolumn%3APosition%27"><span class="annot"><span class="annottext">Position -&gt; Maybe Int
+</span><a href="Network.AWS.IAM.Types.Position.html#%24sel%3Acolumn%3APosition%27"><span class="hs-identifier hs-var hs-var">column</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679428502"><span id="local-6989586621679428504"><span class="annot"><span class="annottext">Position -&gt; Position -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679429012"><span id="local-6989586621679429014"><span class="annot"><span class="annottext">Position -&gt; Position -&gt; Bool
 (Position -&gt; Position -&gt; Bool)
 -&gt; (Position -&gt; Position -&gt; Bool) -&gt; Eq Position
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Position -&gt; Position -&gt; Bool
 == :: Position -&gt; Position -&gt; Bool
 $c== :: Position -&gt; Position -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679428493"><span id="local-6989586621679428495"><span id="local-6989586621679428497"><span id="local-6989586621679428499"><span class="annot"><span class="annottext">ReadPrec [Position]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679429003"><span id="local-6989586621679429005"><span id="local-6989586621679429007"><span id="local-6989586621679429009"><span class="annot"><span class="annottext">ReadPrec [Position]
 ReadPrec Position
 Int -&gt; ReadS Position
 ReadS [Position]
@@ -66,7 +66,7 @@ readList :: ReadS [Position]
 $creadList :: ReadS [Position]
 readsPrec :: Int -&gt; ReadS Position
 $creadsPrec :: Int -&gt; ReadS Position
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679428486"><span id="local-6989586621679428488"><span id="local-6989586621679428490"><span class="annot"><span class="annottext">Int -&gt; Position -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679428996"><span id="local-6989586621679428998"><span id="local-6989586621679429000"><span class="annot"><span class="annottext">Int -&gt; Position -&gt; ShowS
 [Position] -&gt; ShowS
 Position -&gt; String
 (Int -&gt; Position -&gt; ShowS)
@@ -97,67 +97,67 @@ $cfrom :: forall x. Position -&gt; Rep Position x
 </span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'column', 'position_column' - The column in the line containing the specified position in the</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- document.</span><span>
-</span><span id="line-51"></span><span class="hs-comment">--</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- 'line', 'position_line' - The line containing the specified position in the document.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'line', 'position_line' - The line containing the specified position in the document.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'column', 'position_column' - The column in the line containing the specified position in the</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- document.</span><span>
 </span><span id="line-53"></span><span class="annot"><a href="Network.AWS.IAM.Types.Position.html#newPosition"><span class="hs-identifier hs-type">newPosition</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.Types.Position.html#Position"><span class="hs-identifier hs-type">Position</span></a></span><span>
 </span><span id="line-55"></span><span id="newPosition"><span class="annot"><span class="annottext">newPosition :: Position
 </span><a href="Network.AWS.IAM.Types.Position.html#newPosition"><span class="hs-identifier hs-var hs-var">newPosition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">Position' :: Maybe Int -&gt; Maybe Int -&gt; Position
 </span><a href="Network.AWS.IAM.Types.Position.html#Position%27"><span class="hs-identifier hs-type">Position'</span></a></span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:column:Position' :: Maybe Int
-</span><a href="Network.AWS.IAM.Types.Position.html#%24sel%3Acolumn%3APosition%27"><span class="hs-identifier hs-var">column</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:line:Position' :: Maybe Int
+</span><a href="Network.AWS.IAM.Types.Position.html#%24sel%3Aline%3APosition%27"><span class="hs-identifier hs-var">line</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:line:Position' :: Maybe Int
-</span><a href="Network.AWS.IAM.Types.Position.html#%24sel%3Aline%3APosition%27"><span class="hs-identifier hs-var">line</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:column:Position' :: Maybe Int
+</span><a href="Network.AWS.IAM.Types.Position.html#%24sel%3Acolumn%3APosition%27"><span class="hs-identifier hs-var">column</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- | The column in the line containing the specified position in the</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- document.</span><span>
-</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.IAM.Types.Position.html#position_column"><span class="hs-identifier hs-type">position_column</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Position.html#Position"><span class="hs-identifier hs-type">Position</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-64"></span><span id="position_column"><span class="annot"><span class="annottext">position_column :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Position -&gt; f Position
-</span><a href="Network.AWS.IAM.Types.Position.html#position_column"><span class="hs-identifier hs-var hs-var">position_column</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Position -&gt; Maybe Int)
--&gt; (Position -&gt; Maybe Int -&gt; Position)
--&gt; Lens Position Position (Maybe Int) (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.Position.html#Position%27"><span class="hs-identifier hs-type">Position'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679428477"><span class="annot"><span class="annottext">Maybe Int
-column :: Maybe Int
-$sel:column:Position' :: Position -&gt; Maybe Int
-</span><a href="#local-6989586621679428477"><span class="hs-identifier hs-var hs-var">column</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679428477"><span class="hs-identifier hs-var">column</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679428476"><span class="annot"><span class="annottext">s :: Position
-</span><a href="#local-6989586621679428476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.Position.html#Position%27"><span class="hs-identifier hs-type">Position'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679428475"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679428475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Position
-</span><a href="#local-6989586621679428476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:column:Position' :: Maybe Int
-</span><a href="Network.AWS.IAM.Types.Position.html#%24sel%3Acolumn%3APosition%27"><span class="hs-identifier hs-var">column</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679428475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Position.html#Position"><span class="hs-identifier hs-type">Position</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- | The line containing the specified position in the document.</span><span>
-</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.IAM.Types.Position.html#position_line"><span class="hs-identifier hs-type">position_line</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Position.html#Position"><span class="hs-identifier hs-type">Position</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-68"></span><span id="position_line"><span class="annot"><span class="annottext">position_line :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Position -&gt; f Position
+</span><span id="line-61"></span><span class="hs-comment">-- | The line containing the specified position in the document.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.IAM.Types.Position.html#position_line"><span class="hs-identifier hs-type">position_line</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Position.html#Position"><span class="hs-identifier hs-type">Position</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="position_line"><span class="annot"><span class="annottext">position_line :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Position -&gt; f Position
 </span><a href="Network.AWS.IAM.Types.Position.html#position_line"><span class="hs-identifier hs-var hs-var">position_line</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Position -&gt; Maybe Int)
 -&gt; (Position -&gt; Maybe Int -&gt; Position)
 -&gt; Lens Position Position (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.Position.html#Position%27"><span class="hs-identifier hs-type">Position'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679428473"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.Position.html#Position%27"><span class="hs-identifier hs-type">Position'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679428987"><span class="annot"><span class="annottext">Maybe Int
 line :: Maybe Int
 $sel:line:Position' :: Position -&gt; Maybe Int
-</span><a href="#local-6989586621679428473"><span class="hs-identifier hs-var hs-var">line</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679428473"><span class="hs-identifier hs-var">line</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679428472"><span class="annot"><span class="annottext">s :: Position
-</span><a href="#local-6989586621679428472"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.Position.html#Position%27"><span class="hs-identifier hs-type">Position'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679428471"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679428471"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Position
-</span><a href="#local-6989586621679428472"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:line:Position' :: Maybe Int
+</span><a href="#local-6989586621679428987"><span class="hs-identifier hs-var hs-var">line</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679428987"><span class="hs-identifier hs-var">line</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679428986"><span class="annot"><span class="annottext">s :: Position
+</span><a href="#local-6989586621679428986"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.Position.html#Position%27"><span class="hs-identifier hs-type">Position'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679428985"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679428985"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Position
+</span><a href="#local-6989586621679428986"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:line:Position' :: Maybe Int
 </span><a href="Network.AWS.IAM.Types.Position.html#%24sel%3Aline%3APosition%27"><span class="hs-identifier hs-var">line</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679428471"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Position.html#Position"><span class="hs-identifier hs-type">Position</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679428985"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Position.html#Position"><span class="hs-identifier hs-type">Position</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | The column in the line containing the specified position in the</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- document.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.IAM.Types.Position.html#position_column"><span class="hs-identifier hs-type">position_column</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Position.html#Position"><span class="hs-identifier hs-type">Position</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="position_column"><span class="annot"><span class="annottext">position_column :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Position -&gt; f Position
+</span><a href="Network.AWS.IAM.Types.Position.html#position_column"><span class="hs-identifier hs-var hs-var">position_column</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Position -&gt; Maybe Int)
+-&gt; (Position -&gt; Maybe Int -&gt; Position)
+-&gt; Lens Position Position (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.Position.html#Position%27"><span class="hs-identifier hs-type">Position'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679428983"><span class="annot"><span class="annottext">Maybe Int
+column :: Maybe Int
+$sel:column:Position' :: Position -&gt; Maybe Int
+</span><a href="#local-6989586621679428983"><span class="hs-identifier hs-var hs-var">column</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679428983"><span class="hs-identifier hs-var">column</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679428982"><span class="annot"><span class="annottext">s :: Position
+</span><a href="#local-6989586621679428982"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.Position.html#Position%27"><span class="hs-identifier hs-type">Position'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679428981"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679428981"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Position
+</span><a href="#local-6989586621679428982"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:column:Position' :: Maybe Int
+</span><a href="Network.AWS.IAM.Types.Position.html#%24sel%3Acolumn%3APosition%27"><span class="hs-identifier hs-var">column</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679428981"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Position.html#Position"><span class="hs-identifier hs-type">Position</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Position.html#Position"><span class="hs-identifier hs-type">Position</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679428468"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Position
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679428466"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679428466"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679428978"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Position
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679428976"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679428976"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">Maybe Int -&gt; Maybe Int -&gt; Position
 </span><a href="Network.AWS.IAM.Types.Position.html#Position%27"><span class="hs-identifier hs-var">Position'</span></a></span><span>
 </span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Int -&gt; Maybe Int -&gt; Position)
@@ -165,19 +165,19 @@ $sel:line:Position' :: Position -&gt; Maybe Int
 -&gt; Either String (Maybe Int -&gt; Position)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679428466"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621679428976"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Column&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Either String (Maybe Int -&gt; Position)
+</span><span class="hs-string">&quot;Line&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Either String (Maybe Int -&gt; Position)
 -&gt; Either String (Maybe Int) -&gt; Either String Position
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679428466"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621679428976"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Line&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Column&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679428460"><span id="local-6989586621679428462"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Position.html#Position"><span class="hs-identifier hs-type">Position</span></a></span></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679428970"><span id="local-6989586621679428972"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Position.html#Position"><span class="hs-identifier hs-type">Position</span></a></span></span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679428457"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Position.html#Position"><span class="hs-identifier hs-type">Position</span></a></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679428967"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Position.html#Position"><span class="hs-identifier hs-type">Position</span></a></span></span><span>
 </span><span id="line-78"></span></pre></body></html>

@@ -30,21 +30,21 @@
 </span><span id="line-30"></span><span class="hs-comment">-- must be selected.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newScheduleActionStartSettings' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679909127"><span id="local-6989586621679909128"></span></span><span class="hs-keyword">data</span><span> </span><span id="ScheduleActionStartSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#ScheduleActionStartSettings"><span class="hs-identifier hs-var">ScheduleActionStartSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScheduleActionStartSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#ScheduleActionStartSettings%27"><span class="hs-identifier hs-var">ScheduleActionStartSettings'</span></a></span></span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Option for specifying an action as relative to another action.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AfollowModeScheduleActionStartSettings%3AScheduleActionStartSettings%27"><span class="annot"><span class="annottext">ScheduleActionStartSettings
--&gt; Maybe FollowModeScheduleActionStartSettings
-</span><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#%24sel%3AfollowModeScheduleActionStartSettings%3AScheduleActionStartSettings%27"><span class="hs-identifier hs-var hs-var">followModeScheduleActionStartSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FollowModeScheduleActionStartSettings.html#FollowModeScheduleActionStartSettings"><span class="hs-identifier hs-type">FollowModeScheduleActionStartSettings</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Option for specifying an action that should be applied immediately.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AimmediateModeScheduleActionStartSettings%3AScheduleActionStartSettings%27"><span class="annot"><span class="annottext">ScheduleActionStartSettings
+</span><span id="line-33"></span><span id="local-6989586621679916627"><span id="local-6989586621679916628"></span></span><span class="hs-keyword">data</span><span> </span><span id="ScheduleActionStartSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#ScheduleActionStartSettings"><span class="hs-identifier hs-var">ScheduleActionStartSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScheduleActionStartSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#ScheduleActionStartSettings%27"><span class="hs-identifier hs-var">ScheduleActionStartSettings'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Option for specifying an action that should be applied immediately.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AimmediateModeScheduleActionStartSettings%3AScheduleActionStartSettings%27"><span class="annot"><span class="annottext">ScheduleActionStartSettings
 -&gt; Maybe ImmediateModeScheduleActionStartSettings
 </span><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#%24sel%3AimmediateModeScheduleActionStartSettings%3AScheduleActionStartSettings%27"><span class="hs-identifier hs-var hs-var">immediateModeScheduleActionStartSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ImmediateModeScheduleActionStartSettings.html#ImmediateModeScheduleActionStartSettings"><span class="hs-identifier hs-type">ImmediateModeScheduleActionStartSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Option for specifying an action as relative to another action.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AfollowModeScheduleActionStartSettings%3AScheduleActionStartSettings%27"><span class="annot"><span class="annottext">ScheduleActionStartSettings
+-&gt; Maybe FollowModeScheduleActionStartSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#%24sel%3AfollowModeScheduleActionStartSettings%3AScheduleActionStartSettings%27"><span class="hs-identifier hs-var hs-var">followModeScheduleActionStartSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FollowModeScheduleActionStartSettings.html#FollowModeScheduleActionStartSettings"><span class="hs-identifier hs-type">FollowModeScheduleActionStartSettings</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Option for specifying the start time for an action.</span><span>
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3AfixedModeScheduleActionStartSettings%3AScheduleActionStartSettings%27"><span class="annot"><span class="annottext">ScheduleActionStartSettings
 -&gt; Maybe FixedModeScheduleActionStartSettings
 </span><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#%24sel%3AfixedModeScheduleActionStartSettings%3AScheduleActionStartSettings%27"><span class="hs-identifier hs-var hs-var">fixedModeScheduleActionStartSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FixedModeScheduleActionStartSettings.html#FixedModeScheduleActionStartSettings"><span class="hs-identifier hs-type">FixedModeScheduleActionStartSettings</span></a></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679909119"><span id="local-6989586621679909121"><span class="annot"><span class="annottext">ScheduleActionStartSettings -&gt; ScheduleActionStartSettings -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679916619"><span id="local-6989586621679916621"><span class="annot"><span class="annottext">ScheduleActionStartSettings -&gt; ScheduleActionStartSettings -&gt; Bool
 (ScheduleActionStartSettings
  -&gt; ScheduleActionStartSettings -&gt; Bool)
 -&gt; (ScheduleActionStartSettings
@@ -55,7 +55,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ScheduleActionStartSettings -&gt; ScheduleActionStartSettings -&gt; Bool
 == :: ScheduleActionStartSettings -&gt; ScheduleActionStartSettings -&gt; Bool
 $c== :: ScheduleActionStartSettings -&gt; ScheduleActionStartSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679909110"><span id="local-6989586621679909112"><span id="local-6989586621679909114"><span id="local-6989586621679909116"><span class="annot"><span class="annottext">ReadPrec [ScheduleActionStartSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679916610"><span id="local-6989586621679916612"><span id="local-6989586621679916614"><span id="local-6989586621679916616"><span class="annot"><span class="annottext">ReadPrec [ScheduleActionStartSettings]
 ReadPrec ScheduleActionStartSettings
 Int -&gt; ReadS ScheduleActionStartSettings
 ReadS [ScheduleActionStartSettings]
@@ -75,7 +75,7 @@ readList :: ReadS [ScheduleActionStartSettings]
 $creadList :: ReadS [ScheduleActionStartSettings]
 readsPrec :: Int -&gt; ReadS ScheduleActionStartSettings
 $creadsPrec :: Int -&gt; ReadS ScheduleActionStartSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679909103"><span id="local-6989586621679909105"><span id="local-6989586621679909107"><span class="annot"><span class="annottext">Int -&gt; ScheduleActionStartSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679916603"><span id="local-6989586621679916605"><span id="local-6989586621679916607"><span class="annot"><span class="annottext">Int -&gt; ScheduleActionStartSettings -&gt; ShowS
 [ScheduleActionStartSettings] -&gt; ShowS
 ScheduleActionStartSettings -&gt; String
 (Int -&gt; ScheduleActionStartSettings -&gt; ShowS)
@@ -115,28 +115,28 @@ ScheduleActionStartSettings -&gt; Rep ScheduleActionStartSettings x
 </span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'followModeScheduleActionStartSettings', 'scheduleActionStartSettings_followModeScheduleActionStartSettings' - Option for specifying an action as relative to another action.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'immediateModeScheduleActionStartSettings', 'scheduleActionStartSettings_immediateModeScheduleActionStartSettings' - Option for specifying an action that should be applied immediately.</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'immediateModeScheduleActionStartSettings', 'scheduleActionStartSettings_immediateModeScheduleActionStartSettings' - Option for specifying an action that should be applied immediately.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'followModeScheduleActionStartSettings', 'scheduleActionStartSettings_followModeScheduleActionStartSettings' - Option for specifying an action as relative to another action.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- 'fixedModeScheduleActionStartSettings', 'scheduleActionStartSettings_fixedModeScheduleActionStartSettings' - Option for specifying the start time for an action.</span><span>
 </span><span id="line-56"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#newScheduleActionStartSettings"><span class="hs-identifier hs-type">newScheduleActionStartSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#ScheduleActionStartSettings"><span class="hs-identifier hs-type">ScheduleActionStartSettings</span></a></span><span>
 </span><span id="line-58"></span><span id="newScheduleActionStartSettings"><span class="annot"><span class="annottext">newScheduleActionStartSettings :: ScheduleActionStartSettings
 </span><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#newScheduleActionStartSettings"><span class="hs-identifier hs-var hs-var">newScheduleActionStartSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">ScheduleActionStartSettings' :: Maybe FollowModeScheduleActionStartSettings
--&gt; Maybe ImmediateModeScheduleActionStartSettings
+</span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">ScheduleActionStartSettings' :: Maybe ImmediateModeScheduleActionStartSettings
+-&gt; Maybe FollowModeScheduleActionStartSettings
 -&gt; Maybe FixedModeScheduleActionStartSettings
 -&gt; ScheduleActionStartSettings
 </span><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#ScheduleActionStartSettings%27"><span class="hs-identifier hs-type">ScheduleActionStartSettings'</span></a></span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:followModeScheduleActionStartSettings:ScheduleActionStartSettings' :: Maybe FollowModeScheduleActionStartSettings
-</span><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#%24sel%3AfollowModeScheduleActionStartSettings%3AScheduleActionStartSettings%27"><span class="hs-identifier hs-var">followModeScheduleActionStartSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-61"></span><span>        </span><span class="annot"><span class="annottext">Maybe FollowModeScheduleActionStartSettings
+</span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:immediateModeScheduleActionStartSettings:ScheduleActionStartSettings' :: Maybe ImmediateModeScheduleActionStartSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#%24sel%3AimmediateModeScheduleActionStartSettings%3AScheduleActionStartSettings%27"><span class="hs-identifier hs-var">immediateModeScheduleActionStartSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-61"></span><span>        </span><span class="annot"><span class="annottext">Maybe ImmediateModeScheduleActionStartSettings
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:immediateModeScheduleActionStartSettings:ScheduleActionStartSettings' :: Maybe ImmediateModeScheduleActionStartSettings
-</span><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#%24sel%3AimmediateModeScheduleActionStartSettings%3AScheduleActionStartSettings%27"><span class="hs-identifier hs-var">immediateModeScheduleActionStartSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-63"></span><span>        </span><span class="annot"><span class="annottext">Maybe ImmediateModeScheduleActionStartSettings
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:followModeScheduleActionStartSettings:ScheduleActionStartSettings' :: Maybe FollowModeScheduleActionStartSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#%24sel%3AfollowModeScheduleActionStartSettings%3AScheduleActionStartSettings%27"><span class="hs-identifier hs-var">followModeScheduleActionStartSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-63"></span><span>        </span><span class="annot"><span class="annottext">Maybe FollowModeScheduleActionStartSettings
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:fixedModeScheduleActionStartSettings:ScheduleActionStartSettings' :: Maybe FixedModeScheduleActionStartSettings
@@ -146,37 +146,9 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- | Option for specifying an action as relative to another action.</span><span>
-</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#scheduleActionStartSettings_followModeScheduleActionStartSettings"><span class="hs-identifier hs-type">scheduleActionStartSettings_followModeScheduleActionStartSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#ScheduleActionStartSettings"><span class="hs-identifier hs-type">ScheduleActionStartSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FollowModeScheduleActionStartSettings.html#FollowModeScheduleActionStartSettings"><span class="hs-identifier hs-type">FollowModeScheduleActionStartSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-70"></span><span id="scheduleActionStartSettings_followModeScheduleActionStartSettings"><span class="annot"><span class="annottext">scheduleActionStartSettings_followModeScheduleActionStartSettings :: (Maybe FollowModeScheduleActionStartSettings
- -&gt; f (Maybe FollowModeScheduleActionStartSettings))
--&gt; ScheduleActionStartSettings -&gt; f ScheduleActionStartSettings
-</span><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#scheduleActionStartSettings_followModeScheduleActionStartSettings"><span class="hs-identifier hs-var hs-var">scheduleActionStartSettings_followModeScheduleActionStartSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduleActionStartSettings
- -&gt; Maybe FollowModeScheduleActionStartSettings)
--&gt; (ScheduleActionStartSettings
-    -&gt; Maybe FollowModeScheduleActionStartSettings
-    -&gt; ScheduleActionStartSettings)
--&gt; Lens
-     ScheduleActionStartSettings
-     ScheduleActionStartSettings
-     (Maybe FollowModeScheduleActionStartSettings)
-     (Maybe FollowModeScheduleActionStartSettings)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#ScheduleActionStartSettings%27"><span class="hs-identifier hs-type">ScheduleActionStartSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679909094"><span class="annot"><span class="annottext">Maybe FollowModeScheduleActionStartSettings
-followModeScheduleActionStartSettings :: Maybe FollowModeScheduleActionStartSettings
-$sel:followModeScheduleActionStartSettings:ScheduleActionStartSettings' :: ScheduleActionStartSettings
--&gt; Maybe FollowModeScheduleActionStartSettings
-</span><a href="#local-6989586621679909094"><span class="hs-identifier hs-var hs-var">followModeScheduleActionStartSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FollowModeScheduleActionStartSettings
-</span><a href="#local-6989586621679909094"><span class="hs-identifier hs-var">followModeScheduleActionStartSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679909093"><span class="annot"><span class="annottext">s :: ScheduleActionStartSettings
-</span><a href="#local-6989586621679909093"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#ScheduleActionStartSettings%27"><span class="hs-identifier hs-type">ScheduleActionStartSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679909092"><span class="annot"><span class="annottext">Maybe FollowModeScheduleActionStartSettings
-</span><a href="#local-6989586621679909092"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleActionStartSettings
-</span><a href="#local-6989586621679909093"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:followModeScheduleActionStartSettings:ScheduleActionStartSettings' :: Maybe FollowModeScheduleActionStartSettings
-</span><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#%24sel%3AfollowModeScheduleActionStartSettings%3AScheduleActionStartSettings%27"><span class="hs-identifier hs-var">followModeScheduleActionStartSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FollowModeScheduleActionStartSettings
-</span><a href="#local-6989586621679909092"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#ScheduleActionStartSettings"><span class="hs-identifier hs-type">ScheduleActionStartSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- | Option for specifying an action that should be applied immediately.</span><span>
-</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#scheduleActionStartSettings_immediateModeScheduleActionStartSettings"><span class="hs-identifier hs-type">scheduleActionStartSettings_immediateModeScheduleActionStartSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#ScheduleActionStartSettings"><span class="hs-identifier hs-type">ScheduleActionStartSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ImmediateModeScheduleActionStartSettings.html#ImmediateModeScheduleActionStartSettings"><span class="hs-identifier hs-type">ImmediateModeScheduleActionStartSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span id="scheduleActionStartSettings_immediateModeScheduleActionStartSettings"><span class="annot"><span class="annottext">scheduleActionStartSettings_immediateModeScheduleActionStartSettings :: (Maybe ImmediateModeScheduleActionStartSettings
+</span><span id="line-68"></span><span class="hs-comment">-- | Option for specifying an action that should be applied immediately.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#scheduleActionStartSettings_immediateModeScheduleActionStartSettings"><span class="hs-identifier hs-type">scheduleActionStartSettings_immediateModeScheduleActionStartSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#ScheduleActionStartSettings"><span class="hs-identifier hs-type">ScheduleActionStartSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ImmediateModeScheduleActionStartSettings.html#ImmediateModeScheduleActionStartSettings"><span class="hs-identifier hs-type">ImmediateModeScheduleActionStartSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span id="scheduleActionStartSettings_immediateModeScheduleActionStartSettings"><span class="annot"><span class="annottext">scheduleActionStartSettings_immediateModeScheduleActionStartSettings :: (Maybe ImmediateModeScheduleActionStartSettings
  -&gt; f (Maybe ImmediateModeScheduleActionStartSettings))
 -&gt; ScheduleActionStartSettings -&gt; f ScheduleActionStartSettings
 </span><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#scheduleActionStartSettings_immediateModeScheduleActionStartSettings"><span class="hs-identifier hs-var hs-var">scheduleActionStartSettings_immediateModeScheduleActionStartSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduleActionStartSettings
@@ -190,17 +162,45 @@ $sel:followModeScheduleActionStartSettings:ScheduleActionStartSettings' :: Sched
      (Maybe ImmediateModeScheduleActionStartSettings)
      (Maybe ImmediateModeScheduleActionStartSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#ScheduleActionStartSettings%27"><span class="hs-identifier hs-type">ScheduleActionStartSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679909090"><span class="annot"><span class="annottext">Maybe ImmediateModeScheduleActionStartSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#ScheduleActionStartSettings%27"><span class="hs-identifier hs-type">ScheduleActionStartSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679916594"><span class="annot"><span class="annottext">Maybe ImmediateModeScheduleActionStartSettings
 immediateModeScheduleActionStartSettings :: Maybe ImmediateModeScheduleActionStartSettings
 $sel:immediateModeScheduleActionStartSettings:ScheduleActionStartSettings' :: ScheduleActionStartSettings
 -&gt; Maybe ImmediateModeScheduleActionStartSettings
-</span><a href="#local-6989586621679909090"><span class="hs-identifier hs-var hs-var">immediateModeScheduleActionStartSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ImmediateModeScheduleActionStartSettings
-</span><a href="#local-6989586621679909090"><span class="hs-identifier hs-var">immediateModeScheduleActionStartSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679909089"><span class="annot"><span class="annottext">s :: ScheduleActionStartSettings
-</span><a href="#local-6989586621679909089"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#ScheduleActionStartSettings%27"><span class="hs-identifier hs-type">ScheduleActionStartSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679909088"><span class="annot"><span class="annottext">Maybe ImmediateModeScheduleActionStartSettings
-</span><a href="#local-6989586621679909088"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleActionStartSettings
-</span><a href="#local-6989586621679909089"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:immediateModeScheduleActionStartSettings:ScheduleActionStartSettings' :: Maybe ImmediateModeScheduleActionStartSettings
+</span><a href="#local-6989586621679916594"><span class="hs-identifier hs-var hs-var">immediateModeScheduleActionStartSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ImmediateModeScheduleActionStartSettings
+</span><a href="#local-6989586621679916594"><span class="hs-identifier hs-var">immediateModeScheduleActionStartSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679916593"><span class="annot"><span class="annottext">s :: ScheduleActionStartSettings
+</span><a href="#local-6989586621679916593"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#ScheduleActionStartSettings%27"><span class="hs-identifier hs-type">ScheduleActionStartSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679916592"><span class="annot"><span class="annottext">Maybe ImmediateModeScheduleActionStartSettings
+</span><a href="#local-6989586621679916592"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleActionStartSettings
+</span><a href="#local-6989586621679916593"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:immediateModeScheduleActionStartSettings:ScheduleActionStartSettings' :: Maybe ImmediateModeScheduleActionStartSettings
 </span><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#%24sel%3AimmediateModeScheduleActionStartSettings%3AScheduleActionStartSettings%27"><span class="hs-identifier hs-var">immediateModeScheduleActionStartSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ImmediateModeScheduleActionStartSettings
-</span><a href="#local-6989586621679909088"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#ScheduleActionStartSettings"><span class="hs-identifier hs-type">ScheduleActionStartSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679916592"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#ScheduleActionStartSettings"><span class="hs-identifier hs-type">ScheduleActionStartSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | Option for specifying an action as relative to another action.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#scheduleActionStartSettings_followModeScheduleActionStartSettings"><span class="hs-identifier hs-type">scheduleActionStartSettings_followModeScheduleActionStartSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#ScheduleActionStartSettings"><span class="hs-identifier hs-type">ScheduleActionStartSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FollowModeScheduleActionStartSettings.html#FollowModeScheduleActionStartSettings"><span class="hs-identifier hs-type">FollowModeScheduleActionStartSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="scheduleActionStartSettings_followModeScheduleActionStartSettings"><span class="annot"><span class="annottext">scheduleActionStartSettings_followModeScheduleActionStartSettings :: (Maybe FollowModeScheduleActionStartSettings
+ -&gt; f (Maybe FollowModeScheduleActionStartSettings))
+-&gt; ScheduleActionStartSettings -&gt; f ScheduleActionStartSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#scheduleActionStartSettings_followModeScheduleActionStartSettings"><span class="hs-identifier hs-var hs-var">scheduleActionStartSettings_followModeScheduleActionStartSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduleActionStartSettings
+ -&gt; Maybe FollowModeScheduleActionStartSettings)
+-&gt; (ScheduleActionStartSettings
+    -&gt; Maybe FollowModeScheduleActionStartSettings
+    -&gt; ScheduleActionStartSettings)
+-&gt; Lens
+     ScheduleActionStartSettings
+     ScheduleActionStartSettings
+     (Maybe FollowModeScheduleActionStartSettings)
+     (Maybe FollowModeScheduleActionStartSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#ScheduleActionStartSettings%27"><span class="hs-identifier hs-type">ScheduleActionStartSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679916590"><span class="annot"><span class="annottext">Maybe FollowModeScheduleActionStartSettings
+followModeScheduleActionStartSettings :: Maybe FollowModeScheduleActionStartSettings
+$sel:followModeScheduleActionStartSettings:ScheduleActionStartSettings' :: ScheduleActionStartSettings
+-&gt; Maybe FollowModeScheduleActionStartSettings
+</span><a href="#local-6989586621679916590"><span class="hs-identifier hs-var hs-var">followModeScheduleActionStartSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FollowModeScheduleActionStartSettings
+</span><a href="#local-6989586621679916590"><span class="hs-identifier hs-var">followModeScheduleActionStartSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679916589"><span class="annot"><span class="annottext">s :: ScheduleActionStartSettings
+</span><a href="#local-6989586621679916589"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#ScheduleActionStartSettings%27"><span class="hs-identifier hs-type">ScheduleActionStartSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679916588"><span class="annot"><span class="annottext">Maybe FollowModeScheduleActionStartSettings
+</span><a href="#local-6989586621679916588"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleActionStartSettings
+</span><a href="#local-6989586621679916589"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:followModeScheduleActionStartSettings:ScheduleActionStartSettings' :: Maybe FollowModeScheduleActionStartSettings
+</span><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#%24sel%3AfollowModeScheduleActionStartSettings%3AScheduleActionStartSettings%27"><span class="hs-identifier hs-var">followModeScheduleActionStartSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FollowModeScheduleActionStartSettings
+</span><a href="#local-6989586621679916588"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#ScheduleActionStartSettings"><span class="hs-identifier hs-type">ScheduleActionStartSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | Option for specifying the start time for an action.</span><span>
 </span><span id="line-77"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#scheduleActionStartSettings_fixedModeScheduleActionStartSettings"><span class="hs-identifier hs-type">scheduleActionStartSettings_fixedModeScheduleActionStartSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#ScheduleActionStartSettings"><span class="hs-identifier hs-type">ScheduleActionStartSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FixedModeScheduleActionStartSettings.html#FixedModeScheduleActionStartSettings"><span class="hs-identifier hs-type">FixedModeScheduleActionStartSettings</span></a></span><span class="hs-special">)</span><span>
@@ -218,20 +218,20 @@ $sel:immediateModeScheduleActionStartSettings:ScheduleActionStartSettings' :: Sc
      (Maybe FixedModeScheduleActionStartSettings)
      (Maybe FixedModeScheduleActionStartSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#ScheduleActionStartSettings%27"><span class="hs-identifier hs-type">ScheduleActionStartSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679909086"><span class="annot"><span class="annottext">Maybe FixedModeScheduleActionStartSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#ScheduleActionStartSettings%27"><span class="hs-identifier hs-type">ScheduleActionStartSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679916586"><span class="annot"><span class="annottext">Maybe FixedModeScheduleActionStartSettings
 fixedModeScheduleActionStartSettings :: Maybe FixedModeScheduleActionStartSettings
 $sel:fixedModeScheduleActionStartSettings:ScheduleActionStartSettings' :: ScheduleActionStartSettings
 -&gt; Maybe FixedModeScheduleActionStartSettings
-</span><a href="#local-6989586621679909086"><span class="hs-identifier hs-var hs-var">fixedModeScheduleActionStartSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FixedModeScheduleActionStartSettings
-</span><a href="#local-6989586621679909086"><span class="hs-identifier hs-var">fixedModeScheduleActionStartSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679909085"><span class="annot"><span class="annottext">s :: ScheduleActionStartSettings
-</span><a href="#local-6989586621679909085"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#ScheduleActionStartSettings%27"><span class="hs-identifier hs-type">ScheduleActionStartSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679909084"><span class="annot"><span class="annottext">Maybe FixedModeScheduleActionStartSettings
-</span><a href="#local-6989586621679909084"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleActionStartSettings
-</span><a href="#local-6989586621679909085"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fixedModeScheduleActionStartSettings:ScheduleActionStartSettings' :: Maybe FixedModeScheduleActionStartSettings
+</span><a href="#local-6989586621679916586"><span class="hs-identifier hs-var hs-var">fixedModeScheduleActionStartSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FixedModeScheduleActionStartSettings
+</span><a href="#local-6989586621679916586"><span class="hs-identifier hs-var">fixedModeScheduleActionStartSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679916585"><span class="annot"><span class="annottext">s :: ScheduleActionStartSettings
+</span><a href="#local-6989586621679916585"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#ScheduleActionStartSettings%27"><span class="hs-identifier hs-type">ScheduleActionStartSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679916584"><span class="annot"><span class="annottext">Maybe FixedModeScheduleActionStartSettings
+</span><a href="#local-6989586621679916584"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleActionStartSettings
+</span><a href="#local-6989586621679916585"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fixedModeScheduleActionStartSettings:ScheduleActionStartSettings' :: Maybe FixedModeScheduleActionStartSettings
 </span><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#%24sel%3AfixedModeScheduleActionStartSettings%3AScheduleActionStartSettings%27"><span class="hs-identifier hs-var">fixedModeScheduleActionStartSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FixedModeScheduleActionStartSettings
-</span><a href="#local-6989586621679909084"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#ScheduleActionStartSettings"><span class="hs-identifier hs-type">ScheduleActionStartSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679916584"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#ScheduleActionStartSettings"><span class="hs-identifier hs-type">ScheduleActionStartSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679909081"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#ScheduleActionStartSettings"><span class="hs-identifier hs-type">ScheduleActionStartSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679909079"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ScheduleActionStartSettings
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679916581"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#ScheduleActionStartSettings"><span class="hs-identifier hs-type">ScheduleActionStartSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679916579"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ScheduleActionStartSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ScheduleActionStartSettings)
@@ -241,46 +241,46 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ScheduleActionStartSettings&quot;</span></span><span>
-</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679909076"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679909076"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe FollowModeScheduleActionStartSettings
--&gt; Maybe ImmediateModeScheduleActionStartSettings
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679916576"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679916576"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe ImmediateModeScheduleActionStartSettings
+-&gt; Maybe FollowModeScheduleActionStartSettings
 -&gt; Maybe FixedModeScheduleActionStartSettings
 -&gt; ScheduleActionStartSettings
 </span><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#ScheduleActionStartSettings%27"><span class="hs-identifier hs-var">ScheduleActionStartSettings'</span></a></span><span>
-</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Maybe FollowModeScheduleActionStartSettings
- -&gt; Maybe ImmediateModeScheduleActionStartSettings
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ImmediateModeScheduleActionStartSettings
+ -&gt; Maybe FollowModeScheduleActionStartSettings
  -&gt; Maybe FixedModeScheduleActionStartSettings
  -&gt; ScheduleActionStartSettings)
--&gt; Parser (Maybe FollowModeScheduleActionStartSettings)
+-&gt; Parser (Maybe ImmediateModeScheduleActionStartSettings)
 -&gt; Parser
-     (Maybe ImmediateModeScheduleActionStartSettings
+     (Maybe FollowModeScheduleActionStartSettings
       -&gt; Maybe FixedModeScheduleActionStartSettings
       -&gt; ScheduleActionStartSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679909076"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
--&gt; Text -&gt; Parser (Maybe FollowModeScheduleActionStartSettings)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;followModeScheduleActionStartSettings&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe ImmediateModeScheduleActionStartSettings
-   -&gt; Maybe FixedModeScheduleActionStartSettings
-   -&gt; ScheduleActionStartSettings)
--&gt; Parser (Maybe ImmediateModeScheduleActionStartSettings)
--&gt; Parser
-     (Maybe FixedModeScheduleActionStartSettings
-      -&gt; ScheduleActionStartSettings)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679909076"><span class="hs-identifier hs-var">x</span></a></span><span>
-</span><span id="line-88"></span><span>                            </span><span class="annot"><span class="annottext">Object
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679916576"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><span id="line-87"></span><span>                            </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe ImmediateModeScheduleActionStartSettings)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;immediateModeScheduleActionStartSettings&quot;</span></span><span>
-</span><span id="line-89"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe FollowModeScheduleActionStartSettings
+   -&gt; Maybe FixedModeScheduleActionStartSettings
+   -&gt; ScheduleActionStartSettings)
+-&gt; Parser (Maybe FollowModeScheduleActionStartSettings)
+-&gt; Parser
+     (Maybe FixedModeScheduleActionStartSettings
+      -&gt; ScheduleActionStartSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679916576"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe FollowModeScheduleActionStartSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;followModeScheduleActionStartSettings&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe FixedModeScheduleActionStartSettings
    -&gt; ScheduleActionStartSettings)
@@ -288,55 +288,55 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser ScheduleActionStartSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679909076"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679916576"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe FixedModeScheduleActionStartSettings)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;fixedModeScheduleActionStartSettings&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679909070"><span id="local-6989586621679909072"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#ScheduleActionStartSettings"><span class="hs-identifier hs-type">ScheduleActionStartSettings</span></a></span></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679916570"><span id="local-6989586621679916572"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#ScheduleActionStartSettings"><span class="hs-identifier hs-type">ScheduleActionStartSettings</span></a></span></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679909067"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#ScheduleActionStartSettings"><span class="hs-identifier hs-type">ScheduleActionStartSettings</span></a></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679916567"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#ScheduleActionStartSettings"><span class="hs-identifier hs-type">ScheduleActionStartSettings</span></a></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679909059"><span id="local-6989586621679909061"><span id="local-6989586621679909063"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#ScheduleActionStartSettings"><span class="hs-identifier hs-type">ScheduleActionStartSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679909057"><span class="annot"><span class="annottext">toJSON :: ScheduleActionStartSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#ScheduleActionStartSettings%27"><span class="hs-identifier hs-type">ScheduleActionStartSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679909053"><span id="local-6989586621679909054"><span id="local-6989586621679909055"><span class="annot"><span class="annottext">Maybe FixedModeScheduleActionStartSettings
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679916559"><span id="local-6989586621679916561"><span id="local-6989586621679916563"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#ScheduleActionStartSettings"><span class="hs-identifier hs-type">ScheduleActionStartSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679916557"><span class="annot"><span class="annottext">toJSON :: ScheduleActionStartSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#ScheduleActionStartSettings%27"><span class="hs-identifier hs-type">ScheduleActionStartSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679916553"><span id="local-6989586621679916554"><span id="local-6989586621679916555"><span class="annot"><span class="annottext">Maybe FixedModeScheduleActionStartSettings
 Maybe FollowModeScheduleActionStartSettings
 Maybe ImmediateModeScheduleActionStartSettings
 fixedModeScheduleActionStartSettings :: Maybe FixedModeScheduleActionStartSettings
-immediateModeScheduleActionStartSettings :: Maybe ImmediateModeScheduleActionStartSettings
 followModeScheduleActionStartSettings :: Maybe FollowModeScheduleActionStartSettings
+immediateModeScheduleActionStartSettings :: Maybe ImmediateModeScheduleActionStartSettings
 $sel:fixedModeScheduleActionStartSettings:ScheduleActionStartSettings' :: ScheduleActionStartSettings
 -&gt; Maybe FixedModeScheduleActionStartSettings
-$sel:immediateModeScheduleActionStartSettings:ScheduleActionStartSettings' :: ScheduleActionStartSettings
--&gt; Maybe ImmediateModeScheduleActionStartSettings
 $sel:followModeScheduleActionStartSettings:ScheduleActionStartSettings' :: ScheduleActionStartSettings
 -&gt; Maybe FollowModeScheduleActionStartSettings
-</span><a href="#local-6989586621679909053"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:immediateModeScheduleActionStartSettings:ScheduleActionStartSettings' :: ScheduleActionStartSettings
+-&gt; Maybe ImmediateModeScheduleActionStartSettings
+</span><a href="#local-6989586621679916553"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-101"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;followModeScheduleActionStartSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FollowModeScheduleActionStartSettings -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span>              </span><span class="annot"><span class="annottext">(FollowModeScheduleActionStartSettings -&gt; Pair)
--&gt; Maybe FollowModeScheduleActionStartSettings -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FollowModeScheduleActionStartSettings
-</span><a href="#local-6989586621679909055"><span class="hs-identifier hs-var">followModeScheduleActionStartSettings</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-103"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;immediateModeScheduleActionStartSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ImmediateModeScheduleActionStartSettings -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span>              </span><span class="annot"><span class="annottext">(ImmediateModeScheduleActionStartSettings -&gt; Pair)
+</span><span id="line-102"></span><span>              </span><span class="annot"><span class="annottext">(ImmediateModeScheduleActionStartSettings -&gt; Pair)
 -&gt; Maybe ImmediateModeScheduleActionStartSettings -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ImmediateModeScheduleActionStartSettings
-</span><a href="#local-6989586621679909054"><span class="hs-identifier hs-var">immediateModeScheduleActionStartSettings</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679916555"><span class="hs-identifier hs-var">immediateModeScheduleActionStartSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;followModeScheduleActionStartSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FollowModeScheduleActionStartSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>              </span><span class="annot"><span class="annottext">(FollowModeScheduleActionStartSettings -&gt; Pair)
+-&gt; Maybe FollowModeScheduleActionStartSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FollowModeScheduleActionStartSettings
+</span><a href="#local-6989586621679916554"><span class="hs-identifier hs-var">followModeScheduleActionStartSettings</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;fixedModeScheduleActionStartSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FixedModeScheduleActionStartSettings -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -345,7 +345,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe FixedModeScheduleActionStartSettings -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FixedModeScheduleActionStartSettings
-</span><a href="#local-6989586621679909053"><span class="hs-identifier hs-var">fixedModeScheduleActionStartSettings</span></a></span><span>
+</span><a href="#local-6989586621679916553"><span class="hs-identifier hs-var">fixedModeScheduleActionStartSettings</span></a></span><span>
 </span><span id="line-107"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span></pre></body></html>

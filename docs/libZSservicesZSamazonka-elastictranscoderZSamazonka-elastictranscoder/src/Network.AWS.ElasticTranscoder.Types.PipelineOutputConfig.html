@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The @PipelineOutputConfig@ structure.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newPipelineOutputConfig' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679211611"><span id="local-6989586621679211612"></span></span><span class="hs-keyword">data</span><span> </span><span id="PipelineOutputConfig"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PipelineOutputConfig.html#PipelineOutputConfig"><span class="hs-identifier hs-var">PipelineOutputConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PipelineOutputConfig%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PipelineOutputConfig.html#PipelineOutputConfig%27"><span class="hs-identifier hs-var">PipelineOutputConfig'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679211730"><span id="local-6989586621679211731"></span></span><span class="hs-keyword">data</span><span> </span><span id="PipelineOutputConfig"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PipelineOutputConfig.html#PipelineOutputConfig"><span class="hs-identifier hs-var">PipelineOutputConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PipelineOutputConfig%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PipelineOutputConfig.html#PipelineOutputConfig%27"><span class="hs-identifier hs-var">PipelineOutputConfig'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon S3 bucket in which you want Elastic Transcoder to save the</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- transcoded files. Specify this value when all of the following are true:</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -72,7 +72,7 @@
 </span><span id="line-70"></span><span>    </span><span id="%24sel%3Apermissions%3APipelineOutputConfig%27"><span class="annot"><span class="annottext">PipelineOutputConfig -&gt; Maybe [Permission]
 </span><a href="Network.AWS.ElasticTranscoder.Types.PipelineOutputConfig.html#%24sel%3Apermissions%3APipelineOutputConfig%27"><span class="hs-identifier hs-var hs-var">permissions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679211603"><span id="local-6989586621679211605"><span class="annot"><span class="annottext">PipelineOutputConfig -&gt; PipelineOutputConfig -&gt; Bool
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679211722"><span id="local-6989586621679211724"><span class="annot"><span class="annottext">PipelineOutputConfig -&gt; PipelineOutputConfig -&gt; Bool
 (PipelineOutputConfig -&gt; PipelineOutputConfig -&gt; Bool)
 -&gt; (PipelineOutputConfig -&gt; PipelineOutputConfig -&gt; Bool)
 -&gt; Eq PipelineOutputConfig
@@ -81,7 +81,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PipelineOutputConfig -&gt; PipelineOutputConfig -&gt; Bool
 == :: PipelineOutputConfig -&gt; PipelineOutputConfig -&gt; Bool
 $c== :: PipelineOutputConfig -&gt; PipelineOutputConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679211594"><span id="local-6989586621679211596"><span id="local-6989586621679211598"><span id="local-6989586621679211600"><span class="annot"><span class="annottext">ReadPrec [PipelineOutputConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679211713"><span id="local-6989586621679211715"><span id="local-6989586621679211717"><span id="local-6989586621679211719"><span class="annot"><span class="annottext">ReadPrec [PipelineOutputConfig]
 ReadPrec PipelineOutputConfig
 Int -&gt; ReadS PipelineOutputConfig
 ReadS [PipelineOutputConfig]
@@ -101,7 +101,7 @@ readList :: ReadS [PipelineOutputConfig]
 $creadList :: ReadS [PipelineOutputConfig]
 readsPrec :: Int -&gt; ReadS PipelineOutputConfig
 $creadsPrec :: Int -&gt; ReadS PipelineOutputConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679211587"><span id="local-6989586621679211589"><span id="local-6989586621679211591"><span class="annot"><span class="annottext">Int -&gt; PipelineOutputConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679211706"><span id="local-6989586621679211708"><span id="local-6989586621679211710"><span class="annot"><span class="annottext">Int -&gt; PipelineOutputConfig -&gt; ShowS
 [PipelineOutputConfig] -&gt; ShowS
 PipelineOutputConfig -&gt; String
 (Int -&gt; PipelineOutputConfig -&gt; ShowS)
@@ -223,16 +223,16 @@ forall a. Maybe a
 -&gt; Lens
      PipelineOutputConfig PipelineOutputConfig (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PipelineOutputConfig.html#PipelineOutputConfig%27"><span class="hs-identifier hs-type">PipelineOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211578"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PipelineOutputConfig.html#PipelineOutputConfig%27"><span class="hs-identifier hs-type">PipelineOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211697"><span class="annot"><span class="annottext">Maybe Text
 bucket :: Maybe Text
 $sel:bucket:PipelineOutputConfig' :: PipelineOutputConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679211578"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679211578"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211577"><span class="annot"><span class="annottext">s :: PipelineOutputConfig
-</span><a href="#local-6989586621679211577"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PipelineOutputConfig.html#PipelineOutputConfig%27"><span class="hs-identifier hs-type">PipelineOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211576"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679211576"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineOutputConfig
-</span><a href="#local-6989586621679211577"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:PipelineOutputConfig' :: Maybe Text
+</span><a href="#local-6989586621679211697"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679211697"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211696"><span class="annot"><span class="annottext">s :: PipelineOutputConfig
+</span><a href="#local-6989586621679211696"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PipelineOutputConfig.html#PipelineOutputConfig%27"><span class="hs-identifier hs-type">PipelineOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211695"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679211695"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineOutputConfig
+</span><a href="#local-6989586621679211696"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:PipelineOutputConfig' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.PipelineOutputConfig.html#%24sel%3Abucket%3APipelineOutputConfig%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679211576"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PipelineOutputConfig.html#PipelineOutputConfig"><span class="hs-identifier hs-type">PipelineOutputConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679211695"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PipelineOutputConfig.html#PipelineOutputConfig"><span class="hs-identifier hs-type">PipelineOutputConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- | The Amazon S3 storage class, @Standard@ or @ReducedRedundancy@, that you</span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- want Elastic Transcoder to assign to the video files and playlists that</span><span>
@@ -245,16 +245,16 @@ $sel:bucket:PipelineOutputConfig' :: PipelineOutputConfig -&gt; Maybe Text
 -&gt; Lens
      PipelineOutputConfig PipelineOutputConfig (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PipelineOutputConfig.html#PipelineOutputConfig%27"><span class="hs-identifier hs-type">PipelineOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211574"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PipelineOutputConfig.html#PipelineOutputConfig%27"><span class="hs-identifier hs-type">PipelineOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211693"><span class="annot"><span class="annottext">Maybe Text
 storageClass :: Maybe Text
 $sel:storageClass:PipelineOutputConfig' :: PipelineOutputConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679211574"><span class="hs-identifier hs-var hs-var">storageClass</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679211574"><span class="hs-identifier hs-var">storageClass</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211573"><span class="annot"><span class="annottext">s :: PipelineOutputConfig
-</span><a href="#local-6989586621679211573"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PipelineOutputConfig.html#PipelineOutputConfig%27"><span class="hs-identifier hs-type">PipelineOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211572"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679211572"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineOutputConfig
-</span><a href="#local-6989586621679211573"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:storageClass:PipelineOutputConfig' :: Maybe Text
+</span><a href="#local-6989586621679211693"><span class="hs-identifier hs-var hs-var">storageClass</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679211693"><span class="hs-identifier hs-var">storageClass</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211692"><span class="annot"><span class="annottext">s :: PipelineOutputConfig
+</span><a href="#local-6989586621679211692"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PipelineOutputConfig.html#PipelineOutputConfig%27"><span class="hs-identifier hs-type">PipelineOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211691"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679211691"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineOutputConfig
+</span><a href="#local-6989586621679211692"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:storageClass:PipelineOutputConfig' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.PipelineOutputConfig.html#%24sel%3AstorageClass%3APipelineOutputConfig%27"><span class="hs-identifier hs-var">storageClass</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679211572"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PipelineOutputConfig.html#PipelineOutputConfig"><span class="hs-identifier hs-type">PipelineOutputConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679211691"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PipelineOutputConfig.html#PipelineOutputConfig"><span class="hs-identifier hs-type">PipelineOutputConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- | Optional. The @Permissions@ object specifies which users and\/or</span><span>
 </span><span id="line-160"></span><span class="hs-comment">-- predefined Amazon S3 groups you want to have access to transcoded files</span><span>
@@ -282,16 +282,16 @@ $sel:storageClass:PipelineOutputConfig' :: PipelineOutputConfig -&gt; Maybe Text
      (Maybe [Permission])
      (Maybe [Permission])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PipelineOutputConfig.html#PipelineOutputConfig%27"><span class="hs-identifier hs-type">PipelineOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211570"><span class="annot"><span class="annottext">Maybe [Permission]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PipelineOutputConfig.html#PipelineOutputConfig%27"><span class="hs-identifier hs-type">PipelineOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211689"><span class="annot"><span class="annottext">Maybe [Permission]
 permissions :: Maybe [Permission]
 $sel:permissions:PipelineOutputConfig' :: PipelineOutputConfig -&gt; Maybe [Permission]
-</span><a href="#local-6989586621679211570"><span class="hs-identifier hs-var hs-var">permissions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Permission]
-</span><a href="#local-6989586621679211570"><span class="hs-identifier hs-var">permissions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211569"><span class="annot"><span class="annottext">s :: PipelineOutputConfig
-</span><a href="#local-6989586621679211569"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PipelineOutputConfig.html#PipelineOutputConfig%27"><span class="hs-identifier hs-type">PipelineOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211568"><span class="annot"><span class="annottext">Maybe [Permission]
-</span><a href="#local-6989586621679211568"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineOutputConfig
-</span><a href="#local-6989586621679211569"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permissions:PipelineOutputConfig' :: Maybe [Permission]
+</span><a href="#local-6989586621679211689"><span class="hs-identifier hs-var hs-var">permissions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Permission]
+</span><a href="#local-6989586621679211689"><span class="hs-identifier hs-var">permissions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211688"><span class="annot"><span class="annottext">s :: PipelineOutputConfig
+</span><a href="#local-6989586621679211688"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PipelineOutputConfig.html#PipelineOutputConfig%27"><span class="hs-identifier hs-type">PipelineOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211687"><span class="annot"><span class="annottext">Maybe [Permission]
+</span><a href="#local-6989586621679211687"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineOutputConfig
+</span><a href="#local-6989586621679211688"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permissions:PipelineOutputConfig' :: Maybe [Permission]
 </span><a href="Network.AWS.ElasticTranscoder.Types.PipelineOutputConfig.html#%24sel%3Apermissions%3APipelineOutputConfig%27"><span class="hs-identifier hs-var">permissions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Permission]
-</span><a href="#local-6989586621679211568"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PipelineOutputConfig.html#PipelineOutputConfig"><span class="hs-identifier hs-type">PipelineOutputConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Permission] -&gt; f (Maybe [Permission]))
+</span><a href="#local-6989586621679211687"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PipelineOutputConfig.html#PipelineOutputConfig"><span class="hs-identifier hs-type">PipelineOutputConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Permission] -&gt; f (Maybe [Permission]))
  -&gt; PipelineOutputConfig -&gt; f PipelineOutputConfig)
 -&gt; ((Maybe [Permission] -&gt; f (Maybe [Permission]))
     -&gt; Maybe [Permission] -&gt; f (Maybe [Permission]))
@@ -309,11 +309,11 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Permission] [Permission] [Permission] [Permission]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-175"></span><span>
-</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679211562"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PipelineOutputConfig.html#PipelineOutputConfig"><span class="hs-identifier hs-type">PipelineOutputConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-177"></span><span>  </span><span id="local-6989586621679211560"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PipelineOutputConfig
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679211681"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PipelineOutputConfig.html#PipelineOutputConfig"><span class="hs-identifier hs-type">PipelineOutputConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679211679"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PipelineOutputConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser PipelineOutputConfig)
@@ -323,8 +323,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PipelineOutputConfig&quot;</span></span><span>
-</span><span id="line-180"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679211557"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679211557"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-180"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679211676"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679211676"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-181"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text -&gt; Maybe [Permission] -&gt; PipelineOutputConfig
 </span><a href="Network.AWS.ElasticTranscoder.Types.PipelineOutputConfig.html#PipelineOutputConfig%27"><span class="hs-identifier hs-var">PipelineOutputConfig'</span></a></span><span>
@@ -335,7 +335,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe Text -&gt; Maybe [Permission] -&gt; PipelineOutputConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679211557"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679211676"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Bucket&quot;</span></span><span class="hs-special">)</span><span>
@@ -344,7 +344,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [Permission] -&gt; PipelineOutputConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679211557"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679211676"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StorageClass&quot;</span></span><span class="hs-special">)</span><span>
@@ -352,7 +352,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [Permission]) -&gt; Parser PipelineOutputConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679211557"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Permission]))
+</span><a href="#local-6989586621679211676"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Permission]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Permissions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Permission]))
@@ -363,13 +363,13 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>
-</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679211550"><span id="local-6989586621679211552"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PipelineOutputConfig.html#PipelineOutputConfig"><span class="hs-identifier hs-type">PipelineOutputConfig</span></a></span></span></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679211669"><span id="local-6989586621679211671"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PipelineOutputConfig.html#PipelineOutputConfig"><span class="hs-identifier hs-type">PipelineOutputConfig</span></a></span></span></span><span>
 </span><span id="line-188"></span><span>
-</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679211547"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PipelineOutputConfig.html#PipelineOutputConfig"><span class="hs-identifier hs-type">PipelineOutputConfig</span></a></span></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679211666"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PipelineOutputConfig.html#PipelineOutputConfig"><span class="hs-identifier hs-type">PipelineOutputConfig</span></a></span></span><span>
 </span><span id="line-190"></span><span>
-</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679211539"><span id="local-6989586621679211541"><span id="local-6989586621679211543"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PipelineOutputConfig.html#PipelineOutputConfig"><span class="hs-identifier hs-type">PipelineOutputConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-192"></span><span>  </span><span id="local-6989586621679211537"><span class="annot"><span class="annottext">toJSON :: PipelineOutputConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PipelineOutputConfig.html#PipelineOutputConfig%27"><span class="hs-identifier hs-type">PipelineOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211533"><span id="local-6989586621679211534"><span id="local-6989586621679211535"><span class="annot"><span class="annottext">Maybe [Permission]
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679211658"><span id="local-6989586621679211660"><span id="local-6989586621679211662"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PipelineOutputConfig.html#PipelineOutputConfig"><span class="hs-identifier hs-type">PipelineOutputConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621679211656"><span class="annot"><span class="annottext">toJSON :: PipelineOutputConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PipelineOutputConfig.html#PipelineOutputConfig%27"><span class="hs-identifier hs-type">PipelineOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211652"><span id="local-6989586621679211653"><span id="local-6989586621679211654"><span class="annot"><span class="annottext">Maybe [Permission]
 Maybe Text
 permissions :: Maybe [Permission]
 storageClass :: Maybe Text
@@ -377,7 +377,7 @@ bucket :: Maybe Text
 $sel:permissions:PipelineOutputConfig' :: PipelineOutputConfig -&gt; Maybe [Permission]
 $sel:storageClass:PipelineOutputConfig' :: PipelineOutputConfig -&gt; Maybe Text
 $sel:bucket:PipelineOutputConfig' :: PipelineOutputConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679211533"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679211652"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-193"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-194"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -389,21 +389,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679211535"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679211654"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-196"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StorageClass&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679211534"><span class="hs-identifier hs-var">storageClass</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679211653"><span class="hs-identifier hs-var">storageClass</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-197"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Permissions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Permission] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Permission] -&gt; Pair) -&gt; Maybe [Permission] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Permission]
-</span><a href="#local-6989586621679211533"><span class="hs-identifier hs-var">permissions</span></a></span><span>
+</span><a href="#local-6989586621679211652"><span class="hs-identifier hs-var">permissions</span></a></span><span>
 </span><span id="line-198"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-199"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-200"></span></pre></body></html>

@@ -28,30 +28,30 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | A container for account-level settings in AWS Device Farm.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newAccountSettings' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679370792"><span id="local-6989586621679370793"></span></span><span class="hs-keyword">data</span><span> </span><span id="AccountSettings"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings"><span class="hs-identifier hs-var">AccountSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccountSettings%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings%27"><span class="hs-identifier hs-var">AccountSettings'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The AWS account number specified in the @AccountSettings@ container.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AawsAccountNumber%3AAccountSettings%27"><span class="annot"><span class="annottext">AccountSettings -&gt; Maybe Text
-</span><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#%24sel%3AawsAccountNumber%3AAccountSettings%27"><span class="hs-identifier hs-var hs-var">awsAccountNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The maximum number of device slots that the AWS account can purchase.</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- Each maximum is expressed as an @offering-id:number@ pair, where the</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- @offering-id@ represents one of the IDs returned by the @ListOfferings@</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- command.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AmaxSlots%3AAccountSettings%27"><span class="annot"><span class="annottext">AccountSettings -&gt; Maybe (HashMap Text Int)
-</span><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#%24sel%3AmaxSlots%3AAccountSettings%27"><span class="hs-identifier hs-var hs-var">maxSlots</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Information about an AWS account\'s usage of free trial device minutes.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AtrialMinutes%3AAccountSettings%27"><span class="annot"><span class="annottext">AccountSettings -&gt; Maybe TrialMinutes
-</span><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#%24sel%3AtrialMinutes%3AAccountSettings%27"><span class="hs-identifier hs-var hs-var">trialMinutes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TrialMinutes.html#TrialMinutes"><span class="hs-identifier hs-type">TrialMinutes</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | When set to @true@, for private devices, Device Farm does not sign your</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- app again. For public devices, Device Farm always signs your apps again.</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- For more information about how Device Farm re-signs your apps, see</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- &lt;https://aws.amazon.com/device-farm/faq/ Do you modify my app?&gt; in the</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- /AWS Device Farm FAQs/.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3AskipAppResign%3AAccountSettings%27"><span class="annot"><span class="annottext">AccountSettings -&gt; Maybe Bool
+</span><span id="line-31"></span><span id="local-6989586621679371042"><span id="local-6989586621679371043"></span></span><span class="hs-keyword">data</span><span> </span><span id="AccountSettings"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings"><span class="hs-identifier hs-var">AccountSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccountSettings%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings%27"><span class="hs-identifier hs-var">AccountSettings'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When set to @true@, for private devices, Device Farm does not sign your</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- app again. For public devices, Device Farm always signs your apps again.</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- For more information about how Device Farm re-signs your apps, see</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- &lt;https://aws.amazon.com/device-farm/faq/ Do you modify my app?&gt; in the</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- /AWS Device Farm FAQs/.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AskipAppResign%3AAccountSettings%27"><span class="annot"><span class="annottext">AccountSettings -&gt; Maybe Bool
 </span><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#%24sel%3AskipAppResign%3AAccountSettings%27"><span class="hs-identifier hs-var hs-var">skipAppResign</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The maximum number of minutes a test run executes before it times out.</span><span>
-</span><span id="line-49"></span><span>    </span><span id="%24sel%3AmaxJobTimeoutMinutes%3AAccountSettings%27"><span class="annot"><span class="annottext">AccountSettings -&gt; Maybe Int
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The AWS account number specified in the @AccountSettings@ container.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AawsAccountNumber%3AAccountSettings%27"><span class="annot"><span class="annottext">AccountSettings -&gt; Maybe Text
+</span><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#%24sel%3AawsAccountNumber%3AAccountSettings%27"><span class="hs-identifier hs-var hs-var">awsAccountNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The maximum number of minutes a test run executes before it times out.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AmaxJobTimeoutMinutes%3AAccountSettings%27"><span class="annot"><span class="annottext">AccountSettings -&gt; Maybe Int
 </span><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#%24sel%3AmaxJobTimeoutMinutes%3AAccountSettings%27"><span class="hs-identifier hs-var hs-var">maxJobTimeoutMinutes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The maximum number of device slots that the AWS account can purchase.</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- Each maximum is expressed as an @offering-id:number@ pair, where the</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- @offering-id@ represents one of the IDs returned by the @ListOfferings@</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- command.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AmaxSlots%3AAccountSettings%27"><span class="annot"><span class="annottext">AccountSettings -&gt; Maybe (HashMap Text Int)
+</span><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#%24sel%3AmaxSlots%3AAccountSettings%27"><span class="hs-identifier hs-var hs-var">maxSlots</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | Information about an AWS account\'s usage of free trial device minutes.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AtrialMinutes%3AAccountSettings%27"><span class="annot"><span class="annottext">AccountSettings -&gt; Maybe TrialMinutes
+</span><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#%24sel%3AtrialMinutes%3AAccountSettings%27"><span class="hs-identifier hs-var hs-var">trialMinutes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TrialMinutes.html#TrialMinutes"><span class="hs-identifier hs-type">TrialMinutes</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | Returns the unmetered devices you have purchased or want to purchase.</span><span>
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3AunmeteredDevices%3AAccountSettings%27"><span class="annot"><span class="annottext">AccountSettings -&gt; Maybe (HashMap DevicePlatform Int)
 </span><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#%24sel%3AunmeteredDevices%3AAccountSettings%27"><span class="hs-identifier hs-var hs-var">unmeteredDevices</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DevicePlatform.html#DevicePlatform"><span class="hs-identifier hs-type">DevicePlatform</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -64,7 +64,7 @@
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AdefaultJobTimeoutMinutes%3AAccountSettings%27"><span class="annot"><span class="annottext">AccountSettings -&gt; Maybe Int
 </span><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#%24sel%3AdefaultJobTimeoutMinutes%3AAccountSettings%27"><span class="hs-identifier hs-var hs-var">defaultJobTimeoutMinutes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679370779"><span id="local-6989586621679370781"><span class="annot"><span class="annottext">AccountSettings -&gt; AccountSettings -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679371029"><span id="local-6989586621679371031"><span class="annot"><span class="annottext">AccountSettings -&gt; AccountSettings -&gt; Bool
 (AccountSettings -&gt; AccountSettings -&gt; Bool)
 -&gt; (AccountSettings -&gt; AccountSettings -&gt; Bool)
 -&gt; Eq AccountSettings
@@ -73,7 +73,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AccountSettings -&gt; AccountSettings -&gt; Bool
 == :: AccountSettings -&gt; AccountSettings -&gt; Bool
 $c== :: AccountSettings -&gt; AccountSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370770"><span id="local-6989586621679370772"><span id="local-6989586621679370774"><span id="local-6989586621679370776"><span class="annot"><span class="annottext">ReadPrec [AccountSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371020"><span id="local-6989586621679371022"><span id="local-6989586621679371024"><span id="local-6989586621679371026"><span class="annot"><span class="annottext">ReadPrec [AccountSettings]
 ReadPrec AccountSettings
 Int -&gt; ReadS AccountSettings
 ReadS [AccountSettings]
@@ -93,7 +93,7 @@ readList :: ReadS [AccountSettings]
 $creadList :: ReadS [AccountSettings]
 readsPrec :: Int -&gt; ReadS AccountSettings
 $creadsPrec :: Int -&gt; ReadS AccountSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370763"><span id="local-6989586621679370765"><span id="local-6989586621679370767"><span class="annot"><span class="annottext">Int -&gt; AccountSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371013"><span id="local-6989586621679371015"><span id="local-6989586621679371017"><span class="annot"><span class="annottext">Int -&gt; AccountSettings -&gt; ShowS
 [AccountSettings] -&gt; ShowS
 AccountSettings -&gt; String
 (Int -&gt; AccountSettings -&gt; ShowS)
@@ -127,23 +127,23 @@ $cfrom :: forall x. AccountSettings -&gt; Rep AccountSettings x
 </span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-68"></span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- 'awsAccountNumber', 'accountSettings_awsAccountNumber' - The AWS account number specified in the @AccountSettings@ container.</span><span>
-</span><span id="line-70"></span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- 'maxSlots', 'accountSettings_maxSlots' - The maximum number of device slots that the AWS account can purchase.</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- Each maximum is expressed as an @offering-id:number@ pair, where the</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- @offering-id@ represents one of the IDs returned by the @ListOfferings@</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- command.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'skipAppResign', 'accountSettings_skipAppResign' - When set to @true@, for private devices, Device Farm does not sign your</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- app again. For public devices, Device Farm always signs your apps again.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- For more information about how Device Farm re-signs your apps, see</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- &lt;https://aws.amazon.com/device-farm/faq/ Do you modify my app?&gt; in the</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- /AWS Device Farm FAQs/.</span><span>
 </span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 'trialMinutes', 'accountSettings_trialMinutes' - Information about an AWS account\'s usage of free trial device minutes.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'awsAccountNumber', 'accountSettings_awsAccountNumber' - The AWS account number specified in the @AccountSettings@ container.</span><span>
 </span><span id="line-77"></span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- 'skipAppResign', 'accountSettings_skipAppResign' - When set to @true@, for private devices, Device Farm does not sign your</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- app again. For public devices, Device Farm always signs your apps again.</span><span>
-</span><span id="line-80"></span><span class="hs-comment">--</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- For more information about how Device Farm re-signs your apps, see</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- &lt;https://aws.amazon.com/device-farm/faq/ Do you modify my app?&gt; in the</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- /AWS Device Farm FAQs/.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'maxJobTimeoutMinutes', 'accountSettings_maxJobTimeoutMinutes' - The maximum number of minutes a test run executes before it times out.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'maxSlots', 'accountSettings_maxSlots' - The maximum number of device slots that the AWS account can purchase.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Each maximum is expressed as an @offering-id:number@ pair, where the</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- @offering-id@ represents one of the IDs returned by the @ListOfferings@</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- command.</span><span>
 </span><span id="line-84"></span><span class="hs-comment">--</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- 'maxJobTimeoutMinutes', 'accountSettings_maxJobTimeoutMinutes' - The maximum number of minutes a test run executes before it times out.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'trialMinutes', 'accountSettings_trialMinutes' - Information about an AWS account\'s usage of free trial device minutes.</span><span>
 </span><span id="line-86"></span><span class="hs-comment">--</span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- 'unmeteredDevices', 'accountSettings_unmeteredDevices' - Returns the unmetered devices you have purchased or want to purchase.</span><span>
 </span><span id="line-88"></span><span class="hs-comment">--</span><span>
@@ -156,76 +156,118 @@ $cfrom :: forall x. AccountSettings -&gt; Rep AccountSettings x
 </span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings"><span class="hs-identifier hs-type">AccountSettings</span></a></span><span>
 </span><span id="line-96"></span><span id="newAccountSettings"><span class="annot"><span class="annottext">newAccountSettings :: AccountSettings
 </span><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#newAccountSettings"><span class="hs-identifier hs-var hs-var">newAccountSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-97"></span><span>  </span><span class="annot"><span class="annottext">AccountSettings' :: Maybe Text
+</span><span id="line-97"></span><span>  </span><span class="annot"><span class="annottext">AccountSettings' :: Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Int
 -&gt; Maybe (HashMap Text Int)
 -&gt; Maybe TrialMinutes
--&gt; Maybe Bool
--&gt; Maybe Int
 -&gt; Maybe (HashMap DevicePlatform Int)
 -&gt; Maybe (HashMap DevicePlatform Int)
 -&gt; Maybe Int
 -&gt; AccountSettings
 </span><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings%27"><span class="hs-identifier hs-type">AccountSettings'</span></a></span><span>
-</span><span id="line-98"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:awsAccountNumber:AccountSettings' :: Maybe Text
-</span><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#%24sel%3AawsAccountNumber%3AAccountSettings%27"><span class="hs-identifier hs-var">awsAccountNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxSlots:AccountSettings' :: Maybe (HashMap Text Int)
-</span><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#%24sel%3AmaxSlots%3AAccountSettings%27"><span class="hs-identifier hs-var">maxSlots</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Int)
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:trialMinutes:AccountSettings' :: Maybe TrialMinutes
-</span><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#%24sel%3AtrialMinutes%3AAccountSettings%27"><span class="hs-identifier hs-var">trialMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrialMinutes
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:skipAppResign:AccountSettings' :: Maybe Bool
+</span><span id="line-98"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:skipAppResign:AccountSettings' :: Maybe Bool
 </span><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#%24sel%3AskipAppResign%3AAccountSettings%27"><span class="hs-identifier hs-var">skipAppResign</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxJobTimeoutMinutes:AccountSettings' :: Maybe Int
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:awsAccountNumber:AccountSettings' :: Maybe Text
+</span><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#%24sel%3AawsAccountNumber%3AAccountSettings%27"><span class="hs-identifier hs-var">awsAccountNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxJobTimeoutMinutes:AccountSettings' :: Maybe Int
 </span><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#%24sel%3AmaxJobTimeoutMinutes%3AAccountSettings%27"><span class="hs-identifier hs-var">maxJobTimeoutMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:unmeteredDevices:AccountSettings' :: Maybe (HashMap DevicePlatform Int)
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxSlots:AccountSettings' :: Maybe (HashMap Text Int)
+</span><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#%24sel%3AmaxSlots%3AAccountSettings%27"><span class="hs-identifier hs-var">maxSlots</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Int)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:trialMinutes:AccountSettings' :: Maybe TrialMinutes
+</span><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#%24sel%3AtrialMinutes%3AAccountSettings%27"><span class="hs-identifier hs-var">trialMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrialMinutes
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:unmeteredDevices:AccountSettings' :: Maybe (HashMap DevicePlatform Int)
 </span><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#%24sel%3AunmeteredDevices%3AAccountSettings%27"><span class="hs-identifier hs-var">unmeteredDevices</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap DevicePlatform Int)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:unmeteredRemoteAccessDevices:AccountSettings' :: Maybe (HashMap DevicePlatform Int)
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:unmeteredRemoteAccessDevices:AccountSettings' :: Maybe (HashMap DevicePlatform Int)
 </span><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#%24sel%3AunmeteredRemoteAccessDevices%3AAccountSettings%27"><span class="hs-identifier hs-var">unmeteredRemoteAccessDevices</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap DevicePlatform Int)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:defaultJobTimeoutMinutes:AccountSettings' :: Maybe Int
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:defaultJobTimeoutMinutes:AccountSettings' :: Maybe Int
 </span><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#%24sel%3AdefaultJobTimeoutMinutes%3AAccountSettings%27"><span class="hs-identifier hs-var">defaultJobTimeoutMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-107"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- | The AWS account number specified in the @AccountSettings@ container.</span><span>
-</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#accountSettings_awsAccountNumber"><span class="hs-identifier hs-type">accountSettings_awsAccountNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings"><span class="hs-identifier hs-type">AccountSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span id="accountSettings_awsAccountNumber"><span class="annot"><span class="annottext">accountSettings_awsAccountNumber :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-106"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | When set to @true@, for private devices, Device Farm does not sign your</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- app again. For public devices, Device Farm always signs your apps again.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- For more information about how Device Farm re-signs your apps, see</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- &lt;https://aws.amazon.com/device-farm/faq/ Do you modify my app?&gt; in the</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- /AWS Device Farm FAQs/.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#accountSettings_skipAppResign"><span class="hs-identifier hs-type">accountSettings_skipAppResign</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings"><span class="hs-identifier hs-type">AccountSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="accountSettings_skipAppResign"><span class="annot"><span class="annottext">accountSettings_skipAppResign :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; AccountSettings -&gt; f AccountSettings
+</span><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#accountSettings_skipAppResign"><span class="hs-identifier hs-var hs-var">accountSettings_skipAppResign</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccountSettings -&gt; Maybe Bool)
+-&gt; (AccountSettings -&gt; Maybe Bool -&gt; AccountSettings)
+-&gt; Lens AccountSettings AccountSettings (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings%27"><span class="hs-identifier hs-type">AccountSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371004"><span class="annot"><span class="annottext">Maybe Bool
+skipAppResign :: Maybe Bool
+$sel:skipAppResign:AccountSettings' :: AccountSettings -&gt; Maybe Bool
+</span><a href="#local-6989586621679371004"><span class="hs-identifier hs-var hs-var">skipAppResign</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679371004"><span class="hs-identifier hs-var">skipAppResign</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371003"><span class="annot"><span class="annottext">s :: AccountSettings
+</span><a href="#local-6989586621679371003"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings%27"><span class="hs-identifier hs-type">AccountSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371002"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679371002"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountSettings
+</span><a href="#local-6989586621679371003"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:skipAppResign:AccountSettings' :: Maybe Bool
+</span><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#%24sel%3AskipAppResign%3AAccountSettings%27"><span class="hs-identifier hs-var">skipAppResign</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679371002"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings"><span class="hs-identifier hs-type">AccountSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | The AWS account number specified in the @AccountSettings@ container.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#accountSettings_awsAccountNumber"><span class="hs-identifier hs-type">accountSettings_awsAccountNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings"><span class="hs-identifier hs-type">AccountSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="accountSettings_awsAccountNumber"><span class="annot"><span class="annottext">accountSettings_awsAccountNumber :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; AccountSettings -&gt; f AccountSettings
 </span><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#accountSettings_awsAccountNumber"><span class="hs-identifier hs-var hs-var">accountSettings_awsAccountNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccountSettings -&gt; Maybe Text)
 -&gt; (AccountSettings -&gt; Maybe Text -&gt; AccountSettings)
 -&gt; Lens AccountSettings AccountSettings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings%27"><span class="hs-identifier hs-type">AccountSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370754"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings%27"><span class="hs-identifier hs-type">AccountSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371000"><span class="annot"><span class="annottext">Maybe Text
 awsAccountNumber :: Maybe Text
 $sel:awsAccountNumber:AccountSettings' :: AccountSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679370754"><span class="hs-identifier hs-var hs-var">awsAccountNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679370754"><span class="hs-identifier hs-var">awsAccountNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370753"><span class="annot"><span class="annottext">s :: AccountSettings
-</span><a href="#local-6989586621679370753"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings%27"><span class="hs-identifier hs-type">AccountSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370752"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679370752"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountSettings
-</span><a href="#local-6989586621679370753"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsAccountNumber:AccountSettings' :: Maybe Text
+</span><a href="#local-6989586621679371000"><span class="hs-identifier hs-var hs-var">awsAccountNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371000"><span class="hs-identifier hs-var">awsAccountNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370999"><span class="annot"><span class="annottext">s :: AccountSettings
+</span><a href="#local-6989586621679370999"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings%27"><span class="hs-identifier hs-type">AccountSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370998"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370998"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountSettings
+</span><a href="#local-6989586621679370999"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsAccountNumber:AccountSettings' :: Maybe Text
 </span><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#%24sel%3AawsAccountNumber%3AAccountSettings%27"><span class="hs-identifier hs-var">awsAccountNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679370752"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings"><span class="hs-identifier hs-type">AccountSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- | The maximum number of device slots that the AWS account can purchase.</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- Each maximum is expressed as an @offering-id:number@ pair, where the</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- @offering-id@ represents one of the IDs returned by the @ListOfferings@</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- command.</span><span>
-</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#accountSettings_maxSlots"><span class="hs-identifier hs-type">accountSettings_maxSlots</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings"><span class="hs-identifier hs-type">AccountSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span id="accountSettings_maxSlots"><span class="annot"><span class="annottext">accountSettings_maxSlots :: (Maybe (HashMap Text Int) -&gt; f (Maybe (HashMap Text Int)))
+</span><a href="#local-6989586621679370998"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings"><span class="hs-identifier hs-type">AccountSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | The maximum number of minutes a test run executes before it times out.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#accountSettings_maxJobTimeoutMinutes"><span class="hs-identifier hs-type">accountSettings_maxJobTimeoutMinutes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings"><span class="hs-identifier hs-type">AccountSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="accountSettings_maxJobTimeoutMinutes"><span class="annot"><span class="annottext">accountSettings_maxJobTimeoutMinutes :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; AccountSettings -&gt; f AccountSettings
+</span><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#accountSettings_maxJobTimeoutMinutes"><span class="hs-identifier hs-var hs-var">accountSettings_maxJobTimeoutMinutes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccountSettings -&gt; Maybe Int)
+-&gt; (AccountSettings -&gt; Maybe Int -&gt; AccountSettings)
+-&gt; Lens AccountSettings AccountSettings (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings%27"><span class="hs-identifier hs-type">AccountSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370996"><span class="annot"><span class="annottext">Maybe Int
+maxJobTimeoutMinutes :: Maybe Int
+$sel:maxJobTimeoutMinutes:AccountSettings' :: AccountSettings -&gt; Maybe Int
+</span><a href="#local-6989586621679370996"><span class="hs-identifier hs-var hs-var">maxJobTimeoutMinutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679370996"><span class="hs-identifier hs-var">maxJobTimeoutMinutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370995"><span class="annot"><span class="annottext">s :: AccountSettings
+</span><a href="#local-6989586621679370995"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings%27"><span class="hs-identifier hs-type">AccountSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370994"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679370994"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountSettings
+</span><a href="#local-6989586621679370995"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxJobTimeoutMinutes:AccountSettings' :: Maybe Int
+</span><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#%24sel%3AmaxJobTimeoutMinutes%3AAccountSettings%27"><span class="hs-identifier hs-var">maxJobTimeoutMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679370994"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings"><span class="hs-identifier hs-type">AccountSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The maximum number of device slots that the AWS account can purchase.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- Each maximum is expressed as an @offering-id:number@ pair, where the</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- @offering-id@ represents one of the IDs returned by the @ListOfferings@</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- command.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#accountSettings_maxSlots"><span class="hs-identifier hs-type">accountSettings_maxSlots</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings"><span class="hs-identifier hs-type">AccountSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="accountSettings_maxSlots"><span class="annot"><span class="annottext">accountSettings_maxSlots :: (Maybe (HashMap Text Int) -&gt; f (Maybe (HashMap Text Int)))
 -&gt; AccountSettings -&gt; f AccountSettings
 </span><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#accountSettings_maxSlots"><span class="hs-identifier hs-var hs-var">accountSettings_maxSlots</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccountSettings -&gt; Maybe (HashMap Text Int))
 -&gt; (AccountSettings -&gt; Maybe (HashMap Text Int) -&gt; AccountSettings)
@@ -235,16 +277,16 @@ $sel:awsAccountNumber:AccountSettings' :: AccountSettings -&gt; Maybe Text
      (Maybe (HashMap Text Int))
      (Maybe (HashMap Text Int))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings%27"><span class="hs-identifier hs-type">AccountSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370750"><span class="annot"><span class="annottext">Maybe (HashMap Text Int)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings%27"><span class="hs-identifier hs-type">AccountSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370992"><span class="annot"><span class="annottext">Maybe (HashMap Text Int)
 maxSlots :: Maybe (HashMap Text Int)
 $sel:maxSlots:AccountSettings' :: AccountSettings -&gt; Maybe (HashMap Text Int)
-</span><a href="#local-6989586621679370750"><span class="hs-identifier hs-var hs-var">maxSlots</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Int)
-</span><a href="#local-6989586621679370750"><span class="hs-identifier hs-var">maxSlots</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370749"><span class="annot"><span class="annottext">s :: AccountSettings
-</span><a href="#local-6989586621679370749"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings%27"><span class="hs-identifier hs-type">AccountSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370748"><span class="annot"><span class="annottext">Maybe (HashMap Text Int)
-</span><a href="#local-6989586621679370748"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountSettings
-</span><a href="#local-6989586621679370749"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxSlots:AccountSettings' :: Maybe (HashMap Text Int)
+</span><a href="#local-6989586621679370992"><span class="hs-identifier hs-var hs-var">maxSlots</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Int)
+</span><a href="#local-6989586621679370992"><span class="hs-identifier hs-var">maxSlots</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370991"><span class="annot"><span class="annottext">s :: AccountSettings
+</span><a href="#local-6989586621679370991"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings%27"><span class="hs-identifier hs-type">AccountSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370990"><span class="annot"><span class="annottext">Maybe (HashMap Text Int)
+</span><a href="#local-6989586621679370990"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountSettings
+</span><a href="#local-6989586621679370991"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxSlots:AccountSettings' :: Maybe (HashMap Text Int)
 </span><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#%24sel%3AmaxSlots%3AAccountSettings%27"><span class="hs-identifier hs-var">maxSlots</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Int)
-</span><a href="#local-6989586621679370748"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings"><span class="hs-identifier hs-type">AccountSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Int) -&gt; f (Maybe (HashMap Text Int)))
+</span><a href="#local-6989586621679370990"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings"><span class="hs-identifier hs-type">AccountSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Int) -&gt; f (Maybe (HashMap Text Int)))
  -&gt; AccountSettings -&gt; f AccountSettings)
 -&gt; ((Maybe (HashMap Text Int) -&gt; f (Maybe (HashMap Text Int)))
     -&gt; Maybe (HashMap Text Int) -&gt; f (Maybe (HashMap Text Int)))
@@ -270,12 +312,12 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Int)
   (HashMap Text Int)
   (HashMap Text Int)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- | Information about an AWS account\'s usage of free trial device minutes.</span><span>
-</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#accountSettings_trialMinutes"><span class="hs-identifier hs-type">accountSettings_trialMinutes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings"><span class="hs-identifier hs-type">AccountSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TrialMinutes.html#TrialMinutes"><span class="hs-identifier hs-type">TrialMinutes</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span id="accountSettings_trialMinutes"><span class="annot"><span class="annottext">accountSettings_trialMinutes :: (Maybe TrialMinutes -&gt; f (Maybe TrialMinutes))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | Information about an AWS account\'s usage of free trial device minutes.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#accountSettings_trialMinutes"><span class="hs-identifier hs-type">accountSettings_trialMinutes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings"><span class="hs-identifier hs-type">AccountSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TrialMinutes.html#TrialMinutes"><span class="hs-identifier hs-type">TrialMinutes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="accountSettings_trialMinutes"><span class="annot"><span class="annottext">accountSettings_trialMinutes :: (Maybe TrialMinutes -&gt; f (Maybe TrialMinutes))
 -&gt; AccountSettings -&gt; f AccountSettings
 </span><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#accountSettings_trialMinutes"><span class="hs-identifier hs-var hs-var">accountSettings_trialMinutes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccountSettings -&gt; Maybe TrialMinutes)
 -&gt; (AccountSettings -&gt; Maybe TrialMinutes -&gt; AccountSettings)
@@ -285,63 +327,20 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe TrialMinutes)
      (Maybe TrialMinutes)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings%27"><span class="hs-identifier hs-type">AccountSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370743"><span class="annot"><span class="annottext">Maybe TrialMinutes
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings%27"><span class="hs-identifier hs-type">AccountSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370985"><span class="annot"><span class="annottext">Maybe TrialMinutes
 trialMinutes :: Maybe TrialMinutes
 $sel:trialMinutes:AccountSettings' :: AccountSettings -&gt; Maybe TrialMinutes
-</span><a href="#local-6989586621679370743"><span class="hs-identifier hs-var hs-var">trialMinutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TrialMinutes
-</span><a href="#local-6989586621679370743"><span class="hs-identifier hs-var">trialMinutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370742"><span class="annot"><span class="annottext">s :: AccountSettings
-</span><a href="#local-6989586621679370742"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings%27"><span class="hs-identifier hs-type">AccountSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370741"><span class="annot"><span class="annottext">Maybe TrialMinutes
-</span><a href="#local-6989586621679370741"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountSettings
-</span><a href="#local-6989586621679370742"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trialMinutes:AccountSettings' :: Maybe TrialMinutes
+</span><a href="#local-6989586621679370985"><span class="hs-identifier hs-var hs-var">trialMinutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TrialMinutes
+</span><a href="#local-6989586621679370985"><span class="hs-identifier hs-var">trialMinutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370984"><span class="annot"><span class="annottext">s :: AccountSettings
+</span><a href="#local-6989586621679370984"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings%27"><span class="hs-identifier hs-type">AccountSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370983"><span class="annot"><span class="annottext">Maybe TrialMinutes
+</span><a href="#local-6989586621679370983"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountSettings
+</span><a href="#local-6989586621679370984"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trialMinutes:AccountSettings' :: Maybe TrialMinutes
 </span><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#%24sel%3AtrialMinutes%3AAccountSettings%27"><span class="hs-identifier hs-var">trialMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrialMinutes
-</span><a href="#local-6989586621679370741"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings"><span class="hs-identifier hs-type">AccountSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- | When set to @true@, for private devices, Device Farm does not sign your</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- app again. For public devices, Device Farm always signs your apps again.</span><span>
-</span><span id="line-126"></span><span class="hs-comment">--</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- For more information about how Device Farm re-signs your apps, see</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- &lt;https://aws.amazon.com/device-farm/faq/ Do you modify my app?&gt; in the</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- /AWS Device Farm FAQs/.</span><span>
-</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#accountSettings_skipAppResign"><span class="hs-identifier hs-type">accountSettings_skipAppResign</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings"><span class="hs-identifier hs-type">AccountSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span id="accountSettings_skipAppResign"><span class="annot"><span class="annottext">accountSettings_skipAppResign :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; AccountSettings -&gt; f AccountSettings
-</span><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#accountSettings_skipAppResign"><span class="hs-identifier hs-var hs-var">accountSettings_skipAppResign</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccountSettings -&gt; Maybe Bool)
--&gt; (AccountSettings -&gt; Maybe Bool -&gt; AccountSettings)
--&gt; Lens AccountSettings AccountSettings (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings%27"><span class="hs-identifier hs-type">AccountSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370739"><span class="annot"><span class="annottext">Maybe Bool
-skipAppResign :: Maybe Bool
-$sel:skipAppResign:AccountSettings' :: AccountSettings -&gt; Maybe Bool
-</span><a href="#local-6989586621679370739"><span class="hs-identifier hs-var hs-var">skipAppResign</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679370739"><span class="hs-identifier hs-var">skipAppResign</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370738"><span class="annot"><span class="annottext">s :: AccountSettings
-</span><a href="#local-6989586621679370738"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings%27"><span class="hs-identifier hs-type">AccountSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370737"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679370737"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountSettings
-</span><a href="#local-6989586621679370738"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:skipAppResign:AccountSettings' :: Maybe Bool
-</span><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#%24sel%3AskipAppResign%3AAccountSettings%27"><span class="hs-identifier hs-var">skipAppResign</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679370737"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings"><span class="hs-identifier hs-type">AccountSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- | The maximum number of minutes a test run executes before it times out.</span><span>
-</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#accountSettings_maxJobTimeoutMinutes"><span class="hs-identifier hs-type">accountSettings_maxJobTimeoutMinutes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings"><span class="hs-identifier hs-type">AccountSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span id="accountSettings_maxJobTimeoutMinutes"><span class="annot"><span class="annottext">accountSettings_maxJobTimeoutMinutes :: (Maybe Int -&gt; f (Maybe Int))
--&gt; AccountSettings -&gt; f AccountSettings
-</span><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#accountSettings_maxJobTimeoutMinutes"><span class="hs-identifier hs-var hs-var">accountSettings_maxJobTimeoutMinutes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccountSettings -&gt; Maybe Int)
--&gt; (AccountSettings -&gt; Maybe Int -&gt; AccountSettings)
--&gt; Lens AccountSettings AccountSettings (Maybe Int) (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings%27"><span class="hs-identifier hs-type">AccountSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370735"><span class="annot"><span class="annottext">Maybe Int
-maxJobTimeoutMinutes :: Maybe Int
-$sel:maxJobTimeoutMinutes:AccountSettings' :: AccountSettings -&gt; Maybe Int
-</span><a href="#local-6989586621679370735"><span class="hs-identifier hs-var hs-var">maxJobTimeoutMinutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679370735"><span class="hs-identifier hs-var">maxJobTimeoutMinutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370734"><span class="annot"><span class="annottext">s :: AccountSettings
-</span><a href="#local-6989586621679370734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings%27"><span class="hs-identifier hs-type">AccountSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370733"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679370733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountSettings
-</span><a href="#local-6989586621679370734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxJobTimeoutMinutes:AccountSettings' :: Maybe Int
-</span><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#%24sel%3AmaxJobTimeoutMinutes%3AAccountSettings%27"><span class="hs-identifier hs-var">maxJobTimeoutMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679370733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings"><span class="hs-identifier hs-type">AccountSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- | Returns the unmetered devices you have purchased or want to purchase.</span><span>
-</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#accountSettings_unmeteredDevices"><span class="hs-identifier hs-type">accountSettings_unmeteredDevices</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings"><span class="hs-identifier hs-type">AccountSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DevicePlatform.html#DevicePlatform"><span class="hs-identifier hs-type">DevicePlatform</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-139"></span><span id="accountSettings_unmeteredDevices"><span class="annot"><span class="annottext">accountSettings_unmeteredDevices :: (Maybe (HashMap DevicePlatform Int)
+</span><a href="#local-6989586621679370983"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings"><span class="hs-identifier hs-type">AccountSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | Returns the unmetered devices you have purchased or want to purchase.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#accountSettings_unmeteredDevices"><span class="hs-identifier hs-type">accountSettings_unmeteredDevices</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings"><span class="hs-identifier hs-type">AccountSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DevicePlatform.html#DevicePlatform"><span class="hs-identifier hs-type">DevicePlatform</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="accountSettings_unmeteredDevices"><span class="annot"><span class="annottext">accountSettings_unmeteredDevices :: (Maybe (HashMap DevicePlatform Int)
  -&gt; f (Maybe (HashMap DevicePlatform Int)))
 -&gt; AccountSettings -&gt; f AccountSettings
 </span><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#accountSettings_unmeteredDevices"><span class="hs-identifier hs-var hs-var">accountSettings_unmeteredDevices</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccountSettings -&gt; Maybe (HashMap DevicePlatform Int))
@@ -353,16 +352,16 @@ $sel:maxJobTimeoutMinutes:AccountSettings' :: AccountSettings -&gt; Maybe Int
      (Maybe (HashMap DevicePlatform Int))
      (Maybe (HashMap DevicePlatform Int))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings%27"><span class="hs-identifier hs-type">AccountSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370731"><span class="annot"><span class="annottext">Maybe (HashMap DevicePlatform Int)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings%27"><span class="hs-identifier hs-type">AccountSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370981"><span class="annot"><span class="annottext">Maybe (HashMap DevicePlatform Int)
 unmeteredDevices :: Maybe (HashMap DevicePlatform Int)
 $sel:unmeteredDevices:AccountSettings' :: AccountSettings -&gt; Maybe (HashMap DevicePlatform Int)
-</span><a href="#local-6989586621679370731"><span class="hs-identifier hs-var hs-var">unmeteredDevices</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap DevicePlatform Int)
-</span><a href="#local-6989586621679370731"><span class="hs-identifier hs-var">unmeteredDevices</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370730"><span class="annot"><span class="annottext">s :: AccountSettings
-</span><a href="#local-6989586621679370730"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings%27"><span class="hs-identifier hs-type">AccountSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370729"><span class="annot"><span class="annottext">Maybe (HashMap DevicePlatform Int)
-</span><a href="#local-6989586621679370729"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountSettings
-</span><a href="#local-6989586621679370730"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unmeteredDevices:AccountSettings' :: Maybe (HashMap DevicePlatform Int)
+</span><a href="#local-6989586621679370981"><span class="hs-identifier hs-var hs-var">unmeteredDevices</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap DevicePlatform Int)
+</span><a href="#local-6989586621679370981"><span class="hs-identifier hs-var">unmeteredDevices</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370980"><span class="annot"><span class="annottext">s :: AccountSettings
+</span><a href="#local-6989586621679370980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings%27"><span class="hs-identifier hs-type">AccountSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370979"><span class="annot"><span class="annottext">Maybe (HashMap DevicePlatform Int)
+</span><a href="#local-6989586621679370979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountSettings
+</span><a href="#local-6989586621679370980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unmeteredDevices:AccountSettings' :: Maybe (HashMap DevicePlatform Int)
 </span><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#%24sel%3AunmeteredDevices%3AAccountSettings%27"><span class="hs-identifier hs-var">unmeteredDevices</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap DevicePlatform Int)
-</span><a href="#local-6989586621679370729"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings"><span class="hs-identifier hs-type">AccountSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap DevicePlatform Int)
+</span><a href="#local-6989586621679370979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings"><span class="hs-identifier hs-type">AccountSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap DevicePlatform Int)
   -&gt; f (Maybe (HashMap DevicePlatform Int)))
  -&gt; AccountSettings -&gt; f AccountSettings)
 -&gt; ((Maybe (HashMap DevicePlatform Int)
@@ -392,13 +391,13 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap DevicePlatform Int)
   (HashMap DevicePlatform Int)
   (HashMap DevicePlatform Int)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- | Returns the unmetered remote access devices you have purchased or want</span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- to purchase.</span><span>
-</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#accountSettings_unmeteredRemoteAccessDevices"><span class="hs-identifier hs-type">accountSettings_unmeteredRemoteAccessDevices</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings"><span class="hs-identifier hs-type">AccountSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DevicePlatform.html#DevicePlatform"><span class="hs-identifier hs-type">DevicePlatform</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-144"></span><span id="accountSettings_unmeteredRemoteAccessDevices"><span class="annot"><span class="annottext">accountSettings_unmeteredRemoteAccessDevices :: (Maybe (HashMap DevicePlatform Int)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | Returns the unmetered remote access devices you have purchased or want</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- to purchase.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#accountSettings_unmeteredRemoteAccessDevices"><span class="hs-identifier hs-type">accountSettings_unmeteredRemoteAccessDevices</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings"><span class="hs-identifier hs-type">AccountSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DevicePlatform.html#DevicePlatform"><span class="hs-identifier hs-type">DevicePlatform</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="accountSettings_unmeteredRemoteAccessDevices"><span class="annot"><span class="annottext">accountSettings_unmeteredRemoteAccessDevices :: (Maybe (HashMap DevicePlatform Int)
  -&gt; f (Maybe (HashMap DevicePlatform Int)))
 -&gt; AccountSettings -&gt; f AccountSettings
 </span><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#accountSettings_unmeteredRemoteAccessDevices"><span class="hs-identifier hs-var hs-var">accountSettings_unmeteredRemoteAccessDevices</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccountSettings -&gt; Maybe (HashMap DevicePlatform Int))
@@ -410,16 +409,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe (HashMap DevicePlatform Int))
      (Maybe (HashMap DevicePlatform Int))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings%27"><span class="hs-identifier hs-type">AccountSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370727"><span class="annot"><span class="annottext">Maybe (HashMap DevicePlatform Int)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings%27"><span class="hs-identifier hs-type">AccountSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370977"><span class="annot"><span class="annottext">Maybe (HashMap DevicePlatform Int)
 unmeteredRemoteAccessDevices :: Maybe (HashMap DevicePlatform Int)
 $sel:unmeteredRemoteAccessDevices:AccountSettings' :: AccountSettings -&gt; Maybe (HashMap DevicePlatform Int)
-</span><a href="#local-6989586621679370727"><span class="hs-identifier hs-var hs-var">unmeteredRemoteAccessDevices</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap DevicePlatform Int)
-</span><a href="#local-6989586621679370727"><span class="hs-identifier hs-var">unmeteredRemoteAccessDevices</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370726"><span class="annot"><span class="annottext">s :: AccountSettings
-</span><a href="#local-6989586621679370726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings%27"><span class="hs-identifier hs-type">AccountSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370725"><span class="annot"><span class="annottext">Maybe (HashMap DevicePlatform Int)
-</span><a href="#local-6989586621679370725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountSettings
-</span><a href="#local-6989586621679370726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unmeteredRemoteAccessDevices:AccountSettings' :: Maybe (HashMap DevicePlatform Int)
+</span><a href="#local-6989586621679370977"><span class="hs-identifier hs-var hs-var">unmeteredRemoteAccessDevices</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap DevicePlatform Int)
+</span><a href="#local-6989586621679370977"><span class="hs-identifier hs-var">unmeteredRemoteAccessDevices</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370976"><span class="annot"><span class="annottext">s :: AccountSettings
+</span><a href="#local-6989586621679370976"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings%27"><span class="hs-identifier hs-type">AccountSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370975"><span class="annot"><span class="annottext">Maybe (HashMap DevicePlatform Int)
+</span><a href="#local-6989586621679370975"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountSettings
+</span><a href="#local-6989586621679370976"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unmeteredRemoteAccessDevices:AccountSettings' :: Maybe (HashMap DevicePlatform Int)
 </span><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#%24sel%3AunmeteredRemoteAccessDevices%3AAccountSettings%27"><span class="hs-identifier hs-var">unmeteredRemoteAccessDevices</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap DevicePlatform Int)
-</span><a href="#local-6989586621679370725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings"><span class="hs-identifier hs-type">AccountSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap DevicePlatform Int)
+</span><a href="#local-6989586621679370975"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings"><span class="hs-identifier hs-type">AccountSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap DevicePlatform Int)
   -&gt; f (Maybe (HashMap DevicePlatform Int)))
  -&gt; AccountSettings -&gt; f AccountSettings)
 -&gt; ((Maybe (HashMap DevicePlatform Int)
@@ -449,82 +448,126 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap DevicePlatform Int)
   (HashMap DevicePlatform Int)
   (HashMap DevicePlatform Int)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- | The default number of minutes (at the account level) a test run executes</span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- before it times out. The default value is 150 minutes.</span><span>
-</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#accountSettings_defaultJobTimeoutMinutes"><span class="hs-identifier hs-type">accountSettings_defaultJobTimeoutMinutes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings"><span class="hs-identifier hs-type">AccountSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-149"></span><span id="accountSettings_defaultJobTimeoutMinutes"><span class="annot"><span class="annottext">accountSettings_defaultJobTimeoutMinutes :: (Maybe Int -&gt; f (Maybe Int))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The default number of minutes (at the account level) a test run executes</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- before it times out. The default value is 150 minutes.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#accountSettings_defaultJobTimeoutMinutes"><span class="hs-identifier hs-type">accountSettings_defaultJobTimeoutMinutes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings"><span class="hs-identifier hs-type">AccountSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span id="accountSettings_defaultJobTimeoutMinutes"><span class="annot"><span class="annottext">accountSettings_defaultJobTimeoutMinutes :: (Maybe Int -&gt; f (Maybe Int))
 -&gt; AccountSettings -&gt; f AccountSettings
 </span><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#accountSettings_defaultJobTimeoutMinutes"><span class="hs-identifier hs-var hs-var">accountSettings_defaultJobTimeoutMinutes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccountSettings -&gt; Maybe Int)
 -&gt; (AccountSettings -&gt; Maybe Int -&gt; AccountSettings)
 -&gt; Lens AccountSettings AccountSettings (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings%27"><span class="hs-identifier hs-type">AccountSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370723"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings%27"><span class="hs-identifier hs-type">AccountSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370973"><span class="annot"><span class="annottext">Maybe Int
 defaultJobTimeoutMinutes :: Maybe Int
 $sel:defaultJobTimeoutMinutes:AccountSettings' :: AccountSettings -&gt; Maybe Int
-</span><a href="#local-6989586621679370723"><span class="hs-identifier hs-var hs-var">defaultJobTimeoutMinutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679370723"><span class="hs-identifier hs-var">defaultJobTimeoutMinutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370722"><span class="annot"><span class="annottext">s :: AccountSettings
-</span><a href="#local-6989586621679370722"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings%27"><span class="hs-identifier hs-type">AccountSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370721"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679370721"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountSettings
-</span><a href="#local-6989586621679370722"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultJobTimeoutMinutes:AccountSettings' :: Maybe Int
+</span><a href="#local-6989586621679370973"><span class="hs-identifier hs-var hs-var">defaultJobTimeoutMinutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679370973"><span class="hs-identifier hs-var">defaultJobTimeoutMinutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370972"><span class="annot"><span class="annottext">s :: AccountSettings
+</span><a href="#local-6989586621679370972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings%27"><span class="hs-identifier hs-type">AccountSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370971"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679370971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountSettings
+</span><a href="#local-6989586621679370972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultJobTimeoutMinutes:AccountSettings' :: Maybe Int
 </span><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#%24sel%3AdefaultJobTimeoutMinutes%3AAccountSettings%27"><span class="hs-identifier hs-var">defaultJobTimeoutMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679370721"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings"><span class="hs-identifier hs-type">AccountSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370718"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings"><span class="hs-identifier hs-type">AccountSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679370716"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AccountSettings
+</span><a href="#local-6989586621679370971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings"><span class="hs-identifier hs-type">AccountSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370968"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings"><span class="hs-identifier hs-type">AccountSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679370966"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AccountSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AccountSettings)
 -&gt; Value
 -&gt; Parser AccountSettings
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AccountSettings&quot;</span></span><span>
-</span><span id="line-155"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679370713"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370713"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-156"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679370963"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370963"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-155"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Int
 -&gt; Maybe (HashMap Text Int)
 -&gt; Maybe TrialMinutes
--&gt; Maybe Bool
--&gt; Maybe Int
 -&gt; Maybe (HashMap DevicePlatform Int)
 -&gt; Maybe (HashMap DevicePlatform Int)
 -&gt; Maybe Int
 -&gt; AccountSettings
 </span><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings%27"><span class="hs-identifier hs-var">AccountSettings'</span></a></span><span>
-</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Maybe Int
  -&gt; Maybe (HashMap Text Int)
  -&gt; Maybe TrialMinutes
- -&gt; Maybe Bool
- -&gt; Maybe Int
  -&gt; Maybe (HashMap DevicePlatform Int)
  -&gt; Maybe (HashMap DevicePlatform Int)
  -&gt; Maybe Int
  -&gt; AccountSettings)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Bool)
 -&gt; Parser
-     (Maybe (HashMap Text Int)
-      -&gt; Maybe TrialMinutes
-      -&gt; Maybe Bool
+     (Maybe Text
       -&gt; Maybe Int
+      -&gt; Maybe (HashMap Text Int)
+      -&gt; Maybe TrialMinutes
       -&gt; Maybe (HashMap DevicePlatform Int)
       -&gt; Maybe (HashMap DevicePlatform Int)
       -&gt; Maybe Int
       -&gt; AccountSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370713"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679370963"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;skipAppResign&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe (HashMap Text Int)
+   -&gt; Maybe TrialMinutes
+   -&gt; Maybe (HashMap DevicePlatform Int)
+   -&gt; Maybe (HashMap DevicePlatform Int)
+   -&gt; Maybe Int
+   -&gt; AccountSettings)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe (HashMap Text Int)
+      -&gt; Maybe TrialMinutes
+      -&gt; Maybe (HashMap DevicePlatform Int)
+      -&gt; Maybe (HashMap DevicePlatform Int)
+      -&gt; Maybe Int
+      -&gt; AccountSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370963"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;awsAccountNumber&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe (HashMap Text Int)
+   -&gt; Maybe TrialMinutes
+   -&gt; Maybe (HashMap DevicePlatform Int)
+   -&gt; Maybe (HashMap DevicePlatform Int)
+   -&gt; Maybe Int
+   -&gt; AccountSettings)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe (HashMap Text Int)
+      -&gt; Maybe TrialMinutes
+      -&gt; Maybe (HashMap DevicePlatform Int)
+      -&gt; Maybe (HashMap DevicePlatform Int)
+      -&gt; Maybe Int
+      -&gt; AccountSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370963"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxJobTimeoutMinutes&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe (HashMap Text Int)
    -&gt; Maybe TrialMinutes
-   -&gt; Maybe Bool
-   -&gt; Maybe Int
    -&gt; Maybe (HashMap DevicePlatform Int)
    -&gt; Maybe (HashMap DevicePlatform Int)
    -&gt; Maybe Int
@@ -532,15 +575,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe (HashMap Text Int))
 -&gt; Parser
      (Maybe TrialMinutes
-      -&gt; Maybe Bool
-      -&gt; Maybe Int
       -&gt; Maybe (HashMap DevicePlatform Int)
       -&gt; Maybe (HashMap DevicePlatform Int)
       -&gt; Maybe Int
       -&gt; AccountSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370713"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Int)))
+</span><a href="#local-6989586621679370963"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Int)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;maxSlots&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Int)))
@@ -549,55 +590,13 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Int)
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe TrialMinutes
-   -&gt; Maybe Bool
-   -&gt; Maybe Int
    -&gt; Maybe (HashMap DevicePlatform Int)
    -&gt; Maybe (HashMap DevicePlatform Int)
    -&gt; Maybe Int
    -&gt; AccountSettings)
 -&gt; Parser (Maybe TrialMinutes)
--&gt; Parser
-     (Maybe Bool
-      -&gt; Maybe Int
-      -&gt; Maybe (HashMap DevicePlatform Int)
-      -&gt; Maybe (HashMap DevicePlatform Int)
-      -&gt; Maybe Int
-      -&gt; AccountSettings)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370713"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TrialMinutes)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;trialMinutes&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Bool
-   -&gt; Maybe Int
-   -&gt; Maybe (HashMap DevicePlatform Int)
-   -&gt; Maybe (HashMap DevicePlatform Int)
-   -&gt; Maybe Int
-   -&gt; AccountSettings)
--&gt; Parser (Maybe Bool)
--&gt; Parser
-     (Maybe Int
-      -&gt; Maybe (HashMap DevicePlatform Int)
-      -&gt; Maybe (HashMap DevicePlatform Int)
-      -&gt; Maybe Int
-      -&gt; AccountSettings)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370713"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;skipAppResign&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Int
-   -&gt; Maybe (HashMap DevicePlatform Int)
-   -&gt; Maybe (HashMap DevicePlatform Int)
-   -&gt; Maybe Int
-   -&gt; AccountSettings)
--&gt; Parser (Maybe Int)
 -&gt; Parser
      (Maybe (HashMap DevicePlatform Int)
       -&gt; Maybe (HashMap DevicePlatform Int)
@@ -605,11 +604,11 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; AccountSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370713"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679370963"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TrialMinutes)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;maxJobTimeoutMinutes&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span class="hs-string">&quot;trialMinutes&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe (HashMap DevicePlatform Int)
    -&gt; Maybe (HashMap DevicePlatform Int)
    -&gt; Maybe Int
@@ -620,50 +619,50 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe Int -&gt; AccountSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370713"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370963"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap DevicePlatform Int)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;unmeteredDevices&quot;</span></span><span>
-</span><span id="line-163"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap DevicePlatform Int)))
+</span><span id="line-162"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap DevicePlatform Int)))
 -&gt; Maybe (HashMap DevicePlatform Int)
 -&gt; Parser (Maybe (HashMap DevicePlatform Int))
 forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap DevicePlatform Int)
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-164"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-163"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe (HashMap DevicePlatform Int)
    -&gt; Maybe Int -&gt; AccountSettings)
 -&gt; Parser (Maybe (HashMap DevicePlatform Int))
 -&gt; Parser (Maybe Int -&gt; AccountSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370713"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370963"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap DevicePlatform Int)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;unmeteredRemoteAccessDevices&quot;</span></span><span>
-</span><span id="line-166"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap DevicePlatform Int)))
+</span><span id="line-165"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap DevicePlatform Int)))
 -&gt; Maybe (HashMap DevicePlatform Int)
 -&gt; Parser (Maybe (HashMap DevicePlatform Int))
 forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap DevicePlatform Int)
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-167"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; AccountSettings)
+</span><span id="line-166"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; AccountSettings)
 -&gt; Parser (Maybe Int) -&gt; Parser AccountSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370713"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679370963"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;defaultJobTimeoutMinutes&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-169"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370706"><span id="local-6989586621679370708"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings"><span class="hs-identifier hs-type">AccountSettings</span></a></span></span></span><span>
-</span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370703"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings"><span class="hs-identifier hs-type">AccountSettings</span></a></span></span><span>
-</span><span id="line-174"></span></pre></body></html>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370956"><span id="local-6989586621679370958"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings"><span class="hs-identifier hs-type">AccountSettings</span></a></span></span></span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370953"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.AccountSettings.html#AccountSettings"><span class="hs-identifier hs-type">AccountSettings</span></a></span></span><span>
+</span><span id="line-173"></span></pre></body></html>

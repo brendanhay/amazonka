@@ -49,13 +49,13 @@
 </span><span id="line-49"></span><span class="hs-comment">-- | Container for request parameters to @ DeletePackage @ operation.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- /See:/ 'newDeletePackage' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679312431"><span id="local-6989586621679312432"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeletePackage"><span class="annot"><a href="Network.AWS.ElasticSearch.DeletePackage.html#DeletePackage"><span class="hs-identifier hs-var">DeletePackage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeletePackage%27"><span class="annot"><a href="Network.AWS.ElasticSearch.DeletePackage.html#DeletePackage%27"><span class="hs-identifier hs-var">DeletePackage'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679312671"><span id="local-6989586621679312672"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeletePackage"><span class="annot"><a href="Network.AWS.ElasticSearch.DeletePackage.html#DeletePackage"><span class="hs-identifier hs-var">DeletePackage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeletePackage%27"><span class="annot"><a href="Network.AWS.ElasticSearch.DeletePackage.html#DeletePackage%27"><span class="hs-identifier hs-var">DeletePackage'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Internal ID of the package that you want to delete. Use</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- @DescribePackages@ to find this value.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3ApackageID%3ADeletePackage%27"><span class="annot"><span class="annottext">DeletePackage -&gt; Text
 </span><a href="Network.AWS.ElasticSearch.DeletePackage.html#%24sel%3ApackageID%3ADeletePackage%27"><span class="hs-identifier hs-var hs-var">packageID</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312425"><span id="local-6989586621679312427"><span class="annot"><span class="annottext">DeletePackage -&gt; DeletePackage -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312665"><span id="local-6989586621679312667"><span class="annot"><span class="annottext">DeletePackage -&gt; DeletePackage -&gt; Bool
 (DeletePackage -&gt; DeletePackage -&gt; Bool)
 -&gt; (DeletePackage -&gt; DeletePackage -&gt; Bool) -&gt; Eq DeletePackage
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeletePackage -&gt; DeletePackage -&gt; Bool
 == :: DeletePackage -&gt; DeletePackage -&gt; Bool
 $c== :: DeletePackage -&gt; DeletePackage -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312416"><span id="local-6989586621679312418"><span id="local-6989586621679312420"><span id="local-6989586621679312422"><span class="annot"><span class="annottext">ReadPrec [DeletePackage]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312656"><span id="local-6989586621679312658"><span id="local-6989586621679312660"><span id="local-6989586621679312662"><span class="annot"><span class="annottext">ReadPrec [DeletePackage]
 ReadPrec DeletePackage
 Int -&gt; ReadS DeletePackage
 ReadS [DeletePackage]
@@ -83,7 +83,7 @@ readList :: ReadS [DeletePackage]
 $creadList :: ReadS [DeletePackage]
 readsPrec :: Int -&gt; ReadS DeletePackage
 $creadsPrec :: Int -&gt; ReadS DeletePackage
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312409"><span id="local-6989586621679312411"><span id="local-6989586621679312413"><span class="annot"><span class="annottext">Int -&gt; DeletePackage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312649"><span id="local-6989586621679312651"><span id="local-6989586621679312653"><span class="annot"><span class="annottext">Int -&gt; DeletePackage -&gt; ShowS
 [DeletePackage] -&gt; ShowS
 DeletePackage -&gt; String
 (Int -&gt; DeletePackage -&gt; ShowS)
@@ -124,12 +124,12 @@ $cfrom :: forall x. DeletePackage -&gt; Rep DeletePackage x
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticSearch.DeletePackage.html#DeletePackage"><span class="hs-identifier hs-type">DeletePackage</span></a></span><span>
 </span><span id="line-73"></span><span id="newDeletePackage"><span class="annot"><span class="annottext">newDeletePackage :: Text -&gt; DeletePackage
-</span><a href="Network.AWS.ElasticSearch.DeletePackage.html#newDeletePackage"><span class="hs-identifier hs-var hs-var">newDeletePackage</span></a></span></span><span> </span><span id="local-6989586621679312404"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679312404"><span class="hs-identifier hs-var">pPackageID_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ElasticSearch.DeletePackage.html#newDeletePackage"><span class="hs-identifier hs-var hs-var">newDeletePackage</span></a></span></span><span> </span><span id="local-6989586621679312644"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312644"><span class="hs-identifier hs-var">pPackageID_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">DeletePackage' :: Text -&gt; DeletePackage
 </span><a href="Network.AWS.ElasticSearch.DeletePackage.html#DeletePackage%27"><span class="hs-identifier hs-type">DeletePackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:packageID:DeletePackage' :: Text
 </span><a href="Network.AWS.ElasticSearch.DeletePackage.html#%24sel%3ApackageID%3ADeletePackage%27"><span class="hs-identifier hs-var">packageID</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679312404"><span class="hs-identifier hs-var">pPackageID_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679312644"><span class="hs-identifier hs-var">pPackageID_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | Internal ID of the package that you want to delete. Use</span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- @DescribePackages@ to find this value.</span><span>
@@ -139,27 +139,27 @@ $cfrom :: forall x. DeletePackage -&gt; Rep DeletePackage x
 -&gt; (DeletePackage -&gt; Text -&gt; DeletePackage)
 -&gt; Lens DeletePackage DeletePackage Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.DeletePackage.html#DeletePackage%27"><span class="hs-identifier hs-type">DeletePackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312401"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.DeletePackage.html#DeletePackage%27"><span class="hs-identifier hs-type">DeletePackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312641"><span class="annot"><span class="annottext">Text
 packageID :: Text
 $sel:packageID:DeletePackage' :: DeletePackage -&gt; Text
-</span><a href="#local-6989586621679312401"><span class="hs-identifier hs-var hs-var">packageID</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679312401"><span class="hs-identifier hs-var">packageID</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312400"><span class="annot"><span class="annottext">s :: DeletePackage
-</span><a href="#local-6989586621679312400"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.DeletePackage.html#DeletePackage%27"><span class="hs-identifier hs-type">DeletePackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312399"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679312399"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePackage
-</span><a href="#local-6989586621679312400"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:packageID:DeletePackage' :: Text
+</span><a href="#local-6989586621679312641"><span class="hs-identifier hs-var hs-var">packageID</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312641"><span class="hs-identifier hs-var">packageID</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312640"><span class="annot"><span class="annottext">s :: DeletePackage
+</span><a href="#local-6989586621679312640"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.DeletePackage.html#DeletePackage%27"><span class="hs-identifier hs-type">DeletePackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312639"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312639"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePackage
+</span><a href="#local-6989586621679312640"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:packageID:DeletePackage' :: Text
 </span><a href="Network.AWS.ElasticSearch.DeletePackage.html#%24sel%3ApackageID%3ADeletePackage%27"><span class="hs-identifier hs-var">packageID</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679312399"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.DeletePackage.html#DeletePackage"><span class="hs-identifier hs-type">DeletePackage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312639"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.DeletePackage.html#DeletePackage"><span class="hs-identifier hs-type">DeletePackage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.DeletePackage.html#DeletePackage"><span class="hs-identifier hs-type">DeletePackage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-82"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-83"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.DeletePackage.html#DeletePackage"><span class="hs-identifier hs-type">DeletePackage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><a href="Network.AWS.ElasticSearch.DeletePackage.html#DeletePackageResponse"><span class="hs-identifier hs-type">DeletePackageResponse</span></a></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679312395"><span class="annot"><span class="annottext">request :: DeletePackage -&gt; Request DeletePackage
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679312635"><span class="annot"><span class="annottext">request :: DeletePackage -&gt; Request DeletePackage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeletePackage -&gt; Request DeletePackage
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ElasticSearch.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679312391"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679312631"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeletePackage
 -&gt; ClientResponse ClientBody
@@ -183,10 +183,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679312388"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679312388"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679312387"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679312387"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679312386"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679312386"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679312628"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312628"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679312627"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679312627"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679312626"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679312626"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Maybe PackageDetails -&gt; Int -&gt; DeletePackageResponse
 </span><a href="Network.AWS.ElasticSearch.DeletePackage.html#DeletePackageResponse%27"><span class="hs-identifier hs-var">DeletePackageResponse'</span></a></span><span>
 </span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(Maybe PackageDetails -&gt; Int -&gt; DeletePackageResponse)
@@ -194,7 +194,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DeletePackageResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679312386"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe PackageDetails)
+</span><a href="#local-6989586621679312626"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe PackageDetails)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PackageDetails&quot;</span></span><span class="hs-special">)</span><span>
@@ -206,15 +206,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679312388"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312628"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312378"><span id="local-6989586621679312380"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.DeletePackage.html#DeletePackage"><span class="hs-identifier hs-type">DeletePackage</span></a></span></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312618"><span id="local-6989586621679312620"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.DeletePackage.html#DeletePackage"><span class="hs-identifier hs-type">DeletePackage</span></a></span></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312375"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.DeletePackage.html#DeletePackage"><span class="hs-identifier hs-type">DeletePackage</span></a></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312615"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.DeletePackage.html#DeletePackage"><span class="hs-identifier hs-type">DeletePackage</span></a></span></span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.DeletePackage.html#DeletePackage"><span class="hs-identifier hs-type">DeletePackage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679312371"><span class="annot"><span class="annottext">toHeaders :: DeletePackage -&gt; ResponseHeaders
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679312611"><span class="annot"><span class="annottext">toHeaders :: DeletePackage -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeletePackage -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -222,11 +222,11 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.DeletePackage.html#DeletePackage"><span class="hs-identifier hs-type">DeletePackage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679312366"><span class="annot"><span class="annottext">toPath :: DeletePackage -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.DeletePackage.html#DeletePackage%27"><span class="hs-identifier hs-type">DeletePackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312364"><span class="annot"><span class="annottext">Text
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679312606"><span class="annot"><span class="annottext">toPath :: DeletePackage -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.DeletePackage.html#DeletePackage%27"><span class="hs-identifier hs-type">DeletePackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312604"><span class="annot"><span class="annottext">Text
 packageID :: Text
 $sel:packageID:DeletePackage' :: DeletePackage -&gt; Text
-</span><a href="#local-6989586621679312364"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679312604"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -234,10 +234,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/2015-01-01/packages/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679312364"><span class="hs-identifier hs-var">packageID</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679312604"><span class="hs-identifier hs-var">packageID</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.DeletePackage.html#DeletePackage"><span class="hs-identifier hs-type">DeletePackage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679312360"><span class="annot"><span class="annottext">toQuery :: DeletePackage -&gt; QueryString
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679312600"><span class="annot"><span class="annottext">toQuery :: DeletePackage -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeletePackage -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -247,7 +247,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-109"></span><span class="hs-comment">-- | Container for response parameters to @ DeletePackage @ operation.</span><span>
 </span><span id="line-110"></span><span class="hs-comment">--</span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- /See:/ 'newDeletePackageResponse' smart constructor.</span><span>
-</span><span id="line-112"></span><span id="local-6989586621679312357"><span id="local-6989586621679312358"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeletePackageResponse"><span class="annot"><a href="Network.AWS.ElasticSearch.DeletePackage.html#DeletePackageResponse"><span class="hs-identifier hs-var">DeletePackageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeletePackageResponse%27"><span class="annot"><a href="Network.AWS.ElasticSearch.DeletePackage.html#DeletePackageResponse%27"><span class="hs-identifier hs-var">DeletePackageResponse'</span></a></span></span><span>
+</span><span id="line-112"></span><span id="local-6989586621679312597"><span id="local-6989586621679312598"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeletePackageResponse"><span class="annot"><a href="Network.AWS.ElasticSearch.DeletePackage.html#DeletePackageResponse"><span class="hs-identifier hs-var">DeletePackageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeletePackageResponse%27"><span class="annot"><a href="Network.AWS.ElasticSearch.DeletePackage.html#DeletePackageResponse%27"><span class="hs-identifier hs-var">DeletePackageResponse'</span></a></span></span><span>
 </span><span id="line-113"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | @PackageDetails@</span><span>
 </span><span id="line-114"></span><span>    </span><span id="%24sel%3ApackageDetails%3ADeletePackageResponse%27"><span class="annot"><span class="annottext">DeletePackageResponse -&gt; Maybe PackageDetails
 </span><a href="Network.AWS.ElasticSearch.DeletePackage.html#%24sel%3ApackageDetails%3ADeletePackageResponse%27"><span class="hs-identifier hs-var hs-var">packageDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.PackageDetails.html#PackageDetails"><span class="hs-identifier hs-type">PackageDetails</span></a></span><span class="hs-special">,</span><span>
@@ -255,7 +255,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-116"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeletePackageResponse%27"><span class="annot"><span class="annottext">DeletePackageResponse -&gt; Int
 </span><a href="Network.AWS.ElasticSearch.DeletePackage.html#%24sel%3AhttpStatus%3ADeletePackageResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-117"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-118"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312351"><span id="local-6989586621679312353"><span class="annot"><span class="annottext">DeletePackageResponse -&gt; DeletePackageResponse -&gt; Bool
+</span><span id="line-118"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312591"><span id="local-6989586621679312593"><span class="annot"><span class="annottext">DeletePackageResponse -&gt; DeletePackageResponse -&gt; Bool
 (DeletePackageResponse -&gt; DeletePackageResponse -&gt; Bool)
 -&gt; (DeletePackageResponse -&gt; DeletePackageResponse -&gt; Bool)
 -&gt; Eq DeletePackageResponse
@@ -264,7 +264,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeletePackageResponse -&gt; DeletePackageResponse -&gt; Bool
 == :: DeletePackageResponse -&gt; DeletePackageResponse -&gt; Bool
 $c== :: DeletePackageResponse -&gt; DeletePackageResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312343"><span id="local-6989586621679312345"><span id="local-6989586621679312347"><span id="local-6989586621679312349"><span class="annot"><span class="annottext">ReadPrec [DeletePackageResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312583"><span id="local-6989586621679312585"><span id="local-6989586621679312587"><span id="local-6989586621679312589"><span class="annot"><span class="annottext">ReadPrec [DeletePackageResponse]
 ReadPrec DeletePackageResponse
 Int -&gt; ReadS DeletePackageResponse
 ReadS [DeletePackageResponse]
@@ -284,7 +284,7 @@ readList :: ReadS [DeletePackageResponse]
 $creadList :: ReadS [DeletePackageResponse]
 readsPrec :: Int -&gt; ReadS DeletePackageResponse
 $creadsPrec :: Int -&gt; ReadS DeletePackageResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312337"><span id="local-6989586621679312339"><span id="local-6989586621679312341"><span class="annot"><span class="annottext">Int -&gt; DeletePackageResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312577"><span id="local-6989586621679312579"><span id="local-6989586621679312581"><span class="annot"><span class="annottext">Int -&gt; DeletePackageResponse -&gt; ShowS
 [DeletePackageResponse] -&gt; ShowS
 DeletePackageResponse -&gt; String
 (Int -&gt; DeletePackageResponse -&gt; ShowS)
@@ -326,8 +326,8 @@ $cfrom :: forall x. DeletePackageResponse -&gt; Rep DeletePackageResponse x
 </span><span id="line-133"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-134"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticSearch.DeletePackage.html#DeletePackageResponse"><span class="hs-identifier hs-type">DeletePackageResponse</span></a></span><span>
 </span><span id="line-135"></span><span id="newDeletePackageResponse"><span class="annot"><span class="annottext">newDeletePackageResponse :: Int -&gt; DeletePackageResponse
-</span><a href="Network.AWS.ElasticSearch.DeletePackage.html#newDeletePackageResponse"><span class="hs-identifier hs-var hs-var">newDeletePackageResponse</span></a></span></span><span> </span><span id="local-6989586621679312334"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679312334"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ElasticSearch.DeletePackage.html#newDeletePackageResponse"><span class="hs-identifier hs-var hs-var">newDeletePackageResponse</span></a></span></span><span> </span><span id="local-6989586621679312574"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312574"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>  </span><span class="annot"><span class="annottext">DeletePackageResponse' :: Maybe PackageDetails -&gt; Int -&gt; DeletePackageResponse
 </span><a href="Network.AWS.ElasticSearch.DeletePackage.html#DeletePackageResponse%27"><span class="hs-identifier hs-type">DeletePackageResponse'</span></a></span><span>
 </span><span id="line-137"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:packageDetails:DeletePackageResponse' :: Maybe PackageDetails
@@ -337,7 +337,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeletePackageResponse' :: Int
 </span><a href="Network.AWS.ElasticSearch.DeletePackage.html#%24sel%3AhttpStatus%3ADeletePackageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679312334"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679312574"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-140"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | @PackageDetails@</span><span>
@@ -353,16 +353,16 @@ forall a. Maybe a
      (Maybe PackageDetails)
      (Maybe PackageDetails)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.DeletePackage.html#DeletePackageResponse%27"><span class="hs-identifier hs-type">DeletePackageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312333"><span class="annot"><span class="annottext">Maybe PackageDetails
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.DeletePackage.html#DeletePackageResponse%27"><span class="hs-identifier hs-type">DeletePackageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312573"><span class="annot"><span class="annottext">Maybe PackageDetails
 packageDetails :: Maybe PackageDetails
 $sel:packageDetails:DeletePackageResponse' :: DeletePackageResponse -&gt; Maybe PackageDetails
-</span><a href="#local-6989586621679312333"><span class="hs-identifier hs-var hs-var">packageDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PackageDetails
-</span><a href="#local-6989586621679312333"><span class="hs-identifier hs-var">packageDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312332"><span class="annot"><span class="annottext">s :: DeletePackageResponse
-</span><a href="#local-6989586621679312332"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.DeletePackage.html#DeletePackageResponse%27"><span class="hs-identifier hs-type">DeletePackageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312331"><span class="annot"><span class="annottext">Maybe PackageDetails
-</span><a href="#local-6989586621679312331"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePackageResponse
-</span><a href="#local-6989586621679312332"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:packageDetails:DeletePackageResponse' :: Maybe PackageDetails
+</span><a href="#local-6989586621679312573"><span class="hs-identifier hs-var hs-var">packageDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PackageDetails
+</span><a href="#local-6989586621679312573"><span class="hs-identifier hs-var">packageDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312572"><span class="annot"><span class="annottext">s :: DeletePackageResponse
+</span><a href="#local-6989586621679312572"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.DeletePackage.html#DeletePackageResponse%27"><span class="hs-identifier hs-type">DeletePackageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312571"><span class="annot"><span class="annottext">Maybe PackageDetails
+</span><a href="#local-6989586621679312571"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePackageResponse
+</span><a href="#local-6989586621679312572"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:packageDetails:DeletePackageResponse' :: Maybe PackageDetails
 </span><a href="Network.AWS.ElasticSearch.DeletePackage.html#%24sel%3ApackageDetails%3ADeletePackageResponse%27"><span class="hs-identifier hs-var">packageDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PackageDetails
-</span><a href="#local-6989586621679312331"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.DeletePackage.html#DeletePackageResponse"><span class="hs-identifier hs-type">DeletePackageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312571"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.DeletePackage.html#DeletePackageResponse"><span class="hs-identifier hs-type">DeletePackageResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-147"></span><span class="annot"><a href="Network.AWS.ElasticSearch.DeletePackage.html#deletePackageResponse_httpStatus"><span class="hs-identifier hs-type">deletePackageResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.DeletePackage.html#DeletePackageResponse"><span class="hs-identifier hs-type">DeletePackageResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -371,16 +371,16 @@ $sel:packageDetails:DeletePackageResponse' :: DeletePackageResponse -&gt; Maybe 
 -&gt; (DeletePackageResponse -&gt; Int -&gt; DeletePackageResponse)
 -&gt; Lens DeletePackageResponse DeletePackageResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.DeletePackage.html#DeletePackageResponse%27"><span class="hs-identifier hs-type">DeletePackageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312330"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.DeletePackage.html#DeletePackageResponse%27"><span class="hs-identifier hs-type">DeletePackageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312570"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeletePackageResponse' :: DeletePackageResponse -&gt; Int
-</span><a href="#local-6989586621679312330"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679312330"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312329"><span class="annot"><span class="annottext">s :: DeletePackageResponse
-</span><a href="#local-6989586621679312329"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.DeletePackage.html#DeletePackageResponse%27"><span class="hs-identifier hs-type">DeletePackageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312328"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679312328"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePackageResponse
-</span><a href="#local-6989586621679312329"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeletePackageResponse' :: Int
+</span><a href="#local-6989586621679312570"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312570"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312569"><span class="annot"><span class="annottext">s :: DeletePackageResponse
+</span><a href="#local-6989586621679312569"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.DeletePackage.html#DeletePackageResponse%27"><span class="hs-identifier hs-type">DeletePackageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312568"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312568"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePackageResponse
+</span><a href="#local-6989586621679312569"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeletePackageResponse' :: Int
 </span><a href="Network.AWS.ElasticSearch.DeletePackage.html#%24sel%3AhttpStatus%3ADeletePackageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679312328"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.DeletePackage.html#DeletePackageResponse"><span class="hs-identifier hs-type">DeletePackageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312568"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.DeletePackage.html#DeletePackageResponse"><span class="hs-identifier hs-type">DeletePackageResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312326"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.DeletePackage.html#DeletePackageResponse"><span class="hs-identifier hs-type">DeletePackageResponse</span></a></span></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312566"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.DeletePackage.html#DeletePackageResponse"><span class="hs-identifier hs-type">DeletePackageResponse</span></a></span></span><span>
 </span><span id="line-151"></span></pre></body></html>

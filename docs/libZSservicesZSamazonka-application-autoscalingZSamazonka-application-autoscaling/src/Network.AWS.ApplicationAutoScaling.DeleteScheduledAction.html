@@ -54,7 +54,7 @@
 </span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newDeleteScheduledAction' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679189161"><span id="local-6989586621679189162"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteScheduledAction"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction"><span class="hs-identifier hs-var">DeleteScheduledAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteScheduledAction%27"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction%27"><span class="hs-identifier hs-var">DeleteScheduledAction'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679189328"><span id="local-6989586621679189329"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteScheduledAction"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction"><span class="hs-identifier hs-var">DeleteScheduledAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteScheduledAction%27"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction%27"><span class="hs-identifier hs-var">DeleteScheduledAction'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The namespace of the Amazon Web Services service that provides the</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- resource. For a resource provided by your own application or service,</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- use @custom-resource@ instead.</span><span>
@@ -70,8 +70,8 @@
 </span><span id="line-68"></span><span>    </span><span class="hs-comment">--     identifier is the cluster name and service name. Example:</span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-comment">--     @service\/default\/sample-webapp@.</span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- -   Spot Fleet request - The resource type is @spot-fleet-request@ and</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">--     the unique identifier is the Spot Fleet request ID. Example:</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- -   Spot Fleet - The resource type is @spot-fleet-request@ and the</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--     unique identifier is the Spot Fleet request ID. Example:</span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-comment">--     @spot-fleet-request\/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@.</span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-comment">-- -   EMR cluster - The resource type is @instancegroup@ and the unique</span><span>
@@ -91,8 +91,8 @@
 </span><span id="line-89"></span><span>    </span><span class="hs-comment">-- -   Aurora DB cluster - The resource type is @cluster@ and the unique</span><span>
 </span><span id="line-90"></span><span>    </span><span class="hs-comment">--     identifier is the cluster name. Example: @cluster:my-db-cluster@.</span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- -   Amazon SageMaker endpoint variant - The resource type is @variant@</span><span>
-</span><span id="line-93"></span><span>    </span><span class="hs-comment">--     and the unique identifier is the resource ID. Example:</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- -   SageMaker endpoint variant - The resource type is @variant@ and the</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">--     unique identifier is the resource ID. Example:</span><span>
 </span><span id="line-94"></span><span>    </span><span class="hs-comment">--     @endpoint\/my-end-point\/variant\/KMeansClustering@.</span><span>
 </span><span id="line-95"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-96"></span><span>    </span><span class="hs-comment">-- -   Custom resources are not supported with a resource type. This</span><span>
@@ -127,74 +127,80 @@
 </span><span id="line-125"></span><span>    </span><span class="hs-comment">-- -   Amazon ElastiCache replication group - The resource type is</span><span>
 </span><span id="line-126"></span><span>    </span><span class="hs-comment">--     @replication-group@ and the unique identifier is the replication</span><span>
 </span><span id="line-127"></span><span>    </span><span class="hs-comment">--     group name. Example: @replication-group\/mycluster@.</span><span>
-</span><span id="line-128"></span><span>    </span><span id="%24sel%3AresourceId%3ADeleteScheduledAction%27"><span class="annot"><span class="annottext">DeleteScheduledAction -&gt; Text
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- -   Neptune cluster - The resource type is @cluster@ and the unique</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">--     identifier is the cluster name. Example: @cluster:mycluster@.</span><span>
+</span><span id="line-131"></span><span>    </span><span id="%24sel%3AresourceId%3ADeleteScheduledAction%27"><span class="annot"><span class="annottext">DeleteScheduledAction -&gt; Text
 </span><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#%24sel%3AresourceId%3ADeleteScheduledAction%27"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- | The scalable dimension. This string consists of the service namespace,</span><span>
-</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- resource type, and scaling property.</span><span>
-</span><span id="line-131"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- -   @ecs:service:DesiredCount@ - The desired task count of an ECS</span><span>
-</span><span id="line-133"></span><span>    </span><span class="hs-comment">--     service.</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- | The scalable dimension. This string consists of the service namespace,</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- resource type, and scaling property.</span><span>
 </span><span id="line-134"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count</span><span>
-</span><span id="line-136"></span><span>    </span><span class="hs-comment">--     of an EMR Instance Group.</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- -   @ecs:service:DesiredCount@ - The desired task count of an ECS</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">--     service.</span><span>
 </span><span id="line-137"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a</span><span>
-</span><span id="line-139"></span><span>    </span><span class="hs-comment">--     Spot Fleet request.</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">--     of an EMR Instance Group.</span><span>
 </span><span id="line-140"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an</span><span>
-</span><span id="line-142"></span><span>    </span><span class="hs-comment">--     AppStream 2.0 fleet.</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">--     Spot Fleet.</span><span>
 </span><span id="line-143"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-144"></span><span>    </span><span class="hs-comment">-- -   @dynamodb:table:ReadCapacityUnits@ - The provisioned read capacity</span><span>
-</span><span id="line-145"></span><span>    </span><span class="hs-comment">--     for a DynamoDB table.</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">-- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an</span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">--     AppStream 2.0 fleet.</span><span>
 </span><span id="line-146"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- -   @dynamodb:table:WriteCapacityUnits@ - The provisioned write capacity</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- -   @dynamodb:table:ReadCapacityUnits@ - The provisioned read capacity</span><span>
 </span><span id="line-148"></span><span>    </span><span class="hs-comment">--     for a DynamoDB table.</span><span>
 </span><span id="line-149"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- -   @dynamodb:index:ReadCapacityUnits@ - The provisioned read capacity</span><span>
-</span><span id="line-151"></span><span>    </span><span class="hs-comment">--     for a DynamoDB global secondary index.</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- -   @dynamodb:table:WriteCapacityUnits@ - The provisioned write capacity</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">--     for a DynamoDB table.</span><span>
 </span><span id="line-152"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- -   @dynamodb:index:WriteCapacityUnits@ - The provisioned write capacity</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- -   @dynamodb:index:ReadCapacityUnits@ - The provisioned read capacity</span><span>
 </span><span id="line-154"></span><span>    </span><span class="hs-comment">--     for a DynamoDB global secondary index.</span><span>
 </span><span id="line-155"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- -   @rds:cluster:ReadReplicaCount@ - The count of Aurora Replicas in an</span><span>
-</span><span id="line-157"></span><span>    </span><span class="hs-comment">--     Aurora DB cluster. Available for Aurora MySQL-compatible edition and</span><span>
-</span><span id="line-158"></span><span>    </span><span class="hs-comment">--     Aurora PostgreSQL-compatible edition.</span><span>
-</span><span id="line-159"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-160"></span><span>    </span><span class="hs-comment">-- -   @sagemaker:variant:DesiredInstanceCount@ - The number of EC2</span><span>
-</span><span id="line-161"></span><span>    </span><span class="hs-comment">--     instances for an Amazon SageMaker model endpoint variant.</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- -   @dynamodb:index:WriteCapacityUnits@ - The provisioned write capacity</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">--     for a DynamoDB global secondary index.</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- -   @rds:cluster:ReadReplicaCount@ - The count of Aurora Replicas in an</span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-comment">--     Aurora DB cluster. Available for Aurora MySQL-compatible edition and</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">--     Aurora PostgreSQL-compatible edition.</span><span>
 </span><span id="line-162"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- -   @custom-resource:ResourceType:Property@ - The scalable dimension for</span><span>
-</span><span id="line-164"></span><span>    </span><span class="hs-comment">--     a custom resource provided by your own application or service.</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- -   @sagemaker:variant:DesiredInstanceCount@ - The number of EC2</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">--     instances for an SageMaker model endpoint variant.</span><span>
 </span><span id="line-165"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- -   @comprehend:document-classifier-endpoint:DesiredInferenceUnits@ -</span><span>
-</span><span id="line-167"></span><span>    </span><span class="hs-comment">--     The number of inference units for an Amazon Comprehend document</span><span>
-</span><span id="line-168"></span><span>    </span><span class="hs-comment">--     classification endpoint.</span><span>
-</span><span id="line-169"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-170"></span><span>    </span><span class="hs-comment">-- -   @comprehend:entity-recognizer-endpoint:DesiredInferenceUnits@ - The</span><span>
-</span><span id="line-171"></span><span>    </span><span class="hs-comment">--     number of inference units for an Amazon Comprehend entity recognizer</span><span>
-</span><span id="line-172"></span><span>    </span><span class="hs-comment">--     endpoint.</span><span>
-</span><span id="line-173"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-174"></span><span>    </span><span class="hs-comment">-- -   @lambda:function:ProvisionedConcurrency@ - The provisioned</span><span>
-</span><span id="line-175"></span><span>    </span><span class="hs-comment">--     concurrency for a Lambda function.</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- -   @custom-resource:ResourceType:Property@ - The scalable dimension for</span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-comment">--     a custom resource provided by your own application or service.</span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- -   @comprehend:document-classifier-endpoint:DesiredInferenceUnits@ -</span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-comment">--     The number of inference units for an Amazon Comprehend document</span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-comment">--     classification endpoint.</span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- -   @comprehend:entity-recognizer-endpoint:DesiredInferenceUnits@ - The</span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-comment">--     number of inference units for an Amazon Comprehend entity recognizer</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">--     endpoint.</span><span>
 </span><span id="line-176"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-177"></span><span>    </span><span class="hs-comment">-- -   @cassandra:table:ReadCapacityUnits@ - The provisioned read capacity</span><span>
-</span><span id="line-178"></span><span>    </span><span class="hs-comment">--     for an Amazon Keyspaces table.</span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-comment">-- -   @lambda:function:ProvisionedConcurrency@ - The provisioned</span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-comment">--     concurrency for a Lambda function.</span><span>
 </span><span id="line-179"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-180"></span><span>    </span><span class="hs-comment">-- -   @cassandra:table:WriteCapacityUnits@ - The provisioned write</span><span>
-</span><span id="line-181"></span><span>    </span><span class="hs-comment">--     capacity for an Amazon Keyspaces table.</span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-comment">-- -   @cassandra:table:ReadCapacityUnits@ - The provisioned read capacity</span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-comment">--     for an Amazon Keyspaces table.</span><span>
 </span><span id="line-182"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-183"></span><span>    </span><span class="hs-comment">-- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in</span><span>
-</span><span id="line-184"></span><span>    </span><span class="hs-comment">--     GiB) for brokers in an Amazon MSK cluster.</span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-comment">-- -   @cassandra:table:WriteCapacityUnits@ - The provisioned write</span><span>
+</span><span id="line-184"></span><span>    </span><span class="hs-comment">--     capacity for an Amazon Keyspaces table.</span><span>
 </span><span id="line-185"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-186"></span><span>    </span><span class="hs-comment">-- -   @elasticache:replication-group:NodeGroups@ - The number of node</span><span>
-</span><span id="line-187"></span><span>    </span><span class="hs-comment">--     groups for an Amazon ElastiCache replication group.</span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-comment">-- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in</span><span>
+</span><span id="line-187"></span><span>    </span><span class="hs-comment">--     GiB) for brokers in an Amazon MSK cluster.</span><span>
 </span><span id="line-188"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-189"></span><span>    </span><span class="hs-comment">-- -   @elasticache:replication-group:Replicas@ - The number of replicas</span><span>
-</span><span id="line-190"></span><span>    </span><span class="hs-comment">--     per node group for an Amazon ElastiCache replication group.</span><span>
-</span><span id="line-191"></span><span>    </span><span id="%24sel%3AscalableDimension%3ADeleteScheduledAction%27"><span class="annot"><span class="annottext">DeleteScheduledAction -&gt; ScalableDimension
+</span><span id="line-189"></span><span>    </span><span class="hs-comment">-- -   @elasticache:replication-group:NodeGroups@ - The number of node</span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-comment">--     groups for an Amazon ElastiCache replication group.</span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-comment">-- -   @elasticache:replication-group:Replicas@ - The number of replicas</span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-comment">--     per node group for an Amazon ElastiCache replication group.</span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span>    </span><span class="hs-comment">-- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in</span><span>
+</span><span id="line-196"></span><span>    </span><span class="hs-comment">--     an Amazon Neptune DB cluster.</span><span>
+</span><span id="line-197"></span><span>    </span><span id="%24sel%3AscalableDimension%3ADeleteScheduledAction%27"><span class="annot"><span class="annottext">DeleteScheduledAction -&gt; ScalableDimension
 </span><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#%24sel%3AscalableDimension%3ADeleteScheduledAction%27"><span class="hs-identifier hs-var hs-var">scalableDimension</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension"><span class="hs-identifier hs-type">ScalableDimension</span></a></span><span>
-</span><span id="line-192"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-193"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679189152"><span id="local-6989586621679189154"><span class="annot"><span class="annottext">DeleteScheduledAction -&gt; DeleteScheduledAction -&gt; Bool
+</span><span id="line-198"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-199"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679189319"><span id="local-6989586621679189321"><span class="annot"><span class="annottext">DeleteScheduledAction -&gt; DeleteScheduledAction -&gt; Bool
 (DeleteScheduledAction -&gt; DeleteScheduledAction -&gt; Bool)
 -&gt; (DeleteScheduledAction -&gt; DeleteScheduledAction -&gt; Bool)
 -&gt; Eq DeleteScheduledAction
@@ -203,7 +209,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteScheduledAction -&gt; DeleteScheduledAction -&gt; Bool
 == :: DeleteScheduledAction -&gt; DeleteScheduledAction -&gt; Bool
 $c== :: DeleteScheduledAction -&gt; DeleteScheduledAction -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679189143"><span id="local-6989586621679189145"><span id="local-6989586621679189147"><span id="local-6989586621679189149"><span class="annot"><span class="annottext">ReadPrec [DeleteScheduledAction]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679189310"><span id="local-6989586621679189312"><span id="local-6989586621679189314"><span id="local-6989586621679189316"><span class="annot"><span class="annottext">ReadPrec [DeleteScheduledAction]
 ReadPrec DeleteScheduledAction
 Int -&gt; ReadS DeleteScheduledAction
 ReadS [DeleteScheduledAction]
@@ -223,7 +229,7 @@ readList :: ReadS [DeleteScheduledAction]
 $creadList :: ReadS [DeleteScheduledAction]
 readsPrec :: Int -&gt; ReadS DeleteScheduledAction
 $creadsPrec :: Int -&gt; ReadS DeleteScheduledAction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679189136"><span id="local-6989586621679189138"><span id="local-6989586621679189140"><span class="annot"><span class="annottext">Int -&gt; DeleteScheduledAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679189303"><span id="local-6989586621679189305"><span id="local-6989586621679189307"><span class="annot"><span class="annottext">Int -&gt; DeleteScheduledAction -&gt; ShowS
 [DeleteScheduledAction] -&gt; ShowS
 DeleteScheduledAction -&gt; String
 (Int -&gt; DeleteScheduledAction -&gt; ShowS)
@@ -248,192 +254,198 @@ forall a.
 $cto :: forall x. Rep DeleteScheduledAction x -&gt; DeleteScheduledAction
 $cfrom :: forall x. DeleteScheduledAction -&gt; Rep DeleteScheduledAction x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
-</span><span id="line-194"></span><span>
-</span><span id="line-195"></span><span class="hs-comment">-- |</span><span>
-</span><span id="line-196"></span><span class="hs-comment">-- Create a value of 'DeleteScheduledAction' with all optional fields omitted.</span><span>
-</span><span id="line-197"></span><span class="hs-comment">--</span><span>
-</span><span id="line-198"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
-</span><span id="line-199"></span><span class="hs-comment">--</span><span>
-</span><span id="line-200"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
-</span><span id="line-201"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
-</span><span id="line-202"></span><span class="hs-comment">--</span><span>
-</span><span id="line-203"></span><span class="hs-comment">-- 'serviceNamespace', 'deleteScheduledAction_serviceNamespace' - The namespace of the Amazon Web Services service that provides the</span><span>
-</span><span id="line-204"></span><span class="hs-comment">-- resource. For a resource provided by your own application or service,</span><span>
-</span><span id="line-205"></span><span class="hs-comment">-- use @custom-resource@ instead.</span><span>
-</span><span id="line-206"></span><span class="hs-comment">--</span><span>
-</span><span id="line-207"></span><span class="hs-comment">-- 'scheduledActionName', 'deleteScheduledAction_scheduledActionName' - The name of the scheduled action.</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- Create a value of 'DeleteScheduledAction' with all optional fields omitted.</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-208"></span><span class="hs-comment">--</span><span>
-</span><span id="line-209"></span><span class="hs-comment">-- 'resourceId', 'deleteScheduledAction_resourceId' - The identifier of the resource associated with the scheduled action.</span><span>
-</span><span id="line-210"></span><span class="hs-comment">-- This string consists of the resource type and unique identifier.</span><span>
-</span><span id="line-211"></span><span class="hs-comment">--</span><span>
-</span><span id="line-212"></span><span class="hs-comment">-- -   ECS service - The resource type is @service@ and the unique</span><span>
-</span><span id="line-213"></span><span class="hs-comment">--     identifier is the cluster name and service name. Example:</span><span>
-</span><span id="line-214"></span><span class="hs-comment">--     @service\/default\/sample-webapp@.</span><span>
-</span><span id="line-215"></span><span class="hs-comment">--</span><span>
-</span><span id="line-216"></span><span class="hs-comment">-- -   Spot Fleet request - The resource type is @spot-fleet-request@ and</span><span>
-</span><span id="line-217"></span><span class="hs-comment">--     the unique identifier is the Spot Fleet request ID. Example:</span><span>
-</span><span id="line-218"></span><span class="hs-comment">--     @spot-fleet-request\/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@.</span><span>
-</span><span id="line-219"></span><span class="hs-comment">--</span><span>
-</span><span id="line-220"></span><span class="hs-comment">-- -   EMR cluster - The resource type is @instancegroup@ and the unique</span><span>
-</span><span id="line-221"></span><span class="hs-comment">--     identifier is the cluster ID and instance group ID. Example:</span><span>
-</span><span id="line-222"></span><span class="hs-comment">--     @instancegroup\/j-2EEZNYKUA1NTV\/ig-1791Y4E1L8YI0@.</span><span>
-</span><span id="line-223"></span><span class="hs-comment">--</span><span>
-</span><span id="line-224"></span><span class="hs-comment">-- -   AppStream 2.0 fleet - The resource type is @fleet@ and the unique</span><span>
-</span><span id="line-225"></span><span class="hs-comment">--     identifier is the fleet name. Example: @fleet\/sample-fleet@.</span><span>
-</span><span id="line-226"></span><span class="hs-comment">--</span><span>
-</span><span id="line-227"></span><span class="hs-comment">-- -   DynamoDB table - The resource type is @table@ and the unique</span><span>
-</span><span id="line-228"></span><span class="hs-comment">--     identifier is the table name. Example: @table\/my-table@.</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- 'serviceNamespace', 'deleteScheduledAction_serviceNamespace' - The namespace of the Amazon Web Services service that provides the</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- resource. For a resource provided by your own application or service,</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- use @custom-resource@ instead.</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- 'scheduledActionName', 'deleteScheduledAction_scheduledActionName' - The name of the scheduled action.</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- 'resourceId', 'deleteScheduledAction_resourceId' - The identifier of the resource associated with the scheduled action.</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- This string consists of the resource type and unique identifier.</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- -   ECS service - The resource type is @service@ and the unique</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--     identifier is the cluster name and service name. Example:</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--     @service\/default\/sample-webapp@.</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- -   Spot Fleet - The resource type is @spot-fleet-request@ and the</span><span>
+</span><span id="line-223"></span><span class="hs-comment">--     unique identifier is the Spot Fleet request ID. Example:</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--     @spot-fleet-request\/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@.</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- -   EMR cluster - The resource type is @instancegroup@ and the unique</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--     identifier is the cluster ID and instance group ID. Example:</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--     @instancegroup\/j-2EEZNYKUA1NTV\/ig-1791Y4E1L8YI0@.</span><span>
 </span><span id="line-229"></span><span class="hs-comment">--</span><span>
-</span><span id="line-230"></span><span class="hs-comment">-- -   DynamoDB global secondary index - The resource type is @index@ and</span><span>
-</span><span id="line-231"></span><span class="hs-comment">--     the unique identifier is the index name. Example:</span><span>
-</span><span id="line-232"></span><span class="hs-comment">--     @table\/my-table\/index\/my-table-index@.</span><span>
-</span><span id="line-233"></span><span class="hs-comment">--</span><span>
-</span><span id="line-234"></span><span class="hs-comment">-- -   Aurora DB cluster - The resource type is @cluster@ and the unique</span><span>
-</span><span id="line-235"></span><span class="hs-comment">--     identifier is the cluster name. Example: @cluster:my-db-cluster@.</span><span>
-</span><span id="line-236"></span><span class="hs-comment">--</span><span>
-</span><span id="line-237"></span><span class="hs-comment">-- -   Amazon SageMaker endpoint variant - The resource type is @variant@</span><span>
-</span><span id="line-238"></span><span class="hs-comment">--     and the unique identifier is the resource ID. Example:</span><span>
-</span><span id="line-239"></span><span class="hs-comment">--     @endpoint\/my-end-point\/variant\/KMeansClustering@.</span><span>
-</span><span id="line-240"></span><span class="hs-comment">--</span><span>
-</span><span id="line-241"></span><span class="hs-comment">-- -   Custom resources are not supported with a resource type. This</span><span>
-</span><span id="line-242"></span><span class="hs-comment">--     parameter must specify the @OutputValue@ from the CloudFormation</span><span>
-</span><span id="line-243"></span><span class="hs-comment">--     template stack used to access the resources. The unique identifier</span><span>
-</span><span id="line-244"></span><span class="hs-comment">--     is defined by the service provider. More information is available in</span><span>
-</span><span id="line-245"></span><span class="hs-comment">--     our</span><span>
-</span><span id="line-246"></span><span class="hs-comment">--     &lt;https://github.com/aws/aws-auto-scaling-custom-resource GitHub repository&gt;.</span><span>
-</span><span id="line-247"></span><span class="hs-comment">--</span><span>
-</span><span id="line-248"></span><span class="hs-comment">-- -   Amazon Comprehend document classification endpoint - The resource</span><span>
-</span><span id="line-249"></span><span class="hs-comment">--     type and unique identifier are specified using the endpoint ARN.</span><span>
-</span><span id="line-250"></span><span class="hs-comment">--     Example:</span><span>
-</span><span id="line-251"></span><span class="hs-comment">--     @arn:aws:comprehend:us-west-2:123456789012:document-classifier-endpoint\/EXAMPLE@.</span><span>
-</span><span id="line-252"></span><span class="hs-comment">--</span><span>
-</span><span id="line-253"></span><span class="hs-comment">-- -   Amazon Comprehend entity recognizer endpoint - The resource type and</span><span>
-</span><span id="line-254"></span><span class="hs-comment">--     unique identifier are specified using the endpoint ARN. Example:</span><span>
-</span><span id="line-255"></span><span class="hs-comment">--     @arn:aws:comprehend:us-west-2:123456789012:entity-recognizer-endpoint\/EXAMPLE@.</span><span>
-</span><span id="line-256"></span><span class="hs-comment">--</span><span>
-</span><span id="line-257"></span><span class="hs-comment">-- -   Lambda provisioned concurrency - The resource type is @function@ and</span><span>
-</span><span id="line-258"></span><span class="hs-comment">--     the unique identifier is the function name with a function version</span><span>
-</span><span id="line-259"></span><span class="hs-comment">--     or alias name suffix that is not @$LATEST@. Example:</span><span>
-</span><span id="line-260"></span><span class="hs-comment">--     @function:my-function:prod@ or @function:my-function:1@.</span><span>
-</span><span id="line-261"></span><span class="hs-comment">--</span><span>
-</span><span id="line-262"></span><span class="hs-comment">-- -   Amazon Keyspaces table - The resource type is @table@ and the unique</span><span>
-</span><span id="line-263"></span><span class="hs-comment">--     identifier is the table name. Example:</span><span>
-</span><span id="line-264"></span><span class="hs-comment">--     @keyspace\/mykeyspace\/table\/mytable@.</span><span>
-</span><span id="line-265"></span><span class="hs-comment">--</span><span>
-</span><span id="line-266"></span><span class="hs-comment">-- -   Amazon MSK cluster - The resource type and unique identifier are</span><span>
-</span><span id="line-267"></span><span class="hs-comment">--     specified using the cluster ARN. Example:</span><span>
-</span><span id="line-268"></span><span class="hs-comment">--     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.</span><span>
-</span><span id="line-269"></span><span class="hs-comment">--</span><span>
-</span><span id="line-270"></span><span class="hs-comment">-- -   Amazon ElastiCache replication group - The resource type is</span><span>
-</span><span id="line-271"></span><span class="hs-comment">--     @replication-group@ and the unique identifier is the replication</span><span>
-</span><span id="line-272"></span><span class="hs-comment">--     group name. Example: @replication-group\/mycluster@.</span><span>
-</span><span id="line-273"></span><span class="hs-comment">--</span><span>
-</span><span id="line-274"></span><span class="hs-comment">-- 'scalableDimension', 'deleteScheduledAction_scalableDimension' - The scalable dimension. This string consists of the service namespace,</span><span>
-</span><span id="line-275"></span><span class="hs-comment">-- resource type, and scaling property.</span><span>
-</span><span id="line-276"></span><span class="hs-comment">--</span><span>
-</span><span id="line-277"></span><span class="hs-comment">-- -   @ecs:service:DesiredCount@ - The desired task count of an ECS</span><span>
-</span><span id="line-278"></span><span class="hs-comment">--     service.</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- -   AppStream 2.0 fleet - The resource type is @fleet@ and the unique</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--     identifier is the fleet name. Example: @fleet\/sample-fleet@.</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- -   DynamoDB table - The resource type is @table@ and the unique</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--     identifier is the table name. Example: @table\/my-table@.</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- -   DynamoDB global secondary index - The resource type is @index@ and</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--     the unique identifier is the index name. Example:</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--     @table\/my-table\/index\/my-table-index@.</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- -   Aurora DB cluster - The resource type is @cluster@ and the unique</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--     identifier is the cluster name. Example: @cluster:my-db-cluster@.</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- -   SageMaker endpoint variant - The resource type is @variant@ and the</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--     unique identifier is the resource ID. Example:</span><span>
+</span><span id="line-245"></span><span class="hs-comment">--     @endpoint\/my-end-point\/variant\/KMeansClustering@.</span><span>
+</span><span id="line-246"></span><span class="hs-comment">--</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- -   Custom resources are not supported with a resource type. This</span><span>
+</span><span id="line-248"></span><span class="hs-comment">--     parameter must specify the @OutputValue@ from the CloudFormation</span><span>
+</span><span id="line-249"></span><span class="hs-comment">--     template stack used to access the resources. The unique identifier</span><span>
+</span><span id="line-250"></span><span class="hs-comment">--     is defined by the service provider. More information is available in</span><span>
+</span><span id="line-251"></span><span class="hs-comment">--     our</span><span>
+</span><span id="line-252"></span><span class="hs-comment">--     &lt;https://github.com/aws/aws-auto-scaling-custom-resource GitHub repository&gt;.</span><span>
+</span><span id="line-253"></span><span class="hs-comment">--</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- -   Amazon Comprehend document classification endpoint - The resource</span><span>
+</span><span id="line-255"></span><span class="hs-comment">--     type and unique identifier are specified using the endpoint ARN.</span><span>
+</span><span id="line-256"></span><span class="hs-comment">--     Example:</span><span>
+</span><span id="line-257"></span><span class="hs-comment">--     @arn:aws:comprehend:us-west-2:123456789012:document-classifier-endpoint\/EXAMPLE@.</span><span>
+</span><span id="line-258"></span><span class="hs-comment">--</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- -   Amazon Comprehend entity recognizer endpoint - The resource type and</span><span>
+</span><span id="line-260"></span><span class="hs-comment">--     unique identifier are specified using the endpoint ARN. Example:</span><span>
+</span><span id="line-261"></span><span class="hs-comment">--     @arn:aws:comprehend:us-west-2:123456789012:entity-recognizer-endpoint\/EXAMPLE@.</span><span>
+</span><span id="line-262"></span><span class="hs-comment">--</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- -   Lambda provisioned concurrency - The resource type is @function@ and</span><span>
+</span><span id="line-264"></span><span class="hs-comment">--     the unique identifier is the function name with a function version</span><span>
+</span><span id="line-265"></span><span class="hs-comment">--     or alias name suffix that is not @$LATEST@. Example:</span><span>
+</span><span id="line-266"></span><span class="hs-comment">--     @function:my-function:prod@ or @function:my-function:1@.</span><span>
+</span><span id="line-267"></span><span class="hs-comment">--</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- -   Amazon Keyspaces table - The resource type is @table@ and the unique</span><span>
+</span><span id="line-269"></span><span class="hs-comment">--     identifier is the table name. Example:</span><span>
+</span><span id="line-270"></span><span class="hs-comment">--     @keyspace\/mykeyspace\/table\/mytable@.</span><span>
+</span><span id="line-271"></span><span class="hs-comment">--</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- -   Amazon MSK cluster - The resource type and unique identifier are</span><span>
+</span><span id="line-273"></span><span class="hs-comment">--     specified using the cluster ARN. Example:</span><span>
+</span><span id="line-274"></span><span class="hs-comment">--     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.</span><span>
+</span><span id="line-275"></span><span class="hs-comment">--</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- -   Amazon ElastiCache replication group - The resource type is</span><span>
+</span><span id="line-277"></span><span class="hs-comment">--     @replication-group@ and the unique identifier is the replication</span><span>
+</span><span id="line-278"></span><span class="hs-comment">--     group name. Example: @replication-group\/mycluster@.</span><span>
 </span><span id="line-279"></span><span class="hs-comment">--</span><span>
-</span><span id="line-280"></span><span class="hs-comment">-- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count</span><span>
-</span><span id="line-281"></span><span class="hs-comment">--     of an EMR Instance Group.</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- -   Neptune cluster - The resource type is @cluster@ and the unique</span><span>
+</span><span id="line-281"></span><span class="hs-comment">--     identifier is the cluster name. Example: @cluster:mycluster@.</span><span>
 </span><span id="line-282"></span><span class="hs-comment">--</span><span>
-</span><span id="line-283"></span><span class="hs-comment">-- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a</span><span>
-</span><span id="line-284"></span><span class="hs-comment">--     Spot Fleet request.</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- 'scalableDimension', 'deleteScheduledAction_scalableDimension' - The scalable dimension. This string consists of the service namespace,</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- resource type, and scaling property.</span><span>
 </span><span id="line-285"></span><span class="hs-comment">--</span><span>
-</span><span id="line-286"></span><span class="hs-comment">-- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an</span><span>
-</span><span id="line-287"></span><span class="hs-comment">--     AppStream 2.0 fleet.</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- -   @ecs:service:DesiredCount@ - The desired task count of an ECS</span><span>
+</span><span id="line-287"></span><span class="hs-comment">--     service.</span><span>
 </span><span id="line-288"></span><span class="hs-comment">--</span><span>
-</span><span id="line-289"></span><span class="hs-comment">-- -   @dynamodb:table:ReadCapacityUnits@ - The provisioned read capacity</span><span>
-</span><span id="line-290"></span><span class="hs-comment">--     for a DynamoDB table.</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count</span><span>
+</span><span id="line-290"></span><span class="hs-comment">--     of an EMR Instance Group.</span><span>
 </span><span id="line-291"></span><span class="hs-comment">--</span><span>
-</span><span id="line-292"></span><span class="hs-comment">-- -   @dynamodb:table:WriteCapacityUnits@ - The provisioned write capacity</span><span>
-</span><span id="line-293"></span><span class="hs-comment">--     for a DynamoDB table.</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a</span><span>
+</span><span id="line-293"></span><span class="hs-comment">--     Spot Fleet.</span><span>
 </span><span id="line-294"></span><span class="hs-comment">--</span><span>
-</span><span id="line-295"></span><span class="hs-comment">-- -   @dynamodb:index:ReadCapacityUnits@ - The provisioned read capacity</span><span>
-</span><span id="line-296"></span><span class="hs-comment">--     for a DynamoDB global secondary index.</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an</span><span>
+</span><span id="line-296"></span><span class="hs-comment">--     AppStream 2.0 fleet.</span><span>
 </span><span id="line-297"></span><span class="hs-comment">--</span><span>
-</span><span id="line-298"></span><span class="hs-comment">-- -   @dynamodb:index:WriteCapacityUnits@ - The provisioned write capacity</span><span>
-</span><span id="line-299"></span><span class="hs-comment">--     for a DynamoDB global secondary index.</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- -   @dynamodb:table:ReadCapacityUnits@ - The provisioned read capacity</span><span>
+</span><span id="line-299"></span><span class="hs-comment">--     for a DynamoDB table.</span><span>
 </span><span id="line-300"></span><span class="hs-comment">--</span><span>
-</span><span id="line-301"></span><span class="hs-comment">-- -   @rds:cluster:ReadReplicaCount@ - The count of Aurora Replicas in an</span><span>
-</span><span id="line-302"></span><span class="hs-comment">--     Aurora DB cluster. Available for Aurora MySQL-compatible edition and</span><span>
-</span><span id="line-303"></span><span class="hs-comment">--     Aurora PostgreSQL-compatible edition.</span><span>
-</span><span id="line-304"></span><span class="hs-comment">--</span><span>
-</span><span id="line-305"></span><span class="hs-comment">-- -   @sagemaker:variant:DesiredInstanceCount@ - The number of EC2</span><span>
-</span><span id="line-306"></span><span class="hs-comment">--     instances for an Amazon SageMaker model endpoint variant.</span><span>
-</span><span id="line-307"></span><span class="hs-comment">--</span><span>
-</span><span id="line-308"></span><span class="hs-comment">-- -   @custom-resource:ResourceType:Property@ - The scalable dimension for</span><span>
-</span><span id="line-309"></span><span class="hs-comment">--     a custom resource provided by your own application or service.</span><span>
-</span><span id="line-310"></span><span class="hs-comment">--</span><span>
-</span><span id="line-311"></span><span class="hs-comment">-- -   @comprehend:document-classifier-endpoint:DesiredInferenceUnits@ -</span><span>
-</span><span id="line-312"></span><span class="hs-comment">--     The number of inference units for an Amazon Comprehend document</span><span>
-</span><span id="line-313"></span><span class="hs-comment">--     classification endpoint.</span><span>
-</span><span id="line-314"></span><span class="hs-comment">--</span><span>
-</span><span id="line-315"></span><span class="hs-comment">-- -   @comprehend:entity-recognizer-endpoint:DesiredInferenceUnits@ - The</span><span>
-</span><span id="line-316"></span><span class="hs-comment">--     number of inference units for an Amazon Comprehend entity recognizer</span><span>
-</span><span id="line-317"></span><span class="hs-comment">--     endpoint.</span><span>
-</span><span id="line-318"></span><span class="hs-comment">--</span><span>
-</span><span id="line-319"></span><span class="hs-comment">-- -   @lambda:function:ProvisionedConcurrency@ - The provisioned</span><span>
-</span><span id="line-320"></span><span class="hs-comment">--     concurrency for a Lambda function.</span><span>
-</span><span id="line-321"></span><span class="hs-comment">--</span><span>
-</span><span id="line-322"></span><span class="hs-comment">-- -   @cassandra:table:ReadCapacityUnits@ - The provisioned read capacity</span><span>
-</span><span id="line-323"></span><span class="hs-comment">--     for an Amazon Keyspaces table.</span><span>
-</span><span id="line-324"></span><span class="hs-comment">--</span><span>
-</span><span id="line-325"></span><span class="hs-comment">-- -   @cassandra:table:WriteCapacityUnits@ - The provisioned write</span><span>
-</span><span id="line-326"></span><span class="hs-comment">--     capacity for an Amazon Keyspaces table.</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- -   @dynamodb:table:WriteCapacityUnits@ - The provisioned write capacity</span><span>
+</span><span id="line-302"></span><span class="hs-comment">--     for a DynamoDB table.</span><span>
+</span><span id="line-303"></span><span class="hs-comment">--</span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- -   @dynamodb:index:ReadCapacityUnits@ - The provisioned read capacity</span><span>
+</span><span id="line-305"></span><span class="hs-comment">--     for a DynamoDB global secondary index.</span><span>
+</span><span id="line-306"></span><span class="hs-comment">--</span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- -   @dynamodb:index:WriteCapacityUnits@ - The provisioned write capacity</span><span>
+</span><span id="line-308"></span><span class="hs-comment">--     for a DynamoDB global secondary index.</span><span>
+</span><span id="line-309"></span><span class="hs-comment">--</span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- -   @rds:cluster:ReadReplicaCount@ - The count of Aurora Replicas in an</span><span>
+</span><span id="line-311"></span><span class="hs-comment">--     Aurora DB cluster. Available for Aurora MySQL-compatible edition and</span><span>
+</span><span id="line-312"></span><span class="hs-comment">--     Aurora PostgreSQL-compatible edition.</span><span>
+</span><span id="line-313"></span><span class="hs-comment">--</span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- -   @sagemaker:variant:DesiredInstanceCount@ - The number of EC2</span><span>
+</span><span id="line-315"></span><span class="hs-comment">--     instances for an SageMaker model endpoint variant.</span><span>
+</span><span id="line-316"></span><span class="hs-comment">--</span><span>
+</span><span id="line-317"></span><span class="hs-comment">-- -   @custom-resource:ResourceType:Property@ - The scalable dimension for</span><span>
+</span><span id="line-318"></span><span class="hs-comment">--     a custom resource provided by your own application or service.</span><span>
+</span><span id="line-319"></span><span class="hs-comment">--</span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- -   @comprehend:document-classifier-endpoint:DesiredInferenceUnits@ -</span><span>
+</span><span id="line-321"></span><span class="hs-comment">--     The number of inference units for an Amazon Comprehend document</span><span>
+</span><span id="line-322"></span><span class="hs-comment">--     classification endpoint.</span><span>
+</span><span id="line-323"></span><span class="hs-comment">--</span><span>
+</span><span id="line-324"></span><span class="hs-comment">-- -   @comprehend:entity-recognizer-endpoint:DesiredInferenceUnits@ - The</span><span>
+</span><span id="line-325"></span><span class="hs-comment">--     number of inference units for an Amazon Comprehend entity recognizer</span><span>
+</span><span id="line-326"></span><span class="hs-comment">--     endpoint.</span><span>
 </span><span id="line-327"></span><span class="hs-comment">--</span><span>
-</span><span id="line-328"></span><span class="hs-comment">-- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in</span><span>
-</span><span id="line-329"></span><span class="hs-comment">--     GiB) for brokers in an Amazon MSK cluster.</span><span>
+</span><span id="line-328"></span><span class="hs-comment">-- -   @lambda:function:ProvisionedConcurrency@ - The provisioned</span><span>
+</span><span id="line-329"></span><span class="hs-comment">--     concurrency for a Lambda function.</span><span>
 </span><span id="line-330"></span><span class="hs-comment">--</span><span>
-</span><span id="line-331"></span><span class="hs-comment">-- -   @elasticache:replication-group:NodeGroups@ - The number of node</span><span>
-</span><span id="line-332"></span><span class="hs-comment">--     groups for an Amazon ElastiCache replication group.</span><span>
+</span><span id="line-331"></span><span class="hs-comment">-- -   @cassandra:table:ReadCapacityUnits@ - The provisioned read capacity</span><span>
+</span><span id="line-332"></span><span class="hs-comment">--     for an Amazon Keyspaces table.</span><span>
 </span><span id="line-333"></span><span class="hs-comment">--</span><span>
-</span><span id="line-334"></span><span class="hs-comment">-- -   @elasticache:replication-group:Replicas@ - The number of replicas</span><span>
-</span><span id="line-335"></span><span class="hs-comment">--     per node group for an Amazon ElastiCache replication group.</span><span>
-</span><span id="line-336"></span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#newDeleteScheduledAction"><span class="hs-identifier hs-type">newDeleteScheduledAction</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-337"></span><span>  </span><span class="hs-comment">-- | 'serviceNamespace'</span><span>
-</span><span id="line-338"></span><span>  </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace.html#ServiceNamespace"><span class="hs-identifier hs-type">ServiceNamespace</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-339"></span><span>  </span><span class="hs-comment">-- | 'scheduledActionName'</span><span>
-</span><span id="line-340"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-341"></span><span>  </span><span class="hs-comment">-- | 'resourceId'</span><span>
-</span><span id="line-342"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-343"></span><span>  </span><span class="hs-comment">-- | 'scalableDimension'</span><span>
-</span><span id="line-344"></span><span>  </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension"><span class="hs-identifier hs-type">ScalableDimension</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-345"></span><span>  </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction"><span class="hs-identifier hs-type">DeleteScheduledAction</span></a></span><span>
-</span><span id="line-346"></span><span id="newDeleteScheduledAction"><span class="annot"><span class="annottext">newDeleteScheduledAction :: ServiceNamespace
+</span><span id="line-334"></span><span class="hs-comment">-- -   @cassandra:table:WriteCapacityUnits@ - The provisioned write</span><span>
+</span><span id="line-335"></span><span class="hs-comment">--     capacity for an Amazon Keyspaces table.</span><span>
+</span><span id="line-336"></span><span class="hs-comment">--</span><span>
+</span><span id="line-337"></span><span class="hs-comment">-- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in</span><span>
+</span><span id="line-338"></span><span class="hs-comment">--     GiB) for brokers in an Amazon MSK cluster.</span><span>
+</span><span id="line-339"></span><span class="hs-comment">--</span><span>
+</span><span id="line-340"></span><span class="hs-comment">-- -   @elasticache:replication-group:NodeGroups@ - The number of node</span><span>
+</span><span id="line-341"></span><span class="hs-comment">--     groups for an Amazon ElastiCache replication group.</span><span>
+</span><span id="line-342"></span><span class="hs-comment">--</span><span>
+</span><span id="line-343"></span><span class="hs-comment">-- -   @elasticache:replication-group:Replicas@ - The number of replicas</span><span>
+</span><span id="line-344"></span><span class="hs-comment">--     per node group for an Amazon ElastiCache replication group.</span><span>
+</span><span id="line-345"></span><span class="hs-comment">--</span><span>
+</span><span id="line-346"></span><span class="hs-comment">-- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in</span><span>
+</span><span id="line-347"></span><span class="hs-comment">--     an Amazon Neptune DB cluster.</span><span>
+</span><span id="line-348"></span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#newDeleteScheduledAction"><span class="hs-identifier hs-type">newDeleteScheduledAction</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-349"></span><span>  </span><span class="hs-comment">-- | 'serviceNamespace'</span><span>
+</span><span id="line-350"></span><span>  </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace.html#ServiceNamespace"><span class="hs-identifier hs-type">ServiceNamespace</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-351"></span><span>  </span><span class="hs-comment">-- | 'scheduledActionName'</span><span>
+</span><span id="line-352"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-353"></span><span>  </span><span class="hs-comment">-- | 'resourceId'</span><span>
+</span><span id="line-354"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-355"></span><span>  </span><span class="hs-comment">-- | 'scalableDimension'</span><span>
+</span><span id="line-356"></span><span>  </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension"><span class="hs-identifier hs-type">ScalableDimension</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-357"></span><span>  </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction"><span class="hs-identifier hs-type">DeleteScheduledAction</span></a></span><span>
+</span><span id="line-358"></span><span id="newDeleteScheduledAction"><span class="annot"><span class="annottext">newDeleteScheduledAction :: ServiceNamespace
 -&gt; Text -&gt; Text -&gt; ScalableDimension -&gt; DeleteScheduledAction
 </span><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#newDeleteScheduledAction"><span class="hs-identifier hs-var hs-var">newDeleteScheduledAction</span></a></span></span><span>
-</span><span id="line-347"></span><span>  </span><span id="local-6989586621679189131"><span class="annot"><span class="annottext">ServiceNamespace
-</span><a href="#local-6989586621679189131"><span class="hs-identifier hs-var">pServiceNamespace_</span></a></span></span><span>
-</span><span id="line-348"></span><span>  </span><span id="local-6989586621679189130"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679189130"><span class="hs-identifier hs-var">pScheduledActionName_</span></a></span></span><span>
-</span><span id="line-349"></span><span>  </span><span id="local-6989586621679189129"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679189129"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span>
-</span><span id="line-350"></span><span>  </span><span id="local-6989586621679189128"><span class="annot"><span class="annottext">ScalableDimension
-</span><a href="#local-6989586621679189128"><span class="hs-identifier hs-var">pScalableDimension_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-351"></span><span>    </span><span class="annot"><span class="annottext">DeleteScheduledAction' :: ServiceNamespace
+</span><span id="line-359"></span><span>  </span><span id="local-6989586621679189298"><span class="annot"><span class="annottext">ServiceNamespace
+</span><a href="#local-6989586621679189298"><span class="hs-identifier hs-var">pServiceNamespace_</span></a></span></span><span>
+</span><span id="line-360"></span><span>  </span><span id="local-6989586621679189297"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679189297"><span class="hs-identifier hs-var">pScheduledActionName_</span></a></span></span><span>
+</span><span id="line-361"></span><span>  </span><span id="local-6989586621679189296"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679189296"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span>
+</span><span id="line-362"></span><span>  </span><span id="local-6989586621679189295"><span class="annot"><span class="annottext">ScalableDimension
+</span><a href="#local-6989586621679189295"><span class="hs-identifier hs-var">pScalableDimension_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-363"></span><span>    </span><span class="annot"><span class="annottext">DeleteScheduledAction' :: ServiceNamespace
 -&gt; Text -&gt; Text -&gt; ScalableDimension -&gt; DeleteScheduledAction
 </span><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction%27"><span class="hs-identifier hs-type">DeleteScheduledAction'</span></a></span><span>
-</span><span id="line-352"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:serviceNamespace:DeleteScheduledAction' :: ServiceNamespace
+</span><span id="line-364"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:serviceNamespace:DeleteScheduledAction' :: ServiceNamespace
 </span><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#%24sel%3AserviceNamespace%3ADeleteScheduledAction%27"><span class="hs-identifier hs-var">serviceNamespace</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-353"></span><span>          </span><span class="annot"><span class="annottext">ServiceNamespace
-</span><a href="#local-6989586621679189131"><span class="hs-identifier hs-var">pServiceNamespace_</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-354"></span><span>        </span><span class="annot"><span class="annottext">$sel:scheduledActionName:DeleteScheduledAction' :: Text
+</span><span id="line-365"></span><span>          </span><span class="annot"><span class="annottext">ServiceNamespace
+</span><a href="#local-6989586621679189298"><span class="hs-identifier hs-var">pServiceNamespace_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-366"></span><span>        </span><span class="annot"><span class="annottext">$sel:scheduledActionName:DeleteScheduledAction' :: Text
 </span><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#%24sel%3AscheduledActionName%3ADeleteScheduledAction%27"><span class="hs-identifier hs-var">scheduledActionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679189130"><span class="hs-identifier hs-var">pScheduledActionName_</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-355"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceId:DeleteScheduledAction' :: Text
+</span><a href="#local-6989586621679189297"><span class="hs-identifier hs-var">pScheduledActionName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-367"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceId:DeleteScheduledAction' :: Text
 </span><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#%24sel%3AresourceId%3ADeleteScheduledAction%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679189129"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-356"></span><span>        </span><span class="annot"><span class="annottext">$sel:scalableDimension:DeleteScheduledAction' :: ScalableDimension
+</span><a href="#local-6989586621679189296"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-368"></span><span>        </span><span class="annot"><span class="annottext">$sel:scalableDimension:DeleteScheduledAction' :: ScalableDimension
 </span><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#%24sel%3AscalableDimension%3ADeleteScheduledAction%27"><span class="hs-identifier hs-var">scalableDimension</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ScalableDimension
-</span><a href="#local-6989586621679189128"><span class="hs-identifier hs-var">pScalableDimension_</span></a></span><span>
-</span><span id="line-357"></span><span>      </span><span class="hs-special">}</span><span>
-</span><span id="line-358"></span><span>
-</span><span id="line-359"></span><span class="hs-comment">-- | The namespace of the Amazon Web Services service that provides the</span><span>
-</span><span id="line-360"></span><span class="hs-comment">-- resource. For a resource provided by your own application or service,</span><span>
-</span><span id="line-361"></span><span class="hs-comment">-- use @custom-resource@ instead.</span><span>
-</span><span id="line-362"></span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#deleteScheduledAction_serviceNamespace"><span class="hs-identifier hs-type">deleteScheduledAction_serviceNamespace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction"><span class="hs-identifier hs-type">DeleteScheduledAction</span></a></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace.html#ServiceNamespace"><span class="hs-identifier hs-type">ServiceNamespace</span></a></span><span>
-</span><span id="line-363"></span><span id="deleteScheduledAction_serviceNamespace"><span class="annot"><span class="annottext">deleteScheduledAction_serviceNamespace :: (ServiceNamespace -&gt; f ServiceNamespace)
+</span><a href="#local-6989586621679189295"><span class="hs-identifier hs-var">pScalableDimension_</span></a></span><span>
+</span><span id="line-369"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-370"></span><span>
+</span><span id="line-371"></span><span class="hs-comment">-- | The namespace of the Amazon Web Services service that provides the</span><span>
+</span><span id="line-372"></span><span class="hs-comment">-- resource. For a resource provided by your own application or service,</span><span>
+</span><span id="line-373"></span><span class="hs-comment">-- use @custom-resource@ instead.</span><span>
+</span><span id="line-374"></span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#deleteScheduledAction_serviceNamespace"><span class="hs-identifier hs-type">deleteScheduledAction_serviceNamespace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction"><span class="hs-identifier hs-type">DeleteScheduledAction</span></a></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace.html#ServiceNamespace"><span class="hs-identifier hs-type">ServiceNamespace</span></a></span><span>
+</span><span id="line-375"></span><span id="deleteScheduledAction_serviceNamespace"><span class="annot"><span class="annottext">deleteScheduledAction_serviceNamespace :: (ServiceNamespace -&gt; f ServiceNamespace)
 -&gt; DeleteScheduledAction -&gt; f DeleteScheduledAction
 </span><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#deleteScheduledAction_serviceNamespace"><span class="hs-identifier hs-var hs-var">deleteScheduledAction_serviceNamespace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteScheduledAction -&gt; ServiceNamespace)
 -&gt; (DeleteScheduledAction
@@ -444,182 +456,188 @@ $cfrom :: forall x. DeleteScheduledAction -&gt; Rep DeleteScheduledAction x
      ServiceNamespace
      ServiceNamespace
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction%27"><span class="hs-identifier hs-type">DeleteScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189125"><span class="annot"><span class="annottext">ServiceNamespace
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction%27"><span class="hs-identifier hs-type">DeleteScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189292"><span class="annot"><span class="annottext">ServiceNamespace
 serviceNamespace :: ServiceNamespace
 $sel:serviceNamespace:DeleteScheduledAction' :: DeleteScheduledAction -&gt; ServiceNamespace
-</span><a href="#local-6989586621679189125"><span class="hs-identifier hs-var hs-var">serviceNamespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceNamespace
-</span><a href="#local-6989586621679189125"><span class="hs-identifier hs-var">serviceNamespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189124"><span class="annot"><span class="annottext">s :: DeleteScheduledAction
-</span><a href="#local-6989586621679189124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction%27"><span class="hs-identifier hs-type">DeleteScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189123"><span class="annot"><span class="annottext">ServiceNamespace
-</span><a href="#local-6989586621679189123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteScheduledAction
-</span><a href="#local-6989586621679189124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceNamespace:DeleteScheduledAction' :: ServiceNamespace
+</span><a href="#local-6989586621679189292"><span class="hs-identifier hs-var hs-var">serviceNamespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceNamespace
+</span><a href="#local-6989586621679189292"><span class="hs-identifier hs-var">serviceNamespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189291"><span class="annot"><span class="annottext">s :: DeleteScheduledAction
+</span><a href="#local-6989586621679189291"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction%27"><span class="hs-identifier hs-type">DeleteScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189290"><span class="annot"><span class="annottext">ServiceNamespace
+</span><a href="#local-6989586621679189290"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteScheduledAction
+</span><a href="#local-6989586621679189291"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceNamespace:DeleteScheduledAction' :: ServiceNamespace
 </span><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#%24sel%3AserviceNamespace%3ADeleteScheduledAction%27"><span class="hs-identifier hs-var">serviceNamespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceNamespace
-</span><a href="#local-6989586621679189123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction"><span class="hs-identifier hs-type">DeleteScheduledAction</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-364"></span><span>
-</span><span id="line-365"></span><span class="hs-comment">-- | The name of the scheduled action.</span><span>
-</span><span id="line-366"></span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#deleteScheduledAction_scheduledActionName"><span class="hs-identifier hs-type">deleteScheduledAction_scheduledActionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction"><span class="hs-identifier hs-type">DeleteScheduledAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-367"></span><span id="deleteScheduledAction_scheduledActionName"><span class="annot"><span class="annottext">deleteScheduledAction_scheduledActionName :: (Text -&gt; f Text)
+</span><a href="#local-6989586621679189290"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction"><span class="hs-identifier hs-type">DeleteScheduledAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-376"></span><span>
+</span><span id="line-377"></span><span class="hs-comment">-- | The name of the scheduled action.</span><span>
+</span><span id="line-378"></span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#deleteScheduledAction_scheduledActionName"><span class="hs-identifier hs-type">deleteScheduledAction_scheduledActionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction"><span class="hs-identifier hs-type">DeleteScheduledAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-379"></span><span id="deleteScheduledAction_scheduledActionName"><span class="annot"><span class="annottext">deleteScheduledAction_scheduledActionName :: (Text -&gt; f Text)
 -&gt; DeleteScheduledAction -&gt; f DeleteScheduledAction
 </span><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#deleteScheduledAction_scheduledActionName"><span class="hs-identifier hs-var hs-var">deleteScheduledAction_scheduledActionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteScheduledAction -&gt; Text)
 -&gt; (DeleteScheduledAction -&gt; Text -&gt; DeleteScheduledAction)
 -&gt; Lens DeleteScheduledAction DeleteScheduledAction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction%27"><span class="hs-identifier hs-type">DeleteScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189122"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction%27"><span class="hs-identifier hs-type">DeleteScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189289"><span class="annot"><span class="annottext">Text
 scheduledActionName :: Text
 $sel:scheduledActionName:DeleteScheduledAction' :: DeleteScheduledAction -&gt; Text
-</span><a href="#local-6989586621679189122"><span class="hs-identifier hs-var hs-var">scheduledActionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679189122"><span class="hs-identifier hs-var">scheduledActionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189121"><span class="annot"><span class="annottext">s :: DeleteScheduledAction
-</span><a href="#local-6989586621679189121"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction%27"><span class="hs-identifier hs-type">DeleteScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189120"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679189120"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteScheduledAction
-</span><a href="#local-6989586621679189121"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduledActionName:DeleteScheduledAction' :: Text
+</span><a href="#local-6989586621679189289"><span class="hs-identifier hs-var hs-var">scheduledActionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679189289"><span class="hs-identifier hs-var">scheduledActionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189288"><span class="annot"><span class="annottext">s :: DeleteScheduledAction
+</span><a href="#local-6989586621679189288"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction%27"><span class="hs-identifier hs-type">DeleteScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189287"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679189287"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteScheduledAction
+</span><a href="#local-6989586621679189288"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduledActionName:DeleteScheduledAction' :: Text
 </span><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#%24sel%3AscheduledActionName%3ADeleteScheduledAction%27"><span class="hs-identifier hs-var">scheduledActionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679189120"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction"><span class="hs-identifier hs-type">DeleteScheduledAction</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-368"></span><span>
-</span><span id="line-369"></span><span class="hs-comment">-- | The identifier of the resource associated with the scheduled action.</span><span>
-</span><span id="line-370"></span><span class="hs-comment">-- This string consists of the resource type and unique identifier.</span><span>
-</span><span id="line-371"></span><span class="hs-comment">--</span><span>
-</span><span id="line-372"></span><span class="hs-comment">-- -   ECS service - The resource type is @service@ and the unique</span><span>
-</span><span id="line-373"></span><span class="hs-comment">--     identifier is the cluster name and service name. Example:</span><span>
-</span><span id="line-374"></span><span class="hs-comment">--     @service\/default\/sample-webapp@.</span><span>
-</span><span id="line-375"></span><span class="hs-comment">--</span><span>
-</span><span id="line-376"></span><span class="hs-comment">-- -   Spot Fleet request - The resource type is @spot-fleet-request@ and</span><span>
-</span><span id="line-377"></span><span class="hs-comment">--     the unique identifier is the Spot Fleet request ID. Example:</span><span>
-</span><span id="line-378"></span><span class="hs-comment">--     @spot-fleet-request\/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@.</span><span>
-</span><span id="line-379"></span><span class="hs-comment">--</span><span>
-</span><span id="line-380"></span><span class="hs-comment">-- -   EMR cluster - The resource type is @instancegroup@ and the unique</span><span>
-</span><span id="line-381"></span><span class="hs-comment">--     identifier is the cluster ID and instance group ID. Example:</span><span>
-</span><span id="line-382"></span><span class="hs-comment">--     @instancegroup\/j-2EEZNYKUA1NTV\/ig-1791Y4E1L8YI0@.</span><span>
+</span><a href="#local-6989586621679189287"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction"><span class="hs-identifier hs-type">DeleteScheduledAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-380"></span><span>
+</span><span id="line-381"></span><span class="hs-comment">-- | The identifier of the resource associated with the scheduled action.</span><span>
+</span><span id="line-382"></span><span class="hs-comment">-- This string consists of the resource type and unique identifier.</span><span>
 </span><span id="line-383"></span><span class="hs-comment">--</span><span>
-</span><span id="line-384"></span><span class="hs-comment">-- -   AppStream 2.0 fleet - The resource type is @fleet@ and the unique</span><span>
-</span><span id="line-385"></span><span class="hs-comment">--     identifier is the fleet name. Example: @fleet\/sample-fleet@.</span><span>
-</span><span id="line-386"></span><span class="hs-comment">--</span><span>
-</span><span id="line-387"></span><span class="hs-comment">-- -   DynamoDB table - The resource type is @table@ and the unique</span><span>
-</span><span id="line-388"></span><span class="hs-comment">--     identifier is the table name. Example: @table\/my-table@.</span><span>
-</span><span id="line-389"></span><span class="hs-comment">--</span><span>
-</span><span id="line-390"></span><span class="hs-comment">-- -   DynamoDB global secondary index - The resource type is @index@ and</span><span>
-</span><span id="line-391"></span><span class="hs-comment">--     the unique identifier is the index name. Example:</span><span>
-</span><span id="line-392"></span><span class="hs-comment">--     @table\/my-table\/index\/my-table-index@.</span><span>
-</span><span id="line-393"></span><span class="hs-comment">--</span><span>
-</span><span id="line-394"></span><span class="hs-comment">-- -   Aurora DB cluster - The resource type is @cluster@ and the unique</span><span>
-</span><span id="line-395"></span><span class="hs-comment">--     identifier is the cluster name. Example: @cluster:my-db-cluster@.</span><span>
-</span><span id="line-396"></span><span class="hs-comment">--</span><span>
-</span><span id="line-397"></span><span class="hs-comment">-- -   Amazon SageMaker endpoint variant - The resource type is @variant@</span><span>
-</span><span id="line-398"></span><span class="hs-comment">--     and the unique identifier is the resource ID. Example:</span><span>
-</span><span id="line-399"></span><span class="hs-comment">--     @endpoint\/my-end-point\/variant\/KMeansClustering@.</span><span>
-</span><span id="line-400"></span><span class="hs-comment">--</span><span>
-</span><span id="line-401"></span><span class="hs-comment">-- -   Custom resources are not supported with a resource type. This</span><span>
-</span><span id="line-402"></span><span class="hs-comment">--     parameter must specify the @OutputValue@ from the CloudFormation</span><span>
-</span><span id="line-403"></span><span class="hs-comment">--     template stack used to access the resources. The unique identifier</span><span>
-</span><span id="line-404"></span><span class="hs-comment">--     is defined by the service provider. More information is available in</span><span>
-</span><span id="line-405"></span><span class="hs-comment">--     our</span><span>
-</span><span id="line-406"></span><span class="hs-comment">--     &lt;https://github.com/aws/aws-auto-scaling-custom-resource GitHub repository&gt;.</span><span>
-</span><span id="line-407"></span><span class="hs-comment">--</span><span>
-</span><span id="line-408"></span><span class="hs-comment">-- -   Amazon Comprehend document classification endpoint - The resource</span><span>
-</span><span id="line-409"></span><span class="hs-comment">--     type and unique identifier are specified using the endpoint ARN.</span><span>
-</span><span id="line-410"></span><span class="hs-comment">--     Example:</span><span>
-</span><span id="line-411"></span><span class="hs-comment">--     @arn:aws:comprehend:us-west-2:123456789012:document-classifier-endpoint\/EXAMPLE@.</span><span>
+</span><span id="line-384"></span><span class="hs-comment">-- -   ECS service - The resource type is @service@ and the unique</span><span>
+</span><span id="line-385"></span><span class="hs-comment">--     identifier is the cluster name and service name. Example:</span><span>
+</span><span id="line-386"></span><span class="hs-comment">--     @service\/default\/sample-webapp@.</span><span>
+</span><span id="line-387"></span><span class="hs-comment">--</span><span>
+</span><span id="line-388"></span><span class="hs-comment">-- -   Spot Fleet - The resource type is @spot-fleet-request@ and the</span><span>
+</span><span id="line-389"></span><span class="hs-comment">--     unique identifier is the Spot Fleet request ID. Example:</span><span>
+</span><span id="line-390"></span><span class="hs-comment">--     @spot-fleet-request\/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@.</span><span>
+</span><span id="line-391"></span><span class="hs-comment">--</span><span>
+</span><span id="line-392"></span><span class="hs-comment">-- -   EMR cluster - The resource type is @instancegroup@ and the unique</span><span>
+</span><span id="line-393"></span><span class="hs-comment">--     identifier is the cluster ID and instance group ID. Example:</span><span>
+</span><span id="line-394"></span><span class="hs-comment">--     @instancegroup\/j-2EEZNYKUA1NTV\/ig-1791Y4E1L8YI0@.</span><span>
+</span><span id="line-395"></span><span class="hs-comment">--</span><span>
+</span><span id="line-396"></span><span class="hs-comment">-- -   AppStream 2.0 fleet - The resource type is @fleet@ and the unique</span><span>
+</span><span id="line-397"></span><span class="hs-comment">--     identifier is the fleet name. Example: @fleet\/sample-fleet@.</span><span>
+</span><span id="line-398"></span><span class="hs-comment">--</span><span>
+</span><span id="line-399"></span><span class="hs-comment">-- -   DynamoDB table - The resource type is @table@ and the unique</span><span>
+</span><span id="line-400"></span><span class="hs-comment">--     identifier is the table name. Example: @table\/my-table@.</span><span>
+</span><span id="line-401"></span><span class="hs-comment">--</span><span>
+</span><span id="line-402"></span><span class="hs-comment">-- -   DynamoDB global secondary index - The resource type is @index@ and</span><span>
+</span><span id="line-403"></span><span class="hs-comment">--     the unique identifier is the index name. Example:</span><span>
+</span><span id="line-404"></span><span class="hs-comment">--     @table\/my-table\/index\/my-table-index@.</span><span>
+</span><span id="line-405"></span><span class="hs-comment">--</span><span>
+</span><span id="line-406"></span><span class="hs-comment">-- -   Aurora DB cluster - The resource type is @cluster@ and the unique</span><span>
+</span><span id="line-407"></span><span class="hs-comment">--     identifier is the cluster name. Example: @cluster:my-db-cluster@.</span><span>
+</span><span id="line-408"></span><span class="hs-comment">--</span><span>
+</span><span id="line-409"></span><span class="hs-comment">-- -   SageMaker endpoint variant - The resource type is @variant@ and the</span><span>
+</span><span id="line-410"></span><span class="hs-comment">--     unique identifier is the resource ID. Example:</span><span>
+</span><span id="line-411"></span><span class="hs-comment">--     @endpoint\/my-end-point\/variant\/KMeansClustering@.</span><span>
 </span><span id="line-412"></span><span class="hs-comment">--</span><span>
-</span><span id="line-413"></span><span class="hs-comment">-- -   Amazon Comprehend entity recognizer endpoint - The resource type and</span><span>
-</span><span id="line-414"></span><span class="hs-comment">--     unique identifier are specified using the endpoint ARN. Example:</span><span>
-</span><span id="line-415"></span><span class="hs-comment">--     @arn:aws:comprehend:us-west-2:123456789012:entity-recognizer-endpoint\/EXAMPLE@.</span><span>
-</span><span id="line-416"></span><span class="hs-comment">--</span><span>
-</span><span id="line-417"></span><span class="hs-comment">-- -   Lambda provisioned concurrency - The resource type is @function@ and</span><span>
-</span><span id="line-418"></span><span class="hs-comment">--     the unique identifier is the function name with a function version</span><span>
-</span><span id="line-419"></span><span class="hs-comment">--     or alias name suffix that is not @$LATEST@. Example:</span><span>
-</span><span id="line-420"></span><span class="hs-comment">--     @function:my-function:prod@ or @function:my-function:1@.</span><span>
-</span><span id="line-421"></span><span class="hs-comment">--</span><span>
-</span><span id="line-422"></span><span class="hs-comment">-- -   Amazon Keyspaces table - The resource type is @table@ and the unique</span><span>
-</span><span id="line-423"></span><span class="hs-comment">--     identifier is the table name. Example:</span><span>
-</span><span id="line-424"></span><span class="hs-comment">--     @keyspace\/mykeyspace\/table\/mytable@.</span><span>
-</span><span id="line-425"></span><span class="hs-comment">--</span><span>
-</span><span id="line-426"></span><span class="hs-comment">-- -   Amazon MSK cluster - The resource type and unique identifier are</span><span>
-</span><span id="line-427"></span><span class="hs-comment">--     specified using the cluster ARN. Example:</span><span>
-</span><span id="line-428"></span><span class="hs-comment">--     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.</span><span>
-</span><span id="line-429"></span><span class="hs-comment">--</span><span>
-</span><span id="line-430"></span><span class="hs-comment">-- -   Amazon ElastiCache replication group - The resource type is</span><span>
-</span><span id="line-431"></span><span class="hs-comment">--     @replication-group@ and the unique identifier is the replication</span><span>
-</span><span id="line-432"></span><span class="hs-comment">--     group name. Example: @replication-group\/mycluster@.</span><span>
-</span><span id="line-433"></span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#deleteScheduledAction_resourceId"><span class="hs-identifier hs-type">deleteScheduledAction_resourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction"><span class="hs-identifier hs-type">DeleteScheduledAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-434"></span><span id="deleteScheduledAction_resourceId"><span class="annot"><span class="annottext">deleteScheduledAction_resourceId :: (Text -&gt; f Text)
+</span><span id="line-413"></span><span class="hs-comment">-- -   Custom resources are not supported with a resource type. This</span><span>
+</span><span id="line-414"></span><span class="hs-comment">--     parameter must specify the @OutputValue@ from the CloudFormation</span><span>
+</span><span id="line-415"></span><span class="hs-comment">--     template stack used to access the resources. The unique identifier</span><span>
+</span><span id="line-416"></span><span class="hs-comment">--     is defined by the service provider. More information is available in</span><span>
+</span><span id="line-417"></span><span class="hs-comment">--     our</span><span>
+</span><span id="line-418"></span><span class="hs-comment">--     &lt;https://github.com/aws/aws-auto-scaling-custom-resource GitHub repository&gt;.</span><span>
+</span><span id="line-419"></span><span class="hs-comment">--</span><span>
+</span><span id="line-420"></span><span class="hs-comment">-- -   Amazon Comprehend document classification endpoint - The resource</span><span>
+</span><span id="line-421"></span><span class="hs-comment">--     type and unique identifier are specified using the endpoint ARN.</span><span>
+</span><span id="line-422"></span><span class="hs-comment">--     Example:</span><span>
+</span><span id="line-423"></span><span class="hs-comment">--     @arn:aws:comprehend:us-west-2:123456789012:document-classifier-endpoint\/EXAMPLE@.</span><span>
+</span><span id="line-424"></span><span class="hs-comment">--</span><span>
+</span><span id="line-425"></span><span class="hs-comment">-- -   Amazon Comprehend entity recognizer endpoint - The resource type and</span><span>
+</span><span id="line-426"></span><span class="hs-comment">--     unique identifier are specified using the endpoint ARN. Example:</span><span>
+</span><span id="line-427"></span><span class="hs-comment">--     @arn:aws:comprehend:us-west-2:123456789012:entity-recognizer-endpoint\/EXAMPLE@.</span><span>
+</span><span id="line-428"></span><span class="hs-comment">--</span><span>
+</span><span id="line-429"></span><span class="hs-comment">-- -   Lambda provisioned concurrency - The resource type is @function@ and</span><span>
+</span><span id="line-430"></span><span class="hs-comment">--     the unique identifier is the function name with a function version</span><span>
+</span><span id="line-431"></span><span class="hs-comment">--     or alias name suffix that is not @$LATEST@. Example:</span><span>
+</span><span id="line-432"></span><span class="hs-comment">--     @function:my-function:prod@ or @function:my-function:1@.</span><span>
+</span><span id="line-433"></span><span class="hs-comment">--</span><span>
+</span><span id="line-434"></span><span class="hs-comment">-- -   Amazon Keyspaces table - The resource type is @table@ and the unique</span><span>
+</span><span id="line-435"></span><span class="hs-comment">--     identifier is the table name. Example:</span><span>
+</span><span id="line-436"></span><span class="hs-comment">--     @keyspace\/mykeyspace\/table\/mytable@.</span><span>
+</span><span id="line-437"></span><span class="hs-comment">--</span><span>
+</span><span id="line-438"></span><span class="hs-comment">-- -   Amazon MSK cluster - The resource type and unique identifier are</span><span>
+</span><span id="line-439"></span><span class="hs-comment">--     specified using the cluster ARN. Example:</span><span>
+</span><span id="line-440"></span><span class="hs-comment">--     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.</span><span>
+</span><span id="line-441"></span><span class="hs-comment">--</span><span>
+</span><span id="line-442"></span><span class="hs-comment">-- -   Amazon ElastiCache replication group - The resource type is</span><span>
+</span><span id="line-443"></span><span class="hs-comment">--     @replication-group@ and the unique identifier is the replication</span><span>
+</span><span id="line-444"></span><span class="hs-comment">--     group name. Example: @replication-group\/mycluster@.</span><span>
+</span><span id="line-445"></span><span class="hs-comment">--</span><span>
+</span><span id="line-446"></span><span class="hs-comment">-- -   Neptune cluster - The resource type is @cluster@ and the unique</span><span>
+</span><span id="line-447"></span><span class="hs-comment">--     identifier is the cluster name. Example: @cluster:mycluster@.</span><span>
+</span><span id="line-448"></span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#deleteScheduledAction_resourceId"><span class="hs-identifier hs-type">deleteScheduledAction_resourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction"><span class="hs-identifier hs-type">DeleteScheduledAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-449"></span><span id="deleteScheduledAction_resourceId"><span class="annot"><span class="annottext">deleteScheduledAction_resourceId :: (Text -&gt; f Text)
 -&gt; DeleteScheduledAction -&gt; f DeleteScheduledAction
 </span><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#deleteScheduledAction_resourceId"><span class="hs-identifier hs-var hs-var">deleteScheduledAction_resourceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteScheduledAction -&gt; Text)
 -&gt; (DeleteScheduledAction -&gt; Text -&gt; DeleteScheduledAction)
 -&gt; Lens DeleteScheduledAction DeleteScheduledAction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction%27"><span class="hs-identifier hs-type">DeleteScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189119"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction%27"><span class="hs-identifier hs-type">DeleteScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189286"><span class="annot"><span class="annottext">Text
 resourceId :: Text
 $sel:resourceId:DeleteScheduledAction' :: DeleteScheduledAction -&gt; Text
-</span><a href="#local-6989586621679189119"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679189119"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189118"><span class="annot"><span class="annottext">s :: DeleteScheduledAction
-</span><a href="#local-6989586621679189118"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction%27"><span class="hs-identifier hs-type">DeleteScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189117"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679189117"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteScheduledAction
-</span><a href="#local-6989586621679189118"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:DeleteScheduledAction' :: Text
+</span><a href="#local-6989586621679189286"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679189286"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189285"><span class="annot"><span class="annottext">s :: DeleteScheduledAction
+</span><a href="#local-6989586621679189285"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction%27"><span class="hs-identifier hs-type">DeleteScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189284"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679189284"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteScheduledAction
+</span><a href="#local-6989586621679189285"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:DeleteScheduledAction' :: Text
 </span><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#%24sel%3AresourceId%3ADeleteScheduledAction%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679189117"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction"><span class="hs-identifier hs-type">DeleteScheduledAction</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-435"></span><span>
-</span><span id="line-436"></span><span class="hs-comment">-- | The scalable dimension. This string consists of the service namespace,</span><span>
-</span><span id="line-437"></span><span class="hs-comment">-- resource type, and scaling property.</span><span>
-</span><span id="line-438"></span><span class="hs-comment">--</span><span>
-</span><span id="line-439"></span><span class="hs-comment">-- -   @ecs:service:DesiredCount@ - The desired task count of an ECS</span><span>
-</span><span id="line-440"></span><span class="hs-comment">--     service.</span><span>
-</span><span id="line-441"></span><span class="hs-comment">--</span><span>
-</span><span id="line-442"></span><span class="hs-comment">-- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count</span><span>
-</span><span id="line-443"></span><span class="hs-comment">--     of an EMR Instance Group.</span><span>
-</span><span id="line-444"></span><span class="hs-comment">--</span><span>
-</span><span id="line-445"></span><span class="hs-comment">-- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a</span><span>
-</span><span id="line-446"></span><span class="hs-comment">--     Spot Fleet request.</span><span>
-</span><span id="line-447"></span><span class="hs-comment">--</span><span>
-</span><span id="line-448"></span><span class="hs-comment">-- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an</span><span>
-</span><span id="line-449"></span><span class="hs-comment">--     AppStream 2.0 fleet.</span><span>
-</span><span id="line-450"></span><span class="hs-comment">--</span><span>
-</span><span id="line-451"></span><span class="hs-comment">-- -   @dynamodb:table:ReadCapacityUnits@ - The provisioned read capacity</span><span>
-</span><span id="line-452"></span><span class="hs-comment">--     for a DynamoDB table.</span><span>
+</span><a href="#local-6989586621679189284"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction"><span class="hs-identifier hs-type">DeleteScheduledAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-450"></span><span>
+</span><span id="line-451"></span><span class="hs-comment">-- | The scalable dimension. This string consists of the service namespace,</span><span>
+</span><span id="line-452"></span><span class="hs-comment">-- resource type, and scaling property.</span><span>
 </span><span id="line-453"></span><span class="hs-comment">--</span><span>
-</span><span id="line-454"></span><span class="hs-comment">-- -   @dynamodb:table:WriteCapacityUnits@ - The provisioned write capacity</span><span>
-</span><span id="line-455"></span><span class="hs-comment">--     for a DynamoDB table.</span><span>
+</span><span id="line-454"></span><span class="hs-comment">-- -   @ecs:service:DesiredCount@ - The desired task count of an ECS</span><span>
+</span><span id="line-455"></span><span class="hs-comment">--     service.</span><span>
 </span><span id="line-456"></span><span class="hs-comment">--</span><span>
-</span><span id="line-457"></span><span class="hs-comment">-- -   @dynamodb:index:ReadCapacityUnits@ - The provisioned read capacity</span><span>
-</span><span id="line-458"></span><span class="hs-comment">--     for a DynamoDB global secondary index.</span><span>
+</span><span id="line-457"></span><span class="hs-comment">-- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count</span><span>
+</span><span id="line-458"></span><span class="hs-comment">--     of an EMR Instance Group.</span><span>
 </span><span id="line-459"></span><span class="hs-comment">--</span><span>
-</span><span id="line-460"></span><span class="hs-comment">-- -   @dynamodb:index:WriteCapacityUnits@ - The provisioned write capacity</span><span>
-</span><span id="line-461"></span><span class="hs-comment">--     for a DynamoDB global secondary index.</span><span>
+</span><span id="line-460"></span><span class="hs-comment">-- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a</span><span>
+</span><span id="line-461"></span><span class="hs-comment">--     Spot Fleet.</span><span>
 </span><span id="line-462"></span><span class="hs-comment">--</span><span>
-</span><span id="line-463"></span><span class="hs-comment">-- -   @rds:cluster:ReadReplicaCount@ - The count of Aurora Replicas in an</span><span>
-</span><span id="line-464"></span><span class="hs-comment">--     Aurora DB cluster. Available for Aurora MySQL-compatible edition and</span><span>
-</span><span id="line-465"></span><span class="hs-comment">--     Aurora PostgreSQL-compatible edition.</span><span>
-</span><span id="line-466"></span><span class="hs-comment">--</span><span>
-</span><span id="line-467"></span><span class="hs-comment">-- -   @sagemaker:variant:DesiredInstanceCount@ - The number of EC2</span><span>
-</span><span id="line-468"></span><span class="hs-comment">--     instances for an Amazon SageMaker model endpoint variant.</span><span>
-</span><span id="line-469"></span><span class="hs-comment">--</span><span>
-</span><span id="line-470"></span><span class="hs-comment">-- -   @custom-resource:ResourceType:Property@ - The scalable dimension for</span><span>
-</span><span id="line-471"></span><span class="hs-comment">--     a custom resource provided by your own application or service.</span><span>
-</span><span id="line-472"></span><span class="hs-comment">--</span><span>
-</span><span id="line-473"></span><span class="hs-comment">-- -   @comprehend:document-classifier-endpoint:DesiredInferenceUnits@ -</span><span>
-</span><span id="line-474"></span><span class="hs-comment">--     The number of inference units for an Amazon Comprehend document</span><span>
-</span><span id="line-475"></span><span class="hs-comment">--     classification endpoint.</span><span>
-</span><span id="line-476"></span><span class="hs-comment">--</span><span>
-</span><span id="line-477"></span><span class="hs-comment">-- -   @comprehend:entity-recognizer-endpoint:DesiredInferenceUnits@ - The</span><span>
-</span><span id="line-478"></span><span class="hs-comment">--     number of inference units for an Amazon Comprehend entity recognizer</span><span>
-</span><span id="line-479"></span><span class="hs-comment">--     endpoint.</span><span>
-</span><span id="line-480"></span><span class="hs-comment">--</span><span>
-</span><span id="line-481"></span><span class="hs-comment">-- -   @lambda:function:ProvisionedConcurrency@ - The provisioned</span><span>
-</span><span id="line-482"></span><span class="hs-comment">--     concurrency for a Lambda function.</span><span>
-</span><span id="line-483"></span><span class="hs-comment">--</span><span>
-</span><span id="line-484"></span><span class="hs-comment">-- -   @cassandra:table:ReadCapacityUnits@ - The provisioned read capacity</span><span>
-</span><span id="line-485"></span><span class="hs-comment">--     for an Amazon Keyspaces table.</span><span>
-</span><span id="line-486"></span><span class="hs-comment">--</span><span>
-</span><span id="line-487"></span><span class="hs-comment">-- -   @cassandra:table:WriteCapacityUnits@ - The provisioned write</span><span>
-</span><span id="line-488"></span><span class="hs-comment">--     capacity for an Amazon Keyspaces table.</span><span>
-</span><span id="line-489"></span><span class="hs-comment">--</span><span>
-</span><span id="line-490"></span><span class="hs-comment">-- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in</span><span>
-</span><span id="line-491"></span><span class="hs-comment">--     GiB) for brokers in an Amazon MSK cluster.</span><span>
-</span><span id="line-492"></span><span class="hs-comment">--</span><span>
-</span><span id="line-493"></span><span class="hs-comment">-- -   @elasticache:replication-group:NodeGroups@ - The number of node</span><span>
-</span><span id="line-494"></span><span class="hs-comment">--     groups for an Amazon ElastiCache replication group.</span><span>
+</span><span id="line-463"></span><span class="hs-comment">-- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an</span><span>
+</span><span id="line-464"></span><span class="hs-comment">--     AppStream 2.0 fleet.</span><span>
+</span><span id="line-465"></span><span class="hs-comment">--</span><span>
+</span><span id="line-466"></span><span class="hs-comment">-- -   @dynamodb:table:ReadCapacityUnits@ - The provisioned read capacity</span><span>
+</span><span id="line-467"></span><span class="hs-comment">--     for a DynamoDB table.</span><span>
+</span><span id="line-468"></span><span class="hs-comment">--</span><span>
+</span><span id="line-469"></span><span class="hs-comment">-- -   @dynamodb:table:WriteCapacityUnits@ - The provisioned write capacity</span><span>
+</span><span id="line-470"></span><span class="hs-comment">--     for a DynamoDB table.</span><span>
+</span><span id="line-471"></span><span class="hs-comment">--</span><span>
+</span><span id="line-472"></span><span class="hs-comment">-- -   @dynamodb:index:ReadCapacityUnits@ - The provisioned read capacity</span><span>
+</span><span id="line-473"></span><span class="hs-comment">--     for a DynamoDB global secondary index.</span><span>
+</span><span id="line-474"></span><span class="hs-comment">--</span><span>
+</span><span id="line-475"></span><span class="hs-comment">-- -   @dynamodb:index:WriteCapacityUnits@ - The provisioned write capacity</span><span>
+</span><span id="line-476"></span><span class="hs-comment">--     for a DynamoDB global secondary index.</span><span>
+</span><span id="line-477"></span><span class="hs-comment">--</span><span>
+</span><span id="line-478"></span><span class="hs-comment">-- -   @rds:cluster:ReadReplicaCount@ - The count of Aurora Replicas in an</span><span>
+</span><span id="line-479"></span><span class="hs-comment">--     Aurora DB cluster. Available for Aurora MySQL-compatible edition and</span><span>
+</span><span id="line-480"></span><span class="hs-comment">--     Aurora PostgreSQL-compatible edition.</span><span>
+</span><span id="line-481"></span><span class="hs-comment">--</span><span>
+</span><span id="line-482"></span><span class="hs-comment">-- -   @sagemaker:variant:DesiredInstanceCount@ - The number of EC2</span><span>
+</span><span id="line-483"></span><span class="hs-comment">--     instances for an SageMaker model endpoint variant.</span><span>
+</span><span id="line-484"></span><span class="hs-comment">--</span><span>
+</span><span id="line-485"></span><span class="hs-comment">-- -   @custom-resource:ResourceType:Property@ - The scalable dimension for</span><span>
+</span><span id="line-486"></span><span class="hs-comment">--     a custom resource provided by your own application or service.</span><span>
+</span><span id="line-487"></span><span class="hs-comment">--</span><span>
+</span><span id="line-488"></span><span class="hs-comment">-- -   @comprehend:document-classifier-endpoint:DesiredInferenceUnits@ -</span><span>
+</span><span id="line-489"></span><span class="hs-comment">--     The number of inference units for an Amazon Comprehend document</span><span>
+</span><span id="line-490"></span><span class="hs-comment">--     classification endpoint.</span><span>
+</span><span id="line-491"></span><span class="hs-comment">--</span><span>
+</span><span id="line-492"></span><span class="hs-comment">-- -   @comprehend:entity-recognizer-endpoint:DesiredInferenceUnits@ - The</span><span>
+</span><span id="line-493"></span><span class="hs-comment">--     number of inference units for an Amazon Comprehend entity recognizer</span><span>
+</span><span id="line-494"></span><span class="hs-comment">--     endpoint.</span><span>
 </span><span id="line-495"></span><span class="hs-comment">--</span><span>
-</span><span id="line-496"></span><span class="hs-comment">-- -   @elasticache:replication-group:Replicas@ - The number of replicas</span><span>
-</span><span id="line-497"></span><span class="hs-comment">--     per node group for an Amazon ElastiCache replication group.</span><span>
-</span><span id="line-498"></span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#deleteScheduledAction_scalableDimension"><span class="hs-identifier hs-type">deleteScheduledAction_scalableDimension</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction"><span class="hs-identifier hs-type">DeleteScheduledAction</span></a></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension"><span class="hs-identifier hs-type">ScalableDimension</span></a></span><span>
-</span><span id="line-499"></span><span id="deleteScheduledAction_scalableDimension"><span class="annot"><span class="annottext">deleteScheduledAction_scalableDimension :: (ScalableDimension -&gt; f ScalableDimension)
+</span><span id="line-496"></span><span class="hs-comment">-- -   @lambda:function:ProvisionedConcurrency@ - The provisioned</span><span>
+</span><span id="line-497"></span><span class="hs-comment">--     concurrency for a Lambda function.</span><span>
+</span><span id="line-498"></span><span class="hs-comment">--</span><span>
+</span><span id="line-499"></span><span class="hs-comment">-- -   @cassandra:table:ReadCapacityUnits@ - The provisioned read capacity</span><span>
+</span><span id="line-500"></span><span class="hs-comment">--     for an Amazon Keyspaces table.</span><span>
+</span><span id="line-501"></span><span class="hs-comment">--</span><span>
+</span><span id="line-502"></span><span class="hs-comment">-- -   @cassandra:table:WriteCapacityUnits@ - The provisioned write</span><span>
+</span><span id="line-503"></span><span class="hs-comment">--     capacity for an Amazon Keyspaces table.</span><span>
+</span><span id="line-504"></span><span class="hs-comment">--</span><span>
+</span><span id="line-505"></span><span class="hs-comment">-- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in</span><span>
+</span><span id="line-506"></span><span class="hs-comment">--     GiB) for brokers in an Amazon MSK cluster.</span><span>
+</span><span id="line-507"></span><span class="hs-comment">--</span><span>
+</span><span id="line-508"></span><span class="hs-comment">-- -   @elasticache:replication-group:NodeGroups@ - The number of node</span><span>
+</span><span id="line-509"></span><span class="hs-comment">--     groups for an Amazon ElastiCache replication group.</span><span>
+</span><span id="line-510"></span><span class="hs-comment">--</span><span>
+</span><span id="line-511"></span><span class="hs-comment">-- -   @elasticache:replication-group:Replicas@ - The number of replicas</span><span>
+</span><span id="line-512"></span><span class="hs-comment">--     per node group for an Amazon ElastiCache replication group.</span><span>
+</span><span id="line-513"></span><span class="hs-comment">--</span><span>
+</span><span id="line-514"></span><span class="hs-comment">-- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in</span><span>
+</span><span id="line-515"></span><span class="hs-comment">--     an Amazon Neptune DB cluster.</span><span>
+</span><span id="line-516"></span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#deleteScheduledAction_scalableDimension"><span class="hs-identifier hs-type">deleteScheduledAction_scalableDimension</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction"><span class="hs-identifier hs-type">DeleteScheduledAction</span></a></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension"><span class="hs-identifier hs-type">ScalableDimension</span></a></span><span>
+</span><span id="line-517"></span><span id="deleteScheduledAction_scalableDimension"><span class="annot"><span class="annottext">deleteScheduledAction_scalableDimension :: (ScalableDimension -&gt; f ScalableDimension)
 -&gt; DeleteScheduledAction -&gt; f DeleteScheduledAction
 </span><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#deleteScheduledAction_scalableDimension"><span class="hs-identifier hs-var hs-var">deleteScheduledAction_scalableDimension</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteScheduledAction -&gt; ScalableDimension)
 -&gt; (DeleteScheduledAction
@@ -630,34 +648,34 @@ $sel:resourceId:DeleteScheduledAction' :: DeleteScheduledAction -&gt; Text
      ScalableDimension
      ScalableDimension
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction%27"><span class="hs-identifier hs-type">DeleteScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189116"><span class="annot"><span class="annottext">ScalableDimension
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction%27"><span class="hs-identifier hs-type">DeleteScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189283"><span class="annot"><span class="annottext">ScalableDimension
 scalableDimension :: ScalableDimension
 $sel:scalableDimension:DeleteScheduledAction' :: DeleteScheduledAction -&gt; ScalableDimension
-</span><a href="#local-6989586621679189116"><span class="hs-identifier hs-var hs-var">scalableDimension</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalableDimension
-</span><a href="#local-6989586621679189116"><span class="hs-identifier hs-var">scalableDimension</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189115"><span class="annot"><span class="annottext">s :: DeleteScheduledAction
-</span><a href="#local-6989586621679189115"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction%27"><span class="hs-identifier hs-type">DeleteScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189114"><span class="annot"><span class="annottext">ScalableDimension
-</span><a href="#local-6989586621679189114"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteScheduledAction
-</span><a href="#local-6989586621679189115"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scalableDimension:DeleteScheduledAction' :: ScalableDimension
+</span><a href="#local-6989586621679189283"><span class="hs-identifier hs-var hs-var">scalableDimension</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalableDimension
+</span><a href="#local-6989586621679189283"><span class="hs-identifier hs-var">scalableDimension</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189282"><span class="annot"><span class="annottext">s :: DeleteScheduledAction
+</span><a href="#local-6989586621679189282"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction%27"><span class="hs-identifier hs-type">DeleteScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189281"><span class="annot"><span class="annottext">ScalableDimension
+</span><a href="#local-6989586621679189281"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteScheduledAction
+</span><a href="#local-6989586621679189282"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scalableDimension:DeleteScheduledAction' :: ScalableDimension
 </span><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#%24sel%3AscalableDimension%3ADeleteScheduledAction%27"><span class="hs-identifier hs-var">scalableDimension</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ScalableDimension
-</span><a href="#local-6989586621679189114"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction"><span class="hs-identifier hs-type">DeleteScheduledAction</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-500"></span><span>
-</span><span id="line-501"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction"><span class="hs-identifier hs-type">DeleteScheduledAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-502"></span><span>  </span><span class="hs-keyword">type</span><span>
-</span><span id="line-503"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction"><span class="hs-identifier hs-type">DeleteScheduledAction</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-504"></span><span>      </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledActionResponse"><span class="hs-identifier hs-type">DeleteScheduledActionResponse</span></a></span><span>
-</span><span id="line-505"></span><span>  </span><span id="local-6989586621679189110"><span class="annot"><span class="annottext">request :: DeleteScheduledAction -&gt; Request DeleteScheduledAction
+</span><a href="#local-6989586621679189281"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction"><span class="hs-identifier hs-type">DeleteScheduledAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-518"></span><span>
+</span><span id="line-519"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction"><span class="hs-identifier hs-type">DeleteScheduledAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-520"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-521"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction"><span class="hs-identifier hs-type">DeleteScheduledAction</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-522"></span><span>      </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledActionResponse"><span class="hs-identifier hs-type">DeleteScheduledActionResponse</span></a></span><span>
+</span><span id="line-523"></span><span>  </span><span id="local-6989586621679189277"><span class="annot"><span class="annottext">request :: DeleteScheduledAction -&gt; Request DeleteScheduledAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteScheduledAction -&gt; Request DeleteScheduledAction
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ApplicationAutoScaling.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-506"></span><span>  </span><span id="local-6989586621679189106"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-524"></span><span>  </span><span id="local-6989586621679189273"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteScheduledAction
 -&gt; ClientResponse ClientBody
 -&gt; m (Either
         Error (ClientResponse (AWSResponse DeleteScheduledAction)))
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-507"></span><span>    </span><span class="annot"><span class="annottext">(Int
+</span><span id="line-525"></span><span>    </span><span class="annot"><span class="annottext">(Int
  -&gt; ResponseHeaders
  -&gt; ()
  -&gt; Either String (AWSResponse DeleteScheduledAction))
@@ -676,13 +694,13 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-508"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679189103"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679189103"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679189102"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679189102"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679189101"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679189101"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-509"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteScheduledActionResponse
+</span><span id="line-526"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679189270"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679189270"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679189269"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679189269"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679189268"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679189268"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-527"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteScheduledActionResponse
 </span><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledActionResponse%27"><span class="hs-identifier hs-var">DeleteScheduledActionResponse'</span></a></span><span>
-</span><span id="line-510"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteScheduledActionResponse)
+</span><span id="line-528"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteScheduledActionResponse)
 -&gt; Either String Int -&gt; Either String DeleteScheduledActionResponse
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
@@ -690,44 +708,44 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679189103"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-511"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-512"></span><span>
-</span><span id="line-513"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679189094"><span id="local-6989586621679189096"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction"><span class="hs-identifier hs-type">DeleteScheduledAction</span></a></span></span></span><span>
-</span><span id="line-514"></span><span>
-</span><span id="line-515"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679189091"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction"><span class="hs-identifier hs-type">DeleteScheduledAction</span></a></span></span><span>
-</span><span id="line-516"></span><span>
-</span><span id="line-517"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction"><span class="hs-identifier hs-type">DeleteScheduledAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-518"></span><span>  </span><span id="local-6989586621679189087"><span class="annot"><span class="annottext">toHeaders :: DeleteScheduledAction -&gt; ResponseHeaders
+</span><a href="#local-6989586621679189270"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-529"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-530"></span><span>
+</span><span id="line-531"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679189261"><span id="local-6989586621679189263"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction"><span class="hs-identifier hs-type">DeleteScheduledAction</span></a></span></span></span><span>
+</span><span id="line-532"></span><span>
+</span><span id="line-533"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679189258"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction"><span class="hs-identifier hs-type">DeleteScheduledAction</span></a></span></span><span>
+</span><span id="line-534"></span><span>
+</span><span id="line-535"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction"><span class="hs-identifier hs-type">DeleteScheduledAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-536"></span><span>  </span><span id="local-6989586621679189254"><span class="annot"><span class="annottext">toHeaders :: DeleteScheduledAction -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-519"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteScheduledAction -&gt; ResponseHeaders
+</span><span id="line-537"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteScheduledAction -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
-</span><span id="line-520"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+</span><span id="line-538"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
-</span><span id="line-521"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span id="line-539"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
-</span><span id="line-522"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+</span><span id="line-540"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;AnyScaleFrontendService.DeleteScheduledAction&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-523"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
-</span><span id="line-524"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-525"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span id="line-541"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-542"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-543"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
-</span><span id="line-526"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+</span><span id="line-544"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-527"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
-</span><span id="line-528"></span><span>                      </span><span class="hs-special">)</span><span>
-</span><span id="line-529"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-530"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-531"></span><span>
-</span><span id="line-532"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679189077"><span id="local-6989586621679189079"><span id="local-6989586621679189081"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction"><span class="hs-identifier hs-type">DeleteScheduledAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-533"></span><span>  </span><span id="local-6989586621679189075"><span class="annot"><span class="annottext">toJSON :: DeleteScheduledAction -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction%27"><span class="hs-identifier hs-type">DeleteScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189070"><span id="local-6989586621679189071"><span id="local-6989586621679189072"><span id="local-6989586621679189073"><span class="annot"><span class="annottext">Text
+</span><span id="line-545"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-546"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-547"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-548"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-549"></span><span>
+</span><span id="line-550"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679189244"><span id="local-6989586621679189246"><span id="local-6989586621679189248"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction"><span class="hs-identifier hs-type">DeleteScheduledAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-551"></span><span>  </span><span id="local-6989586621679189242"><span class="annot"><span class="annottext">toJSON :: DeleteScheduledAction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction%27"><span class="hs-identifier hs-type">DeleteScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189237"><span id="local-6989586621679189238"><span id="local-6989586621679189239"><span id="local-6989586621679189240"><span class="annot"><span class="annottext">Text
 ScalableDimension
 ServiceNamespace
 scalableDimension :: ScalableDimension
@@ -738,68 +756,68 @@ $sel:scalableDimension:DeleteScheduledAction' :: DeleteScheduledAction -&gt; Sca
 $sel:resourceId:DeleteScheduledAction' :: DeleteScheduledAction -&gt; Text
 $sel:scheduledActionName:DeleteScheduledAction' :: DeleteScheduledAction -&gt; Text
 $sel:serviceNamespace:DeleteScheduledAction' :: DeleteScheduledAction -&gt; ServiceNamespace
-</span><a href="#local-6989586621679189070"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-534"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><a href="#local-6989586621679189237"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-552"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
-</span><span id="line-535"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+</span><span id="line-553"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
-</span><span id="line-536"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+</span><span id="line-554"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
-</span><span id="line-537"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-555"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ServiceNamespace&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ServiceNamespace -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ServiceNamespace
-</span><a href="#local-6989586621679189073"><span class="hs-identifier hs-var">serviceNamespace</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-538"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+</span><a href="#local-6989586621679189240"><span class="hs-identifier hs-var">serviceNamespace</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-556"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
-</span><span id="line-539"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-557"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ScheduledActionName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679189072"><span class="hs-identifier hs-var">scheduledActionName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-540"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+</span><a href="#local-6989586621679189239"><span class="hs-identifier hs-var">scheduledActionName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-558"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679189071"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-541"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+</span><a href="#local-6989586621679189238"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-559"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
-</span><span id="line-542"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-560"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ScalableDimension&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ScalableDimension -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ScalableDimension
-</span><a href="#local-6989586621679189070"><span class="hs-identifier hs-var">scalableDimension</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-543"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-544"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-545"></span><span>
-</span><span id="line-546"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction"><span class="hs-identifier hs-type">DeleteScheduledAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-547"></span><span>  </span><span id="local-6989586621679189064"><span class="annot"><span class="annottext">toPath :: DeleteScheduledAction -&gt; ByteString
+</span><a href="#local-6989586621679189237"><span class="hs-identifier hs-var">scalableDimension</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-561"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-562"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-563"></span><span>
+</span><span id="line-564"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction"><span class="hs-identifier hs-type">DeleteScheduledAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-565"></span><span>  </span><span id="local-6989586621679189231"><span class="annot"><span class="annottext">toPath :: DeleteScheduledAction -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteScheduledAction -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
-</span><span id="line-548"></span><span>
-</span><span id="line-549"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction"><span class="hs-identifier hs-type">DeleteScheduledAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-550"></span><span>  </span><span id="local-6989586621679189060"><span class="annot"><span class="annottext">toQuery :: DeleteScheduledAction -&gt; QueryString
+</span><span id="line-566"></span><span>
+</span><span id="line-567"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledAction"><span class="hs-identifier hs-type">DeleteScheduledAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-568"></span><span>  </span><span id="local-6989586621679189227"><span class="annot"><span class="annottext">toQuery :: DeleteScheduledAction -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteScheduledAction -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-551"></span><span>
-</span><span id="line-552"></span><span class="hs-comment">-- | /See:/ 'newDeleteScheduledActionResponse' smart constructor.</span><span>
-</span><span id="line-553"></span><span id="local-6989586621679189057"><span id="local-6989586621679189058"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteScheduledActionResponse"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledActionResponse"><span class="hs-identifier hs-var">DeleteScheduledActionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteScheduledActionResponse%27"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledActionResponse%27"><span class="hs-identifier hs-var">DeleteScheduledActionResponse'</span></a></span></span><span>
-</span><span id="line-554"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-555"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteScheduledActionResponse%27"><span class="annot"><span class="annottext">DeleteScheduledActionResponse -&gt; Int
+</span><span id="line-569"></span><span>
+</span><span id="line-570"></span><span class="hs-comment">-- | /See:/ 'newDeleteScheduledActionResponse' smart constructor.</span><span>
+</span><span id="line-571"></span><span id="local-6989586621679189224"><span id="local-6989586621679189225"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteScheduledActionResponse"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledActionResponse"><span class="hs-identifier hs-var">DeleteScheduledActionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteScheduledActionResponse%27"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledActionResponse%27"><span class="hs-identifier hs-var">DeleteScheduledActionResponse'</span></a></span></span><span>
+</span><span id="line-572"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-573"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteScheduledActionResponse%27"><span class="annot"><span class="annottext">DeleteScheduledActionResponse -&gt; Int
 </span><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#%24sel%3AhttpStatus%3ADeleteScheduledActionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-556"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-557"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679189052"><span id="local-6989586621679189054"><span class="annot"><span class="annottext">DeleteScheduledActionResponse
+</span><span id="line-574"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-575"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679189219"><span id="local-6989586621679189221"><span class="annot"><span class="annottext">DeleteScheduledActionResponse
 -&gt; DeleteScheduledActionResponse -&gt; Bool
 (DeleteScheduledActionResponse
  -&gt; DeleteScheduledActionResponse -&gt; Bool)
@@ -815,7 +833,7 @@ $c/= :: DeleteScheduledActionResponse
 -&gt; DeleteScheduledActionResponse -&gt; Bool
 $c== :: DeleteScheduledActionResponse
 -&gt; DeleteScheduledActionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679189044"><span id="local-6989586621679189046"><span id="local-6989586621679189048"><span id="local-6989586621679189050"><span class="annot"><span class="annottext">ReadPrec [DeleteScheduledActionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679189211"><span id="local-6989586621679189213"><span id="local-6989586621679189215"><span id="local-6989586621679189217"><span class="annot"><span class="annottext">ReadPrec [DeleteScheduledActionResponse]
 ReadPrec DeleteScheduledActionResponse
 Int -&gt; ReadS DeleteScheduledActionResponse
 ReadS [DeleteScheduledActionResponse]
@@ -835,7 +853,7 @@ readList :: ReadS [DeleteScheduledActionResponse]
 $creadList :: ReadS [DeleteScheduledActionResponse]
 readsPrec :: Int -&gt; ReadS DeleteScheduledActionResponse
 $creadsPrec :: Int -&gt; ReadS DeleteScheduledActionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679189038"><span id="local-6989586621679189040"><span id="local-6989586621679189042"><span class="annot"><span class="annottext">Int -&gt; DeleteScheduledActionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679189205"><span id="local-6989586621679189207"><span id="local-6989586621679189209"><span class="annot"><span class="annottext">Int -&gt; DeleteScheduledActionResponse -&gt; ShowS
 [DeleteScheduledActionResponse] -&gt; ShowS
 DeleteScheduledActionResponse -&gt; String
 (Int -&gt; DeleteScheduledActionResponse -&gt; ShowS)
@@ -872,34 +890,34 @@ $cfrom :: forall x.
 DeleteScheduledActionResponse
 -&gt; Rep DeleteScheduledActionResponse x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
-</span><span id="line-558"></span><span>
-</span><span id="line-559"></span><span class="hs-comment">-- |</span><span>
-</span><span id="line-560"></span><span class="hs-comment">-- Create a value of 'DeleteScheduledActionResponse' with all optional fields omitted.</span><span>
-</span><span id="line-561"></span><span class="hs-comment">--</span><span>
-</span><span id="line-562"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
-</span><span id="line-563"></span><span class="hs-comment">--</span><span>
-</span><span id="line-564"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
-</span><span id="line-565"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
-</span><span id="line-566"></span><span class="hs-comment">--</span><span>
-</span><span id="line-567"></span><span class="hs-comment">-- 'httpStatus', 'deleteScheduledActionResponse_httpStatus' - The response's http status code.</span><span>
-</span><span id="line-568"></span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#newDeleteScheduledActionResponse"><span class="hs-identifier hs-type">newDeleteScheduledActionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-569"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
-</span><span id="line-570"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-571"></span><span>  </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledActionResponse"><span class="hs-identifier hs-type">DeleteScheduledActionResponse</span></a></span><span>
-</span><span id="line-572"></span><span id="newDeleteScheduledActionResponse"><span class="annot"><span class="annottext">newDeleteScheduledActionResponse :: Int -&gt; DeleteScheduledActionResponse
-</span><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#newDeleteScheduledActionResponse"><span class="hs-identifier hs-var hs-var">newDeleteScheduledActionResponse</span></a></span></span><span> </span><span id="local-6989586621679189035"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679189035"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-573"></span><span>  </span><span class="annot"><span class="annottext">DeleteScheduledActionResponse' :: Int -&gt; DeleteScheduledActionResponse
+</span><span id="line-576"></span><span>
+</span><span id="line-577"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-578"></span><span class="hs-comment">-- Create a value of 'DeleteScheduledActionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-579"></span><span class="hs-comment">--</span><span>
+</span><span id="line-580"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-581"></span><span class="hs-comment">--</span><span>
+</span><span id="line-582"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-583"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-584"></span><span class="hs-comment">--</span><span>
+</span><span id="line-585"></span><span class="hs-comment">-- 'httpStatus', 'deleteScheduledActionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-586"></span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#newDeleteScheduledActionResponse"><span class="hs-identifier hs-type">newDeleteScheduledActionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-587"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-588"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-589"></span><span>  </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledActionResponse"><span class="hs-identifier hs-type">DeleteScheduledActionResponse</span></a></span><span>
+</span><span id="line-590"></span><span id="newDeleteScheduledActionResponse"><span class="annot"><span class="annottext">newDeleteScheduledActionResponse :: Int -&gt; DeleteScheduledActionResponse
+</span><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#newDeleteScheduledActionResponse"><span class="hs-identifier hs-var hs-var">newDeleteScheduledActionResponse</span></a></span></span><span> </span><span id="local-6989586621679189202"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679189202"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-591"></span><span>  </span><span class="annot"><span class="annottext">DeleteScheduledActionResponse' :: Int -&gt; DeleteScheduledActionResponse
 </span><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledActionResponse%27"><span class="hs-identifier hs-type">DeleteScheduledActionResponse'</span></a></span><span>
-</span><span id="line-574"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteScheduledActionResponse' :: Int
+</span><span id="line-592"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteScheduledActionResponse' :: Int
 </span><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#%24sel%3AhttpStatus%3ADeleteScheduledActionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-575"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679189035"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
-</span><span id="line-576"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-577"></span><span>
-</span><span id="line-578"></span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-579"></span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#deleteScheduledActionResponse_httpStatus"><span class="hs-identifier hs-type">deleteScheduledActionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledActionResponse"><span class="hs-identifier hs-type">DeleteScheduledActionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-580"></span><span id="deleteScheduledActionResponse_httpStatus"><span class="annot"><span class="annottext">deleteScheduledActionResponse_httpStatus :: (Int -&gt; f Int)
+</span><span id="line-593"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679189202"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-594"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-595"></span><span>
+</span><span id="line-596"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-597"></span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#deleteScheduledActionResponse_httpStatus"><span class="hs-identifier hs-type">deleteScheduledActionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledActionResponse"><span class="hs-identifier hs-type">DeleteScheduledActionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-598"></span><span id="deleteScheduledActionResponse_httpStatus"><span class="annot"><span class="annottext">deleteScheduledActionResponse_httpStatus :: (Int -&gt; f Int)
 -&gt; DeleteScheduledActionResponse -&gt; f DeleteScheduledActionResponse
 </span><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#deleteScheduledActionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteScheduledActionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteScheduledActionResponse -&gt; Int)
 -&gt; (DeleteScheduledActionResponse
@@ -907,16 +925,16 @@ DeleteScheduledActionResponse
 -&gt; Lens
      DeleteScheduledActionResponse DeleteScheduledActionResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledActionResponse%27"><span class="hs-identifier hs-type">DeleteScheduledActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189034"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledActionResponse%27"><span class="hs-identifier hs-type">DeleteScheduledActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189201"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteScheduledActionResponse' :: DeleteScheduledActionResponse -&gt; Int
-</span><a href="#local-6989586621679189034"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679189034"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189033"><span class="annot"><span class="annottext">s :: DeleteScheduledActionResponse
-</span><a href="#local-6989586621679189033"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledActionResponse%27"><span class="hs-identifier hs-type">DeleteScheduledActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189032"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679189032"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteScheduledActionResponse
-</span><a href="#local-6989586621679189033"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteScheduledActionResponse' :: Int
+</span><a href="#local-6989586621679189201"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679189201"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189200"><span class="annot"><span class="annottext">s :: DeleteScheduledActionResponse
+</span><a href="#local-6989586621679189200"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledActionResponse%27"><span class="hs-identifier hs-type">DeleteScheduledActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189199"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679189199"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteScheduledActionResponse
+</span><a href="#local-6989586621679189200"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteScheduledActionResponse' :: Int
 </span><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#%24sel%3AhttpStatus%3ADeleteScheduledActionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679189032"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledActionResponse"><span class="hs-identifier hs-type">DeleteScheduledActionResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-581"></span><span>
-</span><span id="line-582"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679189030"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledActionResponse"><span class="hs-identifier hs-type">DeleteScheduledActionResponse</span></a></span></span><span>
-</span><span id="line-583"></span></pre></body></html>
+</span><a href="#local-6989586621679189199"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledActionResponse"><span class="hs-identifier hs-type">DeleteScheduledActionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-599"></span><span>
+</span><span id="line-600"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679189197"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DeleteScheduledAction.html#DeleteScheduledActionResponse"><span class="hs-identifier hs-type">DeleteScheduledActionResponse</span></a></span></span><span>
+</span><span id="line-601"></span></pre></body></html>

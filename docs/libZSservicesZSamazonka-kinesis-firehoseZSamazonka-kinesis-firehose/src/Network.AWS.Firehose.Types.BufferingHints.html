@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- provide a value for the other.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newBufferingHints' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679254663"><span id="local-6989586621679254664"></span></span><span class="hs-keyword">data</span><span> </span><span id="BufferingHints"><span class="annot"><a href="Network.AWS.Firehose.Types.BufferingHints.html#BufferingHints"><span class="hs-identifier hs-var">BufferingHints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BufferingHints%27"><span class="annot"><a href="Network.AWS.Firehose.Types.BufferingHints.html#BufferingHints%27"><span class="hs-identifier hs-var">BufferingHints'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679268885"><span id="local-6989586621679268886"></span></span><span class="hs-keyword">data</span><span> </span><span id="BufferingHints"><span class="annot"><a href="Network.AWS.Firehose.Types.BufferingHints.html#BufferingHints"><span class="hs-identifier hs-var">BufferingHints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BufferingHints%27"><span class="annot"><a href="Network.AWS.Firehose.Types.BufferingHints.html#BufferingHints%27"><span class="hs-identifier hs-var">BufferingHints'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Buffer incoming data to the specified size, in MiBs, before delivering</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- it to the destination. The default value is 5. This parameter is</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- optional but if you specify a value for it, you must also specify a</span><span>
@@ -50,7 +50,7 @@
 </span><span id="line-49"></span><span>    </span><span id="%24sel%3AintervalInSeconds%3ABufferingHints%27"><span class="annot"><span class="annottext">BufferingHints -&gt; Maybe Natural
 </span><a href="Network.AWS.Firehose.Types.BufferingHints.html#%24sel%3AintervalInSeconds%3ABufferingHints%27"><span class="hs-identifier hs-var hs-var">intervalInSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679254656"><span id="local-6989586621679254658"><span class="annot"><span class="annottext">BufferingHints -&gt; BufferingHints -&gt; Bool
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679268878"><span id="local-6989586621679268880"><span class="annot"><span class="annottext">BufferingHints -&gt; BufferingHints -&gt; Bool
 (BufferingHints -&gt; BufferingHints -&gt; Bool)
 -&gt; (BufferingHints -&gt; BufferingHints -&gt; Bool) -&gt; Eq BufferingHints
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -58,7 +58,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BufferingHints -&gt; BufferingHints -&gt; Bool
 == :: BufferingHints -&gt; BufferingHints -&gt; Bool
 $c== :: BufferingHints -&gt; BufferingHints -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254647"><span id="local-6989586621679254649"><span id="local-6989586621679254651"><span id="local-6989586621679254653"><span class="annot"><span class="annottext">ReadPrec [BufferingHints]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268869"><span id="local-6989586621679268871"><span id="local-6989586621679268873"><span id="local-6989586621679268875"><span class="annot"><span class="annottext">ReadPrec [BufferingHints]
 ReadPrec BufferingHints
 Int -&gt; ReadS BufferingHints
 ReadS [BufferingHints]
@@ -78,7 +78,7 @@ readList :: ReadS [BufferingHints]
 $creadList :: ReadS [BufferingHints]
 readsPrec :: Int -&gt; ReadS BufferingHints
 $creadsPrec :: Int -&gt; ReadS BufferingHints
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254640"><span id="local-6989586621679254642"><span id="local-6989586621679254644"><span class="annot"><span class="annottext">Int -&gt; BufferingHints -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268862"><span id="local-6989586621679268864"><span id="local-6989586621679268866"><span class="annot"><span class="annottext">Int -&gt; BufferingHints -&gt; ShowS
 [BufferingHints] -&gt; ShowS
 BufferingHints -&gt; String
 (Int -&gt; BufferingHints -&gt; ShowS)
@@ -159,16 +159,16 @@ forall a. Maybe a
 -&gt; Lens
      BufferingHints BufferingHints (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.BufferingHints.html#BufferingHints%27"><span class="hs-identifier hs-type">BufferingHints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254631"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.BufferingHints.html#BufferingHints%27"><span class="hs-identifier hs-type">BufferingHints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268853"><span class="annot"><span class="annottext">Maybe Natural
 sizeInMBs :: Maybe Natural
 $sel:sizeInMBs:BufferingHints' :: BufferingHints -&gt; Maybe Natural
-</span><a href="#local-6989586621679254631"><span class="hs-identifier hs-var hs-var">sizeInMBs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679254631"><span class="hs-identifier hs-var">sizeInMBs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254630"><span class="annot"><span class="annottext">s :: BufferingHints
-</span><a href="#local-6989586621679254630"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.BufferingHints.html#BufferingHints%27"><span class="hs-identifier hs-type">BufferingHints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254629"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679254629"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BufferingHints
-</span><a href="#local-6989586621679254630"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sizeInMBs:BufferingHints' :: Maybe Natural
+</span><a href="#local-6989586621679268853"><span class="hs-identifier hs-var hs-var">sizeInMBs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679268853"><span class="hs-identifier hs-var">sizeInMBs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268852"><span class="annot"><span class="annottext">s :: BufferingHints
+</span><a href="#local-6989586621679268852"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.BufferingHints.html#BufferingHints%27"><span class="hs-identifier hs-type">BufferingHints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268851"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679268851"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BufferingHints
+</span><a href="#local-6989586621679268852"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sizeInMBs:BufferingHints' :: Maybe Natural
 </span><a href="Network.AWS.Firehose.Types.BufferingHints.html#%24sel%3AsizeInMBs%3ABufferingHints%27"><span class="hs-identifier hs-var">sizeInMBs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679254629"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.BufferingHints.html#BufferingHints"><span class="hs-identifier hs-type">BufferingHints</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679268851"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.BufferingHints.html#BufferingHints"><span class="hs-identifier hs-type">BufferingHints</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | Buffer incoming data for the specified period of time, in seconds,</span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- before delivering it to the destination. The default value is 300. This</span><span>
@@ -182,19 +182,19 @@ $sel:sizeInMBs:BufferingHints' :: BufferingHints -&gt; Maybe Natural
 -&gt; Lens
      BufferingHints BufferingHints (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.BufferingHints.html#BufferingHints%27"><span class="hs-identifier hs-type">BufferingHints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254627"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.BufferingHints.html#BufferingHints%27"><span class="hs-identifier hs-type">BufferingHints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268849"><span class="annot"><span class="annottext">Maybe Natural
 intervalInSeconds :: Maybe Natural
 $sel:intervalInSeconds:BufferingHints' :: BufferingHints -&gt; Maybe Natural
-</span><a href="#local-6989586621679254627"><span class="hs-identifier hs-var hs-var">intervalInSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679254627"><span class="hs-identifier hs-var">intervalInSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254626"><span class="annot"><span class="annottext">s :: BufferingHints
-</span><a href="#local-6989586621679254626"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.BufferingHints.html#BufferingHints%27"><span class="hs-identifier hs-type">BufferingHints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254625"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679254625"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BufferingHints
-</span><a href="#local-6989586621679254626"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:intervalInSeconds:BufferingHints' :: Maybe Natural
+</span><a href="#local-6989586621679268849"><span class="hs-identifier hs-var hs-var">intervalInSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679268849"><span class="hs-identifier hs-var">intervalInSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268848"><span class="annot"><span class="annottext">s :: BufferingHints
+</span><a href="#local-6989586621679268848"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.BufferingHints.html#BufferingHints%27"><span class="hs-identifier hs-type">BufferingHints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268847"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679268847"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BufferingHints
+</span><a href="#local-6989586621679268848"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:intervalInSeconds:BufferingHints' :: Maybe Natural
 </span><a href="Network.AWS.Firehose.Types.BufferingHints.html#%24sel%3AintervalInSeconds%3ABufferingHints%27"><span class="hs-identifier hs-var">intervalInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679254625"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.BufferingHints.html#BufferingHints"><span class="hs-identifier hs-type">BufferingHints</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679268847"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.BufferingHints.html#BufferingHints"><span class="hs-identifier hs-type">BufferingHints</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254622"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.BufferingHints.html#BufferingHints"><span class="hs-identifier hs-type">BufferingHints</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679254620"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BufferingHints
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268844"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.BufferingHints.html#BufferingHints"><span class="hs-identifier hs-type">BufferingHints</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679268842"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BufferingHints
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser BufferingHints)
@@ -204,8 +204,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;BufferingHints&quot;</span></span><span>
-</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679254617"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679254617"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679268839"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268839"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural -&gt; Maybe Natural -&gt; BufferingHints
 </span><a href="Network.AWS.Firehose.Types.BufferingHints.html#BufferingHints%27"><span class="hs-identifier hs-var">BufferingHints'</span></a></span><span>
 </span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural -&gt; Maybe Natural -&gt; BufferingHints)
@@ -213,7 +213,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Natural -&gt; BufferingHints)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679254617"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679268839"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SizeInMBs&quot;</span></span><span class="hs-special">)</span><span>
@@ -221,24 +221,24 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Natural) -&gt; Parser BufferingHints
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679254617"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679268839"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IntervalInSeconds&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254611"><span id="local-6989586621679254613"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.BufferingHints.html#BufferingHints"><span class="hs-identifier hs-type">BufferingHints</span></a></span></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268833"><span id="local-6989586621679268835"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.BufferingHints.html#BufferingHints"><span class="hs-identifier hs-type">BufferingHints</span></a></span></span></span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254608"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.BufferingHints.html#BufferingHints"><span class="hs-identifier hs-type">BufferingHints</span></a></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268830"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.BufferingHints.html#BufferingHints"><span class="hs-identifier hs-type">BufferingHints</span></a></span></span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254600"><span id="local-6989586621679254602"><span id="local-6989586621679254604"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.BufferingHints.html#BufferingHints"><span class="hs-identifier hs-type">BufferingHints</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679254598"><span class="annot"><span class="annottext">toJSON :: BufferingHints -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.BufferingHints.html#BufferingHints%27"><span class="hs-identifier hs-type">BufferingHints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254595"><span id="local-6989586621679254596"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268822"><span id="local-6989586621679268824"><span id="local-6989586621679268826"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.BufferingHints.html#BufferingHints"><span class="hs-identifier hs-type">BufferingHints</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679268820"><span class="annot"><span class="annottext">toJSON :: BufferingHints -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.BufferingHints.html#BufferingHints%27"><span class="hs-identifier hs-type">BufferingHints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268817"><span id="local-6989586621679268818"><span class="annot"><span class="annottext">Maybe Natural
 intervalInSeconds :: Maybe Natural
 sizeInMBs :: Maybe Natural
 $sel:intervalInSeconds:BufferingHints' :: BufferingHints -&gt; Maybe Natural
 $sel:sizeInMBs:BufferingHints' :: BufferingHints -&gt; Maybe Natural
-</span><a href="#local-6989586621679254595"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679268817"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -250,7 +250,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679254596"><span class="hs-identifier hs-var">sizeInMBs</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679268818"><span class="hs-identifier hs-var">sizeInMBs</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-121"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IntervalInSeconds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -258,7 +258,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-122"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679254595"><span class="hs-identifier hs-var">intervalInSeconds</span></a></span><span>
+</span><a href="#local-6989586621679268817"><span class="hs-identifier hs-var">intervalInSeconds</span></a></span><span>
 </span><span id="line-123"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span></pre></body></html>

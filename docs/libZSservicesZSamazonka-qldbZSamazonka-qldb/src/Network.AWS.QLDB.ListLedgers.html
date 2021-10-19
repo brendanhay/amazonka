@@ -39,8 +39,8 @@
 </span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#newListLedgersResponse"><span class="hs-identifier">newListLedgersResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>
 </span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#listLedgersResponse_nextToken"><span class="hs-identifier">listLedgersResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#listLedgersResponse_ledgers"><span class="hs-identifier">listLedgersResponse_ledgers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#listLedgersResponse_ledgers"><span class="hs-identifier">listLedgersResponse_ledgers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#listLedgersResponse_nextToken"><span class="hs-identifier">listLedgersResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#listLedgersResponse_httpStatus"><span class="hs-identifier">listLedgersResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span class="hs-keyword">where</span><span>
@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newListLedgers' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679184853"><span id="local-6989586621679184854"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListLedgers"><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgers"><span class="hs-identifier hs-var">ListLedgers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListLedgers%27"><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgers%27"><span class="hs-identifier hs-var">ListLedgers'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679184895"><span id="local-6989586621679184896"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListLedgers"><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgers"><span class="hs-identifier hs-var">ListLedgers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListLedgers%27"><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgers%27"><span class="hs-identifier hs-var">ListLedgers'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A pagination token, indicating that you want to retrieve the next page</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- of results. If you received a value for @NextToken@ in the response from</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- a previous @ListLedgers@ call, then you should use that value as input</span><span>
@@ -65,7 +65,7 @@
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AmaxResults%3AListLedgers%27"><span class="annot"><span class="annottext">ListLedgers -&gt; Maybe Natural
 </span><a href="Network.AWS.QLDB.ListLedgers.html#%24sel%3AmaxResults%3AListLedgers%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679184846"><span id="local-6989586621679184848"><span class="annot"><span class="annottext">ListLedgers -&gt; ListLedgers -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679184888"><span id="local-6989586621679184890"><span class="annot"><span class="annottext">ListLedgers -&gt; ListLedgers -&gt; Bool
 (ListLedgers -&gt; ListLedgers -&gt; Bool)
 -&gt; (ListLedgers -&gt; ListLedgers -&gt; Bool) -&gt; Eq ListLedgers
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -73,7 +73,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListLedgers -&gt; ListLedgers -&gt; Bool
 == :: ListLedgers -&gt; ListLedgers -&gt; Bool
 $c== :: ListLedgers -&gt; ListLedgers -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184837"><span id="local-6989586621679184839"><span id="local-6989586621679184841"><span id="local-6989586621679184843"><span class="annot"><span class="annottext">ReadPrec [ListLedgers]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184879"><span id="local-6989586621679184881"><span id="local-6989586621679184883"><span id="local-6989586621679184885"><span class="annot"><span class="annottext">ReadPrec [ListLedgers]
 ReadPrec ListLedgers
 Int -&gt; ReadS ListLedgers
 ReadS [ListLedgers]
@@ -93,7 +93,7 @@ readList :: ReadS [ListLedgers]
 $creadList :: ReadS [ListLedgers]
 readsPrec :: Int -&gt; ReadS ListLedgers
 $creadsPrec :: Int -&gt; ReadS ListLedgers
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184830"><span id="local-6989586621679184832"><span id="local-6989586621679184834"><span class="annot"><span class="annottext">Int -&gt; ListLedgers -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184872"><span id="local-6989586621679184874"><span id="local-6989586621679184876"><span class="annot"><span class="annottext">Int -&gt; ListLedgers -&gt; ShowS
 [ListLedgers] -&gt; ShowS
 ListLedgers -&gt; String
 (Int -&gt; ListLedgers -&gt; ShowS)
@@ -160,16 +160,16 @@ forall a. Maybe a
 -&gt; (ListLedgers -&gt; Maybe Text -&gt; ListLedgers)
 -&gt; Lens ListLedgers ListLedgers (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgers%27"><span class="hs-identifier hs-type">ListLedgers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184823"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgers%27"><span class="hs-identifier hs-type">ListLedgers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184865"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListLedgers' :: ListLedgers -&gt; Maybe Text
-</span><a href="#local-6989586621679184823"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679184823"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184822"><span class="annot"><span class="annottext">s :: ListLedgers
-</span><a href="#local-6989586621679184822"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgers%27"><span class="hs-identifier hs-type">ListLedgers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184821"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679184821"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLedgers
-</span><a href="#local-6989586621679184822"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListLedgers' :: Maybe Text
+</span><a href="#local-6989586621679184865"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679184865"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184864"><span class="annot"><span class="annottext">s :: ListLedgers
+</span><a href="#local-6989586621679184864"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgers%27"><span class="hs-identifier hs-type">ListLedgers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184863"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679184863"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLedgers
+</span><a href="#local-6989586621679184864"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListLedgers' :: Maybe Text
 </span><a href="Network.AWS.QLDB.ListLedgers.html#%24sel%3AnextToken%3AListLedgers%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679184821"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgers"><span class="hs-identifier hs-type">ListLedgers</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679184863"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgers"><span class="hs-identifier hs-type">ListLedgers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | The maximum number of results to return in a single @ListLedgers@</span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- request. (The actual number of results returned might be fewer.)</span><span>
@@ -180,25 +180,25 @@ $sel:nextToken:ListLedgers' :: ListLedgers -&gt; Maybe Text
 -&gt; (ListLedgers -&gt; Maybe Natural -&gt; ListLedgers)
 -&gt; Lens ListLedgers ListLedgers (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgers%27"><span class="hs-identifier hs-type">ListLedgers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184820"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgers%27"><span class="hs-identifier hs-type">ListLedgers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184862"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListLedgers' :: ListLedgers -&gt; Maybe Natural
-</span><a href="#local-6989586621679184820"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679184820"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184819"><span class="annot"><span class="annottext">s :: ListLedgers
-</span><a href="#local-6989586621679184819"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgers%27"><span class="hs-identifier hs-type">ListLedgers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184818"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679184818"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLedgers
-</span><a href="#local-6989586621679184819"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListLedgers' :: Maybe Natural
+</span><a href="#local-6989586621679184862"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679184862"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184861"><span class="annot"><span class="annottext">s :: ListLedgers
+</span><a href="#local-6989586621679184861"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgers%27"><span class="hs-identifier hs-type">ListLedgers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184860"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679184860"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLedgers
+</span><a href="#local-6989586621679184861"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListLedgers' :: Maybe Natural
 </span><a href="Network.AWS.QLDB.ListLedgers.html#%24sel%3AmaxResults%3AListLedgers%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679184818"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgers"><span class="hs-identifier hs-type">ListLedgers</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679184860"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgers"><span class="hs-identifier hs-type">ListLedgers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgers"><span class="hs-identifier hs-type">ListLedgers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-104"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgers"><span class="hs-identifier hs-type">ListLedgers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgersResponse"><span class="hs-identifier hs-type">ListLedgersResponse</span></a></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679184814"><span class="annot"><span class="annottext">request :: ListLedgers -&gt; Request ListLedgers
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679184856"><span class="annot"><span class="annottext">request :: ListLedgers -&gt; Request ListLedgers
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListLedgers -&gt; Request ListLedgers
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.QLDB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679184810"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679184852"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListLedgers
 -&gt; ClientResponse ClientBody
@@ -222,28 +222,18 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679184807"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679184807"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679184806"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679184806"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679184805"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679184805"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [LedgerSummary] -&gt; Int -&gt; ListLedgersResponse
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679184849"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679184849"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679184848"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679184848"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679184847"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679184847"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">Maybe [LedgerSummary] -&gt; Maybe Text -&gt; Int -&gt; ListLedgersResponse
 </span><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgersResponse%27"><span class="hs-identifier hs-var">ListLedgersResponse'</span></a></span><span>
-</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [LedgerSummary] -&gt; Int -&gt; ListLedgersResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String (Maybe [LedgerSummary] -&gt; Int -&gt; ListLedgersResponse)
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [LedgerSummary] -&gt; Maybe Text -&gt; Int -&gt; ListLedgersResponse)
+-&gt; Either String (Maybe [LedgerSummary])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ListLedgersResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679184805"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe [LedgerSummary] -&gt; Int -&gt; ListLedgersResponse)
--&gt; Either String (Maybe [LedgerSummary])
--&gt; Either String (Int -&gt; ListLedgersResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679184805"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [LedgerSummary]))
+</span><a href="#local-6989586621679184847"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [LedgerSummary]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Ledgers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [LedgerSummary]))
@@ -252,6 +242,15 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [LedgerSummary]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListLedgersResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListLedgersResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679184847"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListLedgersResponse)
 -&gt; Either String Int -&gt; Either String ListLedgersResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -260,15 +259,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679184807"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679184849"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184796"><span id="local-6989586621679184798"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgers"><span class="hs-identifier hs-type">ListLedgers</span></a></span></span></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184838"><span id="local-6989586621679184840"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgers"><span class="hs-identifier hs-type">ListLedgers</span></a></span></span></span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184793"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgers"><span class="hs-identifier hs-type">ListLedgers</span></a></span></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184835"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgers"><span class="hs-identifier hs-type">ListLedgers</span></a></span></span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgers"><span class="hs-identifier hs-type">ListLedgers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679184789"><span class="annot"><span class="annottext">toHeaders :: ListLedgers -&gt; ResponseHeaders
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679184831"><span class="annot"><span class="annottext">toHeaders :: ListLedgers -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListLedgers -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -288,21 +287,21 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgers"><span class="hs-identifier hs-type">ListLedgers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679184783"><span class="annot"><span class="annottext">toPath :: ListLedgers -&gt; ByteString
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679184825"><span class="annot"><span class="annottext">toPath :: ListLedgers -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListLedgers -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/ledgers&quot;</span></span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgers"><span class="hs-identifier hs-type">ListLedgers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679184779"><span class="annot"><span class="annottext">toQuery :: ListLedgers -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgers%27"><span class="hs-identifier hs-type">ListLedgers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184776"><span id="local-6989586621679184777"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679184821"><span class="annot"><span class="annottext">toQuery :: ListLedgers -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgers%27"><span class="hs-identifier hs-type">ListLedgers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184818"><span id="local-6989586621679184819"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 maxResults :: Maybe Natural
 nextToken :: Maybe Text
 $sel:maxResults:ListLedgers' :: ListLedgers -&gt; Maybe Natural
 $sel:nextToken:ListLedgers' :: ListLedgers -&gt; Maybe Text
-</span><a href="#local-6989586621679184776"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679184818"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -310,35 +309,35 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;next_token&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679184777"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679184819"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;max_results&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679184776"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679184818"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- | /See:/ 'newListLedgersResponse' smart constructor.</span><span>
-</span><span id="line-141"></span><span id="local-6989586621679184773"><span id="local-6989586621679184774"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListLedgersResponse"><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgersResponse"><span class="hs-identifier hs-var">ListLedgersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListLedgersResponse%27"><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgersResponse%27"><span class="hs-identifier hs-var">ListLedgersResponse'</span></a></span></span><span>
-</span><span id="line-142"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A pagination token, indicating whether there are more results available:</span><span>
-</span><span id="line-143"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-144"></span><span>    </span><span class="hs-comment">-- -   If @NextToken@ is empty, then the last page of results has been</span><span>
-</span><span id="line-145"></span><span>    </span><span class="hs-comment">--     processed and there are no more results to be retrieved.</span><span>
-</span><span id="line-146"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- -   If @NextToken@ is /not/ empty, then there are more results</span><span>
-</span><span id="line-148"></span><span>    </span><span class="hs-comment">--     available. To retrieve the next page of results, use the value of</span><span>
-</span><span id="line-149"></span><span>    </span><span class="hs-comment">--     @NextToken@ in a subsequent @ListLedgers@ call.</span><span>
-</span><span id="line-150"></span><span>    </span><span id="%24sel%3AnextToken%3AListLedgersResponse%27"><span class="annot"><span class="annottext">ListLedgersResponse -&gt; Maybe Text
-</span><a href="Network.AWS.QLDB.ListLedgers.html#%24sel%3AnextToken%3AListLedgersResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- | The array of ledger summaries that are associated with the current</span><span>
-</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- account and Region.</span><span>
-</span><span id="line-153"></span><span>    </span><span id="%24sel%3Aledgers%3AListLedgersResponse%27"><span class="annot"><span class="annottext">ListLedgersResponse -&gt; Maybe [LedgerSummary]
+</span><span id="line-141"></span><span id="local-6989586621679184815"><span id="local-6989586621679184816"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListLedgersResponse"><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgersResponse"><span class="hs-identifier hs-var">ListLedgersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListLedgersResponse%27"><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgersResponse%27"><span class="hs-identifier hs-var">ListLedgersResponse'</span></a></span></span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The array of ledger summaries that are associated with the current</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- account and Region.</span><span>
+</span><span id="line-144"></span><span>    </span><span id="%24sel%3Aledgers%3AListLedgersResponse%27"><span class="annot"><span class="annottext">ListLedgersResponse -&gt; Maybe [LedgerSummary]
 </span><a href="Network.AWS.QLDB.ListLedgers.html#%24sel%3Aledgers%3AListLedgersResponse%27"><span class="hs-identifier hs-var hs-var">ledgers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerSummary.html#LedgerSummary"><span class="hs-identifier hs-type">LedgerSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">-- | A pagination token, indicating whether there are more results available:</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- -   If @NextToken@ is empty, then the last page of results has been</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">--     processed and there are no more results to be retrieved.</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- -   If @NextToken@ is /not/ empty, then there are more results</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">--     available. To retrieve the next page of results, use the value of</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">--     @NextToken@ in a subsequent @ListLedgers@ call.</span><span>
+</span><span id="line-153"></span><span>    </span><span id="%24sel%3AnextToken%3AListLedgersResponse%27"><span class="annot"><span class="annottext">ListLedgersResponse -&gt; Maybe Text
+</span><a href="Network.AWS.QLDB.ListLedgers.html#%24sel%3AnextToken%3AListLedgersResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-154"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-155"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListLedgersResponse%27"><span class="annot"><span class="annottext">ListLedgersResponse -&gt; Int
 </span><a href="Network.AWS.QLDB.ListLedgers.html#%24sel%3AhttpStatus%3AListLedgersResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-156"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-157"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679184766"><span id="local-6989586621679184768"><span class="annot"><span class="annottext">ListLedgersResponse -&gt; ListLedgersResponse -&gt; Bool
+</span><span id="line-157"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679184808"><span id="local-6989586621679184810"><span class="annot"><span class="annottext">ListLedgersResponse -&gt; ListLedgersResponse -&gt; Bool
 (ListLedgersResponse -&gt; ListLedgersResponse -&gt; Bool)
 -&gt; (ListLedgersResponse -&gt; ListLedgersResponse -&gt; Bool)
 -&gt; Eq ListLedgersResponse
@@ -347,7 +346,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListLedgersResponse -&gt; ListLedgersResponse -&gt; Bool
 == :: ListLedgersResponse -&gt; ListLedgersResponse -&gt; Bool
 $c== :: ListLedgersResponse -&gt; ListLedgersResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184758"><span id="local-6989586621679184760"><span id="local-6989586621679184762"><span id="local-6989586621679184764"><span class="annot"><span class="annottext">ReadPrec [ListLedgersResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184800"><span id="local-6989586621679184802"><span id="local-6989586621679184804"><span id="local-6989586621679184806"><span class="annot"><span class="annottext">ReadPrec [ListLedgersResponse]
 ReadPrec ListLedgersResponse
 Int -&gt; ReadS ListLedgersResponse
 ReadS [ListLedgersResponse]
@@ -367,7 +366,7 @@ readList :: ReadS [ListLedgersResponse]
 $creadList :: ReadS [ListLedgersResponse]
 readsPrec :: Int -&gt; ReadS ListLedgersResponse
 $creadsPrec :: Int -&gt; ReadS ListLedgersResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184752"><span id="local-6989586621679184754"><span id="local-6989586621679184756"><span class="annot"><span class="annottext">Int -&gt; ListLedgersResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184794"><span id="local-6989586621679184796"><span id="local-6989586621679184798"><span class="annot"><span class="annottext">Int -&gt; ListLedgersResponse -&gt; ShowS
 [ListLedgersResponse] -&gt; ShowS
 ListLedgersResponse -&gt; String
 (Int -&gt; ListLedgersResponse -&gt; ShowS)
@@ -401,17 +400,17 @@ $cfrom :: forall x. ListLedgersResponse -&gt; Rep ListLedgersResponse x
 </span><span id="line-164"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-166"></span><span class="hs-comment">--</span><span>
-</span><span id="line-167"></span><span class="hs-comment">-- 'nextToken', 'listLedgersResponse_nextToken' - A pagination token, indicating whether there are more results available:</span><span>
-</span><span id="line-168"></span><span class="hs-comment">--</span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- -   If @NextToken@ is empty, then the last page of results has been</span><span>
-</span><span id="line-170"></span><span class="hs-comment">--     processed and there are no more results to be retrieved.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- 'ledgers', 'listLedgersResponse_ledgers' - The array of ledger summaries that are associated with the current</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- account and Region.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- 'nextToken', 'listLedgersResponse_nextToken' - A pagination token, indicating whether there are more results available:</span><span>
 </span><span id="line-171"></span><span class="hs-comment">--</span><span>
-</span><span id="line-172"></span><span class="hs-comment">-- -   If @NextToken@ is /not/ empty, then there are more results</span><span>
-</span><span id="line-173"></span><span class="hs-comment">--     available. To retrieve the next page of results, use the value of</span><span>
-</span><span id="line-174"></span><span class="hs-comment">--     @NextToken@ in a subsequent @ListLedgers@ call.</span><span>
-</span><span id="line-175"></span><span class="hs-comment">--</span><span>
-</span><span id="line-176"></span><span class="hs-comment">-- 'ledgers', 'listLedgersResponse_ledgers' - The array of ledger summaries that are associated with the current</span><span>
-</span><span id="line-177"></span><span class="hs-comment">-- account and Region.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- -   If @NextToken@ is empty, then the last page of results has been</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--     processed and there are no more results to be retrieved.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- -   If @NextToken@ is /not/ empty, then there are more results</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--     available. To retrieve the next page of results, use the value of</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--     @NextToken@ in a subsequent @ListLedgers@ call.</span><span>
 </span><span id="line-178"></span><span class="hs-comment">--</span><span>
 </span><span id="line-179"></span><span class="hs-comment">-- 'httpStatus', 'listLedgersResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-180"></span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#newListLedgersResponse"><span class="hs-identifier hs-type">newListLedgersResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -419,54 +418,27 @@ $cfrom :: forall x. ListLedgersResponse -&gt; Rep ListLedgersResponse x
 </span><span id="line-182"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-183"></span><span>  </span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgersResponse"><span class="hs-identifier hs-type">ListLedgersResponse</span></a></span><span>
 </span><span id="line-184"></span><span id="newListLedgersResponse"><span class="annot"><span class="annottext">newListLedgersResponse :: Int -&gt; ListLedgersResponse
-</span><a href="Network.AWS.QLDB.ListLedgers.html#newListLedgersResponse"><span class="hs-identifier hs-var hs-var">newListLedgersResponse</span></a></span></span><span> </span><span id="local-6989586621679184749"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679184749"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-185"></span><span>  </span><span class="annot"><span class="annottext">ListLedgersResponse' :: Maybe Text -&gt; Maybe [LedgerSummary] -&gt; Int -&gt; ListLedgersResponse
+</span><a href="Network.AWS.QLDB.ListLedgers.html#newListLedgersResponse"><span class="hs-identifier hs-var hs-var">newListLedgersResponse</span></a></span></span><span> </span><span id="local-6989586621679184791"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679184791"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-185"></span><span>  </span><span class="annot"><span class="annottext">ListLedgersResponse' :: Maybe [LedgerSummary] -&gt; Maybe Text -&gt; Int -&gt; ListLedgersResponse
 </span><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgersResponse%27"><span class="hs-identifier hs-type">ListLedgersResponse'</span></a></span><span>
-</span><span id="line-186"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListLedgersResponse' :: Maybe Text
-</span><a href="Network.AWS.QLDB.ListLedgers.html#%24sel%3AnextToken%3AListLedgersResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-186"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ledgers:ListLedgersResponse' :: Maybe [LedgerSummary]
+</span><a href="Network.AWS.QLDB.ListLedgers.html#%24sel%3Aledgers%3AListLedgersResponse%27"><span class="hs-identifier hs-var">ledgers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LedgerSummary]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-187"></span><span>      </span><span class="annot"><span class="annottext">$sel:ledgers:ListLedgersResponse' :: Maybe [LedgerSummary]
-</span><a href="Network.AWS.QLDB.ListLedgers.html#%24sel%3Aledgers%3AListLedgersResponse%27"><span class="hs-identifier hs-var">ledgers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LedgerSummary]
+</span><span id="line-187"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListLedgersResponse' :: Maybe Text
+</span><a href="Network.AWS.QLDB.ListLedgers.html#%24sel%3AnextToken%3AListLedgersResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-188"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListLedgersResponse' :: Int
 </span><a href="Network.AWS.QLDB.ListLedgers.html#%24sel%3AhttpStatus%3AListLedgersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679184749"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679184791"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-189"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-190"></span><span>
-</span><span id="line-191"></span><span class="hs-comment">-- | A pagination token, indicating whether there are more results available:</span><span>
-</span><span id="line-192"></span><span class="hs-comment">--</span><span>
-</span><span id="line-193"></span><span class="hs-comment">-- -   If @NextToken@ is empty, then the last page of results has been</span><span>
-</span><span id="line-194"></span><span class="hs-comment">--     processed and there are no more results to be retrieved.</span><span>
-</span><span id="line-195"></span><span class="hs-comment">--</span><span>
-</span><span id="line-196"></span><span class="hs-comment">-- -   If @NextToken@ is /not/ empty, then there are more results</span><span>
-</span><span id="line-197"></span><span class="hs-comment">--     available. To retrieve the next page of results, use the value of</span><span>
-</span><span id="line-198"></span><span class="hs-comment">--     @NextToken@ in a subsequent @ListLedgers@ call.</span><span>
-</span><span id="line-199"></span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#listLedgersResponse_nextToken"><span class="hs-identifier hs-type">listLedgersResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgersResponse"><span class="hs-identifier hs-type">ListLedgersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-200"></span><span id="listLedgersResponse_nextToken"><span class="annot"><span class="annottext">listLedgersResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListLedgersResponse -&gt; f ListLedgersResponse
-</span><a href="Network.AWS.QLDB.ListLedgers.html#listLedgersResponse_nextToken"><span class="hs-identifier hs-var hs-var">listLedgersResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListLedgersResponse -&gt; Maybe Text)
--&gt; (ListLedgersResponse -&gt; Maybe Text -&gt; ListLedgersResponse)
--&gt; Lens
-     ListLedgersResponse ListLedgersResponse (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgersResponse%27"><span class="hs-identifier hs-type">ListLedgersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184748"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:ListLedgersResponse' :: ListLedgersResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679184748"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679184748"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184747"><span class="annot"><span class="annottext">s :: ListLedgersResponse
-</span><a href="#local-6989586621679184747"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgersResponse%27"><span class="hs-identifier hs-type">ListLedgersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184746"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679184746"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLedgersResponse
-</span><a href="#local-6989586621679184747"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListLedgersResponse' :: Maybe Text
-</span><a href="Network.AWS.QLDB.ListLedgers.html#%24sel%3AnextToken%3AListLedgersResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679184746"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgersResponse"><span class="hs-identifier hs-type">ListLedgersResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-201"></span><span>
-</span><span id="line-202"></span><span class="hs-comment">-- | The array of ledger summaries that are associated with the current</span><span>
-</span><span id="line-203"></span><span class="hs-comment">-- account and Region.</span><span>
-</span><span id="line-204"></span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#listLedgersResponse_ledgers"><span class="hs-identifier hs-type">listLedgersResponse_ledgers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgersResponse"><span class="hs-identifier hs-type">ListLedgersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerSummary.html#LedgerSummary"><span class="hs-identifier hs-type">LedgerSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-205"></span><span id="listLedgersResponse_ledgers"><span class="annot"><span class="annottext">listLedgersResponse_ledgers :: (Maybe [LedgerSummary] -&gt; f (Maybe [LedgerSummary]))
+</span><span id="line-191"></span><span class="hs-comment">-- | The array of ledger summaries that are associated with the current</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- account and Region.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#listLedgersResponse_ledgers"><span class="hs-identifier hs-type">listLedgersResponse_ledgers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgersResponse"><span class="hs-identifier hs-type">ListLedgersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.QLDB.Types.LedgerSummary.html#LedgerSummary"><span class="hs-identifier hs-type">LedgerSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span id="listLedgersResponse_ledgers"><span class="annot"><span class="annottext">listLedgersResponse_ledgers :: (Maybe [LedgerSummary] -&gt; f (Maybe [LedgerSummary]))
 -&gt; ListLedgersResponse -&gt; f ListLedgersResponse
 </span><a href="Network.AWS.QLDB.ListLedgers.html#listLedgersResponse_ledgers"><span class="hs-identifier hs-var hs-var">listLedgersResponse_ledgers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListLedgersResponse -&gt; Maybe [LedgerSummary])
 -&gt; (ListLedgersResponse
@@ -477,16 +449,16 @@ $sel:nextToken:ListLedgersResponse' :: ListLedgersResponse -&gt; Maybe Text
      (Maybe [LedgerSummary])
      (Maybe [LedgerSummary])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgersResponse%27"><span class="hs-identifier hs-type">ListLedgersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184745"><span class="annot"><span class="annottext">Maybe [LedgerSummary]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgersResponse%27"><span class="hs-identifier hs-type">ListLedgersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184790"><span class="annot"><span class="annottext">Maybe [LedgerSummary]
 ledgers :: Maybe [LedgerSummary]
 $sel:ledgers:ListLedgersResponse' :: ListLedgersResponse -&gt; Maybe [LedgerSummary]
-</span><a href="#local-6989586621679184745"><span class="hs-identifier hs-var hs-var">ledgers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LedgerSummary]
-</span><a href="#local-6989586621679184745"><span class="hs-identifier hs-var">ledgers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184744"><span class="annot"><span class="annottext">s :: ListLedgersResponse
-</span><a href="#local-6989586621679184744"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgersResponse%27"><span class="hs-identifier hs-type">ListLedgersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184743"><span class="annot"><span class="annottext">Maybe [LedgerSummary]
-</span><a href="#local-6989586621679184743"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLedgersResponse
-</span><a href="#local-6989586621679184744"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ledgers:ListLedgersResponse' :: Maybe [LedgerSummary]
+</span><a href="#local-6989586621679184790"><span class="hs-identifier hs-var hs-var">ledgers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LedgerSummary]
+</span><a href="#local-6989586621679184790"><span class="hs-identifier hs-var">ledgers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184789"><span class="annot"><span class="annottext">s :: ListLedgersResponse
+</span><a href="#local-6989586621679184789"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgersResponse%27"><span class="hs-identifier hs-type">ListLedgersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184788"><span class="annot"><span class="annottext">Maybe [LedgerSummary]
+</span><a href="#local-6989586621679184788"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLedgersResponse
+</span><a href="#local-6989586621679184789"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ledgers:ListLedgersResponse' :: Maybe [LedgerSummary]
 </span><a href="Network.AWS.QLDB.ListLedgers.html#%24sel%3Aledgers%3AListLedgersResponse%27"><span class="hs-identifier hs-var">ledgers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LedgerSummary]
-</span><a href="#local-6989586621679184743"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgersResponse"><span class="hs-identifier hs-type">ListLedgersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LedgerSummary] -&gt; f (Maybe [LedgerSummary]))
+</span><a href="#local-6989586621679184788"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgersResponse"><span class="hs-identifier hs-type">ListLedgersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LedgerSummary] -&gt; f (Maybe [LedgerSummary]))
  -&gt; ListLedgersResponse -&gt; f ListLedgersResponse)
 -&gt; ((Maybe [LedgerSummary] -&gt; f (Maybe [LedgerSummary]))
     -&gt; Maybe [LedgerSummary] -&gt; f (Maybe [LedgerSummary]))
@@ -506,8 +478,35 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   [LedgerSummary] [LedgerSummary] [LedgerSummary] [LedgerSummary]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | A pagination token, indicating whether there are more results available:</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- -   If @NextToken@ is empty, then the last page of results has been</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--     processed and there are no more results to be retrieved.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- -   If @NextToken@ is /not/ empty, then there are more results</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--     available. To retrieve the next page of results, use the value of</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--     @NextToken@ in a subsequent @ListLedgers@ call.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#listLedgersResponse_nextToken"><span class="hs-identifier hs-type">listLedgersResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgersResponse"><span class="hs-identifier hs-type">ListLedgersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span id="listLedgersResponse_nextToken"><span class="annot"><span class="annottext">listLedgersResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListLedgersResponse -&gt; f ListLedgersResponse
+</span><a href="Network.AWS.QLDB.ListLedgers.html#listLedgersResponse_nextToken"><span class="hs-identifier hs-var hs-var">listLedgersResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListLedgersResponse -&gt; Maybe Text)
+-&gt; (ListLedgersResponse -&gt; Maybe Text -&gt; ListLedgersResponse)
+-&gt; Lens
+     ListLedgersResponse ListLedgersResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgersResponse%27"><span class="hs-identifier hs-type">ListLedgersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184784"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListLedgersResponse' :: ListLedgersResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679184784"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679184784"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184783"><span class="annot"><span class="annottext">s :: ListLedgersResponse
+</span><a href="#local-6989586621679184783"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgersResponse%27"><span class="hs-identifier hs-type">ListLedgersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184782"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679184782"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLedgersResponse
+</span><a href="#local-6989586621679184783"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListLedgersResponse' :: Maybe Text
+</span><a href="Network.AWS.QLDB.ListLedgers.html#%24sel%3AnextToken%3AListLedgersResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679184782"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgersResponse"><span class="hs-identifier hs-type">ListLedgersResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-206"></span><span>
 </span><span id="line-207"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-208"></span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#listLedgersResponse_httpStatus"><span class="hs-identifier hs-type">listLedgersResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgersResponse"><span class="hs-identifier hs-type">ListLedgersResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -516,16 +515,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (ListLedgersResponse -&gt; Int -&gt; ListLedgersResponse)
 -&gt; Lens ListLedgersResponse ListLedgersResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgersResponse%27"><span class="hs-identifier hs-type">ListLedgersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184739"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgersResponse%27"><span class="hs-identifier hs-type">ListLedgersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184781"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListLedgersResponse' :: ListLedgersResponse -&gt; Int
-</span><a href="#local-6989586621679184739"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679184739"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184738"><span class="annot"><span class="annottext">s :: ListLedgersResponse
-</span><a href="#local-6989586621679184738"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgersResponse%27"><span class="hs-identifier hs-type">ListLedgersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184737"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679184737"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLedgersResponse
-</span><a href="#local-6989586621679184738"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListLedgersResponse' :: Int
+</span><a href="#local-6989586621679184781"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679184781"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184780"><span class="annot"><span class="annottext">s :: ListLedgersResponse
+</span><a href="#local-6989586621679184780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgersResponse%27"><span class="hs-identifier hs-type">ListLedgersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184779"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679184779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLedgersResponse
+</span><a href="#local-6989586621679184780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListLedgersResponse' :: Int
 </span><a href="Network.AWS.QLDB.ListLedgers.html#%24sel%3AhttpStatus%3AListLedgersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679184737"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgersResponse"><span class="hs-identifier hs-type">ListLedgersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679184779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgersResponse"><span class="hs-identifier hs-type">ListLedgersResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-210"></span><span>
-</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184735"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgersResponse"><span class="hs-identifier hs-type">ListLedgersResponse</span></a></span></span><span>
+</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184777"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListLedgers.html#ListLedgersResponse"><span class="hs-identifier hs-type">ListLedgersResponse</span></a></span></span><span>
 </span><span id="line-212"></span></pre></body></html>

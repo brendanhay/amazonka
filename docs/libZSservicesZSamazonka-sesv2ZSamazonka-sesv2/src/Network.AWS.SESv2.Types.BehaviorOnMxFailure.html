@@ -29,22 +29,22 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span class="hs-comment">-- | The action that you want to take if the required MX record can\'t be</span><span>
-</span><span id="line-33"></span><span class="hs-comment">-- found when you send an email. When you set this value to</span><span>
-</span><span id="line-34"></span><span class="hs-comment">-- @UseDefaultValue@, the mail is sent using /amazonses.com/ as the MAIL</span><span>
-</span><span id="line-35"></span><span class="hs-comment">-- FROM domain. When you set this value to @RejectMessage@, the Amazon SES</span><span>
-</span><span id="line-36"></span><span class="hs-comment">-- API v2 returns a @MailFromDomainNotVerified@ error, and doesn\'t attempt</span><span>
-</span><span id="line-37"></span><span class="hs-comment">-- to deliver the email.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | The action to take if the required MX record can\'t be found when you</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- send an email. When you set this value to @UseDefaultValue@, the mail is</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- sent using /amazonses.com/ as the MAIL FROM domain. When you set this</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- value to @RejectMessage@, the Amazon SES API v2 returns a</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- @MailFromDomainNotVerified@ error, and doesn\'t attempt to deliver the</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- email.</span><span>
 </span><span id="line-38"></span><span class="hs-comment">--</span><span>
 </span><span id="line-39"></span><span class="hs-comment">-- These behaviors are taken when the custom MAIL FROM domain configuration</span><span>
 </span><span id="line-40"></span><span class="hs-comment">-- is in the @Pending@, @Failed@, and @TemporaryFailure@ states.</span><span>
-</span><span id="line-41"></span><span id="local-6989586621679321968"><span id="local-6989586621679321969"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BehaviorOnMxFailure"><span class="annot"><a href="Network.AWS.SESv2.Types.BehaviorOnMxFailure.html#BehaviorOnMxFailure"><span class="hs-identifier hs-var">BehaviorOnMxFailure</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BehaviorOnMxFailure%27"><span class="annot"><a href="Network.AWS.SESv2.Types.BehaviorOnMxFailure.html#BehaviorOnMxFailure%27"><span class="hs-identifier hs-var">BehaviorOnMxFailure'</span></a></span></span><span>
+</span><span id="line-41"></span><span id="local-6989586621679324267"><span id="local-6989586621679324268"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BehaviorOnMxFailure"><span class="annot"><a href="Network.AWS.SESv2.Types.BehaviorOnMxFailure.html#BehaviorOnMxFailure"><span class="hs-identifier hs-var">BehaviorOnMxFailure</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BehaviorOnMxFailure%27"><span class="annot"><a href="Network.AWS.SESv2.Types.BehaviorOnMxFailure.html#BehaviorOnMxFailure%27"><span class="hs-identifier hs-var">BehaviorOnMxFailure'</span></a></span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBehaviorOnMxFailure"><span class="annot"><span class="annottext">BehaviorOnMxFailure -&gt; Text
 </span><a href="Network.AWS.SESv2.Types.BehaviorOnMxFailure.html#fromBehaviorOnMxFailure"><span class="hs-identifier hs-var hs-var">fromBehaviorOnMxFailure</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-43"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679321960"><span id="local-6989586621679321962"><span id="local-6989586621679321964"><span class="annot"><span class="annottext">Int -&gt; BehaviorOnMxFailure -&gt; ShowS
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679324259"><span id="local-6989586621679324261"><span id="local-6989586621679324263"><span class="annot"><span class="annottext">Int -&gt; BehaviorOnMxFailure -&gt; ShowS
 [BehaviorOnMxFailure] -&gt; ShowS
 BehaviorOnMxFailure -&gt; String
 (Int -&gt; BehaviorOnMxFailure -&gt; ShowS)
@@ -60,7 +60,7 @@ $cshow :: BehaviorOnMxFailure -&gt; String
 showsPrec :: Int -&gt; BehaviorOnMxFailure -&gt; ShowS
 $cshowsPrec :: Int -&gt; BehaviorOnMxFailure -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679321951"><span id="local-6989586621679321953"><span id="local-6989586621679321955"><span id="local-6989586621679321957"><span class="annot"><span class="annottext">ReadPrec [BehaviorOnMxFailure]
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679324250"><span id="local-6989586621679324252"><span id="local-6989586621679324254"><span id="local-6989586621679324256"><span class="annot"><span class="annottext">ReadPrec [BehaviorOnMxFailure]
 ReadPrec BehaviorOnMxFailure
 Int -&gt; ReadS BehaviorOnMxFailure
 ReadS [BehaviorOnMxFailure]
@@ -81,7 +81,7 @@ $creadList :: ReadS [BehaviorOnMxFailure]
 readsPrec :: Int -&gt; ReadS BehaviorOnMxFailure
 $creadsPrec :: Int -&gt; ReadS BehaviorOnMxFailure
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679321946"><span id="local-6989586621679321948"><span class="annot"><span class="annottext">BehaviorOnMxFailure -&gt; BehaviorOnMxFailure -&gt; Bool
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679324245"><span id="local-6989586621679324247"><span class="annot"><span class="annottext">BehaviorOnMxFailure -&gt; BehaviorOnMxFailure -&gt; Bool
 (BehaviorOnMxFailure -&gt; BehaviorOnMxFailure -&gt; Bool)
 -&gt; (BehaviorOnMxFailure -&gt; BehaviorOnMxFailure -&gt; Bool)
 -&gt; Eq BehaviorOnMxFailure
@@ -91,7 +91,7 @@ $c/= :: BehaviorOnMxFailure -&gt; BehaviorOnMxFailure -&gt; Bool
 == :: BehaviorOnMxFailure -&gt; BehaviorOnMxFailure -&gt; Bool
 $c== :: BehaviorOnMxFailure -&gt; BehaviorOnMxFailure -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679321930"><span id="local-6989586621679321932"><span id="local-6989586621679321934"><span id="local-6989586621679321936"><span id="local-6989586621679321938"><span id="local-6989586621679321940"><span id="local-6989586621679321942"><span class="annot"><span class="annottext">Eq BehaviorOnMxFailure
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679324229"><span id="local-6989586621679324231"><span id="local-6989586621679324233"><span id="local-6989586621679324235"><span id="local-6989586621679324237"><span id="local-6989586621679324239"><span id="local-6989586621679324241"><span class="annot"><span class="annottext">Eq BehaviorOnMxFailure
 Eq BehaviorOnMxFailure
 -&gt; (BehaviorOnMxFailure -&gt; BehaviorOnMxFailure -&gt; Ordering)
 -&gt; (BehaviorOnMxFailure -&gt; BehaviorOnMxFailure -&gt; Bool)
@@ -144,7 +144,7 @@ $cfrom :: forall x. BehaviorOnMxFailure -&gt; Rep BehaviorOnMxFailure x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-51"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679321922"><span id="local-6989586621679321924"><span class="annot"><span class="annottext">Int -&gt; BehaviorOnMxFailure -&gt; Int
+</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679324221"><span id="local-6989586621679324223"><span class="annot"><span class="annottext">Int -&gt; BehaviorOnMxFailure -&gt; Int
 BehaviorOnMxFailure -&gt; Int
 (Int -&gt; BehaviorOnMxFailure -&gt; Int)
 -&gt; (BehaviorOnMxFailure -&gt; Int) -&gt; Hashable BehaviorOnMxFailure
@@ -154,53 +154,53 @@ $chash :: BehaviorOnMxFailure -&gt; Int
 hashWithSalt :: Int -&gt; BehaviorOnMxFailure -&gt; Int
 $chashWithSalt :: Int -&gt; BehaviorOnMxFailure -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679321919"><span class="annot"><span class="annottext">BehaviorOnMxFailure -&gt; ()
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679324218"><span class="annot"><span class="annottext">BehaviorOnMxFailure -&gt; ()
 (BehaviorOnMxFailure -&gt; ()) -&gt; NFData BehaviorOnMxFailure
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: BehaviorOnMxFailure -&gt; ()
 $crnf :: BehaviorOnMxFailure -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679321916"><span class="annot"><span class="annottext">Text -&gt; Either String BehaviorOnMxFailure
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679324215"><span class="annot"><span class="annottext">Text -&gt; Either String BehaviorOnMxFailure
 (Text -&gt; Either String BehaviorOnMxFailure)
 -&gt; FromText BehaviorOnMxFailure
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String BehaviorOnMxFailure
 $cfromText :: Text -&gt; Either String BehaviorOnMxFailure
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679321913"><span class="annot"><span class="annottext">BehaviorOnMxFailure -&gt; Text
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679324212"><span class="annot"><span class="annottext">BehaviorOnMxFailure -&gt; Text
 (BehaviorOnMxFailure -&gt; Text) -&gt; ToText BehaviorOnMxFailure
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: BehaviorOnMxFailure -&gt; Text
 $ctoText :: BehaviorOnMxFailure -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679321910"><span class="annot"><span class="annottext">BehaviorOnMxFailure -&gt; ByteString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679324209"><span class="annot"><span class="annottext">BehaviorOnMxFailure -&gt; ByteString
 (BehaviorOnMxFailure -&gt; ByteString)
 -&gt; ToByteString BehaviorOnMxFailure
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: BehaviorOnMxFailure -&gt; ByteString
 $ctoBS :: BehaviorOnMxFailure -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679321907"><span class="annot"><span class="annottext">BehaviorOnMxFailure -&gt; ByteStringBuilder
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679324206"><span class="annot"><span class="annottext">BehaviorOnMxFailure -&gt; ByteStringBuilder
 (BehaviorOnMxFailure -&gt; ByteStringBuilder)
 -&gt; ToLog BehaviorOnMxFailure
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: BehaviorOnMxFailure -&gt; ByteStringBuilder
 $cbuild :: BehaviorOnMxFailure -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679321904"><span class="annot"><span class="annottext">HeaderName -&gt; BehaviorOnMxFailure -&gt; [Header]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679324203"><span class="annot"><span class="annottext">HeaderName -&gt; BehaviorOnMxFailure -&gt; [Header]
 (HeaderName -&gt; BehaviorOnMxFailure -&gt; [Header])
 -&gt; ToHeader BehaviorOnMxFailure
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; BehaviorOnMxFailure -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; BehaviorOnMxFailure -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679321901"><span class="annot"><span class="annottext">BehaviorOnMxFailure -&gt; QueryString
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679324200"><span class="annot"><span class="annottext">BehaviorOnMxFailure -&gt; QueryString
 (BehaviorOnMxFailure -&gt; QueryString) -&gt; ToQuery BehaviorOnMxFailure
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: BehaviorOnMxFailure -&gt; QueryString
 $ctoQuery :: BehaviorOnMxFailure -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679321896"><span id="local-6989586621679321898"><span class="annot"><span class="annottext">Value -&gt; Parser [BehaviorOnMxFailure]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679324195"><span id="local-6989586621679324197"><span class="annot"><span class="annottext">Value -&gt; Parser [BehaviorOnMxFailure]
 Value -&gt; Parser BehaviorOnMxFailure
 (Value -&gt; Parser BehaviorOnMxFailure)
 -&gt; (Value -&gt; Parser [BehaviorOnMxFailure])
@@ -212,7 +212,7 @@ $cparseJSONList :: Value -&gt; Parser [BehaviorOnMxFailure]
 parseJSON :: Value -&gt; Parser BehaviorOnMxFailure
 $cparseJSON :: Value -&gt; Parser BehaviorOnMxFailure
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679321891"><span id="local-6989586621679321893"><span class="annot"><span class="annottext">FromJSONKeyFunction [BehaviorOnMxFailure]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679324190"><span id="local-6989586621679324192"><span class="annot"><span class="annottext">FromJSONKeyFunction [BehaviorOnMxFailure]
 FromJSONKeyFunction BehaviorOnMxFailure
 FromJSONKeyFunction BehaviorOnMxFailure
 -&gt; FromJSONKeyFunction [BehaviorOnMxFailure]
@@ -224,7 +224,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [BehaviorOnMxFailure]
 fromJSONKey :: FromJSONKeyFunction BehaviorOnMxFailure
 $cfromJSONKey :: FromJSONKeyFunction BehaviorOnMxFailure
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679321882"><span id="local-6989586621679321884"><span id="local-6989586621679321886"><span id="local-6989586621679321888"><span class="annot"><span class="annottext">[BehaviorOnMxFailure] -&gt; Encoding
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679324181"><span id="local-6989586621679324183"><span id="local-6989586621679324185"><span id="local-6989586621679324187"><span class="annot"><span class="annottext">[BehaviorOnMxFailure] -&gt; Encoding
 [BehaviorOnMxFailure] -&gt; Value
 BehaviorOnMxFailure -&gt; Encoding
 BehaviorOnMxFailure -&gt; Value
@@ -248,7 +248,7 @@ $ctoEncoding :: BehaviorOnMxFailure -&gt; Encoding
 toJSON :: BehaviorOnMxFailure -&gt; Value
 $ctoJSON :: BehaviorOnMxFailure -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679321877"><span id="local-6989586621679321879"><span class="annot"><span class="annottext">ToJSONKeyFunction [BehaviorOnMxFailure]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679324176"><span id="local-6989586621679324178"><span class="annot"><span class="annottext">ToJSONKeyFunction [BehaviorOnMxFailure]
 ToJSONKeyFunction BehaviorOnMxFailure
 ToJSONKeyFunction BehaviorOnMxFailure
 -&gt; ToJSONKeyFunction [BehaviorOnMxFailure]
@@ -260,14 +260,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [BehaviorOnMxFailure]
 toJSONKey :: ToJSONKeyFunction BehaviorOnMxFailure
 $ctoJSONKey :: ToJSONKeyFunction BehaviorOnMxFailure
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679321874"><span class="annot"><span class="annottext">[Node] -&gt; Either String BehaviorOnMxFailure
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679324173"><span class="annot"><span class="annottext">[Node] -&gt; Either String BehaviorOnMxFailure
 ([Node] -&gt; Either String BehaviorOnMxFailure)
 -&gt; FromXML BehaviorOnMxFailure
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String BehaviorOnMxFailure
 $cparseXML :: [Node] -&gt; Either String BehaviorOnMxFailure
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679321871"><span class="annot"><span class="annottext">BehaviorOnMxFailure -&gt; XML
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679324170"><span class="annot"><span class="annottext">BehaviorOnMxFailure -&gt; XML
 (BehaviorOnMxFailure -&gt; XML) -&gt; ToXML BehaviorOnMxFailure
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: BehaviorOnMxFailure -&gt; XML

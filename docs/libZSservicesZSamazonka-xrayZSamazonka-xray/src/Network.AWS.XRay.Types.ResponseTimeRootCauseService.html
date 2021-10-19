@@ -28,27 +28,27 @@
 </span><span id="line-28"></span><span class="hs-comment">-- warning.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newResponseTimeRootCauseService' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679252943"><span id="local-6989586621679252944"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResponseTimeRootCauseService"><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService"><span class="hs-identifier hs-var">ResponseTimeRootCauseService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResponseTimeRootCauseService%27"><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService%27"><span class="hs-identifier hs-var">ResponseTimeRootCauseService'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The account ID associated to the service.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AaccountId%3AResponseTimeRootCauseService%27"><span class="annot"><span class="annottext">ResponseTimeRootCauseService -&gt; Maybe Text
+</span><span id="line-31"></span><span id="local-6989586621679253215"><span id="local-6989586621679253216"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResponseTimeRootCauseService"><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService"><span class="hs-identifier hs-var">ResponseTimeRootCauseService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResponseTimeRootCauseService%27"><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService%27"><span class="hs-identifier hs-var">ResponseTimeRootCauseService'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The path of root cause entities found on the service.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AentityPath%3AResponseTimeRootCauseService%27"><span class="annot"><span class="annottext">ResponseTimeRootCauseService -&gt; Maybe [ResponseTimeRootCauseEntity]
+</span><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#%24sel%3AentityPath%3AResponseTimeRootCauseService%27"><span class="hs-identifier hs-var hs-var">entityPath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseEntity.html#ResponseTimeRootCauseEntity"><span class="hs-identifier hs-type">ResponseTimeRootCauseEntity</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The account ID associated to the service.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AaccountId%3AResponseTimeRootCauseService%27"><span class="annot"><span class="annottext">ResponseTimeRootCauseService -&gt; Maybe Text
 </span><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#%24sel%3AaccountId%3AResponseTimeRootCauseService%27"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | A collection of associated service names.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Anames%3AResponseTimeRootCauseService%27"><span class="annot"><span class="annottext">ResponseTimeRootCauseService -&gt; Maybe [Text]
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | A collection of associated service names.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Anames%3AResponseTimeRootCauseService%27"><span class="annot"><span class="annottext">ResponseTimeRootCauseService -&gt; Maybe [Text]
 </span><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#%24sel%3Anames%3AResponseTimeRootCauseService%27"><span class="hs-identifier hs-var hs-var">names</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | A Boolean value indicating if the service is inferred from the trace.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3Ainferred%3AResponseTimeRootCauseService%27"><span class="annot"><span class="annottext">ResponseTimeRootCauseService -&gt; Maybe Bool
-</span><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#%24sel%3Ainferred%3AResponseTimeRootCauseService%27"><span class="hs-identifier hs-var hs-var">inferred</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The service name.</span><span>
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3Aname%3AResponseTimeRootCauseService%27"><span class="annot"><span class="annottext">ResponseTimeRootCauseService -&gt; Maybe Text
 </span><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#%24sel%3Aname%3AResponseTimeRootCauseService%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The path of root cause entities found on the service.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AentityPath%3AResponseTimeRootCauseService%27"><span class="annot"><span class="annottext">ResponseTimeRootCauseService -&gt; Maybe [ResponseTimeRootCauseEntity]
-</span><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#%24sel%3AentityPath%3AResponseTimeRootCauseService%27"><span class="hs-identifier hs-var hs-var">entityPath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseEntity.html#ResponseTimeRootCauseEntity"><span class="hs-identifier hs-type">ResponseTimeRootCauseEntity</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | A Boolean value indicating if the service is inferred from the trace.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Ainferred%3AResponseTimeRootCauseService%27"><span class="annot"><span class="annottext">ResponseTimeRootCauseService -&gt; Maybe Bool
+</span><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#%24sel%3Ainferred%3AResponseTimeRootCauseService%27"><span class="hs-identifier hs-var hs-var">inferred</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The type associated to the service.</span><span>
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3Atype%27%3AResponseTimeRootCauseService%27"><span class="annot"><span class="annottext">ResponseTimeRootCauseService -&gt; Maybe Text
 </span><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#%24sel%3Atype%27%3AResponseTimeRootCauseService%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679252932"><span id="local-6989586621679252934"><span class="annot"><span class="annottext">ResponseTimeRootCauseService
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679253204"><span id="local-6989586621679253206"><span class="annot"><span class="annottext">ResponseTimeRootCauseService
 -&gt; ResponseTimeRootCauseService -&gt; Bool
 (ResponseTimeRootCauseService
  -&gt; ResponseTimeRootCauseService -&gt; Bool)
@@ -64,7 +64,7 @@ $c/= :: ResponseTimeRootCauseService
 -&gt; ResponseTimeRootCauseService -&gt; Bool
 $c== :: ResponseTimeRootCauseService
 -&gt; ResponseTimeRootCauseService -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252923"><span id="local-6989586621679252925"><span id="local-6989586621679252927"><span id="local-6989586621679252929"><span class="annot"><span class="annottext">ReadPrec [ResponseTimeRootCauseService]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253195"><span id="local-6989586621679253197"><span id="local-6989586621679253199"><span id="local-6989586621679253201"><span class="annot"><span class="annottext">ReadPrec [ResponseTimeRootCauseService]
 ReadPrec ResponseTimeRootCauseService
 Int -&gt; ReadS ResponseTimeRootCauseService
 ReadS [ResponseTimeRootCauseService]
@@ -84,7 +84,7 @@ readList :: ReadS [ResponseTimeRootCauseService]
 $creadList :: ReadS [ResponseTimeRootCauseService]
 readsPrec :: Int -&gt; ReadS ResponseTimeRootCauseService
 $creadsPrec :: Int -&gt; ReadS ResponseTimeRootCauseService
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252916"><span id="local-6989586621679252918"><span id="local-6989586621679252920"><span class="annot"><span class="annottext">Int -&gt; ResponseTimeRootCauseService -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253188"><span id="local-6989586621679253190"><span id="local-6989586621679253192"><span class="annot"><span class="annottext">Int -&gt; ResponseTimeRootCauseService -&gt; ShowS
 [ResponseTimeRootCauseService] -&gt; ShowS
 ResponseTimeRootCauseService -&gt; String
 (Int -&gt; ResponseTimeRootCauseService -&gt; ShowS)
@@ -124,48 +124,48 @@ ResponseTimeRootCauseService -&gt; Rep ResponseTimeRootCauseService x
 </span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'accountId', 'responseTimeRootCauseService_accountId' - The account ID associated to the service.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'entityPath', 'responseTimeRootCauseService_entityPath' - The path of root cause entities found on the service.</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'names', 'responseTimeRootCauseService_names' - A collection of associated service names.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'accountId', 'responseTimeRootCauseService_accountId' - The account ID associated to the service.</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'inferred', 'responseTimeRootCauseService_inferred' - A Boolean value indicating if the service is inferred from the trace.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'names', 'responseTimeRootCauseService_names' - A collection of associated service names.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- 'name', 'responseTimeRootCauseService_name' - The service name.</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'entityPath', 'responseTimeRootCauseService_entityPath' - The path of root cause entities found on the service.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'inferred', 'responseTimeRootCauseService_inferred' - A Boolean value indicating if the service is inferred from the trace.</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- 'type'', 'responseTimeRootCauseService_type' - The type associated to the service.</span><span>
 </span><span id="line-66"></span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#newResponseTimeRootCauseService"><span class="hs-identifier hs-type">newResponseTimeRootCauseService</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService"><span class="hs-identifier hs-type">ResponseTimeRootCauseService</span></a></span><span>
 </span><span id="line-68"></span><span id="newResponseTimeRootCauseService"><span class="annot"><span class="annottext">newResponseTimeRootCauseService :: ResponseTimeRootCauseService
 </span><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#newResponseTimeRootCauseService"><span class="hs-identifier hs-var hs-var">newResponseTimeRootCauseService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">ResponseTimeRootCauseService' :: Maybe Text
--&gt; Maybe [Text]
--&gt; Maybe Bool
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">ResponseTimeRootCauseService' :: Maybe [ResponseTimeRootCauseEntity]
 -&gt; Maybe Text
--&gt; Maybe [ResponseTimeRootCauseEntity]
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe Bool
 -&gt; Maybe Text
 -&gt; ResponseTimeRootCauseService
 </span><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService%27"><span class="hs-identifier hs-type">ResponseTimeRootCauseService'</span></a></span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accountId:ResponseTimeRootCauseService' :: Maybe Text
-</span><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#%24sel%3AaccountId%3AResponseTimeRootCauseService%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-71"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:entityPath:ResponseTimeRootCauseService' :: Maybe [ResponseTimeRootCauseEntity]
+</span><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#%24sel%3AentityPath%3AResponseTimeRootCauseService%27"><span class="hs-identifier hs-var">entityPath</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>        </span><span class="annot"><span class="annottext">Maybe [ResponseTimeRootCauseEntity]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:names:ResponseTimeRootCauseService' :: Maybe [Text]
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:accountId:ResponseTimeRootCauseService' :: Maybe Text
+</span><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#%24sel%3AaccountId%3AResponseTimeRootCauseService%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:names:ResponseTimeRootCauseService' :: Maybe [Text]
 </span><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#%24sel%3Anames%3AResponseTimeRootCauseService%27"><span class="hs-identifier hs-var">names</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:inferred:ResponseTimeRootCauseService' :: Maybe Bool
-</span><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#%24sel%3Ainferred%3AResponseTimeRootCauseService%27"><span class="hs-identifier hs-var">inferred</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:ResponseTimeRootCauseService' :: Maybe Text
 </span><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#%24sel%3Aname%3AResponseTimeRootCauseService%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:entityPath:ResponseTimeRootCauseService' :: Maybe [ResponseTimeRootCauseEntity]
-</span><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#%24sel%3AentityPath%3AResponseTimeRootCauseService%27"><span class="hs-identifier hs-var">entityPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ResponseTimeRootCauseEntity]
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:inferred:ResponseTimeRootCauseService' :: Maybe Bool
+</span><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#%24sel%3Ainferred%3AResponseTimeRootCauseService%27"><span class="hs-identifier hs-var">inferred</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':ResponseTimeRootCauseService' :: Maybe Text
@@ -174,120 +174,9 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- | The account ID associated to the service.</span><span>
-</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#responseTimeRootCauseService_accountId"><span class="hs-identifier hs-type">responseTimeRootCauseService_accountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService"><span class="hs-identifier hs-type">ResponseTimeRootCauseService</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span id="responseTimeRootCauseService_accountId"><span class="annot"><span class="annottext">responseTimeRootCauseService_accountId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ResponseTimeRootCauseService -&gt; f ResponseTimeRootCauseService
-</span><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#responseTimeRootCauseService_accountId"><span class="hs-identifier hs-var hs-var">responseTimeRootCauseService_accountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResponseTimeRootCauseService -&gt; Maybe Text)
--&gt; (ResponseTimeRootCauseService
-    -&gt; Maybe Text -&gt; ResponseTimeRootCauseService)
--&gt; Lens
-     ResponseTimeRootCauseService
-     ResponseTimeRootCauseService
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService%27"><span class="hs-identifier hs-type">ResponseTimeRootCauseService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252907"><span class="annot"><span class="annottext">Maybe Text
-accountId :: Maybe Text
-$sel:accountId:ResponseTimeRootCauseService' :: ResponseTimeRootCauseService -&gt; Maybe Text
-</span><a href="#local-6989586621679252907"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679252907"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252906"><span class="annot"><span class="annottext">s :: ResponseTimeRootCauseService
-</span><a href="#local-6989586621679252906"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService%27"><span class="hs-identifier hs-type">ResponseTimeRootCauseService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252905"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679252905"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResponseTimeRootCauseService
-</span><a href="#local-6989586621679252906"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:ResponseTimeRootCauseService' :: Maybe Text
-</span><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#%24sel%3AaccountId%3AResponseTimeRootCauseService%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679252905"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService"><span class="hs-identifier hs-type">ResponseTimeRootCauseService</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- | A collection of associated service names.</span><span>
-</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#responseTimeRootCauseService_names"><span class="hs-identifier hs-type">responseTimeRootCauseService_names</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService"><span class="hs-identifier hs-type">ResponseTimeRootCauseService</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span id="responseTimeRootCauseService_names"><span class="annot"><span class="annottext">responseTimeRootCauseService_names :: (Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; ResponseTimeRootCauseService -&gt; f ResponseTimeRootCauseService
-</span><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#responseTimeRootCauseService_names"><span class="hs-identifier hs-var hs-var">responseTimeRootCauseService_names</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResponseTimeRootCauseService -&gt; Maybe [Text])
--&gt; (ResponseTimeRootCauseService
-    -&gt; Maybe [Text] -&gt; ResponseTimeRootCauseService)
--&gt; Lens
-     ResponseTimeRootCauseService
-     ResponseTimeRootCauseService
-     (Maybe [Text])
-     (Maybe [Text])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService%27"><span class="hs-identifier hs-type">ResponseTimeRootCauseService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252903"><span class="annot"><span class="annottext">Maybe [Text]
-names :: Maybe [Text]
-$sel:names:ResponseTimeRootCauseService' :: ResponseTimeRootCauseService -&gt; Maybe [Text]
-</span><a href="#local-6989586621679252903"><span class="hs-identifier hs-var hs-var">names</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679252903"><span class="hs-identifier hs-var">names</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252902"><span class="annot"><span class="annottext">s :: ResponseTimeRootCauseService
-</span><a href="#local-6989586621679252902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService%27"><span class="hs-identifier hs-type">ResponseTimeRootCauseService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252901"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679252901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResponseTimeRootCauseService
-</span><a href="#local-6989586621679252902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:names:ResponseTimeRootCauseService' :: Maybe [Text]
-</span><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#%24sel%3Anames%3AResponseTimeRootCauseService%27"><span class="hs-identifier hs-var">names</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679252901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService"><span class="hs-identifier hs-type">ResponseTimeRootCauseService</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
- -&gt; ResponseTimeRootCauseService -&gt; f ResponseTimeRootCauseService)
--&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
-    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; ResponseTimeRootCauseService
--&gt; f ResponseTimeRootCauseService
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
--&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- | A Boolean value indicating if the service is inferred from the trace.</span><span>
-</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#responseTimeRootCauseService_inferred"><span class="hs-identifier hs-type">responseTimeRootCauseService_inferred</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService"><span class="hs-identifier hs-type">ResponseTimeRootCauseService</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span id="responseTimeRootCauseService_inferred"><span class="annot"><span class="annottext">responseTimeRootCauseService_inferred :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; ResponseTimeRootCauseService -&gt; f ResponseTimeRootCauseService
-</span><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#responseTimeRootCauseService_inferred"><span class="hs-identifier hs-var hs-var">responseTimeRootCauseService_inferred</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResponseTimeRootCauseService -&gt; Maybe Bool)
--&gt; (ResponseTimeRootCauseService
-    -&gt; Maybe Bool -&gt; ResponseTimeRootCauseService)
--&gt; Lens
-     ResponseTimeRootCauseService
-     ResponseTimeRootCauseService
-     (Maybe Bool)
-     (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService%27"><span class="hs-identifier hs-type">ResponseTimeRootCauseService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252896"><span class="annot"><span class="annottext">Maybe Bool
-inferred :: Maybe Bool
-$sel:inferred:ResponseTimeRootCauseService' :: ResponseTimeRootCauseService -&gt; Maybe Bool
-</span><a href="#local-6989586621679252896"><span class="hs-identifier hs-var hs-var">inferred</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679252896"><span class="hs-identifier hs-var">inferred</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252895"><span class="annot"><span class="annottext">s :: ResponseTimeRootCauseService
-</span><a href="#local-6989586621679252895"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService%27"><span class="hs-identifier hs-type">ResponseTimeRootCauseService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252894"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679252894"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResponseTimeRootCauseService
-</span><a href="#local-6989586621679252895"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inferred:ResponseTimeRootCauseService' :: Maybe Bool
-</span><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#%24sel%3Ainferred%3AResponseTimeRootCauseService%27"><span class="hs-identifier hs-var">inferred</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679252894"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService"><span class="hs-identifier hs-type">ResponseTimeRootCauseService</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- | The service name.</span><span>
-</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#responseTimeRootCauseService_name"><span class="hs-identifier hs-type">responseTimeRootCauseService_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService"><span class="hs-identifier hs-type">ResponseTimeRootCauseService</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span id="responseTimeRootCauseService_name"><span class="annot"><span class="annottext">responseTimeRootCauseService_name :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ResponseTimeRootCauseService -&gt; f ResponseTimeRootCauseService
-</span><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#responseTimeRootCauseService_name"><span class="hs-identifier hs-var hs-var">responseTimeRootCauseService_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResponseTimeRootCauseService -&gt; Maybe Text)
--&gt; (ResponseTimeRootCauseService
-    -&gt; Maybe Text -&gt; ResponseTimeRootCauseService)
--&gt; Lens
-     ResponseTimeRootCauseService
-     ResponseTimeRootCauseService
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService%27"><span class="hs-identifier hs-type">ResponseTimeRootCauseService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252892"><span class="annot"><span class="annottext">Maybe Text
-name :: Maybe Text
-$sel:name:ResponseTimeRootCauseService' :: ResponseTimeRootCauseService -&gt; Maybe Text
-</span><a href="#local-6989586621679252892"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679252892"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252891"><span class="annot"><span class="annottext">s :: ResponseTimeRootCauseService
-</span><a href="#local-6989586621679252891"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService%27"><span class="hs-identifier hs-type">ResponseTimeRootCauseService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252890"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679252890"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResponseTimeRootCauseService
-</span><a href="#local-6989586621679252891"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ResponseTimeRootCauseService' :: Maybe Text
-</span><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#%24sel%3Aname%3AResponseTimeRootCauseService%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679252890"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService"><span class="hs-identifier hs-type">ResponseTimeRootCauseService</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- | The path of root cause entities found on the service.</span><span>
-</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#responseTimeRootCauseService_entityPath"><span class="hs-identifier hs-type">responseTimeRootCauseService_entityPath</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService"><span class="hs-identifier hs-type">ResponseTimeRootCauseService</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseEntity.html#ResponseTimeRootCauseEntity"><span class="hs-identifier hs-type">ResponseTimeRootCauseEntity</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-97"></span><span id="responseTimeRootCauseService_entityPath"><span class="annot"><span class="annottext">responseTimeRootCauseService_entityPath :: (Maybe [ResponseTimeRootCauseEntity]
+</span><span id="line-79"></span><span class="hs-comment">-- | The path of root cause entities found on the service.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#responseTimeRootCauseService_entityPath"><span class="hs-identifier hs-type">responseTimeRootCauseService_entityPath</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService"><span class="hs-identifier hs-type">ResponseTimeRootCauseService</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseEntity.html#ResponseTimeRootCauseEntity"><span class="hs-identifier hs-type">ResponseTimeRootCauseEntity</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="responseTimeRootCauseService_entityPath"><span class="annot"><span class="annottext">responseTimeRootCauseService_entityPath :: (Maybe [ResponseTimeRootCauseEntity]
  -&gt; f (Maybe [ResponseTimeRootCauseEntity]))
 -&gt; ResponseTimeRootCauseService -&gt; f ResponseTimeRootCauseService
 </span><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#responseTimeRootCauseService_entityPath"><span class="hs-identifier hs-var hs-var">responseTimeRootCauseService_entityPath</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResponseTimeRootCauseService
@@ -301,16 +190,16 @@ $sel:name:ResponseTimeRootCauseService' :: ResponseTimeRootCauseService -&gt; Ma
      (Maybe [ResponseTimeRootCauseEntity])
      (Maybe [ResponseTimeRootCauseEntity])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService%27"><span class="hs-identifier hs-type">ResponseTimeRootCauseService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252888"><span class="annot"><span class="annottext">Maybe [ResponseTimeRootCauseEntity]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService%27"><span class="hs-identifier hs-type">ResponseTimeRootCauseService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253179"><span class="annot"><span class="annottext">Maybe [ResponseTimeRootCauseEntity]
 entityPath :: Maybe [ResponseTimeRootCauseEntity]
 $sel:entityPath:ResponseTimeRootCauseService' :: ResponseTimeRootCauseService -&gt; Maybe [ResponseTimeRootCauseEntity]
-</span><a href="#local-6989586621679252888"><span class="hs-identifier hs-var hs-var">entityPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ResponseTimeRootCauseEntity]
-</span><a href="#local-6989586621679252888"><span class="hs-identifier hs-var">entityPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252887"><span class="annot"><span class="annottext">s :: ResponseTimeRootCauseService
-</span><a href="#local-6989586621679252887"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService%27"><span class="hs-identifier hs-type">ResponseTimeRootCauseService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252886"><span class="annot"><span class="annottext">Maybe [ResponseTimeRootCauseEntity]
-</span><a href="#local-6989586621679252886"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResponseTimeRootCauseService
-</span><a href="#local-6989586621679252887"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entityPath:ResponseTimeRootCauseService' :: Maybe [ResponseTimeRootCauseEntity]
+</span><a href="#local-6989586621679253179"><span class="hs-identifier hs-var hs-var">entityPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ResponseTimeRootCauseEntity]
+</span><a href="#local-6989586621679253179"><span class="hs-identifier hs-var">entityPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253178"><span class="annot"><span class="annottext">s :: ResponseTimeRootCauseService
+</span><a href="#local-6989586621679253178"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService%27"><span class="hs-identifier hs-type">ResponseTimeRootCauseService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253177"><span class="annot"><span class="annottext">Maybe [ResponseTimeRootCauseEntity]
+</span><a href="#local-6989586621679253177"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResponseTimeRootCauseService
+</span><a href="#local-6989586621679253178"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entityPath:ResponseTimeRootCauseService' :: Maybe [ResponseTimeRootCauseEntity]
 </span><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#%24sel%3AentityPath%3AResponseTimeRootCauseService%27"><span class="hs-identifier hs-var">entityPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ResponseTimeRootCauseEntity]
-</span><a href="#local-6989586621679252886"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService"><span class="hs-identifier hs-type">ResponseTimeRootCauseService</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ResponseTimeRootCauseEntity]
+</span><a href="#local-6989586621679253177"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService"><span class="hs-identifier hs-type">ResponseTimeRootCauseService</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ResponseTimeRootCauseEntity]
   -&gt; f (Maybe [ResponseTimeRootCauseEntity]))
  -&gt; ResponseTimeRootCauseService -&gt; f ResponseTimeRootCauseService)
 -&gt; ((Maybe [ResponseTimeRootCauseEntity]
@@ -340,8 +229,119 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [ResponseTimeRootCauseEntity]
   [ResponseTimeRootCauseEntity]
   [ResponseTimeRootCauseEntity]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | The account ID associated to the service.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#responseTimeRootCauseService_accountId"><span class="hs-identifier hs-type">responseTimeRootCauseService_accountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService"><span class="hs-identifier hs-type">ResponseTimeRootCauseService</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="responseTimeRootCauseService_accountId"><span class="annot"><span class="annottext">responseTimeRootCauseService_accountId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ResponseTimeRootCauseService -&gt; f ResponseTimeRootCauseService
+</span><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#responseTimeRootCauseService_accountId"><span class="hs-identifier hs-var hs-var">responseTimeRootCauseService_accountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResponseTimeRootCauseService -&gt; Maybe Text)
+-&gt; (ResponseTimeRootCauseService
+    -&gt; Maybe Text -&gt; ResponseTimeRootCauseService)
+-&gt; Lens
+     ResponseTimeRootCauseService
+     ResponseTimeRootCauseService
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService%27"><span class="hs-identifier hs-type">ResponseTimeRootCauseService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253172"><span class="annot"><span class="annottext">Maybe Text
+accountId :: Maybe Text
+$sel:accountId:ResponseTimeRootCauseService' :: ResponseTimeRootCauseService -&gt; Maybe Text
+</span><a href="#local-6989586621679253172"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253172"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253171"><span class="annot"><span class="annottext">s :: ResponseTimeRootCauseService
+</span><a href="#local-6989586621679253171"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService%27"><span class="hs-identifier hs-type">ResponseTimeRootCauseService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253170"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253170"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResponseTimeRootCauseService
+</span><a href="#local-6989586621679253171"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:ResponseTimeRootCauseService' :: Maybe Text
+</span><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#%24sel%3AaccountId%3AResponseTimeRootCauseService%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253170"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService"><span class="hs-identifier hs-type">ResponseTimeRootCauseService</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | A collection of associated service names.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#responseTimeRootCauseService_names"><span class="hs-identifier hs-type">responseTimeRootCauseService_names</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService"><span class="hs-identifier hs-type">ResponseTimeRootCauseService</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="responseTimeRootCauseService_names"><span class="annot"><span class="annottext">responseTimeRootCauseService_names :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ResponseTimeRootCauseService -&gt; f ResponseTimeRootCauseService
+</span><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#responseTimeRootCauseService_names"><span class="hs-identifier hs-var hs-var">responseTimeRootCauseService_names</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResponseTimeRootCauseService -&gt; Maybe [Text])
+-&gt; (ResponseTimeRootCauseService
+    -&gt; Maybe [Text] -&gt; ResponseTimeRootCauseService)
+-&gt; Lens
+     ResponseTimeRootCauseService
+     ResponseTimeRootCauseService
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService%27"><span class="hs-identifier hs-type">ResponseTimeRootCauseService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253168"><span class="annot"><span class="annottext">Maybe [Text]
+names :: Maybe [Text]
+$sel:names:ResponseTimeRootCauseService' :: ResponseTimeRootCauseService -&gt; Maybe [Text]
+</span><a href="#local-6989586621679253168"><span class="hs-identifier hs-var hs-var">names</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679253168"><span class="hs-identifier hs-var">names</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253167"><span class="annot"><span class="annottext">s :: ResponseTimeRootCauseService
+</span><a href="#local-6989586621679253167"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService%27"><span class="hs-identifier hs-type">ResponseTimeRootCauseService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253166"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679253166"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResponseTimeRootCauseService
+</span><a href="#local-6989586621679253167"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:names:ResponseTimeRootCauseService' :: Maybe [Text]
+</span><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#%24sel%3Anames%3AResponseTimeRootCauseService%27"><span class="hs-identifier hs-var">names</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679253166"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService"><span class="hs-identifier hs-type">ResponseTimeRootCauseService</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; ResponseTimeRootCauseService -&gt; f ResponseTimeRootCauseService)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ResponseTimeRootCauseService
+-&gt; f ResponseTimeRootCauseService
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The service name.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#responseTimeRootCauseService_name"><span class="hs-identifier hs-type">responseTimeRootCauseService_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService"><span class="hs-identifier hs-type">ResponseTimeRootCauseService</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="responseTimeRootCauseService_name"><span class="annot"><span class="annottext">responseTimeRootCauseService_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ResponseTimeRootCauseService -&gt; f ResponseTimeRootCauseService
+</span><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#responseTimeRootCauseService_name"><span class="hs-identifier hs-var hs-var">responseTimeRootCauseService_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResponseTimeRootCauseService -&gt; Maybe Text)
+-&gt; (ResponseTimeRootCauseService
+    -&gt; Maybe Text -&gt; ResponseTimeRootCauseService)
+-&gt; Lens
+     ResponseTimeRootCauseService
+     ResponseTimeRootCauseService
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService%27"><span class="hs-identifier hs-type">ResponseTimeRootCauseService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253164"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:ResponseTimeRootCauseService' :: ResponseTimeRootCauseService -&gt; Maybe Text
+</span><a href="#local-6989586621679253164"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253164"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253163"><span class="annot"><span class="annottext">s :: ResponseTimeRootCauseService
+</span><a href="#local-6989586621679253163"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService%27"><span class="hs-identifier hs-type">ResponseTimeRootCauseService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253162"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253162"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResponseTimeRootCauseService
+</span><a href="#local-6989586621679253163"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ResponseTimeRootCauseService' :: Maybe Text
+</span><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#%24sel%3Aname%3AResponseTimeRootCauseService%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253162"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService"><span class="hs-identifier hs-type">ResponseTimeRootCauseService</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | A Boolean value indicating if the service is inferred from the trace.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#responseTimeRootCauseService_inferred"><span class="hs-identifier hs-type">responseTimeRootCauseService_inferred</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService"><span class="hs-identifier hs-type">ResponseTimeRootCauseService</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="responseTimeRootCauseService_inferred"><span class="annot"><span class="annottext">responseTimeRootCauseService_inferred :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ResponseTimeRootCauseService -&gt; f ResponseTimeRootCauseService
+</span><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#responseTimeRootCauseService_inferred"><span class="hs-identifier hs-var hs-var">responseTimeRootCauseService_inferred</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResponseTimeRootCauseService -&gt; Maybe Bool)
+-&gt; (ResponseTimeRootCauseService
+    -&gt; Maybe Bool -&gt; ResponseTimeRootCauseService)
+-&gt; Lens
+     ResponseTimeRootCauseService
+     ResponseTimeRootCauseService
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService%27"><span class="hs-identifier hs-type">ResponseTimeRootCauseService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253160"><span class="annot"><span class="annottext">Maybe Bool
+inferred :: Maybe Bool
+$sel:inferred:ResponseTimeRootCauseService' :: ResponseTimeRootCauseService -&gt; Maybe Bool
+</span><a href="#local-6989586621679253160"><span class="hs-identifier hs-var hs-var">inferred</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679253160"><span class="hs-identifier hs-var">inferred</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253159"><span class="annot"><span class="annottext">s :: ResponseTimeRootCauseService
+</span><a href="#local-6989586621679253159"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService%27"><span class="hs-identifier hs-type">ResponseTimeRootCauseService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253158"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679253158"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResponseTimeRootCauseService
+</span><a href="#local-6989586621679253159"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inferred:ResponseTimeRootCauseService' :: Maybe Bool
+</span><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#%24sel%3Ainferred%3AResponseTimeRootCauseService%27"><span class="hs-identifier hs-var">inferred</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679253158"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService"><span class="hs-identifier hs-type">ResponseTimeRootCauseService</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | The type associated to the service.</span><span>
 </span><span id="line-100"></span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#responseTimeRootCauseService_type"><span class="hs-identifier hs-type">responseTimeRootCauseService_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService"><span class="hs-identifier hs-type">ResponseTimeRootCauseService</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -356,19 +356,19 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService%27"><span class="hs-identifier hs-type">ResponseTimeRootCauseService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252884"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService%27"><span class="hs-identifier hs-type">ResponseTimeRootCauseService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253156"><span class="annot"><span class="annottext">Maybe Text
 type' :: Maybe Text
 $sel:type':ResponseTimeRootCauseService' :: ResponseTimeRootCauseService -&gt; Maybe Text
-</span><a href="#local-6989586621679252884"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679252884"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252883"><span class="annot"><span class="annottext">s :: ResponseTimeRootCauseService
-</span><a href="#local-6989586621679252883"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService%27"><span class="hs-identifier hs-type">ResponseTimeRootCauseService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252882"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679252882"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResponseTimeRootCauseService
-</span><a href="#local-6989586621679252883"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ResponseTimeRootCauseService' :: Maybe Text
+</span><a href="#local-6989586621679253156"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253156"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253155"><span class="annot"><span class="annottext">s :: ResponseTimeRootCauseService
+</span><a href="#local-6989586621679253155"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService%27"><span class="hs-identifier hs-type">ResponseTimeRootCauseService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253154"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253154"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResponseTimeRootCauseService
+</span><a href="#local-6989586621679253155"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ResponseTimeRootCauseService' :: Maybe Text
 </span><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#%24sel%3Atype%27%3AResponseTimeRootCauseService%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679252882"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService"><span class="hs-identifier hs-type">ResponseTimeRootCauseService</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679253154"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService"><span class="hs-identifier hs-type">ResponseTimeRootCauseService</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252879"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService"><span class="hs-identifier hs-type">ResponseTimeRootCauseService</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679252877"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResponseTimeRootCauseService
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253151"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService"><span class="hs-identifier hs-type">ResponseTimeRootCauseService</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679253149"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResponseTimeRootCauseService
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ResponseTimeRootCauseService)
@@ -378,103 +378,34 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ResponseTimeRootCauseService&quot;</span></span><span>
-</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679252874"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679252874"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe [Text]
--&gt; Maybe Bool
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679253146"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679253146"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ResponseTimeRootCauseEntity]
 -&gt; Maybe Text
--&gt; Maybe [ResponseTimeRootCauseEntity]
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe Bool
 -&gt; Maybe Text
 -&gt; ResponseTimeRootCauseService
 </span><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService%27"><span class="hs-identifier hs-var">ResponseTimeRootCauseService'</span></a></span><span>
-</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ResponseTimeRootCauseEntity]
+ -&gt; Maybe Text
  -&gt; Maybe [Text]
+ -&gt; Maybe Text
  -&gt; Maybe Bool
  -&gt; Maybe Text
- -&gt; Maybe [ResponseTimeRootCauseEntity]
- -&gt; Maybe Text
  -&gt; ResponseTimeRootCauseService)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe [ResponseTimeRootCauseEntity])
 -&gt; Parser
-     (Maybe [Text]
-      -&gt; Maybe Bool
+     (Maybe Text
+      -&gt; Maybe [Text]
       -&gt; Maybe Text
-      -&gt; Maybe [ResponseTimeRootCauseEntity]
+      -&gt; Maybe Bool
       -&gt; Maybe Text
       -&gt; ResponseTimeRootCauseService)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679252874"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AccountId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe [Text]
-   -&gt; Maybe Bool
-   -&gt; Maybe Text
-   -&gt; Maybe [ResponseTimeRootCauseEntity]
-   -&gt; Maybe Text
-   -&gt; ResponseTimeRootCauseService)
--&gt; Parser (Maybe [Text])
--&gt; Parser
-     (Maybe Bool
-      -&gt; Maybe Text
-      -&gt; Maybe [ResponseTimeRootCauseEntity]
-      -&gt; Maybe Text
-      -&gt; ResponseTimeRootCauseService)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679252874"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Names&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
--&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
-forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
-</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-forall a. Monoid a =&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Bool
-   -&gt; Maybe Text
-   -&gt; Maybe [ResponseTimeRootCauseEntity]
-   -&gt; Maybe Text
-   -&gt; ResponseTimeRootCauseService)
--&gt; Parser (Maybe Bool)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe [ResponseTimeRootCauseEntity]
-      -&gt; Maybe Text
-      -&gt; ResponseTimeRootCauseService)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679252874"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Inferred&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe [ResponseTimeRootCauseEntity]
-   -&gt; Maybe Text
-   -&gt; ResponseTimeRootCauseService)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe [ResponseTimeRootCauseEntity]
-      -&gt; Maybe Text -&gt; ResponseTimeRootCauseService)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679252874"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe [ResponseTimeRootCauseEntity]
-   -&gt; Maybe Text -&gt; ResponseTimeRootCauseService)
--&gt; Parser (Maybe [ResponseTimeRootCauseEntity])
--&gt; Parser (Maybe Text -&gt; ResponseTimeRootCauseService)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679252874"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679253146"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe (Maybe [ResponseTimeRootCauseEntity]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -485,19 +416,81 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ResponseTimeRootCauseEntity]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; ResponseTimeRootCauseService)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; ResponseTimeRootCauseService)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679253146"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AccountId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; ResponseTimeRootCauseService)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Bool -&gt; Maybe Text -&gt; ResponseTimeRootCauseService)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679253146"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Names&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Bool -&gt; Maybe Text -&gt; ResponseTimeRootCauseService)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Bool -&gt; Maybe Text -&gt; ResponseTimeRootCauseService)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679253146"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; Maybe Text -&gt; ResponseTimeRootCauseService)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser (Maybe Text -&gt; ResponseTimeRootCauseService)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679253146"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Inferred&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ResponseTimeRootCauseService)
 -&gt; Parser (Maybe Text) -&gt; Parser ResponseTimeRootCauseService
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679252874"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679253146"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679252867"><span id="local-6989586621679252869"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679253139"><span id="local-6989586621679253141"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-119"></span><span>    </span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService"><span class="hs-identifier hs-type">ResponseTimeRootCauseService</span></a></span></span></span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252864"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService"><span class="hs-identifier hs-type">ResponseTimeRootCauseService</span></a></span></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253136"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService"><span class="hs-identifier hs-type">ResponseTimeRootCauseService</span></a></span></span><span>
 </span><span id="line-122"></span></pre></body></html>

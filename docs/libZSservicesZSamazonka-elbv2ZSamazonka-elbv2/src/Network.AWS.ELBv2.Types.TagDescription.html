@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The tags associated with a resource.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newTagDescription' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679250509"><span id="local-6989586621679250510"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagDescription"><span class="annot"><a href="Network.AWS.ELBv2.Types.TagDescription.html#TagDescription"><span class="hs-identifier hs-var">TagDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagDescription%27"><span class="annot"><a href="Network.AWS.ELBv2.Types.TagDescription.html#TagDescription%27"><span class="hs-identifier hs-var">TagDescription'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679253223"><span id="local-6989586621679253224"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagDescription"><span class="annot"><a href="Network.AWS.ELBv2.Types.TagDescription.html#TagDescription"><span class="hs-identifier hs-var">TagDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagDescription%27"><span class="annot"><a href="Network.AWS.ELBv2.Types.TagDescription.html#TagDescription%27"><span class="hs-identifier hs-var">TagDescription'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the resource.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AresourceArn%3ATagDescription%27"><span class="annot"><span class="annottext">TagDescription -&gt; Maybe Text
 </span><a href="Network.AWS.ELBv2.Types.TagDescription.html#%24sel%3AresourceArn%3ATagDescription%27"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Atags%3ATagDescription%27"><span class="annot"><span class="annottext">TagDescription -&gt; Maybe (NonEmpty Tag)
 </span><a href="Network.AWS.ELBv2.Types.TagDescription.html#%24sel%3Atags%3ATagDescription%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679250502"><span id="local-6989586621679250504"><span class="annot"><span class="annottext">TagDescription -&gt; TagDescription -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679253216"><span id="local-6989586621679253218"><span class="annot"><span class="annottext">TagDescription -&gt; TagDescription -&gt; Bool
 (TagDescription -&gt; TagDescription -&gt; Bool)
 -&gt; (TagDescription -&gt; TagDescription -&gt; Bool) -&gt; Eq TagDescription
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TagDescription -&gt; TagDescription -&gt; Bool
 == :: TagDescription -&gt; TagDescription -&gt; Bool
 $c== :: TagDescription -&gt; TagDescription -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250493"><span id="local-6989586621679250495"><span id="local-6989586621679250497"><span id="local-6989586621679250499"><span class="annot"><span class="annottext">ReadPrec [TagDescription]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253207"><span id="local-6989586621679253209"><span id="local-6989586621679253211"><span id="local-6989586621679253213"><span class="annot"><span class="annottext">ReadPrec [TagDescription]
 ReadPrec TagDescription
 Int -&gt; ReadS TagDescription
 ReadS [TagDescription]
@@ -63,7 +63,7 @@ readList :: ReadS [TagDescription]
 $creadList :: ReadS [TagDescription]
 readsPrec :: Int -&gt; ReadS TagDescription
 $creadsPrec :: Int -&gt; ReadS TagDescription
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250486"><span id="local-6989586621679250488"><span id="local-6989586621679250490"><span class="annot"><span class="annottext">Int -&gt; TagDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253200"><span id="local-6989586621679253202"><span id="local-6989586621679253204"><span class="annot"><span class="annottext">Int -&gt; TagDescription -&gt; ShowS
 [TagDescription] -&gt; ShowS
 TagDescription -&gt; String
 (Int -&gt; TagDescription -&gt; ShowS)
@@ -124,16 +124,16 @@ forall a. Maybe a
 -&gt; (TagDescription -&gt; Maybe Text -&gt; TagDescription)
 -&gt; Lens TagDescription TagDescription (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.Types.TagDescription.html#TagDescription%27"><span class="hs-identifier hs-type">TagDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250477"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.Types.TagDescription.html#TagDescription%27"><span class="hs-identifier hs-type">TagDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253191"><span class="annot"><span class="annottext">Maybe Text
 resourceArn :: Maybe Text
 $sel:resourceArn:TagDescription' :: TagDescription -&gt; Maybe Text
-</span><a href="#local-6989586621679250477"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679250477"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250476"><span class="annot"><span class="annottext">s :: TagDescription
-</span><a href="#local-6989586621679250476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.Types.TagDescription.html#TagDescription%27"><span class="hs-identifier hs-type">TagDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250475"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679250475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagDescription
-</span><a href="#local-6989586621679250476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:TagDescription' :: Maybe Text
+</span><a href="#local-6989586621679253191"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253191"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253190"><span class="annot"><span class="annottext">s :: TagDescription
+</span><a href="#local-6989586621679253190"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.Types.TagDescription.html#TagDescription%27"><span class="hs-identifier hs-type">TagDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253189"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253189"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagDescription
+</span><a href="#local-6989586621679253190"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:TagDescription' :: Maybe Text
 </span><a href="Network.AWS.ELBv2.Types.TagDescription.html#%24sel%3AresourceArn%3ATagDescription%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679250475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.TagDescription.html#TagDescription"><span class="hs-identifier hs-type">TagDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679253189"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.TagDescription.html#TagDescription"><span class="hs-identifier hs-type">TagDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | Information about the tags.</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.ELBv2.Types.TagDescription.html#tagDescription_tags"><span class="hs-identifier hs-type">tagDescription_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.TagDescription.html#TagDescription"><span class="hs-identifier hs-type">TagDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
@@ -147,16 +147,16 @@ $sel:resourceArn:TagDescription' :: TagDescription -&gt; Maybe Text
      (Maybe (NonEmpty Tag))
      (Maybe (NonEmpty Tag))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.Types.TagDescription.html#TagDescription%27"><span class="hs-identifier hs-type">TagDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250473"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.Types.TagDescription.html#TagDescription%27"><span class="hs-identifier hs-type">TagDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253187"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
 tags :: Maybe (NonEmpty Tag)
 $sel:tags:TagDescription' :: TagDescription -&gt; Maybe (NonEmpty Tag)
-</span><a href="#local-6989586621679250473"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
-</span><a href="#local-6989586621679250473"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250472"><span class="annot"><span class="annottext">s :: TagDescription
-</span><a href="#local-6989586621679250472"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.Types.TagDescription.html#TagDescription%27"><span class="hs-identifier hs-type">TagDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250471"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
-</span><a href="#local-6989586621679250471"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagDescription
-</span><a href="#local-6989586621679250472"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:TagDescription' :: Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679253187"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679253187"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253186"><span class="annot"><span class="annottext">s :: TagDescription
+</span><a href="#local-6989586621679253186"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.Types.TagDescription.html#TagDescription%27"><span class="hs-identifier hs-type">TagDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253185"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679253185"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagDescription
+</span><a href="#local-6989586621679253186"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:TagDescription' :: Maybe (NonEmpty Tag)
 </span><a href="Network.AWS.ELBv2.Types.TagDescription.html#%24sel%3Atags%3ATagDescription%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
-</span><a href="#local-6989586621679250471"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.TagDescription.html#TagDescription"><span class="hs-identifier hs-type">TagDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+</span><a href="#local-6989586621679253185"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.TagDescription.html#TagDescription"><span class="hs-identifier hs-type">TagDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
  -&gt; TagDescription -&gt; f TagDescription)
 -&gt; ((Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
     -&gt; Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
@@ -174,13 +174,13 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.TagDescription.html#TagDescription"><span class="hs-identifier hs-type">TagDescription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679250465"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String TagDescription
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679250463"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679250463"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679253179"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String TagDescription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679253177"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679253177"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe (NonEmpty Tag) -&gt; TagDescription
 </span><a href="Network.AWS.ELBv2.Types.TagDescription.html#TagDescription%27"><span class="hs-identifier hs-var">TagDescription'</span></a></span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe (NonEmpty Tag) -&gt; TagDescription)
@@ -188,7 +188,7 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Either String (Maybe (NonEmpty Tag) -&gt; TagDescription)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679250463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679253177"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -197,7 +197,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String TagDescription
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679250463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679253177"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -220,7 +220,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String (NonEmpty a)
 </span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250454"><span id="local-6989586621679250456"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.TagDescription.html#TagDescription"><span class="hs-identifier hs-type">TagDescription</span></a></span></span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253168"><span id="local-6989586621679253170"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.TagDescription.html#TagDescription"><span class="hs-identifier hs-type">TagDescription</span></a></span></span></span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250451"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.TagDescription.html#TagDescription"><span class="hs-identifier hs-type">TagDescription</span></a></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253165"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.TagDescription.html#TagDescription"><span class="hs-identifier hs-type">TagDescription</span></a></span></span><span>
 </span><span id="line-76"></span></pre></body></html>

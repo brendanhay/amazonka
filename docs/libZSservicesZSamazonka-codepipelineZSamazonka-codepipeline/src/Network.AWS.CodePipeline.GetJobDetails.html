@@ -54,12 +54,12 @@
 </span><span id="line-54"></span><span class="hs-comment">-- | Represents the input of a @GetJobDetails@ action.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- /See:/ 'newGetJobDetails' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679291281"><span id="local-6989586621679291282"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetJobDetails"><span class="annot"><a href="Network.AWS.CodePipeline.GetJobDetails.html#GetJobDetails"><span class="hs-identifier hs-var">GetJobDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetJobDetails%27"><span class="annot"><a href="Network.AWS.CodePipeline.GetJobDetails.html#GetJobDetails%27"><span class="hs-identifier hs-var">GetJobDetails'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679291515"><span id="local-6989586621679291516"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetJobDetails"><span class="annot"><a href="Network.AWS.CodePipeline.GetJobDetails.html#GetJobDetails"><span class="hs-identifier hs-var">GetJobDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetJobDetails%27"><span class="annot"><a href="Network.AWS.CodePipeline.GetJobDetails.html#GetJobDetails%27"><span class="hs-identifier hs-var">GetJobDetails'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique system-generated ID for the job.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AjobId%3AGetJobDetails%27"><span class="annot"><span class="annottext">GetJobDetails -&gt; Text
 </span><a href="Network.AWS.CodePipeline.GetJobDetails.html#%24sel%3AjobId%3AGetJobDetails%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679291275"><span id="local-6989586621679291277"><span class="annot"><span class="annottext">GetJobDetails -&gt; GetJobDetails -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679291509"><span id="local-6989586621679291511"><span class="annot"><span class="annottext">GetJobDetails -&gt; GetJobDetails -&gt; Bool
 (GetJobDetails -&gt; GetJobDetails -&gt; Bool)
 -&gt; (GetJobDetails -&gt; GetJobDetails -&gt; Bool) -&gt; Eq GetJobDetails
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetJobDetails -&gt; GetJobDetails -&gt; Bool
 == :: GetJobDetails -&gt; GetJobDetails -&gt; Bool
 $c== :: GetJobDetails -&gt; GetJobDetails -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291266"><span id="local-6989586621679291268"><span id="local-6989586621679291270"><span id="local-6989586621679291272"><span class="annot"><span class="annottext">ReadPrec [GetJobDetails]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291500"><span id="local-6989586621679291502"><span id="local-6989586621679291504"><span id="local-6989586621679291506"><span class="annot"><span class="annottext">ReadPrec [GetJobDetails]
 ReadPrec GetJobDetails
 Int -&gt; ReadS GetJobDetails
 ReadS [GetJobDetails]
@@ -87,7 +87,7 @@ readList :: ReadS [GetJobDetails]
 $creadList :: ReadS [GetJobDetails]
 readsPrec :: Int -&gt; ReadS GetJobDetails
 $creadsPrec :: Int -&gt; ReadS GetJobDetails
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291259"><span id="local-6989586621679291261"><span id="local-6989586621679291263"><span class="annot"><span class="annottext">Int -&gt; GetJobDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291493"><span id="local-6989586621679291495"><span id="local-6989586621679291497"><span class="annot"><span class="annottext">Int -&gt; GetJobDetails -&gt; ShowS
 [GetJobDetails] -&gt; ShowS
 GetJobDetails -&gt; String
 (Int -&gt; GetJobDetails -&gt; ShowS)
@@ -127,12 +127,12 @@ $cfrom :: forall x. GetJobDetails -&gt; Rep GetJobDetails x
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.CodePipeline.GetJobDetails.html#GetJobDetails"><span class="hs-identifier hs-type">GetJobDetails</span></a></span><span>
 </span><span id="line-76"></span><span id="newGetJobDetails"><span class="annot"><span class="annottext">newGetJobDetails :: Text -&gt; GetJobDetails
-</span><a href="Network.AWS.CodePipeline.GetJobDetails.html#newGetJobDetails"><span class="hs-identifier hs-var hs-var">newGetJobDetails</span></a></span></span><span> </span><span id="local-6989586621679291254"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679291254"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodePipeline.GetJobDetails.html#newGetJobDetails"><span class="hs-identifier hs-var hs-var">newGetJobDetails</span></a></span></span><span> </span><span id="local-6989586621679291488"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291488"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">GetJobDetails' :: Text -&gt; GetJobDetails
 </span><a href="Network.AWS.CodePipeline.GetJobDetails.html#GetJobDetails%27"><span class="hs-identifier hs-type">GetJobDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:GetJobDetails' :: Text
 </span><a href="Network.AWS.CodePipeline.GetJobDetails.html#%24sel%3AjobId%3AGetJobDetails%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679291254"><span class="hs-identifier hs-var">pJobId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679291488"><span class="hs-identifier hs-var">pJobId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- | The unique system-generated ID for the job.</span><span>
 </span><span id="line-80"></span><span class="annot"><a href="Network.AWS.CodePipeline.GetJobDetails.html#getJobDetails_jobId"><span class="hs-identifier hs-type">getJobDetails_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.GetJobDetails.html#GetJobDetails"><span class="hs-identifier hs-type">GetJobDetails</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -141,27 +141,27 @@ $cfrom :: forall x. GetJobDetails -&gt; Rep GetJobDetails x
 -&gt; (GetJobDetails -&gt; Text -&gt; GetJobDetails)
 -&gt; Lens GetJobDetails GetJobDetails Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.GetJobDetails.html#GetJobDetails%27"><span class="hs-identifier hs-type">GetJobDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291251"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.GetJobDetails.html#GetJobDetails%27"><span class="hs-identifier hs-type">GetJobDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291485"><span class="annot"><span class="annottext">Text
 jobId :: Text
 $sel:jobId:GetJobDetails' :: GetJobDetails -&gt; Text
-</span><a href="#local-6989586621679291251"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679291251"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291250"><span class="annot"><span class="annottext">s :: GetJobDetails
-</span><a href="#local-6989586621679291250"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.GetJobDetails.html#GetJobDetails%27"><span class="hs-identifier hs-type">GetJobDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291249"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679291249"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobDetails
-</span><a href="#local-6989586621679291250"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:GetJobDetails' :: Text
+</span><a href="#local-6989586621679291485"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291485"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291484"><span class="annot"><span class="annottext">s :: GetJobDetails
+</span><a href="#local-6989586621679291484"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.GetJobDetails.html#GetJobDetails%27"><span class="hs-identifier hs-type">GetJobDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291483"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679291483"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobDetails
+</span><a href="#local-6989586621679291484"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:GetJobDetails' :: Text
 </span><a href="Network.AWS.CodePipeline.GetJobDetails.html#%24sel%3AjobId%3AGetJobDetails%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679291249"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.GetJobDetails.html#GetJobDetails"><span class="hs-identifier hs-type">GetJobDetails</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679291483"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.GetJobDetails.html#GetJobDetails"><span class="hs-identifier hs-type">GetJobDetails</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.GetJobDetails.html#GetJobDetails"><span class="hs-identifier hs-type">GetJobDetails</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-84"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-85"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.GetJobDetails.html#GetJobDetails"><span class="hs-identifier hs-type">GetJobDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><a href="Network.AWS.CodePipeline.GetJobDetails.html#GetJobDetailsResponse"><span class="hs-identifier hs-type">GetJobDetailsResponse</span></a></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679291245"><span class="annot"><span class="annottext">request :: GetJobDetails -&gt; Request GetJobDetails
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679291479"><span class="annot"><span class="annottext">request :: GetJobDetails -&gt; Request GetJobDetails
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetJobDetails -&gt; Request GetJobDetails
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodePipeline.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679291241"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679291475"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetJobDetails
 -&gt; ClientResponse ClientBody
@@ -185,10 +185,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679291238"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679291238"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679291237"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679291237"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679291236"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679291236"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679291472"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679291472"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679291471"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679291471"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679291470"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679291470"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe JobDetails -&gt; Int -&gt; GetJobDetailsResponse
 </span><a href="Network.AWS.CodePipeline.GetJobDetails.html#GetJobDetailsResponse%27"><span class="hs-identifier hs-var">GetJobDetailsResponse'</span></a></span><span>
 </span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe JobDetails -&gt; Int -&gt; GetJobDetailsResponse)
@@ -196,7 +196,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetJobDetailsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679291236"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe JobDetails)
+</span><a href="#local-6989586621679291470"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe JobDetails)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;jobDetails&quot;</span></span><span class="hs-special">)</span><span>
@@ -208,15 +208,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679291238"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679291472"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291228"><span id="local-6989586621679291230"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.GetJobDetails.html#GetJobDetails"><span class="hs-identifier hs-type">GetJobDetails</span></a></span></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291462"><span id="local-6989586621679291464"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.GetJobDetails.html#GetJobDetails"><span class="hs-identifier hs-type">GetJobDetails</span></a></span></span></span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291225"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.GetJobDetails.html#GetJobDetails"><span class="hs-identifier hs-type">GetJobDetails</span></a></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291459"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.GetJobDetails.html#GetJobDetails"><span class="hs-identifier hs-type">GetJobDetails</span></a></span></span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.GetJobDetails.html#GetJobDetails"><span class="hs-identifier hs-type">GetJobDetails</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679291221"><span class="annot"><span class="annottext">toHeaders :: GetJobDetails -&gt; ResponseHeaders
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679291455"><span class="annot"><span class="annottext">toHeaders :: GetJobDetails -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetJobDetails -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -243,12 +243,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-112"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291211"><span id="local-6989586621679291213"><span id="local-6989586621679291215"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.GetJobDetails.html#GetJobDetails"><span class="hs-identifier hs-type">GetJobDetails</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679291209"><span class="annot"><span class="annottext">toJSON :: GetJobDetails -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.GetJobDetails.html#GetJobDetails%27"><span class="hs-identifier hs-type">GetJobDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291207"><span class="annot"><span class="annottext">Text
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291445"><span id="local-6989586621679291447"><span id="local-6989586621679291449"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.GetJobDetails.html#GetJobDetails"><span class="hs-identifier hs-type">GetJobDetails</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679291443"><span class="annot"><span class="annottext">toJSON :: GetJobDetails -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.GetJobDetails.html#GetJobDetails%27"><span class="hs-identifier hs-type">GetJobDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291441"><span class="annot"><span class="annottext">Text
 jobId :: Text
 $sel:jobId:GetJobDetails' :: GetJobDetails -&gt; Text
-</span><a href="#local-6989586621679291207"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679291441"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -260,18 +260,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;jobId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679291207"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679291441"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.GetJobDetails.html#GetJobDetails"><span class="hs-identifier hs-type">GetJobDetails</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679291201"><span class="annot"><span class="annottext">toPath :: GetJobDetails -&gt; ByteString
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679291435"><span class="annot"><span class="annottext">toPath :: GetJobDetails -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetJobDetails -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.GetJobDetails.html#GetJobDetails"><span class="hs-identifier hs-type">GetJobDetails</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679291197"><span class="annot"><span class="annottext">toQuery :: GetJobDetails -&gt; QueryString
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679291431"><span class="annot"><span class="annottext">toQuery :: GetJobDetails -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetJobDetails -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -281,7 +281,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-128"></span><span class="hs-comment">-- | Represents the output of a @GetJobDetails@ action.</span><span>
 </span><span id="line-129"></span><span class="hs-comment">--</span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- /See:/ 'newGetJobDetailsResponse' smart constructor.</span><span>
-</span><span id="line-131"></span><span id="local-6989586621679291194"><span id="local-6989586621679291195"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetJobDetailsResponse"><span class="annot"><a href="Network.AWS.CodePipeline.GetJobDetails.html#GetJobDetailsResponse"><span class="hs-identifier hs-var">GetJobDetailsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetJobDetailsResponse%27"><span class="annot"><a href="Network.AWS.CodePipeline.GetJobDetails.html#GetJobDetailsResponse%27"><span class="hs-identifier hs-var">GetJobDetailsResponse'</span></a></span></span><span>
+</span><span id="line-131"></span><span id="local-6989586621679291428"><span id="local-6989586621679291429"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetJobDetailsResponse"><span class="annot"><a href="Network.AWS.CodePipeline.GetJobDetails.html#GetJobDetailsResponse"><span class="hs-identifier hs-var">GetJobDetailsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetJobDetailsResponse%27"><span class="annot"><a href="Network.AWS.CodePipeline.GetJobDetails.html#GetJobDetailsResponse%27"><span class="hs-identifier hs-var">GetJobDetailsResponse'</span></a></span></span><span>
 </span><span id="line-132"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The details of the job.</span><span>
 </span><span id="line-133"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-134"></span><span>    </span><span class="hs-comment">-- If AWSSessionCredentials is used, a long-running job can call</span><span>
@@ -292,7 +292,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-138"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetJobDetailsResponse%27"><span class="annot"><span class="annottext">GetJobDetailsResponse -&gt; Int
 </span><a href="Network.AWS.CodePipeline.GetJobDetails.html#%24sel%3AhttpStatus%3AGetJobDetailsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-139"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679291188"><span id="local-6989586621679291190"><span class="annot"><span class="annottext">GetJobDetailsResponse -&gt; GetJobDetailsResponse -&gt; Bool
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679291422"><span id="local-6989586621679291424"><span class="annot"><span class="annottext">GetJobDetailsResponse -&gt; GetJobDetailsResponse -&gt; Bool
 (GetJobDetailsResponse -&gt; GetJobDetailsResponse -&gt; Bool)
 -&gt; (GetJobDetailsResponse -&gt; GetJobDetailsResponse -&gt; Bool)
 -&gt; Eq GetJobDetailsResponse
@@ -301,7 +301,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetJobDetailsResponse -&gt; GetJobDetailsResponse -&gt; Bool
 == :: GetJobDetailsResponse -&gt; GetJobDetailsResponse -&gt; Bool
 $c== :: GetJobDetailsResponse -&gt; GetJobDetailsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291182"><span id="local-6989586621679291184"><span id="local-6989586621679291186"><span class="annot"><span class="annottext">Int -&gt; GetJobDetailsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291416"><span id="local-6989586621679291418"><span id="local-6989586621679291420"><span class="annot"><span class="annottext">Int -&gt; GetJobDetailsResponse -&gt; ShowS
 [GetJobDetailsResponse] -&gt; ShowS
 GetJobDetailsResponse -&gt; String
 (Int -&gt; GetJobDetailsResponse -&gt; ShowS)
@@ -346,8 +346,8 @@ $cfrom :: forall x. GetJobDetailsResponse -&gt; Rep GetJobDetailsResponse x
 </span><span id="line-158"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-159"></span><span>  </span><span class="annot"><a href="Network.AWS.CodePipeline.GetJobDetails.html#GetJobDetailsResponse"><span class="hs-identifier hs-type">GetJobDetailsResponse</span></a></span><span>
 </span><span id="line-160"></span><span id="newGetJobDetailsResponse"><span class="annot"><span class="annottext">newGetJobDetailsResponse :: Int -&gt; GetJobDetailsResponse
-</span><a href="Network.AWS.CodePipeline.GetJobDetails.html#newGetJobDetailsResponse"><span class="hs-identifier hs-var hs-var">newGetJobDetailsResponse</span></a></span></span><span> </span><span id="local-6989586621679291179"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679291179"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodePipeline.GetJobDetails.html#newGetJobDetailsResponse"><span class="hs-identifier hs-var hs-var">newGetJobDetailsResponse</span></a></span></span><span> </span><span id="local-6989586621679291413"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679291413"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-161"></span><span>  </span><span class="annot"><span class="annottext">GetJobDetailsResponse' :: Maybe JobDetails -&gt; Int -&gt; GetJobDetailsResponse
 </span><a href="Network.AWS.CodePipeline.GetJobDetails.html#GetJobDetailsResponse%27"><span class="hs-identifier hs-type">GetJobDetailsResponse'</span></a></span><span>
 </span><span id="line-162"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:jobDetails:GetJobDetailsResponse' :: Maybe JobDetails
@@ -357,7 +357,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetJobDetailsResponse' :: Int
 </span><a href="Network.AWS.CodePipeline.GetJobDetails.html#%24sel%3AhttpStatus%3AGetJobDetailsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679291179"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679291413"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-165"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- | The details of the job.</span><span>
@@ -376,16 +376,16 @@ forall a. Maybe a
      (Maybe JobDetails)
      (Maybe JobDetails)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.GetJobDetails.html#GetJobDetailsResponse%27"><span class="hs-identifier hs-type">GetJobDetailsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291178"><span class="annot"><span class="annottext">Maybe JobDetails
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.GetJobDetails.html#GetJobDetailsResponse%27"><span class="hs-identifier hs-type">GetJobDetailsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291412"><span class="annot"><span class="annottext">Maybe JobDetails
 jobDetails :: Maybe JobDetails
 $sel:jobDetails:GetJobDetailsResponse' :: GetJobDetailsResponse -&gt; Maybe JobDetails
-</span><a href="#local-6989586621679291178"><span class="hs-identifier hs-var hs-var">jobDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobDetails
-</span><a href="#local-6989586621679291178"><span class="hs-identifier hs-var">jobDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291177"><span class="annot"><span class="annottext">s :: GetJobDetailsResponse
-</span><a href="#local-6989586621679291177"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.GetJobDetails.html#GetJobDetailsResponse%27"><span class="hs-identifier hs-type">GetJobDetailsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291176"><span class="annot"><span class="annottext">Maybe JobDetails
-</span><a href="#local-6989586621679291176"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobDetailsResponse
-</span><a href="#local-6989586621679291177"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobDetails:GetJobDetailsResponse' :: Maybe JobDetails
+</span><a href="#local-6989586621679291412"><span class="hs-identifier hs-var hs-var">jobDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobDetails
+</span><a href="#local-6989586621679291412"><span class="hs-identifier hs-var">jobDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291411"><span class="annot"><span class="annottext">s :: GetJobDetailsResponse
+</span><a href="#local-6989586621679291411"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.GetJobDetails.html#GetJobDetailsResponse%27"><span class="hs-identifier hs-type">GetJobDetailsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291410"><span class="annot"><span class="annottext">Maybe JobDetails
+</span><a href="#local-6989586621679291410"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobDetailsResponse
+</span><a href="#local-6989586621679291411"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobDetails:GetJobDetailsResponse' :: Maybe JobDetails
 </span><a href="Network.AWS.CodePipeline.GetJobDetails.html#%24sel%3AjobDetails%3AGetJobDetailsResponse%27"><span class="hs-identifier hs-var">jobDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobDetails
-</span><a href="#local-6989586621679291176"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.GetJobDetails.html#GetJobDetailsResponse"><span class="hs-identifier hs-type">GetJobDetailsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679291410"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.GetJobDetails.html#GetJobDetailsResponse"><span class="hs-identifier hs-type">GetJobDetailsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-175"></span><span class="annot"><a href="Network.AWS.CodePipeline.GetJobDetails.html#getJobDetailsResponse_httpStatus"><span class="hs-identifier hs-type">getJobDetailsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.GetJobDetails.html#GetJobDetailsResponse"><span class="hs-identifier hs-type">GetJobDetailsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -394,16 +394,16 @@ $sel:jobDetails:GetJobDetailsResponse' :: GetJobDetailsResponse -&gt; Maybe JobD
 -&gt; (GetJobDetailsResponse -&gt; Int -&gt; GetJobDetailsResponse)
 -&gt; Lens GetJobDetailsResponse GetJobDetailsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.GetJobDetails.html#GetJobDetailsResponse%27"><span class="hs-identifier hs-type">GetJobDetailsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291175"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.GetJobDetails.html#GetJobDetailsResponse%27"><span class="hs-identifier hs-type">GetJobDetailsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291409"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetJobDetailsResponse' :: GetJobDetailsResponse -&gt; Int
-</span><a href="#local-6989586621679291175"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679291175"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291174"><span class="annot"><span class="annottext">s :: GetJobDetailsResponse
-</span><a href="#local-6989586621679291174"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.GetJobDetails.html#GetJobDetailsResponse%27"><span class="hs-identifier hs-type">GetJobDetailsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291173"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679291173"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobDetailsResponse
-</span><a href="#local-6989586621679291174"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetJobDetailsResponse' :: Int
+</span><a href="#local-6989586621679291409"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679291409"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291408"><span class="annot"><span class="annottext">s :: GetJobDetailsResponse
+</span><a href="#local-6989586621679291408"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.GetJobDetails.html#GetJobDetailsResponse%27"><span class="hs-identifier hs-type">GetJobDetailsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291407"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679291407"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobDetailsResponse
+</span><a href="#local-6989586621679291408"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetJobDetailsResponse' :: Int
 </span><a href="Network.AWS.CodePipeline.GetJobDetails.html#%24sel%3AhttpStatus%3AGetJobDetailsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679291173"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.GetJobDetails.html#GetJobDetailsResponse"><span class="hs-identifier hs-type">GetJobDetailsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679291407"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.GetJobDetails.html#GetJobDetailsResponse"><span class="hs-identifier hs-type">GetJobDetailsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>
-</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291171"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.GetJobDetails.html#GetJobDetailsResponse"><span class="hs-identifier hs-type">GetJobDetailsResponse</span></a></span></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291405"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.GetJobDetails.html#GetJobDetailsResponse"><span class="hs-identifier hs-type">GetJobDetailsResponse</span></a></span></span><span>
 </span><span id="line-179"></span></pre></body></html>

@@ -36,8 +36,8 @@
 </span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.Types.BasePathMapping.html#newBasePathMapping"><span class="hs-identifier">newBasePathMapping</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.Types.BasePathMapping.html#basePathMapping_basePath"><span class="hs-identifier">basePathMapping_basePath</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.Types.BasePathMapping.html#basePathMapping_stage"><span class="hs-identifier">basePathMapping_stage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.Types.BasePathMapping.html#basePathMapping_stage"><span class="hs-identifier">basePathMapping_stage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.Types.BasePathMapping.html#basePathMapping_basePath"><span class="hs-identifier">basePathMapping_basePath</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.Types.BasePathMapping.html#basePathMapping_restApiId"><span class="hs-identifier">basePathMapping_restApiId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span class="hs-keyword">where</span><span>
@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-comment">-- | A request to change information about the BasePathMapping resource.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- /See:/ 'newUpdateBasePathMapping' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679393917"><span id="local-6989586621679393918"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateBasePathMapping"><span class="annot"><a href="Network.AWS.APIGateway.UpdateBasePathMapping.html#UpdateBasePathMapping"><span class="hs-identifier hs-var">UpdateBasePathMapping</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateBasePathMapping%27"><span class="annot"><a href="Network.AWS.APIGateway.UpdateBasePathMapping.html#UpdateBasePathMapping%27"><span class="hs-identifier hs-var">UpdateBasePathMapping'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679394486"><span id="local-6989586621679394487"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateBasePathMapping"><span class="annot"><a href="Network.AWS.APIGateway.UpdateBasePathMapping.html#UpdateBasePathMapping"><span class="hs-identifier hs-var">UpdateBasePathMapping</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateBasePathMapping%27"><span class="annot"><a href="Network.AWS.APIGateway.UpdateBasePathMapping.html#UpdateBasePathMapping%27"><span class="hs-identifier hs-var">UpdateBasePathMapping'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of update operations to be applied to the specified resource and</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- in the order specified in this list.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3ApatchOperations%3AUpdateBasePathMapping%27"><span class="annot"><span class="annottext">UpdateBasePathMapping -&gt; Maybe [PatchOperation]
@@ -66,7 +66,7 @@
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AbasePath%3AUpdateBasePathMapping%27"><span class="annot"><span class="annottext">UpdateBasePathMapping -&gt; Text
 </span><a href="Network.AWS.APIGateway.UpdateBasePathMapping.html#%24sel%3AbasePath%3AUpdateBasePathMapping%27"><span class="hs-identifier hs-var hs-var">basePath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679393909"><span id="local-6989586621679393911"><span class="annot"><span class="annottext">UpdateBasePathMapping -&gt; UpdateBasePathMapping -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679394478"><span id="local-6989586621679394480"><span class="annot"><span class="annottext">UpdateBasePathMapping -&gt; UpdateBasePathMapping -&gt; Bool
 (UpdateBasePathMapping -&gt; UpdateBasePathMapping -&gt; Bool)
 -&gt; (UpdateBasePathMapping -&gt; UpdateBasePathMapping -&gt; Bool)
 -&gt; Eq UpdateBasePathMapping
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateBasePathMapping -&gt; UpdateBasePathMapping -&gt; Bool
 == :: UpdateBasePathMapping -&gt; UpdateBasePathMapping -&gt; Bool
 $c== :: UpdateBasePathMapping -&gt; UpdateBasePathMapping -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393900"><span id="local-6989586621679393902"><span id="local-6989586621679393904"><span id="local-6989586621679393906"><span class="annot"><span class="annottext">ReadPrec [UpdateBasePathMapping]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394469"><span id="local-6989586621679394471"><span id="local-6989586621679394473"><span id="local-6989586621679394475"><span class="annot"><span class="annottext">ReadPrec [UpdateBasePathMapping]
 ReadPrec UpdateBasePathMapping
 Int -&gt; ReadS UpdateBasePathMapping
 ReadS [UpdateBasePathMapping]
@@ -95,7 +95,7 @@ readList :: ReadS [UpdateBasePathMapping]
 $creadList :: ReadS [UpdateBasePathMapping]
 readsPrec :: Int -&gt; ReadS UpdateBasePathMapping
 $creadsPrec :: Int -&gt; ReadS UpdateBasePathMapping
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393893"><span id="local-6989586621679393895"><span id="local-6989586621679393897"><span class="annot"><span class="annottext">Int -&gt; UpdateBasePathMapping -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394462"><span id="local-6989586621679394464"><span id="local-6989586621679394466"><span class="annot"><span class="annottext">Int -&gt; UpdateBasePathMapping -&gt; ShowS
 [UpdateBasePathMapping] -&gt; ShowS
 UpdateBasePathMapping -&gt; String
 (Int -&gt; UpdateBasePathMapping -&gt; ShowS)
@@ -144,9 +144,9 @@ $cfrom :: forall x. UpdateBasePathMapping -&gt; Rep UpdateBasePathMapping x
 </span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateBasePathMapping.html#UpdateBasePathMapping"><span class="hs-identifier hs-type">UpdateBasePathMapping</span></a></span><span>
 </span><span id="line-90"></span><span id="newUpdateBasePathMapping"><span class="annot"><span class="annottext">newUpdateBasePathMapping :: Text -&gt; Text -&gt; UpdateBasePathMapping
-</span><a href="Network.AWS.APIGateway.UpdateBasePathMapping.html#newUpdateBasePathMapping"><span class="hs-identifier hs-var hs-var">newUpdateBasePathMapping</span></a></span></span><span> </span><span id="local-6989586621679393888"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393888"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span> </span><span id="local-6989586621679393887"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393887"><span class="hs-identifier hs-var">pBasePath_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.APIGateway.UpdateBasePathMapping.html#newUpdateBasePathMapping"><span class="hs-identifier hs-var hs-var">newUpdateBasePathMapping</span></a></span></span><span> </span><span id="local-6989586621679394457"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394457"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span> </span><span id="local-6989586621679394456"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394456"><span class="hs-identifier hs-var">pBasePath_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>  </span><span class="annot"><span class="annottext">UpdateBasePathMapping' :: Maybe [PatchOperation] -&gt; Text -&gt; Text -&gt; UpdateBasePathMapping
 </span><a href="Network.AWS.APIGateway.UpdateBasePathMapping.html#UpdateBasePathMapping%27"><span class="hs-identifier hs-type">UpdateBasePathMapping'</span></a></span><span>
 </span><span id="line-92"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:patchOperations:UpdateBasePathMapping' :: Maybe [PatchOperation]
@@ -156,10 +156,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:domainName:UpdateBasePathMapping' :: Text
 </span><a href="Network.AWS.APIGateway.UpdateBasePathMapping.html#%24sel%3AdomainName%3AUpdateBasePathMapping%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393888"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679394457"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:basePath:UpdateBasePathMapping' :: Text
 </span><a href="Network.AWS.APIGateway.UpdateBasePathMapping.html#%24sel%3AbasePath%3AUpdateBasePathMapping%27"><span class="hs-identifier hs-var">basePath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393887"><span class="hs-identifier hs-var">pBasePath_</span></a></span><span>
+</span><a href="#local-6989586621679394456"><span class="hs-identifier hs-var">pBasePath_</span></a></span><span>
 </span><span id="line-96"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | A list of update operations to be applied to the specified resource and</span><span>
@@ -176,16 +176,16 @@ forall a. Maybe a
      (Maybe [PatchOperation])
      (Maybe [PatchOperation])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateBasePathMapping.html#UpdateBasePathMapping%27"><span class="hs-identifier hs-type">UpdateBasePathMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393884"><span class="annot"><span class="annottext">Maybe [PatchOperation]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateBasePathMapping.html#UpdateBasePathMapping%27"><span class="hs-identifier hs-type">UpdateBasePathMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394453"><span class="annot"><span class="annottext">Maybe [PatchOperation]
 patchOperations :: Maybe [PatchOperation]
 $sel:patchOperations:UpdateBasePathMapping' :: UpdateBasePathMapping -&gt; Maybe [PatchOperation]
-</span><a href="#local-6989586621679393884"><span class="hs-identifier hs-var hs-var">patchOperations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PatchOperation]
-</span><a href="#local-6989586621679393884"><span class="hs-identifier hs-var">patchOperations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393883"><span class="annot"><span class="annottext">s :: UpdateBasePathMapping
-</span><a href="#local-6989586621679393883"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateBasePathMapping.html#UpdateBasePathMapping%27"><span class="hs-identifier hs-type">UpdateBasePathMapping'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393882"><span class="annot"><span class="annottext">Maybe [PatchOperation]
-</span><a href="#local-6989586621679393882"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateBasePathMapping
-</span><a href="#local-6989586621679393883"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:patchOperations:UpdateBasePathMapping' :: Maybe [PatchOperation]
+</span><a href="#local-6989586621679394453"><span class="hs-identifier hs-var hs-var">patchOperations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PatchOperation]
+</span><a href="#local-6989586621679394453"><span class="hs-identifier hs-var">patchOperations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394452"><span class="annot"><span class="annottext">s :: UpdateBasePathMapping
+</span><a href="#local-6989586621679394452"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateBasePathMapping.html#UpdateBasePathMapping%27"><span class="hs-identifier hs-type">UpdateBasePathMapping'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394451"><span class="annot"><span class="annottext">Maybe [PatchOperation]
+</span><a href="#local-6989586621679394451"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateBasePathMapping
+</span><a href="#local-6989586621679394452"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:patchOperations:UpdateBasePathMapping' :: Maybe [PatchOperation]
 </span><a href="Network.AWS.APIGateway.UpdateBasePathMapping.html#%24sel%3ApatchOperations%3AUpdateBasePathMapping%27"><span class="hs-identifier hs-var">patchOperations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PatchOperation]
-</span><a href="#local-6989586621679393882"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateBasePathMapping.html#UpdateBasePathMapping"><span class="hs-identifier hs-type">UpdateBasePathMapping</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PatchOperation] -&gt; f (Maybe [PatchOperation]))
+</span><a href="#local-6989586621679394451"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateBasePathMapping.html#UpdateBasePathMapping"><span class="hs-identifier hs-type">UpdateBasePathMapping</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PatchOperation] -&gt; f (Maybe [PatchOperation]))
  -&gt; UpdateBasePathMapping -&gt; f UpdateBasePathMapping)
 -&gt; ((Maybe [PatchOperation] -&gt; f (Maybe [PatchOperation]))
     -&gt; Maybe [PatchOperation] -&gt; f (Maybe [PatchOperation]))
@@ -205,8 +205,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   [PatchOperation] [PatchOperation] [PatchOperation] [PatchOperation]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | [Required] The domain name of the BasePathMapping resource to change.</span><span>
 </span><span id="line-104"></span><span class="annot"><a href="Network.AWS.APIGateway.UpdateBasePathMapping.html#updateBasePathMapping_domainName"><span class="hs-identifier hs-type">updateBasePathMapping_domainName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateBasePathMapping.html#UpdateBasePathMapping"><span class="hs-identifier hs-type">UpdateBasePathMapping</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -216,16 +216,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (UpdateBasePathMapping -&gt; Text -&gt; UpdateBasePathMapping)
 -&gt; Lens UpdateBasePathMapping UpdateBasePathMapping Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateBasePathMapping.html#UpdateBasePathMapping%27"><span class="hs-identifier hs-type">UpdateBasePathMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393878"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateBasePathMapping.html#UpdateBasePathMapping%27"><span class="hs-identifier hs-type">UpdateBasePathMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394447"><span class="annot"><span class="annottext">Text
 domainName :: Text
 $sel:domainName:UpdateBasePathMapping' :: UpdateBasePathMapping -&gt; Text
-</span><a href="#local-6989586621679393878"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393878"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393877"><span class="annot"><span class="annottext">s :: UpdateBasePathMapping
-</span><a href="#local-6989586621679393877"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateBasePathMapping.html#UpdateBasePathMapping%27"><span class="hs-identifier hs-type">UpdateBasePathMapping'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393876"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393876"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateBasePathMapping
-</span><a href="#local-6989586621679393877"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:UpdateBasePathMapping' :: Text
+</span><a href="#local-6989586621679394447"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394447"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394446"><span class="annot"><span class="annottext">s :: UpdateBasePathMapping
+</span><a href="#local-6989586621679394446"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateBasePathMapping.html#UpdateBasePathMapping%27"><span class="hs-identifier hs-type">UpdateBasePathMapping'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394445"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394445"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateBasePathMapping
+</span><a href="#local-6989586621679394446"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:UpdateBasePathMapping' :: Text
 </span><a href="Network.AWS.APIGateway.UpdateBasePathMapping.html#%24sel%3AdomainName%3AUpdateBasePathMapping%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393876"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateBasePathMapping.html#UpdateBasePathMapping"><span class="hs-identifier hs-type">UpdateBasePathMapping</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394445"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateBasePathMapping.html#UpdateBasePathMapping"><span class="hs-identifier hs-type">UpdateBasePathMapping</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- | [Required] The base path of the BasePathMapping resource to change.</span><span>
 </span><span id="line-108"></span><span class="hs-comment">--</span><span>
@@ -237,27 +237,27 @@ $sel:domainName:UpdateBasePathMapping' :: UpdateBasePathMapping -&gt; Text
 -&gt; (UpdateBasePathMapping -&gt; Text -&gt; UpdateBasePathMapping)
 -&gt; Lens UpdateBasePathMapping UpdateBasePathMapping Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateBasePathMapping.html#UpdateBasePathMapping%27"><span class="hs-identifier hs-type">UpdateBasePathMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393875"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateBasePathMapping.html#UpdateBasePathMapping%27"><span class="hs-identifier hs-type">UpdateBasePathMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394444"><span class="annot"><span class="annottext">Text
 basePath :: Text
 $sel:basePath:UpdateBasePathMapping' :: UpdateBasePathMapping -&gt; Text
-</span><a href="#local-6989586621679393875"><span class="hs-identifier hs-var hs-var">basePath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393875"><span class="hs-identifier hs-var">basePath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393874"><span class="annot"><span class="annottext">s :: UpdateBasePathMapping
-</span><a href="#local-6989586621679393874"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateBasePathMapping.html#UpdateBasePathMapping%27"><span class="hs-identifier hs-type">UpdateBasePathMapping'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393873"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393873"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateBasePathMapping
-</span><a href="#local-6989586621679393874"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:basePath:UpdateBasePathMapping' :: Text
+</span><a href="#local-6989586621679394444"><span class="hs-identifier hs-var hs-var">basePath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394444"><span class="hs-identifier hs-var">basePath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394443"><span class="annot"><span class="annottext">s :: UpdateBasePathMapping
+</span><a href="#local-6989586621679394443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateBasePathMapping.html#UpdateBasePathMapping%27"><span class="hs-identifier hs-type">UpdateBasePathMapping'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394442"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateBasePathMapping
+</span><a href="#local-6989586621679394443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:basePath:UpdateBasePathMapping' :: Text
 </span><a href="Network.AWS.APIGateway.UpdateBasePathMapping.html#%24sel%3AbasePath%3AUpdateBasePathMapping%27"><span class="hs-identifier hs-var">basePath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393873"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateBasePathMapping.html#UpdateBasePathMapping"><span class="hs-identifier hs-type">UpdateBasePathMapping</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateBasePathMapping.html#UpdateBasePathMapping"><span class="hs-identifier hs-type">UpdateBasePathMapping</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateBasePathMapping.html#UpdateBasePathMapping"><span class="hs-identifier hs-type">UpdateBasePathMapping</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-114"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-115"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateBasePathMapping.html#UpdateBasePathMapping"><span class="hs-identifier hs-type">UpdateBasePathMapping</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>      </span><span class="annot"><a href="Network.AWS.APIGateway.Types.BasePathMapping.html#BasePathMapping"><span class="hs-identifier hs-type">BasePathMapping</span></a></span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679393869"><span class="annot"><span class="annottext">request :: UpdateBasePathMapping -&gt; Request UpdateBasePathMapping
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679394438"><span class="annot"><span class="annottext">request :: UpdateBasePathMapping -&gt; Request UpdateBasePathMapping
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateBasePathMapping -&gt; Request UpdateBasePathMapping
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.patchJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.APIGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679393865"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679394434"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateBasePathMapping
 -&gt; ClientResponse ClientBody
@@ -283,20 +283,20 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393862"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393862"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679393861"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679393861"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679393860"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679393860"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String BasePathMapping
+</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394431"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394431"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679394430"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679394430"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679394429"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679394429"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String BasePathMapping
 forall a. FromJSON a =&gt; Object -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679393860"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394429"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393855"><span id="local-6989586621679393857"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateBasePathMapping.html#UpdateBasePathMapping"><span class="hs-identifier hs-type">UpdateBasePathMapping</span></a></span></span></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394424"><span id="local-6989586621679394426"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateBasePathMapping.html#UpdateBasePathMapping"><span class="hs-identifier hs-type">UpdateBasePathMapping</span></a></span></span></span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393852"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateBasePathMapping.html#UpdateBasePathMapping"><span class="hs-identifier hs-type">UpdateBasePathMapping</span></a></span></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394421"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateBasePathMapping.html#UpdateBasePathMapping"><span class="hs-identifier hs-type">UpdateBasePathMapping</span></a></span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateBasePathMapping.html#UpdateBasePathMapping"><span class="hs-identifier hs-type">UpdateBasePathMapping</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679393848"><span class="annot"><span class="annottext">toHeaders :: UpdateBasePathMapping -&gt; ResponseHeaders
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679394417"><span class="annot"><span class="annottext">toHeaders :: UpdateBasePathMapping -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateBasePathMapping -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -313,9 +313,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-132"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393838"><span id="local-6989586621679393840"><span id="local-6989586621679393842"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateBasePathMapping.html#UpdateBasePathMapping"><span class="hs-identifier hs-type">UpdateBasePathMapping</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679393836"><span class="annot"><span class="annottext">toJSON :: UpdateBasePathMapping -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateBasePathMapping.html#UpdateBasePathMapping%27"><span class="hs-identifier hs-type">UpdateBasePathMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393832"><span id="local-6989586621679393833"><span id="local-6989586621679393834"><span class="annot"><span class="annottext">Maybe [PatchOperation]
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394407"><span id="local-6989586621679394409"><span id="local-6989586621679394411"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateBasePathMapping.html#UpdateBasePathMapping"><span class="hs-identifier hs-type">UpdateBasePathMapping</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679394405"><span class="annot"><span class="annottext">toJSON :: UpdateBasePathMapping -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateBasePathMapping.html#UpdateBasePathMapping%27"><span class="hs-identifier hs-type">UpdateBasePathMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394401"><span id="local-6989586621679394402"><span id="local-6989586621679394403"><span class="annot"><span class="annottext">Maybe [PatchOperation]
 Text
 basePath :: Text
 domainName :: Text
@@ -323,7 +323,7 @@ patchOperations :: Maybe [PatchOperation]
 $sel:basePath:UpdateBasePathMapping' :: UpdateBasePathMapping -&gt; Text
 $sel:domainName:UpdateBasePathMapping' :: UpdateBasePathMapping -&gt; Text
 $sel:patchOperations:UpdateBasePathMapping' :: UpdateBasePathMapping -&gt; Maybe [PatchOperation]
-</span><a href="#local-6989586621679393832"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679394401"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -336,13 +336,13 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-140"></span><span>              </span><span class="annot"><span class="annottext">([PatchOperation] -&gt; Pair) -&gt; Maybe [PatchOperation] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PatchOperation]
-</span><a href="#local-6989586621679393834"><span class="hs-identifier hs-var">patchOperations</span></a></span><span>
+</span><a href="#local-6989586621679394403"><span class="hs-identifier hs-var">patchOperations</span></a></span><span>
 </span><span id="line-141"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateBasePathMapping.html#UpdateBasePathMapping"><span class="hs-identifier hs-type">UpdateBasePathMapping</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679393825"><span class="annot"><span class="annottext">toPath :: UpdateBasePathMapping -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateBasePathMapping.html#UpdateBasePathMapping%27"><span class="hs-identifier hs-type">UpdateBasePathMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393821"><span id="local-6989586621679393822"><span id="local-6989586621679393823"><span class="annot"><span class="annottext">Maybe [PatchOperation]
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679394394"><span class="annot"><span class="annottext">toPath :: UpdateBasePathMapping -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateBasePathMapping.html#UpdateBasePathMapping%27"><span class="hs-identifier hs-type">UpdateBasePathMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394390"><span id="local-6989586621679394391"><span id="local-6989586621679394392"><span class="annot"><span class="annottext">Maybe [PatchOperation]
 Text
 basePath :: Text
 domainName :: Text
@@ -350,7 +350,7 @@ patchOperations :: Maybe [PatchOperation]
 $sel:basePath:UpdateBasePathMapping' :: UpdateBasePathMapping -&gt; Text
 $sel:domainName:UpdateBasePathMapping' :: UpdateBasePathMapping -&gt; Text
 $sel:patchOperations:UpdateBasePathMapping' :: UpdateBasePathMapping -&gt; Maybe [PatchOperation]
-</span><a href="#local-6989586621679393821"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679394390"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -359,17 +359,17 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393822"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679394391"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/basepathmappings/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393821"><span class="hs-identifier hs-var">basePath</span></a></span><span>
+</span><a href="#local-6989586621679394390"><span class="hs-identifier hs-var">basePath</span></a></span><span>
 </span><span id="line-151"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateBasePathMapping.html#UpdateBasePathMapping"><span class="hs-identifier hs-type">UpdateBasePathMapping</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679393817"><span class="annot"><span class="annottext">toQuery :: UpdateBasePathMapping -&gt; QueryString
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679394386"><span class="annot"><span class="annottext">toQuery :: UpdateBasePathMapping -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateBasePathMapping -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString

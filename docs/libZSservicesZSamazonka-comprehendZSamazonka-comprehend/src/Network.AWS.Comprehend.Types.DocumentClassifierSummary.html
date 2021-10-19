@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Describes information about a document classifier and its versions.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newDocumentClassifierSummary' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679345558"><span id="local-6989586621679345559"></span></span><span class="hs-keyword">data</span><span> </span><span id="DocumentClassifierSummary"><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#DocumentClassifierSummary"><span class="hs-identifier hs-var">DocumentClassifierSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DocumentClassifierSummary%27"><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#DocumentClassifierSummary%27"><span class="hs-identifier hs-var">DocumentClassifierSummary'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679345825"><span id="local-6989586621679345826"></span></span><span class="hs-keyword">data</span><span> </span><span id="DocumentClassifierSummary"><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#DocumentClassifierSummary"><span class="hs-identifier hs-var">DocumentClassifierSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DocumentClassifierSummary%27"><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#DocumentClassifierSummary%27"><span class="hs-identifier hs-var">DocumentClassifierSummary'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time that the latest document classifier version was submitted for</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- processing.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AlatestVersionCreatedAt%3ADocumentClassifierSummary%27"><span class="annot"><span class="annottext">DocumentClassifierSummary -&gt; Maybe POSIX
@@ -35,17 +35,17 @@
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The name that you assigned the document classifier.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AdocumentClassifierName%3ADocumentClassifierSummary%27"><span class="annot"><span class="annottext">DocumentClassifierSummary -&gt; Maybe Text
 </span><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#%24sel%3AdocumentClassifierName%3ADocumentClassifierSummary%27"><span class="hs-identifier hs-var hs-var">documentClassifierName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The version name you assigned to the latest document classifier version.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AlatestVersionName%3ADocumentClassifierSummary%27"><span class="annot"><span class="annottext">DocumentClassifierSummary -&gt; Maybe Text
-</span><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#%24sel%3AlatestVersionName%3ADocumentClassifierSummary%27"><span class="hs-identifier hs-var hs-var">latestVersionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Provides the status of the latest document classifier version.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AlatestVersionStatus%3ADocumentClassifierSummary%27"><span class="annot"><span class="annottext">DocumentClassifierSummary -&gt; Maybe ModelStatus
+</span><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#%24sel%3AlatestVersionStatus%3ADocumentClassifierSummary%27"><span class="hs-identifier hs-var hs-var">latestVersionStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.ModelStatus.html#ModelStatus"><span class="hs-identifier hs-type">ModelStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The number of versions you created.</span><span>
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3AnumberOfVersions%3ADocumentClassifierSummary%27"><span class="annot"><span class="annottext">DocumentClassifierSummary -&gt; Maybe Int
 </span><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#%24sel%3AnumberOfVersions%3ADocumentClassifierSummary%27"><span class="hs-identifier hs-var hs-var">numberOfVersions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Provides the status of the latest document classifier version.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AlatestVersionStatus%3ADocumentClassifierSummary%27"><span class="annot"><span class="annottext">DocumentClassifierSummary -&gt; Maybe ModelStatus
-</span><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#%24sel%3AlatestVersionStatus%3ADocumentClassifierSummary%27"><span class="hs-identifier hs-var hs-var">latestVersionStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.ModelStatus.html#ModelStatus"><span class="hs-identifier hs-type">ModelStatus</span></a></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The version name you assigned to the latest document classifier version.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AlatestVersionName%3ADocumentClassifierSummary%27"><span class="annot"><span class="annottext">DocumentClassifierSummary -&gt; Maybe Text
+</span><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#%24sel%3AlatestVersionName%3ADocumentClassifierSummary%27"><span class="hs-identifier hs-var hs-var">latestVersionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679345548"><span id="local-6989586621679345550"><span class="annot"><span class="annottext">DocumentClassifierSummary -&gt; DocumentClassifierSummary -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679345815"><span id="local-6989586621679345817"><span class="annot"><span class="annottext">DocumentClassifierSummary -&gt; DocumentClassifierSummary -&gt; Bool
 (DocumentClassifierSummary -&gt; DocumentClassifierSummary -&gt; Bool)
 -&gt; (DocumentClassifierSummary -&gt; DocumentClassifierSummary -&gt; Bool)
 -&gt; Eq DocumentClassifierSummary
@@ -54,7 +54,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DocumentClassifierSummary -&gt; DocumentClassifierSummary -&gt; Bool
 == :: DocumentClassifierSummary -&gt; DocumentClassifierSummary -&gt; Bool
 $c== :: DocumentClassifierSummary -&gt; DocumentClassifierSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345539"><span id="local-6989586621679345541"><span id="local-6989586621679345543"><span id="local-6989586621679345545"><span class="annot"><span class="annottext">ReadPrec [DocumentClassifierSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345806"><span id="local-6989586621679345808"><span id="local-6989586621679345810"><span id="local-6989586621679345812"><span class="annot"><span class="annottext">ReadPrec [DocumentClassifierSummary]
 ReadPrec DocumentClassifierSummary
 Int -&gt; ReadS DocumentClassifierSummary
 ReadS [DocumentClassifierSummary]
@@ -74,7 +74,7 @@ readList :: ReadS [DocumentClassifierSummary]
 $creadList :: ReadS [DocumentClassifierSummary]
 readsPrec :: Int -&gt; ReadS DocumentClassifierSummary
 $creadsPrec :: Int -&gt; ReadS DocumentClassifierSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345532"><span id="local-6989586621679345534"><span id="local-6989586621679345536"><span class="annot"><span class="annottext">Int -&gt; DocumentClassifierSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345799"><span id="local-6989586621679345801"><span id="local-6989586621679345803"><span class="annot"><span class="annottext">Int -&gt; DocumentClassifierSummary -&gt; ShowS
 [DocumentClassifierSummary] -&gt; ShowS
 DocumentClassifierSummary -&gt; String
 (Int -&gt; DocumentClassifierSummary -&gt; ShowS)
@@ -119,20 +119,20 @@ DocumentClassifierSummary -&gt; Rep DocumentClassifierSummary x
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- 'documentClassifierName', 'documentClassifierSummary_documentClassifierName' - The name that you assigned the document classifier.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'latestVersionName', 'documentClassifierSummary_latestVersionName' - The version name you assigned to the latest document classifier version.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'latestVersionStatus', 'documentClassifierSummary_latestVersionStatus' - Provides the status of the latest document classifier version.</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- 'numberOfVersions', 'documentClassifierSummary_numberOfVersions' - The number of versions you created.</span><span>
 </span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'latestVersionStatus', 'documentClassifierSummary_latestVersionStatus' - Provides the status of the latest document classifier version.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'latestVersionName', 'documentClassifierSummary_latestVersionName' - The version name you assigned to the latest document classifier version.</span><span>
 </span><span id="line-63"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#newDocumentClassifierSummary"><span class="hs-identifier hs-type">newDocumentClassifierSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#DocumentClassifierSummary"><span class="hs-identifier hs-type">DocumentClassifierSummary</span></a></span><span>
 </span><span id="line-65"></span><span id="newDocumentClassifierSummary"><span class="annot"><span class="annottext">newDocumentClassifierSummary :: DocumentClassifierSummary
 </span><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#newDocumentClassifierSummary"><span class="hs-identifier hs-var hs-var">newDocumentClassifierSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>  </span><span class="annot"><span class="annottext">DocumentClassifierSummary' :: Maybe POSIX
 -&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Int
 -&gt; Maybe ModelStatus
+-&gt; Maybe Int
+-&gt; Maybe Text
 -&gt; DocumentClassifierSummary
 </span><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#DocumentClassifierSummary%27"><span class="hs-identifier hs-type">DocumentClassifierSummary'</span></a></span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:latestVersionCreatedAt:DocumentClassifierSummary' :: Maybe POSIX
@@ -144,16 +144,16 @@ forall a. Maybe a
 </span><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#%24sel%3AdocumentClassifierName%3ADocumentClassifierSummary%27"><span class="hs-identifier hs-var">documentClassifierName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:latestVersionName:DocumentClassifierSummary' :: Maybe Text
-</span><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#%24sel%3AlatestVersionName%3ADocumentClassifierSummary%27"><span class="hs-identifier hs-var">latestVersionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:latestVersionStatus:DocumentClassifierSummary' :: Maybe ModelStatus
+</span><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#%24sel%3AlatestVersionStatus%3ADocumentClassifierSummary%27"><span class="hs-identifier hs-var">latestVersionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ModelStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:numberOfVersions:DocumentClassifierSummary' :: Maybe Int
 </span><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#%24sel%3AnumberOfVersions%3ADocumentClassifierSummary%27"><span class="hs-identifier hs-var">numberOfVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:latestVersionStatus:DocumentClassifierSummary' :: Maybe ModelStatus
-</span><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#%24sel%3AlatestVersionStatus%3ADocumentClassifierSummary%27"><span class="hs-identifier hs-var">latestVersionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ModelStatus
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:latestVersionName:DocumentClassifierSummary' :: Maybe Text
+</span><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#%24sel%3AlatestVersionName%3ADocumentClassifierSummary%27"><span class="hs-identifier hs-var">latestVersionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
@@ -172,16 +172,16 @@ forall a. Maybe a
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#DocumentClassifierSummary%27"><span class="hs-identifier hs-type">DocumentClassifierSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345523"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#DocumentClassifierSummary%27"><span class="hs-identifier hs-type">DocumentClassifierSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345790"><span class="annot"><span class="annottext">Maybe POSIX
 latestVersionCreatedAt :: Maybe POSIX
 $sel:latestVersionCreatedAt:DocumentClassifierSummary' :: DocumentClassifierSummary -&gt; Maybe POSIX
-</span><a href="#local-6989586621679345523"><span class="hs-identifier hs-var hs-var">latestVersionCreatedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679345523"><span class="hs-identifier hs-var">latestVersionCreatedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345522"><span class="annot"><span class="annottext">s :: DocumentClassifierSummary
-</span><a href="#local-6989586621679345522"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#DocumentClassifierSummary%27"><span class="hs-identifier hs-type">DocumentClassifierSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345521"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679345521"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentClassifierSummary
-</span><a href="#local-6989586621679345522"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:latestVersionCreatedAt:DocumentClassifierSummary' :: Maybe POSIX
+</span><a href="#local-6989586621679345790"><span class="hs-identifier hs-var hs-var">latestVersionCreatedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679345790"><span class="hs-identifier hs-var">latestVersionCreatedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345789"><span class="annot"><span class="annottext">s :: DocumentClassifierSummary
+</span><a href="#local-6989586621679345789"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#DocumentClassifierSummary%27"><span class="hs-identifier hs-type">DocumentClassifierSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345788"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679345788"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentClassifierSummary
+</span><a href="#local-6989586621679345789"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:latestVersionCreatedAt:DocumentClassifierSummary' :: Maybe POSIX
 </span><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#%24sel%3AlatestVersionCreatedAt%3ADocumentClassifierSummary%27"><span class="hs-identifier hs-var">latestVersionCreatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679345521"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#DocumentClassifierSummary"><span class="hs-identifier hs-type">DocumentClassifierSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679345788"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#DocumentClassifierSummary"><span class="hs-identifier hs-type">DocumentClassifierSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; DocumentClassifierSummary -&gt; f DocumentClassifierSummary)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -211,40 +211,40 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#DocumentClassifierSummary%27"><span class="hs-identifier hs-type">DocumentClassifierSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345516"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#DocumentClassifierSummary%27"><span class="hs-identifier hs-type">DocumentClassifierSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345783"><span class="annot"><span class="annottext">Maybe Text
 documentClassifierName :: Maybe Text
 $sel:documentClassifierName:DocumentClassifierSummary' :: DocumentClassifierSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679345516"><span class="hs-identifier hs-var hs-var">documentClassifierName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679345516"><span class="hs-identifier hs-var">documentClassifierName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345515"><span class="annot"><span class="annottext">s :: DocumentClassifierSummary
-</span><a href="#local-6989586621679345515"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#DocumentClassifierSummary%27"><span class="hs-identifier hs-type">DocumentClassifierSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345514"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679345514"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentClassifierSummary
-</span><a href="#local-6989586621679345515"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documentClassifierName:DocumentClassifierSummary' :: Maybe Text
+</span><a href="#local-6989586621679345783"><span class="hs-identifier hs-var hs-var">documentClassifierName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679345783"><span class="hs-identifier hs-var">documentClassifierName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345782"><span class="annot"><span class="annottext">s :: DocumentClassifierSummary
+</span><a href="#local-6989586621679345782"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#DocumentClassifierSummary%27"><span class="hs-identifier hs-type">DocumentClassifierSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345781"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679345781"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentClassifierSummary
+</span><a href="#local-6989586621679345782"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documentClassifierName:DocumentClassifierSummary' :: Maybe Text
 </span><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#%24sel%3AdocumentClassifierName%3ADocumentClassifierSummary%27"><span class="hs-identifier hs-var">documentClassifierName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679345514"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#DocumentClassifierSummary"><span class="hs-identifier hs-type">DocumentClassifierSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679345781"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#DocumentClassifierSummary"><span class="hs-identifier hs-type">DocumentClassifierSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- | The version name you assigned to the latest document classifier version.</span><span>
-</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#documentClassifierSummary_latestVersionName"><span class="hs-identifier hs-type">documentClassifierSummary_latestVersionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#DocumentClassifierSummary"><span class="hs-identifier hs-type">DocumentClassifierSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span id="documentClassifierSummary_latestVersionName"><span class="annot"><span class="annottext">documentClassifierSummary_latestVersionName :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-84"></span><span class="hs-comment">-- | Provides the status of the latest document classifier version.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#documentClassifierSummary_latestVersionStatus"><span class="hs-identifier hs-type">documentClassifierSummary_latestVersionStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#DocumentClassifierSummary"><span class="hs-identifier hs-type">DocumentClassifierSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.ModelStatus.html#ModelStatus"><span class="hs-identifier hs-type">ModelStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="documentClassifierSummary_latestVersionStatus"><span class="annot"><span class="annottext">documentClassifierSummary_latestVersionStatus :: (Maybe ModelStatus -&gt; f (Maybe ModelStatus))
 -&gt; DocumentClassifierSummary -&gt; f DocumentClassifierSummary
-</span><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#documentClassifierSummary_latestVersionName"><span class="hs-identifier hs-var hs-var">documentClassifierSummary_latestVersionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DocumentClassifierSummary -&gt; Maybe Text)
+</span><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#documentClassifierSummary_latestVersionStatus"><span class="hs-identifier hs-var hs-var">documentClassifierSummary_latestVersionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DocumentClassifierSummary -&gt; Maybe ModelStatus)
 -&gt; (DocumentClassifierSummary
-    -&gt; Maybe Text -&gt; DocumentClassifierSummary)
+    -&gt; Maybe ModelStatus -&gt; DocumentClassifierSummary)
 -&gt; Lens
      DocumentClassifierSummary
      DocumentClassifierSummary
-     (Maybe Text)
-     (Maybe Text)
+     (Maybe ModelStatus)
+     (Maybe ModelStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#DocumentClassifierSummary%27"><span class="hs-identifier hs-type">DocumentClassifierSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345512"><span class="annot"><span class="annottext">Maybe Text
-latestVersionName :: Maybe Text
-$sel:latestVersionName:DocumentClassifierSummary' :: DocumentClassifierSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679345512"><span class="hs-identifier hs-var hs-var">latestVersionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679345512"><span class="hs-identifier hs-var">latestVersionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345511"><span class="annot"><span class="annottext">s :: DocumentClassifierSummary
-</span><a href="#local-6989586621679345511"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#DocumentClassifierSummary%27"><span class="hs-identifier hs-type">DocumentClassifierSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345510"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679345510"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentClassifierSummary
-</span><a href="#local-6989586621679345511"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:latestVersionName:DocumentClassifierSummary' :: Maybe Text
-</span><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#%24sel%3AlatestVersionName%3ADocumentClassifierSummary%27"><span class="hs-identifier hs-var">latestVersionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679345510"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#DocumentClassifierSummary"><span class="hs-identifier hs-type">DocumentClassifierSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#DocumentClassifierSummary%27"><span class="hs-identifier hs-type">DocumentClassifierSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345779"><span class="annot"><span class="annottext">Maybe ModelStatus
+latestVersionStatus :: Maybe ModelStatus
+$sel:latestVersionStatus:DocumentClassifierSummary' :: DocumentClassifierSummary -&gt; Maybe ModelStatus
+</span><a href="#local-6989586621679345779"><span class="hs-identifier hs-var hs-var">latestVersionStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ModelStatus
+</span><a href="#local-6989586621679345779"><span class="hs-identifier hs-var">latestVersionStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345778"><span class="annot"><span class="annottext">s :: DocumentClassifierSummary
+</span><a href="#local-6989586621679345778"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#DocumentClassifierSummary%27"><span class="hs-identifier hs-type">DocumentClassifierSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345777"><span class="annot"><span class="annottext">Maybe ModelStatus
+</span><a href="#local-6989586621679345777"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentClassifierSummary
+</span><a href="#local-6989586621679345778"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:latestVersionStatus:DocumentClassifierSummary' :: Maybe ModelStatus
+</span><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#%24sel%3AlatestVersionStatus%3ADocumentClassifierSummary%27"><span class="hs-identifier hs-var">latestVersionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ModelStatus
+</span><a href="#local-6989586621679345777"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#DocumentClassifierSummary"><span class="hs-identifier hs-type">DocumentClassifierSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | The number of versions you created.</span><span>
 </span><span id="line-89"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#documentClassifierSummary_numberOfVersions"><span class="hs-identifier hs-type">documentClassifierSummary_numberOfVersions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#DocumentClassifierSummary"><span class="hs-identifier hs-type">DocumentClassifierSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
@@ -259,43 +259,43 @@ $sel:latestVersionName:DocumentClassifierSummary' :: DocumentClassifierSummary -
      (Maybe Int)
      (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#DocumentClassifierSummary%27"><span class="hs-identifier hs-type">DocumentClassifierSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345508"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#DocumentClassifierSummary%27"><span class="hs-identifier hs-type">DocumentClassifierSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345775"><span class="annot"><span class="annottext">Maybe Int
 numberOfVersions :: Maybe Int
 $sel:numberOfVersions:DocumentClassifierSummary' :: DocumentClassifierSummary -&gt; Maybe Int
-</span><a href="#local-6989586621679345508"><span class="hs-identifier hs-var hs-var">numberOfVersions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679345508"><span class="hs-identifier hs-var">numberOfVersions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345507"><span class="annot"><span class="annottext">s :: DocumentClassifierSummary
-</span><a href="#local-6989586621679345507"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#DocumentClassifierSummary%27"><span class="hs-identifier hs-type">DocumentClassifierSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345506"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679345506"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentClassifierSummary
-</span><a href="#local-6989586621679345507"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfVersions:DocumentClassifierSummary' :: Maybe Int
+</span><a href="#local-6989586621679345775"><span class="hs-identifier hs-var hs-var">numberOfVersions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679345775"><span class="hs-identifier hs-var">numberOfVersions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345774"><span class="annot"><span class="annottext">s :: DocumentClassifierSummary
+</span><a href="#local-6989586621679345774"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#DocumentClassifierSummary%27"><span class="hs-identifier hs-type">DocumentClassifierSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345773"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679345773"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentClassifierSummary
+</span><a href="#local-6989586621679345774"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfVersions:DocumentClassifierSummary' :: Maybe Int
 </span><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#%24sel%3AnumberOfVersions%3ADocumentClassifierSummary%27"><span class="hs-identifier hs-var">numberOfVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679345506"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#DocumentClassifierSummary"><span class="hs-identifier hs-type">DocumentClassifierSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679345773"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#DocumentClassifierSummary"><span class="hs-identifier hs-type">DocumentClassifierSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- | Provides the status of the latest document classifier version.</span><span>
-</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#documentClassifierSummary_latestVersionStatus"><span class="hs-identifier hs-type">documentClassifierSummary_latestVersionStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#DocumentClassifierSummary"><span class="hs-identifier hs-type">DocumentClassifierSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.ModelStatus.html#ModelStatus"><span class="hs-identifier hs-type">ModelStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span id="documentClassifierSummary_latestVersionStatus"><span class="annot"><span class="annottext">documentClassifierSummary_latestVersionStatus :: (Maybe ModelStatus -&gt; f (Maybe ModelStatus))
+</span><span id="line-92"></span><span class="hs-comment">-- | The version name you assigned to the latest document classifier version.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#documentClassifierSummary_latestVersionName"><span class="hs-identifier hs-type">documentClassifierSummary_latestVersionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#DocumentClassifierSummary"><span class="hs-identifier hs-type">DocumentClassifierSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="documentClassifierSummary_latestVersionName"><span class="annot"><span class="annottext">documentClassifierSummary_latestVersionName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DocumentClassifierSummary -&gt; f DocumentClassifierSummary
-</span><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#documentClassifierSummary_latestVersionStatus"><span class="hs-identifier hs-var hs-var">documentClassifierSummary_latestVersionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DocumentClassifierSummary -&gt; Maybe ModelStatus)
+</span><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#documentClassifierSummary_latestVersionName"><span class="hs-identifier hs-var hs-var">documentClassifierSummary_latestVersionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DocumentClassifierSummary -&gt; Maybe Text)
 -&gt; (DocumentClassifierSummary
-    -&gt; Maybe ModelStatus -&gt; DocumentClassifierSummary)
+    -&gt; Maybe Text -&gt; DocumentClassifierSummary)
 -&gt; Lens
      DocumentClassifierSummary
      DocumentClassifierSummary
-     (Maybe ModelStatus)
-     (Maybe ModelStatus)
+     (Maybe Text)
+     (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#DocumentClassifierSummary%27"><span class="hs-identifier hs-type">DocumentClassifierSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345504"><span class="annot"><span class="annottext">Maybe ModelStatus
-latestVersionStatus :: Maybe ModelStatus
-$sel:latestVersionStatus:DocumentClassifierSummary' :: DocumentClassifierSummary -&gt; Maybe ModelStatus
-</span><a href="#local-6989586621679345504"><span class="hs-identifier hs-var hs-var">latestVersionStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ModelStatus
-</span><a href="#local-6989586621679345504"><span class="hs-identifier hs-var">latestVersionStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345503"><span class="annot"><span class="annottext">s :: DocumentClassifierSummary
-</span><a href="#local-6989586621679345503"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#DocumentClassifierSummary%27"><span class="hs-identifier hs-type">DocumentClassifierSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345502"><span class="annot"><span class="annottext">Maybe ModelStatus
-</span><a href="#local-6989586621679345502"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentClassifierSummary
-</span><a href="#local-6989586621679345503"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:latestVersionStatus:DocumentClassifierSummary' :: Maybe ModelStatus
-</span><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#%24sel%3AlatestVersionStatus%3ADocumentClassifierSummary%27"><span class="hs-identifier hs-var">latestVersionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ModelStatus
-</span><a href="#local-6989586621679345502"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#DocumentClassifierSummary"><span class="hs-identifier hs-type">DocumentClassifierSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#DocumentClassifierSummary%27"><span class="hs-identifier hs-type">DocumentClassifierSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345771"><span class="annot"><span class="annottext">Maybe Text
+latestVersionName :: Maybe Text
+$sel:latestVersionName:DocumentClassifierSummary' :: DocumentClassifierSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679345771"><span class="hs-identifier hs-var hs-var">latestVersionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679345771"><span class="hs-identifier hs-var">latestVersionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345770"><span class="annot"><span class="annottext">s :: DocumentClassifierSummary
+</span><a href="#local-6989586621679345770"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#DocumentClassifierSummary%27"><span class="hs-identifier hs-type">DocumentClassifierSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345769"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679345769"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentClassifierSummary
+</span><a href="#local-6989586621679345770"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:latestVersionName:DocumentClassifierSummary' :: Maybe Text
+</span><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#%24sel%3AlatestVersionName%3ADocumentClassifierSummary%27"><span class="hs-identifier hs-var">latestVersionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679345769"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#DocumentClassifierSummary"><span class="hs-identifier hs-type">DocumentClassifierSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345499"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#DocumentClassifierSummary"><span class="hs-identifier hs-type">DocumentClassifierSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679345497"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DocumentClassifierSummary
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345766"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#DocumentClassifierSummary"><span class="hs-identifier hs-type">DocumentClassifierSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679345764"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DocumentClassifierSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DocumentClassifierSummary)
@@ -305,83 +305,81 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DocumentClassifierSummary&quot;</span></span><span>
-</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679345494"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679345494"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679345761"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679345761"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
 -&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Int
 -&gt; Maybe ModelStatus
+-&gt; Maybe Int
+-&gt; Maybe Text
 -&gt; DocumentClassifierSummary
 </span><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#DocumentClassifierSummary%27"><span class="hs-identifier hs-var">DocumentClassifierSummary'</span></a></span><span>
 </span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
  -&gt; Maybe Text
- -&gt; Maybe Text
- -&gt; Maybe Int
  -&gt; Maybe ModelStatus
+ -&gt; Maybe Int
+ -&gt; Maybe Text
  -&gt; DocumentClassifierSummary)
 -&gt; Parser (Maybe POSIX)
 -&gt; Parser
      (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Int
       -&gt; Maybe ModelStatus
+      -&gt; Maybe Int
+      -&gt; Maybe Text
       -&gt; DocumentClassifierSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679345494"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679345761"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LatestVersionCreatedAt&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Int
    -&gt; Maybe ModelStatus
+   -&gt; Maybe Int
+   -&gt; Maybe Text
    -&gt; DocumentClassifierSummary)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Int -&gt; Maybe ModelStatus -&gt; DocumentClassifierSummary)
+     (Maybe ModelStatus
+      -&gt; Maybe Int -&gt; Maybe Text -&gt; DocumentClassifierSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679345494"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679345761"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DocumentClassifierName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Int -&gt; Maybe ModelStatus -&gt; DocumentClassifierSummary)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Int -&gt; Maybe ModelStatus -&gt; DocumentClassifierSummary)
+  (Maybe ModelStatus
+   -&gt; Maybe Int -&gt; Maybe Text -&gt; DocumentClassifierSummary)
+-&gt; Parser (Maybe ModelStatus)
+-&gt; Parser (Maybe Int -&gt; Maybe Text -&gt; DocumentClassifierSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679345494"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LatestVersionName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Int -&gt; Maybe ModelStatus -&gt; DocumentClassifierSummary)
--&gt; Parser (Maybe Int)
--&gt; Parser (Maybe ModelStatus -&gt; DocumentClassifierSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679345494"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NumberOfVersions&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ModelStatus -&gt; DocumentClassifierSummary)
--&gt; Parser (Maybe ModelStatus) -&gt; Parser DocumentClassifierSummary
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679345494"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ModelStatus)
+</span><a href="#local-6989586621679345761"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ModelStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LatestVersionStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; Maybe Text -&gt; DocumentClassifierSummary)
+-&gt; Parser (Maybe Int)
+-&gt; Parser (Maybe Text -&gt; DocumentClassifierSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679345761"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NumberOfVersions&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; DocumentClassifierSummary)
+-&gt; Parser (Maybe Text) -&gt; Parser DocumentClassifierSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679345761"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LatestVersionName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345488"><span id="local-6989586621679345490"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#DocumentClassifierSummary"><span class="hs-identifier hs-type">DocumentClassifierSummary</span></a></span></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345755"><span id="local-6989586621679345757"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#DocumentClassifierSummary"><span class="hs-identifier hs-type">DocumentClassifierSummary</span></a></span></span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345485"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#DocumentClassifierSummary"><span class="hs-identifier hs-type">DocumentClassifierSummary</span></a></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345752"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierSummary.html#DocumentClassifierSummary"><span class="hs-identifier hs-type">DocumentClassifierSummary</span></a></span></span><span>
 </span><span id="line-112"></span></pre></body></html>

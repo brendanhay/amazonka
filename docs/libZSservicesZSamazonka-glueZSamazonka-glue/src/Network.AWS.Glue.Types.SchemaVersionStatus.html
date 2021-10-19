@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679696297"><span id="local-6989586621679696298"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SchemaVersionStatus"><span class="annot"><a href="Network.AWS.Glue.Types.SchemaVersionStatus.html#SchemaVersionStatus"><span class="hs-identifier hs-var">SchemaVersionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SchemaVersionStatus%27"><span class="annot"><a href="Network.AWS.Glue.Types.SchemaVersionStatus.html#SchemaVersionStatus%27"><span class="hs-identifier hs-var">SchemaVersionStatus'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679697990"><span id="local-6989586621679697991"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SchemaVersionStatus"><span class="annot"><a href="Network.AWS.Glue.Types.SchemaVersionStatus.html#SchemaVersionStatus"><span class="hs-identifier hs-var">SchemaVersionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SchemaVersionStatus%27"><span class="annot"><a href="Network.AWS.Glue.Types.SchemaVersionStatus.html#SchemaVersionStatus%27"><span class="hs-identifier hs-var">SchemaVersionStatus'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSchemaVersionStatus"><span class="annot"><span class="annottext">SchemaVersionStatus -&gt; Text
 </span><a href="Network.AWS.Glue.Types.SchemaVersionStatus.html#fromSchemaVersionStatus"><span class="hs-identifier hs-var hs-var">fromSchemaVersionStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679696289"><span id="local-6989586621679696291"><span id="local-6989586621679696293"><span class="annot"><span class="annottext">Int -&gt; SchemaVersionStatus -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679697982"><span id="local-6989586621679697984"><span id="local-6989586621679697986"><span class="annot"><span class="annottext">Int -&gt; SchemaVersionStatus -&gt; ShowS
 [SchemaVersionStatus] -&gt; ShowS
 SchemaVersionStatus -&gt; String
 (Int -&gt; SchemaVersionStatus -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: SchemaVersionStatus -&gt; String
 showsPrec :: Int -&gt; SchemaVersionStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; SchemaVersionStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679696280"><span id="local-6989586621679696282"><span id="local-6989586621679696284"><span id="local-6989586621679696286"><span class="annot"><span class="annottext">ReadPrec [SchemaVersionStatus]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679697973"><span id="local-6989586621679697975"><span id="local-6989586621679697977"><span id="local-6989586621679697979"><span class="annot"><span class="annottext">ReadPrec [SchemaVersionStatus]
 ReadPrec SchemaVersionStatus
 Int -&gt; ReadS SchemaVersionStatus
 ReadS [SchemaVersionStatus]
@@ -74,7 +74,7 @@ $creadList :: ReadS [SchemaVersionStatus]
 readsPrec :: Int -&gt; ReadS SchemaVersionStatus
 $creadsPrec :: Int -&gt; ReadS SchemaVersionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679696275"><span id="local-6989586621679696277"><span class="annot"><span class="annottext">SchemaVersionStatus -&gt; SchemaVersionStatus -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679697968"><span id="local-6989586621679697970"><span class="annot"><span class="annottext">SchemaVersionStatus -&gt; SchemaVersionStatus -&gt; Bool
 (SchemaVersionStatus -&gt; SchemaVersionStatus -&gt; Bool)
 -&gt; (SchemaVersionStatus -&gt; SchemaVersionStatus -&gt; Bool)
 -&gt; Eq SchemaVersionStatus
@@ -84,7 +84,7 @@ $c/= :: SchemaVersionStatus -&gt; SchemaVersionStatus -&gt; Bool
 == :: SchemaVersionStatus -&gt; SchemaVersionStatus -&gt; Bool
 $c== :: SchemaVersionStatus -&gt; SchemaVersionStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679696259"><span id="local-6989586621679696261"><span id="local-6989586621679696263"><span id="local-6989586621679696265"><span id="local-6989586621679696267"><span id="local-6989586621679696269"><span id="local-6989586621679696271"><span class="annot"><span class="annottext">Eq SchemaVersionStatus
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679697952"><span id="local-6989586621679697954"><span id="local-6989586621679697956"><span id="local-6989586621679697958"><span id="local-6989586621679697960"><span id="local-6989586621679697962"><span id="local-6989586621679697964"><span class="annot"><span class="annottext">Eq SchemaVersionStatus
 Eq SchemaVersionStatus
 -&gt; (SchemaVersionStatus -&gt; SchemaVersionStatus -&gt; Ordering)
 -&gt; (SchemaVersionStatus -&gt; SchemaVersionStatus -&gt; Bool)
@@ -137,7 +137,7 @@ $cfrom :: forall x. SchemaVersionStatus -&gt; Rep SchemaVersionStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679696251"><span id="local-6989586621679696253"><span class="annot"><span class="annottext">Int -&gt; SchemaVersionStatus -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679697944"><span id="local-6989586621679697946"><span class="annot"><span class="annottext">Int -&gt; SchemaVersionStatus -&gt; Int
 SchemaVersionStatus -&gt; Int
 (Int -&gt; SchemaVersionStatus -&gt; Int)
 -&gt; (SchemaVersionStatus -&gt; Int) -&gt; Hashable SchemaVersionStatus
@@ -147,53 +147,53 @@ $chash :: SchemaVersionStatus -&gt; Int
 hashWithSalt :: Int -&gt; SchemaVersionStatus -&gt; Int
 $chashWithSalt :: Int -&gt; SchemaVersionStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679696248"><span class="annot"><span class="annottext">SchemaVersionStatus -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679697941"><span class="annot"><span class="annottext">SchemaVersionStatus -&gt; ()
 (SchemaVersionStatus -&gt; ()) -&gt; NFData SchemaVersionStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: SchemaVersionStatus -&gt; ()
 $crnf :: SchemaVersionStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679696245"><span class="annot"><span class="annottext">Text -&gt; Either String SchemaVersionStatus
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679697938"><span class="annot"><span class="annottext">Text -&gt; Either String SchemaVersionStatus
 (Text -&gt; Either String SchemaVersionStatus)
 -&gt; FromText SchemaVersionStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String SchemaVersionStatus
 $cfromText :: Text -&gt; Either String SchemaVersionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679696242"><span class="annot"><span class="annottext">SchemaVersionStatus -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679697935"><span class="annot"><span class="annottext">SchemaVersionStatus -&gt; Text
 (SchemaVersionStatus -&gt; Text) -&gt; ToText SchemaVersionStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: SchemaVersionStatus -&gt; Text
 $ctoText :: SchemaVersionStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679696239"><span class="annot"><span class="annottext">SchemaVersionStatus -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679697932"><span class="annot"><span class="annottext">SchemaVersionStatus -&gt; ByteString
 (SchemaVersionStatus -&gt; ByteString)
 -&gt; ToByteString SchemaVersionStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: SchemaVersionStatus -&gt; ByteString
 $ctoBS :: SchemaVersionStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679696236"><span class="annot"><span class="annottext">SchemaVersionStatus -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679697929"><span class="annot"><span class="annottext">SchemaVersionStatus -&gt; ByteStringBuilder
 (SchemaVersionStatus -&gt; ByteStringBuilder)
 -&gt; ToLog SchemaVersionStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: SchemaVersionStatus -&gt; ByteStringBuilder
 $cbuild :: SchemaVersionStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679696233"><span class="annot"><span class="annottext">HeaderName -&gt; SchemaVersionStatus -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679697926"><span class="annot"><span class="annottext">HeaderName -&gt; SchemaVersionStatus -&gt; [Header]
 (HeaderName -&gt; SchemaVersionStatus -&gt; [Header])
 -&gt; ToHeader SchemaVersionStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; SchemaVersionStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; SchemaVersionStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679696230"><span class="annot"><span class="annottext">SchemaVersionStatus -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679697923"><span class="annot"><span class="annottext">SchemaVersionStatus -&gt; QueryString
 (SchemaVersionStatus -&gt; QueryString) -&gt; ToQuery SchemaVersionStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: SchemaVersionStatus -&gt; QueryString
 $ctoQuery :: SchemaVersionStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679696225"><span id="local-6989586621679696227"><span class="annot"><span class="annottext">Value -&gt; Parser [SchemaVersionStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679697918"><span id="local-6989586621679697920"><span class="annot"><span class="annottext">Value -&gt; Parser [SchemaVersionStatus]
 Value -&gt; Parser SchemaVersionStatus
 (Value -&gt; Parser SchemaVersionStatus)
 -&gt; (Value -&gt; Parser [SchemaVersionStatus])
@@ -205,7 +205,7 @@ $cparseJSONList :: Value -&gt; Parser [SchemaVersionStatus]
 parseJSON :: Value -&gt; Parser SchemaVersionStatus
 $cparseJSON :: Value -&gt; Parser SchemaVersionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679696220"><span id="local-6989586621679696222"><span class="annot"><span class="annottext">FromJSONKeyFunction [SchemaVersionStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679697913"><span id="local-6989586621679697915"><span class="annot"><span class="annottext">FromJSONKeyFunction [SchemaVersionStatus]
 FromJSONKeyFunction SchemaVersionStatus
 FromJSONKeyFunction SchemaVersionStatus
 -&gt; FromJSONKeyFunction [SchemaVersionStatus]
@@ -217,7 +217,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [SchemaVersionStatus]
 fromJSONKey :: FromJSONKeyFunction SchemaVersionStatus
 $cfromJSONKey :: FromJSONKeyFunction SchemaVersionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679696211"><span id="local-6989586621679696213"><span id="local-6989586621679696215"><span id="local-6989586621679696217"><span class="annot"><span class="annottext">[SchemaVersionStatus] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679697904"><span id="local-6989586621679697906"><span id="local-6989586621679697908"><span id="local-6989586621679697910"><span class="annot"><span class="annottext">[SchemaVersionStatus] -&gt; Encoding
 [SchemaVersionStatus] -&gt; Value
 SchemaVersionStatus -&gt; Encoding
 SchemaVersionStatus -&gt; Value
@@ -241,7 +241,7 @@ $ctoEncoding :: SchemaVersionStatus -&gt; Encoding
 toJSON :: SchemaVersionStatus -&gt; Value
 $ctoJSON :: SchemaVersionStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679696206"><span id="local-6989586621679696208"><span class="annot"><span class="annottext">ToJSONKeyFunction [SchemaVersionStatus]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679697899"><span id="local-6989586621679697901"><span class="annot"><span class="annottext">ToJSONKeyFunction [SchemaVersionStatus]
 ToJSONKeyFunction SchemaVersionStatus
 ToJSONKeyFunction SchemaVersionStatus
 -&gt; ToJSONKeyFunction [SchemaVersionStatus]
@@ -253,14 +253,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [SchemaVersionStatus]
 toJSONKey :: ToJSONKeyFunction SchemaVersionStatus
 $ctoJSONKey :: ToJSONKeyFunction SchemaVersionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679696203"><span class="annot"><span class="annottext">[Node] -&gt; Either String SchemaVersionStatus
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679697896"><span class="annot"><span class="annottext">[Node] -&gt; Either String SchemaVersionStatus
 ([Node] -&gt; Either String SchemaVersionStatus)
 -&gt; FromXML SchemaVersionStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String SchemaVersionStatus
 $cparseXML :: [Node] -&gt; Either String SchemaVersionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679696200"><span class="annot"><span class="annottext">SchemaVersionStatus -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679697893"><span class="annot"><span class="annottext">SchemaVersionStatus -&gt; XML
 (SchemaVersionStatus -&gt; XML) -&gt; ToXML SchemaVersionStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: SchemaVersionStatus -&gt; XML

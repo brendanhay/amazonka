@@ -27,8 +27,8 @@
 </span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#newDescribeEnvironmentResources"><span class="hs-identifier">newDescribeEnvironmentResources</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-28"></span><span>
 </span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#describeEnvironmentResources_environmentId"><span class="hs-identifier">describeEnvironmentResources_environmentId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#describeEnvironmentResources_environmentName"><span class="hs-identifier">describeEnvironmentResources_environmentName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#describeEnvironmentResources_environmentName"><span class="hs-identifier">describeEnvironmentResources_environmentName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#describeEnvironmentResources_environmentId"><span class="hs-identifier">describeEnvironmentResources_environmentId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-32"></span><span>
 </span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResourcesResponse"><span class="hs-identifier">DescribeEnvironmentResourcesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -50,23 +50,23 @@
 </span><span id="line-50"></span><span class="hs-comment">-- | Request to describe the resources in an environment.</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- /See:/ 'newDescribeEnvironmentResources' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679312705"><span id="local-6989586621679312706"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeEnvironmentResources"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResources"><span class="hs-identifier hs-var">DescribeEnvironmentResources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeEnvironmentResources%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResources%27"><span class="hs-identifier hs-var">DescribeEnvironmentResources'</span></a></span></span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the environment to retrieve AWS resource usage data.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679313013"><span id="local-6989586621679313014"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeEnvironmentResources"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResources"><span class="hs-identifier hs-var">DescribeEnvironmentResources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeEnvironmentResources%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResources%27"><span class="hs-identifier hs-var">DescribeEnvironmentResources'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the environment to retrieve AWS resource usage data.</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- Condition: You must specify either this or an EnvironmentName, or both.</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- If you do not specify either, AWS Elastic Beanstalk returns</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- Condition: You must specify either this or an EnvironmentId, or both. If</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- you do not specify either, AWS Elastic Beanstalk returns</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- @MissingRequiredParameter@ error.</span><span>
-</span><span id="line-59"></span><span>    </span><span id="%24sel%3AenvironmentId%3ADescribeEnvironmentResources%27"><span class="annot"><span class="annottext">DescribeEnvironmentResources -&gt; Maybe Text
-</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#%24sel%3AenvironmentId%3ADescribeEnvironmentResources%27"><span class="hs-identifier hs-var hs-var">environmentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The name of the environment to retrieve AWS resource usage data.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AenvironmentName%3ADescribeEnvironmentResources%27"><span class="annot"><span class="annottext">DescribeEnvironmentResources -&gt; Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#%24sel%3AenvironmentName%3ADescribeEnvironmentResources%27"><span class="hs-identifier hs-var hs-var">environmentName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The ID of the environment to retrieve AWS resource usage data.</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- Condition: You must specify either this or an EnvironmentId, or both. If</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- you do not specify either, AWS Elastic Beanstalk returns</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- Condition: You must specify either this or an EnvironmentName, or both.</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- If you do not specify either, AWS Elastic Beanstalk returns</span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-comment">-- @MissingRequiredParameter@ error.</span><span>
-</span><span id="line-65"></span><span>    </span><span id="%24sel%3AenvironmentName%3ADescribeEnvironmentResources%27"><span class="annot"><span class="annottext">DescribeEnvironmentResources -&gt; Maybe Text
-</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#%24sel%3AenvironmentName%3ADescribeEnvironmentResources%27"><span class="hs-identifier hs-var hs-var">environmentName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AenvironmentId%3ADescribeEnvironmentResources%27"><span class="annot"><span class="annottext">DescribeEnvironmentResources -&gt; Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#%24sel%3AenvironmentId%3ADescribeEnvironmentResources%27"><span class="hs-identifier hs-var hs-var">environmentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312698"><span id="local-6989586621679312700"><span class="annot"><span class="annottext">DescribeEnvironmentResources
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679313006"><span id="local-6989586621679313008"><span class="annot"><span class="annottext">DescribeEnvironmentResources
 -&gt; DescribeEnvironmentResources -&gt; Bool
 (DescribeEnvironmentResources
  -&gt; DescribeEnvironmentResources -&gt; Bool)
@@ -82,7 +82,7 @@ $c/= :: DescribeEnvironmentResources
 -&gt; DescribeEnvironmentResources -&gt; Bool
 $c== :: DescribeEnvironmentResources
 -&gt; DescribeEnvironmentResources -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312689"><span id="local-6989586621679312691"><span id="local-6989586621679312693"><span id="local-6989586621679312695"><span class="annot"><span class="annottext">ReadPrec [DescribeEnvironmentResources]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312997"><span id="local-6989586621679312999"><span id="local-6989586621679313001"><span id="local-6989586621679313003"><span class="annot"><span class="annottext">ReadPrec [DescribeEnvironmentResources]
 ReadPrec DescribeEnvironmentResources
 Int -&gt; ReadS DescribeEnvironmentResources
 ReadS [DescribeEnvironmentResources]
@@ -102,7 +102,7 @@ readList :: ReadS [DescribeEnvironmentResources]
 $creadList :: ReadS [DescribeEnvironmentResources]
 readsPrec :: Int -&gt; ReadS DescribeEnvironmentResources
 $creadsPrec :: Int -&gt; ReadS DescribeEnvironmentResources
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312682"><span id="local-6989586621679312684"><span id="local-6989586621679312686"><span class="annot"><span class="annottext">Int -&gt; DescribeEnvironmentResources -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312990"><span id="local-6989586621679312992"><span id="local-6989586621679312994"><span class="annot"><span class="annottext">Int -&gt; DescribeEnvironmentResources -&gt; ShowS
 [DescribeEnvironmentResources] -&gt; ShowS
 DescribeEnvironmentResources -&gt; String
 (Int -&gt; DescribeEnvironmentResources -&gt; ShowS)
@@ -142,16 +142,16 @@ DescribeEnvironmentResources -&gt; Rep DescribeEnvironmentResources x
 </span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-76"></span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- 'environmentId', 'describeEnvironmentResources_environmentId' - The ID of the environment to retrieve AWS resource usage data.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'environmentName', 'describeEnvironmentResources_environmentName' - The name of the environment to retrieve AWS resource usage data.</span><span>
 </span><span id="line-78"></span><span class="hs-comment">--</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- Condition: You must specify either this or an EnvironmentName, or both.</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- If you do not specify either, AWS Elastic Beanstalk returns</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Condition: You must specify either this or an EnvironmentId, or both. If</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- you do not specify either, AWS Elastic Beanstalk returns</span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- @MissingRequiredParameter@ error.</span><span>
 </span><span id="line-82"></span><span class="hs-comment">--</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- 'environmentName', 'describeEnvironmentResources_environmentName' - The name of the environment to retrieve AWS resource usage data.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'environmentId', 'describeEnvironmentResources_environmentId' - The ID of the environment to retrieve AWS resource usage data.</span><span>
 </span><span id="line-84"></span><span class="hs-comment">--</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- Condition: You must specify either this or an EnvironmentId, or both. If</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- you do not specify either, AWS Elastic Beanstalk returns</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- Condition: You must specify either this or an EnvironmentName, or both.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- If you do not specify either, AWS Elastic Beanstalk returns</span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- @MissingRequiredParameter@ error.</span><span>
 </span><span id="line-88"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#newDescribeEnvironmentResources"><span class="hs-identifier hs-type">newDescribeEnvironmentResources</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResources"><span class="hs-identifier hs-type">DescribeEnvironmentResources</span></a></span><span>
@@ -159,52 +159,24 @@ DescribeEnvironmentResources -&gt; Rep DescribeEnvironmentResources x
 </span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#newDescribeEnvironmentResources"><span class="hs-identifier hs-var hs-var">newDescribeEnvironmentResources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>  </span><span class="annot"><span class="annottext">DescribeEnvironmentResources' :: Maybe Text -&gt; Maybe Text -&gt; DescribeEnvironmentResources
 </span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResources%27"><span class="hs-identifier hs-type">DescribeEnvironmentResources'</span></a></span><span>
-</span><span id="line-92"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:environmentId:DescribeEnvironmentResources' :: Maybe Text
-</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#%24sel%3AenvironmentId%3ADescribeEnvironmentResources%27"><span class="hs-identifier hs-var">environmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:environmentName:DescribeEnvironmentResources' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#%24sel%3AenvironmentName%3ADescribeEnvironmentResources%27"><span class="hs-identifier hs-var">environmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:environmentName:DescribeEnvironmentResources' :: Maybe Text
-</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#%24sel%3AenvironmentName%3ADescribeEnvironmentResources%27"><span class="hs-identifier hs-var">environmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:environmentId:DescribeEnvironmentResources' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#%24sel%3AenvironmentId%3ADescribeEnvironmentResources%27"><span class="hs-identifier hs-var">environmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-95"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- | The ID of the environment to retrieve AWS resource usage data.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The name of the environment to retrieve AWS resource usage data.</span><span>
 </span><span id="line-98"></span><span class="hs-comment">--</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- Condition: You must specify either this or an EnvironmentName, or both.</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- If you do not specify either, AWS Elastic Beanstalk returns</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- Condition: You must specify either this or an EnvironmentId, or both. If</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- you do not specify either, AWS Elastic Beanstalk returns</span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- @MissingRequiredParameter@ error.</span><span>
-</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#describeEnvironmentResources_environmentId"><span class="hs-identifier hs-type">describeEnvironmentResources_environmentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResources"><span class="hs-identifier hs-type">DescribeEnvironmentResources</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span id="describeEnvironmentResources_environmentId"><span class="annot"><span class="annottext">describeEnvironmentResources_environmentId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribeEnvironmentResources -&gt; f DescribeEnvironmentResources
-</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#describeEnvironmentResources_environmentId"><span class="hs-identifier hs-var hs-var">describeEnvironmentResources_environmentId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEnvironmentResources -&gt; Maybe Text)
--&gt; (DescribeEnvironmentResources
-    -&gt; Maybe Text -&gt; DescribeEnvironmentResources)
--&gt; Lens
-     DescribeEnvironmentResources
-     DescribeEnvironmentResources
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResources%27"><span class="hs-identifier hs-type">DescribeEnvironmentResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312675"><span class="annot"><span class="annottext">Maybe Text
-environmentId :: Maybe Text
-$sel:environmentId:DescribeEnvironmentResources' :: DescribeEnvironmentResources -&gt; Maybe Text
-</span><a href="#local-6989586621679312675"><span class="hs-identifier hs-var hs-var">environmentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679312675"><span class="hs-identifier hs-var">environmentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312674"><span class="annot"><span class="annottext">s :: DescribeEnvironmentResources
-</span><a href="#local-6989586621679312674"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResources%27"><span class="hs-identifier hs-type">DescribeEnvironmentResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312673"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679312673"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEnvironmentResources
-</span><a href="#local-6989586621679312674"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environmentId:DescribeEnvironmentResources' :: Maybe Text
-</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#%24sel%3AenvironmentId%3ADescribeEnvironmentResources%27"><span class="hs-identifier hs-var">environmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679312673"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResources"><span class="hs-identifier hs-type">DescribeEnvironmentResources</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- | The name of the environment to retrieve AWS resource usage data.</span><span>
-</span><span id="line-106"></span><span class="hs-comment">--</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- Condition: You must specify either this or an EnvironmentId, or both. If</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- you do not specify either, AWS Elastic Beanstalk returns</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- @MissingRequiredParameter@ error.</span><span>
-</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#describeEnvironmentResources_environmentName"><span class="hs-identifier hs-type">describeEnvironmentResources_environmentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResources"><span class="hs-identifier hs-type">DescribeEnvironmentResources</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span id="describeEnvironmentResources_environmentName"><span class="annot"><span class="annottext">describeEnvironmentResources_environmentName :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#describeEnvironmentResources_environmentName"><span class="hs-identifier hs-type">describeEnvironmentResources_environmentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResources"><span class="hs-identifier hs-type">DescribeEnvironmentResources</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="describeEnvironmentResources_environmentName"><span class="annot"><span class="annottext">describeEnvironmentResources_environmentName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DescribeEnvironmentResources -&gt; f DescribeEnvironmentResources
 </span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#describeEnvironmentResources_environmentName"><span class="hs-identifier hs-var hs-var">describeEnvironmentResources_environmentName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEnvironmentResources -&gt; Maybe Text)
 -&gt; (DescribeEnvironmentResources
@@ -215,22 +187,50 @@ $sel:environmentId:DescribeEnvironmentResources' :: DescribeEnvironmentResources
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResources%27"><span class="hs-identifier hs-type">DescribeEnvironmentResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312672"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResources%27"><span class="hs-identifier hs-type">DescribeEnvironmentResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312983"><span class="annot"><span class="annottext">Maybe Text
 environmentName :: Maybe Text
 $sel:environmentName:DescribeEnvironmentResources' :: DescribeEnvironmentResources -&gt; Maybe Text
-</span><a href="#local-6989586621679312672"><span class="hs-identifier hs-var hs-var">environmentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679312672"><span class="hs-identifier hs-var">environmentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312671"><span class="annot"><span class="annottext">s :: DescribeEnvironmentResources
-</span><a href="#local-6989586621679312671"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResources%27"><span class="hs-identifier hs-type">DescribeEnvironmentResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312670"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679312670"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEnvironmentResources
-</span><a href="#local-6989586621679312671"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environmentName:DescribeEnvironmentResources' :: Maybe Text
+</span><a href="#local-6989586621679312983"><span class="hs-identifier hs-var hs-var">environmentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312983"><span class="hs-identifier hs-var">environmentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312982"><span class="annot"><span class="annottext">s :: DescribeEnvironmentResources
+</span><a href="#local-6989586621679312982"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResources%27"><span class="hs-identifier hs-type">DescribeEnvironmentResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312981"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312981"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEnvironmentResources
+</span><a href="#local-6989586621679312982"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environmentName:DescribeEnvironmentResources' :: Maybe Text
 </span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#%24sel%3AenvironmentName%3ADescribeEnvironmentResources%27"><span class="hs-identifier hs-var">environmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679312670"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResources"><span class="hs-identifier hs-type">DescribeEnvironmentResources</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312981"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResources"><span class="hs-identifier hs-type">DescribeEnvironmentResources</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The ID of the environment to retrieve AWS resource usage data.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- Condition: You must specify either this or an EnvironmentName, or both.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- If you do not specify either, AWS Elastic Beanstalk returns</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- @MissingRequiredParameter@ error.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#describeEnvironmentResources_environmentId"><span class="hs-identifier hs-type">describeEnvironmentResources_environmentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResources"><span class="hs-identifier hs-type">DescribeEnvironmentResources</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="describeEnvironmentResources_environmentId"><span class="annot"><span class="annottext">describeEnvironmentResources_environmentId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeEnvironmentResources -&gt; f DescribeEnvironmentResources
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#describeEnvironmentResources_environmentId"><span class="hs-identifier hs-var hs-var">describeEnvironmentResources_environmentId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeEnvironmentResources -&gt; Maybe Text)
+-&gt; (DescribeEnvironmentResources
+    -&gt; Maybe Text -&gt; DescribeEnvironmentResources)
+-&gt; Lens
+     DescribeEnvironmentResources
+     DescribeEnvironmentResources
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResources%27"><span class="hs-identifier hs-type">DescribeEnvironmentResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312980"><span class="annot"><span class="annottext">Maybe Text
+environmentId :: Maybe Text
+$sel:environmentId:DescribeEnvironmentResources' :: DescribeEnvironmentResources -&gt; Maybe Text
+</span><a href="#local-6989586621679312980"><span class="hs-identifier hs-var hs-var">environmentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312980"><span class="hs-identifier hs-var">environmentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312979"><span class="annot"><span class="annottext">s :: DescribeEnvironmentResources
+</span><a href="#local-6989586621679312979"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResources%27"><span class="hs-identifier hs-type">DescribeEnvironmentResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312978"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312978"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEnvironmentResources
+</span><a href="#local-6989586621679312979"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environmentId:DescribeEnvironmentResources' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#%24sel%3AenvironmentId%3ADescribeEnvironmentResources%27"><span class="hs-identifier hs-var">environmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312978"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResources"><span class="hs-identifier hs-type">DescribeEnvironmentResources</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResources"><span class="hs-identifier hs-type">DescribeEnvironmentResources</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-114"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-115"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResources"><span class="hs-identifier hs-type">DescribeEnvironmentResources</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>      </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResourcesResponse"><span class="hs-identifier hs-type">DescribeEnvironmentResourcesResponse</span></a></span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679312666"><span class="annot"><span class="annottext">request :: DescribeEnvironmentResources
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679312974"><span class="annot"><span class="annottext">request :: DescribeEnvironmentResources
 -&gt; Request DescribeEnvironmentResources
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeEnvironmentResources
@@ -238,7 +238,7 @@ $sel:environmentName:DescribeEnvironmentResources' :: DescribeEnvironmentResourc
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ElasticBeanstalk.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679312662"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679312970"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeEnvironmentResources
 -&gt; ClientResponse ClientBody
@@ -269,10 +269,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DescribeEnvironmentResourcesResult&quot;</span></span><span>
-</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679312659"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679312659"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679312658"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679312658"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679312657"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679312657"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679312967"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312967"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679312966"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679312966"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679312965"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679312965"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">Maybe EnvironmentResourceDescription
 -&gt; Int -&gt; DescribeEnvironmentResourcesResponse
 </span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResourcesResponse%27"><span class="hs-identifier hs-var">DescribeEnvironmentResourcesResponse'</span></a></span><span>
@@ -282,7 +282,7 @@ Text
 -&gt; Either String (Int -&gt; DescribeEnvironmentResourcesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679312657"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679312965"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
 -&gt; Text -&gt; Either String (Maybe EnvironmentResourceDescription)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -296,17 +296,17 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679312659"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312967"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679312649"><span id="local-6989586621679312651"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679312957"><span id="local-6989586621679312959"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResources"><span class="hs-identifier hs-type">DescribeEnvironmentResources</span></a></span></span></span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312646"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResources"><span class="hs-identifier hs-type">DescribeEnvironmentResources</span></a></span></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312954"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResources"><span class="hs-identifier hs-type">DescribeEnvironmentResources</span></a></span></span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResources"><span class="hs-identifier hs-type">DescribeEnvironmentResources</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679312642"><span class="annot"><span class="annottext">toHeaders :: DescribeEnvironmentResources -&gt; ResponseHeaders
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679312950"><span class="annot"><span class="annottext">toHeaders :: DescribeEnvironmentResources -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeEnvironmentResources -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -314,20 +314,20 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResources"><span class="hs-identifier hs-type">DescribeEnvironmentResources</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679312637"><span class="annot"><span class="annottext">toPath :: DescribeEnvironmentResources -&gt; ByteString
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679312945"><span class="annot"><span class="annottext">toPath :: DescribeEnvironmentResources -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeEnvironmentResources -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResources"><span class="hs-identifier hs-type">DescribeEnvironmentResources</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679312633"><span class="annot"><span class="annottext">toQuery :: DescribeEnvironmentResources -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResources%27"><span class="hs-identifier hs-type">DescribeEnvironmentResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312630"><span id="local-6989586621679312631"><span class="annot"><span class="annottext">Maybe Text
-environmentName :: Maybe Text
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679312941"><span class="annot"><span class="annottext">toQuery :: DescribeEnvironmentResources -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResources%27"><span class="hs-identifier hs-type">DescribeEnvironmentResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312938"><span id="local-6989586621679312939"><span class="annot"><span class="annottext">Maybe Text
 environmentId :: Maybe Text
-$sel:environmentName:DescribeEnvironmentResources' :: DescribeEnvironmentResources -&gt; Maybe Text
+environmentName :: Maybe Text
 $sel:environmentId:DescribeEnvironmentResources' :: DescribeEnvironmentResources -&gt; Maybe Text
-</span><a href="#local-6989586621679312630"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:environmentName:DescribeEnvironmentResources' :: DescribeEnvironmentResources -&gt; Maybe Text
+</span><a href="#local-6989586621679312938"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -346,21 +346,21 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;2010-12-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;EnvironmentId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679312631"><span class="hs-identifier hs-var">environmentId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;EnvironmentName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679312630"><span class="hs-identifier hs-var">environmentName</span></a></span><span>
+</span><a href="#local-6989586621679312939"><span class="hs-identifier hs-var">environmentName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;EnvironmentId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312938"><span class="hs-identifier hs-var">environmentId</span></a></span><span>
 </span><span id="line-150"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- | Result message containing a list of environment resource descriptions.</span><span>
 </span><span id="line-153"></span><span class="hs-comment">--</span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- /See:/ 'newDescribeEnvironmentResourcesResponse' smart constructor.</span><span>
-</span><span id="line-155"></span><span id="local-6989586621679312627"><span id="local-6989586621679312628"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeEnvironmentResourcesResponse"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResourcesResponse"><span class="hs-identifier hs-var">DescribeEnvironmentResourcesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeEnvironmentResourcesResponse%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResourcesResponse%27"><span class="hs-identifier hs-var">DescribeEnvironmentResourcesResponse'</span></a></span></span><span>
+</span><span id="line-155"></span><span id="local-6989586621679312935"><span id="local-6989586621679312936"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeEnvironmentResourcesResponse"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResourcesResponse"><span class="hs-identifier hs-var">DescribeEnvironmentResourcesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeEnvironmentResourcesResponse%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResourcesResponse%27"><span class="hs-identifier hs-var">DescribeEnvironmentResourcesResponse'</span></a></span></span><span>
 </span><span id="line-156"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of EnvironmentResourceDescription.</span><span>
 </span><span id="line-157"></span><span>    </span><span id="%24sel%3AenvironmentResources%3ADescribeEnvironmentResourcesResponse%27"><span class="annot"><span class="annottext">DescribeEnvironmentResourcesResponse
 -&gt; Maybe EnvironmentResourceDescription
@@ -369,7 +369,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-159"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeEnvironmentResourcesResponse%27"><span class="annot"><span class="annottext">DescribeEnvironmentResourcesResponse -&gt; Int
 </span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#%24sel%3AhttpStatus%3ADescribeEnvironmentResourcesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-160"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-161"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312621"><span id="local-6989586621679312623"><span class="annot"><span class="annottext">DescribeEnvironmentResourcesResponse
+</span><span id="line-161"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312929"><span id="local-6989586621679312931"><span class="annot"><span class="annottext">DescribeEnvironmentResourcesResponse
 -&gt; DescribeEnvironmentResourcesResponse -&gt; Bool
 (DescribeEnvironmentResourcesResponse
  -&gt; DescribeEnvironmentResourcesResponse -&gt; Bool)
@@ -385,7 +385,7 @@ $c/= :: DescribeEnvironmentResourcesResponse
 -&gt; DescribeEnvironmentResourcesResponse -&gt; Bool
 $c== :: DescribeEnvironmentResourcesResponse
 -&gt; DescribeEnvironmentResourcesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312613"><span id="local-6989586621679312615"><span id="local-6989586621679312617"><span id="local-6989586621679312619"><span class="annot"><span class="annottext">ReadPrec [DescribeEnvironmentResourcesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312921"><span id="local-6989586621679312923"><span id="local-6989586621679312925"><span id="local-6989586621679312927"><span class="annot"><span class="annottext">ReadPrec [DescribeEnvironmentResourcesResponse]
 ReadPrec DescribeEnvironmentResourcesResponse
 Int -&gt; ReadS DescribeEnvironmentResourcesResponse
 ReadS [DescribeEnvironmentResourcesResponse]
@@ -405,7 +405,7 @@ readList :: ReadS [DescribeEnvironmentResourcesResponse]
 $creadList :: ReadS [DescribeEnvironmentResourcesResponse]
 readsPrec :: Int -&gt; ReadS DescribeEnvironmentResourcesResponse
 $creadsPrec :: Int -&gt; ReadS DescribeEnvironmentResourcesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312607"><span id="local-6989586621679312609"><span id="local-6989586621679312611"><span class="annot"><span class="annottext">Int -&gt; DescribeEnvironmentResourcesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312915"><span id="local-6989586621679312917"><span id="local-6989586621679312919"><span class="annot"><span class="annottext">Int -&gt; DescribeEnvironmentResourcesResponse -&gt; ShowS
 [DescribeEnvironmentResourcesResponse] -&gt; ShowS
 DescribeEnvironmentResourcesResponse -&gt; String
 (Int -&gt; DescribeEnvironmentResourcesResponse -&gt; ShowS)
@@ -459,8 +459,8 @@ DescribeEnvironmentResourcesResponse
 </span><span id="line-176"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-177"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResourcesResponse"><span class="hs-identifier hs-type">DescribeEnvironmentResourcesResponse</span></a></span><span>
 </span><span id="line-178"></span><span id="newDescribeEnvironmentResourcesResponse"><span class="annot"><span class="annottext">newDescribeEnvironmentResourcesResponse :: Int -&gt; DescribeEnvironmentResourcesResponse
-</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#newDescribeEnvironmentResourcesResponse"><span class="hs-identifier hs-var hs-var">newDescribeEnvironmentResourcesResponse</span></a></span></span><span> </span><span id="local-6989586621679312604"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679312604"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#newDescribeEnvironmentResourcesResponse"><span class="hs-identifier hs-var hs-var">newDescribeEnvironmentResourcesResponse</span></a></span></span><span> </span><span id="local-6989586621679312912"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312912"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-179"></span><span>  </span><span class="annot"><span class="annottext">DescribeEnvironmentResourcesResponse' :: Maybe EnvironmentResourceDescription
 -&gt; Int -&gt; DescribeEnvironmentResourcesResponse
 </span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResourcesResponse%27"><span class="hs-identifier hs-type">DescribeEnvironmentResourcesResponse'</span></a></span><span>
@@ -471,7 +471,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-182"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeEnvironmentResourcesResponse' :: Int
 </span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#%24sel%3AhttpStatus%3ADescribeEnvironmentResourcesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679312604"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679312912"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-183"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- | A list of EnvironmentResourceDescription.</span><span>
@@ -491,17 +491,17 @@ forall a. Maybe a
      (Maybe EnvironmentResourceDescription)
      (Maybe EnvironmentResourceDescription)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResourcesResponse%27"><span class="hs-identifier hs-type">DescribeEnvironmentResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312603"><span class="annot"><span class="annottext">Maybe EnvironmentResourceDescription
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResourcesResponse%27"><span class="hs-identifier hs-type">DescribeEnvironmentResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312911"><span class="annot"><span class="annottext">Maybe EnvironmentResourceDescription
 environmentResources :: Maybe EnvironmentResourceDescription
 $sel:environmentResources:DescribeEnvironmentResourcesResponse' :: DescribeEnvironmentResourcesResponse
 -&gt; Maybe EnvironmentResourceDescription
-</span><a href="#local-6989586621679312603"><span class="hs-identifier hs-var hs-var">environmentResources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EnvironmentResourceDescription
-</span><a href="#local-6989586621679312603"><span class="hs-identifier hs-var">environmentResources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312602"><span class="annot"><span class="annottext">s :: DescribeEnvironmentResourcesResponse
-</span><a href="#local-6989586621679312602"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResourcesResponse%27"><span class="hs-identifier hs-type">DescribeEnvironmentResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312601"><span class="annot"><span class="annottext">Maybe EnvironmentResourceDescription
-</span><a href="#local-6989586621679312601"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEnvironmentResourcesResponse
-</span><a href="#local-6989586621679312602"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environmentResources:DescribeEnvironmentResourcesResponse' :: Maybe EnvironmentResourceDescription
+</span><a href="#local-6989586621679312911"><span class="hs-identifier hs-var hs-var">environmentResources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EnvironmentResourceDescription
+</span><a href="#local-6989586621679312911"><span class="hs-identifier hs-var">environmentResources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312910"><span class="annot"><span class="annottext">s :: DescribeEnvironmentResourcesResponse
+</span><a href="#local-6989586621679312910"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResourcesResponse%27"><span class="hs-identifier hs-type">DescribeEnvironmentResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312909"><span class="annot"><span class="annottext">Maybe EnvironmentResourceDescription
+</span><a href="#local-6989586621679312909"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEnvironmentResourcesResponse
+</span><a href="#local-6989586621679312910"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environmentResources:DescribeEnvironmentResourcesResponse' :: Maybe EnvironmentResourceDescription
 </span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#%24sel%3AenvironmentResources%3ADescribeEnvironmentResourcesResponse%27"><span class="hs-identifier hs-var">environmentResources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EnvironmentResourceDescription
-</span><a href="#local-6989586621679312601"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResourcesResponse"><span class="hs-identifier hs-type">DescribeEnvironmentResourcesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312909"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResourcesResponse"><span class="hs-identifier hs-type">DescribeEnvironmentResourcesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>
 </span><span id="line-189"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-190"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#describeEnvironmentResourcesResponse_httpStatus"><span class="hs-identifier hs-type">describeEnvironmentResourcesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResourcesResponse"><span class="hs-identifier hs-type">DescribeEnvironmentResourcesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -517,18 +517,18 @@ $sel:environmentResources:DescribeEnvironmentResourcesResponse' :: DescribeEnvir
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResourcesResponse%27"><span class="hs-identifier hs-type">DescribeEnvironmentResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312600"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResourcesResponse%27"><span class="hs-identifier hs-type">DescribeEnvironmentResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312908"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeEnvironmentResourcesResponse' :: DescribeEnvironmentResourcesResponse -&gt; Int
-</span><a href="#local-6989586621679312600"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679312600"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312599"><span class="annot"><span class="annottext">s :: DescribeEnvironmentResourcesResponse
-</span><a href="#local-6989586621679312599"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResourcesResponse%27"><span class="hs-identifier hs-type">DescribeEnvironmentResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312598"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679312598"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEnvironmentResourcesResponse
-</span><a href="#local-6989586621679312599"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeEnvironmentResourcesResponse' :: Int
+</span><a href="#local-6989586621679312908"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312908"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312907"><span class="annot"><span class="annottext">s :: DescribeEnvironmentResourcesResponse
+</span><a href="#local-6989586621679312907"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResourcesResponse%27"><span class="hs-identifier hs-type">DescribeEnvironmentResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312906"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312906"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEnvironmentResourcesResponse
+</span><a href="#local-6989586621679312907"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeEnvironmentResourcesResponse' :: Int
 </span><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#%24sel%3AhttpStatus%3ADescribeEnvironmentResourcesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679312598"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResourcesResponse"><span class="hs-identifier hs-type">DescribeEnvironmentResourcesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312906"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResourcesResponse"><span class="hs-identifier hs-type">DescribeEnvironmentResourcesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-194"></span><span>  </span><span id="local-6989586621679312596"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679312904"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-195"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources.html#DescribeEnvironmentResourcesResponse"><span class="hs-identifier hs-type">DescribeEnvironmentResourcesResponse</span></a></span></span><span>
 </span><span id="line-196"></span></pre></body></html>

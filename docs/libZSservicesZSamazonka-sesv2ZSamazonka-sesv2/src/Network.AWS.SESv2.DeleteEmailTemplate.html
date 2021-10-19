@@ -52,12 +52,12 @@
 </span><span id="line-52"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html Amazon SES Developer Guide&gt;.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- /See:/ 'newDeleteEmailTemplate' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679346142"><span id="local-6989586621679346143"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteEmailTemplate"><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailTemplate.html#DeleteEmailTemplate"><span class="hs-identifier hs-var">DeleteEmailTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteEmailTemplate%27"><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailTemplate.html#DeleteEmailTemplate%27"><span class="hs-identifier hs-var">DeleteEmailTemplate'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679348720"><span id="local-6989586621679348721"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteEmailTemplate"><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailTemplate.html#DeleteEmailTemplate"><span class="hs-identifier hs-var">DeleteEmailTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteEmailTemplate%27"><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailTemplate.html#DeleteEmailTemplate%27"><span class="hs-identifier hs-var">DeleteEmailTemplate'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the template to be deleted.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AtemplateName%3ADeleteEmailTemplate%27"><span class="annot"><span class="annottext">DeleteEmailTemplate -&gt; Text
 </span><a href="Network.AWS.SESv2.DeleteEmailTemplate.html#%24sel%3AtemplateName%3ADeleteEmailTemplate%27"><span class="hs-identifier hs-var hs-var">templateName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679346136"><span id="local-6989586621679346138"><span class="annot"><span class="annottext">DeleteEmailTemplate -&gt; DeleteEmailTemplate -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679348714"><span id="local-6989586621679348716"><span class="annot"><span class="annottext">DeleteEmailTemplate -&gt; DeleteEmailTemplate -&gt; Bool
 (DeleteEmailTemplate -&gt; DeleteEmailTemplate -&gt; Bool)
 -&gt; (DeleteEmailTemplate -&gt; DeleteEmailTemplate -&gt; Bool)
 -&gt; Eq DeleteEmailTemplate
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteEmailTemplate -&gt; DeleteEmailTemplate -&gt; Bool
 == :: DeleteEmailTemplate -&gt; DeleteEmailTemplate -&gt; Bool
 $c== :: DeleteEmailTemplate -&gt; DeleteEmailTemplate -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346127"><span id="local-6989586621679346129"><span id="local-6989586621679346131"><span id="local-6989586621679346133"><span class="annot"><span class="annottext">ReadPrec [DeleteEmailTemplate]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348705"><span id="local-6989586621679348707"><span id="local-6989586621679348709"><span id="local-6989586621679348711"><span class="annot"><span class="annottext">ReadPrec [DeleteEmailTemplate]
 ReadPrec DeleteEmailTemplate
 Int -&gt; ReadS DeleteEmailTemplate
 ReadS [DeleteEmailTemplate]
@@ -86,7 +86,7 @@ readList :: ReadS [DeleteEmailTemplate]
 $creadList :: ReadS [DeleteEmailTemplate]
 readsPrec :: Int -&gt; ReadS DeleteEmailTemplate
 $creadsPrec :: Int -&gt; ReadS DeleteEmailTemplate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346120"><span id="local-6989586621679346122"><span id="local-6989586621679346124"><span class="annot"><span class="annottext">Int -&gt; DeleteEmailTemplate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348698"><span id="local-6989586621679348700"><span id="local-6989586621679348702"><span class="annot"><span class="annottext">Int -&gt; DeleteEmailTemplate -&gt; ShowS
 [DeleteEmailTemplate] -&gt; ShowS
 DeleteEmailTemplate -&gt; String
 (Int -&gt; DeleteEmailTemplate -&gt; ShowS)
@@ -126,12 +126,12 @@ $cfrom :: forall x. DeleteEmailTemplate -&gt; Rep DeleteEmailTemplate x
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailTemplate.html#DeleteEmailTemplate"><span class="hs-identifier hs-type">DeleteEmailTemplate</span></a></span><span>
 </span><span id="line-74"></span><span id="newDeleteEmailTemplate"><span class="annot"><span class="annottext">newDeleteEmailTemplate :: Text -&gt; DeleteEmailTemplate
-</span><a href="Network.AWS.SESv2.DeleteEmailTemplate.html#newDeleteEmailTemplate"><span class="hs-identifier hs-var hs-var">newDeleteEmailTemplate</span></a></span></span><span> </span><span id="local-6989586621679346115"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346115"><span class="hs-identifier hs-var">pTemplateName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SESv2.DeleteEmailTemplate.html#newDeleteEmailTemplate"><span class="hs-identifier hs-var hs-var">newDeleteEmailTemplate</span></a></span></span><span> </span><span id="local-6989586621679348693"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348693"><span class="hs-identifier hs-var">pTemplateName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">DeleteEmailTemplate' :: Text -&gt; DeleteEmailTemplate
 </span><a href="Network.AWS.SESv2.DeleteEmailTemplate.html#DeleteEmailTemplate%27"><span class="hs-identifier hs-type">DeleteEmailTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateName:DeleteEmailTemplate' :: Text
 </span><a href="Network.AWS.SESv2.DeleteEmailTemplate.html#%24sel%3AtemplateName%3ADeleteEmailTemplate%27"><span class="hs-identifier hs-var">templateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346115"><span class="hs-identifier hs-var">pTemplateName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679348693"><span class="hs-identifier hs-var">pTemplateName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | The name of the template to be deleted.</span><span>
 </span><span id="line-78"></span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailTemplate.html#deleteEmailTemplate_templateName"><span class="hs-identifier hs-type">deleteEmailTemplate_templateName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailTemplate.html#DeleteEmailTemplate"><span class="hs-identifier hs-type">DeleteEmailTemplate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -140,27 +140,27 @@ $cfrom :: forall x. DeleteEmailTemplate -&gt; Rep DeleteEmailTemplate x
 -&gt; (DeleteEmailTemplate -&gt; Text -&gt; DeleteEmailTemplate)
 -&gt; Lens DeleteEmailTemplate DeleteEmailTemplate Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailTemplate.html#DeleteEmailTemplate%27"><span class="hs-identifier hs-type">DeleteEmailTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346112"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailTemplate.html#DeleteEmailTemplate%27"><span class="hs-identifier hs-type">DeleteEmailTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348690"><span class="annot"><span class="annottext">Text
 templateName :: Text
 $sel:templateName:DeleteEmailTemplate' :: DeleteEmailTemplate -&gt; Text
-</span><a href="#local-6989586621679346112"><span class="hs-identifier hs-var hs-var">templateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346112"><span class="hs-identifier hs-var">templateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346111"><span class="annot"><span class="annottext">s :: DeleteEmailTemplate
-</span><a href="#local-6989586621679346111"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailTemplate.html#DeleteEmailTemplate%27"><span class="hs-identifier hs-type">DeleteEmailTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346110"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346110"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteEmailTemplate
-</span><a href="#local-6989586621679346111"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateName:DeleteEmailTemplate' :: Text
+</span><a href="#local-6989586621679348690"><span class="hs-identifier hs-var hs-var">templateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348690"><span class="hs-identifier hs-var">templateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348689"><span class="annot"><span class="annottext">s :: DeleteEmailTemplate
+</span><a href="#local-6989586621679348689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailTemplate.html#DeleteEmailTemplate%27"><span class="hs-identifier hs-type">DeleteEmailTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348688"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteEmailTemplate
+</span><a href="#local-6989586621679348689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateName:DeleteEmailTemplate' :: Text
 </span><a href="Network.AWS.SESv2.DeleteEmailTemplate.html#%24sel%3AtemplateName%3ADeleteEmailTemplate%27"><span class="hs-identifier hs-var">templateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346110"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailTemplate.html#DeleteEmailTemplate"><span class="hs-identifier hs-type">DeleteEmailTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679348688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailTemplate.html#DeleteEmailTemplate"><span class="hs-identifier hs-type">DeleteEmailTemplate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailTemplate.html#DeleteEmailTemplate"><span class="hs-identifier hs-type">DeleteEmailTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-82"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-83"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailTemplate.html#DeleteEmailTemplate"><span class="hs-identifier hs-type">DeleteEmailTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailTemplate.html#DeleteEmailTemplateResponse"><span class="hs-identifier hs-type">DeleteEmailTemplateResponse</span></a></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679346106"><span class="annot"><span class="annottext">request :: DeleteEmailTemplate -&gt; Request DeleteEmailTemplate
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679348684"><span class="annot"><span class="annottext">request :: DeleteEmailTemplate -&gt; Request DeleteEmailTemplate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteEmailTemplate -&gt; Request DeleteEmailTemplate
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SESv2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679346102"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679348680"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteEmailTemplate
 -&gt; ClientResponse ClientBody
@@ -186,10 +186,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679346099"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679346099"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679346098"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679346098"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679346097"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679346097"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679348677"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348677"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679348676"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679348676"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679348675"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679348675"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteEmailTemplateResponse
 </span><a href="Network.AWS.SESv2.DeleteEmailTemplate.html#DeleteEmailTemplateResponse%27"><span class="hs-identifier hs-var">DeleteEmailTemplateResponse'</span></a></span><span>
 </span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteEmailTemplateResponse)
@@ -200,15 +200,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679346099"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679348677"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346090"><span id="local-6989586621679346092"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailTemplate.html#DeleteEmailTemplate"><span class="hs-identifier hs-type">DeleteEmailTemplate</span></a></span></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348668"><span id="local-6989586621679348670"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailTemplate.html#DeleteEmailTemplate"><span class="hs-identifier hs-type">DeleteEmailTemplate</span></a></span></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346087"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailTemplate.html#DeleteEmailTemplate"><span class="hs-identifier hs-type">DeleteEmailTemplate</span></a></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348665"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailTemplate.html#DeleteEmailTemplate"><span class="hs-identifier hs-type">DeleteEmailTemplate</span></a></span></span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailTemplate.html#DeleteEmailTemplate"><span class="hs-identifier hs-type">DeleteEmailTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679346083"><span class="annot"><span class="annottext">toHeaders :: DeleteEmailTemplate -&gt; ResponseHeaders
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679348661"><span class="annot"><span class="annottext">toHeaders :: DeleteEmailTemplate -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteEmailTemplate -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -228,11 +228,11 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailTemplate.html#DeleteEmailTemplate"><span class="hs-identifier hs-type">DeleteEmailTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679346077"><span class="annot"><span class="annottext">toPath :: DeleteEmailTemplate -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailTemplate.html#DeleteEmailTemplate%27"><span class="hs-identifier hs-type">DeleteEmailTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346075"><span class="annot"><span class="annottext">Text
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679348655"><span class="annot"><span class="annottext">toPath :: DeleteEmailTemplate -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailTemplate.html#DeleteEmailTemplate%27"><span class="hs-identifier hs-type">DeleteEmailTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348653"><span class="annot"><span class="annottext">Text
 templateName :: Text
 $sel:templateName:DeleteEmailTemplate' :: DeleteEmailTemplate -&gt; Text
-</span><a href="#local-6989586621679346075"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679348653"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -240,10 +240,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/v2/email/templates/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346075"><span class="hs-identifier hs-var">templateName</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679348653"><span class="hs-identifier hs-var">templateName</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailTemplate.html#DeleteEmailTemplate"><span class="hs-identifier hs-type">DeleteEmailTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679346071"><span class="annot"><span class="annottext">toQuery :: DeleteEmailTemplate -&gt; QueryString
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679348649"><span class="annot"><span class="annottext">toQuery :: DeleteEmailTemplate -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteEmailTemplate -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -254,12 +254,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-117"></span><span class="hs-comment">-- with an empty HTTP body.</span><span>
 </span><span id="line-118"></span><span class="hs-comment">--</span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- /See:/ 'newDeleteEmailTemplateResponse' smart constructor.</span><span>
-</span><span id="line-120"></span><span id="local-6989586621679346068"><span id="local-6989586621679346069"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteEmailTemplateResponse"><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailTemplate.html#DeleteEmailTemplateResponse"><span class="hs-identifier hs-var">DeleteEmailTemplateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteEmailTemplateResponse%27"><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailTemplate.html#DeleteEmailTemplateResponse%27"><span class="hs-identifier hs-var">DeleteEmailTemplateResponse'</span></a></span></span><span>
+</span><span id="line-120"></span><span id="local-6989586621679348646"><span id="local-6989586621679348647"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteEmailTemplateResponse"><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailTemplate.html#DeleteEmailTemplateResponse"><span class="hs-identifier hs-var">DeleteEmailTemplateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteEmailTemplateResponse%27"><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailTemplate.html#DeleteEmailTemplateResponse%27"><span class="hs-identifier hs-var">DeleteEmailTemplateResponse'</span></a></span></span><span>
 </span><span id="line-121"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-122"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteEmailTemplateResponse%27"><span class="annot"><span class="annottext">DeleteEmailTemplateResponse -&gt; Int
 </span><a href="Network.AWS.SESv2.DeleteEmailTemplate.html#%24sel%3AhttpStatus%3ADeleteEmailTemplateResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-123"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679346063"><span id="local-6989586621679346065"><span class="annot"><span class="annottext">DeleteEmailTemplateResponse -&gt; DeleteEmailTemplateResponse -&gt; Bool
+</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679348641"><span id="local-6989586621679348643"><span class="annot"><span class="annottext">DeleteEmailTemplateResponse -&gt; DeleteEmailTemplateResponse -&gt; Bool
 (DeleteEmailTemplateResponse
  -&gt; DeleteEmailTemplateResponse -&gt; Bool)
 -&gt; (DeleteEmailTemplateResponse
@@ -270,7 +270,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteEmailTemplateResponse -&gt; DeleteEmailTemplateResponse -&gt; Bool
 == :: DeleteEmailTemplateResponse -&gt; DeleteEmailTemplateResponse -&gt; Bool
 $c== :: DeleteEmailTemplateResponse -&gt; DeleteEmailTemplateResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346055"><span id="local-6989586621679346057"><span id="local-6989586621679346059"><span id="local-6989586621679346061"><span class="annot"><span class="annottext">ReadPrec [DeleteEmailTemplateResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348633"><span id="local-6989586621679348635"><span id="local-6989586621679348637"><span id="local-6989586621679348639"><span class="annot"><span class="annottext">ReadPrec [DeleteEmailTemplateResponse]
 ReadPrec DeleteEmailTemplateResponse
 Int -&gt; ReadS DeleteEmailTemplateResponse
 ReadS [DeleteEmailTemplateResponse]
@@ -290,7 +290,7 @@ readList :: ReadS [DeleteEmailTemplateResponse]
 $creadList :: ReadS [DeleteEmailTemplateResponse]
 readsPrec :: Int -&gt; ReadS DeleteEmailTemplateResponse
 $creadsPrec :: Int -&gt; ReadS DeleteEmailTemplateResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346049"><span id="local-6989586621679346051"><span id="local-6989586621679346053"><span class="annot"><span class="annottext">Int -&gt; DeleteEmailTemplateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348627"><span id="local-6989586621679348629"><span id="local-6989586621679348631"><span class="annot"><span class="annottext">Int -&gt; DeleteEmailTemplateResponse -&gt; ShowS
 [DeleteEmailTemplateResponse] -&gt; ShowS
 DeleteEmailTemplateResponse -&gt; String
 (Int -&gt; DeleteEmailTemplateResponse -&gt; ShowS)
@@ -336,14 +336,14 @@ DeleteEmailTemplateResponse -&gt; Rep DeleteEmailTemplateResponse x
 </span><span id="line-137"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-138"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailTemplate.html#DeleteEmailTemplateResponse"><span class="hs-identifier hs-type">DeleteEmailTemplateResponse</span></a></span><span>
 </span><span id="line-139"></span><span id="newDeleteEmailTemplateResponse"><span class="annot"><span class="annottext">newDeleteEmailTemplateResponse :: Int -&gt; DeleteEmailTemplateResponse
-</span><a href="Network.AWS.SESv2.DeleteEmailTemplate.html#newDeleteEmailTemplateResponse"><span class="hs-identifier hs-var hs-var">newDeleteEmailTemplateResponse</span></a></span></span><span> </span><span id="local-6989586621679346046"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679346046"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SESv2.DeleteEmailTemplate.html#newDeleteEmailTemplateResponse"><span class="hs-identifier hs-var hs-var">newDeleteEmailTemplateResponse</span></a></span></span><span> </span><span id="local-6989586621679348624"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348624"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>  </span><span class="annot"><span class="annottext">DeleteEmailTemplateResponse' :: Int -&gt; DeleteEmailTemplateResponse
 </span><a href="Network.AWS.SESv2.DeleteEmailTemplate.html#DeleteEmailTemplateResponse%27"><span class="hs-identifier hs-type">DeleteEmailTemplateResponse'</span></a></span><span>
 </span><span id="line-141"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteEmailTemplateResponse' :: Int
 </span><a href="Network.AWS.SESv2.DeleteEmailTemplate.html#%24sel%3AhttpStatus%3ADeleteEmailTemplateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679346046"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679348624"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-143"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -356,16 +356,16 @@ DeleteEmailTemplateResponse -&gt; Rep DeleteEmailTemplateResponse x
 -&gt; Lens
      DeleteEmailTemplateResponse DeleteEmailTemplateResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailTemplate.html#DeleteEmailTemplateResponse%27"><span class="hs-identifier hs-type">DeleteEmailTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346045"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailTemplate.html#DeleteEmailTemplateResponse%27"><span class="hs-identifier hs-type">DeleteEmailTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348623"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteEmailTemplateResponse' :: DeleteEmailTemplateResponse -&gt; Int
-</span><a href="#local-6989586621679346045"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679346045"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346044"><span class="annot"><span class="annottext">s :: DeleteEmailTemplateResponse
-</span><a href="#local-6989586621679346044"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailTemplate.html#DeleteEmailTemplateResponse%27"><span class="hs-identifier hs-type">DeleteEmailTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346043"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679346043"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteEmailTemplateResponse
-</span><a href="#local-6989586621679346044"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteEmailTemplateResponse' :: Int
+</span><a href="#local-6989586621679348623"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348623"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348622"><span class="annot"><span class="annottext">s :: DeleteEmailTemplateResponse
+</span><a href="#local-6989586621679348622"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailTemplate.html#DeleteEmailTemplateResponse%27"><span class="hs-identifier hs-type">DeleteEmailTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348621"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348621"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteEmailTemplateResponse
+</span><a href="#local-6989586621679348622"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteEmailTemplateResponse' :: Int
 </span><a href="Network.AWS.SESv2.DeleteEmailTemplate.html#%24sel%3AhttpStatus%3ADeleteEmailTemplateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679346043"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailTemplate.html#DeleteEmailTemplateResponse"><span class="hs-identifier hs-type">DeleteEmailTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679348621"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailTemplate.html#DeleteEmailTemplateResponse"><span class="hs-identifier hs-type">DeleteEmailTemplateResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346041"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailTemplate.html#DeleteEmailTemplateResponse"><span class="hs-identifier hs-type">DeleteEmailTemplateResponse</span></a></span></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348619"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailTemplate.html#DeleteEmailTemplateResponse"><span class="hs-identifier hs-type">DeleteEmailTemplateResponse</span></a></span></span><span>
 </span><span id="line-150"></span></pre></body></html>

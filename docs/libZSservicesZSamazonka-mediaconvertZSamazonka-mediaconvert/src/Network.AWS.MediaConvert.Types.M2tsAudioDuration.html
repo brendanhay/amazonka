@@ -43,13 +43,13 @@
 </span><span id="line-43"></span><span class="hs-comment">-- For unsegmented outputs, MediaConvert adds padding only to the end of</span><span>
 </span><span id="line-44"></span><span class="hs-comment">-- the file. When you keep the default value, any minor discrepancies</span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- between audio and video duration will depend on your output audio codec.</span><span>
-</span><span id="line-46"></span><span id="local-6989586621679979247"><span id="local-6989586621679979248"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="M2tsAudioDuration"><span class="annot"><a href="Network.AWS.MediaConvert.Types.M2tsAudioDuration.html#M2tsAudioDuration"><span class="hs-identifier hs-var">M2tsAudioDuration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="M2tsAudioDuration%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.M2tsAudioDuration.html#M2tsAudioDuration%27"><span class="hs-identifier hs-var">M2tsAudioDuration'</span></a></span></span><span>
+</span><span id="line-46"></span><span id="local-6989586621679984037"><span id="local-6989586621679984038"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="M2tsAudioDuration"><span class="annot"><a href="Network.AWS.MediaConvert.Types.M2tsAudioDuration.html#M2tsAudioDuration"><span class="hs-identifier hs-var">M2tsAudioDuration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="M2tsAudioDuration%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.M2tsAudioDuration.html#M2tsAudioDuration%27"><span class="hs-identifier hs-var">M2tsAudioDuration'</span></a></span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromM2tsAudioDuration"><span class="annot"><span class="annottext">M2tsAudioDuration -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.M2tsAudioDuration.html#fromM2tsAudioDuration"><span class="hs-identifier hs-var hs-var">fromM2tsAudioDuration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-48"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679979239"><span id="local-6989586621679979241"><span id="local-6989586621679979243"><span class="annot"><span class="annottext">Int -&gt; M2tsAudioDuration -&gt; ShowS
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679984029"><span id="local-6989586621679984031"><span id="local-6989586621679984033"><span class="annot"><span class="annottext">Int -&gt; M2tsAudioDuration -&gt; ShowS
 [M2tsAudioDuration] -&gt; ShowS
 M2tsAudioDuration -&gt; String
 (Int -&gt; M2tsAudioDuration -&gt; ShowS)
@@ -65,7 +65,7 @@ $cshow :: M2tsAudioDuration -&gt; String
 showsPrec :: Int -&gt; M2tsAudioDuration -&gt; ShowS
 $cshowsPrec :: Int -&gt; M2tsAudioDuration -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679979230"><span id="local-6989586621679979232"><span id="local-6989586621679979234"><span id="local-6989586621679979236"><span class="annot"><span class="annottext">ReadPrec [M2tsAudioDuration]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679984020"><span id="local-6989586621679984022"><span id="local-6989586621679984024"><span id="local-6989586621679984026"><span class="annot"><span class="annottext">ReadPrec [M2tsAudioDuration]
 ReadPrec M2tsAudioDuration
 Int -&gt; ReadS M2tsAudioDuration
 ReadS [M2tsAudioDuration]
@@ -86,7 +86,7 @@ $creadList :: ReadS [M2tsAudioDuration]
 readsPrec :: Int -&gt; ReadS M2tsAudioDuration
 $creadsPrec :: Int -&gt; ReadS M2tsAudioDuration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679979225"><span id="local-6989586621679979227"><span class="annot"><span class="annottext">M2tsAudioDuration -&gt; M2tsAudioDuration -&gt; Bool
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679984015"><span id="local-6989586621679984017"><span class="annot"><span class="annottext">M2tsAudioDuration -&gt; M2tsAudioDuration -&gt; Bool
 (M2tsAudioDuration -&gt; M2tsAudioDuration -&gt; Bool)
 -&gt; (M2tsAudioDuration -&gt; M2tsAudioDuration -&gt; Bool)
 -&gt; Eq M2tsAudioDuration
@@ -96,7 +96,7 @@ $c/= :: M2tsAudioDuration -&gt; M2tsAudioDuration -&gt; Bool
 == :: M2tsAudioDuration -&gt; M2tsAudioDuration -&gt; Bool
 $c== :: M2tsAudioDuration -&gt; M2tsAudioDuration -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679979209"><span id="local-6989586621679979211"><span id="local-6989586621679979213"><span id="local-6989586621679979215"><span id="local-6989586621679979217"><span id="local-6989586621679979219"><span id="local-6989586621679979221"><span class="annot"><span class="annottext">Eq M2tsAudioDuration
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679983999"><span id="local-6989586621679984001"><span id="local-6989586621679984003"><span id="local-6989586621679984005"><span id="local-6989586621679984007"><span id="local-6989586621679984009"><span id="local-6989586621679984011"><span class="annot"><span class="annottext">Eq M2tsAudioDuration
 Eq M2tsAudioDuration
 -&gt; (M2tsAudioDuration -&gt; M2tsAudioDuration -&gt; Ordering)
 -&gt; (M2tsAudioDuration -&gt; M2tsAudioDuration -&gt; Bool)
@@ -147,7 +147,7 @@ $cfrom :: forall x. M2tsAudioDuration -&gt; Rep M2tsAudioDuration x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679979201"><span id="local-6989586621679979203"><span class="annot"><span class="annottext">Int -&gt; M2tsAudioDuration -&gt; Int
+</span><span id="line-58"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679983991"><span id="local-6989586621679983993"><span class="annot"><span class="annottext">Int -&gt; M2tsAudioDuration -&gt; Int
 M2tsAudioDuration -&gt; Int
 (Int -&gt; M2tsAudioDuration -&gt; Int)
 -&gt; (M2tsAudioDuration -&gt; Int) -&gt; Hashable M2tsAudioDuration
@@ -157,51 +157,51 @@ $chash :: M2tsAudioDuration -&gt; Int
 hashWithSalt :: Int -&gt; M2tsAudioDuration -&gt; Int
 $chashWithSalt :: Int -&gt; M2tsAudioDuration -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679979198"><span class="annot"><span class="annottext">M2tsAudioDuration -&gt; ()
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679983988"><span class="annot"><span class="annottext">M2tsAudioDuration -&gt; ()
 (M2tsAudioDuration -&gt; ()) -&gt; NFData M2tsAudioDuration
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: M2tsAudioDuration -&gt; ()
 $crnf :: M2tsAudioDuration -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679979195"><span class="annot"><span class="annottext">Text -&gt; Either String M2tsAudioDuration
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679983985"><span class="annot"><span class="annottext">Text -&gt; Either String M2tsAudioDuration
 (Text -&gt; Either String M2tsAudioDuration)
 -&gt; FromText M2tsAudioDuration
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String M2tsAudioDuration
 $cfromText :: Text -&gt; Either String M2tsAudioDuration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679979192"><span class="annot"><span class="annottext">M2tsAudioDuration -&gt; Text
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679983982"><span class="annot"><span class="annottext">M2tsAudioDuration -&gt; Text
 (M2tsAudioDuration -&gt; Text) -&gt; ToText M2tsAudioDuration
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: M2tsAudioDuration -&gt; Text
 $ctoText :: M2tsAudioDuration -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679979189"><span class="annot"><span class="annottext">M2tsAudioDuration -&gt; ByteString
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679983979"><span class="annot"><span class="annottext">M2tsAudioDuration -&gt; ByteString
 (M2tsAudioDuration -&gt; ByteString) -&gt; ToByteString M2tsAudioDuration
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: M2tsAudioDuration -&gt; ByteString
 $ctoBS :: M2tsAudioDuration -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679979186"><span class="annot"><span class="annottext">M2tsAudioDuration -&gt; ByteStringBuilder
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679983976"><span class="annot"><span class="annottext">M2tsAudioDuration -&gt; ByteStringBuilder
 (M2tsAudioDuration -&gt; ByteStringBuilder) -&gt; ToLog M2tsAudioDuration
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: M2tsAudioDuration -&gt; ByteStringBuilder
 $cbuild :: M2tsAudioDuration -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679979183"><span class="annot"><span class="annottext">HeaderName -&gt; M2tsAudioDuration -&gt; [Header]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679983973"><span class="annot"><span class="annottext">HeaderName -&gt; M2tsAudioDuration -&gt; [Header]
 (HeaderName -&gt; M2tsAudioDuration -&gt; [Header])
 -&gt; ToHeader M2tsAudioDuration
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; M2tsAudioDuration -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; M2tsAudioDuration -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679979180"><span class="annot"><span class="annottext">M2tsAudioDuration -&gt; QueryString
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679983970"><span class="annot"><span class="annottext">M2tsAudioDuration -&gt; QueryString
 (M2tsAudioDuration -&gt; QueryString) -&gt; ToQuery M2tsAudioDuration
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: M2tsAudioDuration -&gt; QueryString
 $ctoQuery :: M2tsAudioDuration -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679979175"><span id="local-6989586621679979177"><span class="annot"><span class="annottext">Value -&gt; Parser [M2tsAudioDuration]
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679983965"><span id="local-6989586621679983967"><span class="annot"><span class="annottext">Value -&gt; Parser [M2tsAudioDuration]
 Value -&gt; Parser M2tsAudioDuration
 (Value -&gt; Parser M2tsAudioDuration)
 -&gt; (Value -&gt; Parser [M2tsAudioDuration])
@@ -213,7 +213,7 @@ $cparseJSONList :: Value -&gt; Parser [M2tsAudioDuration]
 parseJSON :: Value -&gt; Parser M2tsAudioDuration
 $cparseJSON :: Value -&gt; Parser M2tsAudioDuration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679979170"><span id="local-6989586621679979172"><span class="annot"><span class="annottext">FromJSONKeyFunction [M2tsAudioDuration]
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679983960"><span id="local-6989586621679983962"><span class="annot"><span class="annottext">FromJSONKeyFunction [M2tsAudioDuration]
 FromJSONKeyFunction M2tsAudioDuration
 FromJSONKeyFunction M2tsAudioDuration
 -&gt; FromJSONKeyFunction [M2tsAudioDuration]
@@ -225,7 +225,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [M2tsAudioDuration]
 fromJSONKey :: FromJSONKeyFunction M2tsAudioDuration
 $cfromJSONKey :: FromJSONKeyFunction M2tsAudioDuration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679979161"><span id="local-6989586621679979163"><span id="local-6989586621679979165"><span id="local-6989586621679979167"><span class="annot"><span class="annottext">[M2tsAudioDuration] -&gt; Encoding
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679983951"><span id="local-6989586621679983953"><span id="local-6989586621679983955"><span id="local-6989586621679983957"><span class="annot"><span class="annottext">[M2tsAudioDuration] -&gt; Encoding
 [M2tsAudioDuration] -&gt; Value
 M2tsAudioDuration -&gt; Encoding
 M2tsAudioDuration -&gt; Value
@@ -249,7 +249,7 @@ $ctoEncoding :: M2tsAudioDuration -&gt; Encoding
 toJSON :: M2tsAudioDuration -&gt; Value
 $ctoJSON :: M2tsAudioDuration -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679979156"><span id="local-6989586621679979158"><span class="annot"><span class="annottext">ToJSONKeyFunction [M2tsAudioDuration]
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679983946"><span id="local-6989586621679983948"><span class="annot"><span class="annottext">ToJSONKeyFunction [M2tsAudioDuration]
 ToJSONKeyFunction M2tsAudioDuration
 ToJSONKeyFunction M2tsAudioDuration
 -&gt; ToJSONKeyFunction [M2tsAudioDuration]
@@ -261,14 +261,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [M2tsAudioDuration]
 toJSONKey :: ToJSONKeyFunction M2tsAudioDuration
 $ctoJSONKey :: ToJSONKeyFunction M2tsAudioDuration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621679979153"><span class="annot"><span class="annottext">[Node] -&gt; Either String M2tsAudioDuration
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679983943"><span class="annot"><span class="annottext">[Node] -&gt; Either String M2tsAudioDuration
 ([Node] -&gt; Either String M2tsAudioDuration)
 -&gt; FromXML M2tsAudioDuration
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String M2tsAudioDuration
 $cparseXML :: [Node] -&gt; Either String M2tsAudioDuration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span id="local-6989586621679979150"><span class="annot"><span class="annottext">M2tsAudioDuration -&gt; XML
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679983940"><span class="annot"><span class="annottext">M2tsAudioDuration -&gt; XML
 (M2tsAudioDuration -&gt; XML) -&gt; ToXML M2tsAudioDuration
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: M2tsAudioDuration -&gt; XML

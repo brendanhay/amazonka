@@ -29,20 +29,20 @@
 </span><span id="line-29"></span><span class="hs-comment">-- settings.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newEncryptionConfig' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679250768"><span id="local-6989586621679250769"></span></span><span class="hs-keyword">data</span><span> </span><span id="EncryptionConfig"><span class="annot"><a href="Network.AWS.XRay.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-var">EncryptionConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EncryptionConfig%27"><span class="annot"><a href="Network.AWS.XRay.Types.EncryptionConfig.html#EncryptionConfig%27"><span class="hs-identifier hs-var">EncryptionConfig'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679251037"><span id="local-6989586621679251038"></span></span><span class="hs-keyword">data</span><span> </span><span id="EncryptionConfig"><span class="annot"><a href="Network.AWS.XRay.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-var">EncryptionConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EncryptionConfig%27"><span class="annot"><a href="Network.AWS.XRay.Types.EncryptionConfig.html#EncryptionConfig%27"><span class="hs-identifier hs-var">EncryptionConfig'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The encryption status. While the status is @UPDATING@, X-Ray may encrypt</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- data with a combination of the new and old settings.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Astatus%3AEncryptionConfig%27"><span class="annot"><span class="annottext">EncryptionConfig -&gt; Maybe EncryptionStatus
 </span><a href="Network.AWS.XRay.Types.EncryptionConfig.html#%24sel%3Astatus%3AEncryptionConfig%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.EncryptionStatus.html#EncryptionStatus"><span class="hs-identifier hs-type">EncryptionStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The type of encryption. Set to @KMS@ for encryption with KMS keys. Set</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- to @NONE@ for default encryption.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3Atype%27%3AEncryptionConfig%27"><span class="annot"><span class="annottext">EncryptionConfig -&gt; Maybe EncryptionType
-</span><a href="Network.AWS.XRay.Types.EncryptionConfig.html#%24sel%3Atype%27%3AEncryptionConfig%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.EncryptionType.html#EncryptionType"><span class="hs-identifier hs-type">EncryptionType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The ID of the KMS key used for encryption, if applicable.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AkeyId%3AEncryptionConfig%27"><span class="annot"><span class="annottext">EncryptionConfig -&gt; Maybe Text
-</span><a href="Network.AWS.XRay.Types.EncryptionConfig.html#%24sel%3AkeyId%3AEncryptionConfig%27"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The ID of the KMS key used for encryption, if applicable.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AkeyId%3AEncryptionConfig%27"><span class="annot"><span class="annottext">EncryptionConfig -&gt; Maybe Text
+</span><a href="Network.AWS.XRay.Types.EncryptionConfig.html#%24sel%3AkeyId%3AEncryptionConfig%27"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The type of encryption. Set to @KMS@ for encryption with KMS keys. Set</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- to @NONE@ for default encryption.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Atype%27%3AEncryptionConfig%27"><span class="annot"><span class="annottext">EncryptionConfig -&gt; Maybe EncryptionType
+</span><a href="Network.AWS.XRay.Types.EncryptionConfig.html#%24sel%3Atype%27%3AEncryptionConfig%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.EncryptionType.html#EncryptionType"><span class="hs-identifier hs-type">EncryptionType</span></a></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679250760"><span id="local-6989586621679250762"><span class="annot"><span class="annottext">EncryptionConfig -&gt; EncryptionConfig -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679251029"><span id="local-6989586621679251031"><span class="annot"><span class="annottext">EncryptionConfig -&gt; EncryptionConfig -&gt; Bool
 (EncryptionConfig -&gt; EncryptionConfig -&gt; Bool)
 -&gt; (EncryptionConfig -&gt; EncryptionConfig -&gt; Bool)
 -&gt; Eq EncryptionConfig
@@ -51,7 +51,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EncryptionConfig -&gt; EncryptionConfig -&gt; Bool
 == :: EncryptionConfig -&gt; EncryptionConfig -&gt; Bool
 $c== :: EncryptionConfig -&gt; EncryptionConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250751"><span id="local-6989586621679250753"><span id="local-6989586621679250755"><span id="local-6989586621679250757"><span class="annot"><span class="annottext">ReadPrec [EncryptionConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251020"><span id="local-6989586621679251022"><span id="local-6989586621679251024"><span id="local-6989586621679251026"><span class="annot"><span class="annottext">ReadPrec [EncryptionConfig]
 ReadPrec EncryptionConfig
 Int -&gt; ReadS EncryptionConfig
 ReadS [EncryptionConfig]
@@ -71,7 +71,7 @@ readList :: ReadS [EncryptionConfig]
 $creadList :: ReadS [EncryptionConfig]
 readsPrec :: Int -&gt; ReadS EncryptionConfig
 $creadsPrec :: Int -&gt; ReadS EncryptionConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250744"><span id="local-6989586621679250746"><span id="local-6989586621679250748"><span class="annot"><span class="annottext">Int -&gt; EncryptionConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251013"><span id="local-6989586621679251015"><span id="local-6989586621679251017"><span class="annot"><span class="annottext">Int -&gt; EncryptionConfig -&gt; ShowS
 [EncryptionConfig] -&gt; ShowS
 EncryptionConfig -&gt; String
 (Int -&gt; EncryptionConfig -&gt; ShowS)
@@ -108,27 +108,27 @@ $cfrom :: forall x. EncryptionConfig -&gt; Rep EncryptionConfig x
 </span><span id="line-52"></span><span class="hs-comment">-- 'status', 'encryptionConfig_status' - The encryption status. While the status is @UPDATING@, X-Ray may encrypt</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- data with a combination of the new and old settings.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'type'', 'encryptionConfig_type' - The type of encryption. Set to @KMS@ for encryption with KMS keys. Set</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- to @NONE@ for default encryption.</span><span>
-</span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'keyId', 'encryptionConfig_keyId' - The ID of the KMS key used for encryption, if applicable.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'keyId', 'encryptionConfig_keyId' - The ID of the KMS key used for encryption, if applicable.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'type'', 'encryptionConfig_type' - The type of encryption. Set to @KMS@ for encryption with KMS keys. Set</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- to @NONE@ for default encryption.</span><span>
 </span><span id="line-59"></span><span class="annot"><a href="Network.AWS.XRay.Types.EncryptionConfig.html#newEncryptionConfig"><span class="hs-identifier hs-type">newEncryptionConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-60"></span><span>  </span><span class="annot"><a href="Network.AWS.XRay.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-type">EncryptionConfig</span></a></span><span>
 </span><span id="line-61"></span><span id="newEncryptionConfig"><span class="annot"><span class="annottext">newEncryptionConfig :: EncryptionConfig
 </span><a href="Network.AWS.XRay.Types.EncryptionConfig.html#newEncryptionConfig"><span class="hs-identifier hs-var hs-var">newEncryptionConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">EncryptionConfig' :: Maybe EncryptionStatus
--&gt; Maybe EncryptionType -&gt; Maybe Text -&gt; EncryptionConfig
+-&gt; Maybe Text -&gt; Maybe EncryptionType -&gt; EncryptionConfig
 </span><a href="Network.AWS.XRay.Types.EncryptionConfig.html#EncryptionConfig%27"><span class="hs-identifier hs-type">EncryptionConfig'</span></a></span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:EncryptionConfig' :: Maybe EncryptionStatus
 </span><a href="Network.AWS.XRay.Types.EncryptionConfig.html#%24sel%3Astatus%3AEncryptionConfig%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':EncryptionConfig' :: Maybe EncryptionType
-</span><a href="Network.AWS.XRay.Types.EncryptionConfig.html#%24sel%3Atype%27%3AEncryptionConfig%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionType
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:keyId:EncryptionConfig' :: Maybe Text
+</span><a href="Network.AWS.XRay.Types.EncryptionConfig.html#%24sel%3AkeyId%3AEncryptionConfig%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:keyId:EncryptionConfig' :: Maybe Text
-</span><a href="Network.AWS.XRay.Types.EncryptionConfig.html#%24sel%3AkeyId%3AEncryptionConfig%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':EncryptionConfig' :: Maybe EncryptionType
+</span><a href="Network.AWS.XRay.Types.EncryptionConfig.html#%24sel%3Atype%27%3AEncryptionConfig%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-special">}</span><span>
@@ -146,21 +146,40 @@ forall a. Maybe a
      (Maybe EncryptionStatus)
      (Maybe EncryptionStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.EncryptionConfig.html#EncryptionConfig%27"><span class="hs-identifier hs-type">EncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250735"><span class="annot"><span class="annottext">Maybe EncryptionStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.EncryptionConfig.html#EncryptionConfig%27"><span class="hs-identifier hs-type">EncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251004"><span class="annot"><span class="annottext">Maybe EncryptionStatus
 status :: Maybe EncryptionStatus
 $sel:status:EncryptionConfig' :: EncryptionConfig -&gt; Maybe EncryptionStatus
-</span><a href="#local-6989586621679250735"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionStatus
-</span><a href="#local-6989586621679250735"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250734"><span class="annot"><span class="annottext">s :: EncryptionConfig
-</span><a href="#local-6989586621679250734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.EncryptionConfig.html#EncryptionConfig%27"><span class="hs-identifier hs-type">EncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250733"><span class="annot"><span class="annottext">Maybe EncryptionStatus
-</span><a href="#local-6989586621679250733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncryptionConfig
-</span><a href="#local-6989586621679250734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:EncryptionConfig' :: Maybe EncryptionStatus
+</span><a href="#local-6989586621679251004"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionStatus
+</span><a href="#local-6989586621679251004"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251003"><span class="annot"><span class="annottext">s :: EncryptionConfig
+</span><a href="#local-6989586621679251003"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.EncryptionConfig.html#EncryptionConfig%27"><span class="hs-identifier hs-type">EncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251002"><span class="annot"><span class="annottext">Maybe EncryptionStatus
+</span><a href="#local-6989586621679251002"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncryptionConfig
+</span><a href="#local-6989586621679251003"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:EncryptionConfig' :: Maybe EncryptionStatus
 </span><a href="Network.AWS.XRay.Types.EncryptionConfig.html#%24sel%3Astatus%3AEncryptionConfig%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionStatus
-</span><a href="#local-6989586621679250733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-type">EncryptionConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679251002"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-type">EncryptionConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- | The type of encryption. Set to @KMS@ for encryption with KMS keys. Set</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- to @NONE@ for default encryption.</span><span>
-</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.XRay.Types.EncryptionConfig.html#encryptionConfig_type"><span class="hs-identifier hs-type">encryptionConfig_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-type">EncryptionConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.EncryptionType.html#EncryptionType"><span class="hs-identifier hs-type">EncryptionType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-76"></span><span id="encryptionConfig_type"><span class="annot"><span class="annottext">encryptionConfig_type :: (Maybe EncryptionType -&gt; f (Maybe EncryptionType))
+</span><span id="line-73"></span><span class="hs-comment">-- | The ID of the KMS key used for encryption, if applicable.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.XRay.Types.EncryptionConfig.html#encryptionConfig_keyId"><span class="hs-identifier hs-type">encryptionConfig_keyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-type">EncryptionConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="encryptionConfig_keyId"><span class="annot"><span class="annottext">encryptionConfig_keyId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EncryptionConfig -&gt; f EncryptionConfig
+</span><a href="Network.AWS.XRay.Types.EncryptionConfig.html#encryptionConfig_keyId"><span class="hs-identifier hs-var hs-var">encryptionConfig_keyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EncryptionConfig -&gt; Maybe Text)
+-&gt; (EncryptionConfig -&gt; Maybe Text -&gt; EncryptionConfig)
+-&gt; Lens EncryptionConfig EncryptionConfig (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.EncryptionConfig.html#EncryptionConfig%27"><span class="hs-identifier hs-type">EncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251000"><span class="annot"><span class="annottext">Maybe Text
+keyId :: Maybe Text
+$sel:keyId:EncryptionConfig' :: EncryptionConfig -&gt; Maybe Text
+</span><a href="#local-6989586621679251000"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251000"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250999"><span class="annot"><span class="annottext">s :: EncryptionConfig
+</span><a href="#local-6989586621679250999"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.EncryptionConfig.html#EncryptionConfig%27"><span class="hs-identifier hs-type">EncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250998"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250998"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncryptionConfig
+</span><a href="#local-6989586621679250999"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:EncryptionConfig' :: Maybe Text
+</span><a href="Network.AWS.XRay.Types.EncryptionConfig.html#%24sel%3AkeyId%3AEncryptionConfig%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250998"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-type">EncryptionConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The type of encryption. Set to @KMS@ for encryption with KMS keys. Set</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- to @NONE@ for default encryption.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.XRay.Types.EncryptionConfig.html#encryptionConfig_type"><span class="hs-identifier hs-type">encryptionConfig_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-type">EncryptionConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.EncryptionType.html#EncryptionType"><span class="hs-identifier hs-type">EncryptionType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="encryptionConfig_type"><span class="annot"><span class="annottext">encryptionConfig_type :: (Maybe EncryptionType -&gt; f (Maybe EncryptionType))
 -&gt; EncryptionConfig -&gt; f EncryptionConfig
 </span><a href="Network.AWS.XRay.Types.EncryptionConfig.html#encryptionConfig_type"><span class="hs-identifier hs-var hs-var">encryptionConfig_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EncryptionConfig -&gt; Maybe EncryptionType)
 -&gt; (EncryptionConfig -&gt; Maybe EncryptionType -&gt; EncryptionConfig)
@@ -170,38 +189,19 @@ $sel:status:EncryptionConfig' :: EncryptionConfig -&gt; Maybe EncryptionStatus
      (Maybe EncryptionType)
      (Maybe EncryptionType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.EncryptionConfig.html#EncryptionConfig%27"><span class="hs-identifier hs-type">EncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250731"><span class="annot"><span class="annottext">Maybe EncryptionType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.EncryptionConfig.html#EncryptionConfig%27"><span class="hs-identifier hs-type">EncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250996"><span class="annot"><span class="annottext">Maybe EncryptionType
 type' :: Maybe EncryptionType
 $sel:type':EncryptionConfig' :: EncryptionConfig -&gt; Maybe EncryptionType
-</span><a href="#local-6989586621679250731"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionType
-</span><a href="#local-6989586621679250731"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250730"><span class="annot"><span class="annottext">s :: EncryptionConfig
-</span><a href="#local-6989586621679250730"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.EncryptionConfig.html#EncryptionConfig%27"><span class="hs-identifier hs-type">EncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250729"><span class="annot"><span class="annottext">Maybe EncryptionType
-</span><a href="#local-6989586621679250729"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncryptionConfig
-</span><a href="#local-6989586621679250730"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':EncryptionConfig' :: Maybe EncryptionType
+</span><a href="#local-6989586621679250996"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionType
+</span><a href="#local-6989586621679250996"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250995"><span class="annot"><span class="annottext">s :: EncryptionConfig
+</span><a href="#local-6989586621679250995"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.EncryptionConfig.html#EncryptionConfig%27"><span class="hs-identifier hs-type">EncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250994"><span class="annot"><span class="annottext">Maybe EncryptionType
+</span><a href="#local-6989586621679250994"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncryptionConfig
+</span><a href="#local-6989586621679250995"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':EncryptionConfig' :: Maybe EncryptionType
 </span><a href="Network.AWS.XRay.Types.EncryptionConfig.html#%24sel%3Atype%27%3AEncryptionConfig%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionType
-</span><a href="#local-6989586621679250729"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-type">EncryptionConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- | The ID of the KMS key used for encryption, if applicable.</span><span>
-</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.XRay.Types.EncryptionConfig.html#encryptionConfig_keyId"><span class="hs-identifier hs-type">encryptionConfig_keyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-type">EncryptionConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span id="encryptionConfig_keyId"><span class="annot"><span class="annottext">encryptionConfig_keyId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; EncryptionConfig -&gt; f EncryptionConfig
-</span><a href="Network.AWS.XRay.Types.EncryptionConfig.html#encryptionConfig_keyId"><span class="hs-identifier hs-var hs-var">encryptionConfig_keyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EncryptionConfig -&gt; Maybe Text)
--&gt; (EncryptionConfig -&gt; Maybe Text -&gt; EncryptionConfig)
--&gt; Lens EncryptionConfig EncryptionConfig (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.EncryptionConfig.html#EncryptionConfig%27"><span class="hs-identifier hs-type">EncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250727"><span class="annot"><span class="annottext">Maybe Text
-keyId :: Maybe Text
-$sel:keyId:EncryptionConfig' :: EncryptionConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679250727"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679250727"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250726"><span class="annot"><span class="annottext">s :: EncryptionConfig
-</span><a href="#local-6989586621679250726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.EncryptionConfig.html#EncryptionConfig%27"><span class="hs-identifier hs-type">EncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250725"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679250725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncryptionConfig
-</span><a href="#local-6989586621679250726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:EncryptionConfig' :: Maybe Text
-</span><a href="Network.AWS.XRay.Types.EncryptionConfig.html#%24sel%3AkeyId%3AEncryptionConfig%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679250725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-type">EncryptionConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679250994"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-type">EncryptionConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250722"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-type">EncryptionConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679250720"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EncryptionConfig
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250991"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-type">EncryptionConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679250989"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EncryptionConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser EncryptionConfig)
@@ -211,41 +211,41 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;EncryptionConfig&quot;</span></span><span>
-</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679250717"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679250717"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679250986"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679250986"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Maybe EncryptionStatus
--&gt; Maybe EncryptionType -&gt; Maybe Text -&gt; EncryptionConfig
+-&gt; Maybe Text -&gt; Maybe EncryptionType -&gt; EncryptionConfig
 </span><a href="Network.AWS.XRay.Types.EncryptionConfig.html#EncryptionConfig%27"><span class="hs-identifier hs-var">EncryptionConfig'</span></a></span><span>
 </span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">(Maybe EncryptionStatus
- -&gt; Maybe EncryptionType -&gt; Maybe Text -&gt; EncryptionConfig)
+ -&gt; Maybe Text -&gt; Maybe EncryptionType -&gt; EncryptionConfig)
 -&gt; Parser (Maybe EncryptionStatus)
--&gt; Parser (Maybe EncryptionType -&gt; Maybe Text -&gt; EncryptionConfig)
+-&gt; Parser (Maybe Text -&gt; Maybe EncryptionType -&gt; EncryptionConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679250717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EncryptionStatus)
+</span><a href="#local-6989586621679250986"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EncryptionStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe EncryptionType -&gt; Maybe Text -&gt; EncryptionConfig)
--&gt; Parser (Maybe EncryptionType)
--&gt; Parser (Maybe Text -&gt; EncryptionConfig)
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe EncryptionType -&gt; EncryptionConfig)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe EncryptionType -&gt; EncryptionConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679250717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EncryptionType)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; EncryptionConfig)
--&gt; Parser (Maybe Text) -&gt; Parser EncryptionConfig
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679250717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679250986"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KeyId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe EncryptionType -&gt; EncryptionConfig)
+-&gt; Parser (Maybe EncryptionType) -&gt; Parser EncryptionConfig
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679250986"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EncryptionType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250711"><span id="local-6989586621679250713"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-type">EncryptionConfig</span></a></span></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250980"><span id="local-6989586621679250982"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-type">EncryptionConfig</span></a></span></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250708"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-type">EncryptionConfig</span></a></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250977"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-type">EncryptionConfig</span></a></span></span><span>
 </span><span id="line-96"></span></pre></body></html>

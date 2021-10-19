@@ -31,31 +31,31 @@
 </span><span id="line-31"></span><span class="hs-comment">-- | Describes a route table.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newRouteTable' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621681122669"><span id="local-6989586621681122670"></span></span><span class="hs-keyword">data</span><span> </span><span id="RouteTable"><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable"><span class="hs-identifier hs-var">RouteTable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RouteTable%27"><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable%27"><span class="hs-identifier hs-var">RouteTable'</span></a></span></span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the Amazon Web Services account that owns the route table.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AownerId%3ARouteTable%27"><span class="annot"><span class="annottext">RouteTable -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.RouteTable.html#%24sel%3AownerId%3ARouteTable%27"><span class="hs-identifier hs-var hs-var">ownerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span id="local-6989586621681157527"><span id="local-6989586621681157528"></span></span><span class="hs-keyword">data</span><span> </span><span id="RouteTable"><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable"><span class="hs-identifier hs-var">RouteTable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RouteTable%27"><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable%27"><span class="hs-identifier hs-var">RouteTable'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the route table.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3ArouteTableId%3ARouteTable%27"><span class="annot"><span class="annottext">RouteTable -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.RouteTable.html#%24sel%3ArouteTableId%3ARouteTable%27"><span class="hs-identifier hs-var hs-var">routeTableId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The routes in the route table.</span><span>
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3Aroutes%3ARouteTable%27"><span class="annot"><span class="annottext">RouteTable -&gt; Maybe [Route]
 </span><a href="Network.AWS.EC2.Types.RouteTable.html#%24sel%3Aroutes%3ARouteTable%27"><span class="hs-identifier hs-var hs-var">routes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The ID of the route table.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3ArouteTableId%3ARouteTable%27"><span class="annot"><span class="annottext">RouteTable -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.RouteTable.html#%24sel%3ArouteTableId%3ARouteTable%27"><span class="hs-identifier hs-var hs-var">routeTableId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Any tags assigned to the route table.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3Atags%3ARouteTable%27"><span class="annot"><span class="annottext">RouteTable -&gt; Maybe [Tag]
-</span><a href="Network.AWS.EC2.Types.RouteTable.html#%24sel%3Atags%3ARouteTable%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Any virtual private gateway (VGW) propagating routes.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3ApropagatingVgws%3ARouteTable%27"><span class="annot"><span class="annottext">RouteTable -&gt; Maybe [PropagatingVgw]
-</span><a href="Network.AWS.EC2.Types.RouteTable.html#%24sel%3ApropagatingVgws%3ARouteTable%27"><span class="hs-identifier hs-var hs-var">propagatingVgws</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.PropagatingVgw.html#PropagatingVgw"><span class="hs-identifier hs-type">PropagatingVgw</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The ID of the VPC.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3AvpcId%3ARouteTable%27"><span class="annot"><span class="annottext">RouteTable -&gt; Maybe Text
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The ID of the VPC.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AvpcId%3ARouteTable%27"><span class="annot"><span class="annottext">RouteTable -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.RouteTable.html#%24sel%3AvpcId%3ARouteTable%27"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The associations between the route table and one or more subnets or a</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- gateway.</span><span>
-</span><span id="line-49"></span><span>    </span><span id="%24sel%3Aassociations%3ARouteTable%27"><span class="annot"><span class="annottext">RouteTable -&gt; Maybe [RouteTableAssociation]
-</span><a href="Network.AWS.EC2.Types.RouteTable.html#%24sel%3Aassociations%3ARouteTable%27"><span class="hs-identifier hs-var hs-var">associations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTableAssociation.html#RouteTableAssociation"><span class="hs-identifier hs-type">RouteTableAssociation</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Any virtual private gateway (VGW) propagating routes.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3ApropagatingVgws%3ARouteTable%27"><span class="annot"><span class="annottext">RouteTable -&gt; Maybe [PropagatingVgw]
+</span><a href="Network.AWS.EC2.Types.RouteTable.html#%24sel%3ApropagatingVgws%3ARouteTable%27"><span class="hs-identifier hs-var hs-var">propagatingVgws</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.PropagatingVgw.html#PropagatingVgw"><span class="hs-identifier hs-type">PropagatingVgw</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The ID of the Amazon Web Services account that owns the route table.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AownerId%3ARouteTable%27"><span class="annot"><span class="annottext">RouteTable -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.RouteTable.html#%24sel%3AownerId%3ARouteTable%27"><span class="hs-identifier hs-var hs-var">ownerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The associations between the route table and one or more subnets or a</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- gateway.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Aassociations%3ARouteTable%27"><span class="annot"><span class="annottext">RouteTable -&gt; Maybe [RouteTableAssociation]
+</span><a href="Network.AWS.EC2.Types.RouteTable.html#%24sel%3Aassociations%3ARouteTable%27"><span class="hs-identifier hs-var hs-var">associations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTableAssociation.html#RouteTableAssociation"><span class="hs-identifier hs-type">RouteTableAssociation</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | Any tags assigned to the route table.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3Atags%3ARouteTable%27"><span class="annot"><span class="annottext">RouteTable -&gt; Maybe [Tag]
+</span><a href="Network.AWS.EC2.Types.RouteTable.html#%24sel%3Atags%3ARouteTable%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681122657"><span id="local-6989586621681122659"><span class="annot"><span class="annottext">RouteTable -&gt; RouteTable -&gt; Bool
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681157515"><span id="local-6989586621681157517"><span class="annot"><span class="annottext">RouteTable -&gt; RouteTable -&gt; Bool
 (RouteTable -&gt; RouteTable -&gt; Bool)
 -&gt; (RouteTable -&gt; RouteTable -&gt; Bool) -&gt; Eq RouteTable
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RouteTable -&gt; RouteTable -&gt; Bool
 == :: RouteTable -&gt; RouteTable -&gt; Bool
 $c== :: RouteTable -&gt; RouteTable -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681122648"><span id="local-6989586621681122650"><span id="local-6989586621681122652"><span id="local-6989586621681122654"><span class="annot"><span class="annottext">ReadPrec [RouteTable]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681157506"><span id="local-6989586621681157508"><span id="local-6989586621681157510"><span id="local-6989586621681157512"><span class="annot"><span class="annottext">ReadPrec [RouteTable]
 ReadPrec RouteTable
 Int -&gt; ReadS RouteTable
 ReadS [RouteTable]
@@ -83,7 +83,7 @@ readList :: ReadS [RouteTable]
 $creadList :: ReadS [RouteTable]
 readsPrec :: Int -&gt; ReadS RouteTable
 $creadsPrec :: Int -&gt; ReadS RouteTable
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681122641"><span id="local-6989586621681122643"><span id="local-6989586621681122645"><span class="annot"><span class="annottext">Int -&gt; RouteTable -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681157499"><span id="local-6989586621681157501"><span id="local-6989586621681157503"><span class="annot"><span class="annottext">Int -&gt; RouteTable -&gt; ShowS
 [RouteTable] -&gt; ShowS
 RouteTable -&gt; String
 (Int -&gt; RouteTable -&gt; ShowS)
@@ -116,20 +116,20 @@ $cfrom :: forall x. RouteTable -&gt; Rep RouteTable x
 </span><span id="line-58"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'ownerId', 'routeTable_ownerId' - The ID of the Amazon Web Services account that owns the route table.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'routeTableId', 'routeTable_routeTableId' - The ID of the route table.</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- 'routes', 'routeTable_routes' - The routes in the route table.</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'routeTableId', 'routeTable_routeTableId' - The ID of the route table.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'vpcId', 'routeTable_vpcId' - The ID of the VPC.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'tags', 'routeTable_tags' - Any tags assigned to the route table.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'propagatingVgws', 'routeTable_propagatingVgws' - Any virtual private gateway (VGW) propagating routes.</span><span>
 </span><span id="line-68"></span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- 'propagatingVgws', 'routeTable_propagatingVgws' - Any virtual private gateway (VGW) propagating routes.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'ownerId', 'routeTable_ownerId' - The ID of the Amazon Web Services account that owns the route table.</span><span>
 </span><span id="line-70"></span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- 'vpcId', 'routeTable_vpcId' - The ID of the VPC.</span><span>
-</span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'associations', 'routeTable_associations' - The associations between the route table and one or more subnets or a</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- gateway.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'associations', 'routeTable_associations' - The associations between the route table and one or more subnets or a</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- gateway.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'tags', 'routeTable_tags' - Any tags assigned to the route table.</span><span>
 </span><span id="line-75"></span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#newRouteTable"><span class="hs-identifier hs-type">newRouteTable</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable"><span class="hs-identifier hs-type">RouteTable</span></a></span><span>
 </span><span id="line-77"></span><span id="newRouteTable"><span class="annot"><span class="annottext">newRouteTable :: RouteTable
@@ -137,59 +137,59 @@ $cfrom :: forall x. RouteTable -&gt; Rep RouteTable x
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">RouteTable' :: Maybe Text
 -&gt; Maybe [Route]
 -&gt; Maybe Text
--&gt; Maybe [Tag]
 -&gt; Maybe [PropagatingVgw]
 -&gt; Maybe Text
 -&gt; Maybe [RouteTableAssociation]
+-&gt; Maybe [Tag]
 -&gt; RouteTable
 </span><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable%27"><span class="hs-identifier hs-type">RouteTable'</span></a></span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ownerId:RouteTable' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.RouteTable.html#%24sel%3AownerId%3ARouteTable%27"><span class="hs-identifier hs-var">ownerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:routeTableId:RouteTable' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.RouteTable.html#%24sel%3ArouteTableId%3ARouteTable%27"><span class="hs-identifier hs-var">routeTableId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:routes:RouteTable' :: Maybe [Route]
 </span><a href="Network.AWS.EC2.Types.RouteTable.html#%24sel%3Aroutes%3ARouteTable%27"><span class="hs-identifier hs-var">routes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Route]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:routeTableId:RouteTable' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.RouteTable.html#%24sel%3ArouteTableId%3ARouteTable%27"><span class="hs-identifier hs-var">routeTableId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:RouteTable' :: Maybe [Tag]
-</span><a href="Network.AWS.EC2.Types.RouteTable.html#%24sel%3Atags%3ARouteTable%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:propagatingVgws:RouteTable' :: Maybe [PropagatingVgw]
-</span><a href="Network.AWS.EC2.Types.RouteTable.html#%24sel%3ApropagatingVgws%3ARouteTable%27"><span class="hs-identifier hs-var">propagatingVgws</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PropagatingVgw]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcId:RouteTable' :: Maybe Text
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcId:RouteTable' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.RouteTable.html#%24sel%3AvpcId%3ARouteTable%27"><span class="hs-identifier hs-var">vpcId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:associations:RouteTable' :: Maybe [RouteTableAssociation]
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:propagatingVgws:RouteTable' :: Maybe [PropagatingVgw]
+</span><a href="Network.AWS.EC2.Types.RouteTable.html#%24sel%3ApropagatingVgws%3ARouteTable%27"><span class="hs-identifier hs-var">propagatingVgws</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PropagatingVgw]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:ownerId:RouteTable' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.RouteTable.html#%24sel%3AownerId%3ARouteTable%27"><span class="hs-identifier hs-var">ownerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:associations:RouteTable' :: Maybe [RouteTableAssociation]
 </span><a href="Network.AWS.EC2.Types.RouteTable.html#%24sel%3Aassociations%3ARouteTable%27"><span class="hs-identifier hs-var">associations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RouteTableAssociation]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:RouteTable' :: Maybe [Tag]
+</span><a href="Network.AWS.EC2.Types.RouteTable.html#%24sel%3Atags%3ARouteTable%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-86"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- | The ID of the Amazon Web Services account that owns the route table.</span><span>
-</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#routeTable_ownerId"><span class="hs-identifier hs-type">routeTable_ownerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable"><span class="hs-identifier hs-type">RouteTable</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span id="routeTable_ownerId"><span class="annot"><span class="annottext">routeTable_ownerId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RouteTable -&gt; f RouteTable
-</span><a href="Network.AWS.EC2.Types.RouteTable.html#routeTable_ownerId"><span class="hs-identifier hs-var hs-var">routeTable_ownerId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RouteTable -&gt; Maybe Text)
+</span><span id="line-88"></span><span class="hs-comment">-- | The ID of the route table.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#routeTable_routeTableId"><span class="hs-identifier hs-type">routeTable_routeTableId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable"><span class="hs-identifier hs-type">RouteTable</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="routeTable_routeTableId"><span class="annot"><span class="annottext">routeTable_routeTableId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RouteTable -&gt; f RouteTable
+</span><a href="Network.AWS.EC2.Types.RouteTable.html#routeTable_routeTableId"><span class="hs-identifier hs-var hs-var">routeTable_routeTableId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RouteTable -&gt; Maybe Text)
 -&gt; (RouteTable -&gt; Maybe Text -&gt; RouteTable)
 -&gt; Lens RouteTable RouteTable (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable%27"><span class="hs-identifier hs-type">RouteTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681122632"><span class="annot"><span class="annottext">Maybe Text
-ownerId :: Maybe Text
-$sel:ownerId:RouteTable' :: RouteTable -&gt; Maybe Text
-</span><a href="#local-6989586621681122632"><span class="hs-identifier hs-var hs-var">ownerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681122632"><span class="hs-identifier hs-var">ownerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681122631"><span class="annot"><span class="annottext">s :: RouteTable
-</span><a href="#local-6989586621681122631"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable%27"><span class="hs-identifier hs-type">RouteTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681122630"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681122630"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RouteTable
-</span><a href="#local-6989586621681122631"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerId:RouteTable' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.RouteTable.html#%24sel%3AownerId%3ARouteTable%27"><span class="hs-identifier hs-var">ownerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681122630"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable"><span class="hs-identifier hs-type">RouteTable</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable%27"><span class="hs-identifier hs-type">RouteTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681157490"><span class="annot"><span class="annottext">Maybe Text
+routeTableId :: Maybe Text
+$sel:routeTableId:RouteTable' :: RouteTable -&gt; Maybe Text
+</span><a href="#local-6989586621681157490"><span class="hs-identifier hs-var hs-var">routeTableId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681157490"><span class="hs-identifier hs-var">routeTableId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681157489"><span class="annot"><span class="annottext">s :: RouteTable
+</span><a href="#local-6989586621681157489"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable%27"><span class="hs-identifier hs-type">RouteTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681157488"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681157488"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RouteTable
+</span><a href="#local-6989586621681157489"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:routeTableId:RouteTable' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.RouteTable.html#%24sel%3ArouteTableId%3ARouteTable%27"><span class="hs-identifier hs-var">routeTableId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681157488"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable"><span class="hs-identifier hs-type">RouteTable</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | The routes in the route table.</span><span>
 </span><span id="line-93"></span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#routeTable_routes"><span class="hs-identifier hs-type">routeTable_routes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable"><span class="hs-identifier hs-type">RouteTable</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Route.html#Route"><span class="hs-identifier hs-type">Route</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -198,16 +198,16 @@ $sel:ownerId:RouteTable' :: RouteTable -&gt; Maybe Text
 -&gt; (RouteTable -&gt; Maybe [Route] -&gt; RouteTable)
 -&gt; Lens RouteTable RouteTable (Maybe [Route]) (Maybe [Route])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable%27"><span class="hs-identifier hs-type">RouteTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681122628"><span class="annot"><span class="annottext">Maybe [Route]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable%27"><span class="hs-identifier hs-type">RouteTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681157486"><span class="annot"><span class="annottext">Maybe [Route]
 routes :: Maybe [Route]
 $sel:routes:RouteTable' :: RouteTable -&gt; Maybe [Route]
-</span><a href="#local-6989586621681122628"><span class="hs-identifier hs-var hs-var">routes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Route]
-</span><a href="#local-6989586621681122628"><span class="hs-identifier hs-var">routes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681122627"><span class="annot"><span class="annottext">s :: RouteTable
-</span><a href="#local-6989586621681122627"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable%27"><span class="hs-identifier hs-type">RouteTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681122626"><span class="annot"><span class="annottext">Maybe [Route]
-</span><a href="#local-6989586621681122626"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RouteTable
-</span><a href="#local-6989586621681122627"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:routes:RouteTable' :: Maybe [Route]
+</span><a href="#local-6989586621681157486"><span class="hs-identifier hs-var hs-var">routes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Route]
+</span><a href="#local-6989586621681157486"><span class="hs-identifier hs-var">routes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681157485"><span class="annot"><span class="annottext">s :: RouteTable
+</span><a href="#local-6989586621681157485"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable%27"><span class="hs-identifier hs-type">RouteTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681157484"><span class="annot"><span class="annottext">Maybe [Route]
+</span><a href="#local-6989586621681157484"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RouteTable
+</span><a href="#local-6989586621681157485"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:routes:RouteTable' :: Maybe [Route]
 </span><a href="Network.AWS.EC2.Types.RouteTable.html#%24sel%3Aroutes%3ARouteTable%27"><span class="hs-identifier hs-var">routes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Route]
-</span><a href="#local-6989586621681122626"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable"><span class="hs-identifier hs-type">RouteTable</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Route] -&gt; f (Maybe [Route]))
+</span><a href="#local-6989586621681157484"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable"><span class="hs-identifier hs-type">RouteTable</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Route] -&gt; f (Maybe [Route]))
  -&gt; RouteTable -&gt; f RouteTable)
 -&gt; ((Maybe [Route] -&gt; f (Maybe [Route]))
     -&gt; Maybe [Route] -&gt; f (Maybe [Route]))
@@ -222,62 +222,30 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Route] [Route] [Route] [Route]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- | The ID of the route table.</span><span>
-</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#routeTable_routeTableId"><span class="hs-identifier hs-type">routeTable_routeTableId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable"><span class="hs-identifier hs-type">RouteTable</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span id="routeTable_routeTableId"><span class="annot"><span class="annottext">routeTable_routeTableId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RouteTable -&gt; f RouteTable
-</span><a href="Network.AWS.EC2.Types.RouteTable.html#routeTable_routeTableId"><span class="hs-identifier hs-var hs-var">routeTable_routeTableId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RouteTable -&gt; Maybe Text)
+</span><span id="line-96"></span><span class="hs-comment">-- | The ID of the VPC.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#routeTable_vpcId"><span class="hs-identifier hs-type">routeTable_vpcId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable"><span class="hs-identifier hs-type">RouteTable</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="routeTable_vpcId"><span class="annot"><span class="annottext">routeTable_vpcId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RouteTable -&gt; f RouteTable
+</span><a href="Network.AWS.EC2.Types.RouteTable.html#routeTable_vpcId"><span class="hs-identifier hs-var hs-var">routeTable_vpcId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RouteTable -&gt; Maybe Text)
 -&gt; (RouteTable -&gt; Maybe Text -&gt; RouteTable)
 -&gt; Lens RouteTable RouteTable (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable%27"><span class="hs-identifier hs-type">RouteTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681122621"><span class="annot"><span class="annottext">Maybe Text
-routeTableId :: Maybe Text
-$sel:routeTableId:RouteTable' :: RouteTable -&gt; Maybe Text
-</span><a href="#local-6989586621681122621"><span class="hs-identifier hs-var hs-var">routeTableId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681122621"><span class="hs-identifier hs-var">routeTableId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681122620"><span class="annot"><span class="annottext">s :: RouteTable
-</span><a href="#local-6989586621681122620"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable%27"><span class="hs-identifier hs-type">RouteTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681122619"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681122619"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RouteTable
-</span><a href="#local-6989586621681122620"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:routeTableId:RouteTable' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.RouteTable.html#%24sel%3ArouteTableId%3ARouteTable%27"><span class="hs-identifier hs-var">routeTableId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681122619"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable"><span class="hs-identifier hs-type">RouteTable</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable%27"><span class="hs-identifier hs-type">RouteTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681157479"><span class="annot"><span class="annottext">Maybe Text
+vpcId :: Maybe Text
+$sel:vpcId:RouteTable' :: RouteTable -&gt; Maybe Text
+</span><a href="#local-6989586621681157479"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681157479"><span class="hs-identifier hs-var">vpcId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681157478"><span class="annot"><span class="annottext">s :: RouteTable
+</span><a href="#local-6989586621681157478"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable%27"><span class="hs-identifier hs-type">RouteTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681157477"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681157477"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RouteTable
+</span><a href="#local-6989586621681157478"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcId:RouteTable' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.RouteTable.html#%24sel%3AvpcId%3ARouteTable%27"><span class="hs-identifier hs-var">vpcId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681157477"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable"><span class="hs-identifier hs-type">RouteTable</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- | Any tags assigned to the route table.</span><span>
-</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#routeTable_tags"><span class="hs-identifier hs-type">routeTable_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable"><span class="hs-identifier hs-type">RouteTable</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span id="routeTable_tags"><span class="annot"><span class="annottext">routeTable_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; RouteTable -&gt; f RouteTable
-</span><a href="Network.AWS.EC2.Types.RouteTable.html#routeTable_tags"><span class="hs-identifier hs-var hs-var">routeTable_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RouteTable -&gt; Maybe [Tag])
--&gt; (RouteTable -&gt; Maybe [Tag] -&gt; RouteTable)
--&gt; Lens RouteTable RouteTable (Maybe [Tag]) (Maybe [Tag])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable%27"><span class="hs-identifier hs-type">RouteTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681122617"><span class="annot"><span class="annottext">Maybe [Tag]
-tags :: Maybe [Tag]
-$sel:tags:RouteTable' :: RouteTable -&gt; Maybe [Tag]
-</span><a href="#local-6989586621681122617"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681122617"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681122616"><span class="annot"><span class="annottext">s :: RouteTable
-</span><a href="#local-6989586621681122616"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable%27"><span class="hs-identifier hs-type">RouteTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681122615"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681122615"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RouteTable
-</span><a href="#local-6989586621681122616"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:RouteTable' :: Maybe [Tag]
-</span><a href="Network.AWS.EC2.Types.RouteTable.html#%24sel%3Atags%3ARouteTable%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681122615"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable"><span class="hs-identifier hs-type">RouteTable</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; RouteTable -&gt; f RouteTable)
--&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
-    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
--&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
--&gt; RouteTable
--&gt; f RouteTable
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
--&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- | Any virtual private gateway (VGW) propagating routes.</span><span>
-</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#routeTable_propagatingVgws"><span class="hs-identifier hs-type">routeTable_propagatingVgws</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable"><span class="hs-identifier hs-type">RouteTable</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.PropagatingVgw.html#PropagatingVgw"><span class="hs-identifier hs-type">PropagatingVgw</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span id="routeTable_propagatingVgws"><span class="annot"><span class="annottext">routeTable_propagatingVgws :: (Maybe [PropagatingVgw] -&gt; f (Maybe [PropagatingVgw]))
+</span><span id="line-100"></span><span class="hs-comment">-- | Any virtual private gateway (VGW) propagating routes.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#routeTable_propagatingVgws"><span class="hs-identifier hs-type">routeTable_propagatingVgws</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable"><span class="hs-identifier hs-type">RouteTable</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.PropagatingVgw.html#PropagatingVgw"><span class="hs-identifier hs-type">PropagatingVgw</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="routeTable_propagatingVgws"><span class="annot"><span class="annottext">routeTable_propagatingVgws :: (Maybe [PropagatingVgw] -&gt; f (Maybe [PropagatingVgw]))
 -&gt; RouteTable -&gt; f RouteTable
 </span><a href="Network.AWS.EC2.Types.RouteTable.html#routeTable_propagatingVgws"><span class="hs-identifier hs-var hs-var">routeTable_propagatingVgws</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RouteTable -&gt; Maybe [PropagatingVgw])
 -&gt; (RouteTable -&gt; Maybe [PropagatingVgw] -&gt; RouteTable)
@@ -287,16 +255,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe [PropagatingVgw])
      (Maybe [PropagatingVgw])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable%27"><span class="hs-identifier hs-type">RouteTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681122613"><span class="annot"><span class="annottext">Maybe [PropagatingVgw]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable%27"><span class="hs-identifier hs-type">RouteTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681157475"><span class="annot"><span class="annottext">Maybe [PropagatingVgw]
 propagatingVgws :: Maybe [PropagatingVgw]
 $sel:propagatingVgws:RouteTable' :: RouteTable -&gt; Maybe [PropagatingVgw]
-</span><a href="#local-6989586621681122613"><span class="hs-identifier hs-var hs-var">propagatingVgws</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PropagatingVgw]
-</span><a href="#local-6989586621681122613"><span class="hs-identifier hs-var">propagatingVgws</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681122612"><span class="annot"><span class="annottext">s :: RouteTable
-</span><a href="#local-6989586621681122612"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable%27"><span class="hs-identifier hs-type">RouteTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681122611"><span class="annot"><span class="annottext">Maybe [PropagatingVgw]
-</span><a href="#local-6989586621681122611"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RouteTable
-</span><a href="#local-6989586621681122612"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:propagatingVgws:RouteTable' :: Maybe [PropagatingVgw]
+</span><a href="#local-6989586621681157475"><span class="hs-identifier hs-var hs-var">propagatingVgws</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PropagatingVgw]
+</span><a href="#local-6989586621681157475"><span class="hs-identifier hs-var">propagatingVgws</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681157474"><span class="annot"><span class="annottext">s :: RouteTable
+</span><a href="#local-6989586621681157474"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable%27"><span class="hs-identifier hs-type">RouteTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681157473"><span class="annot"><span class="annottext">Maybe [PropagatingVgw]
+</span><a href="#local-6989586621681157473"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RouteTable
+</span><a href="#local-6989586621681157474"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:propagatingVgws:RouteTable' :: Maybe [PropagatingVgw]
 </span><a href="Network.AWS.EC2.Types.RouteTable.html#%24sel%3ApropagatingVgws%3ARouteTable%27"><span class="hs-identifier hs-var">propagatingVgws</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PropagatingVgw]
-</span><a href="#local-6989586621681122611"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable"><span class="hs-identifier hs-type">RouteTable</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PropagatingVgw] -&gt; f (Maybe [PropagatingVgw]))
+</span><a href="#local-6989586621681157473"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable"><span class="hs-identifier hs-type">RouteTable</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PropagatingVgw] -&gt; f (Maybe [PropagatingVgw]))
  -&gt; RouteTable -&gt; f RouteTable)
 -&gt; ((Maybe [PropagatingVgw] -&gt; f (Maybe [PropagatingVgw]))
     -&gt; Maybe [PropagatingVgw] -&gt; f (Maybe [PropagatingVgw]))
@@ -316,31 +284,31 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   [PropagatingVgw] [PropagatingVgw] [PropagatingVgw] [PropagatingVgw]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- | The ID of the VPC.</span><span>
-</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#routeTable_vpcId"><span class="hs-identifier hs-type">routeTable_vpcId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable"><span class="hs-identifier hs-type">RouteTable</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span id="routeTable_vpcId"><span class="annot"><span class="annottext">routeTable_vpcId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RouteTable -&gt; f RouteTable
-</span><a href="Network.AWS.EC2.Types.RouteTable.html#routeTable_vpcId"><span class="hs-identifier hs-var hs-var">routeTable_vpcId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RouteTable -&gt; Maybe Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The ID of the Amazon Web Services account that owns the route table.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#routeTable_ownerId"><span class="hs-identifier hs-type">routeTable_ownerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable"><span class="hs-identifier hs-type">RouteTable</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="routeTable_ownerId"><span class="annot"><span class="annottext">routeTable_ownerId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RouteTable -&gt; f RouteTable
+</span><a href="Network.AWS.EC2.Types.RouteTable.html#routeTable_ownerId"><span class="hs-identifier hs-var hs-var">routeTable_ownerId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RouteTable -&gt; Maybe Text)
 -&gt; (RouteTable -&gt; Maybe Text -&gt; RouteTable)
 -&gt; Lens RouteTable RouteTable (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable%27"><span class="hs-identifier hs-type">RouteTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681122609"><span class="annot"><span class="annottext">Maybe Text
-vpcId :: Maybe Text
-$sel:vpcId:RouteTable' :: RouteTable -&gt; Maybe Text
-</span><a href="#local-6989586621681122609"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681122609"><span class="hs-identifier hs-var">vpcId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681122608"><span class="annot"><span class="annottext">s :: RouteTable
-</span><a href="#local-6989586621681122608"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable%27"><span class="hs-identifier hs-type">RouteTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681122607"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681122607"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RouteTable
-</span><a href="#local-6989586621681122608"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcId:RouteTable' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.RouteTable.html#%24sel%3AvpcId%3ARouteTable%27"><span class="hs-identifier hs-var">vpcId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681122607"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable"><span class="hs-identifier hs-type">RouteTable</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- | The associations between the route table and one or more subnets or a</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- gateway.</span><span>
-</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#routeTable_associations"><span class="hs-identifier hs-type">routeTable_associations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable"><span class="hs-identifier hs-type">RouteTable</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTableAssociation.html#RouteTableAssociation"><span class="hs-identifier hs-type">RouteTableAssociation</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span id="routeTable_associations"><span class="annot"><span class="annottext">routeTable_associations :: (Maybe [RouteTableAssociation]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable%27"><span class="hs-identifier hs-type">RouteTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681157471"><span class="annot"><span class="annottext">Maybe Text
+ownerId :: Maybe Text
+$sel:ownerId:RouteTable' :: RouteTable -&gt; Maybe Text
+</span><a href="#local-6989586621681157471"><span class="hs-identifier hs-var hs-var">ownerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681157471"><span class="hs-identifier hs-var">ownerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681157470"><span class="annot"><span class="annottext">s :: RouteTable
+</span><a href="#local-6989586621681157470"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable%27"><span class="hs-identifier hs-type">RouteTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681157469"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681157469"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RouteTable
+</span><a href="#local-6989586621681157470"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerId:RouteTable' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.RouteTable.html#%24sel%3AownerId%3ARouteTable%27"><span class="hs-identifier hs-var">ownerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681157469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable"><span class="hs-identifier hs-type">RouteTable</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The associations between the route table and one or more subnets or a</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- gateway.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#routeTable_associations"><span class="hs-identifier hs-type">routeTable_associations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable"><span class="hs-identifier hs-type">RouteTable</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTableAssociation.html#RouteTableAssociation"><span class="hs-identifier hs-type">RouteTableAssociation</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="routeTable_associations"><span class="annot"><span class="annottext">routeTable_associations :: (Maybe [RouteTableAssociation]
  -&gt; f (Maybe [RouteTableAssociation]))
 -&gt; RouteTable -&gt; f RouteTable
 </span><a href="Network.AWS.EC2.Types.RouteTable.html#routeTable_associations"><span class="hs-identifier hs-var hs-var">routeTable_associations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RouteTable -&gt; Maybe [RouteTableAssociation])
@@ -351,16 +319,16 @@ $sel:vpcId:RouteTable' :: RouteTable -&gt; Maybe Text
      (Maybe [RouteTableAssociation])
      (Maybe [RouteTableAssociation])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable%27"><span class="hs-identifier hs-type">RouteTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681122605"><span class="annot"><span class="annottext">Maybe [RouteTableAssociation]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable%27"><span class="hs-identifier hs-type">RouteTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681157467"><span class="annot"><span class="annottext">Maybe [RouteTableAssociation]
 associations :: Maybe [RouteTableAssociation]
 $sel:associations:RouteTable' :: RouteTable -&gt; Maybe [RouteTableAssociation]
-</span><a href="#local-6989586621681122605"><span class="hs-identifier hs-var hs-var">associations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RouteTableAssociation]
-</span><a href="#local-6989586621681122605"><span class="hs-identifier hs-var">associations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681122604"><span class="annot"><span class="annottext">s :: RouteTable
-</span><a href="#local-6989586621681122604"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable%27"><span class="hs-identifier hs-type">RouteTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681122603"><span class="annot"><span class="annottext">Maybe [RouteTableAssociation]
-</span><a href="#local-6989586621681122603"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RouteTable
-</span><a href="#local-6989586621681122604"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associations:RouteTable' :: Maybe [RouteTableAssociation]
+</span><a href="#local-6989586621681157467"><span class="hs-identifier hs-var hs-var">associations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RouteTableAssociation]
+</span><a href="#local-6989586621681157467"><span class="hs-identifier hs-var">associations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681157466"><span class="annot"><span class="annottext">s :: RouteTable
+</span><a href="#local-6989586621681157466"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable%27"><span class="hs-identifier hs-type">RouteTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681157465"><span class="annot"><span class="annottext">Maybe [RouteTableAssociation]
+</span><a href="#local-6989586621681157465"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RouteTable
+</span><a href="#local-6989586621681157466"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associations:RouteTable' :: Maybe [RouteTableAssociation]
 </span><a href="Network.AWS.EC2.Types.RouteTable.html#%24sel%3Aassociations%3ARouteTable%27"><span class="hs-identifier hs-var">associations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RouteTableAssociation]
-</span><a href="#local-6989586621681122603"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable"><span class="hs-identifier hs-type">RouteTable</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RouteTableAssociation]
+</span><a href="#local-6989586621681157465"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable"><span class="hs-identifier hs-type">RouteTable</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RouteTableAssociation]
   -&gt; f (Maybe [RouteTableAssociation]))
  -&gt; RouteTable -&gt; f RouteTable)
 -&gt; ((Maybe [RouteTableAssociation]
@@ -390,67 +358,99 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [RouteTableAssociation]
   [RouteTableAssociation]
   [RouteTableAssociation]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | Any tags assigned to the route table.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#routeTable_tags"><span class="hs-identifier hs-type">routeTable_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable"><span class="hs-identifier hs-type">RouteTable</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="routeTable_tags"><span class="annot"><span class="annottext">routeTable_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; RouteTable -&gt; f RouteTable
+</span><a href="Network.AWS.EC2.Types.RouteTable.html#routeTable_tags"><span class="hs-identifier hs-var hs-var">routeTable_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RouteTable -&gt; Maybe [Tag])
+-&gt; (RouteTable -&gt; Maybe [Tag] -&gt; RouteTable)
+-&gt; Lens RouteTable RouteTable (Maybe [Tag]) (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable%27"><span class="hs-identifier hs-type">RouteTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681157463"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:RouteTable' :: RouteTable -&gt; Maybe [Tag]
+</span><a href="#local-6989586621681157463"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681157463"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681157462"><span class="annot"><span class="annottext">s :: RouteTable
+</span><a href="#local-6989586621681157462"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable%27"><span class="hs-identifier hs-type">RouteTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681157461"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681157461"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RouteTable
+</span><a href="#local-6989586621681157462"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:RouteTable' :: Maybe [Tag]
+</span><a href="Network.AWS.EC2.Types.RouteTable.html#%24sel%3Atags%3ARouteTable%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681157461"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable"><span class="hs-identifier hs-type">RouteTable</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; RouteTable -&gt; f RouteTable)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; RouteTable
+-&gt; f RouteTable
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable"><span class="hs-identifier hs-type">RouteTable</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621681122600"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String RouteTable
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681122598"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681122598"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621681157458"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String RouteTable
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681157456"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681157456"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [Route]
 -&gt; Maybe Text
--&gt; Maybe [Tag]
 -&gt; Maybe [PropagatingVgw]
 -&gt; Maybe Text
 -&gt; Maybe [RouteTableAssociation]
+-&gt; Maybe [Tag]
 -&gt; RouteTable
 </span><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable%27"><span class="hs-identifier hs-var">RouteTable'</span></a></span><span>
 </span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
  -&gt; Maybe [Route]
  -&gt; Maybe Text
- -&gt; Maybe [Tag]
  -&gt; Maybe [PropagatingVgw]
  -&gt; Maybe Text
  -&gt; Maybe [RouteTableAssociation]
+ -&gt; Maybe [Tag]
  -&gt; RouteTable)
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
      (Maybe [Route]
       -&gt; Maybe Text
-      -&gt; Maybe [Tag]
       -&gt; Maybe [PropagatingVgw]
       -&gt; Maybe Text
       -&gt; Maybe [RouteTableAssociation]
+      -&gt; Maybe [Tag]
       -&gt; RouteTable)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681122598"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681157456"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ownerId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;routeTableId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe [Route]
    -&gt; Maybe Text
-   -&gt; Maybe [Tag]
    -&gt; Maybe [PropagatingVgw]
    -&gt; Maybe Text
    -&gt; Maybe [RouteTableAssociation]
+   -&gt; Maybe [Tag]
    -&gt; RouteTable)
 -&gt; Either String (Maybe [Route])
 -&gt; Either
      String
      (Maybe Text
-      -&gt; Maybe [Tag]
       -&gt; Maybe [PropagatingVgw]
       -&gt; Maybe Text
       -&gt; Maybe [RouteTableAssociation]
+      -&gt; Maybe [Tag]
       -&gt; RouteTable)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681122598"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681157456"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;routeSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -475,80 +475,49 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
-   -&gt; Maybe [Tag]
    -&gt; Maybe [PropagatingVgw]
    -&gt; Maybe Text
    -&gt; Maybe [RouteTableAssociation]
+   -&gt; Maybe [Tag]
    -&gt; RouteTable)
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
-     (Maybe [Tag]
-      -&gt; Maybe [PropagatingVgw]
+     (Maybe [PropagatingVgw]
       -&gt; Maybe Text
       -&gt; Maybe [RouteTableAssociation]
+      -&gt; Maybe [Tag]
       -&gt; RouteTable)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681122598"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681157456"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;routeTableId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;vpcId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe [Tag]
-   -&gt; Maybe [PropagatingVgw]
+  (Maybe [PropagatingVgw]
    -&gt; Maybe Text
    -&gt; Maybe [RouteTableAssociation]
+   -&gt; Maybe [Tag]
    -&gt; RouteTable)
--&gt; Either String (Maybe [Tag])
--&gt; Either
-     String
-     (Maybe [PropagatingVgw]
-      -&gt; Maybe Text -&gt; Maybe [RouteTableAssociation] -&gt; RouteTable)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681122598"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;tagSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
-forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
-</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-forall a. Monoid a =&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-126"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
--&gt; ([Node] -&gt; Either String (Maybe [Tag]))
--&gt; Either String (Maybe [Tag])
-forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
-</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Tag])
--&gt; [Node] -&gt; Either String (Maybe [Tag])
-forall (f :: * -&gt; *) a b.
-Applicative f =&gt;
-([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
-</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Tag]
-forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
-</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe [PropagatingVgw]
-   -&gt; Maybe Text -&gt; Maybe [RouteTableAssociation] -&gt; RouteTable)
 -&gt; Either String (Maybe [PropagatingVgw])
 -&gt; Either
-     String (Maybe Text -&gt; Maybe [RouteTableAssociation] -&gt; RouteTable)
+     String
+     (Maybe Text
+      -&gt; Maybe [RouteTableAssociation] -&gt; Maybe [Tag] -&gt; RouteTable)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681122598"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681157456"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;propagatingVgwSet&quot;</span></span><span>
-</span><span id="line-129"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+</span><span id="line-126"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-130"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-127"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [PropagatingVgw]))
 -&gt; Either String (Maybe [PropagatingVgw])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -561,23 +530,27 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String (Maybe Text -&gt; Maybe [RouteTableAssociation] -&gt; RouteTable)
+</span><span id="line-128"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe [RouteTableAssociation] -&gt; Maybe [Tag] -&gt; RouteTable)
 -&gt; Either String (Maybe Text)
--&gt; Either String (Maybe [RouteTableAssociation] -&gt; RouteTable)
+-&gt; Either
+     String (Maybe [RouteTableAssociation] -&gt; Maybe [Tag] -&gt; RouteTable)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681122598"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681157456"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;vpcId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [RouteTableAssociation] -&gt; RouteTable)
+</span><span class="hs-string">&quot;ownerId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String (Maybe [RouteTableAssociation] -&gt; Maybe [Tag] -&gt; RouteTable)
 -&gt; Either String (Maybe [RouteTableAssociation])
--&gt; Either String RouteTable
+-&gt; Either String (Maybe [Tag] -&gt; RouteTable)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681122598"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681157456"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;associationSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -585,7 +558,7 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-134"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-131"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [RouteTableAssociation]))
 -&gt; Either String (Maybe [RouteTableAssociation])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -598,9 +571,35 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [Tag] -&gt; RouteTable)
+-&gt; Either String (Maybe [Tag]) -&gt; Either String RouteTable
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681157456"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tagSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-134"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [Tag]))
+-&gt; Either String (Maybe [Tag])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Tag])
+-&gt; [Node] -&gt; Either String (Maybe [Tag])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Tag]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681122589"><span id="local-6989586621681122591"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable"><span class="hs-identifier hs-type">RouteTable</span></a></span></span></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681157447"><span id="local-6989586621681157449"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable"><span class="hs-identifier hs-type">RouteTable</span></a></span></span></span><span>
 </span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681122586"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable"><span class="hs-identifier hs-type">RouteTable</span></a></span></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681157444"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.RouteTable.html#RouteTable"><span class="hs-identifier hs-type">RouteTable</span></a></span></span><span>
 </span><span id="line-140"></span></pre></body></html>

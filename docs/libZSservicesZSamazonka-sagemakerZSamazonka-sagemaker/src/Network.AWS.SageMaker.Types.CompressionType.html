@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621680297157"><span id="local-6989586621680297158"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CompressionType"><span class="annot"><a href="Network.AWS.SageMaker.Types.CompressionType.html#CompressionType"><span class="hs-identifier hs-var">CompressionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CompressionType%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.CompressionType.html#CompressionType%27"><span class="hs-identifier hs-var">CompressionType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680298525"><span id="local-6989586621680298526"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CompressionType"><span class="annot"><a href="Network.AWS.SageMaker.Types.CompressionType.html#CompressionType"><span class="hs-identifier hs-var">CompressionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CompressionType%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.CompressionType.html#CompressionType%27"><span class="hs-identifier hs-var">CompressionType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCompressionType"><span class="annot"><span class="annottext">CompressionType -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.CompressionType.html#fromCompressionType"><span class="hs-identifier hs-var hs-var">fromCompressionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680297149"><span id="local-6989586621680297151"><span id="local-6989586621680297153"><span class="annot"><span class="annottext">Int -&gt; CompressionType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680298517"><span id="local-6989586621680298519"><span id="local-6989586621680298521"><span class="annot"><span class="annottext">Int -&gt; CompressionType -&gt; ShowS
 [CompressionType] -&gt; ShowS
 CompressionType -&gt; String
 (Int -&gt; CompressionType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: CompressionType -&gt; String
 showsPrec :: Int -&gt; CompressionType -&gt; ShowS
 $cshowsPrec :: Int -&gt; CompressionType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621680297140"><span id="local-6989586621680297142"><span id="local-6989586621680297144"><span id="local-6989586621680297146"><span class="annot"><span class="annottext">ReadPrec [CompressionType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621680298508"><span id="local-6989586621680298510"><span id="local-6989586621680298512"><span id="local-6989586621680298514"><span class="annot"><span class="annottext">ReadPrec [CompressionType]
 ReadPrec CompressionType
 Int -&gt; ReadS CompressionType
 ReadS [CompressionType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [CompressionType]
 readsPrec :: Int -&gt; ReadS CompressionType
 $creadsPrec :: Int -&gt; ReadS CompressionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621680297135"><span id="local-6989586621680297137"><span class="annot"><span class="annottext">CompressionType -&gt; CompressionType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680298503"><span id="local-6989586621680298505"><span class="annot"><span class="annottext">CompressionType -&gt; CompressionType -&gt; Bool
 (CompressionType -&gt; CompressionType -&gt; Bool)
 -&gt; (CompressionType -&gt; CompressionType -&gt; Bool)
 -&gt; Eq CompressionType
@@ -82,7 +82,7 @@ $c/= :: CompressionType -&gt; CompressionType -&gt; Bool
 == :: CompressionType -&gt; CompressionType -&gt; Bool
 $c== :: CompressionType -&gt; CompressionType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621680297119"><span id="local-6989586621680297121"><span id="local-6989586621680297123"><span id="local-6989586621680297125"><span id="local-6989586621680297127"><span id="local-6989586621680297129"><span id="local-6989586621680297131"><span class="annot"><span class="annottext">Eq CompressionType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680298487"><span id="local-6989586621680298489"><span id="local-6989586621680298491"><span id="local-6989586621680298493"><span id="local-6989586621680298495"><span id="local-6989586621680298497"><span id="local-6989586621680298499"><span class="annot"><span class="annottext">Eq CompressionType
 Eq CompressionType
 -&gt; (CompressionType -&gt; CompressionType -&gt; Ordering)
 -&gt; (CompressionType -&gt; CompressionType -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. CompressionType -&gt; Rep CompressionType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680297111"><span id="local-6989586621680297113"><span class="annot"><span class="annottext">Int -&gt; CompressionType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680298479"><span id="local-6989586621680298481"><span class="annot"><span class="annottext">Int -&gt; CompressionType -&gt; Int
 CompressionType -&gt; Int
 (Int -&gt; CompressionType -&gt; Int)
 -&gt; (CompressionType -&gt; Int) -&gt; Hashable CompressionType
@@ -143,50 +143,50 @@ $chash :: CompressionType -&gt; Int
 hashWithSalt :: Int -&gt; CompressionType -&gt; Int
 $chashWithSalt :: Int -&gt; CompressionType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621680297108"><span class="annot"><span class="annottext">CompressionType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680298476"><span class="annot"><span class="annottext">CompressionType -&gt; ()
 (CompressionType -&gt; ()) -&gt; NFData CompressionType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CompressionType -&gt; ()
 $crnf :: CompressionType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621680297105"><span class="annot"><span class="annottext">Text -&gt; Either String CompressionType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680298473"><span class="annot"><span class="annottext">Text -&gt; Either String CompressionType
 (Text -&gt; Either String CompressionType) -&gt; FromText CompressionType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CompressionType
 $cfromText :: Text -&gt; Either String CompressionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680297102"><span class="annot"><span class="annottext">CompressionType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680298470"><span class="annot"><span class="annottext">CompressionType -&gt; Text
 (CompressionType -&gt; Text) -&gt; ToText CompressionType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CompressionType -&gt; Text
 $ctoText :: CompressionType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680297099"><span class="annot"><span class="annottext">CompressionType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680298467"><span class="annot"><span class="annottext">CompressionType -&gt; ByteString
 (CompressionType -&gt; ByteString) -&gt; ToByteString CompressionType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CompressionType -&gt; ByteString
 $ctoBS :: CompressionType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680297096"><span class="annot"><span class="annottext">CompressionType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680298464"><span class="annot"><span class="annottext">CompressionType -&gt; ByteStringBuilder
 (CompressionType -&gt; ByteStringBuilder) -&gt; ToLog CompressionType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CompressionType -&gt; ByteStringBuilder
 $cbuild :: CompressionType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680297093"><span class="annot"><span class="annottext">HeaderName -&gt; CompressionType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680298461"><span class="annot"><span class="annottext">HeaderName -&gt; CompressionType -&gt; [Header]
 (HeaderName -&gt; CompressionType -&gt; [Header])
 -&gt; ToHeader CompressionType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CompressionType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CompressionType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680297090"><span class="annot"><span class="annottext">CompressionType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680298458"><span class="annot"><span class="annottext">CompressionType -&gt; QueryString
 (CompressionType -&gt; QueryString) -&gt; ToQuery CompressionType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CompressionType -&gt; QueryString
 $ctoQuery :: CompressionType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680297085"><span id="local-6989586621680297087"><span class="annot"><span class="annottext">Value -&gt; Parser [CompressionType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680298453"><span id="local-6989586621680298455"><span class="annot"><span class="annottext">Value -&gt; Parser [CompressionType]
 Value -&gt; Parser CompressionType
 (Value -&gt; Parser CompressionType)
 -&gt; (Value -&gt; Parser [CompressionType]) -&gt; FromJSON CompressionType
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [CompressionType]
 parseJSON :: Value -&gt; Parser CompressionType
 $cparseJSON :: Value -&gt; Parser CompressionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680297080"><span id="local-6989586621680297082"><span class="annot"><span class="annottext">FromJSONKeyFunction [CompressionType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680298448"><span id="local-6989586621680298450"><span class="annot"><span class="annottext">FromJSONKeyFunction [CompressionType]
 FromJSONKeyFunction CompressionType
 FromJSONKeyFunction CompressionType
 -&gt; FromJSONKeyFunction [CompressionType]
@@ -209,7 +209,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CompressionType]
 fromJSONKey :: FromJSONKeyFunction CompressionType
 $cfromJSONKey :: FromJSONKeyFunction CompressionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680297071"><span id="local-6989586621680297073"><span id="local-6989586621680297075"><span id="local-6989586621680297077"><span class="annot"><span class="annottext">[CompressionType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680298439"><span id="local-6989586621680298441"><span id="local-6989586621680298443"><span id="local-6989586621680298445"><span class="annot"><span class="annottext">[CompressionType] -&gt; Encoding
 [CompressionType] -&gt; Value
 CompressionType -&gt; Encoding
 CompressionType -&gt; Value
@@ -233,7 +233,7 @@ $ctoEncoding :: CompressionType -&gt; Encoding
 toJSON :: CompressionType -&gt; Value
 $ctoJSON :: CompressionType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680297066"><span id="local-6989586621680297068"><span class="annot"><span class="annottext">ToJSONKeyFunction [CompressionType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680298434"><span id="local-6989586621680298436"><span class="annot"><span class="annottext">ToJSONKeyFunction [CompressionType]
 ToJSONKeyFunction CompressionType
 ToJSONKeyFunction CompressionType
 -&gt; ToJSONKeyFunction [CompressionType] -&gt; ToJSONKey CompressionType
@@ -244,14 +244,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CompressionType]
 toJSONKey :: ToJSONKeyFunction CompressionType
 $ctoJSONKey :: ToJSONKeyFunction CompressionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680297063"><span class="annot"><span class="annottext">[Node] -&gt; Either String CompressionType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680298431"><span class="annot"><span class="annottext">[Node] -&gt; Either String CompressionType
 ([Node] -&gt; Either String CompressionType)
 -&gt; FromXML CompressionType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CompressionType
 $cparseXML :: [Node] -&gt; Either String CompressionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680297060"><span class="annot"><span class="annottext">CompressionType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680298428"><span class="annot"><span class="annottext">CompressionType -&gt; XML
 (CompressionType -&gt; XML) -&gt; ToXML CompressionType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CompressionType -&gt; XML

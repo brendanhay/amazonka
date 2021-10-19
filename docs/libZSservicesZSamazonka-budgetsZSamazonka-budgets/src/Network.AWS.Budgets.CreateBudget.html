@@ -57,7 +57,7 @@
 </span><span id="line-57"></span><span class="hs-comment">-- | Request of CreateBudget</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- /See:/ 'newCreateBudget' smart constructor.</span><span>
-</span><span id="line-60"></span><span id="local-6989586621679214735"><span id="local-6989586621679214736"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateBudget"><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudget"><span class="hs-identifier hs-var">CreateBudget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateBudget%27"><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudget%27"><span class="hs-identifier hs-var">CreateBudget'</span></a></span></span><span>
+</span><span id="line-60"></span><span id="local-6989586621679214856"><span id="local-6989586621679214857"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateBudget"><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudget"><span class="hs-identifier hs-var">CreateBudget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateBudget%27"><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudget%27"><span class="hs-identifier hs-var">CreateBudget'</span></a></span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A notification that you want to associate with a budget. A budget can</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">-- have up to five notifications, and each notification can have one SNS</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">-- subscriber and up to 10 email subscribers. If you include notifications</span><span>
@@ -72,7 +72,7 @@
 </span><span id="line-70"></span><span>    </span><span id="%24sel%3Abudget%3ACreateBudget%27"><span class="annot"><span class="annottext">CreateBudget -&gt; Budget
 </span><a href="Network.AWS.Budgets.CreateBudget.html#%24sel%3Abudget%3ACreateBudget%27"><span class="hs-identifier hs-var hs-var">budget</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.Budget.html#Budget"><span class="hs-identifier hs-type">Budget</span></a></span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679214727"><span id="local-6989586621679214729"><span class="annot"><span class="annottext">CreateBudget -&gt; CreateBudget -&gt; Bool
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679214848"><span id="local-6989586621679214850"><span class="annot"><span class="annottext">CreateBudget -&gt; CreateBudget -&gt; Bool
 (CreateBudget -&gt; CreateBudget -&gt; Bool)
 -&gt; (CreateBudget -&gt; CreateBudget -&gt; Bool) -&gt; Eq CreateBudget
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -80,7 +80,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateBudget -&gt; CreateBudget -&gt; Bool
 == :: CreateBudget -&gt; CreateBudget -&gt; Bool
 $c== :: CreateBudget -&gt; CreateBudget -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679214720"><span id="local-6989586621679214722"><span id="local-6989586621679214724"><span class="annot"><span class="annottext">Int -&gt; CreateBudget -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679214841"><span id="local-6989586621679214843"><span id="local-6989586621679214845"><span class="annot"><span class="annottext">Int -&gt; CreateBudget -&gt; ShowS
 [CreateBudget] -&gt; ShowS
 CreateBudget -&gt; String
 (Int -&gt; CreateBudget -&gt; ShowS)
@@ -130,9 +130,9 @@ $cfrom :: forall x. CreateBudget -&gt; Rep CreateBudget x
 </span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.Budgets.Types.Budget.html#Budget"><span class="hs-identifier hs-type">Budget</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudget"><span class="hs-identifier hs-type">CreateBudget</span></a></span><span>
 </span><span id="line-97"></span><span id="newCreateBudget"><span class="annot"><span class="annottext">newCreateBudget :: Text -&gt; Budget -&gt; CreateBudget
-</span><a href="Network.AWS.Budgets.CreateBudget.html#newCreateBudget"><span class="hs-identifier hs-var hs-var">newCreateBudget</span></a></span></span><span> </span><span id="local-6989586621679214715"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679214715"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span> </span><span id="local-6989586621679214714"><span class="annot"><span class="annottext">Budget
-</span><a href="#local-6989586621679214714"><span class="hs-identifier hs-var">pBudget_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Budgets.CreateBudget.html#newCreateBudget"><span class="hs-identifier hs-var hs-var">newCreateBudget</span></a></span></span><span> </span><span id="local-6989586621679214836"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679214836"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span> </span><span id="local-6989586621679214835"><span class="annot"><span class="annottext">Budget
+</span><a href="#local-6989586621679214835"><span class="hs-identifier hs-var">pBudget_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>  </span><span class="annot"><span class="annottext">CreateBudget' :: Maybe [NotificationWithSubscribers]
 -&gt; Text -&gt; Budget -&gt; CreateBudget
 </span><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudget%27"><span class="hs-identifier hs-type">CreateBudget'</span></a></span><span>
@@ -143,10 +143,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:accountId:CreateBudget' :: Text
 </span><a href="Network.AWS.Budgets.CreateBudget.html#%24sel%3AaccountId%3ACreateBudget%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679214715"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679214836"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:budget:CreateBudget' :: Budget
 </span><a href="Network.AWS.Budgets.CreateBudget.html#%24sel%3Abudget%3ACreateBudget%27"><span class="hs-identifier hs-var">budget</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Budget
-</span><a href="#local-6989586621679214714"><span class="hs-identifier hs-var">pBudget_</span></a></span><span>
+</span><a href="#local-6989586621679214835"><span class="hs-identifier hs-var">pBudget_</span></a></span><span>
 </span><span id="line-103"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | A notification that you want to associate with a budget. A budget can</span><span>
@@ -167,16 +167,16 @@ forall a. Maybe a
      (Maybe [NotificationWithSubscribers])
      (Maybe [NotificationWithSubscribers])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudget%27"><span class="hs-identifier hs-type">CreateBudget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214711"><span class="annot"><span class="annottext">Maybe [NotificationWithSubscribers]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudget%27"><span class="hs-identifier hs-type">CreateBudget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214832"><span class="annot"><span class="annottext">Maybe [NotificationWithSubscribers]
 notificationsWithSubscribers :: Maybe [NotificationWithSubscribers]
 $sel:notificationsWithSubscribers:CreateBudget' :: CreateBudget -&gt; Maybe [NotificationWithSubscribers]
-</span><a href="#local-6989586621679214711"><span class="hs-identifier hs-var hs-var">notificationsWithSubscribers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [NotificationWithSubscribers]
-</span><a href="#local-6989586621679214711"><span class="hs-identifier hs-var">notificationsWithSubscribers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679214710"><span class="annot"><span class="annottext">s :: CreateBudget
-</span><a href="#local-6989586621679214710"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudget%27"><span class="hs-identifier hs-type">CreateBudget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679214709"><span class="annot"><span class="annottext">Maybe [NotificationWithSubscribers]
-</span><a href="#local-6989586621679214709"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBudget
-</span><a href="#local-6989586621679214710"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notificationsWithSubscribers:CreateBudget' :: Maybe [NotificationWithSubscribers]
+</span><a href="#local-6989586621679214832"><span class="hs-identifier hs-var hs-var">notificationsWithSubscribers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [NotificationWithSubscribers]
+</span><a href="#local-6989586621679214832"><span class="hs-identifier hs-var">notificationsWithSubscribers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679214831"><span class="annot"><span class="annottext">s :: CreateBudget
+</span><a href="#local-6989586621679214831"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudget%27"><span class="hs-identifier hs-type">CreateBudget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679214830"><span class="annot"><span class="annottext">Maybe [NotificationWithSubscribers]
+</span><a href="#local-6989586621679214830"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBudget
+</span><a href="#local-6989586621679214831"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notificationsWithSubscribers:CreateBudget' :: Maybe [NotificationWithSubscribers]
 </span><a href="Network.AWS.Budgets.CreateBudget.html#%24sel%3AnotificationsWithSubscribers%3ACreateBudget%27"><span class="hs-identifier hs-var">notificationsWithSubscribers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [NotificationWithSubscribers]
-</span><a href="#local-6989586621679214709"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudget"><span class="hs-identifier hs-type">CreateBudget</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [NotificationWithSubscribers]
+</span><a href="#local-6989586621679214830"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudget"><span class="hs-identifier hs-type">CreateBudget</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [NotificationWithSubscribers]
   -&gt; f (Maybe [NotificationWithSubscribers]))
  -&gt; CreateBudget -&gt; f CreateBudget)
 -&gt; ((Maybe [NotificationWithSubscribers]
@@ -206,8 +206,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [NotificationWithSubscribers]
   [NotificationWithSubscribers]
   [NotificationWithSubscribers]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | The @accountId@ that is associated with the budget.</span><span>
 </span><span id="line-114"></span><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#createBudget_accountId"><span class="hs-identifier hs-type">createBudget_accountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudget"><span class="hs-identifier hs-type">CreateBudget</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -216,16 +216,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (CreateBudget -&gt; Text -&gt; CreateBudget)
 -&gt; Lens CreateBudget CreateBudget Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudget%27"><span class="hs-identifier hs-type">CreateBudget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214705"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudget%27"><span class="hs-identifier hs-type">CreateBudget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214826"><span class="annot"><span class="annottext">Text
 accountId :: Text
 $sel:accountId:CreateBudget' :: CreateBudget -&gt; Text
-</span><a href="#local-6989586621679214705"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679214705"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679214704"><span class="annot"><span class="annottext">s :: CreateBudget
-</span><a href="#local-6989586621679214704"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudget%27"><span class="hs-identifier hs-type">CreateBudget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679214703"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679214703"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBudget
-</span><a href="#local-6989586621679214704"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:CreateBudget' :: Text
+</span><a href="#local-6989586621679214826"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679214826"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679214825"><span class="annot"><span class="annottext">s :: CreateBudget
+</span><a href="#local-6989586621679214825"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudget%27"><span class="hs-identifier hs-type">CreateBudget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679214824"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679214824"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBudget
+</span><a href="#local-6989586621679214825"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:CreateBudget' :: Text
 </span><a href="Network.AWS.Budgets.CreateBudget.html#%24sel%3AaccountId%3ACreateBudget%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679214703"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudget"><span class="hs-identifier hs-type">CreateBudget</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679214824"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudget"><span class="hs-identifier hs-type">CreateBudget</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- | The budget object that you want to create.</span><span>
 </span><span id="line-118"></span><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#createBudget_budget"><span class="hs-identifier hs-type">createBudget_budget</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudget"><span class="hs-identifier hs-type">CreateBudget</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.Budget.html#Budget"><span class="hs-identifier hs-type">Budget</span></a></span><span>
@@ -234,25 +234,25 @@ $sel:accountId:CreateBudget' :: CreateBudget -&gt; Text
 -&gt; (CreateBudget -&gt; Budget -&gt; CreateBudget)
 -&gt; Lens CreateBudget CreateBudget Budget Budget
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudget%27"><span class="hs-identifier hs-type">CreateBudget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214702"><span class="annot"><span class="annottext">Budget
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudget%27"><span class="hs-identifier hs-type">CreateBudget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214823"><span class="annot"><span class="annottext">Budget
 budget :: Budget
 $sel:budget:CreateBudget' :: CreateBudget -&gt; Budget
-</span><a href="#local-6989586621679214702"><span class="hs-identifier hs-var hs-var">budget</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Budget
-</span><a href="#local-6989586621679214702"><span class="hs-identifier hs-var">budget</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679214701"><span class="annot"><span class="annottext">s :: CreateBudget
-</span><a href="#local-6989586621679214701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudget%27"><span class="hs-identifier hs-type">CreateBudget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679214700"><span class="annot"><span class="annottext">Budget
-</span><a href="#local-6989586621679214700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBudget
-</span><a href="#local-6989586621679214701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:budget:CreateBudget' :: Budget
+</span><a href="#local-6989586621679214823"><span class="hs-identifier hs-var hs-var">budget</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Budget
+</span><a href="#local-6989586621679214823"><span class="hs-identifier hs-var">budget</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679214822"><span class="annot"><span class="annottext">s :: CreateBudget
+</span><a href="#local-6989586621679214822"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudget%27"><span class="hs-identifier hs-type">CreateBudget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679214821"><span class="annot"><span class="annottext">Budget
+</span><a href="#local-6989586621679214821"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBudget
+</span><a href="#local-6989586621679214822"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:budget:CreateBudget' :: Budget
 </span><a href="Network.AWS.Budgets.CreateBudget.html#%24sel%3Abudget%3ACreateBudget%27"><span class="hs-identifier hs-var">budget</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Budget
-</span><a href="#local-6989586621679214700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudget"><span class="hs-identifier hs-type">CreateBudget</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679214821"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudget"><span class="hs-identifier hs-type">CreateBudget</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudget"><span class="hs-identifier hs-type">CreateBudget</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-122"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudget"><span class="hs-identifier hs-type">CreateBudget</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudgetResponse"><span class="hs-identifier hs-type">CreateBudgetResponse</span></a></span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679214696"><span class="annot"><span class="annottext">request :: CreateBudget -&gt; Request CreateBudget
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679214817"><span class="annot"><span class="annottext">request :: CreateBudget -&gt; Request CreateBudget
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateBudget -&gt; Request CreateBudget
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Budgets.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679214692"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679214813"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateBudget
 -&gt; ClientResponse ClientBody
@@ -276,10 +276,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679214689"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679214689"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679214688"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679214688"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679214687"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679214687"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679214810"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679214810"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679214809"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679214809"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679214808"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679214808"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; CreateBudgetResponse
 </span><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudgetResponse%27"><span class="hs-identifier hs-var">CreateBudgetResponse'</span></a></span><span>
 </span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; CreateBudgetResponse)
@@ -290,15 +290,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679214689"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679214810"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679214680"><span id="local-6989586621679214682"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudget"><span class="hs-identifier hs-type">CreateBudget</span></a></span></span></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679214801"><span id="local-6989586621679214803"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudget"><span class="hs-identifier hs-type">CreateBudget</span></a></span></span></span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679214677"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudget"><span class="hs-identifier hs-type">CreateBudget</span></a></span></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679214798"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudget"><span class="hs-identifier hs-type">CreateBudget</span></a></span></span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudget"><span class="hs-identifier hs-type">CreateBudget</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679214673"><span class="annot"><span class="annottext">toHeaders :: CreateBudget -&gt; ResponseHeaders
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679214794"><span class="annot"><span class="annottext">toHeaders :: CreateBudget -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateBudget -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -325,9 +325,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-147"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679214663"><span id="local-6989586621679214665"><span id="local-6989586621679214667"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudget"><span class="hs-identifier hs-type">CreateBudget</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679214661"><span class="annot"><span class="annottext">toJSON :: CreateBudget -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudget%27"><span class="hs-identifier hs-type">CreateBudget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214657"><span id="local-6989586621679214658"><span id="local-6989586621679214659"><span class="annot"><span class="annottext">Maybe [NotificationWithSubscribers]
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679214784"><span id="local-6989586621679214786"><span id="local-6989586621679214788"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudget"><span class="hs-identifier hs-type">CreateBudget</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679214782"><span class="annot"><span class="annottext">toJSON :: CreateBudget -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudget%27"><span class="hs-identifier hs-type">CreateBudget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214778"><span id="local-6989586621679214779"><span id="local-6989586621679214780"><span class="annot"><span class="annottext">Maybe [NotificationWithSubscribers]
 Text
 Budget
 budget :: Budget
@@ -336,7 +336,7 @@ notificationsWithSubscribers :: Maybe [NotificationWithSubscribers]
 $sel:budget:CreateBudget' :: CreateBudget -&gt; Budget
 $sel:accountId:CreateBudget' :: CreateBudget -&gt; Text
 $sel:notificationsWithSubscribers:CreateBudget' :: CreateBudget -&gt; Maybe [NotificationWithSubscribers]
-</span><a href="#local-6989586621679214657"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679214778"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -350,33 +350,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [NotificationWithSubscribers] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [NotificationWithSubscribers]
-</span><a href="#local-6989586621679214659"><span class="hs-identifier hs-var">notificationsWithSubscribers</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679214780"><span class="hs-identifier hs-var">notificationsWithSubscribers</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AccountId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679214658"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679214779"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Budget&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Budget -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Budget
-</span><a href="#local-6989586621679214657"><span class="hs-identifier hs-var">budget</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679214778"><span class="hs-identifier hs-var">budget</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-159"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudget"><span class="hs-identifier hs-type">CreateBudget</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679214651"><span class="annot"><span class="annottext">toPath :: CreateBudget -&gt; ByteString
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679214772"><span class="annot"><span class="annottext">toPath :: CreateBudget -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateBudget -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudget"><span class="hs-identifier hs-type">CreateBudget</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621679214647"><span class="annot"><span class="annottext">toQuery :: CreateBudget -&gt; QueryString
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679214768"><span class="annot"><span class="annottext">toQuery :: CreateBudget -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateBudget -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -386,12 +386,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-167"></span><span class="hs-comment">-- | Response of CreateBudget</span><span>
 </span><span id="line-168"></span><span class="hs-comment">--</span><span>
 </span><span id="line-169"></span><span class="hs-comment">-- /See:/ 'newCreateBudgetResponse' smart constructor.</span><span>
-</span><span id="line-170"></span><span id="local-6989586621679214644"><span id="local-6989586621679214645"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateBudgetResponse"><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudgetResponse"><span class="hs-identifier hs-var">CreateBudgetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateBudgetResponse%27"><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudgetResponse%27"><span class="hs-identifier hs-var">CreateBudgetResponse'</span></a></span></span><span>
+</span><span id="line-170"></span><span id="local-6989586621679214765"><span id="local-6989586621679214766"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateBudgetResponse"><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudgetResponse"><span class="hs-identifier hs-var">CreateBudgetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateBudgetResponse%27"><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudgetResponse%27"><span class="hs-identifier hs-var">CreateBudgetResponse'</span></a></span></span><span>
 </span><span id="line-171"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-172"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateBudgetResponse%27"><span class="annot"><span class="annottext">CreateBudgetResponse -&gt; Int
 </span><a href="Network.AWS.Budgets.CreateBudget.html#%24sel%3AhttpStatus%3ACreateBudgetResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-173"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-174"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679214639"><span id="local-6989586621679214641"><span class="annot"><span class="annottext">CreateBudgetResponse -&gt; CreateBudgetResponse -&gt; Bool
+</span><span id="line-174"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679214760"><span id="local-6989586621679214762"><span class="annot"><span class="annottext">CreateBudgetResponse -&gt; CreateBudgetResponse -&gt; Bool
 (CreateBudgetResponse -&gt; CreateBudgetResponse -&gt; Bool)
 -&gt; (CreateBudgetResponse -&gt; CreateBudgetResponse -&gt; Bool)
 -&gt; Eq CreateBudgetResponse
@@ -400,7 +400,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateBudgetResponse -&gt; CreateBudgetResponse -&gt; Bool
 == :: CreateBudgetResponse -&gt; CreateBudgetResponse -&gt; Bool
 $c== :: CreateBudgetResponse -&gt; CreateBudgetResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679214631"><span id="local-6989586621679214633"><span id="local-6989586621679214635"><span id="local-6989586621679214637"><span class="annot"><span class="annottext">ReadPrec [CreateBudgetResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679214752"><span id="local-6989586621679214754"><span id="local-6989586621679214756"><span id="local-6989586621679214758"><span class="annot"><span class="annottext">ReadPrec [CreateBudgetResponse]
 ReadPrec CreateBudgetResponse
 Int -&gt; ReadS CreateBudgetResponse
 ReadS [CreateBudgetResponse]
@@ -420,7 +420,7 @@ readList :: ReadS [CreateBudgetResponse]
 $creadList :: ReadS [CreateBudgetResponse]
 readsPrec :: Int -&gt; ReadS CreateBudgetResponse
 $creadsPrec :: Int -&gt; ReadS CreateBudgetResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679214624"><span id="local-6989586621679214626"><span id="local-6989586621679214628"><span class="annot"><span class="annottext">Int -&gt; CreateBudgetResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679214745"><span id="local-6989586621679214747"><span id="local-6989586621679214749"><span class="annot"><span class="annottext">Int -&gt; CreateBudgetResponse -&gt; ShowS
 [CreateBudgetResponse] -&gt; ShowS
 CreateBudgetResponse -&gt; String
 (Int -&gt; CreateBudgetResponse -&gt; ShowS)
@@ -460,12 +460,12 @@ $cfrom :: forall x. CreateBudgetResponse -&gt; Rep CreateBudgetResponse x
 </span><span id="line-187"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-188"></span><span>  </span><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudgetResponse"><span class="hs-identifier hs-type">CreateBudgetResponse</span></a></span><span>
 </span><span id="line-189"></span><span id="newCreateBudgetResponse"><span class="annot"><span class="annottext">newCreateBudgetResponse :: Int -&gt; CreateBudgetResponse
-</span><a href="Network.AWS.Budgets.CreateBudget.html#newCreateBudgetResponse"><span class="hs-identifier hs-var hs-var">newCreateBudgetResponse</span></a></span></span><span> </span><span id="local-6989586621679214621"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679214621"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Budgets.CreateBudget.html#newCreateBudgetResponse"><span class="hs-identifier hs-var hs-var">newCreateBudgetResponse</span></a></span></span><span> </span><span id="local-6989586621679214742"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679214742"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-190"></span><span>  </span><span class="annot"><span class="annottext">CreateBudgetResponse' :: Int -&gt; CreateBudgetResponse
 </span><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudgetResponse%27"><span class="hs-identifier hs-type">CreateBudgetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateBudgetResponse' :: Int
 </span><a href="Network.AWS.Budgets.CreateBudget.html#%24sel%3AhttpStatus%3ACreateBudgetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679214621"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679214742"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-191"></span><span>
 </span><span id="line-192"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-193"></span><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#createBudgetResponse_httpStatus"><span class="hs-identifier hs-type">createBudgetResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudgetResponse"><span class="hs-identifier hs-type">CreateBudgetResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -474,16 +474,16 @@ $cfrom :: forall x. CreateBudgetResponse -&gt; Rep CreateBudgetResponse x
 -&gt; (CreateBudgetResponse -&gt; Int -&gt; CreateBudgetResponse)
 -&gt; Lens CreateBudgetResponse CreateBudgetResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudgetResponse%27"><span class="hs-identifier hs-type">CreateBudgetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214620"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudgetResponse%27"><span class="hs-identifier hs-type">CreateBudgetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214741"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateBudgetResponse' :: CreateBudgetResponse -&gt; Int
-</span><a href="#local-6989586621679214620"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679214620"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679214619"><span class="annot"><span class="annottext">s :: CreateBudgetResponse
-</span><a href="#local-6989586621679214619"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudgetResponse%27"><span class="hs-identifier hs-type">CreateBudgetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679214618"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679214618"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBudgetResponse
-</span><a href="#local-6989586621679214619"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateBudgetResponse' :: Int
+</span><a href="#local-6989586621679214741"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679214741"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679214740"><span class="annot"><span class="annottext">s :: CreateBudgetResponse
+</span><a href="#local-6989586621679214740"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudgetResponse%27"><span class="hs-identifier hs-type">CreateBudgetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679214739"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679214739"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBudgetResponse
+</span><a href="#local-6989586621679214740"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateBudgetResponse' :: Int
 </span><a href="Network.AWS.Budgets.CreateBudget.html#%24sel%3AhttpStatus%3ACreateBudgetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679214618"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudgetResponse"><span class="hs-identifier hs-type">CreateBudgetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679214739"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudgetResponse"><span class="hs-identifier hs-type">CreateBudgetResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-195"></span><span>
-</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679214616"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudgetResponse"><span class="hs-identifier hs-type">CreateBudgetResponse</span></a></span></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679214737"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.CreateBudget.html#CreateBudgetResponse"><span class="hs-identifier hs-type">CreateBudgetResponse</span></a></span></span><span>
 </span><span id="line-197"></span></pre></body></html>

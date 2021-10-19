@@ -29,45 +29,39 @@
 </span><span id="line-29"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-network-requirements.html Amazon WorkSpaces Client Network Requirements&gt;.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newWorkspaceAccessProperties' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679271964"><span id="local-6989586621679271965"></span></span><span class="hs-keyword">data</span><span> </span><span id="WorkspaceAccessProperties"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties"><span class="hs-identifier hs-var">WorkspaceAccessProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WorkspaceAccessProperties%27"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties%27"><span class="hs-identifier hs-var">WorkspaceAccessProperties'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Indicates whether users can use macOS clients to access their</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- WorkSpaces. To restrict WorkSpaces access to trusted devices (also known</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- as managed devices) with valid certificates, specify a value of @TRUST@.</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workspaces/latest/adminguide/trusted-devices.html Restrict WorkSpaces Access to Trusted Devices&gt;.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AdeviceTypeOsx%3AWorkspaceAccessProperties%27"><span class="annot"><span class="annottext">WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue
-</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#%24sel%3AdeviceTypeOsx%3AWorkspaceAccessProperties%27"><span class="hs-identifier hs-var hs-var">deviceTypeOsx</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccessPropertyValue.html#AccessPropertyValue"><span class="hs-identifier hs-type">AccessPropertyValue</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Indicates whether users can use Linux clients to access their</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- WorkSpaces.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AdeviceTypeLinux%3AWorkspaceAccessProperties%27"><span class="annot"><span class="annottext">WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue
-</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#%24sel%3AdeviceTypeLinux%3AWorkspaceAccessProperties%27"><span class="hs-identifier hs-var hs-var">deviceTypeLinux</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccessPropertyValue.html#AccessPropertyValue"><span class="hs-identifier hs-type">AccessPropertyValue</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Indicates whether users can use Windows clients to access their</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- WorkSpaces. To restrict WorkSpaces access to trusted devices (also known</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- as managed devices) with valid certificates, specify a value of @TRUST@.</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workspaces/latest/adminguide/trusted-devices.html Restrict WorkSpaces Access to Trusted Devices&gt;.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3AdeviceTypeWindows%3AWorkspaceAccessProperties%27"><span class="annot"><span class="annottext">WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue
+</span><span id="line-32"></span><span id="local-6989586621679274792"><span id="local-6989586621679274793"></span></span><span class="hs-keyword">data</span><span> </span><span id="WorkspaceAccessProperties"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties"><span class="hs-identifier hs-var">WorkspaceAccessProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WorkspaceAccessProperties%27"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties%27"><span class="hs-identifier hs-var">WorkspaceAccessProperties'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Indicates whether users can use Windows clients to access their</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- WorkSpaces.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AdeviceTypeWindows%3AWorkspaceAccessProperties%27"><span class="annot"><span class="annottext">WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue
 </span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#%24sel%3AdeviceTypeWindows%3AWorkspaceAccessProperties%27"><span class="hs-identifier hs-var hs-var">deviceTypeWindows</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccessPropertyValue.html#AccessPropertyValue"><span class="hs-identifier hs-type">AccessPropertyValue</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | Indicates whether users can use zero client devices to access their</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- WorkSpaces.</span><span>
-</span><span id="line-50"></span><span>    </span><span id="%24sel%3AdeviceTypeZeroClient%3AWorkspaceAccessProperties%27"><span class="annot"><span class="annottext">WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue
-</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#%24sel%3AdeviceTypeZeroClient%3AWorkspaceAccessProperties%27"><span class="hs-identifier hs-var hs-var">deviceTypeZeroClient</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccessPropertyValue.html#AccessPropertyValue"><span class="hs-identifier hs-type">AccessPropertyValue</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | Indicates whether users can use Android devices to access their</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- WorkSpaces.</span><span>
-</span><span id="line-53"></span><span>    </span><span id="%24sel%3AdeviceTypeAndroid%3AWorkspaceAccessProperties%27"><span class="annot"><span class="annottext">WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue
-</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#%24sel%3AdeviceTypeAndroid%3AWorkspaceAccessProperties%27"><span class="hs-identifier hs-var hs-var">deviceTypeAndroid</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccessPropertyValue.html#AccessPropertyValue"><span class="hs-identifier hs-type">AccessPropertyValue</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | Indicates whether users can access their WorkSpaces through a web</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- browser.</span><span>
-</span><span id="line-56"></span><span>    </span><span id="%24sel%3AdeviceTypeWeb%3AWorkspaceAccessProperties%27"><span class="annot"><span class="annottext">WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Indicates whether users can access their WorkSpaces through a web</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- browser.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AdeviceTypeWeb%3AWorkspaceAccessProperties%27"><span class="annot"><span class="annottext">WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue
 </span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#%24sel%3AdeviceTypeWeb%3AWorkspaceAccessProperties%27"><span class="hs-identifier hs-var hs-var">deviceTypeWeb</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccessPropertyValue.html#AccessPropertyValue"><span class="hs-identifier hs-type">AccessPropertyValue</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | Indicates whether users can use iOS devices to access their WorkSpaces.</span><span>
-</span><span id="line-58"></span><span>    </span><span id="%24sel%3AdeviceTypeIos%3AWorkspaceAccessProperties%27"><span class="annot"><span class="annottext">WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Indicates whether users can use Android and Android-compatible Chrome OS</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- devices to access their WorkSpaces.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AdeviceTypeAndroid%3AWorkspaceAccessProperties%27"><span class="annot"><span class="annottext">WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#%24sel%3AdeviceTypeAndroid%3AWorkspaceAccessProperties%27"><span class="hs-identifier hs-var hs-var">deviceTypeAndroid</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccessPropertyValue.html#AccessPropertyValue"><span class="hs-identifier hs-type">AccessPropertyValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Indicates whether users can use Linux clients to access their</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- WorkSpaces.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AdeviceTypeLinux%3AWorkspaceAccessProperties%27"><span class="annot"><span class="annottext">WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#%24sel%3AdeviceTypeLinux%3AWorkspaceAccessProperties%27"><span class="hs-identifier hs-var hs-var">deviceTypeLinux</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccessPropertyValue.html#AccessPropertyValue"><span class="hs-identifier hs-type">AccessPropertyValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | Indicates whether users can use macOS clients to access their</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- WorkSpaces.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AdeviceTypeOsx%3AWorkspaceAccessProperties%27"><span class="annot"><span class="annottext">WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#%24sel%3AdeviceTypeOsx%3AWorkspaceAccessProperties%27"><span class="hs-identifier hs-var hs-var">deviceTypeOsx</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccessPropertyValue.html#AccessPropertyValue"><span class="hs-identifier hs-type">AccessPropertyValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | Indicates whether users can use Chromebooks to access their WorkSpaces.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AdeviceTypeChromeOs%3AWorkspaceAccessProperties%27"><span class="annot"><span class="annottext">WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#%24sel%3AdeviceTypeChromeOs%3AWorkspaceAccessProperties%27"><span class="hs-identifier hs-var hs-var">deviceTypeChromeOs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccessPropertyValue.html#AccessPropertyValue"><span class="hs-identifier hs-type">AccessPropertyValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | Indicates whether users can use iOS devices to access their WorkSpaces.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AdeviceTypeIos%3AWorkspaceAccessProperties%27"><span class="annot"><span class="annottext">WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue
 </span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#%24sel%3AdeviceTypeIos%3AWorkspaceAccessProperties%27"><span class="hs-identifier hs-var hs-var">deviceTypeIos</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccessPropertyValue.html#AccessPropertyValue"><span class="hs-identifier hs-type">AccessPropertyValue</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | Indicates whether users can use Chromebooks to access their WorkSpaces.</span><span>
-</span><span id="line-60"></span><span>    </span><span id="%24sel%3AdeviceTypeChromeOs%3AWorkspaceAccessProperties%27"><span class="annot"><span class="annottext">WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue
-</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#%24sel%3AdeviceTypeChromeOs%3AWorkspaceAccessProperties%27"><span class="hs-identifier hs-var hs-var">deviceTypeChromeOs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccessPropertyValue.html#AccessPropertyValue"><span class="hs-identifier hs-type">AccessPropertyValue</span></a></span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679271951"><span id="local-6989586621679271953"><span class="annot"><span class="annottext">WorkspaceAccessProperties -&gt; WorkspaceAccessProperties -&gt; Bool
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | Indicates whether users can use zero client devices to access their</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- WorkSpaces.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AdeviceTypeZeroClient%3AWorkspaceAccessProperties%27"><span class="annot"><span class="annottext">WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#%24sel%3AdeviceTypeZeroClient%3AWorkspaceAccessProperties%27"><span class="hs-identifier hs-var hs-var">deviceTypeZeroClient</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccessPropertyValue.html#AccessPropertyValue"><span class="hs-identifier hs-type">AccessPropertyValue</span></a></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274779"><span id="local-6989586621679274781"><span class="annot"><span class="annottext">WorkspaceAccessProperties -&gt; WorkspaceAccessProperties -&gt; Bool
 (WorkspaceAccessProperties -&gt; WorkspaceAccessProperties -&gt; Bool)
 -&gt; (WorkspaceAccessProperties -&gt; WorkspaceAccessProperties -&gt; Bool)
 -&gt; Eq WorkspaceAccessProperties
@@ -76,7 +70,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: WorkspaceAccessProperties -&gt; WorkspaceAccessProperties -&gt; Bool
 == :: WorkspaceAccessProperties -&gt; WorkspaceAccessProperties -&gt; Bool
 $c== :: WorkspaceAccessProperties -&gt; WorkspaceAccessProperties -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271942"><span id="local-6989586621679271944"><span id="local-6989586621679271946"><span id="local-6989586621679271948"><span class="annot"><span class="annottext">ReadPrec [WorkspaceAccessProperties]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274770"><span id="local-6989586621679274772"><span id="local-6989586621679274774"><span id="local-6989586621679274776"><span class="annot"><span class="annottext">ReadPrec [WorkspaceAccessProperties]
 ReadPrec WorkspaceAccessProperties
 Int -&gt; ReadS WorkspaceAccessProperties
 ReadS [WorkspaceAccessProperties]
@@ -96,7 +90,7 @@ readList :: ReadS [WorkspaceAccessProperties]
 $creadList :: ReadS [WorkspaceAccessProperties]
 readsPrec :: Int -&gt; ReadS WorkspaceAccessProperties
 $creadsPrec :: Int -&gt; ReadS WorkspaceAccessProperties
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271935"><span id="local-6989586621679271937"><span id="local-6989586621679271939"><span class="annot"><span class="annottext">Int -&gt; WorkspaceAccessProperties -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274763"><span id="local-6989586621679274765"><span id="local-6989586621679274767"><span class="annot"><span class="annottext">Int -&gt; WorkspaceAccessProperties -&gt; ShowS
 [WorkspaceAccessProperties] -&gt; ShowS
 WorkspaceAccessProperties -&gt; String
 (Int -&gt; WorkspaceAccessProperties -&gt; ShowS)
@@ -127,47 +121,41 @@ Rep WorkspaceAccessProperties x -&gt; WorkspaceAccessProperties
 $cfrom :: forall x.
 WorkspaceAccessProperties -&gt; Rep WorkspaceAccessProperties x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
-</span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'WorkspaceAccessProperties' with all optional fields omitted.</span><span>
-</span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Create a value of 'WorkspaceAccessProperties' with all optional fields omitted.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'deviceTypeWindows', 'workspaceAccessProperties_deviceTypeWindows' - Indicates whether users can use Windows clients to access their</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- WorkSpaces.</span><span>
 </span><span id="line-68"></span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'deviceTypeWeb', 'workspaceAccessProperties_deviceTypeWeb' - Indicates whether users can access their WorkSpaces through a web</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- browser.</span><span>
 </span><span id="line-71"></span><span class="hs-comment">--</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- 'deviceTypeOsx', 'workspaceAccessProperties_deviceTypeOsx' - Indicates whether users can use macOS clients to access their</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- WorkSpaces. To restrict WorkSpaces access to trusted devices (also known</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- as managed devices) with valid certificates, specify a value of @TRUST@.</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- For more information, see</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workspaces/latest/adminguide/trusted-devices.html Restrict WorkSpaces Access to Trusted Devices&gt;.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'deviceTypeAndroid', 'workspaceAccessProperties_deviceTypeAndroid' - Indicates whether users can use Android and Android-compatible Chrome OS</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- devices to access their WorkSpaces.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'deviceTypeLinux', 'workspaceAccessProperties_deviceTypeLinux' - Indicates whether users can use Linux clients to access their</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- WorkSpaces.</span><span>
 </span><span id="line-77"></span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- 'deviceTypeLinux', 'workspaceAccessProperties_deviceTypeLinux' - Indicates whether users can use Linux clients to access their</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'deviceTypeOsx', 'workspaceAccessProperties_deviceTypeOsx' - Indicates whether users can use macOS clients to access their</span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- WorkSpaces.</span><span>
 </span><span id="line-80"></span><span class="hs-comment">--</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- 'deviceTypeWindows', 'workspaceAccessProperties_deviceTypeWindows' - Indicates whether users can use Windows clients to access their</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- WorkSpaces. To restrict WorkSpaces access to trusted devices (also known</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- as managed devices) with valid certificates, specify a value of @TRUST@.</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- For more information, see</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workspaces/latest/adminguide/trusted-devices.html Restrict WorkSpaces Access to Trusted Devices&gt;.</span><span>
-</span><span id="line-86"></span><span class="hs-comment">--</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- 'deviceTypeZeroClient', 'workspaceAccessProperties_deviceTypeZeroClient' - Indicates whether users can use zero client devices to access their</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- WorkSpaces.</span><span>
-</span><span id="line-89"></span><span class="hs-comment">--</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- 'deviceTypeAndroid', 'workspaceAccessProperties_deviceTypeAndroid' - Indicates whether users can use Android devices to access their</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- WorkSpaces.</span><span>
-</span><span id="line-92"></span><span class="hs-comment">--</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- 'deviceTypeWeb', 'workspaceAccessProperties_deviceTypeWeb' - Indicates whether users can access their WorkSpaces through a web</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- browser.</span><span>
-</span><span id="line-95"></span><span class="hs-comment">--</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- 'deviceTypeIos', 'workspaceAccessProperties_deviceTypeIos' - Indicates whether users can use iOS devices to access their WorkSpaces.</span><span>
-</span><span id="line-97"></span><span class="hs-comment">--</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- 'deviceTypeChromeOs', 'workspaceAccessProperties_deviceTypeChromeOs' - Indicates whether users can use Chromebooks to access their WorkSpaces.</span><span>
-</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#newWorkspaceAccessProperties"><span class="hs-identifier hs-type">newWorkspaceAccessProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-100"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties"><span class="hs-identifier hs-type">WorkspaceAccessProperties</span></a></span><span>
-</span><span id="line-101"></span><span id="newWorkspaceAccessProperties"><span class="annot"><span class="annottext">newWorkspaceAccessProperties :: WorkspaceAccessProperties
+</span><span id="line-81"></span><span class="hs-comment">-- 'deviceTypeChromeOs', 'workspaceAccessProperties_deviceTypeChromeOs' - Indicates whether users can use Chromebooks to access their WorkSpaces.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'deviceTypeIos', 'workspaceAccessProperties_deviceTypeIos' - Indicates whether users can use iOS devices to access their WorkSpaces.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'deviceTypeZeroClient', 'workspaceAccessProperties_deviceTypeZeroClient' - Indicates whether users can use zero client devices to access their</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- WorkSpaces.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#newWorkspaceAccessProperties"><span class="hs-identifier hs-type">newWorkspaceAccessProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties"><span class="hs-identifier hs-type">WorkspaceAccessProperties</span></a></span><span>
+</span><span id="line-89"></span><span id="newWorkspaceAccessProperties"><span class="annot"><span class="annottext">newWorkspaceAccessProperties :: WorkspaceAccessProperties
 </span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#newWorkspaceAccessProperties"><span class="hs-identifier hs-var hs-var">newWorkspaceAccessProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-102"></span><span>  </span><span class="annot"><span class="annottext">WorkspaceAccessProperties' :: Maybe AccessPropertyValue
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="annottext">WorkspaceAccessProperties' :: Maybe AccessPropertyValue
 -&gt; Maybe AccessPropertyValue
 -&gt; Maybe AccessPropertyValue
 -&gt; Maybe AccessPropertyValue
@@ -177,101 +165,45 @@ WorkspaceAccessProperties -&gt; Rep WorkspaceAccessProperties x
 -&gt; Maybe AccessPropertyValue
 -&gt; WorkspaceAccessProperties
 </span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties%27"><span class="hs-identifier hs-type">WorkspaceAccessProperties'</span></a></span><span>
-</span><span id="line-103"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deviceTypeOsx:WorkspaceAccessProperties' :: Maybe AccessPropertyValue
-</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#%24sel%3AdeviceTypeOsx%3AWorkspaceAccessProperties%27"><span class="hs-identifier hs-var">deviceTypeOsx</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
+</span><span id="line-91"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deviceTypeWindows:WorkspaceAccessProperties' :: Maybe AccessPropertyValue
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#%24sel%3AdeviceTypeWindows%3AWorkspaceAccessProperties%27"><span class="hs-identifier hs-var">deviceTypeWindows</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceTypeLinux:WorkspaceAccessProperties' :: Maybe AccessPropertyValue
-</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#%24sel%3AdeviceTypeLinux%3AWorkspaceAccessProperties%27"><span class="hs-identifier hs-var">deviceTypeLinux</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceTypeWindows:WorkspaceAccessProperties' :: Maybe AccessPropertyValue
-</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#%24sel%3AdeviceTypeWindows%3AWorkspaceAccessProperties%27"><span class="hs-identifier hs-var">deviceTypeWindows</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceTypeZeroClient:WorkspaceAccessProperties' :: Maybe AccessPropertyValue
-</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#%24sel%3AdeviceTypeZeroClient%3AWorkspaceAccessProperties%27"><span class="hs-identifier hs-var">deviceTypeZeroClient</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceTypeAndroid:WorkspaceAccessProperties' :: Maybe AccessPropertyValue
-</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#%24sel%3AdeviceTypeAndroid%3AWorkspaceAccessProperties%27"><span class="hs-identifier hs-var">deviceTypeAndroid</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceTypeWeb:WorkspaceAccessProperties' :: Maybe AccessPropertyValue
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceTypeWeb:WorkspaceAccessProperties' :: Maybe AccessPropertyValue
 </span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#%24sel%3AdeviceTypeWeb%3AWorkspaceAccessProperties%27"><span class="hs-identifier hs-var">deviceTypeWeb</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceTypeIos:WorkspaceAccessProperties' :: Maybe AccessPropertyValue
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceTypeAndroid:WorkspaceAccessProperties' :: Maybe AccessPropertyValue
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#%24sel%3AdeviceTypeAndroid%3AWorkspaceAccessProperties%27"><span class="hs-identifier hs-var">deviceTypeAndroid</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceTypeLinux:WorkspaceAccessProperties' :: Maybe AccessPropertyValue
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#%24sel%3AdeviceTypeLinux%3AWorkspaceAccessProperties%27"><span class="hs-identifier hs-var">deviceTypeLinux</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceTypeOsx:WorkspaceAccessProperties' :: Maybe AccessPropertyValue
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#%24sel%3AdeviceTypeOsx%3AWorkspaceAccessProperties%27"><span class="hs-identifier hs-var">deviceTypeOsx</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceTypeChromeOs:WorkspaceAccessProperties' :: Maybe AccessPropertyValue
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#%24sel%3AdeviceTypeChromeOs%3AWorkspaceAccessProperties%27"><span class="hs-identifier hs-var">deviceTypeChromeOs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceTypeIos:WorkspaceAccessProperties' :: Maybe AccessPropertyValue
 </span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#%24sel%3AdeviceTypeIos%3AWorkspaceAccessProperties%27"><span class="hs-identifier hs-var">deviceTypeIos</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceTypeChromeOs:WorkspaceAccessProperties' :: Maybe AccessPropertyValue
-</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#%24sel%3AdeviceTypeChromeOs%3AWorkspaceAccessProperties%27"><span class="hs-identifier hs-var">deviceTypeChromeOs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceTypeZeroClient:WorkspaceAccessProperties' :: Maybe AccessPropertyValue
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#%24sel%3AdeviceTypeZeroClient%3AWorkspaceAccessProperties%27"><span class="hs-identifier hs-var">deviceTypeZeroClient</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-112"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- | Indicates whether users can use macOS clients to access their</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- WorkSpaces. To restrict WorkSpaces access to trusted devices (also known</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- as managed devices) with valid certificates, specify a value of @TRUST@.</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- For more information, see</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workspaces/latest/adminguide/trusted-devices.html Restrict WorkSpaces Access to Trusted Devices&gt;.</span><span>
-</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#workspaceAccessProperties_deviceTypeOsx"><span class="hs-identifier hs-type">workspaceAccessProperties_deviceTypeOsx</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties"><span class="hs-identifier hs-type">WorkspaceAccessProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccessPropertyValue.html#AccessPropertyValue"><span class="hs-identifier hs-type">AccessPropertyValue</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span id="workspaceAccessProperties_deviceTypeOsx"><span class="annot"><span class="annottext">workspaceAccessProperties_deviceTypeOsx :: (Maybe AccessPropertyValue -&gt; f (Maybe AccessPropertyValue))
--&gt; WorkspaceAccessProperties -&gt; f WorkspaceAccessProperties
-</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#workspaceAccessProperties_deviceTypeOsx"><span class="hs-identifier hs-var hs-var">workspaceAccessProperties_deviceTypeOsx</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue)
--&gt; (WorkspaceAccessProperties
-    -&gt; Maybe AccessPropertyValue -&gt; WorkspaceAccessProperties)
--&gt; Lens
-     WorkspaceAccessProperties
-     WorkspaceAccessProperties
-     (Maybe AccessPropertyValue)
-     (Maybe AccessPropertyValue)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties%27"><span class="hs-identifier hs-type">WorkspaceAccessProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271926"><span class="annot"><span class="annottext">Maybe AccessPropertyValue
-deviceTypeOsx :: Maybe AccessPropertyValue
-$sel:deviceTypeOsx:WorkspaceAccessProperties' :: WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue
-</span><a href="#local-6989586621679271926"><span class="hs-identifier hs-var hs-var">deviceTypeOsx</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
-</span><a href="#local-6989586621679271926"><span class="hs-identifier hs-var">deviceTypeOsx</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271925"><span class="annot"><span class="annottext">s :: WorkspaceAccessProperties
-</span><a href="#local-6989586621679271925"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties%27"><span class="hs-identifier hs-type">WorkspaceAccessProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271924"><span class="annot"><span class="annottext">Maybe AccessPropertyValue
-</span><a href="#local-6989586621679271924"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceAccessProperties
-</span><a href="#local-6989586621679271925"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceTypeOsx:WorkspaceAccessProperties' :: Maybe AccessPropertyValue
-</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#%24sel%3AdeviceTypeOsx%3AWorkspaceAccessProperties%27"><span class="hs-identifier hs-var">deviceTypeOsx</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
-</span><a href="#local-6989586621679271924"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties"><span class="hs-identifier hs-type">WorkspaceAccessProperties</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- | Indicates whether users can use Linux clients to access their</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- WorkSpaces.</span><span>
-</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#workspaceAccessProperties_deviceTypeLinux"><span class="hs-identifier hs-type">workspaceAccessProperties_deviceTypeLinux</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties"><span class="hs-identifier hs-type">WorkspaceAccessProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccessPropertyValue.html#AccessPropertyValue"><span class="hs-identifier hs-type">AccessPropertyValue</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span id="workspaceAccessProperties_deviceTypeLinux"><span class="annot"><span class="annottext">workspaceAccessProperties_deviceTypeLinux :: (Maybe AccessPropertyValue -&gt; f (Maybe AccessPropertyValue))
--&gt; WorkspaceAccessProperties -&gt; f WorkspaceAccessProperties
-</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#workspaceAccessProperties_deviceTypeLinux"><span class="hs-identifier hs-var hs-var">workspaceAccessProperties_deviceTypeLinux</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue)
--&gt; (WorkspaceAccessProperties
-    -&gt; Maybe AccessPropertyValue -&gt; WorkspaceAccessProperties)
--&gt; Lens
-     WorkspaceAccessProperties
-     WorkspaceAccessProperties
-     (Maybe AccessPropertyValue)
-     (Maybe AccessPropertyValue)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties%27"><span class="hs-identifier hs-type">WorkspaceAccessProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271922"><span class="annot"><span class="annottext">Maybe AccessPropertyValue
-deviceTypeLinux :: Maybe AccessPropertyValue
-$sel:deviceTypeLinux:WorkspaceAccessProperties' :: WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue
-</span><a href="#local-6989586621679271922"><span class="hs-identifier hs-var hs-var">deviceTypeLinux</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
-</span><a href="#local-6989586621679271922"><span class="hs-identifier hs-var">deviceTypeLinux</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271921"><span class="annot"><span class="annottext">s :: WorkspaceAccessProperties
-</span><a href="#local-6989586621679271921"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties%27"><span class="hs-identifier hs-type">WorkspaceAccessProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271920"><span class="annot"><span class="annottext">Maybe AccessPropertyValue
-</span><a href="#local-6989586621679271920"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceAccessProperties
-</span><a href="#local-6989586621679271921"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceTypeLinux:WorkspaceAccessProperties' :: Maybe AccessPropertyValue
-</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#%24sel%3AdeviceTypeLinux%3AWorkspaceAccessProperties%27"><span class="hs-identifier hs-var">deviceTypeLinux</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
-</span><a href="#local-6989586621679271920"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties"><span class="hs-identifier hs-type">WorkspaceAccessProperties</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- | Indicates whether users can use Windows clients to access their</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- WorkSpaces. To restrict WorkSpaces access to trusted devices (also known</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- as managed devices) with valid certificates, specify a value of @TRUST@.</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- For more information, see</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workspaces/latest/adminguide/trusted-devices.html Restrict WorkSpaces Access to Trusted Devices&gt;.</span><span>
-</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#workspaceAccessProperties_deviceTypeWindows"><span class="hs-identifier hs-type">workspaceAccessProperties_deviceTypeWindows</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties"><span class="hs-identifier hs-type">WorkspaceAccessProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccessPropertyValue.html#AccessPropertyValue"><span class="hs-identifier hs-type">AccessPropertyValue</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span id="workspaceAccessProperties_deviceTypeWindows"><span class="annot"><span class="annottext">workspaceAccessProperties_deviceTypeWindows :: (Maybe AccessPropertyValue -&gt; f (Maybe AccessPropertyValue))
+</span><span id="line-100"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | Indicates whether users can use Windows clients to access their</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- WorkSpaces.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#workspaceAccessProperties_deviceTypeWindows"><span class="hs-identifier hs-type">workspaceAccessProperties_deviceTypeWindows</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties"><span class="hs-identifier hs-type">WorkspaceAccessProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccessPropertyValue.html#AccessPropertyValue"><span class="hs-identifier hs-type">AccessPropertyValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="workspaceAccessProperties_deviceTypeWindows"><span class="annot"><span class="annottext">workspaceAccessProperties_deviceTypeWindows :: (Maybe AccessPropertyValue -&gt; f (Maybe AccessPropertyValue))
 -&gt; WorkspaceAccessProperties -&gt; f WorkspaceAccessProperties
 </span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#workspaceAccessProperties_deviceTypeWindows"><span class="hs-identifier hs-var hs-var">workspaceAccessProperties_deviceTypeWindows</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue)
 -&gt; (WorkspaceAccessProperties
@@ -282,16 +214,164 @@ $sel:deviceTypeLinux:WorkspaceAccessProperties' :: WorkspaceAccessProperties -&g
      (Maybe AccessPropertyValue)
      (Maybe AccessPropertyValue)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties%27"><span class="hs-identifier hs-type">WorkspaceAccessProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271918"><span class="annot"><span class="annottext">Maybe AccessPropertyValue
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties%27"><span class="hs-identifier hs-type">WorkspaceAccessProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274754"><span class="annot"><span class="annottext">Maybe AccessPropertyValue
 deviceTypeWindows :: Maybe AccessPropertyValue
 $sel:deviceTypeWindows:WorkspaceAccessProperties' :: WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue
-</span><a href="#local-6989586621679271918"><span class="hs-identifier hs-var hs-var">deviceTypeWindows</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
-</span><a href="#local-6989586621679271918"><span class="hs-identifier hs-var">deviceTypeWindows</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271917"><span class="annot"><span class="annottext">s :: WorkspaceAccessProperties
-</span><a href="#local-6989586621679271917"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties%27"><span class="hs-identifier hs-type">WorkspaceAccessProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271916"><span class="annot"><span class="annottext">Maybe AccessPropertyValue
-</span><a href="#local-6989586621679271916"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceAccessProperties
-</span><a href="#local-6989586621679271917"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceTypeWindows:WorkspaceAccessProperties' :: Maybe AccessPropertyValue
+</span><a href="#local-6989586621679274754"><span class="hs-identifier hs-var hs-var">deviceTypeWindows</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
+</span><a href="#local-6989586621679274754"><span class="hs-identifier hs-var">deviceTypeWindows</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274753"><span class="annot"><span class="annottext">s :: WorkspaceAccessProperties
+</span><a href="#local-6989586621679274753"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties%27"><span class="hs-identifier hs-type">WorkspaceAccessProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274752"><span class="annot"><span class="annottext">Maybe AccessPropertyValue
+</span><a href="#local-6989586621679274752"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceAccessProperties
+</span><a href="#local-6989586621679274753"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceTypeWindows:WorkspaceAccessProperties' :: Maybe AccessPropertyValue
 </span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#%24sel%3AdeviceTypeWindows%3AWorkspaceAccessProperties%27"><span class="hs-identifier hs-var">deviceTypeWindows</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
-</span><a href="#local-6989586621679271916"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties"><span class="hs-identifier hs-type">WorkspaceAccessProperties</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274752"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties"><span class="hs-identifier hs-type">WorkspaceAccessProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | Indicates whether users can access their WorkSpaces through a web</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- browser.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#workspaceAccessProperties_deviceTypeWeb"><span class="hs-identifier hs-type">workspaceAccessProperties_deviceTypeWeb</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties"><span class="hs-identifier hs-type">WorkspaceAccessProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccessPropertyValue.html#AccessPropertyValue"><span class="hs-identifier hs-type">AccessPropertyValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="workspaceAccessProperties_deviceTypeWeb"><span class="annot"><span class="annottext">workspaceAccessProperties_deviceTypeWeb :: (Maybe AccessPropertyValue -&gt; f (Maybe AccessPropertyValue))
+-&gt; WorkspaceAccessProperties -&gt; f WorkspaceAccessProperties
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#workspaceAccessProperties_deviceTypeWeb"><span class="hs-identifier hs-var hs-var">workspaceAccessProperties_deviceTypeWeb</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue)
+-&gt; (WorkspaceAccessProperties
+    -&gt; Maybe AccessPropertyValue -&gt; WorkspaceAccessProperties)
+-&gt; Lens
+     WorkspaceAccessProperties
+     WorkspaceAccessProperties
+     (Maybe AccessPropertyValue)
+     (Maybe AccessPropertyValue)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties%27"><span class="hs-identifier hs-type">WorkspaceAccessProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274750"><span class="annot"><span class="annottext">Maybe AccessPropertyValue
+deviceTypeWeb :: Maybe AccessPropertyValue
+$sel:deviceTypeWeb:WorkspaceAccessProperties' :: WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue
+</span><a href="#local-6989586621679274750"><span class="hs-identifier hs-var hs-var">deviceTypeWeb</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
+</span><a href="#local-6989586621679274750"><span class="hs-identifier hs-var">deviceTypeWeb</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274749"><span class="annot"><span class="annottext">s :: WorkspaceAccessProperties
+</span><a href="#local-6989586621679274749"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties%27"><span class="hs-identifier hs-type">WorkspaceAccessProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274748"><span class="annot"><span class="annottext">Maybe AccessPropertyValue
+</span><a href="#local-6989586621679274748"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceAccessProperties
+</span><a href="#local-6989586621679274749"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceTypeWeb:WorkspaceAccessProperties' :: Maybe AccessPropertyValue
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#%24sel%3AdeviceTypeWeb%3AWorkspaceAccessProperties%27"><span class="hs-identifier hs-var">deviceTypeWeb</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
+</span><a href="#local-6989586621679274748"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties"><span class="hs-identifier hs-type">WorkspaceAccessProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | Indicates whether users can use Android and Android-compatible Chrome OS</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- devices to access their WorkSpaces.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#workspaceAccessProperties_deviceTypeAndroid"><span class="hs-identifier hs-type">workspaceAccessProperties_deviceTypeAndroid</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties"><span class="hs-identifier hs-type">WorkspaceAccessProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccessPropertyValue.html#AccessPropertyValue"><span class="hs-identifier hs-type">AccessPropertyValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="workspaceAccessProperties_deviceTypeAndroid"><span class="annot"><span class="annottext">workspaceAccessProperties_deviceTypeAndroid :: (Maybe AccessPropertyValue -&gt; f (Maybe AccessPropertyValue))
+-&gt; WorkspaceAccessProperties -&gt; f WorkspaceAccessProperties
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#workspaceAccessProperties_deviceTypeAndroid"><span class="hs-identifier hs-var hs-var">workspaceAccessProperties_deviceTypeAndroid</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue)
+-&gt; (WorkspaceAccessProperties
+    -&gt; Maybe AccessPropertyValue -&gt; WorkspaceAccessProperties)
+-&gt; Lens
+     WorkspaceAccessProperties
+     WorkspaceAccessProperties
+     (Maybe AccessPropertyValue)
+     (Maybe AccessPropertyValue)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties%27"><span class="hs-identifier hs-type">WorkspaceAccessProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274746"><span class="annot"><span class="annottext">Maybe AccessPropertyValue
+deviceTypeAndroid :: Maybe AccessPropertyValue
+$sel:deviceTypeAndroid:WorkspaceAccessProperties' :: WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue
+</span><a href="#local-6989586621679274746"><span class="hs-identifier hs-var hs-var">deviceTypeAndroid</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
+</span><a href="#local-6989586621679274746"><span class="hs-identifier hs-var">deviceTypeAndroid</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274745"><span class="annot"><span class="annottext">s :: WorkspaceAccessProperties
+</span><a href="#local-6989586621679274745"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties%27"><span class="hs-identifier hs-type">WorkspaceAccessProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274744"><span class="annot"><span class="annottext">Maybe AccessPropertyValue
+</span><a href="#local-6989586621679274744"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceAccessProperties
+</span><a href="#local-6989586621679274745"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceTypeAndroid:WorkspaceAccessProperties' :: Maybe AccessPropertyValue
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#%24sel%3AdeviceTypeAndroid%3AWorkspaceAccessProperties%27"><span class="hs-identifier hs-var">deviceTypeAndroid</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
+</span><a href="#local-6989586621679274744"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties"><span class="hs-identifier hs-type">WorkspaceAccessProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | Indicates whether users can use Linux clients to access their</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- WorkSpaces.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#workspaceAccessProperties_deviceTypeLinux"><span class="hs-identifier hs-type">workspaceAccessProperties_deviceTypeLinux</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties"><span class="hs-identifier hs-type">WorkspaceAccessProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccessPropertyValue.html#AccessPropertyValue"><span class="hs-identifier hs-type">AccessPropertyValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="workspaceAccessProperties_deviceTypeLinux"><span class="annot"><span class="annottext">workspaceAccessProperties_deviceTypeLinux :: (Maybe AccessPropertyValue -&gt; f (Maybe AccessPropertyValue))
+-&gt; WorkspaceAccessProperties -&gt; f WorkspaceAccessProperties
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#workspaceAccessProperties_deviceTypeLinux"><span class="hs-identifier hs-var hs-var">workspaceAccessProperties_deviceTypeLinux</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue)
+-&gt; (WorkspaceAccessProperties
+    -&gt; Maybe AccessPropertyValue -&gt; WorkspaceAccessProperties)
+-&gt; Lens
+     WorkspaceAccessProperties
+     WorkspaceAccessProperties
+     (Maybe AccessPropertyValue)
+     (Maybe AccessPropertyValue)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties%27"><span class="hs-identifier hs-type">WorkspaceAccessProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274742"><span class="annot"><span class="annottext">Maybe AccessPropertyValue
+deviceTypeLinux :: Maybe AccessPropertyValue
+$sel:deviceTypeLinux:WorkspaceAccessProperties' :: WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue
+</span><a href="#local-6989586621679274742"><span class="hs-identifier hs-var hs-var">deviceTypeLinux</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
+</span><a href="#local-6989586621679274742"><span class="hs-identifier hs-var">deviceTypeLinux</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274741"><span class="annot"><span class="annottext">s :: WorkspaceAccessProperties
+</span><a href="#local-6989586621679274741"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties%27"><span class="hs-identifier hs-type">WorkspaceAccessProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274740"><span class="annot"><span class="annottext">Maybe AccessPropertyValue
+</span><a href="#local-6989586621679274740"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceAccessProperties
+</span><a href="#local-6989586621679274741"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceTypeLinux:WorkspaceAccessProperties' :: Maybe AccessPropertyValue
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#%24sel%3AdeviceTypeLinux%3AWorkspaceAccessProperties%27"><span class="hs-identifier hs-var">deviceTypeLinux</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
+</span><a href="#local-6989586621679274740"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties"><span class="hs-identifier hs-type">WorkspaceAccessProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | Indicates whether users can use macOS clients to access their</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- WorkSpaces.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#workspaceAccessProperties_deviceTypeOsx"><span class="hs-identifier hs-type">workspaceAccessProperties_deviceTypeOsx</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties"><span class="hs-identifier hs-type">WorkspaceAccessProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccessPropertyValue.html#AccessPropertyValue"><span class="hs-identifier hs-type">AccessPropertyValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="workspaceAccessProperties_deviceTypeOsx"><span class="annot"><span class="annottext">workspaceAccessProperties_deviceTypeOsx :: (Maybe AccessPropertyValue -&gt; f (Maybe AccessPropertyValue))
+-&gt; WorkspaceAccessProperties -&gt; f WorkspaceAccessProperties
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#workspaceAccessProperties_deviceTypeOsx"><span class="hs-identifier hs-var hs-var">workspaceAccessProperties_deviceTypeOsx</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue)
+-&gt; (WorkspaceAccessProperties
+    -&gt; Maybe AccessPropertyValue -&gt; WorkspaceAccessProperties)
+-&gt; Lens
+     WorkspaceAccessProperties
+     WorkspaceAccessProperties
+     (Maybe AccessPropertyValue)
+     (Maybe AccessPropertyValue)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties%27"><span class="hs-identifier hs-type">WorkspaceAccessProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274738"><span class="annot"><span class="annottext">Maybe AccessPropertyValue
+deviceTypeOsx :: Maybe AccessPropertyValue
+$sel:deviceTypeOsx:WorkspaceAccessProperties' :: WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue
+</span><a href="#local-6989586621679274738"><span class="hs-identifier hs-var hs-var">deviceTypeOsx</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
+</span><a href="#local-6989586621679274738"><span class="hs-identifier hs-var">deviceTypeOsx</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274737"><span class="annot"><span class="annottext">s :: WorkspaceAccessProperties
+</span><a href="#local-6989586621679274737"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties%27"><span class="hs-identifier hs-type">WorkspaceAccessProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274736"><span class="annot"><span class="annottext">Maybe AccessPropertyValue
+</span><a href="#local-6989586621679274736"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceAccessProperties
+</span><a href="#local-6989586621679274737"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceTypeOsx:WorkspaceAccessProperties' :: Maybe AccessPropertyValue
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#%24sel%3AdeviceTypeOsx%3AWorkspaceAccessProperties%27"><span class="hs-identifier hs-var">deviceTypeOsx</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
+</span><a href="#local-6989586621679274736"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties"><span class="hs-identifier hs-type">WorkspaceAccessProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | Indicates whether users can use Chromebooks to access their WorkSpaces.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#workspaceAccessProperties_deviceTypeChromeOs"><span class="hs-identifier hs-type">workspaceAccessProperties_deviceTypeChromeOs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties"><span class="hs-identifier hs-type">WorkspaceAccessProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccessPropertyValue.html#AccessPropertyValue"><span class="hs-identifier hs-type">AccessPropertyValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="workspaceAccessProperties_deviceTypeChromeOs"><span class="annot"><span class="annottext">workspaceAccessProperties_deviceTypeChromeOs :: (Maybe AccessPropertyValue -&gt; f (Maybe AccessPropertyValue))
+-&gt; WorkspaceAccessProperties -&gt; f WorkspaceAccessProperties
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#workspaceAccessProperties_deviceTypeChromeOs"><span class="hs-identifier hs-var hs-var">workspaceAccessProperties_deviceTypeChromeOs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue)
+-&gt; (WorkspaceAccessProperties
+    -&gt; Maybe AccessPropertyValue -&gt; WorkspaceAccessProperties)
+-&gt; Lens
+     WorkspaceAccessProperties
+     WorkspaceAccessProperties
+     (Maybe AccessPropertyValue)
+     (Maybe AccessPropertyValue)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties%27"><span class="hs-identifier hs-type">WorkspaceAccessProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274734"><span class="annot"><span class="annottext">Maybe AccessPropertyValue
+deviceTypeChromeOs :: Maybe AccessPropertyValue
+$sel:deviceTypeChromeOs:WorkspaceAccessProperties' :: WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue
+</span><a href="#local-6989586621679274734"><span class="hs-identifier hs-var hs-var">deviceTypeChromeOs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
+</span><a href="#local-6989586621679274734"><span class="hs-identifier hs-var">deviceTypeChromeOs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274733"><span class="annot"><span class="annottext">s :: WorkspaceAccessProperties
+</span><a href="#local-6989586621679274733"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties%27"><span class="hs-identifier hs-type">WorkspaceAccessProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274732"><span class="annot"><span class="annottext">Maybe AccessPropertyValue
+</span><a href="#local-6989586621679274732"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceAccessProperties
+</span><a href="#local-6989586621679274733"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceTypeChromeOs:WorkspaceAccessProperties' :: Maybe AccessPropertyValue
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#%24sel%3AdeviceTypeChromeOs%3AWorkspaceAccessProperties%27"><span class="hs-identifier hs-var">deviceTypeChromeOs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
+</span><a href="#local-6989586621679274732"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties"><span class="hs-identifier hs-type">WorkspaceAccessProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | Indicates whether users can use iOS devices to access their WorkSpaces.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#workspaceAccessProperties_deviceTypeIos"><span class="hs-identifier hs-type">workspaceAccessProperties_deviceTypeIos</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties"><span class="hs-identifier hs-type">WorkspaceAccessProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccessPropertyValue.html#AccessPropertyValue"><span class="hs-identifier hs-type">AccessPropertyValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="workspaceAccessProperties_deviceTypeIos"><span class="annot"><span class="annottext">workspaceAccessProperties_deviceTypeIos :: (Maybe AccessPropertyValue -&gt; f (Maybe AccessPropertyValue))
+-&gt; WorkspaceAccessProperties -&gt; f WorkspaceAccessProperties
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#workspaceAccessProperties_deviceTypeIos"><span class="hs-identifier hs-var hs-var">workspaceAccessProperties_deviceTypeIos</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue)
+-&gt; (WorkspaceAccessProperties
+    -&gt; Maybe AccessPropertyValue -&gt; WorkspaceAccessProperties)
+-&gt; Lens
+     WorkspaceAccessProperties
+     WorkspaceAccessProperties
+     (Maybe AccessPropertyValue)
+     (Maybe AccessPropertyValue)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties%27"><span class="hs-identifier hs-type">WorkspaceAccessProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274730"><span class="annot"><span class="annottext">Maybe AccessPropertyValue
+deviceTypeIos :: Maybe AccessPropertyValue
+$sel:deviceTypeIos:WorkspaceAccessProperties' :: WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue
+</span><a href="#local-6989586621679274730"><span class="hs-identifier hs-var hs-var">deviceTypeIos</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
+</span><a href="#local-6989586621679274730"><span class="hs-identifier hs-var">deviceTypeIos</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274729"><span class="annot"><span class="annottext">s :: WorkspaceAccessProperties
+</span><a href="#local-6989586621679274729"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties%27"><span class="hs-identifier hs-type">WorkspaceAccessProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274728"><span class="annot"><span class="annottext">Maybe AccessPropertyValue
+</span><a href="#local-6989586621679274728"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceAccessProperties
+</span><a href="#local-6989586621679274729"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceTypeIos:WorkspaceAccessProperties' :: Maybe AccessPropertyValue
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#%24sel%3AdeviceTypeIos%3AWorkspaceAccessProperties%27"><span class="hs-identifier hs-var">deviceTypeIos</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
+</span><a href="#local-6989586621679274728"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties"><span class="hs-identifier hs-type">WorkspaceAccessProperties</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | Indicates whether users can use zero client devices to access their</span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- WorkSpaces.</span><span>
@@ -307,129 +387,31 @@ $sel:deviceTypeWindows:WorkspaceAccessProperties' :: WorkspaceAccessProperties -
      (Maybe AccessPropertyValue)
      (Maybe AccessPropertyValue)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties%27"><span class="hs-identifier hs-type">WorkspaceAccessProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271914"><span class="annot"><span class="annottext">Maybe AccessPropertyValue
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties%27"><span class="hs-identifier hs-type">WorkspaceAccessProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274726"><span class="annot"><span class="annottext">Maybe AccessPropertyValue
 deviceTypeZeroClient :: Maybe AccessPropertyValue
 $sel:deviceTypeZeroClient:WorkspaceAccessProperties' :: WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue
-</span><a href="#local-6989586621679271914"><span class="hs-identifier hs-var hs-var">deviceTypeZeroClient</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
-</span><a href="#local-6989586621679271914"><span class="hs-identifier hs-var">deviceTypeZeroClient</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271913"><span class="annot"><span class="annottext">s :: WorkspaceAccessProperties
-</span><a href="#local-6989586621679271913"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties%27"><span class="hs-identifier hs-type">WorkspaceAccessProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271912"><span class="annot"><span class="annottext">Maybe AccessPropertyValue
-</span><a href="#local-6989586621679271912"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceAccessProperties
-</span><a href="#local-6989586621679271913"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceTypeZeroClient:WorkspaceAccessProperties' :: Maybe AccessPropertyValue
+</span><a href="#local-6989586621679274726"><span class="hs-identifier hs-var hs-var">deviceTypeZeroClient</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
+</span><a href="#local-6989586621679274726"><span class="hs-identifier hs-var">deviceTypeZeroClient</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274725"><span class="annot"><span class="annottext">s :: WorkspaceAccessProperties
+</span><a href="#local-6989586621679274725"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties%27"><span class="hs-identifier hs-type">WorkspaceAccessProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274724"><span class="annot"><span class="annottext">Maybe AccessPropertyValue
+</span><a href="#local-6989586621679274724"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceAccessProperties
+</span><a href="#local-6989586621679274725"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceTypeZeroClient:WorkspaceAccessProperties' :: Maybe AccessPropertyValue
 </span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#%24sel%3AdeviceTypeZeroClient%3AWorkspaceAccessProperties%27"><span class="hs-identifier hs-var">deviceTypeZeroClient</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
-</span><a href="#local-6989586621679271912"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties"><span class="hs-identifier hs-type">WorkspaceAccessProperties</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274724"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties"><span class="hs-identifier hs-type">WorkspaceAccessProperties</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- | Indicates whether users can use Android devices to access their</span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- WorkSpaces.</span><span>
-</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#workspaceAccessProperties_deviceTypeAndroid"><span class="hs-identifier hs-type">workspaceAccessProperties_deviceTypeAndroid</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties"><span class="hs-identifier hs-type">WorkspaceAccessProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccessPropertyValue.html#AccessPropertyValue"><span class="hs-identifier hs-type">AccessPropertyValue</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span id="workspaceAccessProperties_deviceTypeAndroid"><span class="annot"><span class="annottext">workspaceAccessProperties_deviceTypeAndroid :: (Maybe AccessPropertyValue -&gt; f (Maybe AccessPropertyValue))
--&gt; WorkspaceAccessProperties -&gt; f WorkspaceAccessProperties
-</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#workspaceAccessProperties_deviceTypeAndroid"><span class="hs-identifier hs-var hs-var">workspaceAccessProperties_deviceTypeAndroid</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue)
--&gt; (WorkspaceAccessProperties
-    -&gt; Maybe AccessPropertyValue -&gt; WorkspaceAccessProperties)
--&gt; Lens
-     WorkspaceAccessProperties
-     WorkspaceAccessProperties
-     (Maybe AccessPropertyValue)
-     (Maybe AccessPropertyValue)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties%27"><span class="hs-identifier hs-type">WorkspaceAccessProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271910"><span class="annot"><span class="annottext">Maybe AccessPropertyValue
-deviceTypeAndroid :: Maybe AccessPropertyValue
-$sel:deviceTypeAndroid:WorkspaceAccessProperties' :: WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue
-</span><a href="#local-6989586621679271910"><span class="hs-identifier hs-var hs-var">deviceTypeAndroid</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
-</span><a href="#local-6989586621679271910"><span class="hs-identifier hs-var">deviceTypeAndroid</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271909"><span class="annot"><span class="annottext">s :: WorkspaceAccessProperties
-</span><a href="#local-6989586621679271909"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties%27"><span class="hs-identifier hs-type">WorkspaceAccessProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271908"><span class="annot"><span class="annottext">Maybe AccessPropertyValue
-</span><a href="#local-6989586621679271908"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceAccessProperties
-</span><a href="#local-6989586621679271909"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceTypeAndroid:WorkspaceAccessProperties' :: Maybe AccessPropertyValue
-</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#%24sel%3AdeviceTypeAndroid%3AWorkspaceAccessProperties%27"><span class="hs-identifier hs-var">deviceTypeAndroid</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
-</span><a href="#local-6989586621679271908"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties"><span class="hs-identifier hs-type">WorkspaceAccessProperties</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- | Indicates whether users can access their WorkSpaces through a web</span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- browser.</span><span>
-</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#workspaceAccessProperties_deviceTypeWeb"><span class="hs-identifier hs-type">workspaceAccessProperties_deviceTypeWeb</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties"><span class="hs-identifier hs-type">WorkspaceAccessProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccessPropertyValue.html#AccessPropertyValue"><span class="hs-identifier hs-type">AccessPropertyValue</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-148"></span><span id="workspaceAccessProperties_deviceTypeWeb"><span class="annot"><span class="annottext">workspaceAccessProperties_deviceTypeWeb :: (Maybe AccessPropertyValue -&gt; f (Maybe AccessPropertyValue))
--&gt; WorkspaceAccessProperties -&gt; f WorkspaceAccessProperties
-</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#workspaceAccessProperties_deviceTypeWeb"><span class="hs-identifier hs-var hs-var">workspaceAccessProperties_deviceTypeWeb</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue)
--&gt; (WorkspaceAccessProperties
-    -&gt; Maybe AccessPropertyValue -&gt; WorkspaceAccessProperties)
--&gt; Lens
-     WorkspaceAccessProperties
-     WorkspaceAccessProperties
-     (Maybe AccessPropertyValue)
-     (Maybe AccessPropertyValue)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties%27"><span class="hs-identifier hs-type">WorkspaceAccessProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271906"><span class="annot"><span class="annottext">Maybe AccessPropertyValue
-deviceTypeWeb :: Maybe AccessPropertyValue
-$sel:deviceTypeWeb:WorkspaceAccessProperties' :: WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue
-</span><a href="#local-6989586621679271906"><span class="hs-identifier hs-var hs-var">deviceTypeWeb</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
-</span><a href="#local-6989586621679271906"><span class="hs-identifier hs-var">deviceTypeWeb</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271905"><span class="annot"><span class="annottext">s :: WorkspaceAccessProperties
-</span><a href="#local-6989586621679271905"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties%27"><span class="hs-identifier hs-type">WorkspaceAccessProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271904"><span class="annot"><span class="annottext">Maybe AccessPropertyValue
-</span><a href="#local-6989586621679271904"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceAccessProperties
-</span><a href="#local-6989586621679271905"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceTypeWeb:WorkspaceAccessProperties' :: Maybe AccessPropertyValue
-</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#%24sel%3AdeviceTypeWeb%3AWorkspaceAccessProperties%27"><span class="hs-identifier hs-var">deviceTypeWeb</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
-</span><a href="#local-6989586621679271904"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties"><span class="hs-identifier hs-type">WorkspaceAccessProperties</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-comment">-- | Indicates whether users can use iOS devices to access their WorkSpaces.</span><span>
-</span><span id="line-151"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#workspaceAccessProperties_deviceTypeIos"><span class="hs-identifier hs-type">workspaceAccessProperties_deviceTypeIos</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties"><span class="hs-identifier hs-type">WorkspaceAccessProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccessPropertyValue.html#AccessPropertyValue"><span class="hs-identifier hs-type">AccessPropertyValue</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-152"></span><span id="workspaceAccessProperties_deviceTypeIos"><span class="annot"><span class="annottext">workspaceAccessProperties_deviceTypeIos :: (Maybe AccessPropertyValue -&gt; f (Maybe AccessPropertyValue))
--&gt; WorkspaceAccessProperties -&gt; f WorkspaceAccessProperties
-</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#workspaceAccessProperties_deviceTypeIos"><span class="hs-identifier hs-var hs-var">workspaceAccessProperties_deviceTypeIos</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue)
--&gt; (WorkspaceAccessProperties
-    -&gt; Maybe AccessPropertyValue -&gt; WorkspaceAccessProperties)
--&gt; Lens
-     WorkspaceAccessProperties
-     WorkspaceAccessProperties
-     (Maybe AccessPropertyValue)
-     (Maybe AccessPropertyValue)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties%27"><span class="hs-identifier hs-type">WorkspaceAccessProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271902"><span class="annot"><span class="annottext">Maybe AccessPropertyValue
-deviceTypeIos :: Maybe AccessPropertyValue
-$sel:deviceTypeIos:WorkspaceAccessProperties' :: WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue
-</span><a href="#local-6989586621679271902"><span class="hs-identifier hs-var hs-var">deviceTypeIos</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
-</span><a href="#local-6989586621679271902"><span class="hs-identifier hs-var">deviceTypeIos</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271901"><span class="annot"><span class="annottext">s :: WorkspaceAccessProperties
-</span><a href="#local-6989586621679271901"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties%27"><span class="hs-identifier hs-type">WorkspaceAccessProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271900"><span class="annot"><span class="annottext">Maybe AccessPropertyValue
-</span><a href="#local-6989586621679271900"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceAccessProperties
-</span><a href="#local-6989586621679271901"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceTypeIos:WorkspaceAccessProperties' :: Maybe AccessPropertyValue
-</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#%24sel%3AdeviceTypeIos%3AWorkspaceAccessProperties%27"><span class="hs-identifier hs-var">deviceTypeIos</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
-</span><a href="#local-6989586621679271900"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties"><span class="hs-identifier hs-type">WorkspaceAccessProperties</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- | Indicates whether users can use Chromebooks to access their WorkSpaces.</span><span>
-</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#workspaceAccessProperties_deviceTypeChromeOs"><span class="hs-identifier hs-type">workspaceAccessProperties_deviceTypeChromeOs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties"><span class="hs-identifier hs-type">WorkspaceAccessProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccessPropertyValue.html#AccessPropertyValue"><span class="hs-identifier hs-type">AccessPropertyValue</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-156"></span><span id="workspaceAccessProperties_deviceTypeChromeOs"><span class="annot"><span class="annottext">workspaceAccessProperties_deviceTypeChromeOs :: (Maybe AccessPropertyValue -&gt; f (Maybe AccessPropertyValue))
--&gt; WorkspaceAccessProperties -&gt; f WorkspaceAccessProperties
-</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#workspaceAccessProperties_deviceTypeChromeOs"><span class="hs-identifier hs-var hs-var">workspaceAccessProperties_deviceTypeChromeOs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue)
--&gt; (WorkspaceAccessProperties
-    -&gt; Maybe AccessPropertyValue -&gt; WorkspaceAccessProperties)
--&gt; Lens
-     WorkspaceAccessProperties
-     WorkspaceAccessProperties
-     (Maybe AccessPropertyValue)
-     (Maybe AccessPropertyValue)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties%27"><span class="hs-identifier hs-type">WorkspaceAccessProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271898"><span class="annot"><span class="annottext">Maybe AccessPropertyValue
-deviceTypeChromeOs :: Maybe AccessPropertyValue
-$sel:deviceTypeChromeOs:WorkspaceAccessProperties' :: WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue
-</span><a href="#local-6989586621679271898"><span class="hs-identifier hs-var hs-var">deviceTypeChromeOs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
-</span><a href="#local-6989586621679271898"><span class="hs-identifier hs-var">deviceTypeChromeOs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271897"><span class="annot"><span class="annottext">s :: WorkspaceAccessProperties
-</span><a href="#local-6989586621679271897"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties%27"><span class="hs-identifier hs-type">WorkspaceAccessProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271896"><span class="annot"><span class="annottext">Maybe AccessPropertyValue
-</span><a href="#local-6989586621679271896"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceAccessProperties
-</span><a href="#local-6989586621679271897"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceTypeChromeOs:WorkspaceAccessProperties' :: Maybe AccessPropertyValue
-</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#%24sel%3AdeviceTypeChromeOs%3AWorkspaceAccessProperties%27"><span class="hs-identifier hs-var">deviceTypeChromeOs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
-</span><a href="#local-6989586621679271896"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties"><span class="hs-identifier hs-type">WorkspaceAccessProperties</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271893"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties"><span class="hs-identifier hs-type">WorkspaceAccessProperties</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679271891"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser WorkspaceAccessProperties
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274721"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties"><span class="hs-identifier hs-type">WorkspaceAccessProperties</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679274719"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser WorkspaceAccessProperties
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser WorkspaceAccessProperties)
 -&gt; Value
 -&gt; Parser WorkspaceAccessProperties
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;WorkspaceAccessProperties&quot;</span></span><span>
-</span><span id="line-162"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679271888"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679271888"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-163"></span><span>          </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
+</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679274716"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274716"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-145"></span><span>          </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
 -&gt; Maybe AccessPropertyValue
 -&gt; Maybe AccessPropertyValue
 -&gt; Maybe AccessPropertyValue
@@ -439,7 +421,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Maybe AccessPropertyValue
 -&gt; WorkspaceAccessProperties
 </span><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties%27"><span class="hs-identifier hs-var">WorkspaceAccessProperties'</span></a></span><span>
-</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">(Maybe AccessPropertyValue
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">(Maybe AccessPropertyValue
  -&gt; Maybe AccessPropertyValue
  -&gt; Maybe AccessPropertyValue
  -&gt; Maybe AccessPropertyValue
@@ -460,58 +442,14 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; WorkspaceAccessProperties)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679271888"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AccessPropertyValue)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DeviceTypeOsx&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe AccessPropertyValue
-   -&gt; Maybe AccessPropertyValue
-   -&gt; Maybe AccessPropertyValue
-   -&gt; Maybe AccessPropertyValue
-   -&gt; Maybe AccessPropertyValue
-   -&gt; Maybe AccessPropertyValue
-   -&gt; Maybe AccessPropertyValue
-   -&gt; WorkspaceAccessProperties)
--&gt; Parser (Maybe AccessPropertyValue)
--&gt; Parser
-     (Maybe AccessPropertyValue
-      -&gt; Maybe AccessPropertyValue
-      -&gt; Maybe AccessPropertyValue
-      -&gt; Maybe AccessPropertyValue
-      -&gt; Maybe AccessPropertyValue
-      -&gt; Maybe AccessPropertyValue
-      -&gt; WorkspaceAccessProperties)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679271888"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AccessPropertyValue)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DeviceTypeLinux&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe AccessPropertyValue
-   -&gt; Maybe AccessPropertyValue
-   -&gt; Maybe AccessPropertyValue
-   -&gt; Maybe AccessPropertyValue
-   -&gt; Maybe AccessPropertyValue
-   -&gt; Maybe AccessPropertyValue
-   -&gt; WorkspaceAccessProperties)
--&gt; Parser (Maybe AccessPropertyValue)
--&gt; Parser
-     (Maybe AccessPropertyValue
-      -&gt; Maybe AccessPropertyValue
-      -&gt; Maybe AccessPropertyValue
-      -&gt; Maybe AccessPropertyValue
-      -&gt; Maybe AccessPropertyValue
-      -&gt; WorkspaceAccessProperties)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679271888"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AccessPropertyValue)
+</span><a href="#local-6989586621679274716"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AccessPropertyValue)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeviceTypeWindows&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe AccessPropertyValue
+   -&gt; Maybe AccessPropertyValue
+   -&gt; Maybe AccessPropertyValue
    -&gt; Maybe AccessPropertyValue
    -&gt; Maybe AccessPropertyValue
    -&gt; Maybe AccessPropertyValue
@@ -523,15 +461,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe AccessPropertyValue
       -&gt; Maybe AccessPropertyValue
       -&gt; Maybe AccessPropertyValue
+      -&gt; Maybe AccessPropertyValue
+      -&gt; Maybe AccessPropertyValue
       -&gt; WorkspaceAccessProperties)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679271888"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AccessPropertyValue)
+</span><a href="#local-6989586621679274716"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AccessPropertyValue)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DeviceTypeZeroClient&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span class="hs-string">&quot;DeviceTypeWeb&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe AccessPropertyValue
+   -&gt; Maybe AccessPropertyValue
+   -&gt; Maybe AccessPropertyValue
    -&gt; Maybe AccessPropertyValue
    -&gt; Maybe AccessPropertyValue
    -&gt; Maybe AccessPropertyValue
@@ -541,14 +483,54 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe AccessPropertyValue
       -&gt; Maybe AccessPropertyValue
       -&gt; Maybe AccessPropertyValue
+      -&gt; Maybe AccessPropertyValue
+      -&gt; Maybe AccessPropertyValue
       -&gt; WorkspaceAccessProperties)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679271888"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AccessPropertyValue)
+</span><a href="#local-6989586621679274716"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AccessPropertyValue)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeviceTypeAndroid&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AccessPropertyValue
+   -&gt; Maybe AccessPropertyValue
+   -&gt; Maybe AccessPropertyValue
+   -&gt; Maybe AccessPropertyValue
+   -&gt; Maybe AccessPropertyValue
+   -&gt; WorkspaceAccessProperties)
+-&gt; Parser (Maybe AccessPropertyValue)
+-&gt; Parser
+     (Maybe AccessPropertyValue
+      -&gt; Maybe AccessPropertyValue
+      -&gt; Maybe AccessPropertyValue
+      -&gt; Maybe AccessPropertyValue
+      -&gt; WorkspaceAccessProperties)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274716"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AccessPropertyValue)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeviceTypeLinux&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AccessPropertyValue
+   -&gt; Maybe AccessPropertyValue
+   -&gt; Maybe AccessPropertyValue
+   -&gt; Maybe AccessPropertyValue
+   -&gt; WorkspaceAccessProperties)
+-&gt; Parser (Maybe AccessPropertyValue)
+-&gt; Parser
+     (Maybe AccessPropertyValue
+      -&gt; Maybe AccessPropertyValue
+      -&gt; Maybe AccessPropertyValue
+      -&gt; WorkspaceAccessProperties)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274716"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AccessPropertyValue)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeviceTypeOsx&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe AccessPropertyValue
    -&gt; Maybe AccessPropertyValue
    -&gt; Maybe AccessPropertyValue
@@ -559,130 +541,130 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe AccessPropertyValue -&gt; WorkspaceAccessProperties)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679271888"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AccessPropertyValue)
+</span><a href="#local-6989586621679274716"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AccessPropertyValue)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DeviceTypeWeb&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span class="hs-string">&quot;DeviceTypeChromeOs&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe AccessPropertyValue
    -&gt; Maybe AccessPropertyValue -&gt; WorkspaceAccessProperties)
 -&gt; Parser (Maybe AccessPropertyValue)
 -&gt; Parser (Maybe AccessPropertyValue -&gt; WorkspaceAccessProperties)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679271888"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AccessPropertyValue)
+</span><a href="#local-6989586621679274716"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AccessPropertyValue)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeviceTypeIos&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe AccessPropertyValue -&gt; WorkspaceAccessProperties)
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe AccessPropertyValue -&gt; WorkspaceAccessProperties)
 -&gt; Parser (Maybe AccessPropertyValue)
 -&gt; Parser WorkspaceAccessProperties
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679271888"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AccessPropertyValue)
+</span><a href="#local-6989586621679274716"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AccessPropertyValue)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DeviceTypeChromeOs&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-172"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-173"></span><span>
-</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271882"><span id="local-6989586621679271884"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties"><span class="hs-identifier hs-type">WorkspaceAccessProperties</span></a></span></span></span><span>
-</span><span id="line-175"></span><span>
-</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271879"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties"><span class="hs-identifier hs-type">WorkspaceAccessProperties</span></a></span></span><span>
-</span><span id="line-177"></span><span>
-</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271871"><span id="local-6989586621679271873"><span id="local-6989586621679271875"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties"><span class="hs-identifier hs-type">WorkspaceAccessProperties</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621679271869"><span class="annot"><span class="annottext">toJSON :: WorkspaceAccessProperties -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties%27"><span class="hs-identifier hs-type">WorkspaceAccessProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271860"><span id="local-6989586621679271861"><span id="local-6989586621679271862"><span id="local-6989586621679271863"><span id="local-6989586621679271864"><span id="local-6989586621679271865"><span id="local-6989586621679271866"><span id="local-6989586621679271867"><span class="annot"><span class="annottext">Maybe AccessPropertyValue
-deviceTypeChromeOs :: Maybe AccessPropertyValue
-deviceTypeIos :: Maybe AccessPropertyValue
-deviceTypeWeb :: Maybe AccessPropertyValue
-deviceTypeAndroid :: Maybe AccessPropertyValue
+</span><span class="hs-string">&quot;DeviceTypeZeroClient&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274710"><span id="local-6989586621679274712"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties"><span class="hs-identifier hs-type">WorkspaceAccessProperties</span></a></span></span></span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274707"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties"><span class="hs-identifier hs-type">WorkspaceAccessProperties</span></a></span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274699"><span id="local-6989586621679274701"><span id="local-6989586621679274703"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties"><span class="hs-identifier hs-type">WorkspaceAccessProperties</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679274697"><span class="annot"><span class="annottext">toJSON :: WorkspaceAccessProperties -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties.html#WorkspaceAccessProperties%27"><span class="hs-identifier hs-type">WorkspaceAccessProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274688"><span id="local-6989586621679274689"><span id="local-6989586621679274690"><span id="local-6989586621679274691"><span id="local-6989586621679274692"><span id="local-6989586621679274693"><span id="local-6989586621679274694"><span id="local-6989586621679274695"><span class="annot"><span class="annottext">Maybe AccessPropertyValue
 deviceTypeZeroClient :: Maybe AccessPropertyValue
-deviceTypeWindows :: Maybe AccessPropertyValue
-deviceTypeLinux :: Maybe AccessPropertyValue
+deviceTypeIos :: Maybe AccessPropertyValue
+deviceTypeChromeOs :: Maybe AccessPropertyValue
 deviceTypeOsx :: Maybe AccessPropertyValue
-$sel:deviceTypeChromeOs:WorkspaceAccessProperties' :: WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue
-$sel:deviceTypeIos:WorkspaceAccessProperties' :: WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue
-$sel:deviceTypeWeb:WorkspaceAccessProperties' :: WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue
-$sel:deviceTypeAndroid:WorkspaceAccessProperties' :: WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue
+deviceTypeLinux :: Maybe AccessPropertyValue
+deviceTypeAndroid :: Maybe AccessPropertyValue
+deviceTypeWeb :: Maybe AccessPropertyValue
+deviceTypeWindows :: Maybe AccessPropertyValue
 $sel:deviceTypeZeroClient:WorkspaceAccessProperties' :: WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue
-$sel:deviceTypeWindows:WorkspaceAccessProperties' :: WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue
-$sel:deviceTypeLinux:WorkspaceAccessProperties' :: WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue
+$sel:deviceTypeIos:WorkspaceAccessProperties' :: WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue
+$sel:deviceTypeChromeOs:WorkspaceAccessProperties' :: WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue
 $sel:deviceTypeOsx:WorkspaceAccessProperties' :: WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue
-</span><a href="#local-6989586621679271860"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-180"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+$sel:deviceTypeLinux:WorkspaceAccessProperties' :: WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue
+$sel:deviceTypeAndroid:WorkspaceAccessProperties' :: WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue
+$sel:deviceTypeWeb:WorkspaceAccessProperties' :: WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue
+$sel:deviceTypeWindows:WorkspaceAccessProperties' :: WorkspaceAccessProperties -&gt; Maybe AccessPropertyValue
+</span><a href="#local-6989586621679274688"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
-</span><span id="line-181"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+</span><span id="line-163"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
-</span><span id="line-182"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DeviceTypeOsx&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AccessPropertyValue -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AccessPropertyValue -&gt; Pair)
--&gt; Maybe AccessPropertyValue -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
-</span><a href="#local-6989586621679271867"><span class="hs-identifier hs-var">deviceTypeOsx</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-183"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DeviceTypeLinux&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AccessPropertyValue -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-184"></span><span>              </span><span class="annot"><span class="annottext">(AccessPropertyValue -&gt; Pair)
--&gt; Maybe AccessPropertyValue -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
-</span><a href="#local-6989586621679271866"><span class="hs-identifier hs-var">deviceTypeLinux</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-185"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-164"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeviceTypeWindows&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AccessPropertyValue -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-186"></span><span>              </span><span class="annot"><span class="annottext">(AccessPropertyValue -&gt; Pair)
+</span><span id="line-165"></span><span>              </span><span class="annot"><span class="annottext">(AccessPropertyValue -&gt; Pair)
 -&gt; Maybe AccessPropertyValue -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
-</span><a href="#local-6989586621679271865"><span class="hs-identifier hs-var">deviceTypeWindows</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-187"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DeviceTypeZeroClient&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AccessPropertyValue -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-188"></span><span>              </span><span class="annot"><span class="annottext">(AccessPropertyValue -&gt; Pair)
--&gt; Maybe AccessPropertyValue -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
-</span><a href="#local-6989586621679271864"><span class="hs-identifier hs-var">deviceTypeZeroClient</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-189"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DeviceTypeAndroid&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AccessPropertyValue -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-190"></span><span>              </span><span class="annot"><span class="annottext">(AccessPropertyValue -&gt; Pair)
--&gt; Maybe AccessPropertyValue -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
-</span><a href="#local-6989586621679271863"><span class="hs-identifier hs-var">deviceTypeAndroid</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-191"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274695"><span class="hs-identifier hs-var">deviceTypeWindows</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeviceTypeWeb&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AccessPropertyValue -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AccessPropertyValue -&gt; Pair)
 -&gt; Maybe AccessPropertyValue -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
-</span><a href="#local-6989586621679271862"><span class="hs-identifier hs-var">deviceTypeWeb</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-192"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274694"><span class="hs-identifier hs-var">deviceTypeWeb</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeviceTypeAndroid&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AccessPropertyValue -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>              </span><span class="annot"><span class="annottext">(AccessPropertyValue -&gt; Pair)
+-&gt; Maybe AccessPropertyValue -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
+</span><a href="#local-6989586621679274693"><span class="hs-identifier hs-var">deviceTypeAndroid</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeviceTypeLinux&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AccessPropertyValue -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>              </span><span class="annot"><span class="annottext">(AccessPropertyValue -&gt; Pair)
+-&gt; Maybe AccessPropertyValue -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
+</span><a href="#local-6989586621679274692"><span class="hs-identifier hs-var">deviceTypeLinux</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeviceTypeOsx&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AccessPropertyValue -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AccessPropertyValue -&gt; Pair)
+-&gt; Maybe AccessPropertyValue -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
+</span><a href="#local-6989586621679274691"><span class="hs-identifier hs-var">deviceTypeOsx</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeviceTypeChromeOs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AccessPropertyValue -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>              </span><span class="annot"><span class="annottext">(AccessPropertyValue -&gt; Pair)
+-&gt; Maybe AccessPropertyValue -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
+</span><a href="#local-6989586621679274690"><span class="hs-identifier hs-var">deviceTypeChromeOs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeviceTypeIos&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AccessPropertyValue -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AccessPropertyValue -&gt; Pair)
 -&gt; Maybe AccessPropertyValue -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
-</span><a href="#local-6989586621679271861"><span class="hs-identifier hs-var">deviceTypeIos</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-193"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DeviceTypeChromeOs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AccessPropertyValue -&gt; Pair
+</span><a href="#local-6989586621679274689"><span class="hs-identifier hs-var">deviceTypeIos</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeviceTypeZeroClient&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AccessPropertyValue -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-194"></span><span>              </span><span class="annot"><span class="annottext">(AccessPropertyValue -&gt; Pair)
+</span><span id="line-176"></span><span>              </span><span class="annot"><span class="annottext">(AccessPropertyValue -&gt; Pair)
 -&gt; Maybe AccessPropertyValue -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AccessPropertyValue
-</span><a href="#local-6989586621679271860"><span class="hs-identifier hs-var">deviceTypeChromeOs</span></a></span><span>
-</span><span id="line-195"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-196"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-197"></span></pre></body></html>
+</span><a href="#local-6989586621679274688"><span class="hs-identifier hs-var">deviceTypeZeroClient</span></a></span><span>
+</span><span id="line-177"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-178"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span></pre></body></html>

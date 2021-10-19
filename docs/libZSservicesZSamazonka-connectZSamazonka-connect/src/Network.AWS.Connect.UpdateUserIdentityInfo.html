@@ -54,7 +54,7 @@
 </span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newUpdateUserIdentityInfo' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679432830"><span id="local-6989586621679432831"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateUserIdentityInfo"><span class="annot"><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#UpdateUserIdentityInfo"><span class="hs-identifier hs-var">UpdateUserIdentityInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateUserIdentityInfo%27"><span class="annot"><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#UpdateUserIdentityInfo%27"><span class="hs-identifier hs-var">UpdateUserIdentityInfo'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679433178"><span id="local-6989586621679433179"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateUserIdentityInfo"><span class="annot"><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#UpdateUserIdentityInfo"><span class="hs-identifier hs-var">UpdateUserIdentityInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateUserIdentityInfo%27"><span class="annot"><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#UpdateUserIdentityInfo%27"><span class="hs-identifier hs-var">UpdateUserIdentityInfo'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identity information for the user.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AidentityInfo%3AUpdateUserIdentityInfo%27"><span class="annot"><span class="annottext">UpdateUserIdentityInfo -&gt; UserIdentityInfo
 </span><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#%24sel%3AidentityInfo%3AUpdateUserIdentityInfo%27"><span class="hs-identifier hs-var hs-var">identityInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.UserIdentityInfo.html#UserIdentityInfo"><span class="hs-identifier hs-type">UserIdentityInfo</span></a></span><span class="hs-special">,</span><span>
@@ -66,7 +66,7 @@
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AinstanceId%3AUpdateUserIdentityInfo%27"><span class="annot"><span class="annottext">UpdateUserIdentityInfo -&gt; Text
 </span><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#%24sel%3AinstanceId%3AUpdateUserIdentityInfo%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679432822"><span id="local-6989586621679432824"><span class="annot"><span class="annottext">UpdateUserIdentityInfo -&gt; UpdateUserIdentityInfo -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679433170"><span id="local-6989586621679433172"><span class="annot"><span class="annottext">UpdateUserIdentityInfo -&gt; UpdateUserIdentityInfo -&gt; Bool
 (UpdateUserIdentityInfo -&gt; UpdateUserIdentityInfo -&gt; Bool)
 -&gt; (UpdateUserIdentityInfo -&gt; UpdateUserIdentityInfo -&gt; Bool)
 -&gt; Eq UpdateUserIdentityInfo
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateUserIdentityInfo -&gt; UpdateUserIdentityInfo -&gt; Bool
 == :: UpdateUserIdentityInfo -&gt; UpdateUserIdentityInfo -&gt; Bool
 $c== :: UpdateUserIdentityInfo -&gt; UpdateUserIdentityInfo -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679432813"><span id="local-6989586621679432815"><span id="local-6989586621679432817"><span id="local-6989586621679432819"><span class="annot"><span class="annottext">ReadPrec [UpdateUserIdentityInfo]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679433161"><span id="local-6989586621679433163"><span id="local-6989586621679433165"><span id="local-6989586621679433167"><span class="annot"><span class="annottext">ReadPrec [UpdateUserIdentityInfo]
 ReadPrec UpdateUserIdentityInfo
 Int -&gt; ReadS UpdateUserIdentityInfo
 ReadS [UpdateUserIdentityInfo]
@@ -95,7 +95,7 @@ readList :: ReadS [UpdateUserIdentityInfo]
 $creadList :: ReadS [UpdateUserIdentityInfo]
 readsPrec :: Int -&gt; ReadS UpdateUserIdentityInfo
 $creadsPrec :: Int -&gt; ReadS UpdateUserIdentityInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679432806"><span id="local-6989586621679432808"><span id="local-6989586621679432810"><span class="annot"><span class="annottext">Int -&gt; UpdateUserIdentityInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679433154"><span id="local-6989586621679433156"><span id="local-6989586621679433158"><span class="annot"><span class="annottext">Int -&gt; UpdateUserIdentityInfo -&gt; ShowS
 [UpdateUserIdentityInfo] -&gt; ShowS
 UpdateUserIdentityInfo -&gt; String
 (Int -&gt; UpdateUserIdentityInfo -&gt; ShowS)
@@ -146,24 +146,24 @@ $cfrom :: forall x. UpdateUserIdentityInfo -&gt; Rep UpdateUserIdentityInfo x
 </span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#UpdateUserIdentityInfo"><span class="hs-identifier hs-type">UpdateUserIdentityInfo</span></a></span><span>
 </span><span id="line-90"></span><span id="newUpdateUserIdentityInfo"><span class="annot"><span class="annottext">newUpdateUserIdentityInfo :: UserIdentityInfo -&gt; Text -&gt; Text -&gt; UpdateUserIdentityInfo
 </span><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#newUpdateUserIdentityInfo"><span class="hs-identifier hs-var hs-var">newUpdateUserIdentityInfo</span></a></span></span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679432801"><span class="annot"><span class="annottext">UserIdentityInfo
-</span><a href="#local-6989586621679432801"><span class="hs-identifier hs-var">pIdentityInfo_</span></a></span></span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679432800"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432800"><span class="hs-identifier hs-var">pUserId_</span></a></span></span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679432799"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432799"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679433149"><span class="annot"><span class="annottext">UserIdentityInfo
+</span><a href="#local-6989586621679433149"><span class="hs-identifier hs-var">pIdentityInfo_</span></a></span></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679433148"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679433148"><span class="hs-identifier hs-var">pUserId_</span></a></span></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679433147"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679433147"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">UpdateUserIdentityInfo' :: UserIdentityInfo -&gt; Text -&gt; Text -&gt; UpdateUserIdentityInfo
 </span><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#UpdateUserIdentityInfo%27"><span class="hs-identifier hs-type">UpdateUserIdentityInfo'</span></a></span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:identityInfo:UpdateUserIdentityInfo' :: UserIdentityInfo
 </span><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#%24sel%3AidentityInfo%3AUpdateUserIdentityInfo%27"><span class="hs-identifier hs-var">identityInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>          </span><span class="annot"><span class="annottext">UserIdentityInfo
-</span><a href="#local-6989586621679432801"><span class="hs-identifier hs-var">pIdentityInfo_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679433149"><span class="hs-identifier hs-var">pIdentityInfo_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">$sel:userId:UpdateUserIdentityInfo' :: Text
 </span><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#%24sel%3AuserId%3AUpdateUserIdentityInfo%27"><span class="hs-identifier hs-var">userId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432800"><span class="hs-identifier hs-var">pUserId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679433148"><span class="hs-identifier hs-var">pUserId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>        </span><span class="annot"><span class="annottext">$sel:instanceId:UpdateUserIdentityInfo' :: Text
 </span><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#%24sel%3AinstanceId%3AUpdateUserIdentityInfo%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432799"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span>
+</span><a href="#local-6989586621679433147"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | The identity information for the user.</span><span>
@@ -179,16 +179,16 @@ $cfrom :: forall x. UpdateUserIdentityInfo -&gt; Rep UpdateUserIdentityInfo x
      UserIdentityInfo
      UserIdentityInfo
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#UpdateUserIdentityInfo%27"><span class="hs-identifier hs-type">UpdateUserIdentityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432796"><span class="annot"><span class="annottext">UserIdentityInfo
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#UpdateUserIdentityInfo%27"><span class="hs-identifier hs-type">UpdateUserIdentityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433144"><span class="annot"><span class="annottext">UserIdentityInfo
 identityInfo :: UserIdentityInfo
 $sel:identityInfo:UpdateUserIdentityInfo' :: UpdateUserIdentityInfo -&gt; UserIdentityInfo
-</span><a href="#local-6989586621679432796"><span class="hs-identifier hs-var hs-var">identityInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserIdentityInfo
-</span><a href="#local-6989586621679432796"><span class="hs-identifier hs-var">identityInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432795"><span class="annot"><span class="annottext">s :: UpdateUserIdentityInfo
-</span><a href="#local-6989586621679432795"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#UpdateUserIdentityInfo%27"><span class="hs-identifier hs-type">UpdateUserIdentityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432794"><span class="annot"><span class="annottext">UserIdentityInfo
-</span><a href="#local-6989586621679432794"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUserIdentityInfo
-</span><a href="#local-6989586621679432795"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityInfo:UpdateUserIdentityInfo' :: UserIdentityInfo
+</span><a href="#local-6989586621679433144"><span class="hs-identifier hs-var hs-var">identityInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserIdentityInfo
+</span><a href="#local-6989586621679433144"><span class="hs-identifier hs-var">identityInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433143"><span class="annot"><span class="annottext">s :: UpdateUserIdentityInfo
+</span><a href="#local-6989586621679433143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#UpdateUserIdentityInfo%27"><span class="hs-identifier hs-type">UpdateUserIdentityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433142"><span class="annot"><span class="annottext">UserIdentityInfo
+</span><a href="#local-6989586621679433142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUserIdentityInfo
+</span><a href="#local-6989586621679433143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityInfo:UpdateUserIdentityInfo' :: UserIdentityInfo
 </span><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#%24sel%3AidentityInfo%3AUpdateUserIdentityInfo%27"><span class="hs-identifier hs-var">identityInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UserIdentityInfo
-</span><a href="#local-6989586621679432794"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#UpdateUserIdentityInfo"><span class="hs-identifier hs-type">UpdateUserIdentityInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679433142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#UpdateUserIdentityInfo"><span class="hs-identifier hs-type">UpdateUserIdentityInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | The identifier of the user account.</span><span>
 </span><span id="line-106"></span><span class="annot"><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#updateUserIdentityInfo_userId"><span class="hs-identifier hs-type">updateUserIdentityInfo_userId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#UpdateUserIdentityInfo"><span class="hs-identifier hs-type">UpdateUserIdentityInfo</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -198,16 +198,16 @@ $sel:identityInfo:UpdateUserIdentityInfo' :: UpdateUserIdentityInfo -&gt; UserId
 -&gt; (UpdateUserIdentityInfo -&gt; Text -&gt; UpdateUserIdentityInfo)
 -&gt; Lens UpdateUserIdentityInfo UpdateUserIdentityInfo Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#UpdateUserIdentityInfo%27"><span class="hs-identifier hs-type">UpdateUserIdentityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432793"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#UpdateUserIdentityInfo%27"><span class="hs-identifier hs-type">UpdateUserIdentityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433141"><span class="annot"><span class="annottext">Text
 userId :: Text
 $sel:userId:UpdateUserIdentityInfo' :: UpdateUserIdentityInfo -&gt; Text
-</span><a href="#local-6989586621679432793"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432793"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432792"><span class="annot"><span class="annottext">s :: UpdateUserIdentityInfo
-</span><a href="#local-6989586621679432792"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#UpdateUserIdentityInfo%27"><span class="hs-identifier hs-type">UpdateUserIdentityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432791"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432791"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUserIdentityInfo
-</span><a href="#local-6989586621679432792"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userId:UpdateUserIdentityInfo' :: Text
+</span><a href="#local-6989586621679433141"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679433141"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433140"><span class="annot"><span class="annottext">s :: UpdateUserIdentityInfo
+</span><a href="#local-6989586621679433140"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#UpdateUserIdentityInfo%27"><span class="hs-identifier hs-type">UpdateUserIdentityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433139"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679433139"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUserIdentityInfo
+</span><a href="#local-6989586621679433140"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userId:UpdateUserIdentityInfo' :: Text
 </span><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#%24sel%3AuserId%3AUpdateUserIdentityInfo%27"><span class="hs-identifier hs-var">userId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432791"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#UpdateUserIdentityInfo"><span class="hs-identifier hs-type">UpdateUserIdentityInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679433139"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#UpdateUserIdentityInfo"><span class="hs-identifier hs-type">UpdateUserIdentityInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | The identifier of the Amazon Connect instance. You can find the</span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- instanceId in the ARN of the instance.</span><span>
@@ -218,27 +218,27 @@ $sel:userId:UpdateUserIdentityInfo' :: UpdateUserIdentityInfo -&gt; Text
 -&gt; (UpdateUserIdentityInfo -&gt; Text -&gt; UpdateUserIdentityInfo)
 -&gt; Lens UpdateUserIdentityInfo UpdateUserIdentityInfo Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#UpdateUserIdentityInfo%27"><span class="hs-identifier hs-type">UpdateUserIdentityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432790"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#UpdateUserIdentityInfo%27"><span class="hs-identifier hs-type">UpdateUserIdentityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433138"><span class="annot"><span class="annottext">Text
 instanceId :: Text
 $sel:instanceId:UpdateUserIdentityInfo' :: UpdateUserIdentityInfo -&gt; Text
-</span><a href="#local-6989586621679432790"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432790"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432789"><span class="annot"><span class="annottext">s :: UpdateUserIdentityInfo
-</span><a href="#local-6989586621679432789"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#UpdateUserIdentityInfo%27"><span class="hs-identifier hs-type">UpdateUserIdentityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432788"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432788"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUserIdentityInfo
-</span><a href="#local-6989586621679432789"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:UpdateUserIdentityInfo' :: Text
+</span><a href="#local-6989586621679433138"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679433138"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433137"><span class="annot"><span class="annottext">s :: UpdateUserIdentityInfo
+</span><a href="#local-6989586621679433137"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#UpdateUserIdentityInfo%27"><span class="hs-identifier hs-type">UpdateUserIdentityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433136"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679433136"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUserIdentityInfo
+</span><a href="#local-6989586621679433137"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:UpdateUserIdentityInfo' :: Text
 </span><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#%24sel%3AinstanceId%3AUpdateUserIdentityInfo%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432788"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#UpdateUserIdentityInfo"><span class="hs-identifier hs-type">UpdateUserIdentityInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679433136"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#UpdateUserIdentityInfo"><span class="hs-identifier hs-type">UpdateUserIdentityInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#UpdateUserIdentityInfo"><span class="hs-identifier hs-type">UpdateUserIdentityInfo</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-115"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-116"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#UpdateUserIdentityInfo"><span class="hs-identifier hs-type">UpdateUserIdentityInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>      </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#UpdateUserIdentityInfoResponse"><span class="hs-identifier hs-type">UpdateUserIdentityInfoResponse</span></a></span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679432784"><span class="annot"><span class="annottext">request :: UpdateUserIdentityInfo -&gt; Request UpdateUserIdentityInfo
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679433132"><span class="annot"><span class="annottext">request :: UpdateUserIdentityInfo -&gt; Request UpdateUserIdentityInfo
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateUserIdentityInfo -&gt; Request UpdateUserIdentityInfo
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Connect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679432780"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679433128"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateUserIdentityInfo
 -&gt; ClientResponse ClientBody
@@ -265,12 +265,12 @@ AWSResponse a
 UpdateUserIdentityInfoResponse
 </span><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#UpdateUserIdentityInfoResponse%27"><span class="hs-identifier hs-var">UpdateUserIdentityInfoResponse'</span></a></span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679432773"><span id="local-6989586621679432775"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#UpdateUserIdentityInfo"><span class="hs-identifier hs-type">UpdateUserIdentityInfo</span></a></span></span></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433121"><span id="local-6989586621679433123"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#UpdateUserIdentityInfo"><span class="hs-identifier hs-type">UpdateUserIdentityInfo</span></a></span></span></span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679432770"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#UpdateUserIdentityInfo"><span class="hs-identifier hs-type">UpdateUserIdentityInfo</span></a></span></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433118"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#UpdateUserIdentityInfo"><span class="hs-identifier hs-type">UpdateUserIdentityInfo</span></a></span></span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#UpdateUserIdentityInfo"><span class="hs-identifier hs-type">UpdateUserIdentityInfo</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679432766"><span class="annot"><span class="annottext">toHeaders :: UpdateUserIdentityInfo -&gt; [Header]
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679433114"><span class="annot"><span class="annottext">toHeaders :: UpdateUserIdentityInfo -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; UpdateUserIdentityInfo -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -289,9 +289,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679432756"><span id="local-6989586621679432758"><span id="local-6989586621679432760"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#UpdateUserIdentityInfo"><span class="hs-identifier hs-type">UpdateUserIdentityInfo</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679432754"><span class="annot"><span class="annottext">toJSON :: UpdateUserIdentityInfo -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#UpdateUserIdentityInfo%27"><span class="hs-identifier hs-type">UpdateUserIdentityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432750"><span id="local-6989586621679432751"><span id="local-6989586621679432752"><span class="annot"><span class="annottext">Text
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433104"><span id="local-6989586621679433106"><span id="local-6989586621679433108"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#UpdateUserIdentityInfo"><span class="hs-identifier hs-type">UpdateUserIdentityInfo</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679433102"><span class="annot"><span class="annottext">toJSON :: UpdateUserIdentityInfo -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#UpdateUserIdentityInfo%27"><span class="hs-identifier hs-type">UpdateUserIdentityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433098"><span id="local-6989586621679433099"><span id="local-6989586621679433100"><span class="annot"><span class="annottext">Text
 UserIdentityInfo
 instanceId :: Text
 userId :: Text
@@ -299,7 +299,7 @@ identityInfo :: UserIdentityInfo
 $sel:instanceId:UpdateUserIdentityInfo' :: UpdateUserIdentityInfo -&gt; Text
 $sel:userId:UpdateUserIdentityInfo' :: UpdateUserIdentityInfo -&gt; Text
 $sel:identityInfo:UpdateUserIdentityInfo' :: UpdateUserIdentityInfo -&gt; UserIdentityInfo
-</span><a href="#local-6989586621679432750"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679433098"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -311,12 +311,12 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;IdentityInfo&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; UserIdentityInfo -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">UserIdentityInfo
-</span><a href="#local-6989586621679432752"><span class="hs-identifier hs-var">identityInfo</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679433100"><span class="hs-identifier hs-var">identityInfo</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#UpdateUserIdentityInfo"><span class="hs-identifier hs-type">UpdateUserIdentityInfo</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679432744"><span class="annot"><span class="annottext">toPath :: UpdateUserIdentityInfo -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#UpdateUserIdentityInfo%27"><span class="hs-identifier hs-type">UpdateUserIdentityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432740"><span id="local-6989586621679432741"><span id="local-6989586621679432742"><span class="annot"><span class="annottext">Text
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679433092"><span class="annot"><span class="annottext">toPath :: UpdateUserIdentityInfo -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#UpdateUserIdentityInfo%27"><span class="hs-identifier hs-type">UpdateUserIdentityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433088"><span id="local-6989586621679433089"><span id="local-6989586621679433090"><span class="annot"><span class="annottext">Text
 UserIdentityInfo
 instanceId :: Text
 userId :: Text
@@ -324,7 +324,7 @@ identityInfo :: UserIdentityInfo
 $sel:instanceId:UpdateUserIdentityInfo' :: UpdateUserIdentityInfo -&gt; Text
 $sel:userId:UpdateUserIdentityInfo' :: UpdateUserIdentityInfo -&gt; Text
 $sel:identityInfo:UpdateUserIdentityInfo' :: UpdateUserIdentityInfo -&gt; UserIdentityInfo
-</span><a href="#local-6989586621679432740"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679433088"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-147"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -333,19 +333,19 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432740"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679433088"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-151"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432741"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679433089"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/identity-info&quot;</span></span><span>
 </span><span id="line-153"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#UpdateUserIdentityInfo"><span class="hs-identifier hs-type">UpdateUserIdentityInfo</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679432736"><span class="annot"><span class="annottext">toQuery :: UpdateUserIdentityInfo -&gt; QueryString
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679433084"><span class="annot"><span class="annottext">toQuery :: UpdateUserIdentityInfo -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateUserIdentityInfo -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -353,10 +353,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- | /See:/ 'newUpdateUserIdentityInfoResponse' smart constructor.</span><span>
-</span><span id="line-159"></span><span id="local-6989586621679432733"><span id="local-6989586621679432734"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateUserIdentityInfoResponse"><span class="annot"><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#UpdateUserIdentityInfoResponse"><span class="hs-identifier hs-var">UpdateUserIdentityInfoResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateUserIdentityInfoResponse%27"><span class="annot"><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#UpdateUserIdentityInfoResponse%27"><span class="hs-identifier hs-var">UpdateUserIdentityInfoResponse'</span></a></span></span><span>
+</span><span id="line-159"></span><span id="local-6989586621679433081"><span id="local-6989586621679433082"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateUserIdentityInfoResponse"><span class="annot"><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#UpdateUserIdentityInfoResponse"><span class="hs-identifier hs-var">UpdateUserIdentityInfoResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateUserIdentityInfoResponse%27"><span class="annot"><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#UpdateUserIdentityInfoResponse%27"><span class="hs-identifier hs-var">UpdateUserIdentityInfoResponse'</span></a></span></span><span>
 </span><span id="line-160"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-161"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-162"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679432729"><span id="local-6989586621679432731"><span class="annot"><span class="annottext">UpdateUserIdentityInfoResponse
+</span><span id="line-162"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679433077"><span id="local-6989586621679433079"><span class="annot"><span class="annottext">UpdateUserIdentityInfoResponse
 -&gt; UpdateUserIdentityInfoResponse -&gt; Bool
 (UpdateUserIdentityInfoResponse
  -&gt; UpdateUserIdentityInfoResponse -&gt; Bool)
@@ -372,7 +372,7 @@ $c/= :: UpdateUserIdentityInfoResponse
 -&gt; UpdateUserIdentityInfoResponse -&gt; Bool
 $c== :: UpdateUserIdentityInfoResponse
 -&gt; UpdateUserIdentityInfoResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679432721"><span id="local-6989586621679432723"><span id="local-6989586621679432725"><span id="local-6989586621679432727"><span class="annot"><span class="annottext">ReadPrec [UpdateUserIdentityInfoResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679433069"><span id="local-6989586621679433071"><span id="local-6989586621679433073"><span id="local-6989586621679433075"><span class="annot"><span class="annottext">ReadPrec [UpdateUserIdentityInfoResponse]
 ReadPrec UpdateUserIdentityInfoResponse
 Int -&gt; ReadS UpdateUserIdentityInfoResponse
 ReadS [UpdateUserIdentityInfoResponse]
@@ -392,7 +392,7 @@ readList :: ReadS [UpdateUserIdentityInfoResponse]
 $creadList :: ReadS [UpdateUserIdentityInfoResponse]
 readsPrec :: Int -&gt; ReadS UpdateUserIdentityInfoResponse
 $creadsPrec :: Int -&gt; ReadS UpdateUserIdentityInfoResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679432715"><span id="local-6989586621679432717"><span id="local-6989586621679432719"><span class="annot"><span class="annottext">Int -&gt; UpdateUserIdentityInfoResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679433063"><span id="local-6989586621679433065"><span id="local-6989586621679433067"><span class="annot"><span class="annottext">Int -&gt; UpdateUserIdentityInfoResponse -&gt; ShowS
 [UpdateUserIdentityInfoResponse] -&gt; ShowS
 UpdateUserIdentityInfoResponse -&gt; String
 (Int -&gt; UpdateUserIdentityInfoResponse -&gt; ShowS)
@@ -442,6 +442,6 @@ UpdateUserIdentityInfoResponse
 </span><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#UpdateUserIdentityInfoResponse%27"><span class="hs-identifier hs-var">UpdateUserIdentityInfoResponse'</span></a></span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-174"></span><span>  </span><span id="local-6989586621679432711"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679433059"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-175"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.UpdateUserIdentityInfo.html#UpdateUserIdentityInfoResponse"><span class="hs-identifier hs-type">UpdateUserIdentityInfoResponse</span></a></span></span><span>
 </span><span id="line-176"></span></pre></body></html>

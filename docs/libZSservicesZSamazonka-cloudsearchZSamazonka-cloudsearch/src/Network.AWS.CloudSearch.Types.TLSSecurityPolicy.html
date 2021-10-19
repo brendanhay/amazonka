@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | The minimum required TLS version.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679210265"><span id="local-6989586621679210266"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TLSSecurityPolicy"><span class="annot"><a href="Network.AWS.CloudSearch.Types.TLSSecurityPolicy.html#TLSSecurityPolicy"><span class="hs-identifier hs-var">TLSSecurityPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TLSSecurityPolicy%27"><span class="annot"><a href="Network.AWS.CloudSearch.Types.TLSSecurityPolicy.html#TLSSecurityPolicy%27"><span class="hs-identifier hs-var">TLSSecurityPolicy'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679210318"><span id="local-6989586621679210319"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TLSSecurityPolicy"><span class="annot"><a href="Network.AWS.CloudSearch.Types.TLSSecurityPolicy.html#TLSSecurityPolicy"><span class="hs-identifier hs-var">TLSSecurityPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TLSSecurityPolicy%27"><span class="annot"><a href="Network.AWS.CloudSearch.Types.TLSSecurityPolicy.html#TLSSecurityPolicy%27"><span class="hs-identifier hs-var">TLSSecurityPolicy'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTLSSecurityPolicy"><span class="annot"><span class="annottext">TLSSecurityPolicy -&gt; Text
 </span><a href="Network.AWS.CloudSearch.Types.TLSSecurityPolicy.html#fromTLSSecurityPolicy"><span class="hs-identifier hs-var hs-var">fromTLSSecurityPolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679210257"><span id="local-6989586621679210259"><span id="local-6989586621679210261"><span class="annot"><span class="annottext">Int -&gt; TLSSecurityPolicy -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679210310"><span id="local-6989586621679210312"><span id="local-6989586621679210314"><span class="annot"><span class="annottext">Int -&gt; TLSSecurityPolicy -&gt; ShowS
 [TLSSecurityPolicy] -&gt; ShowS
 TLSSecurityPolicy -&gt; String
 (Int -&gt; TLSSecurityPolicy -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: TLSSecurityPolicy -&gt; String
 showsPrec :: Int -&gt; TLSSecurityPolicy -&gt; ShowS
 $cshowsPrec :: Int -&gt; TLSSecurityPolicy -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679210248"><span id="local-6989586621679210250"><span id="local-6989586621679210252"><span id="local-6989586621679210254"><span class="annot"><span class="annottext">ReadPrec [TLSSecurityPolicy]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679210301"><span id="local-6989586621679210303"><span id="local-6989586621679210305"><span id="local-6989586621679210307"><span class="annot"><span class="annottext">ReadPrec [TLSSecurityPolicy]
 ReadPrec TLSSecurityPolicy
 Int -&gt; ReadS TLSSecurityPolicy
 ReadS [TLSSecurityPolicy]
@@ -73,7 +73,7 @@ $creadList :: ReadS [TLSSecurityPolicy]
 readsPrec :: Int -&gt; ReadS TLSSecurityPolicy
 $creadsPrec :: Int -&gt; ReadS TLSSecurityPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679210243"><span id="local-6989586621679210245"><span class="annot"><span class="annottext">TLSSecurityPolicy -&gt; TLSSecurityPolicy -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679210296"><span id="local-6989586621679210298"><span class="annot"><span class="annottext">TLSSecurityPolicy -&gt; TLSSecurityPolicy -&gt; Bool
 (TLSSecurityPolicy -&gt; TLSSecurityPolicy -&gt; Bool)
 -&gt; (TLSSecurityPolicy -&gt; TLSSecurityPolicy -&gt; Bool)
 -&gt; Eq TLSSecurityPolicy
@@ -83,7 +83,7 @@ $c/= :: TLSSecurityPolicy -&gt; TLSSecurityPolicy -&gt; Bool
 == :: TLSSecurityPolicy -&gt; TLSSecurityPolicy -&gt; Bool
 $c== :: TLSSecurityPolicy -&gt; TLSSecurityPolicy -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679210227"><span id="local-6989586621679210229"><span id="local-6989586621679210231"><span id="local-6989586621679210233"><span id="local-6989586621679210235"><span id="local-6989586621679210237"><span id="local-6989586621679210239"><span class="annot"><span class="annottext">Eq TLSSecurityPolicy
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679210280"><span id="local-6989586621679210282"><span id="local-6989586621679210284"><span id="local-6989586621679210286"><span id="local-6989586621679210288"><span id="local-6989586621679210290"><span id="local-6989586621679210292"><span class="annot"><span class="annottext">Eq TLSSecurityPolicy
 Eq TLSSecurityPolicy
 -&gt; (TLSSecurityPolicy -&gt; TLSSecurityPolicy -&gt; Ordering)
 -&gt; (TLSSecurityPolicy -&gt; TLSSecurityPolicy -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. TLSSecurityPolicy -&gt; Rep TLSSecurityPolicy x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679210219"><span id="local-6989586621679210221"><span class="annot"><span class="annottext">Int -&gt; TLSSecurityPolicy -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679210272"><span id="local-6989586621679210274"><span class="annot"><span class="annottext">Int -&gt; TLSSecurityPolicy -&gt; Int
 TLSSecurityPolicy -&gt; Int
 (Int -&gt; TLSSecurityPolicy -&gt; Int)
 -&gt; (TLSSecurityPolicy -&gt; Int) -&gt; Hashable TLSSecurityPolicy
@@ -144,51 +144,51 @@ $chash :: TLSSecurityPolicy -&gt; Int
 hashWithSalt :: Int -&gt; TLSSecurityPolicy -&gt; Int
 $chashWithSalt :: Int -&gt; TLSSecurityPolicy -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679210216"><span class="annot"><span class="annottext">TLSSecurityPolicy -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679210269"><span class="annot"><span class="annottext">TLSSecurityPolicy -&gt; ()
 (TLSSecurityPolicy -&gt; ()) -&gt; NFData TLSSecurityPolicy
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: TLSSecurityPolicy -&gt; ()
 $crnf :: TLSSecurityPolicy -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679210213"><span class="annot"><span class="annottext">Text -&gt; Either String TLSSecurityPolicy
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679210266"><span class="annot"><span class="annottext">Text -&gt; Either String TLSSecurityPolicy
 (Text -&gt; Either String TLSSecurityPolicy)
 -&gt; FromText TLSSecurityPolicy
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String TLSSecurityPolicy
 $cfromText :: Text -&gt; Either String TLSSecurityPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679210210"><span class="annot"><span class="annottext">TLSSecurityPolicy -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679210263"><span class="annot"><span class="annottext">TLSSecurityPolicy -&gt; Text
 (TLSSecurityPolicy -&gt; Text) -&gt; ToText TLSSecurityPolicy
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: TLSSecurityPolicy -&gt; Text
 $ctoText :: TLSSecurityPolicy -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679210207"><span class="annot"><span class="annottext">TLSSecurityPolicy -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679210260"><span class="annot"><span class="annottext">TLSSecurityPolicy -&gt; ByteString
 (TLSSecurityPolicy -&gt; ByteString) -&gt; ToByteString TLSSecurityPolicy
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: TLSSecurityPolicy -&gt; ByteString
 $ctoBS :: TLSSecurityPolicy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679210204"><span class="annot"><span class="annottext">TLSSecurityPolicy -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679210257"><span class="annot"><span class="annottext">TLSSecurityPolicy -&gt; ByteStringBuilder
 (TLSSecurityPolicy -&gt; ByteStringBuilder) -&gt; ToLog TLSSecurityPolicy
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: TLSSecurityPolicy -&gt; ByteStringBuilder
 $cbuild :: TLSSecurityPolicy -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679210201"><span class="annot"><span class="annottext">HeaderName -&gt; TLSSecurityPolicy -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679210254"><span class="annot"><span class="annottext">HeaderName -&gt; TLSSecurityPolicy -&gt; [Header]
 (HeaderName -&gt; TLSSecurityPolicy -&gt; [Header])
 -&gt; ToHeader TLSSecurityPolicy
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; TLSSecurityPolicy -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; TLSSecurityPolicy -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679210198"><span class="annot"><span class="annottext">TLSSecurityPolicy -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679210251"><span class="annot"><span class="annottext">TLSSecurityPolicy -&gt; QueryString
 (TLSSecurityPolicy -&gt; QueryString) -&gt; ToQuery TLSSecurityPolicy
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: TLSSecurityPolicy -&gt; QueryString
 $ctoQuery :: TLSSecurityPolicy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679210193"><span id="local-6989586621679210195"><span class="annot"><span class="annottext">Value -&gt; Parser [TLSSecurityPolicy]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679210246"><span id="local-6989586621679210248"><span class="annot"><span class="annottext">Value -&gt; Parser [TLSSecurityPolicy]
 Value -&gt; Parser TLSSecurityPolicy
 (Value -&gt; Parser TLSSecurityPolicy)
 -&gt; (Value -&gt; Parser [TLSSecurityPolicy])
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [TLSSecurityPolicy]
 parseJSON :: Value -&gt; Parser TLSSecurityPolicy
 $cparseJSON :: Value -&gt; Parser TLSSecurityPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679210188"><span id="local-6989586621679210190"><span class="annot"><span class="annottext">FromJSONKeyFunction [TLSSecurityPolicy]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679210241"><span id="local-6989586621679210243"><span class="annot"><span class="annottext">FromJSONKeyFunction [TLSSecurityPolicy]
 FromJSONKeyFunction TLSSecurityPolicy
 FromJSONKeyFunction TLSSecurityPolicy
 -&gt; FromJSONKeyFunction [TLSSecurityPolicy]
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [TLSSecurityPolicy]
 fromJSONKey :: FromJSONKeyFunction TLSSecurityPolicy
 $cfromJSONKey :: FromJSONKeyFunction TLSSecurityPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679210179"><span id="local-6989586621679210181"><span id="local-6989586621679210183"><span id="local-6989586621679210185"><span class="annot"><span class="annottext">[TLSSecurityPolicy] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679210232"><span id="local-6989586621679210234"><span id="local-6989586621679210236"><span id="local-6989586621679210238"><span class="annot"><span class="annottext">[TLSSecurityPolicy] -&gt; Encoding
 [TLSSecurityPolicy] -&gt; Value
 TLSSecurityPolicy -&gt; Encoding
 TLSSecurityPolicy -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: TLSSecurityPolicy -&gt; Encoding
 toJSON :: TLSSecurityPolicy -&gt; Value
 $ctoJSON :: TLSSecurityPolicy -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679210174"><span id="local-6989586621679210176"><span class="annot"><span class="annottext">ToJSONKeyFunction [TLSSecurityPolicy]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679210227"><span id="local-6989586621679210229"><span class="annot"><span class="annottext">ToJSONKeyFunction [TLSSecurityPolicy]
 ToJSONKeyFunction TLSSecurityPolicy
 ToJSONKeyFunction TLSSecurityPolicy
 -&gt; ToJSONKeyFunction [TLSSecurityPolicy]
@@ -248,14 +248,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [TLSSecurityPolicy]
 toJSONKey :: ToJSONKeyFunction TLSSecurityPolicy
 $ctoJSONKey :: ToJSONKeyFunction TLSSecurityPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679210171"><span class="annot"><span class="annottext">[Node] -&gt; Either String TLSSecurityPolicy
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679210224"><span class="annot"><span class="annottext">[Node] -&gt; Either String TLSSecurityPolicy
 ([Node] -&gt; Either String TLSSecurityPolicy)
 -&gt; FromXML TLSSecurityPolicy
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String TLSSecurityPolicy
 $cparseXML :: [Node] -&gt; Either String TLSSecurityPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679210168"><span class="annot"><span class="annottext">TLSSecurityPolicy -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679210221"><span class="annot"><span class="annottext">TLSSecurityPolicy -&gt; XML
 (TLSSecurityPolicy -&gt; XML) -&gt; ToXML TLSSecurityPolicy
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: TLSSecurityPolicy -&gt; XML

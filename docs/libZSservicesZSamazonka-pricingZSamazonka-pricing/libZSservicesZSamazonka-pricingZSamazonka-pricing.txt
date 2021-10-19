@@ -2,7 +2,7 @@
 -- See Hoogle, http://www.haskell.org/hoogle/
 
 @package libZSservicesZSamazonka-pricingZSamazonka-pricing
-@version 1.6.1
+@version 2.0
 
 
 module Network.AWS.Pricing.Types.AttributeValue
@@ -181,13 +181,13 @@ module Network.AWS.Pricing.Types.PricingService
 --   
 --   <i>See:</i> <a>newPricingService</a> smart constructor.
 data PricingService
-PricingService' :: Maybe Text -> Maybe [Text] -> PricingService
-
--- | The code for the Amazon Web Services service.
-[$sel:serviceCode:PricingService'] :: PricingService -> Maybe Text
+PricingService' :: Maybe [Text] -> Maybe Text -> PricingService
 
 -- | The attributes that are available for this service.
 [$sel:attributeNames:PricingService'] :: PricingService -> Maybe [Text]
+
+-- | The code for the Amazon Web Services service.
+[$sel:serviceCode:PricingService'] :: PricingService -> Maybe Text
 
 -- | Create a value of <a>PricingService</a> with all optional fields
 --   omitted.
@@ -198,20 +198,20 @@ PricingService' :: Maybe Text -> Maybe [Text] -> PricingService
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:serviceCode:PricingService'</a>,
---   <a>pricingService_serviceCode</a> - The code for the Amazon Web
---   Services service.
---   
 --   <a>$sel:attributeNames:PricingService'</a>,
 --   <a>pricingService_attributeNames</a> - The attributes that are
 --   available for this service.
+--   
+--   <a>$sel:serviceCode:PricingService'</a>,
+--   <a>pricingService_serviceCode</a> - The code for the Amazon Web
+--   Services service.
 newPricingService :: PricingService
-
--- | The code for the Amazon Web Services service.
-pricingService_serviceCode :: Lens' PricingService (Maybe Text)
 
 -- | The attributes that are available for this service.
 pricingService_attributeNames :: Lens' PricingService (Maybe [Text])
+
+-- | The code for the Amazon Web Services service.
+pricingService_serviceCode :: Lens' PricingService (Maybe Text)
 instance GHC.Generics.Generic Network.AWS.Pricing.Types.PricingService.PricingService
 instance GHC.Show.Show Network.AWS.Pricing.Types.PricingService.PricingService
 instance GHC.Read.Read Network.AWS.Pricing.Types.PricingService.PricingService
@@ -227,21 +227,21 @@ module Network.AWS.Pricing.Types
 --   configuration.
 defaultService :: Service
 
+-- | One or more parameters had an invalid value.
+_InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | An error on the server occurred during the processing of your request.
+--   Try again later.
+_InternalErrorException :: AsError a => Getting (First ServiceError) a ServiceError
+
 -- | The pagination token expired. Try again without a pagination token.
 _ExpiredNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | The requested resource can't be found.
 _NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | An error on the server occurred during the processing of your request.
---   Try again later.
-_InternalErrorException :: AsError a => Getting (First ServiceError) a ServiceError
-
 -- | The pagination token is invalid. Try again without a pagination token.
 _InvalidNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | One or more parameters had an invalid value.
-_InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
 newtype FilterType
 FilterType' :: Text -> FilterType
 [fromFilterType] :: FilterType -> Text
@@ -375,13 +375,13 @@ filter_value :: Lens' Filter Text
 --   
 --   <i>See:</i> <a>newPricingService</a> smart constructor.
 data PricingService
-PricingService' :: Maybe Text -> Maybe [Text] -> PricingService
-
--- | The code for the Amazon Web Services service.
-[$sel:serviceCode:PricingService'] :: PricingService -> Maybe Text
+PricingService' :: Maybe [Text] -> Maybe Text -> PricingService
 
 -- | The attributes that are available for this service.
 [$sel:attributeNames:PricingService'] :: PricingService -> Maybe [Text]
+
+-- | The code for the Amazon Web Services service.
+[$sel:serviceCode:PricingService'] :: PricingService -> Maybe Text
 
 -- | Create a value of <a>PricingService</a> with all optional fields
 --   omitted.
@@ -392,20 +392,20 @@ PricingService' :: Maybe Text -> Maybe [Text] -> PricingService
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:serviceCode:PricingService'</a>,
---   <a>pricingService_serviceCode</a> - The code for the Amazon Web
---   Services service.
---   
 --   <a>$sel:attributeNames:PricingService'</a>,
 --   <a>pricingService_attributeNames</a> - The attributes that are
 --   available for this service.
+--   
+--   <a>$sel:serviceCode:PricingService'</a>,
+--   <a>pricingService_serviceCode</a> - The code for the Amazon Web
+--   Services service.
 newPricingService :: PricingService
-
--- | The code for the Amazon Web Services service.
-pricingService_serviceCode :: Lens' PricingService (Maybe Text)
 
 -- | The attributes that are available for this service.
 pricingService_attributeNames :: Lens' PricingService (Maybe [Text])
+
+-- | The code for the Amazon Web Services service.
+pricingService_serviceCode :: Lens' PricingService (Maybe Text)
 
 
 -- | Returns a list of all products that match the filter criteria.
@@ -415,26 +415,26 @@ module Network.AWS.Pricing.GetProducts
 
 -- | <i>See:</i> <a>newGetProducts</a> smart constructor.
 data GetProducts
-GetProducts' :: Maybe Text -> Maybe Natural -> Maybe Text -> Maybe Text -> Maybe [Filter] -> GetProducts
+GetProducts' :: Maybe [Filter] -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Natural -> GetProducts
 
--- | The pagination token that indicates the next set of results that you
---   want to retrieve.
-[$sel:nextToken:GetProducts'] :: GetProducts -> Maybe Text
-
--- | The maximum number of results to return in the response.
-[$sel:maxResults:GetProducts'] :: GetProducts -> Maybe Natural
-
--- | The code for the service whose products you want to retrieve.
-[$sel:serviceCode:GetProducts'] :: GetProducts -> Maybe Text
+-- | The list of filters that limit the returned products. only products
+--   that match all filters are returned.
+[$sel:filters:GetProducts'] :: GetProducts -> Maybe [Filter]
 
 -- | The format version that you want the response to be in.
 --   
 --   Valid values are: <tt>aws_v1</tt>
 [$sel:formatVersion:GetProducts'] :: GetProducts -> Maybe Text
 
--- | The list of filters that limit the returned products. only products
---   that match all filters are returned.
-[$sel:filters:GetProducts'] :: GetProducts -> Maybe [Filter]
+-- | The pagination token that indicates the next set of results that you
+--   want to retrieve.
+[$sel:nextToken:GetProducts'] :: GetProducts -> Maybe Text
+
+-- | The code for the service whose products you want to retrieve.
+[$sel:serviceCode:GetProducts'] :: GetProducts -> Maybe Text
+
+-- | The maximum number of results to return in the response.
+[$sel:maxResults:GetProducts'] :: GetProducts -> Maybe Natural
 
 -- | Create a value of <a>GetProducts</a> with all optional fields omitted.
 --   
@@ -444,15 +444,9 @@ GetProducts' :: Maybe Text -> Maybe Natural -> Maybe Text -> Maybe Text -> Maybe
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:nextToken:GetProducts'</a>, <a>getProducts_nextToken</a> - The
---   pagination token that indicates the next set of results that you want
---   to retrieve.
---   
---   <a>$sel:maxResults:GetProducts'</a>, <a>getProducts_maxResults</a> -
---   The maximum number of results to return in the response.
---   
---   <a>$sel:serviceCode:GetProducts'</a>, <a>getProducts_serviceCode</a> -
---   The code for the service whose products you want to retrieve.
+--   <a>$sel:filters:GetProducts'</a>, <a>getProducts_filters</a> - The
+--   list of filters that limit the returned products. only products that
+--   match all filters are returned.
 --   
 --   <a>$sel:formatVersion:GetProducts'</a>,
 --   <a>getProducts_formatVersion</a> - The format version that you want
@@ -460,44 +454,50 @@ GetProducts' :: Maybe Text -> Maybe Natural -> Maybe Text -> Maybe Text -> Maybe
 --   
 --   Valid values are: <tt>aws_v1</tt>
 --   
---   <a>$sel:filters:GetProducts'</a>, <a>getProducts_filters</a> - The
---   list of filters that limit the returned products. only products that
---   match all filters are returned.
+--   <a>$sel:nextToken:GetProducts'</a>, <a>getProducts_nextToken</a> - The
+--   pagination token that indicates the next set of results that you want
+--   to retrieve.
+--   
+--   <a>$sel:serviceCode:GetProducts'</a>, <a>getProducts_serviceCode</a> -
+--   The code for the service whose products you want to retrieve.
+--   
+--   <a>$sel:maxResults:GetProducts'</a>, <a>getProducts_maxResults</a> -
+--   The maximum number of results to return in the response.
 newGetProducts :: GetProducts
 
--- | The pagination token that indicates the next set of results that you
---   want to retrieve.
-getProducts_nextToken :: Lens' GetProducts (Maybe Text)
-
--- | The maximum number of results to return in the response.
-getProducts_maxResults :: Lens' GetProducts (Maybe Natural)
-
--- | The code for the service whose products you want to retrieve.
-getProducts_serviceCode :: Lens' GetProducts (Maybe Text)
+-- | The list of filters that limit the returned products. only products
+--   that match all filters are returned.
+getProducts_filters :: Lens' GetProducts (Maybe [Filter])
 
 -- | The format version that you want the response to be in.
 --   
 --   Valid values are: <tt>aws_v1</tt>
 getProducts_formatVersion :: Lens' GetProducts (Maybe Text)
 
--- | The list of filters that limit the returned products. only products
---   that match all filters are returned.
-getProducts_filters :: Lens' GetProducts (Maybe [Filter])
+-- | The pagination token that indicates the next set of results that you
+--   want to retrieve.
+getProducts_nextToken :: Lens' GetProducts (Maybe Text)
+
+-- | The code for the service whose products you want to retrieve.
+getProducts_serviceCode :: Lens' GetProducts (Maybe Text)
+
+-- | The maximum number of results to return in the response.
+getProducts_maxResults :: Lens' GetProducts (Maybe Natural)
 
 -- | <i>See:</i> <a>newGetProductsResponse</a> smart constructor.
 data GetProductsResponse
-GetProductsResponse' :: Maybe [Text] -> Maybe Text -> Maybe Text -> Int -> GetProductsResponse
+GetProductsResponse' :: Maybe Text -> Maybe Text -> Maybe [Text] -> Int -> GetProductsResponse
 
--- | The list of products that match your filters. The list contains both
---   the product metadata and the price information.
-[$sel:priceList:GetProductsResponse'] :: GetProductsResponse -> Maybe [Text]
+-- | The format version of the response. For example, aws_v1.
+[$sel:formatVersion:GetProductsResponse'] :: GetProductsResponse -> Maybe Text
 
 -- | The pagination token that indicates the next set of results to
 --   retrieve.
 [$sel:nextToken:GetProductsResponse'] :: GetProductsResponse -> Maybe Text
 
--- | The format version of the response. For example, aws_v1.
-[$sel:formatVersion:GetProductsResponse'] :: GetProductsResponse -> Maybe Text
+-- | The list of products that match your filters. The list contains both
+--   the product metadata and the price information.
+[$sel:priceList:GetProductsResponse'] :: GetProductsResponse -> Maybe [Text]
 
 -- | The response's http status code.
 [$sel:httpStatus:GetProductsResponse'] :: GetProductsResponse -> Int
@@ -511,34 +511,34 @@ GetProductsResponse' :: Maybe [Text] -> Maybe Text -> Maybe Text -> Int -> GetPr
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:priceList:GetProductsResponse'</a>,
---   <a>getProductsResponse_priceList</a> - The list of products that match
---   your filters. The list contains both the product metadata and the
---   price information.
+--   <a>$sel:formatVersion:GetProducts'</a>,
+--   <a>getProductsResponse_formatVersion</a> - The format version of the
+--   response. For example, aws_v1.
 --   
 --   <a>$sel:nextToken:GetProducts'</a>,
 --   <a>getProductsResponse_nextToken</a> - The pagination token that
 --   indicates the next set of results to retrieve.
 --   
---   <a>$sel:formatVersion:GetProducts'</a>,
---   <a>getProductsResponse_formatVersion</a> - The format version of the
---   response. For example, aws_v1.
+--   <a>$sel:priceList:GetProductsResponse'</a>,
+--   <a>getProductsResponse_priceList</a> - The list of products that match
+--   your filters. The list contains both the product metadata and the
+--   price information.
 --   
 --   <a>$sel:httpStatus:GetProductsResponse'</a>,
 --   <a>getProductsResponse_httpStatus</a> - The response's http status
 --   code.
 newGetProductsResponse :: Int -> GetProductsResponse
 
--- | The list of products that match your filters. The list contains both
---   the product metadata and the price information.
-getProductsResponse_priceList :: Lens' GetProductsResponse (Maybe [Text])
+-- | The format version of the response. For example, aws_v1.
+getProductsResponse_formatVersion :: Lens' GetProductsResponse (Maybe Text)
 
 -- | The pagination token that indicates the next set of results to
 --   retrieve.
 getProductsResponse_nextToken :: Lens' GetProductsResponse (Maybe Text)
 
--- | The format version of the response. For example, aws_v1.
-getProductsResponse_formatVersion :: Lens' GetProductsResponse (Maybe Text)
+-- | The list of products that match your filters. The list contains both
+--   the product metadata and the price information.
+getProductsResponse_priceList :: Lens' GetProductsResponse (Maybe [Text])
 
 -- | The response's http status code.
 getProductsResponse_httpStatus :: Lens' GetProductsResponse Int
@@ -634,16 +634,16 @@ getAttributeValues_attributeName :: Lens' GetAttributeValues Text
 
 -- | <i>See:</i> <a>newGetAttributeValuesResponse</a> smart constructor.
 data GetAttributeValuesResponse
-GetAttributeValuesResponse' :: Maybe Text -> Maybe [AttributeValue] -> Int -> GetAttributeValuesResponse
-
--- | The pagination token that indicates the next set of results to
---   retrieve.
-[$sel:nextToken:GetAttributeValuesResponse'] :: GetAttributeValuesResponse -> Maybe Text
+GetAttributeValuesResponse' :: Maybe [AttributeValue] -> Maybe Text -> Int -> GetAttributeValuesResponse
 
 -- | The list of values for an attribute. For example, <tt>Throughput
 --   Optimized HDD</tt> and <tt>Provisioned IOPS</tt> are two available
 --   values for the <tt>AmazonEC2</tt> <tt>volumeType</tt>.
 [$sel:attributeValues:GetAttributeValuesResponse'] :: GetAttributeValuesResponse -> Maybe [AttributeValue]
+
+-- | The pagination token that indicates the next set of results to
+--   retrieve.
+[$sel:nextToken:GetAttributeValuesResponse'] :: GetAttributeValuesResponse -> Maybe Text
 
 -- | The response's http status code.
 [$sel:httpStatus:GetAttributeValuesResponse'] :: GetAttributeValuesResponse -> Int
@@ -657,29 +657,29 @@ GetAttributeValuesResponse' :: Maybe Text -> Maybe [AttributeValue] -> Int -> Ge
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:nextToken:GetAttributeValues'</a>,
---   <a>getAttributeValuesResponse_nextToken</a> - The pagination token
---   that indicates the next set of results to retrieve.
---   
 --   <a>$sel:attributeValues:GetAttributeValuesResponse'</a>,
 --   <a>getAttributeValuesResponse_attributeValues</a> - The list of values
 --   for an attribute. For example, <tt>Throughput Optimized HDD</tt> and
 --   <tt>Provisioned IOPS</tt> are two available values for the
 --   <tt>AmazonEC2</tt> <tt>volumeType</tt>.
 --   
+--   <a>$sel:nextToken:GetAttributeValues'</a>,
+--   <a>getAttributeValuesResponse_nextToken</a> - The pagination token
+--   that indicates the next set of results to retrieve.
+--   
 --   <a>$sel:httpStatus:GetAttributeValuesResponse'</a>,
 --   <a>getAttributeValuesResponse_httpStatus</a> - The response's http
 --   status code.
 newGetAttributeValuesResponse :: Int -> GetAttributeValuesResponse
 
--- | The pagination token that indicates the next set of results to
---   retrieve.
-getAttributeValuesResponse_nextToken :: Lens' GetAttributeValuesResponse (Maybe Text)
-
 -- | The list of values for an attribute. For example, <tt>Throughput
 --   Optimized HDD</tt> and <tt>Provisioned IOPS</tt> are two available
 --   values for the <tt>AmazonEC2</tt> <tt>volumeType</tt>.
 getAttributeValuesResponse_attributeValues :: Lens' GetAttributeValuesResponse (Maybe [AttributeValue])
+
+-- | The pagination token that indicates the next set of results to
+--   retrieve.
+getAttributeValuesResponse_nextToken :: Lens' GetAttributeValuesResponse (Maybe Text)
 
 -- | The response's http status code.
 getAttributeValuesResponse_httpStatus :: Lens' GetAttributeValuesResponse Int
@@ -716,14 +716,16 @@ module Network.AWS.Pricing.DescribeServices
 
 -- | <i>See:</i> <a>newDescribeServices</a> smart constructor.
 data DescribeServices
-DescribeServices' :: Maybe Text -> Maybe Natural -> Maybe Text -> Maybe Text -> DescribeServices
+DescribeServices' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Natural -> DescribeServices
+
+-- | The format version that you want the response to be in.
+--   
+--   Valid values are: <tt>aws_v1</tt>
+[$sel:formatVersion:DescribeServices'] :: DescribeServices -> Maybe Text
 
 -- | The pagination token that indicates the next set of results that you
 --   want to retrieve.
 [$sel:nextToken:DescribeServices'] :: DescribeServices -> Maybe Text
-
--- | The maximum number of results that you want returned in the response.
-[$sel:maxResults:DescribeServices'] :: DescribeServices -> Maybe Natural
 
 -- | The code for the service whose information you want to retrieve, such
 --   as <tt>AmazonEC2</tt>. You can use the <tt>ServiceCode</tt> to filter
@@ -731,10 +733,8 @@ DescribeServices' :: Maybe Text -> Maybe Natural -> Maybe Text -> Maybe Text -> 
 --   services, leave this blank.
 [$sel:serviceCode:DescribeServices'] :: DescribeServices -> Maybe Text
 
--- | The format version that you want the response to be in.
---   
---   Valid values are: <tt>aws_v1</tt>
-[$sel:formatVersion:DescribeServices'] :: DescribeServices -> Maybe Text
+-- | The maximum number of results that you want returned in the response.
+[$sel:maxResults:DescribeServices'] :: DescribeServices -> Maybe Natural
 
 -- | Create a value of <a>DescribeServices</a> with all optional fields
 --   omitted.
@@ -745,13 +745,15 @@ DescribeServices' :: Maybe Text -> Maybe Natural -> Maybe Text -> Maybe Text -> 
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:formatVersion:DescribeServices'</a>,
+--   <a>describeServices_formatVersion</a> - The format version that you
+--   want the response to be in.
+--   
+--   Valid values are: <tt>aws_v1</tt>
+--   
 --   <a>$sel:nextToken:DescribeServices'</a>,
 --   <a>describeServices_nextToken</a> - The pagination token that
 --   indicates the next set of results that you want to retrieve.
---   
---   <a>$sel:maxResults:DescribeServices'</a>,
---   <a>describeServices_maxResults</a> - The maximum number of results
---   that you want returned in the response.
 --   
 --   <a>$sel:serviceCode:DescribeServices'</a>,
 --   <a>describeServices_serviceCode</a> - The code for the service whose
@@ -760,19 +762,19 @@ DescribeServices' :: Maybe Text -> Maybe Natural -> Maybe Text -> Maybe Text -> 
 --   <tt>GetProducts</tt> call. To retrieve a list of all services, leave
 --   this blank.
 --   
---   <a>$sel:formatVersion:DescribeServices'</a>,
---   <a>describeServices_formatVersion</a> - The format version that you
---   want the response to be in.
+--   <a>$sel:maxResults:DescribeServices'</a>,
+--   <a>describeServices_maxResults</a> - The maximum number of results
+--   that you want returned in the response.
+newDescribeServices :: DescribeServices
+
+-- | The format version that you want the response to be in.
 --   
 --   Valid values are: <tt>aws_v1</tt>
-newDescribeServices :: DescribeServices
+describeServices_formatVersion :: Lens' DescribeServices (Maybe Text)
 
 -- | The pagination token that indicates the next set of results that you
 --   want to retrieve.
 describeServices_nextToken :: Lens' DescribeServices (Maybe Text)
-
--- | The maximum number of results that you want returned in the response.
-describeServices_maxResults :: Lens' DescribeServices (Maybe Natural)
 
 -- | The code for the service whose information you want to retrieve, such
 --   as <tt>AmazonEC2</tt>. You can use the <tt>ServiceCode</tt> to filter
@@ -780,23 +782,21 @@ describeServices_maxResults :: Lens' DescribeServices (Maybe Natural)
 --   services, leave this blank.
 describeServices_serviceCode :: Lens' DescribeServices (Maybe Text)
 
--- | The format version that you want the response to be in.
---   
---   Valid values are: <tt>aws_v1</tt>
-describeServices_formatVersion :: Lens' DescribeServices (Maybe Text)
+-- | The maximum number of results that you want returned in the response.
+describeServices_maxResults :: Lens' DescribeServices (Maybe Natural)
 
 -- | <i>See:</i> <a>newDescribeServicesResponse</a> smart constructor.
 data DescribeServicesResponse
-DescribeServicesResponse' :: Maybe Text -> Maybe [PricingService] -> Maybe Text -> Int -> DescribeServicesResponse
+DescribeServicesResponse' :: Maybe Text -> Maybe Text -> Maybe [PricingService] -> Int -> DescribeServicesResponse
+
+-- | The format version of the response. For example, <tt>aws_v1</tt>.
+[$sel:formatVersion:DescribeServicesResponse'] :: DescribeServicesResponse -> Maybe Text
 
 -- | The pagination token for the next set of retreivable results.
 [$sel:nextToken:DescribeServicesResponse'] :: DescribeServicesResponse -> Maybe Text
 
 -- | The service metadata for the service or services in the response.
 [$sel:services:DescribeServicesResponse'] :: DescribeServicesResponse -> Maybe [PricingService]
-
--- | The format version of the response. For example, <tt>aws_v1</tt>.
-[$sel:formatVersion:DescribeServicesResponse'] :: DescribeServicesResponse -> Maybe Text
 
 -- | The response's http status code.
 [$sel:httpStatus:DescribeServicesResponse'] :: DescribeServicesResponse -> Int
@@ -810,6 +810,10 @@ DescribeServicesResponse' :: Maybe Text -> Maybe [PricingService] -> Maybe Text 
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:formatVersion:DescribeServices'</a>,
+--   <a>describeServicesResponse_formatVersion</a> - The format version of
+--   the response. For example, <tt>aws_v1</tt>.
+--   
 --   <a>$sel:nextToken:DescribeServices'</a>,
 --   <a>describeServicesResponse_nextToken</a> - The pagination token for
 --   the next set of retreivable results.
@@ -818,23 +822,19 @@ DescribeServicesResponse' :: Maybe Text -> Maybe [PricingService] -> Maybe Text 
 --   <a>describeServicesResponse_services</a> - The service metadata for
 --   the service or services in the response.
 --   
---   <a>$sel:formatVersion:DescribeServices'</a>,
---   <a>describeServicesResponse_formatVersion</a> - The format version of
---   the response. For example, <tt>aws_v1</tt>.
---   
 --   <a>$sel:httpStatus:DescribeServicesResponse'</a>,
 --   <a>describeServicesResponse_httpStatus</a> - The response's http
 --   status code.
 newDescribeServicesResponse :: Int -> DescribeServicesResponse
+
+-- | The format version of the response. For example, <tt>aws_v1</tt>.
+describeServicesResponse_formatVersion :: Lens' DescribeServicesResponse (Maybe Text)
 
 -- | The pagination token for the next set of retreivable results.
 describeServicesResponse_nextToken :: Lens' DescribeServicesResponse (Maybe Text)
 
 -- | The service metadata for the service or services in the response.
 describeServicesResponse_services :: Lens' DescribeServicesResponse (Maybe [PricingService])
-
--- | The format version of the response. For example, <tt>aws_v1</tt>.
-describeServicesResponse_formatVersion :: Lens' DescribeServicesResponse (Maybe Text)
 
 -- | The response's http status code.
 describeServicesResponse_httpStatus :: Lens' DescribeServicesResponse Int
@@ -861,69 +861,6 @@ module Network.AWS.Pricing.Lens
 
 -- | The pagination token that indicates the next set of results that you
 --   want to retrieve.
-getProducts_nextToken :: Lens' GetProducts (Maybe Text)
-
--- | The maximum number of results to return in the response.
-getProducts_maxResults :: Lens' GetProducts (Maybe Natural)
-
--- | The code for the service whose products you want to retrieve.
-getProducts_serviceCode :: Lens' GetProducts (Maybe Text)
-
--- | The format version that you want the response to be in.
---   
---   Valid values are: <tt>aws_v1</tt>
-getProducts_formatVersion :: Lens' GetProducts (Maybe Text)
-
--- | The list of filters that limit the returned products. only products
---   that match all filters are returned.
-getProducts_filters :: Lens' GetProducts (Maybe [Filter])
-
--- | The list of products that match your filters. The list contains both
---   the product metadata and the price information.
-getProductsResponse_priceList :: Lens' GetProductsResponse (Maybe [Text])
-
--- | The pagination token that indicates the next set of results to
---   retrieve.
-getProductsResponse_nextToken :: Lens' GetProductsResponse (Maybe Text)
-
--- | The format version of the response. For example, aws_v1.
-getProductsResponse_formatVersion :: Lens' GetProductsResponse (Maybe Text)
-
--- | The response's http status code.
-getProductsResponse_httpStatus :: Lens' GetProductsResponse Int
-
--- | The pagination token that indicates the next set of results that you
---   want to retrieve.
-describeServices_nextToken :: Lens' DescribeServices (Maybe Text)
-
--- | The maximum number of results that you want returned in the response.
-describeServices_maxResults :: Lens' DescribeServices (Maybe Natural)
-
--- | The code for the service whose information you want to retrieve, such
---   as <tt>AmazonEC2</tt>. You can use the <tt>ServiceCode</tt> to filter
---   the results in a <tt>GetProducts</tt> call. To retrieve a list of all
---   services, leave this blank.
-describeServices_serviceCode :: Lens' DescribeServices (Maybe Text)
-
--- | The format version that you want the response to be in.
---   
---   Valid values are: <tt>aws_v1</tt>
-describeServices_formatVersion :: Lens' DescribeServices (Maybe Text)
-
--- | The pagination token for the next set of retreivable results.
-describeServicesResponse_nextToken :: Lens' DescribeServicesResponse (Maybe Text)
-
--- | The service metadata for the service or services in the response.
-describeServicesResponse_services :: Lens' DescribeServicesResponse (Maybe [PricingService])
-
--- | The format version of the response. For example, <tt>aws_v1</tt>.
-describeServicesResponse_formatVersion :: Lens' DescribeServicesResponse (Maybe Text)
-
--- | The response's http status code.
-describeServicesResponse_httpStatus :: Lens' DescribeServicesResponse Int
-
--- | The pagination token that indicates the next set of results that you
---   want to retrieve.
 getAttributeValues_nextToken :: Lens' GetAttributeValues (Maybe Text)
 
 -- | The maximum number of results to return in response.
@@ -938,17 +875,80 @@ getAttributeValues_serviceCode :: Lens' GetAttributeValues Text
 --   such as <tt>volumeType</tt>.
 getAttributeValues_attributeName :: Lens' GetAttributeValues Text
 
--- | The pagination token that indicates the next set of results to
---   retrieve.
-getAttributeValuesResponse_nextToken :: Lens' GetAttributeValuesResponse (Maybe Text)
-
 -- | The list of values for an attribute. For example, <tt>Throughput
 --   Optimized HDD</tt> and <tt>Provisioned IOPS</tt> are two available
 --   values for the <tt>AmazonEC2</tt> <tt>volumeType</tt>.
 getAttributeValuesResponse_attributeValues :: Lens' GetAttributeValuesResponse (Maybe [AttributeValue])
 
+-- | The pagination token that indicates the next set of results to
+--   retrieve.
+getAttributeValuesResponse_nextToken :: Lens' GetAttributeValuesResponse (Maybe Text)
+
 -- | The response's http status code.
 getAttributeValuesResponse_httpStatus :: Lens' GetAttributeValuesResponse Int
+
+-- | The format version that you want the response to be in.
+--   
+--   Valid values are: <tt>aws_v1</tt>
+describeServices_formatVersion :: Lens' DescribeServices (Maybe Text)
+
+-- | The pagination token that indicates the next set of results that you
+--   want to retrieve.
+describeServices_nextToken :: Lens' DescribeServices (Maybe Text)
+
+-- | The code for the service whose information you want to retrieve, such
+--   as <tt>AmazonEC2</tt>. You can use the <tt>ServiceCode</tt> to filter
+--   the results in a <tt>GetProducts</tt> call. To retrieve a list of all
+--   services, leave this blank.
+describeServices_serviceCode :: Lens' DescribeServices (Maybe Text)
+
+-- | The maximum number of results that you want returned in the response.
+describeServices_maxResults :: Lens' DescribeServices (Maybe Natural)
+
+-- | The format version of the response. For example, <tt>aws_v1</tt>.
+describeServicesResponse_formatVersion :: Lens' DescribeServicesResponse (Maybe Text)
+
+-- | The pagination token for the next set of retreivable results.
+describeServicesResponse_nextToken :: Lens' DescribeServicesResponse (Maybe Text)
+
+-- | The service metadata for the service or services in the response.
+describeServicesResponse_services :: Lens' DescribeServicesResponse (Maybe [PricingService])
+
+-- | The response's http status code.
+describeServicesResponse_httpStatus :: Lens' DescribeServicesResponse Int
+
+-- | The list of filters that limit the returned products. only products
+--   that match all filters are returned.
+getProducts_filters :: Lens' GetProducts (Maybe [Filter])
+
+-- | The format version that you want the response to be in.
+--   
+--   Valid values are: <tt>aws_v1</tt>
+getProducts_formatVersion :: Lens' GetProducts (Maybe Text)
+
+-- | The pagination token that indicates the next set of results that you
+--   want to retrieve.
+getProducts_nextToken :: Lens' GetProducts (Maybe Text)
+
+-- | The code for the service whose products you want to retrieve.
+getProducts_serviceCode :: Lens' GetProducts (Maybe Text)
+
+-- | The maximum number of results to return in the response.
+getProducts_maxResults :: Lens' GetProducts (Maybe Natural)
+
+-- | The format version of the response. For example, aws_v1.
+getProductsResponse_formatVersion :: Lens' GetProductsResponse (Maybe Text)
+
+-- | The pagination token that indicates the next set of results to
+--   retrieve.
+getProductsResponse_nextToken :: Lens' GetProductsResponse (Maybe Text)
+
+-- | The list of products that match your filters. The list contains both
+--   the product metadata and the price information.
+getProductsResponse_priceList :: Lens' GetProductsResponse (Maybe [Text])
+
+-- | The response's http status code.
+getProductsResponse_httpStatus :: Lens' GetProductsResponse Int
 
 -- | The specific value of an <tt>attributeName</tt>.
 attributeValue_value :: Lens' AttributeValue (Maybe Text)
@@ -980,11 +980,11 @@ filter_field :: Lens' Filter Text
 --   as a <tt>Provisioned IOPS</tt> volume.
 filter_value :: Lens' Filter Text
 
--- | The code for the Amazon Web Services service.
-pricingService_serviceCode :: Lens' PricingService (Maybe Text)
-
 -- | The attributes that are available for this service.
 pricingService_attributeNames :: Lens' PricingService (Maybe [Text])
+
+-- | The code for the Amazon Web Services service.
+pricingService_serviceCode :: Lens' PricingService (Maybe Text)
 
 
 module Network.AWS.Pricing.Waiters
@@ -1030,150 +1030,21 @@ module Network.AWS.Pricing
 --   configuration.
 defaultService :: Service
 
+-- | One or more parameters had an invalid value.
+_InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | An error on the server occurred during the processing of your request.
+--   Try again later.
+_InternalErrorException :: AsError a => Getting (First ServiceError) a ServiceError
+
 -- | The pagination token expired. Try again without a pagination token.
 _ExpiredNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | The requested resource can't be found.
 _NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | An error on the server occurred during the processing of your request.
---   Try again later.
-_InternalErrorException :: AsError a => Getting (First ServiceError) a ServiceError
-
 -- | The pagination token is invalid. Try again without a pagination token.
 _InvalidNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | One or more parameters had an invalid value.
-_InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | <i>See:</i> <a>newGetProducts</a> smart constructor.
-data GetProducts
-GetProducts' :: Maybe Text -> Maybe Natural -> Maybe Text -> Maybe Text -> Maybe [Filter] -> GetProducts
-
--- | Create a value of <a>GetProducts</a> with all optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:nextToken:GetProducts'</a>, <a>getProducts_nextToken</a> - The
---   pagination token that indicates the next set of results that you want
---   to retrieve.
---   
---   <a>$sel:maxResults:GetProducts'</a>, <a>getProducts_maxResults</a> -
---   The maximum number of results to return in the response.
---   
---   <a>$sel:serviceCode:GetProducts'</a>, <a>getProducts_serviceCode</a> -
---   The code for the service whose products you want to retrieve.
---   
---   <a>$sel:formatVersion:GetProducts'</a>,
---   <a>getProducts_formatVersion</a> - The format version that you want
---   the response to be in.
---   
---   Valid values are: <tt>aws_v1</tt>
---   
---   <a>$sel:filters:GetProducts'</a>, <a>getProducts_filters</a> - The
---   list of filters that limit the returned products. only products that
---   match all filters are returned.
-newGetProducts :: GetProducts
-
--- | <i>See:</i> <a>newGetProductsResponse</a> smart constructor.
-data GetProductsResponse
-GetProductsResponse' :: Maybe [Text] -> Maybe Text -> Maybe Text -> Int -> GetProductsResponse
-
--- | Create a value of <a>GetProductsResponse</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:priceList:GetProductsResponse'</a>,
---   <a>getProductsResponse_priceList</a> - The list of products that match
---   your filters. The list contains both the product metadata and the
---   price information.
---   
---   <a>$sel:nextToken:GetProducts'</a>,
---   <a>getProductsResponse_nextToken</a> - The pagination token that
---   indicates the next set of results to retrieve.
---   
---   <a>$sel:formatVersion:GetProducts'</a>,
---   <a>getProductsResponse_formatVersion</a> - The format version of the
---   response. For example, aws_v1.
---   
---   <a>$sel:httpStatus:GetProductsResponse'</a>,
---   <a>getProductsResponse_httpStatus</a> - The response's http status
---   code.
-newGetProductsResponse :: Int -> GetProductsResponse
-
--- | <i>See:</i> <a>newDescribeServices</a> smart constructor.
-data DescribeServices
-DescribeServices' :: Maybe Text -> Maybe Natural -> Maybe Text -> Maybe Text -> DescribeServices
-
--- | Create a value of <a>DescribeServices</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:nextToken:DescribeServices'</a>,
---   <a>describeServices_nextToken</a> - The pagination token that
---   indicates the next set of results that you want to retrieve.
---   
---   <a>$sel:maxResults:DescribeServices'</a>,
---   <a>describeServices_maxResults</a> - The maximum number of results
---   that you want returned in the response.
---   
---   <a>$sel:serviceCode:DescribeServices'</a>,
---   <a>describeServices_serviceCode</a> - The code for the service whose
---   information you want to retrieve, such as <tt>AmazonEC2</tt>. You can
---   use the <tt>ServiceCode</tt> to filter the results in a
---   <tt>GetProducts</tt> call. To retrieve a list of all services, leave
---   this blank.
---   
---   <a>$sel:formatVersion:DescribeServices'</a>,
---   <a>describeServices_formatVersion</a> - The format version that you
---   want the response to be in.
---   
---   Valid values are: <tt>aws_v1</tt>
-newDescribeServices :: DescribeServices
-
--- | <i>See:</i> <a>newDescribeServicesResponse</a> smart constructor.
-data DescribeServicesResponse
-DescribeServicesResponse' :: Maybe Text -> Maybe [PricingService] -> Maybe Text -> Int -> DescribeServicesResponse
-
--- | Create a value of <a>DescribeServicesResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:nextToken:DescribeServices'</a>,
---   <a>describeServicesResponse_nextToken</a> - The pagination token for
---   the next set of retreivable results.
---   
---   <a>$sel:services:DescribeServicesResponse'</a>,
---   <a>describeServicesResponse_services</a> - The service metadata for
---   the service or services in the response.
---   
---   <a>$sel:formatVersion:DescribeServices'</a>,
---   <a>describeServicesResponse_formatVersion</a> - The format version of
---   the response. For example, <tt>aws_v1</tt>.
---   
---   <a>$sel:httpStatus:DescribeServicesResponse'</a>,
---   <a>describeServicesResponse_httpStatus</a> - The response's http
---   status code.
-newDescribeServicesResponse :: Int -> DescribeServicesResponse
 
 -- | <i>See:</i> <a>newGetAttributeValues</a> smart constructor.
 data GetAttributeValues
@@ -1208,7 +1079,7 @@ newGetAttributeValues :: Text -> Text -> GetAttributeValues
 
 -- | <i>See:</i> <a>newGetAttributeValuesResponse</a> smart constructor.
 data GetAttributeValuesResponse
-GetAttributeValuesResponse' :: Maybe Text -> Maybe [AttributeValue] -> Int -> GetAttributeValuesResponse
+GetAttributeValuesResponse' :: Maybe [AttributeValue] -> Maybe Text -> Int -> GetAttributeValuesResponse
 
 -- | Create a value of <a>GetAttributeValuesResponse</a> with all optional
 --   fields omitted.
@@ -1219,20 +1090,149 @@ GetAttributeValuesResponse' :: Maybe Text -> Maybe [AttributeValue] -> Int -> Ge
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:nextToken:GetAttributeValues'</a>,
---   <a>getAttributeValuesResponse_nextToken</a> - The pagination token
---   that indicates the next set of results to retrieve.
---   
 --   <a>$sel:attributeValues:GetAttributeValuesResponse'</a>,
 --   <a>getAttributeValuesResponse_attributeValues</a> - The list of values
 --   for an attribute. For example, <tt>Throughput Optimized HDD</tt> and
 --   <tt>Provisioned IOPS</tt> are two available values for the
 --   <tt>AmazonEC2</tt> <tt>volumeType</tt>.
 --   
+--   <a>$sel:nextToken:GetAttributeValues'</a>,
+--   <a>getAttributeValuesResponse_nextToken</a> - The pagination token
+--   that indicates the next set of results to retrieve.
+--   
 --   <a>$sel:httpStatus:GetAttributeValuesResponse'</a>,
 --   <a>getAttributeValuesResponse_httpStatus</a> - The response's http
 --   status code.
 newGetAttributeValuesResponse :: Int -> GetAttributeValuesResponse
+
+-- | <i>See:</i> <a>newDescribeServices</a> smart constructor.
+data DescribeServices
+DescribeServices' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Natural -> DescribeServices
+
+-- | Create a value of <a>DescribeServices</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:formatVersion:DescribeServices'</a>,
+--   <a>describeServices_formatVersion</a> - The format version that you
+--   want the response to be in.
+--   
+--   Valid values are: <tt>aws_v1</tt>
+--   
+--   <a>$sel:nextToken:DescribeServices'</a>,
+--   <a>describeServices_nextToken</a> - The pagination token that
+--   indicates the next set of results that you want to retrieve.
+--   
+--   <a>$sel:serviceCode:DescribeServices'</a>,
+--   <a>describeServices_serviceCode</a> - The code for the service whose
+--   information you want to retrieve, such as <tt>AmazonEC2</tt>. You can
+--   use the <tt>ServiceCode</tt> to filter the results in a
+--   <tt>GetProducts</tt> call. To retrieve a list of all services, leave
+--   this blank.
+--   
+--   <a>$sel:maxResults:DescribeServices'</a>,
+--   <a>describeServices_maxResults</a> - The maximum number of results
+--   that you want returned in the response.
+newDescribeServices :: DescribeServices
+
+-- | <i>See:</i> <a>newDescribeServicesResponse</a> smart constructor.
+data DescribeServicesResponse
+DescribeServicesResponse' :: Maybe Text -> Maybe Text -> Maybe [PricingService] -> Int -> DescribeServicesResponse
+
+-- | Create a value of <a>DescribeServicesResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:formatVersion:DescribeServices'</a>,
+--   <a>describeServicesResponse_formatVersion</a> - The format version of
+--   the response. For example, <tt>aws_v1</tt>.
+--   
+--   <a>$sel:nextToken:DescribeServices'</a>,
+--   <a>describeServicesResponse_nextToken</a> - The pagination token for
+--   the next set of retreivable results.
+--   
+--   <a>$sel:services:DescribeServicesResponse'</a>,
+--   <a>describeServicesResponse_services</a> - The service metadata for
+--   the service or services in the response.
+--   
+--   <a>$sel:httpStatus:DescribeServicesResponse'</a>,
+--   <a>describeServicesResponse_httpStatus</a> - The response's http
+--   status code.
+newDescribeServicesResponse :: Int -> DescribeServicesResponse
+
+-- | <i>See:</i> <a>newGetProducts</a> smart constructor.
+data GetProducts
+GetProducts' :: Maybe [Filter] -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Natural -> GetProducts
+
+-- | Create a value of <a>GetProducts</a> with all optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:filters:GetProducts'</a>, <a>getProducts_filters</a> - The
+--   list of filters that limit the returned products. only products that
+--   match all filters are returned.
+--   
+--   <a>$sel:formatVersion:GetProducts'</a>,
+--   <a>getProducts_formatVersion</a> - The format version that you want
+--   the response to be in.
+--   
+--   Valid values are: <tt>aws_v1</tt>
+--   
+--   <a>$sel:nextToken:GetProducts'</a>, <a>getProducts_nextToken</a> - The
+--   pagination token that indicates the next set of results that you want
+--   to retrieve.
+--   
+--   <a>$sel:serviceCode:GetProducts'</a>, <a>getProducts_serviceCode</a> -
+--   The code for the service whose products you want to retrieve.
+--   
+--   <a>$sel:maxResults:GetProducts'</a>, <a>getProducts_maxResults</a> -
+--   The maximum number of results to return in the response.
+newGetProducts :: GetProducts
+
+-- | <i>See:</i> <a>newGetProductsResponse</a> smart constructor.
+data GetProductsResponse
+GetProductsResponse' :: Maybe Text -> Maybe Text -> Maybe [Text] -> Int -> GetProductsResponse
+
+-- | Create a value of <a>GetProductsResponse</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:formatVersion:GetProducts'</a>,
+--   <a>getProductsResponse_formatVersion</a> - The format version of the
+--   response. For example, aws_v1.
+--   
+--   <a>$sel:nextToken:GetProducts'</a>,
+--   <a>getProductsResponse_nextToken</a> - The pagination token that
+--   indicates the next set of results to retrieve.
+--   
+--   <a>$sel:priceList:GetProductsResponse'</a>,
+--   <a>getProductsResponse_priceList</a> - The list of products that match
+--   your filters. The list contains both the product metadata and the
+--   price information.
+--   
+--   <a>$sel:httpStatus:GetProductsResponse'</a>,
+--   <a>getProductsResponse_httpStatus</a> - The response's http status
+--   code.
+newGetProductsResponse :: Int -> GetProductsResponse
 newtype FilterType
 FilterType' :: Text -> FilterType
 [fromFilterType] :: FilterType -> Text
@@ -1306,7 +1306,7 @@ newFilter :: FilterType -> Text -> Text -> Filter
 --   
 --   <i>See:</i> <a>newPricingService</a> smart constructor.
 data PricingService
-PricingService' :: Maybe Text -> Maybe [Text] -> PricingService
+PricingService' :: Maybe [Text] -> Maybe Text -> PricingService
 
 -- | Create a value of <a>PricingService</a> with all optional fields
 --   omitted.
@@ -1317,11 +1317,11 @@ PricingService' :: Maybe Text -> Maybe [Text] -> PricingService
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:serviceCode:PricingService'</a>,
---   <a>pricingService_serviceCode</a> - The code for the Amazon Web
---   Services service.
---   
 --   <a>$sel:attributeNames:PricingService'</a>,
 --   <a>pricingService_attributeNames</a> - The attributes that are
 --   available for this service.
+--   
+--   <a>$sel:serviceCode:PricingService'</a>,
+--   <a>pricingService_serviceCode</a> - The code for the Amazon Web
+--   Services service.
 newPricingService :: PricingService

@@ -30,17 +30,17 @@
 </span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#newListNamespaces"><span class="hs-identifier">newListNamespaces</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#listNamespaces_nextToken"><span class="hs-identifier">listNamespaces_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#listNamespaces_maxResults"><span class="hs-identifier">listNamespaces_maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#listNamespaces_filters"><span class="hs-identifier">listNamespaces_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#listNamespaces_filters"><span class="hs-identifier">listNamespaces_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#listNamespaces_nextToken"><span class="hs-identifier">listNamespaces_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#listNamespaces_maxResults"><span class="hs-identifier">listNamespaces_maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespacesResponse"><span class="hs-identifier">ListNamespacesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#newListNamespacesResponse"><span class="hs-identifier">newListNamespacesResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>
 </span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#listNamespacesResponse_nextToken"><span class="hs-identifier">listNamespacesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#listNamespacesResponse_namespaces"><span class="hs-identifier">listNamespacesResponse_namespaces</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#listNamespacesResponse_namespaces"><span class="hs-identifier">listNamespacesResponse_namespaces</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#listNamespacesResponse_nextToken"><span class="hs-identifier">listNamespacesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#listNamespacesResponse_httpStatus"><span class="hs-identifier">listNamespacesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span class="hs-keyword">where</span><span>
@@ -53,34 +53,34 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.html"><span class="hs-identifier">Network.AWS.Route53AutoNaming.Types</span></a></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newListNamespaces' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679227358"><span id="local-6989586621679227359"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListNamespaces"><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespaces"><span class="hs-identifier hs-var">ListNamespaces</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListNamespaces%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespaces%27"><span class="hs-identifier hs-var">ListNamespaces'</span></a></span></span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | For the first @ListNamespaces@ request, omit this value.</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- If the response contains @NextToken@, submit another @ListNamespaces@</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- request to get the next group of results. Specify the value of</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- @NextToken@ from the previous response in the next request.</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- Cloud Map gets @MaxResults@ namespaces and then filters them based on</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- the specified criteria. It\'s possible that no namespaces in the first</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- @MaxResults@ namespaces matched the specified criteria but that</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- subsequent groups of @MaxResults@ namespaces do contain namespaces that</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- match the criteria.</span><span>
-</span><span id="line-68"></span><span>    </span><span id="%24sel%3AnextToken%3AListNamespaces%27"><span class="annot"><span class="annottext">ListNamespaces -&gt; Maybe Text
+</span><span id="line-56"></span><span id="local-6989586621679227507"><span id="local-6989586621679227508"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListNamespaces"><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespaces"><span class="hs-identifier hs-var">ListNamespaces</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListNamespaces%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespaces%27"><span class="hs-identifier hs-var">ListNamespaces'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A complex type that contains specifications for the namespaces that you</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- want to list.</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- If you specify more than one filter, a namespace must match all filters</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- to be returned by @ListNamespaces@.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3Afilters%3AListNamespaces%27"><span class="annot"><span class="annottext">ListNamespaces -&gt; Maybe [NamespaceFilter]
+</span><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#%24sel%3Afilters%3AListNamespaces%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceFilter.html#NamespaceFilter"><span class="hs-identifier hs-type">NamespaceFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | For the first @ListNamespaces@ request, omit this value.</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- If the response contains @NextToken@, submit another @ListNamespaces@</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- request to get the next group of results. Specify the value of</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- @NextToken@ from the previous response in the next request.</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- Cloud Map gets @MaxResults@ namespaces and then filters them based on</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- the specified criteria. It\'s possible that no namespaces in the first</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- @MaxResults@ namespaces matched the specified criteria but that</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- subsequent groups of @MaxResults@ namespaces do contain namespaces that</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- match the criteria.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AnextToken%3AListNamespaces%27"><span class="annot"><span class="annottext">ListNamespaces -&gt; Maybe Text
 </span><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#%24sel%3AnextToken%3AListNamespaces%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The maximum number of namespaces that you want Cloud Map to return in</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- the response to a @ListNamespaces@ request. If you don\'t specify a</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- value for @MaxResults@, Cloud Map returns up to 100 namespaces.</span><span>
-</span><span id="line-72"></span><span>    </span><span id="%24sel%3AmaxResults%3AListNamespaces%27"><span class="annot"><span class="annottext">ListNamespaces -&gt; Maybe Natural
-</span><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#%24sel%3AmaxResults%3AListNamespaces%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | A complex type that contains specifications for the namespaces that you</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- want to list.</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- If you specify more than one filter, a namespace must match all filters</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- to be returned by @ListNamespaces@.</span><span>
-</span><span id="line-78"></span><span>    </span><span id="%24sel%3Afilters%3AListNamespaces%27"><span class="annot"><span class="annottext">ListNamespaces -&gt; Maybe [NamespaceFilter]
-</span><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#%24sel%3Afilters%3AListNamespaces%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceFilter.html#NamespaceFilter"><span class="hs-identifier hs-type">NamespaceFilter</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The maximum number of namespaces that you want Cloud Map to return in</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- the response to a @ListNamespaces@ request. If you don\'t specify a</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- value for @MaxResults@, Cloud Map returns up to 100 namespaces.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AmaxResults%3AListNamespaces%27"><span class="annot"><span class="annottext">ListNamespaces -&gt; Maybe Natural
+</span><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#%24sel%3AmaxResults%3AListNamespaces%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-79"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-80"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679227350"><span id="local-6989586621679227352"><span class="annot"><span class="annottext">ListNamespaces -&gt; ListNamespaces -&gt; Bool
+</span><span id="line-80"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679227499"><span id="local-6989586621679227501"><span class="annot"><span class="annottext">ListNamespaces -&gt; ListNamespaces -&gt; Bool
 (ListNamespaces -&gt; ListNamespaces -&gt; Bool)
 -&gt; (ListNamespaces -&gt; ListNamespaces -&gt; Bool) -&gt; Eq ListNamespaces
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -88,7 +88,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListNamespaces -&gt; ListNamespaces -&gt; Bool
 == :: ListNamespaces -&gt; ListNamespaces -&gt; Bool
 $c== :: ListNamespaces -&gt; ListNamespaces -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227341"><span id="local-6989586621679227343"><span id="local-6989586621679227345"><span id="local-6989586621679227347"><span class="annot"><span class="annottext">ReadPrec [ListNamespaces]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227490"><span id="local-6989586621679227492"><span id="local-6989586621679227494"><span id="local-6989586621679227496"><span class="annot"><span class="annottext">ReadPrec [ListNamespaces]
 ReadPrec ListNamespaces
 Int -&gt; ReadS ListNamespaces
 ReadS [ListNamespaces]
@@ -108,7 +108,7 @@ readList :: ReadS [ListNamespaces]
 $creadList :: ReadS [ListNamespaces]
 readsPrec :: Int -&gt; ReadS ListNamespaces
 $creadsPrec :: Int -&gt; ReadS ListNamespaces
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227334"><span id="local-6989586621679227336"><span id="local-6989586621679227338"><span class="annot"><span class="annottext">Int -&gt; ListNamespaces -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227483"><span id="local-6989586621679227485"><span id="local-6989586621679227487"><span class="annot"><span class="annottext">Int -&gt; ListNamespaces -&gt; ShowS
 [ListNamespaces] -&gt; ShowS
 ListNamespaces -&gt; String
 (Int -&gt; ListNamespaces -&gt; ShowS)
@@ -142,106 +142,55 @@ $cfrom :: forall x. ListNamespaces -&gt; Rep ListNamespaces x
 </span><span id="line-87"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-89"></span><span class="hs-comment">--</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- 'nextToken', 'listNamespaces_nextToken' - For the first @ListNamespaces@ request, omit this value.</span><span>
-</span><span id="line-91"></span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- If the response contains @NextToken@, submit another @ListNamespaces@</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- request to get the next group of results. Specify the value of</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- @NextToken@ from the previous response in the next request.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'filters', 'listNamespaces_filters' - A complex type that contains specifications for the namespaces that you</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- want to list.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- If you specify more than one filter, a namespace must match all filters</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- to be returned by @ListNamespaces@.</span><span>
 </span><span id="line-95"></span><span class="hs-comment">--</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- Cloud Map gets @MaxResults@ namespaces and then filters them based on</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- the specified criteria. It\'s possible that no namespaces in the first</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- @MaxResults@ namespaces matched the specified criteria but that</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- subsequent groups of @MaxResults@ namespaces do contain namespaces that</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- match the criteria.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'nextToken', 'listNamespaces_nextToken' - For the first @ListNamespaces@ request, omit this value.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- If the response contains @NextToken@, submit another @ListNamespaces@</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- request to get the next group of results. Specify the value of</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- @NextToken@ from the previous response in the next request.</span><span>
 </span><span id="line-101"></span><span class="hs-comment">--</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- 'maxResults', 'listNamespaces_maxResults' - The maximum number of namespaces that you want Cloud Map to return in</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- the response to a @ListNamespaces@ request. If you don\'t specify a</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- value for @MaxResults@, Cloud Map returns up to 100 namespaces.</span><span>
-</span><span id="line-105"></span><span class="hs-comment">--</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- 'filters', 'listNamespaces_filters' - A complex type that contains specifications for the namespaces that you</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- want to list.</span><span>
-</span><span id="line-108"></span><span class="hs-comment">--</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- If you specify more than one filter, a namespace must match all filters</span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- to be returned by @ListNamespaces@.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- Cloud Map gets @MaxResults@ namespaces and then filters them based on</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- the specified criteria. It\'s possible that no namespaces in the first</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- @MaxResults@ namespaces matched the specified criteria but that</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- subsequent groups of @MaxResults@ namespaces do contain namespaces that</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- match the criteria.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'maxResults', 'listNamespaces_maxResults' - The maximum number of namespaces that you want Cloud Map to return in</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- the response to a @ListNamespaces@ request. If you don\'t specify a</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- value for @MaxResults@, Cloud Map returns up to 100 namespaces.</span><span>
 </span><span id="line-111"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#newListNamespaces"><span class="hs-identifier hs-type">newListNamespaces</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-112"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespaces"><span class="hs-identifier hs-type">ListNamespaces</span></a></span><span>
 </span><span id="line-113"></span><span id="newListNamespaces"><span class="annot"><span class="annottext">newListNamespaces :: ListNamespaces
 </span><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#newListNamespaces"><span class="hs-identifier hs-var hs-var">newListNamespaces</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-114"></span><span>  </span><span class="annot"><span class="annottext">ListNamespaces' :: Maybe Text
--&gt; Maybe Natural -&gt; Maybe [NamespaceFilter] -&gt; ListNamespaces
+</span><span id="line-114"></span><span>  </span><span class="annot"><span class="annottext">ListNamespaces' :: Maybe [NamespaceFilter]
+-&gt; Maybe Text -&gt; Maybe Natural -&gt; ListNamespaces
 </span><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespaces%27"><span class="hs-identifier hs-type">ListNamespaces'</span></a></span><span>
-</span><span id="line-115"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListNamespaces' :: Maybe Text
+</span><span id="line-115"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:filters:ListNamespaces' :: Maybe [NamespaceFilter]
+</span><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#%24sel%3Afilters%3AListNamespaces%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [NamespaceFilter]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListNamespaces' :: Maybe Text
 </span><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#%24sel%3AnextToken%3AListNamespaces%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListNamespaces' :: Maybe Natural
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListNamespaces' :: Maybe Natural
 </span><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#%24sel%3AmaxResults%3AListNamespaces%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:filters:ListNamespaces' :: Maybe [NamespaceFilter]
-</span><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#%24sel%3Afilters%3AListNamespaces%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [NamespaceFilter]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-118"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- | For the first @ListNamespaces@ request, omit this value.</span><span>
-</span><span id="line-121"></span><span class="hs-comment">--</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- If the response contains @NextToken@, submit another @ListNamespaces@</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- request to get the next group of results. Specify the value of</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- @NextToken@ from the previous response in the next request.</span><span>
-</span><span id="line-125"></span><span class="hs-comment">--</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- Cloud Map gets @MaxResults@ namespaces and then filters them based on</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- the specified criteria. It\'s possible that no namespaces in the first</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- @MaxResults@ namespaces matched the specified criteria but that</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- subsequent groups of @MaxResults@ namespaces do contain namespaces that</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- match the criteria.</span><span>
-</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#listNamespaces_nextToken"><span class="hs-identifier hs-type">listNamespaces_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespaces"><span class="hs-identifier hs-type">ListNamespaces</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span id="listNamespaces_nextToken"><span class="annot"><span class="annottext">listNamespaces_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListNamespaces -&gt; f ListNamespaces
-</span><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#listNamespaces_nextToken"><span class="hs-identifier hs-var hs-var">listNamespaces_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListNamespaces -&gt; Maybe Text)
--&gt; (ListNamespaces -&gt; Maybe Text -&gt; ListNamespaces)
--&gt; Lens ListNamespaces ListNamespaces (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespaces%27"><span class="hs-identifier hs-type">ListNamespaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227328"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:ListNamespaces' :: ListNamespaces -&gt; Maybe Text
-</span><a href="#local-6989586621679227328"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679227328"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227327"><span class="annot"><span class="annottext">s :: ListNamespaces
-</span><a href="#local-6989586621679227327"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespaces%27"><span class="hs-identifier hs-type">ListNamespaces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227326"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679227326"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListNamespaces
-</span><a href="#local-6989586621679227327"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListNamespaces' :: Maybe Text
-</span><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#%24sel%3AnextToken%3AListNamespaces%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679227326"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespaces"><span class="hs-identifier hs-type">ListNamespaces</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- | The maximum number of namespaces that you want Cloud Map to return in</span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- the response to a @ListNamespaces@ request. If you don\'t specify a</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- value for @MaxResults@, Cloud Map returns up to 100 namespaces.</span><span>
-</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#listNamespaces_maxResults"><span class="hs-identifier hs-type">listNamespaces_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespaces"><span class="hs-identifier hs-type">ListNamespaces</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-138"></span><span id="listNamespaces_maxResults"><span class="annot"><span class="annottext">listNamespaces_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; ListNamespaces -&gt; f ListNamespaces
-</span><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#listNamespaces_maxResults"><span class="hs-identifier hs-var hs-var">listNamespaces_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListNamespaces -&gt; Maybe Natural)
--&gt; (ListNamespaces -&gt; Maybe Natural -&gt; ListNamespaces)
--&gt; Lens
-     ListNamespaces ListNamespaces (Maybe Natural) (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespaces%27"><span class="hs-identifier hs-type">ListNamespaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227325"><span class="annot"><span class="annottext">Maybe Natural
-maxResults :: Maybe Natural
-$sel:maxResults:ListNamespaces' :: ListNamespaces -&gt; Maybe Natural
-</span><a href="#local-6989586621679227325"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679227325"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227324"><span class="annot"><span class="annottext">s :: ListNamespaces
-</span><a href="#local-6989586621679227324"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespaces%27"><span class="hs-identifier hs-type">ListNamespaces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227323"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679227323"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListNamespaces
-</span><a href="#local-6989586621679227324"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListNamespaces' :: Maybe Natural
-</span><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#%24sel%3AmaxResults%3AListNamespaces%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679227323"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespaces"><span class="hs-identifier hs-type">ListNamespaces</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- | A complex type that contains specifications for the namespaces that you</span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- want to list.</span><span>
-</span><span id="line-142"></span><span class="hs-comment">--</span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- If you specify more than one filter, a namespace must match all filters</span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- to be returned by @ListNamespaces@.</span><span>
-</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#listNamespaces_filters"><span class="hs-identifier hs-type">listNamespaces_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespaces"><span class="hs-identifier hs-type">ListNamespaces</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceFilter.html#NamespaceFilter"><span class="hs-identifier hs-type">NamespaceFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-146"></span><span id="listNamespaces_filters"><span class="annot"><span class="annottext">listNamespaces_filters :: (Maybe [NamespaceFilter] -&gt; f (Maybe [NamespaceFilter]))
+</span><span id="line-120"></span><span class="hs-comment">-- | A complex type that contains specifications for the namespaces that you</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- want to list.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- If you specify more than one filter, a namespace must match all filters</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- to be returned by @ListNamespaces@.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#listNamespaces_filters"><span class="hs-identifier hs-type">listNamespaces_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespaces"><span class="hs-identifier hs-type">ListNamespaces</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceFilter.html#NamespaceFilter"><span class="hs-identifier hs-type">NamespaceFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="listNamespaces_filters"><span class="annot"><span class="annottext">listNamespaces_filters :: (Maybe [NamespaceFilter] -&gt; f (Maybe [NamespaceFilter]))
 -&gt; ListNamespaces -&gt; f ListNamespaces
 </span><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#listNamespaces_filters"><span class="hs-identifier hs-var hs-var">listNamespaces_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListNamespaces -&gt; Maybe [NamespaceFilter])
 -&gt; (ListNamespaces -&gt; Maybe [NamespaceFilter] -&gt; ListNamespaces)
@@ -251,16 +200,16 @@ $sel:maxResults:ListNamespaces' :: ListNamespaces -&gt; Maybe Natural
      (Maybe [NamespaceFilter])
      (Maybe [NamespaceFilter])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespaces%27"><span class="hs-identifier hs-type">ListNamespaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227322"><span class="annot"><span class="annottext">Maybe [NamespaceFilter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespaces%27"><span class="hs-identifier hs-type">ListNamespaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227477"><span class="annot"><span class="annottext">Maybe [NamespaceFilter]
 filters :: Maybe [NamespaceFilter]
 $sel:filters:ListNamespaces' :: ListNamespaces -&gt; Maybe [NamespaceFilter]
-</span><a href="#local-6989586621679227322"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [NamespaceFilter]
-</span><a href="#local-6989586621679227322"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227321"><span class="annot"><span class="annottext">s :: ListNamespaces
-</span><a href="#local-6989586621679227321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespaces%27"><span class="hs-identifier hs-type">ListNamespaces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227320"><span class="annot"><span class="annottext">Maybe [NamespaceFilter]
-</span><a href="#local-6989586621679227320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListNamespaces
-</span><a href="#local-6989586621679227321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:ListNamespaces' :: Maybe [NamespaceFilter]
+</span><a href="#local-6989586621679227477"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [NamespaceFilter]
+</span><a href="#local-6989586621679227477"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227476"><span class="annot"><span class="annottext">s :: ListNamespaces
+</span><a href="#local-6989586621679227476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespaces%27"><span class="hs-identifier hs-type">ListNamespaces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227475"><span class="annot"><span class="annottext">Maybe [NamespaceFilter]
+</span><a href="#local-6989586621679227475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListNamespaces
+</span><a href="#local-6989586621679227476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:ListNamespaces' :: Maybe [NamespaceFilter]
 </span><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#%24sel%3Afilters%3AListNamespaces%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [NamespaceFilter]
-</span><a href="#local-6989586621679227320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespaces"><span class="hs-identifier hs-type">ListNamespaces</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [NamespaceFilter] -&gt; f (Maybe [NamespaceFilter]))
+</span><a href="#local-6989586621679227475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespaces"><span class="hs-identifier hs-type">ListNamespaces</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [NamespaceFilter] -&gt; f (Maybe [NamespaceFilter]))
  -&gt; ListNamespaces -&gt; f ListNamespaces)
 -&gt; ((Maybe [NamespaceFilter] -&gt; f (Maybe [NamespaceFilter]))
     -&gt; Maybe [NamespaceFilter] -&gt; f (Maybe [NamespaceFilter]))
@@ -286,21 +235,72 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [NamespaceFilter]
   [NamespaceFilter]
   [NamespaceFilter]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | For the first @ListNamespaces@ request, omit this value.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- If the response contains @NextToken@, submit another @ListNamespaces@</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- request to get the next group of results. Specify the value of</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- @NextToken@ from the previous response in the next request.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- Cloud Map gets @MaxResults@ namespaces and then filters them based on</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- the specified criteria. It\'s possible that no namespaces in the first</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- @MaxResults@ namespaces matched the specified criteria but that</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- subsequent groups of @MaxResults@ namespaces do contain namespaces that</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- match the criteria.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#listNamespaces_nextToken"><span class="hs-identifier hs-type">listNamespaces_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespaces"><span class="hs-identifier hs-type">ListNamespaces</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="listNamespaces_nextToken"><span class="annot"><span class="annottext">listNamespaces_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListNamespaces -&gt; f ListNamespaces
+</span><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#listNamespaces_nextToken"><span class="hs-identifier hs-var hs-var">listNamespaces_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListNamespaces -&gt; Maybe Text)
+-&gt; (ListNamespaces -&gt; Maybe Text -&gt; ListNamespaces)
+-&gt; Lens ListNamespaces ListNamespaces (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespaces%27"><span class="hs-identifier hs-type">ListNamespaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227471"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListNamespaces' :: ListNamespaces -&gt; Maybe Text
+</span><a href="#local-6989586621679227471"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227471"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227470"><span class="annot"><span class="annottext">s :: ListNamespaces
+</span><a href="#local-6989586621679227470"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespaces%27"><span class="hs-identifier hs-type">ListNamespaces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227469"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227469"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListNamespaces
+</span><a href="#local-6989586621679227470"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListNamespaces' :: Maybe Text
+</span><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#%24sel%3AnextToken%3AListNamespaces%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespaces"><span class="hs-identifier hs-type">ListNamespaces</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | The maximum number of namespaces that you want Cloud Map to return in</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- the response to a @ListNamespaces@ request. If you don\'t specify a</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- value for @MaxResults@, Cloud Map returns up to 100 namespaces.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#listNamespaces_maxResults"><span class="hs-identifier hs-type">listNamespaces_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespaces"><span class="hs-identifier hs-type">ListNamespaces</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="listNamespaces_maxResults"><span class="annot"><span class="annottext">listNamespaces_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListNamespaces -&gt; f ListNamespaces
+</span><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#listNamespaces_maxResults"><span class="hs-identifier hs-var hs-var">listNamespaces_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListNamespaces -&gt; Maybe Natural)
+-&gt; (ListNamespaces -&gt; Maybe Natural -&gt; ListNamespaces)
+-&gt; Lens
+     ListNamespaces ListNamespaces (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespaces%27"><span class="hs-identifier hs-type">ListNamespaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227468"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListNamespaces' :: ListNamespaces -&gt; Maybe Natural
+</span><a href="#local-6989586621679227468"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679227468"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227467"><span class="annot"><span class="annottext">s :: ListNamespaces
+</span><a href="#local-6989586621679227467"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespaces%27"><span class="hs-identifier hs-type">ListNamespaces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227466"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679227466"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListNamespaces
+</span><a href="#local-6989586621679227467"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListNamespaces' :: Maybe Natural
+</span><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#%24sel%3AmaxResults%3AListNamespaces%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679227466"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespaces"><span class="hs-identifier hs-type">ListNamespaces</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespaces"><span class="hs-identifier hs-type">ListNamespaces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679227313"><span class="annot"><span class="annottext">page :: ListNamespaces
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679227462"><span class="annot"><span class="annottext">page :: ListNamespaces
 -&gt; AWSResponse ListNamespaces -&gt; Maybe ListNamespaces
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679227311"><span class="annot"><span class="annottext">ListNamespaces
-</span><a href="#local-6989586621679227311"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679227310"><span class="annot"><span class="annottext">AWSResponse ListNamespaces
-</span><a href="#local-6989586621679227310"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679227460"><span class="annot"><span class="annottext">ListNamespaces
+</span><a href="#local-6989586621679227460"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679227459"><span class="annot"><span class="annottext">AWSResponse ListNamespaces
+</span><a href="#local-6989586621679227459"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-150"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-151"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListNamespaces
 ListNamespacesResponse
-</span><a href="#local-6989586621679227310"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679227459"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">ListNamespacesResponse
 -&gt; Getting (First Text) ListNamespacesResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -329,7 +329,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-157"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListNamespaces
 ListNamespacesResponse
-</span><a href="#local-6989586621679227310"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679227459"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">ListNamespacesResponse
 -&gt; Getting
      (First [NamespaceSummary])
@@ -375,7 +375,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">ListNamespaces
-</span><a href="#local-6989586621679227311"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679227460"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-165"></span><span>          </span><span class="annot"><span class="annottext">ListNamespaces
 -&gt; (ListNamespaces -&gt; ListNamespaces) -&gt; ListNamespaces
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -389,7 +389,7 @@ Lens ListNamespaces ListNamespaces (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListNamespaces
 ListNamespacesResponse
-</span><a href="#local-6989586621679227310"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679227459"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-167"></span><span>          </span><span class="annot"><span class="annottext">ListNamespacesResponse
 -&gt; Getting (First Text) ListNamespacesResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -413,12 +413,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-170"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-171"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespaces"><span class="hs-identifier hs-type">ListNamespaces</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-172"></span><span>      </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespacesResponse"><span class="hs-identifier hs-type">ListNamespacesResponse</span></a></span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679227301"><span class="annot"><span class="annottext">request :: ListNamespaces -&gt; Request ListNamespaces
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679227450"><span class="annot"><span class="annottext">request :: ListNamespaces -&gt; Request ListNamespaces
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListNamespaces -&gt; Request ListNamespaces
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Route53AutoNaming.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-174"></span><span>  </span><span id="local-6989586621679227297"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679227446"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListNamespaces
 -&gt; ClientResponse ClientBody
@@ -442,31 +442,20 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-176"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679227294"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679227294"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679227293"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679227293"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679227292"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679227292"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-177"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe [NamespaceSummary] -&gt; Int -&gt; ListNamespacesResponse
+</span><span id="line-176"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679227443"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227443"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679227442"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679227442"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679227441"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679227441"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-177"></span><span>          </span><span class="annot"><span class="annottext">Maybe [NamespaceSummary]
+-&gt; Maybe Text -&gt; Int -&gt; ListNamespacesResponse
 </span><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespacesResponse%27"><span class="hs-identifier hs-var">ListNamespacesResponse'</span></a></span><span>
-</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe [NamespaceSummary] -&gt; Int -&gt; ListNamespacesResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String (Maybe [NamespaceSummary] -&gt; Int -&gt; ListNamespacesResponse)
+</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [NamespaceSummary]
+ -&gt; Maybe Text -&gt; Int -&gt; ListNamespacesResponse)
+-&gt; Either String (Maybe [NamespaceSummary])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ListNamespacesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679227292"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String (Maybe [NamespaceSummary] -&gt; Int -&gt; ListNamespacesResponse)
--&gt; Either String (Maybe [NamespaceSummary])
--&gt; Either String (Int -&gt; ListNamespacesResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679227292"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [NamespaceSummary]))
+</span><a href="#local-6989586621679227441"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [NamespaceSummary]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Namespaces&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [NamespaceSummary]))
@@ -476,6 +465,15 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [NamespaceSummary]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListNamespacesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListNamespacesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679227441"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListNamespacesResponse)
 -&gt; Either String Int -&gt; Either String ListNamespacesResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -484,15 +482,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679227294"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679227443"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-181"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>
-</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227283"><span id="local-6989586621679227285"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespaces"><span class="hs-identifier hs-type">ListNamespaces</span></a></span></span></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227432"><span id="local-6989586621679227434"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespaces"><span class="hs-identifier hs-type">ListNamespaces</span></a></span></span></span><span>
 </span><span id="line-184"></span><span>
-</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227280"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespaces"><span class="hs-identifier hs-type">ListNamespaces</span></a></span></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227429"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespaces"><span class="hs-identifier hs-type">ListNamespaces</span></a></span></span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespaces"><span class="hs-identifier hs-type">ListNamespaces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-188"></span><span>  </span><span id="local-6989586621679227276"><span class="annot"><span class="annottext">toHeaders :: ListNamespaces -&gt; ResponseHeaders
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679227425"><span class="annot"><span class="annottext">toHeaders :: ListNamespaces -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-189"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListNamespaces -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -519,57 +517,57 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-199"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-200"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span><span>
-</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227266"><span id="local-6989586621679227268"><span id="local-6989586621679227270"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespaces"><span class="hs-identifier hs-type">ListNamespaces</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-203"></span><span>  </span><span id="local-6989586621679227264"><span class="annot"><span class="annottext">toJSON :: ListNamespaces -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespaces%27"><span class="hs-identifier hs-type">ListNamespaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227260"><span id="local-6989586621679227261"><span id="local-6989586621679227262"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227415"><span id="local-6989586621679227417"><span id="local-6989586621679227419"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespaces"><span class="hs-identifier hs-type">ListNamespaces</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-203"></span><span>  </span><span id="local-6989586621679227413"><span class="annot"><span class="annottext">toJSON :: ListNamespaces -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespaces%27"><span class="hs-identifier hs-type">ListNamespaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227409"><span id="local-6989586621679227410"><span id="local-6989586621679227411"><span class="annot"><span class="annottext">Maybe Natural
 Maybe [NamespaceFilter]
 Maybe Text
-filters :: Maybe [NamespaceFilter]
 maxResults :: Maybe Natural
 nextToken :: Maybe Text
-$sel:filters:ListNamespaces' :: ListNamespaces -&gt; Maybe [NamespaceFilter]
+filters :: Maybe [NamespaceFilter]
 $sel:maxResults:ListNamespaces' :: ListNamespaces -&gt; Maybe Natural
 $sel:nextToken:ListNamespaces' :: ListNamespaces -&gt; Maybe Text
-</span><a href="#local-6989586621679227260"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:filters:ListNamespaces' :: ListNamespaces -&gt; Maybe [NamespaceFilter]
+</span><a href="#local-6989586621679227409"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-204"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-205"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-206"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679227262"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-207"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679227261"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-208"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Filters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [NamespaceFilter] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([NamespaceFilter] -&gt; Pair)
 -&gt; Maybe [NamespaceFilter] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [NamespaceFilter]
-</span><a href="#local-6989586621679227260"><span class="hs-identifier hs-var">filters</span></a></span><span>
+</span><a href="#local-6989586621679227411"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227410"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679227409"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-209"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-210"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-211"></span><span>
 </span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespaces"><span class="hs-identifier hs-type">ListNamespaces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-213"></span><span>  </span><span id="local-6989586621679227254"><span class="annot"><span class="annottext">toPath :: ListNamespaces -&gt; ByteString
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679227403"><span class="annot"><span class="annottext">toPath :: ListNamespaces -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListNamespaces -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-214"></span><span>
 </span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespaces"><span class="hs-identifier hs-type">ListNamespaces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-216"></span><span>  </span><span id="local-6989586621679227250"><span class="annot"><span class="annottext">toQuery :: ListNamespaces -&gt; QueryString
+</span><span id="line-216"></span><span>  </span><span id="local-6989586621679227399"><span class="annot"><span class="annottext">toQuery :: ListNamespaces -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListNamespaces -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -577,27 +575,27 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-217"></span><span>
 </span><span id="line-218"></span><span class="hs-comment">-- | /See:/ 'newListNamespacesResponse' smart constructor.</span><span>
-</span><span id="line-219"></span><span id="local-6989586621679227247"><span id="local-6989586621679227248"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListNamespacesResponse"><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespacesResponse"><span class="hs-identifier hs-var">ListNamespacesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListNamespacesResponse%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespacesResponse%27"><span class="hs-identifier hs-var">ListNamespacesResponse'</span></a></span></span><span>
-</span><span id="line-220"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the response contains @NextToken@, submit another @ListNamespaces@</span><span>
-</span><span id="line-221"></span><span>    </span><span class="hs-comment">-- request to get the next group of results. Specify the value of</span><span>
-</span><span id="line-222"></span><span>    </span><span class="hs-comment">-- @NextToken@ from the previous response in the next request.</span><span>
-</span><span id="line-223"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-224"></span><span>    </span><span class="hs-comment">-- Cloud Map gets @MaxResults@ namespaces and then filters them based on</span><span>
-</span><span id="line-225"></span><span>    </span><span class="hs-comment">-- the specified criteria. It\'s possible that no namespaces in the first</span><span>
-</span><span id="line-226"></span><span>    </span><span class="hs-comment">-- @MaxResults@ namespaces matched the specified criteria but that</span><span>
-</span><span id="line-227"></span><span>    </span><span class="hs-comment">-- subsequent groups of @MaxResults@ namespaces do contain namespaces that</span><span>
-</span><span id="line-228"></span><span>    </span><span class="hs-comment">-- match the criteria.</span><span>
-</span><span id="line-229"></span><span>    </span><span id="%24sel%3AnextToken%3AListNamespacesResponse%27"><span class="annot"><span class="annottext">ListNamespacesResponse -&gt; Maybe Text
-</span><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#%24sel%3AnextToken%3AListNamespacesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-230"></span><span>    </span><span class="hs-comment">-- | An array that contains one @NamespaceSummary@ object for each namespace</span><span>
-</span><span id="line-231"></span><span>    </span><span class="hs-comment">-- that matches the specified filter criteria.</span><span>
-</span><span id="line-232"></span><span>    </span><span id="%24sel%3Anamespaces%3AListNamespacesResponse%27"><span class="annot"><span class="annottext">ListNamespacesResponse -&gt; Maybe [NamespaceSummary]
+</span><span id="line-219"></span><span id="local-6989586621679227396"><span id="local-6989586621679227397"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListNamespacesResponse"><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespacesResponse"><span class="hs-identifier hs-var">ListNamespacesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListNamespacesResponse%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespacesResponse%27"><span class="hs-identifier hs-var">ListNamespacesResponse'</span></a></span></span><span>
+</span><span id="line-220"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array that contains one @NamespaceSummary@ object for each namespace</span><span>
+</span><span id="line-221"></span><span>    </span><span class="hs-comment">-- that matches the specified filter criteria.</span><span>
+</span><span id="line-222"></span><span>    </span><span id="%24sel%3Anamespaces%3AListNamespacesResponse%27"><span class="annot"><span class="annottext">ListNamespacesResponse -&gt; Maybe [NamespaceSummary]
 </span><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#%24sel%3Anamespaces%3AListNamespacesResponse%27"><span class="hs-identifier hs-var hs-var">namespaces</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceSummary.html#NamespaceSummary"><span class="hs-identifier hs-type">NamespaceSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>    </span><span class="hs-comment">-- | If the response contains @NextToken@, submit another @ListNamespaces@</span><span>
+</span><span id="line-224"></span><span>    </span><span class="hs-comment">-- request to get the next group of results. Specify the value of</span><span>
+</span><span id="line-225"></span><span>    </span><span class="hs-comment">-- @NextToken@ from the previous response in the next request.</span><span>
+</span><span id="line-226"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-227"></span><span>    </span><span class="hs-comment">-- Cloud Map gets @MaxResults@ namespaces and then filters them based on</span><span>
+</span><span id="line-228"></span><span>    </span><span class="hs-comment">-- the specified criteria. It\'s possible that no namespaces in the first</span><span>
+</span><span id="line-229"></span><span>    </span><span class="hs-comment">-- @MaxResults@ namespaces matched the specified criteria but that</span><span>
+</span><span id="line-230"></span><span>    </span><span class="hs-comment">-- subsequent groups of @MaxResults@ namespaces do contain namespaces that</span><span>
+</span><span id="line-231"></span><span>    </span><span class="hs-comment">-- match the criteria.</span><span>
+</span><span id="line-232"></span><span>    </span><span id="%24sel%3AnextToken%3AListNamespacesResponse%27"><span class="annot"><span class="annottext">ListNamespacesResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#%24sel%3AnextToken%3AListNamespacesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-233"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-234"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListNamespacesResponse%27"><span class="annot"><span class="annottext">ListNamespacesResponse -&gt; Int
 </span><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#%24sel%3AhttpStatus%3AListNamespacesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-235"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-236"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679227240"><span id="local-6989586621679227242"><span class="annot"><span class="annottext">ListNamespacesResponse -&gt; ListNamespacesResponse -&gt; Bool
+</span><span id="line-236"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679227389"><span id="local-6989586621679227391"><span class="annot"><span class="annottext">ListNamespacesResponse -&gt; ListNamespacesResponse -&gt; Bool
 (ListNamespacesResponse -&gt; ListNamespacesResponse -&gt; Bool)
 -&gt; (ListNamespacesResponse -&gt; ListNamespacesResponse -&gt; Bool)
 -&gt; Eq ListNamespacesResponse
@@ -606,7 +604,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListNamespacesResponse -&gt; ListNamespacesResponse -&gt; Bool
 == :: ListNamespacesResponse -&gt; ListNamespacesResponse -&gt; Bool
 $c== :: ListNamespacesResponse -&gt; ListNamespacesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227232"><span id="local-6989586621679227234"><span id="local-6989586621679227236"><span id="local-6989586621679227238"><span class="annot"><span class="annottext">ReadPrec [ListNamespacesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227381"><span id="local-6989586621679227383"><span id="local-6989586621679227385"><span id="local-6989586621679227387"><span class="annot"><span class="annottext">ReadPrec [ListNamespacesResponse]
 ReadPrec ListNamespacesResponse
 Int -&gt; ReadS ListNamespacesResponse
 ReadS [ListNamespacesResponse]
@@ -626,7 +624,7 @@ readList :: ReadS [ListNamespacesResponse]
 $creadList :: ReadS [ListNamespacesResponse]
 readsPrec :: Int -&gt; ReadS ListNamespacesResponse
 $creadsPrec :: Int -&gt; ReadS ListNamespacesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227226"><span id="local-6989586621679227228"><span id="local-6989586621679227230"><span class="annot"><span class="annottext">Int -&gt; ListNamespacesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227375"><span id="local-6989586621679227377"><span id="local-6989586621679227379"><span class="annot"><span class="annottext">Int -&gt; ListNamespacesResponse -&gt; ShowS
 [ListNamespacesResponse] -&gt; ShowS
 ListNamespacesResponse -&gt; String
 (Int -&gt; ListNamespacesResponse -&gt; ShowS)
@@ -661,18 +659,18 @@ $cfrom :: forall x. ListNamespacesResponse -&gt; Rep ListNamespacesResponse x
 </span><span id="line-243"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-244"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-245"></span><span class="hs-comment">--</span><span>
-</span><span id="line-246"></span><span class="hs-comment">-- 'nextToken', 'listNamespacesResponse_nextToken' - If the response contains @NextToken@, submit another @ListNamespaces@</span><span>
-</span><span id="line-247"></span><span class="hs-comment">-- request to get the next group of results. Specify the value of</span><span>
-</span><span id="line-248"></span><span class="hs-comment">-- @NextToken@ from the previous response in the next request.</span><span>
-</span><span id="line-249"></span><span class="hs-comment">--</span><span>
-</span><span id="line-250"></span><span class="hs-comment">-- Cloud Map gets @MaxResults@ namespaces and then filters them based on</span><span>
-</span><span id="line-251"></span><span class="hs-comment">-- the specified criteria. It\'s possible that no namespaces in the first</span><span>
-</span><span id="line-252"></span><span class="hs-comment">-- @MaxResults@ namespaces matched the specified criteria but that</span><span>
-</span><span id="line-253"></span><span class="hs-comment">-- subsequent groups of @MaxResults@ namespaces do contain namespaces that</span><span>
-</span><span id="line-254"></span><span class="hs-comment">-- match the criteria.</span><span>
-</span><span id="line-255"></span><span class="hs-comment">--</span><span>
-</span><span id="line-256"></span><span class="hs-comment">-- 'namespaces', 'listNamespacesResponse_namespaces' - An array that contains one @NamespaceSummary@ object for each namespace</span><span>
-</span><span id="line-257"></span><span class="hs-comment">-- that matches the specified filter criteria.</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- 'namespaces', 'listNamespacesResponse_namespaces' - An array that contains one @NamespaceSummary@ object for each namespace</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- that matches the specified filter criteria.</span><span>
+</span><span id="line-248"></span><span class="hs-comment">--</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- 'nextToken', 'listNamespacesResponse_nextToken' - If the response contains @NextToken@, submit another @ListNamespaces@</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- request to get the next group of results. Specify the value of</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- @NextToken@ from the previous response in the next request.</span><span>
+</span><span id="line-252"></span><span class="hs-comment">--</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- Cloud Map gets @MaxResults@ namespaces and then filters them based on</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- the specified criteria. It\'s possible that no namespaces in the first</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- @MaxResults@ namespaces matched the specified criteria but that</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- subsequent groups of @MaxResults@ namespaces do contain namespaces that</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- match the criteria.</span><span>
 </span><span id="line-258"></span><span class="hs-comment">--</span><span>
 </span><span id="line-259"></span><span class="hs-comment">-- 'httpStatus', 'listNamespacesResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-260"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#newListNamespacesResponse"><span class="hs-identifier hs-type">newListNamespacesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -680,72 +678,45 @@ $cfrom :: forall x. ListNamespacesResponse -&gt; Rep ListNamespacesResponse x
 </span><span id="line-262"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-263"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespacesResponse"><span class="hs-identifier hs-type">ListNamespacesResponse</span></a></span><span>
 </span><span id="line-264"></span><span id="newListNamespacesResponse"><span class="annot"><span class="annottext">newListNamespacesResponse :: Int -&gt; ListNamespacesResponse
-</span><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#newListNamespacesResponse"><span class="hs-identifier hs-var hs-var">newListNamespacesResponse</span></a></span></span><span> </span><span id="local-6989586621679227223"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679227223"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-265"></span><span>  </span><span class="annot"><span class="annottext">ListNamespacesResponse' :: Maybe Text
--&gt; Maybe [NamespaceSummary] -&gt; Int -&gt; ListNamespacesResponse
+</span><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#newListNamespacesResponse"><span class="hs-identifier hs-var hs-var">newListNamespacesResponse</span></a></span></span><span> </span><span id="local-6989586621679227372"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227372"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-265"></span><span>  </span><span class="annot"><span class="annottext">ListNamespacesResponse' :: Maybe [NamespaceSummary]
+-&gt; Maybe Text -&gt; Int -&gt; ListNamespacesResponse
 </span><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespacesResponse%27"><span class="hs-identifier hs-type">ListNamespacesResponse'</span></a></span><span>
-</span><span id="line-266"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListNamespacesResponse' :: Maybe Text
-</span><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#%24sel%3AnextToken%3AListNamespacesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-267"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-266"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:namespaces:ListNamespacesResponse' :: Maybe [NamespaceSummary]
+</span><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#%24sel%3Anamespaces%3AListNamespacesResponse%27"><span class="hs-identifier hs-var">namespaces</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-267"></span><span>        </span><span class="annot"><span class="annottext">Maybe [NamespaceSummary]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-268"></span><span>      </span><span class="annot"><span class="annottext">$sel:namespaces:ListNamespacesResponse' :: Maybe [NamespaceSummary]
-</span><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#%24sel%3Anamespaces%3AListNamespacesResponse%27"><span class="hs-identifier hs-var">namespaces</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [NamespaceSummary]
+</span><span id="line-268"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListNamespacesResponse' :: Maybe Text
+</span><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#%24sel%3AnextToken%3AListNamespacesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-269"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListNamespacesResponse' :: Int
 </span><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#%24sel%3AhttpStatus%3AListNamespacesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679227223"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679227372"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-270"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-271"></span><span>
-</span><span id="line-272"></span><span class="hs-comment">-- | If the response contains @NextToken@, submit another @ListNamespaces@</span><span>
-</span><span id="line-273"></span><span class="hs-comment">-- request to get the next group of results. Specify the value of</span><span>
-</span><span id="line-274"></span><span class="hs-comment">-- @NextToken@ from the previous response in the next request.</span><span>
-</span><span id="line-275"></span><span class="hs-comment">--</span><span>
-</span><span id="line-276"></span><span class="hs-comment">-- Cloud Map gets @MaxResults@ namespaces and then filters them based on</span><span>
-</span><span id="line-277"></span><span class="hs-comment">-- the specified criteria. It\'s possible that no namespaces in the first</span><span>
-</span><span id="line-278"></span><span class="hs-comment">-- @MaxResults@ namespaces matched the specified criteria but that</span><span>
-</span><span id="line-279"></span><span class="hs-comment">-- subsequent groups of @MaxResults@ namespaces do contain namespaces that</span><span>
-</span><span id="line-280"></span><span class="hs-comment">-- match the criteria.</span><span>
-</span><span id="line-281"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#listNamespacesResponse_nextToken"><span class="hs-identifier hs-type">listNamespacesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespacesResponse"><span class="hs-identifier hs-type">ListNamespacesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-282"></span><span id="listNamespacesResponse_nextToken"><span class="annot"><span class="annottext">listNamespacesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListNamespacesResponse -&gt; f ListNamespacesResponse
-</span><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#listNamespacesResponse_nextToken"><span class="hs-identifier hs-var hs-var">listNamespacesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListNamespacesResponse -&gt; Maybe Text)
--&gt; (ListNamespacesResponse -&gt; Maybe Text -&gt; ListNamespacesResponse)
--&gt; Lens' ListNamespacesResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespacesResponse%27"><span class="hs-identifier hs-type">ListNamespacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227222"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:ListNamespacesResponse' :: ListNamespacesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679227222"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679227222"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227221"><span class="annot"><span class="annottext">s :: ListNamespacesResponse
-</span><a href="#local-6989586621679227221"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespacesResponse%27"><span class="hs-identifier hs-type">ListNamespacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227220"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679227220"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListNamespacesResponse
-</span><a href="#local-6989586621679227221"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListNamespacesResponse' :: Maybe Text
-</span><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#%24sel%3AnextToken%3AListNamespacesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679227220"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespacesResponse"><span class="hs-identifier hs-type">ListNamespacesResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-283"></span><span>
-</span><span id="line-284"></span><span class="hs-comment">-- | An array that contains one @NamespaceSummary@ object for each namespace</span><span>
-</span><span id="line-285"></span><span class="hs-comment">-- that matches the specified filter criteria.</span><span>
-</span><span id="line-286"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#listNamespacesResponse_namespaces"><span class="hs-identifier hs-type">listNamespacesResponse_namespaces</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespacesResponse"><span class="hs-identifier hs-type">ListNamespacesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceSummary.html#NamespaceSummary"><span class="hs-identifier hs-type">NamespaceSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-287"></span><span id="listNamespacesResponse_namespaces"><span class="annot"><span class="annottext">listNamespacesResponse_namespaces :: (Maybe [NamespaceSummary] -&gt; f (Maybe [NamespaceSummary]))
+</span><span id="line-272"></span><span class="hs-comment">-- | An array that contains one @NamespaceSummary@ object for each namespace</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- that matches the specified filter criteria.</span><span>
+</span><span id="line-274"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#listNamespacesResponse_namespaces"><span class="hs-identifier hs-type">listNamespacesResponse_namespaces</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespacesResponse"><span class="hs-identifier hs-type">ListNamespacesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceSummary.html#NamespaceSummary"><span class="hs-identifier hs-type">NamespaceSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span id="listNamespacesResponse_namespaces"><span class="annot"><span class="annottext">listNamespacesResponse_namespaces :: (Maybe [NamespaceSummary] -&gt; f (Maybe [NamespaceSummary]))
 -&gt; ListNamespacesResponse -&gt; f ListNamespacesResponse
 </span><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#listNamespacesResponse_namespaces"><span class="hs-identifier hs-var hs-var">listNamespacesResponse_namespaces</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListNamespacesResponse -&gt; Maybe [NamespaceSummary])
 -&gt; (ListNamespacesResponse
     -&gt; Maybe [NamespaceSummary] -&gt; ListNamespacesResponse)
 -&gt; Lens' ListNamespacesResponse (Maybe [NamespaceSummary])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespacesResponse%27"><span class="hs-identifier hs-type">ListNamespacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227219"><span class="annot"><span class="annottext">Maybe [NamespaceSummary]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespacesResponse%27"><span class="hs-identifier hs-type">ListNamespacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227371"><span class="annot"><span class="annottext">Maybe [NamespaceSummary]
 namespaces :: Maybe [NamespaceSummary]
 $sel:namespaces:ListNamespacesResponse' :: ListNamespacesResponse -&gt; Maybe [NamespaceSummary]
-</span><a href="#local-6989586621679227219"><span class="hs-identifier hs-var hs-var">namespaces</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [NamespaceSummary]
-</span><a href="#local-6989586621679227219"><span class="hs-identifier hs-var">namespaces</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227218"><span class="annot"><span class="annottext">s :: ListNamespacesResponse
-</span><a href="#local-6989586621679227218"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespacesResponse%27"><span class="hs-identifier hs-type">ListNamespacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227217"><span class="annot"><span class="annottext">Maybe [NamespaceSummary]
-</span><a href="#local-6989586621679227217"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListNamespacesResponse
-</span><a href="#local-6989586621679227218"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namespaces:ListNamespacesResponse' :: Maybe [NamespaceSummary]
+</span><a href="#local-6989586621679227371"><span class="hs-identifier hs-var hs-var">namespaces</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [NamespaceSummary]
+</span><a href="#local-6989586621679227371"><span class="hs-identifier hs-var">namespaces</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227370"><span class="annot"><span class="annottext">s :: ListNamespacesResponse
+</span><a href="#local-6989586621679227370"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespacesResponse%27"><span class="hs-identifier hs-type">ListNamespacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227369"><span class="annot"><span class="annottext">Maybe [NamespaceSummary]
+</span><a href="#local-6989586621679227369"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListNamespacesResponse
+</span><a href="#local-6989586621679227370"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namespaces:ListNamespacesResponse' :: Maybe [NamespaceSummary]
 </span><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#%24sel%3Anamespaces%3AListNamespacesResponse%27"><span class="hs-identifier hs-var">namespaces</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [NamespaceSummary]
-</span><a href="#local-6989586621679227217"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespacesResponse"><span class="hs-identifier hs-type">ListNamespacesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [NamespaceSummary] -&gt; f (Maybe [NamespaceSummary]))
+</span><a href="#local-6989586621679227369"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespacesResponse"><span class="hs-identifier hs-type">ListNamespacesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [NamespaceSummary] -&gt; f (Maybe [NamespaceSummary]))
  -&gt; ListNamespacesResponse -&gt; f ListNamespacesResponse)
 -&gt; ((Maybe [NamespaceSummary] -&gt; f (Maybe [NamespaceSummary]))
     -&gt; Maybe [NamespaceSummary] -&gt; f (Maybe [NamespaceSummary]))
@@ -771,8 +742,35 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [NamespaceSummary]
   [NamespaceSummary]
   [NamespaceSummary]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-276"></span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- | If the response contains @NextToken@, submit another @ListNamespaces@</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- request to get the next group of results. Specify the value of</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- @NextToken@ from the previous response in the next request.</span><span>
+</span><span id="line-280"></span><span class="hs-comment">--</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- Cloud Map gets @MaxResults@ namespaces and then filters them based on</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- the specified criteria. It\'s possible that no namespaces in the first</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- @MaxResults@ namespaces matched the specified criteria but that</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- subsequent groups of @MaxResults@ namespaces do contain namespaces that</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- match the criteria.</span><span>
+</span><span id="line-286"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#listNamespacesResponse_nextToken"><span class="hs-identifier hs-type">listNamespacesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespacesResponse"><span class="hs-identifier hs-type">ListNamespacesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span id="listNamespacesResponse_nextToken"><span class="annot"><span class="annottext">listNamespacesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListNamespacesResponse -&gt; f ListNamespacesResponse
+</span><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#listNamespacesResponse_nextToken"><span class="hs-identifier hs-var hs-var">listNamespacesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListNamespacesResponse -&gt; Maybe Text)
+-&gt; (ListNamespacesResponse -&gt; Maybe Text -&gt; ListNamespacesResponse)
+-&gt; Lens' ListNamespacesResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespacesResponse%27"><span class="hs-identifier hs-type">ListNamespacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227368"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListNamespacesResponse' :: ListNamespacesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679227368"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227368"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227367"><span class="annot"><span class="annottext">s :: ListNamespacesResponse
+</span><a href="#local-6989586621679227367"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespacesResponse%27"><span class="hs-identifier hs-type">ListNamespacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227366"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227366"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListNamespacesResponse
+</span><a href="#local-6989586621679227367"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListNamespacesResponse' :: Maybe Text
+</span><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#%24sel%3AnextToken%3AListNamespacesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227366"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespacesResponse"><span class="hs-identifier hs-type">ListNamespacesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-288"></span><span>
 </span><span id="line-289"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-290"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#listNamespacesResponse_httpStatus"><span class="hs-identifier hs-type">listNamespacesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespacesResponse"><span class="hs-identifier hs-type">ListNamespacesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -782,16 +780,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (ListNamespacesResponse -&gt; Int -&gt; ListNamespacesResponse)
 -&gt; Lens ListNamespacesResponse ListNamespacesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespacesResponse%27"><span class="hs-identifier hs-type">ListNamespacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227216"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespacesResponse%27"><span class="hs-identifier hs-type">ListNamespacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227365"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListNamespacesResponse' :: ListNamespacesResponse -&gt; Int
-</span><a href="#local-6989586621679227216"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679227216"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227215"><span class="annot"><span class="annottext">s :: ListNamespacesResponse
-</span><a href="#local-6989586621679227215"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespacesResponse%27"><span class="hs-identifier hs-type">ListNamespacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227214"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679227214"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListNamespacesResponse
-</span><a href="#local-6989586621679227215"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListNamespacesResponse' :: Int
+</span><a href="#local-6989586621679227365"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227365"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227364"><span class="annot"><span class="annottext">s :: ListNamespacesResponse
+</span><a href="#local-6989586621679227364"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespacesResponse%27"><span class="hs-identifier hs-type">ListNamespacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227363"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227363"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListNamespacesResponse
+</span><a href="#local-6989586621679227364"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListNamespacesResponse' :: Int
 </span><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#%24sel%3AhttpStatus%3AListNamespacesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679227214"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespacesResponse"><span class="hs-identifier hs-type">ListNamespacesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679227363"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespacesResponse"><span class="hs-identifier hs-type">ListNamespacesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-292"></span><span>
-</span><span id="line-293"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227212"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespacesResponse"><span class="hs-identifier hs-type">ListNamespacesResponse</span></a></span></span><span>
+</span><span id="line-293"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227361"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.ListNamespaces.html#ListNamespacesResponse"><span class="hs-identifier hs-type">ListNamespacesResponse</span></a></span></span><span>
 </span><span id="line-294"></span></pre></body></html>

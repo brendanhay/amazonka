@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679243825"><span id="local-6989586621679243826"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AppLaunchConfigurationStatus"><span class="annot"><a href="Network.AWS.SMS.Types.AppLaunchConfigurationStatus.html#AppLaunchConfigurationStatus"><span class="hs-identifier hs-var">AppLaunchConfigurationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AppLaunchConfigurationStatus%27"><span class="annot"><a href="Network.AWS.SMS.Types.AppLaunchConfigurationStatus.html#AppLaunchConfigurationStatus%27"><span class="hs-identifier hs-var">AppLaunchConfigurationStatus'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679243954"><span id="local-6989586621679243955"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AppLaunchConfigurationStatus"><span class="annot"><a href="Network.AWS.SMS.Types.AppLaunchConfigurationStatus.html#AppLaunchConfigurationStatus"><span class="hs-identifier hs-var">AppLaunchConfigurationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AppLaunchConfigurationStatus%27"><span class="annot"><a href="Network.AWS.SMS.Types.AppLaunchConfigurationStatus.html#AppLaunchConfigurationStatus%27"><span class="hs-identifier hs-var">AppLaunchConfigurationStatus'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAppLaunchConfigurationStatus"><span class="annot"><span class="annottext">AppLaunchConfigurationStatus -&gt; Text
 </span><a href="Network.AWS.SMS.Types.AppLaunchConfigurationStatus.html#fromAppLaunchConfigurationStatus"><span class="hs-identifier hs-var hs-var">fromAppLaunchConfigurationStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679243817"><span id="local-6989586621679243819"><span id="local-6989586621679243821"><span class="annot"><span class="annottext">Int -&gt; AppLaunchConfigurationStatus -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679243946"><span id="local-6989586621679243948"><span id="local-6989586621679243950"><span class="annot"><span class="annottext">Int -&gt; AppLaunchConfigurationStatus -&gt; ShowS
 [AppLaunchConfigurationStatus] -&gt; ShowS
 AppLaunchConfigurationStatus -&gt; String
 (Int -&gt; AppLaunchConfigurationStatus -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: AppLaunchConfigurationStatus -&gt; String
 showsPrec :: Int -&gt; AppLaunchConfigurationStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; AppLaunchConfigurationStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679243808"><span id="local-6989586621679243810"><span id="local-6989586621679243812"><span id="local-6989586621679243814"><span class="annot"><span class="annottext">ReadPrec [AppLaunchConfigurationStatus]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679243937"><span id="local-6989586621679243939"><span id="local-6989586621679243941"><span id="local-6989586621679243943"><span class="annot"><span class="annottext">ReadPrec [AppLaunchConfigurationStatus]
 ReadPrec AppLaunchConfigurationStatus
 Int -&gt; ReadS AppLaunchConfigurationStatus
 ReadS [AppLaunchConfigurationStatus]
@@ -72,7 +72,7 @@ $creadList :: ReadS [AppLaunchConfigurationStatus]
 readsPrec :: Int -&gt; ReadS AppLaunchConfigurationStatus
 $creadsPrec :: Int -&gt; ReadS AppLaunchConfigurationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679243803"><span id="local-6989586621679243805"><span class="annot"><span class="annottext">AppLaunchConfigurationStatus
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679243932"><span id="local-6989586621679243934"><span class="annot"><span class="annottext">AppLaunchConfigurationStatus
 -&gt; AppLaunchConfigurationStatus -&gt; Bool
 (AppLaunchConfigurationStatus
  -&gt; AppLaunchConfigurationStatus -&gt; Bool)
@@ -89,7 +89,7 @@ $c/= :: AppLaunchConfigurationStatus
 $c== :: AppLaunchConfigurationStatus
 -&gt; AppLaunchConfigurationStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679243787"><span id="local-6989586621679243789"><span id="local-6989586621679243791"><span id="local-6989586621679243793"><span id="local-6989586621679243795"><span id="local-6989586621679243797"><span id="local-6989586621679243799"><span class="annot"><span class="annottext">Eq AppLaunchConfigurationStatus
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679243916"><span id="local-6989586621679243918"><span id="local-6989586621679243920"><span id="local-6989586621679243922"><span id="local-6989586621679243924"><span id="local-6989586621679243926"><span id="local-6989586621679243928"><span class="annot"><span class="annottext">Eq AppLaunchConfigurationStatus
 Eq AppLaunchConfigurationStatus
 -&gt; (AppLaunchConfigurationStatus
     -&gt; AppLaunchConfigurationStatus -&gt; Ordering)
@@ -170,7 +170,7 @@ AppLaunchConfigurationStatus -&gt; Rep AppLaunchConfigurationStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679243779"><span id="local-6989586621679243781"><span class="annot"><span class="annottext">Int -&gt; AppLaunchConfigurationStatus -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679243908"><span id="local-6989586621679243910"><span class="annot"><span class="annottext">Int -&gt; AppLaunchConfigurationStatus -&gt; Int
 AppLaunchConfigurationStatus -&gt; Int
 (Int -&gt; AppLaunchConfigurationStatus -&gt; Int)
 -&gt; (AppLaunchConfigurationStatus -&gt; Int)
@@ -181,56 +181,56 @@ $chash :: AppLaunchConfigurationStatus -&gt; Int
 hashWithSalt :: Int -&gt; AppLaunchConfigurationStatus -&gt; Int
 $chashWithSalt :: Int -&gt; AppLaunchConfigurationStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679243776"><span class="annot"><span class="annottext">AppLaunchConfigurationStatus -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679243905"><span class="annot"><span class="annottext">AppLaunchConfigurationStatus -&gt; ()
 (AppLaunchConfigurationStatus -&gt; ())
 -&gt; NFData AppLaunchConfigurationStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AppLaunchConfigurationStatus -&gt; ()
 $crnf :: AppLaunchConfigurationStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679243773"><span class="annot"><span class="annottext">Text -&gt; Either String AppLaunchConfigurationStatus
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679243902"><span class="annot"><span class="annottext">Text -&gt; Either String AppLaunchConfigurationStatus
 (Text -&gt; Either String AppLaunchConfigurationStatus)
 -&gt; FromText AppLaunchConfigurationStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AppLaunchConfigurationStatus
 $cfromText :: Text -&gt; Either String AppLaunchConfigurationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679243770"><span class="annot"><span class="annottext">AppLaunchConfigurationStatus -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679243899"><span class="annot"><span class="annottext">AppLaunchConfigurationStatus -&gt; Text
 (AppLaunchConfigurationStatus -&gt; Text)
 -&gt; ToText AppLaunchConfigurationStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AppLaunchConfigurationStatus -&gt; Text
 $ctoText :: AppLaunchConfigurationStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679243767"><span class="annot"><span class="annottext">AppLaunchConfigurationStatus -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679243896"><span class="annot"><span class="annottext">AppLaunchConfigurationStatus -&gt; ByteString
 (AppLaunchConfigurationStatus -&gt; ByteString)
 -&gt; ToByteString AppLaunchConfigurationStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AppLaunchConfigurationStatus -&gt; ByteString
 $ctoBS :: AppLaunchConfigurationStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679243764"><span class="annot"><span class="annottext">AppLaunchConfigurationStatus -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679243893"><span class="annot"><span class="annottext">AppLaunchConfigurationStatus -&gt; ByteStringBuilder
 (AppLaunchConfigurationStatus -&gt; ByteStringBuilder)
 -&gt; ToLog AppLaunchConfigurationStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AppLaunchConfigurationStatus -&gt; ByteStringBuilder
 $cbuild :: AppLaunchConfigurationStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679243761"><span class="annot"><span class="annottext">HeaderName -&gt; AppLaunchConfigurationStatus -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679243890"><span class="annot"><span class="annottext">HeaderName -&gt; AppLaunchConfigurationStatus -&gt; [Header]
 (HeaderName -&gt; AppLaunchConfigurationStatus -&gt; [Header])
 -&gt; ToHeader AppLaunchConfigurationStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AppLaunchConfigurationStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AppLaunchConfigurationStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679243758"><span class="annot"><span class="annottext">AppLaunchConfigurationStatus -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679243887"><span class="annot"><span class="annottext">AppLaunchConfigurationStatus -&gt; QueryString
 (AppLaunchConfigurationStatus -&gt; QueryString)
 -&gt; ToQuery AppLaunchConfigurationStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AppLaunchConfigurationStatus -&gt; QueryString
 $ctoQuery :: AppLaunchConfigurationStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679243753"><span id="local-6989586621679243755"><span class="annot"><span class="annottext">Value -&gt; Parser [AppLaunchConfigurationStatus]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679243882"><span id="local-6989586621679243884"><span class="annot"><span class="annottext">Value -&gt; Parser [AppLaunchConfigurationStatus]
 Value -&gt; Parser AppLaunchConfigurationStatus
 (Value -&gt; Parser AppLaunchConfigurationStatus)
 -&gt; (Value -&gt; Parser [AppLaunchConfigurationStatus])
@@ -242,7 +242,7 @@ $cparseJSONList :: Value -&gt; Parser [AppLaunchConfigurationStatus]
 parseJSON :: Value -&gt; Parser AppLaunchConfigurationStatus
 $cparseJSON :: Value -&gt; Parser AppLaunchConfigurationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679243748"><span id="local-6989586621679243750"><span class="annot"><span class="annottext">FromJSONKeyFunction [AppLaunchConfigurationStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679243877"><span id="local-6989586621679243879"><span class="annot"><span class="annottext">FromJSONKeyFunction [AppLaunchConfigurationStatus]
 FromJSONKeyFunction AppLaunchConfigurationStatus
 FromJSONKeyFunction AppLaunchConfigurationStatus
 -&gt; FromJSONKeyFunction [AppLaunchConfigurationStatus]
@@ -254,7 +254,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AppLaunchConfigurationStatus]
 fromJSONKey :: FromJSONKeyFunction AppLaunchConfigurationStatus
 $cfromJSONKey :: FromJSONKeyFunction AppLaunchConfigurationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679243739"><span id="local-6989586621679243741"><span id="local-6989586621679243743"><span id="local-6989586621679243745"><span class="annot"><span class="annottext">[AppLaunchConfigurationStatus] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679243868"><span id="local-6989586621679243870"><span id="local-6989586621679243872"><span id="local-6989586621679243874"><span class="annot"><span class="annottext">[AppLaunchConfigurationStatus] -&gt; Encoding
 [AppLaunchConfigurationStatus] -&gt; Value
 AppLaunchConfigurationStatus -&gt; Encoding
 AppLaunchConfigurationStatus -&gt; Value
@@ -278,7 +278,7 @@ $ctoEncoding :: AppLaunchConfigurationStatus -&gt; Encoding
 toJSON :: AppLaunchConfigurationStatus -&gt; Value
 $ctoJSON :: AppLaunchConfigurationStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679243734"><span id="local-6989586621679243736"><span class="annot"><span class="annottext">ToJSONKeyFunction [AppLaunchConfigurationStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679243863"><span id="local-6989586621679243865"><span class="annot"><span class="annottext">ToJSONKeyFunction [AppLaunchConfigurationStatus]
 ToJSONKeyFunction AppLaunchConfigurationStatus
 ToJSONKeyFunction AppLaunchConfigurationStatus
 -&gt; ToJSONKeyFunction [AppLaunchConfigurationStatus]
@@ -290,14 +290,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AppLaunchConfigurationStatus]
 toJSONKey :: ToJSONKeyFunction AppLaunchConfigurationStatus
 $ctoJSONKey :: ToJSONKeyFunction AppLaunchConfigurationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679243731"><span class="annot"><span class="annottext">[Node] -&gt; Either String AppLaunchConfigurationStatus
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679243860"><span class="annot"><span class="annottext">[Node] -&gt; Either String AppLaunchConfigurationStatus
 ([Node] -&gt; Either String AppLaunchConfigurationStatus)
 -&gt; FromXML AppLaunchConfigurationStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AppLaunchConfigurationStatus
 $cparseXML :: [Node] -&gt; Either String AppLaunchConfigurationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679243728"><span class="annot"><span class="annottext">AppLaunchConfigurationStatus -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679243857"><span class="annot"><span class="annottext">AppLaunchConfigurationStatus -&gt; XML
 (AppLaunchConfigurationStatus -&gt; XML)
 -&gt; ToXML AppLaunchConfigurationStatus
 forall a. (a -&gt; XML) -&gt; ToXML a

@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Whitelist rule</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newInputWhitelistRule' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679891494"><span id="local-6989586621679891495"></span></span><span class="hs-keyword">data</span><span> </span><span id="InputWhitelistRule"><span class="annot"><a href="Network.AWS.MediaLive.Types.InputWhitelistRule.html#InputWhitelistRule"><span class="hs-identifier hs-var">InputWhitelistRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputWhitelistRule%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.InputWhitelistRule.html#InputWhitelistRule%27"><span class="hs-identifier hs-var">InputWhitelistRule'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679898162"><span id="local-6989586621679898163"></span></span><span class="hs-keyword">data</span><span> </span><span id="InputWhitelistRule"><span class="annot"><a href="Network.AWS.MediaLive.Types.InputWhitelistRule.html#InputWhitelistRule"><span class="hs-identifier hs-var">InputWhitelistRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputWhitelistRule%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.InputWhitelistRule.html#InputWhitelistRule%27"><span class="hs-identifier hs-var">InputWhitelistRule'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IPv4 CIDR that\'s whitelisted.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Acidr%3AInputWhitelistRule%27"><span class="annot"><span class="annottext">InputWhitelistRule -&gt; Maybe Text
 </span><a href="Network.AWS.MediaLive.Types.InputWhitelistRule.html#%24sel%3Acidr%3AInputWhitelistRule%27"><span class="hs-identifier hs-var hs-var">cidr</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679891488"><span id="local-6989586621679891490"><span class="annot"><span class="annottext">InputWhitelistRule -&gt; InputWhitelistRule -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679898156"><span id="local-6989586621679898158"><span class="annot"><span class="annottext">InputWhitelistRule -&gt; InputWhitelistRule -&gt; Bool
 (InputWhitelistRule -&gt; InputWhitelistRule -&gt; Bool)
 -&gt; (InputWhitelistRule -&gt; InputWhitelistRule -&gt; Bool)
 -&gt; Eq InputWhitelistRule
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InputWhitelistRule -&gt; InputWhitelistRule -&gt; Bool
 == :: InputWhitelistRule -&gt; InputWhitelistRule -&gt; Bool
 $c== :: InputWhitelistRule -&gt; InputWhitelistRule -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679891479"><span id="local-6989586621679891481"><span id="local-6989586621679891483"><span id="local-6989586621679891485"><span class="annot"><span class="annottext">ReadPrec [InputWhitelistRule]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679898147"><span id="local-6989586621679898149"><span id="local-6989586621679898151"><span id="local-6989586621679898153"><span class="annot"><span class="annottext">ReadPrec [InputWhitelistRule]
 ReadPrec InputWhitelistRule
 Int -&gt; ReadS InputWhitelistRule
 ReadS [InputWhitelistRule]
@@ -60,7 +60,7 @@ readList :: ReadS [InputWhitelistRule]
 $creadList :: ReadS [InputWhitelistRule]
 readsPrec :: Int -&gt; ReadS InputWhitelistRule
 $creadsPrec :: Int -&gt; ReadS InputWhitelistRule
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679891472"><span id="local-6989586621679891474"><span id="local-6989586621679891476"><span class="annot"><span class="annottext">Int -&gt; InputWhitelistRule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679898140"><span id="local-6989586621679898142"><span id="local-6989586621679898144"><span class="annot"><span class="annottext">Int -&gt; InputWhitelistRule -&gt; ShowS
 [InputWhitelistRule] -&gt; ShowS
 InputWhitelistRule -&gt; String
 (Int -&gt; InputWhitelistRule -&gt; ShowS)
@@ -114,19 +114,19 @@ forall a. Maybe a
 -&gt; Lens
      InputWhitelistRule InputWhitelistRule (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputWhitelistRule.html#InputWhitelistRule%27"><span class="hs-identifier hs-type">InputWhitelistRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679891463"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputWhitelistRule.html#InputWhitelistRule%27"><span class="hs-identifier hs-type">InputWhitelistRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679898131"><span class="annot"><span class="annottext">Maybe Text
 cidr :: Maybe Text
 $sel:cidr:InputWhitelistRule' :: InputWhitelistRule -&gt; Maybe Text
-</span><a href="#local-6989586621679891463"><span class="hs-identifier hs-var hs-var">cidr</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679891463"><span class="hs-identifier hs-var">cidr</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679891462"><span class="annot"><span class="annottext">s :: InputWhitelistRule
-</span><a href="#local-6989586621679891462"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputWhitelistRule.html#InputWhitelistRule%27"><span class="hs-identifier hs-type">InputWhitelistRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679891461"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679891461"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputWhitelistRule
-</span><a href="#local-6989586621679891462"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cidr:InputWhitelistRule' :: Maybe Text
+</span><a href="#local-6989586621679898131"><span class="hs-identifier hs-var hs-var">cidr</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679898131"><span class="hs-identifier hs-var">cidr</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679898130"><span class="annot"><span class="annottext">s :: InputWhitelistRule
+</span><a href="#local-6989586621679898130"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputWhitelistRule.html#InputWhitelistRule%27"><span class="hs-identifier hs-type">InputWhitelistRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679898129"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679898129"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputWhitelistRule
+</span><a href="#local-6989586621679898130"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cidr:InputWhitelistRule' :: Maybe Text
 </span><a href="Network.AWS.MediaLive.Types.InputWhitelistRule.html#%24sel%3Acidr%3AInputWhitelistRule%27"><span class="hs-identifier hs-var">cidr</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679891461"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputWhitelistRule.html#InputWhitelistRule"><span class="hs-identifier hs-type">InputWhitelistRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679898129"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputWhitelistRule.html#InputWhitelistRule"><span class="hs-identifier hs-type">InputWhitelistRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>
-</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679891458"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputWhitelistRule.html#InputWhitelistRule"><span class="hs-identifier hs-type">InputWhitelistRule</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-54"></span><span>  </span><span id="local-6989586621679891456"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InputWhitelistRule
+</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679898126"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputWhitelistRule.html#InputWhitelistRule"><span class="hs-identifier hs-type">InputWhitelistRule</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621679898124"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InputWhitelistRule
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser InputWhitelistRule)
@@ -136,20 +136,20 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;InputWhitelistRule&quot;</span></span><span>
-</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679891453"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679891453"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679898121"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679898121"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-58"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; InputWhitelistRule
 </span><a href="Network.AWS.MediaLive.Types.InputWhitelistRule.html#InputWhitelistRule%27"><span class="hs-identifier hs-var">InputWhitelistRule'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; InputWhitelistRule)
 -&gt; Parser (Maybe Text) -&gt; Parser InputWhitelistRule
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679891453"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679898121"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cidr&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679891447"><span id="local-6989586621679891449"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputWhitelistRule.html#InputWhitelistRule"><span class="hs-identifier hs-type">InputWhitelistRule</span></a></span></span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679898115"><span id="local-6989586621679898117"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputWhitelistRule.html#InputWhitelistRule"><span class="hs-identifier hs-type">InputWhitelistRule</span></a></span></span></span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679891444"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputWhitelistRule.html#InputWhitelistRule"><span class="hs-identifier hs-type">InputWhitelistRule</span></a></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679898112"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputWhitelistRule.html#InputWhitelistRule"><span class="hs-identifier hs-type">InputWhitelistRule</span></a></span></span><span>
 </span><span id="line-64"></span></pre></body></html>

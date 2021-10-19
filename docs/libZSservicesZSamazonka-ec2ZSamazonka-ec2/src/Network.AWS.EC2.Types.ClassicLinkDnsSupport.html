@@ -27,15 +27,15 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Describes the ClassicLink DNS support status of a VPC.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newClassicLinkDnsSupport' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621681059363"><span id="local-6989586621681059364"></span></span><span class="hs-keyword">data</span><span> </span><span id="ClassicLinkDnsSupport"><span class="annot"><a href="Network.AWS.EC2.Types.ClassicLinkDnsSupport.html#ClassicLinkDnsSupport"><span class="hs-identifier hs-var">ClassicLinkDnsSupport</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClassicLinkDnsSupport%27"><span class="annot"><a href="Network.AWS.EC2.Types.ClassicLinkDnsSupport.html#ClassicLinkDnsSupport%27"><span class="hs-identifier hs-var">ClassicLinkDnsSupport'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Indicates whether ClassicLink DNS support is enabled for the VPC.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3AclassicLinkDnsSupported%3AClassicLinkDnsSupport%27"><span class="annot"><span class="annottext">ClassicLinkDnsSupport -&gt; Maybe Bool
-</span><a href="Network.AWS.EC2.Types.ClassicLinkDnsSupport.html#%24sel%3AclassicLinkDnsSupported%3AClassicLinkDnsSupport%27"><span class="hs-identifier hs-var hs-var">classicLinkDnsSupported</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The ID of the VPC.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AvpcId%3AClassicLinkDnsSupport%27"><span class="annot"><span class="annottext">ClassicLinkDnsSupport -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.ClassicLinkDnsSupport.html#%24sel%3AvpcId%3AClassicLinkDnsSupport%27"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621681092935"><span id="local-6989586621681092936"></span></span><span class="hs-keyword">data</span><span> </span><span id="ClassicLinkDnsSupport"><span class="annot"><a href="Network.AWS.EC2.Types.ClassicLinkDnsSupport.html#ClassicLinkDnsSupport"><span class="hs-identifier hs-var">ClassicLinkDnsSupport</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClassicLinkDnsSupport%27"><span class="annot"><a href="Network.AWS.EC2.Types.ClassicLinkDnsSupport.html#ClassicLinkDnsSupport%27"><span class="hs-identifier hs-var">ClassicLinkDnsSupport'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the VPC.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AvpcId%3AClassicLinkDnsSupport%27"><span class="annot"><span class="annottext">ClassicLinkDnsSupport -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.ClassicLinkDnsSupport.html#%24sel%3AvpcId%3AClassicLinkDnsSupport%27"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Indicates whether ClassicLink DNS support is enabled for the VPC.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AclassicLinkDnsSupported%3AClassicLinkDnsSupport%27"><span class="annot"><span class="annottext">ClassicLinkDnsSupport -&gt; Maybe Bool
+</span><a href="Network.AWS.EC2.Types.ClassicLinkDnsSupport.html#%24sel%3AclassicLinkDnsSupported%3AClassicLinkDnsSupport%27"><span class="hs-identifier hs-var hs-var">classicLinkDnsSupported</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681059356"><span id="local-6989586621681059358"><span class="annot"><span class="annottext">ClassicLinkDnsSupport -&gt; ClassicLinkDnsSupport -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681092928"><span id="local-6989586621681092930"><span class="annot"><span class="annottext">ClassicLinkDnsSupport -&gt; ClassicLinkDnsSupport -&gt; Bool
 (ClassicLinkDnsSupport -&gt; ClassicLinkDnsSupport -&gt; Bool)
 -&gt; (ClassicLinkDnsSupport -&gt; ClassicLinkDnsSupport -&gt; Bool)
 -&gt; Eq ClassicLinkDnsSupport
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ClassicLinkDnsSupport -&gt; ClassicLinkDnsSupport -&gt; Bool
 == :: ClassicLinkDnsSupport -&gt; ClassicLinkDnsSupport -&gt; Bool
 $c== :: ClassicLinkDnsSupport -&gt; ClassicLinkDnsSupport -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681059347"><span id="local-6989586621681059349"><span id="local-6989586621681059351"><span id="local-6989586621681059353"><span class="annot"><span class="annottext">ReadPrec [ClassicLinkDnsSupport]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681092919"><span id="local-6989586621681092921"><span id="local-6989586621681092923"><span id="local-6989586621681092925"><span class="annot"><span class="annottext">ReadPrec [ClassicLinkDnsSupport]
 ReadPrec ClassicLinkDnsSupport
 Int -&gt; ReadS ClassicLinkDnsSupport
 ReadS [ClassicLinkDnsSupport]
@@ -64,7 +64,7 @@ readList :: ReadS [ClassicLinkDnsSupport]
 $creadList :: ReadS [ClassicLinkDnsSupport]
 readsPrec :: Int -&gt; ReadS ClassicLinkDnsSupport
 $creadsPrec :: Int -&gt; ReadS ClassicLinkDnsSupport
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681059340"><span id="local-6989586621681059342"><span id="local-6989586621681059344"><span class="annot"><span class="annottext">Int -&gt; ClassicLinkDnsSupport -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681092912"><span id="local-6989586621681092914"><span id="local-6989586621681092916"><span class="annot"><span class="annottext">Int -&gt; ClassicLinkDnsSupport -&gt; ShowS
 [ClassicLinkDnsSupport] -&gt; ShowS
 ClassicLinkDnsSupport -&gt; String
 (Int -&gt; ClassicLinkDnsSupport -&gt; ShowS)
@@ -98,52 +98,28 @@ $cfrom :: forall x. ClassicLinkDnsSupport -&gt; Rep ClassicLinkDnsSupport x
 </span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-45"></span><span class="hs-comment">--</span><span>
-</span><span id="line-46"></span><span class="hs-comment">-- 'classicLinkDnsSupported', 'classicLinkDnsSupport_classicLinkDnsSupported' - Indicates whether ClassicLink DNS support is enabled for the VPC.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'vpcId', 'classicLinkDnsSupport_vpcId' - The ID of the VPC.</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- 'vpcId', 'classicLinkDnsSupport_vpcId' - The ID of the VPC.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'classicLinkDnsSupported', 'classicLinkDnsSupport_classicLinkDnsSupported' - Indicates whether ClassicLink DNS support is enabled for the VPC.</span><span>
 </span><span id="line-49"></span><span class="annot"><a href="Network.AWS.EC2.Types.ClassicLinkDnsSupport.html#newClassicLinkDnsSupport"><span class="hs-identifier hs-type">newClassicLinkDnsSupport</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-50"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.ClassicLinkDnsSupport.html#ClassicLinkDnsSupport"><span class="hs-identifier hs-type">ClassicLinkDnsSupport</span></a></span><span>
 </span><span id="line-51"></span><span id="newClassicLinkDnsSupport"><span class="annot"><span class="annottext">newClassicLinkDnsSupport :: ClassicLinkDnsSupport
 </span><a href="Network.AWS.EC2.Types.ClassicLinkDnsSupport.html#newClassicLinkDnsSupport"><span class="hs-identifier hs-var hs-var">newClassicLinkDnsSupport</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">ClassicLinkDnsSupport' :: Maybe Bool -&gt; Maybe Text -&gt; ClassicLinkDnsSupport
+</span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">ClassicLinkDnsSupport' :: Maybe Text -&gt; Maybe Bool -&gt; ClassicLinkDnsSupport
 </span><a href="Network.AWS.EC2.Types.ClassicLinkDnsSupport.html#ClassicLinkDnsSupport%27"><span class="hs-identifier hs-type">ClassicLinkDnsSupport'</span></a></span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:classicLinkDnsSupported:ClassicLinkDnsSupport' :: Maybe Bool
-</span><a href="Network.AWS.EC2.Types.ClassicLinkDnsSupport.html#%24sel%3AclassicLinkDnsSupported%3AClassicLinkDnsSupport%27"><span class="hs-identifier hs-var">classicLinkDnsSupported</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-54"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcId:ClassicLinkDnsSupport' :: Maybe Text
+</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:vpcId:ClassicLinkDnsSupport' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.ClassicLinkDnsSupport.html#%24sel%3AvpcId%3AClassicLinkDnsSupport%27"><span class="hs-identifier hs-var">vpcId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- | Indicates whether ClassicLink DNS support is enabled for the VPC.</span><span>
-</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.EC2.Types.ClassicLinkDnsSupport.html#classicLinkDnsSupport_classicLinkDnsSupported"><span class="hs-identifier hs-type">classicLinkDnsSupport_classicLinkDnsSupported</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClassicLinkDnsSupport.html#ClassicLinkDnsSupport"><span class="hs-identifier hs-type">ClassicLinkDnsSupport</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-60"></span><span id="classicLinkDnsSupport_classicLinkDnsSupported"><span class="annot"><span class="annottext">classicLinkDnsSupport_classicLinkDnsSupported :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; ClassicLinkDnsSupport -&gt; f ClassicLinkDnsSupport
-</span><a href="Network.AWS.EC2.Types.ClassicLinkDnsSupport.html#classicLinkDnsSupport_classicLinkDnsSupported"><span class="hs-identifier hs-var hs-var">classicLinkDnsSupport_classicLinkDnsSupported</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClassicLinkDnsSupport -&gt; Maybe Bool)
--&gt; (ClassicLinkDnsSupport -&gt; Maybe Bool -&gt; ClassicLinkDnsSupport)
--&gt; Lens
-     ClassicLinkDnsSupport
-     ClassicLinkDnsSupport
-     (Maybe Bool)
-     (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ClassicLinkDnsSupport.html#ClassicLinkDnsSupport%27"><span class="hs-identifier hs-type">ClassicLinkDnsSupport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681059331"><span class="annot"><span class="annottext">Maybe Bool
-classicLinkDnsSupported :: Maybe Bool
-$sel:classicLinkDnsSupported:ClassicLinkDnsSupport' :: ClassicLinkDnsSupport -&gt; Maybe Bool
-</span><a href="#local-6989586621681059331"><span class="hs-identifier hs-var hs-var">classicLinkDnsSupported</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681059331"><span class="hs-identifier hs-var">classicLinkDnsSupported</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681059330"><span class="annot"><span class="annottext">s :: ClassicLinkDnsSupport
-</span><a href="#local-6989586621681059330"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ClassicLinkDnsSupport.html#ClassicLinkDnsSupport%27"><span class="hs-identifier hs-type">ClassicLinkDnsSupport'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681059329"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681059329"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClassicLinkDnsSupport
-</span><a href="#local-6989586621681059330"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:classicLinkDnsSupported:ClassicLinkDnsSupport' :: Maybe Bool
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:classicLinkDnsSupported:ClassicLinkDnsSupport' :: Maybe Bool
 </span><a href="Network.AWS.EC2.Types.ClassicLinkDnsSupport.html#%24sel%3AclassicLinkDnsSupported%3AClassicLinkDnsSupport%27"><span class="hs-identifier hs-var">classicLinkDnsSupported</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681059329"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClassicLinkDnsSupport.html#ClassicLinkDnsSupport"><span class="hs-identifier hs-type">ClassicLinkDnsSupport</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- | The ID of the VPC.</span><span>
-</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.EC2.Types.ClassicLinkDnsSupport.html#classicLinkDnsSupport_vpcId"><span class="hs-identifier hs-type">classicLinkDnsSupport_vpcId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClassicLinkDnsSupport.html#ClassicLinkDnsSupport"><span class="hs-identifier hs-type">ClassicLinkDnsSupport</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-64"></span><span id="classicLinkDnsSupport_vpcId"><span class="annot"><span class="annottext">classicLinkDnsSupport_vpcId :: (Maybe Text -&gt; f (Maybe Text))
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | The ID of the VPC.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.EC2.Types.ClassicLinkDnsSupport.html#classicLinkDnsSupport_vpcId"><span class="hs-identifier hs-type">classicLinkDnsSupport_vpcId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClassicLinkDnsSupport.html#ClassicLinkDnsSupport"><span class="hs-identifier hs-type">ClassicLinkDnsSupport</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span id="classicLinkDnsSupport_vpcId"><span class="annot"><span class="annottext">classicLinkDnsSupport_vpcId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ClassicLinkDnsSupport -&gt; f ClassicLinkDnsSupport
 </span><a href="Network.AWS.EC2.Types.ClassicLinkDnsSupport.html#classicLinkDnsSupport_vpcId"><span class="hs-identifier hs-var hs-var">classicLinkDnsSupport_vpcId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClassicLinkDnsSupport -&gt; Maybe Text)
 -&gt; (ClassicLinkDnsSupport -&gt; Maybe Text -&gt; ClassicLinkDnsSupport)
@@ -153,43 +129,66 @@ $sel:classicLinkDnsSupported:ClassicLinkDnsSupport' :: ClassicLinkDnsSupport -&g
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ClassicLinkDnsSupport.html#ClassicLinkDnsSupport%27"><span class="hs-identifier hs-type">ClassicLinkDnsSupport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681059327"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ClassicLinkDnsSupport.html#ClassicLinkDnsSupport%27"><span class="hs-identifier hs-type">ClassicLinkDnsSupport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681092903"><span class="annot"><span class="annottext">Maybe Text
 vpcId :: Maybe Text
 $sel:vpcId:ClassicLinkDnsSupport' :: ClassicLinkDnsSupport -&gt; Maybe Text
-</span><a href="#local-6989586621681059327"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681059327"><span class="hs-identifier hs-var">vpcId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681059326"><span class="annot"><span class="annottext">s :: ClassicLinkDnsSupport
-</span><a href="#local-6989586621681059326"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ClassicLinkDnsSupport.html#ClassicLinkDnsSupport%27"><span class="hs-identifier hs-type">ClassicLinkDnsSupport'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681059325"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681059325"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClassicLinkDnsSupport
-</span><a href="#local-6989586621681059326"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcId:ClassicLinkDnsSupport' :: Maybe Text
+</span><a href="#local-6989586621681092903"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681092903"><span class="hs-identifier hs-var">vpcId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681092902"><span class="annot"><span class="annottext">s :: ClassicLinkDnsSupport
+</span><a href="#local-6989586621681092902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ClassicLinkDnsSupport.html#ClassicLinkDnsSupport%27"><span class="hs-identifier hs-type">ClassicLinkDnsSupport'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681092901"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681092901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClassicLinkDnsSupport
+</span><a href="#local-6989586621681092902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcId:ClassicLinkDnsSupport' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.ClassicLinkDnsSupport.html#%24sel%3AvpcId%3AClassicLinkDnsSupport%27"><span class="hs-identifier hs-var">vpcId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681059325"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClassicLinkDnsSupport.html#ClassicLinkDnsSupport"><span class="hs-identifier hs-type">ClassicLinkDnsSupport</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClassicLinkDnsSupport.html#ClassicLinkDnsSupport"><span class="hs-identifier hs-type">ClassicLinkDnsSupport</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621681059322"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ClassicLinkDnsSupport
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681059320"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681059320"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Maybe Text -&gt; ClassicLinkDnsSupport
+</span><a href="#local-6989586621681092901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClassicLinkDnsSupport.html#ClassicLinkDnsSupport"><span class="hs-identifier hs-type">ClassicLinkDnsSupport</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | Indicates whether ClassicLink DNS support is enabled for the VPC.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.EC2.Types.ClassicLinkDnsSupport.html#classicLinkDnsSupport_classicLinkDnsSupported"><span class="hs-identifier hs-type">classicLinkDnsSupport_classicLinkDnsSupported</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClassicLinkDnsSupport.html#ClassicLinkDnsSupport"><span class="hs-identifier hs-type">ClassicLinkDnsSupport</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="classicLinkDnsSupport_classicLinkDnsSupported"><span class="annot"><span class="annottext">classicLinkDnsSupport_classicLinkDnsSupported :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ClassicLinkDnsSupport -&gt; f ClassicLinkDnsSupport
+</span><a href="Network.AWS.EC2.Types.ClassicLinkDnsSupport.html#classicLinkDnsSupport_classicLinkDnsSupported"><span class="hs-identifier hs-var hs-var">classicLinkDnsSupport_classicLinkDnsSupported</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClassicLinkDnsSupport -&gt; Maybe Bool)
+-&gt; (ClassicLinkDnsSupport -&gt; Maybe Bool -&gt; ClassicLinkDnsSupport)
+-&gt; Lens
+     ClassicLinkDnsSupport
+     ClassicLinkDnsSupport
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ClassicLinkDnsSupport.html#ClassicLinkDnsSupport%27"><span class="hs-identifier hs-type">ClassicLinkDnsSupport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681092899"><span class="annot"><span class="annottext">Maybe Bool
+classicLinkDnsSupported :: Maybe Bool
+$sel:classicLinkDnsSupported:ClassicLinkDnsSupport' :: ClassicLinkDnsSupport -&gt; Maybe Bool
+</span><a href="#local-6989586621681092899"><span class="hs-identifier hs-var hs-var">classicLinkDnsSupported</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681092899"><span class="hs-identifier hs-var">classicLinkDnsSupported</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681092898"><span class="annot"><span class="annottext">s :: ClassicLinkDnsSupport
+</span><a href="#local-6989586621681092898"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ClassicLinkDnsSupport.html#ClassicLinkDnsSupport%27"><span class="hs-identifier hs-type">ClassicLinkDnsSupport'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681092897"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681092897"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClassicLinkDnsSupport
+</span><a href="#local-6989586621681092898"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:classicLinkDnsSupported:ClassicLinkDnsSupport' :: Maybe Bool
+</span><a href="Network.AWS.EC2.Types.ClassicLinkDnsSupport.html#%24sel%3AclassicLinkDnsSupported%3AClassicLinkDnsSupport%27"><span class="hs-identifier hs-var">classicLinkDnsSupported</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681092897"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClassicLinkDnsSupport.html#ClassicLinkDnsSupport"><span class="hs-identifier hs-type">ClassicLinkDnsSupport</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClassicLinkDnsSupport.html#ClassicLinkDnsSupport"><span class="hs-identifier hs-type">ClassicLinkDnsSupport</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621681092894"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ClassicLinkDnsSupport
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681092892"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681092892"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Bool -&gt; ClassicLinkDnsSupport
 </span><a href="Network.AWS.EC2.Types.ClassicLinkDnsSupport.html#ClassicLinkDnsSupport%27"><span class="hs-identifier hs-var">ClassicLinkDnsSupport'</span></a></span><span>
-</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; Maybe Text -&gt; ClassicLinkDnsSupport)
--&gt; Either String (Maybe Bool)
--&gt; Either String (Maybe Text -&gt; ClassicLinkDnsSupport)
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Bool -&gt; ClassicLinkDnsSupport)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Bool -&gt; ClassicLinkDnsSupport)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681059320"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;classicLinkDnsSupported&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; ClassicLinkDnsSupport)
--&gt; Either String (Maybe Text)
--&gt; Either String ClassicLinkDnsSupport
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681059320"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681092892"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;vpcId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681059314"><span id="local-6989586621681059316"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClassicLinkDnsSupport.html#ClassicLinkDnsSupport"><span class="hs-identifier hs-type">ClassicLinkDnsSupport</span></a></span></span></span><span>
-</span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681059311"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClassicLinkDnsSupport.html#ClassicLinkDnsSupport"><span class="hs-identifier hs-type">ClassicLinkDnsSupport</span></a></span></span><span>
-</span><span id="line-75"></span></pre></body></html>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Bool -&gt; ClassicLinkDnsSupport)
+-&gt; Either String (Maybe Bool)
+-&gt; Either String ClassicLinkDnsSupport
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681092892"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;classicLinkDnsSupported&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681092886"><span id="local-6989586621681092888"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClassicLinkDnsSupport.html#ClassicLinkDnsSupport"><span class="hs-identifier hs-type">ClassicLinkDnsSupport</span></a></span></span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681092883"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClassicLinkDnsSupport.html#ClassicLinkDnsSupport"><span class="hs-identifier hs-type">ClassicLinkDnsSupport</span></a></span></span><span>
+</span><span id="line-74"></span></pre></body></html>

@@ -52,12 +52,12 @@
 </span><span id="line-52"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html Amazon SES Developer Guide&gt;.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- /See:/ 'newDeleteTemplate' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679286189"><span id="local-6989586621679286190"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTemplate"><span class="annot"><a href="Network.AWS.SES.DeleteTemplate.html#DeleteTemplate"><span class="hs-identifier hs-var">DeleteTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTemplate%27"><span class="annot"><a href="Network.AWS.SES.DeleteTemplate.html#DeleteTemplate%27"><span class="hs-identifier hs-var">DeleteTemplate'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679286422"><span id="local-6989586621679286423"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTemplate"><span class="annot"><a href="Network.AWS.SES.DeleteTemplate.html#DeleteTemplate"><span class="hs-identifier hs-var">DeleteTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTemplate%27"><span class="annot"><a href="Network.AWS.SES.DeleteTemplate.html#DeleteTemplate%27"><span class="hs-identifier hs-var">DeleteTemplate'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the template to be deleted.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AtemplateName%3ADeleteTemplate%27"><span class="annot"><span class="annottext">DeleteTemplate -&gt; Text
 </span><a href="Network.AWS.SES.DeleteTemplate.html#%24sel%3AtemplateName%3ADeleteTemplate%27"><span class="hs-identifier hs-var hs-var">templateName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679286183"><span id="local-6989586621679286185"><span class="annot"><span class="annottext">DeleteTemplate -&gt; DeleteTemplate -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679286416"><span id="local-6989586621679286418"><span class="annot"><span class="annottext">DeleteTemplate -&gt; DeleteTemplate -&gt; Bool
 (DeleteTemplate -&gt; DeleteTemplate -&gt; Bool)
 -&gt; (DeleteTemplate -&gt; DeleteTemplate -&gt; Bool) -&gt; Eq DeleteTemplate
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteTemplate -&gt; DeleteTemplate -&gt; Bool
 == :: DeleteTemplate -&gt; DeleteTemplate -&gt; Bool
 $c== :: DeleteTemplate -&gt; DeleteTemplate -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286174"><span id="local-6989586621679286176"><span id="local-6989586621679286178"><span id="local-6989586621679286180"><span class="annot"><span class="annottext">ReadPrec [DeleteTemplate]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286407"><span id="local-6989586621679286409"><span id="local-6989586621679286411"><span id="local-6989586621679286413"><span class="annot"><span class="annottext">ReadPrec [DeleteTemplate]
 ReadPrec DeleteTemplate
 Int -&gt; ReadS DeleteTemplate
 ReadS [DeleteTemplate]
@@ -85,7 +85,7 @@ readList :: ReadS [DeleteTemplate]
 $creadList :: ReadS [DeleteTemplate]
 readsPrec :: Int -&gt; ReadS DeleteTemplate
 $creadsPrec :: Int -&gt; ReadS DeleteTemplate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286167"><span id="local-6989586621679286169"><span id="local-6989586621679286171"><span class="annot"><span class="annottext">Int -&gt; DeleteTemplate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286400"><span id="local-6989586621679286402"><span id="local-6989586621679286404"><span class="annot"><span class="annottext">Int -&gt; DeleteTemplate -&gt; ShowS
 [DeleteTemplate] -&gt; ShowS
 DeleteTemplate -&gt; String
 (Int -&gt; DeleteTemplate -&gt; ShowS)
@@ -125,12 +125,12 @@ $cfrom :: forall x. DeleteTemplate -&gt; Rep DeleteTemplate x
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.DeleteTemplate.html#DeleteTemplate"><span class="hs-identifier hs-type">DeleteTemplate</span></a></span><span>
 </span><span id="line-74"></span><span id="newDeleteTemplate"><span class="annot"><span class="annottext">newDeleteTemplate :: Text -&gt; DeleteTemplate
-</span><a href="Network.AWS.SES.DeleteTemplate.html#newDeleteTemplate"><span class="hs-identifier hs-var hs-var">newDeleteTemplate</span></a></span></span><span> </span><span id="local-6989586621679286162"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679286162"><span class="hs-identifier hs-var">pTemplateName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SES.DeleteTemplate.html#newDeleteTemplate"><span class="hs-identifier hs-var hs-var">newDeleteTemplate</span></a></span></span><span> </span><span id="local-6989586621679286395"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679286395"><span class="hs-identifier hs-var">pTemplateName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">DeleteTemplate' :: Text -&gt; DeleteTemplate
 </span><a href="Network.AWS.SES.DeleteTemplate.html#DeleteTemplate%27"><span class="hs-identifier hs-type">DeleteTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateName:DeleteTemplate' :: Text
 </span><a href="Network.AWS.SES.DeleteTemplate.html#%24sel%3AtemplateName%3ADeleteTemplate%27"><span class="hs-identifier hs-var">templateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679286162"><span class="hs-identifier hs-var">pTemplateName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679286395"><span class="hs-identifier hs-var">pTemplateName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | The name of the template to be deleted.</span><span>
 </span><span id="line-78"></span><span class="annot"><a href="Network.AWS.SES.DeleteTemplate.html#deleteTemplate_templateName"><span class="hs-identifier hs-type">deleteTemplate_templateName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteTemplate.html#DeleteTemplate"><span class="hs-identifier hs-type">DeleteTemplate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -139,27 +139,27 @@ $cfrom :: forall x. DeleteTemplate -&gt; Rep DeleteTemplate x
 -&gt; (DeleteTemplate -&gt; Text -&gt; DeleteTemplate)
 -&gt; Lens DeleteTemplate DeleteTemplate Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.DeleteTemplate.html#DeleteTemplate%27"><span class="hs-identifier hs-type">DeleteTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286159"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.DeleteTemplate.html#DeleteTemplate%27"><span class="hs-identifier hs-type">DeleteTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286392"><span class="annot"><span class="annottext">Text
 templateName :: Text
 $sel:templateName:DeleteTemplate' :: DeleteTemplate -&gt; Text
-</span><a href="#local-6989586621679286159"><span class="hs-identifier hs-var hs-var">templateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679286159"><span class="hs-identifier hs-var">templateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286158"><span class="annot"><span class="annottext">s :: DeleteTemplate
-</span><a href="#local-6989586621679286158"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.DeleteTemplate.html#DeleteTemplate%27"><span class="hs-identifier hs-type">DeleteTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286157"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679286157"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTemplate
-</span><a href="#local-6989586621679286158"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateName:DeleteTemplate' :: Text
+</span><a href="#local-6989586621679286392"><span class="hs-identifier hs-var hs-var">templateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679286392"><span class="hs-identifier hs-var">templateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286391"><span class="annot"><span class="annottext">s :: DeleteTemplate
+</span><a href="#local-6989586621679286391"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.DeleteTemplate.html#DeleteTemplate%27"><span class="hs-identifier hs-type">DeleteTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286390"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679286390"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTemplate
+</span><a href="#local-6989586621679286391"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateName:DeleteTemplate' :: Text
 </span><a href="Network.AWS.SES.DeleteTemplate.html#%24sel%3AtemplateName%3ADeleteTemplate%27"><span class="hs-identifier hs-var">templateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679286157"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteTemplate.html#DeleteTemplate"><span class="hs-identifier hs-type">DeleteTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679286390"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteTemplate.html#DeleteTemplate"><span class="hs-identifier hs-type">DeleteTemplate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteTemplate.html#DeleteTemplate"><span class="hs-identifier hs-type">DeleteTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-82"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-83"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteTemplate.html#DeleteTemplate"><span class="hs-identifier hs-type">DeleteTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><a href="Network.AWS.SES.DeleteTemplate.html#DeleteTemplateResponse"><span class="hs-identifier hs-type">DeleteTemplateResponse</span></a></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679286153"><span class="annot"><span class="annottext">request :: DeleteTemplate -&gt; Request DeleteTemplate
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679286386"><span class="annot"><span class="annottext">request :: DeleteTemplate -&gt; Request DeleteTemplate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteTemplate -&gt; Request DeleteTemplate
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SES.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679286149"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679286382"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteTemplate
 -&gt; ClientResponse ClientBody
@@ -188,10 +188,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeleteTemplateResult&quot;</span></span><span>
-</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679286146"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679286146"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679286145"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679286145"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679286144"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679286144"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679286379"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679286379"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679286378"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679286378"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679286377"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679286377"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteTemplateResponse
 </span><a href="Network.AWS.SES.DeleteTemplate.html#DeleteTemplateResponse%27"><span class="hs-identifier hs-var">DeleteTemplateResponse'</span></a></span><span>
 </span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteTemplateResponse)
@@ -202,15 +202,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679286146"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679286379"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286137"><span id="local-6989586621679286139"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteTemplate.html#DeleteTemplate"><span class="hs-identifier hs-type">DeleteTemplate</span></a></span></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286370"><span id="local-6989586621679286372"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteTemplate.html#DeleteTemplate"><span class="hs-identifier hs-type">DeleteTemplate</span></a></span></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286134"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteTemplate.html#DeleteTemplate"><span class="hs-identifier hs-type">DeleteTemplate</span></a></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286367"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteTemplate.html#DeleteTemplate"><span class="hs-identifier hs-type">DeleteTemplate</span></a></span></span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteTemplate.html#DeleteTemplate"><span class="hs-identifier hs-type">DeleteTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679286130"><span class="annot"><span class="annottext">toHeaders :: DeleteTemplate -&gt; ResponseHeaders
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679286363"><span class="annot"><span class="annottext">toHeaders :: DeleteTemplate -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteTemplate -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -218,18 +218,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteTemplate.html#DeleteTemplate"><span class="hs-identifier hs-type">DeleteTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679286125"><span class="annot"><span class="annottext">toPath :: DeleteTemplate -&gt; ByteString
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679286358"><span class="annot"><span class="annottext">toPath :: DeleteTemplate -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteTemplate -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteTemplate.html#DeleteTemplate"><span class="hs-identifier hs-type">DeleteTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679286121"><span class="annot"><span class="annottext">toQuery :: DeleteTemplate -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteTemplate.html#DeleteTemplate%27"><span class="hs-identifier hs-type">DeleteTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286119"><span class="annot"><span class="annottext">Text
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679286354"><span class="annot"><span class="annottext">toQuery :: DeleteTemplate -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteTemplate.html#DeleteTemplate%27"><span class="hs-identifier hs-type">DeleteTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286352"><span class="annot"><span class="annottext">Text
 templateName :: Text
 $sel:templateName:DeleteTemplate' :: DeleteTemplate -&gt; Text
-</span><a href="#local-6989586621679286119"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679286352"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -249,16 +249,16 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;TemplateName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679286119"><span class="hs-identifier hs-var">templateName</span></a></span><span>
+</span><a href="#local-6989586621679286352"><span class="hs-identifier hs-var">templateName</span></a></span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- | /See:/ 'newDeleteTemplateResponse' smart constructor.</span><span>
-</span><span id="line-115"></span><span id="local-6989586621679286116"><span id="local-6989586621679286117"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTemplateResponse"><span class="annot"><a href="Network.AWS.SES.DeleteTemplate.html#DeleteTemplateResponse"><span class="hs-identifier hs-var">DeleteTemplateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTemplateResponse%27"><span class="annot"><a href="Network.AWS.SES.DeleteTemplate.html#DeleteTemplateResponse%27"><span class="hs-identifier hs-var">DeleteTemplateResponse'</span></a></span></span><span>
+</span><span id="line-115"></span><span id="local-6989586621679286349"><span id="local-6989586621679286350"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTemplateResponse"><span class="annot"><a href="Network.AWS.SES.DeleteTemplate.html#DeleteTemplateResponse"><span class="hs-identifier hs-var">DeleteTemplateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTemplateResponse%27"><span class="annot"><a href="Network.AWS.SES.DeleteTemplate.html#DeleteTemplateResponse%27"><span class="hs-identifier hs-var">DeleteTemplateResponse'</span></a></span></span><span>
 </span><span id="line-116"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-117"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteTemplateResponse%27"><span class="annot"><span class="annottext">DeleteTemplateResponse -&gt; Int
 </span><a href="Network.AWS.SES.DeleteTemplate.html#%24sel%3AhttpStatus%3ADeleteTemplateResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-118"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-119"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679286111"><span id="local-6989586621679286113"><span class="annot"><span class="annottext">DeleteTemplateResponse -&gt; DeleteTemplateResponse -&gt; Bool
+</span><span id="line-119"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679286344"><span id="local-6989586621679286346"><span class="annot"><span class="annottext">DeleteTemplateResponse -&gt; DeleteTemplateResponse -&gt; Bool
 (DeleteTemplateResponse -&gt; DeleteTemplateResponse -&gt; Bool)
 -&gt; (DeleteTemplateResponse -&gt; DeleteTemplateResponse -&gt; Bool)
 -&gt; Eq DeleteTemplateResponse
@@ -267,7 +267,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteTemplateResponse -&gt; DeleteTemplateResponse -&gt; Bool
 == :: DeleteTemplateResponse -&gt; DeleteTemplateResponse -&gt; Bool
 $c== :: DeleteTemplateResponse -&gt; DeleteTemplateResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286103"><span id="local-6989586621679286105"><span id="local-6989586621679286107"><span id="local-6989586621679286109"><span class="annot"><span class="annottext">ReadPrec [DeleteTemplateResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286336"><span id="local-6989586621679286338"><span id="local-6989586621679286340"><span id="local-6989586621679286342"><span class="annot"><span class="annottext">ReadPrec [DeleteTemplateResponse]
 ReadPrec DeleteTemplateResponse
 Int -&gt; ReadS DeleteTemplateResponse
 ReadS [DeleteTemplateResponse]
@@ -287,7 +287,7 @@ readList :: ReadS [DeleteTemplateResponse]
 $creadList :: ReadS [DeleteTemplateResponse]
 readsPrec :: Int -&gt; ReadS DeleteTemplateResponse
 $creadsPrec :: Int -&gt; ReadS DeleteTemplateResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286097"><span id="local-6989586621679286099"><span id="local-6989586621679286101"><span class="annot"><span class="annottext">Int -&gt; DeleteTemplateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286330"><span id="local-6989586621679286332"><span id="local-6989586621679286334"><span class="annot"><span class="annottext">Int -&gt; DeleteTemplateResponse -&gt; ShowS
 [DeleteTemplateResponse] -&gt; ShowS
 DeleteTemplateResponse -&gt; String
 (Int -&gt; DeleteTemplateResponse -&gt; ShowS)
@@ -328,12 +328,12 @@ $cfrom :: forall x. DeleteTemplateResponse -&gt; Rep DeleteTemplateResponse x
 </span><span id="line-132"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-133"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.DeleteTemplate.html#DeleteTemplateResponse"><span class="hs-identifier hs-type">DeleteTemplateResponse</span></a></span><span>
 </span><span id="line-134"></span><span id="newDeleteTemplateResponse"><span class="annot"><span class="annottext">newDeleteTemplateResponse :: Int -&gt; DeleteTemplateResponse
-</span><a href="Network.AWS.SES.DeleteTemplate.html#newDeleteTemplateResponse"><span class="hs-identifier hs-var hs-var">newDeleteTemplateResponse</span></a></span></span><span> </span><span id="local-6989586621679286094"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679286094"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SES.DeleteTemplate.html#newDeleteTemplateResponse"><span class="hs-identifier hs-var hs-var">newDeleteTemplateResponse</span></a></span></span><span> </span><span id="local-6989586621679286327"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679286327"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>  </span><span class="annot"><span class="annottext">DeleteTemplateResponse' :: Int -&gt; DeleteTemplateResponse
 </span><a href="Network.AWS.SES.DeleteTemplate.html#DeleteTemplateResponse%27"><span class="hs-identifier hs-type">DeleteTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteTemplateResponse' :: Int
 </span><a href="Network.AWS.SES.DeleteTemplate.html#%24sel%3AhttpStatus%3ADeleteTemplateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679286094"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679286327"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-138"></span><span class="annot"><a href="Network.AWS.SES.DeleteTemplate.html#deleteTemplateResponse_httpStatus"><span class="hs-identifier hs-type">deleteTemplateResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteTemplate.html#DeleteTemplateResponse"><span class="hs-identifier hs-type">DeleteTemplateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -343,16 +343,16 @@ $cfrom :: forall x. DeleteTemplateResponse -&gt; Rep DeleteTemplateResponse x
 -&gt; (DeleteTemplateResponse -&gt; Int -&gt; DeleteTemplateResponse)
 -&gt; Lens DeleteTemplateResponse DeleteTemplateResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.DeleteTemplate.html#DeleteTemplateResponse%27"><span class="hs-identifier hs-type">DeleteTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286093"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.DeleteTemplate.html#DeleteTemplateResponse%27"><span class="hs-identifier hs-type">DeleteTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286326"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteTemplateResponse' :: DeleteTemplateResponse -&gt; Int
-</span><a href="#local-6989586621679286093"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679286093"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286092"><span class="annot"><span class="annottext">s :: DeleteTemplateResponse
-</span><a href="#local-6989586621679286092"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.DeleteTemplate.html#DeleteTemplateResponse%27"><span class="hs-identifier hs-type">DeleteTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286091"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679286091"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTemplateResponse
-</span><a href="#local-6989586621679286092"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteTemplateResponse' :: Int
+</span><a href="#local-6989586621679286326"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679286326"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286325"><span class="annot"><span class="annottext">s :: DeleteTemplateResponse
+</span><a href="#local-6989586621679286325"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.DeleteTemplate.html#DeleteTemplateResponse%27"><span class="hs-identifier hs-type">DeleteTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286324"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679286324"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTemplateResponse
+</span><a href="#local-6989586621679286325"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteTemplateResponse' :: Int
 </span><a href="Network.AWS.SES.DeleteTemplate.html#%24sel%3AhttpStatus%3ADeleteTemplateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679286091"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteTemplate.html#DeleteTemplateResponse"><span class="hs-identifier hs-type">DeleteTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679286324"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteTemplate.html#DeleteTemplateResponse"><span class="hs-identifier hs-type">DeleteTemplateResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286089"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteTemplate.html#DeleteTemplateResponse"><span class="hs-identifier hs-type">DeleteTemplateResponse</span></a></span></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286322"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.DeleteTemplate.html#DeleteTemplateResponse"><span class="hs-identifier hs-type">DeleteTemplateResponse</span></a></span></span><span>
 </span><span id="line-142"></span></pre></body></html>

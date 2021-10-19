@@ -48,13 +48,13 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newGetTelemetryMetadata' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679254850"><span id="local-6989586621679254851"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTelemetryMetadata"><span class="annot"><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#GetTelemetryMetadata"><span class="hs-identifier hs-var">GetTelemetryMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTelemetryMetadata%27"><span class="annot"><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#GetTelemetryMetadata%27"><span class="hs-identifier hs-var">GetTelemetryMetadata'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679255243"><span id="local-6989586621679255244"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTelemetryMetadata"><span class="annot"><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#GetTelemetryMetadata"><span class="hs-identifier hs-var">GetTelemetryMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTelemetryMetadata%27"><span class="annot"><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#GetTelemetryMetadata%27"><span class="hs-identifier hs-var">GetTelemetryMetadata'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN that specifies the assessment run that has the telemetry data</span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-comment">-- that you want to obtain.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AassessmentRunArn%3AGetTelemetryMetadata%27"><span class="annot"><span class="annottext">GetTelemetryMetadata -&gt; Text
 </span><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#%24sel%3AassessmentRunArn%3AGetTelemetryMetadata%27"><span class="hs-identifier hs-var hs-var">assessmentRunArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679254844"><span id="local-6989586621679254846"><span class="annot"><span class="annottext">GetTelemetryMetadata -&gt; GetTelemetryMetadata -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679255237"><span id="local-6989586621679255239"><span class="annot"><span class="annottext">GetTelemetryMetadata -&gt; GetTelemetryMetadata -&gt; Bool
 (GetTelemetryMetadata -&gt; GetTelemetryMetadata -&gt; Bool)
 -&gt; (GetTelemetryMetadata -&gt; GetTelemetryMetadata -&gt; Bool)
 -&gt; Eq GetTelemetryMetadata
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetTelemetryMetadata -&gt; GetTelemetryMetadata -&gt; Bool
 == :: GetTelemetryMetadata -&gt; GetTelemetryMetadata -&gt; Bool
 $c== :: GetTelemetryMetadata -&gt; GetTelemetryMetadata -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254835"><span id="local-6989586621679254837"><span id="local-6989586621679254839"><span id="local-6989586621679254841"><span class="annot"><span class="annottext">ReadPrec [GetTelemetryMetadata]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255228"><span id="local-6989586621679255230"><span id="local-6989586621679255232"><span id="local-6989586621679255234"><span class="annot"><span class="annottext">ReadPrec [GetTelemetryMetadata]
 ReadPrec GetTelemetryMetadata
 Int -&gt; ReadS GetTelemetryMetadata
 ReadS [GetTelemetryMetadata]
@@ -83,7 +83,7 @@ readList :: ReadS [GetTelemetryMetadata]
 $creadList :: ReadS [GetTelemetryMetadata]
 readsPrec :: Int -&gt; ReadS GetTelemetryMetadata
 $creadsPrec :: Int -&gt; ReadS GetTelemetryMetadata
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254828"><span id="local-6989586621679254830"><span id="local-6989586621679254832"><span class="annot"><span class="annottext">Int -&gt; GetTelemetryMetadata -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255221"><span id="local-6989586621679255223"><span id="local-6989586621679255225"><span class="annot"><span class="annottext">Int -&gt; GetTelemetryMetadata -&gt; ShowS
 [GetTelemetryMetadata] -&gt; ShowS
 GetTelemetryMetadata -&gt; String
 (Int -&gt; GetTelemetryMetadata -&gt; ShowS)
@@ -124,14 +124,14 @@ $cfrom :: forall x. GetTelemetryMetadata -&gt; Rep GetTelemetryMetadata x
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#GetTelemetryMetadata"><span class="hs-identifier hs-type">GetTelemetryMetadata</span></a></span><span>
 </span><span id="line-72"></span><span id="newGetTelemetryMetadata"><span class="annot"><span class="annottext">newGetTelemetryMetadata :: Text -&gt; GetTelemetryMetadata
-</span><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#newGetTelemetryMetadata"><span class="hs-identifier hs-var hs-var">newGetTelemetryMetadata</span></a></span></span><span> </span><span id="local-6989586621679254823"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679254823"><span class="hs-identifier hs-var">pAssessmentRunArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#newGetTelemetryMetadata"><span class="hs-identifier hs-var hs-var">newGetTelemetryMetadata</span></a></span></span><span> </span><span id="local-6989586621679255216"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679255216"><span class="hs-identifier hs-var">pAssessmentRunArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">GetTelemetryMetadata' :: Text -&gt; GetTelemetryMetadata
 </span><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#GetTelemetryMetadata%27"><span class="hs-identifier hs-type">GetTelemetryMetadata'</span></a></span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:assessmentRunArn:GetTelemetryMetadata' :: Text
 </span><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#%24sel%3AassessmentRunArn%3AGetTelemetryMetadata%27"><span class="hs-identifier hs-var">assessmentRunArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679254823"><span class="hs-identifier hs-var">pAssessmentRunArn_</span></a></span><span>
+</span><a href="#local-6989586621679255216"><span class="hs-identifier hs-var">pAssessmentRunArn_</span></a></span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | The ARN that specifies the assessment run that has the telemetry data</span><span>
@@ -142,27 +142,27 @@ $cfrom :: forall x. GetTelemetryMetadata -&gt; Rep GetTelemetryMetadata x
 -&gt; (GetTelemetryMetadata -&gt; Text -&gt; GetTelemetryMetadata)
 -&gt; Lens GetTelemetryMetadata GetTelemetryMetadata Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#GetTelemetryMetadata%27"><span class="hs-identifier hs-type">GetTelemetryMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254820"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#GetTelemetryMetadata%27"><span class="hs-identifier hs-type">GetTelemetryMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255213"><span class="annot"><span class="annottext">Text
 assessmentRunArn :: Text
 $sel:assessmentRunArn:GetTelemetryMetadata' :: GetTelemetryMetadata -&gt; Text
-</span><a href="#local-6989586621679254820"><span class="hs-identifier hs-var hs-var">assessmentRunArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679254820"><span class="hs-identifier hs-var">assessmentRunArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254819"><span class="annot"><span class="annottext">s :: GetTelemetryMetadata
-</span><a href="#local-6989586621679254819"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#GetTelemetryMetadata%27"><span class="hs-identifier hs-type">GetTelemetryMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254818"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679254818"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTelemetryMetadata
-</span><a href="#local-6989586621679254819"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assessmentRunArn:GetTelemetryMetadata' :: Text
+</span><a href="#local-6989586621679255213"><span class="hs-identifier hs-var hs-var">assessmentRunArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679255213"><span class="hs-identifier hs-var">assessmentRunArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255212"><span class="annot"><span class="annottext">s :: GetTelemetryMetadata
+</span><a href="#local-6989586621679255212"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#GetTelemetryMetadata%27"><span class="hs-identifier hs-type">GetTelemetryMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255211"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679255211"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTelemetryMetadata
+</span><a href="#local-6989586621679255212"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assessmentRunArn:GetTelemetryMetadata' :: Text
 </span><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#%24sel%3AassessmentRunArn%3AGetTelemetryMetadata%27"><span class="hs-identifier hs-var">assessmentRunArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679254818"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#GetTelemetryMetadata"><span class="hs-identifier hs-type">GetTelemetryMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679255211"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#GetTelemetryMetadata"><span class="hs-identifier hs-type">GetTelemetryMetadata</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#GetTelemetryMetadata"><span class="hs-identifier hs-type">GetTelemetryMetadata</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-84"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-85"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#GetTelemetryMetadata"><span class="hs-identifier hs-type">GetTelemetryMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#GetTelemetryMetadataResponse"><span class="hs-identifier hs-type">GetTelemetryMetadataResponse</span></a></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679254814"><span class="annot"><span class="annottext">request :: GetTelemetryMetadata -&gt; Request GetTelemetryMetadata
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679255207"><span class="annot"><span class="annottext">request :: GetTelemetryMetadata -&gt; Request GetTelemetryMetadata
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetTelemetryMetadata -&gt; Request GetTelemetryMetadata
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Inspector.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679254810"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679255203"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetTelemetryMetadata
 -&gt; ClientResponse ClientBody
@@ -188,10 +188,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679254807"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679254807"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679254806"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679254806"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679254805"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679254805"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679255200"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679255200"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679255199"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679255199"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679255198"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679255198"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; [TelemetryMetadata] -&gt; GetTelemetryMetadataResponse
 </span><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#GetTelemetryMetadataResponse%27"><span class="hs-identifier hs-var">GetTelemetryMetadataResponse'</span></a></span><span>
 </span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; [TelemetryMetadata] -&gt; GetTelemetryMetadataResponse)
@@ -204,13 +204,13 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679254807"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679255200"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Either String ([TelemetryMetadata] -&gt; GetTelemetryMetadataResponse)
 -&gt; Either String [TelemetryMetadata]
 -&gt; Either String GetTelemetryMetadataResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679254805"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [TelemetryMetadata])
+</span><a href="#local-6989586621679255198"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [TelemetryMetadata])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;telemetryMetadata&quot;</span></span><span>
@@ -223,12 +223,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-95"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254796"><span id="local-6989586621679254798"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#GetTelemetryMetadata"><span class="hs-identifier hs-type">GetTelemetryMetadata</span></a></span></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255189"><span id="local-6989586621679255191"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#GetTelemetryMetadata"><span class="hs-identifier hs-type">GetTelemetryMetadata</span></a></span></span></span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254793"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#GetTelemetryMetadata"><span class="hs-identifier hs-type">GetTelemetryMetadata</span></a></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255186"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#GetTelemetryMetadata"><span class="hs-identifier hs-type">GetTelemetryMetadata</span></a></span></span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#GetTelemetryMetadata"><span class="hs-identifier hs-type">GetTelemetryMetadata</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679254789"><span class="annot"><span class="annottext">toHeaders :: GetTelemetryMetadata -&gt; ResponseHeaders
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679255182"><span class="annot"><span class="annottext">toHeaders :: GetTelemetryMetadata -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetTelemetryMetadata -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -255,12 +255,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-114"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254779"><span id="local-6989586621679254781"><span id="local-6989586621679254783"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#GetTelemetryMetadata"><span class="hs-identifier hs-type">GetTelemetryMetadata</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679254777"><span class="annot"><span class="annottext">toJSON :: GetTelemetryMetadata -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#GetTelemetryMetadata%27"><span class="hs-identifier hs-type">GetTelemetryMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254775"><span class="annot"><span class="annottext">Text
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255172"><span id="local-6989586621679255174"><span id="local-6989586621679255176"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#GetTelemetryMetadata"><span class="hs-identifier hs-type">GetTelemetryMetadata</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679255170"><span class="annot"><span class="annottext">toJSON :: GetTelemetryMetadata -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#GetTelemetryMetadata%27"><span class="hs-identifier hs-type">GetTelemetryMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255168"><span class="annot"><span class="annottext">Text
 assessmentRunArn :: Text
 $sel:assessmentRunArn:GetTelemetryMetadata' :: GetTelemetryMetadata -&gt; Text
-</span><a href="#local-6989586621679254775"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679255168"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -273,19 +273,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;assessmentRunArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679254775"><span class="hs-identifier hs-var">assessmentRunArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679255168"><span class="hs-identifier hs-var">assessmentRunArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#GetTelemetryMetadata"><span class="hs-identifier hs-type">GetTelemetryMetadata</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679254769"><span class="annot"><span class="annottext">toPath :: GetTelemetryMetadata -&gt; ByteString
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679255162"><span class="annot"><span class="annottext">toPath :: GetTelemetryMetadata -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetTelemetryMetadata -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#GetTelemetryMetadata"><span class="hs-identifier hs-type">GetTelemetryMetadata</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679254765"><span class="annot"><span class="annottext">toQuery :: GetTelemetryMetadata -&gt; QueryString
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679255158"><span class="annot"><span class="annottext">toQuery :: GetTelemetryMetadata -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetTelemetryMetadata -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -293,7 +293,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- | /See:/ 'newGetTelemetryMetadataResponse' smart constructor.</span><span>
-</span><span id="line-133"></span><span id="local-6989586621679254762"><span id="local-6989586621679254763"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTelemetryMetadataResponse"><span class="annot"><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#GetTelemetryMetadataResponse"><span class="hs-identifier hs-var">GetTelemetryMetadataResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTelemetryMetadataResponse%27"><span class="annot"><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#GetTelemetryMetadataResponse%27"><span class="hs-identifier hs-var">GetTelemetryMetadataResponse'</span></a></span></span><span>
+</span><span id="line-133"></span><span id="local-6989586621679255155"><span id="local-6989586621679255156"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTelemetryMetadataResponse"><span class="annot"><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#GetTelemetryMetadataResponse"><span class="hs-identifier hs-var">GetTelemetryMetadataResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTelemetryMetadataResponse%27"><span class="annot"><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#GetTelemetryMetadataResponse%27"><span class="hs-identifier hs-var">GetTelemetryMetadataResponse'</span></a></span></span><span>
 </span><span id="line-134"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-135"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetTelemetryMetadataResponse%27"><span class="annot"><span class="annottext">GetTelemetryMetadataResponse -&gt; Int
 </span><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#%24sel%3AhttpStatus%3AGetTelemetryMetadataResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -301,7 +301,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-137"></span><span>    </span><span id="%24sel%3AtelemetryMetadata%3AGetTelemetryMetadataResponse%27"><span class="annot"><span class="annottext">GetTelemetryMetadataResponse -&gt; [TelemetryMetadata]
 </span><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#%24sel%3AtelemetryMetadata%3AGetTelemetryMetadataResponse%27"><span class="hs-identifier hs-var hs-var">telemetryMetadata</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Inspector.Types.TelemetryMetadata.html#TelemetryMetadata"><span class="hs-identifier hs-type">TelemetryMetadata</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-138"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-139"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679254756"><span id="local-6989586621679254758"><span class="annot"><span class="annottext">GetTelemetryMetadataResponse
+</span><span id="line-139"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679255149"><span id="local-6989586621679255151"><span class="annot"><span class="annottext">GetTelemetryMetadataResponse
 -&gt; GetTelemetryMetadataResponse -&gt; Bool
 (GetTelemetryMetadataResponse
  -&gt; GetTelemetryMetadataResponse -&gt; Bool)
@@ -317,7 +317,7 @@ $c/= :: GetTelemetryMetadataResponse
 -&gt; GetTelemetryMetadataResponse -&gt; Bool
 $c== :: GetTelemetryMetadataResponse
 -&gt; GetTelemetryMetadataResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254748"><span id="local-6989586621679254750"><span id="local-6989586621679254752"><span id="local-6989586621679254754"><span class="annot"><span class="annottext">ReadPrec [GetTelemetryMetadataResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255141"><span id="local-6989586621679255143"><span id="local-6989586621679255145"><span id="local-6989586621679255147"><span class="annot"><span class="annottext">ReadPrec [GetTelemetryMetadataResponse]
 ReadPrec GetTelemetryMetadataResponse
 Int -&gt; ReadS GetTelemetryMetadataResponse
 ReadS [GetTelemetryMetadataResponse]
@@ -337,7 +337,7 @@ readList :: ReadS [GetTelemetryMetadataResponse]
 $creadList :: ReadS [GetTelemetryMetadataResponse]
 readsPrec :: Int -&gt; ReadS GetTelemetryMetadataResponse
 $creadsPrec :: Int -&gt; ReadS GetTelemetryMetadataResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254742"><span id="local-6989586621679254744"><span id="local-6989586621679254746"><span class="annot"><span class="annottext">Int -&gt; GetTelemetryMetadataResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255135"><span id="local-6989586621679255137"><span id="local-6989586621679255139"><span class="annot"><span class="annottext">Int -&gt; GetTelemetryMetadataResponse -&gt; ShowS
 [GetTelemetryMetadataResponse] -&gt; ShowS
 GetTelemetryMetadataResponse -&gt; String
 (Int -&gt; GetTelemetryMetadataResponse -&gt; ShowS)
@@ -385,14 +385,14 @@ GetTelemetryMetadataResponse -&gt; Rep GetTelemetryMetadataResponse x
 </span><span id="line-154"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-155"></span><span>  </span><span class="annot"><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#GetTelemetryMetadataResponse"><span class="hs-identifier hs-type">GetTelemetryMetadataResponse</span></a></span><span>
 </span><span id="line-156"></span><span id="newGetTelemetryMetadataResponse"><span class="annot"><span class="annottext">newGetTelemetryMetadataResponse :: Int -&gt; GetTelemetryMetadataResponse
-</span><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#newGetTelemetryMetadataResponse"><span class="hs-identifier hs-var hs-var">newGetTelemetryMetadataResponse</span></a></span></span><span> </span><span id="local-6989586621679254739"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679254739"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#newGetTelemetryMetadataResponse"><span class="hs-identifier hs-var hs-var">newGetTelemetryMetadataResponse</span></a></span></span><span> </span><span id="local-6989586621679255132"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679255132"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>  </span><span class="annot"><span class="annottext">GetTelemetryMetadataResponse' :: Int -&gt; [TelemetryMetadata] -&gt; GetTelemetryMetadataResponse
 </span><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#GetTelemetryMetadataResponse%27"><span class="hs-identifier hs-type">GetTelemetryMetadataResponse'</span></a></span><span>
 </span><span id="line-158"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:GetTelemetryMetadataResponse' :: Int
 </span><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#%24sel%3AhttpStatus%3AGetTelemetryMetadataResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679254739"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679255132"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:telemetryMetadata:GetTelemetryMetadataResponse' :: [TelemetryMetadata]
 </span><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#%24sel%3AtelemetryMetadata%3AGetTelemetryMetadataResponse%27"><span class="hs-identifier hs-var">telemetryMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[TelemetryMetadata]
 forall a. Monoid a =&gt; a
@@ -409,16 +409,16 @@ forall a. Monoid a =&gt; a
 -&gt; Lens
      GetTelemetryMetadataResponse GetTelemetryMetadataResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#GetTelemetryMetadataResponse%27"><span class="hs-identifier hs-type">GetTelemetryMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254738"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#GetTelemetryMetadataResponse%27"><span class="hs-identifier hs-type">GetTelemetryMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255131"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetTelemetryMetadataResponse' :: GetTelemetryMetadataResponse -&gt; Int
-</span><a href="#local-6989586621679254738"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679254738"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254737"><span class="annot"><span class="annottext">s :: GetTelemetryMetadataResponse
-</span><a href="#local-6989586621679254737"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#GetTelemetryMetadataResponse%27"><span class="hs-identifier hs-type">GetTelemetryMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254736"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679254736"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTelemetryMetadataResponse
-</span><a href="#local-6989586621679254737"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetTelemetryMetadataResponse' :: Int
+</span><a href="#local-6989586621679255131"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679255131"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255130"><span class="annot"><span class="annottext">s :: GetTelemetryMetadataResponse
+</span><a href="#local-6989586621679255130"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#GetTelemetryMetadataResponse%27"><span class="hs-identifier hs-type">GetTelemetryMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255129"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679255129"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTelemetryMetadataResponse
+</span><a href="#local-6989586621679255130"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetTelemetryMetadataResponse' :: Int
 </span><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#%24sel%3AhttpStatus%3AGetTelemetryMetadataResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679254736"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#GetTelemetryMetadataResponse"><span class="hs-identifier hs-type">GetTelemetryMetadataResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679255129"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#GetTelemetryMetadataResponse"><span class="hs-identifier hs-type">GetTelemetryMetadataResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- | Telemetry details.</span><span>
 </span><span id="line-168"></span><span class="annot"><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#getTelemetryMetadataResponse_telemetryMetadata"><span class="hs-identifier hs-type">getTelemetryMetadataResponse_telemetryMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#GetTelemetryMetadataResponse"><span class="hs-identifier hs-type">GetTelemetryMetadataResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Inspector.Types.TelemetryMetadata.html#TelemetryMetadata"><span class="hs-identifier hs-type">TelemetryMetadata</span></a></span><span class="hs-special">]</span><span>
@@ -433,16 +433,16 @@ $sel:httpStatus:GetTelemetryMetadataResponse' :: GetTelemetryMetadataResponse -&
      [TelemetryMetadata]
      [TelemetryMetadata]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#GetTelemetryMetadataResponse%27"><span class="hs-identifier hs-type">GetTelemetryMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254735"><span class="annot"><span class="annottext">[TelemetryMetadata]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#GetTelemetryMetadataResponse%27"><span class="hs-identifier hs-type">GetTelemetryMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255128"><span class="annot"><span class="annottext">[TelemetryMetadata]
 telemetryMetadata :: [TelemetryMetadata]
 $sel:telemetryMetadata:GetTelemetryMetadataResponse' :: GetTelemetryMetadataResponse -&gt; [TelemetryMetadata]
-</span><a href="#local-6989586621679254735"><span class="hs-identifier hs-var hs-var">telemetryMetadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[TelemetryMetadata]
-</span><a href="#local-6989586621679254735"><span class="hs-identifier hs-var">telemetryMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254734"><span class="annot"><span class="annottext">s :: GetTelemetryMetadataResponse
-</span><a href="#local-6989586621679254734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#GetTelemetryMetadataResponse%27"><span class="hs-identifier hs-type">GetTelemetryMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254733"><span class="annot"><span class="annottext">[TelemetryMetadata]
-</span><a href="#local-6989586621679254733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTelemetryMetadataResponse
-</span><a href="#local-6989586621679254734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:telemetryMetadata:GetTelemetryMetadataResponse' :: [TelemetryMetadata]
+</span><a href="#local-6989586621679255128"><span class="hs-identifier hs-var hs-var">telemetryMetadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[TelemetryMetadata]
+</span><a href="#local-6989586621679255128"><span class="hs-identifier hs-var">telemetryMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255127"><span class="annot"><span class="annottext">s :: GetTelemetryMetadataResponse
+</span><a href="#local-6989586621679255127"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#GetTelemetryMetadataResponse%27"><span class="hs-identifier hs-type">GetTelemetryMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255126"><span class="annot"><span class="annottext">[TelemetryMetadata]
+</span><a href="#local-6989586621679255126"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTelemetryMetadataResponse
+</span><a href="#local-6989586621679255127"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:telemetryMetadata:GetTelemetryMetadataResponse' :: [TelemetryMetadata]
 </span><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#%24sel%3AtelemetryMetadata%3AGetTelemetryMetadataResponse%27"><span class="hs-identifier hs-var">telemetryMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[TelemetryMetadata]
-</span><a href="#local-6989586621679254733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#GetTelemetryMetadataResponse"><span class="hs-identifier hs-type">GetTelemetryMetadataResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([TelemetryMetadata] -&gt; f [TelemetryMetadata])
+</span><a href="#local-6989586621679255126"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#GetTelemetryMetadataResponse"><span class="hs-identifier hs-type">GetTelemetryMetadataResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([TelemetryMetadata] -&gt; f [TelemetryMetadata])
  -&gt; GetTelemetryMetadataResponse -&gt; f GetTelemetryMetadataResponse)
 -&gt; (([TelemetryMetadata] -&gt; f [TelemetryMetadata])
     -&gt; [TelemetryMetadata] -&gt; f [TelemetryMetadata])
@@ -452,8 +452,8 @@ $sel:telemetryMetadata:GetTelemetryMetadataResponse' :: GetTelemetryMetadataResp
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([TelemetryMetadata] -&gt; f [TelemetryMetadata])
 -&gt; [TelemetryMetadata] -&gt; f [TelemetryMetadata]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254729"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#GetTelemetryMetadataResponse"><span class="hs-identifier hs-type">GetTelemetryMetadataResponse</span></a></span></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255122"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.GetTelemetryMetadata.html#GetTelemetryMetadataResponse"><span class="hs-identifier hs-type">GetTelemetryMetadataResponse</span></a></span></span><span>
 </span><span id="line-172"></span></pre></body></html>

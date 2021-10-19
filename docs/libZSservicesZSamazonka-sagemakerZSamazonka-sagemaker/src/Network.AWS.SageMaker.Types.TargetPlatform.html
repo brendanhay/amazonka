@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- of @TargetDevice@.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newTargetPlatform' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621680345401"><span id="local-6989586621680345402"></span></span><span class="hs-keyword">data</span><span> </span><span id="TargetPlatform"><span class="annot"><a href="Network.AWS.SageMaker.Types.TargetPlatform.html#TargetPlatform"><span class="hs-identifier hs-var">TargetPlatform</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TargetPlatform%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.TargetPlatform.html#TargetPlatform%27"><span class="hs-identifier hs-var">TargetPlatform'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621680346821"><span id="local-6989586621680346822"></span></span><span class="hs-keyword">data</span><span> </span><span id="TargetPlatform"><span class="annot"><a href="Network.AWS.SageMaker.Types.TargetPlatform.html#TargetPlatform"><span class="hs-identifier hs-var">TargetPlatform</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TargetPlatform%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.TargetPlatform.html#TargetPlatform%27"><span class="hs-identifier hs-var">TargetPlatform'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies a target platform accelerator (optional).</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- -   @NVIDIA@: Nvidia graphics processing unit. It also requires</span><span>
@@ -66,7 +66,7 @@
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3Aarch%3ATargetPlatform%27"><span class="annot"><span class="annottext">TargetPlatform -&gt; TargetPlatformArch
 </span><a href="Network.AWS.SageMaker.Types.TargetPlatform.html#%24sel%3Aarch%3ATargetPlatform%27"><span class="hs-identifier hs-var hs-var">arch</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TargetPlatformArch.html#TargetPlatformArch"><span class="hs-identifier hs-type">TargetPlatformArch</span></a></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680345393"><span id="local-6989586621680345395"><span class="annot"><span class="annottext">TargetPlatform -&gt; TargetPlatform -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680346813"><span id="local-6989586621680346815"><span class="annot"><span class="annottext">TargetPlatform -&gt; TargetPlatform -&gt; Bool
 (TargetPlatform -&gt; TargetPlatform -&gt; Bool)
 -&gt; (TargetPlatform -&gt; TargetPlatform -&gt; Bool) -&gt; Eq TargetPlatform
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TargetPlatform -&gt; TargetPlatform -&gt; Bool
 == :: TargetPlatform -&gt; TargetPlatform -&gt; Bool
 $c== :: TargetPlatform -&gt; TargetPlatform -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680345384"><span id="local-6989586621680345386"><span id="local-6989586621680345388"><span id="local-6989586621680345390"><span class="annot"><span class="annottext">ReadPrec [TargetPlatform]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680346804"><span id="local-6989586621680346806"><span id="local-6989586621680346808"><span id="local-6989586621680346810"><span class="annot"><span class="annottext">ReadPrec [TargetPlatform]
 ReadPrec TargetPlatform
 Int -&gt; ReadS TargetPlatform
 ReadS [TargetPlatform]
@@ -94,7 +94,7 @@ readList :: ReadS [TargetPlatform]
 $creadList :: ReadS [TargetPlatform]
 readsPrec :: Int -&gt; ReadS TargetPlatform
 $creadsPrec :: Int -&gt; ReadS TargetPlatform
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680345377"><span id="local-6989586621680345379"><span id="local-6989586621680345381"><span class="annot"><span class="annottext">Int -&gt; TargetPlatform -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680346797"><span id="local-6989586621680346799"><span id="local-6989586621680346801"><span class="annot"><span class="annottext">Int -&gt; TargetPlatform -&gt; ShowS
 [TargetPlatform] -&gt; ShowS
 TargetPlatform -&gt; String
 (Int -&gt; TargetPlatform -&gt; ShowS)
@@ -164,9 +164,9 @@ $cfrom :: forall x. TargetPlatform -&gt; Rep TargetPlatform x
 </span><span id="line-109"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TargetPlatformArch.html#TargetPlatformArch"><span class="hs-identifier hs-type">TargetPlatformArch</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-110"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TargetPlatform.html#TargetPlatform"><span class="hs-identifier hs-type">TargetPlatform</span></a></span><span>
 </span><span id="line-111"></span><span id="newTargetPlatform"><span class="annot"><span class="annottext">newTargetPlatform :: TargetPlatformOs -&gt; TargetPlatformArch -&gt; TargetPlatform
-</span><a href="Network.AWS.SageMaker.Types.TargetPlatform.html#newTargetPlatform"><span class="hs-identifier hs-var hs-var">newTargetPlatform</span></a></span></span><span> </span><span id="local-6989586621680345371"><span class="annot"><span class="annottext">TargetPlatformOs
-</span><a href="#local-6989586621680345371"><span class="hs-identifier hs-var">pOs_</span></a></span></span><span> </span><span id="local-6989586621680345370"><span class="annot"><span class="annottext">TargetPlatformArch
-</span><a href="#local-6989586621680345370"><span class="hs-identifier hs-var">pArch_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.Types.TargetPlatform.html#newTargetPlatform"><span class="hs-identifier hs-var hs-var">newTargetPlatform</span></a></span></span><span> </span><span id="local-6989586621680346791"><span class="annot"><span class="annottext">TargetPlatformOs
+</span><a href="#local-6989586621680346791"><span class="hs-identifier hs-var">pOs_</span></a></span></span><span> </span><span id="local-6989586621680346790"><span class="annot"><span class="annottext">TargetPlatformArch
+</span><a href="#local-6989586621680346790"><span class="hs-identifier hs-var">pArch_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>  </span><span class="annot"><span class="annottext">TargetPlatform' :: Maybe TargetPlatformAccelerator
 -&gt; TargetPlatformOs -&gt; TargetPlatformArch -&gt; TargetPlatform
 </span><a href="Network.AWS.SageMaker.Types.TargetPlatform.html#TargetPlatform%27"><span class="hs-identifier hs-type">TargetPlatform'</span></a></span><span>
@@ -176,10 +176,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:os:TargetPlatform' :: TargetPlatformOs
 </span><a href="Network.AWS.SageMaker.Types.TargetPlatform.html#%24sel%3Aos%3ATargetPlatform%27"><span class="hs-identifier hs-var">os</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TargetPlatformOs
-</span><a href="#local-6989586621680345371"><span class="hs-identifier hs-var">pOs_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680346791"><span class="hs-identifier hs-var">pOs_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:arch:TargetPlatform' :: TargetPlatformArch
 </span><a href="Network.AWS.SageMaker.Types.TargetPlatform.html#%24sel%3Aarch%3ATargetPlatform%27"><span class="hs-identifier hs-var">arch</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TargetPlatformArch
-</span><a href="#local-6989586621680345370"><span class="hs-identifier hs-var">pArch_</span></a></span><span>
+</span><a href="#local-6989586621680346790"><span class="hs-identifier hs-var">pArch_</span></a></span><span>
 </span><span id="line-116"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | Specifies a target platform accelerator (optional).</span><span>
@@ -203,16 +203,16 @@ forall a. Maybe a
      (Maybe TargetPlatformAccelerator)
      (Maybe TargetPlatformAccelerator)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TargetPlatform.html#TargetPlatform%27"><span class="hs-identifier hs-type">TargetPlatform'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680345366"><span class="annot"><span class="annottext">Maybe TargetPlatformAccelerator
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TargetPlatform.html#TargetPlatform%27"><span class="hs-identifier hs-type">TargetPlatform'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680346786"><span class="annot"><span class="annottext">Maybe TargetPlatformAccelerator
 accelerator :: Maybe TargetPlatformAccelerator
 $sel:accelerator:TargetPlatform' :: TargetPlatform -&gt; Maybe TargetPlatformAccelerator
-</span><a href="#local-6989586621680345366"><span class="hs-identifier hs-var hs-var">accelerator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TargetPlatformAccelerator
-</span><a href="#local-6989586621680345366"><span class="hs-identifier hs-var">accelerator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680345365"><span class="annot"><span class="annottext">s :: TargetPlatform
-</span><a href="#local-6989586621680345365"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TargetPlatform.html#TargetPlatform%27"><span class="hs-identifier hs-type">TargetPlatform'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680345364"><span class="annot"><span class="annottext">Maybe TargetPlatformAccelerator
-</span><a href="#local-6989586621680345364"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TargetPlatform
-</span><a href="#local-6989586621680345365"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accelerator:TargetPlatform' :: Maybe TargetPlatformAccelerator
+</span><a href="#local-6989586621680346786"><span class="hs-identifier hs-var hs-var">accelerator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TargetPlatformAccelerator
+</span><a href="#local-6989586621680346786"><span class="hs-identifier hs-var">accelerator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680346785"><span class="annot"><span class="annottext">s :: TargetPlatform
+</span><a href="#local-6989586621680346785"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TargetPlatform.html#TargetPlatform%27"><span class="hs-identifier hs-type">TargetPlatform'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680346784"><span class="annot"><span class="annottext">Maybe TargetPlatformAccelerator
+</span><a href="#local-6989586621680346784"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TargetPlatform
+</span><a href="#local-6989586621680346785"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accelerator:TargetPlatform' :: Maybe TargetPlatformAccelerator
 </span><a href="Network.AWS.SageMaker.Types.TargetPlatform.html#%24sel%3Aaccelerator%3ATargetPlatform%27"><span class="hs-identifier hs-var">accelerator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TargetPlatformAccelerator
-</span><a href="#local-6989586621680345364"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TargetPlatform.html#TargetPlatform"><span class="hs-identifier hs-type">TargetPlatform</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680346784"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TargetPlatform.html#TargetPlatform"><span class="hs-identifier hs-type">TargetPlatform</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | Specifies a target platform OS.</span><span>
 </span><span id="line-130"></span><span class="hs-comment">--</span><span>
@@ -229,16 +229,16 @@ $sel:accelerator:TargetPlatform' :: TargetPlatform -&gt; Maybe TargetPlatformAcc
 -&gt; Lens
      TargetPlatform TargetPlatform TargetPlatformOs TargetPlatformOs
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TargetPlatform.html#TargetPlatform%27"><span class="hs-identifier hs-type">TargetPlatform'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680345362"><span class="annot"><span class="annottext">TargetPlatformOs
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TargetPlatform.html#TargetPlatform%27"><span class="hs-identifier hs-type">TargetPlatform'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680346782"><span class="annot"><span class="annottext">TargetPlatformOs
 os :: TargetPlatformOs
 $sel:os:TargetPlatform' :: TargetPlatform -&gt; TargetPlatformOs
-</span><a href="#local-6989586621680345362"><span class="hs-identifier hs-var hs-var">os</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TargetPlatformOs
-</span><a href="#local-6989586621680345362"><span class="hs-identifier hs-var">os</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680345361"><span class="annot"><span class="annottext">s :: TargetPlatform
-</span><a href="#local-6989586621680345361"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TargetPlatform.html#TargetPlatform%27"><span class="hs-identifier hs-type">TargetPlatform'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680345360"><span class="annot"><span class="annottext">TargetPlatformOs
-</span><a href="#local-6989586621680345360"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TargetPlatform
-</span><a href="#local-6989586621680345361"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:os:TargetPlatform' :: TargetPlatformOs
+</span><a href="#local-6989586621680346782"><span class="hs-identifier hs-var hs-var">os</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TargetPlatformOs
+</span><a href="#local-6989586621680346782"><span class="hs-identifier hs-var">os</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680346781"><span class="annot"><span class="annottext">s :: TargetPlatform
+</span><a href="#local-6989586621680346781"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TargetPlatform.html#TargetPlatform%27"><span class="hs-identifier hs-type">TargetPlatform'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680346780"><span class="annot"><span class="annottext">TargetPlatformOs
+</span><a href="#local-6989586621680346780"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TargetPlatform
+</span><a href="#local-6989586621680346781"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:os:TargetPlatform' :: TargetPlatformOs
 </span><a href="Network.AWS.SageMaker.Types.TargetPlatform.html#%24sel%3Aos%3ATargetPlatform%27"><span class="hs-identifier hs-var">os</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TargetPlatformOs
-</span><a href="#local-6989586621680345360"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TargetPlatform.html#TargetPlatform"><span class="hs-identifier hs-type">TargetPlatform</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680346780"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TargetPlatform.html#TargetPlatform"><span class="hs-identifier hs-type">TargetPlatform</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | Specifies a target platform architecture.</span><span>
 </span><span id="line-140"></span><span class="hs-comment">--</span><span>
@@ -260,19 +260,19 @@ $sel:os:TargetPlatform' :: TargetPlatform -&gt; TargetPlatformOs
 -&gt; Lens
      TargetPlatform TargetPlatform TargetPlatformArch TargetPlatformArch
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TargetPlatform.html#TargetPlatform%27"><span class="hs-identifier hs-type">TargetPlatform'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680345358"><span class="annot"><span class="annottext">TargetPlatformArch
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TargetPlatform.html#TargetPlatform%27"><span class="hs-identifier hs-type">TargetPlatform'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680346778"><span class="annot"><span class="annottext">TargetPlatformArch
 arch :: TargetPlatformArch
 $sel:arch:TargetPlatform' :: TargetPlatform -&gt; TargetPlatformArch
-</span><a href="#local-6989586621680345358"><span class="hs-identifier hs-var hs-var">arch</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TargetPlatformArch
-</span><a href="#local-6989586621680345358"><span class="hs-identifier hs-var">arch</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680345357"><span class="annot"><span class="annottext">s :: TargetPlatform
-</span><a href="#local-6989586621680345357"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TargetPlatform.html#TargetPlatform%27"><span class="hs-identifier hs-type">TargetPlatform'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680345356"><span class="annot"><span class="annottext">TargetPlatformArch
-</span><a href="#local-6989586621680345356"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TargetPlatform
-</span><a href="#local-6989586621680345357"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arch:TargetPlatform' :: TargetPlatformArch
+</span><a href="#local-6989586621680346778"><span class="hs-identifier hs-var hs-var">arch</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TargetPlatformArch
+</span><a href="#local-6989586621680346778"><span class="hs-identifier hs-var">arch</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680346777"><span class="annot"><span class="annottext">s :: TargetPlatform
+</span><a href="#local-6989586621680346777"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TargetPlatform.html#TargetPlatform%27"><span class="hs-identifier hs-type">TargetPlatform'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680346776"><span class="annot"><span class="annottext">TargetPlatformArch
+</span><a href="#local-6989586621680346776"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TargetPlatform
+</span><a href="#local-6989586621680346777"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arch:TargetPlatform' :: TargetPlatformArch
 </span><a href="Network.AWS.SageMaker.Types.TargetPlatform.html#%24sel%3Aarch%3ATargetPlatform%27"><span class="hs-identifier hs-var">arch</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TargetPlatformArch
-</span><a href="#local-6989586621680345356"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TargetPlatform.html#TargetPlatform"><span class="hs-identifier hs-type">TargetPlatform</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680346776"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TargetPlatform.html#TargetPlatform"><span class="hs-identifier hs-type">TargetPlatform</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680345353"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TargetPlatform.html#TargetPlatform"><span class="hs-identifier hs-type">TargetPlatform</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621680345351"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TargetPlatform
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680346773"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TargetPlatform.html#TargetPlatform"><span class="hs-identifier hs-type">TargetPlatform</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621680346771"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TargetPlatform
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TargetPlatform)
@@ -282,8 +282,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TargetPlatform&quot;</span></span><span>
-</span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680345348"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680345348"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680346768"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680346768"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-159"></span><span>          </span><span class="annot"><span class="annottext">Maybe TargetPlatformAccelerator
 -&gt; TargetPlatformOs -&gt; TargetPlatformArch -&gt; TargetPlatform
 </span><a href="Network.AWS.SageMaker.Types.TargetPlatform.html#TargetPlatform%27"><span class="hs-identifier hs-var">TargetPlatform'</span></a></span><span>
@@ -294,7 +294,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (TargetPlatformOs -&gt; TargetPlatformArch -&gt; TargetPlatform)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680345348"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TargetPlatformAccelerator)
+</span><a href="#local-6989586621680346768"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TargetPlatformAccelerator)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Accelerator&quot;</span></span><span class="hs-special">)</span><span>
@@ -303,7 +303,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (TargetPlatformArch -&gt; TargetPlatform)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680345348"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser TargetPlatformOs
+</span><a href="#local-6989586621680346768"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser TargetPlatformOs
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Os&quot;</span></span><span class="hs-special">)</span><span>
@@ -311,19 +311,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser TargetPlatformArch -&gt; Parser TargetPlatform
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680345348"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser TargetPlatformArch
+</span><a href="#local-6989586621680346768"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser TargetPlatformArch
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Arch&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680345341"><span id="local-6989586621680345343"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TargetPlatform.html#TargetPlatform"><span class="hs-identifier hs-type">TargetPlatform</span></a></span></span></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680346761"><span id="local-6989586621680346763"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TargetPlatform.html#TargetPlatform"><span class="hs-identifier hs-type">TargetPlatform</span></a></span></span></span><span>
 </span><span id="line-166"></span><span>
-</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680345338"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TargetPlatform.html#TargetPlatform"><span class="hs-identifier hs-type">TargetPlatform</span></a></span></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680346758"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TargetPlatform.html#TargetPlatform"><span class="hs-identifier hs-type">TargetPlatform</span></a></span></span><span>
 </span><span id="line-168"></span><span>
-</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680345330"><span id="local-6989586621680345332"><span id="local-6989586621680345334"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TargetPlatform.html#TargetPlatform"><span class="hs-identifier hs-type">TargetPlatform</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621680345328"><span class="annot"><span class="annottext">toJSON :: TargetPlatform -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TargetPlatform.html#TargetPlatform%27"><span class="hs-identifier hs-type">TargetPlatform'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680345324"><span id="local-6989586621680345325"><span id="local-6989586621680345326"><span class="annot"><span class="annottext">Maybe TargetPlatformAccelerator
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680346750"><span id="local-6989586621680346752"><span id="local-6989586621680346754"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TargetPlatform.html#TargetPlatform"><span class="hs-identifier hs-type">TargetPlatform</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621680346748"><span class="annot"><span class="annottext">toJSON :: TargetPlatform -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TargetPlatform.html#TargetPlatform%27"><span class="hs-identifier hs-type">TargetPlatform'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680346744"><span id="local-6989586621680346745"><span id="local-6989586621680346746"><span class="annot"><span class="annottext">Maybe TargetPlatformAccelerator
 TargetPlatformArch
 TargetPlatformOs
 arch :: TargetPlatformArch
@@ -332,7 +332,7 @@ accelerator :: Maybe TargetPlatformAccelerator
 $sel:arch:TargetPlatform' :: TargetPlatform -&gt; TargetPlatformArch
 $sel:os:TargetPlatform' :: TargetPlatform -&gt; TargetPlatformOs
 $sel:accelerator:TargetPlatform' :: TargetPlatform -&gt; Maybe TargetPlatformAccelerator
-</span><a href="#local-6989586621680345324"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680346744"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-171"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-172"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -345,21 +345,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe TargetPlatformAccelerator -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TargetPlatformAccelerator
-</span><a href="#local-6989586621680345326"><span class="hs-identifier hs-var">accelerator</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680346746"><span class="hs-identifier hs-var">accelerator</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Os&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TargetPlatformOs -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">TargetPlatformOs
-</span><a href="#local-6989586621680345325"><span class="hs-identifier hs-var">os</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680346745"><span class="hs-identifier hs-var">os</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Arch&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TargetPlatformArch -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">TargetPlatformArch
-</span><a href="#local-6989586621680345324"><span class="hs-identifier hs-var">arch</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680346744"><span class="hs-identifier hs-var">arch</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-177"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span></pre></body></html>

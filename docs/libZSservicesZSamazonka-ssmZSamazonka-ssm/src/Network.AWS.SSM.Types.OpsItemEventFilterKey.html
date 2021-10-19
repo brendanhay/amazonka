@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679801420"><span id="local-6989586621679801421"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OpsItemEventFilterKey"><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemEventFilterKey.html#OpsItemEventFilterKey"><span class="hs-identifier hs-var">OpsItemEventFilterKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OpsItemEventFilterKey%27"><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemEventFilterKey.html#OpsItemEventFilterKey%27"><span class="hs-identifier hs-var">OpsItemEventFilterKey'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679803080"><span id="local-6989586621679803081"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OpsItemEventFilterKey"><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemEventFilterKey.html#OpsItemEventFilterKey"><span class="hs-identifier hs-var">OpsItemEventFilterKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OpsItemEventFilterKey%27"><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemEventFilterKey.html#OpsItemEventFilterKey%27"><span class="hs-identifier hs-var">OpsItemEventFilterKey'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromOpsItemEventFilterKey"><span class="annot"><span class="annottext">OpsItemEventFilterKey -&gt; Text
 </span><a href="Network.AWS.SSM.Types.OpsItemEventFilterKey.html#fromOpsItemEventFilterKey"><span class="hs-identifier hs-var hs-var">fromOpsItemEventFilterKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679801412"><span id="local-6989586621679801414"><span id="local-6989586621679801416"><span class="annot"><span class="annottext">Int -&gt; OpsItemEventFilterKey -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679803072"><span id="local-6989586621679803074"><span id="local-6989586621679803076"><span class="annot"><span class="annottext">Int -&gt; OpsItemEventFilterKey -&gt; ShowS
 [OpsItemEventFilterKey] -&gt; ShowS
 OpsItemEventFilterKey -&gt; String
 (Int -&gt; OpsItemEventFilterKey -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: OpsItemEventFilterKey -&gt; String
 showsPrec :: Int -&gt; OpsItemEventFilterKey -&gt; ShowS
 $cshowsPrec :: Int -&gt; OpsItemEventFilterKey -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679801403"><span id="local-6989586621679801405"><span id="local-6989586621679801407"><span id="local-6989586621679801409"><span class="annot"><span class="annottext">ReadPrec [OpsItemEventFilterKey]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679803063"><span id="local-6989586621679803065"><span id="local-6989586621679803067"><span id="local-6989586621679803069"><span class="annot"><span class="annottext">ReadPrec [OpsItemEventFilterKey]
 ReadPrec OpsItemEventFilterKey
 Int -&gt; ReadS OpsItemEventFilterKey
 ReadS [OpsItemEventFilterKey]
@@ -71,7 +71,7 @@ $creadList :: ReadS [OpsItemEventFilterKey]
 readsPrec :: Int -&gt; ReadS OpsItemEventFilterKey
 $creadsPrec :: Int -&gt; ReadS OpsItemEventFilterKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679801398"><span id="local-6989586621679801400"><span class="annot"><span class="annottext">OpsItemEventFilterKey -&gt; OpsItemEventFilterKey -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679803058"><span id="local-6989586621679803060"><span class="annot"><span class="annottext">OpsItemEventFilterKey -&gt; OpsItemEventFilterKey -&gt; Bool
 (OpsItemEventFilterKey -&gt; OpsItemEventFilterKey -&gt; Bool)
 -&gt; (OpsItemEventFilterKey -&gt; OpsItemEventFilterKey -&gt; Bool)
 -&gt; Eq OpsItemEventFilterKey
@@ -81,7 +81,7 @@ $c/= :: OpsItemEventFilterKey -&gt; OpsItemEventFilterKey -&gt; Bool
 == :: OpsItemEventFilterKey -&gt; OpsItemEventFilterKey -&gt; Bool
 $c== :: OpsItemEventFilterKey -&gt; OpsItemEventFilterKey -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679801382"><span id="local-6989586621679801384"><span id="local-6989586621679801386"><span id="local-6989586621679801388"><span id="local-6989586621679801390"><span id="local-6989586621679801392"><span id="local-6989586621679801394"><span class="annot"><span class="annottext">Eq OpsItemEventFilterKey
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679803042"><span id="local-6989586621679803044"><span id="local-6989586621679803046"><span id="local-6989586621679803048"><span id="local-6989586621679803050"><span id="local-6989586621679803052"><span id="local-6989586621679803054"><span class="annot"><span class="annottext">Eq OpsItemEventFilterKey
 Eq OpsItemEventFilterKey
 -&gt; (OpsItemEventFilterKey -&gt; OpsItemEventFilterKey -&gt; Ordering)
 -&gt; (OpsItemEventFilterKey -&gt; OpsItemEventFilterKey -&gt; Bool)
@@ -139,7 +139,7 @@ $cfrom :: forall x. OpsItemEventFilterKey -&gt; Rep OpsItemEventFilterKey x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679801374"><span id="local-6989586621679801376"><span class="annot"><span class="annottext">Int -&gt; OpsItemEventFilterKey -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679803034"><span id="local-6989586621679803036"><span class="annot"><span class="annottext">Int -&gt; OpsItemEventFilterKey -&gt; Int
 OpsItemEventFilterKey -&gt; Int
 (Int -&gt; OpsItemEventFilterKey -&gt; Int)
 -&gt; (OpsItemEventFilterKey -&gt; Int) -&gt; Hashable OpsItemEventFilterKey
@@ -149,54 +149,54 @@ $chash :: OpsItemEventFilterKey -&gt; Int
 hashWithSalt :: Int -&gt; OpsItemEventFilterKey -&gt; Int
 $chashWithSalt :: Int -&gt; OpsItemEventFilterKey -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679801371"><span class="annot"><span class="annottext">OpsItemEventFilterKey -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679803031"><span class="annot"><span class="annottext">OpsItemEventFilterKey -&gt; ()
 (OpsItemEventFilterKey -&gt; ()) -&gt; NFData OpsItemEventFilterKey
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: OpsItemEventFilterKey -&gt; ()
 $crnf :: OpsItemEventFilterKey -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679801368"><span class="annot"><span class="annottext">Text -&gt; Either String OpsItemEventFilterKey
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679803028"><span class="annot"><span class="annottext">Text -&gt; Either String OpsItemEventFilterKey
 (Text -&gt; Either String OpsItemEventFilterKey)
 -&gt; FromText OpsItemEventFilterKey
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String OpsItemEventFilterKey
 $cfromText :: Text -&gt; Either String OpsItemEventFilterKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679801365"><span class="annot"><span class="annottext">OpsItemEventFilterKey -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679803025"><span class="annot"><span class="annottext">OpsItemEventFilterKey -&gt; Text
 (OpsItemEventFilterKey -&gt; Text) -&gt; ToText OpsItemEventFilterKey
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: OpsItemEventFilterKey -&gt; Text
 $ctoText :: OpsItemEventFilterKey -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679801362"><span class="annot"><span class="annottext">OpsItemEventFilterKey -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679803022"><span class="annot"><span class="annottext">OpsItemEventFilterKey -&gt; ByteString
 (OpsItemEventFilterKey -&gt; ByteString)
 -&gt; ToByteString OpsItemEventFilterKey
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: OpsItemEventFilterKey -&gt; ByteString
 $ctoBS :: OpsItemEventFilterKey -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679801359"><span class="annot"><span class="annottext">OpsItemEventFilterKey -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679803019"><span class="annot"><span class="annottext">OpsItemEventFilterKey -&gt; ByteStringBuilder
 (OpsItemEventFilterKey -&gt; ByteStringBuilder)
 -&gt; ToLog OpsItemEventFilterKey
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: OpsItemEventFilterKey -&gt; ByteStringBuilder
 $cbuild :: OpsItemEventFilterKey -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679801356"><span class="annot"><span class="annottext">HeaderName -&gt; OpsItemEventFilterKey -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679803016"><span class="annot"><span class="annottext">HeaderName -&gt; OpsItemEventFilterKey -&gt; [Header]
 (HeaderName -&gt; OpsItemEventFilterKey -&gt; [Header])
 -&gt; ToHeader OpsItemEventFilterKey
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; OpsItemEventFilterKey -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; OpsItemEventFilterKey -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679801353"><span class="annot"><span class="annottext">OpsItemEventFilterKey -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679803013"><span class="annot"><span class="annottext">OpsItemEventFilterKey -&gt; QueryString
 (OpsItemEventFilterKey -&gt; QueryString)
 -&gt; ToQuery OpsItemEventFilterKey
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: OpsItemEventFilterKey -&gt; QueryString
 $ctoQuery :: OpsItemEventFilterKey -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679801348"><span id="local-6989586621679801350"><span class="annot"><span class="annottext">Value -&gt; Parser [OpsItemEventFilterKey]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679803008"><span id="local-6989586621679803010"><span class="annot"><span class="annottext">Value -&gt; Parser [OpsItemEventFilterKey]
 Value -&gt; Parser OpsItemEventFilterKey
 (Value -&gt; Parser OpsItemEventFilterKey)
 -&gt; (Value -&gt; Parser [OpsItemEventFilterKey])
@@ -208,7 +208,7 @@ $cparseJSONList :: Value -&gt; Parser [OpsItemEventFilterKey]
 parseJSON :: Value -&gt; Parser OpsItemEventFilterKey
 $cparseJSON :: Value -&gt; Parser OpsItemEventFilterKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679801343"><span id="local-6989586621679801345"><span class="annot"><span class="annottext">FromJSONKeyFunction [OpsItemEventFilterKey]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679803003"><span id="local-6989586621679803005"><span class="annot"><span class="annottext">FromJSONKeyFunction [OpsItemEventFilterKey]
 FromJSONKeyFunction OpsItemEventFilterKey
 FromJSONKeyFunction OpsItemEventFilterKey
 -&gt; FromJSONKeyFunction [OpsItemEventFilterKey]
@@ -220,7 +220,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [OpsItemEventFilterKey]
 fromJSONKey :: FromJSONKeyFunction OpsItemEventFilterKey
 $cfromJSONKey :: FromJSONKeyFunction OpsItemEventFilterKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679801334"><span id="local-6989586621679801336"><span id="local-6989586621679801338"><span id="local-6989586621679801340"><span class="annot"><span class="annottext">[OpsItemEventFilterKey] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679802994"><span id="local-6989586621679802996"><span id="local-6989586621679802998"><span id="local-6989586621679803000"><span class="annot"><span class="annottext">[OpsItemEventFilterKey] -&gt; Encoding
 [OpsItemEventFilterKey] -&gt; Value
 OpsItemEventFilterKey -&gt; Encoding
 OpsItemEventFilterKey -&gt; Value
@@ -244,7 +244,7 @@ $ctoEncoding :: OpsItemEventFilterKey -&gt; Encoding
 toJSON :: OpsItemEventFilterKey -&gt; Value
 $ctoJSON :: OpsItemEventFilterKey -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679801329"><span id="local-6989586621679801331"><span class="annot"><span class="annottext">ToJSONKeyFunction [OpsItemEventFilterKey]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679802989"><span id="local-6989586621679802991"><span class="annot"><span class="annottext">ToJSONKeyFunction [OpsItemEventFilterKey]
 ToJSONKeyFunction OpsItemEventFilterKey
 ToJSONKeyFunction OpsItemEventFilterKey
 -&gt; ToJSONKeyFunction [OpsItemEventFilterKey]
@@ -256,14 +256,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [OpsItemEventFilterKey]
 toJSONKey :: ToJSONKeyFunction OpsItemEventFilterKey
 $ctoJSONKey :: ToJSONKeyFunction OpsItemEventFilterKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679801326"><span class="annot"><span class="annottext">[Node] -&gt; Either String OpsItemEventFilterKey
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679802986"><span class="annot"><span class="annottext">[Node] -&gt; Either String OpsItemEventFilterKey
 ([Node] -&gt; Either String OpsItemEventFilterKey)
 -&gt; FromXML OpsItemEventFilterKey
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String OpsItemEventFilterKey
 $cparseXML :: [Node] -&gt; Either String OpsItemEventFilterKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679801323"><span class="annot"><span class="annottext">OpsItemEventFilterKey -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679802983"><span class="annot"><span class="annottext">OpsItemEventFilterKey -&gt; XML
 (OpsItemEventFilterKey -&gt; XML) -&gt; ToXML OpsItemEventFilterKey
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: OpsItemEventFilterKey -&gt; XML

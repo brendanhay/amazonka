@@ -135,14 +135,14 @@
 </span><span id="line-135"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#newCreateBucket"><span class="hs-identifier">newCreateBucket</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-138"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#createBucket_grantRead"><span class="hs-identifier">createBucket_grantRead</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-139"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#createBucket_createBucketConfiguration"><span class="hs-identifier">createBucket_createBucketConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#createBucket_grantReadACP"><span class="hs-identifier">createBucket_grantReadACP</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#createBucket_objectLockEnabledForBucket"><span class="hs-identifier">createBucket_objectLockEnabledForBucket</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-140"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#createBucket_grantWriteACP"><span class="hs-identifier">createBucket_grantWriteACP</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-141"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#createBucket_acl"><span class="hs-identifier">createBucket_acl</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-142"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#createBucket_grantReadACP"><span class="hs-identifier">createBucket_grantReadACP</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-143"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#createBucket_objectLockEnabledForBucket"><span class="hs-identifier">createBucket_objectLockEnabledForBucket</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#createBucket_grantRead"><span class="hs-identifier">createBucket_grantRead</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#createBucket_grantFullControl"><span class="hs-identifier">createBucket_grantFullControl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#createBucket_createBucketConfiguration"><span class="hs-identifier">createBucket_createBucketConfiguration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-144"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#createBucket_grantWrite"><span class="hs-identifier">createBucket_grantWrite</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-145"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#createBucket_grantFullControl"><span class="hs-identifier">createBucket_grantFullControl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#createBucket_acl"><span class="hs-identifier">createBucket_acl</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-146"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#createBucket_bucket"><span class="hs-identifier">createBucket_bucket</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -163,41 +163,41 @@
 </span><span id="line-163"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.html"><span class="hs-identifier">Network.AWS.S3.Types</span></a></span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- | /See:/ 'newCreateBucket' smart constructor.</span><span>
-</span><span id="line-166"></span><span id="local-6989586621679581012"><span id="local-6989586621679581013"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateBucket"><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket"><span class="hs-identifier hs-var">CreateBucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateBucket%27"><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket%27"><span class="hs-identifier hs-var">CreateBucket'</span></a></span></span><span>
-</span><span id="line-167"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Allows grantee to list the objects in the bucket.</span><span>
-</span><span id="line-168"></span><span>    </span><span id="%24sel%3AgrantRead%3ACreateBucket%27"><span class="annot"><span class="annottext">CreateBucket -&gt; Maybe Text
-</span><a href="Network.AWS.S3.CreateBucket.html#%24sel%3AgrantRead%3ACreateBucket%27"><span class="hs-identifier hs-var hs-var">grantRead</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- | The configuration information for the bucket.</span><span>
-</span><span id="line-170"></span><span>    </span><span id="%24sel%3AcreateBucketConfiguration%3ACreateBucket%27"><span class="annot"><span class="annottext">CreateBucket -&gt; Maybe CreateBucketConfiguration
-</span><a href="Network.AWS.S3.CreateBucket.html#%24sel%3AcreateBucketConfiguration%3ACreateBucket%27"><span class="hs-identifier hs-var hs-var">createBucketConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CreateBucketConfiguration.html#CreateBucketConfiguration"><span class="hs-identifier hs-type">CreateBucketConfiguration</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-171"></span><span>    </span><span class="hs-comment">-- | Allows grantee to write the ACL for the applicable bucket.</span><span>
-</span><span id="line-172"></span><span>    </span><span id="%24sel%3AgrantWriteACP%3ACreateBucket%27"><span class="annot"><span class="annottext">CreateBucket -&gt; Maybe Text
-</span><a href="Network.AWS.S3.CreateBucket.html#%24sel%3AgrantWriteACP%3ACreateBucket%27"><span class="hs-identifier hs-var hs-var">grantWriteACP</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- | The canned ACL to apply to the bucket.</span><span>
-</span><span id="line-174"></span><span>    </span><span id="%24sel%3Aacl%3ACreateBucket%27"><span class="annot"><span class="annottext">CreateBucket -&gt; Maybe BucketCannedACL
-</span><a href="Network.AWS.S3.CreateBucket.html#%24sel%3Aacl%3ACreateBucket%27"><span class="hs-identifier hs-var hs-var">acl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.BucketCannedACL.html#BucketCannedACL"><span class="hs-identifier hs-type">BucketCannedACL</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-175"></span><span>    </span><span class="hs-comment">-- | Allows grantee to read the bucket ACL.</span><span>
-</span><span id="line-176"></span><span>    </span><span id="%24sel%3AgrantReadACP%3ACreateBucket%27"><span class="annot"><span class="annottext">CreateBucket -&gt; Maybe Text
+</span><span id="line-166"></span><span id="local-6989586621679582107"><span id="local-6989586621679582108"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateBucket"><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket"><span class="hs-identifier hs-var">CreateBucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateBucket%27"><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket%27"><span class="hs-identifier hs-var">CreateBucket'</span></a></span></span><span>
+</span><span id="line-167"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Allows grantee to read the bucket ACL.</span><span>
+</span><span id="line-168"></span><span>    </span><span id="%24sel%3AgrantReadACP%3ACreateBucket%27"><span class="annot"><span class="annottext">CreateBucket -&gt; Maybe Text
 </span><a href="Network.AWS.S3.CreateBucket.html#%24sel%3AgrantReadACP%3ACreateBucket%27"><span class="hs-identifier hs-var hs-var">grantReadACP</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-177"></span><span>    </span><span class="hs-comment">-- | Specifies whether you want S3 Object Lock to be enabled for the new</span><span>
-</span><span id="line-178"></span><span>    </span><span class="hs-comment">-- bucket.</span><span>
-</span><span id="line-179"></span><span>    </span><span id="%24sel%3AobjectLockEnabledForBucket%3ACreateBucket%27"><span class="annot"><span class="annottext">CreateBucket -&gt; Maybe Bool
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- | Specifies whether you want S3 Object Lock to be enabled for the new</span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-comment">-- bucket.</span><span>
+</span><span id="line-171"></span><span>    </span><span id="%24sel%3AobjectLockEnabledForBucket%3ACreateBucket%27"><span class="annot"><span class="annottext">CreateBucket -&gt; Maybe Bool
 </span><a href="Network.AWS.S3.CreateBucket.html#%24sel%3AobjectLockEnabledForBucket%3ACreateBucket%27"><span class="hs-identifier hs-var hs-var">objectLockEnabledForBucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-180"></span><span>    </span><span class="hs-comment">-- | Allows grantee to create new objects in the bucket.</span><span>
-</span><span id="line-181"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-182"></span><span>    </span><span class="hs-comment">-- For the bucket and object owners of existing objects, also allows</span><span>
-</span><span id="line-183"></span><span>    </span><span class="hs-comment">-- deletions and overwrites of those objects.</span><span>
-</span><span id="line-184"></span><span>    </span><span id="%24sel%3AgrantWrite%3ACreateBucket%27"><span class="annot"><span class="annottext">CreateBucket -&gt; Maybe Text
-</span><a href="Network.AWS.S3.CreateBucket.html#%24sel%3AgrantWrite%3ACreateBucket%27"><span class="hs-identifier hs-var hs-var">grantWrite</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-185"></span><span>    </span><span class="hs-comment">-- | Allows grantee the read, write, read ACP, and write ACP permissions on</span><span>
-</span><span id="line-186"></span><span>    </span><span class="hs-comment">-- the bucket.</span><span>
-</span><span id="line-187"></span><span>    </span><span id="%24sel%3AgrantFullControl%3ACreateBucket%27"><span class="annot"><span class="annottext">CreateBucket -&gt; Maybe Text
+</span><span id="line-172"></span><span>    </span><span class="hs-comment">-- | Allows grantee to write the ACL for the applicable bucket.</span><span>
+</span><span id="line-173"></span><span>    </span><span id="%24sel%3AgrantWriteACP%3ACreateBucket%27"><span class="annot"><span class="annottext">CreateBucket -&gt; Maybe Text
+</span><a href="Network.AWS.S3.CreateBucket.html#%24sel%3AgrantWriteACP%3ACreateBucket%27"><span class="hs-identifier hs-var hs-var">grantWriteACP</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-comment">-- | Allows grantee to list the objects in the bucket.</span><span>
+</span><span id="line-175"></span><span>    </span><span id="%24sel%3AgrantRead%3ACreateBucket%27"><span class="annot"><span class="annottext">CreateBucket -&gt; Maybe Text
+</span><a href="Network.AWS.S3.CreateBucket.html#%24sel%3AgrantRead%3ACreateBucket%27"><span class="hs-identifier hs-var hs-var">grantRead</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>    </span><span class="hs-comment">-- | Allows grantee the read, write, read ACP, and write ACP permissions on</span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-comment">-- the bucket.</span><span>
+</span><span id="line-178"></span><span>    </span><span id="%24sel%3AgrantFullControl%3ACreateBucket%27"><span class="annot"><span class="annottext">CreateBucket -&gt; Maybe Text
 </span><a href="Network.AWS.S3.CreateBucket.html#%24sel%3AgrantFullControl%3ACreateBucket%27"><span class="hs-identifier hs-var hs-var">grantFullControl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-comment">-- | The configuration information for the bucket.</span><span>
+</span><span id="line-180"></span><span>    </span><span id="%24sel%3AcreateBucketConfiguration%3ACreateBucket%27"><span class="annot"><span class="annottext">CreateBucket -&gt; Maybe CreateBucketConfiguration
+</span><a href="Network.AWS.S3.CreateBucket.html#%24sel%3AcreateBucketConfiguration%3ACreateBucket%27"><span class="hs-identifier hs-var hs-var">createBucketConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CreateBucketConfiguration.html#CreateBucketConfiguration"><span class="hs-identifier hs-type">CreateBucketConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-comment">-- | Allows grantee to create new objects in the bucket.</span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-comment">-- For the bucket and object owners of existing objects, also allows</span><span>
+</span><span id="line-184"></span><span>    </span><span class="hs-comment">-- deletions and overwrites of those objects.</span><span>
+</span><span id="line-185"></span><span>    </span><span id="%24sel%3AgrantWrite%3ACreateBucket%27"><span class="annot"><span class="annottext">CreateBucket -&gt; Maybe Text
+</span><a href="Network.AWS.S3.CreateBucket.html#%24sel%3AgrantWrite%3ACreateBucket%27"><span class="hs-identifier hs-var hs-var">grantWrite</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-comment">-- | The canned ACL to apply to the bucket.</span><span>
+</span><span id="line-187"></span><span>    </span><span id="%24sel%3Aacl%3ACreateBucket%27"><span class="annot"><span class="annottext">CreateBucket -&gt; Maybe BucketCannedACL
+</span><a href="Network.AWS.S3.CreateBucket.html#%24sel%3Aacl%3ACreateBucket%27"><span class="hs-identifier hs-var hs-var">acl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.BucketCannedACL.html#BucketCannedACL"><span class="hs-identifier hs-type">BucketCannedACL</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-188"></span><span>    </span><span class="hs-comment">-- | The name of the bucket to create.</span><span>
 </span><span id="line-189"></span><span>    </span><span id="%24sel%3Abucket%3ACreateBucket%27"><span class="annot"><span class="annottext">CreateBucket -&gt; BucketName
 </span><a href="Network.AWS.S3.CreateBucket.html#%24sel%3Abucket%3ACreateBucket%27"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span>
 </span><span id="line-190"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-191"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679580998"><span id="local-6989586621679581000"><span class="annot"><span class="annottext">CreateBucket -&gt; CreateBucket -&gt; Bool
+</span><span id="line-191"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679582093"><span id="local-6989586621679582095"><span class="annot"><span class="annottext">CreateBucket -&gt; CreateBucket -&gt; Bool
 (CreateBucket -&gt; CreateBucket -&gt; Bool)
 -&gt; (CreateBucket -&gt; CreateBucket -&gt; Bool) -&gt; Eq CreateBucket
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -205,7 +205,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateBucket -&gt; CreateBucket -&gt; Bool
 == :: CreateBucket -&gt; CreateBucket -&gt; Bool
 $c== :: CreateBucket -&gt; CreateBucket -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679580989"><span id="local-6989586621679580991"><span id="local-6989586621679580993"><span id="local-6989586621679580995"><span class="annot"><span class="annottext">ReadPrec [CreateBucket]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679582084"><span id="local-6989586621679582086"><span id="local-6989586621679582088"><span id="local-6989586621679582090"><span class="annot"><span class="annottext">ReadPrec [CreateBucket]
 ReadPrec CreateBucket
 Int -&gt; ReadS CreateBucket
 ReadS [CreateBucket]
@@ -225,7 +225,7 @@ readList :: ReadS [CreateBucket]
 $creadList :: ReadS [CreateBucket]
 readsPrec :: Int -&gt; ReadS CreateBucket
 $creadsPrec :: Int -&gt; ReadS CreateBucket
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679580982"><span id="local-6989586621679580984"><span id="local-6989586621679580986"><span class="annot"><span class="annottext">Int -&gt; CreateBucket -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679582077"><span id="local-6989586621679582079"><span id="local-6989586621679582081"><span class="annot"><span class="annottext">Int -&gt; CreateBucket -&gt; ShowS
 [CreateBucket] -&gt; ShowS
 CreateBucket -&gt; String
 (Int -&gt; CreateBucket -&gt; ShowS)
@@ -259,26 +259,26 @@ $cfrom :: forall x. CreateBucket -&gt; Rep CreateBucket x
 </span><span id="line-198"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-199"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-200"></span><span class="hs-comment">--</span><span>
-</span><span id="line-201"></span><span class="hs-comment">-- 'grantRead', 'createBucket_grantRead' - Allows grantee to list the objects in the bucket.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- 'grantReadACP', 'createBucket_grantReadACP' - Allows grantee to read the bucket ACL.</span><span>
 </span><span id="line-202"></span><span class="hs-comment">--</span><span>
-</span><span id="line-203"></span><span class="hs-comment">-- 'createBucketConfiguration', 'createBucket_createBucketConfiguration' - The configuration information for the bucket.</span><span>
-</span><span id="line-204"></span><span class="hs-comment">--</span><span>
-</span><span id="line-205"></span><span class="hs-comment">-- 'grantWriteACP', 'createBucket_grantWriteACP' - Allows grantee to write the ACL for the applicable bucket.</span><span>
-</span><span id="line-206"></span><span class="hs-comment">--</span><span>
-</span><span id="line-207"></span><span class="hs-comment">-- 'acl', 'createBucket_acl' - The canned ACL to apply to the bucket.</span><span>
-</span><span id="line-208"></span><span class="hs-comment">--</span><span>
-</span><span id="line-209"></span><span class="hs-comment">-- 'grantReadACP', 'createBucket_grantReadACP' - Allows grantee to read the bucket ACL.</span><span>
-</span><span id="line-210"></span><span class="hs-comment">--</span><span>
-</span><span id="line-211"></span><span class="hs-comment">-- 'objectLockEnabledForBucket', 'createBucket_objectLockEnabledForBucket' - Specifies whether you want S3 Object Lock to be enabled for the new</span><span>
-</span><span id="line-212"></span><span class="hs-comment">-- bucket.</span><span>
-</span><span id="line-213"></span><span class="hs-comment">--</span><span>
-</span><span id="line-214"></span><span class="hs-comment">-- 'grantWrite', 'createBucket_grantWrite' - Allows grantee to create new objects in the bucket.</span><span>
-</span><span id="line-215"></span><span class="hs-comment">--</span><span>
-</span><span id="line-216"></span><span class="hs-comment">-- For the bucket and object owners of existing objects, also allows</span><span>
-</span><span id="line-217"></span><span class="hs-comment">-- deletions and overwrites of those objects.</span><span>
-</span><span id="line-218"></span><span class="hs-comment">--</span><span>
-</span><span id="line-219"></span><span class="hs-comment">-- 'grantFullControl', 'createBucket_grantFullControl' - Allows grantee the read, write, read ACP, and write ACP permissions on</span><span>
-</span><span id="line-220"></span><span class="hs-comment">-- the bucket.</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- 'objectLockEnabledForBucket', 'createBucket_objectLockEnabledForBucket' - Specifies whether you want S3 Object Lock to be enabled for the new</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- bucket.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- 'grantWriteACP', 'createBucket_grantWriteACP' - Allows grantee to write the ACL for the applicable bucket.</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- 'grantRead', 'createBucket_grantRead' - Allows grantee to list the objects in the bucket.</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- 'grantFullControl', 'createBucket_grantFullControl' - Allows grantee the read, write, read ACP, and write ACP permissions on</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- the bucket.</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- 'createBucketConfiguration', 'createBucket_createBucketConfiguration' - The configuration information for the bucket.</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- 'grantWrite', 'createBucket_grantWrite' - Allows grantee to create new objects in the bucket.</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- For the bucket and object owners of existing objects, also allows</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- deletions and overwrites of those objects.</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- 'acl', 'createBucket_acl' - The canned ACL to apply to the bucket.</span><span>
 </span><span id="line-221"></span><span class="hs-comment">--</span><span>
 </span><span id="line-222"></span><span class="hs-comment">-- 'bucket', 'createBucket_bucket' - The name of the bucket to create.</span><span>
 </span><span id="line-223"></span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#newCreateBucket"><span class="hs-identifier hs-type">newCreateBucket</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -286,77 +286,151 @@ $cfrom :: forall x. CreateBucket -&gt; Rep CreateBucket x
 </span><span id="line-225"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-226"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket"><span class="hs-identifier hs-type">CreateBucket</span></a></span><span>
 </span><span id="line-227"></span><span id="newCreateBucket"><span class="annot"><span class="annottext">newCreateBucket :: BucketName -&gt; CreateBucket
-</span><a href="Network.AWS.S3.CreateBucket.html#newCreateBucket"><span class="hs-identifier hs-var hs-var">newCreateBucket</span></a></span></span><span> </span><span id="local-6989586621679580977"><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679580977"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.S3.CreateBucket.html#newCreateBucket"><span class="hs-identifier hs-var hs-var">newCreateBucket</span></a></span></span><span> </span><span id="local-6989586621679582072"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679582072"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-228"></span><span>  </span><span class="annot"><span class="annottext">CreateBucket' :: Maybe Text
--&gt; Maybe CreateBucketConfiguration
--&gt; Maybe Text
--&gt; Maybe BucketCannedACL
--&gt; Maybe Text
 -&gt; Maybe Bool
 -&gt; Maybe Text
 -&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe CreateBucketConfiguration
+-&gt; Maybe Text
+-&gt; Maybe BucketCannedACL
 -&gt; BucketName
 -&gt; CreateBucket
 </span><a href="Network.AWS.S3.CreateBucket.html#CreateBucket%27"><span class="hs-identifier hs-type">CreateBucket'</span></a></span><span>
-</span><span id="line-229"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:grantRead:CreateBucket' :: Maybe Text
-</span><a href="Network.AWS.S3.CreateBucket.html#%24sel%3AgrantRead%3ACreateBucket%27"><span class="hs-identifier hs-var">grantRead</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-229"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:grantReadACP:CreateBucket' :: Maybe Text
+</span><a href="Network.AWS.S3.CreateBucket.html#%24sel%3AgrantReadACP%3ACreateBucket%27"><span class="hs-identifier hs-var">grantReadACP</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-230"></span><span>      </span><span class="annot"><span class="annottext">$sel:createBucketConfiguration:CreateBucket' :: Maybe CreateBucketConfiguration
-</span><a href="Network.AWS.S3.CreateBucket.html#%24sel%3AcreateBucketConfiguration%3ACreateBucket%27"><span class="hs-identifier hs-var">createBucketConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CreateBucketConfiguration
+</span><span id="line-230"></span><span>      </span><span class="annot"><span class="annottext">$sel:objectLockEnabledForBucket:CreateBucket' :: Maybe Bool
+</span><a href="Network.AWS.S3.CreateBucket.html#%24sel%3AobjectLockEnabledForBucket%3ACreateBucket%27"><span class="hs-identifier hs-var">objectLockEnabledForBucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-231"></span><span>      </span><span class="annot"><span class="annottext">$sel:grantWriteACP:CreateBucket' :: Maybe Text
 </span><a href="Network.AWS.S3.CreateBucket.html#%24sel%3AgrantWriteACP%3ACreateBucket%27"><span class="hs-identifier hs-var">grantWriteACP</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-232"></span><span>      </span><span class="annot"><span class="annottext">$sel:acl:CreateBucket' :: Maybe BucketCannedACL
-</span><a href="Network.AWS.S3.CreateBucket.html#%24sel%3Aacl%3ACreateBucket%27"><span class="hs-identifier hs-var">acl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BucketCannedACL
+</span><span id="line-232"></span><span>      </span><span class="annot"><span class="annottext">$sel:grantRead:CreateBucket' :: Maybe Text
+</span><a href="Network.AWS.S3.CreateBucket.html#%24sel%3AgrantRead%3ACreateBucket%27"><span class="hs-identifier hs-var">grantRead</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-233"></span><span>      </span><span class="annot"><span class="annottext">$sel:grantReadACP:CreateBucket' :: Maybe Text
-</span><a href="Network.AWS.S3.CreateBucket.html#%24sel%3AgrantReadACP%3ACreateBucket%27"><span class="hs-identifier hs-var">grantReadACP</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-233"></span><span>      </span><span class="annot"><span class="annottext">$sel:grantFullControl:CreateBucket' :: Maybe Text
+</span><a href="Network.AWS.S3.CreateBucket.html#%24sel%3AgrantFullControl%3ACreateBucket%27"><span class="hs-identifier hs-var">grantFullControl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-234"></span><span>      </span><span class="annot"><span class="annottext">$sel:objectLockEnabledForBucket:CreateBucket' :: Maybe Bool
-</span><a href="Network.AWS.S3.CreateBucket.html#%24sel%3AobjectLockEnabledForBucket%3ACreateBucket%27"><span class="hs-identifier hs-var">objectLockEnabledForBucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-234"></span><span>      </span><span class="annot"><span class="annottext">$sel:createBucketConfiguration:CreateBucket' :: Maybe CreateBucketConfiguration
+</span><a href="Network.AWS.S3.CreateBucket.html#%24sel%3AcreateBucketConfiguration%3ACreateBucket%27"><span class="hs-identifier hs-var">createBucketConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CreateBucketConfiguration
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-235"></span><span>      </span><span class="annot"><span class="annottext">$sel:grantWrite:CreateBucket' :: Maybe Text
 </span><a href="Network.AWS.S3.CreateBucket.html#%24sel%3AgrantWrite%3ACreateBucket%27"><span class="hs-identifier hs-var">grantWrite</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-236"></span><span>      </span><span class="annot"><span class="annottext">$sel:grantFullControl:CreateBucket' :: Maybe Text
-</span><a href="Network.AWS.S3.CreateBucket.html#%24sel%3AgrantFullControl%3ACreateBucket%27"><span class="hs-identifier hs-var">grantFullControl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-236"></span><span>      </span><span class="annot"><span class="annottext">$sel:acl:CreateBucket' :: Maybe BucketCannedACL
+</span><a href="Network.AWS.S3.CreateBucket.html#%24sel%3Aacl%3ACreateBucket%27"><span class="hs-identifier hs-var">acl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BucketCannedACL
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-237"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucket:CreateBucket' :: BucketName
 </span><a href="Network.AWS.S3.CreateBucket.html#%24sel%3Abucket%3ACreateBucket%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679580977"><span class="hs-identifier hs-var">pBucket_</span></a></span><span>
+</span><a href="#local-6989586621679582072"><span class="hs-identifier hs-var">pBucket_</span></a></span><span>
 </span><span id="line-238"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-239"></span><span>
-</span><span id="line-240"></span><span class="hs-comment">-- | Allows grantee to list the objects in the bucket.</span><span>
-</span><span id="line-241"></span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#createBucket_grantRead"><span class="hs-identifier hs-type">createBucket_grantRead</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket"><span class="hs-identifier hs-type">CreateBucket</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-242"></span><span id="createBucket_grantRead"><span class="annot"><span class="annottext">createBucket_grantRead :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateBucket -&gt; f CreateBucket
+</span><span id="line-240"></span><span class="hs-comment">-- | Allows grantee to read the bucket ACL.</span><span>
+</span><span id="line-241"></span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#createBucket_grantReadACP"><span class="hs-identifier hs-type">createBucket_grantReadACP</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket"><span class="hs-identifier hs-type">CreateBucket</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span id="createBucket_grantReadACP"><span class="annot"><span class="annottext">createBucket_grantReadACP :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateBucket -&gt; f CreateBucket
+</span><a href="Network.AWS.S3.CreateBucket.html#createBucket_grantReadACP"><span class="hs-identifier hs-var hs-var">createBucket_grantReadACP</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateBucket -&gt; Maybe Text)
+-&gt; (CreateBucket -&gt; Maybe Text -&gt; CreateBucket)
+-&gt; Lens CreateBucket CreateBucket (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket%27"><span class="hs-identifier hs-type">CreateBucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582069"><span class="annot"><span class="annottext">Maybe Text
+grantReadACP :: Maybe Text
+$sel:grantReadACP:CreateBucket' :: CreateBucket -&gt; Maybe Text
+</span><a href="#local-6989586621679582069"><span class="hs-identifier hs-var hs-var">grantReadACP</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679582069"><span class="hs-identifier hs-var">grantReadACP</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679582068"><span class="annot"><span class="annottext">s :: CreateBucket
+</span><a href="#local-6989586621679582068"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket%27"><span class="hs-identifier hs-type">CreateBucket'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679582067"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679582067"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBucket
+</span><a href="#local-6989586621679582068"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:grantReadACP:CreateBucket' :: Maybe Text
+</span><a href="Network.AWS.S3.CreateBucket.html#%24sel%3AgrantReadACP%3ACreateBucket%27"><span class="hs-identifier hs-var">grantReadACP</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679582067"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket"><span class="hs-identifier hs-type">CreateBucket</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- | Specifies whether you want S3 Object Lock to be enabled for the new</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- bucket.</span><span>
+</span><span id="line-246"></span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#createBucket_objectLockEnabledForBucket"><span class="hs-identifier hs-type">createBucket_objectLockEnabledForBucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket"><span class="hs-identifier hs-type">CreateBucket</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span id="createBucket_objectLockEnabledForBucket"><span class="annot"><span class="annottext">createBucket_objectLockEnabledForBucket :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; CreateBucket -&gt; f CreateBucket
+</span><a href="Network.AWS.S3.CreateBucket.html#createBucket_objectLockEnabledForBucket"><span class="hs-identifier hs-var hs-var">createBucket_objectLockEnabledForBucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateBucket -&gt; Maybe Bool)
+-&gt; (CreateBucket -&gt; Maybe Bool -&gt; CreateBucket)
+-&gt; Lens CreateBucket CreateBucket (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket%27"><span class="hs-identifier hs-type">CreateBucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582066"><span class="annot"><span class="annottext">Maybe Bool
+objectLockEnabledForBucket :: Maybe Bool
+$sel:objectLockEnabledForBucket:CreateBucket' :: CreateBucket -&gt; Maybe Bool
+</span><a href="#local-6989586621679582066"><span class="hs-identifier hs-var hs-var">objectLockEnabledForBucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679582066"><span class="hs-identifier hs-var">objectLockEnabledForBucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679582065"><span class="annot"><span class="annottext">s :: CreateBucket
+</span><a href="#local-6989586621679582065"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket%27"><span class="hs-identifier hs-type">CreateBucket'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679582064"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679582064"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBucket
+</span><a href="#local-6989586621679582065"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:objectLockEnabledForBucket:CreateBucket' :: Maybe Bool
+</span><a href="Network.AWS.S3.CreateBucket.html#%24sel%3AobjectLockEnabledForBucket%3ACreateBucket%27"><span class="hs-identifier hs-var">objectLockEnabledForBucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679582064"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket"><span class="hs-identifier hs-type">CreateBucket</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- | Allows grantee to write the ACL for the applicable bucket.</span><span>
+</span><span id="line-250"></span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#createBucket_grantWriteACP"><span class="hs-identifier hs-type">createBucket_grantWriteACP</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket"><span class="hs-identifier hs-type">CreateBucket</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span id="createBucket_grantWriteACP"><span class="annot"><span class="annottext">createBucket_grantWriteACP :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateBucket -&gt; f CreateBucket
+</span><a href="Network.AWS.S3.CreateBucket.html#createBucket_grantWriteACP"><span class="hs-identifier hs-var hs-var">createBucket_grantWriteACP</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateBucket -&gt; Maybe Text)
+-&gt; (CreateBucket -&gt; Maybe Text -&gt; CreateBucket)
+-&gt; Lens CreateBucket CreateBucket (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket%27"><span class="hs-identifier hs-type">CreateBucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582063"><span class="annot"><span class="annottext">Maybe Text
+grantWriteACP :: Maybe Text
+$sel:grantWriteACP:CreateBucket' :: CreateBucket -&gt; Maybe Text
+</span><a href="#local-6989586621679582063"><span class="hs-identifier hs-var hs-var">grantWriteACP</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679582063"><span class="hs-identifier hs-var">grantWriteACP</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679582062"><span class="annot"><span class="annottext">s :: CreateBucket
+</span><a href="#local-6989586621679582062"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket%27"><span class="hs-identifier hs-type">CreateBucket'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679582061"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679582061"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBucket
+</span><a href="#local-6989586621679582062"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:grantWriteACP:CreateBucket' :: Maybe Text
+</span><a href="Network.AWS.S3.CreateBucket.html#%24sel%3AgrantWriteACP%3ACreateBucket%27"><span class="hs-identifier hs-var">grantWriteACP</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679582061"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket"><span class="hs-identifier hs-type">CreateBucket</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- | Allows grantee to list the objects in the bucket.</span><span>
+</span><span id="line-254"></span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#createBucket_grantRead"><span class="hs-identifier hs-type">createBucket_grantRead</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket"><span class="hs-identifier hs-type">CreateBucket</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span id="createBucket_grantRead"><span class="annot"><span class="annottext">createBucket_grantRead :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateBucket -&gt; f CreateBucket
 </span><a href="Network.AWS.S3.CreateBucket.html#createBucket_grantRead"><span class="hs-identifier hs-var hs-var">createBucket_grantRead</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateBucket -&gt; Maybe Text)
 -&gt; (CreateBucket -&gt; Maybe Text -&gt; CreateBucket)
 -&gt; Lens CreateBucket CreateBucket (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket%27"><span class="hs-identifier hs-type">CreateBucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679580974"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket%27"><span class="hs-identifier hs-type">CreateBucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582060"><span class="annot"><span class="annottext">Maybe Text
 grantRead :: Maybe Text
 $sel:grantRead:CreateBucket' :: CreateBucket -&gt; Maybe Text
-</span><a href="#local-6989586621679580974"><span class="hs-identifier hs-var hs-var">grantRead</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679580974"><span class="hs-identifier hs-var">grantRead</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679580973"><span class="annot"><span class="annottext">s :: CreateBucket
-</span><a href="#local-6989586621679580973"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket%27"><span class="hs-identifier hs-type">CreateBucket'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679580972"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679580972"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBucket
-</span><a href="#local-6989586621679580973"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:grantRead:CreateBucket' :: Maybe Text
+</span><a href="#local-6989586621679582060"><span class="hs-identifier hs-var hs-var">grantRead</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679582060"><span class="hs-identifier hs-var">grantRead</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679582059"><span class="annot"><span class="annottext">s :: CreateBucket
+</span><a href="#local-6989586621679582059"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket%27"><span class="hs-identifier hs-type">CreateBucket'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679582058"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679582058"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBucket
+</span><a href="#local-6989586621679582059"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:grantRead:CreateBucket' :: Maybe Text
 </span><a href="Network.AWS.S3.CreateBucket.html#%24sel%3AgrantRead%3ACreateBucket%27"><span class="hs-identifier hs-var">grantRead</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679580972"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket"><span class="hs-identifier hs-type">CreateBucket</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-243"></span><span>
-</span><span id="line-244"></span><span class="hs-comment">-- | The configuration information for the bucket.</span><span>
-</span><span id="line-245"></span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#createBucket_createBucketConfiguration"><span class="hs-identifier hs-type">createBucket_createBucketConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket"><span class="hs-identifier hs-type">CreateBucket</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CreateBucketConfiguration.html#CreateBucketConfiguration"><span class="hs-identifier hs-type">CreateBucketConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-246"></span><span id="createBucket_createBucketConfiguration"><span class="annot"><span class="annottext">createBucket_createBucketConfiguration :: (Maybe CreateBucketConfiguration
+</span><a href="#local-6989586621679582058"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket"><span class="hs-identifier hs-type">CreateBucket</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- | Allows grantee the read, write, read ACP, and write ACP permissions on</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- the bucket.</span><span>
+</span><span id="line-259"></span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#createBucket_grantFullControl"><span class="hs-identifier hs-type">createBucket_grantFullControl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket"><span class="hs-identifier hs-type">CreateBucket</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span id="createBucket_grantFullControl"><span class="annot"><span class="annottext">createBucket_grantFullControl :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateBucket -&gt; f CreateBucket
+</span><a href="Network.AWS.S3.CreateBucket.html#createBucket_grantFullControl"><span class="hs-identifier hs-var hs-var">createBucket_grantFullControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateBucket -&gt; Maybe Text)
+-&gt; (CreateBucket -&gt; Maybe Text -&gt; CreateBucket)
+-&gt; Lens CreateBucket CreateBucket (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket%27"><span class="hs-identifier hs-type">CreateBucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582057"><span class="annot"><span class="annottext">Maybe Text
+grantFullControl :: Maybe Text
+$sel:grantFullControl:CreateBucket' :: CreateBucket -&gt; Maybe Text
+</span><a href="#local-6989586621679582057"><span class="hs-identifier hs-var hs-var">grantFullControl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679582057"><span class="hs-identifier hs-var">grantFullControl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679582056"><span class="annot"><span class="annottext">s :: CreateBucket
+</span><a href="#local-6989586621679582056"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket%27"><span class="hs-identifier hs-type">CreateBucket'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679582055"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679582055"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBucket
+</span><a href="#local-6989586621679582056"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:grantFullControl:CreateBucket' :: Maybe Text
+</span><a href="Network.AWS.S3.CreateBucket.html#%24sel%3AgrantFullControl%3ACreateBucket%27"><span class="hs-identifier hs-var">grantFullControl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679582055"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket"><span class="hs-identifier hs-type">CreateBucket</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- | The configuration information for the bucket.</span><span>
+</span><span id="line-263"></span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#createBucket_createBucketConfiguration"><span class="hs-identifier hs-type">createBucket_createBucketConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket"><span class="hs-identifier hs-type">CreateBucket</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CreateBucketConfiguration.html#CreateBucketConfiguration"><span class="hs-identifier hs-type">CreateBucketConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span id="createBucket_createBucketConfiguration"><span class="annot"><span class="annottext">createBucket_createBucketConfiguration :: (Maybe CreateBucketConfiguration
  -&gt; f (Maybe CreateBucketConfiguration))
 -&gt; CreateBucket -&gt; f CreateBucket
 </span><a href="Network.AWS.S3.CreateBucket.html#createBucket_createBucketConfiguration"><span class="hs-identifier hs-var hs-var">createBucket_createBucketConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateBucket -&gt; Maybe CreateBucketConfiguration)
@@ -368,38 +442,41 @@ $sel:grantRead:CreateBucket' :: CreateBucket -&gt; Maybe Text
      (Maybe CreateBucketConfiguration)
      (Maybe CreateBucketConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket%27"><span class="hs-identifier hs-type">CreateBucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679580971"><span class="annot"><span class="annottext">Maybe CreateBucketConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket%27"><span class="hs-identifier hs-type">CreateBucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582054"><span class="annot"><span class="annottext">Maybe CreateBucketConfiguration
 createBucketConfiguration :: Maybe CreateBucketConfiguration
 $sel:createBucketConfiguration:CreateBucket' :: CreateBucket -&gt; Maybe CreateBucketConfiguration
-</span><a href="#local-6989586621679580971"><span class="hs-identifier hs-var hs-var">createBucketConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CreateBucketConfiguration
-</span><a href="#local-6989586621679580971"><span class="hs-identifier hs-var">createBucketConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679580970"><span class="annot"><span class="annottext">s :: CreateBucket
-</span><a href="#local-6989586621679580970"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket%27"><span class="hs-identifier hs-type">CreateBucket'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679580969"><span class="annot"><span class="annottext">Maybe CreateBucketConfiguration
-</span><a href="#local-6989586621679580969"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBucket
-</span><a href="#local-6989586621679580970"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createBucketConfiguration:CreateBucket' :: Maybe CreateBucketConfiguration
+</span><a href="#local-6989586621679582054"><span class="hs-identifier hs-var hs-var">createBucketConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CreateBucketConfiguration
+</span><a href="#local-6989586621679582054"><span class="hs-identifier hs-var">createBucketConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679582053"><span class="annot"><span class="annottext">s :: CreateBucket
+</span><a href="#local-6989586621679582053"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket%27"><span class="hs-identifier hs-type">CreateBucket'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679582052"><span class="annot"><span class="annottext">Maybe CreateBucketConfiguration
+</span><a href="#local-6989586621679582052"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBucket
+</span><a href="#local-6989586621679582053"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createBucketConfiguration:CreateBucket' :: Maybe CreateBucketConfiguration
 </span><a href="Network.AWS.S3.CreateBucket.html#%24sel%3AcreateBucketConfiguration%3ACreateBucket%27"><span class="hs-identifier hs-var">createBucketConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CreateBucketConfiguration
-</span><a href="#local-6989586621679580969"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket"><span class="hs-identifier hs-type">CreateBucket</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-247"></span><span>
-</span><span id="line-248"></span><span class="hs-comment">-- | Allows grantee to write the ACL for the applicable bucket.</span><span>
-</span><span id="line-249"></span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#createBucket_grantWriteACP"><span class="hs-identifier hs-type">createBucket_grantWriteACP</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket"><span class="hs-identifier hs-type">CreateBucket</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-250"></span><span id="createBucket_grantWriteACP"><span class="annot"><span class="annottext">createBucket_grantWriteACP :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateBucket -&gt; f CreateBucket
-</span><a href="Network.AWS.S3.CreateBucket.html#createBucket_grantWriteACP"><span class="hs-identifier hs-var hs-var">createBucket_grantWriteACP</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateBucket -&gt; Maybe Text)
+</span><a href="#local-6989586621679582052"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket"><span class="hs-identifier hs-type">CreateBucket</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- | Allows grantee to create new objects in the bucket.</span><span>
+</span><span id="line-267"></span><span class="hs-comment">--</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- For the bucket and object owners of existing objects, also allows</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- deletions and overwrites of those objects.</span><span>
+</span><span id="line-270"></span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#createBucket_grantWrite"><span class="hs-identifier hs-type">createBucket_grantWrite</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket"><span class="hs-identifier hs-type">CreateBucket</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span id="createBucket_grantWrite"><span class="annot"><span class="annottext">createBucket_grantWrite :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateBucket -&gt; f CreateBucket
+</span><a href="Network.AWS.S3.CreateBucket.html#createBucket_grantWrite"><span class="hs-identifier hs-var hs-var">createBucket_grantWrite</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateBucket -&gt; Maybe Text)
 -&gt; (CreateBucket -&gt; Maybe Text -&gt; CreateBucket)
 -&gt; Lens CreateBucket CreateBucket (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket%27"><span class="hs-identifier hs-type">CreateBucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679580968"><span class="annot"><span class="annottext">Maybe Text
-grantWriteACP :: Maybe Text
-$sel:grantWriteACP:CreateBucket' :: CreateBucket -&gt; Maybe Text
-</span><a href="#local-6989586621679580968"><span class="hs-identifier hs-var hs-var">grantWriteACP</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679580968"><span class="hs-identifier hs-var">grantWriteACP</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679580967"><span class="annot"><span class="annottext">s :: CreateBucket
-</span><a href="#local-6989586621679580967"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket%27"><span class="hs-identifier hs-type">CreateBucket'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679580966"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679580966"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBucket
-</span><a href="#local-6989586621679580967"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:grantWriteACP:CreateBucket' :: Maybe Text
-</span><a href="Network.AWS.S3.CreateBucket.html#%24sel%3AgrantWriteACP%3ACreateBucket%27"><span class="hs-identifier hs-var">grantWriteACP</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679580966"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket"><span class="hs-identifier hs-type">CreateBucket</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-251"></span><span>
-</span><span id="line-252"></span><span class="hs-comment">-- | The canned ACL to apply to the bucket.</span><span>
-</span><span id="line-253"></span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#createBucket_acl"><span class="hs-identifier hs-type">createBucket_acl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket"><span class="hs-identifier hs-type">CreateBucket</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.BucketCannedACL.html#BucketCannedACL"><span class="hs-identifier hs-type">BucketCannedACL</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-254"></span><span id="createBucket_acl"><span class="annot"><span class="annottext">createBucket_acl :: (Maybe BucketCannedACL -&gt; f (Maybe BucketCannedACL))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket%27"><span class="hs-identifier hs-type">CreateBucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582051"><span class="annot"><span class="annottext">Maybe Text
+grantWrite :: Maybe Text
+$sel:grantWrite:CreateBucket' :: CreateBucket -&gt; Maybe Text
+</span><a href="#local-6989586621679582051"><span class="hs-identifier hs-var hs-var">grantWrite</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679582051"><span class="hs-identifier hs-var">grantWrite</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679582050"><span class="annot"><span class="annottext">s :: CreateBucket
+</span><a href="#local-6989586621679582050"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket%27"><span class="hs-identifier hs-type">CreateBucket'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679582049"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679582049"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBucket
+</span><a href="#local-6989586621679582050"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:grantWrite:CreateBucket' :: Maybe Text
+</span><a href="Network.AWS.S3.CreateBucket.html#%24sel%3AgrantWrite%3ACreateBucket%27"><span class="hs-identifier hs-var">grantWrite</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679582049"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket"><span class="hs-identifier hs-type">CreateBucket</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- | The canned ACL to apply to the bucket.</span><span>
+</span><span id="line-274"></span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#createBucket_acl"><span class="hs-identifier hs-type">createBucket_acl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket"><span class="hs-identifier hs-type">CreateBucket</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.BucketCannedACL.html#BucketCannedACL"><span class="hs-identifier hs-type">BucketCannedACL</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span id="createBucket_acl"><span class="annot"><span class="annottext">createBucket_acl :: (Maybe BucketCannedACL -&gt; f (Maybe BucketCannedACL))
 -&gt; CreateBucket -&gt; f CreateBucket
 </span><a href="Network.AWS.S3.CreateBucket.html#createBucket_acl"><span class="hs-identifier hs-var hs-var">createBucket_acl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateBucket -&gt; Maybe BucketCannedACL)
 -&gt; (CreateBucket -&gt; Maybe BucketCannedACL -&gt; CreateBucket)
@@ -409,93 +486,16 @@ $sel:grantWriteACP:CreateBucket' :: CreateBucket -&gt; Maybe Text
      (Maybe BucketCannedACL)
      (Maybe BucketCannedACL)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket%27"><span class="hs-identifier hs-type">CreateBucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679580965"><span class="annot"><span class="annottext">Maybe BucketCannedACL
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket%27"><span class="hs-identifier hs-type">CreateBucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582048"><span class="annot"><span class="annottext">Maybe BucketCannedACL
 acl :: Maybe BucketCannedACL
 $sel:acl:CreateBucket' :: CreateBucket -&gt; Maybe BucketCannedACL
-</span><a href="#local-6989586621679580965"><span class="hs-identifier hs-var hs-var">acl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BucketCannedACL
-</span><a href="#local-6989586621679580965"><span class="hs-identifier hs-var">acl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679580964"><span class="annot"><span class="annottext">s :: CreateBucket
-</span><a href="#local-6989586621679580964"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket%27"><span class="hs-identifier hs-type">CreateBucket'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679580963"><span class="annot"><span class="annottext">Maybe BucketCannedACL
-</span><a href="#local-6989586621679580963"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBucket
-</span><a href="#local-6989586621679580964"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:acl:CreateBucket' :: Maybe BucketCannedACL
+</span><a href="#local-6989586621679582048"><span class="hs-identifier hs-var hs-var">acl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BucketCannedACL
+</span><a href="#local-6989586621679582048"><span class="hs-identifier hs-var">acl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679582047"><span class="annot"><span class="annottext">s :: CreateBucket
+</span><a href="#local-6989586621679582047"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket%27"><span class="hs-identifier hs-type">CreateBucket'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679582046"><span class="annot"><span class="annottext">Maybe BucketCannedACL
+</span><a href="#local-6989586621679582046"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBucket
+</span><a href="#local-6989586621679582047"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:acl:CreateBucket' :: Maybe BucketCannedACL
 </span><a href="Network.AWS.S3.CreateBucket.html#%24sel%3Aacl%3ACreateBucket%27"><span class="hs-identifier hs-var">acl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BucketCannedACL
-</span><a href="#local-6989586621679580963"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket"><span class="hs-identifier hs-type">CreateBucket</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-255"></span><span>
-</span><span id="line-256"></span><span class="hs-comment">-- | Allows grantee to read the bucket ACL.</span><span>
-</span><span id="line-257"></span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#createBucket_grantReadACP"><span class="hs-identifier hs-type">createBucket_grantReadACP</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket"><span class="hs-identifier hs-type">CreateBucket</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-258"></span><span id="createBucket_grantReadACP"><span class="annot"><span class="annottext">createBucket_grantReadACP :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateBucket -&gt; f CreateBucket
-</span><a href="Network.AWS.S3.CreateBucket.html#createBucket_grantReadACP"><span class="hs-identifier hs-var hs-var">createBucket_grantReadACP</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateBucket -&gt; Maybe Text)
--&gt; (CreateBucket -&gt; Maybe Text -&gt; CreateBucket)
--&gt; Lens CreateBucket CreateBucket (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket%27"><span class="hs-identifier hs-type">CreateBucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679580962"><span class="annot"><span class="annottext">Maybe Text
-grantReadACP :: Maybe Text
-$sel:grantReadACP:CreateBucket' :: CreateBucket -&gt; Maybe Text
-</span><a href="#local-6989586621679580962"><span class="hs-identifier hs-var hs-var">grantReadACP</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679580962"><span class="hs-identifier hs-var">grantReadACP</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679580961"><span class="annot"><span class="annottext">s :: CreateBucket
-</span><a href="#local-6989586621679580961"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket%27"><span class="hs-identifier hs-type">CreateBucket'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679580960"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679580960"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBucket
-</span><a href="#local-6989586621679580961"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:grantReadACP:CreateBucket' :: Maybe Text
-</span><a href="Network.AWS.S3.CreateBucket.html#%24sel%3AgrantReadACP%3ACreateBucket%27"><span class="hs-identifier hs-var">grantReadACP</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679580960"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket"><span class="hs-identifier hs-type">CreateBucket</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-259"></span><span>
-</span><span id="line-260"></span><span class="hs-comment">-- | Specifies whether you want S3 Object Lock to be enabled for the new</span><span>
-</span><span id="line-261"></span><span class="hs-comment">-- bucket.</span><span>
-</span><span id="line-262"></span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#createBucket_objectLockEnabledForBucket"><span class="hs-identifier hs-type">createBucket_objectLockEnabledForBucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket"><span class="hs-identifier hs-type">CreateBucket</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-263"></span><span id="createBucket_objectLockEnabledForBucket"><span class="annot"><span class="annottext">createBucket_objectLockEnabledForBucket :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; CreateBucket -&gt; f CreateBucket
-</span><a href="Network.AWS.S3.CreateBucket.html#createBucket_objectLockEnabledForBucket"><span class="hs-identifier hs-var hs-var">createBucket_objectLockEnabledForBucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateBucket -&gt; Maybe Bool)
--&gt; (CreateBucket -&gt; Maybe Bool -&gt; CreateBucket)
--&gt; Lens CreateBucket CreateBucket (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket%27"><span class="hs-identifier hs-type">CreateBucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679580959"><span class="annot"><span class="annottext">Maybe Bool
-objectLockEnabledForBucket :: Maybe Bool
-$sel:objectLockEnabledForBucket:CreateBucket' :: CreateBucket -&gt; Maybe Bool
-</span><a href="#local-6989586621679580959"><span class="hs-identifier hs-var hs-var">objectLockEnabledForBucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679580959"><span class="hs-identifier hs-var">objectLockEnabledForBucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679580958"><span class="annot"><span class="annottext">s :: CreateBucket
-</span><a href="#local-6989586621679580958"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket%27"><span class="hs-identifier hs-type">CreateBucket'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679580957"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679580957"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBucket
-</span><a href="#local-6989586621679580958"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:objectLockEnabledForBucket:CreateBucket' :: Maybe Bool
-</span><a href="Network.AWS.S3.CreateBucket.html#%24sel%3AobjectLockEnabledForBucket%3ACreateBucket%27"><span class="hs-identifier hs-var">objectLockEnabledForBucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679580957"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket"><span class="hs-identifier hs-type">CreateBucket</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-264"></span><span>
-</span><span id="line-265"></span><span class="hs-comment">-- | Allows grantee to create new objects in the bucket.</span><span>
-</span><span id="line-266"></span><span class="hs-comment">--</span><span>
-</span><span id="line-267"></span><span class="hs-comment">-- For the bucket and object owners of existing objects, also allows</span><span>
-</span><span id="line-268"></span><span class="hs-comment">-- deletions and overwrites of those objects.</span><span>
-</span><span id="line-269"></span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#createBucket_grantWrite"><span class="hs-identifier hs-type">createBucket_grantWrite</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket"><span class="hs-identifier hs-type">CreateBucket</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-270"></span><span id="createBucket_grantWrite"><span class="annot"><span class="annottext">createBucket_grantWrite :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateBucket -&gt; f CreateBucket
-</span><a href="Network.AWS.S3.CreateBucket.html#createBucket_grantWrite"><span class="hs-identifier hs-var hs-var">createBucket_grantWrite</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateBucket -&gt; Maybe Text)
--&gt; (CreateBucket -&gt; Maybe Text -&gt; CreateBucket)
--&gt; Lens CreateBucket CreateBucket (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket%27"><span class="hs-identifier hs-type">CreateBucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679580956"><span class="annot"><span class="annottext">Maybe Text
-grantWrite :: Maybe Text
-$sel:grantWrite:CreateBucket' :: CreateBucket -&gt; Maybe Text
-</span><a href="#local-6989586621679580956"><span class="hs-identifier hs-var hs-var">grantWrite</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679580956"><span class="hs-identifier hs-var">grantWrite</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679580955"><span class="annot"><span class="annottext">s :: CreateBucket
-</span><a href="#local-6989586621679580955"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket%27"><span class="hs-identifier hs-type">CreateBucket'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679580954"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679580954"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBucket
-</span><a href="#local-6989586621679580955"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:grantWrite:CreateBucket' :: Maybe Text
-</span><a href="Network.AWS.S3.CreateBucket.html#%24sel%3AgrantWrite%3ACreateBucket%27"><span class="hs-identifier hs-var">grantWrite</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679580954"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket"><span class="hs-identifier hs-type">CreateBucket</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-271"></span><span>
-</span><span id="line-272"></span><span class="hs-comment">-- | Allows grantee the read, write, read ACP, and write ACP permissions on</span><span>
-</span><span id="line-273"></span><span class="hs-comment">-- the bucket.</span><span>
-</span><span id="line-274"></span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#createBucket_grantFullControl"><span class="hs-identifier hs-type">createBucket_grantFullControl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket"><span class="hs-identifier hs-type">CreateBucket</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-275"></span><span id="createBucket_grantFullControl"><span class="annot"><span class="annottext">createBucket_grantFullControl :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateBucket -&gt; f CreateBucket
-</span><a href="Network.AWS.S3.CreateBucket.html#createBucket_grantFullControl"><span class="hs-identifier hs-var hs-var">createBucket_grantFullControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateBucket -&gt; Maybe Text)
--&gt; (CreateBucket -&gt; Maybe Text -&gt; CreateBucket)
--&gt; Lens CreateBucket CreateBucket (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket%27"><span class="hs-identifier hs-type">CreateBucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679580953"><span class="annot"><span class="annottext">Maybe Text
-grantFullControl :: Maybe Text
-$sel:grantFullControl:CreateBucket' :: CreateBucket -&gt; Maybe Text
-</span><a href="#local-6989586621679580953"><span class="hs-identifier hs-var hs-var">grantFullControl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679580953"><span class="hs-identifier hs-var">grantFullControl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679580952"><span class="annot"><span class="annottext">s :: CreateBucket
-</span><a href="#local-6989586621679580952"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket%27"><span class="hs-identifier hs-type">CreateBucket'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679580951"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679580951"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBucket
-</span><a href="#local-6989586621679580952"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:grantFullControl:CreateBucket' :: Maybe Text
-</span><a href="Network.AWS.S3.CreateBucket.html#%24sel%3AgrantFullControl%3ACreateBucket%27"><span class="hs-identifier hs-var">grantFullControl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679580951"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket"><span class="hs-identifier hs-type">CreateBucket</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679582046"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket"><span class="hs-identifier hs-type">CreateBucket</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-276"></span><span>
 </span><span id="line-277"></span><span class="hs-comment">-- | The name of the bucket to create.</span><span>
 </span><span id="line-278"></span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#createBucket_bucket"><span class="hs-identifier hs-type">createBucket_bucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket"><span class="hs-identifier hs-type">CreateBucket</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span>
@@ -504,31 +504,40 @@ $sel:grantFullControl:CreateBucket' :: CreateBucket -&gt; Maybe Text
 -&gt; (CreateBucket -&gt; BucketName -&gt; CreateBucket)
 -&gt; Lens CreateBucket CreateBucket BucketName BucketName
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket%27"><span class="hs-identifier hs-type">CreateBucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679580950"><span class="annot"><span class="annottext">BucketName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket%27"><span class="hs-identifier hs-type">CreateBucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582045"><span class="annot"><span class="annottext">BucketName
 bucket :: BucketName
 $sel:bucket:CreateBucket' :: CreateBucket -&gt; BucketName
-</span><a href="#local-6989586621679580950"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679580950"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679580949"><span class="annot"><span class="annottext">s :: CreateBucket
-</span><a href="#local-6989586621679580949"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket%27"><span class="hs-identifier hs-type">CreateBucket'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679580948"><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679580948"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBucket
-</span><a href="#local-6989586621679580949"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:CreateBucket' :: BucketName
+</span><a href="#local-6989586621679582045"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679582045"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679582044"><span class="annot"><span class="annottext">s :: CreateBucket
+</span><a href="#local-6989586621679582044"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket%27"><span class="hs-identifier hs-type">CreateBucket'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679582043"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679582043"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBucket
+</span><a href="#local-6989586621679582044"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:CreateBucket' :: BucketName
 </span><a href="Network.AWS.S3.CreateBucket.html#%24sel%3Abucket%3ACreateBucket%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679580948"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket"><span class="hs-identifier hs-type">CreateBucket</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679582043"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket"><span class="hs-identifier hs-type">CreateBucket</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-280"></span><span>
 </span><span id="line-281"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket"><span class="hs-identifier hs-type">CreateBucket</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-282"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket"><span class="hs-identifier hs-type">CreateBucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucketResponse"><span class="hs-identifier hs-type">CreateBucketResponse</span></a></span><span>
-</span><span id="line-283"></span><span>  </span><span id="local-6989586621679580944"><span class="annot"><span class="annottext">request :: CreateBucket -&gt; Request CreateBucket
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateBucket -&gt; Request CreateBucket
+</span><span id="line-283"></span><span>  </span><span id="local-6989586621679582039"><span class="annot"><span class="annottext">request :: CreateBucket -&gt; Request CreateBucket
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-284"></span><span>    </span><span class="annot"><span class="annottext">Request CreateBucket -&gt; Request CreateBucket
+forall a. Request a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.s3vhost</span></span><span>
+</span><span id="line-285"></span><span>      </span><span class="annot"><span class="annottext">(Request CreateBucket -&gt; Request CreateBucket)
+-&gt; (CreateBucket -&gt; Request CreateBucket)
+-&gt; CreateBucket
+-&gt; Request CreateBucket
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateBucket -&gt; Request CreateBucket
 forall a. (ToRequest a, ToElement a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putXML</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.S3.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-284"></span><span>  </span><span id="local-6989586621679580940"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-286"></span><span>  </span><span id="local-6989586621679582033"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateBucket
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse CreateBucket)))
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-285"></span><span>    </span><span class="annot"><span class="annottext">(Int
+</span><span id="line-287"></span><span>    </span><span class="annot"><span class="annottext">(Int
  -&gt; ResponseHeaders
  -&gt; ()
  -&gt; Either String (AWSResponse CreateBucket))
@@ -546,24 +555,24 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-286"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679580937"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679580937"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679580936"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679580936"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679580935"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679580935"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-287"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; CreateBucketResponse
+</span><span id="line-288"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679582030"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679582030"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679582029"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679582029"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679582028"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679582028"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-289"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; CreateBucketResponse
 </span><a href="Network.AWS.S3.CreateBucket.html#CreateBucketResponse%27"><span class="hs-identifier hs-var">CreateBucketResponse'</span></a></span><span>
-</span><span id="line-288"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; CreateBucketResponse)
+</span><span id="line-290"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; CreateBucketResponse)
 -&gt; Either String (Maybe Text)
 -&gt; Either String (Int -&gt; CreateBucketResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679580936"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679582029"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
 forall a.
 FromText a =&gt;
 ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..#?</span></span><span> </span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;Location&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-289"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateBucketResponse)
+</span><span id="line-291"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateBucketResponse)
 -&gt; Either String Int -&gt; Either String CreateBucketResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
@@ -571,168 +580,168 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679580937"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-290"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-291"></span><span>
-</span><span id="line-292"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679580927"><span id="local-6989586621679580929"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket"><span class="hs-identifier hs-type">CreateBucket</span></a></span></span></span><span>
+</span><a href="#local-6989586621679582030"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-293"></span><span>
-</span><span id="line-294"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679580924"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket"><span class="hs-identifier hs-type">CreateBucket</span></a></span></span><span>
+</span><span id="line-294"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679582020"><span id="local-6989586621679582022"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket"><span class="hs-identifier hs-type">CreateBucket</span></a></span></span></span><span>
 </span><span id="line-295"></span><span>
-</span><span id="line-296"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToElement</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket"><span class="hs-identifier hs-type">CreateBucket</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-297"></span><span>  </span><span id="local-6989586621679580920"><span class="annot"><span class="annottext">toElement :: CreateBucket -&gt; Element
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toElement</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket%27"><span class="hs-identifier hs-type">CreateBucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679580910"><span id="local-6989586621679580911"><span id="local-6989586621679580912"><span id="local-6989586621679580913"><span id="local-6989586621679580914"><span id="local-6989586621679580915"><span id="local-6989586621679580916"><span id="local-6989586621679580917"><span id="local-6989586621679580918"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-296"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679582017"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket"><span class="hs-identifier hs-type">CreateBucket</span></a></span></span><span>
+</span><span id="line-297"></span><span>
+</span><span id="line-298"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToElement</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket"><span class="hs-identifier hs-type">CreateBucket</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-299"></span><span>  </span><span id="local-6989586621679582013"><span class="annot"><span class="annottext">toElement :: CreateBucket -&gt; Element
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toElement</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket%27"><span class="hs-identifier hs-type">CreateBucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679582003"><span id="local-6989586621679582004"><span id="local-6989586621679582005"><span id="local-6989586621679582006"><span id="local-6989586621679582007"><span id="local-6989586621679582008"><span id="local-6989586621679582009"><span id="local-6989586621679582010"><span id="local-6989586621679582011"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 Maybe BucketCannedACL
 Maybe CreateBucketConfiguration
 BucketName
 bucket :: BucketName
-grantFullControl :: Maybe Text
+acl :: Maybe BucketCannedACL
 grantWrite :: Maybe Text
+createBucketConfiguration :: Maybe CreateBucketConfiguration
+grantFullControl :: Maybe Text
+grantRead :: Maybe Text
+grantWriteACP :: Maybe Text
 objectLockEnabledForBucket :: Maybe Bool
 grantReadACP :: Maybe Text
-acl :: Maybe BucketCannedACL
-grantWriteACP :: Maybe Text
-createBucketConfiguration :: Maybe CreateBucketConfiguration
-grantRead :: Maybe Text
 $sel:bucket:CreateBucket' :: CreateBucket -&gt; BucketName
-$sel:grantFullControl:CreateBucket' :: CreateBucket -&gt; Maybe Text
+$sel:acl:CreateBucket' :: CreateBucket -&gt; Maybe BucketCannedACL
 $sel:grantWrite:CreateBucket' :: CreateBucket -&gt; Maybe Text
+$sel:createBucketConfiguration:CreateBucket' :: CreateBucket -&gt; Maybe CreateBucketConfiguration
+$sel:grantFullControl:CreateBucket' :: CreateBucket -&gt; Maybe Text
+$sel:grantRead:CreateBucket' :: CreateBucket -&gt; Maybe Text
+$sel:grantWriteACP:CreateBucket' :: CreateBucket -&gt; Maybe Text
 $sel:objectLockEnabledForBucket:CreateBucket' :: CreateBucket -&gt; Maybe Bool
 $sel:grantReadACP:CreateBucket' :: CreateBucket -&gt; Maybe Text
-$sel:acl:CreateBucket' :: CreateBucket -&gt; Maybe BucketCannedACL
-$sel:grantWriteACP:CreateBucket' :: CreateBucket -&gt; Maybe Text
-$sel:createBucketConfiguration:CreateBucket' :: CreateBucket -&gt; Maybe CreateBucketConfiguration
-$sel:grantRead:CreateBucket' :: CreateBucket -&gt; Maybe Text
-</span><a href="#local-6989586621679580910"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-298"></span><span>    </span><span class="annot"><span class="annottext">Name -&gt; Maybe CreateBucketConfiguration -&gt; Element
+</span><a href="#local-6989586621679582003"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-300"></span><span>    </span><span class="annot"><span class="annottext">Name -&gt; Maybe CreateBucketConfiguration -&gt; Element
 forall a. ToXML a =&gt; Name -&gt; a -&gt; Element
 </span><span class="hs-identifier hs-var">Core.mkElement</span></span><span>
-</span><span id="line-299"></span><span>      </span><span class="annot"><span class="annottext">Name
+</span><span id="line-301"></span><span>      </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;{http://s3.amazonaws.com/doc/2006-03-01/}CreateBucketConfiguration&quot;</span></span><span>
-</span><span id="line-300"></span><span>      </span><span class="annot"><span class="annottext">Maybe CreateBucketConfiguration
-</span><a href="#local-6989586621679580917"><span class="hs-identifier hs-var">createBucketConfiguration</span></a></span><span>
-</span><span id="line-301"></span><span>
-</span><span id="line-302"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket"><span class="hs-identifier hs-type">CreateBucket</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-303"></span><span>  </span><span id="local-6989586621679580906"><span class="annot"><span class="annottext">toHeaders :: CreateBucket -&gt; ResponseHeaders
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket%27"><span class="hs-identifier hs-type">CreateBucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679580896"><span id="local-6989586621679580897"><span id="local-6989586621679580898"><span id="local-6989586621679580899"><span id="local-6989586621679580900"><span id="local-6989586621679580901"><span id="local-6989586621679580902"><span id="local-6989586621679580903"><span id="local-6989586621679580904"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-302"></span><span>      </span><span class="annot"><span class="annottext">Maybe CreateBucketConfiguration
+</span><a href="#local-6989586621679582006"><span class="hs-identifier hs-var">createBucketConfiguration</span></a></span><span>
+</span><span id="line-303"></span><span>
+</span><span id="line-304"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket"><span class="hs-identifier hs-type">CreateBucket</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-305"></span><span>  </span><span id="local-6989586621679581999"><span class="annot"><span class="annottext">toHeaders :: CreateBucket -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket%27"><span class="hs-identifier hs-type">CreateBucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679581989"><span id="local-6989586621679581990"><span id="local-6989586621679581991"><span id="local-6989586621679581992"><span id="local-6989586621679581993"><span id="local-6989586621679581994"><span id="local-6989586621679581995"><span id="local-6989586621679581996"><span id="local-6989586621679581997"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 Maybe BucketCannedACL
 Maybe CreateBucketConfiguration
 BucketName
 bucket :: BucketName
-grantFullControl :: Maybe Text
+acl :: Maybe BucketCannedACL
 grantWrite :: Maybe Text
+createBucketConfiguration :: Maybe CreateBucketConfiguration
+grantFullControl :: Maybe Text
+grantRead :: Maybe Text
+grantWriteACP :: Maybe Text
 objectLockEnabledForBucket :: Maybe Bool
 grantReadACP :: Maybe Text
-acl :: Maybe BucketCannedACL
-grantWriteACP :: Maybe Text
-createBucketConfiguration :: Maybe CreateBucketConfiguration
-grantRead :: Maybe Text
 $sel:bucket:CreateBucket' :: CreateBucket -&gt; BucketName
-$sel:grantFullControl:CreateBucket' :: CreateBucket -&gt; Maybe Text
+$sel:acl:CreateBucket' :: CreateBucket -&gt; Maybe BucketCannedACL
 $sel:grantWrite:CreateBucket' :: CreateBucket -&gt; Maybe Text
+$sel:createBucketConfiguration:CreateBucket' :: CreateBucket -&gt; Maybe CreateBucketConfiguration
+$sel:grantFullControl:CreateBucket' :: CreateBucket -&gt; Maybe Text
+$sel:grantRead:CreateBucket' :: CreateBucket -&gt; Maybe Text
+$sel:grantWriteACP:CreateBucket' :: CreateBucket -&gt; Maybe Text
 $sel:objectLockEnabledForBucket:CreateBucket' :: CreateBucket -&gt; Maybe Bool
 $sel:grantReadACP:CreateBucket' :: CreateBucket -&gt; Maybe Text
-$sel:acl:CreateBucket' :: CreateBucket -&gt; Maybe BucketCannedACL
-$sel:grantWriteACP:CreateBucket' :: CreateBucket -&gt; Maybe Text
-$sel:createBucketConfiguration:CreateBucket' :: CreateBucket -&gt; Maybe CreateBucketConfiguration
-$sel:grantRead:CreateBucket' :: CreateBucket -&gt; Maybe Text
-</span><a href="#local-6989586621679580896"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-304"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+</span><a href="#local-6989586621679581989"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-306"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
-</span><span id="line-305"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
-</span><span class="hs-string">&quot;x-amz-grant-read&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
-forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
-</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679580904"><span class="hs-identifier hs-var">grantRead</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-306"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
-</span><span class="hs-string">&quot;x-amz-grant-write-acp&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
-forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
-</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679580902"><span class="hs-identifier hs-var">grantWriteACP</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-307"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
-</span><span class="hs-string">&quot;x-amz-acl&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe BucketCannedACL -&gt; ResponseHeaders
-forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
-</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe BucketCannedACL
-</span><a href="#local-6989586621679580901"><span class="hs-identifier hs-var">acl</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-308"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
+</span><span id="line-307"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;x-amz-grant-read-acp&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679580900"><span class="hs-identifier hs-var">grantReadACP</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-309"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
+</span><a href="#local-6989586621679581997"><span class="hs-identifier hs-var">grantReadACP</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-308"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;x-amz-bucket-object-lock-enabled&quot;</span></span><span>
-</span><span id="line-310"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Bool -&gt; ResponseHeaders
+</span><span id="line-309"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Bool -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679580899"><span class="hs-identifier hs-var">objectLockEnabledForBucket</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-311"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
-</span><span class="hs-string">&quot;x-amz-grant-write&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
+</span><a href="#local-6989586621679581996"><span class="hs-identifier hs-var">objectLockEnabledForBucket</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-310"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-grant-write-acp&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679580898"><span class="hs-identifier hs-var">grantWrite</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679581995"><span class="hs-identifier hs-var">grantWriteACP</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-311"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-grant-read&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679581994"><span class="hs-identifier hs-var">grantRead</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-312"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;x-amz-grant-full-control&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679580897"><span class="hs-identifier hs-var">grantFullControl</span></a></span><span>
-</span><span id="line-313"></span><span>      </span><span class="hs-special">]</span><span>
-</span><span id="line-314"></span><span>
-</span><span id="line-315"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket"><span class="hs-identifier hs-type">CreateBucket</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-316"></span><span>  </span><span id="local-6989586621679580892"><span class="annot"><span class="annottext">toPath :: CreateBucket -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket%27"><span class="hs-identifier hs-type">CreateBucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679580882"><span id="local-6989586621679580883"><span id="local-6989586621679580884"><span id="local-6989586621679580885"><span id="local-6989586621679580886"><span id="local-6989586621679580887"><span id="local-6989586621679580888"><span id="local-6989586621679580889"><span id="local-6989586621679580890"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679581993"><span class="hs-identifier hs-var">grantFullControl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-313"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-grant-write&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679581991"><span class="hs-identifier hs-var">grantWrite</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-314"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-acl&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe BucketCannedACL -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe BucketCannedACL
+</span><a href="#local-6989586621679581990"><span class="hs-identifier hs-var">acl</span></a></span><span>
+</span><span id="line-315"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-316"></span><span>
+</span><span id="line-317"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket"><span class="hs-identifier hs-type">CreateBucket</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-318"></span><span>  </span><span id="local-6989586621679581985"><span class="annot"><span class="annottext">toPath :: CreateBucket -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket%27"><span class="hs-identifier hs-type">CreateBucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679581975"><span id="local-6989586621679581976"><span id="local-6989586621679581977"><span id="local-6989586621679581978"><span id="local-6989586621679581979"><span id="local-6989586621679581980"><span id="local-6989586621679581981"><span id="local-6989586621679581982"><span id="local-6989586621679581983"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 Maybe BucketCannedACL
 Maybe CreateBucketConfiguration
 BucketName
 bucket :: BucketName
-grantFullControl :: Maybe Text
+acl :: Maybe BucketCannedACL
 grantWrite :: Maybe Text
+createBucketConfiguration :: Maybe CreateBucketConfiguration
+grantFullControl :: Maybe Text
+grantRead :: Maybe Text
+grantWriteACP :: Maybe Text
 objectLockEnabledForBucket :: Maybe Bool
 grantReadACP :: Maybe Text
-acl :: Maybe BucketCannedACL
-grantWriteACP :: Maybe Text
-createBucketConfiguration :: Maybe CreateBucketConfiguration
-grantRead :: Maybe Text
 $sel:bucket:CreateBucket' :: CreateBucket -&gt; BucketName
-$sel:grantFullControl:CreateBucket' :: CreateBucket -&gt; Maybe Text
+$sel:acl:CreateBucket' :: CreateBucket -&gt; Maybe BucketCannedACL
 $sel:grantWrite:CreateBucket' :: CreateBucket -&gt; Maybe Text
+$sel:createBucketConfiguration:CreateBucket' :: CreateBucket -&gt; Maybe CreateBucketConfiguration
+$sel:grantFullControl:CreateBucket' :: CreateBucket -&gt; Maybe Text
+$sel:grantRead:CreateBucket' :: CreateBucket -&gt; Maybe Text
+$sel:grantWriteACP:CreateBucket' :: CreateBucket -&gt; Maybe Text
 $sel:objectLockEnabledForBucket:CreateBucket' :: CreateBucket -&gt; Maybe Bool
 $sel:grantReadACP:CreateBucket' :: CreateBucket -&gt; Maybe Text
-$sel:acl:CreateBucket' :: CreateBucket -&gt; Maybe BucketCannedACL
-$sel:grantWriteACP:CreateBucket' :: CreateBucket -&gt; Maybe Text
-$sel:createBucketConfiguration:CreateBucket' :: CreateBucket -&gt; Maybe CreateBucketConfiguration
-$sel:grantRead:CreateBucket' :: CreateBucket -&gt; Maybe Text
-</span><a href="#local-6989586621679580882"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-317"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+</span><a href="#local-6989586621679581975"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-319"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">BucketName -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679580882"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">]</span><span>
-</span><span id="line-318"></span><span>
-</span><span id="line-319"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket"><span class="hs-identifier hs-type">CreateBucket</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-320"></span><span>  </span><span id="local-6989586621679580878"><span class="annot"><span class="annottext">toQuery :: CreateBucket -&gt; QueryString
+</span><a href="#local-6989586621679581975"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-320"></span><span>
+</span><span id="line-321"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucket"><span class="hs-identifier hs-type">CreateBucket</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-322"></span><span>  </span><span id="local-6989586621679581971"><span class="annot"><span class="annottext">toQuery :: CreateBucket -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateBucket -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-321"></span><span>
-</span><span id="line-322"></span><span class="hs-comment">-- | /See:/ 'newCreateBucketResponse' smart constructor.</span><span>
-</span><span id="line-323"></span><span id="local-6989586621679580874"><span id="local-6989586621679580875"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateBucketResponse"><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucketResponse"><span class="hs-identifier hs-var">CreateBucketResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateBucketResponse%27"><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucketResponse%27"><span class="hs-identifier hs-var">CreateBucketResponse'</span></a></span></span><span>
-</span><span id="line-324"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the Region where the bucket will be created. If you are</span><span>
-</span><span id="line-325"></span><span>    </span><span class="hs-comment">-- creating a bucket on the US East (N. Virginia) Region (us-east-1), you</span><span>
-</span><span id="line-326"></span><span>    </span><span class="hs-comment">-- do not need to specify the location.</span><span>
-</span><span id="line-327"></span><span>    </span><span id="%24sel%3Alocation%3ACreateBucketResponse%27"><span class="annot"><span class="annottext">CreateBucketResponse -&gt; Maybe Text
+</span><span id="line-323"></span><span>
+</span><span id="line-324"></span><span class="hs-comment">-- | /See:/ 'newCreateBucketResponse' smart constructor.</span><span>
+</span><span id="line-325"></span><span id="local-6989586621679581967"><span id="local-6989586621679581968"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateBucketResponse"><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucketResponse"><span class="hs-identifier hs-var">CreateBucketResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateBucketResponse%27"><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucketResponse%27"><span class="hs-identifier hs-var">CreateBucketResponse'</span></a></span></span><span>
+</span><span id="line-326"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the Region where the bucket will be created. If you are</span><span>
+</span><span id="line-327"></span><span>    </span><span class="hs-comment">-- creating a bucket on the US East (N. Virginia) Region (us-east-1), you</span><span>
+</span><span id="line-328"></span><span>    </span><span class="hs-comment">-- do not need to specify the location.</span><span>
+</span><span id="line-329"></span><span>    </span><span id="%24sel%3Alocation%3ACreateBucketResponse%27"><span class="annot"><span class="annottext">CreateBucketResponse -&gt; Maybe Text
 </span><a href="Network.AWS.S3.CreateBucket.html#%24sel%3Alocation%3ACreateBucketResponse%27"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-328"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-329"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateBucketResponse%27"><span class="annot"><span class="annottext">CreateBucketResponse -&gt; Int
+</span><span id="line-330"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-331"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateBucketResponse%27"><span class="annot"><span class="annottext">CreateBucketResponse -&gt; Int
 </span><a href="Network.AWS.S3.CreateBucket.html#%24sel%3AhttpStatus%3ACreateBucketResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-330"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-331"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679580868"><span id="local-6989586621679580870"><span class="annot"><span class="annottext">CreateBucketResponse -&gt; CreateBucketResponse -&gt; Bool
+</span><span id="line-332"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-333"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679581961"><span id="local-6989586621679581963"><span class="annot"><span class="annottext">CreateBucketResponse -&gt; CreateBucketResponse -&gt; Bool
 (CreateBucketResponse -&gt; CreateBucketResponse -&gt; Bool)
 -&gt; (CreateBucketResponse -&gt; CreateBucketResponse -&gt; Bool)
 -&gt; Eq CreateBucketResponse
@@ -741,7 +750,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateBucketResponse -&gt; CreateBucketResponse -&gt; Bool
 == :: CreateBucketResponse -&gt; CreateBucketResponse -&gt; Bool
 $c== :: CreateBucketResponse -&gt; CreateBucketResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679580860"><span id="local-6989586621679580862"><span id="local-6989586621679580864"><span id="local-6989586621679580866"><span class="annot"><span class="annottext">ReadPrec [CreateBucketResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679581953"><span id="local-6989586621679581955"><span id="local-6989586621679581957"><span id="local-6989586621679581959"><span class="annot"><span class="annottext">ReadPrec [CreateBucketResponse]
 ReadPrec CreateBucketResponse
 Int -&gt; ReadS CreateBucketResponse
 ReadS [CreateBucketResponse]
@@ -761,7 +770,7 @@ readList :: ReadS [CreateBucketResponse]
 $creadList :: ReadS [CreateBucketResponse]
 readsPrec :: Int -&gt; ReadS CreateBucketResponse
 $creadsPrec :: Int -&gt; ReadS CreateBucketResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679580854"><span id="local-6989586621679580856"><span id="local-6989586621679580858"><span class="annot"><span class="annottext">Int -&gt; CreateBucketResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679581947"><span id="local-6989586621679581949"><span id="local-6989586621679581951"><span class="annot"><span class="annottext">Int -&gt; CreateBucketResponse -&gt; ShowS
 [CreateBucketResponse] -&gt; ShowS
 CreateBucketResponse -&gt; String
 (Int -&gt; CreateBucketResponse -&gt; ShowS)
@@ -786,77 +795,77 @@ forall a.
 $cto :: forall x. Rep CreateBucketResponse x -&gt; CreateBucketResponse
 $cfrom :: forall x. CreateBucketResponse -&gt; Rep CreateBucketResponse x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
-</span><span id="line-332"></span><span>
-</span><span id="line-333"></span><span class="hs-comment">-- |</span><span>
-</span><span id="line-334"></span><span class="hs-comment">-- Create a value of 'CreateBucketResponse' with all optional fields omitted.</span><span>
-</span><span id="line-335"></span><span class="hs-comment">--</span><span>
-</span><span id="line-336"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-334"></span><span>
+</span><span id="line-335"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-336"></span><span class="hs-comment">-- Create a value of 'CreateBucketResponse' with all optional fields omitted.</span><span>
 </span><span id="line-337"></span><span class="hs-comment">--</span><span>
-</span><span id="line-338"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
-</span><span id="line-339"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
-</span><span id="line-340"></span><span class="hs-comment">--</span><span>
-</span><span id="line-341"></span><span class="hs-comment">-- 'location', 'createBucketResponse_location' - Specifies the Region where the bucket will be created. If you are</span><span>
-</span><span id="line-342"></span><span class="hs-comment">-- creating a bucket on the US East (N. Virginia) Region (us-east-1), you</span><span>
-</span><span id="line-343"></span><span class="hs-comment">-- do not need to specify the location.</span><span>
-</span><span id="line-344"></span><span class="hs-comment">--</span><span>
-</span><span id="line-345"></span><span class="hs-comment">-- 'httpStatus', 'createBucketResponse_httpStatus' - The response's http status code.</span><span>
-</span><span id="line-346"></span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#newCreateBucketResponse"><span class="hs-identifier hs-type">newCreateBucketResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-347"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
-</span><span id="line-348"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-349"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucketResponse"><span class="hs-identifier hs-type">CreateBucketResponse</span></a></span><span>
-</span><span id="line-350"></span><span id="newCreateBucketResponse"><span class="annot"><span class="annottext">newCreateBucketResponse :: Int -&gt; CreateBucketResponse
-</span><a href="Network.AWS.S3.CreateBucket.html#newCreateBucketResponse"><span class="hs-identifier hs-var hs-var">newCreateBucketResponse</span></a></span></span><span> </span><span id="local-6989586621679580851"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679580851"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-351"></span><span>  </span><span class="annot"><span class="annottext">CreateBucketResponse' :: Maybe Text -&gt; Int -&gt; CreateBucketResponse
+</span><span id="line-338"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-339"></span><span class="hs-comment">--</span><span>
+</span><span id="line-340"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-341"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-342"></span><span class="hs-comment">--</span><span>
+</span><span id="line-343"></span><span class="hs-comment">-- 'location', 'createBucketResponse_location' - Specifies the Region where the bucket will be created. If you are</span><span>
+</span><span id="line-344"></span><span class="hs-comment">-- creating a bucket on the US East (N. Virginia) Region (us-east-1), you</span><span>
+</span><span id="line-345"></span><span class="hs-comment">-- do not need to specify the location.</span><span>
+</span><span id="line-346"></span><span class="hs-comment">--</span><span>
+</span><span id="line-347"></span><span class="hs-comment">-- 'httpStatus', 'createBucketResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-348"></span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#newCreateBucketResponse"><span class="hs-identifier hs-type">newCreateBucketResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-349"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-350"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-351"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucketResponse"><span class="hs-identifier hs-type">CreateBucketResponse</span></a></span><span>
+</span><span id="line-352"></span><span id="newCreateBucketResponse"><span class="annot"><span class="annottext">newCreateBucketResponse :: Int -&gt; CreateBucketResponse
+</span><a href="Network.AWS.S3.CreateBucket.html#newCreateBucketResponse"><span class="hs-identifier hs-var hs-var">newCreateBucketResponse</span></a></span></span><span> </span><span id="local-6989586621679581944"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679581944"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-353"></span><span>  </span><span class="annot"><span class="annottext">CreateBucketResponse' :: Maybe Text -&gt; Int -&gt; CreateBucketResponse
 </span><a href="Network.AWS.S3.CreateBucket.html#CreateBucketResponse%27"><span class="hs-identifier hs-type">CreateBucketResponse'</span></a></span><span>
-</span><span id="line-352"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:location:CreateBucketResponse' :: Maybe Text
+</span><span id="line-354"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:location:CreateBucketResponse' :: Maybe Text
 </span><a href="Network.AWS.S3.CreateBucket.html#%24sel%3Alocation%3ACreateBucketResponse%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-353"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateBucketResponse' :: Int
+</span><span id="line-355"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateBucketResponse' :: Int
 </span><a href="Network.AWS.S3.CreateBucket.html#%24sel%3AhttpStatus%3ACreateBucketResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679580851"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
-</span><span id="line-354"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-355"></span><span>
-</span><span id="line-356"></span><span class="hs-comment">-- | Specifies the Region where the bucket will be created. If you are</span><span>
-</span><span id="line-357"></span><span class="hs-comment">-- creating a bucket on the US East (N. Virginia) Region (us-east-1), you</span><span>
-</span><span id="line-358"></span><span class="hs-comment">-- do not need to specify the location.</span><span>
-</span><span id="line-359"></span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#createBucketResponse_location"><span class="hs-identifier hs-type">createBucketResponse_location</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucketResponse"><span class="hs-identifier hs-type">CreateBucketResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-360"></span><span id="createBucketResponse_location"><span class="annot"><span class="annottext">createBucketResponse_location :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679581944"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-356"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-357"></span><span>
+</span><span id="line-358"></span><span class="hs-comment">-- | Specifies the Region where the bucket will be created. If you are</span><span>
+</span><span id="line-359"></span><span class="hs-comment">-- creating a bucket on the US East (N. Virginia) Region (us-east-1), you</span><span>
+</span><span id="line-360"></span><span class="hs-comment">-- do not need to specify the location.</span><span>
+</span><span id="line-361"></span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#createBucketResponse_location"><span class="hs-identifier hs-type">createBucketResponse_location</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucketResponse"><span class="hs-identifier hs-type">CreateBucketResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-362"></span><span id="createBucketResponse_location"><span class="annot"><span class="annottext">createBucketResponse_location :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; CreateBucketResponse -&gt; f CreateBucketResponse
 </span><a href="Network.AWS.S3.CreateBucket.html#createBucketResponse_location"><span class="hs-identifier hs-var hs-var">createBucketResponse_location</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateBucketResponse -&gt; Maybe Text)
 -&gt; (CreateBucketResponse -&gt; Maybe Text -&gt; CreateBucketResponse)
 -&gt; Lens
      CreateBucketResponse CreateBucketResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucketResponse%27"><span class="hs-identifier hs-type">CreateBucketResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679580850"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucketResponse%27"><span class="hs-identifier hs-type">CreateBucketResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679581943"><span class="annot"><span class="annottext">Maybe Text
 location :: Maybe Text
 $sel:location:CreateBucketResponse' :: CreateBucketResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679580850"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679580850"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679580849"><span class="annot"><span class="annottext">s :: CreateBucketResponse
-</span><a href="#local-6989586621679580849"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucketResponse%27"><span class="hs-identifier hs-type">CreateBucketResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679580848"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679580848"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBucketResponse
-</span><a href="#local-6989586621679580849"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:CreateBucketResponse' :: Maybe Text
+</span><a href="#local-6989586621679581943"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679581943"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679581942"><span class="annot"><span class="annottext">s :: CreateBucketResponse
+</span><a href="#local-6989586621679581942"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucketResponse%27"><span class="hs-identifier hs-type">CreateBucketResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679581941"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679581941"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBucketResponse
+</span><a href="#local-6989586621679581942"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:CreateBucketResponse' :: Maybe Text
 </span><a href="Network.AWS.S3.CreateBucket.html#%24sel%3Alocation%3ACreateBucketResponse%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679580848"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucketResponse"><span class="hs-identifier hs-type">CreateBucketResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-361"></span><span>
-</span><span id="line-362"></span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-363"></span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#createBucketResponse_httpStatus"><span class="hs-identifier hs-type">createBucketResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucketResponse"><span class="hs-identifier hs-type">CreateBucketResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-364"></span><span id="createBucketResponse_httpStatus"><span class="annot"><span class="annottext">createBucketResponse_httpStatus :: (Int -&gt; f Int) -&gt; CreateBucketResponse -&gt; f CreateBucketResponse
+</span><a href="#local-6989586621679581941"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucketResponse"><span class="hs-identifier hs-type">CreateBucketResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-363"></span><span>
+</span><span id="line-364"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-365"></span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#createBucketResponse_httpStatus"><span class="hs-identifier hs-type">createBucketResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucketResponse"><span class="hs-identifier hs-type">CreateBucketResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-366"></span><span id="createBucketResponse_httpStatus"><span class="annot"><span class="annottext">createBucketResponse_httpStatus :: (Int -&gt; f Int) -&gt; CreateBucketResponse -&gt; f CreateBucketResponse
 </span><a href="Network.AWS.S3.CreateBucket.html#createBucketResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createBucketResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateBucketResponse -&gt; Int)
 -&gt; (CreateBucketResponse -&gt; Int -&gt; CreateBucketResponse)
 -&gt; Lens CreateBucketResponse CreateBucketResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucketResponse%27"><span class="hs-identifier hs-type">CreateBucketResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679580847"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucketResponse%27"><span class="hs-identifier hs-type">CreateBucketResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679581940"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateBucketResponse' :: CreateBucketResponse -&gt; Int
-</span><a href="#local-6989586621679580847"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679580847"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679580846"><span class="annot"><span class="annottext">s :: CreateBucketResponse
-</span><a href="#local-6989586621679580846"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucketResponse%27"><span class="hs-identifier hs-type">CreateBucketResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679580845"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679580845"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBucketResponse
-</span><a href="#local-6989586621679580846"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateBucketResponse' :: Int
+</span><a href="#local-6989586621679581940"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679581940"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679581939"><span class="annot"><span class="annottext">s :: CreateBucketResponse
+</span><a href="#local-6989586621679581939"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucketResponse%27"><span class="hs-identifier hs-type">CreateBucketResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679581938"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679581938"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBucketResponse
+</span><a href="#local-6989586621679581939"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateBucketResponse' :: Int
 </span><a href="Network.AWS.S3.CreateBucket.html#%24sel%3AhttpStatus%3ACreateBucketResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679580845"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucketResponse"><span class="hs-identifier hs-type">CreateBucketResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-365"></span><span>
-</span><span id="line-366"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679580843"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucketResponse"><span class="hs-identifier hs-type">CreateBucketResponse</span></a></span></span><span>
-</span><span id="line-367"></span></pre></body></html>
+</span><a href="#local-6989586621679581938"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucketResponse"><span class="hs-identifier hs-type">CreateBucketResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-367"></span><span>
+</span><span id="line-368"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679581936"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.CreateBucket.html#CreateBucketResponse"><span class="hs-identifier hs-type">CreateBucketResponse</span></a></span></span><span>
+</span><span id="line-369"></span></pre></body></html>

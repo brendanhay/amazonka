@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AgentReference.html CloudWatch Logs Agent Reference&gt;.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newCloudWatchLogsLogStream' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679373133"><span id="local-6989586621679373134"></span></span><span class="hs-keyword">data</span><span> </span><span id="CloudWatchLogsLogStream"><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream"><span class="hs-identifier hs-var">CloudWatchLogsLogStream</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CloudWatchLogsLogStream%27"><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream%27"><span class="hs-identifier hs-var">CloudWatchLogsLogStream'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679373525"><span id="local-6989586621679373526"></span></span><span class="hs-keyword">data</span><span> </span><span id="CloudWatchLogsLogStream"><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream"><span class="hs-identifier hs-var">CloudWatchLogsLogStream</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CloudWatchLogsLogStream%27"><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream%27"><span class="hs-identifier hs-var">CloudWatchLogsLogStream'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the max number of log events in a batch, up to 10000. The</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- default value is 1000.</span><span>
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AbatchCount%3ACloudWatchLogsLogStream%27"><span class="annot"><span class="annottext">CloudWatchLogsLogStream -&gt; Maybe Int
@@ -98,7 +98,7 @@
 </span><span id="line-88"></span><span>    </span><span id="%24sel%3Afile%3ACloudWatchLogsLogStream%27"><span class="annot"><span class="annottext">CloudWatchLogsLogStream -&gt; Maybe Text
 </span><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#%24sel%3Afile%3ACloudWatchLogsLogStream%27"><span class="hs-identifier hs-var hs-var">file</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-89"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-90"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679373117"><span id="local-6989586621679373119"><span class="annot"><span class="annottext">CloudWatchLogsLogStream -&gt; CloudWatchLogsLogStream -&gt; Bool
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679373509"><span id="local-6989586621679373511"><span class="annot"><span class="annottext">CloudWatchLogsLogStream -&gt; CloudWatchLogsLogStream -&gt; Bool
 (CloudWatchLogsLogStream -&gt; CloudWatchLogsLogStream -&gt; Bool)
 -&gt; (CloudWatchLogsLogStream -&gt; CloudWatchLogsLogStream -&gt; Bool)
 -&gt; Eq CloudWatchLogsLogStream
@@ -107,7 +107,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CloudWatchLogsLogStream -&gt; CloudWatchLogsLogStream -&gt; Bool
 == :: CloudWatchLogsLogStream -&gt; CloudWatchLogsLogStream -&gt; Bool
 $c== :: CloudWatchLogsLogStream -&gt; CloudWatchLogsLogStream -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373108"><span id="local-6989586621679373110"><span id="local-6989586621679373112"><span id="local-6989586621679373114"><span class="annot"><span class="annottext">ReadPrec [CloudWatchLogsLogStream]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373500"><span id="local-6989586621679373502"><span id="local-6989586621679373504"><span id="local-6989586621679373506"><span class="annot"><span class="annottext">ReadPrec [CloudWatchLogsLogStream]
 ReadPrec CloudWatchLogsLogStream
 Int -&gt; ReadS CloudWatchLogsLogStream
 ReadS [CloudWatchLogsLogStream]
@@ -127,7 +127,7 @@ readList :: ReadS [CloudWatchLogsLogStream]
 $creadList :: ReadS [CloudWatchLogsLogStream]
 readsPrec :: Int -&gt; ReadS CloudWatchLogsLogStream
 $creadsPrec :: Int -&gt; ReadS CloudWatchLogsLogStream
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373101"><span id="local-6989586621679373103"><span id="local-6989586621679373105"><span class="annot"><span class="annottext">Int -&gt; CloudWatchLogsLogStream -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373493"><span id="local-6989586621679373495"><span id="local-6989586621679373497"><span class="annot"><span class="annottext">Int -&gt; CloudWatchLogsLogStream -&gt; ShowS
 [CloudWatchLogsLogStream] -&gt; ShowS
 CloudWatchLogsLogStream -&gt; String
 (Int -&gt; CloudWatchLogsLogStream -&gt; ShowS)
@@ -294,16 +294,16 @@ forall a. Maybe a
      (Maybe Int)
      (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream%27"><span class="hs-identifier hs-type">CloudWatchLogsLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373092"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream%27"><span class="hs-identifier hs-type">CloudWatchLogsLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373484"><span class="annot"><span class="annottext">Maybe Int
 batchCount :: Maybe Int
 $sel:batchCount:CloudWatchLogsLogStream' :: CloudWatchLogsLogStream -&gt; Maybe Int
-</span><a href="#local-6989586621679373092"><span class="hs-identifier hs-var hs-var">batchCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679373092"><span class="hs-identifier hs-var">batchCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373091"><span class="annot"><span class="annottext">s :: CloudWatchLogsLogStream
-</span><a href="#local-6989586621679373091"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream%27"><span class="hs-identifier hs-type">CloudWatchLogsLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373090"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679373090"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchLogsLogStream
-</span><a href="#local-6989586621679373091"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:batchCount:CloudWatchLogsLogStream' :: Maybe Int
+</span><a href="#local-6989586621679373484"><span class="hs-identifier hs-var hs-var">batchCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679373484"><span class="hs-identifier hs-var">batchCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373483"><span class="annot"><span class="annottext">s :: CloudWatchLogsLogStream
+</span><a href="#local-6989586621679373483"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream%27"><span class="hs-identifier hs-type">CloudWatchLogsLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373482"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679373482"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchLogsLogStream
+</span><a href="#local-6989586621679373483"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:batchCount:CloudWatchLogsLogStream' :: Maybe Int
 </span><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#%24sel%3AbatchCount%3ACloudWatchLogsLogStream%27"><span class="hs-identifier hs-var">batchCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679373090"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream"><span class="hs-identifier hs-type">CloudWatchLogsLogStream</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373482"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream"><span class="hs-identifier hs-type">CloudWatchLogsLogStream</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-comment">-- | Specifies the range of lines for identifying a file. The valid values</span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- are one number, or two dash-delimited numbers, such as \'1\', \'2-5\'.</span><span>
@@ -322,16 +322,16 @@ $sel:batchCount:CloudWatchLogsLogStream' :: CloudWatchLogsLogStream -&gt; Maybe 
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream%27"><span class="hs-identifier hs-type">CloudWatchLogsLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373088"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream%27"><span class="hs-identifier hs-type">CloudWatchLogsLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373480"><span class="annot"><span class="annottext">Maybe Text
 fileFingerprintLines :: Maybe Text
 $sel:fileFingerprintLines:CloudWatchLogsLogStream' :: CloudWatchLogsLogStream -&gt; Maybe Text
-</span><a href="#local-6989586621679373088"><span class="hs-identifier hs-var hs-var">fileFingerprintLines</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679373088"><span class="hs-identifier hs-var">fileFingerprintLines</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373087"><span class="annot"><span class="annottext">s :: CloudWatchLogsLogStream
-</span><a href="#local-6989586621679373087"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream%27"><span class="hs-identifier hs-type">CloudWatchLogsLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373086"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679373086"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchLogsLogStream
-</span><a href="#local-6989586621679373087"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileFingerprintLines:CloudWatchLogsLogStream' :: Maybe Text
+</span><a href="#local-6989586621679373480"><span class="hs-identifier hs-var hs-var">fileFingerprintLines</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373480"><span class="hs-identifier hs-var">fileFingerprintLines</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373479"><span class="annot"><span class="annottext">s :: CloudWatchLogsLogStream
+</span><a href="#local-6989586621679373479"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream%27"><span class="hs-identifier hs-type">CloudWatchLogsLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373478"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373478"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchLogsLogStream
+</span><a href="#local-6989586621679373479"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileFingerprintLines:CloudWatchLogsLogStream' :: Maybe Text
 </span><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#%24sel%3AfileFingerprintLines%3ACloudWatchLogsLogStream%27"><span class="hs-identifier hs-var">fileFingerprintLines</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679373086"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream"><span class="hs-identifier hs-type">CloudWatchLogsLogStream</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373478"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream"><span class="hs-identifier hs-type">CloudWatchLogsLogStream</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-comment">-- | Specifies the time duration for the batching of log events. The minimum</span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- value is 5000ms and default value is 5000ms.</span><span>
@@ -347,16 +347,16 @@ $sel:fileFingerprintLines:CloudWatchLogsLogStream' :: CloudWatchLogsLogStream -&
      (Maybe Int)
      (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream%27"><span class="hs-identifier hs-type">CloudWatchLogsLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373084"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream%27"><span class="hs-identifier hs-type">CloudWatchLogsLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373476"><span class="annot"><span class="annottext">Maybe Int
 bufferDuration :: Maybe Int
 $sel:bufferDuration:CloudWatchLogsLogStream' :: CloudWatchLogsLogStream -&gt; Maybe Int
-</span><a href="#local-6989586621679373084"><span class="hs-identifier hs-var hs-var">bufferDuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679373084"><span class="hs-identifier hs-var">bufferDuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373083"><span class="annot"><span class="annottext">s :: CloudWatchLogsLogStream
-</span><a href="#local-6989586621679373083"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream%27"><span class="hs-identifier hs-type">CloudWatchLogsLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373082"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679373082"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchLogsLogStream
-</span><a href="#local-6989586621679373083"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bufferDuration:CloudWatchLogsLogStream' :: Maybe Int
+</span><a href="#local-6989586621679373476"><span class="hs-identifier hs-var hs-var">bufferDuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679373476"><span class="hs-identifier hs-var">bufferDuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373475"><span class="annot"><span class="annottext">s :: CloudWatchLogsLogStream
+</span><a href="#local-6989586621679373475"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream%27"><span class="hs-identifier hs-type">CloudWatchLogsLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373474"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679373474"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchLogsLogStream
+</span><a href="#local-6989586621679373475"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bufferDuration:CloudWatchLogsLogStream' :: Maybe Int
 </span><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#%24sel%3AbufferDuration%3ACloudWatchLogsLogStream%27"><span class="hs-identifier hs-var">bufferDuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679373082"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream"><span class="hs-identifier hs-type">CloudWatchLogsLogStream</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373474"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream"><span class="hs-identifier hs-type">CloudWatchLogsLogStream</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>
 </span><span id="line-189"></span><span class="hs-comment">-- | Specifies the maximum size of log events in a batch, in bytes, up to</span><span>
 </span><span id="line-190"></span><span class="hs-comment">-- 1048576 bytes. The default value is 32768 bytes. This size is calculated</span><span>
@@ -374,16 +374,16 @@ $sel:bufferDuration:CloudWatchLogsLogStream' :: CloudWatchLogsLogStream -&gt; Ma
      (Maybe Int)
      (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream%27"><span class="hs-identifier hs-type">CloudWatchLogsLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373080"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream%27"><span class="hs-identifier hs-type">CloudWatchLogsLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373472"><span class="annot"><span class="annottext">Maybe Int
 batchSize :: Maybe Int
 $sel:batchSize:CloudWatchLogsLogStream' :: CloudWatchLogsLogStream -&gt; Maybe Int
-</span><a href="#local-6989586621679373080"><span class="hs-identifier hs-var hs-var">batchSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679373080"><span class="hs-identifier hs-var">batchSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373079"><span class="annot"><span class="annottext">s :: CloudWatchLogsLogStream
-</span><a href="#local-6989586621679373079"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream%27"><span class="hs-identifier hs-type">CloudWatchLogsLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373078"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679373078"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchLogsLogStream
-</span><a href="#local-6989586621679373079"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:batchSize:CloudWatchLogsLogStream' :: Maybe Int
+</span><a href="#local-6989586621679373472"><span class="hs-identifier hs-var hs-var">batchSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679373472"><span class="hs-identifier hs-var">batchSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373471"><span class="annot"><span class="annottext">s :: CloudWatchLogsLogStream
+</span><a href="#local-6989586621679373471"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream%27"><span class="hs-identifier hs-type">CloudWatchLogsLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373470"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679373470"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchLogsLogStream
+</span><a href="#local-6989586621679373471"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:batchSize:CloudWatchLogsLogStream' :: Maybe Int
 </span><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#%24sel%3AbatchSize%3ACloudWatchLogsLogStream%27"><span class="hs-identifier hs-var">batchSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679373078"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream"><span class="hs-identifier hs-type">CloudWatchLogsLogStream</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373470"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream"><span class="hs-identifier hs-type">CloudWatchLogsLogStream</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-195"></span><span>
 </span><span id="line-196"></span><span class="hs-comment">-- | Specifies the destination log group. A log group is created</span><span>
 </span><span id="line-197"></span><span class="hs-comment">-- automatically if it doesn\'t already exist. Log group names can be</span><span>
@@ -402,16 +402,16 @@ $sel:batchSize:CloudWatchLogsLogStream' :: CloudWatchLogsLogStream -&gt; Maybe I
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream%27"><span class="hs-identifier hs-type">CloudWatchLogsLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373076"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream%27"><span class="hs-identifier hs-type">CloudWatchLogsLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373468"><span class="annot"><span class="annottext">Maybe Text
 logGroupName :: Maybe Text
 $sel:logGroupName:CloudWatchLogsLogStream' :: CloudWatchLogsLogStream -&gt; Maybe Text
-</span><a href="#local-6989586621679373076"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679373076"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373075"><span class="annot"><span class="annottext">s :: CloudWatchLogsLogStream
-</span><a href="#local-6989586621679373075"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream%27"><span class="hs-identifier hs-type">CloudWatchLogsLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373074"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679373074"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchLogsLogStream
-</span><a href="#local-6989586621679373075"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:CloudWatchLogsLogStream' :: Maybe Text
+</span><a href="#local-6989586621679373468"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373468"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373467"><span class="annot"><span class="annottext">s :: CloudWatchLogsLogStream
+</span><a href="#local-6989586621679373467"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream%27"><span class="hs-identifier hs-type">CloudWatchLogsLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373466"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373466"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchLogsLogStream
+</span><a href="#local-6989586621679373467"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:CloudWatchLogsLogStream' :: Maybe Text
 </span><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#%24sel%3AlogGroupName%3ACloudWatchLogsLogStream%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679373074"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream"><span class="hs-identifier hs-type">CloudWatchLogsLogStream</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373466"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream"><span class="hs-identifier hs-type">CloudWatchLogsLogStream</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-203"></span><span>
 </span><span id="line-204"></span><span class="hs-comment">-- | Specifies the pattern for identifying the start of a log message.</span><span>
 </span><span id="line-205"></span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#cloudWatchLogsLogStream_multiLineStartPattern"><span class="hs-identifier hs-type">cloudWatchLogsLogStream_multiLineStartPattern</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream"><span class="hs-identifier hs-type">CloudWatchLogsLogStream</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -426,16 +426,16 @@ $sel:logGroupName:CloudWatchLogsLogStream' :: CloudWatchLogsLogStream -&gt; Mayb
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream%27"><span class="hs-identifier hs-type">CloudWatchLogsLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373072"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream%27"><span class="hs-identifier hs-type">CloudWatchLogsLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373464"><span class="annot"><span class="annottext">Maybe Text
 multiLineStartPattern :: Maybe Text
 $sel:multiLineStartPattern:CloudWatchLogsLogStream' :: CloudWatchLogsLogStream -&gt; Maybe Text
-</span><a href="#local-6989586621679373072"><span class="hs-identifier hs-var hs-var">multiLineStartPattern</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679373072"><span class="hs-identifier hs-var">multiLineStartPattern</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373071"><span class="annot"><span class="annottext">s :: CloudWatchLogsLogStream
-</span><a href="#local-6989586621679373071"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream%27"><span class="hs-identifier hs-type">CloudWatchLogsLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373070"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679373070"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchLogsLogStream
-</span><a href="#local-6989586621679373071"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:multiLineStartPattern:CloudWatchLogsLogStream' :: Maybe Text
+</span><a href="#local-6989586621679373464"><span class="hs-identifier hs-var hs-var">multiLineStartPattern</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373464"><span class="hs-identifier hs-var">multiLineStartPattern</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373463"><span class="annot"><span class="annottext">s :: CloudWatchLogsLogStream
+</span><a href="#local-6989586621679373463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream%27"><span class="hs-identifier hs-type">CloudWatchLogsLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373462"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchLogsLogStream
+</span><a href="#local-6989586621679373463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:multiLineStartPattern:CloudWatchLogsLogStream' :: Maybe Text
 </span><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#%24sel%3AmultiLineStartPattern%3ACloudWatchLogsLogStream%27"><span class="hs-identifier hs-var">multiLineStartPattern</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679373070"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream"><span class="hs-identifier hs-type">CloudWatchLogsLogStream</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream"><span class="hs-identifier hs-type">CloudWatchLogsLogStream</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-207"></span><span>
 </span><span id="line-208"></span><span class="hs-comment">-- | Specifies where to start to read data (start_of_file or end_of_file).</span><span>
 </span><span id="line-209"></span><span class="hs-comment">-- The default is start_of_file. This setting is only used if there is no</span><span>
@@ -453,16 +453,16 @@ $sel:multiLineStartPattern:CloudWatchLogsLogStream' :: CloudWatchLogsLogStream -
      (Maybe CloudWatchLogsInitialPosition)
      (Maybe CloudWatchLogsInitialPosition)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream%27"><span class="hs-identifier hs-type">CloudWatchLogsLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373068"><span class="annot"><span class="annottext">Maybe CloudWatchLogsInitialPosition
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream%27"><span class="hs-identifier hs-type">CloudWatchLogsLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373460"><span class="annot"><span class="annottext">Maybe CloudWatchLogsInitialPosition
 initialPosition :: Maybe CloudWatchLogsInitialPosition
 $sel:initialPosition:CloudWatchLogsLogStream' :: CloudWatchLogsLogStream -&gt; Maybe CloudWatchLogsInitialPosition
-</span><a href="#local-6989586621679373068"><span class="hs-identifier hs-var hs-var">initialPosition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLogsInitialPosition
-</span><a href="#local-6989586621679373068"><span class="hs-identifier hs-var">initialPosition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373067"><span class="annot"><span class="annottext">s :: CloudWatchLogsLogStream
-</span><a href="#local-6989586621679373067"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream%27"><span class="hs-identifier hs-type">CloudWatchLogsLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373066"><span class="annot"><span class="annottext">Maybe CloudWatchLogsInitialPosition
-</span><a href="#local-6989586621679373066"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchLogsLogStream
-</span><a href="#local-6989586621679373067"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:initialPosition:CloudWatchLogsLogStream' :: Maybe CloudWatchLogsInitialPosition
+</span><a href="#local-6989586621679373460"><span class="hs-identifier hs-var hs-var">initialPosition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLogsInitialPosition
+</span><a href="#local-6989586621679373460"><span class="hs-identifier hs-var">initialPosition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373459"><span class="annot"><span class="annottext">s :: CloudWatchLogsLogStream
+</span><a href="#local-6989586621679373459"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream%27"><span class="hs-identifier hs-type">CloudWatchLogsLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373458"><span class="annot"><span class="annottext">Maybe CloudWatchLogsInitialPosition
+</span><a href="#local-6989586621679373458"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchLogsLogStream
+</span><a href="#local-6989586621679373459"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:initialPosition:CloudWatchLogsLogStream' :: Maybe CloudWatchLogsInitialPosition
 </span><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#%24sel%3AinitialPosition%3ACloudWatchLogsLogStream%27"><span class="hs-identifier hs-var">initialPosition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLogsInitialPosition
-</span><a href="#local-6989586621679373066"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream"><span class="hs-identifier hs-type">CloudWatchLogsLogStream</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373458"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream"><span class="hs-identifier hs-type">CloudWatchLogsLogStream</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-213"></span><span>
 </span><span id="line-214"></span><span class="hs-comment">-- | Specifies how the time stamp is extracted from logs. For more</span><span>
 </span><span id="line-215"></span><span class="hs-comment">-- information, see the</span><span>
@@ -479,16 +479,16 @@ $sel:initialPosition:CloudWatchLogsLogStream' :: CloudWatchLogsLogStream -&gt; M
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream%27"><span class="hs-identifier hs-type">CloudWatchLogsLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373064"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream%27"><span class="hs-identifier hs-type">CloudWatchLogsLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373456"><span class="annot"><span class="annottext">Maybe Text
 datetimeFormat :: Maybe Text
 $sel:datetimeFormat:CloudWatchLogsLogStream' :: CloudWatchLogsLogStream -&gt; Maybe Text
-</span><a href="#local-6989586621679373064"><span class="hs-identifier hs-var hs-var">datetimeFormat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679373064"><span class="hs-identifier hs-var">datetimeFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373063"><span class="annot"><span class="annottext">s :: CloudWatchLogsLogStream
-</span><a href="#local-6989586621679373063"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream%27"><span class="hs-identifier hs-type">CloudWatchLogsLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373062"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679373062"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchLogsLogStream
-</span><a href="#local-6989586621679373063"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datetimeFormat:CloudWatchLogsLogStream' :: Maybe Text
+</span><a href="#local-6989586621679373456"><span class="hs-identifier hs-var hs-var">datetimeFormat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373456"><span class="hs-identifier hs-var">datetimeFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373455"><span class="annot"><span class="annottext">s :: CloudWatchLogsLogStream
+</span><a href="#local-6989586621679373455"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream%27"><span class="hs-identifier hs-type">CloudWatchLogsLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373454"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373454"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchLogsLogStream
+</span><a href="#local-6989586621679373455"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datetimeFormat:CloudWatchLogsLogStream' :: Maybe Text
 </span><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#%24sel%3AdatetimeFormat%3ACloudWatchLogsLogStream%27"><span class="hs-identifier hs-var">datetimeFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679373062"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream"><span class="hs-identifier hs-type">CloudWatchLogsLogStream</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373454"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream"><span class="hs-identifier hs-type">CloudWatchLogsLogStream</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-219"></span><span>
 </span><span id="line-220"></span><span class="hs-comment">-- | Specifies the encoding of the log file so that the file can be read</span><span>
 </span><span id="line-221"></span><span class="hs-comment">-- correctly. The default is @utf_8@. Encodings supported by Python</span><span>
@@ -505,16 +505,16 @@ $sel:datetimeFormat:CloudWatchLogsLogStream' :: CloudWatchLogsLogStream -&gt; Ma
      (Maybe CloudWatchLogsEncoding)
      (Maybe CloudWatchLogsEncoding)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream%27"><span class="hs-identifier hs-type">CloudWatchLogsLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373060"><span class="annot"><span class="annottext">Maybe CloudWatchLogsEncoding
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream%27"><span class="hs-identifier hs-type">CloudWatchLogsLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373452"><span class="annot"><span class="annottext">Maybe CloudWatchLogsEncoding
 encoding :: Maybe CloudWatchLogsEncoding
 $sel:encoding:CloudWatchLogsLogStream' :: CloudWatchLogsLogStream -&gt; Maybe CloudWatchLogsEncoding
-</span><a href="#local-6989586621679373060"><span class="hs-identifier hs-var hs-var">encoding</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLogsEncoding
-</span><a href="#local-6989586621679373060"><span class="hs-identifier hs-var">encoding</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373059"><span class="annot"><span class="annottext">s :: CloudWatchLogsLogStream
-</span><a href="#local-6989586621679373059"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream%27"><span class="hs-identifier hs-type">CloudWatchLogsLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373058"><span class="annot"><span class="annottext">Maybe CloudWatchLogsEncoding
-</span><a href="#local-6989586621679373058"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchLogsLogStream
-</span><a href="#local-6989586621679373059"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encoding:CloudWatchLogsLogStream' :: Maybe CloudWatchLogsEncoding
+</span><a href="#local-6989586621679373452"><span class="hs-identifier hs-var hs-var">encoding</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLogsEncoding
+</span><a href="#local-6989586621679373452"><span class="hs-identifier hs-var">encoding</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373451"><span class="annot"><span class="annottext">s :: CloudWatchLogsLogStream
+</span><a href="#local-6989586621679373451"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream%27"><span class="hs-identifier hs-type">CloudWatchLogsLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373450"><span class="annot"><span class="annottext">Maybe CloudWatchLogsEncoding
+</span><a href="#local-6989586621679373450"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchLogsLogStream
+</span><a href="#local-6989586621679373451"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encoding:CloudWatchLogsLogStream' :: Maybe CloudWatchLogsEncoding
 </span><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#%24sel%3Aencoding%3ACloudWatchLogsLogStream%27"><span class="hs-identifier hs-var">encoding</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLogsEncoding
-</span><a href="#local-6989586621679373058"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream"><span class="hs-identifier hs-type">CloudWatchLogsLogStream</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373450"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream"><span class="hs-identifier hs-type">CloudWatchLogsLogStream</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-225"></span><span>
 </span><span id="line-226"></span><span class="hs-comment">-- | Specifies the time zone of log event time stamps.</span><span>
 </span><span id="line-227"></span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#cloudWatchLogsLogStream_timeZone"><span class="hs-identifier hs-type">cloudWatchLogsLogStream_timeZone</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream"><span class="hs-identifier hs-type">CloudWatchLogsLogStream</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsTimeZone.html#CloudWatchLogsTimeZone"><span class="hs-identifier hs-type">CloudWatchLogsTimeZone</span></a></span><span class="hs-special">)</span><span>
@@ -529,16 +529,16 @@ $sel:encoding:CloudWatchLogsLogStream' :: CloudWatchLogsLogStream -&gt; Maybe Cl
      (Maybe CloudWatchLogsTimeZone)
      (Maybe CloudWatchLogsTimeZone)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream%27"><span class="hs-identifier hs-type">CloudWatchLogsLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373056"><span class="annot"><span class="annottext">Maybe CloudWatchLogsTimeZone
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream%27"><span class="hs-identifier hs-type">CloudWatchLogsLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373448"><span class="annot"><span class="annottext">Maybe CloudWatchLogsTimeZone
 timeZone :: Maybe CloudWatchLogsTimeZone
 $sel:timeZone:CloudWatchLogsLogStream' :: CloudWatchLogsLogStream -&gt; Maybe CloudWatchLogsTimeZone
-</span><a href="#local-6989586621679373056"><span class="hs-identifier hs-var hs-var">timeZone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLogsTimeZone
-</span><a href="#local-6989586621679373056"><span class="hs-identifier hs-var">timeZone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373055"><span class="annot"><span class="annottext">s :: CloudWatchLogsLogStream
-</span><a href="#local-6989586621679373055"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream%27"><span class="hs-identifier hs-type">CloudWatchLogsLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373054"><span class="annot"><span class="annottext">Maybe CloudWatchLogsTimeZone
-</span><a href="#local-6989586621679373054"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchLogsLogStream
-</span><a href="#local-6989586621679373055"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeZone:CloudWatchLogsLogStream' :: Maybe CloudWatchLogsTimeZone
+</span><a href="#local-6989586621679373448"><span class="hs-identifier hs-var hs-var">timeZone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLogsTimeZone
+</span><a href="#local-6989586621679373448"><span class="hs-identifier hs-var">timeZone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373447"><span class="annot"><span class="annottext">s :: CloudWatchLogsLogStream
+</span><a href="#local-6989586621679373447"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream%27"><span class="hs-identifier hs-type">CloudWatchLogsLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373446"><span class="annot"><span class="annottext">Maybe CloudWatchLogsTimeZone
+</span><a href="#local-6989586621679373446"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchLogsLogStream
+</span><a href="#local-6989586621679373447"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeZone:CloudWatchLogsLogStream' :: Maybe CloudWatchLogsTimeZone
 </span><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#%24sel%3AtimeZone%3ACloudWatchLogsLogStream%27"><span class="hs-identifier hs-var">timeZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLogsTimeZone
-</span><a href="#local-6989586621679373054"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream"><span class="hs-identifier hs-type">CloudWatchLogsLogStream</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373446"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream"><span class="hs-identifier hs-type">CloudWatchLogsLogStream</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-229"></span><span>
 </span><span id="line-230"></span><span class="hs-comment">-- | Specifies log files that you want to push to CloudWatch Logs.</span><span>
 </span><span id="line-231"></span><span class="hs-comment">--</span><span>
@@ -566,19 +566,19 @@ $sel:timeZone:CloudWatchLogsLogStream' :: CloudWatchLogsLogStream -&gt; Maybe Cl
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream%27"><span class="hs-identifier hs-type">CloudWatchLogsLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373052"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream%27"><span class="hs-identifier hs-type">CloudWatchLogsLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373444"><span class="annot"><span class="annottext">Maybe Text
 file :: Maybe Text
 $sel:file:CloudWatchLogsLogStream' :: CloudWatchLogsLogStream -&gt; Maybe Text
-</span><a href="#local-6989586621679373052"><span class="hs-identifier hs-var hs-var">file</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679373052"><span class="hs-identifier hs-var">file</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373051"><span class="annot"><span class="annottext">s :: CloudWatchLogsLogStream
-</span><a href="#local-6989586621679373051"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream%27"><span class="hs-identifier hs-type">CloudWatchLogsLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373050"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679373050"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchLogsLogStream
-</span><a href="#local-6989586621679373051"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:file:CloudWatchLogsLogStream' :: Maybe Text
+</span><a href="#local-6989586621679373444"><span class="hs-identifier hs-var hs-var">file</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373444"><span class="hs-identifier hs-var">file</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373443"><span class="annot"><span class="annottext">s :: CloudWatchLogsLogStream
+</span><a href="#local-6989586621679373443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream%27"><span class="hs-identifier hs-type">CloudWatchLogsLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373442"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679373442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchLogsLogStream
+</span><a href="#local-6989586621679373443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:file:CloudWatchLogsLogStream' :: Maybe Text
 </span><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#%24sel%3Afile%3ACloudWatchLogsLogStream%27"><span class="hs-identifier hs-var">file</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679373050"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream"><span class="hs-identifier hs-type">CloudWatchLogsLogStream</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream"><span class="hs-identifier hs-type">CloudWatchLogsLogStream</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-246"></span><span>
-</span><span id="line-247"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373047"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream"><span class="hs-identifier hs-type">CloudWatchLogsLogStream</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-248"></span><span>  </span><span id="local-6989586621679373045"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CloudWatchLogsLogStream
+</span><span id="line-247"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373439"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream"><span class="hs-identifier hs-type">CloudWatchLogsLogStream</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-248"></span><span>  </span><span id="local-6989586621679373437"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CloudWatchLogsLogStream
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-249"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CloudWatchLogsLogStream)
@@ -588,8 +588,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-250"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CloudWatchLogsLogStream&quot;</span></span><span>
-</span><span id="line-251"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679373042"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373042"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-251"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679373434"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679373434"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-252"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
 -&gt; Maybe Text
 -&gt; Maybe Int
@@ -630,7 +630,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; CloudWatchLogsLogStream)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373042"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679373434"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BatchCount&quot;</span></span><span class="hs-special">)</span><span>
@@ -660,7 +660,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; CloudWatchLogsLogStream)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373042"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679373434"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FileFingerprintLines&quot;</span></span><span class="hs-special">)</span><span>
@@ -688,7 +688,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; CloudWatchLogsLogStream)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373042"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679373434"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BufferDuration&quot;</span></span><span class="hs-special">)</span><span>
@@ -714,7 +714,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; CloudWatchLogsLogStream)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373042"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679373434"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BatchSize&quot;</span></span><span class="hs-special">)</span><span>
@@ -738,7 +738,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; CloudWatchLogsLogStream)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373042"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679373434"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LogGroupName&quot;</span></span><span class="hs-special">)</span><span>
@@ -760,7 +760,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; CloudWatchLogsLogStream)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373042"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679373434"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MultiLineStartPattern&quot;</span></span><span class="hs-special">)</span><span>
@@ -780,7 +780,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; CloudWatchLogsLogStream)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373042"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CloudWatchLogsInitialPosition)
+</span><a href="#local-6989586621679373434"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CloudWatchLogsInitialPosition)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InitialPosition&quot;</span></span><span class="hs-special">)</span><span>
@@ -798,7 +798,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; CloudWatchLogsLogStream)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373042"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679373434"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DatetimeFormat&quot;</span></span><span class="hs-special">)</span><span>
@@ -813,7 +813,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe Text -&gt; CloudWatchLogsLogStream)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373042"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CloudWatchLogsEncoding)
+</span><a href="#local-6989586621679373434"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CloudWatchLogsEncoding)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Encoding&quot;</span></span><span class="hs-special">)</span><span>
@@ -824,7 +824,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; CloudWatchLogsLogStream)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373042"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CloudWatchLogsTimeZone)
+</span><a href="#local-6989586621679373434"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CloudWatchLogsTimeZone)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TimeZone&quot;</span></span><span class="hs-special">)</span><span>
@@ -832,19 +832,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser CloudWatchLogsLogStream
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373042"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679373434"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;File&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-264"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-265"></span><span>
-</span><span id="line-266"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373036"><span id="local-6989586621679373038"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream"><span class="hs-identifier hs-type">CloudWatchLogsLogStream</span></a></span></span></span><span>
+</span><span id="line-266"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373428"><span id="local-6989586621679373430"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream"><span class="hs-identifier hs-type">CloudWatchLogsLogStream</span></a></span></span></span><span>
 </span><span id="line-267"></span><span>
-</span><span id="line-268"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373033"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream"><span class="hs-identifier hs-type">CloudWatchLogsLogStream</span></a></span></span><span>
+</span><span id="line-268"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373425"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream"><span class="hs-identifier hs-type">CloudWatchLogsLogStream</span></a></span></span><span>
 </span><span id="line-269"></span><span>
-</span><span id="line-270"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373025"><span id="local-6989586621679373027"><span id="local-6989586621679373029"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream"><span class="hs-identifier hs-type">CloudWatchLogsLogStream</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-271"></span><span>  </span><span id="local-6989586621679373023"><span class="annot"><span class="annottext">toJSON :: CloudWatchLogsLogStream -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream%27"><span class="hs-identifier hs-type">CloudWatchLogsLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373011"><span id="local-6989586621679373012"><span id="local-6989586621679373013"><span id="local-6989586621679373014"><span id="local-6989586621679373015"><span id="local-6989586621679373016"><span id="local-6989586621679373017"><span id="local-6989586621679373018"><span id="local-6989586621679373019"><span id="local-6989586621679373020"><span id="local-6989586621679373021"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-270"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373417"><span id="local-6989586621679373419"><span id="local-6989586621679373421"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream"><span class="hs-identifier hs-type">CloudWatchLogsLogStream</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-271"></span><span>  </span><span id="local-6989586621679373415"><span class="annot"><span class="annottext">toJSON :: CloudWatchLogsLogStream -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream.html#CloudWatchLogsLogStream%27"><span class="hs-identifier hs-type">CloudWatchLogsLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373403"><span id="local-6989586621679373404"><span id="local-6989586621679373405"><span id="local-6989586621679373406"><span id="local-6989586621679373407"><span id="local-6989586621679373408"><span id="local-6989586621679373409"><span id="local-6989586621679373410"><span id="local-6989586621679373411"><span id="local-6989586621679373412"><span id="local-6989586621679373413"><span class="annot"><span class="annottext">Maybe Int
 Maybe Text
 Maybe CloudWatchLogsEncoding
 Maybe CloudWatchLogsInitialPosition
@@ -871,7 +871,7 @@ $sel:batchSize:CloudWatchLogsLogStream' :: CloudWatchLogsLogStream -&gt; Maybe I
 $sel:bufferDuration:CloudWatchLogsLogStream' :: CloudWatchLogsLogStream -&gt; Maybe Int
 $sel:fileFingerprintLines:CloudWatchLogsLogStream' :: CloudWatchLogsLogStream -&gt; Maybe Text
 $sel:batchCount:CloudWatchLogsLogStream' :: CloudWatchLogsLogStream -&gt; Maybe Int
-</span><a href="#local-6989586621679373011"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679373403"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-272"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-273"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -883,7 +883,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679373021"><span class="hs-identifier hs-var">batchCount</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679373413"><span class="hs-identifier hs-var">batchCount</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-275"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FileFingerprintLines&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -891,7 +891,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-276"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679373020"><span class="hs-identifier hs-var">fileFingerprintLines</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679373412"><span class="hs-identifier hs-var">fileFingerprintLines</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-277"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BufferDuration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -899,21 +899,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-278"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679373019"><span class="hs-identifier hs-var">bufferDuration</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679373411"><span class="hs-identifier hs-var">bufferDuration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-279"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BatchSize&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679373018"><span class="hs-identifier hs-var">batchSize</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679373410"><span class="hs-identifier hs-var">batchSize</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-280"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LogGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679373017"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679373409"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-281"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MultiLineStartPattern&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -921,7 +921,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-282"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679373016"><span class="hs-identifier hs-var">multiLineStartPattern</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679373408"><span class="hs-identifier hs-var">multiLineStartPattern</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-283"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InitialPosition&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CloudWatchLogsInitialPosition -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -930,7 +930,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe CloudWatchLogsInitialPosition -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLogsInitialPosition
-</span><a href="#local-6989586621679373015"><span class="hs-identifier hs-var">initialPosition</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679373407"><span class="hs-identifier hs-var">initialPosition</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-285"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DatetimeFormat&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -938,7 +938,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-286"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679373014"><span class="hs-identifier hs-var">datetimeFormat</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679373406"><span class="hs-identifier hs-var">datetimeFormat</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-287"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Encoding&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CloudWatchLogsEncoding -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -946,7 +946,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe CloudWatchLogsEncoding -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLogsEncoding
-</span><a href="#local-6989586621679373013"><span class="hs-identifier hs-var">encoding</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679373405"><span class="hs-identifier hs-var">encoding</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-288"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TimeZone&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CloudWatchLogsTimeZone -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -954,14 +954,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe CloudWatchLogsTimeZone -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLogsTimeZone
-</span><a href="#local-6989586621679373012"><span class="hs-identifier hs-var">timeZone</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679373404"><span class="hs-identifier hs-var">timeZone</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-289"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;File&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679373011"><span class="hs-identifier hs-var">file</span></a></span><span>
+</span><a href="#local-6989586621679373403"><span class="hs-identifier hs-var">file</span></a></span><span>
 </span><span id="line-290"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-291"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-292"></span></pre></body></html>

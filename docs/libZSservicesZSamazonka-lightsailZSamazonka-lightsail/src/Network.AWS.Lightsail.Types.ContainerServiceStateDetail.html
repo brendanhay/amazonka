@@ -27,54 +27,54 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Describes the current state of a container service.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newContainerServiceStateDetail' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679608119"><span id="local-6989586621679608120"></span></span><span class="hs-keyword">data</span><span> </span><span id="ContainerServiceStateDetail"><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetail.html#ContainerServiceStateDetail"><span class="hs-identifier hs-var">ContainerServiceStateDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContainerServiceStateDetail%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetail.html#ContainerServiceStateDetail%27"><span class="hs-identifier hs-var">ContainerServiceStateDetail'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A message that provides more information for the state code.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679609009"><span id="local-6989586621679609010"></span></span><span class="hs-keyword">data</span><span> </span><span id="ContainerServiceStateDetail"><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetail.html#ContainerServiceStateDetail"><span class="hs-identifier hs-var">ContainerServiceStateDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContainerServiceStateDetail%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetail.html#ContainerServiceStateDetail%27"><span class="hs-identifier hs-var">ContainerServiceStateDetail'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The state code of the container service.</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- The state detail is populated only when a container service is in a</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- @PENDING@, @DEPLOYING@, or @UPDATING@ state.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Amessage%3AContainerServiceStateDetail%27"><span class="annot"><span class="annottext">ContainerServiceStateDetail -&gt; Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetail.html#%24sel%3Amessage%3AContainerServiceStateDetail%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The state code of the container service.</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- The following state codes are possible:</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- -   The following state codes are possible if your container service is</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">--     in a @DEPLOYING@ or @UPDATING@ state:</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- The following state codes are possible:</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- -   The following state codes are possible if your container service is</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">--     in a @DEPLOYING@ or @UPDATING@ state:</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">--     -   @CREATING_SYSTEM_RESOURCES@ - The system resources for your</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">--         container service are being created.</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">--     -   @CREATING_NETWORK_INFRASTRUCTURE@ - The network infrastructure</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">--         for your container service are being created.</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">--     -   @PROVISIONING_CERTIFICATE@ - The SSL\/TLS certificate for your</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">--         container service is being created.</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">--     -   @PROVISIONING_SERVICE@ - Your container service is being</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">--         provisioned.</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">--     -   @CREATING_DEPLOYMENT@ - Your deployment is being created on your</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">--         container service.</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">--     -   @CREATING_SYSTEM_RESOURCES@ - The system resources for your</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--         container service are being created.</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">--     -   @CREATING_NETWORK_INFRASTRUCTURE@ - The network infrastructure</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">--         for your container service are being created.</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--     -   @PROVISIONING_CERTIFICATE@ - The SSL\/TLS certificate for your</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--         container service is being created.</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--     -   @PROVISIONING_SERVICE@ - Your container service is being</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--         provisioned.</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">--     -   @CREATING_DEPLOYMENT@ - Your deployment is being created on your</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--         container service.</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">--     -   @EVALUATING_HEALTH_CHECK@ - The health of your deployment is</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">--         being evaluated.</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">--     -   @ACTIVATING_DEPLOYMENT@ - Your deployment is being activated.</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">--     -   @EVALUATING_HEALTH_CHECK@ - The health of your deployment is</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">--         being evaluated.</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- -   The following state codes are possible if your container service is</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">--     in a @PENDING@ state:</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">--     -   @ACTIVATING_DEPLOYMENT@ - Your deployment is being activated.</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- -   The following state codes are possible if your container service is</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">--     in a @PENDING@ state:</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">--     -   @CERTIFICATE_LIMIT_EXCEEDED@ - The SSL\/TLS certificate required</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">--         for your container service exceeds the maximum number of</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">--         certificates allowed for your account.</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">--     -   @UNKNOWN_ERROR@ - An error was experienced when your container</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">--         service was being created.</span><span>
-</span><span id="line-72"></span><span>    </span><span id="%24sel%3Acode%3AContainerServiceStateDetail%27"><span class="annot"><span class="annottext">ContainerServiceStateDetail
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--     -   @CERTIFICATE_LIMIT_EXCEEDED@ - The SSL\/TLS certificate required</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--         for your container service exceeds the maximum number of</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--         certificates allowed for your account.</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--     -   @UNKNOWN_ERROR@ - An error was experienced when your container</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--         service was being created.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3Acode%3AContainerServiceStateDetail%27"><span class="annot"><span class="annottext">ContainerServiceStateDetail
 -&gt; Maybe ContainerServiceStateDetailCode
-</span><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetail.html#%24sel%3Acode%3AContainerServiceStateDetail%27"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetailCode.html#ContainerServiceStateDetailCode"><span class="hs-identifier hs-type">ContainerServiceStateDetailCode</span></a></span><span>
+</span><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetail.html#%24sel%3Acode%3AContainerServiceStateDetail%27"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetailCode.html#ContainerServiceStateDetailCode"><span class="hs-identifier hs-type">ContainerServiceStateDetailCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | A message that provides more information for the state code.</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- The state detail is populated only when a container service is in a</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- @PENDING@, @DEPLOYING@, or @UPDATING@ state.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3Amessage%3AContainerServiceStateDetail%27"><span class="annot"><span class="annottext">ContainerServiceStateDetail -&gt; Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetail.html#%24sel%3Amessage%3AContainerServiceStateDetail%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679608112"><span id="local-6989586621679608114"><span class="annot"><span class="annottext">ContainerServiceStateDetail -&gt; ContainerServiceStateDetail -&gt; Bool
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679609002"><span id="local-6989586621679609004"><span class="annot"><span class="annottext">ContainerServiceStateDetail -&gt; ContainerServiceStateDetail -&gt; Bool
 (ContainerServiceStateDetail
  -&gt; ContainerServiceStateDetail -&gt; Bool)
 -&gt; (ContainerServiceStateDetail
@@ -85,7 +85,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ContainerServiceStateDetail -&gt; ContainerServiceStateDetail -&gt; Bool
 == :: ContainerServiceStateDetail -&gt; ContainerServiceStateDetail -&gt; Bool
 $c== :: ContainerServiceStateDetail -&gt; ContainerServiceStateDetail -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679608103"><span id="local-6989586621679608105"><span id="local-6989586621679608107"><span id="local-6989586621679608109"><span class="annot"><span class="annottext">ReadPrec [ContainerServiceStateDetail]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679608993"><span id="local-6989586621679608995"><span id="local-6989586621679608997"><span id="local-6989586621679608999"><span class="annot"><span class="annottext">ReadPrec [ContainerServiceStateDetail]
 ReadPrec ContainerServiceStateDetail
 Int -&gt; ReadS ContainerServiceStateDetail
 ReadS [ContainerServiceStateDetail]
@@ -105,7 +105,7 @@ readList :: ReadS [ContainerServiceStateDetail]
 $creadList :: ReadS [ContainerServiceStateDetail]
 readsPrec :: Int -&gt; ReadS ContainerServiceStateDetail
 $creadsPrec :: Int -&gt; ReadS ContainerServiceStateDetail
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679608096"><span id="local-6989586621679608098"><span id="local-6989586621679608100"><span class="annot"><span class="annottext">Int -&gt; ContainerServiceStateDetail -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679608986"><span id="local-6989586621679608988"><span id="local-6989586621679608990"><span class="annot"><span class="annottext">Int -&gt; ContainerServiceStateDetail -&gt; ShowS
 [ContainerServiceStateDetail] -&gt; ShowS
 ContainerServiceStateDetail -&gt; String
 (Int -&gt; ContainerServiceStateDetail -&gt; ShowS)
@@ -145,131 +145,103 @@ ContainerServiceStateDetail -&gt; Rep ContainerServiceStateDetail x
 </span><span id="line-81"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-83"></span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- 'message', 'containerServiceStateDetail_message' - A message that provides more information for the state code.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'code', 'containerServiceStateDetail_code' - The state code of the container service.</span><span>
 </span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- The state detail is populated only when a container service is in a</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- @PENDING@, @DEPLOYING@, or @UPDATING@ state.</span><span>
-</span><span id="line-88"></span><span class="hs-comment">--</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- 'code', 'containerServiceStateDetail_code' - The state code of the container service.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- The following state codes are possible:</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- -   The following state codes are possible if your container service is</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--     in a @DEPLOYING@ or @UPDATING@ state:</span><span>
 </span><span id="line-90"></span><span class="hs-comment">--</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- The following state codes are possible:</span><span>
-</span><span id="line-92"></span><span class="hs-comment">--</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- -   The following state codes are possible if your container service is</span><span>
-</span><span id="line-94"></span><span class="hs-comment">--     in a @DEPLOYING@ or @UPDATING@ state:</span><span>
-</span><span id="line-95"></span><span class="hs-comment">--</span><span>
-</span><span id="line-96"></span><span class="hs-comment">--     -   @CREATING_SYSTEM_RESOURCES@ - The system resources for your</span><span>
-</span><span id="line-97"></span><span class="hs-comment">--         container service are being created.</span><span>
-</span><span id="line-98"></span><span class="hs-comment">--</span><span>
-</span><span id="line-99"></span><span class="hs-comment">--     -   @CREATING_NETWORK_INFRASTRUCTURE@ - The network infrastructure</span><span>
-</span><span id="line-100"></span><span class="hs-comment">--         for your container service are being created.</span><span>
-</span><span id="line-101"></span><span class="hs-comment">--</span><span>
-</span><span id="line-102"></span><span class="hs-comment">--     -   @PROVISIONING_CERTIFICATE@ - The SSL\/TLS certificate for your</span><span>
-</span><span id="line-103"></span><span class="hs-comment">--         container service is being created.</span><span>
-</span><span id="line-104"></span><span class="hs-comment">--</span><span>
-</span><span id="line-105"></span><span class="hs-comment">--     -   @PROVISIONING_SERVICE@ - Your container service is being</span><span>
-</span><span id="line-106"></span><span class="hs-comment">--         provisioned.</span><span>
-</span><span id="line-107"></span><span class="hs-comment">--</span><span>
-</span><span id="line-108"></span><span class="hs-comment">--     -   @CREATING_DEPLOYMENT@ - Your deployment is being created on your</span><span>
-</span><span id="line-109"></span><span class="hs-comment">--         container service.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--     -   @CREATING_SYSTEM_RESOURCES@ - The system resources for your</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--         container service are being created.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--     -   @CREATING_NETWORK_INFRASTRUCTURE@ - The network infrastructure</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--         for your container service are being created.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--     -   @PROVISIONING_CERTIFICATE@ - The SSL\/TLS certificate for your</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--         container service is being created.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--     -   @PROVISIONING_SERVICE@ - Your container service is being</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--         provisioned.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--     -   @CREATING_DEPLOYMENT@ - Your deployment is being created on your</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--         container service.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--     -   @EVALUATING_HEALTH_CHECK@ - The health of your deployment is</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--         being evaluated.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--     -   @ACTIVATING_DEPLOYMENT@ - Your deployment is being activated.</span><span>
 </span><span id="line-110"></span><span class="hs-comment">--</span><span>
-</span><span id="line-111"></span><span class="hs-comment">--     -   @EVALUATING_HEALTH_CHECK@ - The health of your deployment is</span><span>
-</span><span id="line-112"></span><span class="hs-comment">--         being evaluated.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- -   The following state codes are possible if your container service is</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--     in a @PENDING@ state:</span><span>
 </span><span id="line-113"></span><span class="hs-comment">--</span><span>
-</span><span id="line-114"></span><span class="hs-comment">--     -   @ACTIVATING_DEPLOYMENT@ - Your deployment is being activated.</span><span>
-</span><span id="line-115"></span><span class="hs-comment">--</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- -   The following state codes are possible if your container service is</span><span>
-</span><span id="line-117"></span><span class="hs-comment">--     in a @PENDING@ state:</span><span>
-</span><span id="line-118"></span><span class="hs-comment">--</span><span>
-</span><span id="line-119"></span><span class="hs-comment">--     -   @CERTIFICATE_LIMIT_EXCEEDED@ - The SSL\/TLS certificate required</span><span>
-</span><span id="line-120"></span><span class="hs-comment">--         for your container service exceeds the maximum number of</span><span>
-</span><span id="line-121"></span><span class="hs-comment">--         certificates allowed for your account.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--     -   @CERTIFICATE_LIMIT_EXCEEDED@ - The SSL\/TLS certificate required</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--         for your container service exceeds the maximum number of</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--         certificates allowed for your account.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--     -   @UNKNOWN_ERROR@ - An error was experienced when your container</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--         service was being created.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'message', 'containerServiceStateDetail_message' - A message that provides more information for the state code.</span><span>
 </span><span id="line-122"></span><span class="hs-comment">--</span><span>
-</span><span id="line-123"></span><span class="hs-comment">--     -   @UNKNOWN_ERROR@ - An error was experienced when your container</span><span>
-</span><span id="line-124"></span><span class="hs-comment">--         service was being created.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- The state detail is populated only when a container service is in a</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- @PENDING@, @DEPLOYING@, or @UPDATING@ state.</span><span>
 </span><span id="line-125"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetail.html#newContainerServiceStateDetail"><span class="hs-identifier hs-type">newContainerServiceStateDetail</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-126"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetail.html#ContainerServiceStateDetail"><span class="hs-identifier hs-type">ContainerServiceStateDetail</span></a></span><span>
 </span><span id="line-127"></span><span id="newContainerServiceStateDetail"><span class="annot"><span class="annottext">newContainerServiceStateDetail :: ContainerServiceStateDetail
 </span><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetail.html#newContainerServiceStateDetail"><span class="hs-identifier hs-var hs-var">newContainerServiceStateDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-128"></span><span>  </span><span class="annot"><span class="annottext">ContainerServiceStateDetail' :: Maybe Text
--&gt; Maybe ContainerServiceStateDetailCode
--&gt; ContainerServiceStateDetail
+</span><span id="line-128"></span><span>  </span><span class="annot"><span class="annottext">ContainerServiceStateDetail' :: Maybe ContainerServiceStateDetailCode
+-&gt; Maybe Text -&gt; ContainerServiceStateDetail
 </span><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetail.html#ContainerServiceStateDetail%27"><span class="hs-identifier hs-type">ContainerServiceStateDetail'</span></a></span><span>
-</span><span id="line-129"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:message:ContainerServiceStateDetail' :: Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetail.html#%24sel%3Amessage%3AContainerServiceStateDetail%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-129"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:code:ContainerServiceStateDetail' :: Maybe ContainerServiceStateDetailCode
+</span><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetail.html#%24sel%3Acode%3AContainerServiceStateDetail%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">Maybe ContainerServiceStateDetailCode
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:code:ContainerServiceStateDetail' :: Maybe ContainerServiceStateDetailCode
-</span><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetail.html#%24sel%3Acode%3AContainerServiceStateDetail%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerServiceStateDetailCode
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:message:ContainerServiceStateDetail' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetail.html#%24sel%3Amessage%3AContainerServiceStateDetail%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-132"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- | A message that provides more information for the state code.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The state code of the container service.</span><span>
 </span><span id="line-135"></span><span class="hs-comment">--</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- The state detail is populated only when a container service is in a</span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- @PENDING@, @DEPLOYING@, or @UPDATING@ state.</span><span>
-</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetail.html#containerServiceStateDetail_message"><span class="hs-identifier hs-type">containerServiceStateDetail_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetail.html#ContainerServiceStateDetail"><span class="hs-identifier hs-type">ContainerServiceStateDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-139"></span><span id="containerServiceStateDetail_message"><span class="annot"><span class="annottext">containerServiceStateDetail_message :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ContainerServiceStateDetail -&gt; f ContainerServiceStateDetail
-</span><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetail.html#containerServiceStateDetail_message"><span class="hs-identifier hs-var hs-var">containerServiceStateDetail_message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContainerServiceStateDetail -&gt; Maybe Text)
--&gt; (ContainerServiceStateDetail
-    -&gt; Maybe Text -&gt; ContainerServiceStateDetail)
--&gt; Lens
-     ContainerServiceStateDetail
-     ContainerServiceStateDetail
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetail.html#ContainerServiceStateDetail%27"><span class="hs-identifier hs-type">ContainerServiceStateDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679608087"><span class="annot"><span class="annottext">Maybe Text
-message :: Maybe Text
-$sel:message:ContainerServiceStateDetail' :: ContainerServiceStateDetail -&gt; Maybe Text
-</span><a href="#local-6989586621679608087"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679608087"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679608086"><span class="annot"><span class="annottext">s :: ContainerServiceStateDetail
-</span><a href="#local-6989586621679608086"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetail.html#ContainerServiceStateDetail%27"><span class="hs-identifier hs-type">ContainerServiceStateDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679608085"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679608085"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerServiceStateDetail
-</span><a href="#local-6989586621679608086"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:ContainerServiceStateDetail' :: Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetail.html#%24sel%3Amessage%3AContainerServiceStateDetail%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679608085"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetail.html#ContainerServiceStateDetail"><span class="hs-identifier hs-type">ContainerServiceStateDetail</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- | The state code of the container service.</span><span>
-</span><span id="line-142"></span><span class="hs-comment">--</span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- The following state codes are possible:</span><span>
-</span><span id="line-144"></span><span class="hs-comment">--</span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- -   The following state codes are possible if your container service is</span><span>
-</span><span id="line-146"></span><span class="hs-comment">--     in a @DEPLOYING@ or @UPDATING@ state:</span><span>
-</span><span id="line-147"></span><span class="hs-comment">--</span><span>
-</span><span id="line-148"></span><span class="hs-comment">--     -   @CREATING_SYSTEM_RESOURCES@ - The system resources for your</span><span>
-</span><span id="line-149"></span><span class="hs-comment">--         container service are being created.</span><span>
-</span><span id="line-150"></span><span class="hs-comment">--</span><span>
-</span><span id="line-151"></span><span class="hs-comment">--     -   @CREATING_NETWORK_INFRASTRUCTURE@ - The network infrastructure</span><span>
-</span><span id="line-152"></span><span class="hs-comment">--         for your container service are being created.</span><span>
-</span><span id="line-153"></span><span class="hs-comment">--</span><span>
-</span><span id="line-154"></span><span class="hs-comment">--     -   @PROVISIONING_CERTIFICATE@ - The SSL\/TLS certificate for your</span><span>
-</span><span id="line-155"></span><span class="hs-comment">--         container service is being created.</span><span>
-</span><span id="line-156"></span><span class="hs-comment">--</span><span>
-</span><span id="line-157"></span><span class="hs-comment">--     -   @PROVISIONING_SERVICE@ - Your container service is being</span><span>
-</span><span id="line-158"></span><span class="hs-comment">--         provisioned.</span><span>
-</span><span id="line-159"></span><span class="hs-comment">--</span><span>
-</span><span id="line-160"></span><span class="hs-comment">--     -   @CREATING_DEPLOYMENT@ - Your deployment is being created on your</span><span>
-</span><span id="line-161"></span><span class="hs-comment">--         container service.</span><span>
-</span><span id="line-162"></span><span class="hs-comment">--</span><span>
-</span><span id="line-163"></span><span class="hs-comment">--     -   @EVALUATING_HEALTH_CHECK@ - The health of your deployment is</span><span>
-</span><span id="line-164"></span><span class="hs-comment">--         being evaluated.</span><span>
-</span><span id="line-165"></span><span class="hs-comment">--</span><span>
-</span><span id="line-166"></span><span class="hs-comment">--     -   @ACTIVATING_DEPLOYMENT@ - Your deployment is being activated.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- The following state codes are possible:</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- -   The following state codes are possible if your container service is</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--     in a @DEPLOYING@ or @UPDATING@ state:</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--     -   @CREATING_SYSTEM_RESOURCES@ - The system resources for your</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--         container service are being created.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--     -   @CREATING_NETWORK_INFRASTRUCTURE@ - The network infrastructure</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--         for your container service are being created.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--     -   @PROVISIONING_CERTIFICATE@ - The SSL\/TLS certificate for your</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--         container service is being created.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--     -   @PROVISIONING_SERVICE@ - Your container service is being</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--         provisioned.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--     -   @CREATING_DEPLOYMENT@ - Your deployment is being created on your</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--         container service.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--     -   @EVALUATING_HEALTH_CHECK@ - The health of your deployment is</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--         being evaluated.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--     -   @ACTIVATING_DEPLOYMENT@ - Your deployment is being activated.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- -   The following state codes are possible if your container service is</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--     in a @PENDING@ state:</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--     -   @CERTIFICATE_LIMIT_EXCEEDED@ - The SSL\/TLS certificate required</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--         for your container service exceeds the maximum number of</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--         certificates allowed for your account.</span><span>
 </span><span id="line-167"></span><span class="hs-comment">--</span><span>
-</span><span id="line-168"></span><span class="hs-comment">-- -   The following state codes are possible if your container service is</span><span>
-</span><span id="line-169"></span><span class="hs-comment">--     in a @PENDING@ state:</span><span>
-</span><span id="line-170"></span><span class="hs-comment">--</span><span>
-</span><span id="line-171"></span><span class="hs-comment">--     -   @CERTIFICATE_LIMIT_EXCEEDED@ - The SSL\/TLS certificate required</span><span>
-</span><span id="line-172"></span><span class="hs-comment">--         for your container service exceeds the maximum number of</span><span>
-</span><span id="line-173"></span><span class="hs-comment">--         certificates allowed for your account.</span><span>
-</span><span id="line-174"></span><span class="hs-comment">--</span><span>
-</span><span id="line-175"></span><span class="hs-comment">--     -   @UNKNOWN_ERROR@ - An error was experienced when your container</span><span>
-</span><span id="line-176"></span><span class="hs-comment">--         service was being created.</span><span>
-</span><span id="line-177"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetail.html#containerServiceStateDetail_code"><span class="hs-identifier hs-type">containerServiceStateDetail_code</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetail.html#ContainerServiceStateDetail"><span class="hs-identifier hs-type">ContainerServiceStateDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetailCode.html#ContainerServiceStateDetailCode"><span class="hs-identifier hs-type">ContainerServiceStateDetailCode</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-178"></span><span id="containerServiceStateDetail_code"><span class="annot"><span class="annottext">containerServiceStateDetail_code :: (Maybe ContainerServiceStateDetailCode
+</span><span id="line-168"></span><span class="hs-comment">--     -   @UNKNOWN_ERROR@ - An error was experienced when your container</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--         service was being created.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetail.html#containerServiceStateDetail_code"><span class="hs-identifier hs-type">containerServiceStateDetail_code</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetail.html#ContainerServiceStateDetail"><span class="hs-identifier hs-type">ContainerServiceStateDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetailCode.html#ContainerServiceStateDetailCode"><span class="hs-identifier hs-type">ContainerServiceStateDetailCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span id="containerServiceStateDetail_code"><span class="annot"><span class="annottext">containerServiceStateDetail_code :: (Maybe ContainerServiceStateDetailCode
  -&gt; f (Maybe ContainerServiceStateDetailCode))
 -&gt; ContainerServiceStateDetail -&gt; f ContainerServiceStateDetail
 </span><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetail.html#containerServiceStateDetail_code"><span class="hs-identifier hs-var hs-var">containerServiceStateDetail_code</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContainerServiceStateDetail
@@ -283,20 +255,47 @@ $sel:message:ContainerServiceStateDetail' :: ContainerServiceStateDetail -&gt; M
      (Maybe ContainerServiceStateDetailCode)
      (Maybe ContainerServiceStateDetailCode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetail.html#ContainerServiceStateDetail%27"><span class="hs-identifier hs-type">ContainerServiceStateDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679608083"><span class="annot"><span class="annottext">Maybe ContainerServiceStateDetailCode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetail.html#ContainerServiceStateDetail%27"><span class="hs-identifier hs-type">ContainerServiceStateDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679608977"><span class="annot"><span class="annottext">Maybe ContainerServiceStateDetailCode
 code :: Maybe ContainerServiceStateDetailCode
 $sel:code:ContainerServiceStateDetail' :: ContainerServiceStateDetail
 -&gt; Maybe ContainerServiceStateDetailCode
-</span><a href="#local-6989586621679608083"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerServiceStateDetailCode
-</span><a href="#local-6989586621679608083"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679608082"><span class="annot"><span class="annottext">s :: ContainerServiceStateDetail
-</span><a href="#local-6989586621679608082"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetail.html#ContainerServiceStateDetail%27"><span class="hs-identifier hs-type">ContainerServiceStateDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679608081"><span class="annot"><span class="annottext">Maybe ContainerServiceStateDetailCode
-</span><a href="#local-6989586621679608081"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerServiceStateDetail
-</span><a href="#local-6989586621679608082"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:ContainerServiceStateDetail' :: Maybe ContainerServiceStateDetailCode
+</span><a href="#local-6989586621679608977"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerServiceStateDetailCode
+</span><a href="#local-6989586621679608977"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679608976"><span class="annot"><span class="annottext">s :: ContainerServiceStateDetail
+</span><a href="#local-6989586621679608976"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetail.html#ContainerServiceStateDetail%27"><span class="hs-identifier hs-type">ContainerServiceStateDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679608975"><span class="annot"><span class="annottext">Maybe ContainerServiceStateDetailCode
+</span><a href="#local-6989586621679608975"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerServiceStateDetail
+</span><a href="#local-6989586621679608976"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:ContainerServiceStateDetail' :: Maybe ContainerServiceStateDetailCode
 </span><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetail.html#%24sel%3Acode%3AContainerServiceStateDetail%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerServiceStateDetailCode
-</span><a href="#local-6989586621679608081"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetail.html#ContainerServiceStateDetail"><span class="hs-identifier hs-type">ContainerServiceStateDetail</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679608975"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetail.html#ContainerServiceStateDetail"><span class="hs-identifier hs-type">ContainerServiceStateDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | A message that provides more information for the state code.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- The state detail is populated only when a container service is in a</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- @PENDING@, @DEPLOYING@, or @UPDATING@ state.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetail.html#containerServiceStateDetail_message"><span class="hs-identifier hs-type">containerServiceStateDetail_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetail.html#ContainerServiceStateDetail"><span class="hs-identifier hs-type">ContainerServiceStateDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span id="containerServiceStateDetail_message"><span class="annot"><span class="annottext">containerServiceStateDetail_message :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ContainerServiceStateDetail -&gt; f ContainerServiceStateDetail
+</span><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetail.html#containerServiceStateDetail_message"><span class="hs-identifier hs-var hs-var">containerServiceStateDetail_message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContainerServiceStateDetail -&gt; Maybe Text)
+-&gt; (ContainerServiceStateDetail
+    -&gt; Maybe Text -&gt; ContainerServiceStateDetail)
+-&gt; Lens
+     ContainerServiceStateDetail
+     ContainerServiceStateDetail
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetail.html#ContainerServiceStateDetail%27"><span class="hs-identifier hs-type">ContainerServiceStateDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679608973"><span class="annot"><span class="annottext">Maybe Text
+message :: Maybe Text
+$sel:message:ContainerServiceStateDetail' :: ContainerServiceStateDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679608973"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679608973"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679608972"><span class="annot"><span class="annottext">s :: ContainerServiceStateDetail
+</span><a href="#local-6989586621679608972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetail.html#ContainerServiceStateDetail%27"><span class="hs-identifier hs-type">ContainerServiceStateDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679608971"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679608971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerServiceStateDetail
+</span><a href="#local-6989586621679608972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:ContainerServiceStateDetail' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetail.html#%24sel%3Amessage%3AContainerServiceStateDetail%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679608971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetail.html#ContainerServiceStateDetail"><span class="hs-identifier hs-type">ContainerServiceStateDetail</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>
-</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679608078"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetail.html#ContainerServiceStateDetail"><span class="hs-identifier hs-type">ContainerServiceStateDetail</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679608076"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ContainerServiceStateDetail
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679608968"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetail.html#ContainerServiceStateDetail"><span class="hs-identifier hs-type">ContainerServiceStateDetail</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679608966"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ContainerServiceStateDetail
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-182"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ContainerServiceStateDetail)
@@ -306,39 +305,32 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-183"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ContainerServiceStateDetail&quot;</span></span><span>
-</span><span id="line-184"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679608073"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679608073"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-185"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe ContainerServiceStateDetailCode
--&gt; ContainerServiceStateDetail
+</span><span id="line-184"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679608963"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679608963"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-185"></span><span>          </span><span class="annot"><span class="annottext">Maybe ContainerServiceStateDetailCode
+-&gt; Maybe Text -&gt; ContainerServiceStateDetail
 </span><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetail.html#ContainerServiceStateDetail%27"><span class="hs-identifier hs-var">ContainerServiceStateDetail'</span></a></span><span>
-</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe ContainerServiceStateDetailCode
- -&gt; ContainerServiceStateDetail)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe ContainerServiceStateDetailCode
-      -&gt; ContainerServiceStateDetail)
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ContainerServiceStateDetailCode
+ -&gt; Maybe Text -&gt; ContainerServiceStateDetail)
+-&gt; Parser (Maybe ContainerServiceStateDetailCode)
+-&gt; Parser (Maybe Text -&gt; ContainerServiceStateDetail)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679608073"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;message&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe ContainerServiceStateDetailCode
-   -&gt; ContainerServiceStateDetail)
--&gt; Parser (Maybe ContainerServiceStateDetailCode)
--&gt; Parser ContainerServiceStateDetail
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679608073"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ContainerServiceStateDetailCode)
+</span><a href="#local-6989586621679608963"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ContainerServiceStateDetailCode)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;code&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ContainerServiceStateDetail)
+-&gt; Parser (Maybe Text) -&gt; Parser ContainerServiceStateDetail
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679608963"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;message&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span><span>
-</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679608067"><span id="local-6989586621679608069"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetail.html#ContainerServiceStateDetail"><span class="hs-identifier hs-type">ContainerServiceStateDetail</span></a></span></span></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679608957"><span id="local-6989586621679608959"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetail.html#ContainerServiceStateDetail"><span class="hs-identifier hs-type">ContainerServiceStateDetail</span></a></span></span></span><span>
 </span><span id="line-191"></span><span>
-</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679608064"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetail.html#ContainerServiceStateDetail"><span class="hs-identifier hs-type">ContainerServiceStateDetail</span></a></span></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679608954"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetail.html#ContainerServiceStateDetail"><span class="hs-identifier hs-type">ContainerServiceStateDetail</span></a></span></span><span>
 </span><span id="line-193"></span></pre></body></html>

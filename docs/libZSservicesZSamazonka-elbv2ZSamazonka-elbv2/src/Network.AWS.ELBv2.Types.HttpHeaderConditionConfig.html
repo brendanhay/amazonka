@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- custom HTTP header fields.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newHttpHeaderConditionConfig' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679247201"><span id="local-6989586621679247202"></span></span><span class="hs-keyword">data</span><span> </span><span id="HttpHeaderConditionConfig"><span class="annot"><a href="Network.AWS.ELBv2.Types.HttpHeaderConditionConfig.html#HttpHeaderConditionConfig"><span class="hs-identifier hs-var">HttpHeaderConditionConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HttpHeaderConditionConfig%27"><span class="annot"><a href="Network.AWS.ELBv2.Types.HttpHeaderConditionConfig.html#HttpHeaderConditionConfig%27"><span class="hs-identifier hs-var">HttpHeaderConditionConfig'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679249899"><span id="local-6989586621679249900"></span></span><span class="hs-keyword">data</span><span> </span><span id="HttpHeaderConditionConfig"><span class="annot"><a href="Network.AWS.ELBv2.Types.HttpHeaderConditionConfig.html#HttpHeaderConditionConfig"><span class="hs-identifier hs-var">HttpHeaderConditionConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HttpHeaderConditionConfig%27"><span class="annot"><a href="Network.AWS.ELBv2.Types.HttpHeaderConditionConfig.html#HttpHeaderConditionConfig%27"><span class="hs-identifier hs-var">HttpHeaderConditionConfig'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One or more strings to compare against the value of the HTTP header. The</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- maximum size of each string is 128 characters. The comparison strings</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- are case insensitive. The following wildcard characters are supported: *</span><span>
@@ -52,7 +52,7 @@
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3AhttpHeaderName%3AHttpHeaderConditionConfig%27"><span class="annot"><span class="annottext">HttpHeaderConditionConfig -&gt; Maybe Text
 </span><a href="Network.AWS.ELBv2.Types.HttpHeaderConditionConfig.html#%24sel%3AhttpHeaderName%3AHttpHeaderConditionConfig%27"><span class="hs-identifier hs-var hs-var">httpHeaderName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679247194"><span id="local-6989586621679247196"><span class="annot"><span class="annottext">HttpHeaderConditionConfig -&gt; HttpHeaderConditionConfig -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679249892"><span id="local-6989586621679249894"><span class="annot"><span class="annottext">HttpHeaderConditionConfig -&gt; HttpHeaderConditionConfig -&gt; Bool
 (HttpHeaderConditionConfig -&gt; HttpHeaderConditionConfig -&gt; Bool)
 -&gt; (HttpHeaderConditionConfig -&gt; HttpHeaderConditionConfig -&gt; Bool)
 -&gt; Eq HttpHeaderConditionConfig
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: HttpHeaderConditionConfig -&gt; HttpHeaderConditionConfig -&gt; Bool
 == :: HttpHeaderConditionConfig -&gt; HttpHeaderConditionConfig -&gt; Bool
 $c== :: HttpHeaderConditionConfig -&gt; HttpHeaderConditionConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247185"><span id="local-6989586621679247187"><span id="local-6989586621679247189"><span id="local-6989586621679247191"><span class="annot"><span class="annottext">ReadPrec [HttpHeaderConditionConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249883"><span id="local-6989586621679249885"><span id="local-6989586621679249887"><span id="local-6989586621679249889"><span class="annot"><span class="annottext">ReadPrec [HttpHeaderConditionConfig]
 ReadPrec HttpHeaderConditionConfig
 Int -&gt; ReadS HttpHeaderConditionConfig
 ReadS [HttpHeaderConditionConfig]
@@ -81,7 +81,7 @@ readList :: ReadS [HttpHeaderConditionConfig]
 $creadList :: ReadS [HttpHeaderConditionConfig]
 readsPrec :: Int -&gt; ReadS HttpHeaderConditionConfig
 $creadsPrec :: Int -&gt; ReadS HttpHeaderConditionConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247178"><span id="local-6989586621679247180"><span id="local-6989586621679247182"><span class="annot"><span class="annottext">Int -&gt; HttpHeaderConditionConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249876"><span id="local-6989586621679249878"><span id="local-6989586621679249880"><span class="annot"><span class="annottext">Int -&gt; HttpHeaderConditionConfig -&gt; ShowS
 [HttpHeaderConditionConfig] -&gt; ShowS
 HttpHeaderConditionConfig -&gt; String
 (Int -&gt; HttpHeaderConditionConfig -&gt; ShowS)
@@ -179,16 +179,16 @@ forall a. Maybe a
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.Types.HttpHeaderConditionConfig.html#HttpHeaderConditionConfig%27"><span class="hs-identifier hs-type">HttpHeaderConditionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247169"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.Types.HttpHeaderConditionConfig.html#HttpHeaderConditionConfig%27"><span class="hs-identifier hs-type">HttpHeaderConditionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249867"><span class="annot"><span class="annottext">Maybe [Text]
 values :: Maybe [Text]
 $sel:values:HttpHeaderConditionConfig' :: HttpHeaderConditionConfig -&gt; Maybe [Text]
-</span><a href="#local-6989586621679247169"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679247169"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247168"><span class="annot"><span class="annottext">s :: HttpHeaderConditionConfig
-</span><a href="#local-6989586621679247168"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.Types.HttpHeaderConditionConfig.html#HttpHeaderConditionConfig%27"><span class="hs-identifier hs-type">HttpHeaderConditionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247167"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679247167"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpHeaderConditionConfig
-</span><a href="#local-6989586621679247168"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:HttpHeaderConditionConfig' :: Maybe [Text]
+</span><a href="#local-6989586621679249867"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679249867"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249866"><span class="annot"><span class="annottext">s :: HttpHeaderConditionConfig
+</span><a href="#local-6989586621679249866"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.Types.HttpHeaderConditionConfig.html#HttpHeaderConditionConfig%27"><span class="hs-identifier hs-type">HttpHeaderConditionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249865"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679249865"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpHeaderConditionConfig
+</span><a href="#local-6989586621679249866"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:HttpHeaderConditionConfig' :: Maybe [Text]
 </span><a href="Network.AWS.ELBv2.Types.HttpHeaderConditionConfig.html#%24sel%3Avalues%3AHttpHeaderConditionConfig%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679247167"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.HttpHeaderConditionConfig.html#HttpHeaderConditionConfig"><span class="hs-identifier hs-type">HttpHeaderConditionConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679249865"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.HttpHeaderConditionConfig.html#HttpHeaderConditionConfig"><span class="hs-identifier hs-type">HttpHeaderConditionConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; HttpHeaderConditionConfig -&gt; f HttpHeaderConditionConfig)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -202,8 +202,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | The name of the HTTP header field. The maximum size is 40 characters.</span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- The header name is case insensitive. The allowed characters are</span><span>
@@ -223,21 +223,21 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.Types.HttpHeaderConditionConfig.html#HttpHeaderConditionConfig%27"><span class="hs-identifier hs-type">HttpHeaderConditionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247162"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.Types.HttpHeaderConditionConfig.html#HttpHeaderConditionConfig%27"><span class="hs-identifier hs-type">HttpHeaderConditionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249860"><span class="annot"><span class="annottext">Maybe Text
 httpHeaderName :: Maybe Text
 $sel:httpHeaderName:HttpHeaderConditionConfig' :: HttpHeaderConditionConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679247162"><span class="hs-identifier hs-var hs-var">httpHeaderName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679247162"><span class="hs-identifier hs-var">httpHeaderName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247161"><span class="annot"><span class="annottext">s :: HttpHeaderConditionConfig
-</span><a href="#local-6989586621679247161"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.Types.HttpHeaderConditionConfig.html#HttpHeaderConditionConfig%27"><span class="hs-identifier hs-type">HttpHeaderConditionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247160"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679247160"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpHeaderConditionConfig
-</span><a href="#local-6989586621679247161"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpHeaderName:HttpHeaderConditionConfig' :: Maybe Text
+</span><a href="#local-6989586621679249860"><span class="hs-identifier hs-var hs-var">httpHeaderName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249860"><span class="hs-identifier hs-var">httpHeaderName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249859"><span class="annot"><span class="annottext">s :: HttpHeaderConditionConfig
+</span><a href="#local-6989586621679249859"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.Types.HttpHeaderConditionConfig.html#HttpHeaderConditionConfig%27"><span class="hs-identifier hs-type">HttpHeaderConditionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249858"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249858"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpHeaderConditionConfig
+</span><a href="#local-6989586621679249859"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpHeaderName:HttpHeaderConditionConfig' :: Maybe Text
 </span><a href="Network.AWS.ELBv2.Types.HttpHeaderConditionConfig.html#%24sel%3AhttpHeaderName%3AHttpHeaderConditionConfig%27"><span class="hs-identifier hs-var">httpHeaderName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679247160"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.HttpHeaderConditionConfig.html#HttpHeaderConditionConfig"><span class="hs-identifier hs-type">HttpHeaderConditionConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249858"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.HttpHeaderConditionConfig.html#HttpHeaderConditionConfig"><span class="hs-identifier hs-type">HttpHeaderConditionConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.HttpHeaderConditionConfig.html#HttpHeaderConditionConfig"><span class="hs-identifier hs-type">HttpHeaderConditionConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679247157"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String HttpHeaderConditionConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679247155"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679247155"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679249855"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String HttpHeaderConditionConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679249853"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679249853"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe Text -&gt; HttpHeaderConditionConfig
 </span><a href="Network.AWS.ELBv2.Types.HttpHeaderConditionConfig.html#HttpHeaderConditionConfig%27"><span class="hs-identifier hs-var">HttpHeaderConditionConfig'</span></a></span><span>
 </span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe Text -&gt; HttpHeaderConditionConfig)
@@ -245,7 +245,7 @@ $sel:httpHeaderName:HttpHeaderConditionConfig' :: HttpHeaderConditionConfig -&gt
 -&gt; Either String (Maybe Text -&gt; HttpHeaderConditionConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679247155"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679249853"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Values&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -272,24 +272,24 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String HttpHeaderConditionConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679247155"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679249853"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HttpHeaderName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247146"><span id="local-6989586621679247148"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.HttpHeaderConditionConfig.html#HttpHeaderConditionConfig"><span class="hs-identifier hs-type">HttpHeaderConditionConfig</span></a></span></span></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249844"><span id="local-6989586621679249846"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.HttpHeaderConditionConfig.html#HttpHeaderConditionConfig"><span class="hs-identifier hs-type">HttpHeaderConditionConfig</span></a></span></span></span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247143"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.HttpHeaderConditionConfig.html#HttpHeaderConditionConfig"><span class="hs-identifier hs-type">HttpHeaderConditionConfig</span></a></span></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249841"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.HttpHeaderConditionConfig.html#HttpHeaderConditionConfig"><span class="hs-identifier hs-type">HttpHeaderConditionConfig</span></a></span></span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.HttpHeaderConditionConfig.html#HttpHeaderConditionConfig"><span class="hs-identifier hs-type">HttpHeaderConditionConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679247139"><span class="annot"><span class="annottext">toQuery :: HttpHeaderConditionConfig -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.HttpHeaderConditionConfig.html#HttpHeaderConditionConfig%27"><span class="hs-identifier hs-type">HttpHeaderConditionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247136"><span id="local-6989586621679247137"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679249837"><span class="annot"><span class="annottext">toQuery :: HttpHeaderConditionConfig -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.HttpHeaderConditionConfig.html#HttpHeaderConditionConfig%27"><span class="hs-identifier hs-type">HttpHeaderConditionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249834"><span id="local-6989586621679249835"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe Text
 httpHeaderName :: Maybe Text
 values :: Maybe [Text]
 $sel:httpHeaderName:HttpHeaderConditionConfig' :: HttpHeaderConditionConfig -&gt; Maybe Text
 $sel:values:HttpHeaderConditionConfig' :: HttpHeaderConditionConfig -&gt; Maybe [Text]
-</span><a href="#local-6989586621679247136"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679249834"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -308,11 +308,11 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679247137"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679249835"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;HttpHeaderName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679247136"><span class="hs-identifier hs-var">httpHeaderName</span></a></span><span>
+</span><a href="#local-6989586621679249834"><span class="hs-identifier hs-var">httpHeaderName</span></a></span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-133"></span></pre></body></html>

@@ -27,49 +27,49 @@
 </span><span id="line-27"></span><span class="hs-comment">-- used in messages that are sent through the email channel.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newEmailTemplateRequest' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679595856"><span id="local-6989586621679595857"></span></span><span class="hs-keyword">data</span><span> </span><span id="EmailTemplateRequest"><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest"><span class="hs-identifier hs-var">EmailTemplateRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EmailTemplateRequest%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest%27"><span class="hs-identifier hs-var">EmailTemplateRequest'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A custom description of the message template.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3AtemplateDescription%3AEmailTemplateRequest%27"><span class="annot"><span class="annottext">EmailTemplateRequest -&gt; Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#%24sel%3AtemplateDescription%3AEmailTemplateRequest%27"><span class="hs-identifier hs-var hs-var">templateDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The message body, in plain text format, to use in email messages that</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- are based on the message template. We recommend using plain text format</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- for email clients that don\'t render HTML content and clients that are</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- connected to high-latency networks, such as mobile devices.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AtextPart%3AEmailTemplateRequest%27"><span class="annot"><span class="annottext">EmailTemplateRequest -&gt; Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#%24sel%3AtextPart%3AEmailTemplateRequest%27"><span class="hs-identifier hs-var hs-var">textPart</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | A JSON object that specifies the default values to use for message</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- variables in the message template. This object is a set of key-value</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- pairs. Each key defines a message variable in the template. The</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- corresponding value defines the default value for that variable. When</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- you create a message that\'s based on the template, you can override</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- these defaults with message-specific and address-specific variables and</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- values.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AdefaultSubstitutions%3AEmailTemplateRequest%27"><span class="annot"><span class="annottext">EmailTemplateRequest -&gt; Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#%24sel%3AdefaultSubstitutions%3AEmailTemplateRequest%27"><span class="hs-identifier hs-var hs-var">defaultSubstitutions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The subject line, or title, to use in email messages that are based on</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- the message template.</span><span>
-</span><span id="line-48"></span><span>    </span><span id="%24sel%3Asubject%3AEmailTemplateRequest%27"><span class="annot"><span class="annottext">EmailTemplateRequest -&gt; Maybe Text
+</span><span id="line-30"></span><span id="local-6989586621679596297"><span id="local-6989586621679596298"></span></span><span class="hs-keyword">data</span><span> </span><span id="EmailTemplateRequest"><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest"><span class="hs-identifier hs-var">EmailTemplateRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EmailTemplateRequest%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest%27"><span class="hs-identifier hs-var">EmailTemplateRequest'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The subject line, or title, to use in email messages that are based on</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- the message template.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Asubject%3AEmailTemplateRequest%27"><span class="annot"><span class="annottext">EmailTemplateRequest -&gt; Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#%24sel%3Asubject%3AEmailTemplateRequest%27"><span class="hs-identifier hs-var hs-var">subject</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | A string-to-string map of key-value pairs that defines the tags to</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- associate with the message template. Each tag consists of a required tag</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- key and an associated tag value.</span><span>
-</span><span id="line-52"></span><span>    </span><span id="%24sel%3Atags%3AEmailTemplateRequest%27"><span class="annot"><span class="annottext">EmailTemplateRequest -&gt; Maybe (HashMap Text Text)
-</span><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#%24sel%3Atags%3AEmailTemplateRequest%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the recommender model to use for the message</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- template. Amazon Pinpoint uses this value to determine how to retrieve</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- and process data from a recommender model when it sends messages that</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- use the template, if the template contains message variables for</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- recommendation data.</span><span>
-</span><span id="line-58"></span><span>    </span><span id="%24sel%3ArecommenderId%3AEmailTemplateRequest%27"><span class="annot"><span class="annottext">EmailTemplateRequest -&gt; Maybe Text
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The message body, in plain text format, to use in email messages that</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- are based on the message template. We recommend using plain text format</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- for email clients that don\'t render HTML content and clients that are</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- connected to high-latency networks, such as mobile devices.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AtextPart%3AEmailTemplateRequest%27"><span class="annot"><span class="annottext">EmailTemplateRequest -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#%24sel%3AtextPart%3AEmailTemplateRequest%27"><span class="hs-identifier hs-var hs-var">textPart</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | A custom description of the message template.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AtemplateDescription%3AEmailTemplateRequest%27"><span class="annot"><span class="annottext">EmailTemplateRequest -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#%24sel%3AtemplateDescription%3AEmailTemplateRequest%27"><span class="hs-identifier hs-var hs-var">templateDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | A JSON object that specifies the default values to use for message</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- variables in the message template. This object is a set of key-value</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- pairs. Each key defines a message variable in the template. The</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- corresponding value defines the default value for that variable. When</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- you create a message that\'s based on the template, you can override</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- these defaults with message-specific and address-specific variables and</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- values.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AdefaultSubstitutions%3AEmailTemplateRequest%27"><span class="annot"><span class="annottext">EmailTemplateRequest -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#%24sel%3AdefaultSubstitutions%3AEmailTemplateRequest%27"><span class="hs-identifier hs-var hs-var">defaultSubstitutions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The message body, in HTML format, to use in email messages that are</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- based on the message template. We recommend using HTML format for email</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- clients that render HTML content. You can include links, formatted text,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- and more in an HTML message.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AhtmlPart%3AEmailTemplateRequest%27"><span class="annot"><span class="annottext">EmailTemplateRequest -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#%24sel%3AhtmlPart%3AEmailTemplateRequest%27"><span class="hs-identifier hs-var hs-var">htmlPart</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the recommender model to use for the message</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- template. Amazon Pinpoint uses this value to determine how to retrieve</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- and process data from a recommender model when it sends messages that</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- use the template, if the template contains message variables for</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- recommendation data.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3ArecommenderId%3AEmailTemplateRequest%27"><span class="annot"><span class="annottext">EmailTemplateRequest -&gt; Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#%24sel%3ArecommenderId%3AEmailTemplateRequest%27"><span class="hs-identifier hs-var hs-var">recommenderId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The message body, in HTML format, to use in email messages that are</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- based on the message template. We recommend using HTML format for email</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- clients that render HTML content. You can include links, formatted text,</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- and more in an HTML message.</span><span>
-</span><span id="line-63"></span><span>    </span><span id="%24sel%3AhtmlPart%3AEmailTemplateRequest%27"><span class="annot"><span class="annottext">EmailTemplateRequest -&gt; Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#%24sel%3AhtmlPart%3AEmailTemplateRequest%27"><span class="hs-identifier hs-var hs-var">htmlPart</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | A string-to-string map of key-value pairs that defines the tags to</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- associate with the message template. Each tag consists of a required tag</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- key and an associated tag value.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3Atags%3AEmailTemplateRequest%27"><span class="annot"><span class="annottext">EmailTemplateRequest -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#%24sel%3Atags%3AEmailTemplateRequest%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679595844"><span id="local-6989586621679595846"><span class="annot"><span class="annottext">EmailTemplateRequest -&gt; EmailTemplateRequest -&gt; Bool
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679596285"><span id="local-6989586621679596287"><span class="annot"><span class="annottext">EmailTemplateRequest -&gt; EmailTemplateRequest -&gt; Bool
 (EmailTemplateRequest -&gt; EmailTemplateRequest -&gt; Bool)
 -&gt; (EmailTemplateRequest -&gt; EmailTemplateRequest -&gt; Bool)
 -&gt; Eq EmailTemplateRequest
@@ -78,7 +78,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EmailTemplateRequest -&gt; EmailTemplateRequest -&gt; Bool
 == :: EmailTemplateRequest -&gt; EmailTemplateRequest -&gt; Bool
 $c== :: EmailTemplateRequest -&gt; EmailTemplateRequest -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679595835"><span id="local-6989586621679595837"><span id="local-6989586621679595839"><span id="local-6989586621679595841"><span class="annot"><span class="annottext">ReadPrec [EmailTemplateRequest]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679596276"><span id="local-6989586621679596278"><span id="local-6989586621679596280"><span id="local-6989586621679596282"><span class="annot"><span class="annottext">ReadPrec [EmailTemplateRequest]
 ReadPrec EmailTemplateRequest
 Int -&gt; ReadS EmailTemplateRequest
 ReadS [EmailTemplateRequest]
@@ -98,7 +98,7 @@ readList :: ReadS [EmailTemplateRequest]
 $creadList :: ReadS [EmailTemplateRequest]
 readsPrec :: Int -&gt; ReadS EmailTemplateRequest
 $creadsPrec :: Int -&gt; ReadS EmailTemplateRequest
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679595828"><span id="local-6989586621679595830"><span id="local-6989586621679595832"><span class="annot"><span class="annottext">Int -&gt; EmailTemplateRequest -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679596269"><span id="local-6989586621679596271"><span id="local-6989586621679596273"><span class="annot"><span class="annottext">Int -&gt; EmailTemplateRequest -&gt; ShowS
 [EmailTemplateRequest] -&gt; ShowS
 EmailTemplateRequest -&gt; String
 (Int -&gt; EmailTemplateRequest -&gt; ShowS)
@@ -132,38 +132,38 @@ $cfrom :: forall x. EmailTemplateRequest -&gt; Rep EmailTemplateRequest x
 </span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-74"></span><span class="hs-comment">--</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- 'templateDescription', 'emailTemplateRequest_templateDescription' - A custom description of the message template.</span><span>
-</span><span id="line-76"></span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- 'textPart', 'emailTemplateRequest_textPart' - The message body, in plain text format, to use in email messages that</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- are based on the message template. We recommend using plain text format</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- for email clients that don\'t render HTML content and clients that are</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- connected to high-latency networks, such as mobile devices.</span><span>
-</span><span id="line-81"></span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- 'defaultSubstitutions', 'emailTemplateRequest_defaultSubstitutions' - A JSON object that specifies the default values to use for message</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- variables in the message template. This object is a set of key-value</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- pairs. Each key defines a message variable in the template. The</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- corresponding value defines the default value for that variable. When</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- you create a message that\'s based on the template, you can override</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- these defaults with message-specific and address-specific variables and</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- values.</span><span>
-</span><span id="line-89"></span><span class="hs-comment">--</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- 'subject', 'emailTemplateRequest_subject' - The subject line, or title, to use in email messages that are based on</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- the message template.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'subject', 'emailTemplateRequest_subject' - The subject line, or title, to use in email messages that are based on</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- the message template.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'textPart', 'emailTemplateRequest_textPart' - The message body, in plain text format, to use in email messages that</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- are based on the message template. We recommend using plain text format</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- for email clients that don\'t render HTML content and clients that are</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- connected to high-latency networks, such as mobile devices.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'templateDescription', 'emailTemplateRequest_templateDescription' - A custom description of the message template.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'defaultSubstitutions', 'emailTemplateRequest_defaultSubstitutions' - A JSON object that specifies the default values to use for message</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- variables in the message template. This object is a set of key-value</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- pairs. Each key defines a message variable in the template. The</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- corresponding value defines the default value for that variable. When</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- you create a message that\'s based on the template, you can override</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- these defaults with message-specific and address-specific variables and</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- values.</span><span>
 </span><span id="line-92"></span><span class="hs-comment">--</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- 'tags', 'emailTemplateRequest_tags' - A string-to-string map of key-value pairs that defines the tags to</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- associate with the message template. Each tag consists of a required tag</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- key and an associated tag value.</span><span>
-</span><span id="line-96"></span><span class="hs-comment">--</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- 'recommenderId', 'emailTemplateRequest_recommenderId' - The unique identifier for the recommender model to use for the message</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- template. Amazon Pinpoint uses this value to determine how to retrieve</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- and process data from a recommender model when it sends messages that</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- use the template, if the template contains message variables for</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- recommendation data.</span><span>
-</span><span id="line-102"></span><span class="hs-comment">--</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- 'htmlPart', 'emailTemplateRequest_htmlPart' - The message body, in HTML format, to use in email messages that are</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- based on the message template. We recommend using HTML format for email</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- clients that render HTML content. You can include links, formatted text,</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- and more in an HTML message.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'htmlPart', 'emailTemplateRequest_htmlPart' - The message body, in HTML format, to use in email messages that are</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- based on the message template. We recommend using HTML format for email</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- clients that render HTML content. You can include links, formatted text,</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- and more in an HTML message.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'recommenderId', 'emailTemplateRequest_recommenderId' - The unique identifier for the recommender model to use for the message</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- template. Amazon Pinpoint uses this value to determine how to retrieve</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- and process data from a recommender model when it sends messages that</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- use the template, if the template contains message variables for</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- recommendation data.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'tags', 'emailTemplateRequest_tags' - A string-to-string map of key-value pairs that defines the tags to</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- associate with the message template. Each tag consists of a required tag</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- key and an associated tag value.</span><span>
 </span><span id="line-107"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#newEmailTemplateRequest"><span class="hs-identifier hs-type">newEmailTemplateRequest</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-108"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest"><span class="hs-identifier hs-type">EmailTemplateRequest</span></a></span><span>
 </span><span id="line-109"></span><span id="newEmailTemplateRequest"><span class="annot"><span class="annottext">newEmailTemplateRequest :: EmailTemplateRequest
@@ -172,61 +172,61 @@ $cfrom :: forall x. EmailTemplateRequest -&gt; Rep EmailTemplateRequest x
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe (HashMap Text Text)
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; EmailTemplateRequest
 </span><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest%27"><span class="hs-identifier hs-type">EmailTemplateRequest'</span></a></span><span>
-</span><span id="line-111"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:templateDescription:EmailTemplateRequest' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#%24sel%3AtemplateDescription%3AEmailTemplateRequest%27"><span class="hs-identifier hs-var">templateDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-112"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-111"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:subject:EmailTemplateRequest' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#%24sel%3Asubject%3AEmailTemplateRequest%27"><span class="hs-identifier hs-var">subject</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:textPart:EmailTemplateRequest' :: Maybe Text
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:textPart:EmailTemplateRequest' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#%24sel%3AtextPart%3AEmailTemplateRequest%27"><span class="hs-identifier hs-var">textPart</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:templateDescription:EmailTemplateRequest' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#%24sel%3AtemplateDescription%3AEmailTemplateRequest%27"><span class="hs-identifier hs-var">templateDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:defaultSubstitutions:EmailTemplateRequest' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#%24sel%3AdefaultSubstitutions%3AEmailTemplateRequest%27"><span class="hs-identifier hs-var">defaultSubstitutions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:subject:EmailTemplateRequest' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#%24sel%3Asubject%3AEmailTemplateRequest%27"><span class="hs-identifier hs-var">subject</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:htmlPart:EmailTemplateRequest' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#%24sel%3AhtmlPart%3AEmailTemplateRequest%27"><span class="hs-identifier hs-var">htmlPart</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:EmailTemplateRequest' :: Maybe (HashMap Text Text)
-</span><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#%24sel%3Atags%3AEmailTemplateRequest%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:recommenderId:EmailTemplateRequest' :: Maybe Text
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:recommenderId:EmailTemplateRequest' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#%24sel%3ArecommenderId%3AEmailTemplateRequest%27"><span class="hs-identifier hs-var">recommenderId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:htmlPart:EmailTemplateRequest' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#%24sel%3AhtmlPart%3AEmailTemplateRequest%27"><span class="hs-identifier hs-var">htmlPart</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:EmailTemplateRequest' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#%24sel%3Atags%3AEmailTemplateRequest%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-119"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- | A custom description of the message template.</span><span>
-</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#emailTemplateRequest_templateDescription"><span class="hs-identifier hs-type">emailTemplateRequest_templateDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest"><span class="hs-identifier hs-type">EmailTemplateRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-123"></span><span id="emailTemplateRequest_templateDescription"><span class="annot"><span class="annottext">emailTemplateRequest_templateDescription :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-118"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The subject line, or title, to use in email messages that are based on</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- the message template.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#emailTemplateRequest_subject"><span class="hs-identifier hs-type">emailTemplateRequest_subject</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest"><span class="hs-identifier hs-type">EmailTemplateRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="emailTemplateRequest_subject"><span class="annot"><span class="annottext">emailTemplateRequest_subject :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; EmailTemplateRequest -&gt; f EmailTemplateRequest
-</span><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#emailTemplateRequest_templateDescription"><span class="hs-identifier hs-var hs-var">emailTemplateRequest_templateDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EmailTemplateRequest -&gt; Maybe Text)
+</span><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#emailTemplateRequest_subject"><span class="hs-identifier hs-var hs-var">emailTemplateRequest_subject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EmailTemplateRequest -&gt; Maybe Text)
 -&gt; (EmailTemplateRequest -&gt; Maybe Text -&gt; EmailTemplateRequest)
 -&gt; Lens
      EmailTemplateRequest EmailTemplateRequest (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest%27"><span class="hs-identifier hs-type">EmailTemplateRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679595819"><span class="annot"><span class="annottext">Maybe Text
-templateDescription :: Maybe Text
-$sel:templateDescription:EmailTemplateRequest' :: EmailTemplateRequest -&gt; Maybe Text
-</span><a href="#local-6989586621679595819"><span class="hs-identifier hs-var hs-var">templateDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679595819"><span class="hs-identifier hs-var">templateDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679595818"><span class="annot"><span class="annottext">s :: EmailTemplateRequest
-</span><a href="#local-6989586621679595818"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest%27"><span class="hs-identifier hs-type">EmailTemplateRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679595817"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679595817"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmailTemplateRequest
-</span><a href="#local-6989586621679595818"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateDescription:EmailTemplateRequest' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#%24sel%3AtemplateDescription%3AEmailTemplateRequest%27"><span class="hs-identifier hs-var">templateDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679595817"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest"><span class="hs-identifier hs-type">EmailTemplateRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest%27"><span class="hs-identifier hs-type">EmailTemplateRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679596260"><span class="annot"><span class="annottext">Maybe Text
+subject :: Maybe Text
+$sel:subject:EmailTemplateRequest' :: EmailTemplateRequest -&gt; Maybe Text
+</span><a href="#local-6989586621679596260"><span class="hs-identifier hs-var hs-var">subject</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679596260"><span class="hs-identifier hs-var">subject</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679596259"><span class="annot"><span class="annottext">s :: EmailTemplateRequest
+</span><a href="#local-6989586621679596259"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest%27"><span class="hs-identifier hs-type">EmailTemplateRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679596258"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679596258"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmailTemplateRequest
+</span><a href="#local-6989586621679596259"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subject:EmailTemplateRequest' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#%24sel%3Asubject%3AEmailTemplateRequest%27"><span class="hs-identifier hs-var">subject</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679596258"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest"><span class="hs-identifier hs-type">EmailTemplateRequest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- | The message body, in plain text format, to use in email messages that</span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- are based on the message template. We recommend using plain text format</span><span>
@@ -240,69 +240,115 @@ $sel:templateDescription:EmailTemplateRequest' :: EmailTemplateRequest -&gt; May
 -&gt; Lens
      EmailTemplateRequest EmailTemplateRequest (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest%27"><span class="hs-identifier hs-type">EmailTemplateRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679595815"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest%27"><span class="hs-identifier hs-type">EmailTemplateRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679596256"><span class="annot"><span class="annottext">Maybe Text
 textPart :: Maybe Text
 $sel:textPart:EmailTemplateRequest' :: EmailTemplateRequest -&gt; Maybe Text
-</span><a href="#local-6989586621679595815"><span class="hs-identifier hs-var hs-var">textPart</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679595815"><span class="hs-identifier hs-var">textPart</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679595814"><span class="annot"><span class="annottext">s :: EmailTemplateRequest
-</span><a href="#local-6989586621679595814"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest%27"><span class="hs-identifier hs-type">EmailTemplateRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679595813"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679595813"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmailTemplateRequest
-</span><a href="#local-6989586621679595814"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:textPart:EmailTemplateRequest' :: Maybe Text
+</span><a href="#local-6989586621679596256"><span class="hs-identifier hs-var hs-var">textPart</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679596256"><span class="hs-identifier hs-var">textPart</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679596255"><span class="annot"><span class="annottext">s :: EmailTemplateRequest
+</span><a href="#local-6989586621679596255"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest%27"><span class="hs-identifier hs-type">EmailTemplateRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679596254"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679596254"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmailTemplateRequest
+</span><a href="#local-6989586621679596255"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:textPart:EmailTemplateRequest' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#%24sel%3AtextPart%3AEmailTemplateRequest%27"><span class="hs-identifier hs-var">textPart</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679595813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest"><span class="hs-identifier hs-type">EmailTemplateRequest</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679596254"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest"><span class="hs-identifier hs-type">EmailTemplateRequest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- | A JSON object that specifies the default values to use for message</span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- variables in the message template. This object is a set of key-value</span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- pairs. Each key defines a message variable in the template. The</span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- corresponding value defines the default value for that variable. When</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- you create a message that\'s based on the template, you can override</span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- these defaults with message-specific and address-specific variables and</span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- values.</span><span>
-</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#emailTemplateRequest_defaultSubstitutions"><span class="hs-identifier hs-type">emailTemplateRequest_defaultSubstitutions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest"><span class="hs-identifier hs-type">EmailTemplateRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span id="emailTemplateRequest_defaultSubstitutions"><span class="annot"><span class="annottext">emailTemplateRequest_defaultSubstitutions :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-132"></span><span class="hs-comment">-- | A custom description of the message template.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#emailTemplateRequest_templateDescription"><span class="hs-identifier hs-type">emailTemplateRequest_templateDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest"><span class="hs-identifier hs-type">EmailTemplateRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="emailTemplateRequest_templateDescription"><span class="annot"><span class="annottext">emailTemplateRequest_templateDescription :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EmailTemplateRequest -&gt; f EmailTemplateRequest
+</span><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#emailTemplateRequest_templateDescription"><span class="hs-identifier hs-var hs-var">emailTemplateRequest_templateDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EmailTemplateRequest -&gt; Maybe Text)
+-&gt; (EmailTemplateRequest -&gt; Maybe Text -&gt; EmailTemplateRequest)
+-&gt; Lens
+     EmailTemplateRequest EmailTemplateRequest (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest%27"><span class="hs-identifier hs-type">EmailTemplateRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679596252"><span class="annot"><span class="annottext">Maybe Text
+templateDescription :: Maybe Text
+$sel:templateDescription:EmailTemplateRequest' :: EmailTemplateRequest -&gt; Maybe Text
+</span><a href="#local-6989586621679596252"><span class="hs-identifier hs-var hs-var">templateDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679596252"><span class="hs-identifier hs-var">templateDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679596251"><span class="annot"><span class="annottext">s :: EmailTemplateRequest
+</span><a href="#local-6989586621679596251"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest%27"><span class="hs-identifier hs-type">EmailTemplateRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679596250"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679596250"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmailTemplateRequest
+</span><a href="#local-6989586621679596251"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateDescription:EmailTemplateRequest' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#%24sel%3AtemplateDescription%3AEmailTemplateRequest%27"><span class="hs-identifier hs-var">templateDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679596250"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest"><span class="hs-identifier hs-type">EmailTemplateRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | A JSON object that specifies the default values to use for message</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- variables in the message template. This object is a set of key-value</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- pairs. Each key defines a message variable in the template. The</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- corresponding value defines the default value for that variable. When</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- you create a message that\'s based on the template, you can override</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- these defaults with message-specific and address-specific variables and</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- values.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#emailTemplateRequest_defaultSubstitutions"><span class="hs-identifier hs-type">emailTemplateRequest_defaultSubstitutions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest"><span class="hs-identifier hs-type">EmailTemplateRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="emailTemplateRequest_defaultSubstitutions"><span class="annot"><span class="annottext">emailTemplateRequest_defaultSubstitutions :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; EmailTemplateRequest -&gt; f EmailTemplateRequest
 </span><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#emailTemplateRequest_defaultSubstitutions"><span class="hs-identifier hs-var hs-var">emailTemplateRequest_defaultSubstitutions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EmailTemplateRequest -&gt; Maybe Text)
 -&gt; (EmailTemplateRequest -&gt; Maybe Text -&gt; EmailTemplateRequest)
 -&gt; Lens
      EmailTemplateRequest EmailTemplateRequest (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest%27"><span class="hs-identifier hs-type">EmailTemplateRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679595811"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest%27"><span class="hs-identifier hs-type">EmailTemplateRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679596248"><span class="annot"><span class="annottext">Maybe Text
 defaultSubstitutions :: Maybe Text
 $sel:defaultSubstitutions:EmailTemplateRequest' :: EmailTemplateRequest -&gt; Maybe Text
-</span><a href="#local-6989586621679595811"><span class="hs-identifier hs-var hs-var">defaultSubstitutions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679595811"><span class="hs-identifier hs-var">defaultSubstitutions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679595810"><span class="annot"><span class="annottext">s :: EmailTemplateRequest
-</span><a href="#local-6989586621679595810"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest%27"><span class="hs-identifier hs-type">EmailTemplateRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679595809"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679595809"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmailTemplateRequest
-</span><a href="#local-6989586621679595810"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultSubstitutions:EmailTemplateRequest' :: Maybe Text
+</span><a href="#local-6989586621679596248"><span class="hs-identifier hs-var hs-var">defaultSubstitutions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679596248"><span class="hs-identifier hs-var">defaultSubstitutions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679596247"><span class="annot"><span class="annottext">s :: EmailTemplateRequest
+</span><a href="#local-6989586621679596247"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest%27"><span class="hs-identifier hs-type">EmailTemplateRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679596246"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679596246"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmailTemplateRequest
+</span><a href="#local-6989586621679596247"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultSubstitutions:EmailTemplateRequest' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#%24sel%3AdefaultSubstitutions%3AEmailTemplateRequest%27"><span class="hs-identifier hs-var">defaultSubstitutions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679595809"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest"><span class="hs-identifier hs-type">EmailTemplateRequest</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- | The subject line, or title, to use in email messages that are based on</span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- the message template.</span><span>
-</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#emailTemplateRequest_subject"><span class="hs-identifier hs-type">emailTemplateRequest_subject</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest"><span class="hs-identifier hs-type">EmailTemplateRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-145"></span><span id="emailTemplateRequest_subject"><span class="annot"><span class="annottext">emailTemplateRequest_subject :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679596246"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest"><span class="hs-identifier hs-type">EmailTemplateRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | The message body, in HTML format, to use in email messages that are</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- based on the message template. We recommend using HTML format for email</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- clients that render HTML content. You can include links, formatted text,</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- and more in an HTML message.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#emailTemplateRequest_htmlPart"><span class="hs-identifier hs-type">emailTemplateRequest_htmlPart</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest"><span class="hs-identifier hs-type">EmailTemplateRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span id="emailTemplateRequest_htmlPart"><span class="annot"><span class="annottext">emailTemplateRequest_htmlPart :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; EmailTemplateRequest -&gt; f EmailTemplateRequest
-</span><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#emailTemplateRequest_subject"><span class="hs-identifier hs-var hs-var">emailTemplateRequest_subject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EmailTemplateRequest -&gt; Maybe Text)
+</span><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#emailTemplateRequest_htmlPart"><span class="hs-identifier hs-var hs-var">emailTemplateRequest_htmlPart</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EmailTemplateRequest -&gt; Maybe Text)
 -&gt; (EmailTemplateRequest -&gt; Maybe Text -&gt; EmailTemplateRequest)
 -&gt; Lens
      EmailTemplateRequest EmailTemplateRequest (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest%27"><span class="hs-identifier hs-type">EmailTemplateRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679595807"><span class="annot"><span class="annottext">Maybe Text
-subject :: Maybe Text
-$sel:subject:EmailTemplateRequest' :: EmailTemplateRequest -&gt; Maybe Text
-</span><a href="#local-6989586621679595807"><span class="hs-identifier hs-var hs-var">subject</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679595807"><span class="hs-identifier hs-var">subject</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679595806"><span class="annot"><span class="annottext">s :: EmailTemplateRequest
-</span><a href="#local-6989586621679595806"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest%27"><span class="hs-identifier hs-type">EmailTemplateRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679595805"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679595805"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmailTemplateRequest
-</span><a href="#local-6989586621679595806"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subject:EmailTemplateRequest' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#%24sel%3Asubject%3AEmailTemplateRequest%27"><span class="hs-identifier hs-var">subject</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679595805"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest"><span class="hs-identifier hs-type">EmailTemplateRequest</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- | A string-to-string map of key-value pairs that defines the tags to</span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- associate with the message template. Each tag consists of a required tag</span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- key and an associated tag value.</span><span>
-</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#emailTemplateRequest_tags"><span class="hs-identifier hs-type">emailTemplateRequest_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest"><span class="hs-identifier hs-type">EmailTemplateRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-151"></span><span id="emailTemplateRequest_tags"><span class="annot"><span class="annottext">emailTemplateRequest_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest%27"><span class="hs-identifier hs-type">EmailTemplateRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679596244"><span class="annot"><span class="annottext">Maybe Text
+htmlPart :: Maybe Text
+$sel:htmlPart:EmailTemplateRequest' :: EmailTemplateRequest -&gt; Maybe Text
+</span><a href="#local-6989586621679596244"><span class="hs-identifier hs-var hs-var">htmlPart</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679596244"><span class="hs-identifier hs-var">htmlPart</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679596243"><span class="annot"><span class="annottext">s :: EmailTemplateRequest
+</span><a href="#local-6989586621679596243"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest%27"><span class="hs-identifier hs-type">EmailTemplateRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679596242"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679596242"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmailTemplateRequest
+</span><a href="#local-6989586621679596243"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:htmlPart:EmailTemplateRequest' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#%24sel%3AhtmlPart%3AEmailTemplateRequest%27"><span class="hs-identifier hs-var">htmlPart</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679596242"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest"><span class="hs-identifier hs-type">EmailTemplateRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | The unique identifier for the recommender model to use for the message</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- template. Amazon Pinpoint uses this value to determine how to retrieve</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- and process data from a recommender model when it sends messages that</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- use the template, if the template contains message variables for</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- recommendation data.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#emailTemplateRequest_recommenderId"><span class="hs-identifier hs-type">emailTemplateRequest_recommenderId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest"><span class="hs-identifier hs-type">EmailTemplateRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span id="emailTemplateRequest_recommenderId"><span class="annot"><span class="annottext">emailTemplateRequest_recommenderId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EmailTemplateRequest -&gt; f EmailTemplateRequest
+</span><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#emailTemplateRequest_recommenderId"><span class="hs-identifier hs-var hs-var">emailTemplateRequest_recommenderId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EmailTemplateRequest -&gt; Maybe Text)
+-&gt; (EmailTemplateRequest -&gt; Maybe Text -&gt; EmailTemplateRequest)
+-&gt; Lens
+     EmailTemplateRequest EmailTemplateRequest (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest%27"><span class="hs-identifier hs-type">EmailTemplateRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679596240"><span class="annot"><span class="annottext">Maybe Text
+recommenderId :: Maybe Text
+$sel:recommenderId:EmailTemplateRequest' :: EmailTemplateRequest -&gt; Maybe Text
+</span><a href="#local-6989586621679596240"><span class="hs-identifier hs-var hs-var">recommenderId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679596240"><span class="hs-identifier hs-var">recommenderId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679596239"><span class="annot"><span class="annottext">s :: EmailTemplateRequest
+</span><a href="#local-6989586621679596239"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest%27"><span class="hs-identifier hs-type">EmailTemplateRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679596238"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679596238"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmailTemplateRequest
+</span><a href="#local-6989586621679596239"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recommenderId:EmailTemplateRequest' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#%24sel%3ArecommenderId%3AEmailTemplateRequest%27"><span class="hs-identifier hs-var">recommenderId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679596238"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest"><span class="hs-identifier hs-type">EmailTemplateRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | A string-to-string map of key-value pairs that defines the tags to</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- associate with the message template. Each tag consists of a required tag</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- key and an associated tag value.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#emailTemplateRequest_tags"><span class="hs-identifier hs-type">emailTemplateRequest_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest"><span class="hs-identifier hs-type">EmailTemplateRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span id="emailTemplateRequest_tags"><span class="annot"><span class="annottext">emailTemplateRequest_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
 -&gt; EmailTemplateRequest -&gt; f EmailTemplateRequest
 </span><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#emailTemplateRequest_tags"><span class="hs-identifier hs-var hs-var">emailTemplateRequest_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EmailTemplateRequest -&gt; Maybe (HashMap Text Text))
 -&gt; (EmailTemplateRequest
@@ -313,16 +359,16 @@ $sel:subject:EmailTemplateRequest' :: EmailTemplateRequest -&gt; Maybe Text
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest%27"><span class="hs-identifier hs-type">EmailTemplateRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679595803"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest%27"><span class="hs-identifier hs-type">EmailTemplateRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679596236"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 tags :: Maybe (HashMap Text Text)
 $sel:tags:EmailTemplateRequest' :: EmailTemplateRequest -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679595803"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679595803"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679595802"><span class="annot"><span class="annottext">s :: EmailTemplateRequest
-</span><a href="#local-6989586621679595802"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest%27"><span class="hs-identifier hs-type">EmailTemplateRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679595801"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679595801"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmailTemplateRequest
-</span><a href="#local-6989586621679595802"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:EmailTemplateRequest' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679596236"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679596236"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679596235"><span class="annot"><span class="annottext">s :: EmailTemplateRequest
+</span><a href="#local-6989586621679596235"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest%27"><span class="hs-identifier hs-type">EmailTemplateRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679596234"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679596234"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmailTemplateRequest
+</span><a href="#local-6989586621679596235"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:EmailTemplateRequest' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#%24sel%3Atags%3AEmailTemplateRequest%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679595801"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest"><span class="hs-identifier hs-type">EmailTemplateRequest</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679596234"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest"><span class="hs-identifier hs-type">EmailTemplateRequest</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; EmailTemplateRequest -&gt; f EmailTemplateRequest)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -348,99 +394,59 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Text)
   (HashMap Text Text)
   (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- | The unique identifier for the recommender model to use for the message</span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- template. Amazon Pinpoint uses this value to determine how to retrieve</span><span>
-</span><span id="line-155"></span><span class="hs-comment">-- and process data from a recommender model when it sends messages that</span><span>
-</span><span id="line-156"></span><span class="hs-comment">-- use the template, if the template contains message variables for</span><span>
-</span><span id="line-157"></span><span class="hs-comment">-- recommendation data.</span><span>
-</span><span id="line-158"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#emailTemplateRequest_recommenderId"><span class="hs-identifier hs-type">emailTemplateRequest_recommenderId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest"><span class="hs-identifier hs-type">EmailTemplateRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-159"></span><span id="emailTemplateRequest_recommenderId"><span class="annot"><span class="annottext">emailTemplateRequest_recommenderId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; EmailTemplateRequest -&gt; f EmailTemplateRequest
-</span><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#emailTemplateRequest_recommenderId"><span class="hs-identifier hs-var hs-var">emailTemplateRequest_recommenderId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EmailTemplateRequest -&gt; Maybe Text)
--&gt; (EmailTemplateRequest -&gt; Maybe Text -&gt; EmailTemplateRequest)
--&gt; Lens
-     EmailTemplateRequest EmailTemplateRequest (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest%27"><span class="hs-identifier hs-type">EmailTemplateRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679595796"><span class="annot"><span class="annottext">Maybe Text
-recommenderId :: Maybe Text
-$sel:recommenderId:EmailTemplateRequest' :: EmailTemplateRequest -&gt; Maybe Text
-</span><a href="#local-6989586621679595796"><span class="hs-identifier hs-var hs-var">recommenderId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679595796"><span class="hs-identifier hs-var">recommenderId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679595795"><span class="annot"><span class="annottext">s :: EmailTemplateRequest
-</span><a href="#local-6989586621679595795"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest%27"><span class="hs-identifier hs-type">EmailTemplateRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679595794"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679595794"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmailTemplateRequest
-</span><a href="#local-6989586621679595795"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recommenderId:EmailTemplateRequest' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#%24sel%3ArecommenderId%3AEmailTemplateRequest%27"><span class="hs-identifier hs-var">recommenderId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679595794"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest"><span class="hs-identifier hs-type">EmailTemplateRequest</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-160"></span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- | The message body, in HTML format, to use in email messages that are</span><span>
-</span><span id="line-162"></span><span class="hs-comment">-- based on the message template. We recommend using HTML format for email</span><span>
-</span><span id="line-163"></span><span class="hs-comment">-- clients that render HTML content. You can include links, formatted text,</span><span>
-</span><span id="line-164"></span><span class="hs-comment">-- and more in an HTML message.</span><span>
-</span><span id="line-165"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#emailTemplateRequest_htmlPart"><span class="hs-identifier hs-type">emailTemplateRequest_htmlPart</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest"><span class="hs-identifier hs-type">EmailTemplateRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-166"></span><span id="emailTemplateRequest_htmlPart"><span class="annot"><span class="annottext">emailTemplateRequest_htmlPart :: (Maybe Text -&gt; f (Maybe Text))
--&gt; EmailTemplateRequest -&gt; f EmailTemplateRequest
-</span><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#emailTemplateRequest_htmlPart"><span class="hs-identifier hs-var hs-var">emailTemplateRequest_htmlPart</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EmailTemplateRequest -&gt; Maybe Text)
--&gt; (EmailTemplateRequest -&gt; Maybe Text -&gt; EmailTemplateRequest)
--&gt; Lens
-     EmailTemplateRequest EmailTemplateRequest (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest%27"><span class="hs-identifier hs-type">EmailTemplateRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679595792"><span class="annot"><span class="annottext">Maybe Text
-htmlPart :: Maybe Text
-$sel:htmlPart:EmailTemplateRequest' :: EmailTemplateRequest -&gt; Maybe Text
-</span><a href="#local-6989586621679595792"><span class="hs-identifier hs-var hs-var">htmlPart</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679595792"><span class="hs-identifier hs-var">htmlPart</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679595791"><span class="annot"><span class="annottext">s :: EmailTemplateRequest
-</span><a href="#local-6989586621679595791"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest%27"><span class="hs-identifier hs-type">EmailTemplateRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679595790"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679595790"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmailTemplateRequest
-</span><a href="#local-6989586621679595791"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:htmlPart:EmailTemplateRequest' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#%24sel%3AhtmlPart%3AEmailTemplateRequest%27"><span class="hs-identifier hs-var">htmlPart</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679595790"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest"><span class="hs-identifier hs-type">EmailTemplateRequest</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679595786"><span id="local-6989586621679595788"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest"><span class="hs-identifier hs-type">EmailTemplateRequest</span></a></span></span></span><span>
-</span><span id="line-169"></span><span>
-</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679595783"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest"><span class="hs-identifier hs-type">EmailTemplateRequest</span></a></span></span><span>
-</span><span id="line-171"></span><span>
-</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679595775"><span id="local-6989586621679595777"><span id="local-6989586621679595779"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest"><span class="hs-identifier hs-type">EmailTemplateRequest</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679595773"><span class="annot"><span class="annottext">toJSON :: EmailTemplateRequest -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest%27"><span class="hs-identifier hs-type">EmailTemplateRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679595765"><span id="local-6989586621679595766"><span id="local-6989586621679595767"><span id="local-6989586621679595768"><span id="local-6989586621679595769"><span id="local-6989586621679595770"><span id="local-6989586621679595771"><span class="annot"><span class="annottext">Maybe Text
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679596227"><span id="local-6989586621679596229"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest"><span class="hs-identifier hs-type">EmailTemplateRequest</span></a></span></span></span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679596224"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest"><span class="hs-identifier hs-type">EmailTemplateRequest</span></a></span></span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679596216"><span id="local-6989586621679596218"><span id="local-6989586621679596220"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest"><span class="hs-identifier hs-type">EmailTemplateRequest</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679596214"><span class="annot"><span class="annottext">toJSON :: EmailTemplateRequest -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EmailTemplateRequest.html#EmailTemplateRequest%27"><span class="hs-identifier hs-type">EmailTemplateRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679596206"><span id="local-6989586621679596207"><span id="local-6989586621679596208"><span id="local-6989586621679596209"><span id="local-6989586621679596210"><span id="local-6989586621679596211"><span id="local-6989586621679596212"><span class="annot"><span class="annottext">Maybe Text
 Maybe (HashMap Text Text)
-htmlPart :: Maybe Text
-recommenderId :: Maybe Text
 tags :: Maybe (HashMap Text Text)
-subject :: Maybe Text
+recommenderId :: Maybe Text
+htmlPart :: Maybe Text
 defaultSubstitutions :: Maybe Text
-textPart :: Maybe Text
 templateDescription :: Maybe Text
-$sel:htmlPart:EmailTemplateRequest' :: EmailTemplateRequest -&gt; Maybe Text
-$sel:recommenderId:EmailTemplateRequest' :: EmailTemplateRequest -&gt; Maybe Text
+textPart :: Maybe Text
+subject :: Maybe Text
 $sel:tags:EmailTemplateRequest' :: EmailTemplateRequest -&gt; Maybe (HashMap Text Text)
-$sel:subject:EmailTemplateRequest' :: EmailTemplateRequest -&gt; Maybe Text
+$sel:recommenderId:EmailTemplateRequest' :: EmailTemplateRequest -&gt; Maybe Text
+$sel:htmlPart:EmailTemplateRequest' :: EmailTemplateRequest -&gt; Maybe Text
 $sel:defaultSubstitutions:EmailTemplateRequest' :: EmailTemplateRequest -&gt; Maybe Text
-$sel:textPart:EmailTemplateRequest' :: EmailTemplateRequest -&gt; Maybe Text
 $sel:templateDescription:EmailTemplateRequest' :: EmailTemplateRequest -&gt; Maybe Text
-</span><a href="#local-6989586621679595765"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+$sel:textPart:EmailTemplateRequest' :: EmailTemplateRequest -&gt; Maybe Text
+$sel:subject:EmailTemplateRequest' :: EmailTemplateRequest -&gt; Maybe Text
+</span><a href="#local-6989586621679596206"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-173"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
-</span><span id="line-175"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+</span><span id="line-174"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
-</span><span id="line-176"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;TemplateDescription&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><span id="line-175"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Subject&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-177"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679595771"><span class="hs-identifier hs-var">templateDescription</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-178"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679596212"><span class="hs-identifier hs-var">subject</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TextPart&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679595770"><span class="hs-identifier hs-var">textPart</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679596211"><span class="hs-identifier hs-var">textPart</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TemplateDescription&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679596210"><span class="hs-identifier hs-var">templateDescription</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-179"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DefaultSubstitutions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -448,36 +454,29 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-180"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679595769"><span class="hs-identifier hs-var">defaultSubstitutions</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679596209"><span class="hs-identifier hs-var">defaultSubstitutions</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-181"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Subject&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><span class="hs-string">&quot;HtmlPart&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679595768"><span class="hs-identifier hs-var">subject</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679596208"><span class="hs-identifier hs-var">htmlPart</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-182"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RecommenderId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679596207"><span class="hs-identifier hs-var">recommenderId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679595767"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-183"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;RecommenderId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679595766"><span class="hs-identifier hs-var">recommenderId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-184"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;HtmlPart&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679595765"><span class="hs-identifier hs-var">htmlPart</span></a></span><span>
-</span><span id="line-185"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-186"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-187"></span></pre></body></html>
+</span><a href="#local-6989586621679596206"><span class="hs-identifier hs-var">tags</span></a></span><span>
+</span><span id="line-184"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-185"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span></pre></body></html>

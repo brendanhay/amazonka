@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679322557"><span id="local-6989586621679322558"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ContactLanguage"><span class="annot"><a href="Network.AWS.SESv2.Types.ContactLanguage.html#ContactLanguage"><span class="hs-identifier hs-var">ContactLanguage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContactLanguage%27"><span class="annot"><a href="Network.AWS.SESv2.Types.ContactLanguage.html#ContactLanguage%27"><span class="hs-identifier hs-var">ContactLanguage'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679324856"><span id="local-6989586621679324857"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ContactLanguage"><span class="annot"><a href="Network.AWS.SESv2.Types.ContactLanguage.html#ContactLanguage"><span class="hs-identifier hs-var">ContactLanguage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContactLanguage%27"><span class="annot"><a href="Network.AWS.SESv2.Types.ContactLanguage.html#ContactLanguage%27"><span class="hs-identifier hs-var">ContactLanguage'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromContactLanguage"><span class="annot"><span class="annottext">ContactLanguage -&gt; Text
 </span><a href="Network.AWS.SESv2.Types.ContactLanguage.html#fromContactLanguage"><span class="hs-identifier hs-var hs-var">fromContactLanguage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679322549"><span id="local-6989586621679322551"><span id="local-6989586621679322553"><span class="annot"><span class="annottext">Int -&gt; ContactLanguage -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679324848"><span id="local-6989586621679324850"><span id="local-6989586621679324852"><span class="annot"><span class="annottext">Int -&gt; ContactLanguage -&gt; ShowS
 [ContactLanguage] -&gt; ShowS
 ContactLanguage -&gt; String
 (Int -&gt; ContactLanguage -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ContactLanguage -&gt; String
 showsPrec :: Int -&gt; ContactLanguage -&gt; ShowS
 $cshowsPrec :: Int -&gt; ContactLanguage -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679322540"><span id="local-6989586621679322542"><span id="local-6989586621679322544"><span id="local-6989586621679322546"><span class="annot"><span class="annottext">ReadPrec [ContactLanguage]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679324839"><span id="local-6989586621679324841"><span id="local-6989586621679324843"><span id="local-6989586621679324845"><span class="annot"><span class="annottext">ReadPrec [ContactLanguage]
 ReadPrec ContactLanguage
 Int -&gt; ReadS ContactLanguage
 ReadS [ContactLanguage]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ContactLanguage]
 readsPrec :: Int -&gt; ReadS ContactLanguage
 $creadsPrec :: Int -&gt; ReadS ContactLanguage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679322535"><span id="local-6989586621679322537"><span class="annot"><span class="annottext">ContactLanguage -&gt; ContactLanguage -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679324834"><span id="local-6989586621679324836"><span class="annot"><span class="annottext">ContactLanguage -&gt; ContactLanguage -&gt; Bool
 (ContactLanguage -&gt; ContactLanguage -&gt; Bool)
 -&gt; (ContactLanguage -&gt; ContactLanguage -&gt; Bool)
 -&gt; Eq ContactLanguage
@@ -82,7 +82,7 @@ $c/= :: ContactLanguage -&gt; ContactLanguage -&gt; Bool
 == :: ContactLanguage -&gt; ContactLanguage -&gt; Bool
 $c== :: ContactLanguage -&gt; ContactLanguage -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679322519"><span id="local-6989586621679322521"><span id="local-6989586621679322523"><span id="local-6989586621679322525"><span id="local-6989586621679322527"><span id="local-6989586621679322529"><span id="local-6989586621679322531"><span class="annot"><span class="annottext">Eq ContactLanguage
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679324818"><span id="local-6989586621679324820"><span id="local-6989586621679324822"><span id="local-6989586621679324824"><span id="local-6989586621679324826"><span id="local-6989586621679324828"><span id="local-6989586621679324830"><span class="annot"><span class="annottext">Eq ContactLanguage
 Eq ContactLanguage
 -&gt; (ContactLanguage -&gt; ContactLanguage -&gt; Ordering)
 -&gt; (ContactLanguage -&gt; ContactLanguage -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. ContactLanguage -&gt; Rep ContactLanguage x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679322511"><span id="local-6989586621679322513"><span class="annot"><span class="annottext">Int -&gt; ContactLanguage -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679324810"><span id="local-6989586621679324812"><span class="annot"><span class="annottext">Int -&gt; ContactLanguage -&gt; Int
 ContactLanguage -&gt; Int
 (Int -&gt; ContactLanguage -&gt; Int)
 -&gt; (ContactLanguage -&gt; Int) -&gt; Hashable ContactLanguage
@@ -143,50 +143,50 @@ $chash :: ContactLanguage -&gt; Int
 hashWithSalt :: Int -&gt; ContactLanguage -&gt; Int
 $chashWithSalt :: Int -&gt; ContactLanguage -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679322508"><span class="annot"><span class="annottext">ContactLanguage -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679324807"><span class="annot"><span class="annottext">ContactLanguage -&gt; ()
 (ContactLanguage -&gt; ()) -&gt; NFData ContactLanguage
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ContactLanguage -&gt; ()
 $crnf :: ContactLanguage -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679322505"><span class="annot"><span class="annottext">Text -&gt; Either String ContactLanguage
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679324804"><span class="annot"><span class="annottext">Text -&gt; Either String ContactLanguage
 (Text -&gt; Either String ContactLanguage) -&gt; FromText ContactLanguage
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ContactLanguage
 $cfromText :: Text -&gt; Either String ContactLanguage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679322502"><span class="annot"><span class="annottext">ContactLanguage -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679324801"><span class="annot"><span class="annottext">ContactLanguage -&gt; Text
 (ContactLanguage -&gt; Text) -&gt; ToText ContactLanguage
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ContactLanguage -&gt; Text
 $ctoText :: ContactLanguage -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679322499"><span class="annot"><span class="annottext">ContactLanguage -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679324798"><span class="annot"><span class="annottext">ContactLanguage -&gt; ByteString
 (ContactLanguage -&gt; ByteString) -&gt; ToByteString ContactLanguage
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ContactLanguage -&gt; ByteString
 $ctoBS :: ContactLanguage -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679322496"><span class="annot"><span class="annottext">ContactLanguage -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679324795"><span class="annot"><span class="annottext">ContactLanguage -&gt; ByteStringBuilder
 (ContactLanguage -&gt; ByteStringBuilder) -&gt; ToLog ContactLanguage
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ContactLanguage -&gt; ByteStringBuilder
 $cbuild :: ContactLanguage -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679322493"><span class="annot"><span class="annottext">HeaderName -&gt; ContactLanguage -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679324792"><span class="annot"><span class="annottext">HeaderName -&gt; ContactLanguage -&gt; [Header]
 (HeaderName -&gt; ContactLanguage -&gt; [Header])
 -&gt; ToHeader ContactLanguage
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ContactLanguage -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ContactLanguage -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679322490"><span class="annot"><span class="annottext">ContactLanguage -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679324789"><span class="annot"><span class="annottext">ContactLanguage -&gt; QueryString
 (ContactLanguage -&gt; QueryString) -&gt; ToQuery ContactLanguage
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ContactLanguage -&gt; QueryString
 $ctoQuery :: ContactLanguage -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679322485"><span id="local-6989586621679322487"><span class="annot"><span class="annottext">Value -&gt; Parser [ContactLanguage]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679324784"><span id="local-6989586621679324786"><span class="annot"><span class="annottext">Value -&gt; Parser [ContactLanguage]
 Value -&gt; Parser ContactLanguage
 (Value -&gt; Parser ContactLanguage)
 -&gt; (Value -&gt; Parser [ContactLanguage]) -&gt; FromJSON ContactLanguage
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [ContactLanguage]
 parseJSON :: Value -&gt; Parser ContactLanguage
 $cparseJSON :: Value -&gt; Parser ContactLanguage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679322480"><span id="local-6989586621679322482"><span class="annot"><span class="annottext">FromJSONKeyFunction [ContactLanguage]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679324779"><span id="local-6989586621679324781"><span class="annot"><span class="annottext">FromJSONKeyFunction [ContactLanguage]
 FromJSONKeyFunction ContactLanguage
 FromJSONKeyFunction ContactLanguage
 -&gt; FromJSONKeyFunction [ContactLanguage]
@@ -209,7 +209,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ContactLanguage]
 fromJSONKey :: FromJSONKeyFunction ContactLanguage
 $cfromJSONKey :: FromJSONKeyFunction ContactLanguage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679322471"><span id="local-6989586621679322473"><span id="local-6989586621679322475"><span id="local-6989586621679322477"><span class="annot"><span class="annottext">[ContactLanguage] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679324770"><span id="local-6989586621679324772"><span id="local-6989586621679324774"><span id="local-6989586621679324776"><span class="annot"><span class="annottext">[ContactLanguage] -&gt; Encoding
 [ContactLanguage] -&gt; Value
 ContactLanguage -&gt; Encoding
 ContactLanguage -&gt; Value
@@ -233,7 +233,7 @@ $ctoEncoding :: ContactLanguage -&gt; Encoding
 toJSON :: ContactLanguage -&gt; Value
 $ctoJSON :: ContactLanguage -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679322466"><span id="local-6989586621679322468"><span class="annot"><span class="annottext">ToJSONKeyFunction [ContactLanguage]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679324765"><span id="local-6989586621679324767"><span class="annot"><span class="annottext">ToJSONKeyFunction [ContactLanguage]
 ToJSONKeyFunction ContactLanguage
 ToJSONKeyFunction ContactLanguage
 -&gt; ToJSONKeyFunction [ContactLanguage] -&gt; ToJSONKey ContactLanguage
@@ -244,14 +244,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ContactLanguage]
 toJSONKey :: ToJSONKeyFunction ContactLanguage
 $ctoJSONKey :: ToJSONKeyFunction ContactLanguage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679322463"><span class="annot"><span class="annottext">[Node] -&gt; Either String ContactLanguage
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679324762"><span class="annot"><span class="annottext">[Node] -&gt; Either String ContactLanguage
 ([Node] -&gt; Either String ContactLanguage)
 -&gt; FromXML ContactLanguage
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ContactLanguage
 $cparseXML :: [Node] -&gt; Either String ContactLanguage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679322460"><span class="annot"><span class="annottext">ContactLanguage -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679324759"><span class="annot"><span class="annottext">ContactLanguage -&gt; XML
 (ContactLanguage -&gt; XML) -&gt; ToXML ContactLanguage
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ContactLanguage -&gt; XML

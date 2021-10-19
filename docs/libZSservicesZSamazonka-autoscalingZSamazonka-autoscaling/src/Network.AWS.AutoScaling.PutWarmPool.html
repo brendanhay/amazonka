@@ -43,8 +43,8 @@
 </span><span id="line-43"></span><span>
 </span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#putWarmPool_minSize"><span class="hs-identifier">putWarmPool_minSize</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#putWarmPool_poolState"><span class="hs-identifier">putWarmPool_poolState</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#putWarmPool_maxGroupPreparedCapacity"><span class="hs-identifier">putWarmPool_maxGroupPreparedCapacity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#putWarmPool_maxGroupPreparedCapacity"><span class="hs-identifier">putWarmPool_maxGroupPreparedCapacity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#putWarmPool_poolState"><span class="hs-identifier">putWarmPool_poolState</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#putWarmPool_autoScalingGroupName"><span class="hs-identifier">putWarmPool_autoScalingGroupName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -64,44 +64,44 @@
 </span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | /See:/ 'newPutWarmPool' smart constructor.</span><span>
-</span><span id="line-67"></span><span id="local-6989586621679336338"><span id="local-6989586621679336339"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutWarmPool"><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPool"><span class="hs-identifier hs-var">PutWarmPool</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutWarmPool%27"><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPool%27"><span class="hs-identifier hs-var">PutWarmPool'</span></a></span></span><span>
+</span><span id="line-67"></span><span id="local-6989586621679337008"><span id="local-6989586621679337009"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutWarmPool"><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPool"><span class="hs-identifier hs-var">PutWarmPool</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutWarmPool%27"><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPool%27"><span class="hs-identifier hs-var">PutWarmPool'</span></a></span></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the minimum number of instances to maintain in the warm pool.</span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-comment">-- This helps you to ensure that there is always a certain number of warmed</span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-comment">-- instances available to handle traffic spikes. Defaults to 0 if not</span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-comment">-- specified.</span><span>
 </span><span id="line-72"></span><span>    </span><span id="%24sel%3AminSize%3APutWarmPool%27"><span class="annot"><span class="annottext">PutWarmPool -&gt; Maybe Natural
 </span><a href="Network.AWS.AutoScaling.PutWarmPool.html#%24sel%3AminSize%3APutWarmPool%27"><span class="hs-identifier hs-var hs-var">minSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | Sets the instance state to transition to after the lifecycle actions are</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- complete. Default is @Stopped@.</span><span>
-</span><span id="line-75"></span><span>    </span><span id="%24sel%3ApoolState%3APutWarmPool%27"><span class="annot"><span class="annottext">PutWarmPool -&gt; Maybe WarmPoolState
-</span><a href="Network.AWS.AutoScaling.PutWarmPool.html#%24sel%3ApoolState%3APutWarmPool%27"><span class="hs-identifier hs-var hs-var">poolState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolState.html#WarmPoolState"><span class="hs-identifier hs-type">WarmPoolState</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | Specifies the maximum number of instances that are allowed to be in the</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- warm pool or in any state except @Terminated@ for the Auto Scaling</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- group. This is an optional property. Specify it only if you do not want</span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- the warm pool size to be determined by the difference between the</span><span>
-</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- group\'s maximum capacity and its desired capacity.</span><span>
-</span><span id="line-81"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- If a value for @MaxGroupPreparedCapacity@ is not specified, Amazon EC2</span><span>
-</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- Auto Scaling launches and maintains the difference between the group\'s</span><span>
-</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- maximum capacity and its desired capacity. If you specify a value for</span><span>
-</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- @MaxGroupPreparedCapacity@, Amazon EC2 Auto Scaling uses the difference</span><span>
-</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- between the @MaxGroupPreparedCapacity@ and the desired capacity instead.</span><span>
-</span><span id="line-87"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- The size of the warm pool is dynamic. Only when</span><span>
-</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- @MaxGroupPreparedCapacity@ and @MinSize@ are set to the same value does</span><span>
-</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- the warm pool have an absolute size.</span><span>
-</span><span id="line-91"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- If the desired capacity of the Auto Scaling group is higher than the</span><span>
-</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- @MaxGroupPreparedCapacity@, the capacity of the warm pool is 0, unless</span><span>
-</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- you specify a value for @MinSize@. To remove a value that you previously</span><span>
-</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- set, include the property but specify -1 for the value.</span><span>
-</span><span id="line-96"></span><span>    </span><span id="%24sel%3AmaxGroupPreparedCapacity%3APutWarmPool%27"><span class="annot"><span class="annottext">PutWarmPool -&gt; Maybe Int
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | Specifies the maximum number of instances that are allowed to be in the</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- warm pool or in any state except @Terminated@ for the Auto Scaling</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- group. This is an optional property. Specify it only if you do not want</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- the warm pool size to be determined by the difference between the</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- group\'s maximum capacity and its desired capacity.</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- If a value for @MaxGroupPreparedCapacity@ is not specified, Amazon EC2</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- Auto Scaling launches and maintains the difference between the group\'s</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- maximum capacity and its desired capacity. If you specify a value for</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- @MaxGroupPreparedCapacity@, Amazon EC2 Auto Scaling uses the difference</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- between the @MaxGroupPreparedCapacity@ and the desired capacity instead.</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- The size of the warm pool is dynamic. Only when</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- @MaxGroupPreparedCapacity@ and @MinSize@ are set to the same value does</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- the warm pool have an absolute size.</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- If the desired capacity of the Auto Scaling group is higher than the</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- @MaxGroupPreparedCapacity@, the capacity of the warm pool is 0, unless</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- you specify a value for @MinSize@. To remove a value that you previously</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- set, include the property but specify -1 for the value.</span><span>
+</span><span id="line-93"></span><span>    </span><span id="%24sel%3AmaxGroupPreparedCapacity%3APutWarmPool%27"><span class="annot"><span class="annottext">PutWarmPool -&gt; Maybe Int
 </span><a href="Network.AWS.AutoScaling.PutWarmPool.html#%24sel%3AmaxGroupPreparedCapacity%3APutWarmPool%27"><span class="hs-identifier hs-var hs-var">maxGroupPreparedCapacity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- | Sets the instance state to transition to after the lifecycle actions are</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- complete. Default is @Stopped@.</span><span>
+</span><span id="line-96"></span><span>    </span><span id="%24sel%3ApoolState%3APutWarmPool%27"><span class="annot"><span class="annottext">PutWarmPool -&gt; Maybe WarmPoolState
+</span><a href="Network.AWS.AutoScaling.PutWarmPool.html#%24sel%3ApoolState%3APutWarmPool%27"><span class="hs-identifier hs-var hs-var">poolState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolState.html#WarmPoolState"><span class="hs-identifier hs-type">WarmPoolState</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-97"></span><span>    </span><span class="hs-comment">-- | The name of the Auto Scaling group.</span><span>
 </span><span id="line-98"></span><span>    </span><span id="%24sel%3AautoScalingGroupName%3APutWarmPool%27"><span class="annot"><span class="annottext">PutWarmPool -&gt; Text
 </span><a href="Network.AWS.AutoScaling.PutWarmPool.html#%24sel%3AautoScalingGroupName%3APutWarmPool%27"><span class="hs-identifier hs-var hs-var">autoScalingGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-99"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-100"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679336329"><span id="local-6989586621679336331"><span class="annot"><span class="annottext">PutWarmPool -&gt; PutWarmPool -&gt; Bool
+</span><span id="line-100"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679336999"><span id="local-6989586621679337001"><span class="annot"><span class="annottext">PutWarmPool -&gt; PutWarmPool -&gt; Bool
 (PutWarmPool -&gt; PutWarmPool -&gt; Bool)
 -&gt; (PutWarmPool -&gt; PutWarmPool -&gt; Bool) -&gt; Eq PutWarmPool
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -109,7 +109,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutWarmPool -&gt; PutWarmPool -&gt; Bool
 == :: PutWarmPool -&gt; PutWarmPool -&gt; Bool
 $c== :: PutWarmPool -&gt; PutWarmPool -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679336320"><span id="local-6989586621679336322"><span id="local-6989586621679336324"><span id="local-6989586621679336326"><span class="annot"><span class="annottext">ReadPrec [PutWarmPool]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679336990"><span id="local-6989586621679336992"><span id="local-6989586621679336994"><span id="local-6989586621679336996"><span class="annot"><span class="annottext">ReadPrec [PutWarmPool]
 ReadPrec PutWarmPool
 Int -&gt; ReadS PutWarmPool
 ReadS [PutWarmPool]
@@ -129,7 +129,7 @@ readList :: ReadS [PutWarmPool]
 $creadList :: ReadS [PutWarmPool]
 readsPrec :: Int -&gt; ReadS PutWarmPool
 $creadsPrec :: Int -&gt; ReadS PutWarmPool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679336313"><span id="local-6989586621679336315"><span id="local-6989586621679336317"><span class="annot"><span class="annottext">Int -&gt; PutWarmPool -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679336983"><span id="local-6989586621679336985"><span id="local-6989586621679336987"><span class="annot"><span class="annottext">Int -&gt; PutWarmPool -&gt; ShowS
 [PutWarmPool] -&gt; ShowS
 PutWarmPool -&gt; String
 (Int -&gt; PutWarmPool -&gt; ShowS)
@@ -168,29 +168,29 @@ $cfrom :: forall x. PutWarmPool -&gt; Rep PutWarmPool x
 </span><span id="line-112"></span><span class="hs-comment">-- instances available to handle traffic spikes. Defaults to 0 if not</span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- specified.</span><span>
 </span><span id="line-114"></span><span class="hs-comment">--</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- 'poolState', 'putWarmPool_poolState' - Sets the instance state to transition to after the lifecycle actions are</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- complete. Default is @Stopped@.</span><span>
-</span><span id="line-117"></span><span class="hs-comment">--</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- 'maxGroupPreparedCapacity', 'putWarmPool_maxGroupPreparedCapacity' - Specifies the maximum number of instances that are allowed to be in the</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- warm pool or in any state except @Terminated@ for the Auto Scaling</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- group. This is an optional property. Specify it only if you do not want</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- the warm pool size to be determined by the difference between the</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- group\'s maximum capacity and its desired capacity.</span><span>
-</span><span id="line-123"></span><span class="hs-comment">--</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- If a value for @MaxGroupPreparedCapacity@ is not specified, Amazon EC2</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- Auto Scaling launches and maintains the difference between the group\'s</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- maximum capacity and its desired capacity. If you specify a value for</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- @MaxGroupPreparedCapacity@, Amazon EC2 Auto Scaling uses the difference</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- between the @MaxGroupPreparedCapacity@ and the desired capacity instead.</span><span>
-</span><span id="line-129"></span><span class="hs-comment">--</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- The size of the warm pool is dynamic. Only when</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- @MaxGroupPreparedCapacity@ and @MinSize@ are set to the same value does</span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- the warm pool have an absolute size.</span><span>
-</span><span id="line-133"></span><span class="hs-comment">--</span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- If the desired capacity of the Auto Scaling group is higher than the</span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- @MaxGroupPreparedCapacity@, the capacity of the warm pool is 0, unless</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- you specify a value for @MinSize@. To remove a value that you previously</span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- set, include the property but specify -1 for the value.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'maxGroupPreparedCapacity', 'putWarmPool_maxGroupPreparedCapacity' - Specifies the maximum number of instances that are allowed to be in the</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- warm pool or in any state except @Terminated@ for the Auto Scaling</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- group. This is an optional property. Specify it only if you do not want</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- the warm pool size to be determined by the difference between the</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- group\'s maximum capacity and its desired capacity.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- If a value for @MaxGroupPreparedCapacity@ is not specified, Amazon EC2</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- Auto Scaling launches and maintains the difference between the group\'s</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- maximum capacity and its desired capacity. If you specify a value for</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- @MaxGroupPreparedCapacity@, Amazon EC2 Auto Scaling uses the difference</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- between the @MaxGroupPreparedCapacity@ and the desired capacity instead.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- The size of the warm pool is dynamic. Only when</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- @MaxGroupPreparedCapacity@ and @MinSize@ are set to the same value does</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- the warm pool have an absolute size.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- If the desired capacity of the Auto Scaling group is higher than the</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- @MaxGroupPreparedCapacity@, the capacity of the warm pool is 0, unless</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- you specify a value for @MinSize@. To remove a value that you previously</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- set, include the property but specify -1 for the value.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- 'poolState', 'putWarmPool_poolState' - Sets the instance state to transition to after the lifecycle actions are</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- complete. Default is @Stopped@.</span><span>
 </span><span id="line-138"></span><span class="hs-comment">--</span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- 'autoScalingGroupName', 'putWarmPool_autoScalingGroupName' - The name of the Auto Scaling group.</span><span>
 </span><span id="line-140"></span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#newPutWarmPool"><span class="hs-identifier hs-type">newPutWarmPool</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -198,26 +198,26 @@ $cfrom :: forall x. PutWarmPool -&gt; Rep PutWarmPool x
 </span><span id="line-142"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-143"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPool"><span class="hs-identifier hs-type">PutWarmPool</span></a></span><span>
 </span><span id="line-144"></span><span id="newPutWarmPool"><span class="annot"><span class="annottext">newPutWarmPool :: Text -&gt; PutWarmPool
-</span><a href="Network.AWS.AutoScaling.PutWarmPool.html#newPutWarmPool"><span class="hs-identifier hs-var hs-var">newPutWarmPool</span></a></span></span><span> </span><span id="local-6989586621679336308"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679336308"><span class="hs-identifier hs-var">pAutoScalingGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AutoScaling.PutWarmPool.html#newPutWarmPool"><span class="hs-identifier hs-var hs-var">newPutWarmPool</span></a></span></span><span> </span><span id="local-6989586621679336978"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679336978"><span class="hs-identifier hs-var">pAutoScalingGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-145"></span><span>  </span><span class="annot"><span class="annottext">PutWarmPool' :: Maybe Natural
--&gt; Maybe WarmPoolState -&gt; Maybe Int -&gt; Text -&gt; PutWarmPool
+-&gt; Maybe Int -&gt; Maybe WarmPoolState -&gt; Text -&gt; PutWarmPool
 </span><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPool%27"><span class="hs-identifier hs-type">PutWarmPool'</span></a></span><span>
 </span><span id="line-146"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:minSize:PutWarmPool' :: Maybe Natural
 </span><a href="Network.AWS.AutoScaling.PutWarmPool.html#%24sel%3AminSize%3APutWarmPool%27"><span class="hs-identifier hs-var">minSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">$sel:poolState:PutWarmPool' :: Maybe WarmPoolState
-</span><a href="Network.AWS.AutoScaling.PutWarmPool.html#%24sel%3ApoolState%3APutWarmPool%27"><span class="hs-identifier hs-var">poolState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WarmPoolState
+</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxGroupPreparedCapacity:PutWarmPool' :: Maybe Int
+</span><a href="Network.AWS.AutoScaling.PutWarmPool.html#%24sel%3AmaxGroupPreparedCapacity%3APutWarmPool%27"><span class="hs-identifier hs-var">maxGroupPreparedCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxGroupPreparedCapacity:PutWarmPool' :: Maybe Int
-</span><a href="Network.AWS.AutoScaling.PutWarmPool.html#%24sel%3AmaxGroupPreparedCapacity%3APutWarmPool%27"><span class="hs-identifier hs-var">maxGroupPreparedCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">$sel:poolState:PutWarmPool' :: Maybe WarmPoolState
+</span><a href="Network.AWS.AutoScaling.PutWarmPool.html#%24sel%3ApoolState%3APutWarmPool%27"><span class="hs-identifier hs-var">poolState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WarmPoolState
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">$sel:autoScalingGroupName:PutWarmPool' :: Text
 </span><a href="Network.AWS.AutoScaling.PutWarmPool.html#%24sel%3AautoScalingGroupName%3APutWarmPool%27"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679336308"><span class="hs-identifier hs-var">pAutoScalingGroupName_</span></a></span><span>
+</span><a href="#local-6989586621679336978"><span class="hs-identifier hs-var">pAutoScalingGroupName_</span></a></span><span>
 </span><span id="line-150"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- | Specifies the minimum number of instances to maintain in the warm pool.</span><span>
@@ -231,74 +231,74 @@ forall a. Maybe a
 -&gt; (PutWarmPool -&gt; Maybe Natural -&gt; PutWarmPool)
 -&gt; Lens PutWarmPool PutWarmPool (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPool%27"><span class="hs-identifier hs-type">PutWarmPool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336305"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPool%27"><span class="hs-identifier hs-type">PutWarmPool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336975"><span class="annot"><span class="annottext">Maybe Natural
 minSize :: Maybe Natural
 $sel:minSize:PutWarmPool' :: PutWarmPool -&gt; Maybe Natural
-</span><a href="#local-6989586621679336305"><span class="hs-identifier hs-var hs-var">minSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679336305"><span class="hs-identifier hs-var">minSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336304"><span class="annot"><span class="annottext">s :: PutWarmPool
-</span><a href="#local-6989586621679336304"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPool%27"><span class="hs-identifier hs-type">PutWarmPool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336303"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679336303"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutWarmPool
-</span><a href="#local-6989586621679336304"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minSize:PutWarmPool' :: Maybe Natural
+</span><a href="#local-6989586621679336975"><span class="hs-identifier hs-var hs-var">minSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679336975"><span class="hs-identifier hs-var">minSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336974"><span class="annot"><span class="annottext">s :: PutWarmPool
+</span><a href="#local-6989586621679336974"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPool%27"><span class="hs-identifier hs-type">PutWarmPool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336973"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679336973"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutWarmPool
+</span><a href="#local-6989586621679336974"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minSize:PutWarmPool' :: Maybe Natural
 </span><a href="Network.AWS.AutoScaling.PutWarmPool.html#%24sel%3AminSize%3APutWarmPool%27"><span class="hs-identifier hs-var">minSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679336303"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPool"><span class="hs-identifier hs-type">PutWarmPool</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679336973"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPool"><span class="hs-identifier hs-type">PutWarmPool</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- | Sets the instance state to transition to after the lifecycle actions are</span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- complete. Default is @Stopped@.</span><span>
-</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#putWarmPool_poolState"><span class="hs-identifier hs-type">putWarmPool_poolState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPool"><span class="hs-identifier hs-type">PutWarmPool</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolState.html#WarmPoolState"><span class="hs-identifier hs-type">WarmPoolState</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-162"></span><span id="putWarmPool_poolState"><span class="annot"><span class="annottext">putWarmPool_poolState :: (Maybe WarmPoolState -&gt; f (Maybe WarmPoolState))
+</span><span id="line-159"></span><span class="hs-comment">-- | Specifies the maximum number of instances that are allowed to be in the</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- warm pool or in any state except @Terminated@ for the Auto Scaling</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- group. This is an optional property. Specify it only if you do not want</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- the warm pool size to be determined by the difference between the</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- group\'s maximum capacity and its desired capacity.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- If a value for @MaxGroupPreparedCapacity@ is not specified, Amazon EC2</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- Auto Scaling launches and maintains the difference between the group\'s</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- maximum capacity and its desired capacity. If you specify a value for</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- @MaxGroupPreparedCapacity@, Amazon EC2 Auto Scaling uses the difference</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- between the @MaxGroupPreparedCapacity@ and the desired capacity instead.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- The size of the warm pool is dynamic. Only when</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- @MaxGroupPreparedCapacity@ and @MinSize@ are set to the same value does</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- the warm pool have an absolute size.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- If the desired capacity of the Auto Scaling group is higher than the</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- @MaxGroupPreparedCapacity@, the capacity of the warm pool is 0, unless</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- you specify a value for @MinSize@. To remove a value that you previously</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- set, include the property but specify -1 for the value.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#putWarmPool_maxGroupPreparedCapacity"><span class="hs-identifier hs-type">putWarmPool_maxGroupPreparedCapacity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPool"><span class="hs-identifier hs-type">PutWarmPool</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span id="putWarmPool_maxGroupPreparedCapacity"><span class="annot"><span class="annottext">putWarmPool_maxGroupPreparedCapacity :: (Maybe Int -&gt; f (Maybe Int)) -&gt; PutWarmPool -&gt; f PutWarmPool
+</span><a href="Network.AWS.AutoScaling.PutWarmPool.html#putWarmPool_maxGroupPreparedCapacity"><span class="hs-identifier hs-var hs-var">putWarmPool_maxGroupPreparedCapacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutWarmPool -&gt; Maybe Int)
+-&gt; (PutWarmPool -&gt; Maybe Int -&gt; PutWarmPool)
+-&gt; Lens PutWarmPool PutWarmPool (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPool%27"><span class="hs-identifier hs-type">PutWarmPool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336972"><span class="annot"><span class="annottext">Maybe Int
+maxGroupPreparedCapacity :: Maybe Int
+$sel:maxGroupPreparedCapacity:PutWarmPool' :: PutWarmPool -&gt; Maybe Int
+</span><a href="#local-6989586621679336972"><span class="hs-identifier hs-var hs-var">maxGroupPreparedCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679336972"><span class="hs-identifier hs-var">maxGroupPreparedCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336971"><span class="annot"><span class="annottext">s :: PutWarmPool
+</span><a href="#local-6989586621679336971"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPool%27"><span class="hs-identifier hs-type">PutWarmPool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336970"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679336970"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutWarmPool
+</span><a href="#local-6989586621679336971"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxGroupPreparedCapacity:PutWarmPool' :: Maybe Int
+</span><a href="Network.AWS.AutoScaling.PutWarmPool.html#%24sel%3AmaxGroupPreparedCapacity%3APutWarmPool%27"><span class="hs-identifier hs-var">maxGroupPreparedCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679336970"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPool"><span class="hs-identifier hs-type">PutWarmPool</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | Sets the instance state to transition to after the lifecycle actions are</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- complete. Default is @Stopped@.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#putWarmPool_poolState"><span class="hs-identifier hs-type">putWarmPool_poolState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPool"><span class="hs-identifier hs-type">PutWarmPool</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.WarmPoolState.html#WarmPoolState"><span class="hs-identifier hs-type">WarmPoolState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span id="putWarmPool_poolState"><span class="annot"><span class="annottext">putWarmPool_poolState :: (Maybe WarmPoolState -&gt; f (Maybe WarmPoolState))
 -&gt; PutWarmPool -&gt; f PutWarmPool
 </span><a href="Network.AWS.AutoScaling.PutWarmPool.html#putWarmPool_poolState"><span class="hs-identifier hs-var hs-var">putWarmPool_poolState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutWarmPool -&gt; Maybe WarmPoolState)
 -&gt; (PutWarmPool -&gt; Maybe WarmPoolState -&gt; PutWarmPool)
 -&gt; Lens
      PutWarmPool PutWarmPool (Maybe WarmPoolState) (Maybe WarmPoolState)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPool%27"><span class="hs-identifier hs-type">PutWarmPool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336302"><span class="annot"><span class="annottext">Maybe WarmPoolState
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPool%27"><span class="hs-identifier hs-type">PutWarmPool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336969"><span class="annot"><span class="annottext">Maybe WarmPoolState
 poolState :: Maybe WarmPoolState
 $sel:poolState:PutWarmPool' :: PutWarmPool -&gt; Maybe WarmPoolState
-</span><a href="#local-6989586621679336302"><span class="hs-identifier hs-var hs-var">poolState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WarmPoolState
-</span><a href="#local-6989586621679336302"><span class="hs-identifier hs-var">poolState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336301"><span class="annot"><span class="annottext">s :: PutWarmPool
-</span><a href="#local-6989586621679336301"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPool%27"><span class="hs-identifier hs-type">PutWarmPool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336300"><span class="annot"><span class="annottext">Maybe WarmPoolState
-</span><a href="#local-6989586621679336300"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutWarmPool
-</span><a href="#local-6989586621679336301"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:poolState:PutWarmPool' :: Maybe WarmPoolState
+</span><a href="#local-6989586621679336969"><span class="hs-identifier hs-var hs-var">poolState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WarmPoolState
+</span><a href="#local-6989586621679336969"><span class="hs-identifier hs-var">poolState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336968"><span class="annot"><span class="annottext">s :: PutWarmPool
+</span><a href="#local-6989586621679336968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPool%27"><span class="hs-identifier hs-type">PutWarmPool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336967"><span class="annot"><span class="annottext">Maybe WarmPoolState
+</span><a href="#local-6989586621679336967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutWarmPool
+</span><a href="#local-6989586621679336968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:poolState:PutWarmPool' :: Maybe WarmPoolState
 </span><a href="Network.AWS.AutoScaling.PutWarmPool.html#%24sel%3ApoolState%3APutWarmPool%27"><span class="hs-identifier hs-var">poolState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WarmPoolState
-</span><a href="#local-6989586621679336300"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPool"><span class="hs-identifier hs-type">PutWarmPool</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-comment">-- | Specifies the maximum number of instances that are allowed to be in the</span><span>
-</span><span id="line-165"></span><span class="hs-comment">-- warm pool or in any state except @Terminated@ for the Auto Scaling</span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- group. This is an optional property. Specify it only if you do not want</span><span>
-</span><span id="line-167"></span><span class="hs-comment">-- the warm pool size to be determined by the difference between the</span><span>
-</span><span id="line-168"></span><span class="hs-comment">-- group\'s maximum capacity and its desired capacity.</span><span>
-</span><span id="line-169"></span><span class="hs-comment">--</span><span>
-</span><span id="line-170"></span><span class="hs-comment">-- If a value for @MaxGroupPreparedCapacity@ is not specified, Amazon EC2</span><span>
-</span><span id="line-171"></span><span class="hs-comment">-- Auto Scaling launches and maintains the difference between the group\'s</span><span>
-</span><span id="line-172"></span><span class="hs-comment">-- maximum capacity and its desired capacity. If you specify a value for</span><span>
-</span><span id="line-173"></span><span class="hs-comment">-- @MaxGroupPreparedCapacity@, Amazon EC2 Auto Scaling uses the difference</span><span>
-</span><span id="line-174"></span><span class="hs-comment">-- between the @MaxGroupPreparedCapacity@ and the desired capacity instead.</span><span>
-</span><span id="line-175"></span><span class="hs-comment">--</span><span>
-</span><span id="line-176"></span><span class="hs-comment">-- The size of the warm pool is dynamic. Only when</span><span>
-</span><span id="line-177"></span><span class="hs-comment">-- @MaxGroupPreparedCapacity@ and @MinSize@ are set to the same value does</span><span>
-</span><span id="line-178"></span><span class="hs-comment">-- the warm pool have an absolute size.</span><span>
-</span><span id="line-179"></span><span class="hs-comment">--</span><span>
-</span><span id="line-180"></span><span class="hs-comment">-- If the desired capacity of the Auto Scaling group is higher than the</span><span>
-</span><span id="line-181"></span><span class="hs-comment">-- @MaxGroupPreparedCapacity@, the capacity of the warm pool is 0, unless</span><span>
-</span><span id="line-182"></span><span class="hs-comment">-- you specify a value for @MinSize@. To remove a value that you previously</span><span>
-</span><span id="line-183"></span><span class="hs-comment">-- set, include the property but specify -1 for the value.</span><span>
-</span><span id="line-184"></span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#putWarmPool_maxGroupPreparedCapacity"><span class="hs-identifier hs-type">putWarmPool_maxGroupPreparedCapacity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPool"><span class="hs-identifier hs-type">PutWarmPool</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-185"></span><span id="putWarmPool_maxGroupPreparedCapacity"><span class="annot"><span class="annottext">putWarmPool_maxGroupPreparedCapacity :: (Maybe Int -&gt; f (Maybe Int)) -&gt; PutWarmPool -&gt; f PutWarmPool
-</span><a href="Network.AWS.AutoScaling.PutWarmPool.html#putWarmPool_maxGroupPreparedCapacity"><span class="hs-identifier hs-var hs-var">putWarmPool_maxGroupPreparedCapacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutWarmPool -&gt; Maybe Int)
--&gt; (PutWarmPool -&gt; Maybe Int -&gt; PutWarmPool)
--&gt; Lens PutWarmPool PutWarmPool (Maybe Int) (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPool%27"><span class="hs-identifier hs-type">PutWarmPool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336299"><span class="annot"><span class="annottext">Maybe Int
-maxGroupPreparedCapacity :: Maybe Int
-$sel:maxGroupPreparedCapacity:PutWarmPool' :: PutWarmPool -&gt; Maybe Int
-</span><a href="#local-6989586621679336299"><span class="hs-identifier hs-var hs-var">maxGroupPreparedCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679336299"><span class="hs-identifier hs-var">maxGroupPreparedCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336298"><span class="annot"><span class="annottext">s :: PutWarmPool
-</span><a href="#local-6989586621679336298"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPool%27"><span class="hs-identifier hs-type">PutWarmPool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336297"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679336297"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutWarmPool
-</span><a href="#local-6989586621679336298"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxGroupPreparedCapacity:PutWarmPool' :: Maybe Int
-</span><a href="Network.AWS.AutoScaling.PutWarmPool.html#%24sel%3AmaxGroupPreparedCapacity%3APutWarmPool%27"><span class="hs-identifier hs-var">maxGroupPreparedCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679336297"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPool"><span class="hs-identifier hs-type">PutWarmPool</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679336967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPool"><span class="hs-identifier hs-type">PutWarmPool</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-comment">-- | The name of the Auto Scaling group.</span><span>
 </span><span id="line-188"></span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#putWarmPool_autoScalingGroupName"><span class="hs-identifier hs-type">putWarmPool_autoScalingGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPool"><span class="hs-identifier hs-type">PutWarmPool</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -307,25 +307,25 @@ $sel:maxGroupPreparedCapacity:PutWarmPool' :: PutWarmPool -&gt; Maybe Int
 -&gt; (PutWarmPool -&gt; Text -&gt; PutWarmPool)
 -&gt; Lens PutWarmPool PutWarmPool Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPool%27"><span class="hs-identifier hs-type">PutWarmPool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336296"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPool%27"><span class="hs-identifier hs-type">PutWarmPool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336966"><span class="annot"><span class="annottext">Text
 autoScalingGroupName :: Text
 $sel:autoScalingGroupName:PutWarmPool' :: PutWarmPool -&gt; Text
-</span><a href="#local-6989586621679336296"><span class="hs-identifier hs-var hs-var">autoScalingGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679336296"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336295"><span class="annot"><span class="annottext">s :: PutWarmPool
-</span><a href="#local-6989586621679336295"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPool%27"><span class="hs-identifier hs-type">PutWarmPool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336294"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679336294"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutWarmPool
-</span><a href="#local-6989586621679336295"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingGroupName:PutWarmPool' :: Text
+</span><a href="#local-6989586621679336966"><span class="hs-identifier hs-var hs-var">autoScalingGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679336966"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336965"><span class="annot"><span class="annottext">s :: PutWarmPool
+</span><a href="#local-6989586621679336965"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPool%27"><span class="hs-identifier hs-type">PutWarmPool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336964"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679336964"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutWarmPool
+</span><a href="#local-6989586621679336965"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingGroupName:PutWarmPool' :: Text
 </span><a href="Network.AWS.AutoScaling.PutWarmPool.html#%24sel%3AautoScalingGroupName%3APutWarmPool%27"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679336294"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPool"><span class="hs-identifier hs-type">PutWarmPool</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679336964"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPool"><span class="hs-identifier hs-type">PutWarmPool</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPool"><span class="hs-identifier hs-type">PutWarmPool</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-192"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPool"><span class="hs-identifier hs-type">PutWarmPool</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPoolResponse"><span class="hs-identifier hs-type">PutWarmPoolResponse</span></a></span><span>
-</span><span id="line-193"></span><span>  </span><span id="local-6989586621679336290"><span class="annot"><span class="annottext">request :: PutWarmPool -&gt; Request PutWarmPool
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621679336960"><span class="annot"><span class="annottext">request :: PutWarmPool -&gt; Request PutWarmPool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutWarmPool -&gt; Request PutWarmPool
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AutoScaling.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-194"></span><span>  </span><span id="local-6989586621679336286"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679336956"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutWarmPool
 -&gt; ClientResponse ClientBody
@@ -354,10 +354,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-196"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PutWarmPoolResult&quot;</span></span><span>
-</span><span id="line-197"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679336283"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679336283"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679336282"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679336282"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679336281"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679336281"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-197"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679336953"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679336953"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679336952"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679336952"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679336951"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679336951"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-198"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; PutWarmPoolResponse
 </span><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPoolResponse%27"><span class="hs-identifier hs-var">PutWarmPoolResponse'</span></a></span><span>
 </span><span id="line-199"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; PutWarmPoolResponse)
@@ -368,15 +368,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679336283"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679336953"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-200"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span><span>
-</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679336274"><span id="local-6989586621679336276"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPool"><span class="hs-identifier hs-type">PutWarmPool</span></a></span></span></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679336944"><span id="local-6989586621679336946"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPool"><span class="hs-identifier hs-type">PutWarmPool</span></a></span></span></span><span>
 </span><span id="line-203"></span><span>
-</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679336271"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPool"><span class="hs-identifier hs-type">PutWarmPool</span></a></span></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679336941"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPool"><span class="hs-identifier hs-type">PutWarmPool</span></a></span></span><span>
 </span><span id="line-205"></span><span>
 </span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPool"><span class="hs-identifier hs-type">PutWarmPool</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-207"></span><span>  </span><span id="local-6989586621679336267"><span class="annot"><span class="annottext">toHeaders :: PutWarmPool -&gt; ResponseHeaders
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679336937"><span class="annot"><span class="annottext">toHeaders :: PutWarmPool -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PutWarmPool -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -384,27 +384,27 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-208"></span><span>
 </span><span id="line-209"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPool"><span class="hs-identifier hs-type">PutWarmPool</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-210"></span><span>  </span><span id="local-6989586621679336262"><span class="annot"><span class="annottext">toPath :: PutWarmPool -&gt; ByteString
+</span><span id="line-210"></span><span>  </span><span id="local-6989586621679336932"><span class="annot"><span class="annottext">toPath :: PutWarmPool -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutWarmPool -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-211"></span><span>
 </span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPool"><span class="hs-identifier hs-type">PutWarmPool</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-213"></span><span>  </span><span id="local-6989586621679336258"><span class="annot"><span class="annottext">toQuery :: PutWarmPool -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPool%27"><span class="hs-identifier hs-type">PutWarmPool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336253"><span id="local-6989586621679336254"><span id="local-6989586621679336255"><span id="local-6989586621679336256"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679336928"><span class="annot"><span class="annottext">toQuery :: PutWarmPool -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPool%27"><span class="hs-identifier hs-type">PutWarmPool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336923"><span id="local-6989586621679336924"><span id="local-6989586621679336925"><span id="local-6989586621679336926"><span class="annot"><span class="annottext">Maybe Int
 Maybe Natural
 Maybe WarmPoolState
 Text
 autoScalingGroupName :: Text
-maxGroupPreparedCapacity :: Maybe Int
 poolState :: Maybe WarmPoolState
+maxGroupPreparedCapacity :: Maybe Int
 minSize :: Maybe Natural
 $sel:autoScalingGroupName:PutWarmPool' :: PutWarmPool -&gt; Text
-$sel:maxGroupPreparedCapacity:PutWarmPool' :: PutWarmPool -&gt; Maybe Int
 $sel:poolState:PutWarmPool' :: PutWarmPool -&gt; Maybe WarmPoolState
+$sel:maxGroupPreparedCapacity:PutWarmPool' :: PutWarmPool -&gt; Maybe Int
 $sel:minSize:PutWarmPool' :: PutWarmPool -&gt; Maybe Natural
-</span><a href="#local-6989586621679336253"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679336923"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-214"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -424,32 +424,32 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;MinSize&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679336256"><span class="hs-identifier hs-var">minSize</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679336926"><span class="hs-identifier hs-var">minSize</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-220"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxGroupPreparedCapacity&quot;</span></span><span>
+</span><span id="line-221"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679336925"><span class="hs-identifier hs-var">maxGroupPreparedCapacity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;PoolState&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe WarmPoolState -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe WarmPoolState
-</span><a href="#local-6989586621679336255"><span class="hs-identifier hs-var">poolState</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-221"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;MaxGroupPreparedCapacity&quot;</span></span><span>
-</span><span id="line-222"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679336254"><span class="hs-identifier hs-var">maxGroupPreparedCapacity</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679336924"><span class="hs-identifier hs-var">poolState</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-223"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;AutoScalingGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679336253"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span>
+</span><a href="#local-6989586621679336923"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span>
 </span><span id="line-224"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-225"></span><span>
 </span><span id="line-226"></span><span class="hs-comment">-- | /See:/ 'newPutWarmPoolResponse' smart constructor.</span><span>
-</span><span id="line-227"></span><span id="local-6989586621679336250"><span id="local-6989586621679336251"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutWarmPoolResponse"><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPoolResponse"><span class="hs-identifier hs-var">PutWarmPoolResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutWarmPoolResponse%27"><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPoolResponse%27"><span class="hs-identifier hs-var">PutWarmPoolResponse'</span></a></span></span><span>
+</span><span id="line-227"></span><span id="local-6989586621679336920"><span id="local-6989586621679336921"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutWarmPoolResponse"><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPoolResponse"><span class="hs-identifier hs-var">PutWarmPoolResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutWarmPoolResponse%27"><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPoolResponse%27"><span class="hs-identifier hs-var">PutWarmPoolResponse'</span></a></span></span><span>
 </span><span id="line-228"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-229"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutWarmPoolResponse%27"><span class="annot"><span class="annottext">PutWarmPoolResponse -&gt; Int
 </span><a href="Network.AWS.AutoScaling.PutWarmPool.html#%24sel%3AhttpStatus%3APutWarmPoolResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-230"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-231"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679336245"><span id="local-6989586621679336247"><span class="annot"><span class="annottext">PutWarmPoolResponse -&gt; PutWarmPoolResponse -&gt; Bool
+</span><span id="line-231"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679336915"><span id="local-6989586621679336917"><span class="annot"><span class="annottext">PutWarmPoolResponse -&gt; PutWarmPoolResponse -&gt; Bool
 (PutWarmPoolResponse -&gt; PutWarmPoolResponse -&gt; Bool)
 -&gt; (PutWarmPoolResponse -&gt; PutWarmPoolResponse -&gt; Bool)
 -&gt; Eq PutWarmPoolResponse
@@ -458,7 +458,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutWarmPoolResponse -&gt; PutWarmPoolResponse -&gt; Bool
 == :: PutWarmPoolResponse -&gt; PutWarmPoolResponse -&gt; Bool
 $c== :: PutWarmPoolResponse -&gt; PutWarmPoolResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679336237"><span id="local-6989586621679336239"><span id="local-6989586621679336241"><span id="local-6989586621679336243"><span class="annot"><span class="annottext">ReadPrec [PutWarmPoolResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679336907"><span id="local-6989586621679336909"><span id="local-6989586621679336911"><span id="local-6989586621679336913"><span class="annot"><span class="annottext">ReadPrec [PutWarmPoolResponse]
 ReadPrec PutWarmPoolResponse
 Int -&gt; ReadS PutWarmPoolResponse
 ReadS [PutWarmPoolResponse]
@@ -478,7 +478,7 @@ readList :: ReadS [PutWarmPoolResponse]
 $creadList :: ReadS [PutWarmPoolResponse]
 readsPrec :: Int -&gt; ReadS PutWarmPoolResponse
 $creadsPrec :: Int -&gt; ReadS PutWarmPoolResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679336231"><span id="local-6989586621679336233"><span id="local-6989586621679336235"><span class="annot"><span class="annottext">Int -&gt; PutWarmPoolResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679336901"><span id="local-6989586621679336903"><span id="local-6989586621679336905"><span class="annot"><span class="annottext">Int -&gt; PutWarmPoolResponse -&gt; ShowS
 [PutWarmPoolResponse] -&gt; ShowS
 PutWarmPoolResponse -&gt; String
 (Int -&gt; PutWarmPoolResponse -&gt; ShowS)
@@ -518,12 +518,12 @@ $cfrom :: forall x. PutWarmPoolResponse -&gt; Rep PutWarmPoolResponse x
 </span><span id="line-244"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-245"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPoolResponse"><span class="hs-identifier hs-type">PutWarmPoolResponse</span></a></span><span>
 </span><span id="line-246"></span><span id="newPutWarmPoolResponse"><span class="annot"><span class="annottext">newPutWarmPoolResponse :: Int -&gt; PutWarmPoolResponse
-</span><a href="Network.AWS.AutoScaling.PutWarmPool.html#newPutWarmPoolResponse"><span class="hs-identifier hs-var hs-var">newPutWarmPoolResponse</span></a></span></span><span> </span><span id="local-6989586621679336228"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679336228"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AutoScaling.PutWarmPool.html#newPutWarmPoolResponse"><span class="hs-identifier hs-var hs-var">newPutWarmPoolResponse</span></a></span></span><span> </span><span id="local-6989586621679336898"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679336898"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-247"></span><span>  </span><span class="annot"><span class="annottext">PutWarmPoolResponse' :: Int -&gt; PutWarmPoolResponse
 </span><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPoolResponse%27"><span class="hs-identifier hs-type">PutWarmPoolResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutWarmPoolResponse' :: Int
 </span><a href="Network.AWS.AutoScaling.PutWarmPool.html#%24sel%3AhttpStatus%3APutWarmPoolResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679336228"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679336898"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-248"></span><span>
 </span><span id="line-249"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-250"></span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#putWarmPoolResponse_httpStatus"><span class="hs-identifier hs-type">putWarmPoolResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPoolResponse"><span class="hs-identifier hs-type">PutWarmPoolResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -532,16 +532,16 @@ $cfrom :: forall x. PutWarmPoolResponse -&gt; Rep PutWarmPoolResponse x
 -&gt; (PutWarmPoolResponse -&gt; Int -&gt; PutWarmPoolResponse)
 -&gt; Lens PutWarmPoolResponse PutWarmPoolResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPoolResponse%27"><span class="hs-identifier hs-type">PutWarmPoolResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336227"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPoolResponse%27"><span class="hs-identifier hs-type">PutWarmPoolResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336897"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:PutWarmPoolResponse' :: PutWarmPoolResponse -&gt; Int
-</span><a href="#local-6989586621679336227"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679336227"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336226"><span class="annot"><span class="annottext">s :: PutWarmPoolResponse
-</span><a href="#local-6989586621679336226"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPoolResponse%27"><span class="hs-identifier hs-type">PutWarmPoolResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336225"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679336225"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutWarmPoolResponse
-</span><a href="#local-6989586621679336226"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutWarmPoolResponse' :: Int
+</span><a href="#local-6989586621679336897"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679336897"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336896"><span class="annot"><span class="annottext">s :: PutWarmPoolResponse
+</span><a href="#local-6989586621679336896"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPoolResponse%27"><span class="hs-identifier hs-type">PutWarmPoolResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336895"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679336895"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutWarmPoolResponse
+</span><a href="#local-6989586621679336896"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutWarmPoolResponse' :: Int
 </span><a href="Network.AWS.AutoScaling.PutWarmPool.html#%24sel%3AhttpStatus%3APutWarmPoolResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679336225"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPoolResponse"><span class="hs-identifier hs-type">PutWarmPoolResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679336895"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPoolResponse"><span class="hs-identifier hs-type">PutWarmPoolResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-252"></span><span>
-</span><span id="line-253"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679336223"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPoolResponse"><span class="hs-identifier hs-type">PutWarmPoolResponse</span></a></span></span><span>
+</span><span id="line-253"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679336893"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.PutWarmPool.html#PutWarmPoolResponse"><span class="hs-identifier hs-type">PutWarmPoolResponse</span></a></span></span><span>
 </span><span id="line-254"></span></pre></body></html>

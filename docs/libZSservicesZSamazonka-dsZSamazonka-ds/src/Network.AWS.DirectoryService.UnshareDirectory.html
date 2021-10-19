@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newUnshareDirectory' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679316144"><span id="local-6989586621679316145"></span></span><span class="hs-keyword">data</span><span> </span><span id="UnshareDirectory"><span class="annot"><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectory"><span class="hs-identifier hs-var">UnshareDirectory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UnshareDirectory%27"><span class="annot"><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectory%27"><span class="hs-identifier hs-var">UnshareDirectory'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679316379"><span id="local-6989586621679316380"></span></span><span class="hs-keyword">data</span><span> </span><span id="UnshareDirectory"><span class="annot"><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectory"><span class="hs-identifier hs-var">UnshareDirectory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UnshareDirectory%27"><span class="annot"><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectory%27"><span class="hs-identifier hs-var">UnshareDirectory'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the Managed Microsoft AD directory that you want to</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- stop sharing.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AdirectoryId%3AUnshareDirectory%27"><span class="annot"><span class="annottext">UnshareDirectory -&gt; Text
@@ -59,7 +59,7 @@
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AunshareTarget%3AUnshareDirectory%27"><span class="annot"><span class="annottext">UnshareDirectory -&gt; UnshareTarget
 </span><a href="Network.AWS.DirectoryService.UnshareDirectory.html#%24sel%3AunshareTarget%3AUnshareDirectory%27"><span class="hs-identifier hs-var hs-var">unshareTarget</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.UnshareTarget.html#UnshareTarget"><span class="hs-identifier hs-type">UnshareTarget</span></a></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679316137"><span id="local-6989586621679316139"><span class="annot"><span class="annottext">UnshareDirectory -&gt; UnshareDirectory -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679316372"><span id="local-6989586621679316374"><span class="annot"><span class="annottext">UnshareDirectory -&gt; UnshareDirectory -&gt; Bool
 (UnshareDirectory -&gt; UnshareDirectory -&gt; Bool)
 -&gt; (UnshareDirectory -&gt; UnshareDirectory -&gt; Bool)
 -&gt; Eq UnshareDirectory
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UnshareDirectory -&gt; UnshareDirectory -&gt; Bool
 == :: UnshareDirectory -&gt; UnshareDirectory -&gt; Bool
 $c== :: UnshareDirectory -&gt; UnshareDirectory -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316128"><span id="local-6989586621679316130"><span id="local-6989586621679316132"><span id="local-6989586621679316134"><span class="annot"><span class="annottext">ReadPrec [UnshareDirectory]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316363"><span id="local-6989586621679316365"><span id="local-6989586621679316367"><span id="local-6989586621679316369"><span class="annot"><span class="annottext">ReadPrec [UnshareDirectory]
 ReadPrec UnshareDirectory
 Int -&gt; ReadS UnshareDirectory
 ReadS [UnshareDirectory]
@@ -88,7 +88,7 @@ readList :: ReadS [UnshareDirectory]
 $creadList :: ReadS [UnshareDirectory]
 readsPrec :: Int -&gt; ReadS UnshareDirectory
 $creadsPrec :: Int -&gt; ReadS UnshareDirectory
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316121"><span id="local-6989586621679316123"><span id="local-6989586621679316125"><span class="annot"><span class="annottext">Int -&gt; UnshareDirectory -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316356"><span id="local-6989586621679316358"><span id="local-6989586621679316360"><span class="annot"><span class="annottext">Int -&gt; UnshareDirectory -&gt; ShowS
 [UnshareDirectory] -&gt; ShowS
 UnshareDirectory -&gt; String
 (Int -&gt; UnshareDirectory -&gt; ShowS)
@@ -134,17 +134,17 @@ $cfrom :: forall x. UnshareDirectory -&gt; Rep UnshareDirectory x
 </span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.UnshareTarget.html#UnshareTarget"><span class="hs-identifier hs-type">UnshareTarget</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectory"><span class="hs-identifier hs-type">UnshareDirectory</span></a></span><span>
 </span><span id="line-81"></span><span id="newUnshareDirectory"><span class="annot"><span class="annottext">newUnshareDirectory :: Text -&gt; UnshareTarget -&gt; UnshareDirectory
-</span><a href="Network.AWS.DirectoryService.UnshareDirectory.html#newUnshareDirectory"><span class="hs-identifier hs-var hs-var">newUnshareDirectory</span></a></span></span><span> </span><span id="local-6989586621679316116"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679316116"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span></span><span> </span><span id="local-6989586621679316115"><span class="annot"><span class="annottext">UnshareTarget
-</span><a href="#local-6989586621679316115"><span class="hs-identifier hs-var">pUnshareTarget_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DirectoryService.UnshareDirectory.html#newUnshareDirectory"><span class="hs-identifier hs-var hs-var">newUnshareDirectory</span></a></span></span><span> </span><span id="local-6989586621679316351"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679316351"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span></span><span> </span><span id="local-6989586621679316350"><span class="annot"><span class="annottext">UnshareTarget
+</span><a href="#local-6989586621679316350"><span class="hs-identifier hs-var">pUnshareTarget_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">UnshareDirectory' :: Text -&gt; UnshareTarget -&gt; UnshareDirectory
 </span><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectory%27"><span class="hs-identifier hs-type">UnshareDirectory'</span></a></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:directoryId:UnshareDirectory' :: Text
 </span><a href="Network.AWS.DirectoryService.UnshareDirectory.html#%24sel%3AdirectoryId%3AUnshareDirectory%27"><span class="hs-identifier hs-var">directoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679316116"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679316351"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:unshareTarget:UnshareDirectory' :: UnshareTarget
 </span><a href="Network.AWS.DirectoryService.UnshareDirectory.html#%24sel%3AunshareTarget%3AUnshareDirectory%27"><span class="hs-identifier hs-var">unshareTarget</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UnshareTarget
-</span><a href="#local-6989586621679316115"><span class="hs-identifier hs-var">pUnshareTarget_</span></a></span><span>
+</span><a href="#local-6989586621679316350"><span class="hs-identifier hs-var">pUnshareTarget_</span></a></span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | The identifier of the Managed Microsoft AD directory that you want to</span><span>
@@ -155,16 +155,16 @@ $cfrom :: forall x. UnshareDirectory -&gt; Rep UnshareDirectory x
 -&gt; (UnshareDirectory -&gt; Text -&gt; UnshareDirectory)
 -&gt; Lens UnshareDirectory UnshareDirectory Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectory%27"><span class="hs-identifier hs-type">UnshareDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316112"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectory%27"><span class="hs-identifier hs-type">UnshareDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316347"><span class="annot"><span class="annottext">Text
 directoryId :: Text
 $sel:directoryId:UnshareDirectory' :: UnshareDirectory -&gt; Text
-</span><a href="#local-6989586621679316112"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679316112"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316111"><span class="annot"><span class="annottext">s :: UnshareDirectory
-</span><a href="#local-6989586621679316111"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectory%27"><span class="hs-identifier hs-type">UnshareDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316110"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679316110"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UnshareDirectory
-</span><a href="#local-6989586621679316111"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryId:UnshareDirectory' :: Text
+</span><a href="#local-6989586621679316347"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679316347"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316346"><span class="annot"><span class="annottext">s :: UnshareDirectory
+</span><a href="#local-6989586621679316346"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectory%27"><span class="hs-identifier hs-type">UnshareDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316345"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679316345"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UnshareDirectory
+</span><a href="#local-6989586621679316346"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryId:UnshareDirectory' :: Text
 </span><a href="Network.AWS.DirectoryService.UnshareDirectory.html#%24sel%3AdirectoryId%3AUnshareDirectory%27"><span class="hs-identifier hs-var">directoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679316110"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectory"><span class="hs-identifier hs-type">UnshareDirectory</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679316345"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectory"><span class="hs-identifier hs-type">UnshareDirectory</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | Identifier for the directory consumer account with whom the directory</span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- has to be unshared.</span><span>
@@ -176,27 +176,27 @@ $sel:directoryId:UnshareDirectory' :: UnshareDirectory -&gt; Text
 -&gt; Lens
      UnshareDirectory UnshareDirectory UnshareTarget UnshareTarget
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectory%27"><span class="hs-identifier hs-type">UnshareDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316109"><span class="annot"><span class="annottext">UnshareTarget
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectory%27"><span class="hs-identifier hs-type">UnshareDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316344"><span class="annot"><span class="annottext">UnshareTarget
 unshareTarget :: UnshareTarget
 $sel:unshareTarget:UnshareDirectory' :: UnshareDirectory -&gt; UnshareTarget
-</span><a href="#local-6989586621679316109"><span class="hs-identifier hs-var hs-var">unshareTarget</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UnshareTarget
-</span><a href="#local-6989586621679316109"><span class="hs-identifier hs-var">unshareTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316108"><span class="annot"><span class="annottext">s :: UnshareDirectory
-</span><a href="#local-6989586621679316108"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectory%27"><span class="hs-identifier hs-type">UnshareDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316107"><span class="annot"><span class="annottext">UnshareTarget
-</span><a href="#local-6989586621679316107"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UnshareDirectory
-</span><a href="#local-6989586621679316108"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unshareTarget:UnshareDirectory' :: UnshareTarget
+</span><a href="#local-6989586621679316344"><span class="hs-identifier hs-var hs-var">unshareTarget</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UnshareTarget
+</span><a href="#local-6989586621679316344"><span class="hs-identifier hs-var">unshareTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316343"><span class="annot"><span class="annottext">s :: UnshareDirectory
+</span><a href="#local-6989586621679316343"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectory%27"><span class="hs-identifier hs-type">UnshareDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316342"><span class="annot"><span class="annottext">UnshareTarget
+</span><a href="#local-6989586621679316342"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UnshareDirectory
+</span><a href="#local-6989586621679316343"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unshareTarget:UnshareDirectory' :: UnshareTarget
 </span><a href="Network.AWS.DirectoryService.UnshareDirectory.html#%24sel%3AunshareTarget%3AUnshareDirectory%27"><span class="hs-identifier hs-var">unshareTarget</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UnshareTarget
-</span><a href="#local-6989586621679316107"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectory"><span class="hs-identifier hs-type">UnshareDirectory</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679316342"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectory"><span class="hs-identifier hs-type">UnshareDirectory</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectory"><span class="hs-identifier hs-type">UnshareDirectory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-98"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-99"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectory"><span class="hs-identifier hs-type">UnshareDirectory</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectoryResponse"><span class="hs-identifier hs-type">UnshareDirectoryResponse</span></a></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679316103"><span class="annot"><span class="annottext">request :: UnshareDirectory -&gt; Request UnshareDirectory
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679316338"><span class="annot"><span class="annottext">request :: UnshareDirectory -&gt; Request UnshareDirectory
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UnshareDirectory -&gt; Request UnshareDirectory
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DirectoryService.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679316099"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679316334"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UnshareDirectory
 -&gt; ClientResponse ClientBody
@@ -220,10 +220,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679316096"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679316096"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679316095"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679316095"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679316094"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679316094"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679316331"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679316331"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679316330"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679316330"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679316329"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679316329"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; UnshareDirectoryResponse
 </span><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectoryResponse%27"><span class="hs-identifier hs-var">UnshareDirectoryResponse'</span></a></span><span>
 </span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; UnshareDirectoryResponse)
@@ -231,7 +231,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; UnshareDirectoryResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679316094"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679316329"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SharedDirectoryId&quot;</span></span><span class="hs-special">)</span><span>
@@ -243,15 +243,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679316096"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679316331"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316086"><span id="local-6989586621679316088"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectory"><span class="hs-identifier hs-type">UnshareDirectory</span></a></span></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316321"><span id="local-6989586621679316323"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectory"><span class="hs-identifier hs-type">UnshareDirectory</span></a></span></span></span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316083"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectory"><span class="hs-identifier hs-type">UnshareDirectory</span></a></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316318"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectory"><span class="hs-identifier hs-type">UnshareDirectory</span></a></span></span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectory"><span class="hs-identifier hs-type">UnshareDirectory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679316079"><span class="annot"><span class="annottext">toHeaders :: UnshareDirectory -&gt; ResponseHeaders
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679316314"><span class="annot"><span class="annottext">toHeaders :: UnshareDirectory -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UnshareDirectory -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -278,15 +278,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316069"><span id="local-6989586621679316071"><span id="local-6989586621679316073"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectory"><span class="hs-identifier hs-type">UnshareDirectory</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679316067"><span class="annot"><span class="annottext">toJSON :: UnshareDirectory -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectory%27"><span class="hs-identifier hs-type">UnshareDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316064"><span id="local-6989586621679316065"><span class="annot"><span class="annottext">Text
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316304"><span id="local-6989586621679316306"><span id="local-6989586621679316308"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectory"><span class="hs-identifier hs-type">UnshareDirectory</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679316302"><span class="annot"><span class="annottext">toJSON :: UnshareDirectory -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectory%27"><span class="hs-identifier hs-type">UnshareDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316299"><span id="local-6989586621679316300"><span class="annot"><span class="annottext">Text
 UnshareTarget
 unshareTarget :: UnshareTarget
 directoryId :: Text
 $sel:unshareTarget:UnshareDirectory' :: UnshareDirectory -&gt; UnshareTarget
 $sel:directoryId:UnshareDirectory' :: UnshareDirectory -&gt; Text
-</span><a href="#local-6989586621679316064"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679316299"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -298,7 +298,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;DirectoryId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679316065"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679316300"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -306,19 +306,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;UnshareTarget&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; UnshareTarget -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">UnshareTarget
-</span><a href="#local-6989586621679316064"><span class="hs-identifier hs-var">unshareTarget</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679316299"><span class="hs-identifier hs-var">unshareTarget</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectory"><span class="hs-identifier hs-type">UnshareDirectory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679316058"><span class="annot"><span class="annottext">toPath :: UnshareDirectory -&gt; ByteString
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679316293"><span class="annot"><span class="annottext">toPath :: UnshareDirectory -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UnshareDirectory -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectory"><span class="hs-identifier hs-type">UnshareDirectory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679316054"><span class="annot"><span class="annottext">toQuery :: UnshareDirectory -&gt; QueryString
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679316289"><span class="annot"><span class="annottext">toQuery :: UnshareDirectory -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UnshareDirectory -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -326,7 +326,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- | /See:/ 'newUnshareDirectoryResponse' smart constructor.</span><span>
-</span><span id="line-146"></span><span id="local-6989586621679316051"><span id="local-6989586621679316052"></span></span><span class="hs-keyword">data</span><span> </span><span id="UnshareDirectoryResponse"><span class="annot"><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectoryResponse"><span class="hs-identifier hs-var">UnshareDirectoryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UnshareDirectoryResponse%27"><span class="annot"><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectoryResponse%27"><span class="hs-identifier hs-var">UnshareDirectoryResponse'</span></a></span></span><span>
+</span><span id="line-146"></span><span id="local-6989586621679316286"><span id="local-6989586621679316287"></span></span><span class="hs-keyword">data</span><span> </span><span id="UnshareDirectoryResponse"><span class="annot"><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectoryResponse"><span class="hs-identifier hs-var">UnshareDirectoryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UnshareDirectoryResponse%27"><span class="annot"><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectoryResponse%27"><span class="hs-identifier hs-var">UnshareDirectoryResponse'</span></a></span></span><span>
 </span><span id="line-147"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Identifier of the directory stored in the directory consumer account</span><span>
 </span><span id="line-148"></span><span>    </span><span class="hs-comment">-- that is to be unshared from the specified directory (@DirectoryId@).</span><span>
 </span><span id="line-149"></span><span>    </span><span id="%24sel%3AsharedDirectoryId%3AUnshareDirectoryResponse%27"><span class="annot"><span class="annottext">UnshareDirectoryResponse -&gt; Maybe Text
@@ -335,7 +335,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-151"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUnshareDirectoryResponse%27"><span class="annot"><span class="annottext">UnshareDirectoryResponse -&gt; Int
 </span><a href="Network.AWS.DirectoryService.UnshareDirectory.html#%24sel%3AhttpStatus%3AUnshareDirectoryResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-152"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-153"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679316045"><span id="local-6989586621679316047"><span class="annot"><span class="annottext">UnshareDirectoryResponse -&gt; UnshareDirectoryResponse -&gt; Bool
+</span><span id="line-153"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679316280"><span id="local-6989586621679316282"><span class="annot"><span class="annottext">UnshareDirectoryResponse -&gt; UnshareDirectoryResponse -&gt; Bool
 (UnshareDirectoryResponse -&gt; UnshareDirectoryResponse -&gt; Bool)
 -&gt; (UnshareDirectoryResponse -&gt; UnshareDirectoryResponse -&gt; Bool)
 -&gt; Eq UnshareDirectoryResponse
@@ -344,7 +344,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UnshareDirectoryResponse -&gt; UnshareDirectoryResponse -&gt; Bool
 == :: UnshareDirectoryResponse -&gt; UnshareDirectoryResponse -&gt; Bool
 $c== :: UnshareDirectoryResponse -&gt; UnshareDirectoryResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316037"><span id="local-6989586621679316039"><span id="local-6989586621679316041"><span id="local-6989586621679316043"><span class="annot"><span class="annottext">ReadPrec [UnshareDirectoryResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316272"><span id="local-6989586621679316274"><span id="local-6989586621679316276"><span id="local-6989586621679316278"><span class="annot"><span class="annottext">ReadPrec [UnshareDirectoryResponse]
 ReadPrec UnshareDirectoryResponse
 Int -&gt; ReadS UnshareDirectoryResponse
 ReadS [UnshareDirectoryResponse]
@@ -364,7 +364,7 @@ readList :: ReadS [UnshareDirectoryResponse]
 $creadList :: ReadS [UnshareDirectoryResponse]
 readsPrec :: Int -&gt; ReadS UnshareDirectoryResponse
 $creadsPrec :: Int -&gt; ReadS UnshareDirectoryResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316031"><span id="local-6989586621679316033"><span id="local-6989586621679316035"><span class="annot"><span class="annottext">Int -&gt; UnshareDirectoryResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316266"><span id="local-6989586621679316268"><span id="local-6989586621679316270"><span class="annot"><span class="annottext">Int -&gt; UnshareDirectoryResponse -&gt; ShowS
 [UnshareDirectoryResponse] -&gt; ShowS
 UnshareDirectoryResponse -&gt; String
 (Int -&gt; UnshareDirectoryResponse -&gt; ShowS)
@@ -413,8 +413,8 @@ UnshareDirectoryResponse -&gt; Rep UnshareDirectoryResponse x
 </span><span id="line-169"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-170"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectoryResponse"><span class="hs-identifier hs-type">UnshareDirectoryResponse</span></a></span><span>
 </span><span id="line-171"></span><span id="newUnshareDirectoryResponse"><span class="annot"><span class="annottext">newUnshareDirectoryResponse :: Int -&gt; UnshareDirectoryResponse
-</span><a href="Network.AWS.DirectoryService.UnshareDirectory.html#newUnshareDirectoryResponse"><span class="hs-identifier hs-var hs-var">newUnshareDirectoryResponse</span></a></span></span><span> </span><span id="local-6989586621679316028"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679316028"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DirectoryService.UnshareDirectory.html#newUnshareDirectoryResponse"><span class="hs-identifier hs-var hs-var">newUnshareDirectoryResponse</span></a></span></span><span> </span><span id="local-6989586621679316263"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679316263"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-172"></span><span>  </span><span class="annot"><span class="annottext">UnshareDirectoryResponse' :: Maybe Text -&gt; Int -&gt; UnshareDirectoryResponse
 </span><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectoryResponse%27"><span class="hs-identifier hs-type">UnshareDirectoryResponse'</span></a></span><span>
 </span><span id="line-173"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sharedDirectoryId:UnshareDirectoryResponse' :: Maybe Text
@@ -424,7 +424,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UnshareDirectoryResponse' :: Int
 </span><a href="Network.AWS.DirectoryService.UnshareDirectory.html#%24sel%3AhttpStatus%3AUnshareDirectoryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679316028"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679316263"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-176"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-comment">-- | Identifier of the directory stored in the directory consumer account</span><span>
@@ -441,16 +441,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectoryResponse%27"><span class="hs-identifier hs-type">UnshareDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316027"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectoryResponse%27"><span class="hs-identifier hs-type">UnshareDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316262"><span class="annot"><span class="annottext">Maybe Text
 sharedDirectoryId :: Maybe Text
 $sel:sharedDirectoryId:UnshareDirectoryResponse' :: UnshareDirectoryResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679316027"><span class="hs-identifier hs-var hs-var">sharedDirectoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679316027"><span class="hs-identifier hs-var">sharedDirectoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316026"><span class="annot"><span class="annottext">s :: UnshareDirectoryResponse
-</span><a href="#local-6989586621679316026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectoryResponse%27"><span class="hs-identifier hs-type">UnshareDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316025"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679316025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UnshareDirectoryResponse
-</span><a href="#local-6989586621679316026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sharedDirectoryId:UnshareDirectoryResponse' :: Maybe Text
+</span><a href="#local-6989586621679316262"><span class="hs-identifier hs-var hs-var">sharedDirectoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316262"><span class="hs-identifier hs-var">sharedDirectoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316261"><span class="annot"><span class="annottext">s :: UnshareDirectoryResponse
+</span><a href="#local-6989586621679316261"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectoryResponse%27"><span class="hs-identifier hs-type">UnshareDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316260"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316260"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UnshareDirectoryResponse
+</span><a href="#local-6989586621679316261"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sharedDirectoryId:UnshareDirectoryResponse' :: Maybe Text
 </span><a href="Network.AWS.DirectoryService.UnshareDirectory.html#%24sel%3AsharedDirectoryId%3AUnshareDirectoryResponse%27"><span class="hs-identifier hs-var">sharedDirectoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679316025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectoryResponse"><span class="hs-identifier hs-type">UnshareDirectoryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679316260"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectoryResponse"><span class="hs-identifier hs-type">UnshareDirectoryResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-184"></span><span class="annot"><a href="Network.AWS.DirectoryService.UnshareDirectory.html#unshareDirectoryResponse_httpStatus"><span class="hs-identifier hs-type">unshareDirectoryResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectoryResponse"><span class="hs-identifier hs-type">UnshareDirectoryResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -460,16 +460,16 @@ $sel:sharedDirectoryId:UnshareDirectoryResponse' :: UnshareDirectoryResponse -&g
 -&gt; (UnshareDirectoryResponse -&gt; Int -&gt; UnshareDirectoryResponse)
 -&gt; Lens UnshareDirectoryResponse UnshareDirectoryResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectoryResponse%27"><span class="hs-identifier hs-type">UnshareDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316024"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectoryResponse%27"><span class="hs-identifier hs-type">UnshareDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316259"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UnshareDirectoryResponse' :: UnshareDirectoryResponse -&gt; Int
-</span><a href="#local-6989586621679316024"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679316024"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316023"><span class="annot"><span class="annottext">s :: UnshareDirectoryResponse
-</span><a href="#local-6989586621679316023"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectoryResponse%27"><span class="hs-identifier hs-type">UnshareDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316022"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679316022"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UnshareDirectoryResponse
-</span><a href="#local-6989586621679316023"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UnshareDirectoryResponse' :: Int
+</span><a href="#local-6989586621679316259"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679316259"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316258"><span class="annot"><span class="annottext">s :: UnshareDirectoryResponse
+</span><a href="#local-6989586621679316258"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectoryResponse%27"><span class="hs-identifier hs-type">UnshareDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316257"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679316257"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UnshareDirectoryResponse
+</span><a href="#local-6989586621679316258"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UnshareDirectoryResponse' :: Int
 </span><a href="Network.AWS.DirectoryService.UnshareDirectory.html#%24sel%3AhttpStatus%3AUnshareDirectoryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679316022"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectoryResponse"><span class="hs-identifier hs-type">UnshareDirectoryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679316257"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectoryResponse"><span class="hs-identifier hs-type">UnshareDirectoryResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>
-</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316020"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectoryResponse"><span class="hs-identifier hs-type">UnshareDirectoryResponse</span></a></span></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316255"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.UnshareDirectory.html#UnshareDirectoryResponse"><span class="hs-identifier hs-type">UnshareDirectoryResponse</span></a></span></span><span>
 </span><span id="line-188"></span></pre></body></html>

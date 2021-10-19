@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Represents the raw content of an email message.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newRawMessage' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679328188"><span id="local-6989586621679328189"></span></span><span class="hs-keyword">data</span><span> </span><span id="RawMessage"><span class="annot"><a href="Network.AWS.SESv2.Types.RawMessage.html#RawMessage"><span class="hs-identifier hs-var">RawMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RawMessage%27"><span class="annot"><a href="Network.AWS.SESv2.Types.RawMessage.html#RawMessage%27"><span class="hs-identifier hs-var">RawMessage'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679330696"><span id="local-6989586621679330697"></span></span><span class="hs-keyword">data</span><span> </span><span id="RawMessage"><span class="annot"><a href="Network.AWS.SESv2.Types.RawMessage.html#RawMessage"><span class="hs-identifier hs-var">RawMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RawMessage%27"><span class="annot"><a href="Network.AWS.SESv2.Types.RawMessage.html#RawMessage%27"><span class="hs-identifier hs-var">RawMessage'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The raw email message. The message has to meet the following criteria:</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- -   The message has to contain a header and a body, separated by one</span><span>
@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3Adata%27%3ARawMessage%27"><span class="annot"><span class="annottext">RawMessage -&gt; Base64
 </span><a href="Network.AWS.SESv2.Types.RawMessage.html#%24sel%3Adata%27%3ARawMessage%27"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Base64</span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679328182"><span id="local-6989586621679328184"><span class="annot"><span class="annottext">RawMessage -&gt; RawMessage -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679330690"><span id="local-6989586621679330692"><span class="annot"><span class="annottext">RawMessage -&gt; RawMessage -&gt; Bool
 (RawMessage -&gt; RawMessage -&gt; Bool)
 -&gt; (RawMessage -&gt; RawMessage -&gt; Bool) -&gt; Eq RawMessage
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -59,7 +59,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RawMessage -&gt; RawMessage -&gt; Bool
 == :: RawMessage -&gt; RawMessage -&gt; Bool
 $c== :: RawMessage -&gt; RawMessage -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679328173"><span id="local-6989586621679328175"><span id="local-6989586621679328177"><span id="local-6989586621679328179"><span class="annot"><span class="annottext">ReadPrec [RawMessage]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679330681"><span id="local-6989586621679330683"><span id="local-6989586621679330685"><span id="local-6989586621679330687"><span class="annot"><span class="annottext">ReadPrec [RawMessage]
 ReadPrec RawMessage
 Int -&gt; ReadS RawMessage
 ReadS [RawMessage]
@@ -79,7 +79,7 @@ readList :: ReadS [RawMessage]
 $creadList :: ReadS [RawMessage]
 readsPrec :: Int -&gt; ReadS RawMessage
 $creadsPrec :: Int -&gt; ReadS RawMessage
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679328166"><span id="local-6989586621679328168"><span id="local-6989586621679328170"><span class="annot"><span class="annottext">Int -&gt; RawMessage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679330674"><span id="local-6989586621679330676"><span id="local-6989586621679330678"><span class="annot"><span class="annottext">Int -&gt; RawMessage -&gt; ShowS
 [RawMessage] -&gt; ShowS
 RawMessage -&gt; String
 (Int -&gt; RawMessage -&gt; ShowS)
@@ -142,8 +142,8 @@ $cfrom :: forall x. RawMessage -&gt; Rep RawMessage x
 </span><span id="line-90"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.Types.RawMessage.html#RawMessage"><span class="hs-identifier hs-type">RawMessage</span></a></span><span>
 </span><span id="line-92"></span><span id="newRawMessage"><span class="annot"><span class="annottext">newRawMessage :: ByteString -&gt; RawMessage
-</span><a href="Network.AWS.SESv2.Types.RawMessage.html#newRawMessage"><span class="hs-identifier hs-var hs-var">newRawMessage</span></a></span></span><span> </span><span id="local-6989586621679328160"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679328160"><span class="hs-identifier hs-var">pData_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SESv2.Types.RawMessage.html#newRawMessage"><span class="hs-identifier hs-var hs-var">newRawMessage</span></a></span></span><span> </span><span id="local-6989586621679330668"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679330668"><span class="hs-identifier hs-var">pData_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>  </span><span class="annot"><span class="annottext">RawMessage' :: Base64 -&gt; RawMessage
 </span><a href="Network.AWS.SESv2.Types.RawMessage.html#RawMessage%27"><span class="hs-identifier hs-type">RawMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:data':RawMessage' :: Base64
 </span><a href="Network.AWS.SESv2.Types.RawMessage.html#%24sel%3Adata%27%3ARawMessage%27"><span class="hs-identifier hs-var">data'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged ByteString (Identity ByteString)
@@ -154,7 +154,7 @@ Iso' Base64 ByteString
 -&gt; ByteString -&gt; Base64
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679328160"><span class="hs-identifier hs-var">pData_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679330668"><span class="hs-identifier hs-var">pData_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | The raw email message. The message has to meet the following criteria:</span><span>
 </span><span id="line-96"></span><span class="hs-comment">--</span><span>
@@ -187,16 +187,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (RawMessage -&gt; Base64 -&gt; RawMessage)
 -&gt; Lens RawMessage RawMessage Base64 Base64
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.RawMessage.html#RawMessage%27"><span class="hs-identifier hs-type">RawMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328154"><span class="annot"><span class="annottext">Base64
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.RawMessage.html#RawMessage%27"><span class="hs-identifier hs-type">RawMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330662"><span class="annot"><span class="annottext">Base64
 data' :: Base64
 $sel:data':RawMessage' :: RawMessage -&gt; Base64
-</span><a href="#local-6989586621679328154"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679328154"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328153"><span class="annot"><span class="annottext">s :: RawMessage
-</span><a href="#local-6989586621679328153"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.RawMessage.html#RawMessage%27"><span class="hs-identifier hs-type">RawMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328152"><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679328152"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RawMessage
-</span><a href="#local-6989586621679328153"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:data':RawMessage' :: Base64
+</span><a href="#local-6989586621679330662"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621679330662"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330661"><span class="annot"><span class="annottext">s :: RawMessage
+</span><a href="#local-6989586621679330661"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.RawMessage.html#RawMessage%27"><span class="hs-identifier hs-type">RawMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330660"><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621679330660"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RawMessage
+</span><a href="#local-6989586621679330661"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:data':RawMessage' :: Base64
 </span><a href="Network.AWS.SESv2.Types.RawMessage.html#%24sel%3Adata%27%3ARawMessage%27"><span class="hs-identifier hs-var">data'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679328152"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.RawMessage.html#RawMessage"><span class="hs-identifier hs-type">RawMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Base64 -&gt; f Base64) -&gt; RawMessage -&gt; f RawMessage)
+</span><a href="#local-6989586621679330660"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.RawMessage.html#RawMessage"><span class="hs-identifier hs-type">RawMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Base64 -&gt; f Base64) -&gt; RawMessage -&gt; f RawMessage)
 -&gt; ((ByteString -&gt; f ByteString) -&gt; Base64 -&gt; f Base64)
 -&gt; (ByteString -&gt; f ByteString)
 -&gt; RawMessage
@@ -206,16 +206,16 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 Iso' Base64 ByteString
 </span><span class="hs-identifier hs-var">Core._Base64</span></span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328147"><span id="local-6989586621679328149"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.RawMessage.html#RawMessage"><span class="hs-identifier hs-type">RawMessage</span></a></span></span></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330655"><span id="local-6989586621679330657"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.RawMessage.html#RawMessage"><span class="hs-identifier hs-type">RawMessage</span></a></span></span></span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328144"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.RawMessage.html#RawMessage"><span class="hs-identifier hs-type">RawMessage</span></a></span></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330652"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.RawMessage.html#RawMessage"><span class="hs-identifier hs-type">RawMessage</span></a></span></span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328136"><span id="local-6989586621679328138"><span id="local-6989586621679328140"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.RawMessage.html#RawMessage"><span class="hs-identifier hs-type">RawMessage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679328134"><span class="annot"><span class="annottext">toJSON :: RawMessage -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.RawMessage.html#RawMessage%27"><span class="hs-identifier hs-type">RawMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328132"><span class="annot"><span class="annottext">Base64
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330644"><span id="local-6989586621679330646"><span id="local-6989586621679330648"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.RawMessage.html#RawMessage"><span class="hs-identifier hs-type">RawMessage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679330642"><span class="annot"><span class="annottext">toJSON :: RawMessage -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.RawMessage.html#RawMessage%27"><span class="hs-identifier hs-type">RawMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330640"><span class="annot"><span class="annottext">Base64
 data' :: Base64
 $sel:data':RawMessage' :: RawMessage -&gt; Base64
-</span><a href="#local-6989586621679328132"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679330640"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -227,6 +227,6 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Data&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Base64 -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679328132"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679330640"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span></pre></body></html>

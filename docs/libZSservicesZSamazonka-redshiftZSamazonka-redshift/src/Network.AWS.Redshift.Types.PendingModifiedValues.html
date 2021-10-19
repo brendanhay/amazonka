@@ -29,54 +29,54 @@
 </span><span id="line-29"></span><span class="hs-comment">-- applied.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newPendingModifiedValues' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679494374"><span id="local-6989586621679494375"></span></span><span class="hs-keyword">data</span><span> </span><span id="PendingModifiedValues"><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-var">PendingModifiedValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PendingModifiedValues%27"><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-var">PendingModifiedValues'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An option that specifies whether to create the cluster with enhanced VPC</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- routing enabled. To create a cluster that uses enhanced VPC routing, the</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- cluster must be in a VPC. For more information, see</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing&gt;</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- in the Amazon Redshift Cluster Management Guide.</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- If this option is @true@, enhanced VPC routing is enabled.</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- Default: false</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AenhancedVpcRouting%3APendingModifiedValues%27"><span class="annot"><span class="annottext">PendingModifiedValues -&gt; Maybe Bool
-</span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#%24sel%3AenhancedVpcRouting%3APendingModifiedValues%27"><span class="hs-identifier hs-var hs-var">enhancedVpcRouting</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The encryption type for a cluster. Possible values are: KMS and None.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AencryptionType%3APendingModifiedValues%27"><span class="annot"><span class="annottext">PendingModifiedValues -&gt; Maybe Text
+</span><span id="line-32"></span><span id="local-6989586621679495020"><span id="local-6989586621679495021"></span></span><span class="hs-keyword">data</span><span> </span><span id="PendingModifiedValues"><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-var">PendingModifiedValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PendingModifiedValues%27"><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-var">PendingModifiedValues'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The encryption type for a cluster. Possible values are: KMS and None.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AencryptionType%3APendingModifiedValues%27"><span class="annot"><span class="annottext">PendingModifiedValues -&gt; Maybe Text
 </span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#%24sel%3AencryptionType%3APendingModifiedValues%27"><span class="hs-identifier hs-var hs-var">encryptionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The pending or in-progress change of the automated snapshot retention</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- period.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3AautomatedSnapshotRetentionPeriod%3APendingModifiedValues%27"><span class="annot"><span class="annottext">PendingModifiedValues -&gt; Maybe Int
-</span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#%24sel%3AautomatedSnapshotRetentionPeriod%3APendingModifiedValues%27"><span class="hs-identifier hs-var hs-var">automatedSnapshotRetentionPeriod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The pending or in-progress change of the admin user password for the</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- cluster.</span><span>
-</span><span id="line-50"></span><span>    </span><span id="%24sel%3AmasterUserPassword%3APendingModifiedValues%27"><span class="annot"><span class="annottext">PendingModifiedValues -&gt; Maybe Text
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | An option that specifies whether to create the cluster with enhanced VPC</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- routing enabled. To create a cluster that uses enhanced VPC routing, the</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- cluster must be in a VPC. For more information, see</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing&gt;</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- in the Amazon Redshift Cluster Management Guide.</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- If this option is @true@, enhanced VPC routing is enabled.</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- Default: false</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AenhancedVpcRouting%3APendingModifiedValues%27"><span class="annot"><span class="annottext">PendingModifiedValues -&gt; Maybe Bool
+</span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#%24sel%3AenhancedVpcRouting%3APendingModifiedValues%27"><span class="hs-identifier hs-var hs-var">enhancedVpcRouting</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The pending or in-progress change of the admin user password for the</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- cluster.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AmasterUserPassword%3APendingModifiedValues%27"><span class="annot"><span class="annottext">PendingModifiedValues -&gt; Maybe Text
 </span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#%24sel%3AmasterUserPassword%3APendingModifiedValues%27"><span class="hs-identifier hs-var hs-var">masterUserPassword</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The pending or in-progress change of the ability to connect to the</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- cluster from the public network.</span><span>
-</span><span id="line-53"></span><span>    </span><span id="%24sel%3ApubliclyAccessible%3APendingModifiedValues%27"><span class="annot"><span class="annottext">PendingModifiedValues -&gt; Maybe Bool
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The pending or in-progress change of the ability to connect to the</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- cluster from the public network.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3ApubliclyAccessible%3APendingModifiedValues%27"><span class="annot"><span class="annottext">PendingModifiedValues -&gt; Maybe Bool
 </span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#%24sel%3ApubliclyAccessible%3APendingModifiedValues%27"><span class="hs-identifier hs-var hs-var">publiclyAccessible</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The pending or in-progress change of the cluster type.</span><span>
-</span><span id="line-55"></span><span>    </span><span id="%24sel%3AclusterType%3APendingModifiedValues%27"><span class="annot"><span class="annottext">PendingModifiedValues -&gt; Maybe Text
-</span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#%24sel%3AclusterType%3APendingModifiedValues%27"><span class="hs-identifier hs-var hs-var">clusterType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The pending or in-progress change of the new identifier for the cluster.</span><span>
-</span><span id="line-57"></span><span>    </span><span id="%24sel%3AclusterIdentifier%3APendingModifiedValues%27"><span class="annot"><span class="annottext">PendingModifiedValues -&gt; Maybe Text
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The name of the maintenance track that the cluster will change to during</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- the next maintenance window.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AmaintenanceTrackName%3APendingModifiedValues%27"><span class="annot"><span class="annottext">PendingModifiedValues -&gt; Maybe Text
+</span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#%24sel%3AmaintenanceTrackName%3APendingModifiedValues%27"><span class="hs-identifier hs-var hs-var">maintenanceTrackName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The pending or in-progress change of the automated snapshot retention</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- period.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AautomatedSnapshotRetentionPeriod%3APendingModifiedValues%27"><span class="annot"><span class="annottext">PendingModifiedValues -&gt; Maybe Int
+</span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#%24sel%3AautomatedSnapshotRetentionPeriod%3APendingModifiedValues%27"><span class="hs-identifier hs-var hs-var">automatedSnapshotRetentionPeriod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The pending or in-progress change of the new identifier for the cluster.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AclusterIdentifier%3APendingModifiedValues%27"><span class="annot"><span class="annottext">PendingModifiedValues -&gt; Maybe Text
 </span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#%24sel%3AclusterIdentifier%3APendingModifiedValues%27"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The pending or in-progress change of the number of nodes in the cluster.</span><span>
-</span><span id="line-59"></span><span>    </span><span id="%24sel%3AnumberOfNodes%3APendingModifiedValues%27"><span class="annot"><span class="annottext">PendingModifiedValues -&gt; Maybe Int
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The pending or in-progress change of the number of nodes in the cluster.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AnumberOfNodes%3APendingModifiedValues%27"><span class="annot"><span class="annottext">PendingModifiedValues -&gt; Maybe Int
 </span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#%24sel%3AnumberOfNodes%3APendingModifiedValues%27"><span class="hs-identifier hs-var hs-var">numberOfNodes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The pending or in-progress change of the service version.</span><span>
-</span><span id="line-61"></span><span>    </span><span id="%24sel%3AclusterVersion%3APendingModifiedValues%27"><span class="annot"><span class="annottext">PendingModifiedValues -&gt; Maybe Text
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The pending or in-progress change of the cluster type.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AclusterType%3APendingModifiedValues%27"><span class="annot"><span class="annottext">PendingModifiedValues -&gt; Maybe Text
+</span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#%24sel%3AclusterType%3APendingModifiedValues%27"><span class="hs-identifier hs-var hs-var">clusterType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The pending or in-progress change of the service version.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AclusterVersion%3APendingModifiedValues%27"><span class="annot"><span class="annottext">PendingModifiedValues -&gt; Maybe Text
 </span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#%24sel%3AclusterVersion%3APendingModifiedValues%27"><span class="hs-identifier hs-var hs-var">clusterVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The pending or in-progress change of the cluster\'s node type.</span><span>
-</span><span id="line-63"></span><span>    </span><span id="%24sel%3AnodeType%3APendingModifiedValues%27"><span class="annot"><span class="annottext">PendingModifiedValues -&gt; Maybe Text
-</span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#%24sel%3AnodeType%3APendingModifiedValues%27"><span class="hs-identifier hs-var hs-var">nodeType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The name of the maintenance track that the cluster will change to during</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- the next maintenance window.</span><span>
-</span><span id="line-66"></span><span>    </span><span id="%24sel%3AmaintenanceTrackName%3APendingModifiedValues%27"><span class="annot"><span class="annottext">PendingModifiedValues -&gt; Maybe Text
-</span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#%24sel%3AmaintenanceTrackName%3APendingModifiedValues%27"><span class="hs-identifier hs-var hs-var">maintenanceTrackName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The pending or in-progress change of the cluster\'s node type.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AnodeType%3APendingModifiedValues%27"><span class="annot"><span class="annottext">PendingModifiedValues -&gt; Maybe Text
+</span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#%24sel%3AnodeType%3APendingModifiedValues%27"><span class="hs-identifier hs-var hs-var">nodeType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679494358"><span id="local-6989586621679494360"><span class="annot"><span class="annottext">PendingModifiedValues -&gt; PendingModifiedValues -&gt; Bool
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679495004"><span id="local-6989586621679495006"><span class="annot"><span class="annottext">PendingModifiedValues -&gt; PendingModifiedValues -&gt; Bool
 (PendingModifiedValues -&gt; PendingModifiedValues -&gt; Bool)
 -&gt; (PendingModifiedValues -&gt; PendingModifiedValues -&gt; Bool)
 -&gt; Eq PendingModifiedValues
@@ -85,7 +85,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PendingModifiedValues -&gt; PendingModifiedValues -&gt; Bool
 == :: PendingModifiedValues -&gt; PendingModifiedValues -&gt; Bool
 $c== :: PendingModifiedValues -&gt; PendingModifiedValues -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679494349"><span id="local-6989586621679494351"><span id="local-6989586621679494353"><span id="local-6989586621679494355"><span class="annot"><span class="annottext">ReadPrec [PendingModifiedValues]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679494995"><span id="local-6989586621679494997"><span id="local-6989586621679494999"><span id="local-6989586621679495001"><span class="annot"><span class="annottext">ReadPrec [PendingModifiedValues]
 ReadPrec PendingModifiedValues
 Int -&gt; ReadS PendingModifiedValues
 ReadS [PendingModifiedValues]
@@ -105,7 +105,7 @@ readList :: ReadS [PendingModifiedValues]
 $creadList :: ReadS [PendingModifiedValues]
 readsPrec :: Int -&gt; ReadS PendingModifiedValues
 $creadsPrec :: Int -&gt; ReadS PendingModifiedValues
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679494342"><span id="local-6989586621679494344"><span id="local-6989586621679494346"><span class="annot"><span class="annottext">Int -&gt; PendingModifiedValues -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679494988"><span id="local-6989586621679494990"><span id="local-6989586621679494992"><span class="annot"><span class="annottext">Int -&gt; PendingModifiedValues -&gt; ShowS
 [PendingModifiedValues] -&gt; ShowS
 PendingModifiedValues -&gt; String
 (Int -&gt; PendingModifiedValues -&gt; ShowS)
@@ -139,49 +139,49 @@ $cfrom :: forall x. PendingModifiedValues -&gt; Rep PendingModifiedValues x
 </span><span id="line-75"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-77"></span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- 'enhancedVpcRouting', 'pendingModifiedValues_enhancedVpcRouting' - An option that specifies whether to create the cluster with enhanced VPC</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- routing enabled. To create a cluster that uses enhanced VPC routing, the</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- cluster must be in a VPC. For more information, see</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing&gt;</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- in the Amazon Redshift Cluster Management Guide.</span><span>
-</span><span id="line-83"></span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- If this option is @true@, enhanced VPC routing is enabled.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'encryptionType', 'pendingModifiedValues_encryptionType' - The encryption type for a cluster. Possible values are: KMS and None.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'enhancedVpcRouting', 'pendingModifiedValues_enhancedVpcRouting' - An option that specifies whether to create the cluster with enhanced VPC</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- routing enabled. To create a cluster that uses enhanced VPC routing, the</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- cluster must be in a VPC. For more information, see</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing&gt;</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- in the Amazon Redshift Cluster Management Guide.</span><span>
 </span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- Default: false</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- If this option is @true@, enhanced VPC routing is enabled.</span><span>
 </span><span id="line-87"></span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- 'encryptionType', 'pendingModifiedValues_encryptionType' - The encryption type for a cluster. Possible values are: KMS and None.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- Default: false</span><span>
 </span><span id="line-89"></span><span class="hs-comment">--</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- 'automatedSnapshotRetentionPeriod', 'pendingModifiedValues_automatedSnapshotRetentionPeriod' - The pending or in-progress change of the automated snapshot retention</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- period.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'masterUserPassword', 'pendingModifiedValues_masterUserPassword' - The pending or in-progress change of the admin user password for the</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- cluster.</span><span>
 </span><span id="line-92"></span><span class="hs-comment">--</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- 'masterUserPassword', 'pendingModifiedValues_masterUserPassword' - The pending or in-progress change of the admin user password for the</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- cluster.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'publiclyAccessible', 'pendingModifiedValues_publiclyAccessible' - The pending or in-progress change of the ability to connect to the</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- cluster from the public network.</span><span>
 </span><span id="line-95"></span><span class="hs-comment">--</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- 'publiclyAccessible', 'pendingModifiedValues_publiclyAccessible' - The pending or in-progress change of the ability to connect to the</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- cluster from the public network.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'maintenanceTrackName', 'pendingModifiedValues_maintenanceTrackName' - The name of the maintenance track that the cluster will change to during</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- the next maintenance window.</span><span>
 </span><span id="line-98"></span><span class="hs-comment">--</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- 'clusterType', 'pendingModifiedValues_clusterType' - The pending or in-progress change of the cluster type.</span><span>
-</span><span id="line-100"></span><span class="hs-comment">--</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- 'clusterIdentifier', 'pendingModifiedValues_clusterIdentifier' - The pending or in-progress change of the new identifier for the cluster.</span><span>
-</span><span id="line-102"></span><span class="hs-comment">--</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- 'numberOfNodes', 'pendingModifiedValues_numberOfNodes' - The pending or in-progress change of the number of nodes in the cluster.</span><span>
-</span><span id="line-104"></span><span class="hs-comment">--</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- 'clusterVersion', 'pendingModifiedValues_clusterVersion' - The pending or in-progress change of the service version.</span><span>
-</span><span id="line-106"></span><span class="hs-comment">--</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- 'nodeType', 'pendingModifiedValues_nodeType' - The pending or in-progress change of the cluster\'s node type.</span><span>
-</span><span id="line-108"></span><span class="hs-comment">--</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- 'maintenanceTrackName', 'pendingModifiedValues_maintenanceTrackName' - The name of the maintenance track that the cluster will change to during</span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- the next maintenance window.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'automatedSnapshotRetentionPeriod', 'pendingModifiedValues_automatedSnapshotRetentionPeriod' - The pending or in-progress change of the automated snapshot retention</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- period.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'clusterIdentifier', 'pendingModifiedValues_clusterIdentifier' - The pending or in-progress change of the new identifier for the cluster.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'numberOfNodes', 'pendingModifiedValues_numberOfNodes' - The pending or in-progress change of the number of nodes in the cluster.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'clusterType', 'pendingModifiedValues_clusterType' - The pending or in-progress change of the cluster type.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'clusterVersion', 'pendingModifiedValues_clusterVersion' - The pending or in-progress change of the service version.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'nodeType', 'pendingModifiedValues_nodeType' - The pending or in-progress change of the cluster\'s node type.</span><span>
 </span><span id="line-111"></span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#newPendingModifiedValues"><span class="hs-identifier hs-type">newPendingModifiedValues</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-112"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span>
 </span><span id="line-113"></span><span id="newPendingModifiedValues"><span class="annot"><span class="annottext">newPendingModifiedValues :: PendingModifiedValues
 </span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#newPendingModifiedValues"><span class="hs-identifier hs-var hs-var">newPendingModifiedValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-114"></span><span>  </span><span class="annot"><span class="annottext">PendingModifiedValues' :: Maybe Bool
--&gt; Maybe Text
--&gt; Maybe Int
+</span><span id="line-114"></span><span>  </span><span class="annot"><span class="annottext">PendingModifiedValues' :: Maybe Text
+-&gt; Maybe Bool
 -&gt; Maybe Text
 -&gt; Maybe Bool
 -&gt; Maybe Text
+-&gt; Maybe Int
 -&gt; Maybe Text
 -&gt; Maybe Int
 -&gt; Maybe Text
@@ -189,29 +189,29 @@ $cfrom :: forall x. PendingModifiedValues -&gt; Rep PendingModifiedValues x
 -&gt; Maybe Text
 -&gt; PendingModifiedValues
 </span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span>
-</span><span id="line-115"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:enhancedVpcRouting:PendingModifiedValues' :: Maybe Bool
-</span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#%24sel%3AenhancedVpcRouting%3APendingModifiedValues%27"><span class="hs-identifier hs-var">enhancedVpcRouting</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-115"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:encryptionType:PendingModifiedValues' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#%24sel%3AencryptionType%3APendingModifiedValues%27"><span class="hs-identifier hs-var">encryptionType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:encryptionType:PendingModifiedValues' :: Maybe Text
-</span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#%24sel%3AencryptionType%3APendingModifiedValues%27"><span class="hs-identifier hs-var">encryptionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:enhancedVpcRouting:PendingModifiedValues' :: Maybe Bool
+</span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#%24sel%3AenhancedVpcRouting%3APendingModifiedValues%27"><span class="hs-identifier hs-var">enhancedVpcRouting</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:automatedSnapshotRetentionPeriod:PendingModifiedValues' :: Maybe Int
-</span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#%24sel%3AautomatedSnapshotRetentionPeriod%3APendingModifiedValues%27"><span class="hs-identifier hs-var">automatedSnapshotRetentionPeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:masterUserPassword:PendingModifiedValues' :: Maybe Text
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:masterUserPassword:PendingModifiedValues' :: Maybe Text
 </span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#%24sel%3AmasterUserPassword%3APendingModifiedValues%27"><span class="hs-identifier hs-var">masterUserPassword</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:publiclyAccessible:PendingModifiedValues' :: Maybe Bool
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:publiclyAccessible:PendingModifiedValues' :: Maybe Bool
 </span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#%24sel%3ApubliclyAccessible%3APendingModifiedValues%27"><span class="hs-identifier hs-var">publiclyAccessible</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:clusterType:PendingModifiedValues' :: Maybe Text
-</span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#%24sel%3AclusterType%3APendingModifiedValues%27"><span class="hs-identifier hs-var">clusterType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:maintenanceTrackName:PendingModifiedValues' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#%24sel%3AmaintenanceTrackName%3APendingModifiedValues%27"><span class="hs-identifier hs-var">maintenanceTrackName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:automatedSnapshotRetentionPeriod:PendingModifiedValues' :: Maybe Int
+</span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#%24sel%3AautomatedSnapshotRetentionPeriod%3APendingModifiedValues%27"><span class="hs-identifier hs-var">automatedSnapshotRetentionPeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:clusterIdentifier:PendingModifiedValues' :: Maybe Text
@@ -222,54 +222,23 @@ forall a. Maybe a
 </span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#%24sel%3AnumberOfNodes%3APendingModifiedValues%27"><span class="hs-identifier hs-var">numberOfNodes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:clusterVersion:PendingModifiedValues' :: Maybe Text
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:clusterType:PendingModifiedValues' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#%24sel%3AclusterType%3APendingModifiedValues%27"><span class="hs-identifier hs-var">clusterType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:clusterVersion:PendingModifiedValues' :: Maybe Text
 </span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#%24sel%3AclusterVersion%3APendingModifiedValues%27"><span class="hs-identifier hs-var">clusterVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:nodeType:PendingModifiedValues' :: Maybe Text
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:nodeType:PendingModifiedValues' :: Maybe Text
 </span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#%24sel%3AnodeType%3APendingModifiedValues%27"><span class="hs-identifier hs-var">nodeType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:maintenanceTrackName:PendingModifiedValues' :: Maybe Text
-</span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#%24sel%3AmaintenanceTrackName%3APendingModifiedValues%27"><span class="hs-identifier hs-var">maintenanceTrackName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-127"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- | An option that specifies whether to create the cluster with enhanced VPC</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- routing enabled. To create a cluster that uses enhanced VPC routing, the</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- cluster must be in a VPC. For more information, see</span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing&gt;</span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- in the Amazon Redshift Cluster Management Guide.</span><span>
-</span><span id="line-134"></span><span class="hs-comment">--</span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- If this option is @true@, enhanced VPC routing is enabled.</span><span>
-</span><span id="line-136"></span><span class="hs-comment">--</span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- Default: false</span><span>
-</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#pendingModifiedValues_enhancedVpcRouting"><span class="hs-identifier hs-type">pendingModifiedValues_enhancedVpcRouting</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-139"></span><span id="pendingModifiedValues_enhancedVpcRouting"><span class="annot"><span class="annottext">pendingModifiedValues_enhancedVpcRouting :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; PendingModifiedValues -&gt; f PendingModifiedValues
-</span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#pendingModifiedValues_enhancedVpcRouting"><span class="hs-identifier hs-var hs-var">pendingModifiedValues_enhancedVpcRouting</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PendingModifiedValues -&gt; Maybe Bool)
--&gt; (PendingModifiedValues -&gt; Maybe Bool -&gt; PendingModifiedValues)
--&gt; Lens
-     PendingModifiedValues
-     PendingModifiedValues
-     (Maybe Bool)
-     (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494333"><span class="annot"><span class="annottext">Maybe Bool
-enhancedVpcRouting :: Maybe Bool
-$sel:enhancedVpcRouting:PendingModifiedValues' :: PendingModifiedValues -&gt; Maybe Bool
-</span><a href="#local-6989586621679494333"><span class="hs-identifier hs-var hs-var">enhancedVpcRouting</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679494333"><span class="hs-identifier hs-var">enhancedVpcRouting</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679494332"><span class="annot"><span class="annottext">s :: PendingModifiedValues
-</span><a href="#local-6989586621679494332"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679494331"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679494331"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PendingModifiedValues
-</span><a href="#local-6989586621679494332"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enhancedVpcRouting:PendingModifiedValues' :: Maybe Bool
-</span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#%24sel%3AenhancedVpcRouting%3APendingModifiedValues%27"><span class="hs-identifier hs-var">enhancedVpcRouting</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679494331"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- | The encryption type for a cluster. Possible values are: KMS and None.</span><span>
-</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#pendingModifiedValues_encryptionType"><span class="hs-identifier hs-type">pendingModifiedValues_encryptionType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span id="pendingModifiedValues_encryptionType"><span class="annot"><span class="annottext">pendingModifiedValues_encryptionType :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-129"></span><span class="hs-comment">-- | The encryption type for a cluster. Possible values are: KMS and None.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#pendingModifiedValues_encryptionType"><span class="hs-identifier hs-type">pendingModifiedValues_encryptionType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="pendingModifiedValues_encryptionType"><span class="annot"><span class="annottext">pendingModifiedValues_encryptionType :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; PendingModifiedValues -&gt; f PendingModifiedValues
 </span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#pendingModifiedValues_encryptionType"><span class="hs-identifier hs-var hs-var">pendingModifiedValues_encryptionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PendingModifiedValues -&gt; Maybe Text)
 -&gt; (PendingModifiedValues -&gt; Maybe Text -&gt; PendingModifiedValues)
@@ -279,42 +248,52 @@ $sel:enhancedVpcRouting:PendingModifiedValues' :: PendingModifiedValues -&gt; Ma
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494329"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494979"><span class="annot"><span class="annottext">Maybe Text
 encryptionType :: Maybe Text
 $sel:encryptionType:PendingModifiedValues' :: PendingModifiedValues -&gt; Maybe Text
-</span><a href="#local-6989586621679494329"><span class="hs-identifier hs-var hs-var">encryptionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494329"><span class="hs-identifier hs-var">encryptionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679494328"><span class="annot"><span class="annottext">s :: PendingModifiedValues
-</span><a href="#local-6989586621679494328"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679494327"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494327"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PendingModifiedValues
-</span><a href="#local-6989586621679494328"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionType:PendingModifiedValues' :: Maybe Text
+</span><a href="#local-6989586621679494979"><span class="hs-identifier hs-var hs-var">encryptionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679494979"><span class="hs-identifier hs-var">encryptionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679494978"><span class="annot"><span class="annottext">s :: PendingModifiedValues
+</span><a href="#local-6989586621679494978"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679494977"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679494977"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PendingModifiedValues
+</span><a href="#local-6989586621679494978"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionType:PendingModifiedValues' :: Maybe Text
 </span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#%24sel%3AencryptionType%3APendingModifiedValues%27"><span class="hs-identifier hs-var">encryptionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494327"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- | The pending or in-progress change of the automated snapshot retention</span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- period.</span><span>
-</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#pendingModifiedValues_automatedSnapshotRetentionPeriod"><span class="hs-identifier hs-type">pendingModifiedValues_automatedSnapshotRetentionPeriod</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-148"></span><span id="pendingModifiedValues_automatedSnapshotRetentionPeriod"><span class="annot"><span class="annottext">pendingModifiedValues_automatedSnapshotRetentionPeriod :: (Maybe Int -&gt; f (Maybe Int))
+</span><a href="#local-6989586621679494977"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | An option that specifies whether to create the cluster with enhanced VPC</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- routing enabled. To create a cluster that uses enhanced VPC routing, the</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- cluster must be in a VPC. For more information, see</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing&gt;</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- in the Amazon Redshift Cluster Management Guide.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- If this option is @true@, enhanced VPC routing is enabled.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- Default: false</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#pendingModifiedValues_enhancedVpcRouting"><span class="hs-identifier hs-type">pendingModifiedValues_enhancedVpcRouting</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="pendingModifiedValues_enhancedVpcRouting"><span class="annot"><span class="annottext">pendingModifiedValues_enhancedVpcRouting :: (Maybe Bool -&gt; f (Maybe Bool))
 -&gt; PendingModifiedValues -&gt; f PendingModifiedValues
-</span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#pendingModifiedValues_automatedSnapshotRetentionPeriod"><span class="hs-identifier hs-var hs-var">pendingModifiedValues_automatedSnapshotRetentionPeriod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PendingModifiedValues -&gt; Maybe Int)
--&gt; (PendingModifiedValues -&gt; Maybe Int -&gt; PendingModifiedValues)
+</span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#pendingModifiedValues_enhancedVpcRouting"><span class="hs-identifier hs-var hs-var">pendingModifiedValues_enhancedVpcRouting</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PendingModifiedValues -&gt; Maybe Bool)
+-&gt; (PendingModifiedValues -&gt; Maybe Bool -&gt; PendingModifiedValues)
 -&gt; Lens
-     PendingModifiedValues PendingModifiedValues (Maybe Int) (Maybe Int)
+     PendingModifiedValues
+     PendingModifiedValues
+     (Maybe Bool)
+     (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494325"><span class="annot"><span class="annottext">Maybe Int
-automatedSnapshotRetentionPeriod :: Maybe Int
-$sel:automatedSnapshotRetentionPeriod:PendingModifiedValues' :: PendingModifiedValues -&gt; Maybe Int
-</span><a href="#local-6989586621679494325"><span class="hs-identifier hs-var hs-var">automatedSnapshotRetentionPeriod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679494325"><span class="hs-identifier hs-var">automatedSnapshotRetentionPeriod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679494324"><span class="annot"><span class="annottext">s :: PendingModifiedValues
-</span><a href="#local-6989586621679494324"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679494323"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679494323"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PendingModifiedValues
-</span><a href="#local-6989586621679494324"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:automatedSnapshotRetentionPeriod:PendingModifiedValues' :: Maybe Int
-</span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#%24sel%3AautomatedSnapshotRetentionPeriod%3APendingModifiedValues%27"><span class="hs-identifier hs-var">automatedSnapshotRetentionPeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679494323"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-comment">-- | The pending or in-progress change of the admin user password for the</span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- cluster.</span><span>
-</span><span id="line-152"></span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#pendingModifiedValues_masterUserPassword"><span class="hs-identifier hs-type">pendingModifiedValues_masterUserPassword</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-153"></span><span id="pendingModifiedValues_masterUserPassword"><span class="annot"><span class="annottext">pendingModifiedValues_masterUserPassword :: (Maybe Text -&gt; f (Maybe Text))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494975"><span class="annot"><span class="annottext">Maybe Bool
+enhancedVpcRouting :: Maybe Bool
+$sel:enhancedVpcRouting:PendingModifiedValues' :: PendingModifiedValues -&gt; Maybe Bool
+</span><a href="#local-6989586621679494975"><span class="hs-identifier hs-var hs-var">enhancedVpcRouting</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679494975"><span class="hs-identifier hs-var">enhancedVpcRouting</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679494974"><span class="annot"><span class="annottext">s :: PendingModifiedValues
+</span><a href="#local-6989586621679494974"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679494973"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679494973"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PendingModifiedValues
+</span><a href="#local-6989586621679494974"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enhancedVpcRouting:PendingModifiedValues' :: Maybe Bool
+</span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#%24sel%3AenhancedVpcRouting%3APendingModifiedValues%27"><span class="hs-identifier hs-var">enhancedVpcRouting</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679494973"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The pending or in-progress change of the admin user password for the</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- cluster.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#pendingModifiedValues_masterUserPassword"><span class="hs-identifier hs-type">pendingModifiedValues_masterUserPassword</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span id="pendingModifiedValues_masterUserPassword"><span class="annot"><span class="annottext">pendingModifiedValues_masterUserPassword :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; PendingModifiedValues -&gt; f PendingModifiedValues
 </span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#pendingModifiedValues_masterUserPassword"><span class="hs-identifier hs-var hs-var">pendingModifiedValues_masterUserPassword</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PendingModifiedValues -&gt; Maybe Text)
 -&gt; (PendingModifiedValues -&gt; Maybe Text -&gt; PendingModifiedValues)
@@ -324,21 +303,21 @@ $sel:automatedSnapshotRetentionPeriod:PendingModifiedValues' :: PendingModifiedV
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494321"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494971"><span class="annot"><span class="annottext">Maybe Text
 masterUserPassword :: Maybe Text
 $sel:masterUserPassword:PendingModifiedValues' :: PendingModifiedValues -&gt; Maybe Text
-</span><a href="#local-6989586621679494321"><span class="hs-identifier hs-var hs-var">masterUserPassword</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494321"><span class="hs-identifier hs-var">masterUserPassword</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679494320"><span class="annot"><span class="annottext">s :: PendingModifiedValues
-</span><a href="#local-6989586621679494320"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679494319"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494319"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PendingModifiedValues
-</span><a href="#local-6989586621679494320"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:masterUserPassword:PendingModifiedValues' :: Maybe Text
+</span><a href="#local-6989586621679494971"><span class="hs-identifier hs-var hs-var">masterUserPassword</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679494971"><span class="hs-identifier hs-var">masterUserPassword</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679494970"><span class="annot"><span class="annottext">s :: PendingModifiedValues
+</span><a href="#local-6989586621679494970"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679494969"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679494969"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PendingModifiedValues
+</span><a href="#local-6989586621679494970"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:masterUserPassword:PendingModifiedValues' :: Maybe Text
 </span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#%24sel%3AmasterUserPassword%3APendingModifiedValues%27"><span class="hs-identifier hs-var">masterUserPassword</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494319"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-comment">-- | The pending or in-progress change of the ability to connect to the</span><span>
-</span><span id="line-156"></span><span class="hs-comment">-- cluster from the public network.</span><span>
-</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#pendingModifiedValues_publiclyAccessible"><span class="hs-identifier hs-type">pendingModifiedValues_publiclyAccessible</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-158"></span><span id="pendingModifiedValues_publiclyAccessible"><span class="annot"><span class="annottext">pendingModifiedValues_publiclyAccessible :: (Maybe Bool -&gt; f (Maybe Bool))
+</span><a href="#local-6989586621679494969"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | The pending or in-progress change of the ability to connect to the</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- cluster from the public network.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#pendingModifiedValues_publiclyAccessible"><span class="hs-identifier hs-type">pendingModifiedValues_publiclyAccessible</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span id="pendingModifiedValues_publiclyAccessible"><span class="annot"><span class="annottext">pendingModifiedValues_publiclyAccessible :: (Maybe Bool -&gt; f (Maybe Bool))
 -&gt; PendingModifiedValues -&gt; f PendingModifiedValues
 </span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#pendingModifiedValues_publiclyAccessible"><span class="hs-identifier hs-var hs-var">pendingModifiedValues_publiclyAccessible</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PendingModifiedValues -&gt; Maybe Bool)
 -&gt; (PendingModifiedValues -&gt; Maybe Bool -&gt; PendingModifiedValues)
@@ -348,133 +327,21 @@ $sel:masterUserPassword:PendingModifiedValues' :: PendingModifiedValues -&gt; Ma
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494317"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494967"><span class="annot"><span class="annottext">Maybe Bool
 publiclyAccessible :: Maybe Bool
 $sel:publiclyAccessible:PendingModifiedValues' :: PendingModifiedValues -&gt; Maybe Bool
-</span><a href="#local-6989586621679494317"><span class="hs-identifier hs-var hs-var">publiclyAccessible</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679494317"><span class="hs-identifier hs-var">publiclyAccessible</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679494316"><span class="annot"><span class="annottext">s :: PendingModifiedValues
-</span><a href="#local-6989586621679494316"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679494315"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679494315"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PendingModifiedValues
-</span><a href="#local-6989586621679494316"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:publiclyAccessible:PendingModifiedValues' :: Maybe Bool
+</span><a href="#local-6989586621679494967"><span class="hs-identifier hs-var hs-var">publiclyAccessible</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679494967"><span class="hs-identifier hs-var">publiclyAccessible</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679494966"><span class="annot"><span class="annottext">s :: PendingModifiedValues
+</span><a href="#local-6989586621679494966"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679494965"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679494965"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PendingModifiedValues
+</span><a href="#local-6989586621679494966"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:publiclyAccessible:PendingModifiedValues' :: Maybe Bool
 </span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#%24sel%3ApubliclyAccessible%3APendingModifiedValues%27"><span class="hs-identifier hs-var">publiclyAccessible</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679494315"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- | The pending or in-progress change of the cluster type.</span><span>
-</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#pendingModifiedValues_clusterType"><span class="hs-identifier hs-type">pendingModifiedValues_clusterType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-162"></span><span id="pendingModifiedValues_clusterType"><span class="annot"><span class="annottext">pendingModifiedValues_clusterType :: (Maybe Text -&gt; f (Maybe Text))
--&gt; PendingModifiedValues -&gt; f PendingModifiedValues
-</span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#pendingModifiedValues_clusterType"><span class="hs-identifier hs-var hs-var">pendingModifiedValues_clusterType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PendingModifiedValues -&gt; Maybe Text)
--&gt; (PendingModifiedValues -&gt; Maybe Text -&gt; PendingModifiedValues)
--&gt; Lens
-     PendingModifiedValues
-     PendingModifiedValues
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494313"><span class="annot"><span class="annottext">Maybe Text
-clusterType :: Maybe Text
-$sel:clusterType:PendingModifiedValues' :: PendingModifiedValues -&gt; Maybe Text
-</span><a href="#local-6989586621679494313"><span class="hs-identifier hs-var hs-var">clusterType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494313"><span class="hs-identifier hs-var">clusterType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679494312"><span class="annot"><span class="annottext">s :: PendingModifiedValues
-</span><a href="#local-6989586621679494312"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679494311"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494311"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PendingModifiedValues
-</span><a href="#local-6989586621679494312"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterType:PendingModifiedValues' :: Maybe Text
-</span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#%24sel%3AclusterType%3APendingModifiedValues%27"><span class="hs-identifier hs-var">clusterType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494311"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-comment">-- | The pending or in-progress change of the new identifier for the cluster.</span><span>
-</span><span id="line-165"></span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#pendingModifiedValues_clusterIdentifier"><span class="hs-identifier hs-type">pendingModifiedValues_clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-166"></span><span id="pendingModifiedValues_clusterIdentifier"><span class="annot"><span class="annottext">pendingModifiedValues_clusterIdentifier :: (Maybe Text -&gt; f (Maybe Text))
--&gt; PendingModifiedValues -&gt; f PendingModifiedValues
-</span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#pendingModifiedValues_clusterIdentifier"><span class="hs-identifier hs-var hs-var">pendingModifiedValues_clusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PendingModifiedValues -&gt; Maybe Text)
--&gt; (PendingModifiedValues -&gt; Maybe Text -&gt; PendingModifiedValues)
--&gt; Lens
-     PendingModifiedValues
-     PendingModifiedValues
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494309"><span class="annot"><span class="annottext">Maybe Text
-clusterIdentifier :: Maybe Text
-$sel:clusterIdentifier:PendingModifiedValues' :: PendingModifiedValues -&gt; Maybe Text
-</span><a href="#local-6989586621679494309"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494309"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679494308"><span class="annot"><span class="annottext">s :: PendingModifiedValues
-</span><a href="#local-6989586621679494308"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679494307"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494307"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PendingModifiedValues
-</span><a href="#local-6989586621679494308"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterIdentifier:PendingModifiedValues' :: Maybe Text
-</span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#%24sel%3AclusterIdentifier%3APendingModifiedValues%27"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494307"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-comment">-- | The pending or in-progress change of the number of nodes in the cluster.</span><span>
-</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#pendingModifiedValues_numberOfNodes"><span class="hs-identifier hs-type">pendingModifiedValues_numberOfNodes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-170"></span><span id="pendingModifiedValues_numberOfNodes"><span class="annot"><span class="annottext">pendingModifiedValues_numberOfNodes :: (Maybe Int -&gt; f (Maybe Int))
--&gt; PendingModifiedValues -&gt; f PendingModifiedValues
-</span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#pendingModifiedValues_numberOfNodes"><span class="hs-identifier hs-var hs-var">pendingModifiedValues_numberOfNodes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PendingModifiedValues -&gt; Maybe Int)
--&gt; (PendingModifiedValues -&gt; Maybe Int -&gt; PendingModifiedValues)
--&gt; Lens
-     PendingModifiedValues PendingModifiedValues (Maybe Int) (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494305"><span class="annot"><span class="annottext">Maybe Int
-numberOfNodes :: Maybe Int
-$sel:numberOfNodes:PendingModifiedValues' :: PendingModifiedValues -&gt; Maybe Int
-</span><a href="#local-6989586621679494305"><span class="hs-identifier hs-var hs-var">numberOfNodes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679494305"><span class="hs-identifier hs-var">numberOfNodes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679494304"><span class="annot"><span class="annottext">s :: PendingModifiedValues
-</span><a href="#local-6989586621679494304"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679494303"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679494303"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PendingModifiedValues
-</span><a href="#local-6989586621679494304"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfNodes:PendingModifiedValues' :: Maybe Int
-</span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#%24sel%3AnumberOfNodes%3APendingModifiedValues%27"><span class="hs-identifier hs-var">numberOfNodes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679494303"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-171"></span><span>
-</span><span id="line-172"></span><span class="hs-comment">-- | The pending or in-progress change of the service version.</span><span>
-</span><span id="line-173"></span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#pendingModifiedValues_clusterVersion"><span class="hs-identifier hs-type">pendingModifiedValues_clusterVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-174"></span><span id="pendingModifiedValues_clusterVersion"><span class="annot"><span class="annottext">pendingModifiedValues_clusterVersion :: (Maybe Text -&gt; f (Maybe Text))
--&gt; PendingModifiedValues -&gt; f PendingModifiedValues
-</span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#pendingModifiedValues_clusterVersion"><span class="hs-identifier hs-var hs-var">pendingModifiedValues_clusterVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PendingModifiedValues -&gt; Maybe Text)
--&gt; (PendingModifiedValues -&gt; Maybe Text -&gt; PendingModifiedValues)
--&gt; Lens
-     PendingModifiedValues
-     PendingModifiedValues
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494301"><span class="annot"><span class="annottext">Maybe Text
-clusterVersion :: Maybe Text
-$sel:clusterVersion:PendingModifiedValues' :: PendingModifiedValues -&gt; Maybe Text
-</span><a href="#local-6989586621679494301"><span class="hs-identifier hs-var hs-var">clusterVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494301"><span class="hs-identifier hs-var">clusterVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679494300"><span class="annot"><span class="annottext">s :: PendingModifiedValues
-</span><a href="#local-6989586621679494300"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679494299"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494299"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PendingModifiedValues
-</span><a href="#local-6989586621679494300"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterVersion:PendingModifiedValues' :: Maybe Text
-</span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#%24sel%3AclusterVersion%3APendingModifiedValues%27"><span class="hs-identifier hs-var">clusterVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494299"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-175"></span><span>
-</span><span id="line-176"></span><span class="hs-comment">-- | The pending or in-progress change of the cluster\'s node type.</span><span>
-</span><span id="line-177"></span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#pendingModifiedValues_nodeType"><span class="hs-identifier hs-type">pendingModifiedValues_nodeType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-178"></span><span id="pendingModifiedValues_nodeType"><span class="annot"><span class="annottext">pendingModifiedValues_nodeType :: (Maybe Text -&gt; f (Maybe Text))
--&gt; PendingModifiedValues -&gt; f PendingModifiedValues
-</span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#pendingModifiedValues_nodeType"><span class="hs-identifier hs-var hs-var">pendingModifiedValues_nodeType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PendingModifiedValues -&gt; Maybe Text)
--&gt; (PendingModifiedValues -&gt; Maybe Text -&gt; PendingModifiedValues)
--&gt; Lens
-     PendingModifiedValues
-     PendingModifiedValues
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494297"><span class="annot"><span class="annottext">Maybe Text
-nodeType :: Maybe Text
-$sel:nodeType:PendingModifiedValues' :: PendingModifiedValues -&gt; Maybe Text
-</span><a href="#local-6989586621679494297"><span class="hs-identifier hs-var hs-var">nodeType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494297"><span class="hs-identifier hs-var">nodeType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679494296"><span class="annot"><span class="annottext">s :: PendingModifiedValues
-</span><a href="#local-6989586621679494296"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679494295"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494295"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PendingModifiedValues
-</span><a href="#local-6989586621679494296"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodeType:PendingModifiedValues' :: Maybe Text
-</span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#%24sel%3AnodeType%3APendingModifiedValues%27"><span class="hs-identifier hs-var">nodeType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494295"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-179"></span><span>
-</span><span id="line-180"></span><span class="hs-comment">-- | The name of the maintenance track that the cluster will change to during</span><span>
-</span><span id="line-181"></span><span class="hs-comment">-- the next maintenance window.</span><span>
-</span><span id="line-182"></span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#pendingModifiedValues_maintenanceTrackName"><span class="hs-identifier hs-type">pendingModifiedValues_maintenanceTrackName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-183"></span><span id="pendingModifiedValues_maintenanceTrackName"><span class="annot"><span class="annottext">pendingModifiedValues_maintenanceTrackName :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679494965"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | The name of the maintenance track that the cluster will change to during</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- the next maintenance window.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#pendingModifiedValues_maintenanceTrackName"><span class="hs-identifier hs-type">pendingModifiedValues_maintenanceTrackName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="pendingModifiedValues_maintenanceTrackName"><span class="annot"><span class="annottext">pendingModifiedValues_maintenanceTrackName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; PendingModifiedValues -&gt; f PendingModifiedValues
 </span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#pendingModifiedValues_maintenanceTrackName"><span class="hs-identifier hs-var hs-var">pendingModifiedValues_maintenanceTrackName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PendingModifiedValues -&gt; Maybe Text)
 -&gt; (PendingModifiedValues -&gt; Maybe Text -&gt; PendingModifiedValues)
@@ -484,27 +351,160 @@ $sel:nodeType:PendingModifiedValues' :: PendingModifiedValues -&gt; Maybe Text
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494293"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494963"><span class="annot"><span class="annottext">Maybe Text
 maintenanceTrackName :: Maybe Text
 $sel:maintenanceTrackName:PendingModifiedValues' :: PendingModifiedValues -&gt; Maybe Text
-</span><a href="#local-6989586621679494293"><span class="hs-identifier hs-var hs-var">maintenanceTrackName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494293"><span class="hs-identifier hs-var">maintenanceTrackName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679494292"><span class="annot"><span class="annottext">s :: PendingModifiedValues
-</span><a href="#local-6989586621679494292"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679494291"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494291"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PendingModifiedValues
-</span><a href="#local-6989586621679494292"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maintenanceTrackName:PendingModifiedValues' :: Maybe Text
+</span><a href="#local-6989586621679494963"><span class="hs-identifier hs-var hs-var">maintenanceTrackName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679494963"><span class="hs-identifier hs-var">maintenanceTrackName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679494962"><span class="annot"><span class="annottext">s :: PendingModifiedValues
+</span><a href="#local-6989586621679494962"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679494961"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679494961"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PendingModifiedValues
+</span><a href="#local-6989586621679494962"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maintenanceTrackName:PendingModifiedValues' :: Maybe Text
 </span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#%24sel%3AmaintenanceTrackName%3APendingModifiedValues%27"><span class="hs-identifier hs-var">maintenanceTrackName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679494291"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679494961"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | The pending or in-progress change of the automated snapshot retention</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- period.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#pendingModifiedValues_automatedSnapshotRetentionPeriod"><span class="hs-identifier hs-type">pendingModifiedValues_automatedSnapshotRetentionPeriod</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="pendingModifiedValues_automatedSnapshotRetentionPeriod"><span class="annot"><span class="annottext">pendingModifiedValues_automatedSnapshotRetentionPeriod :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; PendingModifiedValues -&gt; f PendingModifiedValues
+</span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#pendingModifiedValues_automatedSnapshotRetentionPeriod"><span class="hs-identifier hs-var hs-var">pendingModifiedValues_automatedSnapshotRetentionPeriod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PendingModifiedValues -&gt; Maybe Int)
+-&gt; (PendingModifiedValues -&gt; Maybe Int -&gt; PendingModifiedValues)
+-&gt; Lens
+     PendingModifiedValues PendingModifiedValues (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494959"><span class="annot"><span class="annottext">Maybe Int
+automatedSnapshotRetentionPeriod :: Maybe Int
+$sel:automatedSnapshotRetentionPeriod:PendingModifiedValues' :: PendingModifiedValues -&gt; Maybe Int
+</span><a href="#local-6989586621679494959"><span class="hs-identifier hs-var hs-var">automatedSnapshotRetentionPeriod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679494959"><span class="hs-identifier hs-var">automatedSnapshotRetentionPeriod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679494958"><span class="annot"><span class="annottext">s :: PendingModifiedValues
+</span><a href="#local-6989586621679494958"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679494957"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679494957"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PendingModifiedValues
+</span><a href="#local-6989586621679494958"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:automatedSnapshotRetentionPeriod:PendingModifiedValues' :: Maybe Int
+</span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#%24sel%3AautomatedSnapshotRetentionPeriod%3APendingModifiedValues%27"><span class="hs-identifier hs-var">automatedSnapshotRetentionPeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679494957"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The pending or in-progress change of the new identifier for the cluster.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#pendingModifiedValues_clusterIdentifier"><span class="hs-identifier hs-type">pendingModifiedValues_clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span id="pendingModifiedValues_clusterIdentifier"><span class="annot"><span class="annottext">pendingModifiedValues_clusterIdentifier :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PendingModifiedValues -&gt; f PendingModifiedValues
+</span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#pendingModifiedValues_clusterIdentifier"><span class="hs-identifier hs-var hs-var">pendingModifiedValues_clusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PendingModifiedValues -&gt; Maybe Text)
+-&gt; (PendingModifiedValues -&gt; Maybe Text -&gt; PendingModifiedValues)
+-&gt; Lens
+     PendingModifiedValues
+     PendingModifiedValues
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494955"><span class="annot"><span class="annottext">Maybe Text
+clusterIdentifier :: Maybe Text
+$sel:clusterIdentifier:PendingModifiedValues' :: PendingModifiedValues -&gt; Maybe Text
+</span><a href="#local-6989586621679494955"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679494955"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679494954"><span class="annot"><span class="annottext">s :: PendingModifiedValues
+</span><a href="#local-6989586621679494954"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679494953"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679494953"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PendingModifiedValues
+</span><a href="#local-6989586621679494954"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterIdentifier:PendingModifiedValues' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#%24sel%3AclusterIdentifier%3APendingModifiedValues%27"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679494953"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | The pending or in-progress change of the number of nodes in the cluster.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#pendingModifiedValues_numberOfNodes"><span class="hs-identifier hs-type">pendingModifiedValues_numberOfNodes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span id="pendingModifiedValues_numberOfNodes"><span class="annot"><span class="annottext">pendingModifiedValues_numberOfNodes :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; PendingModifiedValues -&gt; f PendingModifiedValues
+</span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#pendingModifiedValues_numberOfNodes"><span class="hs-identifier hs-var hs-var">pendingModifiedValues_numberOfNodes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PendingModifiedValues -&gt; Maybe Int)
+-&gt; (PendingModifiedValues -&gt; Maybe Int -&gt; PendingModifiedValues)
+-&gt; Lens
+     PendingModifiedValues PendingModifiedValues (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494951"><span class="annot"><span class="annottext">Maybe Int
+numberOfNodes :: Maybe Int
+$sel:numberOfNodes:PendingModifiedValues' :: PendingModifiedValues -&gt; Maybe Int
+</span><a href="#local-6989586621679494951"><span class="hs-identifier hs-var hs-var">numberOfNodes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679494951"><span class="hs-identifier hs-var">numberOfNodes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679494950"><span class="annot"><span class="annottext">s :: PendingModifiedValues
+</span><a href="#local-6989586621679494950"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679494949"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679494949"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PendingModifiedValues
+</span><a href="#local-6989586621679494950"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfNodes:PendingModifiedValues' :: Maybe Int
+</span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#%24sel%3AnumberOfNodes%3APendingModifiedValues%27"><span class="hs-identifier hs-var">numberOfNodes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679494949"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | The pending or in-progress change of the cluster type.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#pendingModifiedValues_clusterType"><span class="hs-identifier hs-type">pendingModifiedValues_clusterType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="pendingModifiedValues_clusterType"><span class="annot"><span class="annottext">pendingModifiedValues_clusterType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PendingModifiedValues -&gt; f PendingModifiedValues
+</span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#pendingModifiedValues_clusterType"><span class="hs-identifier hs-var hs-var">pendingModifiedValues_clusterType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PendingModifiedValues -&gt; Maybe Text)
+-&gt; (PendingModifiedValues -&gt; Maybe Text -&gt; PendingModifiedValues)
+-&gt; Lens
+     PendingModifiedValues
+     PendingModifiedValues
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494947"><span class="annot"><span class="annottext">Maybe Text
+clusterType :: Maybe Text
+$sel:clusterType:PendingModifiedValues' :: PendingModifiedValues -&gt; Maybe Text
+</span><a href="#local-6989586621679494947"><span class="hs-identifier hs-var hs-var">clusterType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679494947"><span class="hs-identifier hs-var">clusterType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679494946"><span class="annot"><span class="annottext">s :: PendingModifiedValues
+</span><a href="#local-6989586621679494946"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679494945"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679494945"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PendingModifiedValues
+</span><a href="#local-6989586621679494946"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterType:PendingModifiedValues' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#%24sel%3AclusterType%3APendingModifiedValues%27"><span class="hs-identifier hs-var">clusterType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679494945"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | The pending or in-progress change of the service version.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#pendingModifiedValues_clusterVersion"><span class="hs-identifier hs-type">pendingModifiedValues_clusterVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span id="pendingModifiedValues_clusterVersion"><span class="annot"><span class="annottext">pendingModifiedValues_clusterVersion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PendingModifiedValues -&gt; f PendingModifiedValues
+</span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#pendingModifiedValues_clusterVersion"><span class="hs-identifier hs-var hs-var">pendingModifiedValues_clusterVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PendingModifiedValues -&gt; Maybe Text)
+-&gt; (PendingModifiedValues -&gt; Maybe Text -&gt; PendingModifiedValues)
+-&gt; Lens
+     PendingModifiedValues
+     PendingModifiedValues
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494943"><span class="annot"><span class="annottext">Maybe Text
+clusterVersion :: Maybe Text
+$sel:clusterVersion:PendingModifiedValues' :: PendingModifiedValues -&gt; Maybe Text
+</span><a href="#local-6989586621679494943"><span class="hs-identifier hs-var hs-var">clusterVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679494943"><span class="hs-identifier hs-var">clusterVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679494942"><span class="annot"><span class="annottext">s :: PendingModifiedValues
+</span><a href="#local-6989586621679494942"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679494941"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679494941"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PendingModifiedValues
+</span><a href="#local-6989586621679494942"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterVersion:PendingModifiedValues' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#%24sel%3AclusterVersion%3APendingModifiedValues%27"><span class="hs-identifier hs-var">clusterVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679494941"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | The pending or in-progress change of the cluster\'s node type.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#pendingModifiedValues_nodeType"><span class="hs-identifier hs-type">pendingModifiedValues_nodeType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span id="pendingModifiedValues_nodeType"><span class="annot"><span class="annottext">pendingModifiedValues_nodeType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PendingModifiedValues -&gt; f PendingModifiedValues
+</span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#pendingModifiedValues_nodeType"><span class="hs-identifier hs-var hs-var">pendingModifiedValues_nodeType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PendingModifiedValues -&gt; Maybe Text)
+-&gt; (PendingModifiedValues -&gt; Maybe Text -&gt; PendingModifiedValues)
+-&gt; Lens
+     PendingModifiedValues
+     PendingModifiedValues
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494939"><span class="annot"><span class="annottext">Maybe Text
+nodeType :: Maybe Text
+$sel:nodeType:PendingModifiedValues' :: PendingModifiedValues -&gt; Maybe Text
+</span><a href="#local-6989586621679494939"><span class="hs-identifier hs-var hs-var">nodeType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679494939"><span class="hs-identifier hs-var">nodeType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679494938"><span class="annot"><span class="annottext">s :: PendingModifiedValues
+</span><a href="#local-6989586621679494938"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-type">PendingModifiedValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679494937"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679494937"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PendingModifiedValues
+</span><a href="#local-6989586621679494938"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodeType:PendingModifiedValues' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#%24sel%3AnodeType%3APendingModifiedValues%27"><span class="hs-identifier hs-var">nodeType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679494937"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-186"></span><span>  </span><span id="local-6989586621679494288"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String PendingModifiedValues
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679494286"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679494286"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-187"></span><span>    </span><span class="annot"><span class="annottext">Maybe Bool
--&gt; Maybe Text
--&gt; Maybe Int
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679494934"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String PendingModifiedValues
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679494932"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679494932"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Bool
 -&gt; Maybe Text
 -&gt; Maybe Bool
 -&gt; Maybe Text
+-&gt; Maybe Int
 -&gt; Maybe Text
 -&gt; Maybe Int
 -&gt; Maybe Text
@@ -512,26 +512,26 @@ $sel:maintenanceTrackName:PendingModifiedValues' :: PendingModifiedValues -&gt; 
 -&gt; Maybe Text
 -&gt; PendingModifiedValues
 </span><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues%27"><span class="hs-identifier hs-var">PendingModifiedValues'</span></a></span><span>
-</span><span id="line-188"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Bool
- -&gt; Maybe Text
- -&gt; Maybe Int
+</span><span id="line-188"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Bool
  -&gt; Maybe Text
  -&gt; Maybe Bool
  -&gt; Maybe Text
+ -&gt; Maybe Int
  -&gt; Maybe Text
  -&gt; Maybe Int
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; PendingModifiedValues)
--&gt; Either String (Maybe Bool)
+-&gt; Either String (Maybe Text)
 -&gt; Either
      String
-     (Maybe Text
-      -&gt; Maybe Int
+     (Maybe Bool
       -&gt; Maybe Text
       -&gt; Maybe Bool
       -&gt; Maybe Text
+      -&gt; Maybe Int
       -&gt; Maybe Text
       -&gt; Maybe Int
       -&gt; Maybe Text
@@ -540,60 +540,30 @@ $sel:maintenanceTrackName:PendingModifiedValues' :: PendingModifiedValues -&gt; 
       -&gt; PendingModifiedValues)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679494286"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;EnhancedVpcRouting&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-189"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text
-   -&gt; Maybe Int
-   -&gt; Maybe Text
-   -&gt; Maybe Bool
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Int
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; PendingModifiedValues)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe Int
-      -&gt; Maybe Text
-      -&gt; Maybe Bool
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Int
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; PendingModifiedValues)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679494286"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679494932"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EncryptionType&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-190"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span id="line-189"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe Int
+  (Maybe Bool
    -&gt; Maybe Text
    -&gt; Maybe Bool
    -&gt; Maybe Text
+   -&gt; Maybe Int
    -&gt; Maybe Text
    -&gt; Maybe Int
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; PendingModifiedValues)
--&gt; Either String (Maybe Int)
+-&gt; Either String (Maybe Bool)
 -&gt; Either
      String
      (Maybe Text
       -&gt; Maybe Bool
       -&gt; Maybe Text
+      -&gt; Maybe Int
       -&gt; Maybe Text
       -&gt; Maybe Int
       -&gt; Maybe Text
@@ -602,15 +572,16 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; PendingModifiedValues)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679494286"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621679494932"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AutomatedSnapshotRetentionPeriod&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span class="hs-string">&quot;EnhancedVpcRouting&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
    -&gt; Maybe Bool
    -&gt; Maybe Text
+   -&gt; Maybe Int
    -&gt; Maybe Text
    -&gt; Maybe Int
    -&gt; Maybe Text
@@ -622,6 +593,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      String
      (Maybe Bool
       -&gt; Maybe Text
+      -&gt; Maybe Int
       -&gt; Maybe Text
       -&gt; Maybe Int
       -&gt; Maybe Text
@@ -630,14 +602,15 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; PendingModifiedValues)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679494286"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679494932"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MasterUserPassword&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-192"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Bool
    -&gt; Maybe Text
+   -&gt; Maybe Int
    -&gt; Maybe Text
    -&gt; Maybe Int
    -&gt; Maybe Text
@@ -648,6 +621,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either
      String
      (Maybe Text
+      -&gt; Maybe Int
       -&gt; Maybe Text
       -&gt; Maybe Int
       -&gt; Maybe Text
@@ -656,13 +630,14 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; PendingModifiedValues)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679494286"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621679494932"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PubliclyAccessible&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span id="line-192"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
+   -&gt; Maybe Int
    -&gt; Maybe Text
    -&gt; Maybe Int
    -&gt; Maybe Text
@@ -670,6 +645,31 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
    -&gt; Maybe Text
    -&gt; PendingModifiedValues)
 -&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; PendingModifiedValues)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679494932"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaintenanceTrackName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; PendingModifiedValues)
+-&gt; Either String (Maybe Int)
 -&gt; Either
      String
      (Maybe Text
@@ -680,10 +680,10 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; PendingModifiedValues)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679494286"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679494932"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ClusterType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;AutomatedSnapshotRetentionPeriod&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-194"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
@@ -699,7 +699,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; PendingModifiedValues)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679494286"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679494932"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ClusterIdentifier&quot;</span></span><span class="hs-special">)</span><span>
@@ -713,7 +713,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; PendingModifiedValues)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679494286"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621679494932"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NumberOfNodes&quot;</span></span><span class="hs-special">)</span><span>
@@ -725,30 +725,30 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      String (Maybe Text -&gt; Maybe Text -&gt; PendingModifiedValues)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679494286"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679494932"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ClusterVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;ClusterType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-197"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe Text -&gt; PendingModifiedValues)
 -&gt; Either String (Maybe Text)
 -&gt; Either String (Maybe Text -&gt; PendingModifiedValues)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679494286"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679494932"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NodeType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;ClusterVersion&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-198"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; PendingModifiedValues)
 -&gt; Either String (Maybe Text)
 -&gt; Either String PendingModifiedValues
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679494286"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679494932"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;MaintenanceTrackName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;NodeType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-199"></span><span>
-</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679494280"><span id="local-6989586621679494282"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span></span></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679494926"><span id="local-6989586621679494928"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span></span></span><span>
 </span><span id="line-201"></span><span>
-</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679494277"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679494923"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.PendingModifiedValues.html#PendingModifiedValues"><span class="hs-identifier hs-type">PendingModifiedValues</span></a></span></span><span>
 </span><span id="line-203"></span></pre></body></html>

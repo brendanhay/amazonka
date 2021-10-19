@@ -32,19 +32,19 @@
 </span><span id="line-32"></span><span class="hs-comment">-- | Configures a hyperparameter tuning job.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newHyperParameterTuningJobConfig' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621680353155"><span id="local-6989586621680353156"></span></span><span class="hs-keyword">data</span><span> </span><span id="HyperParameterTuningJobConfig"><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig"><span class="hs-identifier hs-var">HyperParameterTuningJobConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HyperParameterTuningJobConfig%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig%27"><span class="hs-identifier hs-var">HyperParameterTuningJobConfig'</span></a></span></span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The HyperParameterTuningJobObjective object that specifies the objective</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- metric for this tuning job.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AhyperParameterTuningJobObjective%3AHyperParameterTuningJobConfig%27"><span class="annot"><span class="annottext">HyperParameterTuningJobConfig
+</span><span id="line-35"></span><span id="local-6989586621680354593"><span id="local-6989586621680354594"></span></span><span class="hs-keyword">data</span><span> </span><span id="HyperParameterTuningJobConfig"><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig"><span class="hs-identifier hs-var">HyperParameterTuningJobConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HyperParameterTuningJobConfig%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig%27"><span class="hs-identifier hs-var">HyperParameterTuningJobConfig'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The tuning job\'s completion criteria.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AtuningJobCompletionCriteria%3AHyperParameterTuningJobConfig%27"><span class="annot"><span class="annottext">HyperParameterTuningJobConfig -&gt; Maybe TuningJobCompletionCriteria
+</span><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#%24sel%3AtuningJobCompletionCriteria%3AHyperParameterTuningJobConfig%27"><span class="hs-identifier hs-var hs-var">tuningJobCompletionCriteria</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TuningJobCompletionCriteria.html#TuningJobCompletionCriteria"><span class="hs-identifier hs-type">TuningJobCompletionCriteria</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The ParameterRanges object that specifies the ranges of hyperparameters</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- that this tuning job searches.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AparameterRanges%3AHyperParameterTuningJobConfig%27"><span class="annot"><span class="annottext">HyperParameterTuningJobConfig -&gt; Maybe ParameterRanges
+</span><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#%24sel%3AparameterRanges%3AHyperParameterTuningJobConfig%27"><span class="hs-identifier hs-var hs-var">parameterRanges</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ParameterRanges.html#ParameterRanges"><span class="hs-identifier hs-type">ParameterRanges</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The HyperParameterTuningJobObjective object that specifies the objective</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- metric for this tuning job.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AhyperParameterTuningJobObjective%3AHyperParameterTuningJobConfig%27"><span class="annot"><span class="annottext">HyperParameterTuningJobConfig
 -&gt; Maybe HyperParameterTuningJobObjective
 </span><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#%24sel%3AhyperParameterTuningJobObjective%3AHyperParameterTuningJobConfig%27"><span class="hs-identifier hs-var hs-var">hyperParameterTuningJobObjective</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobObjective.html#HyperParameterTuningJobObjective"><span class="hs-identifier hs-type">HyperParameterTuningJobObjective</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The ParameterRanges object that specifies the ranges of hyperparameters</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- that this tuning job searches.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AparameterRanges%3AHyperParameterTuningJobConfig%27"><span class="annot"><span class="annottext">HyperParameterTuningJobConfig -&gt; Maybe ParameterRanges
-</span><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#%24sel%3AparameterRanges%3AHyperParameterTuningJobConfig%27"><span class="hs-identifier hs-var hs-var">parameterRanges</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ParameterRanges.html#ParameterRanges"><span class="hs-identifier hs-type">ParameterRanges</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The tuning job\'s completion criteria.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AtuningJobCompletionCriteria%3AHyperParameterTuningJobConfig%27"><span class="annot"><span class="annottext">HyperParameterTuningJobConfig -&gt; Maybe TuningJobCompletionCriteria
-</span><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#%24sel%3AtuningJobCompletionCriteria%3AHyperParameterTuningJobConfig%27"><span class="hs-identifier hs-var hs-var">tuningJobCompletionCriteria</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TuningJobCompletionCriteria.html#TuningJobCompletionCriteria"><span class="hs-identifier hs-type">TuningJobCompletionCriteria</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Specifies whether to use early stopping for training jobs launched by</span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-comment">-- the hyperparameter tuning job. This can be one of the following values</span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-comment">-- (the default value is @OFF@):</span><span>
@@ -73,7 +73,7 @@
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3AresourceLimits%3AHyperParameterTuningJobConfig%27"><span class="annot"><span class="annottext">HyperParameterTuningJobConfig -&gt; ResourceLimits
 </span><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#%24sel%3AresourceLimits%3AHyperParameterTuningJobConfig%27"><span class="hs-identifier hs-var hs-var">resourceLimits</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceLimits.html#ResourceLimits"><span class="hs-identifier hs-type">ResourceLimits</span></a></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680353144"><span id="local-6989586621680353146"><span class="annot"><span class="annottext">HyperParameterTuningJobConfig
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680354582"><span id="local-6989586621680354584"><span class="annot"><span class="annottext">HyperParameterTuningJobConfig
 -&gt; HyperParameterTuningJobConfig -&gt; Bool
 (HyperParameterTuningJobConfig
  -&gt; HyperParameterTuningJobConfig -&gt; Bool)
@@ -89,7 +89,7 @@ $c/= :: HyperParameterTuningJobConfig
 -&gt; HyperParameterTuningJobConfig -&gt; Bool
 $c== :: HyperParameterTuningJobConfig
 -&gt; HyperParameterTuningJobConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680353135"><span id="local-6989586621680353137"><span id="local-6989586621680353139"><span id="local-6989586621680353141"><span class="annot"><span class="annottext">ReadPrec [HyperParameterTuningJobConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680354573"><span id="local-6989586621680354575"><span id="local-6989586621680354577"><span id="local-6989586621680354579"><span class="annot"><span class="annottext">ReadPrec [HyperParameterTuningJobConfig]
 ReadPrec HyperParameterTuningJobConfig
 Int -&gt; ReadS HyperParameterTuningJobConfig
 ReadS [HyperParameterTuningJobConfig]
@@ -109,7 +109,7 @@ readList :: ReadS [HyperParameterTuningJobConfig]
 $creadList :: ReadS [HyperParameterTuningJobConfig]
 readsPrec :: Int -&gt; ReadS HyperParameterTuningJobConfig
 $creadsPrec :: Int -&gt; ReadS HyperParameterTuningJobConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680353128"><span id="local-6989586621680353130"><span id="local-6989586621680353132"><span class="annot"><span class="annottext">Int -&gt; HyperParameterTuningJobConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680354566"><span id="local-6989586621680354568"><span id="local-6989586621680354570"><span class="annot"><span class="annottext">Int -&gt; HyperParameterTuningJobConfig -&gt; ShowS
 [HyperParameterTuningJobConfig] -&gt; ShowS
 HyperParameterTuningJobConfig -&gt; String
 (Int -&gt; HyperParameterTuningJobConfig -&gt; ShowS)
@@ -155,13 +155,13 @@ HyperParameterTuningJobConfig
 </span><span id="line-75"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-77"></span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- 'hyperParameterTuningJobObjective', 'hyperParameterTuningJobConfig_hyperParameterTuningJobObjective' - The HyperParameterTuningJobObjective object that specifies the objective</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- metric for this tuning job.</span><span>
-</span><span id="line-80"></span><span class="hs-comment">--</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- 'parameterRanges', 'hyperParameterTuningJobConfig_parameterRanges' - The ParameterRanges object that specifies the ranges of hyperparameters</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- that this tuning job searches.</span><span>
-</span><span id="line-83"></span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- 'tuningJobCompletionCriteria', 'hyperParameterTuningJobConfig_tuningJobCompletionCriteria' - The tuning job\'s completion criteria.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'tuningJobCompletionCriteria', 'hyperParameterTuningJobConfig_tuningJobCompletionCriteria' - The tuning job\'s completion criteria.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'parameterRanges', 'hyperParameterTuningJobConfig_parameterRanges' - The ParameterRanges object that specifies the ranges of hyperparameters</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- that this tuning job searches.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'hyperParameterTuningJobObjective', 'hyperParameterTuningJobConfig_hyperParameterTuningJobObjective' - The HyperParameterTuningJobObjective object that specifies the objective</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- metric for this tuning job.</span><span>
 </span><span id="line-85"></span><span class="hs-comment">--</span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- 'trainingJobEarlyStoppingType', 'hyperParameterTuningJobConfig_trainingJobEarlyStoppingType' - Specifies whether to use early stopping for training jobs launched by</span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- the hyperparameter tuning job. This can be one of the following values</span><span>
@@ -194,30 +194,30 @@ HyperParameterTuningJobConfig
 </span><span id="line-114"></span><span id="newHyperParameterTuningJobConfig"><span class="annot"><span class="annottext">newHyperParameterTuningJobConfig :: HyperParameterTuningJobStrategyType
 -&gt; ResourceLimits -&gt; HyperParameterTuningJobConfig
 </span><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#newHyperParameterTuningJobConfig"><span class="hs-identifier hs-var hs-var">newHyperParameterTuningJobConfig</span></a></span></span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621680353122"><span class="annot"><span class="annottext">HyperParameterTuningJobStrategyType
-</span><a href="#local-6989586621680353122"><span class="hs-identifier hs-var">pStrategy_</span></a></span></span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621680353121"><span class="annot"><span class="annottext">ResourceLimits
-</span><a href="#local-6989586621680353121"><span class="hs-identifier hs-var">pResourceLimits_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">HyperParameterTuningJobConfig' :: Maybe HyperParameterTuningJobObjective
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621680354560"><span class="annot"><span class="annottext">HyperParameterTuningJobStrategyType
+</span><a href="#local-6989586621680354560"><span class="hs-identifier hs-var">pStrategy_</span></a></span></span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621680354559"><span class="annot"><span class="annottext">ResourceLimits
+</span><a href="#local-6989586621680354559"><span class="hs-identifier hs-var">pResourceLimits_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">HyperParameterTuningJobConfig' :: Maybe TuningJobCompletionCriteria
 -&gt; Maybe ParameterRanges
--&gt; Maybe TuningJobCompletionCriteria
+-&gt; Maybe HyperParameterTuningJobObjective
 -&gt; Maybe TrainingJobEarlyStoppingType
 -&gt; HyperParameterTuningJobStrategyType
 -&gt; ResourceLimits
 -&gt; HyperParameterTuningJobConfig
 </span><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig%27"><span class="hs-identifier hs-type">HyperParameterTuningJobConfig'</span></a></span><span>
-</span><span id="line-118"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:hyperParameterTuningJobObjective:HyperParameterTuningJobConfig' :: Maybe HyperParameterTuningJobObjective
-</span><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#%24sel%3AhyperParameterTuningJobObjective%3AHyperParameterTuningJobConfig%27"><span class="hs-identifier hs-var">hyperParameterTuningJobObjective</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">Maybe HyperParameterTuningJobObjective
+</span><span id="line-118"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tuningJobCompletionCriteria:HyperParameterTuningJobConfig' :: Maybe TuningJobCompletionCriteria
+</span><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#%24sel%3AtuningJobCompletionCriteria%3AHyperParameterTuningJobConfig%27"><span class="hs-identifier hs-var">tuningJobCompletionCriteria</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">Maybe TuningJobCompletionCriteria
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">$sel:parameterRanges:HyperParameterTuningJobConfig' :: Maybe ParameterRanges
 </span><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#%24sel%3AparameterRanges%3AHyperParameterTuningJobConfig%27"><span class="hs-identifier hs-var">parameterRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ParameterRanges
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">$sel:tuningJobCompletionCriteria:HyperParameterTuningJobConfig' :: Maybe TuningJobCompletionCriteria
-</span><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#%24sel%3AtuningJobCompletionCriteria%3AHyperParameterTuningJobConfig%27"><span class="hs-identifier hs-var">tuningJobCompletionCriteria</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">Maybe TuningJobCompletionCriteria
+</span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">$sel:hyperParameterTuningJobObjective:HyperParameterTuningJobConfig' :: Maybe HyperParameterTuningJobObjective
+</span><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#%24sel%3AhyperParameterTuningJobObjective%3AHyperParameterTuningJobConfig%27"><span class="hs-identifier hs-var">hyperParameterTuningJobObjective</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">Maybe HyperParameterTuningJobObjective
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">$sel:trainingJobEarlyStoppingType:HyperParameterTuningJobConfig' :: Maybe TrainingJobEarlyStoppingType
@@ -227,69 +227,15 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">$sel:strategy:HyperParameterTuningJobConfig' :: HyperParameterTuningJobStrategyType
 </span><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#%24sel%3Astrategy%3AHyperParameterTuningJobConfig%27"><span class="hs-identifier hs-var">strategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HyperParameterTuningJobStrategyType
-</span><a href="#local-6989586621680353122"><span class="hs-identifier hs-var">pStrategy_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680354560"><span class="hs-identifier hs-var">pStrategy_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceLimits:HyperParameterTuningJobConfig' :: ResourceLimits
 </span><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#%24sel%3AresourceLimits%3AHyperParameterTuningJobConfig%27"><span class="hs-identifier hs-var">resourceLimits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceLimits
-</span><a href="#local-6989586621680353121"><span class="hs-identifier hs-var">pResourceLimits_</span></a></span><span>
+</span><a href="#local-6989586621680354559"><span class="hs-identifier hs-var">pResourceLimits_</span></a></span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- | The HyperParameterTuningJobObjective object that specifies the objective</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- metric for this tuning job.</span><span>
-</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#hyperParameterTuningJobConfig_hyperParameterTuningJobObjective"><span class="hs-identifier hs-type">hyperParameterTuningJobConfig_hyperParameterTuningJobObjective</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig"><span class="hs-identifier hs-type">HyperParameterTuningJobConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobObjective.html#HyperParameterTuningJobObjective"><span class="hs-identifier hs-type">HyperParameterTuningJobObjective</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span id="hyperParameterTuningJobConfig_hyperParameterTuningJobObjective"><span class="annot"><span class="annottext">hyperParameterTuningJobConfig_hyperParameterTuningJobObjective :: (Maybe HyperParameterTuningJobObjective
- -&gt; f (Maybe HyperParameterTuningJobObjective))
--&gt; HyperParameterTuningJobConfig -&gt; f HyperParameterTuningJobConfig
-</span><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#hyperParameterTuningJobConfig_hyperParameterTuningJobObjective"><span class="hs-identifier hs-var hs-var">hyperParameterTuningJobConfig_hyperParameterTuningJobObjective</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HyperParameterTuningJobConfig
- -&gt; Maybe HyperParameterTuningJobObjective)
--&gt; (HyperParameterTuningJobConfig
-    -&gt; Maybe HyperParameterTuningJobObjective
-    -&gt; HyperParameterTuningJobConfig)
--&gt; Lens
-     HyperParameterTuningJobConfig
-     HyperParameterTuningJobConfig
-     (Maybe HyperParameterTuningJobObjective)
-     (Maybe HyperParameterTuningJobObjective)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig%27"><span class="hs-identifier hs-type">HyperParameterTuningJobConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680353117"><span class="annot"><span class="annottext">Maybe HyperParameterTuningJobObjective
-hyperParameterTuningJobObjective :: Maybe HyperParameterTuningJobObjective
-$sel:hyperParameterTuningJobObjective:HyperParameterTuningJobConfig' :: HyperParameterTuningJobConfig
--&gt; Maybe HyperParameterTuningJobObjective
-</span><a href="#local-6989586621680353117"><span class="hs-identifier hs-var hs-var">hyperParameterTuningJobObjective</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HyperParameterTuningJobObjective
-</span><a href="#local-6989586621680353117"><span class="hs-identifier hs-var">hyperParameterTuningJobObjective</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680353116"><span class="annot"><span class="annottext">s :: HyperParameterTuningJobConfig
-</span><a href="#local-6989586621680353116"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig%27"><span class="hs-identifier hs-type">HyperParameterTuningJobConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680353115"><span class="annot"><span class="annottext">Maybe HyperParameterTuningJobObjective
-</span><a href="#local-6989586621680353115"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HyperParameterTuningJobConfig
-</span><a href="#local-6989586621680353116"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hyperParameterTuningJobObjective:HyperParameterTuningJobConfig' :: Maybe HyperParameterTuningJobObjective
-</span><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#%24sel%3AhyperParameterTuningJobObjective%3AHyperParameterTuningJobConfig%27"><span class="hs-identifier hs-var">hyperParameterTuningJobObjective</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HyperParameterTuningJobObjective
-</span><a href="#local-6989586621680353115"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig"><span class="hs-identifier hs-type">HyperParameterTuningJobConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- | The ParameterRanges object that specifies the ranges of hyperparameters</span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- that this tuning job searches.</span><span>
-</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#hyperParameterTuningJobConfig_parameterRanges"><span class="hs-identifier hs-type">hyperParameterTuningJobConfig_parameterRanges</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig"><span class="hs-identifier hs-type">HyperParameterTuningJobConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ParameterRanges.html#ParameterRanges"><span class="hs-identifier hs-type">ParameterRanges</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span id="hyperParameterTuningJobConfig_parameterRanges"><span class="annot"><span class="annottext">hyperParameterTuningJobConfig_parameterRanges :: (Maybe ParameterRanges -&gt; f (Maybe ParameterRanges))
--&gt; HyperParameterTuningJobConfig -&gt; f HyperParameterTuningJobConfig
-</span><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#hyperParameterTuningJobConfig_parameterRanges"><span class="hs-identifier hs-var hs-var">hyperParameterTuningJobConfig_parameterRanges</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HyperParameterTuningJobConfig -&gt; Maybe ParameterRanges)
--&gt; (HyperParameterTuningJobConfig
-    -&gt; Maybe ParameterRanges -&gt; HyperParameterTuningJobConfig)
--&gt; Lens
-     HyperParameterTuningJobConfig
-     HyperParameterTuningJobConfig
-     (Maybe ParameterRanges)
-     (Maybe ParameterRanges)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig%27"><span class="hs-identifier hs-type">HyperParameterTuningJobConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680353113"><span class="annot"><span class="annottext">Maybe ParameterRanges
-parameterRanges :: Maybe ParameterRanges
-$sel:parameterRanges:HyperParameterTuningJobConfig' :: HyperParameterTuningJobConfig -&gt; Maybe ParameterRanges
-</span><a href="#local-6989586621680353113"><span class="hs-identifier hs-var hs-var">parameterRanges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ParameterRanges
-</span><a href="#local-6989586621680353113"><span class="hs-identifier hs-var">parameterRanges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680353112"><span class="annot"><span class="annottext">s :: HyperParameterTuningJobConfig
-</span><a href="#local-6989586621680353112"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig%27"><span class="hs-identifier hs-type">HyperParameterTuningJobConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680353111"><span class="annot"><span class="annottext">Maybe ParameterRanges
-</span><a href="#local-6989586621680353111"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HyperParameterTuningJobConfig
-</span><a href="#local-6989586621680353112"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameterRanges:HyperParameterTuningJobConfig' :: Maybe ParameterRanges
-</span><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#%24sel%3AparameterRanges%3AHyperParameterTuningJobConfig%27"><span class="hs-identifier hs-var">parameterRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ParameterRanges
-</span><a href="#local-6989586621680353111"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig"><span class="hs-identifier hs-type">HyperParameterTuningJobConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- | The tuning job\'s completion criteria.</span><span>
-</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#hyperParameterTuningJobConfig_tuningJobCompletionCriteria"><span class="hs-identifier hs-type">hyperParameterTuningJobConfig_tuningJobCompletionCriteria</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig"><span class="hs-identifier hs-type">HyperParameterTuningJobConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TuningJobCompletionCriteria.html#TuningJobCompletionCriteria"><span class="hs-identifier hs-type">TuningJobCompletionCriteria</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-141"></span><span id="hyperParameterTuningJobConfig_tuningJobCompletionCriteria"><span class="annot"><span class="annottext">hyperParameterTuningJobConfig_tuningJobCompletionCriteria :: (Maybe TuningJobCompletionCriteria
+</span><span id="line-129"></span><span class="hs-comment">-- | The tuning job\'s completion criteria.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#hyperParameterTuningJobConfig_tuningJobCompletionCriteria"><span class="hs-identifier hs-type">hyperParameterTuningJobConfig_tuningJobCompletionCriteria</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig"><span class="hs-identifier hs-type">HyperParameterTuningJobConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TuningJobCompletionCriteria.html#TuningJobCompletionCriteria"><span class="hs-identifier hs-type">TuningJobCompletionCriteria</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="hyperParameterTuningJobConfig_tuningJobCompletionCriteria"><span class="annot"><span class="annottext">hyperParameterTuningJobConfig_tuningJobCompletionCriteria :: (Maybe TuningJobCompletionCriteria
  -&gt; f (Maybe TuningJobCompletionCriteria))
 -&gt; HyperParameterTuningJobConfig -&gt; f HyperParameterTuningJobConfig
 </span><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#hyperParameterTuningJobConfig_tuningJobCompletionCriteria"><span class="hs-identifier hs-var hs-var">hyperParameterTuningJobConfig_tuningJobCompletionCriteria</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HyperParameterTuningJobConfig
@@ -303,16 +249,70 @@ $sel:parameterRanges:HyperParameterTuningJobConfig' :: HyperParameterTuningJobCo
      (Maybe TuningJobCompletionCriteria)
      (Maybe TuningJobCompletionCriteria)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig%27"><span class="hs-identifier hs-type">HyperParameterTuningJobConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680353109"><span class="annot"><span class="annottext">Maybe TuningJobCompletionCriteria
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig%27"><span class="hs-identifier hs-type">HyperParameterTuningJobConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680354555"><span class="annot"><span class="annottext">Maybe TuningJobCompletionCriteria
 tuningJobCompletionCriteria :: Maybe TuningJobCompletionCriteria
 $sel:tuningJobCompletionCriteria:HyperParameterTuningJobConfig' :: HyperParameterTuningJobConfig -&gt; Maybe TuningJobCompletionCriteria
-</span><a href="#local-6989586621680353109"><span class="hs-identifier hs-var hs-var">tuningJobCompletionCriteria</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TuningJobCompletionCriteria
-</span><a href="#local-6989586621680353109"><span class="hs-identifier hs-var">tuningJobCompletionCriteria</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680353108"><span class="annot"><span class="annottext">s :: HyperParameterTuningJobConfig
-</span><a href="#local-6989586621680353108"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig%27"><span class="hs-identifier hs-type">HyperParameterTuningJobConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680353107"><span class="annot"><span class="annottext">Maybe TuningJobCompletionCriteria
-</span><a href="#local-6989586621680353107"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HyperParameterTuningJobConfig
-</span><a href="#local-6989586621680353108"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tuningJobCompletionCriteria:HyperParameterTuningJobConfig' :: Maybe TuningJobCompletionCriteria
+</span><a href="#local-6989586621680354555"><span class="hs-identifier hs-var hs-var">tuningJobCompletionCriteria</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TuningJobCompletionCriteria
+</span><a href="#local-6989586621680354555"><span class="hs-identifier hs-var">tuningJobCompletionCriteria</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680354554"><span class="annot"><span class="annottext">s :: HyperParameterTuningJobConfig
+</span><a href="#local-6989586621680354554"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig%27"><span class="hs-identifier hs-type">HyperParameterTuningJobConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680354553"><span class="annot"><span class="annottext">Maybe TuningJobCompletionCriteria
+</span><a href="#local-6989586621680354553"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HyperParameterTuningJobConfig
+</span><a href="#local-6989586621680354554"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tuningJobCompletionCriteria:HyperParameterTuningJobConfig' :: Maybe TuningJobCompletionCriteria
 </span><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#%24sel%3AtuningJobCompletionCriteria%3AHyperParameterTuningJobConfig%27"><span class="hs-identifier hs-var">tuningJobCompletionCriteria</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TuningJobCompletionCriteria
-</span><a href="#local-6989586621680353107"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig"><span class="hs-identifier hs-type">HyperParameterTuningJobConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680354553"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig"><span class="hs-identifier hs-type">HyperParameterTuningJobConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The ParameterRanges object that specifies the ranges of hyperparameters</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- that this tuning job searches.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#hyperParameterTuningJobConfig_parameterRanges"><span class="hs-identifier hs-type">hyperParameterTuningJobConfig_parameterRanges</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig"><span class="hs-identifier hs-type">HyperParameterTuningJobConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ParameterRanges.html#ParameterRanges"><span class="hs-identifier hs-type">ParameterRanges</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="hyperParameterTuningJobConfig_parameterRanges"><span class="annot"><span class="annottext">hyperParameterTuningJobConfig_parameterRanges :: (Maybe ParameterRanges -&gt; f (Maybe ParameterRanges))
+-&gt; HyperParameterTuningJobConfig -&gt; f HyperParameterTuningJobConfig
+</span><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#hyperParameterTuningJobConfig_parameterRanges"><span class="hs-identifier hs-var hs-var">hyperParameterTuningJobConfig_parameterRanges</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HyperParameterTuningJobConfig -&gt; Maybe ParameterRanges)
+-&gt; (HyperParameterTuningJobConfig
+    -&gt; Maybe ParameterRanges -&gt; HyperParameterTuningJobConfig)
+-&gt; Lens
+     HyperParameterTuningJobConfig
+     HyperParameterTuningJobConfig
+     (Maybe ParameterRanges)
+     (Maybe ParameterRanges)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig%27"><span class="hs-identifier hs-type">HyperParameterTuningJobConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680354551"><span class="annot"><span class="annottext">Maybe ParameterRanges
+parameterRanges :: Maybe ParameterRanges
+$sel:parameterRanges:HyperParameterTuningJobConfig' :: HyperParameterTuningJobConfig -&gt; Maybe ParameterRanges
+</span><a href="#local-6989586621680354551"><span class="hs-identifier hs-var hs-var">parameterRanges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ParameterRanges
+</span><a href="#local-6989586621680354551"><span class="hs-identifier hs-var">parameterRanges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680354550"><span class="annot"><span class="annottext">s :: HyperParameterTuningJobConfig
+</span><a href="#local-6989586621680354550"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig%27"><span class="hs-identifier hs-type">HyperParameterTuningJobConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680354549"><span class="annot"><span class="annottext">Maybe ParameterRanges
+</span><a href="#local-6989586621680354549"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HyperParameterTuningJobConfig
+</span><a href="#local-6989586621680354550"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameterRanges:HyperParameterTuningJobConfig' :: Maybe ParameterRanges
+</span><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#%24sel%3AparameterRanges%3AHyperParameterTuningJobConfig%27"><span class="hs-identifier hs-var">parameterRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ParameterRanges
+</span><a href="#local-6989586621680354549"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig"><span class="hs-identifier hs-type">HyperParameterTuningJobConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The HyperParameterTuningJobObjective object that specifies the objective</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- metric for this tuning job.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#hyperParameterTuningJobConfig_hyperParameterTuningJobObjective"><span class="hs-identifier hs-type">hyperParameterTuningJobConfig_hyperParameterTuningJobObjective</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig"><span class="hs-identifier hs-type">HyperParameterTuningJobConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobObjective.html#HyperParameterTuningJobObjective"><span class="hs-identifier hs-type">HyperParameterTuningJobObjective</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="hyperParameterTuningJobConfig_hyperParameterTuningJobObjective"><span class="annot"><span class="annottext">hyperParameterTuningJobConfig_hyperParameterTuningJobObjective :: (Maybe HyperParameterTuningJobObjective
+ -&gt; f (Maybe HyperParameterTuningJobObjective))
+-&gt; HyperParameterTuningJobConfig -&gt; f HyperParameterTuningJobConfig
+</span><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#hyperParameterTuningJobConfig_hyperParameterTuningJobObjective"><span class="hs-identifier hs-var hs-var">hyperParameterTuningJobConfig_hyperParameterTuningJobObjective</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HyperParameterTuningJobConfig
+ -&gt; Maybe HyperParameterTuningJobObjective)
+-&gt; (HyperParameterTuningJobConfig
+    -&gt; Maybe HyperParameterTuningJobObjective
+    -&gt; HyperParameterTuningJobConfig)
+-&gt; Lens
+     HyperParameterTuningJobConfig
+     HyperParameterTuningJobConfig
+     (Maybe HyperParameterTuningJobObjective)
+     (Maybe HyperParameterTuningJobObjective)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig%27"><span class="hs-identifier hs-type">HyperParameterTuningJobConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680354547"><span class="annot"><span class="annottext">Maybe HyperParameterTuningJobObjective
+hyperParameterTuningJobObjective :: Maybe HyperParameterTuningJobObjective
+$sel:hyperParameterTuningJobObjective:HyperParameterTuningJobConfig' :: HyperParameterTuningJobConfig
+-&gt; Maybe HyperParameterTuningJobObjective
+</span><a href="#local-6989586621680354547"><span class="hs-identifier hs-var hs-var">hyperParameterTuningJobObjective</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HyperParameterTuningJobObjective
+</span><a href="#local-6989586621680354547"><span class="hs-identifier hs-var">hyperParameterTuningJobObjective</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680354546"><span class="annot"><span class="annottext">s :: HyperParameterTuningJobConfig
+</span><a href="#local-6989586621680354546"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig%27"><span class="hs-identifier hs-type">HyperParameterTuningJobConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680354545"><span class="annot"><span class="annottext">Maybe HyperParameterTuningJobObjective
+</span><a href="#local-6989586621680354545"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HyperParameterTuningJobConfig
+</span><a href="#local-6989586621680354546"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hyperParameterTuningJobObjective:HyperParameterTuningJobConfig' :: Maybe HyperParameterTuningJobObjective
+</span><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#%24sel%3AhyperParameterTuningJobObjective%3AHyperParameterTuningJobConfig%27"><span class="hs-identifier hs-var">hyperParameterTuningJobObjective</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HyperParameterTuningJobObjective
+</span><a href="#local-6989586621680354545"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig"><span class="hs-identifier hs-type">HyperParameterTuningJobConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- | Specifies whether to use early stopping for training jobs launched by</span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- the hyperparameter tuning job. This can be one of the following values</span><span>
@@ -342,16 +342,16 @@ $sel:tuningJobCompletionCriteria:HyperParameterTuningJobConfig' :: HyperParamete
      (Maybe TrainingJobEarlyStoppingType)
      (Maybe TrainingJobEarlyStoppingType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig%27"><span class="hs-identifier hs-type">HyperParameterTuningJobConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680353105"><span class="annot"><span class="annottext">Maybe TrainingJobEarlyStoppingType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig%27"><span class="hs-identifier hs-type">HyperParameterTuningJobConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680354543"><span class="annot"><span class="annottext">Maybe TrainingJobEarlyStoppingType
 trainingJobEarlyStoppingType :: Maybe TrainingJobEarlyStoppingType
 $sel:trainingJobEarlyStoppingType:HyperParameterTuningJobConfig' :: HyperParameterTuningJobConfig -&gt; Maybe TrainingJobEarlyStoppingType
-</span><a href="#local-6989586621680353105"><span class="hs-identifier hs-var hs-var">trainingJobEarlyStoppingType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TrainingJobEarlyStoppingType
-</span><a href="#local-6989586621680353105"><span class="hs-identifier hs-var">trainingJobEarlyStoppingType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680353104"><span class="annot"><span class="annottext">s :: HyperParameterTuningJobConfig
-</span><a href="#local-6989586621680353104"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig%27"><span class="hs-identifier hs-type">HyperParameterTuningJobConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680353103"><span class="annot"><span class="annottext">Maybe TrainingJobEarlyStoppingType
-</span><a href="#local-6989586621680353103"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HyperParameterTuningJobConfig
-</span><a href="#local-6989586621680353104"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trainingJobEarlyStoppingType:HyperParameterTuningJobConfig' :: Maybe TrainingJobEarlyStoppingType
+</span><a href="#local-6989586621680354543"><span class="hs-identifier hs-var hs-var">trainingJobEarlyStoppingType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TrainingJobEarlyStoppingType
+</span><a href="#local-6989586621680354543"><span class="hs-identifier hs-var">trainingJobEarlyStoppingType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680354542"><span class="annot"><span class="annottext">s :: HyperParameterTuningJobConfig
+</span><a href="#local-6989586621680354542"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig%27"><span class="hs-identifier hs-type">HyperParameterTuningJobConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680354541"><span class="annot"><span class="annottext">Maybe TrainingJobEarlyStoppingType
+</span><a href="#local-6989586621680354541"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HyperParameterTuningJobConfig
+</span><a href="#local-6989586621680354542"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trainingJobEarlyStoppingType:HyperParameterTuningJobConfig' :: Maybe TrainingJobEarlyStoppingType
 </span><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#%24sel%3AtrainingJobEarlyStoppingType%3AHyperParameterTuningJobConfig%27"><span class="hs-identifier hs-var">trainingJobEarlyStoppingType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrainingJobEarlyStoppingType
-</span><a href="#local-6989586621680353103"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig"><span class="hs-identifier hs-type">HyperParameterTuningJobConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680354541"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig"><span class="hs-identifier hs-type">HyperParameterTuningJobConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- | Specifies how hyperparameter tuning chooses the combinations of</span><span>
 </span><span id="line-160"></span><span class="hs-comment">-- hyperparameter values to use for the training job it launches. To use</span><span>
@@ -373,17 +373,17 @@ $sel:trainingJobEarlyStoppingType:HyperParameterTuningJobConfig' :: HyperParamet
      HyperParameterTuningJobStrategyType
      HyperParameterTuningJobStrategyType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig%27"><span class="hs-identifier hs-type">HyperParameterTuningJobConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680353101"><span class="annot"><span class="annottext">HyperParameterTuningJobStrategyType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig%27"><span class="hs-identifier hs-type">HyperParameterTuningJobConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680354539"><span class="annot"><span class="annottext">HyperParameterTuningJobStrategyType
 strategy :: HyperParameterTuningJobStrategyType
 $sel:strategy:HyperParameterTuningJobConfig' :: HyperParameterTuningJobConfig
 -&gt; HyperParameterTuningJobStrategyType
-</span><a href="#local-6989586621680353101"><span class="hs-identifier hs-var hs-var">strategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HyperParameterTuningJobStrategyType
-</span><a href="#local-6989586621680353101"><span class="hs-identifier hs-var">strategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680353100"><span class="annot"><span class="annottext">s :: HyperParameterTuningJobConfig
-</span><a href="#local-6989586621680353100"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig%27"><span class="hs-identifier hs-type">HyperParameterTuningJobConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680353099"><span class="annot"><span class="annottext">HyperParameterTuningJobStrategyType
-</span><a href="#local-6989586621680353099"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HyperParameterTuningJobConfig
-</span><a href="#local-6989586621680353100"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:strategy:HyperParameterTuningJobConfig' :: HyperParameterTuningJobStrategyType
+</span><a href="#local-6989586621680354539"><span class="hs-identifier hs-var hs-var">strategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HyperParameterTuningJobStrategyType
+</span><a href="#local-6989586621680354539"><span class="hs-identifier hs-var">strategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680354538"><span class="annot"><span class="annottext">s :: HyperParameterTuningJobConfig
+</span><a href="#local-6989586621680354538"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig%27"><span class="hs-identifier hs-type">HyperParameterTuningJobConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680354537"><span class="annot"><span class="annottext">HyperParameterTuningJobStrategyType
+</span><a href="#local-6989586621680354537"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HyperParameterTuningJobConfig
+</span><a href="#local-6989586621680354538"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:strategy:HyperParameterTuningJobConfig' :: HyperParameterTuningJobStrategyType
 </span><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#%24sel%3Astrategy%3AHyperParameterTuningJobConfig%27"><span class="hs-identifier hs-var">strategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HyperParameterTuningJobStrategyType
-</span><a href="#local-6989586621680353099"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig"><span class="hs-identifier hs-type">HyperParameterTuningJobConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680354537"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig"><span class="hs-identifier hs-type">HyperParameterTuningJobConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- | The ResourceLimits object that specifies the maximum number of training</span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- jobs and parallel training jobs for this tuning job.</span><span>
@@ -399,19 +399,19 @@ $sel:strategy:HyperParameterTuningJobConfig' :: HyperParameterTuningJobConfig
      ResourceLimits
      ResourceLimits
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig%27"><span class="hs-identifier hs-type">HyperParameterTuningJobConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680353097"><span class="annot"><span class="annottext">ResourceLimits
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig%27"><span class="hs-identifier hs-type">HyperParameterTuningJobConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680354535"><span class="annot"><span class="annottext">ResourceLimits
 resourceLimits :: ResourceLimits
 $sel:resourceLimits:HyperParameterTuningJobConfig' :: HyperParameterTuningJobConfig -&gt; ResourceLimits
-</span><a href="#local-6989586621680353097"><span class="hs-identifier hs-var hs-var">resourceLimits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceLimits
-</span><a href="#local-6989586621680353097"><span class="hs-identifier hs-var">resourceLimits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680353096"><span class="annot"><span class="annottext">s :: HyperParameterTuningJobConfig
-</span><a href="#local-6989586621680353096"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig%27"><span class="hs-identifier hs-type">HyperParameterTuningJobConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680353095"><span class="annot"><span class="annottext">ResourceLimits
-</span><a href="#local-6989586621680353095"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HyperParameterTuningJobConfig
-</span><a href="#local-6989586621680353096"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceLimits:HyperParameterTuningJobConfig' :: ResourceLimits
+</span><a href="#local-6989586621680354535"><span class="hs-identifier hs-var hs-var">resourceLimits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceLimits
+</span><a href="#local-6989586621680354535"><span class="hs-identifier hs-var">resourceLimits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680354534"><span class="annot"><span class="annottext">s :: HyperParameterTuningJobConfig
+</span><a href="#local-6989586621680354534"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig%27"><span class="hs-identifier hs-type">HyperParameterTuningJobConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680354533"><span class="annot"><span class="annottext">ResourceLimits
+</span><a href="#local-6989586621680354533"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HyperParameterTuningJobConfig
+</span><a href="#local-6989586621680354534"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceLimits:HyperParameterTuningJobConfig' :: ResourceLimits
 </span><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#%24sel%3AresourceLimits%3AHyperParameterTuningJobConfig%27"><span class="hs-identifier hs-var">resourceLimits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceLimits
-</span><a href="#local-6989586621680353095"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig"><span class="hs-identifier hs-type">HyperParameterTuningJobConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680354533"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig"><span class="hs-identifier hs-type">HyperParameterTuningJobConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
-</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680353092"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig"><span class="hs-identifier hs-type">HyperParameterTuningJobConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621680353090"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HyperParameterTuningJobConfig
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680354530"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig"><span class="hs-identifier hs-type">HyperParameterTuningJobConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621680354528"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HyperParameterTuningJobConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser HyperParameterTuningJobConfig)
@@ -421,64 +421,64 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;HyperParameterTuningJobConfig&quot;</span></span><span>
-</span><span id="line-176"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680353087"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680353087"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-177"></span><span>          </span><span class="annot"><span class="annottext">Maybe HyperParameterTuningJobObjective
+</span><span id="line-176"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680354525"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680354525"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-177"></span><span>          </span><span class="annot"><span class="annottext">Maybe TuningJobCompletionCriteria
 -&gt; Maybe ParameterRanges
--&gt; Maybe TuningJobCompletionCriteria
+-&gt; Maybe HyperParameterTuningJobObjective
 -&gt; Maybe TrainingJobEarlyStoppingType
 -&gt; HyperParameterTuningJobStrategyType
 -&gt; ResourceLimits
 -&gt; HyperParameterTuningJobConfig
 </span><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig%27"><span class="hs-identifier hs-var">HyperParameterTuningJobConfig'</span></a></span><span>
-</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">(Maybe HyperParameterTuningJobObjective
+</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">(Maybe TuningJobCompletionCriteria
  -&gt; Maybe ParameterRanges
- -&gt; Maybe TuningJobCompletionCriteria
+ -&gt; Maybe HyperParameterTuningJobObjective
  -&gt; Maybe TrainingJobEarlyStoppingType
  -&gt; HyperParameterTuningJobStrategyType
  -&gt; ResourceLimits
  -&gt; HyperParameterTuningJobConfig)
--&gt; Parser (Maybe HyperParameterTuningJobObjective)
+-&gt; Parser (Maybe TuningJobCompletionCriteria)
 -&gt; Parser
      (Maybe ParameterRanges
-      -&gt; Maybe TuningJobCompletionCriteria
+      -&gt; Maybe HyperParameterTuningJobObjective
       -&gt; Maybe TrainingJobEarlyStoppingType
       -&gt; HyperParameterTuningJobStrategyType
       -&gt; ResourceLimits
       -&gt; HyperParameterTuningJobConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680353087"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HyperParameterTuningJobObjective)
+</span><a href="#local-6989586621680354525"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TuningJobCompletionCriteria)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;HyperParameterTuningJobObjective&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;TuningJobCompletionCriteria&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe ParameterRanges
-   -&gt; Maybe TuningJobCompletionCriteria
+   -&gt; Maybe HyperParameterTuningJobObjective
    -&gt; Maybe TrainingJobEarlyStoppingType
    -&gt; HyperParameterTuningJobStrategyType
    -&gt; ResourceLimits
    -&gt; HyperParameterTuningJobConfig)
 -&gt; Parser (Maybe ParameterRanges)
 -&gt; Parser
-     (Maybe TuningJobCompletionCriteria
+     (Maybe HyperParameterTuningJobObjective
       -&gt; Maybe TrainingJobEarlyStoppingType
       -&gt; HyperParameterTuningJobStrategyType
       -&gt; ResourceLimits
       -&gt; HyperParameterTuningJobConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680353087"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ParameterRanges)
+</span><a href="#local-6989586621680354525"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ParameterRanges)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ParameterRanges&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe TuningJobCompletionCriteria
+  (Maybe HyperParameterTuningJobObjective
    -&gt; Maybe TrainingJobEarlyStoppingType
    -&gt; HyperParameterTuningJobStrategyType
    -&gt; ResourceLimits
    -&gt; HyperParameterTuningJobConfig)
--&gt; Parser (Maybe TuningJobCompletionCriteria)
+-&gt; Parser (Maybe HyperParameterTuningJobObjective)
 -&gt; Parser
      (Maybe TrainingJobEarlyStoppingType
       -&gt; HyperParameterTuningJobStrategyType
@@ -486,10 +486,10 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; HyperParameterTuningJobConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680353087"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TuningJobCompletionCriteria)
+</span><a href="#local-6989586621680354525"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HyperParameterTuningJobObjective)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;TuningJobCompletionCriteria&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;HyperParameterTuningJobObjective&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe TrainingJobEarlyStoppingType
    -&gt; HyperParameterTuningJobStrategyType
@@ -501,7 +501,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ResourceLimits -&gt; HyperParameterTuningJobConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680353087"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TrainingJobEarlyStoppingType)
+</span><a href="#local-6989586621680354525"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TrainingJobEarlyStoppingType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TrainingJobEarlyStoppingType&quot;</span></span><span class="hs-special">)</span><span>
@@ -512,7 +512,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (ResourceLimits -&gt; HyperParameterTuningJobConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680353087"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser HyperParameterTuningJobStrategyType
+</span><a href="#local-6989586621680354525"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser HyperParameterTuningJobStrategyType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Strategy&quot;</span></span><span class="hs-special">)</span><span>
@@ -520,21 +520,21 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser ResourceLimits -&gt; Parser HyperParameterTuningJobConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680353087"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ResourceLimits
+</span><a href="#local-6989586621680354525"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ResourceLimits
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceLimits&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-187"></span><span>  </span><span id="local-6989586621680353080"><span id="local-6989586621680353082"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621680354518"><span id="local-6989586621680354520"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-188"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig"><span class="hs-identifier hs-type">HyperParameterTuningJobConfig</span></a></span></span></span><span>
 </span><span id="line-189"></span><span>
-</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680353077"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig"><span class="hs-identifier hs-type">HyperParameterTuningJobConfig</span></a></span></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680354515"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig"><span class="hs-identifier hs-type">HyperParameterTuningJobConfig</span></a></span></span><span>
 </span><span id="line-191"></span><span>
-</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680353069"><span id="local-6989586621680353071"><span id="local-6989586621680353073"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig"><span class="hs-identifier hs-type">HyperParameterTuningJobConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-193"></span><span>  </span><span id="local-6989586621680353067"><span class="annot"><span class="annottext">toJSON :: HyperParameterTuningJobConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig%27"><span class="hs-identifier hs-type">HyperParameterTuningJobConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680353060"><span id="local-6989586621680353061"><span id="local-6989586621680353062"><span id="local-6989586621680353063"><span id="local-6989586621680353064"><span id="local-6989586621680353065"><span class="annot"><span class="annottext">Maybe HyperParameterTuningJobObjective
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680354507"><span id="local-6989586621680354509"><span id="local-6989586621680354511"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig"><span class="hs-identifier hs-type">HyperParameterTuningJobConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621680354505"><span class="annot"><span class="annottext">toJSON :: HyperParameterTuningJobConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HyperParameterTuningJobConfig.html#HyperParameterTuningJobConfig%27"><span class="hs-identifier hs-type">HyperParameterTuningJobConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680354498"><span id="local-6989586621680354499"><span id="local-6989586621680354500"><span id="local-6989586621680354501"><span id="local-6989586621680354502"><span id="local-6989586621680354503"><span class="annot"><span class="annottext">Maybe HyperParameterTuningJobObjective
 Maybe ParameterRanges
 Maybe TrainingJobEarlyStoppingType
 Maybe TuningJobCompletionCriteria
@@ -543,32 +543,32 @@ ResourceLimits
 resourceLimits :: ResourceLimits
 strategy :: HyperParameterTuningJobStrategyType
 trainingJobEarlyStoppingType :: Maybe TrainingJobEarlyStoppingType
-tuningJobCompletionCriteria :: Maybe TuningJobCompletionCriteria
-parameterRanges :: Maybe ParameterRanges
 hyperParameterTuningJobObjective :: Maybe HyperParameterTuningJobObjective
+parameterRanges :: Maybe ParameterRanges
+tuningJobCompletionCriteria :: Maybe TuningJobCompletionCriteria
 $sel:resourceLimits:HyperParameterTuningJobConfig' :: HyperParameterTuningJobConfig -&gt; ResourceLimits
 $sel:strategy:HyperParameterTuningJobConfig' :: HyperParameterTuningJobConfig
 -&gt; HyperParameterTuningJobStrategyType
 $sel:trainingJobEarlyStoppingType:HyperParameterTuningJobConfig' :: HyperParameterTuningJobConfig -&gt; Maybe TrainingJobEarlyStoppingType
-$sel:tuningJobCompletionCriteria:HyperParameterTuningJobConfig' :: HyperParameterTuningJobConfig -&gt; Maybe TuningJobCompletionCriteria
-$sel:parameterRanges:HyperParameterTuningJobConfig' :: HyperParameterTuningJobConfig -&gt; Maybe ParameterRanges
 $sel:hyperParameterTuningJobObjective:HyperParameterTuningJobConfig' :: HyperParameterTuningJobConfig
 -&gt; Maybe HyperParameterTuningJobObjective
-</span><a href="#local-6989586621680353060"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:parameterRanges:HyperParameterTuningJobConfig' :: HyperParameterTuningJobConfig -&gt; Maybe ParameterRanges
+$sel:tuningJobCompletionCriteria:HyperParameterTuningJobConfig' :: HyperParameterTuningJobConfig -&gt; Maybe TuningJobCompletionCriteria
+</span><a href="#local-6989586621680354498"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-194"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-195"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-196"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;HyperParameterTuningJobObjective&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HyperParameterTuningJobObjective -&gt; Pair
+</span><span class="hs-string">&quot;TuningJobCompletionCriteria&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TuningJobCompletionCriteria -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-197"></span><span>              </span><span class="annot"><span class="annottext">(HyperParameterTuningJobObjective -&gt; Pair)
--&gt; Maybe HyperParameterTuningJobObjective -&gt; Maybe Pair
+</span><span id="line-197"></span><span>              </span><span class="annot"><span class="annottext">(TuningJobCompletionCriteria -&gt; Pair)
+-&gt; Maybe TuningJobCompletionCriteria -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe HyperParameterTuningJobObjective
-</span><a href="#local-6989586621680353065"><span class="hs-identifier hs-var">hyperParameterTuningJobObjective</span></a></span><span class="hs-special">,</span><span>
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TuningJobCompletionCriteria
+</span><a href="#local-6989586621680354503"><span class="hs-identifier hs-var">tuningJobCompletionCriteria</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-198"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ParameterRanges&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ParameterRanges -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -576,16 +576,16 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-199"></span><span>              </span><span class="annot"><span class="annottext">(ParameterRanges -&gt; Pair) -&gt; Maybe ParameterRanges -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ParameterRanges
-</span><a href="#local-6989586621680353064"><span class="hs-identifier hs-var">parameterRanges</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680354502"><span class="hs-identifier hs-var">parameterRanges</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-200"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;TuningJobCompletionCriteria&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TuningJobCompletionCriteria -&gt; Pair
+</span><span class="hs-string">&quot;HyperParameterTuningJobObjective&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HyperParameterTuningJobObjective -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-201"></span><span>              </span><span class="annot"><span class="annottext">(TuningJobCompletionCriteria -&gt; Pair)
--&gt; Maybe TuningJobCompletionCriteria -&gt; Maybe Pair
+</span><span id="line-201"></span><span>              </span><span class="annot"><span class="annottext">(HyperParameterTuningJobObjective -&gt; Pair)
+-&gt; Maybe HyperParameterTuningJobObjective -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TuningJobCompletionCriteria
-</span><a href="#local-6989586621680353063"><span class="hs-identifier hs-var">tuningJobCompletionCriteria</span></a></span><span class="hs-special">,</span><span>
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe HyperParameterTuningJobObjective
+</span><a href="#local-6989586621680354501"><span class="hs-identifier hs-var">hyperParameterTuningJobObjective</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-202"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TrainingJobEarlyStoppingType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TrainingJobEarlyStoppingType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -594,14 +594,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe TrainingJobEarlyStoppingType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TrainingJobEarlyStoppingType
-</span><a href="#local-6989586621680353062"><span class="hs-identifier hs-var">trainingJobEarlyStoppingType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680354500"><span class="hs-identifier hs-var">trainingJobEarlyStoppingType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-204"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Strategy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HyperParameterTuningJobStrategyType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">HyperParameterTuningJobStrategyType
-</span><a href="#local-6989586621680353061"><span class="hs-identifier hs-var">strategy</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680354499"><span class="hs-identifier hs-var">strategy</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-205"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -609,7 +609,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ResourceLimits&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ResourceLimits -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ResourceLimits
-</span><a href="#local-6989586621680353060"><span class="hs-identifier hs-var">resourceLimits</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680354498"><span class="hs-identifier hs-var">resourceLimits</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-207"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-208"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-209"></span></pre></body></html>

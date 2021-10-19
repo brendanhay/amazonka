@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-comment">-- | Represents the input of a get commit operation.</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- /See:/ 'newGetCommit' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679365425"><span id="local-6989586621679365426"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCommit"><span class="annot"><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommit"><span class="hs-identifier hs-var">GetCommit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCommit%27"><span class="annot"><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommit%27"><span class="hs-identifier hs-var">GetCommit'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679365726"><span id="local-6989586621679365727"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCommit"><span class="annot"><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommit"><span class="hs-identifier hs-var">GetCommit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCommit%27"><span class="annot"><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommit%27"><span class="hs-identifier hs-var">GetCommit'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the repository to which the commit was made.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3ArepositoryName%3AGetCommit%27"><span class="annot"><span class="annottext">GetCommit -&gt; Text
 </span><a href="Network.AWS.CodeCommit.GetCommit.html#%24sel%3ArepositoryName%3AGetCommit%27"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -59,7 +59,7 @@
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AcommitId%3AGetCommit%27"><span class="annot"><span class="annottext">GetCommit -&gt; Text
 </span><a href="Network.AWS.CodeCommit.GetCommit.html#%24sel%3AcommitId%3AGetCommit%27"><span class="hs-identifier hs-var hs-var">commitId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679365418"><span id="local-6989586621679365420"><span class="annot"><span class="annottext">GetCommit -&gt; GetCommit -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679365719"><span id="local-6989586621679365721"><span class="annot"><span class="annottext">GetCommit -&gt; GetCommit -&gt; Bool
 (GetCommit -&gt; GetCommit -&gt; Bool)
 -&gt; (GetCommit -&gt; GetCommit -&gt; Bool) -&gt; Eq GetCommit
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetCommit -&gt; GetCommit -&gt; Bool
 == :: GetCommit -&gt; GetCommit -&gt; Bool
 $c== :: GetCommit -&gt; GetCommit -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365409"><span id="local-6989586621679365411"><span id="local-6989586621679365413"><span id="local-6989586621679365415"><span class="annot"><span class="annottext">ReadPrec [GetCommit]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365710"><span id="local-6989586621679365712"><span id="local-6989586621679365714"><span id="local-6989586621679365716"><span class="annot"><span class="annottext">ReadPrec [GetCommit]
 ReadPrec GetCommit
 Int -&gt; ReadS GetCommit
 ReadS [GetCommit]
@@ -87,7 +87,7 @@ readList :: ReadS [GetCommit]
 $creadList :: ReadS [GetCommit]
 readsPrec :: Int -&gt; ReadS GetCommit
 $creadsPrec :: Int -&gt; ReadS GetCommit
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365402"><span id="local-6989586621679365404"><span id="local-6989586621679365406"><span class="annot"><span class="annottext">Int -&gt; GetCommit -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365703"><span id="local-6989586621679365705"><span id="local-6989586621679365707"><span class="annot"><span class="annottext">Int -&gt; GetCommit -&gt; ShowS
 [GetCommit] -&gt; ShowS
 GetCommit -&gt; String
 (Int -&gt; GetCommit -&gt; ShowS)
@@ -130,17 +130,17 @@ $cfrom :: forall x. GetCommit -&gt; Rep GetCommit x
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommit"><span class="hs-identifier hs-type">GetCommit</span></a></span><span>
 </span><span id="line-79"></span><span id="newGetCommit"><span class="annot"><span class="annottext">newGetCommit :: Text -&gt; Text -&gt; GetCommit
-</span><a href="Network.AWS.CodeCommit.GetCommit.html#newGetCommit"><span class="hs-identifier hs-var hs-var">newGetCommit</span></a></span></span><span> </span><span id="local-6989586621679365397"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679365397"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span></span><span> </span><span id="local-6989586621679365396"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679365396"><span class="hs-identifier hs-var">pCommitId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeCommit.GetCommit.html#newGetCommit"><span class="hs-identifier hs-var hs-var">newGetCommit</span></a></span></span><span> </span><span id="local-6989586621679365698"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679365698"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span></span><span> </span><span id="local-6989586621679365697"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679365697"><span class="hs-identifier hs-var">pCommitId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">GetCommit' :: Text -&gt; Text -&gt; GetCommit
 </span><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommit%27"><span class="hs-identifier hs-type">GetCommit'</span></a></span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:repositoryName:GetCommit' :: Text
 </span><a href="Network.AWS.CodeCommit.GetCommit.html#%24sel%3ArepositoryName%3AGetCommit%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679365397"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679365698"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:commitId:GetCommit' :: Text
 </span><a href="Network.AWS.CodeCommit.GetCommit.html#%24sel%3AcommitId%3AGetCommit%27"><span class="hs-identifier hs-var">commitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679365396"><span class="hs-identifier hs-var">pCommitId_</span></a></span><span>
+</span><a href="#local-6989586621679365697"><span class="hs-identifier hs-var">pCommitId_</span></a></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The name of the repository to which the commit was made.</span><span>
@@ -150,16 +150,16 @@ $cfrom :: forall x. GetCommit -&gt; Rep GetCommit x
 -&gt; (GetCommit -&gt; Text -&gt; GetCommit)
 -&gt; Lens GetCommit GetCommit Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommit%27"><span class="hs-identifier hs-type">GetCommit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365393"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommit%27"><span class="hs-identifier hs-type">GetCommit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365694"><span class="annot"><span class="annottext">Text
 repositoryName :: Text
 $sel:repositoryName:GetCommit' :: GetCommit -&gt; Text
-</span><a href="#local-6989586621679365393"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679365393"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365392"><span class="annot"><span class="annottext">s :: GetCommit
-</span><a href="#local-6989586621679365392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommit%27"><span class="hs-identifier hs-type">GetCommit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365391"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679365391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCommit
-</span><a href="#local-6989586621679365392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:GetCommit' :: Text
+</span><a href="#local-6989586621679365694"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679365694"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365693"><span class="annot"><span class="annottext">s :: GetCommit
+</span><a href="#local-6989586621679365693"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommit%27"><span class="hs-identifier hs-type">GetCommit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365692"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679365692"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCommit
+</span><a href="#local-6989586621679365693"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:GetCommit' :: Text
 </span><a href="Network.AWS.CodeCommit.GetCommit.html#%24sel%3ArepositoryName%3AGetCommit%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679365391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommit"><span class="hs-identifier hs-type">GetCommit</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679365692"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommit"><span class="hs-identifier hs-type">GetCommit</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | The commit ID. Commit IDs are the full SHA ID of the commit.</span><span>
 </span><span id="line-90"></span><span class="annot"><a href="Network.AWS.CodeCommit.GetCommit.html#getCommit_commitId"><span class="hs-identifier hs-type">getCommit_commitId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommit"><span class="hs-identifier hs-type">GetCommit</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -168,25 +168,25 @@ $sel:repositoryName:GetCommit' :: GetCommit -&gt; Text
 -&gt; (GetCommit -&gt; Text -&gt; GetCommit)
 -&gt; Lens GetCommit GetCommit Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommit%27"><span class="hs-identifier hs-type">GetCommit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365390"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommit%27"><span class="hs-identifier hs-type">GetCommit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365691"><span class="annot"><span class="annottext">Text
 commitId :: Text
 $sel:commitId:GetCommit' :: GetCommit -&gt; Text
-</span><a href="#local-6989586621679365390"><span class="hs-identifier hs-var hs-var">commitId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679365390"><span class="hs-identifier hs-var">commitId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365389"><span class="annot"><span class="annottext">s :: GetCommit
-</span><a href="#local-6989586621679365389"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommit%27"><span class="hs-identifier hs-type">GetCommit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365388"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679365388"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCommit
-</span><a href="#local-6989586621679365389"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:commitId:GetCommit' :: Text
+</span><a href="#local-6989586621679365691"><span class="hs-identifier hs-var hs-var">commitId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679365691"><span class="hs-identifier hs-var">commitId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365690"><span class="annot"><span class="annottext">s :: GetCommit
+</span><a href="#local-6989586621679365690"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommit%27"><span class="hs-identifier hs-type">GetCommit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365689"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679365689"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCommit
+</span><a href="#local-6989586621679365690"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:commitId:GetCommit' :: Text
 </span><a href="Network.AWS.CodeCommit.GetCommit.html#%24sel%3AcommitId%3AGetCommit%27"><span class="hs-identifier hs-var">commitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679365388"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommit"><span class="hs-identifier hs-type">GetCommit</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679365689"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommit"><span class="hs-identifier hs-type">GetCommit</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommit"><span class="hs-identifier hs-type">GetCommit</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-94"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommit"><span class="hs-identifier hs-type">GetCommit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommitResponse"><span class="hs-identifier hs-type">GetCommitResponse</span></a></span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679365384"><span class="annot"><span class="annottext">request :: GetCommit -&gt; Request GetCommit
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679365685"><span class="annot"><span class="annottext">request :: GetCommit -&gt; Request GetCommit
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetCommit -&gt; Request GetCommit
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodeCommit.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679365380"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679365681"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetCommit
 -&gt; ClientResponse ClientBody
@@ -210,10 +210,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679365377"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679365377"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679365376"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679365376"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679365375"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679365375"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679365678"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679365678"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679365677"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679365677"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679365676"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679365676"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Commit -&gt; GetCommitResponse
 </span><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommitResponse%27"><span class="hs-identifier hs-var">GetCommitResponse'</span></a></span><span>
 </span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Commit -&gt; GetCommitResponse)
@@ -224,23 +224,23 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679365377"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679365678"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Either String (Commit -&gt; GetCommitResponse)
 -&gt; Either String Commit -&gt; Either String GetCommitResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679365375"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Commit
+</span><a href="#local-6989586621679365676"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Commit
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;commit&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365367"><span id="local-6989586621679365369"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommit"><span class="hs-identifier hs-type">GetCommit</span></a></span></span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365668"><span id="local-6989586621679365670"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommit"><span class="hs-identifier hs-type">GetCommit</span></a></span></span></span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365364"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommit"><span class="hs-identifier hs-type">GetCommit</span></a></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365665"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommit"><span class="hs-identifier hs-type">GetCommit</span></a></span></span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommit"><span class="hs-identifier hs-type">GetCommit</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679365360"><span class="annot"><span class="annottext">toHeaders :: GetCommit -&gt; ResponseHeaders
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679365661"><span class="annot"><span class="annottext">toHeaders :: GetCommit -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetCommit -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -267,14 +267,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-120"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365350"><span id="local-6989586621679365352"><span id="local-6989586621679365354"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommit"><span class="hs-identifier hs-type">GetCommit</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679365348"><span class="annot"><span class="annottext">toJSON :: GetCommit -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommit%27"><span class="hs-identifier hs-type">GetCommit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365345"><span id="local-6989586621679365346"><span class="annot"><span class="annottext">Text
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365651"><span id="local-6989586621679365653"><span id="local-6989586621679365655"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommit"><span class="hs-identifier hs-type">GetCommit</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679365649"><span class="annot"><span class="annottext">toJSON :: GetCommit -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommit%27"><span class="hs-identifier hs-type">GetCommit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365646"><span id="local-6989586621679365647"><span class="annot"><span class="annottext">Text
 commitId :: Text
 repositoryName :: Text
 $sel:commitId:GetCommit' :: GetCommit -&gt; Text
 $sel:repositoryName:GetCommit' :: GetCommit -&gt; Text
-</span><a href="#local-6989586621679365345"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679365646"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -287,26 +287,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;repositoryName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679365346"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679365647"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;commitId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679365345"><span class="hs-identifier hs-var">commitId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679365646"><span class="hs-identifier hs-var">commitId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommit"><span class="hs-identifier hs-type">GetCommit</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679365339"><span class="annot"><span class="annottext">toPath :: GetCommit -&gt; ByteString
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679365640"><span class="annot"><span class="annottext">toPath :: GetCommit -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetCommit -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommit"><span class="hs-identifier hs-type">GetCommit</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679365335"><span class="annot"><span class="annottext">toQuery :: GetCommit -&gt; QueryString
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679365636"><span class="annot"><span class="annottext">toQuery :: GetCommit -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetCommit -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -316,7 +316,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-139"></span><span class="hs-comment">-- | Represents the output of a get commit operation.</span><span>
 </span><span id="line-140"></span><span class="hs-comment">--</span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- /See:/ 'newGetCommitResponse' smart constructor.</span><span>
-</span><span id="line-142"></span><span id="local-6989586621679365332"><span id="local-6989586621679365333"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCommitResponse"><span class="annot"><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommitResponse"><span class="hs-identifier hs-var">GetCommitResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCommitResponse%27"><span class="annot"><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommitResponse%27"><span class="hs-identifier hs-var">GetCommitResponse'</span></a></span></span><span>
+</span><span id="line-142"></span><span id="local-6989586621679365633"><span id="local-6989586621679365634"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCommitResponse"><span class="annot"><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommitResponse"><span class="hs-identifier hs-var">GetCommitResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCommitResponse%27"><span class="annot"><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommitResponse%27"><span class="hs-identifier hs-var">GetCommitResponse'</span></a></span></span><span>
 </span><span id="line-143"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-144"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetCommitResponse%27"><span class="annot"><span class="annottext">GetCommitResponse -&gt; Int
 </span><a href="Network.AWS.CodeCommit.GetCommit.html#%24sel%3AhttpStatus%3AGetCommitResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -325,7 +325,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-147"></span><span>    </span><span id="%24sel%3Acommit%3AGetCommitResponse%27"><span class="annot"><span class="annottext">GetCommitResponse -&gt; Commit
 </span><a href="Network.AWS.CodeCommit.GetCommit.html#%24sel%3Acommit%3AGetCommitResponse%27"><span class="hs-identifier hs-var hs-var">commit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Commit.html#Commit"><span class="hs-identifier hs-type">Commit</span></a></span><span>
 </span><span id="line-148"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-149"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679365326"><span id="local-6989586621679365328"><span class="annot"><span class="annottext">GetCommitResponse -&gt; GetCommitResponse -&gt; Bool
+</span><span id="line-149"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679365627"><span id="local-6989586621679365629"><span class="annot"><span class="annottext">GetCommitResponse -&gt; GetCommitResponse -&gt; Bool
 (GetCommitResponse -&gt; GetCommitResponse -&gt; Bool)
 -&gt; (GetCommitResponse -&gt; GetCommitResponse -&gt; Bool)
 -&gt; Eq GetCommitResponse
@@ -334,7 +334,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetCommitResponse -&gt; GetCommitResponse -&gt; Bool
 == :: GetCommitResponse -&gt; GetCommitResponse -&gt; Bool
 $c== :: GetCommitResponse -&gt; GetCommitResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365318"><span id="local-6989586621679365320"><span id="local-6989586621679365322"><span id="local-6989586621679365324"><span class="annot"><span class="annottext">ReadPrec [GetCommitResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365619"><span id="local-6989586621679365621"><span id="local-6989586621679365623"><span id="local-6989586621679365625"><span class="annot"><span class="annottext">ReadPrec [GetCommitResponse]
 ReadPrec GetCommitResponse
 Int -&gt; ReadS GetCommitResponse
 ReadS [GetCommitResponse]
@@ -354,7 +354,7 @@ readList :: ReadS [GetCommitResponse]
 $creadList :: ReadS [GetCommitResponse]
 readsPrec :: Int -&gt; ReadS GetCommitResponse
 $creadsPrec :: Int -&gt; ReadS GetCommitResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365312"><span id="local-6989586621679365314"><span id="local-6989586621679365316"><span class="annot"><span class="annottext">Int -&gt; GetCommitResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365613"><span id="local-6989586621679365615"><span id="local-6989586621679365617"><span class="annot"><span class="annottext">Int -&gt; GetCommitResponse -&gt; ShowS
 [GetCommitResponse] -&gt; ShowS
 GetCommitResponse -&gt; String
 (Int -&gt; GetCommitResponse -&gt; ShowS)
@@ -399,17 +399,17 @@ $cfrom :: forall x. GetCommitResponse -&gt; Rep GetCommitResponse x
 </span><span id="line-167"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Commit.html#Commit"><span class="hs-identifier hs-type">Commit</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-168"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommitResponse"><span class="hs-identifier hs-type">GetCommitResponse</span></a></span><span>
 </span><span id="line-169"></span><span id="newGetCommitResponse"><span class="annot"><span class="annottext">newGetCommitResponse :: Int -&gt; Commit -&gt; GetCommitResponse
-</span><a href="Network.AWS.CodeCommit.GetCommit.html#newGetCommitResponse"><span class="hs-identifier hs-var hs-var">newGetCommitResponse</span></a></span></span><span> </span><span id="local-6989586621679365309"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679365309"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679365308"><span class="annot"><span class="annottext">Commit
-</span><a href="#local-6989586621679365308"><span class="hs-identifier hs-var">pCommit_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeCommit.GetCommit.html#newGetCommitResponse"><span class="hs-identifier hs-var hs-var">newGetCommitResponse</span></a></span></span><span> </span><span id="local-6989586621679365610"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679365610"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679365609"><span class="annot"><span class="annottext">Commit
+</span><a href="#local-6989586621679365609"><span class="hs-identifier hs-var">pCommit_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-170"></span><span>  </span><span class="annot"><span class="annottext">GetCommitResponse' :: Int -&gt; Commit -&gt; GetCommitResponse
 </span><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommitResponse%27"><span class="hs-identifier hs-type">GetCommitResponse'</span></a></span><span>
 </span><span id="line-171"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:GetCommitResponse' :: Int
 </span><a href="Network.AWS.CodeCommit.GetCommit.html#%24sel%3AhttpStatus%3AGetCommitResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679365309"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679365610"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-172"></span><span>      </span><span class="annot"><span class="annottext">$sel:commit:GetCommitResponse' :: Commit
 </span><a href="Network.AWS.CodeCommit.GetCommit.html#%24sel%3Acommit%3AGetCommitResponse%27"><span class="hs-identifier hs-var">commit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Commit
-</span><a href="#local-6989586621679365308"><span class="hs-identifier hs-var">pCommit_</span></a></span><span>
+</span><a href="#local-6989586621679365609"><span class="hs-identifier hs-var">pCommit_</span></a></span><span>
 </span><span id="line-173"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -419,16 +419,16 @@ $cfrom :: forall x. GetCommitResponse -&gt; Rep GetCommitResponse x
 -&gt; (GetCommitResponse -&gt; Int -&gt; GetCommitResponse)
 -&gt; Lens GetCommitResponse GetCommitResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommitResponse%27"><span class="hs-identifier hs-type">GetCommitResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365307"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommitResponse%27"><span class="hs-identifier hs-type">GetCommitResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365608"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetCommitResponse' :: GetCommitResponse -&gt; Int
-</span><a href="#local-6989586621679365307"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679365307"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365306"><span class="annot"><span class="annottext">s :: GetCommitResponse
-</span><a href="#local-6989586621679365306"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommitResponse%27"><span class="hs-identifier hs-type">GetCommitResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365305"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679365305"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCommitResponse
-</span><a href="#local-6989586621679365306"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetCommitResponse' :: Int
+</span><a href="#local-6989586621679365608"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679365608"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365607"><span class="annot"><span class="annottext">s :: GetCommitResponse
+</span><a href="#local-6989586621679365607"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommitResponse%27"><span class="hs-identifier hs-type">GetCommitResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365606"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679365606"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCommitResponse
+</span><a href="#local-6989586621679365607"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetCommitResponse' :: Int
 </span><a href="Network.AWS.CodeCommit.GetCommit.html#%24sel%3AhttpStatus%3AGetCommitResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679365305"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommitResponse"><span class="hs-identifier hs-type">GetCommitResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679365606"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommitResponse"><span class="hs-identifier hs-type">GetCommitResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-comment">-- | A commit data type object that contains information about the specified</span><span>
 </span><span id="line-180"></span><span class="hs-comment">-- commit.</span><span>
@@ -438,16 +438,16 @@ $sel:httpStatus:GetCommitResponse' :: GetCommitResponse -&gt; Int
 -&gt; (GetCommitResponse -&gt; Commit -&gt; GetCommitResponse)
 -&gt; Lens GetCommitResponse GetCommitResponse Commit Commit
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommitResponse%27"><span class="hs-identifier hs-type">GetCommitResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365304"><span class="annot"><span class="annottext">Commit
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommitResponse%27"><span class="hs-identifier hs-type">GetCommitResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365605"><span class="annot"><span class="annottext">Commit
 commit :: Commit
 $sel:commit:GetCommitResponse' :: GetCommitResponse -&gt; Commit
-</span><a href="#local-6989586621679365304"><span class="hs-identifier hs-var hs-var">commit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Commit
-</span><a href="#local-6989586621679365304"><span class="hs-identifier hs-var">commit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365303"><span class="annot"><span class="annottext">s :: GetCommitResponse
-</span><a href="#local-6989586621679365303"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommitResponse%27"><span class="hs-identifier hs-type">GetCommitResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365302"><span class="annot"><span class="annottext">Commit
-</span><a href="#local-6989586621679365302"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCommitResponse
-</span><a href="#local-6989586621679365303"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:commit:GetCommitResponse' :: Commit
+</span><a href="#local-6989586621679365605"><span class="hs-identifier hs-var hs-var">commit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Commit
+</span><a href="#local-6989586621679365605"><span class="hs-identifier hs-var">commit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365604"><span class="annot"><span class="annottext">s :: GetCommitResponse
+</span><a href="#local-6989586621679365604"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommitResponse%27"><span class="hs-identifier hs-type">GetCommitResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365603"><span class="annot"><span class="annottext">Commit
+</span><a href="#local-6989586621679365603"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCommitResponse
+</span><a href="#local-6989586621679365604"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:commit:GetCommitResponse' :: Commit
 </span><a href="Network.AWS.CodeCommit.GetCommit.html#%24sel%3Acommit%3AGetCommitResponse%27"><span class="hs-identifier hs-var">commit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Commit
-</span><a href="#local-6989586621679365302"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommitResponse"><span class="hs-identifier hs-type">GetCommitResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679365603"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommitResponse"><span class="hs-identifier hs-type">GetCommitResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-183"></span><span>
-</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365300"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommitResponse"><span class="hs-identifier hs-type">GetCommitResponse</span></a></span></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365601"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetCommit.html#GetCommitResponse"><span class="hs-identifier hs-type">GetCommitResponse</span></a></span></span><span>
 </span><span id="line-185"></span></pre></body></html>

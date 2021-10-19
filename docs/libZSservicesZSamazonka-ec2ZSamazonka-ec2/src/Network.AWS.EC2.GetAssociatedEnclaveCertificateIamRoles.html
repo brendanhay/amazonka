@@ -31,8 +31,8 @@
 </span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#newGetAssociatedEnclaveCertificateIamRoles"><span class="hs-identifier">newGetAssociatedEnclaveCertificateIamRoles</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-32"></span><span>
 </span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#getAssociatedEnclaveCertificateIamRoles_dryRun"><span class="hs-identifier">getAssociatedEnclaveCertificateIamRoles_dryRun</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#getAssociatedEnclaveCertificateIamRoles_certificateArn"><span class="hs-identifier">getAssociatedEnclaveCertificateIamRoles_certificateArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#getAssociatedEnclaveCertificateIamRoles_certificateArn"><span class="hs-identifier">getAssociatedEnclaveCertificateIamRoles_certificateArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#getAssociatedEnclaveCertificateIamRoles_dryRun"><span class="hs-identifier">getAssociatedEnclaveCertificateIamRoles_dryRun</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRolesResponse"><span class="hs-identifier">GetAssociatedEnclaveCertificateIamRolesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -52,19 +52,19 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newGetAssociatedEnclaveCertificateIamRoles' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621681195579"><span id="local-6989586621681195580"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAssociatedEnclaveCertificateIamRoles"><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRoles"><span class="hs-identifier hs-var">GetAssociatedEnclaveCertificateIamRoles</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAssociatedEnclaveCertificateIamRoles%27"><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRoles%27"><span class="hs-identifier hs-var">GetAssociatedEnclaveCertificateIamRoles'</span></a></span></span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-60"></span><span>    </span><span id="%24sel%3AdryRun%3AGetAssociatedEnclaveCertificateIamRoles%27"><span class="annot"><span class="annottext">GetAssociatedEnclaveCertificateIamRoles -&gt; Maybe Bool
-</span><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#%24sel%3AdryRun%3AGetAssociatedEnclaveCertificateIamRoles%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The ARN of the ACM certificate for which to view the associated IAM</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- roles, encryption keys, and Amazon S3 object information.</span><span>
-</span><span id="line-63"></span><span>    </span><span id="%24sel%3AcertificateArn%3AGetAssociatedEnclaveCertificateIamRoles%27"><span class="annot"><span class="annottext">GetAssociatedEnclaveCertificateIamRoles -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#%24sel%3AcertificateArn%3AGetAssociatedEnclaveCertificateIamRoles%27"><span class="hs-identifier hs-var hs-var">certificateArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621681231233"><span id="local-6989586621681231234"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAssociatedEnclaveCertificateIamRoles"><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRoles"><span class="hs-identifier hs-var">GetAssociatedEnclaveCertificateIamRoles</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAssociatedEnclaveCertificateIamRoles%27"><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRoles%27"><span class="hs-identifier hs-var">GetAssociatedEnclaveCertificateIamRoles'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the ACM certificate for which to view the associated IAM</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- roles, encryption keys, and Amazon S3 object information.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AcertificateArn%3AGetAssociatedEnclaveCertificateIamRoles%27"><span class="annot"><span class="annottext">GetAssociatedEnclaveCertificateIamRoles -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#%24sel%3AcertificateArn%3AGetAssociatedEnclaveCertificateIamRoles%27"><span class="hs-identifier hs-var hs-var">certificateArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AdryRun%3AGetAssociatedEnclaveCertificateIamRoles%27"><span class="annot"><span class="annottext">GetAssociatedEnclaveCertificateIamRoles -&gt; Maybe Bool
+</span><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#%24sel%3AdryRun%3AGetAssociatedEnclaveCertificateIamRoles%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681195572"><span id="local-6989586621681195574"><span class="annot"><span class="annottext">GetAssociatedEnclaveCertificateIamRoles
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681231226"><span id="local-6989586621681231228"><span class="annot"><span class="annottext">GetAssociatedEnclaveCertificateIamRoles
 -&gt; GetAssociatedEnclaveCertificateIamRoles -&gt; Bool
 (GetAssociatedEnclaveCertificateIamRoles
  -&gt; GetAssociatedEnclaveCertificateIamRoles -&gt; Bool)
@@ -80,7 +80,7 @@ $c/= :: GetAssociatedEnclaveCertificateIamRoles
 -&gt; GetAssociatedEnclaveCertificateIamRoles -&gt; Bool
 $c== :: GetAssociatedEnclaveCertificateIamRoles
 -&gt; GetAssociatedEnclaveCertificateIamRoles -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681195563"><span id="local-6989586621681195565"><span id="local-6989586621681195567"><span id="local-6989586621681195569"><span class="annot"><span class="annottext">ReadPrec [GetAssociatedEnclaveCertificateIamRoles]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681231217"><span id="local-6989586621681231219"><span id="local-6989586621681231221"><span id="local-6989586621681231223"><span class="annot"><span class="annottext">ReadPrec [GetAssociatedEnclaveCertificateIamRoles]
 ReadPrec GetAssociatedEnclaveCertificateIamRoles
 Int -&gt; ReadS GetAssociatedEnclaveCertificateIamRoles
 ReadS [GetAssociatedEnclaveCertificateIamRoles]
@@ -100,7 +100,7 @@ readList :: ReadS [GetAssociatedEnclaveCertificateIamRoles]
 $creadList :: ReadS [GetAssociatedEnclaveCertificateIamRoles]
 readsPrec :: Int -&gt; ReadS GetAssociatedEnclaveCertificateIamRoles
 $creadsPrec :: Int -&gt; ReadS GetAssociatedEnclaveCertificateIamRoles
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681195556"><span id="local-6989586621681195558"><span id="local-6989586621681195560"><span class="annot"><span class="annottext">Int -&gt; GetAssociatedEnclaveCertificateIamRoles -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681231210"><span id="local-6989586621681231212"><span id="local-6989586621681231214"><span class="annot"><span class="annottext">Int -&gt; GetAssociatedEnclaveCertificateIamRoles -&gt; ShowS
 [GetAssociatedEnclaveCertificateIamRoles] -&gt; ShowS
 GetAssociatedEnclaveCertificateIamRoles -&gt; String
 (Int -&gt; GetAssociatedEnclaveCertificateIamRoles -&gt; ShowS)
@@ -146,62 +146,34 @@ GetAssociatedEnclaveCertificateIamRoles
 </span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-74"></span><span class="hs-comment">--</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- 'dryRun', 'getAssociatedEnclaveCertificateIamRoles_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'certificateArn', 'getAssociatedEnclaveCertificateIamRoles_certificateArn' - The ARN of the ACM certificate for which to view the associated IAM</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- roles, encryption keys, and Amazon S3 object information.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'certificateArn', 'getAssociatedEnclaveCertificateIamRoles_certificateArn' - The ARN of the ACM certificate for which to view the associated IAM</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- roles, encryption keys, and Amazon S3 object information.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'dryRun', 'getAssociatedEnclaveCertificateIamRoles_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
 </span><span id="line-82"></span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#newGetAssociatedEnclaveCertificateIamRoles"><span class="hs-identifier hs-type">newGetAssociatedEnclaveCertificateIamRoles</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRoles"><span class="hs-identifier hs-type">GetAssociatedEnclaveCertificateIamRoles</span></a></span><span>
 </span><span id="line-84"></span><span id="newGetAssociatedEnclaveCertificateIamRoles"><span class="annot"><span class="annottext">newGetAssociatedEnclaveCertificateIamRoles :: GetAssociatedEnclaveCertificateIamRoles
 </span><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#newGetAssociatedEnclaveCertificateIamRoles"><span class="hs-identifier hs-var hs-var">newGetAssociatedEnclaveCertificateIamRoles</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">GetAssociatedEnclaveCertificateIamRoles' :: Maybe Bool -&gt; Maybe Text -&gt; GetAssociatedEnclaveCertificateIamRoles
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">GetAssociatedEnclaveCertificateIamRoles' :: Maybe Text -&gt; Maybe Bool -&gt; GetAssociatedEnclaveCertificateIamRoles
 </span><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRoles%27"><span class="hs-identifier hs-type">GetAssociatedEnclaveCertificateIamRoles'</span></a></span><span>
-</span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dryRun:GetAssociatedEnclaveCertificateIamRoles' :: Maybe Bool
-</span><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#%24sel%3AdryRun%3AGetAssociatedEnclaveCertificateIamRoles%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:certificateArn:GetAssociatedEnclaveCertificateIamRoles' :: Maybe Text
+</span><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#%24sel%3AcertificateArn%3AGetAssociatedEnclaveCertificateIamRoles%27"><span class="hs-identifier hs-var">certificateArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:certificateArn:GetAssociatedEnclaveCertificateIamRoles' :: Maybe Text
-</span><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#%24sel%3AcertificateArn%3AGetAssociatedEnclaveCertificateIamRoles%27"><span class="hs-identifier hs-var">certificateArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:dryRun:GetAssociatedEnclaveCertificateIamRoles' :: Maybe Bool
+</span><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#%24sel%3AdryRun%3AGetAssociatedEnclaveCertificateIamRoles%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#getAssociatedEnclaveCertificateIamRoles_dryRun"><span class="hs-identifier hs-type">getAssociatedEnclaveCertificateIamRoles_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRoles"><span class="hs-identifier hs-type">GetAssociatedEnclaveCertificateIamRoles</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span id="getAssociatedEnclaveCertificateIamRoles_dryRun"><span class="annot"><span class="annottext">getAssociatedEnclaveCertificateIamRoles_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; GetAssociatedEnclaveCertificateIamRoles
--&gt; f GetAssociatedEnclaveCertificateIamRoles
-</span><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#getAssociatedEnclaveCertificateIamRoles_dryRun"><span class="hs-identifier hs-var hs-var">getAssociatedEnclaveCertificateIamRoles_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAssociatedEnclaveCertificateIamRoles -&gt; Maybe Bool)
--&gt; (GetAssociatedEnclaveCertificateIamRoles
-    -&gt; Maybe Bool -&gt; GetAssociatedEnclaveCertificateIamRoles)
--&gt; Lens
-     GetAssociatedEnclaveCertificateIamRoles
-     GetAssociatedEnclaveCertificateIamRoles
-     (Maybe Bool)
-     (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRoles%27"><span class="hs-identifier hs-type">GetAssociatedEnclaveCertificateIamRoles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681195549"><span class="annot"><span class="annottext">Maybe Bool
-dryRun :: Maybe Bool
-$sel:dryRun:GetAssociatedEnclaveCertificateIamRoles' :: GetAssociatedEnclaveCertificateIamRoles -&gt; Maybe Bool
-</span><a href="#local-6989586621681195549"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681195549"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681195548"><span class="annot"><span class="annottext">s :: GetAssociatedEnclaveCertificateIamRoles
-</span><a href="#local-6989586621681195548"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRoles%27"><span class="hs-identifier hs-type">GetAssociatedEnclaveCertificateIamRoles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681195547"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681195547"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAssociatedEnclaveCertificateIamRoles
-</span><a href="#local-6989586621681195548"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:GetAssociatedEnclaveCertificateIamRoles' :: Maybe Bool
-</span><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#%24sel%3AdryRun%3AGetAssociatedEnclaveCertificateIamRoles%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681195547"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRoles"><span class="hs-identifier hs-type">GetAssociatedEnclaveCertificateIamRoles</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- | The ARN of the ACM certificate for which to view the associated IAM</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- roles, encryption keys, and Amazon S3 object information.</span><span>
-</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#getAssociatedEnclaveCertificateIamRoles_certificateArn"><span class="hs-identifier hs-type">getAssociatedEnclaveCertificateIamRoles_certificateArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRoles"><span class="hs-identifier hs-type">GetAssociatedEnclaveCertificateIamRoles</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span id="getAssociatedEnclaveCertificateIamRoles_certificateArn"><span class="annot"><span class="annottext">getAssociatedEnclaveCertificateIamRoles_certificateArn :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-91"></span><span class="hs-comment">-- | The ARN of the ACM certificate for which to view the associated IAM</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- roles, encryption keys, and Amazon S3 object information.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#getAssociatedEnclaveCertificateIamRoles_certificateArn"><span class="hs-identifier hs-type">getAssociatedEnclaveCertificateIamRoles_certificateArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRoles"><span class="hs-identifier hs-type">GetAssociatedEnclaveCertificateIamRoles</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="getAssociatedEnclaveCertificateIamRoles_certificateArn"><span class="annot"><span class="annottext">getAssociatedEnclaveCertificateIamRoles_certificateArn :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; GetAssociatedEnclaveCertificateIamRoles
 -&gt; f GetAssociatedEnclaveCertificateIamRoles
 </span><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#getAssociatedEnclaveCertificateIamRoles_certificateArn"><span class="hs-identifier hs-var hs-var">getAssociatedEnclaveCertificateIamRoles_certificateArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAssociatedEnclaveCertificateIamRoles -&gt; Maybe Text)
@@ -213,16 +185,44 @@ $sel:dryRun:GetAssociatedEnclaveCertificateIamRoles' :: GetAssociatedEnclaveCert
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRoles%27"><span class="hs-identifier hs-type">GetAssociatedEnclaveCertificateIamRoles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681195546"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRoles%27"><span class="hs-identifier hs-type">GetAssociatedEnclaveCertificateIamRoles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681231203"><span class="annot"><span class="annottext">Maybe Text
 certificateArn :: Maybe Text
 $sel:certificateArn:GetAssociatedEnclaveCertificateIamRoles' :: GetAssociatedEnclaveCertificateIamRoles -&gt; Maybe Text
-</span><a href="#local-6989586621681195546"><span class="hs-identifier hs-var hs-var">certificateArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681195546"><span class="hs-identifier hs-var">certificateArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681195545"><span class="annot"><span class="annottext">s :: GetAssociatedEnclaveCertificateIamRoles
-</span><a href="#local-6989586621681195545"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRoles%27"><span class="hs-identifier hs-type">GetAssociatedEnclaveCertificateIamRoles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681195544"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681195544"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAssociatedEnclaveCertificateIamRoles
-</span><a href="#local-6989586621681195545"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateArn:GetAssociatedEnclaveCertificateIamRoles' :: Maybe Text
+</span><a href="#local-6989586621681231203"><span class="hs-identifier hs-var hs-var">certificateArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681231203"><span class="hs-identifier hs-var">certificateArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681231202"><span class="annot"><span class="annottext">s :: GetAssociatedEnclaveCertificateIamRoles
+</span><a href="#local-6989586621681231202"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRoles%27"><span class="hs-identifier hs-type">GetAssociatedEnclaveCertificateIamRoles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681231201"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681231201"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAssociatedEnclaveCertificateIamRoles
+</span><a href="#local-6989586621681231202"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateArn:GetAssociatedEnclaveCertificateIamRoles' :: Maybe Text
 </span><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#%24sel%3AcertificateArn%3AGetAssociatedEnclaveCertificateIamRoles%27"><span class="hs-identifier hs-var">certificateArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681195544"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRoles"><span class="hs-identifier hs-type">GetAssociatedEnclaveCertificateIamRoles</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681231201"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRoles"><span class="hs-identifier hs-type">GetAssociatedEnclaveCertificateIamRoles</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#getAssociatedEnclaveCertificateIamRoles_dryRun"><span class="hs-identifier hs-type">getAssociatedEnclaveCertificateIamRoles_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRoles"><span class="hs-identifier hs-type">GetAssociatedEnclaveCertificateIamRoles</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="getAssociatedEnclaveCertificateIamRoles_dryRun"><span class="annot"><span class="annottext">getAssociatedEnclaveCertificateIamRoles_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; GetAssociatedEnclaveCertificateIamRoles
+-&gt; f GetAssociatedEnclaveCertificateIamRoles
+</span><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#getAssociatedEnclaveCertificateIamRoles_dryRun"><span class="hs-identifier hs-var hs-var">getAssociatedEnclaveCertificateIamRoles_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAssociatedEnclaveCertificateIamRoles -&gt; Maybe Bool)
+-&gt; (GetAssociatedEnclaveCertificateIamRoles
+    -&gt; Maybe Bool -&gt; GetAssociatedEnclaveCertificateIamRoles)
+-&gt; Lens
+     GetAssociatedEnclaveCertificateIamRoles
+     GetAssociatedEnclaveCertificateIamRoles
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRoles%27"><span class="hs-identifier hs-type">GetAssociatedEnclaveCertificateIamRoles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681231200"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:GetAssociatedEnclaveCertificateIamRoles' :: GetAssociatedEnclaveCertificateIamRoles -&gt; Maybe Bool
+</span><a href="#local-6989586621681231200"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681231200"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681231199"><span class="annot"><span class="annottext">s :: GetAssociatedEnclaveCertificateIamRoles
+</span><a href="#local-6989586621681231199"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRoles%27"><span class="hs-identifier hs-type">GetAssociatedEnclaveCertificateIamRoles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681231198"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681231198"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAssociatedEnclaveCertificateIamRoles
+</span><a href="#local-6989586621681231199"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:GetAssociatedEnclaveCertificateIamRoles' :: Maybe Bool
+</span><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#%24sel%3AdryRun%3AGetAssociatedEnclaveCertificateIamRoles%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681231198"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRoles"><span class="hs-identifier hs-type">GetAssociatedEnclaveCertificateIamRoles</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-104"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
@@ -232,7 +232,7 @@ $sel:certificateArn:GetAssociatedEnclaveCertificateIamRoles' :: GetAssociatedEnc
 </span><span id="line-108"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span>
 </span><span id="line-109"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRoles"><span class="hs-identifier hs-type">GetAssociatedEnclaveCertificateIamRoles</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRolesResponse"><span class="hs-identifier hs-type">GetAssociatedEnclaveCertificateIamRolesResponse</span></a></span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621681195540"><span class="annot"><span class="annottext">request :: GetAssociatedEnclaveCertificateIamRoles
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621681231194"><span class="annot"><span class="annottext">request :: GetAssociatedEnclaveCertificateIamRoles
 -&gt; Request GetAssociatedEnclaveCertificateIamRoles
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; GetAssociatedEnclaveCertificateIamRoles
@@ -240,7 +240,7 @@ $sel:certificateArn:GetAssociatedEnclaveCertificateIamRoles' :: GetAssociatedEnc
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621681195536"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621681231190"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetAssociatedEnclaveCertificateIamRoles
 -&gt; ClientResponse ClientBody
@@ -271,10 +271,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681195533"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681195533"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681195532"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621681195532"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681195531"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681195531"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681231187"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681231187"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681231186"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681231186"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681231185"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681231185"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">Maybe [AssociatedRole]
 -&gt; Int -&gt; GetAssociatedEnclaveCertificateIamRolesResponse
 </span><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRolesResponse%27"><span class="hs-identifier hs-var">GetAssociatedEnclaveCertificateIamRolesResponse'</span></a></span><span>
@@ -285,7 +285,7 @@ MonadResource m =&gt;
      String (Int -&gt; GetAssociatedEnclaveCertificateIamRolesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681195531"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681231185"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;associatedRoleSet&quot;</span></span><span>
@@ -318,22 +318,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681195533"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681231187"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621681195520"><span id="local-6989586621681195522"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621681231174"><span id="local-6989586621681231176"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRoles"><span class="hs-identifier hs-type">GetAssociatedEnclaveCertificateIamRoles</span></a></span></span></span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621681195517"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621681231171"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRoles"><span class="hs-identifier hs-type">GetAssociatedEnclaveCertificateIamRoles</span></a></span></span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-132"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-133"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRoles"><span class="hs-identifier hs-type">GetAssociatedEnclaveCertificateIamRoles</span></a></span><span>
 </span><span id="line-134"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621681195513"><span class="annot"><span class="annottext">toHeaders :: GetAssociatedEnclaveCertificateIamRoles -&gt; ResponseHeaders
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621681231167"><span class="annot"><span class="annottext">toHeaders :: GetAssociatedEnclaveCertificateIamRoles -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; GetAssociatedEnclaveCertificateIamRoles -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -345,7 +345,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-138"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
 </span><span id="line-139"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRoles"><span class="hs-identifier hs-type">GetAssociatedEnclaveCertificateIamRoles</span></a></span><span>
 </span><span id="line-140"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621681195508"><span class="annot"><span class="annottext">toPath :: GetAssociatedEnclaveCertificateIamRoles -&gt; ByteString
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621681231162"><span class="annot"><span class="annottext">toPath :: GetAssociatedEnclaveCertificateIamRoles -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetAssociatedEnclaveCertificateIamRoles -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
@@ -355,14 +355,14 @@ forall a b. a -&gt; b -&gt; a
 </span><span id="line-144"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
 </span><span id="line-145"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRoles"><span class="hs-identifier hs-type">GetAssociatedEnclaveCertificateIamRoles</span></a></span><span>
 </span><span id="line-146"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621681195504"><span class="annot"><span class="annottext">toQuery :: GetAssociatedEnclaveCertificateIamRoles -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRoles%27"><span class="hs-identifier hs-type">GetAssociatedEnclaveCertificateIamRoles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681195501"><span id="local-6989586621681195502"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621681231158"><span class="annot"><span class="annottext">toQuery :: GetAssociatedEnclaveCertificateIamRoles -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRoles%27"><span class="hs-identifier hs-type">GetAssociatedEnclaveCertificateIamRoles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681231155"><span id="local-6989586621681231156"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
-certificateArn :: Maybe Text
 dryRun :: Maybe Bool
-$sel:certificateArn:GetAssociatedEnclaveCertificateIamRoles' :: GetAssociatedEnclaveCertificateIamRoles -&gt; Maybe Text
+certificateArn :: Maybe Text
 $sel:dryRun:GetAssociatedEnclaveCertificateIamRoles' :: GetAssociatedEnclaveCertificateIamRoles -&gt; Maybe Bool
-</span><a href="#local-6989586621681195501"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:certificateArn:GetAssociatedEnclaveCertificateIamRoles' :: GetAssociatedEnclaveCertificateIamRoles -&gt; Maybe Text
+</span><a href="#local-6989586621681231155"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -381,19 +381,19 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-155"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681195502"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-156"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;CertificateArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681195501"><span class="hs-identifier hs-var">certificateArn</span></a></span><span>
+</span><a href="#local-6989586621681231156"><span class="hs-identifier hs-var">certificateArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681231155"><span class="hs-identifier hs-var">dryRun</span></a></span><span>
 </span><span id="line-157"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- | /See:/ 'newGetAssociatedEnclaveCertificateIamRolesResponse' smart constructor.</span><span>
-</span><span id="line-160"></span><span id="local-6989586621681195498"><span id="local-6989586621681195499"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAssociatedEnclaveCertificateIamRolesResponse"><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRolesResponse"><span class="hs-identifier hs-var">GetAssociatedEnclaveCertificateIamRolesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAssociatedEnclaveCertificateIamRolesResponse%27"><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRolesResponse%27"><span class="hs-identifier hs-var">GetAssociatedEnclaveCertificateIamRolesResponse'</span></a></span></span><span>
+</span><span id="line-160"></span><span id="local-6989586621681231152"><span id="local-6989586621681231153"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAssociatedEnclaveCertificateIamRolesResponse"><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRolesResponse"><span class="hs-identifier hs-var">GetAssociatedEnclaveCertificateIamRolesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAssociatedEnclaveCertificateIamRolesResponse%27"><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRolesResponse%27"><span class="hs-identifier hs-var">GetAssociatedEnclaveCertificateIamRolesResponse'</span></a></span></span><span>
 </span><span id="line-161"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the associated IAM roles.</span><span>
 </span><span id="line-162"></span><span>    </span><span id="%24sel%3AassociatedRoles%3AGetAssociatedEnclaveCertificateIamRolesResponse%27"><span class="annot"><span class="annottext">GetAssociatedEnclaveCertificateIamRolesResponse
 -&gt; Maybe [AssociatedRole]
@@ -402,7 +402,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-164"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetAssociatedEnclaveCertificateIamRolesResponse%27"><span class="annot"><span class="annottext">GetAssociatedEnclaveCertificateIamRolesResponse -&gt; Int
 </span><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#%24sel%3AhttpStatus%3AGetAssociatedEnclaveCertificateIamRolesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-165"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-166"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681195492"><span id="local-6989586621681195494"><span class="annot"><span class="annottext">GetAssociatedEnclaveCertificateIamRolesResponse
+</span><span id="line-166"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681231146"><span id="local-6989586621681231148"><span class="annot"><span class="annottext">GetAssociatedEnclaveCertificateIamRolesResponse
 -&gt; GetAssociatedEnclaveCertificateIamRolesResponse -&gt; Bool
 (GetAssociatedEnclaveCertificateIamRolesResponse
  -&gt; GetAssociatedEnclaveCertificateIamRolesResponse -&gt; Bool)
@@ -418,7 +418,7 @@ $c/= :: GetAssociatedEnclaveCertificateIamRolesResponse
 -&gt; GetAssociatedEnclaveCertificateIamRolesResponse -&gt; Bool
 $c== :: GetAssociatedEnclaveCertificateIamRolesResponse
 -&gt; GetAssociatedEnclaveCertificateIamRolesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681195484"><span id="local-6989586621681195486"><span id="local-6989586621681195488"><span id="local-6989586621681195490"><span class="annot"><span class="annottext">ReadPrec [GetAssociatedEnclaveCertificateIamRolesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681231138"><span id="local-6989586621681231140"><span id="local-6989586621681231142"><span id="local-6989586621681231144"><span class="annot"><span class="annottext">ReadPrec [GetAssociatedEnclaveCertificateIamRolesResponse]
 ReadPrec GetAssociatedEnclaveCertificateIamRolesResponse
 Int -&gt; ReadS GetAssociatedEnclaveCertificateIamRolesResponse
 ReadS [GetAssociatedEnclaveCertificateIamRolesResponse]
@@ -438,7 +438,7 @@ readList :: ReadS [GetAssociatedEnclaveCertificateIamRolesResponse]
 $creadList :: ReadS [GetAssociatedEnclaveCertificateIamRolesResponse]
 readsPrec :: Int -&gt; ReadS GetAssociatedEnclaveCertificateIamRolesResponse
 $creadsPrec :: Int -&gt; ReadS GetAssociatedEnclaveCertificateIamRolesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681195478"><span id="local-6989586621681195480"><span id="local-6989586621681195482"><span class="annot"><span class="annottext">Int -&gt; GetAssociatedEnclaveCertificateIamRolesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681231132"><span id="local-6989586621681231134"><span id="local-6989586621681231136"><span class="annot"><span class="annottext">Int -&gt; GetAssociatedEnclaveCertificateIamRolesResponse -&gt; ShowS
 [GetAssociatedEnclaveCertificateIamRolesResponse] -&gt; ShowS
 GetAssociatedEnclaveCertificateIamRolesResponse -&gt; String
 (Int -&gt; GetAssociatedEnclaveCertificateIamRolesResponse -&gt; ShowS)
@@ -493,8 +493,8 @@ GetAssociatedEnclaveCertificateIamRolesResponse
 </span><span id="line-182"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRolesResponse"><span class="hs-identifier hs-type">GetAssociatedEnclaveCertificateIamRolesResponse</span></a></span><span>
 </span><span id="line-183"></span><span id="newGetAssociatedEnclaveCertificateIamRolesResponse"><span class="annot"><span class="annottext">newGetAssociatedEnclaveCertificateIamRolesResponse :: Int -&gt; GetAssociatedEnclaveCertificateIamRolesResponse
 </span><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#newGetAssociatedEnclaveCertificateIamRolesResponse"><span class="hs-identifier hs-var hs-var">newGetAssociatedEnclaveCertificateIamRolesResponse</span></a></span></span><span>
-</span><span id="line-184"></span><span>  </span><span id="local-6989586621681195475"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681195475"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621681231129"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681231129"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-185"></span><span>    </span><span class="annot"><span class="annottext">GetAssociatedEnclaveCertificateIamRolesResponse' :: Maybe [AssociatedRole]
 -&gt; Int -&gt; GetAssociatedEnclaveCertificateIamRolesResponse
 </span><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRolesResponse%27"><span class="hs-identifier hs-type">GetAssociatedEnclaveCertificateIamRolesResponse'</span></a></span><span>
@@ -505,7 +505,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-188"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:GetAssociatedEnclaveCertificateIamRolesResponse' :: Int
 </span><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#%24sel%3AhttpStatus%3AGetAssociatedEnclaveCertificateIamRolesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681195475"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621681231129"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-189"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- | Information about the associated IAM roles.</span><span>
@@ -524,17 +524,17 @@ forall a. Maybe a
      (Maybe [AssociatedRole])
      (Maybe [AssociatedRole])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRolesResponse%27"><span class="hs-identifier hs-type">GetAssociatedEnclaveCertificateIamRolesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681195474"><span class="annot"><span class="annottext">Maybe [AssociatedRole]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRolesResponse%27"><span class="hs-identifier hs-type">GetAssociatedEnclaveCertificateIamRolesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681231128"><span class="annot"><span class="annottext">Maybe [AssociatedRole]
 associatedRoles :: Maybe [AssociatedRole]
 $sel:associatedRoles:GetAssociatedEnclaveCertificateIamRolesResponse' :: GetAssociatedEnclaveCertificateIamRolesResponse
 -&gt; Maybe [AssociatedRole]
-</span><a href="#local-6989586621681195474"><span class="hs-identifier hs-var hs-var">associatedRoles</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AssociatedRole]
-</span><a href="#local-6989586621681195474"><span class="hs-identifier hs-var">associatedRoles</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681195473"><span class="annot"><span class="annottext">s :: GetAssociatedEnclaveCertificateIamRolesResponse
-</span><a href="#local-6989586621681195473"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRolesResponse%27"><span class="hs-identifier hs-type">GetAssociatedEnclaveCertificateIamRolesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681195472"><span class="annot"><span class="annottext">Maybe [AssociatedRole]
-</span><a href="#local-6989586621681195472"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAssociatedEnclaveCertificateIamRolesResponse
-</span><a href="#local-6989586621681195473"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associatedRoles:GetAssociatedEnclaveCertificateIamRolesResponse' :: Maybe [AssociatedRole]
+</span><a href="#local-6989586621681231128"><span class="hs-identifier hs-var hs-var">associatedRoles</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AssociatedRole]
+</span><a href="#local-6989586621681231128"><span class="hs-identifier hs-var">associatedRoles</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681231127"><span class="annot"><span class="annottext">s :: GetAssociatedEnclaveCertificateIamRolesResponse
+</span><a href="#local-6989586621681231127"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRolesResponse%27"><span class="hs-identifier hs-type">GetAssociatedEnclaveCertificateIamRolesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681231126"><span class="annot"><span class="annottext">Maybe [AssociatedRole]
+</span><a href="#local-6989586621681231126"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAssociatedEnclaveCertificateIamRolesResponse
+</span><a href="#local-6989586621681231127"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associatedRoles:GetAssociatedEnclaveCertificateIamRolesResponse' :: Maybe [AssociatedRole]
 </span><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#%24sel%3AassociatedRoles%3AGetAssociatedEnclaveCertificateIamRolesResponse%27"><span class="hs-identifier hs-var">associatedRoles</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AssociatedRole]
-</span><a href="#local-6989586621681195472"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRolesResponse"><span class="hs-identifier hs-type">GetAssociatedEnclaveCertificateIamRolesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AssociatedRole] -&gt; f (Maybe [AssociatedRole]))
+</span><a href="#local-6989586621681231126"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRolesResponse"><span class="hs-identifier hs-type">GetAssociatedEnclaveCertificateIamRolesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AssociatedRole] -&gt; f (Maybe [AssociatedRole]))
  -&gt; GetAssociatedEnclaveCertificateIamRolesResponse
  -&gt; f GetAssociatedEnclaveCertificateIamRolesResponse)
 -&gt; ((Maybe [AssociatedRole] -&gt; f (Maybe [AssociatedRole]))
@@ -555,8 +555,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   [AssociatedRole] [AssociatedRole] [AssociatedRole] [AssociatedRole]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-194"></span><span>
 </span><span id="line-195"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-196"></span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#getAssociatedEnclaveCertificateIamRolesResponse_httpStatus"><span class="hs-identifier hs-type">getAssociatedEnclaveCertificateIamRolesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRolesResponse"><span class="hs-identifier hs-type">GetAssociatedEnclaveCertificateIamRolesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -572,18 +572,18 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRolesResponse%27"><span class="hs-identifier hs-type">GetAssociatedEnclaveCertificateIamRolesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681195468"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRolesResponse%27"><span class="hs-identifier hs-type">GetAssociatedEnclaveCertificateIamRolesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681231122"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetAssociatedEnclaveCertificateIamRolesResponse' :: GetAssociatedEnclaveCertificateIamRolesResponse -&gt; Int
-</span><a href="#local-6989586621681195468"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681195468"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681195467"><span class="annot"><span class="annottext">s :: GetAssociatedEnclaveCertificateIamRolesResponse
-</span><a href="#local-6989586621681195467"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRolesResponse%27"><span class="hs-identifier hs-type">GetAssociatedEnclaveCertificateIamRolesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681195466"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681195466"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAssociatedEnclaveCertificateIamRolesResponse
-</span><a href="#local-6989586621681195467"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetAssociatedEnclaveCertificateIamRolesResponse' :: Int
+</span><a href="#local-6989586621681231122"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681231122"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681231121"><span class="annot"><span class="annottext">s :: GetAssociatedEnclaveCertificateIamRolesResponse
+</span><a href="#local-6989586621681231121"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRolesResponse%27"><span class="hs-identifier hs-type">GetAssociatedEnclaveCertificateIamRolesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681231120"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681231120"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAssociatedEnclaveCertificateIamRolesResponse
+</span><a href="#local-6989586621681231121"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetAssociatedEnclaveCertificateIamRolesResponse' :: Int
 </span><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#%24sel%3AhttpStatus%3AGetAssociatedEnclaveCertificateIamRolesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681195466"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRolesResponse"><span class="hs-identifier hs-type">GetAssociatedEnclaveCertificateIamRolesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681231120"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRolesResponse"><span class="hs-identifier hs-type">GetAssociatedEnclaveCertificateIamRolesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-200"></span><span>  </span><span id="local-6989586621681195464"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621681231118"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-201"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles.html#GetAssociatedEnclaveCertificateIamRolesResponse"><span class="hs-identifier hs-type">GetAssociatedEnclaveCertificateIamRolesResponse</span></a></span></span><span>
 </span><span id="line-202"></span></pre></body></html>

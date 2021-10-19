@@ -27,26 +27,26 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The description of the point in time settings applied to the table.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newPointInTimeRecoveryDescription' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679374296"><span id="local-6989586621679374297"></span></span><span class="hs-keyword">data</span><span> </span><span id="PointInTimeRecoveryDescription"><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription"><span class="hs-identifier hs-var">PointInTimeRecoveryDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PointInTimeRecoveryDescription%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription%27"><span class="hs-identifier hs-var">PointInTimeRecoveryDescription'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | @LatestRestorableDateTime@ is typically 5 minutes before the current</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- time.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AlatestRestorableDateTime%3APointInTimeRecoveryDescription%27"><span class="annot"><span class="annottext">PointInTimeRecoveryDescription -&gt; Maybe POSIX
-</span><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#%24sel%3AlatestRestorableDateTime%3APointInTimeRecoveryDescription%27"><span class="hs-identifier hs-var hs-var">latestRestorableDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Specifies the earliest point in time you can restore your table to. You</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- can restore your table to any point in time during the last 35 days.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AearliestRestorableDateTime%3APointInTimeRecoveryDescription%27"><span class="annot"><span class="annottext">PointInTimeRecoveryDescription -&gt; Maybe POSIX
+</span><span id="line-30"></span><span id="local-6989586621679374967"><span id="local-6989586621679374968"></span></span><span class="hs-keyword">data</span><span> </span><span id="PointInTimeRecoveryDescription"><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription"><span class="hs-identifier hs-var">PointInTimeRecoveryDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PointInTimeRecoveryDescription%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription%27"><span class="hs-identifier hs-var">PointInTimeRecoveryDescription'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current state of point in time recovery:</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- -   @ENABLING@ - Point in time recovery is being enabled.</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- -   @ENABLED@ - Point in time recovery is enabled.</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- -   @DISABLED@ - Point in time recovery is disabled.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3ApointInTimeRecoveryStatus%3APointInTimeRecoveryDescription%27"><span class="annot"><span class="annottext">PointInTimeRecoveryDescription -&gt; Maybe PointInTimeRecoveryStatus
+</span><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#%24sel%3ApointInTimeRecoveryStatus%3APointInTimeRecoveryDescription%27"><span class="hs-identifier hs-var hs-var">pointInTimeRecoveryStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryStatus.html#PointInTimeRecoveryStatus"><span class="hs-identifier hs-type">PointInTimeRecoveryStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Specifies the earliest point in time you can restore your table to. You</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- can restore your table to any point in time during the last 35 days.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AearliestRestorableDateTime%3APointInTimeRecoveryDescription%27"><span class="annot"><span class="annottext">PointInTimeRecoveryDescription -&gt; Maybe POSIX
 </span><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#%24sel%3AearliestRestorableDateTime%3APointInTimeRecoveryDescription%27"><span class="hs-identifier hs-var hs-var">earliestRestorableDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The current state of point in time recovery:</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- -   @ENABLING@ - Point in time recovery is being enabled.</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- -   @ENABLED@ - Point in time recovery is enabled.</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- -   @DISABLED@ - Point in time recovery is disabled.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3ApointInTimeRecoveryStatus%3APointInTimeRecoveryDescription%27"><span class="annot"><span class="annottext">PointInTimeRecoveryDescription -&gt; Maybe PointInTimeRecoveryStatus
-</span><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#%24sel%3ApointInTimeRecoveryStatus%3APointInTimeRecoveryDescription%27"><span class="hs-identifier hs-var hs-var">pointInTimeRecoveryStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryStatus.html#PointInTimeRecoveryStatus"><span class="hs-identifier hs-type">PointInTimeRecoveryStatus</span></a></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | @LatestRestorableDateTime@ is typically 5 minutes before the current</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- time.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AlatestRestorableDateTime%3APointInTimeRecoveryDescription%27"><span class="annot"><span class="annottext">PointInTimeRecoveryDescription -&gt; Maybe POSIX
+</span><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#%24sel%3AlatestRestorableDateTime%3APointInTimeRecoveryDescription%27"><span class="hs-identifier hs-var hs-var">latestRestorableDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679374288"><span id="local-6989586621679374290"><span class="annot"><span class="annottext">PointInTimeRecoveryDescription
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679374959"><span id="local-6989586621679374961"><span class="annot"><span class="annottext">PointInTimeRecoveryDescription
 -&gt; PointInTimeRecoveryDescription -&gt; Bool
 (PointInTimeRecoveryDescription
  -&gt; PointInTimeRecoveryDescription -&gt; Bool)
@@ -62,7 +62,7 @@ $c/= :: PointInTimeRecoveryDescription
 -&gt; PointInTimeRecoveryDescription -&gt; Bool
 $c== :: PointInTimeRecoveryDescription
 -&gt; PointInTimeRecoveryDescription -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374279"><span id="local-6989586621679374281"><span id="local-6989586621679374283"><span id="local-6989586621679374285"><span class="annot"><span class="annottext">ReadPrec [PointInTimeRecoveryDescription]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374950"><span id="local-6989586621679374952"><span id="local-6989586621679374954"><span id="local-6989586621679374956"><span class="annot"><span class="annottext">ReadPrec [PointInTimeRecoveryDescription]
 ReadPrec PointInTimeRecoveryDescription
 Int -&gt; ReadS PointInTimeRecoveryDescription
 ReadS [PointInTimeRecoveryDescription]
@@ -82,7 +82,7 @@ readList :: ReadS [PointInTimeRecoveryDescription]
 $creadList :: ReadS [PointInTimeRecoveryDescription]
 readsPrec :: Int -&gt; ReadS PointInTimeRecoveryDescription
 $creadsPrec :: Int -&gt; ReadS PointInTimeRecoveryDescription
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374272"><span id="local-6989586621679374274"><span id="local-6989586621679374276"><span class="annot"><span class="annottext">Int -&gt; PointInTimeRecoveryDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374943"><span id="local-6989586621679374945"><span id="local-6989586621679374947"><span class="annot"><span class="annottext">Int -&gt; PointInTimeRecoveryDescription -&gt; ShowS
 [PointInTimeRecoveryDescription] -&gt; ShowS
 PointInTimeRecoveryDescription -&gt; String
 (Int -&gt; PointInTimeRecoveryDescription -&gt; ShowS)
@@ -128,31 +128,29 @@ PointInTimeRecoveryDescription
 </span><span id="line-53"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'latestRestorableDateTime', 'pointInTimeRecoveryDescription_latestRestorableDateTime' - @LatestRestorableDateTime@ is typically 5 minutes before the current</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- time.</span><span>
-</span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'earliestRestorableDateTime', 'pointInTimeRecoveryDescription_earliestRestorableDateTime' - Specifies the earliest point in time you can restore your table to. You</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- can restore your table to any point in time during the last 35 days.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'pointInTimeRecoveryStatus', 'pointInTimeRecoveryDescription_pointInTimeRecoveryStatus' - The current state of point in time recovery:</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- -   @ENABLING@ - Point in time recovery is being enabled.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- -   @ENABLED@ - Point in time recovery is enabled.</span><span>
 </span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'pointInTimeRecoveryStatus', 'pointInTimeRecoveryDescription_pointInTimeRecoveryStatus' - The current state of point in time recovery:</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- -   @DISABLED@ - Point in time recovery is disabled.</span><span>
 </span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- -   @ENABLING@ - Point in time recovery is being enabled.</span><span>
-</span><span id="line-65"></span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- -   @ENABLED@ - Point in time recovery is enabled.</span><span>
-</span><span id="line-67"></span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- -   @DISABLED@ - Point in time recovery is disabled.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'earliestRestorableDateTime', 'pointInTimeRecoveryDescription_earliestRestorableDateTime' - Specifies the earliest point in time you can restore your table to. You</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- can restore your table to any point in time during the last 35 days.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'latestRestorableDateTime', 'pointInTimeRecoveryDescription_latestRestorableDateTime' - @LatestRestorableDateTime@ is typically 5 minutes before the current</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- time.</span><span>
 </span><span id="line-69"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#newPointInTimeRecoveryDescription"><span class="hs-identifier hs-type">newPointInTimeRecoveryDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription"><span class="hs-identifier hs-type">PointInTimeRecoveryDescription</span></a></span><span>
 </span><span id="line-71"></span><span id="newPointInTimeRecoveryDescription"><span class="annot"><span class="annottext">newPointInTimeRecoveryDescription :: PointInTimeRecoveryDescription
 </span><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#newPointInTimeRecoveryDescription"><span class="hs-identifier hs-var hs-var">newPointInTimeRecoveryDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">PointInTimeRecoveryDescription' :: Maybe POSIX
--&gt; Maybe POSIX
--&gt; Maybe PointInTimeRecoveryStatus
--&gt; PointInTimeRecoveryDescription
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">PointInTimeRecoveryDescription' :: Maybe PointInTimeRecoveryStatus
+-&gt; Maybe POSIX -&gt; Maybe POSIX -&gt; PointInTimeRecoveryDescription
 </span><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription%27"><span class="hs-identifier hs-type">PointInTimeRecoveryDescription'</span></a></span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:latestRestorableDateTime:PointInTimeRecoveryDescription' :: Maybe POSIX
-</span><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#%24sel%3AlatestRestorableDateTime%3APointInTimeRecoveryDescription%27"><span class="hs-identifier hs-var">latestRestorableDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-74"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-73"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pointInTimeRecoveryStatus:PointInTimeRecoveryDescription' :: Maybe PointInTimeRecoveryStatus
+</span><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#%24sel%3ApointInTimeRecoveryStatus%3APointInTimeRecoveryDescription%27"><span class="hs-identifier hs-var">pointInTimeRecoveryStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>        </span><span class="annot"><span class="annottext">Maybe PointInTimeRecoveryStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:earliestRestorableDateTime:PointInTimeRecoveryDescription' :: Maybe POSIX
@@ -160,105 +158,21 @@ forall a. Maybe a
 </span><span id="line-76"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:pointInTimeRecoveryStatus:PointInTimeRecoveryDescription' :: Maybe PointInTimeRecoveryStatus
-</span><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#%24sel%3ApointInTimeRecoveryStatus%3APointInTimeRecoveryDescription%27"><span class="hs-identifier hs-var">pointInTimeRecoveryStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PointInTimeRecoveryStatus
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:latestRestorableDateTime:PointInTimeRecoveryDescription' :: Maybe POSIX
+</span><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#%24sel%3AlatestRestorableDateTime%3APointInTimeRecoveryDescription%27"><span class="hs-identifier hs-var">latestRestorableDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- | @LatestRestorableDateTime@ is typically 5 minutes before the current</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- time.</span><span>
-</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#pointInTimeRecoveryDescription_latestRestorableDateTime"><span class="hs-identifier hs-type">pointInTimeRecoveryDescription_latestRestorableDateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription"><span class="hs-identifier hs-type">PointInTimeRecoveryDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span id="pointInTimeRecoveryDescription_latestRestorableDateTime"><span class="annot"><span class="annottext">pointInTimeRecoveryDescription_latestRestorableDateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; PointInTimeRecoveryDescription
--&gt; f PointInTimeRecoveryDescription
-</span><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#pointInTimeRecoveryDescription_latestRestorableDateTime"><span class="hs-identifier hs-var hs-var">pointInTimeRecoveryDescription_latestRestorableDateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PointInTimeRecoveryDescription -&gt; Maybe POSIX)
--&gt; (PointInTimeRecoveryDescription
-    -&gt; Maybe POSIX -&gt; PointInTimeRecoveryDescription)
--&gt; Lens
-     PointInTimeRecoveryDescription
-     PointInTimeRecoveryDescription
-     (Maybe POSIX)
-     (Maybe POSIX)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription%27"><span class="hs-identifier hs-type">PointInTimeRecoveryDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374263"><span class="annot"><span class="annottext">Maybe POSIX
-latestRestorableDateTime :: Maybe POSIX
-$sel:latestRestorableDateTime:PointInTimeRecoveryDescription' :: PointInTimeRecoveryDescription -&gt; Maybe POSIX
-</span><a href="#local-6989586621679374263"><span class="hs-identifier hs-var hs-var">latestRestorableDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679374263"><span class="hs-identifier hs-var">latestRestorableDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374262"><span class="annot"><span class="annottext">s :: PointInTimeRecoveryDescription
-</span><a href="#local-6989586621679374262"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription%27"><span class="hs-identifier hs-type">PointInTimeRecoveryDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374261"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679374261"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PointInTimeRecoveryDescription
-</span><a href="#local-6989586621679374262"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:latestRestorableDateTime:PointInTimeRecoveryDescription' :: Maybe POSIX
-</span><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#%24sel%3AlatestRestorableDateTime%3APointInTimeRecoveryDescription%27"><span class="hs-identifier hs-var">latestRestorableDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679374261"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription"><span class="hs-identifier hs-type">PointInTimeRecoveryDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
- -&gt; PointInTimeRecoveryDescription
- -&gt; f PointInTimeRecoveryDescription)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; PointInTimeRecoveryDescription
--&gt; f PointInTimeRecoveryDescription
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- | Specifies the earliest point in time you can restore your table to. You</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- can restore your table to any point in time during the last 35 days.</span><span>
-</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#pointInTimeRecoveryDescription_earliestRestorableDateTime"><span class="hs-identifier hs-type">pointInTimeRecoveryDescription_earliestRestorableDateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription"><span class="hs-identifier hs-type">PointInTimeRecoveryDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span id="pointInTimeRecoveryDescription_earliestRestorableDateTime"><span class="annot"><span class="annottext">pointInTimeRecoveryDescription_earliestRestorableDateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; PointInTimeRecoveryDescription
--&gt; f PointInTimeRecoveryDescription
-</span><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#pointInTimeRecoveryDescription_earliestRestorableDateTime"><span class="hs-identifier hs-var hs-var">pointInTimeRecoveryDescription_earliestRestorableDateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PointInTimeRecoveryDescription -&gt; Maybe POSIX)
--&gt; (PointInTimeRecoveryDescription
-    -&gt; Maybe POSIX -&gt; PointInTimeRecoveryDescription)
--&gt; Lens
-     PointInTimeRecoveryDescription
-     PointInTimeRecoveryDescription
-     (Maybe POSIX)
-     (Maybe POSIX)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription%27"><span class="hs-identifier hs-type">PointInTimeRecoveryDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374256"><span class="annot"><span class="annottext">Maybe POSIX
-earliestRestorableDateTime :: Maybe POSIX
-$sel:earliestRestorableDateTime:PointInTimeRecoveryDescription' :: PointInTimeRecoveryDescription -&gt; Maybe POSIX
-</span><a href="#local-6989586621679374256"><span class="hs-identifier hs-var hs-var">earliestRestorableDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679374256"><span class="hs-identifier hs-var">earliestRestorableDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374255"><span class="annot"><span class="annottext">s :: PointInTimeRecoveryDescription
-</span><a href="#local-6989586621679374255"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription%27"><span class="hs-identifier hs-type">PointInTimeRecoveryDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374254"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679374254"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PointInTimeRecoveryDescription
-</span><a href="#local-6989586621679374255"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:earliestRestorableDateTime:PointInTimeRecoveryDescription' :: Maybe POSIX
-</span><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#%24sel%3AearliestRestorableDateTime%3APointInTimeRecoveryDescription%27"><span class="hs-identifier hs-var">earliestRestorableDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679374254"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription"><span class="hs-identifier hs-type">PointInTimeRecoveryDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
- -&gt; PointInTimeRecoveryDescription
- -&gt; f PointInTimeRecoveryDescription)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; PointInTimeRecoveryDescription
--&gt; f PointInTimeRecoveryDescription
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- | The current state of point in time recovery:</span><span>
-</span><span id="line-91"></span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- -   @ENABLING@ - Point in time recovery is being enabled.</span><span>
-</span><span id="line-93"></span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- -   @ENABLED@ - Point in time recovery is enabled.</span><span>
-</span><span id="line-95"></span><span class="hs-comment">--</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- -   @DISABLED@ - Point in time recovery is disabled.</span><span>
-</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#pointInTimeRecoveryDescription_pointInTimeRecoveryStatus"><span class="hs-identifier hs-type">pointInTimeRecoveryDescription_pointInTimeRecoveryStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription"><span class="hs-identifier hs-type">PointInTimeRecoveryDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryStatus.html#PointInTimeRecoveryStatus"><span class="hs-identifier hs-type">PointInTimeRecoveryStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span id="pointInTimeRecoveryDescription_pointInTimeRecoveryStatus"><span class="annot"><span class="annottext">pointInTimeRecoveryDescription_pointInTimeRecoveryStatus :: (Maybe PointInTimeRecoveryStatus
+</span><span id="line-80"></span><span class="hs-comment">-- | The current state of point in time recovery:</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- -   @ENABLING@ - Point in time recovery is being enabled.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- -   @ENABLED@ - Point in time recovery is enabled.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- -   @DISABLED@ - Point in time recovery is disabled.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#pointInTimeRecoveryDescription_pointInTimeRecoveryStatus"><span class="hs-identifier hs-type">pointInTimeRecoveryDescription_pointInTimeRecoveryStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription"><span class="hs-identifier hs-type">PointInTimeRecoveryDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryStatus.html#PointInTimeRecoveryStatus"><span class="hs-identifier hs-type">PointInTimeRecoveryStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="pointInTimeRecoveryDescription_pointInTimeRecoveryStatus"><span class="annot"><span class="annottext">pointInTimeRecoveryDescription_pointInTimeRecoveryStatus :: (Maybe PointInTimeRecoveryStatus
  -&gt; f (Maybe PointInTimeRecoveryStatus))
 -&gt; PointInTimeRecoveryDescription
 -&gt; f PointInTimeRecoveryDescription
@@ -272,19 +186,103 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe PointInTimeRecoveryStatus)
      (Maybe PointInTimeRecoveryStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription%27"><span class="hs-identifier hs-type">PointInTimeRecoveryDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374252"><span class="annot"><span class="annottext">Maybe PointInTimeRecoveryStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription%27"><span class="hs-identifier hs-type">PointInTimeRecoveryDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374934"><span class="annot"><span class="annottext">Maybe PointInTimeRecoveryStatus
 pointInTimeRecoveryStatus :: Maybe PointInTimeRecoveryStatus
 $sel:pointInTimeRecoveryStatus:PointInTimeRecoveryDescription' :: PointInTimeRecoveryDescription -&gt; Maybe PointInTimeRecoveryStatus
-</span><a href="#local-6989586621679374252"><span class="hs-identifier hs-var hs-var">pointInTimeRecoveryStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PointInTimeRecoveryStatus
-</span><a href="#local-6989586621679374252"><span class="hs-identifier hs-var">pointInTimeRecoveryStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374251"><span class="annot"><span class="annottext">s :: PointInTimeRecoveryDescription
-</span><a href="#local-6989586621679374251"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription%27"><span class="hs-identifier hs-type">PointInTimeRecoveryDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374250"><span class="annot"><span class="annottext">Maybe PointInTimeRecoveryStatus
-</span><a href="#local-6989586621679374250"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PointInTimeRecoveryDescription
-</span><a href="#local-6989586621679374251"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pointInTimeRecoveryStatus:PointInTimeRecoveryDescription' :: Maybe PointInTimeRecoveryStatus
+</span><a href="#local-6989586621679374934"><span class="hs-identifier hs-var hs-var">pointInTimeRecoveryStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PointInTimeRecoveryStatus
+</span><a href="#local-6989586621679374934"><span class="hs-identifier hs-var">pointInTimeRecoveryStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374933"><span class="annot"><span class="annottext">s :: PointInTimeRecoveryDescription
+</span><a href="#local-6989586621679374933"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription%27"><span class="hs-identifier hs-type">PointInTimeRecoveryDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374932"><span class="annot"><span class="annottext">Maybe PointInTimeRecoveryStatus
+</span><a href="#local-6989586621679374932"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PointInTimeRecoveryDescription
+</span><a href="#local-6989586621679374933"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pointInTimeRecoveryStatus:PointInTimeRecoveryDescription' :: Maybe PointInTimeRecoveryStatus
 </span><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#%24sel%3ApointInTimeRecoveryStatus%3APointInTimeRecoveryDescription%27"><span class="hs-identifier hs-var">pointInTimeRecoveryStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PointInTimeRecoveryStatus
-</span><a href="#local-6989586621679374250"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription"><span class="hs-identifier hs-type">PointInTimeRecoveryDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679374932"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription"><span class="hs-identifier hs-type">PointInTimeRecoveryDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | Specifies the earliest point in time you can restore your table to. You</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- can restore your table to any point in time during the last 35 days.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#pointInTimeRecoveryDescription_earliestRestorableDateTime"><span class="hs-identifier hs-type">pointInTimeRecoveryDescription_earliestRestorableDateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription"><span class="hs-identifier hs-type">PointInTimeRecoveryDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="pointInTimeRecoveryDescription_earliestRestorableDateTime"><span class="annot"><span class="annottext">pointInTimeRecoveryDescription_earliestRestorableDateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; PointInTimeRecoveryDescription
+-&gt; f PointInTimeRecoveryDescription
+</span><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#pointInTimeRecoveryDescription_earliestRestorableDateTime"><span class="hs-identifier hs-var hs-var">pointInTimeRecoveryDescription_earliestRestorableDateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PointInTimeRecoveryDescription -&gt; Maybe POSIX)
+-&gt; (PointInTimeRecoveryDescription
+    -&gt; Maybe POSIX -&gt; PointInTimeRecoveryDescription)
+-&gt; Lens
+     PointInTimeRecoveryDescription
+     PointInTimeRecoveryDescription
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription%27"><span class="hs-identifier hs-type">PointInTimeRecoveryDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374930"><span class="annot"><span class="annottext">Maybe POSIX
+earliestRestorableDateTime :: Maybe POSIX
+$sel:earliestRestorableDateTime:PointInTimeRecoveryDescription' :: PointInTimeRecoveryDescription -&gt; Maybe POSIX
+</span><a href="#local-6989586621679374930"><span class="hs-identifier hs-var hs-var">earliestRestorableDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679374930"><span class="hs-identifier hs-var">earliestRestorableDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374929"><span class="annot"><span class="annottext">s :: PointInTimeRecoveryDescription
+</span><a href="#local-6989586621679374929"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription%27"><span class="hs-identifier hs-type">PointInTimeRecoveryDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374928"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679374928"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PointInTimeRecoveryDescription
+</span><a href="#local-6989586621679374929"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:earliestRestorableDateTime:PointInTimeRecoveryDescription' :: Maybe POSIX
+</span><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#%24sel%3AearliestRestorableDateTime%3APointInTimeRecoveryDescription%27"><span class="hs-identifier hs-var">earliestRestorableDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679374928"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription"><span class="hs-identifier hs-type">PointInTimeRecoveryDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; PointInTimeRecoveryDescription
+ -&gt; f PointInTimeRecoveryDescription)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; PointInTimeRecoveryDescription
+-&gt; f PointInTimeRecoveryDescription
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | @LatestRestorableDateTime@ is typically 5 minutes before the current</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- time.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#pointInTimeRecoveryDescription_latestRestorableDateTime"><span class="hs-identifier hs-type">pointInTimeRecoveryDescription_latestRestorableDateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription"><span class="hs-identifier hs-type">PointInTimeRecoveryDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="pointInTimeRecoveryDescription_latestRestorableDateTime"><span class="annot"><span class="annottext">pointInTimeRecoveryDescription_latestRestorableDateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; PointInTimeRecoveryDescription
+-&gt; f PointInTimeRecoveryDescription
+</span><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#pointInTimeRecoveryDescription_latestRestorableDateTime"><span class="hs-identifier hs-var hs-var">pointInTimeRecoveryDescription_latestRestorableDateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PointInTimeRecoveryDescription -&gt; Maybe POSIX)
+-&gt; (PointInTimeRecoveryDescription
+    -&gt; Maybe POSIX -&gt; PointInTimeRecoveryDescription)
+-&gt; Lens
+     PointInTimeRecoveryDescription
+     PointInTimeRecoveryDescription
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription%27"><span class="hs-identifier hs-type">PointInTimeRecoveryDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374923"><span class="annot"><span class="annottext">Maybe POSIX
+latestRestorableDateTime :: Maybe POSIX
+$sel:latestRestorableDateTime:PointInTimeRecoveryDescription' :: PointInTimeRecoveryDescription -&gt; Maybe POSIX
+</span><a href="#local-6989586621679374923"><span class="hs-identifier hs-var hs-var">latestRestorableDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679374923"><span class="hs-identifier hs-var">latestRestorableDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374922"><span class="annot"><span class="annottext">s :: PointInTimeRecoveryDescription
+</span><a href="#local-6989586621679374922"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription%27"><span class="hs-identifier hs-type">PointInTimeRecoveryDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374921"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679374921"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PointInTimeRecoveryDescription
+</span><a href="#local-6989586621679374922"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:latestRestorableDateTime:PointInTimeRecoveryDescription' :: Maybe POSIX
+</span><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#%24sel%3AlatestRestorableDateTime%3APointInTimeRecoveryDescription%27"><span class="hs-identifier hs-var">latestRestorableDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679374921"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription"><span class="hs-identifier hs-type">PointInTimeRecoveryDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; PointInTimeRecoveryDescription
+ -&gt; f PointInTimeRecoveryDescription)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; PointInTimeRecoveryDescription
+-&gt; f PointInTimeRecoveryDescription
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374247"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription"><span class="hs-identifier hs-type">PointInTimeRecoveryDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679374245"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PointInTimeRecoveryDescription
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374918"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription"><span class="hs-identifier hs-type">PointInTimeRecoveryDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679374916"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PointInTimeRecoveryDescription
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser PointInTimeRecoveryDescription)
@@ -294,58 +292,47 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PointInTimeRecoveryDescription&quot;</span></span><span>
-</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679374242"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679374242"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
--&gt; Maybe POSIX
--&gt; Maybe PointInTimeRecoveryStatus
--&gt; PointInTimeRecoveryDescription
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679374913"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679374913"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Maybe PointInTimeRecoveryStatus
+-&gt; Maybe POSIX -&gt; Maybe POSIX -&gt; PointInTimeRecoveryDescription
 </span><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription%27"><span class="hs-identifier hs-var">PointInTimeRecoveryDescription'</span></a></span><span>
-</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
- -&gt; Maybe POSIX
- -&gt; Maybe PointInTimeRecoveryStatus
- -&gt; PointInTimeRecoveryDescription)
--&gt; Parser (Maybe POSIX)
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">(Maybe PointInTimeRecoveryStatus
+ -&gt; Maybe POSIX -&gt; Maybe POSIX -&gt; PointInTimeRecoveryDescription)
+-&gt; Parser (Maybe PointInTimeRecoveryStatus)
 -&gt; Parser
-     (Maybe POSIX
-      -&gt; Maybe PointInTimeRecoveryStatus
-      -&gt; PointInTimeRecoveryDescription)
+     (Maybe POSIX -&gt; Maybe POSIX -&gt; PointInTimeRecoveryDescription)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679374242"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LatestRestorableDateTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX
-   -&gt; Maybe PointInTimeRecoveryStatus
-   -&gt; PointInTimeRecoveryDescription)
--&gt; Parser (Maybe POSIX)
--&gt; Parser
-     (Maybe PointInTimeRecoveryStatus -&gt; PointInTimeRecoveryDescription)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679374242"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;EarliestRestorableDateTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe PointInTimeRecoveryStatus -&gt; PointInTimeRecoveryDescription)
--&gt; Parser (Maybe PointInTimeRecoveryStatus)
--&gt; Parser PointInTimeRecoveryDescription
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679374242"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PointInTimeRecoveryStatus)
+</span><a href="#local-6989586621679374913"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PointInTimeRecoveryStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PointInTimeRecoveryStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX -&gt; Maybe POSIX -&gt; PointInTimeRecoveryDescription)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe POSIX -&gt; PointInTimeRecoveryDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679374913"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EarliestRestorableDateTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; PointInTimeRecoveryDescription)
+-&gt; Parser (Maybe POSIX) -&gt; Parser PointInTimeRecoveryDescription
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679374913"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LatestRestorableDateTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679374236"><span id="local-6989586621679374238"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679374907"><span id="local-6989586621679374909"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription"><span class="hs-identifier hs-type">PointInTimeRecoveryDescription</span></a></span></span></span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679374233"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679374904"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription"><span class="hs-identifier hs-type">PointInTimeRecoveryDescription</span></a></span></span><span>
 </span><span id="line-118"></span></pre></body></html>

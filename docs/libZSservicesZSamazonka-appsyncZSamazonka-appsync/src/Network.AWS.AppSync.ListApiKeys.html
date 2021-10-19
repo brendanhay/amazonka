@@ -43,8 +43,8 @@
 </span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#newListApiKeysResponse"><span class="hs-identifier">newListApiKeysResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>
 </span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#listApiKeysResponse_nextToken"><span class="hs-identifier">listApiKeysResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#listApiKeysResponse_apiKeys"><span class="hs-identifier">listApiKeysResponse_apiKeys</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#listApiKeysResponse_apiKeys"><span class="hs-identifier">listApiKeysResponse_apiKeys</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#listApiKeysResponse_nextToken"><span class="hs-identifier">listApiKeysResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#listApiKeysResponse_httpStatus"><span class="hs-identifier">listApiKeysResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-50"></span><span class="hs-keyword">where</span><span>
@@ -57,7 +57,7 @@
 </span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newListApiKeys' smart constructor.</span><span>
-</span><span id="line-60"></span><span id="local-6989586621679255829"><span id="local-6989586621679255830"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListApiKeys"><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeys"><span class="hs-identifier hs-var">ListApiKeys</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListApiKeys%27"><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeys%27"><span class="hs-identifier hs-var">ListApiKeys'</span></a></span></span><span>
+</span><span id="line-60"></span><span id="local-6989586621679255916"><span id="local-6989586621679255917"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListApiKeys"><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeys"><span class="hs-identifier hs-var">ListApiKeys</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListApiKeys%27"><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeys%27"><span class="hs-identifier hs-var">ListApiKeys'</span></a></span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An identifier that was returned from the previous call to this</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">-- operation, which can be used to return the next set of items in the</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">-- list.</span><span>
@@ -70,7 +70,7 @@
 </span><span id="line-68"></span><span>    </span><span id="%24sel%3AapiId%3AListApiKeys%27"><span class="annot"><span class="annottext">ListApiKeys -&gt; Text
 </span><a href="Network.AWS.AppSync.ListApiKeys.html#%24sel%3AapiId%3AListApiKeys%27"><span class="hs-identifier hs-var hs-var">apiId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679255821"><span id="local-6989586621679255823"><span class="annot"><span class="annottext">ListApiKeys -&gt; ListApiKeys -&gt; Bool
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679255908"><span id="local-6989586621679255910"><span class="annot"><span class="annottext">ListApiKeys -&gt; ListApiKeys -&gt; Bool
 (ListApiKeys -&gt; ListApiKeys -&gt; Bool)
 -&gt; (ListApiKeys -&gt; ListApiKeys -&gt; Bool) -&gt; Eq ListApiKeys
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -78,7 +78,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListApiKeys -&gt; ListApiKeys -&gt; Bool
 == :: ListApiKeys -&gt; ListApiKeys -&gt; Bool
 $c== :: ListApiKeys -&gt; ListApiKeys -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255812"><span id="local-6989586621679255814"><span id="local-6989586621679255816"><span id="local-6989586621679255818"><span class="annot"><span class="annottext">ReadPrec [ListApiKeys]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255899"><span id="local-6989586621679255901"><span id="local-6989586621679255903"><span id="local-6989586621679255905"><span class="annot"><span class="annottext">ReadPrec [ListApiKeys]
 ReadPrec ListApiKeys
 Int -&gt; ReadS ListApiKeys
 ReadS [ListApiKeys]
@@ -98,7 +98,7 @@ readList :: ReadS [ListApiKeys]
 $creadList :: ReadS [ListApiKeys]
 readsPrec :: Int -&gt; ReadS ListApiKeys
 $creadsPrec :: Int -&gt; ReadS ListApiKeys
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255805"><span id="local-6989586621679255807"><span id="local-6989586621679255809"><span class="annot"><span class="annottext">Int -&gt; ListApiKeys -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255892"><span id="local-6989586621679255894"><span id="local-6989586621679255896"><span class="annot"><span class="annottext">Int -&gt; ListApiKeys -&gt; ShowS
 [ListApiKeys] -&gt; ShowS
 ListApiKeys -&gt; String
 (Int -&gt; ListApiKeys -&gt; ShowS)
@@ -144,8 +144,8 @@ $cfrom :: forall x. ListApiKeys -&gt; Rep ListApiKeys x
 </span><span id="line-89"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeys"><span class="hs-identifier hs-type">ListApiKeys</span></a></span><span>
 </span><span id="line-91"></span><span id="newListApiKeys"><span class="annot"><span class="annottext">newListApiKeys :: Text -&gt; ListApiKeys
-</span><a href="Network.AWS.AppSync.ListApiKeys.html#newListApiKeys"><span class="hs-identifier hs-var hs-var">newListApiKeys</span></a></span></span><span> </span><span id="local-6989586621679255800"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679255800"><span class="hs-identifier hs-var">pApiId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AppSync.ListApiKeys.html#newListApiKeys"><span class="hs-identifier hs-var hs-var">newListApiKeys</span></a></span></span><span> </span><span id="local-6989586621679255887"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679255887"><span class="hs-identifier hs-var">pApiId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>  </span><span class="annot"><span class="annottext">ListApiKeys' :: Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; ListApiKeys
 </span><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeys%27"><span class="hs-identifier hs-type">ListApiKeys'</span></a></span><span>
 </span><span id="line-93"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListApiKeys' :: Maybe Text
@@ -158,7 +158,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:apiId:ListApiKeys' :: Text
 </span><a href="Network.AWS.AppSync.ListApiKeys.html#%24sel%3AapiId%3AListApiKeys%27"><span class="hs-identifier hs-var">apiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679255800"><span class="hs-identifier hs-var">pApiId_</span></a></span><span>
+</span><a href="#local-6989586621679255887"><span class="hs-identifier hs-var">pApiId_</span></a></span><span>
 </span><span id="line-96"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | An identifier that was returned from the previous call to this</span><span>
@@ -170,16 +170,16 @@ forall a. Maybe a
 -&gt; (ListApiKeys -&gt; Maybe Text -&gt; ListApiKeys)
 -&gt; Lens ListApiKeys ListApiKeys (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeys%27"><span class="hs-identifier hs-type">ListApiKeys'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255798"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeys%27"><span class="hs-identifier hs-type">ListApiKeys'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255885"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListApiKeys' :: ListApiKeys -&gt; Maybe Text
-</span><a href="#local-6989586621679255798"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255798"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255797"><span class="annot"><span class="annottext">s :: ListApiKeys
-</span><a href="#local-6989586621679255797"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeys%27"><span class="hs-identifier hs-type">ListApiKeys'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255796"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255796"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApiKeys
-</span><a href="#local-6989586621679255797"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListApiKeys' :: Maybe Text
+</span><a href="#local-6989586621679255885"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679255885"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255884"><span class="annot"><span class="annottext">s :: ListApiKeys
+</span><a href="#local-6989586621679255884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeys%27"><span class="hs-identifier hs-type">ListApiKeys'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255883"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679255883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApiKeys
+</span><a href="#local-6989586621679255884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListApiKeys' :: Maybe Text
 </span><a href="Network.AWS.AppSync.ListApiKeys.html#%24sel%3AnextToken%3AListApiKeys%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255796"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeys"><span class="hs-identifier hs-type">ListApiKeys</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679255883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeys"><span class="hs-identifier hs-type">ListApiKeys</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | The maximum number of results you want the request to return.</span><span>
 </span><span id="line-105"></span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#listApiKeys_maxResults"><span class="hs-identifier hs-type">listApiKeys_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeys"><span class="hs-identifier hs-type">ListApiKeys</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -189,16 +189,16 @@ $sel:nextToken:ListApiKeys' :: ListApiKeys -&gt; Maybe Text
 -&gt; (ListApiKeys -&gt; Maybe Natural -&gt; ListApiKeys)
 -&gt; Lens ListApiKeys ListApiKeys (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeys%27"><span class="hs-identifier hs-type">ListApiKeys'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255795"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeys%27"><span class="hs-identifier hs-type">ListApiKeys'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255882"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListApiKeys' :: ListApiKeys -&gt; Maybe Natural
-</span><a href="#local-6989586621679255795"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679255795"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255794"><span class="annot"><span class="annottext">s :: ListApiKeys
-</span><a href="#local-6989586621679255794"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeys%27"><span class="hs-identifier hs-type">ListApiKeys'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255793"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679255793"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApiKeys
-</span><a href="#local-6989586621679255794"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListApiKeys' :: Maybe Natural
+</span><a href="#local-6989586621679255882"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679255882"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255881"><span class="annot"><span class="annottext">s :: ListApiKeys
+</span><a href="#local-6989586621679255881"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeys%27"><span class="hs-identifier hs-type">ListApiKeys'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255880"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679255880"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApiKeys
+</span><a href="#local-6989586621679255881"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListApiKeys' :: Maybe Natural
 </span><a href="Network.AWS.AppSync.ListApiKeys.html#%24sel%3AmaxResults%3AListApiKeys%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679255793"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeys"><span class="hs-identifier hs-type">ListApiKeys</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679255880"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeys"><span class="hs-identifier hs-type">ListApiKeys</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | The API ID.</span><span>
 </span><span id="line-109"></span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#listApiKeys_apiId"><span class="hs-identifier hs-type">listApiKeys_apiId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeys"><span class="hs-identifier hs-type">ListApiKeys</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -207,28 +207,28 @@ $sel:maxResults:ListApiKeys' :: ListApiKeys -&gt; Maybe Natural
 -&gt; (ListApiKeys -&gt; Text -&gt; ListApiKeys)
 -&gt; Lens ListApiKeys ListApiKeys Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeys%27"><span class="hs-identifier hs-type">ListApiKeys'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255792"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeys%27"><span class="hs-identifier hs-type">ListApiKeys'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255879"><span class="annot"><span class="annottext">Text
 apiId :: Text
 $sel:apiId:ListApiKeys' :: ListApiKeys -&gt; Text
-</span><a href="#local-6989586621679255792"><span class="hs-identifier hs-var hs-var">apiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679255792"><span class="hs-identifier hs-var">apiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255791"><span class="annot"><span class="annottext">s :: ListApiKeys
-</span><a href="#local-6989586621679255791"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeys%27"><span class="hs-identifier hs-type">ListApiKeys'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255790"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679255790"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApiKeys
-</span><a href="#local-6989586621679255791"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiId:ListApiKeys' :: Text
+</span><a href="#local-6989586621679255879"><span class="hs-identifier hs-var hs-var">apiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679255879"><span class="hs-identifier hs-var">apiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255878"><span class="annot"><span class="annottext">s :: ListApiKeys
+</span><a href="#local-6989586621679255878"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeys%27"><span class="hs-identifier hs-type">ListApiKeys'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255877"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679255877"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApiKeys
+</span><a href="#local-6989586621679255878"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiId:ListApiKeys' :: Text
 </span><a href="Network.AWS.AppSync.ListApiKeys.html#%24sel%3AapiId%3AListApiKeys%27"><span class="hs-identifier hs-var">apiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679255790"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeys"><span class="hs-identifier hs-type">ListApiKeys</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679255877"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeys"><span class="hs-identifier hs-type">ListApiKeys</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeys"><span class="hs-identifier hs-type">ListApiKeys</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679255786"><span class="annot"><span class="annottext">page :: ListApiKeys -&gt; AWSResponse ListApiKeys -&gt; Maybe ListApiKeys
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679255784"><span class="annot"><span class="annottext">ListApiKeys
-</span><a href="#local-6989586621679255784"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679255783"><span class="annot"><span class="annottext">AWSResponse ListApiKeys
-</span><a href="#local-6989586621679255783"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679255873"><span class="annot"><span class="annottext">page :: ListApiKeys -&gt; AWSResponse ListApiKeys -&gt; Maybe ListApiKeys
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679255871"><span class="annot"><span class="annottext">ListApiKeys
+</span><a href="#local-6989586621679255871"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679255870"><span class="annot"><span class="annottext">AWSResponse ListApiKeys
+</span><a href="#local-6989586621679255870"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-114"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-115"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListApiKeys
 ListApiKeysResponse
-</span><a href="#local-6989586621679255783"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679255870"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">ListApiKeysResponse
 -&gt; Getting (First Text) ListApiKeysResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -254,7 +254,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-120"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListApiKeys
 ListApiKeysResponse
-</span><a href="#local-6989586621679255783"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679255870"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">ListApiKeysResponse
 -&gt; Getting (First [ApiKey]) ListApiKeysResponse [ApiKey]
 -&gt; Maybe [ApiKey]
@@ -287,7 +287,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">ListApiKeys
-</span><a href="#local-6989586621679255784"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679255871"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">ListApiKeys -&gt; (ListApiKeys -&gt; ListApiKeys) -&gt; ListApiKeys
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -300,7 +300,7 @@ Lens ListApiKeys ListApiKeys (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListApiKeys
 ListApiKeysResponse
-</span><a href="#local-6989586621679255783"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679255870"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-129"></span><span>          </span><span class="annot"><span class="annottext">ListApiKeysResponse
 -&gt; Getting (First Text) ListApiKeysResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -320,12 +320,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeys"><span class="hs-identifier hs-type">ListApiKeys</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-132"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeys"><span class="hs-identifier hs-type">ListApiKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeysResponse"><span class="hs-identifier hs-type">ListApiKeysResponse</span></a></span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679255773"><span class="annot"><span class="annottext">request :: ListApiKeys -&gt; Request ListApiKeys
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679255860"><span class="annot"><span class="annottext">request :: ListApiKeys -&gt; Request ListApiKeys
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListApiKeys -&gt; Request ListApiKeys
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AppSync.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679255769"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679255856"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListApiKeys
 -&gt; ClientResponse ClientBody
@@ -349,27 +349,18 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679255766"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679255766"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679255765"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679255765"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679255764"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679255764"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-137"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [ApiKey] -&gt; Int -&gt; ListApiKeysResponse
+</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679255853"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679255853"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679255852"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679255852"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679255851"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679255851"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-137"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ApiKey] -&gt; Maybe Text -&gt; Int -&gt; ListApiKeysResponse
 </span><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeysResponse%27"><span class="hs-identifier hs-var">ListApiKeysResponse'</span></a></span><span>
-</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [ApiKey] -&gt; Int -&gt; ListApiKeysResponse)
--&gt; Either String (Maybe Text)
--&gt; Either String (Maybe [ApiKey] -&gt; Int -&gt; ListApiKeysResponse)
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ApiKey] -&gt; Maybe Text -&gt; Int -&gt; ListApiKeysResponse)
+-&gt; Either String (Maybe [ApiKey])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ListApiKeysResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679255764"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe [ApiKey] -&gt; Int -&gt; ListApiKeysResponse)
--&gt; Either String (Maybe [ApiKey])
--&gt; Either String (Int -&gt; ListApiKeysResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679255764"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ApiKey]))
+</span><a href="#local-6989586621679255851"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ApiKey]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;apiKeys&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ApiKey]))
@@ -378,6 +369,15 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ApiKey]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListApiKeysResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListApiKeysResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679255851"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListApiKeysResponse)
 -&gt; Either String Int -&gt; Either String ListApiKeysResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -386,15 +386,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679255766"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679255853"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255755"><span id="local-6989586621679255757"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeys"><span class="hs-identifier hs-type">ListApiKeys</span></a></span></span></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255842"><span id="local-6989586621679255844"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeys"><span class="hs-identifier hs-type">ListApiKeys</span></a></span></span></span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255752"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeys"><span class="hs-identifier hs-type">ListApiKeys</span></a></span></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255839"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeys"><span class="hs-identifier hs-type">ListApiKeys</span></a></span></span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeys"><span class="hs-identifier hs-type">ListApiKeys</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679255748"><span class="annot"><span class="annottext">toHeaders :: ListApiKeys -&gt; ResponseHeaders
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679255835"><span class="annot"><span class="annottext">toHeaders :: ListApiKeys -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListApiKeys -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -414,8 +414,8 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-156"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeys"><span class="hs-identifier hs-type">ListApiKeys</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679255742"><span class="annot"><span class="annottext">toPath :: ListApiKeys -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeys%27"><span class="hs-identifier hs-type">ListApiKeys'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255738"><span id="local-6989586621679255739"><span id="local-6989586621679255740"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679255829"><span class="annot"><span class="annottext">toPath :: ListApiKeys -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeys%27"><span class="hs-identifier hs-type">ListApiKeys'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255825"><span id="local-6989586621679255826"><span id="local-6989586621679255827"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 apiId :: Text
@@ -424,7 +424,7 @@ nextToken :: Maybe Text
 $sel:apiId:ListApiKeys' :: ListApiKeys -&gt; Text
 $sel:maxResults:ListApiKeys' :: ListApiKeys -&gt; Maybe Natural
 $sel:nextToken:ListApiKeys' :: ListApiKeys -&gt; Maybe Text
-</span><a href="#local-6989586621679255738"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679255825"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -432,12 +432,12 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/v1/apis/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679255738"><span class="hs-identifier hs-var">apiId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679255825"><span class="hs-identifier hs-var">apiId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/apikeys&quot;</span></span><span class="hs-special">]</span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeys"><span class="hs-identifier hs-type">ListApiKeys</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-164"></span><span>  </span><span id="local-6989586621679255734"><span class="annot"><span class="annottext">toQuery :: ListApiKeys -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeys%27"><span class="hs-identifier hs-type">ListApiKeys'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255730"><span id="local-6989586621679255731"><span id="local-6989586621679255732"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679255821"><span class="annot"><span class="annottext">toQuery :: ListApiKeys -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeys%27"><span class="hs-identifier hs-type">ListApiKeys'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255817"><span id="local-6989586621679255818"><span id="local-6989586621679255819"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 apiId :: Text
@@ -446,7 +446,7 @@ nextToken :: Maybe Text
 $sel:apiId:ListApiKeys' :: ListApiKeys -&gt; Text
 $sel:maxResults:ListApiKeys' :: ListApiKeys -&gt; Maybe Natural
 $sel:nextToken:ListApiKeys' :: ListApiKeys -&gt; Maybe Text
-</span><a href="#local-6989586621679255730"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679255817"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-165"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -454,28 +454,28 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255732"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679255819"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-167"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679255731"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679255818"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-168"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-comment">-- | /See:/ 'newListApiKeysResponse' smart constructor.</span><span>
-</span><span id="line-171"></span><span id="local-6989586621679255727"><span id="local-6989586621679255728"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListApiKeysResponse"><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeysResponse"><span class="hs-identifier hs-var">ListApiKeysResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListApiKeysResponse%27"><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeysResponse%27"><span class="hs-identifier hs-var">ListApiKeysResponse'</span></a></span></span><span>
-</span><span id="line-172"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An identifier to be passed in the next request to this operation to</span><span>
-</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- return the next set of items in the list.</span><span>
-</span><span id="line-174"></span><span>    </span><span id="%24sel%3AnextToken%3AListApiKeysResponse%27"><span class="annot"><span class="annottext">ListApiKeysResponse -&gt; Maybe Text
-</span><a href="Network.AWS.AppSync.ListApiKeys.html#%24sel%3AnextToken%3AListApiKeysResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-175"></span><span>    </span><span class="hs-comment">-- | The @ApiKey@ objects.</span><span>
-</span><span id="line-176"></span><span>    </span><span id="%24sel%3AapiKeys%3AListApiKeysResponse%27"><span class="annot"><span class="annottext">ListApiKeysResponse -&gt; Maybe [ApiKey]
+</span><span id="line-171"></span><span id="local-6989586621679255814"><span id="local-6989586621679255815"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListApiKeysResponse"><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeysResponse"><span class="hs-identifier hs-var">ListApiKeysResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListApiKeysResponse%27"><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeysResponse%27"><span class="hs-identifier hs-var">ListApiKeysResponse'</span></a></span></span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @ApiKey@ objects.</span><span>
+</span><span id="line-173"></span><span>    </span><span id="%24sel%3AapiKeys%3AListApiKeysResponse%27"><span class="annot"><span class="annottext">ListApiKeysResponse -&gt; Maybe [ApiKey]
 </span><a href="Network.AWS.AppSync.ListApiKeys.html#%24sel%3AapiKeys%3AListApiKeysResponse%27"><span class="hs-identifier hs-var hs-var">apiKeys</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiKey.html#ApiKey"><span class="hs-identifier hs-type">ApiKey</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-comment">-- | An identifier to be passed in the next request to this operation to</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">-- return the next set of items in the list.</span><span>
+</span><span id="line-176"></span><span>    </span><span id="%24sel%3AnextToken%3AListApiKeysResponse%27"><span class="annot"><span class="annottext">ListApiKeysResponse -&gt; Maybe Text
+</span><a href="Network.AWS.AppSync.ListApiKeys.html#%24sel%3AnextToken%3AListApiKeysResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-177"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-178"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListApiKeysResponse%27"><span class="annot"><span class="annottext">ListApiKeysResponse -&gt; Int
 </span><a href="Network.AWS.AppSync.ListApiKeys.html#%24sel%3AhttpStatus%3AListApiKeysResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-179"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-180"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679255720"><span id="local-6989586621679255722"><span class="annot"><span class="annottext">ListApiKeysResponse -&gt; ListApiKeysResponse -&gt; Bool
+</span><span id="line-180"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679255807"><span id="local-6989586621679255809"><span class="annot"><span class="annottext">ListApiKeysResponse -&gt; ListApiKeysResponse -&gt; Bool
 (ListApiKeysResponse -&gt; ListApiKeysResponse -&gt; Bool)
 -&gt; (ListApiKeysResponse -&gt; ListApiKeysResponse -&gt; Bool)
 -&gt; Eq ListApiKeysResponse
@@ -484,7 +484,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListApiKeysResponse -&gt; ListApiKeysResponse -&gt; Bool
 == :: ListApiKeysResponse -&gt; ListApiKeysResponse -&gt; Bool
 $c== :: ListApiKeysResponse -&gt; ListApiKeysResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255712"><span id="local-6989586621679255714"><span id="local-6989586621679255716"><span id="local-6989586621679255718"><span class="annot"><span class="annottext">ReadPrec [ListApiKeysResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255799"><span id="local-6989586621679255801"><span id="local-6989586621679255803"><span id="local-6989586621679255805"><span class="annot"><span class="annottext">ReadPrec [ListApiKeysResponse]
 ReadPrec ListApiKeysResponse
 Int -&gt; ReadS ListApiKeysResponse
 ReadS [ListApiKeysResponse]
@@ -504,7 +504,7 @@ readList :: ReadS [ListApiKeysResponse]
 $creadList :: ReadS [ListApiKeysResponse]
 readsPrec :: Int -&gt; ReadS ListApiKeysResponse
 $creadsPrec :: Int -&gt; ReadS ListApiKeysResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255706"><span id="local-6989586621679255708"><span id="local-6989586621679255710"><span class="annot"><span class="annottext">Int -&gt; ListApiKeysResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255793"><span id="local-6989586621679255795"><span id="local-6989586621679255797"><span class="annot"><span class="annottext">Int -&gt; ListApiKeysResponse -&gt; ShowS
 [ListApiKeysResponse] -&gt; ShowS
 ListApiKeysResponse -&gt; String
 (Int -&gt; ListApiKeysResponse -&gt; ShowS)
@@ -538,10 +538,10 @@ $cfrom :: forall x. ListApiKeysResponse -&gt; Rep ListApiKeysResponse x
 </span><span id="line-187"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-189"></span><span class="hs-comment">--</span><span>
-</span><span id="line-190"></span><span class="hs-comment">-- 'nextToken', 'listApiKeysResponse_nextToken' - An identifier to be passed in the next request to this operation to</span><span>
-</span><span id="line-191"></span><span class="hs-comment">-- return the next set of items in the list.</span><span>
-</span><span id="line-192"></span><span class="hs-comment">--</span><span>
-</span><span id="line-193"></span><span class="hs-comment">-- 'apiKeys', 'listApiKeysResponse_apiKeys' - The @ApiKey@ objects.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'apiKeys', 'listApiKeysResponse_apiKeys' - The @ApiKey@ objects.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- 'nextToken', 'listApiKeysResponse_nextToken' - An identifier to be passed in the next request to this operation to</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- return the next set of items in the list.</span><span>
 </span><span id="line-194"></span><span class="hs-comment">--</span><span>
 </span><span id="line-195"></span><span class="hs-comment">-- 'httpStatus', 'listApiKeysResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-196"></span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#newListApiKeysResponse"><span class="hs-identifier hs-type">newListApiKeysResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -549,61 +549,41 @@ $cfrom :: forall x. ListApiKeysResponse -&gt; Rep ListApiKeysResponse x
 </span><span id="line-198"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-199"></span><span>  </span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeysResponse"><span class="hs-identifier hs-type">ListApiKeysResponse</span></a></span><span>
 </span><span id="line-200"></span><span id="newListApiKeysResponse"><span class="annot"><span class="annottext">newListApiKeysResponse :: Int -&gt; ListApiKeysResponse
-</span><a href="Network.AWS.AppSync.ListApiKeys.html#newListApiKeysResponse"><span class="hs-identifier hs-var hs-var">newListApiKeysResponse</span></a></span></span><span> </span><span id="local-6989586621679255703"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679255703"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-201"></span><span>  </span><span class="annot"><span class="annottext">ListApiKeysResponse' :: Maybe Text -&gt; Maybe [ApiKey] -&gt; Int -&gt; ListApiKeysResponse
+</span><a href="Network.AWS.AppSync.ListApiKeys.html#newListApiKeysResponse"><span class="hs-identifier hs-var hs-var">newListApiKeysResponse</span></a></span></span><span> </span><span id="local-6989586621679255790"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679255790"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-201"></span><span>  </span><span class="annot"><span class="annottext">ListApiKeysResponse' :: Maybe [ApiKey] -&gt; Maybe Text -&gt; Int -&gt; ListApiKeysResponse
 </span><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeysResponse%27"><span class="hs-identifier hs-type">ListApiKeysResponse'</span></a></span><span>
-</span><span id="line-202"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListApiKeysResponse' :: Maybe Text
-</span><a href="Network.AWS.AppSync.ListApiKeys.html#%24sel%3AnextToken%3AListApiKeysResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-202"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:apiKeys:ListApiKeysResponse' :: Maybe [ApiKey]
+</span><a href="Network.AWS.AppSync.ListApiKeys.html#%24sel%3AapiKeys%3AListApiKeysResponse%27"><span class="hs-identifier hs-var">apiKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ApiKey]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-203"></span><span>      </span><span class="annot"><span class="annottext">$sel:apiKeys:ListApiKeysResponse' :: Maybe [ApiKey]
-</span><a href="Network.AWS.AppSync.ListApiKeys.html#%24sel%3AapiKeys%3AListApiKeysResponse%27"><span class="hs-identifier hs-var">apiKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ApiKey]
+</span><span id="line-203"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListApiKeysResponse' :: Maybe Text
+</span><a href="Network.AWS.AppSync.ListApiKeys.html#%24sel%3AnextToken%3AListApiKeysResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-204"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListApiKeysResponse' :: Int
 </span><a href="Network.AWS.AppSync.ListApiKeys.html#%24sel%3AhttpStatus%3AListApiKeysResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679255703"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679255790"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-205"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-206"></span><span>
-</span><span id="line-207"></span><span class="hs-comment">-- | An identifier to be passed in the next request to this operation to</span><span>
-</span><span id="line-208"></span><span class="hs-comment">-- return the next set of items in the list.</span><span>
-</span><span id="line-209"></span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#listApiKeysResponse_nextToken"><span class="hs-identifier hs-type">listApiKeysResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeysResponse"><span class="hs-identifier hs-type">ListApiKeysResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-210"></span><span id="listApiKeysResponse_nextToken"><span class="annot"><span class="annottext">listApiKeysResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListApiKeysResponse -&gt; f ListApiKeysResponse
-</span><a href="Network.AWS.AppSync.ListApiKeys.html#listApiKeysResponse_nextToken"><span class="hs-identifier hs-var hs-var">listApiKeysResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListApiKeysResponse -&gt; Maybe Text)
--&gt; (ListApiKeysResponse -&gt; Maybe Text -&gt; ListApiKeysResponse)
--&gt; Lens' ListApiKeysResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeysResponse%27"><span class="hs-identifier hs-type">ListApiKeysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255702"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:ListApiKeysResponse' :: ListApiKeysResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679255702"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255702"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255701"><span class="annot"><span class="annottext">s :: ListApiKeysResponse
-</span><a href="#local-6989586621679255701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeysResponse%27"><span class="hs-identifier hs-type">ListApiKeysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255700"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApiKeysResponse
-</span><a href="#local-6989586621679255701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListApiKeysResponse' :: Maybe Text
-</span><a href="Network.AWS.AppSync.ListApiKeys.html#%24sel%3AnextToken%3AListApiKeysResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeysResponse"><span class="hs-identifier hs-type">ListApiKeysResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-211"></span><span>
-</span><span id="line-212"></span><span class="hs-comment">-- | The @ApiKey@ objects.</span><span>
-</span><span id="line-213"></span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#listApiKeysResponse_apiKeys"><span class="hs-identifier hs-type">listApiKeysResponse_apiKeys</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeysResponse"><span class="hs-identifier hs-type">ListApiKeysResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiKey.html#ApiKey"><span class="hs-identifier hs-type">ApiKey</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-214"></span><span id="listApiKeysResponse_apiKeys"><span class="annot"><span class="annottext">listApiKeysResponse_apiKeys :: (Maybe [ApiKey] -&gt; f (Maybe [ApiKey]))
+</span><span id="line-207"></span><span class="hs-comment">-- | The @ApiKey@ objects.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#listApiKeysResponse_apiKeys"><span class="hs-identifier hs-type">listApiKeysResponse_apiKeys</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeysResponse"><span class="hs-identifier hs-type">ListApiKeysResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiKey.html#ApiKey"><span class="hs-identifier hs-type">ApiKey</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span id="listApiKeysResponse_apiKeys"><span class="annot"><span class="annottext">listApiKeysResponse_apiKeys :: (Maybe [ApiKey] -&gt; f (Maybe [ApiKey]))
 -&gt; ListApiKeysResponse -&gt; f ListApiKeysResponse
 </span><a href="Network.AWS.AppSync.ListApiKeys.html#listApiKeysResponse_apiKeys"><span class="hs-identifier hs-var hs-var">listApiKeysResponse_apiKeys</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListApiKeysResponse -&gt; Maybe [ApiKey])
 -&gt; (ListApiKeysResponse -&gt; Maybe [ApiKey] -&gt; ListApiKeysResponse)
 -&gt; Lens' ListApiKeysResponse (Maybe [ApiKey])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeysResponse%27"><span class="hs-identifier hs-type">ListApiKeysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255699"><span class="annot"><span class="annottext">Maybe [ApiKey]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeysResponse%27"><span class="hs-identifier hs-type">ListApiKeysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255789"><span class="annot"><span class="annottext">Maybe [ApiKey]
 apiKeys :: Maybe [ApiKey]
 $sel:apiKeys:ListApiKeysResponse' :: ListApiKeysResponse -&gt; Maybe [ApiKey]
-</span><a href="#local-6989586621679255699"><span class="hs-identifier hs-var hs-var">apiKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ApiKey]
-</span><a href="#local-6989586621679255699"><span class="hs-identifier hs-var">apiKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255698"><span class="annot"><span class="annottext">s :: ListApiKeysResponse
-</span><a href="#local-6989586621679255698"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeysResponse%27"><span class="hs-identifier hs-type">ListApiKeysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255697"><span class="annot"><span class="annottext">Maybe [ApiKey]
-</span><a href="#local-6989586621679255697"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApiKeysResponse
-</span><a href="#local-6989586621679255698"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiKeys:ListApiKeysResponse' :: Maybe [ApiKey]
+</span><a href="#local-6989586621679255789"><span class="hs-identifier hs-var hs-var">apiKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ApiKey]
+</span><a href="#local-6989586621679255789"><span class="hs-identifier hs-var">apiKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255788"><span class="annot"><span class="annottext">s :: ListApiKeysResponse
+</span><a href="#local-6989586621679255788"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeysResponse%27"><span class="hs-identifier hs-type">ListApiKeysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255787"><span class="annot"><span class="annottext">Maybe [ApiKey]
+</span><a href="#local-6989586621679255787"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApiKeysResponse
+</span><a href="#local-6989586621679255788"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiKeys:ListApiKeysResponse' :: Maybe [ApiKey]
 </span><a href="Network.AWS.AppSync.ListApiKeys.html#%24sel%3AapiKeys%3AListApiKeysResponse%27"><span class="hs-identifier hs-var">apiKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ApiKey]
-</span><a href="#local-6989586621679255697"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeysResponse"><span class="hs-identifier hs-type">ListApiKeysResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ApiKey] -&gt; f (Maybe [ApiKey]))
+</span><a href="#local-6989586621679255787"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeysResponse"><span class="hs-identifier hs-type">ListApiKeysResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ApiKey] -&gt; f (Maybe [ApiKey]))
  -&gt; ListApiKeysResponse -&gt; f ListApiKeysResponse)
 -&gt; ((Maybe [ApiKey] -&gt; f (Maybe [ApiKey]))
     -&gt; Maybe [ApiKey] -&gt; f (Maybe [ApiKey]))
@@ -618,8 +598,28 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [ApiKey] [ApiKey] [ApiKey] [ApiKey]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | An identifier to be passed in the next request to this operation to</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- return the next set of items in the list.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#listApiKeysResponse_nextToken"><span class="hs-identifier hs-type">listApiKeysResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeysResponse"><span class="hs-identifier hs-type">ListApiKeysResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span id="listApiKeysResponse_nextToken"><span class="annot"><span class="annottext">listApiKeysResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListApiKeysResponse -&gt; f ListApiKeysResponse
+</span><a href="Network.AWS.AppSync.ListApiKeys.html#listApiKeysResponse_nextToken"><span class="hs-identifier hs-var hs-var">listApiKeysResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListApiKeysResponse -&gt; Maybe Text)
+-&gt; (ListApiKeysResponse -&gt; Maybe Text -&gt; ListApiKeysResponse)
+-&gt; Lens' ListApiKeysResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeysResponse%27"><span class="hs-identifier hs-type">ListApiKeysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255784"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListApiKeysResponse' :: ListApiKeysResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679255784"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679255784"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255783"><span class="annot"><span class="annottext">s :: ListApiKeysResponse
+</span><a href="#local-6989586621679255783"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeysResponse%27"><span class="hs-identifier hs-type">ListApiKeysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255782"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679255782"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApiKeysResponse
+</span><a href="#local-6989586621679255783"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListApiKeysResponse' :: Maybe Text
+</span><a href="Network.AWS.AppSync.ListApiKeys.html#%24sel%3AnextToken%3AListApiKeysResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679255782"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeysResponse"><span class="hs-identifier hs-type">ListApiKeysResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-215"></span><span>
 </span><span id="line-216"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-217"></span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#listApiKeysResponse_httpStatus"><span class="hs-identifier hs-type">listApiKeysResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeysResponse"><span class="hs-identifier hs-type">ListApiKeysResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -628,16 +628,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (ListApiKeysResponse -&gt; Int -&gt; ListApiKeysResponse)
 -&gt; Lens ListApiKeysResponse ListApiKeysResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeysResponse%27"><span class="hs-identifier hs-type">ListApiKeysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255694"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeysResponse%27"><span class="hs-identifier hs-type">ListApiKeysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255781"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListApiKeysResponse' :: ListApiKeysResponse -&gt; Int
-</span><a href="#local-6989586621679255694"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679255694"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255693"><span class="annot"><span class="annottext">s :: ListApiKeysResponse
-</span><a href="#local-6989586621679255693"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeysResponse%27"><span class="hs-identifier hs-type">ListApiKeysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255692"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679255692"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApiKeysResponse
-</span><a href="#local-6989586621679255693"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListApiKeysResponse' :: Int
+</span><a href="#local-6989586621679255781"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679255781"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255780"><span class="annot"><span class="annottext">s :: ListApiKeysResponse
+</span><a href="#local-6989586621679255780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeysResponse%27"><span class="hs-identifier hs-type">ListApiKeysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255779"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679255779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApiKeysResponse
+</span><a href="#local-6989586621679255780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListApiKeysResponse' :: Int
 </span><a href="Network.AWS.AppSync.ListApiKeys.html#%24sel%3AhttpStatus%3AListApiKeysResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679255692"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeysResponse"><span class="hs-identifier hs-type">ListApiKeysResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679255779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeysResponse"><span class="hs-identifier hs-type">ListApiKeysResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-219"></span><span>
-</span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255690"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeysResponse"><span class="hs-identifier hs-type">ListApiKeysResponse</span></a></span></span><span>
+</span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255777"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.ListApiKeys.html#ListApiKeysResponse"><span class="hs-identifier hs-type">ListApiKeysResponse</span></a></span></span><span>
 </span><span id="line-221"></span></pre></body></html>

@@ -49,12 +49,12 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newBatchAssociateUserStack' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679302953"><span id="local-6989586621679302954"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchAssociateUserStack"><span class="annot"><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#BatchAssociateUserStack"><span class="hs-identifier hs-var">BatchAssociateUserStack</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchAssociateUserStack%27"><span class="annot"><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#BatchAssociateUserStack%27"><span class="hs-identifier hs-var">BatchAssociateUserStack'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679303238"><span id="local-6989586621679303239"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchAssociateUserStack"><span class="annot"><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#BatchAssociateUserStack"><span class="hs-identifier hs-var">BatchAssociateUserStack</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchAssociateUserStack%27"><span class="annot"><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#BatchAssociateUserStack%27"><span class="hs-identifier hs-var">BatchAssociateUserStack'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of UserStackAssociation objects.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AuserStackAssociations%3ABatchAssociateUserStack%27"><span class="annot"><span class="annottext">BatchAssociateUserStack -&gt; NonEmpty UserStackAssociation
 </span><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#%24sel%3AuserStackAssociations%3ABatchAssociateUserStack%27"><span class="hs-identifier hs-var hs-var">userStackAssociations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociation.html#UserStackAssociation"><span class="hs-identifier hs-type">UserStackAssociation</span></a></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679302947"><span id="local-6989586621679302949"><span class="annot"><span class="annottext">BatchAssociateUserStack -&gt; BatchAssociateUserStack -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679303232"><span id="local-6989586621679303234"><span class="annot"><span class="annottext">BatchAssociateUserStack -&gt; BatchAssociateUserStack -&gt; Bool
 (BatchAssociateUserStack -&gt; BatchAssociateUserStack -&gt; Bool)
 -&gt; (BatchAssociateUserStack -&gt; BatchAssociateUserStack -&gt; Bool)
 -&gt; Eq BatchAssociateUserStack
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BatchAssociateUserStack -&gt; BatchAssociateUserStack -&gt; Bool
 == :: BatchAssociateUserStack -&gt; BatchAssociateUserStack -&gt; Bool
 $c== :: BatchAssociateUserStack -&gt; BatchAssociateUserStack -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302940"><span id="local-6989586621679302942"><span id="local-6989586621679302944"><span class="annot"><span class="annottext">Int -&gt; BatchAssociateUserStack -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303225"><span id="local-6989586621679303227"><span id="local-6989586621679303229"><span class="annot"><span class="annottext">Int -&gt; BatchAssociateUserStack -&gt; ShowS
 [BatchAssociateUserStack] -&gt; ShowS
 BatchAssociateUserStack -&gt; String
 (Int -&gt; BatchAssociateUserStack -&gt; ShowS)
@@ -105,8 +105,8 @@ $cfrom :: forall x. BatchAssociateUserStack -&gt; Rep BatchAssociateUserStack x
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UserStackAssociation.html#UserStackAssociation"><span class="hs-identifier hs-type">UserStackAssociation</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#BatchAssociateUserStack"><span class="hs-identifier hs-type">BatchAssociateUserStack</span></a></span><span>
 </span><span id="line-71"></span><span id="newBatchAssociateUserStack"><span class="annot"><span class="annottext">newBatchAssociateUserStack :: NonEmpty UserStackAssociation -&gt; BatchAssociateUserStack
-</span><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#newBatchAssociateUserStack"><span class="hs-identifier hs-var hs-var">newBatchAssociateUserStack</span></a></span></span><span> </span><span id="local-6989586621679302935"><span class="annot"><span class="annottext">NonEmpty UserStackAssociation
-</span><a href="#local-6989586621679302935"><span class="hs-identifier hs-var">pUserStackAssociations_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#newBatchAssociateUserStack"><span class="hs-identifier hs-var hs-var">newBatchAssociateUserStack</span></a></span></span><span> </span><span id="local-6989586621679303220"><span class="annot"><span class="annottext">NonEmpty UserStackAssociation
+</span><a href="#local-6989586621679303220"><span class="hs-identifier hs-var">pUserStackAssociations_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">BatchAssociateUserStack' :: NonEmpty UserStackAssociation -&gt; BatchAssociateUserStack
 </span><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#BatchAssociateUserStack%27"><span class="hs-identifier hs-type">BatchAssociateUserStack'</span></a></span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:userStackAssociations:BatchAssociateUserStack' :: NonEmpty UserStackAssociation
@@ -117,8 +117,8 @@ $cfrom :: forall x. BatchAssociateUserStack -&gt; Rep BatchAssociateUserStack x
 -&gt; Tagged
      (NonEmpty UserStackAssociation)
      (Identity (NonEmpty UserStackAssociation))
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged
    (NonEmpty UserStackAssociation)
    (Identity (NonEmpty UserStackAssociation))
  -&gt; Tagged
@@ -127,7 +127,7 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; NonEmpty UserStackAssociation -&gt; NonEmpty UserStackAssociation
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty UserStackAssociation
-</span><a href="#local-6989586621679302935"><span class="hs-identifier hs-var">pUserStackAssociations_</span></a></span><span>
+</span><a href="#local-6989586621679303220"><span class="hs-identifier hs-var">pUserStackAssociations_</span></a></span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | The list of UserStackAssociation objects.</span><span>
@@ -144,16 +144,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (NonEmpty UserStackAssociation)
      (NonEmpty UserStackAssociation)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#BatchAssociateUserStack%27"><span class="hs-identifier hs-type">BatchAssociateUserStack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302930"><span class="annot"><span class="annottext">NonEmpty UserStackAssociation
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#BatchAssociateUserStack%27"><span class="hs-identifier hs-type">BatchAssociateUserStack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303215"><span class="annot"><span class="annottext">NonEmpty UserStackAssociation
 userStackAssociations :: NonEmpty UserStackAssociation
 $sel:userStackAssociations:BatchAssociateUserStack' :: BatchAssociateUserStack -&gt; NonEmpty UserStackAssociation
-</span><a href="#local-6989586621679302930"><span class="hs-identifier hs-var hs-var">userStackAssociations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty UserStackAssociation
-</span><a href="#local-6989586621679302930"><span class="hs-identifier hs-var">userStackAssociations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302929"><span class="annot"><span class="annottext">s :: BatchAssociateUserStack
-</span><a href="#local-6989586621679302929"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#BatchAssociateUserStack%27"><span class="hs-identifier hs-type">BatchAssociateUserStack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302928"><span class="annot"><span class="annottext">NonEmpty UserStackAssociation
-</span><a href="#local-6989586621679302928"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchAssociateUserStack
-</span><a href="#local-6989586621679302929"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userStackAssociations:BatchAssociateUserStack' :: NonEmpty UserStackAssociation
+</span><a href="#local-6989586621679303215"><span class="hs-identifier hs-var hs-var">userStackAssociations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty UserStackAssociation
+</span><a href="#local-6989586621679303215"><span class="hs-identifier hs-var">userStackAssociations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303214"><span class="annot"><span class="annottext">s :: BatchAssociateUserStack
+</span><a href="#local-6989586621679303214"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#BatchAssociateUserStack%27"><span class="hs-identifier hs-type">BatchAssociateUserStack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303213"><span class="annot"><span class="annottext">NonEmpty UserStackAssociation
+</span><a href="#local-6989586621679303213"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchAssociateUserStack
+</span><a href="#local-6989586621679303214"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userStackAssociations:BatchAssociateUserStack' :: NonEmpty UserStackAssociation
 </span><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#%24sel%3AuserStackAssociations%3ABatchAssociateUserStack%27"><span class="hs-identifier hs-var">userStackAssociations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty UserStackAssociation
-</span><a href="#local-6989586621679302928"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#BatchAssociateUserStack"><span class="hs-identifier hs-type">BatchAssociateUserStack</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty UserStackAssociation
+</span><a href="#local-6989586621679303213"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#BatchAssociateUserStack"><span class="hs-identifier hs-type">BatchAssociateUserStack</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty UserStackAssociation
   -&gt; f (NonEmpty UserStackAssociation))
  -&gt; BatchAssociateUserStack -&gt; f BatchAssociateUserStack)
 -&gt; ((NonEmpty UserStackAssociation
@@ -169,20 +169,20 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
  -&gt; f (NonEmpty UserStackAssociation))
 -&gt; NonEmpty UserStackAssociation
 -&gt; f (NonEmpty UserStackAssociation)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#BatchAssociateUserStack"><span class="hs-identifier hs-type">BatchAssociateUserStack</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-82"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-83"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#BatchAssociateUserStack"><span class="hs-identifier hs-type">BatchAssociateUserStack</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#BatchAssociateUserStackResponse"><span class="hs-identifier hs-type">BatchAssociateUserStackResponse</span></a></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679302923"><span class="annot"><span class="annottext">request :: BatchAssociateUserStack -&gt; Request BatchAssociateUserStack
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679303208"><span class="annot"><span class="annottext">request :: BatchAssociateUserStack -&gt; Request BatchAssociateUserStack
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; BatchAssociateUserStack -&gt; Request BatchAssociateUserStack
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AppStream.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679302919"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679303204"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy BatchAssociateUserStack
 -&gt; ClientResponse ClientBody
@@ -208,10 +208,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679302916"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679302916"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679302915"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679302915"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679302914"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679302914"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679303201"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679303201"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679303200"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679303200"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679303199"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679303199"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Maybe [UserStackAssociationError]
 -&gt; Int -&gt; BatchAssociateUserStackResponse
 </span><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#BatchAssociateUserStackResponse%27"><span class="hs-identifier hs-var">BatchAssociateUserStackResponse'</span></a></span><span>
@@ -221,7 +221,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; BatchAssociateUserStackResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679302914"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679303199"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Either String (Maybe (Maybe [UserStackAssociationError]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
@@ -242,15 +242,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679302916"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679303201"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302905"><span id="local-6989586621679302907"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#BatchAssociateUserStack"><span class="hs-identifier hs-type">BatchAssociateUserStack</span></a></span></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303190"><span id="local-6989586621679303192"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#BatchAssociateUserStack"><span class="hs-identifier hs-type">BatchAssociateUserStack</span></a></span></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302902"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#BatchAssociateUserStack"><span class="hs-identifier hs-type">BatchAssociateUserStack</span></a></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303187"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#BatchAssociateUserStack"><span class="hs-identifier hs-type">BatchAssociateUserStack</span></a></span></span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#BatchAssociateUserStack"><span class="hs-identifier hs-type">BatchAssociateUserStack</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679302898"><span class="annot"><span class="annottext">toHeaders :: BatchAssociateUserStack -&gt; ResponseHeaders
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679303183"><span class="annot"><span class="annottext">toHeaders :: BatchAssociateUserStack -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; BatchAssociateUserStack -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -277,12 +277,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-110"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302888"><span id="local-6989586621679302890"><span id="local-6989586621679302892"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#BatchAssociateUserStack"><span class="hs-identifier hs-type">BatchAssociateUserStack</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679302886"><span class="annot"><span class="annottext">toJSON :: BatchAssociateUserStack -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#BatchAssociateUserStack%27"><span class="hs-identifier hs-type">BatchAssociateUserStack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302884"><span class="annot"><span class="annottext">NonEmpty UserStackAssociation
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303173"><span id="local-6989586621679303175"><span id="local-6989586621679303177"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#BatchAssociateUserStack"><span class="hs-identifier hs-type">BatchAssociateUserStack</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679303171"><span class="annot"><span class="annottext">toJSON :: BatchAssociateUserStack -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#BatchAssociateUserStack%27"><span class="hs-identifier hs-type">BatchAssociateUserStack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303169"><span class="annot"><span class="annottext">NonEmpty UserStackAssociation
 userStackAssociations :: NonEmpty UserStackAssociation
 $sel:userStackAssociations:BatchAssociateUserStack' :: BatchAssociateUserStack -&gt; NonEmpty UserStackAssociation
-</span><a href="#local-6989586621679302884"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679303169"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -296,20 +296,20 @@ forall a. a -&gt; Maybe a
 </span><span id="line-119"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty UserStackAssociation -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty UserStackAssociation
-</span><a href="#local-6989586621679302884"><span class="hs-identifier hs-var">userStackAssociations</span></a></span><span>
+</span><a href="#local-6989586621679303169"><span class="hs-identifier hs-var">userStackAssociations</span></a></span><span>
 </span><span id="line-120"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#BatchAssociateUserStack"><span class="hs-identifier hs-type">BatchAssociateUserStack</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679302878"><span class="annot"><span class="annottext">toPath :: BatchAssociateUserStack -&gt; ByteString
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679303163"><span class="annot"><span class="annottext">toPath :: BatchAssociateUserStack -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; BatchAssociateUserStack -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#BatchAssociateUserStack"><span class="hs-identifier hs-type">BatchAssociateUserStack</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679302874"><span class="annot"><span class="annottext">toQuery :: BatchAssociateUserStack -&gt; QueryString
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679303159"><span class="annot"><span class="annottext">toQuery :: BatchAssociateUserStack -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; BatchAssociateUserStack -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -317,7 +317,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- | /See:/ 'newBatchAssociateUserStackResponse' smart constructor.</span><span>
-</span><span id="line-131"></span><span id="local-6989586621679302871"><span id="local-6989586621679302872"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchAssociateUserStackResponse"><span class="annot"><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#BatchAssociateUserStackResponse"><span class="hs-identifier hs-var">BatchAssociateUserStackResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchAssociateUserStackResponse%27"><span class="annot"><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#BatchAssociateUserStackResponse%27"><span class="hs-identifier hs-var">BatchAssociateUserStackResponse'</span></a></span></span><span>
+</span><span id="line-131"></span><span id="local-6989586621679303156"><span id="local-6989586621679303157"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchAssociateUserStackResponse"><span class="annot"><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#BatchAssociateUserStackResponse"><span class="hs-identifier hs-var">BatchAssociateUserStackResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchAssociateUserStackResponse%27"><span class="annot"><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#BatchAssociateUserStackResponse%27"><span class="hs-identifier hs-var">BatchAssociateUserStackResponse'</span></a></span></span><span>
 </span><span id="line-132"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of UserStackAssociationError objects.</span><span>
 </span><span id="line-133"></span><span>    </span><span id="%24sel%3Aerrors%3ABatchAssociateUserStackResponse%27"><span class="annot"><span class="annottext">BatchAssociateUserStackResponse
 -&gt; Maybe [UserStackAssociationError]
@@ -326,7 +326,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-135"></span><span>    </span><span id="%24sel%3AhttpStatus%3ABatchAssociateUserStackResponse%27"><span class="annot"><span class="annottext">BatchAssociateUserStackResponse -&gt; Int
 </span><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#%24sel%3AhttpStatus%3ABatchAssociateUserStackResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-136"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679302865"><span id="local-6989586621679302867"><span class="annot"><span class="annottext">BatchAssociateUserStackResponse
+</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679303150"><span id="local-6989586621679303152"><span class="annot"><span class="annottext">BatchAssociateUserStackResponse
 -&gt; BatchAssociateUserStackResponse -&gt; Bool
 (BatchAssociateUserStackResponse
  -&gt; BatchAssociateUserStackResponse -&gt; Bool)
@@ -342,7 +342,7 @@ $c/= :: BatchAssociateUserStackResponse
 -&gt; BatchAssociateUserStackResponse -&gt; Bool
 $c== :: BatchAssociateUserStackResponse
 -&gt; BatchAssociateUserStackResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302859"><span id="local-6989586621679302861"><span id="local-6989586621679302863"><span class="annot"><span class="annottext">Int -&gt; BatchAssociateUserStackResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303144"><span id="local-6989586621679303146"><span id="local-6989586621679303148"><span class="annot"><span class="annottext">Int -&gt; BatchAssociateUserStackResponse -&gt; ShowS
 [BatchAssociateUserStackResponse] -&gt; ShowS
 BatchAssociateUserStackResponse -&gt; String
 (Int -&gt; BatchAssociateUserStackResponse -&gt; ShowS)
@@ -396,8 +396,8 @@ BatchAssociateUserStackResponse
 </span><span id="line-152"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-153"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#BatchAssociateUserStackResponse"><span class="hs-identifier hs-type">BatchAssociateUserStackResponse</span></a></span><span>
 </span><span id="line-154"></span><span id="newBatchAssociateUserStackResponse"><span class="annot"><span class="annottext">newBatchAssociateUserStackResponse :: Int -&gt; BatchAssociateUserStackResponse
-</span><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#newBatchAssociateUserStackResponse"><span class="hs-identifier hs-var hs-var">newBatchAssociateUserStackResponse</span></a></span></span><span> </span><span id="local-6989586621679302856"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679302856"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#newBatchAssociateUserStackResponse"><span class="hs-identifier hs-var hs-var">newBatchAssociateUserStackResponse</span></a></span></span><span> </span><span id="local-6989586621679303141"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679303141"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-155"></span><span>  </span><span class="annot"><span class="annottext">BatchAssociateUserStackResponse' :: Maybe [UserStackAssociationError]
 -&gt; Int -&gt; BatchAssociateUserStackResponse
 </span><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#BatchAssociateUserStackResponse%27"><span class="hs-identifier hs-type">BatchAssociateUserStackResponse'</span></a></span><span>
@@ -408,7 +408,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:BatchAssociateUserStackResponse' :: Int
 </span><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#%24sel%3AhttpStatus%3ABatchAssociateUserStackResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679302856"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679303141"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-159"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- | The list of UserStackAssociationError objects.</span><span>
@@ -428,17 +428,17 @@ forall a. Maybe a
      (Maybe [UserStackAssociationError])
      (Maybe [UserStackAssociationError])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#BatchAssociateUserStackResponse%27"><span class="hs-identifier hs-type">BatchAssociateUserStackResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302855"><span class="annot"><span class="annottext">Maybe [UserStackAssociationError]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#BatchAssociateUserStackResponse%27"><span class="hs-identifier hs-type">BatchAssociateUserStackResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303140"><span class="annot"><span class="annottext">Maybe [UserStackAssociationError]
 errors :: Maybe [UserStackAssociationError]
 $sel:errors:BatchAssociateUserStackResponse' :: BatchAssociateUserStackResponse
 -&gt; Maybe [UserStackAssociationError]
-</span><a href="#local-6989586621679302855"><span class="hs-identifier hs-var hs-var">errors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [UserStackAssociationError]
-</span><a href="#local-6989586621679302855"><span class="hs-identifier hs-var">errors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302854"><span class="annot"><span class="annottext">s :: BatchAssociateUserStackResponse
-</span><a href="#local-6989586621679302854"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#BatchAssociateUserStackResponse%27"><span class="hs-identifier hs-type">BatchAssociateUserStackResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302853"><span class="annot"><span class="annottext">Maybe [UserStackAssociationError]
-</span><a href="#local-6989586621679302853"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchAssociateUserStackResponse
-</span><a href="#local-6989586621679302854"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errors:BatchAssociateUserStackResponse' :: Maybe [UserStackAssociationError]
+</span><a href="#local-6989586621679303140"><span class="hs-identifier hs-var hs-var">errors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [UserStackAssociationError]
+</span><a href="#local-6989586621679303140"><span class="hs-identifier hs-var">errors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303139"><span class="annot"><span class="annottext">s :: BatchAssociateUserStackResponse
+</span><a href="#local-6989586621679303139"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#BatchAssociateUserStackResponse%27"><span class="hs-identifier hs-type">BatchAssociateUserStackResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303138"><span class="annot"><span class="annottext">Maybe [UserStackAssociationError]
+</span><a href="#local-6989586621679303138"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchAssociateUserStackResponse
+</span><a href="#local-6989586621679303139"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errors:BatchAssociateUserStackResponse' :: Maybe [UserStackAssociationError]
 </span><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#%24sel%3Aerrors%3ABatchAssociateUserStackResponse%27"><span class="hs-identifier hs-var">errors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UserStackAssociationError]
-</span><a href="#local-6989586621679302853"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#BatchAssociateUserStackResponse"><span class="hs-identifier hs-type">BatchAssociateUserStackResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [UserStackAssociationError]
+</span><a href="#local-6989586621679303138"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#BatchAssociateUserStackResponse"><span class="hs-identifier hs-type">BatchAssociateUserStackResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [UserStackAssociationError]
   -&gt; f (Maybe [UserStackAssociationError]))
  -&gt; BatchAssociateUserStackResponse
  -&gt; f BatchAssociateUserStackResponse)
@@ -469,8 +469,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [UserStackAssociationError]
   [UserStackAssociationError]
   [UserStackAssociationError]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-166"></span><span class="annot"><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#batchAssociateUserStackResponse_httpStatus"><span class="hs-identifier hs-type">batchAssociateUserStackResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#BatchAssociateUserStackResponse"><span class="hs-identifier hs-type">BatchAssociateUserStackResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -486,18 +486,18 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#BatchAssociateUserStackResponse%27"><span class="hs-identifier hs-type">BatchAssociateUserStackResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302851"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#BatchAssociateUserStackResponse%27"><span class="hs-identifier hs-type">BatchAssociateUserStackResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303136"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:BatchAssociateUserStackResponse' :: BatchAssociateUserStackResponse -&gt; Int
-</span><a href="#local-6989586621679302851"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679302851"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302850"><span class="annot"><span class="annottext">s :: BatchAssociateUserStackResponse
-</span><a href="#local-6989586621679302850"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#BatchAssociateUserStackResponse%27"><span class="hs-identifier hs-type">BatchAssociateUserStackResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302849"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679302849"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchAssociateUserStackResponse
-</span><a href="#local-6989586621679302850"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchAssociateUserStackResponse' :: Int
+</span><a href="#local-6989586621679303136"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679303136"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303135"><span class="annot"><span class="annottext">s :: BatchAssociateUserStackResponse
+</span><a href="#local-6989586621679303135"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#BatchAssociateUserStackResponse%27"><span class="hs-identifier hs-type">BatchAssociateUserStackResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303134"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679303134"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchAssociateUserStackResponse
+</span><a href="#local-6989586621679303135"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchAssociateUserStackResponse' :: Int
 </span><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#%24sel%3AhttpStatus%3ABatchAssociateUserStackResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679302849"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#BatchAssociateUserStackResponse"><span class="hs-identifier hs-type">BatchAssociateUserStackResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679303134"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#BatchAssociateUserStackResponse"><span class="hs-identifier hs-type">BatchAssociateUserStackResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621679302847"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679303132"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-171"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.BatchAssociateUserStack.html#BatchAssociateUserStackResponse"><span class="hs-identifier hs-type">BatchAssociateUserStackResponse</span></a></span></span><span>
 </span><span id="line-172"></span></pre></body></html>

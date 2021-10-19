@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | A range of double values.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newDoubleRange' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679759478"><span id="local-6989586621679759479"></span></span><span class="hs-keyword">data</span><span> </span><span id="DoubleRange"><span class="annot"><a href="Network.AWS.RDS.Types.DoubleRange.html#DoubleRange"><span class="hs-identifier hs-var">DoubleRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DoubleRange%27"><span class="annot"><a href="Network.AWS.RDS.Types.DoubleRange.html#DoubleRange%27"><span class="hs-identifier hs-var">DoubleRange'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679760521"><span id="local-6989586621679760522"></span></span><span class="hs-keyword">data</span><span> </span><span id="DoubleRange"><span class="annot"><a href="Network.AWS.RDS.Types.DoubleRange.html#DoubleRange"><span class="hs-identifier hs-var">DoubleRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DoubleRange%27"><span class="annot"><a href="Network.AWS.RDS.Types.DoubleRange.html#DoubleRange%27"><span class="hs-identifier hs-var">DoubleRange'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The maximum value in the range.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Ato%3ADoubleRange%27"><span class="annot"><span class="annottext">DoubleRange -&gt; Maybe Double
 </span><a href="Network.AWS.RDS.Types.DoubleRange.html#%24sel%3Ato%3ADoubleRange%27"><span class="hs-identifier hs-var hs-var">to</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
@@ -34,7 +34,7 @@
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Afrom%3ADoubleRange%27"><span class="annot"><span class="annottext">DoubleRange -&gt; Maybe Double
 </span><a href="Network.AWS.RDS.Types.DoubleRange.html#%24sel%3Afrom%3ADoubleRange%27"><span class="hs-identifier hs-var hs-var">from</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679759471"><span id="local-6989586621679759473"><span class="annot"><span class="annottext">DoubleRange -&gt; DoubleRange -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679760514"><span id="local-6989586621679760516"><span class="annot"><span class="annottext">DoubleRange -&gt; DoubleRange -&gt; Bool
 (DoubleRange -&gt; DoubleRange -&gt; Bool)
 -&gt; (DoubleRange -&gt; DoubleRange -&gt; Bool) -&gt; Eq DoubleRange
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DoubleRange -&gt; DoubleRange -&gt; Bool
 == :: DoubleRange -&gt; DoubleRange -&gt; Bool
 $c== :: DoubleRange -&gt; DoubleRange -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679759462"><span id="local-6989586621679759464"><span id="local-6989586621679759466"><span id="local-6989586621679759468"><span class="annot"><span class="annottext">ReadPrec [DoubleRange]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679760505"><span id="local-6989586621679760507"><span id="local-6989586621679760509"><span id="local-6989586621679760511"><span class="annot"><span class="annottext">ReadPrec [DoubleRange]
 ReadPrec DoubleRange
 Int -&gt; ReadS DoubleRange
 ReadS [DoubleRange]
@@ -62,7 +62,7 @@ readList :: ReadS [DoubleRange]
 $creadList :: ReadS [DoubleRange]
 readsPrec :: Int -&gt; ReadS DoubleRange
 $creadsPrec :: Int -&gt; ReadS DoubleRange
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679759455"><span id="local-6989586621679759457"><span id="local-6989586621679759459"><span class="annot"><span class="annottext">Int -&gt; DoubleRange -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679760498"><span id="local-6989586621679760500"><span id="local-6989586621679760502"><span class="annot"><span class="annottext">Int -&gt; DoubleRange -&gt; ShowS
 [DoubleRange] -&gt; ShowS
 DoubleRange -&gt; String
 (Int -&gt; DoubleRange -&gt; ShowS)
@@ -122,16 +122,16 @@ forall a. Maybe a
 -&gt; (DoubleRange -&gt; Maybe Double -&gt; DoubleRange)
 -&gt; Lens DoubleRange DoubleRange (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.DoubleRange.html#DoubleRange%27"><span class="hs-identifier hs-type">DoubleRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679759446"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.DoubleRange.html#DoubleRange%27"><span class="hs-identifier hs-type">DoubleRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679760489"><span class="annot"><span class="annottext">Maybe Double
 to :: Maybe Double
 $sel:to:DoubleRange' :: DoubleRange -&gt; Maybe Double
-</span><a href="#local-6989586621679759446"><span class="hs-identifier hs-var hs-var">to</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679759446"><span class="hs-identifier hs-var">to</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679759445"><span class="annot"><span class="annottext">s :: DoubleRange
-</span><a href="#local-6989586621679759445"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.DoubleRange.html#DoubleRange%27"><span class="hs-identifier hs-type">DoubleRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679759444"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679759444"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DoubleRange
-</span><a href="#local-6989586621679759445"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:to:DoubleRange' :: Maybe Double
+</span><a href="#local-6989586621679760489"><span class="hs-identifier hs-var hs-var">to</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679760489"><span class="hs-identifier hs-var">to</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679760488"><span class="annot"><span class="annottext">s :: DoubleRange
+</span><a href="#local-6989586621679760488"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.DoubleRange.html#DoubleRange%27"><span class="hs-identifier hs-type">DoubleRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679760487"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679760487"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DoubleRange
+</span><a href="#local-6989586621679760488"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:to:DoubleRange' :: Maybe Double
 </span><a href="Network.AWS.RDS.Types.DoubleRange.html#%24sel%3Ato%3ADoubleRange%27"><span class="hs-identifier hs-var">to</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679759444"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DoubleRange.html#DoubleRange"><span class="hs-identifier hs-type">DoubleRange</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679760487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DoubleRange.html#DoubleRange"><span class="hs-identifier hs-type">DoubleRange</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | The minimum value in the range.</span><span>
 </span><span id="line-61"></span><span class="annot"><a href="Network.AWS.RDS.Types.DoubleRange.html#doubleRange_from"><span class="hs-identifier hs-type">doubleRange_from</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DoubleRange.html#DoubleRange"><span class="hs-identifier hs-type">DoubleRange</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
@@ -140,21 +140,21 @@ $sel:to:DoubleRange' :: DoubleRange -&gt; Maybe Double
 -&gt; (DoubleRange -&gt; Maybe Double -&gt; DoubleRange)
 -&gt; Lens DoubleRange DoubleRange (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.DoubleRange.html#DoubleRange%27"><span class="hs-identifier hs-type">DoubleRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679759442"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.DoubleRange.html#DoubleRange%27"><span class="hs-identifier hs-type">DoubleRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679760485"><span class="annot"><span class="annottext">Maybe Double
 from :: Maybe Double
 $sel:from:DoubleRange' :: DoubleRange -&gt; Maybe Double
-</span><a href="#local-6989586621679759442"><span class="hs-identifier hs-var hs-var">from</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679759442"><span class="hs-identifier hs-var">from</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679759441"><span class="annot"><span class="annottext">s :: DoubleRange
-</span><a href="#local-6989586621679759441"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.DoubleRange.html#DoubleRange%27"><span class="hs-identifier hs-type">DoubleRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679759440"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679759440"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DoubleRange
-</span><a href="#local-6989586621679759441"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:from:DoubleRange' :: Maybe Double
+</span><a href="#local-6989586621679760485"><span class="hs-identifier hs-var hs-var">from</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679760485"><span class="hs-identifier hs-var">from</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679760484"><span class="annot"><span class="annottext">s :: DoubleRange
+</span><a href="#local-6989586621679760484"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.DoubleRange.html#DoubleRange%27"><span class="hs-identifier hs-type">DoubleRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679760483"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679760483"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DoubleRange
+</span><a href="#local-6989586621679760484"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:from:DoubleRange' :: Maybe Double
 </span><a href="Network.AWS.RDS.Types.DoubleRange.html#%24sel%3Afrom%3ADoubleRange%27"><span class="hs-identifier hs-var">from</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679759440"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DoubleRange.html#DoubleRange"><span class="hs-identifier hs-type">DoubleRange</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679760483"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DoubleRange.html#DoubleRange"><span class="hs-identifier hs-type">DoubleRange</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DoubleRange.html#DoubleRange"><span class="hs-identifier hs-type">DoubleRange</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679759437"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DoubleRange
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679759435"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679759435"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679760480"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DoubleRange
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679760478"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679760478"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">Maybe Double -&gt; Maybe Double -&gt; DoubleRange
 </span><a href="Network.AWS.RDS.Types.DoubleRange.html#DoubleRange%27"><span class="hs-identifier hs-var">DoubleRange'</span></a></span><span>
 </span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Double -&gt; Maybe Double -&gt; DoubleRange)
@@ -162,19 +162,19 @@ $sel:from:DoubleRange' :: DoubleRange -&gt; Maybe Double
 -&gt; Either String (Maybe Double -&gt; DoubleRange)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679759435"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
+</span><a href="#local-6989586621679760478"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;To&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Either String (Maybe Double -&gt; DoubleRange)
 -&gt; Either String (Maybe Double) -&gt; Either String DoubleRange
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679759435"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
+</span><a href="#local-6989586621679760478"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;From&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679759429"><span id="local-6989586621679759431"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DoubleRange.html#DoubleRange"><span class="hs-identifier hs-type">DoubleRange</span></a></span></span></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679760472"><span id="local-6989586621679760474"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DoubleRange.html#DoubleRange"><span class="hs-identifier hs-type">DoubleRange</span></a></span></span></span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679759426"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DoubleRange.html#DoubleRange"><span class="hs-identifier hs-type">DoubleRange</span></a></span></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679760469"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DoubleRange.html#DoubleRange"><span class="hs-identifier hs-type">DoubleRange</span></a></span></span><span>
 </span><span id="line-72"></span></pre></body></html>

@@ -32,9 +32,9 @@
 </span><span id="line-32"></span><span>
 </span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#listReviewableHITs_status"><span class="hs-identifier">listReviewableHITs_status</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#listReviewableHITs_nextToken"><span class="hs-identifier">listReviewableHITs_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#listReviewableHITs_maxResults"><span class="hs-identifier">listReviewableHITs_maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#listReviewableHITs_hITTypeId"><span class="hs-identifier">listReviewableHITs_hITTypeId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#listReviewableHITs_hITTypeId"><span class="hs-identifier">listReviewableHITs_hITTypeId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#listReviewableHITs_nextToken"><span class="hs-identifier">listReviewableHITs_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#listReviewableHITs_maxResults"><span class="hs-identifier">listReviewableHITs_maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITsResponse"><span class="hs-identifier">ListReviewableHITsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -42,8 +42,8 @@
 </span><span id="line-42"></span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#listReviewableHITsResponse_nextToken"><span class="hs-identifier">listReviewableHITsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#listReviewableHITsResponse_hITs"><span class="hs-identifier">listReviewableHITsResponse_hITs</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#listReviewableHITsResponse_numResults"><span class="hs-identifier">listReviewableHITsResponse_numResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#listReviewableHITsResponse_numResults"><span class="hs-identifier">listReviewableHITsResponse_numResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#listReviewableHITsResponse_hITs"><span class="hs-identifier">listReviewableHITsResponse_hITs</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#listReviewableHITsResponse_httpStatus"><span class="hs-identifier">listReviewableHITsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span class="hs-keyword">where</span><span>
@@ -56,23 +56,23 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newListReviewableHITs' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679248838"><span id="local-6989586621679248839"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListReviewableHITs"><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITs"><span class="hs-identifier hs-var">ListReviewableHITs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListReviewableHITs%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITs%27"><span class="hs-identifier hs-var">ListReviewableHITs'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621679248963"><span id="local-6989586621679248964"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListReviewableHITs"><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITs"><span class="hs-identifier hs-var">ListReviewableHITs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListReviewableHITs%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITs%27"><span class="hs-identifier hs-var">ListReviewableHITs'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Can be either @Reviewable@ or @Reviewing@. Reviewable is the default</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- value.</span><span>
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3Astatus%3AListReviewableHITs%27"><span class="annot"><span class="annottext">ListReviewableHITs -&gt; Maybe ReviewableHITStatus
 </span><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#%24sel%3Astatus%3AListReviewableHITs%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewableHITStatus.html#ReviewableHITStatus"><span class="hs-identifier hs-type">ReviewableHITStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | Pagination Token</span><span>
-</span><span id="line-64"></span><span>    </span><span id="%24sel%3AnextToken%3AListReviewableHITs%27"><span class="annot"><span class="annottext">ListReviewableHITs -&gt; Maybe Text
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The ID of the HIT type of the HITs to consider for the query. If not</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- specified, all HITs for the Reviewer are considered</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AhITTypeId%3AListReviewableHITs%27"><span class="annot"><span class="annottext">ListReviewableHITs -&gt; Maybe Text
+</span><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#%24sel%3AhITTypeId%3AListReviewableHITs%27"><span class="hs-identifier hs-var hs-var">hITTypeId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | Pagination Token</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AnextToken%3AListReviewableHITs%27"><span class="annot"><span class="annottext">ListReviewableHITs -&gt; Maybe Text
 </span><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#%24sel%3AnextToken%3AListReviewableHITs%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | Limit the number of results returned.</span><span>
-</span><span id="line-66"></span><span>    </span><span id="%24sel%3AmaxResults%3AListReviewableHITs%27"><span class="annot"><span class="annottext">ListReviewableHITs -&gt; Maybe Natural
-</span><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#%24sel%3AmaxResults%3AListReviewableHITs%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The ID of the HIT type of the HITs to consider for the query. If not</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- specified, all HITs for the Reviewer are considered</span><span>
-</span><span id="line-69"></span><span>    </span><span id="%24sel%3AhITTypeId%3AListReviewableHITs%27"><span class="annot"><span class="annottext">ListReviewableHITs -&gt; Maybe Text
-</span><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#%24sel%3AhITTypeId%3AListReviewableHITs%27"><span class="hs-identifier hs-var hs-var">hITTypeId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | Limit the number of results returned.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AmaxResults%3AListReviewableHITs%27"><span class="annot"><span class="annottext">ListReviewableHITs -&gt; Maybe Natural
+</span><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#%24sel%3AmaxResults%3AListReviewableHITs%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679248829"><span id="local-6989586621679248831"><span class="annot"><span class="annottext">ListReviewableHITs -&gt; ListReviewableHITs -&gt; Bool
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679248954"><span id="local-6989586621679248956"><span class="annot"><span class="annottext">ListReviewableHITs -&gt; ListReviewableHITs -&gt; Bool
 (ListReviewableHITs -&gt; ListReviewableHITs -&gt; Bool)
 -&gt; (ListReviewableHITs -&gt; ListReviewableHITs -&gt; Bool)
 -&gt; Eq ListReviewableHITs
@@ -81,7 +81,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListReviewableHITs -&gt; ListReviewableHITs -&gt; Bool
 == :: ListReviewableHITs -&gt; ListReviewableHITs -&gt; Bool
 $c== :: ListReviewableHITs -&gt; ListReviewableHITs -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248820"><span id="local-6989586621679248822"><span id="local-6989586621679248824"><span id="local-6989586621679248826"><span class="annot"><span class="annottext">ReadPrec [ListReviewableHITs]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248945"><span id="local-6989586621679248947"><span id="local-6989586621679248949"><span id="local-6989586621679248951"><span class="annot"><span class="annottext">ReadPrec [ListReviewableHITs]
 ReadPrec ListReviewableHITs
 Int -&gt; ReadS ListReviewableHITs
 ReadS [ListReviewableHITs]
@@ -101,7 +101,7 @@ readList :: ReadS [ListReviewableHITs]
 $creadList :: ReadS [ListReviewableHITs]
 readsPrec :: Int -&gt; ReadS ListReviewableHITs
 $creadsPrec :: Int -&gt; ReadS ListReviewableHITs
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248813"><span id="local-6989586621679248815"><span id="local-6989586621679248817"><span class="annot"><span class="annottext">Int -&gt; ListReviewableHITs -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248938"><span id="local-6989586621679248940"><span id="local-6989586621679248942"><span class="annot"><span class="annottext">Int -&gt; ListReviewableHITs -&gt; ShowS
 [ListReviewableHITs] -&gt; ShowS
 ListReviewableHITs -&gt; String
 (Int -&gt; ListReviewableHITs -&gt; ShowS)
@@ -138,33 +138,33 @@ $cfrom :: forall x. ListReviewableHITs -&gt; Rep ListReviewableHITs x
 </span><span id="line-81"></span><span class="hs-comment">-- 'status', 'listReviewableHITs_status' - Can be either @Reviewable@ or @Reviewing@. Reviewable is the default</span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- value.</span><span>
 </span><span id="line-83"></span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- 'nextToken', 'listReviewableHITs_nextToken' - Pagination Token</span><span>
-</span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- 'maxResults', 'listReviewableHITs_maxResults' - Limit the number of results returned.</span><span>
-</span><span id="line-87"></span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- 'hITTypeId', 'listReviewableHITs_hITTypeId' - The ID of the HIT type of the HITs to consider for the query. If not</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- specified, all HITs for the Reviewer are considered</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'hITTypeId', 'listReviewableHITs_hITTypeId' - The ID of the HIT type of the HITs to consider for the query. If not</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- specified, all HITs for the Reviewer are considered</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'nextToken', 'listReviewableHITs_nextToken' - Pagination Token</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'maxResults', 'listReviewableHITs_maxResults' - Limit the number of results returned.</span><span>
 </span><span id="line-90"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#newListReviewableHITs"><span class="hs-identifier hs-type">newListReviewableHITs</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITs"><span class="hs-identifier hs-type">ListReviewableHITs</span></a></span><span>
 </span><span id="line-92"></span><span id="newListReviewableHITs"><span class="annot"><span class="annottext">newListReviewableHITs :: ListReviewableHITs
 </span><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#newListReviewableHITs"><span class="hs-identifier hs-var hs-var">newListReviewableHITs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>  </span><span class="annot"><span class="annottext">ListReviewableHITs' :: Maybe ReviewableHITStatus
--&gt; Maybe Text -&gt; Maybe Natural -&gt; Maybe Text -&gt; ListReviewableHITs
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Natural -&gt; ListReviewableHITs
 </span><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITs%27"><span class="hs-identifier hs-type">ListReviewableHITs'</span></a></span><span>
 </span><span id="line-94"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:ListReviewableHITs' :: Maybe ReviewableHITStatus
 </span><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#%24sel%3Astatus%3AListReviewableHITs%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReviewableHITStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListReviewableHITs' :: Maybe Text
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:hITTypeId:ListReviewableHITs' :: Maybe Text
+</span><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#%24sel%3AhITTypeId%3AListReviewableHITs%27"><span class="hs-identifier hs-var">hITTypeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListReviewableHITs' :: Maybe Text
 </span><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#%24sel%3AnextToken%3AListReviewableHITs%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListReviewableHITs' :: Maybe Natural
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListReviewableHITs' :: Maybe Natural
 </span><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#%24sel%3AmaxResults%3AListReviewableHITs%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:hITTypeId:ListReviewableHITs' :: Maybe Text
-</span><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#%24sel%3AhITTypeId%3AListReviewableHITs%27"><span class="hs-identifier hs-var">hITTypeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-98"></span><span>    </span><span class="hs-special">}</span><span>
@@ -183,40 +183,61 @@ forall a. Maybe a
      (Maybe ReviewableHITStatus)
      (Maybe ReviewableHITStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITs%27"><span class="hs-identifier hs-type">ListReviewableHITs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248807"><span class="annot"><span class="annottext">Maybe ReviewableHITStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITs%27"><span class="hs-identifier hs-type">ListReviewableHITs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248932"><span class="annot"><span class="annottext">Maybe ReviewableHITStatus
 status :: Maybe ReviewableHITStatus
 $sel:status:ListReviewableHITs' :: ListReviewableHITs -&gt; Maybe ReviewableHITStatus
-</span><a href="#local-6989586621679248807"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReviewableHITStatus
-</span><a href="#local-6989586621679248807"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248806"><span class="annot"><span class="annottext">s :: ListReviewableHITs
-</span><a href="#local-6989586621679248806"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITs%27"><span class="hs-identifier hs-type">ListReviewableHITs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248805"><span class="annot"><span class="annottext">Maybe ReviewableHITStatus
-</span><a href="#local-6989586621679248805"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReviewableHITs
-</span><a href="#local-6989586621679248806"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ListReviewableHITs' :: Maybe ReviewableHITStatus
+</span><a href="#local-6989586621679248932"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReviewableHITStatus
+</span><a href="#local-6989586621679248932"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248931"><span class="annot"><span class="annottext">s :: ListReviewableHITs
+</span><a href="#local-6989586621679248931"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITs%27"><span class="hs-identifier hs-type">ListReviewableHITs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248930"><span class="annot"><span class="annottext">Maybe ReviewableHITStatus
+</span><a href="#local-6989586621679248930"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReviewableHITs
+</span><a href="#local-6989586621679248931"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ListReviewableHITs' :: Maybe ReviewableHITStatus
 </span><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#%24sel%3Astatus%3AListReviewableHITs%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReviewableHITStatus
-</span><a href="#local-6989586621679248805"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITs"><span class="hs-identifier hs-type">ListReviewableHITs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679248930"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITs"><span class="hs-identifier hs-type">ListReviewableHITs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- | Pagination Token</span><span>
-</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#listReviewableHITs_nextToken"><span class="hs-identifier hs-type">listReviewableHITs_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITs"><span class="hs-identifier hs-type">ListReviewableHITs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span id="listReviewableHITs_nextToken"><span class="annot"><span class="annottext">listReviewableHITs_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-105"></span><span class="hs-comment">-- | The ID of the HIT type of the HITs to consider for the query. If not</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- specified, all HITs for the Reviewer are considered</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#listReviewableHITs_hITTypeId"><span class="hs-identifier hs-type">listReviewableHITs_hITTypeId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITs"><span class="hs-identifier hs-type">ListReviewableHITs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="listReviewableHITs_hITTypeId"><span class="annot"><span class="annottext">listReviewableHITs_hITTypeId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListReviewableHITs -&gt; f ListReviewableHITs
+</span><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#listReviewableHITs_hITTypeId"><span class="hs-identifier hs-var hs-var">listReviewableHITs_hITTypeId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListReviewableHITs -&gt; Maybe Text)
+-&gt; (ListReviewableHITs -&gt; Maybe Text -&gt; ListReviewableHITs)
+-&gt; Lens
+     ListReviewableHITs ListReviewableHITs (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITs%27"><span class="hs-identifier hs-type">ListReviewableHITs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248929"><span class="annot"><span class="annottext">Maybe Text
+hITTypeId :: Maybe Text
+$sel:hITTypeId:ListReviewableHITs' :: ListReviewableHITs -&gt; Maybe Text
+</span><a href="#local-6989586621679248929"><span class="hs-identifier hs-var hs-var">hITTypeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679248929"><span class="hs-identifier hs-var">hITTypeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248928"><span class="annot"><span class="annottext">s :: ListReviewableHITs
+</span><a href="#local-6989586621679248928"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITs%27"><span class="hs-identifier hs-type">ListReviewableHITs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248927"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679248927"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReviewableHITs
+</span><a href="#local-6989586621679248928"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hITTypeId:ListReviewableHITs' :: Maybe Text
+</span><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#%24sel%3AhITTypeId%3AListReviewableHITs%27"><span class="hs-identifier hs-var">hITTypeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679248927"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITs"><span class="hs-identifier hs-type">ListReviewableHITs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | Pagination Token</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#listReviewableHITs_nextToken"><span class="hs-identifier hs-type">listReviewableHITs_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITs"><span class="hs-identifier hs-type">ListReviewableHITs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="listReviewableHITs_nextToken"><span class="annot"><span class="annottext">listReviewableHITs_nextToken :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ListReviewableHITs -&gt; f ListReviewableHITs
 </span><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#listReviewableHITs_nextToken"><span class="hs-identifier hs-var hs-var">listReviewableHITs_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListReviewableHITs -&gt; Maybe Text)
 -&gt; (ListReviewableHITs -&gt; Maybe Text -&gt; ListReviewableHITs)
 -&gt; Lens
      ListReviewableHITs ListReviewableHITs (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITs%27"><span class="hs-identifier hs-type">ListReviewableHITs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248804"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITs%27"><span class="hs-identifier hs-type">ListReviewableHITs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248926"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListReviewableHITs' :: ListReviewableHITs -&gt; Maybe Text
-</span><a href="#local-6989586621679248804"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248804"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248803"><span class="annot"><span class="annottext">s :: ListReviewableHITs
-</span><a href="#local-6989586621679248803"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITs%27"><span class="hs-identifier hs-type">ListReviewableHITs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248802"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248802"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReviewableHITs
-</span><a href="#local-6989586621679248803"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListReviewableHITs' :: Maybe Text
+</span><a href="#local-6989586621679248926"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679248926"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248925"><span class="annot"><span class="annottext">s :: ListReviewableHITs
+</span><a href="#local-6989586621679248925"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITs%27"><span class="hs-identifier hs-type">ListReviewableHITs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248924"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679248924"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReviewableHITs
+</span><a href="#local-6989586621679248925"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListReviewableHITs' :: Maybe Text
 </span><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#%24sel%3AnextToken%3AListReviewableHITs%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248802"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITs"><span class="hs-identifier hs-type">ListReviewableHITs</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- | Limit the number of results returned.</span><span>
-</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#listReviewableHITs_maxResults"><span class="hs-identifier hs-type">listReviewableHITs_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITs"><span class="hs-identifier hs-type">ListReviewableHITs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span id="listReviewableHITs_maxResults"><span class="annot"><span class="annottext">listReviewableHITs_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><a href="#local-6989586621679248924"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITs"><span class="hs-identifier hs-type">ListReviewableHITs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | Limit the number of results returned.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#listReviewableHITs_maxResults"><span class="hs-identifier hs-type">listReviewableHITs_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITs"><span class="hs-identifier hs-type">ListReviewableHITs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="listReviewableHITs_maxResults"><span class="annot"><span class="annottext">listReviewableHITs_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; ListReviewableHITs -&gt; f ListReviewableHITs
 </span><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#listReviewableHITs_maxResults"><span class="hs-identifier hs-var hs-var">listReviewableHITs_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListReviewableHITs -&gt; Maybe Natural)
 -&gt; (ListReviewableHITs -&gt; Maybe Natural -&gt; ListReviewableHITs)
@@ -226,50 +247,29 @@ $sel:nextToken:ListReviewableHITs' :: ListReviewableHITs -&gt; Maybe Text
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITs%27"><span class="hs-identifier hs-type">ListReviewableHITs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248801"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITs%27"><span class="hs-identifier hs-type">ListReviewableHITs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248923"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListReviewableHITs' :: ListReviewableHITs -&gt; Maybe Natural
-</span><a href="#local-6989586621679248801"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679248801"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248800"><span class="annot"><span class="annottext">s :: ListReviewableHITs
-</span><a href="#local-6989586621679248800"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITs%27"><span class="hs-identifier hs-type">ListReviewableHITs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248799"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679248799"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReviewableHITs
-</span><a href="#local-6989586621679248800"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListReviewableHITs' :: Maybe Natural
+</span><a href="#local-6989586621679248923"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679248923"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248922"><span class="annot"><span class="annottext">s :: ListReviewableHITs
+</span><a href="#local-6989586621679248922"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITs%27"><span class="hs-identifier hs-type">ListReviewableHITs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248921"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679248921"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReviewableHITs
+</span><a href="#local-6989586621679248922"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListReviewableHITs' :: Maybe Natural
 </span><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#%24sel%3AmaxResults%3AListReviewableHITs%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679248799"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITs"><span class="hs-identifier hs-type">ListReviewableHITs</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- | The ID of the HIT type of the HITs to consider for the query. If not</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- specified, all HITs for the Reviewer are considered</span><span>
-</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#listReviewableHITs_hITTypeId"><span class="hs-identifier hs-type">listReviewableHITs_hITTypeId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITs"><span class="hs-identifier hs-type">ListReviewableHITs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span id="listReviewableHITs_hITTypeId"><span class="annot"><span class="annottext">listReviewableHITs_hITTypeId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListReviewableHITs -&gt; f ListReviewableHITs
-</span><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#listReviewableHITs_hITTypeId"><span class="hs-identifier hs-var hs-var">listReviewableHITs_hITTypeId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListReviewableHITs -&gt; Maybe Text)
--&gt; (ListReviewableHITs -&gt; Maybe Text -&gt; ListReviewableHITs)
--&gt; Lens
-     ListReviewableHITs ListReviewableHITs (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITs%27"><span class="hs-identifier hs-type">ListReviewableHITs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248798"><span class="annot"><span class="annottext">Maybe Text
-hITTypeId :: Maybe Text
-$sel:hITTypeId:ListReviewableHITs' :: ListReviewableHITs -&gt; Maybe Text
-</span><a href="#local-6989586621679248798"><span class="hs-identifier hs-var hs-var">hITTypeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248798"><span class="hs-identifier hs-var">hITTypeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248797"><span class="annot"><span class="annottext">s :: ListReviewableHITs
-</span><a href="#local-6989586621679248797"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITs%27"><span class="hs-identifier hs-type">ListReviewableHITs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248796"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248796"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReviewableHITs
-</span><a href="#local-6989586621679248797"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hITTypeId:ListReviewableHITs' :: Maybe Text
-</span><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#%24sel%3AhITTypeId%3AListReviewableHITs%27"><span class="hs-identifier hs-var">hITTypeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248796"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITs"><span class="hs-identifier hs-type">ListReviewableHITs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679248921"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITs"><span class="hs-identifier hs-type">ListReviewableHITs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITs"><span class="hs-identifier hs-type">ListReviewableHITs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679248792"><span class="annot"><span class="annottext">page :: ListReviewableHITs
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679248917"><span class="annot"><span class="annottext">page :: ListReviewableHITs
 -&gt; AWSResponse ListReviewableHITs -&gt; Maybe ListReviewableHITs
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679248790"><span class="annot"><span class="annottext">ListReviewableHITs
-</span><a href="#local-6989586621679248790"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679248789"><span class="annot"><span class="annottext">AWSResponse ListReviewableHITs
-</span><a href="#local-6989586621679248789"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679248915"><span class="annot"><span class="annottext">ListReviewableHITs
+</span><a href="#local-6989586621679248915"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679248914"><span class="annot"><span class="annottext">AWSResponse ListReviewableHITs
+</span><a href="#local-6989586621679248914"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-120"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-121"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListReviewableHITs
 ListReviewableHITsResponse
-</span><a href="#local-6989586621679248789"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679248914"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">ListReviewableHITsResponse
 -&gt; Getting (First Text) ListReviewableHITsResponse Text
 -&gt; Maybe Text
@@ -299,7 +299,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-127"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListReviewableHITs
 ListReviewableHITsResponse
-</span><a href="#local-6989586621679248789"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679248914"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">ListReviewableHITsResponse
 -&gt; Getting (First [HIT]) ListReviewableHITsResponse [HIT]
 -&gt; Maybe [HIT]
@@ -332,7 +332,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-133"></span><span>        </span><span class="annot"><span class="annottext">ListReviewableHITs
-</span><a href="#local-6989586621679248790"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679248915"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">ListReviewableHITs
 -&gt; (ListReviewableHITs -&gt; ListReviewableHITs) -&gt; ListReviewableHITs
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -347,7 +347,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListReviewableHITs
 ListReviewableHITsResponse
-</span><a href="#local-6989586621679248789"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679248914"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-136"></span><span>          </span><span class="annot"><span class="annottext">ListReviewableHITsResponse
 -&gt; Getting (First Text) ListReviewableHITsResponse Text
 -&gt; Maybe Text
@@ -373,12 +373,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-140"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-141"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITs"><span class="hs-identifier hs-type">ListReviewableHITs</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-142"></span><span>      </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITsResponse"><span class="hs-identifier hs-type">ListReviewableHITsResponse</span></a></span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679248779"><span class="annot"><span class="annottext">request :: ListReviewableHITs -&gt; Request ListReviewableHITs
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679248904"><span class="annot"><span class="annottext">request :: ListReviewableHITs -&gt; Request ListReviewableHITs
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListReviewableHITs -&gt; Request ListReviewableHITs
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MechanicalTurk.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679248775"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679248900"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListReviewableHITs
 -&gt; ClientResponse ClientBody
@@ -404,33 +404,42 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679248772"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679248772"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679248771"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679248771"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679248770"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248770"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679248897"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679248897"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679248896"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679248896"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679248895"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679248895"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe [HIT] -&gt; Maybe Int -&gt; Int -&gt; ListReviewableHITsResponse
+-&gt; Maybe Int -&gt; Maybe [HIT] -&gt; Int -&gt; ListReviewableHITsResponse
 </span><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITsResponse%27"><span class="hs-identifier hs-var">ListReviewableHITsResponse'</span></a></span><span>
 </span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe [HIT] -&gt; Maybe Int -&gt; Int -&gt; ListReviewableHITsResponse)
+ -&gt; Maybe Int -&gt; Maybe [HIT] -&gt; Int -&gt; ListReviewableHITsResponse)
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
-     (Maybe [HIT] -&gt; Maybe Int -&gt; Int -&gt; ListReviewableHITsResponse)
+     (Maybe Int -&gt; Maybe [HIT] -&gt; Int -&gt; ListReviewableHITsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248770"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679248895"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe [HIT] -&gt; Maybe Int -&gt; Int -&gt; ListReviewableHITsResponse)
--&gt; Either String (Maybe [HIT])
--&gt; Either String (Maybe Int -&gt; Int -&gt; ListReviewableHITsResponse)
+  (Maybe Int -&gt; Maybe [HIT] -&gt; Int -&gt; ListReviewableHITsResponse)
+-&gt; Either String (Maybe Int)
+-&gt; Either String (Maybe [HIT] -&gt; Int -&gt; ListReviewableHITsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248770"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [HIT]))
+</span><a href="#local-6989586621679248895"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NumResults&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe [HIT] -&gt; Int -&gt; ListReviewableHITsResponse)
+-&gt; Either String (Maybe [HIT])
+-&gt; Either String (Int -&gt; ListReviewableHITsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679248895"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [HIT]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HITs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [HIT]))
@@ -439,15 +448,6 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [HIT]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Int -&gt; Int -&gt; ListReviewableHITsResponse)
--&gt; Either String (Maybe Int)
--&gt; Either String (Int -&gt; ListReviewableHITsResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248770"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Int)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NumResults&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListReviewableHITsResponse)
 -&gt; Either String Int -&gt; Either String ListReviewableHITsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -456,15 +456,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679248772"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679248897"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248761"><span id="local-6989586621679248763"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITs"><span class="hs-identifier hs-type">ListReviewableHITs</span></a></span></span></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248886"><span id="local-6989586621679248888"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITs"><span class="hs-identifier hs-type">ListReviewableHITs</span></a></span></span></span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248758"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITs"><span class="hs-identifier hs-type">ListReviewableHITs</span></a></span></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248883"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITs"><span class="hs-identifier hs-type">ListReviewableHITs</span></a></span></span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITs"><span class="hs-identifier hs-type">ListReviewableHITs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679248754"><span class="annot"><span class="annottext">toHeaders :: ListReviewableHITs -&gt; ResponseHeaders
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679248879"><span class="annot"><span class="annottext">toHeaders :: ListReviewableHITs -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListReviewableHITs -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -491,20 +491,20 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-170"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-171"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248744"><span id="local-6989586621679248746"><span id="local-6989586621679248748"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITs"><span class="hs-identifier hs-type">ListReviewableHITs</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-174"></span><span>  </span><span id="local-6989586621679248742"><span class="annot"><span class="annottext">toJSON :: ListReviewableHITs -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITs%27"><span class="hs-identifier hs-type">ListReviewableHITs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248737"><span id="local-6989586621679248738"><span id="local-6989586621679248739"><span id="local-6989586621679248740"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248869"><span id="local-6989586621679248871"><span id="local-6989586621679248873"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITs"><span class="hs-identifier hs-type">ListReviewableHITs</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679248867"><span class="annot"><span class="annottext">toJSON :: ListReviewableHITs -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITs%27"><span class="hs-identifier hs-type">ListReviewableHITs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248862"><span id="local-6989586621679248863"><span id="local-6989586621679248864"><span id="local-6989586621679248865"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe ReviewableHITStatus
-hITTypeId :: Maybe Text
 maxResults :: Maybe Natural
 nextToken :: Maybe Text
+hITTypeId :: Maybe Text
 status :: Maybe ReviewableHITStatus
-$sel:hITTypeId:ListReviewableHITs' :: ListReviewableHITs -&gt; Maybe Text
 $sel:maxResults:ListReviewableHITs' :: ListReviewableHITs -&gt; Maybe Natural
 $sel:nextToken:ListReviewableHITs' :: ListReviewableHITs -&gt; Maybe Text
+$sel:hITTypeId:ListReviewableHITs' :: ListReviewableHITs -&gt; Maybe Text
 $sel:status:ListReviewableHITs' :: ListReviewableHITs -&gt; Maybe ReviewableHITStatus
-</span><a href="#local-6989586621679248737"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679248862"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-175"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-176"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -517,40 +517,40 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ReviewableHITStatus -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ReviewableHITStatus
-</span><a href="#local-6989586621679248740"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679248865"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-178"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248739"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-179"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679248738"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-180"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HITTypeId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248737"><span class="hs-identifier hs-var">hITTypeId</span></a></span><span>
+</span><a href="#local-6989586621679248864"><span class="hs-identifier hs-var">hITTypeId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679248863"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679248862"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-181"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-182"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITs"><span class="hs-identifier hs-type">ListReviewableHITs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-185"></span><span>  </span><span id="local-6989586621679248731"><span class="annot"><span class="annottext">toPath :: ListReviewableHITs -&gt; ByteString
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679248856"><span class="annot"><span class="annottext">toPath :: ListReviewableHITs -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListReviewableHITs -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITs"><span class="hs-identifier hs-type">ListReviewableHITs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-188"></span><span>  </span><span id="local-6989586621679248727"><span class="annot"><span class="annottext">toQuery :: ListReviewableHITs -&gt; QueryString
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679248852"><span class="annot"><span class="annottext">toQuery :: ListReviewableHITs -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListReviewableHITs -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -558,21 +558,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-189"></span><span>
 </span><span id="line-190"></span><span class="hs-comment">-- | /See:/ 'newListReviewableHITsResponse' smart constructor.</span><span>
-</span><span id="line-191"></span><span id="local-6989586621679248724"><span id="local-6989586621679248725"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListReviewableHITsResponse"><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITsResponse"><span class="hs-identifier hs-var">ListReviewableHITsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListReviewableHITsResponse%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITsResponse%27"><span class="hs-identifier hs-var">ListReviewableHITsResponse'</span></a></span></span><span>
+</span><span id="line-191"></span><span id="local-6989586621679248849"><span id="local-6989586621679248850"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListReviewableHITsResponse"><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITsResponse"><span class="hs-identifier hs-var">ListReviewableHITsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListReviewableHITsResponse%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITsResponse%27"><span class="hs-identifier hs-var">ListReviewableHITsResponse'</span></a></span></span><span>
 </span><span id="line-192"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AnextToken%3AListReviewableHITsResponse%27"><span class="annot"><span class="annottext">ListReviewableHITsResponse -&gt; Maybe Text
 </span><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#%24sel%3AnextToken%3AListReviewableHITsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-193"></span><span>    </span><span class="hs-comment">-- | The list of HIT elements returned by the query.</span><span>
-</span><span id="line-194"></span><span>    </span><span id="%24sel%3AhITs%3AListReviewableHITsResponse%27"><span class="annot"><span class="annottext">ListReviewableHITsResponse -&gt; Maybe [HIT]
-</span><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#%24sel%3AhITs%3AListReviewableHITsResponse%27"><span class="hs-identifier hs-var hs-var">hITs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.HIT.html#HIT"><span class="hs-identifier hs-type">HIT</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-195"></span><span>    </span><span class="hs-comment">-- | The number of HITs on this page in the filtered results list, equivalent</span><span>
-</span><span id="line-196"></span><span>    </span><span class="hs-comment">-- to the number of HITs being returned by this call.</span><span>
-</span><span id="line-197"></span><span>    </span><span id="%24sel%3AnumResults%3AListReviewableHITsResponse%27"><span class="annot"><span class="annottext">ListReviewableHITsResponse -&gt; Maybe Int
+</span><span id="line-193"></span><span>    </span><span class="hs-comment">-- | The number of HITs on this page in the filtered results list, equivalent</span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-comment">-- to the number of HITs being returned by this call.</span><span>
+</span><span id="line-195"></span><span>    </span><span id="%24sel%3AnumResults%3AListReviewableHITsResponse%27"><span class="annot"><span class="annottext">ListReviewableHITsResponse -&gt; Maybe Int
 </span><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#%24sel%3AnumResults%3AListReviewableHITsResponse%27"><span class="hs-identifier hs-var hs-var">numResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>    </span><span class="hs-comment">-- | The list of HIT elements returned by the query.</span><span>
+</span><span id="line-197"></span><span>    </span><span id="%24sel%3AhITs%3AListReviewableHITsResponse%27"><span class="annot"><span class="annottext">ListReviewableHITsResponse -&gt; Maybe [HIT]
+</span><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#%24sel%3AhITs%3AListReviewableHITsResponse%27"><span class="hs-identifier hs-var hs-var">hITs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.HIT.html#HIT"><span class="hs-identifier hs-type">HIT</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-198"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-199"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListReviewableHITsResponse%27"><span class="annot"><span class="annottext">ListReviewableHITsResponse -&gt; Int
 </span><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#%24sel%3AhttpStatus%3AListReviewableHITsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-200"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-201"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679248716"><span id="local-6989586621679248718"><span class="annot"><span class="annottext">ListReviewableHITsResponse -&gt; ListReviewableHITsResponse -&gt; Bool
+</span><span id="line-201"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679248841"><span id="local-6989586621679248843"><span class="annot"><span class="annottext">ListReviewableHITsResponse -&gt; ListReviewableHITsResponse -&gt; Bool
 (ListReviewableHITsResponse -&gt; ListReviewableHITsResponse -&gt; Bool)
 -&gt; (ListReviewableHITsResponse
     -&gt; ListReviewableHITsResponse -&gt; Bool)
@@ -582,7 +582,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListReviewableHITsResponse -&gt; ListReviewableHITsResponse -&gt; Bool
 == :: ListReviewableHITsResponse -&gt; ListReviewableHITsResponse -&gt; Bool
 $c== :: ListReviewableHITsResponse -&gt; ListReviewableHITsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248708"><span id="local-6989586621679248710"><span id="local-6989586621679248712"><span id="local-6989586621679248714"><span class="annot"><span class="annottext">ReadPrec [ListReviewableHITsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248833"><span id="local-6989586621679248835"><span id="local-6989586621679248837"><span id="local-6989586621679248839"><span class="annot"><span class="annottext">ReadPrec [ListReviewableHITsResponse]
 ReadPrec ListReviewableHITsResponse
 Int -&gt; ReadS ListReviewableHITsResponse
 ReadS [ListReviewableHITsResponse]
@@ -602,7 +602,7 @@ readList :: ReadS [ListReviewableHITsResponse]
 $creadList :: ReadS [ListReviewableHITsResponse]
 readsPrec :: Int -&gt; ReadS ListReviewableHITsResponse
 $creadsPrec :: Int -&gt; ReadS ListReviewableHITsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248702"><span id="local-6989586621679248704"><span id="local-6989586621679248706"><span class="annot"><span class="annottext">Int -&gt; ListReviewableHITsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248827"><span id="local-6989586621679248829"><span id="local-6989586621679248831"><span class="annot"><span class="annottext">Int -&gt; ListReviewableHITsResponse -&gt; ShowS
 [ListReviewableHITsResponse] -&gt; ShowS
 ListReviewableHITsResponse -&gt; String
 (Int -&gt; ListReviewableHITsResponse -&gt; ShowS)
@@ -644,10 +644,10 @@ ListReviewableHITsResponse -&gt; Rep ListReviewableHITsResponse x
 </span><span id="line-210"></span><span class="hs-comment">--</span><span>
 </span><span id="line-211"></span><span class="hs-comment">-- 'nextToken', 'listReviewableHITsResponse_nextToken' - Undocumented member.</span><span>
 </span><span id="line-212"></span><span class="hs-comment">--</span><span>
-</span><span id="line-213"></span><span class="hs-comment">-- 'hITs', 'listReviewableHITsResponse_hITs' - The list of HIT elements returned by the query.</span><span>
-</span><span id="line-214"></span><span class="hs-comment">--</span><span>
-</span><span id="line-215"></span><span class="hs-comment">-- 'numResults', 'listReviewableHITsResponse_numResults' - The number of HITs on this page in the filtered results list, equivalent</span><span>
-</span><span id="line-216"></span><span class="hs-comment">-- to the number of HITs being returned by this call.</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- 'numResults', 'listReviewableHITsResponse_numResults' - The number of HITs on this page in the filtered results list, equivalent</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- to the number of HITs being returned by this call.</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- 'hITs', 'listReviewableHITsResponse_hITs' - The list of HIT elements returned by the query.</span><span>
 </span><span id="line-217"></span><span class="hs-comment">--</span><span>
 </span><span id="line-218"></span><span class="hs-comment">-- 'httpStatus', 'listReviewableHITsResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-219"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#newListReviewableHITsResponse"><span class="hs-identifier hs-type">newListReviewableHITsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -655,27 +655,27 @@ ListReviewableHITsResponse -&gt; Rep ListReviewableHITsResponse x
 </span><span id="line-221"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-222"></span><span>  </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITsResponse"><span class="hs-identifier hs-type">ListReviewableHITsResponse</span></a></span><span>
 </span><span id="line-223"></span><span id="newListReviewableHITsResponse"><span class="annot"><span class="annottext">newListReviewableHITsResponse :: Int -&gt; ListReviewableHITsResponse
-</span><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#newListReviewableHITsResponse"><span class="hs-identifier hs-var hs-var">newListReviewableHITsResponse</span></a></span></span><span> </span><span id="local-6989586621679248699"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679248699"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#newListReviewableHITsResponse"><span class="hs-identifier hs-var hs-var">newListReviewableHITsResponse</span></a></span></span><span> </span><span id="local-6989586621679248824"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679248824"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-224"></span><span>  </span><span class="annot"><span class="annottext">ListReviewableHITsResponse' :: Maybe Text
--&gt; Maybe [HIT] -&gt; Maybe Int -&gt; Int -&gt; ListReviewableHITsResponse
+-&gt; Maybe Int -&gt; Maybe [HIT] -&gt; Int -&gt; ListReviewableHITsResponse
 </span><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITsResponse%27"><span class="hs-identifier hs-type">ListReviewableHITsResponse'</span></a></span><span>
 </span><span id="line-225"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListReviewableHITsResponse' :: Maybe Text
 </span><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#%24sel%3AnextToken%3AListReviewableHITsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-226"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-227"></span><span>      </span><span class="annot"><span class="annottext">$sel:hITs:ListReviewableHITsResponse' :: Maybe [HIT]
-</span><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#%24sel%3AhITs%3AListReviewableHITsResponse%27"><span class="hs-identifier hs-var">hITs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [HIT]
+</span><span id="line-227"></span><span>      </span><span class="annot"><span class="annottext">$sel:numResults:ListReviewableHITsResponse' :: Maybe Int
+</span><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#%24sel%3AnumResults%3AListReviewableHITsResponse%27"><span class="hs-identifier hs-var">numResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-228"></span><span>      </span><span class="annot"><span class="annottext">$sel:numResults:ListReviewableHITsResponse' :: Maybe Int
-</span><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#%24sel%3AnumResults%3AListReviewableHITsResponse%27"><span class="hs-identifier hs-var">numResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-228"></span><span>      </span><span class="annot"><span class="annottext">$sel:hITs:ListReviewableHITsResponse' :: Maybe [HIT]
+</span><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#%24sel%3AhITs%3AListReviewableHITsResponse%27"><span class="hs-identifier hs-var">hITs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [HIT]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-229"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListReviewableHITsResponse' :: Int
 </span><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#%24sel%3AhttpStatus%3AListReviewableHITsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679248699"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679248824"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-230"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-231"></span><span>
 </span><span id="line-232"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -687,36 +687,61 @@ forall a. Maybe a
     -&gt; Maybe Text -&gt; ListReviewableHITsResponse)
 -&gt; Lens' ListReviewableHITsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITsResponse%27"><span class="hs-identifier hs-type">ListReviewableHITsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248698"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITsResponse%27"><span class="hs-identifier hs-type">ListReviewableHITsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248823"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListReviewableHITsResponse' :: ListReviewableHITsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679248698"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248698"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248697"><span class="annot"><span class="annottext">s :: ListReviewableHITsResponse
-</span><a href="#local-6989586621679248697"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITsResponse%27"><span class="hs-identifier hs-type">ListReviewableHITsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248696"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248696"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReviewableHITsResponse
-</span><a href="#local-6989586621679248697"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListReviewableHITsResponse' :: Maybe Text
+</span><a href="#local-6989586621679248823"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679248823"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248822"><span class="annot"><span class="annottext">s :: ListReviewableHITsResponse
+</span><a href="#local-6989586621679248822"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITsResponse%27"><span class="hs-identifier hs-type">ListReviewableHITsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248821"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679248821"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReviewableHITsResponse
+</span><a href="#local-6989586621679248822"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListReviewableHITsResponse' :: Maybe Text
 </span><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#%24sel%3AnextToken%3AListReviewableHITsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248696"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITsResponse"><span class="hs-identifier hs-type">ListReviewableHITsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679248821"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITsResponse"><span class="hs-identifier hs-type">ListReviewableHITsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-235"></span><span>
-</span><span id="line-236"></span><span class="hs-comment">-- | The list of HIT elements returned by the query.</span><span>
-</span><span id="line-237"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#listReviewableHITsResponse_hITs"><span class="hs-identifier hs-type">listReviewableHITsResponse_hITs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITsResponse"><span class="hs-identifier hs-type">ListReviewableHITsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.HIT.html#HIT"><span class="hs-identifier hs-type">HIT</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-238"></span><span id="listReviewableHITsResponse_hITs"><span class="annot"><span class="annottext">listReviewableHITsResponse_hITs :: (Maybe [HIT] -&gt; f (Maybe [HIT]))
+</span><span id="line-236"></span><span class="hs-comment">-- | The number of HITs on this page in the filtered results list, equivalent</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- to the number of HITs being returned by this call.</span><span>
+</span><span id="line-238"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#listReviewableHITsResponse_numResults"><span class="hs-identifier hs-type">listReviewableHITsResponse_numResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITsResponse"><span class="hs-identifier hs-type">ListReviewableHITsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span id="listReviewableHITsResponse_numResults"><span class="annot"><span class="annottext">listReviewableHITsResponse_numResults :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ListReviewableHITsResponse -&gt; f ListReviewableHITsResponse
+</span><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#listReviewableHITsResponse_numResults"><span class="hs-identifier hs-var hs-var">listReviewableHITsResponse_numResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListReviewableHITsResponse -&gt; Maybe Int)
+-&gt; (ListReviewableHITsResponse
+    -&gt; Maybe Int -&gt; ListReviewableHITsResponse)
+-&gt; Lens
+     ListReviewableHITsResponse
+     ListReviewableHITsResponse
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITsResponse%27"><span class="hs-identifier hs-type">ListReviewableHITsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248820"><span class="annot"><span class="annottext">Maybe Int
+numResults :: Maybe Int
+$sel:numResults:ListReviewableHITsResponse' :: ListReviewableHITsResponse -&gt; Maybe Int
+</span><a href="#local-6989586621679248820"><span class="hs-identifier hs-var hs-var">numResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679248820"><span class="hs-identifier hs-var">numResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248819"><span class="annot"><span class="annottext">s :: ListReviewableHITsResponse
+</span><a href="#local-6989586621679248819"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITsResponse%27"><span class="hs-identifier hs-type">ListReviewableHITsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248818"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679248818"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReviewableHITsResponse
+</span><a href="#local-6989586621679248819"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numResults:ListReviewableHITsResponse' :: Maybe Int
+</span><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#%24sel%3AnumResults%3AListReviewableHITsResponse%27"><span class="hs-identifier hs-var">numResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679248818"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITsResponse"><span class="hs-identifier hs-type">ListReviewableHITsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- | The list of HIT elements returned by the query.</span><span>
+</span><span id="line-242"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#listReviewableHITsResponse_hITs"><span class="hs-identifier hs-type">listReviewableHITsResponse_hITs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITsResponse"><span class="hs-identifier hs-type">ListReviewableHITsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.HIT.html#HIT"><span class="hs-identifier hs-type">HIT</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span id="listReviewableHITsResponse_hITs"><span class="annot"><span class="annottext">listReviewableHITsResponse_hITs :: (Maybe [HIT] -&gt; f (Maybe [HIT]))
 -&gt; ListReviewableHITsResponse -&gt; f ListReviewableHITsResponse
 </span><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#listReviewableHITsResponse_hITs"><span class="hs-identifier hs-var hs-var">listReviewableHITsResponse_hITs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListReviewableHITsResponse -&gt; Maybe [HIT])
 -&gt; (ListReviewableHITsResponse
     -&gt; Maybe [HIT] -&gt; ListReviewableHITsResponse)
 -&gt; Lens' ListReviewableHITsResponse (Maybe [HIT])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITsResponse%27"><span class="hs-identifier hs-type">ListReviewableHITsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248695"><span class="annot"><span class="annottext">Maybe [HIT]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITsResponse%27"><span class="hs-identifier hs-type">ListReviewableHITsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248817"><span class="annot"><span class="annottext">Maybe [HIT]
 hITs :: Maybe [HIT]
 $sel:hITs:ListReviewableHITsResponse' :: ListReviewableHITsResponse -&gt; Maybe [HIT]
-</span><a href="#local-6989586621679248695"><span class="hs-identifier hs-var hs-var">hITs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [HIT]
-</span><a href="#local-6989586621679248695"><span class="hs-identifier hs-var">hITs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248694"><span class="annot"><span class="annottext">s :: ListReviewableHITsResponse
-</span><a href="#local-6989586621679248694"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITsResponse%27"><span class="hs-identifier hs-type">ListReviewableHITsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248693"><span class="annot"><span class="annottext">Maybe [HIT]
-</span><a href="#local-6989586621679248693"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReviewableHITsResponse
-</span><a href="#local-6989586621679248694"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hITs:ListReviewableHITsResponse' :: Maybe [HIT]
+</span><a href="#local-6989586621679248817"><span class="hs-identifier hs-var hs-var">hITs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [HIT]
+</span><a href="#local-6989586621679248817"><span class="hs-identifier hs-var">hITs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248816"><span class="annot"><span class="annottext">s :: ListReviewableHITsResponse
+</span><a href="#local-6989586621679248816"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITsResponse%27"><span class="hs-identifier hs-type">ListReviewableHITsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248815"><span class="annot"><span class="annottext">Maybe [HIT]
+</span><a href="#local-6989586621679248815"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReviewableHITsResponse
+</span><a href="#local-6989586621679248816"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hITs:ListReviewableHITsResponse' :: Maybe [HIT]
 </span><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#%24sel%3AhITs%3AListReviewableHITsResponse%27"><span class="hs-identifier hs-var">hITs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [HIT]
-</span><a href="#local-6989586621679248693"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITsResponse"><span class="hs-identifier hs-type">ListReviewableHITsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [HIT] -&gt; f (Maybe [HIT]))
+</span><a href="#local-6989586621679248815"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITsResponse"><span class="hs-identifier hs-type">ListReviewableHITsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [HIT] -&gt; f (Maybe [HIT]))
  -&gt; ListReviewableHITsResponse -&gt; f ListReviewableHITsResponse)
 -&gt; ((Maybe [HIT] -&gt; f (Maybe [HIT]))
     -&gt; Maybe [HIT] -&gt; f (Maybe [HIT]))
@@ -730,33 +755,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [HIT] [HIT] [HIT] [HIT]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-239"></span><span>
-</span><span id="line-240"></span><span class="hs-comment">-- | The number of HITs on this page in the filtered results list, equivalent</span><span>
-</span><span id="line-241"></span><span class="hs-comment">-- to the number of HITs being returned by this call.</span><span>
-</span><span id="line-242"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#listReviewableHITsResponse_numResults"><span class="hs-identifier hs-type">listReviewableHITsResponse_numResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITsResponse"><span class="hs-identifier hs-type">ListReviewableHITsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-243"></span><span id="listReviewableHITsResponse_numResults"><span class="annot"><span class="annottext">listReviewableHITsResponse_numResults :: (Maybe Int -&gt; f (Maybe Int))
--&gt; ListReviewableHITsResponse -&gt; f ListReviewableHITsResponse
-</span><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#listReviewableHITsResponse_numResults"><span class="hs-identifier hs-var hs-var">listReviewableHITsResponse_numResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListReviewableHITsResponse -&gt; Maybe Int)
--&gt; (ListReviewableHITsResponse
-    -&gt; Maybe Int -&gt; ListReviewableHITsResponse)
--&gt; Lens
-     ListReviewableHITsResponse
-     ListReviewableHITsResponse
-     (Maybe Int)
-     (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITsResponse%27"><span class="hs-identifier hs-type">ListReviewableHITsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248690"><span class="annot"><span class="annottext">Maybe Int
-numResults :: Maybe Int
-$sel:numResults:ListReviewableHITsResponse' :: ListReviewableHITsResponse -&gt; Maybe Int
-</span><a href="#local-6989586621679248690"><span class="hs-identifier hs-var hs-var">numResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679248690"><span class="hs-identifier hs-var">numResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248689"><span class="annot"><span class="annottext">s :: ListReviewableHITsResponse
-</span><a href="#local-6989586621679248689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITsResponse%27"><span class="hs-identifier hs-type">ListReviewableHITsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248688"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679248688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReviewableHITsResponse
-</span><a href="#local-6989586621679248689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numResults:ListReviewableHITsResponse' :: Maybe Int
-</span><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#%24sel%3AnumResults%3AListReviewableHITsResponse%27"><span class="hs-identifier hs-var">numResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679248688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITsResponse"><span class="hs-identifier hs-type">ListReviewableHITsResponse</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-244"></span><span>
 </span><span id="line-245"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-246"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#listReviewableHITsResponse_httpStatus"><span class="hs-identifier hs-type">listReviewableHITsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITsResponse"><span class="hs-identifier hs-type">ListReviewableHITsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -768,16 +768,16 @@ $sel:numResults:ListReviewableHITsResponse' :: ListReviewableHITsResponse -&gt; 
 -&gt; Lens
      ListReviewableHITsResponse ListReviewableHITsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITsResponse%27"><span class="hs-identifier hs-type">ListReviewableHITsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248687"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITsResponse%27"><span class="hs-identifier hs-type">ListReviewableHITsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248812"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListReviewableHITsResponse' :: ListReviewableHITsResponse -&gt; Int
-</span><a href="#local-6989586621679248687"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679248687"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248686"><span class="annot"><span class="annottext">s :: ListReviewableHITsResponse
-</span><a href="#local-6989586621679248686"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITsResponse%27"><span class="hs-identifier hs-type">ListReviewableHITsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248685"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679248685"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReviewableHITsResponse
-</span><a href="#local-6989586621679248686"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListReviewableHITsResponse' :: Int
+</span><a href="#local-6989586621679248812"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679248812"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248811"><span class="annot"><span class="annottext">s :: ListReviewableHITsResponse
+</span><a href="#local-6989586621679248811"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITsResponse%27"><span class="hs-identifier hs-type">ListReviewableHITsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248810"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679248810"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReviewableHITsResponse
+</span><a href="#local-6989586621679248811"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListReviewableHITsResponse' :: Int
 </span><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#%24sel%3AhttpStatus%3AListReviewableHITsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679248685"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITsResponse"><span class="hs-identifier hs-type">ListReviewableHITsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679248810"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITsResponse"><span class="hs-identifier hs-type">ListReviewableHITsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-248"></span><span>
-</span><span id="line-249"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248683"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITsResponse"><span class="hs-identifier hs-type">ListReviewableHITsResponse</span></a></span></span><span>
+</span><span id="line-249"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248808"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListReviewableHITs.html#ListReviewableHITsResponse"><span class="hs-identifier hs-type">ListReviewableHITsResponse</span></a></span></span><span>
 </span><span id="line-250"></span></pre></body></html>

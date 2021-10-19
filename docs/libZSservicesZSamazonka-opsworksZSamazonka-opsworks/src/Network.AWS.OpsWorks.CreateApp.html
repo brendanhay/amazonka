@@ -65,7 +65,7 @@
 </span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | /See:/ 'newCreateApp' smart constructor.</span><span>
-</span><span id="line-68"></span><span id="local-6989586621679393998"><span id="local-6989586621679393999"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateApp"><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp"><span class="hs-identifier hs-var">CreateApp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateApp%27"><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-var">CreateApp'</span></a></span></span><span>
+</span><span id="line-68"></span><span id="local-6989586621679394428"><span id="local-6989586621679394429"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateApp"><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp"><span class="hs-identifier hs-var">CreateApp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateApp%27"><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-var">CreateApp'</span></a></span></span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An @SslConfiguration@ object with the SSL configuration.</span><span>
 </span><span id="line-70"></span><span>    </span><span id="%24sel%3AsslConfiguration%3ACreateApp%27"><span class="annot"><span class="annottext">CreateApp -&gt; Maybe SslConfiguration
 </span><a href="Network.AWS.OpsWorks.CreateApp.html#%24sel%3AsslConfiguration%3ACreateApp%27"><span class="hs-identifier hs-var hs-var">sslConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.SslConfiguration.html#SslConfiguration"><span class="hs-identifier hs-type">SslConfiguration</span></a></span><span class="hs-special">,</span><span>
@@ -124,7 +124,7 @@
 </span><span id="line-113"></span><span>    </span><span id="%24sel%3Atype%27%3ACreateApp%27"><span class="annot"><span class="annottext">CreateApp -&gt; AppType
 </span><a href="Network.AWS.OpsWorks.CreateApp.html#%24sel%3Atype%27%3ACreateApp%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AppType.html#AppType"><span class="hs-identifier hs-type">AppType</span></a></span><span>
 </span><span id="line-114"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-115"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679393981"><span id="local-6989586621679393983"><span class="annot"><span class="annottext">CreateApp -&gt; CreateApp -&gt; Bool
+</span><span id="line-115"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679394411"><span id="local-6989586621679394413"><span class="annot"><span class="annottext">CreateApp -&gt; CreateApp -&gt; Bool
 (CreateApp -&gt; CreateApp -&gt; Bool)
 -&gt; (CreateApp -&gt; CreateApp -&gt; Bool) -&gt; Eq CreateApp
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -132,7 +132,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateApp -&gt; CreateApp -&gt; Bool
 == :: CreateApp -&gt; CreateApp -&gt; Bool
 $c== :: CreateApp -&gt; CreateApp -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393972"><span id="local-6989586621679393974"><span id="local-6989586621679393976"><span id="local-6989586621679393978"><span class="annot"><span class="annottext">ReadPrec [CreateApp]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394402"><span id="local-6989586621679394404"><span id="local-6989586621679394406"><span id="local-6989586621679394408"><span class="annot"><span class="annottext">ReadPrec [CreateApp]
 ReadPrec CreateApp
 Int -&gt; ReadS CreateApp
 ReadS [CreateApp]
@@ -152,7 +152,7 @@ readList :: ReadS [CreateApp]
 $creadList :: ReadS [CreateApp]
 readsPrec :: Int -&gt; ReadS CreateApp
 $creadsPrec :: Int -&gt; ReadS CreateApp
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393965"><span id="local-6989586621679393967"><span id="local-6989586621679393969"><span class="annot"><span class="annottext">Int -&gt; CreateApp -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394395"><span id="local-6989586621679394397"><span id="local-6989586621679394399"><span class="annot"><span class="annottext">Int -&gt; CreateApp -&gt; ShowS
 [CreateApp] -&gt; ShowS
 CreateApp -&gt; String
 (Int -&gt; CreateApp -&gt; ShowS)
@@ -238,10 +238,10 @@ $cfrom :: forall x. CreateApp -&gt; Rep CreateApp x
 </span><span id="line-175"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AppType.html#AppType"><span class="hs-identifier hs-type">AppType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-176"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span>
 </span><span id="line-177"></span><span id="newCreateApp"><span class="annot"><span class="annottext">newCreateApp :: Text -&gt; Text -&gt; AppType -&gt; CreateApp
-</span><a href="Network.AWS.OpsWorks.CreateApp.html#newCreateApp"><span class="hs-identifier hs-var hs-var">newCreateApp</span></a></span></span><span> </span><span id="local-6989586621679393960"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393960"><span class="hs-identifier hs-var">pStackId_</span></a></span></span><span> </span><span id="local-6989586621679393959"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393959"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679393958"><span class="annot"><span class="annottext">AppType
-</span><a href="#local-6989586621679393958"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.OpsWorks.CreateApp.html#newCreateApp"><span class="hs-identifier hs-var hs-var">newCreateApp</span></a></span></span><span> </span><span id="local-6989586621679394390"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394390"><span class="hs-identifier hs-var">pStackId_</span></a></span></span><span> </span><span id="local-6989586621679394389"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394389"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679394388"><span class="annot"><span class="annottext">AppType
+</span><a href="#local-6989586621679394388"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-178"></span><span>  </span><span class="annot"><span class="annottext">CreateApp' :: Maybe SslConfiguration
 -&gt; Maybe [EnvironmentVariable]
 -&gt; Maybe Bool
@@ -294,13 +294,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-188"></span><span>      </span><span class="annot"><span class="annottext">$sel:stackId:CreateApp' :: Text
 </span><a href="Network.AWS.OpsWorks.CreateApp.html#%24sel%3AstackId%3ACreateApp%27"><span class="hs-identifier hs-var">stackId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393960"><span class="hs-identifier hs-var">pStackId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679394390"><span class="hs-identifier hs-var">pStackId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-189"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:CreateApp' :: Text
 </span><a href="Network.AWS.OpsWorks.CreateApp.html#%24sel%3Aname%3ACreateApp%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393959"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679394389"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-190"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':CreateApp' :: AppType
 </span><a href="Network.AWS.OpsWorks.CreateApp.html#%24sel%3Atype%27%3ACreateApp%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AppType
-</span><a href="#local-6989586621679393958"><span class="hs-identifier hs-var">pType_</span></a></span><span>
+</span><a href="#local-6989586621679394388"><span class="hs-identifier hs-var">pType_</span></a></span><span>
 </span><span id="line-191"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-comment">-- | An @SslConfiguration@ object with the SSL configuration.</span><span>
@@ -315,16 +315,16 @@ forall a. Maybe a
      (Maybe SslConfiguration)
      (Maybe SslConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393955"><span class="annot"><span class="annottext">Maybe SslConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394385"><span class="annot"><span class="annottext">Maybe SslConfiguration
 sslConfiguration :: Maybe SslConfiguration
 $sel:sslConfiguration:CreateApp' :: CreateApp -&gt; Maybe SslConfiguration
-</span><a href="#local-6989586621679393955"><span class="hs-identifier hs-var hs-var">sslConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SslConfiguration
-</span><a href="#local-6989586621679393955"><span class="hs-identifier hs-var">sslConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393954"><span class="annot"><span class="annottext">s :: CreateApp
-</span><a href="#local-6989586621679393954"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393953"><span class="annot"><span class="annottext">Maybe SslConfiguration
-</span><a href="#local-6989586621679393953"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
-</span><a href="#local-6989586621679393954"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sslConfiguration:CreateApp' :: Maybe SslConfiguration
+</span><a href="#local-6989586621679394385"><span class="hs-identifier hs-var hs-var">sslConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SslConfiguration
+</span><a href="#local-6989586621679394385"><span class="hs-identifier hs-var">sslConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394384"><span class="annot"><span class="annottext">s :: CreateApp
+</span><a href="#local-6989586621679394384"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394383"><span class="annot"><span class="annottext">Maybe SslConfiguration
+</span><a href="#local-6989586621679394383"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
+</span><a href="#local-6989586621679394384"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sslConfiguration:CreateApp' :: Maybe SslConfiguration
 </span><a href="Network.AWS.OpsWorks.CreateApp.html#%24sel%3AsslConfiguration%3ACreateApp%27"><span class="hs-identifier hs-var">sslConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SslConfiguration
-</span><a href="#local-6989586621679393953"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394383"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-196"></span><span>
 </span><span id="line-197"></span><span class="hs-comment">-- | An array of @EnvironmentVariable@ objects that specify environment</span><span>
 </span><span id="line-198"></span><span class="hs-comment">-- variables to be associated with the app. After you deploy the app, these</span><span>
@@ -352,16 +352,16 @@ $sel:sslConfiguration:CreateApp' :: CreateApp -&gt; Maybe SslConfiguration
      (Maybe [EnvironmentVariable])
      (Maybe [EnvironmentVariable])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393952"><span class="annot"><span class="annottext">Maybe [EnvironmentVariable]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394382"><span class="annot"><span class="annottext">Maybe [EnvironmentVariable]
 environment :: Maybe [EnvironmentVariable]
 $sel:environment:CreateApp' :: CreateApp -&gt; Maybe [EnvironmentVariable]
-</span><a href="#local-6989586621679393952"><span class="hs-identifier hs-var hs-var">environment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EnvironmentVariable]
-</span><a href="#local-6989586621679393952"><span class="hs-identifier hs-var">environment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393951"><span class="annot"><span class="annottext">s :: CreateApp
-</span><a href="#local-6989586621679393951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393950"><span class="annot"><span class="annottext">Maybe [EnvironmentVariable]
-</span><a href="#local-6989586621679393950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
-</span><a href="#local-6989586621679393951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environment:CreateApp' :: Maybe [EnvironmentVariable]
+</span><a href="#local-6989586621679394382"><span class="hs-identifier hs-var hs-var">environment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EnvironmentVariable]
+</span><a href="#local-6989586621679394382"><span class="hs-identifier hs-var">environment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394381"><span class="annot"><span class="annottext">s :: CreateApp
+</span><a href="#local-6989586621679394381"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394380"><span class="annot"><span class="annottext">Maybe [EnvironmentVariable]
+</span><a href="#local-6989586621679394380"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
+</span><a href="#local-6989586621679394381"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environment:CreateApp' :: Maybe [EnvironmentVariable]
 </span><a href="Network.AWS.OpsWorks.CreateApp.html#%24sel%3Aenvironment%3ACreateApp%27"><span class="hs-identifier hs-var">environment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EnvironmentVariable]
-</span><a href="#local-6989586621679393950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EnvironmentVariable] -&gt; f (Maybe [EnvironmentVariable]))
+</span><a href="#local-6989586621679394380"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EnvironmentVariable] -&gt; f (Maybe [EnvironmentVariable]))
  -&gt; CreateApp -&gt; f CreateApp)
 -&gt; ((Maybe [EnvironmentVariable]
      -&gt; f (Maybe [EnvironmentVariable]))
@@ -388,8 +388,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [EnvironmentVariable]
   [EnvironmentVariable]
   [EnvironmentVariable]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-214"></span><span>
 </span><span id="line-215"></span><span class="hs-comment">-- | Whether to enable SSL for the app.</span><span>
 </span><span id="line-216"></span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#createApp_enableSsl"><span class="hs-identifier hs-type">createApp_enableSsl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
@@ -398,16 +398,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (CreateApp -&gt; Maybe Bool -&gt; CreateApp)
 -&gt; Lens CreateApp CreateApp (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393946"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394376"><span class="annot"><span class="annottext">Maybe Bool
 enableSsl :: Maybe Bool
 $sel:enableSsl:CreateApp' :: CreateApp -&gt; Maybe Bool
-</span><a href="#local-6989586621679393946"><span class="hs-identifier hs-var hs-var">enableSsl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679393946"><span class="hs-identifier hs-var">enableSsl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393945"><span class="annot"><span class="annottext">s :: CreateApp
-</span><a href="#local-6989586621679393945"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393944"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679393944"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
-</span><a href="#local-6989586621679393945"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableSsl:CreateApp' :: Maybe Bool
+</span><a href="#local-6989586621679394376"><span class="hs-identifier hs-var hs-var">enableSsl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679394376"><span class="hs-identifier hs-var">enableSsl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394375"><span class="annot"><span class="annottext">s :: CreateApp
+</span><a href="#local-6989586621679394375"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394374"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679394374"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
+</span><a href="#local-6989586621679394375"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableSsl:CreateApp' :: Maybe Bool
 </span><a href="Network.AWS.OpsWorks.CreateApp.html#%24sel%3AenableSsl%3ACreateApp%27"><span class="hs-identifier hs-var">enableSsl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679393944"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394374"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-218"></span><span>
 </span><span id="line-219"></span><span class="hs-comment">-- | The app\'s short name.</span><span>
 </span><span id="line-220"></span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#createApp_shortname"><span class="hs-identifier hs-type">createApp_shortname</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -416,16 +416,16 @@ $sel:enableSsl:CreateApp' :: CreateApp -&gt; Maybe Bool
 -&gt; (CreateApp -&gt; Maybe Text -&gt; CreateApp)
 -&gt; Lens CreateApp CreateApp (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393943"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394373"><span class="annot"><span class="annottext">Maybe Text
 shortname :: Maybe Text
 $sel:shortname:CreateApp' :: CreateApp -&gt; Maybe Text
-</span><a href="#local-6989586621679393943"><span class="hs-identifier hs-var hs-var">shortname</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679393943"><span class="hs-identifier hs-var">shortname</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393942"><span class="annot"><span class="annottext">s :: CreateApp
-</span><a href="#local-6989586621679393942"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393941"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679393941"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
-</span><a href="#local-6989586621679393942"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shortname:CreateApp' :: Maybe Text
+</span><a href="#local-6989586621679394373"><span class="hs-identifier hs-var hs-var">shortname</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679394373"><span class="hs-identifier hs-var">shortname</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394372"><span class="annot"><span class="annottext">s :: CreateApp
+</span><a href="#local-6989586621679394372"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394371"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679394371"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
+</span><a href="#local-6989586621679394372"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shortname:CreateApp' :: Maybe Text
 </span><a href="Network.AWS.OpsWorks.CreateApp.html#%24sel%3Ashortname%3ACreateApp%27"><span class="hs-identifier hs-var">shortname</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679393941"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394371"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-222"></span><span>
 </span><span id="line-223"></span><span class="hs-comment">-- | The app\'s data source.</span><span>
 </span><span id="line-224"></span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#createApp_dataSources"><span class="hs-identifier hs-type">createApp_dataSources</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.DataSource.html#DataSource"><span class="hs-identifier hs-type">DataSource</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -436,16 +436,16 @@ $sel:shortname:CreateApp' :: CreateApp -&gt; Maybe Text
 -&gt; Lens
      CreateApp CreateApp (Maybe [DataSource]) (Maybe [DataSource])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393940"><span class="annot"><span class="annottext">Maybe [DataSource]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394370"><span class="annot"><span class="annottext">Maybe [DataSource]
 dataSources :: Maybe [DataSource]
 $sel:dataSources:CreateApp' :: CreateApp -&gt; Maybe [DataSource]
-</span><a href="#local-6989586621679393940"><span class="hs-identifier hs-var hs-var">dataSources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DataSource]
-</span><a href="#local-6989586621679393940"><span class="hs-identifier hs-var">dataSources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393939"><span class="annot"><span class="annottext">s :: CreateApp
-</span><a href="#local-6989586621679393939"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393938"><span class="annot"><span class="annottext">Maybe [DataSource]
-</span><a href="#local-6989586621679393938"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
-</span><a href="#local-6989586621679393939"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSources:CreateApp' :: Maybe [DataSource]
+</span><a href="#local-6989586621679394370"><span class="hs-identifier hs-var hs-var">dataSources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DataSource]
+</span><a href="#local-6989586621679394370"><span class="hs-identifier hs-var">dataSources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394369"><span class="annot"><span class="annottext">s :: CreateApp
+</span><a href="#local-6989586621679394369"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394368"><span class="annot"><span class="annottext">Maybe [DataSource]
+</span><a href="#local-6989586621679394368"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
+</span><a href="#local-6989586621679394369"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSources:CreateApp' :: Maybe [DataSource]
 </span><a href="Network.AWS.OpsWorks.CreateApp.html#%24sel%3AdataSources%3ACreateApp%27"><span class="hs-identifier hs-var">dataSources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DataSource]
-</span><a href="#local-6989586621679393938"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DataSource] -&gt; f (Maybe [DataSource]))
+</span><a href="#local-6989586621679394368"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DataSource] -&gt; f (Maybe [DataSource]))
  -&gt; CreateApp -&gt; f CreateApp)
 -&gt; ((Maybe [DataSource] -&gt; f (Maybe [DataSource]))
     -&gt; Maybe [DataSource] -&gt; f (Maybe [DataSource]))
@@ -463,8 +463,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [DataSource] [DataSource] [DataSource] [DataSource]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-226"></span><span>
 </span><span id="line-227"></span><span class="hs-comment">-- | A @Source@ object that specifies the app repository.</span><span>
 </span><span id="line-228"></span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#createApp_appSource"><span class="hs-identifier hs-type">createApp_appSource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span><span class="hs-special">)</span><span>
@@ -473,16 +473,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (CreateApp -&gt; Maybe Source -&gt; CreateApp)
 -&gt; Lens CreateApp CreateApp (Maybe Source) (Maybe Source)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393937"><span class="annot"><span class="annottext">Maybe Source
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394367"><span class="annot"><span class="annottext">Maybe Source
 appSource :: Maybe Source
 $sel:appSource:CreateApp' :: CreateApp -&gt; Maybe Source
-</span><a href="#local-6989586621679393937"><span class="hs-identifier hs-var hs-var">appSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Source
-</span><a href="#local-6989586621679393937"><span class="hs-identifier hs-var">appSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393936"><span class="annot"><span class="annottext">s :: CreateApp
-</span><a href="#local-6989586621679393936"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393935"><span class="annot"><span class="annottext">Maybe Source
-</span><a href="#local-6989586621679393935"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
-</span><a href="#local-6989586621679393936"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appSource:CreateApp' :: Maybe Source
+</span><a href="#local-6989586621679394367"><span class="hs-identifier hs-var hs-var">appSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Source
+</span><a href="#local-6989586621679394367"><span class="hs-identifier hs-var">appSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394366"><span class="annot"><span class="annottext">s :: CreateApp
+</span><a href="#local-6989586621679394366"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394365"><span class="annot"><span class="annottext">Maybe Source
+</span><a href="#local-6989586621679394365"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
+</span><a href="#local-6989586621679394366"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appSource:CreateApp' :: Maybe Source
 </span><a href="Network.AWS.OpsWorks.CreateApp.html#%24sel%3AappSource%3ACreateApp%27"><span class="hs-identifier hs-var">appSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Source
-</span><a href="#local-6989586621679393935"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394365"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-230"></span><span>
 </span><span id="line-231"></span><span class="hs-comment">-- | One or more user-defined key\/value pairs to be added to the stack</span><span>
 </span><span id="line-232"></span><span class="hs-comment">-- attributes.</span><span>
@@ -499,16 +499,16 @@ $sel:appSource:CreateApp' :: CreateApp -&gt; Maybe Source
      (Maybe (HashMap AppAttributesKeys Text))
      (Maybe (HashMap AppAttributesKeys Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393934"><span class="annot"><span class="annottext">Maybe (HashMap AppAttributesKeys Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394364"><span class="annot"><span class="annottext">Maybe (HashMap AppAttributesKeys Text)
 attributes :: Maybe (HashMap AppAttributesKeys Text)
 $sel:attributes:CreateApp' :: CreateApp -&gt; Maybe (HashMap AppAttributesKeys Text)
-</span><a href="#local-6989586621679393934"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap AppAttributesKeys Text)
-</span><a href="#local-6989586621679393934"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393933"><span class="annot"><span class="annottext">s :: CreateApp
-</span><a href="#local-6989586621679393933"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393932"><span class="annot"><span class="annottext">Maybe (HashMap AppAttributesKeys Text)
-</span><a href="#local-6989586621679393932"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
-</span><a href="#local-6989586621679393933"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:CreateApp' :: Maybe (HashMap AppAttributesKeys Text)
+</span><a href="#local-6989586621679394364"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap AppAttributesKeys Text)
+</span><a href="#local-6989586621679394364"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394363"><span class="annot"><span class="annottext">s :: CreateApp
+</span><a href="#local-6989586621679394363"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394362"><span class="annot"><span class="annottext">Maybe (HashMap AppAttributesKeys Text)
+</span><a href="#local-6989586621679394362"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
+</span><a href="#local-6989586621679394363"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:CreateApp' :: Maybe (HashMap AppAttributesKeys Text)
 </span><a href="Network.AWS.OpsWorks.CreateApp.html#%24sel%3Aattributes%3ACreateApp%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap AppAttributesKeys Text)
-</span><a href="#local-6989586621679393932"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap AppAttributesKeys Text)
+</span><a href="#local-6989586621679394362"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap AppAttributesKeys Text)
   -&gt; f (Maybe (HashMap AppAttributesKeys Text)))
  -&gt; CreateApp -&gt; f CreateApp)
 -&gt; ((Maybe (HashMap AppAttributesKeys Text)
@@ -538,8 +538,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap AppAttributesKeys Text)
   (HashMap AppAttributesKeys Text)
   (HashMap AppAttributesKeys Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-235"></span><span>
 </span><span id="line-236"></span><span class="hs-comment">-- | The app virtual host settings, with multiple domains separated by</span><span>
 </span><span id="line-237"></span><span class="hs-comment">-- commas. For example: @\'www.example.com, example.com\'@</span><span>
@@ -549,16 +549,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (CreateApp -&gt; Maybe [Text] -&gt; CreateApp)
 -&gt; Lens CreateApp CreateApp (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393931"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394361"><span class="annot"><span class="annottext">Maybe [Text]
 domains :: Maybe [Text]
 $sel:domains:CreateApp' :: CreateApp -&gt; Maybe [Text]
-</span><a href="#local-6989586621679393931"><span class="hs-identifier hs-var hs-var">domains</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679393931"><span class="hs-identifier hs-var">domains</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393930"><span class="annot"><span class="annottext">s :: CreateApp
-</span><a href="#local-6989586621679393930"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393929"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679393929"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
-</span><a href="#local-6989586621679393930"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domains:CreateApp' :: Maybe [Text]
+</span><a href="#local-6989586621679394361"><span class="hs-identifier hs-var hs-var">domains</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679394361"><span class="hs-identifier hs-var">domains</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394360"><span class="annot"><span class="annottext">s :: CreateApp
+</span><a href="#local-6989586621679394360"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394359"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679394359"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
+</span><a href="#local-6989586621679394360"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domains:CreateApp' :: Maybe [Text]
 </span><a href="Network.AWS.OpsWorks.CreateApp.html#%24sel%3Adomains%3ACreateApp%27"><span class="hs-identifier hs-var">domains</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679393929"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; CreateApp -&gt; f CreateApp)
+</span><a href="#local-6989586621679394359"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; CreateApp -&gt; f CreateApp)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -571,8 +571,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-240"></span><span>
 </span><span id="line-241"></span><span class="hs-comment">-- | A description of the app.</span><span>
 </span><span id="line-242"></span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#createApp_description"><span class="hs-identifier hs-type">createApp_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -581,16 +581,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (CreateApp -&gt; Maybe Text -&gt; CreateApp)
 -&gt; Lens CreateApp CreateApp (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393928"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394358"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:CreateApp' :: CreateApp -&gt; Maybe Text
-</span><a href="#local-6989586621679393928"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679393928"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393927"><span class="annot"><span class="annottext">s :: CreateApp
-</span><a href="#local-6989586621679393927"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393926"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679393926"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
-</span><a href="#local-6989586621679393927"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateApp' :: Maybe Text
+</span><a href="#local-6989586621679394358"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679394358"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394357"><span class="annot"><span class="annottext">s :: CreateApp
+</span><a href="#local-6989586621679394357"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394356"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679394356"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
+</span><a href="#local-6989586621679394357"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateApp' :: Maybe Text
 </span><a href="Network.AWS.OpsWorks.CreateApp.html#%24sel%3Adescription%3ACreateApp%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679393926"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394356"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-244"></span><span>
 </span><span id="line-245"></span><span class="hs-comment">-- | The stack ID.</span><span>
 </span><span id="line-246"></span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#createApp_stackId"><span class="hs-identifier hs-type">createApp_stackId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -599,16 +599,16 @@ $sel:description:CreateApp' :: CreateApp -&gt; Maybe Text
 -&gt; (CreateApp -&gt; Text -&gt; CreateApp)
 -&gt; Lens CreateApp CreateApp Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393925"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394355"><span class="annot"><span class="annottext">Text
 stackId :: Text
 $sel:stackId:CreateApp' :: CreateApp -&gt; Text
-</span><a href="#local-6989586621679393925"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393925"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393924"><span class="annot"><span class="annottext">s :: CreateApp
-</span><a href="#local-6989586621679393924"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393923"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393923"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
-</span><a href="#local-6989586621679393924"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackId:CreateApp' :: Text
+</span><a href="#local-6989586621679394355"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394355"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394354"><span class="annot"><span class="annottext">s :: CreateApp
+</span><a href="#local-6989586621679394354"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394353"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394353"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
+</span><a href="#local-6989586621679394354"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackId:CreateApp' :: Text
 </span><a href="Network.AWS.OpsWorks.CreateApp.html#%24sel%3AstackId%3ACreateApp%27"><span class="hs-identifier hs-var">stackId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393923"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394353"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-248"></span><span>
 </span><span id="line-249"></span><span class="hs-comment">-- | The app name.</span><span>
 </span><span id="line-250"></span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#createApp_name"><span class="hs-identifier hs-type">createApp_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -617,16 +617,16 @@ $sel:stackId:CreateApp' :: CreateApp -&gt; Text
 -&gt; (CreateApp -&gt; Text -&gt; CreateApp)
 -&gt; Lens CreateApp CreateApp Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393922"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394352"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:CreateApp' :: CreateApp -&gt; Text
-</span><a href="#local-6989586621679393922"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393922"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393921"><span class="annot"><span class="annottext">s :: CreateApp
-</span><a href="#local-6989586621679393921"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393920"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393920"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
-</span><a href="#local-6989586621679393921"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateApp' :: Text
+</span><a href="#local-6989586621679394352"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394352"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394351"><span class="annot"><span class="annottext">s :: CreateApp
+</span><a href="#local-6989586621679394351"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394350"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394350"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
+</span><a href="#local-6989586621679394351"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateApp' :: Text
 </span><a href="Network.AWS.OpsWorks.CreateApp.html#%24sel%3Aname%3ACreateApp%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393920"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394350"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-252"></span><span>
 </span><span id="line-253"></span><span class="hs-comment">-- | The app type. Each supported type is associated with a particular layer.</span><span>
 </span><span id="line-254"></span><span class="hs-comment">-- For example, PHP applications are associated with a PHP layer. AWS</span><span>
@@ -640,25 +640,25 @@ $sel:name:CreateApp' :: CreateApp -&gt; Text
 -&gt; (CreateApp -&gt; AppType -&gt; CreateApp)
 -&gt; Lens CreateApp CreateApp AppType AppType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393919"><span class="annot"><span class="annottext">AppType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394349"><span class="annot"><span class="annottext">AppType
 type' :: AppType
 $sel:type':CreateApp' :: CreateApp -&gt; AppType
-</span><a href="#local-6989586621679393919"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AppType
-</span><a href="#local-6989586621679393919"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393918"><span class="annot"><span class="annottext">s :: CreateApp
-</span><a href="#local-6989586621679393918"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393917"><span class="annot"><span class="annottext">AppType
-</span><a href="#local-6989586621679393917"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
-</span><a href="#local-6989586621679393918"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':CreateApp' :: AppType
+</span><a href="#local-6989586621679394349"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AppType
+</span><a href="#local-6989586621679394349"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394348"><span class="annot"><span class="annottext">s :: CreateApp
+</span><a href="#local-6989586621679394348"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394347"><span class="annot"><span class="annottext">AppType
+</span><a href="#local-6989586621679394347"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApp
+</span><a href="#local-6989586621679394348"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':CreateApp' :: AppType
 </span><a href="Network.AWS.OpsWorks.CreateApp.html#%24sel%3Atype%27%3ACreateApp%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AppType
-</span><a href="#local-6989586621679393917"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394347"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-261"></span><span>
 </span><span id="line-262"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-263"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateAppResponse"><span class="hs-identifier hs-type">CreateAppResponse</span></a></span><span>
-</span><span id="line-264"></span><span>  </span><span id="local-6989586621679393913"><span class="annot"><span class="annottext">request :: CreateApp -&gt; Request CreateApp
+</span><span id="line-264"></span><span>  </span><span id="local-6989586621679394343"><span class="annot"><span class="annottext">request :: CreateApp -&gt; Request CreateApp
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateApp -&gt; Request CreateApp
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.OpsWorks.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-265"></span><span>  </span><span id="local-6989586621679393909"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-265"></span><span>  </span><span id="local-6989586621679394339"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateApp
 -&gt; ClientResponse ClientBody
@@ -682,10 +682,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-267"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679393906"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393906"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679393905"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679393905"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679393904"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679393904"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-267"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679394336"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394336"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679394335"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679394335"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679394334"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679394334"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-268"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; CreateAppResponse
 </span><a href="Network.AWS.OpsWorks.CreateApp.html#CreateAppResponse%27"><span class="hs-identifier hs-var">CreateAppResponse'</span></a></span><span>
 </span><span id="line-269"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; CreateAppResponse)
@@ -693,7 +693,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; CreateAppResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679393904"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679394334"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AppId&quot;</span></span><span class="hs-special">)</span><span>
@@ -705,15 +705,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393906"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394336"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-271"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-272"></span><span>
-</span><span id="line-273"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393896"><span id="local-6989586621679393898"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span></span></span><span>
+</span><span id="line-273"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394326"><span id="local-6989586621679394328"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span></span></span><span>
 </span><span id="line-274"></span><span>
-</span><span id="line-275"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393893"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span></span><span>
+</span><span id="line-275"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394323"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span></span><span>
 </span><span id="line-276"></span><span>
 </span><span id="line-277"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-278"></span><span>  </span><span id="local-6989586621679393889"><span class="annot"><span class="annottext">toHeaders :: CreateApp -&gt; ResponseHeaders
+</span><span id="line-278"></span><span>  </span><span id="local-6989586621679394319"><span class="annot"><span class="annottext">toHeaders :: CreateApp -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-279"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateApp -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -740,9 +740,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-289"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-290"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-291"></span><span>
-</span><span id="line-292"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393879"><span id="local-6989586621679393881"><span id="local-6989586621679393883"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-293"></span><span>  </span><span id="local-6989586621679393877"><span class="annot"><span class="annottext">toJSON :: CreateApp -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393864"><span id="local-6989586621679393865"><span id="local-6989586621679393866"><span id="local-6989586621679393867"><span id="local-6989586621679393868"><span id="local-6989586621679393869"><span id="local-6989586621679393870"><span id="local-6989586621679393871"><span id="local-6989586621679393872"><span id="local-6989586621679393873"><span id="local-6989586621679393874"><span id="local-6989586621679393875"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-292"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394309"><span id="local-6989586621679394311"><span id="local-6989586621679394313"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-293"></span><span>  </span><span id="local-6989586621679394307"><span class="annot"><span class="annottext">toJSON :: CreateApp -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp%27"><span class="hs-identifier hs-type">CreateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394294"><span id="local-6989586621679394295"><span id="local-6989586621679394296"><span id="local-6989586621679394297"><span id="local-6989586621679394298"><span id="local-6989586621679394299"><span id="local-6989586621679394300"><span id="local-6989586621679394301"><span id="local-6989586621679394302"><span id="local-6989586621679394303"><span id="local-6989586621679394304"><span id="local-6989586621679394305"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [Text]
 Maybe [DataSource]
 Maybe [EnvironmentVariable]
@@ -776,7 +776,7 @@ $sel:shortname:CreateApp' :: CreateApp -&gt; Maybe Text
 $sel:enableSsl:CreateApp' :: CreateApp -&gt; Maybe Bool
 $sel:environment:CreateApp' :: CreateApp -&gt; Maybe [EnvironmentVariable]
 $sel:sslConfiguration:CreateApp' :: CreateApp -&gt; Maybe SslConfiguration
-</span><a href="#local-6989586621679393864"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679394294"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-294"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-295"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -789,7 +789,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-297"></span><span>              </span><span class="annot"><span class="annottext">(SslConfiguration -&gt; Pair) -&gt; Maybe SslConfiguration -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SslConfiguration
-</span><a href="#local-6989586621679393875"><span class="hs-identifier hs-var">sslConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679394305"><span class="hs-identifier hs-var">sslConfiguration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-298"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Environment&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [EnvironmentVariable] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -797,35 +797,35 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [EnvironmentVariable] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [EnvironmentVariable]
-</span><a href="#local-6989586621679393874"><span class="hs-identifier hs-var">environment</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679394304"><span class="hs-identifier hs-var">environment</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-299"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EnableSsl&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679393873"><span class="hs-identifier hs-var">enableSsl</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679394303"><span class="hs-identifier hs-var">enableSsl</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-300"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Shortname&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679393872"><span class="hs-identifier hs-var">shortname</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679394302"><span class="hs-identifier hs-var">shortname</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-301"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DataSources&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [DataSource] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([DataSource] -&gt; Pair) -&gt; Maybe [DataSource] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [DataSource]
-</span><a href="#local-6989586621679393871"><span class="hs-identifier hs-var">dataSources</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679394301"><span class="hs-identifier hs-var">dataSources</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-302"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AppSource&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Source -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Source -&gt; Pair) -&gt; Maybe Source -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Source
-</span><a href="#local-6989586621679393870"><span class="hs-identifier hs-var">appSource</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679394300"><span class="hs-identifier hs-var">appSource</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-303"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Attributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap AppAttributesKeys Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -833,54 +833,54 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap AppAttributesKeys Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap AppAttributesKeys Text)
-</span><a href="#local-6989586621679393869"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679394299"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-304"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Domains&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679393868"><span class="hs-identifier hs-var">domains</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679394298"><span class="hs-identifier hs-var">domains</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-305"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679393867"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679394297"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-306"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StackId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393866"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679394296"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-307"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393865"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679394295"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-308"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AppType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">AppType
-</span><a href="#local-6989586621679393864"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394294"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-309"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-310"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-311"></span><span>
 </span><span id="line-312"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-313"></span><span>  </span><span id="local-6989586621679393858"><span class="annot"><span class="annottext">toPath :: CreateApp -&gt; ByteString
+</span><span id="line-313"></span><span>  </span><span id="local-6989586621679394288"><span class="annot"><span class="annottext">toPath :: CreateApp -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateApp -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-314"></span><span>
 </span><span id="line-315"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateApp"><span class="hs-identifier hs-type">CreateApp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-316"></span><span>  </span><span id="local-6989586621679393854"><span class="annot"><span class="annottext">toQuery :: CreateApp -&gt; QueryString
+</span><span id="line-316"></span><span>  </span><span id="local-6989586621679394284"><span class="annot"><span class="annottext">toQuery :: CreateApp -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateApp -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -890,7 +890,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-318"></span><span class="hs-comment">-- | Contains the response to a @CreateApp@ request.</span><span>
 </span><span id="line-319"></span><span class="hs-comment">--</span><span>
 </span><span id="line-320"></span><span class="hs-comment">-- /See:/ 'newCreateAppResponse' smart constructor.</span><span>
-</span><span id="line-321"></span><span id="local-6989586621679393851"><span id="local-6989586621679393852"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateAppResponse"><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateAppResponse"><span class="hs-identifier hs-var">CreateAppResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateAppResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateAppResponse%27"><span class="hs-identifier hs-var">CreateAppResponse'</span></a></span></span><span>
+</span><span id="line-321"></span><span id="local-6989586621679394281"><span id="local-6989586621679394282"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateAppResponse"><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateAppResponse"><span class="hs-identifier hs-var">CreateAppResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateAppResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateAppResponse%27"><span class="hs-identifier hs-var">CreateAppResponse'</span></a></span></span><span>
 </span><span id="line-322"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The app ID.</span><span>
 </span><span id="line-323"></span><span>    </span><span id="%24sel%3AappId%3ACreateAppResponse%27"><span class="annot"><span class="annottext">CreateAppResponse -&gt; Maybe Text
 </span><a href="Network.AWS.OpsWorks.CreateApp.html#%24sel%3AappId%3ACreateAppResponse%27"><span class="hs-identifier hs-var hs-var">appId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -898,7 +898,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-325"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateAppResponse%27"><span class="annot"><span class="annottext">CreateAppResponse -&gt; Int
 </span><a href="Network.AWS.OpsWorks.CreateApp.html#%24sel%3AhttpStatus%3ACreateAppResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-326"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-327"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679393845"><span id="local-6989586621679393847"><span class="annot"><span class="annottext">CreateAppResponse -&gt; CreateAppResponse -&gt; Bool
+</span><span id="line-327"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679394275"><span id="local-6989586621679394277"><span class="annot"><span class="annottext">CreateAppResponse -&gt; CreateAppResponse -&gt; Bool
 (CreateAppResponse -&gt; CreateAppResponse -&gt; Bool)
 -&gt; (CreateAppResponse -&gt; CreateAppResponse -&gt; Bool)
 -&gt; Eq CreateAppResponse
@@ -907,7 +907,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateAppResponse -&gt; CreateAppResponse -&gt; Bool
 == :: CreateAppResponse -&gt; CreateAppResponse -&gt; Bool
 $c== :: CreateAppResponse -&gt; CreateAppResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393837"><span id="local-6989586621679393839"><span id="local-6989586621679393841"><span id="local-6989586621679393843"><span class="annot"><span class="annottext">ReadPrec [CreateAppResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394267"><span id="local-6989586621679394269"><span id="local-6989586621679394271"><span id="local-6989586621679394273"><span class="annot"><span class="annottext">ReadPrec [CreateAppResponse]
 ReadPrec CreateAppResponse
 Int -&gt; ReadS CreateAppResponse
 ReadS [CreateAppResponse]
@@ -927,7 +927,7 @@ readList :: ReadS [CreateAppResponse]
 $creadList :: ReadS [CreateAppResponse]
 readsPrec :: Int -&gt; ReadS CreateAppResponse
 $creadsPrec :: Int -&gt; ReadS CreateAppResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393831"><span id="local-6989586621679393833"><span id="local-6989586621679393835"><span class="annot"><span class="annottext">Int -&gt; CreateAppResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394261"><span id="local-6989586621679394263"><span id="local-6989586621679394265"><span class="annot"><span class="annottext">Int -&gt; CreateAppResponse -&gt; ShowS
 [CreateAppResponse] -&gt; ShowS
 CreateAppResponse -&gt; String
 (Int -&gt; CreateAppResponse -&gt; ShowS)
@@ -969,8 +969,8 @@ $cfrom :: forall x. CreateAppResponse -&gt; Rep CreateAppResponse x
 </span><span id="line-342"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-343"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateAppResponse"><span class="hs-identifier hs-type">CreateAppResponse</span></a></span><span>
 </span><span id="line-344"></span><span id="newCreateAppResponse"><span class="annot"><span class="annottext">newCreateAppResponse :: Int -&gt; CreateAppResponse
-</span><a href="Network.AWS.OpsWorks.CreateApp.html#newCreateAppResponse"><span class="hs-identifier hs-var hs-var">newCreateAppResponse</span></a></span></span><span> </span><span id="local-6989586621679393828"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393828"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.OpsWorks.CreateApp.html#newCreateAppResponse"><span class="hs-identifier hs-var hs-var">newCreateAppResponse</span></a></span></span><span> </span><span id="local-6989586621679394258"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394258"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-345"></span><span>  </span><span class="annot"><span class="annottext">CreateAppResponse' :: Maybe Text -&gt; Int -&gt; CreateAppResponse
 </span><a href="Network.AWS.OpsWorks.CreateApp.html#CreateAppResponse%27"><span class="hs-identifier hs-type">CreateAppResponse'</span></a></span><span>
 </span><span id="line-346"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:appId:CreateAppResponse' :: Maybe Text
@@ -979,7 +979,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-347"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateAppResponse' :: Int
 </span><a href="Network.AWS.OpsWorks.CreateApp.html#%24sel%3AhttpStatus%3ACreateAppResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393828"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679394258"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-348"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-349"></span><span>
 </span><span id="line-350"></span><span class="hs-comment">-- | The app ID.</span><span>
@@ -991,16 +991,16 @@ forall a. Maybe a
 -&gt; Lens
      CreateAppResponse CreateAppResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateAppResponse%27"><span class="hs-identifier hs-type">CreateAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393827"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateAppResponse%27"><span class="hs-identifier hs-type">CreateAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394257"><span class="annot"><span class="annottext">Maybe Text
 appId :: Maybe Text
 $sel:appId:CreateAppResponse' :: CreateAppResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679393827"><span class="hs-identifier hs-var hs-var">appId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679393827"><span class="hs-identifier hs-var">appId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393826"><span class="annot"><span class="annottext">s :: CreateAppResponse
-</span><a href="#local-6989586621679393826"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateAppResponse%27"><span class="hs-identifier hs-type">CreateAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393825"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679393825"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAppResponse
-</span><a href="#local-6989586621679393826"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appId:CreateAppResponse' :: Maybe Text
+</span><a href="#local-6989586621679394257"><span class="hs-identifier hs-var hs-var">appId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679394257"><span class="hs-identifier hs-var">appId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394256"><span class="annot"><span class="annottext">s :: CreateAppResponse
+</span><a href="#local-6989586621679394256"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateAppResponse%27"><span class="hs-identifier hs-type">CreateAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394255"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679394255"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAppResponse
+</span><a href="#local-6989586621679394256"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appId:CreateAppResponse' :: Maybe Text
 </span><a href="Network.AWS.OpsWorks.CreateApp.html#%24sel%3AappId%3ACreateAppResponse%27"><span class="hs-identifier hs-var">appId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679393825"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateAppResponse"><span class="hs-identifier hs-type">CreateAppResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394255"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateAppResponse"><span class="hs-identifier hs-type">CreateAppResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-353"></span><span>
 </span><span id="line-354"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-355"></span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#createAppResponse_httpStatus"><span class="hs-identifier hs-type">createAppResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateAppResponse"><span class="hs-identifier hs-type">CreateAppResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -1009,16 +1009,16 @@ $sel:appId:CreateAppResponse' :: CreateAppResponse -&gt; Maybe Text
 -&gt; (CreateAppResponse -&gt; Int -&gt; CreateAppResponse)
 -&gt; Lens CreateAppResponse CreateAppResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateAppResponse%27"><span class="hs-identifier hs-type">CreateAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393824"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateAppResponse%27"><span class="hs-identifier hs-type">CreateAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394254"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateAppResponse' :: CreateAppResponse -&gt; Int
-</span><a href="#local-6989586621679393824"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393824"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393823"><span class="annot"><span class="annottext">s :: CreateAppResponse
-</span><a href="#local-6989586621679393823"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateAppResponse%27"><span class="hs-identifier hs-type">CreateAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393822"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393822"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAppResponse
-</span><a href="#local-6989586621679393823"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateAppResponse' :: Int
+</span><a href="#local-6989586621679394254"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394254"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394253"><span class="annot"><span class="annottext">s :: CreateAppResponse
+</span><a href="#local-6989586621679394253"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateAppResponse%27"><span class="hs-identifier hs-type">CreateAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394252"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAppResponse
+</span><a href="#local-6989586621679394253"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateAppResponse' :: Int
 </span><a href="Network.AWS.OpsWorks.CreateApp.html#%24sel%3AhttpStatus%3ACreateAppResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393822"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateAppResponse"><span class="hs-identifier hs-type">CreateAppResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394252"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateAppResponse"><span class="hs-identifier hs-type">CreateAppResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-357"></span><span>
-</span><span id="line-358"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393820"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateAppResponse"><span class="hs-identifier hs-type">CreateAppResponse</span></a></span></span><span>
+</span><span id="line-358"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394250"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateApp.html#CreateAppResponse"><span class="hs-identifier hs-type">CreateAppResponse</span></a></span></span><span>
 </span><span id="line-359"></span></pre></body></html>

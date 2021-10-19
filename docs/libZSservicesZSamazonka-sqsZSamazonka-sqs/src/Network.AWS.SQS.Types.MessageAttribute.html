@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621679175397"><span id="local-6989586621679175398"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MessageAttribute"><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttribute.html#MessageAttribute"><span class="hs-identifier hs-var">MessageAttribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MessageAttribute%27"><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttribute.html#MessageAttribute%27"><span class="hs-identifier hs-var">MessageAttribute'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679175532"><span id="local-6989586621679175533"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MessageAttribute"><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttribute.html#MessageAttribute"><span class="hs-identifier hs-var">MessageAttribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MessageAttribute%27"><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttribute.html#MessageAttribute%27"><span class="hs-identifier hs-var">MessageAttribute'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMessageAttribute"><span class="annot"><span class="annottext">MessageAttribute -&gt; Text
 </span><a href="Network.AWS.SQS.Types.MessageAttribute.html#fromMessageAttribute"><span class="hs-identifier hs-var hs-var">fromMessageAttribute</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679175389"><span id="local-6989586621679175391"><span id="local-6989586621679175393"><span class="annot"><span class="annottext">Int -&gt; MessageAttribute -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679175524"><span id="local-6989586621679175526"><span id="local-6989586621679175528"><span class="annot"><span class="annottext">Int -&gt; MessageAttribute -&gt; ShowS
 [MessageAttribute] -&gt; ShowS
 MessageAttribute -&gt; String
 (Int -&gt; MessageAttribute -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: MessageAttribute -&gt; String
 showsPrec :: Int -&gt; MessageAttribute -&gt; ShowS
 $cshowsPrec :: Int -&gt; MessageAttribute -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679175380"><span id="local-6989586621679175382"><span id="local-6989586621679175384"><span id="local-6989586621679175386"><span class="annot"><span class="annottext">ReadPrec [MessageAttribute]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679175515"><span id="local-6989586621679175517"><span id="local-6989586621679175519"><span id="local-6989586621679175521"><span class="annot"><span class="annottext">ReadPrec [MessageAttribute]
 ReadPrec MessageAttribute
 Int -&gt; ReadS MessageAttribute
 ReadS [MessageAttribute]
@@ -75,7 +75,7 @@ $creadList :: ReadS [MessageAttribute]
 readsPrec :: Int -&gt; ReadS MessageAttribute
 $creadsPrec :: Int -&gt; ReadS MessageAttribute
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679175375"><span id="local-6989586621679175377"><span class="annot"><span class="annottext">MessageAttribute -&gt; MessageAttribute -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679175510"><span id="local-6989586621679175512"><span class="annot"><span class="annottext">MessageAttribute -&gt; MessageAttribute -&gt; Bool
 (MessageAttribute -&gt; MessageAttribute -&gt; Bool)
 -&gt; (MessageAttribute -&gt; MessageAttribute -&gt; Bool)
 -&gt; Eq MessageAttribute
@@ -85,7 +85,7 @@ $c/= :: MessageAttribute -&gt; MessageAttribute -&gt; Bool
 == :: MessageAttribute -&gt; MessageAttribute -&gt; Bool
 $c== :: MessageAttribute -&gt; MessageAttribute -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679175359"><span id="local-6989586621679175361"><span id="local-6989586621679175363"><span id="local-6989586621679175365"><span id="local-6989586621679175367"><span id="local-6989586621679175369"><span id="local-6989586621679175371"><span class="annot"><span class="annottext">Eq MessageAttribute
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679175494"><span id="local-6989586621679175496"><span id="local-6989586621679175498"><span id="local-6989586621679175500"><span id="local-6989586621679175502"><span id="local-6989586621679175504"><span id="local-6989586621679175506"><span class="annot"><span class="annottext">Eq MessageAttribute
 Eq MessageAttribute
 -&gt; (MessageAttribute -&gt; MessageAttribute -&gt; Ordering)
 -&gt; (MessageAttribute -&gt; MessageAttribute -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. MessageAttribute -&gt; Rep MessageAttribute x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679175351"><span id="local-6989586621679175353"><span class="annot"><span class="annottext">Int -&gt; MessageAttribute -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679175486"><span id="local-6989586621679175488"><span class="annot"><span class="annottext">Int -&gt; MessageAttribute -&gt; Int
 MessageAttribute -&gt; Int
 (Int -&gt; MessageAttribute -&gt; Int)
 -&gt; (MessageAttribute -&gt; Int) -&gt; Hashable MessageAttribute
@@ -146,51 +146,51 @@ $chash :: MessageAttribute -&gt; Int
 hashWithSalt :: Int -&gt; MessageAttribute -&gt; Int
 $chashWithSalt :: Int -&gt; MessageAttribute -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679175348"><span class="annot"><span class="annottext">MessageAttribute -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679175483"><span class="annot"><span class="annottext">MessageAttribute -&gt; ()
 (MessageAttribute -&gt; ()) -&gt; NFData MessageAttribute
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: MessageAttribute -&gt; ()
 $crnf :: MessageAttribute -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679175345"><span class="annot"><span class="annottext">Text -&gt; Either String MessageAttribute
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679175480"><span class="annot"><span class="annottext">Text -&gt; Either String MessageAttribute
 (Text -&gt; Either String MessageAttribute)
 -&gt; FromText MessageAttribute
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String MessageAttribute
 $cfromText :: Text -&gt; Either String MessageAttribute
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679175342"><span class="annot"><span class="annottext">MessageAttribute -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679175477"><span class="annot"><span class="annottext">MessageAttribute -&gt; Text
 (MessageAttribute -&gt; Text) -&gt; ToText MessageAttribute
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: MessageAttribute -&gt; Text
 $ctoText :: MessageAttribute -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679175339"><span class="annot"><span class="annottext">MessageAttribute -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679175474"><span class="annot"><span class="annottext">MessageAttribute -&gt; ByteString
 (MessageAttribute -&gt; ByteString) -&gt; ToByteString MessageAttribute
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: MessageAttribute -&gt; ByteString
 $ctoBS :: MessageAttribute -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679175336"><span class="annot"><span class="annottext">MessageAttribute -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679175471"><span class="annot"><span class="annottext">MessageAttribute -&gt; ByteStringBuilder
 (MessageAttribute -&gt; ByteStringBuilder) -&gt; ToLog MessageAttribute
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: MessageAttribute -&gt; ByteStringBuilder
 $cbuild :: MessageAttribute -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679175333"><span class="annot"><span class="annottext">HeaderName -&gt; MessageAttribute -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679175468"><span class="annot"><span class="annottext">HeaderName -&gt; MessageAttribute -&gt; [Header]
 (HeaderName -&gt; MessageAttribute -&gt; [Header])
 -&gt; ToHeader MessageAttribute
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; MessageAttribute -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; MessageAttribute -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679175330"><span class="annot"><span class="annottext">MessageAttribute -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679175465"><span class="annot"><span class="annottext">MessageAttribute -&gt; QueryString
 (MessageAttribute -&gt; QueryString) -&gt; ToQuery MessageAttribute
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: MessageAttribute -&gt; QueryString
 $ctoQuery :: MessageAttribute -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679175325"><span id="local-6989586621679175327"><span class="annot"><span class="annottext">Value -&gt; Parser [MessageAttribute]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679175460"><span id="local-6989586621679175462"><span class="annot"><span class="annottext">Value -&gt; Parser [MessageAttribute]
 Value -&gt; Parser MessageAttribute
 (Value -&gt; Parser MessageAttribute)
 -&gt; (Value -&gt; Parser [MessageAttribute])
@@ -202,7 +202,7 @@ $cparseJSONList :: Value -&gt; Parser [MessageAttribute]
 parseJSON :: Value -&gt; Parser MessageAttribute
 $cparseJSON :: Value -&gt; Parser MessageAttribute
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679175320"><span id="local-6989586621679175322"><span class="annot"><span class="annottext">FromJSONKeyFunction [MessageAttribute]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679175455"><span id="local-6989586621679175457"><span class="annot"><span class="annottext">FromJSONKeyFunction [MessageAttribute]
 FromJSONKeyFunction MessageAttribute
 FromJSONKeyFunction MessageAttribute
 -&gt; FromJSONKeyFunction [MessageAttribute]
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [MessageAttribute]
 fromJSONKey :: FromJSONKeyFunction MessageAttribute
 $cfromJSONKey :: FromJSONKeyFunction MessageAttribute
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679175311"><span id="local-6989586621679175313"><span id="local-6989586621679175315"><span id="local-6989586621679175317"><span class="annot"><span class="annottext">[MessageAttribute] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679175446"><span id="local-6989586621679175448"><span id="local-6989586621679175450"><span id="local-6989586621679175452"><span class="annot"><span class="annottext">[MessageAttribute] -&gt; Encoding
 [MessageAttribute] -&gt; Value
 MessageAttribute -&gt; Encoding
 MessageAttribute -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: MessageAttribute -&gt; Encoding
 toJSON :: MessageAttribute -&gt; Value
 $ctoJSON :: MessageAttribute -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679175306"><span id="local-6989586621679175308"><span class="annot"><span class="annottext">ToJSONKeyFunction [MessageAttribute]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679175441"><span id="local-6989586621679175443"><span class="annot"><span class="annottext">ToJSONKeyFunction [MessageAttribute]
 ToJSONKeyFunction MessageAttribute
 ToJSONKeyFunction MessageAttribute
 -&gt; ToJSONKeyFunction [MessageAttribute]
@@ -250,14 +250,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [MessageAttribute]
 toJSONKey :: ToJSONKeyFunction MessageAttribute
 $ctoJSONKey :: ToJSONKeyFunction MessageAttribute
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679175303"><span class="annot"><span class="annottext">[Node] -&gt; Either String MessageAttribute
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679175438"><span class="annot"><span class="annottext">[Node] -&gt; Either String MessageAttribute
 ([Node] -&gt; Either String MessageAttribute)
 -&gt; FromXML MessageAttribute
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String MessageAttribute
 $cparseXML :: [Node] -&gt; Either String MessageAttribute
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679175300"><span class="annot"><span class="annottext">MessageAttribute -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679175435"><span class="annot"><span class="annottext">MessageAttribute -&gt; XML
 (MessageAttribute -&gt; XML) -&gt; ToXML MessageAttribute
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: MessageAttribute -&gt; XML

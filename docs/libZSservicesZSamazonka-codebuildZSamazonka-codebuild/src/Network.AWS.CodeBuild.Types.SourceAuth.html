@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- should not get or set this information directly.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newSourceAuth' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679376089"><span id="local-6989586621679376090"></span></span><span class="hs-keyword">data</span><span> </span><span id="SourceAuth"><span class="annot"><a href="Network.AWS.CodeBuild.Types.SourceAuth.html#SourceAuth"><span class="hs-identifier hs-var">SourceAuth</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SourceAuth%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.SourceAuth.html#SourceAuth%27"><span class="hs-identifier hs-var">SourceAuth'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679377972"><span id="local-6989586621679377973"></span></span><span class="hs-keyword">data</span><span> </span><span id="SourceAuth"><span class="annot"><a href="Network.AWS.CodeBuild.Types.SourceAuth.html#SourceAuth"><span class="hs-identifier hs-var">SourceAuth</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SourceAuth%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.SourceAuth.html#SourceAuth%27"><span class="hs-identifier hs-var">SourceAuth'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The resource value that applies to the specified authorization type.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Aresource%3ASourceAuth%27"><span class="annot"><span class="annottext">SourceAuth -&gt; Maybe Text
 </span><a href="Network.AWS.CodeBuild.Types.SourceAuth.html#%24sel%3Aresource%3ASourceAuth%27"><span class="hs-identifier hs-var hs-var">resource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -42,7 +42,7 @@
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3Atype%27%3ASourceAuth%27"><span class="annot"><span class="annottext">SourceAuth -&gt; SourceAuthType
 </span><a href="Network.AWS.CodeBuild.Types.SourceAuth.html#%24sel%3Atype%27%3ASourceAuth%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.SourceAuthType.html#SourceAuthType"><span class="hs-identifier hs-type">SourceAuthType</span></a></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679376082"><span id="local-6989586621679376084"><span class="annot"><span class="annottext">SourceAuth -&gt; SourceAuth -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679377965"><span id="local-6989586621679377967"><span class="annot"><span class="annottext">SourceAuth -&gt; SourceAuth -&gt; Bool
 (SourceAuth -&gt; SourceAuth -&gt; Bool)
 -&gt; (SourceAuth -&gt; SourceAuth -&gt; Bool) -&gt; Eq SourceAuth
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -50,7 +50,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SourceAuth -&gt; SourceAuth -&gt; Bool
 == :: SourceAuth -&gt; SourceAuth -&gt; Bool
 $c== :: SourceAuth -&gt; SourceAuth -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376073"><span id="local-6989586621679376075"><span id="local-6989586621679376077"><span id="local-6989586621679376079"><span class="annot"><span class="annottext">ReadPrec [SourceAuth]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377956"><span id="local-6989586621679377958"><span id="local-6989586621679377960"><span id="local-6989586621679377962"><span class="annot"><span class="annottext">ReadPrec [SourceAuth]
 ReadPrec SourceAuth
 Int -&gt; ReadS SourceAuth
 ReadS [SourceAuth]
@@ -70,7 +70,7 @@ readList :: ReadS [SourceAuth]
 $creadList :: ReadS [SourceAuth]
 readsPrec :: Int -&gt; ReadS SourceAuth
 $creadsPrec :: Int -&gt; ReadS SourceAuth
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376066"><span id="local-6989586621679376068"><span id="local-6989586621679376070"><span class="annot"><span class="annottext">Int -&gt; SourceAuth -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377949"><span id="local-6989586621679377951"><span id="local-6989586621679377953"><span class="annot"><span class="annottext">Int -&gt; SourceAuth -&gt; ShowS
 [SourceAuth] -&gt; ShowS
 SourceAuth -&gt; String
 (Int -&gt; SourceAuth -&gt; ShowS)
@@ -114,8 +114,8 @@ $cfrom :: forall x. SourceAuth -&gt; Rep SourceAuth x
 </span><span id="line-61"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.SourceAuthType.html#SourceAuthType"><span class="hs-identifier hs-type">SourceAuthType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-62"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.SourceAuth.html#SourceAuth"><span class="hs-identifier hs-type">SourceAuth</span></a></span><span>
 </span><span id="line-63"></span><span id="newSourceAuth"><span class="annot"><span class="annottext">newSourceAuth :: SourceAuthType -&gt; SourceAuth
-</span><a href="Network.AWS.CodeBuild.Types.SourceAuth.html#newSourceAuth"><span class="hs-identifier hs-var hs-var">newSourceAuth</span></a></span></span><span> </span><span id="local-6989586621679376060"><span class="annot"><span class="annottext">SourceAuthType
-</span><a href="#local-6989586621679376060"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeBuild.Types.SourceAuth.html#newSourceAuth"><span class="hs-identifier hs-var hs-var">newSourceAuth</span></a></span></span><span> </span><span id="local-6989586621679377943"><span class="annot"><span class="annottext">SourceAuthType
+</span><a href="#local-6989586621679377943"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">SourceAuth' :: Maybe Text -&gt; SourceAuthType -&gt; SourceAuth
 </span><a href="Network.AWS.CodeBuild.Types.SourceAuth.html#SourceAuth%27"><span class="hs-identifier hs-type">SourceAuth'</span></a></span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resource:SourceAuth' :: Maybe Text
@@ -124,7 +124,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':SourceAuth' :: SourceAuthType
 </span><a href="Network.AWS.CodeBuild.Types.SourceAuth.html#%24sel%3Atype%27%3ASourceAuth%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SourceAuthType
-</span><a href="#local-6989586621679376060"><span class="hs-identifier hs-var">pType_</span></a></span><span>
+</span><a href="#local-6989586621679377943"><span class="hs-identifier hs-var">pType_</span></a></span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | The resource value that applies to the specified authorization type.</span><span>
@@ -134,16 +134,16 @@ forall a. Maybe a
 -&gt; (SourceAuth -&gt; Maybe Text -&gt; SourceAuth)
 -&gt; Lens SourceAuth SourceAuth (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.SourceAuth.html#SourceAuth%27"><span class="hs-identifier hs-type">SourceAuth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376056"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.SourceAuth.html#SourceAuth%27"><span class="hs-identifier hs-type">SourceAuth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377939"><span class="annot"><span class="annottext">Maybe Text
 resource :: Maybe Text
 $sel:resource:SourceAuth' :: SourceAuth -&gt; Maybe Text
-</span><a href="#local-6989586621679376056"><span class="hs-identifier hs-var hs-var">resource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679376056"><span class="hs-identifier hs-var">resource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376055"><span class="annot"><span class="annottext">s :: SourceAuth
-</span><a href="#local-6989586621679376055"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.SourceAuth.html#SourceAuth%27"><span class="hs-identifier hs-type">SourceAuth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376054"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679376054"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceAuth
-</span><a href="#local-6989586621679376055"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resource:SourceAuth' :: Maybe Text
+</span><a href="#local-6989586621679377939"><span class="hs-identifier hs-var hs-var">resource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377939"><span class="hs-identifier hs-var">resource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377938"><span class="annot"><span class="annottext">s :: SourceAuth
+</span><a href="#local-6989586621679377938"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.SourceAuth.html#SourceAuth%27"><span class="hs-identifier hs-type">SourceAuth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377937"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377937"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceAuth
+</span><a href="#local-6989586621679377938"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resource:SourceAuth' :: Maybe Text
 </span><a href="Network.AWS.CodeBuild.Types.SourceAuth.html#%24sel%3Aresource%3ASourceAuth%27"><span class="hs-identifier hs-var">resource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679376054"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.SourceAuth.html#SourceAuth"><span class="hs-identifier hs-type">SourceAuth</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679377937"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.SourceAuth.html#SourceAuth"><span class="hs-identifier hs-type">SourceAuth</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | This data type is deprecated and is no longer accurate or used.</span><span>
 </span><span id="line-74"></span><span class="hs-comment">--</span><span>
@@ -155,19 +155,19 @@ $sel:resource:SourceAuth' :: SourceAuth -&gt; Maybe Text
 -&gt; (SourceAuth -&gt; SourceAuthType -&gt; SourceAuth)
 -&gt; Lens SourceAuth SourceAuth SourceAuthType SourceAuthType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.SourceAuth.html#SourceAuth%27"><span class="hs-identifier hs-type">SourceAuth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376052"><span class="annot"><span class="annottext">SourceAuthType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.SourceAuth.html#SourceAuth%27"><span class="hs-identifier hs-type">SourceAuth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377935"><span class="annot"><span class="annottext">SourceAuthType
 type' :: SourceAuthType
 $sel:type':SourceAuth' :: SourceAuth -&gt; SourceAuthType
-</span><a href="#local-6989586621679376052"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceAuthType
-</span><a href="#local-6989586621679376052"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376051"><span class="annot"><span class="annottext">s :: SourceAuth
-</span><a href="#local-6989586621679376051"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.SourceAuth.html#SourceAuth%27"><span class="hs-identifier hs-type">SourceAuth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376050"><span class="annot"><span class="annottext">SourceAuthType
-</span><a href="#local-6989586621679376050"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceAuth
-</span><a href="#local-6989586621679376051"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':SourceAuth' :: SourceAuthType
+</span><a href="#local-6989586621679377935"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceAuthType
+</span><a href="#local-6989586621679377935"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377934"><span class="annot"><span class="annottext">s :: SourceAuth
+</span><a href="#local-6989586621679377934"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.SourceAuth.html#SourceAuth%27"><span class="hs-identifier hs-type">SourceAuth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377933"><span class="annot"><span class="annottext">SourceAuthType
+</span><a href="#local-6989586621679377933"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceAuth
+</span><a href="#local-6989586621679377934"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':SourceAuth' :: SourceAuthType
 </span><a href="Network.AWS.CodeBuild.Types.SourceAuth.html#%24sel%3Atype%27%3ASourceAuth%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SourceAuthType
-</span><a href="#local-6989586621679376050"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.SourceAuth.html#SourceAuth"><span class="hs-identifier hs-type">SourceAuth</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679377933"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.SourceAuth.html#SourceAuth"><span class="hs-identifier hs-type">SourceAuth</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376047"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.SourceAuth.html#SourceAuth"><span class="hs-identifier hs-type">SourceAuth</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679376045"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SourceAuth
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377930"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.SourceAuth.html#SourceAuth"><span class="hs-identifier hs-type">SourceAuth</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679377928"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SourceAuth
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SourceAuth) -&gt; Value -&gt; Parser SourceAuth
@@ -175,15 +175,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SourceAuth&quot;</span></span><span>
-</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679376042"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679376042"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679377925"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679377925"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; SourceAuthType -&gt; SourceAuth
 </span><a href="Network.AWS.CodeBuild.Types.SourceAuth.html#SourceAuth%27"><span class="hs-identifier hs-var">SourceAuth'</span></a></span><span>
 </span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; SourceAuthType -&gt; SourceAuth)
 -&gt; Parser (Maybe Text) -&gt; Parser (SourceAuthType -&gt; SourceAuth)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679376042"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679377925"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;resource&quot;</span></span><span class="hs-special">)</span><span>
@@ -191,25 +191,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser SourceAuthType -&gt; Parser SourceAuth
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679376042"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser SourceAuthType
+</span><a href="#local-6989586621679377925"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser SourceAuthType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376035"><span id="local-6989586621679376037"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.SourceAuth.html#SourceAuth"><span class="hs-identifier hs-type">SourceAuth</span></a></span></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377918"><span id="local-6989586621679377920"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.SourceAuth.html#SourceAuth"><span class="hs-identifier hs-type">SourceAuth</span></a></span></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376032"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.SourceAuth.html#SourceAuth"><span class="hs-identifier hs-type">SourceAuth</span></a></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377915"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.SourceAuth.html#SourceAuth"><span class="hs-identifier hs-type">SourceAuth</span></a></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376024"><span id="local-6989586621679376026"><span id="local-6989586621679376028"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.SourceAuth.html#SourceAuth"><span class="hs-identifier hs-type">SourceAuth</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679376022"><span class="annot"><span class="annottext">toJSON :: SourceAuth -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.SourceAuth.html#SourceAuth%27"><span class="hs-identifier hs-type">SourceAuth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376019"><span id="local-6989586621679376020"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377907"><span id="local-6989586621679377909"><span id="local-6989586621679377911"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.SourceAuth.html#SourceAuth"><span class="hs-identifier hs-type">SourceAuth</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679377905"><span class="annot"><span class="annottext">toJSON :: SourceAuth -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.SourceAuth.html#SourceAuth%27"><span class="hs-identifier hs-type">SourceAuth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377902"><span id="local-6989586621679377903"><span class="annot"><span class="annottext">Maybe Text
 SourceAuthType
 type' :: SourceAuthType
 resource :: Maybe Text
 $sel:type':SourceAuth' :: SourceAuth -&gt; SourceAuthType
 $sel:resource:SourceAuth' :: SourceAuth -&gt; Maybe Text
-</span><a href="#local-6989586621679376019"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679377902"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -221,14 +221,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679376020"><span class="hs-identifier hs-var">resource</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679377903"><span class="hs-identifier hs-var">resource</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SourceAuthType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">SourceAuthType
-</span><a href="#local-6989586621679376019"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679377902"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span></pre></body></html>

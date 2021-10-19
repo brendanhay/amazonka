@@ -49,13 +49,13 @@
 </span><span id="line-49"></span><span class="hs-comment">-- account.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- /See:/ 'newDeleteSuppressedDestination' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679345967"><span id="local-6989586621679345968"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteSuppressedDestination"><span class="annot"><a href="Network.AWS.SESv2.DeleteSuppressedDestination.html#DeleteSuppressedDestination"><span class="hs-identifier hs-var">DeleteSuppressedDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteSuppressedDestination%27"><span class="annot"><a href="Network.AWS.SESv2.DeleteSuppressedDestination.html#DeleteSuppressedDestination%27"><span class="hs-identifier hs-var">DeleteSuppressedDestination'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679348545"><span id="local-6989586621679348546"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteSuppressedDestination"><span class="annot"><a href="Network.AWS.SESv2.DeleteSuppressedDestination.html#DeleteSuppressedDestination"><span class="hs-identifier hs-var">DeleteSuppressedDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteSuppressedDestination%27"><span class="annot"><a href="Network.AWS.SESv2.DeleteSuppressedDestination.html#DeleteSuppressedDestination%27"><span class="hs-identifier hs-var">DeleteSuppressedDestination'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The suppressed email destination to remove from the account suppression</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- list.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AemailAddress%3ADeleteSuppressedDestination%27"><span class="annot"><span class="annottext">DeleteSuppressedDestination -&gt; Text
 </span><a href="Network.AWS.SESv2.DeleteSuppressedDestination.html#%24sel%3AemailAddress%3ADeleteSuppressedDestination%27"><span class="hs-identifier hs-var hs-var">emailAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679345961"><span id="local-6989586621679345963"><span class="annot"><span class="annottext">DeleteSuppressedDestination -&gt; DeleteSuppressedDestination -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679348539"><span id="local-6989586621679348541"><span class="annot"><span class="annottext">DeleteSuppressedDestination -&gt; DeleteSuppressedDestination -&gt; Bool
 (DeleteSuppressedDestination
  -&gt; DeleteSuppressedDestination -&gt; Bool)
 -&gt; (DeleteSuppressedDestination
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteSuppressedDestination -&gt; DeleteSuppressedDestination -&gt; Bool
 == :: DeleteSuppressedDestination -&gt; DeleteSuppressedDestination -&gt; Bool
 $c== :: DeleteSuppressedDestination -&gt; DeleteSuppressedDestination -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345952"><span id="local-6989586621679345954"><span id="local-6989586621679345956"><span id="local-6989586621679345958"><span class="annot"><span class="annottext">ReadPrec [DeleteSuppressedDestination]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348530"><span id="local-6989586621679348532"><span id="local-6989586621679348534"><span id="local-6989586621679348536"><span class="annot"><span class="annottext">ReadPrec [DeleteSuppressedDestination]
 ReadPrec DeleteSuppressedDestination
 Int -&gt; ReadS DeleteSuppressedDestination
 ReadS [DeleteSuppressedDestination]
@@ -86,7 +86,7 @@ readList :: ReadS [DeleteSuppressedDestination]
 $creadList :: ReadS [DeleteSuppressedDestination]
 readsPrec :: Int -&gt; ReadS DeleteSuppressedDestination
 $creadsPrec :: Int -&gt; ReadS DeleteSuppressedDestination
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345945"><span id="local-6989586621679345947"><span id="local-6989586621679345949"><span class="annot"><span class="annottext">Int -&gt; DeleteSuppressedDestination -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348523"><span id="local-6989586621679348525"><span id="local-6989586621679348527"><span class="annot"><span class="annottext">Int -&gt; DeleteSuppressedDestination -&gt; ShowS
 [DeleteSuppressedDestination] -&gt; ShowS
 DeleteSuppressedDestination -&gt; String
 (Int -&gt; DeleteSuppressedDestination -&gt; ShowS)
@@ -133,14 +133,14 @@ DeleteSuppressedDestination -&gt; Rep DeleteSuppressedDestination x
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.DeleteSuppressedDestination.html#DeleteSuppressedDestination"><span class="hs-identifier hs-type">DeleteSuppressedDestination</span></a></span><span>
 </span><span id="line-73"></span><span id="newDeleteSuppressedDestination"><span class="annot"><span class="annottext">newDeleteSuppressedDestination :: Text -&gt; DeleteSuppressedDestination
-</span><a href="Network.AWS.SESv2.DeleteSuppressedDestination.html#newDeleteSuppressedDestination"><span class="hs-identifier hs-var hs-var">newDeleteSuppressedDestination</span></a></span></span><span> </span><span id="local-6989586621679345940"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679345940"><span class="hs-identifier hs-var">pEmailAddress_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SESv2.DeleteSuppressedDestination.html#newDeleteSuppressedDestination"><span class="hs-identifier hs-var hs-var">newDeleteSuppressedDestination</span></a></span></span><span> </span><span id="local-6989586621679348518"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348518"><span class="hs-identifier hs-var">pEmailAddress_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">DeleteSuppressedDestination' :: Text -&gt; DeleteSuppressedDestination
 </span><a href="Network.AWS.SESv2.DeleteSuppressedDestination.html#DeleteSuppressedDestination%27"><span class="hs-identifier hs-type">DeleteSuppressedDestination'</span></a></span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:emailAddress:DeleteSuppressedDestination' :: Text
 </span><a href="Network.AWS.SESv2.DeleteSuppressedDestination.html#%24sel%3AemailAddress%3ADeleteSuppressedDestination%27"><span class="hs-identifier hs-var">emailAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679345940"><span class="hs-identifier hs-var">pEmailAddress_</span></a></span><span>
+</span><a href="#local-6989586621679348518"><span class="hs-identifier hs-var">pEmailAddress_</span></a></span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- | The suppressed email destination to remove from the account suppression</span><span>
@@ -154,29 +154,29 @@ DeleteSuppressedDestination -&gt; Rep DeleteSuppressedDestination x
 -&gt; Lens
      DeleteSuppressedDestination DeleteSuppressedDestination Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.DeleteSuppressedDestination.html#DeleteSuppressedDestination%27"><span class="hs-identifier hs-type">DeleteSuppressedDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345937"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.DeleteSuppressedDestination.html#DeleteSuppressedDestination%27"><span class="hs-identifier hs-type">DeleteSuppressedDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348515"><span class="annot"><span class="annottext">Text
 emailAddress :: Text
 $sel:emailAddress:DeleteSuppressedDestination' :: DeleteSuppressedDestination -&gt; Text
-</span><a href="#local-6989586621679345937"><span class="hs-identifier hs-var hs-var">emailAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679345937"><span class="hs-identifier hs-var">emailAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345936"><span class="annot"><span class="annottext">s :: DeleteSuppressedDestination
-</span><a href="#local-6989586621679345936"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.DeleteSuppressedDestination.html#DeleteSuppressedDestination%27"><span class="hs-identifier hs-type">DeleteSuppressedDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345935"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679345935"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSuppressedDestination
-</span><a href="#local-6989586621679345936"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:emailAddress:DeleteSuppressedDestination' :: Text
+</span><a href="#local-6989586621679348515"><span class="hs-identifier hs-var hs-var">emailAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348515"><span class="hs-identifier hs-var">emailAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348514"><span class="annot"><span class="annottext">s :: DeleteSuppressedDestination
+</span><a href="#local-6989586621679348514"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.DeleteSuppressedDestination.html#DeleteSuppressedDestination%27"><span class="hs-identifier hs-type">DeleteSuppressedDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348513"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348513"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSuppressedDestination
+</span><a href="#local-6989586621679348514"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:emailAddress:DeleteSuppressedDestination' :: Text
 </span><a href="Network.AWS.SESv2.DeleteSuppressedDestination.html#%24sel%3AemailAddress%3ADeleteSuppressedDestination%27"><span class="hs-identifier hs-var">emailAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679345935"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteSuppressedDestination.html#DeleteSuppressedDestination"><span class="hs-identifier hs-type">DeleteSuppressedDestination</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679348513"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteSuppressedDestination.html#DeleteSuppressedDestination"><span class="hs-identifier hs-type">DeleteSuppressedDestination</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteSuppressedDestination.html#DeleteSuppressedDestination"><span class="hs-identifier hs-type">DeleteSuppressedDestination</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-85"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-86"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteSuppressedDestination.html#DeleteSuppressedDestination"><span class="hs-identifier hs-type">DeleteSuppressedDestination</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><a href="Network.AWS.SESv2.DeleteSuppressedDestination.html#DeleteSuppressedDestinationResponse"><span class="hs-identifier hs-type">DeleteSuppressedDestinationResponse</span></a></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679345931"><span class="annot"><span class="annottext">request :: DeleteSuppressedDestination -&gt; Request DeleteSuppressedDestination
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679348509"><span class="annot"><span class="annottext">request :: DeleteSuppressedDestination -&gt; Request DeleteSuppressedDestination
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DeleteSuppressedDestination
 -&gt; Request DeleteSuppressedDestination
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SESv2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679345927"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679348505"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteSuppressedDestination
 -&gt; ClientResponse ClientBody
@@ -202,10 +202,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679345924"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679345924"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679345923"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679345923"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679345922"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679345922"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679348502"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348502"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679348501"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679348501"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679348500"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679348500"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteSuppressedDestinationResponse
 </span><a href="Network.AWS.SESv2.DeleteSuppressedDestination.html#DeleteSuppressedDestinationResponse%27"><span class="hs-identifier hs-var">DeleteSuppressedDestinationResponse'</span></a></span><span>
 </span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteSuppressedDestinationResponse)
@@ -217,15 +217,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679345924"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679348502"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345915"><span id="local-6989586621679345917"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteSuppressedDestination.html#DeleteSuppressedDestination"><span class="hs-identifier hs-type">DeleteSuppressedDestination</span></a></span></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348493"><span id="local-6989586621679348495"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteSuppressedDestination.html#DeleteSuppressedDestination"><span class="hs-identifier hs-type">DeleteSuppressedDestination</span></a></span></span></span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345912"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteSuppressedDestination.html#DeleteSuppressedDestination"><span class="hs-identifier hs-type">DeleteSuppressedDestination</span></a></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348490"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteSuppressedDestination.html#DeleteSuppressedDestination"><span class="hs-identifier hs-type">DeleteSuppressedDestination</span></a></span></span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteSuppressedDestination.html#DeleteSuppressedDestination"><span class="hs-identifier hs-type">DeleteSuppressedDestination</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679345908"><span class="annot"><span class="annottext">toHeaders :: DeleteSuppressedDestination -&gt; ResponseHeaders
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679348486"><span class="annot"><span class="annottext">toHeaders :: DeleteSuppressedDestination -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteSuppressedDestination -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -245,11 +245,11 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteSuppressedDestination.html#DeleteSuppressedDestination"><span class="hs-identifier hs-type">DeleteSuppressedDestination</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679345902"><span class="annot"><span class="annottext">toPath :: DeleteSuppressedDestination -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteSuppressedDestination.html#DeleteSuppressedDestination%27"><span class="hs-identifier hs-type">DeleteSuppressedDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345900"><span class="annot"><span class="annottext">Text
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679348480"><span class="annot"><span class="annottext">toPath :: DeleteSuppressedDestination -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteSuppressedDestination.html#DeleteSuppressedDestination%27"><span class="hs-identifier hs-type">DeleteSuppressedDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348478"><span class="annot"><span class="annottext">Text
 emailAddress :: Text
 $sel:emailAddress:DeleteSuppressedDestination' :: DeleteSuppressedDestination -&gt; Text
-</span><a href="#local-6989586621679345900"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679348478"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -258,11 +258,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679345900"><span class="hs-identifier hs-var">emailAddress</span></a></span><span>
+</span><a href="#local-6989586621679348478"><span class="hs-identifier hs-var">emailAddress</span></a></span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteSuppressedDestination.html#DeleteSuppressedDestination"><span class="hs-identifier hs-type">DeleteSuppressedDestination</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679345896"><span class="annot"><span class="annottext">toQuery :: DeleteSuppressedDestination -&gt; QueryString
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679348474"><span class="annot"><span class="annottext">toQuery :: DeleteSuppressedDestination -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteSuppressedDestination -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -273,12 +273,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-122"></span><span class="hs-comment">-- request fails.</span><span>
 </span><span id="line-123"></span><span class="hs-comment">--</span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- /See:/ 'newDeleteSuppressedDestinationResponse' smart constructor.</span><span>
-</span><span id="line-125"></span><span id="local-6989586621679345893"><span id="local-6989586621679345894"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteSuppressedDestinationResponse"><span class="annot"><a href="Network.AWS.SESv2.DeleteSuppressedDestination.html#DeleteSuppressedDestinationResponse"><span class="hs-identifier hs-var">DeleteSuppressedDestinationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteSuppressedDestinationResponse%27"><span class="annot"><a href="Network.AWS.SESv2.DeleteSuppressedDestination.html#DeleteSuppressedDestinationResponse%27"><span class="hs-identifier hs-var">DeleteSuppressedDestinationResponse'</span></a></span></span><span>
+</span><span id="line-125"></span><span id="local-6989586621679348471"><span id="local-6989586621679348472"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteSuppressedDestinationResponse"><span class="annot"><a href="Network.AWS.SESv2.DeleteSuppressedDestination.html#DeleteSuppressedDestinationResponse"><span class="hs-identifier hs-var">DeleteSuppressedDestinationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteSuppressedDestinationResponse%27"><span class="annot"><a href="Network.AWS.SESv2.DeleteSuppressedDestination.html#DeleteSuppressedDestinationResponse%27"><span class="hs-identifier hs-var">DeleteSuppressedDestinationResponse'</span></a></span></span><span>
 </span><span id="line-126"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-127"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteSuppressedDestinationResponse%27"><span class="annot"><span class="annottext">DeleteSuppressedDestinationResponse -&gt; Int
 </span><a href="Network.AWS.SESv2.DeleteSuppressedDestination.html#%24sel%3AhttpStatus%3ADeleteSuppressedDestinationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-128"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-129"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679345888"><span id="local-6989586621679345890"><span class="annot"><span class="annottext">DeleteSuppressedDestinationResponse
+</span><span id="line-129"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679348466"><span id="local-6989586621679348468"><span class="annot"><span class="annottext">DeleteSuppressedDestinationResponse
 -&gt; DeleteSuppressedDestinationResponse -&gt; Bool
 (DeleteSuppressedDestinationResponse
  -&gt; DeleteSuppressedDestinationResponse -&gt; Bool)
@@ -294,7 +294,7 @@ $c/= :: DeleteSuppressedDestinationResponse
 -&gt; DeleteSuppressedDestinationResponse -&gt; Bool
 $c== :: DeleteSuppressedDestinationResponse
 -&gt; DeleteSuppressedDestinationResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345880"><span id="local-6989586621679345882"><span id="local-6989586621679345884"><span id="local-6989586621679345886"><span class="annot"><span class="annottext">ReadPrec [DeleteSuppressedDestinationResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348458"><span id="local-6989586621679348460"><span id="local-6989586621679348462"><span id="local-6989586621679348464"><span class="annot"><span class="annottext">ReadPrec [DeleteSuppressedDestinationResponse]
 ReadPrec DeleteSuppressedDestinationResponse
 Int -&gt; ReadS DeleteSuppressedDestinationResponse
 ReadS [DeleteSuppressedDestinationResponse]
@@ -314,7 +314,7 @@ readList :: ReadS [DeleteSuppressedDestinationResponse]
 $creadList :: ReadS [DeleteSuppressedDestinationResponse]
 readsPrec :: Int -&gt; ReadS DeleteSuppressedDestinationResponse
 $creadsPrec :: Int -&gt; ReadS DeleteSuppressedDestinationResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345874"><span id="local-6989586621679345876"><span id="local-6989586621679345878"><span class="annot"><span class="annottext">Int -&gt; DeleteSuppressedDestinationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348452"><span id="local-6989586621679348454"><span id="local-6989586621679348456"><span class="annot"><span class="annottext">Int -&gt; DeleteSuppressedDestinationResponse -&gt; ShowS
 [DeleteSuppressedDestinationResponse] -&gt; ShowS
 DeleteSuppressedDestinationResponse -&gt; String
 (Int -&gt; DeleteSuppressedDestinationResponse -&gt; ShowS)
@@ -366,14 +366,14 @@ DeleteSuppressedDestinationResponse
 </span><span id="line-142"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-143"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.DeleteSuppressedDestination.html#DeleteSuppressedDestinationResponse"><span class="hs-identifier hs-type">DeleteSuppressedDestinationResponse</span></a></span><span>
 </span><span id="line-144"></span><span id="newDeleteSuppressedDestinationResponse"><span class="annot"><span class="annottext">newDeleteSuppressedDestinationResponse :: Int -&gt; DeleteSuppressedDestinationResponse
-</span><a href="Network.AWS.SESv2.DeleteSuppressedDestination.html#newDeleteSuppressedDestinationResponse"><span class="hs-identifier hs-var hs-var">newDeleteSuppressedDestinationResponse</span></a></span></span><span> </span><span id="local-6989586621679345871"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679345871"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SESv2.DeleteSuppressedDestination.html#newDeleteSuppressedDestinationResponse"><span class="hs-identifier hs-var hs-var">newDeleteSuppressedDestinationResponse</span></a></span></span><span> </span><span id="local-6989586621679348449"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348449"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-145"></span><span>  </span><span class="annot"><span class="annottext">DeleteSuppressedDestinationResponse' :: Int -&gt; DeleteSuppressedDestinationResponse
 </span><a href="Network.AWS.SESv2.DeleteSuppressedDestination.html#DeleteSuppressedDestinationResponse%27"><span class="hs-identifier hs-type">DeleteSuppressedDestinationResponse'</span></a></span><span>
 </span><span id="line-146"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteSuppressedDestinationResponse' :: Int
 </span><a href="Network.AWS.SESv2.DeleteSuppressedDestination.html#%24sel%3AhttpStatus%3ADeleteSuppressedDestinationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679345871"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679348449"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-148"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -390,18 +390,18 @@ DeleteSuppressedDestinationResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.DeleteSuppressedDestination.html#DeleteSuppressedDestinationResponse%27"><span class="hs-identifier hs-type">DeleteSuppressedDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345870"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.DeleteSuppressedDestination.html#DeleteSuppressedDestinationResponse%27"><span class="hs-identifier hs-type">DeleteSuppressedDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348448"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteSuppressedDestinationResponse' :: DeleteSuppressedDestinationResponse -&gt; Int
-</span><a href="#local-6989586621679345870"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679345870"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345869"><span class="annot"><span class="annottext">s :: DeleteSuppressedDestinationResponse
-</span><a href="#local-6989586621679345869"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.DeleteSuppressedDestination.html#DeleteSuppressedDestinationResponse%27"><span class="hs-identifier hs-type">DeleteSuppressedDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345868"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679345868"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSuppressedDestinationResponse
-</span><a href="#local-6989586621679345869"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteSuppressedDestinationResponse' :: Int
+</span><a href="#local-6989586621679348448"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348448"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348447"><span class="annot"><span class="annottext">s :: DeleteSuppressedDestinationResponse
+</span><a href="#local-6989586621679348447"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.DeleteSuppressedDestination.html#DeleteSuppressedDestinationResponse%27"><span class="hs-identifier hs-type">DeleteSuppressedDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348446"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348446"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSuppressedDestinationResponse
+</span><a href="#local-6989586621679348447"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteSuppressedDestinationResponse' :: Int
 </span><a href="Network.AWS.SESv2.DeleteSuppressedDestination.html#%24sel%3AhttpStatus%3ADeleteSuppressedDestinationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679345868"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteSuppressedDestination.html#DeleteSuppressedDestinationResponse"><span class="hs-identifier hs-type">DeleteSuppressedDestinationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679348446"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteSuppressedDestination.html#DeleteSuppressedDestinationResponse"><span class="hs-identifier hs-type">DeleteSuppressedDestinationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679345866"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679348444"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-156"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.DeleteSuppressedDestination.html#DeleteSuppressedDestinationResponse"><span class="hs-identifier hs-type">DeleteSuppressedDestinationResponse</span></a></span></span><span>
 </span><span id="line-157"></span></pre></body></html>

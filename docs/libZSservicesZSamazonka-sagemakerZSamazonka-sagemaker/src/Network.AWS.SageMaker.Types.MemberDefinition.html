@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- of a work team.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newMemberDefinition' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621680324674"><span id="local-6989586621680324675"></span></span><span class="hs-keyword">data</span><span> </span><span id="MemberDefinition"><span class="annot"><a href="Network.AWS.SageMaker.Types.MemberDefinition.html#MemberDefinition"><span class="hs-identifier hs-var">MemberDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MemberDefinition%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.MemberDefinition.html#MemberDefinition%27"><span class="hs-identifier hs-var">MemberDefinition'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680326067"><span id="local-6989586621680326068"></span></span><span class="hs-keyword">data</span><span> </span><span id="MemberDefinition"><span class="annot"><a href="Network.AWS.SageMaker.Types.MemberDefinition.html#MemberDefinition"><span class="hs-identifier hs-var">MemberDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MemberDefinition%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.MemberDefinition.html#MemberDefinition%27"><span class="hs-identifier hs-var">MemberDefinition'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list user groups that exist in your OIDC Identity Provider (IdP). One</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- to ten groups can be used to create a single private work team. When you</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- add a user group to the list of @Groups@, you can add that user group to</span><span>
@@ -41,7 +41,7 @@
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3AcognitoMemberDefinition%3AMemberDefinition%27"><span class="annot"><span class="annottext">MemberDefinition -&gt; Maybe CognitoMemberDefinition
 </span><a href="Network.AWS.SageMaker.Types.MemberDefinition.html#%24sel%3AcognitoMemberDefinition%3AMemberDefinition%27"><span class="hs-identifier hs-var hs-var">cognitoMemberDefinition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CognitoMemberDefinition.html#CognitoMemberDefinition"><span class="hs-identifier hs-type">CognitoMemberDefinition</span></a></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680324667"><span id="local-6989586621680324669"><span class="annot"><span class="annottext">MemberDefinition -&gt; MemberDefinition -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680326060"><span id="local-6989586621680326062"><span class="annot"><span class="annottext">MemberDefinition -&gt; MemberDefinition -&gt; Bool
 (MemberDefinition -&gt; MemberDefinition -&gt; Bool)
 -&gt; (MemberDefinition -&gt; MemberDefinition -&gt; Bool)
 -&gt; Eq MemberDefinition
@@ -50,7 +50,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MemberDefinition -&gt; MemberDefinition -&gt; Bool
 == :: MemberDefinition -&gt; MemberDefinition -&gt; Bool
 $c== :: MemberDefinition -&gt; MemberDefinition -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680324658"><span id="local-6989586621680324660"><span id="local-6989586621680324662"><span id="local-6989586621680324664"><span class="annot"><span class="annottext">ReadPrec [MemberDefinition]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680326051"><span id="local-6989586621680326053"><span id="local-6989586621680326055"><span id="local-6989586621680326057"><span class="annot"><span class="annottext">ReadPrec [MemberDefinition]
 ReadPrec MemberDefinition
 Int -&gt; ReadS MemberDefinition
 ReadS [MemberDefinition]
@@ -70,7 +70,7 @@ readList :: ReadS [MemberDefinition]
 $creadList :: ReadS [MemberDefinition]
 readsPrec :: Int -&gt; ReadS MemberDefinition
 $creadsPrec :: Int -&gt; ReadS MemberDefinition
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680324651"><span id="local-6989586621680324653"><span id="local-6989586621680324655"><span class="annot"><span class="annottext">Int -&gt; MemberDefinition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680326044"><span id="local-6989586621680326046"><span id="local-6989586621680326048"><span class="annot"><span class="annottext">Int -&gt; MemberDefinition -&gt; ShowS
 [MemberDefinition] -&gt; ShowS
 MemberDefinition -&gt; String
 (Int -&gt; MemberDefinition -&gt; ShowS)
@@ -146,16 +146,16 @@ forall a. Maybe a
      (Maybe OidcMemberDefinition)
      (Maybe OidcMemberDefinition)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MemberDefinition.html#MemberDefinition%27"><span class="hs-identifier hs-type">MemberDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680324642"><span class="annot"><span class="annottext">Maybe OidcMemberDefinition
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MemberDefinition.html#MemberDefinition%27"><span class="hs-identifier hs-type">MemberDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680326035"><span class="annot"><span class="annottext">Maybe OidcMemberDefinition
 oidcMemberDefinition :: Maybe OidcMemberDefinition
 $sel:oidcMemberDefinition:MemberDefinition' :: MemberDefinition -&gt; Maybe OidcMemberDefinition
-</span><a href="#local-6989586621680324642"><span class="hs-identifier hs-var hs-var">oidcMemberDefinition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OidcMemberDefinition
-</span><a href="#local-6989586621680324642"><span class="hs-identifier hs-var">oidcMemberDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680324641"><span class="annot"><span class="annottext">s :: MemberDefinition
-</span><a href="#local-6989586621680324641"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MemberDefinition.html#MemberDefinition%27"><span class="hs-identifier hs-type">MemberDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680324640"><span class="annot"><span class="annottext">Maybe OidcMemberDefinition
-</span><a href="#local-6989586621680324640"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MemberDefinition
-</span><a href="#local-6989586621680324641"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:oidcMemberDefinition:MemberDefinition' :: Maybe OidcMemberDefinition
+</span><a href="#local-6989586621680326035"><span class="hs-identifier hs-var hs-var">oidcMemberDefinition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OidcMemberDefinition
+</span><a href="#local-6989586621680326035"><span class="hs-identifier hs-var">oidcMemberDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680326034"><span class="annot"><span class="annottext">s :: MemberDefinition
+</span><a href="#local-6989586621680326034"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MemberDefinition.html#MemberDefinition%27"><span class="hs-identifier hs-type">MemberDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680326033"><span class="annot"><span class="annottext">Maybe OidcMemberDefinition
+</span><a href="#local-6989586621680326033"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MemberDefinition
+</span><a href="#local-6989586621680326034"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:oidcMemberDefinition:MemberDefinition' :: Maybe OidcMemberDefinition
 </span><a href="Network.AWS.SageMaker.Types.MemberDefinition.html#%24sel%3AoidcMemberDefinition%3AMemberDefinition%27"><span class="hs-identifier hs-var">oidcMemberDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OidcMemberDefinition
-</span><a href="#local-6989586621680324640"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MemberDefinition.html#MemberDefinition"><span class="hs-identifier hs-type">MemberDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680326033"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MemberDefinition.html#MemberDefinition"><span class="hs-identifier hs-type">MemberDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | The Amazon Cognito user group that is part of the work team.</span><span>
 </span><span id="line-77"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.MemberDefinition.html#memberDefinition_cognitoMemberDefinition"><span class="hs-identifier hs-type">memberDefinition_cognitoMemberDefinition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MemberDefinition.html#MemberDefinition"><span class="hs-identifier hs-type">MemberDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CognitoMemberDefinition.html#CognitoMemberDefinition"><span class="hs-identifier hs-type">CognitoMemberDefinition</span></a></span><span class="hs-special">)</span><span>
@@ -171,19 +171,19 @@ $sel:oidcMemberDefinition:MemberDefinition' :: MemberDefinition -&gt; Maybe Oidc
      (Maybe CognitoMemberDefinition)
      (Maybe CognitoMemberDefinition)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MemberDefinition.html#MemberDefinition%27"><span class="hs-identifier hs-type">MemberDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680324638"><span class="annot"><span class="annottext">Maybe CognitoMemberDefinition
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MemberDefinition.html#MemberDefinition%27"><span class="hs-identifier hs-type">MemberDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680326031"><span class="annot"><span class="annottext">Maybe CognitoMemberDefinition
 cognitoMemberDefinition :: Maybe CognitoMemberDefinition
 $sel:cognitoMemberDefinition:MemberDefinition' :: MemberDefinition -&gt; Maybe CognitoMemberDefinition
-</span><a href="#local-6989586621680324638"><span class="hs-identifier hs-var hs-var">cognitoMemberDefinition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CognitoMemberDefinition
-</span><a href="#local-6989586621680324638"><span class="hs-identifier hs-var">cognitoMemberDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680324637"><span class="annot"><span class="annottext">s :: MemberDefinition
-</span><a href="#local-6989586621680324637"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MemberDefinition.html#MemberDefinition%27"><span class="hs-identifier hs-type">MemberDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680324636"><span class="annot"><span class="annottext">Maybe CognitoMemberDefinition
-</span><a href="#local-6989586621680324636"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MemberDefinition
-</span><a href="#local-6989586621680324637"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cognitoMemberDefinition:MemberDefinition' :: Maybe CognitoMemberDefinition
+</span><a href="#local-6989586621680326031"><span class="hs-identifier hs-var hs-var">cognitoMemberDefinition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CognitoMemberDefinition
+</span><a href="#local-6989586621680326031"><span class="hs-identifier hs-var">cognitoMemberDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680326030"><span class="annot"><span class="annottext">s :: MemberDefinition
+</span><a href="#local-6989586621680326030"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MemberDefinition.html#MemberDefinition%27"><span class="hs-identifier hs-type">MemberDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680326029"><span class="annot"><span class="annottext">Maybe CognitoMemberDefinition
+</span><a href="#local-6989586621680326029"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MemberDefinition
+</span><a href="#local-6989586621680326030"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cognitoMemberDefinition:MemberDefinition' :: Maybe CognitoMemberDefinition
 </span><a href="Network.AWS.SageMaker.Types.MemberDefinition.html#%24sel%3AcognitoMemberDefinition%3AMemberDefinition%27"><span class="hs-identifier hs-var">cognitoMemberDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CognitoMemberDefinition
-</span><a href="#local-6989586621680324636"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MemberDefinition.html#MemberDefinition"><span class="hs-identifier hs-type">MemberDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680326029"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MemberDefinition.html#MemberDefinition"><span class="hs-identifier hs-type">MemberDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680324633"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MemberDefinition.html#MemberDefinition"><span class="hs-identifier hs-type">MemberDefinition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621680324631"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MemberDefinition
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680326026"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MemberDefinition.html#MemberDefinition"><span class="hs-identifier hs-type">MemberDefinition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621680326024"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MemberDefinition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MemberDefinition)
@@ -193,8 +193,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MemberDefinition&quot;</span></span><span>
-</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680324628"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680324628"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680326021"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680326021"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe OidcMemberDefinition
 -&gt; Maybe CognitoMemberDefinition -&gt; MemberDefinition
 </span><a href="Network.AWS.SageMaker.Types.MemberDefinition.html#MemberDefinition%27"><span class="hs-identifier hs-var">MemberDefinition'</span></a></span><span>
@@ -204,7 +204,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe CognitoMemberDefinition -&gt; MemberDefinition)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680324628"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OidcMemberDefinition)
+</span><a href="#local-6989586621680326021"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OidcMemberDefinition)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OidcMemberDefinition&quot;</span></span><span class="hs-special">)</span><span>
@@ -213,25 +213,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser MemberDefinition
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680324628"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CognitoMemberDefinition)
+</span><a href="#local-6989586621680326021"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CognitoMemberDefinition)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CognitoMemberDefinition&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680324622"><span id="local-6989586621680324624"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MemberDefinition.html#MemberDefinition"><span class="hs-identifier hs-type">MemberDefinition</span></a></span></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680326015"><span id="local-6989586621680326017"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MemberDefinition.html#MemberDefinition"><span class="hs-identifier hs-type">MemberDefinition</span></a></span></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680324619"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MemberDefinition.html#MemberDefinition"><span class="hs-identifier hs-type">MemberDefinition</span></a></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680326012"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MemberDefinition.html#MemberDefinition"><span class="hs-identifier hs-type">MemberDefinition</span></a></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680324611"><span id="local-6989586621680324613"><span id="local-6989586621680324615"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MemberDefinition.html#MemberDefinition"><span class="hs-identifier hs-type">MemberDefinition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621680324609"><span class="annot"><span class="annottext">toJSON :: MemberDefinition -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MemberDefinition.html#MemberDefinition%27"><span class="hs-identifier hs-type">MemberDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680324606"><span id="local-6989586621680324607"><span class="annot"><span class="annottext">Maybe CognitoMemberDefinition
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680326004"><span id="local-6989586621680326006"><span id="local-6989586621680326008"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MemberDefinition.html#MemberDefinition"><span class="hs-identifier hs-type">MemberDefinition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621680326002"><span class="annot"><span class="annottext">toJSON :: MemberDefinition -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MemberDefinition.html#MemberDefinition%27"><span class="hs-identifier hs-type">MemberDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680325999"><span id="local-6989586621680326000"><span class="annot"><span class="annottext">Maybe CognitoMemberDefinition
 Maybe OidcMemberDefinition
 cognitoMemberDefinition :: Maybe CognitoMemberDefinition
 oidcMemberDefinition :: Maybe OidcMemberDefinition
 $sel:cognitoMemberDefinition:MemberDefinition' :: MemberDefinition -&gt; Maybe CognitoMemberDefinition
 $sel:oidcMemberDefinition:MemberDefinition' :: MemberDefinition -&gt; Maybe OidcMemberDefinition
-</span><a href="#local-6989586621680324606"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680325999"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -245,7 +245,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe OidcMemberDefinition -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe OidcMemberDefinition
-</span><a href="#local-6989586621680324607"><span class="hs-identifier hs-var">oidcMemberDefinition</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680326000"><span class="hs-identifier hs-var">oidcMemberDefinition</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CognitoMemberDefinition&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CognitoMemberDefinition -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -254,7 +254,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe CognitoMemberDefinition -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CognitoMemberDefinition
-</span><a href="#local-6989586621680324606"><span class="hs-identifier hs-var">cognitoMemberDefinition</span></a></span><span>
+</span><a href="#local-6989586621680325999"><span class="hs-identifier hs-var">cognitoMemberDefinition</span></a></span><span>
 </span><span id="line-102"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span></pre></body></html>

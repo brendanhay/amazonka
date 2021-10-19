@@ -30,18 +30,18 @@
 </span><span id="line-30"></span><span class="hs-comment">-- list object.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newContent' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679373525"><span id="local-6989586621679373526"></span></span><span class="hs-keyword">data</span><span> </span><span id="Content"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Content.html#Content"><span class="hs-identifier hs-var">Content</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Content%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Content.html#Content%27"><span class="hs-identifier hs-var">Content'</span></a></span></span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of text messages.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AtextList%3AContent%27"><span class="annot"><span class="annottext">Content -&gt; Maybe [TextMessage]
+</span><span id="line-33"></span><span id="local-6989586621679373851"><span id="local-6989586621679373852"></span></span><span class="hs-keyword">data</span><span> </span><span id="Content"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Content.html#Content"><span class="hs-identifier hs-var">Content</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Content%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Content.html#Content%27"><span class="hs-identifier hs-var">Content'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of audio messages.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AaudioList%3AContent%27"><span class="annot"><span class="annottext">Content -&gt; Maybe [Audio]
+</span><a href="Network.AWS.AlexaBusiness.Types.Content.html#%24sel%3AaudioList%3AContent%27"><span class="hs-identifier hs-var hs-var">audioList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Audio.html#Audio"><span class="hs-identifier hs-type">Audio</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The list of text messages.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AtextList%3AContent%27"><span class="annot"><span class="annottext">Content -&gt; Maybe [TextMessage]
 </span><a href="Network.AWS.AlexaBusiness.Types.Content.html#%24sel%3AtextList%3AContent%27"><span class="hs-identifier hs-var hs-var">textList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.TextMessage.html#TextMessage"><span class="hs-identifier hs-type">TextMessage</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The list of SSML messages.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AssmlList%3AContent%27"><span class="annot"><span class="annottext">Content -&gt; Maybe [Ssml]
-</span><a href="Network.AWS.AlexaBusiness.Types.Content.html#%24sel%3AssmlList%3AContent%27"><span class="hs-identifier hs-var hs-var">ssmlList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Ssml.html#Ssml"><span class="hs-identifier hs-type">Ssml</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The list of audio messages.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AaudioList%3AContent%27"><span class="annot"><span class="annottext">Content -&gt; Maybe [Audio]
-</span><a href="Network.AWS.AlexaBusiness.Types.Content.html#%24sel%3AaudioList%3AContent%27"><span class="hs-identifier hs-var hs-var">audioList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Audio.html#Audio"><span class="hs-identifier hs-type">Audio</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The list of SSML messages.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AssmlList%3AContent%27"><span class="annot"><span class="annottext">Content -&gt; Maybe [Ssml]
+</span><a href="Network.AWS.AlexaBusiness.Types.Content.html#%24sel%3AssmlList%3AContent%27"><span class="hs-identifier hs-var hs-var">ssmlList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Ssml.html#Ssml"><span class="hs-identifier hs-type">Ssml</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679373517"><span id="local-6989586621679373519"><span class="annot"><span class="annottext">Content -&gt; Content -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679373843"><span id="local-6989586621679373845"><span class="annot"><span class="annottext">Content -&gt; Content -&gt; Bool
 (Content -&gt; Content -&gt; Bool)
 -&gt; (Content -&gt; Content -&gt; Bool) -&gt; Eq Content
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Content -&gt; Content -&gt; Bool
 == :: Content -&gt; Content -&gt; Bool
 $c== :: Content -&gt; Content -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373508"><span id="local-6989586621679373510"><span id="local-6989586621679373512"><span id="local-6989586621679373514"><span class="annot"><span class="annottext">ReadPrec [Content]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373834"><span id="local-6989586621679373836"><span id="local-6989586621679373838"><span id="local-6989586621679373840"><span class="annot"><span class="annottext">ReadPrec [Content]
 ReadPrec Content
 Int -&gt; ReadS Content
 ReadS [Content]
@@ -69,7 +69,7 @@ readList :: ReadS [Content]
 $creadList :: ReadS [Content]
 readsPrec :: Int -&gt; ReadS Content
 $creadsPrec :: Int -&gt; ReadS Content
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373501"><span id="local-6989586621679373503"><span id="local-6989586621679373505"><span class="annot"><span class="annottext">Int -&gt; Content -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373827"><span id="local-6989586621679373829"><span id="local-6989586621679373831"><span class="annot"><span class="annottext">Int -&gt; Content -&gt; ShowS
 [Content] -&gt; ShowS
 Content -&gt; String
 (Int -&gt; Content -&gt; ShowS)
@@ -100,49 +100,82 @@ $cfrom :: forall x. Content -&gt; Rep Content x
 </span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'textList', 'content_textList' - The list of text messages.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'audioList', 'content_audioList' - The list of audio messages.</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'ssmlList', 'content_ssmlList' - The list of SSML messages.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'textList', 'content_textList' - The list of text messages.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'audioList', 'content_audioList' - The list of audio messages.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'ssmlList', 'content_ssmlList' - The list of SSML messages.</span><span>
 </span><span id="line-56"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Content.html#newContent"><span class="hs-identifier hs-type">newContent</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Content.html#Content"><span class="hs-identifier hs-type">Content</span></a></span><span>
 </span><span id="line-58"></span><span id="newContent"><span class="annot"><span class="annottext">newContent :: Content
 </span><a href="Network.AWS.AlexaBusiness.Types.Content.html#newContent"><span class="hs-identifier hs-var hs-var">newContent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">Content' :: Maybe [TextMessage] -&gt; Maybe [Ssml] -&gt; Maybe [Audio] -&gt; Content
+</span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">Content' :: Maybe [Audio] -&gt; Maybe [TextMessage] -&gt; Maybe [Ssml] -&gt; Content
 </span><a href="Network.AWS.AlexaBusiness.Types.Content.html#Content%27"><span class="hs-identifier hs-type">Content'</span></a></span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:textList:Content' :: Maybe [TextMessage]
+</span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:audioList:Content' :: Maybe [Audio]
+</span><a href="Network.AWS.AlexaBusiness.Types.Content.html#%24sel%3AaudioList%3AContent%27"><span class="hs-identifier hs-var">audioList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Audio]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:textList:Content' :: Maybe [TextMessage]
 </span><a href="Network.AWS.AlexaBusiness.Types.Content.html#%24sel%3AtextList%3AContent%27"><span class="hs-identifier hs-var">textList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TextMessage]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:ssmlList:Content' :: Maybe [Ssml]
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:ssmlList:Content' :: Maybe [Ssml]
 </span><a href="Network.AWS.AlexaBusiness.Types.Content.html#%24sel%3AssmlList%3AContent%27"><span class="hs-identifier hs-var">ssmlList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Ssml]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:audioList:Content' :: Maybe [Audio]
-</span><a href="Network.AWS.AlexaBusiness.Types.Content.html#%24sel%3AaudioList%3AContent%27"><span class="hs-identifier hs-var">audioList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Audio]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- | The list of text messages.</span><span>
-</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Content.html#content_textList"><span class="hs-identifier hs-type">content_textList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Content.html#Content"><span class="hs-identifier hs-type">Content</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.TextMessage.html#TextMessage"><span class="hs-identifier hs-type">TextMessage</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-67"></span><span id="content_textList"><span class="annot"><span class="annottext">content_textList :: (Maybe [TextMessage] -&gt; f (Maybe [TextMessage]))
+</span><span id="line-65"></span><span class="hs-comment">-- | The list of audio messages.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Content.html#content_audioList"><span class="hs-identifier hs-type">content_audioList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Content.html#Content"><span class="hs-identifier hs-type">Content</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Audio.html#Audio"><span class="hs-identifier hs-type">Audio</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span id="content_audioList"><span class="annot"><span class="annottext">content_audioList :: (Maybe [Audio] -&gt; f (Maybe [Audio])) -&gt; Content -&gt; f Content
+</span><a href="Network.AWS.AlexaBusiness.Types.Content.html#content_audioList"><span class="hs-identifier hs-var hs-var">content_audioList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Content -&gt; Maybe [Audio])
+-&gt; (Content -&gt; Maybe [Audio] -&gt; Content)
+-&gt; Lens Content Content (Maybe [Audio]) (Maybe [Audio])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Content.html#Content%27"><span class="hs-identifier hs-type">Content'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373818"><span class="annot"><span class="annottext">Maybe [Audio]
+audioList :: Maybe [Audio]
+$sel:audioList:Content' :: Content -&gt; Maybe [Audio]
+</span><a href="#local-6989586621679373818"><span class="hs-identifier hs-var hs-var">audioList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Audio]
+</span><a href="#local-6989586621679373818"><span class="hs-identifier hs-var">audioList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373817"><span class="annot"><span class="annottext">s :: Content
+</span><a href="#local-6989586621679373817"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Content.html#Content%27"><span class="hs-identifier hs-type">Content'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373816"><span class="annot"><span class="annottext">Maybe [Audio]
+</span><a href="#local-6989586621679373816"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Content
+</span><a href="#local-6989586621679373817"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioList:Content' :: Maybe [Audio]
+</span><a href="Network.AWS.AlexaBusiness.Types.Content.html#%24sel%3AaudioList%3AContent%27"><span class="hs-identifier hs-var">audioList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Audio]
+</span><a href="#local-6989586621679373816"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Content.html#Content"><span class="hs-identifier hs-type">Content</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Audio] -&gt; f (Maybe [Audio])) -&gt; Content -&gt; f Content)
+-&gt; ((Maybe [Audio] -&gt; f (Maybe [Audio]))
+    -&gt; Maybe [Audio] -&gt; f (Maybe [Audio]))
+-&gt; (Maybe [Audio] -&gt; f (Maybe [Audio]))
+-&gt; Content
+-&gt; f Content
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Audio] [Audio] [Audio] [Audio]
+-&gt; Iso
+     (Maybe [Audio]) (Maybe [Audio]) (Maybe [Audio]) (Maybe [Audio])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Audio] [Audio] [Audio] [Audio]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | The list of text messages.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Content.html#content_textList"><span class="hs-identifier hs-type">content_textList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Content.html#Content"><span class="hs-identifier hs-type">Content</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.TextMessage.html#TextMessage"><span class="hs-identifier hs-type">TextMessage</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span id="content_textList"><span class="annot"><span class="annottext">content_textList :: (Maybe [TextMessage] -&gt; f (Maybe [TextMessage]))
 -&gt; Content -&gt; f Content
 </span><a href="Network.AWS.AlexaBusiness.Types.Content.html#content_textList"><span class="hs-identifier hs-var hs-var">content_textList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Content -&gt; Maybe [TextMessage])
 -&gt; (Content -&gt; Maybe [TextMessage] -&gt; Content)
 -&gt; Lens Content Content (Maybe [TextMessage]) (Maybe [TextMessage])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Content.html#Content%27"><span class="hs-identifier hs-type">Content'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373492"><span class="annot"><span class="annottext">Maybe [TextMessage]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Content.html#Content%27"><span class="hs-identifier hs-type">Content'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373811"><span class="annot"><span class="annottext">Maybe [TextMessage]
 textList :: Maybe [TextMessage]
 $sel:textList:Content' :: Content -&gt; Maybe [TextMessage]
-</span><a href="#local-6989586621679373492"><span class="hs-identifier hs-var hs-var">textList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TextMessage]
-</span><a href="#local-6989586621679373492"><span class="hs-identifier hs-var">textList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373491"><span class="annot"><span class="annottext">s :: Content
-</span><a href="#local-6989586621679373491"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Content.html#Content%27"><span class="hs-identifier hs-type">Content'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373490"><span class="annot"><span class="annottext">Maybe [TextMessage]
-</span><a href="#local-6989586621679373490"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Content
-</span><a href="#local-6989586621679373491"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:textList:Content' :: Maybe [TextMessage]
+</span><a href="#local-6989586621679373811"><span class="hs-identifier hs-var hs-var">textList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TextMessage]
+</span><a href="#local-6989586621679373811"><span class="hs-identifier hs-var">textList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373810"><span class="annot"><span class="annottext">s :: Content
+</span><a href="#local-6989586621679373810"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Content.html#Content%27"><span class="hs-identifier hs-type">Content'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373809"><span class="annot"><span class="annottext">Maybe [TextMessage]
+</span><a href="#local-6989586621679373809"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Content
+</span><a href="#local-6989586621679373810"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:textList:Content' :: Maybe [TextMessage]
 </span><a href="Network.AWS.AlexaBusiness.Types.Content.html#%24sel%3AtextList%3AContent%27"><span class="hs-identifier hs-var">textList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TextMessage]
-</span><a href="#local-6989586621679373490"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Content.html#Content"><span class="hs-identifier hs-type">Content</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TextMessage] -&gt; f (Maybe [TextMessage]))
+</span><a href="#local-6989586621679373809"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Content.html#Content"><span class="hs-identifier hs-type">Content</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TextMessage] -&gt; f (Maybe [TextMessage]))
  -&gt; Content -&gt; f Content)
 -&gt; ((Maybe [TextMessage] -&gt; f (Maybe [TextMessage]))
     -&gt; Maybe [TextMessage] -&gt; f (Maybe [TextMessage]))
@@ -160,26 +193,26 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [TextMessage] [TextMessage] [TextMessage] [TextMessage]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- | The list of SSML messages.</span><span>
-</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Content.html#content_ssmlList"><span class="hs-identifier hs-type">content_ssmlList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Content.html#Content"><span class="hs-identifier hs-type">Content</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Ssml.html#Ssml"><span class="hs-identifier hs-type">Ssml</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-71"></span><span id="content_ssmlList"><span class="annot"><span class="annottext">content_ssmlList :: (Maybe [Ssml] -&gt; f (Maybe [Ssml])) -&gt; Content -&gt; f Content
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | The list of SSML messages.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Content.html#content_ssmlList"><span class="hs-identifier hs-type">content_ssmlList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Content.html#Content"><span class="hs-identifier hs-type">Content</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Ssml.html#Ssml"><span class="hs-identifier hs-type">Ssml</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="content_ssmlList"><span class="annot"><span class="annottext">content_ssmlList :: (Maybe [Ssml] -&gt; f (Maybe [Ssml])) -&gt; Content -&gt; f Content
 </span><a href="Network.AWS.AlexaBusiness.Types.Content.html#content_ssmlList"><span class="hs-identifier hs-var hs-var">content_ssmlList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Content -&gt; Maybe [Ssml])
 -&gt; (Content -&gt; Maybe [Ssml] -&gt; Content)
 -&gt; Lens Content Content (Maybe [Ssml]) (Maybe [Ssml])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Content.html#Content%27"><span class="hs-identifier hs-type">Content'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373485"><span class="annot"><span class="annottext">Maybe [Ssml]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Content.html#Content%27"><span class="hs-identifier hs-type">Content'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373807"><span class="annot"><span class="annottext">Maybe [Ssml]
 ssmlList :: Maybe [Ssml]
 $sel:ssmlList:Content' :: Content -&gt; Maybe [Ssml]
-</span><a href="#local-6989586621679373485"><span class="hs-identifier hs-var hs-var">ssmlList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Ssml]
-</span><a href="#local-6989586621679373485"><span class="hs-identifier hs-var">ssmlList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373484"><span class="annot"><span class="annottext">s :: Content
-</span><a href="#local-6989586621679373484"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Content.html#Content%27"><span class="hs-identifier hs-type">Content'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373483"><span class="annot"><span class="annottext">Maybe [Ssml]
-</span><a href="#local-6989586621679373483"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Content
-</span><a href="#local-6989586621679373484"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ssmlList:Content' :: Maybe [Ssml]
+</span><a href="#local-6989586621679373807"><span class="hs-identifier hs-var hs-var">ssmlList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Ssml]
+</span><a href="#local-6989586621679373807"><span class="hs-identifier hs-var">ssmlList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373806"><span class="annot"><span class="annottext">s :: Content
+</span><a href="#local-6989586621679373806"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Content.html#Content%27"><span class="hs-identifier hs-type">Content'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373805"><span class="annot"><span class="annottext">Maybe [Ssml]
+</span><a href="#local-6989586621679373805"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Content
+</span><a href="#local-6989586621679373806"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ssmlList:Content' :: Maybe [Ssml]
 </span><a href="Network.AWS.AlexaBusiness.Types.Content.html#%24sel%3AssmlList%3AContent%27"><span class="hs-identifier hs-var">ssmlList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Ssml]
-</span><a href="#local-6989586621679373483"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Content.html#Content"><span class="hs-identifier hs-type">Content</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Ssml] -&gt; f (Maybe [Ssml])) -&gt; Content -&gt; f Content)
+</span><a href="#local-6989586621679373805"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Content.html#Content"><span class="hs-identifier hs-type">Content</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Ssml] -&gt; f (Maybe [Ssml])) -&gt; Content -&gt; f Content)
 -&gt; ((Maybe [Ssml] -&gt; f (Maybe [Ssml]))
     -&gt; Maybe [Ssml] -&gt; f (Maybe [Ssml]))
 -&gt; (Maybe [Ssml] -&gt; f (Maybe [Ssml]))
@@ -192,84 +225,51 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Ssml] [Ssml] [Ssml] [Ssml]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- | The list of audio messages.</span><span>
-</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Content.html#content_audioList"><span class="hs-identifier hs-type">content_audioList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Content.html#Content"><span class="hs-identifier hs-type">Content</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Audio.html#Audio"><span class="hs-identifier hs-type">Audio</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span id="content_audioList"><span class="annot"><span class="annottext">content_audioList :: (Maybe [Audio] -&gt; f (Maybe [Audio])) -&gt; Content -&gt; f Content
-</span><a href="Network.AWS.AlexaBusiness.Types.Content.html#content_audioList"><span class="hs-identifier hs-var hs-var">content_audioList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Content -&gt; Maybe [Audio])
--&gt; (Content -&gt; Maybe [Audio] -&gt; Content)
--&gt; Lens Content Content (Maybe [Audio]) (Maybe [Audio])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Content.html#Content%27"><span class="hs-identifier hs-type">Content'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373481"><span class="annot"><span class="annottext">Maybe [Audio]
-audioList :: Maybe [Audio]
-$sel:audioList:Content' :: Content -&gt; Maybe [Audio]
-</span><a href="#local-6989586621679373481"><span class="hs-identifier hs-var hs-var">audioList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Audio]
-</span><a href="#local-6989586621679373481"><span class="hs-identifier hs-var">audioList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373480"><span class="annot"><span class="annottext">s :: Content
-</span><a href="#local-6989586621679373480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Content.html#Content%27"><span class="hs-identifier hs-type">Content'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373479"><span class="annot"><span class="annottext">Maybe [Audio]
-</span><a href="#local-6989586621679373479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Content
-</span><a href="#local-6989586621679373480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioList:Content' :: Maybe [Audio]
-</span><a href="Network.AWS.AlexaBusiness.Types.Content.html#%24sel%3AaudioList%3AContent%27"><span class="hs-identifier hs-var">audioList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Audio]
-</span><a href="#local-6989586621679373479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Content.html#Content"><span class="hs-identifier hs-type">Content</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Audio] -&gt; f (Maybe [Audio])) -&gt; Content -&gt; f Content)
--&gt; ((Maybe [Audio] -&gt; f (Maybe [Audio]))
-    -&gt; Maybe [Audio] -&gt; f (Maybe [Audio]))
--&gt; (Maybe [Audio] -&gt; f (Maybe [Audio]))
--&gt; Content
--&gt; f Content
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Audio] [Audio] [Audio] [Audio]
--&gt; Iso
-     (Maybe [Audio]) (Maybe [Audio]) (Maybe [Audio]) (Maybe [Audio])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Audio] [Audio] [Audio] [Audio]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373475"><span id="local-6989586621679373477"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Content.html#Content"><span class="hs-identifier hs-type">Content</span></a></span></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373801"><span id="local-6989586621679373803"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Content.html#Content"><span class="hs-identifier hs-type">Content</span></a></span></span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373472"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Content.html#Content"><span class="hs-identifier hs-type">Content</span></a></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373798"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Content.html#Content"><span class="hs-identifier hs-type">Content</span></a></span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373464"><span id="local-6989586621679373466"><span id="local-6989586621679373468"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Content.html#Content"><span class="hs-identifier hs-type">Content</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679373462"><span class="annot"><span class="annottext">toJSON :: Content -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Content.html#Content%27"><span class="hs-identifier hs-type">Content'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373458"><span id="local-6989586621679373459"><span id="local-6989586621679373460"><span class="annot"><span class="annottext">Maybe [Audio]
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373790"><span id="local-6989586621679373792"><span id="local-6989586621679373794"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Content.html#Content"><span class="hs-identifier hs-type">Content</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679373788"><span class="annot"><span class="annottext">toJSON :: Content -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Content.html#Content%27"><span class="hs-identifier hs-type">Content'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373784"><span id="local-6989586621679373785"><span id="local-6989586621679373786"><span class="annot"><span class="annottext">Maybe [Audio]
 Maybe [Ssml]
 Maybe [TextMessage]
-audioList :: Maybe [Audio]
 ssmlList :: Maybe [Ssml]
 textList :: Maybe [TextMessage]
-$sel:audioList:Content' :: Content -&gt; Maybe [Audio]
+audioList :: Maybe [Audio]
 $sel:ssmlList:Content' :: Content -&gt; Maybe [Ssml]
 $sel:textList:Content' :: Content -&gt; Maybe [TextMessage]
-</span><a href="#local-6989586621679373458"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:audioList:Content' :: Content -&gt; Maybe [Audio]
+</span><a href="#local-6989586621679373784"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-85"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;TextList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [TextMessage] -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([TextMessage] -&gt; Pair) -&gt; Maybe [TextMessage] -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [TextMessage]
-</span><a href="#local-6989586621679373460"><span class="hs-identifier hs-var">textList</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-86"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SsmlList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Ssml] -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Ssml] -&gt; Pair) -&gt; Maybe [Ssml] -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Ssml]
-</span><a href="#local-6989586621679373459"><span class="hs-identifier hs-var">ssmlList</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-87"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AudioList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Audio] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Audio] -&gt; Pair) -&gt; Maybe [Audio] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Audio]
-</span><a href="#local-6989586621679373458"><span class="hs-identifier hs-var">audioList</span></a></span><span>
+</span><a href="#local-6989586621679373786"><span class="hs-identifier hs-var">audioList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TextList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [TextMessage] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([TextMessage] -&gt; Pair) -&gt; Maybe [TextMessage] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [TextMessage]
+</span><a href="#local-6989586621679373785"><span class="hs-identifier hs-var">textList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SsmlList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Ssml] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Ssml] -&gt; Pair) -&gt; Maybe [Ssml] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Ssml]
+</span><a href="#local-6989586621679373784"><span class="hs-identifier hs-var">ssmlList</span></a></span><span>
 </span><span id="line-88"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span></pre></body></html>

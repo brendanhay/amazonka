@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span id="local-6989586621681120645"><span id="local-6989586621681120646"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SummaryStatus"><span class="annot"><a href="Network.AWS.EC2.Types.SummaryStatus.html#SummaryStatus"><span class="hs-identifier hs-var">SummaryStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SummaryStatus%27"><span class="annot"><a href="Network.AWS.EC2.Types.SummaryStatus.html#SummaryStatus%27"><span class="hs-identifier hs-var">SummaryStatus'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621681155491"><span id="local-6989586621681155492"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SummaryStatus"><span class="annot"><a href="Network.AWS.EC2.Types.SummaryStatus.html#SummaryStatus"><span class="hs-identifier hs-var">SummaryStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SummaryStatus%27"><span class="annot"><a href="Network.AWS.EC2.Types.SummaryStatus.html#SummaryStatus%27"><span class="hs-identifier hs-var">SummaryStatus'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSummaryStatus"><span class="annot"><span class="annottext">SummaryStatus -&gt; Text
 </span><a href="Network.AWS.EC2.Types.SummaryStatus.html#fromSummaryStatus"><span class="hs-identifier hs-var hs-var">fromSummaryStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681120637"><span id="local-6989586621681120639"><span id="local-6989586621681120641"><span class="annot"><span class="annottext">Int -&gt; SummaryStatus -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681155483"><span id="local-6989586621681155485"><span id="local-6989586621681155487"><span class="annot"><span class="annottext">Int -&gt; SummaryStatus -&gt; ShowS
 [SummaryStatus] -&gt; ShowS
 SummaryStatus -&gt; String
 (Int -&gt; SummaryStatus -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: SummaryStatus -&gt; String
 showsPrec :: Int -&gt; SummaryStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; SummaryStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621681120628"><span id="local-6989586621681120630"><span id="local-6989586621681120632"><span id="local-6989586621681120634"><span class="annot"><span class="annottext">ReadPrec [SummaryStatus]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681155474"><span id="local-6989586621681155476"><span id="local-6989586621681155478"><span id="local-6989586621681155480"><span class="annot"><span class="annottext">ReadPrec [SummaryStatus]
 ReadPrec SummaryStatus
 Int -&gt; ReadS SummaryStatus
 ReadS [SummaryStatus]
@@ -76,7 +76,7 @@ $creadList :: ReadS [SummaryStatus]
 readsPrec :: Int -&gt; ReadS SummaryStatus
 $creadsPrec :: Int -&gt; ReadS SummaryStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621681120623"><span id="local-6989586621681120625"><span class="annot"><span class="annottext">SummaryStatus -&gt; SummaryStatus -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621681155469"><span id="local-6989586621681155471"><span class="annot"><span class="annottext">SummaryStatus -&gt; SummaryStatus -&gt; Bool
 (SummaryStatus -&gt; SummaryStatus -&gt; Bool)
 -&gt; (SummaryStatus -&gt; SummaryStatus -&gt; Bool) -&gt; Eq SummaryStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -85,7 +85,7 @@ $c/= :: SummaryStatus -&gt; SummaryStatus -&gt; Bool
 == :: SummaryStatus -&gt; SummaryStatus -&gt; Bool
 $c== :: SummaryStatus -&gt; SummaryStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621681120607"><span id="local-6989586621681120609"><span id="local-6989586621681120611"><span id="local-6989586621681120613"><span id="local-6989586621681120615"><span id="local-6989586621681120617"><span id="local-6989586621681120619"><span class="annot"><span class="annottext">Eq SummaryStatus
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621681155453"><span id="local-6989586621681155455"><span id="local-6989586621681155457"><span id="local-6989586621681155459"><span id="local-6989586621681155461"><span id="local-6989586621681155463"><span id="local-6989586621681155465"><span class="annot"><span class="annottext">Eq SummaryStatus
 Eq SummaryStatus
 -&gt; (SummaryStatus -&gt; SummaryStatus -&gt; Ordering)
 -&gt; (SummaryStatus -&gt; SummaryStatus -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. SummaryStatus -&gt; Rep SummaryStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681120599"><span id="local-6989586621681120601"><span class="annot"><span class="annottext">Int -&gt; SummaryStatus -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681155445"><span id="local-6989586621681155447"><span class="annot"><span class="annottext">Int -&gt; SummaryStatus -&gt; Int
 SummaryStatus -&gt; Int
 (Int -&gt; SummaryStatus -&gt; Int)
 -&gt; (SummaryStatus -&gt; Int) -&gt; Hashable SummaryStatus
@@ -146,49 +146,49 @@ $chash :: SummaryStatus -&gt; Int
 hashWithSalt :: Int -&gt; SummaryStatus -&gt; Int
 $chashWithSalt :: Int -&gt; SummaryStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681120596"><span class="annot"><span class="annottext">SummaryStatus -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681155442"><span class="annot"><span class="annottext">SummaryStatus -&gt; ()
 (SummaryStatus -&gt; ()) -&gt; NFData SummaryStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: SummaryStatus -&gt; ()
 $crnf :: SummaryStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681120593"><span class="annot"><span class="annottext">Text -&gt; Either String SummaryStatus
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681155439"><span class="annot"><span class="annottext">Text -&gt; Either String SummaryStatus
 (Text -&gt; Either String SummaryStatus) -&gt; FromText SummaryStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String SummaryStatus
 $cfromText :: Text -&gt; Either String SummaryStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681120590"><span class="annot"><span class="annottext">SummaryStatus -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681155436"><span class="annot"><span class="annottext">SummaryStatus -&gt; Text
 (SummaryStatus -&gt; Text) -&gt; ToText SummaryStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: SummaryStatus -&gt; Text
 $ctoText :: SummaryStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681120587"><span class="annot"><span class="annottext">SummaryStatus -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681155433"><span class="annot"><span class="annottext">SummaryStatus -&gt; ByteString
 (SummaryStatus -&gt; ByteString) -&gt; ToByteString SummaryStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: SummaryStatus -&gt; ByteString
 $ctoBS :: SummaryStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681120584"><span class="annot"><span class="annottext">SummaryStatus -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681155430"><span class="annot"><span class="annottext">SummaryStatus -&gt; ByteStringBuilder
 (SummaryStatus -&gt; ByteStringBuilder) -&gt; ToLog SummaryStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: SummaryStatus -&gt; ByteStringBuilder
 $cbuild :: SummaryStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681120581"><span class="annot"><span class="annottext">HeaderName -&gt; SummaryStatus -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681155427"><span class="annot"><span class="annottext">HeaderName -&gt; SummaryStatus -&gt; [Header]
 (HeaderName -&gt; SummaryStatus -&gt; [Header]) -&gt; ToHeader SummaryStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; SummaryStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; SummaryStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681120578"><span class="annot"><span class="annottext">SummaryStatus -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681155424"><span class="annot"><span class="annottext">SummaryStatus -&gt; QueryString
 (SummaryStatus -&gt; QueryString) -&gt; ToQuery SummaryStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: SummaryStatus -&gt; QueryString
 $ctoQuery :: SummaryStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681120573"><span id="local-6989586621681120575"><span class="annot"><span class="annottext">Value -&gt; Parser [SummaryStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681155419"><span id="local-6989586621681155421"><span class="annot"><span class="annottext">Value -&gt; Parser [SummaryStatus]
 Value -&gt; Parser SummaryStatus
 (Value -&gt; Parser SummaryStatus)
 -&gt; (Value -&gt; Parser [SummaryStatus]) -&gt; FromJSON SummaryStatus
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [SummaryStatus]
 parseJSON :: Value -&gt; Parser SummaryStatus
 $cparseJSON :: Value -&gt; Parser SummaryStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681120568"><span id="local-6989586621681120570"><span class="annot"><span class="annottext">FromJSONKeyFunction [SummaryStatus]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681155414"><span id="local-6989586621681155416"><span class="annot"><span class="annottext">FromJSONKeyFunction [SummaryStatus]
 FromJSONKeyFunction SummaryStatus
 FromJSONKeyFunction SummaryStatus
 -&gt; FromJSONKeyFunction [SummaryStatus] -&gt; FromJSONKey SummaryStatus
@@ -210,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [SummaryStatus]
 fromJSONKey :: FromJSONKeyFunction SummaryStatus
 $cfromJSONKey :: FromJSONKeyFunction SummaryStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681120559"><span id="local-6989586621681120561"><span id="local-6989586621681120563"><span id="local-6989586621681120565"><span class="annot"><span class="annottext">[SummaryStatus] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681155405"><span id="local-6989586621681155407"><span id="local-6989586621681155409"><span id="local-6989586621681155411"><span class="annot"><span class="annottext">[SummaryStatus] -&gt; Encoding
 [SummaryStatus] -&gt; Value
 SummaryStatus -&gt; Encoding
 SummaryStatus -&gt; Value
@@ -234,7 +234,7 @@ $ctoEncoding :: SummaryStatus -&gt; Encoding
 toJSON :: SummaryStatus -&gt; Value
 $ctoJSON :: SummaryStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621681120554"><span id="local-6989586621681120556"><span class="annot"><span class="annottext">ToJSONKeyFunction [SummaryStatus]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681155400"><span id="local-6989586621681155402"><span class="annot"><span class="annottext">ToJSONKeyFunction [SummaryStatus]
 ToJSONKeyFunction SummaryStatus
 ToJSONKeyFunction SummaryStatus
 -&gt; ToJSONKeyFunction [SummaryStatus] -&gt; ToJSONKey SummaryStatus
@@ -245,13 +245,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [SummaryStatus]
 toJSONKey :: ToJSONKeyFunction SummaryStatus
 $ctoJSONKey :: ToJSONKeyFunction SummaryStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621681120551"><span class="annot"><span class="annottext">[Node] -&gt; Either String SummaryStatus
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621681155397"><span class="annot"><span class="annottext">[Node] -&gt; Either String SummaryStatus
 ([Node] -&gt; Either String SummaryStatus) -&gt; FromXML SummaryStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String SummaryStatus
 $cparseXML :: [Node] -&gt; Either String SummaryStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621681120548"><span class="annot"><span class="annottext">SummaryStatus -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621681155394"><span class="annot"><span class="annottext">SummaryStatus -&gt; XML
 (SummaryStatus -&gt; XML) -&gt; ToXML SummaryStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: SummaryStatus -&gt; XML

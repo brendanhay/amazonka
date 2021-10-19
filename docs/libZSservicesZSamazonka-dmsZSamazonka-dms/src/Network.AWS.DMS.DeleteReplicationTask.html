@@ -49,12 +49,12 @@
 </span><span id="line-49"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- /See:/ 'newDeleteReplicationTask' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679453313"><span id="local-6989586621679453314"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteReplicationTask"><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationTask.html#DeleteReplicationTask"><span class="hs-identifier hs-var">DeleteReplicationTask</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteReplicationTask%27"><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationTask.html#DeleteReplicationTask%27"><span class="hs-identifier hs-var">DeleteReplicationTask'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679453632"><span id="local-6989586621679453633"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteReplicationTask"><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationTask.html#DeleteReplicationTask"><span class="hs-identifier hs-var">DeleteReplicationTask</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteReplicationTask%27"><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationTask.html#DeleteReplicationTask%27"><span class="hs-identifier hs-var">DeleteReplicationTask'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the replication task to be deleted.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AreplicationTaskArn%3ADeleteReplicationTask%27"><span class="annot"><span class="annottext">DeleteReplicationTask -&gt; Text
 </span><a href="Network.AWS.DMS.DeleteReplicationTask.html#%24sel%3AreplicationTaskArn%3ADeleteReplicationTask%27"><span class="hs-identifier hs-var hs-var">replicationTaskArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679453307"><span id="local-6989586621679453309"><span class="annot"><span class="annottext">DeleteReplicationTask -&gt; DeleteReplicationTask -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679453626"><span id="local-6989586621679453628"><span class="annot"><span class="annottext">DeleteReplicationTask -&gt; DeleteReplicationTask -&gt; Bool
 (DeleteReplicationTask -&gt; DeleteReplicationTask -&gt; Bool)
 -&gt; (DeleteReplicationTask -&gt; DeleteReplicationTask -&gt; Bool)
 -&gt; Eq DeleteReplicationTask
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteReplicationTask -&gt; DeleteReplicationTask -&gt; Bool
 == :: DeleteReplicationTask -&gt; DeleteReplicationTask -&gt; Bool
 $c== :: DeleteReplicationTask -&gt; DeleteReplicationTask -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679453298"><span id="local-6989586621679453300"><span id="local-6989586621679453302"><span id="local-6989586621679453304"><span class="annot"><span class="annottext">ReadPrec [DeleteReplicationTask]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679453617"><span id="local-6989586621679453619"><span id="local-6989586621679453621"><span id="local-6989586621679453623"><span class="annot"><span class="annottext">ReadPrec [DeleteReplicationTask]
 ReadPrec DeleteReplicationTask
 Int -&gt; ReadS DeleteReplicationTask
 ReadS [DeleteReplicationTask]
@@ -83,7 +83,7 @@ readList :: ReadS [DeleteReplicationTask]
 $creadList :: ReadS [DeleteReplicationTask]
 readsPrec :: Int -&gt; ReadS DeleteReplicationTask
 $creadsPrec :: Int -&gt; ReadS DeleteReplicationTask
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679453291"><span id="local-6989586621679453293"><span id="local-6989586621679453295"><span class="annot"><span class="annottext">Int -&gt; DeleteReplicationTask -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679453610"><span id="local-6989586621679453612"><span id="local-6989586621679453614"><span class="annot"><span class="annottext">Int -&gt; DeleteReplicationTask -&gt; ShowS
 [DeleteReplicationTask] -&gt; ShowS
 DeleteReplicationTask -&gt; String
 (Int -&gt; DeleteReplicationTask -&gt; ShowS)
@@ -123,14 +123,14 @@ $cfrom :: forall x. DeleteReplicationTask -&gt; Rep DeleteReplicationTask x
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationTask.html#DeleteReplicationTask"><span class="hs-identifier hs-type">DeleteReplicationTask</span></a></span><span>
 </span><span id="line-71"></span><span id="newDeleteReplicationTask"><span class="annot"><span class="annottext">newDeleteReplicationTask :: Text -&gt; DeleteReplicationTask
-</span><a href="Network.AWS.DMS.DeleteReplicationTask.html#newDeleteReplicationTask"><span class="hs-identifier hs-var hs-var">newDeleteReplicationTask</span></a></span></span><span> </span><span id="local-6989586621679453286"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453286"><span class="hs-identifier hs-var">pReplicationTaskArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DMS.DeleteReplicationTask.html#newDeleteReplicationTask"><span class="hs-identifier hs-var hs-var">newDeleteReplicationTask</span></a></span></span><span> </span><span id="local-6989586621679453605"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679453605"><span class="hs-identifier hs-var">pReplicationTaskArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">DeleteReplicationTask' :: Text -&gt; DeleteReplicationTask
 </span><a href="Network.AWS.DMS.DeleteReplicationTask.html#DeleteReplicationTask%27"><span class="hs-identifier hs-type">DeleteReplicationTask'</span></a></span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:replicationTaskArn:DeleteReplicationTask' :: Text
 </span><a href="Network.AWS.DMS.DeleteReplicationTask.html#%24sel%3AreplicationTaskArn%3ADeleteReplicationTask%27"><span class="hs-identifier hs-var">replicationTaskArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453286"><span class="hs-identifier hs-var">pReplicationTaskArn_</span></a></span><span>
+</span><a href="#local-6989586621679453605"><span class="hs-identifier hs-var">pReplicationTaskArn_</span></a></span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the replication task to be deleted.</span><span>
@@ -141,27 +141,27 @@ $cfrom :: forall x. DeleteReplicationTask -&gt; Rep DeleteReplicationTask x
 -&gt; (DeleteReplicationTask -&gt; Text -&gt; DeleteReplicationTask)
 -&gt; Lens DeleteReplicationTask DeleteReplicationTask Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationTask.html#DeleteReplicationTask%27"><span class="hs-identifier hs-type">DeleteReplicationTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453283"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationTask.html#DeleteReplicationTask%27"><span class="hs-identifier hs-type">DeleteReplicationTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453602"><span class="annot"><span class="annottext">Text
 replicationTaskArn :: Text
 $sel:replicationTaskArn:DeleteReplicationTask' :: DeleteReplicationTask -&gt; Text
-</span><a href="#local-6989586621679453283"><span class="hs-identifier hs-var hs-var">replicationTaskArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453283"><span class="hs-identifier hs-var">replicationTaskArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679453282"><span class="annot"><span class="annottext">s :: DeleteReplicationTask
-</span><a href="#local-6989586621679453282"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationTask.html#DeleteReplicationTask%27"><span class="hs-identifier hs-type">DeleteReplicationTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679453281"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453281"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteReplicationTask
-</span><a href="#local-6989586621679453282"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationTaskArn:DeleteReplicationTask' :: Text
+</span><a href="#local-6989586621679453602"><span class="hs-identifier hs-var hs-var">replicationTaskArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679453602"><span class="hs-identifier hs-var">replicationTaskArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679453601"><span class="annot"><span class="annottext">s :: DeleteReplicationTask
+</span><a href="#local-6989586621679453601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationTask.html#DeleteReplicationTask%27"><span class="hs-identifier hs-type">DeleteReplicationTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679453600"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679453600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteReplicationTask
+</span><a href="#local-6989586621679453601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationTaskArn:DeleteReplicationTask' :: Text
 </span><a href="Network.AWS.DMS.DeleteReplicationTask.html#%24sel%3AreplicationTaskArn%3ADeleteReplicationTask%27"><span class="hs-identifier hs-var">replicationTaskArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453281"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationTask.html#DeleteReplicationTask"><span class="hs-identifier hs-type">DeleteReplicationTask</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679453600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationTask.html#DeleteReplicationTask"><span class="hs-identifier hs-type">DeleteReplicationTask</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationTask.html#DeleteReplicationTask"><span class="hs-identifier hs-type">DeleteReplicationTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-82"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-83"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationTask.html#DeleteReplicationTask"><span class="hs-identifier hs-type">DeleteReplicationTask</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationTask.html#DeleteReplicationTaskResponse"><span class="hs-identifier hs-type">DeleteReplicationTaskResponse</span></a></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679453277"><span class="annot"><span class="annottext">request :: DeleteReplicationTask -&gt; Request DeleteReplicationTask
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679453596"><span class="annot"><span class="annottext">request :: DeleteReplicationTask -&gt; Request DeleteReplicationTask
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteReplicationTask -&gt; Request DeleteReplicationTask
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DMS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679453273"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679453592"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteReplicationTask
 -&gt; ClientResponse ClientBody
@@ -187,10 +187,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679453270"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679453270"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679453269"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679453269"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679453268"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679453268"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679453589"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679453589"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679453588"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679453588"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679453587"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679453587"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Maybe ReplicationTask -&gt; Int -&gt; DeleteReplicationTaskResponse
 </span><a href="Network.AWS.DMS.DeleteReplicationTask.html#DeleteReplicationTaskResponse%27"><span class="hs-identifier hs-var">DeleteReplicationTaskResponse'</span></a></span><span>
 </span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ReplicationTask -&gt; Int -&gt; DeleteReplicationTaskResponse)
@@ -198,7 +198,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DeleteReplicationTaskResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679453268"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ReplicationTask)
+</span><a href="#local-6989586621679453587"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ReplicationTask)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ReplicationTask&quot;</span></span><span class="hs-special">)</span><span>
@@ -210,15 +210,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679453270"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679453589"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679453260"><span id="local-6989586621679453262"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationTask.html#DeleteReplicationTask"><span class="hs-identifier hs-type">DeleteReplicationTask</span></a></span></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679453579"><span id="local-6989586621679453581"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationTask.html#DeleteReplicationTask"><span class="hs-identifier hs-type">DeleteReplicationTask</span></a></span></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679453257"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationTask.html#DeleteReplicationTask"><span class="hs-identifier hs-type">DeleteReplicationTask</span></a></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679453576"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationTask.html#DeleteReplicationTask"><span class="hs-identifier hs-type">DeleteReplicationTask</span></a></span></span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationTask.html#DeleteReplicationTask"><span class="hs-identifier hs-type">DeleteReplicationTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679453253"><span class="annot"><span class="annottext">toHeaders :: DeleteReplicationTask -&gt; ResponseHeaders
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679453572"><span class="annot"><span class="annottext">toHeaders :: DeleteReplicationTask -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteReplicationTask -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -245,12 +245,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-110"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679453243"><span id="local-6989586621679453245"><span id="local-6989586621679453247"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationTask.html#DeleteReplicationTask"><span class="hs-identifier hs-type">DeleteReplicationTask</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679453241"><span class="annot"><span class="annottext">toJSON :: DeleteReplicationTask -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationTask.html#DeleteReplicationTask%27"><span class="hs-identifier hs-type">DeleteReplicationTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453239"><span class="annot"><span class="annottext">Text
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679453562"><span id="local-6989586621679453564"><span id="local-6989586621679453566"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationTask.html#DeleteReplicationTask"><span class="hs-identifier hs-type">DeleteReplicationTask</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679453560"><span class="annot"><span class="annottext">toJSON :: DeleteReplicationTask -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationTask.html#DeleteReplicationTask%27"><span class="hs-identifier hs-type">DeleteReplicationTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453558"><span class="annot"><span class="annottext">Text
 replicationTaskArn :: Text
 $sel:replicationTaskArn:DeleteReplicationTask' :: DeleteReplicationTask -&gt; Text
-</span><a href="#local-6989586621679453239"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679453558"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -263,19 +263,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ReplicationTaskArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453239"><span class="hs-identifier hs-var">replicationTaskArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679453558"><span class="hs-identifier hs-var">replicationTaskArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationTask.html#DeleteReplicationTask"><span class="hs-identifier hs-type">DeleteReplicationTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679453233"><span class="annot"><span class="annottext">toPath :: DeleteReplicationTask -&gt; ByteString
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679453552"><span class="annot"><span class="annottext">toPath :: DeleteReplicationTask -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteReplicationTask -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationTask.html#DeleteReplicationTask"><span class="hs-identifier hs-type">DeleteReplicationTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679453229"><span class="annot"><span class="annottext">toQuery :: DeleteReplicationTask -&gt; QueryString
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679453548"><span class="annot"><span class="annottext">toQuery :: DeleteReplicationTask -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteReplicationTask -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -285,7 +285,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-128"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-129"></span><span class="hs-comment">--</span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- /See:/ 'newDeleteReplicationTaskResponse' smart constructor.</span><span>
-</span><span id="line-131"></span><span id="local-6989586621679453226"><span id="local-6989586621679453227"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteReplicationTaskResponse"><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationTask.html#DeleteReplicationTaskResponse"><span class="hs-identifier hs-var">DeleteReplicationTaskResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteReplicationTaskResponse%27"><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationTask.html#DeleteReplicationTaskResponse%27"><span class="hs-identifier hs-var">DeleteReplicationTaskResponse'</span></a></span></span><span>
+</span><span id="line-131"></span><span id="local-6989586621679453545"><span id="local-6989586621679453546"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteReplicationTaskResponse"><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationTask.html#DeleteReplicationTaskResponse"><span class="hs-identifier hs-var">DeleteReplicationTaskResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteReplicationTaskResponse%27"><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationTask.html#DeleteReplicationTaskResponse%27"><span class="hs-identifier hs-var">DeleteReplicationTaskResponse'</span></a></span></span><span>
 </span><span id="line-132"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The deleted replication task.</span><span>
 </span><span id="line-133"></span><span>    </span><span id="%24sel%3AreplicationTask%3ADeleteReplicationTaskResponse%27"><span class="annot"><span class="annottext">DeleteReplicationTaskResponse -&gt; Maybe ReplicationTask
 </span><a href="Network.AWS.DMS.DeleteReplicationTask.html#%24sel%3AreplicationTask%3ADeleteReplicationTaskResponse%27"><span class="hs-identifier hs-var hs-var">replicationTask</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTask.html#ReplicationTask"><span class="hs-identifier hs-type">ReplicationTask</span></a></span><span class="hs-special">,</span><span>
@@ -293,7 +293,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-135"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteReplicationTaskResponse%27"><span class="annot"><span class="annottext">DeleteReplicationTaskResponse -&gt; Int
 </span><a href="Network.AWS.DMS.DeleteReplicationTask.html#%24sel%3AhttpStatus%3ADeleteReplicationTaskResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-136"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679453220"><span id="local-6989586621679453222"><span class="annot"><span class="annottext">DeleteReplicationTaskResponse
+</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679453539"><span id="local-6989586621679453541"><span class="annot"><span class="annottext">DeleteReplicationTaskResponse
 -&gt; DeleteReplicationTaskResponse -&gt; Bool
 (DeleteReplicationTaskResponse
  -&gt; DeleteReplicationTaskResponse -&gt; Bool)
@@ -309,7 +309,7 @@ $c/= :: DeleteReplicationTaskResponse
 -&gt; DeleteReplicationTaskResponse -&gt; Bool
 $c== :: DeleteReplicationTaskResponse
 -&gt; DeleteReplicationTaskResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679453212"><span id="local-6989586621679453214"><span id="local-6989586621679453216"><span id="local-6989586621679453218"><span class="annot"><span class="annottext">ReadPrec [DeleteReplicationTaskResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679453531"><span id="local-6989586621679453533"><span id="local-6989586621679453535"><span id="local-6989586621679453537"><span class="annot"><span class="annottext">ReadPrec [DeleteReplicationTaskResponse]
 ReadPrec DeleteReplicationTaskResponse
 Int -&gt; ReadS DeleteReplicationTaskResponse
 ReadS [DeleteReplicationTaskResponse]
@@ -329,7 +329,7 @@ readList :: ReadS [DeleteReplicationTaskResponse]
 $creadList :: ReadS [DeleteReplicationTaskResponse]
 readsPrec :: Int -&gt; ReadS DeleteReplicationTaskResponse
 $creadsPrec :: Int -&gt; ReadS DeleteReplicationTaskResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679453206"><span id="local-6989586621679453208"><span id="local-6989586621679453210"><span class="annot"><span class="annottext">Int -&gt; DeleteReplicationTaskResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679453525"><span id="local-6989586621679453527"><span id="local-6989586621679453529"><span class="annot"><span class="annottext">Int -&gt; DeleteReplicationTaskResponse -&gt; ShowS
 [DeleteReplicationTaskResponse] -&gt; ShowS
 DeleteReplicationTaskResponse -&gt; String
 (Int -&gt; DeleteReplicationTaskResponse -&gt; ShowS)
@@ -383,8 +383,8 @@ DeleteReplicationTaskResponse
 </span><span id="line-152"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-153"></span><span>  </span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationTask.html#DeleteReplicationTaskResponse"><span class="hs-identifier hs-type">DeleteReplicationTaskResponse</span></a></span><span>
 </span><span id="line-154"></span><span id="newDeleteReplicationTaskResponse"><span class="annot"><span class="annottext">newDeleteReplicationTaskResponse :: Int -&gt; DeleteReplicationTaskResponse
-</span><a href="Network.AWS.DMS.DeleteReplicationTask.html#newDeleteReplicationTaskResponse"><span class="hs-identifier hs-var hs-var">newDeleteReplicationTaskResponse</span></a></span></span><span> </span><span id="local-6989586621679453203"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679453203"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DMS.DeleteReplicationTask.html#newDeleteReplicationTaskResponse"><span class="hs-identifier hs-var hs-var">newDeleteReplicationTaskResponse</span></a></span></span><span> </span><span id="local-6989586621679453522"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679453522"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-155"></span><span>  </span><span class="annot"><span class="annottext">DeleteReplicationTaskResponse' :: Maybe ReplicationTask -&gt; Int -&gt; DeleteReplicationTaskResponse
 </span><a href="Network.AWS.DMS.DeleteReplicationTask.html#DeleteReplicationTaskResponse%27"><span class="hs-identifier hs-type">DeleteReplicationTaskResponse'</span></a></span><span>
 </span><span id="line-156"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:replicationTask:DeleteReplicationTaskResponse' :: Maybe ReplicationTask
@@ -394,7 +394,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteReplicationTaskResponse' :: Int
 </span><a href="Network.AWS.DMS.DeleteReplicationTask.html#%24sel%3AhttpStatus%3ADeleteReplicationTaskResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679453203"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679453522"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-159"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- | The deleted replication task.</span><span>
@@ -410,16 +410,16 @@ forall a. Maybe a
      (Maybe ReplicationTask)
      (Maybe ReplicationTask)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationTask.html#DeleteReplicationTaskResponse%27"><span class="hs-identifier hs-type">DeleteReplicationTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453202"><span class="annot"><span class="annottext">Maybe ReplicationTask
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationTask.html#DeleteReplicationTaskResponse%27"><span class="hs-identifier hs-type">DeleteReplicationTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453521"><span class="annot"><span class="annottext">Maybe ReplicationTask
 replicationTask :: Maybe ReplicationTask
 $sel:replicationTask:DeleteReplicationTaskResponse' :: DeleteReplicationTaskResponse -&gt; Maybe ReplicationTask
-</span><a href="#local-6989586621679453202"><span class="hs-identifier hs-var hs-var">replicationTask</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationTask
-</span><a href="#local-6989586621679453202"><span class="hs-identifier hs-var">replicationTask</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679453201"><span class="annot"><span class="annottext">s :: DeleteReplicationTaskResponse
-</span><a href="#local-6989586621679453201"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationTask.html#DeleteReplicationTaskResponse%27"><span class="hs-identifier hs-type">DeleteReplicationTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679453200"><span class="annot"><span class="annottext">Maybe ReplicationTask
-</span><a href="#local-6989586621679453200"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteReplicationTaskResponse
-</span><a href="#local-6989586621679453201"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationTask:DeleteReplicationTaskResponse' :: Maybe ReplicationTask
+</span><a href="#local-6989586621679453521"><span class="hs-identifier hs-var hs-var">replicationTask</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationTask
+</span><a href="#local-6989586621679453521"><span class="hs-identifier hs-var">replicationTask</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679453520"><span class="annot"><span class="annottext">s :: DeleteReplicationTaskResponse
+</span><a href="#local-6989586621679453520"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationTask.html#DeleteReplicationTaskResponse%27"><span class="hs-identifier hs-type">DeleteReplicationTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679453519"><span class="annot"><span class="annottext">Maybe ReplicationTask
+</span><a href="#local-6989586621679453519"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteReplicationTaskResponse
+</span><a href="#local-6989586621679453520"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationTask:DeleteReplicationTaskResponse' :: Maybe ReplicationTask
 </span><a href="Network.AWS.DMS.DeleteReplicationTask.html#%24sel%3AreplicationTask%3ADeleteReplicationTaskResponse%27"><span class="hs-identifier hs-var">replicationTask</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationTask
-</span><a href="#local-6989586621679453200"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationTask.html#DeleteReplicationTaskResponse"><span class="hs-identifier hs-type">DeleteReplicationTaskResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679453519"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationTask.html#DeleteReplicationTaskResponse"><span class="hs-identifier hs-type">DeleteReplicationTaskResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-166"></span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationTask.html#deleteReplicationTaskResponse_httpStatus"><span class="hs-identifier hs-type">deleteReplicationTaskResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationTask.html#DeleteReplicationTaskResponse"><span class="hs-identifier hs-type">DeleteReplicationTaskResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -431,16 +431,16 @@ $sel:replicationTask:DeleteReplicationTaskResponse' :: DeleteReplicationTaskResp
 -&gt; Lens
      DeleteReplicationTaskResponse DeleteReplicationTaskResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationTask.html#DeleteReplicationTaskResponse%27"><span class="hs-identifier hs-type">DeleteReplicationTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453199"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationTask.html#DeleteReplicationTaskResponse%27"><span class="hs-identifier hs-type">DeleteReplicationTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453518"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteReplicationTaskResponse' :: DeleteReplicationTaskResponse -&gt; Int
-</span><a href="#local-6989586621679453199"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679453199"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679453198"><span class="annot"><span class="annottext">s :: DeleteReplicationTaskResponse
-</span><a href="#local-6989586621679453198"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationTask.html#DeleteReplicationTaskResponse%27"><span class="hs-identifier hs-type">DeleteReplicationTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679453197"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679453197"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteReplicationTaskResponse
-</span><a href="#local-6989586621679453198"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteReplicationTaskResponse' :: Int
+</span><a href="#local-6989586621679453518"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679453518"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679453517"><span class="annot"><span class="annottext">s :: DeleteReplicationTaskResponse
+</span><a href="#local-6989586621679453517"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationTask.html#DeleteReplicationTaskResponse%27"><span class="hs-identifier hs-type">DeleteReplicationTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679453516"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679453516"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteReplicationTaskResponse
+</span><a href="#local-6989586621679453517"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteReplicationTaskResponse' :: Int
 </span><a href="Network.AWS.DMS.DeleteReplicationTask.html#%24sel%3AhttpStatus%3ADeleteReplicationTaskResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679453197"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationTask.html#DeleteReplicationTaskResponse"><span class="hs-identifier hs-type">DeleteReplicationTaskResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679453516"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationTask.html#DeleteReplicationTaskResponse"><span class="hs-identifier hs-type">DeleteReplicationTaskResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
-</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679453195"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationTask.html#DeleteReplicationTaskResponse"><span class="hs-identifier hs-type">DeleteReplicationTaskResponse</span></a></span></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679453514"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DeleteReplicationTask.html#DeleteReplicationTaskResponse"><span class="hs-identifier hs-type">DeleteReplicationTaskResponse</span></a></span></span><span>
 </span><span id="line-170"></span></pre></body></html>

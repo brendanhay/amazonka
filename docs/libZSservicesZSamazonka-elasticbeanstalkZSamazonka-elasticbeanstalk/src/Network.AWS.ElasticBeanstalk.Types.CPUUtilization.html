@@ -26,53 +26,53 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | CPU utilization metrics for an instance.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newCPUUtilization' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679299231"><span id="local-6989586621679299232"></span></span><span class="hs-keyword">data</span><span> </span><span id="CPUUtilization"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization"><span class="hs-identifier hs-var">CPUUtilization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CPUUtilization%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization%27"><span class="hs-identifier hs-var">CPUUtilization'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Percentage of time that the CPU has spent in the @Idle@ state over the</span><span>
-</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- last 10 seconds.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3Aidle%3ACPUUtilization%27"><span class="annot"><span class="annottext">CPUUtilization -&gt; Maybe Double
-</span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#%24sel%3Aidle%3ACPUUtilization%27"><span class="hs-identifier hs-var hs-var">idle</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Percentage of time that the CPU has spent in the @User@ state over the</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- last 10 seconds.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Auser%3ACPUUtilization%27"><span class="annot"><span class="annottext">CPUUtilization -&gt; Maybe Double
-</span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#%24sel%3Auser%3ACPUUtilization%27"><span class="hs-identifier hs-var hs-var">user</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Available on Windows environments only.</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- Percentage of time that the CPU has spent in the @Privileged@ state over</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- the last 10 seconds.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3Aprivileged%3ACPUUtilization%27"><span class="annot"><span class="annottext">CPUUtilization -&gt; Maybe Double
-</span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#%24sel%3Aprivileged%3ACPUUtilization%27"><span class="hs-identifier hs-var hs-var">privileged</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Available on Linux environments only.</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- Percentage of time that the CPU has spent in the @I\/O Wait@ state over</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- the last 10 seconds.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AiOWait%3ACPUUtilization%27"><span class="annot"><span class="annottext">CPUUtilization -&gt; Maybe Double
-</span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#%24sel%3AiOWait%3ACPUUtilization%27"><span class="hs-identifier hs-var hs-var">iOWait</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | Available on Linux environments only.</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- Percentage of time that the CPU has spent in the @SoftIRQ@ state over</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- the last 10 seconds.</span><span>
-</span><span id="line-50"></span><span>    </span><span id="%24sel%3AsoftIRQ%3ACPUUtilization%27"><span class="annot"><span class="annottext">CPUUtilization -&gt; Maybe Double
+</span><span id="line-29"></span><span id="local-6989586621679299508"><span id="local-6989586621679299509"></span></span><span class="hs-keyword">data</span><span> </span><span id="CPUUtilization"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization"><span class="hs-identifier hs-var">CPUUtilization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CPUUtilization%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization%27"><span class="hs-identifier hs-var">CPUUtilization'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Available on Linux environments only.</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- Percentage of time that the CPU has spent in the @SoftIRQ@ state over</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- the last 10 seconds.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AsoftIRQ%3ACPUUtilization%27"><span class="annot"><span class="annottext">CPUUtilization -&gt; Maybe Double
 </span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#%24sel%3AsoftIRQ%3ACPUUtilization%27"><span class="hs-identifier hs-var hs-var">softIRQ</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | Available on Linux environments only.</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- Percentage of time that the CPU has spent in the @Nice@ state over the</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Percentage of time that the CPU has spent in the @Idle@ state over the</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- last 10 seconds.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aidle%3ACPUUtilization%27"><span class="annot"><span class="annottext">CPUUtilization -&gt; Maybe Double
+</span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#%24sel%3Aidle%3ACPUUtilization%27"><span class="hs-identifier hs-var hs-var">idle</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Available on Linux environments only.</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- Percentage of time that the CPU has spent in the @IRQ@ state over the</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- last 10 seconds.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Airq%3ACPUUtilization%27"><span class="annot"><span class="annottext">CPUUtilization -&gt; Maybe Double
+</span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#%24sel%3Airq%3ACPUUtilization%27"><span class="hs-identifier hs-var hs-var">irq</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Available on Linux environments only.</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- Percentage of time that the CPU has spent in the @System@ state over the</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- last 10 seconds.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Asystem%3ACPUUtilization%27"><span class="annot"><span class="annottext">CPUUtilization -&gt; Maybe Double
+</span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#%24sel%3Asystem%3ACPUUtilization%27"><span class="hs-identifier hs-var hs-var">system</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | Available on Windows environments only.</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- Percentage of time that the CPU has spent in the @Privileged@ state over</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- the last 10 seconds.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3Aprivileged%3ACPUUtilization%27"><span class="annot"><span class="annottext">CPUUtilization -&gt; Maybe Double
+</span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#%24sel%3Aprivileged%3ACPUUtilization%27"><span class="hs-identifier hs-var hs-var">privileged</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | Percentage of time that the CPU has spent in the @User@ state over the</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- last 10 seconds.</span><span>
-</span><span id="line-55"></span><span>    </span><span id="%24sel%3Anice%3ACPUUtilization%27"><span class="annot"><span class="annottext">CPUUtilization -&gt; Maybe Double
-</span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#%24sel%3Anice%3ACPUUtilization%27"><span class="hs-identifier hs-var hs-var">nice</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3Auser%3ACPUUtilization%27"><span class="annot"><span class="annottext">CPUUtilization -&gt; Maybe Double
+</span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#%24sel%3Auser%3ACPUUtilization%27"><span class="hs-identifier hs-var hs-var">user</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | Available on Linux environments only.</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- Percentage of time that the CPU has spent in the @System@ state over the</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- last 10 seconds.</span><span>
-</span><span id="line-60"></span><span>    </span><span id="%24sel%3Asystem%3ACPUUtilization%27"><span class="annot"><span class="annottext">CPUUtilization -&gt; Maybe Double
-</span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#%24sel%3Asystem%3ACPUUtilization%27"><span class="hs-identifier hs-var hs-var">system</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- Percentage of time that the CPU has spent in the @I\/O Wait@ state over</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- the last 10 seconds.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AiOWait%3ACPUUtilization%27"><span class="annot"><span class="annottext">CPUUtilization -&gt; Maybe Double
+</span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#%24sel%3AiOWait%3ACPUUtilization%27"><span class="hs-identifier hs-var hs-var">iOWait</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | Available on Linux environments only.</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- Percentage of time that the CPU has spent in the @IRQ@ state over the</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- Percentage of time that the CPU has spent in the @Nice@ state over the</span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-comment">-- last 10 seconds.</span><span>
-</span><span id="line-65"></span><span>    </span><span id="%24sel%3Airq%3ACPUUtilization%27"><span class="annot"><span class="annottext">CPUUtilization -&gt; Maybe Double
-</span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#%24sel%3Airq%3ACPUUtilization%27"><span class="hs-identifier hs-var hs-var">irq</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3Anice%3ACPUUtilization%27"><span class="annot"><span class="annottext">CPUUtilization -&gt; Maybe Double
+</span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#%24sel%3Anice%3ACPUUtilization%27"><span class="hs-identifier hs-var hs-var">nice</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679299218"><span id="local-6989586621679299220"><span class="annot"><span class="annottext">CPUUtilization -&gt; CPUUtilization -&gt; Bool
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679299495"><span id="local-6989586621679299497"><span class="annot"><span class="annottext">CPUUtilization -&gt; CPUUtilization -&gt; Bool
 (CPUUtilization -&gt; CPUUtilization -&gt; Bool)
 -&gt; (CPUUtilization -&gt; CPUUtilization -&gt; Bool) -&gt; Eq CPUUtilization
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -80,7 +80,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CPUUtilization -&gt; CPUUtilization -&gt; Bool
 == :: CPUUtilization -&gt; CPUUtilization -&gt; Bool
 $c== :: CPUUtilization -&gt; CPUUtilization -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299209"><span id="local-6989586621679299211"><span id="local-6989586621679299213"><span id="local-6989586621679299215"><span class="annot"><span class="annottext">ReadPrec [CPUUtilization]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299486"><span id="local-6989586621679299488"><span id="local-6989586621679299490"><span id="local-6989586621679299492"><span class="annot"><span class="annottext">ReadPrec [CPUUtilization]
 ReadPrec CPUUtilization
 Int -&gt; ReadS CPUUtilization
 ReadS [CPUUtilization]
@@ -100,7 +100,7 @@ readList :: ReadS [CPUUtilization]
 $creadList :: ReadS [CPUUtilization]
 readsPrec :: Int -&gt; ReadS CPUUtilization
 $creadsPrec :: Int -&gt; ReadS CPUUtilization
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299202"><span id="local-6989586621679299204"><span id="local-6989586621679299206"><span class="annot"><span class="annottext">Int -&gt; CPUUtilization -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299479"><span id="local-6989586621679299481"><span id="local-6989586621679299483"><span class="annot"><span class="annottext">Int -&gt; CPUUtilization -&gt; ShowS
 [CPUUtilization] -&gt; ShowS
 CPUUtilization -&gt; String
 (Int -&gt; CPUUtilization -&gt; ShowS)
@@ -134,40 +134,40 @@ $cfrom :: forall x. CPUUtilization -&gt; Rep CPUUtilization x
 </span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-76"></span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- 'idle', 'cPUUtilization_idle' - Percentage of time that the CPU has spent in the @Idle@ state over the</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- last 10 seconds.</span><span>
-</span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'user', 'cPUUtilization_user' - Percentage of time that the CPU has spent in the @User@ state over the</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- last 10 seconds.</span><span>
-</span><span id="line-82"></span><span class="hs-comment">--</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- 'privileged', 'cPUUtilization_privileged' - Available on Windows environments only.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'softIRQ', 'cPUUtilization_softIRQ' - Available on Linux environments only.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Percentage of time that the CPU has spent in the @SoftIRQ@ state over</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- the last 10 seconds.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'idle', 'cPUUtilization_idle' - Percentage of time that the CPU has spent in the @Idle@ state over the</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- last 10 seconds.</span><span>
 </span><span id="line-84"></span><span class="hs-comment">--</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- Percentage of time that the CPU has spent in the @Privileged@ state over</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- the last 10 seconds.</span><span>
-</span><span id="line-87"></span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- 'iOWait', 'cPUUtilization_iOWait' - Available on Linux environments only.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'irq', 'cPUUtilization_irq' - Available on Linux environments only.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Percentage of time that the CPU has spent in the @IRQ@ state over the</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- last 10 seconds.</span><span>
 </span><span id="line-89"></span><span class="hs-comment">--</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- Percentage of time that the CPU has spent in the @I\/O Wait@ state over</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- the last 10 seconds.</span><span>
-</span><span id="line-92"></span><span class="hs-comment">--</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- 'softIRQ', 'cPUUtilization_softIRQ' - Available on Linux environments only.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'system', 'cPUUtilization_system' - Available on Linux environments only.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- Percentage of time that the CPU has spent in the @System@ state over the</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- last 10 seconds.</span><span>
 </span><span id="line-94"></span><span class="hs-comment">--</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- Percentage of time that the CPU has spent in the @SoftIRQ@ state over</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- the last 10 seconds.</span><span>
-</span><span id="line-97"></span><span class="hs-comment">--</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- 'nice', 'cPUUtilization_nice' - Available on Linux environments only.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'privileged', 'cPUUtilization_privileged' - Available on Windows environments only.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- Percentage of time that the CPU has spent in the @Privileged@ state over</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- the last 10 seconds.</span><span>
 </span><span id="line-99"></span><span class="hs-comment">--</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- Percentage of time that the CPU has spent in the @Nice@ state over the</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'user', 'cPUUtilization_user' - Percentage of time that the CPU has spent in the @User@ state over the</span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- last 10 seconds.</span><span>
 </span><span id="line-102"></span><span class="hs-comment">--</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- 'system', 'cPUUtilization_system' - Available on Linux environments only.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'iOWait', 'cPUUtilization_iOWait' - Available on Linux environments only.</span><span>
 </span><span id="line-104"></span><span class="hs-comment">--</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- Percentage of time that the CPU has spent in the @System@ state over the</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- last 10 seconds.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- Percentage of time that the CPU has spent in the @I\/O Wait@ state over</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- the last 10 seconds.</span><span>
 </span><span id="line-107"></span><span class="hs-comment">--</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- 'irq', 'cPUUtilization_irq' - Available on Linux environments only.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'nice', 'cPUUtilization_nice' - Available on Linux environments only.</span><span>
 </span><span id="line-109"></span><span class="hs-comment">--</span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- Percentage of time that the CPU has spent in the @IRQ@ state over the</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- Percentage of time that the CPU has spent in the @Nice@ state over the</span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- last 10 seconds.</span><span>
 </span><span id="line-112"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#newCPUUtilization"><span class="hs-identifier hs-type">newCPUUtilization</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-113"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization"><span class="hs-identifier hs-type">CPUUtilization</span></a></span><span>
@@ -183,216 +183,216 @@ $cfrom :: forall x. CPUUtilization -&gt; Rep CPUUtilization x
 -&gt; Maybe Double
 -&gt; CPUUtilization
 </span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization%27"><span class="hs-identifier hs-type">CPUUtilization'</span></a></span><span>
-</span><span id="line-116"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:idle:CPUUtilization' :: Maybe Double
-</span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#%24sel%3Aidle%3ACPUUtilization%27"><span class="hs-identifier hs-var">idle</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:user:CPUUtilization' :: Maybe Double
-</span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#%24sel%3Auser%3ACPUUtilization%27"><span class="hs-identifier hs-var">user</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:privileged:CPUUtilization' :: Maybe Double
-</span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#%24sel%3Aprivileged%3ACPUUtilization%27"><span class="hs-identifier hs-var">privileged</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:iOWait:CPUUtilization' :: Maybe Double
-</span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#%24sel%3AiOWait%3ACPUUtilization%27"><span class="hs-identifier hs-var">iOWait</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:softIRQ:CPUUtilization' :: Maybe Double
+</span><span id="line-116"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:softIRQ:CPUUtilization' :: Maybe Double
 </span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#%24sel%3AsoftIRQ%3ACPUUtilization%27"><span class="hs-identifier hs-var">softIRQ</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:nice:CPUUtilization' :: Maybe Double
-</span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#%24sel%3Anice%3ACPUUtilization%27"><span class="hs-identifier hs-var">nice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:idle:CPUUtilization' :: Maybe Double
+</span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#%24sel%3Aidle%3ACPUUtilization%27"><span class="hs-identifier hs-var">idle</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:system:CPUUtilization' :: Maybe Double
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:irq:CPUUtilization' :: Maybe Double
+</span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#%24sel%3Airq%3ACPUUtilization%27"><span class="hs-identifier hs-var">irq</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:system:CPUUtilization' :: Maybe Double
 </span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#%24sel%3Asystem%3ACPUUtilization%27"><span class="hs-identifier hs-var">system</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:irq:CPUUtilization' :: Maybe Double
-</span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#%24sel%3Airq%3ACPUUtilization%27"><span class="hs-identifier hs-var">irq</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:privileged:CPUUtilization' :: Maybe Double
+</span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#%24sel%3Aprivileged%3ACPUUtilization%27"><span class="hs-identifier hs-var">privileged</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:user:CPUUtilization' :: Maybe Double
+</span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#%24sel%3Auser%3ACPUUtilization%27"><span class="hs-identifier hs-var">user</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:iOWait:CPUUtilization' :: Maybe Double
+</span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#%24sel%3AiOWait%3ACPUUtilization%27"><span class="hs-identifier hs-var">iOWait</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:nice:CPUUtilization' :: Maybe Double
+</span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#%24sel%3Anice%3ACPUUtilization%27"><span class="hs-identifier hs-var">nice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-124"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- | Percentage of time that the CPU has spent in the @Idle@ state over the</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- last 10 seconds.</span><span>
-</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#cPUUtilization_idle"><span class="hs-identifier hs-type">cPUUtilization_idle</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization"><span class="hs-identifier hs-type">CPUUtilization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-129"></span><span id="cPUUtilization_idle"><span class="annot"><span class="annottext">cPUUtilization_idle :: (Maybe Double -&gt; f (Maybe Double))
--&gt; CPUUtilization -&gt; f CPUUtilization
-</span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#cPUUtilization_idle"><span class="hs-identifier hs-var hs-var">cPUUtilization_idle</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CPUUtilization -&gt; Maybe Double)
--&gt; (CPUUtilization -&gt; Maybe Double -&gt; CPUUtilization)
--&gt; Lens CPUUtilization CPUUtilization (Maybe Double) (Maybe Double)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization%27"><span class="hs-identifier hs-type">CPUUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299193"><span class="annot"><span class="annottext">Maybe Double
-idle :: Maybe Double
-$sel:idle:CPUUtilization' :: CPUUtilization -&gt; Maybe Double
-</span><a href="#local-6989586621679299193"><span class="hs-identifier hs-var hs-var">idle</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679299193"><span class="hs-identifier hs-var">idle</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299192"><span class="annot"><span class="annottext">s :: CPUUtilization
-</span><a href="#local-6989586621679299192"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization%27"><span class="hs-identifier hs-type">CPUUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299191"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679299191"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CPUUtilization
-</span><a href="#local-6989586621679299192"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:idle:CPUUtilization' :: Maybe Double
-</span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#%24sel%3Aidle%3ACPUUtilization%27"><span class="hs-identifier hs-var">idle</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679299191"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization"><span class="hs-identifier hs-type">CPUUtilization</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- | Percentage of time that the CPU has spent in the @User@ state over the</span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- last 10 seconds.</span><span>
-</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#cPUUtilization_user"><span class="hs-identifier hs-type">cPUUtilization_user</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization"><span class="hs-identifier hs-type">CPUUtilization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span id="cPUUtilization_user"><span class="annot"><span class="annottext">cPUUtilization_user :: (Maybe Double -&gt; f (Maybe Double))
--&gt; CPUUtilization -&gt; f CPUUtilization
-</span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#cPUUtilization_user"><span class="hs-identifier hs-var hs-var">cPUUtilization_user</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CPUUtilization -&gt; Maybe Double)
--&gt; (CPUUtilization -&gt; Maybe Double -&gt; CPUUtilization)
--&gt; Lens CPUUtilization CPUUtilization (Maybe Double) (Maybe Double)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization%27"><span class="hs-identifier hs-type">CPUUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299189"><span class="annot"><span class="annottext">Maybe Double
-user :: Maybe Double
-$sel:user:CPUUtilization' :: CPUUtilization -&gt; Maybe Double
-</span><a href="#local-6989586621679299189"><span class="hs-identifier hs-var hs-var">user</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679299189"><span class="hs-identifier hs-var">user</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299188"><span class="annot"><span class="annottext">s :: CPUUtilization
-</span><a href="#local-6989586621679299188"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization%27"><span class="hs-identifier hs-type">CPUUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299187"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679299187"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CPUUtilization
-</span><a href="#local-6989586621679299188"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:user:CPUUtilization' :: Maybe Double
-</span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#%24sel%3Auser%3ACPUUtilization%27"><span class="hs-identifier hs-var">user</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679299187"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization"><span class="hs-identifier hs-type">CPUUtilization</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- | Available on Windows environments only.</span><span>
-</span><span id="line-137"></span><span class="hs-comment">--</span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- Percentage of time that the CPU has spent in the @Privileged@ state over</span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- the last 10 seconds.</span><span>
-</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#cPUUtilization_privileged"><span class="hs-identifier hs-type">cPUUtilization_privileged</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization"><span class="hs-identifier hs-type">CPUUtilization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-141"></span><span id="cPUUtilization_privileged"><span class="annot"><span class="annottext">cPUUtilization_privileged :: (Maybe Double -&gt; f (Maybe Double))
--&gt; CPUUtilization -&gt; f CPUUtilization
-</span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#cPUUtilization_privileged"><span class="hs-identifier hs-var hs-var">cPUUtilization_privileged</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CPUUtilization -&gt; Maybe Double)
--&gt; (CPUUtilization -&gt; Maybe Double -&gt; CPUUtilization)
--&gt; Lens CPUUtilization CPUUtilization (Maybe Double) (Maybe Double)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization%27"><span class="hs-identifier hs-type">CPUUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299185"><span class="annot"><span class="annottext">Maybe Double
-privileged :: Maybe Double
-$sel:privileged:CPUUtilization' :: CPUUtilization -&gt; Maybe Double
-</span><a href="#local-6989586621679299185"><span class="hs-identifier hs-var hs-var">privileged</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679299185"><span class="hs-identifier hs-var">privileged</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299184"><span class="annot"><span class="annottext">s :: CPUUtilization
-</span><a href="#local-6989586621679299184"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization%27"><span class="hs-identifier hs-type">CPUUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299183"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679299183"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CPUUtilization
-</span><a href="#local-6989586621679299184"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:privileged:CPUUtilization' :: Maybe Double
-</span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#%24sel%3Aprivileged%3ACPUUtilization%27"><span class="hs-identifier hs-var">privileged</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679299183"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization"><span class="hs-identifier hs-type">CPUUtilization</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- | Available on Linux environments only.</span><span>
-</span><span id="line-144"></span><span class="hs-comment">--</span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- Percentage of time that the CPU has spent in the @I\/O Wait@ state over</span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- the last 10 seconds.</span><span>
-</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#cPUUtilization_iOWait"><span class="hs-identifier hs-type">cPUUtilization_iOWait</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization"><span class="hs-identifier hs-type">CPUUtilization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-148"></span><span id="cPUUtilization_iOWait"><span class="annot"><span class="annottext">cPUUtilization_iOWait :: (Maybe Double -&gt; f (Maybe Double))
--&gt; CPUUtilization -&gt; f CPUUtilization
-</span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#cPUUtilization_iOWait"><span class="hs-identifier hs-var hs-var">cPUUtilization_iOWait</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CPUUtilization -&gt; Maybe Double)
--&gt; (CPUUtilization -&gt; Maybe Double -&gt; CPUUtilization)
--&gt; Lens CPUUtilization CPUUtilization (Maybe Double) (Maybe Double)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization%27"><span class="hs-identifier hs-type">CPUUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299181"><span class="annot"><span class="annottext">Maybe Double
-iOWait :: Maybe Double
-$sel:iOWait:CPUUtilization' :: CPUUtilization -&gt; Maybe Double
-</span><a href="#local-6989586621679299181"><span class="hs-identifier hs-var hs-var">iOWait</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679299181"><span class="hs-identifier hs-var">iOWait</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299180"><span class="annot"><span class="annottext">s :: CPUUtilization
-</span><a href="#local-6989586621679299180"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization%27"><span class="hs-identifier hs-type">CPUUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299179"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679299179"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CPUUtilization
-</span><a href="#local-6989586621679299180"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iOWait:CPUUtilization' :: Maybe Double
-</span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#%24sel%3AiOWait%3ACPUUtilization%27"><span class="hs-identifier hs-var">iOWait</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679299179"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization"><span class="hs-identifier hs-type">CPUUtilization</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-comment">-- | Available on Linux environments only.</span><span>
-</span><span id="line-151"></span><span class="hs-comment">--</span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- Percentage of time that the CPU has spent in the @SoftIRQ@ state over</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- the last 10 seconds.</span><span>
-</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#cPUUtilization_softIRQ"><span class="hs-identifier hs-type">cPUUtilization_softIRQ</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization"><span class="hs-identifier hs-type">CPUUtilization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-155"></span><span id="cPUUtilization_softIRQ"><span class="annot"><span class="annottext">cPUUtilization_softIRQ :: (Maybe Double -&gt; f (Maybe Double))
+</span><span id="line-126"></span><span class="hs-comment">-- | Available on Linux environments only.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- Percentage of time that the CPU has spent in the @SoftIRQ@ state over</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- the last 10 seconds.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#cPUUtilization_softIRQ"><span class="hs-identifier hs-type">cPUUtilization_softIRQ</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization"><span class="hs-identifier hs-type">CPUUtilization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="cPUUtilization_softIRQ"><span class="annot"><span class="annottext">cPUUtilization_softIRQ :: (Maybe Double -&gt; f (Maybe Double))
 -&gt; CPUUtilization -&gt; f CPUUtilization
 </span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#cPUUtilization_softIRQ"><span class="hs-identifier hs-var hs-var">cPUUtilization_softIRQ</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CPUUtilization -&gt; Maybe Double)
 -&gt; (CPUUtilization -&gt; Maybe Double -&gt; CPUUtilization)
 -&gt; Lens CPUUtilization CPUUtilization (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization%27"><span class="hs-identifier hs-type">CPUUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299177"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization%27"><span class="hs-identifier hs-type">CPUUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299470"><span class="annot"><span class="annottext">Maybe Double
 softIRQ :: Maybe Double
 $sel:softIRQ:CPUUtilization' :: CPUUtilization -&gt; Maybe Double
-</span><a href="#local-6989586621679299177"><span class="hs-identifier hs-var hs-var">softIRQ</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679299177"><span class="hs-identifier hs-var">softIRQ</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299176"><span class="annot"><span class="annottext">s :: CPUUtilization
-</span><a href="#local-6989586621679299176"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization%27"><span class="hs-identifier hs-type">CPUUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299175"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679299175"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CPUUtilization
-</span><a href="#local-6989586621679299176"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:softIRQ:CPUUtilization' :: Maybe Double
+</span><a href="#local-6989586621679299470"><span class="hs-identifier hs-var hs-var">softIRQ</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679299470"><span class="hs-identifier hs-var">softIRQ</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299469"><span class="annot"><span class="annottext">s :: CPUUtilization
+</span><a href="#local-6989586621679299469"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization%27"><span class="hs-identifier hs-type">CPUUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299468"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679299468"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CPUUtilization
+</span><a href="#local-6989586621679299469"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:softIRQ:CPUUtilization' :: Maybe Double
 </span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#%24sel%3AsoftIRQ%3ACPUUtilization%27"><span class="hs-identifier hs-var">softIRQ</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679299175"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization"><span class="hs-identifier hs-type">CPUUtilization</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-comment">-- | Available on Linux environments only.</span><span>
-</span><span id="line-158"></span><span class="hs-comment">--</span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- Percentage of time that the CPU has spent in the @Nice@ state over the</span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- last 10 seconds.</span><span>
-</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#cPUUtilization_nice"><span class="hs-identifier hs-type">cPUUtilization_nice</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization"><span class="hs-identifier hs-type">CPUUtilization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-162"></span><span id="cPUUtilization_nice"><span class="annot"><span class="annottext">cPUUtilization_nice :: (Maybe Double -&gt; f (Maybe Double))
+</span><a href="#local-6989586621679299468"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization"><span class="hs-identifier hs-type">CPUUtilization</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | Percentage of time that the CPU has spent in the @Idle@ state over the</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- last 10 seconds.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#cPUUtilization_idle"><span class="hs-identifier hs-type">cPUUtilization_idle</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization"><span class="hs-identifier hs-type">CPUUtilization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="cPUUtilization_idle"><span class="annot"><span class="annottext">cPUUtilization_idle :: (Maybe Double -&gt; f (Maybe Double))
 -&gt; CPUUtilization -&gt; f CPUUtilization
-</span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#cPUUtilization_nice"><span class="hs-identifier hs-var hs-var">cPUUtilization_nice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CPUUtilization -&gt; Maybe Double)
+</span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#cPUUtilization_idle"><span class="hs-identifier hs-var hs-var">cPUUtilization_idle</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CPUUtilization -&gt; Maybe Double)
 -&gt; (CPUUtilization -&gt; Maybe Double -&gt; CPUUtilization)
 -&gt; Lens CPUUtilization CPUUtilization (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization%27"><span class="hs-identifier hs-type">CPUUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299173"><span class="annot"><span class="annottext">Maybe Double
-nice :: Maybe Double
-$sel:nice:CPUUtilization' :: CPUUtilization -&gt; Maybe Double
-</span><a href="#local-6989586621679299173"><span class="hs-identifier hs-var hs-var">nice</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679299173"><span class="hs-identifier hs-var">nice</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299172"><span class="annot"><span class="annottext">s :: CPUUtilization
-</span><a href="#local-6989586621679299172"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization%27"><span class="hs-identifier hs-type">CPUUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299171"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679299171"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CPUUtilization
-</span><a href="#local-6989586621679299172"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nice:CPUUtilization' :: Maybe Double
-</span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#%24sel%3Anice%3ACPUUtilization%27"><span class="hs-identifier hs-var">nice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679299171"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization"><span class="hs-identifier hs-type">CPUUtilization</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-comment">-- | Available on Linux environments only.</span><span>
-</span><span id="line-165"></span><span class="hs-comment">--</span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- Percentage of time that the CPU has spent in the @System@ state over the</span><span>
-</span><span id="line-167"></span><span class="hs-comment">-- last 10 seconds.</span><span>
-</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#cPUUtilization_system"><span class="hs-identifier hs-type">cPUUtilization_system</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization"><span class="hs-identifier hs-type">CPUUtilization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-169"></span><span id="cPUUtilization_system"><span class="annot"><span class="annottext">cPUUtilization_system :: (Maybe Double -&gt; f (Maybe Double))
--&gt; CPUUtilization -&gt; f CPUUtilization
-</span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#cPUUtilization_system"><span class="hs-identifier hs-var hs-var">cPUUtilization_system</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CPUUtilization -&gt; Maybe Double)
--&gt; (CPUUtilization -&gt; Maybe Double -&gt; CPUUtilization)
--&gt; Lens CPUUtilization CPUUtilization (Maybe Double) (Maybe Double)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization%27"><span class="hs-identifier hs-type">CPUUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299169"><span class="annot"><span class="annottext">Maybe Double
-system :: Maybe Double
-$sel:system:CPUUtilization' :: CPUUtilization -&gt; Maybe Double
-</span><a href="#local-6989586621679299169"><span class="hs-identifier hs-var hs-var">system</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679299169"><span class="hs-identifier hs-var">system</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299168"><span class="annot"><span class="annottext">s :: CPUUtilization
-</span><a href="#local-6989586621679299168"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization%27"><span class="hs-identifier hs-type">CPUUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299167"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679299167"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CPUUtilization
-</span><a href="#local-6989586621679299168"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:system:CPUUtilization' :: Maybe Double
-</span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#%24sel%3Asystem%3ACPUUtilization%27"><span class="hs-identifier hs-var">system</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679299167"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization"><span class="hs-identifier hs-type">CPUUtilization</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-comment">-- | Available on Linux environments only.</span><span>
-</span><span id="line-172"></span><span class="hs-comment">--</span><span>
-</span><span id="line-173"></span><span class="hs-comment">-- Percentage of time that the CPU has spent in the @IRQ@ state over the</span><span>
-</span><span id="line-174"></span><span class="hs-comment">-- last 10 seconds.</span><span>
-</span><span id="line-175"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#cPUUtilization_irq"><span class="hs-identifier hs-type">cPUUtilization_irq</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization"><span class="hs-identifier hs-type">CPUUtilization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-176"></span><span id="cPUUtilization_irq"><span class="annot"><span class="annottext">cPUUtilization_irq :: (Maybe Double -&gt; f (Maybe Double))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization%27"><span class="hs-identifier hs-type">CPUUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299466"><span class="annot"><span class="annottext">Maybe Double
+idle :: Maybe Double
+$sel:idle:CPUUtilization' :: CPUUtilization -&gt; Maybe Double
+</span><a href="#local-6989586621679299466"><span class="hs-identifier hs-var hs-var">idle</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679299466"><span class="hs-identifier hs-var">idle</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299465"><span class="annot"><span class="annottext">s :: CPUUtilization
+</span><a href="#local-6989586621679299465"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization%27"><span class="hs-identifier hs-type">CPUUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299464"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679299464"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CPUUtilization
+</span><a href="#local-6989586621679299465"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:idle:CPUUtilization' :: Maybe Double
+</span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#%24sel%3Aidle%3ACPUUtilization%27"><span class="hs-identifier hs-var">idle</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679299464"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization"><span class="hs-identifier hs-type">CPUUtilization</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | Available on Linux environments only.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- Percentage of time that the CPU has spent in the @IRQ@ state over the</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- last 10 seconds.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#cPUUtilization_irq"><span class="hs-identifier hs-type">cPUUtilization_irq</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization"><span class="hs-identifier hs-type">CPUUtilization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="cPUUtilization_irq"><span class="annot"><span class="annottext">cPUUtilization_irq :: (Maybe Double -&gt; f (Maybe Double))
 -&gt; CPUUtilization -&gt; f CPUUtilization
 </span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#cPUUtilization_irq"><span class="hs-identifier hs-var hs-var">cPUUtilization_irq</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CPUUtilization -&gt; Maybe Double)
 -&gt; (CPUUtilization -&gt; Maybe Double -&gt; CPUUtilization)
 -&gt; Lens CPUUtilization CPUUtilization (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization%27"><span class="hs-identifier hs-type">CPUUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299165"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization%27"><span class="hs-identifier hs-type">CPUUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299462"><span class="annot"><span class="annottext">Maybe Double
 irq :: Maybe Double
 $sel:irq:CPUUtilization' :: CPUUtilization -&gt; Maybe Double
-</span><a href="#local-6989586621679299165"><span class="hs-identifier hs-var hs-var">irq</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679299165"><span class="hs-identifier hs-var">irq</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299164"><span class="annot"><span class="annottext">s :: CPUUtilization
-</span><a href="#local-6989586621679299164"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization%27"><span class="hs-identifier hs-type">CPUUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299163"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679299163"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CPUUtilization
-</span><a href="#local-6989586621679299164"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:irq:CPUUtilization' :: Maybe Double
+</span><a href="#local-6989586621679299462"><span class="hs-identifier hs-var hs-var">irq</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679299462"><span class="hs-identifier hs-var">irq</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299461"><span class="annot"><span class="annottext">s :: CPUUtilization
+</span><a href="#local-6989586621679299461"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization%27"><span class="hs-identifier hs-type">CPUUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299460"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679299460"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CPUUtilization
+</span><a href="#local-6989586621679299461"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:irq:CPUUtilization' :: Maybe Double
 </span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#%24sel%3Airq%3ACPUUtilization%27"><span class="hs-identifier hs-var">irq</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679299163"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization"><span class="hs-identifier hs-type">CPUUtilization</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679299460"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization"><span class="hs-identifier hs-type">CPUUtilization</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | Available on Linux environments only.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- Percentage of time that the CPU has spent in the @System@ state over the</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- last 10 seconds.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#cPUUtilization_system"><span class="hs-identifier hs-type">cPUUtilization_system</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization"><span class="hs-identifier hs-type">CPUUtilization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="cPUUtilization_system"><span class="annot"><span class="annottext">cPUUtilization_system :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; CPUUtilization -&gt; f CPUUtilization
+</span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#cPUUtilization_system"><span class="hs-identifier hs-var hs-var">cPUUtilization_system</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CPUUtilization -&gt; Maybe Double)
+-&gt; (CPUUtilization -&gt; Maybe Double -&gt; CPUUtilization)
+-&gt; Lens CPUUtilization CPUUtilization (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization%27"><span class="hs-identifier hs-type">CPUUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299458"><span class="annot"><span class="annottext">Maybe Double
+system :: Maybe Double
+$sel:system:CPUUtilization' :: CPUUtilization -&gt; Maybe Double
+</span><a href="#local-6989586621679299458"><span class="hs-identifier hs-var hs-var">system</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679299458"><span class="hs-identifier hs-var">system</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299457"><span class="annot"><span class="annottext">s :: CPUUtilization
+</span><a href="#local-6989586621679299457"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization%27"><span class="hs-identifier hs-type">CPUUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299456"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679299456"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CPUUtilization
+</span><a href="#local-6989586621679299457"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:system:CPUUtilization' :: Maybe Double
+</span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#%24sel%3Asystem%3ACPUUtilization%27"><span class="hs-identifier hs-var">system</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679299456"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization"><span class="hs-identifier hs-type">CPUUtilization</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | Available on Windows environments only.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- Percentage of time that the CPU has spent in the @Privileged@ state over</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- the last 10 seconds.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#cPUUtilization_privileged"><span class="hs-identifier hs-type">cPUUtilization_privileged</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization"><span class="hs-identifier hs-type">CPUUtilization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span id="cPUUtilization_privileged"><span class="annot"><span class="annottext">cPUUtilization_privileged :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; CPUUtilization -&gt; f CPUUtilization
+</span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#cPUUtilization_privileged"><span class="hs-identifier hs-var hs-var">cPUUtilization_privileged</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CPUUtilization -&gt; Maybe Double)
+-&gt; (CPUUtilization -&gt; Maybe Double -&gt; CPUUtilization)
+-&gt; Lens CPUUtilization CPUUtilization (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization%27"><span class="hs-identifier hs-type">CPUUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299454"><span class="annot"><span class="annottext">Maybe Double
+privileged :: Maybe Double
+$sel:privileged:CPUUtilization' :: CPUUtilization -&gt; Maybe Double
+</span><a href="#local-6989586621679299454"><span class="hs-identifier hs-var hs-var">privileged</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679299454"><span class="hs-identifier hs-var">privileged</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299453"><span class="annot"><span class="annottext">s :: CPUUtilization
+</span><a href="#local-6989586621679299453"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization%27"><span class="hs-identifier hs-type">CPUUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299452"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679299452"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CPUUtilization
+</span><a href="#local-6989586621679299453"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:privileged:CPUUtilization' :: Maybe Double
+</span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#%24sel%3Aprivileged%3ACPUUtilization%27"><span class="hs-identifier hs-var">privileged</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679299452"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization"><span class="hs-identifier hs-type">CPUUtilization</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | Percentage of time that the CPU has spent in the @User@ state over the</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- last 10 seconds.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#cPUUtilization_user"><span class="hs-identifier hs-type">cPUUtilization_user</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization"><span class="hs-identifier hs-type">CPUUtilization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="cPUUtilization_user"><span class="annot"><span class="annottext">cPUUtilization_user :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; CPUUtilization -&gt; f CPUUtilization
+</span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#cPUUtilization_user"><span class="hs-identifier hs-var hs-var">cPUUtilization_user</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CPUUtilization -&gt; Maybe Double)
+-&gt; (CPUUtilization -&gt; Maybe Double -&gt; CPUUtilization)
+-&gt; Lens CPUUtilization CPUUtilization (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization%27"><span class="hs-identifier hs-type">CPUUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299450"><span class="annot"><span class="annottext">Maybe Double
+user :: Maybe Double
+$sel:user:CPUUtilization' :: CPUUtilization -&gt; Maybe Double
+</span><a href="#local-6989586621679299450"><span class="hs-identifier hs-var hs-var">user</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679299450"><span class="hs-identifier hs-var">user</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299449"><span class="annot"><span class="annottext">s :: CPUUtilization
+</span><a href="#local-6989586621679299449"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization%27"><span class="hs-identifier hs-type">CPUUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299448"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679299448"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CPUUtilization
+</span><a href="#local-6989586621679299449"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:user:CPUUtilization' :: Maybe Double
+</span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#%24sel%3Auser%3ACPUUtilization%27"><span class="hs-identifier hs-var">user</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679299448"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization"><span class="hs-identifier hs-type">CPUUtilization</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | Available on Linux environments only.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- Percentage of time that the CPU has spent in the @I\/O Wait@ state over</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- the last 10 seconds.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#cPUUtilization_iOWait"><span class="hs-identifier hs-type">cPUUtilization_iOWait</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization"><span class="hs-identifier hs-type">CPUUtilization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="cPUUtilization_iOWait"><span class="annot"><span class="annottext">cPUUtilization_iOWait :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; CPUUtilization -&gt; f CPUUtilization
+</span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#cPUUtilization_iOWait"><span class="hs-identifier hs-var hs-var">cPUUtilization_iOWait</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CPUUtilization -&gt; Maybe Double)
+-&gt; (CPUUtilization -&gt; Maybe Double -&gt; CPUUtilization)
+-&gt; Lens CPUUtilization CPUUtilization (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization%27"><span class="hs-identifier hs-type">CPUUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299446"><span class="annot"><span class="annottext">Maybe Double
+iOWait :: Maybe Double
+$sel:iOWait:CPUUtilization' :: CPUUtilization -&gt; Maybe Double
+</span><a href="#local-6989586621679299446"><span class="hs-identifier hs-var hs-var">iOWait</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679299446"><span class="hs-identifier hs-var">iOWait</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299445"><span class="annot"><span class="annottext">s :: CPUUtilization
+</span><a href="#local-6989586621679299445"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization%27"><span class="hs-identifier hs-type">CPUUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299444"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679299444"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CPUUtilization
+</span><a href="#local-6989586621679299445"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iOWait:CPUUtilization' :: Maybe Double
+</span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#%24sel%3AiOWait%3ACPUUtilization%27"><span class="hs-identifier hs-var">iOWait</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679299444"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization"><span class="hs-identifier hs-type">CPUUtilization</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | Available on Linux environments only.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- Percentage of time that the CPU has spent in the @Nice@ state over the</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- last 10 seconds.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#cPUUtilization_nice"><span class="hs-identifier hs-type">cPUUtilization_nice</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization"><span class="hs-identifier hs-type">CPUUtilization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span id="cPUUtilization_nice"><span class="annot"><span class="annottext">cPUUtilization_nice :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; CPUUtilization -&gt; f CPUUtilization
+</span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#cPUUtilization_nice"><span class="hs-identifier hs-var hs-var">cPUUtilization_nice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CPUUtilization -&gt; Maybe Double)
+-&gt; (CPUUtilization -&gt; Maybe Double -&gt; CPUUtilization)
+-&gt; Lens CPUUtilization CPUUtilization (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization%27"><span class="hs-identifier hs-type">CPUUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299442"><span class="annot"><span class="annottext">Maybe Double
+nice :: Maybe Double
+$sel:nice:CPUUtilization' :: CPUUtilization -&gt; Maybe Double
+</span><a href="#local-6989586621679299442"><span class="hs-identifier hs-var hs-var">nice</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679299442"><span class="hs-identifier hs-var">nice</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299441"><span class="annot"><span class="annottext">s :: CPUUtilization
+</span><a href="#local-6989586621679299441"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization%27"><span class="hs-identifier hs-type">CPUUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299440"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679299440"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CPUUtilization
+</span><a href="#local-6989586621679299441"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nice:CPUUtilization' :: Maybe Double
+</span><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#%24sel%3Anice%3ACPUUtilization%27"><span class="hs-identifier hs-var">nice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679299440"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization"><span class="hs-identifier hs-type">CPUUtilization</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization"><span class="hs-identifier hs-type">CPUUtilization</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621679299160"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String CPUUtilization
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679299158"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679299158"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679299437"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String CPUUtilization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679299435"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679299435"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-180"></span><span>    </span><span class="annot"><span class="annottext">Maybe Double
 -&gt; Maybe Double
 -&gt; Maybe Double
@@ -425,10 +425,10 @@ $sel:irq:CPUUtilization' :: CPUUtilization -&gt; Maybe Double
       -&gt; CPUUtilization)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679299158"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
+</span><a href="#local-6989586621679299435"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Idle&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;SoftIRQ&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Double
@@ -451,10 +451,10 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; CPUUtilization)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679299158"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
+</span><a href="#local-6989586621679299435"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;User&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Idle&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-183"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Double
@@ -475,10 +475,10 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; CPUUtilization)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679299158"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
+</span><a href="#local-6989586621679299435"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Privileged&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;IRQ&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Double
@@ -494,10 +494,10 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; Maybe Double -&gt; Maybe Double -&gt; Maybe Double -&gt; CPUUtilization)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679299158"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
+</span><a href="#local-6989586621679299435"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;IOWait&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;System&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Double
@@ -508,10 +508,10 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      (Maybe Double -&gt; Maybe Double -&gt; Maybe Double -&gt; CPUUtilization)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679299158"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
+</span><a href="#local-6989586621679299435"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SoftIRQ&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Privileged&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Double -&gt; Maybe Double -&gt; Maybe Double -&gt; CPUUtilization)
@@ -519,29 +519,29 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Double -&gt; Maybe Double -&gt; CPUUtilization)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679299158"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
+</span><a href="#local-6989586621679299435"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Nice&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;User&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Double -&gt; Maybe Double -&gt; CPUUtilization)
 -&gt; Either String (Maybe Double)
 -&gt; Either String (Maybe Double -&gt; CPUUtilization)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679299158"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
+</span><a href="#local-6989586621679299435"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;System&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;IOWait&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Double -&gt; CPUUtilization)
 -&gt; Either String (Maybe Double) -&gt; Either String CPUUtilization
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679299158"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
+</span><a href="#local-6989586621679299435"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;IRQ&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Nice&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span><span>
-</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299152"><span id="local-6989586621679299154"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization"><span class="hs-identifier hs-type">CPUUtilization</span></a></span></span></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299429"><span id="local-6989586621679299431"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization"><span class="hs-identifier hs-type">CPUUtilization</span></a></span></span></span><span>
 </span><span id="line-191"></span><span>
-</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299149"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization"><span class="hs-identifier hs-type">CPUUtilization</span></a></span></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299426"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.CPUUtilization.html#CPUUtilization"><span class="hs-identifier hs-type">CPUUtilization</span></a></span></span><span>
 </span><span id="line-193"></span></pre></body></html>

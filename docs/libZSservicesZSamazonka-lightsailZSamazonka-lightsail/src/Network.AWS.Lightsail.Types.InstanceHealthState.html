@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span id="local-6989586621679611015"><span id="local-6989586621679611016"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InstanceHealthState"><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceHealthState.html#InstanceHealthState"><span class="hs-identifier hs-var">InstanceHealthState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceHealthState%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceHealthState.html#InstanceHealthState%27"><span class="hs-identifier hs-var">InstanceHealthState'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679611909"><span id="local-6989586621679611910"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InstanceHealthState"><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceHealthState.html#InstanceHealthState"><span class="hs-identifier hs-var">InstanceHealthState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceHealthState%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceHealthState.html#InstanceHealthState%27"><span class="hs-identifier hs-var">InstanceHealthState'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInstanceHealthState"><span class="annot"><span class="annottext">InstanceHealthState -&gt; Text
 </span><a href="Network.AWS.Lightsail.Types.InstanceHealthState.html#fromInstanceHealthState"><span class="hs-identifier hs-var hs-var">fromInstanceHealthState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679611007"><span id="local-6989586621679611009"><span id="local-6989586621679611011"><span class="annot"><span class="annottext">Int -&gt; InstanceHealthState -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679611901"><span id="local-6989586621679611903"><span id="local-6989586621679611905"><span class="annot"><span class="annottext">Int -&gt; InstanceHealthState -&gt; ShowS
 [InstanceHealthState] -&gt; ShowS
 InstanceHealthState -&gt; String
 (Int -&gt; InstanceHealthState -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: InstanceHealthState -&gt; String
 showsPrec :: Int -&gt; InstanceHealthState -&gt; ShowS
 $cshowsPrec :: Int -&gt; InstanceHealthState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679610998"><span id="local-6989586621679611000"><span id="local-6989586621679611002"><span id="local-6989586621679611004"><span class="annot"><span class="annottext">ReadPrec [InstanceHealthState]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679611892"><span id="local-6989586621679611894"><span id="local-6989586621679611896"><span id="local-6989586621679611898"><span class="annot"><span class="annottext">ReadPrec [InstanceHealthState]
 ReadPrec InstanceHealthState
 Int -&gt; ReadS InstanceHealthState
 ReadS [InstanceHealthState]
@@ -76,7 +76,7 @@ $creadList :: ReadS [InstanceHealthState]
 readsPrec :: Int -&gt; ReadS InstanceHealthState
 $creadsPrec :: Int -&gt; ReadS InstanceHealthState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679610993"><span id="local-6989586621679610995"><span class="annot"><span class="annottext">InstanceHealthState -&gt; InstanceHealthState -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679611887"><span id="local-6989586621679611889"><span class="annot"><span class="annottext">InstanceHealthState -&gt; InstanceHealthState -&gt; Bool
 (InstanceHealthState -&gt; InstanceHealthState -&gt; Bool)
 -&gt; (InstanceHealthState -&gt; InstanceHealthState -&gt; Bool)
 -&gt; Eq InstanceHealthState
@@ -86,7 +86,7 @@ $c/= :: InstanceHealthState -&gt; InstanceHealthState -&gt; Bool
 == :: InstanceHealthState -&gt; InstanceHealthState -&gt; Bool
 $c== :: InstanceHealthState -&gt; InstanceHealthState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679610977"><span id="local-6989586621679610979"><span id="local-6989586621679610981"><span id="local-6989586621679610983"><span id="local-6989586621679610985"><span id="local-6989586621679610987"><span id="local-6989586621679610989"><span class="annot"><span class="annottext">Eq InstanceHealthState
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679611871"><span id="local-6989586621679611873"><span id="local-6989586621679611875"><span id="local-6989586621679611877"><span id="local-6989586621679611879"><span id="local-6989586621679611881"><span id="local-6989586621679611883"><span class="annot"><span class="annottext">Eq InstanceHealthState
 Eq InstanceHealthState
 -&gt; (InstanceHealthState -&gt; InstanceHealthState -&gt; Ordering)
 -&gt; (InstanceHealthState -&gt; InstanceHealthState -&gt; Bool)
@@ -139,7 +139,7 @@ $cfrom :: forall x. InstanceHealthState -&gt; Rep InstanceHealthState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679610969"><span id="local-6989586621679610971"><span class="annot"><span class="annottext">Int -&gt; InstanceHealthState -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679611863"><span id="local-6989586621679611865"><span class="annot"><span class="annottext">Int -&gt; InstanceHealthState -&gt; Int
 InstanceHealthState -&gt; Int
 (Int -&gt; InstanceHealthState -&gt; Int)
 -&gt; (InstanceHealthState -&gt; Int) -&gt; Hashable InstanceHealthState
@@ -149,53 +149,53 @@ $chash :: InstanceHealthState -&gt; Int
 hashWithSalt :: Int -&gt; InstanceHealthState -&gt; Int
 $chashWithSalt :: Int -&gt; InstanceHealthState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679610966"><span class="annot"><span class="annottext">InstanceHealthState -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679611860"><span class="annot"><span class="annottext">InstanceHealthState -&gt; ()
 (InstanceHealthState -&gt; ()) -&gt; NFData InstanceHealthState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: InstanceHealthState -&gt; ()
 $crnf :: InstanceHealthState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679610963"><span class="annot"><span class="annottext">Text -&gt; Either String InstanceHealthState
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679611857"><span class="annot"><span class="annottext">Text -&gt; Either String InstanceHealthState
 (Text -&gt; Either String InstanceHealthState)
 -&gt; FromText InstanceHealthState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String InstanceHealthState
 $cfromText :: Text -&gt; Either String InstanceHealthState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679610960"><span class="annot"><span class="annottext">InstanceHealthState -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679611854"><span class="annot"><span class="annottext">InstanceHealthState -&gt; Text
 (InstanceHealthState -&gt; Text) -&gt; ToText InstanceHealthState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: InstanceHealthState -&gt; Text
 $ctoText :: InstanceHealthState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679610957"><span class="annot"><span class="annottext">InstanceHealthState -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679611851"><span class="annot"><span class="annottext">InstanceHealthState -&gt; ByteString
 (InstanceHealthState -&gt; ByteString)
 -&gt; ToByteString InstanceHealthState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: InstanceHealthState -&gt; ByteString
 $ctoBS :: InstanceHealthState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679610954"><span class="annot"><span class="annottext">InstanceHealthState -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679611848"><span class="annot"><span class="annottext">InstanceHealthState -&gt; ByteStringBuilder
 (InstanceHealthState -&gt; ByteStringBuilder)
 -&gt; ToLog InstanceHealthState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: InstanceHealthState -&gt; ByteStringBuilder
 $cbuild :: InstanceHealthState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679610951"><span class="annot"><span class="annottext">HeaderName -&gt; InstanceHealthState -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679611845"><span class="annot"><span class="annottext">HeaderName -&gt; InstanceHealthState -&gt; [Header]
 (HeaderName -&gt; InstanceHealthState -&gt; [Header])
 -&gt; ToHeader InstanceHealthState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; InstanceHealthState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; InstanceHealthState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679610948"><span class="annot"><span class="annottext">InstanceHealthState -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679611842"><span class="annot"><span class="annottext">InstanceHealthState -&gt; QueryString
 (InstanceHealthState -&gt; QueryString) -&gt; ToQuery InstanceHealthState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: InstanceHealthState -&gt; QueryString
 $ctoQuery :: InstanceHealthState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679610943"><span id="local-6989586621679610945"><span class="annot"><span class="annottext">Value -&gt; Parser [InstanceHealthState]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679611837"><span id="local-6989586621679611839"><span class="annot"><span class="annottext">Value -&gt; Parser [InstanceHealthState]
 Value -&gt; Parser InstanceHealthState
 (Value -&gt; Parser InstanceHealthState)
 -&gt; (Value -&gt; Parser [InstanceHealthState])
@@ -207,7 +207,7 @@ $cparseJSONList :: Value -&gt; Parser [InstanceHealthState]
 parseJSON :: Value -&gt; Parser InstanceHealthState
 $cparseJSON :: Value -&gt; Parser InstanceHealthState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679610938"><span id="local-6989586621679610940"><span class="annot"><span class="annottext">FromJSONKeyFunction [InstanceHealthState]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679611832"><span id="local-6989586621679611834"><span class="annot"><span class="annottext">FromJSONKeyFunction [InstanceHealthState]
 FromJSONKeyFunction InstanceHealthState
 FromJSONKeyFunction InstanceHealthState
 -&gt; FromJSONKeyFunction [InstanceHealthState]
@@ -219,7 +219,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [InstanceHealthState]
 fromJSONKey :: FromJSONKeyFunction InstanceHealthState
 $cfromJSONKey :: FromJSONKeyFunction InstanceHealthState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679610929"><span id="local-6989586621679610931"><span id="local-6989586621679610933"><span id="local-6989586621679610935"><span class="annot"><span class="annottext">[InstanceHealthState] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679611823"><span id="local-6989586621679611825"><span id="local-6989586621679611827"><span id="local-6989586621679611829"><span class="annot"><span class="annottext">[InstanceHealthState] -&gt; Encoding
 [InstanceHealthState] -&gt; Value
 InstanceHealthState -&gt; Encoding
 InstanceHealthState -&gt; Value
@@ -243,7 +243,7 @@ $ctoEncoding :: InstanceHealthState -&gt; Encoding
 toJSON :: InstanceHealthState -&gt; Value
 $ctoJSON :: InstanceHealthState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679610924"><span id="local-6989586621679610926"><span class="annot"><span class="annottext">ToJSONKeyFunction [InstanceHealthState]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679611818"><span id="local-6989586621679611820"><span class="annot"><span class="annottext">ToJSONKeyFunction [InstanceHealthState]
 ToJSONKeyFunction InstanceHealthState
 ToJSONKeyFunction InstanceHealthState
 -&gt; ToJSONKeyFunction [InstanceHealthState]
@@ -255,14 +255,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [InstanceHealthState]
 toJSONKey :: ToJSONKeyFunction InstanceHealthState
 $ctoJSONKey :: ToJSONKeyFunction InstanceHealthState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679610921"><span class="annot"><span class="annottext">[Node] -&gt; Either String InstanceHealthState
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679611815"><span class="annot"><span class="annottext">[Node] -&gt; Either String InstanceHealthState
 ([Node] -&gt; Either String InstanceHealthState)
 -&gt; FromXML InstanceHealthState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String InstanceHealthState
 $cparseXML :: [Node] -&gt; Either String InstanceHealthState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679610918"><span class="annot"><span class="annottext">InstanceHealthState -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679611812"><span class="annot"><span class="annottext">InstanceHealthState -&gt; XML
 (InstanceHealthState -&gt; XML) -&gt; ToXML InstanceHealthState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: InstanceHealthState -&gt; XML

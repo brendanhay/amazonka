@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- signing request (CSR).</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newCsrExtensions' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679210509"><span id="local-6989586621679210510"></span></span><span class="hs-keyword">data</span><span> </span><span id="CsrExtensions"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CsrExtensions.html#CsrExtensions"><span class="hs-identifier hs-var">CsrExtensions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CsrExtensions%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CsrExtensions.html#CsrExtensions%27"><span class="hs-identifier hs-var">CsrExtensions'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679210568"><span id="local-6989586621679210569"></span></span><span class="hs-keyword">data</span><span> </span><span id="CsrExtensions"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CsrExtensions.html#CsrExtensions"><span class="hs-identifier hs-var">CsrExtensions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CsrExtensions%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CsrExtensions.html#CsrExtensions%27"><span class="hs-identifier hs-var">CsrExtensions'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | For CA certificates, provides a path to additional information</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- pertaining to the CA, such as revocation and policy. For more</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- information, see</span><span>
@@ -42,7 +42,7 @@
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3AkeyUsage%3ACsrExtensions%27"><span class="annot"><span class="annottext">CsrExtensions -&gt; Maybe KeyUsage
 </span><a href="Network.AWS.CertificateManagerPCA.Types.CsrExtensions.html#%24sel%3AkeyUsage%3ACsrExtensions%27"><span class="hs-identifier hs-var hs-var">keyUsage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.KeyUsage.html#KeyUsage"><span class="hs-identifier hs-type">KeyUsage</span></a></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679210502"><span id="local-6989586621679210504"><span class="annot"><span class="annottext">CsrExtensions -&gt; CsrExtensions -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679210561"><span id="local-6989586621679210563"><span class="annot"><span class="annottext">CsrExtensions -&gt; CsrExtensions -&gt; Bool
 (CsrExtensions -&gt; CsrExtensions -&gt; Bool)
 -&gt; (CsrExtensions -&gt; CsrExtensions -&gt; Bool) -&gt; Eq CsrExtensions
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -50,7 +50,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CsrExtensions -&gt; CsrExtensions -&gt; Bool
 == :: CsrExtensions -&gt; CsrExtensions -&gt; Bool
 $c== :: CsrExtensions -&gt; CsrExtensions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210493"><span id="local-6989586621679210495"><span id="local-6989586621679210497"><span id="local-6989586621679210499"><span class="annot"><span class="annottext">ReadPrec [CsrExtensions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210552"><span id="local-6989586621679210554"><span id="local-6989586621679210556"><span id="local-6989586621679210558"><span class="annot"><span class="annottext">ReadPrec [CsrExtensions]
 ReadPrec CsrExtensions
 Int -&gt; ReadS CsrExtensions
 ReadS [CsrExtensions]
@@ -70,7 +70,7 @@ readList :: ReadS [CsrExtensions]
 $creadList :: ReadS [CsrExtensions]
 readsPrec :: Int -&gt; ReadS CsrExtensions
 $creadsPrec :: Int -&gt; ReadS CsrExtensions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210486"><span id="local-6989586621679210488"><span id="local-6989586621679210490"><span class="annot"><span class="annottext">Int -&gt; CsrExtensions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210545"><span id="local-6989586621679210547"><span id="local-6989586621679210549"><span class="annot"><span class="annottext">Int -&gt; CsrExtensions -&gt; ShowS
 [CsrExtensions] -&gt; ShowS
 CsrExtensions -&gt; String
 (Int -&gt; CsrExtensions -&gt; ShowS)
@@ -145,16 +145,16 @@ forall a. Maybe a
      (Maybe [AccessDescription])
      (Maybe [AccessDescription])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CsrExtensions.html#CsrExtensions%27"><span class="hs-identifier hs-type">CsrExtensions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210477"><span class="annot"><span class="annottext">Maybe [AccessDescription]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CsrExtensions.html#CsrExtensions%27"><span class="hs-identifier hs-type">CsrExtensions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210536"><span class="annot"><span class="annottext">Maybe [AccessDescription]
 subjectInformationAccess :: Maybe [AccessDescription]
 $sel:subjectInformationAccess:CsrExtensions' :: CsrExtensions -&gt; Maybe [AccessDescription]
-</span><a href="#local-6989586621679210477"><span class="hs-identifier hs-var hs-var">subjectInformationAccess</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AccessDescription]
-</span><a href="#local-6989586621679210477"><span class="hs-identifier hs-var">subjectInformationAccess</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210476"><span class="annot"><span class="annottext">s :: CsrExtensions
-</span><a href="#local-6989586621679210476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CsrExtensions.html#CsrExtensions%27"><span class="hs-identifier hs-type">CsrExtensions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210475"><span class="annot"><span class="annottext">Maybe [AccessDescription]
-</span><a href="#local-6989586621679210475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CsrExtensions
-</span><a href="#local-6989586621679210476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subjectInformationAccess:CsrExtensions' :: Maybe [AccessDescription]
+</span><a href="#local-6989586621679210536"><span class="hs-identifier hs-var hs-var">subjectInformationAccess</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AccessDescription]
+</span><a href="#local-6989586621679210536"><span class="hs-identifier hs-var">subjectInformationAccess</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210535"><span class="annot"><span class="annottext">s :: CsrExtensions
+</span><a href="#local-6989586621679210535"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CsrExtensions.html#CsrExtensions%27"><span class="hs-identifier hs-type">CsrExtensions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210534"><span class="annot"><span class="annottext">Maybe [AccessDescription]
+</span><a href="#local-6989586621679210534"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CsrExtensions
+</span><a href="#local-6989586621679210535"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subjectInformationAccess:CsrExtensions' :: Maybe [AccessDescription]
 </span><a href="Network.AWS.CertificateManagerPCA.Types.CsrExtensions.html#%24sel%3AsubjectInformationAccess%3ACsrExtensions%27"><span class="hs-identifier hs-var">subjectInformationAccess</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AccessDescription]
-</span><a href="#local-6989586621679210475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CsrExtensions.html#CsrExtensions"><span class="hs-identifier hs-type">CsrExtensions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AccessDescription] -&gt; f (Maybe [AccessDescription]))
+</span><a href="#local-6989586621679210534"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CsrExtensions.html#CsrExtensions"><span class="hs-identifier hs-type">CsrExtensions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AccessDescription] -&gt; f (Maybe [AccessDescription]))
  -&gt; CsrExtensions -&gt; f CsrExtensions)
 -&gt; ((Maybe [AccessDescription] -&gt; f (Maybe [AccessDescription]))
     -&gt; Maybe [AccessDescription] -&gt; f (Maybe [AccessDescription]))
@@ -180,8 +180,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [AccessDescription]
   [AccessDescription]
   [AccessDescription]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | Indicates the purpose of the certificate and of the key contained in the</span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- certificate.</span><span>
@@ -193,19 +193,19 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      CsrExtensions CsrExtensions (Maybe KeyUsage) (Maybe KeyUsage)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CsrExtensions.html#CsrExtensions%27"><span class="hs-identifier hs-type">CsrExtensions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210470"><span class="annot"><span class="annottext">Maybe KeyUsage
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CsrExtensions.html#CsrExtensions%27"><span class="hs-identifier hs-type">CsrExtensions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210529"><span class="annot"><span class="annottext">Maybe KeyUsage
 keyUsage :: Maybe KeyUsage
 $sel:keyUsage:CsrExtensions' :: CsrExtensions -&gt; Maybe KeyUsage
-</span><a href="#local-6989586621679210470"><span class="hs-identifier hs-var hs-var">keyUsage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KeyUsage
-</span><a href="#local-6989586621679210470"><span class="hs-identifier hs-var">keyUsage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210469"><span class="annot"><span class="annottext">s :: CsrExtensions
-</span><a href="#local-6989586621679210469"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CsrExtensions.html#CsrExtensions%27"><span class="hs-identifier hs-type">CsrExtensions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210468"><span class="annot"><span class="annottext">Maybe KeyUsage
-</span><a href="#local-6989586621679210468"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CsrExtensions
-</span><a href="#local-6989586621679210469"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyUsage:CsrExtensions' :: Maybe KeyUsage
+</span><a href="#local-6989586621679210529"><span class="hs-identifier hs-var hs-var">keyUsage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KeyUsage
+</span><a href="#local-6989586621679210529"><span class="hs-identifier hs-var">keyUsage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210528"><span class="annot"><span class="annottext">s :: CsrExtensions
+</span><a href="#local-6989586621679210528"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CsrExtensions.html#CsrExtensions%27"><span class="hs-identifier hs-type">CsrExtensions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210527"><span class="annot"><span class="annottext">Maybe KeyUsage
+</span><a href="#local-6989586621679210527"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CsrExtensions
+</span><a href="#local-6989586621679210528"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyUsage:CsrExtensions' :: Maybe KeyUsage
 </span><a href="Network.AWS.CertificateManagerPCA.Types.CsrExtensions.html#%24sel%3AkeyUsage%3ACsrExtensions%27"><span class="hs-identifier hs-var">keyUsage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KeyUsage
-</span><a href="#local-6989586621679210468"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CsrExtensions.html#CsrExtensions"><span class="hs-identifier hs-type">CsrExtensions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679210527"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CsrExtensions.html#CsrExtensions"><span class="hs-identifier hs-type">CsrExtensions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210465"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CsrExtensions.html#CsrExtensions"><span class="hs-identifier hs-type">CsrExtensions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679210463"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CsrExtensions
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210524"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CsrExtensions.html#CsrExtensions"><span class="hs-identifier hs-type">CsrExtensions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679210522"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CsrExtensions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CsrExtensions)
@@ -215,8 +215,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CsrExtensions&quot;</span></span><span>
-</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679210460"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210460"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679210519"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210519"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe [AccessDescription] -&gt; Maybe KeyUsage -&gt; CsrExtensions
 </span><a href="Network.AWS.CertificateManagerPCA.Types.CsrExtensions.html#CsrExtensions%27"><span class="hs-identifier hs-var">CsrExtensions'</span></a></span><span>
 </span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [AccessDescription] -&gt; Maybe KeyUsage -&gt; CsrExtensions)
@@ -224,7 +224,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe KeyUsage -&gt; CsrExtensions)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210460"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [AccessDescription]))
+</span><a href="#local-6989586621679210519"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [AccessDescription]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SubjectInformationAccess&quot;</span></span><span>
@@ -239,25 +239,25 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe KeyUsage) -&gt; Parser CsrExtensions
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210460"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe KeyUsage)
+</span><a href="#local-6989586621679210519"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe KeyUsage)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KeyUsage&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210453"><span id="local-6989586621679210455"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CsrExtensions.html#CsrExtensions"><span class="hs-identifier hs-type">CsrExtensions</span></a></span></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210512"><span id="local-6989586621679210514"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CsrExtensions.html#CsrExtensions"><span class="hs-identifier hs-type">CsrExtensions</span></a></span></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210450"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CsrExtensions.html#CsrExtensions"><span class="hs-identifier hs-type">CsrExtensions</span></a></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210509"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CsrExtensions.html#CsrExtensions"><span class="hs-identifier hs-type">CsrExtensions</span></a></span></span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210442"><span id="local-6989586621679210444"><span id="local-6989586621679210446"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CsrExtensions.html#CsrExtensions"><span class="hs-identifier hs-type">CsrExtensions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679210440"><span class="annot"><span class="annottext">toJSON :: CsrExtensions -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CsrExtensions.html#CsrExtensions%27"><span class="hs-identifier hs-type">CsrExtensions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210437"><span id="local-6989586621679210438"><span class="annot"><span class="annottext">Maybe [AccessDescription]
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210501"><span id="local-6989586621679210503"><span id="local-6989586621679210505"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CsrExtensions.html#CsrExtensions"><span class="hs-identifier hs-type">CsrExtensions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679210499"><span class="annot"><span class="annottext">toJSON :: CsrExtensions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CsrExtensions.html#CsrExtensions%27"><span class="hs-identifier hs-type">CsrExtensions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210496"><span id="local-6989586621679210497"><span class="annot"><span class="annottext">Maybe [AccessDescription]
 Maybe KeyUsage
 keyUsage :: Maybe KeyUsage
 subjectInformationAccess :: Maybe [AccessDescription]
 $sel:keyUsage:CsrExtensions' :: CsrExtensions -&gt; Maybe KeyUsage
 $sel:subjectInformationAccess:CsrExtensions' :: CsrExtensions -&gt; Maybe [AccessDescription]
-</span><a href="#local-6989586621679210437"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679210496"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -271,14 +271,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [AccessDescription] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AccessDescription]
-</span><a href="#local-6989586621679210438"><span class="hs-identifier hs-var">subjectInformationAccess</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679210497"><span class="hs-identifier hs-var">subjectInformationAccess</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KeyUsage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; KeyUsage -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(KeyUsage -&gt; Pair) -&gt; Maybe KeyUsage -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe KeyUsage
-</span><a href="#local-6989586621679210437"><span class="hs-identifier hs-var">keyUsage</span></a></span><span>
+</span><a href="#local-6989586621679210496"><span class="hs-identifier hs-var">keyUsage</span></a></span><span>
 </span><span id="line-106"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span></pre></body></html>

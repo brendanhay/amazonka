@@ -37,9 +37,9 @@
 </span><span id="line-37"></span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#createPublicDnsNamespace_creatorRequestId"><span class="hs-identifier">createPublicDnsNamespace_creatorRequestId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#createPublicDnsNamespace_tags"><span class="hs-identifier">createPublicDnsNamespace_tags</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#createPublicDnsNamespace_properties"><span class="hs-identifier">createPublicDnsNamespace_properties</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#createPublicDnsNamespace_description"><span class="hs-identifier">createPublicDnsNamespace_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#createPublicDnsNamespace_description"><span class="hs-identifier">createPublicDnsNamespace_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#createPublicDnsNamespace_tags"><span class="hs-identifier">createPublicDnsNamespace_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#createPublicDnsNamespace_properties"><span class="hs-identifier">createPublicDnsNamespace_properties</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#createPublicDnsNamespace_name"><span class="hs-identifier">createPublicDnsNamespace_name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>
 </span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -60,29 +60,29 @@
 </span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.html"><span class="hs-identifier">Network.AWS.Route53AutoNaming.Types</span></a></span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newCreatePublicDnsNamespace' smart constructor.</span><span>
-</span><span id="line-63"></span><span id="local-6989586621679230185"><span id="local-6989586621679230186"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreatePublicDnsNamespace"><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace"><span class="hs-identifier hs-var">CreatePublicDnsNamespace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreatePublicDnsNamespace%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace%27"><span class="hs-identifier hs-var">CreatePublicDnsNamespace'</span></a></span></span><span>
+</span><span id="line-63"></span><span id="local-6989586621679230339"><span id="local-6989586621679230340"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreatePublicDnsNamespace"><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace"><span class="hs-identifier hs-var">CreatePublicDnsNamespace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreatePublicDnsNamespace%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace%27"><span class="hs-identifier hs-var">CreatePublicDnsNamespace'</span></a></span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique string that identifies the request and that allows failed</span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-comment">-- @CreatePublicDnsNamespace@ requests to be retried without the risk of</span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-comment">-- running the operation twice. @CreatorRequestId@ can be any unique string</span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-comment">-- (for example, a date\/timestamp).</span><span>
 </span><span id="line-68"></span><span>    </span><span id="%24sel%3AcreatorRequestId%3ACreatePublicDnsNamespace%27"><span class="annot"><span class="annottext">CreatePublicDnsNamespace -&gt; Maybe Text
 </span><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#%24sel%3AcreatorRequestId%3ACreatePublicDnsNamespace%27"><span class="hs-identifier hs-var hs-var">creatorRequestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The tags to add to the namespace. Each tag consists of a key and an</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- optional value that you define. Tags keys can be up to 128 characters in</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- length, and tag values can be up to 256 characters in length.</span><span>
-</span><span id="line-72"></span><span>    </span><span id="%24sel%3Atags%3ACreatePublicDnsNamespace%27"><span class="annot"><span class="annottext">CreatePublicDnsNamespace -&gt; Maybe [Tag]
-</span><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#%24sel%3Atags%3ACreatePublicDnsNamespace%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | Properties for the public DNS namespace.</span><span>
-</span><span id="line-74"></span><span>    </span><span id="%24sel%3Aproperties%3ACreatePublicDnsNamespace%27"><span class="annot"><span class="annottext">CreatePublicDnsNamespace -&gt; Maybe PublicDnsNamespaceProperties
-</span><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#%24sel%3Aproperties%3ACreatePublicDnsNamespace%27"><span class="hs-identifier hs-var hs-var">properties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.PublicDnsNamespaceProperties.html#PublicDnsNamespaceProperties"><span class="hs-identifier hs-type">PublicDnsNamespaceProperties</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | A description for the namespace.</span><span>
-</span><span id="line-76"></span><span>    </span><span id="%24sel%3Adescription%3ACreatePublicDnsNamespace%27"><span class="annot"><span class="annottext">CreatePublicDnsNamespace -&gt; Maybe Text
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | A description for the namespace.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3Adescription%3ACreatePublicDnsNamespace%27"><span class="annot"><span class="annottext">CreatePublicDnsNamespace -&gt; Maybe Text
 </span><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#%24sel%3Adescription%3ACreatePublicDnsNamespace%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The tags to add to the namespace. Each tag consists of a key and an</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- optional value that you define. Tags keys can be up to 128 characters in</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- length, and tag values can be up to 256 characters in length.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3Atags%3ACreatePublicDnsNamespace%27"><span class="annot"><span class="annottext">CreatePublicDnsNamespace -&gt; Maybe [Tag]
+</span><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#%24sel%3Atags%3ACreatePublicDnsNamespace%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | Properties for the public DNS namespace.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3Aproperties%3ACreatePublicDnsNamespace%27"><span class="annot"><span class="annottext">CreatePublicDnsNamespace -&gt; Maybe PublicDnsNamespaceProperties
+</span><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#%24sel%3Aproperties%3ACreatePublicDnsNamespace%27"><span class="hs-identifier hs-var hs-var">properties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.PublicDnsNamespaceProperties.html#PublicDnsNamespaceProperties"><span class="hs-identifier hs-type">PublicDnsNamespaceProperties</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The name that you want to assign to this namespace.</span><span>
 </span><span id="line-78"></span><span>    </span><span id="%24sel%3Aname%3ACreatePublicDnsNamespace%27"><span class="annot"><span class="annottext">CreatePublicDnsNamespace -&gt; Text
 </span><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#%24sel%3Aname%3ACreatePublicDnsNamespace%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-79"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-80"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679230175"><span id="local-6989586621679230177"><span class="annot"><span class="annottext">CreatePublicDnsNamespace -&gt; CreatePublicDnsNamespace -&gt; Bool
+</span><span id="line-80"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679230329"><span id="local-6989586621679230331"><span class="annot"><span class="annottext">CreatePublicDnsNamespace -&gt; CreatePublicDnsNamespace -&gt; Bool
 (CreatePublicDnsNamespace -&gt; CreatePublicDnsNamespace -&gt; Bool)
 -&gt; (CreatePublicDnsNamespace -&gt; CreatePublicDnsNamespace -&gt; Bool)
 -&gt; Eq CreatePublicDnsNamespace
@@ -91,7 +91,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreatePublicDnsNamespace -&gt; CreatePublicDnsNamespace -&gt; Bool
 == :: CreatePublicDnsNamespace -&gt; CreatePublicDnsNamespace -&gt; Bool
 $c== :: CreatePublicDnsNamespace -&gt; CreatePublicDnsNamespace -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679230166"><span id="local-6989586621679230168"><span id="local-6989586621679230170"><span id="local-6989586621679230172"><span class="annot"><span class="annottext">ReadPrec [CreatePublicDnsNamespace]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679230320"><span id="local-6989586621679230322"><span id="local-6989586621679230324"><span id="local-6989586621679230326"><span class="annot"><span class="annottext">ReadPrec [CreatePublicDnsNamespace]
 ReadPrec CreatePublicDnsNamespace
 Int -&gt; ReadS CreatePublicDnsNamespace
 ReadS [CreatePublicDnsNamespace]
@@ -111,7 +111,7 @@ readList :: ReadS [CreatePublicDnsNamespace]
 $creadList :: ReadS [CreatePublicDnsNamespace]
 readsPrec :: Int -&gt; ReadS CreatePublicDnsNamespace
 $creadsPrec :: Int -&gt; ReadS CreatePublicDnsNamespace
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679230159"><span id="local-6989586621679230161"><span id="local-6989586621679230163"><span class="annot"><span class="annottext">Int -&gt; CreatePublicDnsNamespace -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679230313"><span id="local-6989586621679230315"><span id="local-6989586621679230317"><span class="annot"><span class="annottext">Int -&gt; CreatePublicDnsNamespace -&gt; ShowS
 [CreatePublicDnsNamespace] -&gt; ShowS
 CreatePublicDnsNamespace -&gt; String
 (Int -&gt; CreatePublicDnsNamespace -&gt; ShowS)
@@ -156,13 +156,13 @@ CreatePublicDnsNamespace -&gt; Rep CreatePublicDnsNamespace x
 </span><span id="line-92"></span><span class="hs-comment">-- running the operation twice. @CreatorRequestId@ can be any unique string</span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- (for example, a date\/timestamp).</span><span>
 </span><span id="line-94"></span><span class="hs-comment">--</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- 'tags', 'createPublicDnsNamespace_tags' - The tags to add to the namespace. Each tag consists of a key and an</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- optional value that you define. Tags keys can be up to 128 characters in</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- length, and tag values can be up to 256 characters in length.</span><span>
-</span><span id="line-98"></span><span class="hs-comment">--</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- 'properties', 'createPublicDnsNamespace_properties' - Properties for the public DNS namespace.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'description', 'createPublicDnsNamespace_description' - A description for the namespace.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'tags', 'createPublicDnsNamespace_tags' - The tags to add to the namespace. Each tag consists of a key and an</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- optional value that you define. Tags keys can be up to 128 characters in</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- length, and tag values can be up to 256 characters in length.</span><span>
 </span><span id="line-100"></span><span class="hs-comment">--</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- 'description', 'createPublicDnsNamespace_description' - A description for the namespace.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'properties', 'createPublicDnsNamespace_properties' - Properties for the public DNS namespace.</span><span>
 </span><span id="line-102"></span><span class="hs-comment">--</span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- 'name', 'createPublicDnsNamespace_name' - The name that you want to assign to this namespace.</span><span>
 </span><span id="line-104"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#newCreatePublicDnsNamespace"><span class="hs-identifier hs-type">newCreatePublicDnsNamespace</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -170,12 +170,12 @@ CreatePublicDnsNamespace -&gt; Rep CreatePublicDnsNamespace x
 </span><span id="line-106"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-107"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace"><span class="hs-identifier hs-type">CreatePublicDnsNamespace</span></a></span><span>
 </span><span id="line-108"></span><span id="newCreatePublicDnsNamespace"><span class="annot"><span class="annottext">newCreatePublicDnsNamespace :: Text -&gt; CreatePublicDnsNamespace
-</span><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#newCreatePublicDnsNamespace"><span class="hs-identifier hs-var hs-var">newCreatePublicDnsNamespace</span></a></span></span><span> </span><span id="local-6989586621679230154"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679230154"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#newCreatePublicDnsNamespace"><span class="hs-identifier hs-var hs-var">newCreatePublicDnsNamespace</span></a></span></span><span> </span><span id="local-6989586621679230308"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679230308"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>  </span><span class="annot"><span class="annottext">CreatePublicDnsNamespace' :: Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe [Tag]
 -&gt; Maybe PublicDnsNamespaceProperties
--&gt; Maybe Text
 -&gt; Text
 -&gt; CreatePublicDnsNamespace
 </span><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace%27"><span class="hs-identifier hs-type">CreatePublicDnsNamespace'</span></a></span><span>
@@ -184,21 +184,21 @@ CreatePublicDnsNamespace -&gt; Rep CreatePublicDnsNamespace x
 </span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:CreatePublicDnsNamespace' :: Maybe [Tag]
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:CreatePublicDnsNamespace' :: Maybe Text
+</span><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#%24sel%3Adescription%3ACreatePublicDnsNamespace%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:CreatePublicDnsNamespace' :: Maybe [Tag]
 </span><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#%24sel%3Atags%3ACreatePublicDnsNamespace%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:properties:CreatePublicDnsNamespace' :: Maybe PublicDnsNamespaceProperties
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:properties:CreatePublicDnsNamespace' :: Maybe PublicDnsNamespaceProperties
 </span><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#%24sel%3Aproperties%3ACreatePublicDnsNamespace%27"><span class="hs-identifier hs-var">properties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PublicDnsNamespaceProperties
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:CreatePublicDnsNamespace' :: Maybe Text
-</span><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#%24sel%3Adescription%3ACreatePublicDnsNamespace%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:CreatePublicDnsNamespace' :: Text
 </span><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#%24sel%3Aname%3ACreatePublicDnsNamespace%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679230154"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><a href="#local-6989586621679230308"><span class="hs-identifier hs-var">pName_</span></a></span><span>
 </span><span id="line-116"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | A unique string that identifies the request and that allows failed</span><span>
@@ -217,22 +217,46 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace%27"><span class="hs-identifier hs-type">CreatePublicDnsNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230151"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace%27"><span class="hs-identifier hs-type">CreatePublicDnsNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230305"><span class="annot"><span class="annottext">Maybe Text
 creatorRequestId :: Maybe Text
 $sel:creatorRequestId:CreatePublicDnsNamespace' :: CreatePublicDnsNamespace -&gt; Maybe Text
-</span><a href="#local-6989586621679230151"><span class="hs-identifier hs-var hs-var">creatorRequestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679230151"><span class="hs-identifier hs-var">creatorRequestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230150"><span class="annot"><span class="annottext">s :: CreatePublicDnsNamespace
-</span><a href="#local-6989586621679230150"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace%27"><span class="hs-identifier hs-type">CreatePublicDnsNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230149"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679230149"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePublicDnsNamespace
-</span><a href="#local-6989586621679230150"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creatorRequestId:CreatePublicDnsNamespace' :: Maybe Text
+</span><a href="#local-6989586621679230305"><span class="hs-identifier hs-var hs-var">creatorRequestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679230305"><span class="hs-identifier hs-var">creatorRequestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230304"><span class="annot"><span class="annottext">s :: CreatePublicDnsNamespace
+</span><a href="#local-6989586621679230304"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace%27"><span class="hs-identifier hs-type">CreatePublicDnsNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230303"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679230303"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePublicDnsNamespace
+</span><a href="#local-6989586621679230304"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creatorRequestId:CreatePublicDnsNamespace' :: Maybe Text
 </span><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#%24sel%3AcreatorRequestId%3ACreatePublicDnsNamespace%27"><span class="hs-identifier hs-var">creatorRequestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679230149"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace"><span class="hs-identifier hs-type">CreatePublicDnsNamespace</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679230303"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace"><span class="hs-identifier hs-type">CreatePublicDnsNamespace</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- | The tags to add to the namespace. Each tag consists of a key and an</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- optional value that you define. Tags keys can be up to 128 characters in</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- length, and tag values can be up to 256 characters in length.</span><span>
-</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#createPublicDnsNamespace_tags"><span class="hs-identifier hs-type">createPublicDnsNamespace_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace"><span class="hs-identifier hs-type">CreatePublicDnsNamespace</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-129"></span><span id="createPublicDnsNamespace_tags"><span class="annot"><span class="annottext">createPublicDnsNamespace_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><span id="line-125"></span><span class="hs-comment">-- | A description for the namespace.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#createPublicDnsNamespace_description"><span class="hs-identifier hs-type">createPublicDnsNamespace_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace"><span class="hs-identifier hs-type">CreatePublicDnsNamespace</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="createPublicDnsNamespace_description"><span class="annot"><span class="annottext">createPublicDnsNamespace_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreatePublicDnsNamespace -&gt; f CreatePublicDnsNamespace
+</span><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#createPublicDnsNamespace_description"><span class="hs-identifier hs-var hs-var">createPublicDnsNamespace_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePublicDnsNamespace -&gt; Maybe Text)
+-&gt; (CreatePublicDnsNamespace
+    -&gt; Maybe Text -&gt; CreatePublicDnsNamespace)
+-&gt; Lens
+     CreatePublicDnsNamespace
+     CreatePublicDnsNamespace
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace%27"><span class="hs-identifier hs-type">CreatePublicDnsNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230302"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:CreatePublicDnsNamespace' :: CreatePublicDnsNamespace -&gt; Maybe Text
+</span><a href="#local-6989586621679230302"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679230302"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230301"><span class="annot"><span class="annottext">s :: CreatePublicDnsNamespace
+</span><a href="#local-6989586621679230301"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace%27"><span class="hs-identifier hs-type">CreatePublicDnsNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230300"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679230300"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePublicDnsNamespace
+</span><a href="#local-6989586621679230301"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreatePublicDnsNamespace' :: Maybe Text
+</span><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#%24sel%3Adescription%3ACreatePublicDnsNamespace%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679230300"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace"><span class="hs-identifier hs-type">CreatePublicDnsNamespace</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The tags to add to the namespace. Each tag consists of a key and an</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- optional value that you define. Tags keys can be up to 128 characters in</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- length, and tag values can be up to 256 characters in length.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#createPublicDnsNamespace_tags"><span class="hs-identifier hs-type">createPublicDnsNamespace_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace"><span class="hs-identifier hs-type">CreatePublicDnsNamespace</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="createPublicDnsNamespace_tags"><span class="annot"><span class="annottext">createPublicDnsNamespace_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
 -&gt; CreatePublicDnsNamespace -&gt; f CreatePublicDnsNamespace
 </span><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#createPublicDnsNamespace_tags"><span class="hs-identifier hs-var hs-var">createPublicDnsNamespace_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePublicDnsNamespace -&gt; Maybe [Tag])
 -&gt; (CreatePublicDnsNamespace
@@ -243,16 +267,16 @@ $sel:creatorRequestId:CreatePublicDnsNamespace' :: CreatePublicDnsNamespace -&gt
      (Maybe [Tag])
      (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace%27"><span class="hs-identifier hs-type">CreatePublicDnsNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230148"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace%27"><span class="hs-identifier hs-type">CreatePublicDnsNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230299"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:CreatePublicDnsNamespace' :: CreatePublicDnsNamespace -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679230148"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679230148"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230147"><span class="annot"><span class="annottext">s :: CreatePublicDnsNamespace
-</span><a href="#local-6989586621679230147"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace%27"><span class="hs-identifier hs-type">CreatePublicDnsNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230146"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679230146"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePublicDnsNamespace
-</span><a href="#local-6989586621679230147"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreatePublicDnsNamespace' :: Maybe [Tag]
+</span><a href="#local-6989586621679230299"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679230299"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230298"><span class="annot"><span class="annottext">s :: CreatePublicDnsNamespace
+</span><a href="#local-6989586621679230298"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace%27"><span class="hs-identifier hs-type">CreatePublicDnsNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230297"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679230297"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePublicDnsNamespace
+</span><a href="#local-6989586621679230298"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreatePublicDnsNamespace' :: Maybe [Tag]
 </span><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#%24sel%3Atags%3ACreatePublicDnsNamespace%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679230146"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace"><span class="hs-identifier hs-type">CreatePublicDnsNamespace</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621679230297"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace"><span class="hs-identifier hs-type">CreatePublicDnsNamespace</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; CreatePublicDnsNamespace -&gt; f CreatePublicDnsNamespace)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -266,12 +290,12 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- | Properties for the public DNS namespace.</span><span>
-</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#createPublicDnsNamespace_properties"><span class="hs-identifier hs-type">createPublicDnsNamespace_properties</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace"><span class="hs-identifier hs-type">CreatePublicDnsNamespace</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.PublicDnsNamespaceProperties.html#PublicDnsNamespaceProperties"><span class="hs-identifier hs-type">PublicDnsNamespaceProperties</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span id="createPublicDnsNamespace_properties"><span class="annot"><span class="annottext">createPublicDnsNamespace_properties :: (Maybe PublicDnsNamespaceProperties
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | Properties for the public DNS namespace.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#createPublicDnsNamespace_properties"><span class="hs-identifier hs-type">createPublicDnsNamespace_properties</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace"><span class="hs-identifier hs-type">CreatePublicDnsNamespace</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.PublicDnsNamespaceProperties.html#PublicDnsNamespaceProperties"><span class="hs-identifier hs-type">PublicDnsNamespaceProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="createPublicDnsNamespace_properties"><span class="annot"><span class="annottext">createPublicDnsNamespace_properties :: (Maybe PublicDnsNamespaceProperties
  -&gt; f (Maybe PublicDnsNamespaceProperties))
 -&gt; CreatePublicDnsNamespace -&gt; f CreatePublicDnsNamespace
 </span><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#createPublicDnsNamespace_properties"><span class="hs-identifier hs-var hs-var">createPublicDnsNamespace_properties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePublicDnsNamespace -&gt; Maybe PublicDnsNamespaceProperties)
@@ -283,40 +307,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe PublicDnsNamespaceProperties)
      (Maybe PublicDnsNamespaceProperties)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace%27"><span class="hs-identifier hs-type">CreatePublicDnsNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230142"><span class="annot"><span class="annottext">Maybe PublicDnsNamespaceProperties
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace%27"><span class="hs-identifier hs-type">CreatePublicDnsNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230293"><span class="annot"><span class="annottext">Maybe PublicDnsNamespaceProperties
 properties :: Maybe PublicDnsNamespaceProperties
 $sel:properties:CreatePublicDnsNamespace' :: CreatePublicDnsNamespace -&gt; Maybe PublicDnsNamespaceProperties
-</span><a href="#local-6989586621679230142"><span class="hs-identifier hs-var hs-var">properties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PublicDnsNamespaceProperties
-</span><a href="#local-6989586621679230142"><span class="hs-identifier hs-var">properties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230141"><span class="annot"><span class="annottext">s :: CreatePublicDnsNamespace
-</span><a href="#local-6989586621679230141"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace%27"><span class="hs-identifier hs-type">CreatePublicDnsNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230140"><span class="annot"><span class="annottext">Maybe PublicDnsNamespaceProperties
-</span><a href="#local-6989586621679230140"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePublicDnsNamespace
-</span><a href="#local-6989586621679230141"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:properties:CreatePublicDnsNamespace' :: Maybe PublicDnsNamespaceProperties
+</span><a href="#local-6989586621679230293"><span class="hs-identifier hs-var hs-var">properties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PublicDnsNamespaceProperties
+</span><a href="#local-6989586621679230293"><span class="hs-identifier hs-var">properties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230292"><span class="annot"><span class="annottext">s :: CreatePublicDnsNamespace
+</span><a href="#local-6989586621679230292"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace%27"><span class="hs-identifier hs-type">CreatePublicDnsNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230291"><span class="annot"><span class="annottext">Maybe PublicDnsNamespaceProperties
+</span><a href="#local-6989586621679230291"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePublicDnsNamespace
+</span><a href="#local-6989586621679230292"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:properties:CreatePublicDnsNamespace' :: Maybe PublicDnsNamespaceProperties
 </span><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#%24sel%3Aproperties%3ACreatePublicDnsNamespace%27"><span class="hs-identifier hs-var">properties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PublicDnsNamespaceProperties
-</span><a href="#local-6989586621679230140"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace"><span class="hs-identifier hs-type">CreatePublicDnsNamespace</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- | A description for the namespace.</span><span>
-</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#createPublicDnsNamespace_description"><span class="hs-identifier hs-type">createPublicDnsNamespace_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace"><span class="hs-identifier hs-type">CreatePublicDnsNamespace</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span id="createPublicDnsNamespace_description"><span class="annot"><span class="annottext">createPublicDnsNamespace_description :: (Maybe Text -&gt; f (Maybe Text))
--&gt; CreatePublicDnsNamespace -&gt; f CreatePublicDnsNamespace
-</span><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#createPublicDnsNamespace_description"><span class="hs-identifier hs-var hs-var">createPublicDnsNamespace_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePublicDnsNamespace -&gt; Maybe Text)
--&gt; (CreatePublicDnsNamespace
-    -&gt; Maybe Text -&gt; CreatePublicDnsNamespace)
--&gt; Lens
-     CreatePublicDnsNamespace
-     CreatePublicDnsNamespace
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace%27"><span class="hs-identifier hs-type">CreatePublicDnsNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230139"><span class="annot"><span class="annottext">Maybe Text
-description :: Maybe Text
-$sel:description:CreatePublicDnsNamespace' :: CreatePublicDnsNamespace -&gt; Maybe Text
-</span><a href="#local-6989586621679230139"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679230139"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230138"><span class="annot"><span class="annottext">s :: CreatePublicDnsNamespace
-</span><a href="#local-6989586621679230138"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace%27"><span class="hs-identifier hs-type">CreatePublicDnsNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230137"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679230137"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePublicDnsNamespace
-</span><a href="#local-6989586621679230138"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreatePublicDnsNamespace' :: Maybe Text
-</span><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#%24sel%3Adescription%3ACreatePublicDnsNamespace%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679230137"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace"><span class="hs-identifier hs-type">CreatePublicDnsNamespace</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679230291"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace"><span class="hs-identifier hs-type">CreatePublicDnsNamespace</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | The name that you want to assign to this namespace.</span><span>
 </span><span id="line-140"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#createPublicDnsNamespace_name"><span class="hs-identifier hs-type">createPublicDnsNamespace_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace"><span class="hs-identifier hs-type">CreatePublicDnsNamespace</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -326,28 +326,28 @@ $sel:description:CreatePublicDnsNamespace' :: CreatePublicDnsNamespace -&gt; May
 -&gt; (CreatePublicDnsNamespace -&gt; Text -&gt; CreatePublicDnsNamespace)
 -&gt; Lens CreatePublicDnsNamespace CreatePublicDnsNamespace Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace%27"><span class="hs-identifier hs-type">CreatePublicDnsNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230136"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace%27"><span class="hs-identifier hs-type">CreatePublicDnsNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230290"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:CreatePublicDnsNamespace' :: CreatePublicDnsNamespace -&gt; Text
-</span><a href="#local-6989586621679230136"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679230136"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230135"><span class="annot"><span class="annottext">s :: CreatePublicDnsNamespace
-</span><a href="#local-6989586621679230135"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace%27"><span class="hs-identifier hs-type">CreatePublicDnsNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230134"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679230134"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePublicDnsNamespace
-</span><a href="#local-6989586621679230135"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreatePublicDnsNamespace' :: Text
+</span><a href="#local-6989586621679230290"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679230290"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230289"><span class="annot"><span class="annottext">s :: CreatePublicDnsNamespace
+</span><a href="#local-6989586621679230289"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace%27"><span class="hs-identifier hs-type">CreatePublicDnsNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230288"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679230288"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePublicDnsNamespace
+</span><a href="#local-6989586621679230289"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreatePublicDnsNamespace' :: Text
 </span><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#%24sel%3Aname%3ACreatePublicDnsNamespace%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679230134"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace"><span class="hs-identifier hs-type">CreatePublicDnsNamespace</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679230288"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace"><span class="hs-identifier hs-type">CreatePublicDnsNamespace</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace"><span class="hs-identifier hs-type">CreatePublicDnsNamespace</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-144"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-145"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace"><span class="hs-identifier hs-type">CreatePublicDnsNamespace</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-146"></span><span>      </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespaceResponse"><span class="hs-identifier hs-type">CreatePublicDnsNamespaceResponse</span></a></span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679230130"><span class="annot"><span class="annottext">request :: CreatePublicDnsNamespace -&gt; Request CreatePublicDnsNamespace
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679230284"><span class="annot"><span class="annottext">request :: CreatePublicDnsNamespace -&gt; Request CreatePublicDnsNamespace
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; CreatePublicDnsNamespace -&gt; Request CreatePublicDnsNamespace
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Route53AutoNaming.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679230126"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679230280"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreatePublicDnsNamespace
 -&gt; ClientResponse ClientBody
@@ -373,10 +373,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679230123"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679230123"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679230122"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679230122"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679230121"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679230121"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679230277"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679230277"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679230276"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679230276"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679230275"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679230275"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-151"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; CreatePublicDnsNamespaceResponse
 </span><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespaceResponse%27"><span class="hs-identifier hs-var">CreatePublicDnsNamespaceResponse'</span></a></span><span>
 </span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; CreatePublicDnsNamespaceResponse)
@@ -384,7 +384,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; CreatePublicDnsNamespaceResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679230121"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679230275"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OperationId&quot;</span></span><span class="hs-special">)</span><span>
@@ -397,15 +397,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679230123"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679230277"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679230113"><span id="local-6989586621679230115"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace"><span class="hs-identifier hs-type">CreatePublicDnsNamespace</span></a></span></span></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679230267"><span id="local-6989586621679230269"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace"><span class="hs-identifier hs-type">CreatePublicDnsNamespace</span></a></span></span></span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679230110"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace"><span class="hs-identifier hs-type">CreatePublicDnsNamespace</span></a></span></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679230264"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace"><span class="hs-identifier hs-type">CreatePublicDnsNamespace</span></a></span></span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace"><span class="hs-identifier hs-type">CreatePublicDnsNamespace</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621679230106"><span class="annot"><span class="annottext">toHeaders :: CreatePublicDnsNamespace -&gt; ResponseHeaders
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679230260"><span class="annot"><span class="annottext">toHeaders :: CreatePublicDnsNamespace -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreatePublicDnsNamespace -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -432,23 +432,23 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-172"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-173"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679230096"><span id="local-6989586621679230098"><span id="local-6989586621679230100"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace"><span class="hs-identifier hs-type">CreatePublicDnsNamespace</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679230094"><span class="annot"><span class="annottext">toJSON :: CreatePublicDnsNamespace -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace%27"><span class="hs-identifier hs-type">CreatePublicDnsNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230088"><span id="local-6989586621679230089"><span id="local-6989586621679230090"><span id="local-6989586621679230091"><span id="local-6989586621679230092"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679230250"><span id="local-6989586621679230252"><span id="local-6989586621679230254"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace"><span class="hs-identifier hs-type">CreatePublicDnsNamespace</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679230248"><span class="annot"><span class="annottext">toJSON :: CreatePublicDnsNamespace -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace%27"><span class="hs-identifier hs-type">CreatePublicDnsNamespace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230242"><span id="local-6989586621679230243"><span id="local-6989586621679230244"><span id="local-6989586621679230245"><span id="local-6989586621679230246"><span class="annot"><span class="annottext">Maybe [Tag]
 Maybe Text
 Maybe PublicDnsNamespaceProperties
 Text
 name :: Text
-description :: Maybe Text
 properties :: Maybe PublicDnsNamespaceProperties
 tags :: Maybe [Tag]
+description :: Maybe Text
 creatorRequestId :: Maybe Text
 $sel:name:CreatePublicDnsNamespace' :: CreatePublicDnsNamespace -&gt; Text
-$sel:description:CreatePublicDnsNamespace' :: CreatePublicDnsNamespace -&gt; Maybe Text
 $sel:properties:CreatePublicDnsNamespace' :: CreatePublicDnsNamespace -&gt; Maybe PublicDnsNamespaceProperties
 $sel:tags:CreatePublicDnsNamespace' :: CreatePublicDnsNamespace -&gt; Maybe [Tag]
+$sel:description:CreatePublicDnsNamespace' :: CreatePublicDnsNamespace -&gt; Maybe Text
 $sel:creatorRequestId:CreatePublicDnsNamespace' :: CreatePublicDnsNamespace -&gt; Maybe Text
-</span><a href="#local-6989586621679230088"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679230242"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-178"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -461,48 +461,48 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-180"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679230092"><span class="hs-identifier hs-var">creatorRequestId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679230246"><span class="hs-identifier hs-var">creatorRequestId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-181"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679230245"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679230091"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-182"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679230244"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Properties&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PublicDnsNamespaceProperties -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(PublicDnsNamespaceProperties -&gt; Pair)
 -&gt; Maybe PublicDnsNamespaceProperties -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe PublicDnsNamespaceProperties
-</span><a href="#local-6989586621679230090"><span class="hs-identifier hs-var">properties</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-183"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679230089"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679230243"><span class="hs-identifier hs-var">properties</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679230088"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679230242"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-186"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace"><span class="hs-identifier hs-type">CreatePublicDnsNamespace</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-189"></span><span>  </span><span id="local-6989586621679230082"><span class="annot"><span class="annottext">toPath :: CreatePublicDnsNamespace -&gt; ByteString
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621679230236"><span class="annot"><span class="annottext">toPath :: CreatePublicDnsNamespace -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreatePublicDnsNamespace -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespace"><span class="hs-identifier hs-type">CreatePublicDnsNamespace</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-192"></span><span>  </span><span id="local-6989586621679230078"><span class="annot"><span class="annottext">toQuery :: CreatePublicDnsNamespace -&gt; QueryString
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621679230232"><span class="annot"><span class="annottext">toQuery :: CreatePublicDnsNamespace -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreatePublicDnsNamespace -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -510,7 +510,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-193"></span><span>
 </span><span id="line-194"></span><span class="hs-comment">-- | /See:/ 'newCreatePublicDnsNamespaceResponse' smart constructor.</span><span>
-</span><span id="line-195"></span><span id="local-6989586621679230075"><span id="local-6989586621679230076"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreatePublicDnsNamespaceResponse"><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespaceResponse"><span class="hs-identifier hs-var">CreatePublicDnsNamespaceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreatePublicDnsNamespaceResponse%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespaceResponse%27"><span class="hs-identifier hs-var">CreatePublicDnsNamespaceResponse'</span></a></span></span><span>
+</span><span id="line-195"></span><span id="local-6989586621679230229"><span id="local-6989586621679230230"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreatePublicDnsNamespaceResponse"><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespaceResponse"><span class="hs-identifier hs-var">CreatePublicDnsNamespaceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreatePublicDnsNamespaceResponse%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespaceResponse%27"><span class="hs-identifier hs-var">CreatePublicDnsNamespaceResponse'</span></a></span></span><span>
 </span><span id="line-196"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A value that you can use to determine whether the request completed</span><span>
 </span><span id="line-197"></span><span>    </span><span class="hs-comment">-- successfully. To get the status of the operation, see</span><span>
 </span><span id="line-198"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html GetOperation&gt;.</span><span>
@@ -520,7 +520,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-201"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreatePublicDnsNamespaceResponse%27"><span class="annot"><span class="annottext">CreatePublicDnsNamespaceResponse -&gt; Int
 </span><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#%24sel%3AhttpStatus%3ACreatePublicDnsNamespaceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-202"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-203"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679230069"><span id="local-6989586621679230071"><span class="annot"><span class="annottext">CreatePublicDnsNamespaceResponse
+</span><span id="line-203"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679230223"><span id="local-6989586621679230225"><span class="annot"><span class="annottext">CreatePublicDnsNamespaceResponse
 -&gt; CreatePublicDnsNamespaceResponse -&gt; Bool
 (CreatePublicDnsNamespaceResponse
  -&gt; CreatePublicDnsNamespaceResponse -&gt; Bool)
@@ -536,7 +536,7 @@ $c/= :: CreatePublicDnsNamespaceResponse
 -&gt; CreatePublicDnsNamespaceResponse -&gt; Bool
 $c== :: CreatePublicDnsNamespaceResponse
 -&gt; CreatePublicDnsNamespaceResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679230061"><span id="local-6989586621679230063"><span id="local-6989586621679230065"><span id="local-6989586621679230067"><span class="annot"><span class="annottext">ReadPrec [CreatePublicDnsNamespaceResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679230215"><span id="local-6989586621679230217"><span id="local-6989586621679230219"><span id="local-6989586621679230221"><span class="annot"><span class="annottext">ReadPrec [CreatePublicDnsNamespaceResponse]
 ReadPrec CreatePublicDnsNamespaceResponse
 Int -&gt; ReadS CreatePublicDnsNamespaceResponse
 ReadS [CreatePublicDnsNamespaceResponse]
@@ -556,7 +556,7 @@ readList :: ReadS [CreatePublicDnsNamespaceResponse]
 $creadList :: ReadS [CreatePublicDnsNamespaceResponse]
 readsPrec :: Int -&gt; ReadS CreatePublicDnsNamespaceResponse
 $creadsPrec :: Int -&gt; ReadS CreatePublicDnsNamespaceResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679230055"><span id="local-6989586621679230057"><span id="local-6989586621679230059"><span class="annot"><span class="annottext">Int -&gt; CreatePublicDnsNamespaceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679230209"><span id="local-6989586621679230211"><span id="local-6989586621679230213"><span class="annot"><span class="annottext">Int -&gt; CreatePublicDnsNamespaceResponse -&gt; ShowS
 [CreatePublicDnsNamespaceResponse] -&gt; ShowS
 CreatePublicDnsNamespaceResponse -&gt; String
 (Int -&gt; CreatePublicDnsNamespaceResponse -&gt; ShowS)
@@ -612,8 +612,8 @@ CreatePublicDnsNamespaceResponse
 </span><span id="line-220"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-221"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespaceResponse"><span class="hs-identifier hs-type">CreatePublicDnsNamespaceResponse</span></a></span><span>
 </span><span id="line-222"></span><span id="newCreatePublicDnsNamespaceResponse"><span class="annot"><span class="annottext">newCreatePublicDnsNamespaceResponse :: Int -&gt; CreatePublicDnsNamespaceResponse
-</span><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#newCreatePublicDnsNamespaceResponse"><span class="hs-identifier hs-var hs-var">newCreatePublicDnsNamespaceResponse</span></a></span></span><span> </span><span id="local-6989586621679230052"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679230052"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#newCreatePublicDnsNamespaceResponse"><span class="hs-identifier hs-var hs-var">newCreatePublicDnsNamespaceResponse</span></a></span></span><span> </span><span id="local-6989586621679230206"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679230206"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-223"></span><span>  </span><span class="annot"><span class="annottext">CreatePublicDnsNamespaceResponse' :: Maybe Text -&gt; Int -&gt; CreatePublicDnsNamespaceResponse
 </span><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespaceResponse%27"><span class="hs-identifier hs-type">CreatePublicDnsNamespaceResponse'</span></a></span><span>
 </span><span id="line-224"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:operationId:CreatePublicDnsNamespaceResponse' :: Maybe Text
@@ -623,7 +623,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-226"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreatePublicDnsNamespaceResponse' :: Int
 </span><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#%24sel%3AhttpStatus%3ACreatePublicDnsNamespaceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679230052"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679230206"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-227"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-228"></span><span>
 </span><span id="line-229"></span><span class="hs-comment">-- | A value that you can use to determine whether the request completed</span><span>
@@ -642,16 +642,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespaceResponse%27"><span class="hs-identifier hs-type">CreatePublicDnsNamespaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230051"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespaceResponse%27"><span class="hs-identifier hs-type">CreatePublicDnsNamespaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230205"><span class="annot"><span class="annottext">Maybe Text
 operationId :: Maybe Text
 $sel:operationId:CreatePublicDnsNamespaceResponse' :: CreatePublicDnsNamespaceResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679230051"><span class="hs-identifier hs-var hs-var">operationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679230051"><span class="hs-identifier hs-var">operationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230050"><span class="annot"><span class="annottext">s :: CreatePublicDnsNamespaceResponse
-</span><a href="#local-6989586621679230050"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespaceResponse%27"><span class="hs-identifier hs-type">CreatePublicDnsNamespaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230049"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679230049"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePublicDnsNamespaceResponse
-</span><a href="#local-6989586621679230050"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operationId:CreatePublicDnsNamespaceResponse' :: Maybe Text
+</span><a href="#local-6989586621679230205"><span class="hs-identifier hs-var hs-var">operationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679230205"><span class="hs-identifier hs-var">operationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230204"><span class="annot"><span class="annottext">s :: CreatePublicDnsNamespaceResponse
+</span><a href="#local-6989586621679230204"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespaceResponse%27"><span class="hs-identifier hs-type">CreatePublicDnsNamespaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230203"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679230203"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePublicDnsNamespaceResponse
+</span><a href="#local-6989586621679230204"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operationId:CreatePublicDnsNamespaceResponse' :: Maybe Text
 </span><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#%24sel%3AoperationId%3ACreatePublicDnsNamespaceResponse%27"><span class="hs-identifier hs-var">operationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679230049"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespaceResponse"><span class="hs-identifier hs-type">CreatePublicDnsNamespaceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679230203"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespaceResponse"><span class="hs-identifier hs-type">CreatePublicDnsNamespaceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-234"></span><span>
 </span><span id="line-235"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-236"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#createPublicDnsNamespaceResponse_httpStatus"><span class="hs-identifier hs-type">createPublicDnsNamespaceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespaceResponse"><span class="hs-identifier hs-type">CreatePublicDnsNamespaceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -667,18 +667,18 @@ $sel:operationId:CreatePublicDnsNamespaceResponse' :: CreatePublicDnsNamespaceRe
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespaceResponse%27"><span class="hs-identifier hs-type">CreatePublicDnsNamespaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230048"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespaceResponse%27"><span class="hs-identifier hs-type">CreatePublicDnsNamespaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230202"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreatePublicDnsNamespaceResponse' :: CreatePublicDnsNamespaceResponse -&gt; Int
-</span><a href="#local-6989586621679230048"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679230048"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230047"><span class="annot"><span class="annottext">s :: CreatePublicDnsNamespaceResponse
-</span><a href="#local-6989586621679230047"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespaceResponse%27"><span class="hs-identifier hs-type">CreatePublicDnsNamespaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230046"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679230046"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePublicDnsNamespaceResponse
-</span><a href="#local-6989586621679230047"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreatePublicDnsNamespaceResponse' :: Int
+</span><a href="#local-6989586621679230202"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679230202"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230201"><span class="annot"><span class="annottext">s :: CreatePublicDnsNamespaceResponse
+</span><a href="#local-6989586621679230201"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespaceResponse%27"><span class="hs-identifier hs-type">CreatePublicDnsNamespaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230200"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679230200"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePublicDnsNamespaceResponse
+</span><a href="#local-6989586621679230201"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreatePublicDnsNamespaceResponse' :: Int
 </span><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#%24sel%3AhttpStatus%3ACreatePublicDnsNamespaceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679230046"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespaceResponse"><span class="hs-identifier hs-type">CreatePublicDnsNamespaceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679230200"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespaceResponse"><span class="hs-identifier hs-type">CreatePublicDnsNamespaceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-238"></span><span>
 </span><span id="line-239"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-240"></span><span>  </span><span id="local-6989586621679230044"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-240"></span><span>  </span><span id="local-6989586621679230198"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-241"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace.html#CreatePublicDnsNamespaceResponse"><span class="hs-identifier hs-type">CreatePublicDnsNamespaceResponse</span></a></span></span><span>
 </span><span id="line-242"></span></pre></body></html>

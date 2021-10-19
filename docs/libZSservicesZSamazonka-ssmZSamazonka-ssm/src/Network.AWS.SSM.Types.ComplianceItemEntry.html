@@ -28,20 +28,20 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Information about a compliance item.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newComplianceItemEntry' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679789813"><span id="local-6989586621679789814"></span></span><span class="hs-keyword">data</span><span> </span><span id="ComplianceItemEntry"><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#ComplianceItemEntry"><span class="hs-identifier hs-var">ComplianceItemEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ComplianceItemEntry%27"><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#ComplianceItemEntry%27"><span class="hs-identifier hs-var">ComplianceItemEntry'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The title of the compliance item. For example, if the compliance item is</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- a Windows patch, the title could be the title of the KB article for the</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- patch; for example: Security Update for Active Directory Federation</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- Services.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3Atitle%3AComplianceItemEntry%27"><span class="annot"><span class="annottext">ComplianceItemEntry -&gt; Maybe Text
-</span><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#%24sel%3Atitle%3AComplianceItemEntry%27"><span class="hs-identifier hs-var hs-var">title</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The compliance item ID. For example, if the compliance item is a Windows</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- patch, the ID could be the number of the KB article.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aid%3AComplianceItemEntry%27"><span class="annot"><span class="annottext">ComplianceItemEntry -&gt; Maybe Text
-</span><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#%24sel%3Aid%3AComplianceItemEntry%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | A \&quot;Key\&quot;: \&quot;Value\&quot; tag combination for the compliance item.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3Adetails%3AComplianceItemEntry%27"><span class="annot"><span class="annottext">ComplianceItemEntry -&gt; Maybe (HashMap Text Text)
+</span><span id="line-31"></span><span id="local-6989586621679791434"><span id="local-6989586621679791435"></span></span><span class="hs-keyword">data</span><span> </span><span id="ComplianceItemEntry"><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#ComplianceItemEntry"><span class="hs-identifier hs-var">ComplianceItemEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ComplianceItemEntry%27"><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#ComplianceItemEntry%27"><span class="hs-identifier hs-var">ComplianceItemEntry'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A \&quot;Key\&quot;: \&quot;Value\&quot; tag combination for the compliance item.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Adetails%3AComplianceItemEntry%27"><span class="annot"><span class="annottext">ComplianceItemEntry -&gt; Maybe (HashMap Text Text)
 </span><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#%24sel%3Adetails%3AComplianceItemEntry%27"><span class="hs-identifier hs-var hs-var">details</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The compliance item ID. For example, if the compliance item is a Windows</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- patch, the ID could be the number of the KB article.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Aid%3AComplianceItemEntry%27"><span class="annot"><span class="annottext">ComplianceItemEntry -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#%24sel%3Aid%3AComplianceItemEntry%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The title of the compliance item. For example, if the compliance item is</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- a Windows patch, the title could be the title of the KB article for the</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- patch; for example: Security Update for Active Directory Federation</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- Services.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Atitle%3AComplianceItemEntry%27"><span class="annot"><span class="annottext">ComplianceItemEntry -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#%24sel%3Atitle%3AComplianceItemEntry%27"><span class="hs-identifier hs-var hs-var">title</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The severity of the compliance status. Severity can be one of the</span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-comment">-- following: Critical, High, Medium, Low, Informational, Unspecified.</span><span>
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3Aseverity%3AComplianceItemEntry%27"><span class="annot"><span class="annottext">ComplianceItemEntry -&gt; ComplianceSeverity
@@ -51,7 +51,7 @@
 </span><span id="line-47"></span><span>    </span><span id="%24sel%3Astatus%3AComplianceItemEntry%27"><span class="annot"><span class="annottext">ComplianceItemEntry -&gt; ComplianceStatus
 </span><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#%24sel%3Astatus%3AComplianceItemEntry%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceStatus.html#ComplianceStatus"><span class="hs-identifier hs-type">ComplianceStatus</span></a></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679789803"><span id="local-6989586621679789805"><span class="annot"><span class="annottext">ComplianceItemEntry -&gt; ComplianceItemEntry -&gt; Bool
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679791424"><span id="local-6989586621679791426"><span class="annot"><span class="annottext">ComplianceItemEntry -&gt; ComplianceItemEntry -&gt; Bool
 (ComplianceItemEntry -&gt; ComplianceItemEntry -&gt; Bool)
 -&gt; (ComplianceItemEntry -&gt; ComplianceItemEntry -&gt; Bool)
 -&gt; Eq ComplianceItemEntry
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ComplianceItemEntry -&gt; ComplianceItemEntry -&gt; Bool
 == :: ComplianceItemEntry -&gt; ComplianceItemEntry -&gt; Bool
 $c== :: ComplianceItemEntry -&gt; ComplianceItemEntry -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679789794"><span id="local-6989586621679789796"><span id="local-6989586621679789798"><span id="local-6989586621679789800"><span class="annot"><span class="annottext">ReadPrec [ComplianceItemEntry]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679791415"><span id="local-6989586621679791417"><span id="local-6989586621679791419"><span id="local-6989586621679791421"><span class="annot"><span class="annottext">ReadPrec [ComplianceItemEntry]
 ReadPrec ComplianceItemEntry
 Int -&gt; ReadS ComplianceItemEntry
 ReadS [ComplianceItemEntry]
@@ -80,7 +80,7 @@ readList :: ReadS [ComplianceItemEntry]
 $creadList :: ReadS [ComplianceItemEntry]
 readsPrec :: Int -&gt; ReadS ComplianceItemEntry
 $creadsPrec :: Int -&gt; ReadS ComplianceItemEntry
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679789787"><span id="local-6989586621679789789"><span id="local-6989586621679789791"><span class="annot"><span class="annottext">Int -&gt; ComplianceItemEntry -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679791408"><span id="local-6989586621679791410"><span id="local-6989586621679791412"><span class="annot"><span class="annottext">Int -&gt; ComplianceItemEntry -&gt; ShowS
 [ComplianceItemEntry] -&gt; ShowS
 ComplianceItemEntry -&gt; String
 (Int -&gt; ComplianceItemEntry -&gt; ShowS)
@@ -114,15 +114,15 @@ $cfrom :: forall x. ComplianceItemEntry -&gt; Rep ComplianceItemEntry x
 </span><span id="line-56"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'title', 'complianceItemEntry_title' - The title of the compliance item. For example, if the compliance item is</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- a Windows patch, the title could be the title of the KB article for the</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- patch; for example: Security Update for Active Directory Federation</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- Services.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'details', 'complianceItemEntry_details' - A \&quot;Key\&quot;: \&quot;Value\&quot; tag combination for the compliance item.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'id', 'complianceItemEntry_id' - The compliance item ID. For example, if the compliance item is a Windows</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- patch, the ID could be the number of the KB article.</span><span>
 </span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- 'id', 'complianceItemEntry_id' - The compliance item ID. For example, if the compliance item is a Windows</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- patch, the ID could be the number of the KB article.</span><span>
-</span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'details', 'complianceItemEntry_details' - A \&quot;Key\&quot;: \&quot;Value\&quot; tag combination for the compliance item.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'title', 'complianceItemEntry_title' - The title of the compliance item. For example, if the compliance item is</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- a Windows patch, the title could be the title of the KB article for the</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- patch; for example: Security Update for Active Directory Federation</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Services.</span><span>
 </span><span id="line-68"></span><span class="hs-comment">--</span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- 'severity', 'complianceItemEntry_severity' - The severity of the compliance status. Severity can be one of the</span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- following: Critical, High, Medium, Low, Informational, Unspecified.</span><span>
@@ -136,83 +136,39 @@ $cfrom :: forall x. ComplianceItemEntry -&gt; Rep ComplianceItemEntry x
 </span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceStatus.html#ComplianceStatus"><span class="hs-identifier hs-type">ComplianceStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#ComplianceItemEntry"><span class="hs-identifier hs-type">ComplianceItemEntry</span></a></span><span>
 </span><span id="line-80"></span><span id="newComplianceItemEntry"><span class="annot"><span class="annottext">newComplianceItemEntry :: ComplianceSeverity -&gt; ComplianceStatus -&gt; ComplianceItemEntry
-</span><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#newComplianceItemEntry"><span class="hs-identifier hs-var hs-var">newComplianceItemEntry</span></a></span></span><span> </span><span id="local-6989586621679789781"><span class="annot"><span class="annottext">ComplianceSeverity
-</span><a href="#local-6989586621679789781"><span class="hs-identifier hs-var">pSeverity_</span></a></span></span><span> </span><span id="local-6989586621679789780"><span class="annot"><span class="annottext">ComplianceStatus
-</span><a href="#local-6989586621679789780"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">ComplianceItemEntry' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#newComplianceItemEntry"><span class="hs-identifier hs-var hs-var">newComplianceItemEntry</span></a></span></span><span> </span><span id="local-6989586621679791402"><span class="annot"><span class="annottext">ComplianceSeverity
+</span><a href="#local-6989586621679791402"><span class="hs-identifier hs-var">pSeverity_</span></a></span></span><span> </span><span id="local-6989586621679791401"><span class="annot"><span class="annottext">ComplianceStatus
+</span><a href="#local-6989586621679791401"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">ComplianceItemEntry' :: Maybe (HashMap Text Text)
 -&gt; Maybe Text
--&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Text
 -&gt; ComplianceSeverity
 -&gt; ComplianceStatus
 -&gt; ComplianceItemEntry
 </span><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#ComplianceItemEntry%27"><span class="hs-identifier hs-type">ComplianceItemEntry'</span></a></span><span>
-</span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:title:ComplianceItemEntry' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#%24sel%3Atitle%3AComplianceItemEntry%27"><span class="hs-identifier hs-var">title</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:details:ComplianceItemEntry' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#%24sel%3Adetails%3AComplianceItemEntry%27"><span class="hs-identifier hs-var">details</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:ComplianceItemEntry' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#%24sel%3Aid%3AComplianceItemEntry%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:details:ComplianceItemEntry' :: Maybe (HashMap Text Text)
-</span><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#%24sel%3Adetails%3AComplianceItemEntry%27"><span class="hs-identifier hs-var">details</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:title:ComplianceItemEntry' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#%24sel%3Atitle%3AComplianceItemEntry%27"><span class="hs-identifier hs-var">title</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:severity:ComplianceItemEntry' :: ComplianceSeverity
 </span><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#%24sel%3Aseverity%3AComplianceItemEntry%27"><span class="hs-identifier hs-var">severity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ComplianceSeverity
-</span><a href="#local-6989586621679789781"><span class="hs-identifier hs-var">pSeverity_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679791402"><span class="hs-identifier hs-var">pSeverity_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:ComplianceItemEntry' :: ComplianceStatus
 </span><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#%24sel%3Astatus%3AComplianceItemEntry%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ComplianceStatus
-</span><a href="#local-6989586621679789780"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><a href="#local-6989586621679791401"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
 </span><span id="line-87"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- | The title of the compliance item. For example, if the compliance item is</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- a Windows patch, the title could be the title of the KB article for the</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- patch; for example: Security Update for Active Directory Federation</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- Services.</span><span>
-</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#complianceItemEntry_title"><span class="hs-identifier hs-type">complianceItemEntry_title</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#ComplianceItemEntry"><span class="hs-identifier hs-type">ComplianceItemEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span id="complianceItemEntry_title"><span class="annot"><span class="annottext">complianceItemEntry_title :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ComplianceItemEntry -&gt; f ComplianceItemEntry
-</span><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#complianceItemEntry_title"><span class="hs-identifier hs-var hs-var">complianceItemEntry_title</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ComplianceItemEntry -&gt; Maybe Text)
--&gt; (ComplianceItemEntry -&gt; Maybe Text -&gt; ComplianceItemEntry)
--&gt; Lens
-     ComplianceItemEntry ComplianceItemEntry (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#ComplianceItemEntry%27"><span class="hs-identifier hs-type">ComplianceItemEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679789776"><span class="annot"><span class="annottext">Maybe Text
-title :: Maybe Text
-$sel:title:ComplianceItemEntry' :: ComplianceItemEntry -&gt; Maybe Text
-</span><a href="#local-6989586621679789776"><span class="hs-identifier hs-var hs-var">title</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679789776"><span class="hs-identifier hs-var">title</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679789775"><span class="annot"><span class="annottext">s :: ComplianceItemEntry
-</span><a href="#local-6989586621679789775"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#ComplianceItemEntry%27"><span class="hs-identifier hs-type">ComplianceItemEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679789774"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679789774"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComplianceItemEntry
-</span><a href="#local-6989586621679789775"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:title:ComplianceItemEntry' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#%24sel%3Atitle%3AComplianceItemEntry%27"><span class="hs-identifier hs-var">title</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679789774"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#ComplianceItemEntry"><span class="hs-identifier hs-type">ComplianceItemEntry</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- | The compliance item ID. For example, if the compliance item is a Windows</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- patch, the ID could be the number of the KB article.</span><span>
-</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#complianceItemEntry_id"><span class="hs-identifier hs-type">complianceItemEntry_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#ComplianceItemEntry"><span class="hs-identifier hs-type">ComplianceItemEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span id="complianceItemEntry_id"><span class="annot"><span class="annottext">complianceItemEntry_id :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ComplianceItemEntry -&gt; f ComplianceItemEntry
-</span><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#complianceItemEntry_id"><span class="hs-identifier hs-var hs-var">complianceItemEntry_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ComplianceItemEntry -&gt; Maybe Text)
--&gt; (ComplianceItemEntry -&gt; Maybe Text -&gt; ComplianceItemEntry)
--&gt; Lens
-     ComplianceItemEntry ComplianceItemEntry (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#ComplianceItemEntry%27"><span class="hs-identifier hs-type">ComplianceItemEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679789772"><span class="annot"><span class="annottext">Maybe Text
-id :: Maybe Text
-$sel:id:ComplianceItemEntry' :: ComplianceItemEntry -&gt; Maybe Text
-</span><a href="#local-6989586621679789772"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679789772"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679789771"><span class="annot"><span class="annottext">s :: ComplianceItemEntry
-</span><a href="#local-6989586621679789771"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#ComplianceItemEntry%27"><span class="hs-identifier hs-type">ComplianceItemEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679789770"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679789770"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComplianceItemEntry
-</span><a href="#local-6989586621679789771"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:ComplianceItemEntry' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#%24sel%3Aid%3AComplianceItemEntry%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679789770"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#ComplianceItemEntry"><span class="hs-identifier hs-type">ComplianceItemEntry</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- | A \&quot;Key\&quot;: \&quot;Value\&quot; tag combination for the compliance item.</span><span>
-</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#complianceItemEntry_details"><span class="hs-identifier hs-type">complianceItemEntry_details</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#ComplianceItemEntry"><span class="hs-identifier hs-type">ComplianceItemEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span id="complianceItemEntry_details"><span class="annot"><span class="annottext">complianceItemEntry_details :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><span id="line-89"></span><span class="hs-comment">-- | A \&quot;Key\&quot;: \&quot;Value\&quot; tag combination for the compliance item.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#complianceItemEntry_details"><span class="hs-identifier hs-type">complianceItemEntry_details</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#ComplianceItemEntry"><span class="hs-identifier hs-type">ComplianceItemEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="complianceItemEntry_details"><span class="annot"><span class="annottext">complianceItemEntry_details :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
 -&gt; ComplianceItemEntry -&gt; f ComplianceItemEntry
 </span><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#complianceItemEntry_details"><span class="hs-identifier hs-var hs-var">complianceItemEntry_details</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ComplianceItemEntry -&gt; Maybe (HashMap Text Text))
 -&gt; (ComplianceItemEntry
@@ -223,16 +179,16 @@ $sel:id:ComplianceItemEntry' :: ComplianceItemEntry -&gt; Maybe Text
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#ComplianceItemEntry%27"><span class="hs-identifier hs-type">ComplianceItemEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679789768"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#ComplianceItemEntry%27"><span class="hs-identifier hs-type">ComplianceItemEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791397"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 details :: Maybe (HashMap Text Text)
 $sel:details:ComplianceItemEntry' :: ComplianceItemEntry -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679789768"><span class="hs-identifier hs-var hs-var">details</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679789768"><span class="hs-identifier hs-var">details</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679789767"><span class="annot"><span class="annottext">s :: ComplianceItemEntry
-</span><a href="#local-6989586621679789767"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#ComplianceItemEntry%27"><span class="hs-identifier hs-type">ComplianceItemEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679789766"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679789766"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComplianceItemEntry
-</span><a href="#local-6989586621679789767"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:details:ComplianceItemEntry' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679791397"><span class="hs-identifier hs-var hs-var">details</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679791397"><span class="hs-identifier hs-var">details</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791396"><span class="annot"><span class="annottext">s :: ComplianceItemEntry
+</span><a href="#local-6989586621679791396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#ComplianceItemEntry%27"><span class="hs-identifier hs-type">ComplianceItemEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791395"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679791395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComplianceItemEntry
+</span><a href="#local-6989586621679791396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:details:ComplianceItemEntry' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#%24sel%3Adetails%3AComplianceItemEntry%27"><span class="hs-identifier hs-var">details</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679789766"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#ComplianceItemEntry"><span class="hs-identifier hs-type">ComplianceItemEntry</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679791395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#ComplianceItemEntry"><span class="hs-identifier hs-type">ComplianceItemEntry</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; ComplianceItemEntry -&gt; f ComplianceItemEntry)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -258,8 +214,52 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Text)
   (HashMap Text Text)
   (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The compliance item ID. For example, if the compliance item is a Windows</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- patch, the ID could be the number of the KB article.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#complianceItemEntry_id"><span class="hs-identifier hs-type">complianceItemEntry_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#ComplianceItemEntry"><span class="hs-identifier hs-type">ComplianceItemEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="complianceItemEntry_id"><span class="annot"><span class="annottext">complianceItemEntry_id :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ComplianceItemEntry -&gt; f ComplianceItemEntry
+</span><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#complianceItemEntry_id"><span class="hs-identifier hs-var hs-var">complianceItemEntry_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ComplianceItemEntry -&gt; Maybe Text)
+-&gt; (ComplianceItemEntry -&gt; Maybe Text -&gt; ComplianceItemEntry)
+-&gt; Lens
+     ComplianceItemEntry ComplianceItemEntry (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#ComplianceItemEntry%27"><span class="hs-identifier hs-type">ComplianceItemEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791390"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:ComplianceItemEntry' :: ComplianceItemEntry -&gt; Maybe Text
+</span><a href="#local-6989586621679791390"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791390"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791389"><span class="annot"><span class="annottext">s :: ComplianceItemEntry
+</span><a href="#local-6989586621679791389"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#ComplianceItemEntry%27"><span class="hs-identifier hs-type">ComplianceItemEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791388"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791388"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComplianceItemEntry
+</span><a href="#local-6989586621679791389"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:ComplianceItemEntry' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#%24sel%3Aid%3AComplianceItemEntry%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791388"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#ComplianceItemEntry"><span class="hs-identifier hs-type">ComplianceItemEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The title of the compliance item. For example, if the compliance item is</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- a Windows patch, the title could be the title of the KB article for the</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- patch; for example: Security Update for Active Directory Federation</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- Services.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#complianceItemEntry_title"><span class="hs-identifier hs-type">complianceItemEntry_title</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#ComplianceItemEntry"><span class="hs-identifier hs-type">ComplianceItemEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="complianceItemEntry_title"><span class="annot"><span class="annottext">complianceItemEntry_title :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ComplianceItemEntry -&gt; f ComplianceItemEntry
+</span><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#complianceItemEntry_title"><span class="hs-identifier hs-var hs-var">complianceItemEntry_title</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ComplianceItemEntry -&gt; Maybe Text)
+-&gt; (ComplianceItemEntry -&gt; Maybe Text -&gt; ComplianceItemEntry)
+-&gt; Lens
+     ComplianceItemEntry ComplianceItemEntry (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#ComplianceItemEntry%27"><span class="hs-identifier hs-type">ComplianceItemEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791386"><span class="annot"><span class="annottext">Maybe Text
+title :: Maybe Text
+$sel:title:ComplianceItemEntry' :: ComplianceItemEntry -&gt; Maybe Text
+</span><a href="#local-6989586621679791386"><span class="hs-identifier hs-var hs-var">title</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791386"><span class="hs-identifier hs-var">title</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791385"><span class="annot"><span class="annottext">s :: ComplianceItemEntry
+</span><a href="#local-6989586621679791385"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#ComplianceItemEntry%27"><span class="hs-identifier hs-type">ComplianceItemEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791384"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791384"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComplianceItemEntry
+</span><a href="#local-6989586621679791385"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:title:ComplianceItemEntry' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#%24sel%3Atitle%3AComplianceItemEntry%27"><span class="hs-identifier hs-var">title</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791384"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#ComplianceItemEntry"><span class="hs-identifier hs-type">ComplianceItemEntry</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | The severity of the compliance status. Severity can be one of the</span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- following: Critical, High, Medium, Low, Informational, Unspecified.</span><span>
@@ -275,16 +275,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      ComplianceSeverity
      ComplianceSeverity
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#ComplianceItemEntry%27"><span class="hs-identifier hs-type">ComplianceItemEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679789761"><span class="annot"><span class="annottext">ComplianceSeverity
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#ComplianceItemEntry%27"><span class="hs-identifier hs-type">ComplianceItemEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791382"><span class="annot"><span class="annottext">ComplianceSeverity
 severity :: ComplianceSeverity
 $sel:severity:ComplianceItemEntry' :: ComplianceItemEntry -&gt; ComplianceSeverity
-</span><a href="#local-6989586621679789761"><span class="hs-identifier hs-var hs-var">severity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComplianceSeverity
-</span><a href="#local-6989586621679789761"><span class="hs-identifier hs-var">severity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679789760"><span class="annot"><span class="annottext">s :: ComplianceItemEntry
-</span><a href="#local-6989586621679789760"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#ComplianceItemEntry%27"><span class="hs-identifier hs-type">ComplianceItemEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679789759"><span class="annot"><span class="annottext">ComplianceSeverity
-</span><a href="#local-6989586621679789759"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComplianceItemEntry
-</span><a href="#local-6989586621679789760"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:severity:ComplianceItemEntry' :: ComplianceSeverity
+</span><a href="#local-6989586621679791382"><span class="hs-identifier hs-var hs-var">severity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComplianceSeverity
+</span><a href="#local-6989586621679791382"><span class="hs-identifier hs-var">severity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791381"><span class="annot"><span class="annottext">s :: ComplianceItemEntry
+</span><a href="#local-6989586621679791381"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#ComplianceItemEntry%27"><span class="hs-identifier hs-type">ComplianceItemEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791380"><span class="annot"><span class="annottext">ComplianceSeverity
+</span><a href="#local-6989586621679791380"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComplianceItemEntry
+</span><a href="#local-6989586621679791381"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:severity:ComplianceItemEntry' :: ComplianceSeverity
 </span><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#%24sel%3Aseverity%3AComplianceItemEntry%27"><span class="hs-identifier hs-var">severity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ComplianceSeverity
-</span><a href="#local-6989586621679789759"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#ComplianceItemEntry"><span class="hs-identifier hs-type">ComplianceItemEntry</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679791380"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#ComplianceItemEntry"><span class="hs-identifier hs-type">ComplianceItemEntry</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- | The status of the compliance item. An item is either COMPLIANT or</span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- NON_COMPLIANT.</span><span>
@@ -299,79 +299,79 @@ $sel:severity:ComplianceItemEntry' :: ComplianceItemEntry -&gt; ComplianceSeveri
      ComplianceStatus
      ComplianceStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#ComplianceItemEntry%27"><span class="hs-identifier hs-type">ComplianceItemEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679789757"><span class="annot"><span class="annottext">ComplianceStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#ComplianceItemEntry%27"><span class="hs-identifier hs-type">ComplianceItemEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791378"><span class="annot"><span class="annottext">ComplianceStatus
 status :: ComplianceStatus
 $sel:status:ComplianceItemEntry' :: ComplianceItemEntry -&gt; ComplianceStatus
-</span><a href="#local-6989586621679789757"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComplianceStatus
-</span><a href="#local-6989586621679789757"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679789756"><span class="annot"><span class="annottext">s :: ComplianceItemEntry
-</span><a href="#local-6989586621679789756"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#ComplianceItemEntry%27"><span class="hs-identifier hs-type">ComplianceItemEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679789755"><span class="annot"><span class="annottext">ComplianceStatus
-</span><a href="#local-6989586621679789755"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComplianceItemEntry
-</span><a href="#local-6989586621679789756"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ComplianceItemEntry' :: ComplianceStatus
+</span><a href="#local-6989586621679791378"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComplianceStatus
+</span><a href="#local-6989586621679791378"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791377"><span class="annot"><span class="annottext">s :: ComplianceItemEntry
+</span><a href="#local-6989586621679791377"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#ComplianceItemEntry%27"><span class="hs-identifier hs-type">ComplianceItemEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791376"><span class="annot"><span class="annottext">ComplianceStatus
+</span><a href="#local-6989586621679791376"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComplianceItemEntry
+</span><a href="#local-6989586621679791377"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ComplianceItemEntry' :: ComplianceStatus
 </span><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#%24sel%3Astatus%3AComplianceItemEntry%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ComplianceStatus
-</span><a href="#local-6989586621679789755"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#ComplianceItemEntry"><span class="hs-identifier hs-type">ComplianceItemEntry</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679791376"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#ComplianceItemEntry"><span class="hs-identifier hs-type">ComplianceItemEntry</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679789751"><span id="local-6989586621679789753"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#ComplianceItemEntry"><span class="hs-identifier hs-type">ComplianceItemEntry</span></a></span></span></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679791372"><span id="local-6989586621679791374"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#ComplianceItemEntry"><span class="hs-identifier hs-type">ComplianceItemEntry</span></a></span></span></span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679789748"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#ComplianceItemEntry"><span class="hs-identifier hs-type">ComplianceItemEntry</span></a></span></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679791369"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#ComplianceItemEntry"><span class="hs-identifier hs-type">ComplianceItemEntry</span></a></span></span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679789740"><span id="local-6989586621679789742"><span id="local-6989586621679789744"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#ComplianceItemEntry"><span class="hs-identifier hs-type">ComplianceItemEntry</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679789738"><span class="annot"><span class="annottext">toJSON :: ComplianceItemEntry -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#ComplianceItemEntry%27"><span class="hs-identifier hs-type">ComplianceItemEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679789732"><span id="local-6989586621679789733"><span id="local-6989586621679789734"><span id="local-6989586621679789735"><span id="local-6989586621679789736"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679791361"><span id="local-6989586621679791363"><span id="local-6989586621679791365"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#ComplianceItemEntry"><span class="hs-identifier hs-type">ComplianceItemEntry</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679791359"><span class="annot"><span class="annottext">toJSON :: ComplianceItemEntry -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceItemEntry.html#ComplianceItemEntry%27"><span class="hs-identifier hs-type">ComplianceItemEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791353"><span id="local-6989586621679791354"><span id="local-6989586621679791355"><span id="local-6989586621679791356"><span id="local-6989586621679791357"><span class="annot"><span class="annottext">Maybe Text
 Maybe (HashMap Text Text)
 ComplianceSeverity
 ComplianceStatus
 status :: ComplianceStatus
 severity :: ComplianceSeverity
-details :: Maybe (HashMap Text Text)
-id :: Maybe Text
 title :: Maybe Text
+id :: Maybe Text
+details :: Maybe (HashMap Text Text)
 $sel:status:ComplianceItemEntry' :: ComplianceItemEntry -&gt; ComplianceStatus
 $sel:severity:ComplianceItemEntry' :: ComplianceItemEntry -&gt; ComplianceSeverity
-$sel:details:ComplianceItemEntry' :: ComplianceItemEntry -&gt; Maybe (HashMap Text Text)
-$sel:id:ComplianceItemEntry' :: ComplianceItemEntry -&gt; Maybe Text
 $sel:title:ComplianceItemEntry' :: ComplianceItemEntry -&gt; Maybe Text
-</span><a href="#local-6989586621679789732"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:id:ComplianceItemEntry' :: ComplianceItemEntry -&gt; Maybe Text
+$sel:details:ComplianceItemEntry' :: ComplianceItemEntry -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679791353"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-123"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Title&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679789736"><span class="hs-identifier hs-var">title</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-124"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Id&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679789735"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-125"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Details&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679789734"><span class="hs-identifier hs-var">details</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679791357"><span class="hs-identifier hs-var">details</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Id&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791356"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Title&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791355"><span class="hs-identifier hs-var">title</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Severity&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ComplianceSeverity -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ComplianceSeverity
-</span><a href="#local-6989586621679789733"><span class="hs-identifier hs-var">severity</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679791354"><span class="hs-identifier hs-var">severity</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ComplianceStatus -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ComplianceStatus
-</span><a href="#local-6989586621679789732"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679791353"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span></pre></body></html>

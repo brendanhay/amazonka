@@ -27,36 +27,36 @@
 </span><span id="line-27"></span><span class="hs-comment">-- specifications of the database.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newRelationalDatabaseBundle' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679619180"><span id="local-6989586621679619181"></span></span><span class="hs-keyword">data</span><span> </span><span id="RelationalDatabaseBundle"><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle"><span class="hs-identifier hs-var">RelationalDatabaseBundle</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RelationalDatabaseBundle%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle%27"><span class="hs-identifier hs-var">RelationalDatabaseBundle'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The amount of RAM in GB (for example, @2.0@) for the database bundle.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3AramSizeInGb%3ARelationalDatabaseBundle%27"><span class="annot"><span class="annottext">RelationalDatabaseBundle -&gt; Maybe Double
-</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#%24sel%3AramSizeInGb%3ARelationalDatabaseBundle%27"><span class="hs-identifier hs-var hs-var">ramSizeInGb</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The ID for the database bundle.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AbundleId%3ARelationalDatabaseBundle%27"><span class="annot"><span class="annottext">RelationalDatabaseBundle -&gt; Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#%24sel%3AbundleId%3ARelationalDatabaseBundle%27"><span class="hs-identifier hs-var hs-var">bundleId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | A Boolean value indicating whether the database bundle is active.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AisActive%3ARelationalDatabaseBundle%27"><span class="annot"><span class="annottext">RelationalDatabaseBundle -&gt; Maybe Bool
-</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#%24sel%3AisActive%3ARelationalDatabaseBundle%27"><span class="hs-identifier hs-var hs-var">isActive</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The name for the database bundle.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3Aname%3ARelationalDatabaseBundle%27"><span class="annot"><span class="annottext">RelationalDatabaseBundle -&gt; Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#%24sel%3Aname%3ARelationalDatabaseBundle%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | A Boolean value indicating whether the database bundle is encrypted.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AisEncrypted%3ARelationalDatabaseBundle%27"><span class="annot"><span class="annottext">RelationalDatabaseBundle -&gt; Maybe Bool
+</span><span id="line-30"></span><span id="local-6989586621679620085"><span id="local-6989586621679620086"></span></span><span class="hs-keyword">data</span><span> </span><span id="RelationalDatabaseBundle"><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle"><span class="hs-identifier hs-var">RelationalDatabaseBundle</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RelationalDatabaseBundle%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle%27"><span class="hs-identifier hs-var">RelationalDatabaseBundle'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A Boolean value indicating whether the database bundle is encrypted.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AisEncrypted%3ARelationalDatabaseBundle%27"><span class="annot"><span class="annottext">RelationalDatabaseBundle -&gt; Maybe Bool
 </span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#%24sel%3AisEncrypted%3ARelationalDatabaseBundle%27"><span class="hs-identifier hs-var hs-var">isEncrypted</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The data transfer rate per month in GB for the database bundle.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AtransferPerMonthInGb%3ARelationalDatabaseBundle%27"><span class="annot"><span class="annottext">RelationalDatabaseBundle -&gt; Maybe Int
-</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#%24sel%3AtransferPerMonthInGb%3ARelationalDatabaseBundle%27"><span class="hs-identifier hs-var hs-var">transferPerMonthInGb</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The number of virtual CPUs (vCPUs) for the database bundle.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AcpuCount%3ARelationalDatabaseBundle%27"><span class="annot"><span class="annottext">RelationalDatabaseBundle -&gt; Maybe Int
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The number of virtual CPUs (vCPUs) for the database bundle.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AcpuCount%3ARelationalDatabaseBundle%27"><span class="annot"><span class="annottext">RelationalDatabaseBundle -&gt; Maybe Int
 </span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#%24sel%3AcpuCount%3ARelationalDatabaseBundle%27"><span class="hs-identifier hs-var hs-var">cpuCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The cost of the database bundle in US currency.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3Aprice%3ARelationalDatabaseBundle%27"><span class="annot"><span class="annottext">RelationalDatabaseBundle -&gt; Maybe Double
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The data transfer rate per month in GB for the database bundle.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AtransferPerMonthInGb%3ARelationalDatabaseBundle%27"><span class="annot"><span class="annottext">RelationalDatabaseBundle -&gt; Maybe Int
+</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#%24sel%3AtransferPerMonthInGb%3ARelationalDatabaseBundle%27"><span class="hs-identifier hs-var hs-var">transferPerMonthInGb</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The ID for the database bundle.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AbundleId%3ARelationalDatabaseBundle%27"><span class="annot"><span class="annottext">RelationalDatabaseBundle -&gt; Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#%24sel%3AbundleId%3ARelationalDatabaseBundle%27"><span class="hs-identifier hs-var hs-var">bundleId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The name for the database bundle.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Aname%3ARelationalDatabaseBundle%27"><span class="annot"><span class="annottext">RelationalDatabaseBundle -&gt; Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#%24sel%3Aname%3ARelationalDatabaseBundle%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The size of the disk for the database bundle.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AdiskSizeInGb%3ARelationalDatabaseBundle%27"><span class="annot"><span class="annottext">RelationalDatabaseBundle -&gt; Maybe Int
+</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#%24sel%3AdiskSizeInGb%3ARelationalDatabaseBundle%27"><span class="hs-identifier hs-var hs-var">diskSizeInGb</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The cost of the database bundle in US currency.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Aprice%3ARelationalDatabaseBundle%27"><span class="annot"><span class="annottext">RelationalDatabaseBundle -&gt; Maybe Double
 </span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#%24sel%3Aprice%3ARelationalDatabaseBundle%27"><span class="hs-identifier hs-var hs-var">price</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The size of the disk for the database bundle.</span><span>
-</span><span id="line-48"></span><span>    </span><span id="%24sel%3AdiskSizeInGb%3ARelationalDatabaseBundle%27"><span class="annot"><span class="annottext">RelationalDatabaseBundle -&gt; Maybe Int
-</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#%24sel%3AdiskSizeInGb%3ARelationalDatabaseBundle%27"><span class="hs-identifier hs-var hs-var">diskSizeInGb</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | A Boolean value indicating whether the database bundle is active.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AisActive%3ARelationalDatabaseBundle%27"><span class="annot"><span class="annottext">RelationalDatabaseBundle -&gt; Maybe Bool
+</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#%24sel%3AisActive%3ARelationalDatabaseBundle%27"><span class="hs-identifier hs-var hs-var">isActive</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The amount of RAM in GB (for example, @2.0@) for the database bundle.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AramSizeInGb%3ARelationalDatabaseBundle%27"><span class="annot"><span class="annottext">RelationalDatabaseBundle -&gt; Maybe Double
+</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#%24sel%3AramSizeInGb%3ARelationalDatabaseBundle%27"><span class="hs-identifier hs-var hs-var">ramSizeInGb</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679619166"><span id="local-6989586621679619168"><span class="annot"><span class="annottext">RelationalDatabaseBundle -&gt; RelationalDatabaseBundle -&gt; Bool
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679620071"><span id="local-6989586621679620073"><span class="annot"><span class="annottext">RelationalDatabaseBundle -&gt; RelationalDatabaseBundle -&gt; Bool
 (RelationalDatabaseBundle -&gt; RelationalDatabaseBundle -&gt; Bool)
 -&gt; (RelationalDatabaseBundle -&gt; RelationalDatabaseBundle -&gt; Bool)
 -&gt; Eq RelationalDatabaseBundle
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RelationalDatabaseBundle -&gt; RelationalDatabaseBundle -&gt; Bool
 == :: RelationalDatabaseBundle -&gt; RelationalDatabaseBundle -&gt; Bool
 $c== :: RelationalDatabaseBundle -&gt; RelationalDatabaseBundle -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679619157"><span id="local-6989586621679619159"><span id="local-6989586621679619161"><span id="local-6989586621679619163"><span class="annot"><span class="annottext">ReadPrec [RelationalDatabaseBundle]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679620062"><span id="local-6989586621679620064"><span id="local-6989586621679620066"><span id="local-6989586621679620068"><span class="annot"><span class="annottext">ReadPrec [RelationalDatabaseBundle]
 ReadPrec RelationalDatabaseBundle
 Int -&gt; ReadS RelationalDatabaseBundle
 ReadS [RelationalDatabaseBundle]
@@ -85,7 +85,7 @@ readList :: ReadS [RelationalDatabaseBundle]
 $creadList :: ReadS [RelationalDatabaseBundle]
 readsPrec :: Int -&gt; ReadS RelationalDatabaseBundle
 $creadsPrec :: Int -&gt; ReadS RelationalDatabaseBundle
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679619150"><span id="local-6989586621679619152"><span id="local-6989586621679619154"><span class="annot"><span class="annottext">Int -&gt; RelationalDatabaseBundle -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679620055"><span id="local-6989586621679620057"><span id="local-6989586621679620059"><span class="annot"><span class="annottext">Int -&gt; RelationalDatabaseBundle -&gt; ShowS
 [RelationalDatabaseBundle] -&gt; ShowS
 RelationalDatabaseBundle -&gt; String
 (Int -&gt; RelationalDatabaseBundle -&gt; ShowS)
@@ -125,176 +125,80 @@ RelationalDatabaseBundle -&gt; Rep RelationalDatabaseBundle x
 </span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'ramSizeInGb', 'relationalDatabaseBundle_ramSizeInGb' - The amount of RAM in GB (for example, @2.0@) for the database bundle.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'isEncrypted', 'relationalDatabaseBundle_isEncrypted' - A Boolean value indicating whether the database bundle is encrypted.</span><span>
 </span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'bundleId', 'relationalDatabaseBundle_bundleId' - The ID for the database bundle.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'cpuCount', 'relationalDatabaseBundle_cpuCount' - The number of virtual CPUs (vCPUs) for the database bundle.</span><span>
 </span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- 'isActive', 'relationalDatabaseBundle_isActive' - A Boolean value indicating whether the database bundle is active.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'transferPerMonthInGb', 'relationalDatabaseBundle_transferPerMonthInGb' - The data transfer rate per month in GB for the database bundle.</span><span>
 </span><span id="line-65"></span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- 'name', 'relationalDatabaseBundle_name' - The name for the database bundle.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'bundleId', 'relationalDatabaseBundle_bundleId' - The ID for the database bundle.</span><span>
 </span><span id="line-67"></span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- 'isEncrypted', 'relationalDatabaseBundle_isEncrypted' - A Boolean value indicating whether the database bundle is encrypted.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'name', 'relationalDatabaseBundle_name' - The name for the database bundle.</span><span>
 </span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'transferPerMonthInGb', 'relationalDatabaseBundle_transferPerMonthInGb' - The data transfer rate per month in GB for the database bundle.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'diskSizeInGb', 'relationalDatabaseBundle_diskSizeInGb' - The size of the disk for the database bundle.</span><span>
 </span><span id="line-71"></span><span class="hs-comment">--</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- 'cpuCount', 'relationalDatabaseBundle_cpuCount' - The number of virtual CPUs (vCPUs) for the database bundle.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'price', 'relationalDatabaseBundle_price' - The cost of the database bundle in US currency.</span><span>
 </span><span id="line-73"></span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- 'price', 'relationalDatabaseBundle_price' - The cost of the database bundle in US currency.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'isActive', 'relationalDatabaseBundle_isActive' - A Boolean value indicating whether the database bundle is active.</span><span>
 </span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 'diskSizeInGb', 'relationalDatabaseBundle_diskSizeInGb' - The size of the disk for the database bundle.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'ramSizeInGb', 'relationalDatabaseBundle_ramSizeInGb' - The amount of RAM in GB (for example, @2.0@) for the database bundle.</span><span>
 </span><span id="line-77"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#newRelationalDatabaseBundle"><span class="hs-identifier hs-type">newRelationalDatabaseBundle</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle"><span class="hs-identifier hs-type">RelationalDatabaseBundle</span></a></span><span>
 </span><span id="line-79"></span><span id="newRelationalDatabaseBundle"><span class="annot"><span class="annottext">newRelationalDatabaseBundle :: RelationalDatabaseBundle
 </span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#newRelationalDatabaseBundle"><span class="hs-identifier hs-var hs-var">newRelationalDatabaseBundle</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">RelationalDatabaseBundle' :: Maybe Double
--&gt; Maybe Text
--&gt; Maybe Bool
--&gt; Maybe Text
--&gt; Maybe Bool
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">RelationalDatabaseBundle' :: Maybe Bool
 -&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe Int
 -&gt; Maybe Double
--&gt; Maybe Int
+-&gt; Maybe Bool
+-&gt; Maybe Double
 -&gt; RelationalDatabaseBundle
 </span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle%27"><span class="hs-identifier hs-type">RelationalDatabaseBundle'</span></a></span><span>
-</span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ramSizeInGb:RelationalDatabaseBundle' :: Maybe Double
-</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#%24sel%3AramSizeInGb%3ARelationalDatabaseBundle%27"><span class="hs-identifier hs-var">ramSizeInGb</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">Maybe Double
+</span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:isEncrypted:RelationalDatabaseBundle' :: Maybe Bool
+</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#%24sel%3AisEncrypted%3ARelationalDatabaseBundle%27"><span class="hs-identifier hs-var">isEncrypted</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:bundleId:RelationalDatabaseBundle' :: Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#%24sel%3AbundleId%3ARelationalDatabaseBundle%27"><span class="hs-identifier hs-var">bundleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:isActive:RelationalDatabaseBundle' :: Maybe Bool
-</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#%24sel%3AisActive%3ARelationalDatabaseBundle%27"><span class="hs-identifier hs-var">isActive</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:RelationalDatabaseBundle' :: Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#%24sel%3Aname%3ARelationalDatabaseBundle%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:isEncrypted:RelationalDatabaseBundle' :: Maybe Bool
-</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#%24sel%3AisEncrypted%3ARelationalDatabaseBundle%27"><span class="hs-identifier hs-var">isEncrypted</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:transferPerMonthInGb:RelationalDatabaseBundle' :: Maybe Int
-</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#%24sel%3AtransferPerMonthInGb%3ARelationalDatabaseBundle%27"><span class="hs-identifier hs-var">transferPerMonthInGb</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:cpuCount:RelationalDatabaseBundle' :: Maybe Int
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:cpuCount:RelationalDatabaseBundle' :: Maybe Int
 </span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#%24sel%3AcpuCount%3ARelationalDatabaseBundle%27"><span class="hs-identifier hs-var">cpuCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:price:RelationalDatabaseBundle' :: Maybe Double
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:transferPerMonthInGb:RelationalDatabaseBundle' :: Maybe Int
+</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#%24sel%3AtransferPerMonthInGb%3ARelationalDatabaseBundle%27"><span class="hs-identifier hs-var">transferPerMonthInGb</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:bundleId:RelationalDatabaseBundle' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#%24sel%3AbundleId%3ARelationalDatabaseBundle%27"><span class="hs-identifier hs-var">bundleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:RelationalDatabaseBundle' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#%24sel%3Aname%3ARelationalDatabaseBundle%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:diskSizeInGb:RelationalDatabaseBundle' :: Maybe Int
+</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#%24sel%3AdiskSizeInGb%3ARelationalDatabaseBundle%27"><span class="hs-identifier hs-var">diskSizeInGb</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:price:RelationalDatabaseBundle' :: Maybe Double
 </span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#%24sel%3Aprice%3ARelationalDatabaseBundle%27"><span class="hs-identifier hs-var">price</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:diskSizeInGb:RelationalDatabaseBundle' :: Maybe Int
-</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#%24sel%3AdiskSizeInGb%3ARelationalDatabaseBundle%27"><span class="hs-identifier hs-var">diskSizeInGb</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:isActive:RelationalDatabaseBundle' :: Maybe Bool
+</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#%24sel%3AisActive%3ARelationalDatabaseBundle%27"><span class="hs-identifier hs-var">isActive</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:ramSizeInGb:RelationalDatabaseBundle' :: Maybe Double
+</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#%24sel%3AramSizeInGb%3ARelationalDatabaseBundle%27"><span class="hs-identifier hs-var">ramSizeInGb</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- | The amount of RAM in GB (for example, @2.0@) for the database bundle.</span><span>
-</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#relationalDatabaseBundle_ramSizeInGb"><span class="hs-identifier hs-type">relationalDatabaseBundle_ramSizeInGb</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle"><span class="hs-identifier hs-type">RelationalDatabaseBundle</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span id="relationalDatabaseBundle_ramSizeInGb"><span class="annot"><span class="annottext">relationalDatabaseBundle_ramSizeInGb :: (Maybe Double -&gt; f (Maybe Double))
--&gt; RelationalDatabaseBundle -&gt; f RelationalDatabaseBundle
-</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#relationalDatabaseBundle_ramSizeInGb"><span class="hs-identifier hs-var hs-var">relationalDatabaseBundle_ramSizeInGb</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RelationalDatabaseBundle -&gt; Maybe Double)
--&gt; (RelationalDatabaseBundle
-    -&gt; Maybe Double -&gt; RelationalDatabaseBundle)
--&gt; Lens
-     RelationalDatabaseBundle
-     RelationalDatabaseBundle
-     (Maybe Double)
-     (Maybe Double)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle%27"><span class="hs-identifier hs-type">RelationalDatabaseBundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679619141"><span class="annot"><span class="annottext">Maybe Double
-ramSizeInGb :: Maybe Double
-$sel:ramSizeInGb:RelationalDatabaseBundle' :: RelationalDatabaseBundle -&gt; Maybe Double
-</span><a href="#local-6989586621679619141"><span class="hs-identifier hs-var hs-var">ramSizeInGb</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679619141"><span class="hs-identifier hs-var">ramSizeInGb</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679619140"><span class="annot"><span class="annottext">s :: RelationalDatabaseBundle
-</span><a href="#local-6989586621679619140"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle%27"><span class="hs-identifier hs-type">RelationalDatabaseBundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679619139"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679619139"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RelationalDatabaseBundle
-</span><a href="#local-6989586621679619140"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ramSizeInGb:RelationalDatabaseBundle' :: Maybe Double
-</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#%24sel%3AramSizeInGb%3ARelationalDatabaseBundle%27"><span class="hs-identifier hs-var">ramSizeInGb</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679619139"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle"><span class="hs-identifier hs-type">RelationalDatabaseBundle</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- | The ID for the database bundle.</span><span>
-</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#relationalDatabaseBundle_bundleId"><span class="hs-identifier hs-type">relationalDatabaseBundle_bundleId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle"><span class="hs-identifier hs-type">RelationalDatabaseBundle</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span id="relationalDatabaseBundle_bundleId"><span class="annot"><span class="annottext">relationalDatabaseBundle_bundleId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; RelationalDatabaseBundle -&gt; f RelationalDatabaseBundle
-</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#relationalDatabaseBundle_bundleId"><span class="hs-identifier hs-var hs-var">relationalDatabaseBundle_bundleId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RelationalDatabaseBundle -&gt; Maybe Text)
--&gt; (RelationalDatabaseBundle
-    -&gt; Maybe Text -&gt; RelationalDatabaseBundle)
--&gt; Lens
-     RelationalDatabaseBundle
-     RelationalDatabaseBundle
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle%27"><span class="hs-identifier hs-type">RelationalDatabaseBundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679619137"><span class="annot"><span class="annottext">Maybe Text
-bundleId :: Maybe Text
-$sel:bundleId:RelationalDatabaseBundle' :: RelationalDatabaseBundle -&gt; Maybe Text
-</span><a href="#local-6989586621679619137"><span class="hs-identifier hs-var hs-var">bundleId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679619137"><span class="hs-identifier hs-var">bundleId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679619136"><span class="annot"><span class="annottext">s :: RelationalDatabaseBundle
-</span><a href="#local-6989586621679619136"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle%27"><span class="hs-identifier hs-type">RelationalDatabaseBundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679619135"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679619135"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RelationalDatabaseBundle
-</span><a href="#local-6989586621679619136"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bundleId:RelationalDatabaseBundle' :: Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#%24sel%3AbundleId%3ARelationalDatabaseBundle%27"><span class="hs-identifier hs-var">bundleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679619135"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle"><span class="hs-identifier hs-type">RelationalDatabaseBundle</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- | A Boolean value indicating whether the database bundle is active.</span><span>
-</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#relationalDatabaseBundle_isActive"><span class="hs-identifier hs-type">relationalDatabaseBundle_isActive</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle"><span class="hs-identifier hs-type">RelationalDatabaseBundle</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span id="relationalDatabaseBundle_isActive"><span class="annot"><span class="annottext">relationalDatabaseBundle_isActive :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; RelationalDatabaseBundle -&gt; f RelationalDatabaseBundle
-</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#relationalDatabaseBundle_isActive"><span class="hs-identifier hs-var hs-var">relationalDatabaseBundle_isActive</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RelationalDatabaseBundle -&gt; Maybe Bool)
--&gt; (RelationalDatabaseBundle
-    -&gt; Maybe Bool -&gt; RelationalDatabaseBundle)
--&gt; Lens
-     RelationalDatabaseBundle
-     RelationalDatabaseBundle
-     (Maybe Bool)
-     (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle%27"><span class="hs-identifier hs-type">RelationalDatabaseBundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679619133"><span class="annot"><span class="annottext">Maybe Bool
-isActive :: Maybe Bool
-$sel:isActive:RelationalDatabaseBundle' :: RelationalDatabaseBundle -&gt; Maybe Bool
-</span><a href="#local-6989586621679619133"><span class="hs-identifier hs-var hs-var">isActive</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679619133"><span class="hs-identifier hs-var">isActive</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679619132"><span class="annot"><span class="annottext">s :: RelationalDatabaseBundle
-</span><a href="#local-6989586621679619132"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle%27"><span class="hs-identifier hs-type">RelationalDatabaseBundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679619131"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679619131"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RelationalDatabaseBundle
-</span><a href="#local-6989586621679619132"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isActive:RelationalDatabaseBundle' :: Maybe Bool
-</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#%24sel%3AisActive%3ARelationalDatabaseBundle%27"><span class="hs-identifier hs-var">isActive</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679619131"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle"><span class="hs-identifier hs-type">RelationalDatabaseBundle</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- | The name for the database bundle.</span><span>
-</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#relationalDatabaseBundle_name"><span class="hs-identifier hs-type">relationalDatabaseBundle_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle"><span class="hs-identifier hs-type">RelationalDatabaseBundle</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span id="relationalDatabaseBundle_name"><span class="annot"><span class="annottext">relationalDatabaseBundle_name :: (Maybe Text -&gt; f (Maybe Text))
--&gt; RelationalDatabaseBundle -&gt; f RelationalDatabaseBundle
-</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#relationalDatabaseBundle_name"><span class="hs-identifier hs-var hs-var">relationalDatabaseBundle_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RelationalDatabaseBundle -&gt; Maybe Text)
--&gt; (RelationalDatabaseBundle
-    -&gt; Maybe Text -&gt; RelationalDatabaseBundle)
--&gt; Lens
-     RelationalDatabaseBundle
-     RelationalDatabaseBundle
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle%27"><span class="hs-identifier hs-type">RelationalDatabaseBundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679619129"><span class="annot"><span class="annottext">Maybe Text
-name :: Maybe Text
-$sel:name:RelationalDatabaseBundle' :: RelationalDatabaseBundle -&gt; Maybe Text
-</span><a href="#local-6989586621679619129"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679619129"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679619128"><span class="annot"><span class="annottext">s :: RelationalDatabaseBundle
-</span><a href="#local-6989586621679619128"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle%27"><span class="hs-identifier hs-type">RelationalDatabaseBundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679619127"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679619127"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RelationalDatabaseBundle
-</span><a href="#local-6989586621679619128"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:RelationalDatabaseBundle' :: Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#%24sel%3Aname%3ARelationalDatabaseBundle%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679619127"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle"><span class="hs-identifier hs-type">RelationalDatabaseBundle</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- | A Boolean value indicating whether the database bundle is encrypted.</span><span>
-</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#relationalDatabaseBundle_isEncrypted"><span class="hs-identifier hs-type">relationalDatabaseBundle_isEncrypted</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle"><span class="hs-identifier hs-type">RelationalDatabaseBundle</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span id="relationalDatabaseBundle_isEncrypted"><span class="annot"><span class="annottext">relationalDatabaseBundle_isEncrypted :: (Maybe Bool -&gt; f (Maybe Bool))
+</span><span id="line-93"></span><span class="hs-comment">-- | A Boolean value indicating whether the database bundle is encrypted.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#relationalDatabaseBundle_isEncrypted"><span class="hs-identifier hs-type">relationalDatabaseBundle_isEncrypted</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle"><span class="hs-identifier hs-type">RelationalDatabaseBundle</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="relationalDatabaseBundle_isEncrypted"><span class="annot"><span class="annottext">relationalDatabaseBundle_isEncrypted :: (Maybe Bool -&gt; f (Maybe Bool))
 -&gt; RelationalDatabaseBundle -&gt; f RelationalDatabaseBundle
 </span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#relationalDatabaseBundle_isEncrypted"><span class="hs-identifier hs-var hs-var">relationalDatabaseBundle_isEncrypted</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RelationalDatabaseBundle -&gt; Maybe Bool)
 -&gt; (RelationalDatabaseBundle
@@ -305,44 +209,20 @@ $sel:name:RelationalDatabaseBundle' :: RelationalDatabaseBundle -&gt; Maybe Text
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle%27"><span class="hs-identifier hs-type">RelationalDatabaseBundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679619125"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle%27"><span class="hs-identifier hs-type">RelationalDatabaseBundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679620046"><span class="annot"><span class="annottext">Maybe Bool
 isEncrypted :: Maybe Bool
 $sel:isEncrypted:RelationalDatabaseBundle' :: RelationalDatabaseBundle -&gt; Maybe Bool
-</span><a href="#local-6989586621679619125"><span class="hs-identifier hs-var hs-var">isEncrypted</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679619125"><span class="hs-identifier hs-var">isEncrypted</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679619124"><span class="annot"><span class="annottext">s :: RelationalDatabaseBundle
-</span><a href="#local-6989586621679619124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle%27"><span class="hs-identifier hs-type">RelationalDatabaseBundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679619123"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679619123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RelationalDatabaseBundle
-</span><a href="#local-6989586621679619124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isEncrypted:RelationalDatabaseBundle' :: Maybe Bool
+</span><a href="#local-6989586621679620046"><span class="hs-identifier hs-var hs-var">isEncrypted</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679620046"><span class="hs-identifier hs-var">isEncrypted</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679620045"><span class="annot"><span class="annottext">s :: RelationalDatabaseBundle
+</span><a href="#local-6989586621679620045"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle%27"><span class="hs-identifier hs-type">RelationalDatabaseBundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679620044"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679620044"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RelationalDatabaseBundle
+</span><a href="#local-6989586621679620045"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isEncrypted:RelationalDatabaseBundle' :: Maybe Bool
 </span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#%24sel%3AisEncrypted%3ARelationalDatabaseBundle%27"><span class="hs-identifier hs-var">isEncrypted</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679619123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle"><span class="hs-identifier hs-type">RelationalDatabaseBundle</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- | The data transfer rate per month in GB for the database bundle.</span><span>
-</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#relationalDatabaseBundle_transferPerMonthInGb"><span class="hs-identifier hs-type">relationalDatabaseBundle_transferPerMonthInGb</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle"><span class="hs-identifier hs-type">RelationalDatabaseBundle</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span id="relationalDatabaseBundle_transferPerMonthInGb"><span class="annot"><span class="annottext">relationalDatabaseBundle_transferPerMonthInGb :: (Maybe Int -&gt; f (Maybe Int))
--&gt; RelationalDatabaseBundle -&gt; f RelationalDatabaseBundle
-</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#relationalDatabaseBundle_transferPerMonthInGb"><span class="hs-identifier hs-var hs-var">relationalDatabaseBundle_transferPerMonthInGb</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RelationalDatabaseBundle -&gt; Maybe Int)
--&gt; (RelationalDatabaseBundle
-    -&gt; Maybe Int -&gt; RelationalDatabaseBundle)
--&gt; Lens
-     RelationalDatabaseBundle
-     RelationalDatabaseBundle
-     (Maybe Int)
-     (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle%27"><span class="hs-identifier hs-type">RelationalDatabaseBundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679619121"><span class="annot"><span class="annottext">Maybe Int
-transferPerMonthInGb :: Maybe Int
-$sel:transferPerMonthInGb:RelationalDatabaseBundle' :: RelationalDatabaseBundle -&gt; Maybe Int
-</span><a href="#local-6989586621679619121"><span class="hs-identifier hs-var hs-var">transferPerMonthInGb</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679619121"><span class="hs-identifier hs-var">transferPerMonthInGb</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679619120"><span class="annot"><span class="annottext">s :: RelationalDatabaseBundle
-</span><a href="#local-6989586621679619120"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle%27"><span class="hs-identifier hs-type">RelationalDatabaseBundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679619119"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679619119"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RelationalDatabaseBundle
-</span><a href="#local-6989586621679619120"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transferPerMonthInGb:RelationalDatabaseBundle' :: Maybe Int
-</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#%24sel%3AtransferPerMonthInGb%3ARelationalDatabaseBundle%27"><span class="hs-identifier hs-var">transferPerMonthInGb</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679619119"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle"><span class="hs-identifier hs-type">RelationalDatabaseBundle</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- | The number of virtual CPUs (vCPUs) for the database bundle.</span><span>
-</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#relationalDatabaseBundle_cpuCount"><span class="hs-identifier hs-type">relationalDatabaseBundle_cpuCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle"><span class="hs-identifier hs-type">RelationalDatabaseBundle</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-119"></span><span id="relationalDatabaseBundle_cpuCount"><span class="annot"><span class="annottext">relationalDatabaseBundle_cpuCount :: (Maybe Int -&gt; f (Maybe Int))
+</span><a href="#local-6989586621679620044"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle"><span class="hs-identifier hs-type">RelationalDatabaseBundle</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The number of virtual CPUs (vCPUs) for the database bundle.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#relationalDatabaseBundle_cpuCount"><span class="hs-identifier hs-type">relationalDatabaseBundle_cpuCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle"><span class="hs-identifier hs-type">RelationalDatabaseBundle</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="relationalDatabaseBundle_cpuCount"><span class="annot"><span class="annottext">relationalDatabaseBundle_cpuCount :: (Maybe Int -&gt; f (Maybe Int))
 -&gt; RelationalDatabaseBundle -&gt; f RelationalDatabaseBundle
 </span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#relationalDatabaseBundle_cpuCount"><span class="hs-identifier hs-var hs-var">relationalDatabaseBundle_cpuCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RelationalDatabaseBundle -&gt; Maybe Int)
 -&gt; (RelationalDatabaseBundle
@@ -353,44 +233,92 @@ $sel:transferPerMonthInGb:RelationalDatabaseBundle' :: RelationalDatabaseBundle 
      (Maybe Int)
      (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle%27"><span class="hs-identifier hs-type">RelationalDatabaseBundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679619117"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle%27"><span class="hs-identifier hs-type">RelationalDatabaseBundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679620042"><span class="annot"><span class="annottext">Maybe Int
 cpuCount :: Maybe Int
 $sel:cpuCount:RelationalDatabaseBundle' :: RelationalDatabaseBundle -&gt; Maybe Int
-</span><a href="#local-6989586621679619117"><span class="hs-identifier hs-var hs-var">cpuCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679619117"><span class="hs-identifier hs-var">cpuCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679619116"><span class="annot"><span class="annottext">s :: RelationalDatabaseBundle
-</span><a href="#local-6989586621679619116"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle%27"><span class="hs-identifier hs-type">RelationalDatabaseBundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679619115"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679619115"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RelationalDatabaseBundle
-</span><a href="#local-6989586621679619116"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cpuCount:RelationalDatabaseBundle' :: Maybe Int
+</span><a href="#local-6989586621679620042"><span class="hs-identifier hs-var hs-var">cpuCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679620042"><span class="hs-identifier hs-var">cpuCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679620041"><span class="annot"><span class="annottext">s :: RelationalDatabaseBundle
+</span><a href="#local-6989586621679620041"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle%27"><span class="hs-identifier hs-type">RelationalDatabaseBundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679620040"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679620040"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RelationalDatabaseBundle
+</span><a href="#local-6989586621679620041"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cpuCount:RelationalDatabaseBundle' :: Maybe Int
 </span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#%24sel%3AcpuCount%3ARelationalDatabaseBundle%27"><span class="hs-identifier hs-var">cpuCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679619115"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle"><span class="hs-identifier hs-type">RelationalDatabaseBundle</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- | The cost of the database bundle in US currency.</span><span>
-</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#relationalDatabaseBundle_price"><span class="hs-identifier hs-type">relationalDatabaseBundle_price</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle"><span class="hs-identifier hs-type">RelationalDatabaseBundle</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-123"></span><span id="relationalDatabaseBundle_price"><span class="annot"><span class="annottext">relationalDatabaseBundle_price :: (Maybe Double -&gt; f (Maybe Double))
+</span><a href="#local-6989586621679620040"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle"><span class="hs-identifier hs-type">RelationalDatabaseBundle</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The data transfer rate per month in GB for the database bundle.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#relationalDatabaseBundle_transferPerMonthInGb"><span class="hs-identifier hs-type">relationalDatabaseBundle_transferPerMonthInGb</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle"><span class="hs-identifier hs-type">RelationalDatabaseBundle</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="relationalDatabaseBundle_transferPerMonthInGb"><span class="annot"><span class="annottext">relationalDatabaseBundle_transferPerMonthInGb :: (Maybe Int -&gt; f (Maybe Int))
 -&gt; RelationalDatabaseBundle -&gt; f RelationalDatabaseBundle
-</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#relationalDatabaseBundle_price"><span class="hs-identifier hs-var hs-var">relationalDatabaseBundle_price</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RelationalDatabaseBundle -&gt; Maybe Double)
+</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#relationalDatabaseBundle_transferPerMonthInGb"><span class="hs-identifier hs-var hs-var">relationalDatabaseBundle_transferPerMonthInGb</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RelationalDatabaseBundle -&gt; Maybe Int)
 -&gt; (RelationalDatabaseBundle
-    -&gt; Maybe Double -&gt; RelationalDatabaseBundle)
+    -&gt; Maybe Int -&gt; RelationalDatabaseBundle)
 -&gt; Lens
      RelationalDatabaseBundle
      RelationalDatabaseBundle
-     (Maybe Double)
-     (Maybe Double)
+     (Maybe Int)
+     (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle%27"><span class="hs-identifier hs-type">RelationalDatabaseBundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679619113"><span class="annot"><span class="annottext">Maybe Double
-price :: Maybe Double
-$sel:price:RelationalDatabaseBundle' :: RelationalDatabaseBundle -&gt; Maybe Double
-</span><a href="#local-6989586621679619113"><span class="hs-identifier hs-var hs-var">price</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679619113"><span class="hs-identifier hs-var">price</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679619112"><span class="annot"><span class="annottext">s :: RelationalDatabaseBundle
-</span><a href="#local-6989586621679619112"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle%27"><span class="hs-identifier hs-type">RelationalDatabaseBundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679619111"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679619111"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RelationalDatabaseBundle
-</span><a href="#local-6989586621679619112"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:price:RelationalDatabaseBundle' :: Maybe Double
-</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#%24sel%3Aprice%3ARelationalDatabaseBundle%27"><span class="hs-identifier hs-var">price</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679619111"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle"><span class="hs-identifier hs-type">RelationalDatabaseBundle</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- | The size of the disk for the database bundle.</span><span>
-</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#relationalDatabaseBundle_diskSizeInGb"><span class="hs-identifier hs-type">relationalDatabaseBundle_diskSizeInGb</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle"><span class="hs-identifier hs-type">RelationalDatabaseBundle</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span id="relationalDatabaseBundle_diskSizeInGb"><span class="annot"><span class="annottext">relationalDatabaseBundle_diskSizeInGb :: (Maybe Int -&gt; f (Maybe Int))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle%27"><span class="hs-identifier hs-type">RelationalDatabaseBundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679620038"><span class="annot"><span class="annottext">Maybe Int
+transferPerMonthInGb :: Maybe Int
+$sel:transferPerMonthInGb:RelationalDatabaseBundle' :: RelationalDatabaseBundle -&gt; Maybe Int
+</span><a href="#local-6989586621679620038"><span class="hs-identifier hs-var hs-var">transferPerMonthInGb</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679620038"><span class="hs-identifier hs-var">transferPerMonthInGb</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679620037"><span class="annot"><span class="annottext">s :: RelationalDatabaseBundle
+</span><a href="#local-6989586621679620037"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle%27"><span class="hs-identifier hs-type">RelationalDatabaseBundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679620036"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679620036"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RelationalDatabaseBundle
+</span><a href="#local-6989586621679620037"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transferPerMonthInGb:RelationalDatabaseBundle' :: Maybe Int
+</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#%24sel%3AtransferPerMonthInGb%3ARelationalDatabaseBundle%27"><span class="hs-identifier hs-var">transferPerMonthInGb</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679620036"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle"><span class="hs-identifier hs-type">RelationalDatabaseBundle</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The ID for the database bundle.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#relationalDatabaseBundle_bundleId"><span class="hs-identifier hs-type">relationalDatabaseBundle_bundleId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle"><span class="hs-identifier hs-type">RelationalDatabaseBundle</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="relationalDatabaseBundle_bundleId"><span class="annot"><span class="annottext">relationalDatabaseBundle_bundleId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RelationalDatabaseBundle -&gt; f RelationalDatabaseBundle
+</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#relationalDatabaseBundle_bundleId"><span class="hs-identifier hs-var hs-var">relationalDatabaseBundle_bundleId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RelationalDatabaseBundle -&gt; Maybe Text)
+-&gt; (RelationalDatabaseBundle
+    -&gt; Maybe Text -&gt; RelationalDatabaseBundle)
+-&gt; Lens
+     RelationalDatabaseBundle
+     RelationalDatabaseBundle
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle%27"><span class="hs-identifier hs-type">RelationalDatabaseBundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679620034"><span class="annot"><span class="annottext">Maybe Text
+bundleId :: Maybe Text
+$sel:bundleId:RelationalDatabaseBundle' :: RelationalDatabaseBundle -&gt; Maybe Text
+</span><a href="#local-6989586621679620034"><span class="hs-identifier hs-var hs-var">bundleId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679620034"><span class="hs-identifier hs-var">bundleId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679620033"><span class="annot"><span class="annottext">s :: RelationalDatabaseBundle
+</span><a href="#local-6989586621679620033"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle%27"><span class="hs-identifier hs-type">RelationalDatabaseBundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679620032"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679620032"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RelationalDatabaseBundle
+</span><a href="#local-6989586621679620033"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bundleId:RelationalDatabaseBundle' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#%24sel%3AbundleId%3ARelationalDatabaseBundle%27"><span class="hs-identifier hs-var">bundleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679620032"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle"><span class="hs-identifier hs-type">RelationalDatabaseBundle</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The name for the database bundle.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#relationalDatabaseBundle_name"><span class="hs-identifier hs-type">relationalDatabaseBundle_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle"><span class="hs-identifier hs-type">RelationalDatabaseBundle</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="relationalDatabaseBundle_name"><span class="annot"><span class="annottext">relationalDatabaseBundle_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RelationalDatabaseBundle -&gt; f RelationalDatabaseBundle
+</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#relationalDatabaseBundle_name"><span class="hs-identifier hs-var hs-var">relationalDatabaseBundle_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RelationalDatabaseBundle -&gt; Maybe Text)
+-&gt; (RelationalDatabaseBundle
+    -&gt; Maybe Text -&gt; RelationalDatabaseBundle)
+-&gt; Lens
+     RelationalDatabaseBundle
+     RelationalDatabaseBundle
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle%27"><span class="hs-identifier hs-type">RelationalDatabaseBundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679620030"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:RelationalDatabaseBundle' :: RelationalDatabaseBundle -&gt; Maybe Text
+</span><a href="#local-6989586621679620030"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679620030"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679620029"><span class="annot"><span class="annottext">s :: RelationalDatabaseBundle
+</span><a href="#local-6989586621679620029"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle%27"><span class="hs-identifier hs-type">RelationalDatabaseBundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679620028"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679620028"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RelationalDatabaseBundle
+</span><a href="#local-6989586621679620029"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:RelationalDatabaseBundle' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#%24sel%3Aname%3ARelationalDatabaseBundle%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679620028"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle"><span class="hs-identifier hs-type">RelationalDatabaseBundle</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The size of the disk for the database bundle.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#relationalDatabaseBundle_diskSizeInGb"><span class="hs-identifier hs-type">relationalDatabaseBundle_diskSizeInGb</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle"><span class="hs-identifier hs-type">RelationalDatabaseBundle</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="relationalDatabaseBundle_diskSizeInGb"><span class="annot"><span class="annottext">relationalDatabaseBundle_diskSizeInGb :: (Maybe Int -&gt; f (Maybe Int))
 -&gt; RelationalDatabaseBundle -&gt; f RelationalDatabaseBundle
 </span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#relationalDatabaseBundle_diskSizeInGb"><span class="hs-identifier hs-var hs-var">relationalDatabaseBundle_diskSizeInGb</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RelationalDatabaseBundle -&gt; Maybe Int)
 -&gt; (RelationalDatabaseBundle
@@ -401,19 +329,91 @@ $sel:price:RelationalDatabaseBundle' :: RelationalDatabaseBundle -&gt; Maybe Dou
      (Maybe Int)
      (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle%27"><span class="hs-identifier hs-type">RelationalDatabaseBundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679619109"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle%27"><span class="hs-identifier hs-type">RelationalDatabaseBundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679620026"><span class="annot"><span class="annottext">Maybe Int
 diskSizeInGb :: Maybe Int
 $sel:diskSizeInGb:RelationalDatabaseBundle' :: RelationalDatabaseBundle -&gt; Maybe Int
-</span><a href="#local-6989586621679619109"><span class="hs-identifier hs-var hs-var">diskSizeInGb</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679619109"><span class="hs-identifier hs-var">diskSizeInGb</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679619108"><span class="annot"><span class="annottext">s :: RelationalDatabaseBundle
-</span><a href="#local-6989586621679619108"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle%27"><span class="hs-identifier hs-type">RelationalDatabaseBundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679619107"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679619107"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RelationalDatabaseBundle
-</span><a href="#local-6989586621679619108"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:diskSizeInGb:RelationalDatabaseBundle' :: Maybe Int
+</span><a href="#local-6989586621679620026"><span class="hs-identifier hs-var hs-var">diskSizeInGb</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679620026"><span class="hs-identifier hs-var">diskSizeInGb</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679620025"><span class="annot"><span class="annottext">s :: RelationalDatabaseBundle
+</span><a href="#local-6989586621679620025"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle%27"><span class="hs-identifier hs-type">RelationalDatabaseBundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679620024"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679620024"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RelationalDatabaseBundle
+</span><a href="#local-6989586621679620025"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:diskSizeInGb:RelationalDatabaseBundle' :: Maybe Int
 </span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#%24sel%3AdiskSizeInGb%3ARelationalDatabaseBundle%27"><span class="hs-identifier hs-var">diskSizeInGb</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679619107"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle"><span class="hs-identifier hs-type">RelationalDatabaseBundle</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679620024"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle"><span class="hs-identifier hs-type">RelationalDatabaseBundle</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | The cost of the database bundle in US currency.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#relationalDatabaseBundle_price"><span class="hs-identifier hs-type">relationalDatabaseBundle_price</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle"><span class="hs-identifier hs-type">RelationalDatabaseBundle</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="relationalDatabaseBundle_price"><span class="annot"><span class="annottext">relationalDatabaseBundle_price :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; RelationalDatabaseBundle -&gt; f RelationalDatabaseBundle
+</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#relationalDatabaseBundle_price"><span class="hs-identifier hs-var hs-var">relationalDatabaseBundle_price</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RelationalDatabaseBundle -&gt; Maybe Double)
+-&gt; (RelationalDatabaseBundle
+    -&gt; Maybe Double -&gt; RelationalDatabaseBundle)
+-&gt; Lens
+     RelationalDatabaseBundle
+     RelationalDatabaseBundle
+     (Maybe Double)
+     (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle%27"><span class="hs-identifier hs-type">RelationalDatabaseBundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679620022"><span class="annot"><span class="annottext">Maybe Double
+price :: Maybe Double
+$sel:price:RelationalDatabaseBundle' :: RelationalDatabaseBundle -&gt; Maybe Double
+</span><a href="#local-6989586621679620022"><span class="hs-identifier hs-var hs-var">price</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679620022"><span class="hs-identifier hs-var">price</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679620021"><span class="annot"><span class="annottext">s :: RelationalDatabaseBundle
+</span><a href="#local-6989586621679620021"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle%27"><span class="hs-identifier hs-type">RelationalDatabaseBundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679620020"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679620020"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RelationalDatabaseBundle
+</span><a href="#local-6989586621679620021"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:price:RelationalDatabaseBundle' :: Maybe Double
+</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#%24sel%3Aprice%3ARelationalDatabaseBundle%27"><span class="hs-identifier hs-var">price</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679620020"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle"><span class="hs-identifier hs-type">RelationalDatabaseBundle</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | A Boolean value indicating whether the database bundle is active.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#relationalDatabaseBundle_isActive"><span class="hs-identifier hs-type">relationalDatabaseBundle_isActive</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle"><span class="hs-identifier hs-type">RelationalDatabaseBundle</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="relationalDatabaseBundle_isActive"><span class="annot"><span class="annottext">relationalDatabaseBundle_isActive :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; RelationalDatabaseBundle -&gt; f RelationalDatabaseBundle
+</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#relationalDatabaseBundle_isActive"><span class="hs-identifier hs-var hs-var">relationalDatabaseBundle_isActive</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RelationalDatabaseBundle -&gt; Maybe Bool)
+-&gt; (RelationalDatabaseBundle
+    -&gt; Maybe Bool -&gt; RelationalDatabaseBundle)
+-&gt; Lens
+     RelationalDatabaseBundle
+     RelationalDatabaseBundle
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle%27"><span class="hs-identifier hs-type">RelationalDatabaseBundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679620018"><span class="annot"><span class="annottext">Maybe Bool
+isActive :: Maybe Bool
+$sel:isActive:RelationalDatabaseBundle' :: RelationalDatabaseBundle -&gt; Maybe Bool
+</span><a href="#local-6989586621679620018"><span class="hs-identifier hs-var hs-var">isActive</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679620018"><span class="hs-identifier hs-var">isActive</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679620017"><span class="annot"><span class="annottext">s :: RelationalDatabaseBundle
+</span><a href="#local-6989586621679620017"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle%27"><span class="hs-identifier hs-type">RelationalDatabaseBundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679620016"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679620016"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RelationalDatabaseBundle
+</span><a href="#local-6989586621679620017"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isActive:RelationalDatabaseBundle' :: Maybe Bool
+</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#%24sel%3AisActive%3ARelationalDatabaseBundle%27"><span class="hs-identifier hs-var">isActive</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679620016"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle"><span class="hs-identifier hs-type">RelationalDatabaseBundle</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The amount of RAM in GB (for example, @2.0@) for the database bundle.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#relationalDatabaseBundle_ramSizeInGb"><span class="hs-identifier hs-type">relationalDatabaseBundle_ramSizeInGb</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle"><span class="hs-identifier hs-type">RelationalDatabaseBundle</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="relationalDatabaseBundle_ramSizeInGb"><span class="annot"><span class="annottext">relationalDatabaseBundle_ramSizeInGb :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; RelationalDatabaseBundle -&gt; f RelationalDatabaseBundle
+</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#relationalDatabaseBundle_ramSizeInGb"><span class="hs-identifier hs-var hs-var">relationalDatabaseBundle_ramSizeInGb</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RelationalDatabaseBundle -&gt; Maybe Double)
+-&gt; (RelationalDatabaseBundle
+    -&gt; Maybe Double -&gt; RelationalDatabaseBundle)
+-&gt; Lens
+     RelationalDatabaseBundle
+     RelationalDatabaseBundle
+     (Maybe Double)
+     (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle%27"><span class="hs-identifier hs-type">RelationalDatabaseBundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679620014"><span class="annot"><span class="annottext">Maybe Double
+ramSizeInGb :: Maybe Double
+$sel:ramSizeInGb:RelationalDatabaseBundle' :: RelationalDatabaseBundle -&gt; Maybe Double
+</span><a href="#local-6989586621679620014"><span class="hs-identifier hs-var hs-var">ramSizeInGb</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679620014"><span class="hs-identifier hs-var">ramSizeInGb</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679620013"><span class="annot"><span class="annottext">s :: RelationalDatabaseBundle
+</span><a href="#local-6989586621679620013"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle%27"><span class="hs-identifier hs-type">RelationalDatabaseBundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679620012"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679620012"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RelationalDatabaseBundle
+</span><a href="#local-6989586621679620013"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ramSizeInGb:RelationalDatabaseBundle' :: Maybe Double
+</span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#%24sel%3AramSizeInGb%3ARelationalDatabaseBundle%27"><span class="hs-identifier hs-var">ramSizeInGb</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679620012"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle"><span class="hs-identifier hs-type">RelationalDatabaseBundle</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679619104"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle"><span class="hs-identifier hs-type">RelationalDatabaseBundle</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679619102"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RelationalDatabaseBundle
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679620009"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle"><span class="hs-identifier hs-type">RelationalDatabaseBundle</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679620007"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RelationalDatabaseBundle
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser RelationalDatabaseBundle)
@@ -423,185 +423,185 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;RelationalDatabaseBundle&quot;</span></span><span>
-</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679619099"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679619099"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">Maybe Double
--&gt; Maybe Text
--&gt; Maybe Bool
--&gt; Maybe Text
--&gt; Maybe Bool
+</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679620004"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679620004"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
 -&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe Int
 -&gt; Maybe Double
--&gt; Maybe Int
+-&gt; Maybe Bool
+-&gt; Maybe Double
 -&gt; RelationalDatabaseBundle
 </span><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle%27"><span class="hs-identifier hs-var">RelationalDatabaseBundle'</span></a></span><span>
-</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Double
- -&gt; Maybe Text
- -&gt; Maybe Bool
- -&gt; Maybe Text
- -&gt; Maybe Bool
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool
  -&gt; Maybe Int
+ -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; Maybe Int
  -&gt; Maybe Double
- -&gt; Maybe Int
+ -&gt; Maybe Bool
+ -&gt; Maybe Double
  -&gt; RelationalDatabaseBundle)
--&gt; Parser (Maybe Double)
+-&gt; Parser (Maybe Bool)
 -&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Bool
-      -&gt; Maybe Text
-      -&gt; Maybe Bool
+     (Maybe Int
       -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe Int
       -&gt; Maybe Double
-      -&gt; Maybe Int
+      -&gt; Maybe Bool
+      -&gt; Maybe Double
       -&gt; RelationalDatabaseBundle)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679619099"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ramSizeInGb&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Bool
-   -&gt; Maybe Text
-   -&gt; Maybe Bool
-   -&gt; Maybe Int
-   -&gt; Maybe Int
-   -&gt; Maybe Double
-   -&gt; Maybe Int
-   -&gt; RelationalDatabaseBundle)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Bool
-      -&gt; Maybe Text
-      -&gt; Maybe Bool
-      -&gt; Maybe Int
-      -&gt; Maybe Int
-      -&gt; Maybe Double
-      -&gt; Maybe Int
-      -&gt; RelationalDatabaseBundle)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679619099"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;bundleId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Bool
-   -&gt; Maybe Text
-   -&gt; Maybe Bool
-   -&gt; Maybe Int
-   -&gt; Maybe Int
-   -&gt; Maybe Double
-   -&gt; Maybe Int
-   -&gt; RelationalDatabaseBundle)
--&gt; Parser (Maybe Bool)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Bool
-      -&gt; Maybe Int
-      -&gt; Maybe Int
-      -&gt; Maybe Double
-      -&gt; Maybe Int
-      -&gt; RelationalDatabaseBundle)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679619099"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;isActive&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Bool
-   -&gt; Maybe Int
-   -&gt; Maybe Int
-   -&gt; Maybe Double
-   -&gt; Maybe Int
-   -&gt; RelationalDatabaseBundle)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Bool
-      -&gt; Maybe Int
-      -&gt; Maybe Int
-      -&gt; Maybe Double
-      -&gt; Maybe Int
-      -&gt; RelationalDatabaseBundle)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679619099"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Bool
-   -&gt; Maybe Int
-   -&gt; Maybe Int
-   -&gt; Maybe Double
-   -&gt; Maybe Int
-   -&gt; RelationalDatabaseBundle)
--&gt; Parser (Maybe Bool)
--&gt; Parser
-     (Maybe Int
-      -&gt; Maybe Int
-      -&gt; Maybe Double
-      -&gt; Maybe Int
-      -&gt; RelationalDatabaseBundle)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679619099"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679620004"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;isEncrypted&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Int
    -&gt; Maybe Int
-   -&gt; Maybe Double
+   -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; Maybe Int
+   -&gt; Maybe Double
+   -&gt; Maybe Bool
+   -&gt; Maybe Double
    -&gt; RelationalDatabaseBundle)
 -&gt; Parser (Maybe Int)
 -&gt; Parser
      (Maybe Int
-      -&gt; Maybe Double -&gt; Maybe Int -&gt; RelationalDatabaseBundle)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Double
+      -&gt; Maybe Bool
+      -&gt; Maybe Double
+      -&gt; RelationalDatabaseBundle)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679619099"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;transferPerMonthInGb&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Int
-   -&gt; Maybe Double -&gt; Maybe Int -&gt; RelationalDatabaseBundle)
--&gt; Parser (Maybe Int)
--&gt; Parser (Maybe Double -&gt; Maybe Int -&gt; RelationalDatabaseBundle)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679619099"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679620004"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cpuCount&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Double -&gt; Maybe Int -&gt; RelationalDatabaseBundle)
--&gt; Parser (Maybe Double)
--&gt; Parser (Maybe Int -&gt; RelationalDatabaseBundle)
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Double
+   -&gt; Maybe Bool
+   -&gt; Maybe Double
+   -&gt; RelationalDatabaseBundle)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Double
+      -&gt; Maybe Bool
+      -&gt; Maybe Double
+      -&gt; RelationalDatabaseBundle)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679619099"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679620004"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;price&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; RelationalDatabaseBundle)
--&gt; Parser (Maybe Int) -&gt; Parser RelationalDatabaseBundle
+</span><span class="hs-string">&quot;transferPerMonthInGb&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Double
+   -&gt; Maybe Bool
+   -&gt; Maybe Double
+   -&gt; RelationalDatabaseBundle)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Double
+      -&gt; Maybe Bool
+      -&gt; Maybe Double
+      -&gt; RelationalDatabaseBundle)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679619099"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679620004"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;bundleId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Double
+   -&gt; Maybe Bool
+   -&gt; Maybe Double
+   -&gt; RelationalDatabaseBundle)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe Double
+      -&gt; Maybe Bool
+      -&gt; Maybe Double
+      -&gt; RelationalDatabaseBundle)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679620004"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Double
+   -&gt; Maybe Bool
+   -&gt; Maybe Double
+   -&gt; RelationalDatabaseBundle)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Double
+      -&gt; Maybe Bool -&gt; Maybe Double -&gt; RelationalDatabaseBundle)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679620004"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;diskSizeInGb&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Double
+   -&gt; Maybe Bool -&gt; Maybe Double -&gt; RelationalDatabaseBundle)
+-&gt; Parser (Maybe Double)
+-&gt; Parser (Maybe Bool -&gt; Maybe Double -&gt; RelationalDatabaseBundle)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679620004"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;price&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; Maybe Double -&gt; RelationalDatabaseBundle)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser (Maybe Double -&gt; RelationalDatabaseBundle)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679620004"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;isActive&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Double -&gt; RelationalDatabaseBundle)
+-&gt; Parser (Maybe Double) -&gt; Parser RelationalDatabaseBundle
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679620004"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ramSizeInGb&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679619093"><span id="local-6989586621679619095"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle"><span class="hs-identifier hs-type">RelationalDatabaseBundle</span></a></span></span></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679619998"><span id="local-6989586621679620000"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle"><span class="hs-identifier hs-type">RelationalDatabaseBundle</span></a></span></span></span><span>
 </span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679619090"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle"><span class="hs-identifier hs-type">RelationalDatabaseBundle</span></a></span></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679619995"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabaseBundle.html#RelationalDatabaseBundle"><span class="hs-identifier hs-type">RelationalDatabaseBundle</span></a></span></span><span>
 </span><span id="line-149"></span></pre></body></html>

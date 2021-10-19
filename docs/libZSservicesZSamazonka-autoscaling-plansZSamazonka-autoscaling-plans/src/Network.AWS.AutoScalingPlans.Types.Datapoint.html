@@ -27,15 +27,15 @@
 </span><span id="line-27"></span><span class="hs-comment">-- scaling.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newDatapoint' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679175656"><span id="local-6989586621679175657"></span></span><span class="hs-keyword">data</span><span> </span><span id="Datapoint"><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.Datapoint.html#Datapoint"><span class="hs-identifier hs-var">Datapoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Datapoint%27"><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.Datapoint.html#Datapoint%27"><span class="hs-identifier hs-var">Datapoint'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time stamp for the data point in UTC format.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3Atimestamp%3ADatapoint%27"><span class="annot"><span class="annottext">Datapoint -&gt; Maybe POSIX
-</span><a href="Network.AWS.AutoScalingPlans.Types.Datapoint.html#%24sel%3Atimestamp%3ADatapoint%27"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The value of the data point.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3Avalue%3ADatapoint%27"><span class="annot"><span class="annottext">Datapoint -&gt; Maybe Double
-</span><a href="Network.AWS.AutoScalingPlans.Types.Datapoint.html#%24sel%3Avalue%3ADatapoint%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679175716"><span id="local-6989586621679175717"></span></span><span class="hs-keyword">data</span><span> </span><span id="Datapoint"><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.Datapoint.html#Datapoint"><span class="hs-identifier hs-var">Datapoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Datapoint%27"><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.Datapoint.html#Datapoint%27"><span class="hs-identifier hs-var">Datapoint'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value of the data point.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Avalue%3ADatapoint%27"><span class="annot"><span class="annottext">Datapoint -&gt; Maybe Double
+</span><a href="Network.AWS.AutoScalingPlans.Types.Datapoint.html#%24sel%3Avalue%3ADatapoint%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The time stamp for the data point in UTC format.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Atimestamp%3ADatapoint%27"><span class="annot"><span class="annottext">Datapoint -&gt; Maybe POSIX
+</span><a href="Network.AWS.AutoScalingPlans.Types.Datapoint.html#%24sel%3Atimestamp%3ADatapoint%27"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175649"><span id="local-6989586621679175651"><span class="annot"><span class="annottext">Datapoint -&gt; Datapoint -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175709"><span id="local-6989586621679175711"><span class="annot"><span class="annottext">Datapoint -&gt; Datapoint -&gt; Bool
 (Datapoint -&gt; Datapoint -&gt; Bool)
 -&gt; (Datapoint -&gt; Datapoint -&gt; Bool) -&gt; Eq Datapoint
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Datapoint -&gt; Datapoint -&gt; Bool
 == :: Datapoint -&gt; Datapoint -&gt; Bool
 $c== :: Datapoint -&gt; Datapoint -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175640"><span id="local-6989586621679175642"><span id="local-6989586621679175644"><span id="local-6989586621679175646"><span class="annot"><span class="annottext">ReadPrec [Datapoint]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175700"><span id="local-6989586621679175702"><span id="local-6989586621679175704"><span id="local-6989586621679175706"><span class="annot"><span class="annottext">ReadPrec [Datapoint]
 ReadPrec Datapoint
 Int -&gt; ReadS Datapoint
 ReadS [Datapoint]
@@ -63,7 +63,7 @@ readList :: ReadS [Datapoint]
 $creadList :: ReadS [Datapoint]
 readsPrec :: Int -&gt; ReadS Datapoint
 $creadsPrec :: Int -&gt; ReadS Datapoint
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175633"><span id="local-6989586621679175635"><span id="local-6989586621679175637"><span class="annot"><span class="annottext">Int -&gt; Datapoint -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175693"><span id="local-6989586621679175695"><span id="local-6989586621679175697"><span class="annot"><span class="annottext">Int -&gt; Datapoint -&gt; ShowS
 [Datapoint] -&gt; ShowS
 Datapoint -&gt; String
 (Int -&gt; Datapoint -&gt; ShowS)
@@ -96,42 +96,60 @@ $cfrom :: forall x. Datapoint -&gt; Rep Datapoint x
 </span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-45"></span><span class="hs-comment">--</span><span>
-</span><span id="line-46"></span><span class="hs-comment">-- 'timestamp', 'datapoint_timestamp' - The time stamp for the data point in UTC format.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'value', 'datapoint_value' - The value of the data point.</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- 'value', 'datapoint_value' - The value of the data point.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'timestamp', 'datapoint_timestamp' - The time stamp for the data point in UTC format.</span><span>
 </span><span id="line-49"></span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.Datapoint.html#newDatapoint"><span class="hs-identifier hs-type">newDatapoint</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-50"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.Datapoint.html#Datapoint"><span class="hs-identifier hs-type">Datapoint</span></a></span><span>
 </span><span id="line-51"></span><span id="newDatapoint"><span class="annot"><span class="annottext">newDatapoint :: Datapoint
 </span><a href="Network.AWS.AutoScalingPlans.Types.Datapoint.html#newDatapoint"><span class="hs-identifier hs-var hs-var">newDatapoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">Datapoint' :: Maybe POSIX -&gt; Maybe Double -&gt; Datapoint
+</span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">Datapoint' :: Maybe Double -&gt; Maybe POSIX -&gt; Datapoint
 </span><a href="Network.AWS.AutoScalingPlans.Types.Datapoint.html#Datapoint%27"><span class="hs-identifier hs-type">Datapoint'</span></a></span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:timestamp:Datapoint' :: Maybe POSIX
-</span><a href="Network.AWS.AutoScalingPlans.Types.Datapoint.html#%24sel%3Atimestamp%3ADatapoint%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:value:Datapoint' :: Maybe Double
+</span><a href="Network.AWS.AutoScalingPlans.Types.Datapoint.html#%24sel%3Avalue%3ADatapoint%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:value:Datapoint' :: Maybe Double
-</span><a href="Network.AWS.AutoScalingPlans.Types.Datapoint.html#%24sel%3Avalue%3ADatapoint%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:timestamp:Datapoint' :: Maybe POSIX
+</span><a href="Network.AWS.AutoScalingPlans.Types.Datapoint.html#%24sel%3Atimestamp%3ADatapoint%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- | The time stamp for the data point in UTC format.</span><span>
-</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.Datapoint.html#datapoint_timestamp"><span class="hs-identifier hs-type">datapoint_timestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.Datapoint.html#Datapoint"><span class="hs-identifier hs-type">Datapoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-59"></span><span id="datapoint_timestamp"><span class="annot"><span class="annottext">datapoint_timestamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Datapoint -&gt; f Datapoint
+</span><span id="line-57"></span><span class="hs-comment">-- | The value of the data point.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.Datapoint.html#datapoint_value"><span class="hs-identifier hs-type">datapoint_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.Datapoint.html#Datapoint"><span class="hs-identifier hs-type">Datapoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span id="datapoint_value"><span class="annot"><span class="annottext">datapoint_value :: (Maybe Double -&gt; f (Maybe Double)) -&gt; Datapoint -&gt; f Datapoint
+</span><a href="Network.AWS.AutoScalingPlans.Types.Datapoint.html#datapoint_value"><span class="hs-identifier hs-var hs-var">datapoint_value</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Datapoint -&gt; Maybe Double)
+-&gt; (Datapoint -&gt; Maybe Double -&gt; Datapoint)
+-&gt; Lens Datapoint Datapoint (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.Datapoint.html#Datapoint%27"><span class="hs-identifier hs-type">Datapoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175684"><span class="annot"><span class="annottext">Maybe Double
+value :: Maybe Double
+$sel:value:Datapoint' :: Datapoint -&gt; Maybe Double
+</span><a href="#local-6989586621679175684"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679175684"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175683"><span class="annot"><span class="annottext">s :: Datapoint
+</span><a href="#local-6989586621679175683"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.Datapoint.html#Datapoint%27"><span class="hs-identifier hs-type">Datapoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175682"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679175682"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Datapoint
+</span><a href="#local-6989586621679175683"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Datapoint' :: Maybe Double
+</span><a href="Network.AWS.AutoScalingPlans.Types.Datapoint.html#%24sel%3Avalue%3ADatapoint%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679175682"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.Datapoint.html#Datapoint"><span class="hs-identifier hs-type">Datapoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | The time stamp for the data point in UTC format.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.Datapoint.html#datapoint_timestamp"><span class="hs-identifier hs-type">datapoint_timestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.Datapoint.html#Datapoint"><span class="hs-identifier hs-type">Datapoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="datapoint_timestamp"><span class="annot"><span class="annottext">datapoint_timestamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Datapoint -&gt; f Datapoint
 </span><a href="Network.AWS.AutoScalingPlans.Types.Datapoint.html#datapoint_timestamp"><span class="hs-identifier hs-var hs-var">datapoint_timestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Datapoint -&gt; Maybe POSIX)
 -&gt; (Datapoint -&gt; Maybe POSIX -&gt; Datapoint)
 -&gt; Lens Datapoint Datapoint (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.Datapoint.html#Datapoint%27"><span class="hs-identifier hs-type">Datapoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175624"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.Datapoint.html#Datapoint%27"><span class="hs-identifier hs-type">Datapoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175680"><span class="annot"><span class="annottext">Maybe POSIX
 timestamp :: Maybe POSIX
 $sel:timestamp:Datapoint' :: Datapoint -&gt; Maybe POSIX
-</span><a href="#local-6989586621679175624"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679175624"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175623"><span class="annot"><span class="annottext">s :: Datapoint
-</span><a href="#local-6989586621679175623"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.Datapoint.html#Datapoint%27"><span class="hs-identifier hs-type">Datapoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175622"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679175622"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Datapoint
-</span><a href="#local-6989586621679175623"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamp:Datapoint' :: Maybe POSIX
+</span><a href="#local-6989586621679175680"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679175680"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175679"><span class="annot"><span class="annottext">s :: Datapoint
+</span><a href="#local-6989586621679175679"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.Datapoint.html#Datapoint%27"><span class="hs-identifier hs-type">Datapoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175678"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679175678"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Datapoint
+</span><a href="#local-6989586621679175679"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamp:Datapoint' :: Maybe POSIX
 </span><a href="Network.AWS.AutoScalingPlans.Types.Datapoint.html#%24sel%3Atimestamp%3ADatapoint%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679175622"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.Datapoint.html#Datapoint"><span class="hs-identifier hs-type">Datapoint</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Datapoint -&gt; f Datapoint)
+</span><a href="#local-6989586621679175678"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.Datapoint.html#Datapoint"><span class="hs-identifier hs-type">Datapoint</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Datapoint -&gt; f Datapoint)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -146,56 +164,38 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- | The value of the data point.</span><span>
-</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.Datapoint.html#datapoint_value"><span class="hs-identifier hs-type">datapoint_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.Datapoint.html#Datapoint"><span class="hs-identifier hs-type">Datapoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-63"></span><span id="datapoint_value"><span class="annot"><span class="annottext">datapoint_value :: (Maybe Double -&gt; f (Maybe Double)) -&gt; Datapoint -&gt; f Datapoint
-</span><a href="Network.AWS.AutoScalingPlans.Types.Datapoint.html#datapoint_value"><span class="hs-identifier hs-var hs-var">datapoint_value</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Datapoint -&gt; Maybe Double)
--&gt; (Datapoint -&gt; Maybe Double -&gt; Datapoint)
--&gt; Lens Datapoint Datapoint (Maybe Double) (Maybe Double)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.Datapoint.html#Datapoint%27"><span class="hs-identifier hs-type">Datapoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175617"><span class="annot"><span class="annottext">Maybe Double
-value :: Maybe Double
-$sel:value:Datapoint' :: Datapoint -&gt; Maybe Double
-</span><a href="#local-6989586621679175617"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679175617"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175616"><span class="annot"><span class="annottext">s :: Datapoint
-</span><a href="#local-6989586621679175616"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.Datapoint.html#Datapoint%27"><span class="hs-identifier hs-type">Datapoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175615"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679175615"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Datapoint
-</span><a href="#local-6989586621679175616"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Datapoint' :: Maybe Double
-</span><a href="Network.AWS.AutoScalingPlans.Types.Datapoint.html#%24sel%3Avalue%3ADatapoint%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679175615"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.Datapoint.html#Datapoint"><span class="hs-identifier hs-type">Datapoint</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175612"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.Datapoint.html#Datapoint"><span class="hs-identifier hs-type">Datapoint</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679175610"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Datapoint
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175672"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.Datapoint.html#Datapoint"><span class="hs-identifier hs-type">Datapoint</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679175670"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Datapoint
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Datapoint) -&gt; Value -&gt; Parser Datapoint
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Datapoint&quot;</span></span><span>
-</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679175607"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679175607"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX -&gt; Maybe Double -&gt; Datapoint
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679175667"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679175667"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe Double -&gt; Maybe POSIX -&gt; Datapoint
 </span><a href="Network.AWS.AutoScalingPlans.Types.Datapoint.html#Datapoint%27"><span class="hs-identifier hs-var">Datapoint'</span></a></span><span>
-</span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX -&gt; Maybe Double -&gt; Datapoint)
--&gt; Parser (Maybe POSIX) -&gt; Parser (Maybe Double -&gt; Datapoint)
+</span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Double -&gt; Maybe POSIX -&gt; Datapoint)
+-&gt; Parser (Maybe Double) -&gt; Parser (Maybe POSIX -&gt; Datapoint)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679175607"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Timestamp&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Double -&gt; Datapoint)
--&gt; Parser (Maybe Double) -&gt; Parser Datapoint
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679175607"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679175667"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Value&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Datapoint)
+-&gt; Parser (Maybe POSIX) -&gt; Parser Datapoint
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679175667"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Timestamp&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175601"><span id="local-6989586621679175603"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.Datapoint.html#Datapoint"><span class="hs-identifier hs-type">Datapoint</span></a></span></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175661"><span id="local-6989586621679175663"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.Datapoint.html#Datapoint"><span class="hs-identifier hs-type">Datapoint</span></a></span></span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175598"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.Datapoint.html#Datapoint"><span class="hs-identifier hs-type">Datapoint</span></a></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175658"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.Datapoint.html#Datapoint"><span class="hs-identifier hs-type">Datapoint</span></a></span></span><span>
 </span><span id="line-78"></span></pre></body></html>

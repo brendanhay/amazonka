@@ -35,13 +35,13 @@
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-37"></span><span>
-</span><span id="line-38"></span><span id="local-6989586621679248715"><span id="local-6989586621679248716"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="KeyState"><span class="annot"><a href="Network.AWS.KMS.Types.KeyState.html#KeyState"><span class="hs-identifier hs-var">KeyState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KeyState%27"><span class="annot"><a href="Network.AWS.KMS.Types.KeyState.html#KeyState%27"><span class="hs-identifier hs-var">KeyState'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679248915"><span id="local-6989586621679248916"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="KeyState"><span class="annot"><a href="Network.AWS.KMS.Types.KeyState.html#KeyState"><span class="hs-identifier hs-var">KeyState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KeyState%27"><span class="annot"><a href="Network.AWS.KMS.Types.KeyState.html#KeyState%27"><span class="hs-identifier hs-var">KeyState'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromKeyState"><span class="annot"><span class="annottext">KeyState -&gt; Text
 </span><a href="Network.AWS.KMS.Types.KeyState.html#fromKeyState"><span class="hs-identifier hs-var hs-var">fromKeyState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679248707"><span id="local-6989586621679248709"><span id="local-6989586621679248711"><span class="annot"><span class="annottext">Int -&gt; KeyState -&gt; ShowS
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679248907"><span id="local-6989586621679248909"><span id="local-6989586621679248911"><span class="annot"><span class="annottext">Int -&gt; KeyState -&gt; ShowS
 [KeyState] -&gt; ShowS
 KeyState -&gt; String
 (Int -&gt; KeyState -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: KeyState -&gt; String
 showsPrec :: Int -&gt; KeyState -&gt; ShowS
 $cshowsPrec :: Int -&gt; KeyState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679248698"><span id="local-6989586621679248700"><span id="local-6989586621679248702"><span id="local-6989586621679248704"><span class="annot"><span class="annottext">ReadPrec [KeyState]
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679248898"><span id="local-6989586621679248900"><span id="local-6989586621679248902"><span id="local-6989586621679248904"><span class="annot"><span class="annottext">ReadPrec [KeyState]
 ReadPrec KeyState
 Int -&gt; ReadS KeyState
 ReadS [KeyState]
@@ -76,7 +76,7 @@ $creadList :: ReadS [KeyState]
 readsPrec :: Int -&gt; ReadS KeyState
 $creadsPrec :: Int -&gt; ReadS KeyState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679248693"><span id="local-6989586621679248695"><span class="annot"><span class="annottext">KeyState -&gt; KeyState -&gt; Bool
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679248893"><span id="local-6989586621679248895"><span class="annot"><span class="annottext">KeyState -&gt; KeyState -&gt; Bool
 (KeyState -&gt; KeyState -&gt; Bool)
 -&gt; (KeyState -&gt; KeyState -&gt; Bool) -&gt; Eq KeyState
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -85,7 +85,7 @@ $c/= :: KeyState -&gt; KeyState -&gt; Bool
 == :: KeyState -&gt; KeyState -&gt; Bool
 $c== :: KeyState -&gt; KeyState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679248677"><span id="local-6989586621679248679"><span id="local-6989586621679248681"><span id="local-6989586621679248683"><span id="local-6989586621679248685"><span id="local-6989586621679248687"><span id="local-6989586621679248689"><span class="annot"><span class="annottext">Eq KeyState
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679248877"><span id="local-6989586621679248879"><span id="local-6989586621679248881"><span id="local-6989586621679248883"><span id="local-6989586621679248885"><span id="local-6989586621679248887"><span id="local-6989586621679248889"><span class="annot"><span class="annottext">Eq KeyState
 Eq KeyState
 -&gt; (KeyState -&gt; KeyState -&gt; Ordering)
 -&gt; (KeyState -&gt; KeyState -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. KeyState -&gt; Rep KeyState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679248669"><span id="local-6989586621679248671"><span class="annot"><span class="annottext">Int -&gt; KeyState -&gt; Int
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679248869"><span id="local-6989586621679248871"><span class="annot"><span class="annottext">Int -&gt; KeyState -&gt; Int
 KeyState -&gt; Int
 (Int -&gt; KeyState -&gt; Int) -&gt; (KeyState -&gt; Int) -&gt; Hashable KeyState
 forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
@@ -144,49 +144,49 @@ $chash :: KeyState -&gt; Int
 hashWithSalt :: Int -&gt; KeyState -&gt; Int
 $chashWithSalt :: Int -&gt; KeyState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679248666"><span class="annot"><span class="annottext">KeyState -&gt; ()
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679248866"><span class="annot"><span class="annottext">KeyState -&gt; ()
 (KeyState -&gt; ()) -&gt; NFData KeyState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: KeyState -&gt; ()
 $crnf :: KeyState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679248663"><span class="annot"><span class="annottext">Text -&gt; Either String KeyState
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679248863"><span class="annot"><span class="annottext">Text -&gt; Either String KeyState
 (Text -&gt; Either String KeyState) -&gt; FromText KeyState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String KeyState
 $cfromText :: Text -&gt; Either String KeyState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679248660"><span class="annot"><span class="annottext">KeyState -&gt; Text
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679248860"><span class="annot"><span class="annottext">KeyState -&gt; Text
 (KeyState -&gt; Text) -&gt; ToText KeyState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: KeyState -&gt; Text
 $ctoText :: KeyState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679248657"><span class="annot"><span class="annottext">KeyState -&gt; ByteString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679248857"><span class="annot"><span class="annottext">KeyState -&gt; ByteString
 (KeyState -&gt; ByteString) -&gt; ToByteString KeyState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: KeyState -&gt; ByteString
 $ctoBS :: KeyState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679248654"><span class="annot"><span class="annottext">KeyState -&gt; ByteStringBuilder
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679248854"><span class="annot"><span class="annottext">KeyState -&gt; ByteStringBuilder
 (KeyState -&gt; ByteStringBuilder) -&gt; ToLog KeyState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: KeyState -&gt; ByteStringBuilder
 $cbuild :: KeyState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679248651"><span class="annot"><span class="annottext">HeaderName -&gt; KeyState -&gt; [Header]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679248851"><span class="annot"><span class="annottext">HeaderName -&gt; KeyState -&gt; [Header]
 (HeaderName -&gt; KeyState -&gt; [Header]) -&gt; ToHeader KeyState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; KeyState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; KeyState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679248648"><span class="annot"><span class="annottext">KeyState -&gt; QueryString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679248848"><span class="annot"><span class="annottext">KeyState -&gt; QueryString
 (KeyState -&gt; QueryString) -&gt; ToQuery KeyState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: KeyState -&gt; QueryString
 $ctoQuery :: KeyState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679248643"><span id="local-6989586621679248645"><span class="annot"><span class="annottext">Value -&gt; Parser [KeyState]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679248843"><span id="local-6989586621679248845"><span class="annot"><span class="annottext">Value -&gt; Parser [KeyState]
 Value -&gt; Parser KeyState
 (Value -&gt; Parser KeyState)
 -&gt; (Value -&gt; Parser [KeyState]) -&gt; FromJSON KeyState
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [KeyState]
 parseJSON :: Value -&gt; Parser KeyState
 $cparseJSON :: Value -&gt; Parser KeyState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679248638"><span id="local-6989586621679248640"><span class="annot"><span class="annottext">FromJSONKeyFunction [KeyState]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679248838"><span id="local-6989586621679248840"><span class="annot"><span class="annottext">FromJSONKeyFunction [KeyState]
 FromJSONKeyFunction KeyState
 FromJSONKeyFunction KeyState
 -&gt; FromJSONKeyFunction [KeyState] -&gt; FromJSONKey KeyState
@@ -208,7 +208,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [KeyState]
 fromJSONKey :: FromJSONKeyFunction KeyState
 $cfromJSONKey :: FromJSONKeyFunction KeyState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679248629"><span id="local-6989586621679248631"><span id="local-6989586621679248633"><span id="local-6989586621679248635"><span class="annot"><span class="annottext">[KeyState] -&gt; Encoding
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679248829"><span id="local-6989586621679248831"><span id="local-6989586621679248833"><span id="local-6989586621679248835"><span class="annot"><span class="annottext">[KeyState] -&gt; Encoding
 [KeyState] -&gt; Value
 KeyState -&gt; Encoding
 KeyState -&gt; Value
@@ -232,7 +232,7 @@ $ctoEncoding :: KeyState -&gt; Encoding
 toJSON :: KeyState -&gt; Value
 $ctoJSON :: KeyState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679248624"><span id="local-6989586621679248626"><span class="annot"><span class="annottext">ToJSONKeyFunction [KeyState]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679248824"><span id="local-6989586621679248826"><span class="annot"><span class="annottext">ToJSONKeyFunction [KeyState]
 ToJSONKeyFunction KeyState
 ToJSONKeyFunction KeyState
 -&gt; ToJSONKeyFunction [KeyState] -&gt; ToJSONKey KeyState
@@ -243,13 +243,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [KeyState]
 toJSONKey :: ToJSONKeyFunction KeyState
 $ctoJSONKey :: ToJSONKeyFunction KeyState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679248621"><span class="annot"><span class="annottext">[Node] -&gt; Either String KeyState
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679248821"><span class="annot"><span class="annottext">[Node] -&gt; Either String KeyState
 ([Node] -&gt; Either String KeyState) -&gt; FromXML KeyState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String KeyState
 $cparseXML :: [Node] -&gt; Either String KeyState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679248618"><span class="annot"><span class="annottext">KeyState -&gt; XML
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679248818"><span class="annot"><span class="annottext">KeyState -&gt; XML
 (KeyState -&gt; XML) -&gt; ToXML KeyState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: KeyState -&gt; XML

@@ -28,15 +28,15 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Contains information about the dimensions for a set of metrics.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newDimensions' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679402027"><span id="local-6989586621679402028"></span></span><span class="hs-keyword">data</span><span> </span><span id="Dimensions"><span class="annot"><a href="Network.AWS.Connect.Types.Dimensions.html#Dimensions"><span class="hs-identifier hs-var">Dimensions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Dimensions%27"><span class="annot"><a href="Network.AWS.Connect.Types.Dimensions.html#Dimensions%27"><span class="hs-identifier hs-var">Dimensions'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the queue for which metrics are returned.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aqueue%3ADimensions%27"><span class="annot"><span class="annottext">Dimensions -&gt; Maybe QueueReference
-</span><a href="Network.AWS.Connect.Types.Dimensions.html#%24sel%3Aqueue%3ADimensions%27"><span class="hs-identifier hs-var hs-var">queue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.QueueReference.html#QueueReference"><span class="hs-identifier hs-type">QueueReference</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The channel used for grouping and filters.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Achannel%3ADimensions%27"><span class="annot"><span class="annottext">Dimensions -&gt; Maybe Channel
-</span><a href="Network.AWS.Connect.Types.Dimensions.html#%24sel%3Achannel%3ADimensions%27"><span class="hs-identifier hs-var hs-var">channel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679402309"><span id="local-6989586621679402310"></span></span><span class="hs-keyword">data</span><span> </span><span id="Dimensions"><span class="annot"><a href="Network.AWS.Connect.Types.Dimensions.html#Dimensions"><span class="hs-identifier hs-var">Dimensions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Dimensions%27"><span class="annot"><a href="Network.AWS.Connect.Types.Dimensions.html#Dimensions%27"><span class="hs-identifier hs-var">Dimensions'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The channel used for grouping and filters.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Achannel%3ADimensions%27"><span class="annot"><span class="annottext">Dimensions -&gt; Maybe Channel
+</span><a href="Network.AWS.Connect.Types.Dimensions.html#%24sel%3Achannel%3ADimensions%27"><span class="hs-identifier hs-var hs-var">channel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Information about the queue for which metrics are returned.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aqueue%3ADimensions%27"><span class="annot"><span class="annottext">Dimensions -&gt; Maybe QueueReference
+</span><a href="Network.AWS.Connect.Types.Dimensions.html#%24sel%3Aqueue%3ADimensions%27"><span class="hs-identifier hs-var hs-var">queue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.QueueReference.html#QueueReference"><span class="hs-identifier hs-type">QueueReference</span></a></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679402020"><span id="local-6989586621679402022"><span class="annot"><span class="annottext">Dimensions -&gt; Dimensions -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679402302"><span id="local-6989586621679402304"><span class="annot"><span class="annottext">Dimensions -&gt; Dimensions -&gt; Bool
 (Dimensions -&gt; Dimensions -&gt; Bool)
 -&gt; (Dimensions -&gt; Dimensions -&gt; Bool) -&gt; Eq Dimensions
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Dimensions -&gt; Dimensions -&gt; Bool
 == :: Dimensions -&gt; Dimensions -&gt; Bool
 $c== :: Dimensions -&gt; Dimensions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679402011"><span id="local-6989586621679402013"><span id="local-6989586621679402015"><span id="local-6989586621679402017"><span class="annot"><span class="annottext">ReadPrec [Dimensions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679402293"><span id="local-6989586621679402295"><span id="local-6989586621679402297"><span id="local-6989586621679402299"><span class="annot"><span class="annottext">ReadPrec [Dimensions]
 ReadPrec Dimensions
 Int -&gt; ReadS Dimensions
 ReadS [Dimensions]
@@ -64,7 +64,7 @@ readList :: ReadS [Dimensions]
 $creadList :: ReadS [Dimensions]
 readsPrec :: Int -&gt; ReadS Dimensions
 $creadsPrec :: Int -&gt; ReadS Dimensions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679402004"><span id="local-6989586621679402006"><span id="local-6989586621679402008"><span class="annot"><span class="annottext">Int -&gt; Dimensions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679402286"><span id="local-6989586621679402288"><span id="local-6989586621679402290"><span class="annot"><span class="annottext">Int -&gt; Dimensions -&gt; ShowS
 [Dimensions] -&gt; ShowS
 Dimensions -&gt; String
 (Int -&gt; Dimensions -&gt; ShowS)
@@ -97,65 +97,65 @@ $cfrom :: forall x. Dimensions -&gt; Rep Dimensions x
 </span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'queue', 'dimensions_queue' - Information about the queue for which metrics are returned.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'channel', 'dimensions_channel' - The channel used for grouping and filters.</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'channel', 'dimensions_channel' - The channel used for grouping and filters.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'queue', 'dimensions_queue' - Information about the queue for which metrics are returned.</span><span>
 </span><span id="line-50"></span><span class="annot"><a href="Network.AWS.Connect.Types.Dimensions.html#newDimensions"><span class="hs-identifier hs-type">newDimensions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.Dimensions.html#Dimensions"><span class="hs-identifier hs-type">Dimensions</span></a></span><span>
 </span><span id="line-52"></span><span id="newDimensions"><span class="annot"><span class="annottext">newDimensions :: Dimensions
 </span><a href="Network.AWS.Connect.Types.Dimensions.html#newDimensions"><span class="hs-identifier hs-var hs-var">newDimensions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">Dimensions' :: Maybe QueueReference -&gt; Maybe Channel -&gt; Dimensions
+</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">Dimensions' :: Maybe Channel -&gt; Maybe QueueReference -&gt; Dimensions
 </span><a href="Network.AWS.Connect.Types.Dimensions.html#Dimensions%27"><span class="hs-identifier hs-type">Dimensions'</span></a></span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:queue:Dimensions' :: Maybe QueueReference
-</span><a href="Network.AWS.Connect.Types.Dimensions.html#%24sel%3Aqueue%3ADimensions%27"><span class="hs-identifier hs-var">queue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe QueueReference
+</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:channel:Dimensions' :: Maybe Channel
+</span><a href="Network.AWS.Connect.Types.Dimensions.html#%24sel%3Achannel%3ADimensions%27"><span class="hs-identifier hs-var">channel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Channel
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:channel:Dimensions' :: Maybe Channel
-</span><a href="Network.AWS.Connect.Types.Dimensions.html#%24sel%3Achannel%3ADimensions%27"><span class="hs-identifier hs-var">channel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Channel
+</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:queue:Dimensions' :: Maybe QueueReference
+</span><a href="Network.AWS.Connect.Types.Dimensions.html#%24sel%3Aqueue%3ADimensions%27"><span class="hs-identifier hs-var">queue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe QueueReference
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-57"></span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- | Information about the queue for which metrics are returned.</span><span>
-</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.Connect.Types.Dimensions.html#dimensions_queue"><span class="hs-identifier hs-type">dimensions_queue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.Dimensions.html#Dimensions"><span class="hs-identifier hs-type">Dimensions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.QueueReference.html#QueueReference"><span class="hs-identifier hs-type">QueueReference</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-60"></span><span id="dimensions_queue"><span class="annot"><span class="annottext">dimensions_queue :: (Maybe QueueReference -&gt; f (Maybe QueueReference))
+</span><span id="line-58"></span><span class="hs-comment">-- | The channel used for grouping and filters.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.Connect.Types.Dimensions.html#dimensions_channel"><span class="hs-identifier hs-type">dimensions_channel</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.Dimensions.html#Dimensions"><span class="hs-identifier hs-type">Dimensions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span id="dimensions_channel"><span class="annot"><span class="annottext">dimensions_channel :: (Maybe Channel -&gt; f (Maybe Channel)) -&gt; Dimensions -&gt; f Dimensions
+</span><a href="Network.AWS.Connect.Types.Dimensions.html#dimensions_channel"><span class="hs-identifier hs-var hs-var">dimensions_channel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Dimensions -&gt; Maybe Channel)
+-&gt; (Dimensions -&gt; Maybe Channel -&gt; Dimensions)
+-&gt; Lens Dimensions Dimensions (Maybe Channel) (Maybe Channel)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.Dimensions.html#Dimensions%27"><span class="hs-identifier hs-type">Dimensions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402277"><span class="annot"><span class="annottext">Maybe Channel
+channel :: Maybe Channel
+$sel:channel:Dimensions' :: Dimensions -&gt; Maybe Channel
+</span><a href="#local-6989586621679402277"><span class="hs-identifier hs-var hs-var">channel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Channel
+</span><a href="#local-6989586621679402277"><span class="hs-identifier hs-var">channel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402276"><span class="annot"><span class="annottext">s :: Dimensions
+</span><a href="#local-6989586621679402276"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.Dimensions.html#Dimensions%27"><span class="hs-identifier hs-type">Dimensions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402275"><span class="annot"><span class="annottext">Maybe Channel
+</span><a href="#local-6989586621679402275"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Dimensions
+</span><a href="#local-6989586621679402276"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channel:Dimensions' :: Maybe Channel
+</span><a href="Network.AWS.Connect.Types.Dimensions.html#%24sel%3Achannel%3ADimensions%27"><span class="hs-identifier hs-var">channel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Channel
+</span><a href="#local-6989586621679402275"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.Dimensions.html#Dimensions"><span class="hs-identifier hs-type">Dimensions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | Information about the queue for which metrics are returned.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.Connect.Types.Dimensions.html#dimensions_queue"><span class="hs-identifier hs-type">dimensions_queue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.Dimensions.html#Dimensions"><span class="hs-identifier hs-type">Dimensions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.QueueReference.html#QueueReference"><span class="hs-identifier hs-type">QueueReference</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="dimensions_queue"><span class="annot"><span class="annottext">dimensions_queue :: (Maybe QueueReference -&gt; f (Maybe QueueReference))
 -&gt; Dimensions -&gt; f Dimensions
 </span><a href="Network.AWS.Connect.Types.Dimensions.html#dimensions_queue"><span class="hs-identifier hs-var hs-var">dimensions_queue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Dimensions -&gt; Maybe QueueReference)
 -&gt; (Dimensions -&gt; Maybe QueueReference -&gt; Dimensions)
 -&gt; Lens
      Dimensions Dimensions (Maybe QueueReference) (Maybe QueueReference)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.Dimensions.html#Dimensions%27"><span class="hs-identifier hs-type">Dimensions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401995"><span class="annot"><span class="annottext">Maybe QueueReference
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.Dimensions.html#Dimensions%27"><span class="hs-identifier hs-type">Dimensions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402273"><span class="annot"><span class="annottext">Maybe QueueReference
 queue :: Maybe QueueReference
 $sel:queue:Dimensions' :: Dimensions -&gt; Maybe QueueReference
-</span><a href="#local-6989586621679401995"><span class="hs-identifier hs-var hs-var">queue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe QueueReference
-</span><a href="#local-6989586621679401995"><span class="hs-identifier hs-var">queue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401994"><span class="annot"><span class="annottext">s :: Dimensions
-</span><a href="#local-6989586621679401994"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.Dimensions.html#Dimensions%27"><span class="hs-identifier hs-type">Dimensions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401993"><span class="annot"><span class="annottext">Maybe QueueReference
-</span><a href="#local-6989586621679401993"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Dimensions
-</span><a href="#local-6989586621679401994"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queue:Dimensions' :: Maybe QueueReference
+</span><a href="#local-6989586621679402273"><span class="hs-identifier hs-var hs-var">queue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe QueueReference
+</span><a href="#local-6989586621679402273"><span class="hs-identifier hs-var">queue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402272"><span class="annot"><span class="annottext">s :: Dimensions
+</span><a href="#local-6989586621679402272"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.Dimensions.html#Dimensions%27"><span class="hs-identifier hs-type">Dimensions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402271"><span class="annot"><span class="annottext">Maybe QueueReference
+</span><a href="#local-6989586621679402271"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Dimensions
+</span><a href="#local-6989586621679402272"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queue:Dimensions' :: Maybe QueueReference
 </span><a href="Network.AWS.Connect.Types.Dimensions.html#%24sel%3Aqueue%3ADimensions%27"><span class="hs-identifier hs-var">queue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe QueueReference
-</span><a href="#local-6989586621679401993"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.Dimensions.html#Dimensions"><span class="hs-identifier hs-type">Dimensions</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- | The channel used for grouping and filters.</span><span>
-</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.Connect.Types.Dimensions.html#dimensions_channel"><span class="hs-identifier hs-type">dimensions_channel</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.Dimensions.html#Dimensions"><span class="hs-identifier hs-type">Dimensions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.Channel.html#Channel"><span class="hs-identifier hs-type">Channel</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-64"></span><span id="dimensions_channel"><span class="annot"><span class="annottext">dimensions_channel :: (Maybe Channel -&gt; f (Maybe Channel)) -&gt; Dimensions -&gt; f Dimensions
-</span><a href="Network.AWS.Connect.Types.Dimensions.html#dimensions_channel"><span class="hs-identifier hs-var hs-var">dimensions_channel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Dimensions -&gt; Maybe Channel)
--&gt; (Dimensions -&gt; Maybe Channel -&gt; Dimensions)
--&gt; Lens Dimensions Dimensions (Maybe Channel) (Maybe Channel)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.Dimensions.html#Dimensions%27"><span class="hs-identifier hs-type">Dimensions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401991"><span class="annot"><span class="annottext">Maybe Channel
-channel :: Maybe Channel
-$sel:channel:Dimensions' :: Dimensions -&gt; Maybe Channel
-</span><a href="#local-6989586621679401991"><span class="hs-identifier hs-var hs-var">channel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Channel
-</span><a href="#local-6989586621679401991"><span class="hs-identifier hs-var">channel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401990"><span class="annot"><span class="annottext">s :: Dimensions
-</span><a href="#local-6989586621679401990"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.Dimensions.html#Dimensions%27"><span class="hs-identifier hs-type">Dimensions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401989"><span class="annot"><span class="annottext">Maybe Channel
-</span><a href="#local-6989586621679401989"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Dimensions
-</span><a href="#local-6989586621679401990"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channel:Dimensions' :: Maybe Channel
-</span><a href="Network.AWS.Connect.Types.Dimensions.html#%24sel%3Achannel%3ADimensions%27"><span class="hs-identifier hs-var">channel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Channel
-</span><a href="#local-6989586621679401989"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.Dimensions.html#Dimensions"><span class="hs-identifier hs-type">Dimensions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679402271"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.Dimensions.html#Dimensions"><span class="hs-identifier hs-type">Dimensions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679401986"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.Dimensions.html#Dimensions"><span class="hs-identifier hs-type">Dimensions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679401984"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Dimensions
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679402268"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.Dimensions.html#Dimensions"><span class="hs-identifier hs-type">Dimensions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679402266"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Dimensions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser Dimensions) -&gt; Value -&gt; Parser Dimensions
@@ -163,30 +163,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Dimensions&quot;</span></span><span>
-</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679401981"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679401981"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">Maybe QueueReference -&gt; Maybe Channel -&gt; Dimensions
+</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679402263"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679402263"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">Maybe Channel -&gt; Maybe QueueReference -&gt; Dimensions
 </span><a href="Network.AWS.Connect.Types.Dimensions.html#Dimensions%27"><span class="hs-identifier hs-var">Dimensions'</span></a></span><span>
-</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">(Maybe QueueReference -&gt; Maybe Channel -&gt; Dimensions)
--&gt; Parser (Maybe QueueReference)
--&gt; Parser (Maybe Channel -&gt; Dimensions)
+</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Channel -&gt; Maybe QueueReference -&gt; Dimensions)
+-&gt; Parser (Maybe Channel)
+-&gt; Parser (Maybe QueueReference -&gt; Dimensions)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679401981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe QueueReference)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Queue&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Channel -&gt; Dimensions)
--&gt; Parser (Maybe Channel) -&gt; Parser Dimensions
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679401981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Channel)
+</span><a href="#local-6989586621679402263"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Channel)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Channel&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe QueueReference -&gt; Dimensions)
+-&gt; Parser (Maybe QueueReference) -&gt; Parser Dimensions
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679402263"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe QueueReference)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Queue&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679401975"><span id="local-6989586621679401977"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.Dimensions.html#Dimensions"><span class="hs-identifier hs-type">Dimensions</span></a></span></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679402257"><span id="local-6989586621679402259"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.Dimensions.html#Dimensions"><span class="hs-identifier hs-type">Dimensions</span></a></span></span></span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679401972"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.Dimensions.html#Dimensions"><span class="hs-identifier hs-type">Dimensions</span></a></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679402254"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.Dimensions.html#Dimensions"><span class="hs-identifier hs-type">Dimensions</span></a></span></span><span>
 </span><span id="line-79"></span></pre></body></html>

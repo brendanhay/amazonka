@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621679271175"><span id="local-6989586621679271176"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CLMLanguageCode"><span class="annot"><a href="Network.AWS.Transcribe.Types.CLMLanguageCode.html#CLMLanguageCode"><span class="hs-identifier hs-var">CLMLanguageCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CLMLanguageCode%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.CLMLanguageCode.html#CLMLanguageCode%27"><span class="hs-identifier hs-var">CLMLanguageCode'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679271338"><span id="local-6989586621679271339"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CLMLanguageCode"><span class="annot"><a href="Network.AWS.Transcribe.Types.CLMLanguageCode.html#CLMLanguageCode"><span class="hs-identifier hs-var">CLMLanguageCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CLMLanguageCode%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.CLMLanguageCode.html#CLMLanguageCode%27"><span class="hs-identifier hs-var">CLMLanguageCode'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCLMLanguageCode"><span class="annot"><span class="annottext">CLMLanguageCode -&gt; Text
 </span><a href="Network.AWS.Transcribe.Types.CLMLanguageCode.html#fromCLMLanguageCode"><span class="hs-identifier hs-var hs-var">fromCLMLanguageCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679271167"><span id="local-6989586621679271169"><span id="local-6989586621679271171"><span class="annot"><span class="annottext">Int -&gt; CLMLanguageCode -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679271330"><span id="local-6989586621679271332"><span id="local-6989586621679271334"><span class="annot"><span class="annottext">Int -&gt; CLMLanguageCode -&gt; ShowS
 [CLMLanguageCode] -&gt; ShowS
 CLMLanguageCode -&gt; String
 (Int -&gt; CLMLanguageCode -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: CLMLanguageCode -&gt; String
 showsPrec :: Int -&gt; CLMLanguageCode -&gt; ShowS
 $cshowsPrec :: Int -&gt; CLMLanguageCode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679271158"><span id="local-6989586621679271160"><span id="local-6989586621679271162"><span id="local-6989586621679271164"><span class="annot"><span class="annottext">ReadPrec [CLMLanguageCode]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679271321"><span id="local-6989586621679271323"><span id="local-6989586621679271325"><span id="local-6989586621679271327"><span class="annot"><span class="annottext">ReadPrec [CLMLanguageCode]
 ReadPrec CLMLanguageCode
 Int -&gt; ReadS CLMLanguageCode
 ReadS [CLMLanguageCode]
@@ -75,7 +75,7 @@ $creadList :: ReadS [CLMLanguageCode]
 readsPrec :: Int -&gt; ReadS CLMLanguageCode
 $creadsPrec :: Int -&gt; ReadS CLMLanguageCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679271153"><span id="local-6989586621679271155"><span class="annot"><span class="annottext">CLMLanguageCode -&gt; CLMLanguageCode -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679271316"><span id="local-6989586621679271318"><span class="annot"><span class="annottext">CLMLanguageCode -&gt; CLMLanguageCode -&gt; Bool
 (CLMLanguageCode -&gt; CLMLanguageCode -&gt; Bool)
 -&gt; (CLMLanguageCode -&gt; CLMLanguageCode -&gt; Bool)
 -&gt; Eq CLMLanguageCode
@@ -85,7 +85,7 @@ $c/= :: CLMLanguageCode -&gt; CLMLanguageCode -&gt; Bool
 == :: CLMLanguageCode -&gt; CLMLanguageCode -&gt; Bool
 $c== :: CLMLanguageCode -&gt; CLMLanguageCode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679271137"><span id="local-6989586621679271139"><span id="local-6989586621679271141"><span id="local-6989586621679271143"><span id="local-6989586621679271145"><span id="local-6989586621679271147"><span id="local-6989586621679271149"><span class="annot"><span class="annottext">Eq CLMLanguageCode
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679271300"><span id="local-6989586621679271302"><span id="local-6989586621679271304"><span id="local-6989586621679271306"><span id="local-6989586621679271308"><span id="local-6989586621679271310"><span id="local-6989586621679271312"><span class="annot"><span class="annottext">Eq CLMLanguageCode
 Eq CLMLanguageCode
 -&gt; (CLMLanguageCode -&gt; CLMLanguageCode -&gt; Ordering)
 -&gt; (CLMLanguageCode -&gt; CLMLanguageCode -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. CLMLanguageCode -&gt; Rep CLMLanguageCode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679271129"><span id="local-6989586621679271131"><span class="annot"><span class="annottext">Int -&gt; CLMLanguageCode -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679271292"><span id="local-6989586621679271294"><span class="annot"><span class="annottext">Int -&gt; CLMLanguageCode -&gt; Int
 CLMLanguageCode -&gt; Int
 (Int -&gt; CLMLanguageCode -&gt; Int)
 -&gt; (CLMLanguageCode -&gt; Int) -&gt; Hashable CLMLanguageCode
@@ -146,50 +146,50 @@ $chash :: CLMLanguageCode -&gt; Int
 hashWithSalt :: Int -&gt; CLMLanguageCode -&gt; Int
 $chashWithSalt :: Int -&gt; CLMLanguageCode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679271126"><span class="annot"><span class="annottext">CLMLanguageCode -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679271289"><span class="annot"><span class="annottext">CLMLanguageCode -&gt; ()
 (CLMLanguageCode -&gt; ()) -&gt; NFData CLMLanguageCode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CLMLanguageCode -&gt; ()
 $crnf :: CLMLanguageCode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679271123"><span class="annot"><span class="annottext">Text -&gt; Either String CLMLanguageCode
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679271286"><span class="annot"><span class="annottext">Text -&gt; Either String CLMLanguageCode
 (Text -&gt; Either String CLMLanguageCode) -&gt; FromText CLMLanguageCode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CLMLanguageCode
 $cfromText :: Text -&gt; Either String CLMLanguageCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679271120"><span class="annot"><span class="annottext">CLMLanguageCode -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679271283"><span class="annot"><span class="annottext">CLMLanguageCode -&gt; Text
 (CLMLanguageCode -&gt; Text) -&gt; ToText CLMLanguageCode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CLMLanguageCode -&gt; Text
 $ctoText :: CLMLanguageCode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679271117"><span class="annot"><span class="annottext">CLMLanguageCode -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679271280"><span class="annot"><span class="annottext">CLMLanguageCode -&gt; ByteString
 (CLMLanguageCode -&gt; ByteString) -&gt; ToByteString CLMLanguageCode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CLMLanguageCode -&gt; ByteString
 $ctoBS :: CLMLanguageCode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679271114"><span class="annot"><span class="annottext">CLMLanguageCode -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679271277"><span class="annot"><span class="annottext">CLMLanguageCode -&gt; ByteStringBuilder
 (CLMLanguageCode -&gt; ByteStringBuilder) -&gt; ToLog CLMLanguageCode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CLMLanguageCode -&gt; ByteStringBuilder
 $cbuild :: CLMLanguageCode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679271111"><span class="annot"><span class="annottext">HeaderName -&gt; CLMLanguageCode -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679271274"><span class="annot"><span class="annottext">HeaderName -&gt; CLMLanguageCode -&gt; [Header]
 (HeaderName -&gt; CLMLanguageCode -&gt; [Header])
 -&gt; ToHeader CLMLanguageCode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CLMLanguageCode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CLMLanguageCode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679271108"><span class="annot"><span class="annottext">CLMLanguageCode -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679271271"><span class="annot"><span class="annottext">CLMLanguageCode -&gt; QueryString
 (CLMLanguageCode -&gt; QueryString) -&gt; ToQuery CLMLanguageCode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CLMLanguageCode -&gt; QueryString
 $ctoQuery :: CLMLanguageCode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679271103"><span id="local-6989586621679271105"><span class="annot"><span class="annottext">Value -&gt; Parser [CLMLanguageCode]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679271266"><span id="local-6989586621679271268"><span class="annot"><span class="annottext">Value -&gt; Parser [CLMLanguageCode]
 Value -&gt; Parser CLMLanguageCode
 (Value -&gt; Parser CLMLanguageCode)
 -&gt; (Value -&gt; Parser [CLMLanguageCode]) -&gt; FromJSON CLMLanguageCode
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [CLMLanguageCode]
 parseJSON :: Value -&gt; Parser CLMLanguageCode
 $cparseJSON :: Value -&gt; Parser CLMLanguageCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679271098"><span id="local-6989586621679271100"><span class="annot"><span class="annottext">FromJSONKeyFunction [CLMLanguageCode]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679271261"><span id="local-6989586621679271263"><span class="annot"><span class="annottext">FromJSONKeyFunction [CLMLanguageCode]
 FromJSONKeyFunction CLMLanguageCode
 FromJSONKeyFunction CLMLanguageCode
 -&gt; FromJSONKeyFunction [CLMLanguageCode]
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CLMLanguageCode]
 fromJSONKey :: FromJSONKeyFunction CLMLanguageCode
 $cfromJSONKey :: FromJSONKeyFunction CLMLanguageCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679271089"><span id="local-6989586621679271091"><span id="local-6989586621679271093"><span id="local-6989586621679271095"><span class="annot"><span class="annottext">[CLMLanguageCode] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679271252"><span id="local-6989586621679271254"><span id="local-6989586621679271256"><span id="local-6989586621679271258"><span class="annot"><span class="annottext">[CLMLanguageCode] -&gt; Encoding
 [CLMLanguageCode] -&gt; Value
 CLMLanguageCode -&gt; Encoding
 CLMLanguageCode -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: CLMLanguageCode -&gt; Encoding
 toJSON :: CLMLanguageCode -&gt; Value
 $ctoJSON :: CLMLanguageCode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679271084"><span id="local-6989586621679271086"><span class="annot"><span class="annottext">ToJSONKeyFunction [CLMLanguageCode]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679271247"><span id="local-6989586621679271249"><span class="annot"><span class="annottext">ToJSONKeyFunction [CLMLanguageCode]
 ToJSONKeyFunction CLMLanguageCode
 ToJSONKeyFunction CLMLanguageCode
 -&gt; ToJSONKeyFunction [CLMLanguageCode] -&gt; ToJSONKey CLMLanguageCode
@@ -247,14 +247,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CLMLanguageCode]
 toJSONKey :: ToJSONKeyFunction CLMLanguageCode
 $ctoJSONKey :: ToJSONKeyFunction CLMLanguageCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679271081"><span class="annot"><span class="annottext">[Node] -&gt; Either String CLMLanguageCode
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679271244"><span class="annot"><span class="annottext">[Node] -&gt; Either String CLMLanguageCode
 ([Node] -&gt; Either String CLMLanguageCode)
 -&gt; FromXML CLMLanguageCode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CLMLanguageCode
 $cparseXML :: [Node] -&gt; Either String CLMLanguageCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679271078"><span class="annot"><span class="annottext">CLMLanguageCode -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679271241"><span class="annot"><span class="annottext">CLMLanguageCode -&gt; XML
 (CLMLanguageCode -&gt; XML) -&gt; ToXML CLMLanguageCode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CLMLanguageCode -&gt; XML

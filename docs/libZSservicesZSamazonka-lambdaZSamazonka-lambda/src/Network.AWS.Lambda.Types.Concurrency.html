@@ -24,14 +24,14 @@
 </span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-25"></span><span>
 </span><span id="line-26"></span><span class="hs-comment">-- | /See:/ 'newConcurrency' smart constructor.</span><span>
-</span><span id="line-27"></span><span id="local-6989586621679289550"><span id="local-6989586621679289551"></span></span><span class="hs-keyword">data</span><span> </span><span id="Concurrency"><span class="annot"><a href="Network.AWS.Lambda.Types.Concurrency.html#Concurrency"><span class="hs-identifier hs-var">Concurrency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Concurrency%27"><span class="annot"><a href="Network.AWS.Lambda.Types.Concurrency.html#Concurrency%27"><span class="hs-identifier hs-var">Concurrency'</span></a></span></span><span>
+</span><span id="line-27"></span><span id="local-6989586621679294388"><span id="local-6989586621679294389"></span></span><span class="hs-keyword">data</span><span> </span><span id="Concurrency"><span class="annot"><a href="Network.AWS.Lambda.Types.Concurrency.html#Concurrency"><span class="hs-identifier hs-var">Concurrency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Concurrency%27"><span class="annot"><a href="Network.AWS.Lambda.Types.Concurrency.html#Concurrency%27"><span class="hs-identifier hs-var">Concurrency'</span></a></span></span><span>
 </span><span id="line-28"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of concurrent executions that are reserved for this function.</span><span>
 </span><span id="line-29"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
-</span><span id="line-30"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html Managing Concurrency&gt;.</span><span>
+</span><span id="line-30"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html Managing Concurrency&gt;.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AreservedConcurrentExecutions%3AConcurrency%27"><span class="annot"><span class="annottext">Concurrency -&gt; Maybe Natural
 </span><a href="Network.AWS.Lambda.Types.Concurrency.html#%24sel%3AreservedConcurrentExecutions%3AConcurrency%27"><span class="hs-identifier hs-var hs-var">reservedConcurrentExecutions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679289544"><span id="local-6989586621679289546"><span class="annot"><span class="annottext">Concurrency -&gt; Concurrency -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679294382"><span id="local-6989586621679294384"><span class="annot"><span class="annottext">Concurrency -&gt; Concurrency -&gt; Bool
 (Concurrency -&gt; Concurrency -&gt; Bool)
 -&gt; (Concurrency -&gt; Concurrency -&gt; Bool) -&gt; Eq Concurrency
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -39,7 +39,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Concurrency -&gt; Concurrency -&gt; Bool
 == :: Concurrency -&gt; Concurrency -&gt; Bool
 $c== :: Concurrency -&gt; Concurrency -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289535"><span id="local-6989586621679289537"><span id="local-6989586621679289539"><span id="local-6989586621679289541"><span class="annot"><span class="annottext">ReadPrec [Concurrency]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294373"><span id="local-6989586621679294375"><span id="local-6989586621679294377"><span id="local-6989586621679294379"><span class="annot"><span class="annottext">ReadPrec [Concurrency]
 ReadPrec Concurrency
 Int -&gt; ReadS Concurrency
 ReadS [Concurrency]
@@ -59,7 +59,7 @@ readList :: ReadS [Concurrency]
 $creadList :: ReadS [Concurrency]
 readsPrec :: Int -&gt; ReadS Concurrency
 $creadsPrec :: Int -&gt; ReadS Concurrency
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289528"><span id="local-6989586621679289530"><span id="local-6989586621679289532"><span class="annot"><span class="annottext">Int -&gt; Concurrency -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294366"><span id="local-6989586621679294368"><span id="local-6989586621679294370"><span class="annot"><span class="annottext">Int -&gt; Concurrency -&gt; ShowS
 [Concurrency] -&gt; ShowS
 Concurrency -&gt; String
 (Int -&gt; Concurrency -&gt; ShowS)
@@ -95,7 +95,7 @@ $cfrom :: forall x. Concurrency -&gt; Rep Concurrency x
 </span><span id="line-42"></span><span class="hs-comment">--</span><span>
 </span><span id="line-43"></span><span class="hs-comment">-- 'reservedConcurrentExecutions', 'concurrency_reservedConcurrentExecutions' - The number of concurrent executions that are reserved for this function.</span><span>
 </span><span id="line-44"></span><span class="hs-comment">-- For more information, see</span><span>
-</span><span id="line-45"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html Managing Concurrency&gt;.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html Managing Concurrency&gt;.</span><span>
 </span><span id="line-46"></span><span class="annot"><a href="Network.AWS.Lambda.Types.Concurrency.html#newConcurrency"><span class="hs-identifier hs-type">newConcurrency</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-47"></span><span>  </span><span class="annot"><a href="Network.AWS.Lambda.Types.Concurrency.html#Concurrency"><span class="hs-identifier hs-type">Concurrency</span></a></span><span>
 </span><span id="line-48"></span><span id="newConcurrency"><span class="annot"><span class="annottext">newConcurrency :: Concurrency
@@ -111,7 +111,7 @@ forall a. Maybe a
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | The number of concurrent executions that are reserved for this function.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- For more information, see</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html Managing Concurrency&gt;.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html Managing Concurrency&gt;.</span><span>
 </span><span id="line-57"></span><span class="annot"><a href="Network.AWS.Lambda.Types.Concurrency.html#concurrency_reservedConcurrentExecutions"><span class="hs-identifier hs-type">concurrency_reservedConcurrentExecutions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.Concurrency.html#Concurrency"><span class="hs-identifier hs-type">Concurrency</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
 </span><span id="line-58"></span><span id="concurrency_reservedConcurrentExecutions"><span class="annot"><span class="annottext">concurrency_reservedConcurrentExecutions :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; Concurrency -&gt; f Concurrency
@@ -119,19 +119,19 @@ forall a. Maybe a
 -&gt; (Concurrency -&gt; Maybe Natural -&gt; Concurrency)
 -&gt; Lens Concurrency Concurrency (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.Concurrency.html#Concurrency%27"><span class="hs-identifier hs-type">Concurrency'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289519"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.Concurrency.html#Concurrency%27"><span class="hs-identifier hs-type">Concurrency'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294357"><span class="annot"><span class="annottext">Maybe Natural
 reservedConcurrentExecutions :: Maybe Natural
 $sel:reservedConcurrentExecutions:Concurrency' :: Concurrency -&gt; Maybe Natural
-</span><a href="#local-6989586621679289519"><span class="hs-identifier hs-var hs-var">reservedConcurrentExecutions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679289519"><span class="hs-identifier hs-var">reservedConcurrentExecutions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289518"><span class="annot"><span class="annottext">s :: Concurrency
-</span><a href="#local-6989586621679289518"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.Concurrency.html#Concurrency%27"><span class="hs-identifier hs-type">Concurrency'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289517"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679289517"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Concurrency
-</span><a href="#local-6989586621679289518"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reservedConcurrentExecutions:Concurrency' :: Maybe Natural
+</span><a href="#local-6989586621679294357"><span class="hs-identifier hs-var hs-var">reservedConcurrentExecutions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679294357"><span class="hs-identifier hs-var">reservedConcurrentExecutions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294356"><span class="annot"><span class="annottext">s :: Concurrency
+</span><a href="#local-6989586621679294356"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.Concurrency.html#Concurrency%27"><span class="hs-identifier hs-type">Concurrency'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294355"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679294355"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Concurrency
+</span><a href="#local-6989586621679294356"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reservedConcurrentExecutions:Concurrency' :: Maybe Natural
 </span><a href="Network.AWS.Lambda.Types.Concurrency.html#%24sel%3AreservedConcurrentExecutions%3AConcurrency%27"><span class="hs-identifier hs-var">reservedConcurrentExecutions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679289517"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.Concurrency.html#Concurrency"><span class="hs-identifier hs-type">Concurrency</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679294355"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.Concurrency.html#Concurrency"><span class="hs-identifier hs-type">Concurrency</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289514"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.Concurrency.html#Concurrency"><span class="hs-identifier hs-type">Concurrency</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-61"></span><span>  </span><span id="local-6989586621679289512"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Concurrency
+</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294352"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.Concurrency.html#Concurrency"><span class="hs-identifier hs-type">Concurrency</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-61"></span><span>  </span><span id="local-6989586621679294350"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Concurrency
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-62"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser Concurrency) -&gt; Value -&gt; Parser Concurrency
@@ -139,21 +139,21 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Concurrency&quot;</span></span><span>
-</span><span id="line-64"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679289509"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679289509"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-64"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679294347"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679294347"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-65"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural -&gt; Concurrency
 </span><a href="Network.AWS.Lambda.Types.Concurrency.html#Concurrency%27"><span class="hs-identifier hs-var">Concurrency'</span></a></span><span>
 </span><span id="line-66"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural -&gt; Concurrency)
 -&gt; Parser (Maybe Natural) -&gt; Parser Concurrency
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679289509"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679294347"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ReservedConcurrentExecutions&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289503"><span id="local-6989586621679289505"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.Concurrency.html#Concurrency"><span class="hs-identifier hs-type">Concurrency</span></a></span></span></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294341"><span id="local-6989586621679294343"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.Concurrency.html#Concurrency"><span class="hs-identifier hs-type">Concurrency</span></a></span></span></span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289500"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.Concurrency.html#Concurrency"><span class="hs-identifier hs-type">Concurrency</span></a></span></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294338"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.Concurrency.html#Concurrency"><span class="hs-identifier hs-type">Concurrency</span></a></span></span><span>
 </span><span id="line-72"></span></pre></body></html>

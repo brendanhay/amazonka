@@ -32,24 +32,24 @@
 </span><span id="line-32"></span><span class="hs-comment">-- | The container for selecting objects from a content event stream.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newSelectObjectContentEventStream' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679553457"><span id="local-6989586621679553458"></span></span><span class="hs-keyword">data</span><span> </span><span id="SelectObjectContentEventStream"><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#SelectObjectContentEventStream"><span class="hs-identifier hs-var">SelectObjectContentEventStream</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SelectObjectContentEventStream%27"><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#SelectObjectContentEventStream%27"><span class="hs-identifier hs-var">SelectObjectContentEventStream'</span></a></span></span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The End Event.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aend%3ASelectObjectContentEventStream%27"><span class="annot"><span class="annottext">SelectObjectContentEventStream -&gt; Maybe EndEvent
-</span><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#%24sel%3Aend%3ASelectObjectContentEventStream%27"><span class="hs-identifier hs-var hs-var">end</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.EndEvent.html#EndEvent"><span class="hs-identifier hs-type">EndEvent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679554098"><span id="local-6989586621679554099"></span></span><span class="hs-keyword">data</span><span> </span><span id="SelectObjectContentEventStream"><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#SelectObjectContentEventStream"><span class="hs-identifier hs-var">SelectObjectContentEventStream</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SelectObjectContentEventStream%27"><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#SelectObjectContentEventStream%27"><span class="hs-identifier hs-var">SelectObjectContentEventStream'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Progress Event.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aprogress%3ASelectObjectContentEventStream%27"><span class="annot"><span class="annottext">SelectObjectContentEventStream -&gt; Maybe ProgressEvent
+</span><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#%24sel%3Aprogress%3ASelectObjectContentEventStream%27"><span class="hs-identifier hs-var hs-var">progress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ProgressEvent.html#ProgressEvent"><span class="hs-identifier hs-type">ProgressEvent</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The Records Event.</span><span>
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3Arecords%3ASelectObjectContentEventStream%27"><span class="annot"><span class="annottext">SelectObjectContentEventStream -&gt; Maybe RecordsEvent
 </span><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#%24sel%3Arecords%3ASelectObjectContentEventStream%27"><span class="hs-identifier hs-var hs-var">records</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RecordsEvent.html#RecordsEvent"><span class="hs-identifier hs-type">RecordsEvent</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The Stats Event.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3Astats%3ASelectObjectContentEventStream%27"><span class="annot"><span class="annottext">SelectObjectContentEventStream -&gt; Maybe StatsEvent
-</span><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#%24sel%3Astats%3ASelectObjectContentEventStream%27"><span class="hs-identifier hs-var hs-var">stats</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.StatsEvent.html#StatsEvent"><span class="hs-identifier hs-type">StatsEvent</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The Continuation Event.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3Acont%3ASelectObjectContentEventStream%27"><span class="annot"><span class="annottext">SelectObjectContentEventStream -&gt; Maybe ContinuationEvent
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The Continuation Event.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Acont%3ASelectObjectContentEventStream%27"><span class="annot"><span class="annottext">SelectObjectContentEventStream -&gt; Maybe ContinuationEvent
 </span><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#%24sel%3Acont%3ASelectObjectContentEventStream%27"><span class="hs-identifier hs-var hs-var">cont</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ContinuationEvent.html#ContinuationEvent"><span class="hs-identifier hs-type">ContinuationEvent</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The Progress Event.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3Aprogress%3ASelectObjectContentEventStream%27"><span class="annot"><span class="annottext">SelectObjectContentEventStream -&gt; Maybe ProgressEvent
-</span><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#%24sel%3Aprogress%3ASelectObjectContentEventStream%27"><span class="hs-identifier hs-var hs-var">progress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ProgressEvent.html#ProgressEvent"><span class="hs-identifier hs-type">ProgressEvent</span></a></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The Stats Event.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Astats%3ASelectObjectContentEventStream%27"><span class="annot"><span class="annottext">SelectObjectContentEventStream -&gt; Maybe StatsEvent
+</span><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#%24sel%3Astats%3ASelectObjectContentEventStream%27"><span class="hs-identifier hs-var hs-var">stats</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.StatsEvent.html#StatsEvent"><span class="hs-identifier hs-type">StatsEvent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The End Event.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Aend%3ASelectObjectContentEventStream%27"><span class="annot"><span class="annottext">SelectObjectContentEventStream -&gt; Maybe EndEvent
+</span><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#%24sel%3Aend%3ASelectObjectContentEventStream%27"><span class="hs-identifier hs-var hs-var">end</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.EndEvent.html#EndEvent"><span class="hs-identifier hs-type">EndEvent</span></a></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679553447"><span id="local-6989586621679553449"><span class="annot"><span class="annottext">SelectObjectContentEventStream
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679554088"><span id="local-6989586621679554090"><span class="annot"><span class="annottext">SelectObjectContentEventStream
 -&gt; SelectObjectContentEventStream -&gt; Bool
 (SelectObjectContentEventStream
  -&gt; SelectObjectContentEventStream -&gt; Bool)
@@ -65,7 +65,7 @@ $c/= :: SelectObjectContentEventStream
 -&gt; SelectObjectContentEventStream -&gt; Bool
 $c== :: SelectObjectContentEventStream
 -&gt; SelectObjectContentEventStream -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679553438"><span id="local-6989586621679553440"><span id="local-6989586621679553442"><span id="local-6989586621679553444"><span class="annot"><span class="annottext">ReadPrec [SelectObjectContentEventStream]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679554079"><span id="local-6989586621679554081"><span id="local-6989586621679554083"><span id="local-6989586621679554085"><span class="annot"><span class="annottext">ReadPrec [SelectObjectContentEventStream]
 ReadPrec SelectObjectContentEventStream
 Int -&gt; ReadS SelectObjectContentEventStream
 ReadS [SelectObjectContentEventStream]
@@ -85,7 +85,7 @@ readList :: ReadS [SelectObjectContentEventStream]
 $creadList :: ReadS [SelectObjectContentEventStream]
 readsPrec :: Int -&gt; ReadS SelectObjectContentEventStream
 $creadsPrec :: Int -&gt; ReadS SelectObjectContentEventStream
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679553431"><span id="local-6989586621679553433"><span id="local-6989586621679553435"><span class="annot"><span class="annottext">Int -&gt; SelectObjectContentEventStream -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679554072"><span id="local-6989586621679554074"><span id="local-6989586621679554076"><span class="annot"><span class="annottext">Int -&gt; SelectObjectContentEventStream -&gt; ShowS
 [SelectObjectContentEventStream] -&gt; ShowS
 SelectObjectContentEventStream -&gt; String
 (Int -&gt; SelectObjectContentEventStream -&gt; ShowS)
@@ -131,73 +131,73 @@ SelectObjectContentEventStream
 </span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'end', 'selectObjectContentEventStream_end' - The End Event.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'progress', 'selectObjectContentEventStream_progress' - The Progress Event.</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- 'records', 'selectObjectContentEventStream_records' - The Records Event.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'stats', 'selectObjectContentEventStream_stats' - The Stats Event.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'cont', 'selectObjectContentEventStream_cont' - The Continuation Event.</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'cont', 'selectObjectContentEventStream_cont' - The Continuation Event.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'stats', 'selectObjectContentEventStream_stats' - The Stats Event.</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'progress', 'selectObjectContentEventStream_progress' - The Progress Event.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'end', 'selectObjectContentEventStream_end' - The End Event.</span><span>
 </span><span id="line-66"></span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#newSelectObjectContentEventStream"><span class="hs-identifier hs-type">newSelectObjectContentEventStream</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#SelectObjectContentEventStream"><span class="hs-identifier hs-type">SelectObjectContentEventStream</span></a></span><span>
 </span><span id="line-68"></span><span id="newSelectObjectContentEventStream"><span class="annot"><span class="annottext">newSelectObjectContentEventStream :: SelectObjectContentEventStream
 </span><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#newSelectObjectContentEventStream"><span class="hs-identifier hs-var hs-var">newSelectObjectContentEventStream</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">SelectObjectContentEventStream' :: Maybe EndEvent
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">SelectObjectContentEventStream' :: Maybe ProgressEvent
 -&gt; Maybe RecordsEvent
--&gt; Maybe StatsEvent
 -&gt; Maybe ContinuationEvent
--&gt; Maybe ProgressEvent
+-&gt; Maybe StatsEvent
+-&gt; Maybe EndEvent
 -&gt; SelectObjectContentEventStream
 </span><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#SelectObjectContentEventStream%27"><span class="hs-identifier hs-type">SelectObjectContentEventStream'</span></a></span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:end:SelectObjectContentEventStream' :: Maybe EndEvent
-</span><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#%24sel%3Aend%3ASelectObjectContentEventStream%27"><span class="hs-identifier hs-var">end</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-71"></span><span>        </span><span class="annot"><span class="annottext">Maybe EndEvent
+</span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:progress:SelectObjectContentEventStream' :: Maybe ProgressEvent
+</span><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#%24sel%3Aprogress%3ASelectObjectContentEventStream%27"><span class="hs-identifier hs-var">progress</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>        </span><span class="annot"><span class="annottext">Maybe ProgressEvent
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:records:SelectObjectContentEventStream' :: Maybe RecordsEvent
 </span><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#%24sel%3Arecords%3ASelectObjectContentEventStream%27"><span class="hs-identifier hs-var">records</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RecordsEvent
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:stats:SelectObjectContentEventStream' :: Maybe StatsEvent
-</span><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#%24sel%3Astats%3ASelectObjectContentEventStream%27"><span class="hs-identifier hs-var">stats</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StatsEvent
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:cont:SelectObjectContentEventStream' :: Maybe ContinuationEvent
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:cont:SelectObjectContentEventStream' :: Maybe ContinuationEvent
 </span><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#%24sel%3Acont%3ASelectObjectContentEventStream%27"><span class="hs-identifier hs-var">cont</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContinuationEvent
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:progress:SelectObjectContentEventStream' :: Maybe ProgressEvent
-</span><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#%24sel%3Aprogress%3ASelectObjectContentEventStream%27"><span class="hs-identifier hs-var">progress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProgressEvent
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:stats:SelectObjectContentEventStream' :: Maybe StatsEvent
+</span><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#%24sel%3Astats%3ASelectObjectContentEventStream%27"><span class="hs-identifier hs-var">stats</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StatsEvent
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:end:SelectObjectContentEventStream' :: Maybe EndEvent
+</span><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#%24sel%3Aend%3ASelectObjectContentEventStream%27"><span class="hs-identifier hs-var">end</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EndEvent
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- | The End Event.</span><span>
-</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#selectObjectContentEventStream_end"><span class="hs-identifier hs-type">selectObjectContentEventStream_end</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#SelectObjectContentEventStream"><span class="hs-identifier hs-type">SelectObjectContentEventStream</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.EndEvent.html#EndEvent"><span class="hs-identifier hs-type">EndEvent</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span id="selectObjectContentEventStream_end"><span class="annot"><span class="annottext">selectObjectContentEventStream_end :: (Maybe EndEvent -&gt; f (Maybe EndEvent))
+</span><span id="line-78"></span><span class="hs-comment">-- | The Progress Event.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#selectObjectContentEventStream_progress"><span class="hs-identifier hs-type">selectObjectContentEventStream_progress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#SelectObjectContentEventStream"><span class="hs-identifier hs-type">SelectObjectContentEventStream</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ProgressEvent.html#ProgressEvent"><span class="hs-identifier hs-type">ProgressEvent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="selectObjectContentEventStream_progress"><span class="annot"><span class="annottext">selectObjectContentEventStream_progress :: (Maybe ProgressEvent -&gt; f (Maybe ProgressEvent))
 -&gt; SelectObjectContentEventStream
 -&gt; f SelectObjectContentEventStream
-</span><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#selectObjectContentEventStream_end"><span class="hs-identifier hs-var hs-var">selectObjectContentEventStream_end</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SelectObjectContentEventStream -&gt; Maybe EndEvent)
+</span><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#selectObjectContentEventStream_progress"><span class="hs-identifier hs-var hs-var">selectObjectContentEventStream_progress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SelectObjectContentEventStream -&gt; Maybe ProgressEvent)
 -&gt; (SelectObjectContentEventStream
-    -&gt; Maybe EndEvent -&gt; SelectObjectContentEventStream)
+    -&gt; Maybe ProgressEvent -&gt; SelectObjectContentEventStream)
 -&gt; Lens
      SelectObjectContentEventStream
      SelectObjectContentEventStream
-     (Maybe EndEvent)
-     (Maybe EndEvent)
+     (Maybe ProgressEvent)
+     (Maybe ProgressEvent)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#SelectObjectContentEventStream%27"><span class="hs-identifier hs-type">SelectObjectContentEventStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679553422"><span class="annot"><span class="annottext">Maybe EndEvent
-end :: Maybe EndEvent
-$sel:end:SelectObjectContentEventStream' :: SelectObjectContentEventStream -&gt; Maybe EndEvent
-</span><a href="#local-6989586621679553422"><span class="hs-identifier hs-var hs-var">end</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EndEvent
-</span><a href="#local-6989586621679553422"><span class="hs-identifier hs-var">end</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679553421"><span class="annot"><span class="annottext">s :: SelectObjectContentEventStream
-</span><a href="#local-6989586621679553421"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#SelectObjectContentEventStream%27"><span class="hs-identifier hs-type">SelectObjectContentEventStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679553420"><span class="annot"><span class="annottext">Maybe EndEvent
-</span><a href="#local-6989586621679553420"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SelectObjectContentEventStream
-</span><a href="#local-6989586621679553421"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:end:SelectObjectContentEventStream' :: Maybe EndEvent
-</span><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#%24sel%3Aend%3ASelectObjectContentEventStream%27"><span class="hs-identifier hs-var">end</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EndEvent
-</span><a href="#local-6989586621679553420"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#SelectObjectContentEventStream"><span class="hs-identifier hs-type">SelectObjectContentEventStream</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#SelectObjectContentEventStream%27"><span class="hs-identifier hs-type">SelectObjectContentEventStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679554063"><span class="annot"><span class="annottext">Maybe ProgressEvent
+progress :: Maybe ProgressEvent
+$sel:progress:SelectObjectContentEventStream' :: SelectObjectContentEventStream -&gt; Maybe ProgressEvent
+</span><a href="#local-6989586621679554063"><span class="hs-identifier hs-var hs-var">progress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProgressEvent
+</span><a href="#local-6989586621679554063"><span class="hs-identifier hs-var">progress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679554062"><span class="annot"><span class="annottext">s :: SelectObjectContentEventStream
+</span><a href="#local-6989586621679554062"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#SelectObjectContentEventStream%27"><span class="hs-identifier hs-type">SelectObjectContentEventStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679554061"><span class="annot"><span class="annottext">Maybe ProgressEvent
+</span><a href="#local-6989586621679554061"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SelectObjectContentEventStream
+</span><a href="#local-6989586621679554062"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:progress:SelectObjectContentEventStream' :: Maybe ProgressEvent
+</span><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#%24sel%3Aprogress%3ASelectObjectContentEventStream%27"><span class="hs-identifier hs-var">progress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProgressEvent
+</span><a href="#local-6989586621679554061"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#SelectObjectContentEventStream"><span class="hs-identifier hs-type">SelectObjectContentEventStream</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | The Records Event.</span><span>
 </span><span id="line-83"></span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#selectObjectContentEventStream_records"><span class="hs-identifier hs-type">selectObjectContentEventStream_records</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#SelectObjectContentEventStream"><span class="hs-identifier hs-type">SelectObjectContentEventStream</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RecordsEvent.html#RecordsEvent"><span class="hs-identifier hs-type">RecordsEvent</span></a></span><span class="hs-special">)</span><span>
@@ -213,45 +213,20 @@ $sel:end:SelectObjectContentEventStream' :: SelectObjectContentEventStream -&gt;
      (Maybe RecordsEvent)
      (Maybe RecordsEvent)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#SelectObjectContentEventStream%27"><span class="hs-identifier hs-type">SelectObjectContentEventStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679553418"><span class="annot"><span class="annottext">Maybe RecordsEvent
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#SelectObjectContentEventStream%27"><span class="hs-identifier hs-type">SelectObjectContentEventStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679554059"><span class="annot"><span class="annottext">Maybe RecordsEvent
 records :: Maybe RecordsEvent
 $sel:records:SelectObjectContentEventStream' :: SelectObjectContentEventStream -&gt; Maybe RecordsEvent
-</span><a href="#local-6989586621679553418"><span class="hs-identifier hs-var hs-var">records</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RecordsEvent
-</span><a href="#local-6989586621679553418"><span class="hs-identifier hs-var">records</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679553417"><span class="annot"><span class="annottext">s :: SelectObjectContentEventStream
-</span><a href="#local-6989586621679553417"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#SelectObjectContentEventStream%27"><span class="hs-identifier hs-type">SelectObjectContentEventStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679553416"><span class="annot"><span class="annottext">Maybe RecordsEvent
-</span><a href="#local-6989586621679553416"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SelectObjectContentEventStream
-</span><a href="#local-6989586621679553417"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:records:SelectObjectContentEventStream' :: Maybe RecordsEvent
+</span><a href="#local-6989586621679554059"><span class="hs-identifier hs-var hs-var">records</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RecordsEvent
+</span><a href="#local-6989586621679554059"><span class="hs-identifier hs-var">records</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679554058"><span class="annot"><span class="annottext">s :: SelectObjectContentEventStream
+</span><a href="#local-6989586621679554058"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#SelectObjectContentEventStream%27"><span class="hs-identifier hs-type">SelectObjectContentEventStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679554057"><span class="annot"><span class="annottext">Maybe RecordsEvent
+</span><a href="#local-6989586621679554057"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SelectObjectContentEventStream
+</span><a href="#local-6989586621679554058"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:records:SelectObjectContentEventStream' :: Maybe RecordsEvent
 </span><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#%24sel%3Arecords%3ASelectObjectContentEventStream%27"><span class="hs-identifier hs-var">records</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RecordsEvent
-</span><a href="#local-6989586621679553416"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#SelectObjectContentEventStream"><span class="hs-identifier hs-type">SelectObjectContentEventStream</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679554057"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#SelectObjectContentEventStream"><span class="hs-identifier hs-type">SelectObjectContentEventStream</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- | The Stats Event.</span><span>
-</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#selectObjectContentEventStream_stats"><span class="hs-identifier hs-type">selectObjectContentEventStream_stats</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#SelectObjectContentEventStream"><span class="hs-identifier hs-type">SelectObjectContentEventStream</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.StatsEvent.html#StatsEvent"><span class="hs-identifier hs-type">StatsEvent</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span id="selectObjectContentEventStream_stats"><span class="annot"><span class="annottext">selectObjectContentEventStream_stats :: (Maybe StatsEvent -&gt; f (Maybe StatsEvent))
--&gt; SelectObjectContentEventStream
--&gt; f SelectObjectContentEventStream
-</span><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#selectObjectContentEventStream_stats"><span class="hs-identifier hs-var hs-var">selectObjectContentEventStream_stats</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SelectObjectContentEventStream -&gt; Maybe StatsEvent)
--&gt; (SelectObjectContentEventStream
-    -&gt; Maybe StatsEvent -&gt; SelectObjectContentEventStream)
--&gt; Lens
-     SelectObjectContentEventStream
-     SelectObjectContentEventStream
-     (Maybe StatsEvent)
-     (Maybe StatsEvent)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#SelectObjectContentEventStream%27"><span class="hs-identifier hs-type">SelectObjectContentEventStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679553414"><span class="annot"><span class="annottext">Maybe StatsEvent
-stats :: Maybe StatsEvent
-$sel:stats:SelectObjectContentEventStream' :: SelectObjectContentEventStream -&gt; Maybe StatsEvent
-</span><a href="#local-6989586621679553414"><span class="hs-identifier hs-var hs-var">stats</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StatsEvent
-</span><a href="#local-6989586621679553414"><span class="hs-identifier hs-var">stats</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679553413"><span class="annot"><span class="annottext">s :: SelectObjectContentEventStream
-</span><a href="#local-6989586621679553413"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#SelectObjectContentEventStream%27"><span class="hs-identifier hs-type">SelectObjectContentEventStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679553412"><span class="annot"><span class="annottext">Maybe StatsEvent
-</span><a href="#local-6989586621679553412"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SelectObjectContentEventStream
-</span><a href="#local-6989586621679553413"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stats:SelectObjectContentEventStream' :: Maybe StatsEvent
-</span><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#%24sel%3Astats%3ASelectObjectContentEventStream%27"><span class="hs-identifier hs-var">stats</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StatsEvent
-</span><a href="#local-6989586621679553412"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#SelectObjectContentEventStream"><span class="hs-identifier hs-type">SelectObjectContentEventStream</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- | The Continuation Event.</span><span>
-</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#selectObjectContentEventStream_cont"><span class="hs-identifier hs-type">selectObjectContentEventStream_cont</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#SelectObjectContentEventStream"><span class="hs-identifier hs-type">SelectObjectContentEventStream</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ContinuationEvent.html#ContinuationEvent"><span class="hs-identifier hs-type">ContinuationEvent</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span id="selectObjectContentEventStream_cont"><span class="annot"><span class="annottext">selectObjectContentEventStream_cont :: (Maybe ContinuationEvent -&gt; f (Maybe ContinuationEvent))
+</span><span id="line-86"></span><span class="hs-comment">-- | The Continuation Event.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#selectObjectContentEventStream_cont"><span class="hs-identifier hs-type">selectObjectContentEventStream_cont</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#SelectObjectContentEventStream"><span class="hs-identifier hs-type">SelectObjectContentEventStream</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ContinuationEvent.html#ContinuationEvent"><span class="hs-identifier hs-type">ContinuationEvent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="selectObjectContentEventStream_cont"><span class="annot"><span class="annottext">selectObjectContentEventStream_cont :: (Maybe ContinuationEvent -&gt; f (Maybe ContinuationEvent))
 -&gt; SelectObjectContentEventStream
 -&gt; f SelectObjectContentEventStream
 </span><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#selectObjectContentEventStream_cont"><span class="hs-identifier hs-var hs-var">selectObjectContentEventStream_cont</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SelectObjectContentEventStream -&gt; Maybe ContinuationEvent)
@@ -263,139 +238,162 @@ $sel:stats:SelectObjectContentEventStream' :: SelectObjectContentEventStream -&g
      (Maybe ContinuationEvent)
      (Maybe ContinuationEvent)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#SelectObjectContentEventStream%27"><span class="hs-identifier hs-type">SelectObjectContentEventStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679553410"><span class="annot"><span class="annottext">Maybe ContinuationEvent
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#SelectObjectContentEventStream%27"><span class="hs-identifier hs-type">SelectObjectContentEventStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679554055"><span class="annot"><span class="annottext">Maybe ContinuationEvent
 cont :: Maybe ContinuationEvent
 $sel:cont:SelectObjectContentEventStream' :: SelectObjectContentEventStream -&gt; Maybe ContinuationEvent
-</span><a href="#local-6989586621679553410"><span class="hs-identifier hs-var hs-var">cont</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContinuationEvent
-</span><a href="#local-6989586621679553410"><span class="hs-identifier hs-var">cont</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679553409"><span class="annot"><span class="annottext">s :: SelectObjectContentEventStream
-</span><a href="#local-6989586621679553409"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#SelectObjectContentEventStream%27"><span class="hs-identifier hs-type">SelectObjectContentEventStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679553408"><span class="annot"><span class="annottext">Maybe ContinuationEvent
-</span><a href="#local-6989586621679553408"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SelectObjectContentEventStream
-</span><a href="#local-6989586621679553409"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cont:SelectObjectContentEventStream' :: Maybe ContinuationEvent
+</span><a href="#local-6989586621679554055"><span class="hs-identifier hs-var hs-var">cont</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContinuationEvent
+</span><a href="#local-6989586621679554055"><span class="hs-identifier hs-var">cont</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679554054"><span class="annot"><span class="annottext">s :: SelectObjectContentEventStream
+</span><a href="#local-6989586621679554054"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#SelectObjectContentEventStream%27"><span class="hs-identifier hs-type">SelectObjectContentEventStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679554053"><span class="annot"><span class="annottext">Maybe ContinuationEvent
+</span><a href="#local-6989586621679554053"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SelectObjectContentEventStream
+</span><a href="#local-6989586621679554054"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cont:SelectObjectContentEventStream' :: Maybe ContinuationEvent
 </span><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#%24sel%3Acont%3ASelectObjectContentEventStream%27"><span class="hs-identifier hs-var">cont</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContinuationEvent
-</span><a href="#local-6989586621679553408"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#SelectObjectContentEventStream"><span class="hs-identifier hs-type">SelectObjectContentEventStream</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- | The Progress Event.</span><span>
-</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#selectObjectContentEventStream_progress"><span class="hs-identifier hs-type">selectObjectContentEventStream_progress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#SelectObjectContentEventStream"><span class="hs-identifier hs-type">SelectObjectContentEventStream</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ProgressEvent.html#ProgressEvent"><span class="hs-identifier hs-type">ProgressEvent</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span id="selectObjectContentEventStream_progress"><span class="annot"><span class="annottext">selectObjectContentEventStream_progress :: (Maybe ProgressEvent -&gt; f (Maybe ProgressEvent))
+</span><a href="#local-6989586621679554053"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#SelectObjectContentEventStream"><span class="hs-identifier hs-type">SelectObjectContentEventStream</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The Stats Event.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#selectObjectContentEventStream_stats"><span class="hs-identifier hs-type">selectObjectContentEventStream_stats</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#SelectObjectContentEventStream"><span class="hs-identifier hs-type">SelectObjectContentEventStream</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.StatsEvent.html#StatsEvent"><span class="hs-identifier hs-type">StatsEvent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="selectObjectContentEventStream_stats"><span class="annot"><span class="annottext">selectObjectContentEventStream_stats :: (Maybe StatsEvent -&gt; f (Maybe StatsEvent))
 -&gt; SelectObjectContentEventStream
 -&gt; f SelectObjectContentEventStream
-</span><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#selectObjectContentEventStream_progress"><span class="hs-identifier hs-var hs-var">selectObjectContentEventStream_progress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SelectObjectContentEventStream -&gt; Maybe ProgressEvent)
+</span><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#selectObjectContentEventStream_stats"><span class="hs-identifier hs-var hs-var">selectObjectContentEventStream_stats</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SelectObjectContentEventStream -&gt; Maybe StatsEvent)
 -&gt; (SelectObjectContentEventStream
-    -&gt; Maybe ProgressEvent -&gt; SelectObjectContentEventStream)
+    -&gt; Maybe StatsEvent -&gt; SelectObjectContentEventStream)
 -&gt; Lens
      SelectObjectContentEventStream
      SelectObjectContentEventStream
-     (Maybe ProgressEvent)
-     (Maybe ProgressEvent)
+     (Maybe StatsEvent)
+     (Maybe StatsEvent)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#SelectObjectContentEventStream%27"><span class="hs-identifier hs-type">SelectObjectContentEventStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679553406"><span class="annot"><span class="annottext">Maybe ProgressEvent
-progress :: Maybe ProgressEvent
-$sel:progress:SelectObjectContentEventStream' :: SelectObjectContentEventStream -&gt; Maybe ProgressEvent
-</span><a href="#local-6989586621679553406"><span class="hs-identifier hs-var hs-var">progress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProgressEvent
-</span><a href="#local-6989586621679553406"><span class="hs-identifier hs-var">progress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679553405"><span class="annot"><span class="annottext">s :: SelectObjectContentEventStream
-</span><a href="#local-6989586621679553405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#SelectObjectContentEventStream%27"><span class="hs-identifier hs-type">SelectObjectContentEventStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679553404"><span class="annot"><span class="annottext">Maybe ProgressEvent
-</span><a href="#local-6989586621679553404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SelectObjectContentEventStream
-</span><a href="#local-6989586621679553405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:progress:SelectObjectContentEventStream' :: Maybe ProgressEvent
-</span><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#%24sel%3Aprogress%3ASelectObjectContentEventStream%27"><span class="hs-identifier hs-var">progress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProgressEvent
-</span><a href="#local-6989586621679553404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#SelectObjectContentEventStream"><span class="hs-identifier hs-type">SelectObjectContentEventStream</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#SelectObjectContentEventStream%27"><span class="hs-identifier hs-type">SelectObjectContentEventStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679554051"><span class="annot"><span class="annottext">Maybe StatsEvent
+stats :: Maybe StatsEvent
+$sel:stats:SelectObjectContentEventStream' :: SelectObjectContentEventStream -&gt; Maybe StatsEvent
+</span><a href="#local-6989586621679554051"><span class="hs-identifier hs-var hs-var">stats</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StatsEvent
+</span><a href="#local-6989586621679554051"><span class="hs-identifier hs-var">stats</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679554050"><span class="annot"><span class="annottext">s :: SelectObjectContentEventStream
+</span><a href="#local-6989586621679554050"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#SelectObjectContentEventStream%27"><span class="hs-identifier hs-type">SelectObjectContentEventStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679554049"><span class="annot"><span class="annottext">Maybe StatsEvent
+</span><a href="#local-6989586621679554049"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SelectObjectContentEventStream
+</span><a href="#local-6989586621679554050"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stats:SelectObjectContentEventStream' :: Maybe StatsEvent
+</span><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#%24sel%3Astats%3ASelectObjectContentEventStream%27"><span class="hs-identifier hs-var">stats</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StatsEvent
+</span><a href="#local-6989586621679554049"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#SelectObjectContentEventStream"><span class="hs-identifier hs-type">SelectObjectContentEventStream</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The End Event.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#selectObjectContentEventStream_end"><span class="hs-identifier hs-type">selectObjectContentEventStream_end</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#SelectObjectContentEventStream"><span class="hs-identifier hs-type">SelectObjectContentEventStream</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.EndEvent.html#EndEvent"><span class="hs-identifier hs-type">EndEvent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="selectObjectContentEventStream_end"><span class="annot"><span class="annottext">selectObjectContentEventStream_end :: (Maybe EndEvent -&gt; f (Maybe EndEvent))
+-&gt; SelectObjectContentEventStream
+-&gt; f SelectObjectContentEventStream
+</span><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#selectObjectContentEventStream_end"><span class="hs-identifier hs-var hs-var">selectObjectContentEventStream_end</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SelectObjectContentEventStream -&gt; Maybe EndEvent)
+-&gt; (SelectObjectContentEventStream
+    -&gt; Maybe EndEvent -&gt; SelectObjectContentEventStream)
+-&gt; Lens
+     SelectObjectContentEventStream
+     SelectObjectContentEventStream
+     (Maybe EndEvent)
+     (Maybe EndEvent)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#SelectObjectContentEventStream%27"><span class="hs-identifier hs-type">SelectObjectContentEventStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679554047"><span class="annot"><span class="annottext">Maybe EndEvent
+end :: Maybe EndEvent
+$sel:end:SelectObjectContentEventStream' :: SelectObjectContentEventStream -&gt; Maybe EndEvent
+</span><a href="#local-6989586621679554047"><span class="hs-identifier hs-var hs-var">end</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EndEvent
+</span><a href="#local-6989586621679554047"><span class="hs-identifier hs-var">end</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679554046"><span class="annot"><span class="annottext">s :: SelectObjectContentEventStream
+</span><a href="#local-6989586621679554046"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#SelectObjectContentEventStream%27"><span class="hs-identifier hs-type">SelectObjectContentEventStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679554045"><span class="annot"><span class="annottext">Maybe EndEvent
+</span><a href="#local-6989586621679554045"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SelectObjectContentEventStream
+</span><a href="#local-6989586621679554046"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:end:SelectObjectContentEventStream' :: Maybe EndEvent
+</span><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#%24sel%3Aend%3ASelectObjectContentEventStream%27"><span class="hs-identifier hs-var">end</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EndEvent
+</span><a href="#local-6989586621679554045"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#SelectObjectContentEventStream"><span class="hs-identifier hs-type">SelectObjectContentEventStream</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#SelectObjectContentEventStream"><span class="hs-identifier hs-type">SelectObjectContentEventStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679553401"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String SelectObjectContentEventStream
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679553399"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679553399"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">Maybe EndEvent
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679554042"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String SelectObjectContentEventStream
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679554040"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679554040"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">Maybe ProgressEvent
 -&gt; Maybe RecordsEvent
--&gt; Maybe StatsEvent
 -&gt; Maybe ContinuationEvent
--&gt; Maybe ProgressEvent
+-&gt; Maybe StatsEvent
+-&gt; Maybe EndEvent
 -&gt; SelectObjectContentEventStream
 </span><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#SelectObjectContentEventStream%27"><span class="hs-identifier hs-var">SelectObjectContentEventStream'</span></a></span><span>
-</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">(Maybe EndEvent
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">(Maybe ProgressEvent
  -&gt; Maybe RecordsEvent
- -&gt; Maybe StatsEvent
  -&gt; Maybe ContinuationEvent
- -&gt; Maybe ProgressEvent
+ -&gt; Maybe StatsEvent
+ -&gt; Maybe EndEvent
  -&gt; SelectObjectContentEventStream)
--&gt; Either String (Maybe EndEvent)
+-&gt; Either String (Maybe ProgressEvent)
 -&gt; Either
      String
      (Maybe RecordsEvent
-      -&gt; Maybe StatsEvent
       -&gt; Maybe ContinuationEvent
-      -&gt; Maybe ProgressEvent
+      -&gt; Maybe StatsEvent
+      -&gt; Maybe EndEvent
       -&gt; SelectObjectContentEventStream)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679553399"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe EndEvent)
+</span><a href="#local-6989586621679554040"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ProgressEvent)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;End&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Progress&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe RecordsEvent
-   -&gt; Maybe StatsEvent
    -&gt; Maybe ContinuationEvent
-   -&gt; Maybe ProgressEvent
+   -&gt; Maybe StatsEvent
+   -&gt; Maybe EndEvent
    -&gt; SelectObjectContentEventStream)
 -&gt; Either String (Maybe RecordsEvent)
 -&gt; Either
      String
-     (Maybe StatsEvent
-      -&gt; Maybe ContinuationEvent
-      -&gt; Maybe ProgressEvent
+     (Maybe ContinuationEvent
+      -&gt; Maybe StatsEvent
+      -&gt; Maybe EndEvent
       -&gt; SelectObjectContentEventStream)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679553399"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe RecordsEvent)
+</span><a href="#local-6989586621679554040"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe RecordsEvent)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Records&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe StatsEvent
-   -&gt; Maybe ContinuationEvent
-   -&gt; Maybe ProgressEvent
-   -&gt; SelectObjectContentEventStream)
--&gt; Either String (Maybe StatsEvent)
--&gt; Either
-     String
-     (Maybe ContinuationEvent
-      -&gt; Maybe ProgressEvent -&gt; SelectObjectContentEventStream)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679553399"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe StatsEvent)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Stats&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
   (Maybe ContinuationEvent
-   -&gt; Maybe ProgressEvent -&gt; SelectObjectContentEventStream)
+   -&gt; Maybe StatsEvent
+   -&gt; Maybe EndEvent
+   -&gt; SelectObjectContentEventStream)
 -&gt; Either String (Maybe ContinuationEvent)
 -&gt; Either
-     String (Maybe ProgressEvent -&gt; SelectObjectContentEventStream)
+     String
+     (Maybe StatsEvent
+      -&gt; Maybe EndEvent -&gt; SelectObjectContentEventStream)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679553399"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ContinuationEvent)
+</span><a href="#local-6989586621679554040"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ContinuationEvent)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Cont&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String (Maybe ProgressEvent -&gt; SelectObjectContentEventStream)
--&gt; Either String (Maybe ProgressEvent)
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe StatsEvent
+   -&gt; Maybe EndEvent -&gt; SelectObjectContentEventStream)
+-&gt; Either String (Maybe StatsEvent)
+-&gt; Either String (Maybe EndEvent -&gt; SelectObjectContentEventStream)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679554040"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe StatsEvent)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Stats&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe EndEvent -&gt; SelectObjectContentEventStream)
+-&gt; Either String (Maybe EndEvent)
 -&gt; Either String SelectObjectContentEventStream
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679553399"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ProgressEvent)
+</span><a href="#local-6989586621679554040"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe EndEvent)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Progress&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;End&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679553393"><span id="local-6989586621679553395"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679554034"><span id="local-6989586621679554036"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#SelectObjectContentEventStream"><span class="hs-identifier hs-type">SelectObjectContentEventStream</span></a></span></span></span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679553390"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679554031"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.Types.SelectObjectContentEventStream.html#SelectObjectContentEventStream"><span class="hs-identifier hs-type">SelectObjectContentEventStream</span></a></span></span><span>
 </span><span id="line-114"></span></pre></body></html>

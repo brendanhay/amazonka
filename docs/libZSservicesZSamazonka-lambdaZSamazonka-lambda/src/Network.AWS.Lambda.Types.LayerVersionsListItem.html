@@ -20,36 +20,41 @@
 </span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Lambda.Types.LayerVersionsListItem</span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-21"></span><span>
 </span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
-</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.Runtime.html"><span class="hs-identifier">Network.AWS.Lambda.Types.Runtime</span></a></span><span>
-</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
-</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
-</span><span id="line-26"></span><span>
-</span><span id="line-27"></span><span class="hs-comment">-- | Details about a version of an</span><span>
-</span><span id="line-28"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html Lambda layer&gt;.</span><span>
-</span><span id="line-29"></span><span class="hs-comment">--</span><span>
-</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newLayerVersionsListItem' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679293642"><span id="local-6989586621679293643"></span></span><span class="hs-keyword">data</span><span> </span><span id="LayerVersionsListItem"><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem"><span class="hs-identifier hs-var">LayerVersionsListItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LayerVersionsListItem%27"><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem%27"><span class="hs-identifier hs-var">LayerVersionsListItem'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The date that the version was created, in ISO 8601 format. For example,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- @2018-11-27T15:10:45.123+0000@.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AcreatedDate%3ALayerVersionsListItem%27"><span class="annot"><span class="annottext">LayerVersionsListItem -&gt; Maybe Text
-</span><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#%24sel%3AcreatedDate%3ALayerVersionsListItem%27"><span class="hs-identifier hs-var hs-var">createdDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The version number.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3Aversion%3ALayerVersionsListItem%27"><span class="annot"><span class="annottext">LayerVersionsListItem -&gt; Maybe Integer
-</span><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#%24sel%3Aversion%3ALayerVersionsListItem%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The ARN of the layer version.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AlayerVersionArn%3ALayerVersionsListItem%27"><span class="annot"><span class="annottext">LayerVersionsListItem -&gt; Maybe Text
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.Architecture.html"><span class="hs-identifier">Network.AWS.Lambda.Types.Architecture</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.Runtime.html"><span class="hs-identifier">Network.AWS.Lambda.Types.Runtime</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Details about a version of an</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html Lambda layer&gt;.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newLayerVersionsListItem' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679298490"><span id="local-6989586621679298491"></span></span><span class="hs-keyword">data</span><span> </span><span id="LayerVersionsListItem"><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem"><span class="hs-identifier hs-var">LayerVersionsListItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LayerVersionsListItem%27"><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem%27"><span class="hs-identifier hs-var">LayerVersionsListItem'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the layer version.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AlayerVersionArn%3ALayerVersionsListItem%27"><span class="annot"><span class="annottext">LayerVersionsListItem -&gt; Maybe Text
 </span><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#%24sel%3AlayerVersionArn%3ALayerVersionsListItem%27"><span class="hs-identifier hs-var hs-var">layerVersionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The layer\'s compatible runtimes.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AcompatibleRuntimes%3ALayerVersionsListItem%27"><span class="annot"><span class="annottext">LayerVersionsListItem -&gt; Maybe [Runtime]
-</span><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#%24sel%3AcompatibleRuntimes%3ALayerVersionsListItem%27"><span class="hs-identifier hs-var hs-var">compatibleRuntimes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Lambda.Types.Runtime.html#Runtime"><span class="hs-identifier hs-type">Runtime</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The description of the version.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3Adescription%3ALayerVersionsListItem%27"><span class="annot"><span class="annottext">LayerVersionsListItem -&gt; Maybe Text
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The date that the version was created, in ISO 8601 format. For example,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- @2018-11-27T15:10:45.123+0000@.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AcreatedDate%3ALayerVersionsListItem%27"><span class="annot"><span class="annottext">LayerVersionsListItem -&gt; Maybe Text
+</span><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#%24sel%3AcreatedDate%3ALayerVersionsListItem%27"><span class="hs-identifier hs-var hs-var">createdDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The version number.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aversion%3ALayerVersionsListItem%27"><span class="annot"><span class="annottext">LayerVersionsListItem -&gt; Maybe Integer
+</span><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#%24sel%3Aversion%3ALayerVersionsListItem%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The layer\'s open-source license.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AlicenseInfo%3ALayerVersionsListItem%27"><span class="annot"><span class="annottext">LayerVersionsListItem -&gt; Maybe Text
+</span><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#%24sel%3AlicenseInfo%3ALayerVersionsListItem%27"><span class="hs-identifier hs-var hs-var">licenseInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | A list of compatible</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html instruction set architectures&gt;.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AcompatibleArchitectures%3ALayerVersionsListItem%27"><span class="annot"><span class="annottext">LayerVersionsListItem -&gt; Maybe [Architecture]
+</span><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#%24sel%3AcompatibleArchitectures%3ALayerVersionsListItem%27"><span class="hs-identifier hs-var hs-var">compatibleArchitectures</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Lambda.Types.Architecture.html#Architecture"><span class="hs-identifier hs-type">Architecture</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The description of the version.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Adescription%3ALayerVersionsListItem%27"><span class="annot"><span class="annottext">LayerVersionsListItem -&gt; Maybe Text
 </span><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#%24sel%3Adescription%3ALayerVersionsListItem%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The layer\'s open-source license.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AlicenseInfo%3ALayerVersionsListItem%27"><span class="annot"><span class="annottext">LayerVersionsListItem -&gt; Maybe Text
-</span><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#%24sel%3AlicenseInfo%3ALayerVersionsListItem%27"><span class="hs-identifier hs-var hs-var">licenseInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679293631"><span id="local-6989586621679293633"><span class="annot"><span class="annottext">LayerVersionsListItem -&gt; LayerVersionsListItem -&gt; Bool
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The layer\'s compatible runtimes.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AcompatibleRuntimes%3ALayerVersionsListItem%27"><span class="annot"><span class="annottext">LayerVersionsListItem -&gt; Maybe [Runtime]
+</span><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#%24sel%3AcompatibleRuntimes%3ALayerVersionsListItem%27"><span class="hs-identifier hs-var hs-var">compatibleRuntimes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Lambda.Types.Runtime.html#Runtime"><span class="hs-identifier hs-type">Runtime</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679298478"><span id="local-6989586621679298480"><span class="annot"><span class="annottext">LayerVersionsListItem -&gt; LayerVersionsListItem -&gt; Bool
 (LayerVersionsListItem -&gt; LayerVersionsListItem -&gt; Bool)
 -&gt; (LayerVersionsListItem -&gt; LayerVersionsListItem -&gt; Bool)
 -&gt; Eq LayerVersionsListItem
@@ -58,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LayerVersionsListItem -&gt; LayerVersionsListItem -&gt; Bool
 == :: LayerVersionsListItem -&gt; LayerVersionsListItem -&gt; Bool
 $c== :: LayerVersionsListItem -&gt; LayerVersionsListItem -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293622"><span id="local-6989586621679293624"><span id="local-6989586621679293626"><span id="local-6989586621679293628"><span class="annot"><span class="annottext">ReadPrec [LayerVersionsListItem]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298469"><span id="local-6989586621679298471"><span id="local-6989586621679298473"><span id="local-6989586621679298475"><span class="annot"><span class="annottext">ReadPrec [LayerVersionsListItem]
 ReadPrec LayerVersionsListItem
 Int -&gt; ReadS LayerVersionsListItem
 ReadS [LayerVersionsListItem]
@@ -78,7 +83,7 @@ readList :: ReadS [LayerVersionsListItem]
 $creadList :: ReadS [LayerVersionsListItem]
 readsPrec :: Int -&gt; ReadS LayerVersionsListItem
 $creadsPrec :: Int -&gt; ReadS LayerVersionsListItem
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293615"><span id="local-6989586621679293617"><span id="local-6989586621679293619"><span class="annot"><span class="annottext">Int -&gt; LayerVersionsListItem -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298462"><span id="local-6989586621679298464"><span id="local-6989586621679298466"><span class="annot"><span class="annottext">Int -&gt; LayerVersionsListItem -&gt; ShowS
 [LayerVersionsListItem] -&gt; ShowS
 LayerVersionsListItem -&gt; String
 (Int -&gt; LayerVersionsListItem -&gt; ShowS)
@@ -103,70 +108,101 @@ forall a.
 $cto :: forall x. Rep LayerVersionsListItem x -&gt; LayerVersionsListItem
 $cfrom :: forall x. LayerVersionsListItem -&gt; Rep LayerVersionsListItem x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
-</span><span id="line-47"></span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- |</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- Create a value of 'LayerVersionsListItem' with all optional fields omitted.</span><span>
-</span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
-</span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
-</span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'createdDate', 'layerVersionsListItem_createdDate' - The date that the version was created, in ISO 8601 format. For example,</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- @2018-11-27T15:10:45.123+0000@.</span><span>
-</span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'version', 'layerVersionsListItem_version' - The version number.</span><span>
-</span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'layerVersionArn', 'layerVersionsListItem_layerVersionArn' - The ARN of the layer version.</span><span>
-</span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'compatibleRuntimes', 'layerVersionsListItem_compatibleRuntimes' - The layer\'s compatible runtimes.</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Create a value of 'LayerVersionsListItem' with all optional fields omitted.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'layerVersionArn', 'layerVersionsListItem_layerVersionArn' - The ARN of the layer version.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'createdDate', 'layerVersionsListItem_createdDate' - The date that the version was created, in ISO 8601 format. For example,</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- @2018-11-27T15:10:45.123+0000@.</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'description', 'layerVersionsListItem_description' - The description of the version.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'version', 'layerVersionsListItem_version' - The version number.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- 'licenseInfo', 'layerVersionsListItem_licenseInfo' - The layer\'s open-source license.</span><span>
-</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#newLayerVersionsListItem"><span class="hs-identifier hs-type">newLayerVersionsListItem</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem"><span class="hs-identifier hs-type">LayerVersionsListItem</span></a></span><span>
-</span><span id="line-70"></span><span id="newLayerVersionsListItem"><span class="annot"><span class="annottext">newLayerVersionsListItem :: LayerVersionsListItem
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'compatibleArchitectures', 'layerVersionsListItem_compatibleArchitectures' - A list of compatible</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html instruction set architectures&gt;.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'description', 'layerVersionsListItem_description' - The description of the version.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'compatibleRuntimes', 'layerVersionsListItem_compatibleRuntimes' - The layer\'s compatible runtimes.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#newLayerVersionsListItem"><span class="hs-identifier hs-type">newLayerVersionsListItem</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem"><span class="hs-identifier hs-type">LayerVersionsListItem</span></a></span><span>
+</span><span id="line-77"></span><span id="newLayerVersionsListItem"><span class="annot"><span class="annottext">newLayerVersionsListItem :: LayerVersionsListItem
 </span><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#newLayerVersionsListItem"><span class="hs-identifier hs-var hs-var">newLayerVersionsListItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">LayerVersionsListItem' :: Maybe Text
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">LayerVersionsListItem' :: Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe Integer
 -&gt; Maybe Text
+-&gt; Maybe [Architecture]
+-&gt; Maybe Text
 -&gt; Maybe [Runtime]
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; LayerVersionsListItem
 </span><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem%27"><span class="hs-identifier hs-type">LayerVersionsListItem'</span></a></span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:createdDate:LayerVersionsListItem' :: Maybe Text
-</span><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#%24sel%3AcreatedDate%3ALayerVersionsListItem%27"><span class="hs-identifier hs-var">createdDate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-73"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:layerVersionArn:LayerVersionsListItem' :: Maybe Text
+</span><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#%24sel%3AlayerVersionArn%3ALayerVersionsListItem%27"><span class="hs-identifier hs-var">layerVersionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:version:LayerVersionsListItem' :: Maybe Integer
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdDate:LayerVersionsListItem' :: Maybe Text
+</span><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#%24sel%3AcreatedDate%3ALayerVersionsListItem%27"><span class="hs-identifier hs-var">createdDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:version:LayerVersionsListItem' :: Maybe Integer
 </span><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#%24sel%3Aversion%3ALayerVersionsListItem%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:layerVersionArn:LayerVersionsListItem' :: Maybe Text
-</span><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#%24sel%3AlayerVersionArn%3ALayerVersionsListItem%27"><span class="hs-identifier hs-var">layerVersionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:licenseInfo:LayerVersionsListItem' :: Maybe Text
+</span><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#%24sel%3AlicenseInfo%3ALayerVersionsListItem%27"><span class="hs-identifier hs-var">licenseInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:compatibleRuntimes:LayerVersionsListItem' :: Maybe [Runtime]
-</span><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#%24sel%3AcompatibleRuntimes%3ALayerVersionsListItem%27"><span class="hs-identifier hs-var">compatibleRuntimes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Runtime]
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:compatibleArchitectures:LayerVersionsListItem' :: Maybe [Architecture]
+</span><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#%24sel%3AcompatibleArchitectures%3ALayerVersionsListItem%27"><span class="hs-identifier hs-var">compatibleArchitectures</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Architecture]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:LayerVersionsListItem' :: Maybe Text
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:LayerVersionsListItem' :: Maybe Text
 </span><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#%24sel%3Adescription%3ALayerVersionsListItem%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:licenseInfo:LayerVersionsListItem' :: Maybe Text
-</span><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#%24sel%3AlicenseInfo%3ALayerVersionsListItem%27"><span class="hs-identifier hs-var">licenseInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:compatibleRuntimes:LayerVersionsListItem' :: Maybe [Runtime]
+</span><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#%24sel%3AcompatibleRuntimes%3ALayerVersionsListItem%27"><span class="hs-identifier hs-var">compatibleRuntimes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Runtime]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- | The date that the version was created, in ISO 8601 format. For example,</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- @2018-11-27T15:10:45.123+0000@.</span><span>
-</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#layerVersionsListItem_createdDate"><span class="hs-identifier hs-type">layerVersionsListItem_createdDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem"><span class="hs-identifier hs-type">LayerVersionsListItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span id="layerVersionsListItem_createdDate"><span class="annot"><span class="annottext">layerVersionsListItem_createdDate :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-87"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The ARN of the layer version.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#layerVersionsListItem_layerVersionArn"><span class="hs-identifier hs-type">layerVersionsListItem_layerVersionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem"><span class="hs-identifier hs-type">LayerVersionsListItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="layerVersionsListItem_layerVersionArn"><span class="annot"><span class="annottext">layerVersionsListItem_layerVersionArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LayerVersionsListItem -&gt; f LayerVersionsListItem
+</span><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#layerVersionsListItem_layerVersionArn"><span class="hs-identifier hs-var hs-var">layerVersionsListItem_layerVersionArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LayerVersionsListItem -&gt; Maybe Text)
+-&gt; (LayerVersionsListItem -&gt; Maybe Text -&gt; LayerVersionsListItem)
+-&gt; Lens
+     LayerVersionsListItem
+     LayerVersionsListItem
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem%27"><span class="hs-identifier hs-type">LayerVersionsListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298453"><span class="annot"><span class="annottext">Maybe Text
+layerVersionArn :: Maybe Text
+$sel:layerVersionArn:LayerVersionsListItem' :: LayerVersionsListItem -&gt; Maybe Text
+</span><a href="#local-6989586621679298453"><span class="hs-identifier hs-var hs-var">layerVersionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298453"><span class="hs-identifier hs-var">layerVersionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298452"><span class="annot"><span class="annottext">s :: LayerVersionsListItem
+</span><a href="#local-6989586621679298452"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem%27"><span class="hs-identifier hs-type">LayerVersionsListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298451"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298451"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LayerVersionsListItem
+</span><a href="#local-6989586621679298452"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:layerVersionArn:LayerVersionsListItem' :: Maybe Text
+</span><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#%24sel%3AlayerVersionArn%3ALayerVersionsListItem%27"><span class="hs-identifier hs-var">layerVersionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298451"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem"><span class="hs-identifier hs-type">LayerVersionsListItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The date that the version was created, in ISO 8601 format. For example,</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- @2018-11-27T15:10:45.123+0000@.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#layerVersionsListItem_createdDate"><span class="hs-identifier hs-type">layerVersionsListItem_createdDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem"><span class="hs-identifier hs-type">LayerVersionsListItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="layerVersionsListItem_createdDate"><span class="annot"><span class="annottext">layerVersionsListItem_createdDate :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; LayerVersionsListItem -&gt; f LayerVersionsListItem
 </span><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#layerVersionsListItem_createdDate"><span class="hs-identifier hs-var hs-var">layerVersionsListItem_createdDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LayerVersionsListItem -&gt; Maybe Text)
 -&gt; (LayerVersionsListItem -&gt; Maybe Text -&gt; LayerVersionsListItem)
@@ -176,20 +212,20 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem%27"><span class="hs-identifier hs-type">LayerVersionsListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293606"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem%27"><span class="hs-identifier hs-type">LayerVersionsListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298449"><span class="annot"><span class="annottext">Maybe Text
 createdDate :: Maybe Text
 $sel:createdDate:LayerVersionsListItem' :: LayerVersionsListItem -&gt; Maybe Text
-</span><a href="#local-6989586621679293606"><span class="hs-identifier hs-var hs-var">createdDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679293606"><span class="hs-identifier hs-var">createdDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293605"><span class="annot"><span class="annottext">s :: LayerVersionsListItem
-</span><a href="#local-6989586621679293605"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem%27"><span class="hs-identifier hs-type">LayerVersionsListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293604"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679293604"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LayerVersionsListItem
-</span><a href="#local-6989586621679293605"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdDate:LayerVersionsListItem' :: Maybe Text
+</span><a href="#local-6989586621679298449"><span class="hs-identifier hs-var hs-var">createdDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298449"><span class="hs-identifier hs-var">createdDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298448"><span class="annot"><span class="annottext">s :: LayerVersionsListItem
+</span><a href="#local-6989586621679298448"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem%27"><span class="hs-identifier hs-type">LayerVersionsListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298447"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298447"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LayerVersionsListItem
+</span><a href="#local-6989586621679298448"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdDate:LayerVersionsListItem' :: Maybe Text
 </span><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#%24sel%3AcreatedDate%3ALayerVersionsListItem%27"><span class="hs-identifier hs-var">createdDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679293604"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem"><span class="hs-identifier hs-type">LayerVersionsListItem</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- | The version number.</span><span>
-</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#layerVersionsListItem_version"><span class="hs-identifier hs-type">layerVersionsListItem_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem"><span class="hs-identifier hs-type">LayerVersionsListItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span id="layerVersionsListItem_version"><span class="annot"><span class="annottext">layerVersionsListItem_version :: (Maybe Integer -&gt; f (Maybe Integer))
+</span><a href="#local-6989586621679298447"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem"><span class="hs-identifier hs-type">LayerVersionsListItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The version number.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#layerVersionsListItem_version"><span class="hs-identifier hs-type">layerVersionsListItem_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem"><span class="hs-identifier hs-type">LayerVersionsListItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="layerVersionsListItem_version"><span class="annot"><span class="annottext">layerVersionsListItem_version :: (Maybe Integer -&gt; f (Maybe Integer))
 -&gt; LayerVersionsListItem -&gt; f LayerVersionsListItem
 </span><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#layerVersionsListItem_version"><span class="hs-identifier hs-var hs-var">layerVersionsListItem_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LayerVersionsListItem -&gt; Maybe Integer)
 -&gt; (LayerVersionsListItem
@@ -200,22 +236,22 @@ $sel:createdDate:LayerVersionsListItem' :: LayerVersionsListItem -&gt; Maybe Tex
      (Maybe Integer)
      (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem%27"><span class="hs-identifier hs-type">LayerVersionsListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293602"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem%27"><span class="hs-identifier hs-type">LayerVersionsListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298445"><span class="annot"><span class="annottext">Maybe Integer
 version :: Maybe Integer
 $sel:version:LayerVersionsListItem' :: LayerVersionsListItem -&gt; Maybe Integer
-</span><a href="#local-6989586621679293602"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679293602"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293601"><span class="annot"><span class="annottext">s :: LayerVersionsListItem
-</span><a href="#local-6989586621679293601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem%27"><span class="hs-identifier hs-type">LayerVersionsListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293600"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679293600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LayerVersionsListItem
-</span><a href="#local-6989586621679293601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:LayerVersionsListItem' :: Maybe Integer
+</span><a href="#local-6989586621679298445"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679298445"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298444"><span class="annot"><span class="annottext">s :: LayerVersionsListItem
+</span><a href="#local-6989586621679298444"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem%27"><span class="hs-identifier hs-type">LayerVersionsListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298443"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679298443"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LayerVersionsListItem
+</span><a href="#local-6989586621679298444"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:LayerVersionsListItem' :: Maybe Integer
 </span><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#%24sel%3Aversion%3ALayerVersionsListItem%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679293600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem"><span class="hs-identifier hs-type">LayerVersionsListItem</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- | The ARN of the layer version.</span><span>
-</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#layerVersionsListItem_layerVersionArn"><span class="hs-identifier hs-type">layerVersionsListItem_layerVersionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem"><span class="hs-identifier hs-type">LayerVersionsListItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span id="layerVersionsListItem_layerVersionArn"><span class="annot"><span class="annottext">layerVersionsListItem_layerVersionArn :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679298443"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem"><span class="hs-identifier hs-type">LayerVersionsListItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The layer\'s open-source license.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#layerVersionsListItem_licenseInfo"><span class="hs-identifier hs-type">layerVersionsListItem_licenseInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem"><span class="hs-identifier hs-type">LayerVersionsListItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="layerVersionsListItem_licenseInfo"><span class="annot"><span class="annottext">layerVersionsListItem_licenseInfo :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; LayerVersionsListItem -&gt; f LayerVersionsListItem
-</span><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#layerVersionsListItem_layerVersionArn"><span class="hs-identifier hs-var hs-var">layerVersionsListItem_layerVersionArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LayerVersionsListItem -&gt; Maybe Text)
+</span><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#layerVersionsListItem_licenseInfo"><span class="hs-identifier hs-var hs-var">layerVersionsListItem_licenseInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LayerVersionsListItem -&gt; Maybe Text)
 -&gt; (LayerVersionsListItem -&gt; Maybe Text -&gt; LayerVersionsListItem)
 -&gt; Lens
      LayerVersionsListItem
@@ -223,20 +259,87 @@ $sel:version:LayerVersionsListItem' :: LayerVersionsListItem -&gt; Maybe Integer
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem%27"><span class="hs-identifier hs-type">LayerVersionsListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293598"><span class="annot"><span class="annottext">Maybe Text
-layerVersionArn :: Maybe Text
-$sel:layerVersionArn:LayerVersionsListItem' :: LayerVersionsListItem -&gt; Maybe Text
-</span><a href="#local-6989586621679293598"><span class="hs-identifier hs-var hs-var">layerVersionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679293598"><span class="hs-identifier hs-var">layerVersionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293597"><span class="annot"><span class="annottext">s :: LayerVersionsListItem
-</span><a href="#local-6989586621679293597"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem%27"><span class="hs-identifier hs-type">LayerVersionsListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293596"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679293596"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LayerVersionsListItem
-</span><a href="#local-6989586621679293597"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:layerVersionArn:LayerVersionsListItem' :: Maybe Text
-</span><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#%24sel%3AlayerVersionArn%3ALayerVersionsListItem%27"><span class="hs-identifier hs-var">layerVersionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679293596"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem"><span class="hs-identifier hs-type">LayerVersionsListItem</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- | The layer\'s compatible runtimes.</span><span>
-</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#layerVersionsListItem_compatibleRuntimes"><span class="hs-identifier hs-type">layerVersionsListItem_compatibleRuntimes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem"><span class="hs-identifier hs-type">LayerVersionsListItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Lambda.Types.Runtime.html#Runtime"><span class="hs-identifier hs-type">Runtime</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span id="layerVersionsListItem_compatibleRuntimes"><span class="annot"><span class="annottext">layerVersionsListItem_compatibleRuntimes :: (Maybe [Runtime] -&gt; f (Maybe [Runtime]))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem%27"><span class="hs-identifier hs-type">LayerVersionsListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298441"><span class="annot"><span class="annottext">Maybe Text
+licenseInfo :: Maybe Text
+$sel:licenseInfo:LayerVersionsListItem' :: LayerVersionsListItem -&gt; Maybe Text
+</span><a href="#local-6989586621679298441"><span class="hs-identifier hs-var hs-var">licenseInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298441"><span class="hs-identifier hs-var">licenseInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298440"><span class="annot"><span class="annottext">s :: LayerVersionsListItem
+</span><a href="#local-6989586621679298440"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem%27"><span class="hs-identifier hs-type">LayerVersionsListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298439"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298439"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LayerVersionsListItem
+</span><a href="#local-6989586621679298440"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:licenseInfo:LayerVersionsListItem' :: Maybe Text
+</span><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#%24sel%3AlicenseInfo%3ALayerVersionsListItem%27"><span class="hs-identifier hs-var">licenseInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298439"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem"><span class="hs-identifier hs-type">LayerVersionsListItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | A list of compatible</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html instruction set architectures&gt;.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#layerVersionsListItem_compatibleArchitectures"><span class="hs-identifier hs-type">layerVersionsListItem_compatibleArchitectures</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem"><span class="hs-identifier hs-type">LayerVersionsListItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Lambda.Types.Architecture.html#Architecture"><span class="hs-identifier hs-type">Architecture</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="layerVersionsListItem_compatibleArchitectures"><span class="annot"><span class="annottext">layerVersionsListItem_compatibleArchitectures :: (Maybe [Architecture] -&gt; f (Maybe [Architecture]))
+-&gt; LayerVersionsListItem -&gt; f LayerVersionsListItem
+</span><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#layerVersionsListItem_compatibleArchitectures"><span class="hs-identifier hs-var hs-var">layerVersionsListItem_compatibleArchitectures</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LayerVersionsListItem -&gt; Maybe [Architecture])
+-&gt; (LayerVersionsListItem
+    -&gt; Maybe [Architecture] -&gt; LayerVersionsListItem)
+-&gt; Lens
+     LayerVersionsListItem
+     LayerVersionsListItem
+     (Maybe [Architecture])
+     (Maybe [Architecture])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem%27"><span class="hs-identifier hs-type">LayerVersionsListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298437"><span class="annot"><span class="annottext">Maybe [Architecture]
+compatibleArchitectures :: Maybe [Architecture]
+$sel:compatibleArchitectures:LayerVersionsListItem' :: LayerVersionsListItem -&gt; Maybe [Architecture]
+</span><a href="#local-6989586621679298437"><span class="hs-identifier hs-var hs-var">compatibleArchitectures</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Architecture]
+</span><a href="#local-6989586621679298437"><span class="hs-identifier hs-var">compatibleArchitectures</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298436"><span class="annot"><span class="annottext">s :: LayerVersionsListItem
+</span><a href="#local-6989586621679298436"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem%27"><span class="hs-identifier hs-type">LayerVersionsListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298435"><span class="annot"><span class="annottext">Maybe [Architecture]
+</span><a href="#local-6989586621679298435"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LayerVersionsListItem
+</span><a href="#local-6989586621679298436"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:compatibleArchitectures:LayerVersionsListItem' :: Maybe [Architecture]
+</span><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#%24sel%3AcompatibleArchitectures%3ALayerVersionsListItem%27"><span class="hs-identifier hs-var">compatibleArchitectures</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Architecture]
+</span><a href="#local-6989586621679298435"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem"><span class="hs-identifier hs-type">LayerVersionsListItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Architecture] -&gt; f (Maybe [Architecture]))
+ -&gt; LayerVersionsListItem -&gt; f LayerVersionsListItem)
+-&gt; ((Maybe [Architecture] -&gt; f (Maybe [Architecture]))
+    -&gt; Maybe [Architecture] -&gt; f (Maybe [Architecture]))
+-&gt; (Maybe [Architecture] -&gt; f (Maybe [Architecture]))
+-&gt; LayerVersionsListItem
+-&gt; f LayerVersionsListItem
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Architecture] [Architecture] [Architecture] [Architecture]
+-&gt; Iso
+     (Maybe [Architecture])
+     (Maybe [Architecture])
+     (Maybe [Architecture])
+     (Maybe [Architecture])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Architecture] [Architecture] [Architecture] [Architecture]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The description of the version.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#layerVersionsListItem_description"><span class="hs-identifier hs-type">layerVersionsListItem_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem"><span class="hs-identifier hs-type">LayerVersionsListItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="layerVersionsListItem_description"><span class="annot"><span class="annottext">layerVersionsListItem_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LayerVersionsListItem -&gt; f LayerVersionsListItem
+</span><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#layerVersionsListItem_description"><span class="hs-identifier hs-var hs-var">layerVersionsListItem_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LayerVersionsListItem -&gt; Maybe Text)
+-&gt; (LayerVersionsListItem -&gt; Maybe Text -&gt; LayerVersionsListItem)
+-&gt; Lens
+     LayerVersionsListItem
+     LayerVersionsListItem
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem%27"><span class="hs-identifier hs-type">LayerVersionsListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298430"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:LayerVersionsListItem' :: LayerVersionsListItem -&gt; Maybe Text
+</span><a href="#local-6989586621679298430"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298430"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298429"><span class="annot"><span class="annottext">s :: LayerVersionsListItem
+</span><a href="#local-6989586621679298429"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem%27"><span class="hs-identifier hs-type">LayerVersionsListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298428"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298428"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LayerVersionsListItem
+</span><a href="#local-6989586621679298429"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:LayerVersionsListItem' :: Maybe Text
+</span><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#%24sel%3Adescription%3ALayerVersionsListItem%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298428"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem"><span class="hs-identifier hs-type">LayerVersionsListItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The layer\'s compatible runtimes.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#layerVersionsListItem_compatibleRuntimes"><span class="hs-identifier hs-type">layerVersionsListItem_compatibleRuntimes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem"><span class="hs-identifier hs-type">LayerVersionsListItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Lambda.Types.Runtime.html#Runtime"><span class="hs-identifier hs-type">Runtime</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="layerVersionsListItem_compatibleRuntimes"><span class="annot"><span class="annottext">layerVersionsListItem_compatibleRuntimes :: (Maybe [Runtime] -&gt; f (Maybe [Runtime]))
 -&gt; LayerVersionsListItem -&gt; f LayerVersionsListItem
 </span><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#layerVersionsListItem_compatibleRuntimes"><span class="hs-identifier hs-var hs-var">layerVersionsListItem_compatibleRuntimes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LayerVersionsListItem -&gt; Maybe [Runtime])
 -&gt; (LayerVersionsListItem
@@ -247,16 +350,16 @@ $sel:layerVersionArn:LayerVersionsListItem' :: LayerVersionsListItem -&gt; Maybe
      (Maybe [Runtime])
      (Maybe [Runtime])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem%27"><span class="hs-identifier hs-type">LayerVersionsListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293594"><span class="annot"><span class="annottext">Maybe [Runtime]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem%27"><span class="hs-identifier hs-type">LayerVersionsListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298426"><span class="annot"><span class="annottext">Maybe [Runtime]
 compatibleRuntimes :: Maybe [Runtime]
 $sel:compatibleRuntimes:LayerVersionsListItem' :: LayerVersionsListItem -&gt; Maybe [Runtime]
-</span><a href="#local-6989586621679293594"><span class="hs-identifier hs-var hs-var">compatibleRuntimes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Runtime]
-</span><a href="#local-6989586621679293594"><span class="hs-identifier hs-var">compatibleRuntimes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293593"><span class="annot"><span class="annottext">s :: LayerVersionsListItem
-</span><a href="#local-6989586621679293593"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem%27"><span class="hs-identifier hs-type">LayerVersionsListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293592"><span class="annot"><span class="annottext">Maybe [Runtime]
-</span><a href="#local-6989586621679293592"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LayerVersionsListItem
-</span><a href="#local-6989586621679293593"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:compatibleRuntimes:LayerVersionsListItem' :: Maybe [Runtime]
+</span><a href="#local-6989586621679298426"><span class="hs-identifier hs-var hs-var">compatibleRuntimes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Runtime]
+</span><a href="#local-6989586621679298426"><span class="hs-identifier hs-var">compatibleRuntimes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298425"><span class="annot"><span class="annottext">s :: LayerVersionsListItem
+</span><a href="#local-6989586621679298425"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem%27"><span class="hs-identifier hs-type">LayerVersionsListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298424"><span class="annot"><span class="annottext">Maybe [Runtime]
+</span><a href="#local-6989586621679298424"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LayerVersionsListItem
+</span><a href="#local-6989586621679298425"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:compatibleRuntimes:LayerVersionsListItem' :: Maybe [Runtime]
 </span><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#%24sel%3AcompatibleRuntimes%3ALayerVersionsListItem%27"><span class="hs-identifier hs-var">compatibleRuntimes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Runtime]
-</span><a href="#local-6989586621679293592"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem"><span class="hs-identifier hs-type">LayerVersionsListItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Runtime] -&gt; f (Maybe [Runtime]))
+</span><a href="#local-6989586621679298424"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem"><span class="hs-identifier hs-type">LayerVersionsListItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Runtime] -&gt; f (Maybe [Runtime]))
  -&gt; LayerVersionsListItem -&gt; f LayerVersionsListItem)
 -&gt; ((Maybe [Runtime] -&gt; f (Maybe [Runtime]))
     -&gt; Maybe [Runtime] -&gt; f (Maybe [Runtime]))
@@ -274,171 +377,157 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Runtime] [Runtime] [Runtime] [Runtime]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- | The description of the version.</span><span>
-</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#layerVersionsListItem_description"><span class="hs-identifier hs-type">layerVersionsListItem_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem"><span class="hs-identifier hs-type">LayerVersionsListItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span id="layerVersionsListItem_description"><span class="annot"><span class="annottext">layerVersionsListItem_description :: (Maybe Text -&gt; f (Maybe Text))
--&gt; LayerVersionsListItem -&gt; f LayerVersionsListItem
-</span><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#layerVersionsListItem_description"><span class="hs-identifier hs-var hs-var">layerVersionsListItem_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LayerVersionsListItem -&gt; Maybe Text)
--&gt; (LayerVersionsListItem -&gt; Maybe Text -&gt; LayerVersionsListItem)
--&gt; Lens
-     LayerVersionsListItem
-     LayerVersionsListItem
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem%27"><span class="hs-identifier hs-type">LayerVersionsListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293587"><span class="annot"><span class="annottext">Maybe Text
-description :: Maybe Text
-$sel:description:LayerVersionsListItem' :: LayerVersionsListItem -&gt; Maybe Text
-</span><a href="#local-6989586621679293587"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679293587"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293586"><span class="annot"><span class="annottext">s :: LayerVersionsListItem
-</span><a href="#local-6989586621679293586"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem%27"><span class="hs-identifier hs-type">LayerVersionsListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293585"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679293585"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LayerVersionsListItem
-</span><a href="#local-6989586621679293586"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:LayerVersionsListItem' :: Maybe Text
-</span><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#%24sel%3Adescription%3ALayerVersionsListItem%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679293585"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem"><span class="hs-identifier hs-type">LayerVersionsListItem</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- | The layer\'s open-source license.</span><span>
-</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#layerVersionsListItem_licenseInfo"><span class="hs-identifier hs-type">layerVersionsListItem_licenseInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem"><span class="hs-identifier hs-type">LayerVersionsListItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span id="layerVersionsListItem_licenseInfo"><span class="annot"><span class="annottext">layerVersionsListItem_licenseInfo :: (Maybe Text -&gt; f (Maybe Text))
--&gt; LayerVersionsListItem -&gt; f LayerVersionsListItem
-</span><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#layerVersionsListItem_licenseInfo"><span class="hs-identifier hs-var hs-var">layerVersionsListItem_licenseInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LayerVersionsListItem -&gt; Maybe Text)
--&gt; (LayerVersionsListItem -&gt; Maybe Text -&gt; LayerVersionsListItem)
--&gt; Lens
-     LayerVersionsListItem
-     LayerVersionsListItem
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem%27"><span class="hs-identifier hs-type">LayerVersionsListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293583"><span class="annot"><span class="annottext">Maybe Text
-licenseInfo :: Maybe Text
-$sel:licenseInfo:LayerVersionsListItem' :: LayerVersionsListItem -&gt; Maybe Text
-</span><a href="#local-6989586621679293583"><span class="hs-identifier hs-var hs-var">licenseInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679293583"><span class="hs-identifier hs-var">licenseInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293582"><span class="annot"><span class="annottext">s :: LayerVersionsListItem
-</span><a href="#local-6989586621679293582"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem%27"><span class="hs-identifier hs-type">LayerVersionsListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293581"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679293581"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LayerVersionsListItem
-</span><a href="#local-6989586621679293582"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:licenseInfo:LayerVersionsListItem' :: Maybe Text
-</span><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#%24sel%3AlicenseInfo%3ALayerVersionsListItem%27"><span class="hs-identifier hs-var">licenseInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679293581"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem"><span class="hs-identifier hs-type">LayerVersionsListItem</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293578"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem"><span class="hs-identifier hs-type">LayerVersionsListItem</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679293576"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LayerVersionsListItem
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298421"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem"><span class="hs-identifier hs-type">LayerVersionsListItem</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679298419"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LayerVersionsListItem
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser LayerVersionsListItem)
 -&gt; Value
 -&gt; Parser LayerVersionsListItem
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;LayerVersionsListItem&quot;</span></span><span>
-</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679293573"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679293573"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679298416"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679298416"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe Integer
 -&gt; Maybe Text
+-&gt; Maybe [Architecture]
+-&gt; Maybe Text
 -&gt; Maybe [Runtime]
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; LayerVersionsListItem
 </span><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem%27"><span class="hs-identifier hs-var">LayerVersionsListItem'</span></a></span><span>
-</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
  -&gt; Maybe Integer
  -&gt; Maybe Text
+ -&gt; Maybe [Architecture]
+ -&gt; Maybe Text
  -&gt; Maybe [Runtime]
- -&gt; Maybe Text
- -&gt; Maybe Text
  -&gt; LayerVersionsListItem)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe [Architecture]
+      -&gt; Maybe Text
+      -&gt; Maybe [Runtime]
+      -&gt; LayerVersionsListItem)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679298416"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LayerVersionArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe [Architecture]
+   -&gt; Maybe Text
+   -&gt; Maybe [Runtime]
+   -&gt; LayerVersionsListItem)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Integer
       -&gt; Maybe Text
+      -&gt; Maybe [Architecture]
+      -&gt; Maybe Text
       -&gt; Maybe [Runtime]
-      -&gt; Maybe Text
-      -&gt; Maybe Text
       -&gt; LayerVersionsListItem)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679293573"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679298416"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreatedDate&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Integer
    -&gt; Maybe Text
+   -&gt; Maybe [Architecture]
+   -&gt; Maybe Text
    -&gt; Maybe [Runtime]
-   -&gt; Maybe Text
-   -&gt; Maybe Text
    -&gt; LayerVersionsListItem)
 -&gt; Parser (Maybe Integer)
 -&gt; Parser
      (Maybe Text
+      -&gt; Maybe [Architecture]
+      -&gt; Maybe Text
       -&gt; Maybe [Runtime]
-      -&gt; Maybe Text
-      -&gt; Maybe Text
       -&gt; LayerVersionsListItem)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679293573"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679298416"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Version&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
+   -&gt; Maybe [Architecture]
+   -&gt; Maybe Text
    -&gt; Maybe [Runtime]
-   -&gt; Maybe Text
-   -&gt; Maybe Text
    -&gt; LayerVersionsListItem)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe [Runtime]
-      -&gt; Maybe Text -&gt; Maybe Text -&gt; LayerVersionsListItem)
+     (Maybe [Architecture]
+      -&gt; Maybe Text -&gt; Maybe [Runtime] -&gt; LayerVersionsListItem)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679293573"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679298416"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LayerVersionArn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe [Runtime]
-   -&gt; Maybe Text -&gt; Maybe Text -&gt; LayerVersionsListItem)
--&gt; Parser (Maybe [Runtime])
--&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; LayerVersionsListItem)
+</span><span class="hs-string">&quot;LicenseInfo&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Architecture]
+   -&gt; Maybe Text -&gt; Maybe [Runtime] -&gt; LayerVersionsListItem)
+-&gt; Parser (Maybe [Architecture])
+-&gt; Parser (Maybe Text -&gt; Maybe [Runtime] -&gt; LayerVersionsListItem)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679293573"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Runtime]))
+</span><a href="#local-6989586621679298416"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Architecture]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CompatibleArchitectures&quot;</span></span><span>
+</span><span id="line-130"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Architecture]))
+-&gt; Maybe [Architecture] -&gt; Parser (Maybe [Architecture])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Architecture]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-131"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe [Runtime] -&gt; LayerVersionsListItem)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe [Runtime] -&gt; LayerVersionsListItem)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679298416"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Runtime] -&gt; LayerVersionsListItem)
+-&gt; Parser (Maybe [Runtime]) -&gt; Parser LayerVersionsListItem
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679298416"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Runtime]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CompatibleRuntimes&quot;</span></span><span>
-</span><span id="line-116"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Runtime]))
+</span><span id="line-134"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Runtime]))
 -&gt; Maybe [Runtime] -&gt; Parser (Maybe [Runtime])
 forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Runtime]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-117"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; LayerVersionsListItem)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe Text -&gt; LayerVersionsListItem)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679293573"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; LayerVersionsListItem)
--&gt; Parser (Maybe Text) -&gt; Parser LayerVersionsListItem
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679293573"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LicenseInfo&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293566"><span id="local-6989586621679293568"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem"><span class="hs-identifier hs-type">LayerVersionsListItem</span></a></span></span></span><span>
-</span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293563"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem"><span class="hs-identifier hs-type">LayerVersionsListItem</span></a></span></span><span>
-</span><span id="line-125"></span></pre></body></html>
+</span><span id="line-135"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298409"><span id="local-6989586621679298411"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem"><span class="hs-identifier hs-type">LayerVersionsListItem</span></a></span></span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298406"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.LayerVersionsListItem.html#LayerVersionsListItem"><span class="hs-identifier hs-type">LayerVersionsListItem</span></a></span></span><span>
+</span><span id="line-141"></span></pre></body></html>

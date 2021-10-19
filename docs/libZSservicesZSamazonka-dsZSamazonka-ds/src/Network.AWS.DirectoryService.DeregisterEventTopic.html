@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-comment">-- SNS topic.</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- /See:/ 'newDeregisterEventTopic' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679311460"><span id="local-6989586621679311461"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeregisterEventTopic"><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#DeregisterEventTopic"><span class="hs-identifier hs-var">DeregisterEventTopic</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeregisterEventTopic%27"><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#DeregisterEventTopic%27"><span class="hs-identifier hs-var">DeregisterEventTopic'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679311679"><span id="local-6989586621679311680"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeregisterEventTopic"><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#DeregisterEventTopic"><span class="hs-identifier hs-var">DeregisterEventTopic</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeregisterEventTopic%27"><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#DeregisterEventTopic%27"><span class="hs-identifier hs-var">DeregisterEventTopic'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Directory ID to remove as a publisher. This directory will no longer</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- send messages to the specified Amazon SNS topic.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AdirectoryId%3ADeregisterEventTopic%27"><span class="annot"><span class="annottext">DeregisterEventTopic -&gt; Text
@@ -61,7 +61,7 @@
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AtopicName%3ADeregisterEventTopic%27"><span class="annot"><span class="annottext">DeregisterEventTopic -&gt; Text
 </span><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#%24sel%3AtopicName%3ADeregisterEventTopic%27"><span class="hs-identifier hs-var hs-var">topicName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311453"><span id="local-6989586621679311455"><span class="annot"><span class="annottext">DeregisterEventTopic -&gt; DeregisterEventTopic -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311672"><span id="local-6989586621679311674"><span class="annot"><span class="annottext">DeregisterEventTopic -&gt; DeregisterEventTopic -&gt; Bool
 (DeregisterEventTopic -&gt; DeregisterEventTopic -&gt; Bool)
 -&gt; (DeregisterEventTopic -&gt; DeregisterEventTopic -&gt; Bool)
 -&gt; Eq DeregisterEventTopic
@@ -70,7 +70,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeregisterEventTopic -&gt; DeregisterEventTopic -&gt; Bool
 == :: DeregisterEventTopic -&gt; DeregisterEventTopic -&gt; Bool
 $c== :: DeregisterEventTopic -&gt; DeregisterEventTopic -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311444"><span id="local-6989586621679311446"><span id="local-6989586621679311448"><span id="local-6989586621679311450"><span class="annot"><span class="annottext">ReadPrec [DeregisterEventTopic]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311663"><span id="local-6989586621679311665"><span id="local-6989586621679311667"><span id="local-6989586621679311669"><span class="annot"><span class="annottext">ReadPrec [DeregisterEventTopic]
 ReadPrec DeregisterEventTopic
 Int -&gt; ReadS DeregisterEventTopic
 ReadS [DeregisterEventTopic]
@@ -90,7 +90,7 @@ readList :: ReadS [DeregisterEventTopic]
 $creadList :: ReadS [DeregisterEventTopic]
 readsPrec :: Int -&gt; ReadS DeregisterEventTopic
 $creadsPrec :: Int -&gt; ReadS DeregisterEventTopic
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311437"><span id="local-6989586621679311439"><span id="local-6989586621679311441"><span class="annot"><span class="annottext">Int -&gt; DeregisterEventTopic -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311656"><span id="local-6989586621679311658"><span id="local-6989586621679311660"><span class="annot"><span class="annottext">Int -&gt; DeregisterEventTopic -&gt; ShowS
 [DeregisterEventTopic] -&gt; ShowS
 DeregisterEventTopic -&gt; String
 (Int -&gt; DeregisterEventTopic -&gt; ShowS)
@@ -136,17 +136,17 @@ $cfrom :: forall x. DeregisterEventTopic -&gt; Rep DeregisterEventTopic x
 </span><span id="line-81"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#DeregisterEventTopic"><span class="hs-identifier hs-type">DeregisterEventTopic</span></a></span><span>
 </span><span id="line-83"></span><span id="newDeregisterEventTopic"><span class="annot"><span class="annottext">newDeregisterEventTopic :: Text -&gt; Text -&gt; DeregisterEventTopic
-</span><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#newDeregisterEventTopic"><span class="hs-identifier hs-var hs-var">newDeregisterEventTopic</span></a></span></span><span> </span><span id="local-6989586621679311432"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311432"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span></span><span> </span><span id="local-6989586621679311431"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311431"><span class="hs-identifier hs-var">pTopicName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#newDeregisterEventTopic"><span class="hs-identifier hs-var hs-var">newDeregisterEventTopic</span></a></span></span><span> </span><span id="local-6989586621679311651"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311651"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span></span><span> </span><span id="local-6989586621679311650"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311650"><span class="hs-identifier hs-var">pTopicName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">DeregisterEventTopic' :: Text -&gt; Text -&gt; DeregisterEventTopic
 </span><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#DeregisterEventTopic%27"><span class="hs-identifier hs-type">DeregisterEventTopic'</span></a></span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:directoryId:DeregisterEventTopic' :: Text
 </span><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#%24sel%3AdirectoryId%3ADeregisterEventTopic%27"><span class="hs-identifier hs-var">directoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311432"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679311651"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:topicName:DeregisterEventTopic' :: Text
 </span><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#%24sel%3AtopicName%3ADeregisterEventTopic%27"><span class="hs-identifier hs-var">topicName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311431"><span class="hs-identifier hs-var">pTopicName_</span></a></span><span>
+</span><a href="#local-6989586621679311650"><span class="hs-identifier hs-var">pTopicName_</span></a></span><span>
 </span><span id="line-87"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | The Directory ID to remove as a publisher. This directory will no longer</span><span>
@@ -157,16 +157,16 @@ $cfrom :: forall x. DeregisterEventTopic -&gt; Rep DeregisterEventTopic x
 -&gt; (DeregisterEventTopic -&gt; Text -&gt; DeregisterEventTopic)
 -&gt; Lens DeregisterEventTopic DeregisterEventTopic Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#DeregisterEventTopic%27"><span class="hs-identifier hs-type">DeregisterEventTopic'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311428"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#DeregisterEventTopic%27"><span class="hs-identifier hs-type">DeregisterEventTopic'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311647"><span class="annot"><span class="annottext">Text
 directoryId :: Text
 $sel:directoryId:DeregisterEventTopic' :: DeregisterEventTopic -&gt; Text
-</span><a href="#local-6989586621679311428"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311428"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311427"><span class="annot"><span class="annottext">s :: DeregisterEventTopic
-</span><a href="#local-6989586621679311427"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#DeregisterEventTopic%27"><span class="hs-identifier hs-type">DeregisterEventTopic'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311426"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311426"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterEventTopic
-</span><a href="#local-6989586621679311427"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryId:DeregisterEventTopic' :: Text
+</span><a href="#local-6989586621679311647"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311647"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311646"><span class="annot"><span class="annottext">s :: DeregisterEventTopic
+</span><a href="#local-6989586621679311646"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#DeregisterEventTopic%27"><span class="hs-identifier hs-type">DeregisterEventTopic'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311645"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311645"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterEventTopic
+</span><a href="#local-6989586621679311646"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryId:DeregisterEventTopic' :: Text
 </span><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#%24sel%3AdirectoryId%3ADeregisterEventTopic%27"><span class="hs-identifier hs-var">directoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311426"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#DeregisterEventTopic"><span class="hs-identifier hs-type">DeregisterEventTopic</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311645"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#DeregisterEventTopic"><span class="hs-identifier hs-type">DeregisterEventTopic</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | The name of the Amazon SNS topic from which to remove the directory as a</span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- publisher.</span><span>
@@ -176,27 +176,27 @@ $sel:directoryId:DeregisterEventTopic' :: DeregisterEventTopic -&gt; Text
 -&gt; (DeregisterEventTopic -&gt; Text -&gt; DeregisterEventTopic)
 -&gt; Lens DeregisterEventTopic DeregisterEventTopic Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#DeregisterEventTopic%27"><span class="hs-identifier hs-type">DeregisterEventTopic'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311425"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#DeregisterEventTopic%27"><span class="hs-identifier hs-type">DeregisterEventTopic'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311644"><span class="annot"><span class="annottext">Text
 topicName :: Text
 $sel:topicName:DeregisterEventTopic' :: DeregisterEventTopic -&gt; Text
-</span><a href="#local-6989586621679311425"><span class="hs-identifier hs-var hs-var">topicName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311425"><span class="hs-identifier hs-var">topicName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311424"><span class="annot"><span class="annottext">s :: DeregisterEventTopic
-</span><a href="#local-6989586621679311424"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#DeregisterEventTopic%27"><span class="hs-identifier hs-type">DeregisterEventTopic'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311423"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311423"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterEventTopic
-</span><a href="#local-6989586621679311424"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topicName:DeregisterEventTopic' :: Text
+</span><a href="#local-6989586621679311644"><span class="hs-identifier hs-var hs-var">topicName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311644"><span class="hs-identifier hs-var">topicName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311643"><span class="annot"><span class="annottext">s :: DeregisterEventTopic
+</span><a href="#local-6989586621679311643"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#DeregisterEventTopic%27"><span class="hs-identifier hs-type">DeregisterEventTopic'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311642"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311642"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterEventTopic
+</span><a href="#local-6989586621679311643"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topicName:DeregisterEventTopic' :: Text
 </span><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#%24sel%3AtopicName%3ADeregisterEventTopic%27"><span class="hs-identifier hs-var">topicName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311423"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#DeregisterEventTopic"><span class="hs-identifier hs-type">DeregisterEventTopic</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311642"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#DeregisterEventTopic"><span class="hs-identifier hs-type">DeregisterEventTopic</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#DeregisterEventTopic"><span class="hs-identifier hs-type">DeregisterEventTopic</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-100"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-101"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#DeregisterEventTopic"><span class="hs-identifier hs-type">DeregisterEventTopic</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>      </span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#DeregisterEventTopicResponse"><span class="hs-identifier hs-type">DeregisterEventTopicResponse</span></a></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679311419"><span class="annot"><span class="annottext">request :: DeregisterEventTopic -&gt; Request DeregisterEventTopic
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679311638"><span class="annot"><span class="annottext">request :: DeregisterEventTopic -&gt; Request DeregisterEventTopic
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeregisterEventTopic -&gt; Request DeregisterEventTopic
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DirectoryService.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679311415"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679311634"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeregisterEventTopic
 -&gt; ClientResponse ClientBody
@@ -222,10 +222,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679311412"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311412"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679311411"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679311411"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679311410"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679311410"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679311631"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311631"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679311630"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679311630"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679311629"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679311629"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeregisterEventTopicResponse
 </span><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#DeregisterEventTopicResponse%27"><span class="hs-identifier hs-var">DeregisterEventTopicResponse'</span></a></span><span>
 </span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeregisterEventTopicResponse)
@@ -236,15 +236,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311412"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311631"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311403"><span id="local-6989586621679311405"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#DeregisterEventTopic"><span class="hs-identifier hs-type">DeregisterEventTopic</span></a></span></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311622"><span id="local-6989586621679311624"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#DeregisterEventTopic"><span class="hs-identifier hs-type">DeregisterEventTopic</span></a></span></span></span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311400"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#DeregisterEventTopic"><span class="hs-identifier hs-type">DeregisterEventTopic</span></a></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311619"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#DeregisterEventTopic"><span class="hs-identifier hs-type">DeregisterEventTopic</span></a></span></span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#DeregisterEventTopic"><span class="hs-identifier hs-type">DeregisterEventTopic</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679311396"><span class="annot"><span class="annottext">toHeaders :: DeregisterEventTopic -&gt; ResponseHeaders
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679311615"><span class="annot"><span class="annottext">toHeaders :: DeregisterEventTopic -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeregisterEventTopic -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -271,14 +271,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-127"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311386"><span id="local-6989586621679311388"><span id="local-6989586621679311390"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#DeregisterEventTopic"><span class="hs-identifier hs-type">DeregisterEventTopic</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679311384"><span class="annot"><span class="annottext">toJSON :: DeregisterEventTopic -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#DeregisterEventTopic%27"><span class="hs-identifier hs-type">DeregisterEventTopic'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311381"><span id="local-6989586621679311382"><span class="annot"><span class="annottext">Text
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311605"><span id="local-6989586621679311607"><span id="local-6989586621679311609"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#DeregisterEventTopic"><span class="hs-identifier hs-type">DeregisterEventTopic</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679311603"><span class="annot"><span class="annottext">toJSON :: DeregisterEventTopic -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#DeregisterEventTopic%27"><span class="hs-identifier hs-type">DeregisterEventTopic'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311600"><span id="local-6989586621679311601"><span class="annot"><span class="annottext">Text
 topicName :: Text
 directoryId :: Text
 $sel:topicName:DeregisterEventTopic' :: DeregisterEventTopic -&gt; Text
 $sel:directoryId:DeregisterEventTopic' :: DeregisterEventTopic -&gt; Text
-</span><a href="#local-6989586621679311381"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679311600"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -290,26 +290,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;DirectoryId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311382"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679311601"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TopicName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311381"><span class="hs-identifier hs-var">topicName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311600"><span class="hs-identifier hs-var">topicName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#DeregisterEventTopic"><span class="hs-identifier hs-type">DeregisterEventTopic</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679311375"><span class="annot"><span class="annottext">toPath :: DeregisterEventTopic -&gt; ByteString
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679311594"><span class="annot"><span class="annottext">toPath :: DeregisterEventTopic -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeregisterEventTopic -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#DeregisterEventTopic"><span class="hs-identifier hs-type">DeregisterEventTopic</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679311371"><span class="annot"><span class="annottext">toQuery :: DeregisterEventTopic -&gt; QueryString
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679311590"><span class="annot"><span class="annottext">toQuery :: DeregisterEventTopic -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeregisterEventTopic -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -319,12 +319,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-145"></span><span class="hs-comment">-- | The result of a DeregisterEventTopic request.</span><span>
 </span><span id="line-146"></span><span class="hs-comment">--</span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- /See:/ 'newDeregisterEventTopicResponse' smart constructor.</span><span>
-</span><span id="line-148"></span><span id="local-6989586621679311368"><span id="local-6989586621679311369"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeregisterEventTopicResponse"><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#DeregisterEventTopicResponse"><span class="hs-identifier hs-var">DeregisterEventTopicResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeregisterEventTopicResponse%27"><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#DeregisterEventTopicResponse%27"><span class="hs-identifier hs-var">DeregisterEventTopicResponse'</span></a></span></span><span>
+</span><span id="line-148"></span><span id="local-6989586621679311587"><span id="local-6989586621679311588"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeregisterEventTopicResponse"><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#DeregisterEventTopicResponse"><span class="hs-identifier hs-var">DeregisterEventTopicResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeregisterEventTopicResponse%27"><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#DeregisterEventTopicResponse%27"><span class="hs-identifier hs-var">DeregisterEventTopicResponse'</span></a></span></span><span>
 </span><span id="line-149"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-150"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeregisterEventTopicResponse%27"><span class="annot"><span class="annottext">DeregisterEventTopicResponse -&gt; Int
 </span><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#%24sel%3AhttpStatus%3ADeregisterEventTopicResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-151"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-152"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311363"><span id="local-6989586621679311365"><span class="annot"><span class="annottext">DeregisterEventTopicResponse
+</span><span id="line-152"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311582"><span id="local-6989586621679311584"><span class="annot"><span class="annottext">DeregisterEventTopicResponse
 -&gt; DeregisterEventTopicResponse -&gt; Bool
 (DeregisterEventTopicResponse
  -&gt; DeregisterEventTopicResponse -&gt; Bool)
@@ -340,7 +340,7 @@ $c/= :: DeregisterEventTopicResponse
 -&gt; DeregisterEventTopicResponse -&gt; Bool
 $c== :: DeregisterEventTopicResponse
 -&gt; DeregisterEventTopicResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311355"><span id="local-6989586621679311357"><span id="local-6989586621679311359"><span id="local-6989586621679311361"><span class="annot"><span class="annottext">ReadPrec [DeregisterEventTopicResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311574"><span id="local-6989586621679311576"><span id="local-6989586621679311578"><span id="local-6989586621679311580"><span class="annot"><span class="annottext">ReadPrec [DeregisterEventTopicResponse]
 ReadPrec DeregisterEventTopicResponse
 Int -&gt; ReadS DeregisterEventTopicResponse
 ReadS [DeregisterEventTopicResponse]
@@ -360,7 +360,7 @@ readList :: ReadS [DeregisterEventTopicResponse]
 $creadList :: ReadS [DeregisterEventTopicResponse]
 readsPrec :: Int -&gt; ReadS DeregisterEventTopicResponse
 $creadsPrec :: Int -&gt; ReadS DeregisterEventTopicResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311349"><span id="local-6989586621679311351"><span id="local-6989586621679311353"><span class="annot"><span class="annottext">Int -&gt; DeregisterEventTopicResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311568"><span id="local-6989586621679311570"><span id="local-6989586621679311572"><span class="annot"><span class="annottext">Int -&gt; DeregisterEventTopicResponse -&gt; ShowS
 [DeregisterEventTopicResponse] -&gt; ShowS
 DeregisterEventTopicResponse -&gt; String
 (Int -&gt; DeregisterEventTopicResponse -&gt; ShowS)
@@ -406,14 +406,14 @@ DeregisterEventTopicResponse -&gt; Rep DeregisterEventTopicResponse x
 </span><span id="line-165"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-166"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#DeregisterEventTopicResponse"><span class="hs-identifier hs-type">DeregisterEventTopicResponse</span></a></span><span>
 </span><span id="line-167"></span><span id="newDeregisterEventTopicResponse"><span class="annot"><span class="annottext">newDeregisterEventTopicResponse :: Int -&gt; DeregisterEventTopicResponse
-</span><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#newDeregisterEventTopicResponse"><span class="hs-identifier hs-var hs-var">newDeregisterEventTopicResponse</span></a></span></span><span> </span><span id="local-6989586621679311346"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311346"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#newDeregisterEventTopicResponse"><span class="hs-identifier hs-var hs-var">newDeregisterEventTopicResponse</span></a></span></span><span> </span><span id="local-6989586621679311565"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311565"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-168"></span><span>  </span><span class="annot"><span class="annottext">DeregisterEventTopicResponse' :: Int -&gt; DeregisterEventTopicResponse
 </span><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#DeregisterEventTopicResponse%27"><span class="hs-identifier hs-type">DeregisterEventTopicResponse'</span></a></span><span>
 </span><span id="line-169"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeregisterEventTopicResponse' :: Int
 </span><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#%24sel%3AhttpStatus%3ADeregisterEventTopicResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311346"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679311565"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-171"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -426,16 +426,16 @@ DeregisterEventTopicResponse -&gt; Rep DeregisterEventTopicResponse x
 -&gt; Lens
      DeregisterEventTopicResponse DeregisterEventTopicResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#DeregisterEventTopicResponse%27"><span class="hs-identifier hs-type">DeregisterEventTopicResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311345"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#DeregisterEventTopicResponse%27"><span class="hs-identifier hs-type">DeregisterEventTopicResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311564"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeregisterEventTopicResponse' :: DeregisterEventTopicResponse -&gt; Int
-</span><a href="#local-6989586621679311345"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311345"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311344"><span class="annot"><span class="annottext">s :: DeregisterEventTopicResponse
-</span><a href="#local-6989586621679311344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#DeregisterEventTopicResponse%27"><span class="hs-identifier hs-type">DeregisterEventTopicResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311343"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterEventTopicResponse
-</span><a href="#local-6989586621679311344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeregisterEventTopicResponse' :: Int
+</span><a href="#local-6989586621679311564"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311564"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311563"><span class="annot"><span class="annottext">s :: DeregisterEventTopicResponse
+</span><a href="#local-6989586621679311563"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#DeregisterEventTopicResponse%27"><span class="hs-identifier hs-type">DeregisterEventTopicResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311562"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311562"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterEventTopicResponse
+</span><a href="#local-6989586621679311563"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeregisterEventTopicResponse' :: Int
 </span><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#%24sel%3AhttpStatus%3ADeregisterEventTopicResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#DeregisterEventTopicResponse"><span class="hs-identifier hs-type">DeregisterEventTopicResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311562"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#DeregisterEventTopicResponse"><span class="hs-identifier hs-type">DeregisterEventTopicResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
-</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311341"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#DeregisterEventTopicResponse"><span class="hs-identifier hs-type">DeregisterEventTopicResponse</span></a></span></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311560"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.DeregisterEventTopic.html#DeregisterEventTopicResponse"><span class="hs-identifier hs-type">DeregisterEventTopicResponse</span></a></span></span><span>
 </span><span id="line-178"></span></pre></body></html>

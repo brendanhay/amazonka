@@ -49,12 +49,12 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newGetOperation' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679637872"><span id="local-6989586621679637873"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetOperation"><span class="annot"><a href="Network.AWS.Lightsail.GetOperation.html#GetOperation"><span class="hs-identifier hs-var">GetOperation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetOperation%27"><span class="annot"><a href="Network.AWS.Lightsail.GetOperation.html#GetOperation%27"><span class="hs-identifier hs-var">GetOperation'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679638845"><span id="local-6989586621679638846"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetOperation"><span class="annot"><a href="Network.AWS.Lightsail.GetOperation.html#GetOperation"><span class="hs-identifier hs-var">GetOperation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetOperation%27"><span class="annot"><a href="Network.AWS.Lightsail.GetOperation.html#GetOperation%27"><span class="hs-identifier hs-var">GetOperation'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A GUID used to identify the operation.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AoperationId%3AGetOperation%27"><span class="annot"><span class="annottext">GetOperation -&gt; Text
 </span><a href="Network.AWS.Lightsail.GetOperation.html#%24sel%3AoperationId%3AGetOperation%27"><span class="hs-identifier hs-var hs-var">operationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679637866"><span id="local-6989586621679637868"><span class="annot"><span class="annottext">GetOperation -&gt; GetOperation -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679638839"><span id="local-6989586621679638841"><span class="annot"><span class="annottext">GetOperation -&gt; GetOperation -&gt; Bool
 (GetOperation -&gt; GetOperation -&gt; Bool)
 -&gt; (GetOperation -&gt; GetOperation -&gt; Bool) -&gt; Eq GetOperation
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetOperation -&gt; GetOperation -&gt; Bool
 == :: GetOperation -&gt; GetOperation -&gt; Bool
 $c== :: GetOperation -&gt; GetOperation -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679637857"><span id="local-6989586621679637859"><span id="local-6989586621679637861"><span id="local-6989586621679637863"><span class="annot"><span class="annottext">ReadPrec [GetOperation]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679638830"><span id="local-6989586621679638832"><span id="local-6989586621679638834"><span id="local-6989586621679638836"><span class="annot"><span class="annottext">ReadPrec [GetOperation]
 ReadPrec GetOperation
 Int -&gt; ReadS GetOperation
 ReadS [GetOperation]
@@ -82,7 +82,7 @@ readList :: ReadS [GetOperation]
 $creadList :: ReadS [GetOperation]
 readsPrec :: Int -&gt; ReadS GetOperation
 $creadsPrec :: Int -&gt; ReadS GetOperation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679637850"><span id="local-6989586621679637852"><span id="local-6989586621679637854"><span class="annot"><span class="annottext">Int -&gt; GetOperation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679638823"><span id="local-6989586621679638825"><span id="local-6989586621679638827"><span class="annot"><span class="annottext">Int -&gt; GetOperation -&gt; ShowS
 [GetOperation] -&gt; ShowS
 GetOperation -&gt; String
 (Int -&gt; GetOperation -&gt; ShowS)
@@ -122,12 +122,12 @@ $cfrom :: forall x. GetOperation -&gt; Rep GetOperation x
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.GetOperation.html#GetOperation"><span class="hs-identifier hs-type">GetOperation</span></a></span><span>
 </span><span id="line-71"></span><span id="newGetOperation"><span class="annot"><span class="annottext">newGetOperation :: Text -&gt; GetOperation
-</span><a href="Network.AWS.Lightsail.GetOperation.html#newGetOperation"><span class="hs-identifier hs-var hs-var">newGetOperation</span></a></span></span><span> </span><span id="local-6989586621679637845"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679637845"><span class="hs-identifier hs-var">pOperationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.GetOperation.html#newGetOperation"><span class="hs-identifier hs-var hs-var">newGetOperation</span></a></span></span><span> </span><span id="local-6989586621679638818"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679638818"><span class="hs-identifier hs-var">pOperationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">GetOperation' :: Text -&gt; GetOperation
 </span><a href="Network.AWS.Lightsail.GetOperation.html#GetOperation%27"><span class="hs-identifier hs-type">GetOperation'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operationId:GetOperation' :: Text
 </span><a href="Network.AWS.Lightsail.GetOperation.html#%24sel%3AoperationId%3AGetOperation%27"><span class="hs-identifier hs-var">operationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679637845"><span class="hs-identifier hs-var">pOperationId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679638818"><span class="hs-identifier hs-var">pOperationId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | A GUID used to identify the operation.</span><span>
 </span><span id="line-75"></span><span class="annot"><a href="Network.AWS.Lightsail.GetOperation.html#getOperation_operationId"><span class="hs-identifier hs-type">getOperation_operationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetOperation.html#GetOperation"><span class="hs-identifier hs-type">GetOperation</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -136,25 +136,25 @@ $cfrom :: forall x. GetOperation -&gt; Rep GetOperation x
 -&gt; (GetOperation -&gt; Text -&gt; GetOperation)
 -&gt; Lens GetOperation GetOperation Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetOperation.html#GetOperation%27"><span class="hs-identifier hs-type">GetOperation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679637842"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetOperation.html#GetOperation%27"><span class="hs-identifier hs-type">GetOperation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679638815"><span class="annot"><span class="annottext">Text
 operationId :: Text
 $sel:operationId:GetOperation' :: GetOperation -&gt; Text
-</span><a href="#local-6989586621679637842"><span class="hs-identifier hs-var hs-var">operationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679637842"><span class="hs-identifier hs-var">operationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679637841"><span class="annot"><span class="annottext">s :: GetOperation
-</span><a href="#local-6989586621679637841"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetOperation.html#GetOperation%27"><span class="hs-identifier hs-type">GetOperation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679637840"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679637840"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOperation
-</span><a href="#local-6989586621679637841"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operationId:GetOperation' :: Text
+</span><a href="#local-6989586621679638815"><span class="hs-identifier hs-var hs-var">operationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679638815"><span class="hs-identifier hs-var">operationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679638814"><span class="annot"><span class="annottext">s :: GetOperation
+</span><a href="#local-6989586621679638814"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetOperation.html#GetOperation%27"><span class="hs-identifier hs-type">GetOperation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679638813"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679638813"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOperation
+</span><a href="#local-6989586621679638814"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operationId:GetOperation' :: Text
 </span><a href="Network.AWS.Lightsail.GetOperation.html#%24sel%3AoperationId%3AGetOperation%27"><span class="hs-identifier hs-var">operationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679637840"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetOperation.html#GetOperation"><span class="hs-identifier hs-type">GetOperation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679638813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetOperation.html#GetOperation"><span class="hs-identifier hs-type">GetOperation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetOperation.html#GetOperation"><span class="hs-identifier hs-type">GetOperation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-79"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetOperation.html#GetOperation"><span class="hs-identifier hs-type">GetOperation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetOperation.html#GetOperationResponse"><span class="hs-identifier hs-type">GetOperationResponse</span></a></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679637836"><span class="annot"><span class="annottext">request :: GetOperation -&gt; Request GetOperation
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679638809"><span class="annot"><span class="annottext">request :: GetOperation -&gt; Request GetOperation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetOperation -&gt; Request GetOperation
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679637832"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679638805"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetOperation
 -&gt; ClientResponse ClientBody
@@ -178,10 +178,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679637829"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679637829"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679637828"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679637828"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679637827"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679637827"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679638802"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679638802"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679638801"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679638801"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679638800"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679638800"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Maybe Operation -&gt; Int -&gt; GetOperationResponse
 </span><a href="Network.AWS.Lightsail.GetOperation.html#GetOperationResponse%27"><span class="hs-identifier hs-var">GetOperationResponse'</span></a></span><span>
 </span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Operation -&gt; Int -&gt; GetOperationResponse)
@@ -189,7 +189,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetOperationResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679637827"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Operation)
+</span><a href="#local-6989586621679638800"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Operation)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;operation&quot;</span></span><span class="hs-special">)</span><span>
@@ -201,15 +201,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679637829"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679638802"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679637819"><span id="local-6989586621679637821"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetOperation.html#GetOperation"><span class="hs-identifier hs-type">GetOperation</span></a></span></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679638792"><span id="local-6989586621679638794"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetOperation.html#GetOperation"><span class="hs-identifier hs-type">GetOperation</span></a></span></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679637816"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetOperation.html#GetOperation"><span class="hs-identifier hs-type">GetOperation</span></a></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679638789"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetOperation.html#GetOperation"><span class="hs-identifier hs-type">GetOperation</span></a></span></span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetOperation.html#GetOperation"><span class="hs-identifier hs-type">GetOperation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679637812"><span class="annot"><span class="annottext">toHeaders :: GetOperation -&gt; ResponseHeaders
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679638785"><span class="annot"><span class="annottext">toHeaders :: GetOperation -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetOperation -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -236,12 +236,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-105"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679637802"><span id="local-6989586621679637804"><span id="local-6989586621679637806"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetOperation.html#GetOperation"><span class="hs-identifier hs-type">GetOperation</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679637800"><span class="annot"><span class="annottext">toJSON :: GetOperation -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetOperation.html#GetOperation%27"><span class="hs-identifier hs-type">GetOperation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679637798"><span class="annot"><span class="annottext">Text
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679638775"><span id="local-6989586621679638777"><span id="local-6989586621679638779"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetOperation.html#GetOperation"><span class="hs-identifier hs-type">GetOperation</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679638773"><span class="annot"><span class="annottext">toJSON :: GetOperation -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetOperation.html#GetOperation%27"><span class="hs-identifier hs-type">GetOperation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679638771"><span class="annot"><span class="annottext">Text
 operationId :: Text
 $sel:operationId:GetOperation' :: GetOperation -&gt; Text
-</span><a href="#local-6989586621679637798"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679638771"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -253,18 +253,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;operationId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679637798"><span class="hs-identifier hs-var">operationId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679638771"><span class="hs-identifier hs-var">operationId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetOperation.html#GetOperation"><span class="hs-identifier hs-type">GetOperation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679637792"><span class="annot"><span class="annottext">toPath :: GetOperation -&gt; ByteString
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679638765"><span class="annot"><span class="annottext">toPath :: GetOperation -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetOperation -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetOperation.html#GetOperation"><span class="hs-identifier hs-type">GetOperation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679637788"><span class="annot"><span class="annottext">toQuery :: GetOperation -&gt; QueryString
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679638761"><span class="annot"><span class="annottext">toQuery :: GetOperation -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetOperation -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -272,7 +272,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- | /See:/ 'newGetOperationResponse' smart constructor.</span><span>
-</span><span id="line-122"></span><span id="local-6989586621679637785"><span id="local-6989586621679637786"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetOperationResponse"><span class="annot"><a href="Network.AWS.Lightsail.GetOperation.html#GetOperationResponse"><span class="hs-identifier hs-var">GetOperationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetOperationResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.GetOperation.html#GetOperationResponse%27"><span class="hs-identifier hs-var">GetOperationResponse'</span></a></span></span><span>
+</span><span id="line-122"></span><span id="local-6989586621679638758"><span id="local-6989586621679638759"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetOperationResponse"><span class="annot"><a href="Network.AWS.Lightsail.GetOperation.html#GetOperationResponse"><span class="hs-identifier hs-var">GetOperationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetOperationResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.GetOperation.html#GetOperationResponse%27"><span class="hs-identifier hs-var">GetOperationResponse'</span></a></span></span><span>
 </span><span id="line-123"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
 </span><span id="line-124"></span><span>    </span><span class="hs-comment">-- status of the request, the timestamp of the request, and the resources</span><span>
 </span><span id="line-125"></span><span>    </span><span class="hs-comment">-- affected by the request.</span><span>
@@ -282,7 +282,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-128"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetOperationResponse%27"><span class="annot"><span class="annottext">GetOperationResponse -&gt; Int
 </span><a href="Network.AWS.Lightsail.GetOperation.html#%24sel%3AhttpStatus%3AGetOperationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-129"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-130"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679637779"><span id="local-6989586621679637781"><span class="annot"><span class="annottext">GetOperationResponse -&gt; GetOperationResponse -&gt; Bool
+</span><span id="line-130"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679638752"><span id="local-6989586621679638754"><span class="annot"><span class="annottext">GetOperationResponse -&gt; GetOperationResponse -&gt; Bool
 (GetOperationResponse -&gt; GetOperationResponse -&gt; Bool)
 -&gt; (GetOperationResponse -&gt; GetOperationResponse -&gt; Bool)
 -&gt; Eq GetOperationResponse
@@ -291,7 +291,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetOperationResponse -&gt; GetOperationResponse -&gt; Bool
 == :: GetOperationResponse -&gt; GetOperationResponse -&gt; Bool
 $c== :: GetOperationResponse -&gt; GetOperationResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679637771"><span id="local-6989586621679637773"><span id="local-6989586621679637775"><span id="local-6989586621679637777"><span class="annot"><span class="annottext">ReadPrec [GetOperationResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679638744"><span id="local-6989586621679638746"><span id="local-6989586621679638748"><span id="local-6989586621679638750"><span class="annot"><span class="annottext">ReadPrec [GetOperationResponse]
 ReadPrec GetOperationResponse
 Int -&gt; ReadS GetOperationResponse
 ReadS [GetOperationResponse]
@@ -311,7 +311,7 @@ readList :: ReadS [GetOperationResponse]
 $creadList :: ReadS [GetOperationResponse]
 readsPrec :: Int -&gt; ReadS GetOperationResponse
 $creadsPrec :: Int -&gt; ReadS GetOperationResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679637765"><span id="local-6989586621679637767"><span id="local-6989586621679637769"><span class="annot"><span class="annottext">Int -&gt; GetOperationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679638738"><span id="local-6989586621679638740"><span id="local-6989586621679638742"><span class="annot"><span class="annottext">Int -&gt; GetOperationResponse -&gt; ShowS
 [GetOperationResponse] -&gt; ShowS
 GetOperationResponse -&gt; String
 (Int -&gt; GetOperationResponse -&gt; ShowS)
@@ -355,8 +355,8 @@ $cfrom :: forall x. GetOperationResponse -&gt; Rep GetOperationResponse x
 </span><span id="line-147"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-148"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.GetOperation.html#GetOperationResponse"><span class="hs-identifier hs-type">GetOperationResponse</span></a></span><span>
 </span><span id="line-149"></span><span id="newGetOperationResponse"><span class="annot"><span class="annottext">newGetOperationResponse :: Int -&gt; GetOperationResponse
-</span><a href="Network.AWS.Lightsail.GetOperation.html#newGetOperationResponse"><span class="hs-identifier hs-var hs-var">newGetOperationResponse</span></a></span></span><span> </span><span id="local-6989586621679637762"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679637762"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.GetOperation.html#newGetOperationResponse"><span class="hs-identifier hs-var hs-var">newGetOperationResponse</span></a></span></span><span> </span><span id="local-6989586621679638735"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679638735"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-150"></span><span>  </span><span class="annot"><span class="annottext">GetOperationResponse' :: Maybe Operation -&gt; Int -&gt; GetOperationResponse
 </span><a href="Network.AWS.Lightsail.GetOperation.html#GetOperationResponse%27"><span class="hs-identifier hs-type">GetOperationResponse'</span></a></span><span>
 </span><span id="line-151"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:operation:GetOperationResponse' :: Maybe Operation
@@ -365,7 +365,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetOperationResponse' :: Int
 </span><a href="Network.AWS.Lightsail.GetOperation.html#%24sel%3AhttpStatus%3AGetOperationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679637762"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679638735"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-153"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
@@ -383,16 +383,16 @@ forall a. Maybe a
      (Maybe Operation)
      (Maybe Operation)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetOperation.html#GetOperationResponse%27"><span class="hs-identifier hs-type">GetOperationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679637761"><span class="annot"><span class="annottext">Maybe Operation
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetOperation.html#GetOperationResponse%27"><span class="hs-identifier hs-type">GetOperationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679638734"><span class="annot"><span class="annottext">Maybe Operation
 operation :: Maybe Operation
 $sel:operation:GetOperationResponse' :: GetOperationResponse -&gt; Maybe Operation
-</span><a href="#local-6989586621679637761"><span class="hs-identifier hs-var hs-var">operation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Operation
-</span><a href="#local-6989586621679637761"><span class="hs-identifier hs-var">operation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679637760"><span class="annot"><span class="annottext">s :: GetOperationResponse
-</span><a href="#local-6989586621679637760"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetOperation.html#GetOperationResponse%27"><span class="hs-identifier hs-type">GetOperationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679637759"><span class="annot"><span class="annottext">Maybe Operation
-</span><a href="#local-6989586621679637759"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOperationResponse
-</span><a href="#local-6989586621679637760"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operation:GetOperationResponse' :: Maybe Operation
+</span><a href="#local-6989586621679638734"><span class="hs-identifier hs-var hs-var">operation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Operation
+</span><a href="#local-6989586621679638734"><span class="hs-identifier hs-var">operation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679638733"><span class="annot"><span class="annottext">s :: GetOperationResponse
+</span><a href="#local-6989586621679638733"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetOperation.html#GetOperationResponse%27"><span class="hs-identifier hs-type">GetOperationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679638732"><span class="annot"><span class="annottext">Maybe Operation
+</span><a href="#local-6989586621679638732"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOperationResponse
+</span><a href="#local-6989586621679638733"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operation:GetOperationResponse' :: Maybe Operation
 </span><a href="Network.AWS.Lightsail.GetOperation.html#%24sel%3Aoperation%3AGetOperationResponse%27"><span class="hs-identifier hs-var">operation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Operation
-</span><a href="#local-6989586621679637759"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetOperation.html#GetOperationResponse"><span class="hs-identifier hs-type">GetOperationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679638732"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetOperation.html#GetOperationResponse"><span class="hs-identifier hs-type">GetOperationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-162"></span><span class="annot"><a href="Network.AWS.Lightsail.GetOperation.html#getOperationResponse_httpStatus"><span class="hs-identifier hs-type">getOperationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetOperation.html#GetOperationResponse"><span class="hs-identifier hs-type">GetOperationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -401,16 +401,16 @@ $sel:operation:GetOperationResponse' :: GetOperationResponse -&gt; Maybe Operati
 -&gt; (GetOperationResponse -&gt; Int -&gt; GetOperationResponse)
 -&gt; Lens GetOperationResponse GetOperationResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetOperation.html#GetOperationResponse%27"><span class="hs-identifier hs-type">GetOperationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679637758"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetOperation.html#GetOperationResponse%27"><span class="hs-identifier hs-type">GetOperationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679638731"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetOperationResponse' :: GetOperationResponse -&gt; Int
-</span><a href="#local-6989586621679637758"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679637758"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679637757"><span class="annot"><span class="annottext">s :: GetOperationResponse
-</span><a href="#local-6989586621679637757"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetOperation.html#GetOperationResponse%27"><span class="hs-identifier hs-type">GetOperationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679637756"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679637756"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOperationResponse
-</span><a href="#local-6989586621679637757"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetOperationResponse' :: Int
+</span><a href="#local-6989586621679638731"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679638731"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679638730"><span class="annot"><span class="annottext">s :: GetOperationResponse
+</span><a href="#local-6989586621679638730"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetOperation.html#GetOperationResponse%27"><span class="hs-identifier hs-type">GetOperationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679638729"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679638729"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOperationResponse
+</span><a href="#local-6989586621679638730"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetOperationResponse' :: Int
 </span><a href="Network.AWS.Lightsail.GetOperation.html#%24sel%3AhttpStatus%3AGetOperationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679637756"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetOperation.html#GetOperationResponse"><span class="hs-identifier hs-type">GetOperationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679638729"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetOperation.html#GetOperationResponse"><span class="hs-identifier hs-type">GetOperationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679637754"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetOperation.html#GetOperationResponse"><span class="hs-identifier hs-type">GetOperationResponse</span></a></span></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679638727"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetOperation.html#GetOperationResponse"><span class="hs-identifier hs-type">GetOperationResponse</span></a></span></span><span>
 </span><span id="line-166"></span></pre></body></html>

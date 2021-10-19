@@ -39,8 +39,8 @@
 </span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#newListIdentityPoolsResponse"><span class="hs-identifier">newListIdentityPoolsResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>
 </span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#listIdentityPoolsResponse_nextToken"><span class="hs-identifier">listIdentityPoolsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#listIdentityPoolsResponse_identityPools"><span class="hs-identifier">listIdentityPoolsResponse_identityPools</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#listIdentityPoolsResponse_identityPools"><span class="hs-identifier">listIdentityPoolsResponse_identityPools</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#listIdentityPoolsResponse_nextToken"><span class="hs-identifier">listIdentityPoolsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#listIdentityPoolsResponse_httpStatus"><span class="hs-identifier">listIdentityPoolsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span class="hs-keyword">where</span><span>
@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span class="hs-comment">-- | Input to the ListIdentityPools action.</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- /See:/ 'newListIdentityPools' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679185826"><span id="local-6989586621679185827"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListIdentityPools"><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPools"><span class="hs-identifier hs-var">ListIdentityPools</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListIdentityPools%27"><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPools%27"><span class="hs-identifier hs-var">ListIdentityPools'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679185998"><span id="local-6989586621679185999"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListIdentityPools"><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPools"><span class="hs-identifier hs-var">ListIdentityPools</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListIdentityPools%27"><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPools%27"><span class="hs-identifier hs-var">ListIdentityPools'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A pagination token.</span><span>
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AnextToken%3AListIdentityPools%27"><span class="annot"><span class="annottext">ListIdentityPools -&gt; Maybe Text
 </span><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#%24sel%3AnextToken%3AListIdentityPools%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -63,7 +63,7 @@
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AmaxResults%3AListIdentityPools%27"><span class="annot"><span class="annottext">ListIdentityPools -&gt; Natural
 </span><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#%24sel%3AmaxResults%3AListIdentityPools%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679185819"><span id="local-6989586621679185821"><span class="annot"><span class="annottext">ListIdentityPools -&gt; ListIdentityPools -&gt; Bool
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679185991"><span id="local-6989586621679185993"><span class="annot"><span class="annottext">ListIdentityPools -&gt; ListIdentityPools -&gt; Bool
 (ListIdentityPools -&gt; ListIdentityPools -&gt; Bool)
 -&gt; (ListIdentityPools -&gt; ListIdentityPools -&gt; Bool)
 -&gt; Eq ListIdentityPools
@@ -72,7 +72,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListIdentityPools -&gt; ListIdentityPools -&gt; Bool
 == :: ListIdentityPools -&gt; ListIdentityPools -&gt; Bool
 $c== :: ListIdentityPools -&gt; ListIdentityPools -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185810"><span id="local-6989586621679185812"><span id="local-6989586621679185814"><span id="local-6989586621679185816"><span class="annot"><span class="annottext">ReadPrec [ListIdentityPools]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185982"><span id="local-6989586621679185984"><span id="local-6989586621679185986"><span id="local-6989586621679185988"><span class="annot"><span class="annottext">ReadPrec [ListIdentityPools]
 ReadPrec ListIdentityPools
 Int -&gt; ReadS ListIdentityPools
 ReadS [ListIdentityPools]
@@ -92,7 +92,7 @@ readList :: ReadS [ListIdentityPools]
 $creadList :: ReadS [ListIdentityPools]
 readsPrec :: Int -&gt; ReadS ListIdentityPools
 $creadsPrec :: Int -&gt; ReadS ListIdentityPools
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185803"><span id="local-6989586621679185805"><span id="local-6989586621679185807"><span class="annot"><span class="annottext">Int -&gt; ListIdentityPools -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185975"><span id="local-6989586621679185977"><span id="local-6989586621679185979"><span class="annot"><span class="annottext">Int -&gt; ListIdentityPools -&gt; ShowS
 [ListIdentityPools] -&gt; ShowS
 ListIdentityPools -&gt; String
 (Int -&gt; ListIdentityPools -&gt; ShowS)
@@ -134,8 +134,8 @@ $cfrom :: forall x. ListIdentityPools -&gt; Rep ListIdentityPools x
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPools"><span class="hs-identifier hs-type">ListIdentityPools</span></a></span><span>
 </span><span id="line-81"></span><span id="newListIdentityPools"><span class="annot"><span class="annottext">newListIdentityPools :: Natural -&gt; ListIdentityPools
-</span><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#newListIdentityPools"><span class="hs-identifier hs-var hs-var">newListIdentityPools</span></a></span></span><span> </span><span id="local-6989586621679185798"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679185798"><span class="hs-identifier hs-var">pMaxResults_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#newListIdentityPools"><span class="hs-identifier hs-var hs-var">newListIdentityPools</span></a></span></span><span> </span><span id="local-6989586621679185970"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679185970"><span class="hs-identifier hs-var">pMaxResults_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">ListIdentityPools' :: Maybe Text -&gt; Natural -&gt; ListIdentityPools
 </span><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPools%27"><span class="hs-identifier hs-type">ListIdentityPools'</span></a></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListIdentityPools' :: Maybe Text
@@ -144,7 +144,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListIdentityPools' :: Natural
 </span><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#%24sel%3AmaxResults%3AListIdentityPools%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679185798"><span class="hs-identifier hs-var">pMaxResults_</span></a></span><span>
+</span><a href="#local-6989586621679185970"><span class="hs-identifier hs-var">pMaxResults_</span></a></span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | A pagination token.</span><span>
@@ -156,16 +156,16 @@ forall a. Maybe a
 -&gt; Lens
      ListIdentityPools ListIdentityPools (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPools%27"><span class="hs-identifier hs-type">ListIdentityPools'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185796"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPools%27"><span class="hs-identifier hs-type">ListIdentityPools'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185968"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListIdentityPools' :: ListIdentityPools -&gt; Maybe Text
-</span><a href="#local-6989586621679185796"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679185796"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185795"><span class="annot"><span class="annottext">s :: ListIdentityPools
-</span><a href="#local-6989586621679185795"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPools%27"><span class="hs-identifier hs-type">ListIdentityPools'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185794"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679185794"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListIdentityPools
-</span><a href="#local-6989586621679185795"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListIdentityPools' :: Maybe Text
+</span><a href="#local-6989586621679185968"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679185968"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185967"><span class="annot"><span class="annottext">s :: ListIdentityPools
+</span><a href="#local-6989586621679185967"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPools%27"><span class="hs-identifier hs-type">ListIdentityPools'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185966"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679185966"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListIdentityPools
+</span><a href="#local-6989586621679185967"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListIdentityPools' :: Maybe Text
 </span><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#%24sel%3AnextToken%3AListIdentityPools%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679185794"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPools"><span class="hs-identifier hs-type">ListIdentityPools</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679185966"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPools"><span class="hs-identifier hs-type">ListIdentityPools</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | The maximum number of identities to return.</span><span>
 </span><span id="line-92"></span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#listIdentityPools_maxResults"><span class="hs-identifier hs-type">listIdentityPools_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPools"><span class="hs-identifier hs-type">ListIdentityPools</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
@@ -174,29 +174,29 @@ $sel:nextToken:ListIdentityPools' :: ListIdentityPools -&gt; Maybe Text
 -&gt; (ListIdentityPools -&gt; Natural -&gt; ListIdentityPools)
 -&gt; Lens ListIdentityPools ListIdentityPools Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPools%27"><span class="hs-identifier hs-type">ListIdentityPools'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185793"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPools%27"><span class="hs-identifier hs-type">ListIdentityPools'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185965"><span class="annot"><span class="annottext">Natural
 maxResults :: Natural
 $sel:maxResults:ListIdentityPools' :: ListIdentityPools -&gt; Natural
-</span><a href="#local-6989586621679185793"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679185793"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185792"><span class="annot"><span class="annottext">s :: ListIdentityPools
-</span><a href="#local-6989586621679185792"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPools%27"><span class="hs-identifier hs-type">ListIdentityPools'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185791"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679185791"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListIdentityPools
-</span><a href="#local-6989586621679185792"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListIdentityPools' :: Natural
+</span><a href="#local-6989586621679185965"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679185965"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185964"><span class="annot"><span class="annottext">s :: ListIdentityPools
+</span><a href="#local-6989586621679185964"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPools%27"><span class="hs-identifier hs-type">ListIdentityPools'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185963"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679185963"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListIdentityPools
+</span><a href="#local-6989586621679185964"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListIdentityPools' :: Natural
 </span><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#%24sel%3AmaxResults%3AListIdentityPools%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679185791"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPools"><span class="hs-identifier hs-type">ListIdentityPools</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679185963"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPools"><span class="hs-identifier hs-type">ListIdentityPools</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPools"><span class="hs-identifier hs-type">ListIdentityPools</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679185787"><span class="annot"><span class="annottext">page :: ListIdentityPools
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679185959"><span class="annot"><span class="annottext">page :: ListIdentityPools
 -&gt; AWSResponse ListIdentityPools -&gt; Maybe ListIdentityPools
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679185785"><span class="annot"><span class="annottext">ListIdentityPools
-</span><a href="#local-6989586621679185785"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679185784"><span class="annot"><span class="annottext">AWSResponse ListIdentityPools
-</span><a href="#local-6989586621679185784"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679185957"><span class="annot"><span class="annottext">ListIdentityPools
+</span><a href="#local-6989586621679185957"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679185956"><span class="annot"><span class="annottext">AWSResponse ListIdentityPools
+</span><a href="#local-6989586621679185956"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-97"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-98"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListIdentityPools
 ListIdentityPoolsResponse
-</span><a href="#local-6989586621679185784"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679185956"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">ListIdentityPoolsResponse
 -&gt; Getting (First Text) ListIdentityPoolsResponse Text
 -&gt; Maybe Text
@@ -226,7 +226,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-104"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListIdentityPools
 ListIdentityPoolsResponse
-</span><a href="#local-6989586621679185784"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679185956"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">ListIdentityPoolsResponse
 -&gt; Getting
      (First [IdentityPoolShortDescription])
@@ -287,7 +287,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">ListIdentityPools
-</span><a href="#local-6989586621679185785"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679185957"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">ListIdentityPools
 -&gt; (ListIdentityPools -&gt; ListIdentityPools) -&gt; ListIdentityPools
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -301,7 +301,7 @@ Lens ListIdentityPools ListIdentityPools (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListIdentityPools
 ListIdentityPoolsResponse
-</span><a href="#local-6989586621679185784"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679185956"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">ListIdentityPoolsResponse
 -&gt; Getting (First Text) ListIdentityPoolsResponse Text
 -&gt; Maybe Text
@@ -327,12 +327,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-118"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-119"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPools"><span class="hs-identifier hs-type">ListIdentityPools</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>      </span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPoolsResponse"><span class="hs-identifier hs-type">ListIdentityPoolsResponse</span></a></span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679185774"><span class="annot"><span class="annottext">request :: ListIdentityPools -&gt; Request ListIdentityPools
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679185946"><span class="annot"><span class="annottext">request :: ListIdentityPools -&gt; Request ListIdentityPools
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListIdentityPools -&gt; Request ListIdentityPools
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CognitoIdentity.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679185770"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679185942"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListIdentityPools
 -&gt; ClientResponse ClientBody
@@ -358,39 +358,20 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679185767"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185767"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679185766"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679185766"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679185765"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679185765"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe [IdentityPoolShortDescription]
--&gt; Int
--&gt; ListIdentityPoolsResponse
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679185939"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679185939"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679185938"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679185938"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679185937"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185937"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">Maybe [IdentityPoolShortDescription]
+-&gt; Maybe Text -&gt; Int -&gt; ListIdentityPoolsResponse
 </span><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPoolsResponse%27"><span class="hs-identifier hs-var">ListIdentityPoolsResponse'</span></a></span><span>
-</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe [IdentityPoolShortDescription]
- -&gt; Int
- -&gt; ListIdentityPoolsResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe [IdentityPoolShortDescription]
-      -&gt; Int -&gt; ListIdentityPoolsResponse)
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [IdentityPoolShortDescription]
+ -&gt; Maybe Text -&gt; Int -&gt; ListIdentityPoolsResponse)
+-&gt; Either String (Maybe [IdentityPoolShortDescription])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ListIdentityPoolsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679185765"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe [IdentityPoolShortDescription]
-   -&gt; Int -&gt; ListIdentityPoolsResponse)
--&gt; Either String (Maybe [IdentityPoolShortDescription])
--&gt; Either String (Int -&gt; ListIdentityPoolsResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679185765"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185937"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Either String (Maybe (Maybe [IdentityPoolShortDescription]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
@@ -402,6 +383,15 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [IdentityPoolShortDescription]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListIdentityPoolsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListIdentityPoolsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185937"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListIdentityPoolsResponse)
 -&gt; Either String Int -&gt; Either String ListIdentityPoolsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -410,15 +400,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185767"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679185939"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185756"><span id="local-6989586621679185758"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPools"><span class="hs-identifier hs-type">ListIdentityPools</span></a></span></span></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185928"><span id="local-6989586621679185930"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPools"><span class="hs-identifier hs-type">ListIdentityPools</span></a></span></span></span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185753"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPools"><span class="hs-identifier hs-type">ListIdentityPools</span></a></span></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185925"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPools"><span class="hs-identifier hs-type">ListIdentityPools</span></a></span></span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPools"><span class="hs-identifier hs-type">ListIdentityPools</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679185749"><span class="annot"><span class="annottext">toHeaders :: ListIdentityPools -&gt; ResponseHeaders
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679185921"><span class="annot"><span class="annottext">toHeaders :: ListIdentityPools -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListIdentityPools -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -445,15 +435,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-147"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185739"><span id="local-6989586621679185741"><span id="local-6989586621679185743"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPools"><span class="hs-identifier hs-type">ListIdentityPools</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679185737"><span class="annot"><span class="annottext">toJSON :: ListIdentityPools -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPools%27"><span class="hs-identifier hs-type">ListIdentityPools'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185734"><span id="local-6989586621679185735"><span class="annot"><span class="annottext">Natural
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185911"><span id="local-6989586621679185913"><span id="local-6989586621679185915"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPools"><span class="hs-identifier hs-type">ListIdentityPools</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679185909"><span class="annot"><span class="annottext">toJSON :: ListIdentityPools -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPools%27"><span class="hs-identifier hs-type">ListIdentityPools'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185906"><span id="local-6989586621679185907"><span class="annot"><span class="annottext">Natural
 Maybe Text
 maxResults :: Natural
 nextToken :: Maybe Text
 $sel:maxResults:ListIdentityPools' :: ListIdentityPools -&gt; Natural
 $sel:nextToken:ListIdentityPools' :: ListIdentityPools -&gt; Maybe Text
-</span><a href="#local-6989586621679185734"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679185906"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -465,26 +455,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679185735"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679185907"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679185734"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679185906"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-157"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPools"><span class="hs-identifier hs-type">ListIdentityPools</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679185728"><span class="annot"><span class="annottext">toPath :: ListIdentityPools -&gt; ByteString
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679185900"><span class="annot"><span class="annottext">toPath :: ListIdentityPools -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListIdentityPools -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPools"><span class="hs-identifier hs-type">ListIdentityPools</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679185724"><span class="annot"><span class="annottext">toQuery :: ListIdentityPools -&gt; QueryString
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679185896"><span class="annot"><span class="annottext">toQuery :: ListIdentityPools -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListIdentityPools -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -494,18 +484,18 @@ forall a. Monoid a =&gt; a
 </span><span id="line-165"></span><span class="hs-comment">-- | The result of a successful ListIdentityPools action.</span><span>
 </span><span id="line-166"></span><span class="hs-comment">--</span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- /See:/ 'newListIdentityPoolsResponse' smart constructor.</span><span>
-</span><span id="line-168"></span><span id="local-6989586621679185721"><span id="local-6989586621679185722"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListIdentityPoolsResponse"><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPoolsResponse"><span class="hs-identifier hs-var">ListIdentityPoolsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListIdentityPoolsResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPoolsResponse%27"><span class="hs-identifier hs-var">ListIdentityPoolsResponse'</span></a></span></span><span>
-</span><span id="line-169"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A pagination token.</span><span>
-</span><span id="line-170"></span><span>    </span><span id="%24sel%3AnextToken%3AListIdentityPoolsResponse%27"><span class="annot"><span class="annottext">ListIdentityPoolsResponse -&gt; Maybe Text
-</span><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#%24sel%3AnextToken%3AListIdentityPoolsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-171"></span><span>    </span><span class="hs-comment">-- | The identity pools returned by the ListIdentityPools action.</span><span>
-</span><span id="line-172"></span><span>    </span><span id="%24sel%3AidentityPools%3AListIdentityPoolsResponse%27"><span class="annot"><span class="annottext">ListIdentityPoolsResponse -&gt; Maybe [IdentityPoolShortDescription]
+</span><span id="line-168"></span><span id="local-6989586621679185893"><span id="local-6989586621679185894"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListIdentityPoolsResponse"><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPoolsResponse"><span class="hs-identifier hs-var">ListIdentityPoolsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListIdentityPoolsResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPoolsResponse%27"><span class="hs-identifier hs-var">ListIdentityPoolsResponse'</span></a></span></span><span>
+</span><span id="line-169"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identity pools returned by the ListIdentityPools action.</span><span>
+</span><span id="line-170"></span><span>    </span><span id="%24sel%3AidentityPools%3AListIdentityPoolsResponse%27"><span class="annot"><span class="annottext">ListIdentityPoolsResponse -&gt; Maybe [IdentityPoolShortDescription]
 </span><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#%24sel%3AidentityPools%3AListIdentityPoolsResponse%27"><span class="hs-identifier hs-var hs-var">identityPools</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.IdentityPoolShortDescription.html#IdentityPoolShortDescription"><span class="hs-identifier hs-type">IdentityPoolShortDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-comment">-- | A pagination token.</span><span>
+</span><span id="line-172"></span><span>    </span><span id="%24sel%3AnextToken%3AListIdentityPoolsResponse%27"><span class="annot"><span class="annottext">ListIdentityPoolsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#%24sel%3AnextToken%3AListIdentityPoolsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-173"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-174"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListIdentityPoolsResponse%27"><span class="annot"><span class="annottext">ListIdentityPoolsResponse -&gt; Int
 </span><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#%24sel%3AhttpStatus%3AListIdentityPoolsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-175"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-176"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679185714"><span id="local-6989586621679185716"><span class="annot"><span class="annottext">ListIdentityPoolsResponse -&gt; ListIdentityPoolsResponse -&gt; Bool
+</span><span id="line-176"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679185886"><span id="local-6989586621679185888"><span class="annot"><span class="annottext">ListIdentityPoolsResponse -&gt; ListIdentityPoolsResponse -&gt; Bool
 (ListIdentityPoolsResponse -&gt; ListIdentityPoolsResponse -&gt; Bool)
 -&gt; (ListIdentityPoolsResponse -&gt; ListIdentityPoolsResponse -&gt; Bool)
 -&gt; Eq ListIdentityPoolsResponse
@@ -514,7 +504,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListIdentityPoolsResponse -&gt; ListIdentityPoolsResponse -&gt; Bool
 == :: ListIdentityPoolsResponse -&gt; ListIdentityPoolsResponse -&gt; Bool
 $c== :: ListIdentityPoolsResponse -&gt; ListIdentityPoolsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185706"><span id="local-6989586621679185708"><span id="local-6989586621679185710"><span id="local-6989586621679185712"><span class="annot"><span class="annottext">ReadPrec [ListIdentityPoolsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185878"><span id="local-6989586621679185880"><span id="local-6989586621679185882"><span id="local-6989586621679185884"><span class="annot"><span class="annottext">ReadPrec [ListIdentityPoolsResponse]
 ReadPrec ListIdentityPoolsResponse
 Int -&gt; ReadS ListIdentityPoolsResponse
 ReadS [ListIdentityPoolsResponse]
@@ -534,7 +524,7 @@ readList :: ReadS [ListIdentityPoolsResponse]
 $creadList :: ReadS [ListIdentityPoolsResponse]
 readsPrec :: Int -&gt; ReadS ListIdentityPoolsResponse
 $creadsPrec :: Int -&gt; ReadS ListIdentityPoolsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185700"><span id="local-6989586621679185702"><span id="local-6989586621679185704"><span class="annot"><span class="annottext">Int -&gt; ListIdentityPoolsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185872"><span id="local-6989586621679185874"><span id="local-6989586621679185876"><span class="annot"><span class="annottext">Int -&gt; ListIdentityPoolsResponse -&gt; ShowS
 [ListIdentityPoolsResponse] -&gt; ShowS
 ListIdentityPoolsResponse -&gt; String
 (Int -&gt; ListIdentityPoolsResponse -&gt; ShowS)
@@ -574,9 +564,9 @@ ListIdentityPoolsResponse -&gt; Rep ListIdentityPoolsResponse x
 </span><span id="line-183"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-184"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-185"></span><span class="hs-comment">--</span><span>
-</span><span id="line-186"></span><span class="hs-comment">-- 'nextToken', 'listIdentityPoolsResponse_nextToken' - A pagination token.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- 'identityPools', 'listIdentityPoolsResponse_identityPools' - The identity pools returned by the ListIdentityPools action.</span><span>
 </span><span id="line-187"></span><span class="hs-comment">--</span><span>
-</span><span id="line-188"></span><span class="hs-comment">-- 'identityPools', 'listIdentityPoolsResponse_identityPools' - The identity pools returned by the ListIdentityPools action.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'nextToken', 'listIdentityPoolsResponse_nextToken' - A pagination token.</span><span>
 </span><span id="line-189"></span><span class="hs-comment">--</span><span>
 </span><span id="line-190"></span><span class="hs-comment">-- 'httpStatus', 'listIdentityPoolsResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-191"></span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#newListIdentityPoolsResponse"><span class="hs-identifier hs-type">newListIdentityPoolsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -584,50 +574,28 @@ ListIdentityPoolsResponse -&gt; Rep ListIdentityPoolsResponse x
 </span><span id="line-193"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-194"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPoolsResponse"><span class="hs-identifier hs-type">ListIdentityPoolsResponse</span></a></span><span>
 </span><span id="line-195"></span><span id="newListIdentityPoolsResponse"><span class="annot"><span class="annottext">newListIdentityPoolsResponse :: Int -&gt; ListIdentityPoolsResponse
-</span><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#newListIdentityPoolsResponse"><span class="hs-identifier hs-var hs-var">newListIdentityPoolsResponse</span></a></span></span><span> </span><span id="local-6989586621679185697"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185697"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-196"></span><span>  </span><span class="annot"><span class="annottext">ListIdentityPoolsResponse' :: Maybe Text
--&gt; Maybe [IdentityPoolShortDescription]
--&gt; Int
--&gt; ListIdentityPoolsResponse
+</span><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#newListIdentityPoolsResponse"><span class="hs-identifier hs-var hs-var">newListIdentityPoolsResponse</span></a></span></span><span> </span><span id="local-6989586621679185869"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679185869"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-196"></span><span>  </span><span class="annot"><span class="annottext">ListIdentityPoolsResponse' :: Maybe [IdentityPoolShortDescription]
+-&gt; Maybe Text -&gt; Int -&gt; ListIdentityPoolsResponse
 </span><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPoolsResponse%27"><span class="hs-identifier hs-type">ListIdentityPoolsResponse'</span></a></span><span>
-</span><span id="line-197"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListIdentityPoolsResponse' :: Maybe Text
-</span><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#%24sel%3AnextToken%3AListIdentityPoolsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-198"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-197"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:identityPools:ListIdentityPoolsResponse' :: Maybe [IdentityPoolShortDescription]
+</span><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#%24sel%3AidentityPools%3AListIdentityPoolsResponse%27"><span class="hs-identifier hs-var">identityPools</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-198"></span><span>        </span><span class="annot"><span class="annottext">Maybe [IdentityPoolShortDescription]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">$sel:identityPools:ListIdentityPoolsResponse' :: Maybe [IdentityPoolShortDescription]
-</span><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#%24sel%3AidentityPools%3AListIdentityPoolsResponse%27"><span class="hs-identifier hs-var">identityPools</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [IdentityPoolShortDescription]
+</span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListIdentityPoolsResponse' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#%24sel%3AnextToken%3AListIdentityPoolsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-200"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListIdentityPoolsResponse' :: Int
 </span><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#%24sel%3AhttpStatus%3AListIdentityPoolsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185697"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679185869"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-201"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-202"></span><span>
-</span><span id="line-203"></span><span class="hs-comment">-- | A pagination token.</span><span>
-</span><span id="line-204"></span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#listIdentityPoolsResponse_nextToken"><span class="hs-identifier hs-type">listIdentityPoolsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPoolsResponse"><span class="hs-identifier hs-type">ListIdentityPoolsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-205"></span><span id="listIdentityPoolsResponse_nextToken"><span class="annot"><span class="annottext">listIdentityPoolsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListIdentityPoolsResponse -&gt; f ListIdentityPoolsResponse
-</span><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#listIdentityPoolsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listIdentityPoolsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListIdentityPoolsResponse -&gt; Maybe Text)
--&gt; (ListIdentityPoolsResponse
-    -&gt; Maybe Text -&gt; ListIdentityPoolsResponse)
--&gt; Lens' ListIdentityPoolsResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPoolsResponse%27"><span class="hs-identifier hs-type">ListIdentityPoolsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185696"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:ListIdentityPoolsResponse' :: ListIdentityPoolsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679185696"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679185696"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185695"><span class="annot"><span class="annottext">s :: ListIdentityPoolsResponse
-</span><a href="#local-6989586621679185695"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPoolsResponse%27"><span class="hs-identifier hs-type">ListIdentityPoolsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185694"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679185694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListIdentityPoolsResponse
-</span><a href="#local-6989586621679185695"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListIdentityPoolsResponse' :: Maybe Text
-</span><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#%24sel%3AnextToken%3AListIdentityPoolsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679185694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPoolsResponse"><span class="hs-identifier hs-type">ListIdentityPoolsResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-206"></span><span>
-</span><span id="line-207"></span><span class="hs-comment">-- | The identity pools returned by the ListIdentityPools action.</span><span>
-</span><span id="line-208"></span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#listIdentityPoolsResponse_identityPools"><span class="hs-identifier hs-type">listIdentityPoolsResponse_identityPools</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPoolsResponse"><span class="hs-identifier hs-type">ListIdentityPoolsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.IdentityPoolShortDescription.html#IdentityPoolShortDescription"><span class="hs-identifier hs-type">IdentityPoolShortDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-209"></span><span id="listIdentityPoolsResponse_identityPools"><span class="annot"><span class="annottext">listIdentityPoolsResponse_identityPools :: (Maybe [IdentityPoolShortDescription]
+</span><span id="line-203"></span><span class="hs-comment">-- | The identity pools returned by the ListIdentityPools action.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#listIdentityPoolsResponse_identityPools"><span class="hs-identifier hs-type">listIdentityPoolsResponse_identityPools</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPoolsResponse"><span class="hs-identifier hs-type">ListIdentityPoolsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.IdentityPoolShortDescription.html#IdentityPoolShortDescription"><span class="hs-identifier hs-type">IdentityPoolShortDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span id="listIdentityPoolsResponse_identityPools"><span class="annot"><span class="annottext">listIdentityPoolsResponse_identityPools :: (Maybe [IdentityPoolShortDescription]
  -&gt; f (Maybe [IdentityPoolShortDescription]))
 -&gt; ListIdentityPoolsResponse -&gt; f ListIdentityPoolsResponse
 </span><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#listIdentityPoolsResponse_identityPools"><span class="hs-identifier hs-var hs-var">listIdentityPoolsResponse_identityPools</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListIdentityPoolsResponse -&gt; Maybe [IdentityPoolShortDescription])
@@ -637,16 +605,16 @@ $sel:nextToken:ListIdentityPoolsResponse' :: ListIdentityPoolsResponse -&gt; May
 -&gt; Lens'
      ListIdentityPoolsResponse (Maybe [IdentityPoolShortDescription])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPoolsResponse%27"><span class="hs-identifier hs-type">ListIdentityPoolsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185693"><span class="annot"><span class="annottext">Maybe [IdentityPoolShortDescription]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPoolsResponse%27"><span class="hs-identifier hs-type">ListIdentityPoolsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185868"><span class="annot"><span class="annottext">Maybe [IdentityPoolShortDescription]
 identityPools :: Maybe [IdentityPoolShortDescription]
 $sel:identityPools:ListIdentityPoolsResponse' :: ListIdentityPoolsResponse -&gt; Maybe [IdentityPoolShortDescription]
-</span><a href="#local-6989586621679185693"><span class="hs-identifier hs-var hs-var">identityPools</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [IdentityPoolShortDescription]
-</span><a href="#local-6989586621679185693"><span class="hs-identifier hs-var">identityPools</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185692"><span class="annot"><span class="annottext">s :: ListIdentityPoolsResponse
-</span><a href="#local-6989586621679185692"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPoolsResponse%27"><span class="hs-identifier hs-type">ListIdentityPoolsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185691"><span class="annot"><span class="annottext">Maybe [IdentityPoolShortDescription]
-</span><a href="#local-6989586621679185691"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListIdentityPoolsResponse
-</span><a href="#local-6989586621679185692"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityPools:ListIdentityPoolsResponse' :: Maybe [IdentityPoolShortDescription]
+</span><a href="#local-6989586621679185868"><span class="hs-identifier hs-var hs-var">identityPools</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [IdentityPoolShortDescription]
+</span><a href="#local-6989586621679185868"><span class="hs-identifier hs-var">identityPools</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185867"><span class="annot"><span class="annottext">s :: ListIdentityPoolsResponse
+</span><a href="#local-6989586621679185867"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPoolsResponse%27"><span class="hs-identifier hs-type">ListIdentityPoolsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185866"><span class="annot"><span class="annottext">Maybe [IdentityPoolShortDescription]
+</span><a href="#local-6989586621679185866"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListIdentityPoolsResponse
+</span><a href="#local-6989586621679185867"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityPools:ListIdentityPoolsResponse' :: Maybe [IdentityPoolShortDescription]
 </span><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#%24sel%3AidentityPools%3AListIdentityPoolsResponse%27"><span class="hs-identifier hs-var">identityPools</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [IdentityPoolShortDescription]
-</span><a href="#local-6989586621679185691"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPoolsResponse"><span class="hs-identifier hs-type">ListIdentityPoolsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [IdentityPoolShortDescription]
+</span><a href="#local-6989586621679185866"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPoolsResponse"><span class="hs-identifier hs-type">ListIdentityPoolsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [IdentityPoolShortDescription]
   -&gt; f (Maybe [IdentityPoolShortDescription]))
  -&gt; ListIdentityPoolsResponse -&gt; f ListIdentityPoolsResponse)
 -&gt; ((Maybe [IdentityPoolShortDescription]
@@ -676,8 +644,28 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [IdentityPoolShortDescription]
   [IdentityPoolShortDescription]
   [IdentityPoolShortDescription]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | A pagination token.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#listIdentityPoolsResponse_nextToken"><span class="hs-identifier hs-type">listIdentityPoolsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPoolsResponse"><span class="hs-identifier hs-type">ListIdentityPoolsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span id="listIdentityPoolsResponse_nextToken"><span class="annot"><span class="annottext">listIdentityPoolsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListIdentityPoolsResponse -&gt; f ListIdentityPoolsResponse
+</span><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#listIdentityPoolsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listIdentityPoolsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListIdentityPoolsResponse -&gt; Maybe Text)
+-&gt; (ListIdentityPoolsResponse
+    -&gt; Maybe Text -&gt; ListIdentityPoolsResponse)
+-&gt; Lens' ListIdentityPoolsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPoolsResponse%27"><span class="hs-identifier hs-type">ListIdentityPoolsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185863"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListIdentityPoolsResponse' :: ListIdentityPoolsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679185863"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679185863"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185862"><span class="annot"><span class="annottext">s :: ListIdentityPoolsResponse
+</span><a href="#local-6989586621679185862"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPoolsResponse%27"><span class="hs-identifier hs-type">ListIdentityPoolsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185861"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679185861"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListIdentityPoolsResponse
+</span><a href="#local-6989586621679185862"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListIdentityPoolsResponse' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#%24sel%3AnextToken%3AListIdentityPoolsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679185861"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPoolsResponse"><span class="hs-identifier hs-type">ListIdentityPoolsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-210"></span><span>
 </span><span id="line-211"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-212"></span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#listIdentityPoolsResponse_httpStatus"><span class="hs-identifier hs-type">listIdentityPoolsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPoolsResponse"><span class="hs-identifier hs-type">ListIdentityPoolsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -687,16 +675,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (ListIdentityPoolsResponse -&gt; Int -&gt; ListIdentityPoolsResponse)
 -&gt; Lens ListIdentityPoolsResponse ListIdentityPoolsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPoolsResponse%27"><span class="hs-identifier hs-type">ListIdentityPoolsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185688"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPoolsResponse%27"><span class="hs-identifier hs-type">ListIdentityPoolsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185860"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListIdentityPoolsResponse' :: ListIdentityPoolsResponse -&gt; Int
-</span><a href="#local-6989586621679185688"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185688"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185687"><span class="annot"><span class="annottext">s :: ListIdentityPoolsResponse
-</span><a href="#local-6989586621679185687"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPoolsResponse%27"><span class="hs-identifier hs-type">ListIdentityPoolsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185686"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185686"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListIdentityPoolsResponse
-</span><a href="#local-6989586621679185687"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListIdentityPoolsResponse' :: Int
+</span><a href="#local-6989586621679185860"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679185860"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185859"><span class="annot"><span class="annottext">s :: ListIdentityPoolsResponse
+</span><a href="#local-6989586621679185859"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPoolsResponse%27"><span class="hs-identifier hs-type">ListIdentityPoolsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185858"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679185858"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListIdentityPoolsResponse
+</span><a href="#local-6989586621679185859"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListIdentityPoolsResponse' :: Int
 </span><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#%24sel%3AhttpStatus%3AListIdentityPoolsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185686"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPoolsResponse"><span class="hs-identifier hs-type">ListIdentityPoolsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679185858"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPoolsResponse"><span class="hs-identifier hs-type">ListIdentityPoolsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-214"></span><span>
-</span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185684"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPoolsResponse"><span class="hs-identifier hs-type">ListIdentityPoolsResponse</span></a></span></span><span>
+</span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185856"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.ListIdentityPools.html#ListIdentityPoolsResponse"><span class="hs-identifier hs-type">ListIdentityPoolsResponse</span></a></span></span><span>
 </span><span id="line-216"></span></pre></body></html>

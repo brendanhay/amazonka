@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621681055920"><span id="local-6989586621681055921"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BgpStatus"><span class="annot"><a href="Network.AWS.EC2.Types.BgpStatus.html#BgpStatus"><span class="hs-identifier hs-var">BgpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BgpStatus%27"><span class="annot"><a href="Network.AWS.EC2.Types.BgpStatus.html#BgpStatus%27"><span class="hs-identifier hs-var">BgpStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681089119"><span id="local-6989586621681089120"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BgpStatus"><span class="annot"><a href="Network.AWS.EC2.Types.BgpStatus.html#BgpStatus"><span class="hs-identifier hs-var">BgpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BgpStatus%27"><span class="annot"><a href="Network.AWS.EC2.Types.BgpStatus.html#BgpStatus%27"><span class="hs-identifier hs-var">BgpStatus'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBgpStatus"><span class="annot"><span class="annottext">BgpStatus -&gt; Text
 </span><a href="Network.AWS.EC2.Types.BgpStatus.html#fromBgpStatus"><span class="hs-identifier hs-var hs-var">fromBgpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681055912"><span id="local-6989586621681055914"><span id="local-6989586621681055916"><span class="annot"><span class="annottext">Int -&gt; BgpStatus -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681089111"><span id="local-6989586621681089113"><span id="local-6989586621681089115"><span class="annot"><span class="annottext">Int -&gt; BgpStatus -&gt; ShowS
 [BgpStatus] -&gt; ShowS
 BgpStatus -&gt; String
 (Int -&gt; BgpStatus -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: BgpStatus -&gt; String
 showsPrec :: Int -&gt; BgpStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; BgpStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621681055903"><span id="local-6989586621681055905"><span id="local-6989586621681055907"><span id="local-6989586621681055909"><span class="annot"><span class="annottext">ReadPrec [BgpStatus]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681089102"><span id="local-6989586621681089104"><span id="local-6989586621681089106"><span id="local-6989586621681089108"><span class="annot"><span class="annottext">ReadPrec [BgpStatus]
 ReadPrec BgpStatus
 Int -&gt; ReadS BgpStatus
 ReadS [BgpStatus]
@@ -73,7 +73,7 @@ $creadList :: ReadS [BgpStatus]
 readsPrec :: Int -&gt; ReadS BgpStatus
 $creadsPrec :: Int -&gt; ReadS BgpStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681055898"><span id="local-6989586621681055900"><span class="annot"><span class="annottext">BgpStatus -&gt; BgpStatus -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681089097"><span id="local-6989586621681089099"><span class="annot"><span class="annottext">BgpStatus -&gt; BgpStatus -&gt; Bool
 (BgpStatus -&gt; BgpStatus -&gt; Bool)
 -&gt; (BgpStatus -&gt; BgpStatus -&gt; Bool) -&gt; Eq BgpStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: BgpStatus -&gt; BgpStatus -&gt; Bool
 == :: BgpStatus -&gt; BgpStatus -&gt; Bool
 $c== :: BgpStatus -&gt; BgpStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681055882"><span id="local-6989586621681055884"><span id="local-6989586621681055886"><span id="local-6989586621681055888"><span id="local-6989586621681055890"><span id="local-6989586621681055892"><span id="local-6989586621681055894"><span class="annot"><span class="annottext">Eq BgpStatus
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681089081"><span id="local-6989586621681089083"><span id="local-6989586621681089085"><span id="local-6989586621681089087"><span id="local-6989586621681089089"><span id="local-6989586621681089091"><span id="local-6989586621681089093"><span class="annot"><span class="annottext">Eq BgpStatus
 Eq BgpStatus
 -&gt; (BgpStatus -&gt; BgpStatus -&gt; Ordering)
 -&gt; (BgpStatus -&gt; BgpStatus -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. BgpStatus -&gt; Rep BgpStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681055874"><span id="local-6989586621681055876"><span class="annot"><span class="annottext">Int -&gt; BgpStatus -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681089073"><span id="local-6989586621681089075"><span class="annot"><span class="annottext">Int -&gt; BgpStatus -&gt; Int
 BgpStatus -&gt; Int
 (Int -&gt; BgpStatus -&gt; Int)
 -&gt; (BgpStatus -&gt; Int) -&gt; Hashable BgpStatus
@@ -142,49 +142,49 @@ $chash :: BgpStatus -&gt; Int
 hashWithSalt :: Int -&gt; BgpStatus -&gt; Int
 $chashWithSalt :: Int -&gt; BgpStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681055871"><span class="annot"><span class="annottext">BgpStatus -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681089070"><span class="annot"><span class="annottext">BgpStatus -&gt; ()
 (BgpStatus -&gt; ()) -&gt; NFData BgpStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: BgpStatus -&gt; ()
 $crnf :: BgpStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681055868"><span class="annot"><span class="annottext">Text -&gt; Either String BgpStatus
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681089067"><span class="annot"><span class="annottext">Text -&gt; Either String BgpStatus
 (Text -&gt; Either String BgpStatus) -&gt; FromText BgpStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String BgpStatus
 $cfromText :: Text -&gt; Either String BgpStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681055865"><span class="annot"><span class="annottext">BgpStatus -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681089064"><span class="annot"><span class="annottext">BgpStatus -&gt; Text
 (BgpStatus -&gt; Text) -&gt; ToText BgpStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: BgpStatus -&gt; Text
 $ctoText :: BgpStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681055862"><span class="annot"><span class="annottext">BgpStatus -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681089061"><span class="annot"><span class="annottext">BgpStatus -&gt; ByteString
 (BgpStatus -&gt; ByteString) -&gt; ToByteString BgpStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: BgpStatus -&gt; ByteString
 $ctoBS :: BgpStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681055859"><span class="annot"><span class="annottext">BgpStatus -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681089058"><span class="annot"><span class="annottext">BgpStatus -&gt; ByteStringBuilder
 (BgpStatus -&gt; ByteStringBuilder) -&gt; ToLog BgpStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: BgpStatus -&gt; ByteStringBuilder
 $cbuild :: BgpStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681055856"><span class="annot"><span class="annottext">HeaderName -&gt; BgpStatus -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681089055"><span class="annot"><span class="annottext">HeaderName -&gt; BgpStatus -&gt; [Header]
 (HeaderName -&gt; BgpStatus -&gt; [Header]) -&gt; ToHeader BgpStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; BgpStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; BgpStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681055853"><span class="annot"><span class="annottext">BgpStatus -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681089052"><span class="annot"><span class="annottext">BgpStatus -&gt; QueryString
 (BgpStatus -&gt; QueryString) -&gt; ToQuery BgpStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: BgpStatus -&gt; QueryString
 $ctoQuery :: BgpStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681055848"><span id="local-6989586621681055850"><span class="annot"><span class="annottext">Value -&gt; Parser [BgpStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681089047"><span id="local-6989586621681089049"><span class="annot"><span class="annottext">Value -&gt; Parser [BgpStatus]
 Value -&gt; Parser BgpStatus
 (Value -&gt; Parser BgpStatus)
 -&gt; (Value -&gt; Parser [BgpStatus]) -&gt; FromJSON BgpStatus
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [BgpStatus]
 parseJSON :: Value -&gt; Parser BgpStatus
 $cparseJSON :: Value -&gt; Parser BgpStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681055843"><span id="local-6989586621681055845"><span class="annot"><span class="annottext">FromJSONKeyFunction [BgpStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681089042"><span id="local-6989586621681089044"><span class="annot"><span class="annottext">FromJSONKeyFunction [BgpStatus]
 FromJSONKeyFunction BgpStatus
 FromJSONKeyFunction BgpStatus
 -&gt; FromJSONKeyFunction [BgpStatus] -&gt; FromJSONKey BgpStatus
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [BgpStatus]
 fromJSONKey :: FromJSONKeyFunction BgpStatus
 $cfromJSONKey :: FromJSONKeyFunction BgpStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681055834"><span id="local-6989586621681055836"><span id="local-6989586621681055838"><span id="local-6989586621681055840"><span class="annot"><span class="annottext">[BgpStatus] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681089033"><span id="local-6989586621681089035"><span id="local-6989586621681089037"><span id="local-6989586621681089039"><span class="annot"><span class="annottext">[BgpStatus] -&gt; Encoding
 [BgpStatus] -&gt; Value
 BgpStatus -&gt; Encoding
 BgpStatus -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: BgpStatus -&gt; Encoding
 toJSON :: BgpStatus -&gt; Value
 $ctoJSON :: BgpStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681055829"><span id="local-6989586621681055831"><span class="annot"><span class="annottext">ToJSONKeyFunction [BgpStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681089028"><span id="local-6989586621681089030"><span class="annot"><span class="annottext">ToJSONKeyFunction [BgpStatus]
 ToJSONKeyFunction BgpStatus
 ToJSONKeyFunction BgpStatus
 -&gt; ToJSONKeyFunction [BgpStatus] -&gt; ToJSONKey BgpStatus
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [BgpStatus]
 toJSONKey :: ToJSONKeyFunction BgpStatus
 $ctoJSONKey :: ToJSONKeyFunction BgpStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681055826"><span class="annot"><span class="annottext">[Node] -&gt; Either String BgpStatus
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681089025"><span class="annot"><span class="annottext">[Node] -&gt; Either String BgpStatus
 ([Node] -&gt; Either String BgpStatus) -&gt; FromXML BgpStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String BgpStatus
 $cparseXML :: [Node] -&gt; Either String BgpStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681055823"><span class="annot"><span class="annottext">BgpStatus -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681089022"><span class="annot"><span class="annottext">BgpStatus -&gt; XML
 (BgpStatus -&gt; XML) -&gt; ToXML BgpStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: BgpStatus -&gt; XML

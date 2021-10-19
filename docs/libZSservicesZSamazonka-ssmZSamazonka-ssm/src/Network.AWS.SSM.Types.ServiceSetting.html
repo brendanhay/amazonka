@@ -43,38 +43,38 @@
 </span><span id="line-43"></span><span class="hs-comment">-- original value defined by the Amazon Web Services service team.</span><span>
 </span><span id="line-44"></span><span class="hs-comment">--</span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- /See:/ 'newServiceSetting' smart constructor.</span><span>
-</span><span id="line-46"></span><span id="local-6989586621679813396"><span id="local-6989586621679813397"></span></span><span class="hs-keyword">data</span><span> </span><span id="ServiceSetting"><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting"><span class="hs-identifier hs-var">ServiceSetting</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServiceSetting%27"><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting%27"><span class="hs-identifier hs-var">ServiceSetting'</span></a></span></span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The last time the service setting was modified.</span><span>
-</span><span id="line-48"></span><span>    </span><span id="%24sel%3AlastModifiedDate%3AServiceSetting%27"><span class="annot"><span class="annottext">ServiceSetting -&gt; Maybe POSIX
-</span><a href="Network.AWS.SSM.Types.ServiceSetting.html#%24sel%3AlastModifiedDate%3AServiceSetting%27"><span class="hs-identifier hs-var hs-var">lastModifiedDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The status of the service setting. The value can be Default, Customized</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- or PendingUpdate.</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- -   Default: The current setting uses a default value provisioned by the</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">--     Amazon Web Services service team.</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- -   Customized: The current setting use a custom value specified by the</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">--     customer.</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- -   PendingUpdate: The current setting uses a default or custom value,</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">--     but a setting change request is pending approval.</span><span>
-</span><span id="line-60"></span><span>    </span><span id="%24sel%3Astatus%3AServiceSetting%27"><span class="annot"><span class="annottext">ServiceSetting -&gt; Maybe Text
+</span><span id="line-46"></span><span id="local-6989586621679815096"><span id="local-6989586621679815097"></span></span><span class="hs-keyword">data</span><span> </span><span id="ServiceSetting"><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting"><span class="hs-identifier hs-var">ServiceSetting</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServiceSetting%27"><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting%27"><span class="hs-identifier hs-var">ServiceSetting'</span></a></span></span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the service setting. The value can be Default, Customized</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- or PendingUpdate.</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- -   Default: The current setting uses a default value provisioned by the</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--     Amazon Web Services service team.</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- -   Customized: The current setting use a custom value specified by the</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">--     customer.</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- -   PendingUpdate: The current setting uses a default or custom value,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">--     but a setting change request is pending approval.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Astatus%3AServiceSetting%27"><span class="annot"><span class="annottext">ServiceSetting -&gt; Maybe Text
 </span><a href="Network.AWS.SSM.Types.ServiceSetting.html#%24sel%3Astatus%3AServiceSetting%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The value of the service setting.</span><span>
-</span><span id="line-62"></span><span>    </span><span id="%24sel%3AsettingValue%3AServiceSetting%27"><span class="annot"><span class="annottext">ServiceSetting -&gt; Maybe Text
-</span><a href="Network.AWS.SSM.Types.ServiceSetting.html#%24sel%3AsettingValue%3AServiceSetting%27"><span class="hs-identifier hs-var hs-var">settingValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The ARN of the service setting.</span><span>
-</span><span id="line-64"></span><span>    </span><span id="%24sel%3Aarn%3AServiceSetting%27"><span class="annot"><span class="annottext">ServiceSetting -&gt; Maybe Text
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The last time the service setting was modified.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AlastModifiedDate%3AServiceSetting%27"><span class="annot"><span class="annottext">ServiceSetting -&gt; Maybe POSIX
+</span><a href="Network.AWS.SSM.Types.ServiceSetting.html#%24sel%3AlastModifiedDate%3AServiceSetting%27"><span class="hs-identifier hs-var hs-var">lastModifiedDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The ARN of the service setting.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3Aarn%3AServiceSetting%27"><span class="annot"><span class="annottext">ServiceSetting -&gt; Maybe Text
 </span><a href="Network.AWS.SSM.Types.ServiceSetting.html#%24sel%3Aarn%3AServiceSetting%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The ID of the service setting.</span><span>
-</span><span id="line-66"></span><span>    </span><span id="%24sel%3AsettingId%3AServiceSetting%27"><span class="annot"><span class="annottext">ServiceSetting -&gt; Maybe Text
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The ID of the service setting.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AsettingId%3AServiceSetting%27"><span class="annot"><span class="annottext">ServiceSetting -&gt; Maybe Text
 </span><a href="Network.AWS.SSM.Types.ServiceSetting.html#%24sel%3AsettingId%3AServiceSetting%27"><span class="hs-identifier hs-var hs-var">settingId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The ARN of the last modified user. This field is populated only if the</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- setting value was overwritten.</span><span>
-</span><span id="line-69"></span><span>    </span><span id="%24sel%3AlastModifiedUser%3AServiceSetting%27"><span class="annot"><span class="annottext">ServiceSetting -&gt; Maybe Text
-</span><a href="Network.AWS.SSM.Types.ServiceSetting.html#%24sel%3AlastModifiedUser%3AServiceSetting%27"><span class="hs-identifier hs-var hs-var">lastModifiedUser</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The ARN of the last modified user. This field is populated only if the</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- setting value was overwritten.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AlastModifiedUser%3AServiceSetting%27"><span class="annot"><span class="annottext">ServiceSetting -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.Types.ServiceSetting.html#%24sel%3AlastModifiedUser%3AServiceSetting%27"><span class="hs-identifier hs-var hs-var">lastModifiedUser</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The value of the service setting.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AsettingValue%3AServiceSetting%27"><span class="annot"><span class="annottext">ServiceSetting -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.Types.ServiceSetting.html#%24sel%3AsettingValue%3AServiceSetting%27"><span class="hs-identifier hs-var hs-var">settingValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679813385"><span id="local-6989586621679813387"><span class="annot"><span class="annottext">ServiceSetting -&gt; ServiceSetting -&gt; Bool
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679815085"><span id="local-6989586621679815087"><span class="annot"><span class="annottext">ServiceSetting -&gt; ServiceSetting -&gt; Bool
 (ServiceSetting -&gt; ServiceSetting -&gt; Bool)
 -&gt; (ServiceSetting -&gt; ServiceSetting -&gt; Bool) -&gt; Eq ServiceSetting
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ServiceSetting -&gt; ServiceSetting -&gt; Bool
 == :: ServiceSetting -&gt; ServiceSetting -&gt; Bool
 $c== :: ServiceSetting -&gt; ServiceSetting -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679813376"><span id="local-6989586621679813378"><span id="local-6989586621679813380"><span id="local-6989586621679813382"><span class="annot"><span class="annottext">ReadPrec [ServiceSetting]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679815076"><span id="local-6989586621679815078"><span id="local-6989586621679815080"><span id="local-6989586621679815082"><span class="annot"><span class="annottext">ReadPrec [ServiceSetting]
 ReadPrec ServiceSetting
 Int -&gt; ReadS ServiceSetting
 ReadS [ServiceSetting]
@@ -102,7 +102,7 @@ readList :: ReadS [ServiceSetting]
 $creadList :: ReadS [ServiceSetting]
 readsPrec :: Int -&gt; ReadS ServiceSetting
 $creadsPrec :: Int -&gt; ReadS ServiceSetting
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679813369"><span id="local-6989586621679813371"><span id="local-6989586621679813373"><span class="annot"><span class="annottext">Int -&gt; ServiceSetting -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679815069"><span id="local-6989586621679815071"><span id="local-6989586621679815073"><span class="annot"><span class="annottext">Int -&gt; ServiceSetting -&gt; ShowS
 [ServiceSetting] -&gt; ShowS
 ServiceSetting -&gt; String
 (Int -&gt; ServiceSetting -&gt; ShowS)
@@ -136,84 +136,113 @@ $cfrom :: forall x. ServiceSetting -&gt; Rep ServiceSetting x
 </span><span id="line-78"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-80"></span><span class="hs-comment">--</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- 'lastModifiedDate', 'serviceSetting_lastModifiedDate' - The last time the service setting was modified.</span><span>
-</span><span id="line-82"></span><span class="hs-comment">--</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- 'status', 'serviceSetting_status' - The status of the service setting. The value can be Default, Customized</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- or PendingUpdate.</span><span>
-</span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- -   Default: The current setting uses a default value provisioned by the</span><span>
-</span><span id="line-87"></span><span class="hs-comment">--     Amazon Web Services service team.</span><span>
-</span><span id="line-88"></span><span class="hs-comment">--</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- -   Customized: The current setting use a custom value specified by the</span><span>
-</span><span id="line-90"></span><span class="hs-comment">--     customer.</span><span>
-</span><span id="line-91"></span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- -   PendingUpdate: The current setting uses a default or custom value,</span><span>
-</span><span id="line-93"></span><span class="hs-comment">--     but a setting change request is pending approval.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'status', 'serviceSetting_status' - The status of the service setting. The value can be Default, Customized</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- or PendingUpdate.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- -   Default: The current setting uses a default value provisioned by the</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--     Amazon Web Services service team.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- -   Customized: The current setting use a custom value specified by the</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--     customer.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- -   PendingUpdate: The current setting uses a default or custom value,</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--     but a setting change request is pending approval.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'lastModifiedDate', 'serviceSetting_lastModifiedDate' - The last time the service setting was modified.</span><span>
 </span><span id="line-94"></span><span class="hs-comment">--</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- 'settingValue', 'serviceSetting_settingValue' - The value of the service setting.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'arn', 'serviceSetting_arn' - The ARN of the service setting.</span><span>
 </span><span id="line-96"></span><span class="hs-comment">--</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- 'arn', 'serviceSetting_arn' - The ARN of the service setting.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'settingId', 'serviceSetting_settingId' - The ID of the service setting.</span><span>
 </span><span id="line-98"></span><span class="hs-comment">--</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- 'settingId', 'serviceSetting_settingId' - The ID of the service setting.</span><span>
-</span><span id="line-100"></span><span class="hs-comment">--</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- 'lastModifiedUser', 'serviceSetting_lastModifiedUser' - The ARN of the last modified user. This field is populated only if the</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- setting value was overwritten.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'lastModifiedUser', 'serviceSetting_lastModifiedUser' - The ARN of the last modified user. This field is populated only if the</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- setting value was overwritten.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'settingValue', 'serviceSetting_settingValue' - The value of the service setting.</span><span>
 </span><span id="line-103"></span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#newServiceSetting"><span class="hs-identifier hs-type">newServiceSetting</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-104"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting"><span class="hs-identifier hs-type">ServiceSetting</span></a></span><span>
 </span><span id="line-105"></span><span id="newServiceSetting"><span class="annot"><span class="annottext">newServiceSetting :: ServiceSetting
 </span><a href="Network.AWS.SSM.Types.ServiceSetting.html#newServiceSetting"><span class="hs-identifier hs-var hs-var">newServiceSetting</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-106"></span><span>  </span><span class="annot"><span class="annottext">ServiceSetting' :: Maybe POSIX
--&gt; Maybe Text
+</span><span id="line-106"></span><span>  </span><span class="annot"><span class="annottext">ServiceSetting' :: Maybe Text
+-&gt; Maybe POSIX
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; ServiceSetting
 </span><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting%27"><span class="hs-identifier hs-type">ServiceSetting'</span></a></span><span>
-</span><span id="line-107"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastModifiedDate:ServiceSetting' :: Maybe POSIX
-</span><a href="Network.AWS.SSM.Types.ServiceSetting.html#%24sel%3AlastModifiedDate%3AServiceSetting%27"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:ServiceSetting' :: Maybe Text
+</span><span id="line-107"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:ServiceSetting' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.ServiceSetting.html#%24sel%3Astatus%3AServiceSetting%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:settingValue:ServiceSetting' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.ServiceSetting.html#%24sel%3AsettingValue%3AServiceSetting%27"><span class="hs-identifier hs-var">settingValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModifiedDate:ServiceSetting' :: Maybe POSIX
+</span><a href="Network.AWS.SSM.Types.ServiceSetting.html#%24sel%3AlastModifiedDate%3AServiceSetting%27"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:ServiceSetting' :: Maybe Text
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:ServiceSetting' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.ServiceSetting.html#%24sel%3Aarn%3AServiceSetting%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:settingId:ServiceSetting' :: Maybe Text
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:settingId:ServiceSetting' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.ServiceSetting.html#%24sel%3AsettingId%3AServiceSetting%27"><span class="hs-identifier hs-var">settingId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModifiedUser:ServiceSetting' :: Maybe Text
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModifiedUser:ServiceSetting' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.ServiceSetting.html#%24sel%3AlastModifiedUser%3AServiceSetting%27"><span class="hs-identifier hs-var">lastModifiedUser</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:settingValue:ServiceSetting' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.ServiceSetting.html#%24sel%3AsettingValue%3AServiceSetting%27"><span class="hs-identifier hs-var">settingValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-113"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- | The last time the service setting was modified.</span><span>
-</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#serviceSetting_lastModifiedDate"><span class="hs-identifier hs-type">serviceSetting_lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting"><span class="hs-identifier hs-type">ServiceSetting</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span id="serviceSetting_lastModifiedDate"><span class="annot"><span class="annottext">serviceSetting_lastModifiedDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-115"></span><span class="hs-comment">-- | The status of the service setting. The value can be Default, Customized</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- or PendingUpdate.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- -   Default: The current setting uses a default value provisioned by the</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--     Amazon Web Services service team.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- -   Customized: The current setting use a custom value specified by the</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--     customer.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- -   PendingUpdate: The current setting uses a default or custom value,</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--     but a setting change request is pending approval.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#serviceSetting_status"><span class="hs-identifier hs-type">serviceSetting_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting"><span class="hs-identifier hs-type">ServiceSetting</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="serviceSetting_status"><span class="annot"><span class="annottext">serviceSetting_status :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ServiceSetting -&gt; f ServiceSetting
+</span><a href="Network.AWS.SSM.Types.ServiceSetting.html#serviceSetting_status"><span class="hs-identifier hs-var hs-var">serviceSetting_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ServiceSetting -&gt; Maybe Text)
+-&gt; (ServiceSetting -&gt; Maybe Text -&gt; ServiceSetting)
+-&gt; Lens ServiceSetting ServiceSetting (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting%27"><span class="hs-identifier hs-type">ServiceSetting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679815060"><span class="annot"><span class="annottext">Maybe Text
+status :: Maybe Text
+$sel:status:ServiceSetting' :: ServiceSetting -&gt; Maybe Text
+</span><a href="#local-6989586621679815060"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679815060"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679815059"><span class="annot"><span class="annottext">s :: ServiceSetting
+</span><a href="#local-6989586621679815059"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting%27"><span class="hs-identifier hs-type">ServiceSetting'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679815058"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679815058"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceSetting
+</span><a href="#local-6989586621679815059"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ServiceSetting' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.ServiceSetting.html#%24sel%3Astatus%3AServiceSetting%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679815058"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting"><span class="hs-identifier hs-type">ServiceSetting</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The last time the service setting was modified.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#serviceSetting_lastModifiedDate"><span class="hs-identifier hs-type">serviceSetting_lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting"><span class="hs-identifier hs-type">ServiceSetting</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="serviceSetting_lastModifiedDate"><span class="annot"><span class="annottext">serviceSetting_lastModifiedDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; ServiceSetting -&gt; f ServiceSetting
 </span><a href="Network.AWS.SSM.Types.ServiceSetting.html#serviceSetting_lastModifiedDate"><span class="hs-identifier hs-var hs-var">serviceSetting_lastModifiedDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ServiceSetting -&gt; Maybe POSIX)
 -&gt; (ServiceSetting -&gt; Maybe POSIX -&gt; ServiceSetting)
 -&gt; Lens ServiceSetting ServiceSetting (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting%27"><span class="hs-identifier hs-type">ServiceSetting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679813360"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting%27"><span class="hs-identifier hs-type">ServiceSetting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679815056"><span class="annot"><span class="annottext">Maybe POSIX
 lastModifiedDate :: Maybe POSIX
 $sel:lastModifiedDate:ServiceSetting' :: ServiceSetting -&gt; Maybe POSIX
-</span><a href="#local-6989586621679813360"><span class="hs-identifier hs-var hs-var">lastModifiedDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679813360"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679813359"><span class="annot"><span class="annottext">s :: ServiceSetting
-</span><a href="#local-6989586621679813359"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting%27"><span class="hs-identifier hs-type">ServiceSetting'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679813358"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679813358"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceSetting
-</span><a href="#local-6989586621679813359"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedDate:ServiceSetting' :: Maybe POSIX
+</span><a href="#local-6989586621679815056"><span class="hs-identifier hs-var hs-var">lastModifiedDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679815056"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679815055"><span class="annot"><span class="annottext">s :: ServiceSetting
+</span><a href="#local-6989586621679815055"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting%27"><span class="hs-identifier hs-type">ServiceSetting'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679815054"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679815054"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceSetting
+</span><a href="#local-6989586621679815055"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedDate:ServiceSetting' :: Maybe POSIX
 </span><a href="Network.AWS.SSM.Types.ServiceSetting.html#%24sel%3AlastModifiedDate%3AServiceSetting%27"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679813358"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting"><span class="hs-identifier hs-type">ServiceSetting</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679815054"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting"><span class="hs-identifier hs-type">ServiceSetting</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; ServiceSetting -&gt; f ServiceSetting)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -229,115 +258,86 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- | The status of the service setting. The value can be Default, Customized</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- or PendingUpdate.</span><span>
-</span><span id="line-121"></span><span class="hs-comment">--</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- -   Default: The current setting uses a default value provisioned by the</span><span>
-</span><span id="line-123"></span><span class="hs-comment">--     Amazon Web Services service team.</span><span>
-</span><span id="line-124"></span><span class="hs-comment">--</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- -   Customized: The current setting use a custom value specified by the</span><span>
-</span><span id="line-126"></span><span class="hs-comment">--     customer.</span><span>
-</span><span id="line-127"></span><span class="hs-comment">--</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- -   PendingUpdate: The current setting uses a default or custom value,</span><span>
-</span><span id="line-129"></span><span class="hs-comment">--     but a setting change request is pending approval.</span><span>
-</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#serviceSetting_status"><span class="hs-identifier hs-type">serviceSetting_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting"><span class="hs-identifier hs-type">ServiceSetting</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span id="serviceSetting_status"><span class="annot"><span class="annottext">serviceSetting_status :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ServiceSetting -&gt; f ServiceSetting
-</span><a href="Network.AWS.SSM.Types.ServiceSetting.html#serviceSetting_status"><span class="hs-identifier hs-var hs-var">serviceSetting_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ServiceSetting -&gt; Maybe Text)
--&gt; (ServiceSetting -&gt; Maybe Text -&gt; ServiceSetting)
--&gt; Lens ServiceSetting ServiceSetting (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting%27"><span class="hs-identifier hs-type">ServiceSetting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679813353"><span class="annot"><span class="annottext">Maybe Text
-status :: Maybe Text
-$sel:status:ServiceSetting' :: ServiceSetting -&gt; Maybe Text
-</span><a href="#local-6989586621679813353"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813353"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679813352"><span class="annot"><span class="annottext">s :: ServiceSetting
-</span><a href="#local-6989586621679813352"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting%27"><span class="hs-identifier hs-type">ServiceSetting'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679813351"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813351"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceSetting
-</span><a href="#local-6989586621679813352"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ServiceSetting' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.ServiceSetting.html#%24sel%3Astatus%3AServiceSetting%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813351"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting"><span class="hs-identifier hs-type">ServiceSetting</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- | The value of the service setting.</span><span>
-</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#serviceSetting_settingValue"><span class="hs-identifier hs-type">serviceSetting_settingValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting"><span class="hs-identifier hs-type">ServiceSetting</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span id="serviceSetting_settingValue"><span class="annot"><span class="annottext">serviceSetting_settingValue :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ServiceSetting -&gt; f ServiceSetting
-</span><a href="Network.AWS.SSM.Types.ServiceSetting.html#serviceSetting_settingValue"><span class="hs-identifier hs-var hs-var">serviceSetting_settingValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ServiceSetting -&gt; Maybe Text)
--&gt; (ServiceSetting -&gt; Maybe Text -&gt; ServiceSetting)
--&gt; Lens ServiceSetting ServiceSetting (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting%27"><span class="hs-identifier hs-type">ServiceSetting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679813349"><span class="annot"><span class="annottext">Maybe Text
-settingValue :: Maybe Text
-$sel:settingValue:ServiceSetting' :: ServiceSetting -&gt; Maybe Text
-</span><a href="#local-6989586621679813349"><span class="hs-identifier hs-var hs-var">settingValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813349"><span class="hs-identifier hs-var">settingValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679813348"><span class="annot"><span class="annottext">s :: ServiceSetting
-</span><a href="#local-6989586621679813348"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting%27"><span class="hs-identifier hs-type">ServiceSetting'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679813347"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813347"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceSetting
-</span><a href="#local-6989586621679813348"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:settingValue:ServiceSetting' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.ServiceSetting.html#%24sel%3AsettingValue%3AServiceSetting%27"><span class="hs-identifier hs-var">settingValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813347"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting"><span class="hs-identifier hs-type">ServiceSetting</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- | The ARN of the service setting.</span><span>
-</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#serviceSetting_arn"><span class="hs-identifier hs-type">serviceSetting_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting"><span class="hs-identifier hs-type">ServiceSetting</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-139"></span><span id="serviceSetting_arn"><span class="annot"><span class="annottext">serviceSetting_arn :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-133"></span><span class="hs-comment">-- | The ARN of the service setting.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#serviceSetting_arn"><span class="hs-identifier hs-type">serviceSetting_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting"><span class="hs-identifier hs-type">ServiceSetting</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="serviceSetting_arn"><span class="annot"><span class="annottext">serviceSetting_arn :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ServiceSetting -&gt; f ServiceSetting
 </span><a href="Network.AWS.SSM.Types.ServiceSetting.html#serviceSetting_arn"><span class="hs-identifier hs-var hs-var">serviceSetting_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ServiceSetting -&gt; Maybe Text)
 -&gt; (ServiceSetting -&gt; Maybe Text -&gt; ServiceSetting)
 -&gt; Lens ServiceSetting ServiceSetting (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting%27"><span class="hs-identifier hs-type">ServiceSetting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679813345"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting%27"><span class="hs-identifier hs-type">ServiceSetting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679815049"><span class="annot"><span class="annottext">Maybe Text
 arn :: Maybe Text
 $sel:arn:ServiceSetting' :: ServiceSetting -&gt; Maybe Text
-</span><a href="#local-6989586621679813345"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813345"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679813344"><span class="annot"><span class="annottext">s :: ServiceSetting
-</span><a href="#local-6989586621679813344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting%27"><span class="hs-identifier hs-type">ServiceSetting'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679813343"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceSetting
-</span><a href="#local-6989586621679813344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:ServiceSetting' :: Maybe Text
+</span><a href="#local-6989586621679815049"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679815049"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679815048"><span class="annot"><span class="annottext">s :: ServiceSetting
+</span><a href="#local-6989586621679815048"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting%27"><span class="hs-identifier hs-type">ServiceSetting'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679815047"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679815047"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceSetting
+</span><a href="#local-6989586621679815048"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:ServiceSetting' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.ServiceSetting.html#%24sel%3Aarn%3AServiceSetting%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting"><span class="hs-identifier hs-type">ServiceSetting</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- | The ID of the service setting.</span><span>
-</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#serviceSetting_settingId"><span class="hs-identifier hs-type">serviceSetting_settingId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting"><span class="hs-identifier hs-type">ServiceSetting</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span id="serviceSetting_settingId"><span class="annot"><span class="annottext">serviceSetting_settingId :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679815047"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting"><span class="hs-identifier hs-type">ServiceSetting</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | The ID of the service setting.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#serviceSetting_settingId"><span class="hs-identifier hs-type">serviceSetting_settingId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting"><span class="hs-identifier hs-type">ServiceSetting</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="serviceSetting_settingId"><span class="annot"><span class="annottext">serviceSetting_settingId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ServiceSetting -&gt; f ServiceSetting
 </span><a href="Network.AWS.SSM.Types.ServiceSetting.html#serviceSetting_settingId"><span class="hs-identifier hs-var hs-var">serviceSetting_settingId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ServiceSetting -&gt; Maybe Text)
 -&gt; (ServiceSetting -&gt; Maybe Text -&gt; ServiceSetting)
 -&gt; Lens ServiceSetting ServiceSetting (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting%27"><span class="hs-identifier hs-type">ServiceSetting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679813341"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting%27"><span class="hs-identifier hs-type">ServiceSetting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679815045"><span class="annot"><span class="annottext">Maybe Text
 settingId :: Maybe Text
 $sel:settingId:ServiceSetting' :: ServiceSetting -&gt; Maybe Text
-</span><a href="#local-6989586621679813341"><span class="hs-identifier hs-var hs-var">settingId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813341"><span class="hs-identifier hs-var">settingId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679813340"><span class="annot"><span class="annottext">s :: ServiceSetting
-</span><a href="#local-6989586621679813340"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting%27"><span class="hs-identifier hs-type">ServiceSetting'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679813339"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813339"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceSetting
-</span><a href="#local-6989586621679813340"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:settingId:ServiceSetting' :: Maybe Text
+</span><a href="#local-6989586621679815045"><span class="hs-identifier hs-var hs-var">settingId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679815045"><span class="hs-identifier hs-var">settingId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679815044"><span class="annot"><span class="annottext">s :: ServiceSetting
+</span><a href="#local-6989586621679815044"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting%27"><span class="hs-identifier hs-type">ServiceSetting'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679815043"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679815043"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceSetting
+</span><a href="#local-6989586621679815044"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:settingId:ServiceSetting' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.ServiceSetting.html#%24sel%3AsettingId%3AServiceSetting%27"><span class="hs-identifier hs-var">settingId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813339"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting"><span class="hs-identifier hs-type">ServiceSetting</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- | The ARN of the last modified user. This field is populated only if the</span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- setting value was overwritten.</span><span>
-</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#serviceSetting_lastModifiedUser"><span class="hs-identifier hs-type">serviceSetting_lastModifiedUser</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting"><span class="hs-identifier hs-type">ServiceSetting</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-148"></span><span id="serviceSetting_lastModifiedUser"><span class="annot"><span class="annottext">serviceSetting_lastModifiedUser :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679815043"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting"><span class="hs-identifier hs-type">ServiceSetting</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | The ARN of the last modified user. This field is populated only if the</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- setting value was overwritten.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#serviceSetting_lastModifiedUser"><span class="hs-identifier hs-type">serviceSetting_lastModifiedUser</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting"><span class="hs-identifier hs-type">ServiceSetting</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="serviceSetting_lastModifiedUser"><span class="annot"><span class="annottext">serviceSetting_lastModifiedUser :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ServiceSetting -&gt; f ServiceSetting
 </span><a href="Network.AWS.SSM.Types.ServiceSetting.html#serviceSetting_lastModifiedUser"><span class="hs-identifier hs-var hs-var">serviceSetting_lastModifiedUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ServiceSetting -&gt; Maybe Text)
 -&gt; (ServiceSetting -&gt; Maybe Text -&gt; ServiceSetting)
 -&gt; Lens ServiceSetting ServiceSetting (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting%27"><span class="hs-identifier hs-type">ServiceSetting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679813337"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting%27"><span class="hs-identifier hs-type">ServiceSetting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679815041"><span class="annot"><span class="annottext">Maybe Text
 lastModifiedUser :: Maybe Text
 $sel:lastModifiedUser:ServiceSetting' :: ServiceSetting -&gt; Maybe Text
-</span><a href="#local-6989586621679813337"><span class="hs-identifier hs-var hs-var">lastModifiedUser</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813337"><span class="hs-identifier hs-var">lastModifiedUser</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679813336"><span class="annot"><span class="annottext">s :: ServiceSetting
-</span><a href="#local-6989586621679813336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting%27"><span class="hs-identifier hs-type">ServiceSetting'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679813335"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceSetting
-</span><a href="#local-6989586621679813336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedUser:ServiceSetting' :: Maybe Text
+</span><a href="#local-6989586621679815041"><span class="hs-identifier hs-var hs-var">lastModifiedUser</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679815041"><span class="hs-identifier hs-var">lastModifiedUser</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679815040"><span class="annot"><span class="annottext">s :: ServiceSetting
+</span><a href="#local-6989586621679815040"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting%27"><span class="hs-identifier hs-type">ServiceSetting'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679815039"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679815039"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceSetting
+</span><a href="#local-6989586621679815040"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedUser:ServiceSetting' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.ServiceSetting.html#%24sel%3AlastModifiedUser%3AServiceSetting%27"><span class="hs-identifier hs-var">lastModifiedUser</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting"><span class="hs-identifier hs-type">ServiceSetting</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679815039"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting"><span class="hs-identifier hs-type">ServiceSetting</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | The value of the service setting.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#serviceSetting_settingValue"><span class="hs-identifier hs-type">serviceSetting_settingValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting"><span class="hs-identifier hs-type">ServiceSetting</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span id="serviceSetting_settingValue"><span class="annot"><span class="annottext">serviceSetting_settingValue :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ServiceSetting -&gt; f ServiceSetting
+</span><a href="Network.AWS.SSM.Types.ServiceSetting.html#serviceSetting_settingValue"><span class="hs-identifier hs-var hs-var">serviceSetting_settingValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ServiceSetting -&gt; Maybe Text)
+-&gt; (ServiceSetting -&gt; Maybe Text -&gt; ServiceSetting)
+-&gt; Lens ServiceSetting ServiceSetting (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting%27"><span class="hs-identifier hs-type">ServiceSetting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679815037"><span class="annot"><span class="annottext">Maybe Text
+settingValue :: Maybe Text
+$sel:settingValue:ServiceSetting' :: ServiceSetting -&gt; Maybe Text
+</span><a href="#local-6989586621679815037"><span class="hs-identifier hs-var hs-var">settingValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679815037"><span class="hs-identifier hs-var">settingValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679815036"><span class="annot"><span class="annottext">s :: ServiceSetting
+</span><a href="#local-6989586621679815036"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting%27"><span class="hs-identifier hs-type">ServiceSetting'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679815035"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679815035"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceSetting
+</span><a href="#local-6989586621679815036"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:settingValue:ServiceSetting' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.ServiceSetting.html#%24sel%3AsettingValue%3AServiceSetting%27"><span class="hs-identifier hs-var">settingValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679815035"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting"><span class="hs-identifier hs-type">ServiceSetting</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679813332"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting"><span class="hs-identifier hs-type">ServiceSetting</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679813330"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ServiceSetting
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679815032"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting"><span class="hs-identifier hs-type">ServiceSetting</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679815030"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ServiceSetting
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ServiceSetting)
@@ -347,26 +347,26 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ServiceSetting&quot;</span></span><span>
-</span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679813327"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679813327"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-155"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
--&gt; Maybe Text
+</span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679815027"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679815027"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-155"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe POSIX
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; ServiceSetting
 </span><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting%27"><span class="hs-identifier hs-var">ServiceSetting'</span></a></span><span>
-</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
- -&gt; Maybe Text
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe POSIX
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; ServiceSetting)
--&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe Text
+     (Maybe POSIX
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
@@ -374,27 +374,27 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; ServiceSetting)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679813327"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679815027"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LastModifiedDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
+  (Maybe POSIX
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; ServiceSetting)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe POSIX)
 -&gt; Parser
      (Maybe Text
       -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ServiceSetting)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679813327"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679815027"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;LastModifiedDate&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ServiceSetting)
@@ -403,38 +403,38 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ServiceSetting)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679813327"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679815027"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SettingValue&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;ARN&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ServiceSetting)
 -&gt; Parser (Maybe Text)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; ServiceSetting)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679813327"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679815027"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ARN&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;SettingId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; ServiceSetting)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; ServiceSetting)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679813327"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679815027"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SettingId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;LastModifiedUser&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ServiceSetting)
 -&gt; Parser (Maybe Text) -&gt; Parser ServiceSetting
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679813327"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679815027"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LastModifiedUser&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;SettingValue&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679813321"><span id="local-6989586621679813323"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting"><span class="hs-identifier hs-type">ServiceSetting</span></a></span></span></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679815021"><span id="local-6989586621679815023"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting"><span class="hs-identifier hs-type">ServiceSetting</span></a></span></span></span><span>
 </span><span id="line-165"></span><span>
-</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679813318"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting"><span class="hs-identifier hs-type">ServiceSetting</span></a></span></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679815018"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ServiceSetting.html#ServiceSetting"><span class="hs-identifier hs-type">ServiceSetting</span></a></span></span><span>
 </span><span id="line-167"></span></pre></body></html>
